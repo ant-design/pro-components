@@ -147,6 +147,9 @@ export default () => {
         rowKey="id"
         headerTitle="可编辑表格"
         maxLength={5}
+        scroll={{
+          x: 960,
+        }}
         recordCreatorProps={
           position !== 'hidden'
             ? {

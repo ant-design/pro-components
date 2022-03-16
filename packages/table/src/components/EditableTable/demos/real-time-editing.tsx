@@ -96,6 +96,9 @@ export default () => {
         headerTitle="可编辑表格"
         columns={columns}
         rowKey="id"
+        scroll={{
+          x: 960,
+        }}
         value={dataSource}
         onChange={setDataSource}
         recordCreatorProps={{
