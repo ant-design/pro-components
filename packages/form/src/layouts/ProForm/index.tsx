@@ -1,18 +1,14 @@
 import React from 'react';
 import type { FormProps } from 'antd';
-import { Row } from 'antd';
 import { Form } from 'antd';
 import { Group, ProFormItem } from '../../components';
 import type { CommonFormProps } from '../../BaseForm';
 import { BaseForm } from '../../BaseForm';
-import { useGridHelpers } from '../../helpers';
 
 export type ProFormProps<T = Record<string, any>> = Omit<FormProps<T>, 'onFinish'> &
   CommonFormProps<T>;
 
-function ProForm<T = Record<string, any>>({ rowProps, ...props }: ProFormProps<T>) {
-  const { WrapperRow } = useGridHelpers(props.grid);
-
+function ProForm<T = Record<string, any>>(props: ProFormProps<T>) {
   return (
     <BaseForm
       layout="vertical"
@@ -23,7 +19,7 @@ function ProForm<T = Record<string, any>>({ rowProps, ...props }: ProFormProps<T
       contentRender={(items, submitter) => {
         return (
           <>
-            {<WrapperRow {...rowProps}>{items}</WrapperRow>}
+            {items}
             {submitter}
           </>
         );

@@ -38,6 +38,7 @@ import { Submitter } from '../components';
 import type { GroupProps, FieldProps, ProFormGridConfig } from '../interface';
 import { noteOnce } from 'rc-util/lib/warning';
 import get from 'rc-util/lib/utils/get';
+import { useGridHelpers } from '../helpers';
 
 export type CommonFormProps<
   T extends Record<string, any> = Record<string, any>,
@@ -105,7 +106,7 @@ export type CommonFormProps<
 
   /** 自动选中第一项 */
   autoFocusFirstInput?: boolean;
-} & Pick<ProFormGridConfig, 'grid' | 'rowProps'>;
+} & ProFormGridConfig;
 
 export type BaseFormProps<T = Record<string, any>> = {
   contentRender?: (
@@ -167,12 +168,15 @@ function BaseFormComponents<T = Record<string, any>>(props: BaseFormProps<T>) {
     isKeyPressSubmit,
     autoFocusFirstInput = true,
     grid,
+    rowProps,
+    colProps,
     ...rest
   } = props;
   const [inlineForm] = Form.useForm(form);
   /** 同步 url 上的参数 */
   const [urlSearch, setUrlSearch] = useUrlSearchParams({}, { disabled: !syncToUrl });
   const formRef = useRef<ProFormInstance<any>>(inlineForm! || ({} as any));
+  const { WrapperRow } = useGridHelpers({ grid, rowProps, colProps });
 
   const fieldsValueType = useRef<
     Record<
@@ -249,15 +253,17 @@ function BaseFormComponents<T = Record<string, any>>(props: BaseFormProps<T>) {
 
   const [loading, setLoading] = useMountMergeState<boolean>(false);
 
-  const items = React.Children.toArray(children).map((item, index) => {
-    if (index === 0 && React.isValidElement(item) && autoFocusFirstInput) {
-      return React.cloneElement(item, {
-        ...item.props,
-        autoFocus: autoFocusFirstInput,
-      });
-    }
-    return item;
-  });
+  const items = useMemo(() => {
+    return React.Children.toArray(children).map((item, index) => {
+      if (index === 0 && React.isValidElement(item) && autoFocusFirstInput) {
+        return React.cloneElement(item, {
+          ...item.props,
+          autoFocus: autoFocusFirstInput,
+        });
+      }
+      return item;
+    });
+  }, [autoFocusFirstInput, children]);
 
   /** 计算 props 的对象 */
   const submitterProps: SubmitterProps = useMemo(
@@ -316,11 +322,12 @@ function BaseFormComponents<T = Record<string, any>>(props: BaseFormProps<T>) {
   ]);
 
   const content = useMemo(() => {
+    const wrapItems = grid ? <WrapperRow>{items}</WrapperRow> : items;
     if (contentRender) {
-      return contentRender(items, submitterNode, formRef.current);
+      return contentRender(wrapItems as any, submitterNode, formRef.current);
     }
-    return items;
-  }, [contentRender, items, submitterNode]);
+    return wrapItems;
+  }, [WrapperRow, contentRender, grid, items, submitterNode]);
 
   const getPopupContainer = useMemo(() => {
     if (typeof window === 'undefined') return undefined;
