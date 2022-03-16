@@ -148,6 +148,9 @@ export default () => {
           // 使用 request 请求数据时无效
           defaultExpandAllRows: true,
         }}
+        scroll={{
+          x: 960,
+        }}
         rowKey="id"
         headerTitle="可编辑表格"
         maxLength={5}
