@@ -95,4 +95,45 @@ describe('ProForm Dependency component', () => {
 
     expect(html.find('div#show').text()).toBe('update');
   });
+
+  it('⛲  ProFormDependency support transform', async () => {
+    const dependencyFn = jest.fn();
+    const Demo: React.FC<{
+      shouldUpdate?: boolean;
+    }> = () => {
+      return (
+        <ProForm>
+          <ProFormText
+            name="name"
+            label="姓名"
+            transform={(value) => {
+              return {
+                name: value,
+                nickName: 'chen',
+              };
+            }}
+          />
+          <ProFormDependency name={['name', 'nickName']}>
+            {({ name, nickName }) => {
+              dependencyFn(name + ' ' + nickName);
+              return <div id="show">{name || 'first'}</div>;
+            }}
+          </ProFormDependency>
+        </ProForm>
+      );
+    };
+
+    const html = mount(<Demo />);
+
+    act(() => {
+      html.find('input.ant-input').simulate('change', {
+        target: {
+          value: 'second',
+        },
+      });
+    });
+
+    await waitForComponentToPaint(html);
+    expect(dependencyFn).toBeCalledWith('second chen');
+  });
 });

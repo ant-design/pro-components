@@ -37,7 +37,7 @@
     "moment": "^2.27.0",
     "omit.js": "^2.0.2",
     "rc-util": "^5.4.0",
-    "react-color": "2.19.3",
+    "@chenshuai2144/sketch-color": "1.0.6",
     "swr": "^1.2.0"
   },
   "devDependencies": {
