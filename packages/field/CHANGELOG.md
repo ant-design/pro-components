@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.33.1](https://github.com/ant-design/pro-components/compare/@ant-design/pro-field@1.33.0...@ant-design/pro-field@1.33.1) (2022-03-16)
+
+### Bug Fixes
+
+- **field:** dont lock sketch-color ([b2ff04c](https://github.com/ant-design/pro-components/commit/b2ff04ce7c0ef6749792dd24987fe5bd8b9c7991))
+
 # [1.33.0](https://github.com/ant-design/pro-components/compare/@ant-design/pro-field@1.32.6...@ant-design/pro-field@1.33.0) (2022-03-16)
 
 ### Bug Fixes
