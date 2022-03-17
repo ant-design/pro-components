@@ -83,7 +83,7 @@ export default () => {
         <ProForm.Group label="范围组">
           <ProFormDigit name="count" label="数量" />
           <ProFormSlider name="range" label="范围" range />
-          <ProFormSlider name="slider" label="范围" range />
+          <ProFormSlider name="slider" label="范围" />
         </ProForm.Group>
         <ProFormText name="name1" label="名称" />
       </LightFilter>
