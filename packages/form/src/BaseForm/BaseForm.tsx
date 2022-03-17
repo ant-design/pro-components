@@ -176,7 +176,7 @@ function BaseFormComponents<T = Record<string, any>>(props: BaseFormProps<T>) {
   /** 同步 url 上的参数 */
   const [urlSearch, setUrlSearch] = useUrlSearchParams({}, { disabled: !syncToUrl });
   const formRef = useRef<ProFormInstance<any>>(inlineForm! || ({} as any));
-  const { WrapperRow } = useGridHelpers({ grid, rowProps, colProps });
+  const { RowWrapper } = useGridHelpers({ grid, rowProps, colProps });
 
   const fieldsValueType = useRef<
     Record<
@@ -322,12 +322,12 @@ function BaseFormComponents<T = Record<string, any>>(props: BaseFormProps<T>) {
   ]);
 
   const content = useMemo(() => {
-    const wrapItems = grid ? <WrapperRow>{items}</WrapperRow> : items;
+    const wrapItems = grid ? <RowWrapper>{items}</RowWrapper> : items;
     if (contentRender) {
       return contentRender(wrapItems as any, submitterNode, formRef.current);
     }
     return wrapItems;
-  }, [WrapperRow, contentRender, grid, items, submitterNode]);
+  }, [grid, RowWrapper, items, contentRender, submitterNode]);
 
   const getPopupContainer = useMemo(() => {
     if (typeof window === 'undefined') return undefined;

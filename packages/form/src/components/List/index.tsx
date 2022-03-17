@@ -478,7 +478,7 @@ const ProFormList: React.FC<ProFormListProps> = ({
   const listContext = useContext(FormListContext);
   const baseClassName = context.getPrefixCls('pro-form-list');
 
-  const { WrapperCol, WrapperRow } = useGridHelpers({ colProps, rowProps });
+  const { ColWrapper, RowWrapper } = useGridHelpers({ colProps, rowProps });
 
   // 处理 list 的嵌套
   const name = useMemo(() => {
@@ -503,7 +503,7 @@ const ProFormList: React.FC<ProFormListProps> = ({
   if (!proFormContext.formRef) return null;
 
   return (
-    <WrapperCol>
+    <ColWrapper>
       <div className={baseClassName} style={style}>
         <Form.Item
           label={label}
@@ -520,7 +520,7 @@ const ProFormList: React.FC<ProFormListProps> = ({
               actionRefs.current = action;
 
               return (
-                <WrapperRow>
+                <RowWrapper>
                   <ProFormListContainer
                     name={name}
                     originName={rest.name}
@@ -545,13 +545,13 @@ const ProFormList: React.FC<ProFormListProps> = ({
                     {children}
                   </ProFormListContainer>
                   <Form.ErrorList errors={meta.errors} />
-                </WrapperRow>
+                </RowWrapper>
               );
             }}
           </Form.List>
         </Form.Item>
       </div>
-    </WrapperCol>
+    </ColWrapper>
   );
 };
 

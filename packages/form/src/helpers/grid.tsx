@@ -4,55 +4,57 @@ import { useContext, useMemo } from 'react';
 import FieldContext from '../FieldContext';
 import type { ProFormGridConfig } from '../interface';
 
+interface CommonProps {
+  Wrapper?: React.FC<any>;
+}
+
 export interface GridHelpers {
-  WrapperRow: React.FC<RowProps>;
-  WrapperCol: React.FC<ColProps>;
+  RowWrapper: React.FC<RowProps & CommonProps>;
+  ColWrapper: React.FC<ColProps & CommonProps>;
   grid: boolean;
 }
 
-export const gridHelpers: (config: ProFormGridConfig) => GridHelpers = ({
+export const gridHelpers: (config: ProFormGridConfig & CommonProps) => GridHelpers = ({
   grid,
   rowProps,
   colProps,
 }) => ({
   grid: !!grid,
-  WrapperRow({ children, ...props }) {
-    return grid ? (
+  RowWrapper({ children, Wrapper, ...props } = {}) {
+    if (!grid) {
+      return Wrapper ? <Wrapper>{children}</Wrapper> : (children as any);
+    }
+
+    return (
       <Row gutter={8} {...rowProps} {...props}>
         {children}
       </Row>
-    ) : (
-      (children as any)
     );
   },
-  WrapperCol({ children, ...rest }) {
-    const props = { ...colProps, ...rest };
-    const defaultColProps = useMemo(() => {
+  ColWrapper({ children, Wrapper, ...rest } = {}) {
+    const props = useMemo(() => {
+      const originProps = { ...colProps, ...rest };
+
       /**
        * `xs` takes precedence over `span`
        * avoid `span` doesn't work
        */
-      if (props?.span === undefined) {
-        return {
-          xs: 24,
-        };
+      if (typeof originProps.span === 'undefined' && typeof originProps.xs === 'undefined') {
+        originProps.xs = 24;
       }
-      return {};
-    }, [props?.span]);
+
+      return originProps;
+    }, [rest]);
 
     if (!grid) {
-      return children as any;
+      return Wrapper ? <Wrapper>{children}</Wrapper> : children;
     }
 
-    return (
-      <Col {...defaultColProps} {...props}>
-        {children}
-      </Col>
-    );
+    return (<Col {...props}>{children}</Col>) as any;
   },
 });
 
-export const useGridHelpers = (props?: ProFormGridConfig | boolean) => {
+export const useGridHelpers = (props?: (ProFormGridConfig & CommonProps) | boolean) => {
   const config = useMemo(() => {
     {
       if (typeof props === 'object') {
@@ -72,7 +74,8 @@ export const useGridHelpers = (props?: ProFormGridConfig | boolean) => {
         grid: !!(grid || config.grid),
         rowProps: config?.rowProps,
         colProps: config?.colProps,
+        Wrapper: config?.Wrapper,
       }),
-    [config?.colProps, config.grid, config?.rowProps, grid],
+    [config?.Wrapper, config?.colProps, config.grid, config?.rowProps, grid],
   );
 };

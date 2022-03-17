@@ -1,4 +1,4 @@
-import React, { useContext, useMemo } from 'react';
+import React, { useCallback, useContext, useMemo } from 'react';
 import { Space, ConfigProvider } from 'antd';
 import { RightOutlined } from '@ant-design/icons';
 import FieldContext from '../../FieldContext';
@@ -37,7 +37,7 @@ const Group: React.FC<GroupProps> = React.forwardRef((props, ref: any) => {
   });
   const { getPrefixCls } = useContext(ConfigProvider.ConfigContext);
 
-  const { grid, WrapperCol, WrapperRow } = useGridHelpers(props);
+  const { ColWrapper, RowWrapper } = useGridHelpers(props);
 
   const className = getPrefixCls('pro-form-group');
 
@@ -65,6 +65,26 @@ const Group: React.FC<GroupProps> = React.forwardRef((props, ref: any) => {
       tooltip={tooltip}
     />
   );
+
+  const Wrapper = useCallback(
+    ({ children: dom }) => (
+      <Space
+        {...spaceProps}
+        className={`${className}-container`}
+        size={size}
+        align={align}
+        direction={direction}
+        style={{
+          rowGap: 0,
+          ...spaceProps?.style,
+        }}
+      >
+        {dom}
+      </Space>
+    ),
+    [align, className, direction, size, spaceProps],
+  );
+
   const titleDom = titleRender ? titleRender(label, props) : label;
   const [childrenDoms, hiddenDoms] = useMemo(() => {
     const hiddenChildren: React.ReactNode[] = [];
@@ -83,7 +103,9 @@ const Group: React.FC<GroupProps> = React.forwardRef((props, ref: any) => {
     });
 
     return [
-      <WrapperRow key="children">{childrenList}</WrapperRow>,
+      <RowWrapper key="children" Wrapper={Wrapper}>
+        {childrenList}
+      </RowWrapper>,
       hiddenChildren.length > 0 ? (
         <div
           style={{
@@ -94,10 +116,10 @@ const Group: React.FC<GroupProps> = React.forwardRef((props, ref: any) => {
         </div>
       ) : null,
     ];
-  }, [WrapperRow, children, autoFocus]);
+  }, [children, RowWrapper, Wrapper, autoFocus]);
 
   return (
-    <WrapperCol>
+    <ColWrapper>
       <div
         className={classNames(className, {
           [`${className}-twoLine`]: labelLayout === 'twoLine',
@@ -131,25 +153,9 @@ const Group: React.FC<GroupProps> = React.forwardRef((props, ref: any) => {
             )}
           </div>
         )}
-        {collapsible && collapsed ? null : grid ? (
-          <>{childrenDoms}</>
-        ) : (
-          <Space
-            {...spaceProps}
-            className={`${className}-container`}
-            size={size}
-            align={align}
-            direction={direction}
-            style={{
-              rowGap: 0,
-              ...spaceProps?.style,
-            }}
-          >
-            {childrenDoms.props.children}
-          </Space>
-        )}
+        {collapsible && collapsed ? null : childrenDoms}
       </div>
-    </WrapperCol>
+    </ColWrapper>
   );
 });
 
