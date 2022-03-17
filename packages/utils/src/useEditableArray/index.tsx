@@ -142,7 +142,7 @@ export type ActionRenderConfig<T, LineConfig = NewLineConfig<T>> = {
  * @param params
  * @param action
  */
-function editableRowByKey<RecordType>(
+export function editableRowByKey<RecordType>(
   params: {
     data: RecordType[];
     childrenColumnName: string;

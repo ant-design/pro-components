@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.59.0](https://github.com/ant-design/pro-components/compare/@ant-design/pro-form@1.58.1...@ant-design/pro-form@1.59.0) (2022-03-16)
+
+### Features
+
+- **form:** StepsForm support vertical direction ([#4848](https://github.com/ant-design/pro-components/issues/4848)) ([482f562](https://github.com/ant-design/pro-components/commit/482f562b7034826c9acdda6955c00d3f1899b139))
+
 ## [1.58.1](https://github.com/ant-design/pro-components/compare/@ant-design/pro-form@1.58.0...@ant-design/pro-form@1.58.1) (2022-03-15)
 
 ### Bug Fixes

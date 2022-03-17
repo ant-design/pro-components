@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.33.0](https://github.com/ant-design/pro-components/compare/@ant-design/pro-field@1.32.6...@ant-design/pro-field@1.33.0) (2022-03-16)
+
+### Bug Fixes
+
+- **form:** min color compontents ([73252e6](https://github.com/ant-design/pro-components/commit/73252e6d1d86d1f02fbb1dfd45b25028136f5e76))
+
+### Features
+
+- **table:** Fix valueType percent precision is 0 issue. ([#4863](https://github.com/ant-design/pro-components/issues/4863)) ([fc3d48c](https://github.com/ant-design/pro-components/commit/fc3d48c4832640d095d15b1a649b25fb5c0d4cc4))
+
 ## [1.32.6](https://github.com/ant-design/pro-components/compare/@ant-design/pro-field@1.32.5...@ant-design/pro-field@1.32.6) (2022-03-15)
 
 **Note:** Version bump only for package @ant-design/pro-field

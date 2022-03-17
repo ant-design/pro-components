@@ -1927,16 +1927,17 @@ exports[`table demos 📸 renders ./packages/table/src/components/EditableTable/
               class="ant-spin-container"
             >
               <div
-                class="ant-table ant-table-middle ant-table-layout-fixed"
+                class="ant-table ant-table-middle ant-table-layout-fixed ant-table-scroll-horizontal"
               >
                 <div
                   class="ant-table-container"
                 >
                   <div
                     class="ant-table-content"
+                    style="overflow-x: auto; overflow-y: hidden;"
                   >
                     <table
-                      style="table-layout: fixed;"
+                      style="width: 960px; min-width: 100%; table-layout: fixed;"
                     >
                       <colgroup>
                         <col
@@ -2059,6 +2060,66 @@ exports[`table demos 📸 renders ./packages/table/src/components/EditableTable/
                       <tbody
                         class="ant-table-tbody"
                       >
+                        <tr
+                          aria-hidden="true"
+                          class="ant-table-measure-row"
+                          style="height: 0px; font-size: 0px;"
+                        >
+                          <td
+                            style="padding: 0px; border: 0px; height: 0px;"
+                          >
+                            <div
+                              style="height: 0px; overflow: hidden;"
+                            >
+                               
+                            </div>
+                          </td>
+                          <td
+                            style="padding: 0px; border: 0px; height: 0px;"
+                          >
+                            <div
+                              style="height: 0px; overflow: hidden;"
+                            >
+                               
+                            </div>
+                          </td>
+                          <td
+                            style="padding: 0px; border: 0px; height: 0px;"
+                          >
+                            <div
+                              style="height: 0px; overflow: hidden;"
+                            >
+                               
+                            </div>
+                          </td>
+                          <td
+                            style="padding: 0px; border: 0px; height: 0px;"
+                          >
+                            <div
+                              style="height: 0px; overflow: hidden;"
+                            >
+                               
+                            </div>
+                          </td>
+                          <td
+                            style="padding: 0px; border: 0px; height: 0px;"
+                          >
+                            <div
+                              style="height: 0px; overflow: hidden;"
+                            >
+                               
+                            </div>
+                          </td>
+                          <td
+                            style="padding: 0px; border: 0px; height: 0px;"
+                          >
+                            <div
+                              style="height: 0px; overflow: hidden;"
+                            >
+                               
+                            </div>
+                          </td>
+                        </tr>
                         <tr
                           class="ant-table-row ant-table-row-level-0"
                           data-row-key="624748504"
@@ -2336,16 +2397,17 @@ exports[`table demos 📸 renders ./packages/table/src/components/EditableTable/
               class="ant-spin-container"
             >
               <div
-                class="ant-table ant-table-middle ant-table-layout-fixed"
+                class="ant-table ant-table-middle ant-table-layout-fixed ant-table-scroll-horizontal"
               >
                 <div
                   class="ant-table-container"
                 >
                   <div
                     class="ant-table-content"
+                    style="overflow-x: auto; overflow-y: hidden;"
                   >
                     <table
-                      style="table-layout: fixed;"
+                      style="width: 960px; min-width: 100%; table-layout: fixed;"
                     >
                       <colgroup>
                         <col
@@ -2392,6 +2454,57 @@ exports[`table demos 📸 renders ./packages/table/src/components/EditableTable/
                       <tbody
                         class="ant-table-tbody"
                       >
+                        <tr
+                          aria-hidden="true"
+                          class="ant-table-measure-row"
+                          style="height: 0px; font-size: 0px;"
+                        >
+                          <td
+                            style="padding: 0px; border: 0px; height: 0px;"
+                          >
+                            <div
+                              style="height: 0px; overflow: hidden;"
+                            >
+                               
+                            </div>
+                          </td>
+                          <td
+                            style="padding: 0px; border: 0px; height: 0px;"
+                          >
+                            <div
+                              style="height: 0px; overflow: hidden;"
+                            >
+                               
+                            </div>
+                          </td>
+                          <td
+                            style="padding: 0px; border: 0px; height: 0px;"
+                          >
+                            <div
+                              style="height: 0px; overflow: hidden;"
+                            >
+                               
+                            </div>
+                          </td>
+                          <td
+                            style="padding: 0px; border: 0px; height: 0px;"
+                          >
+                            <div
+                              style="height: 0px; overflow: hidden;"
+                            >
+                               
+                            </div>
+                          </td>
+                          <td
+                            style="padding: 0px; border: 0px; height: 0px;"
+                          >
+                            <div
+                              style="height: 0px; overflow: hidden;"
+                            >
+                               
+                            </div>
+                          </td>
+                        </tr>
                         <tr
                           class="ant-table-row ant-table-row-level-0"
                           data-row-key="624748504"
@@ -2783,16 +2896,17 @@ exports[`table demos 📸 renders ./packages/table/src/components/EditableTable/
               class="ant-spin-container"
             >
               <div
-                class="ant-table ant-table-middle ant-table-layout-fixed"
+                class="ant-table ant-table-middle ant-table-layout-fixed ant-table-scroll-horizontal"
               >
                 <div
                   class="ant-table-container"
                 >
                   <div
                     class="ant-table-content"
+                    style="overflow-x: auto; overflow-y: hidden;"
                   >
                     <table
-                      style="table-layout: fixed;"
+                      style="width: 960px; min-width: 100%; table-layout: fixed;"
                     >
                       <colgroup>
                         <col
@@ -2835,6 +2949,48 @@ exports[`table demos 📸 renders ./packages/table/src/components/EditableTable/
                       <tbody
                         class="ant-table-tbody"
                       >
+                        <tr
+                          aria-hidden="true"
+                          class="ant-table-measure-row"
+                          style="height: 0px; font-size: 0px;"
+                        >
+                          <td
+                            style="padding: 0px; border: 0px; height: 0px;"
+                          >
+                            <div
+                              style="height: 0px; overflow: hidden;"
+                            >
+                               
+                            </div>
+                          </td>
+                          <td
+                            style="padding: 0px; border: 0px; height: 0px;"
+                          >
+                            <div
+                              style="height: 0px; overflow: hidden;"
+                            >
+                               
+                            </div>
+                          </td>
+                          <td
+                            style="padding: 0px; border: 0px; height: 0px;"
+                          >
+                            <div
+                              style="height: 0px; overflow: hidden;"
+                            >
+                               
+                            </div>
+                          </td>
+                          <td
+                            style="padding: 0px; border: 0px; height: 0px;"
+                          >
+                            <div
+                              style="height: 0px; overflow: hidden;"
+                            >
+                               
+                            </div>
+                          </td>
+                        </tr>
                         <tr
                           class="ant-table-row ant-table-row-level-0"
                           data-row-key="624748504"
@@ -3180,16 +3336,17 @@ exports[`table demos 📸 renders ./packages/table/src/components/EditableTable/
                     class="ant-spin-container"
                   >
                     <div
-                      class="ant-table ant-table-middle ant-table-layout-fixed"
+                      class="ant-table ant-table-middle ant-table-layout-fixed ant-table-scroll-horizontal"
                     >
                       <div
                         class="ant-table-container"
                       >
                         <div
                           class="ant-table-content"
+                          style="overflow-x: auto; overflow-y: hidden;"
                         >
                           <table
-                            style="table-layout: fixed;"
+                            style="width: 960px; min-width: 100%; table-layout: fixed;"
                           >
                             <colgroup>
                               <col
@@ -3236,6 +3393,57 @@ exports[`table demos 📸 renders ./packages/table/src/components/EditableTable/
                             <tbody
                               class="ant-table-tbody"
                             >
+                              <tr
+                                aria-hidden="true"
+                                class="ant-table-measure-row"
+                                style="height: 0px; font-size: 0px;"
+                              >
+                                <td
+                                  style="padding: 0px; border: 0px; height: 0px;"
+                                >
+                                  <div
+                                    style="height: 0px; overflow: hidden;"
+                                  >
+                                     
+                                  </div>
+                                </td>
+                                <td
+                                  style="padding: 0px; border: 0px; height: 0px;"
+                                >
+                                  <div
+                                    style="height: 0px; overflow: hidden;"
+                                  >
+                                     
+                                  </div>
+                                </td>
+                                <td
+                                  style="padding: 0px; border: 0px; height: 0px;"
+                                >
+                                  <div
+                                    style="height: 0px; overflow: hidden;"
+                                  >
+                                     
+                                  </div>
+                                </td>
+                                <td
+                                  style="padding: 0px; border: 0px; height: 0px;"
+                                >
+                                  <div
+                                    style="height: 0px; overflow: hidden;"
+                                  >
+                                     
+                                  </div>
+                                </td>
+                                <td
+                                  style="padding: 0px; border: 0px; height: 0px;"
+                                >
+                                  <div
+                                    style="height: 0px; overflow: hidden;"
+                                  >
+                                     
+                                  </div>
+                                </td>
+                              </tr>
                               <tr
                                 class="ant-table-row ant-table-row-level-0"
                                 data-row-key="624748504"
@@ -3794,16 +4002,17 @@ exports[`table demos 📸 renders ./packages/table/src/components/EditableTable/
                           class="ant-spin-container"
                         >
                           <div
-                            class="ant-table ant-table-middle ant-table-layout-fixed"
+                            class="ant-table ant-table-middle ant-table-layout-fixed ant-table-scroll-horizontal"
                           >
                             <div
                               class="ant-table-container"
                             >
                               <div
                                 class="ant-table-content"
+                                style="overflow-x: auto; overflow-y: hidden;"
                               >
                                 <table
-                                  style="table-layout: fixed;"
+                                  style="width: auto; min-width: 100%; table-layout: fixed;"
                                 >
                                   <colgroup>
                                     <col />
@@ -3853,6 +4062,66 @@ exports[`table demos 📸 renders ./packages/table/src/components/EditableTable/
                                   <tbody
                                     class="ant-table-tbody"
                                   >
+                                    <tr
+                                      aria-hidden="true"
+                                      class="ant-table-measure-row"
+                                      style="height: 0px; font-size: 0px;"
+                                    >
+                                      <td
+                                        style="padding: 0px; border: 0px; height: 0px;"
+                                      >
+                                        <div
+                                          style="height: 0px; overflow: hidden;"
+                                        >
+                                           
+                                        </div>
+                                      </td>
+                                      <td
+                                        style="padding: 0px; border: 0px; height: 0px;"
+                                      >
+                                        <div
+                                          style="height: 0px; overflow: hidden;"
+                                        >
+                                           
+                                        </div>
+                                      </td>
+                                      <td
+                                        style="padding: 0px; border: 0px; height: 0px;"
+                                      >
+                                        <div
+                                          style="height: 0px; overflow: hidden;"
+                                        >
+                                           
+                                        </div>
+                                      </td>
+                                      <td
+                                        style="padding: 0px; border: 0px; height: 0px;"
+                                      >
+                                        <div
+                                          style="height: 0px; overflow: hidden;"
+                                        >
+                                           
+                                        </div>
+                                      </td>
+                                      <td
+                                        style="padding: 0px; border: 0px; height: 0px;"
+                                      >
+                                        <div
+                                          style="height: 0px; overflow: hidden;"
+                                        >
+                                           
+                                        </div>
+                                      </td>
+                                      <td
+                                        style="padding: 0px; border: 0px; height: 0px;"
+                                      >
+                                        <div
+                                          style="height: 0px; overflow: hidden;"
+                                        >
+                                           
+                                        </div>
+                                      </td>
+                                    </tr>
                                     <tr
                                       class="ant-table-row ant-table-row-level-0"
                                       data-row-key="624748504"
@@ -4301,16 +4570,17 @@ exports[`table demos 📸 renders ./packages/table/src/components/EditableTable/
               class="ant-spin-container"
             >
               <div
-                class="ant-table ant-table-middle ant-table-layout-fixed"
+                class="ant-table ant-table-middle ant-table-layout-fixed ant-table-scroll-horizontal"
               >
                 <div
                   class="ant-table-container"
                 >
                   <div
                     class="ant-table-content"
+                    style="overflow-x: auto; overflow-y: hidden;"
                   >
                     <table
-                      style="table-layout: fixed;"
+                      style="width: 960px; min-width: 100%; table-layout: fixed;"
                     >
                       <colgroup>
                         <col
@@ -4351,6 +4621,48 @@ exports[`table demos 📸 renders ./packages/table/src/components/EditableTable/
                       <tbody
                         class="ant-table-tbody"
                       >
+                        <tr
+                          aria-hidden="true"
+                          class="ant-table-measure-row"
+                          style="height: 0px; font-size: 0px;"
+                        >
+                          <td
+                            style="padding: 0px; border: 0px; height: 0px;"
+                          >
+                            <div
+                              style="height: 0px; overflow: hidden;"
+                            >
+                               
+                            </div>
+                          </td>
+                          <td
+                            style="padding: 0px; border: 0px; height: 0px;"
+                          >
+                            <div
+                              style="height: 0px; overflow: hidden;"
+                            >
+                               
+                            </div>
+                          </td>
+                          <td
+                            style="padding: 0px; border: 0px; height: 0px;"
+                          >
+                            <div
+                              style="height: 0px; overflow: hidden;"
+                            >
+                               
+                            </div>
+                          </td>
+                          <td
+                            style="padding: 0px; border: 0px; height: 0px;"
+                          >
+                            <div
+                              style="height: 0px; overflow: hidden;"
+                            >
+                               
+                            </div>
+                          </td>
+                        </tr>
                         <tr
                           class="ant-table-row ant-table-row-level-0"
                           data-row-key="1479772800000"

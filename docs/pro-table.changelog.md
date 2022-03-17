@@ -9,6 +9,13 @@ group:
 
 # Change Log
 
+## @ant-design/pro-table@2.68.0
+
+`2022-03-16`
+
+- feat(table): Fix valueType percent precision is 0 issue. (#4863). [#4863](https://github.com/ant-design/pro-components/pull/#4863) [@yzwxk](https://github.com/yzwxk)
+- feat(table): `newRecordType: cache` support parentKey (#4861). [#4861](https://github.com/ant-design/pro-components/pull/#4861) [@zqran](https://github.com/zqran)
+
 ## @ant-design/pro-table@2.67.1
 
 `2022-03-15`

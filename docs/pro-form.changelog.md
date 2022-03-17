@@ -9,6 +9,13 @@ group:
 
 # Change Log
 
+## @ant-design/pro-form@1.59.0
+
+`2022-03-16`
+
+- fix(form): min color compontents. [73252e6](https://github.com/ant-design/pro-components/commit/73252e6)
+- feat(form): StepsForm support vertical direction (#4848). [#4848](https://github.com/ant-design/pro-components/pull/#4848) [@1247748612](https://github.com/1247748612)
+
 ## @ant-design/pro-form@1.58.1
 
 `2022-03-15`
