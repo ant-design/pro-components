@@ -375,7 +375,7 @@ describe('EditorProTable', () => {
     expect(wrapper.find('.ant-table-tbody').find('tr.ant-table-row').length).toBe(6);
 
     act(() => {
-      wrapper.find('.ant-table-tbody tr.ant-table-row').at(1).find(`td a`).at(1).simulate('click');
+      wrapper.find('.ant-table-tbody tr.ant-table-row').at(1).find(`td a`).at(0).simulate('click');
     });
 
     await waitForComponentToPaint(wrapper, 1000);
