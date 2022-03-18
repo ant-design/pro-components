@@ -171,6 +171,7 @@ describe('ModalForm', () => {
     });
     await waitForComponentToPaint(wrapper);
     expect(fn).toBeCalledWith(false);
+    expect(fn).toBeCalledTimes(2);
   });
 
   it('📦 modal visible=true simulate onVisibleChange', async () => {

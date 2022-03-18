@@ -69,7 +69,7 @@ function DrawerForm<T = Record<string, any>>({
 
   const footerRef = useRef<HTMLDivElement | null>(null);
 
-  const footerCallback: React.RefCallback<HTMLDivElement> = useCallback((element) => {
+  const footerDomRef: React.RefCallback<HTMLDivElement> = useCallback((element) => {
     if (footerRef.current === null && element) {
       forceUpdate([]);
     }
@@ -80,7 +80,8 @@ function DrawerForm<T = Record<string, any>>({
     if (visible && propVisible) {
       onVisibleChange?.(true);
     }
-  }, [onVisibleChange, propVisible, visible]);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [propVisible, visible]);
 
   const triggerDom = useMemo(() => {
     if (!trigger) {
@@ -148,7 +149,7 @@ function DrawerForm<T = Record<string, any>>({
         footer={
           rest.submitter !== false && (
             <div
-              ref={footerCallback}
+              ref={footerDomRef}
               style={{
                 display: 'flex',
                 justifyContent: 'flex-end',
