@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.21.43](https://github.com/ant-design/pro-components/compare/@ant-design/pro-list@1.21.42...@ant-design/pro-list@1.21.43) (2022-03-18)
+
+### Bug Fixes
+
+- **list:** fix ghost style padding error ([94027ed](https://github.com/ant-design/pro-components/commit/94027edb2076f78357f76761657b9bbbf76b8e5d))
+
 ## [1.21.42](https://github.com/ant-design/pro-components/compare/@ant-design/pro-list@1.21.41...@ant-design/pro-list@1.21.42) (2022-03-18)
 
 **Note:** Version bump only for package @ant-design/pro-list
