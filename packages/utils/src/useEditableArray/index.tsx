@@ -683,7 +683,7 @@ function useEditableArray<RecordType>(
       const res = await props?.onSave?.(recordKey, editRow, originRow, newLine);
       // 保存时解除编辑模式
       cancelEditable(recordKey);
-      if (newLine && options?.recordKey === recordKey) {
+      if (newLine && !options?.parentKey && options?.recordKey === recordKey) {
         if (options?.position === 'top') {
           props.setDataSource([editRow, ...props.dataSource]);
         } else {
@@ -694,12 +694,19 @@ function useEditableArray<RecordType>(
       const actionProps = {
         data: props.dataSource,
         getRowKey: props.getRowKey,
-        row: editRow,
+        row: newLine
+          ? {
+              ...editRow,
+              map_row_parentKey: recordKeyToString(options?.parentKey ?? '')?.toString(),
+            }
+          : editRow,
         key: recordKey,
         childrenColumnName: props.childrenColumnName || 'children',
       };
 
-      props.setDataSource(editableRowByKey(actionProps, 'update'));
+      props.setDataSource(
+        editableRowByKey(actionProps, options?.position === 'top' ? 'top' : 'update'),
+      );
       return res;
     },
   );
@@ -749,7 +756,7 @@ function useEditableArray<RecordType>(
       cancelEditable,
       index: row.index,
       tableName: props.tableName,
-      newLineConfig: newLineRecordCache,
+      newLineConfig: newLineRecordRef.current,
       onCancel: actionCancelRef,
       onDelete: actionDeleteRef,
       onSave: actionSaveRef,
