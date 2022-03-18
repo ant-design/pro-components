@@ -45,6 +45,7 @@ type CellRenderFromItemProps<T> = {
   prefixName?: string;
   counter: ReturnType<typeof useContainer>;
   proFieldProps: ProFormFieldProps;
+  subName: string[];
 };
 
 const CellRenderFromItem = <T,>(props: CellRenderFromItemProps<T>) => {
@@ -54,7 +55,17 @@ const CellRenderFromItem = <T,>(props: CellRenderFromItemProps<T>) => {
   const Component = useMemo(
     () =>
       memo<CellRenderFromItemProps<T>>(
-        ({ columnProps, prefixName, text, counter, rowData, index, recordKey, proFieldProps }) => {
+        ({
+          columnProps,
+          prefixName,
+          text,
+          counter,
+          rowData,
+          index,
+          recordKey,
+          subName,
+          proFieldProps,
+        }) => {
           const { editableForm } = counter;
           const key = recordKey || index;
           const [name, setName] = useState<React.Key[]>([]);
@@ -66,6 +77,7 @@ const CellRenderFromItem = <T,>(props: CellRenderFromItemProps<T>) => {
           useEffect(() => {
             const value = spellNamePath(
               prefixName,
+              subName,
               prefixName ? index : key,
               columnProps?.key ?? columnProps?.dataIndex ?? index,
             );
@@ -224,7 +236,9 @@ function cellRenderToFromItem<T>(config: CellRenderFromItemProps<T>): React.Reac
 
   const columnKey = columnProps?.key || columnProps?.dataIndex?.toString();
 
-  /** 生成公用的 proField dom 配置 */
+  /**
+   * 生成公用的 proField dom 配置
+   */
   const proFieldProps: ProFormFieldProps = {
     valueEnum: runFunction<[T | undefined]>(columnProps?.valueEnum, rowData),
     request: columnProps?.request,
