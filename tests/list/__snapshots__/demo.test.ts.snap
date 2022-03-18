@@ -6,10 +6,10 @@ exports[`list demos 📸 renders ./packages/list/src/demos/base.tsx correctly 1`
     class="ant-pro-table ant-pro-list ant-pro-list ant-pro-list-no-split"
   >
     <div
-      class="ant-card"
+      class="ant-pro-card"
     >
       <div
-        class="ant-card-body"
+        class="ant-pro-card-body"
         style="padding-top: 0px;"
       >
         <div
@@ -684,10 +684,10 @@ exports[`list demos 📸 renders ./packages/list/src/demos/card-list.tsx correct
     class="ant-pro-table ant-pro-list ant-pro-list ant-pro-list-no-split"
   >
     <div
-      class="ant-card"
+      class="ant-pro-card"
     >
       <div
-        class="ant-card-body"
+        class="ant-pro-card-body"
         style="padding-top: 0px;"
       >
         <div
@@ -1817,10 +1817,10 @@ exports[`list demos 📸 renders ./packages/list/src/demos/editable.tsx correctl
     class="ant-pro-table ant-pro-list ant-pro-list ant-pro-list-no-split"
   >
     <div
-      class="ant-card"
+      class="ant-pro-card"
     >
       <div
-        class="ant-card-body"
+        class="ant-pro-card-body"
         style="padding-top: 0px;"
       >
         <div
@@ -2268,10 +2268,10 @@ exports[`list demos 📸 renders ./packages/list/src/demos/expand.tsx correctly 
     class="ant-pro-table ant-pro-list ant-pro-list ant-pro-list-no-split"
   >
     <div
-      class="ant-card"
+      class="ant-pro-card"
     >
       <div
-        class="ant-card-body"
+        class="ant-pro-card-body"
         style="padding-top: 0px;"
       >
         <div
@@ -2771,10 +2771,10 @@ exports[`list demos 📸 renders ./packages/list/src/demos/filter.tsx correctly 
     class="ant-pro-table ant-pro-list ant-pro-list ant-pro-list-no-split"
   >
     <div
-      class="ant-card"
+      class="ant-pro-card"
     >
       <div
-        class="ant-card-body"
+        class="ant-pro-card-body"
         style="padding-top: 0px;"
       >
         <div
@@ -3676,10 +3676,10 @@ exports[`list demos 📸 renders ./packages/list/src/demos/layout.tsx correctly 
     class="ant-pro-table ant-pro-list ant-pro-list ant-pro-list-no-split"
   >
     <div
-      class="ant-card"
+      class="ant-pro-card"
     >
       <div
-        class="ant-card-body"
+        class="ant-pro-card-body"
         style="padding-top: 0px;"
       >
         <div
@@ -4447,10 +4447,10 @@ exports[`list demos 📸 renders ./packages/list/src/demos/pagination.tsx correc
     class="ant-pro-table ant-pro-list ant-pro-list ant-pro-list-no-split"
   >
     <div
-      class="ant-card"
+      class="ant-pro-card"
     >
       <div
-        class="ant-card-body"
+        class="ant-pro-card-body"
         style="padding-top: 0px;"
       >
         <div
@@ -5639,10 +5639,10 @@ exports[`list demos 📸 renders ./packages/list/src/demos/search.tsx correctly 
       </form>
     </div>
     <div
-      class="ant-card"
+      class="ant-pro-card"
     >
       <div
-        class="ant-card-body"
+        class="ant-pro-card-body"
         style="padding-top: 0px;"
       >
         <div
@@ -6358,10 +6358,10 @@ exports[`list demos 📸 renders ./packages/list/src/demos/selectedRow.tsx corre
     class="ant-pro-table ant-pro-list ant-pro-list ant-pro-list-no-split"
   >
     <div
-      class="ant-card"
+      class="ant-pro-card"
     >
       <div
-        class="ant-card-body"
+        class="ant-pro-card-body"
         style="padding-top: 0px;"
       >
         <div
@@ -7102,10 +7102,10 @@ exports[`list demos 📸 renders ./packages/list/src/demos/size.tsx correctly 1`
     class="ant-pro-table ant-pro-list ant-pro-list"
   >
     <div
-      class="ant-card"
+      class="ant-pro-card"
     >
       <div
-        class="ant-card-body"
+        class="ant-pro-card-body"
         style="padding-top: 0px;"
       >
         <div
@@ -7605,10 +7605,10 @@ exports[`list demos 📸 renders ./packages/list/src/demos/special.tsx correctly
     class="ant-pro-table ant-pro-list ant-pro-list ant-pro-list-no-split"
   >
     <div
-      class="ant-card"
+      class="ant-pro-card"
     >
       <div
-        class="ant-card-body"
+        class="ant-pro-card-body"
         style="padding-top: 0px;"
       >
         <div

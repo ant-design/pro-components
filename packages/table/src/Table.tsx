@@ -8,7 +8,8 @@ import React, {
   useImperativeHandle,
 } from 'react';
 import type { TablePaginationConfig } from 'antd';
-import { Table, Spin, ConfigProvider, Card } from 'antd';
+import { Table, Spin, ConfigProvider } from 'antd';
+import ProCard from '@ant-design/pro-card';
 
 import type { ParamsType } from '@ant-design/pro-provider';
 import { useIntl, ConfigProviderWrap } from '@ant-design/pro-provider';
@@ -293,7 +294,8 @@ function TableRender<T extends Record<string, any>, U, ValueType>(
     cardProps === false || !!props.name ? (
       tableContentDom
     ) : (
-      <Card
+      <ProCard
+        ghost={props.ghost}
         bordered={isBordered('table', cardBordered)}
         bodyStyle={
           toolbarDom
@@ -307,7 +309,7 @@ function TableRender<T extends Record<string, any>, U, ValueType>(
         {...cardProps}
       >
         {tableContentDom}
-      </Card>
+      </ProCard>
     );
 
   const renderTable = () => {
@@ -367,6 +369,7 @@ const ProTable = <T extends Record<string, any>, U extends ParamsType, ValueType
     defaultData,
     headerTitle,
     postData,
+    ghost,
     pagination: propsPagination,
     actionRef: propsActionRef,
     columns: propsColumns = [],
@@ -740,6 +743,7 @@ const ProTable = <T extends Record<string, any>, U extends ParamsType, ValueType
         onFormSearchSubmit={(values) => {
           setFormSearch(values);
         }}
+        ghost={ghost}
         onReset={props.onReset}
         onSubmit={props.onSubmit}
         loading={!!action.loading}

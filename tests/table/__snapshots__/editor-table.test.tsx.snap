@@ -5,10 +5,10 @@ exports[`EditorProTable 📝 EditableProTable support recordCreatorProps 1`] = `
   class="ant-pro-table"
 >
   <div
-    class="ant-card"
+    class="ant-pro-card"
   >
     <div
-      class="ant-card-body"
+      class="ant-pro-card-body"
       style="padding-top: 0px;"
     >
       <div
@@ -624,10 +624,10 @@ exports[`EditorProTable 📝 EditableProTable support recordCreatorProps.positio
   class="ant-pro-table"
 >
   <div
-    class="ant-card"
+    class="ant-pro-card"
   >
     <div
-      class="ant-card-body"
+      class="ant-pro-card-body"
       style="padding-top: 0px;"
     >
       <div
@@ -1289,10 +1289,10 @@ exports[`EditorProTable 📝 EditableProTable support recordCreatorProps=false 1
   class="ant-pro-table"
 >
   <div
-    class="ant-card"
+    class="ant-pro-card"
   >
     <div
-      class="ant-card-body"
+      class="ant-pro-card-body"
       style="padding-top: 0px;"
     >
       <div
@@ -1876,10 +1876,10 @@ exports[`EditorProTable 📝 columns initialValue alway work 1`] = `
   class="ant-pro-table"
 >
   <div
-    class="ant-card"
+    class="ant-pro-card"
   >
     <div
-      class="ant-card-body"
+      class="ant-pro-card-body"
       style="padding-top: 0px;"
     >
       <div
@@ -2152,10 +2152,10 @@ exports[`EditorProTable 📝 columns support editable test 1`] = `
   class="ant-pro-table"
 >
   <div
-    class="ant-card"
+    class="ant-pro-card"
   >
     <div
-      class="ant-card-body"
+      class="ant-pro-card-body"
       style="padding-top: 0px;"
     >
       <div
@@ -2348,10 +2348,10 @@ exports[`EditorProTable 📝 renderFormItem run defaultRender 1`] = `
   class="ant-pro-table"
 >
   <div
-    class="ant-card"
+    class="ant-pro-card"
   >
     <div
-      class="ant-card-body"
+      class="ant-pro-card-body"
       style="padding-top: 0px;"
     >
       <div

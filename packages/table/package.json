@@ -36,6 +36,7 @@
     "@ant-design/icons": "^4.1.0",
     "@ant-design/pro-field": "1.33.1",
     "@ant-design/pro-form": "1.59.1",
+    "@ant-design/pro-card": "1.18.40",
     "@ant-design/pro-provider": "1.6.1",
     "@ant-design/pro-utils": "1.37.0",
     "@babel/runtime": "^7.16.3",
