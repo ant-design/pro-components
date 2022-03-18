@@ -1338,12 +1338,11 @@
   resolved "https://registry.npmmirror.com/@bloomberg/record-tuple-polyfill/-/record-tuple-polyfill-0.0.3.tgz"
   integrity sha512-sBnCqW0nqofE47mxFnw+lvx6kzsQstwaQMVkh66qm/A6IlsnH7WsyGuVXTou8RF2wL4W7ybOoHPvP2WgIo6rhQ==
 
-"@chenshuai2144/sketch-color@1.0.6":
-  version "1.0.6"
-  resolved "https://registry.npmmirror.com/@chenshuai2144/sketch-color/-/sketch-color-1.0.6.tgz#e9dc4c02f3d597de4b87e5d37d711aa33a321cc3"
-  integrity sha512-ZhjqcI91X5NvTsyeL8la2re9Jg6mxMmhrD4FxRiPac2ZGk75jR/GhwneuoOOWsAoWgZAXY2kr84Sg1+n/zb8hA==
+"@chenshuai2144/sketch-color@^1.0.8":
+  version "1.0.8"
+  resolved "https://registry.npmmirror.com/@chenshuai2144/sketch-color/-/sketch-color-1.0.8.tgz#5cde7ac1dae5687223a8f751b0e4f77a5776d566"
+  integrity sha512-dPAzzWc+w7zyTAi71WXYZpiTYyIS80MxYyy2E/7jufhnJI1Z29wCPL35VvuJ/gs5zYpF2+w/B7BizWa2zKXpGw==
   dependencies:
-    react "^16.12.0 || ^17.0.0"
     reactcss "^1.2.3"
     tinycolor2 "^1.4.2"
 
@@ -17061,7 +17060,7 @@ react@16.x, react@^16.0.0:
     object-assign "^4.1.1"
     prop-types "^15.6.2"
 
-"react@^16.12.0 || ^17.0.0", react@^17.0.2:
+react@^17.0.2:
   version "17.0.2"
   resolved "https://registry.npmmirror.com/react/-/react-17.0.2.tgz"
   integrity sha512-gnhPt75i/dq/z3/6q/0asP78D0u592D5L1pd7M8P+dck6Fu/jJeL6iVVK23fptSUZj8Vjf++7wXA8UNclGQcbA==
