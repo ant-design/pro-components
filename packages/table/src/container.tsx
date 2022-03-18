@@ -34,6 +34,7 @@ export type UseContainerProps<T = any> = {
 
 function useContainer(props: UseContainerProps = {}) {
   const actionRef = useRef<ActionType>();
+  const rootDomRef = useRef<HTMLDivElement>(null);
   /** 父 form item 的 name */
   const prefixNameRef = useRef<any>();
 
@@ -161,6 +162,7 @@ function useContainer(props: UseContainerProps = {}) {
     editableForm: editableFormRef.current,
     setColumnsMap,
     columns: props.columns,
+    rootDomRef,
     clearPersistenceStorage,
   };
 

@@ -1,6 +1,6 @@
-import React, { memo, useCallback, useEffect, useMemo, useState } from 'react';
+import React, { memo, useCallback, useContext, useEffect, useMemo, useState } from 'react';
 import type { ProFormFieldProps } from '@ant-design/pro-form';
-import { ProFormField, ProFormDependency } from '@ant-design/pro-form';
+import { FieldContext, ProFormField, ProFormDependency } from '@ant-design/pro-form';
 import type { ProFieldEmptyText } from '@ant-design/pro-field';
 import type { ProFieldValueType, ProSchemaComponentTypes } from '@ant-design/pro-utils';
 import { isDeepEqualReact } from '@ant-design/pro-utils';
@@ -48,6 +48,7 @@ type CellRenderFromItemProps<T> = {
 };
 
 const CellRenderFromItem = <T,>(props: CellRenderFromItemProps<T>) => {
+  const formContext = useContext(FieldContext);
   /**
    * memo cannot use generics type, so wrap it
    */
@@ -89,10 +90,21 @@ const CellRenderFromItem = <T,>(props: CellRenderFromItemProps<T>) => {
 
           const InlineItem = useCallback<React.FC<any>>(
             ({ children, ...restProps }) => (
-              <InlineErrorFormItem key={key} errorType="popover" name={name} {...restProps}>
+              <InlineErrorFormItem
+                popoverProps={{
+                  getPopupContainer:
+                    formContext.getPopupContainer ||
+                    (() => counter.rootDomRef.current || document.body),
+                }}
+                key={key}
+                errorType="popover"
+                name={name}
+                {...restProps}
+              >
                 {children}
               </InlineErrorFormItem>
             ),
+            // eslint-disable-next-line react-hooks/exhaustive-deps
             [key, name],
           );
 

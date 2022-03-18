@@ -68,7 +68,6 @@ function TableRender<T extends Record<string, any>, U, ValueType>(
     onSortChange: (sort: any) => void;
     onFilterChange: (sort: any) => void;
     editableUtils: any;
-    rootRef: React.RefObject<HTMLDivElement>;
     getRowKey: GetRowKey<any>;
   },
 ) {
@@ -96,7 +95,6 @@ function TableRender<T extends Record<string, any>, U, ValueType>(
     className,
     cardBordered,
     editableUtils,
-    rootRef,
     getRowKey,
     ...rest
   } = props;
@@ -329,7 +327,7 @@ function TableRender<T extends Record<string, any>, U, ValueType>(
         [`${className}-polling`]: action.pollingLoading,
       })}
       style={style}
-      ref={rootRef}
+      ref={counter.rootDomRef}
     >
       {isLightFilter ? null : searchNode}
       {/* 渲染一个额外的区域，用于一些自定义 */}
@@ -348,7 +346,7 @@ function TableRender<T extends Record<string, any>, U, ValueType>(
   }
   return (
     <ConfigProvider
-      getPopupContainer={() => (rootRef.current || document.body) as any as HTMLElement}
+      getPopupContainer={() => (counter.rootDomRef.current || document.body) as any as HTMLElement}
     >
       {proTableDom}
     </ConfigProvider>
@@ -453,8 +451,6 @@ const ProTable = <T extends Record<string, any>, U extends ParamsType, ValueType
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
-  /** 获取 table 的 dom ref */
-  const rootRef = useRef<HTMLDivElement>(null);
   const intl = useIntl();
 
   /** 需要初始化 不然默认可能报错 这里取了 defaultCurrent 和 current 为了保证不会重复刷新 */
@@ -630,13 +626,13 @@ const ProTable = <T extends Record<string, any>, U extends ParamsType, ValueType
   /** 绑定 action */
   useActionType(actionRef, action, {
     fullScreen: () => {
-      if (!rootRef.current || !document.fullscreenEnabled) {
+      if (!counter.rootDomRef?.current || !document.fullscreenEnabled) {
         return;
       }
       if (document.fullscreenElement) {
         document.exitFullscreen();
       } else {
-        rootRef.current.requestFullscreen();
+        counter.rootDomRef?.current.requestFullscreen();
       }
     },
     onCleanSelected: () => {
@@ -799,7 +795,6 @@ const ProTable = <T extends Record<string, any>, U extends ParamsType, ValueType
     <TableRender
       {...props}
       name={isEditorTable}
-      rootRef={rootRef}
       size={counter.tableSize}
       onSizeChange={counter.setTableSize}
       pagination={pagination}
