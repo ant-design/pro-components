@@ -1,5 +1,5 @@
 import Icon, { createFromIconfontCN } from '@ant-design/icons';
-import { Menu, Skeleton, ConfigProvider, Tooltip } from 'antd';
+import { Menu, Skeleton, ConfigProvider } from 'antd';
 import React, { useEffect, useState, useRef, useMemo, useContext } from 'react';
 import { isUrl, isImg, useMountMergeState } from '@ant-design/pro-utils';
 
@@ -164,8 +164,8 @@ class MenuUtil {
        align-items: center;
       `),
     );
+    const name = this.getIntlName(item);
     if (Array.isArray(item.routes) && item && item.routes.length > 0) {
-      const name = this.getIntlName(item);
       const isGroup = menu?.type === 'group' && layout !== 'top';
       /** Menu 第一级可以有icon，或者 isGroup 时第二级别也要有 */
       const hasIcon = level === 0 || (isGroup && level === 1);
@@ -211,7 +211,7 @@ class MenuUtil {
         ) : (
           <MenuComponents
             key={item.key || item.path}
-            title={title}
+            title={item.tooltip || title}
             {...(isGroup
               ? {}
               : {
@@ -234,7 +234,12 @@ class MenuUtil {
     }
 
     return (
-      <Menu.Item disabled={item.disabled} key={item.key || item.path} onClick={item.onTitleClick}>
+      <Menu.Item
+        title={item.tooltip || name}
+        disabled={item.disabled}
+        key={item.key || item.path}
+        onClick={item.onTitleClick}
+      >
         {this.getMenuItemPath(item, level)}
       </Menu.Item>
     );
@@ -789,55 +794,26 @@ const BaseMenu: React.FC<BaseMenuProps & PrivateSiderMenuProps> = (props) => {
         });
       }}
       _internalRenderMenuItem={(dom, itemProps, stateProps) => {
-        const visibleProps = collapsed
-          ? {}
-          : {
-              visible: false,
-            };
-        return (
-          <Tooltip
-            {...visibleProps}
-            visible={collapsed ? undefined : false}
-            title={
-              <div
-                className={css`
-                  color: rgba(255, 255, 255, 0.85);
-                  * {
-                    color: rgba(255, 255, 255, 0.85);
-                    .${antPrefixClassName}-pro-menu-item-title {
-                      display: inline-block;
-                    }
-                  }
-                `}
-              >
-                {itemProps.children}
-              </div>
-            }
-            placement="right"
-          >
-            {React.cloneElement(dom, {
-              ...dom.props,
-              className: cx(
-                `${antPrefixClassName}-pro-menu-item`,
-                stateProps?.selected && `${antPrefixClassName}-pro-menu-item-selected`,
-                // 展开的样式
-                menuItemCssMap.menuItem,
-                // 收起的样式
-                collapsed && menuItemCssMap.collapsedItem,
-                /**
-                 * 收起时展示 title
-                 */
-                collapsed && menu?.collapsedShowTitle && menuItemCssMap.collapsedItemShowTitle,
-                // 顶部菜单和水平菜单需要不同的 css
-                mode !== 'horizontal' ? menuItemCssMap.verticalItem : menuItemCssMap.horizontalItem,
-                stateProps?.selected ? menuItemCssMap.selectedItem : null,
-              ),
-            })}
-          </Tooltip>
-        );
+        return React.cloneElement(dom, {
+          ...dom.props,
+          className: cx(
+            `${antPrefixClassName}-pro-menu-item`,
+            stateProps?.selected && `${antPrefixClassName}-pro-menu-item-selected`,
+            // 展开的样式
+            menuItemCssMap.menuItem,
+            // 收起的样式
+            collapsed && menuItemCssMap.collapsedItem,
+            /**
+             * 收起时展示 title
+             */
+            collapsed && menu?.collapsedShowTitle && menuItemCssMap.collapsedItemShowTitle,
+            // 顶部菜单和水平菜单需要不同的 css
+            mode !== 'horizontal' ? menuItemCssMap.verticalItem : menuItemCssMap.horizontalItem,
+            stateProps?.selected ? menuItemCssMap.selectedItem : null,
+          ),
+        });
       }}
       onOpenChange={setOpenKeys}
-      _internalDisableMenuItemTitleTooltip={true}
       {...props.menuProps}
     >
       {menuUtils.getNavMenuItems(finallyData, 0)}
