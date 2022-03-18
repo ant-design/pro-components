@@ -9,6 +9,12 @@ group:
 
 # Change Log
 
+## @ant-design/pro-list@1.21.43
+
+`2022-03-18`
+
+- fix(list): fix ghost style padding error. [94027ed](https://github.com/ant-design/pro-components/commit/94027ed)
+
 ## @ant-design/pro-list@1.21.22
 
 `2022-02-08`
