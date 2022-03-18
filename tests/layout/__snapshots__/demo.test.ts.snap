@@ -7126,7 +7126,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/Nested.tsx correc
           style="position: relative;"
         >
           <main
-            class="ant-layout-content ant-pro-basicLayout-content ant-pro-basicLayout-content-disable-margin ant-design-pro-layout-bghjml"
+            class="ant-layout-content ant-pro-basicLayout-content ant-pro-basicLayout-content-disable-margin ant-design-pro-layout-1yzbs6e"
           >
             <div
               class="ant-design-pro ant-pro-basicLayout screen-md ant-pro-basicLayout-is-children ant-pro-basicLayout-side ant-design-pro-layout-1a98z39"
@@ -7770,7 +7770,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/TopmenuNested.tsx
             </div>
           </header>
           <main
-            class="ant-layout-content ant-pro-basicLayout-content ant-pro-basicLayout-has-header ant-pro-basicLayout-content-disable-margin ant-design-pro-layout-bghjml"
+            class="ant-layout-content ant-pro-basicLayout-content ant-pro-basicLayout-has-header ant-pro-basicLayout-content-disable-margin ant-design-pro-layout-1yzbs6e"
           >
             <div
               class="ant-design-pro ant-pro-basicLayout screen-md ant-pro-basicLayout-is-children ant-pro-basicLayout-fix-siderbar ant-pro-basicLayout-side ant-design-pro-layout-1a98z39"
