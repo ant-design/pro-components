@@ -526,21 +526,9 @@ const BaseProLayout: React.FC<ProLayoutProps> = (props) => {
 
   const antdPrefixCls = context.getPrefixCls();
 
-  /** Disable之后样式 */
-  const proLayoutDisableContentMargin = useMemo(() => {
-    if (!disableContentMargin) return '';
-    return css`
-      margin: 0 !important;
-      .${antdPrefixCls}-pro-page-container {
-        margin: unset !important;
-      }
-    `;
-  }, [antdPrefixCls, disableContentMargin]);
-
   const contentClassName = classNames(`${baseClassName}-content`, {
     [`${baseClassName}-has-header`]: headerDom,
     [`${baseClassName}-content-disable-margin`]: disableContentMargin,
-    [proLayoutDisableContentMargin]: disableContentMargin,
   });
 
   return (
@@ -610,6 +598,7 @@ const BaseProLayout: React.FC<ProLayoutProps> = (props) => {
               <div style={genLayoutStyle} className={context.getPrefixCls('layout')}>
                 {headerDom}
                 <WrapContent
+                  disableContentMargin={disableContentMargin}
                   isChildrenLayout={isChildrenLayout}
                   {...rest}
                   className={contentClassName}
