@@ -638,9 +638,6 @@ const SiderMenu: React.FC<SiderMenuProps & PrivateSiderMenuProps> = (props) => {
               flex-direction: column;
               height: 100%;
               border-right: 1px solid ${designToken.borderColorSplit};
-              > * {
-                contain: layout;
-              }
             }
           `,
         )}
