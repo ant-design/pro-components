@@ -41,7 +41,7 @@ const Card = React.forwardRef((props: CardProps, ref: any) => {
     direction,
     collapsed: controlCollapsed,
     collapsible = false,
-    collapsibleIcon,
+    renderCollapsibleIcon,
     defaultCollapsed = false,
     onCollapse,
     checked,
@@ -209,8 +209,8 @@ const Card = React.forwardRef((props: CardProps, ref: any) => {
   const collapsibleButton =
     collapsible &&
     controlCollapsed === undefined &&
-    (collapsibleIcon ? (
-      collapsibleIcon({ collapsed })
+    (renderCollapsibleIcon ? (
+      renderCollapsibleIcon({ collapsed })
     ) : (
       <RightOutlined
         rotate={!collapsed ? 90 : undefined}

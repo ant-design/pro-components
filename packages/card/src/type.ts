@@ -62,7 +62,7 @@ export type CardProps = {
   /** 受控 collapsed 属性 */
   collapsed?: boolean;
   /** 折叠按钮自定义节点 */
-  collapsibleIcon?: ({ collapsed }: { collapsed: boolean }) => React.ReactNode;
+  renderCollapsibleIcon?: ({ collapsed }: { collapsed: boolean }) => React.ReactNode;
   /** 配置默认是否折叠 */
   defaultCollapsed?: boolean;
   /** 收起卡片的事件 */

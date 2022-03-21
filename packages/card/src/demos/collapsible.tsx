@@ -45,7 +45,7 @@ export default () => {
       </ProCard>
       <ProCard
         title="可折叠-图标自定义"
-        collapsibleIcon={({ collapsed: bulitInCollapsed }: { collapsed: boolean }) =>
+        renderCollapsibleIcon={({ collapsed: bulitInCollapsed }: { collapsed: boolean }) =>
           bulitInCollapsed ? <span>收起 - </span> : <span>展开 - </span>
         }
         style={{ marginTop: 16 }}
