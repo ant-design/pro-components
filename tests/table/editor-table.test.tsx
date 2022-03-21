@@ -369,6 +369,19 @@ describe('EditorProTable', () => {
         });
     });
 
+    await waitForComponentToPaint(wrapper, 1000);
+
+    expect.any(wrapper.find('.ant-table-tbody tr.ant-table-row').at(1).find('input').exists());
+    expect(wrapper.find('.ant-table-tbody').find('tr.ant-table-row').length).toBe(6);
+
+    act(() => {
+      wrapper.find('.ant-table-tbody tr.ant-table-row').at(1).find(`td a`).at(0).simulate('click');
+    });
+
+    await waitForComponentToPaint(wrapper, 1000);
+
+    expect(wrapper.find('.ant-table-row.ant-table-row-level-1').length).toBe(2);
+
     wrapper.unmount();
   });
 
