@@ -1,5 +1,5 @@
-﻿import type { SketchPickerProps } from 'react-color';
-import { SketchPicker } from 'react-color';
+﻿import type { SketchPickerProps } from '@chenshuai2144/sketch-color';
+import { SketchPicker } from '@chenshuai2144/sketch-color';
 import React, { useContext } from 'react';
 import useMergedState from 'rc-util/lib/hooks/useMergedState';
 import type { PopoverProps } from 'antd';

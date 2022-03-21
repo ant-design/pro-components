@@ -34,7 +34,7 @@ const Demo = () => {
         ]}
         alwaysShowItemLabel
       >
-        <ProForm.Group>
+        <ProForm.Group key="group">
           <ProFormSelect
             options={[
               {
@@ -71,7 +71,7 @@ const Demo = () => {
             }}
           </ProFormDependency>
 
-          <ProFormDependency name={['globalUseMode']} ignoreFormListField>
+          <ProFormDependency key="globalUseMode" name={['globalUseMode']} ignoreFormListField>
             {({ globalUseMode }) => {
               if (globalUseMode === 'select') {
                 return (

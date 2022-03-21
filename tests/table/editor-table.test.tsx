@@ -328,6 +328,50 @@ describe('EditorProTable', () => {
     wrapper.unmount();
   });
 
+  it('📝 EditableProTable add support parentKey when newRecordType = cache', async () => {
+    const fn = jest.fn();
+    const wrapper = mount(
+      <EditableProTable<DataSourceType>
+        rowKey="id"
+        recordCreatorProps={{
+          newRecordType: 'cache',
+          record: () => ({
+            id: 555,
+          }),
+          parentKey: () => 624748504,
+          id: 'add_new',
+        }}
+        columns={columns}
+        defaultValue={defaultData}
+        onChange={(list) => fn(list.length)}
+        expandable={{
+          defaultExpandAllRows: true,
+        }}
+      />,
+    );
+    await waitForComponentToPaint(wrapper, 1000);
+    act(() => {
+      wrapper.find('button#add_new').at(0).simulate('click');
+    });
+    await waitForComponentToPaint(wrapper, 2000);
+
+    expect(fn).not.toBeCalled();
+    act(() => {
+      wrapper
+        .find('.ant-table-tbody tr.ant-table-row')
+        .at(1)
+        .find(`td .ant-input`)
+        .at(0)
+        .simulate('change', {
+          target: {
+            value: 'zqran',
+          },
+        });
+    });
+
+    wrapper.unmount();
+  });
+
   it('📝 EditableProTable support maxLength', async () => {
     const wrapper = mount(
       <EditableProTable<DataSourceType>
@@ -724,6 +768,59 @@ describe('EditorProTable', () => {
         },
       ]),
     );
+  });
+
+  it('📝 EditableProTable ensures that xxxProps are functions also executed', async () => {
+    const errorSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
+
+    const formItemPropsFn = jest.fn();
+    const fieldPropsFn = jest.fn();
+
+    const currentlyColumns: ProColumns<DataSourceType>[] = [
+      {
+        dataIndex: 'index',
+        valueType: 'indexBorder',
+        width: 48,
+        renderFormItem: () => <InputNumber />,
+      },
+      {
+        title: '标题',
+        dataIndex: 'title',
+        formItemProps: formItemPropsFn,
+        fieldProps: fieldPropsFn,
+      },
+    ];
+
+    const wrapper = mount(
+      <ProForm
+        initialValues={{
+          table: [
+            {
+              id: '624748504',
+              title: '🐛 [BUG]yarn install命令 antd2.4.5会报错',
+            },
+          ],
+        }}
+      >
+        <EditableProTable<DataSourceType>
+          rowKey="id"
+          controlled
+          name="table"
+          editable={{
+            editableKeys: ['624748504'],
+          }}
+          columns={currentlyColumns}
+        />
+      </ProForm>,
+    );
+    await waitForComponentToPaint(wrapper, 100);
+
+    expect(formItemPropsFn).toBeCalled();
+    expect(fieldPropsFn).toBeCalled();
+
+    expect(errorSpy).not.toBeCalled();
+
+    errorSpy.mockRestore();
   });
 
   it('📝 EditableProTable support recordCreatorProps.position', async () => {

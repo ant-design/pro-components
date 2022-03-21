@@ -39,7 +39,7 @@ export default () => {
           },
         ]}
       >
-        <ProFormText name="name" label="姓名" />
+        <ProFormText key="useMode" name="name" label="姓名" />
       </ProFormList>
     </ProForm>
   );

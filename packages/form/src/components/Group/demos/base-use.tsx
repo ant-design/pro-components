@@ -21,8 +21,8 @@ const Demo = () => {
           return (
             <>
               <ProFormText initialValue={index} name="rowKey" label={`第 ${index} 配置`} />
-              <ProFormText name="name" label="姓名" />
-              <ProFormDependency name={['name']}>
+              <ProFormText name="name" key="name" label="姓名" />
+              <ProFormDependency key="remark" name={['name']}>
                 {({ name }) => {
                   if (!name) {
                     return (

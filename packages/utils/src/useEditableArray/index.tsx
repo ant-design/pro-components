@@ -142,7 +142,7 @@ export type ActionRenderConfig<T, LineConfig = NewLineConfig<T>> = {
  * @param params
  * @param action
  */
-function editableRowByKey<RecordType>(
+export function editableRowByKey<RecordType>(
   params: {
     data: RecordType[];
     childrenColumnName: string;
@@ -634,7 +634,7 @@ function useEditableArray<RecordType>(
     // 如果是dataSource 新增模式的话，取消再开始编辑，
     // 这样就可以把新增到 dataSource的数据进入编辑模式了
     // [a,b,cache] => [a,b,c]
-    if (options?.newRecordType === 'dataSource') {
+    if (options?.newRecordType === 'dataSource' || props.tableName) {
       const actionProps = {
         data: props.dataSource,
         getRowKey: props.getRowKey,

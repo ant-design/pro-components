@@ -6,7 +6,7 @@ import omit from 'omit.js';
 
 export const field: ProSchemaRenderValueTypeFunction = (
   item,
-  { action, refMap, type, originItem },
+  { action, formRef, type, originItem },
 ) => {
   /** 公用的 类型 props */
   const formFieldProps: Omit<ProFormFieldProps, 'fieldProps' | 'formItemProps'> = {
@@ -44,7 +44,7 @@ export const field: ProSchemaRenderValueTypeFunction = (
             defaultRender,
             type,
           },
-          refMap.form!,
+          formRef.current!,
         );
       }
     : undefined;

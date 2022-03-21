@@ -45,7 +45,7 @@ SchemaForm 表单最重要就是 Schema 的类型定义，我们使用了与 tab
 | --- | --- | --- |
 | `key` | `React.key` | 确定这个列的唯一值,一般用于 dataIndex 重复的情况 |
 | `dataIndex` | `React.key` \| `React.key[]` | 与实体映射的 key，数组会被转化 `[a,b] => Entity.a.b` |
-| `valueType` | `ProFieldValueType` | 数据的渲渲染方式，我们自带了一部分，你可以可以自定义 valueType |
+| `valueType` | `ProFieldValueType` | 数据的渲渲染方式，我们自带了一部分，你也可以自定义 valueType |
 | `title` | `ReactNode` \|`(props,type,dom)=> ReactNode` | 标题的内容，在 form 中是 label |
 | `tooltip` | `string` | 会在 title 旁边展示一个 icon，鼠标浮动之后展示 |
 | `valueEnum` | `(Entity)=> ValueEnum` \| `ValueEnum` | 支持 object 和 Map，Map 是支持其他基础类型作为 key |
@@ -54,7 +54,7 @@ SchemaForm 表单最重要就是 Schema 的类型定义，我们使用了与 tab
 | `proFieldProps` | `proFieldProps` | 设置到 `ProField` 上面的 `props`，内部属性 |
 | `renderText` | `(text: any, record: Entity, index: number, action: ProCoreActionType) => any` | 修改的数据是会被 valueType 定义的渲染组件消费 |
 | `render` | `(dom,entity,index, action, schema) => React.ReactNode` | 自定义只读模式的 dom,`render` 方法只管理的只读模式，编辑模式需要使用 `renderFormItem` |
-| `renderFormItem` | `(schema,config,form) => React.ReactNode` | 自定义编辑模式,返回一个 ReactNode，会自动包裹 value 和 onChange。如返回 false,null,undefined 将不展示表单项 |
+| `renderFormItem` | `(schema,config,form) => React.ReactNode` | 自定义编辑模式,返回一个 ReactNode，会自动包裹 value 和 onChange。~~如返回 false,null,undefined 将不展示表单项~~ 请使用 dependency 组件控制是否渲染列 |
 | `request` | `(params,props) => Promise<{label,value}[]>` | 从远程请求网络数据，一般用于选择类组件 |
 | `params` | `Record<string, any>` | 额外传递给 `request` 的参数，组件不做处理,但是变化会引起`request` 重新请求数据 |
 | `dependencies` | `string \| number \| (string \| number)[]` | 所依赖的 values 变化后，触发 renderFormItem，fieldProps，formItemProps 重新执行，并把 values 注入到 params 里 [示例](#使用-dependencies-触发-fieldpropsformitempropsrenderformitem-更新) |

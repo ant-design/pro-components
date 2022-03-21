@@ -1,5 +1,5 @@
 import './index.less';
-import React from 'react';
+import React, { useContext } from 'react';
 import classNames from 'classnames';
 
 import type { HeaderViewProps } from '../../Header';
@@ -14,6 +14,7 @@ import TopNavHeader from '../TopNavHeader';
 import type { MenuDataItem } from '../../index';
 import type { WithFalse } from '../../typings';
 import { clearMenuItem } from '../../utils/utils';
+import { ConfigProvider } from 'antd';
 
 export type GlobalHeaderProps = {
   collapsed?: boolean;
@@ -67,6 +68,7 @@ const GlobalHeader: React.FC<GlobalHeaderProps & PrivateSiderMenuProps> = (props
     menuData,
     prefixCls,
   } = props;
+  const { direction } = useContext(ConfigProvider.ConfigContext);
   const baseClassName = `${prefixCls}-global-header`;
   const className = classNames(propClassName, baseClassName, {
     [`${baseClassName}-layout-${layout}`]: layout && headerTheme === 'dark',
@@ -90,8 +92,12 @@ const GlobalHeader: React.FC<GlobalHeaderProps & PrivateSiderMenuProps> = (props
     );
   }
 
+  const logoClassNames = classNames(`${baseClassName}-logo`, {
+    [`${baseClassName}-logo-rtl`]: direction === 'rtl',
+  });
+
   const logoDom = (
-    <span className={`${baseClassName}-logo`} key="logo">
+    <span className={logoClassNames} key="logo">
       <a>{defaultRenderLogo(logo)}</a>
     </span>
   );
@@ -113,7 +119,7 @@ const GlobalHeader: React.FC<GlobalHeaderProps & PrivateSiderMenuProps> = (props
       )}
       {layout === 'mix' && !isMobile && (
         <>
-          <div className={`${baseClassName}-logo`} onClick={onMenuHeaderClick}>
+          <div className={logoClassNames} onClick={onMenuHeaderClick}>
             {defaultRenderLogoAndTitle({ ...props, collapsed: false }, 'headerTitleRender')}
           </div>
         </>

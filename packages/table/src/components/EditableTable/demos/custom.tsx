@@ -204,6 +204,9 @@ export default () => {
 
       <EditableProTable<DataSourceType>
         rowKey="id"
+        scroll={{
+          x: 960,
+        }}
         actionRef={actionRef}
         headerTitle="可编辑表格"
         maxLength={5}

@@ -19,7 +19,7 @@ import type {
   UseEditableType,
   UseEditableUtilType,
 } from './useEditableArray';
-import useEditableArray from './useEditableArray';
+import useEditableArray, { editableRowByKey, recordKeyToString } from './useEditableArray';
 import type { UseEditableMapType, UseEditableMapUtilType } from './useEditableMap';
 import useEditableMap from './useEditableMap';
 import useMountMergeState from './useMountMergeState';
@@ -39,6 +39,7 @@ import useLatest from './hooks/useLatest';
 /** Type */
 import type {
   ProSchema,
+  ProFieldValueTypeWithFieldProps,
   ProSchemaValueEnumMap,
   ProSchemaValueEnumObj,
   ProSchemaComponentTypes,
@@ -79,6 +80,7 @@ export type {
   SearchConvertKeyFn,
   RequestOptionsType,
   ProSchema,
+  ProFieldValueTypeWithFieldProps,
   ProSchemaValueType,
   ProCoreActionType,
   ProSchemaComponentTypes,
@@ -139,6 +141,8 @@ export {
   getFieldPropsOrFormItemProps,
   dateArrayFormatter,
   nanoid,
+  editableRowByKey,
+  recordKeyToString,
   // hooks
   useEditableArray,
   useEditableMap,

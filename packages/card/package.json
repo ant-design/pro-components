@@ -1,6 +1,6 @@
 {
   "name": "@ant-design/pro-card",
-  "version": "1.18.36",
+  "version": "1.18.41",
   "description": "@ant-design/pro-card",
   "keywords": [
     "antd",
@@ -34,7 +34,7 @@
   ],
   "dependencies": {
     "@ant-design/icons": "^4.2.1",
-    "@ant-design/pro-utils": "1.35.2",
+    "@ant-design/pro-utils": "1.37.1",
     "@babel/runtime": "^7.16.3",
     "classnames": "^2.2.6",
     "omit.js": "^2.0.2",

@@ -18,6 +18,10 @@ StepsForm 通过 Provider 来管理子表单的数据，每个字表单都是完
 
 <code src="./demos/steps-from.tsx" height="532px" title="分步表单" />
 
+## 分步表单垂直模式
+
+<code src="./demos/steps-form-vertical.tsx" height="532px" title="分步表单垂直模式" />
+
 ## 自定义分步表单按钮
 
 <code src="./demos/customize-steps-from.tsx" height="532px" title="自定义分步表单按钮"/>

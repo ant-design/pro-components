@@ -24,7 +24,7 @@ type BaseFormProps<T, U> = {
   search: ProTableProps<T, U, any>['search'];
   manualRequest: ProTableProps<T, U, any>['manualRequest'];
 };
-class FormSearch<T, U> extends React.Component<BaseFormProps<T, U>> {
+class FormSearch<T, U> extends React.Component<BaseFormProps<T, U> & { ghost?: boolean }> {
   /** 查询表单相关的配置 */
 
   onSubmit = (value: U, firstLoad: boolean) => {
@@ -150,6 +150,7 @@ class FormSearch<T, U> extends React.Component<BaseFormProps<T, U>> {
       form,
       search,
       pagination,
+      ghost,
       manualRequest,
     } = this.props;
 
@@ -164,6 +165,7 @@ class FormSearch<T, U> extends React.Component<BaseFormProps<T, U>> {
         submitButtonLoading={loading}
         columns={columns!}
         type={type}
+        ghost={ghost}
         formRef={formRef!}
         onSubmit={this.onSubmit}
         manualRequest={manualRequest}
@@ -171,6 +173,7 @@ class FormSearch<T, U> extends React.Component<BaseFormProps<T, U>> {
         dateFormatter={dateFormatter}
         search={search}
         form={{
+          autoFocusFirstInput: false,
           ...form,
           extraUrlParams: {
             ...pageInfo,
