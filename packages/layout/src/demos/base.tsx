@@ -319,13 +319,13 @@ export default () => {
         }}
         onMenuHeaderClick={(e) => console.log(e)}
         menuItemRender={(item, dom) => (
-          <a
+          <div
             onClick={() => {
               setPathname(item.path || '/welcome');
             }}
           >
             {dom}
-          </a>
+          </div>
         )}
         {...settings}
       >

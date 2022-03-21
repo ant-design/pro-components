@@ -39,7 +39,10 @@ export type MenuDataItem = {
   flatMenu?: boolean;
   /** @name 指定外链打开形式，同a标签 */
   target?: string;
-
+  /**
+   * menuItem 的 tooltip 显示的路径
+   */
+  tooltip?: string;
   [key: string]: any;
 };
 

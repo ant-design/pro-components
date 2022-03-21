@@ -526,21 +526,9 @@ const BaseProLayout: React.FC<ProLayoutProps> = (props) => {
 
   const antdPrefixCls = context.getPrefixCls();
 
-  /** Disable之后样式 */
-  const proLayoutDisableContentMargin = useMemo(() => {
-    if (!disableContentMargin) return '';
-    return css`
-      margin: 0 !important;
-      .${antdPrefixCls}-pro-page-container {
-        margin: 0;
-      }
-    `;
-  }, [antdPrefixCls, disableContentMargin]);
-
   const contentClassName = classNames(`${baseClassName}-content`, {
     [`${baseClassName}-has-header`]: headerDom,
     [`${baseClassName}-content-disable-margin`]: disableContentMargin,
-    [proLayoutDisableContentMargin]: disableContentMargin,
   });
 
   return (
@@ -585,23 +573,21 @@ const BaseProLayout: React.FC<ProLayoutProps> = (props) => {
               `,
             )}
           >
-            {bgImgStyleList && (
-              <div
-                className={css`
-                  pointer-events: none;
-                  position: fixed;
-                  overflow: hidden;
-                  top: 0;
-                  left: 0;
-                  z-index: 0;
-                  height: 100%;
-                  width: 100%;
-                  background: ${designToken.layoutBg};
-                `}
-              >
-                {bgImgStyleList}
-              </div>
-            )}
+            <div
+              className={css`
+                pointer-events: none;
+                position: fixed;
+                overflow: hidden;
+                top: 0;
+                left: 0;
+                z-index: 0;
+                height: 100%;
+                width: 100%;
+                background: ${designToken.layoutBg};
+              `}
+            >
+              {bgImgStyleList}
+            </div>
             <Layout
               style={{
                 minHeight: '100%',
@@ -612,6 +598,7 @@ const BaseProLayout: React.FC<ProLayoutProps> = (props) => {
               <div style={genLayoutStyle} className={context.getPrefixCls('layout')}>
                 {headerDom}
                 <WrapContent
+                  disableContentMargin={disableContentMargin}
                   isChildrenLayout={isChildrenLayout}
                   {...rest}
                   className={contentClassName}

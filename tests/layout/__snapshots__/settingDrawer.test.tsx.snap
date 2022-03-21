@@ -675,7 +675,7 @@ exports[`settingDrawer.test 🌺 base user 1`] = `
         </div>
       </div>
       <div
-        class="ant-pro-setting-drawer-handle ant-design-pro-layout-nq8m5w"
+        class="ant-pro-setting-drawer-handle ant-design-pro-layout-17figvx"
       >
         <span
           aria-label="close"
@@ -1305,7 +1305,7 @@ exports[`settingDrawer.test 🌺 hideColors = true 1`] = `
         </div>
       </div>
       <div
-        class="ant-pro-setting-drawer-handle ant-design-pro-layout-nq8m5w"
+        class="ant-pro-setting-drawer-handle ant-design-pro-layout-17figvx"
       >
         <span
           aria-label="close"
@@ -1980,7 +1980,7 @@ exports[`settingDrawer.test 🌺 hideCopyButton = true 1`] = `
         </div>
       </div>
       <div
-        class="ant-pro-setting-drawer-handle ant-design-pro-layout-nq8m5w"
+        class="ant-pro-setting-drawer-handle ant-design-pro-layout-17figvx"
       >
         <span
           aria-label="close"
@@ -2648,7 +2648,7 @@ exports[`settingDrawer.test 🌺 hideHintAlert = true 1`] = `
         </div>
       </div>
       <div
-        class="ant-pro-setting-drawer-handle ant-design-pro-layout-nq8m5w"
+        class="ant-pro-setting-drawer-handle ant-design-pro-layout-17figvx"
       >
         <span
           aria-label="close"
@@ -3351,7 +3351,7 @@ exports[`settingDrawer.test 🌺 settings = undefined 1`] = `
         </div>
       </div>
       <div
-        class="ant-pro-setting-drawer-handle ant-design-pro-layout-nq8m5w"
+        class="ant-pro-setting-drawer-handle ant-design-pro-layout-17figvx"
       >
         <span
           aria-label="close"
