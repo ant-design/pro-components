@@ -27,9 +27,9 @@ const getProLayoutHeaderCss = (designToken: LayoutDesignToken) => css`
   backdrop-filter: blur(20px) saturate(150%);
   border-bottom: 1px solid ${designToken.borderColorSplit};
   transition: width 0.3s cubic-bezier(0.645, 0.045, 0.355, 1);
-  background-color: ${designToken.layoutBgColor};
+  background-color: ${designToken.header.headerBgColor};
   @supports (backdrop-filter: blur(20px) saturate(150%)) {
-    background-color: transparent;
+    background-color: ${designToken.header.headerBgColor};
     backdrop-filter: blur(20px) saturate(150%);
   }
 `;
@@ -129,6 +129,7 @@ const DefaultHeader: React.FC<HeaderViewProps & PrivateSiderMenuProps> = (props)
 
   if (layout === 'side') return null;
 
+  console.log('designToken', designToken);
   return (
     <>
       {needFixedHeader && (
@@ -149,7 +150,6 @@ const DefaultHeader: React.FC<HeaderViewProps & PrivateSiderMenuProps> = (props)
           css({
             height: headerHeight,
             lineHeight: `${headerHeight}px`,
-            backgroundColor: `${designToken.header.headerBgColor} !important`,
             width: '100%',
             zIndex: layout === 'mix' ? 100 : 19,
             right,
