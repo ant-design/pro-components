@@ -40,7 +40,6 @@ const GridContent: React.FC<GridContentProps> = (props) => {
         },
         css`
           width: 100%;
-          contain: layout;
           .${prefixCls}-card:not(.${prefixCls}-card-ghost) {
             border-radius: 6px;
             box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.05), 0 1px 2px 0 rgba(25, 15, 15, 0.07),

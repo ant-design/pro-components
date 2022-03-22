@@ -1,12 +1,14 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 import type { ReactNode } from 'react';
 import React, { useContext, useEffect, useMemo } from 'react';
+import { createPortal } from 'react-dom';
 import { ConfigProvider } from 'antd';
 import omit from 'omit.js';
 import type { RouteContextType } from '../../index';
 import { RouteContext } from '../../index';
 import { css, cx } from '../../emotion';
 import { ProLayoutContext } from '../../ProLayoutContext';
+import { isBrowser } from '@ant-design/pro-utils';
 
 export type FooterToolbarProps = {
   extra?: React.ReactNode;
@@ -82,7 +84,7 @@ const FooterToolbar: React.FC<FooterToolbarProps> = (props) => {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
-  return (
+  const renderDom = (
     <div
       className={cx(
         className,
@@ -121,6 +123,8 @@ const FooterToolbar: React.FC<FooterToolbarProps> = (props) => {
         : dom}
     </div>
   );
+  if (!isBrowser()) return renderDom;
+  return createPortal(renderDom, document.body);
 };
 
 export { FooterToolbar };

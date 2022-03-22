@@ -369,7 +369,6 @@ const SettingDrawer: React.FC<SettingDrawerProps> = (props) => {
               height: 48px;
               font-size: 16px;
               text-align: center;
-              background-color: @primary-color;
               background-color: var(--ant-primary-color);
               border-radius: 4px 0 0 4px;
               cursor: pointer;

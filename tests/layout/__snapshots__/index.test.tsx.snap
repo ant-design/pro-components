@@ -5,6 +5,9 @@ Array [
   <div
     class="ant-design-pro ant-pro-basicLayout ant-pro-basicLayout-fix-siderbar ant-pro-basicLayout-side ant-design-pro-layout-1a98z39"
   >
+    <div
+      class="ant-design-pro-layout-d08s5k"
+    />
     <section
       class="ant-layout"
       style="min-height:100%"
@@ -13,7 +16,7 @@ Array [
         class="ant-design-pro-layout-l4gpps"
       />
       <aside
-        class="ant-layout-sider ant-layout-sider-light ant-pro-sider ant-pro-sider-fixed ant-pro-sider-layout-side ant-pro-sider-light ant-design-pro-layout-f14nv1"
+        class="ant-layout-sider ant-layout-sider-light ant-pro-sider ant-pro-sider-fixed ant-pro-sider-layout-side ant-pro-sider-light ant-design-pro-layout-1k9jad6"
         style="background-color:transparent;flex:0 0 256px;max-width:256px;min-width:256px;width:256px"
       >
         <div
@@ -213,6 +216,9 @@ Array [
   <div
     class="ant-design-pro ant-pro-basicLayout ant-pro-basicLayout-top-menu ant-pro-basicLayout-fix-siderbar ant-pro-basicLayout-top ant-design-pro-layout-1a98z39"
   >
+    <div
+      class="ant-design-pro-layout-d08s5k"
+    />
     <section
       class="ant-layout"
       style="min-height:100%"
@@ -406,6 +412,9 @@ Array [
   <div
     class="ant-design-pro ant-pro-basicLayout ant-pro-basicLayout-fix-siderbar ant-pro-basicLayout-mix ant-design-pro-layout-1a98z39"
   >
+    <div
+      class="ant-design-pro-layout-d08s5k"
+    />
     <section
       class="ant-layout"
       style="min-height:100%"
@@ -414,7 +423,7 @@ Array [
         class="ant-design-pro-layout-18ivuhd"
       />
       <aside
-        class="ant-layout-sider ant-layout-sider-light ant-pro-sider ant-pro-sider-fixed ant-pro-sider-layout-mix ant-pro-sider-light ant-design-pro-layout-pj3lg9"
+        class="ant-layout-sider ant-layout-sider-light ant-pro-sider ant-pro-sider-fixed ant-pro-sider-layout-mix ant-pro-sider-light ant-design-pro-layout-jcar9j"
         style="background-color:transparent;flex:0 0 215px;max-width:215px;min-width:215px;width:215px"
       >
         <div
@@ -632,6 +641,9 @@ exports[`BasicLayout 🥩 base use 1`] = `
 <div
   class="ant-design-pro ant-pro-basicLayout ant-pro-basicLayout-fix-siderbar ant-pro-basicLayout-side ant-design-pro-layout-1a98z39"
 >
+  <div
+    class="ant-design-pro-layout-d08s5k"
+  />
   <section
     class="ant-layout"
     style="min-height:100%"
@@ -640,7 +652,7 @@ exports[`BasicLayout 🥩 base use 1`] = `
       class="ant-design-pro-layout-l4gpps"
     />
     <aside
-      class="ant-layout-sider ant-layout-sider-light ant-pro-sider ant-pro-sider-fixed ant-pro-sider-layout-side ant-pro-sider-light ant-design-pro-layout-f14nv1"
+      class="ant-layout-sider ant-layout-sider-light ant-pro-sider ant-pro-sider-fixed ant-pro-sider-layout-side ant-pro-sider-light ant-design-pro-layout-1k9jad6"
       style="background-color:transparent;flex:0 0 256px;max-width:256px;min-width:256px;width:256px"
     >
       <div
@@ -818,6 +830,9 @@ exports[`BasicLayout 🥩 contentStyle should change dom 1`] = `
 <div
   class="ant-design-pro ant-pro-basicLayout ant-pro-basicLayout-fix-siderbar ant-pro-basicLayout-side ant-design-pro-layout-1a98z39"
 >
+  <div
+    class="ant-design-pro-layout-d08s5k"
+  />
   <section
     class="ant-layout"
     style="min-height:100%"
@@ -826,7 +841,7 @@ exports[`BasicLayout 🥩 contentStyle should change dom 1`] = `
       class="ant-design-pro-layout-l4gpps"
     />
     <aside
-      class="ant-layout-sider ant-layout-sider-light ant-pro-sider ant-pro-sider-fixed ant-pro-sider-layout-side ant-pro-sider-light ant-design-pro-layout-f14nv1"
+      class="ant-layout-sider ant-layout-sider-light ant-pro-sider ant-pro-sider-fixed ant-pro-sider-layout-side ant-pro-sider-light ant-design-pro-layout-1k9jad6"
       style="background-color:transparent;flex:0 0 256px;max-width:256px;min-width:256px;width:256px"
     >
       <div
@@ -1005,6 +1020,9 @@ exports[`BasicLayout 🥩 mix layout hideInMenu render right 1`] = `
 <div
   class="ant-design-pro ant-pro-basicLayout screen-md ant-pro-basicLayout-fix-siderbar ant-pro-basicLayout-side ant-design-pro-layout-1a98z39"
 >
+  <div
+    class="ant-design-pro-layout-d08s5k"
+  />
   <section
     class="ant-layout ant-layout-has-sider"
     style="min-height: 100%;"
@@ -1013,7 +1031,7 @@ exports[`BasicLayout 🥩 mix layout hideInMenu render right 1`] = `
       class="ant-design-pro-layout-l4gpps"
     />
     <aside
-      class="ant-layout-sider ant-layout-sider-light ant-pro-sider ant-pro-sider-fixed ant-pro-sider-layout-side ant-pro-sider-light ant-design-pro-layout-f14nv1"
+      class="ant-layout-sider ant-layout-sider-light ant-pro-sider ant-pro-sider-fixed ant-pro-sider-layout-side ant-pro-sider-light ant-design-pro-layout-1k9jad6"
       style="background-color: transparent; flex: 0 0 256px; max-width: 256px; min-width: 256px; width: 256px;"
     >
       <div
@@ -1166,7 +1184,7 @@ exports[`BasicLayout 🥩 mix layout hideInMenu render right 1`] = `
             tabindex="0"
           >
             <li
-              class="ant-pro-menu-submenu ant-design-pro-layout-wxcs7t"
+              class="ant-pro-menu-submenu ant-design-pro-layout-1ctwodb"
               role="none"
             >
               <div
@@ -1183,7 +1201,7 @@ exports[`BasicLayout 🥩 mix layout hideInMenu render right 1`] = `
                   class="ant-menu-title-content"
                 >
                   <span
-                    class="ant-pro-menu-item"
+                    class="ant-pro-menu-item ant-design-pro-layout-ytfc15"
                     title="管理页"
                   >
                     管理页
@@ -1195,17 +1213,18 @@ exports[`BasicLayout 🥩 mix layout hideInMenu render right 1`] = `
               </div>
             </li>
             <li
-              class="ant-pro-menu-item ant-design-pro-layout-hxmrjc"
+              class="ant-pro-menu-item ant-design-pro-layout-1jy8a3x"
               data-menu-id="rc-menu-uuid-84044-6-/list"
               role="menuitem"
               style="padding-left: 16px;"
               tabindex="-1"
+              title="列表页"
             >
               <span
                 class="ant-menu-title-content"
               >
                 <span
-                  class="ant-pro-menu-item"
+                  class="ant-pro-menu-item ant-design-pro-layout-70qvj9"
                 >
                   <span
                     class="ant-pro-menu-item-title"
@@ -1254,6 +1273,9 @@ exports[`BasicLayout 🥩 support loading 1`] = `
 <div
   class="ant-design-pro ant-pro-basicLayout screen-md ant-pro-basicLayout-fix-siderbar ant-pro-basicLayout-side ant-design-pro-layout-1a98z39"
 >
+  <div
+    class="ant-design-pro-layout-d08s5k"
+  />
   <section
     class="ant-layout ant-layout-has-sider"
     style="min-height: 100%;"
@@ -1262,7 +1284,7 @@ exports[`BasicLayout 🥩 support loading 1`] = `
       class="ant-design-pro-layout-l4gpps"
     />
     <aside
-      class="ant-layout-sider ant-layout-sider-light ant-pro-sider ant-pro-sider-fixed ant-pro-sider-layout-side ant-pro-sider-light ant-design-pro-layout-f14nv1"
+      class="ant-layout-sider ant-layout-sider-light ant-pro-sider ant-pro-sider-fixed ant-pro-sider-layout-side ant-pro-sider-light ant-design-pro-layout-1k9jad6"
       style="background-color: transparent; flex: 0 0 256px; max-width: 256px; min-width: 256px; width: 256px;"
     >
       <div

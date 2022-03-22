@@ -11,15 +11,24 @@ const WrapContent: React.FC<{
   className?: string;
   style?: CSSProperties;
   location?: any;
+  disableContentMargin?: boolean;
   contentHeight?: number | string;
   ErrorBoundary?: any;
 }> = (props) => {
   const context = useContext(ConfigProvider.ConfigContext);
-  const { style, className, children } = props;
+  const { style, className, children, disableContentMargin } = props;
   const ErrorComponent = props.ErrorBoundary || ErrorBoundary;
   const prefixCls = context.getPrefixCls();
 
   const ProLayoutCssContent = useMemo(() => {
+    if (disableContentMargin) {
+      return css`
+        position: relative;
+        > .${prefixCls}-layout {
+          max-height: 100%;
+        }
+      `;
+    }
     return css`
       position: relative;
       margin: 24px;
@@ -30,7 +39,7 @@ const WrapContent: React.FC<{
         margin: -24px -24px 0;
       }
     `;
-  }, [prefixCls]);
+  }, [prefixCls, disableContentMargin]);
 
   return (
     <ConfigProviderWrap autoClearCache>
