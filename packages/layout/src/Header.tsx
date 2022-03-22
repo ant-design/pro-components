@@ -129,7 +129,6 @@ const DefaultHeader: React.FC<HeaderViewProps & PrivateSiderMenuProps> = (props)
 
   if (layout === 'side') return null;
 
-  console.log('designToken', designToken);
   return (
     <>
       {needFixedHeader && (
