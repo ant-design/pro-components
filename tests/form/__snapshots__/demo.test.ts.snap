@@ -32469,7 +32469,7 @@ exports[`form demos 📸 renders ./packages/form/src/demos/layout-base.tsx corre
           style="height: 56px; line-height: 56px; background: transparent;"
         />
         <header
-          class="ant-layout-header ant-pro-fixed-header ant-pro-header ant-design-pro-layout-1qqus2t"
+          class="ant-layout-header ant-pro-fixed-header ant-pro-header ant-design-pro-layout-1e1t7vo"
         >
           <div
             class="ant-pro-global-header ant-pro-global-header-layout-mix ant-design-pro-layout-1n57u1k"

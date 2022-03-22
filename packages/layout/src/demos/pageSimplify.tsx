@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Button, Divider, Input, Dropdown } from 'antd';
+import { Divider, Input, Dropdown } from 'antd';
 import {
   GithubFilled,
   QuestionCircleFilled,
@@ -12,7 +12,7 @@ import {
 import { css } from '@emotion/css';
 
 import type { ProSettings } from '@ant-design/pro-layout';
-import { ProLayout, PageContainer, SettingDrawer } from '@ant-design/pro-layout';
+import { ProLayout, PageContainer } from '@ant-design/pro-layout';
 import defaultProps from './_defaultProps';
 import ProCard from '@ant-design/pro-card';
 
@@ -75,11 +75,11 @@ const List: React.FC<{ title: string; style?: React.CSSProperties }> = (props) =
 };
 
 export default () => {
-  const [settings, setSetting] = useState<Partial<ProSettings> | undefined>({
+  const settings: Partial<ProSettings> | undefined = {
     fixSiderbar: true,
     layout: 'mix',
     splitMenus: true,
-  });
+  };
 
   const [pathname, setPathname] = useState('/list/sub-page/sub-sub-page1');
 
@@ -175,7 +175,7 @@ export default () => {
             <GithubFilled key="GithubFilled" />,
           ];
         }}
-        headerContentRender={(_, defaultDom) => {
+        headerContentRender={() => {
           return (
             <>
               <div
