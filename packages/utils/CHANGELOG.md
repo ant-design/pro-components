@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.37.2](https://github.com/ant-design/pro-components/compare/@ant-design/pro-utils@1.37.1...@ant-design/pro-utils@1.37.2) (2022-03-22)
+
+### Bug Fixes
+
+- **table:** fix actionSaveRef logic when add new line ([#4881](https://github.com/ant-design/pro-components/issues/4881)) ([09673c9](https://github.com/ant-design/pro-components/commit/09673c97107be133757dabd878687c9386ec3196))
+
 ## [1.37.1](https://github.com/ant-design/pro-components/compare/@ant-design/pro-utils@1.37.0...@ant-design/pro-utils@1.37.1) (2022-03-18)
 
 ### Bug Fixes
