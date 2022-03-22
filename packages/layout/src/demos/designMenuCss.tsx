@@ -105,6 +105,7 @@ export default () => {
             menuBackgroundColor: '#fff',
             menuItemDividerColor: '#dfdfdf',
             menuTextColor: '#595959',
+            menuHoverTextColor: 'rgba(42,122,251,1)',
             menuSelectedTextColor: 'rgba(42,122,251,1)',
             menuItemSelectedBgColor: 'rgba(230,243,254,1)',
           },
