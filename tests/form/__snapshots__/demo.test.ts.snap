@@ -32370,7 +32370,7 @@ exports[`form demos 📸 renders ./packages/form/src/demos/layout-base.tsx corre
         class="ant-design-pro-layout-iyyuqj"
       />
       <aside
-        class="ant-layout-sider ant-layout-sider-light ant-layout-sider-collapsed ant-pro-sider ant-pro-sider-fixed ant-pro-sider-layout-mix ant-pro-sider-light ant-design-pro-layout-pj3lg9"
+        class="ant-layout-sider ant-layout-sider-light ant-layout-sider-collapsed ant-pro-sider ant-pro-sider-fixed ant-pro-sider-layout-mix ant-pro-sider-light ant-design-pro-layout-jcar9j"
         style="background-color: transparent; flex: 0 0 60px; max-width: 60px; min-width: 60px; width: 60px;"
       >
         <div
@@ -32679,7 +32679,7 @@ exports[`form demos 📸 renders ./packages/form/src/demos/layout-base.tsx corre
               </div>
             </div>
             <div
-              class="ant-pro-grid-content ant-design-pro-layout-1jhi6fd"
+              class="ant-pro-grid-content ant-design-pro-layout-1tdsdl"
             >
               <div
                 class="ant-pro-grid-content-children"

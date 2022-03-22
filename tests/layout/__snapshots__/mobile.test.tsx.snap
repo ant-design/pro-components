@@ -38,7 +38,7 @@ exports[`mobile BasicLayout 📱 base use 1`] = `
                   style="height: 100vh; padding: 0px; display: flex; flex-direction: row;"
                 >
                   <aside
-                    class="ant-layout-sider ant-layout-sider-light ant-pro-sider ant-pro-sider-fixed ant-pro-sider-light ant-design-pro-layout-f14nv1"
+                    class="ant-layout-sider ant-layout-sider-light ant-pro-sider ant-pro-sider-fixed ant-pro-sider-light ant-design-pro-layout-1k9jad6"
                     style="background-color: transparent; flex: 0 0 256px; max-width: 256px; min-width: 256px; width: 256px;"
                   >
                     <div
@@ -300,7 +300,7 @@ exports[`mobile BasicLayout 📱 collapsed=false 1`] = `
                   style="height: 100vh; padding: 0px; display: flex; flex-direction: row;"
                 >
                   <aside
-                    class="ant-layout-sider ant-layout-sider-light ant-pro-sider ant-pro-sider-fixed ant-pro-sider-light ant-design-pro-layout-f14nv1"
+                    class="ant-layout-sider ant-layout-sider-light ant-pro-sider ant-pro-sider-fixed ant-pro-sider-light ant-design-pro-layout-1k9jad6"
                     style="background-color: transparent; flex: 0 0 256px; max-width: 256px; min-width: 256px; width: 256px;"
                   >
                     <div
@@ -562,7 +562,7 @@ exports[`mobile BasicLayout 📱 layout menuHeaderRender 1`] = `
                   style="height: 100vh; padding: 0px; display: flex; flex-direction: row;"
                 >
                   <aside
-                    class="ant-layout-sider ant-layout-sider-light ant-pro-sider ant-pro-sider-fixed ant-pro-sider-light ant-design-pro-layout-f14nv1"
+                    class="ant-layout-sider ant-layout-sider-light ant-pro-sider ant-pro-sider-fixed ant-pro-sider-light ant-design-pro-layout-1k9jad6"
                     style="background-color: transparent; flex: 0 0 215px; max-width: 215px; min-width: 215px; width: 215px;"
                   >
                     <div
@@ -710,7 +710,7 @@ exports[`mobile BasicLayout 📱 layout menuHeaderRender 2`] = `
                   style="height: 100vh; padding: 0px; display: flex; flex-direction: row;"
                 >
                   <aside
-                    class="ant-layout-sider ant-layout-sider-light ant-pro-sider ant-pro-sider-fixed ant-pro-sider-light ant-design-pro-layout-f14nv1"
+                    class="ant-layout-sider ant-layout-sider-light ant-pro-sider ant-pro-sider-fixed ant-pro-sider-light ant-design-pro-layout-1k9jad6"
                     style="background-color: transparent; flex: 0 0 215px; max-width: 215px; min-width: 215px; width: 215px;"
                   >
                     <div
@@ -858,7 +858,7 @@ exports[`mobile BasicLayout 📱 layout menuHeaderRender=false 1`] = `
                   style="height: 100vh; padding: 0px; display: flex; flex-direction: row;"
                 >
                   <aside
-                    class="ant-layout-sider ant-layout-sider-light ant-pro-sider ant-pro-sider-fixed ant-pro-sider-light ant-design-pro-layout-f14nv1"
+                    class="ant-layout-sider ant-layout-sider-light ant-pro-sider ant-pro-sider-fixed ant-pro-sider-light ant-design-pro-layout-1k9jad6"
                     style="background-color: transparent; flex: 0 0 215px; max-width: 215px; min-width: 215px; width: 215px;"
                   >
                     <div
@@ -999,7 +999,7 @@ exports[`mobile BasicLayout 📱 layout=mix 1`] = `
                   style="height: 100vh; padding: 0px; display: flex; flex-direction: row;"
                 >
                   <aside
-                    class="ant-layout-sider ant-layout-sider-light ant-pro-sider ant-pro-sider-fixed ant-pro-sider-light ant-design-pro-layout-f14nv1"
+                    class="ant-layout-sider ant-layout-sider-light ant-pro-sider ant-pro-sider-fixed ant-pro-sider-light ant-design-pro-layout-1k9jad6"
                     style="background-color: transparent; flex: 0 0 215px; max-width: 215px; min-width: 215px; width: 215px;"
                   >
                     <div
@@ -1272,7 +1272,7 @@ exports[`mobile BasicLayout 📱 layout=mix and splitMenus 1`] = `
                   style="height: 100vh; padding: 0px; display: flex; flex-direction: row;"
                 >
                   <aside
-                    class="ant-layout-sider ant-layout-sider-light ant-pro-sider ant-pro-sider-fixed ant-pro-sider-light ant-design-pro-layout-f14nv1"
+                    class="ant-layout-sider ant-layout-sider-light ant-pro-sider ant-pro-sider-fixed ant-pro-sider-light ant-design-pro-layout-1k9jad6"
                     style="background-color: transparent; flex: 0 0 215px; max-width: 215px; min-width: 215px; width: 215px;"
                   >
                     <div

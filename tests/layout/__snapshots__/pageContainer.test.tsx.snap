@@ -138,7 +138,7 @@ exports[`PageContainer ⚡️ support loading 1`] = `
     </div>
   </div>
   <div
-    class="ant-pro-grid-content ant-design-pro-layout-1jhi6fd"
+    class="ant-pro-grid-content ant-design-pro-layout-1tdsdl"
   >
     <div
       class="ant-pro-grid-content-children"
@@ -199,7 +199,7 @@ exports[`PageContainer ⚡️ support more loading props 1`] = `
     </div>
   </div>
   <div
-    class="ant-pro-grid-content ant-design-pro-layout-1jhi6fd"
+    class="ant-pro-grid-content ant-design-pro-layout-1tdsdl"
   >
     <div
       class="ant-pro-grid-content-children"
@@ -265,7 +265,7 @@ exports[`PageContainer 🌛 PageContainer with custom loading 1`] = `
     </div>
   </div>
   <div
-    class="ant-pro-grid-content ant-design-pro-layout-1jhi6fd"
+    class="ant-pro-grid-content ant-design-pro-layout-1tdsdl"
   >
     <div
       class="ant-pro-grid-content-children"
@@ -495,7 +495,7 @@ exports[`PageContainer 🐲 FooterToolbar should know width 1`] = `
             />
           </div>
           <div
-            class="ant-pro-grid-content ant-design-pro-layout-1jhi6fd"
+            class="ant-pro-grid-content ant-design-pro-layout-1tdsdl"
           >
             <div
               class="ant-pro-grid-content-children"
@@ -875,7 +875,7 @@ exports[`PageContainer 🐲 pro-layout support breadcrumbProps 1`] = `
       class="ant-design-pro-layout-l4gpps"
     />
     <aside
-      class="ant-layout-sider ant-layout-sider-light ant-pro-sider ant-pro-sider-fixed ant-pro-sider-layout-side ant-pro-sider-light ant-design-pro-layout-f14nv1"
+      class="ant-layout-sider ant-layout-sider-light ant-pro-sider ant-pro-sider-fixed ant-pro-sider-layout-side ant-pro-sider-light ant-design-pro-layout-1k9jad6"
       style="background-color:transparent;flex:0 0 256px;max-width:256px;min-width:256px;width:256px"
     >
       <div
