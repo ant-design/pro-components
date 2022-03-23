@@ -469,10 +469,10 @@ exports[`docs demos 📸 renders ./docs/demos/customization-value-type.tsx corre
           </form>
         </div>
         <div
-          class="ant-card"
+          class="ant-pro-card"
         >
           <div
-            class="ant-card-body"
+            class="ant-pro-card-body"
             style="padding: 0px;"
           >
             <div

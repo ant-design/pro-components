@@ -2,6 +2,45 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.59.3](https://github.com/ant-design/pro-components/compare/@ant-design/pro-form@1.59.2...@ant-design/pro-form@1.59.3) (2022-03-22)
+
+**Note:** Version bump only for package @ant-design/pro-form
+
+## [1.59.2](https://github.com/ant-design/pro-components/compare/@ant-design/pro-form@1.59.1...@ant-design/pro-form@1.59.2) (2022-03-18)
+
+### Bug Fixes
+
+- **form:** fix modal and drawer form rerender error ([4b728f2](https://github.com/ant-design/pro-components/commit/4b728f2652f1c6f6d6ba20ff65c922dde1cd9894))
+- **table:** fix inlint error render dom ([bfeb81a](https://github.com/ant-design/pro-components/commit/bfeb81afc6bc4305b3d7ef2b84c0afc089dad7a0))
+
+## [1.59.1](https://github.com/ant-design/pro-components/compare/@ant-design/pro-form@1.59.0...@ant-design/pro-form@1.59.1) (2022-03-16)
+
+**Note:** Version bump only for package @ant-design/pro-form
+
+# [1.59.0](https://github.com/ant-design/pro-components/compare/@ant-design/pro-form@1.58.1...@ant-design/pro-form@1.59.0) (2022-03-16)
+
+### Features
+
+- **form:** StepsForm support vertical direction ([#4848](https://github.com/ant-design/pro-components/issues/4848)) ([482f562](https://github.com/ant-design/pro-components/commit/482f562b7034826c9acdda6955c00d3f1899b139))
+
+## [1.58.1](https://github.com/ant-design/pro-components/compare/@ant-design/pro-form@1.58.0...@ant-design/pro-form@1.58.1) (2022-03-15)
+
+### Bug Fixes
+
+- **form:** fix ProFormDependency no rendeer transform error ([5b163eb](https://github.com/ant-design/pro-components/commit/5b163eb1d6b3430281eee9ae73e86ddfc07d3f0c))
+- **table:** fix table has name, add new line will error ([74f83df](https://github.com/ant-design/pro-components/commit/74f83df88bebb3fdfbc9874960b2e6e3658e0ac1))
+
+# [1.58.0](https://github.com/ant-design/pro-components/compare/@ant-design/pro-form@1.57.0...@ant-design/pro-form@1.58.0) (2022-03-14)
+
+### Bug Fixes
+
+- **form:** avoid executing setState after unmount ([#4814](https://github.com/ant-design/pro-components/issues/4814)) ([f227a80](https://github.com/ant-design/pro-components/commit/f227a801145af2893daedc6170acca895131fc76))
+- **form:** ModalForm and DrawerForm remove default value of forceRender ([#4842](https://github.com/ant-design/pro-components/issues/4842)) ([3e9589c](https://github.com/ant-design/pro-components/commit/3e9589c840ac19e2d914b75921a8ab6cdf467276))
+
+### Features
+
+- **utils:** 🎸 improve type and support external override type ([#4806](https://github.com/ant-design/pro-components/issues/4806)) ([13b590a](https://github.com/ant-design/pro-components/commit/13b590acaa69315dbecb22267411e8a275da8648))
+
 # [1.57.0](https://github.com/ant-design/pro-components/compare/@ant-design/pro-form@1.56.1...@ant-design/pro-form@1.57.0) (2022-03-08)
 
 ### Bug Fixes

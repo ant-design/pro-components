@@ -2,6 +2,45 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.68.3](https://github.com/ant-design/pro-components/compare/@ant-design/pro-table@2.68.2...@ant-design/pro-table@2.68.3) (2022-03-22)
+
+**Note:** Version bump only for package @ant-design/pro-table
+
+## [2.68.2](https://github.com/ant-design/pro-components/compare/@ant-design/pro-table@2.68.1...@ant-design/pro-table@2.68.2) (2022-03-18)
+
+### Bug Fixes
+
+- **table:** fix inlint error render dom ([bfeb81a](https://github.com/ant-design/pro-components/commit/bfeb81afc6bc4305b3d7ef2b84c0afc089dad7a0))
+- **table:** support ghost ([7bec0df](https://github.com/ant-design/pro-components/commit/7bec0dfe373884ec18c10e965c1a9f2c1fff9605))
+
+## [2.68.1](https://github.com/ant-design/pro-components/compare/@ant-design/pro-table@2.68.0...@ant-design/pro-table@2.68.1) (2022-03-16)
+
+**Note:** Version bump only for package @ant-design/pro-table
+
+# [2.68.0](https://github.com/ant-design/pro-components/compare/@ant-design/pro-table@2.67.1...@ant-design/pro-table@2.68.0) (2022-03-16)
+
+### Features
+
+- **table:** `newRecordType: cache` support parentKey ([#4861](https://github.com/ant-design/pro-components/issues/4861)) ([dfed128](https://github.com/ant-design/pro-components/commit/dfed128c33c3116e44d5315ffa334854ce055f95))
+
+## [2.67.1](https://github.com/ant-design/pro-components/compare/@ant-design/pro-table@2.67.0...@ant-design/pro-table@2.67.1) (2022-03-15)
+
+**Note:** Version bump only for package @ant-design/pro-table
+
+# [2.67.0](https://github.com/ant-design/pro-components/compare/@ant-design/pro-table@2.66.4...@ant-design/pro-table@2.67.0) (2022-03-14)
+
+### Bug Fixes
+
+- **table:** mode=edit causes action column not to show ([#4829](https://github.com/ant-design/pro-components/issues/4829)) ([28e86dd](https://github.com/ant-design/pro-components/commit/28e86ddeda810e6df4a80b6a4259f20bbbecb20f))
+- **table:** using an EditableTable with a Form causes wranning ([#4839](https://github.com/ant-design/pro-components/issues/4839)) ([f17ab26](https://github.com/ant-design/pro-components/commit/f17ab26a59885e351b00dd782657d33f7a2834a6))
+- **table:** use default showSizeChanger change ([83fdff3](https://github.com/ant-design/pro-components/commit/83fdff383306bbe7e5adc94a11a5b46e13ce8902))
+
+### Features
+
+- **table:** improve ErrorBoundary logic ([#4826](https://github.com/ant-design/pro-components/issues/4826)) ([67bf50e](https://github.com/ant-design/pro-components/commit/67bf50ee5f0621265a69708b7896925cdda0512f))
+- **table:** Keep the creator button default style. ([#4810](https://github.com/ant-design/pro-components/issues/4810)) ([1ac6ac0](https://github.com/ant-design/pro-components/commit/1ac6ac03d2dc44e5363bd8188d18387756b45151))
+- **table:** support custom loading ([#4844](https://github.com/ant-design/pro-components/issues/4844)) ([e31be9f](https://github.com/ant-design/pro-components/commit/e31be9f4cf6b4dc73edbb6b01cbcaa3da7ad61c5))
+
 ## [2.66.4](https://github.com/ant-design/pro-components/compare/@ant-design/pro-table@2.66.3...@ant-design/pro-table@2.66.4) (2022-03-08)
 
 ### Bug Fixes

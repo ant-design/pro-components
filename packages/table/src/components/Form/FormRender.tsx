@@ -106,6 +106,7 @@ export type TableFormItem<T, U = any> = {
   manualRequest?: boolean;
   bordered?: boolean;
   action: React.MutableRefObject<ActionType | undefined>;
+  ghost?: boolean;
 } & Omit<FormItemProps, 'children' | 'onReset'>;
 
 /**
@@ -121,6 +122,7 @@ const FormRender = <T, U = any>({
   type,
   columns,
   action,
+  ghost,
   manualRequest,
   onReset,
   submitButtonLoading,
@@ -194,6 +196,7 @@ const FormRender = <T, U = any>({
         [formClassName]: isForm,
         [getPrefixCls(`pro-table-search-${toLowerLine(competentName)}`)]: true,
         [`${getPrefixCls('card')}-bordered`]: !!bordered,
+        [`${className}-ghost`]: ghost,
         [(searchConfig as { className: string })?.className]:
           searchConfig !== false && searchConfig?.className,
       })}

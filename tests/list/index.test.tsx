@@ -63,7 +63,7 @@ describe('List', () => {
     );
     expect(html.find('.ant-pro-list-row-title').text()).toEqual('我是名称');
     expect(html.find('.ant-pro-list-row-description').text()).toEqual('desc text');
-    expect(html.find('.ant-card').exists()).toBeFalsy();
+    expect(html.find('.ant-pro-card').exists()).toBeFalsy();
   });
 
   it('🚏 show loading state', async () => {
@@ -782,8 +782,8 @@ describe('List', () => {
     waitForComponentToPaint(html, 1000);
 
     act(() => {
-      html.find('.ant-pro-card').simulate('mouseEnter');
-      html.find('.ant-pro-card').simulate('click');
+      html.find('.ant-pro-list-row-card .ant-pro-card').simulate('mouseEnter');
+      html.find('.ant-pro-list-row-card .ant-pro-card').simulate('click');
       expect(fn1).toBeCalledWith('我是名称');
       expect(fn2).toBeCalledWith('我是名称');
     });

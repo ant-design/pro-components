@@ -1,6 +1,6 @@
 ﻿import type { ProSchemaComponentTypes, UseEditableUtilType } from '@ant-design/pro-utils';
 import type { ProFieldEmptyText } from '@ant-design/pro-field';
-import type { TableColumnType } from 'antd';
+import type { TableColumnType, TableProps } from 'antd';
 import { Table } from 'antd';
 import { runFunction } from '@ant-design/pro-utils';
 import { omitBoolean, omitUndefinedAndEmptyArr } from '@ant-design/pro-utils';
@@ -18,18 +18,31 @@ import { defaultOnFilter, renderColumnsTitle, columnRender } from './columnRende
  * @param map
  * @param columnEmptyText
  */
-export function genProColumnToColumn<T>(params: {
-  columns: ProColumns<T, any>[];
-  counter: ReturnType<typeof useContainer>;
-  columnEmptyText: ProFieldEmptyText;
-  type: ProSchemaComponentTypes;
-  editableUtils: UseEditableUtilType;
-}): (TableColumnType<T> & {
+export function genProColumnToColumn<T>(
+  params: {
+    columns: ProColumns<T, any>[];
+    counter: ReturnType<typeof useContainer>;
+    columnEmptyText: ProFieldEmptyText;
+    type: ProSchemaComponentTypes;
+    editableUtils: UseEditableUtilType;
+  } & Pick<TableProps<T>, 'rowKey' | 'childrenColumnName'>,
+): (TableColumnType<T> & {
   index?: number;
   isExtraColumns?: boolean;
   extraColumn?: typeof Table.EXPAND_COLUMN | typeof Table.SELECTION_COLUMN;
 })[] {
-  const { columns, counter, columnEmptyText, type, editableUtils } = params;
+  const {
+    columns,
+    counter,
+    columnEmptyText,
+    type,
+    editableUtils,
+    rowKey = 'id',
+    childrenColumnName = 'children',
+  } = params;
+
+  const subNameRecord = new Map();
+
   return columns
     .map((columnProps, columnsIndex) => {
       const {
@@ -70,6 +83,8 @@ export function genProColumnToColumn<T>(params: {
         return omitBoolean(onFilter);
       };
 
+      let keyName: React.Key = rowKey as string;
+
       const tempColumns = {
         index: columnsIndex,
         key: columnKey,
@@ -92,6 +107,22 @@ export function genProColumnToColumn<T>(params: {
             })
           : undefined,
         render: (text: any, rowData: T, index: number) => {
+          if (typeof rowKey === 'function') {
+            keyName = rowKey(rowData, index);
+          }
+
+          let uniqueKey: any;
+          if (Reflect.has(rowData as any, keyName)) {
+            uniqueKey = rowData[keyName];
+            const parentInfo = subNameRecord.get(uniqueKey) || [];
+            rowData[childrenColumnName]?.forEach((item: any) => {
+              const itemUniqueKey = item[keyName];
+              if (!subNameRecord.has(itemUniqueKey)) {
+                subNameRecord.set(itemUniqueKey, parentInfo.concat([index, childrenColumnName]));
+              }
+            });
+          }
+
           const renderProps = {
             columnProps,
             text,
@@ -100,8 +131,10 @@ export function genProColumnToColumn<T>(params: {
             columnEmptyText,
             counter,
             type,
+            subName: subNameRecord.get(uniqueKey),
             editableUtils,
           };
+
           return columnRender<T>(renderProps);
         },
       };

@@ -16,7 +16,6 @@ import type { ActionType, ProColumns } from '../typing';
 import type { useContainer } from '../container';
 import { isMergeCell } from '.';
 import type { ProFormInstance } from '@ant-design/pro-form';
-import ProForm from '@ant-design/pro-form';
 
 /** 转化列的定义 */
 type ColumnRenderInterface<T> = {
@@ -28,6 +27,7 @@ type ColumnRenderInterface<T> = {
   type: ProSchemaComponentTypes;
   counter: ReturnType<typeof useContainer>;
   editableUtils: UseEditableUtilType;
+  subName: string[];
 };
 
 /**
@@ -76,7 +76,7 @@ export const defaultOnFilter = (value: string, record: any, dataIndex: string | 
 class OptionsCell extends React.Component<{
   children: (form: ProFormInstance) => React.ReactNode;
   record: any;
-  form?: ProFormInstance;
+  form: ProFormInstance;
 }> {
   shouldComponentUpdate(nextProps: any) {
     const { children, ...restProps } = this.props;
@@ -84,14 +84,7 @@ class OptionsCell extends React.Component<{
     return !isDeepEqualReact(restProps, restNextProps);
   }
   render() {
-    if (this.props.form) return <Space>{this.props.children(this.props.form)}</Space>;
-    return (
-      <ProForm.Item>
-        {(form) => {
-          return <Space>{this.props.children(form as ProFormInstance<any>)}</Space>;
-        }}
-      </ProForm.Item>
-    );
+    return <Space>{this.props.children(this.props.form)}</Space>;
   }
 }
 /**
@@ -107,6 +100,7 @@ export function columnRender<T>({
   columnEmptyText,
   counter,
   type,
+  subName,
   editableUtils,
 }: ColumnRenderInterface<T>): any {
   const { action, prefixName, editableForm } = counter;
@@ -122,6 +116,7 @@ export function columnRender<T>({
     valueType: (columnProps.valueType as ProFieldValueType) || 'text',
     index,
     rowData,
+    subName,
     columnProps: {
       ...columnProps,
       // 为了兼容性，原来写了个错别字
@@ -144,16 +139,16 @@ export function columnRender<T>({
   if (mode === 'edit') {
     if (columnProps.valueType === 'option') {
       return (
-        <OptionsCell record={rowData} form={editableForm}>
-          {(inform) =>
-            editableUtils.actionRender(
+        <OptionsCell record={rowData} form={editableForm!}>
+          {(inform) => {
+            return editableUtils.actionRender(
               {
                 ...rowData,
                 index: columnProps.index || index,
               },
               inform!,
-            )
-          }
+            );
+          }}
         </OptionsCell>
       );
     }
