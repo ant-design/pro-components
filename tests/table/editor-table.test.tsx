@@ -481,7 +481,6 @@ describe('EditorProTable', () => {
 
     expect(editorRef.current?.getRowsData?.()?.length).toBe(3);
 
-    console.log(editorRef.current?.getRowsData?.()?.at(0));
     wrapper.unmount();
   });
 
