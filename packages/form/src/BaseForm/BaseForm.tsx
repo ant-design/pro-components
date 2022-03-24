@@ -195,13 +195,13 @@ function BaseFormComponents<T = Record<string, any>>(props: BaseFormProps<T>) {
     () => ({
       /**
        * 获取被 ProForm 格式化后的所有数据
-       * @param nameList boolean
+       * @param allData boolean
        * @returns T
        *
        * @example  getFieldsFormatValue(true) ->返回所有数据，即使没有被 form 托管的
        */
-      getFieldsFormatValue: (nameList?: true) => {
-        return transformKey(formRef.current?.getFieldsValue(nameList!), omitNil);
+      getFieldsFormatValue: (allData?: true) => {
+        return transformKey(formRef.current?.getFieldsValue(allData!), omitNil);
       },
       /**
        * 获取被 ProForm 格式化后的单个数据
@@ -212,6 +212,7 @@ function BaseFormComponents<T = Record<string, any>>(props: BaseFormProps<T>) {
        */
       /** 获取格式化之后的单个数据 */
       getFieldFormatValue: (nameList: NamePath = []) => {
+        if (!nameList) throw new Error('nameList is require');
         const value = formRef.current?.getFieldValue(nameList!);
         const obj = nameList ? set({}, nameList as string[], value) : value;
         return get(transformKey(obj, omitNil, nameList), nameList as string[]);
