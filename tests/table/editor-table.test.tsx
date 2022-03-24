@@ -430,11 +430,11 @@ describe('EditorProTable', () => {
     );
     await waitForComponentToPaint(wrapper, 100);
 
-    const firstRowKey = defaultData.at(0)?.id || 0;
+    const firstRowKey = defaultData[0]?.id || 0;
 
-    expect(editorRef.current?.getRowData?.(firstRowKey)?.title).toBe(defaultData.at(0)?.title);
+    expect(editorRef.current?.getRowData?.(firstRowKey)?.title).toBe(defaultData?.[0]?.title);
 
-    expect(editorRef.current?.getRowData?.(0)?.title).toBe(defaultData.at(0)?.title);
+    expect(editorRef.current?.getRowData?.(0)?.title).toBe(defaultData?.[0]?.title);
 
     await waitForComponentToPaint(wrapper, 100);
 
@@ -467,11 +467,11 @@ describe('EditorProTable', () => {
       </ProForm>,
     );
 
-    const firstRowKey = defaultData.at(0)?.id || 0;
+    const firstRowKey = defaultData?.[0]?.id || 0;
 
-    expect(editorRef.current?.getRowData?.(firstRowKey)?.title).toBe(defaultData.at(0)?.title);
+    expect(editorRef.current?.getRowData?.(firstRowKey)?.title).toBe(defaultData?.[0]?.title);
 
-    expect(editorRef.current?.getRowData?.(0)?.title).toBe(defaultData.at(0)?.title);
+    expect(editorRef.current?.getRowData?.(0)?.title).toBe(defaultData?.[0]?.title);
 
     act(() => {
       editorRef.current?.setRowData?.(firstRowKey, { title: 'test-title' });
