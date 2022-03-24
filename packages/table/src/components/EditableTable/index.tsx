@@ -20,6 +20,9 @@ export type EditableFormInstance<T = any> = ProFormInstance<T> & {
    * 获取一行数据的
    * @param rowIndex
    * @returns T | undefined
+   *
+   * @example getRowData(1)  可以传入第几行的数据
+   * @example getRowData("id")  也可以传入 rowKey，根据你列的唯一key 来获得。
    */
   getRowData?: (rowIndex: string | number) => T | undefined;
   /**
@@ -29,9 +32,25 @@ export type EditableFormInstance<T = any> = ProFormInstance<T> & {
   getRowsData?: () => T[] | undefined;
   /**
    * 设置一行的数据，会将数据进行简单的 merge
+   *
+   * {title:"old", decs:"old",id:"old"} -> set {title:"new"} -> {title:"new", decs:"old",id:"old"}
+   *
+   * @description 只会做最第一层对象的 merge 哦。
+   * {title:"old", decs:{name:"old",key:"old"},id:"old"} -> set {decs:{name:"new"}} -> {title:"old", decs:{name:"new"},id:"old"} -> set {decs:{name:"old"}}
+   *
    * @param rowIndex
    * @param data
    * @returns void
+   *
+   * 根据行号设置
+   * @example setRowData(1, { title:"new" })  可以传入修改第几行
+   *
+   * 根据行 id 设置
+   * @example setRowData("id", { title:"new" })  也可以传入 rowKey，根据你列的唯一 key 来设置。
+   *
+   * 清空原有数据
+   * @example setRowData(1, { title:undefined })
+   *
    */
   setRowData?: (rowIndex: string | number, data: Partial<T>) => void;
 };

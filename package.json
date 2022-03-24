@@ -21,6 +21,7 @@
     "size": "npm run build && size-limit",
     "size:build": "cross-env PRO_COMPONENTS_CI='CI' webpack",
     "start": " cross-env NODE_OPTIONS=--openssl-legacy-provider dumi dev",
+    "dev": "dumi dev",
     "sync:tnpm": "node -e 'require(\"./scripts/syncTNPM\")()'",
     "test": "jest",
     "test:coverage": "jest --coverage",

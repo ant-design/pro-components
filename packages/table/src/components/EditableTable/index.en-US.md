@@ -41,8 +41,53 @@ EditableProTable is essentially the same as ProTable, with a few presets added t
 | `maxLength` | The maximum number of rows, the New button will disappear when the maximum number of rows is reached | number | - |
 | `editable` | Related configuration of editable table | [TableRowEditable<T>](#editable-Editable row configuration) | - |
 | `controlled` | Whether controlled, if controlled every edit modifies the dataSource | `boolean` | false |
+| `editableFormRef` | table All forms, with some table-specific operations | `React.Ref<EditableFormInstance<T>` | `undefined` |
 
 > Other APIs are the same as ProTable.
+
+### EditableFormInstance Form list form operation
+
+Compared with the ProForm form, the editable form adds the following three methods.
+
+```tsx | pure
+  /**
+   * Get a row of data
+   * @param rowIndex
+   * @returns T | undefined
+   *
+   * @example getRowData(1) can pass in the data of the first row
+   * @example getRowData("id") can also pass in rowKey to get it according to the unique key of your column.
+   */
+  getRowData?: (rowIndex: string | number) => T | undefined;
+  /**
+   * Get the data of the entire table
+   * @returns T[] | undefined
+   */
+  getRowsData?: () => T[] | undefined;
+  /**
+   * Setting a row of data will simply merge the data
+   *
+   * {title:"old", decs:"old",id:"old"} -> set {title:"new"} -> {title:"new", decs:"old",id:"old" }
+   *
+   * @description will only do the merge of the first level object.
+   * {title:"old", decs:{name:"old",key:"old"},id:"old"} -> set {decs:{name:"new"}} -> {title:" old", decs:{name:"new"},id:"old"} -> set {decs:{name:"old"}}
+   *
+   * @param rowIndex
+   * @param data
+   * @returns void
+   *
+   * Set according to line number
+   * @example setRowData(1, { title:"new" }) You can pass in which row to modify
+   *
+   * set according to row id
+   * @example setRowData("id", { title:"new" }) can also pass in rowKey, set it according to the unique key of your column.
+   *
+   * Clear the original data
+   * @example setRowData(1, { title:undefined })
+   *
+   */
+  setRowData?: (rowIndex: string | number, data: Partial<T>) => void;
+```
 
 ### editable edit line configuration
 
