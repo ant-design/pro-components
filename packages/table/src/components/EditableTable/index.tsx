@@ -1,6 +1,7 @@
 ﻿import React, { useContext, useEffect, useImperativeHandle, useMemo, useRef } from 'react';
 import type { ParamsType } from '@ant-design/pro-provider';
 import type { ButtonProps, FormItemProps } from 'antd';
+import type { NamePath } from 'antd/lib/form/interface';
 import { Button, Form } from 'antd';
 import useMergedState from 'rc-util/lib/hooks/useMergedState';
 import { PlusOutlined } from '@ant-design/icons';
@@ -12,6 +13,28 @@ import type { GetRowKey } from 'antd/lib/table/interface';
 import type { ProFormInstance } from '@ant-design/pro-form';
 import { ProFormDependency } from '@ant-design/pro-form';
 import get from 'rc-util/lib/utils/get';
+import set from 'rc-util/lib/utils/set';
+
+export type EditableFormInstance<T> = ProFormInstance<T> & {
+  /**
+   * 获取一行数据的
+   * @param rowIndex
+   * @returns T | undefined
+   */
+  getRowData?: (rowIndex: string) => T | undefined;
+  /**
+   * 获取整个 table 的数据
+   * @returns T[] | undefined
+   */
+  getRowsData?: () => T[] | undefined;
+  /**
+   * 设置一行的数据，会将数据进行简单的 merge
+   * @param rowIndex
+   * @param data
+   * @returns void
+   */
+  setRowData?: (rowIndex: string | number, data: Partial<T>) => void;
+};
 
 export type RecordCreatorProps<DataSourceType> = {
   record: DataSourceType | ((index: number, dataSource: DataSourceType[]) => DataSourceType);
@@ -36,6 +59,11 @@ export type EditableProTableProps<T, U extends ParamsType, ValueType = 'text'> =
   onChange?: (value: T[]) => void;
   /** @name 原先的 table OnChange */
   onTableChange?: ProTableProps<T, U>['onChange'];
+
+  /**
+   *@name 可编辑表格，列配置的form，可以操作表格里面的数据
+   */
+  editableFormRef?: React.Ref<EditableFormInstance<T> | undefined>;
 
   /** @name 新建按钮的设置 */
   recordCreatorProps?:
@@ -98,12 +126,64 @@ function EditableTable<
     controlled,
     defaultValue,
     onChange,
+    editableFormRef,
     ...rest
   } = props;
 
   const preData = usePrevious(props.value);
   const actionRef = useRef<ActionType>();
   const formRef = useRef<ProFormInstance>();
+  // 设置 editableFormRef
+  useImperativeHandle(editableFormRef, () => {
+    /**
+     * 获取一行数据的
+     * @param rowIndex
+     * @returns T | undefined
+     */
+    const getRowData = (rowIndex: string | number) => {
+      if (!rowIndex) {
+        throw new Error('rowIndex 不能为空 \n rowIndex is required');
+      }
+      const rowKeyName = [props.name, rowIndex?.toString() ?? '']
+        .flat(1)
+        .filter(Boolean) as NamePath;
+      return formRef.current?.getFieldValue(rowKeyName) as DataType;
+    };
+    /**
+     * 获取整个 table 的数据
+     * @returns T[] | undefined
+     */
+    const getRowsData = () => {
+      const rowKeyName = [props.name].flat(1).filter(Boolean) as NamePath;
+      return formRef.current?.getFieldValue(rowKeyName) as DataType[];
+    };
+    return {
+      ...formRef.current,
+      getRowData,
+      getRowsData,
+      /**
+       * 设置一行的数据，会将数据进行简单的 merge
+       * @param rowIndex
+       * @param data
+       * @returns void
+       */
+      setRowData: (rowIndex, data) => {
+        if (!rowIndex) {
+          throw new Error('rowIndex 不能为空\n rowIndex is required');
+        }
+        const rowKeyName = [props.name, rowIndex?.toString() ?? '']
+          .flat(1)
+          .filter(Boolean) as string[];
+        const oldTableDate = formRef.current?.getFieldsValue?.() || {};
+        const updateValues = set(oldTableDate, rowKeyName, {
+          // 只是简单的覆盖，如果很复杂的话，需要自己处理
+          ...getRowData(rowIndex?.toString()),
+          ...(data || {}),
+        });
+        return formRef.current?.setFieldsValue(updateValues);
+      },
+    } as EditableFormInstance<DataType>;
+  });
 
   // 设置 ref
   useImperativeHandle(rest.actionRef, () => actionRef.current);
@@ -128,6 +208,12 @@ function EditableTable<
     }, {});
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [value, props.controlled]);
+
+  useEffect(() => {
+    if (props.name) {
+      formRef.current = props.editable?.form;
+    }
+  }, [props.editable?.form, props.name]);
 
   const {
     record,
@@ -260,6 +346,7 @@ function EditableTable<
             ...editableProps,
             formProps: {
               formRef,
+              ...editableProps.formProps,
             },
           }}
           dataSource={value}
