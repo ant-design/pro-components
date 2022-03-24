@@ -676,6 +676,8 @@ const ProTable = <T extends Record<string, any>, U extends ParamsType, ValueType
       columnEmptyText,
       type,
       editableUtils,
+      rowKey,
+      childrenColumnName: props.expandable?.childrenColumnName,
     }).sort(columnSort(counter.columnsMap));
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [

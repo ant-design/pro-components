@@ -369,6 +369,19 @@ describe('EditorProTable', () => {
         });
     });
 
+    await waitForComponentToPaint(wrapper, 1000);
+
+    expect.any(wrapper.find('.ant-table-tbody tr.ant-table-row').at(1).find('input').exists());
+    expect(wrapper.find('.ant-table-tbody').find('tr.ant-table-row').length).toBe(6);
+
+    act(() => {
+      wrapper.find('.ant-table-tbody tr.ant-table-row').at(1).find(`td a`).at(0).simulate('click');
+    });
+
+    await waitForComponentToPaint(wrapper, 1000);
+
+    expect(wrapper.find('.ant-table-row.ant-table-row-level-1').length).toBe(2);
+
     wrapper.unmount();
   });
 
@@ -817,6 +830,74 @@ describe('EditorProTable', () => {
 
     expect(formItemPropsFn).toBeCalled();
     expect(fieldPropsFn).toBeCalled();
+
+    expect(errorSpy).not.toBeCalled();
+
+    errorSpy.mockRestore();
+  });
+
+  it('📝sub-column values are correct in the form', async () => {
+    const errorSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
+
+    const currentlyColumns: ProColumns<DataSourceType>[] = [
+      {
+        title: '标题',
+        dataIndex: 'title',
+      },
+    ];
+
+    const editableKeys: any[] = [];
+    let resultTitle = '';
+    const tableData = (function generateData(prefix = '', depth = 1): any {
+      const curData = [];
+      if (depth > 3) {
+        return;
+      }
+      let start = 1;
+      while (start++ <= 3) {
+        const title = `title${prefix}${depth}${start}`;
+        resultTitle += title;
+        const children = generateData(`${prefix}${start}`, depth + 1);
+        const id = `${prefix}${depth}${start}`;
+        editableKeys.push(id);
+        curData.push({
+          id,
+          title,
+          children,
+        });
+      }
+      return curData;
+    })();
+
+    const wrapper = mount(
+      <ProForm
+        initialValues={{
+          table: tableData,
+        }}
+      >
+        <EditableProTable<DataSourceType>
+          rowKey="id"
+          controlled
+          name="table"
+          expandable={{
+            defaultExpandAllRows: true,
+          }}
+          editable={{
+            editableKeys,
+          }}
+          columns={currentlyColumns}
+        />
+      </ProForm>,
+    );
+    await waitForComponentToPaint(wrapper, 100);
+
+    let answerTitle = '';
+
+    wrapper.find('input').forEach((item) => {
+      answerTitle += item.prop('value') as string;
+    });
+
+    expect(answerTitle).toMatch(resultTitle);
 
     expect(errorSpy).not.toBeCalled();
 
