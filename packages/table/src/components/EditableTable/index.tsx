@@ -15,13 +15,13 @@ import { ProFormDependency } from '@ant-design/pro-form';
 import get from 'rc-util/lib/utils/get';
 import set from 'rc-util/lib/utils/set';
 
-export type EditableFormInstance<T> = ProFormInstance<T> & {
+export type EditableFormInstance<T = any> = ProFormInstance<T> & {
   /**
    * 获取一行数据的
    * @param rowIndex
    * @returns T | undefined
    */
-  getRowData?: (rowIndex: string) => T | undefined;
+  getRowData?: (rowIndex: string | number) => T | undefined;
   /**
    * 获取整个 table 的数据
    * @returns T[] | undefined
@@ -133,6 +133,49 @@ function EditableTable<
   const preData = usePrevious(props.value);
   const actionRef = useRef<ActionType>();
   const formRef = useRef<ProFormInstance>();
+
+  // 设置 ref
+  useImperativeHandle(rest.actionRef, () => actionRef.current);
+
+  const [value, setValue] = useMergedState<DataType[]>(() => props.value || defaultValue || [], {
+    value: props.value,
+    onChange: props.onChange,
+  });
+
+  const getRowKey = React.useMemo<GetRowKey<DataType>>((): GetRowKey<DataType> => {
+    if (typeof rowKey === 'function') {
+      return rowKey;
+    }
+    return (record: DataType, index?: number) => (record as any)[rowKey as string] || index;
+  }, [rowKey]);
+
+  /**
+   * 根据不同的情况返回不同的 rowKey
+   * @param finlayRowKey
+   * @returns string | number
+   */
+  const coverRowKey = (finlayRowKey: number | string): string | number => {
+    /**
+     * 如果是 prop.name 的模式，就需要吧行号转化成具体的rowKey。
+     */
+    if (typeof finlayRowKey === 'number' && !props.name) {
+      if (finlayRowKey >= value.length) return finlayRowKey;
+      const rowData = value.at(finlayRowKey);
+      return getRowKey?.(rowData!, finlayRowKey);
+    }
+
+    /**
+     * 如果是 prop.name 的模式，就直接返回行号
+     */
+    if ((typeof finlayRowKey === 'string' || finlayRowKey >= value.length) && props.name) {
+      const rowIndex = value.findIndex((item, index) => {
+        return getRowKey?.(item, index)?.toString() === finlayRowKey?.toString();
+      });
+      return rowIndex;
+    }
+    return finlayRowKey;
+  };
+
   // 设置 editableFormRef
   useImperativeHandle(editableFormRef, () => {
     /**
@@ -141,10 +184,13 @@ function EditableTable<
      * @returns T | undefined
      */
     const getRowData = (rowIndex: string | number) => {
-      if (!rowIndex) {
+      if (rowIndex == undefined) {
         throw new Error('rowIndex 不能为空 \n rowIndex is required');
       }
-      const rowKeyName = [props.name, rowIndex?.toString() ?? '']
+
+      const finlayRowKey = coverRowKey(rowIndex);
+
+      const rowKeyName = [props.name, finlayRowKey?.toString() ?? '']
         .flat(1)
         .filter(Boolean) as NamePath;
       return formRef.current?.getFieldValue(rowKeyName) as DataType;
@@ -155,6 +201,13 @@ function EditableTable<
      */
     const getRowsData = () => {
       const rowKeyName = [props.name].flat(1).filter(Boolean) as NamePath;
+      if (Array.isArray(rowKeyName) && rowKeyName.length === 0) {
+        const rowData = formRef.current?.getFieldsValue();
+        if (Array.isArray(rowData)) return rowData;
+        return Object.keys(rowData).map((key) => {
+          return rowData[key];
+        });
+      }
       return formRef.current?.getFieldValue(rowKeyName) as DataType[];
     };
     return {
@@ -168,36 +221,23 @@ function EditableTable<
        * @returns void
        */
       setRowData: (rowIndex, data) => {
-        if (!rowIndex) {
+        if (rowIndex == undefined) {
           throw new Error('rowIndex 不能为空\n rowIndex is required');
         }
-        const rowKeyName = [props.name, rowIndex?.toString() ?? '']
+        const finlayRowKey = coverRowKey(rowIndex);
+        const rowKeyName = [props.name, finlayRowKey?.toString() ?? '']
           .flat(1)
           .filter(Boolean) as string[];
         const oldTableDate = formRef.current?.getFieldsValue?.() || {};
         const updateValues = set(oldTableDate, rowKeyName, {
           // 只是简单的覆盖，如果很复杂的话，需要自己处理
-          ...getRowData(rowIndex?.toString()),
+          ...getRowData(rowIndex),
           ...(data || {}),
         });
         return formRef.current?.setFieldsValue(updateValues);
       },
     } as EditableFormInstance<DataType>;
   });
-
-  // 设置 ref
-  useImperativeHandle(rest.actionRef, () => actionRef.current);
-
-  const [value, setValue] = useMergedState<DataType[]>(() => props.value || defaultValue || [], {
-    value: props.value,
-    onChange: props.onChange,
-  });
-  const getRowKey = React.useMemo<GetRowKey<DataType>>((): GetRowKey<DataType> => {
-    if (typeof rowKey === 'function') {
-      return rowKey;
-    }
-    return (record: DataType, index?: number) => (record as any)[rowKey as string] || index;
-  }, [rowKey]);
 
   useEffect(() => {
     if (!props.controlled) return;
