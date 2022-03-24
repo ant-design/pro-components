@@ -67,6 +67,7 @@ import type {
 } from '@ant-design/pro-provider';
 import ErrorBoundary from './components/ErrorBoundary';
 import dateArrayFormatter from './dateArrayFormatter';
+import type { ProFormInstanceType } from './components/ProFormContext';
 import ProFormContext from './components/ProFormContext';
 import isDeepEqualReact from './isDeepEqualReact';
 import { arrayMoveImmutable } from './array-move';
@@ -80,6 +81,7 @@ export type {
   SearchConvertKeyFn,
   RequestOptionsType,
   ProSchema,
+  ProFormInstanceType,
   ProFieldValueTypeWithFieldProps,
   ProSchemaValueType,
   ProCoreActionType,

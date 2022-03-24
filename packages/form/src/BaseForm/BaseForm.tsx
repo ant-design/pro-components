@@ -15,6 +15,7 @@ import type {
   ProFieldValueType,
   SearchTransformKeyFn,
   ProRequestData,
+  ProFormInstanceType,
 } from '@ant-design/pro-utils';
 import set from 'rc-util/lib/utils/set';
 import {
@@ -137,14 +138,7 @@ const genParams = (
   return runFunction(syncUrl, params, type);
 };
 
-type ProFormInstance<T = any> = FormInstance<T> & {
-  /** 获取格式化之后所有数据 */
-  getFieldsFormatValue?: (nameList?: NamePath[] | true) => Record<string, any>;
-  /** 获取格式化之后的单个数据 */
-  getFieldFormatValue?: (nameList?: NamePath) => Record<string, any>;
-  /** 校验字段后返回格式化之后的所有数据 */
-  validateFieldsReturnFormatValue?: (nameList?: NamePath[]) => Promise<T>;
-};
+type ProFormInstance<T = any> = FormInstance<T> & ProFormInstanceType<T>;
 
 function BaseFormComponents<T = Record<string, any>>(props: BaseFormProps<T>) {
   const {
@@ -199,23 +193,50 @@ function BaseFormComponents<T = Record<string, any>>(props: BaseFormProps<T>) {
 
   const formatValues = useMemo(
     () => ({
-      /** 获取格式化之后所有数据 */
-      getFieldsFormatValue: (nameList?: NamePath[] | true) => {
+      /**
+       * 获取被 ProForm 格式化后的所有数据
+       * @param nameList boolean
+       * @returns T
+       *
+       * @example  getFieldsFormatValue(true) ->返回所有数据，即使没有被 form 托管的
+       */
+      getFieldsFormatValue: (nameList?: true) => {
         return transformKey(formRef.current?.getFieldsValue(nameList!), omitNil);
       },
+      /**
+       * 获取被 ProForm 格式化后的单个数据
+       * @param nameList (string|number)[]
+       * @returns T
+       *
+       * @example {a:{b:value}} -> getFieldFormatValue(['a', 'b']) -> value
+       */
       /** 获取格式化之后的单个数据 */
-      getFieldFormatValue: (nameList?: NamePath) => {
+      getFieldFormatValue: (nameList: NamePath = []) => {
         const value = formRef.current?.getFieldValue(nameList!);
         const obj = nameList ? set({}, nameList as string[], value) : value;
         return get(transformKey(obj, omitNil, nameList), nameList as string[]);
       },
-      /** 获取格式化之后的单个数据列表 */
+      /**
+       * 获取被 ProForm 格式化后的单个数据, 包含他的 name
+       * @param nameList (string|number)[]
+       * @returns T
+       *
+       * @example  {a:{b:value}} -> getFieldFormatValueObject(['a', 'b']) -> {a:{b:value}}
+       */
+      /** 获取格式化之后的单个数据 */
       getFieldFormatValueObject: (nameList?: NamePath) => {
         const value = formRef.current?.getFieldValue(nameList!);
         const obj = nameList ? set({}, nameList as string[], value) : value;
         return transformKey(obj, omitNil, nameList);
       },
-      /** 校验字段后返回格式化之后的所有数据 */
+      /** 
+      /**
+       *验字段后返回格式化之后的所有数据
+       * @param nameList (string|number)[]
+       * @returns T
+       * 
+       * @example validateFieldsReturnFormatValue -> {a:{b:value}}
+       */
       validateFieldsReturnFormatValue: async (nameList?: NamePath[]) => {
         const values = await formRef.current?.validateFields(nameList);
         return transformKey(values, omitNil);
