@@ -56,7 +56,7 @@ export default () => {
       tooltip: '只读，使用form.getFieldValue获取不到值',
       formItemProps: (form, { rowIndex }) => {
         return {
-          rules: rowIndex > 2 ? [{ required: true, message: '此项为必填项' }] : [],
+          rules: rowIndex > 1 ? [{ required: true, message: '此项为必填项' }] : [],
         };
       },
       // 第一行不允许编辑

@@ -398,10 +398,10 @@ exports[`table demos 📸 renders ./packages/table/src/components/DragSortTable/
       </form>
     </div>
     <div
-      class="ant-card"
+      class="ant-pro-card"
     >
       <div
-        class="ant-card-body"
+        class="ant-pro-card-body"
         style="padding-top: 0px;"
       >
         <div
@@ -1118,10 +1118,10 @@ exports[`table demos 📸 renders ./packages/table/src/components/DragSortTable/
       </form>
     </div>
     <div
-      class="ant-card"
+      class="ant-pro-card"
     >
       <div
-        class="ant-card-body"
+        class="ant-pro-card-body"
         style="padding-top: 0px;"
       >
         <div
@@ -1461,10 +1461,10 @@ exports[`table demos 📸 renders ./packages/table/src/components/DragSortTable/
     class="ant-pro-table"
   >
     <div
-      class="ant-card"
+      class="ant-pro-card"
     >
       <div
-        class="ant-card-body"
+        class="ant-pro-card-body"
         style="padding-top: 0px;"
       >
         <div
@@ -1800,10 +1800,10 @@ exports[`table demos 📸 renders ./packages/table/src/components/EditableTable/
     class="ant-pro-table"
   >
     <div
-      class="ant-card"
+      class="ant-pro-card"
     >
       <div
-        class="ant-card-body"
+        class="ant-pro-card-body"
         style="padding-top: 0px;"
       >
         <div
@@ -2364,10 +2364,10 @@ exports[`table demos 📸 renders ./packages/table/src/components/EditableTable/
     class="ant-pro-table"
   >
     <div
-      class="ant-card"
+      class="ant-pro-card"
     >
       <div
-        class="ant-card-body"
+        class="ant-pro-card-body"
         style="padding-top: 0px;"
       >
         <div
@@ -2863,10 +2863,10 @@ exports[`table demos 📸 renders ./packages/table/src/components/EditableTable/
     class="ant-pro-table"
   >
     <div
-      class="ant-card"
+      class="ant-pro-card"
     >
       <div
-        class="ant-card-body"
+        class="ant-pro-card-body"
         style="padding-top: 0px;"
       >
         <div
@@ -4513,10 +4513,10 @@ exports[`table demos 📸 renders ./packages/table/src/components/EditableTable/
     class="ant-pro-table"
   >
     <div
-      class="ant-card"
+      class="ant-pro-card"
     >
       <div
-        class="ant-card-body"
+        class="ant-pro-card-body"
         style="padding-top: 0px;"
       >
         <div
@@ -9701,10 +9701,10 @@ exports[`table demos 📸 renders ./packages/table/src/demos/ListToolBar/basic.t
     class="ant-pro-table"
   >
     <div
-      class="ant-card"
+      class="ant-pro-card"
     >
       <div
-        class="ant-card-body"
+        class="ant-pro-card-body"
         style="padding-top: 0px;"
       >
         <div
@@ -10599,10 +10599,10 @@ exports[`table demos 📸 renders ./packages/table/src/demos/ListToolBar/menu.ts
     class="ant-pro-table"
   >
     <div
-      class="ant-card"
+      class="ant-pro-card"
     >
       <div
-        class="ant-card-body"
+        class="ant-pro-card-body"
         style="padding-top: 0px;"
       >
         <div
@@ -11532,10 +11532,10 @@ exports[`table demos 📸 renders ./packages/table/src/demos/ListToolBar/multipl
     class="ant-pro-table"
   >
     <div
-      class="ant-card"
+      class="ant-pro-card"
     >
       <div
-        class="ant-card-body"
+        class="ant-pro-card-body"
         style="padding-top: 0px;"
       >
         <div
@@ -12453,10 +12453,10 @@ exports[`table demos 📸 renders ./packages/table/src/demos/ListToolBar/no-titl
     class="ant-pro-table"
   >
     <div
-      class="ant-card"
+      class="ant-pro-card"
     >
       <div
-        class="ant-card-body"
+        class="ant-pro-card-body"
         style="padding-top: 0px;"
       >
         <div
@@ -13344,10 +13344,10 @@ exports[`table demos 📸 renders ./packages/table/src/demos/ListToolBar/tabs.ts
     class="ant-pro-table"
   >
     <div
-      class="ant-card"
+      class="ant-pro-card"
     >
       <div
-        class="ant-card-body"
+        class="ant-pro-card-body"
         style="padding-top: 0px;"
       >
         <div
@@ -14304,10 +14304,10 @@ exports[`table demos 📸 renders ./packages/table/src/demos/batchOption.tsx cor
     class="ant-pro-table"
   >
     <div
-      class="ant-card"
+      class="ant-pro-card"
     >
       <div
-        class="ant-card-body"
+        class="ant-pro-card-body"
         style="padding-top: 0px;"
       >
         <div
@@ -15795,23 +15795,19 @@ exports[`table demos 📸 renders ./packages/table/src/demos/card-title.tsx corr
     class="ant-pro-table"
   >
     <div
-      class="ant-card ant-card-bordered"
+      class="ant-pro-card ant-pro-card-border"
     >
       <div
-        class="ant-card-head"
+        class="ant-pro-card-header"
       >
         <div
-          class="ant-card-head-wrapper"
+          class="ant-pro-card-title"
         >
-          <div
-            class="ant-card-head-title"
-          >
-            业务定制
-          </div>
+          业务定制
         </div>
       </div>
       <div
-        class="ant-card-body"
+        class="ant-pro-card-body"
         style="padding-top: 0px;"
       >
         <div
@@ -16517,10 +16513,10 @@ exports[`table demos 📸 renders ./packages/table/src/demos/columnsStateMap.tsx
     class="ant-pro-table"
   >
     <div
-      class="ant-card"
+      class="ant-pro-card"
     >
       <div
-        class="ant-card-body"
+        class="ant-pro-card-body"
         style="padding-top: 0px;"
       >
         <div
@@ -17379,10 +17375,10 @@ exports[`table demos 📸 renders ./packages/table/src/demos/config-provider.tsx
       </form>
     </div>
     <div
-      class="qixian-card"
+      class="qixian-pro-card"
     >
       <div
-        class="qixian-card-body"
+        class="qixian-pro-card-body"
         style="padding-top: 0px;"
       >
         <div
@@ -22524,10 +22520,10 @@ exports[`table demos 📸 renders ./packages/table/src/demos/crud.tsx correctly 
           </form>
         </div>
         <div
-          class="ant-card"
+          class="ant-pro-card"
         >
           <div
-            class="ant-card-body"
+            class="ant-pro-card-body"
             style="padding-top: 0px;"
           >
             <div
@@ -24026,10 +24022,10 @@ exports[`table demos 📸 renders ./packages/table/src/demos/customization-value
       </form>
     </div>
     <div
-      class="ant-card"
+      class="ant-pro-card"
     >
       <div
-        class="ant-card-body"
+        class="ant-pro-card-body"
         style="padding-top: 0px;"
       >
         <div
@@ -25227,10 +25223,10 @@ exports[`table demos 📸 renders ./packages/table/src/demos/dataSource.tsx corr
       </form>
     </div>
     <div
-      class="ant-card"
+      class="ant-pro-card"
     >
       <div
-        class="ant-card-body"
+        class="ant-pro-card-body"
         style="padding-top: 0px;"
       >
         <div
@@ -26993,10 +26989,10 @@ exports[`table demos 📸 renders ./packages/table/src/demos/dateFormatter.tsx c
       </form>
     </div>
     <div
-      class="ant-card"
+      class="ant-pro-card"
     >
       <div
-        class="ant-card-body"
+        class="ant-pro-card-body"
         style="padding-top: 0px;"
       >
         <div
@@ -27498,10 +27494,10 @@ exports[`table demos 📸 renders ./packages/table/src/demos/dateFormatter.tsx c
       </form>
     </div>
     <div
-      class="ant-card"
+      class="ant-pro-card"
     >
       <div
-        class="ant-card-body"
+        class="ant-pro-card-body"
         style="padding-top: 0px;"
       >
         <div
@@ -28003,10 +27999,10 @@ exports[`table demos 📸 renders ./packages/table/src/demos/dateFormatter.tsx c
       </form>
     </div>
     <div
-      class="ant-card"
+      class="ant-pro-card"
     >
       <div
-        class="ant-card-body"
+        class="ant-pro-card-body"
         style="padding-top: 0px;"
       >
         <div
@@ -28621,10 +28617,10 @@ exports[`table demos 📸 renders ./packages/table/src/demos/dynamic-settings.ts
                 </form>
               </div>
               <div
-                class="ant-card"
+                class="ant-pro-card"
               >
                 <div
-                  class="ant-card-body"
+                  class="ant-pro-card-body"
                   style="padding-top: 0px;"
                 >
                   <div
@@ -31152,10 +31148,10 @@ exports[`table demos 📸 renders ./packages/table/src/demos/error-boundaries-fa
     class="ant-pro-table"
   >
     <div
-      class="ant-card"
+      class="ant-pro-card"
     >
       <div
-        class="ant-card-body"
+        class="ant-pro-card-body"
         style="padding-top: 0px;"
       >
         <div
@@ -32083,10 +32079,10 @@ exports[`table demos 📸 renders ./packages/table/src/demos/form.tsx correctly 
       </form>
     </div>
     <div
-      class="ant-card"
+      class="ant-pro-card"
     >
       <div
-        class="ant-card-body"
+        class="ant-pro-card-body"
         style="padding-top: 0px;"
       >
         <div
@@ -32733,10 +32729,10 @@ exports[`table demos 📸 renders ./packages/table/src/demos/intl.tsx correctly 
       </form>
     </div>
     <div
-      class="ant-card"
+      class="ant-pro-card"
     >
       <div
-        class="ant-card-body"
+        class="ant-pro-card-body"
         style="padding-top: 0px;"
       >
         <div
@@ -33218,10 +33214,10 @@ exports[`table demos 📸 renders ./packages/table/src/demos/lightfilter.tsx cor
     class="ant-pro-table"
   >
     <div
-      class="ant-card"
+      class="ant-pro-card"
     >
       <div
-        class="ant-card-body"
+        class="ant-pro-card-body"
         style="padding-top: 0px;"
       >
         <div
@@ -34806,10 +34802,10 @@ exports[`table demos 📸 renders ./packages/table/src/demos/linkage_form.tsx co
       </form>
     </div>
     <div
-      class="ant-card"
+      class="ant-pro-card"
     >
       <div
-        class="ant-card-body"
+        class="ant-pro-card-body"
         style="padding-top: 0px;"
       >
         <div
@@ -35151,10 +35147,10 @@ exports[`table demos 📸 renders ./packages/table/src/demos/listToolBar.tsx cor
     class="ant-pro-table"
   >
     <div
-      class="ant-card"
+      class="ant-pro-card"
     >
       <div
-        class="ant-card-body"
+        class="ant-pro-card-body"
         style="padding-top: 0px;"
       >
         <div
@@ -36873,10 +36869,10 @@ exports[`table demos 📸 renders ./packages/table/src/demos/no-option.tsx corre
       </form>
     </div>
     <div
-      class="ant-card"
+      class="ant-pro-card"
     >
       <div
-        class="ant-card-body"
+        class="ant-pro-card-body"
         style="padding-top: 0px;"
       >
         <div
@@ -38314,10 +38310,10 @@ exports[`table demos 📸 renders ./packages/table/src/demos/no-title.tsx correc
     class="ant-pro-table"
   >
     <div
-      class="ant-card"
+      class="ant-pro-card"
     >
       <div
-        class="ant-card-body"
+        class="ant-pro-card-body"
         style="padding: 0px;"
       >
         <div
@@ -38985,10 +38981,10 @@ exports[`table demos 📸 renders ./packages/table/src/demos/normal.tsx correctl
     class="ant-pro-table"
   >
     <div
-      class="ant-card"
+      class="ant-pro-card"
     >
       <div
-        class="ant-card-body"
+        class="ant-pro-card-body"
         style="padding-top: 0px;"
       >
         <div
@@ -40697,10 +40693,10 @@ exports[`table demos 📸 renders ./packages/table/src/demos/open-rules.tsx corr
       </form>
     </div>
     <div
-      class="ant-card"
+      class="ant-pro-card"
     >
       <div
-        class="ant-card-body"
+        class="ant-pro-card-body"
         style="padding-top: 0px;"
       >
         <div
@@ -41440,10 +41436,10 @@ exports[`table demos 📸 renders ./packages/table/src/demos/open-rules.tsx corr
       </form>
     </div>
     <div
-      class="ant-card"
+      class="ant-pro-card"
     >
       <div
-        class="ant-card-body"
+        class="ant-pro-card-body"
         style="padding-top: 0px;"
       >
         <div
@@ -42411,10 +42407,10 @@ exports[`table demos 📸 renders ./packages/table/src/demos/pollinga.tsx correc
       </form>
     </div>
     <div
-      class="ant-card"
+      class="ant-pro-card"
     >
       <div
-        class="ant-card-body"
+        class="ant-pro-card-body"
         style="padding-top: 0px;"
       >
         <div
@@ -43529,10 +43525,10 @@ exports[`table demos 📸 renders ./packages/table/src/demos/renderTable.tsx cor
         style="flex: 1;"
       >
         <div
-          class="ant-card"
+          class="ant-pro-card"
         >
           <div
-            class="ant-card-body"
+            class="ant-pro-card-body"
             style="padding-top: 0px;"
           >
             <div
@@ -44342,10 +44338,10 @@ exports[`table demos 📸 renders ./packages/table/src/demos/rtl_table.tsx corre
       </form>
     </div>
     <div
-      class="ant-card ant-card-rtl"
+      class="ant-pro-card"
     >
       <div
-        class="ant-card-body"
+        class="ant-pro-card-body"
         style="padding-top: 0px;"
       >
         <div
@@ -45756,10 +45752,10 @@ exports[`table demos 📸 renders ./packages/table/src/demos/search.tsx correctl
     class="ant-pro-table"
   >
     <div
-      class="ant-card"
+      class="ant-pro-card"
     >
       <div
-        class="ant-card-body"
+        class="ant-pro-card-body"
         style="padding-top: 0px;"
       >
         <div
@@ -46487,10 +46483,10 @@ exports[`table demos 📸 renders ./packages/table/src/demos/search_option.tsx c
       </form>
     </div>
     <div
-      class="ant-card"
+      class="ant-pro-card"
     >
       <div
-        class="ant-card-body"
+        class="ant-pro-card-body"
         style="padding-top: 0px;"
       >
         <div
@@ -46850,7 +46846,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/single.tsx correctl
     class="ant-pro-table"
   >
     <div
-      class="ant-pro-table-search ant-pro-table-search-query-filter"
+      class="ant-pro-table-search ant-pro-table-search-query-filter ant-card-bordered"
     >
       <form
         autocomplete="off"
@@ -47261,10 +47257,10 @@ exports[`table demos 📸 renders ./packages/table/src/demos/single.tsx correctl
       </form>
     </div>
     <div
-      class="ant-card"
+      class="ant-pro-card ant-pro-card-border"
     >
       <div
-        class="ant-card-body"
+        class="ant-pro-card-body"
         style="padding-top: 0px;"
       >
         <div
@@ -49293,10 +49289,10 @@ exports[`table demos 📸 renders ./packages/table/src/demos/single-test.tsx cor
       </form>
     </div>
     <div
-      class="ant-card"
+      class="ant-pro-card"
     >
       <div
-        class="ant-card-body"
+        class="ant-pro-card-body"
         style="padding-top: 0px;"
       >
         <div
@@ -50149,10 +50145,10 @@ exports[`table demos 📸 renders ./packages/table/src/demos/single-test.tsx cor
       </form>
     </div>
     <div
-      class="ant-card"
+      class="ant-pro-card"
     >
       <div
-        class="ant-card-body"
+        class="ant-pro-card-body"
         style="padding-top: 0px;"
       >
         <div
@@ -51623,10 +51619,10 @@ exports[`table demos 📸 renders ./packages/table/src/demos/split.tsx correctly
               class="ant-pro-table"
             >
               <div
-                class="ant-card"
+                class="ant-pro-card"
               >
                 <div
-                  class="ant-card-body"
+                  class="ant-pro-card-body"
                   style="padding-top: 0px;"
                 >
                   <div
@@ -52231,10 +52227,10 @@ exports[`table demos 📸 renders ./packages/table/src/demos/split.tsx correctly
               class="ant-pro-table"
             >
               <div
-                class="ant-card"
+                class="ant-pro-card"
               >
                 <div
-                  class="ant-card-body"
+                  class="ant-pro-card-body"
                   style="padding: 0px;"
                 >
                   <div
@@ -52562,10 +52558,10 @@ exports[`table demos 📸 renders ./packages/table/src/demos/table-nested.tsx co
     class="ant-pro-table"
   >
     <div
-      class="ant-card"
+      class="ant-pro-card"
     >
       <div
-        class="ant-card-body"
+        class="ant-pro-card-body"
         style="padding-top: 0px;"
       >
         <div
@@ -53790,10 +53786,10 @@ exports[`table demos 📸 renders ./packages/table/src/demos/valueType.tsx corre
       </form>
     </div>
     <div
-      class="ant-card"
+      class="ant-pro-card"
     >
       <div
-        class="ant-card-body"
+        class="ant-pro-card-body"
         style="padding-top: 0px;"
       >
         <div
@@ -55274,10 +55270,10 @@ exports[`table demos 📸 renders ./packages/table/src/demos/valueType_select.ts
       </form>
     </div>
     <div
-      class="ant-card"
+      class="ant-pro-card"
     >
       <div
-        class="ant-card-body"
+        class="ant-pro-card-body"
         style="padding-top: 0px;"
       >
         <div
@@ -56492,10 +56488,10 @@ exports[`table demos 📸 renders ./packages/table/src/demos/valueTypeDate.tsx c
       </form>
     </div>
     <div
-      class="ant-card"
+      class="ant-pro-card"
     >
       <div
-        class="ant-card-body"
+        class="ant-pro-card-body"
         style="padding-top: 0px;"
       >
         <div
@@ -57754,10 +57750,10 @@ exports[`table demos 📸 renders ./packages/table/src/demos/valueTypeNumber.tsx
       </form>
     </div>
     <div
-      class="ant-card"
+      class="ant-pro-card"
     >
       <div
-        class="ant-card-body"
+        class="ant-pro-card-body"
         style="padding-top: 0px;"
       >
         <div

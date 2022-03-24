@@ -208,7 +208,7 @@ describe('BasicTable', () => {
     );
     await waitForComponentToPaint(html, 1200);
 
-    expect(html.find('.ant-card').exists()).toBe(false);
+    expect(html.find('.ant-pro-card').exists()).toBe(false);
 
     act(() => {
       html.setProps({
@@ -216,7 +216,7 @@ describe('BasicTable', () => {
       });
     });
     await waitForComponentToPaint(html, 1200);
-    expect(html.find('.ant-card').exists()).toBe(true);
+    expect(html.find('.ant-pro-card').exists()).toBe(true);
   });
 
   it('🎏 do not render setting', async () => {
@@ -1202,7 +1202,7 @@ describe('BasicTable', () => {
     );
 
     expect(html.find('.ant-pro-table-search-query-filter.ant-card-bordered').exists()).toBeTruthy();
-    expect(html.find('.ant-card.ant-card-bordered').exists()).toBeTruthy();
+    expect(html.find('.ant-pro-card.ant-pro-card-border').exists()).toBeTruthy();
   });
 
   it('🎏 bordered = {search = true, table = false}', async () => {
@@ -1225,7 +1225,7 @@ describe('BasicTable', () => {
         }}
       />,
     );
-    expect(html.find('.ant-card.ant-card-bordered').exists()).toBeFalsy();
+    expect(html.find('.ant-pro-card.ant-card-bordered').exists()).toBeFalsy();
     expect(html.find('.ant-pro-table-search-query-filter.ant-card-bordered').exists()).toBeTruthy();
   });
 

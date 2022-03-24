@@ -9,6 +9,19 @@ group:
 
 # Change Log
 
+## @ant-design/pro-table@2.68.3
+
+`2022-03-22`
+
+- fix(table): fix actionSaveRef logic when add new line (#4881). [#4881](https://github.com/ant-design/pro-components/pull/#4881) [@zqran](https://github.com/zqran)
+
+## @ant-design/pro-table@2.68.2
+
+`2022-03-18`
+
+- fix(table): support ghost. [7bec0df](https://github.com/ant-design/pro-components/commit/7bec0df)
+- fix(table): fix inlint error render dom. [bfeb81a](https://github.com/ant-design/pro-components/commit/bfeb81a)
+
 ## @ant-design/pro-table@2.68.0
 
 `2022-03-16`

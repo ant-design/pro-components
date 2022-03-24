@@ -9,6 +9,12 @@ group:
 
 # Change Log
 
+## @ant-design/pro-form@1.59.2
+
+`2022-03-18`
+
+- fix(form): fix modal and drawer form rerender error. [4b728f2](https://github.com/ant-design/pro-components/commit/4b728f2)
+
 ## @ant-design/pro-form@1.59.0
 
 `2022-03-16`

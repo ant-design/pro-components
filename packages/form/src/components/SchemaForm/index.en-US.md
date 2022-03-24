@@ -53,7 +53,7 @@ The most important thing about the SchemaForm form is the type definition of the
 | `formItemProps` | `(form,config)=>formItemProps` \| `formItemProps` | Configuration passed to Form.Item |
 | `renderText` | `(text: any, record: Entity, index: number, action: ProCoreActionType) => any` | The modified data will be consumed by the rendering component defined by valueType |
 | `render` | `(dom,entity,index, action, schema) => React.ReactNode` | custom read-only mode dom, read-only mode managed by `render` method only, edit mode needs to use `renderFormItem` |
-| `renderFormItem` | `(schema,config,form) => React.ReactNode` | Custom edit mode, return a ReactNode, will automatically wrap value and onChange. If it returns false,null,undefined, the item will not be displayed |
+| `renderFormItem` | `(schema,config,form) => React.ReactNode` | Custom edit mode, return a ReactNode, will automatically wrap value and onChange. ~~If it returns false,null,undefined, the item will not be displayed~~ It is recommended to use dependent components to control whether to render or not |
 | `request` | `(params,props) => Promise<{label,value}[]>` | Request network data remotely, generally used to select class components |
 | `params` | `Record<string, any>` | The additional parameters passed to `request` will not be processed by the component, but changes will cause `request` to request data again |
 | `dependencies` | `string \| number \| (string \| number)[]` | After the dependent values changes, trigger renderFormItem, fieldProps, formItemProps to re-execute, and inject values into params [example](#use-dependencies-to-trigger-fieldprops-formitemprops-renderformitem-updates) |

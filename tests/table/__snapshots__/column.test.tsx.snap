@@ -166,10 +166,10 @@ exports[`Table ColumnSetting 🎏 config provide render 1`] = `
     </form>
   </div>
   <div
-    class="qixian-card"
+    class="qixian-pro-card"
   >
     <div
-      class="qixian-card-body"
+      class="qixian-pro-card-body"
       style="padding-top: 0px;"
     >
       <div
@@ -1083,10 +1083,10 @@ exports[`Table ColumnSetting 🎏 extra columns 1`] = `
     </form>
   </div>
   <div
-    class="ant-card"
+    class="ant-pro-card"
   >
     <div
-      class="ant-card-body"
+      class="ant-pro-card-body"
       style="padding-top: 0px;"
     >
       <div
