@@ -225,6 +225,7 @@ describe('utils', () => {
         dateRange: [moment('2019-11-16 12:50:26'), moment('2019-11-16 12:50:26')],
         timeRange: [moment('2019-11-16 12:50:26'), moment('2019-11-16 12:50:26')],
         timeRange2: [moment('2019-11-16 12:50:26'), moment('2019-11-16 12:50:26')],
+        dateQuarter: moment('2019-11-16 12:50:26'),
       },
       'string',
       {
@@ -233,6 +234,7 @@ describe('utils', () => {
         name: 'text',
         dateRange: 'dateRange',
         timeRange: 'timeRange',
+        dateQuarter: 'dateQuarter',
       },
     );
     expect(html.dataTime).toBe('2019-11-16 12:50:26');
@@ -242,6 +244,7 @@ describe('utils', () => {
     expect(html.dateTimeRange.join(',')).toBe('2019-11-16 12:50:26,2019-11-16 12:50:26');
     expect(html.dateRange.join(',')).toBe('2019-11-16,2019-11-16');
     expect(html.timeRange2.join(',')).toBe('2019-11-16 12:50:26,2019-11-16 12:50:26');
+    expect(html.dateQuarter).toBe('2019-Q4');
   });
 
   it('📅 conversionSubmitValue string', async () => {
