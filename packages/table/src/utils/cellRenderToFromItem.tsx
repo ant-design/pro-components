@@ -84,7 +84,15 @@ const CellRenderFromItem = <T,>(props: CellRenderFromItemProps<T>) => {
             );
 
             setName(value);
-          }, [columnProps?.dataIndex, columnProps?.key, index, recordKey, prefixName, key]);
+          }, [
+            columnProps?.dataIndex,
+            columnProps?.key,
+            index,
+            recordKey,
+            prefixName,
+            key,
+            subName,
+          ]);
 
           const needProps = useMemo(
             () =>
@@ -212,7 +220,7 @@ const CellRenderFromItem = <T,>(props: CellRenderFromItemProps<T>) => {
           ]);
         },
       ),
-    [],
+    [formContext.getPopupContainer],
   );
 
   return <Component {...props} />;
