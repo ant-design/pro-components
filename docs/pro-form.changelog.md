@@ -9,6 +9,14 @@ group:
 
 # Change Log
 
+## @ant-design/pro-form@1.60.0
+
+`2022-03-25`
+
+- feat(form): support grid layout (#4859). [#4859](https://github.com/ant-design/pro-components/pull/#4859) [@1247748612](https://github.com/1247748612)
+- feat(form): Select add style and className prop (#4915). [#4915](https://github.com/ant-design/pro-components/pull/#4915) [@zqran](https://github.com/zqran)
+- fix(form): field will be ignored when value=0 (#4901). [#4901](https://github.com/ant-design/pro-components/pull/#4901) [@1247748612](https://github.com/1247748612)
+
 ## @ant-design/pro-form@1.59.2
 
 `2022-03-18`

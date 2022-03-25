@@ -9,6 +9,12 @@ group:
 
 # Change Log
 
+## @ant-design/pro-utils@1.38.0
+
+`2022-03-25`
+
+- fix(utils): add missing backslash in moment format (#4913). [#4913](https://github.com/ant-design/pro-components/pull/#4913) [@tonywu6](https://github.com/tonywu6)
+
 ## @ant-design/pro-utils@1.36.0
 
 `2022-03-14`

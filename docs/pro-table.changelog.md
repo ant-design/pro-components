@@ -9,6 +9,14 @@ group:
 
 # Change Log
 
+## @ant-design/pro-table@2.69.0
+
+`2022-03-25`
+
+- feat(table): support getRows, getRow, setRow (#4904). [#4904](https://github.com/ant-design/pro-components/pull/#4904) [@chenshuai2144](https://github.com/chenshuai2144)
+- feat(table): table search alway use pro-card. [d46edbb](https://github.com/ant-design/pro-components/commit/d46edbb)
+- fix(table): Incorrect value of sub-column when using EditableTable in Form (#4875). [#4875](https://github.com/ant-design/pro-components/pull/#4875) [@1247748612](https://github.com/1247748612)
+
 ## @ant-design/pro-table@2.68.3
 
 `2022-03-22`
