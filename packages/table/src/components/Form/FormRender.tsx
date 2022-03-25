@@ -195,7 +195,10 @@ const FormRender = <T, U = any>({
       className={classNames(className, {
         [formClassName]: isForm,
         [getPrefixCls(`pro-table-search-${toLowerLine(competentName)}`)]: true,
-        [`${getPrefixCls('card')}-bordered`]: !!bordered,
+        [`${getPrefixCls('pro-card')}-border`]: !!bordered,
+        [`${getPrefixCls('pro-card')}-bordered`]: !!bordered,
+        [`${getPrefixCls('pro-card')}-ghost`]: !!ghost,
+        [getPrefixCls('pro-card')]: true,
         [`${className}-ghost`]: ghost,
         [(searchConfig as { className: string })?.className]:
           searchConfig !== false && searchConfig?.className,
