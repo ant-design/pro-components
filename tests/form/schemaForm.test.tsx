@@ -122,6 +122,7 @@ describe('SchemaForm', () => {
     const fieldPropsFn = jest.fn();
     const formItemPropsFn = jest.fn();
     const renderFormItemFn = jest.fn();
+    const onVisibleChangeFn = jest.fn();
     const html = mount(
       <BetaSchemaForm
         columns={[
@@ -146,6 +147,7 @@ describe('SchemaForm', () => {
             formItemProps: formItemPropsFn,
           },
         ]}
+        onVisibleChange={onVisibleChangeFn}
       />,
     );
     await waitForComponentToPaint(html);
@@ -163,6 +165,8 @@ describe('SchemaForm', () => {
     expect(renderFormItemFn).toBeCalledTimes(4);
     expect(fieldPropsFn).toBeCalledTimes(2);
     expect(formItemPropsFn).toBeCalledTimes(2);
+
+    expect(onVisibleChangeFn).toBeCalled();
   });
 
   it('😊 SchemaForm support shouldUpdate as function', async () => {
