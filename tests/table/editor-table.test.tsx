@@ -449,7 +449,7 @@ describe('EditorProTable', () => {
     wrapper.unmount();
   });
 
-  fit('📝 EditableProTable editableFormRef need rowIndex', async () => {
+  it('📝 EditableProTable editableFormRef need rowIndex', async () => {
     const editorRef = React.createRef<EditableFormInstance<DataSourceType>>();
     const wrapper = mount(
       <EditableProTable<DataSourceType>
