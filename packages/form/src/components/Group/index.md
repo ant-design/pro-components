@@ -68,6 +68,77 @@ ProFormList 与 [Form.List](https://ant.design/components/form-cn/#Form.List) AP
 | min | 最少条目，删除时如果当前数据条目少于该数则无法删除 | `number` | - |
 | max | 最多条目，新增或复制时如果当前数据条目多于该数则无法新增或复制 | `number` | - |
 
+### ProFormList RenderProps 模式
+
+ProFormList 支持传入一个方法来获取到当前行的信息和快捷操作，这对于复杂的联动来说是很方便的。
+
+```tsx | pure
+<ProFormList>
+  {(
+    // 当前行的基本信息 {name: number; key: number}
+    meta,
+    // 当前的行号
+    index,
+    /**
+     * action
+     * @name 用于操作行的一些快捷方法
+     * @example 给第二行增加数据 action.add?.({},1);
+     * @example 删除第二行 action.remove?.(1);
+     * @example 从 1 移到 2: action.move?.(2,1);
+     * @example 获取当前行的数据: action.getCurrentRowData() -> {id:"xxx",name:'123',age:18}
+     * @example 设置当前行的数据: {id:"123",name:'123'} -> action.setCurrentRowData({name:'xxx'}) -> {id:"123",name:'xxx'}
+     * @example 清空当前行的数据：{id:"123",name:'123'} -> action.setCurrentRowData({name:undefined}) -> {id:"123"}
+     */
+    action,
+  ) => {
+    return (
+      <div key="row">
+        <ProFormText name="id" />
+        <ProFormText name="name" />
+      </div>
+    );
+  }}
+</ProFormList>
+```
+
+这三个参数的类型定义如下：
+
+```tsx | pure
+type RenderActionParams = {
+  /**
+   * @name 当前行的meta信息
+   * @example {name: number; key: number}
+   */
+  meta: FormListFieldData;
+  /**
+   * @name 当前行的行号
+   */
+  index: number;
+  /**
+   * @name 用于操作行的一些快捷方法
+   * @example 给第二行增加数据 action.add?.({},1);
+   * @example 删除第二行 action.remove?.(1);
+   * @example 从 1 移到 2: action.move?.(2,1);
+   * @example 获取当前行的数据: action.getCurrentRowData() -> {id:"xxx",name:'123',age:18}
+   * @example 设置当前行的数据: {id:"123",name:'123'} -> action.setCurrentRowData({name:'xxx'}) -> {id:"123",name:'xxx'}
+   * @example 清空当前行的数据：{id:"123",name:'123'} -> action.setCurrentRowData({name:undefined}) -> {id:"123"}
+   */
+  action: FormListOperation & {
+    /**
+     * @name 获取当前行的数据
+     * @example getCurrentRowData -> {id:"xxx",name:'123',age:18}
+     */
+    getCurrentRowData: () => any;
+    /**
+     * @name 设置当前行的数据
+     * @example {id:"123",name:'123'} -> setCurrentRowData({name:'xxx'}) -> {id:"123",name:'123'}
+     * @example {id:"123",name:'123'} -> setCurrentRowData({name:undefined}) -> {id:"123"}
+     */
+    setCurrentRowData: (data: any) => void;
+  };
+};
+```
+
 ## ProFormFieldSet
 
 ProFormFieldSet 可以将内部的多个 children 的值组合并且存储在 ProForm 中，并且可以通过 `transform` 在提交时转化。下面是一个简单的用法,可以方便的组合多个输入框，并且格式化为想要的数据。
