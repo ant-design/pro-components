@@ -6,7 +6,7 @@ exports[`table demos 📸 renders ./packages/table/src/components/DragSortTable/
     class="ant-pro-table"
   >
     <div
-      class="ant-pro-table-search ant-pro-table-search-query-filter"
+      class="ant-pro-table-search ant-pro-table-search-query-filter ant-pro-card"
     >
       <form
         autocomplete="off"
@@ -726,7 +726,7 @@ exports[`table demos 📸 renders ./packages/table/src/components/DragSortTable/
     class="ant-pro-table"
   >
     <div
-      class="ant-pro-table-search ant-pro-table-search-query-filter"
+      class="ant-pro-table-search ant-pro-table-search-query-filter ant-pro-card"
     >
       <form
         autocomplete="off"
@@ -17007,7 +17007,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/config-provider.tsx
     class="qixian-pro-table"
   >
     <div
-      class="qixian-pro-table-search qixian-pro-table-search-query-filter"
+      class="qixian-pro-table-search qixian-pro-table-search-query-filter qixian-pro-card"
     >
       <form
         autocomplete="off"
@@ -22062,7 +22062,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/crud.tsx correctly 
         class="ant-pro-table"
       >
         <div
-          class="ant-pro-table-search ant-pro-table-search-query-filter"
+          class="ant-pro-table-search ant-pro-table-search-query-filter ant-pro-card"
         >
           <form
             autocomplete="off"
@@ -23856,7 +23856,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/customization-value
     class="ant-pro-table"
   >
     <div
-      class="ant-pro-table-search ant-pro-table-search-query-filter"
+      class="ant-pro-table-search ant-pro-table-search-query-filter ant-pro-card"
     >
       <form
         autocomplete="off"
@@ -24676,7 +24676,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/dataSource.tsx corr
     class="ant-pro-table"
   >
     <div
-      class="ant-pro-table-search ant-pro-table-search-query-filter"
+      class="ant-pro-table-search ant-pro-table-search-query-filter ant-pro-card"
     >
       <form
         autocomplete="off"
@@ -26744,7 +26744,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/dateFormatter.tsx c
     class="ant-pro-table"
   >
     <div
-      class="ant-pro-table-search ant-pro-table-search-query-filter"
+      class="ant-pro-table-search ant-pro-table-search-query-filter ant-pro-card"
     >
       <form
         autocomplete="off"
@@ -27249,7 +27249,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/dateFormatter.tsx c
     class="ant-pro-table"
   >
     <div
-      class="ant-pro-table-search ant-pro-table-search-query-filter"
+      class="ant-pro-table-search ant-pro-table-search-query-filter ant-pro-card"
     >
       <form
         autocomplete="off"
@@ -27754,7 +27754,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/dateFormatter.tsx c
     class="ant-pro-table"
   >
     <div
-      class="ant-pro-table-search ant-pro-table-search-query-filter"
+      class="ant-pro-table-search ant-pro-table-search-query-filter ant-pro-card"
     >
       <form
         autocomplete="off"
@@ -28281,7 +28281,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/dynamic-settings.ts
               class="ant-pro-table"
             >
               <div
-                class="ant-pro-table-search ant-pro-table-search-query-filter"
+                class="ant-pro-table-search ant-pro-table-search-query-filter ant-pro-card"
               >
                 <form
                   autocomplete="off"
@@ -31858,7 +31858,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/form.tsx correctly 
     class="ant-pro-table"
   >
     <div
-      class="ant-pro-table-search ant-pro-table-search-query-filter"
+      class="ant-pro-table-search ant-pro-table-search-query-filter ant-pro-card"
     >
       <form
         autocomplete="off"
@@ -32381,7 +32381,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/intl.tsx correctly 
     class="ant-pro-table"
   >
     <div
-      class="ant-pro-table-search ant-pro-table-search-query-filter"
+      class="ant-pro-table-search ant-pro-table-search-query-filter ant-pro-card"
     >
       <form
         autocomplete="off"
@@ -33242,13 +33242,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/lightfilter.tsx cor
           >
             <div
               class="ant-pro-table-list-toolbar-left"
-            >
-              <div
-                class="ant-pro-table-list-toolbar-title"
-              >
-                表格标题
-              </div>
-            </div>
+            />
             <div
               class="ant-space ant-space-horizontal ant-space-align-center ant-pro-table-list-toolbar-right"
             >
@@ -33260,7 +33254,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/lightfilter.tsx cor
                   class="ant-pro-table-list-toolbar-filter"
                 >
                   <div
-                    class="ant-pro-table-search ant-pro-table-search-light-filter"
+                    class="ant-pro-table-search ant-pro-table-search-light-filter ant-pro-card"
                   >
                     <form
                       autocomplete="off"
@@ -33618,40 +33612,6 @@ exports[`table demos 📸 renders ./packages/table/src/demos/lightfilter.tsx cor
                         </div>
                       </div>
                     </form>
-                  </div>
-                </div>
-              </div>
-              <div
-                class="ant-space-item"
-                style="margin-right: 16px;"
-              >
-                <div
-                  class="ant-space ant-space-horizontal ant-space-align-center"
-                >
-                  <div
-                    class="ant-space-item"
-                    style="margin-right: 8px;"
-                  >
-                    <button
-                      class="ant-btn ant-btn-default"
-                      type="button"
-                    >
-                      <span>
-                        查看日志
-                      </span>
-                    </button>
-                  </div>
-                  <div
-                    class="ant-space-item"
-                  >
-                    <button
-                      class="ant-btn ant-btn-primary"
-                      type="button"
-                    >
-                      <span>
-                        创建应用
-                      </span>
-                    </button>
                   </div>
                 </div>
               </div>
@@ -34400,7 +34360,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/linkage_form.tsx co
     class="ant-pro-table"
   >
     <div
-      class="ant-pro-table-search ant-pro-table-search-query-filter"
+      class="ant-pro-table-search ant-pro-table-search-query-filter ant-pro-card"
     >
       <form
         autocomplete="off"
@@ -36336,7 +36296,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/no-option.tsx corre
     class="ant-pro-table"
   >
     <div
-      class="ant-pro-table-search ant-pro-table-search-query-filter"
+      class="ant-pro-table-search ant-pro-table-search-query-filter ant-pro-card"
     >
       <form
         autocomplete="off"
@@ -40436,7 +40396,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/open-rules.tsx corr
     class="ant-pro-table"
   >
     <div
-      class="ant-pro-table-search ant-pro-table-search-query-filter"
+      class="ant-pro-table-search ant-pro-table-search-query-filter ant-pro-card"
     >
       <form
         autocomplete="off"
@@ -41179,7 +41139,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/open-rules.tsx corr
     class="ant-pro-table"
   >
     <div
-      class="ant-pro-table-search ant-pro-table-search-query-filter"
+      class="ant-pro-table-search ant-pro-table-search-query-filter ant-pro-card"
     >
       <form
         autocomplete="off"
@@ -41927,7 +41887,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/pollinga.tsx correc
     class="ant-pro-table"
   >
     <div
-      class="ant-pro-table-search ant-pro-table-search-query-filter"
+      class="ant-pro-table-search ant-pro-table-search-query-filter ant-pro-card"
     >
       <form
         autocomplete="off"
@@ -42984,7 +42944,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/renderTable.tsx cor
     class="ant-pro-table"
   >
     <div
-      class="ant-pro-table-search ant-pro-table-search-query-filter"
+      class="ant-pro-table-search ant-pro-table-search-query-filter ant-pro-card"
     >
       <form
         autocomplete="off"
@@ -43979,7 +43939,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/rtl_table.tsx corre
     class="ant-pro-table"
   >
     <div
-      class="ant-pro-table-search ant-pro-table-search-query-filter"
+      class="ant-pro-table-search ant-pro-table-search-query-filter ant-pro-card"
     >
       <form
         autocomplete="off"
@@ -46117,7 +46077,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/search_option.tsx c
     class="ant-pro-table"
   >
     <div
-      class="ant-pro-table-search ant-pro-table-search-query-filter"
+      class="ant-pro-table-search ant-pro-table-search-query-filter ant-pro-card"
     >
       <form
         autocomplete="off"
@@ -46860,7 +46820,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/single.tsx correctl
     class="ant-pro-table"
   >
     <div
-      class="ant-pro-table-search ant-pro-table-search-query-filter ant-card-bordered"
+      class="ant-pro-table-search ant-pro-table-search-query-filter ant-pro-card-border ant-pro-card-bordered ant-pro-card"
     >
       <form
         autocomplete="off"
@@ -48741,7 +48701,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/single-test.tsx cor
     class="ant-pro-table"
   >
     <div
-      class="ant-pro-table-search ant-pro-table-form ant-pro-table-search-form"
+      class="ant-pro-table-search ant-pro-table-form ant-pro-table-search-form ant-pro-card"
     >
       <form
         autocomplete="off"
@@ -49073,7 +49033,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/single-test.tsx cor
     class="ant-pro-table"
   >
     <div
-      class="ant-pro-table-search ant-pro-table-search-query-filter"
+      class="ant-pro-table-search ant-pro-table-search-query-filter ant-pro-card"
     >
       <form
         autocomplete="off"
@@ -49585,7 +49545,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/single-test.tsx cor
     class="ant-pro-table"
   >
     <div
-      class="ant-pro-table-search ant-pro-table-search-query-filter"
+      class="ant-pro-table-search ant-pro-table-search-query-filter ant-pro-card"
     >
       <form
         autocomplete="off"
@@ -53502,7 +53462,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/valueType.tsx corre
     class="ant-pro-table"
   >
     <div
-      class="ant-pro-table-search ant-pro-table-search-query-filter"
+      class="ant-pro-table-search ant-pro-table-search-query-filter ant-pro-card"
     >
       <form
         autocomplete="off"
@@ -54517,7 +54477,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/valueType_select.ts
     class="ant-pro-table"
   >
     <div
-      class="ant-pro-table-search ant-pro-table-search-query-filter"
+      class="ant-pro-table-search ant-pro-table-search-query-filter ant-pro-card"
     >
       <form
         autocomplete="off"
@@ -54680,7 +54640,6 @@ exports[`table demos 📸 renders ./packages/table/src/demos/valueType_select.ts
                     <div
                       class="ant-radio-group ant-radio-group-outline ant-pro-field-radio-horizontal"
                       id="status"
-                      style="width: 100%;"
                     >
                       <label
                         class="ant-radio-wrapper"
@@ -54794,7 +54753,6 @@ exports[`table demos 📸 renders ./packages/table/src/demos/valueType_select.ts
                     <div
                       class="ant-radio-group ant-radio-group-outline ant-pro-field-radio-horizontal"
                       id="status"
-                      style="width: 100%;"
                     >
                       <label
                         class="ant-radio-button-wrapper"
@@ -55863,7 +55821,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/valueTypeDate.tsx c
     class="ant-pro-table"
   >
     <div
-      class="ant-pro-table-search ant-pro-table-search-query-filter"
+      class="ant-pro-table-search ant-pro-table-search-query-filter ant-pro-card"
     >
       <form
         autocomplete="off"
@@ -57105,7 +57063,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/valueTypeNumber.tsx
     class="ant-pro-table"
   >
     <div
-      class="ant-pro-table-search ant-pro-table-search-query-filter"
+      class="ant-pro-table-search ant-pro-table-search-query-filter ant-pro-card"
     >
       <form
         autocomplete="off"

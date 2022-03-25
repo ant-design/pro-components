@@ -202,6 +202,7 @@ describe('BasicTable', () => {
             valueType: 'money',
           },
         ]}
+        search={false}
         dataSource={[]}
         rowKey="key"
       />,
@@ -1201,7 +1202,9 @@ describe('BasicTable', () => {
       />,
     );
 
-    expect(html.find('.ant-pro-table-search-query-filter.ant-card-bordered').exists()).toBeTruthy();
+    expect(
+      html.find('.ant-pro-table-search-query-filter.ant-pro-card-bordered').exists(),
+    ).toBeTruthy();
     expect(html.find('.ant-pro-card.ant-pro-card-border').exists()).toBeTruthy();
   });
 
@@ -1226,7 +1229,9 @@ describe('BasicTable', () => {
       />,
     );
     expect(html.find('.ant-pro-card.ant-card-bordered').exists()).toBeFalsy();
-    expect(html.find('.ant-pro-table-search-query-filter.ant-card-bordered').exists()).toBeTruthy();
+    expect(
+      html.find('.ant-pro-table-search-query-filter.ant-pro-card-bordered').exists(),
+    ).toBeTruthy();
   });
 
   it('🎏 debounce time', async () => {

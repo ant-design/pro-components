@@ -109,13 +109,6 @@ export default () => {
         filterType: 'light',
       }}
       dateFormatter="string"
-      headerTitle="表格标题"
-      toolBarRender={() => [
-        <Button key="show">查看日志</Button>,
-        <Button type="primary" key="primary">
-          创建应用
-        </Button>,
-      ]}
     />
   );
 };
