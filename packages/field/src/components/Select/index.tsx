@@ -392,10 +392,9 @@ export const useFieldFetchData = (
  *
  * @param
  */
-const FieldSelect: ProFieldFC<FieldSelectProps & Pick<SelectProps, 'fieldNames'>> = (
-  props,
-  ref,
-) => {
+const FieldSelect: ProFieldFC<
+  FieldSelectProps & Pick<SelectProps, 'fieldNames' | 'style' | 'className'>
+> = (props, ref) => {
   const {
     mode,
     valueEnum,
@@ -495,8 +494,10 @@ const FieldSelect: ProFieldFC<FieldSelectProps & Pick<SelectProps, 'fieldNames'>
       return (
         <SearchSelect
           key="SearchSelect"
+          className={rest.className}
           style={{
             minWidth: 100,
+            ...rest.style,
           }}
           bordered={bordered}
           id={id}
