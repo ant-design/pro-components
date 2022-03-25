@@ -2,6 +2,17 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.60.0](https://github.com/ant-design/pro-components/compare/@ant-design/pro-form@1.59.3...@ant-design/pro-form@1.60.0) (2022-03-25)
+
+### Bug Fixes
+
+- **form:** field will be ignored when value=0 ([#4901](https://github.com/ant-design/pro-components/issues/4901)) ([1e8a213](https://github.com/ant-design/pro-components/commit/1e8a213bcadbfe702629996b407fa71ec74ea64c))
+
+### Features
+
+- **form:** support grid layout ([#4859](https://github.com/ant-design/pro-components/issues/4859)) ([266af92](https://github.com/ant-design/pro-components/commit/266af92b2c1e1ac22b7e93f9745a65cbf748bbb4))
+- **table:** support getRows, getRow, setRow ([#4904](https://github.com/ant-design/pro-components/issues/4904)) ([756340e](https://github.com/ant-design/pro-components/commit/756340ee97f13b55e5f51cc875ec6b344e953d24))
+
 ## [1.59.3](https://github.com/ant-design/pro-components/compare/@ant-design/pro-form@1.59.2...@ant-design/pro-form@1.59.3) (2022-03-22)
 
 **Note:** Version bump only for package @ant-design/pro-form

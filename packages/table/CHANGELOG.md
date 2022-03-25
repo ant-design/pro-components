@@ -2,6 +2,17 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.69.0](https://github.com/ant-design/pro-components/compare/@ant-design/pro-table@2.68.3...@ant-design/pro-table@2.69.0) (2022-03-25)
+
+### Bug Fixes
+
+- **table:** Incorrect value of sub-column when using EditableTable in Form ([#4875](https://github.com/ant-design/pro-components/issues/4875)) ([b572328](https://github.com/ant-design/pro-components/commit/b57232852b18d40531e1bd42406df8eb13cd325c))
+
+### Features
+
+- **table:** support getRows, getRow, setRow ([#4904](https://github.com/ant-design/pro-components/issues/4904)) ([756340e](https://github.com/ant-design/pro-components/commit/756340ee97f13b55e5f51cc875ec6b344e953d24))
+- **table:** table search alway use pro-card ([d46edbb](https://github.com/ant-design/pro-components/commit/d46edbbbed5f03e704b2e69acdd3868f83370a7a))
+
 ## [2.68.3](https://github.com/ant-design/pro-components/compare/@ant-design/pro-table@2.68.2...@ant-design/pro-table@2.68.3) (2022-03-22)
 
 **Note:** Version bump only for package @ant-design/pro-table

@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.34.0](https://github.com/ant-design/pro-components/compare/@ant-design/pro-field@1.33.3...@ant-design/pro-field@1.34.0) (2022-03-25)
+
+### Features
+
+- **form:** Select add style and className prop ([#4915](https://github.com/ant-design/pro-components/issues/4915)) ([2d3fa7e](https://github.com/ant-design/pro-components/commit/2d3fa7eba11cdbcaba5fd306480b49d77d3a1dfd))
+
 ## [1.33.3](https://github.com/ant-design/pro-components/compare/@ant-design/pro-field@1.33.2...@ant-design/pro-field@1.33.3) (2022-03-22)
 
 **Note:** Version bump only for package @ant-design/pro-field
