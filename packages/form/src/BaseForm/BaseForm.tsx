@@ -257,7 +257,7 @@ function BaseFormComponents<T = Record<string, any>>(props: BaseFormProps<T>) {
        * @example validateFieldsReturnFormatValue -> {a:{b:value}}
        */
       validateFieldsReturnFormatValue: async (nameList?: NamePath[]) => {
-        if (!Array.isArray(nameList)) throw new Error('nameList must be array');
+        if (!Array.isArray(nameList) && nameList) throw new Error('nameList must be array');
         const values = await formRef.current?.validateFields(nameList);
         return transformKey(values, omitNil);
       },
