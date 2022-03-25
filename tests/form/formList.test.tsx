@@ -9,7 +9,7 @@ import { act } from 'react-dom/test-utils';
 import { mount } from 'enzyme';
 import { waitForComponentToPaint, waitTime } from '../util';
 import { SnippetsOutlined, CloseOutlined } from '@ant-design/icons';
-import { Form } from 'antd';
+import { Button, Form } from 'antd';
 import _ from 'lodash';
 import type { NamePath } from 'antd/es/form/interface';
 
@@ -110,10 +110,12 @@ describe('ProForm List', () => {
           ]}
         >
           {() => {
-            <div>
-              <ProFormText name="name" />
-              <ProFormText name="nickName" />
-            </div>;
+            return (
+              <div>
+                <ProFormText name="name" />
+                <ProFormText name="nickName" />
+              </div>
+            );
           }}
         </ProFormList>
       </ProForm>,
@@ -130,6 +132,108 @@ describe('ProForm List', () => {
     expect(fn).toBeCalledWith({
       name: '1111',
       nickName: '1111',
+    });
+  });
+
+  it('⛲  ProForm.List getCurrentRowData and setCurrentRowData', async () => {
+    const fn = jest.fn();
+    const html = mount(
+      <ProForm
+        onFinish={async (values) => {
+          fn(values.users[0]);
+        }}
+      >
+        <ProFormList
+          name="users"
+          label="用户信息"
+          initialValue={[
+            {
+              name: '1111',
+              nickName: '1111',
+            },
+          ]}
+        >
+          {(field, index, action) => {
+            return (
+              <div key="nickName">
+                <ProFormText key="name" name="name" />
+                <ProFormText key="nickName" name="nickName" />
+                <Button
+                  type="dashed"
+                  key="SET"
+                  id="set"
+                  onClick={() => {
+                    action.setCurrentRowData({
+                      name: 'New Name' + index,
+                      nickName: 'New Remark' + index,
+                    });
+                  }}
+                >
+                  设置此行
+                </Button>
+                <Button
+                  type="dashed"
+                  key="clear"
+                  id="clear"
+                  onClick={() => {
+                    action.setCurrentRowData({
+                      name: undefined,
+                      nickName: undefined,
+                    });
+                  }}
+                >
+                  清空此行
+                </Button>
+              </div>
+            );
+          }}
+        </ProFormList>
+      </ProForm>,
+    );
+
+    await waitForComponentToPaint(html, 2000);
+
+    act(() => {
+      html.find('.ant-btn.ant-btn-primary').simulate('click');
+    });
+
+    await waitForComponentToPaint(html);
+
+    expect(fn).toBeCalledWith({
+      name: '1111',
+      nickName: '1111',
+    });
+
+    act(() => {
+      html.find('ProFormListItem').find('#set').at(0).simulate('click');
+    });
+
+    await waitForComponentToPaint(html, 2000);
+
+    act(() => {
+      html.find('.ant-btn.ant-btn-primary').simulate('click');
+    });
+
+    await waitForComponentToPaint(html);
+
+    expect(fn).toBeCalledWith({
+      name: 'New Name0',
+      nickName: 'New Remark0',
+    });
+
+    act(() => {
+      html.find('ProFormListItem').find('#clear').at(0).simulate('click');
+    });
+
+    act(() => {
+      html.find('.ant-btn.ant-btn-primary').simulate('click');
+    });
+
+    await waitForComponentToPaint(html);
+
+    expect(fn).toBeCalledWith({
+      name: undefined,
+      nickName: undefined,
     });
   });
 
@@ -365,8 +469,8 @@ describe('ProForm List', () => {
             },
           ]}
         >
-          <ProFormText name="name" label="姓名" />
-          <ProFormText name="nickName" label="昵称" />
+          <ProFormText key="name" name="name" label="姓名" />
+          <ProFormText key="nickName" name="nickName" label="昵称" />
         </ProFormList>
       </ProForm>,
     );
@@ -475,7 +579,6 @@ describe('ProForm List', () => {
           <ProFormText name="nickName" label="昵称" />
           <ProFormDependency name={['nickName']}>
             {({ nickName }) => {
-              console.log(nickName);
               if (!nickName) {
                 return null;
               }
