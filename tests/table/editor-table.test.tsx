@@ -1,13 +1,18 @@
 import React, { useRef } from 'react';
 import { Button, Input, InputNumber } from 'antd';
-import type { TableRowEditable, ProColumns, ActionType } from '@ant-design/pro-table';
+import type {
+  TableRowEditable,
+  ProColumns,
+  ActionType,
+  EditableFormInstance,
+} from '@ant-design/pro-table';
 import { EditableProTable } from '@ant-design/pro-table';
-import { ProFormText } from '@ant-design/pro-form';
+import ProForm, { ProFormText } from '@ant-design/pro-form';
 import useMergedState from 'rc-util/lib/hooks/useMergedState';
 import { mount } from 'enzyme';
 import { act } from 'react-dom/test-utils';
+import { render } from '@testing-library/react';
 import { waitForComponentToPaint, waitTime } from '../util';
-import ProForm from '@ant-design/pro-form';
 
 type DataSourceType = {
   id: number | string;
@@ -406,6 +411,109 @@ describe('EditorProTable', () => {
     await waitForComponentToPaint(wrapper, 100);
 
     expect(wrapper.find('button.ant-btn-dashed').exists()).toBeTruthy();
+
+    wrapper.unmount();
+  });
+
+  it('📝 EditableProTable support editableFormRef', async () => {
+    const editorRef = React.createRef<EditableFormInstance<DataSourceType>>();
+    const wrapper = mount(
+      <EditableProTable<DataSourceType>
+        editableFormRef={editorRef}
+        rowKey="id"
+        columns={columns}
+        value={defaultData}
+        editable={{
+          editableKeys: defaultData.map((item) => item.id),
+        }}
+      />,
+    );
+    await waitForComponentToPaint(wrapper, 100);
+
+    const firstRowKey = defaultData[0]?.id || 0;
+
+    expect(editorRef.current?.getRowData?.(firstRowKey)?.title).toBe(defaultData?.[0]?.title);
+
+    expect(editorRef.current?.getRowData?.(0)?.title).toBe(defaultData?.[0]?.title);
+
+    await waitForComponentToPaint(wrapper, 100);
+
+    act(() => {
+      editorRef.current?.setRowData?.(firstRowKey, { title: 'test-title' });
+    });
+
+    expect(editorRef.current?.getRowData?.(firstRowKey)?.title).toBe('test-title');
+
+    expect(editorRef.current?.getRowsData?.()?.length).toBe(3);
+
+    wrapper.unmount();
+  });
+
+  it('📝 EditableProTable editableFormRef need rowIndex', async () => {
+    const editorRef = React.createRef<EditableFormInstance<DataSourceType>>();
+    const wrapper = mount(
+      <EditableProTable<DataSourceType>
+        editableFormRef={editorRef}
+        rowKey="id"
+        columns={columns}
+        value={defaultData}
+        editable={{
+          editableKeys: defaultData.map((item) => item.id),
+        }}
+      />,
+    );
+    await waitForComponentToPaint(wrapper, 100);
+
+    try {
+      //@ts-expect-error
+      editorRef.current?.getRowData?.();
+    } catch (error) {
+      // @ts-ignore
+      expect(error.message).toBe('rowIndex is required');
+    }
+
+    try {
+      //@ts-expect-error
+      editorRef.current?.setRowData?.(undefined, { title: 'test-title' });
+    } catch (error) {
+      // @ts-ignore
+      expect(error.message).toBe('rowIndex is required');
+    }
+
+    wrapper.unmount();
+  });
+
+  it('📝 EditableProTable use name support editableFormRef', async () => {
+    const editorRef = React.createRef<EditableFormInstance<DataSourceType>>();
+    const wrapper = render(
+      <ProForm
+        initialValues={{
+          table: defaultData,
+        }}
+      >
+        <EditableProTable<DataSourceType>
+          editableFormRef={editorRef}
+          rowKey="id"
+          name="table"
+          columns={columns}
+        />
+        <ProFormText name="test" />
+      </ProForm>,
+    );
+
+    const firstRowKey = defaultData?.[0]?.id || 0;
+
+    expect(editorRef.current?.getRowData?.(firstRowKey)?.title).toBe(defaultData?.[0]?.title);
+
+    expect(editorRef.current?.getRowData?.(0)?.title).toBe(defaultData?.[0]?.title);
+
+    act(() => {
+      editorRef.current?.setRowData?.(firstRowKey, { title: 'test-title' });
+    });
+
+    expect(editorRef.current?.getRowData?.(firstRowKey)?.title).toBe('test-title');
+
+    expect(editorRef.current?.getRowsData?.()?.length).toBe(3);
 
     wrapper.unmount();
   });

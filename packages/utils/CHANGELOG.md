@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.38.0](https://github.com/ant-design/pro-components/compare/@ant-design/pro-utils@1.37.2...@ant-design/pro-utils@1.38.0) (2022-03-25)
+
+### Bug Fixes
+
+- **utils:** add missing backslash in moment format ([#4913](https://github.com/ant-design/pro-components/issues/4913)) ([93cb37b](https://github.com/ant-design/pro-components/commit/93cb37b0ba24d8e7da89e84fa3b988dc76e9ea7d))
+
+### Features
+
+- **table:** support getRows, getRow, setRow ([#4904](https://github.com/ant-design/pro-components/issues/4904)) ([756340e](https://github.com/ant-design/pro-components/commit/756340ee97f13b55e5f51cc875ec6b344e953d24))
+
 ## [1.37.2](https://github.com/ant-design/pro-components/compare/@ant-design/pro-utils@1.37.1...@ant-design/pro-utils@1.37.2) (2022-03-22)
 
 ### Bug Fixes

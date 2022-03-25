@@ -122,6 +122,7 @@ ProForm is a repackaging of antd Form, if you want to customize form elements, P
 | dateFormatter | AutoFormat data, mainly moment forms, supports string and number modes. you also can use formatter function to format date | `string\| number \| ((value: Moment, valueType: string) => string \| number) \|false` | string |
 | syncToUrl | sync parameters to url,url only supports string, better read [documentation](https://developer.mozilla.org/en-US/docs/Web/API/URLSearchParams) before using | `true` \| `(values,type)=>values` | - |
 | omitNil | ProForm automatically clears null and undefined data, if you have agreed that nil means something, set to false to disable this feature | `boolean` | true |
+| formRef | Get the form used by the form | `React.MutableRefObject<ProFormInstance<T>>` | - |
 | params | Parameters for initiating network requests, used in conjunction with request | `Record` | - |
 | request | The parameters of the initiating network request, the return value will be overwritten to initialValues | `(params)=>Promise<data>` | - |
 | isKeyPressSubmit | Whether to use carriage return to submit | `boolean` | - |
@@ -129,6 +130,48 @@ ProForm is a repackaging of antd Form, if you want to customize form elements, P
 | grid | Enable grid mode, default width 100%, use `colProps` to control width | `boolean` | - |
 | rowProps | Passed to `Row` when `grid` mode is enabled | [RowProps](https://ant.design/components/grid/#Row) | { gutter: 8 } |
 | string | [(...)](https://ant.design/components/form/) | support other antd `Form` component parameters besides `wrapperCol` \| `labelCol` \| `layout` | - |
+
+### ProFormInstance
+
+ProFormInstance adds some capabilities compared to antd's form.
+
+```tsx | pure
+  /**
+   * Get all data formatted by ProForm
+   * @param nameList boolean
+   * @returns T
+   *
+   * @example getFieldsFormatValue() -> returns all data
+   * @example getFieldsFormatValue(true) -> returns all data, even if not hosted by form
+   */
+  getFieldsFormatValue?: (nameList?: true) => T;
+  /**
+   * Get a single data formatted by ProForm
+   * @param nameList (string|number)[]
+   * @returns T
+   *
+   * @example {a:{b:value}} -> getFieldFormatValue(['a', 'b']) -> value
+   */
+  /** Get the single data after formatting */
+  getFieldFormatValue?: (nameList?: NamePath) => T;
+  /**
+   * Get the single data formatted by ProForm, including his name
+   * @param nameList (string|number)[]
+   * @returns T
+   *
+   * @example {a:{b:value}} -> getFieldFormatValueObject(['a', 'b']) -> {a:{b:value}}
+   */
+  /** Get the single data after formatting */
+  getFieldFormatValueObject?: (nameList?: NamePath) => T;
+  /**
+   *Return all data after formatting after field validation
+   * @param nameList (string|number)[]
+   * @returns T
+   *
+   * @example validateFieldsReturnFormatValue -> {a:{b:value}}
+   */
+  validateFieldsReturnFormatValue?: (nameList?: NamePath[]) => Promise<T>;
+```
 
 ### ProForm.Group
 
