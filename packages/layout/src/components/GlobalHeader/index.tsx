@@ -2,7 +2,7 @@ import React, { useContext } from 'react';
 import classNames from 'classnames';
 import type { HeaderViewProps } from '../../Header';
 import type { SiderMenuProps, PrivateSiderMenuProps } from '../SiderMenu/SiderMenu';
-import { defaultRenderLogoAndTitle } from '../SiderMenu/SiderMenu';
+import { renderLogoAndTitle } from '../SiderMenu/SiderMenu';
 import type { PureSettings } from '../../defaultSettings';
 import { TopNavHeader, RightContent } from '../TopNavHeader';
 import type { MenuDataItem } from '../../index';
@@ -217,7 +217,7 @@ const GlobalHeader: React.FC<GlobalHeaderProps & PrivateSiderMenuProps> = (props
             )}
             onClick={onMenuHeaderClick}
           >
-            {defaultRenderLogoAndTitle({ ...props, collapsed: false }, 'headerTitleRender')}
+            {renderLogoAndTitle({ ...props, collapsed: false }, 'headerTitleRender')}
           </div>
         </>
       )}

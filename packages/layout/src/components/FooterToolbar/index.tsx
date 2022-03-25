@@ -123,8 +123,7 @@ const FooterToolbar: React.FC<FooterToolbarProps> = (props) => {
         : dom}
     </div>
   );
-  if (!isBrowser()) return renderDom;
-  return createPortal(renderDom, document.body);
+  return !isBrowser() ? renderDom : createPortal(renderDom, document.body);
 };
 
 export { FooterToolbar };
