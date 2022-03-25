@@ -11,6 +11,8 @@ export const formSet: ProSchemaRenderValueTypeFunction = (item, { genItems }) =>
         initialValue={item.initialValue}
         name={item.dataIndex}
         label={item.label}
+        colProps={item.colProps}
+        rowProps={item.rowProps}
         {...item.getFieldProps?.()}
       >
         {genItems(item.columns)}

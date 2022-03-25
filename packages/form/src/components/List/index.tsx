@@ -13,6 +13,8 @@ import { useEffect, useState } from 'react';
 import React, { useContext, useImperativeHandle, useMemo, useRef } from 'react';
 import './index.less';
 import { noteOnce } from 'rc-util/lib/warning';
+import { useGridHelpers } from '../../helpers';
+import type { ProFormGridConfig } from '../../interface';
 
 type IconConfig = {
   Icon?: React.FC<any>;
@@ -97,7 +99,7 @@ export type ProFormListProps = Omit<FormListProps, 'children'> & {
   max?: number;
   /** 允许增加的最少条数，删除时校验 */
   min?: number;
-};
+} & Pick<ProFormGridConfig, 'colProps' | 'rowProps'>;
 
 /** Antd 自带的toArray 不这次方法，所以需要自己搞一个 */
 const listToArray = (children?: ReactNode | ReactNode[]) => {
@@ -286,11 +288,23 @@ const ProFormListItem: React.FC<
     operation: action,
     meta,
   };
+
+  const { grid } = useGridHelpers();
+
   const itemContainer = itemContainerRender?.(childrenArray, options) || childrenArray;
 
   const contentDom = itemRender?.(
     {
-      listDom: <div className={`${prefixCls}-container`}>{itemContainer}</div>,
+      listDom: (
+        <div
+          className={`${prefixCls}-container`}
+          style={{
+            width: grid ? '100%' : undefined,
+          }}
+        >
+          {itemContainer}
+        </div>
+      ),
       action: dom,
     },
     options,
@@ -302,7 +316,14 @@ const ProFormListItem: React.FC<
         alignItems: 'flex-end',
       }}
     >
-      <div className={`${prefixCls}-container`}>{itemContainer}</div>
+      <div
+        className={`${prefixCls}-container`}
+        style={{
+          width: grid ? '100%' : undefined,
+        }}
+      >
+        {itemContainer}
+      </div>
       {dom}
     </div>
   );
@@ -448,12 +469,17 @@ const ProFormList: React.FC<ProFormListProps> = ({
   actionGuard,
   min,
   max,
+  colProps,
+  rowProps,
   ...rest
 }) => {
   const actionRefs = useRef<FormListOperation>();
   const context = useContext(ConfigProvider.ConfigContext);
   const listContext = useContext(FormListContext);
   const baseClassName = context.getPrefixCls('pro-form-list');
+
+  const { ColWrapper, RowWrapper } = useGridHelpers({ colProps, rowProps });
+
   // 处理 list 的嵌套
   const name = useMemo(() => {
     if (listContext.name === undefined) {
@@ -477,53 +503,55 @@ const ProFormList: React.FC<ProFormListProps> = ({
   if (!proFormContext.formRef) return null;
 
   return (
-    <div className={baseClassName} style={style}>
-      <Form.Item
-        label={label}
-        prefixCls={prefixCls}
-        tooltip={tooltip}
-        style={style}
-        {...rest}
-        name={undefined}
-        rules={undefined}
-      >
-        <Form.List rules={rules} {...rest} name={name}>
-          {(fields, action, meta) => {
-            // 将 action 暴露给外部
-            actionRefs.current = action;
+    <ColWrapper>
+      <div className={baseClassName} style={style}>
+        <Form.Item
+          label={label}
+          prefixCls={prefixCls}
+          tooltip={tooltip}
+          style={style}
+          {...rest}
+          name={undefined}
+          rules={undefined}
+        >
+          <Form.List rules={rules} {...rest} name={name}>
+            {(fields, action, meta) => {
+              // 将 action 暴露给外部
+              actionRefs.current = action;
 
-            return (
-              <>
-                <ProFormListContainer
-                  name={name}
-                  originName={rest.name}
-                  copyIconProps={copyIconProps}
-                  deleteIconProps={deleteIconProps}
-                  formInstance={proFormContext.formRef!.current!}
-                  prefixCls={baseClassName}
-                  meta={meta}
-                  fields={fields}
-                  itemContainerRender={itemContainerRender}
-                  itemRender={itemRender}
-                  creatorButtonProps={creatorButtonProps}
-                  creatorRecord={creatorRecord}
-                  actionRender={actionRender}
-                  action={action}
-                  actionGuard={actionGuard}
-                  alwaysShowItemLabel={alwaysShowItemLabel}
-                  min={min}
-                  max={max}
-                  count={fields.length}
-                >
-                  {children}
-                </ProFormListContainer>
-                <Form.ErrorList errors={meta.errors} />
-              </>
-            );
-          }}
-        </Form.List>
-      </Form.Item>
-    </div>
+              return (
+                <RowWrapper>
+                  <ProFormListContainer
+                    name={name}
+                    originName={rest.name}
+                    copyIconProps={copyIconProps}
+                    deleteIconProps={deleteIconProps}
+                    formInstance={proFormContext.formRef!.current!}
+                    prefixCls={baseClassName}
+                    meta={meta}
+                    fields={fields}
+                    itemContainerRender={itemContainerRender}
+                    itemRender={itemRender}
+                    creatorButtonProps={creatorButtonProps}
+                    creatorRecord={creatorRecord}
+                    actionRender={actionRender}
+                    action={action}
+                    actionGuard={actionGuard}
+                    alwaysShowItemLabel={alwaysShowItemLabel}
+                    min={min}
+                    max={max}
+                    count={fields.length}
+                  >
+                    {children}
+                  </ProFormListContainer>
+                  <Form.ErrorList errors={meta.errors} />
+                </RowWrapper>
+              );
+            }}
+          </Form.List>
+        </Form.Item>
+      </div>
+    </ColWrapper>
   );
 };
 
