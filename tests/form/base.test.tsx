@@ -229,12 +229,41 @@ describe('ProForm', () => {
     const wrapper = mount(
       <ProForm
         submitter={{
-          render: () => [<a>test</a>],
+          render: () => [<a key="test">test</a>],
         }}
       />,
     );
     await waitForComponentToPaint(wrapper);
     expect(wrapper.render()).toMatchSnapshot();
+  });
+
+  it('📦 support formRef', async () => {
+    const formRef = React.createRef<ProFormInstance<any>>();
+    const wrapper = mount(
+      <ProForm
+        formRef={formRef}
+        submitter={{
+          render: () => [<a key="test">test</a>],
+        }}
+        initialValues={{
+          test: '12,34',
+        }}
+      >
+        <ProFormText
+          name="test"
+          transform={(value) => {
+            return {
+              test: value.split(','),
+            };
+          }}
+        />
+      </ProForm>,
+    );
+    await waitForComponentToPaint(wrapper, 1000);
+    expect(formRef.current?.getFieldFormatValue?.('test')?.join('-')).toBe('12-34');
+    expect(formRef.current?.getFieldFormatValueObject?.('test')?.test.join('-')).toBe('12-34');
+    expect(formRef.current?.getFieldFormatValue?.(['test'])?.join('-')).toBe('12-34');
+    expect(formRef.current?.getFieldValue?.('test')).toBe('12,34');
   });
 
   it('📦 ProForm support namePath is array', async () => {

@@ -58,7 +58,9 @@ export type CommonFormProps<
   onFinish?: (formData: T) => Promise<boolean | void>;
 
   /** @name 获取真正的可以获得值的 from */
-  formRef?: React.MutableRefObject<ProFormInstance<T> | undefined>;
+  formRef?:
+    | React.MutableRefObject<ProFormInstance<T> | undefined>
+    | React.RefObject<ProFormInstance<T> | undefined>;
 
   /** @name 同步结果到 url 中 */
   syncToUrl?: boolean | ((values: T, type: 'get' | 'set') => T);
@@ -140,6 +142,20 @@ const genParams = (
 
 type ProFormInstance<T = any> = FormInstance<T> & ProFormInstanceType<T>;
 
+/**
+ * It takes a name path and converts it to an array.
+ * @param {NamePath} name - The name of the form.
+ * @returns string[]
+ *
+ * a-> [a]
+ * [a] -> [a]
+ * **/
+const covertFormName = (name?: NamePath) => {
+  if (!name) return name;
+  if (Array.isArray(name)) return name;
+  return [name];
+};
+
 function BaseFormComponents<T = Record<string, any>>(props: BaseFormProps<T>) {
   const {
     children,
@@ -211,7 +227,8 @@ function BaseFormComponents<T = Record<string, any>>(props: BaseFormProps<T>) {
        * @example {a:{b:value}} -> getFieldFormatValue(['a', 'b']) -> value
        */
       /** 获取格式化之后的单个数据 */
-      getFieldFormatValue: (nameList: NamePath = []) => {
+      getFieldFormatValue: (paramsNameList: NamePath = []) => {
+        const nameList = covertFormName(paramsNameList);
         if (!nameList) throw new Error('nameList is require');
         const value = formRef.current?.getFieldValue(nameList!);
         const obj = nameList ? set({}, nameList as string[], value) : value;
@@ -225,7 +242,8 @@ function BaseFormComponents<T = Record<string, any>>(props: BaseFormProps<T>) {
        * @example  {a:{b:value}} -> getFieldFormatValueObject(['a', 'b']) -> {a:{b:value}}
        */
       /** 获取格式化之后的单个数据 */
-      getFieldFormatValueObject: (nameList?: NamePath) => {
+      getFieldFormatValueObject: (paramsNameList?: NamePath) => {
+        const nameList = covertFormName(paramsNameList);
         const value = formRef.current?.getFieldValue(nameList!);
         const obj = nameList ? set({}, nameList as string[], value) : value;
         return transformKey(obj, omitNil, nameList);
@@ -239,6 +257,7 @@ function BaseFormComponents<T = Record<string, any>>(props: BaseFormProps<T>) {
        * @example validateFieldsReturnFormatValue -> {a:{b:value}}
        */
       validateFieldsReturnFormatValue: async (nameList?: NamePath[]) => {
+        if (!Array.isArray(nameList)) throw new Error('nameList must be array');
         const values = await formRef.current?.validateFields(nameList);
         return transformKey(values, omitNil);
       },
@@ -488,7 +507,7 @@ function BaseFormComponents<T = Record<string, any>>(props: BaseFormProps<T>) {
             <Form.Item noStyle shouldUpdate>
               {(formInstance) => {
                 if (propsFormRef)
-                  propsFormRef.current = {
+                  (propsFormRef as React.MutableRefObject<ProFormInstance>).current = {
                     ...(formInstance as FormInstance),
                     ...formatValues,
                   };
