@@ -179,7 +179,7 @@ function EditableTable<
      */
     if (typeof finlayRowKey === 'number' && !props.name) {
       if (finlayRowKey >= value.length) return finlayRowKey;
-      const rowData = value.at(finlayRowKey);
+      const rowData = value?.at(finlayRowKey);
       return getRowKey?.(rowData!, finlayRowKey);
     }
 
