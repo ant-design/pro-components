@@ -40,7 +40,14 @@ const formInstanceNoop: any = {
  */
 
 function BetaSchemaForm<T, ValueType = 'text'>(props: FormSchema<T, ValueType>) {
-  const { columns, layoutType = 'Form', type = 'form', action, shouldUpdate, ...restProps } = props;
+  const {
+    columns,
+    layoutType = 'Form',
+    type = 'form',
+    action,
+    shouldUpdate = true,
+    ...restProps
+  } = props;
 
   const Form = (FormLayoutType[layoutType] || ProForm) as React.FC<ProFormProps<T>>;
 
@@ -48,7 +55,7 @@ function BetaSchemaForm<T, ValueType = 'text'>(props: FormSchema<T, ValueType>) 
   const [formDomsDeps, updatedFormDoms] = useState<[]>([]);
 
   const rest = useMemo(() => {
-    return omit(restProps, ['shouldUpdate', 'formRef'] as any);
+    return omit(restProps, ['formRef'] as any);
   }, [restProps]);
 
   const formRef = useRef<FormInstance | undefined>(props.form || formInstanceNoop);
