@@ -113,9 +113,11 @@ describe('BasicLayout', () => {
   it('🥩 group title when collapsed, title is hidden', async () => {
     const wrapper = render(
       <BasicLayout
-        brandBgImg={{
-          url: 'https://gw.alipayobjects.com/zos/antfincdn/tQVPs1q2X%26/yonghushenfen.png',
-        }}
+        layoutBgImgList={[
+          {
+            src: 'https://gw.alipayobjects.com/zos/antfincdn/tQVPs1q2X%26/yonghushenfen.png',
+          },
+        ]}
         {...bigDefaultProps}
         appList={undefined}
         location={{
@@ -158,9 +160,11 @@ describe('BasicLayout', () => {
 
     wrapper.rerender(
       <BasicLayout
-        brandBgImg={{
-          url: 'https://gw.alipayobjects.com/zos/antfincdn/tQVPs1q2X%26/yonghushenfen.png',
-        }}
+        layoutBgImgList={[
+          {
+            src: 'https://gw.alipayobjects.com/zos/antfincdn/tQVPs1q2X%26/yonghushenfen.png',
+          },
+        ]}
         {...bigDefaultProps}
         appList={undefined}
         location={{
