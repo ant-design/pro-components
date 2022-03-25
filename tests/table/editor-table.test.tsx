@@ -449,6 +449,40 @@ describe('EditorProTable', () => {
     wrapper.unmount();
   });
 
+  fit('📝 EditableProTable editableFormRef need rowIndex', async () => {
+    const editorRef = React.createRef<EditableFormInstance<DataSourceType>>();
+    const wrapper = mount(
+      <EditableProTable<DataSourceType>
+        editableFormRef={editorRef}
+        rowKey="id"
+        columns={columns}
+        value={defaultData}
+        editable={{
+          editableKeys: defaultData.map((item) => item.id),
+        }}
+      />,
+    );
+    await waitForComponentToPaint(wrapper, 100);
+
+    try {
+      //@ts-expect-error
+      editorRef.current?.getRowData?.();
+    } catch (error) {
+      // @ts-ignore
+      expect(error.message).toBe('rowIndex is required');
+    }
+
+    try {
+      //@ts-expect-error
+      editorRef.current?.setRowData?.(undefined, { title: 'test-title' });
+    } catch (error) {
+      // @ts-ignore
+      expect(error.message).toBe('rowIndex is required');
+    }
+
+    wrapper.unmount();
+  });
+
   it('📝 EditableProTable use name support editableFormRef', async () => {
     const editorRef = React.createRef<EditableFormInstance<DataSourceType>>();
     const wrapper = render(

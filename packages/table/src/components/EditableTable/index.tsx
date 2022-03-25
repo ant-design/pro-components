@@ -204,7 +204,7 @@ function EditableTable<
      */
     const getRowData = (rowIndex: string | number) => {
       if (rowIndex == undefined) {
-        throw new Error('rowIndex 不能为空 \n rowIndex is required');
+        throw new Error('rowIndex is required');
       }
 
       const finlayRowKey = coverRowKey(rowIndex);
@@ -241,7 +241,7 @@ function EditableTable<
        */
       setRowData: (rowIndex, data) => {
         if (rowIndex == undefined) {
-          throw new Error('rowIndex 不能为空\n rowIndex is required');
+          throw new Error('rowIndex is required');
         }
         const finlayRowKey = coverRowKey(rowIndex);
         const rowKeyName = [props.name, finlayRowKey?.toString() ?? '']
