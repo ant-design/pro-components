@@ -150,10 +150,53 @@ ProForm 是 antd Form 的再封装，如果你想要自定义表单元素，ProF
 | params | 发起网络请求的参数,与 request 配合使用 | `Record` | - |
 | request | 发起网络请求的参数,返回值会覆盖给 initialValues | `(params)=>Promise<data>` | - |
 | isKeyPressSubmit | 是否使用回车提交 | `boolean` | - |
+| formRef | 获取表单所使用的 form | `React.MutableRefObject<ProFormInstance<T>>` | - |
 | autoFocusFirstInput | 自动 focus 表单第一个输入框 | `boolean` | - |
 | `grid` | 开启栅格化模式，宽度默认百分比，请使用 `colProps` 控制宽度 [查看示例](/components/form#栅格化布局) | `boolean` | - |
 | rowProps | 开启 `grid` 模式时传递给 `Row`, 仅在`ProFormGroup`, `ProFormList`, `ProFormFieldSet` 中有效 | [RowProps](https://ant.design/components/grid/#Row) | { gutter: 8 } |
 | [(...)](https://ant.design/components/form-cn/) | 注意 `LightFilter` 和 `QueryFilter` 仅支持除 `wrapperCol` \| `labelCol` \| `layout` 外的其他 antd `Form` 组件参数 | - | - |
+
+### ProFormInstance
+
+ProFormInstance 与 antd 的 form 相比增加了一些能力。
+
+```tsx | pure
+  /**
+   * 获取被 ProForm 格式化后的所有数据
+   * @param nameList boolean
+   * @returns T
+   *
+   * @example  getFieldsFormatValue() ->返回所有数据
+   * @example  getFieldsFormatValue(true) ->返回所有数据，即使没有被 form 托管的
+   */
+  getFieldsFormatValue?: (nameList?: true) => T;
+  /**
+   * 获取被 ProForm 格式化后的单个数据
+   * @param nameList (string|number)[]
+   * @returns T
+   *
+   * @example {a:{b:value}} -> getFieldFormatValue(['a', 'b']) -> value
+   */
+  /** 获取格式化之后的单个数据 */
+  getFieldFormatValue?: (nameList?: NamePath) => T;
+  /**
+   * 获取被 ProForm 格式化后的单个数据, 包含他的 name
+   * @param nameList (string|number)[]
+   * @returns T
+   *
+   * @example  {a:{b:value}} -> getFieldFormatValueObject(['a', 'b']) -> {a:{b:value}}
+   */
+  /** 获取格式化之后的单个数据 */
+  getFieldFormatValueObject?: (nameList?: NamePath) => T;
+  /**
+   *验字段后返回格式化之后的所有数据
+   * @param nameList (string|number)[]
+   * @returns T
+   *
+   * @example validateFieldsReturnFormatValue -> {a:{b:value}}
+   */
+  validateFieldsReturnFormatValue?: (nameList?: NamePath[]) => Promise<T>;
+```
 
 ### ProForm.Group
 

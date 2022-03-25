@@ -47,8 +47,53 @@ nav:
 | `maxLength` | 最大的行数，到达最大行数新建按钮会自动消失 | number | - |
 | `editable` | 可编辑表格的相关配置 | [TableRowEditable<T>](#editable-编辑行配置) | - |
 | `controlled` | 是否受控, 如果受控每次编辑都会触发 onChange，并且会修改 dataSource | `boolean` | false |
+| `editableFormRef` | table 所有的 form，带了一些表格特有的操作 | `React.Ref<EditableFormInstance<T>` | `undefined` |
 
 > 别的 API 与 ProTable 相同。
+
+### EditableFormInstance 表格列表单操作
+
+相比于 ProForm 的表单，可编辑表格增加了以下的三个方法。
+
+```tsx | pure
+  /**
+   * 获取一行数据的
+   * @param rowIndex
+   * @returns T | undefined
+   *
+   * @example getRowData(1)  可以传入第几行的数据
+   * @example getRowData("id")  也可以传入 rowKey，根据你列的唯一key 来获得。
+   */
+  getRowData?: (rowIndex: string | number) => T | undefined;
+  /**
+   * 获取整个 table 的数据
+   * @returns T[] | undefined
+   */
+  getRowsData?: () => T[] | undefined;
+  /**
+   * 设置一行的数据，会将数据进行简单的 merge
+   *
+   * {title:"old", decs:"old",id:"old"} -> set {title:"new"} -> {title:"new", decs:"old",id:"old"}
+   *
+   * @description 只会做最第一层对象的 merge 哦。
+   * {title:"old", decs:{name:"old",key:"old"},id:"old"} -> set {decs:{name:"new"}} -> {title:"old", decs:{name:"new"},id:"old"} -> set {decs:{name:"old"}}
+   *
+   * @param rowIndex
+   * @param data
+   * @returns void
+   *
+   * 根据行号设置
+   * @example setRowData(1, { title:"new" })  可以传入修改第几行
+   *
+   * 根据行 id 设置
+   * @example setRowData("id", { title:"new" })  也可以传入 rowKey，根据你列的唯一 key 来设置。
+   *
+   * 清空原有数据
+   * @example setRowData(1, { title:undefined })
+   *
+   */
+  setRowData?: (rowIndex: string | number, data: Partial<T>) => void;
+```
 
 ### editable 编辑行配置
 

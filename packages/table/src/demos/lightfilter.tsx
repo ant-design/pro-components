@@ -1,5 +1,5 @@
 import React from 'react';
-import { Button, Tooltip } from 'antd';
+import { Tooltip } from 'antd';
 import { QuestionCircleOutlined } from '@ant-design/icons';
 import type { ProColumns } from '@ant-design/pro-table';
 import ProTable, { TableDropdown } from '@ant-design/pro-table';

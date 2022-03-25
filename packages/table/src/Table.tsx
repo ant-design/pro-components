@@ -234,6 +234,7 @@ function TableRender<T extends Record<string, any>, U, ValueType>(
     : baseTableDom;
 
   useEffect(() => {
+    // 如果带了name，说明要用自带的 form，需要设置一下。
     if (props.name) {
       counter.setEditorTableForm(props.editable!.form!);
     }

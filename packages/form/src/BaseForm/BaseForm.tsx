@@ -15,6 +15,7 @@ import type {
   ProFieldValueType,
   SearchTransformKeyFn,
   ProRequestData,
+  ProFormInstanceType,
 } from '@ant-design/pro-utils';
 import set from 'rc-util/lib/utils/set';
 import {
@@ -58,7 +59,9 @@ export type CommonFormProps<
   onFinish?: (formData: T) => Promise<boolean | void>;
 
   /** @name 获取真正的可以获得值的 from */
-  formRef?: React.MutableRefObject<ProFormInstance<T> | undefined>;
+  formRef?:
+    | React.MutableRefObject<ProFormInstance<T> | undefined>
+    | React.RefObject<ProFormInstance<T> | undefined>;
 
   /** @name 同步结果到 url 中 */
   syncToUrl?: boolean | ((values: T, type: 'get' | 'set') => T);
@@ -138,13 +141,20 @@ const genParams = (
   return runFunction(syncUrl, params, type);
 };
 
-type ProFormInstance<T = any> = FormInstance<T> & {
-  /** 获取格式化之后所有数据 */
-  getFieldsFormatValue?: (nameList?: NamePath[] | true) => Record<string, any>;
-  /** 获取格式化之后的单个数据 */
-  getFieldFormatValue?: (nameList?: NamePath) => Record<string, any>;
-  /** 校验字段后返回格式化之后的所有数据 */
-  validateFieldsReturnFormatValue?: (nameList?: NamePath[]) => Promise<T>;
+type ProFormInstance<T = any> = FormInstance<T> & ProFormInstanceType<T>;
+
+/**
+ * It takes a name path and converts it to an array.
+ * @param {NamePath} name - The name of the form.
+ * @returns string[]
+ *
+ * a-> [a]
+ * [a] -> [a]
+ * **/
+const covertFormName = (name?: NamePath) => {
+  if (!name) return name;
+  if (Array.isArray(name)) return name;
+  return [name];
 };
 
 function BaseFormComponents<T = Record<string, any>>(props: BaseFormProps<T>) {
@@ -204,24 +214,55 @@ function BaseFormComponents<T = Record<string, any>>(props: BaseFormProps<T>) {
 
   const formatValues = useMemo(
     () => ({
-      /** 获取格式化之后所有数据 */
-      getFieldsFormatValue: (nameList?: NamePath[] | true) => {
-        return transformKey(formRef.current?.getFieldsValue(nameList!), omitNil);
+      /**
+       * 获取被 ProForm 格式化后的所有数据
+       * @param allData boolean
+       * @returns T
+       *
+       * @example  getFieldsFormatValue(true) ->返回所有数据，即使没有被 form 托管的
+       */
+      getFieldsFormatValue: (allData?: true) => {
+        return transformKey(formRef.current?.getFieldsValue(allData!), omitNil);
       },
+      /**
+       * 获取被 ProForm 格式化后的单个数据
+       * @param nameList (string|number)[]
+       * @returns T
+       *
+       * @example {a:{b:value}} -> getFieldFormatValue(['a', 'b']) -> value
+       */
       /** 获取格式化之后的单个数据 */
-      getFieldFormatValue: (nameList?: NamePath) => {
+      getFieldFormatValue: (paramsNameList: NamePath = []) => {
+        const nameList = covertFormName(paramsNameList);
+        if (!nameList) throw new Error('nameList is require');
         const value = formRef.current?.getFieldValue(nameList!);
         const obj = nameList ? set({}, nameList as string[], value) : value;
         return get(transformKey(obj, omitNil, nameList), nameList as string[]);
       },
-      /** 获取格式化之后的单个数据列表 */
-      getFieldFormatValueObject: (nameList?: NamePath) => {
+      /**
+       * 获取被 ProForm 格式化后的单个数据, 包含他的 name
+       * @param nameList (string|number)[]
+       * @returns T
+       *
+       * @example  {a:{b:value}} -> getFieldFormatValueObject(['a', 'b']) -> {a:{b:value}}
+       */
+      /** 获取格式化之后的单个数据 */
+      getFieldFormatValueObject: (paramsNameList?: NamePath) => {
+        const nameList = covertFormName(paramsNameList);
         const value = formRef.current?.getFieldValue(nameList!);
         const obj = nameList ? set({}, nameList as string[], value) : value;
         return transformKey(obj, omitNil, nameList);
       },
-      /** 校验字段后返回格式化之后的所有数据 */
+      /** 
+      /**
+       *验字段后返回格式化之后的所有数据
+       * @param nameList (string|number)[]
+       * @returns T
+       * 
+       * @example validateFieldsReturnFormatValue -> {a:{b:value}}
+       */
       validateFieldsReturnFormatValue: async (nameList?: NamePath[]) => {
+        if (!Array.isArray(nameList) && nameList) throw new Error('nameList must be array');
         const values = await formRef.current?.validateFields(nameList);
         return transformKey(values, omitNil);
       },
@@ -475,7 +516,7 @@ function BaseFormComponents<T = Record<string, any>>(props: BaseFormProps<T>) {
             <Form.Item noStyle shouldUpdate>
               {(formInstance) => {
                 if (propsFormRef)
-                  propsFormRef.current = {
+                  (propsFormRef as React.MutableRefObject<ProFormInstance>).current = {
                     ...(formInstance as FormInstance),
                     ...formatValues,
                   };
