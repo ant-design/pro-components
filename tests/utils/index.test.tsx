@@ -12,6 +12,7 @@ import {
   DropdownFooter,
   LabelIconTip,
   useDebounceValue,
+  isDeepEqualReact,
 } from '@ant-design/pro-utils';
 import { mount } from 'enzyme';
 import { Form, Input } from 'antd';
@@ -754,5 +755,75 @@ describe('utils', () => {
     });
 
     expect(html.render()).toMatchSnapshot();
+  });
+
+  it('isDeepEqualReact', () => {
+    const CustomComponent: React.FC<any> = () => {
+      return <div />;
+    };
+
+    class Deep {
+      constructor() {
+        return;
+      }
+      a() {}
+      b() {}
+    }
+
+    const DeepComponent = () => {
+      const a = (
+        <CustomComponent
+          array={[1, 2, 3, 4, { deep: true, nested: { deep: true, ignoreKey: false } }]}
+          map={
+            new Map([
+              ['key', 'value'],
+              ['key2', 'value2'],
+              ['key3', 'value3'],
+            ])
+          }
+          set={new Set([1, 2, 3, 4, 5])}
+          regexp={new RegExp('test', 'ig')}
+          arrayBuffer={new Int8Array([1, 2, 3, 4, 5])}
+          string="compare"
+          number={0}
+          null={null}
+          nan={NaN}
+          class={Deep}
+          classInstance={new Deep()}
+          className="class-name"
+        />
+      );
+
+      const b = (
+        <CustomComponent
+          array={[1, 2, 3, 4, { deep: true, nested: { deep: true, ignoreKey: true } }]}
+          map={
+            new Map([
+              ['key', 'value'],
+              ['key2', 'value2'],
+              ['key3', 'value3'],
+            ])
+          }
+          set={new Set([1, 2, 3, 4, 5])}
+          regexp={new RegExp('test', 'ig')}
+          arrayBuffer={new Int8Array([1, 2, 3, 4, 5])}
+          string="compare"
+          number={0}
+          null={null}
+          nan={NaN}
+          class={Deep}
+          classInstance={new Deep()}
+          className="class-name"
+        />
+      );
+
+      expect(isDeepEqualReact(a, b, ['ignoreKey'])).toBeTruthy();
+
+      return <CustomComponent a={a} b={b} />;
+    };
+
+    const wrapper = mount(<DeepComponent />);
+
+    waitForComponentToPaint(wrapper, 100);
   });
 });
