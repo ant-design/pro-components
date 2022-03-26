@@ -1,4 +1,4 @@
-import ProFormList from '../../List';
+import { ProFormList } from '../../List';
 import type { ProSchemaRenderValueTypeFunction } from '../typing';
 
 export const formList: ProSchemaRenderValueTypeFunction = (item, { genItems }) => {
