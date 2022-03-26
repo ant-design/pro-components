@@ -5,6 +5,7 @@ import React, {
   useState,
   useMemo,
   useCallback,
+  useContext,
 } from 'react';
 import type { FormProps, FormItemProps, FormInstance } from 'antd';
 import { Spin } from 'antd';
@@ -182,6 +183,8 @@ function BaseFormComponents<T = Record<string, any>>(props: BaseFormProps<T>) {
     colProps,
     ...rest
   } = props;
+  const sizeContextValue = useContext(ConfigProvider.SizeContext);
+
   const [inlineForm] = Form.useForm(form);
   /** 同步 url 上的参数 */
   const [urlSearch, setUrlSearch] = useUrlSearchParams({}, { disabled: !syncToUrl });
@@ -447,7 +450,7 @@ function BaseFormComponents<T = Record<string, any>>(props: BaseFormProps<T>) {
       }}
     >
       <ProFormContext.Provider value={formatValues}>
-        <ConfigProvider.SizeContext.Provider value={rest.size}>
+        <ConfigProvider.SizeContext.Provider value={rest.size || sizeContextValue}>
           <Form
             onKeyPress={(event) => {
               if (!isKeyPressSubmit) return;

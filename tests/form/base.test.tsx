@@ -1,5 +1,5 @@
 import React, { useRef, useEffect } from 'react';
-import { Button, Input } from 'antd';
+import { Button, ConfigProvider, Input } from 'antd';
 import type { ProFormInstance } from '@ant-design/pro-form';
 import { ProFormDateTimePicker } from '@ant-design/pro-form';
 import { ProFormDigitRange } from '@ant-design/pro-form';
@@ -24,6 +24,17 @@ describe('ProForm', () => {
     const wrapper = mount(<ProForm submitter={false} />);
     await waitForComponentToPaint(wrapper);
     expect(wrapper.render()).toMatchSnapshot();
+  });
+
+  it('📦 componentSize is work', async () => {
+    const wrapper = mount(
+      <ConfigProvider componentSize="small">
+        <ProForm>
+          <ProFormText />
+        </ProForm>
+      </ConfigProvider>,
+    );
+    expect(wrapper.find('.ant-input-sm').length).toBe(1);
   });
 
   it('📦 ProForm support sync form url', async () => {
