@@ -28,4 +28,6 @@ export type FiledContextProps = {
 
 const FieldContext = React.createContext<FiledContextProps>({});
 
+export { FieldContext };
+
 export default FieldContext;

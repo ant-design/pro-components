@@ -83,7 +83,7 @@ const ProFormDependency: React.FC<ProFormDependencyProps> = ({
             }
           } else {
             value = form.getFieldValue?.(pathToGet);
-            if (value) {
+            if (typeof value !== 'undefined') {
               values = set(values, finalName, value, false);
             }
           }

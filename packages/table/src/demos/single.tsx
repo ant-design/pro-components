@@ -145,6 +145,7 @@ export default () => {
     <ProTable<GithubIssueItem>
       columns={columns}
       actionRef={actionRef}
+      cardBordered
       request={async (params = {}, sort, filter) => {
         console.log(sort, filter);
         return request<{

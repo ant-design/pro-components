@@ -26,6 +26,8 @@ export type {
   ProFormDigitRangeProps,
 } from './components';
 
+export { FieldContext } from './FieldContext';
+
 import { ProForm } from './layouts';
 
 export * from './layouts';

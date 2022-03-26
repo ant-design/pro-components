@@ -1641,10 +1641,10 @@ exports[`layout demos 📸 renders ./packages/layout/src/components/WaterMark/de
       class="ant-pro-table"
     >
       <div
-        class="ant-card"
+        class="ant-pro-card"
       >
         <div
-          class="ant-card-body"
+          class="ant-pro-card-body"
           style="padding: 0px;"
         >
           <div
