@@ -107,6 +107,7 @@ const columns: ProColumns<GithubIssueItem>[] = [
   {
     title: '操作',
     valueType: 'option',
+    key: 'option',
     render: (text, record, _, action) => [
       <a
         key="editable"
@@ -160,6 +161,9 @@ export default () => {
       columnsState={{
         persistenceKey: 'pro-table-singe-demos',
         persistenceType: 'localStorage',
+        onChange(value) {
+          console.log('value: ', value);
+        },
       }}
       rowKey="id"
       search={{
