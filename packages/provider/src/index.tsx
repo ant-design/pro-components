@@ -222,15 +222,15 @@ const { Consumer: ConfigConsumer, Provider: ConfigProvider } = ConfigContext;
  *
  * @param localeKey
  */
-const findIntlKeyByAntdLocaleKey = (localeKey: string | undefined) => {
+const findIntlKeyByAntdLocaleKey = <T extends string | undefined>(localeKey: T) => {
   if (!localeKey) {
-    return 'zh-CN';
+    return 'zh-CN' as T;
   }
   const localeName = localeKey.toLocaleLowerCase();
   return intlMapKeys.find((intlKey) => {
     const LowerCaseKey = intlKey.toLocaleLowerCase();
     return LowerCaseKey.includes(localeName);
-  });
+  }) as T;
 };
 
 /**
@@ -308,8 +308,18 @@ const ConfigProviderWrap: React.FC<Record<string, unknown>> = ({
 export { ConfigConsumer, ConfigProvider, ConfigProviderWrap, createIntl };
 
 export function useIntl(): IntlType {
-  const context = useContext(ConfigContext);
-  return context.intl || zhCNIntl;
+  const { locale } = useContext(AntdConfigProvider.ConfigContext);
+  const { intl } = useContext(ConfigContext);
+
+  if (intl && intl.locale !== 'default') {
+    return intl;
+  }
+
+  if (locale?.locale) {
+    return intlMap[findIntlKeyByAntdLocaleKey(locale.locale)];
+  }
+
+  return zhCNIntl;
 }
 
 export default ConfigContext;
