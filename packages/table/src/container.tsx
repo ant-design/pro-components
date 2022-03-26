@@ -60,8 +60,8 @@ function useContainer(props: UseContainerProps = {}) {
   /** 默认全选中 */
   const defaultColumnKeyMap = useMemo(() => {
     const columnKeyMap = {};
-    props.columns?.forEach(({ key, fixed }, index) => {
-      const columnKey = genColumnKey(key, index);
+    props.columns?.forEach(({ key, dataIndex, fixed }, index) => {
+      const columnKey = genColumnKey(key ?? (dataIndex as React.Key), index);
       if (columnKey) {
         columnKeyMap[columnKey] = {
           show: true,
@@ -88,6 +88,7 @@ function useContainer(props: UseContainerProps = {}) {
           console.warn(error);
         }
       }
+
       return (
         props.columnsStateMap ||
         props.columnsState?.value ||
