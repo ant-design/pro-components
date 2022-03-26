@@ -160,6 +160,7 @@ const ProFormListItem: React.FC<
     copyIconProps,
     itemContainerRender,
     itemRender,
+    alwaysShowItemLabel,
     prefixCls,
     creatorRecord,
     action,
@@ -339,6 +340,7 @@ const ProFormListItem: React.FC<
     options,
   ) || (
     <div
+      className={`${prefixCls}-item${alwaysShowItemLabel ? ` ${prefixCls}-item-show-label` : ''}`}
       style={{
         display: 'flex',
         alignItems: 'flex-end',

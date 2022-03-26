@@ -7657,6 +7657,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/Group/demos/base
                         </div>
                         <div
                           class="ant-space-item"
+                          style="margin-right: 32px;"
                         >
                           <div
                             class="ant-row ant-form-item"
@@ -7719,6 +7720,30 @@ exports[`form demos 📸 renders ./packages/form/src/components/Group/demos/base
                                 </div>
                               </div>
                             </div>
+                          </div>
+                        </div>
+                        <div
+                          class="ant-space-item"
+                        >
+                          <div
+                            style="display: flex; align-items: flex-end; gap: 8px; height: 60px;"
+                          >
+                            <button
+                              class="ant-btn ant-btn-primary"
+                              type="button"
+                            >
+                              <span>
+                                设置此行
+                              </span>
+                            </button>
+                            <button
+                              class="ant-btn ant-btn-dashed"
+                              type="button"
+                            >
+                              <span>
+                                清空此行
+                              </span>
+                            </button>
                           </div>
                         </div>
                       </div>
