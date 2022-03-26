@@ -40,7 +40,14 @@ const formInstanceNoop: any = {
  */
 
 function BetaSchemaForm<T, ValueType = 'text'>(props: FormSchema<T, ValueType>) {
-  const { columns, layoutType = 'Form', type = 'form', action, ...restProps } = props;
+  const {
+    columns,
+    layoutType = 'Form',
+    type = 'form',
+    action,
+    shouldUpdate = true,
+    ...restProps
+  } = props;
 
   const Form = (FormLayoutType[layoutType] || ProForm) as React.FC<ProFormProps<T>>;
 
@@ -48,7 +55,7 @@ function BetaSchemaForm<T, ValueType = 'text'>(props: FormSchema<T, ValueType>) 
   const [formDomsDeps, updatedFormDoms] = useState<[]>([]);
 
   const rest = useMemo(() => {
-    return omit(restProps, ['shouldUpdate', 'formRef'] as any);
+    return omit(restProps, ['formRef'] as any);
   }, [restProps]);
 
   const formRef = useRef<FormInstance | undefined>(props.form || formInstanceNoop);
@@ -137,7 +144,7 @@ function BetaSchemaForm<T, ValueType = 'text'>(props: FormSchema<T, ValueType>) 
 
   const onValuesChange: FormProps<T>['onValuesChange'] = useCallback(
     (changedValues, values) => {
-      const { shouldUpdate = true, onValuesChange: propsOnValuesChange } = propsRef.current;
+      const { onValuesChange: propsOnValuesChange } = propsRef.current;
       if (
         shouldUpdate === true ||
         (typeof shouldUpdate === 'function' && shouldUpdate(values, oldValuesRef.current))
@@ -147,7 +154,7 @@ function BetaSchemaForm<T, ValueType = 'text'>(props: FormSchema<T, ValueType>) 
       oldValuesRef.current = values;
       propsOnValuesChange?.(changedValues, values);
     },
-    [propsRef],
+    [propsRef, shouldUpdate],
   );
 
   const formChildrenDoms = useMemo(() => {
@@ -173,7 +180,7 @@ function BetaSchemaForm<T, ValueType = 'text'>(props: FormSchema<T, ValueType>) 
   }, [columns, layoutType]);
 
   return (
-    <Form formRef={formRef} onValuesChange={onValuesChange} {...specificProps} {...rest}>
+    <Form formRef={formRef} {...specificProps} {...rest} onValuesChange={onValuesChange}>
       {formChildrenDoms}
     </Form>
   );
