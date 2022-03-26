@@ -32,6 +32,7 @@ export type OptionConfig = {
         checkable?: boolean;
         checkedReset?: boolean;
         extra?: React.ReactNode;
+        children?: React.ReactNode;
       };
   search?: (OptionSearchProps & { name?: string }) | boolean;
 };

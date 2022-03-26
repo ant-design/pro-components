@@ -27,6 +27,7 @@ type ColumnSettingProps<T = any> = {
   checkable?: boolean;
   extra?: React.ReactNode;
   checkedReset?: boolean;
+  children?: React.ReactNode;
 };
 
 const ToolTipIcon: React.FC<{
@@ -388,9 +389,11 @@ function ColumnSetting<T>(props: ColumnSettingProps<T>) {
         />
       }
     >
-      <Tooltip title={intl.getMessage('tableToolBar.columnSetting', '列设置')}>
-        <SettingOutlined />
-      </Tooltip>
+      {props.children || (
+        <Tooltip title={intl.getMessage('tableToolBar.columnSetting', '列设置')}>
+          <SettingOutlined />
+        </Tooltip>
+      )}
     </Popover>
   );
 }
