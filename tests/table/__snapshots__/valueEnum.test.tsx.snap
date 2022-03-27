@@ -5,7 +5,7 @@ exports[`Table valueEnum 🎏 customization valueType 1`] = `
   class="ant-pro-table"
 >
   <div
-    class="ant-pro-table-search ant-pro-table-search-query-filter ant-pro-card"
+    class="ant-pro-card ant-pro-table-search ant-pro-table-search-query-filter"
   >
     <form
       autocomplete="off"

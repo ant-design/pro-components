@@ -6,7 +6,7 @@ exports[`table demos 📸 renders ./packages/table/src/components/DragSortTable/
     class="ant-pro-table"
   >
     <div
-      class="ant-pro-table-search ant-pro-table-search-query-filter ant-pro-card"
+      class="ant-pro-card ant-pro-table-search ant-pro-table-search-query-filter"
     >
       <form
         autocomplete="off"
@@ -726,7 +726,7 @@ exports[`table demos 📸 renders ./packages/table/src/components/DragSortTable/
     class="ant-pro-table"
   >
     <div
-      class="ant-pro-table-search ant-pro-table-search-query-filter ant-pro-card"
+      class="ant-pro-card ant-pro-table-search ant-pro-table-search-query-filter"
     >
       <form
         autocomplete="off"
@@ -16521,6 +16521,295 @@ exports[`table demos 📸 renders ./packages/table/src/demos/card-title.tsx corr
 </DocumentFragment>
 `;
 
+exports[`table demos 📸 renders ./packages/table/src/demos/columns-setting-custom-icon.tsx correctly 1`] = `
+<DocumentFragment>
+  <div
+    class="ant-pro-table"
+  >
+    <div
+      class="ant-pro-card"
+    >
+      <div
+        class="ant-pro-card-body"
+        style="padding-top: 0px;"
+      >
+        <div
+          class="ant-pro-table-list-toolbar"
+        >
+          <div
+            class="ant-pro-table-list-toolbar-container"
+          >
+            <div
+              class="ant-space ant-space-horizontal ant-space-align-center ant-pro-table-list-toolbar-left"
+            >
+              <div
+                class="ant-space-item"
+                style="margin-right: 8px;"
+              >
+                <div
+                  class="ant-pro-table-list-toolbar-title"
+                />
+              </div>
+              <div
+                class="ant-space-item"
+              >
+                <div
+                  class="ant-pro-table-list-toolbar-search"
+                >
+                  <span
+                    class="ant-input-group-wrapper ant-input-search"
+                    style="width: 200px;"
+                  >
+                    <span
+                      class="ant-input-wrapper ant-input-group"
+                    >
+                      <input
+                        class="ant-input"
+                        placeholder="请输入"
+                        type="text"
+                        value=""
+                      />
+                      <span
+                        class="ant-input-group-addon"
+                      >
+                        <button
+                          class="ant-btn ant-btn-default ant-btn-icon-only ant-input-search-button"
+                          type="button"
+                        >
+                          <span
+                            aria-label="search"
+                            class="anticon anticon-search"
+                            role="img"
+                          >
+                            <svg
+                              aria-hidden="true"
+                              data-icon="search"
+                              fill="currentColor"
+                              focusable="false"
+                              height="1em"
+                              viewBox="64 64 896 896"
+                              width="1em"
+                            >
+                              <path
+                                d="M909.6 854.5L649.9 594.8C690.2 542.7 712 479 712 412c0-80.2-31.3-155.4-87.9-212.1-56.6-56.7-132-87.9-212.1-87.9s-155.5 31.3-212.1 87.9C143.2 256.5 112 331.8 112 412c0 80.1 31.3 155.5 87.9 212.1C256.5 680.8 331.8 712 412 712c67 0 130.6-21.8 182.7-62l259.7 259.6a8.2 8.2 0 0011.6 0l43.6-43.5a8.2 8.2 0 000-11.6zM570.4 570.4C528 612.7 471.8 636 412 636s-116-23.3-158.4-65.6C211.3 528 188 471.8 188 412s23.3-116.1 65.6-158.4C296 211.3 352.2 188 412 188s116.1 23.2 158.4 65.6S636 352.2 636 412s-23.3 116.1-65.6 158.4z"
+                              />
+                            </svg>
+                          </span>
+                        </button>
+                      </span>
+                    </span>
+                  </span>
+                </div>
+              </div>
+            </div>
+            <div
+              class="ant-space ant-space-horizontal ant-space-align-center ant-pro-table-list-toolbar-right"
+            >
+              <div
+                class="ant-space-item"
+              >
+                <div
+                  class="ant-space ant-space-horizontal ant-space-align-center ant-pro-table-list-toolbar-setting-items"
+                >
+                  <div
+                    class="ant-space-item"
+                    style="margin-right: 12px;"
+                  >
+                    <div
+                      class="ant-pro-table-list-toolbar-setting-item"
+                    >
+                      <span>
+                        <span
+                          aria-label="reload"
+                          class="anticon anticon-reload"
+                          role="img"
+                        >
+                          <svg
+                            aria-hidden="true"
+                            data-icon="reload"
+                            fill="currentColor"
+                            focusable="false"
+                            height="1em"
+                            viewBox="64 64 896 896"
+                            width="1em"
+                          >
+                            <path
+                              d="M909.1 209.3l-56.4 44.1C775.8 155.1 656.2 92 521.9 92 290 92 102.3 279.5 102 511.5 101.7 743.7 289.8 932 521.9 932c181.3 0 335.8-115 394.6-276.1 1.5-4.2-.7-8.9-4.9-10.3l-56.7-19.5a8 8 0 00-10.1 4.8c-1.8 5-3.8 10-5.9 14.9-17.3 41-42.1 77.8-73.7 109.4A344.77 344.77 0 01655.9 829c-42.3 17.9-87.4 27-133.8 27-46.5 0-91.5-9.1-133.8-27A341.5 341.5 0 01279 755.2a342.16 342.16 0 01-73.7-109.4c-17.9-42.4-27-87.4-27-133.9s9.1-91.5 27-133.9c17.3-41 42.1-77.8 73.7-109.4 31.6-31.6 68.4-56.4 109.3-73.8 42.3-17.9 87.4-27 133.8-27 46.5 0 91.5 9.1 133.8 27a341.5 341.5 0 01109.3 73.8c9.9 9.9 19.2 20.4 27.8 31.4l-60.2 47a8 8 0 003 14.1l175.6 43c5 1.2 9.9-2.6 9.9-7.7l.8-180.9c-.1-6.6-7.8-10.3-13-6.2z"
+                            />
+                          </svg>
+                        </span>
+                      </span>
+                    </div>
+                  </div>
+                  <div
+                    class="ant-space-item"
+                    style="margin-right: 12px;"
+                  >
+                    <div
+                      class="ant-pro-table-list-toolbar-setting-item"
+                    >
+                      <span>
+                        <span
+                          aria-label="column-height"
+                          class="anticon anticon-column-height ant-dropdown-trigger"
+                          role="img"
+                          tabindex="-1"
+                        >
+                          <svg
+                            aria-hidden="true"
+                            data-icon="column-height"
+                            fill="currentColor"
+                            focusable="false"
+                            height="1em"
+                            viewBox="64 64 896 896"
+                            width="1em"
+                          >
+                            <path
+                              d="M840 836H184c-4.4 0-8 3.6-8 8v60c0 4.4 3.6 8 8 8h656c4.4 0 8-3.6 8-8v-60c0-4.4-3.6-8-8-8zm0-724H184c-4.4 0-8 3.6-8 8v60c0 4.4 3.6 8 8 8h656c4.4 0 8-3.6 8-8v-60c0-4.4-3.6-8-8-8zM610.8 378c6 0 9.4-7 5.7-11.7L515.7 238.7a7.14 7.14 0 00-11.3 0L403.6 366.3a7.23 7.23 0 005.7 11.7H476v268h-62.8c-6 0-9.4 7-5.7 11.7l100.8 127.5c2.9 3.7 8.5 3.7 11.3 0l100.8-127.5c3.7-4.7.4-11.7-5.7-11.7H548V378h62.8z"
+                            />
+                          </svg>
+                        </span>
+                      </span>
+                    </div>
+                  </div>
+                  <div
+                    class="ant-space-item"
+                  >
+                    <div
+                      class="ant-pro-table-list-toolbar-setting-item"
+                    >
+                      <svg
+                        fill="currentColor"
+                        height="1em"
+                        viewBox="0 0 1024 1024"
+                        width="1em"
+                      >
+                        <path
+                          d="M923 283.6c-13.4-31.1-32.6-58.9-56.9-82.8-24.3-23.8-52.5-42.4-84-55.5-32.5-13.5-66.9-20.3-102.4-20.3-49.3 0-97.4 13.5-139.2 39-10 6.1-19.5 12.8-28.5 20.1-9-7.3-18.5-14-28.5-20.1-41.8-25.5-89.9-39-139.2-39-35.5 0-69.9 6.8-102.4 20.3-31.4 13-59.7 31.7-84 55.5-24.4 23.9-43.5 51.7-56.9 82.8-13.9 32.3-21 66.6-21 101.9 0 33.3 6.8 68 20.3 103.3 11.3 29.5 27.5 60.1 48.2 91 32.8 48.9 77.9 99.9 133.9 151.6 92.8 85.7 184.7 144.9 188.6 147.3l23.7 15.2c10.5 6.7 24 6.7 34.5 0l23.7-15.2c3.9-2.5 95.7-61.6 188.6-147.3 56-51.7 101.1-102.7 133.9-151.6 20.7-30.9 37-61.5 48.2-91 13.5-35.3 20.3-70 20.3-103.3 0.1-35.3-7-69.6-20.9-101.9z"
+                        />
+                      </svg>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div
+          class="ant-table-wrapper"
+        >
+          <div
+            class="ant-spin-nested-loading"
+          >
+            <div
+              class="ant-spin-container"
+            >
+              <div
+                class="ant-table ant-table-middle ant-table-empty"
+              >
+                <div
+                  class="ant-table-container"
+                >
+                  <div
+                    class="ant-table-content"
+                  >
+                    <table
+                      style="table-layout: auto;"
+                    >
+                      <colgroup />
+                      <thead
+                        class="ant-table-thead"
+                      >
+                        <tr>
+                          <th
+                            class="ant-table-cell"
+                          >
+                            User First Name
+                          </th>
+                          <th
+                            class="ant-table-cell"
+                          >
+                            User Last Name
+                          </th>
+                          <th
+                            class="ant-table-cell"
+                          >
+                            ID
+                          </th>
+                        </tr>
+                      </thead>
+                      <tbody
+                        class="ant-table-tbody"
+                      >
+                        <tr
+                          class="ant-table-placeholder"
+                        >
+                          <td
+                            class="ant-table-cell"
+                            colspan="3"
+                          >
+                            <div
+                              class="ant-empty ant-empty-normal"
+                            >
+                              <div
+                                class="ant-empty-image"
+                              >
+                                <svg
+                                  class="ant-empty-img-simple"
+                                  height="41"
+                                  viewBox="0 0 64 41"
+                                  width="64"
+                                  xmlns="http://www.w3.org/2000/svg"
+                                >
+                                  <g
+                                    fill="none"
+                                    fill-rule="evenodd"
+                                    transform="translate(0 1)"
+                                  >
+                                    <ellipse
+                                      class="ant-empty-img-simple-ellipse"
+                                      cx="32"
+                                      cy="33"
+                                      rx="32"
+                                      ry="7"
+                                    />
+                                    <g
+                                      class="ant-empty-img-simple-g"
+                                      fill-rule="nonzero"
+                                    >
+                                      <path
+                                        d="M55 12.76L44.854 1.258C44.367.474 43.656 0 42.907 0H21.093c-.749 0-1.46.474-1.947 1.257L9 12.761V22h46v-9.24z"
+                                      />
+                                      <path
+                                        class="ant-empty-img-simple-path"
+                                        d="M41.613 15.931c0-1.605.994-2.93 2.227-2.931H55v18.137C55 33.26 53.68 35 52.05 35h-40.1C10.32 35 9 33.259 9 31.137V13h11.16c1.233 0 2.227 1.323 2.227 2.928v.022c0 1.605 1.005 2.901 2.237 2.901h14.752c1.232 0 2.237-1.308 2.237-2.913v-.007z"
+                                      />
+                                    </g>
+                                  </g>
+                                </svg>
+                              </div>
+                              <div
+                                class="ant-empty-description"
+                              >
+                                暂无数据
+                              </div>
+                            </div>
+                          </td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</DocumentFragment>
+`;
+
 exports[`table demos 📸 renders ./packages/table/src/demos/columnsStateMap.tsx correctly 1`] = `
 <DocumentFragment>
   <div
@@ -17007,7 +17296,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/config-provider.tsx
     class="qixian-pro-table"
   >
     <div
-      class="qixian-pro-table-search qixian-pro-table-search-query-filter qixian-pro-card"
+      class="qixian-pro-card qixian-pro-table-search qixian-pro-table-search-query-filter"
     >
       <form
         autocomplete="off"
@@ -22062,7 +22351,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/crud.tsx correctly 
         class="ant-pro-table"
       >
         <div
-          class="ant-pro-table-search ant-pro-table-search-query-filter ant-pro-card"
+          class="ant-pro-card ant-pro-table-search ant-pro-table-search-query-filter"
         >
           <form
             autocomplete="off"
@@ -23856,7 +24145,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/customization-value
     class="ant-pro-table"
   >
     <div
-      class="ant-pro-table-search ant-pro-table-search-query-filter ant-pro-card"
+      class="ant-pro-card ant-pro-table-search ant-pro-table-search-query-filter"
     >
       <form
         autocomplete="off"
@@ -24676,7 +24965,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/dataSource.tsx corr
     class="ant-pro-table"
   >
     <div
-      class="ant-pro-table-search ant-pro-table-search-query-filter ant-pro-card"
+      class="ant-pro-card ant-pro-table-search ant-pro-table-search-query-filter"
     >
       <form
         autocomplete="off"
@@ -26744,7 +27033,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/dateFormatter.tsx c
     class="ant-pro-table"
   >
     <div
-      class="ant-pro-table-search ant-pro-table-search-query-filter ant-pro-card"
+      class="ant-pro-card ant-pro-table-search ant-pro-table-search-query-filter"
     >
       <form
         autocomplete="off"
@@ -27249,7 +27538,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/dateFormatter.tsx c
     class="ant-pro-table"
   >
     <div
-      class="ant-pro-table-search ant-pro-table-search-query-filter ant-pro-card"
+      class="ant-pro-card ant-pro-table-search ant-pro-table-search-query-filter"
     >
       <form
         autocomplete="off"
@@ -27754,7 +28043,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/dateFormatter.tsx c
     class="ant-pro-table"
   >
     <div
-      class="ant-pro-table-search ant-pro-table-search-query-filter ant-pro-card"
+      class="ant-pro-card ant-pro-table-search ant-pro-table-search-query-filter"
     >
       <form
         autocomplete="off"
@@ -28281,7 +28570,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/dynamic-settings.ts
               class="ant-pro-table"
             >
               <div
-                class="ant-pro-table-search ant-pro-table-search-query-filter ant-pro-card"
+                class="ant-pro-card ant-pro-table-search ant-pro-table-search-query-filter"
               >
                 <form
                   autocomplete="off"
@@ -31858,7 +32147,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/form.tsx correctly 
     class="ant-pro-table"
   >
     <div
-      class="ant-pro-table-search ant-pro-table-search-query-filter ant-pro-card"
+      class="ant-pro-card ant-pro-table-search ant-pro-table-search-query-filter"
     >
       <form
         autocomplete="off"
@@ -32381,7 +32670,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/intl.tsx correctly 
     class="ant-pro-table"
   >
     <div
-      class="ant-pro-table-search ant-pro-table-search-query-filter ant-pro-card"
+      class="ant-pro-card ant-pro-table-search ant-pro-table-search-query-filter"
     >
       <form
         autocomplete="off"
@@ -33254,7 +33543,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/lightfilter.tsx cor
                   class="ant-pro-table-list-toolbar-filter"
                 >
                   <div
-                    class="ant-pro-table-search ant-pro-table-search-light-filter ant-pro-card"
+                    class="ant-pro-card ant-pro-table-search ant-pro-table-search-light-filter"
                   >
                     <form
                       autocomplete="off"
@@ -34360,7 +34649,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/linkage_form.tsx co
     class="ant-pro-table"
   >
     <div
-      class="ant-pro-table-search ant-pro-table-search-query-filter ant-pro-card"
+      class="ant-pro-card ant-pro-table-search ant-pro-table-search-query-filter"
     >
       <form
         autocomplete="off"
@@ -36296,7 +36585,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/no-option.tsx corre
     class="ant-pro-table"
   >
     <div
-      class="ant-pro-table-search ant-pro-table-search-query-filter ant-pro-card"
+      class="ant-pro-card ant-pro-table-search ant-pro-table-search-query-filter"
     >
       <form
         autocomplete="off"
@@ -40396,7 +40685,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/open-rules.tsx corr
     class="ant-pro-table"
   >
     <div
-      class="ant-pro-table-search ant-pro-table-search-query-filter ant-pro-card"
+      class="ant-pro-card ant-pro-table-search ant-pro-table-search-query-filter"
     >
       <form
         autocomplete="off"
@@ -41139,7 +41428,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/open-rules.tsx corr
     class="ant-pro-table"
   >
     <div
-      class="ant-pro-table-search ant-pro-table-search-query-filter ant-pro-card"
+      class="ant-pro-card ant-pro-table-search ant-pro-table-search-query-filter"
     >
       <form
         autocomplete="off"
@@ -41887,7 +42176,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/pollinga.tsx correc
     class="ant-pro-table"
   >
     <div
-      class="ant-pro-table-search ant-pro-table-search-query-filter ant-pro-card"
+      class="ant-pro-card ant-pro-table-search ant-pro-table-search-query-filter"
     >
       <form
         autocomplete="off"
@@ -42944,7 +43233,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/renderTable.tsx cor
     class="ant-pro-table"
   >
     <div
-      class="ant-pro-table-search ant-pro-table-search-query-filter ant-pro-card"
+      class="ant-pro-card ant-pro-table-search ant-pro-table-search-query-filter"
     >
       <form
         autocomplete="off"
@@ -43939,7 +44228,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/rtl_table.tsx corre
     class="ant-pro-table"
   >
     <div
-      class="ant-pro-table-search ant-pro-table-search-query-filter ant-pro-card"
+      class="ant-pro-card ant-pro-table-search ant-pro-table-search-query-filter"
     >
       <form
         autocomplete="off"
@@ -46077,7 +46366,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/search_option.tsx c
     class="ant-pro-table"
   >
     <div
-      class="ant-pro-table-search ant-pro-table-search-query-filter ant-pro-card"
+      class="ant-pro-card ant-pro-table-search ant-pro-table-search-query-filter"
     >
       <form
         autocomplete="off"
@@ -46820,7 +47109,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/single.tsx correctl
     class="ant-pro-table"
   >
     <div
-      class="ant-pro-table-search ant-pro-table-search-query-filter ant-pro-card-border ant-pro-card-bordered ant-pro-card"
+      class="ant-pro-card ant-pro-card-border ant-pro-card-bordered ant-pro-table-search ant-pro-table-search-query-filter"
     >
       <form
         autocomplete="off"
@@ -48701,7 +48990,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/single-test.tsx cor
     class="ant-pro-table"
   >
     <div
-      class="ant-pro-table-search ant-pro-table-form ant-pro-table-search-form ant-pro-card"
+      class="ant-pro-card ant-pro-table-search ant-pro-table-form ant-pro-table-search-form"
     >
       <form
         autocomplete="off"
@@ -49033,7 +49322,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/single-test.tsx cor
     class="ant-pro-table"
   >
     <div
-      class="ant-pro-table-search ant-pro-table-search-query-filter ant-pro-card"
+      class="ant-pro-card ant-pro-table-search ant-pro-table-search-query-filter"
     >
       <form
         autocomplete="off"
@@ -49545,7 +49834,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/single-test.tsx cor
     class="ant-pro-table"
   >
     <div
-      class="ant-pro-table-search ant-pro-table-search-query-filter ant-pro-card"
+      class="ant-pro-card ant-pro-table-search ant-pro-table-search-query-filter"
     >
       <form
         autocomplete="off"
@@ -53462,7 +53751,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/valueType.tsx corre
     class="ant-pro-table"
   >
     <div
-      class="ant-pro-table-search ant-pro-table-search-query-filter ant-pro-card"
+      class="ant-pro-card ant-pro-table-search ant-pro-table-search-query-filter"
     >
       <form
         autocomplete="off"
@@ -54477,7 +54766,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/valueType_select.ts
     class="ant-pro-table"
   >
     <div
-      class="ant-pro-table-search ant-pro-table-search-query-filter ant-pro-card"
+      class="ant-pro-card ant-pro-table-search ant-pro-table-search-query-filter"
     >
       <form
         autocomplete="off"
@@ -55821,7 +56110,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/valueTypeDate.tsx c
     class="ant-pro-table"
   >
     <div
-      class="ant-pro-table-search ant-pro-table-search-query-filter ant-pro-card"
+      class="ant-pro-card ant-pro-table-search ant-pro-table-search-query-filter"
     >
       <form
         autocomplete="off"
@@ -57063,7 +57352,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/valueTypeNumber.tsx
     class="ant-pro-table"
   >
     <div
-      class="ant-pro-table-search ant-pro-table-search-query-filter ant-pro-card"
+      class="ant-pro-card ant-pro-table-search ant-pro-table-search-query-filter"
     >
       <form
         autocomplete="off"

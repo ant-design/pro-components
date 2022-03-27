@@ -289,7 +289,7 @@ exports[`docs demos 📸 renders ./docs/demos/customization-value-type.tsx corre
         class="ant-pro-table"
       >
         <div
-          class="ant-pro-table-search ant-pro-table-search-query-filter ant-pro-card"
+          class="ant-pro-card ant-pro-table-search ant-pro-table-search-query-filter"
         >
           <form
             autocomplete="off"

@@ -7,7 +7,7 @@ exports[`Table ColumnSetting 🎏 config provide render 1`] = `
   class="qixian-pro-table"
 >
   <div
-    class="qixian-pro-table-search qixian-pro-table-search-query-filter qixian-pro-card"
+    class="qixian-pro-card qixian-pro-table-search qixian-pro-table-search-query-filter"
   >
     <form
       autocomplete="off"
@@ -783,7 +783,7 @@ exports[`Table ColumnSetting 🎏 extra columns 1`] = `
   class="ant-pro-table"
 >
   <div
-    class="ant-pro-table-search ant-pro-table-search-query-filter ant-pro-card"
+    class="ant-pro-card ant-pro-table-search ant-pro-table-search-query-filter"
   >
     <form
       autocomplete="off"
