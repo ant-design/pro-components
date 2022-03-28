@@ -627,7 +627,7 @@ function useEditableArray<RecordType>(
     }
 
     // 防止多次渲染
-    const recordKey = props.getRowKey(row, props.dataSource.length);
+    const recordKey = props.getRowKey(row, -1);
     editableKeysSet.add(recordKey);
     setEditableRowKeys(Array.from(editableKeysSet));
 

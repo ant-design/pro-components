@@ -518,6 +518,42 @@ describe('EditorProTable', () => {
     wrapper.unmount();
   });
 
+  it('📝 EditableProTable add newLine use rowKey', async () => {
+    const fn = jest.fn();
+    const wrapper = mount(
+      <ProForm
+        initialValues={{
+          table: defaultData,
+        }}
+      >
+        <EditableProTable<DataSourceType>
+          recordCreatorProps={{
+            id: 'new-button',
+            record: () => ({ id: '1234' }),
+          }}
+          editable={{
+            onChange: (keys) => {
+              fn(keys.join(','));
+            },
+          }}
+          rowKey="id"
+          name="table"
+          columns={columns}
+        />
+      </ProForm>,
+    );
+
+    act(() => {
+      wrapper.find('#new-button').at(0).simulate('click');
+    });
+
+    await waitForComponentToPaint(wrapper, 200);
+
+    expect(fn).toBeCalledWith('1234');
+
+    wrapper.unmount();
+  });
+
   it('📝 EditableProTable support actionRender', async () => {
     const wrapper = mount(
       <EditableProTable<DataSourceType>
