@@ -1641,10 +1641,10 @@ exports[`layout demos 📸 renders ./packages/layout/src/components/WaterMark/de
       class="ant-pro-table"
     >
       <div
-        class="ant-card"
+        class="ant-pro-card"
       >
         <div
-          class="ant-card-body"
+          class="ant-pro-card-body"
           style="padding: 0px;"
         >
           <div
@@ -3811,73 +3811,6 @@ exports[`layout demos 📸 renders ./packages/layout/src/components/WaterMark/de
                         </svg>
                       </span>
                     </button>
-                  </li>
-                  <li
-                    class="ant-pagination-options"
-                  >
-                    <div
-                      aria-label="页码"
-                      class="ant-select ant-select-sm ant-pagination-options-size-changer ant-select-single ant-select-show-arrow"
-                    >
-                      <div
-                        class="ant-select-selector"
-                      >
-                        <span
-                          class="ant-select-selection-search"
-                        >
-                          <input
-                            aria-activedescendant="rc_select_TEST_OR_SSR_list_0"
-                            aria-autocomplete="list"
-                            aria-controls="rc_select_TEST_OR_SSR_list"
-                            aria-expanded="false"
-                            aria-haspopup="listbox"
-                            aria-label="页码"
-                            aria-owns="rc_select_TEST_OR_SSR_list"
-                            autocomplete="off"
-                            class="ant-select-selection-search-input"
-                            id="rc_select_TEST_OR_SSR"
-                            readonly=""
-                            role="combobox"
-                            style="opacity: 0;"
-                            type="search"
-                            unselectable="on"
-                            value=""
-                          />
-                        </span>
-                        <span
-                          class="ant-select-selection-item"
-                          title="20 条/页"
-                        >
-                          20 条/页
-                        </span>
-                      </div>
-                      <span
-                        aria-hidden="true"
-                        class="ant-select-arrow"
-                        style="user-select: none;"
-                        unselectable="on"
-                      >
-                        <span
-                          aria-label="down"
-                          class="anticon anticon-down ant-select-suffix"
-                          role="img"
-                        >
-                          <svg
-                            aria-hidden="true"
-                            data-icon="down"
-                            fill="currentColor"
-                            focusable="false"
-                            height="1em"
-                            viewBox="64 64 896 896"
-                            width="1em"
-                          >
-                            <path
-                              d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"
-                            />
-                          </svg>
-                        </span>
-                      </span>
-                    </div>
                   </li>
                 </ul>
               </div>
@@ -7648,7 +7581,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/TopmenuNested.tsx
                     tabindex="0"
                   >
                     <li
-                      class="ant-menu-overflow-item ant-pro-menu-item ant-design-pro-layout-7797dk"
+                      class="ant-menu-overflow-item ant-pro-menu-item ant-design-pro-layout-g2o0jt"
                       data-menu-id="rc-menu-uuid-test-/home"
                       role="menuitem"
                       style="opacity: 1; order: 0;"
@@ -9759,7 +9692,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/base.tsx correctl
                     tabindex="0"
                   >
                     <li
-                      class="ant-menu-overflow-item ant-pro-menu-item ant-design-pro-layout-7797dk"
+                      class="ant-menu-overflow-item ant-pro-menu-item ant-design-pro-layout-g2o0jt"
                       data-menu-id="rc-menu-uuid-test-/welcome"
                       role="menuitem"
                       style="opacity: 1; order: 0;"
@@ -9802,7 +9735,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/base.tsx correctl
                       </span>
                     </li>
                     <li
-                      class="ant-menu-overflow-item ant-pro-menu-item ant-design-pro-layout-7797dk"
+                      class="ant-menu-overflow-item ant-pro-menu-item ant-design-pro-layout-g2o0jt"
                       role="menuitem"
                       style="opacity: 1; order: 1;"
                       tabindex="-1"
@@ -9844,7 +9777,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/base.tsx correctl
                       </span>
                     </li>
                     <li
-                      class="ant-menu-overflow-item ant-pro-menu-item ant-pro-menu-item-selected ant-design-pro-layout-1gqp8ys"
+                      class="ant-menu-overflow-item ant-pro-menu-item ant-pro-menu-item-selected ant-design-pro-layout-xiai6f"
                       role="menuitem"
                       style="opacity: 1; order: 2;"
                       tabindex="-1"
@@ -9886,7 +9819,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/base.tsx correctl
                       </span>
                     </li>
                     <li
-                      class="ant-menu-overflow-item ant-pro-menu-item ant-design-pro-layout-7797dk"
+                      class="ant-menu-overflow-item ant-pro-menu-item ant-design-pro-layout-g2o0jt"
                       role="menuitem"
                       style="opacity: 1; order: 3;"
                       tabindex="-1"
@@ -20766,7 +20699,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/splitMenus.tsx co
                   tabindex="0"
                 >
                   <li
-                    class="ant-menu-overflow-item ant-pro-menu-item ant-design-pro-layout-7797dk"
+                    class="ant-menu-overflow-item ant-pro-menu-item ant-design-pro-layout-g2o0jt"
                     data-menu-id="rc-menu-uuid-test-/welcome"
                     role="menuitem"
                     style="opacity: 1; order: 0;"
@@ -20807,7 +20740,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/splitMenus.tsx co
                     </span>
                   </li>
                   <li
-                    class="ant-menu-overflow-item ant-pro-menu-item ant-design-pro-layout-7797dk"
+                    class="ant-menu-overflow-item ant-pro-menu-item ant-design-pro-layout-g2o0jt"
                     role="menuitem"
                     style="opacity: 1; order: 1;"
                     tabindex="-1"
@@ -20847,7 +20780,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/splitMenus.tsx co
                     </span>
                   </li>
                   <li
-                    class="ant-menu-overflow-item ant-pro-menu-item ant-design-pro-layout-7797dk"
+                    class="ant-menu-overflow-item ant-pro-menu-item ant-design-pro-layout-g2o0jt"
                     role="menuitem"
                     style="opacity: 1; order: 2;"
                     tabindex="-1"
@@ -20887,7 +20820,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/splitMenus.tsx co
                     </span>
                   </li>
                   <li
-                    class="ant-menu-overflow-item ant-pro-menu-item ant-design-pro-layout-7797dk"
+                    class="ant-menu-overflow-item ant-pro-menu-item ant-design-pro-layout-g2o0jt"
                     role="menuitem"
                     style="opacity: 1; order: 3;"
                     tabindex="-1"
@@ -21196,7 +21129,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/splitMenus.tsx co
                   tabindex="0"
                 >
                   <li
-                    class="ant-menu-overflow-item ant-pro-menu-item ant-pro-menu-item-selected ant-design-pro-layout-1gqp8ys"
+                    class="ant-menu-overflow-item ant-pro-menu-item ant-pro-menu-item-selected ant-design-pro-layout-xiai6f"
                     data-menu-id="rc-menu-uuid-test-/welcome"
                     role="menuitem"
                     style="opacity: 1; order: 0;"
@@ -21237,7 +21170,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/splitMenus.tsx co
                     </span>
                   </li>
                   <li
-                    class="ant-menu-overflow-item ant-pro-menu-item ant-design-pro-layout-7797dk"
+                    class="ant-menu-overflow-item ant-pro-menu-item ant-design-pro-layout-g2o0jt"
                     role="menuitem"
                     style="opacity: 1; order: 1;"
                     tabindex="-1"
@@ -21277,7 +21210,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/splitMenus.tsx co
                     </span>
                   </li>
                   <li
-                    class="ant-menu-overflow-item ant-pro-menu-item ant-design-pro-layout-7797dk"
+                    class="ant-menu-overflow-item ant-pro-menu-item ant-design-pro-layout-g2o0jt"
                     role="menuitem"
                     style="opacity: 1; order: 2;"
                     tabindex="-1"
@@ -21317,7 +21250,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/splitMenus.tsx co
                     </span>
                   </li>
                   <li
-                    class="ant-menu-overflow-item ant-pro-menu-item ant-design-pro-layout-7797dk"
+                    class="ant-menu-overflow-item ant-pro-menu-item ant-design-pro-layout-g2o0jt"
                     role="menuitem"
                     style="opacity: 1; order: 3;"
                     tabindex="-1"
@@ -21445,7 +21378,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/splitMenus.tsx co
                   tabindex="0"
                 >
                   <li
-                    class="ant-menu-overflow-item ant-pro-menu-item ant-pro-menu-item-selected ant-design-pro-layout-1gqp8ys"
+                    class="ant-menu-overflow-item ant-pro-menu-item ant-pro-menu-item-selected ant-design-pro-layout-xiai6f"
                     data-menu-id="rc-menu-uuid-test-/welcome"
                     role="menuitem"
                     style="opacity: 1; order: 0;"
@@ -21588,7 +21521,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/splitMenus.tsx co
                     </div>
                   </li>
                   <li
-                    class="ant-menu-overflow-item ant-pro-menu-item ant-design-pro-layout-7797dk"
+                    class="ant-menu-overflow-item ant-pro-menu-item ant-design-pro-layout-g2o0jt"
                     role="menuitem"
                     style="opacity: 1; order: 3;"
                     tabindex="-1"
@@ -21889,7 +21822,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/splitMenus.tsx co
                   tabindex="0"
                 >
                   <li
-                    class="ant-menu-overflow-item ant-pro-menu-item ant-pro-menu-item-selected ant-design-pro-layout-1gqp8ys"
+                    class="ant-menu-overflow-item ant-pro-menu-item ant-pro-menu-item-selected ant-design-pro-layout-xiai6f"
                     data-menu-id="rc-menu-uuid-test-/welcome"
                     role="menuitem"
                     style="opacity: 1; order: 0;"
@@ -21930,7 +21863,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/splitMenus.tsx co
                     </span>
                   </li>
                   <li
-                    class="ant-menu-overflow-item ant-pro-menu-item ant-design-pro-layout-7797dk"
+                    class="ant-menu-overflow-item ant-pro-menu-item ant-design-pro-layout-g2o0jt"
                     role="menuitem"
                     style="opacity: 1; order: 1;"
                     tabindex="-1"
@@ -21970,7 +21903,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/splitMenus.tsx co
                     </span>
                   </li>
                   <li
-                    class="ant-menu-overflow-item ant-pro-menu-item ant-design-pro-layout-7797dk"
+                    class="ant-menu-overflow-item ant-pro-menu-item ant-design-pro-layout-g2o0jt"
                     role="menuitem"
                     style="opacity: 1; order: 2;"
                     tabindex="-1"
@@ -22010,7 +21943,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/splitMenus.tsx co
                     </span>
                   </li>
                   <li
-                    class="ant-menu-overflow-item ant-pro-menu-item ant-design-pro-layout-7797dk"
+                    class="ant-menu-overflow-item ant-pro-menu-item ant-design-pro-layout-g2o0jt"
                     role="menuitem"
                     style="opacity: 1; order: 3;"
                     tabindex="-1"

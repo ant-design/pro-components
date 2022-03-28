@@ -1,5 +1,8 @@
 ﻿/* eslint-disable prefer-const */
+
+let index = 0;
 let genNanoid = (t = 21) => {
+  if (!window.crypto) return (index += 1).toFixed(0);
   let e = '',
     r = crypto.getRandomValues(new Uint8Array(t));
   // eslint-disable-next-line no-param-reassign

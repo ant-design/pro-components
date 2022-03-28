@@ -293,6 +293,10 @@ function ProListItem<RecordType>(props: ItemProps<RecordType>) {
       subTitle={subTitle}
       extra={extraDom}
       actions={actionsDom}
+      style={{
+        padding: 24,
+        ...cardProps.style,
+      }}
       {...onItem?.(record, index)}
     >
       <Skeleton avatar title={false} loading={loading} active>

@@ -2,6 +2,38 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.21.44](https://github.com/ant-design/pro-components/compare/@ant-design/pro-list@1.21.43...@ant-design/pro-list@1.21.44) (2022-03-22)
+
+### Bug Fixes
+
+- **list:** avatar shrink when card width is not enough ([#4879](https://github.com/ant-design/pro-components/issues/4879)) ([c026811](https://github.com/ant-design/pro-components/commit/c026811765656e65d75ae6310bcfa45ba7589fe7))
+
+## [1.21.43](https://github.com/ant-design/pro-components/compare/@ant-design/pro-list@1.21.42...@ant-design/pro-list@1.21.43) (2022-03-18)
+
+### Bug Fixes
+
+- **list:** fix ghost style padding error ([94027ed](https://github.com/ant-design/pro-components/commit/94027edb2076f78357f76761657b9bbbf76b8e5d))
+
+## [1.21.42](https://github.com/ant-design/pro-components/compare/@ant-design/pro-list@1.21.41...@ant-design/pro-list@1.21.42) (2022-03-18)
+
+**Note:** Version bump only for package @ant-design/pro-list
+
+## [1.21.41](https://github.com/ant-design/pro-components/compare/@ant-design/pro-list@1.21.40...@ant-design/pro-list@1.21.41) (2022-03-16)
+
+**Note:** Version bump only for package @ant-design/pro-list
+
+## [1.21.40](https://github.com/ant-design/pro-components/compare/@ant-design/pro-list@1.21.39...@ant-design/pro-list@1.21.40) (2022-03-16)
+
+**Note:** Version bump only for package @ant-design/pro-list
+
+## [1.21.39](https://github.com/ant-design/pro-components/compare/@ant-design/pro-list@1.21.38...@ant-design/pro-list@1.21.39) (2022-03-15)
+
+**Note:** Version bump only for package @ant-design/pro-list
+
+## [1.21.38](https://github.com/ant-design/pro-components/compare/@ant-design/pro-list@1.21.37...@ant-design/pro-list@1.21.38) (2022-03-14)
+
+**Note:** Version bump only for package @ant-design/pro-list
+
 ## [1.21.37](https://github.com/ant-design/pro-components/compare/@ant-design/pro-list@1.21.36...@ant-design/pro-list@1.21.37) (2022-03-08)
 
 **Note:** Version bump only for package @ant-design/pro-list

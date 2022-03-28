@@ -333,13 +333,7 @@ const ProPageHeader: React.FC<PageContainerProps & { prefixedClassName: string }
             : { ...pageHeaderProps.breadcrumb, ...value.breadcrumbProps }
         }
         breadcrumbRender={getBreadcrumbRender}
-        prefixCls={cx(
-          prefixCls,
-          props.footer &&
-            css`
-              padding-bottom: 24px;
-            `,
-        )}
+        prefixCls={prefixCls}
       >
         {header?.children || renderPageHeader(content, extraContent, prefixedClassName)}
       </PageHeader>

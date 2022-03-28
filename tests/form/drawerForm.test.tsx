@@ -36,9 +36,6 @@ describe('DrawerForm', () => {
     const wrapper = mount(
       <DrawerForm
         width={600}
-        drawerProps={{
-          forceRender: false,
-        }}
         trigger={<Button id="new">新建</Button>}
         onVisibleChange={(visible) => fn(visible)}
       >
@@ -113,7 +110,7 @@ describe('DrawerForm', () => {
     const wrapper = mount(
       <DrawerForm
         width={600}
-        drawerProps={{ destroyOnClose: true, forceRender: false }}
+        drawerProps={{ destroyOnClose: true }}
         onVisibleChange={(visible) => fn(visible)}
       >
         <ProFormText
@@ -281,11 +278,12 @@ describe('DrawerForm', () => {
 
   it('📦 drawer reset button will simulate drawerProps.onCancel', async () => {
     const fn = jest.fn();
+    const onCloseFn = jest.fn();
     const wrapper = mount(
       <DrawerForm
         visible
         drawerProps={{
-          onClose: () => fn(false),
+          onClose: () => onCloseFn(false),
         }}
         trigger={<Button id="new">新建</Button>}
         onVisibleChange={(visible) => fn(visible)}
@@ -300,6 +298,11 @@ describe('DrawerForm', () => {
     });
     await waitForComponentToPaint(wrapper);
     expect(fn).toBeCalledWith(false);
+    expect(fn).toBeCalledTimes(2);
+
+    // 点击关闭按钮的时候会手动触发一下 onClose
+    expect(onCloseFn).toBeCalledWith(false);
+    expect(fn).toBeCalledTimes(2);
 
     act(() => {
       wrapper.unmount();
@@ -460,7 +463,6 @@ describe('DrawerForm', () => {
       <DrawerForm
         drawerProps={{
           destroyOnClose: true,
-          forceRender: false,
         }}
         initialValues={{
           name: '1234',
@@ -524,7 +526,6 @@ describe('DrawerForm', () => {
       <ModalForm
         modalProps={{
           destroyOnClose: true,
-          forceRender: false,
         }}
         trigger={
           <Button id="new" type="primary">
@@ -543,7 +544,6 @@ describe('DrawerForm', () => {
       <DrawerForm
         drawerProps={{
           destroyOnClose: true,
-          forceRender: false,
         }}
         trigger={
           <Button id="new" type="primary">
@@ -566,7 +566,6 @@ describe('DrawerForm', () => {
         formRef={ref}
         drawerProps={{
           destroyOnClose: true,
-          forceRender: false,
         }}
         trigger={
           <Button id="new" type="primary">
@@ -600,7 +599,6 @@ describe('DrawerForm', () => {
         formRef={ref}
         modalProps={{
           destroyOnClose: true,
-          forceRender: false,
         }}
         trigger={
           <Button id="new" type="primary">

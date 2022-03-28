@@ -70,9 +70,6 @@ const SiderMenuWrapper: React.FC<SiderMenuProps & PrivateSiderMenuProps> = (prop
         collapsed={isMobile ? false : collapsed}
         splitMenus={false}
         originCollapsed={collapsed}
-        onCollapse={() => {
-          onCollapse?.(!collapsed);
-        }}
       />
     </Drawer>
   ) : (

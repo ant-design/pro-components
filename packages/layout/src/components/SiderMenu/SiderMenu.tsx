@@ -159,7 +159,7 @@ const CollapsedIcon: React.FC<any> = (props) => {
  * @param renderKey
  * @returns
  */
-export const defaultRenderLogoAndTitle = (
+export const renderLogoAndTitle = (
   props: SiderMenuProps,
   renderKey: string = 'menuHeaderRender',
 ): React.ReactNode => {
@@ -288,7 +288,7 @@ const SiderMenu: React.FC<SiderMenuProps & PrivateSiderMenuProps> = (props) => {
     [`${baseClassName}-light`]: theme !== 'dark',
   });
 
-  const headerDom = defaultRenderLogoAndTitle(props);
+  const headerDom = renderLogoAndTitle(props);
 
   const extraDom = menuExtraRender && menuExtraRender(props);
 
@@ -402,9 +402,7 @@ const SiderMenu: React.FC<SiderMenuProps & PrivateSiderMenuProps> = (props) => {
         onClick={() => onCollapse?.(!collapsed)}
       />
     );
-
     if (collapsedButtonRender) return collapsedButtonRender(collapsed, dom);
-
     return dom;
   }, [collapsedButtonRender, isMobile, originCollapsed, baseClassName, collapsed, onCollapse]);
 
@@ -454,16 +452,16 @@ const SiderMenu: React.FC<SiderMenuProps & PrivateSiderMenuProps> = (props) => {
 
   const collapsedWidth = 60;
 
-  const collapsedCss = useMemo(() => {
+  /* Using the useMemo hook to create a CSS class that will hide the menu when the menu is collapsed. */
+  const hideMenuWhenCollapsedCss = useMemo(() => {
     // 收起时完全隐藏菜单
-    return (
-      props?.menu?.hideMenuWhenCollapsed &&
-      collapsed &&
-      css`
+    if (props?.menu?.hideMenuWhenCollapsed && collapsed) {
+      return css`
         left: -${collapsedWidth - 12}px;
         position: absolute;
-      `
-    );
+      `;
+    }
+    return null;
   }, [collapsed, props?.menu?.hideMenuWhenCollapsed]);
 
   const menuDomItems = (
@@ -581,7 +579,7 @@ const SiderMenu: React.FC<SiderMenuProps & PrivateSiderMenuProps> = (props) => {
 
   return (
     <>
-      {fixSiderbar && !isMobile && !collapsedCss && (
+      {fixSiderbar && !isMobile && !hideMenuWhenCollapsedCss && (
         <div
           className={cx(
             css({
@@ -624,7 +622,7 @@ const SiderMenu: React.FC<SiderMenuProps & PrivateSiderMenuProps> = (props) => {
               z-index: 100;
               height: 100%;
             `,
-          collapsedCss,
+          hideMenuWhenCollapsedCss,
           layout === 'mix' &&
             !isMobile &&
             css`
@@ -642,12 +640,13 @@ const SiderMenu: React.FC<SiderMenuProps & PrivateSiderMenuProps> = (props) => {
           `,
         )}
       >
-        {collapsedCss ? (
+        {hideMenuWhenCollapsedCss ? (
           <div
+            className={`${baseClassName}-hide-when-collapsed`}
             style={{
               height: '100%',
               width: '100%',
-              opacity: collapsedCss ? 0 : 1,
+              opacity: hideMenuWhenCollapsedCss ? 0 : 1,
             }}
           >
             {menuDomItems}

@@ -373,6 +373,7 @@ const BaseMenu: React.FC<BaseMenuProps & PrivateSiderMenuProps> = (props) => {
   const {
     mode,
     className,
+    prefixCls,
     handleOpenChange,
     style,
     menuData,
@@ -521,7 +522,7 @@ const BaseMenu: React.FC<BaseMenuProps & PrivateSiderMenuProps> = (props) => {
       collapsedItemShowTitle: css`
         margin-top: 12px;
         margin-bottom: 12px;
-        .${antPrefixClassName}-pro-menu-item {
+        .${prefixCls}-menu-item {
           padding-top: 6px;
           padding-bottom: 6px;
         }
@@ -530,7 +531,7 @@ const BaseMenu: React.FC<BaseMenuProps & PrivateSiderMenuProps> = (props) => {
         .${antPrefixClassName}-menu-title-content {
           ${mode !== 'horizontal' ? 'width: 100%; line-height: 40px;' : ''}
         }
-        .${antPrefixClassName}-pro-menu-item {
+        .${prefixCls}-menu-item {
           display: flex;
           flex-direction: column;
           align-items: center;
@@ -546,10 +547,10 @@ const BaseMenu: React.FC<BaseMenuProps & PrivateSiderMenuProps> = (props) => {
         flex-direction: column;
         align-items: center;
         justify-content: center;
-        .${antPrefixClassName}-pro-menu-item {
+        .${prefixCls}-menu-item {
           padding: 0 20px;
         }
-        .${antPrefixClassName}-menu-title-content:hover {
+        .${prefixCls}-title-content:hover {
           background-color: ${itemHoverColor};
           border-radius: ${designToken.borderRadiusBase};
         }
@@ -702,7 +703,7 @@ const BaseMenu: React.FC<BaseMenuProps & PrivateSiderMenuProps> = (props) => {
       background: transparent;
     }
 
-    .${antPrefixClassName}-pro-menu-item-divider {
+    .${prefixCls}-menu-item-divider {
       &:last-child {
         display: none;
       }
@@ -713,7 +714,7 @@ const BaseMenu: React.FC<BaseMenuProps & PrivateSiderMenuProps> = (props) => {
       line-height: 20px;
     }
   `;
-  }, [antPrefixClassName, menuDesignToken.menuTextColorSecondary, props.isMobile]);
+  }, [antPrefixClassName, menuDesignToken.menuTextColorSecondary, prefixCls, props.isMobile]);
 
   if (menu?.loading) {
     return (
@@ -778,9 +779,9 @@ const BaseMenu: React.FC<BaseMenuProps & PrivateSiderMenuProps> = (props) => {
         return React.cloneElement(dom, {
           ...dom.props,
           className: cx(
-            `${antPrefixClassName}-pro-menu-submenu`,
-            stateProps?.selected && `${antPrefixClassName}-pro-menu-submenu-selected`,
-            stateProps?.open && `${antPrefixClassName}-pro-menu-submenu-open`,
+            `${prefixCls}-menu-submenu`,
+            stateProps?.selected && `${prefixCls}-menu-submenu-selected`,
+            stateProps?.open && `${prefixCls}-menu-submenu-open`,
             menuItemCssMap.subMenuItem,
             // 收起的样式
             collapsed && menuItemCssMap.collapsedSubMenuItem,
@@ -797,8 +798,8 @@ const BaseMenu: React.FC<BaseMenuProps & PrivateSiderMenuProps> = (props) => {
         return React.cloneElement(dom, {
           ...dom.props,
           className: cx(
-            `${antPrefixClassName}-pro-menu-item`,
-            stateProps?.selected && `${antPrefixClassName}-pro-menu-item-selected`,
+            `${prefixCls}-menu-item`,
+            stateProps?.selected && `${prefixCls}-menu-item-selected`,
             // 展开的样式
             menuItemCssMap.menuItem,
             // 收起的样式

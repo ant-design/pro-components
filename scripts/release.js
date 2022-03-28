@@ -127,7 +127,7 @@ async function release() {
 
   process.env.NPM_CONFIG_OTP = otp;
 
-  pkgs.forEach((pkg, index) => {
+  const publishList = pkgs.map((pkg, index) => {
     const pkgPath = join(cwd, 'packages', pkg.replace('pro-', ''));
     const { name, version } = require(join(pkgPath, 'package.json'));
     const isNext = isNextVersion(version);
@@ -143,14 +143,15 @@ async function release() {
         `[${index + 1}/${pkgs.length}] Publish package ${name} ${isNext ? 'with next tag' : ''}`,
       );
       // 默认设置为 tag 检查通过之后在设置为 latest
-      const cliArgs = isNext ? ['publish', '--tag', 'next'] : ['publish', '--tag', 'tag'];
-      const { stdout } = execa.sync('npm', cliArgs, {
+      const cliArgs = isNext ? ['publish', '--tag', 'next'] : ['publish', '--tag', 'beta'];
+      return execa('npm', cliArgs, {
         cwd: pkgPath,
       });
-      console.log(stdout);
     }
   });
-
+  console.log('发布中' + pkgs.join('/'));
+  await Promise.all(publishList);
+  console.log('发布成功！');
   await exec('npm', ['run', 'prettier']);
 
   logStep('done');
