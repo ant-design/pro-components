@@ -9,6 +9,16 @@ group:
 
 # Change Log
 
+## @ant-design/pro-form@1.61.0
+
+`2022-03-28`
+
+- fix(form): InlineErrorFormItem support set Props. [bef45a5](https://github.com/ant-design/pro-components/commit/bef45a5)
+- fix(form): do not re-execute fieldProps when onValuesChange is set (#4922). [#4922](https://github.com/ant-design/pro-components/pull/#4922) [@1247748612](https://github.com/1247748612)
+- feat(form): support setCurrentRowData and getCurrentRowData (#4926). [#4926](https://github.com/ant-design/pro-components/pull/#4926) [@chenshuai2144](https://github.com/chenshuai2144)
+- fix(form): ConfigProvider setting componentSize dosen't work when using BaseForm (#4927). [#4927](https://github.com/ant-design/pro-components/pull/#4927) [@1247748612](https://github.com/1247748612)
+- fix(form): `LoginForm` login button i18n invalid (#4929). [#4929](https://github.com/ant-design/pro-components/pull/#4929) [@1247748612](https://github.com/1247748612)
+
 ## @ant-design/pro-form@1.60.0
 
 `2022-03-25`

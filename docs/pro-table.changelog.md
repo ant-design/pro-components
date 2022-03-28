@@ -9,6 +9,17 @@ group:
 
 # Change Log
 
+## @ant-design/pro-table@2.70.0
+
+`2022-03-28`
+
+- fix(table): fix EditorTable rowKey is rowIndex error. [6b8c6a4](https://github.com/ant-design/pro-components/commit/6b8c6a4)
+- fix(table): onSave cannot get after editing data (#4934). [#4934](https://github.com/ant-design/pro-components/pull/#4934) [@1247748612](https://github.com/1247748612)
+- fix(table): table search styles overridden (#4935). [#4935](https://github.com/ant-design/pro-components/pull/#4935) [@1247748612](https://github.com/1247748612)
+- fix(table): sort table classnames. [8c4522a](https://github.com/ant-design/pro-components/commit/8c4522a)
+- fix(table): columnsState use index as state name (#4931). [#4931](https://github.com/ant-design/pro-components/pull/#4931) [@1247748612](https://github.com/1247748612)
+- feat(table): customize columnSetting icon (#4925). [#4925](https://github.com/ant-design/pro-components/pull/#4925) [@mfka](https://github.com/mfka)
+
 ## @ant-design/pro-table@2.69.0
 
 `2022-03-25`
