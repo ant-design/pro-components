@@ -7581,7 +7581,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/TopmenuNested.tsx
                     tabindex="0"
                   >
                     <li
-                      class="ant-menu-overflow-item ant-pro-menu-item ant-design-pro-layout-g2o0jt"
+                      class="ant-menu-overflow-item ant-pro-menu-item ant-design-pro-layout-ppuhpa"
                       data-menu-id="rc-menu-uuid-test-/home"
                       role="menuitem"
                       style="opacity: 1; order: 0;"
@@ -9384,7 +9384,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/background-contex
                     tabindex="0"
                   >
                     <li
-                      class="ant-menu-overflow-item ant-pro-menu-item ant-design-pro-layout-adpigj"
+                      class="ant-menu-overflow-item ant-pro-menu-item ant-design-pro-layout-ppuhpa"
                       data-menu-id="rc-menu-uuid-test-/welcome"
                       role="menuitem"
                       style="opacity: 1; order: 0;"
@@ -9529,7 +9529,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/background-contex
                       </div>
                     </li>
                     <li
-                      class="ant-menu-overflow-item ant-pro-menu-item ant-design-pro-layout-adpigj"
+                      class="ant-menu-overflow-item ant-pro-menu-item ant-design-pro-layout-ppuhpa"
                       role="menuitem"
                       style="opacity: 1; order: 3;"
                       tabindex="-1"
@@ -9742,14 +9742,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/background-contex
                   <div
                     class="ant-breadcrumb"
                   >
-                    <li
-                      class="ant-menu-overflow-item ant-pro-menu-item ant-design-pro-layout-g2o0jt"
-                      data-menu-id="rc-menu-uuid-test-/welcome"
-                      role="menuitem"
-                      style="opacity: 1; order: 0;"
-                      tabindex="-1"
-                      title="欢迎"
-                    >
+                    <span>
                       <span
                         class="ant-breadcrumb-link"
                       >
@@ -9911,12 +9904,8 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/base.tsx correctl
                     class="ant-menu-item-group-list"
                   >
                     <li
-<<<<<<< HEAD
                       class="ant-pro-menu-item ant-pro-menu-item-selected ant-design-pro-layout-12nl0ae"
                       data-menu-id="rc-menu-uuid-test-/list/sub-page/sub-sub-page1"
-=======
-                      class="ant-menu-overflow-item ant-pro-menu-item ant-design-pro-layout-g2o0jt"
->>>>>>> next-layout
                       role="menuitem"
                       style="padding-left: 16px;"
                       tabindex="-1"
@@ -9958,12 +9947,8 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/base.tsx correctl
                       </span>
                     </li>
                     <li
-<<<<<<< HEAD
                       class="ant-pro-menu-item ant-design-pro-layout-19v43s6"
                       data-menu-id="rc-menu-uuid-test-/list/sub-page/sub-sub-page2"
-=======
-                      class="ant-menu-overflow-item ant-pro-menu-item ant-pro-menu-item-selected ant-design-pro-layout-xiai6f"
->>>>>>> next-layout
                       role="menuitem"
                       style="padding-left: 16px;"
                       tabindex="-1"
@@ -10005,12 +9990,8 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/base.tsx correctl
                       </span>
                     </li>
                     <li
-<<<<<<< HEAD
                       class="ant-pro-menu-item ant-design-pro-layout-19v43s6"
                       data-menu-id="rc-menu-uuid-test-/list/sub-page/sub-sub-page3"
-=======
-                      class="ant-menu-overflow-item ant-pro-menu-item ant-design-pro-layout-g2o0jt"
->>>>>>> next-layout
                       role="menuitem"
                       style="padding-left: 16px;"
                       tabindex="-1"
@@ -10373,7 +10354,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/base.tsx correctl
                     tabindex="0"
                   >
                     <li
-                      class="ant-menu-overflow-item ant-pro-menu-item ant-design-pro-layout-adpigj"
+                      class="ant-menu-overflow-item ant-pro-menu-item ant-design-pro-layout-ppuhpa"
                       data-menu-id="rc-menu-uuid-test-/welcome"
                       role="menuitem"
                       style="opacity: 1; order: 0;"
@@ -10416,7 +10397,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/base.tsx correctl
                       </span>
                     </li>
                     <li
-                      class="ant-menu-overflow-item ant-pro-menu-item ant-design-pro-layout-adpigj"
+                      class="ant-menu-overflow-item ant-pro-menu-item ant-design-pro-layout-ppuhpa"
                       role="menuitem"
                       style="opacity: 1; order: 1;"
                       tabindex="-1"
@@ -10458,7 +10439,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/base.tsx correctl
                       </span>
                     </li>
                     <li
-                      class="ant-menu-overflow-item ant-pro-menu-item ant-pro-menu-item-selected ant-design-pro-layout-rl4uq2"
+                      class="ant-menu-overflow-item ant-pro-menu-item ant-pro-menu-item-selected ant-design-pro-layout-riteyp"
                       role="menuitem"
                       style="opacity: 1; order: 2;"
                       tabindex="-1"
@@ -10500,7 +10481,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/base.tsx correctl
                       </span>
                     </li>
                     <li
-                      class="ant-menu-overflow-item ant-pro-menu-item ant-design-pro-layout-adpigj"
+                      class="ant-menu-overflow-item ant-pro-menu-item ant-design-pro-layout-ppuhpa"
                       role="menuitem"
                       style="opacity: 1; order: 3;"
                       tabindex="-1"
@@ -12084,7 +12065,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/classicMode.tsx c
                     tabindex="0"
                   >
                     <li
-                      class="ant-menu-overflow-item ant-pro-menu-item ant-design-pro-layout-8t6buc"
+                      class="ant-menu-overflow-item ant-pro-menu-item ant-design-pro-layout-1ybktyr"
                       data-menu-id="rc-menu-uuid-test-/welcome"
                       role="menuitem"
                       style="opacity: 1; order: 0;"
@@ -12127,7 +12108,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/classicMode.tsx c
                       </span>
                     </li>
                     <li
-                      class="ant-menu-overflow-item ant-pro-menu-item ant-design-pro-layout-8t6buc"
+                      class="ant-menu-overflow-item ant-pro-menu-item ant-design-pro-layout-1ybktyr"
                       role="menuitem"
                       style="opacity: 1; order: 1;"
                       tabindex="-1"
@@ -12169,7 +12150,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/classicMode.tsx c
                       </span>
                     </li>
                     <li
-                      class="ant-menu-overflow-item ant-pro-menu-item ant-pro-menu-item-selected ant-design-pro-layout-1hkgmxy"
+                      class="ant-menu-overflow-item ant-pro-menu-item ant-pro-menu-item-selected ant-design-pro-layout-62aeyf"
                       role="menuitem"
                       style="opacity: 1; order: 2;"
                       tabindex="-1"
@@ -12211,7 +12192,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/classicMode.tsx c
                       </span>
                     </li>
                     <li
-                      class="ant-menu-overflow-item ant-pro-menu-item ant-design-pro-layout-8t6buc"
+                      class="ant-menu-overflow-item ant-pro-menu-item ant-design-pro-layout-1ybktyr"
                       role="menuitem"
                       style="opacity: 1; order: 3;"
                       tabindex="-1"
@@ -16481,7 +16462,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/designMenuCss.tsx
                     tabindex="0"
                   >
                     <li
-                      class="ant-menu-overflow-item ant-pro-menu-item ant-design-pro-layout-8t6buc"
+                      class="ant-menu-overflow-item ant-pro-menu-item ant-design-pro-layout-1ybktyr"
                       data-menu-id="rc-menu-uuid-test-/welcome"
                       role="menuitem"
                       style="opacity: 1; order: 0;"
@@ -16524,7 +16505,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/designMenuCss.tsx
                       </span>
                     </li>
                     <li
-                      class="ant-menu-overflow-item ant-pro-menu-item ant-design-pro-layout-8t6buc"
+                      class="ant-menu-overflow-item ant-pro-menu-item ant-design-pro-layout-1ybktyr"
                       role="menuitem"
                       style="opacity: 1; order: 1;"
                       tabindex="-1"
@@ -16566,7 +16547,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/designMenuCss.tsx
                       </span>
                     </li>
                     <li
-                      class="ant-menu-overflow-item ant-pro-menu-item ant-pro-menu-item-selected ant-design-pro-layout-1hkgmxy"
+                      class="ant-menu-overflow-item ant-pro-menu-item ant-pro-menu-item-selected ant-design-pro-layout-62aeyf"
                       role="menuitem"
                       style="opacity: 1; order: 2;"
                       tabindex="-1"
@@ -16608,7 +16589,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/designMenuCss.tsx
                       </span>
                     </li>
                     <li
-                      class="ant-menu-overflow-item ant-pro-menu-item ant-design-pro-layout-8t6buc"
+                      class="ant-menu-overflow-item ant-pro-menu-item ant-design-pro-layout-1ybktyr"
                       role="menuitem"
                       style="opacity: 1; order: 3;"
                       tabindex="-1"
@@ -25578,11 +25559,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/splitMenus.tsx co
                   tabindex="0"
                 >
                   <li
-<<<<<<< HEAD
-                    class="ant-menu-overflow-item ant-pro-menu-item ant-design-pro-layout-adpigj"
-=======
-                    class="ant-menu-overflow-item ant-pro-menu-item ant-design-pro-layout-g2o0jt"
->>>>>>> next-layout
+                    class="ant-menu-overflow-item ant-pro-menu-item ant-design-pro-layout-ppuhpa"
                     data-menu-id="rc-menu-uuid-test-/welcome"
                     role="menuitem"
                     style="opacity: 1; order: 0;"
@@ -25623,11 +25600,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/splitMenus.tsx co
                     </span>
                   </li>
                   <li
-<<<<<<< HEAD
-                    class="ant-menu-overflow-item ant-pro-menu-item ant-design-pro-layout-adpigj"
-=======
-                    class="ant-menu-overflow-item ant-pro-menu-item ant-design-pro-layout-g2o0jt"
->>>>>>> next-layout
+                    class="ant-menu-overflow-item ant-pro-menu-item ant-design-pro-layout-ppuhpa"
                     role="menuitem"
                     style="opacity: 1; order: 1;"
                     tabindex="-1"
@@ -25667,11 +25640,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/splitMenus.tsx co
                     </span>
                   </li>
                   <li
-<<<<<<< HEAD
-                    class="ant-menu-overflow-item ant-pro-menu-item ant-design-pro-layout-adpigj"
-=======
-                    class="ant-menu-overflow-item ant-pro-menu-item ant-design-pro-layout-g2o0jt"
->>>>>>> next-layout
+                    class="ant-menu-overflow-item ant-pro-menu-item ant-design-pro-layout-ppuhpa"
                     role="menuitem"
                     style="opacity: 1; order: 2;"
                     tabindex="-1"
@@ -25711,11 +25680,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/splitMenus.tsx co
                     </span>
                   </li>
                   <li
-<<<<<<< HEAD
-                    class="ant-menu-overflow-item ant-pro-menu-item ant-design-pro-layout-adpigj"
-=======
-                    class="ant-menu-overflow-item ant-pro-menu-item ant-design-pro-layout-g2o0jt"
->>>>>>> next-layout
+                    class="ant-menu-overflow-item ant-pro-menu-item ant-design-pro-layout-ppuhpa"
                     role="menuitem"
                     style="opacity: 1; order: 3;"
                     tabindex="-1"
@@ -26024,11 +25989,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/splitMenus.tsx co
                   tabindex="0"
                 >
                   <li
-<<<<<<< HEAD
-                    class="ant-menu-overflow-item ant-pro-menu-item ant-pro-menu-item-selected ant-design-pro-layout-rl4uq2"
-=======
-                    class="ant-menu-overflow-item ant-pro-menu-item ant-pro-menu-item-selected ant-design-pro-layout-xiai6f"
->>>>>>> next-layout
+                    class="ant-menu-overflow-item ant-pro-menu-item ant-pro-menu-item-selected ant-design-pro-layout-riteyp"
                     data-menu-id="rc-menu-uuid-test-/welcome"
                     role="menuitem"
                     style="opacity: 1; order: 0;"
@@ -26069,11 +26030,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/splitMenus.tsx co
                     </span>
                   </li>
                   <li
-<<<<<<< HEAD
-                    class="ant-menu-overflow-item ant-pro-menu-item ant-design-pro-layout-adpigj"
-=======
-                    class="ant-menu-overflow-item ant-pro-menu-item ant-design-pro-layout-g2o0jt"
->>>>>>> next-layout
+                    class="ant-menu-overflow-item ant-pro-menu-item ant-design-pro-layout-ppuhpa"
                     role="menuitem"
                     style="opacity: 1; order: 1;"
                     tabindex="-1"
@@ -26113,11 +26070,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/splitMenus.tsx co
                     </span>
                   </li>
                   <li
-<<<<<<< HEAD
-                    class="ant-menu-overflow-item ant-pro-menu-item ant-design-pro-layout-adpigj"
-=======
-                    class="ant-menu-overflow-item ant-pro-menu-item ant-design-pro-layout-g2o0jt"
->>>>>>> next-layout
+                    class="ant-menu-overflow-item ant-pro-menu-item ant-design-pro-layout-ppuhpa"
                     role="menuitem"
                     style="opacity: 1; order: 2;"
                     tabindex="-1"
@@ -26157,11 +26110,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/splitMenus.tsx co
                     </span>
                   </li>
                   <li
-<<<<<<< HEAD
-                    class="ant-menu-overflow-item ant-pro-menu-item ant-design-pro-layout-adpigj"
-=======
-                    class="ant-menu-overflow-item ant-pro-menu-item ant-design-pro-layout-g2o0jt"
->>>>>>> next-layout
+                    class="ant-menu-overflow-item ant-pro-menu-item ant-design-pro-layout-ppuhpa"
                     role="menuitem"
                     style="opacity: 1; order: 3;"
                     tabindex="-1"
@@ -26289,11 +26238,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/splitMenus.tsx co
                   tabindex="0"
                 >
                   <li
-<<<<<<< HEAD
-                    class="ant-menu-overflow-item ant-pro-menu-item ant-pro-menu-item-selected ant-design-pro-layout-rl4uq2"
-=======
-                    class="ant-menu-overflow-item ant-pro-menu-item ant-pro-menu-item-selected ant-design-pro-layout-xiai6f"
->>>>>>> next-layout
+                    class="ant-menu-overflow-item ant-pro-menu-item ant-pro-menu-item-selected ant-design-pro-layout-riteyp"
                     data-menu-id="rc-menu-uuid-test-/welcome"
                     role="menuitem"
                     style="opacity: 1; order: 0;"
@@ -26436,11 +26381,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/splitMenus.tsx co
                     </div>
                   </li>
                   <li
-<<<<<<< HEAD
-                    class="ant-menu-overflow-item ant-pro-menu-item ant-design-pro-layout-adpigj"
-=======
-                    class="ant-menu-overflow-item ant-pro-menu-item ant-design-pro-layout-g2o0jt"
->>>>>>> next-layout
+                    class="ant-menu-overflow-item ant-pro-menu-item ant-design-pro-layout-ppuhpa"
                     role="menuitem"
                     style="opacity: 1; order: 3;"
                     tabindex="-1"
@@ -26741,11 +26682,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/splitMenus.tsx co
                   tabindex="0"
                 >
                   <li
-<<<<<<< HEAD
-                    class="ant-menu-overflow-item ant-pro-menu-item ant-pro-menu-item-selected ant-design-pro-layout-rl4uq2"
-=======
-                    class="ant-menu-overflow-item ant-pro-menu-item ant-pro-menu-item-selected ant-design-pro-layout-xiai6f"
->>>>>>> next-layout
+                    class="ant-menu-overflow-item ant-pro-menu-item ant-pro-menu-item-selected ant-design-pro-layout-riteyp"
                     data-menu-id="rc-menu-uuid-test-/welcome"
                     role="menuitem"
                     style="opacity: 1; order: 0;"
@@ -26786,11 +26723,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/splitMenus.tsx co
                     </span>
                   </li>
                   <li
-<<<<<<< HEAD
-                    class="ant-menu-overflow-item ant-pro-menu-item ant-design-pro-layout-adpigj"
-=======
-                    class="ant-menu-overflow-item ant-pro-menu-item ant-design-pro-layout-g2o0jt"
->>>>>>> next-layout
+                    class="ant-menu-overflow-item ant-pro-menu-item ant-design-pro-layout-ppuhpa"
                     role="menuitem"
                     style="opacity: 1; order: 1;"
                     tabindex="-1"
@@ -26830,11 +26763,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/splitMenus.tsx co
                     </span>
                   </li>
                   <li
-<<<<<<< HEAD
-                    class="ant-menu-overflow-item ant-pro-menu-item ant-design-pro-layout-adpigj"
-=======
-                    class="ant-menu-overflow-item ant-pro-menu-item ant-design-pro-layout-g2o0jt"
->>>>>>> next-layout
+                    class="ant-menu-overflow-item ant-pro-menu-item ant-design-pro-layout-ppuhpa"
                     role="menuitem"
                     style="opacity: 1; order: 2;"
                     tabindex="-1"
@@ -26874,11 +26803,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/splitMenus.tsx co
                     </span>
                   </li>
                   <li
-<<<<<<< HEAD
-                    class="ant-menu-overflow-item ant-pro-menu-item ant-design-pro-layout-adpigj"
-=======
-                    class="ant-menu-overflow-item ant-pro-menu-item ant-design-pro-layout-g2o0jt"
->>>>>>> next-layout
+                    class="ant-menu-overflow-item ant-pro-menu-item ant-design-pro-layout-ppuhpa"
                     role="menuitem"
                     style="opacity: 1; order: 3;"
                     tabindex="-1"
