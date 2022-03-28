@@ -2,6 +2,17 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.61.0](https://github.com/ant-design/pro-components/compare/@ant-design/pro-form@1.60.0...@ant-design/pro-form@1.61.0) (2022-03-28)
+
+### Bug Fixes
+
+- **form:** ConfigProvider setting componentSize dosen't work when using BaseForm ([#4927](https://github.com/ant-design/pro-components/issues/4927)) ([89729a2](https://github.com/ant-design/pro-components/commit/89729a2d4908ed5c5e0f05fea6c20137b5c73239))
+- **form:** do not re-execute fieldProps when onValuesChange is set ([#4922](https://github.com/ant-design/pro-components/issues/4922)) ([5d873eb](https://github.com/ant-design/pro-components/commit/5d873eb865d2353c8646a28f625622efc5d183d4))
+
+### Features
+
+- **form:** support setCurrentRowData and getCurrentRowData ([#4926](https://github.com/ant-design/pro-components/issues/4926)) ([3eb11e3](https://github.com/ant-design/pro-components/commit/3eb11e3ec6a814fed091b0d9204563f61f5e28f0))
+
 # [1.60.0](https://github.com/ant-design/pro-components/compare/@ant-design/pro-form@1.59.3...@ant-design/pro-form@1.60.0) (2022-03-25)
 
 ### Bug Fixes

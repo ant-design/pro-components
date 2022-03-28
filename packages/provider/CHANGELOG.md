@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.6.2](https://github.com/ant-design/pro-components/compare/@ant-design/pro-provider@1.6.1...@ant-design/pro-provider@1.6.2) (2022-03-28)
+
+### Bug Fixes
+
+- **form:** `LoginForm` login button i18n invalid ([#4929](https://github.com/ant-design/pro-components/issues/4929)) ([900cb9b](https://github.com/ant-design/pro-components/commit/900cb9b6ea21091487dd181e6e438f405107ad45))
+
 ## [1.6.1](https://github.com/ant-design/pro-components/compare/@ant-design/pro-provider@1.6.0...@ant-design/pro-provider@1.6.1) (2022-03-16)
 
 **Note:** Version bump only for package @ant-design/pro-provider

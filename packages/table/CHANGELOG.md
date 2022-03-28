@@ -2,6 +2,20 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.70.0](https://github.com/ant-design/pro-components/compare/@ant-design/pro-table@2.69.0...@ant-design/pro-table@2.70.0) (2022-03-28)
+
+### Bug Fixes
+
+- **table:** columnsState use index as state name ([#4931](https://github.com/ant-design/pro-components/issues/4931)) ([5316cb6](https://github.com/ant-design/pro-components/commit/5316cb67ae52ac54c58c451fad246d8d1c045bb1))
+- **table:** onSave cannot get after editing data ([#4934](https://github.com/ant-design/pro-components/issues/4934)) ([c12321f](https://github.com/ant-design/pro-components/commit/c12321fae15ed37a6edfb6fab9e3c6bf6283c5fa))
+- **table:** sort table classnames ([8c4522a](https://github.com/ant-design/pro-components/commit/8c4522a801c2b1aafd79c3d1d62bb74a0c302c79))
+- **table:** table search styles overridden ([#4935](https://github.com/ant-design/pro-components/issues/4935)) ([35923f8](https://github.com/ant-design/pro-components/commit/35923f801cf10d9529d78b6f40e2d689dfe0eb44))
+- lint warnning for missing deps ([#4924](https://github.com/ant-design/pro-components/issues/4924)) ([7473f3f](https://github.com/ant-design/pro-components/commit/7473f3fd6c4f5ed23317a4a1982c3fb6d5262c0e))
+
+### Features
+
+- **table:** customize columnSetting icon ([#4925](https://github.com/ant-design/pro-components/issues/4925)) ([660b036](https://github.com/ant-design/pro-components/commit/660b036c823519ebdccf1810deb5113478beca74))
+
 # [2.69.0](https://github.com/ant-design/pro-components/compare/@ant-design/pro-table@2.68.3...@ant-design/pro-table@2.69.0) (2022-03-25)
 
 ### Bug Fixes
