@@ -78,7 +78,7 @@ const CellRenderFromItem = <T,>(props: CellRenderFromItemProps<T>) => {
           useEffect(() => {
             const value = spellNamePath(
               prefixName,
-              subName,
+              prefixName ? subName : [],
               prefixName ? index : key,
               columnProps?.key ?? columnProps?.dataIndex ?? index,
             );
