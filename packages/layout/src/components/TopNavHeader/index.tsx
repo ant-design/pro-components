@@ -1,7 +1,7 @@
 import React, { useRef, useState, useMemo, useContext } from 'react';
 import ResizeObserver from 'rc-resize-observer';
 import type { SiderMenuProps, PrivateSiderMenuProps } from '../SiderMenu/SiderMenu';
-import { defaultRenderLogoAndTitle } from '../SiderMenu/SiderMenu';
+import { renderLogoAndTitle } from '../SiderMenu/SiderMenu';
 
 import { BaseMenu } from '../SiderMenu/BaseMenu';
 import type { GlobalHeaderProps } from '../GlobalHeader';
@@ -198,7 +198,7 @@ const TopNavHeader: React.FC<TopNavHeaderProps> = (props) => {
 
   const prefixCls = `${props.prefixCls || getPrefixCls('pro')}-top-nav-header`;
 
-  const headerDom = defaultRenderLogoAndTitle(
+  const headerDom = renderLogoAndTitle(
     { ...props, collapsed: false },
     layout === 'mix' ? 'headerTitleRender' : undefined,
   );

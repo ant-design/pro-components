@@ -5,6 +5,7 @@ import React from 'react';
 const ProFormContext = React.createContext<{
   getFieldsFormatValue?: (nameList?: NamePath[] | true) => any;
   getFieldFormatValue?: (nameList?: NamePath) => any;
+  getFieldFormatValueObject?: (nameList?: NamePath) => any;
   formRef?: React.MutableRefObject<FormInstance<any>>;
 }>({});
 

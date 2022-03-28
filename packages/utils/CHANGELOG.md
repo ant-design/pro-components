@@ -2,6 +2,41 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.37.2](https://github.com/ant-design/pro-components/compare/@ant-design/pro-utils@1.37.1...@ant-design/pro-utils@1.37.2) (2022-03-22)
+
+### Bug Fixes
+
+- **table:** fix actionSaveRef logic when add new line ([#4881](https://github.com/ant-design/pro-components/issues/4881)) ([09673c9](https://github.com/ant-design/pro-components/commit/09673c97107be133757dabd878687c9386ec3196))
+
+## [1.37.1](https://github.com/ant-design/pro-components/compare/@ant-design/pro-utils@1.37.0...@ant-design/pro-utils@1.37.1) (2022-03-18)
+
+### Bug Fixes
+
+- **table:** fix inlint error render dom ([bfeb81a](https://github.com/ant-design/pro-components/commit/bfeb81afc6bc4305b3d7ef2b84c0afc089dad7a0))
+
+# [1.37.0](https://github.com/ant-design/pro-components/compare/@ant-design/pro-utils@1.36.1...@ant-design/pro-utils@1.37.0) (2022-03-16)
+
+### Features
+
+- **table:** `newRecordType: cache` support parentKey ([#4861](https://github.com/ant-design/pro-components/issues/4861)) ([dfed128](https://github.com/ant-design/pro-components/commit/dfed128c33c3116e44d5315ffa334854ce055f95))
+
+## [1.36.1](https://github.com/ant-design/pro-components/compare/@ant-design/pro-utils@1.36.0...@ant-design/pro-utils@1.36.1) (2022-03-15)
+
+### Bug Fixes
+
+- **form:** fix ProFormDependency no rendeer transform error ([5b163eb](https://github.com/ant-design/pro-components/commit/5b163eb1d6b3430281eee9ae73e86ddfc07d3f0c))
+- **table:** fix table has name, add new line will error ([74f83df](https://github.com/ant-design/pro-components/commit/74f83df88bebb3fdfbc9874960b2e6e3658e0ac1))
+
+# [1.36.0](https://github.com/ant-design/pro-components/compare/@ant-design/pro-utils@1.35.3...@ant-design/pro-utils@1.36.0) (2022-03-14)
+
+### Bug Fixes
+
+- **utils:** genNanoid support ie11 ([ed2b3cf](https://github.com/ant-design/pro-components/commit/ed2b3cf55ab08ccf32cfefc65f33e0970cfdd3fb))
+
+### Features
+
+- **utils:** 🎸 improve type and support external override type ([#4806](https://github.com/ant-design/pro-components/issues/4806)) ([13b590a](https://github.com/ant-design/pro-components/commit/13b590acaa69315dbecb22267411e8a275da8648))
+
 ## [1.35.3](https://github.com/ant-design/pro-components/compare/@ant-design/pro-utils@1.35.2...@ant-design/pro-utils@1.35.3) (2022-03-08)
 
 ### Bug Fixes

@@ -8,7 +8,8 @@ import React, {
   useImperativeHandle,
 } from 'react';
 import type { TablePaginationConfig } from 'antd';
-import { Table, Spin, ConfigProvider, Card } from 'antd';
+import { Table, Spin, ConfigProvider } from 'antd';
+import ProCard from '@ant-design/pro-card';
 
 import type { ParamsType } from '@ant-design/pro-provider';
 import { useIntl, ConfigProviderWrap } from '@ant-design/pro-provider';
@@ -27,6 +28,8 @@ import {
   useEditableArray,
   ErrorBoundary,
   useDeepCompareEffectDebounce,
+  editableRowByKey,
+  recordKeyToString,
 } from '@ant-design/pro-utils';
 
 import useFetchData from './useFetchData';
@@ -66,7 +69,7 @@ function TableRender<T extends Record<string, any>, U, ValueType>(
     onSortChange: (sort: any) => void;
     onFilterChange: (sort: any) => void;
     editableUtils: any;
-    rootRef: React.RefObject<HTMLDivElement>;
+    getRowKey: GetRowKey<any>;
   },
 ) {
   const {
@@ -93,7 +96,7 @@ function TableRender<T extends Record<string, any>, U, ValueType>(
     className,
     cardBordered,
     editableUtils,
-    rootRef,
+    getRowKey,
     ...rest
   } = props;
   const counter = Container.useContainer();
@@ -138,8 +141,23 @@ function TableRender<T extends Record<string, any>, U, ValueType>(
    *
    * @returns
    */
-  const editableDataSource = (): T[] => {
+  const editableDataSource = (dataSource: any[]): T[] => {
     const { options: newLineOptions, defaultValue: row } = editableUtils.newLineRecord || {};
+    if (newLineOptions?.parentKey) {
+      const actionProps = {
+        data: dataSource,
+        getRowKey: getRowKey,
+        row: {
+          ...row,
+          map_row_parentKey: recordKeyToString(newLineOptions?.parentKey)?.toString(),
+        },
+        key: newLineOptions?.recordKey,
+        childrenColumnName: props.expandable?.childrenColumnName || 'children',
+      };
+
+      return editableRowByKey(actionProps, newLineOptions.position === 'top' ? 'top' : 'update');
+    }
+
     if (newLineOptions?.position === 'top') {
       return [row, ...action.dataSource];
     }
@@ -164,7 +182,9 @@ function TableRender<T extends Record<string, any>, U, ValueType>(
     style: tableStyle,
     columns: columns.map((item) => (item.isExtraColumns ? item.extraColumn : item)),
     loading: action.loading,
-    dataSource: editableUtils.newLineRecord ? editableDataSource() : action.dataSource,
+    dataSource: editableUtils.newLineRecord
+      ? editableDataSource(action.dataSource)
+      : action.dataSource,
     pagination,
     onChange: (
       changePagination: TablePaginationConfig,
@@ -213,6 +233,12 @@ function TableRender<T extends Record<string, any>, U, ValueType>(
       )
     : baseTableDom;
 
+  useEffect(() => {
+    if (props.name) {
+      counter.setEditorTableForm(props.editable!.form!);
+    }
+  }, [counter, props.editable, props.name]);
+
   const tableContentDom = useMemo(() => {
     if (props.editable && !props.name) {
       return (
@@ -237,9 +263,11 @@ function TableRender<T extends Record<string, any>, U, ValueType>(
             dateFormatter={props.dateFormatter}
             contentRender={(items: React.ReactNode) => {
               if (counter.editableForm) return items;
+              if (props.loading === false) return;
+              const loadingProps = props.loading === true ? {} : props.loading;
               return (
                 <div style={{ paddingTop: 100, textAlign: 'center' }}>
-                  <Spin size="large" />
+                  <Spin size="large" {...loadingProps} />
                 </div>
               );
             }}
@@ -258,7 +286,7 @@ function TableRender<T extends Record<string, any>, U, ValueType>(
       </>
     );
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [alertDom, !!props.editable, tableDom, toolbarDom]);
+  }, [alertDom, props.loading, !!props.editable, tableDom, toolbarDom]);
 
   /** Table 区域的 dom，为了方便 render */
   const tableAreaDom =
@@ -266,7 +294,8 @@ function TableRender<T extends Record<string, any>, U, ValueType>(
     cardProps === false || !!props.name ? (
       tableContentDom
     ) : (
-      <Card
+      <ProCard
+        ghost={props.ghost}
         bordered={isBordered('table', cardBordered)}
         bodyStyle={
           toolbarDom
@@ -280,7 +309,7 @@ function TableRender<T extends Record<string, any>, U, ValueType>(
         {...cardProps}
       >
         {tableContentDom}
-      </Card>
+      </ProCard>
     );
 
   const renderTable = () => {
@@ -300,7 +329,7 @@ function TableRender<T extends Record<string, any>, U, ValueType>(
         [`${className}-polling`]: action.pollingLoading,
       })}
       style={style}
-      ref={rootRef}
+      ref={counter.rootDomRef}
     >
       {isLightFilter ? null : searchNode}
       {/* 渲染一个额外的区域，用于一些自定义 */}
@@ -319,7 +348,7 @@ function TableRender<T extends Record<string, any>, U, ValueType>(
   }
   return (
     <ConfigProvider
-      getPopupContainer={() => (rootRef.current || document.body) as any as HTMLElement}
+      getPopupContainer={() => (counter.rootDomRef.current || document.body) as any as HTMLElement}
     >
       {proTableDom}
     </ConfigProvider>
@@ -340,6 +369,7 @@ const ProTable = <T extends Record<string, any>, U extends ParamsType, ValueType
     defaultData,
     headerTitle,
     postData,
+    ghost,
     pagination: propsPagination,
     actionRef: propsActionRef,
     columns: propsColumns = [],
@@ -424,8 +454,6 @@ const ProTable = <T extends Record<string, any>, U extends ParamsType, ValueType
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
-  /** 获取 table 的 dom ref */
-  const rootRef = useRef<HTMLDivElement>(null);
   const intl = useIntl();
 
   /** 需要初始化 不然默认可能报错 这里取了 defaultCurrent 和 current 为了保证不会重复刷新 */
@@ -601,13 +629,13 @@ const ProTable = <T extends Record<string, any>, U extends ParamsType, ValueType
   /** 绑定 action */
   useActionType(actionRef, action, {
     fullScreen: () => {
-      if (!rootRef.current || !document.fullscreenEnabled) {
+      if (!counter.rootDomRef?.current || !document.fullscreenEnabled) {
         return;
       }
       if (document.fullscreenElement) {
         document.exitFullscreen();
       } else {
-        rootRef.current.requestFullscreen();
+        counter.rootDomRef?.current.requestFullscreen();
       }
     },
     onCleanSelected: () => {
@@ -648,6 +676,8 @@ const ProTable = <T extends Record<string, any>, U extends ParamsType, ValueType
       columnEmptyText,
       type,
       editableUtils,
+      rowKey,
+      childrenColumnName: props.expandable?.childrenColumnName,
     }).sort(columnSort(counter.columnsMap));
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [
@@ -715,6 +745,7 @@ const ProTable = <T extends Record<string, any>, U extends ParamsType, ValueType
         onFormSearchSubmit={(values) => {
           setFormSearch(values);
         }}
+        ghost={ghost}
         onReset={props.onReset}
         onSubmit={props.onSubmit}
         loading={!!action.loading}
@@ -770,7 +801,6 @@ const ProTable = <T extends Record<string, any>, U extends ParamsType, ValueType
     <TableRender
       {...props}
       name={isEditorTable}
-      rootRef={rootRef}
       size={counter.tableSize}
       onSizeChange={counter.setTableSize}
       pagination={pagination}
@@ -785,6 +815,7 @@ const ProTable = <T extends Record<string, any>, U extends ParamsType, ValueType
       onSortChange={setProSort}
       onFilterChange={setProFilter}
       editableUtils={editableUtils}
+      getRowKey={getRowKey}
     />
   );
 };
@@ -802,23 +833,17 @@ const ProviderWarp = <
   props: ProTableProps<DataType, Params, ValueType>,
 ) => {
   const { getPrefixCls } = useContext(ConfigProvider.ConfigContext);
-  const ErrorComponent = props.ErrorBoundary || ErrorBoundary;
+  const ErrorComponent =
+    props.ErrorBoundary === false ? React.Fragment : props.ErrorBoundary || ErrorBoundary;
   return (
     <Container.Provider initialState={props}>
       <ConfigProviderWrap>
-        {props.ErrorBoundary === false ? (
+        <ErrorComponent>
           <ProTable<DataType, Params, ValueType>
             defaultClassName={getPrefixCls('pro-table')}
             {...props}
           />
-        ) : (
-          <ErrorComponent>
-            <ProTable<DataType, Params, ValueType>
-              defaultClassName={getPrefixCls('pro-table')}
-              {...props}
-            />
-          </ErrorComponent>
-        )}
+        </ErrorComponent>
       </ConfigProviderWrap>
     </Container.Provider>
   );

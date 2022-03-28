@@ -113,9 +113,11 @@ describe('BasicLayout', () => {
   it('🥩 group title when collapsed, title is hidden', async () => {
     const wrapper = render(
       <BasicLayout
-        brandBgImg={{
-          url: 'https://gw.alipayobjects.com/zos/antfincdn/tQVPs1q2X%26/yonghushenfen.png',
-        }}
+        layoutBgImgList={[
+          {
+            src: 'https://gw.alipayobjects.com/zos/antfincdn/tQVPs1q2X%26/yonghushenfen.png',
+          },
+        ]}
         {...bigDefaultProps}
         appList={undefined}
         location={{
@@ -158,9 +160,11 @@ describe('BasicLayout', () => {
 
     wrapper.rerender(
       <BasicLayout
-        brandBgImg={{
-          url: 'https://gw.alipayobjects.com/zos/antfincdn/tQVPs1q2X%26/yonghushenfen.png',
-        }}
+        layoutBgImgList={[
+          {
+            src: 'https://gw.alipayobjects.com/zos/antfincdn/tQVPs1q2X%26/yonghushenfen.png',
+          },
+        ]}
         {...bigDefaultProps}
         appList={undefined}
         location={{
@@ -382,13 +386,51 @@ describe('BasicLayout', () => {
     expect(dom.text()).toEqual('true');
   });
 
+  it('🥩 support hideMenuWhenCollapsed', async () => {
+    const wrapper = mount<BasicLayoutProps>(
+      <BasicLayout
+        menu={{
+          hideMenuWhenCollapsed: true,
+        }}
+        collapsed={true}
+      />,
+    );
+    await waitForComponentToPaint(wrapper);
+
+    let dom = wrapper.find('.ant-pro-sider-hide-when-collapsed');
+
+    expect(dom.exists()).toBeTruthy();
+
+    expect(
+      window
+        .getComputedStyle(wrapper.find('.ant-pro-sider').at(0).getDOMNode())
+        .getPropertyValue('left'),
+    ).toBe('-48px');
+
+    act(() => {
+      wrapper.setProps({
+        collapsed: false,
+      });
+    });
+    await waitForComponentToPaint(wrapper);
+    dom = wrapper.find('.ant-pro-sider-hide-when-collapsed');
+
+    expect(dom.exists()).toBeFalsy();
+    act(() => {
+      wrapper.unmount();
+    });
+  });
+
   it('🥩 do not render menu header', async () => {
-    const wrapper = mount<BasicLayoutProps>(<BasicLayout menuHeaderRender={false} />);
+    const wrapper = mount<BasicLayoutProps>(
+      <BasicLayout menuExtraRender={() => <div>menuExtraRender</div>} menuHeaderRender={false} />,
+    );
     await waitForComponentToPaint(wrapper);
     const dom = wrapper.find('#logo');
-
     expect(dom.exists()).toBe(false);
-    await waitForComponentToPaint(wrapper);
+
+    const menuExtraRender = wrapper.find('.ant-pro-sider-extra-no-logo');
+    expect(menuExtraRender.exists()).toBe(true);
     act(() => {
       wrapper.unmount();
     });
@@ -587,6 +629,36 @@ describe('BasicLayout', () => {
       <BasicLayout
         rightContentRender={() => <div id="layout_right">right</div>}
         layout="top"
+        location={{
+          pathname: '/',
+        }}
+      />,
+    );
+
+    await waitForComponentToPaint(wrapper);
+
+    act(() => {
+      wrapper.setProps({
+        rightContentRender: () => (
+          <div
+            id="layout_right"
+            style={{
+              width: 120,
+            }}
+          >
+            right
+          </div>
+        ),
+      });
+    });
+    expect(wrapper.find('#layout_right').exists()).toBeTruthy();
+  });
+
+  it('🥩 rightContentRender should work in side', async () => {
+    const wrapper = mount<BasicLayoutProps>(
+      <BasicLayout
+        rightContentRender={() => <div id="layout_right">right</div>}
+        layout="side"
         location={{
           pathname: '/',
         }}

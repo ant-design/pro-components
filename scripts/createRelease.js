@@ -50,7 +50,7 @@ const getMds = async (allVersion = false) => {
         .filter((tag) => tag.includes(pkg))
         .map((tag) => tag.split('@').pop());
     }
-    console.log(versions);
+    console.log(versions.toString());
     versions.map(async (version) => {
       const versionPkg = `@ant-design/pro-${pkg}@${version}`;
       const changeLog = getChangelog(content, versionPkg);
@@ -71,7 +71,7 @@ const getMds = async (allVersion = false) => {
             return data;
           })
           .catch((e) => {
-            console.log(versionPkg + '标签不存在');
+            // console.log(versionPkg + '标签不存在');
           });
 
         if (tag) {
@@ -98,6 +98,7 @@ const getMds = async (allVersion = false) => {
       }
 
       if (!release_id) {
+        console.log(versionPkg + '标签创建中');
         github.rest.repos
           .createRelease({
             owner: 'ant-design',

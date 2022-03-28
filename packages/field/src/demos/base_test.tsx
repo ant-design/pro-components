@@ -35,6 +35,9 @@ export default () => {
         <Descriptions.Item label="文本">
           <Field text="这是一段文本" valueType="text" mode={state} plain={plain} />
         </Descriptions.Item>
+        <Descriptions.Item label="颜色">
+          <Field text="blue" valueType="color" mode={state} plain={plain} />
+        </Descriptions.Item>
         <Descriptions.Item label="图片">
           <Field
             text="https://zos.alipayobjects.com/rmsportal/jkjgkEfvpUPVyRjUImniVslZfWPnJuuZ.png"

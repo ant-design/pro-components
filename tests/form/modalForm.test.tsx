@@ -69,9 +69,6 @@ describe('ModalForm', () => {
     const wrapper = mount(
       <ModalForm
         width={600}
-        modalProps={{
-          forceRender: false,
-        }}
         trigger={<Button id="new">新建</Button>}
         onVisibleChange={(visible) => fn(visible)}
       >
@@ -122,7 +119,7 @@ describe('ModalForm', () => {
     const wrapper = mount(
       <ModalForm
         width={600}
-        modalProps={{ destroyOnClose: true, forceRender: false }}
+        modalProps={{ destroyOnClose: true }}
         onVisibleChange={(visible) => fn(visible)}
       >
         <ProFormText
@@ -174,6 +171,7 @@ describe('ModalForm', () => {
     });
     await waitForComponentToPaint(wrapper);
     expect(fn).toBeCalledWith(false);
+    expect(fn).toBeCalledTimes(2);
   });
 
   it('📦 modal visible=true simulate onVisibleChange', async () => {
@@ -350,7 +348,6 @@ describe('ModalForm', () => {
         modalProps={{
           getContainer: false,
           destroyOnClose: true,
-          forceRender: false,
         }}
         initialValues={{
           name: '1234',

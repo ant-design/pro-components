@@ -205,6 +205,9 @@ export default () => {
           </ProFormDependency>
           <EditableProTable<DataSourceType>
             rowKey="id"
+            scroll={{
+              x: true,
+            }}
             controlled
             actionRef={actionRef}
             formItemProps={{

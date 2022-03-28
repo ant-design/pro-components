@@ -2,7 +2,7 @@ import React, { useContext } from 'react';
 import classNames from 'classnames';
 import type { HeaderViewProps } from '../../Header';
 import type { SiderMenuProps, PrivateSiderMenuProps } from '../SiderMenu/SiderMenu';
-import { defaultRenderLogoAndTitle } from '../SiderMenu/SiderMenu';
+import { renderLogoAndTitle } from '../SiderMenu/SiderMenu';
 import type { PureSettings } from '../../defaultSettings';
 import { TopNavHeader, RightContent } from '../TopNavHeader';
 import type { MenuDataItem } from '../../index';
@@ -12,6 +12,7 @@ import { AppsLogoComponents, defaultRenderLogo } from '../AppsLogoComponents';
 import { css, cx } from '../../emotion';
 import type { AvatarProps } from 'antd';
 import { ProLayoutContext } from '../../ProLayoutContext';
+import { ConfigProvider } from 'antd';
 
 export type GlobalHeaderProps = {
   collapsed?: boolean;
@@ -79,6 +80,7 @@ const GlobalHeader: React.FC<GlobalHeaderProps & PrivateSiderMenuProps> = (props
     prefixCls,
   } = props;
   const designToken = useContext(ProLayoutContext);
+  const { direction } = useContext(ConfigProvider.ConfigContext);
   const baseClassName = `${prefixCls}-global-header`;
   const className = classNames(propClassName, baseClassName, {
     [`${baseClassName}-layout-${layout}`]: layout && headerTheme === 'dark',
@@ -102,10 +104,14 @@ const GlobalHeader: React.FC<GlobalHeaderProps & PrivateSiderMenuProps> = (props
     );
   }
 
+  const logoClassNames = classNames(`${baseClassName}-logo`, {
+    [`${baseClassName}-logo-rtl`]: direction === 'rtl',
+  });
+
   const logoDom = (
     <span
       className={cx(
-        `${baseClassName}-logo`,
+        logoClassNames,
         css`
           position: relative;
           min-width: ${isMobile ? '24px' : '154px'};
@@ -184,7 +190,7 @@ const GlobalHeader: React.FC<GlobalHeaderProps & PrivateSiderMenuProps> = (props
           <AppsLogoComponents {...props} />
           <div
             className={cx(
-              `${baseClassName}-logo`,
+              logoClassNames,
               css`
                 position: relative;
                 min-width: 156px;
@@ -211,7 +217,7 @@ const GlobalHeader: React.FC<GlobalHeaderProps & PrivateSiderMenuProps> = (props
             )}
             onClick={onMenuHeaderClick}
           >
-            {defaultRenderLogoAndTitle({ ...props, collapsed: false }, 'headerTitleRender')}
+            {renderLogoAndTitle({ ...props, collapsed: false }, 'headerTitleRender')}
           </div>
         </>
       )}

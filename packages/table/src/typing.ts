@@ -184,7 +184,14 @@ export type ProTableProps<T, U extends ParamsType, ValueType = 'text'> = {
   columns?: ProColumns<T, ValueType>[];
   /** @name ListToolBar 的属性 */
   toolbar?: ListToolBarProps;
+  /**
+   * 幽灵模式，即是否取消卡片内容区域的 padding 和 卡片的背景颜色。
+   */
+  ghost?: boolean;
 
+  /**
+   * request 的参数，修改之后会触发更新
+   */
   params?: U;
 
   /**
