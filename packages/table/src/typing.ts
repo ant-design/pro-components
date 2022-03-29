@@ -1,6 +1,5 @@
 ﻿import type { ProFieldEmptyText } from '@ant-design/pro-field';
 import type { LightWrapperProps, ProFormProps, QueryFilterProps } from '@ant-design/pro-form';
-import type { ParamsType } from '@ant-design/pro-provider';
 import type {
   ProCoreActionType,
   ProSchema,
@@ -180,7 +179,7 @@ export type ColumnsStateType = {
 };
 
 /** ProTable 的类型定义 继承自 antd 的 Table */
-export type ProTableProps<T, U extends ParamsType, ValueType = 'text'> = {
+export type ProTableProps<T, U, ValueType = 'text'> = {
   columns?: ProColumns<T, ValueType>[];
   /** @name ListToolBar 的属性 */
   toolbar?: ListToolBarProps;
