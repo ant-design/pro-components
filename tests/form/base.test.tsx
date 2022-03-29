@@ -26,7 +26,7 @@ describe('ProForm', () => {
     expect(wrapper.render()).toMatchSnapshot();
   });
 
-  it('📦 componentSize is work', async () => {
+  it('📦 componentSize is work ', async () => {
     const wrapper = mount(
       <ConfigProvider componentSize="small">
         <ProForm>
