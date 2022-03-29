@@ -191,7 +191,7 @@ exports[`ProForm 📦 validateFieldsReturnFormatValue 1`] = `
           class="ant-form-item-control-input-content"
         >
           <div
-            class="ant-picker"
+            class="ant-picker ant-picker-status-success"
           >
             <div
               class="ant-picker-input"
