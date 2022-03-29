@@ -48,6 +48,12 @@ nav:
 
 <code src="./demos/light-filter-collapse.tsx" height="40px" title="轻量筛选-折叠模式" />
 
+### 轻量筛选-弹出框对齐方式
+
+手动设置轻量筛选的弹出框，默认为 `bottomLeft`
+
+<code src="./demos/light-filter-placement.tsx" height="40px" title="轻量筛选-弹出框对齐方式" />
+
 ## API
 
 ### QueryFilter
@@ -94,7 +100,8 @@ QueryFilter 除了继承 ProForm 的 API 以外还支持下面的属性。
 LightFilter 除了继承 ProForm 的 API 以外还支持下面的属性。
 
 | 参数 | 说明 | 类型 | 默认值 |
-| --- | --- | --- | --- |
+| --- | --- | --- | --- | --- |
 | collapse | 是否默认折叠全部字段 | `boolean` | `false` |
 | collapseLabel | 折叠区域的标签 | `ReactNode` | `更多筛选 <DownOutlined/>` |
 | footerRender | 底部内容，当不需要默认底部按钮时，可以设为 footer={false} | `(onClear?: () => void, onConfirm: () => void) => JSX.Element \| false)`\|`false` | - |
+| placement | 选择框弹出的位置 ：`bottomLeft` `bottomRight` `topLeft` `topRight` | string | bottomLeft |  |
