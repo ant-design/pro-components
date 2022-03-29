@@ -43,6 +43,7 @@ const columns: ProColumns<GithubIssueItem>[] = [
     },
   },
   {
+    disable: true,
     title: '状态',
     dataIndex: 'state',
     filters: true,
@@ -66,6 +67,7 @@ const columns: ProColumns<GithubIssueItem>[] = [
     },
   },
   {
+    disable: true,
     title: '标签',
     dataIndex: 'labels',
     search: false,

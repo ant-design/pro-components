@@ -473,6 +473,7 @@ ref.current.cancelEditable(rowKey);
 | onFilter | 筛选表单，为 true 时使用 ProTable 自带的，为 false 时关闭本地筛选 | `(value, record) => boolean` \| `false` | false |
 | request | 从服务器请求枚举 | [request](https://procomponents.ant.design/components/schema#request-%E5%92%8C-params) | - |
 | initialValue | 查询表单项初始值 | `any` | - |
+| disable | 列设置中`disabled`的状态 | `boolean` \| `{ checkbox: boolean; }` | - |
 
 ### valueType 值类型
 
