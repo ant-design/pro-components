@@ -1,6 +1,5 @@
 ﻿import type { ProFieldEmptyText } from '@ant-design/pro-field';
 import type { LightWrapperProps, ProFormProps, QueryFilterProps } from '@ant-design/pro-form';
-import type { ParamsType } from '@ant-design/pro-provider';
 import type {
   ProCoreActionType,
   ProSchema,
@@ -130,13 +129,22 @@ export type ProColumnType<T = unknown, ValueType = 'text'> = ProSchema<
 
     /** Form 的排序 */
     order?: number;
+
     /** 可编辑表格是否可编辑 */
     editable?: boolean | ProTableEditableFnType<T>;
 
     /** @private */
     listKey?: string;
+
     /** 只读 */
     readonly?: boolean;
+
+    /** 列设置的 disabled */
+    disable?:
+      | boolean
+      | {
+          checkbox: boolean;
+        };
   },
   ProSchemaComponentTypes,
   ValueType,
@@ -180,7 +188,7 @@ export type ColumnsStateType = {
 };
 
 /** ProTable 的类型定义 继承自 antd 的 Table */
-export type ProTableProps<T, U extends ParamsType, ValueType = 'text'> = {
+export type ProTableProps<T, U, ValueType = 'text'> = {
   columns?: ProColumns<T, ValueType>[];
   /** @name ListToolBar 的属性 */
   toolbar?: ListToolBarProps;

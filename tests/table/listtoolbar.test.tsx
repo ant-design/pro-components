@@ -32,7 +32,7 @@ describe('Table valueEnum', () => {
     expect(onAction).toHaveBeenLastCalledWith('add');
   });
 
-  it('ListToolBar onAction', async () => {
+  it('ListToolBar support onSearch', async () => {
     const onSearch = jest.fn();
     const wrapper = mount(
       <ProTable<{
@@ -50,6 +50,7 @@ describe('Table valueEnum', () => {
             success: true,
           });
         }}
+        search={false}
         toolbar={{
           title: '这里是标题',
           search: {
@@ -61,17 +62,22 @@ describe('Table valueEnum', () => {
         rowKey="key"
       />,
     );
+
     await waitForComponentToPaint(wrapper);
+
     act(() => {
-      wrapper.find('.ant-pro-table-list-toolbar-search input').simulate('change', {
+      wrapper.find('.ant-pro-table-list-toolbar-search .ant-input').simulate('change', {
         target: {
           value: '1111111',
         },
       });
     });
-    await waitForComponentToPaint(wrapper);
+    await waitForComponentToPaint(wrapper, 200);
     act(() => {
-      wrapper.find('.ant-pro-table-list-toolbar-search input').simulate('keyDown', { keyCode: 13 });
+      wrapper
+        .find('.ant-pro-table-list-toolbar-search .ant-input-search-button')
+        .at(0)
+        .simulate('click');
     });
 
     await waitForComponentToPaint(wrapper);
@@ -166,7 +172,7 @@ describe('Table valueEnum', () => {
       inputEle.simulate('change', { target: { value: 'input 值' } });
     });
     act(() => {
-      inputEle.simulate('keyDown', { keyCode: 13 });
+      wrapper.find('.ant-input-search-button').at(0).simulate('click');
     });
     expect(wrapper.find('.ant-pro-table-list-toolbar-left input').prop('value')).toEqual(
       'input 值',
@@ -192,7 +198,7 @@ describe('Table valueEnum', () => {
       inputEle.simulate('change', { target: { value: 'input 值' } });
     });
     act(() => {
-      inputEle.simulate('keyDown', { keyCode: 13 });
+      wrapper.find('.ant-input-search-button').at(0).simulate('click');
     });
     expect(wrapper.find('.ant-pro-table-list-toolbar-right input').prop('value')).toEqual(
       'input 值',

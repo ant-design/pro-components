@@ -186,6 +186,7 @@ const SearchSelect = <T,>(props: SearchSelectProps<T[]>, ref: any) => {
       ref={selectRef}
       className={classString}
       allowClear
+      autoClearSearchValue={autoClearSearchValue}
       disabled={disabled}
       mode={mode}
       showSearch={showSearch}
