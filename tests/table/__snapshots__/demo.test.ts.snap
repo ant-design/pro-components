@@ -50982,18 +50982,18 @@ exports[`table demos 📸 renders ./packages/table/src/demos/single-test.tsx cor
                         <col
                           style="width: 30%;"
                         />
+                        <col
+                          style="width: 10%;"
+                        />
                         <col />
                         <col
-                          style="width: 10%;"
-                        />
-                        <col
-                          style="width: 10%;"
-                        />
-                        <col
                           style="width: 20%;"
                         />
                         <col
                           style="width: 20%;"
+                        />
+                        <col
+                          style="width: 10%;"
                         />
                         <col
                           style="width: 200px;"
@@ -51050,27 +51050,27 @@ exports[`table demos 📸 renders ./packages/table/src/demos/single-test.tsx cor
                           <th
                             class="ant-table-cell"
                           >
+                            标签
+                          </th>
+                          <th
+                            class="ant-table-cell"
+                          >
                             序号
                           </th>
                           <th
                             class="ant-table-cell ant-table-cell-ellipsis"
                           >
-                            状态
+                            创建时间
                           </th>
                           <th
                             class="ant-table-cell"
                           >
-                            标签
+                            创建时间
                           </th>
                           <th
                             class="ant-table-cell ant-table-cell-ellipsis"
                           >
-                            创建时间
-                          </th>
-                          <th
-                            class="ant-table-cell"
-                          >
-                            创建时间
+                            状态
                           </th>
                           <th
                             class="ant-table-cell ant-table-cell-fix-right ant-table-cell-fix-right-first"
@@ -51179,10 +51179,44 @@ exports[`table demos 📸 renders ./packages/table/src/demos/single-test.tsx cor
                             class="ant-table-cell"
                           >
                             <div
+                              class="ant-space ant-space-horizontal ant-space-align-center"
+                            >
+                              <div
+                                class="ant-space-item"
+                              >
+                                <span
+                                  class="ant-tag ant-tag-error"
+                                >
+                                  bug
+                                </span>
+                              </div>
+                            </div>
+                          </td>
+                          <td
+                            class="ant-table-cell"
+                          >
+                            <div
                               class="ant-pro-field-index-column ant-pro-field-index-column-border"
                             >
                               1
                             </div>
+                          </td>
+                          <td
+                            class="ant-table-cell ant-table-cell-ellipsis"
+                            colspan="2"
+                          >
+                            <span
+                              class="ant-typography ant-typography-ellipsis ant-typography-single-line ant-typography-ellipsis-single-line"
+                              style="width: 100%; margin: 0px; padding: 0px;"
+                              title=""
+                            >
+                              2020-05-26 09:42:56
+                            </span>
+                          </td>
+                          <td
+                            class="ant-table-cell"
+                          >
+                            2020-05-26T09:42:56Z
                           </td>
                           <td
                             class="ant-table-cell ant-table-cell-ellipsis"
@@ -51205,40 +51239,6 @@ exports[`table demos 📸 renders ./packages/table/src/demos/single-test.tsx cor
                                 </span>
                               </span>
                             </span>
-                          </td>
-                          <td
-                            class="ant-table-cell"
-                          >
-                            <div
-                              class="ant-space ant-space-horizontal ant-space-align-center"
-                            >
-                              <div
-                                class="ant-space-item"
-                              >
-                                <span
-                                  class="ant-tag ant-tag-error"
-                                >
-                                  bug
-                                </span>
-                              </div>
-                            </div>
-                          </td>
-                          <td
-                            class="ant-table-cell ant-table-cell-ellipsis"
-                            colspan="2"
-                          >
-                            <span
-                              class="ant-typography ant-typography-ellipsis ant-typography-single-line ant-typography-ellipsis-single-line"
-                              style="width: 100%; margin: 0px; padding: 0px;"
-                              title=""
-                            >
-                              2020-05-26 09:42:56
-                            </span>
-                          </td>
-                          <td
-                            class="ant-table-cell"
-                          >
-                            2020-05-26T09:42:56Z
                           </td>
                           <td
                             class="ant-table-cell ant-table-cell-fix-right ant-table-cell-fix-right-first"
@@ -51384,10 +51384,44 @@ exports[`table demos 📸 renders ./packages/table/src/demos/single-test.tsx cor
                             class="ant-table-cell"
                           >
                             <div
+                              class="ant-space ant-space-horizontal ant-space-align-center"
+                            >
+                              <div
+                                class="ant-space-item"
+                              >
+                                <span
+                                  class="ant-tag ant-tag-error"
+                                >
+                                  bug
+                                </span>
+                              </div>
+                            </div>
+                          </td>
+                          <td
+                            class="ant-table-cell"
+                          >
+                            <div
                               class="ant-pro-field-index-column ant-pro-field-index-column-border"
                             >
                               2
                             </div>
+                          </td>
+                          <td
+                            class="ant-table-cell ant-table-cell-ellipsis"
+                            colspan="2"
+                          >
+                            <span
+                              class="ant-typography ant-typography-ellipsis ant-typography-single-line ant-typography-ellipsis-single-line"
+                              style="width: 100%; margin: 0px; padding: 0px;"
+                              title=""
+                            >
+                              2020-05-26 08:19:22
+                            </span>
+                          </td>
+                          <td
+                            class="ant-table-cell"
+                          >
+                            2020-05-26T08:19:22Z
                           </td>
                           <td
                             class="ant-table-cell ant-table-cell-ellipsis"
@@ -51410,40 +51444,6 @@ exports[`table demos 📸 renders ./packages/table/src/demos/single-test.tsx cor
                                 </span>
                               </span>
                             </span>
-                          </td>
-                          <td
-                            class="ant-table-cell"
-                          >
-                            <div
-                              class="ant-space ant-space-horizontal ant-space-align-center"
-                            >
-                              <div
-                                class="ant-space-item"
-                              >
-                                <span
-                                  class="ant-tag ant-tag-error"
-                                >
-                                  bug
-                                </span>
-                              </div>
-                            </div>
-                          </td>
-                          <td
-                            class="ant-table-cell ant-table-cell-ellipsis"
-                            colspan="2"
-                          >
-                            <span
-                              class="ant-typography ant-typography-ellipsis ant-typography-single-line ant-typography-ellipsis-single-line"
-                              style="width: 100%; margin: 0px; padding: 0px;"
-                              title=""
-                            >
-                              2020-05-26 08:19:22
-                            </span>
-                          </td>
-                          <td
-                            class="ant-table-cell"
-                          >
-                            2020-05-26T08:19:22Z
                           </td>
                           <td
                             class="ant-table-cell ant-table-cell-fix-right ant-table-cell-fix-right-first"
@@ -51590,10 +51590,44 @@ exports[`table demos 📸 renders ./packages/table/src/demos/single-test.tsx cor
                             class="ant-table-cell"
                           >
                             <div
+                              class="ant-space ant-space-horizontal ant-space-align-center"
+                            >
+                              <div
+                                class="ant-space-item"
+                              >
+                                <span
+                                  class="ant-tag ant-tag-success"
+                                >
+                                  question
+                                </span>
+                              </div>
+                            </div>
+                          </td>
+                          <td
+                            class="ant-table-cell"
+                          >
+                            <div
                               class="ant-pro-field-index-column ant-pro-field-index-column-border"
                             >
                               3
                             </div>
+                          </td>
+                          <td
+                            class="ant-table-cell ant-table-cell-ellipsis"
+                            colspan="2"
+                          >
+                            <span
+                              class="ant-typography ant-typography-ellipsis ant-typography-single-line ant-typography-ellipsis-single-line"
+                              style="width: 100%; margin: 0px; padding: 0px;"
+                              title=""
+                            >
+                              2020-05-26 07:54:25
+                            </span>
+                          </td>
+                          <td
+                            class="ant-table-cell"
+                          >
+                            2020-05-26T07:54:25Z
                           </td>
                           <td
                             class="ant-table-cell ant-table-cell-ellipsis"
@@ -51616,40 +51650,6 @@ exports[`table demos 📸 renders ./packages/table/src/demos/single-test.tsx cor
                                 </span>
                               </span>
                             </span>
-                          </td>
-                          <td
-                            class="ant-table-cell"
-                          >
-                            <div
-                              class="ant-space ant-space-horizontal ant-space-align-center"
-                            >
-                              <div
-                                class="ant-space-item"
-                              >
-                                <span
-                                  class="ant-tag ant-tag-success"
-                                >
-                                  question
-                                </span>
-                              </div>
-                            </div>
-                          </td>
-                          <td
-                            class="ant-table-cell ant-table-cell-ellipsis"
-                            colspan="2"
-                          >
-                            <span
-                              class="ant-typography ant-typography-ellipsis ant-typography-single-line ant-typography-ellipsis-single-line"
-                              style="width: 100%; margin: 0px; padding: 0px;"
-                              title=""
-                            >
-                              2020-05-26 07:54:25
-                            </span>
-                          </td>
-                          <td
-                            class="ant-table-cell"
-                          >
-                            2020-05-26T07:54:25Z
                           </td>
                           <td
                             class="ant-table-cell ant-table-cell-fix-right ant-table-cell-fix-right-first"
@@ -51796,10 +51796,44 @@ exports[`table demos 📸 renders ./packages/table/src/demos/single-test.tsx cor
                             class="ant-table-cell"
                           >
                             <div
+                              class="ant-space ant-space-horizontal ant-space-align-center"
+                            >
+                              <div
+                                class="ant-space-item"
+                              >
+                                <span
+                                  class="ant-tag ant-tag-success"
+                                >
+                                  question
+                                </span>
+                              </div>
+                            </div>
+                          </td>
+                          <td
+                            class="ant-table-cell"
+                          >
+                            <div
                               class="ant-pro-field-index-column ant-pro-field-index-column-border top-three"
                             >
                               4
                             </div>
+                          </td>
+                          <td
+                            class="ant-table-cell ant-table-cell-ellipsis"
+                            colspan="2"
+                          >
+                            <span
+                              class="ant-typography ant-typography-ellipsis ant-typography-single-line ant-typography-ellipsis-single-line"
+                              style="width: 100%; margin: 0px; padding: 0px;"
+                              title=""
+                            >
+                              2020-05-26 05:58:24
+                            </span>
+                          </td>
+                          <td
+                            class="ant-table-cell"
+                          >
+                            2020-05-26T05:58:24Z
                           </td>
                           <td
                             class="ant-table-cell ant-table-cell-ellipsis"
@@ -51822,40 +51856,6 @@ exports[`table demos 📸 renders ./packages/table/src/demos/single-test.tsx cor
                                 </span>
                               </span>
                             </span>
-                          </td>
-                          <td
-                            class="ant-table-cell"
-                          >
-                            <div
-                              class="ant-space ant-space-horizontal ant-space-align-center"
-                            >
-                              <div
-                                class="ant-space-item"
-                              >
-                                <span
-                                  class="ant-tag ant-tag-success"
-                                >
-                                  question
-                                </span>
-                              </div>
-                            </div>
-                          </td>
-                          <td
-                            class="ant-table-cell ant-table-cell-ellipsis"
-                            colspan="2"
-                          >
-                            <span
-                              class="ant-typography ant-typography-ellipsis ant-typography-single-line ant-typography-ellipsis-single-line"
-                              style="width: 100%; margin: 0px; padding: 0px;"
-                              title=""
-                            >
-                              2020-05-26 05:58:24
-                            </span>
-                          </td>
-                          <td
-                            class="ant-table-cell"
-                          >
-                            2020-05-26T05:58:24Z
                           </td>
                           <td
                             class="ant-table-cell ant-table-cell-fix-right ant-table-cell-fix-right-first"
@@ -52002,10 +52002,44 @@ exports[`table demos 📸 renders ./packages/table/src/demos/single-test.tsx cor
                             class="ant-table-cell"
                           >
                             <div
+                              class="ant-space ant-space-horizontal ant-space-align-center"
+                            >
+                              <div
+                                class="ant-space-item"
+                              >
+                                <span
+                                  class="ant-tag ant-tag-error"
+                                >
+                                  bug
+                                </span>
+                              </div>
+                            </div>
+                          </td>
+                          <td
+                            class="ant-table-cell"
+                          >
+                            <div
                               class="ant-pro-field-index-column ant-pro-field-index-column-border top-three"
                             >
                               5
                             </div>
+                          </td>
+                          <td
+                            class="ant-table-cell ant-table-cell-ellipsis"
+                            colspan="2"
+                          >
+                            <span
+                              class="ant-typography ant-typography-ellipsis ant-typography-single-line ant-typography-ellipsis-single-line"
+                              style="width: 100%; margin: 0px; padding: 0px;"
+                              title=""
+                            >
+                              2020-05-26 04:25:59
+                            </span>
+                          </td>
+                          <td
+                            class="ant-table-cell"
+                          >
+                            2020-05-26T04:25:59Z
                           </td>
                           <td
                             class="ant-table-cell ant-table-cell-ellipsis"
@@ -52028,40 +52062,6 @@ exports[`table demos 📸 renders ./packages/table/src/demos/single-test.tsx cor
                                 </span>
                               </span>
                             </span>
-                          </td>
-                          <td
-                            class="ant-table-cell"
-                          >
-                            <div
-                              class="ant-space ant-space-horizontal ant-space-align-center"
-                            >
-                              <div
-                                class="ant-space-item"
-                              >
-                                <span
-                                  class="ant-tag ant-tag-error"
-                                >
-                                  bug
-                                </span>
-                              </div>
-                            </div>
-                          </td>
-                          <td
-                            class="ant-table-cell ant-table-cell-ellipsis"
-                            colspan="2"
-                          >
-                            <span
-                              class="ant-typography ant-typography-ellipsis ant-typography-single-line ant-typography-ellipsis-single-line"
-                              style="width: 100%; margin: 0px; padding: 0px;"
-                              title=""
-                            >
-                              2020-05-26 04:25:59
-                            </span>
-                          </td>
-                          <td
-                            class="ant-table-cell"
-                          >
-                            2020-05-26T04:25:59Z
                           </td>
                           <td
                             class="ant-table-cell ant-table-cell-fix-right ant-table-cell-fix-right-first"

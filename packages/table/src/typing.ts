@@ -129,13 +129,22 @@ export type ProColumnType<T = unknown, ValueType = 'text'> = ProSchema<
 
     /** Form 的排序 */
     order?: number;
+
     /** 可编辑表格是否可编辑 */
     editable?: boolean | ProTableEditableFnType<T>;
 
     /** @private */
     listKey?: string;
+
     /** 只读 */
     readonly?: boolean;
+
+    /** 列设置的 disabled */
+    disable?:
+      | boolean
+      | {
+          checkbox: boolean;
+        };
   },
   ProSchemaComponentTypes,
   ValueType,
