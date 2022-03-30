@@ -5006,25 +5006,24 @@ antd@^4.1.3:
     rc-collapse "~3.1.0"
     rc-dialog "~8.6.0"
     rc-drawer "~4.4.2"
-    rc-dropdown "~3.3.2"
-    rc-field-form "~1.24.0"
+    rc-dropdown "~3.2.5"
+    rc-field-form "~1.22.0-2"
     rc-image "~5.2.5"
-    rc-input "~0.0.1-alpha.5"
     rc-input-number "~7.3.0"
     rc-mentions "~1.6.1"
-    rc-menu "~9.3.2"
+    rc-menu "~9.2.1"
     rc-motion "^2.4.4"
     rc-notification "~4.5.7"
     rc-pagination "~3.1.9"
-    rc-picker "~2.6.4"
+    rc-picker "~2.5.17"
     rc-progress "~3.2.1"
     rc-rate "~2.9.0"
     rc-resize-observer "^1.2.0"
-    rc-select "~14.0.2"
-    rc-slider "~10.0.0-alpha.4"
+    rc-select "~14.0.0-alpha.15"
+    rc-slider "~9.7.4"
     rc-steps "~4.1.0"
     rc-switch "~3.2.0"
-    rc-table "~7.23.0"
+    rc-table "~7.22.2"
     rc-tabs "~11.10.0"
     rc-textarea "~0.3.0"
     rc-tooltip "~5.1.1"
@@ -5032,10 +5031,10 @@ antd@^4.1.3:
     rc-tree-select "~5.1.1"
     rc-trigger "^5.2.10"
     rc-upload "~4.3.0"
-    rc-util "^5.19.3"
+    rc-util "^5.14.0"
     scroll-into-view-if-needed "^2.2.25"
 
-antd@^4.19.3:
+antd@^4.18.7:
   version "4.19.3"
   resolved "https://registry.yarnpkg.com/antd/-/antd-4.19.3.tgz#2b6bb938bda9850c797db59c8923f3c8a14a6693"
   integrity sha512-q4oT2lIM0Fb60MfcdtjH6LFQcmo5MuM27PN3nJMsRG1FeiQ9n+OPFlkQSdtb0ZWFIFjTH3p0W02T6SbB2U7ChQ==
@@ -16533,20 +16532,10 @@ rc-drawer@~4.4.2:
     classnames "^2.2.6"
     rc-util "^5.7.0"
 
-rc-dropdown@^3.2.0, rc-dropdown@~3.4.0:
+rc-dropdown@^3.2.0:
   version "3.4.0"
   resolved "https://registry.npmmirror.com/rc-dropdown/-/rc-dropdown-3.4.0.tgz#05c9404975890cc0dd8fef5492135485c6426840"
   integrity sha512-PhBct26Rsh939eFSvsOMQPrQtsteD/0lQeAK+ZA7IKO+uyLgpDqwE0kdNFPHm4ApoT1sWms7hRJdYWRNQC6pcw==
-  dependencies:
-    "@babel/runtime" "^7.10.1"
-    classnames "^2.2.6"
-    rc-trigger "^5.0.4"
-    rc-util "^5.17.0"
-
-rc-dropdown@~3.3.2:
-  version "3.3.3"
-  resolved "https://registry.npmmirror.com/rc-dropdown/-/rc-dropdown-3.3.3.tgz#17ba32ebd066ae397b00e9e4d570c7c21daed88f"
-  integrity sha512-UNe68VpvtrpU0CS4jh5hD4iGqzi4Pdp7uOya6+H3QIEZxe7K+Xs11BNjZm6W4MaL0jTmzUj+bxvnq5bP3rRoVQ==
   dependencies:
     "@babel/runtime" "^7.10.1"
     classnames "^2.2.6"
@@ -16562,15 +16551,6 @@ rc-dropdown@~3.3.2:
     classnames "^2.2.6"
     rc-trigger "^5.0.4"
     rc-util "^5.17.0"
-
-rc-field-form@~1.22.0-2:
-  version "1.22.1"
-  resolved "https://registry.npmmirror.com/rc-field-form/-/rc-field-form-1.22.1.tgz"
-  integrity sha512-LweU7nBeqmC5r3HDUjRprcOXXobHXp/TGIxD7ppBq5FX6Iptt3ibdpRVg4RSyNulBNGHOuknHlRcguuIpvVMVg==
-  dependencies:
-    "@babel/runtime" "^7.8.4"
-    async-validator "^4.0.2"
-    rc-util "^5.8.0"
 
 rc-field-form@~1.24.0:
   version "1.24.0"
@@ -16628,23 +16608,10 @@ rc-mentions@~1.6.1:
     rc-trigger "^5.0.4"
     rc-util "^5.0.1"
 
-rc-menu@^9.0.0, rc-menu@~9.3.2:
+rc-menu@~9.3.2:
   version "9.3.2"
   resolved "https://registry.npmmirror.com/rc-menu/-/rc-menu-9.3.2.tgz#bb842d37ebf71da912bea201cf7ef0a27267ad49"
   integrity sha512-h3m45oY1INZyqphGELkdT0uiPnFzxkML8m0VMhJnk2fowtqfiT7F5tJLT3znEVaPIY80vMy1bClCkgq8U91CzQ==
-  dependencies:
-    "@babel/runtime" "^7.10.1"
-    classnames "2.x"
-    rc-motion "^2.4.3"
-    rc-overflow "^1.2.0"
-    rc-trigger "^5.1.2"
-    rc-util "^5.12.0"
-    shallowequal "^1.1.0"
-
-rc-menu@~9.5.1:
-  version "9.5.3"
-  resolved "https://registry.npmmirror.com/rc-menu/-/rc-menu-9.5.3.tgz#ca0df442777a8603d2a3dee76479b8eda3922bbf"
-  integrity sha512-k4v6GgAs6i9510iuU3AO2Dc/rhf+q6OHtPMucuEQZfEpghIrKwhgv2SmA3z4umzfbxBXuGTykfCOsTpjfmu7sQ==
   dependencies:
     "@babel/runtime" "^7.10.1"
     classnames "2.x"
@@ -16690,20 +16657,6 @@ rc-pagination@~3.1.9:
   dependencies:
     "@babel/runtime" "^7.10.1"
     classnames "^2.2.1"
-
-rc-picker@~2.6.4:
-  version "2.6.5"
-  resolved "https://registry.npmmirror.com/rc-picker/-/rc-picker-2.6.5.tgz#a7cf8eb0723ec81e379c784c4b798b7fe076dd8c"
-  integrity sha512-4pcg0PgEz4YXBfdwMuHIKaRWaADm3k3g0NtoPIgeGM+VVeOBdUowTx0YSXnT8mQEXcE9lWXX+ZX3biAzQwDM1w==
-  dependencies:
-    "@babel/runtime" "^7.10.1"
-    classnames "^2.2.1"
-    date-fns "2.x"
-    dayjs "1.x"
-    moment "^2.24.0"
-    rc-trigger "^5.0.4"
-    rc-util "^5.4.0"
-    shallowequal "^1.1.0"
 
 rc-picker@~2.6.4:
   version "2.6.5"
@@ -16758,19 +16711,6 @@ rc-resize-observer@^1.0.0, rc-resize-observer@^1.1.0, rc-resize-observer@^1.2.0:
     resize-observer-polyfill "^1.5.1"
 
 rc-select@~14.0.0-alpha.23, rc-select@~14.0.0-alpha.8, rc-select@~14.0.2:
-  version "14.0.5"
-  resolved "https://registry.npmmirror.com/rc-select/-/rc-select-14.0.5.tgz#145c42e7fd66a7fc6c5c56f6b0cf35d8b50f9e23"
-  integrity sha512-5X1bcktpE9++7Ef9Uq7f35kobGBNnddaDhkECjeICWIkCsl9xfYtujQiK1YEYXO5EIYoTVLV30PwN/E3mWAKOQ==
-  dependencies:
-    "@babel/runtime" "^7.10.1"
-    classnames "2.x"
-    rc-motion "^2.0.1"
-    rc-overflow "^1.0.0"
-    rc-trigger "^5.0.4"
-    rc-util "^5.16.1"
-    rc-virtual-list "^3.2.0"
-
-rc-select@~14.0.2:
   version "14.0.5"
   resolved "https://registry.yarnpkg.com/rc-select/-/rc-select-14.0.5.tgz#145c42e7fd66a7fc6c5c56f6b0cf35d8b50f9e23"
   integrity sha512-5X1bcktpE9++7Ef9Uq7f35kobGBNnddaDhkECjeICWIkCsl9xfYtujQiK1YEYXO5EIYoTVLV30PwN/E3mWAKOQ==
@@ -16837,17 +16777,6 @@ rc-switch@~3.2.0:
 
 rc-table@~7.23.0:
   version "7.23.2"
-  resolved "https://registry.npmmirror.com/rc-table/-/rc-table-7.23.2.tgz#f6f906e8fafb05ddbfdd69d450feb875ce260a7b"
-  integrity sha512-opc2IBJOetsPSdNI+u1Lh9yY4Ks+EMgo1oJzZN+yIV4fRcgP81tHtxdPOVvXPFI4rUMO8CKnmHbGPU7jxMRAeg==
-  dependencies:
-    "@babel/runtime" "^7.10.1"
-    classnames "^2.2.5"
-    rc-resize-observer "^1.1.0"
-    rc-util "^5.14.0"
-    shallowequal "^1.1.0"
-
-rc-table@~7.23.0:
-  version "7.23.2"
   resolved "https://registry.yarnpkg.com/rc-table/-/rc-table-7.23.2.tgz#f6f906e8fafb05ddbfdd69d450feb875ce260a7b"
   integrity sha512-opc2IBJOetsPSdNI+u1Lh9yY4Ks+EMgo1oJzZN+yIV4fRcgP81tHtxdPOVvXPFI4rUMO8CKnmHbGPU7jxMRAeg==
   dependencies:
@@ -16865,7 +16794,7 @@ rc-tabs@^11.7.1, rc-tabs@~11.10.0:
     "@babel/runtime" "^7.11.2"
     classnames "2.x"
     rc-dropdown "^3.2.0"
-    rc-menu "~9.3.2"
+    rc-menu "^9.0.0"
     rc-resize-observer "^1.0.0"
     rc-util "^5.5.0"
 
@@ -16983,19 +16912,19 @@ rc-util@^5.0.0, rc-util@^5.0.1, rc-util@^5.0.6, rc-util@^5.0.7, rc-util@^5.12.0,
     react-is "^16.12.0"
     shallowequal "^1.1.0"
 
-rc-util@^5.17.0, rc-util@^5.19.3:
-  version "5.19.3"
-  resolved "https://registry.yarnpkg.com/rc-util/-/rc-util-5.19.3.tgz#5f6aa854820f6d5824451d80771035b013eaf6d8"
-  integrity sha512-S28epi9E2s7Nir05q8Ffl3hzDLwkavTGi0PGH1cTqCmkpG1AeBEuZgQDpksYeU6IgHcds5hWIPE5PUcdFiZl8w==
-  dependencies:
-    "@babel/runtime" "^7.12.5"
-    react-is "^16.12.0"
-    shallowequal "^1.1.0"
-
-rc-virtual-list@^3.2.0, rc-virtual-list@^3.4.1:
+rc-virtual-list@^3.2.0:
   version "3.4.2"
   resolved "https://registry.npmmirror.com/rc-virtual-list/-/rc-virtual-list-3.4.2.tgz"
   integrity sha512-OyVrrPvvFcHvV0ssz5EDZ+7Rf5qLat/+mmujjchNw5FfbJWNDwkpQ99EcVE6+FtNRmX9wFa1LGNpZLUTvp/4GQ==
+  dependencies:
+    classnames "^2.2.6"
+    rc-resize-observer "^1.0.0"
+    rc-util "^5.0.7"
+
+rc-virtual-list@^3.4.2:
+  version "3.4.4"
+  resolved "https://registry.yarnpkg.com/rc-virtual-list/-/rc-virtual-list-3.4.4.tgz#be42832edecdcffc56260df131e437a2e0473bca"
+  integrity sha512-Zb2h0B+ZhA/aysZNEUkQYaqx0hd8hq7WMIUegII+1KfFjh99GtHZ4ZMWB+SlpdVadskKJZzUWWzIq5N1mE6AVg==
   dependencies:
     classnames "^2.2.6"
     rc-resize-observer "^1.0.0"
