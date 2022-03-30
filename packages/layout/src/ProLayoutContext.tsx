@@ -271,6 +271,34 @@ type DeepPartial<T> = T extends object
 
 export type LayoutDesignToken = BaseLayoutDesignToken & BaseDesignToken;
 
+// DesignToken 的默认样式
+export const DefaultDesignToken = {
+  layoutBgColor: '#f7f8fa',
+  layoutBg: 'linear-gradient(#fff, #f7f8fa 28%)',
+  appListIconTextColor: '#666',
+  menuToken: {
+    menuItemHoverBgColor: 'rgba(90, 75, 75, 0.03)',
+    menuItemSelectedBgColor: 'rgba(0, 0, 0, 0.04)',
+    menuItemCollapsedHoverBgColor: 'rgba(90, 75, 75, 0.03)',
+    menuItemCollapsedSelectedBgColor: 'rgba(0, 0, 0, 0.04)',
+    menuSelectedTextColor: 'rgb(0,0,0,0.85)',
+  },
+  header: {
+    headerBgColor: 'rgba(240, 242, 245, 0.4)',
+    rightActionsItemHoverBgColor: 'rgba(0, 0, 0, 0.03)',
+  },
+  sider: {
+    menuBackgroundColor: 'transparent',
+    menuSubArrowColor: 'rgba(0, 0, 0, 0.25)',
+    collapsedButtonBgColor: '#fff',
+  },
+  pageContainer: {
+    pageContainerBgColor: 'transparent',
+    pageContainerFixedBgColor: '#fff',
+    pageContainerContentMargin: '0px 40px 0px 40px',
+  },
+};
+
 export const getLayoutDesignToken: (
   baseDesignTokens: DeepPartial<LayoutDesignToken>,
 ) => LayoutDesignToken = (designTokens) => {
@@ -278,12 +306,8 @@ export const getLayoutDesignToken: (
   const menuToken = {
     menuTextColor: finalDesignTokens.colorText,
     menuTextColorSecondary: finalDesignTokens.colorTextSecondary,
-    menuSelectedTextColor: 'rgb(0,0,0,0.85)',
     menuHoverTextColor: finalDesignTokens.colorText,
-    menuItemHoverBgColor: 'rgba(90, 75, 75, 0.03)',
-    menuItemSelectedBgColor: 'rgba(0, 0, 0, 0.04)',
-    menuItemCollapsedHoverBgColor: 'rgba(90, 75, 75, 0.03)',
-    menuItemCollapsedSelectedBgColor: 'rgba(0, 0, 0, 0.04)',
+    ...DefaultDesignToken.menuToken,
   };
   return {
     ...designTokens,
@@ -295,27 +319,22 @@ export const getLayoutDesignToken: (
     ...finalDesignTokens,
     header: {
       ...menuToken,
-      headerBgColor: 'rgba(240, 242, 245, 0.4)',
       headerTitleColor: finalDesignTokens.colorHeading,
       rightActionsItemTextColor: finalDesignTokens.colorTextSecondary,
-      rightActionsItemHoverBgColor: 'rgba(0, 0, 0, 0.03)',
+      ...DefaultDesignToken.header,
       ...finalDesignTokens.header,
     },
     sider: {
       ...menuToken,
-      menuBackgroundColor: 'transparent',
       menuItemDividerColor: finalDesignTokens.borderColorSplit,
       menuTitleTextColor: finalDesignTokens.colorHeading,
-      menuSubArrowColor: 'rgba(0, 0, 0, 0.25)',
       collapsedButtonTextColor: menuToken?.menuTextColorSecondary,
       collapsedButtonHoverTextColor: menuToken?.menuTextColor,
-      collapsedButtonBgColor: '#fff',
+      ...DefaultDesignToken.sider,
       ...finalDesignTokens.sider,
     },
     pageContainer: {
-      pageContainerBgColor: 'transparent',
-      pageContainerFixedBgColor: '#fff',
-      pageContainerContentMargin: '0px 40px 0px 40px',
+      ...DefaultDesignToken.pageContainer,
       ...finalDesignTokens.pageContainer,
     },
   } as LayoutDesignToken;

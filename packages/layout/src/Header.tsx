@@ -9,7 +9,7 @@ import type { PrivateSiderMenuProps } from './components/SiderMenu/SiderMenu';
 import { clearMenuItem } from './utils/utils';
 import { cx, css } from './emotion';
 import type { LayoutDesignToken } from './ProLayoutContext';
-import { getLayoutDesignToken } from './ProLayoutContext';
+import { DefaultDesignToken } from './ProLayoutContext';
 import { ProLayoutContext } from './ProLayoutContext';
 
 const { Header } = Layout;
@@ -35,7 +35,7 @@ const getProLayoutHeaderCss = (designToken: LayoutDesignToken) => {
       backdrop-filter: blur(20px) saturate(150%);
     }
   `;
-  if (designToken.header.headerBgColor !== getLayoutDesignToken({}).header.headerBgColor) {
+  if (designToken.header.headerBgColor !== DefaultDesignToken.header.headerBgColor) {
     return (
       defaultHeaderCss &&
       css`
