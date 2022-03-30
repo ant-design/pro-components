@@ -512,6 +512,13 @@ const BaseMenu: React.FC<BaseMenuProps & PrivateSiderMenuProps> = (props) => {
             width: 100%;
             height: 100%;
             color: ${menuDesignToken.menuTextColor};
+            &:hover {
+              color: ${menuDesignToken.menuHoverTextColor};
+              .anticon {
+                color: ${menuDesignToken.menuHoverTextColor};
+                opacity: 0.69;
+              }
+            }
             .anticon {
               color: ${menuDesignToken.menuTextColor};
               opacity: 0.69;
@@ -557,14 +564,6 @@ const BaseMenu: React.FC<BaseMenuProps & PrivateSiderMenuProps> = (props) => {
       `,
       verticalItem: css`
         &:hover {
-          .${antPrefixClassName}-menu-title-content {
-            > * {
-              color: ${menuDesignToken.menuHoverTextColor};
-              .anticon {
-                color: ${menuDesignToken.menuHoverTextColor};
-              }
-            }
-          }
           background-color: ${itemHoverColor};
           border-radius: ${designToken.borderRadiusBase};
         }
@@ -577,6 +576,12 @@ const BaseMenu: React.FC<BaseMenuProps & PrivateSiderMenuProps> = (props) => {
             color: ${menuDesignToken.menuSelectedTextColor};
             .anticon {
               color: ${menuDesignToken.menuSelectedTextColor};
+            }
+            &:hover {
+              color: ${menuDesignToken.menuSelectedTextColor};
+              .anticon {
+                color: ${menuDesignToken.menuSelectedTextColor};
+              }
             }
           }
         }
