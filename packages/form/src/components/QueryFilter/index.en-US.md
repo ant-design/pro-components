@@ -88,7 +88,7 @@ Note that the values of the breakpoints are the size of the form container and n
 LightFilter supports the following properties in addition to the API inherited from ProForm.
 
 | Parameters | Description | Type | Default |
-| --- | --- | --- | --- | --- |
+| --- | --- | --- | --- |
 | collapse | whether to collapse all fields by default | `boolean` | `false` |
 | collapseLabel | label of collapsed area | `ReactNode` | `MoreFilter <DownOutlined/>` |
-| placement | The position where the selection box pops up: `bottomLeft` `bottomRight` `topLeft` `topRight` | string | bottomLeft |  |
+| placement | The position where the selection box pops up: `bottomLeft` `bottomRight` `topLeft` `topRight` | string | bottomLeft |
