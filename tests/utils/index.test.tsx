@@ -419,13 +419,13 @@ describe('utils', () => {
     );
 
     act(() => {
-      html.find('Input#test').simulate('focus');
+      html.find('input#test').simulate('focus');
     });
     await waitForComponentToPaint(html, 100);
     expect(html.find('div.ant-popover').exists()).toBeFalsy();
 
     act(() => {
-      html.find('Input#test').simulate('change', {
+      html.find('input#test').simulate('change', {
         target: {
           value: '1',
         },
@@ -440,7 +440,7 @@ describe('utils', () => {
     expect(li.at(0).text()).toBe(ruleMessage.min);
     expect(li.at(1).text()).toBe(ruleMessage.alphaRequired);
     act(() => {
-      html.find('Input#test').simulate('change', {
+      html.find('input#test').simulate('change', {
         target: {
           value: '12345678901AB',
         },
@@ -449,7 +449,7 @@ describe('utils', () => {
     await waitForComponentToPaint(html, 1000);
 
     act(() => {
-      html.find('Input#test').simulate('change', {
+      html.find('input#test').simulate('change', {
         target: {
           value: '.',
         },
@@ -459,7 +459,7 @@ describe('utils', () => {
     expect(html.find('div.ant-popover.ant-popover-hidden').exists()).toBeFalsy();
 
     act(() => {
-      html.find('Input#test').simulate('change', {
+      html.find('input#test').simulate('change', {
         target: {
           value: '',
         },

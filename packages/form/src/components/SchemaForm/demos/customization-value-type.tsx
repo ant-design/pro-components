@@ -3,6 +3,7 @@ import type { ProFormColumnsType } from '@ant-design/pro-form';
 import { BetaSchemaForm } from '@ant-design/pro-form';
 import ProProvider from '@ant-design/pro-provider';
 import { Input, Space, Tag } from 'antd';
+import type { InputRef } from 'antd';
 
 declare module '@ant-design/pro-utils' {
   interface ProFieldValueTypeWithFieldProps {
@@ -41,7 +42,7 @@ const TagList: React.FC<{
     }[],
   ) => void;
 }> = ({ value, onChange }) => {
-  const ref = useRef<Input | null>(null);
+  const ref = useRef<InputRef | null>(null);
   const [newTags, setNewTags] = useState<
     {
       key: string;

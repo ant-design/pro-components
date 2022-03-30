@@ -218,7 +218,7 @@ const EditorProTableDemo = (
         type: props.type,
         editableKeys,
         onSave: props.onSave,
-        onChange: setEditorRowKeys,
+        onChange: (keys) => setEditorRowKeys(keys),
         onDelete: props.onDelete,
       }}
     />
