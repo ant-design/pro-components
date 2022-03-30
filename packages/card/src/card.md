@@ -182,6 +182,7 @@ group:
 | headerBordered | 页头是否有分割线 | `boolean` | false |
 | collapsed | 受控属性，是否折叠 | `boolean` | false |
 | collapsible | 配置是否可折叠，受控时无效 | `boolean` | false |
+| collapsibleIconRender | 替换默认折叠图标 | `({ collapsed }: { collapsed: boolean }) => React.ReactNode` | - |
 | defaultCollapsed | 默认折叠, 受控时无效 | `boolean` | false |
 | onCollapse | 收起卡片的事件，受控时无效 | `(collapsed: boolean) => void` | - |
 | tabs | 标签页配置 | 见下面 ProCardTabs | - |
