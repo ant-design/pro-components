@@ -10,11 +10,7 @@ import { useUrlSearchParams } from '@umijs/use-params';
 
 import { Button, Divider, Drawer, List, Switch, ConfigProvider, message, Alert } from 'antd';
 import React, { useState, useEffect, useRef } from 'react';
-import {
-  disable as darkreaderDisable,
-  enable as darkreaderEnable,
-  setFetchMethod as setFetch,
-} from '@umijs/ssr-darkreader';
+import { disable as darkreaderDisable, enable as darkreaderEnable } from '@umijs/ssr-darkreader';
 
 import useMergedState from 'rc-util/lib/hooks/useMergedState';
 import omit from 'omit.js';
@@ -122,10 +118,7 @@ const updateTheme = async (dark: boolean, color?: string) => {
       ignoreImageAnalysis: [],
       disableStyleSheetsProxy: true,
     };
-    if (window.MutationObserver && window.fetch) {
-      setFetch(window.fetch);
-      darkreaderEnable(defaultTheme, defaultFixes);
-    }
+    if (window.MutationObserver) darkreaderEnable(defaultTheme, defaultFixes);
   } else {
     if (window.MutationObserver) darkreaderDisable();
   }
