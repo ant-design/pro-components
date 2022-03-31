@@ -795,9 +795,6 @@ const BaseMenu: React.FC<BaseMenuProps & PrivateSiderMenuProps> = (props) => {
         });
       }}
       _internalRenderMenuItem={(dom, itemProps, stateProps) => {
-        {
-          console.log('menuItemCssMap', menuItemCssMap.verticalItem);
-        }
         return React.cloneElement(dom, {
           ...dom.props,
           className: cx(
