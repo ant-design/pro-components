@@ -14424,7 +14424,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/QueryFilter/demo
     <form
       autocomplete="off"
       class="ant-form ant-form-horizontal"
-      style="margin-top: 100px;"
+      style="margin-top: 40px;"
     >
       <input
         style="display: none;"
