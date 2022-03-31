@@ -35,6 +35,22 @@ ProLayout 可以提供一个标准又不失灵活的中后台标准布局，同�
 
 <code src="./demos/menu-group.tsx" iframe="650px" title="不分组菜单样式"/>
 
+### 经典导航样式
+
+<code src="./demos/classicMode.tsx" iframe="650px" title="经典导航样式"/>
+
+### 通过调整页面背景内容调整整体氛围
+
+<code src="./demos/background-context.tsx" iframe="650px" title="通过调整页面背景内容调整整体氛围"/>
+
+### 定制菜单样式
+
+<code src="./demos/designMenuCss.tsx" iframe="650px" title="定制菜单样式"/>
+
+### 通过设置页背景和卡片样式简化界面层次
+
+<code src="./demos/pageSimplify.tsx" iframe="650px" title="通过设置页背景和卡片样式简化界面层次"/>
+
 ### 从服务器加载 menu
 
 ProLayout 提供了强大的菜单功能，但是这样必然会封装很多行为，导致需要一些特殊逻辑的用户感到不满。所以我们提供了很多的 API，期望可以满足绝大部分客户的方式。

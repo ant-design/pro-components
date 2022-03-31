@@ -652,7 +652,7 @@ exports[`mobile BasicLayout 📱 layout menuHeaderRender 1`] = `
           style="height: 56px; line-height: 56px; background: transparent;"
         />
         <header
-          class="ant-layout-header ant-pro-fixed-header ant-pro-header ant-design-pro-layout-1qqus2t"
+          class="ant-layout-header ant-pro-fixed-header ant-pro-header ant-design-pro-layout-19h0wrb"
         >
           <div
             class="ant-pro-global-header ant-pro-global-header-layout-mix ant-design-pro-layout-1n57u1k"
@@ -800,7 +800,7 @@ exports[`mobile BasicLayout 📱 layout menuHeaderRender 2`] = `
           style="height: 56px; line-height: 56px; background: transparent;"
         />
         <header
-          class="ant-layout-header ant-pro-fixed-header ant-pro-header ant-design-pro-layout-1qqus2t"
+          class="ant-layout-header ant-pro-fixed-header ant-pro-header ant-design-pro-layout-19h0wrb"
         >
           <div
             class="ant-pro-global-header ant-pro-global-header-layout-mix ant-design-pro-layout-1n57u1k"
@@ -942,7 +942,7 @@ exports[`mobile BasicLayout 📱 layout menuHeaderRender=false 1`] = `
           style="height: 56px; line-height: 56px; background: transparent;"
         />
         <header
-          class="ant-layout-header ant-pro-fixed-header ant-pro-header ant-design-pro-layout-1qqus2t"
+          class="ant-layout-header ant-pro-fixed-header ant-pro-header ant-design-pro-layout-19h0wrb"
         >
           <div
             class="ant-pro-global-header ant-pro-global-header-layout-mix ant-design-pro-layout-1n57u1k"
@@ -1083,7 +1083,7 @@ exports[`mobile BasicLayout 📱 layout=mix 1`] = `
           style="height: 56px; line-height: 56px; background: transparent;"
         />
         <header
-          class="ant-layout-header ant-pro-fixed-header ant-pro-fixed-header-action ant-pro-header ant-design-pro-layout-1qqus2t"
+          class="ant-layout-header ant-pro-fixed-header ant-pro-fixed-header-action ant-pro-header ant-design-pro-layout-19h0wrb"
         >
           <div
             class="ant-pro-global-header ant-pro-global-header-layout-mix ant-design-pro-layout-1n57u1k"
@@ -1356,7 +1356,7 @@ exports[`mobile BasicLayout 📱 layout=mix and splitMenus 1`] = `
           style="height: 56px; line-height: 56px; background: transparent;"
         />
         <header
-          class="ant-layout-header ant-pro-fixed-header ant-pro-fixed-header-action ant-pro-header ant-design-pro-layout-1qqus2t"
+          class="ant-layout-header ant-pro-fixed-header ant-pro-fixed-header-action ant-pro-header ant-design-pro-layout-19h0wrb"
         >
           <div
             class="ant-pro-global-header ant-pro-global-header-layout-mix ant-design-pro-layout-1n57u1k"

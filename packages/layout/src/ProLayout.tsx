@@ -38,7 +38,8 @@ import { ConfigProviderWrap } from '@ant-design/pro-provider';
 
 import { cx, css } from './emotion';
 import { Logo } from './Logo';
-import { ProLayoutContext, ProLayoutProviderProps } from './ProLayoutContext';
+import type { ProLayoutProviderProps } from './ProLayoutContext';
+import { ProLayoutContext } from './ProLayoutContext';
 import { ProLayoutProvider } from './ProLayoutContext';
 
 let layoutIndex = 0;

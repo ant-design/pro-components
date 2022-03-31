@@ -9,6 +9,7 @@ import type { PrivateSiderMenuProps } from './components/SiderMenu/SiderMenu';
 import { clearMenuItem } from './utils/utils';
 import { cx, css } from './emotion';
 import type { LayoutDesignToken } from './ProLayoutContext';
+import { DefaultDesignToken } from './ProLayoutContext';
 import { ProLayoutContext } from './ProLayoutContext';
 
 const { Header } = Layout;
@@ -20,19 +21,33 @@ const ProLayoutFixedHeaderCss = css`
   background: transparent;
 `;
 
-const getProLayoutHeaderCss = (designToken: LayoutDesignToken) => css`
-  z-index: 9;
-  width: 100%;
-  padding: 0 8px;
-  backdrop-filter: blur(20px) saturate(150%);
-  border-bottom: 1px solid ${designToken.borderColorSplit};
-  transition: width 0.3s cubic-bezier(0.645, 0.045, 0.355, 1);
-  background-color: ${designToken.layoutBgColor};
-  @supports (backdrop-filter: blur(20px) saturate(150%)) {
-    background-color: transparent;
+const getProLayoutHeaderCss = (designToken: LayoutDesignToken) => {
+  const defaultHeaderCss = css`
+    z-index: 9;
+    width: 100%;
+    padding: 0 8px;
     backdrop-filter: blur(20px) saturate(150%);
+    border-bottom: 1px solid ${designToken.borderColorSplit};
+    transition: width 0.3s cubic-bezier(0.645, 0.045, 0.355, 1);
+    background-color: ${designToken.layoutBgColor};
+    @supports (backdrop-filter: blur(20px) saturate(150%)) {
+      background-color: transparent;
+      backdrop-filter: blur(20px) saturate(150%);
+    }
+  `;
+  if (designToken.header.headerBgColor !== DefaultDesignToken.header.headerBgColor) {
+    return (
+      defaultHeaderCss &&
+      css`
+        background-color: ${designToken.header.headerBgColor};
+        @supports (backdrop-filter: blur(20px) saturate(150%)) {
+          background-color: ${designToken.header.headerBgColor};
+        }
+      `
+    );
   }
-`;
+  return defaultHeaderCss;
+};
 
 export type HeaderViewProps = GlobalHeaderProps & {
   isMobile?: boolean;
