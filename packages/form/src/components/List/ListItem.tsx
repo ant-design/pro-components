@@ -363,7 +363,9 @@ const ProFormListItem: React.FC<
       key={field.name}
       value={{
         ...field,
-        listName: [listContext.listName, originName].filter((item) => item !== undefined).flat(1),
+        listName: [listContext.listName, originName, field.name]
+          .filter((item) => item !== undefined)
+          .flat(1),
       }}
     >
       {contentDom}
