@@ -8,7 +8,7 @@ import {
   dateFormatterMap,
 } from '@ant-design/pro-utils';
 import { ConfigProvider } from 'antd';
-import type { Placement } from 'packages/utils/src/components/FilterDropdown';
+import type { Placement } from '../../interface';
 
 import './index.less';
 import type { LightFilterFooterRender } from '../../interface';

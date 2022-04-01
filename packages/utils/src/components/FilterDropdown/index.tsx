@@ -12,7 +12,7 @@ declare const Placements: [
   'bottomCenter',
   'bottomRight',
 ];
-export declare type Placement = typeof Placements[number];
+declare type Placement = typeof Placements[number];
 
 export type FooterRender =
   | ((

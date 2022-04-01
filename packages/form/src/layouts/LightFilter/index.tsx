@@ -17,8 +17,7 @@ import omit from 'omit.js';
 import type { CommonFormProps, ProFormInstance } from '../../BaseForm';
 import { BaseForm } from '../../BaseForm';
 import './index.less';
-import type { LightFilterFooterRender } from '../../interface';
-import type { Placement } from 'packages/utils/src/components/FilterDropdown';
+import type { LightFilterFooterRender, Placement } from '../../interface';
 
 export type LightFilterProps<T> = {
   collapse?: boolean;
