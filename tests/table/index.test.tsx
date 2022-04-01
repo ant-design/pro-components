@@ -1087,7 +1087,7 @@ describe('BasicTable', () => {
 
     await waitForComponentToPaint(html, 600);
 
-    expect(fn).toBeCalledWith(undefined);
+    expect(fn).toBeCalledWith('');
 
     act(() => {
       html.find('.ant-pro-table-list-toolbar-search input').simulate('change', {

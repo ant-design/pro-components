@@ -43,6 +43,7 @@ import type {
   RequestData,
   TableRowSelection,
   UseFetchDataAction,
+  OptionSearchProps,
 } from './typing';
 import type { ActionType } from '.';
 import { columnSort } from './utils/columnSort';
@@ -428,6 +429,8 @@ const ProTable = <T extends Record<string, any>, U extends ParamsType, ValueType
       ? (propsPagination as TablePaginationConfig)
       : { defaultCurrent: 1, defaultPageSize: 20, pageSize: 20, current: 1 };
 
+  const counter = Container.useContainer();
+
   // ============================ useFetchData ============================
   const fetchData = useMemo(() => {
     if (!request) return undefined;
@@ -437,6 +440,7 @@ const ProTable = <T extends Record<string, any>, U extends ParamsType, ValueType
         ...formSearch,
         ...params,
       };
+
       // eslint-disable-next-line no-underscore-dangle
       delete (actionParams as any)._timestamp;
       const response = await request(actionParams as unknown as U, proSort, proFilter);
@@ -552,8 +556,6 @@ const ProTable = <T extends Record<string, any>, U extends ParamsType, ValueType
     return mergePagination<T>(propsPagination, pageConfig, intl);
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [propsPagination, action, intl]);
-
-  const counter = Container.useContainer();
 
   // 设置 name 到 store 中，里面用了 ref ，所以不用担心直接 set
   counter.setPrefixName(props.name);
@@ -689,6 +691,25 @@ const ProTable = <T extends Record<string, any>, U extends ParamsType, ValueType
   /** 是不是 LightFilter, LightFilter 有一些特殊的处理 */
   const isLightFilter: boolean = search !== false && search?.filterType === 'light';
 
+  const onFormSearchSubmit = <Y extends ParamsType>(values: Y): any => {
+    // 判断search.onSearch返回值决定是否更新formSearch
+    if (options && options.search) {
+      const { name = 'keyword' } = options.search === true ? {} : options.search;
+
+      /** 如果传入的 onSearch 返回值为 false，则不要把options.search.name对应的值set到formSearch */
+      const success = (options.search as OptionSearchProps)?.onSearch?.(counter.keyWords!);
+
+      if (success !== false) {
+        setFormSearch({
+          ...values,
+          [name]: counter.keyWords,
+        });
+        return;
+      }
+    }
+
+    setFormSearch(values);
+  };
   const searchNode =
     search === false && type !== 'form' ? null : (
       <FormRender<T, U>
@@ -697,7 +718,7 @@ const ProTable = <T extends Record<string, any>, U extends ParamsType, ValueType
         action={actionRef}
         columns={propsColumns}
         onFormSearchSubmit={(values) => {
-          setFormSearch(values);
+          onFormSearchSubmit(values);
         }}
         onReset={props.onReset}
         onSubmit={props.onSubmit}
