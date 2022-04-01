@@ -4,6 +4,7 @@ import ProForm, {
   ProFormList,
   ProFormDependency,
   ProFormGroup,
+  ProFormDatePicker,
 } from '@ant-design/pro-form';
 import { act } from 'react-dom/test-utils';
 import { mount } from 'enzyme';
@@ -960,6 +961,45 @@ describe('ProForm List', () => {
       await waitTime(1200);
       await waitForComponentToPaint(html);
       expect(html.find('.action-remove').length).toBe(0);
+    });
+  });
+
+  it('⛲ valid to set the format property in ProForm.List', async () => {
+    const onFinish = jest.fn();
+    const html = mount(
+      <ProForm
+        onFinish={onFinish}
+        initialValues={{
+          list: [
+            {
+              date: '2020',
+            },
+          ],
+        }}
+        submitter={{
+          submitButtonProps: {
+            id: 'submit',
+          },
+        }}
+      >
+        <ProFormList name="list">
+          <ProFormDatePicker
+            name="date"
+            fieldProps={{
+              format: 'YYYY',
+            }}
+          />
+        </ProFormList>
+      </ProForm>,
+    );
+    html.find('#submit').first().simulate('click');
+    await waitForComponentToPaint(html);
+    expect(onFinish).toBeCalledWith({
+      list: [
+        {
+          date: '2020',
+        },
+      ],
     });
   });
 });

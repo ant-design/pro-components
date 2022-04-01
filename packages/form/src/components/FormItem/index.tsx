@@ -244,7 +244,7 @@ const ProFormItem: React.FC<ProFormItemProps> = (props) => {
     // Field.type === 'ProField' 时 props 里面是有 valueType 的，所以要设置一下
     // 写一个 ts 比较麻烦，用 any 顶一下
     setFieldValueType(
-      [formListField.listName, name].flat(1).filter((itemName) => itemName !== undefined),
+      [formListField.listName, props.name].flat(1).filter((itemName) => itemName !== undefined),
       {
         valueType: valueType || 'text',
         dateFormat: dataFormat,
