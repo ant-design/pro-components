@@ -129,8 +129,9 @@ const CellRenderFromItem = <T,>(props: CellRenderFromItemProps<T>) => {
           );
 
           const generateFormItem = useCallback(() => {
-            const formItemProps =
-              getFieldPropsOrFormItemProps(columnProps?.formItemProps, ...needProps) || {};
+            const formItemProps = {
+              ...getFieldPropsOrFormItemProps(columnProps?.formItemProps, ...needProps),
+            };
 
             formItemProps.messageVariables = {
               label: (columnProps?.title as string) || '此项',
