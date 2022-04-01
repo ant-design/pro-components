@@ -16,6 +16,8 @@ const ProFormListContainer: React.FC<ProFormListItemProps> = (props) => {
     fields,
     actionGuard,
     max,
+    fieldExtraRender,
+    meta,
   } = props;
   const fieldKeyMap = useRef(new Map<string, string>());
   const [loading, setLoading] = useState(false);
@@ -102,6 +104,7 @@ const ProFormListContainer: React.FC<ProFormListItemProps> = (props) => {
           </ProFormListItem>
         );
       })}
+      {fieldExtraRender && fieldExtraRender(wrapperAction, meta)}
       {creatorButtonProps !== false && creatorButtonProps?.position !== 'top' && creatorButton}
     </div>
   );

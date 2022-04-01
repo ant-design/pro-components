@@ -143,7 +143,13 @@ export type ProFormListItemProps = ProFromListCommonProps & {
   };
   name: FormListProps['name'];
   originName: FormListProps['name'];
-
+  fieldExtraRender?: (
+    fieldAction: FormListOperation,
+    meta: {
+      errors?: React.ReactNode[];
+      warnings?: React.ReactNode[];
+    },
+  ) => React.ReactNode;
   /** 列表当前条目数量 */
   count: number;
 };
