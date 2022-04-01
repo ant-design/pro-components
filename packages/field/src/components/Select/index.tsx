@@ -25,7 +25,6 @@ import {
   useDebounceValue,
 } from '@ant-design/pro-utils';
 
-import useSWRImmutable from 'swr/immutable';
 import { useIntl } from '@ant-design/pro-provider';
 
 import LightSelect from './LightSelect';
@@ -34,6 +33,7 @@ import type { ProFieldStatusType } from '../Status';
 import TableStatus, { ProFieldBadgeColor } from '../Status';
 import type { ProFieldFC } from '../../index';
 import './index.less';
+import useSWR from 'swr';
 
 type SelectOptionType = Partial<RequestOptionsType>[];
 
@@ -266,8 +266,11 @@ export const useFieldFetchData = (
   props: FieldSelectProps & {
     proFieldKey?: React.Key;
     defaultKeyWords?: string;
+    cacheForSwr?: boolean;
   },
 ): [boolean, SelectOptionType, (keyWord?: string) => void, () => void] => {
+  const { cacheForSwr } = props;
+
   const [keyWords, setKeyWords] = useState<string | undefined>(props.defaultKeyWords);
   /** Key 是用来缓存请求的，如果不在是有问题 */
   const [cacheKey] = useState(() => {
@@ -319,11 +322,12 @@ export const useFieldFetchData = (
     data,
     mutate: setLocaleData,
     isValidating,
-  } = useSWRImmutable(
+  } = useSWR(
     () => {
       if (!props.request) {
         return null;
       }
+
       return swrKey;
     },
     (_, params, kw) =>
@@ -335,6 +339,9 @@ export const useFieldFetchData = (
         props,
       ),
     {
+      revalidateIfStale: !cacheForSwr,
+      revalidateOnFocus: !cacheForSwr,
+      revalidateOnReconnect: !cacheForSwr,
       shouldRetryOnError: false,
     },
   );
