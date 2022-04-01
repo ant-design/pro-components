@@ -3,6 +3,7 @@ import type { ProColumns } from '@ant-design/pro-table';
 import ProTable from '@ant-design/pro-table';
 import ProProvider from '@ant-design/pro-provider';
 import { Input, Space, Tag } from 'antd';
+import type { InputRef } from 'antd';
 
 const valueEnum = {
   0: 'close',
@@ -50,7 +51,7 @@ const TagList: React.FC<{
     }[],
   ) => void;
 }> = ({ value, onChange }) => {
-  const ref = useRef<Input | null>(null);
+  const ref = useRef<InputRef | null>(null);
   const [newTags, setNewTags] = useState<
     {
       key: string;

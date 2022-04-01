@@ -51,12 +51,15 @@ const InlineErrorFormItem: React.FC<{
         if (visibleParams === visible) return;
         setVisible(visibleParams);
       }}
+      getPopupContainer={popoverProps?.getPopupContainer}
+      getTooltipContainer={popoverProps?.getTooltipContainer}
       content={
         <div className={`${prefixCls}-form-item-with-help`}>
           {inputProps.validateStatus === 'validating' ? <LoadingOutlined /> : null}
           {errorList}
         </div>
       }
+      {...popoverProps}
     >
       <div>
         {input}
@@ -92,7 +95,7 @@ const InternalFormItem: React.FC<InternalProps> = ({
             errorList: JSX.Element;
             extra: JSX.Element;
           },
-        ) => <InlineErrorFormItem inputProps={inputProps} {...doms} />,
+        ) => <InlineErrorFormItem inputProps={inputProps} popoverProps={popoverProps} {...doms} />,
       }}
       {...rest}
       style={{

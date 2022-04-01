@@ -37,6 +37,7 @@ ProFormList 与 [Form.List](https://ant.design/components/form-cn/#Form.List) AP
   }}
 >
   <ProFormSelect
+    key="useMode"
     options={[
       {
         value: 'chapter',
@@ -64,6 +65,110 @@ ProFormList 与 [Form.List](https://ant.design/components/form-cn/#Form.List) AP
 | label | 与 From.Item 相同 | `ReactNode` | - |
 | name | list 在 form 中的值，必填项 | `NamePath` | - |
 | alwaysShowItemLabel | Item 中总是展示 label | `boolean` | - |
+| min | 最少条目，删除时如果当前数据条目少于该数则无法删除 | `number` | - |
+| max | 最多条目，新增或复制时如果当前数据条目多于该数则无法新增或复制 | `number` | - |
+
+### ProFormList RenderProps 模式
+
+ProFormList 支持传入一个方法来获取到当前行的信息和快捷操作，这对于复杂的联动来说是很方便的。
+
+```tsx | pure
+<ProFormList>
+  {(
+    // 当前行的基本信息 {name: number; key: number}
+    meta,
+    // 当前的行号
+    index,
+    /**
+     * Action
+     *
+     * @example
+     *   给第二行增加数据 action.add?.({},1);
+     *
+     * @example
+     *   删除第二行 action.remove?.(1);
+     *
+     * @example
+     *   从 1 移到 2: action.move?.(2,1);
+     *
+     * @example
+     *   获取当前行的数据: action.getCurrentRowData() -> {id:"xxx",name:'123',age:18}
+     *
+     * @example
+     *   设置当前行的数据: {id:"123",name:'123'} -> action.setCurrentRowData({name:'xxx'}) -> {id:"123",name:'xxx'}
+     *
+     * @example
+     *   清空当前行的数据：{id:"123",name:'123'} -> action.setCurrentRowData({name:undefined}) -> {id:"123"}
+     *
+     * @name 用于操作行的一些快捷方法
+     */
+    action,
+  ) => {
+    return (
+      <div key="row">
+        <ProFormText name="id" />
+        <ProFormText name="name" />
+      </div>
+    );
+  }}
+</ProFormList>
+```
+
+这三个参数的类型定义如下：
+
+```tsx | pure
+type RenderActionParams = {
+  /**
+   * @example
+   *   {name: number; key: number}
+   *
+   * @name 当前行的meta信息
+   */
+  meta: FormListFieldData;
+  /** @name 当前行的行号 */
+  index: number;
+  /**
+   * @example
+   *   给第二行增加数据 action.add?.({},1);
+   *
+   * @example
+   *   删除第二行 action.remove?.(1);
+   *
+   * @example
+   *   从 1 移到 2: action.move?.(2,1);
+   *
+   * @example
+   *   获取当前行的数据: action.getCurrentRowData() -> {id:"xxx",name:'123',age:18}
+   *
+   * @example
+   *   设置当前行的数据: {id:"123",name:'123'} -> action.setCurrentRowData({name:'xxx'}) -> {id:"123",name:'xxx'}
+   *
+   * @example
+   *   清空当前行的数据：{id:"123",name:'123'} -> action.setCurrentRowData({name:undefined}) -> {id:"123"}
+   *
+   * @name 用于操作行的一些快捷方法
+   */
+  action: FormListOperation & {
+    /**
+     * @example
+     *   getCurrentRowData -> {id:"xxx",name:'123',age:18}
+     *
+     * @name 获取当前行的数据
+     */
+    getCurrentRowData: () => any;
+    /**
+     * @example
+     *   {id:"123",name:'123'} -> setCurrentRowData({name:'xxx'}) -> {id:"123",name:'123'}
+     *
+     * @example
+     *   {id:"123",name:'123'} -> setCurrentRowData({name:undefined}) -> {id:"123"}
+     *
+     * @name 设置当前行的数据
+     */
+    setCurrentRowData: (data: any) => void;
+  };
+};
+```
 
 ## ProFormFieldSet
 
@@ -112,29 +217,26 @@ name 参数必须要是一个数组，如果是嵌套的结构可以这样配置
 
 ## 代码示例
 
-### 基本使用
+### 联动的 FormList
 
 <code src="./demos/base-use" heigh="174px" title="ProForm.List" />
 
-### 基本使用
+### 可调整的新建按钮位置
 
-<code src="./demos/list.tsx" heigh="174px" title="ProForm.List" />
-
-### 互相依赖表单
-
-<code src="./demos/dependency.tsx" heigh="174px" title="ProForm.List" />
-
-### 获取表单依赖值
-
-下面例子演示了不同情形下的依赖取值顺序：
-
-- `<ProFormDependency>`**不在**`<ProFormList>`中：根据`name`声明的依赖项，从全局取值（情形 1）
-- `<ProFormDependency>`**在**`<ProFormList>`中
-  - `<ProFormDependency>`的`ignoreFormListField`为`true`：根据`name`声明的依赖项，从全局取值（情形 2）
-  - `<ProFormDependency>`的`ignoreFormListField`为`false`：根据`name`声明的依赖项，从局部取值（情形 3）
-
-<code src="./demos/dependency2.tsx" heigh="1774px" title="ProForm.List" />
+<code src="./demos/list.tsx" heigh="174px" title="ProForm.List-position" />
 
 ### 表单互相嵌套
 
-<code src="./demos/nested-list.tsx" heigh="1774px" title="ProForm.List" />
+<code src="./demos/nested-list.tsx" heigh="174px" title="ProForm.List-ProFormList" />
+
+### 复杂联动
+
+<code src="./demos/dependency.tsx" heigh="174px" title="ProForm.List-dependency" />
+
+### 行为守卫
+
+<code src="./demos/pro-form-list.tsx" heigh="1774px" title="行为守卫"/>
+
+### 增删条目限制
+
+<code src="./demos/countLimit.tsx" heigh="1774px" title="增删条目限制"/>

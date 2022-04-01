@@ -1,4 +1,4 @@
-/** Uuid: 9e6989c0 title: 不同尺寸 */
+/** Title: 不同尺寸 */
 
 import React, { useState } from 'react';
 import { Radio } from 'antd';

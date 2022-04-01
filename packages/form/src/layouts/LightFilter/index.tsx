@@ -14,9 +14,8 @@ import { FilterDropdown, FieldLabel } from '@ant-design/pro-utils';
 import { useIntl } from '@ant-design/pro-provider';
 import { FilterOutlined } from '@ant-design/icons';
 import omit from 'omit.js';
-
 import type { CommonFormProps, ProFormInstance } from '../../BaseForm';
-import BaseForm from '../../BaseForm';
+import { BaseForm } from '../../BaseForm';
 import './index.less';
 import type { LightFilterFooterRender } from '../../interface';
 
@@ -260,4 +259,4 @@ function LightFilter<T = Record<string, any>>(props: LightFilterProps<T>) {
   );
 }
 
-export default LightFilter;
+export { LightFilter };

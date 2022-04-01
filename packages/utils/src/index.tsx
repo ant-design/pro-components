@@ -19,7 +19,7 @@ import type {
   UseEditableType,
   UseEditableUtilType,
 } from './useEditableArray';
-import useEditableArray from './useEditableArray';
+import useEditableArray, { editableRowByKey, recordKeyToString } from './useEditableArray';
 import type { UseEditableMapType, UseEditableMapUtilType } from './useEditableMap';
 import useEditableMap from './useEditableMap';
 import useMountMergeState from './useMountMergeState';
@@ -27,17 +27,19 @@ import useMountMergeState from './useMountMergeState';
 /** Hooks */
 import useDebounceFn from './hooks/useDebounceFn';
 import usePrevious from './hooks/usePrevious';
-import conversionMomentValue, { dateFormatterMap } from './conversionMomentValue';
+import conversionMomentValue, { dateFormatterMap, convertMoment } from './conversionMomentValue';
 import transformKeySubmitValue from './transformKeySubmitValue';
 import parseValueToMoment from './parseValueToMoment';
 import useDeepCompareEffect, { useDeepCompareEffectDebounce } from './hooks/useDeepCompareEffect';
 import useDocumentTitle from './hooks/useDocumentTitle';
 import type { ProRequestData } from './hooks/useFetchData';
 import useFetchData from './hooks/useFetchData';
+import useLatest from './hooks/useLatest';
 
 /** Type */
 import type {
   ProSchema,
+  ProFieldValueTypeWithFieldProps,
   ProSchemaValueEnumMap,
   ProSchemaValueEnumObj,
   ProSchemaComponentTypes,
@@ -52,6 +54,7 @@ import type {
   RequestOptionsType,
   ProFieldProps,
   ProSchemaValueType,
+  SearchConvertKeyFn,
 } from './typing';
 import getFieldPropsOrFormItemProps from './getFieldPropsOrFormItemProps';
 import DropdownFooter from './components/DropdownFooter';
@@ -64,16 +67,22 @@ import type {
 } from '@ant-design/pro-provider';
 import ErrorBoundary from './components/ErrorBoundary';
 import dateArrayFormatter from './dateArrayFormatter';
+import type { ProFormInstanceType } from './components/ProFormContext';
 import ProFormContext from './components/ProFormContext';
 import isDeepEqualReact from './isDeepEqualReact';
 import { arrayMoveImmutable } from './array-move';
 import { merge } from './merge';
 import { genCopyable } from './genCopyable';
 import { useRefFunction } from './hooks/useRefFunction';
+import { nanoid } from './nanoid';
+import useDebounceValue from './hooks/useDebounceValue';
 
 export type {
+  SearchConvertKeyFn,
   RequestOptionsType,
   ProSchema,
+  ProFormInstanceType,
+  ProFieldValueTypeWithFieldProps,
   ProSchemaValueType,
   ProCoreActionType,
   ProSchemaComponentTypes,
@@ -115,6 +124,7 @@ export {
   transformKeySubmitValue,
   conversionMomentValue as conversionSubmitValue,
   conversionMomentValue,
+  convertMoment,
   parseValueToMoment,
   genCopyable,
   useDocumentTitle,
@@ -132,6 +142,9 @@ export {
   runFunction,
   getFieldPropsOrFormItemProps,
   dateArrayFormatter,
+  nanoid,
+  editableRowByKey,
+  recordKeyToString,
   // hooks
   useEditableArray,
   useEditableMap,
@@ -142,4 +155,6 @@ export {
   useMountMergeState,
   useFetchData,
   useDeepCompareEffectDebounce,
+  useLatest,
+  useDebounceValue,
 };

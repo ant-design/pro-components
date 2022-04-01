@@ -11,7 +11,7 @@ import { isBrowser, useMountMergeState } from '@ant-design/pro-utils';
 import useMergedState from 'rc-util/lib/hooks/useMergedState';
 
 import type { CommonFormProps } from '../../BaseForm';
-import BaseForm from '../../BaseForm';
+import { BaseForm } from '../../BaseForm';
 import type { ActionsProps } from './Actions';
 import Actions from './Actions';
 import classNames from 'classnames';
@@ -61,8 +61,13 @@ const getSpanConfig = (
       layout,
     };
   }
+
   const spanConfig = span
-    ? Object.keys(span).map((key) => [CONFIG_SPAN_BREAKPOINTS[key], 24 / span[key], 'horizontal'])
+    ? ['xs', 'sm', 'md', 'lg', 'xl', 'xxl'].map((key) => [
+        CONFIG_SPAN_BREAKPOINTS[key],
+        24 / span[key],
+        'horizontal',
+      ])
     : BREAKPOINTS[layout || 'default'];
 
   const breakPoint = (spanConfig || BREAKPOINTS.default).find(
@@ -209,22 +214,35 @@ const QueryFilterContent: React.FC<{
   // totalSpan 统计控件占的位置，计算 offset 保证查询按钮在最后一列
   let totalSpan = 0;
   let itemLength = 0;
+  //首个表单项是否占满第一行
+  let firstRowFull = false;
+  // totalSize 统计控件占的份数
+  let totalSize = 0;
 
   // for split compute
   let currentSpan = 0;
   const doms = flatMapItems(items, props.ignoreRules)
     .map((item, index): { itemDom: React.ReactNode; hidden: boolean; colSpan: number } => {
       // 如果 formItem 自己配置了 hidden，默认使用它自己的
-      const colSize = React.isValidElement<any>(item) ? item?.props?.colSize : 1;
+      const colSize = React.isValidElement<any>(item) ? item?.props?.colSize ?? 1 : 1;
       const colSpan = Math.min(spanSize.span * (colSize || 1), 24);
       // 计算总的 totalSpan 长度
       totalSpan += colSpan;
+      // 计算总的 colSize 长度
+      totalSize += colSize;
+
+      if (index === 0) {
+        firstRowFull =
+          colSpan === 24 && !(item as ReactElement<{ hidden: boolean }>)?.props?.hidden;
+      }
+
       const hidden: boolean =
         (item as ReactElement<{ hidden: boolean }>)?.props?.hidden ||
         // 如果收起了
         (collapsed &&
-          // 如果 超过显示长度 且 总长度超过了 24
-          index >= showLength - 1 &&
+          (firstRowFull ||
+            // 如果 超过显示长度 且 总长度超过了 24
+            totalSize >= showLength - 1) &&
           !!index &&
           totalSpan >= 24);
 
@@ -293,7 +311,7 @@ const QueryFilterContent: React.FC<{
 
   /** 是否需要展示 collapseRender */
   const needCollapseRender = useMemo(() => {
-    if (totalSpan < 24 || itemLength < showLength) {
+    if (totalSpan < 24 || totalSize < showLength) {
       return false;
     }
     return true;
@@ -443,4 +461,4 @@ function QueryFilter<T = Record<string, any>>(props: QueryFilterProps<T>) {
   );
 }
 
-export default QueryFilter;
+export { QueryFilter };

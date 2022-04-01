@@ -53,6 +53,7 @@ export type ProDescriptionsItemProps<T = Record<string, any>, ValueType = 'text'
     mode?: ProFieldFCMode;
     children?: React.ReactNode;
     order?: number;
+    index?: number;
   },
   ProSchemaComponentTypes,
   ValueType
@@ -171,7 +172,6 @@ export const FieldRender: React.FC<
       rowKey: dataIndex,
       isEditable: false,
     });
-
     return <ProFormField name={dataIndex} {...fieldConfig} fieldProps={fieldProps} />;
   }
 
@@ -246,7 +246,7 @@ export const FieldRender: React.FC<
 };
 
 const schemaToDescriptionsItem = (
-  items: ProDescriptionsItemProps<any>[],
+  items: ProDescriptionsItemProps<any, any>[],
   entity: any,
   action: ProCoreActionType<any>,
   editableUtils?: UseEditableMapUtilType,
@@ -279,8 +279,6 @@ const schemaToDescriptionsItem = (
           ? restItem.title(item, 'descriptions', restItem.title)
           : restItem.title;
 
-      const titleDom: React.ReactNode = genCopyable(title, item, text);
-
       //  dataIndex 无所谓是否存在
       // 有些时候不需要 dataIndex 可以直接 render
       const valueType =
@@ -299,14 +297,18 @@ const schemaToDescriptionsItem = (
         editable?.(text, entity, index) !== false;
 
       const Component = showEditIcon ? Space : React.Fragment;
+
+      const contentDom: React.ReactNode =
+        fieldMode === 'edit' ? text : genCopyable(text, item, text);
+
       const field = (
         <Descriptions.Item
           {...restItem}
           key={restItem.label?.toString() || index}
           label={
-            (titleDom || restItem.label || restItem.tooltip || restItem.tip) && (
+            (title || restItem.label || restItem.tooltip || restItem.tip) && (
               <LabelIconTip
-                label={titleDom || restItem.label}
+                label={title || restItem.label}
                 tooltip={restItem.tooltip || restItem.tip}
                 ellipsis={item.ellipsis}
               />
@@ -318,7 +320,7 @@ const schemaToDescriptionsItem = (
               {...item}
               dataIndex={item.dataIndex || index}
               mode={fieldMode}
-              text={text}
+              text={contentDom}
               valueType={valueType}
               entity={entity}
               index={index}
@@ -418,28 +420,35 @@ const ProDescriptions = <RecordType extends Record<string, any>, ValueType = 'te
     return <ProSkeleton type="descriptions" list={false} pageHeader={false} />;
   }
 
-  const getColumns = () => {
+  const getColumns = (): ProDescriptionsItemProps<RecordType, ValueType>[] => {
     // 因为 Descriptions 只是个语法糖，children 是不会执行的，所以需要这里处理一下
-    const childrenColumns = toArray(props.children).map((item) => {
-      const {
-        valueEnum,
-        valueType,
-        dataIndex,
-        request: itemRequest,
-      } = item.props as ProDescriptionsItemProps;
+    const childrenColumns = toArray(props.children)
+      .filter(Boolean)
+      .map((item) => {
+        if (!React.isValidElement(item)) {
+          return item;
+        }
+        const {
+          valueEnum,
+          valueType,
+          dataIndex,
+          request: itemRequest,
+        } = item?.props as ProDescriptionsItemProps;
 
-      if (!valueType && !valueEnum && !dataIndex && !itemRequest) {
-        return item;
-      }
+        if (!valueType && !valueEnum && !dataIndex && !itemRequest) {
+          return item;
+        }
 
-      return {
-        ...item.props,
-        entity: dataSource,
-      };
-    });
+        return {
+          ...(item?.props as ProDescriptionsItemProps),
+          entity: dataSource,
+        };
+      }) as ProDescriptionsItemProps<RecordType, ValueType>[];
+
     return [...(columns || []), ...childrenColumns]
       .filter((item) => {
-        if (['index', 'indexBorder'].includes(item?.valueType)) {
+        if (!item) return false;
+        if (item?.valueType && ['index', 'indexBorder'].includes(item?.valueType as string)) {
           return false;
         }
         return !item?.hideInDescriptions;

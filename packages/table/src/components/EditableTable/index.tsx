@@ -1,15 +1,67 @@
 ﻿import React, { useContext, useEffect, useImperativeHandle, useMemo, useRef } from 'react';
 import type { ParamsType } from '@ant-design/pro-provider';
 import type { ButtonProps, FormItemProps } from 'antd';
+import type { NamePath } from 'antd/lib/form/interface';
 import { Button, Form } from 'antd';
 import useMergedState from 'rc-util/lib/hooks/useMergedState';
 import { PlusOutlined } from '@ant-design/icons';
-import { runFunction, useRefFunction } from '@ant-design/pro-utils';
+import { isDeepEqualReact, runFunction, usePrevious, useRefFunction } from '@ant-design/pro-utils';
 import { Field } from 'rc-field-form';
 import ProTable from '../../Table';
 import type { ProTableProps, ActionType } from '../../typing';
 import type { GetRowKey } from 'antd/lib/table/interface';
 import type { ProFormInstance } from '@ant-design/pro-form';
+import { ProFormDependency } from '@ant-design/pro-form';
+import get from 'rc-util/lib/utils/get';
+import set from 'rc-util/lib/utils/set';
+
+export type EditableFormInstance<T = any> = ProFormInstance<T> & {
+  /**
+   * 获取一行数据的
+   *
+   * @example
+   *   getRowData(1) 可以传入第几行的数据
+   *
+   * @example
+   *   getRowData("id") 也可以传入 rowKey，根据你列的唯一key 来获得。
+   *
+   * @param rowIndex
+   * @returns T | undefined
+   */
+  getRowData?: (rowIndex: string | number) => T | undefined;
+  /**
+   * 获取整个 table 的数据
+   *
+   * @returns T[] | undefined
+   */
+  getRowsData?: () => T[] | undefined;
+  /**
+   * 只会做最第一层对象的 merge 哦。 {title:"old", decs:{name:"old",key:"old"},id:"old"} -> set
+   * {decs:{name:"new"}} -> {title:"old", decs:{name:"new"},id:"old"} -> set {decs:{name:"old"}}
+   *
+   * 设置一行的数据，会将数据进行简单的 merge
+   *
+   * {title:"old", decs:"old",id:"old"} -> set {title:"new"} -> {title:"new", decs:"old",id:"old"}
+   *
+   * @example
+   *   setRowData(1, { title:"new" })  可以传入修改第几行
+   *
+   *   根据行 id 设置
+   *
+   * @example
+   *   setRowData("id", { title:"new" })  也可以传入 rowKey，根据你列的唯一 key 来设置。
+   *
+   *   清空原有数据
+   *
+   * @example
+   *   setRowData(1, { title: undefined });
+   *
+   * @param rowIndex
+   * @param data
+   * @returns Void 根据行号设置
+   */
+  setRowData?: (rowIndex: string | number, data: Partial<T>) => void;
+};
 
 export type RecordCreatorProps<DataSourceType> = {
   record: DataSourceType | ((index: number, dataSource: DataSourceType[]) => DataSourceType);
@@ -34,6 +86,9 @@ export type EditableProTableProps<T, U extends ParamsType, ValueType = 'text'> =
   onChange?: (value: T[]) => void;
   /** @name 原先的 table OnChange */
   onTableChange?: ProTableProps<T, U>['onChange'];
+
+  /** @name 可编辑表格，列配置的form，可以操作表格里面的数据 */
+  editableFormRef?: React.Ref<EditableFormInstance<T> | undefined>;
 
   /** @name 新建按钮的设置 */
   recordCreatorProps?:
@@ -95,8 +150,12 @@ function EditableTable<
     rowKey,
     controlled,
     defaultValue,
+    onChange,
+    editableFormRef,
     ...rest
   } = props;
+
+  const preData = usePrevious(props.value);
   const actionRef = useRef<ActionType>();
   const formRef = useRef<ProFormInstance>();
 
@@ -109,11 +168,101 @@ function EditableTable<
   });
 
   const getRowKey = React.useMemo<GetRowKey<DataType>>((): GetRowKey<DataType> => {
-    if (typeof rowKey === 'function' && rowKey) {
+    if (typeof rowKey === 'function') {
       return rowKey;
     }
     return (record: DataType, index?: number) => (record as any)[rowKey as string] || index;
   }, [rowKey]);
+
+  /**
+   * 根据不同的情况返回不同的 rowKey
+   *
+   * @param finlayRowKey
+   * @returns String | number
+   */
+  const coverRowKey = (finlayRowKey: number | string): string | number => {
+    /** 如果是 prop.name 的模式，就需要吧行号转化成具体的rowKey。 */
+    if (typeof finlayRowKey === 'number' && !props.name) {
+      if (finlayRowKey >= value.length) return finlayRowKey;
+      const rowData = value?.at(finlayRowKey);
+      return getRowKey?.(rowData!, finlayRowKey);
+    }
+
+    /** 如果是 prop.name 的模式，就直接返回行号 */
+    if ((typeof finlayRowKey === 'string' || finlayRowKey >= value.length) && props.name) {
+      const rowIndex = value.findIndex((item, index) => {
+        return getRowKey?.(item, index)?.toString() === finlayRowKey?.toString();
+      });
+      return rowIndex;
+    }
+    return finlayRowKey;
+  };
+
+  // 设置 editableFormRef
+  useImperativeHandle(editableFormRef, () => {
+    /**
+     * 获取一行数据的
+     *
+     * @param rowIndex
+     * @returns T | undefined
+     */
+    const getRowData = (rowIndex: string | number) => {
+      if (rowIndex == undefined) {
+        throw new Error('rowIndex is required');
+      }
+
+      const finlayRowKey = coverRowKey(rowIndex);
+
+      const rowKeyName = [props.name, finlayRowKey?.toString() ?? '']
+        .flat(1)
+        .filter(Boolean) as NamePath;
+      return formRef.current?.getFieldValue(rowKeyName) as DataType;
+    };
+    /**
+     * 获取整个 table 的数据
+     *
+     * @returns T[] | undefined
+     */
+    const getRowsData = () => {
+      const rowKeyName = [props.name].flat(1).filter(Boolean) as NamePath;
+      if (Array.isArray(rowKeyName) && rowKeyName.length === 0) {
+        const rowData = formRef.current?.getFieldsValue();
+        if (Array.isArray(rowData)) return rowData;
+        return Object.keys(rowData).map((key) => {
+          return rowData[key];
+        });
+      }
+      return formRef.current?.getFieldValue(rowKeyName) as DataType[];
+    };
+    return {
+      ...formRef.current,
+      getRowData,
+      getRowsData,
+      /**
+       * 设置一行的数据，会将数据进行简单的 merge
+       *
+       * @param rowIndex
+       * @param data
+       * @returns Void
+       */
+      setRowData: (rowIndex, data) => {
+        if (rowIndex == undefined) {
+          throw new Error('rowIndex is required');
+        }
+        const finlayRowKey = coverRowKey(rowIndex);
+        const rowKeyName = [props.name, finlayRowKey?.toString() ?? '']
+          .flat(1)
+          .filter(Boolean) as string[];
+        const oldTableDate = formRef.current?.getFieldsValue?.() || {};
+        const updateValues = set(oldTableDate, rowKeyName, {
+          // 只是简单的覆盖，如果很复杂的话，需要自己处理
+          ...getRowData(rowIndex),
+          ...(data || {}),
+        });
+        return formRef.current?.setFieldsValue(updateValues);
+      },
+    } as EditableFormInstance<DataType>;
+  });
 
   useEffect(() => {
     if (!props.controlled) return;
@@ -125,8 +274,21 @@ function EditableTable<
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [value, props.controlled]);
 
-  const { record, position, creatorButtonText, newRecordType, parentKey, ...restButtonProps } =
-    recordCreatorProps || {};
+  useEffect(() => {
+    if (props.name) {
+      formRef.current = props.editable?.form;
+    }
+  }, [props.editable?.form, props.name]);
+
+  const {
+    record,
+    position,
+    creatorButtonText,
+    newRecordType,
+    parentKey,
+    style,
+    ...restButtonProps
+  } = recordCreatorProps || {};
   const isTop = position === 'top';
   const creatorButtonDom = useMemo(() => {
     if (maxLength && maxLength <= value?.length) {
@@ -146,6 +308,7 @@ function EditableTable<
               display: 'block',
               margin: '10px 0',
               width: '100%',
+              ...style,
             }}
             icon={<PlusOutlined />}
             {...restButtonProps}
@@ -231,30 +394,47 @@ function EditableTable<
   }
 
   return (
-    <EditableTableActionContext.Provider value={actionRef}>
-      <ProTable<DataType, Params, ValueType>
-        search={false}
-        options={false}
-        pagination={false}
-        rowKey={rowKey}
-        revalidateOnFocus={false}
-        {...rest}
-        {...buttonRenderProps}
-        tableLayout="fixed"
-        actionRef={actionRef}
-        onChange={onTableChange}
-        dataSource={value}
-        editable={{
-          ...editableProps,
-          formProps: {
-            formRef,
-          },
-        }}
-        onDataSourceChange={(dataSource: DataType[]) => {
-          setValue(dataSource);
-        }}
-      />
-    </EditableTableActionContext.Provider>
+    <>
+      <EditableTableActionContext.Provider value={actionRef}>
+        <ProTable<DataType, Params, ValueType>
+          search={false}
+          options={false}
+          pagination={false}
+          rowKey={rowKey}
+          revalidateOnFocus={false}
+          {...rest}
+          {...buttonRenderProps}
+          tableLayout="fixed"
+          actionRef={actionRef}
+          onChange={onTableChange}
+          editable={{
+            ...editableProps,
+            formProps: {
+              formRef,
+              ...editableProps.formProps,
+            },
+          }}
+          dataSource={value}
+          onDataSourceChange={(dataSource: DataType[]) => {
+            setValue(dataSource);
+          }}
+        />
+      </EditableTableActionContext.Provider>
+      {/* 模拟 onValuesChange */}
+      {props.name ? (
+        <ProFormDependency name={[props.name!]}>
+          {(changeValue) => {
+            const list = get(changeValue, [props.name].flat(1) as string[]) as any[];
+            const changeItem = list?.find((item, index) => {
+              return !isDeepEqualReact(item, preData?.[index]);
+            });
+            if (!changeItem) return null;
+            props?.editable?.onValuesChange?.(changeItem, list);
+            return null;
+          }}
+        </ProFormDependency>
+      ) : null}
+    </>
   );
 }
 
@@ -263,29 +443,31 @@ function FieldEditableTable<
   Params extends ParamsType = ParamsType,
   ValueType = 'text',
 >(props: EditableProTableProps<DataType, Params, ValueType>) {
-  const { name, formItemProps } = props;
-  if (!name) return <EditableTable<DataType, Params, ValueType> {...props} />;
+  if (!props.name) return <EditableTable<DataType, Params, ValueType> {...props} />;
   return (
     <Form.Item
       style={{
         maxWidth: '100%',
       }}
-      {...formItemProps}
+      {...props?.formItemProps}
       name={props.name}
     >
-      <>
-        <Field shouldUpdate={true} name={props.name} isList>
-          {(control) => {
-            return (
-              <EditableTable<DataType, Params, ValueType>
-                {...props}
-                value={control.value}
-                onChange={control.onChange}
-              />
-            );
-          }}
-        </Field>
-      </>
+      <Field shouldUpdate={true} name={props.name} isList>
+        {(control, _, form) => {
+          if (control.value === undefined || !Array.isArray(control.value)) return null;
+          return (
+            <EditableTable<DataType, Params, ValueType>
+              {...props}
+              editable={{
+                ...props.editable,
+                form: form as ProFormInstance,
+              }}
+              value={control.value}
+              onChange={control.onChange}
+            />
+          );
+        }}
+      </Field>
     </Form.Item>
   );
 }

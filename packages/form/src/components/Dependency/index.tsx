@@ -1,15 +1,16 @@
 import { Form } from 'antd';
 import type { NamePath } from 'antd/lib/form/interface';
 import type { FormInstance, FormItemProps } from 'antd';
+import set from 'rc-util/lib/utils/set';
 import get from 'rc-util/lib/utils/get';
 import { useContext, useMemo } from 'react';
-import set from 'rc-util/lib/utils/set';
 import { FormListContext } from '../List';
-import { ProFormContext, merge } from '@ant-design/pro-utils';
+import { ProFormContext, isDeepEqualReact, merge } from '@ant-design/pro-utils';
+import type { ProFormInstance } from '../../BaseForm';
 
 declare type RenderChildren<Values = any> = (
   values: Record<string, any>,
-  form: FormInstance<Values>,
+  form: ProFormInstance<Values>,
 ) => React.ReactNode;
 
 export type ProFormDependencyProps = Omit<
@@ -22,76 +23,72 @@ export type ProFormDependencyProps = Omit<
 };
 
 const ProFormDependency: React.FC<ProFormDependencyProps> = ({
-  name,
+  name: names,
   children,
   ignoreFormListField,
   ...rest
 }) => {
   const context = useContext(ProFormContext);
-  // ProFromList 的 filed，里面有name和key
+  // ProFromList 的 field，里面有name和key
   const formListField = useContext(FormListContext);
 
-  const names = useMemo(() => {
-    if (formListField.name === undefined) {
-      return name;
-    }
-    return name.map((itemName: NamePath) => {
-      return [formListField.listName, itemName].flat(1) as string[];
+  // flatten each name into an (string | number)[]
+  const flattenNames = useMemo(() => {
+    return names.map((itemName: NamePath) => {
+      const name = [itemName];
+
+      // ignoreFormListField为 true 或 formListField.name === undefined 时
+      // 应从全局取值，要将 names 中各项的路径前缀(formListField.listName)忽略
+      if (
+        !ignoreFormListField &&
+        formListField.name !== undefined &&
+        formListField.listName?.length
+      ) {
+        name.unshift(formListField.listName);
+      }
+
+      return name.flat(1);
     });
-  }, [formListField.listName, formListField.name, name]);
+  }, [formListField.listName, formListField.name, ignoreFormListField, names]);
 
   return (
     <Form.Item
       {...rest}
       noStyle
-      shouldUpdate={(prevValues, nextValues) => {
-        let finalNames = names;
-
-        // ignoreFormListField 为 true 时，应从全局取值，要将 names 中各项的路径前缀(formListField.listName)剥离掉
-        if (
-          ignoreFormListField &&
-          Array.isArray(formListField.listName) &&
-          formListField.listName.length > 0
-        ) {
-          finalNames = names.map((nameItem) =>
-            Array.isArray(nameItem) ? nameItem.slice(formListField.listName.length) : nameItem,
-          );
+      shouldUpdate={(prevValues, nextValues, info) => {
+        if (typeof rest.shouldUpdate === 'boolean') {
+          return rest.shouldUpdate;
+        } else if (typeof rest.shouldUpdate === 'function') {
+          return rest.shouldUpdate?.(prevValues, nextValues, info);
         }
 
-        return finalNames.some((nameItem) => {
-          const arrayName = Array.isArray(nameItem) ? nameItem : [nameItem];
-          return get(prevValues, arrayName) !== get(nextValues, arrayName);
+        return flattenNames.some((name) => {
+          return !isDeepEqualReact(get(prevValues, name), get(nextValues, name));
         });
       }}
     >
       {(form: FormInstance) => {
-        // 不在 FormList 中时，返回声明的全局依赖值
-        if (formListField.name === undefined) {
-          const values = names.reduce((pre, next) => {
-            const value = context?.getFieldsFormatValue?.([next]);
-            const noFormatValue = form.getFieldsValue([next]);
-            return merge({}, pre, noFormatValue, value);
-          }, {});
-          return children?.({ ...values }, form as FormInstance<any>);
-        }
-        // 在 FormList 中时
-        // ignoreFormListField === true 时取全局依赖值
-        if (ignoreFormListField) {
-          const nameValues = name.reduce((pre, namePath) => {
-            const finalNamePath = [namePath].flat(1);
-            const fieldValue = form.getFieldValue(finalNamePath);
-            return set(pre, [namePath].flat(1), fieldValue, false);
-          }, {});
-          return children?.({ ...nameValues }, form as FormInstance<any>);
-        }
+        let values: Record<string, any> = {};
+        for (let i = 0; i < names.length; i++) {
+          const pathToGet = flattenNames[i],
+            pathToSet = names[i];
 
-        // ignoreFormListField === false 时，取局部依赖值
-        const nameValues = name.reduce((pre, namePath) => {
-          const finalNamePath = [formListField.listName, namePath].flat(1);
-          const fieldValue = form.getFieldValue(finalNamePath);
-          return set(pre, [namePath].flat(1), fieldValue, false);
-        }, {});
-        return children?.({ ...nameValues }, form as FormInstance<any>);
+          const finalName = [pathToSet].flat(1);
+          let value = context.getFieldFormatValueObject?.(pathToGet);
+          if (value && Object.keys(value).length) {
+            // transform 会生成多余的value，这里需要注入一下
+            values = merge({}, values, value);
+            if (get(value, pathToGet)) {
+              values = set(values, finalName, get(value, pathToGet), false);
+            }
+          } else {
+            value = form.getFieldValue?.(pathToGet);
+            if (typeof value !== 'undefined') {
+              values = set(values, finalName, value, false);
+            }
+          }
+        }
+        return children?.(values, { ...form, ...context });
       }}
     </Form.Item>
   );

@@ -73,7 +73,7 @@ export type PageContainerProps = {
    *
    * @name 固钉的配置
    */
-  affixProps?: AffixProps;
+  affixProps?: Omit<AffixProps, 'children'>;
 
   /**
    * 只加载内容区域
@@ -297,10 +297,15 @@ const PageContainer: React.FC<PageContainerProps> = (props) => {
       </>
     ) : null;
   }, [children, prefixedClassName, value.hasFooterToolbar]);
+
+  const memoBreadcrumbRender = useMemo(() => {
+    if (breadcrumbRender == false) return false;
+    return breadcrumbRender || restProps?.header?.breadcrumbRender;
+  }, [breadcrumbRender, restProps?.header?.breadcrumbRender]);
   const pageHeaderDom = (
     <ProPageHeader
       {...restProps}
-      breadcrumbRender={breadcrumbRender || restProps?.header?.breadcrumbRender}
+      breadcrumbRender={memoBreadcrumbRender}
       ghost={ghost}
       prefixCls={undefined}
       prefixedClassName={prefixedClassName}
@@ -324,7 +329,11 @@ const PageContainer: React.FC<PageContainerProps> = (props) => {
     // 只要loadingDom非空我们就渲染loadingDom,否则渲染内容
     const dom = loadingDom || content;
     if (props.waterMarkProps || value.waterMarkProps) {
-      return <WaterMark {...(props.waterMarkProps || value.waterMarkProps)}>{dom}</WaterMark>;
+      const waterMarkProps = {
+        ...value.waterMarkProps,
+        ...props.waterMarkProps,
+      };
+      return <WaterMark {...waterMarkProps}>{dom}</WaterMark>;
     }
     return dom;
   }, [props.waterMarkProps, value.waterMarkProps, loadingDom, content]);

@@ -1,5 +1,5 @@
 import { mount } from 'enzyme';
-import React from 'react';
+import React, { useState } from 'react';
 import { act } from 'react-dom/test-utils';
 import ProTable from '@ant-design/pro-table';
 import { request } from './demo';
@@ -258,5 +258,42 @@ describe('BasicTable pagination', () => {
     });
     await waitForComponentToPaint(html, 200);
     expect(fn).toBeCalledTimes(1);
+  });
+
+  it('🎏 pagination was correct in controlled mode && params was in deep comparison', async () => {
+    const currentFn = jest.fn();
+    const html = mount(
+      <ProTable
+        size="small"
+        columns={[
+          {
+            dataIndex: 'money',
+            valueType: 'money',
+          },
+        ]}
+        params={{}}
+        pagination={{
+          pageSize: 1,
+          onChange: (page) => {
+            currentFn(page);
+          },
+        }}
+        request={() => {
+          return request({
+            pageSize: 10,
+            current: 1,
+          });
+        }}
+      />,
+    );
+    await waitForComponentToPaint(html, 1200);
+    act(() => {
+      html.find('li.ant-pagination-item.ant-pagination-item-2').simulate('click');
+      html.setProps({
+        params: {},
+      });
+    });
+    await waitForComponentToPaint(html, 200);
+    expect(currentFn).toBeCalledWith(2);
   });
 });

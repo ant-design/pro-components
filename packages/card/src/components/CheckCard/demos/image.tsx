@@ -1,4 +1,4 @@
-/** Uuid: b7df90e4 title: 纯图片选项 */
+/** Title: 纯图片选项 */
 
 import React from 'react';
 import { CheckCard } from '@ant-design/pro-card';

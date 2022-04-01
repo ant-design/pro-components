@@ -19,7 +19,7 @@ nav:
 
 ### 与 FormItem 配合
 
-<code src="./demos/form-item.tsx" background="#f5f5f5" height="420px" title="可编辑表格" />
+<code src="./demos/form-item.tsx" background="#f5f5f5" height="420px" title="与 FormItem 配合" />
 
 ### 与编辑表格外的内容联动
 
@@ -27,7 +27,7 @@ nav:
 
 ### 有子列的表格增加
 
-<code src="./demos/children.tsx" background="#f5f5f5" height="420px" title="可展开表格" />
+<code src="./demos/children.tsx" background="#f5f5f5" height="420px" title="有子列的表格增加" />
 
 ### 自定义可编辑表格
 
@@ -47,8 +47,53 @@ nav:
 | `maxLength` | 最大的行数，到达最大行数新建按钮会自动消失 | number | - |
 | `editable` | 可编辑表格的相关配置 | [TableRowEditable<T>](#editable-编辑行配置) | - |
 | `controlled` | 是否受控, 如果受控每次编辑都会触发 onChange，并且会修改 dataSource | `boolean` | false |
+| `editableFormRef` | table 所有的 form，带了一些表格特有的操作 | `React.Ref<EditableFormInstance<T>` | `undefined` |
 
 > 别的 API 与 ProTable 相同。
+
+### EditableFormInstance 表格列表单操作
+
+相比于 ProForm 的表单，可编辑表格增加了以下的三个方法。
+
+```tsx | pure
+  /**
+   * 获取一行数据的
+   * @param rowIndex
+   * @returns T | undefined
+   *
+   * @example getRowData(1)  可以传入第几行的数据
+   * @example getRowData("id")  也可以传入 rowKey，根据你列的唯一key 来获得。
+   */
+  getRowData?: (rowIndex: string | number) => T | undefined;
+  /**
+   * 获取整个 table 的数据
+   * @returns T[] | undefined
+   */
+  getRowsData?: () => T[] | undefined;
+  /**
+   * 设置一行的数据，会将数据进行简单的 merge
+   *
+   * {title:"old", decs:"old",id:"old"} -> set {title:"new"} -> {title:"new", decs:"old",id:"old"}
+   *
+   * @description 只会做最第一层对象的 merge 哦。
+   * {title:"old", decs:{name:"old",key:"old"},id:"old"} -> set {decs:{name:"new"}} -> {title:"old", decs:{name:"new"},id:"old"} -> set {decs:{name:"old"}}
+   *
+   * @param rowIndex
+   * @param data
+   * @returns void
+   *
+   * 根据行号设置
+   * @example setRowData(1, { title:"new" })  可以传入修改第几行
+   *
+   * 根据行 id 设置
+   * @example setRowData("id", { title:"new" })  也可以传入 rowKey，根据你列的唯一 key 来设置。
+   *
+   * 清空原有数据
+   * @example setRowData(1, { title:undefined })
+   *
+   */
+  setRowData?: (rowIndex: string | number, data: Partial<T>) => void;
+```
 
 ### editable 编辑行配置
 
@@ -74,14 +119,14 @@ nav:
 
 为了使用，我们预设了一个新建的功能，大多数情况下已经可以满足大部分新建的需求，但是很多时候需求总是千奇百怪。我们也准备了 `recordCreatorProps` 来控制生成按钮。与 Pro 系列组件的 API 相同，`recordCreatorProps={false}`就可以关掉按钮，同时使用 `actionRef.current?.addEditRecord(row)`  来控制新建行。
 
-`recordCreatorProps` 也支持自定义一些样式，`position='top'|'end'` 可以配置增加在表格头还是表格尾部。`record` 可以配置新增行的默认数据。以下是一个列举
+`recordCreatorProps` 也支持自定义一些样式，`position='top'|'bottom'` 可以配置增加在表格头还是表格尾部。`record` 可以配置新增行的默认数据。以下是一个列举
 
 ```typescript
 recordCreatorProps = {
   // 要增加到哪个节点下，一般用于多重嵌套表格
   parentKey: React.key,
   // 顶部添加还是末尾添加
-  position: 'end',
+  position: 'bottom',
   // 新增一行的方式，默认是缓存，取消后就会消失
   // 如果设置为 dataSource 会触发 onchange，取消后也不会消失，只能删除
   newRecordType: 'dataSource',

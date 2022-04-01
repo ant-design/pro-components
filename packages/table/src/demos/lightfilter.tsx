@@ -1,5 +1,5 @@
 import React from 'react';
-import { Button, Tooltip } from 'antd';
+import { Tooltip } from 'antd';
 import { QuestionCircleOutlined } from '@ant-design/icons';
 import type { ProColumns } from '@ant-design/pro-table';
 import ProTable, { TableDropdown } from '@ant-design/pro-table';
@@ -109,13 +109,6 @@ export default () => {
         filterType: 'light',
       }}
       dateFormatter="string"
-      headerTitle="表格标题"
-      toolBarRender={() => [
-        <Button key="show">查看日志</Button>,
-        <Button type="primary" key="primary">
-          创建应用
-        </Button>,
-      ]}
     />
   );
 };

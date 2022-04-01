@@ -31,9 +31,9 @@ const FieldTreeSelect: ProFieldFC<GroupProps> = (
     onClear,
     onChange: propsOnChange,
     onBlur,
-    loadData,
     showSearch,
     autoClearSearchValue,
+    treeData,
     searchValue: propsSearchValue = '',
     ...fieldProps
   } = (rest.fieldProps as TreeSelectProps<any>) || {};
@@ -42,6 +42,7 @@ const FieldTreeSelect: ProFieldFC<GroupProps> = (
     ...rest,
     defaultKeyWords: propsSearchValue,
   });
+
   const [searchValue, setSearchValue] = useState(propsSearchValue);
 
   useImperativeHandle(ref, () => ({
@@ -49,7 +50,8 @@ const FieldTreeSelect: ProFieldFC<GroupProps> = (
     fetchData: () => fetchData(),
   }));
 
-  const optionsValueEnum = useMemo<Record<string, any>>(() => {
+  const optionsValueEnum = useMemo(() => {
+    if (mode !== 'read') return;
     /**
      * Support TreeSelect fieldNames
      *
@@ -61,22 +63,25 @@ const FieldTreeSelect: ProFieldFC<GroupProps> = (
       children: childrenPropsName = 'children',
     } = fieldProps?.fieldNames || {};
 
-    const traverseOptions = (_options: typeof options): Record<string, any> => {
-      return _options?.length > 0
-        ? _options?.reduce((pre, cur) => {
-            const label = cur[labelPropsName],
-              value = cur[valuePropsName],
-              children = cur[childrenPropsName];
-            return {
-              ...pre,
-              [value]: label,
-              ...traverseOptions(children),
-            };
-          }, {})
-        : {};
+    const valuesMap = new Map();
+
+    const traverseOptions = (_options: typeof options) => {
+      if (!_options?.length) {
+        return valuesMap;
+      }
+
+      const length = _options.length;
+      let i = 0;
+      while (i < length) {
+        const cur = _options[i++];
+        valuesMap.set(cur[valuePropsName], cur[labelPropsName]);
+        traverseOptions(cur[childrenPropsName]);
+      }
+      return valuesMap;
     };
+
     return traverseOptions(options);
-  }, [options, fieldProps?.fieldNames]);
+  }, [fieldProps?.fieldNames, mode, options]);
 
   const onChange: TreeSelectProps<any>['onChange'] = (value, optionList, extra) => {
     // 将搜索框置空 和 antd 行为保持一致
@@ -85,8 +90,6 @@ const FieldTreeSelect: ProFieldFC<GroupProps> = (
       onSearch?.('');
       setSearchValue('');
     }
-
-    /** Fix: TreeSelect warningProps 和TreeSelect结果保持一致 */
     propsOnChange?.(value, optionList, extra);
   };
 
@@ -105,7 +108,7 @@ const FieldTreeSelect: ProFieldFC<GroupProps> = (
         <TreeSelect
           ref={treeSelectRef}
           {...fieldProps}
-          treeData={options as DataNode[]}
+          treeData={(options || treeData) as DataNode[]}
           showSearch={showSearch}
           searchValue={searchValue}
           autoClearSearchValue={autoClearSearchValue}
@@ -116,14 +119,6 @@ const FieldTreeSelect: ProFieldFC<GroupProps> = (
               setSearchValue('');
             }
           }}
-          loadData={
-            loadData
-              ? (node) => {
-                  fetchData(node.value?.toString());
-                  return loadData?.(node) || Promise.resolve();
-                }
-              : undefined
-          }
           onChange={onChange}
           onSearch={(value) => {
             fetchData(value);

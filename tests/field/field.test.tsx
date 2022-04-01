@@ -272,27 +272,29 @@ describe('Field', () => {
       expect(html.text()).toBeFalsy();
     });
 
-    it('🐴 select request loading', async () => {
-      const html = render(
-        <Field
-          text="default"
-          valueType={valueType as 'radio'}
-          mode="read"
-          request={async () => {
-            await waitTime(10000);
-            return [
-              { label: '全部', value: 'all' },
-              { label: '未解决', value: 'open' },
-              { label: '已解决', value: 'closed' },
-              { label: '解决中', value: 'processing' },
-            ];
-          }}
-        />,
-      );
-      expect(html.text()).toBe('default');
-    });
+    if (!['checkbox', 'radio', 'radioButton'].includes(valueType)) {
+      it(`🐴 ${valueType} request loading with request`, async () => {
+        const html = render(
+          <Field
+            text="default"
+            valueType={valueType as 'radio'}
+            mode="read"
+            request={async () => {
+              await waitTime(10000);
+              return [
+                { label: '全部', value: 'all' },
+                { label: '未解决', value: 'open' },
+                { label: '已解决', value: 'closed' },
+                { label: '解决中', value: 'processing' },
+              ];
+            }}
+          />,
+        );
+        expect(html.text()).toBe('default');
+      });
+    }
 
-    it('🐴 select request loading', async () => {
+    it(`🐴 ${valueType} request loading without request`, async () => {
       const html = render(
         <Field text="default" valueType={valueType as 'radio'} mode="read" options={[]} />,
       );
@@ -389,7 +391,7 @@ describe('Field', () => {
     expect(html.text()).toBe('all');
   });
 
-  ['cascader', 'treeSelect'].forEach((valueType) => {
+  ['select', 'cascader', 'treeSelect'].forEach((valueType) => {
     it(`🐴 ${valueType} options fieldNames`, async () => {
       const html = mount(
         <Field
@@ -397,6 +399,8 @@ describe('Field', () => {
           fieldProps={{
             fieldNames: {
               label: 'title',
+              // select
+              options: 'children',
             },
             options: [
               {
@@ -476,10 +480,6 @@ describe('Field', () => {
 
     await waitForComponentToPaint(html, 200);
 
-    act(() => {
-      html.find('span.ant-select-tree-switcher_close').last().simulate('click');
-    });
-
     await waitForComponentToPaint(html, 200);
 
     const selectTreeTitle = html.find('span.ant-select-tree-title');
@@ -511,15 +511,17 @@ describe('Field', () => {
     const requestFn = jest.fn(),
       onSearchFn = jest.fn(),
       onBlurFn = jest.fn(),
-      onClearFn = jest.fn(),
-      loadDataFn = jest.fn();
+      onClearFn = jest.fn();
 
     const html = mount(
       <TreeSelectDemo
         onSearch={onSearchFn}
         onBlur={onBlurFn}
         onClear={onClearFn}
-        loadData={loadDataFn}
+        loadData={async (node) => {
+          expect(node).toBeTruthy();
+          return;
+        }}
         onChange={(res: any) => {
           html.setProps({ value: res });
         }}
@@ -537,8 +539,6 @@ describe('Field', () => {
     });
 
     await waitForComponentToPaint(html, 200);
-
-    expect(loadDataFn).toBeCalledTimes(1);
 
     const searchInput = html.find('input.ant-select-selection-search-input');
 
@@ -828,6 +828,45 @@ describe('Field', () => {
       />,
     );
     expect(html.text()).toBe('+ 100.0%');
+
+    html = render(
+      <Field
+        text="100"
+        valueType={{
+          type: 'percent',
+          showSymbol: true,
+          precision: 0,
+        }}
+        mode="read"
+      />,
+    );
+    expect(html.text()).toBe('+ 100%');
+
+    html = render(
+      <Field
+        text="100.01"
+        valueType={{
+          type: 'percent',
+          showSymbol: true,
+          precision: 0,
+        }}
+        mode="read"
+      />,
+    );
+    expect(html.text()).toBe('+ 100%');
+
+    html = render(
+      <Field
+        text="100"
+        valueType={{
+          type: 'percent',
+          showSymbol: true,
+          precision: -1,
+        }}
+        mode="read"
+      />,
+    );
+    expect(html.text()).toBe('+ 100%');
 
     html = render(
       <Field
@@ -1147,6 +1186,28 @@ describe('Field', () => {
     expect(html.text()).toBe('-');
   });
 
+  it(`🐴 readonly and mode is edit use fieldProps.value`, async () => {
+    const html = mount(
+      <Field
+        text={10000}
+        mode="edit"
+        readonly
+        fieldProps={{
+          value: 2000,
+        }}
+      />,
+    );
+    await waitForComponentToPaint(200);
+    expect(html.text()).toBe('2000');
+    html.setProps({
+      fieldProps: {
+        value: 20000,
+      },
+    });
+    await waitForComponentToPaint(200);
+    expect(html.text()).toBe('20000');
+  });
+
   it('🐴 select request debounceTime', async () => {
     const requestFn = jest.fn();
     const html = mount(
@@ -1174,8 +1235,22 @@ describe('Field', () => {
         params: { name: 'test' },
       });
     });
+    await waitForComponentToPaint(html, 50);
+    act(() => {
+      html.setProps({
+        params: { name: 'test1' },
+      });
+    });
+    await waitForComponentToPaint(html, 50);
+    act(() => {
+      html.setProps({
+        params: { name: 'test2' },
+      });
+    });
+    await waitForComponentToPaint(html, 50);
+
     expect(requestFn).toBeCalledTimes(1);
-    await waitForComponentToPaint(html, 200);
+    await waitForComponentToPaint(html, 10000);
     expect(requestFn).toBeCalledTimes(2);
   });
 });

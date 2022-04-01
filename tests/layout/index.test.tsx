@@ -1407,7 +1407,7 @@ describe('BasicLayout', () => {
     );
 
     expect(html.container.querySelector('.ant-btn.ant-btn-primary.ant-btn-lg')?.textContent).toBe(
-      '登 录',
+      'Login',
     );
   });
 });

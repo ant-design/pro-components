@@ -233,7 +233,7 @@ export default () => {
                 );
               }}
             >
-              <ProForm.Group size={16}>
+              <ProForm.Group size={16} key="Group">
                 <ProFormText label="标题" name="title" />
                 <ProFormDigit width="xs" initialValue={1} label="占据列数" name="span" />
                 <ProFormSelect
@@ -258,7 +258,7 @@ export default () => {
                   }}
                 />
               </ProForm.Group>
-              <ProFormDependency name={['valueType', 'valueEnum']}>
+              <ProFormDependency key="valueType" name={['valueType', 'valueEnum']}>
                 {({ valueType, valueEnum }) => {
                   if (valueType !== 'select') {
                     return null;

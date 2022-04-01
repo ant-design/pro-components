@@ -86,6 +86,8 @@ ProForm 自带的 Filed ,与 valueType 基本上一一对应。
 | 参数 | 说明 | 类型 | 默认值 |
 | --- | --- | --- | --- |
 | width | Field 的长度，我们归纳了常用的 Field 长度以及适合的场景，支持了一些枚举 "xs" , "sm" , "md" ,"lg" , "xl" | `number \| "xs" \| "sm" \| "md" \| "lg" \| "xl"` | - |
+| rowProps | [RowProps](https://ant.design/components/grid/#Row) | 开启 `grid` 模式时传递给 Row, 仅在`ProFormGroup`, `ProFormList`, `ProFormFieldSet` 中有效 | { gutter: 8 } |
+| colProps | [ColProps](https://ant.design/components/grid/#Col) | 开启 `grid` 模式时传递给 Col | { xs: 24 } |
 | tooltip | 会在 label 旁增加一个 icon，悬浮后展示配置的信息 | `string \| tooltipProps` | - |
 | secondary | 是否是次要控件，只针对 LightFilter 下有效 | `boolean` | `false` |
 | allowClear | 支持清除，针对 LightFilter 下有效，主动设置情况下同时也会透传给 `fieldProps` | `boolean` | `true` |
@@ -283,6 +285,24 @@ ProFormCaptcha 是为了支持中后台中常见的验证码功能开发的组�
 </>
 ```
 
+联动的 ProFormSelect
+
+````tsx | pure
+  <ProFormText name="name" label="姓名" />
+  <ProFormSelect
+    name="addr"
+    width="md"
+    label="与 name 联动的选择器"
+    // dependencies 的内容会注入 request 中
+    dependencies={['name']}
+    request={async (params) => [
+      { label: params.name, value: 'all' },
+      { label: 'Unresolved', value: 'open' },
+      { label: 'Resolved', value: 'closed' },
+      { label: 'Resolving', value: 'processing' },
+    ]}
+  />
+```
 自定义选项：
 
 ```tsx | pure
@@ -303,7 +323,7 @@ ProFormCaptcha 是为了支持中后台中常见的验证码功能开发的组�
   placeholder="Please select a country"
   rules={[{ required: true, message: 'Please select your country!' }]}
 />
-```
+````
 
 ### ProFormTreeSelect
 
@@ -605,14 +625,14 @@ ProFormMoney 用于输入金额的输入框，支持根据全局国际化显示�
 "ru-RU": "₽",
 "sr-RS": "RSD",
 "ms-MY": "RM",
-"zh-TW": "$"
+"zh-TW": "NT$"
 "fr-FR": "€",
 "pt-BR": "R$",
 "ko-KR": "₩",
 "id-ID": "RP",
 "de-DE": "€",
 "fa-IR": "تومان",
-"tr-TR": "$",
+"tr-TR": "₺",
 "pl-PL": "zł",
 }
 ```

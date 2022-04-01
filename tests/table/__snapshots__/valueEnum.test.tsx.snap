@@ -5,7 +5,7 @@ exports[`Table valueEnum 🎏 customization valueType 1`] = `
   class="ant-pro-table"
 >
   <div
-    class="ant-pro-table-search ant-pro-table-search-query-filter"
+    class="ant-pro-card ant-pro-table-search ant-pro-table-search-query-filter"
   >
     <form
       autocomplete="off"
@@ -103,7 +103,7 @@ exports[`Table valueEnum 🎏 customization valueType 1`] = `
                           style="margin-right: 8px; padding-bottom: 8px;"
                         >
                           <button
-                            class="ant-btn"
+                            class="ant-btn ant-btn-default"
                             type="button"
                           >
                             <span>
@@ -136,10 +136,10 @@ exports[`Table valueEnum 🎏 customization valueType 1`] = `
     </form>
   </div>
   <div
-    class="ant-card"
+    class="ant-pro-card"
   >
     <div
-      class="ant-card-body"
+      class="ant-pro-card-body"
       style="padding-top: 0px;"
     >
       <div

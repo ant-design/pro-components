@@ -1,4 +1,4 @@
-/** Uuid: 0dba888a title: 布局 */
+/** Title: 布局 */
 
 import React from 'react';
 import { CheckCard } from '@ant-design/pro-card';

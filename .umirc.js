@@ -150,6 +150,7 @@ export default {
           'form',
           'components/FieldSet/index',
           'components/Group/index',
+          'components/Dependency/index',
           'components/SchemaForm/index',
           'components/QueryFilter/index',
           'components/StepsForm/index',
@@ -158,7 +159,13 @@ export default {
       },
       {
         title: '数据展示',
-        children: ['table', 'components/EditableTable/index', 'list', 'description'],
+        children: [
+          'table',
+          'components/EditableTable/index',
+          'components/DragSortTable/index',
+          'list',
+          'description',
+        ],
       },
       {
         title: '通用',
@@ -172,7 +179,13 @@ export default {
       },
       {
         title: 'Layout',
-        children: ['layout', 'components/PageContainer/index', 'card'],
+        children: [
+          'layout',
+          'components/PageContainer/index',
+          'components/DragSortTable/index',
+          'list',
+          'card',
+        ],
       },
       {
         title: 'Data entry',
@@ -180,6 +193,7 @@ export default {
           'form',
           'components/FieldSet/index',
           'components/Group/index',
+          'components/Dependency/index',
           'components/SchemaForm/index',
           'components/QueryFilter/index',
           'components/StepsForm/index',
@@ -200,5 +214,4 @@ export default {
   webpack5: {},
   exportStatic: {},
   mfsu: !isDeploy ? {} : undefined,
-  fastRefresh: {},
 };

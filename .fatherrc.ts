@@ -8,12 +8,12 @@ const headPkgs: string[] = [
   'provider',
   'utils',
   'layout',
+  'card',
   'field',
   'skeleton',
   'layout',
   'form',
   'table',
-  'card',
   'list',
 ];
 const tailPkgs = readdirSync(join(__dirname, 'packages')).filter(

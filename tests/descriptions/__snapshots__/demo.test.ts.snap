@@ -1,5 +1,229 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`descriptions demos 📸 renders ./packages/descriptions/src/demos/arrayDataIndex.tsx correctly 1`] = `
+<DocumentFragment>
+  <div
+    class="ant-descriptions ant-pro-descriptions"
+  >
+    <div
+      class="ant-descriptions-header"
+    >
+      <div
+        class="ant-descriptions-title"
+      >
+        高级定义列表 request
+      </div>
+      <div
+        class="ant-descriptions-extra"
+      >
+        <div
+          class="ant-space ant-space-horizontal ant-space-align-center"
+        >
+          <div
+            class="ant-space-item"
+          >
+            <div
+              class="ant-space ant-space-horizontal ant-space-align-center ant-pro-field-option"
+            >
+              <div
+                class="ant-space-item"
+                style="margin-right: 16px;"
+              >
+                <button
+                  class="ant-btn ant-btn-primary"
+                  type="button"
+                >
+                  <span>
+                    刷 新
+                  </span>
+                </button>
+              </div>
+              <div
+                class="ant-space-item"
+              >
+                <button
+                  class="ant-btn ant-btn-default"
+                  type="button"
+                >
+                  <span>
+                    重 置
+                  </span>
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div
+      class="ant-descriptions-view"
+    >
+      <table>
+        <tbody>
+          <tr
+            class="ant-descriptions-row"
+          >
+            <td
+              class="ant-descriptions-item"
+              colspan="1"
+            >
+              <div
+                class="ant-descriptions-item-container"
+              >
+                <span
+                  class="ant-descriptions-item-content"
+                >
+                  <div
+                    class="ant-space ant-space-horizontal ant-space-align-center"
+                  >
+                    <div
+                      class="ant-space-item"
+                      style="margin-right: 8px;"
+                    >
+                      这是一段文本
+                    </div>
+                    <div
+                      class="ant-space-item"
+                    >
+                      <span
+                        aria-label="edit"
+                        class="anticon anticon-edit"
+                        role="img"
+                        tabindex="-1"
+                      >
+                        <svg
+                          aria-hidden="true"
+                          data-icon="edit"
+                          fill="currentColor"
+                          focusable="false"
+                          height="1em"
+                          viewBox="64 64 896 896"
+                          width="1em"
+                        >
+                          <path
+                            d="M257.7 752c2 0 4-.2 6-.5L431.9 722c2-.4 3.9-1.3 5.3-2.8l423.9-423.9a9.96 9.96 0 000-14.1L694.9 114.9c-1.9-1.9-4.4-2.9-7.1-2.9s-5.2 1-7.1 2.9L256.8 538.8c-1.5 1.5-2.4 3.3-2.8 5.3l-29.5 168.2a33.5 33.5 0 009.4 29.8c6.6 6.4 14.9 9.9 23.8 9.9zm67.4-174.4L687.8 215l73.3 73.3-362.7 362.6-88.9 15.7 15.6-89zM880 836H144c-17.7 0-32 14.3-32 32v36c0 4.4 3.6 8 8 8h784c4.4 0 8-3.6 8-8v-36c0-17.7-14.3-32-32-32z"
+                          />
+                        </svg>
+                      </span>
+                    </div>
+                  </div>
+                </span>
+              </div>
+            </td>
+            <td
+              class="ant-descriptions-item"
+              colspan="1"
+            >
+              <div
+                class="ant-descriptions-item-container"
+              >
+                <span
+                  class="ant-descriptions-item-label"
+                >
+                  日期
+                </span>
+                <span
+                  class="ant-descriptions-item-content"
+                >
+                  <div
+                    class="ant-space ant-space-horizontal ant-space-align-center"
+                  >
+                    <div
+                      class="ant-space-item"
+                      style="margin-right: 8px;"
+                    >
+                      2020-07-30
+                    </div>
+                    <div
+                      class="ant-space-item"
+                    >
+                      <span
+                        aria-label="edit"
+                        class="anticon anticon-edit"
+                        role="img"
+                        tabindex="-1"
+                      >
+                        <svg
+                          aria-hidden="true"
+                          data-icon="edit"
+                          fill="currentColor"
+                          focusable="false"
+                          height="1em"
+                          viewBox="64 64 896 896"
+                          width="1em"
+                        >
+                          <path
+                            d="M257.7 752c2 0 4-.2 6-.5L431.9 722c2-.4 3.9-1.3 5.3-2.8l423.9-423.9a9.96 9.96 0 000-14.1L694.9 114.9c-1.9-1.9-4.4-2.9-7.1-2.9s-5.2 1-7.1 2.9L256.8 538.8c-1.5 1.5-2.4 3.3-2.8 5.3l-29.5 168.2a33.5 33.5 0 009.4 29.8c6.6 6.4 14.9 9.9 23.8 9.9zm67.4-174.4L687.8 215l73.3 73.3-362.7 362.6-88.9 15.7 15.6-89zM880 836H144c-17.7 0-32 14.3-32 32v36c0 4.4 3.6 8 8 8h784c4.4 0 8-3.6 8-8v-36c0-17.7-14.3-32-32-32z"
+                          />
+                        </svg>
+                      </span>
+                    </div>
+                  </div>
+                </span>
+              </div>
+            </td>
+            <td
+              class="ant-descriptions-item"
+              colspan="1"
+            >
+              <div
+                class="ant-descriptions-item-container"
+              >
+                <span
+                  class="ant-descriptions-item-label"
+                >
+                  money
+                </span>
+                <span
+                  class="ant-descriptions-item-content"
+                >
+                  <div
+                    class="ant-space ant-space-horizontal ant-space-align-center"
+                  >
+                    <div
+                      class="ant-space-item"
+                      style="margin-right: 8px;"
+                    >
+                      <span>
+                        ￥ 12121
+                      </span>
+                    </div>
+                    <div
+                      class="ant-space-item"
+                    >
+                      <span
+                        aria-label="edit"
+                        class="anticon anticon-edit"
+                        role="img"
+                        tabindex="-1"
+                      >
+                        <svg
+                          aria-hidden="true"
+                          data-icon="edit"
+                          fill="currentColor"
+                          focusable="false"
+                          height="1em"
+                          viewBox="64 64 896 896"
+                          width="1em"
+                        >
+                          <path
+                            d="M257.7 752c2 0 4-.2 6-.5L431.9 722c2-.4 3.9-1.3 5.3-2.8l423.9-423.9a9.96 9.96 0 000-14.1L694.9 114.9c-1.9-1.9-4.4-2.9-7.1-2.9s-5.2 1-7.1 2.9L256.8 538.8c-1.5 1.5-2.4 3.3-2.8 5.3l-29.5 168.2a33.5 33.5 0 009.4 29.8c6.6 6.4 14.9 9.9 23.8 9.9zm67.4-174.4L687.8 215l73.3 73.3-362.7 362.6-88.9 15.7 15.6-89zM880 836H144c-17.7 0-32 14.3-32 32v36c0 4.4 3.6 8 8 8h784c4.4 0 8-3.6 8-8v-36c0-17.7-14.3-32-32-32z"
+                          />
+                        </svg>
+                      </span>
+                    </div>
+                  </div>
+                </span>
+              </div>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</DocumentFragment>
+`;
+
 exports[`descriptions demos 📸 renders ./packages/descriptions/src/demos/base.demo-test.tsx correctly 1`] = `
 <DocumentFragment>
   <button
@@ -1353,24 +1577,29 @@ exports[`descriptions demos 📸 renders ./packages/descriptions/src/demos/dynam
                                     class="ant-input-suffix"
                                   >
                                     <span
-                                      aria-label="close-circle"
-                                      class="anticon anticon-close-circle ant-input-clear-icon"
+                                      class="ant-input-clear-icon"
                                       role="button"
                                       tabindex="-1"
                                     >
-                                      <svg
-                                        aria-hidden="true"
-                                        data-icon="close-circle"
-                                        fill="currentColor"
-                                        focusable="false"
-                                        height="1em"
-                                        viewBox="64 64 896 896"
-                                        width="1em"
+                                      <span
+                                        aria-label="close-circle"
+                                        class="anticon anticon-close-circle"
+                                        role="img"
                                       >
-                                        <path
-                                          d="M512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm165.4 618.2l-66-.3L512 563.4l-99.3 118.4-66.1.3c-4.4 0-8-3.5-8-8 0-1.9.7-3.7 1.9-5.2l130.1-155L340.5 359a8.32 8.32 0 01-1.9-5.2c0-4.4 3.6-8 8-8l66.1.3L512 464.6l99.3-118.4 66-.3c4.4 0 8 3.5 8 8 0 1.9-.7 3.7-1.9 5.2L553.5 514l130 155c1.2 1.5 1.9 3.3 1.9 5.2 0 4.4-3.6 8-8 8z"
-                                        />
-                                      </svg>
+                                        <svg
+                                          aria-hidden="true"
+                                          data-icon="close-circle"
+                                          fill="currentColor"
+                                          focusable="false"
+                                          height="1em"
+                                          viewBox="64 64 896 896"
+                                          width="1em"
+                                        >
+                                          <path
+                                            d="M512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm165.4 618.2l-66-.3L512 563.4l-99.3 118.4-66.1.3c-4.4 0-8-3.5-8-8 0-1.9.7-3.7 1.9-5.2l130.1-155L340.5 359a8.32 8.32 0 01-1.9-5.2c0-4.4 3.6-8 8-8l66.1.3L512 464.6l99.3-118.4 66-.3c4.4 0 8 3.5 8 8 0 1.9-.7 3.7-1.9 5.2L553.5 514l130 155c1.2 1.5 1.9 3.3 1.9 5.2 0 4.4-3.6 8-8 8z"
+                                          />
+                                        </svg>
+                                      </span>
                                     </span>
                                   </span>
                                 </span>
@@ -1986,7 +2215,84 @@ exports[`descriptions demos 📸 renders ./packages/descriptions/src/demos/edita
                       class="ant-space-item"
                       style="margin-right: 8px;"
                     >
-                      这是一段文本columns
+                      <span
+                        aria-label="这是一段文本columns"
+                        class="ant-typography ant-typography-ellipsis ant-typography-single-line"
+                        style="width: 100%; margin: 0px; padding: 0px;"
+                        title=""
+                      >
+                        这是一段文本columns
+                        <div
+                          aria-label="复制"
+                          class="ant-typography-copy"
+                          role="button"
+                          style="border: 0px; background: transparent; padding: 0px; line-height: inherit; display: inline-block;"
+                          tabindex="0"
+                        >
+                          <span
+                            aria-label="copy"
+                            class="anticon anticon-copy"
+                            role="img"
+                          >
+                            <svg
+                              aria-hidden="true"
+                              data-icon="copy"
+                              fill="currentColor"
+                              focusable="false"
+                              height="1em"
+                              viewBox="64 64 896 896"
+                              width="1em"
+                            >
+                              <path
+                                d="M832 64H296c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8h496v688c0 4.4 3.6 8 8 8h56c4.4 0 8-3.6 8-8V96c0-17.7-14.3-32-32-32zM704 192H192c-17.7 0-32 14.3-32 32v530.7c0 8.5 3.4 16.6 9.4 22.6l173.3 173.3c2.2 2.2 4.7 4 7.4 5.5v1.9h4.2c3.5 1.3 7.2 2 11 2H704c17.7 0 32-14.3 32-32V224c0-17.7-14.3-32-32-32zM350 856.2L263.9 770H350v86.2zM664 888H414V746c0-22.1-17.9-40-40-40H232V264h432v624z"
+                              />
+                            </svg>
+                          </span>
+                        </div>
+                        <span
+                          aria-hidden="true"
+                          style="position: fixed; display: block; left: 0px; top: 0px; z-index: -9999; visibility: hidden; pointer-events: none; word-break: keep-all; white-space: nowrap;"
+                        >
+                          lg
+                        </span>
+                        <span
+                          aria-hidden="true"
+                          style="position: fixed; display: block; left: 0px; top: 0px; z-index: -9999; visibility: hidden; pointer-events: none; width: 0px; white-space: normal; margin: 0px; padding: 0px;"
+                        >
+                          <span
+                            aria-hidden="true"
+                          >
+                            ...
+                          </span>
+                          <div
+                            aria-label="复制"
+                            class="ant-typography-copy"
+                            role="button"
+                            style="border: 0px; background: transparent; padding: 0px; line-height: inherit; display: inline-block;"
+                            tabindex="0"
+                          >
+                            <span
+                              aria-label="copy"
+                              class="anticon anticon-copy"
+                              role="img"
+                            >
+                              <svg
+                                aria-hidden="true"
+                                data-icon="copy"
+                                fill="currentColor"
+                                focusable="false"
+                                height="1em"
+                                viewBox="64 64 896 896"
+                                width="1em"
+                              >
+                                <path
+                                  d="M832 64H296c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8h496v688c0 4.4 3.6 8 8 8h56c4.4 0 8-3.6 8-8V96c0-17.7-14.3-32-32-32zM704 192H192c-17.7 0-32 14.3-32 32v530.7c0 8.5 3.4 16.6 9.4 22.6l173.3 173.3c2.2 2.2 4.7 4 7.4 5.5v1.9h4.2c3.5 1.3 7.2 2 11 2H704c17.7 0 32-14.3 32-32V224c0-17.7-14.3-32-32-32zM350 856.2L263.9 770H350v86.2zM664 888H414V746c0-22.1-17.9-40-40-40H232V264h432v624z"
+                                />
+                              </svg>
+                            </span>
+                          </div>
+                        </span>
+                      </span>
                     </div>
                     <div
                       class="ant-space-item"
@@ -2842,7 +3148,7 @@ exports[`descriptions demos 📸 renders ./packages/descriptions/src/demos/reque
                 class="ant-space-item"
               >
                 <button
-                  class="ant-btn"
+                  class="ant-btn ant-btn-default"
                   type="button"
                 >
                   <span>
@@ -3009,12 +3315,18 @@ exports[`descriptions demos 📸 renders ./packages/descriptions/src/demos/use-d
                 <span
                   class="ant-descriptions-item-label"
                 >
+                  文本
+                </span>
+                <span
+                  class="ant-descriptions-item-content"
+                >
                   <span
+                    aria-label="这是一段文本columns"
                     class="ant-typography ant-typography-ellipsis ant-typography-single-line"
                     style="width: 100%; margin: 0px; padding: 0px;"
                     title=""
                   >
-                    文本
+                    这是一段文本columns
                     <div
                       aria-label="Copy"
                       class="ant-typography-copy"
@@ -3042,12 +3354,50 @@ exports[`descriptions demos 📸 renders ./packages/descriptions/src/demos/use-d
                         </svg>
                       </span>
                     </div>
+                    <span
+                      aria-hidden="true"
+                      style="position: fixed; display: block; left: 0px; top: 0px; z-index: -9999; visibility: hidden; pointer-events: none; word-break: keep-all; white-space: nowrap;"
+                    >
+                      lg
+                    </span>
+                    <span
+                      aria-hidden="true"
+                      style="position: fixed; display: block; left: 0px; top: 0px; z-index: -9999; visibility: hidden; pointer-events: none; width: 0px; white-space: normal; margin: 0px; padding: 0px;"
+                    >
+                      <span
+                        aria-hidden="true"
+                      >
+                        ...
+                      </span>
+                      <div
+                        aria-label="Copy"
+                        class="ant-typography-copy"
+                        role="button"
+                        style="border: 0px; background: transparent; padding: 0px; line-height: inherit; display: inline-block;"
+                        tabindex="0"
+                      >
+                        <span
+                          aria-label="copy"
+                          class="anticon anticon-copy"
+                          role="img"
+                        >
+                          <svg
+                            aria-hidden="true"
+                            data-icon="copy"
+                            fill="currentColor"
+                            focusable="false"
+                            height="1em"
+                            viewBox="64 64 896 896"
+                            width="1em"
+                          >
+                            <path
+                              d="M832 64H296c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8h496v688c0 4.4 3.6 8 8 8h56c4.4 0 8-3.6 8-8V96c0-17.7-14.3-32-32-32zM704 192H192c-17.7 0-32 14.3-32 32v530.7c0 8.5 3.4 16.6 9.4 22.6l173.3 173.3c2.2 2.2 4.7 4 7.4 5.5v1.9h4.2c3.5 1.3 7.2 2 11 2H704c17.7 0 32-14.3 32-32V224c0-17.7-14.3-32-32-32zM350 856.2L263.9 770H350v86.2zM664 888H414V746c0-22.1-17.9-40-40-40H232V264h432v624z"
+                            />
+                          </svg>
+                        </span>
+                      </div>
+                    </span>
                   </span>
-                </span>
-                <span
-                  class="ant-descriptions-item-content"
-                >
-                  这是一段文本columns
                 </span>
               </div>
             </td>

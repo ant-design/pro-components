@@ -10,7 +10,11 @@ import { useUrlSearchParams } from '@umijs/use-params';
 
 import { Button, Divider, Drawer, List, Switch, ConfigProvider, message, Alert } from 'antd';
 import React, { useState, useEffect, useRef } from 'react';
-import { disable as darkreaderDisable, enable as darkreaderEnable } from '@umijs/ssr-darkreader';
+import {
+  disable as darkreaderDisable,
+  enable as darkreaderEnable,
+  setFetchMethod as setFetch,
+} from '@umijs/ssr-darkreader';
 
 import useMergedState from 'rc-util/lib/hooks/useMergedState';
 import omit from 'omit.js';
@@ -118,7 +122,10 @@ const updateTheme = async (dark: boolean, color?: string) => {
       ignoreImageAnalysis: [],
       disableStyleSheetsProxy: true,
     };
-    if (window.MutationObserver) darkreaderEnable(defaultTheme, defaultFixes);
+    if (window.MutationObserver && window.fetch) {
+      setFetch(window.fetch);
+      darkreaderEnable(defaultTheme, defaultFixes);
+    }
   } else {
     if (window.MutationObserver) darkreaderDisable();
   }
@@ -150,6 +157,7 @@ const initState = (
   delete newSettings.menu;
   delete newSettings.title;
   delete newSettings.iconfontUrl;
+
   // 同步数据到外部
   onSettingChange?.(newSettings);
 
@@ -211,7 +219,7 @@ const SettingDrawer: React.FC<SettingDrawerProps> = (props) => {
     enableDarkTheme,
     prefixCls = 'ant-pro',
     pathname = window.location.pathname,
-    disableUrlParams = false,
+    disableUrlParams = true,
     themeOnly,
   } = props;
   const firstRender = useRef<boolean>(true);
@@ -228,6 +236,7 @@ const SettingDrawer: React.FC<SettingDrawerProps> = (props) => {
       disabled: disableUrlParams,
     },
   );
+
   const [settingState, setSettingState] = useMergedState<Partial<ProSettings>>(
     () => getParamsFromUrl(urlParams, propsSettings || propsDefaultSettings),
     {
@@ -296,6 +305,9 @@ const SettingDrawer: React.FC<SettingDrawerProps> = (props) => {
     delete nextState.menu;
     delete nextState.title;
     delete nextState.iconfontUrl;
+    delete nextState.logo;
+    delete nextState.pwa;
+
     setSettingState({ ...settingState, ...nextState });
   };
 
@@ -309,7 +321,18 @@ const SettingDrawer: React.FC<SettingDrawerProps> = (props) => {
       firstRender.current = false;
       return;
     }
-    const diffParams = getDifferentSetting({ ...urlParams, ...settingState });
+
+    /** 每次从url拿最新的防止记忆 */
+    const urlSearchParams = new URLSearchParams(window.location.search);
+    const params = Object.fromEntries(urlSearchParams.entries());
+    const diffParams = getDifferentSetting({ ...params, ...settingState });
+
+    delete diffParams.logo;
+    delete diffParams.menu;
+    delete diffParams.title;
+    delete diffParams.iconfontUrl;
+    delete diffParams.pwa;
+
     setUrlParams(diffParams);
   }, [setUrlParams, settingState, urlParams, pathname, disableUrlParams]);
   const baseClassName = `${prefixCls}-setting`;

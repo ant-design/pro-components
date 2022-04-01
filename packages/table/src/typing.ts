@@ -1,6 +1,5 @@
 ﻿import type { ProFieldEmptyText } from '@ant-design/pro-field';
 import type { LightWrapperProps, ProFormProps, QueryFilterProps } from '@ant-design/pro-form';
-import type { ParamsType } from '@ant-design/pro-provider';
 import type {
   ProCoreActionType,
   ProSchema,
@@ -25,6 +24,7 @@ import type { LabelTooltipType } from 'antd/lib/form/FormItemLabel';
 import type { SizeType } from 'antd/lib/config-provider/SizeContext';
 import type { NamePath } from 'antd/lib/form/interface';
 import type { SearchProps } from 'antd/lib/input';
+import type React from 'react';
 
 export type PageInfo = {
   pageSize: number;
@@ -130,11 +130,22 @@ export type ProColumnType<T = unknown, ValueType = 'text'> = ProSchema<
 
     /** Form 的排序 */
     order?: number;
+
     /** 可编辑表格是否可编辑 */
     editable?: boolean | ProTableEditableFnType<T>;
 
     /** @private */
     listKey?: string;
+
+    /** 只读 */
+    readonly?: boolean;
+
+    /** 列设置的 disabled */
+    disable?:
+      | boolean
+      | {
+          checkbox: boolean;
+        };
   },
   ProSchemaComponentTypes,
   ValueType,
@@ -178,11 +189,14 @@ export type ColumnsStateType = {
 };
 
 /** ProTable 的类型定义 继承自 antd 的 Table */
-export type ProTableProps<T, U extends ParamsType, ValueType = 'text'> = {
+export type ProTableProps<T, U, ValueType = 'text'> = {
   columns?: ProColumns<T, ValueType>[];
   /** @name ListToolBar 的属性 */
   toolbar?: ListToolBarProps;
+  /** 幽灵模式，即是否取消卡片内容区域的 padding 和 卡片的背景颜色。 */
+  ghost?: boolean;
 
+  /** Request 的参数，修改之后会触发更新 */
   params?: U;
 
   /**
@@ -240,7 +254,7 @@ export type ProTableProps<T, U extends ParamsType, ValueType = 'text'> = {
   defaultData?: T[];
 
   /** @name 初始化的参数，可以操作 table */
-  actionRef?: React.MutableRefObject<ActionType | undefined> | ((actionRef: ActionType) => void);
+  actionRef?: React.Ref<ActionType | undefined>;
 
   /** @name 操作自带的 form */
   formRef?: TableFormItem<T>['formRef'];
@@ -295,7 +309,11 @@ export type ProTableProps<T, U extends ParamsType, ValueType = 'text'> = {
    *
    * @name 如何格式化日期
    */
-  dateFormatter?: 'string' | 'number' | false;
+  dateFormatter?:
+    | 'string'
+    | 'number'
+    | ((value: moment.Moment, valueType: string) => string | number)
+    | false;
   /** @name 格式化搜索表单提交数据 */
   beforeSearchSubmit?: (params: Partial<U>) => any;
   /**
@@ -354,6 +372,8 @@ export type ProTableProps<T, U extends ParamsType, ValueType = 'text'> = {
   defaultSize?: SizeType;
   /** @name, 可编辑表格的name,通过这个name 可以直接与 form通信，无需嵌套 */
   name?: NamePath;
+  /** 错误边界自定义 */
+  ErrorBoundary?: any;
 } & Omit<TableProps<T>, 'columns' | 'rowSelection'>;
 
 export type ActionType = ProCoreActionType & {

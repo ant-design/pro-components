@@ -1,9 +1,10 @@
 ﻿import React, { useRef, useState } from 'react';
-import type { ProColumns } from '@ant-design/pro-table';
+import type { EditableFormInstance, ProColumns } from '@ant-design/pro-table';
 import { EditableProTable } from '@ant-design/pro-table';
 import type { ProFormInstance } from '@ant-design/pro-form';
 import ProForm, { ProFormRadio, ProFormField, ProFormDependency } from '@ant-design/pro-form';
 import ProCard from '@ant-design/pro-card';
+import { Button } from 'antd';
 
 type DataSourceType = {
   id: React.Key;
@@ -34,10 +35,13 @@ const defaultData: DataSourceType[] = [
   },
 ];
 
+let i = 0;
+
 export default () => {
   const [editableKeys, setEditableRowKeys] = useState<React.Key[]>(() => []);
   const [position, setPosition] = useState<'top' | 'bottom' | 'hidden'>('bottom');
   const formRef = useRef<ProFormInstance<any>>();
+  const editorFormRef = useRef<EditableFormInstance<DataSourceType>>();
   const columns: ProColumns<DataSourceType>[] = [
     {
       title: '活动名称',
@@ -114,6 +118,10 @@ export default () => {
     >
       <EditableProTable<DataSourceType>
         rowKey="id"
+        scroll={{
+          x: 960,
+        }}
+        editableFormRef={editorFormRef}
         headerTitle="可编辑表格"
         maxLength={5}
         name="table"
@@ -129,6 +137,9 @@ export default () => {
           <ProFormRadio.Group
             key="render"
             fieldProps={{
+              style: {
+                marginBottom: 0,
+              },
               value: position,
               onChange: (e) => setPosition(e.target.value),
             }}
@@ -147,12 +158,39 @@ export default () => {
               },
             ]}
           />,
+          <Button
+            type="text"
+            key="rows"
+            onClick={() => {
+              const rows = editorFormRef.current?.getRowsData?.();
+              console.log(rows);
+            }}
+          >
+            获取 table 的数据
+          </Button>,
         ]}
         columns={columns}
         editable={{
           type: 'multiple',
           editableKeys,
           onChange: setEditableRowKeys,
+          actionRender: (row, config, defaultDom) => {
+            return [
+              defaultDom.save,
+              defaultDom.delete || defaultDom.cancel,
+              <a
+                key="set"
+                onClick={() => {
+                  i++;
+                  editorFormRef.current?.setRowData?.(config.index!, {
+                    title: '动态设置的title' + i,
+                  });
+                }}
+              >
+                动态设置此行
+              </a>,
+            ];
+          },
         }}
       />
       <ProForm.Item>

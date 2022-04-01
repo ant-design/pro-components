@@ -1,5 +1,5 @@
 ﻿@root-entry-name: 'default';
-@import (reference) '~antd/es/style/themes/index';
+@import (reference) '~antd/es/style/themes/index.less';
 
 @pro-form-step-form-prefix-cls: ~'@{ant-prefix}-pro-steps-form';
 
@@ -14,6 +14,10 @@
   &-steps-container {
     max-width: 1160px;
     margin: auto;
+
+    .@{ant-prefix}-steps-vertical {
+      height: 100%;
+    }
   }
 
   &-step {

@@ -32,9 +32,7 @@ ProTable 的诞生是为了解决项目中需要写很多 table 的样板代码�
 
 <code src="./demos/no-option.tsx" background="#f5f5f5" height="400px" title="查询（无按钮）表格" />
 
-### DataSource
-
-<code src="./demos/dataSource.tsx" background="#f5f5f5" height="500px" title="DataSource" />
+<code src="./demos/dataSource.tsx" background="#f5f5f5" height="500px" title="DataSource" debug />
 
 ### 无查询表单
 
@@ -86,21 +84,9 @@ RTL means right-to-left.
 
 <code src="./demos/pollinga.tsx" background="#f5f5f5" height="360px" title="表格轮询" />
 
-### 拖拽排序
+### dateFormatter - 日期格式化
 
-<code src="./demos/drag.tsx" background="#f5f5f5" height="360px" title="拖拽排序" />
-
-### 内部集成拖拽排序的可编辑表格`DragSortTable`
-
-<code src="./demos/drag-sort-table.tsx" background="#f5f5f5" height="360px" title="可编辑表格" />
-
-`DragSortTable`排序采用的[react-sortable-hoc](https://www.npmjs.com/package/react-sortable-hoc)，需要提供`rowKey`来确定数据的唯一值，否则不能正常工作。暂不支持`request`请求的数据进行排序，可将`request`请求的数据存起来通过`dataSource`传入。
-
-| 属性 | 描述 | 类型 | 默认值 |
-| --- | --- | --- | --- |
-| dragSortKey | 如配置此参数，则会在该 key 对应的行显示拖拽排序把手，允许拖拽排序 | `any` | - |
-| dragSortHandlerRender | 渲染自定义拖动排序把手的函数 如配置了 dragSortKey 但未配置此参数，则使用默认把手图标 | `(rowData: T, idx: number) => React.ReactNode` | `<MenuOutlined className="dragSortDefaultHandle" style={{ cursor: 'grab', color: '#999' }} />` |
-| onDragSortEnd | 拖动排序完成回调 | `(newDataSource: T[]) => Promise<void> \| void` | - |
+<code src="./demos/dateFormatter.tsx" background="#f5f5f5" height="360px" title="日期格式化" />
 
 ### 搜索表单自定义
 
@@ -146,6 +132,8 @@ renderFormItem: (_, { type, defaultRender, formItemProps, fieldProps, ...rest },
   ) => JSX.Element | false | null;
 ```
 
+<code src="./demos/linkage_form.tsx" background="#f5f5f5" height="310px" title="搜索表单自定义" />
+
 #### FAQ
 
 #### 为什么不能自己设置 value 和 onchange
@@ -161,8 +149,6 @@ renderFormItem: (_, { type, defaultRender, formItemProps, fieldProps, ...rest },
 ##### 为什么设置 defaultValue 不生效？#
 
 因为 ProTable 子组件会转为受控模式。因而 defaultValue 不会生效。你需要在 Form 上通过 initialValues 设置默认值。
-
-<code src="./demos/linkage_form.tsx" background="#f5f5f5" height="310px" title="搜索表单自定义" />
 
 ### 表单操作自定义
 
@@ -265,6 +251,12 @@ import { ConfigProvider } from '@ant-design/pro-provide';
 
 <code src="./demos/customization-value-type.tsx" debug background="#f5f5f5" heigh="462px" title="自定义 valueType"/>
 
+### 自定义错误边界
+
+<code src="./demos/error-boundaries.tsx"  title="自定义错误边界" iframe="462px" />
+
+<code src="./demos/error-boundaries-false.tsx" debug title="取消自定义错误边界" iframe="462px" />
+
 <code src="./demos/config-provider.tsx" debug background="#f5f5f5" heigh="462px"/>
 
 ## API
@@ -318,18 +310,20 @@ ProTable 在 antd 的 Table 上进行了一层封装，支持了一些预设，�
 | params | 用于 `request` 查询的额外参数，一旦变化会触发重新加载 | `object` | - |
 | postData | 对通过 `request` 获取的数据进行处理 | `(data: T[]) => T[]` | - |
 | defaultData | 默认的数据 | `T[]` | - |
+| dataSource | Table 的数据，protable 推荐使用 request 来加载 | `T[]` | - |
+| onDataSourceChange | Table 的数据发生改变时触发 | `(dataSource: T[]) => void` | - |
 | actionRef | Table action 的引用，便于自定义触发 | `MutableRefObject<ActionType>` | - |
 | formRef | 可以获取到查询表单的 form 实例，用于一些灵活的配置 | `MutableRefObject<FormInstance>` | - |
 | toolBarRender | 渲染工具栏，支持返回一个 dom 数组，会自动增加 margin-right | `(action) => ReactNode[]` | - |
 | onLoad | 数据加载完成后触发,会多次触发 | `(dataSource: T[]) => void` | - |
 | onLoadingChange | loading 被修改时触发，一般是网络请求导致的 | `(loading:boolean)=>void` | - |
 | onRequestError | 数据加载失败时触发 | `(error) => void` | - |
-| tableClassName | 封装的 table 的 className | string | - |
+| tableClassName | 封装的 table 的 className | `string` | - |
 | tableStyle | 封装的 table 的 style | [CSSProperties](https://www.htmlhelp.com/reference/css/properties.html) | - |
-| options | table 工具栏，设为 false 时不显示 | `{{ fullScreen: boolean \| function, reload: boolean \| function,setting: true, density?: boolean }}` | `{ fullScreen: false, reload:true, setting: true}` |
+| options | table 工具栏，设为 false 时不显示.传入 function 会点击时触发 | `{{ fullScreen: boolean \| function, reload: boolean \| function,setting: true, density?: boolean }}` | `{ fullScreen: false, reload:true, setting: true}` |
 | search | 是否显示搜索表单，传入对象时为搜索表单的配置 | `false` \| [SearchConfig](#search-搜索表单) | - |
 | defaultSize | 默认的 size | SizeType | - |
-| dateFormatter | 转化 moment 格式数据为特定类型，false 不做转化 | `"string"` \| `"number"` \| `false` | `"string"` |
+| dateFormatter | 转化 moment 格式数据为特定类型，false 不做转化 | `"string"` \| `"number"` \| ((value: Moment, valueType: string) => string \| number) \| `false` | `"string"` |
 | beforeSearchSubmit | 搜索之前进行一些修改 | `(params:T)=>T` | - |
 | onSizeChange | table 尺寸发生改变 | `(size: 'default' \| 'middle' \| 'small') => void` | - |
 | type | pro-table 类型 | `"form"` | - |
@@ -345,7 +339,8 @@ ProTable 在 antd 的 Table 上进行了一层封装，支持了一些预设，�
 | cardBordered | Table 和 Search 外围 Card 组件的边框 | `boolean \| {search?: boolean, table?: boolean}` | false |
 | debounceTime | 防抖时间 | `number` | 10 |
 | revalidateOnFocus | 窗口聚焦时自动重新请求 | `boolean` | `true` |
-| ColumnState | 受控的列状态，可以操作显示隐藏 | `columnStateType` | - |
+| columnsState | 受控的列状态，可以操作显示隐藏 | `columnsStateType` | - |
+| ErrorBoundary | 自带了错误处理功能，防止白屏，`ErrorBoundary=false` 关闭默认错误边界 | `ReactNode` | 内置 ErrorBoundary |
 
 #### RecordCreator
 
@@ -455,13 +450,13 @@ ref.current.cancelEditable(rowKey);
 | 属性 | 描述 | 类型 | 默认值 |
 | --- | --- | --- | --- |
 | title | 与 antd 中基本相同，但是支持通过传入一个方法 | `ReactNode \| ((config: ProColumnType<T>, type: ProTableTypes) => ReactNode)` | - |
-| tooltip | 会在 title 之后展示一个 icon，hover 之后提示一些信息 | string | - |
+| tooltip | 会在 title 之后展示一个 icon，hover 之后提示一些信息 | `string` | - |
 | ellipsis | 是否自动缩略 | `boolean` | - |
 | copyable | 是否支持复制 | `boolean` | - |
 | valueEnum | 值的枚举，会自动转化把值当成 key 来取出要显示的内容 | [valueEnum](/components/schema#valueenum) | - |
 | valueType | 值的类型,会生成不同的渲染器 | [`valueType`](/components/schema#valuetype) | `text` |
 | order | 查询表单中的权重，权重大排序靠前 | `number` | - |
-| fieldProps | 查询表单的 props，会透传给表单项,如果渲染出来是 Input,就支持 input 的所有 props，同理如果是 select，也支持 select 的所有 props。也支持方法传入 | `` (form,config)=>Record`\| `Record `` | - |
+| fieldProps | 查询表单的 props，会透传给表单项,如果渲染出来是 Input,就支持 input 的所有 props，同理如果是 select，也支持 select 的所有 props。也支持方法传入 | `(form,config)=>Record \| Record` | - |
 | `formItemProps` | 传递给 Form.Item 的配置,可以配置 rules，但是默认的查询表单 rules 是不生效的。需要配置 `ignoreRules` | `(form,config)=>formItemProps` \| `formItemProps` | - |
 | renderText | 类似 table 的 render，但是必须返回 string，如果只是希望转化枚举，可以使用 [valueEnum](/components/schema#valueenum) | `(text: any,record: T,index: number,action: UseFetchDataAction<T>) => string` | - |
 | render | 类似 table 的 render，第一个参数变成了 dom,增加了第四个参数 action | `(text: ReactNode,record: T,index: number,action: UseFetchDataAction<T>) => ReactNode \| ReactNode[]` | - |
@@ -475,9 +470,10 @@ ref.current.cancelEditable(rowKey);
 | hideInForm | 在 Form 中不展示此列 | `boolean` | - |
 | hideInDescriptions | 在 Descriptions 中不展示此列 | `boolean` | - |
 | filters | 表头的筛选菜单项，当值为 true 时，自动使用 valueEnum 生成 | `boolean` \| `object[]` | false |
-| onFilter | 筛选表单，为 true 时使用 ProTable 自带的，为 false 时关闭本地筛选 | `(value, record) => boolean` \| 'false' | false |
+| onFilter | 筛选表单，为 true 时使用 ProTable 自带的，为 false 时关闭本地筛选 | `(value, record) => boolean` \| `false` | false |
 | request | 从服务器请求枚举 | [request](https://procomponents.ant.design/components/schema#request-%E5%92%8C-params) | - |
 | initialValue | 查询表单项初始值 | `any` | - |
+| disable | 列设置中`disabled`的状态 | `boolean` \| `{ checkbox: boolean; }` | - |
 
 ### valueType 值类型
 
@@ -556,7 +552,7 @@ SearchProps 为 antd 的 [Input.Search](https://ant.design/components/input-cn/#
 | 参数      | 说明           | 类型                                  | 默认值     |
 | --------- | -------------- | ------------------------------------- | ---------- |
 | type      | 类型           | `inline` \| `dropdown` \| `tab`       | `dropdown` |
-| activeKey | 当前值         | string                                | -          |
+| activeKey | 当前值         | `string`                              | -          |
 | items     | 菜单项         | `{ key: string; label: ReactNode }[]` | -          |
 | onChange  | 切换菜单的回调 | `(activeKey)=>void`                   | -          |
 

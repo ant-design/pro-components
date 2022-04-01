@@ -1,4 +1,4 @@
-/** Uuid: 15886807 title: 自定义描述 */
+/** Title: 自定义描述 */
 
 import React from 'react';
 import { CheckCard } from '@ant-design/pro-card';

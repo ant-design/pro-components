@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import {
   conversionSubmitValue,
   parseValueToMoment,
@@ -8,8 +8,11 @@ import {
   InlineErrorFormItem,
   useDebounceFn,
   pickProProps,
+  merge,
   DropdownFooter,
   LabelIconTip,
+  useDebounceValue,
+  isDeepEqualReact,
 } from '@ant-design/pro-utils';
 import { mount } from 'enzyme';
 import { Form, Input } from 'antd';
@@ -21,6 +24,68 @@ import isDropdownValueType from '../../packages/utils/src/isDropdownValueType/in
 import { CodeFilled } from '@ant-design/icons';
 
 describe('utils', () => {
+  it('📅 useDebounceValue', async () => {
+    const App = (props: { deps: string[] }) => {
+      const value = useDebounceValue(props.deps?.[0], 200, props.deps);
+
+      return <>{value}</>;
+    };
+
+    const html = mount(<App deps={['name']} />);
+
+    await waitTime(100);
+
+    expect(html.text()).toEqual('name');
+
+    act(() => {
+      html.setProps({
+        deps: ['string'],
+      });
+    });
+    await waitTime(100);
+
+    html.update();
+
+    expect(html.text()).toEqual('name');
+
+    await waitTime(200);
+
+    html.update();
+
+    expect(html.text()).toEqual('string');
+  });
+
+  it('📅 useDebounceValue without deps', async () => {
+    const App = (props: { deps: string[] }) => {
+      const [_, forceUpdate] = useState([]);
+      const value = useDebounceValue(props.deps?.[0]);
+
+      useEffect(() => {
+        setTimeout(() => {
+          forceUpdate([]);
+        }, 1000);
+      }, []);
+
+      return <>{value}</>;
+    };
+
+    const html = mount(<App deps={['name']} />);
+
+    expect(html.text()).toEqual('name');
+
+    act(() => {
+      html.setProps({
+        deps: ['string'],
+      });
+    });
+
+    waitTime(1000);
+
+    html.update();
+
+    expect(html.text()).toEqual('name');
+  });
+
   it('📅 useDebounceFn', async () => {
     pickProProps({
       fieldProps: {
@@ -28,11 +93,10 @@ describe('utils', () => {
       },
     });
     const fn = jest.fn();
-    const App = (props: { deps: string[] }) => {
-      const fetchData = useDebounceFn(async () => fn(), props.deps);
+    const App = ({ wait }: { wait?: number }) => {
+      const fetchData = useDebounceFn(async () => fn(), wait);
       useEffect(() => {
         fetchData.run();
-        return fetchData.cancel();
         // eslint-disable-next-line react-hooks/exhaustive-deps
       }, []);
       return (
@@ -45,7 +109,21 @@ describe('utils', () => {
         />
       );
     };
-    const html = mount(<App deps={['name']} />);
+    const html = mount(<App />);
+
+    expect(fn).toBeCalledTimes(1);
+
+    // wait === undefined
+    act(() => {
+      html.find('#test').simulate('click');
+    });
+
+    expect(fn).toBeCalledTimes(3);
+
+    // wait === 80
+    html.setProps({
+      wait: 80,
+    });
 
     act(() => {
       html.find('#test').simulate('click');
@@ -53,20 +131,65 @@ describe('utils', () => {
 
     await waitTime(100);
 
-    act(() => {
-      html.setProps({
-        deps: ['string'],
-      });
+    expect(fn).toBeCalledTimes(4);
+
+    // wait === 0
+    html.setProps({
+      wait: 0,
     });
+
+    act(() => {
+      html.find('#test').simulate('click');
+    });
+
+    expect(fn).toBeCalledTimes(6);
+
+    // wait === 100 but callback is cancelled
+    html.setProps({
+      wait: 100,
+    });
+
+    act(() => {
+      html.find('#test').simulate('click');
+    });
+
+    await waitTime(50);
+
+    act(() => {
+      html.unmount();
+    });
+
     await waitTime(100);
 
-    act(() => {
-      act(() => {
-        html.unmount();
-      });
+    expect(fn).toBeCalledTimes(6);
+  });
+
+  it('📅 useDebounceFn execution has errors', async () => {
+    pickProProps({
+      fieldProps: {
+        name: 'string',
+      },
     });
 
-    expect(fn).toBeCalledTimes(2);
+    const error = new Error('debounce error');
+    const catchFn = jest.fn();
+    const App = ({ wait }: { wait?: number }) => {
+      const fetchData = useDebounceFn(async () => {
+        throw error;
+      }, wait);
+
+      useEffect(() => {
+        fetchData.run().catch(catchFn);
+        // eslint-disable-next-line react-hooks/exhaustive-deps
+      }, []);
+      return <div />;
+    };
+
+    mount(<App />);
+
+    await waitTime(100);
+
+    expect(catchFn).toBeCalledWith(error);
   });
 
   it('📅 conversionSubmitValue nil', async () => {
@@ -85,6 +208,13 @@ describe('utils', () => {
     expect(html.money === undefined).toBeTruthy();
   });
 
+  it('📅 merge values not change null', () => {
+    const html = merge<{
+      status: null;
+    }>({}, { status: null });
+    expect(html.status).toEqual(null);
+  });
+
   it('📅 conversionSubmitValue string', async () => {
     const html = conversionSubmitValue(
       {
@@ -96,6 +226,7 @@ describe('utils', () => {
         dateRange: [moment('2019-11-16 12:50:26'), moment('2019-11-16 12:50:26')],
         timeRange: [moment('2019-11-16 12:50:26'), moment('2019-11-16 12:50:26')],
         timeRange2: [moment('2019-11-16 12:50:26'), moment('2019-11-16 12:50:26')],
+        dateQuarter: moment('2019-11-16 12:50:26'),
       },
       'string',
       {
@@ -104,6 +235,7 @@ describe('utils', () => {
         name: 'text',
         dateRange: 'dateRange',
         timeRange: 'timeRange',
+        dateQuarter: 'dateQuarter',
       },
     );
     expect(html.dataTime).toBe('2019-11-16 12:50:26');
@@ -113,6 +245,7 @@ describe('utils', () => {
     expect(html.dateTimeRange.join(',')).toBe('2019-11-16 12:50:26,2019-11-16 12:50:26');
     expect(html.dateRange.join(',')).toBe('2019-11-16,2019-11-16');
     expect(html.timeRange2.join(',')).toBe('2019-11-16 12:50:26,2019-11-16 12:50:26');
+    expect(html.dateQuarter).toBe('2019-Q4');
   });
 
   it('📅 conversionSubmitValue string', async () => {
@@ -286,13 +419,13 @@ describe('utils', () => {
     );
 
     act(() => {
-      html.find('Input#test').simulate('focus');
+      html.find('input#test').simulate('focus');
     });
     await waitForComponentToPaint(html, 100);
     expect(html.find('div.ant-popover').exists()).toBeFalsy();
 
     act(() => {
-      html.find('Input#test').simulate('change', {
+      html.find('input#test').simulate('change', {
         target: {
           value: '1',
         },
@@ -307,7 +440,7 @@ describe('utils', () => {
     expect(li.at(0).text()).toBe(ruleMessage.min);
     expect(li.at(1).text()).toBe(ruleMessage.alphaRequired);
     act(() => {
-      html.find('Input#test').simulate('change', {
+      html.find('input#test').simulate('change', {
         target: {
           value: '12345678901AB',
         },
@@ -316,7 +449,7 @@ describe('utils', () => {
     await waitForComponentToPaint(html, 1000);
 
     act(() => {
-      html.find('Input#test').simulate('change', {
+      html.find('input#test').simulate('change', {
         target: {
           value: '.',
         },
@@ -326,7 +459,7 @@ describe('utils', () => {
     expect(html.find('div.ant-popover.ant-popover-hidden').exists()).toBeFalsy();
 
     act(() => {
-      html.find('Input#test').simulate('change', {
+      html.find('input#test').simulate('change', {
         target: {
           value: '',
         },
@@ -455,6 +588,35 @@ describe('utils', () => {
       },
     );
     expect(html.a.b.name).toBe('qixian_test');
+  });
+
+  it('📅 transformKeySubmitValue for array', async () => {
+    const html = transformKeySubmitValue(
+      [
+        {
+          name: 1,
+        },
+        {
+          name: 2,
+        },
+        {
+          f: [1, 2, 4],
+        },
+      ],
+      {
+        1: {
+          name: (e: string) => {
+            return {
+              name: 2,
+              name2: `qixian_${e}`,
+            };
+          },
+        },
+      },
+    );
+
+    //@ts-expect-error
+    expect(html[1].name2).toBe('qixian_2');
   });
 
   it('📅 transformKeySubmitValue return array', async () => {
@@ -593,5 +755,75 @@ describe('utils', () => {
     });
 
     expect(html.render()).toMatchSnapshot();
+  });
+
+  it('isDeepEqualReact', () => {
+    const CustomComponent: React.FC<any> = () => {
+      return <div />;
+    };
+
+    class Deep {
+      constructor() {
+        return;
+      }
+      a() {}
+      b() {}
+    }
+
+    const DeepComponent = () => {
+      const a = (
+        <CustomComponent
+          array={[1, 2, 3, 4, { deep: true, nested: { deep: true, ignoreKey: false } }]}
+          map={
+            new Map([
+              ['key', 'value'],
+              ['key2', 'value2'],
+              ['key3', 'value3'],
+            ])
+          }
+          set={new Set([1, 2, 3, 4, 5])}
+          regexp={new RegExp('test', 'ig')}
+          arrayBuffer={new Int8Array([1, 2, 3, 4, 5])}
+          string="compare"
+          number={0}
+          null={null}
+          nan={NaN}
+          class={Deep}
+          classInstance={new Deep()}
+          className="class-name"
+        />
+      );
+
+      const b = (
+        <CustomComponent
+          array={[1, 2, 3, 4, { deep: true, nested: { deep: true, ignoreKey: true } }]}
+          map={
+            new Map([
+              ['key', 'value'],
+              ['key2', 'value2'],
+              ['key3', 'value3'],
+            ])
+          }
+          set={new Set([1, 2, 3, 4, 5])}
+          regexp={new RegExp('test', 'ig')}
+          arrayBuffer={new Int8Array([1, 2, 3, 4, 5])}
+          string="compare"
+          number={0}
+          null={null}
+          nan={NaN}
+          class={Deep}
+          classInstance={new Deep()}
+          className="class-name"
+        />
+      );
+
+      expect(isDeepEqualReact(a, b, ['ignoreKey'])).toBeTruthy();
+
+      return <CustomComponent a={a} b={b} />;
+    };
+
+    const wrapper = mount(<DeepComponent />);
+
+    waitForComponentToPaint(wrapper, 100);
   });
 });

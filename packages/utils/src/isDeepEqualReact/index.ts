@@ -47,8 +47,9 @@ function isDeepEqualReact(a: any, b: any, ignoreKeys?: string[], debug?: boolean
     }
 
     if (a.constructor === RegExp) return a.source === b.source && a.flags === b.flags;
-    if (a.valueOf !== Object.prototype.valueOf) return a.valueOf() === b.valueOf();
-    if (a.toString !== Object.prototype.toString) return a.toString() === b.toString();
+    if (a.valueOf !== Object.prototype.valueOf && a.valueOf) return a.valueOf() === b.valueOf();
+    if (a.toString !== Object.prototype.toString && a.toString)
+      return a.toString() === b.toString();
 
     // eslint-disable-next-line prefer-const
     keys = Object.keys(a);

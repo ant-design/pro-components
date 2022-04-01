@@ -2,18 +2,15 @@ import React from 'react';
 import type { CheckboxProps } from 'antd';
 import { Checkbox } from 'antd';
 import ProFormField from '../Field';
-import type { ProSchema } from '@ant-design/pro-utils';
 import { runFunction } from '@ant-design/pro-utils';
 import type { CheckboxGroupProps } from 'antd/lib/checkbox';
-import type { ProFormFieldItemProps } from '../../interface';
-import createField from '../../BaseForm/createField';
+import type { ProFormFieldItemProps, ProFormFieldRemoteProps } from '../../interface';
+import { createField } from '../../BaseForm/createField';
 
 export type ProFormCheckboxGroupProps = ProFormFieldItemProps<CheckboxGroupProps> & {
   layout?: 'horizontal' | 'vertical';
   options?: CheckboxGroupProps['options'];
-  valueEnum?: ProSchema['valueEnum'];
-  request?: ProSchema['request'];
-};
+} & ProFormFieldRemoteProps;
 
 const CheckboxGroup: React.FC<ProFormCheckboxGroupProps> = React.forwardRef(
   ({ options, fieldProps, proFieldProps, valueEnum, ...rest }, ref) => (

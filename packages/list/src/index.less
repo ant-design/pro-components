@@ -50,6 +50,7 @@
       }
 
       .@{ant-prefix}-list-item-meta-title {
+        flex-shrink: 9;
         margin: 0;
         line-height: 22px;
       }
@@ -95,8 +96,16 @@
     }
 
     &-show-action-hover {
-      .@{ant-prefix}-list-item-action {
+      .@{ant-prefix}-list-item-action,
+      .@{ant-prefix}-pro-card-extra,
+      .@{ant-prefix}-pro-card-actions {
         display: none;
+      }
+      &:hover {
+        .@{ant-prefix}-pro-card-extra,
+        .@{ant-prefix}-pro-card-actions {
+          display: flex;
+        }
       }
     }
 

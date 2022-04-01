@@ -20,7 +20,7 @@ ProForm 在原来的 Form 的基础上增加一些语法糖和更多的布局设
 - 如果想要监听某个值，建议使用 `onValuesChange`。保持单向的数据流无论对开发者还是维护者都大有裨益
 - ProForm 没有黑科技，只是 antd 的 Form 的封装，如果要使用自定义的组件可以用 Form.Item 包裹后使用，支持混用
 
-```tsx |pure
+```tsx | pure
 // 设置整体默认值
 <ProForm initialValues={obj} />
 
@@ -89,6 +89,12 @@ ProForm 是基于 antd Form 的可降级封装，与 antd 功能完全对齐，�
 
 <code src="./demos/form-layout.tsx" title="标签与表单项布局" />
 
+### 栅格化布局
+
+同时支持在 `ProForm`, `SchemaForm`, `ModalForm`, `DrawerForm`, `StepsForm` 中使用
+
+<code src="./demos/form-layout-grid.tsx" title="栅格化布局" />
+
 ### 登录
 
 <code src="./demos/login-form.tsx" height="300px" title="登录" />
@@ -124,6 +130,7 @@ ProForm 是基于 antd Form 的可降级封装，与 antd 功能完全对齐，�
 <code src="./demos/linkage-customization.tsx" heigh="1774px" debug/>
 
 <code src="./demos/pro-form-dependency.debug.tsx" height="548px" title="formRef的使用" debug />
+<code src="./demos/label-col.tsx" height="548px"  debug />
 
 ## ProForm
 
@@ -138,13 +145,58 @@ ProForm 是 antd Form 的再封装，如果你想要自定义表单元素，ProF
 | submitter | 提交按钮相关配置 | `boolean` \| `SubmitterProps` | `true` |
 | syncToUrl | 同步参数到 url 上,url 只支持 string，在使用之前最好读一下[url 中的参数类型](https://developer.mozilla.org/en-US/docs/Web/API/URLSearchParams) | `true` \| `(values,type)=>values` | - |
 | syncToInitialValues | 同步结果到 initialValues,默认为 true 如果为 false，form.reset 的时将会忽略从 url 上获取的数据 | `boolean` | `true` |
-| dateFormatter | 自动格式数据,主要是 moment 的表单,支持 string 和 number 两种模式 | `string\| number \|false` | string |
+| dateFormatter | 自动格式数据,主要是 moment 的表单,支持 string 和 number 两种模式，此外还支持指定函数进行格式化。 | `string\| number \| ((value: Moment, valueType: string) => string \| number) \| false` | string |
 | omitNil | ProForm 会自动清空 null 和 undefined 的数数据，如果你约定了 nil 代表某种数据，可以设置为 false 关闭此功能 | `boolean` | true |
 | params | 发起网络请求的参数,与 request 配合使用 | `Record` | - |
 | request | 发起网络请求的参数,返回值会覆盖给 initialValues | `(params)=>Promise<data>` | - |
 | isKeyPressSubmit | 是否使用回车提交 | `boolean` | - |
+| formRef | 获取表单所使用的 form | `React.MutableRefObject<ProFormInstance<T>>` | - |
 | autoFocusFirstInput | 自动 focus 表单第一个输入框 | `boolean` | - |
+| `grid` | 开启栅格化模式，宽度默认百分比，请使用 `colProps` 控制宽度 [查看示例](/components/form#栅格化布局) | `boolean` | - |
+| rowProps | 开启 `grid` 模式时传递给 `Row`, 仅在`ProFormGroup`, `ProFormList`, `ProFormFieldSet` 中有效 | [RowProps](https://ant.design/components/grid/#Row) | { gutter: 8 } |
 | [(...)](https://ant.design/components/form-cn/) | 注意 `LightFilter` 和 `QueryFilter` 仅支持除 `wrapperCol` \| `labelCol` \| `layout` 外的其他 antd `Form` 组件参数 | - | - |
+
+### ProFormInstance
+
+ProFormInstance 与 antd 的 form 相比增加了一些能力。
+
+```tsx | pure
+  /**
+   * 获取被 ProForm 格式化后的所有数据
+   * @param nameList boolean
+   * @returns T
+   *
+   * @example  getFieldsFormatValue() ->返回所有数据
+   * @example  getFieldsFormatValue(true) ->返回所有数据，即使没有被 form 托管的
+   */
+  getFieldsFormatValue?: (nameList?: true) => T;
+  /**
+   * 获取被 ProForm 格式化后的单个数据
+   * @param nameList (string|number)[]
+   * @returns T
+   *
+   * @example {a:{b:value}} -> getFieldFormatValue(['a', 'b']) -> value
+   */
+  /** 获取格式化之后的单个数据 */
+  getFieldFormatValue?: (nameList?: NamePath) => T;
+  /**
+   * 获取被 ProForm 格式化后的单个数据, 包含他的 name
+   * @param nameList (string|number)[]
+   * @returns T
+   *
+   * @example  {a:{b:value}} -> getFieldFormatValueObject(['a', 'b']) -> {a:{b:value}}
+   */
+  /** 获取格式化之后的单个数据 */
+  getFieldFormatValueObject?: (nameList?: NamePath) => T;
+  /**
+   *验字段后返回格式化之后的所有数据
+   * @param nameList (string|number)[]
+   * @returns T
+   *
+   * @example validateFieldsReturnFormatValue -> {a:{b:value}}
+   */
+  validateFieldsReturnFormatValue?: (nameList?: NamePath[]) => Promise<T>;
+```
 
 ### ProForm.Group
 

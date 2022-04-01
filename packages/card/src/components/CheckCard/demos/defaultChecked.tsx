@@ -1,4 +1,4 @@
-/** Uuid: 47390657 title: 默认选中 */
+/** Title: 默认选中 */
 
 import React from 'react';
 import { CheckCard } from '@ant-design/pro-card';

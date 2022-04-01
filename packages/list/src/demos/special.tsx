@@ -10,9 +10,9 @@ const data = ['语雀的天空（top）', 'Ant Design（inline）', '蚂蚁金�
     title: item,
     subTitle: <Tag color="#5BD8A6">语雀专栏</Tag>,
     actions: [
-      <a>邀请</a>,
-      <a>操作</a>,
-      <a>
+      <a key="invite">邀请</a>,
+      <a key="operate">操作</a>,
+      <a key="rest">
         <EllipsisOutlined />
       </a>,
     ],

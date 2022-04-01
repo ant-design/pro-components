@@ -1,5 +1,13 @@
 export default {
   moneySymbol: '€',
+  form: {
+    lightFilter: {
+      more: 'Más',
+      clear: 'Limpiar',
+      confirm: 'Confirmar',
+      itemsUnits: 'Objetos',
+    },
+  },
   tableForm: {
     search: 'Buscar',
     reset: 'Limpiar',
@@ -47,5 +55,16 @@ export default {
   },
   loginForm: {
     submitText: 'Entrar',
+  },
+  editableTable: {
+    action: {
+      save: 'Guardar',
+      cancel: 'Descartar',
+      delete: 'Borrar',
+    },
+  },
+  switch: {
+    open: 'abrir',
+    close: 'cerrar',
   },
 };

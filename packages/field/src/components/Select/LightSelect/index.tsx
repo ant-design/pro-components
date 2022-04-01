@@ -55,9 +55,11 @@ const LightSelect: React.ForwardRefRenderFunction<any, SelectProps<any> & LightS
     onSearch,
     allowClear,
     labelInValue,
+    fieldNames,
     ...restProps
   } = props;
   const { placeholder = label } = props;
+  const { label: labelPropsName = 'label', value: valuePropsName = 'value' } = fieldNames || {};
   const { getPrefixCls } = useContext(ConfigProvider.ConfigContext);
   const prefixCls = getPrefixCls('pro-field-select-light-select');
   const [open, setOpen] = useState<boolean>(false);
@@ -65,11 +67,13 @@ const LightSelect: React.ForwardRefRenderFunction<any, SelectProps<any> & LightS
 
   const valueMap: Record<string, string> = useMemo(() => {
     const values = {};
-    options?.forEach(({ label: aLabel, value: aValue }) => {
-      values[aValue!] = aLabel || aValue;
+    options?.forEach((item) => {
+      const optionLabel = item[labelPropsName];
+      const optionValue = item[valuePropsName];
+      values[optionValue!] = optionLabel || optionValue;
     });
     return values;
-  }, [options]);
+  }, [labelPropsName, options, valuePropsName]);
 
   const filterValue = Array.isArray(value)
     ? value.map((v) => getValueOrLabel(valueMap, v))
@@ -143,8 +147,8 @@ const LightSelect: React.ForwardRefRenderFunction<any, SelectProps<any> & LightS
           keyword
             ? options?.filter((o) => {
                 return (
-                  String(o.label)?.toLowerCase()?.includes(keyword) ||
-                  o?.value?.toString()?.toLowerCase()?.includes(keyword)
+                  String(o[labelPropsName])?.toLowerCase()?.includes(keyword) ||
+                  o[valuePropsName]?.toString()?.toLowerCase()?.includes(keyword)
                 );
               })
             : options

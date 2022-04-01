@@ -7,7 +7,7 @@ import omit from 'omit.js';
 import { BetaSchemaForm } from '@ant-design/pro-form';
 
 import type { ProSchemaComponentTypes } from '@ant-design/pro-utils';
-import type { ActionType, ProColumns } from '../../typing';
+import type { ActionType, ProColumns, ProTableProps } from '../../typing';
 
 import './index.less';
 
@@ -98,7 +98,7 @@ export type TableFormItem<T, U = any> = {
   onReset?: (value: T) => void;
   form?: Omit<ProFormProps, 'form'>;
   type?: ProSchemaComponentTypes;
-  dateFormatter?: 'string' | 'number' | false;
+  dateFormatter?: ProTableProps<T, U, any>['dateFormatter'];
   search?: false | SearchConfig;
   columns: ProColumns<U, any>[];
   formRef: React.MutableRefObject<FormInstance | undefined>;
@@ -106,6 +106,7 @@ export type TableFormItem<T, U = any> = {
   manualRequest?: boolean;
   bordered?: boolean;
   action: React.MutableRefObject<ActionType | undefined>;
+  ghost?: boolean;
 } & Omit<FormItemProps, 'children' | 'onReset'>;
 
 /**
@@ -121,6 +122,7 @@ const FormRender = <T, U = any>({
   type,
   columns,
   action,
+  ghost,
   manualRequest,
   onReset,
   submitButtonLoading,
@@ -190,10 +192,15 @@ const FormRender = <T, U = any>({
 
   return (
     <div
-      className={classNames(className, {
+      className={classNames({
+        [getPrefixCls('pro-card')]: true,
+        [`${getPrefixCls('pro-card')}-border`]: !!bordered,
+        [`${getPrefixCls('pro-card')}-bordered`]: !!bordered,
+        [`${getPrefixCls('pro-card')}-ghost`]: !!ghost,
+        [className]: true,
         [formClassName]: isForm,
         [getPrefixCls(`pro-table-search-${toLowerLine(competentName)}`)]: true,
-        [`${getPrefixCls('card')}-bordered`]: !!bordered,
+        [`${className}-ghost`]: ghost,
         [(searchConfig as { className: string })?.className]:
           searchConfig !== false && searchConfig?.className,
       })}

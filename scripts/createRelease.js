@@ -1,15 +1,11 @@
-﻿const GitHub = require('github');
+﻿const { Octokit } = require('octokit');
 const exec = require('child_process').execSync;
 const fs = require('fs');
 const path = require('path');
 
-const github = new GitHub({
+const github = new Octokit({
   debug: process.env.NODE_ENV === 'development',
-});
-
-github.authenticate({
-  type: 'token',
-  token: process.env.GITHUB_TOKEN || process.env.GITHUB_AUTH,
+  auth: process.env.GITHUB_TOKEN || process.env.GITHUB_AUTH,
 });
 
 const getChangelog = (content, version) => {
@@ -34,7 +30,11 @@ const getChangelog = (content, version) => {
   return changeLog.join('\n');
 };
 
-const getMds = (allVersion = false) => {
+const getMds = async (allVersion = false) => {
+  const info = await github.rest.users.getAuthenticated().then(({ data: { login } }) => {
+    return 'Hello, ' + login;
+  });
+  console.log(info);
   const docDir = path.join(__dirname, '..', 'docs');
   const mdFils = fs.readdirSync(docDir).filter((name) => name.includes('changelog.md'));
   mdFils.map((mdFile) => {
@@ -50,24 +50,67 @@ const getMds = (allVersion = false) => {
         .filter((tag) => tag.includes(pkg))
         .map((tag) => tag.split('@').pop());
     }
-    console.log(versions);
-    versions.map((version) => {
+    console.log(versions.toString());
+    versions.map(async (version) => {
       const versionPkg = `@ant-design/pro-${pkg}@${version}`;
       const changeLog = getChangelog(content, versionPkg);
       if (!changeLog) {
         return;
       }
-      github.repos
-        .createRelease({
-          owner: 'ant-design',
-          repo: 'pro-components',
-          tag_name: versionPkg,
-          name: versionPkg,
-          body: changeLog,
-        })
-        .catch((e) => {
-          console.log(e);
-        });
+
+      let release_id = '';
+
+      try {
+        const tag = await github.rest.repos
+          .getReleaseByTag({
+            owner: 'ant-design',
+            repo: 'pro-components',
+            tag: versionPkg,
+          })
+          .then(({ data }) => {
+            return data;
+          })
+          .catch((e) => {
+            // console.log(versionPkg + '标签不存在');
+          });
+
+        if (tag) {
+          release_id = tag.id;
+        }
+
+        if (!tag.body && tag) {
+          github.rest.repos
+            .updateRelease({
+              owner: 'ant-design',
+              release_id,
+              repo: 'pro-components',
+              tag_name: versionPkg,
+              name: versionPkg,
+              body: changeLog,
+            })
+            .catch((e) => {
+              console.log(versionPkg + '更新失败哦');
+            });
+          return;
+        }
+      } catch (error) {
+        // console.log(versionPkg + '创建失败！');
+      }
+
+      if (!release_id) {
+        console.log(versionPkg + '标签创建中');
+        github.rest.repos
+          .createRelease({
+            owner: 'ant-design',
+            repo: 'pro-components',
+            tag_name: versionPkg,
+            name: versionPkg,
+            body: changeLog,
+          })
+          .catch((e) => {
+            console.log(versionPkg + '创建失败！');
+          });
+      }
     });
   });
 };

@@ -1,24 +1,18 @@
-import React from 'react';
+import React, { useMemo } from 'react';
 import type { UploadProps, ButtonProps } from 'antd';
 import { Upload, Button } from 'antd';
 import { UploadOutlined } from '@ant-design/icons';
 import type { ProFormFieldItemProps } from '../../interface';
-import createField from '../../BaseForm/createField';
+import { createField } from '../../BaseForm/createField';
 
 export type ProFormDraggerProps = ProFormFieldItemProps<UploadProps> & {
   icon?: React.ReactNode;
   title?: React.ReactNode;
-  name?: UploadProps['name'];
-  listType?: UploadProps['listType'];
-  action?: UploadProps['action'];
-  accept?: UploadProps['accept'];
   max?: number;
   value?: UploadProps['fileList'];
-  onChange?: UploadProps['onChange'];
   buttonProps?: ButtonProps;
   disabled?: ButtonProps['disabled'];
-  fileList?: UploadProps['fileList'];
-};
+} & Pick<UploadProps, 'name' | 'listType' | 'action' | 'accept' | 'fileList' | 'onChange'>;
 
 /**
  * 上传按钮组件
@@ -35,15 +29,18 @@ const ProFormUploadButton: React.ForwardRefRenderFunction<any, ProFormDraggerPro
     title = '单击上传',
     max,
     icon = <UploadOutlined />,
-    value,
     buttonProps,
     onChange,
     disabled,
     proFieldProps,
-    fileList,
+    ...restProps
   },
   ref,
 ) => {
+  const value = useMemo(() => {
+    return restProps.fileList ?? restProps.value;
+  }, [restProps.fileList, restProps.value]);
+
   // 如果配置了 max ，并且 超过了文件列表的大小，就不展示按钮
   const showUploadButton =
     (max === undefined || !value || value?.length < max) && proFieldProps?.mode !== 'read';
@@ -57,7 +54,7 @@ const ProFormUploadButton: React.ForwardRefRenderFunction<any, ProFormDraggerPro
       // 'fileList' 改成和 ant.design 文档中 Update 组件 默认 file字段一样
       name={name || 'file'}
       listType={listType || 'picture'}
-      fileList={fileList ?? value}
+      fileList={value}
       {...fieldProps}
       onChange={(info) => {
         onChange?.(info);

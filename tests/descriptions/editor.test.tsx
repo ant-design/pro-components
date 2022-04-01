@@ -79,7 +79,6 @@ const columns: ProDescriptionsItemProps<DataSourceType>[] = [
   {
     title: '创建时间',
     dataIndex: ['time', 'created_at'],
-    valueType: 'date',
   },
 ];
 
@@ -136,7 +135,7 @@ const DescriptionsDemo = (
         type: props.type,
         editableKeys,
         onSave: props.onSave,
-        onChange: setEditorRowKeys,
+        onChange: (keys) => setEditorRowKeys(keys),
       }}
     />
   );
@@ -605,5 +604,41 @@ describe('Descriptions', () => {
     await waitForComponentToPaint(wrapper, 200);
 
     expect(fn).toBeCalledWith('qixian');
+  });
+
+  it('📝 when dataIndex is array', async () => {
+    const fn = jest.fn();
+    const wrapper = mount(<DescriptionsDemo onSave={(key, row) => fn(row?.time?.created_at)} />);
+    await waitForComponentToPaint(wrapper, 1000);
+
+    act(() => {
+      wrapper.find('span.anticon-edit').at(2).simulate('click');
+    });
+
+    await waitForComponentToPaint(wrapper, 200);
+
+    act(() => {
+      wrapper
+        .find('td.ant-descriptions-item .ant-descriptions-item-content')
+        .at(2)
+        .find(`input.ant-input`)
+        .simulate('change', {
+          target: {
+            value: '2021-05-26 09:42:56',
+          },
+        });
+    });
+
+    act(() => {
+      wrapper
+        .find('td.ant-descriptions-item .ant-descriptions-item-content')
+        .at(2)
+        .find(`span.anticon-check`)
+        .simulate('click');
+    });
+
+    await waitForComponentToPaint(wrapper, 200);
+
+    expect(fn).toBeCalledWith('2021-05-26 09:42:56');
   });
 });

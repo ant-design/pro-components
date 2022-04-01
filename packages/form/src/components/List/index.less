@@ -1,23 +1,27 @@
 ﻿@root-entry-name: 'default';
-@import (reference) '~antd/es/style/themes/index';
+@import (reference) '~antd/es/style/themes/index.less';
 
-@pro-table-prefix-cls: ~'@{ant-prefix}-pro-form';
+@pro-form-list-prefix-cls: ~'@{ant-prefix}-pro-form-list';
 
-.@{pro-table-prefix-cls}-list {
+// 只有在垂直模式隐藏label
+.@{ant-prefix}-form:not(.@{ant-prefix}-form-horizontal) {
+  .@{pro-form-list-prefix-cls} {
+    &-item {
+      .@{ant-prefix}-form-item-label {
+        display: none;
+      }
+    }
+  }
+}
+
+.@{pro-form-list-prefix-cls} {
   max-width: 100%;
   &-item {
-    .@{ant-prefix}-form-item-label {
-      display: none;
-    }
     &&-show-label {
       .@{ant-prefix}-form-item-label {
         display: inline-block;
       }
     }
-  }
-
-  &-container {
-    margin-right: 8px;
   }
 
   &-item {
@@ -33,13 +37,14 @@
   }
 
   &-action {
+    display: flex;
     height: 32px;
     margin-bottom: 24px;
     line-height: 32px;
   }
 
   .@{ant-prefix}-pro-card .@{ant-prefix}-pro-card-extra {
-    .@{pro-table-prefix-cls}-list {
+    .@{pro-form-list-prefix-cls} {
       &-action {
         margin-bottom: 0;
       }
@@ -47,14 +52,11 @@
   }
 
   &-action-icon {
-    margin-right: 8px;
+    margin-left: 8px;
     cursor: pointer;
     transition: color 0.3s ease-in-out;
     &:hover {
       color: @primary-color-hover;
-    }
-    &:last-child {
-      margin-right: 0;
     }
   }
 

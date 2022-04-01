@@ -6,6 +6,7 @@ import ProCard from '@ant-design/pro-card';
 import { Button, Input, Space, Tag, Form } from 'antd';
 import { PlusOutlined } from '@ant-design/icons';
 import { ProFormField } from '@ant-design/pro-form';
+import type { InputRef } from 'antd';
 
 const waitTime = (time: number = 100) => {
   return new Promise((resolve) => {
@@ -27,7 +28,7 @@ const TagList: React.FC<{
     }[],
   ) => void;
 }> = ({ value, onChange }) => {
-  const ref = useRef<Input | null>(null);
+  const ref = useRef<InputRef | null>(null);
   const [newTags, setNewTags] = useState<
     {
       key: string;
@@ -204,6 +205,9 @@ export default () => {
 
       <EditableProTable<DataSourceType>
         rowKey="id"
+        scroll={{
+          x: 960,
+        }}
         actionRef={actionRef}
         headerTitle="可编辑表格"
         maxLength={5}

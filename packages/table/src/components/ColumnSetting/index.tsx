@@ -18,7 +18,7 @@ import { genColumnKey } from '../../utils/index';
 import type { ProColumns } from '../../typing';
 
 import './index.less';
-import { omitUndefined, useRefFunction } from '@ant-design/pro-utils';
+import { useRefFunction } from '@ant-design/pro-utils';
 import type { CheckboxChangeEvent } from 'antd/lib/checkbox';
 
 type ColumnSettingProps<T = any> = {
@@ -27,6 +27,7 @@ type ColumnSettingProps<T = any> = {
   checkable?: boolean;
   extra?: React.ReactNode;
   checkedReset?: boolean;
+  children?: React.ReactNode;
 };
 
 const ToolTipIcon: React.FC<{
@@ -46,8 +47,7 @@ const ToolTipIcon: React.FC<{
           e.stopPropagation();
           e.preventDefault();
           const config = columnsMap[columnKey] || {};
-          const disableIcon =
-            typeof config.disable === 'boolean' ? config.disable : config.disable?.icon;
+          const disableIcon = typeof config.disable === 'boolean' && config.disable;
           if (disableIcon) return;
           const columnKeyMap = {
             ...columnsMap,
@@ -173,22 +173,14 @@ const CheckboxList: React.FC<{
   /** 选中反选功能 */
   const onCheckTree = useRefFunction((e) => {
     const columnKey = e.node.key;
-    const tempConfig = columnsMap[columnKey] || {};
-    const newSetting = { ...tempConfig };
-    if (e.checked) {
-      delete newSetting.show;
-    } else {
-      newSetting.show = false;
-    }
-    const columnKeyMap = {
+    const newSetting = { ...columnsMap[columnKey] };
+
+    newSetting.show = e.checked;
+
+    setColumnsMap({
       ...columnsMap,
-      [columnKey]: omitUndefined(newSetting) as ColumnsState,
-    };
-    // 如果没有值了，直接干掉他
-    if (!omitUndefined(newSetting)) {
-      delete columnKeyMap[columnKey];
-    }
-    setColumnsMap(columnKeyMap);
+      [columnKey]: newSetting,
+    });
   });
 
   if (!show) {
@@ -211,15 +203,9 @@ const CheckboxList: React.FC<{
       onCheck={(_, e) => onCheckTree(e)}
       checkedKeys={treeDataConfig.keys}
       showLine={false}
-      titleRender={(node) => {
-        return (
-          <CheckboxListItem
-            className={className}
-            {...node}
-            children={undefined}
-            columnKey={node.key}
-          />
-        );
+      titleRender={(_node) => {
+        const node = { ..._node, children: undefined };
+        return <CheckboxListItem className={className} {...node} columnKey={node.key} />;
       }}
       height={280}
       treeData={treeDataConfig.list}
@@ -309,8 +295,10 @@ function ColumnSetting<T>(props: ColumnSettingProps<T>) {
   const { columnsMap, setColumnsMap, clearPersistenceStorage } = counter;
 
   useEffect(() => {
-    if (columnsMap) {
-      columnRef.current = JSON.parse(JSON.stringify(columnsMap));
+    if (counter.propsRef.current?.columnsState?.value) {
+      columnRef.current = JSON.parse(
+        JSON.stringify(counter.propsRef.current?.columnsState?.value || {}),
+      );
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
@@ -351,8 +339,8 @@ function ColumnSetting<T>(props: ColumnSettingProps<T>) {
 
   /** 重置项目 */
   const clearClick = useRefFunction(() => {
-    setColumnsMap(columnRef.current);
     clearPersistenceStorage?.();
+    setColumnsMap(columnRef.current);
   });
 
   // 未选中的 key 列表
@@ -400,9 +388,11 @@ function ColumnSetting<T>(props: ColumnSettingProps<T>) {
         />
       }
     >
-      <Tooltip title={intl.getMessage('tableToolBar.columnSetting', '列设置')}>
-        <SettingOutlined />
-      </Tooltip>
+      {props.children || (
+        <Tooltip title={intl.getMessage('tableToolBar.columnSetting', '列设置')}>
+          <SettingOutlined />
+        </Tooltip>
+      )}
     </Popover>
   );
 }

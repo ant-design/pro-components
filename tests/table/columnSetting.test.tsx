@@ -570,6 +570,89 @@ describe('Table ColumnSetting', () => {
     expect(callBack).toBeCalled();
   });
 
+  it('🎏 columnsState use the column key or dataIndex as index name', async () => {
+    const onChange = jest.fn();
+    const html = mount(
+      <ProTable
+        size="small"
+        columnsState={{
+          onChange,
+        }}
+        columns={[
+          {
+            title: 'Name',
+            key: 'name',
+            dataIndex: 'name',
+            copyable: true,
+          },
+          {
+            title: 'Name2',
+            dataIndex: 'name2',
+          },
+          {
+            title: 'Name3',
+            dataIndex: 'name3',
+          },
+          {
+            valueType: 'option',
+            render() {
+              return null;
+            },
+          },
+        ]}
+        request={async () => {
+          return {
+            data: [
+              {
+                key: 1,
+                name: `TradeCode ${1}`,
+                name2: `TradeCode ${1}`,
+                name3: `TradeCode ${1}`,
+                createdAt: 1602572994055,
+              },
+            ],
+            success: true,
+          };
+        }}
+        rowKey="key"
+      />,
+    );
+
+    html.find(`span[aria-label="setting"]`).simulate('click');
+
+    html.find(`.ant-pro-table-column-setting-action-rest-button`).simulate('click');
+
+    expect(onChange).toBeCalledTimes(1);
+    expect((onChange.mock as any).lastCall[1]).toMatchInlineSnapshot(`
+      Object {
+        "3": Object {
+          "disable": undefined,
+          "fixed": undefined,
+          "order": undefined,
+          "show": true,
+        },
+        "name": Object {
+          "disable": undefined,
+          "fixed": undefined,
+          "order": undefined,
+          "show": true,
+        },
+        "name2": Object {
+          "disable": undefined,
+          "fixed": undefined,
+          "order": undefined,
+          "show": true,
+        },
+        "name3": Object {
+          "disable": undefined,
+          "fixed": undefined,
+          "order": undefined,
+          "show": true,
+        },
+      }
+    `);
+  });
+
   it('🎏 columnSetting select one', async () => {
     const callBack = jest.fn();
     const html = mount(
@@ -784,6 +867,58 @@ describe('Table ColumnSetting', () => {
     act(() => {
       const icon = html.find('.ant-pro-table-list-toolbar-setting-item .anticon-setting');
       icon.simulate('click');
+    });
+
+    await waitForComponentToPaint(html, 1000);
+
+    expect(html.find('.ant-tree-treenode').length).toBe(2);
+  });
+
+  it('🎏 columnSetting support replacement for default setting icon', async () => {
+    const html = mount(
+      <ProTable
+        size="small"
+        options={{
+          setting: {
+            children: <button className="custom-setting-button">Click Me!</button>,
+          },
+        }}
+        columns={[
+          {
+            title: 'Name',
+            key: 'name',
+            dataIndex: 'name',
+            copyable: true,
+            hideInSetting: true,
+          },
+          {
+            title: 'Name2',
+            key: 'name2',
+            dataIndex: 'name2',
+            copyable: true,
+          },
+          {
+            title: 'Name3',
+            key: 'name3',
+            dataIndex: 'name3',
+            hideInTable: true,
+          },
+        ]}
+        dataSource={[
+          {
+            key: 1,
+            name: `TradeCode ${1}`,
+            createdAt: 1602572994055,
+          },
+        ]}
+        rowKey="key"
+      />,
+    );
+
+    await waitForComponentToPaint(html, 200);
+    act(() => {
+      const element = html.find('.ant-pro-table-list-toolbar-setting-item .custom-setting-button');
+      element.simulate('click');
     });
 
     await waitForComponentToPaint(html, 1000);

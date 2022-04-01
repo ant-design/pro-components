@@ -16,7 +16,7 @@ nav:
 | --- | --- | --- |
 | `key` | `React.key` | 确定这个列的唯一值,一般用于 dataIndex 重复的情况 |
 | `dataIndex` | `React.key` \| `React.key[]` | 与实体映射的 key，数组会被转化 `[a,b] => Entity.a.b` |
-| `valueType` | `ProFieldValueType` | 数据的渲渲染方式，我们自带了一部分，你可以可以自定义 valueType |
+| `valueType` | `ProFieldValueType` | 数据的渲渲染方式，我们自带了一部分，你也可以自定义 valueType |
 | `title` | `ReactNode` \|`(props,type,dom)=> ReactNode` | 标题的内容，在 form 中是 label |
 | `tooltip` | `string` | 会在 title 旁边展示一个 icon，鼠标浮动之后展示 |
 | `valueEnum` | `(Entity)=> ValueEnum` \| `ValueEnum` | 支持 object 和 Map，Map 是支持其他基础类型作为 key |
@@ -31,6 +31,8 @@ nav:
 | `hideInTable` | `boolean` | 在 Table 中隐藏 |
 | `hideInSearch` | `boolean` | 在 Table 的查询表单中隐藏 |
 | `hideInDescriptions` | `boolean` | 在 descriptions 中隐藏 |
+| `rowProps` | [RowProps](https://ant.design/components/grid/#Row) | 在开启 `grid` 模式时传递给 Row，仅在`ProFormGroup`, `ProFormList`, `ProFormFieldSet` 中有效 |
+| `colProps` | [ColProps](https://ant.design/components/grid/#Col) | 在开启 `grid` 模式时传递给 Col |
 
 ## TypeScript 定义
 
@@ -262,7 +264,9 @@ interface IValueEnum {
 
 ## 远程数据
 
-对于 `select`, `checkbox`, `radio`, `radioButton` 这四个 valueType,我们统一支持了 `request`,`params`,`fieldProps.options`，`valueEnum` 来支持远程数据，这几个属性分别有不同的用法。
+支持组件 `Select`, `TreeSelect`, `Cascader`, `Checkbox`, `Radio`, `RadioButton`
+
+支持参数 `request`,`params`,`fieldProps.options`, `valueEnum` 来支持远程数据，这几个属性分别有不同的用法。
 
 ### `valueEnum`
 
@@ -392,6 +396,8 @@ export default () => (
 
 ### `request` 和 `params`
 
+> 可以使用 debounceTime 调整请求防抖时间，默认为 10ms
+
 大部分时候我们是从网络中获取数据，但是获取写一个 hooks 来请求数据还是比较繁琐的，同时还要定义一系列状态，所以我们提供了 `request` 和 `params` 来获取数据。
 
 - `request` 是一个 promise,需要返回一个 options 相同的数据
@@ -410,6 +416,7 @@ const request = async () => [
   label="Select"
   params={{}}
   valueType="select"
+  debounceTime={1000}
   request={request}
   placeholder="Please select a country"
 />;

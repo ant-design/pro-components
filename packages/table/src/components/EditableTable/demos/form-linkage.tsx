@@ -169,7 +169,6 @@ export default () => {
           initialValues={{
             table: defaultData,
           }}
-          layout="inline"
         >
           <ProFormDependency name={['table']}>
             {({ table }) => {
@@ -205,6 +204,9 @@ export default () => {
           </ProFormDependency>
           <EditableProTable<DataSourceType>
             rowKey="id"
+            scroll={{
+              x: true,
+            }}
             controlled
             actionRef={actionRef}
             formItemProps={{
@@ -235,9 +237,6 @@ export default () => {
               type: 'multiple',
               editableKeys,
               onChange: setEditableRowKeys,
-              actionRender: (row, config, defaultDom) => {
-                return [defaultDom.save, defaultDom.delete || defaultDom.cancel];
-              },
             }}
           />
         </ProForm>

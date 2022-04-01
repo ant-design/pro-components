@@ -1,4 +1,4 @@
-/** Uuid: 1d7b8f42 title: 操作栏 */
+/** Title: 操作栏 */
 
 import React from 'react';
 import { CheckCard } from '@ant-design/pro-card';

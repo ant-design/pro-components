@@ -1,4 +1,4 @@
-/** Uuid: 0cdbe369 title: 选项不可用 */
+/** Title: 选项不可用 */
 
 import React from 'react';
 import { CheckCard } from '@ant-design/pro-card';

@@ -1,10 +1,11 @@
-﻿import React, { useImperativeHandle } from 'react';
+﻿import React, { useCallback, useImperativeHandle, useMemo } from 'react';
 import { Space, Input } from 'antd';
 import type { FormItemProps, SpaceProps } from 'antd';
 import toArray from 'rc-util/lib/Children/toArray';
 import type { GroupProps } from 'antd/lib/input';
-import createField from '../../BaseForm/createField';
+import { createField } from '../../BaseForm/createField';
 import { useRefFunction } from '@ant-design/pro-utils';
+import { useGridHelpers } from '../../helpers';
 
 export type ProFormFieldSetProps<T = any> = {
   value?: T[];
@@ -36,6 +37,7 @@ const FieldSet: React.FC<ProFormFieldSetProps> = ({
   fieldProps,
   space,
   type = 'space',
+  ...rest
 }) => {
   /**
    * 使用方法的饮用防止闭包
@@ -89,13 +91,21 @@ const FieldSet: React.FC<ProFormFieldSetProps> = ({
   });
   const Components = FieldSetType[type] as React.FC<SpaceProps>;
 
+  const { RowWrapper } = useGridHelpers(rest);
+
   /** Input.Group 需要配置 compact */
-  const typeProps = { ...(type === 'group' ? { compact: true } : {}) };
-  return (
-    <Components {...typeProps} {...(space as SpaceProps)} align="start">
-      {list}
-    </Components>
+  const typeProps = useMemo(() => ({ ...(type === 'group' ? { compact: true } : {}) }), [type]);
+
+  const Wrapper: React.FC = useCallback(
+    ({ children: dom }) => (
+      <Components {...typeProps} {...(space as SpaceProps)} align="start">
+        {dom}
+      </Components>
+    ),
+    [Components, space, typeProps],
   );
+
+  return <RowWrapper Wrapper={Wrapper}>{list}</RowWrapper>;
 };
 
 const ProFormFieldSet: React.FC<FormItemProps & ProFormFieldSetProps> = React.forwardRef(

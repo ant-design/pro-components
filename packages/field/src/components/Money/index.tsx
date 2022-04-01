@@ -4,6 +4,7 @@ import { InputNumber, Popover } from 'antd';
 import { useIntl, intlMap as allIntlMap } from '@ant-design/pro-provider';
 import type { ProFieldFC } from '../../index';
 import useMergedState from 'rc-util/lib/hooks/useMergedState';
+import omit from 'omit.js';
 
 export type FieldMoneyProps = {
   text: number;
@@ -60,6 +61,11 @@ const msMoneyIntl = {
   currency: 'MYR',
 };
 
+const ptMoneyIntl = {
+  style: 'currency',
+  currency: 'BRL',
+};
+
 const intlMap = {
   default: defaultMoneyIntl,
   'zh-Hans-CN': {
@@ -70,6 +76,7 @@ const intlMap = {
   'ru-RU': ruMoneyIntl,
   'ms-MY': msMoneyIntl,
   'sr-RS': rsMoneyIntl,
+  'pt-BR': ptMoneyIntl,
 };
 
 const getTextByLocale = (
@@ -135,7 +142,6 @@ const FieldMoney: ProFieldFC<FieldMoneyProps> = (
   {
     text,
     mode: type,
-    locale = 'zh-Hans-CN',
     render,
     renderFormItem,
     fieldProps,
@@ -143,7 +149,8 @@ const FieldMoney: ProFieldFC<FieldMoneyProps> = (
     plain,
     valueEnum,
     placeholder,
-    customSymbol,
+    locale = fieldProps.customSymbol ?? 'zh-Hans-CN',
+    customSymbol = fieldProps.customSymbol,
     numberFormatOptions = fieldProps?.numberFormatOptions,
     numberPopoverRender = fieldProps?.numberPopoverRender || false,
     ...rest
@@ -165,12 +172,17 @@ const FieldMoney: ProFieldFC<FieldMoneyProps> = (
       return undefined;
     }
     return defaultText;
-  }, [fieldProps.moneySymbol, intl, rest.moneySymbol, customSymbol]);
+  }, [customSymbol, fieldProps.moneySymbol, intl, rest.moneySymbol]);
 
   if (type === 'read') {
     const dom = (
       <span ref={ref}>
-        {getTextByLocale(moneySymbol ? locale : false, text, precision, numberFormatOptions)}
+        {getTextByLocale(
+          moneySymbol ? locale : false,
+          text,
+          precision,
+          numberFormatOptions ?? fieldProps.numberFormatOptions,
+        )}
       </span>
     );
     if (render) {
@@ -208,16 +220,21 @@ const FieldMoney: ProFieldFC<FieldMoneyProps> = (
             const reg = new RegExp(`/B(?=(d{${3 + (precision - DefaultPrecisionCont)}})+(?!d))/g`);
             return `${moneySymbol} ${value}`.replace(reg, ',');
           }
-          return value;
+          return value!?.toString();
         }}
         parser={(value) => {
           if (moneySymbol && value) {
             return value.replace(new RegExp(`\\${moneySymbol}\\s?|(,*)`, 'g'), '');
           }
-          return value;
+          return value!;
         }}
         placeholder={placeholder}
-        {...fieldProps}
+        {...omit(fieldProps, [
+          'numberFormatOptions',
+          'precision',
+          'numberPopoverRender',
+          'customSymbol',
+        ])}
       />
     );
     if (renderFormItem) {

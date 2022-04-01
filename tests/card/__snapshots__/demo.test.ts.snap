@@ -7409,7 +7409,7 @@ exports[`card demos 📸 renders ./packages/card/src/demos/collapsible.tsx corre
         class="ant-pro-card-extra"
       >
         <button
-          class="ant-btn ant-btn-sm"
+          class="ant-btn ant-btn-default ant-btn-sm"
           type="button"
         >
           <span>
@@ -7459,6 +7459,28 @@ exports[`card demos 📸 renders ./packages/card/src/demos/collapsible.tsx corre
             />
           </svg>
         </span>
+      </div>
+    </div>
+    <div
+      class="ant-pro-card-body"
+    >
+      内容
+    </div>
+  </div>
+  <div
+    class="ant-pro-card ant-pro-card-collapse"
+    style="margin-top: 16px;"
+  >
+    <div
+      class="ant-pro-card-header ant-pro-card-header-border ant-pro-card-header-collapsible"
+    >
+      <div
+        class="ant-pro-card-title"
+      >
+        <span>
+          收起 - 
+        </span>
+        可折叠-图标自定义
       </div>
     </div>
     <div
@@ -9462,7 +9484,7 @@ exports[`card demos 📸 renders ./packages/card/src/demos/steps-v.tsx correctly
                 class="ant-space-item"
               >
                 <button
-                  class="ant-btn"
+                  class="ant-btn ant-btn-default"
                   disabled=""
                   type="button"
                 >
