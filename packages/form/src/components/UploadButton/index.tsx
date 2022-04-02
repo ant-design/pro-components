@@ -7,7 +7,7 @@ import { createField } from '../../BaseForm/createField';
 
 export type ProFormDraggerProps = ProFormFieldItemProps<UploadProps> & {
   /**
-   * @name  上传文件块的图标
+   * @name  上传文件的图标
    * @default UploadOutlined
    *
    * @example 改成笑脸图标  icon={<SmileOutlined/>}
