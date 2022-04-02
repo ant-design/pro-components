@@ -25,7 +25,6 @@ export type ProFormInstanceType<T> = {
    * @param nameList (string|number)[]
    * @returns T
    */
-  /** 获取格式化之后的单个数据 */
   getFieldFormatValue?: (nameList?: NamePath) => T;
   /**
    * 获取被 ProForm 格式化后的单个数据, 包含他的 name
@@ -36,7 +35,6 @@ export type ProFormInstanceType<T> = {
    * @param nameList (string|number)[]
    * @returns T
    */
-  /** 获取格式化之后的单个数据 */
   getFieldFormatValueObject?: (nameList?: NamePath) => T;
   /**
    * 验字段后返回格式化之后的所有数据

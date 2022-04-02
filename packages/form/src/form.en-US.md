@@ -62,6 +62,85 @@ Step-by-step forms, Modal forms, Drawer forms, Query forms, Lightweight filters 
 </ProForm
 ```
 
+## Data conversion
+
+Many times there is no exact match between the data required by the component and the data required by the backend, and ProForm provides two APIs to solve this problem, 'transform' and 'convertValue'.
+
+### convertValue Pre-conversion
+
+convertValue occurs before the component obtains data, usually the data directly sent from the backend to the frontend, and sometimes needs to be refined.
+
+```tsx | pure
+   export type SearchConvertKeyFn = (value: any, field: NamePath) => string | Record<string, any>;
+  /**
+   * @name Converts the value when getting it, generally used to format the data into the format received by the component
+   * @param value field value
+   * @param namePath field name
+   * @returns the new value of the field
+   *
+   *
+   * @example a,b => [a,b] convertValue: (value,namePath)=> value.split(",")
+   * @example string => json convertValue: (value,namePath)=> JSON.parse(value)
+   * @example number => date convertValue: (value,namePath)=> Moment(value)
+   * @example YYYY-MM-DD => date convertValue: (value,namePath)=> Moment(value,"YYYY-MM-DD")
+   * @example string => object convertValue: (value,namePath)=> { return {value,label:value} }
+   */
+  convertValue?: SearchConvertKeyFn;
+```
+
+### transform transform when submitting
+
+Transform occurs when submitting, generally speaking, it is spit out the data stored in the database to the backend.
+
+For the convenience of everyone, both `ProFormDependency` and `formRef` support `transform`, which can get the transformed value.
+
+```tsx | pure
+<ProFormDependency>
+  {(value, form) => {
+    // value is transformed by transform
+    // form's current formRef, you can get the unconverted value
+    return ReactNode;
+  }}
+</ProFormDependency>
+```
+
+formRef has several built-in methods to get the converted value, which is also more functional than antd's Form. For details, see the type definition of ProFormInstance.
+
+```tsx | pure
+  /** Get all data formatted by ProForm */
+  getFieldsFormatValue?: (nameList?: true) => T;
+  /** Get the single data after formatting */
+  getFieldFormatValue?: (nameList?: NamePath) => T;
+  /** Get the single data after formatting */
+  getFieldFormatValueObject?: (nameList?: NamePath) => T;
+  /** After validating the fields, return all the data after formatting */
+  validateFieldsReturnFormatValue?: (nameList?: NamePath[]) => Promise<T>;
+```
+
+```tsx | pure
+  export type SearchTransformKeyFn = (
+    value: any,
+    namePath: string,
+    allValues: any,
+  ) => string | Record<string, any>;
+
+  /**
+   * @name Convert value when submitting, generally used to convert value into submitted data
+   * @param value field value
+   * @param namePath field name
+   * @param allValues ​​all fields
+   * The new value of the @returns field, if an object is returned, it will be merged with all values ​​once
+   *
+   * @example {name:[a,b] => {name:a,b } transform: (value,namePath,allValues)=> value.join(",")
+   * @example {name: string => { newName:string } transform: (value,namePath,allValues)=> { newName:value }
+   * @example {name:moment} => {name:string transform: (value,namePath,allValues)=> value.format("YYYY-MM-DD")
+   * @example {name:moment}=> {name:timestamp} transform: (value,namePath,allValues)=> value.valueOf()
+   * @example {name:{value,label}} => { name:string} transform: (value,namePath,allValues)=> value.value
+   * @example {name:{value,label}} => { valueName,labelName } transform: (value,namePath,allValues)=> { valueName:value.value, labelName:value.name }
+   */
+  transform?: SearchTransformKeyFn;
+```
+
 ## When to Use
 
 ProForm is the best choice when you want to implement a form quickly but don't want to spend too much time on layout.

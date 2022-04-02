@@ -8,7 +8,6 @@ import type {
   ProFieldValueType,
   ProSchema,
   SearchConvertKeyFn,
-  SearchTransformKeyFn,
 } from '@ant-design/pro-utils';
 import type { ColProps } from 'antd/lib/grid/col';
 
@@ -73,10 +72,9 @@ export type ExtendsProps = {
    */
   readonly?: boolean;
 
-  /** @name 提交时转化值，一般用于数组类型 */
-  transform?: SearchTransformKeyFn;
-
-  /** @name 获取时转化值，一般用于将数据格式化为组件接收的格式 */
+  /**
+   * @name 获取时转化值，一般用于将数据格式化为组件接收的格式
+   */
   convertValue?: SearchConvertKeyFn;
 
   /**

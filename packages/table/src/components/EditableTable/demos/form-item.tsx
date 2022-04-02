@@ -115,6 +115,7 @@ export default () => {
       initialValues={{
         table: defaultData,
       }}
+      validateTrigger="onBlur"
     >
       <EditableProTable<DataSourceType>
         rowKey="id"
