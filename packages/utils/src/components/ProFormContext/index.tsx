@@ -19,7 +19,6 @@ export type ProFormInstanceType<T> = {
    *
    * @example {a:{b:value}} -> getFieldFormatValue(['a', 'b']) -> value
    */
-  /** 获取格式化之后的单个数据 */
   getFieldFormatValue?: (nameList?: NamePath) => T;
   /**
    * 获取被 ProForm 格式化后的单个数据, 包含他的 name
@@ -28,7 +27,6 @@ export type ProFormInstanceType<T> = {
    *
    * @example  {a:{b:value}} -> getFieldFormatValueObject(['a', 'b']) -> {a:{b:value}}
    */
-  /** 获取格式化之后的单个数据 */
   getFieldFormatValueObject?: (nameList?: NamePath) => T;
   /**
    *验字段后返回格式化之后的所有数据

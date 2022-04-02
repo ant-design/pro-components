@@ -6,6 +6,7 @@ import type { GroupProps } from 'antd/lib/input';
 import { createField } from '../../BaseForm/createField';
 import { useRefFunction } from '@ant-design/pro-utils';
 import { useGridHelpers } from '../../helpers';
+import type { ProFormItemProps } from '../FormItem';
 
 export type ProFormFieldSetProps<T = any> = {
   value?: T[];
@@ -14,6 +15,7 @@ export type ProFormFieldSetProps<T = any> = {
   valuePropName?: string;
   type?: 'space' | 'group';
   fieldProps?: any;
+  transform?: ProFormItemProps['transform'];
 };
 
 const FieldSetType = {
@@ -37,6 +39,7 @@ const FieldSet: React.FC<ProFormFieldSetProps> = ({
   fieldProps,
   space,
   type = 'space',
+  transform,
   ...rest
 }) => {
   /**

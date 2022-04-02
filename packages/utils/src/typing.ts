@@ -71,8 +71,8 @@ export type ProFieldTextType = React.ReactNode | React.ReactNode[] | Moment | Mo
 
 export type SearchTransformKeyFn = (
   value: any,
-  field: string,
-  object: any,
+  namePath: string,
+  allValues: any,
 ) => string | Record<string, any>;
 export type SearchConvertKeyFn = (value: any, field: NamePath) => string | Record<string, any>;
 
