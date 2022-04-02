@@ -50,13 +50,21 @@ export type CommonFormProps<T = Record<string, any>, U = Record<string, any>> = 
     | false;
 
   /**
-   * 支持异步操作，更加方便
-   *
    * @name 表单结束后调用
+   * @description 支持异步操作，更加方便
+   *
+   * @example onFinish={async (values) => { await save(values); return true }}
    */
   onFinish?: (formData: T) => Promise<boolean | void>;
 
-  /** @name 获取真正的可以获得值的 from */
+  /**
+   * @name 获取 ProFormInstance
+   *
+   * ProFormInstance 可以用来获取当前表单的一些信息
+   *
+   * @example 获取 name 的值 formRef.current.getFieldValue("name");
+   * @example 获取所有的表单值 formRef.current.getFieldsValue(true);
+   */
   formRef?:
     | React.MutableRefObject<ProFormInstance<T> | undefined>
     | React.RefObject<ProFormInstance<T> | undefined>;
@@ -65,38 +73,53 @@ export type CommonFormProps<T = Record<string, any>, U = Record<string, any>> = 
   syncToUrl?: boolean | ((values: T, type: 'get' | 'set') => T);
   /** @name 额外的 url 参数 中 */
   extraUrlParams?: Record<string, any>;
+
   /**
    * 同步结果到 initialValues,默认为true如果为false，reset的时将会忽略从url上获取的数据
    *
    * @name 是否将 url 参数写入 initialValues
    */
   syncToInitialValues?: boolean;
+
   /**
    * 如果为 false,会原样保存。
    *
    * @default true
    * @param 要不要值中的 Null 和 undefined
    */
-
   omitNil?: boolean;
   /**
    * 格式化 Date 的方式，默认转化为 string
    *
-   * @see date -> YYYY-MM-DD
-   * @see dateTime -> YYYY-MM-DD  HH:mm:SS
-   * @see time -> HH:mm:SS
+   * @example  dateFormatter="date" : Moment -> YYYY-MM-DD
+   * @example  dateFormatter="dateTime" Moment -> YYYY-MM-DD  HH:mm:SS
+   * @example  dateFormatter="time" Moment -> HH:mm:SS
+   * @example  dateFormatter=false Moment -> Moment
+   * @example  dateFormatter={(value)=>value.format("YYYY-MM-DD")}
    */
   dateFormatter?:
     | 'string'
     | 'number'
     | ((value: moment.Moment, valueType: string) => string | number)
     | false;
-  /** 表单初始化成功，比如布局，label等计算完成 */
+
+  /**
+   * @name 表单初始化成功，比如布局，label等计算完成
+   * @example  (values)=>{ console.log(values) }
+   */
   onInit?: (values: T, form: ProFormInstance<any>) => void;
 
-  /** 发起网络请求的参数 */
+  /**
+   * @name 发起网络请求的参数
+   *
+   * @example  params={{productId: 1}}
+   * */
   params?: U;
-  /** 发起网络请求的参数,返回值会覆盖给 initialValues */
+  /**
+   * @name 发起网络请求的参数,返回值会覆盖给 initialValues
+   *
+   * @example async (params)=>{ return initialValues }
+   **/
   request?: ProRequestData<T, U>;
 
   /** 是否回车提交 */
@@ -105,7 +128,10 @@ export type CommonFormProps<T = Record<string, any>, U = Record<string, any>> = 
   /** 用于控制form 是否相同的key，高阶用法 */
   formKey?: string;
 
-  /** 自动选中第一项 */
+  /**
+   * @name自动选中第一项
+   * @description 只对有input的类型有效
+   */
   autoFocusFirstInput?: boolean;
 } & ProFormGridConfig;
 
@@ -122,7 +148,6 @@ export type BaseFormProps<T = Record<string, any>> = {
   groupProps?: GroupProps;
   /** 是否回车提交 */
   isKeyPressSubmit?: boolean;
-
   /** Form 组件的类型，内部使用 */
   formComponentType?: 'DrawerForm' | 'ModalForm' | 'QueryFilter';
 } & Omit<FormProps, 'onFinish'> &
