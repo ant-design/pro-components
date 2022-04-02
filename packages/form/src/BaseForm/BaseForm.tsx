@@ -42,10 +42,7 @@ import { noteOnce } from 'rc-util/lib/warning';
 import get from 'rc-util/lib/utils/get';
 import { useGridHelpers } from '../helpers';
 
-export type CommonFormProps<
-  T extends Record<string, any> = Record<string, any>,
-  U extends Record<string, any> = Record<string, any>,
-> = {
+export type CommonFormProps<T = Record<string, any>, U = Record<string, any>> = {
   submitter?:
     | SubmitterProps<{
         form?: FormInstance<any>;
