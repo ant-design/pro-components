@@ -14,7 +14,6 @@ const { Header } = Layout;
 
 export type HeaderViewProps = GlobalHeaderProps & {
   isMobile?: boolean;
-  collapsed?: boolean;
   logo?: React.ReactNode;
   headerRender?: WithFalse<
     (props: HeaderViewProps, defaultDom: React.ReactNode) => React.ReactNode

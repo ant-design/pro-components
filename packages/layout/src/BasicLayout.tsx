@@ -44,73 +44,142 @@ export type LayoutBreadcrumbProps = {
   minLength?: number;
 };
 
-export type BasicLayoutProps = Partial<RouterTypes<Route>> &
-  SiderMenuProps &
-  HeaderViewProps & {
-    pure?: boolean;
-    /** @name logo url */
-    logo?: React.ReactNode | WithFalse<() => React.ReactNode>;
+type GlobalTypes = Omit<
+  Partial<RouterTypes<Route>> & SiderMenuProps & HeaderViewProps,
+  'collapsed'
+>;
 
-    /** @name 页面切换的时候触发 */
-    onPageChange?: (location?: RouterTypes<Route>['location']) => void;
+export type BasicLayoutProps = GlobalTypes & {
+  /**
+   * @name 简约模式，设置了之后不渲染的任何 layout 的东西，但是会有 context，可以获取到当前菜单。
+   *
+   * @example pure={true}
+   */
+  pure?: boolean;
+  /**
+   * @name logo 的配置，可以配置url，React 组件 和 false
+   *
+   * @example 设置 logo 为网络地址  logo="https://avatars1.githubusercontent.com/u/8186664?s=460&v=4"
+   * @example 设置 logo 为组件  logo={<img src="https://avatars1.githubusercontent.com/u/8186664?s=460&v=4"/>}
+   * @example 设置 logo 为 false 不显示 logo  logo={false}
+   * @example 设置 logo 为 方法  logo={()=> <img src="https://avatars1.githubusercontent.com/u/8186664?s=460&v=4"/> }
+   * */
+  logo?: React.ReactNode | WithFalse<() => React.ReactNode>;
 
-    loading?: boolean;
+  /**
+   * @name 页面切换的时候触发
+   *
+   * @example 获取切换的页面地址 onPageChange={(location) => { console.log("切换到："+location.pathname) }}
+   *
+   * */
+  onPageChange?: (location?: RouterTypes<Route>['location']) => void;
 
-    locale?: LocaleType;
+  /**
+   * @name layout 的 loading 效果，设置完成之后只展示一个 loading
+   *
+   * @example loading={true}
+   */
+  loading?: boolean;
 
-    onCollapse?: (collapsed: boolean) => void;
+  /**
+   * @name layout
+   *
+   * @description "zh-CN" | "zh-TW" | "en-US" | "it-IT" | "ko-KR"
+   * @example 中文 layout="zh-CN"
+   * @example 英文 layout="en-US"
+   */
+  locale?: LocaleType;
 
-    footerRender?: WithFalse<
-      (props: HeaderViewProps, defaultDom: React.ReactNode) => React.ReactNode
-    >;
+  /**
+   * @name 是否收起 layout 是严格受控的，可以 设置为 true，一直收起
+   *
+   * @example collapsed={true}
+   */
+  collapsed?: boolean;
 
-    breadcrumbRender?: WithFalse<
-      (routers: AntdBreadcrumbProps['routes']) => AntdBreadcrumbProps['routes']
-    >;
+  /**
+   * @name 收起和展开的时候触发事件
+   *
+   * @example onCollapse=(collapsed)=>{ setCollapsed(collapsed) };
+   */
+  onCollapse?: (collapsed: boolean) => void;
 
-    menuItemRender?: BaseMenuProps['menuItemRender'];
-    pageTitleRender?: WithFalse<
-      (
-        props: GetPageTitleProps,
-        defaultPageTitle?: string,
-        info?: {
-          // 页面标题
-          title: string;
-          // locale 的 title
-          id: string;
-          // 页面标题不带默认的 title
-          pageName: string;
-        },
-      ) => string
-    >;
-    menuDataRender?: (menuData: MenuDataItem[]) => MenuDataItem[];
-    itemRender?: AntdBreadcrumbProps['itemRender'];
+  footerRender?: WithFalse<
+    (props: HeaderViewProps, defaultDom: React.ReactNode) => React.ReactNode
+  >;
 
-    formatMessage?: (message: MessageDescriptor) => string;
-    /** 是否禁用移动端模式，有的管理系统不需要移动端模式，此属性设置为true即可 */
-    disableMobile?: boolean;
-    contentStyle?: CSSProperties;
-    isChildrenLayout?: boolean;
+  breadcrumbRender?: WithFalse<
+    (routers: AntdBreadcrumbProps['routes']) => AntdBreadcrumbProps['routes']
+  >;
 
-    className?: string;
+  menuItemRender?: BaseMenuProps['menuItemRender'];
+  pageTitleRender?: WithFalse<
+    (
+      props: GetPageTitleProps,
+      defaultPageTitle?: string,
+      info?: {
+        // 页面标题
+        title: string;
+        // locale 的 title
+        id: string;
+        // 页面标题不带默认的 title
+        pageName: string;
+      },
+    ) => string
+  >;
+  menuDataRender?: (menuData: MenuDataItem[]) => MenuDataItem[];
+  itemRender?: AntdBreadcrumbProps['itemRender'];
 
-    /** 兼用 content的 margin */
-    disableContentMargin?: boolean;
+  formatMessage?: (message: MessageDescriptor) => string;
+  /** @name 是否禁用移动端模式
+   *
+   * @see 有的管理系统不需要移动端模式，此属性设置为true即可
+   * @example disableMobile={true}
+   *  */
+  disableMobile?: boolean;
 
-    /** PageHeader 的 BreadcrumbProps 配置，会透传下去 */
-    breadcrumbProps?: AntdBreadcrumbProps & LayoutBreadcrumbProps;
-    /** @name 水印的相关配置 */
-    waterMarkProps?: WaterMarkProps;
+  /**
+   * content 的样式
+   *
+   * @example 背景颜色为红色 contentStyle={{ backgroundColor: 'red '}}
+   */
+  contentStyle?: CSSProperties;
+  isChildrenLayout?: boolean;
 
-    /** @name 操作菜单重新刷新 */
-    actionRef?: React.MutableRefObject<
-      | {
-          reload: () => void;
-        }
-      | undefined
-    >;
-    ErrorBoundary?: any;
-  };
+  className?: string;
+
+  /**
+   * @name 取消 content的 margin
+   *
+   * @example 取消内容的 margin  disableContentMargin={true}
+   * */
+  disableContentMargin?: boolean;
+
+  /** PageHeader 的 BreadcrumbProps 配置，会透传下去 */
+  breadcrumbProps?: AntdBreadcrumbProps & LayoutBreadcrumbProps;
+
+  /** @name 水印的相关配置 */
+  waterMarkProps?: WaterMarkProps;
+
+  /**
+   * @name 操作菜单重新刷新
+   *
+   * @example  重新获取菜单 actionRef.current.reload();
+   * */
+  actionRef?: React.MutableRefObject<
+    | {
+        reload: () => void;
+      }
+    | undefined
+  >;
+
+  /**
+   * @name 错误处理组件
+   *
+   * @example ErrorBoundary={<MyErrorBoundary/>}
+   */
+  ErrorBoundary?: any;
+};
 
 const headerRender = (
   props: BasicLayoutProps & {
