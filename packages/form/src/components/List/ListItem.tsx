@@ -340,7 +340,7 @@ const ProFormListItem: React.FC<
     options,
   ) || (
     <div
-      className={`${prefixCls}-item${alwaysShowItemLabel ? ` ${prefixCls}-item-show-label` : ''}`}
+      className={`${prefixCls}-item ${alwaysShowItemLabel ? `${prefixCls}-item-show-label` : ''}`}
       style={{
         display: 'flex',
         alignItems: 'flex-end',
