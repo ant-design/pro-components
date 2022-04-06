@@ -22,7 +22,6 @@ import type { ProSettings } from './defaultSettings';
 import defaultSettings from './defaultSettings';
 import type { LocaleType } from './locales';
 import { gLocaleObject } from './locales';
-import type { BaseMenuProps } from './components/SiderMenu/BaseMenu';
 import Footer from './Footer';
 import RouteContext from './RouteContext';
 import SiderMenu from './components/SiderMenu';
@@ -104,15 +103,35 @@ export type BasicLayoutProps = GlobalTypes & {
    */
   onCollapse?: (collapsed: boolean) => void;
 
+  /**
+   * @name 页脚的配置
+   *
+   * @example 不展示dom footerRender={false}
+   * @example 使用 layout 的  DefaultFooter   footerRender={() => (<DefaultFooter copyright="这是一条测试文案"/>}
+   */
   footerRender?: WithFalse<
     (props: HeaderViewProps, defaultDom: React.ReactNode) => React.ReactNode
   >;
 
+  /**
+   * @name 设置 PageHeader 的面包屑，只能处理数据
+   *
+   * @example 手动设置 breadcrumbRender={(routers = []) => [ { path: '/', breadcrumbName: '主页'} ]
+   * @example 增加一项 breadcrumbRender={(routers = []) => { return [{ path: '/', breadcrumbName: '主页'} ,...routers ]}
+   * @example 删除首页 breadcrumbRender={(routers = []) => { return routers.filter(item => item.path !== '/')}
+   * @example 不显示面包屑 breadcrumbRender={false}
+   */
   breadcrumbRender?: WithFalse<
     (routers: AntdBreadcrumbProps['routes']) => AntdBreadcrumbProps['routes']
   >;
 
-  menuItemRender?: BaseMenuProps['menuItemRender'];
+  /**
+   * @name 设置页面的标题
+   * @example 根据页面的路由设置标题 pageTitleRender={(props) => { return props.location.pathname }}
+   * @example 不显示标题 pageTitleRender={false}
+   * @example 根据默认的标题设置 pageTitleRender={(props,defaultPageTitle) => { return defaultPageTitle + '这是一个测试标题' }}
+   * @example 根据 info 来自己组合标题 pageTitleRender={(props,defaultPageTitle,info) => { return info.title + "-" + info.pageName }
+   */
   pageTitleRender?: WithFalse<
     (
       props: GetPageTitleProps,
@@ -127,7 +146,24 @@ export type BasicLayoutProps = GlobalTypes & {
       },
     ) => string
   >;
+  /**
+   * @name 处理 menuData 的数据，可以动态的控制数据
+   * @see 尽量不要用异步数据来处理，否则可能造成更新不及时，如果异步数据推荐使用 menu.request 和 params。
+   *
+   * @example 删除一些菜单 menuDataRender=((menuData) => { return menuData.filter(item => item.name !== 'test') })
+   * @example 增加一些菜单 menuDataRender={(menuData) => { return menuData.concat({ path: '/test', name: '测试', icon: 'smile' }) }}
+   * @example 修改菜单 menuDataRender={(menuData) => { return menuData.map(item => { if (item.name === 'test') { item.name = '测试' } return item }) }}
+   * @example 打平数据 menuDataRender={(menuData) => { return menuData.reduce((pre, item) => { return pre.concat(item.children || []) }, []) }}
+   */
   menuDataRender?: (menuData: MenuDataItem[]) => MenuDataItem[];
+
+  /**
+   * @name 处理每个面包屑的配置，需要直接返回 dom
+   * @description (route: Route, params: any, routes: Array<Route>, paths: Array<string>) => React.ReactNode
+   *
+   * @example 设置 disabled： itemRender={(route, params, routes, paths) => { return <Button disabled>{route.breadcrumbName}</Button> }}
+   * @example 拼接 path： itemRender={(route, params, routes, paths) => { return <a href={paths.join('/')}>{route.breadcrumbName}</Button> }}
+   */
   itemRender?: AntdBreadcrumbProps['itemRender'];
 
   formatMessage?: (message: MessageDescriptor) => string;
@@ -144,7 +180,6 @@ export type BasicLayoutProps = GlobalTypes & {
    * @example 背景颜色为红色 contentStyle={{ backgroundColor: 'red '}}
    */
   contentStyle?: CSSProperties;
-  isChildrenLayout?: boolean;
 
   className?: string;
 
@@ -179,6 +214,8 @@ export type BasicLayoutProps = GlobalTypes & {
    * @example ErrorBoundary={<MyErrorBoundary/>}
    */
   ErrorBoundary?: any;
+
+  isChildrenLayout?: boolean;
 };
 
 const headerRender = (
