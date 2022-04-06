@@ -27291,6 +27291,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/dateFormatter.tsx c
 <DocumentFragment>
   <div
     class="ant-pro-table"
+    style="margin: 16px;"
   >
     <div
       class="ant-pro-card ant-pro-table-search ant-pro-table-search-query-filter"
@@ -27801,6 +27802,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/dateFormatter.tsx c
   </div>
   <div
     class="ant-pro-table"
+    style="margin: 16px;"
   >
     <div
       class="ant-pro-card ant-pro-table-search ant-pro-table-search-query-filter"
@@ -28311,6 +28313,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/dateFormatter.tsx c
   </div>
   <div
     class="ant-pro-table"
+    style="margin: 16px;"
   >
     <div
       class="ant-pro-card ant-pro-table-search ant-pro-table-search-query-filter"
