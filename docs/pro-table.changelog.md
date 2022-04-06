@@ -9,6 +9,14 @@ group:
 
 # Change Log
 
+## @ant-design/pro-table@2.71.0
+
+`2022-04-06`
+
+- fix(table): 解决修改轻量筛选条件时覆盖了 table 自带 keywords 过滤的值的问题 (#4995). [#4995](https://github.com/ant-design/pro-components/pull/#4995) [@wangmeijian](https://github.com/wangmeijian)
+- fix(table): fix ts error. [db7e313](https://github.com/ant-design/pro-components/commit/db7e313)
+- feat(table): support column setting disable (#4958). [#4958](https://github.com/ant-design/pro-components/pull/#4958) [@DerrickTel](https://github.com/DerrickTel)
+
 ## @ant-design/pro-table@2.70.0
 
 `2022-03-28`

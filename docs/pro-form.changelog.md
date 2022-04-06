@@ -9,6 +9,17 @@ group:
 
 # Change Log
 
+## @ant-design/pro-form@1.61.1
+
+`2022-04-06`
+
+- fix(form): ProSelect not cleared keywords when closing option (#4986). [#4986](https://github.com/ant-design/pro-components/pull/#4986) [@DerrickTel](https://github.com/DerrickTel)
+- fix(form): new row uses previous data (#4987). [#4987](https://github.com/ant-design/pro-components/pull/#4987) [@1247748612](https://github.com/1247748612)
+- fix(form): cacheForSwr not work (#4976). [#4976](https://github.com/ant-design/pro-components/pull/#4976) [@1247748612](https://github.com/1247748612)
+- 🐛 fix(form): fix 表单在 colSize!==1 下展示异常 (#4977). [#4977](https://github.com/ant-design/pro-components/pull/#4977) [@jaw52](https://github.com/jaw52)
+- fix(form): Invalid use of DatePicker format in ProFormList (#4978). [#4978](https://github.com/ant-design/pro-components/pull/#4978) [@1247748612](https://github.com/1247748612)
+- fix(form): select autoClearSearchValue config false (#4954). [#4954](https://github.com/ant-design/pro-components/pull/#4954) [@leoner](https://github.com/leoner)
+
 ## @ant-design/pro-form@1.61.0
 
 `2022-03-28`
