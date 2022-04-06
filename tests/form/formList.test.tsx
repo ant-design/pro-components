@@ -1002,4 +1002,68 @@ describe('ProForm List', () => {
       ],
     });
   });
+
+  it('⛲  ProForm.List fieldExtraRender', async () => {
+    const fn = jest.fn();
+    const html = mount(
+      <ProForm
+        onFinish={async (values) => {
+          fn(values.users[1]);
+        }}
+      >
+        <ProFormText name="name" label="姓名" />
+        <ProFormList
+          name="users"
+          label="用户信息"
+          initialValue={[
+            {
+              name: '1111',
+              nickName: '1111',
+            },
+          ]}
+          fieldExtraRender={(fieldAction) => {
+            return (
+              <Button
+                type="text"
+                onClick={() =>
+                  fieldAction.add({
+                    name: '2222',
+                    nickName: '2222',
+                  })
+                }
+              >
+                Add Field
+              </Button>
+            );
+          }}
+        >
+          {() => {
+            return (
+              <div>
+                <ProFormText name="name" />
+                <ProFormText name="nickName" />
+              </div>
+            );
+          }}
+        </ProFormList>
+      </ProForm>,
+    );
+
+    await waitForComponentToPaint(html);
+
+    act(() => {
+      html.find('.ant-btn.ant-btn-text').simulate('click');
+    });
+
+    act(() => {
+      html.find('.ant-btn.ant-btn-primary').simulate('click');
+    });
+
+    await waitForComponentToPaint(html);
+
+    expect(fn).toBeCalledWith({
+      name: '2222',
+      nickName: '2222',
+    });
+  });
 });

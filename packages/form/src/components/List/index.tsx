@@ -27,6 +27,13 @@ export type ProFormListProps = Omit<FormListProps, 'children'> &
     tooltip?: LabelTooltipType;
     actionGuard?: FormListActionGuard;
     children?: ReactNode | ChildrenItemFunction;
+    fieldExtraRender?: (
+      fieldAction: FormListOperation,
+      meta: {
+        errors?: React.ReactNode[];
+        warnings?: React.ReactNode[];
+      },
+    ) => React.ReactNode;
     /**
      * @name 获取到 list 操作实例
      * @description 可用删除，新增，移动等操作
@@ -50,6 +57,7 @@ const ProFormList: React.FC<ProFormListProps> = ({
   itemRender,
   rules,
   itemContainerRender,
+  fieldExtraRender,
   copyIconProps = {
     Icon: CopyOutlined,
     tooltipText: '复制此行',
@@ -128,6 +136,7 @@ const ProFormList: React.FC<ProFormListProps> = ({
                     fields={fields}
                     itemContainerRender={itemContainerRender}
                     itemRender={itemRender}
+                    fieldExtraRender={fieldExtraRender}
                     creatorButtonProps={creatorButtonProps}
                     creatorRecord={creatorRecord}
                     actionRender={actionRender}
