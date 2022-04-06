@@ -30,6 +30,9 @@ export default () => {
   return (
     <>
       <ProTable<TableListItem>
+        style={{
+          margin: '16px',
+        }}
         columns={columns}
         request={(params) => {
           console.log('-->', params);
@@ -59,6 +62,9 @@ export default () => {
       />
 
       <ProTable<TableListItem>
+        style={{
+          margin: '16px',
+        }}
         columns={columns}
         request={(params) => {
           console.log('-->', params);
@@ -87,6 +93,9 @@ export default () => {
         headerTitle="日期格式化为数字"
       />
       <ProTable<TableListItem>
+        style={{
+          margin: '16px',
+        }}
         columns={columns}
         request={(params) => {
           console.log('-->', params);
