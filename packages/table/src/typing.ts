@@ -24,6 +24,7 @@ import type { LabelTooltipType } from 'antd/lib/form/FormItemLabel';
 import type { SizeType } from 'antd/lib/config-provider/SizeContext';
 import type { NamePath } from 'antd/lib/form/interface';
 import type React from 'react';
+import type { SearchProps } from 'antd/lib/input';
 
 export type PageInfo = {
   pageSize: number;
@@ -408,4 +409,9 @@ export type UseFetchProps = {
   debounceTime?: number;
   polling?: number | ((dataSource: any[]) => number);
   revalidateOnFocus?: boolean;
+};
+
+export type OptionSearchProps = Omit<SearchProps, 'onSearch'> & {
+  /** 如果 onSearch 返回一个false，直接拦截请求 */
+  onSearch?: (keyword: string) => boolean | undefined;
 };
