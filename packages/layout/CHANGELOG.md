@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [6.34.9](https://github.com/ant-design/pro-components/compare/@ant-design/pro-layout@6.34.8...@ant-design/pro-layout@6.34.9) (2022-04-06)
+
+### Bug Fixes
+
+- fix use DarkReader ([#4966](https://github.com/ant-design/pro-components/issues/4966)) ([fddd629](https://github.com/ant-design/pro-components/commit/fddd629e9a82889993951f67e164b6f65705363b))
+- **layout:** color variables ([#4943](https://github.com/ant-design/pro-components/issues/4943)) ([abecd72](https://github.com/ant-design/pro-components/commit/abecd7216a4ad5d3bd9653c7dc0d10f1113516a5))
+
 ## [6.34.8](https://github.com/ant-design/pro-components/compare/@ant-design/pro-layout@6.34.7...@ant-design/pro-layout@6.34.8) (2022-03-28)
 
 **Note:** Version bump only for package @ant-design/pro-layout

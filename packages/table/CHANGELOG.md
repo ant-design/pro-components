@@ -2,6 +2,18 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.71.0](https://github.com/ant-design/pro-components/compare/@ant-design/pro-table@2.70.0...@ant-design/pro-table@2.71.0) (2022-04-06)
+
+### Bug Fixes
+
+- **form:** new row uses previous data ([#4987](https://github.com/ant-design/pro-components/issues/4987)) ([a79305e](https://github.com/ant-design/pro-components/commit/a79305e017f01ee3fe4a0bc708fd4480e60610c1))
+- **table:** 解决修改轻量筛选条件时覆盖了 table 自带 keywords 过滤的值的问题 ([#4995](https://github.com/ant-design/pro-components/issues/4995)) ([0cb6ada](https://github.com/ant-design/pro-components/commit/0cb6adaddb730813b35b1fea73cc931881ddfb27))
+- **table:** fix ts error ([db7e313](https://github.com/ant-design/pro-components/commit/db7e3138faf9ff7b8fcffd8e47a10f0551d1e0d6))
+
+### Features
+
+- **table:** support column setting disable ([#4958](https://github.com/ant-design/pro-components/issues/4958)) ([e2041ed](https://github.com/ant-design/pro-components/commit/e2041ed4e185279b62a87bc7655e18e7720538d7))
+
 # [2.70.0](https://github.com/ant-design/pro-components/compare/@ant-design/pro-table@2.69.0...@ant-design/pro-table@2.70.0) (2022-03-28)
 
 ### Bug Fixes

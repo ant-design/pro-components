@@ -2,6 +2,14 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.61.1](https://github.com/ant-design/pro-components/compare/@ant-design/pro-form@1.61.0...@ant-design/pro-form@1.61.1) (2022-04-06)
+
+### Bug Fixes
+
+- **form:** cacheForSwr not work ([#4976](https://github.com/ant-design/pro-components/issues/4976)) ([df6676d](https://github.com/ant-design/pro-components/commit/df6676de1c7602e3e7a72e1ce3bee5ade15593ed))
+- **form:** Invalid use of DatePicker format in ProFormList ([#4978](https://github.com/ant-design/pro-components/issues/4978)) ([3674d2e](https://github.com/ant-design/pro-components/commit/3674d2e450c549030251c82cd8015babea3f901f))
+- **table:** fix ts error ([db7e313](https://github.com/ant-design/pro-components/commit/db7e3138faf9ff7b8fcffd8e47a10f0551d1e0d6))
+
 # [1.61.0](https://github.com/ant-design/pro-components/compare/@ant-design/pro-form@1.60.0...@ant-design/pro-form@1.61.0) (2022-03-28)
 
 ### Bug Fixes

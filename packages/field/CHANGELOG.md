@@ -2,6 +2,14 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.34.2](https://github.com/ant-design/pro-components/compare/@ant-design/pro-field@1.34.1...@ant-design/pro-field@1.34.2) (2022-04-06)
+
+### Bug Fixes
+
+- **form:** cacheForSwr not work ([#4976](https://github.com/ant-design/pro-components/issues/4976)) ([df6676d](https://github.com/ant-design/pro-components/commit/df6676de1c7602e3e7a72e1ce3bee5ade15593ed))
+- **form:** ProSelect not cleared keywords when closing option ([#4986](https://github.com/ant-design/pro-components/issues/4986)) ([84dce68](https://github.com/ant-design/pro-components/commit/84dce68dbf2aba73d91ae336d2074b91262ed584))
+- **form:** select autoClearSearchValue config false ([#4954](https://github.com/ant-design/pro-components/issues/4954)) ([7dd8775](https://github.com/ant-design/pro-components/commit/7dd8775d552bdf455d1293b62277e31158c425fa))
+
 ## [1.34.1](https://github.com/ant-design/pro-components/compare/@ant-design/pro-field@1.34.0...@ant-design/pro-field@1.34.1) (2022-03-28)
 
 **Note:** Version bump only for package @ant-design/pro-field
