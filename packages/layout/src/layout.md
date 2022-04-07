@@ -181,6 +181,8 @@ menu 中支持了部分常用的 menu 配置， 可以帮助我们更好的管�
 
 | 参数 | 说明 | 类型 | 默认值 |
 | --- | --- | --- | --- |
+| collapsed | 控制 SettingDrawer 的收起和展开 | `boolean` | - |
+| onCollapse | SettingDrawer 的折叠收起事件 | `(collapsed: boolean) => void` | - |
 | settings | layout 的设置 | [`Settings`](#Settings) \| [`Settings`](#Settings) | - |
 | onSettingChange | [`Settings`](#Settings) 发生更改事件 | `(settings: [`Settings`](#Settings) ) => void` | - |
 | hideHintAlert | 删除下方的提示信息 | `boolean` | - |
