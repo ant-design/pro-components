@@ -2,7 +2,7 @@
 import type { ReactElement } from 'react';
 import { useContext } from 'react';
 import React, { useMemo } from 'react';
-import type { FormItemProps } from 'antd';
+import type { FormItemProps, RowProps } from 'antd';
 import { Row, Col, Form, Divider, ConfigProvider } from 'antd';
 import type { FormInstance, FormProps } from 'antd/lib/form/Form';
 import RcResizeObserver from 'rc-resize-observer';
@@ -104,7 +104,8 @@ export type BaseQueryFilterProps = Omit<ActionsProps, 'submitter' | 'setCollapse
   searchText?: string;
   /** 重置按钮的文本 */
   resetText?: string;
-
+  /** 查询表单栅格间隔 */
+  searchGutter?: RowProps['gutter'];
   form?: FormProps['form'];
   /**
    * @param searchConfig 基础的配置
@@ -158,6 +159,7 @@ const QueryFilterContent: React.FC<{
   collapsed: boolean | undefined;
   resetText: string | undefined;
   searchText: string | undefined;
+  searchGutter?: RowProps['gutter'];
   split?: boolean;
   form: FormInstance<any>;
   items: React.ReactNode[];
@@ -184,7 +186,7 @@ const QueryFilterContent: React.FC<{
     },
   );
 
-  const { optionRender, collapseRender, split, items, spanSize, showLength } = props;
+  const { optionRender, collapseRender, split, items, spanSize, showLength, searchGutter } = props;
 
   const submitter = useMemo(() => {
     if (!props.submitter || optionRender === false) {
@@ -323,7 +325,7 @@ const QueryFilterContent: React.FC<{
   }, [currentSpan, spanSize.span]);
 
   return (
-    <Row gutter={24} justify="start" key="resize-observer-row">
+    <Row gutter={searchGutter} justify="start" key="resize-observer-row">
       {doms}
       {submitter && (
         <Col
@@ -358,6 +360,7 @@ function QueryFilter<T = Record<string, any>>(props: QueryFilterProps<T>) {
     defaultCollapsed = true,
     defaultColsNumber,
     span,
+    searchGutter = 24,
     searchText,
     resetText,
     optionRender,
@@ -451,6 +454,7 @@ function QueryFilter<T = Record<string, any>>(props: QueryFilterProps<T>) {
             split={split}
             resetText={props.resetText}
             searchText={props.searchText}
+            searchGutter={props.searchGutter}
             preserve={preserve}
             ignoreRules={ignoreRules}
             showLength={showLength}
