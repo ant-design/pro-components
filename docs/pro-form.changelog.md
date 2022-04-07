@@ -9,6 +9,13 @@ group:
 
 # Change Log
 
+## @ant-design/pro-form@1.62.0
+
+`2022-04-07`
+
+- feat(form): Render Extra Content inside Pro Form List (#4991). [#4991](https://github.com/ant-design/pro-components/pull/#4991) [@Tushar1998](https://github.com/Tushar1998)
+- fix(form): fix alwaysShowItemLabel no work error. [8bccdf7](https://github.com/ant-design/pro-components/commit/8bccdf7)
+
 ## @ant-design/pro-form@1.61.1
 
 `2022-04-06`
