@@ -5,6 +5,7 @@ import React, {
   useState,
   useMemo,
   useCallback,
+  useContext,
 } from 'react';
 import type { FormProps, FormItemProps, FormInstance } from 'antd';
 import { Spin } from 'antd';
@@ -15,6 +16,7 @@ import type {
   ProFieldValueType,
   SearchTransformKeyFn,
   ProRequestData,
+  ProFormInstanceType,
 } from '@ant-design/pro-utils';
 import set from 'rc-util/lib/utils/set';
 import {
@@ -35,14 +37,12 @@ import namePathSet from 'rc-util/lib/utils/set';
 import FieldContext from '../FieldContext';
 import type { SubmitterProps } from '../components';
 import { Submitter } from '../components';
-import type { GroupProps, FieldProps } from '../interface';
+import type { GroupProps, FieldProps, ProFormGridConfig } from '../interface';
 import { noteOnce } from 'rc-util/lib/warning';
 import get from 'rc-util/lib/utils/get';
+import { useGridHelpers } from '../helpers';
 
-export type CommonFormProps<
-  T extends Record<string, any> = Record<string, any>,
-  U extends Record<string, any> = Record<string, any>,
-> = {
+export type CommonFormProps<T = Record<string, any>, U = Record<string, any>> = {
   submitter?:
     | SubmitterProps<{
         form?: FormInstance<any>;
@@ -50,51 +50,76 @@ export type CommonFormProps<
     | false;
 
   /**
-   * 支持异步操作，更加方便
-   *
    * @name 表单结束后调用
+   * @description 支持异步操作，更加方便
+   *
+   * @example onFinish={async (values) => { await save(values); return true }}
    */
   onFinish?: (formData: T) => Promise<boolean | void>;
 
-  /** @name 获取真正的可以获得值的 from */
-  formRef?: React.MutableRefObject<ProFormInstance<T> | undefined>;
+  /**
+   * @name 获取 ProFormInstance
+   *
+   * ProFormInstance 可以用来获取当前表单的一些信息
+   *
+   * @example 获取 name 的值 formRef.current.getFieldValue("name");
+   * @example 获取所有的表单值 formRef.current.getFieldsValue(true);
+   */
+  formRef?:
+    | React.MutableRefObject<ProFormInstance<T> | undefined>
+    | React.RefObject<ProFormInstance<T> | undefined>;
 
   /** @name 同步结果到 url 中 */
   syncToUrl?: boolean | ((values: T, type: 'get' | 'set') => T);
   /** @name 额外的 url 参数 中 */
   extraUrlParams?: Record<string, any>;
+
   /**
    * 同步结果到 initialValues,默认为true如果为false，reset的时将会忽略从url上获取的数据
    *
    * @name 是否将 url 参数写入 initialValues
    */
   syncToInitialValues?: boolean;
+
   /**
    * 如果为 false,会原样保存。
    *
    * @default true
    * @param 要不要值中的 Null 和 undefined
    */
-
   omitNil?: boolean;
   /**
    * 格式化 Date 的方式，默认转化为 string
    *
-   * @see date -> YYYY-MM-DD
-   * @see dateTime -> YYYY-MM-DD  HH:mm:SS
-   * @see time -> HH:mm:SS
+   * @example  dateFormatter="date" : Moment -> YYYY-MM-DD
+   * @example  dateFormatter="dateTime" Moment -> YYYY-MM-DD  HH:mm:SS
+   * @example  dateFormatter="time" Moment -> HH:mm:SS
+   * @example  dateFormatter=false Moment -> Moment
+   * @example  dateFormatter={(value)=>value.format("YYYY-MM-DD")}
    */
   dateFormatter?:
     | 'string'
     | 'number'
     | ((value: moment.Moment, valueType: string) => string | number)
     | false;
-  /** 表单初始化成功，比如布局，label等计算完成 */
+
+  /**
+   * @name 表单初始化成功，比如布局，label等计算完成
+   * @example  (values)=>{ console.log(values) }
+   */
   onInit?: (values: T, form: ProFormInstance<any>) => void;
 
-  /** 发起网络请求的参数 */
+  /**
+   * @name 发起网络请求的参数
+   *
+   * @example  params={{productId: 1}}
+   * */
   params?: U;
-  /** 发起网络请求的参数,返回值会覆盖给 initialValues */
+  /**
+   * @name 发起网络请求的参数,返回值会覆盖给 initialValues
+   *
+   * @example async (params)=>{ return initialValues }
+   **/
   request?: ProRequestData<T, U>;
 
   /** 是否回车提交 */
@@ -103,9 +128,12 @@ export type CommonFormProps<
   /** 用于控制form 是否相同的key，高阶用法 */
   formKey?: string;
 
-  /** 自动选中第一项 */
+  /**
+   * @name自动选中第一项
+   * @description 只对有input的类型有效
+   */
   autoFocusFirstInput?: boolean;
-};
+} & ProFormGridConfig;
 
 export type BaseFormProps<T = Record<string, any>> = {
   contentRender?: (
@@ -120,7 +148,6 @@ export type BaseFormProps<T = Record<string, any>> = {
   groupProps?: GroupProps;
   /** 是否回车提交 */
   isKeyPressSubmit?: boolean;
-
   /** Form 组件的类型，内部使用 */
   formComponentType?: 'DrawerForm' | 'ModalForm' | 'QueryFilter';
 } & Omit<FormProps, 'onFinish'> &
@@ -137,13 +164,20 @@ const genParams = (
   return runFunction(syncUrl, params, type);
 };
 
-type ProFormInstance<T = any> = FormInstance<T> & {
-  /** 获取格式化之后所有数据 */
-  getFieldsFormatValue?: (nameList?: NamePath[] | true) => Record<string, any>;
-  /** 获取格式化之后的单个数据 */
-  getFieldFormatValue?: (nameList?: NamePath) => Record<string, any>;
-  /** 校验字段后返回格式化之后的所有数据 */
-  validateFieldsReturnFormatValue?: (nameList?: NamePath[]) => Promise<T>;
+type ProFormInstance<T = any> = FormInstance<T> & ProFormInstanceType<T>;
+
+/**
+ * It takes a name path and converts it to an array.
+ * @param {NamePath} name - The name of the form.
+ * @returns string[]
+ *
+ * a-> [a]
+ * [a] -> [a]
+ * **/
+const covertFormName = (name?: NamePath) => {
+  if (!name) return name;
+  if (Array.isArray(name)) return name;
+  return [name];
 };
 
 function BaseFormComponents<T = Record<string, any>>(props: BaseFormProps<T>) {
@@ -166,12 +200,18 @@ function BaseFormComponents<T = Record<string, any>>(props: BaseFormProps<T>) {
     omitNil = true,
     isKeyPressSubmit,
     autoFocusFirstInput = true,
+    grid,
+    rowProps,
+    colProps,
     ...rest
   } = props;
+  const sizeContextValue = useContext(ConfigProvider.SizeContext);
+
   const [inlineForm] = Form.useForm(form);
   /** 同步 url 上的参数 */
   const [urlSearch, setUrlSearch] = useUrlSearchParams({}, { disabled: !syncToUrl });
   const formRef = useRef<ProFormInstance<any>>(inlineForm! || ({} as any));
+  const { RowWrapper } = useGridHelpers({ grid, rowProps, colProps });
 
   const fieldsValueType = useRef<
     Record<
@@ -199,24 +239,55 @@ function BaseFormComponents<T = Record<string, any>>(props: BaseFormProps<T>) {
 
   const formatValues = useMemo(
     () => ({
-      /** 获取格式化之后所有数据 */
-      getFieldsFormatValue: (nameList?: NamePath[] | true) => {
-        return transformKey(formRef.current?.getFieldsValue(nameList!), omitNil);
+      /**
+       * 获取被 ProForm 格式化后的所有数据
+       * @param allData boolean
+       * @returns T
+       *
+       * @example  getFieldsFormatValue(true) ->返回所有数据，即使没有被 form 托管的
+       */
+      getFieldsFormatValue: (allData?: true) => {
+        return transformKey(formRef.current?.getFieldsValue(allData!), omitNil);
       },
+      /**
+       * 获取被 ProForm 格式化后的单个数据
+       * @param nameList (string|number)[]
+       * @returns T
+       *
+       * @example {a:{b:value}} -> getFieldFormatValue(['a', 'b']) -> value
+       */
       /** 获取格式化之后的单个数据 */
-      getFieldFormatValue: (nameList?: NamePath) => {
+      getFieldFormatValue: (paramsNameList: NamePath = []) => {
+        const nameList = covertFormName(paramsNameList);
+        if (!nameList) throw new Error('nameList is require');
         const value = formRef.current?.getFieldValue(nameList!);
         const obj = nameList ? set({}, nameList as string[], value) : value;
         return get(transformKey(obj, omitNil, nameList), nameList as string[]);
       },
-      /** 获取格式化之后的单个数据列表 */
-      getFieldFormatValueObject: (nameList?: NamePath) => {
+      /**
+       * 获取被 ProForm 格式化后的单个数据, 包含他的 name
+       * @param nameList (string|number)[]
+       * @returns T
+       *
+       * @example  {a:{b:value}} -> getFieldFormatValueObject(['a', 'b']) -> {a:{b:value}}
+       */
+      /** 获取格式化之后的单个数据 */
+      getFieldFormatValueObject: (paramsNameList?: NamePath) => {
+        const nameList = covertFormName(paramsNameList);
         const value = formRef.current?.getFieldValue(nameList!);
         const obj = nameList ? set({}, nameList as string[], value) : value;
         return transformKey(obj, omitNil, nameList);
       },
-      /** 校验字段后返回格式化之后的所有数据 */
+      /** 
+      /**
+       *验字段后返回格式化之后的所有数据
+       * @param nameList (string|number)[]
+       * @returns T
+       * 
+       * @example validateFieldsReturnFormatValue -> {a:{b:value}}
+       */
       validateFieldsReturnFormatValue: async (nameList?: NamePath[]) => {
+        if (!Array.isArray(nameList) && nameList) throw new Error('nameList must be array');
         const values = await formRef.current?.validateFields(nameList);
         return transformKey(values, omitNil);
       },
@@ -248,15 +319,17 @@ function BaseFormComponents<T = Record<string, any>>(props: BaseFormProps<T>) {
 
   const [loading, setLoading] = useMountMergeState<boolean>(false);
 
-  const items = React.Children.toArray(children).map((item, index) => {
-    if (index === 0 && React.isValidElement(item) && autoFocusFirstInput) {
-      return React.cloneElement(item, {
-        ...item.props,
-        autoFocus: autoFocusFirstInput,
-      });
-    }
-    return item;
-  });
+  const items = useMemo(() => {
+    return React.Children.toArray(children).map((item, index) => {
+      if (index === 0 && React.isValidElement(item) && autoFocusFirstInput) {
+        return React.cloneElement(item, {
+          ...item.props,
+          autoFocus: autoFocusFirstInput,
+        });
+      }
+      return item;
+    });
+  }, [autoFocusFirstInput, children]);
 
   /** 计算 props 的对象 */
   const submitterProps: SubmitterProps = useMemo(
@@ -315,11 +388,12 @@ function BaseFormComponents<T = Record<string, any>>(props: BaseFormProps<T>) {
   ]);
 
   const content = useMemo(() => {
+    const wrapItems = grid ? <RowWrapper>{items}</RowWrapper> : items;
     if (contentRender) {
-      return contentRender(items, submitterNode, formRef.current);
+      return contentRender(wrapItems as any, submitterNode, formRef.current);
     }
-    return items;
-  }, [contentRender, items, submitterNode]);
+    return wrapItems;
+  }, [grid, RowWrapper, items, contentRender, submitterNode]);
 
   const getPopupContainer = useMemo(() => {
     if (typeof window === 'undefined') return undefined;
@@ -380,6 +454,7 @@ function BaseFormComponents<T = Record<string, any>>(props: BaseFormProps<T>) {
     // 增加国际化的能力，与 table 组件可以统一
     <FieldContext.Provider
       value={{
+        grid,
         formRef,
         fieldProps,
         formItemProps,
@@ -397,7 +472,7 @@ function BaseFormComponents<T = Record<string, any>>(props: BaseFormProps<T>) {
       }}
     >
       <ProFormContext.Provider value={formatValues}>
-        <ConfigProvider.SizeContext.Provider value={rest.size}>
+        <ConfigProvider.SizeContext.Provider value={rest.size || sizeContextValue}>
           <Form
             onKeyPress={(event) => {
               if (!isKeyPressSubmit) return;
@@ -466,7 +541,7 @@ function BaseFormComponents<T = Record<string, any>>(props: BaseFormProps<T>) {
             <Form.Item noStyle shouldUpdate>
               {(formInstance) => {
                 if (propsFormRef)
-                  propsFormRef.current = {
+                  (propsFormRef as React.MutableRefObject<ProFormInstance>).current = {
                     ...(formInstance as FormInstance),
                     ...formatValues,
                   };

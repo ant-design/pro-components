@@ -27,6 +27,7 @@ type ColumnSettingProps<T = any> = {
   checkable?: boolean;
   extra?: React.ReactNode;
   checkedReset?: boolean;
+  children?: React.ReactNode;
 };
 
 const ToolTipIcon: React.FC<{
@@ -46,8 +47,7 @@ const ToolTipIcon: React.FC<{
           e.stopPropagation();
           e.preventDefault();
           const config = columnsMap[columnKey] || {};
-          const disableIcon =
-            typeof config.disable === 'boolean' ? config.disable : config.disable?.icon;
+          const disableIcon = typeof config.disable === 'boolean' && config.disable;
           if (disableIcon) return;
           const columnKeyMap = {
             ...columnsMap,
@@ -388,9 +388,11 @@ function ColumnSetting<T>(props: ColumnSettingProps<T>) {
         />
       }
     >
-      <Tooltip title={intl.getMessage('tableToolBar.columnSetting', '列设置')}>
-        <SettingOutlined />
-      </Tooltip>
+      {props.children || (
+        <Tooltip title={intl.getMessage('tableToolBar.columnSetting', '列设置')}>
+          <SettingOutlined />
+        </Tooltip>
+      )}
     </Popover>
   );
 }

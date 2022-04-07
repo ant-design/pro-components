@@ -136,10 +136,11 @@ function ProList<
     return columns;
   }, [metals]);
 
-  const prefixCls = getPrefixCls('pro-list');
+  const prefixCls = getPrefixCls('pro-list', props.prefixCls);
   const listClassName = classNames(prefixCls, {
     [`${prefixCls}-no-split`]: !split,
   });
+
   return (
     <ProTable<RecordType, U>
       tooltip={tooltip}
@@ -159,7 +160,7 @@ function ProList<
             grid={grid}
             itemCardProps={itemCardProps}
             itemTitleRender={itemTitleRender}
-            prefixCls={prefixCls}
+            prefixCls={props.prefixCls}
             columns={columns}
             renderItem={renderItem}
             actionRef={actionRef}

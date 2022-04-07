@@ -50,6 +50,44 @@ describe('Card', () => {
     expect(wrapper.find('.ant-pro-card-collapse').exists()).toBeFalsy();
   });
 
+  it('🥩 collapsible icon custom render with defaultCollapsed', async () => {
+    const wrapper = mount(
+      <ProCard
+        title="可折叠-图标自定义"
+        collapsibleIconRender={({ collapsed }: { collapsed: boolean }) =>
+          collapsed ? <span>更多 - </span> : <span>收起 - </span>
+        }
+        headerBordered
+        defaultCollapsed
+        collapsible
+      >
+        内容
+      </ProCard>,
+    );
+    await waitForComponentToPaint(wrapper);
+    expect(wrapper.find('.ant-pro-card-collapse').exists()).toBeTruthy();
+    expect(wrapper.find('.ant-pro-card-title > span').text()).toEqual('更多 - ');
+  });
+
+  it('🥩 collapsible icon custom render', async () => {
+    const wrapper = mount(
+      <ProCard
+        title="可折叠-图标自定义"
+        collapsibleIconRender={({ collapsed }: { collapsed: boolean }) =>
+          collapsed ? <span>更多 - </span> : <span>收起 - </span>
+        }
+        defaultCollapsed={false}
+        collapsible
+      >
+        内容
+      </ProCard>,
+    );
+    await waitForComponentToPaint(wrapper);
+    expect(wrapper.find('.ant-pro-card').exists()).toBeTruthy();
+    expect(wrapper.find('.ant-pro-card-collapse').exists()).toBeFalsy();
+    expect(wrapper.find('.ant-pro-card-title > span').text()).toEqual('收起 - ');
+  });
+
   it('🥩 tabs onChange', async () => {
     const fn = jest.fn();
     const wrapper = mount(

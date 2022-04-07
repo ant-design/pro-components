@@ -12,6 +12,7 @@ import {
   DropdownFooter,
   LabelIconTip,
   useDebounceValue,
+  isDeepEqualReact,
 } from '@ant-design/pro-utils';
 import { mount } from 'enzyme';
 import { Form, Input } from 'antd';
@@ -225,6 +226,7 @@ describe('utils', () => {
         dateRange: [moment('2019-11-16 12:50:26'), moment('2019-11-16 12:50:26')],
         timeRange: [moment('2019-11-16 12:50:26'), moment('2019-11-16 12:50:26')],
         timeRange2: [moment('2019-11-16 12:50:26'), moment('2019-11-16 12:50:26')],
+        dateQuarter: moment('2019-11-16 12:50:26'),
       },
       'string',
       {
@@ -233,6 +235,7 @@ describe('utils', () => {
         name: 'text',
         dateRange: 'dateRange',
         timeRange: 'timeRange',
+        dateQuarter: 'dateQuarter',
       },
     );
     expect(html.dataTime).toBe('2019-11-16 12:50:26');
@@ -242,6 +245,7 @@ describe('utils', () => {
     expect(html.dateTimeRange.join(',')).toBe('2019-11-16 12:50:26,2019-11-16 12:50:26');
     expect(html.dateRange.join(',')).toBe('2019-11-16,2019-11-16');
     expect(html.timeRange2.join(',')).toBe('2019-11-16 12:50:26,2019-11-16 12:50:26');
+    expect(html.dateQuarter).toBe('2019-Q4');
   });
 
   it('📅 conversionSubmitValue string', async () => {
@@ -415,13 +419,13 @@ describe('utils', () => {
     );
 
     act(() => {
-      html.find('Input#test').simulate('focus');
+      html.find('input#test').simulate('focus');
     });
     await waitForComponentToPaint(html, 100);
     expect(html.find('div.ant-popover').exists()).toBeFalsy();
 
     act(() => {
-      html.find('Input#test').simulate('change', {
+      html.find('input#test').simulate('change', {
         target: {
           value: '1',
         },
@@ -436,7 +440,7 @@ describe('utils', () => {
     expect(li.at(0).text()).toBe(ruleMessage.min);
     expect(li.at(1).text()).toBe(ruleMessage.alphaRequired);
     act(() => {
-      html.find('Input#test').simulate('change', {
+      html.find('input#test').simulate('change', {
         target: {
           value: '12345678901AB',
         },
@@ -445,7 +449,7 @@ describe('utils', () => {
     await waitForComponentToPaint(html, 1000);
 
     act(() => {
-      html.find('Input#test').simulate('change', {
+      html.find('input#test').simulate('change', {
         target: {
           value: '.',
         },
@@ -455,7 +459,7 @@ describe('utils', () => {
     expect(html.find('div.ant-popover.ant-popover-hidden').exists()).toBeFalsy();
 
     act(() => {
-      html.find('Input#test').simulate('change', {
+      html.find('input#test').simulate('change', {
         target: {
           value: '',
         },
@@ -751,5 +755,75 @@ describe('utils', () => {
     });
 
     expect(html.render()).toMatchSnapshot();
+  });
+
+  it('isDeepEqualReact', () => {
+    const CustomComponent: React.FC<any> = () => {
+      return <div />;
+    };
+
+    class Deep {
+      constructor() {
+        return;
+      }
+      a() {}
+      b() {}
+    }
+
+    const DeepComponent = () => {
+      const a = (
+        <CustomComponent
+          array={[1, 2, 3, 4, { deep: true, nested: { deep: true, ignoreKey: false } }]}
+          map={
+            new Map([
+              ['key', 'value'],
+              ['key2', 'value2'],
+              ['key3', 'value3'],
+            ])
+          }
+          set={new Set([1, 2, 3, 4, 5])}
+          regexp={new RegExp('test', 'ig')}
+          arrayBuffer={new Int8Array([1, 2, 3, 4, 5])}
+          string="compare"
+          number={0}
+          null={null}
+          nan={NaN}
+          class={Deep}
+          classInstance={new Deep()}
+          className="class-name"
+        />
+      );
+
+      const b = (
+        <CustomComponent
+          array={[1, 2, 3, 4, { deep: true, nested: { deep: true, ignoreKey: true } }]}
+          map={
+            new Map([
+              ['key', 'value'],
+              ['key2', 'value2'],
+              ['key3', 'value3'],
+            ])
+          }
+          set={new Set([1, 2, 3, 4, 5])}
+          regexp={new RegExp('test', 'ig')}
+          arrayBuffer={new Int8Array([1, 2, 3, 4, 5])}
+          string="compare"
+          number={0}
+          null={null}
+          nan={NaN}
+          class={Deep}
+          classInstance={new Deep()}
+          className="class-name"
+        />
+      );
+
+      expect(isDeepEqualReact(a, b, ['ignoreKey'])).toBeTruthy();
+
+      return <CustomComponent a={a} b={b} />;
+    };
+
+    const wrapper = mount(<DeepComponent />);
+
+    waitForComponentToPaint(wrapper, 100);
   });
 });

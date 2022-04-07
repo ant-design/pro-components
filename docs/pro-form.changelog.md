@@ -9,6 +9,42 @@ group:
 
 # Change Log
 
+## @ant-design/pro-form@1.62.0
+
+`2022-04-07`
+
+- feat(form): Render Extra Content inside Pro Form List (#4991). [#4991](https://github.com/ant-design/pro-components/pull/#4991) [@Tushar1998](https://github.com/Tushar1998)
+- fix(form): fix alwaysShowItemLabel no work error. [8bccdf7](https://github.com/ant-design/pro-components/commit/8bccdf7)
+
+## @ant-design/pro-form@1.61.1
+
+`2022-04-06`
+
+- fix(form): ProSelect not cleared keywords when closing option (#4986). [#4986](https://github.com/ant-design/pro-components/pull/#4986) [@DerrickTel](https://github.com/DerrickTel)
+- fix(form): new row uses previous data (#4987). [#4987](https://github.com/ant-design/pro-components/pull/#4987) [@1247748612](https://github.com/1247748612)
+- fix(form): cacheForSwr not work (#4976). [#4976](https://github.com/ant-design/pro-components/pull/#4976) [@1247748612](https://github.com/1247748612)
+- 🐛 fix(form): fix 表单在 colSize!==1 下展示异常 (#4977). [#4977](https://github.com/ant-design/pro-components/pull/#4977) [@jaw52](https://github.com/jaw52)
+- fix(form): Invalid use of DatePicker format in ProFormList (#4978). [#4978](https://github.com/ant-design/pro-components/pull/#4978) [@1247748612](https://github.com/1247748612)
+- fix(form): select autoClearSearchValue config false (#4954). [#4954](https://github.com/ant-design/pro-components/pull/#4954) [@leoner](https://github.com/leoner)
+
+## @ant-design/pro-form@1.61.0
+
+`2022-03-28`
+
+- fix(form): InlineErrorFormItem support set Props. [bef45a5](https://github.com/ant-design/pro-components/commit/bef45a5)
+- fix(form): do not re-execute fieldProps when onValuesChange is set (#4922). [#4922](https://github.com/ant-design/pro-components/pull/#4922) [@1247748612](https://github.com/1247748612)
+- feat(form): support setCurrentRowData and getCurrentRowData (#4926). [#4926](https://github.com/ant-design/pro-components/pull/#4926) [@chenshuai2144](https://github.com/chenshuai2144)
+- fix(form): ConfigProvider setting componentSize dosen't work when using BaseForm (#4927). [#4927](https://github.com/ant-design/pro-components/pull/#4927) [@1247748612](https://github.com/1247748612)
+- fix(form): `LoginForm` login button i18n invalid (#4929). [#4929](https://github.com/ant-design/pro-components/pull/#4929) [@1247748612](https://github.com/1247748612)
+
+## @ant-design/pro-form@1.60.0
+
+`2022-03-25`
+
+- feat(form): support grid layout (#4859). [#4859](https://github.com/ant-design/pro-components/pull/#4859) [@1247748612](https://github.com/1247748612)
+- feat(form): Select add style and className prop (#4915). [#4915](https://github.com/ant-design/pro-components/pull/#4915) [@zqran](https://github.com/zqran)
+- fix(form): field will be ignored when value=0 (#4901). [#4901](https://github.com/ant-design/pro-components/pull/#4901) [@1247748612](https://github.com/1247748612)
+
 ## @ant-design/pro-form@1.59.2
 
 `2022-03-18`

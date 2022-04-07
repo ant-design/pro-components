@@ -2,6 +2,49 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.71.1](https://github.com/ant-design/pro-components/compare/@ant-design/pro-table@2.71.0...@ant-design/pro-table@2.71.1) (2022-04-07)
+
+### Bug Fixes
+
+- **table:** fix tableExtraRender no work error when dataSource=null ([23e60ae](https://github.com/ant-design/pro-components/commit/23e60aea2d70504ceabc3f184be63a7079c41f83))
+
+# [2.71.0](https://github.com/ant-design/pro-components/compare/@ant-design/pro-table@2.70.0...@ant-design/pro-table@2.71.0) (2022-04-06)
+
+### Bug Fixes
+
+- **form:** new row uses previous data ([#4987](https://github.com/ant-design/pro-components/issues/4987)) ([a79305e](https://github.com/ant-design/pro-components/commit/a79305e017f01ee3fe4a0bc708fd4480e60610c1))
+- **table:** 解决修改轻量筛选条件时覆盖了 table 自带 keywords 过滤的值的问题 ([#4995](https://github.com/ant-design/pro-components/issues/4995)) ([0cb6ada](https://github.com/ant-design/pro-components/commit/0cb6adaddb730813b35b1fea73cc931881ddfb27))
+- **table:** fix ts error ([db7e313](https://github.com/ant-design/pro-components/commit/db7e3138faf9ff7b8fcffd8e47a10f0551d1e0d6))
+
+### Features
+
+- **table:** support column setting disable ([#4958](https://github.com/ant-design/pro-components/issues/4958)) ([e2041ed](https://github.com/ant-design/pro-components/commit/e2041ed4e185279b62a87bc7655e18e7720538d7))
+
+# [2.70.0](https://github.com/ant-design/pro-components/compare/@ant-design/pro-table@2.69.0...@ant-design/pro-table@2.70.0) (2022-03-28)
+
+### Bug Fixes
+
+- **table:** columnsState use index as state name ([#4931](https://github.com/ant-design/pro-components/issues/4931)) ([5316cb6](https://github.com/ant-design/pro-components/commit/5316cb67ae52ac54c58c451fad246d8d1c045bb1))
+- **table:** onSave cannot get after editing data ([#4934](https://github.com/ant-design/pro-components/issues/4934)) ([c12321f](https://github.com/ant-design/pro-components/commit/c12321fae15ed37a6edfb6fab9e3c6bf6283c5fa))
+- **table:** sort table classnames ([8c4522a](https://github.com/ant-design/pro-components/commit/8c4522a801c2b1aafd79c3d1d62bb74a0c302c79))
+- **table:** table search styles overridden ([#4935](https://github.com/ant-design/pro-components/issues/4935)) ([35923f8](https://github.com/ant-design/pro-components/commit/35923f801cf10d9529d78b6f40e2d689dfe0eb44))
+- lint warnning for missing deps ([#4924](https://github.com/ant-design/pro-components/issues/4924)) ([7473f3f](https://github.com/ant-design/pro-components/commit/7473f3fd6c4f5ed23317a4a1982c3fb6d5262c0e))
+
+### Features
+
+- **table:** customize columnSetting icon ([#4925](https://github.com/ant-design/pro-components/issues/4925)) ([660b036](https://github.com/ant-design/pro-components/commit/660b036c823519ebdccf1810deb5113478beca74))
+
+# [2.69.0](https://github.com/ant-design/pro-components/compare/@ant-design/pro-table@2.68.3...@ant-design/pro-table@2.69.0) (2022-03-25)
+
+### Bug Fixes
+
+- **table:** Incorrect value of sub-column when using EditableTable in Form ([#4875](https://github.com/ant-design/pro-components/issues/4875)) ([b572328](https://github.com/ant-design/pro-components/commit/b57232852b18d40531e1bd42406df8eb13cd325c))
+
+### Features
+
+- **table:** support getRows, getRow, setRow ([#4904](https://github.com/ant-design/pro-components/issues/4904)) ([756340e](https://github.com/ant-design/pro-components/commit/756340ee97f13b55e5f51cc875ec6b344e953d24))
+- **table:** table search alway use pro-card ([d46edbb](https://github.com/ant-design/pro-components/commit/d46edbbbed5f03e704b2e69acdd3868f83370a7a))
+
 ## [2.68.3](https://github.com/ant-design/pro-components/compare/@ant-design/pro-table@2.68.2...@ant-design/pro-table@2.68.3) (2022-03-22)
 
 **Note:** Version bump only for package @ant-design/pro-table

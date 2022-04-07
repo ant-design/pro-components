@@ -10,6 +10,12 @@ group:
 
 # Change Log
 
+## @ant-design/pro-card@1.19.0
+
+`2022-03-25`
+
+- feat(card): add collapsibleIconRender for custom render icon (#4894). [#4894](https://github.com/ant-design/pro-components/pull/#4894) [@ruoqianfengshao](https://github.com/ruoqianfengshao)
+
 ## @ant-design/pro-card@1.18.25
 
 `2022-01-21`

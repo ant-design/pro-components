@@ -4,12 +4,13 @@ import ProForm, {
   ProFormList,
   ProFormDependency,
   ProFormGroup,
+  ProFormDatePicker,
 } from '@ant-design/pro-form';
 import { act } from 'react-dom/test-utils';
 import { mount } from 'enzyme';
 import { waitForComponentToPaint, waitTime } from '../util';
 import { SnippetsOutlined, CloseOutlined } from '@ant-design/icons';
-import { Form } from 'antd';
+import { Button, Form } from 'antd';
 import _ from 'lodash';
 import type { NamePath } from 'antd/es/form/interface';
 
@@ -110,10 +111,12 @@ describe('ProForm List', () => {
           ]}
         >
           {() => {
-            <div>
-              <ProFormText name="name" />
-              <ProFormText name="nickName" />
-            </div>;
+            return (
+              <div>
+                <ProFormText name="name" />
+                <ProFormText name="nickName" />
+              </div>
+            );
           }}
         </ProFormList>
       </ProForm>,
@@ -130,6 +133,108 @@ describe('ProForm List', () => {
     expect(fn).toBeCalledWith({
       name: '1111',
       nickName: '1111',
+    });
+  });
+
+  it('⛲  ProForm.List getCurrentRowData and setCurrentRowData', async () => {
+    const fn = jest.fn();
+    const html = mount(
+      <ProForm
+        onFinish={async (values) => {
+          fn(values.users[0]);
+        }}
+      >
+        <ProFormList
+          name="users"
+          label="用户信息"
+          initialValue={[
+            {
+              name: '1111',
+              nickName: '1111',
+            },
+          ]}
+        >
+          {(field, index, action) => {
+            return (
+              <div key="nickName">
+                <ProFormText key="name" name="name" />
+                <ProFormText key="nickName" name="nickName" />
+                <Button
+                  type="dashed"
+                  key="SET"
+                  id="set"
+                  onClick={() => {
+                    action.setCurrentRowData({
+                      name: 'New Name' + index,
+                      nickName: 'New Remark' + index,
+                    });
+                  }}
+                >
+                  设置此行
+                </Button>
+                <Button
+                  type="dashed"
+                  key="clear"
+                  id="clear"
+                  onClick={() => {
+                    action.setCurrentRowData({
+                      name: undefined,
+                      nickName: undefined,
+                    });
+                  }}
+                >
+                  清空此行
+                </Button>
+              </div>
+            );
+          }}
+        </ProFormList>
+      </ProForm>,
+    );
+
+    await waitForComponentToPaint(html, 2000);
+
+    act(() => {
+      html.find('.ant-btn.ant-btn-primary').simulate('click');
+    });
+
+    await waitForComponentToPaint(html);
+
+    expect(fn).toBeCalledWith({
+      name: '1111',
+      nickName: '1111',
+    });
+
+    act(() => {
+      html.find('ProFormListItem').find('#set').at(0).simulate('click');
+    });
+
+    await waitForComponentToPaint(html, 2000);
+
+    act(() => {
+      html.find('.ant-btn.ant-btn-primary').simulate('click');
+    });
+
+    await waitForComponentToPaint(html);
+
+    expect(fn).toBeCalledWith({
+      name: 'New Name0',
+      nickName: 'New Remark0',
+    });
+
+    act(() => {
+      html.find('ProFormListItem').find('#clear').at(0).simulate('click');
+    });
+
+    act(() => {
+      html.find('.ant-btn.ant-btn-primary').simulate('click');
+    });
+
+    await waitForComponentToPaint(html);
+
+    expect(fn).toBeCalledWith({
+      name: undefined,
+      nickName: undefined,
     });
   });
 
@@ -365,8 +470,8 @@ describe('ProForm List', () => {
             },
           ]}
         >
-          <ProFormText name="name" label="姓名" />
-          <ProFormText name="nickName" label="昵称" />
+          <ProFormText key="name" name="name" label="姓名" />
+          <ProFormText key="nickName" name="nickName" label="昵称" />
         </ProFormList>
       </ProForm>,
     );
@@ -475,7 +580,6 @@ describe('ProForm List', () => {
           <ProFormText name="nickName" label="昵称" />
           <ProFormDependency name={['nickName']}>
             {({ nickName }) => {
-              console.log(nickName);
               if (!nickName) {
                 return null;
               }
@@ -857,6 +961,109 @@ describe('ProForm List', () => {
       await waitTime(1200);
       await waitForComponentToPaint(html);
       expect(html.find('.action-remove').length).toBe(0);
+    });
+  });
+
+  it('⛲ valid to set the format property in ProForm.List', async () => {
+    const onFinish = jest.fn();
+    const html = mount(
+      <ProForm
+        onFinish={onFinish}
+        initialValues={{
+          list: [
+            {
+              date: '2020',
+            },
+          ],
+        }}
+        submitter={{
+          submitButtonProps: {
+            id: 'submit',
+          },
+        }}
+      >
+        <ProFormList name="list">
+          <ProFormDatePicker
+            name="date"
+            fieldProps={{
+              format: 'YYYY',
+            }}
+          />
+        </ProFormList>
+      </ProForm>,
+    );
+    html.find('#submit').first().simulate('click');
+    await waitForComponentToPaint(html);
+    expect(onFinish).toBeCalledWith({
+      list: [
+        {
+          date: '2020',
+        },
+      ],
+    });
+  });
+
+  it('⛲  ProForm.List fieldExtraRender', async () => {
+    const fn = jest.fn();
+    const html = mount(
+      <ProForm
+        onFinish={async (values) => {
+          fn(values.users[1]);
+        }}
+      >
+        <ProFormText name="name" label="姓名" />
+        <ProFormList
+          name="users"
+          label="用户信息"
+          initialValue={[
+            {
+              name: '1111',
+              nickName: '1111',
+            },
+          ]}
+          fieldExtraRender={(fieldAction) => {
+            return (
+              <Button
+                type="text"
+                onClick={() =>
+                  fieldAction.add({
+                    name: '2222',
+                    nickName: '2222',
+                  })
+                }
+              >
+                Add Field
+              </Button>
+            );
+          }}
+        >
+          {() => {
+            return (
+              <div>
+                <ProFormText name="name" />
+                <ProFormText name="nickName" />
+              </div>
+            );
+          }}
+        </ProFormList>
+      </ProForm>,
+    );
+
+    await waitForComponentToPaint(html);
+
+    act(() => {
+      html.find('.ant-btn.ant-btn-text').simulate('click');
+    });
+
+    act(() => {
+      html.find('.ant-btn.ant-btn-primary').simulate('click');
+    });
+
+    await waitForComponentToPaint(html);
+
+    expect(fn).toBeCalledWith({
+      name: '2222',
+      nickName: '2222',
     });
   });
 });

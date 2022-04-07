@@ -9,6 +9,12 @@ group:
 
 # Change Log
 
+## @ant-design/pro-layout@6.34.9
+
+`2022-04-06`
+
+- fix(layout): fix color variables error (#4943). [#4943](https://github.com/ant-design/pro-components/pull/#4943) [@DerrickTel](https://github.com/DerrickTel)
+
 ## @ant-design/pro-layout@6.34.2
 
 `2022-03-14`

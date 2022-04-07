@@ -78,13 +78,21 @@ const CellRenderFromItem = <T,>(props: CellRenderFromItemProps<T>) => {
           useEffect(() => {
             const value = spellNamePath(
               prefixName,
-              subName,
+              prefixName ? subName : [],
               prefixName ? index : key,
               columnProps?.key ?? columnProps?.dataIndex ?? index,
             );
 
             setName(value);
-          }, [columnProps?.dataIndex, columnProps?.key, index, recordKey, prefixName, key]);
+          }, [
+            columnProps?.dataIndex,
+            columnProps?.key,
+            index,
+            recordKey,
+            prefixName,
+            key,
+            subName,
+          ]);
 
           const needProps = useMemo(
             () =>
@@ -121,8 +129,9 @@ const CellRenderFromItem = <T,>(props: CellRenderFromItemProps<T>) => {
           );
 
           const generateFormItem = useCallback(() => {
-            const formItemProps =
-              getFieldPropsOrFormItemProps(columnProps?.formItemProps, ...needProps) || {};
+            const formItemProps = {
+              ...getFieldPropsOrFormItemProps(columnProps?.formItemProps, ...needProps),
+            };
 
             formItemProps.messageVariables = {
               label: (columnProps?.title as string) || '此项',
@@ -212,7 +221,7 @@ const CellRenderFromItem = <T,>(props: CellRenderFromItemProps<T>) => {
           ]);
         },
       ),
-    [],
+    [formContext.getPopupContainer],
   );
 
   return <Component {...props} />;

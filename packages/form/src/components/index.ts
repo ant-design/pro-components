@@ -23,7 +23,7 @@ export { default as ProFormFieldSet } from './FieldSet';
 export { default as ProFormCaptcha } from './Captcha';
 export { default as ProFormDependency } from './Dependency';
 export { default as ProFormColorPicker } from './ColorPicker';
-export { default as ProFormList } from './List';
+export { ProFormList } from './List';
 export { default as ProFormItem, FormItemProvide } from './FormItem';
 
 export { default as Group } from './Group';

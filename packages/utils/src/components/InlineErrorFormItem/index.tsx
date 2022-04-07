@@ -59,6 +59,7 @@ const InlineErrorFormItem: React.FC<{
           {errorList}
         </div>
       }
+      {...popoverProps}
     >
       <div>
         {input}

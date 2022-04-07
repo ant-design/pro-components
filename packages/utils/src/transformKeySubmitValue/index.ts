@@ -30,7 +30,7 @@ export function isPlainObj(itemValue: any) {
   return true;
 }
 
-const transformKeySubmitValue = <T = any>(
+const transformKeySubmitValue = <T extends object = any>(
   values: T,
   dataFormatMapRaw: Record<string, SearchTransformKeyFn | undefined | DataFormatMapType>,
   omit: boolean = true,

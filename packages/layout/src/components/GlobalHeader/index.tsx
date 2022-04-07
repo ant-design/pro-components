@@ -19,10 +19,18 @@ export type GlobalHeaderProps = {
   onCollapse?: (collapsed: boolean) => void;
   isMobile?: boolean;
   logo?: React.ReactNode;
+  /**
+   * @name 虽然叫menuRender，但是其实是整个 SiderMenu 面板的渲染函数
+   *
+   * @example 收起时完成不展示菜单 menuRender={(props,defaultDom)=> props.collapsed ? null : defaultDom}
+   * @example 不展示菜单 menuRender={false}
+   */
   menuRender?: WithFalse<(props: HeaderViewProps, defaultDom: React.ReactNode) => React.ReactNode>;
   /**
-   * @deprecated
-   * 使用 actionsRender 和 avatarProps 代替
+   * @name 右侧顶部操作区域的渲染逻辑,一般会展示一个头像和一些操作
+   *
+   * @example 展示一个头像: rightRender={(props) => <Avatar shape="square" size="small" icon={<UserOutlined />} />}
+   * @example 展示一些操作: rightRender={(props) => [<Button type="primary">操作</Button>,<Button type="primary">管理控制台</Button>]}
    */
   rightContentRender?: WithFalse<(props: HeaderViewProps) => React.ReactNode>;
   className?: string;
@@ -31,10 +39,17 @@ export type GlobalHeaderProps = {
   onMenuHeaderClick?: (e: React.MouseEvent<HTMLDivElement>) => void;
   style?: React.CSSProperties;
   menuHeaderRender?: SiderMenuProps['menuHeaderRender'];
+
+  /**
+   * @name 顶部区域的渲染，包含内部的 menu
+   *
+   * @example headerContentRender={(props) => <div>管理控制台 </div>}
+   */
   headerContentRender?: WithFalse<
     (props: HeaderViewProps, defaultDom: React.ReactNode) => React.ReactNode
   >;
   collapsedButtonRender?: SiderMenuProps['collapsedButtonRender'];
+
   splitMenus?: boolean;
   /** Layout的操作功能列表，不同的 layout 会放到不同的位置 */
   actionsRender?: WithFalse<(props: HeaderViewProps) => React.ReactNode[]>;

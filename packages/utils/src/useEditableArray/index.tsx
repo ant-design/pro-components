@@ -216,7 +216,7 @@ export function editableRowByKey<RecordType>(
         }
         kvArrayMap.set(map_row_parentKey, [
           ...(kvArrayMap.get(map_row_parentKey) || []),
-          reset as RecordType,
+          reset as unknown as RecordType,
         ]);
       }
     });
@@ -404,10 +404,7 @@ const CancelEditableAction: React.FC<ActionRenderConfig<any> & { row: any }> = (
   );
 };
 
-export function defaultActionRender<T extends Record<string, any>>(
-  row: T,
-  config: ActionRenderConfig<T, NewLineConfig<T>>,
-) {
+export function defaultActionRender<T>(row: T, config: ActionRenderConfig<T, NewLineConfig<T>>) {
   const { recordKey, newLineConfig, saveText, deleteText } = config;
   return [
     <SaveEditableAction<T> key="save" {...config} row={row}>
@@ -627,7 +624,7 @@ function useEditableArray<RecordType>(
     }
 
     // 防止多次渲染
-    const recordKey = props.getRowKey(row, props.dataSource.length);
+    const recordKey = props.getRowKey(row, -1);
     editableKeysSet.add(recordKey);
     setEditableRowKeys(Array.from(editableKeysSet));
 
