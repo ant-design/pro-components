@@ -2,6 +2,17 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.62.0](https://github.com/ant-design/pro-components/compare/@ant-design/pro-form@1.61.1...@ant-design/pro-form@1.62.0) (2022-04-07)
+
+### Bug Fixes
+
+- **form:** fix alwaysShowItemLabel no work error ([8bccdf7](https://github.com/ant-design/pro-components/commit/8bccdf7f18b7b6651b792938e1bef89cb06efc4f))
+- **form:** fix alwaysShowItemLabel no work error ([66a879c](https://github.com/ant-design/pro-components/commit/66a879c312f0823fdaa2bc0cff9da55659788c3e))
+
+### Features
+
+- **form:** Render Extra Content inside Pro Form List ([#4991](https://github.com/ant-design/pro-components/issues/4991)) ([ba73f4a](https://github.com/ant-design/pro-components/commit/ba73f4a5e686355d78125517bd039f7e34a446d5))
+
 ## [1.61.1](https://github.com/ant-design/pro-components/compare/@ant-design/pro-form@1.61.0...@ant-design/pro-form@1.61.1) (2022-04-06)
 
 ### Bug Fixes

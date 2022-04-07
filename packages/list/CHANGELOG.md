@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.21.48](https://github.com/ant-design/pro-components/compare/@ant-design/pro-list@1.21.47...@ant-design/pro-list@1.21.48) (2022-04-07)
+
+### Bug Fixes
+
+- **list:** fix pro list prefix no work error ([50b9e54](https://github.com/ant-design/pro-components/commit/50b9e546dcee001d424c55150d2b665559ac3ae2))
+
 ## [1.21.47](https://github.com/ant-design/pro-components/compare/@ant-design/pro-list@1.21.46...@ant-design/pro-list@1.21.47) (2022-04-06)
 
 **Note:** Version bump only for package @ant-design/pro-list

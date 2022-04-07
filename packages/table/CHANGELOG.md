@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.71.1](https://github.com/ant-design/pro-components/compare/@ant-design/pro-table@2.71.0...@ant-design/pro-table@2.71.1) (2022-04-07)
+
+### Bug Fixes
+
+- **table:** fix tableExtraRender no work error when dataSource=null ([23e60ae](https://github.com/ant-design/pro-components/commit/23e60aea2d70504ceabc3f184be63a7079c41f83))
+
 # [2.71.0](https://github.com/ant-design/pro-components/compare/@ant-design/pro-table@2.70.0...@ant-design/pro-table@2.71.0) (2022-04-06)
 
 ### Bug Fixes
