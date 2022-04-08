@@ -1,12 +1,7 @@
 import { mount } from 'enzyme';
-import React, { useRef } from 'react';
-import { Button } from 'antd';
-import { act } from 'react-dom/test-utils';
-import type { ActionType } from '@ant-design/pro-table';
+import React from 'react';
 import ProTable from '@ant-design/pro-table';
-import { columns, request } from './demo';
 import { waitForComponentToPaint, waitTime } from '../util';
-import BasicLayout from '@ant-design/pro-layout';
 
 describe('BasicTable SearchGutter', () => {
   const LINE_STR_COUNT = 20;
@@ -69,5 +64,34 @@ describe('BasicTable SearchGutter', () => {
     await waitForComponentToPaint(html, 1200);
     expect((html.find('.ant-col').at(0).props().style || {}).paddingLeft).toBe(8);
     expect((html.find('.ant-col').at(0).props().style || {}).paddingTop).toBe(12);
+  });
+
+  it('🎏 ProTable searchGutter default is [24 0]', async () => {
+    const html = mount(
+      <ProTable
+        size="small"
+        options={{
+          fullScreen: false,
+          reload: false,
+          setting: false,
+        }}
+        search={
+          {
+            // searchGutter: 24,
+          }
+        }
+        columns={[
+          {
+            dataIndex: 'money',
+            valueType: 'money',
+          },
+        ]}
+        dataSource={[]}
+        rowKey="key"
+      />,
+    );
+    await waitForComponentToPaint(html, 1200);
+    expect((html.find('.ant-col').at(0).props().style || {}).paddingLeft).toBe(12);
+    expect((html.find('.ant-col').at(0).props().style || {}).paddingTop).toBe(undefined);
   });
 });
