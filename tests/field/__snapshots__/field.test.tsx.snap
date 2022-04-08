@@ -2983,7 +2983,7 @@ exports[`Field 🐴 progress support no number 1`] = `
     >
       <div
         class="ant-progress-bg"
-        style="width:0%;height:6px;border-radius:"
+        style="width:0%;height:6px"
       />
     </div>
   </div>
@@ -3009,7 +3009,7 @@ exports[`Field 🐴 progress support string number 1`] = `
     >
       <div
         class="ant-progress-bg"
-        style="width:12%;height:6px;border-radius:"
+        style="width:12%;height:6px"
       />
     </div>
   </div>
@@ -3863,7 +3863,7 @@ exports[`Field 🐴 read ant no plain 1`] = `
                     >
                       <div
                         class="ant-progress-bg"
-                        style="width:40%;height:6px;border-radius:"
+                        style="width:40%;height:6px"
                       />
                     </div>
                   </div>
