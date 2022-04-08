@@ -9,6 +9,12 @@ group:
 
 # Change Log
 
+## @ant-design/pro-table@2.71.1
+
+`2022-04-07`
+
+- fix(table): fix tableExtraRender no work error when dataSource=null. [23e60ae](https://github.com/ant-design/pro-components/commit/23e60ae)
+
 ## @ant-design/pro-table@2.71.0
 
 `2022-04-06`

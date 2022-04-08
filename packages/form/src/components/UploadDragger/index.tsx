@@ -52,7 +52,7 @@ export type ProFormDraggerProps = ProFormFieldItemProps<DraggerProps> & {
  *
  * @param
  */
-const ProFormUploadDragger: React.FC<ProFormDraggerProps> = React.forwardRef(
+const BaseProFormUploadDragger: React.FC<ProFormDraggerProps> = React.forwardRef(
   (
     {
       fieldProps,
@@ -111,6 +111,8 @@ const ProFormUploadDragger: React.FC<ProFormDraggerProps> = React.forwardRef(
   },
 );
 
-export default createField<ProFormDraggerProps>(ProFormUploadDragger, {
+const ProFormUploadDragger = createField<ProFormDraggerProps>(BaseProFormUploadDragger, {
   getValueFromEvent: (value: { fileList: UploadProps['fileList'] }) => value.fileList,
-});
+}) as typeof BaseProFormUploadDragger;
+
+export default ProFormUploadDragger;

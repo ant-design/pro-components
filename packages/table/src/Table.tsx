@@ -335,9 +335,9 @@ function TableRender<T extends Record<string, any>, U, ValueType>(
     >
       {isLightFilter ? null : searchNode}
       {/* 渲染一个额外的区域，用于一些自定义 */}
-      {type !== 'form' && props.tableExtraRender && action.dataSource && (
+      {type !== 'form' && props.tableExtraRender && (
         <div className={`${className}-extra`}>
-          {props.tableExtraRender(props, action.dataSource)}
+          {props.tableExtraRender(props, action.dataSource || [])}
         </div>
       )}
       {type !== 'form' && renderTable()}
