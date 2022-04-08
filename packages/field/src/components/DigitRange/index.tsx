@@ -20,10 +20,19 @@ export type FieldDigitRangeProps = {
  * @param FieldDigitRangeProps
  */
 const FieldDigitRange: ProFieldFC<FieldDigitRangeProps> = (
-  { text, mode: type, render, renderFormItem, fieldProps, separator = '~', separatorWidth = 30 },
+  {
+    text,
+    mode: type,
+    render,
+    placeholder,
+    renderFormItem,
+    fieldProps,
+    separator = '~',
+    separatorWidth = 30,
+  },
   ref,
 ) => {
-  const { value, defaultValue, onChange, placeholder, id } = fieldProps;
+  const { value, defaultValue, onChange, id } = fieldProps;
 
   const [valuePair, setValuePair] = useMergedState(() => defaultValue, {
     value: value,
@@ -70,11 +79,13 @@ const FieldDigitRange: ProFieldFC<FieldDigitRangeProps> = (
       setValuePair(newValuePair);
     };
 
+    const placeholderValue = fieldProps?.placeholder || placeholder;
+
     const dom = (
       <Input.Group compact onBlur={handleGroupBlur}>
         <InputNumber
           {...fieldProps}
-          placeholder={Array.isArray(placeholder) ? placeholder[0] : placeholder}
+          placeholder={Array.isArray(placeholderValue) ? placeholderValue[0] : placeholderValue}
           id={id ?? `${id}-0`}
           style={{ width: `calc((100% - ${separatorWidth}px) / 2)` }}
           value={valuePair?.[0]}
@@ -95,7 +106,7 @@ const FieldDigitRange: ProFieldFC<FieldDigitRangeProps> = (
         />
         <InputNumber
           {...fieldProps}
-          placeholder={Array.isArray(placeholder) ? placeholder[1] : placeholder}
+          placeholder={Array.isArray(placeholderValue) ? placeholderValue[1] : placeholderValue}
           id={id ?? `${id}-1`}
           style={{ width: `calc((100% - ${separatorWidth}px) / 2)`, borderLeft: 0 }}
           value={valuePair?.[1]}
