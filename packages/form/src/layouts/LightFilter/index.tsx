@@ -17,7 +17,7 @@ import omit from 'omit.js';
 import type { CommonFormProps, ProFormInstance } from '../../BaseForm';
 import { BaseForm } from '../../BaseForm';
 import './index.less';
-import type { LightFilterFooterRender } from '../../interface';
+import type { LightFilterFooterRender, Placement } from '../../interface';
 
 export type LightFilterProps<T> = {
   collapse?: boolean;
@@ -25,6 +25,7 @@ export type LightFilterProps<T> = {
   bordered?: boolean;
   ignoreRules?: boolean;
   footerRender?: LightFilterFooterRender;
+  placement?: Placement;
 } & Omit<FormProps<T>, 'onFinish'> &
   CommonFormProps<T>;
 
@@ -43,6 +44,7 @@ const LightFilterContainer: React.FC<{
   collapseLabel?: React.ReactNode;
   bordered?: boolean;
   footerRender?: LightFilterFooterRender;
+  placement?: Placement;
 }> = (props) => {
   const {
     items,
@@ -54,6 +56,7 @@ const LightFilterContainer: React.FC<{
     bordered,
     values,
     footerRender,
+    placement,
   } = props;
   const intl = useIntl();
   const lightFilterClassName = `${prefixCls}-light-filter`;
@@ -112,6 +115,10 @@ const LightFilterContainer: React.FC<{
           return (
             <div className={`${lightFilterClassName}-item`} key={key || index}>
               {React.cloneElement(child, {
+                fieldProps: {
+                  ...child.props.fieldProps,
+                  placement: placement,
+                },
                 // proFieldProps 会直接作为 ProField 的 props 传递过去
                 proFieldProps: {
                   light: true,
@@ -129,6 +136,7 @@ const LightFilterContainer: React.FC<{
               padding={24}
               onVisibleChange={setOpen}
               visible={open}
+              placement={placement}
               label={collapseLabelRender()}
               footerRender={footerRender}
               footer={{
@@ -168,7 +176,10 @@ const LightFilterContainer: React.FC<{
                 return (
                   <div className={`${lightFilterClassName}-line`} key={key}>
                     {React.cloneElement(child, {
-                      fieldProps: newFieldProps,
+                      fieldProps: {
+                        ...newFieldProps,
+                        placement: placement,
+                      },
                     })}
                   </div>
                 );
@@ -189,6 +200,7 @@ function LightFilter<T = Record<string, any>>(props: LightFilterProps<T>) {
     initialValues,
     onValuesChange,
     form: userForm,
+    placement,
     formRef: userFormRef,
     bordered,
     ignoreRules,
@@ -222,6 +234,7 @@ function LightFilter<T = Record<string, any>>(props: LightFilterProps<T>) {
             bordered={bordered}
             collapse={collapse}
             collapseLabel={collapseLabel}
+            placement={placement}
             values={values || {}}
             footerRender={footerRender}
             onValuesChange={(newValues: any) => {
