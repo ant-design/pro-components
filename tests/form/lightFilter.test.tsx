@@ -727,10 +727,20 @@ describe('LightFilter', () => {
             woman: '女',
           }}
         />
+        <ProFormText
+          name="name4"
+          label="名称"
+          fieldProps={{
+            allowClear: false,
+          }}
+        />
       </LightFilter>,
     );
+    // 两种加载模式都需要判断（需要lightWrapper和不需要的）
     wrapper.find('.ant-pro-core-field-label').at(0).simulate('click');
-    expect(wrapper.find('Trigger').prop('popupPlacement')).toEqual('topRight');
+    expect(wrapper.find('Trigger').at(0).prop('popupPlacement')).toEqual('topRight');
+    wrapper.find('.ant-pro-core-field-label').at(1).simulate('click');
+    expect(wrapper.find('Trigger').at(1).prop('popupPlacement')).toEqual('topRight');
     act(() => {
       wrapper.unmount();
     });
