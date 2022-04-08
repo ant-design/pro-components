@@ -703,4 +703,36 @@ describe('LightFilter', () => {
       '活跃时间: 2001-09-09 01:46:40~2017-07-14 0...2项',
     );
   });
+
+  it('lightFilter support placement', async () => {
+    const wrapper = mount(
+      <LightFilter
+        initialValues={{
+          name1: 'yutingzhao1991',
+          name3: '2020-08-19',
+          sex: 'man',
+        }}
+        placement="topRight"
+        onFinish={async (values) => console.log(values)}
+      >
+        <ProFormSelect
+          name="sex"
+          label="性别"
+          showSearch
+          fieldProps={{
+            allowClear: false,
+          }}
+          valueEnum={{
+            man: '男',
+            woman: '女',
+          }}
+        />
+      </LightFilter>,
+    );
+    wrapper.find('.ant-pro-core-field-label').at(0).simulate('click');
+    expect(wrapper.find('Trigger').prop('popupPlacement')).toEqual('topRight');
+    act(() => {
+      wrapper.unmount();
+    });
+  });
 });
