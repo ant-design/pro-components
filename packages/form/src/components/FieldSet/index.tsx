@@ -15,6 +15,7 @@ export type ProFormFieldSetProps<T = any> = {
   valuePropName?: string;
   type?: 'space' | 'group';
   fieldProps?: any;
+  convertValue?: ProFormItemProps['convertValue'];
   transform?: ProFormItemProps['transform'];
 };
 
@@ -40,6 +41,7 @@ const FieldSet: React.FC<ProFormFieldSetProps> = ({
   space,
   type = 'space',
   transform,
+  convertValue,
   ...rest
 }) => {
   /**
@@ -111,7 +113,7 @@ const FieldSet: React.FC<ProFormFieldSetProps> = ({
   return <RowWrapper Wrapper={Wrapper}>{list}</RowWrapper>;
 };
 
-const ProFormFieldSet: React.FC<FormItemProps & ProFormFieldSetProps> = React.forwardRef(
+const BaseProFormFieldSet: React.FC<FormItemProps & ProFormFieldSetProps> = React.forwardRef(
   ({ children, space, valuePropName, ...rest }, ref) => {
     useImperativeHandle(ref, () => ({}));
     return (
@@ -129,4 +131,8 @@ const ProFormFieldSet: React.FC<FormItemProps & ProFormFieldSetProps> = React.fo
   },
 );
 
-export default createField<FormItemProps & ProFormFieldSetProps>(ProFormFieldSet);
+const ProFormFieldSet = createField<FormItemProps & ProFormFieldSetProps>(
+  BaseProFormFieldSet,
+) as typeof BaseProFormFieldSet;
+
+export default ProFormFieldSet;

@@ -411,6 +411,13 @@ function EditableTable<
           dataSource={value}
           onDataSourceChange={(dataSource: DataType[]) => {
             setValue(dataSource);
+            /**
+             * 如果是top，需要重新设置一下 form，不然会导致 id 相同数据混淆
+             */
+            if (props.name && position === 'top') {
+              const newValue = set({}, [props.name!].flat(1).filter(Boolean), dataSource);
+              formRef.current?.setFieldsValue(newValue);
+            }
           }}
         />
       </EditableTableActionContext.Provider>

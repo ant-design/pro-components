@@ -4,10 +4,11 @@ import { mount } from 'enzyme';
 import mock from 'xhr-mock';
 import { act } from 'react-dom/test-utils';
 import { waitTime, waitForComponentToPaint } from '../util';
+import type { UploadFile } from 'antd/lib/upload/interface';
 
 const mockFile = new File(['foo'], 'foo.png', {
   type: 'image/png',
-});
+}) as unknown as UploadFile;
 
 export function setup() {
   mock.setup();

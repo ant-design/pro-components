@@ -8,6 +8,7 @@ import {
   dateFormatterMap,
 } from '@ant-design/pro-utils';
 import { ConfigProvider } from 'antd';
+import type { Placement } from '../../interface';
 
 import './index.less';
 import type { LightFilterFooterRender } from '../../interface';
@@ -34,6 +35,7 @@ export type LightWrapperProps = {
   valueType?: string;
   allowClear?: boolean;
   footerRender?: LightFilterFooterRender;
+  placement?: Placement;
 };
 
 const LightWrapper: React.ForwardRefRenderFunction<any, LightWrapperProps> = (props) => {
@@ -53,8 +55,10 @@ const LightWrapper: React.ForwardRefRenderFunction<any, LightWrapperProps> = (pr
     allowClear,
     otherFieldProps,
     valueType,
+    placement,
     ...rest
   } = props;
+
   const { getPrefixCls } = useContext(ConfigProvider.ConfigContext);
   const prefixCls = getPrefixCls('pro-field-light-wrapper');
   const [tempValue, setTempValue] = useState<string | undefined>(props[valuePropName!]);
@@ -78,6 +82,7 @@ const LightWrapper: React.ForwardRefRenderFunction<any, LightWrapperProps> = (pr
     <FilterDropdown
       disabled={disabled}
       onVisibleChange={setOpen}
+      placement={placement}
       visible={open}
       label={
         <FieldLabel

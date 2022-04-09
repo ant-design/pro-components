@@ -197,7 +197,7 @@ ProFormCaptcha 是为了支持中后台中常见的验证码功能开发的组�
 与 [inputNumber](https://ant.design/components/input-number-cn/) 类似。 它提供输入数字范围。
 
 ```tsx | pure
-<ProFormDigitRange label='InputNumberRange' name='input-number-range'>
+<ProFormDigitRange label="InputNumberRange" name="input-number-range" />
 ```
 
 ### ProFormDatePicker

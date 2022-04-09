@@ -1106,6 +1106,20 @@ describe('Field', () => {
     expect(html.text()).toBe('￥ 12.34 ~ ￥ 56.78');
   });
 
+  it(`🐴 valueType digitRange placeholder use`, async () => {
+    const html = mount(<Field mode="edit" valueType="digitRange" />);
+    await waitForComponentToPaint(html);
+    expect(html.find('.ant-input-number-input').at(0).prop('placeholder')).toBe('请输入');
+    expect(html.find('.ant-input-number-input').at(1).prop('placeholder')).toBe('请输入');
+  });
+
+  it(`🐴 valueType digitRange placeholder use`, async () => {
+    const html = mount(<Field mode="edit" valueType="digitRange" placeholder={['Min', 'Max']} />);
+    await waitForComponentToPaint(html);
+    expect(html.find('.ant-input-number-input').at(0).prop('placeholder')).toBe('Min');
+    expect(html.find('.ant-input-number-input').at(1).prop('placeholder')).toBe('Max');
+  });
+
   it(`🐴 valueType digitRange normal input simulate`, async () => {
     const html = mount(<Field mode="edit" valueType="digitRange" />);
     await waitForComponentToPaint(html);

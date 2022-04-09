@@ -25,7 +25,7 @@ export type ProFormFieldProps<T = any, FiledProps = Record<string, any>> = ProSc
   any
 >;
 
-const ProFormField: React.FC<
+const BaseProFormField: React.FC<
   ProFormFieldProps & {
     onChange?: (...args: any) => any;
     autoFocus?: boolean;
@@ -115,10 +115,12 @@ const ProFormField: React.FC<
   );
 };
 
-export default createField<ProFormFieldProps>(
-  memo(ProFormField, (prevProps, nextProps) => {
+const ProFormField = createField<ProFormFieldProps>(
+  memo(BaseProFormField, (prevProps, nextProps) => {
     return isDeepEqualReact(nextProps, prevProps, ['onChange', 'onBlur']);
   }),
 ) as <FiledProps, DataType = Record<string, any>>(
   props: ProFormFieldProps<DataType, FiledProps>,
 ) => React.ReactElement;
+
+export default ProFormField;

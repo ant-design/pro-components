@@ -156,3 +156,16 @@ export type ProFormFieldRemoteProps = Pick<
   ProSchema,
   'debounceTime' | 'request' | 'valueEnum' | 'params'
 >;
+
+/**
+ * LightFilter 支持的 placement 对齐方式
+ */
+declare const Placements: [
+  'topLeft',
+  'topCenter',
+  'topRight',
+  'bottomLeft',
+  'bottomCenter',
+  'bottomRight',
+];
+export declare type Placement = typeof Placements[number];
