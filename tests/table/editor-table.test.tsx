@@ -554,6 +554,48 @@ describe('EditorProTable', () => {
     wrapper.unmount();
   });
 
+  it('📝 EditableProTable add newLine when position=top', async () => {
+    const wrapper = mount(
+      <ProForm
+        initialValues={{
+          table: defaultData,
+        }}
+      >
+        <EditableProTable<DataSourceType>
+          recordCreatorProps={{
+            id: 'new-button',
+            record: () => ({ id: Math.random() * 100000000 }),
+            position: 'top',
+          }}
+          rowKey="id"
+          name="table"
+          columns={columns}
+        />
+      </ProForm>,
+    );
+
+    act(() => {
+      wrapper.find('#new-button').at(0).simulate('click');
+    });
+
+    act(() => {
+      wrapper.find('#new-button').at(0).simulate('click');
+    });
+
+    await waitForComponentToPaint(wrapper, 200);
+
+    const firstLineValue = wrapper
+      .find('.ant-table-tbody tr.ant-table-row')
+      .at(0)
+      .find(`td .ant-input`)
+      .at(0)
+      .props().value;
+
+    expect(firstLineValue).toBe('');
+
+    wrapper.unmount();
+  });
+
   it('📝 EditableProTable support actionRender', async () => {
     const wrapper = mount(
       <EditableProTable<DataSourceType>
