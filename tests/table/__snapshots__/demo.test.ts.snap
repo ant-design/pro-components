@@ -55764,7 +55764,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/valueType_select.ts
                         <div
                           class="ant-select ant-tree-select ant-pro-field-tree-select ant-select-single ant-select-show-arrow"
                           options="[object Object],[object Object]"
-                          style="width: 100%;"
+                          style="min-width: 60px;"
                         >
                           <div
                             class="ant-select-selector"
