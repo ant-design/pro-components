@@ -13008,7 +13008,15 @@ exports[`form demos 📸 renders ./packages/form/src/components/QueryFilter/demo
                                 style="opacity: 1;"
                               >
                                 <span>
-                                  Node1
+                                  Node1 ,
+                                </span>
+                              </div>
+                              <div
+                                class="ant-select-selection-overflow-item"
+                                style="opacity: 1;"
+                              >
+                                <span>
+                                  Node2 
                                 </span>
                               </div>
                               <div
