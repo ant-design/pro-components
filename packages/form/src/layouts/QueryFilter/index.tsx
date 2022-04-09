@@ -351,7 +351,7 @@ const QueryFilterContent: React.FC<{
   );
 };
 
-const defaultWidth = isBrowser() ? document.body.clientWidth : 1024;
+const defaultWidth = isBrowser() ? document?.body?.clientWidth : 1024;
 
 function QueryFilter<T = Record<string, any>>(props: QueryFilterProps<T>) {
   const {
