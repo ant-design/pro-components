@@ -20,11 +20,12 @@ export type GroupProps = {
  * @param ref
  */
 const FieldCascader: ProFieldFC<GroupProps> = (
-  { radioType, renderFormItem, mode, render, ...rest },
+  { radioType, renderFormItem, mode, render, light, ...rest },
   ref,
 ) => {
   const { getPrefixCls } = useContext(ConfigProvider.ConfigContext);
   const layoutClassName = getPrefixCls('pro-field-cascader');
+  const coreStyleClassName = getPrefixCls('pro-core-field-label');
   const [loading, options, fetchData] = useFieldFetchData(rest);
   const intl = useIntl();
   const cascaderRef = useRef();
@@ -79,14 +80,18 @@ const FieldCascader: ProFieldFC<GroupProps> = (
   if (mode === 'edit') {
     const dom = (
       <Cascader
+        bordered={!light}
         ref={cascaderRef}
         suffixIcon={loading ? <LoadingOutlined /> : undefined}
         placeholder={intl.getMessage('tableForm.selectPlaceholder', '请选择')}
         {...rest.fieldProps}
-        className={classNames(rest.fieldProps?.className, layoutClassName)}
+        className={classNames(rest.fieldProps?.className, layoutClassName, {
+          [`${coreStyleClassName}-active`]: rest?.fieldProps?.value && light,
+        })}
         options={options}
       />
     );
+
     if (renderFormItem) {
       return renderFormItem(rest.text, { mode, ...rest.fieldProps }, dom) || null;
     }

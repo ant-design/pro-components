@@ -19,11 +19,12 @@ export type GroupProps = {
  * @param ref
  */
 const FieldTreeSelect: ProFieldFC<GroupProps> = (
-  { radioType, renderFormItem, mode, render, ...rest },
+  { radioType, renderFormItem, mode, light, render, ...rest },
   ref,
 ) => {
   const { getPrefixCls } = useContext(ConfigProvider.ConfigContext);
   const layoutClassName = getPrefixCls('pro-field-tree-select');
+  const coreStyleClassName = getPrefixCls('pro-core-field-label');
   const treeSelectRef = useRef(null);
 
   const {
@@ -102,13 +103,37 @@ const FieldTreeSelect: ProFieldFC<GroupProps> = (
   }
 
   if (mode === 'edit') {
+    const valuesLength = Array.isArray(fieldProps?.value) ? fieldProps?.value?.length : 0;
     const dom = (
       <Spin spinning={loading}>
         <TreeSelect
           ref={treeSelectRef}
+          dropdownMatchSelectWidth={!light}
+          tagRender={
+            light
+              ? (item) => {
+                  if (valuesLength < 2) return <>{item.label}</>;
+                  /**
+                   * 性能不好，等我给 antd 提个issue
+                   */
+                  const itemIndex = fieldProps?.value?.findIndex(
+                    (v: any) => v === item.value || v.value === item.value,
+                  );
+                  return (
+                    <>
+                      {item.label} {itemIndex < valuesLength - 1 ? ',' : ''}
+                    </>
+                  );
+                }
+              : undefined
+          }
           {...fieldProps}
+          bordered={!light}
           treeData={(options || treeData) as DataNode[]}
           showSearch={showSearch}
+          style={{
+            minWidth: 60,
+          }}
           searchValue={searchValue}
           autoClearSearchValue={autoClearSearchValue}
           onClear={() => {
@@ -129,7 +154,9 @@ const FieldTreeSelect: ProFieldFC<GroupProps> = (
             fetchData('');
             onBlur?.(event);
           }}
-          className={classNames(fieldProps?.className, layoutClassName)}
+          className={classNames(fieldProps?.className, layoutClassName, {
+            [`${coreStyleClassName}-active`]: fieldProps?.value && light,
+          })}
         />
       </Spin>
     );
