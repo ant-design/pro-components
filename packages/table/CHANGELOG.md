@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.71.3](https://github.com/ant-design/pro-components/compare/@ant-design/pro-table@2.71.2...@ant-design/pro-table@2.71.3) (2022-04-12)
+
+### Bug Fixes
+
+- **table:** fix position=top, add new line data error problem ([#5023](https://github.com/ant-design/pro-components/issues/5023)) ([19e982c](https://github.com/ant-design/pro-components/commit/19e982c0de71aa24abd5bd8fb867b0fb1851e48d))
+
 ## [2.71.2](https://github.com/ant-design/pro-components/compare/@ant-design/pro-table@2.71.1...@ant-design/pro-table@2.71.2) (2022-04-08)
 
 **Note:** Version bump only for package @ant-design/pro-table
