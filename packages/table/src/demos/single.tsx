@@ -192,6 +192,7 @@ export default () => {
         <Button key="button" icon={<PlusOutlined />} type="primary">
           新建
         </Button>,
+        //@ts-expect-error
         <Dropdown key="menu" overlay={menu}>
           <Button>
             <EllipsisOutlined />

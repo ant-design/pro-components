@@ -2,7 +2,6 @@ import type { InputProps } from 'antd';
 import type { FormInstance, FormItemProps } from 'antd/lib/form';
 import type { LabelTooltipType } from 'antd/lib/form/FormItemLabel';
 import type { NamePath } from 'antd/lib/form/interface';
-import type { Moment } from 'moment';
 import type { ReactNode } from 'react';
 import type {
   ProFieldValueType,
@@ -51,7 +50,7 @@ export type ProSchemaValueEnumType = {
   text: ReactNode;
 
   /** @name 预定的颜色 */
-  status: string;
+  status?: string;
   /** @name 自定义的颜色 */
   color?: string;
   /** @name 是否禁用 */
@@ -67,7 +66,11 @@ export type ProSchemaValueEnumMap = Map<React.ReactText, ProSchemaValueEnumType 
 
 export type ProSchemaValueEnumObj = Record<string, ProSchemaValueEnumType | ReactNode>;
 
-export type ProFieldTextType = React.ReactNode | React.ReactNode[] | Moment | Moment[];
+export type ProFieldTextType =
+  | React.ReactNode
+  | React.ReactNode[]
+  | Record<string, any>
+  | Record<string, any>[];
 
 export type SearchTransformKeyFn = (
   value: any,
@@ -194,7 +197,12 @@ export type ProSchema<
       isEditable?: boolean;
       type: ComponentsType;
     },
-  ) => React.ReactNode;
+  ) =>
+    | React.ReactNode
+    | {
+        children: React.ReactNode;
+        props: any;
+      };
 
   /**
    * 返回一个 ReactNode，会自动包裹 value 和 onChange

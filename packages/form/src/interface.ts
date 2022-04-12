@@ -110,6 +110,8 @@ export type GroupProps = {
   onCollapse?: (collapsed: boolean) => void;
   /** 自定选中一个input，只能有一个生效 */
   autoFocus?: boolean;
+
+  children?: React.ReactNode;
 } & ProFormGridConfig;
 
 export type FieldProps = {
@@ -145,6 +147,8 @@ export type ProFormFieldItemProps<T = Record<string, any>> = {
 
   /** QueryFilter 上的footer */
   footerRender?: LightFilterFooterRender;
+
+  children?: React.ReactNode;
 } & Omit<ProFormItemProps, 'valueType'> &
   Pick<ProFormGridConfig, 'colProps'> &
   ExtendsProps;

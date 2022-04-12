@@ -8,8 +8,6 @@ import { QuestionCircleOutlined } from '@ant-design/icons';
 
 import './index.less';
 
-type ReactNodeFunc = () => React.ReactNode;
-
 export interface StatisticProps extends AntdStatisticProps {
   /**
    * 样式
@@ -24,7 +22,7 @@ export interface StatisticProps extends AntdStatisticProps {
    */
   className?: string;
   /** 描述性标签 */
-  description?: React.ReactNode | ReactNodeFunc;
+  description?: React.ReactNode;
   /** 标题提示 */
   tip?: React.ReactNode;
   /** 当前项显示的状态 */
@@ -35,6 +33,8 @@ export interface StatisticProps extends AntdStatisticProps {
   layout?: 'horizontal' | 'vertical' | 'inline';
   /** 趋势 */
   trend?: 'up' | 'down';
+
+  children?: any;
 }
 
 const Statistic: React.FC<StatisticProps> = (props) => {
@@ -112,7 +112,9 @@ const Statistic: React.FC<StatisticProps> = (props) => {
             className={statisticClassName}
             {...others}
           />
-          {description && <div className={`${prefixCls}-description`}>{description}</div>}
+          {description && (
+            <div className={`${prefixCls}-description`}>{description as React.ReactNode}</div>
+          )}
         </div>
       </div>
     </div>

@@ -35,6 +35,7 @@ const ToolTipIcon: React.FC<{
   columnKey: string | number;
   show: boolean;
   fixed: 'left' | 'right' | undefined;
+  children?: React.ReactNode;
 }> = ({ title, show, children, columnKey, fixed }) => {
   const { columnsMap, setColumnsMap } = Container.useContainer();
   if (!show) {

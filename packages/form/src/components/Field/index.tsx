@@ -80,7 +80,7 @@ const BaseProFormField: React.FC<
           ...children.props,
         });
       }
-      return children as JSX.Element;
+      return <>{children}</>;
     }
     return;
   }, [children, fieldProps?.onChange, onChange, restProps]);

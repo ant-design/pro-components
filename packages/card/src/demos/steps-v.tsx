@@ -17,6 +17,7 @@ export default () => {
     >
       <ProCard split={responsive ? 'horizontal' : 'vertical'} bordered style={{ height: 320 }}>
         <ProCard colSpan={responsive ? 24 : 6}>
+          {/* @ts-expect-error */}
           <Steps
             direction={responsive ? 'horizontal' : 'vertical'}
             size="small"

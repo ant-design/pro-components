@@ -11,6 +11,7 @@ const WrapContent: React.FC<{
   location?: any;
   contentHeight?: number | string;
   ErrorBoundary?: any;
+  children?: React.ReactNode;
 }> = (props) => {
   const { style, className, children } = props;
   const ErrorComponent = props.ErrorBoundary || ErrorBoundary;

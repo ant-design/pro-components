@@ -320,7 +320,7 @@ function BaseFormComponents<T = Record<string, any>>(props: BaseFormProps<T>) {
   const [loading, setLoading] = useMountMergeState<boolean>(false);
 
   const items = useMemo(() => {
-    return React.Children.toArray(children).map((item, index) => {
+    return React.Children.toArray(children as any).map((item, index) => {
       if (index === 0 && React.isValidElement(item) && autoFocusFirstInput) {
         return React.cloneElement(item, {
           ...item.props,

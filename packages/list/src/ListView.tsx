@@ -231,7 +231,7 @@ function ListView<RecordType>(props: ListViewProps<RecordType>) {
             itemHeaderRender={itemHeaderRender}
             rowSupportExpand={!rowExpandable || (rowExpandable && rowExpandable(item))}
             selected={selectedKeySet.has(getRowKey(item, index))}
-            checkbox={checkboxDom}
+            checkbox={checkboxDom as React.ReactElement}
             onRow={onRow}
             onItem={onItem}
           />

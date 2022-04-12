@@ -1,6 +1,6 @@
 import { Form } from 'antd';
 import type { NamePath } from 'antd/lib/form/interface';
-import type { FormInstance, FormItemProps } from 'antd';
+import type { FormItemProps } from 'antd';
 import set from 'rc-util/lib/utils/set';
 import get from 'rc-util/lib/utils/get';
 import { useContext, useMemo } from 'react';
@@ -67,7 +67,7 @@ const ProFormDependency: React.FC<ProFormDependencyProps> = ({
         });
       }}
     >
-      {(form: FormInstance) => {
+      {(form) => {
         let values: Record<string, any> = {};
         for (let i = 0; i < names.length; i++) {
           const pathToGet = flattenNames[i],
@@ -88,7 +88,7 @@ const ProFormDependency: React.FC<ProFormDependencyProps> = ({
             }
           }
         }
-        return children?.(values, { ...form, ...context });
+        return children?.(values, { ...form, ...context } as ProFormInstance<any>);
       }}
     </Form.Item>
   );

@@ -63,7 +63,7 @@ export type BasicLayoutProps = GlobalTypes & {
    * @example 设置 logo 为 false 不显示 logo  logo={false}
    * @example 设置 logo 为 方法  logo={()=> <img src="https://avatars1.githubusercontent.com/u/8186664?s=460&v=4"/> }
    * */
-  logo?: React.ReactNode | WithFalse<() => React.ReactNode>;
+  logo?: React.ReactNode | JSX.Element | WithFalse<() => React.ReactNode | JSX.Element>;
 
   /**
    * @name 页面切换的时候触发

@@ -152,6 +152,8 @@ export type ProFormListItemProps = ProFromListCommonProps & {
   ) => React.ReactNode;
   /** 列表当前条目数量 */
   count: number;
+
+  children?: ReactNode | ChildrenItemFunction;
 };
 
 const ProFormListItem: React.FC<
@@ -214,7 +216,7 @@ const ProFormListItem: React.FC<
     },
   };
 
-  const childrenArray = listToArray(children)
+  const childrenArray = listToArray(children as React.ReactNode)
     .map((childrenItem) => {
       if (typeof childrenItem === 'function') {
         return (childrenItem as ChildrenItemFunction)?.(field, index, {
@@ -252,6 +254,7 @@ const ProFormListItem: React.FC<
     const { Icon = CopyOutlined, tooltipText } = copyIconProps as IconConfig;
     return (
       <Tooltip title={tooltipText} key="copy">
+        {/* @ts-expect-error */}
         <Spin spinning={loadingCopy}>
           <Icon
             className={`${prefixCls}-action-icon action-copy`}
@@ -288,6 +291,7 @@ const ProFormListItem: React.FC<
     const { Icon = DeleteOutlined, tooltipText } = deleteIconProps!;
     return (
       <Tooltip title={tooltipText} key="delete">
+        {/* @ts-expect-error */}
         <Spin spinning={loadingRemove}>
           <Icon
             className={`${prefixCls}-action-icon action-remove`}

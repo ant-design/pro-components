@@ -38,7 +38,7 @@ type ColumnRenderInterface<T> = {
 export const renderColumnsTitle = (item: ProColumns<any>) => {
   const { title } = item;
   if (title && typeof title === 'function') {
-    return title(item, 'table', <LabelIconTip label={title} tooltip={item.tooltip || item.tip} />);
+    return title(item, 'table', <LabelIconTip label={null} tooltip={item.tooltip || item.tip} />);
   }
   return <LabelIconTip label={title} tooltip={item.tooltip || item.tip} ellipsis={item.ellipsis} />;
 };
