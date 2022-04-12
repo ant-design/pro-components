@@ -551,7 +551,7 @@ const ProTable = <T extends Record<string, any>, U extends ParamsType, ValueType
     if (action.dataSource?.length) {
       const newCache = new Map<any, T>();
       const keys = action.dataSource.map((data) => {
-        const dataRowKey = (data as any)?.[rowKey as string] ?? data?.key;
+        const dataRowKey = getRowKey(data, -1);
         newCache.set(dataRowKey, data);
         return dataRowKey;
       });
@@ -559,7 +559,7 @@ const ProTable = <T extends Record<string, any>, U extends ParamsType, ValueType
       return keys;
     }
     return [];
-  }, [action.dataSource, rowKey]);
+  }, [action.dataSource, getRowKey]);
 
   useEffect(() => {
     selectedRowsRef.current = selectedRowKeys!?.map(
