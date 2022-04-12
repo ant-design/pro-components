@@ -8,7 +8,7 @@ import type { ProColumns, ProTableProps } from '../../typing';
 import { ConfigProvider } from 'antd';
 import './index.less';
 
-export type DragTableProps<T, U extends ParamsType> = {
+export type DragTableProps<T, U> = {
   /** @name 拖动排序列key值 如配置此参数，则会在该 key 对应的行显示拖拽排序把手，允许拖拽排序 */
   dragSortKey?: string;
   /** @name 渲染自定义拖动排序把手的函数 如配置了 dragSortKey 但未配置此参数，则使用默认把手图标 */
@@ -20,7 +20,11 @@ export type DragTableProps<T, U extends ParamsType> = {
 // 用于创建可拖拽把手组件的工厂
 const handleCreator = (handle: React.ReactNode) => SortableHandle(() => <>{handle}</>);
 
-function DragSortTable<T, U extends ParamsType>(props: DragTableProps<T, U>) {
+function DragSortTable<
+  T extends Record<string, any>,
+  U extends ParamsType = ParamsType,
+  ValueType = 'text',
+>(props: DragTableProps<T, U>) {
   const {
     rowKey,
     dragSortKey,
@@ -72,8 +76,10 @@ function DragSortTable<T, U extends ParamsType>(props: DragTableProps<T, U>) {
         : DragHandle;
       return (
         <div className={getPrefixCls('pro-table-drag-visible-cell')}>
-          <RealHandle />
-          {originColumn.render?.(dom, rowData, index, action, schema)}
+          <>
+            <RealHandle />
+            {originColumn.render?.(dom, rowData, index, action, schema)}
+          </>
         </div>
       );
     };
@@ -97,8 +103,8 @@ function DragSortTable<T, U extends ParamsType>(props: DragTableProps<T, U>) {
   ]);
 
   return handleColumn ? (
-    <ProTable
-      {...otherProps}
+    <ProTable<T, U, ValueType>
+      {...(otherProps as ProTableProps<T, U, ValueType>)}
       rowKey={rowKey}
       dataSource={oriDs}
       components={components}
@@ -107,8 +113,8 @@ function DragSortTable<T, U extends ParamsType>(props: DragTableProps<T, U>) {
     />
   ) : (
     /* istanbul ignore next */
-    <ProTable
-      {...otherProps}
+    <ProTable<T, U, ValueType>
+      {...(otherProps as ProTableProps<T, U, ValueType>)}
       rowKey={rowKey}
       dataSource={oriDs}
       columns={columns}

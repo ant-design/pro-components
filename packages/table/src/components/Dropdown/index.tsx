@@ -15,6 +15,7 @@ export type DropdownProps = {
   style?: React.CSSProperties;
   menus?: MenuItems[];
   onSelect?: (key: string) => void;
+  children?: React.ReactNode;
 };
 
 /**
@@ -40,6 +41,7 @@ const DropdownButton: React.FC<DropdownProps> = ({
     </Menu>
   );
   return (
+    //@ts-expect-error
     <Dropdown overlay={menu} className={classnames(tempClassName, className)}>
       <Button style={style}>
         {children} <DownOutlined />
@@ -63,6 +65,7 @@ const TableDropdown: React.FC<DropdownProps> & {
     </Menu>
   );
   return (
+    //@ts-expect-error
     <Dropdown overlay={menu} className={classnames(className, propsClassName)}>
       <a style={style}>{children || <EllipsisOutlined />}</a>
     </Dropdown>

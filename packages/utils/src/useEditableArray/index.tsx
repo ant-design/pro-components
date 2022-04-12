@@ -134,6 +134,8 @@ export type ActionRenderConfig<T, LineConfig = NewLineConfig<T>> = {
   setEditableRowKeys: (value: React.Key[]) => void;
   newLineConfig?: LineConfig;
   tableName?: NamePath;
+
+  children?: React.ReactNode;
 } & ActionTypeText<T>;
 
 /**

@@ -12,6 +12,8 @@ export type LoginFormProps<T> = {
   subTitle: React.ReactNode | false;
   actions: React.ReactNode;
   logo?: React.ReactNode | string;
+
+  children?: React.ReactNode | React.ReactNode[];
 } & ProFormProps<T>;
 
 function LoginForm<T = Record<string, any>>(props: Partial<LoginFormProps<T>>) {

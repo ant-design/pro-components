@@ -17,6 +17,7 @@ export type ProFormFieldSetProps<T = any> = {
   fieldProps?: any;
   convertValue?: ProFormItemProps['convertValue'];
   transform?: ProFormItemProps['transform'];
+  children?: React.ReactNode;
 };
 
 const FieldSetType = {
@@ -102,7 +103,7 @@ const FieldSet: React.FC<ProFormFieldSetProps> = ({
   const typeProps = useMemo(() => ({ ...(type === 'group' ? { compact: true } : {}) }), [type]);
 
   const Wrapper: React.FC = useCallback(
-    ({ children: dom }) => (
+    ({ children: dom }: { children?: React.ReactNode }) => (
       <Components {...typeProps} {...(space as SpaceProps)} align="start">
         {dom}
       </Components>

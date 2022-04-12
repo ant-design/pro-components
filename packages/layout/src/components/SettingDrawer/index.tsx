@@ -31,6 +31,7 @@ import { genStringToTheme } from '../../utils/utils';
 type BodyProps = {
   title: string;
   prefixCls: string;
+  children?: React.ReactNode;
 };
 
 type MergerSettingsType<T> = Partial<T> & {

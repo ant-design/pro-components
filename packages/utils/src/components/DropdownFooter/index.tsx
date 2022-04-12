@@ -18,6 +18,7 @@ export type DropdownFooterProps = {
   onConfirm?: OnClick;
   disabled?: boolean;
   footerRender?: LightFilterFooterRender;
+  children?: React.ReactNode;
 };
 
 const DropdownFooter: React.FC<DropdownFooterProps> = (props) => {

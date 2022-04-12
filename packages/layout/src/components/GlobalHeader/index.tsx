@@ -52,6 +52,7 @@ export type GlobalHeaderProps = {
   >;
   collapsedButtonRender?: SiderMenuProps['collapsedButtonRender'];
   splitMenus?: boolean;
+  children?: React.ReactNode;
 } & Partial<PureSettings>;
 
 const renderLogo = (

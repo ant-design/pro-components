@@ -14,6 +14,7 @@ export type RenderExpandIconProps<RecordType> = {
   expanded: boolean;
   expandIcon:
     | React.ReactNode
+    | JSX.Element
     | ((props: {
         onExpand: (expanded: boolean) => void;
         expanded: boolean;
@@ -30,7 +31,7 @@ export function renderExpandIcon<RecordType>({
   expanded,
   record,
 }: RenderExpandIconProps<RecordType>) {
-  let icon = expandIcon;
+  let icon = expandIcon as React.ReactNode;
   const expandClassName = `${prefixCls}-row-expand-icon`;
 
   const onClick: React.MouseEventHandler<HTMLElement> = (event) => {
@@ -265,7 +266,7 @@ function ProListItem<RecordType>(props: ItemProps<RecordType>) {
                 onExpand,
                 expanded,
                 record,
-              })}
+              } as RenderExpandIconProps<RecordType>)}
           </div>
           {(itemHeaderRender && itemHeaderRender?.(record, index, metaDom)) ?? metaDom}
         </div>

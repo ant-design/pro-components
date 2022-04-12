@@ -17,6 +17,8 @@ export type FooterToolbarProps = {
     dom: JSX.Element,
   ) => ReactNode;
   prefixCls?: string;
+
+  children?: React.ReactNode;
 };
 const FooterToolbar: React.FC<FooterToolbarProps> = (props) => {
   const { children, className, extra, style, renderContent, ...restProps } = props;

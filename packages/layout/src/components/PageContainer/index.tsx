@@ -90,6 +90,8 @@ export type PageContainerProps = {
 
   /** @name 配置面包屑 */
   breadcrumb?: BreadcrumbProps;
+
+  children?: React.ReactNode;
 } & PageHeaderTabConfig &
   Omit<PageHeaderProps, 'title' | 'footer' | 'breadcrumbRender' | 'breadcrumb'>;
 
@@ -241,6 +243,7 @@ const ProPageHeader: React.FC<PageContainerProps & { prefixedClassName: string }
 
   return (
     <div className={`${prefixedClassName}-warp`}>
+      {/* @ts-expect-error */}
       <PageHeader
         {...pageHeaderProps}
         breadcrumb={

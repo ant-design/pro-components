@@ -258,6 +258,7 @@ describe('BasicLayout', () => {
   });
 
   it('🥩 render logo by function', async () => {
+    //@ts-expect-error
     const wrapper = mount(<BasicLayout logo={() => <div id="test_log">Logo</div>} />);
     await waitForComponentToPaint(wrapper);
     const logo = wrapper.find('#test_log');

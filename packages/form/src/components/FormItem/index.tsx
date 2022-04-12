@@ -24,7 +24,11 @@ const FormItemProvide = React.createContext<{
  * @param param0
  * @returns
  */
-const WithValueFomFiledProps: React.FC<Record<string, any>> = (formFieldProps) => {
+const WithValueFomFiledProps: React.FC<
+  Record<string, any> & {
+    children?: React.ReactNode;
+  }
+> = (formFieldProps) => {
   const {
     children: filedChildren,
     onChange,
@@ -84,7 +88,7 @@ const WithValueFomFiledProps: React.FC<Record<string, any>> = (formFieldProps) =
     };
   }, [fieldProps, filedChildren, onChange]);
 
-  if (!React.isValidElement(filedChildren)) return filedChildren as JSX.Element;
+  if (!React.isValidElement(filedChildren)) return <>{filedChildren}</>;
 
   return React.cloneElement(
     filedChildren,

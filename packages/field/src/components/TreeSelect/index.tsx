@@ -105,6 +105,7 @@ const FieldTreeSelect: ProFieldFC<GroupProps> = (
   if (mode === 'edit') {
     const valuesLength = Array.isArray(fieldProps?.value) ? fieldProps?.value?.length : 0;
     const dom = (
+      //@ts-expect-error
       <Spin spinning={loading}>
         <TreeSelect
           ref={treeSelectRef}
