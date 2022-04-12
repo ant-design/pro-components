@@ -498,12 +498,12 @@ const ProTable = <T extends Record<string, any>, U extends ParamsType, ValueType
     effects: [stringify(params), stringify(formSearch), stringify(proFilter), stringify(proSort)],
     debounceTime: props.debounceTime,
     onPageInfoChange: (pageInfo) => {
+      if (type === 'list' || !propsPagination) return;
+
       // 总是触发一下 onChange 和  onShowSizeChange
       // 目前只有 List 和 Table 支持分页, List 有分页的时候打断 Table 的分页
-      if (propsPagination && type !== 'list') {
-        propsPagination?.onChange?.(pageInfo.current, pageInfo.pageSize);
-        propsPagination?.onShowSizeChange?.(pageInfo.current, pageInfo.pageSize);
-      }
+      propsPagination?.onChange?.(pageInfo.current, pageInfo.pageSize);
+      propsPagination?.onShowSizeChange?.(pageInfo.current, pageInfo.pageSize);
     },
   });
   // ============================ END ============================
@@ -569,6 +569,7 @@ const ProTable = <T extends Record<string, any>, U extends ParamsType, ValueType
 
   /** 页面编辑的计算 */
   const pagination = useMemo(() => {
+    const newPropsPagination = propsPagination === false ? false : { ...propsPagination };
     const pageConfig = {
       ...action.pageInfo,
       setPageInfo: ({ pageSize, current }: PageInfo) => {
@@ -588,7 +589,11 @@ const ProTable = <T extends Record<string, any>, U extends ParamsType, ValueType
         });
       },
     };
-    return mergePagination<T>(propsPagination, pageConfig, intl);
+    if (request && newPropsPagination) {
+      delete newPropsPagination.onChange;
+      delete newPropsPagination.onShowSizeChange;
+    }
+    return mergePagination<T>(newPropsPagination, pageConfig, intl);
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [propsPagination, action, intl]);
 
