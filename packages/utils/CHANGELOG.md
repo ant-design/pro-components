@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.39.1](https://github.com/ant-design/pro-components/compare/@ant-design/pro-utils@1.39.0...@ant-design/pro-utils@1.39.1) (2022-04-13)
+
+### Bug Fixes
+
+- **utils:** clean react color deps ([#5046](https://github.com/ant-design/pro-components/issues/5046)) ([21e92b7](https://github.com/ant-design/pro-components/commit/21e92b74bc1dcb96d4f5d68268df6b6ee89837c1))
+
 # [1.39.0](https://github.com/ant-design/pro-components/compare/@ant-design/pro-utils@1.38.2...@ant-design/pro-utils@1.39.0) (2022-04-12)
 
 ### Features

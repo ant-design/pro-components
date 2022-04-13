@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.21.52](https://github.com/ant-design/pro-components/compare/@ant-design/pro-list@1.21.51...@ant-design/pro-list@1.21.52) (2022-04-13)
+
+### Bug Fixes
+
+- **list:** fix list paddding style error ([8bc606d](https://github.com/ant-design/pro-components/commit/8bc606db0d33e1489629adb687e16b0384397e92))
+
 ## [1.21.51](https://github.com/ant-design/pro-components/compare/@ant-design/pro-list@1.21.50...@ant-design/pro-list@1.21.51) (2022-04-13)
 
 **Note:** Version bump only for package @ant-design/pro-list

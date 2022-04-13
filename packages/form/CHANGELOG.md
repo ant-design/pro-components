@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.63.1](https://github.com/ant-design/pro-components/compare/@ant-design/pro-form@1.63.0...@ant-design/pro-form@1.63.1) (2022-04-13)
+
+### Bug Fixes
+
+- **form:** clean react color deps ([#5044](https://github.com/ant-design/pro-components/issues/5044)) ([8977a26](https://github.com/ant-design/pro-components/commit/8977a2662195078efb7376e5fa4f0037641943ec))
+
 # [1.63.0](https://github.com/ant-design/pro-components/compare/@ant-design/pro-form@1.62.1...@ant-design/pro-form@1.63.0) (2022-04-12)
 
 ### Bug Fixes
