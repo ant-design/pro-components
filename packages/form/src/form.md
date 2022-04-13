@@ -178,6 +178,10 @@ formRef 内置了几个方法来获取转化之后的值，这也是相比 antd 
 
 <code src="./demos/login-form.tsx" height="300px" title="登录" />
 
+### 页面级别的登录
+
+<code src="./demos/login-form-page.tsx" height="300px" title="页面级别的登录" />
+
 ### 表单联动
 
 <code src="./demos/dependency.tsx" height="248px" title="表单联动" />
