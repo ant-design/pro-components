@@ -18,7 +18,7 @@ import type {
 } from 'antd';
 import type { RangePickerProps } from 'antd/lib/date-picker';
 import type { PasswordProps, TextAreaProps } from 'antd/lib/input';
-import type { SketchPickerProps } from 'react-color';
+import type { SketchPickerProps } from '@chenshuai2144/sketch-color';
 import type { ProFieldRequestData, ProSchema } from '../typing';
 
 export interface ProFieldValueTypeWithFieldProps {
