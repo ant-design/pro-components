@@ -9,6 +9,13 @@ group:
 
 # Change Log
 
+## @ant-design/pro-table@2.71.4
+
+`2022-04-13`
+
+- fix(table): fix PageInfo.onchange run twice error. [dd2bfed](https://github.com/ant-design/pro-components/commit/dd2bfed)
+- fix(table): fix selectedKeys no support rowkey is function. [8f5b518](https://github.com/ant-design/pro-components/commit/8f5b518)
+
 ## @ant-design/pro-table@2.71.3
 
 `2022-04-12`
