@@ -10,7 +10,7 @@ import useMergedState from 'rc-util/lib/hooks/useMergedState';
 import useAntdMediaQuery from 'use-media-antd-query';
 import { useDocumentTitle, isBrowser, useMountMergeState } from '@ant-design/pro-utils';
 import Omit from 'omit.js';
-import useSWR from 'swr';
+import useSWR, { useSWRConfig } from 'swr';
 import { getMatchMenu } from '@umijs/route-utils';
 
 import type { HeaderViewProps } from './Header';
@@ -405,6 +405,14 @@ const BasicLayout: React.FC<BasicLayoutProps> = (props) => {
     },
   );
 
+  const { cache } = useSWRConfig();
+  useEffect(() => {
+    return () => {
+      if (cache instanceof Map) cache.clear();
+    };
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
+
   const menuInfoData = useMemo<{
     breadcrumb?: Record<string, MenuDataItem>;
     breadcrumbMap?: Map<string, MenuDataItem>;
@@ -611,6 +619,7 @@ const BasicLayout: React.FC<BasicLayoutProps> = (props) => {
               <div style={genLayoutStyle} className={context.getPrefixCls('layout')}>
                 {headerDom}
                 <WrapContent
+                  autoClearCache={false}
                   isChildrenLayout={isChildrenLayout}
                   {...rest}
                   className={contentClassName}

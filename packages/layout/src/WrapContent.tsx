@@ -5,6 +5,7 @@ import { ConfigProviderWrap } from '@ant-design/pro-provider';
 import { ErrorBoundary } from '@ant-design/pro-utils';
 
 const WrapContent: React.FC<{
+  autoClearCache?: boolean;
   isChildrenLayout?: boolean;
   className?: string;
   style?: CSSProperties;
@@ -13,10 +14,10 @@ const WrapContent: React.FC<{
   ErrorBoundary?: any;
   children?: React.ReactNode;
 }> = (props) => {
-  const { style, className, children } = props;
+  const { autoClearCache = true, style, className, children } = props;
   const ErrorComponent = props.ErrorBoundary || ErrorBoundary;
   return (
-    <ConfigProviderWrap autoClearCache>
+    <ConfigProviderWrap autoClearCache={autoClearCache}>
       {props.ErrorBoundary === false ? (
         <Layout.Content className={className} style={style}>
           {children}
