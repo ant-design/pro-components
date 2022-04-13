@@ -294,9 +294,9 @@ function ProListItem<RecordType>(props: ItemProps<RecordType>) {
       subTitle={subTitle}
       extra={extraDom}
       actions={actionsDom}
-      style={{
+      bodyStyle={{
         padding: 24,
-        ...cardProps.style,
+        ...cardProps.bodyStyle,
       }}
       {...onItem?.(record, index)}
     >
