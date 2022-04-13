@@ -150,7 +150,7 @@ export default () => {
       actionRef={actionRef}
       cardBordered
       request={async (params = {}, sort, filter) => {
-        console.log(sort, filter);
+        console.log(params, sort, filter);
         return request<{
           data: GithubIssueItem[];
         }>('https://proapi.azurewebsites.net/github/issues', {

@@ -192,7 +192,7 @@ PageContainer configuration `ghost` can switch the page header to transparent mo
 
 Built-in color list
 
-```tsx
+```tsx | pure
 const colorList = [
   { key: 'daybreak', color: '#1890ff' },
   { key: 'dust', color: '#F5222D' },
