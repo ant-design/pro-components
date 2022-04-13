@@ -48252,7 +48252,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/single.tsx correctl
                       >
                         <tr
                           class="ant-table-row ant-table-row-level-0"
-                          data-row-key="624748504"
+                          data-row-key="624556297"
                         >
                           <td
                             class="ant-table-cell"
@@ -48265,15 +48265,15 @@ exports[`table demos 📸 renders ./packages/table/src/demos/single.tsx correctl
                           </td>
                           <td
                             class="ant-table-cell ant-table-cell-ellipsis"
-                            title="🐛 [BUG]yarn install命令 antd2.4.5会报错"
+                            title="🐛 [BUG]Umi UI 添加多个空白页，就会出错把空白页都变成选中状态"
                           >
                             <span
-                              aria-label="🐛 [BUG]yarn install命令 antd2.4.5会报错"
+                              aria-label="🐛 [BUG]Umi UI 添加多个空白页，就会出错把空白页都变成选中状态"
                               class="ant-typography ant-typography-ellipsis ant-typography-single-line"
                               style="width: 100%; margin: 0px; padding: 0px;"
                               title=""
                             >
-                              🐛 [BUG]yarn install命令 antd2.4.5会报错
+                              🐛 [BUG]Umi UI 添加多个空白页，就会出错把空白页都变成选中状态
                               <div
                                 aria-label="复制"
                                 class="ant-typography-copy"
@@ -48382,7 +48382,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/single.tsx correctl
                           <td
                             class="ant-table-cell"
                           >
-                            2020-05-26 09:42:56
+                            2020-05-26 02:13:47
                           </td>
                           <td
                             class="ant-table-cell"
@@ -48403,6 +48403,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/single.tsx correctl
                                 style="margin-right: 16px;"
                               >
                                 <a
+                                  href="https://github.com/ant-design/ant-design-pro/issues/6680"
                                   rel="noopener noreferrer"
                                   target="_blank"
                                 >
@@ -48441,7 +48442,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/single.tsx correctl
                         </tr>
                         <tr
                           class="ant-table-row ant-table-row-level-0"
-                          data-row-key="624691229"
+                          data-row-key="624415799"
                         >
                           <td
                             class="ant-table-cell"
@@ -48454,15 +48455,15 @@ exports[`table demos 📸 renders ./packages/table/src/demos/single.tsx correctl
                           </td>
                           <td
                             class="ant-table-cell ant-table-cell-ellipsis"
-                            title="🐛 [BUG]无法创建工程npm create umi"
+                            title="🐛 [BUG]第一次载入页面，菜单仅图标时，图标没有居中"
                           >
                             <span
-                              aria-label="🐛 [BUG]无法创建工程npm create umi"
+                              aria-label="🐛 [BUG]第一次载入页面，菜单仅图标时，图标没有居中"
                               class="ant-typography ant-typography-ellipsis ant-typography-single-line"
                               style="width: 100%; margin: 0px; padding: 0px;"
                               title=""
                             >
-                              🐛 [BUG]无法创建工程npm create umi
+                              🐛 [BUG]第一次载入页面，菜单仅图标时，图标没有居中
                               <div
                                 aria-label="复制"
                                 class="ant-typography-copy"
@@ -48571,7 +48572,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/single.tsx correctl
                           <td
                             class="ant-table-cell"
                           >
-                            2020-05-26 08:19:22
+                            2020-05-25 17:34:21
                           </td>
                           <td
                             class="ant-table-cell"
@@ -48592,7 +48593,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/single.tsx correctl
                                 style="margin-right: 16px;"
                               >
                                 <a
-                                  href="https://github.com/ant-design/ant-design-pro/issues/6688"
+                                  href="https://github.com/ant-design/ant-design-pro/issues/6678"
                                   rel="noopener noreferrer"
                                   target="_blank"
                                 >
@@ -48631,7 +48632,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/single.tsx correctl
                         </tr>
                         <tr
                           class="ant-table-row ant-table-row-level-0"
-                          data-row-key="624674790"
+                          data-row-key="624300343"
                         >
                           <td
                             class="ant-table-cell"
@@ -48644,15 +48645,15 @@ exports[`table demos 📸 renders ./packages/table/src/demos/single.tsx correctl
                           </td>
                           <td
                             class="ant-table-cell ant-table-cell-ellipsis"
-                            title="🧐 [问题] build 后还存在 es6 的代码（Umi@2.13.13）"
+                            title="build(deps-dev): bump eslint from 6.8.0 to 7.1.0"
                           >
                             <span
-                              aria-label="🧐 [问题] build 后还存在 es6 的代码（Umi@2.13.13）"
+                              aria-label="build(deps-dev): bump eslint from 6.8.0 to 7.1.0"
                               class="ant-typography ant-typography-ellipsis ant-typography-single-line"
                               style="width: 100%; margin: 0px; padding: 0px;"
                               title=""
                             >
-                              🧐 [问题] build 后还存在 es6 的代码（Umi@2.13.13）
+                              build(deps-dev): bump eslint from 6.8.0 to 7.1.0
                               <div
                                 aria-label="复制"
                                 class="ant-typography-copy"
@@ -48751,9 +48752,9 @@ exports[`table demos 📸 renders ./packages/table/src/demos/single.tsx correctl
                                 class="ant-space-item"
                               >
                                 <span
-                                  class="ant-tag ant-tag-success"
+                                  class="ant-tag ant-tag-default"
                                 >
-                                  question
+                                  dependencies
                                 </span>
                               </div>
                             </div>
@@ -48761,7 +48762,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/single.tsx correctl
                           <td
                             class="ant-table-cell"
                           >
-                            2020-05-26 07:54:25
+                            2020-05-25 13:27:09
                           </td>
                           <td
                             class="ant-table-cell"
@@ -48782,7 +48783,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/single.tsx correctl
                                 style="margin-right: 16px;"
                               >
                                 <a
-                                  href="https://github.com/ant-design/ant-design-pro/issues/6685"
+                                  href="https://github.com/ant-design/ant-design-pro/pull/6675"
                                   rel="noopener noreferrer"
                                   target="_blank"
                                 >
@@ -48821,7 +48822,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/single.tsx correctl
                         </tr>
                         <tr
                           class="ant-table-row ant-table-row-level-0"
-                          data-row-key="624620220"
+                          data-row-key="624130987"
                         >
                           <td
                             class="ant-table-cell"
@@ -48834,15 +48835,15 @@ exports[`table demos 📸 renders ./packages/table/src/demos/single.tsx correctl
                           </td>
                           <td
                             class="ant-table-cell ant-table-cell-ellipsis"
-                            title="2.3.1版本如何在业务页面修改头部状态"
+                            title="🧐 [问题] V4版本如何使用第三方的enhanceReduxMiddleware"
                           >
                             <span
-                              aria-label="2.3.1版本如何在业务页面修改头部状态"
+                              aria-label="🧐 [问题] V4版本如何使用第三方的enhanceReduxMiddleware"
                               class="ant-typography ant-typography-ellipsis ant-typography-single-line"
                               style="width: 100%; margin: 0px; padding: 0px;"
                               title=""
                             >
-                              2.3.1版本如何在业务页面修改头部状态
+                              🧐 [问题] V4版本如何使用第三方的enhanceReduxMiddleware
                               <div
                                 aria-label="复制"
                                 class="ant-typography-copy"
@@ -48951,7 +48952,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/single.tsx correctl
                           <td
                             class="ant-table-cell"
                           >
-                            2020-05-26 05:58:24
+                            2020-05-25 08:20:31
                           </td>
                           <td
                             class="ant-table-cell"
@@ -48972,7 +48973,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/single.tsx correctl
                                 style="margin-right: 16px;"
                               >
                                 <a
-                                  href="https://github.com/ant-design/ant-design-pro/issues/6683"
+                                  href="https://github.com/ant-design/ant-design-pro/issues/6674"
                                   rel="noopener noreferrer"
                                   target="_blank"
                                 >
@@ -49011,7 +49012,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/single.tsx correctl
                         </tr>
                         <tr
                           class="ant-table-row ant-table-row-level-0"
-                          data-row-key="624592471"
+                          data-row-key="623677811"
                         >
                           <td
                             class="ant-table-cell"
@@ -49024,15 +49025,15 @@ exports[`table demos 📸 renders ./packages/table/src/demos/single.tsx correctl
                           </td>
                           <td
                             class="ant-table-cell ant-table-cell-ellipsis"
-                            title="hideChildrenInMenu设置后，子路由找不到了"
+                            title="🐛 [BUG] 官网预览页面，第一次点击二级菜单，其父级菜单会收起，之后再次点击二级菜单，父菜单正常"
                           >
                             <span
-                              aria-label="hideChildrenInMenu设置后，子路由找不到了"
+                              aria-label="🐛 [BUG] 官网预览页面，第一次点击二级菜单，其父级菜单会收起，之后再次点击二级菜单，父菜单正常"
                               class="ant-typography ant-typography-ellipsis ant-typography-single-line"
                               style="width: 100%; margin: 0px; padding: 0px;"
                               title=""
                             >
-                              hideChildrenInMenu设置后，子路由找不到了
+                              🐛 [BUG] 官网预览页面，第一次点击二级菜单，其父级菜单会收起，之后再次点击二级菜单，父菜单正常
                               <div
                                 aria-label="复制"
                                 class="ant-typography-copy"
@@ -49131,9 +49132,9 @@ exports[`table demos 📸 renders ./packages/table/src/demos/single.tsx correctl
                                 class="ant-space-item"
                               >
                                 <span
-                                  class="ant-tag ant-tag-error"
+                                  class="ant-tag ant-tag-processing"
                                 >
-                                  bug
+                                  question
                                 </span>
                               </div>
                             </div>
@@ -49141,7 +49142,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/single.tsx correctl
                           <td
                             class="ant-table-cell"
                           >
-                            2020-05-26 04:25:59
+                            2020-05-23 15:00:49
                           </td>
                           <td
                             class="ant-table-cell"
@@ -49162,7 +49163,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/single.tsx correctl
                                 style="margin-right: 16px;"
                               >
                                 <a
-                                  href="https://github.com/ant-design/ant-design-pro/issues/6682"
+                                  href="https://github.com/ant-design/ant-design-pro/issues/6663"
                                   rel="noopener noreferrer"
                                   target="_blank"
                                 >
@@ -49211,16 +49212,16 @@ exports[`table demos 📸 renders ./packages/table/src/demos/single.tsx correctl
                 <li
                   class="ant-pagination-total-text"
                 >
-                  第 1-5 条/总共 20 条
+                  第 6-10 条/总共 20 条
                 </li>
                 <li
-                  aria-disabled="true"
-                  class="ant-pagination-prev ant-pagination-disabled"
+                  aria-disabled="false"
+                  class="ant-pagination-prev"
+                  tabindex="0"
                   title="上一页"
                 >
                   <button
                     class="ant-pagination-item-link"
-                    disabled=""
                     tabindex="-1"
                     type="button"
                   >
@@ -49246,7 +49247,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/single.tsx correctl
                   </button>
                 </li>
                 <li
-                  class="ant-pagination-item ant-pagination-item-1 ant-pagination-item-active"
+                  class="ant-pagination-item ant-pagination-item-1"
                   tabindex="0"
                   title="1"
                 >
@@ -49257,7 +49258,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/single.tsx correctl
                   </a>
                 </li>
                 <li
-                  class="ant-pagination-item ant-pagination-item-2"
+                  class="ant-pagination-item ant-pagination-item-2 ant-pagination-item-active"
                   tabindex="0"
                   title="2"
                 >
