@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.71.4](https://github.com/ant-design/pro-components/compare/@ant-design/pro-table@2.71.3...@ant-design/pro-table@2.71.4) (2022-04-13)
+
+### Bug Fixes
+
+- **table:** fix PageInfo.onchange run twice error ([dd2bfed](https://github.com/ant-design/pro-components/commit/dd2bfed8b885b7a851d0114260fe5aa545daf729))
+- **table:** fix selectedKeys no support rowkey is function ([8f5b518](https://github.com/ant-design/pro-components/commit/8f5b518387ac60595ed3ac108cc7fc1eb492847c))
+
 ## [2.71.3](https://github.com/ant-design/pro-components/compare/@ant-design/pro-table@2.71.2...@ant-design/pro-table@2.71.3) (2022-04-12)
 
 ### Bug Fixes
