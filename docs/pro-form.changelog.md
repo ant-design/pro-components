@@ -9,6 +9,15 @@ group:
 
 # Change Log
 
+## @ant-design/pro-form@1.63.0
+
+`2022-04-12`
+
+- fix(form): fix ProFormTreeSelect and ProFormCascader no work when LightFilter (#5026). [#5026](https://github.com/ant-design/pro-components/pull/#5026) [@chenshuai2144](https://github.com/chenshuai2144)
+- fix(form): fix document is null, will error (#5025). [#5025](https://github.com/ant-design/pro-components/pull/#5025) [@chenshuai2144](https://github.com/chenshuai2144)
+- fix(form): fix array placeholder (#5022). [#5022](https://github.com/ant-design/pro-components/pull/#5022) [@drizzlesconsin](https://github.com/drizzlesconsin)
+- feat(form): add placement in lightFilter (#4974). [#4974](https://github.com/ant-design/pro-components/pull/#4974) [@ONLY-yours](https://github.com/ONLY-yours)
+
 ## @ant-design/pro-form@1.62.0
 
 `2022-04-07`
