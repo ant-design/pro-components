@@ -32,9 +32,14 @@ export type LoginFormProps<T> = {
    */
   actions: React.ReactNode;
   /**
-   * @name logo 的配置，支持node 和 string
+   * @name logo 的配置，支持 ReactNode 和 url
+   *
+   * @example 配置为一个图标
+   * logo={<Icon type="alipay" />}
+   * @example 配置为一个路径
+   * logo="https://gw.alipayobjects.com/zos/rmsportal/KDpgvguMpGfqaHPjicRK.svg"
    */
-  logo?: React.ReactNode | string;
+  logo?: React.ReactNode;
   children?: React.ReactNode | React.ReactNode[];
 } & ProFormProps<T>;
 
