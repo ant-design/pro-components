@@ -9,6 +9,13 @@ group:
 
 # Change Log
 
+## @ant-design/pro-form@1.64.0
+
+`2022-04-14`
+
+- fix(form):support min screen style. [1a32c6b](https://github.com/ant-design/pro-components/commit/1a32c6b)
+- feat(form): add new components LoginFormPage. [5d6a2ee](https://github.com/ant-design/pro-components/commit/5d6a2ee)
+
 ## @ant-design/pro-form@1.63.0
 
 `2022-04-12`

@@ -376,7 +376,7 @@ import { GithubOutlined } from '@ant-design/icons';
       blankTarget: true,
     },
   ]}
-/>
+/>;
 ```
 
 ### GridContent
