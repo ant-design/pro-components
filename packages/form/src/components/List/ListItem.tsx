@@ -61,15 +61,31 @@ const listToArray = (children?: ReactNode | ReactNode[]) => {
   return toArray(children);
 };
 
+export type FormListListListMete = {
+  name: FormListProps['name'];
+  field: FormListFieldData;
+  fields: FormListFieldData[];
+  index: number;
+  operation: FormListOperation;
+  record: Record<string, any>;
+  meta: {
+    errors: React.ReactNode[];
+  };
+};
+
 export type FormListActionGuard = {
   /**
    * @name 添加行之前的钩子，返回false，会阻止这个行为
+   *
+   * @example 阻止新增 beforeAddRow={()=> return false}
    */
   beforeAddRow?: (
     ...params: [...Parameters<FormListOperation['add']>, number]
   ) => boolean | Promise<boolean>;
   /**
    * @name 删除行之前的钩子，返回false，会阻止这个行为
+   *
+   * @example 阻止删除 beforeAddRow={()=> return false}
    */
   beforeRemoveRow?: (
     ...params: [...Parameters<FormListOperation['remove']>, number]
@@ -118,31 +134,42 @@ export type ProFromListCommonProps = {
    */
   creatorRecord?: Record<string, any> | (() => Record<string, any>);
 
+  /**
+   * @name 自定义操作按钮
+   *
+   * @example 删除按钮
+   * actionRender:(field,action)=><a onClick={()=>action.remove(field.key)}>删除</a>
+   * @example 最多只能新增三行
+   * actionRender:(f,action,_,count)=><a onClick={()=>
+   *   count>2?alert("最多三行！"):action.add({id:"xx"})}>删除
+   * </a>
+   */
   actionRender?: (
     field: FormListFieldData,
+    /**
+     * 操作能力
+     * @example  action.add(data) 新增一行
+     * @example  action.remove(index) 删除一行
+     * @example  action.move(formIndex,targetIndex) 移动一行
+     */
     action: FormListOperation,
+    /**
+     * 默认的操作dom
+     * [删除，复制，新增]
+     */
     defaultActionDom: ReactNode[],
+    /**
+     * 当前共有几个列表项
+     */
     count: number,
   ) => ReactNode[];
   /**
    * @name list 的内容的渲染函数
    *
-   * @example 包再一个卡片里面
+   * @example 全部包再一个卡片里面
    * itemContainerRender: (doms,listMeta) => <Card title={listMeta.field.name}>{doms}</Card>
    */
-  itemContainerRender?: (
-    doms: ReactNode,
-    listMeta: {
-      field: FormListFieldData;
-      fields: FormListFieldData[];
-      index: number;
-      operation: FormListOperation;
-      record: Record<string, any>;
-      meta: {
-        errors: React.ReactNode[];
-      };
-    },
-  ) => ReactNode;
+  itemContainerRender?: (doms: ReactNode, listMeta: FormListListListMete) => ReactNode;
   /**
    * @name 自定义Item，可以用来将 action 放到别的地方
    *
@@ -151,17 +178,10 @@ export type ProFromListCommonProps = {
    */
   itemRender?: (
     dom: { listDom: ReactNode; action: ReactNode },
-    listMeta: {
-      name: FormListProps['name'];
-      field: FormListFieldData;
-      fields: FormListFieldData[];
-      index: number;
-      operation: FormListOperation;
-      record: Record<string, any>;
-      meta: {
-        errors: React.ReactNode[];
-      };
-    },
+    /**
+     * list 的基本信息
+     */
+    listMeta: FormListListListMete,
   ) => ReactNode;
   /**
    * @name 总是展示每一行的label

@@ -38,6 +38,9 @@ export type ProFormListProps = Omit<FormListProps, 'children'> &
     tooltip?: LabelTooltipType;
     /**
      * @name 行操作的钩子配置
+     *
+     * @example 阻止删除 actionGuard={{beforeAddRow:()=> return false}}
+     * @example 阻止新增 actionGuard={{beforeAddRow:()=> return false}}
      */
     actionGuard?: FormListActionGuard;
     children?: ReactNode | ChildrenItemFunction;
