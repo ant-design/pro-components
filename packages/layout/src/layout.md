@@ -348,10 +348,13 @@ export interface Route {
 
 ### Footer
 
-页脚一般一般会展示一些公司和版权信息，默认的 ProLayout 不提供 Footer,但是提供了一个 Footer 组件，支持配置一些超链接和一些版权信息。
+页脚一般一般会展示一些公司和版权信息，默认的 ProLayout 不提供 Footer,但是提供了一个 DefaultFooter 组件，支持配置一些超链接和一些版权信息。
 
 ```tsx | pure
-<Footer
+import { DefaultFooter } from '@ant-design/pro-layout';
+import { GithubOutlined } from '@ant-design/icons';
+
+<DefaultFooter
   copyright="@2019 蚂蚁金服体验技术部出品"
   links={[
     {
