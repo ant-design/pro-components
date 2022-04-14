@@ -17,8 +17,8 @@
   align-items: flex-end;
 
   &-activity {
-    padding: 48px;
-
+    margin: 24px;
+    padding: 24px;
     &-title {
       font-weight: 500;
       font-size: 28px;
@@ -44,6 +44,19 @@
   overflow: auto;
   background: inherit;
   background: #fff;
+}
+
+@media (max-width: @screen-md-min) {
+  .@{pro-form-login-prefix-cls} {
+    flex-direction: column-reverse;
+    background: none !important;
+    .@{pro-form-login-prefix-cls}-notice {
+      display: flex;
+      flex: none;
+      align-items: flex-start;
+      width: 100%;
+    }
+  }
 }
 
 @media (min-width: @screen-md-min) {

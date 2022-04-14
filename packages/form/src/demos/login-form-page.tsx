@@ -32,8 +32,6 @@ export default () => {
         activityConfig={{
           style: {
             boxShadow: '0px 0px 8px rgba(0, 0, 0, 0.2)',
-            padding: 24,
-            margin: 24,
             color: '#fff',
             borderRadius: 8,
             backgroundColor: '#1677FF',
