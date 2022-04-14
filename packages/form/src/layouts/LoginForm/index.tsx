@@ -7,12 +7,34 @@ import { useIntl } from '@ant-design/pro-provider';
 import './index.less';
 
 export type LoginFormProps<T> = {
+  /**
+   * @name form 顶部的一个提示配置，可以配置一些错误的提示信息
+   * @example <caption>提示登录异常</caption>
+   * message={<Alert message="登录异常，请重试！"/>}
+   */
   message: React.ReactNode | false;
+  /**
+   * @name 标题，可以配置为空
+   */
   title: React.ReactNode | false;
+  /**
+   * @name 二级标题，可以配置为空
+   */
   subTitle: React.ReactNode | false;
+  /**
+   * @name 自定义额外的登录功能
+   *
+   * @example <caption>配置支付宝登录</caption>
+   * actions={<a>跳转支付宝登录</a>}
+   *
+   * @example <caption>使用图标</caption>
+   * actions={<a><Icon type="alipay" />跳转支付宝登录</a>}
+   */
   actions: React.ReactNode;
+  /**
+   * @name logo 的配置，支持node 和 string
+   */
   logo?: React.ReactNode | string;
-
   children?: React.ReactNode | React.ReactNode[];
 } & ProFormProps<T>;
 
