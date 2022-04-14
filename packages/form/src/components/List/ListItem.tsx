@@ -62,15 +62,32 @@ const listToArray = (children?: ReactNode | ReactNode[]) => {
 };
 
 export type FormListActionGuard = {
+  /**
+   * @name 添加行之前的钩子，返回false，会阻止这个行为
+   */
   beforeAddRow?: (
     ...params: [...Parameters<FormListOperation['add']>, number]
   ) => boolean | Promise<boolean>;
+  /**
+   * @name 删除行之前的钩子，返回false，会阻止这个行为
+   */
   beforeRemoveRow?: (
     ...params: [...Parameters<FormListOperation['remove']>, number]
   ) => boolean | Promise<boolean>;
 };
 
 export type ProFromListCommonProps = {
+  /**
+   * @name 自定义新增按钮的配置
+   * @example 设置按钮到顶部
+   * creatorButtonProps={{position:"top"}}
+   * @example 不显示按钮
+   * creatorButtonProps={false}
+   * @example 自定义按钮文案
+   * creatorButtonProps={{creatorButtonText:"新增一行到底部"}}
+   * @example 设置按钮类型
+   * creatorButtonProps={{type:"primary"}}
+   */
   creatorButtonProps?:
     | false
     | (ButtonProps & {
@@ -90,13 +107,29 @@ export type ProFromListCommonProps = {
    */
   deleteIconProps?: IconConfig | false;
 
+  /**
+   * @name 新建增加的默认数据
+   * @description 如果是个每次新增数据都会调用这个函数，返回一个默认的数据
+   *
+   * @example 新建的时候自动生成默认值
+   * creatorRecord={{ age: 18}}
+   * @example 每次生成新的数据都会生成 id
+   * creatorRecord={()=>{ id: crypto.randomUUID()}}
+   */
   creatorRecord?: Record<string, any> | (() => Record<string, any>);
+
   actionRender?: (
     field: FormListFieldData,
     action: FormListOperation,
     defaultActionDom: ReactNode[],
     count: number,
   ) => ReactNode[];
+  /**
+   * @name list 的内容的渲染函数
+   *
+   * @example 包再一个卡片里面
+   * itemContainerRender: (doms,listMeta) => <Card title={listMeta.field.name}>{doms}</Card>
+   */
   itemContainerRender?: (
     doms: ReactNode,
     listMeta: {
@@ -110,9 +143,14 @@ export type ProFromListCommonProps = {
       };
     },
   ) => ReactNode;
-  /** 自定义Item，可以用来将 action 放到别的地方 */
+  /**
+   * @name 自定义Item，可以用来将 action 放到别的地方
+   *
+   * @example 将每个item放到一个卡片里
+   * itemRender: (dom,listMeta) => <Card extra={dom.action}  title={listMeta?.record?.name}>{dom.listDom}</Card>
+   */
   itemRender?: (
-    doms: { listDom: ReactNode; action: ReactNode },
+    dom: { listDom: ReactNode; action: ReactNode },
     listMeta: {
       name: FormListProps['name'];
       field: FormListFieldData;
@@ -125,10 +163,18 @@ export type ProFromListCommonProps = {
       };
     },
   ) => ReactNode;
+  /**
+   * @name 总是展示每一行的label
+   * @default:false
+   */
   alwaysShowItemLabel?: boolean;
-  /** 允许增加的最大条数 */
+  /**
+   * @name 允许增加的最大条数
+   */
   max?: number;
-  /** 允许增加的最少条数，删除时校验 */
+  /**
+   * @name 允许增加的最少条数，删除时校验
+   */
   min?: number;
 };
 

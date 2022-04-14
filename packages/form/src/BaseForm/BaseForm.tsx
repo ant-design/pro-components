@@ -137,7 +137,7 @@ export type CommonFormProps<T = Record<string, any>, U = Record<string, any>> = 
    * @name 发起网络请求的参数,返回值会覆盖给 initialValues
    *
    * @example async (params)=>{ return initialValues }
-   **/
+   */
   request?: ProRequestData<T, U>;
 
   /** 是否回车提交 */
@@ -191,7 +191,7 @@ type ProFormInstance<T = any> = FormInstance<T> & ProFormInstanceType<T>;
  *
  * a-> [a]
  * [a] -> [a]
- * **/
+ */
 const covertFormName = (name?: NamePath) => {
   if (!name) return name;
   if (Array.isArray(name)) return name;
