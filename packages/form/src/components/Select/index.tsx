@@ -21,13 +21,13 @@ export type ProFormSelectProps<T = any> = ProFormFieldItemProps<
     resetAfterSelect?: boolean;
     /** 自定义选项渲染 */
     optionItemRender?: (item: T) => React.ReactNode;
-    options?: SelectProps<any>['options'] | string[];
-    mode?: SelectProps<any>['mode'] | 'single';
-    showSearch?: SelectProps<any>['showSearch'];
-    readonly?: boolean;
   }
-> &
-  ProFormFieldRemoteProps;
+> & {
+  options?: SelectProps<any>['options'] | string[];
+  mode?: SelectProps<any>['mode'] | 'single';
+  showSearch?: SelectProps<any>['showSearch'];
+  readonly?: boolean;
+} & ProFormFieldRemoteProps;
 
 /**
  * 选择框
