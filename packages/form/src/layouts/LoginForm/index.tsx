@@ -48,19 +48,31 @@ function LoginForm<T = Record<string, any>>(props: Partial<LoginFormProps<T>>) {
 
   const intl = useIntl();
 
-  const submitter = {
-    searchConfig: {
-      submitText: intl.getMessage('loginForm.submitText', '登录'),
-    },
-    render: (_, dom) => dom.pop(),
-    submitButtonProps: {
-      size: 'large',
-      style: {
-        width: '100%',
-      },
-    },
-    ...proFormProps.submitter,
-  } as ProFormProps['submitter'];
+  const submitter =
+    proFormProps.submitter === false
+      ? false
+      : ({
+          searchConfig: {
+            submitText: intl.getMessage('loginForm.submitText', '登录'),
+          },
+          submitButtonProps: {
+            size: 'large',
+            style: {
+              width: '100%',
+            },
+          },
+          ...proFormProps.submitter,
+          render: (_, dom) => {
+            const loginButton = dom.pop();
+            if ((proFormProps?.submitter as any)?.render === undefined) {
+              return loginButton;
+            }
+            if (typeof (proFormProps?.submitter as any)?.render === 'function') {
+              return (proFormProps?.submitter as any)?.render?.(_, dom);
+            }
+            return loginButton;
+          },
+        } as ProFormProps['submitter']);
 
   const context = useContext(ConfigProvider.ConfigContext);
   const baseClassName = context.getPrefixCls('pro-form-login');

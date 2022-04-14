@@ -62,15 +62,10 @@
   color: @text-color-secondary;
   font-size: @font-size-base;
 }
-@media screen and (max-width: @screen-sm) {
-  .@{pro-form-login-prefix-cls}-main {
-    width: 95%;
-    max-width: 328px;
-  }
-}
 
 .@{pro-form-login-prefix-cls}-main {
-  width: 328px;
+  min-width: 328px;
+  max-width: 500px;
   margin: 0 auto;
 
   .@{ant-prefix}-tabs-nav-list {
