@@ -185,17 +185,25 @@ export const FieldRender: React.FC<
       }}
     >
       <Form.Item noStyle shouldUpdate={(pre, next) => pre !== next}>
-        {(form: FormInstance<any>) => {
-          const formItemProps = getFieldPropsOrFormItemProps(props.formItemProps, form, {
-            ...props,
-            rowKey: dataIndex,
-            isEditable: true,
-          });
-          const fieldProps = getFieldPropsOrFormItemProps(props.fieldProps, form, {
-            ...props,
-            rowKey: dataIndex,
-            isEditable: true,
-          });
+        {(form) => {
+          const formItemProps = getFieldPropsOrFormItemProps(
+            props.formItemProps,
+            form as FormInstance<any>,
+            {
+              ...props,
+              rowKey: dataIndex,
+              isEditable: true,
+            },
+          );
+          const fieldProps = getFieldPropsOrFormItemProps(
+            props.fieldProps,
+            form as FormInstance<any>,
+            {
+              ...props,
+              rowKey: dataIndex,
+              isEditable: true,
+            },
+          );
           const dom = renderFormItem
             ? renderFormItem?.(
                 {
@@ -209,7 +217,7 @@ export const FieldRender: React.FC<
                   defaultRender: () => <ProFormField {...fieldConfig} fieldProps={fieldProps} />,
                   type: 'descriptions',
                 },
-                form,
+                form as FormInstance<any>,
               )
             : undefined;
           return (
@@ -238,7 +246,7 @@ export const FieldRender: React.FC<
                 deleteText: false,
               })}
             </Space>
-          );
+          ) as React.ReactNode;
         }}
       </Form.Item>
     </div>
@@ -276,7 +284,7 @@ const schemaToDescriptionsItem = (
 
       const title =
         typeof restItem.title === 'function'
-          ? restItem.title(item, 'descriptions', restItem.title)
+          ? restItem.title(item, 'descriptions', null)
           : restItem.title;
 
       //  dataIndex 无所谓是否存在

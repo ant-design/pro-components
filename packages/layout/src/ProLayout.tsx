@@ -9,7 +9,7 @@ import useMergedState from 'rc-util/lib/hooks/useMergedState';
 import useAntdMediaQuery from 'use-media-antd-query';
 import { useDocumentTitle, isBrowser, useMountMergeState } from '@ant-design/pro-utils';
 import Omit from 'omit.js';
-import useSWR from 'swr';
+import useSWR, { useSWRConfig } from 'swr';
 import { getMatchMenu } from '@umijs/route-utils';
 
 import type { HeaderViewProps } from './Header';
@@ -77,7 +77,7 @@ export type ProLayoutProps = GlobalTypes & {
    * @example 设置 logo 为 false 不显示 logo  logo={false}
    * @example 设置 logo 为 方法  logo={()=> <img src="https://avatars1.githubusercontent.com/u/8186664?s=460&v=4"/> }
    * */
-  logo?: React.ReactNode | WithFalse<() => React.ReactNode>;
+  logo?: React.ReactNode | JSX.Element | WithFalse<() => React.ReactNode | JSX.Element>;
 
   /**
    * @name 页面切换的时候触发
@@ -450,6 +450,14 @@ const BaseProLayout: React.FC<ProLayoutProps> = (props) => {
     },
   );
 
+  const { cache } = useSWRConfig();
+  useEffect(() => {
+    return () => {
+      if (cache instanceof Map) cache.clear();
+    };
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
+
   const menuInfoData = useMemo<{
     breadcrumb?: Record<string, MenuDataItem>;
     breadcrumbMap?: Map<string, MenuDataItem>;
@@ -705,6 +713,7 @@ const BaseProLayout: React.FC<ProLayoutProps> = (props) => {
                 {headerDom}
                 <WrapContent
                   disableContentMargin={disableContentMargin}
+                  autoClearCache={false}
                   isChildrenLayout={isChildrenLayout}
                   {...rest}
                   className={contentClassName}

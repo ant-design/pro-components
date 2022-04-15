@@ -96,6 +96,7 @@ const MemberList: React.FC = () => {
       dataIndex: 'role',
       title: '角色',
       render: (_, record) => (
+        //@ts-expect-error
         <Dropdown overlay={roleMenu}>
           <span>
             {RoleMap[record.role || 'admin'].name} <DownOutlined />

@@ -29,6 +29,12 @@ export type LightWrapperProps = {
   valuePropName?: string;
   customLightMode?: boolean;
   light?: boolean;
+  /**
+   * @name 自定义label的值
+   *
+   * @example <caption>自定义数组的转化</caption>
+   * labelFormatter={(value) =>value.join('-')} }
+   */
   labelFormatter?: (value: any) => string;
   bordered?: boolean;
   otherFieldProps?: any;

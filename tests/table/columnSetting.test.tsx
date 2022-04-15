@@ -628,25 +628,21 @@ describe('Table ColumnSetting', () => {
         "3": Object {
           "disable": undefined,
           "fixed": undefined,
-          "order": undefined,
           "show": true,
         },
         "name": Object {
           "disable": undefined,
           "fixed": undefined,
-          "order": undefined,
           "show": true,
         },
         "name2": Object {
           "disable": undefined,
           "fixed": undefined,
-          "order": undefined,
           "show": true,
         },
         "name3": Object {
           "disable": undefined,
           "fixed": undefined,
-          "order": undefined,
           "show": true,
         },
       }

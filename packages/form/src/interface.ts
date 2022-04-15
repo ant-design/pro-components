@@ -85,31 +85,85 @@ export type ExtendsProps = {
 };
 
 export type GroupProps = {
+  /**
+   * @name 分组的标题
+   */
   title?: React.ReactNode;
+  /**
+   * @name 分组的标题
+   * @deprecated 尽量用 title
+   */
   label?: React.ReactNode;
+  /**
+   * @name 标题旁边的？号提示展示的信息
+   *
+   * @example 自定义提示信息
+   * <ProForm.Group title="标题"  tooltip="自定义提示信息">
+   *  @example 自定义Icon
+   * <ProForm.Group title="标题"  tooltip={{icon:<Info/>,title:自定义提示信息}}>
+   */
   tooltip?: LabelTooltipType | string;
+  /**
+   * @name 额外的内容配置,在标题的另外一边
+   *
+   * @example 额外的内容配置
+   * <ProForm.Group title="标题" extra={<ProFormSwitch name="open"/>} />
+   */
   extra?: React.ReactNode;
-  /** 组件之前的间隔 */
+  /**
+   * @name 组件之前的间隔
+   */
   size?: SpaceProps['size'];
+  /**
+   * @name 自定义样式
+   */
   style?: React.CSSProperties;
+  /**
+   * @name 自定义 title 样式
+   * @example 增加背景颜色
+   * <ProForm.Group titleStyle={{ backgroundColor: '#f0f0f0' }} />
+   */
   titleStyle?: React.CSSProperties;
+  /**
+   * @name 自定义title
+   * @example 自定义标题
+   * <ProForm.Group title={(_,props)=><span>自定义标题</span>}>
+   */
   titleRender?: (title: React.ReactNode, props: GroupProps) => React.ReactNode;
   /** 子项的对齐方式 */
   align?: SpaceProps['align'];
   spaceProps?: SpaceProps;
-  /** 子项的排列方式 */
+  /**
+   * @name 子项的排列方式
+   */
   direction?: SpaceProps['direction'];
+  /**
+   * @name 布局方式，键值对模式和两行模式
+   * @default inline
+   */
   labelLayout?: 'inline' | 'twoLine';
-  /** 是否折叠 * */
+  /**
+   * @name 是否折叠
+   */
   collapsed?: boolean;
-  /** 是否可折叠 * */
+  /**
+   * @name 是否可折叠
+   */
   collapsible?: boolean;
-  /** 默认的折叠状态 */
+  /**
+   * @name 默认的折叠状态
+   *  */
   defaultCollapsed?: boolean;
-  /** 折叠修改的事件 */
+  /**
+   * @name 折叠修改的事件
+   *  */
   onCollapse?: (collapsed: boolean) => void;
-  /** 自定选中一个input，只能有一个生效 */
+  /**
+   * @name 自定选中一个input，只能有一个生效
+   */
   autoFocus?: boolean;
+
+  children?: React.ReactNode;
 } & ProFormGridConfig;
 
 export type FieldProps = {
@@ -119,17 +173,42 @@ export type FieldProps = {
 
 export type LightFilterFooterRender =
   | ((
+      /**
+       * @name 确认选择的值
+       */
       onConfirm?: (e?: React.MouseEvent) => void,
+      /**
+       * @name 清除选择
+       */
       onClear?: (e?: React.MouseEvent) => void,
     ) => JSX.Element | false)
   | false;
 
 export type ProFormFieldItemProps<T = Record<string, any>> = {
+  /**
+   * @name 设置到控件上的属性
+   *
+   * @example 设置select 多选
+   * <ProFormSelect fieldProps={{mode:"multiple"}} />
+   * @example 设置select 多选
+   * <ProFormText fieldProps={{placeholder:"请输入！"}} />
+   */
   fieldProps?: FieldProps & T;
+  /**
+   * @name 输入的描述，没有值的时候展示
+   */
   placeholder?: string | string[];
+  /**
+   * @name 是否是次要控件，只针对 LightFilter 下有效
+   */
   secondary?: boolean;
-  /** 是否使用 swr 来缓存 缓存可能导致数据更新不及时，请谨慎使用，尤其是页面中多个组件 name相同 */
+  /**
+   * @name 是否使用 swr 来缓存 缓存可能导致数据更新不及时，请谨慎使用，尤其是页面中多个组件 name 相同
+   */
   cacheForSwr?: boolean;
+  /**
+   * @name disabled=true 时控件不可用
+   */
   disabled?: boolean;
   /**
    * @type auto 使用组件默认的宽度
@@ -140,11 +219,20 @@ export type ProFormFieldItemProps<T = Record<string, any>> = {
    * @type xl=552px 适用于长文本录入，如长链接、描述、备注等，通常搭配自适应多行输入框或定高文本域使用。
    */
   width?: number | 'sm' | 'md' | 'xl' | 'xs' | 'lg';
-  /** 设置到 ProField 上面的 Props，内部属性 */
+  /**
+   * @name 设置到 ProField 上面的 Props，内部属性
+   */
   proFieldProps?: ProFieldProps;
 
-  /** QueryFilter 上的footer */
+  /**
+   * @name QueryFilter 上的footer
+   *
+   * @example 自定义清除按钮
+   * footerRender={(onConfirm,onClear)=>{ return <Button onClick={onClear}>清除</Button> }}
+   */
   footerRender?: LightFilterFooterRender;
+
+  children?: React.ReactNode;
 } & Omit<ProFormItemProps, 'valueType'> &
   Pick<ProFormGridConfig, 'colProps'> &
   ExtendsProps;

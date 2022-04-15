@@ -57,7 +57,7 @@ describe('utils', () => {
 
   it('📅 useDebounceValue without deps', async () => {
     const App = (props: { deps: string[] }) => {
-      const [_, forceUpdate] = useState([]);
+      const [, forceUpdate] = useState([]);
       const value = useDebounceValue(props.deps?.[0]);
 
       useEffect(() => {
@@ -744,6 +744,7 @@ describe('utils', () => {
         subTitle="xxx"
         tooltip={{
           icon: <CodeFilled />,
+          overlay: 'tetx',
         }}
       />,
     );

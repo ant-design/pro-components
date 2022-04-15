@@ -191,7 +191,7 @@ PageContainer configuration `ghost` can switch the page header to transparent mo
 
 Built-in color list
 
-```tsx
+```tsx | pure
 const colorList = [
   { key: 'daybreak', color: '#1890ff' },
   { key: 'dust', color: '#F5222D' },
@@ -343,10 +343,13 @@ export interface Route {
 
 ### Footer
 
-The default ProLayout does not provide a footer, but does provide a footer component that supports the configuration of some hyperlinks and some copyright information.
+The default ProLayout does not provide a footer, but does provide a DefaultFooter component that supports the configuration of some hyperlinks and some copyright information.
 
 ```tsx | pure
-<Footer
+import { DefaultFooter } from '@ant-design/pro-layout';
+import { GithubOutlined } from '@ant-design/icons';
+
+<DefaultFooter
   copyright="@2019 by Anthem Experience Technologies"
   links={[
     {
@@ -368,7 +371,7 @@ The default ProLayout does not provide a footer, but does provide a footer compo
       blankTarget: true,
     },
   ]}
-/>
+/>;
 ```
 
 ### GridContent

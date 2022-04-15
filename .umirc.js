@@ -161,6 +161,7 @@ export default {
           'components/QueryFilter/index',
           'components/StepsForm/index',
           'components/ModalForm/index',
+          'components/LoginForm/index',
         ],
       },
       {
@@ -204,6 +205,7 @@ export default {
           'components/QueryFilter/index',
           'components/StepsForm/index',
           'components/ModalForm/index',
+          'components/LoginForm/index',
         ],
       },
       {

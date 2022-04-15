@@ -53,6 +53,8 @@ export type FieldSelectProps<FieldProps = any> = {
 
   bordered?: boolean;
   id?: string;
+
+  children?: ReactNode;
 };
 
 export const ObjToMap = (value: ProFieldValueEnumType | undefined): ProSchemaValueEnumMap => {
@@ -117,7 +119,7 @@ export const proFieldParsingText = (
     return <ProFieldBadgeColor color={color}>{domText.text}</ProFieldBadgeColor>;
   }
   // 什么都没有使用 text
-  return domText.text || domText;
+  return domText.text || (domText as any as React.ReactNode);
 };
 
 const Highlight: React.FC<{
@@ -285,13 +287,15 @@ export const useFieldFetchData = (
 
   const proFieldKeyRef = useRef(cacheKey);
 
-  const getOptionsFormValueEnum = useCallback((valueEnum) => {
-    return proFieldParsingValueEnumToArray(ObjToMap(valueEnum)).map(({ value, text, ...rest }) => ({
-      label: text,
-      value,
-      key: value,
-      ...rest,
-    }));
+  const getOptionsFormValueEnum = useCallback((coverValueEnum: ProFieldValueEnumType) => {
+    return proFieldParsingValueEnumToArray(ObjToMap(coverValueEnum)).map(
+      ({ value, text, ...rest }) => ({
+        label: text,
+        value,
+        key: value,
+        ...rest,
+      }),
+    );
   }, []);
 
   const [options, setOptions] = useMountMergeState<SelectOptionType>(

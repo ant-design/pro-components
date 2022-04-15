@@ -60,6 +60,7 @@ export type GlobalHeaderProps = {
       title?: React.ReactNode;
     }
   >;
+  children?: React.ReactNode;
 } & Partial<PureSettings>;
 
 const renderLogo = (

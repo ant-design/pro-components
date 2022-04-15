@@ -147,7 +147,15 @@ export default () => {
         defaultCollapsed: false,
         optionRender: (searchConfig, formProps, dom) => [
           ...dom.reverse(),
-          <Button key="out">导出</Button>,
+          <Button
+            key="out"
+            onClick={() => {
+              const values = searchConfig?.form?.getFieldsValue();
+              console.log(values);
+            }}
+          >
+            导出
+          </Button>,
         ],
       }}
       toolBarRender={() => [

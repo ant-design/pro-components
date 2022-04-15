@@ -77,6 +77,7 @@ const BaseProFormUploadDragger: React.FC<ProFormDraggerProps> = React.forwardRef
       proFieldProps?.mode !== 'read' &&
       proFieldProps?.readonly !== true;
     return (
+      // @ts-expect-error
       <Upload.Dragger
         // @ts-ignore
         ref={ref}

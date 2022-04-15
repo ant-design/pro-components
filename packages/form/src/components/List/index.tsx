@@ -23,10 +23,34 @@ const FormListContext = React.createContext<
 
 export type ProFormListProps = Omit<FormListProps, 'children'> &
   ProFromListCommonProps & {
+    /**
+     * @name 列表的标签
+     */
     label?: ReactNode;
+    /**
+     * @name 标题旁边的？号提示展示的信息
+     *
+     * @example 自定义提示信息
+     * <ProForm.Group title="标题"  tooltip="自定义提示信息">
+     *  @example 自定义Icon
+     * <ProForm.Group title="标题"  tooltip={{icon:<Info/>,title:自定义提示信息}}>
+     */
     tooltip?: LabelTooltipType;
+    /**
+     * @name 行操作的钩子配置
+     *
+     * @example 阻止删除 actionGuard={{beforeAddRow:()=> return false}}
+     * @example 阻止新增 actionGuard={{beforeAddRow:()=> return false}}
+     */
     actionGuard?: FormListActionGuard;
     children?: ReactNode | ChildrenItemFunction;
+
+    /**
+     * @name 在最后增加一个 dom
+     *
+     * @example 自定义新增按钮
+     * fieldExtraRender={(fieldAction) => {<a onClick={()=>fieldAction.add({id:"xx"})}>新增</a>}}
+     */
     fieldExtraRender?: (
       fieldAction: FormListOperation,
       meta: {

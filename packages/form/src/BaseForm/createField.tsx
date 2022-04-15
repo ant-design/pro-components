@@ -197,7 +197,7 @@ function createField<P extends ProFormFieldItemProps = any>(
     const prefRest = usePrevious(rest);
 
     const onChange = useCallback(
-      (...restParams) => {
+      (...restParams: any[]) => {
         if (getFormItemProps || getFieldProps) {
           forceUpdateByOnChange([]);
         } else if (rest.renderFormItem) {

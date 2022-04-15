@@ -6,6 +6,7 @@ export { QueryFilter } from './QueryFilter';
 export { LoginForm } from './LoginForm';
 export { ModalForm } from './ModalForm';
 export { StepsForm } from './StepsForm';
+export { LoginFormPage } from './LoginFormPage';
 
 export type { DrawerFormProps } from './DrawerForm';
 export type { LightFilterProps } from './LightFilter';

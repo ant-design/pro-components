@@ -771,7 +771,6 @@ exports[`list demos 📸 renders ./packages/list/src/demos/card-list.tsx correct
                       <div
                         class="ant-pro-card ant-pro-card-border ant-pro-card-hoverable"
                         column="2"
-                        style="padding: 24px;"
                       >
                         <div
                           class="ant-pro-card-header"
@@ -844,7 +843,7 @@ exports[`list demos 📸 renders ./packages/list/src/demos/card-list.tsx correct
                         </div>
                         <div
                           class="ant-pro-card-body"
-                          style="margin-right: -8px; margin-left: -8px;"
+                          style="margin-right: -8px; margin-left: -8px; padding: 24px;"
                         >
                           <div
                             class="ant-pro-list-row-show-action-hover ant-pro-list-row-header"
@@ -896,7 +895,6 @@ exports[`list demos 📸 renders ./packages/list/src/demos/card-list.tsx correct
                       <div
                         class="ant-pro-card ant-pro-card-border ant-pro-card-hoverable"
                         column="2"
-                        style="padding: 24px;"
                       >
                         <div
                           class="ant-pro-card-header"
@@ -969,7 +967,7 @@ exports[`list demos 📸 renders ./packages/list/src/demos/card-list.tsx correct
                         </div>
                         <div
                           class="ant-pro-card-body"
-                          style="margin-right: -8px; margin-left: -8px;"
+                          style="margin-right: -8px; margin-left: -8px; padding: 24px;"
                         >
                           <div
                             class="ant-pro-list-row-show-action-hover ant-pro-list-row-header"
@@ -1021,7 +1019,6 @@ exports[`list demos 📸 renders ./packages/list/src/demos/card-list.tsx correct
                       <div
                         class="ant-pro-card ant-pro-card-border ant-pro-card-hoverable"
                         column="2"
-                        style="padding: 24px;"
                       >
                         <div
                           class="ant-pro-card-header"
@@ -1094,7 +1091,7 @@ exports[`list demos 📸 renders ./packages/list/src/demos/card-list.tsx correct
                         </div>
                         <div
                           class="ant-pro-card-body"
-                          style="margin-right: -8px; margin-left: -8px;"
+                          style="margin-right: -8px; margin-left: -8px; padding: 24px;"
                         >
                           <div
                             class="ant-pro-list-row-show-action-hover ant-pro-list-row-header"
@@ -1146,7 +1143,6 @@ exports[`list demos 📸 renders ./packages/list/src/demos/card-list.tsx correct
                       <div
                         class="ant-pro-card ant-pro-card-border ant-pro-card-hoverable"
                         column="2"
-                        style="padding: 24px;"
                       >
                         <div
                           class="ant-pro-card-header"
@@ -1219,7 +1215,7 @@ exports[`list demos 📸 renders ./packages/list/src/demos/card-list.tsx correct
                         </div>
                         <div
                           class="ant-pro-card-body"
-                          style="margin-right: -8px; margin-left: -8px;"
+                          style="margin-right: -8px; margin-left: -8px; padding: 24px;"
                         >
                           <div
                             class="ant-pro-list-row-show-action-hover ant-pro-list-row-header"
@@ -1271,7 +1267,6 @@ exports[`list demos 📸 renders ./packages/list/src/demos/card-list.tsx correct
                       <div
                         class="ant-pro-card ant-pro-card-border ant-pro-card-hoverable"
                         column="2"
-                        style="padding: 24px;"
                       >
                         <div
                           class="ant-pro-card-header"
@@ -1344,7 +1339,7 @@ exports[`list demos 📸 renders ./packages/list/src/demos/card-list.tsx correct
                         </div>
                         <div
                           class="ant-pro-card-body"
-                          style="margin-right: -8px; margin-left: -8px;"
+                          style="margin-right: -8px; margin-left: -8px; padding: 24px;"
                         >
                           <div
                             class="ant-pro-list-row-show-action-hover ant-pro-list-row-header"
@@ -1396,7 +1391,6 @@ exports[`list demos 📸 renders ./packages/list/src/demos/card-list.tsx correct
                       <div
                         class="ant-pro-card ant-pro-card-border ant-pro-card-hoverable"
                         column="2"
-                        style="padding: 24px;"
                       >
                         <div
                           class="ant-pro-card-header"
@@ -1469,7 +1463,7 @@ exports[`list demos 📸 renders ./packages/list/src/demos/card-list.tsx correct
                         </div>
                         <div
                           class="ant-pro-card-body"
-                          style="margin-right: -8px; margin-left: -8px;"
+                          style="margin-right: -8px; margin-left: -8px; padding: 24px;"
                         >
                           <div
                             class="ant-pro-list-row-show-action-hover ant-pro-list-row-header"
@@ -1521,7 +1515,6 @@ exports[`list demos 📸 renders ./packages/list/src/demos/card-list.tsx correct
                       <div
                         class="ant-pro-card ant-pro-card-border ant-pro-card-hoverable"
                         column="2"
-                        style="padding: 24px;"
                       >
                         <div
                           class="ant-pro-card-header"
@@ -1594,7 +1587,7 @@ exports[`list demos 📸 renders ./packages/list/src/demos/card-list.tsx correct
                         </div>
                         <div
                           class="ant-pro-card-body"
-                          style="margin-right: -8px; margin-left: -8px;"
+                          style="margin-right: -8px; margin-left: -8px; padding: 24px;"
                         >
                           <div
                             class="ant-pro-list-row-show-action-hover ant-pro-list-row-header"
@@ -1646,7 +1639,6 @@ exports[`list demos 📸 renders ./packages/list/src/demos/card-list.tsx correct
                       <div
                         class="ant-pro-card ant-pro-card-border ant-pro-card-hoverable"
                         column="2"
-                        style="padding: 24px;"
                       >
                         <div
                           class="ant-pro-card-header"
@@ -1719,7 +1711,7 @@ exports[`list demos 📸 renders ./packages/list/src/demos/card-list.tsx correct
                         </div>
                         <div
                           class="ant-pro-card-body"
-                          style="margin-right: -8px; margin-left: -8px;"
+                          style="margin-right: -8px; margin-left: -8px; padding: 24px;"
                         >
                           <div
                             class="ant-pro-list-row-show-action-hover ant-pro-list-row-header"

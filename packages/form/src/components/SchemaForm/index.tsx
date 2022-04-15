@@ -87,7 +87,7 @@ function BetaSchemaForm<T, ValueType = 'text'>(props: FormSchema<T, ValueType>) 
             originItem,
             'form',
             <LabelIconTip
-              label={originItem.title}
+              label={originItem.title as string}
               tooltip={originItem.tooltip || originItem.tip}
             />,
           );
@@ -143,7 +143,7 @@ function BetaSchemaForm<T, ValueType = 'text'>(props: FormSchema<T, ValueType>) 
   );
 
   const onValuesChange: FormProps<T>['onValuesChange'] = useCallback(
-    (changedValues, values) => {
+    (changedValues: any, values: T) => {
       const { onValuesChange: propsOnValuesChange } = propsRef.current;
       if (
         shouldUpdate === true ||

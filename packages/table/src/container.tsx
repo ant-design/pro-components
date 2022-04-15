@@ -61,14 +61,13 @@ function useContainer(props: UseContainerProps = {}) {
   /** 默认全选中 */
   const defaultColumnKeyMap = useMemo(() => {
     const columnKeyMap = {};
-    props.columns?.forEach(({ key, dataIndex, fixed, disable, order }, index) => {
+    props.columns?.forEach(({ key, dataIndex, fixed, disable }, index) => {
       const columnKey = genColumnKey(key ?? (dataIndex as React.Key), index);
       if (columnKey) {
         columnKeyMap[columnKey] = {
           show: true,
           fixed,
           disable,
-          order,
         };
       }
     });

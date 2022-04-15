@@ -161,10 +161,6 @@ supported in `ProForm`, `SchemaForm`, `ModalForm`, `DrawerForm`, `StepsForm`
 
 <code src="./demos/layout-change.tsx" height="548px"/>
 
-### Login
-
-<code src="./demos/login-form.tsx" height="300px"/>
-
 ### Interdependent form entries
 
 <code src="./demos/dependency.tsx" height="248px"/>

@@ -61,16 +61,49 @@ const listToArray = (children?: ReactNode | ReactNode[]) => {
   return toArray(children);
 };
 
+export type FormListListListMete = {
+  name: FormListProps['name'];
+  field: FormListFieldData;
+  fields: FormListFieldData[];
+  index: number;
+  operation: FormListOperation;
+  record: Record<string, any>;
+  meta: {
+    errors: React.ReactNode[];
+  };
+};
+
 export type FormListActionGuard = {
+  /**
+   * @name 添加行之前的钩子，返回false，会阻止这个行为
+   *
+   * @example 阻止新增 beforeAddRow={()=> return false}
+   */
   beforeAddRow?: (
     ...params: [...Parameters<FormListOperation['add']>, number]
   ) => boolean | Promise<boolean>;
+  /**
+   * @name 删除行之前的钩子，返回false，会阻止这个行为
+   *
+   * @example 阻止删除 beforeAddRow={()=> return false}
+   */
   beforeRemoveRow?: (
     ...params: [...Parameters<FormListOperation['remove']>, number]
   ) => boolean | Promise<boolean>;
 };
 
 export type ProFromListCommonProps = {
+  /**
+   * @name 自定义新增按钮的配置
+   * @example 设置按钮到顶部
+   * creatorButtonProps={{position:"top"}}
+   * @example 不显示按钮
+   * creatorButtonProps={false}
+   * @example 自定义按钮文案
+   * creatorButtonProps={{creatorButtonText:"新增一行到底部"}}
+   * @example 设置按钮类型
+   * creatorButtonProps={{type:"primary"}}
+   */
   creatorButtonProps?:
     | false
     | (ButtonProps & {
@@ -90,45 +123,78 @@ export type ProFromListCommonProps = {
    */
   deleteIconProps?: IconConfig | false;
 
+  /**
+   * @name 新建增加的默认数据
+   * @description 如果是个每次新增数据都会调用这个函数，返回一个默认的数据
+   *
+   * @example 新建的时候自动生成默认值
+   * creatorRecord={{ age: 18}}
+   * @example 每次生成新的数据都会生成 id
+   * creatorRecord={()=>{ id: crypto.randomUUID()}}
+   */
   creatorRecord?: Record<string, any> | (() => Record<string, any>);
+
+  /**
+   * @name 自定义操作按钮
+   *
+   * @example 删除按钮
+   * actionRender:(field,action)=><a onClick={()=>action.remove(field.key)}>删除</a>
+   * @example 最多只能新增三行
+   * actionRender:(f,action,_,count)=><a onClick={()=>
+   *   count>2?alert("最多三行！"):action.add({id:"xx"})}>删除
+   * </a>
+   */
   actionRender?: (
     field: FormListFieldData,
+    /**
+     * 操作能力
+     * @example  action.add(data) 新增一行
+     * @example  action.remove(index) 删除一行
+     * @example  action.move(formIndex,targetIndex) 移动一行
+     */
     action: FormListOperation,
+    /**
+     * 默认的操作dom
+     * [删除，复制，新增]
+     */
     defaultActionDom: ReactNode[],
+    /**
+     * 当前共有几个列表项
+     */
     count: number,
   ) => ReactNode[];
-  itemContainerRender?: (
-    doms: ReactNode,
-    listMeta: {
-      field: FormListFieldData;
-      fields: FormListFieldData[];
-      index: number;
-      operation: FormListOperation;
-      record: Record<string, any>;
-      meta: {
-        errors: React.ReactNode[];
-      };
-    },
-  ) => ReactNode;
-  /** 自定义Item，可以用来将 action 放到别的地方 */
+  /**
+   * @name list 的内容的渲染函数
+   *
+   * @example 全部包再一个卡片里面
+   * itemContainerRender: (doms,listMeta) => <Card title={listMeta.field.name}>{doms}</Card>
+   */
+  itemContainerRender?: (doms: ReactNode, listMeta: FormListListListMete) => ReactNode;
+  /**
+   * @name 自定义Item，可以用来将 action 放到别的地方
+   *
+   * @example 将每个item放到一个卡片里
+   * itemRender: (dom,listMeta) => <Card extra={dom.action}  title={listMeta?.record?.name}>{dom.listDom}</Card>
+   */
   itemRender?: (
-    doms: { listDom: ReactNode; action: ReactNode },
-    listMeta: {
-      name: FormListProps['name'];
-      field: FormListFieldData;
-      fields: FormListFieldData[];
-      index: number;
-      operation: FormListOperation;
-      record: Record<string, any>;
-      meta: {
-        errors: React.ReactNode[];
-      };
-    },
+    dom: { listDom: ReactNode; action: ReactNode },
+    /**
+     * list 的基本信息
+     */
+    listMeta: FormListListListMete,
   ) => ReactNode;
+  /**
+   * @name 总是展示每一行的label
+   * @default:false
+   */
   alwaysShowItemLabel?: boolean;
-  /** 允许增加的最大条数 */
+  /**
+   * @name 允许增加的最大条数
+   */
   max?: number;
-  /** 允许增加的最少条数，删除时校验 */
+  /**
+   * @name 允许增加的最少条数，删除时校验
+   */
   min?: number;
 };
 
@@ -152,6 +218,8 @@ export type ProFormListItemProps = ProFromListCommonProps & {
   ) => React.ReactNode;
   /** 列表当前条目数量 */
   count: number;
+
+  children?: ReactNode | ChildrenItemFunction;
 };
 
 const ProFormListItem: React.FC<
@@ -214,7 +282,7 @@ const ProFormListItem: React.FC<
     },
   };
 
-  const childrenArray = listToArray(children)
+  const childrenArray = listToArray(children as React.ReactNode)
     .map((childrenItem) => {
       if (typeof childrenItem === 'function') {
         return (childrenItem as ChildrenItemFunction)?.(field, index, {
@@ -252,6 +320,7 @@ const ProFormListItem: React.FC<
     const { Icon = CopyOutlined, tooltipText } = copyIconProps as IconConfig;
     return (
       <Tooltip title={tooltipText} key="copy">
+        {/* @ts-expect-error */}
         <Spin spinning={loadingCopy}>
           <Icon
             className={`${prefixCls}-action-icon action-copy`}
@@ -288,6 +357,7 @@ const ProFormListItem: React.FC<
     const { Icon = DeleteOutlined, tooltipText } = deleteIconProps!;
     return (
       <Tooltip title={tooltipText} key="delete">
+        {/* @ts-expect-error */}
         <Spin spinning={loadingRemove}>
           <Icon
             className={`${prefixCls}-action-icon action-remove`}

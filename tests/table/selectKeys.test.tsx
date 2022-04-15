@@ -1,5 +1,5 @@
 import { mount } from 'enzyme';
-import React from 'react';
+import React, { useState } from 'react';
 import { act } from 'react-dom/test-utils';
 import ProTable from '@ant-design/pro-table';
 import { getFetchData } from './demo';
@@ -81,5 +81,61 @@ describe('BasicTable Search', () => {
     });
     await waitForComponentToPaint(html, 200);
     expect(fn).toBeCalledTimes(1);
+  });
+
+  it('✔️ selected rows support row is function', async () => {
+    const fn = jest.fn();
+    const DemoTable = () => {
+      const columns = [
+        {
+          title: '名字',
+          dataIndex: 'name',
+        },
+        {
+          title: '年龄',
+          dataIndex: 'age',
+        },
+        {
+          title: '编号',
+          dataIndex: 'id',
+        },
+      ];
+      const dataSource = [
+        {
+          name: '张三',
+          age: 18,
+          id: '001',
+        },
+        {
+          name: '李四',
+          age: 19,
+          id: '002',
+        },
+      ];
+      const [selectedRowKeys, setSelectedRowKeys] = useState<React.Key[]>(['001', '002']);
+      return (
+        <ProTable
+          columns={columns}
+          dataSource={dataSource}
+          rowKey={(record) => record.id}
+          rowSelection={{
+            selectedRowKeys,
+            onChange: (newSelectedRowKeys) => {
+              setSelectedRowKeys(newSelectedRowKeys);
+            },
+          }}
+          tableAlertRender={({ selectedRows }) => {
+            const text = selectedRows.map((row) => row.name).join(',');
+            fn(text);
+            return <div>{text}</div>;
+          }}
+        />
+      );
+    };
+    const wrapper = mount(<DemoTable />);
+
+    await waitForComponentToPaint(wrapper, 2000);
+
+    expect(fn).toBeCalledWith('张三,李四');
   });
 });

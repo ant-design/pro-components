@@ -43,6 +43,8 @@ export type WaterMarkProps = {
   fontWeight?: 'normal' | 'light' | 'weight' | number;
   /** 文字大小 */
   fontSize?: number | string;
+
+  children?: React.ReactNode;
 };
 /**
  * 返回当前显示设备的物理像素分辨率与CSS像素分辨率之比

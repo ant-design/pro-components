@@ -2,6 +2,17 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.34.4](https://github.com/ant-design/pro-components/compare/@ant-design/pro-field@1.34.3...@ant-design/pro-field@1.34.4) (2022-04-13)
+
+**Note:** Version bump only for package @ant-design/pro-field
+
+## [1.34.3](https://github.com/ant-design/pro-components/compare/@ant-design/pro-field@1.34.2...@ant-design/pro-field@1.34.3) (2022-04-12)
+
+### Bug Fixes
+
+- **form:** fix array placeholder ([#5022](https://github.com/ant-design/pro-components/issues/5022)) ([9fdf86b](https://github.com/ant-design/pro-components/commit/9fdf86b083989f1b088790edb3b4ee2698079fc8))
+- **form:** fix ProFormTreeSelect and ProFormCascader no work when LightFilter ([#5026](https://github.com/ant-design/pro-components/issues/5026)) ([b9db318](https://github.com/ant-design/pro-components/commit/b9db318da48bc775c40ff3e1c32827446df042b7))
+
 ## [1.34.2](https://github.com/ant-design/pro-components/compare/@ant-design/pro-field@1.34.1...@ant-design/pro-field@1.34.2) (2022-04-06)
 
 ### Bug Fixes

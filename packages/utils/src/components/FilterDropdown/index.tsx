@@ -30,6 +30,7 @@ export type DropdownProps = {
   onVisibleChange?: (visible: boolean) => void;
   visible?: boolean;
   placement?: Placement;
+  children?: React.ReactNode;
 };
 
 const FilterDropdown: React.FC<DropdownProps> = (props) => {
@@ -39,6 +40,7 @@ const FilterDropdown: React.FC<DropdownProps> = (props) => {
   const prefixCls = getPrefixCls('pro-core-field-dropdown');
 
   return (
+    //@ts-expect-error
     <Dropdown
       disabled={disabled}
       placement={placement}

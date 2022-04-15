@@ -30,7 +30,7 @@ export type ProSchemaValueEnumType = {
   text: React.ReactNode;
 
   /** @name 预定的颜色 */
-  status: string;
+  status?: string;
   /** @name 自定义的颜色 */
   color?: string;
   /** @name 是否禁用 */
@@ -292,8 +292,10 @@ const ConfigProviderWrap: React.FC<Record<string, unknown>> = ({
                 intl: intl || zhCNIntl,
               }}
             >
-              {autoClearCache && <CacheClean />}
-              {children}
+              <>
+                {autoClearCache && <CacheClean />}
+                {children}
+              </>
             </ConfigProvider>
           </Provider>
         );

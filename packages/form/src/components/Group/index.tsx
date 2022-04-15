@@ -67,7 +67,7 @@ const Group: React.FC<GroupProps> = React.forwardRef((props, ref: any) => {
   );
 
   const Wrapper = useCallback(
-    ({ children: dom }) => (
+    ({ children: dom }: { children: React.ReactNode }) => (
       <Space
         {...spaceProps}
         className={`${className}-container`}

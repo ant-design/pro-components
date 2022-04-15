@@ -339,7 +339,10 @@ const defaultToken = getLayoutDesignToken(baseDesignTokens);
 
 export const ProLayoutContext = React.createContext<LayoutDesignToken>(defaultToken);
 
-export type ProLayoutProviderProps = { token?: DeepPartial<LayoutDesignToken> };
+export type ProLayoutProviderProps = {
+  token?: DeepPartial<LayoutDesignToken>;
+  children?: React.ReactNode;
+};
 
 export const ProLayoutProvider: React.FC<ProLayoutProviderProps> = (props) => {
   return (

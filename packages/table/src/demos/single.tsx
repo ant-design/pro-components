@@ -185,6 +185,7 @@ export default () => {
       }}
       pagination={{
         pageSize: 5,
+        onChange: (page) => console.log(page),
       }}
       dateFormatter="string"
       headerTitle="高级表格"
@@ -192,6 +193,7 @@ export default () => {
         <Button key="button" icon={<PlusOutlined />} type="primary">
           新建
         </Button>,
+        //@ts-expect-error
         <Dropdown key="menu" overlay={menu}>
           <Button>
             <EllipsisOutlined />

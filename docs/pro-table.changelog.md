@@ -9,6 +9,20 @@ group:
 
 # Change Log
 
+## @ant-design/pro-table@2.71.4
+
+`2022-04-13`
+
+- fix(table): fix PageInfo.onchange run twice error. [dd2bfed](https://github.com/ant-design/pro-components/commit/dd2bfed)
+- fix(table): fix selectedKeys no support rowkey is function. [8f5b518](https://github.com/ant-design/pro-components/commit/8f5b518)
+
+## @ant-design/pro-table@2.71.3
+
+`2022-04-12`
+
+- fix(table): fix position=top, add new line data error problem (#5023). [#5023](https://github.com/ant-design/pro-components/pull/#5023) [@chenshuai2144](https://github.com/chenshuai2144)
+- fix(table): supporting custom gutter for form (#5015). [#5015](https://github.com/ant-design/pro-components/pull/#5015) [@nanianlisao](https://github.com/nanianlisao)
+
 ## @ant-design/pro-table@2.71.1
 
 `2022-04-07`

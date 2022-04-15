@@ -43,6 +43,20 @@ import get from 'rc-util/lib/utils/get';
 import { useGridHelpers } from '../helpers';
 
 export type CommonFormProps<T = Record<string, any>, U = Record<string, any>> = {
+  /**
+   * @name 自定义提交的配置
+   *
+   * @example 不展示提交按钮和重置按钮
+   * submitter={false}
+   * @example 修改重置按钮的样式，并且隐藏提交按钮
+   * submitter={{resetButtonProps: { type: 'dashed'},submitButtonProps: { style: { display: 'none', }}}}
+   *
+   * @example 修改提交按钮和重置按钮的顺序
+   * submitter={{ render:(props,dom)=> [...dom.reverse()]}}
+   *
+   * @example 修改提交和重置按钮文字
+   * submitter={{ searchConfig: { submitText: '提交2',restText: '重置2'}}}
+   */
   submitter?:
     | SubmitterProps<{
         form?: FormInstance<any>;
@@ -69,9 +83,13 @@ export type CommonFormProps<T = Record<string, any>, U = Record<string, any>> = 
     | React.MutableRefObject<ProFormInstance<T> | undefined>
     | React.RefObject<ProFormInstance<T> | undefined>;
 
-  /** @name 同步结果到 url 中 */
+  /**
+   * @name 同步结果到 url 中
+   * */
   syncToUrl?: boolean | ((values: T, type: 'get' | 'set') => T);
-  /** @name 额外的 url 参数 中 */
+  /**
+   * @name 额外的 url 参数 中
+   * */
   extraUrlParams?: Record<string, any>;
 
   /**
@@ -119,7 +137,7 @@ export type CommonFormProps<T = Record<string, any>, U = Record<string, any>> = 
    * @name 发起网络请求的参数,返回值会覆盖给 initialValues
    *
    * @example async (params)=>{ return initialValues }
-   **/
+   */
   request?: ProRequestData<T, U>;
 
   /** 是否回车提交 */
@@ -173,7 +191,7 @@ type ProFormInstance<T = any> = FormInstance<T> & ProFormInstanceType<T>;
  *
  * a-> [a]
  * [a] -> [a]
- * **/
+ */
 const covertFormName = (name?: NamePath) => {
   if (!name) return name;
   if (Array.isArray(name)) return name;
@@ -320,7 +338,7 @@ function BaseFormComponents<T = Record<string, any>>(props: BaseFormProps<T>) {
   const [loading, setLoading] = useMountMergeState<boolean>(false);
 
   const items = useMemo(() => {
-    return React.Children.toArray(children).map((item, index) => {
+    return React.Children.toArray(children as any).map((item, index) => {
       if (index === 0 && React.isValidElement(item) && autoFocusFirstInput) {
         return React.cloneElement(item, {
           ...item.props,

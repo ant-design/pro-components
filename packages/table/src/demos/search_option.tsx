@@ -58,7 +58,9 @@ export default () => (
       labelWidth: 'auto',
       optionRender: (searchConfig, formProps, dom) => [
         ...dom.reverse(),
-        <Button key="out">导出</Button>,
+        <Button key="out" onClick={() => {}}>
+          导出
+        </Button>,
       ],
     }}
     toolBarRender={() => [
