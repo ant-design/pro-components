@@ -1,4 +1,4 @@
-import type { CSSProperties } from 'react';
+import { CSSProperties, useEffect } from 'react';
 import { useContext } from 'react';
 import React, { useMemo } from 'react';
 import type { AvatarProps } from 'antd';
@@ -13,7 +13,7 @@ import type { HeaderViewProps } from '../../Header';
 import type { AppsLogoComponentsAppList } from '../AppsLogoComponents';
 import { AppsLogoComponents, defaultRenderLogo } from '../AppsLogoComponents';
 import { ArrowSvgIcon } from './Arrow';
-import { cx, css, keyframes } from '../../emotion';
+import { cx, css, keyframes, injectGlobal } from '../../emotion';
 import { ProLayoutContext } from '../../ProLayoutContext';
 
 import type { LayoutDesignToken } from '../../ProLayoutContext';
@@ -624,6 +624,14 @@ const SiderMenu: React.FC<SiderMenuProps & PrivateSiderMenuProps> = (props) => {
     </>
   );
 
+  useEffect(() => {
+    return injectGlobal` 
+    .${antPrefix}-menu-submenu > .${antPrefix}-menu {
+      background-color: ${designToken.sider.menuBackgroundColor};
+    }
+    `;
+  }, [antPrefix, designToken.sider.menuBackgroundColor]);
+
   return (
     <>
       {fixSiderbar && !isMobile && !hideMenuWhenCollapsedCss && (
@@ -661,6 +669,15 @@ const SiderMenu: React.FC<SiderMenuProps & PrivateSiderMenuProps> = (props) => {
         className={cx(
           siderClassName,
           siderCss,
+          css`
+            .${antPrefix}-layout-sider-children {
+              position: relative;
+              display: flex;
+              flex-direction: column;
+              height: 100%;
+              border-right: 1px solid ${designToken.borderColorSplit};
+            }
+          `,
           fixSiderbar &&
             css`
               position: fixed;
@@ -676,15 +693,6 @@ const SiderMenu: React.FC<SiderMenuProps & PrivateSiderMenuProps> = (props) => {
               height: calc(100% - ${headerHeight}px);
               top: ${headerHeight}px;
             `,
-          css`
-            .${antPrefix}-layout-sider-children {
-              position: relative;
-              display: flex;
-              flex-direction: column;
-              height: 100%;
-              border-right: 1px solid ${designToken.borderColorSplit};
-            }
-          `,
         )}
       >
         {hideMenuWhenCollapsedCss ? (
