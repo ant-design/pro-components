@@ -43,6 +43,10 @@ export type ChildrenItemFunction = (
      */
     setCurrentRowData: (data: any) => void;
   },
+  /**
+   * 透传总行数
+   */
+  count: number,
 ) => React.ReactNode;
 
 export type IconConfig = {
@@ -285,10 +289,15 @@ const ProFormListItem: React.FC<
   const childrenArray = listToArray(children as React.ReactNode)
     .map((childrenItem) => {
       if (typeof childrenItem === 'function') {
-        return (childrenItem as ChildrenItemFunction)?.(field, index, {
-          ...action,
-          ...formListAction,
-        });
+        return (childrenItem as ChildrenItemFunction)?.(
+          field,
+          index,
+          {
+            ...action,
+            ...formListAction,
+          },
+          count,
+        );
       }
       return childrenItem;
     })
