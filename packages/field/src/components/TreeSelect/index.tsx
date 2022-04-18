@@ -45,7 +45,7 @@ const FieldTreeSelect: ProFieldFC<GroupProps> = (
     defaultKeyWords: propsSearchValue,
   });
 
-  const [searchValue, setSearchValue] = useMergedState(propsSearchValue, {
+  const [searchValue, setSearchValue] = useMergedState('', {
     onChange: onSearch,
     value: propsSearchValue,
   });
