@@ -489,8 +489,8 @@ function useEditableArray<RecordType>(
     const recordKey = props.getRowKey(row, -1)?.toString?.();
 
     // 都转化为了字符串，不然 number 和 string
-    const stringEditableKeys = editableKeys.map((key) => key.toString());
-    const stringEditableKeysRef = editableKeysRef?.map((key) => key.toString()) || [];
+    const stringEditableKeys = editableKeys.map((key) => key?.toString());
+    const stringEditableKeysRef = editableKeysRef?.map((key) => key?.toString()) || [];
 
     const preIsEditable =
       (props.tableName && !!stringEditableKeysRef?.includes(recordKey)) ||
