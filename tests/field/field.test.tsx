@@ -452,6 +452,24 @@ describe('Field', () => {
     });
   });
 
+  it(`🐴 treeSelect searchValue control mode`, async () => {
+    const onSearch = jest.fn();
+    const html = mount(
+      <TreeSelectDemo multiple={false} labelInValue={false} onSearch={onSearch} />,
+    );
+    html
+      .find('.ant-select-selection-search-input')
+      .simulate('change', { target: { value: 'test' } });
+
+    expect(onSearch).toHaveBeenLastCalledWith('test', expect.anything());
+
+    html.setProps({
+      searchValue: 'ProComponents',
+    });
+
+    expect(html.find('.ant-select-selection-search-input').prop('value')).toEqual('ProComponents');
+  });
+
   it(`🐴 treeSelect options single value`, async () => {
     const html = mount(
       <TreeSelectDemo
