@@ -146,6 +146,21 @@ function DrawerForm<T = Record<string, any>>({
     );
   }, []);
 
+  const onFinishHandle = useCallback(
+    async (values) => {
+      const response = onFinish?.(values);
+
+      if (response instanceof Promise) {
+        setLoading(true);
+        response.finally(() => setLoading(false));
+        // 5秒超时，解除loading
+        setTimeout(() => setLoading(false), 5000);
+      }
+      return (await response) && setVisible(false);
+    },
+    [onFinish, setVisible],
+  );
+
   return (
     <>
       <Drawer
@@ -176,14 +191,7 @@ function DrawerForm<T = Record<string, any>>({
           layout="vertical"
           {...rest}
           submitter={submitterConfig}
-          onFinish={async (values) => {
-            const response = onFinish?.(values);
-
-            if (response instanceof Promise) {
-              setLoading(true);
-            }
-            return (await response?.finally(() => setLoading(false))) && setVisible(false);
-          }}
+          onFinish={onFinishHandle}
           contentRender={contentRender}
         >
           {children}
