@@ -93,9 +93,9 @@ export type ProColumnType<T = unknown, ValueType = 'text'> = ProSchema<
     /** 搜索表单的默认值 */
     initialValue?: any;
 
-    /** 是否缩略 */
+    /** @name 是否缩略 */
     ellipsis?: boolean;
-    /** 是否拷贝 */
+    /** @name 是否拷贝 */
     copyable?: boolean;
 
     /** @deprecated Use `search=false` instead 在查询表单中隐藏 */
@@ -113,34 +113,34 @@ export type ProColumnType<T = unknown, ValueType = 'text'> = ProSchema<
           transform: SearchTransformKeyFn;
         };
 
-    /** 在 table 中隐藏 */
+    /** @name 在 table 中隐藏 */
     hideInTable?: boolean;
 
-    /** 在新建表单中删除 */
+    /** @name 在新建表单中删除 */
     hideInForm?: boolean;
 
-    /** 不在配置工具中显示 */
+    /** @name 不在配置工具中显示 */
     hideInSetting?: boolean;
 
-    /** 表头的筛选菜单项 */
+    /** @name 表头的筛选菜单项 */
     filters?: boolean | ColumnFilterItem[];
 
-    /** 筛选的函数，设置为 false 会关闭自带的本地筛选 */
+    /** @name 筛选的函数，设置为 false 会关闭自带的本地筛选 */
     onFilter?: boolean | ColumnType<T>['onFilter'];
 
-    /** Form 的排序 */
+    /** @name Form 的排序 */
     order?: number;
 
-    /** 可编辑表格是否可编辑 */
+    /** @name 可编辑表格是否可编辑 */
     editable?: boolean | ProTableEditableFnType<T>;
 
     /** @private */
     listKey?: string;
 
-    /** 只读 */
+    /** @name 只读 */
     readonly?: boolean;
 
-    /** 列设置的 disabled */
+    /** @name 列设置的 disabled */
     disable?:
       | boolean
       | {
@@ -190,16 +190,24 @@ export type ColumnsStateType = {
 
 /** ProTable 的类型定义 继承自 antd 的 Table */
 export type ProTableProps<T, U, ValueType = 'text'> = {
+  /**
+   * @name 列配置能力，支持一个数组
+   */
   columns?: ProColumns<T, ValueType>[];
-  /** @name ListToolBar 的属性 */
+  /**
+   * @name ListToolBar 的属性
+   */
   toolbar?: ListToolBarProps;
   /**
-   * 幽灵模式，即是否取消卡片内容区域的 padding 和 卡片的背景颜色。
+   * @name 幽灵模式，即是否取消卡片内容区域的 padding 和 卡片的背景颜色。
    */
   ghost?: boolean;
 
   /**
    * request 的参数，修改之后会触发更新
+   *
+   * @example pathname 修改重新触发 request
+   * params={{ pathName }}
    */
   params?: U;
 
@@ -216,15 +224,19 @@ export type ProTableProps<T, U, ValueType = 'text'> = {
    */
   onColumnsStateChange?: (map: Record<string, ColumnsState>) => void;
 
-  /** 列状态的配置，可以用来操作列功能 */
+  /** @name 列状态的配置，可以用来操作列功能 */
   columnsState?: ColumnsStateType;
 
   onSizeChange?: (size: DensitySize) => void;
 
-  /** @name table 外面卡片的设置 */
+  /**
+   * @name table 外面卡片的设置
+   */
   cardProps?: CardProps | false;
 
-  /** @name 渲染 table */
+  /**
+   * @name 渲染 table
+   */
   tableRender?: (
     props: ProTableProps<T, U, ValueType>,
     defaultDom: JSX.Element,
@@ -236,9 +248,18 @@ export type ProTableProps<T, U, ValueType = 'text'> = {
     },
   ) => React.ReactNode;
 
-  /** @name 渲染 table 视图，用于定制 ProList，不推荐直接使用 */
+  /**
+   * @name 渲染 table 视图，用于定制 ProList，不推荐直接使用
+   */
   tableViewRender?: (props: TableProps<T>, defaultDom: JSX.Element) => JSX.Element | undefined;
 
+  /**
+   * @name table 和搜索表单之间的 dom 渲染
+   *
+   * @example 在table 上方增加一个统计表单
+   *
+   * tableExtraRender={()=> <Statistic title="统计" value={10} />}
+   */
   tableExtraRender?: (props: ProTableProps<T, U, ValueType>, dataSource: T[]) => React.ReactNode;
 
   /** @name 一个获得 dataSource 的方法 */
@@ -257,21 +278,39 @@ export type ProTableProps<T, U, ValueType = 'text'> = {
   /** @name 默认的数据 */
   defaultData?: T[];
 
-  /** @name 初始化的参数，可以操作 table */
+  /**
+   * @name 初始化的参数，可以操作 table
+   *
+   * @example 重新刷新表格
+   * actionRef.current?.reload();
+   *
+   * @example 重置表格
+   * actionRef.current?.reset();
+   */
   actionRef?: React.Ref<ActionType | undefined>;
 
-  /** @name 操作自带的 form */
+  /**
+   * @name 操作自带的 form
+   */
   formRef?: TableFormItem<T>['formRef'];
-  /** @name 渲染操作栏 */
+  /**
+   * @name 渲染操作栏
+   */
   toolBarRender?: ToolBarProps<T>['toolBarRender'] | false;
 
-  /** @name 数据加载完成后触发 */
+  /**
+   * @name 数据加载完成后触发
+   */
   onLoad?: (dataSource: T[]) => void;
 
-  /** @name loading 被修改时触发，一般是网络请求导致的 */
+  /**
+   * @name loading 被修改时触发，一般是网络请求导致的
+   */
   onLoadingChange?: (loading: boolean | SpinProps | undefined) => void;
 
-  /** @name 数据加载失败时触发 */
+  /**
+   * @name 数据加载失败时触发
+   */
   onRequestError?: (e: Error) => void;
 
   /**
@@ -356,10 +395,20 @@ export type ProTableProps<T, U, ValueType = 'text'> = {
 
   /** @name 是否手动触发请求 */
   manualRequest?: boolean;
-  /** @name 编辑行相关的配置 */
+  /**
+   * @name 编辑行相关的配置
+   *
+   * @example 支持多行编辑
+   * editable={{type:"multiple"}}
+   *
+   * @example 保存的时候请求后端
+   * editable={{ onSave:async (rows)=>{ await save(rows) } }}
+   */
   editable?: RowEditableConfig<T>;
 
-  /** @name 可编辑表格修改数据的改变 */
+  /**
+   * @name 可编辑表格修改数据的改变
+   */
   onDataSourceChange?: (dataSource: T[]) => void;
   /** @name 查询表单和 Table 的卡片 border 配置 */
   cardBordered?: Bordered;
@@ -374,7 +423,9 @@ export type ProTableProps<T, U, ValueType = 'text'> = {
   revalidateOnFocus?: boolean;
   /** 默认的表格大小 */
   defaultSize?: SizeType;
-  /** @name, 可编辑表格的name,通过这个name 可以直接与 form通信，无需嵌套 */
+  /**
+   * @name, 可编辑表格的name,通过这个name 可以直接与 form通信，无需嵌套
+   */
   name?: NamePath;
   /**
    * 错误边界自定义
