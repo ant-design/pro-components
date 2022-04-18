@@ -3,7 +3,7 @@ import { ProFormText, ModalForm } from '@ant-design/pro-form';
 import { Button } from 'antd';
 import { act } from 'react-dom/test-utils';
 import { mount } from 'enzyme';
-import { waitForComponentToPaint } from '../util';
+import { waitForComponentToPaint, waitTime } from '../util';
 
 describe('ModalForm', () => {
   it('📦 trigger will simulate onVisibleChange', async () => {
@@ -394,5 +394,37 @@ describe('ModalForm', () => {
     await waitForComponentToPaint(wrapper);
 
     expect(wrapper.find('input#test').props().value).toEqual('1234');
+  });
+
+  it('📦 form onFinish return promise will disabled close button', async () => {
+    const fn = jest.fn();
+    const wrapper = mount(
+      <ModalForm
+        visible
+        modalProps={{
+          onCancel: () => fn(),
+        }}
+        onFinish={async () => {
+          await waitTime(2000);
+        }}
+      />,
+    );
+    await waitForComponentToPaint(wrapper, 500);
+
+    act(() => {
+      wrapper.find('button.ant-btn-primary').simulate('click');
+    });
+
+    await waitForComponentToPaint(wrapper, 500);
+
+    expect(wrapper.find('button.ant-btn-default').props().disabled).toEqual(true);
+
+    act(() => {
+      wrapper.find('.ant-modal-close').simulate('click');
+    });
+
+    await waitForComponentToPaint(wrapper, 500);
+
+    expect(fn).not.toBeCalled();
   });
 });
