@@ -27,6 +27,26 @@ ProLayout 可以提供一个标准又不失灵活的中后台标准布局，同�
 
 <code src="./demos/theme.tsx" iframe="650px" title="通过 token 修改样式"/>
 
+### 侧栏导航
+
+<code src="./demos/siderMode.tsx" iframe="650px" title="侧栏导航 中后台产品默认推荐"/>
+
+### 混合导航
+
+<code src="./demos/mixMode.tsx" iframe="650px" title="混合导航"/>
+
+### 顶部导航
+
+<code src="./demos/topMode.tsx" iframe="650px" title="顶部导航"/>
+
+### 定制侧栏宽度
+
+<code src="./demos/designSiderMenu.tsx" iframe="650px" title="侧栏导航宽度256px"/>
+
+### 页脚工具栏和全局公告
+
+<code src="./demos/footer-global-tools.tsx" iframe="650px" title="页脚工具栏和全局公告"/>
+
 ### 收起时展示 title
 
 <code src="./demos/collapsedShowTitle.tsx" iframe="650px" title=" 收起时展示 title"/>

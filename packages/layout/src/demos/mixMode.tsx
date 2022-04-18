@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Button, Divider, Input, Dropdown } from 'antd';
+import { Divider, Input, Dropdown } from 'antd';
 import {
   GithubFilled,
   QuestionCircleFilled,
@@ -12,7 +12,7 @@ import {
 import { css } from '@emotion/css';
 
 import type { ProSettings } from '@ant-design/pro-layout';
-import { ProLayout, PageContainer, SettingDrawer } from '@ant-design/pro-layout';
+import { ProLayout, PageContainer } from '@ant-design/pro-layout';
 import defaultProps from './_defaultProps';
 import ProCard from '@ant-design/pro-card';
 
@@ -75,11 +75,11 @@ const List: React.FC<{ title: string; style?: React.CSSProperties }> = (props) =
 };
 
 export default () => {
-  const [settings, setSetting] = useState<Partial<ProSettings> | undefined>({
+  const settings: ProSettings | undefined = {
     fixSiderbar: true,
     layout: 'mix',
     splitMenus: true,
-  });
+  };
 
   const [pathname, setPathname] = useState('/list/sub-page/sub-sub-page1');
 
@@ -300,7 +300,6 @@ export default () => {
                   </div>
                 </Dropdown>
               </div>
-              {defaultDom}
             </>
           );
         }}
@@ -329,24 +328,10 @@ export default () => {
         )}
         {...settings}
       >
-        <PageContainer
-          extra={[
-            <Button key="3">操作</Button>,
-            <Button key="2">操作</Button>,
-            <Button key="1" type="primary">
-              主操作
-            </Button>,
-          ]}
-          footer={[
-            <Button key="3">重置</Button>,
-            <Button key="2" type="primary">
-              提交
-            </Button>,
-          ]}
-        >
+        <PageContainer>
           <ProCard
             style={{
-              height: '200vh',
+              height: '100vh',
               minHeight: 800,
             }}
           >
@@ -354,16 +339,6 @@ export default () => {
           </ProCard>
         </PageContainer>
       </ProLayout>
-      <SettingDrawer
-        pathname={pathname}
-        enableDarkTheme
-        getContainer={() => document.getElementById('test-pro-layout')}
-        settings={settings}
-        onSettingChange={(changeSetting) => {
-          setSetting(changeSetting);
-        }}
-        disableUrlParams={false}
-      />
     </div>
   );
 };
