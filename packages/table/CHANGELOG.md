@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.71.7](https://github.com/ant-design/pro-components/compare/@ant-design/pro-table@2.71.6...@ant-design/pro-table@2.71.7) (2022-04-18)
+
+### Bug Fixes
+
+- **form:** fix revalidateOnFocus alway work error-n ([0ea1618](https://github.com/ant-design/pro-components/commit/0ea1618154634f6e0ac9c64682a71746ab191807))
+
 ## [2.71.6](https://github.com/ant-design/pro-components/compare/@ant-design/pro-table@2.71.5...@ant-design/pro-table@2.71.6) (2022-04-14)
 
 **Note:** Version bump only for package @ant-design/pro-table

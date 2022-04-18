@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.64.1](https://github.com/ant-design/pro-components/compare/@ant-design/pro-form@1.64.0...@ant-design/pro-form@1.64.1) (2022-04-18)
+
+### Bug Fixes
+
+- **form:** fix revalidateOnFocus alway work error-n ([0ea1618](https://github.com/ant-design/pro-components/commit/0ea1618154634f6e0ac9c64682a71746ab191807))
+- **form:** ProFormList RenderProps 透传总行数 count 参数 ([#5068](https://github.com/ant-design/pro-components/issues/5068)) ([b12fd9c](https://github.com/ant-design/pro-components/commit/b12fd9c2c5e2c0759bea0dcdc16a05e979423f34))
+
 # [1.64.0](https://github.com/ant-design/pro-components/compare/@ant-design/pro-form@1.63.1...@ant-design/pro-form@1.64.0) (2022-04-14)
 
 ### Features
