@@ -68,6 +68,7 @@ function DrawerForm<T = Record<string, any>>({
   const context = useContext(ConfigProvider.ConfigContext);
 
   const [, forceUpdate] = useState([]);
+  const [loading, setLoading] = useState(false);
 
   const [visible, setVisible] = useMergedState<boolean>(!!propVisible, {
     value: propVisible,
@@ -117,6 +118,8 @@ function DrawerForm<T = Record<string, any>>({
         },
         resetButtonProps: {
           preventDefault: true,
+          // 提交表单loading时，不可关闭弹框
+          disabled: loading,
           onClick: (e: any) => {
             setVisible(false);
             drawerProps?.onClose?.(e);
@@ -131,6 +134,7 @@ function DrawerForm<T = Record<string, any>>({
     drawerProps,
     rest.submitter,
     setVisible,
+    loading,
   ]);
 
   const contentRender = useCallback((formDom: any, submitter: any) => {
@@ -150,6 +154,8 @@ function DrawerForm<T = Record<string, any>>({
         {...drawerProps}
         visible={visible}
         onClose={(e) => {
+          // 提交表单loading时，不可关闭弹框
+          if (loading) return;
           setVisible(false);
           drawerProps?.onClose?.(e);
         }}
@@ -170,7 +176,14 @@ function DrawerForm<T = Record<string, any>>({
           layout="vertical"
           {...rest}
           submitter={submitterConfig}
-          onFinish={async (values) => (await onFinish?.(values)) && setVisible(false)}
+          onFinish={async (values) => {
+            const response = onFinish?.(values);
+
+            if (response instanceof Promise) {
+              setLoading(true);
+            }
+            return (await response?.finally(() => setLoading(false))) && setVisible(false);
+          }}
           contentRender={contentRender}
         >
           {children}
