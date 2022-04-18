@@ -6,6 +6,7 @@ import type { ProFieldFC } from '../../index';
 import type { FieldSelectProps } from '../Select';
 import { ObjToMap, proFieldParsingText, useFieldFetchData } from '../Select';
 import type { DataNode } from 'antd/lib/tree';
+import useMergedState from 'rc-util/lib/hooks/useMergedState';
 
 export type GroupProps = {
   options?: RadioGroupProps['options'];
@@ -44,7 +45,10 @@ const FieldTreeSelect: ProFieldFC<GroupProps> = (
     defaultKeyWords: propsSearchValue,
   });
 
-  const [searchValue, setSearchValue] = useState(propsSearchValue);
+  const [searchValue, setSearchValue] = useMergedState(propsSearchValue, {
+    onChange: onSearch,
+    value: propsSearchValue,
+  });
 
   useImperativeHandle(ref, () => ({
     ...(treeSelectRef.current || {}),
@@ -87,7 +91,6 @@ const FieldTreeSelect: ProFieldFC<GroupProps> = (
     // 将搜索框置空 和 antd 行为保持一致
     if (showSearch && autoClearSearchValue) {
       fetchData('');
-      onSearch?.('');
       setSearchValue('');
     }
     propsOnChange?.(value, optionList, extra);
@@ -147,7 +150,6 @@ const FieldTreeSelect: ProFieldFC<GroupProps> = (
           onChange={onChange}
           onSearch={(value) => {
             fetchData(value);
-            onSearch?.(value);
             setSearchValue(value);
           }}
           onBlur={(event) => {
