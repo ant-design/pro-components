@@ -147,7 +147,7 @@ function DrawerForm<T = Record<string, any>>({
   }, []);
 
   const onFinishHandle = useCallback(
-    async (values) => {
+    async (values: T) => {
       const response = onFinish?.(values);
 
       if (response instanceof Promise) {
@@ -169,7 +169,7 @@ function DrawerForm<T = Record<string, any>>({
         {...drawerProps}
         visible={visible}
         onClose={(e) => {
-          // 提交表单loading时，不可关闭弹框
+          // 提交表单loading时，阻止弹框关闭
           if (loading) return;
           setVisible(false);
           drawerProps?.onClose?.(e);

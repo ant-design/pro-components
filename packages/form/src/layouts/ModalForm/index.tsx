@@ -147,7 +147,7 @@ function ModalForm<T = Record<string, any>>({
   }, []);
 
   const onFinishHandle = useCallback(
-    async (values) => {
+    async (values: T) => {
       const response = onFinish?.(values);
 
       if (response instanceof Promise) {
@@ -170,7 +170,7 @@ function ModalForm<T = Record<string, any>>({
         {...modalProps}
         visible={visible}
         onCancel={(e) => {
-          // 提交表单loading时，不可关闭弹框
+          // 提交表单loading时，阻止弹框关闭
           if (loading) return;
           setVisible(false);
           modalProps?.onCancel?.(e);
