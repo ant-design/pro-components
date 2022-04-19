@@ -518,5 +518,6 @@ ProFormMoney's input box for entering amounts supports the display of currency s
 "fa-IR": "تومان",
 "tr-TR": "₺",
 "pl-PL": "zł",
+"hr-HR": "kn",
 }
 ```
