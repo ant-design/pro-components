@@ -67,7 +67,7 @@ export default () => {
                   </Button>
                 }
               />
-              {React.cloneElement(defaultDom, {
+              {React.cloneElement(defaultDom as any, {
                 style: {
                   height: '56px',
                   lineHeight: '56px',
