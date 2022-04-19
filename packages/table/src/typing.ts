@@ -8,7 +8,6 @@ import type {
   ProTableEditableFnType,
   RowEditableConfig,
 } from '@ant-design/pro-utils';
-import type { CardProps } from 'antd/lib/card';
 import type { SpinProps } from 'antd/lib/spin';
 import type { TableProps } from 'antd/lib/table';
 
@@ -25,6 +24,7 @@ import type { SizeType } from 'antd/lib/config-provider/SizeContext';
 import type { NamePath } from 'antd/lib/form/interface';
 import type React from 'react';
 import type { SearchProps } from 'antd/lib/input';
+import type { ProCardProps } from '@ant-design/pro-card';
 
 export type PageInfo = {
   pageSize: number;
@@ -232,7 +232,7 @@ export type ProTableProps<T, U, ValueType = 'text'> = {
   /**
    * @name table 外面卡片的设置
    */
-  cardProps?: CardProps | false;
+  cardProps?: ProCardProps | false;
 
   /**
    * @name 渲染 table
