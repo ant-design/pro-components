@@ -71,6 +71,14 @@ ProLayout 可以提供一个标准又不失灵活的中后台标准布局，同�
 
 <code src="./demos/pageSimplify.tsx" iframe="650px" title="通过设置页背景和卡片样式简化界面层次"/>
 
+### 自定侧栏菜单下方区域
+
+<code src="./demos/customSider.tsx" iframe="650px" title="自定侧栏菜单下方区域"/>
+
+### 菜单展开-站点地图
+
+<code src="./demos/siteMenu.tsx" iframe="650px" title="菜单展开-站点地图"/>
+
 ### 从服务器加载 menu
 
 ProLayout 提供了强大的菜单功能，但是这样必然会封装很多行为，导致需要一些特殊逻辑的用户感到不满。所以我们提供了很多的 API，期望可以满足绝大部分客户的方式。
