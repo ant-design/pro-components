@@ -66,7 +66,6 @@ export default () => {
       <ProFormFieldSet
         name="list"
         label="组件列表"
-        readonly
         transform={(value: any) => ({ startTime: value[0], endTime: value[1] })}
       >
         <ProFormText width="md" readonly />

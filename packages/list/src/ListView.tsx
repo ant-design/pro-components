@@ -24,7 +24,7 @@ export type ListViewProps<RecordType> = Omit<AntdListProps<RecordType>, 'renderI
     showActions?: 'hover' | 'always';
     showExtra?: 'hover' | 'always';
     rowSelection?: TableProps<RecordType>['rowSelection'];
-    prefixCls: string;
+    prefixCls?: string;
     dataSource: readonly RecordType[];
     renderItem?: (item: RecordType, index: number, defaultDom: JSX.Element) => React.ReactNode;
     actionRef: React.MutableRefObject<ActionType | undefined>;
@@ -46,7 +46,7 @@ function ListView<RecordType>(props: ListViewProps<RecordType>) {
     rowKey,
     showActions,
     showExtra,
-    prefixCls,
+    prefixCls: customizePrefixCls,
     actionRef,
     itemTitleRender,
     renderItem,
@@ -64,7 +64,7 @@ function ListView<RecordType>(props: ListViewProps<RecordType>) {
   const { getPrefixCls } = useContext(ConfigProvider.ConfigContext);
 
   const getRowKey = React.useMemo<GetRowKey<RecordType>>((): GetRowKey<RecordType> => {
-    if (typeof rowKey === 'function' && rowKey) {
+    if (typeof rowKey === 'function') {
       return rowKey;
     }
 
@@ -93,6 +93,7 @@ function ListView<RecordType>(props: ListViewProps<RecordType>) {
     const currentPageData = dataSource.slice((current - 1) * pageSize, current * pageSize);
     return currentPageData;
   }, [dataSource, mergedPagination, pagination]);
+  const prefixCls = getPrefixCls('pro-list', customizePrefixCls);
 
   /** 提供和 table 一样的 rowSelection 配置 */
   const [selectItemRender, selectedKeySet] = useSelection(rowSelection, {
@@ -162,7 +163,7 @@ function ListView<RecordType>(props: ListViewProps<RecordType>) {
   return (
     <List<RecordType>
       {...rest}
-      className={classNames(getPrefixCls('pro-list-container'), rest.className)}
+      className={classNames(getPrefixCls('pro-list-container', customizePrefixCls), rest.className)}
       dataSource={pageData}
       pagination={pagination && (mergedPagination as ListViewProps<RecordType>['pagination'])}
       renderItem={(item, index) => {
@@ -230,7 +231,7 @@ function ListView<RecordType>(props: ListViewProps<RecordType>) {
             itemHeaderRender={itemHeaderRender}
             rowSupportExpand={!rowExpandable || (rowExpandable && rowExpandable(item))}
             selected={selectedKeySet.has(getRowKey(item, index))}
-            checkbox={checkboxDom}
+            checkbox={checkboxDom as React.ReactElement}
             onRow={onRow}
             onItem={onItem}
           />

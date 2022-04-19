@@ -181,6 +181,8 @@ menu 中支持了部分常用的 menu 配置， 可以帮助我们更好的管�
 
 | 参数 | 说明 | 类型 | 默认值 |
 | --- | --- | --- | --- |
+| collapsed | 控制 SettingDrawer 的收起和展开 | `boolean` | - |
+| onCollapse | SettingDrawer 的折叠收起事件 | `(collapsed: boolean) => void` | - |
 | settings | layout 的设置 | [`Settings`](#Settings) \| [`Settings`](#Settings) | - |
 | onSettingChange | [`Settings`](#Settings) 发生更改事件 | `(settings: [`Settings`](#Settings) ) => void` | - |
 | hideHintAlert | 删除下方的提示信息 | `boolean` | - |
@@ -346,10 +348,13 @@ export interface Route {
 
 ### Footer
 
-页脚一般一般会展示一些公司和版权信息，默认的 ProLayout 不提供 Footer,但是提供了一个 Footer 组件，支持配置一些超链接和一些版权信息。
+页脚一般一般会展示一些公司和版权信息，默认的 ProLayout 不提供 Footer,但是提供了一个 DefaultFooter 组件，支持配置一些超链接和一些版权信息。
 
 ```tsx | pure
-<Footer
+import { DefaultFooter } from '@ant-design/pro-layout';
+import { GithubOutlined } from '@ant-design/icons';
+
+<DefaultFooter
   copyright="@2019 蚂蚁金服体验技术部出品"
   links={[
     {
@@ -371,7 +376,7 @@ export interface Route {
       blankTarget: true,
     },
   ]}
-/>
+/>;
 ```
 
 ### GridContent

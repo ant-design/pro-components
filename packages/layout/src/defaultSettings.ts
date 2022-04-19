@@ -10,14 +10,31 @@ export type RenderSetting = {
   menuHeaderRender?: false;
 };
 export type PureSettings = {
-  /** @name theme for nav menu */
+  /**
+   * @name theme for nav menu
+   *
+   * @type  "light" | "dark" | "realDark"
+   */
   navTheme?: MenuTheme | 'realDark' | undefined;
 
-  /** @name 顶部菜单的颜色，mix 模式下生效 */
+  /**
+   * @name 顶部菜单的颜色，mix 模式下生效
+   * @type  "light" | "dark"
+   */
   headerTheme?: MenuTheme;
-  /** @name nav menu position: `side` or `top` */
+  /**
+   * @name customize header height
+   * @example 顶栏高度修改为64 headerHeight={64}
+   */
   headerHeight?: number;
-  /** @name customize header height */
+  /**
+   * @name layout 的布局方式
+   * @type  'side' | 'top' | 'mix'
+   *
+   * @example 顶部菜单 layout="top"
+   * @example 侧边菜单 layout="side"
+   * @example 混合布局 既有顶部也有侧边 layout="mix"
+   */
   layout?: 'side' | 'top' | 'mix';
   /** @name layout of content: `Fluid` or `Fixed`, only works when layout is top */
   contentWidth?: ContentWidth;
@@ -25,19 +42,61 @@ export type PureSettings = {
   fixedHeader?: boolean;
   /** @name sticky siderbar */
   fixSiderbar?: boolean;
-  /** @name menu 相关的一些配置 */
+  /**
+   * @name menu 相关的一些配置，可以配置菜单的行为
+   *
+   * @example 关闭菜单国际化  menu={{ locale: false }}
+   * @example 默认打开所有的菜单 menu={{ defaultOpenAll:true }}
+   * @example 让菜单处于loading 状态 menu={{ loading: true }}
+   * @example 异步加载菜单数据 menu={{params:{ pathname } request: async (params) => { return [{name:"主页",path=params.pathname}]} }}
+   * @example 使用 MenuGroup 来聚合菜单 menu={{ mode: 'group' }}
+   * @example 取消自动关闭菜单 menu={{ autoClose: false }}
+   * @example 忽略收起时自动关闭菜单 menu={{ ignoreFlatMenu: true }}
+   */
   menu?: {
+    /**
+     * @name 菜单国际化的配置
+     */
     locale?: boolean;
+    /**
+     * @name 默认打开所有的菜单
+     */
     defaultOpenAll?: boolean;
-    ignoreFlatMenu?: boolean; // 是否忽略用户手动折叠过的菜单状态，如选择忽略，折叠按钮切换之后也可实现展开所有菜单
+    /**
+     * @name 是否忽略用户手动折叠过的菜单状态，如选择忽略，折叠按钮切换之后也可实现展开所有菜单
+     */
+    ignoreFlatMenu?: boolean;
+
+    /**
+     * @name 菜单的 loading 配置
+     */
     loading?: boolean;
+    /**
+     * @name 菜单的 loading 发生改变
+     */
     onLoadingChange?: (loading?: boolean) => void;
+
+    /**
+     * @name 菜单远程请求时用的参数，只有 params 变化才会重新触发 request
+     *
+     */
     params?: Record<string, any>;
+
+    /**
+     * @name 菜单远程请求的方法，只有 params 变化才会重新触发 request
+     */
     request?: (
       params: Record<string, any>,
       defaultMenuData: MenuDataItem[],
     ) => Promise<MenuDataItem[]>;
+
+    /**
+     * @name 菜单聚合的模式
+     */
     type?: 'sub' | 'group';
+    /**
+     * @name 取消自动关闭菜单
+     */
     autoClose?: false;
   };
   /**

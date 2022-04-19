@@ -16,21 +16,28 @@ export type DrawerFormProps<T = Record<string, any>> = Omit<FormProps, 'onFinish
      * 接收任意值，返回 真值 会关掉这个抽屉
      *
      * @name 表单结束后调用
+     *
+     * @example 结束后关闭抽屉
+     * onFinish: async ()=> {await save(); return true}
+     *
+     * @example 结束后不关闭抽屉
+     * onFinish: async ()=> {await save(); return false}
      */
     onFinish?: (formData: T) => Promise<any>;
 
-    /** @name 用于触发抽屉打开的 dom */
+    /** @name 用于触发抽屉打开的 dom ，只能设置一个*/
     trigger?: JSX.Element;
 
     /** @name 受控的打开关闭 */
     visible?: DrawerProps['visible'];
 
-    /** @name 打开关闭的事件 */
+    /**
+     * @name 打开关闭的事件 */
     onVisibleChange?: (visible: boolean) => void;
     /**
      * 不支持 'visible'，请使用全局的 visible
      *
-     * @name 抽屉的属性
+     * @name 抽屉的配置
      */
     drawerProps?: Omit<DrawerProps, 'visible'>;
 
@@ -69,7 +76,7 @@ function DrawerForm<T = Record<string, any>>({
 
   const footerRef = useRef<HTMLDivElement | null>(null);
 
-  const footerCallback: React.RefCallback<HTMLDivElement> = useCallback((element) => {
+  const footerDomRef: React.RefCallback<HTMLDivElement> = useCallback((element) => {
     if (footerRef.current === null && element) {
       forceUpdate([]);
     }
@@ -80,7 +87,8 @@ function DrawerForm<T = Record<string, any>>({
     if (visible && propVisible) {
       onVisibleChange?.(true);
     }
-  }, [onVisibleChange, propVisible, visible]);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [propVisible, visible]);
 
   const triggerDom = useMemo(() => {
     if (!trigger) {
@@ -148,7 +156,7 @@ function DrawerForm<T = Record<string, any>>({
         footer={
           rest.submitter !== false && (
             <div
-              ref={footerCallback}
+              ref={footerDomRef}
               style={{
                 display: 'flex',
                 justifyContent: 'flex-end',

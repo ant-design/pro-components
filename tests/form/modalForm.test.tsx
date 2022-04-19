@@ -171,6 +171,7 @@ describe('ModalForm', () => {
     });
     await waitForComponentToPaint(wrapper);
     expect(fn).toBeCalledWith(false);
+    expect(fn).toBeCalledTimes(2);
   });
 
   it('📦 modal visible=true simulate onVisibleChange', async () => {
@@ -326,7 +327,7 @@ describe('ModalForm', () => {
         });
     });
     await waitForComponentToPaint(wrapper);
-    expect(wrapper.find('Input#test').props().value).toEqual('test');
+    expect(wrapper.find('input#test').props().value).toEqual('test');
     await waitForComponentToPaint(wrapper);
 
     act(() => {
@@ -338,7 +339,7 @@ describe('ModalForm', () => {
     });
     await waitForComponentToPaint(wrapper);
 
-    expect(wrapper.find('Input#test').props().value).toEqual('test');
+    expect(wrapper.find('input#test').props().value).toEqual('test');
   });
 
   it('📦 ModalForm destroyOnClose close will rerender from', async () => {
@@ -379,7 +380,7 @@ describe('ModalForm', () => {
     });
 
     await waitForComponentToPaint(wrapper);
-    expect(wrapper.find('Input#test').props().value).toEqual('1111');
+    expect(wrapper.find('input#test').props().value).toEqual('1111');
 
     await waitForComponentToPaint(wrapper);
 
@@ -392,6 +393,6 @@ describe('ModalForm', () => {
     });
     await waitForComponentToPaint(wrapper);
 
-    expect(wrapper.find('Input#test').props().value).toEqual('1234');
+    expect(wrapper.find('input#test').props().value).toEqual('1234');
   });
 });

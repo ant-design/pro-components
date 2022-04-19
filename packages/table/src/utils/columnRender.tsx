@@ -27,6 +27,7 @@ type ColumnRenderInterface<T> = {
   type: ProSchemaComponentTypes;
   counter: ReturnType<typeof useContainer>;
   editableUtils: UseEditableUtilType;
+  subName: string[];
 };
 
 /**
@@ -37,7 +38,7 @@ type ColumnRenderInterface<T> = {
 export const renderColumnsTitle = (item: ProColumns<any>) => {
   const { title } = item;
   if (title && typeof title === 'function') {
-    return title(item, 'table', <LabelIconTip label={title} tooltip={item.tooltip || item.tip} />);
+    return title(item, 'table', <LabelIconTip label={null} tooltip={item.tooltip || item.tip} />);
   }
   return <LabelIconTip label={title} tooltip={item.tooltip || item.tip} ellipsis={item.ellipsis} />;
 };
@@ -99,6 +100,7 @@ export function columnRender<T>({
   columnEmptyText,
   counter,
   type,
+  subName,
   editableUtils,
 }: ColumnRenderInterface<T>): any {
   const { action, prefixName, editableForm } = counter;
@@ -114,6 +116,7 @@ export function columnRender<T>({
     valueType: (columnProps.valueType as ProFieldValueType) || 'text',
     index,
     rowData,
+    subName,
     columnProps: {
       ...columnProps,
       // 为了兼容性，原来写了个错别字

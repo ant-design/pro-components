@@ -25,7 +25,6 @@ import {
   useDebounceValue,
 } from '@ant-design/pro-utils';
 
-import useSWRImmutable from 'swr/immutable';
 import { useIntl } from '@ant-design/pro-provider';
 
 import LightSelect from './LightSelect';
@@ -34,6 +33,7 @@ import type { ProFieldStatusType } from '../Status';
 import TableStatus, { ProFieldBadgeColor } from '../Status';
 import type { ProFieldFC } from '../../index';
 import './index.less';
+import useSWR from 'swr';
 
 type SelectOptionType = Partial<RequestOptionsType>[];
 
@@ -53,6 +53,8 @@ export type FieldSelectProps<FieldProps = any> = {
 
   bordered?: boolean;
   id?: string;
+
+  children?: ReactNode;
 };
 
 export const ObjToMap = (value: ProFieldValueEnumType | undefined): ProSchemaValueEnumMap => {
@@ -117,7 +119,7 @@ export const proFieldParsingText = (
     return <ProFieldBadgeColor color={color}>{domText.text}</ProFieldBadgeColor>;
   }
   // 什么都没有使用 text
-  return domText.text || domText;
+  return domText.text || (domText as any as React.ReactNode);
 };
 
 const Highlight: React.FC<{
@@ -266,8 +268,11 @@ export const useFieldFetchData = (
   props: FieldSelectProps & {
     proFieldKey?: React.Key;
     defaultKeyWords?: string;
+    cacheForSwr?: boolean;
   },
 ): [boolean, SelectOptionType, (keyWord?: string) => void, () => void] => {
+  const { cacheForSwr } = props;
+
   const [keyWords, setKeyWords] = useState<string | undefined>(props.defaultKeyWords);
   /** Key 是用来缓存请求的，如果不在是有问题 */
   const [cacheKey] = useState(() => {
@@ -282,13 +287,15 @@ export const useFieldFetchData = (
 
   const proFieldKeyRef = useRef(cacheKey);
 
-  const getOptionsFormValueEnum = useCallback((valueEnum) => {
-    return proFieldParsingValueEnumToArray(ObjToMap(valueEnum)).map(({ value, text, ...rest }) => ({
-      label: text,
-      value,
-      key: value,
-      ...rest,
-    }));
+  const getOptionsFormValueEnum = useCallback((coverValueEnum: ProFieldValueEnumType) => {
+    return proFieldParsingValueEnumToArray(ObjToMap(coverValueEnum)).map(
+      ({ value, text, ...rest }) => ({
+        label: text,
+        value,
+        key: value,
+        ...rest,
+      }),
+    );
   }, []);
 
   const [options, setOptions] = useMountMergeState<SelectOptionType>(
@@ -319,11 +326,12 @@ export const useFieldFetchData = (
     data,
     mutate: setLocaleData,
     isValidating,
-  } = useSWRImmutable(
+  } = useSWR(
     () => {
       if (!props.request) {
         return null;
       }
+
       return swrKey;
     },
     (_, params, kw) =>
@@ -335,7 +343,12 @@ export const useFieldFetchData = (
         props,
       ),
     {
+      revalidateIfStale: !cacheForSwr,
+      // 打开 cacheForSwr 的时候才应该支持两个功能
+      revalidateOnReconnect: cacheForSwr,
       shouldRetryOnError: false,
+      // @todo 这个功能感觉应该搞个API出来
+      revalidateOnFocus: false,
     },
   );
 
@@ -392,10 +405,9 @@ export const useFieldFetchData = (
  *
  * @param
  */
-const FieldSelect: ProFieldFC<FieldSelectProps & Pick<SelectProps, 'fieldNames'>> = (
-  props,
-  ref,
-) => {
+const FieldSelect: ProFieldFC<
+  FieldSelectProps & Pick<SelectProps, 'fieldNames' | 'style' | 'className'>
+> = (props, ref) => {
   const {
     mode,
     valueEnum,
@@ -495,8 +507,10 @@ const FieldSelect: ProFieldFC<FieldSelectProps & Pick<SelectProps, 'fieldNames'>
       return (
         <SearchSelect
           key="SearchSelect"
+          className={rest.className}
           style={{
             minWidth: 100,
+            ...rest.style,
           }}
           bordered={bordered}
           id={id}

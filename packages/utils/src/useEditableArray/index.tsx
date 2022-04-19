@@ -134,6 +134,8 @@ export type ActionRenderConfig<T, LineConfig = NewLineConfig<T>> = {
   setEditableRowKeys: (value: React.Key[]) => void;
   newLineConfig?: LineConfig;
   tableName?: NamePath;
+
+  children?: React.ReactNode;
 } & ActionTypeText<T>;
 
 /**
@@ -216,7 +218,7 @@ export function editableRowByKey<RecordType>(
         }
         kvArrayMap.set(map_row_parentKey, [
           ...(kvArrayMap.get(map_row_parentKey) || []),
-          reset as RecordType,
+          reset as unknown as RecordType,
         ]);
       }
     });
@@ -404,10 +406,7 @@ const CancelEditableAction: React.FC<ActionRenderConfig<any> & { row: any }> = (
   );
 };
 
-export function defaultActionRender<T extends Record<string, any>>(
-  row: T,
-  config: ActionRenderConfig<T, NewLineConfig<T>>,
-) {
+export function defaultActionRender<T>(row: T, config: ActionRenderConfig<T, NewLineConfig<T>>) {
   const { recordKey, newLineConfig, saveText, deleteText } = config;
   return [
     <SaveEditableAction<T> key="save" {...config} row={row}>
@@ -490,8 +489,8 @@ function useEditableArray<RecordType>(
     const recordKey = props.getRowKey(row, -1)?.toString?.();
 
     // 都转化为了字符串，不然 number 和 string
-    const stringEditableKeys = editableKeys.map((key) => key.toString());
-    const stringEditableKeysRef = editableKeysRef?.map((key) => key.toString()) || [];
+    const stringEditableKeys = editableKeys.map((key) => key?.toString());
+    const stringEditableKeysRef = editableKeysRef?.map((key) => key?.toString()) || [];
 
     const preIsEditable =
       (props.tableName && !!stringEditableKeysRef?.includes(recordKey)) ||
@@ -627,7 +626,7 @@ function useEditableArray<RecordType>(
     }
 
     // 防止多次渲染
-    const recordKey = props.getRowKey(row, props.dataSource.length);
+    const recordKey = props.getRowKey(row, -1);
     editableKeysSet.add(recordKey);
     setEditableRowKeys(Array.from(editableKeysSet));
 
@@ -679,11 +678,11 @@ function useEditableArray<RecordType>(
       },
       newLine?: NewLineConfig<RecordType>,
     ) => {
-      const { options } = newLine || {};
+      const { options } = newLine || newLineRecordRef.current || {};
       const res = await props?.onSave?.(recordKey, editRow, originRow, newLine);
       // 保存时解除编辑模式
       cancelEditable(recordKey);
-      if (newLine && options?.recordKey === recordKey) {
+      if (!options?.parentKey && options?.recordKey === recordKey) {
         if (options?.position === 'top') {
           props.setDataSource([editRow, ...props.dataSource]);
         } else {
@@ -694,12 +693,19 @@ function useEditableArray<RecordType>(
       const actionProps = {
         data: props.dataSource,
         getRowKey: props.getRowKey,
-        row: editRow,
+        row: options
+          ? {
+              ...editRow,
+              map_row_parentKey: recordKeyToString(options?.parentKey ?? '')?.toString(),
+            }
+          : editRow,
         key: recordKey,
         childrenColumnName: props.childrenColumnName || 'children',
       };
 
-      props.setDataSource(editableRowByKey(actionProps, 'update'));
+      props.setDataSource(
+        editableRowByKey(actionProps, options?.position === 'top' ? 'top' : 'update'),
+      );
       return res;
     },
   );

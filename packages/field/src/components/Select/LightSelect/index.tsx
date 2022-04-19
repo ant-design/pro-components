@@ -141,7 +141,14 @@ const LightSelect: React.ForwardRefRenderFunction<any, SelectProps<any> & LightS
           );
         }}
         open={open}
-        onDropdownVisibleChange={setOpen}
+        onDropdownVisibleChange={(isOpen) => {
+          if (!isOpen) {
+            setTimeout(() => {
+              setKeyword('');
+            }, 0);
+          }
+          setOpen(isOpen);
+        }}
         prefixCls={customizePrefixCls}
         options={
           keyword

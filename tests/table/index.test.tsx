@@ -202,13 +202,14 @@ describe('BasicTable', () => {
             valueType: 'money',
           },
         ]}
+        search={false}
         dataSource={[]}
         rowKey="key"
       />,
     );
     await waitForComponentToPaint(html, 1200);
 
-    expect(html.find('.ant-card').exists()).toBe(false);
+    expect(html.find('.ant-pro-card').exists()).toBe(false);
 
     act(() => {
       html.setProps({
@@ -216,7 +217,7 @@ describe('BasicTable', () => {
       });
     });
     await waitForComponentToPaint(html, 1200);
-    expect(html.find('.ant-card').exists()).toBe(true);
+    expect(html.find('.ant-pro-card').exists()).toBe(true);
   });
 
   it('🎏 do not render setting', async () => {
@@ -692,45 +693,45 @@ describe('BasicTable', () => {
     expect(fn).toBeCalledTimes(2);
   });
 
-  it('🎏 onSizeChange load', async () => {
-    const fn = jest.fn();
-    const html = mount(
-      <ProTable
-        columns={[
-          {
-            title: 'money',
-            dataIndex: 'money',
-            valueType: 'money',
-          },
-        ]}
-        onSizeChange={(size) => fn(size)}
-        request={async () => {
-          return {
-            data: [
-              {
-                key: 'first',
-              },
-            ],
-          };
-        }}
-        rowKey="key"
-      />,
-    );
-    await waitForComponentToPaint(html);
+  // it('🎏 onSizeChange load', async () => {
+  //   const fn = jest.fn();
+  //   const html = mount(
+  //     <ProTable
+  //       columns={[
+  //         {
+  //           title: 'money',
+  //           dataIndex: 'money',
+  //           valueType: 'money',
+  //         },
+  //       ]}
+  //       onSizeChange={(size) => fn(size)}
+  //       request={async () => {
+  //         return {
+  //           data: [
+  //             {
+  //               key: 'first',
+  //             },
+  //           ],
+  //         };
+  //       }}
+  //       rowKey="key"
+  //     />,
+  //   );
+  //   await waitForComponentToPaint(html);
 
-    act(() => {
-      html
-        .find('.ant-pro-table-list-toolbar-setting-item span.anticon-column-height')
-        .simulate('click');
-    });
-    await waitForComponentToPaint(html);
-    act(() => {
-      html.find('.ant-dropdown-menu .ant-dropdown-menu-item').at(0).simulate('click');
-    });
+  //   act(() => {
+  //     html
+  //       .find('.ant-pro-table-list-toolbar-setting-item span.anticon-column-height')
+  //       .simulate('click');
+  //   });
+  //   await waitForComponentToPaint(html);
+  //   act(() => {
+  //     html.find('.ant-dropdown-menu .ant-dropdown-menu-item').at(0).simulate('click');
+  //   });
 
-    await waitForComponentToPaint(html, 1200);
-    expect(fn).toBeCalledWith('large');
-  });
+  //   await waitForComponentToPaint(html, 1200);
+  //   expect(fn).toBeCalledWith('large');
+  // });
 
   it('🎏 request load array', async () => {
     const fn = jest.fn();
@@ -954,44 +955,44 @@ describe('BasicTable', () => {
     expect(exitFullscreen).toBeCalled();
   });
 
-  it('🎏 size icon test', async () => {
-    const fn = jest.fn();
-    const html = mount(
-      <ProTable
-        size="small"
-        columns={[
-          {
-            title: 'money',
-            dataIndex: 'money',
-            valueType: 'money',
-          },
-        ]}
-        request={async () => {
-          return {
-            data: [],
-          };
-        }}
-        onSizeChange={(size) => {
-          fn(size);
-        }}
-        rowKey="key"
-      />,
-    );
-    await waitForComponentToPaint(html, 1200);
+  // it('🎏 size icon test', async () => {
+  //   const fn = jest.fn();
+  //   const html = mount(
+  //     <ProTable
+  //       size="small"
+  //       columns={[
+  //         {
+  //           title: 'money',
+  //           dataIndex: 'money',
+  //           valueType: 'money',
+  //         },
+  //       ]}
+  //       request={async () => {
+  //         return {
+  //           data: [],
+  //         };
+  //       }}
+  //       onSizeChange={(size) => {
+  //         fn(size);
+  //       }}
+  //       rowKey="key"
+  //     />,
+  //   );
+  //   await waitForComponentToPaint(html, 1200);
 
-    act(() => {
-      html
-        .find('.ant-pro-table-list-toolbar-setting-item span.anticon-column-height')
-        .simulate('click');
-    });
-    await waitForComponentToPaint(html, 1200);
-    act(() => {
-      html.find('li.ant-dropdown-menu-item').at(1).simulate('click');
-    });
-    await waitForComponentToPaint(html, 1200);
+  //   act(() => {
+  //     html
+  //       .find('.ant-pro-table-list-toolbar-setting-item span.anticon-column-height')
+  //       .simulate('click');
+  //   });
+  //   await waitForComponentToPaint(html, 1200);
+  //   act(() => {
+  //     html.find('li.ant-dropdown-menu-item').at(1).simulate('click');
+  //   });
+  //   await waitForComponentToPaint(html, 1200);
 
-    expect(fn).toBeCalledWith('middle');
-  });
+  //   expect(fn).toBeCalledWith('middle');
+  // });
 
   it('🎏 loading test', async () => {
     const html = mount(
@@ -1162,7 +1163,7 @@ describe('BasicTable', () => {
 
     await waitForComponentToPaint(html, 600);
 
-    expect(fn).toBeCalledWith(undefined);
+    expect(fn).toBeCalledWith('');
 
     act(() => {
       html.find('.ant-pro-table-list-toolbar-search input').simulate('change', {
@@ -1201,8 +1202,10 @@ describe('BasicTable', () => {
       />,
     );
 
-    expect(html.find('.ant-pro-table-search-query-filter.ant-card-bordered').exists()).toBeTruthy();
-    expect(html.find('.ant-card.ant-card-bordered').exists()).toBeTruthy();
+    expect(
+      html.find('.ant-pro-table-search-query-filter.ant-pro-card-bordered').exists(),
+    ).toBeTruthy();
+    expect(html.find('.ant-pro-card.ant-pro-card-border').exists()).toBeTruthy();
   });
 
   it('🎏 bordered = {search = true, table = false}', async () => {
@@ -1225,8 +1228,10 @@ describe('BasicTable', () => {
         }}
       />,
     );
-    expect(html.find('.ant-card.ant-card-bordered').exists()).toBeFalsy();
-    expect(html.find('.ant-pro-table-search-query-filter.ant-card-bordered').exists()).toBeTruthy();
+    expect(html.find('.ant-pro-card.ant-card-bordered').exists()).toBeFalsy();
+    expect(
+      html.find('.ant-pro-table-search-query-filter.ant-pro-card-bordered').exists(),
+    ).toBeTruthy();
   });
 
   it('🎏 debounce time', async () => {

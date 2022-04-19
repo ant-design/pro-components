@@ -18,7 +18,7 @@ export type ProFormSliderProps = ProFormFieldItemProps<SliderSingleProps | Slide
  *
  * @param
  */
-const ProFormSlider: React.ForwardRefRenderFunction<any, ProFormSliderProps> = (
+const BaseProFormSlider: React.ForwardRefRenderFunction<any, ProFormSliderProps> = (
   { fieldProps, min, max, step, marks, vertical, range },
   ref,
 ) => {
@@ -36,11 +36,13 @@ const ProFormSlider: React.ForwardRefRenderFunction<any, ProFormSliderProps> = (
   );
 };
 
-export default createField<ProFormSliderProps>(React.forwardRef(ProFormSlider), {
+const ProFormSlider = createField<ProFormSliderProps>(React.forwardRef(BaseProFormSlider), {
   lightFilterLabelFormatter: (value) => {
     if (Array.isArray(value)) {
       return value.join('~');
     }
     return value;
   },
-});
+}) as typeof BaseProFormSlider;
+
+export default ProFormSlider;

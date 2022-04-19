@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Progress, Tag } from 'antd';
 import ProList from '@ant-design/pro-list';
-import { ProFormRadio } from '@ant-design/pro-form';
+import { ProFormRadio, ProFormSwitch } from '@ant-design/pro-form';
 
 const data = [
   '语雀的天空',
@@ -37,8 +37,16 @@ const data = [
 
 export default () => {
   const [cardActionProps, setCardActionProps] = useState<'actions' | 'extra'>('extra');
+
+  const [ghost, setGhost] = useState<boolean>(false);
   return (
-    <>
+    <div
+      style={{
+        backgroundColor: '#eee',
+        margin: -24,
+        padding: 24,
+      }}
+    >
       <ProFormRadio.Group
         label="actions 放置的地方"
         options={[
@@ -56,7 +64,18 @@ export default () => {
           onChange: (e) => setCardActionProps(e.target.value),
         }}
       />
+      <ProFormSwitch
+        label="幽灵模式"
+        fieldProps={{
+          checked: ghost,
+          onChange: (e) => setGhost(e),
+        }}
+      />
       <ProList<any>
+        ghost={ghost}
+        itemCardProps={{
+          ghost,
+        }}
         pagination={{
           defaultPageSize: 8,
           showSizeChanger: false,
@@ -87,6 +106,6 @@ export default () => {
         headerTitle="卡片列表展示"
         dataSource={data}
       />
-    </>
+    </div>
   );
 };

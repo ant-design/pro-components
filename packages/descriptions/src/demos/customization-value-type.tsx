@@ -1,8 +1,8 @@
 import React, { useContext, useRef, useState } from 'react';
-import type { ProColumns } from '@ant-design/pro-table';
 import ProDescriptions from '@ant-design/pro-descriptions';
 import ProProvider from '@ant-design/pro-provider';
 import { Input, Space, Tag } from 'antd';
+import type { InputRef } from 'antd';
 
 const valueEnum = {
   0: 'close',
@@ -46,7 +46,7 @@ const TagList: React.FC<{
     }[],
   ) => void;
 }> = ({ value, onChange }) => {
-  const ref = useRef<Input | null>(null);
+  const ref = useRef<InputRef | null>(null);
   const [newTags, setNewTags] = useState<
     {
       key: string;
@@ -88,35 +88,6 @@ const TagList: React.FC<{
   );
 };
 
-const columns: ProColumns<TableListItem, 'link' | 'tags'>[] = [
-  {
-    title: '链接',
-    dataIndex: 'name',
-    valueType: 'link',
-  },
-  {
-    title: '标签',
-    dataIndex: 'status',
-    key: 'status',
-    valueType: 'tags',
-  },
-  {
-    title: '操作',
-    key: 'option',
-    valueType: 'option',
-    render: (_, row, index, action) => [
-      <a
-        key="a"
-        onClick={() => {
-          action?.reload();
-        }}
-      >
-        刷新
-      </a>,
-    ],
-  },
-];
-
 export default () => {
   const values = useContext(ProProvider);
   return (
@@ -146,7 +117,34 @@ export default () => {
       }}
     >
       <ProDescriptions<TableListItem, 'link' | 'tags'>
-        columns={columns}
+        columns={[
+          {
+            title: '链接',
+            dataIndex: 'name',
+            valueType: 'link',
+          },
+          {
+            title: '标签',
+            dataIndex: 'status',
+            key: 'status',
+            valueType: 'tags',
+          },
+          {
+            title: '操作',
+            key: 'option',
+            valueType: 'option',
+            render: (_, row, index, action) => [
+              <a
+                key="a"
+                onClick={() => {
+                  action?.reload();
+                }}
+              >
+                刷新
+              </a>,
+            ],
+          },
+        ]}
         editable={{}}
         request={() => {
           return Promise.resolve({

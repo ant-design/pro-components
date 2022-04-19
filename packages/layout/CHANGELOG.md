@@ -2,6 +2,47 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [6.35.1](https://github.com/ant-design/pro-components/compare/@ant-design/pro-layout@6.35.0...@ant-design/pro-layout@6.35.1) (2022-04-18)
+
+**Note:** Version bump only for package @ant-design/pro-layout
+
+# [6.35.0](https://github.com/ant-design/pro-components/compare/@ant-design/pro-layout@6.34.11...@ant-design/pro-layout@6.35.0) (2022-04-14)
+
+### Features
+
+- **layout:** update swr cache clear solution ([#5048](https://github.com/ant-design/pro-components/issues/5048)) ([4d45c4c](https://github.com/ant-design/pro-components/commit/4d45c4c442d88c0aff439706d23048be8021fb86))
+
+## [6.34.11](https://github.com/ant-design/pro-components/compare/@ant-design/pro-layout@6.34.10...@ant-design/pro-layout@6.34.11) (2022-04-13)
+
+**Note:** Version bump only for package @ant-design/pro-layout
+
+## [6.34.10](https://github.com/ant-design/pro-components/compare/@ant-design/pro-layout@6.34.9...@ant-design/pro-layout@6.34.10) (2022-04-12)
+
+**Note:** Version bump only for package @ant-design/pro-layout
+
+## [6.34.9](https://github.com/ant-design/pro-components/compare/@ant-design/pro-layout@6.34.8...@ant-design/pro-layout@6.34.9) (2022-04-06)
+
+### Bug Fixes
+
+- fix use DarkReader ([#4966](https://github.com/ant-design/pro-components/issues/4966)) ([fddd629](https://github.com/ant-design/pro-components/commit/fddd629e9a82889993951f67e164b6f65705363b))
+- **layout:** color variables ([#4943](https://github.com/ant-design/pro-components/issues/4943)) ([abecd72](https://github.com/ant-design/pro-components/commit/abecd7216a4ad5d3bd9653c7dc0d10f1113516a5))
+
+## [6.34.8](https://github.com/ant-design/pro-components/compare/@ant-design/pro-layout@6.34.7...@ant-design/pro-layout@6.34.8) (2022-03-28)
+
+**Note:** Version bump only for package @ant-design/pro-layout
+
+## [6.34.7](https://github.com/ant-design/pro-components/compare/@ant-design/pro-layout@6.34.6...@ant-design/pro-layout@6.34.7) (2022-03-25)
+
+**Note:** Version bump only for package @ant-design/pro-layout
+
+## [6.34.6](https://github.com/ant-design/pro-components/compare/@ant-design/pro-layout@6.34.5...@ant-design/pro-layout@6.34.6) (2022-03-22)
+
+**Note:** Version bump only for package @ant-design/pro-layout
+
+## [6.34.5](https://github.com/ant-design/pro-components/compare/@ant-design/pro-layout@6.34.4...@ant-design/pro-layout@6.34.5) (2022-03-18)
+
+**Note:** Version bump only for package @ant-design/pro-layout
+
 ## [6.34.4](https://github.com/ant-design/pro-components/compare/@ant-design/pro-layout@6.34.3...@ant-design/pro-layout@6.34.4) (2022-03-16)
 
 **Note:** Version bump only for package @ant-design/pro-layout

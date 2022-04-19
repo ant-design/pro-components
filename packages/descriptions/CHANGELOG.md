@@ -2,6 +2,50 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.10.67](https://github.com/ant-design/pro-components/compare/@ant-design/pro-descriptions@1.10.66...@ant-design/pro-descriptions@1.10.67) (2022-04-18)
+
+**Note:** Version bump only for package @ant-design/pro-descriptions
+
+## [1.10.66](https://github.com/ant-design/pro-components/compare/@ant-design/pro-descriptions@1.10.65...@ant-design/pro-descriptions@1.10.66) (2022-04-14)
+
+**Note:** Version bump only for package @ant-design/pro-descriptions
+
+## [1.10.65](https://github.com/ant-design/pro-components/compare/@ant-design/pro-descriptions@1.10.64...@ant-design/pro-descriptions@1.10.65) (2022-04-13)
+
+**Note:** Version bump only for package @ant-design/pro-descriptions
+
+## [1.10.64](https://github.com/ant-design/pro-components/compare/@ant-design/pro-descriptions@1.10.63...@ant-design/pro-descriptions@1.10.64) (2022-04-12)
+
+**Note:** Version bump only for package @ant-design/pro-descriptions
+
+## [1.10.63](https://github.com/ant-design/pro-components/compare/@ant-design/pro-descriptions@1.10.62...@ant-design/pro-descriptions@1.10.63) (2022-04-08)
+
+**Note:** Version bump only for package @ant-design/pro-descriptions
+
+## [1.10.62](https://github.com/ant-design/pro-components/compare/@ant-design/pro-descriptions@1.10.61...@ant-design/pro-descriptions@1.10.62) (2022-04-07)
+
+**Note:** Version bump only for package @ant-design/pro-descriptions
+
+## [1.10.61](https://github.com/ant-design/pro-components/compare/@ant-design/pro-descriptions@1.10.60...@ant-design/pro-descriptions@1.10.61) (2022-04-06)
+
+**Note:** Version bump only for package @ant-design/pro-descriptions
+
+## [1.10.60](https://github.com/ant-design/pro-components/compare/@ant-design/pro-descriptions@1.10.59...@ant-design/pro-descriptions@1.10.60) (2022-03-28)
+
+**Note:** Version bump only for package @ant-design/pro-descriptions
+
+## [1.10.59](https://github.com/ant-design/pro-components/compare/@ant-design/pro-descriptions@1.10.58...@ant-design/pro-descriptions@1.10.59) (2022-03-25)
+
+**Note:** Version bump only for package @ant-design/pro-descriptions
+
+## [1.10.58](https://github.com/ant-design/pro-components/compare/@ant-design/pro-descriptions@1.10.57...@ant-design/pro-descriptions@1.10.58) (2022-03-22)
+
+**Note:** Version bump only for package @ant-design/pro-descriptions
+
+## [1.10.57](https://github.com/ant-design/pro-components/compare/@ant-design/pro-descriptions@1.10.56...@ant-design/pro-descriptions@1.10.57) (2022-03-18)
+
+**Note:** Version bump only for package @ant-design/pro-descriptions
+
 ## [1.10.56](https://github.com/ant-design/pro-components/compare/@ant-design/pro-descriptions@1.10.55...@ant-design/pro-descriptions@1.10.56) (2022-03-16)
 
 **Note:** Version bump only for package @ant-design/pro-descriptions

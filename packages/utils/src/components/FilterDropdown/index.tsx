@@ -4,6 +4,16 @@ import type { DropdownFooterProps } from '../DropdownFooter';
 import Footer from '../DropdownFooter';
 import './index.less';
 
+declare const Placements: [
+  'topLeft',
+  'topCenter',
+  'topRight',
+  'bottomLeft',
+  'bottomCenter',
+  'bottomRight',
+];
+declare type Placement = typeof Placements[number];
+
 export type FooterRender =
   | ((
       onConfirm?: (e?: React.MouseEvent) => void,
@@ -19,16 +29,21 @@ export type DropdownProps = {
   disabled?: boolean;
   onVisibleChange?: (visible: boolean) => void;
   visible?: boolean;
+  placement?: Placement;
+  children?: React.ReactNode;
 };
 
 const FilterDropdown: React.FC<DropdownProps> = (props) => {
-  const { children, label, footer, disabled, onVisibleChange, visible, footerRender } = props;
+  const { children, label, footer, disabled, onVisibleChange, visible, footerRender, placement } =
+    props;
   const { getPrefixCls } = useContext(ConfigProvider.ConfigContext);
   const prefixCls = getPrefixCls('pro-core-field-dropdown');
 
   return (
+    //@ts-expect-error
     <Dropdown
       disabled={disabled}
+      placement={placement}
       trigger={['click']}
       visible={visible}
       onVisibleChange={onVisibleChange}

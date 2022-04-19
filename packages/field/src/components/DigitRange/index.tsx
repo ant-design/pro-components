@@ -9,7 +9,7 @@ export type ValuePair = Value[];
 
 export type FieldDigitRangeProps = {
   text: ValuePair;
-  placeholder?: any;
+  placeholder?: string | string[];
   separator?: string;
   separatorWidth?: number;
 };
@@ -79,11 +79,13 @@ const FieldDigitRange: ProFieldFC<FieldDigitRangeProps> = (
       setValuePair(newValuePair);
     };
 
+    const placeholderValue = fieldProps?.placeholder || placeholder;
+
     const dom = (
       <Input.Group compact onBlur={handleGroupBlur}>
         <InputNumber
-          placeholder={placeholder}
           {...fieldProps}
+          placeholder={Array.isArray(placeholderValue) ? placeholderValue[0] : placeholderValue}
           id={id ?? `${id}-0`}
           style={{ width: `calc((100% - ${separatorWidth}px) / 2)` }}
           value={valuePair?.[0]}
@@ -103,8 +105,8 @@ const FieldDigitRange: ProFieldFC<FieldDigitRangeProps> = (
           disabled
         />
         <InputNumber
-          placeholder={placeholder}
           {...fieldProps}
+          placeholder={Array.isArray(placeholderValue) ? placeholderValue[1] : placeholderValue}
           id={id ?? `${id}-1`}
           style={{ width: `calc((100% - ${separatorWidth}px) / 2)`, borderLeft: 0 }}
           value={valuePair?.[1]}

@@ -7,6 +7,7 @@ import type {
 import type { FormInstance, FormProps } from 'antd';
 import type { NamePath } from 'antd/lib/form/interface';
 import type { CommonFormProps } from '../../BaseForm';
+import type { ProFormGridConfig } from '../../interface';
 import type {
   DrawerFormProps,
   LightFilterProps,
@@ -32,7 +33,7 @@ export type ExtraProColumnType = {
   width?: string | number;
 
   name?: NamePath;
-};
+} & Pick<ProFormGridConfig, 'rowProps' | 'colProps'>;
 
 /**
  * ProForm 支持的相关类型

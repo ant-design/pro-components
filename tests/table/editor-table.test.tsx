@@ -1,13 +1,18 @@
 import React, { useRef } from 'react';
 import { Button, Input, InputNumber } from 'antd';
-import type { TableRowEditable, ProColumns, ActionType } from '@ant-design/pro-table';
+import type {
+  TableRowEditable,
+  ProColumns,
+  ActionType,
+  EditableFormInstance,
+} from '@ant-design/pro-table';
 import { EditableProTable } from '@ant-design/pro-table';
-import { ProFormText } from '@ant-design/pro-form';
+import ProForm, { ProFormText } from '@ant-design/pro-form';
 import useMergedState from 'rc-util/lib/hooks/useMergedState';
 import { mount } from 'enzyme';
 import { act } from 'react-dom/test-utils';
+import { render } from '@testing-library/react';
 import { waitForComponentToPaint, waitTime } from '../util';
-import ProForm from '@ant-design/pro-form';
 
 type DataSourceType = {
   id: number | string;
@@ -213,7 +218,7 @@ const EditorProTableDemo = (
         type: props.type,
         editableKeys,
         onSave: props.onSave,
-        onChange: setEditorRowKeys,
+        onChange: (keys) => setEditorRowKeys(keys),
         onDelete: props.onDelete,
       }}
     />
@@ -369,6 +374,19 @@ describe('EditorProTable', () => {
         });
     });
 
+    await waitForComponentToPaint(wrapper, 1000);
+
+    expect.any(wrapper.find('.ant-table-tbody tr.ant-table-row').at(1).find('input').exists());
+    expect(wrapper.find('.ant-table-tbody').find('tr.ant-table-row').length).toBe(6);
+
+    act(() => {
+      wrapper.find('.ant-table-tbody tr.ant-table-row').at(1).find(`td a`).at(0).simulate('click');
+    });
+
+    await waitForComponentToPaint(wrapper, 1000);
+
+    expect(wrapper.find('.ant-table-row.ant-table-row-level-1').length).toBe(2);
+
     wrapper.unmount();
   });
 
@@ -393,6 +411,187 @@ describe('EditorProTable', () => {
     await waitForComponentToPaint(wrapper, 100);
 
     expect(wrapper.find('button.ant-btn-dashed').exists()).toBeTruthy();
+
+    wrapper.unmount();
+  });
+
+  it('📝 EditableProTable support editableFormRef', async () => {
+    const editorRef = React.createRef<EditableFormInstance<DataSourceType>>();
+    const wrapper = mount(
+      <EditableProTable<DataSourceType>
+        editableFormRef={editorRef}
+        rowKey="id"
+        columns={columns}
+        value={defaultData}
+        editable={{
+          editableKeys: defaultData.map((item) => item.id),
+        }}
+      />,
+    );
+    await waitForComponentToPaint(wrapper, 100);
+
+    const firstRowKey = defaultData[0]?.id || 0;
+
+    expect(editorRef.current?.getRowData?.(firstRowKey)?.title).toBe(defaultData?.[0]?.title);
+
+    expect(editorRef.current?.getRowData?.(0)?.title).toBe(defaultData?.[0]?.title);
+
+    await waitForComponentToPaint(wrapper, 100);
+
+    act(() => {
+      editorRef.current?.setRowData?.(firstRowKey, { title: 'test-title' });
+    });
+
+    expect(editorRef.current?.getRowData?.(firstRowKey)?.title).toBe('test-title');
+
+    expect(editorRef.current?.getRowsData?.()?.length).toBe(3);
+
+    wrapper.unmount();
+  });
+
+  it('📝 EditableProTable editableFormRef need rowIndex', async () => {
+    const editorRef = React.createRef<EditableFormInstance<DataSourceType>>();
+    const wrapper = mount(
+      <EditableProTable<DataSourceType>
+        editableFormRef={editorRef}
+        rowKey="id"
+        columns={columns}
+        value={defaultData}
+        editable={{
+          editableKeys: defaultData.map((item) => item.id),
+        }}
+      />,
+    );
+    await waitForComponentToPaint(wrapper, 100);
+
+    try {
+      //@ts-expect-error
+      editorRef.current?.getRowData?.();
+    } catch (error) {
+      // @ts-ignore
+      expect(error.message).toBe('rowIndex is required');
+    }
+
+    try {
+      //@ts-expect-error
+      editorRef.current?.setRowData?.(undefined, { title: 'test-title' });
+    } catch (error) {
+      // @ts-ignore
+      expect(error.message).toBe('rowIndex is required');
+    }
+
+    wrapper.unmount();
+  });
+
+  it('📝 EditableProTable use name support editableFormRef', async () => {
+    const editorRef = React.createRef<EditableFormInstance<DataSourceType>>();
+    const wrapper = render(
+      <ProForm
+        initialValues={{
+          table: defaultData,
+        }}
+      >
+        <EditableProTable<DataSourceType>
+          editableFormRef={editorRef}
+          rowKey="id"
+          name="table"
+          columns={columns}
+        />
+        <ProFormText name="test" />
+      </ProForm>,
+    );
+
+    const firstRowKey = defaultData?.[0]?.id || 0;
+
+    expect(editorRef.current?.getRowData?.(firstRowKey)?.title).toBe(defaultData?.[0]?.title);
+
+    expect(editorRef.current?.getRowData?.(0)?.title).toBe(defaultData?.[0]?.title);
+
+    act(() => {
+      editorRef.current?.setRowData?.(firstRowKey, { title: 'test-title' });
+    });
+
+    expect(editorRef.current?.getRowData?.(firstRowKey)?.title).toBe('test-title');
+
+    expect(editorRef.current?.getRowsData?.()?.length).toBe(3);
+
+    wrapper.unmount();
+  });
+
+  it('📝 EditableProTable add newLine use rowKey', async () => {
+    const fn = jest.fn();
+    const wrapper = mount(
+      <ProForm
+        initialValues={{
+          table: defaultData,
+        }}
+      >
+        <EditableProTable<DataSourceType>
+          recordCreatorProps={{
+            id: 'new-button',
+            record: () => ({ id: '1234' }),
+          }}
+          editable={{
+            onChange: (keys) => {
+              fn(keys.join(','));
+            },
+          }}
+          rowKey="id"
+          name="table"
+          columns={columns}
+        />
+      </ProForm>,
+    );
+
+    act(() => {
+      wrapper.find('#new-button').at(0).simulate('click');
+    });
+
+    await waitForComponentToPaint(wrapper, 200);
+
+    expect(fn).toBeCalledWith('1234');
+
+    wrapper.unmount();
+  });
+
+  it('📝 EditableProTable add newLine when position=top', async () => {
+    const wrapper = mount(
+      <ProForm
+        initialValues={{
+          table: defaultData,
+        }}
+      >
+        <EditableProTable<DataSourceType>
+          recordCreatorProps={{
+            id: 'new-button',
+            record: () => ({ id: Math.random() * 100000000 }),
+            position: 'top',
+          }}
+          rowKey="id"
+          name="table"
+          columns={columns}
+        />
+      </ProForm>,
+    );
+
+    act(() => {
+      wrapper.find('#new-button').at(0).simulate('click');
+    });
+
+    act(() => {
+      wrapper.find('#new-button').at(0).simulate('click');
+    });
+
+    await waitForComponentToPaint(wrapper, 200);
+
+    const firstLineValue = wrapper
+      .find('.ant-table-tbody tr.ant-table-row')
+      .at(0)
+      .find(`td .ant-input`)
+      .at(0)
+      .props().value;
+
+    expect(firstLineValue).toBe('');
 
     wrapper.unmount();
   });
@@ -817,6 +1016,74 @@ describe('EditorProTable', () => {
 
     expect(formItemPropsFn).toBeCalled();
     expect(fieldPropsFn).toBeCalled();
+
+    expect(errorSpy).not.toBeCalled();
+
+    errorSpy.mockRestore();
+  });
+
+  it('📝sub-column values are correct in the form', async () => {
+    const errorSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
+
+    const currentlyColumns: ProColumns<DataSourceType>[] = [
+      {
+        title: '标题',
+        dataIndex: 'title',
+      },
+    ];
+
+    const editableKeys: any[] = [];
+    let resultTitle = '';
+    const tableData = (function generateData(prefix = '', depth = 1): any {
+      const curData = [];
+      if (depth > 3) {
+        return;
+      }
+      let start = 1;
+      while (start++ <= 3) {
+        const title = `title${prefix}${depth}${start}`;
+        resultTitle += title;
+        const children = generateData(`${prefix}${start}`, depth + 1);
+        const id = `${prefix}${depth}${start}`;
+        editableKeys.push(id);
+        curData.push({
+          id,
+          title,
+          children,
+        });
+      }
+      return curData;
+    })();
+
+    const wrapper = mount(
+      <ProForm
+        initialValues={{
+          table: tableData,
+        }}
+      >
+        <EditableProTable<DataSourceType>
+          rowKey="id"
+          controlled
+          name="table"
+          expandable={{
+            defaultExpandAllRows: true,
+          }}
+          editable={{
+            editableKeys,
+          }}
+          columns={currentlyColumns}
+        />
+      </ProForm>,
+    );
+    await waitForComponentToPaint(wrapper, 100);
+
+    let answerTitle = '';
+
+    wrapper.find('input').forEach((item) => {
+      answerTitle += item.prop('value') as string;
+    });
+
+    expect(answerTitle).toMatch(resultTitle);
 
     expect(errorSpy).not.toBeCalled();
 

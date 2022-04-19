@@ -2,6 +2,49 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.34.5](https://github.com/ant-design/pro-components/compare/@ant-design/pro-field@1.34.4...@ant-design/pro-field@1.34.5) (2022-04-18)
+
+### Bug Fixes
+
+- **form:** fix revalidateOnFocus alway work error-n ([0ea1618](https://github.com/ant-design/pro-components/commit/0ea1618154634f6e0ac9c64682a71746ab191807))
+
+## [1.34.4](https://github.com/ant-design/pro-components/compare/@ant-design/pro-field@1.34.3...@ant-design/pro-field@1.34.4) (2022-04-13)
+
+**Note:** Version bump only for package @ant-design/pro-field
+
+## [1.34.3](https://github.com/ant-design/pro-components/compare/@ant-design/pro-field@1.34.2...@ant-design/pro-field@1.34.3) (2022-04-12)
+
+### Bug Fixes
+
+- **form:** fix array placeholder ([#5022](https://github.com/ant-design/pro-components/issues/5022)) ([9fdf86b](https://github.com/ant-design/pro-components/commit/9fdf86b083989f1b088790edb3b4ee2698079fc8))
+- **form:** fix ProFormTreeSelect and ProFormCascader no work when LightFilter ([#5026](https://github.com/ant-design/pro-components/issues/5026)) ([b9db318](https://github.com/ant-design/pro-components/commit/b9db318da48bc775c40ff3e1c32827446df042b7))
+
+## [1.34.2](https://github.com/ant-design/pro-components/compare/@ant-design/pro-field@1.34.1...@ant-design/pro-field@1.34.2) (2022-04-06)
+
+### Bug Fixes
+
+- **form:** cacheForSwr not work ([#4976](https://github.com/ant-design/pro-components/issues/4976)) ([df6676d](https://github.com/ant-design/pro-components/commit/df6676de1c7602e3e7a72e1ce3bee5ade15593ed))
+- **form:** ProSelect not cleared keywords when closing option ([#4986](https://github.com/ant-design/pro-components/issues/4986)) ([84dce68](https://github.com/ant-design/pro-components/commit/84dce68dbf2aba73d91ae336d2074b91262ed584))
+- **form:** select autoClearSearchValue config false ([#4954](https://github.com/ant-design/pro-components/issues/4954)) ([7dd8775](https://github.com/ant-design/pro-components/commit/7dd8775d552bdf455d1293b62277e31158c425fa))
+
+## [1.34.1](https://github.com/ant-design/pro-components/compare/@ant-design/pro-field@1.34.0...@ant-design/pro-field@1.34.1) (2022-03-28)
+
+**Note:** Version bump only for package @ant-design/pro-field
+
+# [1.34.0](https://github.com/ant-design/pro-components/compare/@ant-design/pro-field@1.33.3...@ant-design/pro-field@1.34.0) (2022-03-25)
+
+### Features
+
+- **form:** Select add style and className prop ([#4915](https://github.com/ant-design/pro-components/issues/4915)) ([2d3fa7e](https://github.com/ant-design/pro-components/commit/2d3fa7eba11cdbcaba5fd306480b49d77d3a1dfd))
+
+## [1.33.3](https://github.com/ant-design/pro-components/compare/@ant-design/pro-field@1.33.2...@ant-design/pro-field@1.33.3) (2022-03-22)
+
+**Note:** Version bump only for package @ant-design/pro-field
+
+## [1.33.2](https://github.com/ant-design/pro-components/compare/@ant-design/pro-field@1.33.1...@ant-design/pro-field@1.33.2) (2022-03-18)
+
+**Note:** Version bump only for package @ant-design/pro-field
+
 ## [1.33.1](https://github.com/ant-design/pro-components/compare/@ant-design/pro-field@1.33.0...@ant-design/pro-field@1.33.1) (2022-03-16)
 
 ### Bug Fixes

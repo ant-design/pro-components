@@ -12,11 +12,17 @@ import merge from 'lodash/merge';
 export type ModalFormProps<T = Record<string, any>> = Omit<FormProps<T>, 'onFinish' | 'title'> &
   CommonFormProps<T> & {
     /**
-     * 接收任意值，返回 真值 会关掉这个弹窗
+     * 接收任意值，返回 真值 会关掉这个抽屉
      *
      * @name 表单结束后调用
+     *
+     * @example 结束后关闭抽屉
+     * onFinish: async ()=> {await save(); return true}
+     *
+     * @example 结束后不关闭抽屉
+     * onFinish: async ()=> {await save(); return false}
      */
-    onFinish?: (formData: T) => Promise<boolean | void>;
+    onFinish?: (formData: T) => Promise<any>;
 
     /** @name 用于触发抽屉打开的 dom */
     trigger?: JSX.Element;
@@ -69,7 +75,7 @@ function ModalForm<T = Record<string, any>>({
 
   const footerRef = useRef<HTMLDivElement | null>(null);
 
-  const footerCallback: React.RefCallback<HTMLDivElement> = useCallback((element) => {
+  const footerDomRef: React.RefCallback<HTMLDivElement> = useCallback((element) => {
     if (footerRef.current === null && element) {
       forceUpdate([]);
     }
@@ -80,7 +86,8 @@ function ModalForm<T = Record<string, any>>({
     if (visible && propVisible) {
       onVisibleChange?.(true);
     }
-  }, [onVisibleChange, propVisible, visible]);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [propVisible, visible]);
 
   const triggerDom = useMemo(() => {
     if (!trigger) {
@@ -137,6 +144,7 @@ function ModalForm<T = Record<string, any>>({
 
   return (
     <>
+      {/* @ts-expect-error */}
       <Modal
         title={title}
         width={width || 800}
@@ -149,7 +157,7 @@ function ModalForm<T = Record<string, any>>({
         footer={
           rest.submitter !== false && (
             <div
-              ref={footerCallback}
+              ref={footerDomRef}
               style={{
                 display: 'flex',
                 justifyContent: 'flex-end',

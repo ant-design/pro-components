@@ -9,6 +9,24 @@ group:
 
 # Change Log
 
+## @ant-design/pro-list@1.21.48
+
+`2022-04-07`
+
+- fix(list): fix pro list prefix no work error. [50b9e54](https://github.com/ant-design/pro-components/commit/50b9e54)
+
+## @ant-design/pro-list@1.21.44
+
+`2022-03-22`
+
+- fix(list): avatar shrink when card width is not enough (#4879). [#4879](https://github.com/ant-design/pro-components/pull/#4879) [@DerrickTel](https://github.com/DerrickTel)
+
+## @ant-design/pro-list@1.21.43
+
+`2022-03-18`
+
+- fix(list): fix ghost style padding error. [94027ed](https://github.com/ant-design/pro-components/commit/94027ed)
+
 ## @ant-design/pro-list@1.21.22
 
 `2022-02-08`

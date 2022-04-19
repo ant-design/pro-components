@@ -2,7 +2,6 @@ import type { InputProps } from 'antd';
 import type { FormInstance, FormItemProps } from 'antd/lib/form';
 import type { LabelTooltipType } from 'antd/lib/form/FormItemLabel';
 import type { NamePath } from 'antd/lib/form/interface';
-import type { Moment } from 'moment';
 import type { ReactNode } from 'react';
 import type {
   ProFieldValueType,
@@ -51,7 +50,7 @@ export type ProSchemaValueEnumType = {
   text: ReactNode;
 
   /** @name 预定的颜色 */
-  status: string;
+  status?: string;
   /** @name 自定义的颜色 */
   color?: string;
   /** @name 是否禁用 */
@@ -67,16 +66,20 @@ export type ProSchemaValueEnumMap = Map<React.ReactText, ProSchemaValueEnumType 
 
 export type ProSchemaValueEnumObj = Record<string, ProSchemaValueEnumType | ReactNode>;
 
-export type ProFieldTextType = React.ReactNode | React.ReactNode[] | Moment | Moment[];
+export type ProFieldTextType =
+  | React.ReactNode
+  | React.ReactNode[]
+  | Record<string, any>
+  | Record<string, any>[];
 
 export type SearchTransformKeyFn = (
   value: any,
-  field: string,
-  object: any,
+  namePath: string,
+  allValues: any,
 ) => string | Record<string, any>;
 export type SearchConvertKeyFn = (value: any, field: NamePath) => string | Record<string, any>;
 
-export type ProTableEditableFnType<T> = (_: any, record: T, index: number) => boolean;
+export type ProTableEditableFnType<T> = (value: any, record: T, index: number) => boolean;
 
 // 支持的变形，还未完全支持完毕
 /** 支持的变形，还未完全支持完毕 */
@@ -160,7 +163,9 @@ export type ProSchema<
     | ProSchemaValueEnumObj
     | ProSchemaValueEnumMap;
 
-  /** @name 自定义的 formItemProps */
+  /**
+   * @name 自定义的 formItemProps
+   */
   formItemProps?:
     | (FormItemProps & ExtraFormItemProps)
     | ((
@@ -194,7 +199,12 @@ export type ProSchema<
       isEditable?: boolean;
       type: ComponentsType;
     },
-  ) => React.ReactNode;
+  ) =>
+    | React.ReactNode
+    | {
+        children: React.ReactNode;
+        props: any;
+      };
 
   /**
    * 返回一个 ReactNode，会自动包裹 value 和 onChange
@@ -223,7 +233,15 @@ export type ProSchema<
     form: FormInstance,
   ) => React.ReactNode;
 
-  /** 可编辑表格是否可编辑 */
+  /**
+   *  @name 可编辑表格是否可编辑
+   *
+   * @example 不允许编辑
+   * editable=false
+   *
+   * @example 如果id=1不允许编辑
+   * editable={(value,row,index)=> row.id !==1 }
+   */
   editable?: false | ProTableEditableFnType<Entity>;
 
   /** @name 从服务器请求枚举 */

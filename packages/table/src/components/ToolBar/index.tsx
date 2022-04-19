@@ -2,7 +2,6 @@ import React, { useEffect, useMemo } from 'react';
 import { ReloadOutlined, SettingOutlined } from '@ant-design/icons';
 import type { TableColumnType } from 'antd';
 import { Tooltip } from 'antd';
-import type { SearchProps } from 'antd/lib/input';
 import type { IntlType } from '@ant-design/pro-provider';
 import { useIntl } from '@ant-design/pro-provider';
 import type { ListToolBarProps } from '../ListToolBar';
@@ -12,14 +11,9 @@ import './index.less';
 import FullScreenIcon from './FullscreenIcon';
 import DensityIcon from './DensityIcon';
 import Container from '../../container';
-import type { ActionType, ProTableProps } from '../../typing';
+import type { ActionType, ProTableProps, OptionSearchProps } from '../../typing';
 import { omitUndefined, isDeepEqualReact } from '@ant-design/pro-utils';
 import type { LabelTooltipType } from 'antd/lib/form/FormItemLabel';
-
-type OptionSearchProps = Omit<SearchProps, 'onSearch'> & {
-  /** 如果 onSearch 返回一个false，直接拦截请求 */
-  onSearch?: (keyword: string) => boolean | undefined;
-};
 
 export type OptionConfig = {
   density?: boolean;
@@ -32,6 +26,7 @@ export type OptionConfig = {
         checkable?: boolean;
         checkedReset?: boolean;
         extra?: React.ReactNode;
+        children?: React.ReactNode;
       };
   search?: (OptionSearchProps & { name?: string }) | boolean;
 };

@@ -164,6 +164,8 @@ group:
 | title | 标题 | `React.ReactNode` | - |
 | subTitle | 副标题 | `React.ReactNode` | - |
 | tooltip | 标题右侧图标 hover 提示信息 | `string` | - |
+| headStyle | 标题的 style 样式 | `CSSProperties` | - |
+| bodyStyle | 内容区的 style 样式 | `CSSProperties` | - |
 | extra | 右上角自定义区域 | `React.ReactNode` | - |
 | layout | 内容布局，支持垂直居中 | `default` \| `center`  | default |
 | loading | 加载中，支持自定义 loading 样式 | `boolean` \| `ReactNode` | false |
@@ -180,6 +182,7 @@ group:
 | headerBordered | 页头是否有分割线 | `boolean` | false |
 | collapsed | 受控属性，是否折叠 | `boolean` | false |
 | collapsible | 配置是否可折叠，受控时无效 | `boolean` | false |
+| collapsibleIconRender | 替换默认折叠图标 | `({ collapsed }: { collapsed: boolean }) => React.ReactNode` | - |
 | defaultCollapsed | 默认折叠, 受控时无效 | `boolean` | false |
 | onCollapse | 收起卡片的事件，受控时无效 | `(collapsed: boolean) => void` | - |
 | tabs | 标签页配置 | 见下面 ProCardTabs | - |

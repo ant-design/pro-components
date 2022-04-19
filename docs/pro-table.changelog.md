@@ -9,6 +9,72 @@ group:
 
 # Change Log
 
+## @ant-design/pro-table@2.71.7
+
+`2022-04-18`
+
+- fix(table): key does not exist causing error (#5066). [#5066](https://github.com/ant-design/pro-components/pull/#5066) [@Dunqing](https://github.com/Dunqing)
+
+## @ant-design/pro-table@2.71.4
+
+`2022-04-13`
+
+- fix(table): fix PageInfo.onchange run twice error. [dd2bfed](https://github.com/ant-design/pro-components/commit/dd2bfed)
+- fix(table): fix selectedKeys no support rowkey is function. [8f5b518](https://github.com/ant-design/pro-components/commit/8f5b518)
+
+## @ant-design/pro-table@2.71.3
+
+`2022-04-12`
+
+- fix(table): fix position=top, add new line data error problem (#5023). [#5023](https://github.com/ant-design/pro-components/pull/#5023) [@chenshuai2144](https://github.com/chenshuai2144)
+- fix(table): supporting custom gutter for form (#5015). [#5015](https://github.com/ant-design/pro-components/pull/#5015) [@nanianlisao](https://github.com/nanianlisao)
+
+## @ant-design/pro-table@2.71.1
+
+`2022-04-07`
+
+- fix(table): fix tableExtraRender no work error when dataSource=null. [23e60ae](https://github.com/ant-design/pro-components/commit/23e60ae)
+
+## @ant-design/pro-table@2.71.0
+
+`2022-04-06`
+
+- fix(table): 解决修改轻量筛选条件时覆盖了 table 自带 keywords 过滤的值的问题 (#4995). [#4995](https://github.com/ant-design/pro-components/pull/#4995) [@wangmeijian](https://github.com/wangmeijian)
+- fix(table): fix ts error. [db7e313](https://github.com/ant-design/pro-components/commit/db7e313)
+- feat(table): support column setting disable (#4958). [#4958](https://github.com/ant-design/pro-components/pull/#4958) [@DerrickTel](https://github.com/DerrickTel)
+
+## @ant-design/pro-table@2.70.0
+
+`2022-03-28`
+
+- fix(table): fix EditorTable rowKey is rowIndex error. [6b8c6a4](https://github.com/ant-design/pro-components/commit/6b8c6a4)
+- fix(table): onSave cannot get after editing data (#4934). [#4934](https://github.com/ant-design/pro-components/pull/#4934) [@1247748612](https://github.com/1247748612)
+- fix(table): table search styles overridden (#4935). [#4935](https://github.com/ant-design/pro-components/pull/#4935) [@1247748612](https://github.com/1247748612)
+- fix(table): sort table classnames. [8c4522a](https://github.com/ant-design/pro-components/commit/8c4522a)
+- fix(table): columnsState use index as state name (#4931). [#4931](https://github.com/ant-design/pro-components/pull/#4931) [@1247748612](https://github.com/1247748612)
+- feat(table): customize columnSetting icon (#4925). [#4925](https://github.com/ant-design/pro-components/pull/#4925) [@mfka](https://github.com/mfka)
+
+## @ant-design/pro-table@2.69.0
+
+`2022-03-25`
+
+- feat(table): support getRows, getRow, setRow (#4904). [#4904](https://github.com/ant-design/pro-components/pull/#4904) [@chenshuai2144](https://github.com/chenshuai2144)
+- feat(table): table search alway use pro-card. [d46edbb](https://github.com/ant-design/pro-components/commit/d46edbb)
+- fix(table): Incorrect value of sub-column when using EditableTable in Form (#4875). [#4875](https://github.com/ant-design/pro-components/pull/#4875) [@1247748612](https://github.com/1247748612)
+
+## @ant-design/pro-table@2.68.3
+
+`2022-03-22`
+
+- fix(table): fix actionSaveRef logic when add new line (#4881). [#4881](https://github.com/ant-design/pro-components/pull/#4881) [@zqran](https://github.com/zqran)
+
+## @ant-design/pro-table@2.68.2
+
+`2022-03-18`
+
+- fix(table): support ghost. [7bec0df](https://github.com/ant-design/pro-components/commit/7bec0df)
+- fix(table): fix inlint error render dom. [bfeb81a](https://github.com/ant-design/pro-components/commit/bfeb81a)
+
 ## @ant-design/pro-table@2.68.0
 
 `2022-03-16`

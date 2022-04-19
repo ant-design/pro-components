@@ -41,6 +41,7 @@ export default () => {
         }}
         stepsFormRender={(dom, submitter) => {
           return (
+            // @ts-expect-error
             <Modal
               title="分步表单"
               width={800}

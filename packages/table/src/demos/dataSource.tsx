@@ -169,6 +169,7 @@ export default () => {
         <Button type="primary" key="primary">
           创建应用
         </Button>,
+        //@ts-expect-error
         <Dropdown key="menu" overlay={menu}>
           <Button>
             <EllipsisOutlined />
