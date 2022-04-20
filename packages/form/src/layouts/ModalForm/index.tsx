@@ -24,6 +24,9 @@ export type ModalFormProps<T = Record<string, any>> = Omit<FormProps<T>, 'onFini
      */
     onFinish?: (formData: T) => Promise<any>;
 
+    /** @name 提交数据时，禁用取消按钮的超时时间（毫秒）。 */
+    timeout?: number;
+
     /** @name 用于触发抽屉打开的 dom */
     trigger?: JSX.Element;
 
@@ -53,6 +56,7 @@ function ModalForm<T = Record<string, any>>({
   onVisibleChange,
   modalProps,
   onFinish,
+  timeout,
   title,
   width,
   visible: propVisible,
@@ -119,7 +123,7 @@ function ModalForm<T = Record<string, any>>({
         resetButtonProps: {
           preventDefault: true,
           // 提交表单loading时，不可关闭弹框
-          disabled: loading,
+          disabled: timeout ? loading : undefined,
           onClick: (e: any) => {
             setVisible(false);
             modalProps?.onCancel?.(e);
@@ -135,6 +139,7 @@ function ModalForm<T = Record<string, any>>({
     rest.submitter,
     setVisible,
     loading,
+    timeout,
   ]);
 
   const contentRender = useCallback((formDom: any, submitter: any) => {
@@ -150,15 +155,18 @@ function ModalForm<T = Record<string, any>>({
     async (values: T) => {
       const response = onFinish?.(values);
 
-      if (response instanceof Promise) {
+      if (timeout && response instanceof Promise) {
         setLoading(true);
-        response.finally(() => setLoading(false));
-        // 5秒超时，解除loading
-        setTimeout(() => setLoading(false), 5000);
+
+        const timer = setTimeout(() => setLoading(false), timeout);
+        response.finally(() => {
+          clearTimeout(timer);
+          setLoading(false);
+        });
       }
       return (await response) && setVisible(false);
     },
-    [onFinish, setVisible],
+    [onFinish, setVisible, timeout],
   );
 
   return (
@@ -171,7 +179,7 @@ function ModalForm<T = Record<string, any>>({
         visible={visible}
         onCancel={(e) => {
           // 提交表单loading时，阻止弹框关闭
-          if (loading) return;
+          if (timeout && loading) return;
           setVisible(false);
           modalProps?.onCancel?.(e);
         }}

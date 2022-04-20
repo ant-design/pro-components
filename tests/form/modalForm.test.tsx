@@ -396,7 +396,56 @@ describe('ModalForm', () => {
     expect(wrapper.find('input#test').props().value).toEqual('1234');
   });
 
-  it('📦 form onFinish return promise will disabled close button', async () => {
+  it('📦 modal timeout is number will disabled close button when submit', async () => {
+    const fn = jest.fn();
+    const wrapper = mount(
+      <ModalForm
+        visible
+        modalProps={{
+          onCancel: () => fn(),
+        }}
+        onFinish={async () => {
+          await waitTime(2000);
+        }}
+        timeout={3000}
+      />,
+    );
+    await waitForComponentToPaint(wrapper, 500);
+
+    act(() => {
+      wrapper.find('button.ant-btn-primary').simulate('click');
+    });
+
+    await waitForComponentToPaint(wrapper, 500);
+
+    expect(wrapper.find('button.ant-btn-default').props().disabled).toEqual(true);
+
+    act(() => {
+      wrapper.find('.ant-modal-close').simulate('click');
+    });
+
+    await waitForComponentToPaint(wrapper, 500);
+
+    expect(fn).not.toBeCalled();
+
+    await waitForComponentToPaint(wrapper, 2500);
+
+    expect(wrapper.find('button.ant-btn-default').props().disabled).toEqual(false);
+
+    act(() => {
+      wrapper.find('.ant-modal-close').simulate('click');
+    });
+
+    await waitForComponentToPaint(wrapper, 500);
+
+    expect(fn).toBeCalled();
+
+    act(() => {
+      wrapper.unmount();
+    });
+  });
+
+  it('📦 modal timeout is null no disable close button when submit', async () => {
     const fn = jest.fn();
     const wrapper = mount(
       <ModalForm
@@ -417,7 +466,7 @@ describe('ModalForm', () => {
 
     await waitForComponentToPaint(wrapper, 500);
 
-    expect(wrapper.find('button.ant-btn-default').props().disabled).toEqual(true);
+    expect(wrapper.find('button.ant-btn-default').props().disabled).toEqual(undefined);
 
     act(() => {
       wrapper.find('.ant-modal-close').simulate('click');
@@ -425,6 +474,10 @@ describe('ModalForm', () => {
 
     await waitForComponentToPaint(wrapper, 500);
 
-    expect(fn).not.toBeCalled();
+    expect(fn).toBeCalled();
+
+    act(() => {
+      wrapper.unmount();
+    });
   });
 });

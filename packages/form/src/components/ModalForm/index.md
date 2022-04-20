@@ -53,6 +53,7 @@ ModalForm 组合了 Modal 和 ProForm 可以减少繁琐的状态管理。
 | title | 弹框的标题 | `ReactNode` | - |
 | width | 弹框的宽度 | `Number` | - |
 | onFinish | 提交数据时触发，如果返回一个 true。会关掉抽屉,如果配置了 `destroyOnClose` 还会重置表单。 | `async (values)=>boolean` | - |
+| timeout | 提交数据时，禁用取消按钮的超时时间（毫秒）。 | `Number` | - |
 | submitter | 提交按钮相关配置，使用方式与[ProForm](https://procomponents.ant.design/components/form) 相同。 | [ProForm](https://procomponents.ant.design/components/form) | - |
 
 ### DrawerForm
@@ -68,3 +69,4 @@ DrawerForm 组合了 Drawer 和 ProForm 可以减少繁琐的状态管理。
 | title | 抽屉的标题 | `ReactNode` | - |
 | width | 抽屉的宽度 | `Number` | - |
 | onFinish | 提交数据时触发，如果返回一个 true。会关掉抽屉,如果配置了 `destroyOnClose` 还会重置表单。 | `async (values)=>boolean` | - |
+| timeout | 提交数据时，禁用取消按钮的超时时间（毫秒）。 | `Number` | - |
