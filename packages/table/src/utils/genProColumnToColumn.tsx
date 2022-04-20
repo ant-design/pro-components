@@ -69,7 +69,9 @@ export function genProColumnToColumn<T>(
         return {
           index: columnsIndex,
           isExtraColumns: true,
+          hideInSearch: true,
           hideInTable: false,
+          hideInForm: true,
           hideInSetting: true,
           extraColumn: columnProps,
         };
