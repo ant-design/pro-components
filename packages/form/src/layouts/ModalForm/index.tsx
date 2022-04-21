@@ -25,7 +25,7 @@ export type ModalFormProps<T = Record<string, any>> = Omit<FormProps<T>, 'onFini
     onFinish?: (formData: T) => Promise<any>;
 
     /** @name 提交数据时，禁用取消按钮的超时时间（毫秒）。 */
-    timeout?: number;
+    submitTimeout?: number;
 
     /** @name 用于触发抽屉打开的 dom */
     trigger?: JSX.Element;
@@ -56,7 +56,7 @@ function ModalForm<T = Record<string, any>>({
   onVisibleChange,
   modalProps,
   onFinish,
-  timeout,
+  submitTimeout,
   title,
   width,
   visible: propVisible,
@@ -123,7 +123,7 @@ function ModalForm<T = Record<string, any>>({
         resetButtonProps: {
           preventDefault: true,
           // 提交表单loading时，不可关闭弹框
-          disabled: timeout ? loading : undefined,
+          disabled: submitTimeout ? loading : undefined,
           onClick: (e: any) => {
             setVisible(false);
             modalProps?.onCancel?.(e);
@@ -139,7 +139,7 @@ function ModalForm<T = Record<string, any>>({
     rest.submitter,
     setVisible,
     loading,
-    timeout,
+    submitTimeout,
   ]);
 
   const contentRender = useCallback((formDom: any, submitter: any) => {
@@ -155,18 +155,22 @@ function ModalForm<T = Record<string, any>>({
     async (values: T) => {
       const response = onFinish?.(values);
 
-      if (timeout && response instanceof Promise) {
+      if (submitTimeout && response instanceof Promise) {
         setLoading(true);
 
-        const timer = setTimeout(() => setLoading(false), timeout);
+        const timer = setTimeout(() => setLoading(false), submitTimeout);
         response.finally(() => {
           clearTimeout(timer);
           setLoading(false);
         });
       }
-      return (await response) && setVisible(false);
+      const result = await response;
+      // 返回真值，关闭弹框
+      if (result) {
+        setVisible(false);
+      }
     },
-    [onFinish, setVisible, timeout],
+    [onFinish, setVisible, submitTimeout],
   );
 
   return (
@@ -179,7 +183,7 @@ function ModalForm<T = Record<string, any>>({
         visible={visible}
         onCancel={(e) => {
           // 提交表单loading时，阻止弹框关闭
-          if (timeout && loading) return;
+          if (submitTimeout && loading) return;
           setVisible(false);
           modalProps?.onCancel?.(e);
         }}

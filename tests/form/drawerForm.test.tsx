@@ -622,7 +622,7 @@ describe('DrawerForm', () => {
     html.unmount();
   });
 
-  it('📦 modal timeout is number will disabled close button when submit', async () => {
+  it('📦 modal submitTimeout is number will disabled close button when submit', async () => {
     const fn = jest.fn();
     const wrapper = mount(
       <DrawerForm
@@ -633,7 +633,7 @@ describe('DrawerForm', () => {
         onFinish={async () => {
           await waitTime(2000);
         }}
-        timeout={3000}
+        submitTimeout={3000}
       />,
     );
     await waitForComponentToPaint(wrapper, 500);
@@ -671,7 +671,7 @@ describe('DrawerForm', () => {
     });
   });
 
-  it('📦 modal timeout is null no disable close button when submit', async () => {
+  it('📦 modal submitTimeout is null no disable close button when submit', async () => {
     const fn = jest.fn();
     const wrapper = mount(
       <DrawerForm
