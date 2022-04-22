@@ -63,8 +63,13 @@ export function genProColumnToColumn<T>(
           ...columnProps,
         };
       }
+
+      /**
+       * 是不是展开行和多选按钮
+       */
       const isExtraColumns =
         columnProps === Table.EXPAND_COLUMN || columnProps === Table.SELECTION_COLUMN;
+
       if (isExtraColumns) {
         return {
           index: columnsIndex,
