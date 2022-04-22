@@ -4,7 +4,7 @@ import { Button } from 'antd';
 import { act } from 'react-dom/test-utils';
 import { render } from '@testing-library/react';
 import { mount } from 'enzyme';
-import { waitForComponentToPaint } from '../util';
+import { waitForComponentToPaint, waitTime } from '../util';
 
 describe('DrawerForm', () => {
   it('📦 trigger will simulate onVisibleChange', async () => {
@@ -571,5 +571,90 @@ describe('DrawerForm', () => {
     expect(ref.current).toBeTruthy();
 
     html.unmount();
+  });
+
+  it('📦 modal submitTimeout is number will disabled close button when submit', async () => {
+    const fn = jest.fn();
+    const wrapper = mount(
+      <DrawerForm
+        visible
+        drawerProps={{
+          onClose: () => fn(),
+        }}
+        onFinish={async () => {
+          await waitTime(2000);
+        }}
+        submitTimeout={3000}
+      />,
+    );
+    await waitForComponentToPaint(wrapper, 500);
+
+    act(() => {
+      wrapper.find('button.ant-btn-primary').simulate('click');
+    });
+
+    await waitForComponentToPaint(wrapper, 500);
+
+    expect(wrapper.find('button.ant-btn-default').props().disabled).toEqual(true);
+
+    act(() => {
+      wrapper.find('button.ant-btn-default').simulate('click');
+    });
+
+    await waitForComponentToPaint(wrapper, 500);
+
+    expect(fn).not.toBeCalled();
+
+    await waitForComponentToPaint(wrapper, 2500);
+
+    expect(wrapper.find('button.ant-btn-default').props().disabled).toEqual(false);
+
+    act(() => {
+      wrapper.find('button.ant-btn-default').simulate('click');
+    });
+
+    await waitForComponentToPaint(wrapper, 500);
+
+    expect(fn).toBeCalled();
+
+    act(() => {
+      wrapper.unmount();
+    });
+  });
+
+  it('📦 modal submitTimeout is null no disable close button when submit', async () => {
+    const fn = jest.fn();
+    const wrapper = mount(
+      <DrawerForm
+        visible
+        drawerProps={{
+          onClose: () => fn(),
+        }}
+        onFinish={async () => {
+          await waitTime(2000);
+        }}
+      />,
+    );
+    await waitForComponentToPaint(wrapper, 500);
+
+    act(() => {
+      wrapper.find('button.ant-btn-primary').simulate('click');
+    });
+
+    await waitForComponentToPaint(wrapper, 500);
+
+    expect(wrapper.find('button.ant-btn-default').props().disabled).toEqual(undefined);
+
+    act(() => {
+      wrapper.find('button.ant-btn-default').simulate('click');
+    });
+
+    await waitForComponentToPaint(wrapper, 500);
+
+    expect(fn).toBeCalled();
+
+    act(() => {
+      wrapper.unmount();
+    });
   });
 });
