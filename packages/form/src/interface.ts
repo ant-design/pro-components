@@ -204,6 +204,8 @@ export type ProFormFieldItemProps<T = Record<string, any>> = {
   secondary?: boolean;
   /**
    * @name 是否使用 swr 来缓存 缓存可能导致数据更新不及时，请谨慎使用，尤其是页面中多个组件 name 相同
+   *
+   * @default false
    */
   cacheForSwr?: boolean;
   /**

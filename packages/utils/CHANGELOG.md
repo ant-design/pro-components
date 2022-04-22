@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.39.2](https://github.com/ant-design/pro-components/compare/@ant-design/pro-utils@1.39.1...@ant-design/pro-utils@1.39.2) (2022-04-18)
+
+### Bug Fixes
+
+- **form:** fix revalidateOnFocus alway work error-n ([0ea1618](https://github.com/ant-design/pro-components/commit/0ea1618154634f6e0ac9c64682a71746ab191807))
+- **table:** key does not exist causing error ([#5066](https://github.com/ant-design/pro-components/issues/5066)) ([1dcbacb](https://github.com/ant-design/pro-components/commit/1dcbacb846ea28229417d74d1ad77a0758800829))
+
 ## [1.39.1](https://github.com/ant-design/pro-components/compare/@ant-design/pro-utils@1.39.0...@ant-design/pro-utils@1.39.1) (2022-04-13)
 
 ### Bug Fixes

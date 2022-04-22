@@ -2,6 +2,7 @@
 import { ProFormText, ModalForm } from '@ant-design/pro-form';
 import { Button } from 'antd';
 import { act } from 'react-dom/test-utils';
+import { render } from '@testing-library/react';
 import { mount } from 'enzyme';
 import { waitForComponentToPaint, waitTime } from '../util';
 
@@ -479,5 +480,53 @@ describe('ModalForm', () => {
     act(() => {
       wrapper.unmount();
     });
+
+   it('📦 model no render Form when destroyOnClose', () => {
+    const { container } = render(
+      <ModalForm
+        modalProps={{
+          destroyOnClose: true,
+        }}
+        trigger={
+          <Button id="new" type="primary">
+            新建
+          </Button>
+        }
+      >
+        <ProFormText name="name" />
+      </ModalForm>,
+    );
+    expect(container.querySelector('form')).toBeFalsy();
+  });
+
+  it('📦 ModelForm get formRef when destroyOnClose', async () => {
+    const ref = React.createRef<any>();
+
+    const html = mount(
+      <ModalForm
+        formRef={ref}
+        modalProps={{
+          destroyOnClose: true,
+        }}
+        trigger={
+          <Button id="new" type="primary">
+            新建
+          </Button>
+        }
+      >
+        <ProFormText name="name" />
+      </ModalForm>,
+    );
+
+    waitForComponentToPaint(html, 200);
+    expect(ref.current).toBeFalsy();
+    act(() => {
+      html.find('button#new').simulate('click');
+    });
+    await waitForComponentToPaint(html, 200);
+
+    expect(ref.current).toBeTruthy();
+
+    html.unmount();
   });
 });

@@ -9,6 +9,12 @@ group:
 
 # Change Log
 
+## @ant-design/pro-table@2.71.7
+
+`2022-04-18`
+
+- fix(table): key does not exist causing error (#5066). [#5066](https://github.com/ant-design/pro-components/pull/#5066) [@Dunqing](https://github.com/Dunqing)
+
 ## @ant-design/pro-table@2.71.4
 
 `2022-04-13`

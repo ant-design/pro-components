@@ -90,6 +90,8 @@ ProFormList 支持传入一个方法来获取到当前行的信息和快捷操�
      * @example 清空当前行的数据：{id:"123",name:'123'} -> action.setCurrentRowData({name:undefined}) -> {id:"123"}
      */
     action,
+    // 总行数
+    count,
   ) => {
     return (
       <div key="row">
@@ -101,7 +103,7 @@ ProFormList 支持传入一个方法来获取到当前行的信息和快捷操�
 </ProFormList>
 ```
 
-这三个参数的类型定义如下：
+这四个参数的类型定义如下：
 
 ```tsx | pure
 type RenderActionParams = {
@@ -136,6 +138,10 @@ type RenderActionParams = {
      */
     setCurrentRowData: (data: any) => void;
   };
+  /**
+   * @name 总行数
+   */
+  count: number;
 };
 ```
 
