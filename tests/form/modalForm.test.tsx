@@ -480,8 +480,9 @@ describe('ModalForm', () => {
     act(() => {
       wrapper.unmount();
     });
+  });
 
-   it('📦 model no render Form when destroyOnClose', () => {
+  it('📦 model no render Form when destroyOnClose', () => {
     const { container } = render(
       <ModalForm
         modalProps={{
