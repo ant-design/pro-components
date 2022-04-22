@@ -1,5 +1,5 @@
 import React, { useRef, useEffect } from 'react';
-import { Button, Input } from 'antd';
+import { Button, ConfigProvider, Input } from 'antd';
 import type { ProFormInstance } from '@ant-design/pro-form';
 import { ProFormDateTimePicker } from '@ant-design/pro-form';
 import { ProFormDigitRange } from '@ant-design/pro-form';
@@ -24,6 +24,17 @@ describe('ProForm', () => {
     const wrapper = mount(<ProForm submitter={false} />);
     await waitForComponentToPaint(wrapper);
     expect(wrapper.render()).toMatchSnapshot();
+  });
+
+  it('📦 componentSize is work', async () => {
+    const wrapper = mount(
+      <ConfigProvider componentSize="small">
+        <ProForm>
+          <ProFormText />
+        </ProForm>
+      </ConfigProvider>,
+    );
+    expect(wrapper.find('.ant-input-sm').length).toBe(1);
   });
 
   it('📦 ProForm support sync form url', async () => {
@@ -199,7 +210,7 @@ describe('ProForm', () => {
 
     await waitForComponentToPaint(wrapper, 200);
 
-    expect(wrapper.find('Input#test').props().value).toEqual('test');
+    expect(wrapper.find('input#test').props().value).toEqual('test');
 
     act(() => {
       wrapper.setProps({
@@ -210,7 +221,7 @@ describe('ProForm', () => {
     });
     await waitForComponentToPaint(wrapper, 500);
 
-    expect(wrapper.find('Input#test').props().value).toEqual('1234');
+    expect(wrapper.find('input#test').props().value).toEqual('1234');
   });
 
   it('📦 submit props actionsRender=()=>false', async () => {
@@ -229,12 +240,42 @@ describe('ProForm', () => {
     const wrapper = mount(
       <ProForm
         submitter={{
-          render: () => [<a>test</a>],
+          render: () => [<a key="test">test</a>],
         }}
       />,
     );
     await waitForComponentToPaint(wrapper);
     expect(wrapper.render()).toMatchSnapshot();
+  });
+
+  it('📦 support formRef', async () => {
+    const formRef = React.createRef<ProFormInstance<any>>();
+    const wrapper = mount(
+      <ProForm
+        formRef={formRef}
+        submitter={{
+          render: () => [<a key="test">test</a>],
+        }}
+        initialValues={{
+          test: '12,34',
+        }}
+      >
+        <ProFormText
+          name="test"
+          transform={(value) => {
+            return {
+              test: value.split(','),
+            };
+          }}
+        />
+      </ProForm>,
+    );
+    await waitForComponentToPaint(wrapper, 1000);
+    expect(formRef.current?.getFieldFormatValue?.('test')?.join('-')).toBe('12-34');
+    expect(formRef.current?.getFieldFormatValueObject?.('test')?.test.join('-')).toBe('12-34');
+    expect(formRef.current?.getFieldsFormatValue?.()?.test.join('-')).toBe('12-34');
+    expect(formRef.current?.getFieldFormatValue?.(['test'])?.join('-')).toBe('12-34');
+    expect(formRef.current?.getFieldValue?.('test')).toBe('12,34');
   });
 
   it('📦 ProForm support namePath is array', async () => {
@@ -771,7 +812,7 @@ describe('ProForm', () => {
     await waitForComponentToPaint(wrapper);
 
     act(() => {
-      wrapper.find('Input#testInput').simulate('change', {
+      wrapper.find('input#testInput').simulate('change', {
         target: {
           value: 'test',
         },
@@ -1479,6 +1520,108 @@ describe('ProForm', () => {
     expect(wrapper.find('div.ant-select-item.ant-select-item-option').length).toBe(4);
   });
 
+  it('📦 SearchSelect support multiple and autoClearSearchValue: false ', async () => {
+    const onSearch = jest.fn();
+    const onFinish = jest.fn();
+
+    const wrapper = mount(
+      <ProForm
+        onFinish={async (values) => {
+          onFinish(values?.userQuery?.length);
+        }}
+      >
+        <ProFormSelect.SearchSelect
+          name="userQuery"
+          label="产品选择"
+          placeholder="测试 placeholder"
+          fieldProps={{
+            mode: 'multiple',
+            autoClearSearchValue: false,
+            searchOnFocus: true,
+            onSearch: (e) => onSearch(e),
+          }}
+          options={[
+            { label: '全部', value: 'all' },
+            { label: '未解决', value: 'open' },
+            { label: '已解决', value: 'closed' },
+            { label: '解决中', value: 'processing' },
+          ]}
+        />
+      </ProForm>,
+    );
+
+    // 点击搜索框
+    act(() => {
+      wrapper.find('.ant-select-selector').simulate('mousedown');
+      wrapper.update();
+    });
+
+    await waitForComponentToPaint(wrapper);
+
+    // 默认展示所有的7个选项
+    expect(wrapper.find('div.ant-select-item.ant-select-item-option').length).toBe(4);
+    // 默认输入框没有内容
+    expect(wrapper.find('.ant-select-item-option-content div span').length).toBe(0);
+    // input 元素的内容也为空
+    expect(wrapper.find('input.ant-select-selection-search-input').props().value).toBe('');
+
+    // 输入搜索内容
+    act(() => {
+      wrapper.find('.ant-select-selection-search-input').simulate('change', {
+        target: {
+          value: '解',
+        },
+      });
+    });
+
+    await waitForComponentToPaint(wrapper);
+
+    // 应该有4个item 被筛选出来
+    expect(wrapper.find('div.ant-select-item.ant-select-item-option').length).toBe(3);
+    // input 也有输入的内容
+    expect(wrapper.find('input.ant-select-selection-search-input').props().value).toBe('解');
+
+    // 选中第一个
+    act(() => {
+      wrapper.find('.ant-select-item').at(0).simulate('click');
+    });
+    await waitForComponentToPaint(wrapper);
+
+    // 选中的内容出现在 input 中
+    expect(wrapper.find('.ant-select-item-option-content').at(0).text()).toBe('未解决');
+    expect(wrapper.find('input.ant-select-selection-search-input').props().value).toBe('解');
+    // 搜索的结果, 应该保持不变
+    expect(wrapper.find('div.ant-select-item.ant-select-item-option').length).toBe(3);
+
+    // 继续选中第二个
+    act(() => {
+      wrapper.find('.ant-select-item').at(1).simulate('click');
+    });
+    await waitForComponentToPaint(wrapper);
+
+    // 选中的内容出现在 input 中
+    expect(wrapper.find('.ant-select-item-option-content').at(1).text()).toBe('已解决');
+    expect(wrapper.find('input.ant-select-selection-search-input').props().value).toBe('解');
+
+    act(() => {
+      wrapper.find('.ant-select-selector').simulate('mousedown');
+      wrapper.update();
+    });
+
+    act(() => {
+      wrapper.find('.ant-btn-primary').simulate('submit');
+    });
+
+    // 多次提交需要阻止
+    act(() => {
+      wrapper.find('.ant-btn-primary').simulate('submit');
+    });
+
+    await waitForComponentToPaint(wrapper);
+
+    expect(onFinish).toBeCalledWith(2);
+  });
+
   it('📦 Select support single', async () => {
     const onFinish = jest.fn();
     const wrapper = mount(
@@ -1722,6 +1865,244 @@ describe('ProForm', () => {
 
     expect(wrapper.find('#select1 .ant-select-item').at(0).text()).toBe('1');
     expect(wrapper.find('#select2 .ant-select-item').at(0).text()).toBe('2');
+  });
+
+  it('📦 Select support multiple and autoClearSearchValue: false ', async () => {
+    const onSearch = jest.fn();
+    const onFinish = jest.fn();
+
+    const wrapper = mount(
+      <ProForm
+        onFinish={async (values) => {
+          onFinish(values?.userQuery?.length);
+        }}
+      >
+        <ProFormSelect
+          name="userQuery"
+          label="产品选择"
+          placeholder="测试 placeholder"
+          fieldProps={{
+            mode: 'multiple',
+            autoClearSearchValue: false,
+            searchOnFocus: true,
+            onSearch: (e) => onSearch(e),
+          }}
+          options={[
+            {
+              value: '2',
+              label: '网点2',
+            },
+            {
+              value: '21',
+              label: '网点21',
+            },
+            {
+              value: '22',
+              label: '网点22',
+            },
+            {
+              value: '3',
+              label: '网点3',
+            },
+            {
+              value: '31',
+              label: '网点31',
+            },
+            {
+              value: '32',
+              label: '网点32',
+            },
+            {
+              value: '33',
+              label: '网点33',
+            },
+          ]}
+        />
+      </ProForm>,
+    );
+
+    // 点击搜索框
+    act(() => {
+      wrapper.find('.ant-select-selector').simulate('mousedown');
+      wrapper.update();
+    });
+
+    await waitForComponentToPaint(wrapper);
+
+    // 默认展示所有的7个选项
+    expect(wrapper.find('div.ant-select-item.ant-select-item-option').length).toBe(7);
+    // 默认输入框没有内容
+    expect(wrapper.find('.ant-select-item-option-content div span').length).toBe(0);
+    // input 元素的内容也为空
+    expect(wrapper.find('input.ant-select-selection-search-input').props().value).toBe('');
+
+    // 输入搜索内容
+    act(() => {
+      wrapper.find('.ant-select-selection-search-input').simulate('change', {
+        target: {
+          value: '2',
+        },
+      });
+    });
+
+    await waitForComponentToPaint(wrapper);
+
+    // 应该有4个item 被筛选出来
+    expect(wrapper.find('div.ant-select-item.ant-select-item-option').length).toBe(4);
+    // input 也有输入的内容
+    expect(wrapper.find('input.ant-select-selection-search-input').props().value).toBe('2');
+
+    // 选中第一个
+    act(() => {
+      wrapper.find('.ant-select-item').at(0).simulate('click');
+    });
+    await waitForComponentToPaint(wrapper);
+
+    // 选中的内容出现在 input 中
+    expect(wrapper.find('.ant-select-item-option-content').at(0).text()).toBe('网点2');
+    expect(wrapper.find('input.ant-select-selection-search-input').props().value).toBe('2');
+    // 搜索的结果, 应该保持不变
+    expect(wrapper.find('div.ant-select-item.ant-select-item-option').length).toBe(4);
+
+    // 继续选中第二个
+    act(() => {
+      wrapper.find('.ant-select-item').at(1).simulate('click');
+    });
+    await waitForComponentToPaint(wrapper);
+
+    // 选中的内容出现在 input 中
+    expect(wrapper.find('.ant-select-item-option-content').at(1).text()).toBe('网点21');
+    expect(wrapper.find('input.ant-select-selection-search-input').props().value).toBe('2');
+
+    act(() => {
+      wrapper.find('.ant-select-selector').simulate('mousedown');
+      wrapper.update();
+    });
+
+    act(() => {
+      wrapper.find('.ant-btn-primary').simulate('submit');
+    });
+
+    // 多次提交需要阻止
+    act(() => {
+      wrapper.find('.ant-btn-primary').simulate('submit');
+    });
+
+    await waitForComponentToPaint(wrapper);
+
+    expect(onFinish).toBeCalledWith(2);
+  });
+
+  it('📦 Select support multiple and autoClearSearchValue: true', async () => {
+    const onSearch = jest.fn();
+    const onFinish = jest.fn();
+
+    const wrapper = mount(
+      <ProForm
+        onFinish={async (values) => {
+          onFinish(values?.userQuery?.length);
+        }}
+      >
+        <ProFormSelect
+          name="userQuery"
+          label="产品选择"
+          placeholder="测试 placeholder"
+          fieldProps={{
+            mode: 'multiple',
+            autoClearSearchValue: true,
+            searchOnFocus: true,
+            onSearch: (e) => onSearch(e),
+          }}
+          options={[
+            {
+              value: '2',
+              label: '网点2',
+            },
+            {
+              value: '21',
+              label: '网点21',
+            },
+            {
+              value: '22',
+              label: '网点22',
+            },
+            {
+              value: '3',
+              label: '网点3',
+            },
+            {
+              value: '31',
+              label: '网点31',
+            },
+            {
+              value: '32',
+              label: '网点32',
+            },
+            {
+              value: '33',
+              label: '网点33',
+            },
+          ]}
+        />
+      </ProForm>,
+    );
+
+    // 点击搜索框
+    act(() => {
+      wrapper.find('.ant-select-selector').simulate('mousedown');
+      wrapper.update();
+    });
+
+    await waitForComponentToPaint(wrapper);
+
+    // 默认展示所有的7个选项
+    expect(wrapper.find('div.ant-select-item.ant-select-item-option').length).toBe(7);
+    // 默认输入框没有内容
+    expect(wrapper.find('.ant-select-item-option-content div span').length).toBe(0);
+    // input 元素的内容也为空
+    expect(wrapper.find('input.ant-select-selection-search-input').props().value).toBe('');
+
+    // 输入搜索内容
+    act(() => {
+      wrapper.find('.ant-select-selection-search-input').simulate('change', {
+        target: {
+          value: '2',
+        },
+      });
+    });
+
+    await waitForComponentToPaint(wrapper);
+
+    // 应该有4个item 被筛选出来
+    expect(wrapper.find('div.ant-select-item.ant-select-item-option').length).toBe(4);
+    // input 也有输入的内容
+    expect(wrapper.find('input.ant-select-selection-search-input').props().value).toBe('2');
+
+    // 选中第一个
+    act(() => {
+      wrapper.find('.ant-select-item').at(0).simulate('click');
+    });
+    await waitForComponentToPaint(wrapper);
+
+    // 选中的内容出现在 input 中
+    expect(wrapper.find('.ant-select-item-option-content').at(0).text()).toBe('网点2');
+    // 选中后， 会自动清空搜索内容
+    expect(wrapper.find('input.ant-select-selection-search-input').props().value).toBe('');
+    // 搜索的结果, 恢复到原始结果
+    expect(wrapper.find('div.ant-select-item.ant-select-item-option').length).toBe(7);
+
+    act(() => {
+      wrapper.find('.ant-btn-primary').simulate('submit');
+    });
+
+    // 多次提交需要阻止
+    act(() => {
+      wrapper.find('.ant-btn-primary').simulate('submit');
+    });
+
+    await waitForComponentToPaint(wrapper);
+
+    expect(onFinish).toBeCalledWith(1);
   });
 
   it('📦 ColorPicker support rgba', async () => {

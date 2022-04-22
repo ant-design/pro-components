@@ -16,7 +16,7 @@ export const dateFormatterMap = {
   date: 'YYYY-MM-DD',
   dateWeek: 'YYYY-wo',
   dateMonth: 'YYYY-MM',
-  dateQuarter: 'YYYY-QQ',
+  dateQuarter: 'YYYY-\\QQ',
   dateYear: 'YYYY',
   dateRange: 'YYYY-MM-DD',
   dateTime: 'YYYY-MM-DD HH:mm:ss',

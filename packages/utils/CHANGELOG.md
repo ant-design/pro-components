@@ -2,6 +2,40 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.39.1](https://github.com/ant-design/pro-components/compare/@ant-design/pro-utils@1.39.0...@ant-design/pro-utils@1.39.1) (2022-04-13)
+
+### Bug Fixes
+
+- **utils:** clean react color deps ([#5046](https://github.com/ant-design/pro-components/issues/5046)) ([21e92b7](https://github.com/ant-design/pro-components/commit/21e92b74bc1dcb96d4f5d68268df6b6ee89837c1))
+
+# [1.39.0](https://github.com/ant-design/pro-components/compare/@ant-design/pro-utils@1.38.2...@ant-design/pro-utils@1.39.0) (2022-04-12)
+
+### Features
+
+- **form:** add placement in lightFilter ([#4974](https://github.com/ant-design/pro-components/issues/4974)) ([0e4179d](https://github.com/ant-design/pro-components/commit/0e4179d9e12a370048ec840abc443246d479ffc7))
+
+## [1.38.2](https://github.com/ant-design/pro-components/compare/@ant-design/pro-utils@1.38.1...@ant-design/pro-utils@1.38.2) (2022-04-06)
+
+**Note:** Version bump only for package @ant-design/pro-utils
+
+## [1.38.1](https://github.com/ant-design/pro-components/compare/@ant-design/pro-utils@1.38.0...@ant-design/pro-utils@1.38.1) (2022-03-28)
+
+### Bug Fixes
+
+- **form:** InlineErrorFormItem support set Props ([bef45a5](https://github.com/ant-design/pro-components/commit/bef45a50edd1ea1e84b74d82017d07f7bdafd84c))
+- **table:** fix EditorTable rowKey is rowIndex error ([6b8c6a4](https://github.com/ant-design/pro-components/commit/6b8c6a4131d57b10be29c93c7d9a37e5681adc87))
+- **utils:** avoid empty prototype properties ([#4884](https://github.com/ant-design/pro-components/issues/4884)) ([a03373c](https://github.com/ant-design/pro-components/commit/a03373ca34d39d639b7724a013cd36850789dbed))
+
+# [1.38.0](https://github.com/ant-design/pro-components/compare/@ant-design/pro-utils@1.37.2...@ant-design/pro-utils@1.38.0) (2022-03-25)
+
+### Bug Fixes
+
+- **utils:** add missing backslash in moment format ([#4913](https://github.com/ant-design/pro-components/issues/4913)) ([93cb37b](https://github.com/ant-design/pro-components/commit/93cb37b0ba24d8e7da89e84fa3b988dc76e9ea7d))
+
+### Features
+
+- **table:** support getRows, getRow, setRow ([#4904](https://github.com/ant-design/pro-components/issues/4904)) ([756340e](https://github.com/ant-design/pro-components/commit/756340ee97f13b55e5f51cc875ec6b344e953d24))
+
 ## [1.37.2](https://github.com/ant-design/pro-components/compare/@ant-design/pro-utils@1.37.1...@ant-design/pro-utils@1.37.2) (2022-03-22)
 
 ### Bug Fixes

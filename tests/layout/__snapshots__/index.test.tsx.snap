@@ -16,7 +16,7 @@ Array [
         class="ant-design-pro-layout-l4gpps"
       />
       <aside
-        class="ant-layout-sider ant-layout-sider-light ant-pro-sider ant-pro-sider-fixed ant-pro-sider-layout-side ant-pro-sider-light ant-design-pro-layout-1k9jad6"
+        class="ant-layout-sider ant-layout-sider-light ant-pro-sider ant-pro-sider-fixed ant-pro-sider-layout-side ant-pro-sider-light ant-design-pro-layout-1cavu78"
         style="background-color:transparent;flex:0 0 256px;max-width:256px;min-width:256px;width:256px"
       >
         <div
@@ -423,7 +423,7 @@ Array [
         class="ant-design-pro-layout-18ivuhd"
       />
       <aside
-        class="ant-layout-sider ant-layout-sider-light ant-pro-sider ant-pro-sider-fixed ant-pro-sider-layout-mix ant-pro-sider-light ant-design-pro-layout-jcar9j"
+        class="ant-layout-sider ant-layout-sider-light ant-pro-sider ant-pro-sider-fixed ant-pro-sider-layout-mix ant-pro-sider-light ant-design-pro-layout-1bs9dph"
         style="background-color:transparent;flex:0 0 215px;max-width:215px;min-width:215px;width:215px"
       >
         <div
@@ -652,7 +652,7 @@ exports[`BasicLayout 🥩 base use 1`] = `
       class="ant-design-pro-layout-l4gpps"
     />
     <aside
-      class="ant-layout-sider ant-layout-sider-light ant-pro-sider ant-pro-sider-fixed ant-pro-sider-layout-side ant-pro-sider-light ant-design-pro-layout-1k9jad6"
+      class="ant-layout-sider ant-layout-sider-light ant-pro-sider ant-pro-sider-fixed ant-pro-sider-layout-side ant-pro-sider-light ant-design-pro-layout-1cavu78"
       style="background-color:transparent;flex:0 0 256px;max-width:256px;min-width:256px;width:256px"
     >
       <div
@@ -841,7 +841,7 @@ exports[`BasicLayout 🥩 contentStyle should change dom 1`] = `
       class="ant-design-pro-layout-l4gpps"
     />
     <aside
-      class="ant-layout-sider ant-layout-sider-light ant-pro-sider ant-pro-sider-fixed ant-pro-sider-layout-side ant-pro-sider-light ant-design-pro-layout-1k9jad6"
+      class="ant-layout-sider ant-layout-sider-light ant-pro-sider ant-pro-sider-fixed ant-pro-sider-layout-side ant-pro-sider-light ant-design-pro-layout-1cavu78"
       style="background-color:transparent;flex:0 0 256px;max-width:256px;min-width:256px;width:256px"
     >
       <div
@@ -1031,7 +1031,7 @@ exports[`BasicLayout 🥩 mix layout hideInMenu render right 1`] = `
       class="ant-design-pro-layout-l4gpps"
     />
     <aside
-      class="ant-layout-sider ant-layout-sider-light ant-pro-sider ant-pro-sider-fixed ant-pro-sider-layout-side ant-pro-sider-light ant-design-pro-layout-1k9jad6"
+      class="ant-layout-sider ant-layout-sider-light ant-pro-sider ant-pro-sider-fixed ant-pro-sider-layout-side ant-pro-sider-light ant-design-pro-layout-1cavu78"
       style="background-color: transparent; flex: 0 0 256px; max-width: 256px; min-width: 256px; width: 256px;"
     >
       <div
@@ -1284,7 +1284,7 @@ exports[`BasicLayout 🥩 support loading 1`] = `
       class="ant-design-pro-layout-l4gpps"
     />
     <aside
-      class="ant-layout-sider ant-layout-sider-light ant-pro-sider ant-pro-sider-fixed ant-pro-sider-layout-side ant-pro-sider-light ant-design-pro-layout-1k9jad6"
+      class="ant-layout-sider ant-layout-sider-light ant-pro-sider ant-pro-sider-fixed ant-pro-sider-layout-side ant-pro-sider-light ant-design-pro-layout-1cavu78"
       style="background-color: transparent; flex: 0 0 256px; max-width: 256px; min-width: 256px; width: 256px;"
     >
       <div

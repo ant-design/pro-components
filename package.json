@@ -12,7 +12,7 @@
     "check-deps": "node ./scripts/checkDeps.js",
     "checkPublish": "node ./scripts/checkPublish.js",
     "createRelease": "node ./scripts/createRelease.js",
-    "deploy": "cross-env SITE_DEPLOY='TRUE' npm run site && gh-pages -d ./dist",
+    "deploy": "npm run site && gh-pages -d ./dist",
     "lint": "eslint --cache --ext .js,.jsx,.ts,.tsx  --fix --format=pretty ./packages && npm run lint:prettier && npm run check-deps",
     "lint:prettier": "npm run prettier &&  git diff && prettier --version && prettier --check \"packages/**/**.{js,jsx,tsx,ts,less,md,json}\" --end-of-line auto",
     "prettier": "prettier --write \"**/**.{js,jsx,tsx,ts,less,md,json}\" --loglevel warn",
@@ -36,8 +36,8 @@
     "ie >= 11"
   ],
   "resolutions": {
-    "@types/react": "^16.9.17",
-    "@types/react-dom": "^16.9.1",
+    "@types/react": "^18.0.0",
+    "@types/react-dom": "^18.0.0",
     "prettier": "2.x",
     "typescript": "4.x",
     "rc-menu": "^9.3.1"
@@ -73,7 +73,7 @@
     "@types/warning": "^3.0.0",
     "@types/xhr-mock": "^2.0.0",
     "@umijs/babel-preset-umi": "^3.0.14",
-    "@umijs/doctor": "0.0.14",
+    "@umijs/doctor": "^0.0.16",
     "@umijs/fabric": "^2.6.2",
     "@umijs/plugin-analytics": "^0.2.2",
     "@umijs/plugin-antd": "^0.9.0",

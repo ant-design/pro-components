@@ -17,6 +17,8 @@ export interface ProCardOperationProps {
    * @ignore
    */
   className?: string;
+
+  children?: any;
 }
 
 const ProCardOperation: React.FC<ProCardOperationProps> = (props) => {

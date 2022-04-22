@@ -7,11 +7,40 @@ import { useIntl } from '@ant-design/pro-provider';
 import './index.less';
 
 export type LoginFormProps<T> = {
+  /**
+   * @name form 顶部的一个提示配置，可以配置一些错误的提示信息
+   * @example <caption>提示登录异常</caption>
+   * message={<Alert message="登录异常，请重试！"/>}
+   */
   message: React.ReactNode | false;
+  /**
+   * @name 标题，可以配置为空
+   */
   title: React.ReactNode | false;
+  /**
+   * @name 二级标题，可以配置为空
+   */
   subTitle: React.ReactNode | false;
+  /**
+   * @name 自定义额外的登录功能
+   *
+   * @example <caption>配置支付宝登录</caption>
+   * actions={<a>跳转支付宝登录</a>}
+   *
+   * @example <caption>使用图标</caption>
+   * actions={<a><Icon type="alipay" />跳转支付宝登录</a>}
+   */
   actions: React.ReactNode;
-  logo?: React.ReactNode | string;
+  /**
+   * @name logo 的配置，支持 ReactNode 和 url
+   *
+   * @example 配置为一个图标
+   * logo={<Icon type="alipay" />}
+   * @example 配置为一个路径
+   * logo="https://gw.alipayobjects.com/zos/rmsportal/KDpgvguMpGfqaHPjicRK.svg"
+   */
+  logo?: React.ReactNode;
+  children?: React.ReactNode | React.ReactNode[];
 } & ProFormProps<T>;
 
 function LoginForm<T = Record<string, any>>(props: Partial<LoginFormProps<T>>) {
@@ -19,19 +48,31 @@ function LoginForm<T = Record<string, any>>(props: Partial<LoginFormProps<T>>) {
 
   const intl = useIntl();
 
-  const submitter = {
-    searchConfig: {
-      submitText: intl.getMessage('loginForm.submitText', '登录'),
-    },
-    render: (_, dom) => dom.pop(),
-    submitButtonProps: {
-      size: 'large',
-      style: {
-        width: '100%',
-      },
-    },
-    ...proFormProps.submitter,
-  } as ProFormProps['submitter'];
+  const submitter =
+    proFormProps.submitter === false
+      ? false
+      : ({
+          searchConfig: {
+            submitText: intl.getMessage('loginForm.submitText', '登录'),
+          },
+          submitButtonProps: {
+            size: 'large',
+            style: {
+              width: '100%',
+            },
+          },
+          ...proFormProps.submitter,
+          render: (_, dom) => {
+            const loginButton = dom.pop();
+            if ((proFormProps?.submitter as any)?.render === undefined) {
+              return loginButton;
+            }
+            if (typeof (proFormProps?.submitter as any)?.render === 'function') {
+              return (proFormProps?.submitter as any)?.render?.(_, dom);
+            }
+            return loginButton;
+          },
+        } as ProFormProps['submitter']);
 
   const context = useContext(ConfigProvider.ConfigContext);
   const baseClassName = context.getPrefixCls('pro-form-login');

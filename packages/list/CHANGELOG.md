@@ -2,6 +2,46 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.21.53](https://github.com/ant-design/pro-components/compare/@ant-design/pro-list@1.21.52...@ant-design/pro-list@1.21.53) (2022-04-14)
+
+**Note:** Version bump only for package @ant-design/pro-list
+
+## [1.21.52](https://github.com/ant-design/pro-components/compare/@ant-design/pro-list@1.21.51...@ant-design/pro-list@1.21.52) (2022-04-13)
+
+### Bug Fixes
+
+- **list:** fix list paddding style error ([8bc606d](https://github.com/ant-design/pro-components/commit/8bc606db0d33e1489629adb687e16b0384397e92))
+
+## [1.21.51](https://github.com/ant-design/pro-components/compare/@ant-design/pro-list@1.21.50...@ant-design/pro-list@1.21.51) (2022-04-13)
+
+**Note:** Version bump only for package @ant-design/pro-list
+
+## [1.21.50](https://github.com/ant-design/pro-components/compare/@ant-design/pro-list@1.21.49...@ant-design/pro-list@1.21.50) (2022-04-12)
+
+**Note:** Version bump only for package @ant-design/pro-list
+
+## [1.21.49](https://github.com/ant-design/pro-components/compare/@ant-design/pro-list@1.21.48...@ant-design/pro-list@1.21.49) (2022-04-08)
+
+**Note:** Version bump only for package @ant-design/pro-list
+
+## [1.21.48](https://github.com/ant-design/pro-components/compare/@ant-design/pro-list@1.21.47...@ant-design/pro-list@1.21.48) (2022-04-07)
+
+### Bug Fixes
+
+- **list:** fix pro list prefix no work error ([50b9e54](https://github.com/ant-design/pro-components/commit/50b9e546dcee001d424c55150d2b665559ac3ae2))
+
+## [1.21.47](https://github.com/ant-design/pro-components/compare/@ant-design/pro-list@1.21.46...@ant-design/pro-list@1.21.47) (2022-04-06)
+
+**Note:** Version bump only for package @ant-design/pro-list
+
+## [1.21.46](https://github.com/ant-design/pro-components/compare/@ant-design/pro-list@1.21.45...@ant-design/pro-list@1.21.46) (2022-03-28)
+
+**Note:** Version bump only for package @ant-design/pro-list
+
+## [1.21.45](https://github.com/ant-design/pro-components/compare/@ant-design/pro-list@1.21.44...@ant-design/pro-list@1.21.45) (2022-03-25)
+
+**Note:** Version bump only for package @ant-design/pro-list
+
 ## [1.21.44](https://github.com/ant-design/pro-components/compare/@ant-design/pro-list@1.21.43...@ant-design/pro-list@1.21.44) (2022-03-22)
 
 ### Bug Fixes

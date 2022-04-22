@@ -192,10 +192,14 @@ const FormRender = <T, U = any>({
 
   return (
     <div
-      className={classNames(className, {
+      className={classNames({
+        [getPrefixCls('pro-card')]: true,
+        [`${getPrefixCls('pro-card')}-border`]: !!bordered,
+        [`${getPrefixCls('pro-card')}-bordered`]: !!bordered,
+        [`${getPrefixCls('pro-card')}-ghost`]: !!ghost,
+        [className]: true,
         [formClassName]: isForm,
         [getPrefixCls(`pro-table-search-${toLowerLine(competentName)}`)]: true,
-        [`${getPrefixCls('card')}-bordered`]: !!bordered,
         [`${className}-ghost`]: ghost,
         [(searchConfig as { className: string })?.className]:
           searchConfig !== false && searchConfig?.className,

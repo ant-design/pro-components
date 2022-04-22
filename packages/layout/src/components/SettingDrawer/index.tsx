@@ -8,8 +8,12 @@ import { isBrowser, merge } from '@ant-design/pro-utils';
 import { useUrlSearchParams } from '@umijs/use-params';
 
 import { Button, Divider, Drawer, List, Switch, ConfigProvider, message, Alert } from 'antd';
-import React, { useState, useEffect, useRef, useContext } from 'react';
-import { disable as darkreaderDisable, enable as darkreaderEnable } from '@umijs/ssr-darkreader';
+import React, { useState, useContext, useEffect, useRef } from 'react';
+import {
+  disable as darkreaderDisable,
+  enable as darkreaderEnable,
+  setFetchMethod as setFetch,
+} from '@umijs/ssr-darkreader';
 
 import useMergedState from 'rc-util/lib/hooks/useMergedState';
 import omit from 'omit.js';
@@ -27,6 +31,7 @@ import { cx, css } from '../../emotion';
 type BodyProps = {
   title: string;
   prefixCls: string;
+  children?: React.ReactNode;
 };
 
 type MergerSettingsType<T> = Partial<T> & {
@@ -129,7 +134,10 @@ const updateTheme = async (dark: boolean, color?: string) => {
       ignoreImageAnalysis: [],
       disableStyleSheetsProxy: true,
     };
-    if (window.MutationObserver) darkreaderEnable(defaultTheme, defaultFixes);
+    if (window.MutationObserver && window.fetch) {
+      setFetch(window.fetch);
+      darkreaderEnable(defaultTheme, defaultFixes);
+    }
   } else {
     if (window.MutationObserver) darkreaderDisable();
   }

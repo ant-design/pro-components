@@ -2,6 +2,28 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.19.4](https://github.com/ant-design/pro-components/compare/@ant-design/pro-card@1.19.3...@ant-design/pro-card@1.19.4) (2022-04-13)
+
+**Note:** Version bump only for package @ant-design/pro-card
+
+## [1.19.3](https://github.com/ant-design/pro-components/compare/@ant-design/pro-card@1.19.2...@ant-design/pro-card@1.19.3) (2022-04-12)
+
+**Note:** Version bump only for package @ant-design/pro-card
+
+## [1.19.2](https://github.com/ant-design/pro-components/compare/@ant-design/pro-card@1.19.1...@ant-design/pro-card@1.19.2) (2022-04-06)
+
+**Note:** Version bump only for package @ant-design/pro-card
+
+## [1.19.1](https://github.com/ant-design/pro-components/compare/@ant-design/pro-card@1.19.0...@ant-design/pro-card@1.19.1) (2022-03-28)
+
+**Note:** Version bump only for package @ant-design/pro-card
+
+# [1.19.0](https://github.com/ant-design/pro-components/compare/@ant-design/pro-card@1.18.42...@ant-design/pro-card@1.19.0) (2022-03-25)
+
+### Features
+
+- **card:** add collapsibleIconRender for custom render icon ([#4894](https://github.com/ant-design/pro-components/issues/4894)) ([4e297e6](https://github.com/ant-design/pro-components/commit/4e297e6d1cf05973561b5056a6f9c270d00b3e8b))
+
 ## [1.18.42](https://github.com/ant-design/pro-components/compare/@ant-design/pro-card@1.18.41...@ant-design/pro-card@1.18.42) (2022-03-22)
 
 **Note:** Version bump only for package @ant-design/pro-card

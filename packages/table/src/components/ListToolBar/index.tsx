@@ -77,7 +77,7 @@ function getSettingItem(setting: SettingPropType) {
     const { icon, tooltip, onClick, key } = settingConfig;
     if (icon && tooltip) {
       return (
-        <Tooltip title={tooltip}>
+        <Tooltip title={tooltip as React.ReactNode}>
           <span
             key={key}
             onClick={() => {

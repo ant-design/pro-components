@@ -43,6 +43,7 @@ const columns: ProColumns<GithubIssueItem>[] = [
     },
   },
   {
+    disable: true,
     title: '状态',
     dataIndex: 'state',
     filters: true,
@@ -66,6 +67,7 @@ const columns: ProColumns<GithubIssueItem>[] = [
     },
   },
   {
+    disable: true,
     title: '标签',
     dataIndex: 'labels',
     search: false,
@@ -107,6 +109,7 @@ const columns: ProColumns<GithubIssueItem>[] = [
   {
     title: '操作',
     valueType: 'option',
+    key: 'option',
     render: (text, record, _, action) => [
       <a
         key="editable"
@@ -160,6 +163,9 @@ export default () => {
       columnsState={{
         persistenceKey: 'pro-table-singe-demos',
         persistenceType: 'localStorage',
+        onChange(value) {
+          console.log('value: ', value);
+        },
       }}
       rowKey="id"
       search={{
@@ -179,6 +185,7 @@ export default () => {
       }}
       pagination={{
         pageSize: 5,
+        onChange: (page) => console.log(page),
       }}
       dateFormatter="string"
       headerTitle="高级表格"
@@ -186,6 +193,7 @@ export default () => {
         <Button key="button" icon={<PlusOutlined />} type="primary">
           新建
         </Button>,
+        //@ts-expect-error
         <Dropdown key="menu" overlay={menu}>
           <Button>
             <EllipsisOutlined />

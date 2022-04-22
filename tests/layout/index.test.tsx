@@ -293,6 +293,7 @@ describe('BasicLayout', () => {
   });
 
   it('🥩 render logo by function', async () => {
+    //@ts-expect-error
     const wrapper = mount(<BasicLayout logo={() => <div id="test_log">Logo</div>} />);
     await waitForComponentToPaint(wrapper);
     const logo = wrapper.find('#test_log');
@@ -1463,7 +1464,7 @@ describe('BasicLayout', () => {
     );
 
     expect(html.container.querySelector('.ant-btn.ant-btn-primary.ant-btn-lg')?.textContent).toBe(
-      '登 录',
+      'Login',
     );
   });
 });

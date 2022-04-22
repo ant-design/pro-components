@@ -2,6 +2,76 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.64.0](https://github.com/ant-design/pro-components/compare/@ant-design/pro-form@1.63.1...@ant-design/pro-form@1.64.0) (2022-04-14)
+
+### Features
+
+- **form:** add new components LoginFormPage ([5d6a2ee](https://github.com/ant-design/pro-components/commit/5d6a2ee0b9a57502c683319a3ff48d7a53481eaa))
+
+## [1.63.1](https://github.com/ant-design/pro-components/compare/@ant-design/pro-form@1.63.0...@ant-design/pro-form@1.63.1) (2022-04-13)
+
+### Bug Fixes
+
+- **form:** clean react color deps ([#5044](https://github.com/ant-design/pro-components/issues/5044)) ([8977a26](https://github.com/ant-design/pro-components/commit/8977a2662195078efb7376e5fa4f0037641943ec))
+
+# [1.63.0](https://github.com/ant-design/pro-components/compare/@ant-design/pro-form@1.62.1...@ant-design/pro-form@1.63.0) (2022-04-12)
+
+### Bug Fixes
+
+- **form:** fix array placeholder ([#5022](https://github.com/ant-design/pro-components/issues/5022)) ([9fdf86b](https://github.com/ant-design/pro-components/commit/9fdf86b083989f1b088790edb3b4ee2698079fc8))
+- **form:** fix document is null, will error ([#5025](https://github.com/ant-design/pro-components/issues/5025)) ([f2344b4](https://github.com/ant-design/pro-components/commit/f2344b40663955b7edc33a9261c7746b34db7c1d))
+- **form:** fix ProFormTreeSelect and ProFormCascader no work when LightFilter ([#5026](https://github.com/ant-design/pro-components/issues/5026)) ([b9db318](https://github.com/ant-design/pro-components/commit/b9db318da48bc775c40ff3e1c32827446df042b7))
+- **table:** supporting custom gutter for form ([#5015](https://github.com/ant-design/pro-components/issues/5015)) ([9528a5c](https://github.com/ant-design/pro-components/commit/9528a5ca1180dad07d25a0a50cd9719704be37d8))
+
+### Features
+
+- **form:** add placement in lightFilter ([#4974](https://github.com/ant-design/pro-components/issues/4974)) ([0e4179d](https://github.com/ant-design/pro-components/commit/0e4179d9e12a370048ec840abc443246d479ffc7))
+
+## [1.62.1](https://github.com/ant-design/pro-components/compare/@ant-design/pro-form@1.62.0...@ant-design/pro-form@1.62.1) (2022-04-08)
+
+**Note:** Version bump only for package @ant-design/pro-form
+
+# [1.62.0](https://github.com/ant-design/pro-components/compare/@ant-design/pro-form@1.61.1...@ant-design/pro-form@1.62.0) (2022-04-07)
+
+### Bug Fixes
+
+- **form:** fix alwaysShowItemLabel no work error ([8bccdf7](https://github.com/ant-design/pro-components/commit/8bccdf7f18b7b6651b792938e1bef89cb06efc4f))
+- **form:** fix alwaysShowItemLabel no work error ([66a879c](https://github.com/ant-design/pro-components/commit/66a879c312f0823fdaa2bc0cff9da55659788c3e))
+
+### Features
+
+- **form:** Render Extra Content inside Pro Form List ([#4991](https://github.com/ant-design/pro-components/issues/4991)) ([ba73f4a](https://github.com/ant-design/pro-components/commit/ba73f4a5e686355d78125517bd039f7e34a446d5))
+
+## [1.61.1](https://github.com/ant-design/pro-components/compare/@ant-design/pro-form@1.61.0...@ant-design/pro-form@1.61.1) (2022-04-06)
+
+### Bug Fixes
+
+- **form:** cacheForSwr not work ([#4976](https://github.com/ant-design/pro-components/issues/4976)) ([df6676d](https://github.com/ant-design/pro-components/commit/df6676de1c7602e3e7a72e1ce3bee5ade15593ed))
+- **form:** Invalid use of DatePicker format in ProFormList ([#4978](https://github.com/ant-design/pro-components/issues/4978)) ([3674d2e](https://github.com/ant-design/pro-components/commit/3674d2e450c549030251c82cd8015babea3f901f))
+- **table:** fix ts error ([db7e313](https://github.com/ant-design/pro-components/commit/db7e3138faf9ff7b8fcffd8e47a10f0551d1e0d6))
+
+# [1.61.0](https://github.com/ant-design/pro-components/compare/@ant-design/pro-form@1.60.0...@ant-design/pro-form@1.61.0) (2022-03-28)
+
+### Bug Fixes
+
+- **form:** ConfigProvider setting componentSize dosen't work when using BaseForm ([#4927](https://github.com/ant-design/pro-components/issues/4927)) ([89729a2](https://github.com/ant-design/pro-components/commit/89729a2d4908ed5c5e0f05fea6c20137b5c73239))
+- **form:** do not re-execute fieldProps when onValuesChange is set ([#4922](https://github.com/ant-design/pro-components/issues/4922)) ([5d873eb](https://github.com/ant-design/pro-components/commit/5d873eb865d2353c8646a28f625622efc5d183d4))
+
+### Features
+
+- **form:** support setCurrentRowData and getCurrentRowData ([#4926](https://github.com/ant-design/pro-components/issues/4926)) ([3eb11e3](https://github.com/ant-design/pro-components/commit/3eb11e3ec6a814fed091b0d9204563f61f5e28f0))
+
+# [1.60.0](https://github.com/ant-design/pro-components/compare/@ant-design/pro-form@1.59.3...@ant-design/pro-form@1.60.0) (2022-03-25)
+
+### Bug Fixes
+
+- **form:** field will be ignored when value=0 ([#4901](https://github.com/ant-design/pro-components/issues/4901)) ([1e8a213](https://github.com/ant-design/pro-components/commit/1e8a213bcadbfe702629996b407fa71ec74ea64c))
+
+### Features
+
+- **form:** support grid layout ([#4859](https://github.com/ant-design/pro-components/issues/4859)) ([266af92](https://github.com/ant-design/pro-components/commit/266af92b2c1e1ac22b7e93f9745a65cbf748bbb4))
+- **table:** support getRows, getRow, setRow ([#4904](https://github.com/ant-design/pro-components/issues/4904)) ([756340e](https://github.com/ant-design/pro-components/commit/756340ee97f13b55e5f51cc875ec6b344e953d24))
+
 ## [1.59.3](https://github.com/ant-design/pro-components/compare/@ant-design/pro-form@1.59.2...@ant-design/pro-form@1.59.3) (2022-03-22)
 
 **Note:** Version bump only for package @ant-design/pro-form

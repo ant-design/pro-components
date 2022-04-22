@@ -1,5 +1,6 @@
 ﻿import React from 'react';
 import ProForm, { ProFormList, ProFormText, ProFormDependency } from '@ant-design/pro-form';
+import { Button } from 'antd';
 
 const Demo = () => {
   return (
@@ -28,7 +29,7 @@ const Demo = () => {
                     return (
                       <span
                         style={{
-                          lineHeight: '32px',
+                          lineHeight: '92px',
                         }}
                       >
                         输入姓名展示
@@ -38,6 +39,40 @@ const Demo = () => {
                   return <ProFormText name="remark" label="昵称详情" />;
                 }}
               </ProFormDependency>
+              <div
+                style={{
+                  display: 'flex',
+                  alignItems: 'flex-end',
+                  gap: '8px',
+                  height: 60,
+                }}
+              >
+                <Button
+                  type="primary"
+                  key="SET"
+                  onClick={() => {
+                    action.setCurrentRowData({
+                      name: 'New Name' + index,
+                      remark: 'New Remark' + index,
+                    });
+                  }}
+                >
+                  设置此行
+                </Button>
+
+                <Button
+                  type="dashed"
+                  key="clear"
+                  onClick={() => {
+                    action.setCurrentRowData({
+                      name: undefined,
+                      remark: undefined,
+                    });
+                  }}
+                >
+                  清空此行
+                </Button>
+              </div>
             </>
           );
         }}

@@ -25,7 +25,7 @@ export type ProFormCaptchaProps = ProFormFieldItemProps<InputProps> & {
   onChange?: any;
 };
 
-const ProFormCaptcha: React.FC<ProFormCaptchaProps> = React.forwardRef((props, ref: any) => {
+const BaseProFormCaptcha: React.FC<ProFormCaptchaProps> = React.forwardRef((props, ref: any) => {
   const [count, setCount] = useState<number>(props.countDown || 60);
   const [timing, setTiming] = useState(false);
   const [loading, setLoading] = useState<boolean>();
@@ -125,4 +125,6 @@ const ProFormCaptcha: React.FC<ProFormCaptchaProps> = React.forwardRef((props, r
   );
 });
 
-export default createField(ProFormCaptcha);
+const ProFormCaptcha = createField(BaseProFormCaptcha) as typeof BaseProFormCaptcha;
+
+export default ProFormCaptcha;

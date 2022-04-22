@@ -12,10 +12,49 @@ import {
   ProFormDateTimeRangePicker,
   ProFormSlider,
   ProFormFieldSet,
+  ProFormTreeSelect,
+  ProFormCascader,
 } from '@ant-design/pro-form';
-import { Radio } from 'antd';
+import { Radio, TreeSelect } from 'antd';
 import type { SizeType } from 'antd/lib/config-provider/SizeContext';
 import moment from 'moment';
+
+const treeData = [
+  {
+    title: 'Node1',
+    value: '0-0',
+    key: '0-0',
+    children: [
+      {
+        title: 'Child Node1',
+        value: '0-0-0',
+        key: '0-0-0',
+      },
+    ],
+  },
+  {
+    title: 'Node2',
+    value: '0-1',
+    key: '0-1',
+    children: [
+      {
+        title: 'Child Node3',
+        value: '0-1-0',
+        key: '0-1-0',
+      },
+      {
+        title: 'Child Node4',
+        value: '0-1-1',
+        key: '0-1-1',
+      },
+      {
+        title: 'Child Node5',
+        value: '0-1-2',
+        key: '0-1-2',
+      },
+    ],
+  },
+];
 
 export default () => {
   const [size, setSize] = React.useState<SizeType>('middle');
@@ -86,6 +125,60 @@ export default () => {
             hangzhou: '杭州',
             long: '这是一个很长的用来测试溢出的项目',
           }}
+        />
+        <ProFormTreeSelect
+          initialValue={['0-0', '0-1']}
+          label="树形下拉选择器"
+          request={async () => treeData}
+          fieldProps={{
+            fieldNames: {
+              label: 'title',
+            },
+            treeCheckable: true,
+            showCheckedStrategy: TreeSelect.SHOW_PARENT,
+            placeholder: 'Please select',
+          }}
+          name="treeSelect"
+        />
+        <ProFormCascader
+          width="md"
+          request={async () => [
+            {
+              value: 'zhejiang',
+              label: '浙江',
+              children: [
+                {
+                  value: 'hangzhou',
+                  label: '杭州',
+                  children: [
+                    {
+                      value: 'xihu',
+                      label: '西湖',
+                    },
+                  ],
+                },
+              ],
+            },
+            {
+              value: 'jiangsu',
+              label: 'Jiangsu',
+              children: [
+                {
+                  value: 'nanjing',
+                  label: 'Nanjing',
+                  children: [
+                    {
+                      value: 'zhonghuamen',
+                      label: 'Zhong Hua Men',
+                    },
+                  ],
+                },
+              ],
+            },
+          ]}
+          name="area"
+          label="区域"
+          initialValue={['zhejiang', 'hangzhou', 'xihu']}
         />
         <ProFormDigit name="count" label="数量" />
         <ProFormSlider name="range" label="范围" range />

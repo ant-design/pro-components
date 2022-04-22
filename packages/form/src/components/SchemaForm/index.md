@@ -63,6 +63,8 @@ SchemaForm 表单最重要就是 Schema 的类型定义，我们使用了与 tab
 | `hideInTable` | `boolean` | 在 Table 中隐藏 |
 | `hideInSearch` | `boolean` | 在 Table 的查询表格中隐藏 |
 | `columns` | `ProFormColumnsType[] \| (values) => ProFormColumnsType[]` | 嵌套子项，valueType 为 dependency 时，请使用`(values) => ProFormColumnsType[]`其他情况使用 `ProFormColumnsType[]` |
+| `colProps` | [ColProps](https://ant.design/components/grid/#Col) | 在开启 grid 模式时传递给 Col |
+| `rowProps` | [RowProps](https://ant.design/components/grid/#Row) | 开启栅格化模式时传递给 Row |
 
 ## 代码示例
 

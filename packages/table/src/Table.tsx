@@ -53,6 +53,7 @@ import type {
   RequestData,
   TableRowSelection,
   UseFetchDataAction,
+  OptionSearchProps,
 } from './typing';
 import type { ActionType } from '.';
 import { columnSort } from './utils/columnSort';
@@ -234,6 +235,7 @@ function TableRender<T extends Record<string, any>, U, ValueType>(
     : baseTableDom;
 
   useEffect(() => {
+    // 如果带了name，说明要用自带的 form，需要设置一下。
     if (props.name) {
       counter.setEditorTableForm(props.editable!.form!);
     }
@@ -333,9 +335,9 @@ function TableRender<T extends Record<string, any>, U, ValueType>(
     >
       {isLightFilter ? null : searchNode}
       {/* 渲染一个额外的区域，用于一些自定义 */}
-      {type !== 'form' && props.tableExtraRender && action.dataSource && (
+      {type !== 'form' && props.tableExtraRender && (
         <div className={`${className}-extra`}>
-          {props.tableExtraRender(props, action.dataSource)}
+          {props.tableExtraRender(props, action.dataSource || [])}
         </div>
       )}
       {type !== 'form' && renderTable()}
@@ -462,6 +464,8 @@ const ProTable = <T extends Record<string, any>, U extends ParamsType, ValueType
       ? (propsPagination as TablePaginationConfig)
       : { defaultCurrent: 1, defaultPageSize: 20, pageSize: 20, current: 1 };
 
+  const counter = Container.useContainer();
+
   // ============================ useFetchData ============================
   const fetchData = useMemo(() => {
     if (!request) return undefined;
@@ -471,6 +475,7 @@ const ProTable = <T extends Record<string, any>, U extends ParamsType, ValueType
         ...formSearch,
         ...params,
       };
+
       // eslint-disable-next-line no-underscore-dangle
       delete (actionParams as any)._timestamp;
       const response = await request(actionParams as unknown as U, proSort, proFilter);
@@ -493,12 +498,12 @@ const ProTable = <T extends Record<string, any>, U extends ParamsType, ValueType
     effects: [stringify(params), stringify(formSearch), stringify(proFilter), stringify(proSort)],
     debounceTime: props.debounceTime,
     onPageInfoChange: (pageInfo) => {
+      if (type === 'list' || !propsPagination) return;
+
       // 总是触发一下 onChange 和  onShowSizeChange
       // 目前只有 List 和 Table 支持分页, List 有分页的时候打断 Table 的分页
-      if (propsPagination && type !== 'list') {
-        propsPagination?.onChange?.(pageInfo.current, pageInfo.pageSize);
-        propsPagination?.onShowSizeChange?.(pageInfo.current, pageInfo.pageSize);
-      }
+      propsPagination?.onChange?.(pageInfo.current, pageInfo.pageSize);
+      propsPagination?.onShowSizeChange?.(pageInfo.current, pageInfo.pageSize);
     },
   });
   // ============================ END ============================
@@ -546,7 +551,7 @@ const ProTable = <T extends Record<string, any>, U extends ParamsType, ValueType
     if (action.dataSource?.length) {
       const newCache = new Map<any, T>();
       const keys = action.dataSource.map((data) => {
-        const dataRowKey = (data as any)?.[rowKey as string] ?? data?.key;
+        const dataRowKey = getRowKey(data, -1);
         newCache.set(dataRowKey, data);
         return dataRowKey;
       });
@@ -554,7 +559,7 @@ const ProTable = <T extends Record<string, any>, U extends ParamsType, ValueType
       return keys;
     }
     return [];
-  }, [action.dataSource, rowKey]);
+  }, [action.dataSource, getRowKey]);
 
   useEffect(() => {
     selectedRowsRef.current = selectedRowKeys!?.map(
@@ -564,6 +569,7 @@ const ProTable = <T extends Record<string, any>, U extends ParamsType, ValueType
 
   /** 页面编辑的计算 */
   const pagination = useMemo(() => {
+    const newPropsPagination = propsPagination === false ? false : { ...propsPagination };
     const pageConfig = {
       ...action.pageInfo,
       setPageInfo: ({ pageSize, current }: PageInfo) => {
@@ -583,7 +589,11 @@ const ProTable = <T extends Record<string, any>, U extends ParamsType, ValueType
         });
       },
     };
-    return mergePagination<T>(propsPagination, pageConfig, intl);
+    if (request && newPropsPagination) {
+      delete newPropsPagination.onChange;
+      delete newPropsPagination.onShowSizeChange;
+    }
+    return mergePagination<T>(newPropsPagination, pageConfig, intl);
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [propsPagination, action, intl]);
 
@@ -596,8 +606,6 @@ const ProTable = <T extends Record<string, any>, U extends ParamsType, ValueType
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [params]);
-
-  const counter = Container.useContainer();
 
   // 设置 name 到 store 中，里面用了 ref ，所以不用担心直接 set
   counter.setPrefixName(props.name);
@@ -735,6 +743,25 @@ const ProTable = <T extends Record<string, any>, U extends ParamsType, ValueType
   /** 是不是 LightFilter, LightFilter 有一些特殊的处理 */
   const isLightFilter: boolean = search !== false && search?.filterType === 'light';
 
+  const onFormSearchSubmit = <Y extends ParamsType>(values: Y): any => {
+    // 判断search.onSearch返回值决定是否更新formSearch
+    if (options && options.search) {
+      const { name = 'keyword' } = options.search === true ? {} : options.search;
+
+      /** 如果传入的 onSearch 返回值为 false，则不要把options.search.name对应的值set到formSearch */
+      const success = (options.search as OptionSearchProps)?.onSearch?.(counter.keyWords!);
+
+      if (success !== false) {
+        setFormSearch({
+          ...values,
+          [name]: counter.keyWords,
+        });
+        return;
+      }
+    }
+
+    setFormSearch(values);
+  };
   const searchNode =
     search === false && type !== 'form' ? null : (
       <FormRender<T, U>
@@ -743,7 +770,7 @@ const ProTable = <T extends Record<string, any>, U extends ParamsType, ValueType
         action={actionRef}
         columns={propsColumns}
         onFormSearchSubmit={(values) => {
-          setFormSearch(values);
+          onFormSearchSubmit(values);
         }}
         ghost={ghost}
         onReset={props.onReset}

@@ -6,6 +6,7 @@ import './index.less';
 type StatusProps = {
   className?: string;
   style?: CSSProperties;
+  children?: React.ReactNode;
 };
 
 /** 快捷操作，用于快速的展示一个状态 */

@@ -13,6 +13,7 @@ import type { ExtendsProps, ProFormFieldItemProps, ProFormItemCreateConfig } fro
 import { ProFormItem, ProFormDependency } from '../components';
 import { FieldContext as RcFieldContext } from 'rc-field-form';
 import type { FormItemProps } from 'antd';
+import { useGridHelpers } from '../helpers';
 
 export const TYPE = Symbol('ProFormComponent');
 
@@ -62,7 +63,7 @@ function createField<P extends ProFormFieldItemProps = any>(
 
   const FieldWithContext: React.FC<P & ExtendsProps & FunctionFieldProps> = (props) => {
     const {
-      valueType,
+      valueType: tmpValueType,
       customLightMode,
       lightFilterLabelFormatter,
       valuePropName = 'value',
@@ -92,8 +93,15 @@ function createField<P extends ProFormFieldItemProps = any>(
       ...rest
     } = { ...defaultProps, ...props };
 
-    // eslint-disable-next-line @typescript-eslint/no-unused-vars
-    const [_, forceUpdate] = useState<[]>();
+    const valueType = tmpValueType || rest.valueType;
+
+    // 有些 valueType 不需要宽度
+    const isIgnoreWidth = useMemo(
+      () => ignoreWidth || ignoreWidthValueType.includes(valueType),
+      [ignoreWidth, valueType],
+    );
+
+    const [, forceUpdate] = useState<[]>();
 
     // onChange触发fieldProps,formItemProps重新执行
     const [onlyChange, forceUpdateByOnChange] = useState<[]>();
@@ -101,7 +109,7 @@ function createField<P extends ProFormFieldItemProps = any>(
     /**
      * 从 context 中拿到的值
      */
-    const fieldContextValue = React.useContext(FieldContext);
+    const contextValue = React.useContext(FieldContext);
 
     /**
      * dependenciesValues change to trigger re-execute of getFieldProps and getFormItemProps
@@ -123,7 +131,7 @@ function createField<P extends ProFormFieldItemProps = any>(
         ...(ignoreFormItem ? omitUndefined({ value: rest.value }) : {}),
         placeholder,
         disabled: props.disabled,
-        ...fieldContextValue.fieldProps,
+        ...contextValue.fieldProps,
         ...changedProps.fieldProps,
         // 支持未传递getFieldProps的情况
         // 某些特殊hack情况下覆盖原来设置的fieldProps参数
@@ -138,7 +146,7 @@ function createField<P extends ProFormFieldItemProps = any>(
       rest.fieldProps,
       placeholder,
       props.disabled,
-      fieldContextValue.fieldProps,
+      contextValue.fieldProps,
       changedProps.fieldProps,
     ]);
 
@@ -147,7 +155,7 @@ function createField<P extends ProFormFieldItemProps = any>(
 
     const formItemProps: FormItemProps = useMemo(
       () => ({
-        ...fieldContextValue.formItemProps,
+        ...contextValue.formItemProps,
         ...restFormItemProps,
         ...changedProps.formItemProps,
         // 支持未传递getFormItemProps的情况
@@ -156,7 +164,7 @@ function createField<P extends ProFormFieldItemProps = any>(
       }),
       [
         changedProps.formItemProps,
-        fieldContextValue.formItemProps,
+        contextValue.formItemProps,
         rest.formItemProps,
         restFormItemProps,
       ],
@@ -177,12 +185,8 @@ function createField<P extends ProFormFieldItemProps = any>(
       '请不要在 Form 中使用 defaultXXX。如果需要默认值请使用 initialValues 和 initialValue。',
     );
 
-    const propsValueType = useMemo(() => rest.valueType, [rest.valueType]);
-
     const { prefixName } = useContext(RcFieldContext);
     const proFieldKey = useMemo(() => {
-      /** 如果没有cacheForSwr，默认关掉缓存 只有table中默认打开，form中打开问题还挺多的，有些场景name 会相同 */
-      if (!cacheForSwr) return undefined;
       let name = otherProps?.name;
       if (Array.isArray(name)) name = name.join('_');
       if (Array.isArray(prefixName) && name) name = `${prefixName.join('.')}.${name}`;
@@ -193,7 +197,7 @@ function createField<P extends ProFormFieldItemProps = any>(
     const prefRest = usePrevious(rest);
 
     const onChange = useCallback(
-      (...restParams) => {
+      (...restParams: any[]) => {
         if (getFormItemProps || getFieldProps) {
           forceUpdateByOnChange([]);
         } else if (rest.renderFormItem) {
@@ -204,40 +208,27 @@ function createField<P extends ProFormFieldItemProps = any>(
       [getFieldProps, getFormItemProps, fieldProps, rest.renderFormItem],
     );
 
-    const fieldPropsStyle = useMemo(
-      () => {
-        const newStyle = {
-          ...fieldProps?.style,
-        };
-        if (newStyle.width !== undefined && propsValueType === 'switch') {
-          Reflect.deleteProperty(newStyle, 'width');
-        }
-        return newStyle;
-      },
-      // eslint-disable-next-line react-hooks/exhaustive-deps
-      [stringify(fieldProps?.style), propsValueType],
-    );
-
     const style = useMemo(() => {
-      return omitUndefined({
-        width: width && !WIDTH_SIZE_ENUM[width] ? width : undefined,
-        ...fieldPropsStyle,
-      });
-    }, [fieldPropsStyle, width]);
+      const newStyle = {
+        width: width && !WIDTH_SIZE_ENUM[width] ? width : contextValue.grid ? '100%' : undefined,
+        ...fieldProps?.style,
+      };
+
+      if (isIgnoreWidth) Reflect.deleteProperty(newStyle, 'width');
+
+      return omitUndefined(newStyle);
+      // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, [stringify(fieldProps?.style), contextValue.grid, isIgnoreWidth, width]);
 
     const className = useMemo(() => {
+      const isSizeEnum = width && WIDTH_SIZE_ENUM[width];
       return (
         classnames(fieldProps?.className, {
-          'pro-field': width && WIDTH_SIZE_ENUM[width],
-          [`pro-field-${width}`]:
-            width &&
-            // 有些 valueType 不需要宽度
-            !ignoreWidthValueType.includes(propsValueType as 'text') &&
-            !ignoreWidth &&
-            WIDTH_SIZE_ENUM[width],
+          'pro-field': isSizeEnum,
+          [`pro-field-${width}`]: isSizeEnum && !isIgnoreWidth,
         }) || undefined
       );
-    }, [ignoreWidth, propsValueType, fieldProps?.className, width]);
+    }, [width, fieldProps?.className, isIgnoreWidth]);
 
     const fieldProFieldProps = useMemo(() => {
       return omitUndefined({
@@ -245,9 +236,10 @@ function createField<P extends ProFormFieldItemProps = any>(
         readonly,
         params: rest.params,
         proFieldKey: proFieldKey,
+        cacheForSwr,
         ...proFieldProps,
       });
-    }, [proFieldKey, readonly, rest?.mode, rest.params, proFieldProps]);
+    }, [rest?.mode, rest.params, readonly, proFieldKey, cacheForSwr, proFieldProps]);
 
     const fieldFieldProps = useMemo(() => {
       return {
@@ -297,7 +289,7 @@ function createField<P extends ProFormFieldItemProps = any>(
           ignoreFormItem={ignoreFormItem}
           transform={transform}
           dataFormat={fieldProps?.format}
-          valueType={valueType || propsValueType}
+          valueType={valueType}
           messageVariables={{
             label: (label as string) || '',
             ...otherProps?.messageVariables,
@@ -305,7 +297,7 @@ function createField<P extends ProFormFieldItemProps = any>(
           convertValue={convertValue}
           lightProps={omitUndefined({
             ...fieldProps,
-            valueType: valueType || propsValueType,
+            valueType,
             bordered,
             allowClear: field?.props?.allowClear ?? allowClear,
             light: proFieldProps?.light,
@@ -333,7 +325,6 @@ function createField<P extends ProFormFieldItemProps = any>(
       transform,
       fieldProps,
       valueType,
-      propsValueType,
       convertValue,
       bordered,
       field,
@@ -343,7 +334,9 @@ function createField<P extends ProFormFieldItemProps = any>(
       rest.lightProps,
     ]);
 
-    return FormItem;
+    const { ColWrapper } = useGridHelpers(rest);
+
+    return <ColWrapper>{FormItem}</ColWrapper>;
   };
 
   const DependencyWrapper: React.FC<P & ExtendsProps & FunctionFieldProps> = (props) => {

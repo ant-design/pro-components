@@ -41,6 +41,7 @@ const Card = React.forwardRef((props: CardProps, ref: any) => {
     direction,
     collapsed: controlCollapsed,
     collapsible = false,
+    collapsibleIconRender,
     defaultCollapsed = false,
     onCollapse,
     checked,
@@ -205,12 +206,17 @@ const Card = React.forwardRef((props: CardProps, ref: any) => {
   );
 
   // 非受控情况下展示
-  const collapsibleButton = collapsible && controlCollapsed === undefined && (
-    <RightOutlined
-      rotate={!collapsed ? 90 : undefined}
-      className={`${prefixCls}-collapsible-icon`}
-    />
-  );
+  const collapsibleButton =
+    collapsible &&
+    controlCollapsed === undefined &&
+    (collapsibleIconRender ? (
+      collapsibleIconRender({ collapsed })
+    ) : (
+      <RightOutlined
+        rotate={!collapsed ? 90 : undefined}
+        className={`${prefixCls}-collapsible-icon`}
+      />
+    ));
 
   return (
     <div

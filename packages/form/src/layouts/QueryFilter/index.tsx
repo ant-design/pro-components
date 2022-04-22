@@ -2,7 +2,7 @@
 import type { ReactElement } from 'react';
 import { useContext } from 'react';
 import React, { useMemo } from 'react';
-import type { FormItemProps } from 'antd';
+import type { FormItemProps, RowProps } from 'antd';
 import { Row, Col, Form, Divider, ConfigProvider } from 'antd';
 import type { FormInstance, FormProps } from 'antd/lib/form/Form';
 import RcResizeObserver from 'rc-resize-observer';
@@ -15,8 +15,6 @@ import { BaseForm } from '../../BaseForm';
 import type { ActionsProps } from './Actions';
 import Actions from './Actions';
 import classNames from 'classnames';
-
-import './index.less';
 
 const CONFIG_SPAN_BREAKPOINTS = {
   xs: 513,
@@ -91,20 +89,58 @@ export type SpanConfig =
     };
 
 export type BaseQueryFilterProps = Omit<ActionsProps, 'submitter' | 'setCollapsed' | 'isForm'> & {
+  className?: string;
   defaultCollapsed?: boolean;
+  /**
+   * @name layout 的布局设置
+   * @type 'horizontal' | 'inline' | 'vertical';
+   */
   layout?: FormProps['layout'];
   defaultColsNumber?: number;
+  /**
+   * @name 文字标签的宽度
+   *
+   * @example 文字标签宽 80 ，一般用于只有两个字
+   * labelWidth={80}
+   * @example 文字标签宽 140 ，一般用于有四个字
+   * labelWidth={140}
+   * @example 自动计算，会导致不整齐
+   * labelWidth="auto"
+   */
   labelWidth?: number | 'auto';
+  /**
+   * @name 每一行之前要不要有分割线
+   * @description 只有在 `layout` 为 `vertical` 时生效
+   */
   split?: boolean;
-  className?: string;
-  /** 配置列数 */
+  /**
+   * @name 配置列数，一般而言是 8 的倍数
+   *
+   * @example 配置一行4个
+   * span={6}
+   *
+   * @example 配置一行3个
+   * span={6}
+   *
+   * @example 根据屏幕宽度配置
+   * span={xs: 24, sm: 12, md: 8, lg: 6, xl: 6, xxl: 6}
+   * */
   span?: SpanConfig;
 
-  /** 查询按钮的文本 */
+  /**
+   * @name 查询按钮的文本
+   *  */
   searchText?: string;
-  /** 重置按钮的文本 */
+  /**
+   * @name 重置按钮的文本
+   */
   resetText?: string;
-
+  /**
+   * @name 查询表单栅格间隔
+   *
+   * @example searchGutter={24}
+   * */
+  searchGutter?: RowProps['gutter'];
   form?: FormProps['form'];
   /**
    * @param searchConfig 基础的配置
@@ -116,6 +152,14 @@ export type BaseQueryFilterProps = Omit<ActionsProps, 'submitter' | 'setCollapse
    *     setCollapse: (collapse: boolean) => void;
    *     showCollapseButton: boolean; }
    * @name 底部操作栏的 render
+   *
+   *
+   * @example 增加一个清空按钮
+   * optionRender={(searchConfig, props, dom) =>[ <a key="clear">清空</a>,...dom]}
+   *
+   * @example 增自定义提交
+   *
+   * optionRender={(searchConfig) => [<a key="submit" onClick={()=> searchConfig?.form?.submit()}>提交</a>]}
    */
   optionRender?:
     | ((
@@ -124,7 +168,9 @@ export type BaseQueryFilterProps = Omit<ActionsProps, 'submitter' | 'setCollapse
         dom: React.ReactNode[],
       ) => React.ReactNode[])
     | false;
-  /** 忽略 Form.Item 规则 */
+  /**
+   * @name 忽略 Form.Item rule规则配置
+   */
   ignoreRules?: boolean;
 };
 
@@ -158,6 +204,7 @@ const QueryFilterContent: React.FC<{
   collapsed: boolean | undefined;
   resetText: string | undefined;
   searchText: string | undefined;
+  searchGutter?: RowProps['gutter'];
   split?: boolean;
   form: FormInstance<any>;
   items: React.ReactNode[];
@@ -184,7 +231,7 @@ const QueryFilterContent: React.FC<{
     },
   );
 
-  const { optionRender, collapseRender, split, items, spanSize, showLength } = props;
+  const { optionRender, collapseRender, split, items, spanSize, showLength, searchGutter } = props;
 
   const submitter = useMemo(() => {
     if (!props.submitter || optionRender === false) {
@@ -214,22 +261,35 @@ const QueryFilterContent: React.FC<{
   // totalSpan 统计控件占的位置，计算 offset 保证查询按钮在最后一列
   let totalSpan = 0;
   let itemLength = 0;
+  //首个表单项是否占满第一行
+  let firstRowFull = false;
+  // totalSize 统计控件占的份数
+  let totalSize = 0;
 
   // for split compute
   let currentSpan = 0;
   const doms = flatMapItems(items, props.ignoreRules)
     .map((item, index): { itemDom: React.ReactNode; hidden: boolean; colSpan: number } => {
       // 如果 formItem 自己配置了 hidden，默认使用它自己的
-      const colSize = React.isValidElement<any>(item) ? item?.props?.colSize : 1;
+      const colSize = React.isValidElement<any>(item) ? item?.props?.colSize ?? 1 : 1;
       const colSpan = Math.min(spanSize.span * (colSize || 1), 24);
       // 计算总的 totalSpan 长度
       totalSpan += colSpan;
+      // 计算总的 colSize 长度
+      totalSize += colSize;
+
+      if (index === 0) {
+        firstRowFull =
+          colSpan === 24 && !(item as ReactElement<{ hidden: boolean }>)?.props?.hidden;
+      }
+
       const hidden: boolean =
         (item as ReactElement<{ hidden: boolean }>)?.props?.hidden ||
         // 如果收起了
         (collapsed &&
-          // 如果 超过显示长度 且 总长度超过了 24
-          index >= showLength - 1 &&
+          (firstRowFull ||
+            // 如果 超过显示长度 且 总长度超过了 24
+            totalSize >= showLength - 1) &&
           !!index &&
           totalSpan >= 24);
 
@@ -298,7 +358,7 @@ const QueryFilterContent: React.FC<{
 
   /** 是否需要展示 collapseRender */
   const needCollapseRender = useMemo(() => {
-    if (totalSpan < 24 || itemLength < showLength) {
+    if (totalSpan < 24 || totalSize < showLength) {
       return false;
     }
     return true;
@@ -310,7 +370,7 @@ const QueryFilterContent: React.FC<{
   }, [currentSpan, spanSize.span]);
 
   return (
-    <Row gutter={24} justify="start" key="resize-observer-row">
+    <Row gutter={searchGutter} justify="start" key="resize-observer-row">
       {doms}
       {submitter && (
         <Col
@@ -336,7 +396,7 @@ const QueryFilterContent: React.FC<{
   );
 };
 
-const defaultWidth = isBrowser() ? document.body.clientWidth : 1024;
+const defaultWidth = isBrowser() ? document?.body?.clientWidth : 1024;
 
 function QueryFilter<T = Record<string, any>>(props: QueryFilterProps<T>) {
   const {
@@ -345,6 +405,7 @@ function QueryFilter<T = Record<string, any>>(props: QueryFilterProps<T>) {
     defaultCollapsed = true,
     defaultColsNumber,
     span,
+    searchGutter = 24,
     searchText,
     resetText,
     optionRender,
@@ -438,6 +499,7 @@ function QueryFilter<T = Record<string, any>>(props: QueryFilterProps<T>) {
             split={split}
             resetText={props.resetText}
             searchText={props.searchText}
+            searchGutter={searchGutter}
             preserve={preserve}
             ignoreRules={ignoreRules}
             showLength={showLength}

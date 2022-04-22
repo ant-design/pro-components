@@ -8,7 +8,11 @@ import { BaseForm } from '../../BaseForm';
 export type ProFormProps<T = Record<string, any>> = Omit<FormProps<T>, 'onFinish'> &
   CommonFormProps<T>;
 
-function ProForm<T = Record<string, any>>(props: ProFormProps<T>) {
+function ProForm<T = Record<string, any>>(
+  props: ProFormProps<T> & {
+    children?: React.ReactNode | React.ReactNode[];
+  },
+) {
   return (
     <BaseForm
       layout="vertical"

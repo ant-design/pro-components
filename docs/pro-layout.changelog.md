@@ -9,6 +9,18 @@ group:
 
 # Change Log
 
+## @ant-design/pro-layout@6.35.0
+
+`2022-04-14`
+
+- feat(layout): update swr cache clear solution (#5048). [#5048](https://github.com/ant-design/pro-components/pull/#5048) [@sarufarr](https://github.com/sarufarr)
+
+## @ant-design/pro-layout@6.34.9
+
+`2022-04-06`
+
+- fix(layout): fix color variables error (#4943). [#4943](https://github.com/ant-design/pro-components/pull/#4943) [@DerrickTel](https://github.com/DerrickTel)
+
 ## @ant-design/pro-layout@6.34.2
 
 `2022-03-14`

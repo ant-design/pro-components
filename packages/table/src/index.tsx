@@ -30,6 +30,7 @@ import Search from './components/Form';
 import cellRenderToFromItem from './utils/cellRenderToFromItem';
 import type { ColumnsState } from './container';
 import type { ActionType, ProColumns, ProColumnType, ProTableProps, RequestData } from './typing';
+import type { EditableFormInstance } from './components/EditableTable';
 import EditableProTable from './components/EditableTable';
 import type { DragTableProps } from './components/DragSortTable';
 import DragSortTable from './components/DragSortTable';
@@ -41,6 +42,7 @@ export type {
   ProTableProps,
   IntlType,
   ActionType,
+  EditableFormInstance,
   TableRowEditable,
   ColumnsState,
   ProColumnsValueType,

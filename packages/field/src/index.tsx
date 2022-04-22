@@ -121,17 +121,18 @@ const defaultRenderTextByObject = (
   if (valueType.type === 'image') {
     return <FieldImage {...props} text={text as string} width={valueType.width} />;
   }
-  return text;
+
+  return text as React.ReactNode;
 };
 
 /**
  * 根据不同的类型来转化数值
  *
- * @param text
+ * @param dataValue
  * @param valueType
  */
 const defaultRenderText = (
-  text: ProFieldTextType,
+  dataValue: ProFieldTextType,
   valueType: ProFieldValueType | ProFieldValueObjectType,
   props: RenderProps,
   valueTypeMap: Record<string, ProRenderFieldPropsType>,
@@ -139,10 +140,10 @@ const defaultRenderText = (
   const { mode = 'read', emptyText = '-' } = props;
 
   if (emptyText !== false && mode === 'read' && valueType !== 'option' && valueType !== 'switch') {
-    if (typeof text !== 'boolean' && typeof text !== 'number' && !text) {
+    if (typeof dataValue !== 'boolean' && typeof dataValue !== 'number' && !dataValue) {
       const { fieldProps, render } = props;
       if (render) {
-        return render(text, { mode, ...fieldProps }, <>{emptyText}</>);
+        return render(dataValue, { mode, ...fieldProps }, <>{emptyText}</>);
       }
       return <>{emptyText}</>;
     }
@@ -152,7 +153,7 @@ const defaultRenderText = (
   delete props.emptyText;
 
   if (typeof valueType === 'object') {
-    return defaultRenderTextByObject(text, valueType, props);
+    return defaultRenderTextByObject(dataValue, valueType, props);
   }
 
   const customValueTypeConfig = valueTypeMap && valueTypeMap[valueType as string];
@@ -161,23 +162,23 @@ const defaultRenderText = (
     delete props.ref;
     if (mode === 'read') {
       return customValueTypeConfig.render?.(
-        text,
+        dataValue,
         {
-          text,
+          text: dataValue as React.ReactNode,
           ...props,
           mode: mode || 'read',
         },
-        <>{text}</>,
+        <>{dataValue}</>,
       );
     }
     if (mode === 'update' || mode === 'edit') {
       return customValueTypeConfig.renderFormItem?.(
-        text,
+        dataValue,
         {
-          text,
+          text: dataValue as React.ReactNode,
           ...props,
         },
-        <>{text}</>,
+        <>{dataValue}</>,
       );
     }
   }
@@ -206,43 +207,52 @@ const defaultRenderText = (
 
   /** 如果是金额的值 */
   if (valueType === 'money') {
-    return <FieldMoney {...props} text={text as number} />;
+    return <FieldMoney {...props} text={dataValue as number} />;
   }
 
   /** 如果是日期的值 */
   if (valueType === 'date') {
-    return <FieldDatePicker text={text as string} format="YYYY-MM-DD" {...props} />;
+    return <FieldDatePicker text={dataValue as string} format="YYYY-MM-DD" {...props} />;
   }
 
   /** 如果是周的值 */
   if (valueType === 'dateWeek') {
-    return <FieldDatePicker text={text as string} format="YYYY-wo" picker="week" {...props} />;
+    return <FieldDatePicker text={dataValue as string} format="YYYY-wo" picker="week" {...props} />;
   }
 
   /** 如果是月的值 */
   if (valueType === 'dateMonth') {
-    return <FieldDatePicker text={text as string} format="YYYY-MM" picker="month" {...props} />;
+    return (
+      <FieldDatePicker text={dataValue as string} format="YYYY-MM" picker="month" {...props} />
+    );
   }
 
   /** 如果是季度的值 */
   if (valueType === 'dateQuarter') {
-    return <FieldDatePicker text={text as string} format="YYYY-\QQ" picker="quarter" {...props} />;
+    return (
+      <FieldDatePicker text={dataValue as string} format="YYYY-\QQ" picker="quarter" {...props} />
+    );
   }
 
   /** 如果是年的值 */
   if (valueType === 'dateYear') {
-    return <FieldDatePicker text={text as string} format="YYYY" picker="year" {...props} />;
+    return <FieldDatePicker text={dataValue as string} format="YYYY" picker="year" {...props} />;
   }
 
   /** 如果是日期范围的值 */
   if (valueType === 'dateRange') {
-    return <FieldRangePicker text={text as string[]} format="YYYY-MM-DD" {...props} />;
+    return <FieldRangePicker text={dataValue as string[]} format="YYYY-MM-DD" {...props} />;
   }
 
   /** 如果是日期加时间类型的值 */
   if (valueType === 'dateTime') {
     return (
-      <FieldDatePicker text={text as string} format="YYYY-MM-DD HH:mm:ss" showTime {...props} />
+      <FieldDatePicker
+        text={dataValue as string}
+        format="YYYY-MM-DD HH:mm:ss"
+        showTime
+        {...props}
+      />
     );
   }
 
@@ -250,115 +260,120 @@ const defaultRenderText = (
   if (valueType === 'dateTimeRange') {
     // 值不存在的时候显示 "-"
     return (
-      <FieldRangePicker text={text as string[]} format="YYYY-MM-DD HH:mm:ss" showTime {...props} />
+      <FieldRangePicker
+        text={dataValue as string[]}
+        format="YYYY-MM-DD HH:mm:ss"
+        showTime
+        {...props}
+      />
     );
   }
 
   /** 如果是时间类型的值 */
   if (valueType === 'time') {
-    return <FieldTimePicker text={text as string} format="HH:mm:ss" {...props} />;
+    return <FieldTimePicker text={dataValue as string} format="HH:mm:ss" {...props} />;
   }
 
   /** 如果是时间类型的值 */
   if (valueType === 'timeRange') {
-    return <FieldTimeRangePicker text={text as string[]} format="HH:mm:ss" {...props} />;
+    return <FieldTimeRangePicker text={dataValue as string[]} format="HH:mm:ss" {...props} />;
   }
 
   if (valueType === 'fromNow') {
-    return <FieldFromNow text={text as string} {...props} />;
+    return <FieldFromNow text={dataValue as string} {...props} />;
   }
 
   if (valueType === 'index') {
-    return <FieldIndexColumn>{(text as number) + 1}</FieldIndexColumn>;
+    return <FieldIndexColumn>{(dataValue as number) + 1}</FieldIndexColumn>;
   }
 
   if (valueType === 'indexBorder') {
-    return <FieldIndexColumn border>{(text as number) + 1}</FieldIndexColumn>;
+    return <FieldIndexColumn border>{(dataValue as number) + 1}</FieldIndexColumn>;
   }
 
   if (valueType === 'progress') {
-    return <FieldProgress {...props} text={text as number} />;
+    return <FieldProgress {...props} text={dataValue as number} />;
   }
   /** 百分比, 默认展示符号, 不展示小数位 */
   if (valueType === 'percent') {
-    return <FieldPercent text={text as number} {...props} />;
+    return <FieldPercent text={dataValue as number} {...props} />;
   }
 
-  if (valueType === 'avatar' && typeof text === 'string' && props.mode === 'read') {
-    return <Avatar src={text as string} size={22} shape="circle" />;
+  if (valueType === 'avatar' && typeof dataValue === 'string' && props.mode === 'read') {
+    return <Avatar src={dataValue as string} size={22} shape="circle" />;
   }
 
   if (valueType === 'code') {
-    return <FieldCode text={text as string} {...props} />;
+    return <FieldCode text={dataValue as string} {...props} />;
   }
 
   if (valueType === 'jsonCode') {
-    return <FieldCode text={text as string} language="json" {...props} />;
+    return <FieldCode text={dataValue as string} language="json" {...props} />;
   }
 
   if (valueType === 'textarea') {
-    return <FieldTextArea text={text as string} {...props} />;
+    return <FieldTextArea text={dataValue as string} {...props} />;
   }
 
   if (valueType === 'digit') {
-    return <FieldDigit text={text as number} {...props} />;
+    return <FieldDigit text={dataValue as number} {...props} />;
   }
 
   if (valueType === 'digitRange') {
-    return <FieldDigitRange text={text as number[]} {...props} />;
+    return <FieldDigitRange text={dataValue as number[]} {...props} />;
   }
 
   if (valueType === 'second') {
-    return <FieldSecond text={text as number} {...props} />;
+    return <FieldSecond text={dataValue as number} {...props} />;
   }
 
   if (valueType === 'select' || (valueType === 'text' && (props.valueEnum || props.request))) {
-    return <FieldSelect text={text as string} {...props} />;
+    return <FieldSelect text={dataValue as string} {...props} />;
   }
 
   if (valueType === 'checkbox') {
-    return <FieldCheckbox text={text as string} {...props} />;
+    return <FieldCheckbox text={dataValue as string} {...props} />;
   }
 
   if (valueType === 'radio') {
-    return <FieldRadio text={text as string} {...props} />;
+    return <FieldRadio text={dataValue as string} {...props} />;
   }
 
   if (valueType === 'radioButton') {
-    return <FieldRadio radioType="button" text={text as string} {...props} />;
+    return <FieldRadio radioType="button" text={dataValue as string} {...props} />;
   }
 
   if (valueType === 'rate') {
-    return <FieldRate text={text as string} {...props} />;
+    return <FieldRate text={dataValue as string} {...props} />;
   }
   if (valueType === 'switch') {
-    return <FieldSwitch text={text as boolean} {...props} />;
+    return <FieldSwitch text={dataValue as boolean} {...props} />;
   }
 
   if (valueType === 'option') {
-    return <FieldOptions text={text} {...props} />;
+    return <FieldOptions text={dataValue as React.ReactNode} {...props} />;
   }
 
   if (valueType === 'password') {
-    return <FieldPassword text={text as string} {...props} />;
+    return <FieldPassword text={dataValue as string} {...props} />;
   }
 
   if (valueType === 'image') {
-    return <FieldImage text={text as string} {...props} />;
+    return <FieldImage text={dataValue as string} {...props} />;
   }
   if (valueType === 'cascader') {
-    return <FieldCascader text={text as string} {...props} />;
+    return <FieldCascader text={dataValue as string} {...props} />;
   }
 
   if (valueType === 'treeSelect') {
-    return <FieldTreeSelect text={text as string} {...props} />;
+    return <FieldTreeSelect text={dataValue as string} {...props} />;
   }
 
   if (valueType === 'color') {
-    return <FieldColorPicker text={text as string} {...props} />;
+    return <FieldColorPicker text={dataValue as string} {...props} />;
   }
 
-  return <FieldText text={text as string} {...props} />;
+  return <FieldText text={dataValue as string} {...props} />;
 };
 
 export { defaultRenderText };

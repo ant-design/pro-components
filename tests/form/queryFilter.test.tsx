@@ -228,6 +228,34 @@ describe('QueryFilter', () => {
     expect(wrapper.find('a.ant-pro-form-collapse-button').text()).toBe('close');
   });
 
+  it('🕵️‍♀️ colSize不全都是1，collapseRender应该存在', async () => {
+    const wrapper = mount(
+      <QueryFilter defaultColsNumber={4} defaultCollapsed={false}>
+        <ProFormText name="name" label="应用名称" rules={[{ required: true }]} colSize={4} />
+        <ProFormText name="creater" label="创建人" colSize={3} />
+      </QueryFilter>,
+    );
+
+    expect(wrapper.find('a.ant-pro-form-collapse-button').length).toEqual(1);
+  });
+
+  it('🕵️‍♀️ 表单首项独占一行，收起时应该只展示一项就行了', async () => {
+    const wrapper = mount(
+      <QueryFilter defaultCollapsed defaultColsNumber={4}>
+        <ProFormText name="name" label="应用名称" rules={[{ required: true }]} colSize={4} />
+        <ProFormText name="creater" label="创建人" />
+        <ProFormText name="creater" label="创建人" />
+        <ProFormText name="creater" label="创建人" />
+        <ProFormText name="creater" label="创建人" />
+        <ProFormText name="creater" label="创建人" />
+        <ProFormText name="creater" label="创建人" />
+        <ProFormText name="creater" label="创建人" />
+      </QueryFilter>,
+    );
+
+    expect(wrapper.find('.ant-row.ant-form-item-hidden').length).toEqual(7);
+  });
+
   it('🕵️‍♀️ QueryFilter support ProForm.Group', async () => {
     const wrapper = mount(
       <QueryFilter collapsed={true} layout="vertical">

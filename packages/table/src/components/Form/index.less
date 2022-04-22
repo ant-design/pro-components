@@ -1,12 +1,13 @@
 @root-entry-name: 'default';
 @import (reference) '~antd/es/style/themes/index.less';
 @import (reference) '~antd/es/style/mixins/index.less';
+@import (reference) '../../index.less';
 
 @pro-table-search-prefix-cls: ~'@{ant-prefix}-pro-table-search';
 
 @pro-table-form-prefix-cls: ~'@{ant-prefix}-pro-table-form';
 
-.@{pro-table-search-prefix-cls} {
+.@{pro-table-prefix-cls} .@{pro-table-search-prefix-cls} {
   margin-bottom: 16px;
   padding: 24px;
   padding-bottom: 0;
@@ -43,7 +44,7 @@
 }
 
 @media (max-width: 575px) {
-  .@{pro-table-search-prefix-cls} {
+  .@{pro-table-prefix-cls} .@{pro-table-search-prefix-cls} {
     height: auto !important;
     padding-bottom: 24px;
     .@{ant-prefix}-form-item-label {

@@ -451,7 +451,7 @@ describe('DrawerForm', () => {
 
     await waitForComponentToPaint(wrapper, 200);
 
-    expect(wrapper.find('Input#test').props().value).toEqual('test');
+    expect(wrapper.find('input#test').props().value).toEqual('test');
 
     act(() => {
       wrapper.unmount();
@@ -497,7 +497,7 @@ describe('DrawerForm', () => {
     });
 
     await waitForComponentToPaint(wrapper);
-    expect(wrapper.find('Input#test').props().value).toEqual('1111');
+    expect(wrapper.find('input#test').props().value).toEqual('1111');
 
     await waitForComponentToPaint(wrapper);
 
@@ -514,7 +514,7 @@ describe('DrawerForm', () => {
 
     await waitForComponentToPaint(wrapper, 300);
 
-    // expect(wrapper.find('Input#test').props().value).toEqual('1234');
+    // expect(wrapper.find('input#test').props().value).toEqual('1234');
 
     act(() => {
       wrapper.unmount();

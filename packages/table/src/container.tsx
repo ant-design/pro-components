@@ -18,9 +18,10 @@ export type ColumnsState = {
     | boolean
     | {
         checkbox: boolean;
-        icon: boolean;
       };
 };
+
+export type ProTableColumn<T> = ColumnsState & TableColumnType<T>;
 
 export type UseContainerProps<T = any> = {
   columnsStateMap?: Record<string, ColumnsState>;
@@ -28,7 +29,7 @@ export type UseContainerProps<T = any> = {
   size?: DensitySize;
   defaultSize?: DensitySize;
   onSizeChange?: (size: DensitySize) => void;
-  columns?: TableColumnType<T>[];
+  columns?: ProTableColumn<T>[];
   columnsState?: ProTableProps<any, any, any>['columnsState'];
 };
 
@@ -60,12 +61,13 @@ function useContainer(props: UseContainerProps = {}) {
   /** 默认全选中 */
   const defaultColumnKeyMap = useMemo(() => {
     const columnKeyMap = {};
-    props.columns?.forEach(({ key, fixed }, index) => {
-      const columnKey = genColumnKey(key, index);
+    props.columns?.forEach(({ key, dataIndex, fixed, disable }, index) => {
+      const columnKey = genColumnKey(key ?? (dataIndex as React.Key), index);
       if (columnKey) {
         columnKeyMap[columnKey] = {
           show: true,
           fixed,
+          disable,
         };
       }
     });
@@ -88,6 +90,7 @@ function useContainer(props: UseContainerProps = {}) {
           console.warn(error);
         }
       }
+
       return (
         props.columnsStateMap ||
         props.columnsState?.value ||

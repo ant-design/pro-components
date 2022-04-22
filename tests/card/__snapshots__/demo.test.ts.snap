@@ -7467,6 +7467,28 @@ exports[`card demos 📸 renders ./packages/card/src/demos/collapsible.tsx corre
       内容
     </div>
   </div>
+  <div
+    class="ant-pro-card ant-pro-card-collapse"
+    style="margin-top: 16px;"
+  >
+    <div
+      class="ant-pro-card-header ant-pro-card-header-border ant-pro-card-header-collapsible"
+    >
+      <div
+        class="ant-pro-card-title"
+      >
+        <span>
+          收起 - 
+        </span>
+        可折叠-图标自定义
+      </div>
+    </div>
+    <div
+      class="ant-pro-card-body"
+    >
+      内容
+    </div>
+  </div>
 </DocumentFragment>
 `;
 

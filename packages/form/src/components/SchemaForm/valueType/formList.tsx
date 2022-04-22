@@ -1,4 +1,4 @@
-import ProFormList from '../../List';
+import { ProFormList } from '../../List';
 import type { ProSchemaRenderValueTypeFunction } from '../typing';
 
 export const formList: ProSchemaRenderValueTypeFunction = (item, { genItems }) => {
@@ -10,6 +10,8 @@ export const formList: ProSchemaRenderValueTypeFunction = (item, { genItems }) =
         name={item.dataIndex}
         label={item.label}
         initialValue={item.initialValue}
+        colProps={item.colProps}
+        rowProps={item.rowProps}
         {...item.getFieldProps?.()}
       >
         {genItems(item.columns)}
