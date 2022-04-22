@@ -44518,7 +44518,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/rtl_table.tsx corre
               class="ant-spin-container"
             >
               <div
-                class="ant-table ant-table-middle ant-table-empty ant-table-rtl"
+                class="ant-table ant-table-middle ant-table-rtl"
               >
                 <div
                   class="ant-table-container"
@@ -44642,56 +44642,974 @@ exports[`table demos 📸 renders ./packages/table/src/demos/rtl_table.tsx corre
                         class="ant-table-tbody"
                       >
                         <tr
-                          class="ant-table-placeholder"
+                          class="ant-table-row ant-table-row-level-0"
+                          data-row-key="624748504"
                         >
                           <td
                             class="ant-table-cell"
-                            colspan="6"
                           >
                             <div
-                              class="ant-empty ant-empty-normal ant-empty-rtl"
+                              class="ant-pro-field-index-column ant-pro-field-index-column-border"
                             >
+                              1
+                            </div>
+                          </td>
+                          <td
+                            class="ant-table-cell ant-table-cell-ellipsis"
+                            title="🐛 [BUG]yarn install命令 antd2.4.5会报错"
+                          >
+                            <span
+                              aria-label="🐛 [BUG]yarn install命令 antd2.4.5会报错"
+                              class="ant-typography ant-typography-rtl ant-typography-ellipsis ant-typography-single-line"
+                              direction="rtl"
+                              style="width: 100%; margin: 0px; padding: 0px;"
+                              title=""
+                            >
+                              🐛 [BUG]yarn install命令 antd2.4.5会报错
                               <div
-                                class="ant-empty-image"
+                                aria-label="نسخ"
+                                class="ant-typography-copy"
+                                role="button"
+                                style="border: 0px; background: transparent; padding: 0px; line-height: inherit; display: inline-block;"
+                                tabindex="0"
                               >
-                                <svg
-                                  class="ant-empty-img-simple"
-                                  height="41"
-                                  viewBox="0 0 64 41"
-                                  width="64"
-                                  xmlns="http://www.w3.org/2000/svg"
+                                <span
+                                  aria-label="copy"
+                                  class="anticon anticon-copy"
+                                  role="img"
                                 >
-                                  <g
-                                    fill="none"
-                                    fill-rule="evenodd"
-                                    transform="translate(0 1)"
+                                  <svg
+                                    aria-hidden="true"
+                                    data-icon="copy"
+                                    fill="currentColor"
+                                    focusable="false"
+                                    height="1em"
+                                    viewBox="64 64 896 896"
+                                    width="1em"
                                   >
-                                    <ellipse
-                                      class="ant-empty-img-simple-ellipse"
-                                      cx="32"
-                                      cy="33"
-                                      rx="32"
-                                      ry="7"
+                                    <path
+                                      d="M832 64H296c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8h496v688c0 4.4 3.6 8 8 8h56c4.4 0 8-3.6 8-8V96c0-17.7-14.3-32-32-32zM704 192H192c-17.7 0-32 14.3-32 32v530.7c0 8.5 3.4 16.6 9.4 22.6l173.3 173.3c2.2 2.2 4.7 4 7.4 5.5v1.9h4.2c3.5 1.3 7.2 2 11 2H704c17.7 0 32-14.3 32-32V224c0-17.7-14.3-32-32-32zM350 856.2L263.9 770H350v86.2zM664 888H414V746c0-22.1-17.9-40-40-40H232V264h432v624z"
                                     />
-                                    <g
-                                      class="ant-empty-img-simple-g"
-                                      fill-rule="nonzero"
+                                  </svg>
+                                </span>
+                              </div>
+                              <span
+                                aria-hidden="true"
+                                style="position: fixed; display: block; left: 0px; top: 0px; z-index: -9999; visibility: hidden; pointer-events: none; word-break: keep-all; white-space: nowrap;"
+                              >
+                                lg
+                              </span>
+                              <span
+                                aria-hidden="true"
+                                style="position: fixed; display: block; left: 0px; top: 0px; z-index: -9999; visibility: hidden; pointer-events: none; width: 0px; white-space: normal; margin: 0px; padding: 0px;"
+                              >
+                                <span
+                                  aria-hidden="true"
+                                >
+                                  ...
+                                </span>
+                                <div
+                                  aria-label="نسخ"
+                                  class="ant-typography-copy"
+                                  role="button"
+                                  style="border: 0px; background: transparent; padding: 0px; line-height: inherit; display: inline-block;"
+                                  tabindex="0"
+                                >
+                                  <span
+                                    aria-label="copy"
+                                    class="anticon anticon-copy"
+                                    role="img"
+                                  >
+                                    <svg
+                                      aria-hidden="true"
+                                      data-icon="copy"
+                                      fill="currentColor"
+                                      focusable="false"
+                                      height="1em"
+                                      viewBox="64 64 896 896"
+                                      width="1em"
                                     >
                                       <path
-                                        d="M55 12.76L44.854 1.258C44.367.474 43.656 0 42.907 0H21.093c-.749 0-1.46.474-1.947 1.257L9 12.761V22h46v-9.24z"
+                                        d="M832 64H296c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8h496v688c0 4.4 3.6 8 8 8h56c4.4 0 8-3.6 8-8V96c0-17.7-14.3-32-32-32zM704 192H192c-17.7 0-32 14.3-32 32v530.7c0 8.5 3.4 16.6 9.4 22.6l173.3 173.3c2.2 2.2 4.7 4 7.4 5.5v1.9h4.2c3.5 1.3 7.2 2 11 2H704c17.7 0 32-14.3 32-32V224c0-17.7-14.3-32-32-32zM350 856.2L263.9 770H350v86.2zM664 888H414V746c0-22.1-17.9-40-40-40H232V264h432v624z"
                                       />
-                                      <path
-                                        class="ant-empty-img-simple-path"
-                                        d="M41.613 15.931c0-1.605.994-2.93 2.227-2.931H55v18.137C55 33.26 53.68 35 52.05 35h-40.1C10.32 35 9 33.259 9 31.137V13h11.16c1.233 0 2.227 1.323 2.227 2.928v.022c0 1.605 1.005 2.901 2.237 2.901h14.752c1.232 0 2.237-1.308 2.237-2.913v-.007z"
-                                      />
-                                    </g>
-                                  </g>
-                                </svg>
+                                    </svg>
+                                  </span>
+                                </div>
+                              </span>
+                            </span>
+                          </td>
+                          <td
+                            class="ant-table-cell"
+                          >
+                            <span
+                              class="ant-badge ant-badge-status ant-badge-not-a-wrapper ant-badge-rtl"
+                            >
+                              <span
+                                class="ant-badge-status-dot ant-badge-status-error"
+                              />
+                              <span
+                                class="ant-badge-status-text"
+                              >
+                                غير محلولة
+                              </span>
+                            </span>
+                          </td>
+                          <td
+                            class="ant-table-cell"
+                          >
+                            <div
+                              class="ant-space ant-space-horizontal ant-space-rtl ant-space-align-center"
+                            >
+                              <div
+                                class="ant-space-item"
+                              >
+                                <span
+                                  class="ant-tag ant-tag-error ant-tag-rtl"
+                                >
+                                  bug
+                                </span>
+                              </div>
+                            </div>
+                          </td>
+                          <td
+                            class="ant-table-cell"
+                          >
+                            2020-05-26
+                          </td>
+                          <td
+                            class="ant-table-cell"
+                          >
+                            <div
+                              class="ant-space ant-space-horizontal ant-space-rtl ant-space-align-center"
+                            >
+                              <div
+                                class="ant-space-item"
+                                style="margin-left: 16px;"
+                              >
+                                <a
+                                  rel="noopener noreferrer"
+                                  target="_blank"
+                                >
+                                  رابط
+                                </a>
                               </div>
                               <div
-                                class="ant-empty-description"
+                                class="ant-space-item"
+                                style="margin-left: 16px;"
                               >
-                                لا توجد بيانات
+                                <a
+                                  rel="noopener noreferrer"
+                                  target="_blank"
+                                >
+                                  查看
+                                </a>
+                              </div>
+                              <div
+                                class="ant-space-item"
+                              >
+                                <a
+                                  class="ant-dropdown-trigger ant-dropdown-rtl ant-pro-table-dropdown"
+                                >
+                                  <span
+                                    aria-label="ellipsis"
+                                    class="anticon anticon-ellipsis"
+                                    role="img"
+                                  >
+                                    <svg
+                                      aria-hidden="true"
+                                      data-icon="ellipsis"
+                                      fill="currentColor"
+                                      focusable="false"
+                                      height="1em"
+                                      viewBox="64 64 896 896"
+                                      width="1em"
+                                    >
+                                      <path
+                                        d="M176 511a56 56 0 10112 0 56 56 0 10-112 0zm280 0a56 56 0 10112 0 56 56 0 10-112 0zm280 0a56 56 0 10112 0 56 56 0 10-112 0z"
+                                      />
+                                    </svg>
+                                  </span>
+                                </a>
+                              </div>
+                            </div>
+                          </td>
+                        </tr>
+                        <tr
+                          class="ant-table-row ant-table-row-level-0"
+                          data-row-key="624691229"
+                        >
+                          <td
+                            class="ant-table-cell"
+                          >
+                            <div
+                              class="ant-pro-field-index-column ant-pro-field-index-column-border"
+                            >
+                              2
+                            </div>
+                          </td>
+                          <td
+                            class="ant-table-cell ant-table-cell-ellipsis"
+                            title="🐛 [BUG]无法创建工程npm create umi"
+                          >
+                            <span
+                              aria-label="🐛 [BUG]无法创建工程npm create umi"
+                              class="ant-typography ant-typography-rtl ant-typography-ellipsis ant-typography-single-line"
+                              direction="rtl"
+                              style="width: 100%; margin: 0px; padding: 0px;"
+                              title=""
+                            >
+                              🐛 [BUG]无法创建工程npm create umi
+                              <div
+                                aria-label="نسخ"
+                                class="ant-typography-copy"
+                                role="button"
+                                style="border: 0px; background: transparent; padding: 0px; line-height: inherit; display: inline-block;"
+                                tabindex="0"
+                              >
+                                <span
+                                  aria-label="copy"
+                                  class="anticon anticon-copy"
+                                  role="img"
+                                >
+                                  <svg
+                                    aria-hidden="true"
+                                    data-icon="copy"
+                                    fill="currentColor"
+                                    focusable="false"
+                                    height="1em"
+                                    viewBox="64 64 896 896"
+                                    width="1em"
+                                  >
+                                    <path
+                                      d="M832 64H296c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8h496v688c0 4.4 3.6 8 8 8h56c4.4 0 8-3.6 8-8V96c0-17.7-14.3-32-32-32zM704 192H192c-17.7 0-32 14.3-32 32v530.7c0 8.5 3.4 16.6 9.4 22.6l173.3 173.3c2.2 2.2 4.7 4 7.4 5.5v1.9h4.2c3.5 1.3 7.2 2 11 2H704c17.7 0 32-14.3 32-32V224c0-17.7-14.3-32-32-32zM350 856.2L263.9 770H350v86.2zM664 888H414V746c0-22.1-17.9-40-40-40H232V264h432v624z"
+                                    />
+                                  </svg>
+                                </span>
+                              </div>
+                              <span
+                                aria-hidden="true"
+                                style="position: fixed; display: block; left: 0px; top: 0px; z-index: -9999; visibility: hidden; pointer-events: none; word-break: keep-all; white-space: nowrap;"
+                              >
+                                lg
+                              </span>
+                              <span
+                                aria-hidden="true"
+                                style="position: fixed; display: block; left: 0px; top: 0px; z-index: -9999; visibility: hidden; pointer-events: none; width: 0px; white-space: normal; margin: 0px; padding: 0px;"
+                              >
+                                <span
+                                  aria-hidden="true"
+                                >
+                                  ...
+                                </span>
+                                <div
+                                  aria-label="نسخ"
+                                  class="ant-typography-copy"
+                                  role="button"
+                                  style="border: 0px; background: transparent; padding: 0px; line-height: inherit; display: inline-block;"
+                                  tabindex="0"
+                                >
+                                  <span
+                                    aria-label="copy"
+                                    class="anticon anticon-copy"
+                                    role="img"
+                                  >
+                                    <svg
+                                      aria-hidden="true"
+                                      data-icon="copy"
+                                      fill="currentColor"
+                                      focusable="false"
+                                      height="1em"
+                                      viewBox="64 64 896 896"
+                                      width="1em"
+                                    >
+                                      <path
+                                        d="M832 64H296c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8h496v688c0 4.4 3.6 8 8 8h56c4.4 0 8-3.6 8-8V96c0-17.7-14.3-32-32-32zM704 192H192c-17.7 0-32 14.3-32 32v530.7c0 8.5 3.4 16.6 9.4 22.6l173.3 173.3c2.2 2.2 4.7 4 7.4 5.5v1.9h4.2c3.5 1.3 7.2 2 11 2H704c17.7 0 32-14.3 32-32V224c0-17.7-14.3-32-32-32zM350 856.2L263.9 770H350v86.2zM664 888H414V746c0-22.1-17.9-40-40-40H232V264h432v624z"
+                                      />
+                                    </svg>
+                                  </span>
+                                </div>
+                              </span>
+                            </span>
+                          </td>
+                          <td
+                            class="ant-table-cell"
+                          >
+                            <span
+                              class="ant-badge ant-badge-status ant-badge-not-a-wrapper ant-badge-rtl"
+                            >
+                              <span
+                                class="ant-badge-status-dot ant-badge-status-error"
+                              />
+                              <span
+                                class="ant-badge-status-text"
+                              >
+                                غير محلولة
+                              </span>
+                            </span>
+                          </td>
+                          <td
+                            class="ant-table-cell"
+                          >
+                            <div
+                              class="ant-space ant-space-horizontal ant-space-rtl ant-space-align-center"
+                            >
+                              <div
+                                class="ant-space-item"
+                              >
+                                <span
+                                  class="ant-tag ant-tag-error ant-tag-rtl"
+                                >
+                                  bug
+                                </span>
+                              </div>
+                            </div>
+                          </td>
+                          <td
+                            class="ant-table-cell"
+                          >
+                            2020-05-26
+                          </td>
+                          <td
+                            class="ant-table-cell"
+                          >
+                            <div
+                              class="ant-space ant-space-horizontal ant-space-rtl ant-space-align-center"
+                            >
+                              <div
+                                class="ant-space-item"
+                                style="margin-left: 16px;"
+                              >
+                                <a
+                                  href="https://github.com/ant-design/ant-design-pro/issues/6688"
+                                  rel="noopener noreferrer"
+                                  target="_blank"
+                                >
+                                  رابط
+                                </a>
+                              </div>
+                              <div
+                                class="ant-space-item"
+                                style="margin-left: 16px;"
+                              >
+                                <a
+                                  href="https://github.com/ant-design/ant-design-pro/issues/6688"
+                                  rel="noopener noreferrer"
+                                  target="_blank"
+                                >
+                                  查看
+                                </a>
+                              </div>
+                              <div
+                                class="ant-space-item"
+                              >
+                                <a
+                                  class="ant-dropdown-trigger ant-dropdown-rtl ant-pro-table-dropdown"
+                                >
+                                  <span
+                                    aria-label="ellipsis"
+                                    class="anticon anticon-ellipsis"
+                                    role="img"
+                                  >
+                                    <svg
+                                      aria-hidden="true"
+                                      data-icon="ellipsis"
+                                      fill="currentColor"
+                                      focusable="false"
+                                      height="1em"
+                                      viewBox="64 64 896 896"
+                                      width="1em"
+                                    >
+                                      <path
+                                        d="M176 511a56 56 0 10112 0 56 56 0 10-112 0zm280 0a56 56 0 10112 0 56 56 0 10-112 0zm280 0a56 56 0 10112 0 56 56 0 10-112 0z"
+                                      />
+                                    </svg>
+                                  </span>
+                                </a>
+                              </div>
+                            </div>
+                          </td>
+                        </tr>
+                        <tr
+                          class="ant-table-row ant-table-row-level-0"
+                          data-row-key="624674790"
+                        >
+                          <td
+                            class="ant-table-cell"
+                          >
+                            <div
+                              class="ant-pro-field-index-column ant-pro-field-index-column-border"
+                            >
+                              3
+                            </div>
+                          </td>
+                          <td
+                            class="ant-table-cell ant-table-cell-ellipsis"
+                            title="🧐 [问题] build 后还存在 es6 的代码（Umi@2.13.13）"
+                          >
+                            <span
+                              aria-label="🧐 [问题] build 后还存在 es6 的代码（Umi@2.13.13）"
+                              class="ant-typography ant-typography-rtl ant-typography-ellipsis ant-typography-single-line"
+                              direction="rtl"
+                              style="width: 100%; margin: 0px; padding: 0px;"
+                              title=""
+                            >
+                              🧐 [问题] build 后还存在 es6 的代码（Umi@2.13.13）
+                              <div
+                                aria-label="نسخ"
+                                class="ant-typography-copy"
+                                role="button"
+                                style="border: 0px; background: transparent; padding: 0px; line-height: inherit; display: inline-block;"
+                                tabindex="0"
+                              >
+                                <span
+                                  aria-label="copy"
+                                  class="anticon anticon-copy"
+                                  role="img"
+                                >
+                                  <svg
+                                    aria-hidden="true"
+                                    data-icon="copy"
+                                    fill="currentColor"
+                                    focusable="false"
+                                    height="1em"
+                                    viewBox="64 64 896 896"
+                                    width="1em"
+                                  >
+                                    <path
+                                      d="M832 64H296c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8h496v688c0 4.4 3.6 8 8 8h56c4.4 0 8-3.6 8-8V96c0-17.7-14.3-32-32-32zM704 192H192c-17.7 0-32 14.3-32 32v530.7c0 8.5 3.4 16.6 9.4 22.6l173.3 173.3c2.2 2.2 4.7 4 7.4 5.5v1.9h4.2c3.5 1.3 7.2 2 11 2H704c17.7 0 32-14.3 32-32V224c0-17.7-14.3-32-32-32zM350 856.2L263.9 770H350v86.2zM664 888H414V746c0-22.1-17.9-40-40-40H232V264h432v624z"
+                                    />
+                                  </svg>
+                                </span>
+                              </div>
+                              <span
+                                aria-hidden="true"
+                                style="position: fixed; display: block; left: 0px; top: 0px; z-index: -9999; visibility: hidden; pointer-events: none; word-break: keep-all; white-space: nowrap;"
+                              >
+                                lg
+                              </span>
+                              <span
+                                aria-hidden="true"
+                                style="position: fixed; display: block; left: 0px; top: 0px; z-index: -9999; visibility: hidden; pointer-events: none; width: 0px; white-space: normal; margin: 0px; padding: 0px;"
+                              >
+                                <span
+                                  aria-hidden="true"
+                                >
+                                  ...
+                                </span>
+                                <div
+                                  aria-label="نسخ"
+                                  class="ant-typography-copy"
+                                  role="button"
+                                  style="border: 0px; background: transparent; padding: 0px; line-height: inherit; display: inline-block;"
+                                  tabindex="0"
+                                >
+                                  <span
+                                    aria-label="copy"
+                                    class="anticon anticon-copy"
+                                    role="img"
+                                  >
+                                    <svg
+                                      aria-hidden="true"
+                                      data-icon="copy"
+                                      fill="currentColor"
+                                      focusable="false"
+                                      height="1em"
+                                      viewBox="64 64 896 896"
+                                      width="1em"
+                                    >
+                                      <path
+                                        d="M832 64H296c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8h496v688c0 4.4 3.6 8 8 8h56c4.4 0 8-3.6 8-8V96c0-17.7-14.3-32-32-32zM704 192H192c-17.7 0-32 14.3-32 32v530.7c0 8.5 3.4 16.6 9.4 22.6l173.3 173.3c2.2 2.2 4.7 4 7.4 5.5v1.9h4.2c3.5 1.3 7.2 2 11 2H704c17.7 0 32-14.3 32-32V224c0-17.7-14.3-32-32-32zM350 856.2L263.9 770H350v86.2zM664 888H414V746c0-22.1-17.9-40-40-40H232V264h432v624z"
+                                      />
+                                    </svg>
+                                  </span>
+                                </div>
+                              </span>
+                            </span>
+                          </td>
+                          <td
+                            class="ant-table-cell"
+                          >
+                            <span
+                              class="ant-badge ant-badge-status ant-badge-not-a-wrapper ant-badge-rtl"
+                            >
+                              <span
+                                class="ant-badge-status-dot ant-badge-status-error"
+                              />
+                              <span
+                                class="ant-badge-status-text"
+                              >
+                                غير محلولة
+                              </span>
+                            </span>
+                          </td>
+                          <td
+                            class="ant-table-cell"
+                          >
+                            <div
+                              class="ant-space ant-space-horizontal ant-space-rtl ant-space-align-center"
+                            >
+                              <div
+                                class="ant-space-item"
+                              >
+                                <span
+                                  class="ant-tag ant-tag-success ant-tag-rtl"
+                                >
+                                  question
+                                </span>
+                              </div>
+                            </div>
+                          </td>
+                          <td
+                            class="ant-table-cell"
+                          >
+                            2020-05-26
+                          </td>
+                          <td
+                            class="ant-table-cell"
+                          >
+                            <div
+                              class="ant-space ant-space-horizontal ant-space-rtl ant-space-align-center"
+                            >
+                              <div
+                                class="ant-space-item"
+                                style="margin-left: 16px;"
+                              >
+                                <a
+                                  href="https://github.com/ant-design/ant-design-pro/issues/6685"
+                                  rel="noopener noreferrer"
+                                  target="_blank"
+                                >
+                                  رابط
+                                </a>
+                              </div>
+                              <div
+                                class="ant-space-item"
+                                style="margin-left: 16px;"
+                              >
+                                <a
+                                  href="https://github.com/ant-design/ant-design-pro/issues/6685"
+                                  rel="noopener noreferrer"
+                                  target="_blank"
+                                >
+                                  查看
+                                </a>
+                              </div>
+                              <div
+                                class="ant-space-item"
+                              >
+                                <a
+                                  class="ant-dropdown-trigger ant-dropdown-rtl ant-pro-table-dropdown"
+                                >
+                                  <span
+                                    aria-label="ellipsis"
+                                    class="anticon anticon-ellipsis"
+                                    role="img"
+                                  >
+                                    <svg
+                                      aria-hidden="true"
+                                      data-icon="ellipsis"
+                                      fill="currentColor"
+                                      focusable="false"
+                                      height="1em"
+                                      viewBox="64 64 896 896"
+                                      width="1em"
+                                    >
+                                      <path
+                                        d="M176 511a56 56 0 10112 0 56 56 0 10-112 0zm280 0a56 56 0 10112 0 56 56 0 10-112 0zm280 0a56 56 0 10112 0 56 56 0 10-112 0z"
+                                      />
+                                    </svg>
+                                  </span>
+                                </a>
+                              </div>
+                            </div>
+                          </td>
+                        </tr>
+                        <tr
+                          class="ant-table-row ant-table-row-level-0"
+                          data-row-key="624620220"
+                        >
+                          <td
+                            class="ant-table-cell"
+                          >
+                            <div
+                              class="ant-pro-field-index-column ant-pro-field-index-column-border top-three"
+                            >
+                              4
+                            </div>
+                          </td>
+                          <td
+                            class="ant-table-cell ant-table-cell-ellipsis"
+                            title="2.3.1版本如何在业务页面修改头部状态"
+                          >
+                            <span
+                              aria-label="2.3.1版本如何在业务页面修改头部状态"
+                              class="ant-typography ant-typography-rtl ant-typography-ellipsis ant-typography-single-line"
+                              direction="rtl"
+                              style="width: 100%; margin: 0px; padding: 0px;"
+                              title=""
+                            >
+                              2.3.1版本如何在业务页面修改头部状态
+                              <div
+                                aria-label="نسخ"
+                                class="ant-typography-copy"
+                                role="button"
+                                style="border: 0px; background: transparent; padding: 0px; line-height: inherit; display: inline-block;"
+                                tabindex="0"
+                              >
+                                <span
+                                  aria-label="copy"
+                                  class="anticon anticon-copy"
+                                  role="img"
+                                >
+                                  <svg
+                                    aria-hidden="true"
+                                    data-icon="copy"
+                                    fill="currentColor"
+                                    focusable="false"
+                                    height="1em"
+                                    viewBox="64 64 896 896"
+                                    width="1em"
+                                  >
+                                    <path
+                                      d="M832 64H296c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8h496v688c0 4.4 3.6 8 8 8h56c4.4 0 8-3.6 8-8V96c0-17.7-14.3-32-32-32zM704 192H192c-17.7 0-32 14.3-32 32v530.7c0 8.5 3.4 16.6 9.4 22.6l173.3 173.3c2.2 2.2 4.7 4 7.4 5.5v1.9h4.2c3.5 1.3 7.2 2 11 2H704c17.7 0 32-14.3 32-32V224c0-17.7-14.3-32-32-32zM350 856.2L263.9 770H350v86.2zM664 888H414V746c0-22.1-17.9-40-40-40H232V264h432v624z"
+                                    />
+                                  </svg>
+                                </span>
+                              </div>
+                              <span
+                                aria-hidden="true"
+                                style="position: fixed; display: block; left: 0px; top: 0px; z-index: -9999; visibility: hidden; pointer-events: none; word-break: keep-all; white-space: nowrap;"
+                              >
+                                lg
+                              </span>
+                              <span
+                                aria-hidden="true"
+                                style="position: fixed; display: block; left: 0px; top: 0px; z-index: -9999; visibility: hidden; pointer-events: none; width: 0px; white-space: normal; margin: 0px; padding: 0px;"
+                              >
+                                <span
+                                  aria-hidden="true"
+                                >
+                                  ...
+                                </span>
+                                <div
+                                  aria-label="نسخ"
+                                  class="ant-typography-copy"
+                                  role="button"
+                                  style="border: 0px; background: transparent; padding: 0px; line-height: inherit; display: inline-block;"
+                                  tabindex="0"
+                                >
+                                  <span
+                                    aria-label="copy"
+                                    class="anticon anticon-copy"
+                                    role="img"
+                                  >
+                                    <svg
+                                      aria-hidden="true"
+                                      data-icon="copy"
+                                      fill="currentColor"
+                                      focusable="false"
+                                      height="1em"
+                                      viewBox="64 64 896 896"
+                                      width="1em"
+                                    >
+                                      <path
+                                        d="M832 64H296c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8h496v688c0 4.4 3.6 8 8 8h56c4.4 0 8-3.6 8-8V96c0-17.7-14.3-32-32-32zM704 192H192c-17.7 0-32 14.3-32 32v530.7c0 8.5 3.4 16.6 9.4 22.6l173.3 173.3c2.2 2.2 4.7 4 7.4 5.5v1.9h4.2c3.5 1.3 7.2 2 11 2H704c17.7 0 32-14.3 32-32V224c0-17.7-14.3-32-32-32zM350 856.2L263.9 770H350v86.2zM664 888H414V746c0-22.1-17.9-40-40-40H232V264h432v624z"
+                                      />
+                                    </svg>
+                                  </span>
+                                </div>
+                              </span>
+                            </span>
+                          </td>
+                          <td
+                            class="ant-table-cell"
+                          >
+                            <span
+                              class="ant-badge ant-badge-status ant-badge-not-a-wrapper ant-badge-rtl"
+                            >
+                              <span
+                                class="ant-badge-status-dot ant-badge-status-error"
+                              />
+                              <span
+                                class="ant-badge-status-text"
+                              >
+                                غير محلولة
+                              </span>
+                            </span>
+                          </td>
+                          <td
+                            class="ant-table-cell"
+                          >
+                            <div
+                              class="ant-space ant-space-horizontal ant-space-rtl ant-space-align-center"
+                            >
+                              <div
+                                class="ant-space-item"
+                              >
+                                <span
+                                  class="ant-tag ant-tag-success ant-tag-rtl"
+                                >
+                                  question
+                                </span>
+                              </div>
+                            </div>
+                          </td>
+                          <td
+                            class="ant-table-cell"
+                          >
+                            2020-05-26
+                          </td>
+                          <td
+                            class="ant-table-cell"
+                          >
+                            <div
+                              class="ant-space ant-space-horizontal ant-space-rtl ant-space-align-center"
+                            >
+                              <div
+                                class="ant-space-item"
+                                style="margin-left: 16px;"
+                              >
+                                <a
+                                  href="https://github.com/ant-design/ant-design-pro/issues/6683"
+                                  rel="noopener noreferrer"
+                                  target="_blank"
+                                >
+                                  رابط
+                                </a>
+                              </div>
+                              <div
+                                class="ant-space-item"
+                                style="margin-left: 16px;"
+                              >
+                                <a
+                                  href="https://github.com/ant-design/ant-design-pro/issues/6683"
+                                  rel="noopener noreferrer"
+                                  target="_blank"
+                                >
+                                  查看
+                                </a>
+                              </div>
+                              <div
+                                class="ant-space-item"
+                              >
+                                <a
+                                  class="ant-dropdown-trigger ant-dropdown-rtl ant-pro-table-dropdown"
+                                >
+                                  <span
+                                    aria-label="ellipsis"
+                                    class="anticon anticon-ellipsis"
+                                    role="img"
+                                  >
+                                    <svg
+                                      aria-hidden="true"
+                                      data-icon="ellipsis"
+                                      fill="currentColor"
+                                      focusable="false"
+                                      height="1em"
+                                      viewBox="64 64 896 896"
+                                      width="1em"
+                                    >
+                                      <path
+                                        d="M176 511a56 56 0 10112 0 56 56 0 10-112 0zm280 0a56 56 0 10112 0 56 56 0 10-112 0zm280 0a56 56 0 10112 0 56 56 0 10-112 0z"
+                                      />
+                                    </svg>
+                                  </span>
+                                </a>
+                              </div>
+                            </div>
+                          </td>
+                        </tr>
+                        <tr
+                          class="ant-table-row ant-table-row-level-0"
+                          data-row-key="624592471"
+                        >
+                          <td
+                            class="ant-table-cell"
+                          >
+                            <div
+                              class="ant-pro-field-index-column ant-pro-field-index-column-border top-three"
+                            >
+                              5
+                            </div>
+                          </td>
+                          <td
+                            class="ant-table-cell ant-table-cell-ellipsis"
+                            title="hideChildrenInMenu设置后，子路由找不到了"
+                          >
+                            <span
+                              aria-label="hideChildrenInMenu设置后，子路由找不到了"
+                              class="ant-typography ant-typography-rtl ant-typography-ellipsis ant-typography-single-line"
+                              direction="rtl"
+                              style="width: 100%; margin: 0px; padding: 0px;"
+                              title=""
+                            >
+                              hideChildrenInMenu设置后，子路由找不到了
+                              <div
+                                aria-label="نسخ"
+                                class="ant-typography-copy"
+                                role="button"
+                                style="border: 0px; background: transparent; padding: 0px; line-height: inherit; display: inline-block;"
+                                tabindex="0"
+                              >
+                                <span
+                                  aria-label="copy"
+                                  class="anticon anticon-copy"
+                                  role="img"
+                                >
+                                  <svg
+                                    aria-hidden="true"
+                                    data-icon="copy"
+                                    fill="currentColor"
+                                    focusable="false"
+                                    height="1em"
+                                    viewBox="64 64 896 896"
+                                    width="1em"
+                                  >
+                                    <path
+                                      d="M832 64H296c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8h496v688c0 4.4 3.6 8 8 8h56c4.4 0 8-3.6 8-8V96c0-17.7-14.3-32-32-32zM704 192H192c-17.7 0-32 14.3-32 32v530.7c0 8.5 3.4 16.6 9.4 22.6l173.3 173.3c2.2 2.2 4.7 4 7.4 5.5v1.9h4.2c3.5 1.3 7.2 2 11 2H704c17.7 0 32-14.3 32-32V224c0-17.7-14.3-32-32-32zM350 856.2L263.9 770H350v86.2zM664 888H414V746c0-22.1-17.9-40-40-40H232V264h432v624z"
+                                    />
+                                  </svg>
+                                </span>
+                              </div>
+                              <span
+                                aria-hidden="true"
+                                style="position: fixed; display: block; left: 0px; top: 0px; z-index: -9999; visibility: hidden; pointer-events: none; word-break: keep-all; white-space: nowrap;"
+                              >
+                                lg
+                              </span>
+                              <span
+                                aria-hidden="true"
+                                style="position: fixed; display: block; left: 0px; top: 0px; z-index: -9999; visibility: hidden; pointer-events: none; width: 0px; white-space: normal; margin: 0px; padding: 0px;"
+                              >
+                                <span
+                                  aria-hidden="true"
+                                >
+                                  ...
+                                </span>
+                                <div
+                                  aria-label="نسخ"
+                                  class="ant-typography-copy"
+                                  role="button"
+                                  style="border: 0px; background: transparent; padding: 0px; line-height: inherit; display: inline-block;"
+                                  tabindex="0"
+                                >
+                                  <span
+                                    aria-label="copy"
+                                    class="anticon anticon-copy"
+                                    role="img"
+                                  >
+                                    <svg
+                                      aria-hidden="true"
+                                      data-icon="copy"
+                                      fill="currentColor"
+                                      focusable="false"
+                                      height="1em"
+                                      viewBox="64 64 896 896"
+                                      width="1em"
+                                    >
+                                      <path
+                                        d="M832 64H296c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8h496v688c0 4.4 3.6 8 8 8h56c4.4 0 8-3.6 8-8V96c0-17.7-14.3-32-32-32zM704 192H192c-17.7 0-32 14.3-32 32v530.7c0 8.5 3.4 16.6 9.4 22.6l173.3 173.3c2.2 2.2 4.7 4 7.4 5.5v1.9h4.2c3.5 1.3 7.2 2 11 2H704c17.7 0 32-14.3 32-32V224c0-17.7-14.3-32-32-32zM350 856.2L263.9 770H350v86.2zM664 888H414V746c0-22.1-17.9-40-40-40H232V264h432v624z"
+                                      />
+                                    </svg>
+                                  </span>
+                                </div>
+                              </span>
+                            </span>
+                          </td>
+                          <td
+                            class="ant-table-cell"
+                          >
+                            <span
+                              class="ant-badge ant-badge-status ant-badge-not-a-wrapper ant-badge-rtl"
+                            >
+                              <span
+                                class="ant-badge-status-dot ant-badge-status-error"
+                              />
+                              <span
+                                class="ant-badge-status-text"
+                              >
+                                غير محلولة
+                              </span>
+                            </span>
+                          </td>
+                          <td
+                            class="ant-table-cell"
+                          >
+                            <div
+                              class="ant-space ant-space-horizontal ant-space-rtl ant-space-align-center"
+                            >
+                              <div
+                                class="ant-space-item"
+                              >
+                                <span
+                                  class="ant-tag ant-tag-error ant-tag-rtl"
+                                >
+                                  bug
+                                </span>
+                              </div>
+                            </div>
+                          </td>
+                          <td
+                            class="ant-table-cell"
+                          >
+                            2020-05-26
+                          </td>
+                          <td
+                            class="ant-table-cell"
+                          >
+                            <div
+                              class="ant-space ant-space-horizontal ant-space-rtl ant-space-align-center"
+                            >
+                              <div
+                                class="ant-space-item"
+                                style="margin-left: 16px;"
+                              >
+                                <a
+                                  href="https://github.com/ant-design/ant-design-pro/issues/6682"
+                                  rel="noopener noreferrer"
+                                  target="_blank"
+                                >
+                                  رابط
+                                </a>
+                              </div>
+                              <div
+                                class="ant-space-item"
+                                style="margin-left: 16px;"
+                              >
+                                <a
+                                  href="https://github.com/ant-design/ant-design-pro/issues/6682"
+                                  rel="noopener noreferrer"
+                                  target="_blank"
+                                >
+                                  查看
+                                </a>
+                              </div>
+                              <div
+                                class="ant-space-item"
+                              >
+                                <a
+                                  class="ant-dropdown-trigger ant-dropdown-rtl ant-pro-table-dropdown"
+                                >
+                                  <span
+                                    aria-label="ellipsis"
+                                    class="anticon anticon-ellipsis"
+                                    role="img"
+                                  >
+                                    <svg
+                                      aria-hidden="true"
+                                      data-icon="ellipsis"
+                                      fill="currentColor"
+                                      focusable="false"
+                                      height="1em"
+                                      viewBox="64 64 896 896"
+                                      width="1em"
+                                    >
+                                      <path
+                                        d="M176 511a56 56 0 10112 0 56 56 0 10-112 0zm280 0a56 56 0 10112 0 56 56 0 10-112 0zm280 0a56 56 0 10112 0 56 56 0 10-112 0z"
+                                      />
+                                    </svg>
+                                  </span>
+                                </a>
                               </div>
                             </div>
                           </td>
@@ -44701,6 +45619,124 @@ exports[`table demos 📸 renders ./packages/table/src/demos/rtl_table.tsx corre
                   </div>
                 </div>
               </div>
+              <ul
+                class="ant-pagination mini ant-pagination-rtl ant-table-pagination ant-table-pagination-left"
+                unselectable="unselectable"
+              >
+                <li
+                  class="ant-pagination-total-text"
+                >
+                    1-5 من 20 عناصر
+                </li>
+                <li
+                  aria-disabled="true"
+                  class="ant-pagination-prev ant-pagination-disabled"
+                  title="الصفحة السابقة"
+                >
+                  <button
+                    class="ant-pagination-item-link"
+                    disabled=""
+                    tabindex="-1"
+                    type="button"
+                  >
+                    <span
+                      aria-label="right"
+                      class="anticon anticon-right"
+                      role="img"
+                    >
+                      <svg
+                        aria-hidden="true"
+                        data-icon="right"
+                        fill="currentColor"
+                        focusable="false"
+                        height="1em"
+                        viewBox="64 64 896 896"
+                        width="1em"
+                      >
+                        <path
+                          d="M765.7 486.8L314.9 134.7A7.97 7.97 0 00302 141v77.3c0 4.9 2.3 9.6 6.1 12.6l360 281.1-360 281.1c-3.9 3-6.1 7.7-6.1 12.6V883c0 6.7 7.7 10.4 12.9 6.3l450.8-352.1a31.96 31.96 0 000-50.4z"
+                        />
+                      </svg>
+                    </span>
+                  </button>
+                </li>
+                <li
+                  class="ant-pagination-item ant-pagination-item-1 ant-pagination-item-active"
+                  tabindex="0"
+                  title="1"
+                >
+                  <a
+                    rel="nofollow"
+                  >
+                    1
+                  </a>
+                </li>
+                <li
+                  class="ant-pagination-item ant-pagination-item-2"
+                  tabindex="0"
+                  title="2"
+                >
+                  <a
+                    rel="nofollow"
+                  >
+                    2
+                  </a>
+                </li>
+                <li
+                  class="ant-pagination-item ant-pagination-item-3"
+                  tabindex="0"
+                  title="3"
+                >
+                  <a
+                    rel="nofollow"
+                  >
+                    3
+                  </a>
+                </li>
+                <li
+                  class="ant-pagination-item ant-pagination-item-4"
+                  tabindex="0"
+                  title="4"
+                >
+                  <a
+                    rel="nofollow"
+                  >
+                    4
+                  </a>
+                </li>
+                <li
+                  aria-disabled="false"
+                  class="ant-pagination-next"
+                  tabindex="0"
+                  title="الصفحة التالية"
+                >
+                  <button
+                    class="ant-pagination-item-link"
+                    tabindex="-1"
+                    type="button"
+                  >
+                    <span
+                      aria-label="left"
+                      class="anticon anticon-left"
+                      role="img"
+                    >
+                      <svg
+                        aria-hidden="true"
+                        data-icon="left"
+                        fill="currentColor"
+                        focusable="false"
+                        height="1em"
+                        viewBox="64 64 896 896"
+                        width="1em"
+                      >
+                        <path
+                          d="M724 218.3V141c0-6.7-7.7-10.4-12.9-6.3L260.3 486.8a31.86 31.86 0 000 50.3l450.8 352.1c5.3 4.1 12.9.4 12.9-6.3v-77.3c0-4.9-2.3-9.6-6.1-12.6l-360-281 360-281.1c3.8-3 6.1-7.7 6.1-12.6z"
+                        />
+                      </svg>
+                    </span>
+                  </button>
+                </li>
+              </ul>
             </div>
           </div>
         </div>
@@ -45372,32 +46408,9 @@ exports[`table demos 📸 renders ./packages/table/src/demos/search_option.tsx c
                             style="margin-right: 8px; padding-bottom: 8px;"
                           >
                             <button
-                              class="ant-btn ant-btn-primary ant-btn-loading"
+                              class="ant-btn ant-btn-primary"
                               type="button"
                             >
-                              <span
-                                class="ant-btn-loading-icon"
-                              >
-                                <span
-                                  aria-label="loading"
-                                  class="anticon anticon-loading anticon-spin"
-                                  role="img"
-                                >
-                                  <svg
-                                    aria-hidden="true"
-                                    data-icon="loading"
-                                    fill="currentColor"
-                                    focusable="false"
-                                    height="1em"
-                                    viewBox="0 0 1024 1024"
-                                    width="1em"
-                                  >
-                                    <path
-                                      d="M988 548c-19.9 0-36-16.1-36-36 0-59.4-11.6-117-34.6-171.3a440.45 440.45 0 00-94.3-139.9 437.71 437.71 0 00-139.9-94.3C629 83.6 571.4 72 512 72c-19.9 0-36-16.1-36-36s16.1-36 36-36c69.1 0 136.2 13.5 199.3 40.3C772.3 66 827 103 874 150c47 47 83.9 101.8 109.7 162.7 26.7 63.1 40.2 130.2 40.2 199.3.1 19.9-16 36-35.9 36z"
-                                    />
-                                  </svg>
-                                </span>
-                              </span>
                               <span>
                                 查 询
                               </span>
@@ -45646,30 +46659,8 @@ exports[`table demos 📸 renders ./packages/table/src/demos/search_option.tsx c
           <div
             class="ant-spin-nested-loading"
           >
-            <div>
-              <div
-                class="ant-spin ant-spin-spinning"
-              >
-                <span
-                  class="ant-spin-dot ant-spin-dot-spin"
-                >
-                  <i
-                    class="ant-spin-dot-item"
-                  />
-                  <i
-                    class="ant-spin-dot-item"
-                  />
-                  <i
-                    class="ant-spin-dot-item"
-                  />
-                  <i
-                    class="ant-spin-dot-item"
-                  />
-                </span>
-              </div>
-            </div>
             <div
-              class="ant-spin-container ant-spin-blur"
+              class="ant-spin-container"
             >
               <div
                 class="ant-table ant-table-middle"
@@ -49105,32 +50096,9 @@ exports[`table demos 📸 renders ./packages/table/src/demos/single-test.tsx cor
                             style="padding-bottom: 8px;"
                           >
                             <button
-                              class="ant-btn ant-btn-primary ant-btn-loading"
+                              class="ant-btn ant-btn-primary"
                               type="button"
                             >
-                              <span
-                                class="ant-btn-loading-icon"
-                              >
-                                <span
-                                  aria-label="loading"
-                                  class="anticon anticon-loading anticon-spin"
-                                  role="img"
-                                >
-                                  <svg
-                                    aria-hidden="true"
-                                    data-icon="loading"
-                                    fill="currentColor"
-                                    focusable="false"
-                                    height="1em"
-                                    viewBox="0 0 1024 1024"
-                                    width="1em"
-                                  >
-                                    <path
-                                      d="M988 548c-19.9 0-36-16.1-36-36 0-59.4-11.6-117-34.6-171.3a440.45 440.45 0 00-94.3-139.9 437.71 437.71 0 00-139.9-94.3C629 83.6 571.4 72 512 72c-19.9 0-36-16.1-36-36s16.1-36 36-36c69.1 0 136.2 13.5 199.3 40.3C772.3 66 827 103 874 150c47 47 83.9 101.8 109.7 162.7 26.7 63.1 40.2 130.2 40.2 199.3.1 19.9-16 36-35.9 36z"
-                                    />
-                                  </svg>
-                                </span>
-                              </span>
                               <span>
                                 查 询
                               </span>
@@ -49353,30 +50321,8 @@ exports[`table demos 📸 renders ./packages/table/src/demos/single-test.tsx cor
           <div
             class="ant-spin-nested-loading"
           >
-            <div>
-              <div
-                class="ant-spin ant-spin-spinning"
-              >
-                <span
-                  class="ant-spin-dot ant-spin-dot-spin"
-                >
-                  <i
-                    class="ant-spin-dot-item"
-                  />
-                  <i
-                    class="ant-spin-dot-item"
-                  />
-                  <i
-                    class="ant-spin-dot-item"
-                  />
-                  <i
-                    class="ant-spin-dot-item"
-                  />
-                </span>
-              </div>
-            </div>
             <div
-              class="ant-spin-container ant-spin-blur"
+              class="ant-spin-container"
             >
               <div
                 class="ant-table ant-table-middle ant-table-has-fix-left ant-table-has-fix-right"
@@ -54277,32 +55223,9 @@ exports[`table demos 📸 renders ./packages/table/src/demos/valueType_select.ts
                             style="padding-bottom: 8px;"
                           >
                             <button
-                              class="ant-btn ant-btn-primary ant-btn-loading"
+                              class="ant-btn ant-btn-primary"
                               type="button"
                             >
-                              <span
-                                class="ant-btn-loading-icon"
-                              >
-                                <span
-                                  aria-label="loading"
-                                  class="anticon anticon-loading anticon-spin"
-                                  role="img"
-                                >
-                                  <svg
-                                    aria-hidden="true"
-                                    data-icon="loading"
-                                    fill="currentColor"
-                                    focusable="false"
-                                    height="1em"
-                                    viewBox="0 0 1024 1024"
-                                    width="1em"
-                                  >
-                                    <path
-                                      d="M988 548c-19.9 0-36-16.1-36-36 0-59.4-11.6-117-34.6-171.3a440.45 440.45 0 00-94.3-139.9 437.71 437.71 0 00-139.9-94.3C629 83.6 571.4 72 512 72c-19.9 0-36-16.1-36-36s16.1-36 36-36c69.1 0 136.2 13.5 199.3 40.3C772.3 66 827 103 874 150c47 47 83.9 101.8 109.7 162.7 26.7 63.1 40.2 130.2 40.2 199.3.1 19.9-16 36-35.9 36z"
-                                    />
-                                  </svg>
-                                </span>
-                              </span>
                               <span>
                                 查 询
                               </span>
@@ -54479,30 +55402,8 @@ exports[`table demos 📸 renders ./packages/table/src/demos/valueType_select.ts
           <div
             class="ant-spin-nested-loading"
           >
-            <div>
-              <div
-                class="ant-spin ant-spin-spinning"
-              >
-                <span
-                  class="ant-spin-dot ant-spin-dot-spin"
-                >
-                  <i
-                    class="ant-spin-dot-item"
-                  />
-                  <i
-                    class="ant-spin-dot-item"
-                  />
-                  <i
-                    class="ant-spin-dot-item"
-                  />
-                  <i
-                    class="ant-spin-dot-item"
-                  />
-                </span>
-              </div>
-            </div>
             <div
-              class="ant-spin-container ant-spin-blur"
+              class="ant-spin-container"
             >
               <div
                 class="ant-table ant-table-middle"
@@ -55540,32 +56441,9 @@ exports[`table demos 📸 renders ./packages/table/src/demos/valueTypeDate.tsx c
                             style="padding-bottom: 8px;"
                           >
                             <button
-                              class="ant-btn ant-btn-primary ant-btn-loading"
+                              class="ant-btn ant-btn-primary"
                               type="button"
                             >
-                              <span
-                                class="ant-btn-loading-icon"
-                              >
-                                <span
-                                  aria-label="loading"
-                                  class="anticon anticon-loading anticon-spin"
-                                  role="img"
-                                >
-                                  <svg
-                                    aria-hidden="true"
-                                    data-icon="loading"
-                                    fill="currentColor"
-                                    focusable="false"
-                                    height="1em"
-                                    viewBox="0 0 1024 1024"
-                                    width="1em"
-                                  >
-                                    <path
-                                      d="M988 548c-19.9 0-36-16.1-36-36 0-59.4-11.6-117-34.6-171.3a440.45 440.45 0 00-94.3-139.9 437.71 437.71 0 00-139.9-94.3C629 83.6 571.4 72 512 72c-19.9 0-36-16.1-36-36s16.1-36 36-36c69.1 0 136.2 13.5 199.3 40.3C772.3 66 827 103 874 150c47 47 83.9 101.8 109.7 162.7 26.7 63.1 40.2 130.2 40.2 199.3.1 19.9-16 36-35.9 36z"
-                                    />
-                                  </svg>
-                                </span>
-                              </span>
                               <span>
                                 查 询
                               </span>
@@ -55742,30 +56620,8 @@ exports[`table demos 📸 renders ./packages/table/src/demos/valueTypeDate.tsx c
           <div
             class="ant-spin-nested-loading"
           >
-            <div>
-              <div
-                class="ant-spin ant-spin-spinning"
-              >
-                <span
-                  class="ant-spin-dot ant-spin-dot-spin"
-                >
-                  <i
-                    class="ant-spin-dot-item"
-                  />
-                  <i
-                    class="ant-spin-dot-item"
-                  />
-                  <i
-                    class="ant-spin-dot-item"
-                  />
-                  <i
-                    class="ant-spin-dot-item"
-                  />
-                </span>
-              </div>
-            </div>
             <div
-              class="ant-spin-container ant-spin-blur"
+              class="ant-spin-container"
             >
               <div
                 class="ant-table ant-table-middle"
@@ -56847,32 +57703,9 @@ exports[`table demos 📸 renders ./packages/table/src/demos/valueTypeNumber.tsx
                             style="padding-bottom: 8px;"
                           >
                             <button
-                              class="ant-btn ant-btn-primary ant-btn-loading"
+                              class="ant-btn ant-btn-primary"
                               type="button"
                             >
-                              <span
-                                class="ant-btn-loading-icon"
-                              >
-                                <span
-                                  aria-label="loading"
-                                  class="anticon anticon-loading anticon-spin"
-                                  role="img"
-                                >
-                                  <svg
-                                    aria-hidden="true"
-                                    data-icon="loading"
-                                    fill="currentColor"
-                                    focusable="false"
-                                    height="1em"
-                                    viewBox="0 0 1024 1024"
-                                    width="1em"
-                                  >
-                                    <path
-                                      d="M988 548c-19.9 0-36-16.1-36-36 0-59.4-11.6-117-34.6-171.3a440.45 440.45 0 00-94.3-139.9 437.71 437.71 0 00-139.9-94.3C629 83.6 571.4 72 512 72c-19.9 0-36-16.1-36-36s16.1-36 36-36c69.1 0 136.2 13.5 199.3 40.3C772.3 66 827 103 874 150c47 47 83.9 101.8 109.7 162.7 26.7 63.1 40.2 130.2 40.2 199.3.1 19.9-16 36-35.9 36z"
-                                    />
-                                  </svg>
-                                </span>
-                              </span>
                               <span>
                                 查 询
                               </span>
@@ -57049,30 +57882,8 @@ exports[`table demos 📸 renders ./packages/table/src/demos/valueTypeNumber.tsx
           <div
             class="ant-spin-nested-loading"
           >
-            <div>
-              <div
-                class="ant-spin ant-spin-spinning"
-              >
-                <span
-                  class="ant-spin-dot ant-spin-dot-spin"
-                >
-                  <i
-                    class="ant-spin-dot-item"
-                  />
-                  <i
-                    class="ant-spin-dot-item"
-                  />
-                  <i
-                    class="ant-spin-dot-item"
-                  />
-                  <i
-                    class="ant-spin-dot-item"
-                  />
-                </span>
-              </div>
-            </div>
             <div
-              class="ant-spin-container ant-spin-blur"
+              class="ant-spin-container"
             >
               <div
                 class="ant-table ant-table-middle"
