@@ -1,5 +1,5 @@
 ﻿import React from 'react';
-import { ProFormText, DrawerForm, ModalForm } from '@ant-design/pro-form';
+import { ProFormText, DrawerForm } from '@ant-design/pro-form';
 import { Button } from 'antd';
 import { act } from 'react-dom/test-utils';
 import { render } from '@testing-library/react';
@@ -521,24 +521,6 @@ describe('DrawerForm', () => {
     });
   });
 
-  it('📦 model no render Form when destroyOnClose', () => {
-    const { container } = render(
-      <ModalForm
-        modalProps={{
-          destroyOnClose: true,
-        }}
-        trigger={
-          <Button id="new" type="primary">
-            新建
-          </Button>
-        }
-      >
-        <ProFormText name="name" />
-      </ModalForm>,
-    );
-    expect(container.querySelector('form')).toBeFalsy();
-  });
-
   it('📦 drawer no render Form when destroyOnClose', () => {
     const { container } = render(
       <DrawerForm
@@ -585,37 +567,6 @@ describe('DrawerForm', () => {
     await waitForComponentToPaint(html, 200);
 
     html.setProps({ formRef: ref, drawerProps: { destroyOnClose: true } });
-
-    expect(ref.current).toBeTruthy();
-
-    html.unmount();
-  });
-
-  it('📦 ModelForm get formRef when destroyOnClose', async () => {
-    const ref = React.createRef<any>();
-
-    const html = mount(
-      <ModalForm
-        formRef={ref}
-        modalProps={{
-          destroyOnClose: true,
-        }}
-        trigger={
-          <Button id="new" type="primary">
-            新建
-          </Button>
-        }
-      >
-        <ProFormText name="name" />
-      </ModalForm>,
-    );
-
-    waitForComponentToPaint(html, 200);
-    expect(ref.current).toBeFalsy();
-    act(() => {
-      html.find('button#new').simulate('click');
-    });
-    await waitForComponentToPaint(html, 200);
 
     expect(ref.current).toBeTruthy();
 
