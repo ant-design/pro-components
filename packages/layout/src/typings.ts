@@ -12,7 +12,7 @@ export type LinkProps = {
 
 export type MenuDataItem = {
   /** @name 子菜单 */
-  routes?: MenuDataItem[];
+  children?: MenuDataItem[];
   /** @name 在菜单中隐藏子节点 */
   hideChildrenInMenu?: boolean;
   /** @name 在菜单中隐藏自己和子节点 */
@@ -39,7 +39,6 @@ export type MenuDataItem = {
   flatMenu?: boolean;
   /** @name 指定外链打开形式，同a标签 */
   target?: string;
-
   [key: string]: any;
 };
 
