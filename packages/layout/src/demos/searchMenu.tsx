@@ -14,6 +14,7 @@ const filterByMenuDate = (data: MenuDataItem[], keyWord: string): MenuDataItem[]
       ) {
         return {
           ...item,
+          children: filterByMenuDate(item.children || [], keyWord),
           routes: filterByMenuDate(item.routes || [], keyWord),
         };
       }
