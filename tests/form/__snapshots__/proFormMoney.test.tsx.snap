@@ -158,7 +158,7 @@ exports[`💵 ProFormMoney 💵 can input negative 1`] = `
           class="ant-form-item-control-input-content"
         >
           <div
-            class="ant-input-number"
+            class="ant-input-number ant-input-number-status-success"
             style="width: 100%;"
           >
             <div
