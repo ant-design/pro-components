@@ -12017,6 +12017,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/LoginForm/demos/
       </div>
       <div
         class="ant-pro-form-login-main"
+        style="width: 328px;"
       >
         <form
           autocomplete="off"

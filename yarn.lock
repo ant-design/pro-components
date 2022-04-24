@@ -4395,10 +4395,10 @@
     "@umijs/runtime" "3.5.22"
     react-router-config "5.1.1"
 
-"@umijs/route-utils@^2.0.1":
-  version "2.0.5"
-  resolved "https://registry.npmmirror.com/@umijs/route-utils/-/route-utils-2.0.5.tgz#5d4c96b444ae5a1eb29cab25300e3774689d02f7"
-  integrity sha512-HSuQebvOmupsWvzl6P2ZRH5cFOs+Wla3wlnKIG1n1bDXnAYuJ5gHpA0uAf0AZIP4wIL5xsxOqlgYqAoOuOSuKw==
+"@umijs/route-utils@^2.1.0":
+  version "2.1.0"
+  resolved "https://registry.npmmirror.com/@umijs/route-utils/-/route-utils-2.1.0.tgz#cf5d15fa92bb1d396f914ef2c539239de0ee6171"
+  integrity sha512-2jivGIv7w0WF38NNXhCO/cEsyHY6r2d+rB9NinShv3shAAsqrMELEsjoDlEHTaHh9KvFb6+TcChXRd1Rvm/Y2g==
   dependencies:
     "@qixian.cs/path-to-regexp" "^6.1.0"
     fast-deep-equal "^3.1.3"
