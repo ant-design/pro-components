@@ -1,5 +1,6 @@
 ﻿import React, { useContext, useMemo } from 'react';
 import type { FormInstance, FormItemProps } from 'antd';
+import { Table } from 'antd';
 import { ConfigProvider } from 'antd';
 import type { BaseQueryFilterProps, ProFormProps } from '@ant-design/pro-form';
 import classNames from 'classnames';
@@ -143,6 +144,9 @@ const FormRender = <T, U = any>({
   const columnsList = useMemo(() => {
     return columns
       .filter((item) => {
+        if (item === Table.EXPAND_COLUMN || item === Table.SELECTION_COLUMN) {
+          return false;
+        }
         if ((item.hideInSearch || item.search === false) && type !== 'form') {
           return false;
         }

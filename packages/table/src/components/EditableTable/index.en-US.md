@@ -41,7 +41,7 @@ EditableProTable is essentially the same as ProTable, with a few presets added t
 | `maxLength` | The maximum number of rows, the New button will disappear when the maximum number of rows is reached | number | - |
 | `editable` | Related configuration of editable table | [TableRowEditable<T>](#editable-Editable row configuration) | - |
 | `controlled` | Whether controlled, if controlled every edit modifies the dataSource | `boolean` | false |
-| `editableFormRef` | table All forms, with some table-specific operations | `React.Ref<EditableFormInstance<T>` | `undefined` |
+| `editableFormRef` | table All forms, with some table-specific operations | `React.Ref<EditableFormInstance<T>>` | `undefined` |
 
 > Other APIs are the same as ProTable.
 

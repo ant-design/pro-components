@@ -25,8 +25,8 @@ LoginForm and LoginFormPage are variants of ProForm. They are specially implemen
 LoginForm represents the more common centered layout style.
 
 | parameter | description | type | default value |
-| --- | --- | --- | --- | --- |
-| logo | Configuration of logo, supports ReactNode and string | `ReactNode | url` | - |
+| --- | --- | --- | --- |
+| logo | Configuration of logo, supports ReactNode and string | `ReactNode \| url` | - |
 | title | title, can be empty | `ReactNode` | - |
 | subTitle | Secondary title, can be configured as empty | `ReactNode` | - |
 | actions | Customize additional login functionality | `ReactNode` |
@@ -37,8 +37,8 @@ LoginForm represents the more common centered layout style.
 LoginFormPage uses the left and right layout, and adds some ad slot configuration.
 
 | parameter | description | type | default value |
-| --- | --- | --- | --- | --- |
-| logo | Configuration of logo, supports ReactNode and string | `ReactNode | url` | - |
+| --- | --- | --- | --- |
+| logo | Configuration of logo, supports ReactNode and string | `ReactNode \| url` | - |
 | title | title, can be empty | `ReactNode` | - |
 | subTitle | Secondary title, can be configured as empty | `ReactNode` | - |
 | actions | Customize additional login functionality | `ReactNode` |

@@ -272,6 +272,7 @@ const renderSiderMenu = (props: ProLayoutProps, matchMenuKeys: string[]): React.
   }
   // 这里走了可以少一次循环
   const clearMenuData = clearMenuItem(menuData || []);
+  console.log(clearMenuData);
   if (clearMenuData && clearMenuData?.length < 1 && splitMenus) {
     return null;
   }

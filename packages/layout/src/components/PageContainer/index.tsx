@@ -294,6 +294,7 @@ const ProPageHeader: React.FC<PageContainerProps & { prefixedClassName: string }
   const { breadcrumb } = pageHeaderProps as {
     breadcrumb: BreadcrumbProps;
   };
+
   const noHasBreadCrumb =
     (!breadcrumb || (!breadcrumb?.itemRender && !breadcrumb?.routes?.length)) && !breadcrumbRender;
 

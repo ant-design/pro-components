@@ -34,7 +34,9 @@ export function genStringToTheme(val?: string): string {
 export function clearMenuItem(menusData: MenuDataItem[]): MenuDataItem[] {
   return menusData
     .map((item) => {
+      const children: MenuDataItem[] = item.children || item.routes;
       const finalItem = { ...item };
+
       if (!finalItem.name || finalItem.hideInMenu) {
         return null;
       }
@@ -42,15 +44,17 @@ export function clearMenuItem(menusData: MenuDataItem[]): MenuDataItem[] {
       if (finalItem && finalItem?.routes) {
         if (
           !finalItem.hideChildrenInMenu &&
-          finalItem.routes.some((child) => child && child.name && !child.hideInMenu)
+          children.some((child) => child && child.name && !child.hideInMenu)
         ) {
           return {
             ...item,
-            routes: clearMenuItem(finalItem.routes),
+            children: clearMenuItem(children),
+            routes: clearMenuItem(children),
           };
         }
         // children 为空就直接删掉
         delete finalItem.routes;
+        delete finalItem.children;
       }
       return finalItem;
     })

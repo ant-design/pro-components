@@ -41,10 +41,16 @@ export type LoginFormProps<T> = {
    */
   logo?: React.ReactNode;
   children?: React.ReactNode | React.ReactNode[];
+
+  /**
+   * @name 登录框主表格的样式
+   */
+  contentStyle?: React.CSSProperties;
 } & ProFormProps<T>;
 
 function LoginForm<T = Record<string, any>>(props: Partial<LoginFormProps<T>>) {
-  const { logo, message, title, subTitle, actions, children, ...proFormProps } = props;
+  const { logo, message, contentStyle, title, subTitle, actions, children, ...proFormProps } =
+    props;
 
   const intl = useIntl();
 
@@ -98,7 +104,13 @@ function LoginForm<T = Record<string, any>>(props: Partial<LoginFormProps<T>>) {
         ) : null}
         {subTitle ? <div className={getCls('desc')}>{subTitle}</div> : null}
       </div>
-      <div className={getCls('main')}>
+      <div
+        className={getCls('main')}
+        style={{
+          width: 328,
+          ...contentStyle,
+        }}
+      >
         <ProForm isKeyPressSubmit {...proFormProps} submitter={submitter}>
           {message}
           {children}

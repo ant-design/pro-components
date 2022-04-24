@@ -2,6 +2,24 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.72.0](https://github.com/ant-design/pro-components/compare/@ant-design/pro-table@2.71.7...@ant-design/pro-table@2.72.0) (2022-04-24)
+
+### Bug Fixes
+
+- **table:** extra columns unexpected show in form compo ([#5096](https://github.com/ant-design/pro-components/issues/5096)) ([a28d0b9](https://github.com/ant-design/pro-components/commit/a28d0b956e16b077a5038be96898ce9520b414f0))
+- **table:** ts type error ([#5095](https://github.com/ant-design/pro-components/issues/5095)) ([6e14c1f](https://github.com/ant-design/pro-components/commit/6e14c1f1d86a095e4cdc861b045b008a2c6145f2))
+
+### Features
+
+- **form:** 提交表单时，禁用取消按钮和右上角关闭按钮，直到 onFinish 异步回调执行完成 ([#5078](https://github.com/ant-design/pro-components/issues/5078)) ([ff1a4e0](https://github.com/ant-design/pro-components/commit/ff1a4e07df6a42282cf392fb5992d1afa25b7b48))
+- **table:** reinitialize umountRef for react@18 strict mode ([#5085](https://github.com/ant-design/pro-components/issues/5085)) ([8a4652a](https://github.com/ant-design/pro-components/commit/8a4652a143088eee3205195824c7f5720796c020))
+
+## [2.71.7](https://github.com/ant-design/pro-components/compare/@ant-design/pro-table@2.71.6...@ant-design/pro-table@2.71.7) (2022-04-18)
+
+### Bug Fixes
+
+- **form:** fix revalidateOnFocus alway work error-n ([0ea1618](https://github.com/ant-design/pro-components/commit/0ea1618154634f6e0ac9c64682a71746ab191807))
+
 ## [2.71.6](https://github.com/ant-design/pro-components/compare/@ant-design/pro-table@2.71.5...@ant-design/pro-table@2.71.6) (2022-04-14)
 
 **Note:** Version bump only for package @ant-design/pro-table

@@ -2,8 +2,9 @@
 import { ProFormText, ModalForm } from '@ant-design/pro-form';
 import { Button } from 'antd';
 import { act } from 'react-dom/test-utils';
+import { render } from '@testing-library/react';
 import { mount } from 'enzyme';
-import { waitForComponentToPaint } from '../util';
+import { waitForComponentToPaint, waitTime } from '../util';
 
 describe('ModalForm', () => {
   it('📦 trigger will simulate onVisibleChange', async () => {
@@ -394,5 +395,139 @@ describe('ModalForm', () => {
     await waitForComponentToPaint(wrapper);
 
     expect(wrapper.find('input#test').props().value).toEqual('1234');
+  });
+
+  it('📦 modal submitTimeout is number will disabled close button when submit', async () => {
+    const fn = jest.fn();
+    const wrapper = mount(
+      <ModalForm
+        visible
+        modalProps={{
+          onCancel: () => fn(),
+        }}
+        onFinish={async () => {
+          await waitTime(2000);
+        }}
+        submitTimeout={3000}
+      />,
+    );
+    await waitForComponentToPaint(wrapper, 500);
+
+    act(() => {
+      wrapper.find('button.ant-btn-primary').simulate('click');
+    });
+
+    await waitForComponentToPaint(wrapper, 500);
+
+    expect(wrapper.find('button.ant-btn-default').props().disabled).toEqual(true);
+
+    act(() => {
+      wrapper.find('.ant-modal-close').simulate('click');
+    });
+
+    await waitForComponentToPaint(wrapper, 500);
+
+    expect(fn).not.toBeCalled();
+
+    await waitForComponentToPaint(wrapper, 2500);
+
+    expect(wrapper.find('button.ant-btn-default').props().disabled).toEqual(false);
+
+    act(() => {
+      wrapper.find('.ant-modal-close').simulate('click');
+    });
+
+    await waitForComponentToPaint(wrapper, 500);
+
+    expect(fn).toBeCalled();
+
+    act(() => {
+      wrapper.unmount();
+    });
+  });
+
+  it('📦 modal submitTimeout is null no disable close button when submit', async () => {
+    const fn = jest.fn();
+    const wrapper = mount(
+      <ModalForm
+        visible
+        modalProps={{
+          onCancel: () => fn(),
+        }}
+        onFinish={async () => {
+          await waitTime(2000);
+        }}
+      />,
+    );
+    await waitForComponentToPaint(wrapper, 500);
+
+    act(() => {
+      wrapper.find('button.ant-btn-primary').simulate('click');
+    });
+
+    await waitForComponentToPaint(wrapper, 500);
+
+    expect(wrapper.find('button.ant-btn-default').props().disabled).toEqual(undefined);
+
+    act(() => {
+      wrapper.find('.ant-modal-close').simulate('click');
+    });
+
+    await waitForComponentToPaint(wrapper, 500);
+
+    expect(fn).toBeCalled();
+
+    act(() => {
+      wrapper.unmount();
+    });
+  });
+
+  it('📦 model no render Form when destroyOnClose', () => {
+    const { container } = render(
+      <ModalForm
+        modalProps={{
+          destroyOnClose: true,
+        }}
+        trigger={
+          <Button id="new" type="primary">
+            新建
+          </Button>
+        }
+      >
+        <ProFormText name="name" />
+      </ModalForm>,
+    );
+    expect(container.querySelector('form')).toBeFalsy();
+  });
+
+  it('📦 ModelForm get formRef when destroyOnClose', async () => {
+    const ref = React.createRef<any>();
+
+    const html = mount(
+      <ModalForm
+        formRef={ref}
+        modalProps={{
+          destroyOnClose: true,
+        }}
+        trigger={
+          <Button id="new" type="primary">
+            新建
+          </Button>
+        }
+      >
+        <ProFormText name="name" />
+      </ModalForm>,
+    );
+
+    waitForComponentToPaint(html, 200);
+    expect(ref.current).toBeFalsy();
+    act(() => {
+      html.find('button#new').simulate('click');
+    });
+    await waitForComponentToPaint(html, 200);
+
+    expect(ref.current).toBeTruthy();
+
+    html.unmount();
   });
 });
