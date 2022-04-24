@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.65.0](https://github.com/ant-design/pro-components/compare/@ant-design/pro-form@1.64.1...@ant-design/pro-form@1.65.0) (2022-04-24)
+
+### Features
+
+- **form:** 提交表单时，禁用取消按钮和右上角关闭按钮，直到 onFinish 异步回调执行完成 ([#5078](https://github.com/ant-design/pro-components/issues/5078)) ([ff1a4e0](https://github.com/ant-design/pro-components/commit/ff1a4e07df6a42282cf392fb5992d1afa25b7b48))
+
 ## [1.64.1](https://github.com/ant-design/pro-components/compare/@ant-design/pro-form@1.64.0...@ant-design/pro-form@1.64.1) (2022-04-18)
 
 ### Bug Fixes
