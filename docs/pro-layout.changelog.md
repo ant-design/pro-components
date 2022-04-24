@@ -9,6 +9,12 @@ group:
 
 # Change Log
 
+## @ant-design/pro-layout@6.36.0
+
+`2022-04-24`
+
+- feat(layout): default use children. [1170c6c](https://github.com/ant-design/pro-components/commit/1170c6c)
+
 ## @ant-design/pro-layout@6.35.0
 
 `2022-04-14`

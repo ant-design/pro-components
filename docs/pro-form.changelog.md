@@ -9,6 +9,14 @@ group:
 
 # Change Log
 
+## @ant-design/pro-form@1.65.0
+
+`2022-04-24`
+
+- feat(form): 提交表单时，禁用取消按钮和右上角关闭按钮，直到 onFinish 异步回调执行完成 (#5078). [#5078](https://github.com/ant-design/pro-components/pull/#5078) [@wangmeijian](https://github.com/wangmeijian)
+- fix(form) 验证码获取 按钮导致登录框宽度动态变化 (#5077). [#5077](https://github.com/ant-design/pro-components/pull/#5077) [@hihuangwei](https://github.com/hihuangwei)
+- feat(form): fix test case (#5109). [#5109](https://github.com/ant-design/pro-components/pull/#5109) [@wangmeijian](https://github.com/wangmeijian)
+
 ## @ant-design/pro-form@1.64.1
 
 `2022-04-18`
