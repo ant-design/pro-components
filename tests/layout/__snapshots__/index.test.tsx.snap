@@ -1343,6 +1343,7 @@ exports[`BasicLayout 🥩 mix layout hideInMenu render right 1`] = `
               role="menuitem"
               style="padding-left: 16px;"
               tabindex="-1"
+              title="列表页"
             >
               <span
                 class="ant-menu-title-content"
@@ -1661,6 +1662,8 @@ exports[`BasicLayout 🥩 support loading 1`] = `
           style="padding-top: 100px; text-align: center;"
         >
           <div
+            aria-busy="true"
+            aria-live="polite"
             class="ant-spin ant-spin-lg ant-spin-spinning"
           >
             <span
@@ -1854,6 +1857,7 @@ exports[`BasicLayout 🥩 support menuDataRender 1`] = `
               role="menuitem"
               style="padding-left: 16px;"
               tabindex="-1"
+              title="首页"
             >
               <span
                 class="ant-menu-title-content"
@@ -1904,6 +1908,7 @@ exports[`BasicLayout 🥩 support menuDataRender 1`] = `
               role="menuitem"
               style="padding-left: 16px;"
               tabindex="-1"
+              title="明细数据"
             >
               <span
                 class="ant-menu-title-content"
@@ -1925,6 +1930,7 @@ exports[`BasicLayout 🥩 support menuDataRender 1`] = `
               role="menuitem"
               style="padding-left: 16px;"
               tabindex="-1"
+              title="其他"
             >
               <span
                 class="ant-menu-title-content"
