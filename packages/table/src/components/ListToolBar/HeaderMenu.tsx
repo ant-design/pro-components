@@ -69,7 +69,6 @@ const HeaderMenu: React.FC<ListToolBarHeaderMenuProps> = (props) => {
 
   return (
     <div className={classNames(`${prefixCls}-menu`, `${prefixCls}-dropdownmenu`)}>
-      {/* @ts-expect-error */}
       <Dropdown
         trigger={['click']}
         overlay={

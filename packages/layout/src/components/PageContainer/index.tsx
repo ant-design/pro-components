@@ -244,7 +244,6 @@ const ProPageHeader: React.FC<PageContainerProps & { prefixedClassName: string }
 
   return (
     <div className={`${prefixedClassName}-warp`}>
-      {/* @ts-expect-error */}
       <PageHeader
         {...pageHeaderProps}
         breadcrumb={
