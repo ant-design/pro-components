@@ -22,11 +22,11 @@ export type ActionsProps = {
         /** 是否应该展示，有两种情况 列只有三列，不需要收起 form 模式 不需要收起 */
         props: ActionsProps,
         intl: IntlType,
-        hiddenNum?: number,
+        hiddenNum?: false | number,
       ) => React.ReactNode)
     | false;
   /** 隐藏个数 */
-  hiddenNum?: number;
+  hiddenNum?: false | number;
 };
 
 const defaultCollapseRender: ActionsProps['collapseRender'] = (collapsed, _, intl, hiddenNum) => {

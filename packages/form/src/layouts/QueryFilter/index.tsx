@@ -172,6 +172,10 @@ export type BaseQueryFilterProps = Omit<ActionsProps, 'submitter' | 'setCollapse
    * @name 忽略 Form.Item rule规则配置
    */
   ignoreRules?: boolean;
+  /**
+   * @name 是否显示 collapse 隐藏个数
+   */
+  showHiddenNum?: boolean;
 };
 
 const flatMapItems = (items: React.ReactNode[], ignoreRules?: boolean): React.ReactNode[] => {
@@ -218,6 +222,7 @@ const QueryFilterContent: React.FC<{
   optionRender: BaseQueryFilterProps['optionRender'];
   ignoreRules?: boolean;
   preserve?: boolean;
+  showHiddenNum?: boolean;
 }> = (props) => {
   const intl = useIntl();
   const resetText = props.resetText || intl.getMessage('tableForm.reset', '重置');
@@ -231,7 +236,16 @@ const QueryFilterContent: React.FC<{
     },
   );
 
-  const { optionRender, collapseRender, split, items, spanSize, showLength, searchGutter } = props;
+  const {
+    optionRender,
+    collapseRender,
+    split,
+    items,
+    spanSize,
+    showLength,
+    searchGutter,
+    showHiddenNum,
+  } = props;
 
   const submitter = useMemo(() => {
     if (!props.submitter || optionRender === false) {
@@ -360,7 +374,7 @@ const QueryFilterContent: React.FC<{
     return colItem;
   });
 
-  const hiddenNum = processedList.filter((item) => item.hidden).length;
+  const hiddenNum = showHiddenNum && processedList.filter((item) => item.hidden).length;
 
   /** 是否需要展示 collapseRender */
   const needCollapseRender = useMemo(() => {
@@ -424,6 +438,7 @@ function QueryFilter<T = Record<string, any>>(props: QueryFilterProps<T>) {
     split,
     preserve = true,
     ignoreRules,
+    showHiddenNum = false,
     ...rest
   } = props;
 
@@ -510,6 +525,7 @@ function QueryFilter<T = Record<string, any>>(props: QueryFilterProps<T>) {
             preserve={preserve}
             ignoreRules={ignoreRules}
             showLength={showLength}
+            showHiddenNum={showHiddenNum}
           />
         )}
       />

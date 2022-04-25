@@ -924,7 +924,7 @@ exports[`BasicTable 🎏 base use 1`] = `
                       <a
                         class="ant-pro-form-collapse-button"
                       >
-                        展开(9)
+                        展开
                         <span
                           aria-label="down"
                           class="anticon anticon-down"

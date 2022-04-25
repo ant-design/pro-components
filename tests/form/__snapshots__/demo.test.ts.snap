@@ -17734,7 +17734,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/QueryFilter/demo
                     <a
                       class="ant-pro-form-collapse-button"
                     >
-                      展开(4)
+                      展开
                       <span
                         aria-label="down"
                         class="anticon anticon-down"
@@ -18289,7 +18289,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/QueryFilter/demo
                     <a
                       class="ant-pro-form-collapse-button"
                     >
-                      展开(4)
+                      展开
                       <span
                         aria-label="down"
                         class="anticon anticon-down"
@@ -21694,7 +21694,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/QueryFilter/demo
                     <a
                       class="ant-pro-form-collapse-button"
                     >
-                      展开(3)
+                      展开
                       <span
                         aria-label="down"
                         class="anticon anticon-down"

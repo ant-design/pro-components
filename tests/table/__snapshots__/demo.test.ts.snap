@@ -385,7 +385,7 @@ exports[`table demos 📸 renders ./packages/table/src/components/DragSortTable/
                         <a
                           class="ant-pro-form-collapse-button"
                         >
-                          展开(2)
+                          展开
                           <span
                             aria-label="down"
                             class="anticon anticon-down"
@@ -1125,7 +1125,7 @@ exports[`table demos 📸 renders ./packages/table/src/components/DragSortTable/
                         <a
                           class="ant-pro-form-collapse-button"
                         >
-                          展开(2)
+                          展开
                           <span
                             aria-label="down"
                             class="anticon anticon-down"
@@ -17890,7 +17890,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/config-provider.tsx
                         <a
                           class="qixian-pro-form-collapse-button"
                         >
-                          展开(1)
+                          展开
                           <span
                             aria-label="down"
                             class="anticon anticon-down"
@@ -23040,7 +23040,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/crud.tsx correctly 
                             <a
                               class="ant-pro-form-collapse-button"
                             >
-                              展开(2)
+                              展开
                               <span
                                 aria-label="down"
                                 class="anticon anticon-down"
@@ -29170,7 +29170,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/dynamic-settings.ts
                                   <a
                                     class="ant-pro-form-collapse-button"
                                   >
-                                    展开(2)
+                                    展开
                                     <span
                                       aria-label="down"
                                       class="anticon anticon-down"
@@ -33302,7 +33302,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/intl.tsx correctly 
                         <a
                           class="ant-pro-form-collapse-button"
                         >
-                          展开(1)
+                          展开
                           <span
                             aria-label="down"
                             class="anticon anticon-down"
@@ -42969,7 +42969,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/pollinga.tsx correc
                         <a
                           class="ant-pro-form-collapse-button"
                         >
-                          展开(2)
+                          展开
                           <span
                             aria-label="down"
                             class="anticon anticon-down"
@@ -44905,7 +44905,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/rtl_table.tsx corre
                         <a
                           class="ant-pro-form-collapse-button"
                         >
-                          مُقلص(1)
+                          مُقلص
                           <span
                             aria-label="down"
                             class="anticon anticon-down"
@@ -47834,7 +47834,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/single.tsx correctl
                         <a
                           class="ant-pro-form-collapse-button"
                         >
-                          展开(1)
+                          展开
                           <span
                             aria-label="down"
                             class="anticon anticon-down"
@@ -50757,7 +50757,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/single-test.tsx cor
                         <a
                           class="ant-pro-form-collapse-button"
                         >
-                          展开(4)
+                          展开
                           <span
                             aria-label="down"
                             class="anticon anticon-down"
@@ -54413,7 +54413,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/valueType.tsx corre
                         <a
                           class="ant-pro-form-collapse-button"
                         >
-                          展开(1)
+                          展开
                           <span
                             aria-label="down"
                             class="anticon anticon-down"
@@ -57115,7 +57115,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/valueTypeDate.tsx c
                         <a
                           class="ant-pro-form-collapse-button"
                         >
-                          展开(4)
+                          展开
                           <span
                             aria-label="down"
                             class="anticon anticon-down"
@@ -58376,7 +58376,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/valueTypeNumber.tsx
                         <a
                           class="ant-pro-form-collapse-button"
                         >
-                          展开(3)
+                          展开
                           <span
                             aria-label="down"
                             class="anticon anticon-down"

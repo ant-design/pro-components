@@ -1263,4 +1263,33 @@ describe('BasicTable', () => {
 
     expect(fn).toBeCalledTimes(2);
   });
+
+  it('🎏 support showHiddenNum', async () => {
+    const ref = React.createRef<ActionType>();
+    const fn = jest.fn();
+    const html = mount(
+      <ProTable
+        actionRef={ref as any}
+        size="small"
+        cardBordered
+        columns={columns}
+        request={async () => {
+          fn();
+          return Promise.resolve({
+            data: [],
+            total: 200,
+            success: true,
+          });
+        }}
+        search={{
+          showHiddenNum: true,
+        }}
+        rowKey="key"
+        debounceTime={500}
+      />,
+    );
+    await waitForComponentToPaint(html, 2000);
+
+    expect(html.find('.ant-pro-form-collapse-button').text()).toBe('展开(9)');
+  });
 });
