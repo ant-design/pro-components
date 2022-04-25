@@ -10,7 +10,6 @@ const DensityIcon = () => {
   const counter = Container.useContainer();
   const intl = useIntl();
   return (
-    //@ts-expect-error
     <Dropdown
       overlay={
         <Menu

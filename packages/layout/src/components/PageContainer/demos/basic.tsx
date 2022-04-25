@@ -36,7 +36,6 @@ export default () => (
           <Button key="3" type="primary">
             主要按钮
           </Button>,
-          //@ts-expect-error
           <Dropdown
             key="dropdown"
             trigger={['click']}
