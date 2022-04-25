@@ -24,6 +24,7 @@ export type {
   ProFormListProps,
   ProFormColumnsType,
   ProFormDigitRangeProps,
+  ProFormTreeSelect,
 } from './components';
 
 export { FieldContext } from './FieldContext';
