@@ -1,5 +1,5 @@
 import useMergedState from 'rc-util/lib/hooks/useMergedState';
-import { useEffect, useRef } from 'react';
+import { useEffect, useRef, version } from 'react';
 
 type Dispatch<A> = (value: A) => void;
 
@@ -32,6 +32,9 @@ function useMountMergeState<S>(
       }
     }, 16);
   };
+  if (version.startsWith('18')) {
+    return [state, setState];
+  }
   return [state, mountSetState];
 }
 

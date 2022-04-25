@@ -34,9 +34,13 @@ exports[`form demos 📸 renders ./packages/form/src/components/Dependency/demos
             class="ant-form-item-control-input-content"
           >
             <div
-              class="ant-select ant-select-in-form-item ant-pro-filed-search-select pro-field pro-field-xs ant-select-single ant-select-allow-clear ant-select-show-arrow"
+              class="ant-select ant-select-in-form-item ant-pro-filed-search-select pro-field pro-field-xs ant-select-focused ant-select-single ant-select-allow-clear ant-select-show-arrow"
               style="min-width: 100px;"
             >
+              <span
+                aria-live="polite"
+                style="width: 0px; height: 0px; display: flex; overflow: hidden; opacity: 0;"
+              />
               <div
                 class="ant-select-selector"
               >
@@ -557,7 +561,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/Dependency/demos
                   class="ant-form-item-control-input-content"
                 >
                   <span
-                    class="ant-input-affix-wrapper"
+                    class="ant-input-affix-wrapper ant-input-affix-wrapper-focused"
                   >
                     <input
                       class="ant-input"
@@ -1696,7 +1700,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/FieldSet/demos/c
                     class="ant-form-item-control-input-content"
                   >
                     <span
-                      class="ant-input-affix-wrapper pro-field pro-field-md"
+                      class="ant-input-affix-wrapper ant-input-affix-wrapper-focused pro-field pro-field-md"
                     >
                       <input
                         class="ant-input"
@@ -5082,7 +5086,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/FieldSet/demos/d
                   class="ant-form-item-control-input-content"
                 >
                   <div
-                    class="ant-picker"
+                    class="ant-picker ant-picker-focused"
                   >
                     <div
                       class="ant-picker-input"
@@ -5091,7 +5095,6 @@ exports[`form demos 📸 renders ./packages/form/src/components/FieldSet/demos/d
                         autocomplete="off"
                         id="date"
                         placeholder="请选择"
-                        readonly=""
                         size="12"
                         title="2016-11-22"
                         value="2016-11-22"
@@ -10220,7 +10223,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/Group/demos/list
             class="ant-form-item-control-input-content"
           >
             <span
-              class="ant-input-affix-wrapper pro-field pro-field-sm"
+              class="ant-input-affix-wrapper ant-input-affix-wrapper-focused pro-field pro-field-sm"
             >
               <input
                 class="ant-input"
@@ -11171,7 +11174,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/Group/demos/nest
             class="ant-form-item-control-input-content"
           >
             <span
-              class="ant-input-affix-wrapper"
+              class="ant-input-affix-wrapper ant-input-affix-wrapper-focused"
             >
               <input
                 class="ant-input"
@@ -13539,8 +13542,14 @@ exports[`form demos 📸 renders ./packages/form/src/components/QueryFilter/demo
                       class="ant-pro-field-select-light-select ant-pro-field-select-light-select-searchable"
                     >
                       <div
-                        class="ant-select ant-select-in-form-item ant-select-single ant-select-show-arrow ant-select-show-search"
+                        class="ant-select ant-select-in-form-item ant-select-focused ant-select-single ant-select-show-arrow ant-select-show-search"
                       >
+                        <span
+                          aria-live="polite"
+                          style="width: 0px; height: 0px; display: flex; overflow: hidden; opacity: 0;"
+                        >
+                          打开, 关闭
+                        </span>
                         <div
                           class="ant-select-selector"
                         >
@@ -14936,8 +14945,14 @@ exports[`form demos 📸 renders ./packages/form/src/components/QueryFilter/demo
                     class="ant-pro-field-select-light-select ant-pro-field-select-light-select-searchable"
                   >
                     <div
-                      class="ant-select ant-select-in-form-item ant-select-single ant-select-allow-clear ant-select-show-arrow ant-select-show-search"
+                      class="ant-select ant-select-in-form-item ant-select-focused ant-select-single ant-select-allow-clear ant-select-show-arrow ant-select-show-search"
                     >
+                      <span
+                        aria-live="polite"
+                        style="width: 0px; height: 0px; display: flex; overflow: hidden; opacity: 0;"
+                      >
+                        男
+                      </span>
                       <div
                         class="ant-select-selector"
                       >
@@ -15740,8 +15755,12 @@ exports[`form demos 📸 renders ./packages/form/src/components/QueryFilter/demo
                       class="ant-pro-field-select-light-select ant-pro-field-select-light-select-searchable"
                     >
                       <div
-                        class="ant-select ant-select-in-form-item ant-select-single ant-select-show-arrow ant-select-show-search"
+                        class="ant-select ant-select-in-form-item ant-select-focused ant-select-single ant-select-show-arrow ant-select-show-search"
                       >
+                        <span
+                          aria-live="polite"
+                          style="width: 0px; height: 0px; display: flex; overflow: hidden; opacity: 0;"
+                        />
                         <div
                           class="ant-select-selector"
                         >
@@ -16695,8 +16714,14 @@ exports[`form demos 📸 renders ./packages/form/src/components/QueryFilter/demo
                       class="ant-pro-field-select-light-select ant-pro-field-select-light-select-searchable"
                     >
                       <div
-                        class="ant-select ant-select-in-form-item ant-select-single ant-select-show-arrow ant-select-show-search"
+                        class="ant-select ant-select-in-form-item ant-select-focused ant-select-single ant-select-show-arrow ant-select-show-search"
                       >
+                        <span
+                          aria-live="polite"
+                          style="width: 0px; height: 0px; display: flex; overflow: hidden; opacity: 0;"
+                        >
+                          打开, 关闭
+                        </span>
                         <div
                           class="ant-select-selector"
                         >
@@ -17200,7 +17225,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/QueryFilter/demo
                 class="ant-form-item-control-input-content"
               >
                 <span
-                  class="ant-input-affix-wrapper"
+                  class="ant-input-affix-wrapper ant-input-affix-wrapper-focused"
                   style="width: 100%;"
                 >
                   <input
@@ -17813,7 +17838,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/QueryFilter/demo
                 class="ant-form-item-control-input-content"
               >
                 <span
-                  class="ant-input-affix-wrapper"
+                  class="ant-input-affix-wrapper ant-input-affix-wrapper-focused"
                   style="width: 100%;"
                 >
                   <input
@@ -20667,7 +20692,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/QueryFilter/demo
                 class="ant-form-item-control-input-content"
               >
                 <span
-                  class="ant-input-affix-wrapper"
+                  class="ant-input-affix-wrapper ant-input-affix-wrapper-focused"
                   style="width: 100%;"
                 >
                   <input
@@ -21239,7 +21264,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/QueryFilter/demo
                 class="ant-form-item-control-input-content"
               >
                 <span
-                  class="ant-input-affix-wrapper"
+                  class="ant-input-affix-wrapper ant-input-affix-wrapper-focused"
                   style="width: 100%;"
                 >
                   <input
@@ -21985,7 +22010,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/QueryFilter/demo
                           class="ant-form-item-control-input-content"
                         >
                           <span
-                            class="ant-input-affix-wrapper"
+                            class="ant-input-affix-wrapper ant-input-affix-wrapper-focused"
                             style="width: 100%;"
                           >
                             <input
@@ -22503,7 +22528,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/SchemaForm/demos
             class="ant-form-item-control-input-content"
           >
             <span
-              class="ant-input-affix-wrapper pro-field pro-field-m"
+              class="ant-input-affix-wrapper ant-input-affix-wrapper-focused pro-field pro-field-m"
             >
               <input
                 class="ant-input"
@@ -22920,9 +22945,13 @@ exports[`form demos 📸 renders ./packages/form/src/components/SchemaForm/demos
             class="ant-form-item-control-input-content"
           >
             <div
-              class="ant-select ant-select-in-form-item ant-pro-filed-search-select pro-field pro-field-m ant-select-single ant-select-allow-clear ant-select-show-arrow"
+              class="ant-select ant-select-in-form-item ant-pro-filed-search-select pro-field pro-field-m ant-select-focused ant-select-single ant-select-allow-clear ant-select-show-arrow"
               style="min-width: 100px;"
             >
+              <span
+                aria-live="polite"
+                style="width: 0px; height: 0px; display: flex; overflow: hidden; opacity: 0;"
+              />
               <div
                 class="ant-select-selector"
               >
@@ -23052,7 +23081,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/SchemaForm/demos
             class="ant-form-item-control-input-content"
           >
             <span
-              class="ant-input-affix-wrapper pro-field pro-field-m"
+              class="ant-input-affix-wrapper ant-input-affix-wrapper-focused pro-field pro-field-m"
             >
               <input
                 class="ant-input"
@@ -24202,7 +24231,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/SchemaForm/demos
                 class="ant-form-item-control-input-content"
               >
                 <span
-                  class="ant-input-affix-wrapper pro-field pro-field-md"
+                  class="ant-input-affix-wrapper ant-input-affix-wrapper-focused pro-field pro-field-md"
                   style="width: 100%;"
                 >
                   <input
@@ -26059,7 +26088,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/SchemaForm/demos
                       class="ant-form-item-control-input-content"
                     >
                       <span
-                        class="ant-input-affix-wrapper pro-field pro-field-m"
+                        class="ant-input-affix-wrapper ant-input-affix-wrapper-focused pro-field pro-field-m"
                       >
                         <input
                           class="ant-input"
@@ -27180,9 +27209,15 @@ exports[`form demos 📸 renders ./packages/form/src/components/SchemaForm/demos
                   class="ant-form-item-control-input-content"
                 >
                   <div
-                    class="ant-select ant-select-in-form-item ant-pro-filed-search-select pro-field pro-field-m ant-select-single ant-select-allow-clear ant-select-show-arrow"
+                    class="ant-select ant-select-in-form-item ant-pro-filed-search-select pro-field pro-field-m ant-select-focused ant-select-single ant-select-allow-clear ant-select-show-arrow"
                     style="min-width: 100px;"
                   >
+                    <span
+                      aria-live="polite"
+                      style="width: 0px; height: 0px; display: flex; overflow: hidden; opacity: 0;"
+                    >
+                      123456
+                    </span>
                     <div
                       class="ant-select-selector"
                     >
@@ -27469,7 +27504,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/StepsForm/demos/
                       class="ant-form-item-control-input-content"
                     >
                       <span
-                        class="ant-input-affix-wrapper ant-input-affix-wrapper-status-success"
+                        class="ant-input-affix-wrapper ant-input-affix-wrapper-focused ant-input-affix-wrapper-status-success"
                       >
                         <input
                           class="ant-input"
@@ -27673,7 +27708,6 @@ exports[`form demos 📸 renders ./packages/form/src/components/StepsForm/demos/
                             autocomplete="off"
                             id="step2_syncTableInfo_timeRange"
                             placeholder="请选择"
-                            readonly=""
                             size="12"
                             value="2016-11-22"
                           />
@@ -28051,7 +28085,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/StepsForm/demos/
                           class="ant-form-item-control-input-content"
                         >
                           <span
-                            class="ant-input-affix-wrapper pro-field pro-field-md"
+                            class="ant-input-affix-wrapper ant-input-affix-wrapper-focused pro-field pro-field-md"
                           >
                             <input
                               class="ant-input"
@@ -30962,7 +30996,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/StepsForm/demos/
                             class="ant-form-item-control-input-content"
                           >
                             <span
-                              class="ant-input-affix-wrapper pro-field pro-field-md"
+                              class="ant-input-affix-wrapper ant-input-affix-wrapper-focused pro-field pro-field-md"
                             >
                               <input
                                 class="ant-input"
@@ -32232,7 +32266,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/StepsForm/demos/
                           class="ant-form-item-control-input-content"
                         >
                           <span
-                            class="ant-input-affix-wrapper pro-field pro-field-md"
+                            class="ant-input-affix-wrapper ant-input-affix-wrapper-focused pro-field pro-field-md"
                           >
                             <input
                               class="ant-input"
@@ -33291,7 +33325,7 @@ exports[`form demos 📸 renders ./packages/form/src/demos/base.tsx correctly 1`
                       class="ant-form-item-control-input-content"
                     >
                       <span
-                        class="ant-input-affix-wrapper pro-field pro-field-md"
+                        class="ant-input-affix-wrapper ant-input-affix-wrapper-focused pro-field pro-field-md"
                       >
                         <input
                           class="ant-input"
@@ -34220,9 +34254,9 @@ exports[`form demos 📸 renders ./packages/form/src/demos/base.tsx correctly 1`
                 </span>
                 <span
                   class="ant-select-selection-item"
-                  title="Zhejiang / Hangzhou / West Lake"
+                  title="浙江 / 杭州 / 西湖"
                 >
-                  Zhejiang / Hangzhou / West Lake
+                  浙江 / 杭州 / 西湖
                 </span>
               </div>
               <span
@@ -34232,21 +34266,21 @@ exports[`form demos 📸 renders ./packages/form/src/demos/base.tsx correctly 1`
                 unselectable="on"
               >
                 <span
-                  aria-label="down"
-                  class="anticon anticon-down ant-select-suffix"
+                  aria-label="loading"
+                  class="anticon anticon-loading anticon-spin"
                   role="img"
                 >
                   <svg
                     aria-hidden="true"
-                    data-icon="down"
+                    data-icon="loading"
                     fill="currentColor"
                     focusable="false"
                     height="1em"
-                    viewBox="64 64 896 896"
+                    viewBox="0 0 1024 1024"
                     width="1em"
                   >
                     <path
-                      d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"
+                      d="M988 548c-19.9 0-36-16.1-36-36 0-59.4-11.6-117-34.6-171.3a440.45 440.45 0 00-94.3-139.9 437.71 437.71 0 00-139.9-94.3C629 83.6 571.4 72 512 72c-19.9 0-36-16.1-36-36s16.1-36 36-36c69.1 0 136.2 13.5 199.3 40.3C772.3 66 827 103 874 150c47 47 83.9 101.8 109.7 162.7 26.7 63.1 40.2 130.2 40.2 199.3.1 19.9-16 36-35.9 36z"
                     />
                   </svg>
                 </span>
@@ -34923,7 +34957,7 @@ exports[`form demos 📸 renders ./packages/form/src/demos/config-provider.tsx c
                       class="ant-form-item-control-input-content"
                     >
                       <span
-                        class="ant-input-affix-wrapper"
+                        class="ant-input-affix-wrapper ant-input-affix-wrapper-focused"
                       >
                         <input
                           class="ant-input"
@@ -35504,7 +35538,7 @@ exports[`form demos 📸 renders ./packages/form/src/demos/dependency.tsx correc
             class="ant-form-item-control-input-content"
           >
             <span
-              class="ant-input-affix-wrapper pro-field pro-field-md"
+              class="ant-input-affix-wrapper ant-input-affix-wrapper-focused pro-field pro-field-md"
             >
               <input
                 class="ant-input"
@@ -37186,7 +37220,7 @@ exports[`form demos 📸 renders ./packages/form/src/demos/formRef.tsx correctly
             class="ant-form-item-control-input-content"
           >
             <span
-              class="ant-input-affix-wrapper pro-field pro-field-md"
+              class="ant-input-affix-wrapper ant-input-affix-wrapper-focused pro-field pro-field-md"
             >
               <input
                 class="ant-input"
@@ -37498,7 +37532,7 @@ exports[`form demos 📸 renders ./packages/form/src/demos/label-col.tsx correct
             class="ant-form-item-control-input-content"
           >
             <span
-              class="ant-input-affix-wrapper"
+              class="ant-input-affix-wrapper ant-input-affix-wrapper-focused"
             >
               <input
                 class="ant-input"
@@ -37742,9 +37776,13 @@ exports[`form demos 📸 renders ./packages/form/src/demos/labelInValue.tsx corr
             class="ant-form-item-control-input-content"
           >
             <div
-              class="ant-select ant-select-in-form-item ant-pro-filed-search-select pro-field pro-field-sm ant-select-single ant-select-allow-clear ant-select-show-arrow"
+              class="ant-select ant-select-in-form-item ant-pro-filed-search-select pro-field pro-field-sm ant-select-focused ant-select-single ant-select-allow-clear ant-select-show-arrow"
               style="min-width: 100px;"
             >
+              <span
+                aria-live="polite"
+                style="width: 0px; height: 0px; display: flex; overflow: hidden; opacity: 0;"
+              />
               <div
                 class="ant-select-selector"
               >
@@ -38275,7 +38313,7 @@ exports[`form demos 📸 renders ./packages/form/src/demos/layout-base.tsx corre
                                       class="ant-form-item-control-input-content"
                                     >
                                       <span
-                                        class="ant-input-affix-wrapper"
+                                        class="ant-input-affix-wrapper ant-input-affix-wrapper-focused"
                                       >
                                         <input
                                           class="ant-input"
@@ -39813,7 +39851,7 @@ exports[`form demos 📸 renders ./packages/form/src/demos/layout-change.tsx cor
                     class="ant-form-item-control-input-content"
                   >
                     <span
-                      class="ant-input-affix-wrapper pro-field pro-field-md"
+                      class="ant-input-affix-wrapper ant-input-affix-wrapper-focused pro-field pro-field-md"
                     >
                       <input
                         class="ant-input"
@@ -40683,7 +40721,7 @@ exports[`form demos 📸 renders ./packages/form/src/demos/linkage-customization
                           class="ant-form-item-control-input-content"
                         >
                           <span
-                            class="ant-input-affix-wrapper pro-field pro-field-md"
+                            class="ant-input-affix-wrapper ant-input-affix-wrapper-focused pro-field pro-field-md"
                           >
                             <input
                               class="ant-input"
@@ -41665,7 +41703,7 @@ exports[`form demos 📸 renders ./packages/form/src/demos/money.tsx correctly 1
             class="ant-form-item-control-input-content"
           >
             <div
-              class="ant-input-number ant-input-number-in-form-item pro-field pro-field-lg"
+              class="ant-input-number ant-input-number-in-form-item pro-field pro-field-lg ant-input-number-focused"
             >
               <div
                 class="ant-input-number-handler-wrap"
@@ -42335,7 +42373,7 @@ exports[`form demos 📸 renders ./packages/form/src/demos/pro-form-dependency.d
             class="ant-form-item-control-input-content"
           >
             <span
-              class="ant-input-affix-wrapper"
+              class="ant-input-affix-wrapper ant-input-affix-wrapper-focused"
             >
               <input
                 class="ant-input"
@@ -42904,7 +42942,7 @@ exports[`form demos 📸 renders ./packages/form/src/demos/pro-form-editableTabl
                   class="ant-form-item-control-input-content"
                 >
                   <span
-                    class="ant-input-affix-wrapper pro-field pro-field-md"
+                    class="ant-input-affix-wrapper ant-input-affix-wrapper-focused pro-field pro-field-md"
                   >
                     <input
                       class="ant-input"
@@ -43773,9 +43811,15 @@ exports[`form demos 📸 renders ./packages/form/src/demos/sync-to-url.tsx corre
             class="ant-form-item-control-input-content"
           >
             <div
-              class="ant-select ant-select-in-form-item ant-pro-filed-search-select pro-field pro-field-sm ant-select-single ant-select-allow-clear ant-select-show-arrow"
+              class="ant-select ant-select-in-form-item ant-pro-filed-search-select pro-field pro-field-sm ant-select-focused ant-select-single ant-select-allow-clear ant-select-show-arrow"
               style="min-width: 100px;"
             >
+              <span
+                aria-live="polite"
+                style="width: 0px; height: 0px; display: flex; overflow: hidden; opacity: 0;"
+              >
+                盖章后生效
+              </span>
               <div
                 class="ant-select-selector"
               >

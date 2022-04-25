@@ -1,10 +1,10 @@
 import React from 'react';
 import glob from 'glob';
 import MockDate from 'mockdate';
-import { render as reactRender, cleanup } from '@testing-library/react';
+import { render as reactRender, cleanup, act } from '@testing-library/react';
+import '@testing-library/jest-dom';
 import moment from 'moment';
 import { waitForComponentToPaint } from './util';
-import { act } from 'react-test-renderer';
 
 type Options = {
   skip?: boolean;
@@ -65,7 +65,7 @@ function demoTest(component: string, options: Options = {}) {
         MockDate.set(moment('2016-11-22').valueOf());
         const Demo = require(`.${file}`).default;
         const wrapper = reactRender(<Demo />);
-        await waitForComponentToPaint(wrapper, 1200);
+        await waitForComponentToPaint(wrapper, 2000);
         // Convert aria related content
         act(() => {
           const dom = wrapper.asFragment();

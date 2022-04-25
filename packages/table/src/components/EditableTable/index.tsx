@@ -464,7 +464,7 @@ function FieldEditableTable<
                 form: form as ProFormInstance,
               }}
               value={control.value}
-              onChange={control.onChange}
+              // onChange/s={control.onChange}
             />
           );
         }}

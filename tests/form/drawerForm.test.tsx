@@ -2,14 +2,14 @@
 import { ProFormText, DrawerForm } from '@ant-design/pro-form';
 import { Button } from 'antd';
 import { act } from 'react-dom/test-utils';
-import { render } from '@testing-library/react';
-import { mount } from 'enzyme';
-import { waitForComponentToPaint, waitTime } from '../util';
+import { render, fireEvent } from '@testing-library/react';
+import '@testing-library/jest-dom';
+import { waitForComponentToPaint } from '../util';
 
 describe('DrawerForm', () => {
   it('📦 trigger will simulate onVisibleChange', async () => {
     const fn = jest.fn();
-    const wrapper = mount(
+    const wrapper = render(
       <DrawerForm
         width={600}
         trigger={<Button id="new">新建</Button>}
@@ -20,20 +20,16 @@ describe('DrawerForm', () => {
     );
     await waitForComponentToPaint(wrapper);
 
-    act(() => {
-      wrapper.find('button#new').simulate('click');
+    await act(async () => {
+      (await wrapper.findByText('新 建')).click();
     });
 
     expect(fn).toBeCalledWith(true);
-
-    act(() => {
-      wrapper.unmount();
-    });
   });
 
   it('📦 DrawerForm first no render items', async () => {
     const fn = jest.fn();
-    const wrapper = mount(
+    const wrapper = render(
       <DrawerForm
         width={600}
         trigger={<Button id="new">新建</Button>}
@@ -49,21 +45,18 @@ describe('DrawerForm', () => {
     );
     await waitForComponentToPaint(wrapper, 300);
 
-    expect(wrapper.find('input#test').exists()).toBeFalsy();
+    expect(!!wrapper.baseElement.querySelector('input#test')).toBeFalsy();
 
-    act(() => {
-      wrapper.find('button#new').simulate('click');
+    await act(async () => {
+      (await wrapper.findByText('新 建')).click();
     });
 
     await waitForComponentToPaint(wrapper, 300);
-    expect(wrapper.find('input#test').exists()).toBeTruthy();
-    act(() => {
-      wrapper.unmount();
-    });
+    expect(!!wrapper.baseElement.querySelector('input#test')).toBeTruthy();
   });
 
   it('📦 DrawerForm first render items', async () => {
-    const wrapper = mount(
+    const wrapper = render(
       <DrawerForm
         width={600}
         drawerProps={{
@@ -79,40 +72,29 @@ describe('DrawerForm', () => {
       </DrawerForm>,
     );
     await waitForComponentToPaint(wrapper, 300);
-    expect(wrapper.find('input#test').exists()).toBeTruthy();
-    act(() => {
-      wrapper.unmount();
-    });
+    expect(!!wrapper.baseElement.querySelector('input#test')).toBeTruthy();
   });
 
   it('📦 DrawerForm support submitter is false', async () => {
-    const wrapper = mount(
+    const wrapper = render(
       <DrawerForm visible trigger={<Button id="new">新建</Button>} submitter={false}>
         <ProFormText name="name" />
       </DrawerForm>,
     );
     await waitForComponentToPaint(wrapper);
 
-    act(() => {
-      wrapper.find('button#new').simulate('click');
+    await act(async () => {
+      (await wrapper.findByText('新 建')).click();
     });
 
     await waitForComponentToPaint(wrapper, 300);
 
-    expect(wrapper.find('.ant-drawer-footer').length).toBe(0);
-    act(() => {
-      wrapper.unmount();
-    });
+    expect(!!wrapper.baseElement.querySelector('.ant-drawer-footer')).toBeFalsy();
   });
 
   it('📦 DrawerForm destroyOnClose', async () => {
-    const fn = jest.fn();
-    const wrapper = mount(
-      <DrawerForm
-        width={600}
-        drawerProps={{ destroyOnClose: true }}
-        onVisibleChange={(visible) => fn(visible)}
-      >
+    const wrapper = render(
+      <DrawerForm width={600} visible={false} drawerProps={{ destroyOnClose: true }}>
         <ProFormText
           name="name"
           fieldProps={{
@@ -121,36 +103,43 @@ describe('DrawerForm', () => {
         />
       </DrawerForm>,
     );
-    await waitForComponentToPaint(wrapper);
-
-    expect(wrapper.find('input#test').exists()).toBeFalsy();
-
-    act(() => {
-      wrapper.setProps({
-        visible: true,
-      });
-    });
-    await waitForComponentToPaint(wrapper, 200);
-
-    expect(wrapper.find('input#test').exists()).toBeTruthy();
+    await waitForComponentToPaint(wrapper, 300);
+    expect(!!wrapper.baseElement.querySelector('input#test')).toBeFalsy();
 
     act(() => {
-      wrapper.setProps({
-        visible: false,
-      });
+      wrapper.rerender(
+        <DrawerForm width={600} visible drawerProps={{ destroyOnClose: true }}>
+          <ProFormText
+            name="name"
+            fieldProps={{
+              id: 'test',
+            }}
+          />
+        </DrawerForm>,
+      );
     });
-    await waitForComponentToPaint(wrapper);
-
-    // expect(wrapper.find('input#test').exists()).toBeFalsy();
+    await waitForComponentToPaint(wrapper, 300);
+    expect(!!wrapper.baseElement.querySelector('input#test')).toBeTruthy();
 
     act(() => {
-      wrapper.unmount();
+      wrapper.rerender(
+        <DrawerForm key="reset" width={600} visible={false} drawerProps={{ destroyOnClose: true }}>
+          <ProFormText
+            name="name"
+            fieldProps={{
+              id: 'test',
+            }}
+          />
+        </DrawerForm>,
+      );
     });
+    await waitForComponentToPaint(wrapper, 300);
+    expect(!!wrapper.baseElement.querySelector('input#test')).toBeFalsy();
   });
 
   it('📦 drawer close button will simulate onVisibleChange', async () => {
     const fn = jest.fn();
-    const wrapper = mount(
+    const wrapper = render(
       <DrawerForm
         visible
         trigger={<Button id="new">新建</Button>}
@@ -162,19 +151,15 @@ describe('DrawerForm', () => {
     await waitForComponentToPaint(wrapper);
 
     act(() => {
-      wrapper.find('button.ant-drawer-close').simulate('click');
+      (wrapper.baseElement.querySelector('button.ant-drawer-close') as HTMLButtonElement).click();
     });
     await waitForComponentToPaint(wrapper);
     expect(fn).toBeCalledWith(false);
-
-    act(() => {
-      wrapper.unmount();
-    });
   });
 
   it('📦 drawer close button will simulate onVisibleChange', async () => {
     const fn = jest.fn();
-    const wrapper = mount(
+    const wrapper = render(
       <DrawerForm
         visible
         trigger={<Button id="new">新建</Button>}
@@ -187,19 +172,15 @@ describe('DrawerForm', () => {
     await waitForComponentToPaint(wrapper);
 
     act(() => {
-      wrapper.find('button.ant-drawer-close').simulate('click');
+      (wrapper.baseElement.querySelector('button.ant-drawer-close') as HTMLButtonElement).click();
     });
     await waitForComponentToPaint(wrapper);
     expect(fn).toBeCalledWith(false);
-
-    act(() => {
-      wrapper.unmount();
-    });
   });
 
   it('📦 reset button will simulate onVisibleChange', async () => {
     const fn = jest.fn();
-    const wrapper = mount(
+    const wrapper = render(
       <DrawerForm
         visible
         trigger={<Button id="new">新建</Button>}
@@ -210,21 +191,17 @@ describe('DrawerForm', () => {
     );
     await waitForComponentToPaint(wrapper, 300);
 
-    act(() => {
-      wrapper.find('.ant-drawer-footer').update().find('button.ant-btn').at(0).simulate('click');
+    await act(async () => {
+      await (await wrapper.findByText('取 消')).click();
     });
     await waitForComponentToPaint(wrapper, 300);
 
     expect(fn).toBeCalledWith(false);
-
-    act(() => {
-      wrapper.unmount();
-    });
   });
 
   it('📦 drawer close button will simulate drawerProps.onClose', async () => {
     const fn = jest.fn();
-    const wrapper = mount(
+    const wrapper = render(
       <DrawerForm
         visible
         drawerProps={{
@@ -239,19 +216,15 @@ describe('DrawerForm', () => {
     await waitForComponentToPaint(wrapper);
 
     act(() => {
-      wrapper.find('button.ant-drawer-close').simulate('click');
+      (wrapper.baseElement.querySelector('button.ant-drawer-close') as HTMLButtonElement).click();
     });
     await waitForComponentToPaint(wrapper);
     expect(fn).toBeCalledWith(false);
-
-    act(() => {
-      wrapper.unmount();
-    });
   });
 
   it('📦 drawer reset button will simulate drawerProps.onClose', async () => {
     const fn = jest.fn();
-    const wrapper = mount(
+    const wrapper = render(
       <DrawerForm
         visible
         drawerProps={{
@@ -265,21 +238,17 @@ describe('DrawerForm', () => {
     );
     await waitForComponentToPaint(wrapper);
 
-    act(() => {
-      wrapper.find('button.ant-btn').at(0).simulate('click');
+    await act(async () => {
+      (await wrapper.findByText('取 消')).click();
     });
 
     expect(fn).toBeCalledWith(false);
-
-    act(() => {
-      wrapper.unmount();
-    });
   });
 
   it('📦 drawer reset button will simulate drawerProps.onCancel', async () => {
     const fn = jest.fn();
     const onCloseFn = jest.fn();
-    const wrapper = mount(
+    const wrapper = render(
       <DrawerForm
         visible
         drawerProps={{
@@ -293,8 +262,8 @@ describe('DrawerForm', () => {
     );
     await waitForComponentToPaint(wrapper);
 
-    act(() => {
-      wrapper.find('button.ant-btn').at(0).simulate('click');
+    await act(async () => {
+      (await wrapper.findByText('取 消')).click();
     });
     await waitForComponentToPaint(wrapper);
     expect(fn).toBeCalledWith(false);
@@ -303,15 +272,11 @@ describe('DrawerForm', () => {
     // 点击关闭按钮的时候会手动触发一下 onClose
     expect(onCloseFn).toBeCalledWith(false);
     expect(fn).toBeCalledTimes(2);
-
-    act(() => {
-      wrapper.unmount();
-    });
   });
 
   it('📦 form onFinish return true should close drawer', async () => {
     const fn = jest.fn();
-    const wrapper = mount(
+    const wrapper = render(
       <DrawerForm
         visible
         trigger={<Button id="new">新建</Button>}
@@ -323,22 +288,18 @@ describe('DrawerForm', () => {
     );
     await waitForComponentToPaint(wrapper, 500);
 
-    act(() => {
-      wrapper.find('button.ant-btn-primary').simulate('click');
+    await act(async () => {
+      (await wrapper.findByText('确 认')).click();
     });
 
     await waitForComponentToPaint(wrapper);
 
     expect(fn).toBeCalledWith(false);
-
-    act(() => {
-      wrapper.unmount();
-    });
   });
 
   it('📦 form onFinish is null, no close drawer', async () => {
     const fn = jest.fn();
-    const wrapper = mount(
+    const wrapper = render(
       <DrawerForm
         visible
         trigger={<Button id="new">新建</Button>}
@@ -349,21 +310,17 @@ describe('DrawerForm', () => {
     );
     await waitForComponentToPaint(wrapper, 500);
 
-    act(() => {
-      wrapper.find('button.ant-btn-primary').simulate('click');
+    await act(async () => {
+      (await wrapper.findByText('确 认')).click();
     });
 
     await waitForComponentToPaint(wrapper);
     expect(fn).toBeCalledTimes(1);
-
-    act(() => {
-      wrapper.unmount();
-    });
   });
 
   it('📦 submitter config no reset default config', async () => {
     const fn = jest.fn();
-    const wrapper = mount(
+    const wrapper = render(
       <DrawerForm
         width={600}
         submitter={{
@@ -386,24 +343,21 @@ describe('DrawerForm', () => {
     );
     await waitForComponentToPaint(wrapper);
 
-    act(() => {
-      wrapper.find('button#new').simulate('click');
+    await act(async () => {
+      (await wrapper.findByText('新 建')).click();
     });
     await waitForComponentToPaint(wrapper, 200);
     expect(fn).toBeCalledWith(true);
 
     act(() => {
-      wrapper.find('button#reset').simulate('click');
+      wrapper.baseElement.querySelector<HTMLButtonElement>('button#reset')?.click?.();
     });
     await waitForComponentToPaint(wrapper);
     expect(fn).toBeCalledWith(false);
-    act(() => {
-      wrapper.unmount();
-    });
   });
 
   it('📦 DrawerForm close no rerender from', async () => {
-    const wrapper = mount(
+    const wrapper = render(
       <DrawerForm
         initialValues={{
           name: '1234',
@@ -420,46 +374,43 @@ describe('DrawerForm', () => {
     );
     await waitForComponentToPaint(wrapper);
 
-    act(() => {
-      wrapper.find('button#new').simulate('click');
+    await act(async () => {
+      (await wrapper.findByText('新 建')).click();
     });
 
     await waitForComponentToPaint(wrapper, 300);
     act(() => {
-      wrapper
-        .find('.ant-input#test')
-        .at(0)
-        .simulate('change', {
-          target: {
-            value: 'test',
-          },
-        });
+      fireEvent.change(wrapper.baseElement.querySelector('.ant-input#test')!, {
+        target: {
+          value: 'test',
+        },
+      });
     });
     await waitForComponentToPaint(wrapper, 200);
 
-    expect(wrapper.find('.ant-input#test').props().value).toEqual('test');
+    expect(wrapper.baseElement.querySelector<HTMLInputElement>('.ant-input#test')?.value).toEqual(
+      'test',
+    );
     await waitForComponentToPaint(wrapper);
 
     act(() => {
-      wrapper.find('.ant-drawer-close').simulate('click');
+      wrapper.baseElement.querySelector<HTMLInputElement>('.ant-drawer-close')?.click();
     });
     await waitForComponentToPaint(wrapper);
 
-    act(() => {
-      wrapper.find('button#new').simulate('click');
+    await act(async () => {
+      (await wrapper.findByText('新 建')).click();
     });
 
     await waitForComponentToPaint(wrapper, 200);
 
-    expect(wrapper.find('input#test').props().value).toEqual('test');
-
-    act(() => {
-      wrapper.unmount();
-    });
+    expect(wrapper.baseElement.querySelector<HTMLInputElement>('.ant-input#test')?.value).toEqual(
+      'test',
+    );
   });
 
   it('📦 DrawerForm destroyOnClose close will rerender from', async () => {
-    const wrapper = mount(
+    const wrapper = render(
       <DrawerForm
         drawerProps={{
           destroyOnClose: true,
@@ -479,46 +430,81 @@ describe('DrawerForm', () => {
     );
     await waitForComponentToPaint(wrapper);
 
-    act(() => {
-      wrapper.find('button#new').simulate('click');
+    await act(async () => {
+      (await wrapper.findByText('新 建')).click();
     });
 
     await waitForComponentToPaint(wrapper, 300);
 
     act(() => {
-      wrapper
-        .find('.ant-input#test')
-        .at(0)
-        .simulate('change', {
-          target: {
-            value: '1111',
-          },
-        });
+      fireEvent.change(wrapper.baseElement.querySelector('.ant-input#test')!, {
+        target: {
+          value: '1111',
+        },
+      });
     });
 
     await waitForComponentToPaint(wrapper);
-    expect(wrapper.find('input#test').props().value).toEqual('1111');
+    expect(wrapper.baseElement.querySelector<HTMLInputElement>('input#test')?.value).toEqual(
+      '1111',
+    );
 
     await waitForComponentToPaint(wrapper);
 
     act(() => {
-      wrapper.setProps({ visible: false });
+      wrapper.rerender(
+        <DrawerForm
+          drawerProps={{
+            destroyOnClose: true,
+          }}
+          initialValues={{
+            name: '1234',
+          }}
+          visible={false}
+          trigger={<Button id="new">新建</Button>}
+        >
+          <ProFormText
+            name="name"
+            fieldProps={{
+              id: 'test',
+            }}
+          />
+        </DrawerForm>,
+      );
     });
     await waitForComponentToPaint(wrapper, 300);
+
     act(() => {
-      wrapper.setProps({ visible: undefined });
+      wrapper.rerender(
+        <DrawerForm
+          key="reset"
+          drawerProps={{
+            destroyOnClose: true,
+          }}
+          initialValues={{
+            name: '1234',
+          }}
+          visible={undefined}
+          trigger={<Button id="new">新建</Button>}
+        >
+          <ProFormText
+            name="name"
+            fieldProps={{
+              id: 'test',
+            }}
+          />
+        </DrawerForm>,
+      );
     });
-    act(() => {
-      wrapper.find('button#new').simulate('click');
+    await act(async () => {
+      (await wrapper.findByText('新 建')).click();
     });
 
     await waitForComponentToPaint(wrapper, 300);
 
-    // expect(wrapper.find('input#test').props().value).toEqual('1234');
-
-    act(() => {
-      wrapper.unmount();
-    });
+    expect(wrapper.baseElement.querySelector<HTMLInputElement>('input#test')?.value).toEqual(
+      '1234',
+    );
   });
 
   it('📦 drawer no render Form when destroyOnClose', () => {
@@ -543,7 +529,7 @@ describe('DrawerForm', () => {
   it('📦 drawerForm get formRef when destroyOnClose', async () => {
     const ref = React.createRef<any>();
 
-    const html = mount(
+    const html = render(
       <DrawerForm
         formRef={ref}
         drawerProps={{
@@ -559,102 +545,32 @@ describe('DrawerForm', () => {
       </DrawerForm>,
     );
 
-    waitForComponentToPaint(html, 200);
+    await waitForComponentToPaint(html, 1200);
     expect(ref.current).toBeFalsy();
-    act(() => {
-      html.find('button#new').simulate('click');
+
+    await act(async () => {
+      (await html.findByText('新 建')).click();
     });
     await waitForComponentToPaint(html, 200);
 
-    html.setProps({ formRef: ref, drawerProps: { destroyOnClose: true } });
+    act(() => {
+      html.rerender(
+        <DrawerForm
+          formRef={ref}
+          drawerProps={{
+            destroyOnClose: true,
+          }}
+          trigger={
+            <Button id="new" type="primary">
+              新建
+            </Button>
+          }
+        >
+          <ProFormText name="name" />
+        </DrawerForm>,
+      );
+    });
 
     expect(ref.current).toBeTruthy();
-
-    html.unmount();
-  });
-
-  it('📦 modal submitTimeout is number will disabled close button when submit', async () => {
-    const fn = jest.fn();
-    const wrapper = mount(
-      <DrawerForm
-        visible
-        drawerProps={{
-          onClose: () => fn(),
-        }}
-        onFinish={async () => {
-          await waitTime(2000);
-        }}
-        submitTimeout={3000}
-      />,
-    );
-    await waitForComponentToPaint(wrapper, 500);
-
-    act(() => {
-      wrapper.find('button.ant-btn-primary').simulate('click');
-    });
-
-    await waitForComponentToPaint(wrapper, 500);
-
-    expect(wrapper.find('button.ant-btn-default').props().disabled).toEqual(true);
-
-    act(() => {
-      wrapper.find('button.ant-btn-default').simulate('click');
-    });
-
-    await waitForComponentToPaint(wrapper, 500);
-
-    expect(fn).not.toBeCalled();
-
-    await waitForComponentToPaint(wrapper, 2500);
-
-    expect(wrapper.find('button.ant-btn-default').props().disabled).toEqual(false);
-
-    act(() => {
-      wrapper.find('button.ant-btn-default').simulate('click');
-    });
-
-    await waitForComponentToPaint(wrapper, 500);
-
-    expect(fn).toBeCalled();
-
-    act(() => {
-      wrapper.unmount();
-    });
-  });
-
-  it('📦 modal submitTimeout is null no disable close button when submit', async () => {
-    const fn = jest.fn();
-    const wrapper = mount(
-      <DrawerForm
-        visible
-        drawerProps={{
-          onClose: () => fn(),
-        }}
-        onFinish={async () => {
-          await waitTime(2000);
-        }}
-      />,
-    );
-    await waitForComponentToPaint(wrapper, 500);
-
-    act(() => {
-      wrapper.find('button.ant-btn-primary').simulate('click');
-    });
-
-    await waitForComponentToPaint(wrapper, 500);
-
-    expect(wrapper.find('button.ant-btn-default').props().disabled).toEqual(undefined);
-
-    act(() => {
-      wrapper.find('button.ant-btn-default').simulate('click');
-    });
-
-    await waitForComponentToPaint(wrapper, 500);
-
-    expect(fn).toBeCalled();
-
-    act(() => {
-      wrapper.unmount();
-    });
   });
 });

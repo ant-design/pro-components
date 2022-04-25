@@ -2,6 +2,7 @@ import { mount, render as enzymeRender } from 'enzyme';
 import React, { useState } from 'react';
 import { act } from 'react-dom/test-utils';
 import { render } from '@testing-library/react';
+import '@testing-library/jest-dom';
 import type { BasicLayoutProps } from '@ant-design/pro-layout';
 import BasicLayout from '@ant-design/pro-layout';
 

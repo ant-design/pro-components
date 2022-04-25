@@ -1,6 +1,6 @@
 import MockDate from 'mockdate';
 import Enzyme from 'enzyme';
-import Adapter from 'enzyme-adapter-react-16';
+import Adapter from '@cfaester/enzyme-adapter-react-18';
 import 'jest-canvas-mock';
 import moment from 'moment-timezone';
 
@@ -31,7 +31,6 @@ if (typeof window !== 'undefined') {
   document.addEventListener = (name, cb) => {
     eventListener[name] = cb;
   };
-  document.dispatchEvent = (event) => eventListener[event.type]?.(event);
   global.window.scrollTo = () => {};
   // ref: https://github.com/ant-design/ant-design/issues/18774
   if (!window.matchMedia) {

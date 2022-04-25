@@ -5,7 +5,7 @@ import ProDescriptions from '@ant-design/pro-descriptions';
 import type { ProCoreActionType } from '@ant-design/pro-utils';
 import { act } from 'react-dom/test-utils';
 import { render as reactRender } from '@testing-library/react';
-
+import '@testing-library/jest-dom';
 import { waitForComponentToPaint, waitTime } from '../util';
 
 describe('descriptions', () => {

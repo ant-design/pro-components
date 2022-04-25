@@ -3,6 +3,7 @@ import { ProFormText, ModalForm } from '@ant-design/pro-form';
 import { Button } from 'antd';
 import { act } from 'react-dom/test-utils';
 import { render } from '@testing-library/react';
+import '@testing-library/jest-dom';
 import { mount } from 'enzyme';
 import { waitForComponentToPaint, waitTime } from '../util';
 
