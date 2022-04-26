@@ -6,7 +6,7 @@ import '@testing-library/jest-dom';
 import { waitForComponentToPaint, waitTime } from '../util';
 
 describe('DrawerForm', () => {
-  it('📦 modal submitTimeout is number will disabled close button when submit', async () => {
+  it('📦 DrawerForm submitTimeout is number will disabled close button when submit', async () => {
     const fn = jest.fn();
     const html = render(
       <DrawerForm
