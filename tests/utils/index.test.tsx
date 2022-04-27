@@ -13,6 +13,7 @@ import {
   LabelIconTip,
   useDebounceValue,
   isDeepEqualReact,
+  dateArrayFormatter,
 } from '@ant-design/pro-utils';
 import { mount } from 'enzyme';
 import { render, act, fireEvent } from '@testing-library/react';
@@ -53,6 +54,23 @@ describe('utils', () => {
     html.update();
 
     expect(html.text()).toEqual('string');
+  });
+
+  it('dateArrayFormatter', async () => {
+    const dateArrayString = dateArrayFormatter(
+      [moment('2020-01-01'), moment('2020-01-01')],
+      ['YYYY-MM-DD HH:mm:ss', 'YYYY-MM-DD'],
+    );
+
+    expect(dateArrayString).toEqual('2020-01-01 00:00:00 ~ 2020-01-01');
+  });
+  it('dateArrayFormatter support function', async () => {
+    const dateArrayString = dateArrayFormatter(
+      [moment('2020-01-01'), moment('2020-01-01')],
+      ['YYYY-MM-DD HH:mm:ss', (value: Moment) => value.format('YYYY-MM')],
+    );
+
+    expect(dateArrayString).toEqual('2020-01-01 00:00:00 ~ 2020-01');
   });
 
   it('📅 useDebounceValue without deps', async () => {
