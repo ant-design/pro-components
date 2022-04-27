@@ -442,7 +442,7 @@ describe('ModalForm', () => {
           onCancel: () => fn(),
         }}
         onFinish={async () => {
-          await waitTime(20000);
+          await waitTime(3000);
         }}
         submitTimeout={3000}
       >
@@ -479,7 +479,7 @@ describe('ModalForm', () => {
       (await html.queryByText('取 消'))?.click();
     });
 
-    await waitForComponentToPaint(html, 500);
+    await waitForComponentToPaint(html, 1000);
 
     expect(fn).toBeCalled();
   });
