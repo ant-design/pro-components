@@ -14,10 +14,9 @@ import {
 import KeyCode from 'rc-util/lib/KeyCode';
 import { act } from 'react-dom/test-utils';
 import { waitForComponentToPaint } from '../util';
-import { render, cleanup, fireEvent } from '@testing-library/react';
+import { render } from '@testing-library/react';
 import moment from 'moment';
 import '@testing-library/jest-dom';
-import { waitTime } from '../util';
 
 describe('LightFilter', () => {
   it(' 🪕 basic use', async () => {
@@ -746,60 +745,5 @@ describe('LightFilter', () => {
     act(() => {
       wrapper.unmount();
     });
-  });
-});
-
-describe('✔️ ProFormLightFilter', () => {
-  afterEach(() => {
-    cleanup();
-  });
-  it(' ✔️ clear input values', async () => {
-    const html = render(
-      <LightFilter>
-        <ProFormText
-          name="name1"
-          label="名称"
-          fieldProps={{
-            role: 'name_input',
-          }}
-        />
-      </LightFilter>,
-    );
-
-    await act(async () => {
-      (await html.findByText('名称'))?.click();
-    });
-    await waitTime(200);
-
-    await act(async () => {
-      const dom = await html.findByRole('name_input');
-      fireEvent.change(dom, {
-        target: {
-          value: 'qixian',
-        },
-      });
-    });
-
-    await waitTime(200);
-
-    await act(async () => {
-      (await html.findAllByText('确 认')).at(0)?.click();
-    });
-
-    await waitTime(200);
-
-    html.debug();
-
-    const dom = await html.findAllByText('qixian');
-
-    expect(dom.length > 0).toBeTruthy();
-
-    await act(async () => {
-      (await html.findAllByText('qixian')).at(0)?.click();
-      (await html.findAllByText('清除')).at(0)?.click();
-      (await html.findAllByText('确 认')).at(0)?.click();
-    });
-
-    expect(!!(await html.findByText('名称'))).toBeTruthy();
   });
 });
