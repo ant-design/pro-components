@@ -1,4 +1,4 @@
-import { mount, render } from 'enzyme';
+import { mount } from 'enzyme';
 import React from 'react';
 import {
   LightFilter,
@@ -14,7 +14,10 @@ import {
 import KeyCode from 'rc-util/lib/KeyCode';
 import { act } from 'react-dom/test-utils';
 import { waitForComponentToPaint } from '../util';
+import { render, cleanup, fireEvent } from '@testing-library/react';
 import moment from 'moment';
+import '@testing-library/jest-dom';
+import { waitTime } from '../util';
 
 describe('LightFilter', () => {
   it(' 🪕 basic use', async () => {
@@ -667,7 +670,7 @@ describe('LightFilter', () => {
     });
   });
 
-  it('ProFormField support lightProps', () => {
+  it('🪕 ProFormField support lightProps', () => {
     const html = render(
       <LightFilter
         initialValues={{
@@ -699,12 +702,11 @@ describe('LightFilter', () => {
       </LightFilter>,
     );
 
-    expect(html.find('.ant-pro-core-field-label').text()).toBe(
-      '活跃时间: 2001-09-09 01:46:40~2017-07-14 0...2项',
-    );
+    const inputDom = html.findAllByText('活跃时间: 2001-09-09 01:46:40~2017-07-14 0...2项');
+    expect(!!inputDom).toBeTruthy();
   });
 
-  it('lightFilter support placement', async () => {
+  it('🪕 lightFilter support placement', async () => {
     const wrapper = mount(
       <LightFilter
         initialValues={{
@@ -744,5 +746,60 @@ describe('LightFilter', () => {
     act(() => {
       wrapper.unmount();
     });
+  });
+});
+
+describe('✔️ ProFormLightFilter', () => {
+  afterEach(() => {
+    cleanup();
+  });
+  it(' ✔️ clear input values', async () => {
+    const html = render(
+      <LightFilter>
+        <ProFormText
+          name="name1"
+          label="名称"
+          fieldProps={{
+            role: 'name_input',
+          }}
+        />
+      </LightFilter>,
+    );
+
+    await act(async () => {
+      (await html.findByText('名称'))?.click();
+    });
+    await waitTime(200);
+
+    await act(async () => {
+      const dom = await html.findByRole('name_input');
+      fireEvent.change(dom, {
+        target: {
+          value: 'qixian',
+        },
+      });
+    });
+
+    await waitTime(200);
+
+    await act(async () => {
+      (await html.findAllByText('确 认')).at(0)?.click();
+    });
+
+    await waitTime(200);
+
+    html.debug();
+
+    const dom = await html.findAllByText('qixian');
+
+    expect(dom.length > 0).toBeTruthy();
+
+    await act(async () => {
+      (await html.findAllByText('qixian')).at(0)?.click();
+      (await html.findAllByText('清除')).at(0)?.click();
+      (await html.findAllByText('确 认')).at(0)?.click();
+    });
+
+    expect(!!(await html.findByText('名称'))).toBeTruthy();
   });
 });

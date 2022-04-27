@@ -13862,8 +13862,9 @@ exports[`form demos 📸 renders ./packages/form/src/components/QueryFilter/demo
                         <span
                           aria-label="close"
                           class="anticon anticon-close ant-pro-core-field-label-icon ant-pro-core-field-label-close"
-                          role="img"
+                          role="button"
                           tabindex="-1"
+                          title="清除"
                         >
                           <svg
                             aria-hidden="true"
@@ -14175,8 +14176,9 @@ exports[`form demos 📸 renders ./packages/form/src/components/QueryFilter/demo
                         <span
                           aria-label="close"
                           class="anticon anticon-close ant-pro-core-field-label-icon ant-pro-core-field-label-close"
-                          role="img"
+                          role="button"
                           tabindex="-1"
+                          title="清除"
                         >
                           <svg
                             aria-hidden="true"
@@ -14247,8 +14249,9 @@ exports[`form demos 📸 renders ./packages/form/src/components/QueryFilter/demo
                         <span
                           aria-label="close"
                           class="anticon anticon-close ant-pro-core-field-label-icon ant-pro-core-field-label-close"
-                          role="img"
+                          role="button"
                           tabindex="-1"
+                          title="清除"
                         >
                           <svg
                             aria-hidden="true"
@@ -14319,8 +14322,9 @@ exports[`form demos 📸 renders ./packages/form/src/components/QueryFilter/demo
                         <span
                           aria-label="close"
                           class="anticon anticon-close ant-pro-core-field-label-icon ant-pro-core-field-label-close"
-                          role="img"
+                          role="button"
                           tabindex="-1"
+                          title="清除"
                         >
                           <svg
                             aria-hidden="true"
@@ -14617,8 +14621,9 @@ exports[`form demos 📸 renders ./packages/form/src/components/QueryFilter/demo
                         <span
                           aria-label="close"
                           class="anticon anticon-close ant-pro-core-field-label-icon ant-pro-core-field-label-close"
-                          role="img"
+                          role="button"
                           tabindex="-1"
+                          title="清除"
                         >
                           <svg
                             aria-hidden="true"
@@ -14780,8 +14785,9 @@ exports[`form demos 📸 renders ./packages/form/src/components/QueryFilter/demo
                         <span
                           aria-label="close"
                           class="anticon anticon-close ant-pro-core-field-label-icon ant-pro-core-field-label-close"
-                          role="img"
+                          role="button"
                           tabindex="-1"
+                          title="清除"
                         >
                           <svg
                             aria-hidden="true"
@@ -15045,8 +15051,9 @@ exports[`form demos 📸 renders ./packages/form/src/components/QueryFilter/demo
                       <span
                         aria-label="close"
                         class="anticon anticon-close ant-pro-core-field-label-icon ant-pro-core-field-label-close"
-                        role="img"
+                        role="button"
                         tabindex="-1"
+                        title="清除"
                       >
                         <svg
                           aria-hidden="true"
@@ -15430,8 +15437,9 @@ exports[`form demos 📸 renders ./packages/form/src/components/QueryFilter/demo
                             <span
                               aria-label="close"
                               class="anticon anticon-close ant-pro-core-field-label-icon ant-pro-core-field-label-close"
-                              role="img"
+                              role="button"
                               tabindex="-1"
+                              title="清除"
                             >
                               <svg
                                 aria-hidden="true"
@@ -15524,8 +15532,9 @@ exports[`form demos 📸 renders ./packages/form/src/components/QueryFilter/demo
                             <span
                               aria-label="close"
                               class="anticon anticon-close ant-pro-core-field-label-icon ant-pro-core-field-label-close"
-                              role="img"
+                              role="button"
                               tabindex="-1"
+                              title="清除"
                             >
                               <svg
                                 aria-hidden="true"
@@ -16986,8 +16995,9 @@ exports[`form demos 📸 renders ./packages/form/src/components/QueryFilter/demo
                         <span
                           aria-label="close"
                           class="anticon anticon-close ant-pro-core-field-label-icon ant-pro-core-field-label-close"
-                          role="img"
+                          role="button"
                           tabindex="-1"
+                          title="清除"
                         >
                           <svg
                             aria-hidden="true"
@@ -17058,8 +17068,9 @@ exports[`form demos 📸 renders ./packages/form/src/components/QueryFilter/demo
                         <span
                           aria-label="close"
                           class="anticon anticon-close ant-pro-core-field-label-icon ant-pro-core-field-label-close"
-                          role="img"
+                          role="button"
                           tabindex="-1"
+                          title="清除"
                         >
                           <svg
                             aria-hidden="true"
@@ -17130,8 +17141,9 @@ exports[`form demos 📸 renders ./packages/form/src/components/QueryFilter/demo
                         <span
                           aria-label="close"
                           class="anticon anticon-close ant-pro-core-field-label-icon ant-pro-core-field-label-close"
-                          role="img"
+                          role="button"
                           tabindex="-1"
+                          title="清除"
                         >
                           <svg
                             aria-hidden="true"
