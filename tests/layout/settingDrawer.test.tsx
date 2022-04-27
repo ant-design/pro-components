@@ -2,7 +2,7 @@ import { mount, render } from 'enzyme';
 import React from 'react';
 import { SettingDrawer } from '@ant-design/pro-layout';
 import defaultSettings from './defaultSettings';
-import { render as reactRender, act, fireEvent, createEvent } from '@testing-library/react';
+import { render as reactRender, act, fireEvent } from '@testing-library/react';
 
 import { waitForComponentToPaint } from '../util';
 
@@ -464,6 +464,7 @@ describe('settingDrawer.test', () => {
     const html = reactRender(
       <SettingDrawer disableUrlParams settings={defaultSettings} getContainer={false} collapse />,
     );
+    const { container, rerender } = html;
     await waitForComponentToPaint(html, 200);
     act(() => {
       expect(
@@ -479,7 +480,10 @@ describe('settingDrawer.test', () => {
     });
     await waitForComponentToPaint(html, 1200);
     act(() => {
-      fireEvent(window.document, new CustomEvent('languagechange'));
+      fireEvent(container, new Event('languagechange'));
+      rerender(
+        <SettingDrawer disableUrlParams settings={defaultSettings} getContainer={false} collapse />,
+      );
     });
     await waitForComponentToPaint(html, 1200);
     act(() => {
