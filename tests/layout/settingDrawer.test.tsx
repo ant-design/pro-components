@@ -2,7 +2,7 @@ import { mount, render } from 'enzyme';
 import React from 'react';
 import { SettingDrawer } from '@ant-design/pro-layout';
 import defaultSettings from './defaultSettings';
-import { render as reactRender, act } from '@testing-library/react';
+import { render as reactRender, act, fireEvent, createEvent } from '@testing-library/react';
 
 import { waitForComponentToPaint } from '../util';
 
@@ -23,7 +23,6 @@ describe('settingDrawer.test', () => {
       },
     });
   });
-
   beforeEach(() => {
     // @ts-expect-error
     window.MutationObserver = null;
@@ -478,7 +477,10 @@ describe('settingDrawer.test', () => {
     act(() => {
       window.localStorage.setItem('umi_locale', 'en-US');
     });
-    window.document.dispatchEvent(new Event('languagechange'));
+    await waitForComponentToPaint(html, 1200);
+    act(() => {
+      fireEvent(window.document, new CustomEvent('languagechange'));
+    });
     await waitForComponentToPaint(html, 1200);
     act(() => {
       expect(
