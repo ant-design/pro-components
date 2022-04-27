@@ -13,6 +13,8 @@ import { SnippetsOutlined, CloseOutlined } from '@ant-design/icons';
 import { Button, Form } from 'antd';
 import _ from 'lodash';
 import type { NamePath } from 'antd/es/form/interface';
+import { render as reactRender } from '@testing-library/react';
+import '@testing-library/jest-dom';
 
 describe('ProForm List', () => {
   it('⛲  ProForm.List', async () => {
@@ -788,10 +790,11 @@ describe('ProForm List', () => {
     expect(html.find('.anticon-snippets').exists()).toBeTruthy();
     expect(html.find('.anticon-close').exists()).toBeTruthy();
   });
+
   it('⛲  ProForm.List use behavior guard when triggering behavior', async () => {
     const fnAdd = jest.fn();
     const fnRemove = jest.fn();
-    const html = mount(
+    const html = reactRender(
       <ProForm>
         <ProFormList
           copyIconProps={{
@@ -832,48 +835,58 @@ describe('ProForm List', () => {
     );
 
     await waitForComponentToPaint(html);
-    expect(html.find('input.ant-input').length).toBe(1);
+    expect(html.baseElement.querySelectorAll('input.ant-input').length).toBe(1);
 
     // 新增按钮
     await act(async () => {
-      html.find('.ant-btn.ant-pro-form-list-creator-button-bottom').simulate('click');
-      await waitForComponentToPaint(html, 1000);
-      expect(fnAdd).toHaveBeenLastCalledWith(undefined, 1);
-      expect(html.find('input.ant-input').length).toBe(2);
+      (await html.findByText('添加一行数据')).parentElement?.click();
     });
+
+    expect(fnAdd).toHaveBeenLastCalledWith(undefined, 1);
+    expect(html.baseElement.querySelectorAll('input.ant-input').length).toBe(1);
+    await waitForComponentToPaint(html, 1200);
+
+    expect(html.baseElement.querySelectorAll('input.ant-input').length).toBe(2);
 
     // 复制按钮
     await act(async () => {
-      html.find('.action-copy').first().simulate('click');
-      await waitForComponentToPaint(html, 1000);
-      expect(fnAdd).toHaveBeenLastCalledWith('1111', 2);
-      const input = html.find('input.ant-input');
-      expect(input.length).toBe(3);
-      expect((input.at(2).getDOMNode() as HTMLInputElement).value).toBe('1111');
+      html.baseElement.querySelectorAll<HTMLDivElement>('.action-copy')[0]?.click?.();
     });
+
+    expect(fnAdd).toHaveBeenLastCalledWith('1111', 2);
+
+    await waitForComponentToPaint(html, 1200);
+
+    const input = html.baseElement.querySelectorAll<HTMLInputElement>('input.ant-input');
+    expect(input.length).toBe(3);
+    expect(input[2].value).toBe('1111');
 
     // 删除按钮
     await act(async () => {
-      html.find('.action-remove').last().simulate('click');
-      await waitForComponentToPaint(html, 1000);
-      expect(fnRemove).toBeCalledWith(2);
-      expect(html.find('input.ant-input').length).toBe(2);
+      html.baseElement.querySelectorAll<HTMLDivElement>('.action-remove')[2]?.click?.();
     });
+
+    expect(fnRemove).toBeCalledWith(2);
+    expect(html.baseElement.querySelectorAll('input.ant-input').length).toBe(3);
+    await waitForComponentToPaint(html, 1200);
+
+    expect(html.baseElement.querySelectorAll('input.ant-input').length).toBe(2);
 
     // 删除按钮不能删除的项目
     await act(async () => {
-      html.find('.action-remove').first().simulate('click');
-      await waitForComponentToPaint(html, 1000);
-      expect(fnRemove).toBeCalledWith(0);
-      expect(html.find('input.ant-input').length).toBe(2);
+      html.baseElement.querySelectorAll<HTMLDivElement>('.action-remove')[0]?.click?.();
     });
+
+    await waitForComponentToPaint(html, 1200);
+    expect(fnRemove).toBeCalledWith(0);
+    expect(html.baseElement.querySelectorAll('input.ant-input').length).toBe(2);
   });
 
   it('⛲  ProForm.List warning after remove', async () => {
     const errorSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
 
     const fnRemove = jest.fn();
-    const html = mount(
+    const html = reactRender(
       <ProForm>
         <ProFormList
           actionGuard={{
@@ -894,18 +907,13 @@ describe('ProForm List', () => {
         </ProFormList>
       </ProForm>,
     );
-
-    act(() => {
-      html.find('.action-remove').first().simulate('click');
+    await act(async () => {
+      html.baseElement.querySelectorAll<HTMLDivElement>('.action-remove')[0]?.click?.();
     });
 
     await waitForComponentToPaint(html, 100);
     expect(fnRemove).toBeCalledWith(0);
-    expect(html.find('input.ant-input').length).toBe(0);
-
-    act(() => {
-      html.unmount();
-    });
+    expect(html.baseElement.querySelectorAll('input.ant-input').length).toBe(0);
 
     await waitForComponentToPaint(html, 100);
 
@@ -915,7 +923,7 @@ describe('ProForm List', () => {
   });
 
   it('⛲  ProForm.List hide action btn when over limit', async () => {
-    const html = mount(
+    const html = reactRender(
       <ProForm>
         <ProFormList
           copyIconProps={{
@@ -940,28 +948,30 @@ describe('ProForm List', () => {
     );
 
     await waitForComponentToPaint(html);
-    expect(html.find('input.ant-input').length).toBe(1);
+    expect(html.baseElement.querySelectorAll('input.ant-input').length).toBe(1);
     // 尝试增加到4条数据
     await act(async () => {
-      html.find('.action-copy').at(0).simulate('click');
-      html.find('.action-copy').at(0).simulate('click');
-      html.find('.action-copy').at(0).simulate('click');
-      await waitTime(1200);
-      await waitForComponentToPaint(html);
-      const createBtn = html.find('.ant-btn.ant-pro-form-list-creator-button-bottom');
-      const copyBtn = html.find('.action-copy');
-      expect(createBtn.length).toBe(0);
-      expect(copyBtn.length).toBe(0);
+      html.baseElement.querySelectorAll<HTMLDivElement>('.action-copy')[0]?.click?.();
+      html.baseElement.querySelectorAll<HTMLDivElement>('.action-copy')[0]?.click?.();
+      html.baseElement.querySelectorAll<HTMLDivElement>('.action-copy')[0]?.click?.();
     });
+    await waitTime(1000);
+    await waitForComponentToPaint(html);
+    const createBtn = html.baseElement.querySelectorAll<HTMLDivElement>(
+      '.ant-btn.ant-pro-form-list-creator-button-bottom',
+    );
+    const copyBtn = html.baseElement.querySelectorAll('.action-copy');
+    expect(createBtn.length).toBe(0);
+    expect(copyBtn.length).toBe(0);
+
     // 尝试删除掉所有，但实际至少保留一个
     await act(async () => {
-      html.find('.action-remove').at(0).simulate('click');
-      html.find('.action-remove').at(0).simulate('click');
-      html.find('.action-remove').at(0).simulate('click');
-      await waitTime(1200);
-      await waitForComponentToPaint(html);
-      expect(html.find('.action-remove').length).toBe(0);
+      html.baseElement.querySelectorAll<HTMLDivElement>('.action-remove')[0]?.click?.();
+      html.baseElement.querySelectorAll<HTMLDivElement>('.action-remove')[0]?.click?.();
+      html.baseElement.querySelectorAll<HTMLDivElement>('.action-remove')[0]?.click?.();
     });
+    await waitTime(1200);
+    expect(html.baseElement.querySelectorAll<HTMLDivElement>('.action-remove').length).toBe(0);
   });
 
   it('⛲ valid to set the format property in ProForm.List', async () => {
