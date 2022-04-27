@@ -32,10 +32,9 @@ function useMountMergeState<S>(
       }
     }, 16);
   };
-  if (version.startsWith('18')) {
-    return [state, setState];
-  }
-  return [state, mountSetState];
+
+  // react 18 就不需要 mountSetState 了
+  return version.startsWith('18') ? [state, setState] : [state, mountSetState];
 }
 
 export default useMountMergeState;
