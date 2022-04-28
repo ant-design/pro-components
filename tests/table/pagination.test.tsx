@@ -347,7 +347,7 @@ describe('TableDropdown', () => {
       const button = await html.findByRole('img');
       fireEvent.mouseEnter(button);
     });
-    await waitTime(100);
+    await waitTime(1000);
     await act(async () => {
       const button = await html.findByText('复制');
       button.click();
