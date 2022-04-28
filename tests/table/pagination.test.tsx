@@ -1,9 +1,9 @@
 import React from 'react';
 import { act } from 'react-dom/test-utils';
-import ProTable from '@ant-design/pro-table';
+import ProTable, { TableDropdown } from '@ant-design/pro-table';
 import { request } from './demo';
-import { waitForComponentToPaint } from '../util';
-import { render } from '@testing-library/react';
+import { waitForComponentToPaint, waitTime } from '../util';
+import { fireEvent, render } from '@testing-library/react';
 import '@testing-library/jest-dom';
 
 describe('BasicTable pagination', () => {
@@ -326,5 +326,33 @@ describe('BasicTable pagination', () => {
     });
     await waitForComponentToPaint(html, 200);
     expect(currentFn).toBeCalledWith(2);
+  });
+});
+
+describe('TableDropdown', () => {
+  it('TableDropdown support onSelect', async () => {
+    const fn = jest.fn();
+    const html = render(
+      <TableDropdown
+        onSelect={fn}
+        key="actionGroup"
+        menus={[
+          { key: 'copy', name: '复制' },
+          { key: 'delete', name: '删除' },
+        ]}
+      />,
+    );
+
+    await act(async () => {
+      const button = await html.findByRole('img');
+      fireEvent.mouseEnter(button);
+    });
+    await waitTime(100);
+    await act(async () => {
+      const button = await html.findByText('复制');
+      button.click();
+    });
+
+    expect(fn).toBeCalledWith('copy');
   });
 });
