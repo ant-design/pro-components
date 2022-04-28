@@ -71,6 +71,7 @@ function demoTest(component: string, options: Options = {}) {
           const dom = wrapper.asFragment();
           expect(dom).toMatchSnapshot();
         });
+        wrapper.unmount();
         MockDate.reset();
         cleanup();
       });
