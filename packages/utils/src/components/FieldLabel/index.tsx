@@ -22,7 +22,7 @@ export type FieldLabelProps = {
   allowClear?: boolean;
 };
 
-const FieldLabel: React.FC<FieldLabelProps> = (props) => {
+const FieldLabel: React.ForwardRefRenderFunction<HTMLElement, FieldLabelProps> = (props, ref) => {
   const {
     label,
     onClear,
@@ -110,6 +110,7 @@ const FieldLabel: React.FC<FieldLabelProps> = (props) => {
         className,
       )}
       style={style}
+      ref={ref}
     >
       {getTextByValue(label, value)}
       {(value || value === 0) && allowClear && (
@@ -128,4 +129,4 @@ const FieldLabel: React.FC<FieldLabelProps> = (props) => {
   );
 };
 
-export default FieldLabel;
+export default React.forwardRef(FieldLabel);

@@ -1,4 +1,4 @@
-import React, { useState, useContext, useMemo } from 'react';
+import React, { useState, useContext, useMemo, useRef } from 'react';
 import type { SelectProps } from 'antd';
 import { Select, Input, ConfigProvider } from 'antd';
 import { SearchOutlined } from '@ant-design/icons';
@@ -64,6 +64,7 @@ const LightSelect: React.ForwardRefRenderFunction<any, SelectProps<any> & LightS
   const prefixCls = getPrefixCls('pro-field-select-light-select');
   const [open, setOpen] = useState<boolean>(false);
   const [keyword, setKeyword] = useState<string>('');
+  const lightLabel = useRef<HTMLElement>(null);
 
   const valueMap: Record<string, string> = useMemo(() => {
     const values = {};
@@ -89,8 +90,17 @@ const LightSelect: React.ForwardRefRenderFunction<any, SelectProps<any> & LightS
         className,
       )}
       style={style}
-      onClick={() => {
-        if (!disabled) {
+      onMouseDown={(e) => {
+        // 不冒泡，避免触发rc-picker绑定的全局mouseDown（用于关闭下拉菜单）
+        // fix: https://github.com/ant-design/pro-components/issues/5010
+        e.stopPropagation();
+      }}
+      onClick={(e) => {
+        if (disabled) return;
+        // 点击label切换下拉菜单
+        if (lightLabel.current?.contains(e.target as HTMLElement)) {
+          setOpen(!open);
+        } else {
           setOpen(true);
         }
       }}
@@ -174,6 +184,7 @@ const LightSelect: React.ForwardRefRenderFunction<any, SelectProps<any> & LightS
         onClear={() => {
           onChange?.(undefined, undefined as any);
         }}
+        ref={lightLabel}
       />
     </div>
   );

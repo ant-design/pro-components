@@ -1,6 +1,6 @@
 import type { DatePickerProps } from 'antd';
 import { DatePicker, ConfigProvider } from 'antd';
-import React, { useState, useContext } from 'react';
+import React, { useState, useContext, useRef } from 'react';
 import moment from 'moment';
 import { useIntl } from '@ant-design/pro-provider';
 import { FieldLabel, parseValueToMoment } from '@ant-design/pro-utils';
@@ -40,6 +40,7 @@ const FieldDatePicker: ProFieldFC<{
   const { getPrefixCls } = useContext(ConfigProvider.ConfigContext);
   const prefixCls = getPrefixCls('pro-field-date-picker');
   const [open, setOpen] = useState<boolean>(false);
+  const lightLabel = useRef<HTMLElement>(null);
 
   if (mode === 'read') {
     const dom = text ? moment(text).format(fieldProps.format || format || 'YYYY-MM-DD') : '-';
@@ -65,8 +66,18 @@ const FieldDatePicker: ProFieldFC<{
       dom = (
         <div
           className={`${prefixCls}-light`}
-          onClick={() => {
-            setOpen(true);
+          onMouseDown={(e) => {
+            // 不冒泡，避免触发rc-picker绑定的全局mouseDown（用于关闭下拉菜单）
+            // fix: https://github.com/ant-design/pro-components/issues/5010
+            e.stopPropagation();
+          }}
+          onClick={(e) => {
+            // 点击label切换下拉菜单
+            if (lightLabel.current?.contains(e.target as HTMLElement)) {
+              setOpen(!open);
+            } else {
+              setOpen(true);
+            }
           }}
         >
           <DatePicker
@@ -97,6 +108,7 @@ const FieldDatePicker: ProFieldFC<{
             allowClear={allowClear}
             bordered={bordered}
             expanded={open}
+            ref={lightLabel}
           />
         </div>
       );
