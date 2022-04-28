@@ -913,11 +913,9 @@ describe('BasicLayout', () => {
     const domLink = await (await html.findAllByText('AntDesign外链')).at(0);
     act(() => {
       domChildMenu?.click();
-    });
-    await waitForComponentToPaint(html, 2000);
-    act(() => {
       domLink?.click();
     });
+    await waitForComponentToPaint(html, 2000);
     expect(html.baseElement.querySelectorAll('li.ant-menu-submenu').length).toBe(2);
   });
 
