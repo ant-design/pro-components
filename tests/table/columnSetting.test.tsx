@@ -823,6 +823,13 @@ describe('Table ColumnSetting', () => {
     html.find('.ant-tree-treenode > .ant-tree-node-content-wrapper').at(0).simulate('drop');
 
     await waitForComponentToPaint(html, 1000);
+
+    html.find('.ant-tree-treenode > .ant-tree-node-content-wrapper').at(0).simulate('dragStart');
+    html.find('.ant-tree-treenode > .ant-tree-node-content-wrapper').at(1).simulate('dragEnter');
+    await waitForComponentToPaint(html, 1000);
+
+    html.find('.ant-tree-treenode > .ant-tree-node-content-wrapper').at(1).simulate('drop');
+    await waitForComponentToPaint(html, 1000);
   });
 
   it('🎏 columnSetting support hideInSetting', async () => {
