@@ -14,6 +14,7 @@ import {
   useDebounceValue,
   isDeepEqualReact,
   dateArrayFormatter,
+  nanoid,
 } from '@ant-design/pro-utils';
 import { mount } from 'enzyme';
 import { render, act, fireEvent } from '@testing-library/react';
@@ -747,7 +748,7 @@ describe('utils', () => {
     expect(isNil(true)).toBe(false);
   });
 
-  it('isUrl', async () => {
+  it('🪓 isUrl', async () => {
     expect(isUrl('https://procomponents.ant.design/components/layout')).toBe(true);
     expect(isUrl('https://procomponents.ant.design/en-US/components/layout#basic-usage')).toBe(
       true,
@@ -756,14 +757,14 @@ describe('utils', () => {
     expect(isUrl('https:://procomponents.ant.design/en-US/components/layout')).toBe(false);
   });
 
-  it('isDropdownValueType', async () => {
+  it('🪓 isDropdownValueType', async () => {
     expect(isDropdownValueType('date')).toBeTruthy();
     expect(isDropdownValueType('dateRange')).toBeFalsy();
     expect(isDropdownValueType('dateTimeRange')).toBeFalsy();
     expect(isDropdownValueType('timeRange')).toBeFalsy();
     expect(isDropdownValueType('select')).toBeTruthy();
   });
-  it('LabelIconTip', async () => {
+  it('🪓 LabelIconTip', async () => {
     const html = mount(
       <LabelIconTip
         label="xxx"
@@ -852,5 +853,13 @@ describe('utils', () => {
     const wrapper = mount(<DeepComponent />);
 
     waitForComponentToPaint(wrapper, 100);
+  });
+
+  it('🪓 nanoid', () => {
+    window.crypto.randomUUID = jest.fn(() => '1234567890abcdef');
+
+    const id = nanoid();
+
+    expect(id).toBe('1234567890abcdef');
   });
 });
