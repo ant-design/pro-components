@@ -163,15 +163,15 @@ export default () => {
         request={async () => [
           {
             value: 'zhejiang',
-            label: 'Zhejiang',
+            label: '浙江',
             children: [
               {
                 value: 'hangzhou',
-                label: 'Hangzhou',
+                label: '杭州',
                 children: [
                   {
                     value: 'xihu',
-                    label: 'West Lake',
+                    label: '西湖',
                   },
                 ],
               },
