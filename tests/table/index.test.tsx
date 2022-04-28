@@ -6,6 +6,7 @@ import type { ActionType } from '@ant-design/pro-table';
 import ProTable, { TableDropdown } from '@ant-design/pro-table';
 import { columns, request } from './demo';
 import { waitForComponentToPaint, waitTime } from '../util';
+import { render as ReactRender, fireEvent, screen } from '@testing-library/react';
 
 describe('BasicTable', () => {
   const LINE_STR_COUNT = 20;
@@ -89,6 +90,36 @@ describe('BasicTable', () => {
     await waitForComponentToPaint(html, 1000);
 
     expect(pageSizeOnchange).toBeCalledWith(1);
+  });
+
+  it('🎏 tableDropdown mouseover onSelect', async () => {
+    const html = ReactRender(
+      <div>
+        <TableDropdown.Button
+          key="copy"
+          menus={[
+            { key: 'copy', name: '复制' },
+            { key: 'clear', name: '清空' },
+          ]}
+        >
+          更多操作
+        </TableDropdown.Button>
+        <TableDropdown
+          key="tableDropdown"
+          // eslint-disable-next-line react/no-children-prop
+          children="其他操作"
+          menus={[
+            { key: 'edit', name: '编辑' },
+            { key: 'create', name: '新建' },
+          ]}
+        />
+      </div>,
+    );
+    fireEvent.mouseOver(screen.getByText('更多操作'));
+    await waitForComponentToPaint(html, 2000);
+    (await html.findByText('复制')).click();
+    fireEvent.mouseOver(screen.getByText('其他操作'));
+    (await html.findByText('编辑')).click();
   });
 
   it('🎏 do not render Search', async () => {
