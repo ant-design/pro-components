@@ -144,6 +144,5 @@
   "gitHooks": {
     "pre-commit": "pretty-quick --staged",
     "commit-msg": "fabric verify-commit"
-  },
-
+  }
 }
