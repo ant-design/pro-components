@@ -53,6 +53,7 @@ ModalForm combines Modal and ProForm to reduce tedious state management.
 | width | the width of the popup box | `Number` | - |
 | onFinish | Triggered when submitting data, if returns a true, will close the popup and reset the form | `async (values)=>boolean` | - |
 | submitTimeout | Disable timeout for the Cancel button when submitting data (ms) | `Number` | - |
+| submitter | Submit button configurations in the same way as [ProForm](https://procomponents.ant.design/components/form) | [ProForm](https://procomponents.ant.design/components/form) | - |
 
 ### DrawerForm
 
