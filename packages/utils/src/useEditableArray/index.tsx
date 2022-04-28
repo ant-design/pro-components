@@ -16,6 +16,7 @@ import usePrevious from '../hooks/usePrevious';
 import get from 'rc-util/lib/utils/get';
 import { useDeepCompareEffectDebounce } from '../hooks/useDeepCompareEffect';
 import { useDebounceFn, useRefFunction } from '..';
+import { noteOnce } from 'rc-util/lib/warning';
 
 export type RowEditableType = 'single' | 'multiple';
 
@@ -465,9 +466,9 @@ function useEditableArray<RecordType>(
       ? (keys) => {
           props?.onChange?.(
             // 计算编辑的key
-            keys,
+            keys.filter((key) => key !== undefined),
             // 计算编辑的行
-            keys.map((key) => getRecordByKey(key)),
+            keys.map((key) => getRecordByKey(key)).filter((key) => key !== undefined),
           );
         }
       : undefined,
@@ -512,7 +513,11 @@ function useEditableArray<RecordType>(
    */
   const startEditable = useRefFunction((recordKey: React.Key) => {
     // 如果是单行的话，不允许多行编辑
-    if (editableKeysSet.size > 0 && editableType === 'single') {
+    if (
+      editableKeysSet.size > 0 &&
+      editableType === 'single' &&
+      props.onlyOneLineEditorAlertMessage !== false
+    ) {
       message.warn(props.onlyOneLineEditorAlertMessage || '只能同时编辑一行');
       return false;
     }
@@ -615,19 +620,31 @@ function useEditableArray<RecordType>(
    */
   const addEditRecord = useRefFunction((row: RecordType, options?: AddLineOptions) => {
     // 暂时不支持多行新增
-    if (newLineRecordRef.current) {
+    if (newLineRecordRef.current && props.onlyAddOneLineAlertMessage !== false) {
       message.warn(props.onlyAddOneLineAlertMessage || '只能新增一行');
       return false;
     }
     // 如果是单行的话，不允许多行编辑
-    if (editableKeysSet.size > 0 && editableType === 'single') {
+    if (
+      editableKeysSet.size > 0 &&
+      editableType === 'single' &&
+      props.onlyOneLineEditorAlertMessage !== false
+    ) {
       message.warn(props.onlyOneLineEditorAlertMessage || '只能同时编辑一行');
       return false;
     }
-
     // 防止多次渲染
     const recordKey = props.getRowKey(row, -1);
+
+    if (!recordKey) {
+      noteOnce(
+        !!recordKey,
+        '请设置 recordCreatorProps.record 并返回一个唯一的key  \n  https://procomponents.ant.design/components/editable-table#editable-%E6%96%B0%E5%BB%BA%E8%A1%8C',
+      );
+      throw new Error('请设置 recordCreatorProps.record 并返回一个唯一的key');
+    }
     editableKeysSet.add(recordKey);
+
     setEditableRowKeys(Array.from(editableKeysSet));
 
     // 如果是dataSource 新增模式的话，取消再开始编辑，

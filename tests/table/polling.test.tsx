@@ -27,11 +27,11 @@ describe('polling', () => {
     );
     await waitForComponentToPaint(html, 1000);
     expect(fn).toBeCalledTimes(1);
-    await waitForComponentToPaint(html, 1500);
+    await waitForComponentToPaint(html, 1800);
 
     expect(fn).toBeCalledTimes(2);
 
-    await waitForComponentToPaint(html, 1500);
+    await waitForComponentToPaint(html, 1000);
 
     expect(fn).toBeCalledTimes(2);
   });

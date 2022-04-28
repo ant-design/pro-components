@@ -22,15 +22,19 @@ export type ActionsProps = {
         /** 是否应该展示，有两种情况 列只有三列，不需要收起 form 模式 不需要收起 */
         props: ActionsProps,
         intl: IntlType,
+        hiddenNum?: false | number,
       ) => React.ReactNode)
     | false;
+  /** 隐藏个数 */
+  hiddenNum?: false | number;
 };
 
-const defaultCollapseRender: ActionsProps['collapseRender'] = (collapsed, _, intl) => {
+const defaultCollapseRender: ActionsProps['collapseRender'] = (collapsed, _, intl, hiddenNum) => {
   if (collapsed) {
     return (
       <>
         {intl.getMessage('tableForm.collapsed', '展开')}
+        {hiddenNum && `(${hiddenNum})`}
         <DownOutlined
           style={{
             marginLeft: '0.5em',
@@ -61,7 +65,7 @@ const defaultCollapseRender: ActionsProps['collapseRender'] = (collapsed, _, int
  * @param props
  */
 const Actions: React.FC<ActionsProps> = (props) => {
-  const { setCollapsed, collapsed = false, submitter, style } = props;
+  const { setCollapsed, collapsed = false, submitter, style, hiddenNum } = props;
   const { getPrefixCls } = useContext(ConfigProvider.ConfigContext);
   const intl = useIntl();
 
@@ -74,7 +78,7 @@ const Actions: React.FC<ActionsProps> = (props) => {
           className={getPrefixCls('pro-form-collapse-button')}
           onClick={() => setCollapsed(!collapsed)}
         >
-          {collapseRender?.(collapsed, props, intl)}
+          {collapseRender?.(collapsed, props, intl, hiddenNum)}
         </a>
       )}
     </Space>

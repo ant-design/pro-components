@@ -1,6 +1,6 @@
 import React from 'react';
 import { InputNumber } from 'antd';
-import type { ProColumns, EditableFormInstance } from '@ant-design/pro-table';
+import type { ProColumns, EditableFormInstance, ActionType } from '@ant-design/pro-table';
 import { EditableProTable } from '@ant-design/pro-table';
 import ProForm, { ProFormText } from '@ant-design/pro-form';
 import { fireEvent, act, cleanup, render } from '@testing-library/react';
@@ -194,6 +194,33 @@ describe('EditorProTable', () => {
 
     expect(fn).toBeCalledWith(555);
 
+    wrapper.unmount();
+  });
+
+  it('📝 EditableProTable addEditRecord is null will throw Error', async () => {
+    const spy = jest.spyOn(global.console, 'warn').mockImplementation();
+    const actionRef = React.createRef<ActionType>();
+    const wrapper = render(
+      <EditableProTable<DataSourceType>
+        rowKey="id"
+        pagination={{
+          pageSize: 2,
+          current: 2,
+        }}
+        actionRef={actionRef}
+        columns={columns}
+        value={defaultData}
+      />,
+    );
+    await waitForComponentToPaint(wrapper, 1000);
+
+    try {
+      actionRef.current?.addEditRecord(undefined);
+    } catch (error: any) {
+      expect(error.message).toEqual('请设置 recordCreatorProps.record 并返回一个唯一的key');
+    }
+    await waitForComponentToPaint(wrapper, 1000);
+    spy.mockRestore();
     wrapper.unmount();
   });
 

@@ -152,16 +152,10 @@ const CheckboxList: React.FC<{
     const findIndex = newColumns.findIndex((columnKey) => columnKey === id);
     const targetIndex = newColumns.findIndex((columnKey) => columnKey === targetId);
     const isDownWord = dropPosition > findIndex;
-    if (findIndex < 0) {
-      return;
-    }
+    if (findIndex < 0) return;
     const targetItem = newColumns[findIndex];
     newColumns.splice(findIndex, 1);
-    if (dropPosition === 0) {
-      newColumns.unshift(targetItem);
-    } else {
-      newColumns.splice(isDownWord ? targetIndex : targetIndex + 1, 0, targetItem);
-    }
+    newColumns.splice(isDownWord ? targetIndex : targetIndex + 1, 0, targetItem);
     // 重新生成排序数组
     newColumns.forEach((key, order) => {
       newMap[key] = { ...(newMap[key] || {}), order };
