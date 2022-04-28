@@ -34224,7 +34224,7 @@ exports[`form demos 📸 renders ./packages/form/src/demos/base.tsx correctly 1`
       >
         <label
           class=""
-          for="area"
+          for="areaList"
           title="区域"
         >
           区域
@@ -34250,12 +34250,12 @@ exports[`form demos 📸 renders ./packages/form/src/demos/base.tsx correctly 1`
                 >
                   <input
                     aria-autocomplete="list"
-                    aria-controls="area_list"
+                    aria-controls="areaList_list"
                     aria-haspopup="listbox"
-                    aria-owns="area_list"
+                    aria-owns="areaList_list"
                     autocomplete="off"
                     class="ant-select-selection-search-input"
-                    id="area"
+                    id="areaList"
                     readonly=""
                     role="combobox"
                     style="opacity: 0;"
@@ -34278,21 +34278,21 @@ exports[`form demos 📸 renders ./packages/form/src/demos/base.tsx correctly 1`
                 unselectable="on"
               >
                 <span
-                  aria-label="loading"
-                  class="anticon anticon-loading anticon-spin"
+                  aria-label="down"
+                  class="anticon anticon-down ant-select-suffix"
                   role="img"
                 >
                   <svg
                     aria-hidden="true"
-                    data-icon="loading"
+                    data-icon="down"
                     fill="currentColor"
                     focusable="false"
                     height="1em"
-                    viewBox="0 0 1024 1024"
+                    viewBox="64 64 896 896"
                     width="1em"
                   >
                     <path
-                      d="M988 548c-19.9 0-36-16.1-36-36 0-59.4-11.6-117-34.6-171.3a440.45 440.45 0 00-94.3-139.9 437.71 437.71 0 00-139.9-94.3C629 83.6 571.4 72 512 72c-19.9 0-36-16.1-36-36s16.1-36 36-36c69.1 0 136.2 13.5 199.3 40.3C772.3 66 827 103 874 150c47 47 83.9 101.8 109.7 162.7 26.7 63.1 40.2 130.2 40.2 199.3.1 19.9-16 36-35.9 36z"
+                      d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"
                     />
                   </svg>
                 </span>

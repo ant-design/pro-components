@@ -194,7 +194,7 @@ export default () => {
             ],
           },
         ]}
-        name="area"
+        name="areaList"
         label="区域"
         initialValue={['zhejiang', 'hangzhou', 'xihu']}
       />
