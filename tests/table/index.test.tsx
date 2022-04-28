@@ -6,7 +6,7 @@ import type { ActionType } from '@ant-design/pro-table';
 import ProTable, { TableDropdown } from '@ant-design/pro-table';
 import { columns, request } from './demo';
 import { waitForComponentToPaint, waitTime } from '../util';
-import { render as ReactRender, fireEvent, screen } from '@testing-library/react';
+import { render as ReactRender, createEvent, fireEvent, screen } from '@testing-library/react';
 
 describe('BasicTable', () => {
   const LINE_STR_COUNT = 20;
@@ -92,7 +92,7 @@ describe('BasicTable', () => {
     expect(pageSizeOnchange).toBeCalledWith(1);
   });
 
-  it('🎏 tableDropdown mouseover onSelect', async () => {
+  it('🎏 tableDropdown click trigger onSelect', async () => {
     const html = ReactRender(
       <div>
         <TableDropdown.Button
@@ -120,6 +120,43 @@ describe('BasicTable', () => {
     (await html.findByText('复制')).click();
     fireEvent.mouseOver(screen.getByText('其他操作'));
     (await html.findByText('编辑')).click();
+
+    createEvent('visibilitychange', window, {});
+  });
+  it('🎏 table  support visibilitychange', async () => {
+    const requestFfn = jest.fn();
+    let fn: Function | null = null;
+    const errorSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
+    const addEventListenerSpy = jest
+      .spyOn(document, 'addEventListener')
+      .mockImplementation((eventName, eventFn) => {
+        if (eventName === 'visibilitychange') {
+          //@ts-expect-error
+          fn = eventFn;
+        }
+      });
+
+    ReactRender(
+      <ProTable
+        size="small"
+        columns={columns}
+        request={async () => {
+          requestFfn();
+          return request;
+        }}
+        rowKey="key"
+        revalidateOnFocus
+      />,
+    );
+    await waitTime(1000);
+    act(() => {
+      fn?.();
+    });
+
+    await waitTime(1000);
+    errorSpy.mockRestore();
+    addEventListenerSpy.mockRestore();
+    expect(requestFfn).toBeCalledTimes(2);
   });
 
   it('🎏 do not render Search', async () => {

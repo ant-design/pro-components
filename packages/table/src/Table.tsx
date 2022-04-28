@@ -512,16 +512,18 @@ const ProTable = <T extends Record<string, any>, U extends ParamsType, ValueType
   useEffect(() => {
     // 手动模式和 request 为空都不生效
     if (
-      !props.manualRequest ||
+      props.manualRequest ||
       !props.request ||
       props.revalidateOnFocus === false ||
-      !props.form?.ignoreRules
+      props.form?.ignoreRules
     )
       return;
+
     // 聚焦时重新请求事件
     const visibilitychange = () => {
       if (document.visibilityState === 'visible') action.reload();
     };
+
     document.addEventListener('visibilitychange', visibilitychange);
     return () => document.removeEventListener('visibilitychange', visibilitychange);
     // eslint-disable-next-line react-hooks/exhaustive-deps
