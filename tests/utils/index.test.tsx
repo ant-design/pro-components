@@ -528,6 +528,17 @@ describe('utils', () => {
     expect(html.dateRange.join(',')).toBe('2019-11-16 12:50:26,2019-11-16 12:55:26');
   });
 
+  it('📅 transformKeySubmitValue will return file', async () => {
+    //@ts-expect-error
+    const html = transformKeySubmitValue(false, {
+      dataTime: () => 'new-dataTime',
+      time: () => 'new-time',
+      name: () => 'new-name',
+      money: () => 'new-money',
+    });
+    expect(html).toBeFalsy();
+  });
+
   it('📅 transformKeySubmitValue return object', async () => {
     const html = transformKeySubmitValue(
       {
