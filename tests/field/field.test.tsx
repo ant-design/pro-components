@@ -72,28 +72,71 @@ describe('Field', () => {
   });
 
   it('🐴 money numberPopoverRender onchange values', async () => {
-    const html = mount(
-      <Field text="100" numberPopoverRender={() => 123} valueType="money" mode="edit" />,
+    const html = reactRender(
+      <Field text="100" numberPopoverRender={() => '1234'} valueType="money" mode="edit" />,
     );
+
     act(() => {
-      html.find('input').simulate('change', {
+      fireEvent.change(html.baseElement.querySelector('input')!, {
         target: {
           value: 1000,
         },
       });
     });
-    html.update();
-    expect(html.find('input').props().value).toBe('￥ 1000');
+    await waitTime(100);
+
+    expect(!!html.queryByDisplayValue('￥ 1000')).toBeTruthy();
+
     act(() => {
-      html.find('input').simulate('change', {
+      fireEvent.change(html.baseElement.querySelector('input')!, {
         target: {
           value: '￥ 100',
         },
       });
     });
+    await waitTime(100);
+    expect(!!html.queryByDisplayValue('￥ 100')).toBeTruthy();
 
-    html.update();
-    expect(html.find('input').props().value).toBe('￥ 100');
+    act(() => {
+      fireEvent.change(html.baseElement.querySelector('input')!, {
+        target: {
+          value: 111111111,
+        },
+      });
+    });
+    await waitTime(100);
+  });
+
+  it('🐴 money show Popover', async () => {
+    const html = reactRender(
+      <Field
+        text="100"
+        numberPopoverRender
+        fieldProps={{
+          visible: true,
+        }}
+        valueType="money"
+        mode="edit"
+      />,
+    );
+
+    act(() => {
+      fireEvent.change(html.baseElement.querySelector('input')!, {
+        target: {
+          value: 111111111,
+        },
+      });
+    });
+    await waitTime(100);
+
+    act(() => {
+      fireEvent.click(html.baseElement.querySelector('.ant-input-number')!);
+      fireEvent.focus(html.baseElement.querySelector('.ant-input-number')!);
+      fireEvent.mouseEnter(html.baseElement.querySelector('.ant-input-number')!);
+      fireEvent.mouseDown(html.baseElement.querySelector('.ant-input-number')!);
+    });
+    await waitTime(100);
+    expect(!!(await html.findByText('￥ 111111111'))).toBeTruthy();
   });
 
   it('🐴 should trigger onChange function provided when change', async () => {
