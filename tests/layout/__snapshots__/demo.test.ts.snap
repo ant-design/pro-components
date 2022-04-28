@@ -1278,14 +1278,9 @@ exports[`layout demos 📸 renders ./packages/layout/src/components/PageContaine
               class="ant-pro-grid-content-children"
             >
               <div
-                class="ant-pro-page-container-children-content"
-                style=""
+                style="color: red; padding: 30px; text-align: center;"
               >
-                <div
-                  style="height: 100vh;"
-                >
-                  加载中这里不显示
-                </div>
+                自定义加载...
               </div>
             </div>
           </div>
