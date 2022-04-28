@@ -33935,8 +33935,9 @@ exports[`table demos 📸 renders ./packages/table/src/demos/lightfilter.tsx cor
                                         <span
                                           aria-label="close"
                                           class="anticon anticon-close ant-pro-core-field-label-icon ant-pro-core-field-label-close"
-                                          role="img"
+                                          role="button"
                                           tabindex="-1"
+                                          title="清除"
                                         >
                                           <svg
                                             aria-hidden="true"

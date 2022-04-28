@@ -15,7 +15,7 @@ describe('DrawerForm', () => {
           onClose: () => fn(),
         }}
         onFinish={async () => {
-          await waitTime(20000);
+          await waitTime(3000);
         }}
         submitTimeout={3000}
       >
@@ -52,12 +52,13 @@ describe('DrawerForm', () => {
       (await html.queryByText('取 消'))?.click();
     });
 
-    await waitForComponentToPaint(html, 500);
+    await waitForComponentToPaint(html, 1000);
 
     expect(fn).toBeCalled();
+    html.unmount();
   });
 
-  it('📦 modal submitTimeout is null no disable close button when submit', async () => {
+  it('📦 DrawerForm submitTimeout is null no disable close button when submit', async () => {
     const fn = jest.fn();
     const wrapper = render(
       <DrawerForm
@@ -66,7 +67,7 @@ describe('DrawerForm', () => {
           onClose: () => fn(),
         }}
         onFinish={async () => {
-          await waitTime(1000);
+          await waitTime(3000);
           return true;
         }}
       >
