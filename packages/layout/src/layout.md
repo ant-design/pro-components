@@ -137,6 +137,7 @@ PageContainer 配置 `ghost` 可以将页头切换为透明模式。
 | locale | 当前 layout 的语言设置 | `zh-CN` \| `zh-TW` \| `en-US` | navigator.language |
 | settings | layout 的设置 | [`Settings`](#Settings) | - |
 | siderWidth | 侧边菜单宽度 | `number` | 208 |
+| headerHeight | 头部高度 | `number` | 48 |
 | defaultCollapsed | 默认的菜单的收起和展开，会受到 `breakpoint` 的影响，`breakpoint=false` 生效 | `boolean` | - |
 | collapsed | 控制菜单的收起和展开 | `boolean` | - |
 | onCollapse | 菜单的折叠收起事件 | `(collapsed: boolean) => void` | - |
