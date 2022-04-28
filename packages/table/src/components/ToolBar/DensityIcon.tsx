@@ -20,13 +20,12 @@ const DensityIcon = () => {
           style={{
             width: 80,
           }}
-        >
-          <Menu.Item key="large">{intl.getMessage('tableToolBar.densityLarger', '默认')}</Menu.Item>
-          <Menu.Item key="middle">
-            {intl.getMessage('tableToolBar.densityMiddle', '中等')}
-          </Menu.Item>
-          <Menu.Item key="small">{intl.getMessage('tableToolBar.densitySmall', '紧凑')}</Menu.Item>
-        </Menu>
+          items={[
+            { key: 'large', label: intl.getMessage('tableToolBar.densityLarger', '默认') },
+            { key: 'middle', label: intl.getMessage('tableToolBar.densityMiddle', '中等') },
+            { key: 'small', label: intl.getMessage('tableToolBar.densitySmall', '紧凑') },
+          ]}
+        />
       }
       trigger={['click']}
     >

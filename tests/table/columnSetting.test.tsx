@@ -4,6 +4,8 @@ import { act } from 'react-dom/test-utils';
 import ProTable from '@ant-design/pro-table';
 import { columns } from './demo';
 import { waitForComponentToPaint } from '../util';
+import { render } from '@testing-library/react';
+import '@testing-library/jest-dom';
 
 describe('Table ColumnSetting', () => {
   beforeEach(() => {
@@ -920,5 +922,65 @@ describe('Table ColumnSetting', () => {
     await waitForComponentToPaint(html, 1000);
 
     expect(html.find('.ant-tree-treenode').length).toBe(2);
+  });
+
+  it('🎏 DensityIcon support onChange', async () => {
+    const onChange = jest.fn();
+    const html = render(
+      <ProTable
+        onSizeChange={(size) => onChange(size)}
+        options={{ density: true }}
+        columns={[
+          {
+            title: 'Name',
+            key: 'name',
+            dataIndex: 'name',
+            copyable: true,
+          },
+          {
+            title: 'Name2',
+            key: 'name2',
+            dataIndex: 'name2',
+            copyable: true,
+          },
+        ]}
+        dataSource={[
+          {
+            key: 1,
+            name: `TradeCode ${1}`,
+            createdAt: 1602572994055,
+          },
+        ]}
+        rowKey="key"
+      />,
+    );
+
+    act(() => {
+      const icon = html.baseElement.querySelector<HTMLSpanElement>(
+        '.ant-pro-table-list-toolbar-setting-item .anticon-column-height',
+      );
+      icon?.click();
+    });
+
+    await act(async () => {
+      const dom = await html.findByText('紧凑');
+      dom.click();
+    });
+
+    expect(onChange).toBeCalledWith('small');
+
+    act(() => {
+      const icon = html.baseElement.querySelector<HTMLSpanElement>(
+        '.ant-pro-table-list-toolbar-setting-item .anticon-column-height',
+      );
+      icon?.click();
+    });
+
+    await act(async () => {
+      const dom = await html.findByText('中等');
+      dom.click();
+    });
+
+    expect(onChange).toBeCalledWith('middle');
   });
 });
