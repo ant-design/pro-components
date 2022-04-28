@@ -65,7 +65,7 @@ function demoTest(component: string, options: Options = {}) {
         MockDate.set(moment('2016-11-22').valueOf());
         const Demo = require(`.${file}`).default;
         const wrapper = reactRender(<Demo />);
-        await waitForComponentToPaint(wrapper, 2000);
+        await waitForComponentToPaint(wrapper, 3000);
         // Convert aria related content
         act(() => {
           const dom = wrapper.asFragment();
