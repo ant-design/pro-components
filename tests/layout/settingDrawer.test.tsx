@@ -2,7 +2,7 @@ import { mount, render } from 'enzyme';
 import React from 'react';
 import { SettingDrawer } from '@ant-design/pro-layout';
 import defaultSettings from './defaultSettings';
-import { render as reactRender, act, fireEvent } from '@testing-library/react';
+import { render as reactRender, act } from '@testing-library/react';
 
 import { waitForComponentToPaint } from '../util';
 
@@ -53,6 +53,23 @@ describe('settingDrawer.test', () => {
       />,
     );
     expect(html).toMatchSnapshot();
+  });
+
+  it('🌺 colorList key is undefined', () => {
+    render(
+      <SettingDrawer
+        disableUrlParams
+        settings={defaultSettings}
+        colorList={[
+          {
+            key: '',
+            color: 'red',
+          },
+        ]}
+        getContainer={false}
+        collapse
+      />,
+    );
   });
 
   it('🌺  theme color Change', async () => {
