@@ -9,6 +9,14 @@ group:
 
 # Change Log
 
+## @ant-design/pro-form@1.66.0
+
+`2022-04-29`
+
+- feat(form): collapse support hidden number (#5116). [#5116](https://github.com/ant-design/pro-components/pull/#5116) [@DerrickTel](https://github.com/DerrickTel)
+- fix(form): Supplementary English Documents (#5139). [#5139](https://github.com/ant-design/pro-components/pull/#5139) [@wangmeijian](https://github.com/wangmeijian)
+- fix(form): add missed ProFormTreeSelect to the form export (#5133). [#5133](https://github.com/ant-design/pro-components/pull/#5133) [@Symous](https://github.com/Symous)
+
 ## @ant-design/pro-form@1.65.0
 
 `2022-04-24`
