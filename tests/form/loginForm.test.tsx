@@ -1,7 +1,12 @@
-import { LoginForm, ProFormText } from '@ant-design/pro-form';
+import { LoginForm, LoginFormPage, ProFormText } from '@ant-design/pro-form';
 import { mount } from 'enzyme';
 import { waitForComponentToPaint } from '../util';
-import { AlipayCircleOutlined, TaobaoCircleOutlined, WeiboCircleOutlined } from '@ant-design/icons';
+import {
+  AlipayCircleOutlined,
+  TaobaoCircleOutlined,
+  UserAddOutlined,
+  WeiboCircleOutlined,
+} from '@ant-design/icons';
 import { Alert, Space } from 'antd';
 import { act, render } from '@testing-library/react';
 
@@ -122,5 +127,38 @@ describe('LoginForm', () => {
     });
 
     expect(fn).toBeCalled();
+  });
+
+  it('📦 LoginFormPage support log', async () => {
+    const wrapper = render(
+      <LoginFormPage
+        logo={
+          <div>
+            <UserAddOutlined />
+            logo
+          </div>
+        }
+      >
+        <ProFormText name="name" />
+      </LoginFormPage>,
+    );
+
+    await waitForComponentToPaint(wrapper);
+    const dom = await wrapper.findByText('logo');
+
+    expect(!!dom).toBeTruthy();
+  });
+
+  it('📦 LoginFormPage support log', async () => {
+    const wrapper = render(
+      <LoginFormPage logo={false}>
+        <ProFormText name="name" />
+      </LoginFormPage>,
+    );
+
+    await waitForComponentToPaint(wrapper);
+    const dom = await wrapper.baseElement.querySelector('.ant-pro-form-login-page-header');
+
+    expect(!!dom).toBeFalsy();
   });
 });
