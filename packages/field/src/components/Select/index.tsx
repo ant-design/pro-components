@@ -344,9 +344,11 @@ export const useFieldFetchData = (
       ),
     {
       revalidateIfStale: !cacheForSwr,
-      revalidateOnFocus: !cacheForSwr,
-      revalidateOnReconnect: !cacheForSwr,
+      // 打开 cacheForSwr 的时候才应该支持两个功能
+      revalidateOnReconnect: cacheForSwr,
       shouldRetryOnError: false,
+      // @todo 这个功能感觉应该搞个API出来
+      revalidateOnFocus: false,
     },
   );
 

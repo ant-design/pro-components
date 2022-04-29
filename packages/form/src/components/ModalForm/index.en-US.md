@@ -52,6 +52,7 @@ ModalForm combines Modal and ProForm to reduce tedious state management.
 | title | The title of the popup box | `ReactNode` | - |
 | width | the width of the popup box | `Number` | - |
 | onFinish | Triggered when submitting data, if returns a true, will close the popup and reset the form | `async (values)=>boolean` | - |
+| submitTimeout | Disable timeout for the Cancel button when submitting data (ms) | `Number` | - |
 
 ### DrawerForm
 
@@ -66,3 +67,4 @@ DrawerForm combines Drawer and ProForm to reduce tedious state management.
 | title | The title of the drawer | `ReactNode` | - |
 | width | width of the drawer | `Number` | - |
 | onFinish | Triggered when data is submitted. If a true is returned, it will close the drawer and reset the form | `async (values)=>boolean` | - |
+| submitTimeout | Disable timeout for the Cancel button when submitting data (ms) | `Number` | - |

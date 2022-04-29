@@ -1,4 +1,4 @@
-import { useRef, useEffect } from 'react';
+import { useRef, useEffect, useLayoutEffect } from 'react';
 import {
   usePrevious,
   useDebounceFn,
@@ -32,7 +32,7 @@ const useFetchData = <T extends RequestData<any>>(
   defaultData: any[] | undefined,
   options: UseFetchProps,
 ): UseFetchDataAction => {
-  const umountRef = useRef<boolean>();
+  const umountRef = useRef<boolean>(false);
   const { onLoad, manual, polling, onRequestError, debounceTime = 20 } = options || {};
 
   /** 是否首次加载的指示器 */
@@ -189,12 +189,13 @@ const useFetchData = <T extends RequestData<any>>(
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [polling]);
 
-  useEffect(
-    () => () => {
+  useLayoutEffect(() => {
+    umountRef.current = false;
+
+    return () => {
       umountRef.current = true;
-    },
-    [],
-  );
+    };
+  }, []);
 
   /** PageIndex 改变的时候自动刷新 */
   useEffect(() => {

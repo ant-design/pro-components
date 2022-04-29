@@ -187,7 +187,8 @@ class MenuUtil {
       `),
     );
     const name = this.getIntlName(item);
-    if (Array.isArray(item.routes) && item && item.routes.length > 0) {
+    const children = item?.children || item?.routes;
+    if (Array.isArray(children) && children.length > 0) {
       const isGroup = menu?.type === 'group' && layout !== 'top';
       /** Menu 第一级可以有icon，或者 isGroup 时第二级别也要有 */
       const hasIcon = level === 0 || (isGroup && level === 1);
@@ -229,7 +230,7 @@ class MenuUtil {
 
       return [
         isGroup && level === 0 && this.props.collapsed ? (
-          this.getNavMenuItems(item.routes, level + 1)
+          this.getNavMenuItems(children, level + 1)
         ) : (
           <MenuComponents
             key={item.key || item.path}
@@ -240,7 +241,7 @@ class MenuUtil {
                   onTitleClick: item.onTitleClick,
                 })}
           >
-            {this.getNavMenuItems(item.routes, level + 1)}
+            {this.getNavMenuItems(children, level + 1)}
           </MenuComponents>
         ),
         isGroup && level === 0 ? (
