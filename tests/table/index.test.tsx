@@ -120,8 +120,6 @@ describe('BasicTable', () => {
     (await html.findByText('复制')).click();
     fireEvent.mouseOver(screen.getByText('其他操作'));
     (await html.findByText('编辑')).click();
-
-    createEvent('visibilitychange', window, {});
   });
   it('🎏 table  support visibilitychange', async () => {
     const requestFfn = jest.fn();
@@ -136,7 +134,7 @@ describe('BasicTable', () => {
         }
       });
 
-    ReactRender(
+    const html = ReactRender(
       <ProTable
         size="small"
         columns={columns}
@@ -148,15 +146,20 @@ describe('BasicTable', () => {
         revalidateOnFocus
       />,
     );
-    await waitTime(1000);
+    await waitTime(100);
     act(() => {
       fn?.();
     });
 
-    await waitTime(1000);
+    await waitTime(100);
     errorSpy.mockRestore();
     addEventListenerSpy.mockRestore();
     expect(requestFfn).toBeCalledTimes(2);
+
+    act(() => {
+      html.unmount();
+    });
+    await waitTime(100);
   });
 
   it('🎏 do not render Search', async () => {
