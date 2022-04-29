@@ -461,10 +461,19 @@ describe('settingDrawer.test', () => {
   });
 
   it('🌺 onLanguageChange support', async () => {
+    let fn: Function | null = null;
+    const addEventListenerSpy = jest
+      .spyOn(document, 'addEventListener')
+      .mockImplementation((eventName, eventFn) => {
+        if (eventName === 'languagechange') {
+          //@ts-expect-error
+          fn = eventFn;
+        }
+      });
     const html = reactRender(
       <SettingDrawer disableUrlParams settings={defaultSettings} getContainer={false} collapse />,
     );
-    const { container, rerender } = html;
+    const { rerender } = html;
     await waitForComponentToPaint(html, 200);
     act(() => {
       expect(
@@ -480,11 +489,12 @@ describe('settingDrawer.test', () => {
     });
     await waitForComponentToPaint(html, 1200);
     act(() => {
-      fireEvent(container, new Event('languagechange'));
+      fn?.();
       rerender(
         <SettingDrawer disableUrlParams settings={defaultSettings} getContainer={false} collapse />,
       );
     });
+    addEventListenerSpy.mockRestore();
     await waitForComponentToPaint(html, 1200);
     act(() => {
       expect(
