@@ -1,6 +1,6 @@
 import type { DatePickerProps } from 'antd';
 import { DatePicker, ConfigProvider } from 'antd';
-import React, { useState, useContext, useRef } from 'react';
+import React, { useState, useContext, useRef, useCallback } from 'react';
 import moment from 'moment';
 import { useIntl } from '@ant-design/pro-provider';
 import { FieldLabel, parseValueToMoment } from '@ant-design/pro-utils';
@@ -40,7 +40,26 @@ const FieldDatePicker: ProFieldFC<{
   const { getPrefixCls } = useContext(ConfigProvider.ConfigContext);
   const prefixCls = getPrefixCls('pro-field-date-picker');
   const [open, setOpen] = useState<boolean>(false);
-  const lightLabel = useRef<HTMLElement>(null);
+  const [labelTrigger, setLabelTrigger] = useState(false);
+  const lightLabel = useRef<{
+    labelRef: React.RefObject<HTMLElement>;
+    clearRef: React.RefObject<HTMLElement>;
+  }>(null);
+
+  // 是label且不是label里面的clear图标触发事件
+  const isTriggeredByLabel = useCallback(
+    (e: React.MouseEvent) => {
+      // 两条语句结果分别命名，可读性好点
+      const isLabelMouseDown = lightLabel.current?.labelRef?.current?.contains(
+        e.target as HTMLElement,
+      );
+      const isClearMouseDown = lightLabel.current?.clearRef?.current?.contains(
+        e.target as HTMLElement,
+      );
+      return isLabelMouseDown && !isClearMouseDown;
+    },
+    [lightLabel],
+  );
 
   if (mode === 'read') {
     const dom = text ? moment(text).format(fieldProps.format || format || 'YYYY-MM-DD') : '-';
@@ -67,13 +86,20 @@ const FieldDatePicker: ProFieldFC<{
         <div
           className={`${prefixCls}-light`}
           onMouseDown={(e) => {
-            // 不冒泡，避免触发rc-picker绑定的全局mouseDown（用于关闭下拉菜单）
             // fix: https://github.com/ant-design/pro-components/issues/5010
-            e.stopPropagation();
+            if (isTriggeredByLabel(e)) {
+              setLabelTrigger(true);
+            }
+          }}
+          onMouseUp={() => {
+            setLabelTrigger(false);
           }}
           onClick={(e) => {
             // 点击label切换下拉菜单
-            if (lightLabel.current?.contains(e.target as HTMLElement)) {
+            const isLabelClick = lightLabel.current?.labelRef?.current?.contains(
+              e.target as HTMLElement,
+            );
+            if (isLabelClick) {
               setOpen(!open);
             } else {
               setOpen(true);
@@ -93,7 +119,11 @@ const FieldDatePicker: ProFieldFC<{
                 setOpen(false);
               }, 0);
             }}
-            onOpenChange={setOpen}
+            onOpenChange={(isOpen) => {
+              if (!labelTrigger) {
+                setOpen(isOpen);
+              }
+            }}
             open={open}
           />
           <FieldLabel
