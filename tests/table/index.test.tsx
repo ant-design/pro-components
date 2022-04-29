@@ -6,7 +6,7 @@ import type { ActionType } from '@ant-design/pro-table';
 import ProTable, { TableDropdown } from '@ant-design/pro-table';
 import { columns, request } from './demo';
 import { waitForComponentToPaint, waitTime } from '../util';
-import { render as ReactRender, createEvent, fireEvent, screen } from '@testing-library/react';
+import { render as ReactRender, fireEvent, screen } from '@testing-library/react';
 
 describe('BasicTable', () => {
   const LINE_STR_COUNT = 20;

@@ -1,8 +1,7 @@
 ﻿import React from 'react';
 import { ProFormText, ModalForm } from '@ant-design/pro-form';
 import { Button } from 'antd';
-import { act } from 'react-dom/test-utils';
-import { fireEvent, render } from '@testing-library/react';
+import { fireEvent, act, render } from '@testing-library/react';
 import '@testing-library/jest-dom';
 import { waitForComponentToPaint, waitTime } from '../util';
 
