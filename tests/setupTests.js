@@ -20,18 +20,8 @@ jest.setTimeout(60000);
 
 Enzyme.configure({ adapter: new Adapter() });
 
-const eventListener = {};
 /* eslint-disable global-require */
 if (typeof window !== 'undefined') {
-  global.window.resizeTo = (width, height) => {
-    global.window.innerWidth = width || global.window.innerWidth;
-    global.window.innerHeight = height || global.window.innerHeight;
-    global.window.dispatchEvent(new Event('resize'));
-  };
-  document.addEventListener = (name, cb) => {
-    eventListener[name] = cb;
-  };
-  global.window.scrollTo = () => {};
   // ref: https://github.com/ant-design/ant-design/issues/18774
   if (!window.matchMedia) {
     Object.defineProperty(global.window, 'matchMedia', {
@@ -144,6 +134,3 @@ global.Worker = class {
     this.onmessage(msg);
   }
 };
-
-// @ts-ignore-next-line
-global.URL.createObjectURL = () => {};
