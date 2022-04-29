@@ -6,6 +6,7 @@ import type { ActionType } from '@ant-design/pro-table';
 import ProTable, { TableDropdown } from '@ant-design/pro-table';
 import { columns, request } from './demo';
 import { waitForComponentToPaint, waitTime } from '../util';
+import { render as ReactRender, fireEvent, screen } from '@testing-library/react';
 
 describe('BasicTable', () => {
   const LINE_STR_COUNT = 20;
@@ -89,6 +90,76 @@ describe('BasicTable', () => {
     await waitForComponentToPaint(html, 1000);
 
     expect(pageSizeOnchange).toBeCalledWith(1);
+  });
+
+  it('🎏 tableDropdown click trigger onSelect', async () => {
+    const html = ReactRender(
+      <div>
+        <TableDropdown.Button
+          key="copy"
+          menus={[
+            { key: 'copy', name: '复制' },
+            { key: 'clear', name: '清空' },
+          ]}
+        >
+          更多操作
+        </TableDropdown.Button>
+        <TableDropdown
+          key="tableDropdown"
+          // eslint-disable-next-line react/no-children-prop
+          children="其他操作"
+          menus={[
+            { key: 'edit', name: '编辑' },
+            { key: 'create', name: '新建' },
+          ]}
+        />
+      </div>,
+    );
+    fireEvent.mouseOver(screen.getByText('更多操作'));
+    await waitForComponentToPaint(html, 2000);
+    (await html.findByText('复制')).click();
+    fireEvent.mouseOver(screen.getByText('其他操作'));
+    (await html.findByText('编辑')).click();
+  });
+  it('🎏 table  support visibilitychange', async () => {
+    const requestFfn = jest.fn();
+    let fn: Function | null = null;
+    const errorSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
+    const addEventListenerSpy = jest
+      .spyOn(document, 'addEventListener')
+      .mockImplementation((eventName, eventFn) => {
+        if (eventName === 'visibilitychange') {
+          //@ts-expect-error
+          fn = eventFn;
+        }
+      });
+
+    const html = ReactRender(
+      <ProTable
+        size="small"
+        columns={columns}
+        request={async () => {
+          requestFfn();
+          return request;
+        }}
+        rowKey="key"
+        revalidateOnFocus
+      />,
+    );
+    await waitTime(100);
+    act(() => {
+      fn?.();
+    });
+
+    await waitTime(100);
+    errorSpy.mockRestore();
+    addEventListenerSpy.mockRestore();
+    expect(requestFfn).toBeCalledTimes(2);
+
+    act(() => {
+      html.unmount();
+    });
+    await waitTime(100);
   });
 
   it('🎏 do not render Search', async () => {

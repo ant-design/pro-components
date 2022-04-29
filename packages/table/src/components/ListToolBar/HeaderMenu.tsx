@@ -77,13 +77,12 @@ const HeaderMenu: React.FC<ListToolBarHeaderMenuProps> = (props) => {
             onClick={(item) => {
               setActiveKey(item.key);
             }}
-          >
-            {items.map((item, index) => (
-              <Menu.Item key={item.key || index} disabled={item.disabled}>
-                {item.label}
-              </Menu.Item>
-            ))}
-          </Menu>
+            items={items.map((item, index) => ({
+              key: item.key || index,
+              disabled: item.disabled,
+              label: item.label,
+            }))}
+          />
         }
       >
         <Space className={`${prefixCls}-dropdownmenu-label`}>

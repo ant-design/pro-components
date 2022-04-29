@@ -10110,7 +10110,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/ListToolBar/basic.t
                                     class="ant-pro-field-date-picker-light"
                                   >
                                     <div
-                                      class="ant-picker"
+                                      class="ant-picker ant-picker-focused"
                                     >
                                       <div
                                         class="ant-picker-input"
@@ -10119,7 +10119,6 @@ exports[`table demos 📸 renders ./packages/table/src/demos/ListToolBar/basic.t
                                           autocomplete="off"
                                           id="startdate"
                                           placeholder="请选择日期"
-                                          readonly=""
                                           size="12"
                                           title=""
                                           value=""
@@ -11013,7 +11012,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/ListToolBar/menu.ts
                                     class="ant-pro-field-date-picker-light"
                                   >
                                     <div
-                                      class="ant-picker"
+                                      class="ant-picker ant-picker-focused"
                                     >
                                       <div
                                         class="ant-picker-input"
@@ -11022,7 +11021,6 @@ exports[`table demos 📸 renders ./packages/table/src/demos/ListToolBar/menu.ts
                                           autocomplete="off"
                                           id="startdate"
                                           placeholder="请选择日期"
-                                          readonly=""
                                           size="12"
                                           title=""
                                           value=""
@@ -12054,7 +12052,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/ListToolBar/multipl
                                 class="ant-pro-field-date-picker-light"
                               >
                                 <div
-                                  class="ant-picker"
+                                  class="ant-picker ant-picker-focused"
                                 >
                                   <div
                                     class="ant-picker-input"
@@ -12063,7 +12061,6 @@ exports[`table demos 📸 renders ./packages/table/src/demos/ListToolBar/multipl
                                       autocomplete="off"
                                       id="startdate"
                                       placeholder="请选择日期"
-                                      readonly=""
                                       size="12"
                                       title=""
                                       value=""
@@ -12825,7 +12822,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/ListToolBar/no-titl
                                     class="ant-pro-field-date-picker-light"
                                   >
                                     <div
-                                      class="ant-picker"
+                                      class="ant-picker ant-picker-focused"
                                     >
                                       <div
                                         class="ant-picker-input"
@@ -12834,7 +12831,6 @@ exports[`table demos 📸 renders ./packages/table/src/demos/ListToolBar/no-titl
                                           autocomplete="off"
                                           id="startdate"
                                           placeholder="请选择日期"
-                                          readonly=""
                                           size="12"
                                           title=""
                                           value=""
@@ -13846,7 +13842,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/ListToolBar/tabs.ts
                                       class="ant-pro-field-date-picker-light"
                                     >
                                       <div
-                                        class="ant-picker"
+                                        class="ant-picker ant-picker-focused"
                                       >
                                         <div
                                           class="ant-picker-input"
@@ -13855,7 +13851,6 @@ exports[`table demos 📸 renders ./packages/table/src/demos/ListToolBar/tabs.ts
                                             autocomplete="off"
                                             id="startdate"
                                             placeholder="请选择日期"
-                                            readonly=""
                                             size="12"
                                             title=""
                                             value=""
@@ -33940,8 +33935,9 @@ exports[`table demos 📸 renders ./packages/table/src/demos/lightfilter.tsx cor
                                         <span
                                           aria-label="close"
                                           class="anticon anticon-close ant-pro-core-field-label-icon ant-pro-core-field-label-close"
-                                          role="img"
+                                          role="button"
                                           tabindex="-1"
+                                          title="清除"
                                         >
                                           <svg
                                             aria-hidden="true"
@@ -36022,7 +36018,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/listToolBar.tsx cor
                                     class="ant-pro-field-date-picker-light"
                                   >
                                     <div
-                                      class="ant-picker"
+                                      class="ant-picker ant-picker-focused"
                                     >
                                       <div
                                         class="ant-picker-input"
@@ -36031,7 +36027,6 @@ exports[`table demos 📸 renders ./packages/table/src/demos/listToolBar.tsx cor
                                           autocomplete="off"
                                           id="startdate"
                                           placeholder="请选择日期"
-                                          readonly=""
                                           size="12"
                                           title=""
                                           value=""

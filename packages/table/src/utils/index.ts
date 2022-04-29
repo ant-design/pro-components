@@ -29,7 +29,7 @@ export const checkUndefinedOrNull = (value: any) => value !== undefined && value
  * @param intl
  */
 export function mergePagination<T>(
-  pagination: TablePaginationConfig | boolean | undefined = {},
+  pagination: TablePaginationConfig | boolean | undefined,
   pageInfo: UseFetchDataAction<T>['pageInfo'] & {
     setPageInfo: any;
   },

@@ -55,7 +55,11 @@ const TableDropdown: React.FC<DropdownProps> & {
   const { getPrefixCls } = useContext(ConfigProvider.ConfigContext);
   const className = getPrefixCls('pro-table-dropdown');
   const menu = (
-    <Menu onClick={(params) => onSelect && onSelect(params.key as string)}>
+    <Menu
+      onClick={(params) => {
+        onSelect?.(params.key as string);
+      }}
+    >
       {menus.map(({ key, name, ...rest }) => (
         <Menu.Item key={key} {...rest}>
           {name}

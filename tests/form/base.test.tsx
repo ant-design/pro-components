@@ -18,6 +18,7 @@ import { mount } from 'enzyme';
 import { waitTime, waitForComponentToPaint } from '../util';
 import { render as reactRender } from '@testing-library/react';
 import moment from 'moment';
+import '@testing-library/jest-dom';
 
 describe('ProForm', () => {
   it('📦 submit props actionsRender=false', async () => {
@@ -145,7 +146,7 @@ describe('ProForm', () => {
 
   it('📦 onFinish should simulate button loading', async () => {
     const fn = jest.fn();
-    const wrapper = mount(
+    const wrapper = reactRender(
       <ProForm
         onFinish={async () => {
           fn();
@@ -155,17 +156,18 @@ describe('ProForm', () => {
     );
 
     await waitForComponentToPaint(wrapper, 200);
-    act(() => {
-      wrapper.find('button.ant-btn-primary').simulate('click');
+    await act(async () => {
+      await (await wrapper.findByText('提 交')).click();
     });
     await waitForComponentToPaint(wrapper, 200);
-    expect(wrapper.find('.ant-btn-loading').exists()).toBe(true);
+    const dom = await (await wrapper.findByText('提 交')).parentElement;
+    expect(dom?.className.includes('ant-btn-loading')).toBe(true);
     expect(fn).toBeCalled();
   });
 
   it('📦 onFinish should simulate button close loading', async () => {
     const fn = jest.fn();
-    const wrapper = mount(
+    const wrapper = reactRender(
       <ProForm
         onFinish={async () => {
           fn();
@@ -176,20 +178,22 @@ describe('ProForm', () => {
     );
 
     await waitForComponentToPaint(wrapper, 200);
-    act(() => {
-      wrapper.find('button.ant-btn-primary').simulate('click');
+    await act(async () => {
+      await (await wrapper.findByText('提 交')).click();
     });
     await waitForComponentToPaint(wrapper, 200);
-    expect(wrapper.find('.ant-btn-loading').exists()).toBe(true);
+    let dom = await (await wrapper.findByText('提 交')).parentElement;
+    expect(dom?.className.includes('ant-btn-loading')).toBe(true);
     expect(fn).toBeCalled();
 
     await waitForComponentToPaint(wrapper, 1000);
 
-    expect(wrapper.find('.ant-btn-loading').exists()).toBe(false);
+    dom = await (await wrapper.findByText('提 交')).parentElement;
+    expect(dom?.className.includes('ant-btn-loading')).toBe(false);
   });
 
   it('📦 onFinish support params and request', async () => {
-    const wrapper = mount(
+    const wrapper = reactRender(
       <ProForm
         request={async (params) => {
           await waitTime(100);
@@ -199,29 +203,33 @@ describe('ProForm', () => {
           name: 'test',
         }}
       >
-        <ProFormText
-          name="name"
-          fieldProps={{
-            id: 'test',
-          }}
-        />
+        <ProFormText name="name" />
       </ProForm>,
     );
 
     await waitForComponentToPaint(wrapper, 200);
 
-    expect(wrapper.find('input#test').props().value).toEqual('test');
+    expect(!!wrapper.findAllByDisplayValue('test')).toBeTruthy();
 
     act(() => {
-      wrapper.setProps({
-        params: {
-          name: '1234',
-        },
-      });
+      wrapper.rerender(
+        <ProForm
+          key="rerender"
+          request={async (params) => {
+            await waitTime(100);
+            return params;
+          }}
+          params={{
+            name: '1234',
+          }}
+        >
+          <ProFormText name="name" />
+        </ProForm>,
+      );
     });
     await waitForComponentToPaint(wrapper, 500);
 
-    expect(wrapper.find('input#test').props().value).toEqual('1234');
+    expect(!!wrapper.findAllByDisplayValue('1234')).toBeTruthy();
   });
 
   it('📦 submit props actionsRender=()=>false', async () => {

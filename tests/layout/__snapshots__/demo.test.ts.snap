@@ -15924,30 +15924,132 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/dynamicMenu.tsx c
           <div
             style="flex: 1; overflow-y: auto; overflow-x: hidden;"
           >
-            <div
-              style="padding: 24px;"
+            <ul
+              class="ant-menu ant-menu-root ant-menu-inline ant-menu-dark ant-pro-sider-menu"
+              data-menu-list="true"
+              role="menu"
+              style="width: 100%;"
+              tabindex="0"
             >
-              <div
-                class="ant-skeleton ant-skeleton-active"
+              <li
+                class="ant-menu-submenu ant-menu-submenu-inline ant-menu-submenu-open ant-menu-submenu-selected"
+                role="none"
               >
                 <div
-                  class="ant-skeleton-content"
+                  aria-controls="rc-menu-uuid-test-/b2feb3a200d1bb53ce14ddd4fad5e542c682918c87c73c1cd58625dfef98b1aa-popup"
+                  aria-expanded="true"
+                  aria-haspopup="true"
+                  class="ant-menu-submenu-title"
+                  data-menu-id="rc-menu-uuid-test-/b2feb3a200d1bb53ce14ddd4fad5e542c682918c87c73c1cd58625dfef98b1aa"
+                  role="menuitem"
+                  style="padding-left: 16px;"
+                  tabindex="-1"
                 >
-                  <ul
-                    class="ant-skeleton-paragraph"
+                  <span
+                    class="ant-menu-title-content"
                   >
-                    <li />
-                    <li />
-                    <li />
-                    <li />
-                    <li />
-                    <li
-                      style="width: 61%;"
-                    />
-                  </ul>
+                    <span
+                      class="ant-pro-menu-item"
+                      title="welcome"
+                    >
+                      welcome
+                    </span>
+                  </span>
+                  <i
+                    class="ant-menu-submenu-arrow"
+                  />
                 </div>
-              </div>
-            </div>
+                <ul
+                  class="ant-menu ant-menu-sub ant-menu-inline"
+                  data-menu-list="true"
+                  id="rc-menu-uuid-test-/b2feb3a200d1bb53ce14ddd4fad5e542c682918c87c73c1cd58625dfef98b1aa-popup"
+                >
+                  <li
+                    class="ant-menu-submenu ant-menu-submenu-inline ant-menu-submenu-open ant-menu-submenu-selected"
+                    role="none"
+                  >
+                    <div
+                      aria-controls="rc-menu-uuid-test-/welcome-popup"
+                      aria-expanded="true"
+                      aria-haspopup="true"
+                      class="ant-menu-submenu-title"
+                      data-menu-id="rc-menu-uuid-test-/welcome"
+                      role="menuitem"
+                      style="padding-left: 32px;"
+                      tabindex="-1"
+                    >
+                      <span
+                        class="ant-menu-title-content"
+                      >
+                        <span
+                          class="ant-pro-menu-item"
+                          title="one"
+                        >
+                          one
+                        </span>
+                      </span>
+                      <i
+                        class="ant-menu-submenu-arrow"
+                      />
+                    </div>
+                    <ul
+                      class="ant-menu ant-menu-sub ant-menu-inline"
+                      data-menu-list="true"
+                      id="rc-menu-uuid-test-/welcome-popup"
+                    >
+                      <li
+                        class="ant-menu-item ant-menu-item-selected ant-menu-item-only-child"
+                        data-menu-id="rc-menu-uuid-test-/welcome/welcome"
+                        role="menuitem"
+                        style="padding-left: 48px;"
+                        tabindex="-1"
+                        title="two"
+                      >
+                        <span
+                          class="ant-menu-title-content"
+                        >
+                          <span
+                            class="ant-pro-menu-item"
+                          >
+                            <span
+                              class="ant-pro-menu-item-title"
+                            >
+                              two
+                            </span>
+                          </span>
+                        </span>
+                      </li>
+                    </ul>
+                  </li>
+                </ul>
+              </li>
+              <li
+                class="ant-menu-item ant-menu-item-only-child"
+                data-menu-id="rc-menu-uuid-test-/demo"
+                role="menuitem"
+                style="padding-left: 16px;"
+                tabindex="-1"
+                title="demo"
+              >
+                <span
+                  class="ant-menu-title-content"
+                >
+                  <span
+                    class="ant-pro-menu-item"
+                  >
+                    <span
+                      class="ant-pro-menu-item-title"
+                    >
+                      demo
+                    </span>
+                  </span>
+                </span>
+              </li>
+            </ul>
+            <div
+              aria-hidden="true"
+              style="display: none;"
+            />
           </div>
           <div
             class="ant-pro-sider-links"
@@ -16023,8 +16125,60 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/dynamicMenu.tsx c
               class="ant-pro-page-container-warp"
             >
               <div
-                class="ant-page-header"
+                class="ant-page-header has-breadcrumb"
               >
+                <nav
+                  class="ant-breadcrumb"
+                >
+                  <ol>
+                    <li>
+                      <span
+                        class="ant-breadcrumb-link"
+                      >
+                        <a
+                          href="/welcome"
+                        >
+                          one
+                        </a>
+                      </span>
+                      <span
+                        class="ant-breadcrumb-separator"
+                      >
+                        /
+                      </span>
+                    </li>
+                    <li>
+                      <span
+                        class="ant-breadcrumb-link"
+                      >
+                        <a
+                          href="/welcome/welcome"
+                        >
+                          two
+                        </a>
+                      </span>
+                      <span
+                        class="ant-breadcrumb-separator"
+                      >
+                        /
+                      </span>
+                    </li>
+                  </ol>
+                </nav>
+                <div
+                  class="ant-page-header-heading"
+                >
+                  <div
+                    class="ant-page-header-heading-left"
+                  >
+                    <span
+                      class="ant-page-header-heading-title"
+                      title="two"
+                    >
+                      two
+                    </span>
+                  </div>
+                </div>
                 <div
                   class="ant-page-header-content"
                 >
