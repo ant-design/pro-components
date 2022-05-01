@@ -376,14 +376,12 @@ describe('PageContainer', () => {
       );
     };
 
-    const wrapper = mount(<App />);
+    const wrapper = libraryRender(<App />);
     await waitForComponentToPaint(wrapper);
-    expect(wrapper.find('#customLoading').length).toBe(1);
-    const html = wrapper.render();
-    expect(html).toMatchSnapshot();
+    expect(wrapper.baseElement.querySelectorAll('#customLoading').length).toBe(1);
+    expect(wrapper.asFragment()).toMatchSnapshot();
     await waitForComponentToPaint(wrapper, 1000);
-
-    expect(wrapper.find('#customLoading').length).toBe(0);
+    expect(wrapper.baseElement.querySelectorAll('#customLoading').length).toBe(0);
   });
 
   it('🐛 breadcrumbRender and restProps?.header?.breadcrumbRender', async () => {

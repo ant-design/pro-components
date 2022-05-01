@@ -2,6 +2,7 @@ import { mount, render as enzymeRender } from 'enzyme';
 import React, { useState } from 'react';
 import { act } from 'react-dom/test-utils';
 import { render } from '@testing-library/react';
+import '@testing-library/jest-dom';
 import type { BasicLayoutProps } from '@ant-design/pro-layout';
 import BasicLayout from '@ant-design/pro-layout';
 
@@ -939,7 +940,7 @@ describe('BasicLayout', () => {
                 },
                 {
                   path: 'https://ant.design',
-                  name: 'antd',
+                  name: 'AntDesign外链',
                 },
               ],
             },
@@ -947,28 +948,23 @@ describe('BasicLayout', () => {
         />
       );
     };
-    const html = mount(<Demo />);
+    const html = render(<Demo />);
     await waitForComponentToPaint(html);
-
-    expect(html.find('li.ant-pro-menu-submenu').length).toBe(2);
+    expect(html.baseElement.querySelectorAll('li.ant-pro-menu-submenu').length).toBe(2);
+    const domParentMenu = await (await html.findAllByText('列表页')).at(0);
     act(() => {
-      html
-        .find('li.ant-pro-menu-submenu')
-        .at(1)
-        .find('div.ant-menu-submenu-title')
-        .simulate('click');
+      domParentMenu?.click();
     });
-    await waitForComponentToPaint(html, 100);
+    await waitForComponentToPaint(html, 2000);
+    expect(html.baseElement.querySelectorAll('li.ant-pro-menu-submenu-open').length).toBe(2);
+    const domChildMenu = await (await html.findAllByText('二级列表页面')).at(0);
+    const domLink = await (await html.findAllByText('AntDesign外链')).at(0);
     act(() => {
-      html.find('ul.ant-menu-sub').at(1).find('.ant-menu-item-only-child').at(1).simulate('click');
+      domChildMenu?.click();
+      domLink?.click();
     });
-    await waitForComponentToPaint(html, 100);
-
-    act(() => {
-      html.find('span.ant-pro-menu-item-link').simulate('click');
-    });
-
-    expect(html.find('li.ant-pro-menu-submenu-open').length).toBe(2);
+    await waitForComponentToPaint(html, 2000);
+    expect(html.baseElement.querySelectorAll('li.ant-pro-menu-submenu').length).toBe(2);
   });
 
   it('🥩 BasicLayout menu support onSelect', async () => {
@@ -1025,7 +1021,7 @@ describe('BasicLayout', () => {
                 },
                 {
                   path: '/list/sub-page3',
-                  name: 'antd',
+                  name: 'AntDesign外链',
                 },
               ],
             },
@@ -1033,21 +1029,19 @@ describe('BasicLayout', () => {
         />
       );
     };
-    const html = mount(<Demo />);
+    const html = render(<Demo />);
     await waitForComponentToPaint(html);
-    act(() => {
-      html
-        .find('li.ant-pro-menu-submenu')
-        .at(1)
-        .find('div.ant-menu-submenu-title')
-        .simulate('click');
-    });
-    await waitForComponentToPaint(html, 100);
-    act(() => {
-      html.find('ul.ant-menu-sub').at(1).find('.ant-menu-item-only-child').at(1).simulate('click');
-    });
-    await waitForComponentToPaint(html, 100);
+    const domParentMenu = await (await html.findAllByText('列表页')).at(0);
 
+    act(() => {
+      domParentMenu?.click();
+    });
+    await waitForComponentToPaint(html, 100);
+    const domLink = await (await html.findAllByText('AntDesign外链')).at(0);
+    act(() => {
+      domLink?.click();
+    });
+    await waitForComponentToPaint(html, 100);
     expect(fn).toBeCalled();
   });
 
@@ -1277,11 +1271,11 @@ describe('BasicLayout', () => {
         />
       );
     };
-    const html = mount(<Demo />);
+    const html = render(<Demo />);
     await waitForComponentToPaint(html);
 
-    expect(html.find('li.ant-pro-menu-submenu').length).toBe(3);
-    expect(html.find('li.ant-pro-menu-submenu-open').length).toBe(3);
+    expect(html.baseElement.querySelectorAll('li.ant-pro-menu-submenu').length).toBe(3);
+    expect(html.baseElement.querySelectorAll('li.ant-pro-menu-submenu-open').length).toBe(3);
   });
 
   it('🥩 BasicLayout support menu.ignoreFlatMenu', async () => {
@@ -1297,7 +1291,7 @@ describe('BasicLayout', () => {
           menuItemRender={(item, dom) => (
             <a
               onClick={() => {
-                item.onClick();
+                item?.onClick?.();
                 setPathname(item.path || '/welcome');
               }}
             >
@@ -1350,11 +1344,11 @@ describe('BasicLayout', () => {
                   path: '/',
                   routes: [
                     {
-                      name: '月表',
+                      name: '月表2',
                       path: '/data_hui4',
                     },
                     {
-                      name: '日表',
+                      name: '日表2',
                       key: 'tableName=adm_rk_cr_tb_trv_byr_ds&tableSchema=box-shadow',
                       path: '/data_hui5',
                     },
@@ -1366,23 +1360,16 @@ describe('BasicLayout', () => {
         />
       );
     };
-    const html = mount(<Demo />);
-    await waitForComponentToPaint(html);
+    const html = render(<Demo />);
+    await waitForComponentToPaint(html, 1200);
 
-    expect(html.find('li.ant-pro-menu-submenu').length).toBe(3);
-    expect(html.find('li.ant-pro-menu-submenu-open').length).toBe(3);
-
-    act(() => {
-      html.find('div.ant-pro-sider-collapsed-button').simulate('click');
+    expect(html.baseElement.querySelectorAll('li.ant-pro-menu-submenu').length).toBe(3);
+    expect(html.baseElement.querySelectorAll('li.ant-pro-menu-submenu-open').length).toBe(3);
+    await act(async () => {
+      (await html.findByText('月表'))?.parentElement?.click();
     });
     await waitForComponentToPaint(html, 100);
-    expect(html.find('li.ant-pro-menu-submenu-open').length).toBe(0);
-
-    act(() => {
-      html.find('div.ant-pro-sider-collapsed-button').simulate('click');
-    });
-    await waitForComponentToPaint(html, 100);
-    // expect(html.find('li.ant-pro-menu-submenu-open').length).toBe(3);
+    expect(html.baseElement.querySelectorAll('li.ant-pro-menu-submenu-open').length).toBe(0);
   });
 
   it('🥩  navTheme=realDark', () => {
@@ -1422,7 +1409,7 @@ describe('BasicLayout', () => {
       />,
     );
 
-    expect(html.getByText('主页')).toBeTruthy();
+    expect(html.findByText('主页')).toBeTruthy();
   });
 
   it('🥩 pure should has provide', () => {

@@ -25,7 +25,7 @@ exports[`mobile BasicLayout 📱 base use 1`] = `
           />
           <div
             class="ant-drawer-content-wrapper"
-            style="transform: translateX(-100%); width: 256px;"
+            style="width: 256px; transform: translateX(-100%);"
           >
             <div
               class="ant-drawer-content"
@@ -183,47 +183,30 @@ exports[`mobile BasicLayout 📱 base use 1`] = `
                       <div
                         style="flex: 1; overflow-y: auto; overflow-x: hidden;"
                       >
-                        <ul
-                          class="ant-menu ant-menu-root ant-menu-inline ant-menu-light ant-pro-sider-menu ant-design-pro-layout-1ip47g9"
-                          data-menu-list="true"
-                          role="menu"
-                          style="width: 100%;"
-                          tabindex="0"
+                        <div
+                          style="padding: 24px;"
                         >
-                          <li
-                            class="ant-pro-menu-submenu ant-design-pro-layout-1ctwodb"
-                            role="none"
+                          <div
+                            class="ant-skeleton ant-skeleton-active"
                           >
                             <div
-                              aria-controls="rc-menu-uuid-84044-1-/b2feb3a200d1bb53ce14ddd4fad5e542c682918c87c73c1cd58625dfef98b1aa-popup"
-                              aria-expanded="false"
-                              aria-haspopup="true"
-                              class="ant-menu-submenu-title"
-                              data-menu-id="rc-menu-uuid-84044-1-/b2feb3a200d1bb53ce14ddd4fad5e542c682918c87c73c1cd58625dfef98b1aa"
-                              role="menuitem"
-                              style="padding-left: 16px;"
-                              tabindex="-1"
+                              class="ant-skeleton-content"
                             >
-                              <span
-                                class="ant-menu-title-content"
+                              <ul
+                                class="ant-skeleton-paragraph"
                               >
-                                <span
-                                  class="ant-pro-menu-item ant-design-pro-layout-ytfc15"
-                                  title="welcome"
-                                >
-                                  welcome
-                                </span>
-                              </span>
-                              <i
-                                class="ant-menu-submenu-arrow"
-                              />
+                                <li />
+                                <li />
+                                <li />
+                                <li />
+                                <li />
+                                <li
+                                  style="width: 61%;"
+                                />
+                              </ul>
                             </div>
-                          </li>
-                        </ul>
-                        <div
-                          aria-hidden="true"
-                          style="display: none;"
-                        />
+                          </div>
+                        </div>
                       </div>
                       <div
                         class="ant-pro-sider-collapsed-button ant-design-pro-layout-1obcdte"
@@ -445,47 +428,30 @@ exports[`mobile BasicLayout 📱 collapsed=false 1`] = `
                       <div
                         style="flex: 1; overflow-y: auto; overflow-x: hidden;"
                       >
-                        <ul
-                          class="ant-menu ant-menu-root ant-menu-inline ant-menu-light ant-pro-sider-menu ant-design-pro-layout-1ip47g9"
-                          data-menu-list="true"
-                          role="menu"
-                          style="width: 100%;"
-                          tabindex="0"
+                        <div
+                          style="padding: 24px;"
                         >
-                          <li
-                            class="ant-pro-menu-submenu ant-design-pro-layout-1ctwodb"
-                            role="none"
+                          <div
+                            class="ant-skeleton ant-skeleton-active"
                           >
                             <div
-                              aria-controls="rc-menu-uuid-84044-2-/b2feb3a200d1bb53ce14ddd4fad5e542c682918c87c73c1cd58625dfef98b1aa-popup"
-                              aria-expanded="false"
-                              aria-haspopup="true"
-                              class="ant-menu-submenu-title"
-                              data-menu-id="rc-menu-uuid-84044-2-/b2feb3a200d1bb53ce14ddd4fad5e542c682918c87c73c1cd58625dfef98b1aa"
-                              role="menuitem"
-                              style="padding-left: 16px;"
-                              tabindex="-1"
+                              class="ant-skeleton-content"
                             >
-                              <span
-                                class="ant-menu-title-content"
+                              <ul
+                                class="ant-skeleton-paragraph"
                               >
-                                <span
-                                  class="ant-pro-menu-item ant-design-pro-layout-ytfc15"
-                                  title="welcome"
-                                >
-                                  welcome
-                                </span>
-                              </span>
-                              <i
-                                class="ant-menu-submenu-arrow"
-                              />
+                                <li />
+                                <li />
+                                <li />
+                                <li />
+                                <li />
+                                <li
+                                  style="width: 61%;"
+                                />
+                              </ul>
                             </div>
-                          </li>
-                        </ul>
-                        <div
-                          aria-hidden="true"
-                          style="display: none;"
-                        />
+                          </div>
+                        </div>
                       </div>
                       <div
                         class="ant-pro-sider-collapsed-button ant-design-pro-layout-r8uogr"
@@ -577,47 +543,30 @@ exports[`mobile BasicLayout 📱 layout menuHeaderRender 1`] = `
                       <div
                         style="flex: 1; overflow-y: auto; overflow-x: hidden;"
                       >
-                        <ul
-                          class="ant-menu ant-menu-root ant-menu-inline ant-menu-light ant-pro-sider-menu ant-design-pro-layout-1ip47g9"
-                          data-menu-list="true"
-                          role="menu"
-                          style="width: 100%;"
-                          tabindex="0"
+                        <div
+                          style="padding: 24px;"
                         >
-                          <li
-                            class="ant-pro-menu-submenu ant-design-pro-layout-1ctwodb"
-                            role="none"
+                          <div
+                            class="ant-skeleton ant-skeleton-active"
                           >
                             <div
-                              aria-controls="rc-menu-uuid-84044-6-/b2feb3a200d1bb53ce14ddd4fad5e542c682918c87c73c1cd58625dfef98b1aa-popup"
-                              aria-expanded="false"
-                              aria-haspopup="true"
-                              class="ant-menu-submenu-title"
-                              data-menu-id="rc-menu-uuid-84044-6-/b2feb3a200d1bb53ce14ddd4fad5e542c682918c87c73c1cd58625dfef98b1aa"
-                              role="menuitem"
-                              style="padding-left: 16px;"
-                              tabindex="-1"
+                              class="ant-skeleton-content"
                             >
-                              <span
-                                class="ant-menu-title-content"
+                              <ul
+                                class="ant-skeleton-paragraph"
                               >
-                                <span
-                                  class="ant-pro-menu-item ant-design-pro-layout-ytfc15"
-                                  title="welcome"
-                                >
-                                  welcome
-                                </span>
-                              </span>
-                              <i
-                                class="ant-menu-submenu-arrow"
-                              />
+                                <li />
+                                <li />
+                                <li />
+                                <li />
+                                <li />
+                                <li
+                                  style="width: 61%;"
+                                />
+                              </ul>
                             </div>
-                          </li>
-                        </ul>
-                        <div
-                          aria-hidden="true"
-                          style="display: none;"
-                        />
+                          </div>
+                        </div>
                       </div>
                       <div
                         class="ant-pro-sider-collapsed-button ant-design-pro-layout-1obcdte"
@@ -725,47 +674,30 @@ exports[`mobile BasicLayout 📱 layout menuHeaderRender 2`] = `
                       <div
                         style="flex: 1; overflow-y: auto; overflow-x: hidden;"
                       >
-                        <ul
-                          class="ant-menu ant-menu-root ant-menu-inline ant-menu-light ant-pro-sider-menu ant-design-pro-layout-1ip47g9"
-                          data-menu-list="true"
-                          role="menu"
-                          style="width: 100%;"
-                          tabindex="0"
+                        <div
+                          style="padding: 24px;"
                         >
-                          <li
-                            class="ant-pro-menu-submenu ant-design-pro-layout-1ctwodb"
-                            role="none"
+                          <div
+                            class="ant-skeleton ant-skeleton-active"
                           >
                             <div
-                              aria-controls="rc-menu-uuid-84044-7-/b2feb3a200d1bb53ce14ddd4fad5e542c682918c87c73c1cd58625dfef98b1aa-popup"
-                              aria-expanded="false"
-                              aria-haspopup="true"
-                              class="ant-menu-submenu-title"
-                              data-menu-id="rc-menu-uuid-84044-7-/b2feb3a200d1bb53ce14ddd4fad5e542c682918c87c73c1cd58625dfef98b1aa"
-                              role="menuitem"
-                              style="padding-left: 16px;"
-                              tabindex="-1"
+                              class="ant-skeleton-content"
                             >
-                              <span
-                                class="ant-menu-title-content"
+                              <ul
+                                class="ant-skeleton-paragraph"
                               >
-                                <span
-                                  class="ant-pro-menu-item ant-design-pro-layout-ytfc15"
-                                  title="welcome"
-                                >
-                                  welcome
-                                </span>
-                              </span>
-                              <i
-                                class="ant-menu-submenu-arrow"
-                              />
+                                <li />
+                                <li />
+                                <li />
+                                <li />
+                                <li />
+                                <li
+                                  style="width: 61%;"
+                                />
+                              </ul>
                             </div>
-                          </li>
-                        </ul>
-                        <div
-                          aria-hidden="true"
-                          style="display: none;"
-                        />
+                          </div>
+                        </div>
                       </div>
                       <div
                         class="ant-pro-sider-collapsed-button ant-design-pro-layout-1obcdte"
@@ -867,47 +799,30 @@ exports[`mobile BasicLayout 📱 layout menuHeaderRender=false 1`] = `
                       <div
                         style="flex: 1; overflow-y: auto; overflow-x: hidden;"
                       >
-                        <ul
-                          class="ant-menu ant-menu-root ant-menu-inline ant-menu-light ant-pro-sider-menu ant-design-pro-layout-1ip47g9"
-                          data-menu-list="true"
-                          role="menu"
-                          style="width: 100%;"
-                          tabindex="0"
+                        <div
+                          style="padding: 24px;"
                         >
-                          <li
-                            class="ant-pro-menu-submenu ant-design-pro-layout-1ctwodb"
-                            role="none"
+                          <div
+                            class="ant-skeleton ant-skeleton-active"
                           >
                             <div
-                              aria-controls="rc-menu-uuid-84044-5-/b2feb3a200d1bb53ce14ddd4fad5e542c682918c87c73c1cd58625dfef98b1aa-popup"
-                              aria-expanded="false"
-                              aria-haspopup="true"
-                              class="ant-menu-submenu-title"
-                              data-menu-id="rc-menu-uuid-84044-5-/b2feb3a200d1bb53ce14ddd4fad5e542c682918c87c73c1cd58625dfef98b1aa"
-                              role="menuitem"
-                              style="padding-left: 16px;"
-                              tabindex="-1"
+                              class="ant-skeleton-content"
                             >
-                              <span
-                                class="ant-menu-title-content"
+                              <ul
+                                class="ant-skeleton-paragraph"
                               >
-                                <span
-                                  class="ant-pro-menu-item ant-design-pro-layout-ytfc15"
-                                  title="welcome"
-                                >
-                                  welcome
-                                </span>
-                              </span>
-                              <i
-                                class="ant-menu-submenu-arrow"
-                              />
+                                <li />
+                                <li />
+                                <li />
+                                <li />
+                                <li />
+                                <li
+                                  style="width: 61%;"
+                                />
+                              </ul>
                             </div>
-                          </li>
-                        </ul>
-                        <div
-                          aria-hidden="true"
-                          style="display: none;"
-                        />
+                          </div>
+                        </div>
                       </div>
                       <div
                         class="ant-pro-sider-collapsed-button ant-design-pro-layout-1obcdte"
@@ -1008,47 +923,30 @@ exports[`mobile BasicLayout 📱 layout=mix 1`] = `
                       <div
                         style="flex: 1; overflow-y: auto; overflow-x: hidden;"
                       >
-                        <ul
-                          class="ant-menu ant-menu-root ant-menu-inline ant-menu-light ant-pro-sider-menu ant-design-pro-layout-1ip47g9"
-                          data-menu-list="true"
-                          role="menu"
-                          style="width: 100%;"
-                          tabindex="0"
+                        <div
+                          style="padding: 24px;"
                         >
-                          <li
-                            class="ant-pro-menu-submenu ant-design-pro-layout-1ctwodb"
-                            role="none"
+                          <div
+                            class="ant-skeleton ant-skeleton-active"
                           >
                             <div
-                              aria-controls="rc-menu-uuid-84044-3-/b2feb3a200d1bb53ce14ddd4fad5e542c682918c87c73c1cd58625dfef98b1aa-popup"
-                              aria-expanded="false"
-                              aria-haspopup="true"
-                              class="ant-menu-submenu-title"
-                              data-menu-id="rc-menu-uuid-84044-3-/b2feb3a200d1bb53ce14ddd4fad5e542c682918c87c73c1cd58625dfef98b1aa"
-                              role="menuitem"
-                              style="padding-left: 16px;"
-                              tabindex="-1"
+                              class="ant-skeleton-content"
                             >
-                              <span
-                                class="ant-menu-title-content"
+                              <ul
+                                class="ant-skeleton-paragraph"
                               >
-                                <span
-                                  class="ant-pro-menu-item ant-design-pro-layout-ytfc15"
-                                  title="welcome"
-                                >
-                                  welcome
-                                </span>
-                              </span>
-                              <i
-                                class="ant-menu-submenu-arrow"
-                              />
+                                <li />
+                                <li />
+                                <li />
+                                <li />
+                                <li />
+                                <li
+                                  style="width: 61%;"
+                                />
+                              </ul>
                             </div>
-                          </li>
-                        </ul>
-                        <div
-                          aria-hidden="true"
-                          style="display: none;"
-                        />
+                          </div>
+                        </div>
                       </div>
                       <div
                         class="ant-pro-sider-collapsed-button ant-design-pro-layout-r8uogr"
@@ -1281,47 +1179,30 @@ exports[`mobile BasicLayout 📱 layout=mix and splitMenus 1`] = `
                       <div
                         style="flex: 1; overflow-y: auto; overflow-x: hidden;"
                       >
-                        <ul
-                          class="ant-menu ant-menu-root ant-menu-inline ant-menu-light ant-pro-sider-menu ant-design-pro-layout-1ip47g9"
-                          data-menu-list="true"
-                          role="menu"
-                          style="width: 100%;"
-                          tabindex="0"
+                        <div
+                          style="padding: 24px;"
                         >
-                          <li
-                            class="ant-pro-menu-submenu ant-design-pro-layout-1ctwodb"
-                            role="none"
+                          <div
+                            class="ant-skeleton ant-skeleton-active"
                           >
                             <div
-                              aria-controls="rc-menu-uuid-84044-4-/b2feb3a200d1bb53ce14ddd4fad5e542c682918c87c73c1cd58625dfef98b1aa-popup"
-                              aria-expanded="false"
-                              aria-haspopup="true"
-                              class="ant-menu-submenu-title"
-                              data-menu-id="rc-menu-uuid-84044-4-/b2feb3a200d1bb53ce14ddd4fad5e542c682918c87c73c1cd58625dfef98b1aa"
-                              role="menuitem"
-                              style="padding-left: 16px;"
-                              tabindex="-1"
+                              class="ant-skeleton-content"
                             >
-                              <span
-                                class="ant-menu-title-content"
+                              <ul
+                                class="ant-skeleton-paragraph"
                               >
-                                <span
-                                  class="ant-pro-menu-item ant-design-pro-layout-ytfc15"
-                                  title="welcome"
-                                >
-                                  welcome
-                                </span>
-                              </span>
-                              <i
-                                class="ant-menu-submenu-arrow"
-                              />
+                                <li />
+                                <li />
+                                <li />
+                                <li />
+                                <li />
+                                <li
+                                  style="width: 61%;"
+                                />
+                              </ul>
                             </div>
-                          </li>
-                        </ul>
-                        <div
-                          aria-hidden="true"
-                          style="display: none;"
-                        />
+                          </div>
+                        </div>
                       </div>
                       <div
                         class="ant-pro-sider-collapsed-button ant-design-pro-layout-r8uogr"

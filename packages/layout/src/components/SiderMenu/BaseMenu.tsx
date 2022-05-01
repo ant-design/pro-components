@@ -12,7 +12,9 @@ import type { MenuDataItem, MessageDescriptor, Route, RouterTypes, WithFalse } f
 import { MenuCounter } from './Counter';
 import type { PrivateSiderMenuProps } from './SiderMenu';
 import { cx, css } from '../../emotion';
+import type { LayoutDesignToken } from '../../ProLayoutContext';
 import { ProLayoutContext } from '../../ProLayoutContext';
+import type { ItemType } from 'antd/lib/menu/hooks/useItems';
 
 // todo
 export type MenuMode = 'vertical' | 'vertical-left' | 'vertical-right' | 'horizontal' | 'inline';
@@ -80,35 +82,9 @@ export type BaseMenuProps = {
   Omit<MenuProps, 'openKeys' | 'onOpenChange' | 'title'> &
   Partial<PureSettings>;
 
-const { SubMenu, ItemGroup } = Menu;
-
 let IconFont = createFromIconfontCN({
   scriptUrl: defaultSettings.iconfontUrl,
 });
-
-const MenuDivider: React.FC<{
-  index?: number | string;
-  prefixCls?: string;
-  collapsed?: boolean;
-}> = ({ prefixCls, collapsed, index }) => {
-  const designToken = useContext(ProLayoutContext);
-  return (
-    <div
-      key={index}
-      className={`${prefixCls}-menu-item-divider`}
-      style={{
-        padding: collapsed ? '4px' : '16px 16px',
-      }}
-    >
-      <Menu.Divider
-        style={{
-          margin: 0,
-          borderColor: designToken?.sider?.menuItemDividerColor,
-        }}
-      />
-    </div>
-  );
-};
 
 const genMenuItemCss = (
   prefixCls: string | undefined,
@@ -166,19 +142,22 @@ const getIcon = (
 };
 
 class MenuUtil {
-  constructor(props: BaseMenuProps) {
+  constructor(props: BaseMenuProps & { token?: LayoutDesignToken }) {
     this.props = props;
   }
 
-  props: BaseMenuProps;
+  props: BaseMenuProps & { token?: LayoutDesignToken };
 
-  getNavMenuItems = (menusData: MenuDataItem[] = [], level: number): React.ReactNode[] =>
-    menusData.map((item) => this.getSubMenuOrItem(item, level)).filter((item) => item);
+  getNavMenuItems = (menusData: MenuDataItem[] = [], level: number): ItemType[] =>
+    menusData
+      .map((item) => this.getSubMenuOrItem(item, level))
+      .filter((item) => item)
+      .flat(1);
 
   /** Get SubMenu or Item */
-  getSubMenuOrItem = (item: MenuDataItem, level: number): React.ReactNode => {
+  getSubMenuOrItem = (item: MenuDataItem, level: number): ItemType | ItemType[] => {
     const { subMenuItemRender, prefixCls, menu, iconPrefixes, layout } = this.props;
-
+    const designToken = this.props.token;
     const itemCss = cx(
       `${prefixCls}-menu-item`,
       css(`
@@ -188,7 +167,7 @@ class MenuUtil {
     );
     const name = this.getIntlName(item);
     const children = item?.children || item?.routes;
-    if (Array.isArray(children) &&children.length > 0) {
+    if (Array.isArray(children) && children.length > 0) {
       const isGroup = menu?.type === 'group' && layout !== 'top';
       /** Menu 第一级可以有icon，或者 isGroup 时第二级别也要有 */
       const hasIcon = level === 0 || (isGroup && level === 1);
@@ -226,46 +205,42 @@ class MenuUtil {
       const title = subMenuItemRender
         ? subMenuItemRender({ ...item, isUrl: false }, defaultTitle)
         : subMenuTitle;
-      const MenuComponents: React.ElementType = isGroup && level === 0 ? ItemGroup : SubMenu;
 
+      const childrenList = this.getNavMenuItems(children, level + 1);
+      if (isGroup && level === 0 && this.props.collapsed) {
+        return childrenList;
+      }
       return [
-        isGroup && level === 0 && this.props.collapsed ? (
-          this.getNavMenuItems(children, level + 1)
-        ) : (
-          <MenuComponents
-            key={item.key || item.path}
-            title={item.tooltip || title}
-            {...(isGroup
-              ? {}
-              : {
-                  onTitleClick: item.onTitleClick,
-                })}
-          >
-            {this.getNavMenuItems(children, level + 1)}
-          </MenuComponents>
-        ),
-        isGroup && level === 0 ? (
-          <MenuDivider
-            collapsed={this.props.collapsed}
-            prefixCls={prefixCls}
-            index={item.key || item.path}
-          />
-        ) : (
-          false
-        ),
-      ];
+        {
+          type: isGroup && level === 0 ? ('group' as const) : undefined,
+          key: item.key! || item.path!,
+          title: item.tooltip || title,
+          label: title,
+          onTitleClick: isGroup ? undefined : item.onTitleClick,
+          children: childrenList,
+        } as ItemType,
+        isGroup && level === 0
+          ? ({
+              type: 'divider',
+              prefixCls,
+              key: item.key! || item.path!,
+              style: {
+                padding: this.props.collapsed ? '4px' : '16px 16px',
+                margin: 0,
+                borderColor: designToken?.sider?.menuItemDividerColor,
+              },
+            } as ItemType)
+          : undefined,
+      ].filter(Boolean) as ItemType[];
     }
 
-    return (
-      <Menu.Item
-        title={item.tooltip || name}
-        disabled={item.disabled}
-        key={item.key || item.path}
-        onClick={item.onTitleClick}
-      >
-        {this.getMenuItemPath(item, level)}
-      </Menu.Item>
-    );
+    return {
+      title: item.tooltip || name,
+      disabled: item.disabled,
+      key: item.key! || item.path!,
+      onClick: item.onTitleClick,
+      label: this.getMenuItemPath(item, level),
+    };
   };
 
   getIntlName = (item: MenuDataItem) => {
@@ -384,6 +359,7 @@ const getOpenKeysProps = (
   openKeys?: undefined | string[];
 } => {
   let openKeysProps = {};
+
   if (openKeys && !collapsed && ['side', 'mix'].includes(layout || 'mix')) {
     openKeysProps = {
       openKeys,
@@ -500,7 +476,13 @@ const BaseMenu: React.FC<BaseMenuProps & PrivateSiderMenuProps> = (props) => {
     [openKeys && openKeys.join(','), props.layout, props.collapsed],
   );
 
-  const [menuUtils] = useState(() => new MenuUtil(props));
+  const [menuUtils] = useState(
+    () =>
+      new MenuUtil({
+        ...props,
+        token: designToken,
+      }),
+  );
 
   const menuItemCssMap = useMemo(() => {
     const itemHoverColor = !collapsed
@@ -696,6 +678,7 @@ const BaseMenu: React.FC<BaseMenuProps & PrivateSiderMenuProps> = (props) => {
     menuDesignToken.menuSelectedTextColor,
     menuDesignToken.menuTextColor,
     mode,
+    prefixCls,
   ]);
 
   const menuCss = useMemo(() => {
@@ -817,6 +800,7 @@ const BaseMenu: React.FC<BaseMenuProps & PrivateSiderMenuProps> = (props) => {
           ),
         });
       }}
+      items={menuUtils.getNavMenuItems(finallyData, 0)}
       _internalRenderMenuItem={(dom, itemProps, stateProps) => {
         return React.cloneElement(dom, {
           ...dom.props,
@@ -839,9 +823,7 @@ const BaseMenu: React.FC<BaseMenuProps & PrivateSiderMenuProps> = (props) => {
       }}
       onOpenChange={setOpenKeys}
       {...props.menuProps}
-    >
-      {menuUtils.getNavMenuItems(finallyData, 0)}
-    </Menu>
+    />
   );
 };
 

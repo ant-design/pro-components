@@ -1,4 +1,5 @@
-import { CSSProperties, useEffect } from 'react';
+import type { CSSProperties } from 'react';
+import { useEffect } from 'react';
 import { useContext } from 'react';
 import React, { useMemo } from 'react';
 import type { AvatarProps } from 'antd';
@@ -15,6 +16,7 @@ import { AppsLogoComponents, defaultRenderLogo } from '../AppsLogoComponents';
 import { ArrowSvgIcon } from './Arrow';
 import { cx, css, keyframes, injectGlobal } from '../../emotion';
 import { ProLayoutContext } from '../../ProLayoutContext';
+import type { ItemType } from 'antd/lib/menu/hooks/useItems';
 
 import type { LayoutDesignToken } from '../../ProLayoutContext';
 
@@ -357,6 +359,12 @@ const SiderMenu: React.FC<SiderMenuProps & PrivateSiderMenuProps> = (props) => {
     [baseClassName, flatMenuKeys, menuContentRender, onOpenChange, props],
   );
 
+  const linksMenuItems: ItemType[] = (links || []).map((node, index) => ({
+    className: `${baseClassName}-link`,
+    label: node,
+    key: index,
+  }));
+
   const menuRenderDom = useMemo(() => {
     return menuContentRender ? menuContentRender(props, menuDom) : menuDom;
   }, [menuContentRender, menuDom, props]);
@@ -577,14 +585,8 @@ const SiderMenu: React.FC<SiderMenuProps & PrivateSiderMenuProps> = (props) => {
             openKeys={[]}
             theme="light"
             mode="inline"
-          >
-            {(links || []).map((node, index) => (
-              // eslint-disable-next-line react/no-array-index-key
-              <Menu.Item className={`${baseClassName}-link`} key={index}>
-                {node}
-              </Menu.Item>
-            ))}
-          </Menu>
+            items={linksMenuItems}
+          />
         </div>
       ) : null}
       {layout !== 'mix' && (

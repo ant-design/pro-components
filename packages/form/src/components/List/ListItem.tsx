@@ -329,7 +329,6 @@ const ProFormListItem: React.FC<
     const { Icon = CopyOutlined, tooltipText } = copyIconProps as IconConfig;
     return (
       <Tooltip title={tooltipText} key="copy">
-        {/* @ts-expect-error */}
         <Spin spinning={loadingCopy}>
           <Icon
             className={`${prefixCls}-action-icon action-copy`}
@@ -366,7 +365,6 @@ const ProFormListItem: React.FC<
     const { Icon = DeleteOutlined, tooltipText } = deleteIconProps!;
     return (
       <Tooltip title={tooltipText} key="delete">
-        {/* @ts-expect-error */}
         <Spin spinning={loadingRemove}>
           <Icon
             className={`${prefixCls}-action-icon action-remove`}

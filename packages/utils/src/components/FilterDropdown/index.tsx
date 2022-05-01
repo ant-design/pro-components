@@ -40,7 +40,6 @@ const FilterDropdown: React.FC<DropdownProps> = (props) => {
   const prefixCls = getPrefixCls('pro-core-field-dropdown');
 
   return (
-    //@ts-expect-error
     <Dropdown
       disabled={disabled}
       placement={placement}

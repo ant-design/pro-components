@@ -18,6 +18,7 @@ module.exports = {
     '!packages/**/src/demos/**',
     '!packages/**/src/**/demos/**',
     '!packages/utils/src/isDeepEqualReact/*.{ts,tsx}',
+    '!packages/utils/src/useMountMergeState/*.{ts,tsx}',
   ],
   testEnvironment: 'jsdom',
   moduleNameMapper,

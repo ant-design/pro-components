@@ -172,6 +172,10 @@ export type BaseQueryFilterProps = Omit<ActionsProps, 'submitter' | 'setCollapse
    * @name 忽略 Form.Item rule规则配置
    */
   ignoreRules?: boolean;
+  /**
+   * @name 是否显示 collapse 隐藏个数
+   */
+  showHiddenNum?: boolean;
 };
 
 const flatMapItems = (items: React.ReactNode[], ignoreRules?: boolean): React.ReactNode[] => {
@@ -218,6 +222,7 @@ const QueryFilterContent: React.FC<{
   optionRender: BaseQueryFilterProps['optionRender'];
   ignoreRules?: boolean;
   preserve?: boolean;
+  showHiddenNum?: boolean;
 }> = (props) => {
   const intl = useIntl();
   const resetText = props.resetText || intl.getMessage('tableForm.reset', '重置');
@@ -231,7 +236,16 @@ const QueryFilterContent: React.FC<{
     },
   );
 
-  const { optionRender, collapseRender, split, items, spanSize, showLength, searchGutter } = props;
+  const {
+    optionRender,
+    collapseRender,
+    split,
+    items,
+    spanSize,
+    showLength,
+    searchGutter,
+    showHiddenNum,
+  } = props;
 
   const submitter = useMemo(() => {
     if (!props.submitter || optionRender === false) {
@@ -268,8 +282,10 @@ const QueryFilterContent: React.FC<{
 
   // for split compute
   let currentSpan = 0;
-  const doms = flatMapItems(items, props.ignoreRules)
-    .map((item, index): { itemDom: React.ReactNode; hidden: boolean; colSpan: number } => {
+
+  // 处理过，包含是否需要隐藏的 数组
+  const processedList = flatMapItems(items, props.ignoreRules).map(
+    (item, index): { itemDom: React.ReactNode; hidden: boolean; colSpan: number } => {
       // 如果 formItem 自己配置了 hidden，默认使用它自己的
       const colSize = React.isValidElement<any>(item) ? item?.props?.colSize ?? 1 : 1;
       const colSpan = Math.min(spanSize.span * (colSize || 1), 24);
@@ -320,41 +336,45 @@ const QueryFilterContent: React.FC<{
         colSpan,
         hidden: false,
       };
-    })
-    .map((itemProps, index: number) => {
-      const { itemDom, colSpan } = itemProps;
-      const hidden: boolean = (itemDom as ReactElement<{ hidden: boolean }>)?.props?.hidden;
+    },
+  );
 
-      if (hidden) return itemDom;
+  const doms = processedList.map((itemProps, index: number) => {
+    const { itemDom, colSpan } = itemProps;
+    const hidden: boolean = (itemDom as ReactElement<{ hidden: boolean }>)?.props?.hidden;
 
-      // 每一列的key, 一般是存在的
-      const itemKey =
-        (React.isValidElement(itemDom) && (itemDom.key || `${itemDom.props?.name}`)) || index;
+    if (hidden) return itemDom;
 
-      if (24 - (currentSpan % 24) < colSpan) {
-        // 如果当前行空余位置放不下，那么折行
-        totalSpan += 24 - (currentSpan % 24);
-        currentSpan += 24 - (currentSpan % 24);
-      }
+    // 每一列的key, 一般是存在的
+    const itemKey =
+      (React.isValidElement(itemDom) && (itemDom.key || `${itemDom.props?.name}`)) || index;
 
-      currentSpan += colSpan;
+    if (24 - (currentSpan % 24) < colSpan) {
+      // 如果当前行空余位置放不下，那么折行
+      totalSpan += 24 - (currentSpan % 24);
+      currentSpan += 24 - (currentSpan % 24);
+    }
 
-      const colItem = (
-        <Col key={itemKey} span={colSpan}>
-          {itemDom}
-        </Col>
-      );
+    currentSpan += colSpan;
 
-      if (split && currentSpan % 24 === 0 && index < itemLength - 1) {
-        return [
-          colItem,
-          <Col span="24" key="line">
-            <Divider style={{ marginTop: -8, marginBottom: 16 }} dashed />
-          </Col>,
-        ];
-      }
-      return colItem;
-    });
+    const colItem = (
+      <Col key={itemKey} span={colSpan}>
+        {itemDom}
+      </Col>
+    );
+
+    if (split && currentSpan % 24 === 0 && index < itemLength - 1) {
+      return [
+        colItem,
+        <Col span="24" key="line">
+          <Divider style={{ marginTop: -8, marginBottom: 16 }} dashed />
+        </Col>,
+      ];
+    }
+    return colItem;
+  });
+
+  const hiddenNum = showHiddenNum && processedList.filter((item) => item.hidden).length;
 
   /** 是否需要展示 collapseRender */
   const needCollapseRender = useMemo(() => {
@@ -383,6 +403,7 @@ const QueryFilterContent: React.FC<{
         >
           <Form.Item label=" " colon={false} className="pro-form-query-filter-actions">
             <Actions
+              hiddenNum={hiddenNum}
               key="pro-form-query-filter-actions"
               collapsed={collapsed}
               collapseRender={needCollapseRender ? collapseRender : false}
@@ -417,6 +438,7 @@ function QueryFilter<T = Record<string, any>>(props: QueryFilterProps<T>) {
     split,
     preserve = true,
     ignoreRules,
+    showHiddenNum = false,
     ...rest
   } = props;
 
@@ -503,6 +525,7 @@ function QueryFilter<T = Record<string, any>>(props: QueryFilterProps<T>) {
             preserve={preserve}
             ignoreRules={ignoreRules}
             showLength={showLength}
+            showHiddenNum={showHiddenNum}
           />
         )}
       />

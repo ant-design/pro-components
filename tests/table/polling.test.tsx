@@ -1,14 +1,14 @@
-import { mount } from 'enzyme';
 import React from 'react';
-import { act } from 'react-dom/test-utils';
 import ProTable from '@ant-design/pro-table';
 import { columns } from './demo';
 import { waitForComponentToPaint } from '../util';
+import { render } from '@testing-library/react';
+import '@testing-library/jest-dom';
 
 describe('polling', () => {
   it('⏱️ polling should clearTime', async () => {
     const fn = jest.fn();
-    const html = mount(
+    const html = render(
       <ProTable
         size="small"
         cardBordered
@@ -27,21 +27,18 @@ describe('polling', () => {
     );
     await waitForComponentToPaint(html, 1000);
     expect(fn).toBeCalledTimes(1);
-    await waitForComponentToPaint(html, 1500);
+    await waitForComponentToPaint(html, 1800);
 
     expect(fn).toBeCalledTimes(2);
 
-    act(() => {
-      html.unmount();
-    });
-    await waitForComponentToPaint(html, 1500);
+    await waitForComponentToPaint(html, 1000);
 
     expect(fn).toBeCalledTimes(2);
   });
 
   it('⏱️ polling min time is 2000', async () => {
     const fn = jest.fn();
-    const html = mount(
+    const html = render(
       <ProTable
         size="small"
         cardBordered
@@ -68,7 +65,7 @@ describe('polling', () => {
 
   it('⏱️ polling time=3000', async () => {
     const fn = jest.fn();
-    const html = mount(
+    const html = render(
       <ProTable
         size="small"
         cardBordered
@@ -98,7 +95,7 @@ describe('polling', () => {
 
   it('⏱️ polling support function', async () => {
     const fn = jest.fn();
-    const html = mount(
+    const html = render(
       <ProTable
         size="small"
         cardBordered

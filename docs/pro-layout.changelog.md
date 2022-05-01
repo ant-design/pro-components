@@ -9,6 +9,13 @@ group:
 
 # Change Log
 
+## @ant-design/pro-layout@6.37.0
+
+`2022-04-29`
+
+- fix(layout): support ie11. [89e2d5a](https://github.com/ant-design/pro-components/commit/89e2d5a)
+- feat(layout): use menu items. [e7606ff](https://github.com/ant-design/pro-components/commit/e7606ff)
+
 ## @ant-design/pro-layout@6.36.0
 
 `2022-04-24`

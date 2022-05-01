@@ -1188,11 +1188,11 @@ exports[`BasicLayout 🥩 mix layout hideInMenu render right 1`] = `
               role="none"
             >
               <div
-                aria-controls="rc-menu-uuid-84044-6-/admin-popup"
+                aria-controls="rc-menu-uuid-84044-9-/admin-popup"
                 aria-expanded="false"
                 aria-haspopup="true"
                 class="ant-menu-submenu-title"
-                data-menu-id="rc-menu-uuid-84044-6-/admin"
+                data-menu-id="rc-menu-uuid-84044-9-/admin"
                 role="menuitem"
                 style="padding-left: 16px;"
                 tabindex="-1"
@@ -1214,7 +1214,7 @@ exports[`BasicLayout 🥩 mix layout hideInMenu render right 1`] = `
             </li>
             <li
               class="ant-pro-menu-item ant-design-pro-layout-1jy8a3x"
-              data-menu-id="rc-menu-uuid-84044-6-/list"
+              data-menu-id="rc-menu-uuid-84044-9-/list"
               role="menuitem"
               style="padding-left: 16px;"
               tabindex="-1"
@@ -1457,6 +1457,8 @@ exports[`BasicLayout 🥩 support loading 1`] = `
           style="padding-top: 100px; text-align: center;"
         >
           <div
+            aria-busy="true"
+            aria-live="polite"
             class="ant-spin ant-spin-lg ant-spin-spinning"
           >
             <span

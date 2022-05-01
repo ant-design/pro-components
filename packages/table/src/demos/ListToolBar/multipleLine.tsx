@@ -90,7 +90,6 @@ export default () => {
           </LightFilter>
         ),
         actions: [
-          //@ts-expect-error
           <Dropdown
             key="overlay"
             overlay={

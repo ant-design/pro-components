@@ -20,11 +20,9 @@ let genNanoid = (t = 21) => {
  * @returns
  */
 export const nanoid = (): string => {
-  if (typeof window === 'undefined') {
-    return genNanoid();
-  }
+  if (typeof window === 'undefined') return genNanoid();
   // @ts-ignore
-  if (crypto && crypto.randomUUID && typeof crypto.randomUUID == 'function') {
+  if (window.crypto && window.crypto.randomUUID && typeof crypto.randomUUID == 'function') {
     // @ts-ignore
     return crypto.randomUUID();
   }

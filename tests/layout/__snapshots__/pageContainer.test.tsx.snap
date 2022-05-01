@@ -147,6 +147,8 @@ exports[`PageContainer ⚡️ support loading 1`] = `
         style="padding-top:100px;text-align:center"
       >
         <div
+          aria-busy="true"
+          aria-live="polite"
           class="ant-spin ant-spin-lg ant-spin-spinning"
         >
           <span
@@ -208,6 +210,8 @@ exports[`PageContainer ⚡️ support more loading props 1`] = `
         style="padding-top:100px;text-align:center"
       >
         <div
+          aria-busy="true"
+          aria-live="polite"
           class="ant-spin ant-spin-lg ant-spin-spinning ant-spin-show-text"
         >
           <span
@@ -239,46 +243,48 @@ exports[`PageContainer ⚡️ support more loading props 1`] = `
 `;
 
 exports[`PageContainer 🌛 PageContainer with custom loading 1`] = `
-<div
-  class="ant-pro-page-container custom-className ant-pro-page-container-ghost"
->
+<DocumentFragment>
   <div
-    class="ant-pro-page-container-warp ant-design-pro-layout-1wi90fl"
+    class="ant-pro-page-container custom-className ant-pro-page-container-ghost"
   >
     <div
-      class="ant-page-header ant-page-header-ghost"
+      class="ant-pro-page-container-warp ant-design-pro-layout-1wi90fl"
     >
       <div
-        class="ant-page-header-heading"
+        class="ant-page-header ant-page-header-ghost"
       >
         <div
-          class="ant-page-header-heading-left"
+          class="ant-page-header-heading"
         >
-          <span
-            class="ant-page-header-heading-title"
-            title="页面标题"
+          <div
+            class="ant-page-header-heading-left"
           >
-            页面标题
-          </span>
+            <span
+              class="ant-page-header-heading-title"
+              title="页面标题"
+            >
+              页面标题
+            </span>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div
+      class="ant-pro-grid-content ant-design-pro-layout-1tdsdl"
+    >
+      <div
+        class="ant-pro-grid-content-children"
+      >
+        <div
+          id="customLoading"
+          style="color: red; padding: 30px; text-align: center;"
+        >
+          自定义加载...
         </div>
       </div>
     </div>
   </div>
-  <div
-    class="ant-pro-grid-content ant-design-pro-layout-1tdsdl"
-  >
-    <div
-      class="ant-pro-grid-content-children"
-    >
-      <div
-        id="customLoading"
-        style="color: red; padding: 30px; text-align: center;"
-      >
-        自定义加载...
-      </div>
-    </div>
-  </div>
-</div>
+</DocumentFragment>
 `;
 
 exports[`PageContainer 🐛 className prop should not be passed to its page header, fix #3493 1`] = `
@@ -318,7 +324,7 @@ exports[`PageContainer 🐲 FooterToolbar should know width 1`] = `
     class="ant-design-pro-layout-d08s5k"
   />
   <section
-    class="ant-layout"
+    class="ant-layout ant-layout-has-sider"
     style="min-height: 100%;"
   >
     <div
@@ -645,7 +651,7 @@ exports[`PageContainer 🐲 footer should know width 1`] = `
     class="ant-design-pro-layout-d08s5k"
   />
   <section
-    class="ant-layout"
+    class="ant-layout ant-layout-has-sider"
     style="min-height: 100%;"
   >
     <div
@@ -1053,81 +1059,83 @@ exports[`PageContainer 🐲 pro-layout support breadcrumbProps 1`] = `
             <div
               class="ant-page-header has-breadcrumb ant-page-header-ghost"
             >
-              <div
+              <nav
                 class="ant-breadcrumb"
               >
-                <span>
-                  <span
-                    class="ant-breadcrumb-link"
-                  >
-                    <a
-                      href="index"
-                    >
-                      home
-                    </a>
-                  </span>
-                  <span
-                    class="ant-breadcrumb-separator"
-                  >
-                    &gt;
-                  </span>
-                </span>
-                <span>
-                  <span
-                    class="ant-dropdown-trigger ant-breadcrumb-overlay-link"
-                  >
+                <ol>
+                  <li>
                     <span
                       class="ant-breadcrumb-link"
                     >
                       <a
-                        href="first"
+                        href="index"
                       >
-                        first
+                        home
                       </a>
                     </span>
                     <span
-                      aria-label="down"
-                      class="anticon anticon-down"
-                      role="img"
+                      class="ant-breadcrumb-separator"
                     >
-                      <svg
-                        aria-hidden="true"
-                        data-icon="down"
-                        fill="currentColor"
-                        focusable="false"
-                        height="1em"
-                        viewBox="64 64 896 896"
-                        width="1em"
-                      >
-                        <path
-                          d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"
-                        />
-                      </svg>
+                      &gt;
                     </span>
-                  </span>
-                  <span
-                    class="ant-breadcrumb-separator"
-                  >
-                    &gt;
-                  </span>
-                </span>
-                <span>
-                  <span
-                    class="ant-breadcrumb-link"
-                  >
-                    <a
-                      href="second"
+                  </li>
+                  <li>
+                    <span
+                      class="ant-dropdown-trigger ant-breadcrumb-overlay-link"
                     >
-                      second
-                    </a>
-                  </span>
-                  <span
-                    class="ant-breadcrumb-separator"
-                  >
-                    &gt;
-                  </span>
-                </span>
-              </div>
+                      <span
+                        class="ant-breadcrumb-link"
+                      >
+                        <a
+                          href="first"
+                        >
+                          first
+                        </a>
+                      </span>
+                      <span
+                        aria-label="down"
+                        class="anticon anticon-down"
+                        role="img"
+                      >
+                        <svg
+                          aria-hidden="true"
+                          data-icon="down"
+                          fill="currentColor"
+                          focusable="false"
+                          height="1em"
+                          viewBox="64 64 896 896"
+                          width="1em"
+                        >
+                          <path
+                            d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"
+                          />
+                        </svg>
+                      </span>
+                    </span>
+                    <span
+                      class="ant-breadcrumb-separator"
+                    >
+                      &gt;
+                    </span>
+                  </li>
+                  <li>
+                    <span
+                      class="ant-breadcrumb-link"
+                    >
+                      <a
+                        href="second"
+                      >
+                        second
+                      </a>
+                    </span>
+                    <span
+                      class="ant-breadcrumb-separator"
+                    >
+                      &gt;
+                    </span>
+                  </li>
+                </ol>
+              </nav>
             </div>
           </div>
         </div>
@@ -1215,24 +1223,26 @@ Array [
       <div
         class="ant-page-header has-breadcrumb ant-page-header-ghost"
       >
-        <div
+        <nav
           class="ant-breadcrumb"
         >
-          <span>
-            <span
-              class="ant-breadcrumb-link"
-            >
-              <span>
-                home
+          <ol>
+            <li>
+              <span
+                class="ant-breadcrumb-link"
+              >
+                <span>
+                  home
+                </span>
               </span>
-            </span>
-            <span
-              class="ant-breadcrumb-separator"
-            >
-              /
-            </span>
-          </span>
-        </div>
+              <span
+                class="ant-breadcrumb-separator"
+              >
+                /
+              </span>
+            </li>
+          </ol>
+        </nav>
         <div
           class="ant-page-header-heading"
         >

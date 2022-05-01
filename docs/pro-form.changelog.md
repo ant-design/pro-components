@@ -9,6 +9,21 @@ group:
 
 # Change Log
 
+## @ant-design/pro-form@1.66.0
+
+`2022-04-29`
+
+- feat(form): collapse support hidden number (#5116). [#5116](https://github.com/ant-design/pro-components/pull/#5116) [@DerrickTel](https://github.com/DerrickTel)
+- fix(form): Supplementary English Documents (#5139). [#5139](https://github.com/ant-design/pro-components/pull/#5139) [@wangmeijian](https://github.com/wangmeijian)
+- fix(form): add missed ProFormTreeSelect to the form export (#5133). [#5133](https://github.com/ant-design/pro-components/pull/#5133) [@Symous](https://github.com/Symous)
+
+## @ant-design/pro-form@1.65.0
+
+`2022-04-24`
+
+- feat(form): 提交表单时，禁用取消按钮和右上角关闭按钮，直到 onFinish 异步回调执行完成 (#5078). [#5078](https://github.com/ant-design/pro-components/pull/#5078) [@wangmeijian](https://github.com/wangmeijian)
+- fix(form) 验证码获取 按钮导致登录框宽度动态变化 (#5077). [#5077](https://github.com/ant-design/pro-components/pull/#5077) [@hihuangwei](https://github.com/hihuangwei)
+
 ## @ant-design/pro-form@1.65.0
 
 `2022-04-24`

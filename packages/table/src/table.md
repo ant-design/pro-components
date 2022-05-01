@@ -373,10 +373,11 @@ ProTable 在 antd 的 Table 上进行了一层封装，支持了一些预设，�
 | span | 配置查询表单的列数 | `'number'` \| [`'ColConfig'`](#ColConfig) | defaultColConfig |
 | className | 封装的搜索 Form 的 className | `string` | - |
 | collapseRender | 收起按钮的 render | `(collapsed: boolean,showCollapseButton?: boolean,) => ReactNode` | - |
-| defaultCollapsed | 默认是否收起 | `boolean` | true |
+| defaultCollapsed | 默认是否收起 | `boolean` | `true` |
 | collapsed | 是否收起 | `boolean` | - |
 | onCollapse | 收起按钮的事件 | `(collapsed: boolean) => void;` | - |
 | optionRender | 自定义操作栏 | `((searchConfig,formProps,dom) => ReactNode[])`\|`false` | - |
+| showHiddenNum | 是否显示收起之后显示隐藏个数 | `boolean` | `false` |
 
 #### ColConfig
 

@@ -63,6 +63,7 @@ describe('BasicLayout', () => {
         layout="mix"
         splitMenus
         isMobile={false}
+        headerContentRender={() => <span />}
         rightContentRender={() => <span />}
       >
         <PageContainer title="name" />
