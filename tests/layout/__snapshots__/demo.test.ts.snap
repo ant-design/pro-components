@@ -1732,6 +1732,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/components/WaterMark/de
                             <th
                               class="ant-table-cell ant-table-column-has-sorters"
                               style="text-align: right;"
+                              tabindex="0"
                             >
                               <div
                                 class="ant-table-column-sorters"
@@ -1801,6 +1802,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/components/WaterMark/de
                             </th>
                             <th
                               class="ant-table-cell ant-table-column-has-sorters"
+                              tabindex="0"
                             >
                               <div
                                 class="ant-table-column-sorters"

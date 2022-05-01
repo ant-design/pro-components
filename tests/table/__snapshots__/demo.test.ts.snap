@@ -10315,6 +10315,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/ListToolBar/basic.t
                           <th
                             class="ant-table-cell ant-table-column-has-sorters"
                             style="text-align: right;"
+                            tabindex="0"
                           >
                             <div
                               class="ant-table-column-sorters"
@@ -11247,6 +11248,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/ListToolBar/menu.ts
                           <th
                             class="ant-table-cell ant-table-column-has-sorters"
                             style="text-align: right;"
+                            tabindex="0"
                           >
                             <div
                               class="ant-table-column-sorters"
@@ -12167,6 +12169,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/ListToolBar/multipl
                           <th
                             class="ant-table-cell ant-table-column-has-sorters"
                             style="text-align: right;"
+                            tabindex="0"
                           >
                             <div
                               class="ant-table-column-sorters"
@@ -13057,6 +13060,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/ListToolBar/no-titl
                           <th
                             class="ant-table-cell ant-table-column-has-sorters"
                             style="text-align: right;"
+                            tabindex="0"
                           >
                             <div
                               class="ant-table-column-sorters"
@@ -13991,6 +13995,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/ListToolBar/tabs.ts
                           <th
                             class="ant-table-cell ant-table-column-has-sorters"
                             style="text-align: right;"
+                            tabindex="0"
                           >
                             <div
                               class="ant-table-column-sorters"
@@ -14794,6 +14799,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/batchOption.tsx cor
                           <th
                             class="ant-table-cell ant-table-column-has-sorters"
                             style="text-align: right;"
+                            tabindex="0"
                           >
                             <div
                               class="ant-table-column-sorters"
@@ -14869,6 +14875,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/batchOption.tsx cor
                           </th>
                           <th
                             class="ant-table-cell ant-table-column-has-sorters"
+                            tabindex="0"
                           >
                             <div
                               class="ant-table-column-sorters"
@@ -16226,6 +16233,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/card-title.tsx corr
                           <th
                             class="ant-table-cell ant-table-column-has-sorters"
                             style="text-align: right;"
+                            tabindex="0"
                           >
                             <div
                               class="ant-table-column-sorters"
@@ -26144,6 +26152,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/dataSource.tsx corr
                           </th>
                           <th
                             class="ant-table-cell ant-table-column-has-sorters"
+                            tabindex="0"
                           >
                             <div
                               class="ant-table-column-sorters"
@@ -29512,6 +29521,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/dynamic-settings.ts
                                     </th>
                                     <th
                                       class="ant-table-cell ant-table-column-has-sorters"
+                                      tabindex="0"
                                     >
                                       <div
                                         class="ant-table-column-sorters"
@@ -31899,6 +31909,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/error-boundaries-fa
                           <th
                             class="ant-table-cell ant-table-column-has-sorters"
                             style="text-align: right;"
+                            tabindex="0"
                           >
                             <div
                               class="ant-table-column-sorters"
@@ -34349,6 +34360,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/lightfilter.tsx cor
                           </th>
                           <th
                             class="ant-table-cell ant-table-column-has-sorters"
+                            tabindex="0"
                           >
                             <div
                               class="ant-table-column-sorters"
@@ -36300,6 +36312,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/listToolBar.tsx cor
                           <th
                             class="ant-table-cell ant-table-column-has-sorters"
                             style="text-align: right;"
+                            tabindex="0"
                           >
                             <div
                               class="ant-table-column-sorters"
@@ -36359,6 +36372,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/listToolBar.tsx cor
                           </th>
                           <th
                             class="ant-table-cell ant-table-column-has-sorters"
+                            tabindex="0"
                           >
                             <div
                               class="ant-table-column-sorters"
@@ -37693,6 +37707,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/no-option.tsx corre
                           <th
                             class="ant-table-cell ant-table-column-has-sorters"
                             style="text-align: right;"
+                            tabindex="0"
                           >
                             <div
                               class="ant-table-column-sorters"
@@ -37762,6 +37777,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/no-option.tsx corre
                           </th>
                           <th
                             class="ant-table-cell ant-table-column-has-sorters"
+                            tabindex="0"
                           >
                             <div
                               class="ant-table-column-sorters"
@@ -39805,6 +39821,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/normal.tsx correctl
                           <th
                             class="ant-table-cell ant-table-column-has-sorters"
                             style="text-align: right;"
+                            tabindex="0"
                           >
                             <div
                               class="ant-table-column-sorters"
@@ -39874,6 +39891,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/normal.tsx correctl
                           </th>
                           <th
                             class="ant-table-cell ant-table-column-has-sorters"
+                            tabindex="0"
                           >
                             <div
                               class="ant-table-column-sorters"
@@ -48179,6 +48197,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/single.tsx correctl
                           </th>
                           <th
                             class="ant-table-cell ant-table-column-has-sorters"
+                            tabindex="0"
                           >
                             <div
                               class="ant-table-column-sorters"
@@ -53360,6 +53379,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/table-nested.tsx co
                           <th
                             class="ant-table-cell ant-table-column-has-sorters"
                             style="text-align: right;"
+                            tabindex="0"
                           >
                             <div
                               class="ant-table-column-sorters"
@@ -53424,6 +53444,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/table-nested.tsx co
                           </th>
                           <th
                             class="ant-table-cell ant-table-column-has-sorters"
+                            tabindex="0"
                           >
                             <div
                               class="ant-table-column-sorters"
