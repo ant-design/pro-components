@@ -16,7 +16,7 @@ import { ProLayout, PageContainer, SettingDrawer } from '@ant-design/pro-layout'
 import defaultProps from './_defaultProps';
 import ProCard from '@ant-design/pro-card';
 
-const Item: React.FC<{}> = (props) => (
+const Item: React.FC<{ children: React.ReactNode }> = (props) => (
   <div
     className={css`
       color: rgba(0, 0, 0, 0.45);
