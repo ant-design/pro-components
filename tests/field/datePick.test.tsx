@@ -3,6 +3,7 @@ import React from 'react';
 import { act } from 'react-dom/test-utils';
 import Field from '@ant-design/pro-field';
 import { render } from '@testing-library/react';
+import '@testing-library/jest-dom';
 import moment from 'moment';
 import { waitForComponentToPaint } from '../util';
 

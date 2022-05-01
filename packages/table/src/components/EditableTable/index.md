@@ -51,6 +51,21 @@ nav:
 
 > 别的 API 与 ProTable 相同。
 
+### Editable 新建行
+
+新增一行的时候要保证 `recordCreatorProps.record` key 唯一，不然会导致编辑出错。
+
+```tsx | pure
+<EditableTable
+  rowKey="id"
+  recordCreatorProps={{
+    position: position as 'top',
+    // 每次新增的时候需要Key
+    record: () => ({ id: getNewId() }),
+  }}
+/>
+```
+
 ### EditableFormInstance 表格列表单操作
 
 相比于 ProForm 的表单，可编辑表格增加了以下的三个方法。

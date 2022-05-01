@@ -1642,7 +1642,7 @@ exports[`descriptions demos 📸 renders ./packages/descriptions/src/demos/dynam
                                       class="ant-form-item-control-input-content"
                                     >
                                       <div
-                                        class="ant-select ant-pro-filed-search-select ant-select-single ant-select-allow-clear ant-select-show-arrow"
+                                        class="ant-select ant-select-in-form-item ant-pro-filed-search-select ant-select-single ant-select-allow-clear ant-select-show-arrow"
                                         style="min-width: 100px;"
                                       >
                                         <div
@@ -1830,7 +1830,7 @@ exports[`descriptions demos 📸 renders ./packages/descriptions/src/demos/dynam
                                       class="ant-form-item-control-input-content"
                                     >
                                       <div
-                                        class="ant-select ant-pro-filed-search-select ant-select-single ant-select-allow-clear ant-select-show-arrow"
+                                        class="ant-select ant-select-in-form-item ant-pro-filed-search-select ant-select-single ant-select-allow-clear ant-select-show-arrow"
                                         style="min-width: 100px;"
                                       >
                                         <div
@@ -2017,7 +2017,7 @@ exports[`descriptions demos 📸 renders ./packages/descriptions/src/demos/dynam
                                       class="ant-form-item-control-input-content"
                                     >
                                       <div
-                                        class="ant-input-number pro-field pro-field-xs"
+                                        class="ant-input-number ant-input-number-in-form-item pro-field pro-field-xs"
                                       >
                                         <div
                                           class="ant-input-number-handler-wrap"

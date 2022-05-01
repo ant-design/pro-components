@@ -101,7 +101,7 @@ exports[`SchemaForm 😊 SchemaForm support columns 1`] = `
           class="ant-form-item-control-input-content"
         >
           <div
-            class="ant-select ant-pro-filed-search-select ant-select-single ant-select-allow-clear ant-select-show-arrow"
+            class="ant-select ant-select-in-form-item ant-pro-filed-search-select ant-select-single ant-select-allow-clear ant-select-show-arrow"
             style="min-width: 100px;"
           >
             <div
@@ -215,7 +215,7 @@ exports[`SchemaForm 😊 SchemaForm support columns 1`] = `
           class="ant-form-item-control-input-content"
         >
           <div
-            class="ant-select ant-pro-filed-search-select ant-select-single ant-select-allow-clear ant-select-show-arrow"
+            class="ant-select ant-select-in-form-item ant-pro-filed-search-select ant-select-single ant-select-allow-clear ant-select-show-arrow"
             style="min-width: 100px;"
           >
             <div

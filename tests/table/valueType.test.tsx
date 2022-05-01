@@ -1,11 +1,10 @@
-import { mount } from 'enzyme';
 import React from 'react';
 import ProTable from '@ant-design/pro-table';
 import { Input } from 'antd';
 import ProProvider from '@ant-design/pro-provider';
+import { render as reactRender, act } from '@testing-library/react';
 
 import { waitForComponentToPaint } from '../util';
-import { act } from 'react-dom/test-utils';
 
 const defaultProps = {
   columns: [
@@ -36,7 +35,7 @@ const defaultProps = {
 
 describe('BasicTable valueType', () => {
   it('🎏 table support user valueType', async () => {
-    const html = mount(
+    const html = reactRender(
       <ProProvider.Provider
         value={
           {
@@ -61,11 +60,13 @@ describe('BasicTable valueType', () => {
     );
     await waitForComponentToPaint(html, 1200);
 
-    expect(html.find('#link').text()).toBe('TradeCode 0');
+    expect((await html.findAllByText('TradeCode 0')).length).toBe(1);
 
-    expect(html.find('input#name').exists()).toBeTruthy();
+    expect(!!html.asFragment().querySelector('input#name')).toBeTruthy();
 
-    expect(html.find('input#name').props().value).toBe('TradeCode');
+    expect((html.asFragment().querySelector('input#name') as HTMLInputElement).value).toBe(
+      'TradeCode',
+    );
 
     act(() => {
       html.unmount();
@@ -73,7 +74,7 @@ describe('BasicTable valueType', () => {
   });
 
   it('🎏 table valueType render support fieldProps', async () => {
-    const html = mount(
+    const html = reactRender(
       <ProProvider.Provider
         value={
           {
@@ -103,11 +104,13 @@ describe('BasicTable valueType', () => {
     );
     await waitForComponentToPaint(html, 1200);
 
-    expect(html.find('#link').text()).toBe('TradeCode 0red');
+    expect((await html.findAllByText('TradeCode 0red')).length).toBe(1);
 
-    expect(html.find('input#name').exists()).toBeTruthy();
+    expect(!!html.asFragment().querySelector('input#name')).toBeTruthy();
 
-    expect(html.find('input#name').props().color).toBe('red');
+    expect((html.asFragment().querySelector('input#name') as HTMLInputElement).value).toBe(
+      'TradeCode',
+    );
 
     act(() => {
       html.unmount();

@@ -51,7 +51,6 @@ export default () => {
             <Button htmlType="button" onClick={getCompanyName} key="read">
               读取公司
             </Button>,
-            // @ts-expect-error
             <Button.Group key="refs" style={{ display: 'block' }}>
               <Button htmlType="button" onClick={getFormatValues} key="format">
                 获取格式化后的所有数据

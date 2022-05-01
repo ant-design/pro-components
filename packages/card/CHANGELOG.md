@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.20.1](https://github.com/ant-design/pro-components/compare/@ant-design/pro-card@1.20.0...@ant-design/pro-card@1.20.1) (2022-04-29)
+
+**Note:** Version bump only for package @ant-design/pro-card
+
+# [1.20.0](https://github.com/ant-design/pro-components/compare/@ant-design/pro-card@1.19.6...@ant-design/pro-card@1.20.0) (2022-04-25)
+
+### Features
+
+- **Card:** Displays a corner label ([#5127](https://github.com/ant-design/pro-components/issues/5127)) ([fa7d82f](https://github.com/ant-design/pro-components/commit/fa7d82f0046ee59c11c407f6a95b43ad31579c5b))
+
 ## [1.19.6](https://github.com/ant-design/pro-components/compare/@ant-design/pro-card@1.19.5...@ant-design/pro-card@1.19.6) (2022-04-24)
 
 **Note:** Version bump only for package @ant-design/pro-card

@@ -104,6 +104,7 @@ const DefaultPrecisionCont = 2;
 const InputNumberPopover = React.forwardRef<
   any,
   InputNumberProps & {
+    visible?: boolean;
     content?: (props: InputNumberProps) => React.ReactNode;
   } & {
     numberFormatOptions?: any;
@@ -118,13 +119,19 @@ const InputNumberPopover = React.forwardRef<
     ...rest,
     value,
   });
+
+  const props = {
+    visible: dom ? rest.visible : false,
+  };
   return (
     <Popover
       placement="topLeft"
-      visible={dom ? undefined : false}
-      trigger="focus"
+      {...props}
+      trigger={['focus', 'click']}
       content={dom}
-      getPopupContainer={(triggerNode) => triggerNode?.parentElement || document.body}
+      getPopupContainer={(triggerNode) => {
+        return triggerNode?.parentElement || document.body;
+      }}
     >
       <InputNumber ref={ref} {...rest} value={value} onChange={onChange} />
     </Popover>

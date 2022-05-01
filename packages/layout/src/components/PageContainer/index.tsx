@@ -328,7 +328,6 @@ const ProPageHeader: React.FC<PageContainerProps & { prefixedClassName: string }
         `,
       )}
     >
-      {/* @ts-ignore */}
       <PageHeader
         {...pageHeaderProps}
         breadcrumb={

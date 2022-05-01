@@ -666,7 +666,7 @@ exports[`docs demos 📸 renders ./docs/demos/valueType.tsx correctly 1`] = `
           class="ant-form-item-control-input-content"
         >
           <div
-            class="ant-select ant-pro-filed-search-select ant-select-single ant-select-allow-clear ant-select-show-search"
+            class="ant-select ant-select-in-form-item ant-pro-filed-search-select ant-select-single ant-select-allow-clear ant-select-show-search"
             style="width: 200px;"
           >
             <div
@@ -775,7 +775,7 @@ exports[`docs demos 📸 renders ./docs/demos/valueType.tsx correctly 1`] = `
                   class="ant-form-item-control-input-content"
                 >
                   <span
-                    class="ant-input-affix-wrapper pro-field pro-field-m"
+                    class="ant-input-affix-wrapper ant-input-affix-wrapper-focused pro-field pro-field-m"
                   >
                     <input
                       class="ant-input"

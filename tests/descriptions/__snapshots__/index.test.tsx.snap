@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`descriptions 🏊‍♂️ ProDescriptions support order 1`] = `
+exports[`descriptions 🏊 ProDescriptions support order 1`] = `
 <div
   class="ant-descriptions ant-pro-descriptions"
 >

@@ -241,7 +241,6 @@ function StepsForm<T = Record<string, any>>(
           maxWidth: Math.min(formArray.length * 320, 1160),
         }}
       >
-        {/* @ts-expect-error */}
         <Steps {...stepsProps} current={step} onChange={undefined}>
           {formArray.map((item) => {
             const itemProps = formMapRef.current.get(item);

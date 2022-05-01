@@ -175,7 +175,6 @@ function ModalForm<T = Record<string, any>>({
 
   return (
     <>
-      {/* @ts-expect-error */}
       <Modal
         title={title}
         width={width || 800}

@@ -34,9 +34,13 @@ exports[`form demos 📸 renders ./packages/form/src/components/Dependency/demos
             class="ant-form-item-control-input-content"
           >
             <div
-              class="ant-select ant-pro-filed-search-select pro-field pro-field-xs ant-select-single ant-select-allow-clear ant-select-show-arrow"
+              class="ant-select ant-select-in-form-item ant-pro-filed-search-select pro-field pro-field-xs ant-select-focused ant-select-single ant-select-allow-clear ant-select-show-arrow"
               style="min-width: 100px;"
             >
+              <span
+                aria-live="polite"
+                style="width: 0px; height: 0px; display: flex; overflow: hidden; opacity: 0;"
+              />
               <div
                 class="ant-select-selector"
               >
@@ -167,7 +171,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/Dependency/demos
                                   class="ant-form-item-control-input-content"
                                 >
                                   <div
-                                    class="ant-select ant-pro-filed-search-select pro-field pro-field-xs ant-select-single ant-select-allow-clear ant-select-show-arrow"
+                                    class="ant-select ant-select-in-form-item ant-pro-filed-search-select pro-field pro-field-xs ant-select-single ant-select-allow-clear ant-select-show-arrow"
                                     style="min-width: 100px;"
                                   >
                                     <div
@@ -557,7 +561,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/Dependency/demos
                   class="ant-form-item-control-input-content"
                 >
                   <span
-                    class="ant-input-affix-wrapper"
+                    class="ant-input-affix-wrapper ant-input-affix-wrapper-focused"
                   >
                     <input
                       class="ant-input"
@@ -1696,7 +1700,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/FieldSet/demos/c
                     class="ant-form-item-control-input-content"
                   >
                     <span
-                      class="ant-input-affix-wrapper pro-field pro-field-md"
+                      class="ant-input-affix-wrapper ant-input-affix-wrapper-focused pro-field pro-field-md"
                     >
                       <input
                         class="ant-input"
@@ -1852,7 +1856,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/FieldSet/demos/c
                     class="ant-form-item-control-input-content"
                   >
                     <div
-                      class="ant-select ant-pro-filed-search-select ant-select-single ant-select-allow-clear ant-select-show-arrow"
+                      class="ant-select ant-select-in-form-item ant-pro-filed-search-select ant-select-single ant-select-allow-clear ant-select-show-arrow"
                       style="min-width: 100px;"
                     >
                       <div
@@ -1944,7 +1948,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/FieldSet/demos/c
                     class="ant-form-item-control-input-content"
                   >
                     <div
-                      class="ant-select ant-pro-filed-search-select ant-select-single ant-select-allow-clear ant-select-show-arrow ant-select-show-search"
+                      class="ant-select ant-select-in-form-item ant-pro-filed-search-select ant-select-single ant-select-allow-clear ant-select-show-arrow ant-select-show-search"
                       style="min-width: 100px;"
                     >
                       <div
@@ -2033,7 +2037,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/FieldSet/demos/c
                     class="ant-form-item-control-input-content"
                   >
                     <div
-                      class="ant-select ant-pro-filed-search-select pro-field pro-field-md ant-select-single ant-select-allow-clear ant-select-show-arrow"
+                      class="ant-select ant-select-in-form-item ant-pro-filed-search-select pro-field pro-field-md ant-select-single ant-select-allow-clear ant-select-show-arrow"
                       style="min-width: 100px;"
                     >
                       <div
@@ -2125,7 +2129,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/FieldSet/demos/c
                     class="ant-form-item-control-input-content"
                   >
                     <div
-                      class="ant-select ant-pro-filed-search-select ant-select-multiple ant-select-allow-clear ant-select-show-search"
+                      class="ant-select ant-select-in-form-item ant-pro-filed-search-select ant-select-multiple ant-select-allow-clear ant-select-show-search"
                       style="min-width: 100px;"
                     >
                       <div
@@ -2211,7 +2215,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/FieldSet/demos/c
                       id="validate_other_radio"
                     >
                       <label
-                        class="ant-radio-wrapper ant-radio-wrapper-checked"
+                        class="ant-radio-wrapper ant-radio-wrapper-checked ant-radio-wrapper-in-form-item"
                       >
                         <span
                           class="ant-radio ant-radio-checked"
@@ -2231,7 +2235,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/FieldSet/demos/c
                         </span>
                       </label>
                       <label
-                        class="ant-radio-wrapper"
+                        class="ant-radio-wrapper ant-radio-wrapper-in-form-item"
                       >
                         <span
                           class="ant-radio"
@@ -2250,7 +2254,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/FieldSet/demos/c
                         </span>
                       </label>
                       <label
-                        class="ant-radio-wrapper"
+                        class="ant-radio-wrapper ant-radio-wrapper-in-form-item"
                       >
                         <span
                           class="ant-radio"
@@ -2306,7 +2310,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/FieldSet/demos/c
                       id="validate_other_radio-vertical"
                     >
                       <label
-                        class="ant-radio-wrapper"
+                        class="ant-radio-wrapper ant-radio-wrapper-in-form-item"
                       >
                         <span
                           class="ant-radio"
@@ -2325,7 +2329,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/FieldSet/demos/c
                         </span>
                       </label>
                       <label
-                        class="ant-radio-wrapper"
+                        class="ant-radio-wrapper ant-radio-wrapper-in-form-item"
                       >
                         <span
                           class="ant-radio"
@@ -2344,7 +2348,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/FieldSet/demos/c
                         </span>
                       </label>
                       <label
-                        class="ant-radio-wrapper"
+                        class="ant-radio-wrapper ant-radio-wrapper-in-form-item"
                       >
                         <span
                           class="ant-radio"
@@ -2400,7 +2404,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/FieldSet/demos/c
                       id="validate_other_radio-button"
                     >
                       <label
-                        class="ant-radio-button-wrapper ant-radio-button-wrapper-checked"
+                        class="ant-radio-button-wrapper ant-radio-button-wrapper-checked ant-radio-button-wrapper-in-form-item"
                       >
                         <span
                           class="ant-radio-button ant-radio-button-checked"
@@ -2420,7 +2424,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/FieldSet/demos/c
                         </span>
                       </label>
                       <label
-                        class="ant-radio-button-wrapper"
+                        class="ant-radio-button-wrapper ant-radio-button-wrapper-in-form-item"
                       >
                         <span
                           class="ant-radio-button"
@@ -2439,7 +2443,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/FieldSet/demos/c
                         </span>
                       </label>
                       <label
-                        class="ant-radio-button-wrapper"
+                        class="ant-radio-button-wrapper ant-radio-button-wrapper-in-form-item"
                       >
                         <span
                           class="ant-radio-button"
@@ -2494,7 +2498,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/FieldSet/demos/c
                       id="validate_other_checkbox-group"
                     >
                       <label
-                        class="ant-checkbox-wrapper ant-checkbox-wrapper-checked ant-checkbox-group-item"
+                        class="ant-checkbox-wrapper ant-checkbox-wrapper-checked ant-checkbox-wrapper-in-form-item ant-checkbox-group-item"
                       >
                         <span
                           class="ant-checkbox ant-checkbox-checked"
@@ -2514,7 +2518,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/FieldSet/demos/c
                         </span>
                       </label>
                       <label
-                        class="ant-checkbox-wrapper ant-checkbox-wrapper-checked ant-checkbox-group-item"
+                        class="ant-checkbox-wrapper ant-checkbox-wrapper-checked ant-checkbox-wrapper-in-form-item ant-checkbox-group-item"
                       >
                         <span
                           class="ant-checkbox ant-checkbox-checked"
@@ -2534,7 +2538,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/FieldSet/demos/c
                         </span>
                       </label>
                       <label
-                        class="ant-checkbox-wrapper ant-checkbox-group-item"
+                        class="ant-checkbox-wrapper ant-checkbox-wrapper-in-form-item ant-checkbox-group-item"
                       >
                         <span
                           class="ant-checkbox"
@@ -2553,7 +2557,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/FieldSet/demos/c
                         </span>
                       </label>
                       <label
-                        class="ant-checkbox-wrapper ant-checkbox-group-item"
+                        class="ant-checkbox-wrapper ant-checkbox-wrapper-in-form-item ant-checkbox-group-item"
                       >
                         <span
                           class="ant-checkbox"
@@ -2572,7 +2576,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/FieldSet/demos/c
                         </span>
                       </label>
                       <label
-                        class="ant-checkbox-wrapper ant-checkbox-group-item"
+                        class="ant-checkbox-wrapper ant-checkbox-wrapper-in-form-item ant-checkbox-group-item"
                       >
                         <span
                           class="ant-checkbox"
@@ -2591,7 +2595,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/FieldSet/demos/c
                         </span>
                       </label>
                       <label
-                        class="ant-checkbox-wrapper ant-checkbox-group-item"
+                        class="ant-checkbox-wrapper ant-checkbox-wrapper-in-form-item ant-checkbox-group-item"
                       >
                         <span
                           class="ant-checkbox"
@@ -2854,7 +2858,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/FieldSet/demos/c
                     class="ant-form-item-control-input-content"
                   >
                     <div
-                      class="ant-input-number pro-field pro-field-sm"
+                      class="ant-input-number ant-input-number-in-form-item pro-field pro-field-sm"
                     >
                       <div
                         class="ant-input-number-handler-wrap"
@@ -5082,7 +5086,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/FieldSet/demos/d
                   class="ant-form-item-control-input-content"
                 >
                   <div
-                    class="ant-picker"
+                    class="ant-picker ant-picker-focused"
                   >
                     <div
                       class="ant-picker-input"
@@ -5091,7 +5095,6 @@ exports[`form demos 📸 renders ./packages/form/src/components/FieldSet/demos/d
                         autocomplete="off"
                         id="date"
                         placeholder="请选择"
-                        readonly=""
                         size="12"
                         title="2016-11-22"
                         value="2016-11-22"
@@ -6637,7 +6640,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/FieldSet/demos/f
                 style="margin-right: 8px;"
               >
                 <div
-                  class="ant-select ant-pro-filed-search-select pro-field pro-field-md ant-select-single ant-select-allow-clear ant-select-show-arrow"
+                  class="ant-select ant-select-in-form-item ant-pro-filed-search-select pro-field pro-field-md ant-select-single ant-select-allow-clear ant-select-show-arrow"
                   style="min-width: 100px;"
                 >
                   <div
@@ -7052,7 +7055,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/FieldSet/demos/s
                 class="ant-form-item-control-input-content"
               >
                 <div
-                  class="ant-select ant-pro-filed-search-select ant-select-multiple ant-select-allow-clear ant-select-show-search"
+                  class="ant-select ant-select-in-form-item ant-pro-filed-search-select ant-select-multiple ant-select-allow-clear ant-select-show-search"
                   style="min-width: 140px;"
                 >
                   <div
@@ -7134,7 +7137,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/FieldSet/demos/s
                 class="ant-form-item-control-input-content"
               >
                 <div
-                  class="ant-select ant-pro-filed-search-select ant-select-multiple ant-select-allow-clear ant-select-show-search"
+                  class="ant-select ant-select-in-form-item ant-pro-filed-search-select ant-select-multiple ant-select-allow-clear ant-select-show-search"
                   style="min-width: 140px;"
                 >
                   <div
@@ -7215,7 +7218,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/FieldSet/demos/s
                 class="ant-form-item-control-input-content"
               >
                 <div
-                  class="ant-select ant-pro-filed-search-select ant-select-multiple ant-select-allow-clear ant-select-show-search"
+                  class="ant-select ant-select-in-form-item ant-pro-filed-search-select ant-select-multiple ant-select-allow-clear ant-select-show-search"
                   style="min-width: 140px;"
                 >
                   <div
@@ -8732,7 +8735,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/Group/demos/cust
                                   class="ant-form-item-control-input-content"
                                 >
                                   <div
-                                    class="ant-select ant-pro-filed-search-select pro-field pro-field-xs ant-select-single ant-select-allow-clear ant-select-show-arrow"
+                                    class="ant-select ant-select-in-form-item ant-pro-filed-search-select pro-field pro-field-xs ant-select-single ant-select-allow-clear ant-select-show-arrow"
                                     style="min-width: 100px;"
                                   >
                                     <div
@@ -8874,7 +8877,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/Group/demos/cust
                                   class="ant-form-item-control-input-content"
                                 >
                                   <div
-                                    class="ant-select ant-pro-filed-search-select pro-field pro-field-xs ant-select-single ant-select-allow-clear ant-select-show-arrow"
+                                    class="ant-select ant-select-in-form-item ant-pro-filed-search-select pro-field pro-field-xs ant-select-single ant-select-allow-clear ant-select-show-arrow"
                                     style="min-width: 100px;"
                                   >
                                     <div
@@ -8992,7 +8995,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/Group/demos/cust
                                   class="ant-form-item-control-input-content"
                                 >
                                   <div
-                                    class="ant-select ant-pro-filed-search-select pro-field pro-field-xs ant-select-single ant-select-allow-clear ant-select-show-arrow"
+                                    class="ant-select ant-select-in-form-item ant-pro-filed-search-select pro-field pro-field-xs ant-select-single ant-select-allow-clear ant-select-show-arrow"
                                     style="min-width: 100px;"
                                   >
                                     <div
@@ -9229,7 +9232,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/Group/demos/cust
                                   class="ant-form-item-control-input-content"
                                 >
                                   <div
-                                    class="ant-select ant-pro-filed-search-select pro-field pro-field-xs ant-select-single ant-select-allow-clear ant-select-show-arrow"
+                                    class="ant-select ant-select-in-form-item ant-pro-filed-search-select pro-field pro-field-xs ant-select-single ant-select-allow-clear ant-select-show-arrow"
                                     style="min-width: 100px;"
                                   >
                                     <div
@@ -9483,7 +9486,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/Group/demos/cust
                                   class="ant-form-item-control-input-content"
                                 >
                                   <div
-                                    class="ant-select ant-pro-filed-search-select pro-field pro-field-xs ant-select-single ant-select-allow-clear ant-select-show-arrow"
+                                    class="ant-select ant-select-in-form-item ant-pro-filed-search-select pro-field pro-field-xs ant-select-single ant-select-allow-clear ant-select-show-arrow"
                                     style="min-width: 100px;"
                                   >
                                     <div
@@ -9925,7 +9928,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/Group/demos/depe
                                   class="ant-form-item-control-input-content"
                                 >
                                   <div
-                                    class="ant-select ant-pro-filed-search-select pro-field pro-field-md ant-select-single ant-select-allow-clear ant-select-show-arrow"
+                                    class="ant-select ant-select-in-form-item ant-pro-filed-search-select pro-field pro-field-md ant-select-single ant-select-allow-clear ant-select-show-arrow"
                                     style="min-width: 100px;"
                                   >
                                     <div
@@ -10145,7 +10148,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/Group/demos/list
             class="ant-radio-group ant-radio-group-outline ant-pro-field-radio-horizontal"
           >
             <label
-              class="ant-radio-wrapper"
+              class="ant-radio-wrapper ant-radio-wrapper-in-form-item"
             >
               <span
                 class="ant-radio"
@@ -10164,7 +10167,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/Group/demos/list
               </span>
             </label>
             <label
-              class="ant-radio-wrapper ant-radio-wrapper-checked"
+              class="ant-radio-wrapper ant-radio-wrapper-checked ant-radio-wrapper-in-form-item"
             >
               <span
                 class="ant-radio ant-radio-checked"
@@ -10220,7 +10223,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/Group/demos/list
             class="ant-form-item-control-input-content"
           >
             <span
-              class="ant-input-affix-wrapper pro-field pro-field-sm"
+              class="ant-input-affix-wrapper ant-input-affix-wrapper-focused pro-field pro-field-sm"
             >
               <input
                 class="ant-input"
@@ -10539,7 +10542,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/Group/demos/list
                                   class="ant-form-item-control-input-content"
                                 >
                                   <div
-                                    class="ant-input-number pro-field pro-field-sm"
+                                    class="ant-input-number ant-input-number-in-form-item pro-field pro-field-sm"
                                   >
                                     <div
                                       class="ant-input-number-handler-wrap"
@@ -10648,7 +10651,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/Group/demos/list
                                   class="ant-form-item-control-input-content"
                                 >
                                   <div
-                                    class="ant-select ant-pro-filed-search-select pro-field pro-field-xs ant-select-single ant-select-allow-clear ant-select-show-arrow"
+                                    class="ant-select ant-select-in-form-item ant-pro-filed-search-select pro-field pro-field-xs ant-select-single ant-select-allow-clear ant-select-show-arrow"
                                     style="min-width: 100px;"
                                   >
                                     <div
@@ -10869,7 +10872,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/Group/demos/list
                                       style="margin-right: 8px;"
                                     >
                                       <div
-                                        class="ant-select ant-pro-filed-search-select ant-select-single ant-select-allow-clear ant-select-show-arrow"
+                                        class="ant-select ant-select-in-form-item ant-pro-filed-search-select ant-select-single ant-select-allow-clear ant-select-show-arrow"
                                         style="min-width: 100px;"
                                       >
                                         <div
@@ -10933,7 +10936,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/Group/demos/list
                                       class="ant-space-item"
                                     >
                                       <div
-                                        class="ant-select ant-pro-filed-search-select ant-select-single ant-select-allow-clear ant-select-show-arrow"
+                                        class="ant-select ant-select-in-form-item ant-pro-filed-search-select ant-select-single ant-select-allow-clear ant-select-show-arrow"
                                         style="min-width: 100px;"
                                       >
                                         <div
@@ -11171,7 +11174,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/Group/demos/nest
             class="ant-form-item-control-input-content"
           >
             <span
-              class="ant-input-affix-wrapper"
+              class="ant-input-affix-wrapper ant-input-affix-wrapper-focused"
             >
               <input
                 class="ant-input"
@@ -13539,8 +13542,14 @@ exports[`form demos 📸 renders ./packages/form/src/components/QueryFilter/demo
                       class="ant-pro-field-select-light-select ant-pro-field-select-light-select-searchable"
                     >
                       <div
-                        class="ant-select ant-select-single ant-select-show-arrow ant-select-show-search"
+                        class="ant-select ant-select-in-form-item ant-select-focused ant-select-single ant-select-show-arrow ant-select-show-search"
                       >
+                        <span
+                          aria-live="polite"
+                          style="width: 0px; height: 0px; display: flex; overflow: hidden; opacity: 0;"
+                        >
+                          打开, 关闭
+                        </span>
                         <div
                           class="ant-select-selector"
                         >
@@ -13649,7 +13658,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/QueryFilter/demo
                       class="ant-pro-field-select-light-select"
                     >
                       <div
-                        class="ant-select ant-select-multiple ant-select-allow-clear ant-select-show-search"
+                        class="ant-select ant-select-in-form-item ant-select-multiple ant-select-allow-clear ant-select-show-search"
                       >
                         <div
                           class="ant-select-selector"
@@ -13853,8 +13862,9 @@ exports[`form demos 📸 renders ./packages/form/src/components/QueryFilter/demo
                         <span
                           aria-label="close"
                           class="anticon anticon-close ant-pro-core-field-label-icon ant-pro-core-field-label-close"
-                          role="img"
+                          role="button"
                           tabindex="-1"
+                          title="清除"
                         >
                           <svg
                             aria-hidden="true"
@@ -13918,7 +13928,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/QueryFilter/demo
                         class="ant-spin-container"
                       >
                         <div
-                          class="ant-select ant-tree-select ant-select-borderless ant-pro-field-tree-select ant-pro-core-field-label-active ant-select-multiple ant-select-show-search"
+                          class="ant-select ant-tree-select ant-select-borderless ant-select-in-form-item ant-pro-field-tree-select ant-pro-core-field-label-active ant-select-multiple ant-select-show-search"
                           style="min-width: 60px;"
                         >
                           <div
@@ -14000,7 +14010,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/QueryFilter/demo
                     class="ant-form-item-control-input-content"
                   >
                     <div
-                      class="ant-select ant-cascader ant-select-borderless pro-field pro-field-md ant-pro-field-cascader ant-pro-core-field-label-active ant-select-single ant-select-allow-clear ant-select-show-arrow"
+                      class="ant-select ant-cascader ant-select-borderless ant-select-in-form-item pro-field pro-field-md ant-pro-field-cascader ant-pro-core-field-label-active ant-select-single ant-select-allow-clear ant-select-show-arrow"
                     >
                       <div
                         class="ant-select-selector"
@@ -14166,8 +14176,9 @@ exports[`form demos 📸 renders ./packages/form/src/components/QueryFilter/demo
                         <span
                           aria-label="close"
                           class="anticon anticon-close ant-pro-core-field-label-icon ant-pro-core-field-label-close"
-                          role="img"
+                          role="button"
                           tabindex="-1"
+                          title="清除"
                         >
                           <svg
                             aria-hidden="true"
@@ -14238,8 +14249,9 @@ exports[`form demos 📸 renders ./packages/form/src/components/QueryFilter/demo
                         <span
                           aria-label="close"
                           class="anticon anticon-close ant-pro-core-field-label-icon ant-pro-core-field-label-close"
-                          role="img"
+                          role="button"
                           tabindex="-1"
+                          title="清除"
                         >
                           <svg
                             aria-hidden="true"
@@ -14310,8 +14322,9 @@ exports[`form demos 📸 renders ./packages/form/src/components/QueryFilter/demo
                         <span
                           aria-label="close"
                           class="anticon anticon-close ant-pro-core-field-label-icon ant-pro-core-field-label-close"
-                          role="img"
+                          role="button"
                           tabindex="-1"
+                          title="清除"
                         >
                           <svg
                             aria-hidden="true"
@@ -14608,8 +14621,9 @@ exports[`form demos 📸 renders ./packages/form/src/components/QueryFilter/demo
                         <span
                           aria-label="close"
                           class="anticon anticon-close ant-pro-core-field-label-icon ant-pro-core-field-label-close"
-                          role="img"
+                          role="button"
                           tabindex="-1"
+                          title="清除"
                         >
                           <svg
                             aria-hidden="true"
@@ -14771,8 +14785,9 @@ exports[`form demos 📸 renders ./packages/form/src/components/QueryFilter/demo
                         <span
                           aria-label="close"
                           class="anticon anticon-close ant-pro-core-field-label-icon ant-pro-core-field-label-close"
-                          role="img"
+                          role="button"
                           tabindex="-1"
+                          title="清除"
                         >
                           <svg
                             aria-hidden="true"
@@ -14936,8 +14951,14 @@ exports[`form demos 📸 renders ./packages/form/src/components/QueryFilter/demo
                     class="ant-pro-field-select-light-select ant-pro-field-select-light-select-searchable"
                   >
                     <div
-                      class="ant-select ant-select-single ant-select-allow-clear ant-select-show-arrow ant-select-show-search"
+                      class="ant-select ant-select-in-form-item ant-select-focused ant-select-single ant-select-allow-clear ant-select-show-arrow ant-select-show-search"
                     >
+                      <span
+                        aria-live="polite"
+                        style="width: 0px; height: 0px; display: flex; overflow: hidden; opacity: 0;"
+                      >
+                        男
+                      </span>
                       <div
                         class="ant-select-selector"
                       >
@@ -15030,8 +15051,9 @@ exports[`form demos 📸 renders ./packages/form/src/components/QueryFilter/demo
                       <span
                         aria-label="close"
                         class="anticon anticon-close ant-pro-core-field-label-icon ant-pro-core-field-label-close"
-                        role="img"
+                        role="button"
                         tabindex="-1"
+                        title="清除"
                       >
                         <svg
                           aria-hidden="true"
@@ -15093,7 +15115,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/QueryFilter/demo
                     id="radio"
                   >
                     <label
-                      class="ant-radio-button-wrapper"
+                      class="ant-radio-button-wrapper ant-radio-button-wrapper-in-form-item"
                     >
                       <span
                         class="ant-radio-button"
@@ -15112,7 +15134,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/QueryFilter/demo
                       </span>
                     </label>
                     <label
-                      class="ant-radio-button-wrapper"
+                      class="ant-radio-button-wrapper ant-radio-button-wrapper-in-form-item"
                     >
                       <span
                         class="ant-radio-button"
@@ -15131,7 +15153,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/QueryFilter/demo
                       </span>
                     </label>
                     <label
-                      class="ant-radio-button-wrapper"
+                      class="ant-radio-button-wrapper ant-radio-button-wrapper-in-form-item"
                     >
                       <span
                         class="ant-radio-button"
@@ -15150,7 +15172,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/QueryFilter/demo
                       </span>
                     </label>
                     <label
-                      class="ant-radio-button-wrapper"
+                      class="ant-radio-button-wrapper ant-radio-button-wrapper-in-form-item"
                     >
                       <span
                         class="ant-radio-button"
@@ -15415,8 +15437,9 @@ exports[`form demos 📸 renders ./packages/form/src/components/QueryFilter/demo
                             <span
                               aria-label="close"
                               class="anticon anticon-close ant-pro-core-field-label-icon ant-pro-core-field-label-close"
-                              role="img"
+                              role="button"
                               tabindex="-1"
+                              title="清除"
                             >
                               <svg
                                 aria-hidden="true"
@@ -15509,8 +15532,9 @@ exports[`form demos 📸 renders ./packages/form/src/components/QueryFilter/demo
                             <span
                               aria-label="close"
                               class="anticon anticon-close ant-pro-core-field-label-icon ant-pro-core-field-label-close"
-                              role="img"
+                              role="button"
                               tabindex="-1"
+                              title="清除"
                             >
                               <svg
                                 aria-hidden="true"
@@ -15740,8 +15764,12 @@ exports[`form demos 📸 renders ./packages/form/src/components/QueryFilter/demo
                       class="ant-pro-field-select-light-select ant-pro-field-select-light-select-searchable"
                     >
                       <div
-                        class="ant-select ant-select-single ant-select-show-arrow ant-select-show-search"
+                        class="ant-select ant-select-in-form-item ant-select-focused ant-select-single ant-select-show-arrow ant-select-show-search"
                       >
+                        <span
+                          aria-live="polite"
+                          style="width: 0px; height: 0px; display: flex; overflow: hidden; opacity: 0;"
+                        />
                         <div
                           class="ant-select-selector"
                         >
@@ -15845,7 +15873,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/QueryFilter/demo
                       class="ant-pro-field-select-light-select"
                     >
                       <div
-                        class="ant-select ant-select-multiple ant-select-allow-clear ant-select-show-search"
+                        class="ant-select ant-select-in-form-item ant-select-multiple ant-select-allow-clear ant-select-show-search"
                       >
                         <div
                           class="ant-select-selector"
@@ -16695,8 +16723,14 @@ exports[`form demos 📸 renders ./packages/form/src/components/QueryFilter/demo
                       class="ant-pro-field-select-light-select ant-pro-field-select-light-select-searchable"
                     >
                       <div
-                        class="ant-select ant-select-single ant-select-show-arrow ant-select-show-search"
+                        class="ant-select ant-select-in-form-item ant-select-focused ant-select-single ant-select-show-arrow ant-select-show-search"
                       >
+                        <span
+                          aria-live="polite"
+                          style="width: 0px; height: 0px; display: flex; overflow: hidden; opacity: 0;"
+                        >
+                          打开, 关闭
+                        </span>
                         <div
                           class="ant-select-selector"
                         >
@@ -16805,7 +16839,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/QueryFilter/demo
                       class="ant-pro-field-select-light-select"
                     >
                       <div
-                        class="ant-select ant-select-multiple ant-select-allow-clear ant-select-show-search"
+                        class="ant-select ant-select-in-form-item ant-select-multiple ant-select-allow-clear ant-select-show-search"
                       >
                         <div
                           class="ant-select-selector"
@@ -16961,8 +16995,9 @@ exports[`form demos 📸 renders ./packages/form/src/components/QueryFilter/demo
                         <span
                           aria-label="close"
                           class="anticon anticon-close ant-pro-core-field-label-icon ant-pro-core-field-label-close"
-                          role="img"
+                          role="button"
                           tabindex="-1"
+                          title="清除"
                         >
                           <svg
                             aria-hidden="true"
@@ -17033,8 +17068,9 @@ exports[`form demos 📸 renders ./packages/form/src/components/QueryFilter/demo
                         <span
                           aria-label="close"
                           class="anticon anticon-close ant-pro-core-field-label-icon ant-pro-core-field-label-close"
-                          role="img"
+                          role="button"
                           tabindex="-1"
+                          title="清除"
                         >
                           <svg
                             aria-hidden="true"
@@ -17105,8 +17141,9 @@ exports[`form demos 📸 renders ./packages/form/src/components/QueryFilter/demo
                         <span
                           aria-label="close"
                           class="anticon anticon-close ant-pro-core-field-label-icon ant-pro-core-field-label-close"
-                          role="img"
+                          role="button"
                           tabindex="-1"
+                          title="清除"
                         >
                           <svg
                             aria-hidden="true"
@@ -17200,7 +17237,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/QueryFilter/demo
                 class="ant-form-item-control-input-content"
               >
                 <span
-                  class="ant-input-affix-wrapper"
+                  class="ant-input-affix-wrapper ant-input-affix-wrapper-focused"
                   style="width: 100%;"
                 >
                   <input
@@ -17348,7 +17385,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/QueryFilter/demo
               class="ant-form-item-control-input-content"
             >
               <div
-                class="ant-select ant-pro-filed-search-select ant-select-single ant-select-allow-clear ant-select-show-arrow ant-select-show-search"
+                class="ant-select ant-select-in-form-item ant-pro-filed-search-select ant-select-single ant-select-allow-clear ant-select-show-arrow ant-select-show-search"
                 style="width: 100%;"
               >
                 <div
@@ -17813,7 +17850,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/QueryFilter/demo
                 class="ant-form-item-control-input-content"
               >
                 <span
-                  class="ant-input-affix-wrapper"
+                  class="ant-input-affix-wrapper ant-input-affix-wrapper-focused"
                   style="width: 100%;"
                 >
                   <input
@@ -20667,7 +20704,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/QueryFilter/demo
                 class="ant-form-item-control-input-content"
               >
                 <span
-                  class="ant-input-affix-wrapper"
+                  class="ant-input-affix-wrapper ant-input-affix-wrapper-focused"
                   style="width: 100%;"
                 >
                   <input
@@ -21239,7 +21276,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/QueryFilter/demo
                 class="ant-form-item-control-input-content"
               >
                 <span
-                  class="ant-input-affix-wrapper"
+                  class="ant-input-affix-wrapper ant-input-affix-wrapper-focused"
                   style="width: 100%;"
                 >
                   <input
@@ -21453,7 +21490,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/QueryFilter/demo
                 id="freq"
               >
                 <label
-                  class="ant-radio-wrapper"
+                  class="ant-radio-wrapper ant-radio-wrapper-in-form-item"
                 >
                   <span
                     class="ant-radio"
@@ -21472,7 +21509,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/QueryFilter/demo
                   </span>
                 </label>
                 <label
-                  class="ant-radio-wrapper"
+                  class="ant-radio-wrapper ant-radio-wrapper-in-form-item"
                 >
                   <span
                     class="ant-radio"
@@ -21491,7 +21528,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/QueryFilter/demo
                   </span>
                 </label>
                 <label
-                  class="ant-radio-wrapper"
+                  class="ant-radio-wrapper ant-radio-wrapper-in-form-item"
                 >
                   <span
                     class="ant-radio"
@@ -21510,7 +21547,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/QueryFilter/demo
                   </span>
                 </label>
                 <label
-                  class="ant-radio-wrapper"
+                  class="ant-radio-wrapper ant-radio-wrapper-in-form-item"
                 >
                   <span
                     class="ant-radio"
@@ -21562,7 +21599,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/QueryFilter/demo
                 style="width: 100%;"
               >
                 <label
-                  class="ant-checkbox-wrapper ant-checkbox-group-item"
+                  class="ant-checkbox-wrapper ant-checkbox-wrapper-in-form-item ant-checkbox-group-item"
                 >
                   <span
                     class="ant-checkbox"
@@ -21581,7 +21618,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/QueryFilter/demo
                   </span>
                 </label>
                 <label
-                  class="ant-checkbox-wrapper ant-checkbox-group-item"
+                  class="ant-checkbox-wrapper ant-checkbox-wrapper-in-form-item ant-checkbox-group-item"
                 >
                   <span
                     class="ant-checkbox"
@@ -21600,7 +21637,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/QueryFilter/demo
                   </span>
                 </label>
                 <label
-                  class="ant-checkbox-wrapper ant-checkbox-group-item"
+                  class="ant-checkbox-wrapper ant-checkbox-wrapper-in-form-item ant-checkbox-group-item"
                 >
                   <span
                     class="ant-checkbox"
@@ -21985,7 +22022,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/QueryFilter/demo
                           class="ant-form-item-control-input-content"
                         >
                           <span
-                            class="ant-input-affix-wrapper"
+                            class="ant-input-affix-wrapper ant-input-affix-wrapper-focused"
                             style="width: 100%;"
                           >
                             <input
@@ -22503,7 +22540,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/SchemaForm/demos
             class="ant-form-item-control-input-content"
           >
             <span
-              class="ant-input-affix-wrapper pro-field pro-field-m"
+              class="ant-input-affix-wrapper ant-input-affix-wrapper-focused pro-field pro-field-m"
             >
               <input
                 class="ant-input"
@@ -22593,7 +22630,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/SchemaForm/demos
             class="ant-form-item-control-input-content"
           >
             <div
-              class="ant-select ant-pro-filed-search-select pro-field pro-field-m ant-select-single ant-select-allow-clear ant-select-show-arrow"
+              class="ant-select ant-select-in-form-item ant-pro-filed-search-select pro-field pro-field-m ant-select-single ant-select-allow-clear ant-select-show-arrow"
               style="min-width: 100px;"
             >
               <div
@@ -22920,9 +22957,13 @@ exports[`form demos 📸 renders ./packages/form/src/components/SchemaForm/demos
             class="ant-form-item-control-input-content"
           >
             <div
-              class="ant-select ant-pro-filed-search-select pro-field pro-field-m ant-select-single ant-select-allow-clear ant-select-show-arrow"
+              class="ant-select ant-select-in-form-item ant-pro-filed-search-select pro-field pro-field-m ant-select-focused ant-select-single ant-select-allow-clear ant-select-show-arrow"
               style="min-width: 100px;"
             >
+              <span
+                aria-live="polite"
+                style="width: 0px; height: 0px; display: flex; overflow: hidden; opacity: 0;"
+              />
               <div
                 class="ant-select-selector"
               >
@@ -23052,7 +23093,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/SchemaForm/demos
             class="ant-form-item-control-input-content"
           >
             <span
-              class="ant-input-affix-wrapper pro-field pro-field-m"
+              class="ant-input-affix-wrapper ant-input-affix-wrapper-focused pro-field pro-field-m"
             >
               <input
                 class="ant-input"
@@ -23142,7 +23183,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/SchemaForm/demos
             class="ant-form-item-control-input-content"
           >
             <div
-              class="ant-select ant-pro-filed-search-select pro-field pro-field-m ant-select-single ant-select-allow-clear ant-select-show-arrow"
+              class="ant-select ant-select-in-form-item ant-pro-filed-search-select pro-field pro-field-m ant-select-single ant-select-allow-clear ant-select-show-arrow"
               style="min-width: 100px;"
             >
               <div
@@ -23524,7 +23565,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/SchemaForm/demos
             class="ant-form-item-control-input-content"
           >
             <div
-              class="ant-select ant-pro-filed-search-select ant-select-multiple ant-select-allow-clear ant-select-show-search"
+              class="ant-select ant-select-in-form-item ant-pro-filed-search-select ant-select-multiple ant-select-allow-clear ant-select-show-search"
               style="min-width: 100px;"
             >
               <div
@@ -23671,7 +23712,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/SchemaForm/demos
             class="ant-form-item-control-input-content"
           >
             <div
-              class="ant-select ant-pro-filed-search-select pro-field pro-field-m ant-select-single ant-select-allow-clear ant-select-show-arrow"
+              class="ant-select ant-select-in-form-item ant-pro-filed-search-select pro-field pro-field-m ant-select-single ant-select-allow-clear ant-select-show-arrow"
               style="min-width: 100px;"
             >
               <div
@@ -23844,7 +23885,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/SchemaForm/demos
                   class="ant-form-item-control-input-content"
                 >
                   <div
-                    class="ant-select ant-pro-filed-search-select pro-field pro-field-xs ant-select-single ant-select-allow-clear ant-select-show-arrow"
+                    class="ant-select ant-select-in-form-item ant-pro-filed-search-select pro-field pro-field-xs ant-select-single ant-select-allow-clear ant-select-show-arrow"
                     style="min-width: 100px;"
                   >
                     <div
@@ -24068,7 +24109,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/SchemaForm/demos
               class="ant-form-item-control-input-content"
             >
               <div
-                class="ant-select ant-pro-filed-search-select ant-select-single ant-select-allow-clear ant-select-show-arrow"
+                class="ant-select ant-select-in-form-item ant-pro-filed-search-select ant-select-single ant-select-allow-clear ant-select-show-arrow"
                 style="min-width: 100px;"
               >
                 <div
@@ -24202,7 +24243,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/SchemaForm/demos
                 class="ant-form-item-control-input-content"
               >
                 <span
-                  class="ant-input-affix-wrapper pro-field pro-field-md"
+                  class="ant-input-affix-wrapper ant-input-affix-wrapper-focused pro-field pro-field-md"
                   style="width: 100%;"
                 >
                   <input
@@ -24275,7 +24316,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/SchemaForm/demos
                 class="ant-form-item-control-input-content"
               >
                 <div
-                  class="ant-select ant-pro-filed-search-select pro-field pro-field-md ant-select-single ant-select-allow-clear ant-select-show-arrow"
+                  class="ant-select ant-select-in-form-item ant-pro-filed-search-select pro-field pro-field-md ant-select-single ant-select-allow-clear ant-select-show-arrow"
                   style="width: 100%;"
                 >
                   <div
@@ -24778,7 +24819,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/SchemaForm/demos
                       class="ant-form-item-control-input-content"
                     >
                       <div
-                        class="ant-select ant-pro-filed-search-select pro-field pro-field-xs ant-select-single ant-select-allow-clear ant-select-show-arrow"
+                        class="ant-select ant-select-in-form-item ant-pro-filed-search-select pro-field pro-field-xs ant-select-single ant-select-allow-clear ant-select-show-arrow"
                         style="width: 100%;"
                       >
                         <div
@@ -25001,7 +25042,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/SchemaForm/demos
                                           class="ant-form-item-control-input-content"
                                         >
                                           <div
-                                            class="ant-select ant-pro-filed-search-select pro-field pro-field-xs ant-select-single ant-select-allow-clear ant-select-show-arrow"
+                                            class="ant-select ant-select-in-form-item ant-pro-filed-search-select pro-field pro-field-xs ant-select-single ant-select-allow-clear ant-select-show-arrow"
                                             style="width: 100%;"
                                           >
                                             <div
@@ -25416,7 +25457,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/SchemaForm/demos
                             class="ant-form-item-control-input-content"
                           >
                             <div
-                              class="ant-select ant-pro-filed-search-select pro-field pro-field-md ant-select-single ant-select-allow-clear ant-select-show-arrow"
+                              class="ant-select ant-select-in-form-item ant-pro-filed-search-select pro-field pro-field-md ant-select-single ant-select-allow-clear ant-select-show-arrow"
                               style="width: 100%;"
                             >
                               <div
@@ -25958,7 +25999,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/SchemaForm/demos
                       class="ant-form-item-control-input-content"
                     >
                       <div
-                        class="ant-select ant-pro-filed-search-select pro-field pro-field-m ant-select-single ant-select-allow-clear ant-select-show-arrow"
+                        class="ant-select ant-select-in-form-item ant-pro-filed-search-select pro-field pro-field-m ant-select-single ant-select-allow-clear ant-select-show-arrow"
                         style="min-width: 100px;"
                       >
                         <div
@@ -26059,7 +26100,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/SchemaForm/demos
                       class="ant-form-item-control-input-content"
                     >
                       <span
-                        class="ant-input-affix-wrapper pro-field pro-field-m"
+                        class="ant-input-affix-wrapper ant-input-affix-wrapper-focused pro-field pro-field-m"
                       >
                         <input
                           class="ant-input"
@@ -26209,7 +26250,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/SchemaForm/demos
                             class="ant-form-item-control-input-content"
                           >
                             <div
-                              class="ant-select ant-pro-filed-search-select pro-field pro-field-xs ant-select-single ant-select-allow-clear ant-select-show-arrow"
+                              class="ant-select ant-select-in-form-item ant-pro-filed-search-select pro-field pro-field-xs ant-select-single ant-select-allow-clear ant-select-show-arrow"
                               style="min-width: 100px;"
                             >
                               <div
@@ -26430,7 +26471,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/SchemaForm/demos
                                             class="ant-form-item-control-input-content"
                                           >
                                             <div
-                                              class="ant-select ant-pro-filed-search-select pro-field pro-field-xs ant-select-single ant-select-allow-clear ant-select-show-arrow"
+                                              class="ant-select ant-select-in-form-item ant-pro-filed-search-select pro-field pro-field-xs ant-select-single ant-select-allow-clear ant-select-show-arrow"
                                               style="min-width: 100px;"
                                             >
                                               <div
@@ -26749,7 +26790,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/SchemaForm/demos
                                   class="ant-form-item-control-input-content"
                                 >
                                   <div
-                                    class="ant-select ant-pro-filed-search-select pro-field pro-field-xs ant-select-single ant-select-allow-clear ant-select-show-arrow"
+                                    class="ant-select ant-select-in-form-item ant-pro-filed-search-select pro-field pro-field-xs ant-select-single ant-select-allow-clear ant-select-show-arrow"
                                     style="min-width: 100px;"
                                   >
                                     <div
@@ -27071,7 +27112,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/SchemaForm/demos
           class="ant-form-item-control-input-content"
         >
           <div
-            class="ant-select ant-pro-filed-search-select ant-select-single ant-select-allow-clear ant-select-show-search"
+            class="ant-select ant-select-in-form-item ant-pro-filed-search-select ant-select-single ant-select-allow-clear ant-select-show-search"
             style="width: 200px;"
           >
             <div
@@ -27180,9 +27221,15 @@ exports[`form demos 📸 renders ./packages/form/src/components/SchemaForm/demos
                   class="ant-form-item-control-input-content"
                 >
                   <div
-                    class="ant-select ant-pro-filed-search-select pro-field pro-field-m ant-select-single ant-select-allow-clear ant-select-show-arrow"
+                    class="ant-select ant-select-in-form-item ant-pro-filed-search-select pro-field pro-field-m ant-select-focused ant-select-single ant-select-allow-clear ant-select-show-arrow"
                     style="min-width: 100px;"
                   >
+                    <span
+                      aria-live="polite"
+                      style="width: 0px; height: 0px; display: flex; overflow: hidden; opacity: 0;"
+                    >
+                      123456
+                    </span>
                     <div
                       class="ant-select-selector"
                     >
@@ -27469,7 +27516,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/StepsForm/demos/
                       class="ant-form-item-control-input-content"
                     >
                       <span
-                        class="ant-input-affix-wrapper ant-input-affix-wrapper-status-success"
+                        class="ant-input-affix-wrapper ant-input-affix-wrapper-focused ant-input-affix-wrapper-status-success"
                       >
                         <input
                           class="ant-input"
@@ -27536,7 +27583,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/StepsForm/demos/
                       class="ant-form-item-control-input-content"
                     >
                       <div
-                        class="ant-select ant-select-status-success ant-pro-filed-search-select ant-select-single ant-select-allow-clear ant-select-show-arrow"
+                        class="ant-select ant-select-in-form-item ant-select-status-success ant-pro-filed-search-select ant-select-single ant-select-allow-clear ant-select-show-arrow"
                         style="min-width: 100px;"
                       >
                         <div
@@ -27673,7 +27720,6 @@ exports[`form demos 📸 renders ./packages/form/src/components/StepsForm/demos/
                             autocomplete="off"
                             id="step2_syncTableInfo_timeRange"
                             placeholder="请选择"
-                            readonly=""
                             size="12"
                             value="2016-11-22"
                           />
@@ -28051,7 +28097,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/StepsForm/demos/
                           class="ant-form-item-control-input-content"
                         >
                           <span
-                            class="ant-input-affix-wrapper pro-field pro-field-md"
+                            class="ant-input-affix-wrapper ant-input-affix-wrapper-focused pro-field pro-field-md"
                           >
                             <input
                               class="ant-input"
@@ -28345,7 +28391,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/StepsForm/demos/
                             id="checkbox_checkbox"
                           >
                             <label
-                              class="ant-checkbox-wrapper ant-checkbox-group-item"
+                              class="ant-checkbox-wrapper ant-checkbox-wrapper-in-form-item ant-checkbox-group-item"
                             >
                               <span
                                 class="ant-checkbox"
@@ -28364,7 +28410,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/StepsForm/demos/
                               </span>
                             </label>
                             <label
-                              class="ant-checkbox-wrapper ant-checkbox-group-item"
+                              class="ant-checkbox-wrapper ant-checkbox-wrapper-in-form-item ant-checkbox-group-item"
                             >
                               <span
                                 class="ant-checkbox"
@@ -28383,7 +28429,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/StepsForm/demos/
                               </span>
                             </label>
                             <label
-                              class="ant-checkbox-wrapper ant-checkbox-group-item"
+                              class="ant-checkbox-wrapper ant-checkbox-wrapper-in-form-item ant-checkbox-group-item"
                             >
                               <span
                                 class="ant-checkbox"
@@ -28402,7 +28448,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/StepsForm/demos/
                               </span>
                             </label>
                             <label
-                              class="ant-checkbox-wrapper ant-checkbox-group-item"
+                              class="ant-checkbox-wrapper ant-checkbox-wrapper-in-form-item ant-checkbox-group-item"
                             >
                               <span
                                 class="ant-checkbox"
@@ -28607,7 +28653,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/StepsForm/demos/
                                   id="checkbox_checkbox"
                                 >
                                   <label
-                                    class="ant-checkbox-wrapper ant-checkbox-group-item"
+                                    class="ant-checkbox-wrapper ant-checkbox-wrapper-in-form-item ant-checkbox-group-item"
                                   >
                                     <span
                                       class="ant-checkbox"
@@ -28626,7 +28672,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/StepsForm/demos/
                                     </span>
                                   </label>
                                   <label
-                                    class="ant-checkbox-wrapper ant-checkbox-group-item"
+                                    class="ant-checkbox-wrapper ant-checkbox-wrapper-in-form-item ant-checkbox-group-item"
                                   >
                                     <span
                                       class="ant-checkbox"
@@ -28645,7 +28691,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/StepsForm/demos/
                                     </span>
                                   </label>
                                   <label
-                                    class="ant-checkbox-wrapper ant-checkbox-group-item"
+                                    class="ant-checkbox-wrapper ant-checkbox-wrapper-in-form-item ant-checkbox-group-item"
                                   >
                                     <span
                                       class="ant-checkbox"
@@ -28713,7 +28759,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/StepsForm/demos/
                             id="time_checkbox"
                           >
                             <label
-                              class="ant-checkbox-wrapper ant-checkbox-group-item"
+                              class="ant-checkbox-wrapper ant-checkbox-wrapper-in-form-item ant-checkbox-group-item"
                             >
                               <span
                                 class="ant-checkbox"
@@ -28732,7 +28778,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/StepsForm/demos/
                               </span>
                             </label>
                             <label
-                              class="ant-checkbox-wrapper ant-checkbox-group-item"
+                              class="ant-checkbox-wrapper ant-checkbox-wrapper-in-form-item ant-checkbox-group-item"
                             >
                               <span
                                 class="ant-checkbox"
@@ -28751,7 +28797,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/StepsForm/demos/
                               </span>
                             </label>
                             <label
-                              class="ant-checkbox-wrapper ant-checkbox-group-item"
+                              class="ant-checkbox-wrapper ant-checkbox-wrapper-in-form-item ant-checkbox-group-item"
                             >
                               <span
                                 class="ant-checkbox"
@@ -28798,7 +28844,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/StepsForm/demos/
                           class="ant-form-item-control-input-content"
                         >
                           <div
-                            class="ant-select ant-pro-filed-search-select ant-select-single ant-select-allow-clear ant-select-show-arrow"
+                            class="ant-select ant-select-in-form-item ant-pro-filed-search-select ant-select-single ant-select-allow-clear ant-select-show-arrow"
                             style="min-width: 100px;"
                           >
                             <div
@@ -28912,7 +28958,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/StepsForm/demos/
                           class="ant-form-item-control-input-content"
                         >
                           <div
-                            class="ant-select ant-pro-filed-search-select ant-select-single ant-select-allow-clear ant-select-show-arrow"
+                            class="ant-select ant-select-in-form-item ant-pro-filed-search-select ant-select-single ant-select-allow-clear ant-select-show-arrow"
                             style="min-width: 100px;"
                           >
                             <div
@@ -29359,7 +29405,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/StepsForm/demos/
                                 class="ant-form-item-control-input-content"
                               >
                                 <div
-                                  class="ant-select ant-pro-filed-search-select pro-field pro-field-sm ant-select-single ant-select-allow-clear ant-select-show-arrow"
+                                  class="ant-select ant-select-in-form-item ant-pro-filed-search-select pro-field pro-field-sm ant-select-single ant-select-allow-clear ant-select-show-arrow"
                                   style="min-width: 100px;"
                                 >
                                   <div
@@ -29439,7 +29485,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/StepsForm/demos/
                                 class="ant-form-item-control-input-content"
                               >
                                 <div
-                                  class="ant-select ant-pro-filed-search-select pro-field pro-field-sm ant-select-single ant-select-allow-clear ant-select-show-arrow"
+                                  class="ant-select ant-select-in-form-item ant-pro-filed-search-select pro-field pro-field-sm ant-select-single ant-select-allow-clear ant-select-show-arrow"
                                   style="min-width: 100px;"
                                 >
                                   <div
@@ -29590,7 +29636,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/StepsForm/demos/
                           class="ant-form-item-control-input-content"
                         >
                           <div
-                            class="ant-input-number pro-field pro-field-xs"
+                            class="ant-input-number ant-input-number-in-form-item pro-field pro-field-xs"
                           >
                             <div
                               class="ant-input-number-handler-wrap"
@@ -29870,7 +29916,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/StepsForm/demos/
                           class="ant-form-item-control-input-content"
                         >
                           <div
-                            class="ant-select ant-pro-filed-search-select pro-field pro-field-lg ant-select-multiple ant-select-allow-clear ant-select-show-search"
+                            class="ant-select ant-select-in-form-item ant-pro-filed-search-select pro-field pro-field-lg ant-select-multiple ant-select-allow-clear ant-select-show-search"
                             style="min-width: 100px;"
                           >
                             <div
@@ -30074,7 +30120,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/StepsForm/demos/
                             id="checkbox_checkbox"
                           >
                             <label
-                              class="ant-checkbox-wrapper ant-checkbox-group-item"
+                              class="ant-checkbox-wrapper ant-checkbox-wrapper-in-form-item ant-checkbox-group-item"
                             >
                               <span
                                 class="ant-checkbox"
@@ -30093,7 +30139,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/StepsForm/demos/
                               </span>
                             </label>
                             <label
-                              class="ant-checkbox-wrapper ant-checkbox-group-item"
+                              class="ant-checkbox-wrapper ant-checkbox-wrapper-in-form-item ant-checkbox-group-item"
                             >
                               <span
                                 class="ant-checkbox"
@@ -30112,7 +30158,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/StepsForm/demos/
                               </span>
                             </label>
                             <label
-                              class="ant-checkbox-wrapper ant-checkbox-group-item"
+                              class="ant-checkbox-wrapper ant-checkbox-wrapper-in-form-item ant-checkbox-group-item"
                             >
                               <span
                                 class="ant-checkbox"
@@ -30131,7 +30177,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/StepsForm/demos/
                               </span>
                             </label>
                             <label
-                              class="ant-checkbox-wrapper ant-checkbox-group-item"
+                              class="ant-checkbox-wrapper ant-checkbox-wrapper-in-form-item ant-checkbox-group-item"
                             >
                               <span
                                 class="ant-checkbox"
@@ -30334,7 +30380,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/StepsForm/demos/
                             id="checkbox_checkbox"
                           >
                             <label
-                              class="ant-checkbox-wrapper ant-checkbox-group-item"
+                              class="ant-checkbox-wrapper ant-checkbox-wrapper-in-form-item ant-checkbox-group-item"
                             >
                               <span
                                 class="ant-checkbox"
@@ -30353,7 +30399,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/StepsForm/demos/
                               </span>
                             </label>
                             <label
-                              class="ant-checkbox-wrapper ant-checkbox-group-item"
+                              class="ant-checkbox-wrapper ant-checkbox-wrapper-in-form-item ant-checkbox-group-item"
                             >
                               <span
                                 class="ant-checkbox"
@@ -30372,7 +30418,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/StepsForm/demos/
                               </span>
                             </label>
                             <label
-                              class="ant-checkbox-wrapper ant-checkbox-group-item"
+                              class="ant-checkbox-wrapper ant-checkbox-wrapper-in-form-item ant-checkbox-group-item"
                             >
                               <span
                                 class="ant-checkbox"
@@ -30446,7 +30492,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/StepsForm/demos/
                             id="time_checkbox"
                           >
                             <label
-                              class="ant-checkbox-wrapper ant-checkbox-group-item"
+                              class="ant-checkbox-wrapper ant-checkbox-wrapper-in-form-item ant-checkbox-group-item"
                             >
                               <span
                                 class="ant-checkbox"
@@ -30465,7 +30511,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/StepsForm/demos/
                               </span>
                             </label>
                             <label
-                              class="ant-checkbox-wrapper ant-checkbox-group-item"
+                              class="ant-checkbox-wrapper ant-checkbox-wrapper-in-form-item ant-checkbox-group-item"
                             >
                               <span
                                 class="ant-checkbox"
@@ -30484,7 +30530,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/StepsForm/demos/
                               </span>
                             </label>
                             <label
-                              class="ant-checkbox-wrapper ant-checkbox-group-item"
+                              class="ant-checkbox-wrapper ant-checkbox-wrapper-in-form-item ant-checkbox-group-item"
                             >
                               <span
                                 class="ant-checkbox"
@@ -30531,7 +30577,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/StepsForm/demos/
                           class="ant-form-item-control-input-content"
                         >
                           <div
-                            class="ant-select ant-pro-filed-search-select pro-field pro-field-md ant-select-single ant-select-allow-clear ant-select-show-arrow"
+                            class="ant-select ant-select-in-form-item ant-pro-filed-search-select pro-field pro-field-md ant-select-single ant-select-allow-clear ant-select-show-arrow"
                             style="min-width: 100px;"
                           >
                             <div
@@ -30645,7 +30691,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/StepsForm/demos/
                           class="ant-form-item-control-input-content"
                         >
                           <div
-                            class="ant-select ant-pro-filed-search-select pro-field pro-field-md ant-select-single ant-select-allow-clear ant-select-show-arrow"
+                            class="ant-select ant-select-in-form-item ant-pro-filed-search-select pro-field pro-field-md ant-select-single ant-select-allow-clear ant-select-show-arrow"
                             style="min-width: 100px;"
                           >
                             <div
@@ -30962,7 +31008,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/StepsForm/demos/
                             class="ant-form-item-control-input-content"
                           >
                             <span
-                              class="ant-input-affix-wrapper pro-field pro-field-md"
+                              class="ant-input-affix-wrapper ant-input-affix-wrapper-focused pro-field pro-field-md"
                             >
                               <input
                                 class="ant-input"
@@ -31256,7 +31302,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/StepsForm/demos/
                               id="checkbox_checkbox"
                             >
                               <label
-                                class="ant-checkbox-wrapper ant-checkbox-group-item"
+                                class="ant-checkbox-wrapper ant-checkbox-wrapper-in-form-item ant-checkbox-group-item"
                               >
                                 <span
                                   class="ant-checkbox"
@@ -31275,7 +31321,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/StepsForm/demos/
                                 </span>
                               </label>
                               <label
-                                class="ant-checkbox-wrapper ant-checkbox-group-item"
+                                class="ant-checkbox-wrapper ant-checkbox-wrapper-in-form-item ant-checkbox-group-item"
                               >
                                 <span
                                   class="ant-checkbox"
@@ -31294,7 +31340,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/StepsForm/demos/
                                 </span>
                               </label>
                               <label
-                                class="ant-checkbox-wrapper ant-checkbox-group-item"
+                                class="ant-checkbox-wrapper ant-checkbox-wrapper-in-form-item ant-checkbox-group-item"
                               >
                                 <span
                                   class="ant-checkbox"
@@ -31313,7 +31359,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/StepsForm/demos/
                                 </span>
                               </label>
                               <label
-                                class="ant-checkbox-wrapper ant-checkbox-group-item"
+                                class="ant-checkbox-wrapper ant-checkbox-wrapper-in-form-item ant-checkbox-group-item"
                               >
                                 <span
                                   class="ant-checkbox"
@@ -31332,7 +31378,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/StepsForm/demos/
                                 </span>
                               </label>
                               <label
-                                class="ant-checkbox-wrapper ant-checkbox-group-item"
+                                class="ant-checkbox-wrapper ant-checkbox-wrapper-in-form-item ant-checkbox-group-item"
                               >
                                 <span
                                   class="ant-checkbox"
@@ -31351,7 +31397,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/StepsForm/demos/
                                 </span>
                               </label>
                               <label
-                                class="ant-checkbox-wrapper ant-checkbox-group-item"
+                                class="ant-checkbox-wrapper ant-checkbox-wrapper-in-form-item ant-checkbox-group-item"
                               >
                                 <span
                                   class="ant-checkbox"
@@ -31370,7 +31416,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/StepsForm/demos/
                                 </span>
                               </label>
                               <label
-                                class="ant-checkbox-wrapper ant-checkbox-group-item"
+                                class="ant-checkbox-wrapper ant-checkbox-wrapper-in-form-item ant-checkbox-group-item"
                               >
                                 <span
                                   class="ant-checkbox"
@@ -31575,7 +31621,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/StepsForm/demos/
                                     id="checkbox_checkbox"
                                   >
                                     <label
-                                      class="ant-checkbox-wrapper ant-checkbox-group-item"
+                                      class="ant-checkbox-wrapper ant-checkbox-wrapper-in-form-item ant-checkbox-group-item"
                                     >
                                       <span
                                         class="ant-checkbox"
@@ -31594,7 +31640,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/StepsForm/demos/
                                       </span>
                                     </label>
                                     <label
-                                      class="ant-checkbox-wrapper ant-checkbox-group-item"
+                                      class="ant-checkbox-wrapper ant-checkbox-wrapper-in-form-item ant-checkbox-group-item"
                                     >
                                       <span
                                         class="ant-checkbox"
@@ -31613,7 +31659,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/StepsForm/demos/
                                       </span>
                                     </label>
                                     <label
-                                      class="ant-checkbox-wrapper ant-checkbox-group-item"
+                                      class="ant-checkbox-wrapper ant-checkbox-wrapper-in-form-item ant-checkbox-group-item"
                                     >
                                       <span
                                         class="ant-checkbox"
@@ -31681,7 +31727,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/StepsForm/demos/
                               id="step3_checkbox"
                             >
                               <label
-                                class="ant-checkbox-wrapper ant-checkbox-group-item"
+                                class="ant-checkbox-wrapper ant-checkbox-wrapper-in-form-item ant-checkbox-group-item"
                               >
                                 <span
                                   class="ant-checkbox"
@@ -31700,7 +31746,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/StepsForm/demos/
                                 </span>
                               </label>
                               <label
-                                class="ant-checkbox-wrapper ant-checkbox-group-item"
+                                class="ant-checkbox-wrapper ant-checkbox-wrapper-in-form-item ant-checkbox-group-item"
                               >
                                 <span
                                   class="ant-checkbox"
@@ -31719,7 +31765,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/StepsForm/demos/
                                 </span>
                               </label>
                               <label
-                                class="ant-checkbox-wrapper ant-checkbox-group-item"
+                                class="ant-checkbox-wrapper ant-checkbox-wrapper-in-form-item ant-checkbox-group-item"
                               >
                                 <span
                                   class="ant-checkbox"
@@ -31738,7 +31784,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/StepsForm/demos/
                                 </span>
                               </label>
                               <label
-                                class="ant-checkbox-wrapper ant-checkbox-group-item"
+                                class="ant-checkbox-wrapper ant-checkbox-wrapper-in-form-item ant-checkbox-group-item"
                               >
                                 <span
                                   class="ant-checkbox"
@@ -31941,7 +31987,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/StepsForm/demos/
                               id="step3_checkbox"
                             >
                               <label
-                                class="ant-checkbox-wrapper ant-checkbox-group-item"
+                                class="ant-checkbox-wrapper ant-checkbox-wrapper-in-form-item ant-checkbox-group-item"
                               >
                                 <span
                                   class="ant-checkbox"
@@ -31960,7 +32006,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/StepsForm/demos/
                                 </span>
                               </label>
                               <label
-                                class="ant-checkbox-wrapper ant-checkbox-group-item"
+                                class="ant-checkbox-wrapper ant-checkbox-wrapper-in-form-item ant-checkbox-group-item"
                               >
                                 <span
                                   class="ant-checkbox"
@@ -31979,7 +32025,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/StepsForm/demos/
                                 </span>
                               </label>
                               <label
-                                class="ant-checkbox-wrapper ant-checkbox-group-item"
+                                class="ant-checkbox-wrapper ant-checkbox-wrapper-in-form-item ant-checkbox-group-item"
                               >
                                 <span
                                   class="ant-checkbox"
@@ -32232,7 +32278,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/StepsForm/demos/
                           class="ant-form-item-control-input-content"
                         >
                           <span
-                            class="ant-input-affix-wrapper pro-field pro-field-md"
+                            class="ant-input-affix-wrapper ant-input-affix-wrapper-focused pro-field pro-field-md"
                           >
                             <input
                               class="ant-input"
@@ -32526,7 +32572,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/StepsForm/demos/
                             id="checkbox_checkbox"
                           >
                             <label
-                              class="ant-checkbox-wrapper ant-checkbox-group-item"
+                              class="ant-checkbox-wrapper ant-checkbox-wrapper-in-form-item ant-checkbox-group-item"
                             >
                               <span
                                 class="ant-checkbox"
@@ -32545,7 +32591,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/StepsForm/demos/
                               </span>
                             </label>
                             <label
-                              class="ant-checkbox-wrapper ant-checkbox-group-item"
+                              class="ant-checkbox-wrapper ant-checkbox-wrapper-in-form-item ant-checkbox-group-item"
                             >
                               <span
                                 class="ant-checkbox"
@@ -32564,7 +32610,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/StepsForm/demos/
                               </span>
                             </label>
                             <label
-                              class="ant-checkbox-wrapper ant-checkbox-group-item"
+                              class="ant-checkbox-wrapper ant-checkbox-wrapper-in-form-item ant-checkbox-group-item"
                             >
                               <span
                                 class="ant-checkbox"
@@ -32583,7 +32629,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/StepsForm/demos/
                               </span>
                             </label>
                             <label
-                              class="ant-checkbox-wrapper ant-checkbox-group-item"
+                              class="ant-checkbox-wrapper ant-checkbox-wrapper-in-form-item ant-checkbox-group-item"
                             >
                               <span
                                 class="ant-checkbox"
@@ -32788,7 +32834,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/StepsForm/demos/
                                   id="checkbox_checkbox"
                                 >
                                   <label
-                                    class="ant-checkbox-wrapper ant-checkbox-group-item"
+                                    class="ant-checkbox-wrapper ant-checkbox-wrapper-in-form-item ant-checkbox-group-item"
                                   >
                                     <span
                                       class="ant-checkbox"
@@ -32807,7 +32853,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/StepsForm/demos/
                                     </span>
                                   </label>
                                   <label
-                                    class="ant-checkbox-wrapper ant-checkbox-group-item"
+                                    class="ant-checkbox-wrapper ant-checkbox-wrapper-in-form-item ant-checkbox-group-item"
                                   >
                                     <span
                                       class="ant-checkbox"
@@ -32826,7 +32872,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/StepsForm/demos/
                                     </span>
                                   </label>
                                   <label
-                                    class="ant-checkbox-wrapper ant-checkbox-group-item"
+                                    class="ant-checkbox-wrapper ant-checkbox-wrapper-in-form-item ant-checkbox-group-item"
                                   >
                                     <span
                                       class="ant-checkbox"
@@ -32894,7 +32940,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/StepsForm/demos/
                             id="time_checkbox"
                           >
                             <label
-                              class="ant-checkbox-wrapper ant-checkbox-group-item"
+                              class="ant-checkbox-wrapper ant-checkbox-wrapper-in-form-item ant-checkbox-group-item"
                             >
                               <span
                                 class="ant-checkbox"
@@ -32913,7 +32959,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/StepsForm/demos/
                               </span>
                             </label>
                             <label
-                              class="ant-checkbox-wrapper ant-checkbox-group-item"
+                              class="ant-checkbox-wrapper ant-checkbox-wrapper-in-form-item ant-checkbox-group-item"
                             >
                               <span
                                 class="ant-checkbox"
@@ -32932,7 +32978,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/StepsForm/demos/
                               </span>
                             </label>
                             <label
-                              class="ant-checkbox-wrapper ant-checkbox-group-item"
+                              class="ant-checkbox-wrapper ant-checkbox-wrapper-in-form-item ant-checkbox-group-item"
                             >
                               <span
                                 class="ant-checkbox"
@@ -32979,7 +33025,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/StepsForm/demos/
                           class="ant-form-item-control-input-content"
                         >
                           <div
-                            class="ant-select ant-pro-filed-search-select ant-select-single ant-select-allow-clear ant-select-show-arrow"
+                            class="ant-select ant-select-in-form-item ant-pro-filed-search-select ant-select-single ant-select-allow-clear ant-select-show-arrow"
                             style="min-width: 100px;"
                           >
                             <div
@@ -33093,7 +33139,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/StepsForm/demos/
                           class="ant-form-item-control-input-content"
                         >
                           <div
-                            class="ant-select ant-pro-filed-search-select ant-select-single ant-select-allow-clear ant-select-show-arrow"
+                            class="ant-select ant-select-in-form-item ant-pro-filed-search-select ant-select-single ant-select-allow-clear ant-select-show-arrow"
                             style="min-width: 100px;"
                           >
                             <div
@@ -33291,7 +33337,7 @@ exports[`form demos 📸 renders ./packages/form/src/demos/base.tsx correctly 1`
                       class="ant-form-item-control-input-content"
                     >
                       <span
-                        class="ant-input-affix-wrapper pro-field pro-field-md"
+                        class="ant-input-affix-wrapper ant-input-affix-wrapper-focused pro-field pro-field-md"
                       >
                         <input
                           class="ant-input"
@@ -33451,7 +33497,7 @@ exports[`form demos 📸 renders ./packages/form/src/demos/base.tsx correctly 1`
                   class="ant-form-item-control-input-content"
                 >
                   <div
-                    class="ant-input-number pro-field pro-field-lg"
+                    class="ant-input-number ant-input-number-in-form-item pro-field pro-field-lg"
                   >
                     <div
                       class="ant-input-number-handler-wrap"
@@ -33795,7 +33841,7 @@ exports[`form demos 📸 renders ./packages/form/src/demos/base.tsx correctly 1`
                   class="ant-form-item-control-input-content"
                 >
                   <div
-                    class="ant-select ant-pro-filed-search-select pro-field pro-field-xs ant-select-single ant-select-allow-clear ant-select-show-arrow"
+                    class="ant-select ant-select-in-form-item ant-pro-filed-search-select pro-field pro-field-xs ant-select-single ant-select-allow-clear ant-select-show-arrow"
                     style="min-width: 100px;"
                   >
                     <div
@@ -33886,7 +33932,7 @@ exports[`form demos 📸 renders ./packages/form/src/demos/base.tsx correctly 1`
                   class="ant-form-item-control-input-content"
                 >
                   <div
-                    class="ant-input-number pro-field pro-field-md"
+                    class="ant-input-number ant-input-number-in-form-item pro-field pro-field-md"
                   >
                     <div
                       class="ant-input-number-handler-wrap"
@@ -34178,7 +34224,7 @@ exports[`form demos 📸 renders ./packages/form/src/demos/base.tsx correctly 1`
       >
         <label
           class=""
-          for="area"
+          for="areaList"
           title="区域"
         >
           区域
@@ -34194,7 +34240,7 @@ exports[`form demos 📸 renders ./packages/form/src/demos/base.tsx correctly 1`
             class="ant-form-item-control-input-content"
           >
             <div
-              class="ant-select ant-cascader pro-field pro-field-md ant-pro-field-cascader ant-select-single ant-select-allow-clear ant-select-show-arrow"
+              class="ant-select ant-cascader ant-select-in-form-item pro-field pro-field-md ant-pro-field-cascader ant-select-single ant-select-allow-clear ant-select-show-arrow"
             >
               <div
                 class="ant-select-selector"
@@ -34204,12 +34250,12 @@ exports[`form demos 📸 renders ./packages/form/src/demos/base.tsx correctly 1`
                 >
                   <input
                     aria-autocomplete="list"
-                    aria-controls="area_list"
+                    aria-controls="areaList_list"
                     aria-haspopup="listbox"
-                    aria-owns="area_list"
+                    aria-owns="areaList_list"
                     autocomplete="off"
                     class="ant-select-selection-search-input"
-                    id="area"
+                    id="areaList"
                     readonly=""
                     role="combobox"
                     style="opacity: 0;"
@@ -34220,9 +34266,9 @@ exports[`form demos 📸 renders ./packages/form/src/demos/base.tsx correctly 1`
                 </span>
                 <span
                   class="ant-select-selection-item"
-                  title="Zhejiang / Hangzhou / West Lake"
+                  title="浙江 / 杭州 / 西湖"
                 >
-                  Zhejiang / Hangzhou / West Lake
+                  浙江 / 杭州 / 西湖
                 </span>
               </div>
               <span
@@ -34311,7 +34357,7 @@ exports[`form demos 📸 renders ./packages/form/src/demos/base.tsx correctly 1`
                 class="ant-spin-container"
               >
                 <div
-                  class="ant-select ant-tree-select ant-pro-field-tree-select ant-select-multiple ant-select-show-search"
+                  class="ant-select ant-tree-select ant-select-in-form-item ant-pro-field-tree-select ant-select-multiple ant-select-show-search"
                   style="min-width: 60px;"
                 >
                   <div
@@ -34506,7 +34552,7 @@ exports[`form demos 📸 renders ./packages/form/src/demos/components-test.tsx c
             class="ant-form-item-control-input-content"
           >
             <label
-              class="ant-radio-wrapper"
+              class="ant-radio-wrapper ant-radio-wrapper-in-form-item"
             >
               <span
                 class="ant-radio"
@@ -34539,7 +34585,7 @@ exports[`form demos 📸 renders ./packages/form/src/demos/components-test.tsx c
             class="ant-form-item-control-input-content"
           >
             <label
-              class="ant-checkbox-wrapper"
+              class="ant-checkbox-wrapper ant-checkbox-wrapper-in-form-item"
             >
               <span
                 class="ant-checkbox"
@@ -34923,7 +34969,7 @@ exports[`form demos 📸 renders ./packages/form/src/demos/config-provider.tsx c
                       class="ant-form-item-control-input-content"
                     >
                       <span
-                        class="ant-input-affix-wrapper"
+                        class="ant-input-affix-wrapper ant-input-affix-wrapper-focused"
                       >
                         <input
                           class="ant-input"
@@ -35092,7 +35138,7 @@ exports[`form demos 📸 renders ./packages/form/src/demos/config-provider.tsx c
             class="ant-form-item-control-input-content"
           >
             <label
-              class="ant-radio-wrapper"
+              class="ant-radio-wrapper ant-radio-wrapper-in-form-item"
             >
               <span
                 class="ant-radio"
@@ -35125,7 +35171,7 @@ exports[`form demos 📸 renders ./packages/form/src/demos/config-provider.tsx c
             class="ant-form-item-control-input-content"
           >
             <label
-              class="ant-checkbox-wrapper"
+              class="ant-checkbox-wrapper ant-checkbox-wrapper-in-form-item"
             >
               <span
                 class="ant-checkbox"
@@ -35504,7 +35550,7 @@ exports[`form demos 📸 renders ./packages/form/src/demos/dependency.tsx correc
             class="ant-form-item-control-input-content"
           >
             <span
-              class="ant-input-affix-wrapper pro-field pro-field-md"
+              class="ant-input-affix-wrapper ant-input-affix-wrapper-focused pro-field pro-field-md"
             >
               <input
                 class="ant-input"
@@ -35661,7 +35707,7 @@ exports[`form demos 📸 renders ./packages/form/src/demos/dependency.tsx correc
             class="ant-form-item-control-input-content"
           >
             <div
-              class="ant-select ant-pro-filed-search-select pro-field pro-field-md ant-select-single ant-select-allow-clear ant-select-show-arrow"
+              class="ant-select ant-select-in-form-item ant-pro-filed-search-select pro-field pro-field-md ant-select-single ant-select-allow-clear ant-select-show-arrow"
               style="min-width: 100px;"
             >
               <div
@@ -35775,7 +35821,7 @@ exports[`form demos 📸 renders ./packages/form/src/demos/dependency.tsx correc
             class="ant-form-item-control-input-content"
           >
             <div
-              class="ant-select ant-pro-filed-search-select pro-field pro-field-md ant-select-single ant-select-allow-clear ant-select-show-arrow"
+              class="ant-select ant-select-in-form-item ant-pro-filed-search-select pro-field pro-field-md ant-select-single ant-select-allow-clear ant-select-show-arrow"
               style="min-width: 100px;"
             >
               <div
@@ -35936,7 +35982,7 @@ exports[`form demos 📸 renders ./packages/form/src/demos/form-layout.tsx corre
               class="ant-radio-group ant-radio-group-outline ant-pro-field-radio-horizontal"
             >
               <label
-                class="ant-radio-button-wrapper ant-radio-button-wrapper-checked"
+                class="ant-radio-button-wrapper ant-radio-button-wrapper-checked ant-radio-button-wrapper-in-form-item"
               >
                 <span
                   class="ant-radio-button ant-radio-button-checked"
@@ -35956,7 +36002,7 @@ exports[`form demos 📸 renders ./packages/form/src/demos/form-layout.tsx corre
                 </span>
               </label>
               <label
-                class="ant-radio-button-wrapper"
+                class="ant-radio-button-wrapper ant-radio-button-wrapper-in-form-item"
               >
                 <span
                   class="ant-radio-button"
@@ -35975,7 +36021,7 @@ exports[`form demos 📸 renders ./packages/form/src/demos/form-layout.tsx corre
                 </span>
               </label>
               <label
-                class="ant-radio-button-wrapper"
+                class="ant-radio-button-wrapper ant-radio-button-wrapper-in-form-item"
               >
                 <span
                   class="ant-radio-button"
@@ -36307,7 +36353,7 @@ exports[`form demos 📸 renders ./packages/form/src/demos/form-layout-grid.tsx 
                   class="ant-radio-group ant-radio-group-outline ant-pro-field-radio-horizontal"
                 >
                   <label
-                    class="ant-radio-button-wrapper ant-radio-button-wrapper-checked"
+                    class="ant-radio-button-wrapper ant-radio-button-wrapper-checked ant-radio-button-wrapper-in-form-item"
                   >
                     <span
                       class="ant-radio-button ant-radio-button-checked"
@@ -36327,7 +36373,7 @@ exports[`form demos 📸 renders ./packages/form/src/demos/form-layout-grid.tsx 
                     </span>
                   </label>
                   <label
-                    class="ant-radio-button-wrapper"
+                    class="ant-radio-button-wrapper ant-radio-button-wrapper-in-form-item"
                   >
                     <span
                       class="ant-radio-button"
@@ -36346,7 +36392,7 @@ exports[`form demos 📸 renders ./packages/form/src/demos/form-layout-grid.tsx 
                     </span>
                   </label>
                   <label
-                    class="ant-radio-button-wrapper"
+                    class="ant-radio-button-wrapper ant-radio-button-wrapper-in-form-item"
                   >
                     <span
                       class="ant-radio-button"
@@ -36613,7 +36659,7 @@ exports[`form demos 📸 renders ./packages/form/src/demos/form-layout-grid.tsx 
                 class="ant-form-item-control-input-content"
               >
                 <div
-                  class="ant-input-number"
+                  class="ant-input-number ant-input-number-in-form-item"
                   style="width: 100%;"
                 >
                   <div
@@ -37022,7 +37068,7 @@ exports[`form demos 📸 renders ./packages/form/src/demos/form-layout-grid.tsx 
                 class="ant-form-item-control-input-content"
               >
                 <div
-                  class="ant-select ant-pro-filed-search-select ant-select-single ant-select-allow-clear ant-select-show-arrow"
+                  class="ant-select ant-select-in-form-item ant-pro-filed-search-select ant-select-single ant-select-allow-clear ant-select-show-arrow"
                   style="width: 100%;"
                 >
                   <div
@@ -37186,7 +37232,7 @@ exports[`form demos 📸 renders ./packages/form/src/demos/formRef.tsx correctly
             class="ant-form-item-control-input-content"
           >
             <span
-              class="ant-input-affix-wrapper pro-field pro-field-md"
+              class="ant-input-affix-wrapper ant-input-affix-wrapper-focused pro-field pro-field-md"
             >
               <input
                 class="ant-input"
@@ -37498,7 +37544,7 @@ exports[`form demos 📸 renders ./packages/form/src/demos/label-col.tsx correct
             class="ant-form-item-control-input-content"
           >
             <span
-              class="ant-input-affix-wrapper"
+              class="ant-input-affix-wrapper ant-input-affix-wrapper-focused"
             >
               <input
                 class="ant-input"
@@ -37619,7 +37665,7 @@ exports[`form demos 📸 renders ./packages/form/src/demos/label-col.tsx correct
             class="ant-form-item-control-input-content"
           >
             <label
-              class="ant-checkbox-wrapper ant-checkbox-wrapper-checked"
+              class="ant-checkbox-wrapper ant-checkbox-wrapper-checked ant-checkbox-wrapper-in-form-item"
             >
               <span
                 class="ant-checkbox ant-checkbox-checked"
@@ -37656,7 +37702,7 @@ exports[`form demos 📸 renders ./packages/form/src/demos/label-col.tsx correct
             class="ant-form-item-control-input-content"
           >
             <label
-              class="ant-radio-wrapper ant-radio-wrapper-checked"
+              class="ant-radio-wrapper ant-radio-wrapper-checked ant-radio-wrapper-in-form-item"
             >
               <span
                 class="ant-radio ant-radio-checked"
@@ -37742,9 +37788,13 @@ exports[`form demos 📸 renders ./packages/form/src/demos/labelInValue.tsx corr
             class="ant-form-item-control-input-content"
           >
             <div
-              class="ant-select ant-pro-filed-search-select pro-field pro-field-sm ant-select-single ant-select-allow-clear ant-select-show-arrow"
+              class="ant-select ant-select-in-form-item ant-pro-filed-search-select pro-field pro-field-sm ant-select-focused ant-select-single ant-select-allow-clear ant-select-show-arrow"
               style="min-width: 100px;"
             >
+              <span
+                aria-live="polite"
+                style="width: 0px; height: 0px; display: flex; overflow: hidden; opacity: 0;"
+              />
               <div
                 class="ant-select-selector"
               >
@@ -38112,42 +38162,44 @@ exports[`form demos 📸 renders ./packages/form/src/demos/layout-base.tsx corre
               <div
                 class="ant-page-header has-breadcrumb ant-page-header-ghost"
               >
-                <div
+                <nav
                   class="ant-breadcrumb"
                 >
-                  <span>
-                    <span
-                      class="ant-breadcrumb-link"
-                    >
-                      <a
-                        href="/one"
+                  <ol>
+                    <li>
+                      <span
+                        class="ant-breadcrumb-link"
                       >
-                        一级名称
-                      </a>
-                    </span>
-                    <span
-                      class="ant-breadcrumb-separator"
-                    >
-                      /
-                    </span>
-                  </span>
-                  <span>
-                    <span
-                      class="ant-breadcrumb-link"
-                    >
-                      <a
-                        href="/one/two"
+                        <a
+                          href="/one"
+                        >
+                          一级名称
+                        </a>
+                      </span>
+                      <span
+                        class="ant-breadcrumb-separator"
                       >
-                        二级名称
-                      </a>
-                    </span>
-                    <span
-                      class="ant-breadcrumb-separator"
-                    >
-                      /
-                    </span>
-                  </span>
-                </div>
+                        /
+                      </span>
+                    </li>
+                    <li>
+                      <span
+                        class="ant-breadcrumb-link"
+                      >
+                        <a
+                          href="/one/two"
+                        >
+                          二级名称
+                        </a>
+                      </span>
+                      <span
+                        class="ant-breadcrumb-separator"
+                      >
+                        /
+                      </span>
+                    </li>
+                  </ol>
+                </nav>
                 <div
                   class="ant-page-header-heading"
                 >
@@ -38245,7 +38297,7 @@ exports[`form demos 📸 renders ./packages/form/src/demos/layout-base.tsx corre
                                       class="ant-form-item-control-input-content"
                                     >
                                       <span
-                                        class="ant-input-affix-wrapper"
+                                        class="ant-input-affix-wrapper ant-input-affix-wrapper-focused"
                                       >
                                         <input
                                           class="ant-input"
@@ -38591,7 +38643,7 @@ exports[`form demos 📸 renders ./packages/form/src/demos/layout-base.tsx corre
                                       class="ant-form-item-control-input-content"
                                     >
                                       <div
-                                        class="ant-select ant-pro-filed-search-select pro-field pro-field-xs ant-select-single ant-select-allow-clear ant-select-show-arrow"
+                                        class="ant-select ant-select-in-form-item ant-pro-filed-search-select pro-field pro-field-xs ant-select-single ant-select-allow-clear ant-select-show-arrow"
                                         style="min-width: 100px;"
                                       >
                                         <div
@@ -38682,7 +38734,7 @@ exports[`form demos 📸 renders ./packages/form/src/demos/layout-base.tsx corre
                                       class="ant-form-item-control-input-content"
                                     >
                                       <div
-                                        class="ant-select ant-pro-filed-search-select pro-field pro-field-xs ant-select-single ant-select-allow-clear ant-select-show-arrow"
+                                        class="ant-select ant-select-in-form-item ant-pro-filed-search-select pro-field pro-field-xs ant-select-single ant-select-allow-clear ant-select-show-arrow"
                                         style="min-width: 100px;"
                                       >
                                         <div
@@ -38986,7 +39038,7 @@ exports[`form demos 📸 renders ./packages/form/src/demos/layout-base.tsx corre
                                       class="ant-form-item-control-input-content"
                                     >
                                       <div
-                                        class="ant-select ant-pro-filed-search-select pro-field pro-field-xs ant-select-single ant-select-allow-clear ant-select-show-arrow"
+                                        class="ant-select ant-select-in-form-item ant-pro-filed-search-select pro-field pro-field-xs ant-select-single ant-select-allow-clear ant-select-show-arrow"
                                         style="min-width: 100px;"
                                       >
                                         <div
@@ -39105,7 +39157,7 @@ exports[`form demos 📸 renders ./packages/form/src/demos/layout-base.tsx corre
                                       class="ant-form-item-control-input-content"
                                     >
                                       <div
-                                        class="ant-select ant-pro-filed-search-select pro-field pro-field-xs ant-select-single ant-select-allow-clear ant-select-show-arrow"
+                                        class="ant-select ant-select-in-form-item ant-pro-filed-search-select pro-field pro-field-xs ant-select-single ant-select-allow-clear ant-select-show-arrow"
                                         style="min-width: 100px;"
                                       >
                                         <div
@@ -39227,7 +39279,7 @@ exports[`form demos 📸 renders ./packages/form/src/demos/layout-base.tsx corre
                                         id="invoiceType"
                                       >
                                         <label
-                                          class="ant-radio-wrapper ant-radio-wrapper-checked"
+                                          class="ant-radio-wrapper ant-radio-wrapper-checked ant-radio-wrapper-in-form-item"
                                         >
                                           <span
                                             class="ant-radio ant-radio-checked"
@@ -39247,7 +39299,7 @@ exports[`form demos 📸 renders ./packages/form/src/demos/layout-base.tsx corre
                                           </span>
                                         </label>
                                         <label
-                                          class="ant-radio-wrapper"
+                                          class="ant-radio-wrapper ant-radio-wrapper-in-form-item"
                                         >
                                           <span
                                             class="ant-radio"
@@ -39266,7 +39318,7 @@ exports[`form demos 📸 renders ./packages/form/src/demos/layout-base.tsx corre
                                           </span>
                                         </label>
                                         <label
-                                          class="ant-radio-wrapper"
+                                          class="ant-radio-wrapper ant-radio-wrapper-in-form-item"
                                         >
                                           <span
                                             class="ant-radio"
@@ -39398,7 +39450,7 @@ exports[`form demos 📸 renders ./packages/form/src/demos/layout-base.tsx corre
                                 class="ant-form-item-control-input-content"
                               >
                                 <div
-                                  class="ant-input-number pro-field pro-field-xs"
+                                  class="ant-input-number ant-input-number-in-form-item pro-field pro-field-xs"
                                 >
                                   <div
                                     class="ant-input-number-handler-wrap"
@@ -39574,7 +39626,7 @@ exports[`form demos 📸 renders ./packages/form/src/demos/layout-change.tsx cor
             class="ant-radio-group ant-radio-group-outline ant-pro-field-radio-horizontal"
           >
             <label
-              class="ant-radio-button-wrapper"
+              class="ant-radio-button-wrapper ant-radio-button-wrapper-in-form-item"
             >
               <span
                 class="ant-radio-button"
@@ -39593,7 +39645,7 @@ exports[`form demos 📸 renders ./packages/form/src/demos/layout-change.tsx cor
               </span>
             </label>
             <label
-              class="ant-radio-button-wrapper ant-radio-button-wrapper-checked"
+              class="ant-radio-button-wrapper ant-radio-button-wrapper-checked ant-radio-button-wrapper-in-form-item"
             >
               <span
                 class="ant-radio-button ant-radio-button-checked"
@@ -39613,7 +39665,7 @@ exports[`form demos 📸 renders ./packages/form/src/demos/layout-change.tsx cor
               </span>
             </label>
             <label
-              class="ant-radio-button-wrapper"
+              class="ant-radio-button-wrapper ant-radio-button-wrapper-in-form-item"
             >
               <span
                 class="ant-radio-button"
@@ -39632,7 +39684,7 @@ exports[`form demos 📸 renders ./packages/form/src/demos/layout-change.tsx cor
               </span>
             </label>
             <label
-              class="ant-radio-button-wrapper"
+              class="ant-radio-button-wrapper ant-radio-button-wrapper-in-form-item"
             >
               <span
                 class="ant-radio-button"
@@ -39651,7 +39703,7 @@ exports[`form demos 📸 renders ./packages/form/src/demos/layout-change.tsx cor
               </span>
             </label>
             <label
-              class="ant-radio-button-wrapper"
+              class="ant-radio-button-wrapper ant-radio-button-wrapper-in-form-item"
             >
               <span
                 class="ant-radio-button"
@@ -39670,7 +39722,7 @@ exports[`form demos 📸 renders ./packages/form/src/demos/layout-change.tsx cor
               </span>
             </label>
             <label
-              class="ant-radio-button-wrapper"
+              class="ant-radio-button-wrapper ant-radio-button-wrapper-in-form-item"
             >
               <span
                 class="ant-radio-button"
@@ -39689,7 +39741,7 @@ exports[`form demos 📸 renders ./packages/form/src/demos/layout-change.tsx cor
               </span>
             </label>
             <label
-              class="ant-radio-button-wrapper"
+              class="ant-radio-button-wrapper ant-radio-button-wrapper-in-form-item"
             >
               <span
                 class="ant-radio-button"
@@ -39783,7 +39835,7 @@ exports[`form demos 📸 renders ./packages/form/src/demos/layout-change.tsx cor
                     class="ant-form-item-control-input-content"
                   >
                     <span
-                      class="ant-input-affix-wrapper pro-field pro-field-md"
+                      class="ant-input-affix-wrapper ant-input-affix-wrapper-focused pro-field pro-field-md"
                     >
                       <input
                         class="ant-input"
@@ -40161,7 +40213,7 @@ exports[`form demos 📸 renders ./packages/form/src/demos/layout-change.tsx cor
                     class="ant-form-item-control-input-content"
                   >
                     <div
-                      class="ant-select ant-pro-filed-search-select pro-field pro-field-xs ant-select-single ant-select-allow-clear ant-select-show-arrow"
+                      class="ant-select ant-select-in-form-item ant-pro-filed-search-select pro-field pro-field-xs ant-select-single ant-select-allow-clear ant-select-show-arrow"
                       style="min-width: 100px;"
                     >
                       <div
@@ -40653,7 +40705,7 @@ exports[`form demos 📸 renders ./packages/form/src/demos/linkage-customization
                           class="ant-form-item-control-input-content"
                         >
                           <span
-                            class="ant-input-affix-wrapper pro-field pro-field-md"
+                            class="ant-input-affix-wrapper ant-input-affix-wrapper-focused pro-field pro-field-md"
                           >
                             <input
                               class="ant-input"
@@ -40947,7 +40999,7 @@ exports[`form demos 📸 renders ./packages/form/src/demos/linkage-customization
                             id="checkbox_checkbox"
                           >
                             <label
-                              class="ant-checkbox-wrapper ant-checkbox-group-item"
+                              class="ant-checkbox-wrapper ant-checkbox-wrapper-in-form-item ant-checkbox-group-item"
                             >
                               <span
                                 class="ant-checkbox"
@@ -40966,7 +41018,7 @@ exports[`form demos 📸 renders ./packages/form/src/demos/linkage-customization
                               </span>
                             </label>
                             <label
-                              class="ant-checkbox-wrapper ant-checkbox-group-item"
+                              class="ant-checkbox-wrapper ant-checkbox-wrapper-in-form-item ant-checkbox-group-item"
                             >
                               <span
                                 class="ant-checkbox"
@@ -40985,7 +41037,7 @@ exports[`form demos 📸 renders ./packages/form/src/demos/linkage-customization
                               </span>
                             </label>
                             <label
-                              class="ant-checkbox-wrapper ant-checkbox-group-item"
+                              class="ant-checkbox-wrapper ant-checkbox-wrapper-in-form-item ant-checkbox-group-item"
                             >
                               <span
                                 class="ant-checkbox"
@@ -41004,7 +41056,7 @@ exports[`form demos 📸 renders ./packages/form/src/demos/linkage-customization
                               </span>
                             </label>
                             <label
-                              class="ant-checkbox-wrapper ant-checkbox-group-item"
+                              class="ant-checkbox-wrapper ant-checkbox-wrapper-in-form-item ant-checkbox-group-item"
                             >
                               <span
                                 class="ant-checkbox"
@@ -41207,7 +41259,7 @@ exports[`form demos 📸 renders ./packages/form/src/demos/linkage-customization
                             id="checkbox_checkbox"
                           >
                             <label
-                              class="ant-checkbox-wrapper ant-checkbox-group-item"
+                              class="ant-checkbox-wrapper ant-checkbox-wrapper-in-form-item ant-checkbox-group-item"
                             >
                               <span
                                 class="ant-checkbox"
@@ -41272,7 +41324,7 @@ exports[`form demos 📸 renders ./packages/form/src/demos/linkage-customization
                             id="time_checkbox"
                           >
                             <label
-                              class="ant-checkbox-wrapper ant-checkbox-group-item"
+                              class="ant-checkbox-wrapper ant-checkbox-wrapper-in-form-item ant-checkbox-group-item"
                             >
                               <span
                                 class="ant-checkbox"
@@ -41291,7 +41343,7 @@ exports[`form demos 📸 renders ./packages/form/src/demos/linkage-customization
                               </span>
                             </label>
                             <label
-                              class="ant-checkbox-wrapper ant-checkbox-group-item"
+                              class="ant-checkbox-wrapper ant-checkbox-wrapper-in-form-item ant-checkbox-group-item"
                             >
                               <span
                                 class="ant-checkbox"
@@ -41310,7 +41362,7 @@ exports[`form demos 📸 renders ./packages/form/src/demos/linkage-customization
                               </span>
                             </label>
                             <label
-                              class="ant-checkbox-wrapper ant-checkbox-group-item"
+                              class="ant-checkbox-wrapper ant-checkbox-wrapper-in-form-item ant-checkbox-group-item"
                             >
                               <span
                                 class="ant-checkbox"
@@ -41357,7 +41409,7 @@ exports[`form demos 📸 renders ./packages/form/src/demos/linkage-customization
                           class="ant-form-item-control-input-content"
                         >
                           <div
-                            class="ant-select ant-pro-filed-search-select pro-field pro-field-md ant-select-single ant-select-allow-clear ant-select-show-arrow"
+                            class="ant-select ant-select-in-form-item ant-pro-filed-search-select pro-field pro-field-md ant-select-single ant-select-allow-clear ant-select-show-arrow"
                             style="min-width: 100px;"
                           >
                             <div
@@ -41471,7 +41523,7 @@ exports[`form demos 📸 renders ./packages/form/src/demos/linkage-customization
                           class="ant-form-item-control-input-content"
                         >
                           <div
-                            class="ant-select ant-pro-filed-search-select pro-field pro-field-md ant-select-single ant-select-allow-clear ant-select-show-arrow"
+                            class="ant-select ant-select-in-form-item ant-pro-filed-search-select pro-field pro-field-md ant-select-single ant-select-allow-clear ant-select-show-arrow"
                             style="min-width: 100px;"
                           >
                             <div
@@ -41635,7 +41687,7 @@ exports[`form demos 📸 renders ./packages/form/src/demos/money.tsx correctly 1
             class="ant-form-item-control-input-content"
           >
             <div
-              class="ant-input-number pro-field pro-field-lg"
+              class="ant-input-number ant-input-number-in-form-item pro-field pro-field-lg ant-input-number-focused"
             >
               <div
                 class="ant-input-number-handler-wrap"
@@ -41739,7 +41791,7 @@ exports[`form demos 📸 renders ./packages/form/src/demos/money.tsx correctly 1
             class="ant-form-item-control-input-content"
           >
             <div
-              class="ant-input-number pro-field pro-field-lg"
+              class="ant-input-number ant-input-number-in-form-item pro-field pro-field-lg"
             >
               <div
                 class="ant-input-number-handler-wrap"
@@ -41843,7 +41895,7 @@ exports[`form demos 📸 renders ./packages/form/src/demos/money.tsx correctly 1
             class="ant-form-item-control-input-content"
           >
             <div
-              class="ant-input-number"
+              class="ant-input-number ant-input-number-in-form-item"
               style="width: 100%;"
             >
               <div
@@ -41948,7 +42000,7 @@ exports[`form demos 📸 renders ./packages/form/src/demos/money.tsx correctly 1
             class="ant-form-item-control-input-content"
           >
             <div
-              class="ant-input-number"
+              class="ant-input-number ant-input-number-in-form-item"
               style="width: 100%;"
             >
               <div
@@ -42052,7 +42104,7 @@ exports[`form demos 📸 renders ./packages/form/src/demos/money.tsx correctly 1
             class="ant-form-item-control-input-content"
           >
             <div
-              class="ant-input-number"
+              class="ant-input-number ant-input-number-in-form-item"
               style="width: 100%;"
             >
               <div
@@ -42156,7 +42208,7 @@ exports[`form demos 📸 renders ./packages/form/src/demos/money.tsx correctly 1
             class="ant-form-item-control-input-content"
           >
             <div
-              class="ant-input-number"
+              class="ant-input-number ant-input-number-in-form-item"
               style="width: 100%;"
             >
               <div
@@ -42305,7 +42357,7 @@ exports[`form demos 📸 renders ./packages/form/src/demos/pro-form-dependency.d
             class="ant-form-item-control-input-content"
           >
             <span
-              class="ant-input-affix-wrapper"
+              class="ant-input-affix-wrapper ant-input-affix-wrapper-focused"
             >
               <input
                 class="ant-input"
@@ -42874,7 +42926,7 @@ exports[`form demos 📸 renders ./packages/form/src/demos/pro-form-editableTabl
                   class="ant-form-item-control-input-content"
                 >
                   <span
-                    class="ant-input-affix-wrapper pro-field pro-field-md"
+                    class="ant-input-affix-wrapper ant-input-affix-wrapper-focused pro-field pro-field-md"
                   >
                     <input
                       class="ant-input"
@@ -43310,7 +43362,7 @@ exports[`form demos 📸 renders ./packages/form/src/demos/pro-form-editableTabl
                                               class="ant-form-item-control-input-content"
                                             >
                                               <div
-                                                class="ant-select ant-pro-filed-search-select ant-select-single ant-select-allow-clear ant-select-show-arrow"
+                                                class="ant-select ant-select-in-form-item ant-pro-filed-search-select ant-select-single ant-select-allow-clear ant-select-show-arrow"
                                                 style="min-width: 100px;"
                                               >
                                                 <div
@@ -43525,7 +43577,7 @@ exports[`form demos 📸 renders ./packages/form/src/demos/pro-form-editableTabl
                                               class="ant-form-item-control-input-content"
                                             >
                                               <div
-                                                class="ant-select ant-pro-filed-search-select ant-select-single ant-select-allow-clear ant-select-show-arrow"
+                                                class="ant-select ant-select-in-form-item ant-pro-filed-search-select ant-select-single ant-select-allow-clear ant-select-show-arrow"
                                                 style="min-width: 100px;"
                                               >
                                                 <div
@@ -43743,9 +43795,15 @@ exports[`form demos 📸 renders ./packages/form/src/demos/sync-to-url.tsx corre
             class="ant-form-item-control-input-content"
           >
             <div
-              class="ant-select ant-pro-filed-search-select pro-field pro-field-sm ant-select-single ant-select-allow-clear ant-select-show-arrow"
+              class="ant-select ant-select-in-form-item ant-pro-filed-search-select pro-field pro-field-sm ant-select-focused ant-select-single ant-select-allow-clear ant-select-show-arrow"
               style="min-width: 100px;"
             >
+              <span
+                aria-live="polite"
+                style="width: 0px; height: 0px; display: flex; overflow: hidden; opacity: 0;"
+              >
+                盖章后生效
+              </span>
               <div
                 class="ant-select-selector"
               >

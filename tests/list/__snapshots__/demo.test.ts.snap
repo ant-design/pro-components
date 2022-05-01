@@ -640,7 +640,7 @@ exports[`list demos 📸 renders ./packages/list/src/demos/card-list.tsx correct
               class="ant-radio-group ant-radio-group-outline ant-pro-field-radio-horizontal"
             >
               <label
-                class="ant-radio-wrapper"
+                class="ant-radio-wrapper ant-radio-wrapper-in-form-item"
               >
                 <span
                   class="ant-radio"
@@ -659,7 +659,7 @@ exports[`list demos 📸 renders ./packages/list/src/demos/card-list.tsx correct
                 </span>
               </label>
               <label
-                class="ant-radio-wrapper ant-radio-wrapper-checked"
+                class="ant-radio-wrapper ant-radio-wrapper-checked ant-radio-wrapper-in-form-item"
               >
                 <span
                   class="ant-radio ant-radio-checked"
@@ -2929,7 +2929,7 @@ exports[`list demos 📸 renders ./packages/list/src/demos/filter.tsx correctly 
                                       class="ant-pro-field-select-light-select"
                                     >
                                       <div
-                                        class="ant-select ant-select-single ant-select-allow-clear ant-select-show-arrow"
+                                        class="ant-select ant-select-in-form-item ant-select-single ant-select-allow-clear ant-select-show-arrow"
                                       >
                                         <div
                                           class="ant-select-selector"
@@ -5549,7 +5549,7 @@ exports[`list demos 📸 renders ./packages/list/src/demos/search.tsx correctly 
                     class="ant-form-item-control-input-content"
                   >
                     <div
-                      class="ant-select ant-pro-filed-search-select ant-select-single ant-select-allow-clear ant-select-show-arrow"
+                      class="ant-select ant-select-in-form-item ant-pro-filed-search-select ant-select-single ant-select-allow-clear ant-select-show-arrow"
                       style="width: 100%;"
                     >
                       <div
