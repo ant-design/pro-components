@@ -18,7 +18,7 @@ const WrapContent: React.FC<{
   children?: React.ReactNode;
 }> = (props) => {
   const context = useContext(ConfigProvider.ConfigContext);
-  const { autoClearCache = true,style, className, children, disableContentMargin } = props;
+  const { autoClearCache = true, style, className, children, disableContentMargin } = props;
   const ErrorComponent = props.ErrorBoundary || ErrorBoundary;
   const prefixCls = context.getPrefixCls();
 
