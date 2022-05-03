@@ -1267,4 +1267,69 @@ describe('Field', () => {
     await waitForComponentToPaint(html, 10000);
     expect(requestFn).toBeCalledTimes(2);
   });
+
+  it(`🐴 light select dropdown toggle`, async () => {
+    const html = mount(
+      <Field
+        text="default"
+        valueType="select"
+        mode="edit"
+        light
+        options={[
+          { label: '全部', value: 'all' },
+          { label: '未解决', value: 'open' },
+          { label: '已解决', value: 'closed' },
+          { label: '解决中', value: 'processing' },
+        ]}
+      />,
+    );
+    await waitForComponentToPaint(html, 100);
+
+    act(() => {
+      // 点击label打开DatePicker
+      // jest环境下，click 不会触发mousedown和mouseup，需要手动触发以覆盖相关逻辑代码
+      html.find('.ant-pro-core-field-label').simulate('mousedown');
+      html.find('.ant-pro-core-field-label').simulate('click');
+      html.find('.ant-pro-core-field-label').simulate('mouseup');
+    });
+    await waitForComponentToPaint(html, 100);
+    expect(html.find('.ant-select-dropdown').length).toEqual(1);
+    expect(html.find('.ant-select-dropdown.ant-select-dropdown-hidden').length).toEqual(0);
+
+    act(() => {
+      html.find('.ant-pro-core-field-label').simulate('mousedown');
+      html.find('.ant-pro-core-field-label').simulate('click');
+      html.find('.ant-pro-core-field-label').simulate('mouseup');
+    });
+    await waitForComponentToPaint(html, 100);
+    expect(html.find('.ant-select-dropdown.ant-select-dropdown-hidden').length).toEqual(1);
+  });
+
+  ['date', 'time'].forEach((valueType) => {
+    it(`🐴 ${valueType} light filter dropdown toggle`, async () => {
+      const html = mount(
+        <Field text="default" valueType={valueType as 'date'} mode="edit" light />,
+      );
+      await waitForComponentToPaint(html, 100);
+
+      act(() => {
+        // 点击label打开DatePicker
+        // jest环境下，click 不会触发mousedown和mouseup，需要手动触发以覆盖相关逻辑代码
+        html.find('.ant-pro-core-field-label').simulate('mousedown');
+        html.find('.ant-pro-core-field-label').simulate('click');
+        html.find('.ant-pro-core-field-label').simulate('mouseup');
+      });
+      await waitForComponentToPaint(html, 100);
+      expect(html.find('.ant-picker-dropdown').length).toEqual(1);
+      expect(html.find('.ant-picker-dropdown.ant-picker-dropdown-hidden').length).toEqual(0);
+
+      act(() => {
+        html.find('.ant-pro-core-field-label').simulate('mousedown');
+        html.find('.ant-pro-core-field-label').simulate('click');
+        html.find('.ant-pro-core-field-label').simulate('mouseup');
+      });
+      await waitForComponentToPaint(html, 100);
+      expect(html.find('.ant-picker-dropdown.ant-picker-dropdown-hidden').length).toEqual(1);
+    });
+  });
 });
