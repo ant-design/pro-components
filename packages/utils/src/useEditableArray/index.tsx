@@ -344,6 +344,7 @@ export const DeleteEditableAction: React.FC<ActionRenderConfig<any> & { row: any
       const res = await onDelete?.(recordKey, row);
       setLoading(false);
       setTimeout(() => {
+        // 删除之后解除编辑状态，防止新建一行失效
         cancelEditable(recordKey);
       }, 0);
       return res;
