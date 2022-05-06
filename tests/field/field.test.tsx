@@ -495,6 +495,24 @@ describe('Field', () => {
     });
   });
 
+  it(`🐴 treeSelect searchValue control mode`, async () => {
+    const onSearch = jest.fn();
+    const html = mount(
+      <TreeSelectDemo multiple={false} labelInValue={false} onSearch={onSearch} />,
+    );
+    html
+      .find('.ant-select-selection-search-input')
+      .simulate('change', { target: { value: 'test' } });
+
+    expect(onSearch).toHaveBeenLastCalledWith('test', expect.anything());
+
+    html.setProps({
+      searchValue: 'ProComponents',
+    });
+
+    expect(html.find('.ant-select-selection-search-input').prop('value')).toEqual('ProComponents');
+  });
+
   it(`🐴 treeSelect options single value`, async () => {
     const onChangeFn = jest.fn();
     const TreeSelectChangeDemo = () => {
@@ -518,37 +536,21 @@ describe('Field', () => {
 
     expect(!!searchInput).toBeTruthy();
 
-    act(() => {
-      fireEvent.change(html.baseElement.querySelector('input.ant-select-selection-search-input')!, {
-        target: {
-          value: 'Node5',
-        },
-      });
+    fireEvent.change(html.baseElement.querySelector('input.ant-select-selection-search-input')!, {
+      target: {
+        value: 'Node5',
+      },
     });
-
-    await waitForComponentToPaint(html, 200);
-
-    await waitForComponentToPaint(html, 200);
 
     const selectTreeTitle = html.baseElement.querySelectorAll<HTMLSpanElement>(
       'span.ant-select-tree-title',
     );
 
-    await waitForComponentToPaint(html, 200);
-
-    act(() => {
-      selectTreeTitle[0]?.click();
-    });
-
-    await waitForComponentToPaint(html, 200);
+    selectTreeTitle[0]?.click();
 
     expect(html.queryAllByText('Node2').length > 0).toBeTruthy();
 
-    act(() => {
-      selectTreeTitle[selectTreeTitle.length - 1]?.click();
-    });
-
-    await waitForComponentToPaint(html, 200);
+    selectTreeTitle[selectTreeTitle.length - 1]?.click();
 
     expect(html.queryAllByText('Child Node5').length > 0).toBeTruthy();
 

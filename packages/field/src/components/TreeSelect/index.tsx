@@ -1,4 +1,4 @@
-import React, { useContext, useMemo, useImperativeHandle, useRef, useState } from 'react';
+import React, { useContext, useMemo, useImperativeHandle, useRef } from 'react';
 import type { RadioGroupProps, TreeSelectProps } from 'antd';
 import { ConfigProvider, Spin, TreeSelect } from 'antd';
 import classNames from 'classnames';
@@ -6,6 +6,7 @@ import type { ProFieldFC } from '../../index';
 import type { FieldSelectProps } from '../Select';
 import { ObjToMap, proFieldParsingText, useFieldFetchData } from '../Select';
 import type { DataNode } from 'antd/lib/tree';
+import useMergedState from 'rc-util/lib/hooks/useMergedState';
 
 export type GroupProps = {
   options?: RadioGroupProps['options'];
@@ -35,7 +36,7 @@ const FieldTreeSelect: ProFieldFC<GroupProps> = (
     showSearch,
     autoClearSearchValue,
     treeData,
-    searchValue: propsSearchValue = '',
+    searchValue: propsSearchValue,
     ...fieldProps
   } = (rest.fieldProps as TreeSelectProps<any>) || {};
 
@@ -44,7 +45,10 @@ const FieldTreeSelect: ProFieldFC<GroupProps> = (
     defaultKeyWords: propsSearchValue,
   });
 
-  const [searchValue, setSearchValue] = useState(propsSearchValue);
+  const [searchValue, setSearchValue] = useMergedState('', {
+    onChange: onSearch,
+    value: propsSearchValue,
+  });
 
   useImperativeHandle(ref, () => ({
     ...(treeSelectRef.current || {}),
@@ -87,7 +91,6 @@ const FieldTreeSelect: ProFieldFC<GroupProps> = (
     // 将搜索框置空 和 antd 行为保持一致
     if (showSearch && autoClearSearchValue) {
       fetchData('');
-      onSearch?.('');
       setSearchValue('');
     }
     propsOnChange?.(value, optionList, extra);
@@ -146,7 +149,6 @@ const FieldTreeSelect: ProFieldFC<GroupProps> = (
           onChange={onChange}
           onSearch={(value) => {
             fetchData(value);
-            onSearch?.(value);
             setSearchValue(value);
           }}
           onBlur={(event) => {
