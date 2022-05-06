@@ -42,7 +42,7 @@ type StepsFormProps<T = Record<string, any>> = {
     defaultDom: React.ReactNode,
   ) => React.ReactNode;
   /** @name 当前展示表单的 formRef */
-  formRef?: React.MutableRefObject<FormInstance<any> | undefined>;
+  formRef?: React.MutableRefObject<FormInstance<any> | undefined | null>;
   /** @name 所有表单的 formMapRef */
   formMapRef?: React.MutableRefObject<React.MutableRefObject<FormInstance<any> | undefined>[]>;
   /**
@@ -69,11 +69,11 @@ type StepsFormProps<T = Record<string, any>> = {
     | false;
 
   containerStyle?: React.CSSProperties;
-} & FormProviderProps;
+} & Omit<FormProviderProps, 'children'>;
 
 export const StepsFormProvide = React.createContext<
   | {
-      regForm: (name: string, props: StepFormProps) => void;
+      regForm: (name: string, props: StepsFormProps<any>) => void;
       unRegForm: (name: string) => void;
       onFormFinish: (name: string, formData: any) => void;
       keyArray: string[];
@@ -134,7 +134,7 @@ const StepsLayoutStrategy: Record<string, (dom: LayoutRenderDom) => React.ReactN
 
 function StepsForm<T = Record<string, any>>(
   props: StepsFormProps<T> & {
-    children: any;
+    children: React.ReactNode;
   },
 ) {
   const { getPrefixCls } = useContext(ConfigProvider.ConfigContext);
