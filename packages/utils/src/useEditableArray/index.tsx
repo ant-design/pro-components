@@ -452,8 +452,8 @@ function useEditableArray<RecordType>(
       dataSource?.forEach((record, index) => {
         map.set(index.toString(), recordKeyToString(props.getRowKey(record, -1)));
         map.set(recordKeyToString(props.getRowKey(record, -1))?.toString(), index.toString());
-        if (props.childrenColumnName && dataSource[props.childrenColumnName]) {
-          loopGetKey([dataSource[props.childrenColumnName]]);
+        if (props.childrenColumnName && record[props.childrenColumnName]) {
+          loopGetKey([record[props.childrenColumnName]]);
         }
       });
     };

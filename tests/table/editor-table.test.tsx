@@ -293,6 +293,9 @@ describe('EditorProTable', () => {
         }}
         editable={{}}
         onChange={(data) => onchange(data[0].children?.length)}
+        expandable={{
+          childrenColumnName: 'children',
+        }}
         recordCreatorProps={{
           position: 'bottom',
           newRecordType: 'dataSource',
