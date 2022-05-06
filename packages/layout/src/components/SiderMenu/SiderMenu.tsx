@@ -10,6 +10,7 @@ import type { WithFalse } from '../../typings';
 import type { BaseMenuProps } from './BaseMenu';
 import BaseMenu from './BaseMenu';
 import MenuCounter from './Counter';
+import { ItemType } from 'antd/lib/menu/hooks/useItems';
 
 const { Sider } = Layout;
 
@@ -189,6 +190,27 @@ const SiderMenu: React.FC<SiderMenuProps & PrivateSiderMenuProps> = (props) => {
   );
 
   const menuRenderDom = menuContentRender ? menuContentRender(props, menuDom) : menuDom;
+
+  const linksMenuItems: ItemType[] = (links || []).map((node, index) => ({
+    className: `${baseClassName}-link`,
+    label: node,
+    key: index,
+  }));
+
+  if (collapsedButtonRender && !isMobile) {
+    linksMenuItems.push({
+      className: `${baseClassName}-collapsed-button`,
+      //@ts-ignore
+      title: false,
+      key: 'collapsed',
+      onClick: () => {
+        if (onCollapse) {
+          onCollapse(!collapsed);
+        }
+      },
+      label: collapsedButtonRender(collapsed),
+    });
+  }
   return (
     <>
       {fixSiderbar && (
@@ -259,28 +281,8 @@ const SiderMenu: React.FC<SiderMenuProps & PrivateSiderMenuProps> = (props) => {
             selectedKeys={[]}
             openKeys={[]}
             mode="inline"
-          >
-            {(links || []).map((node, index) => (
-              // eslint-disable-next-line react/no-array-index-key
-              <Menu.Item className={`${baseClassName}-link`} key={index}>
-                {node}
-              </Menu.Item>
-            ))}
-            {collapsedButtonRender && !isMobile && (
-              <Menu.Item
-                className={`${baseClassName}-collapsed-button`}
-                title={false}
-                key="collapsed"
-                onClick={() => {
-                  if (onCollapse) {
-                    onCollapse(!collapsed);
-                  }
-                }}
-              >
-                {collapsedButtonRender(collapsed)}
-              </Menu.Item>
-            )}
-          </Menu>
+            items={linksMenuItems}
+          />
         </div>
         {menuFooterRender && (
           <div

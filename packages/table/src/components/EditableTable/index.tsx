@@ -175,7 +175,7 @@ function EditableTable<
    */
   const coverRowKey = (finlayRowKey: number | string): string | number => {
     /**
-     * 如果是 prop.name 的模式，就需要吧行号转化成具体的rowKey。
+     * 如果是 prop.name 的模式，就需要把行号转化成具体的rowKey。
      */
     if (typeof finlayRowKey === 'number' && !props.name) {
       if (finlayRowKey >= value.length) return finlayRowKey;
@@ -455,7 +455,6 @@ function FieldEditableTable<
     >
       <Field shouldUpdate={true} name={props.name} isList>
         {(control, _, form) => {
-          if (control.value === undefined || !Array.isArray(control.value)) return null;
           return (
             <EditableTable<DataType, Params, ValueType>
               {...props}
@@ -463,7 +462,7 @@ function FieldEditableTable<
                 ...props.editable,
                 form: form as ProFormInstance,
               }}
-              value={control.value}
+              value={control.value || []}
               onChange={control.onChange}
             />
           );

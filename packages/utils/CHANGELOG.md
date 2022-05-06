@@ -2,6 +2,22 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.40.0](https://github.com/ant-design/pro-components/compare/@ant-design/pro-utils@1.39.3...@ant-design/pro-utils@1.40.0) (2022-04-29)
+
+### Bug Fixes
+
+- **layout:** support ie11 ([89e2d5a](https://github.com/ant-design/pro-components/commit/89e2d5ab4a0d0ac2f55f8a5f4484ca0a5e844865))
+- **table:** if table data is null, render empty table ([281b8bd](https://github.com/ant-design/pro-components/commit/281b8bd541a3f93cb0e6ad3c24e21b0bc5f2f104))
+
+### Features
+
+- **layout:** use menu items ([e7606ff](https://github.com/ant-design/pro-components/commit/e7606ff2990719402b14d7bc1c2b32c2113ccfac))
+- **table:** recordCreator must set rowKey ([a30ce30](https://github.com/ant-design/pro-components/commit/a30ce301e649a27277b1ed1482333173f1833091))
+
+## [1.39.3](https://github.com/ant-design/pro-components/compare/@ant-design/pro-utils@1.39.2...@ant-design/pro-utils@1.39.3) (2022-04-24)
+
+**Note:** Version bump only for package @ant-design/pro-utils
+
 ## [1.39.2](https://github.com/ant-design/pro-components/compare/@ant-design/pro-utils@1.39.1...@ant-design/pro-utils@1.39.2) (2022-04-18)
 
 ### Bug Fixes

@@ -5,6 +5,8 @@ import { act } from 'react-dom/test-utils';
 import type { StepsFormProps } from '@ant-design/pro-form';
 import { StepsForm, ProFormText } from '@ant-design/pro-form';
 import { waitForComponentToPaint } from '../util';
+import { render } from '@testing-library/react';
+import '@testing-library/jest-dom';
 
 describe('StepsForm', () => {
   it('🐲 basic use', async () => {
@@ -100,7 +102,7 @@ describe('StepsForm', () => {
     const currentFn = jest.fn();
     const onFinish = jest.fn();
 
-    const html = mount<StepsFormProps>(
+    const html = render(
       <StepsForm onCurrentChange={currentFn} onFinish={onFinish}>
         <StepsForm.StepForm
           name="base"
@@ -119,8 +121,8 @@ describe('StepsForm', () => {
     );
     await waitForComponentToPaint(html);
 
-    act(() => {
-      html.find('button.ant-btn.ant-btn-primary').simulate('click');
+    await act(async () => {
+      (await html.findByText('下一步')).click();
     });
 
     await waitForComponentToPaint(html);
@@ -128,10 +130,9 @@ describe('StepsForm', () => {
     expect(fn).toBeCalled();
     expect(currentFn).toBeCalled();
 
-    act(() => {
-      html.find('button.ant-btn.ant-btn-primary').simulate('click');
+    await act(async () => {
+      (await html.findByText('提 交')).click();
     });
-
     await waitForComponentToPaint(html);
 
     expect(onFinish).toBeCalled();
@@ -508,9 +509,10 @@ describe('StepsForm', () => {
       html.unmount();
     });
   });
+
   it('🐲 support deepmerge form value', async () => {
     const submit = jest.fn(() => Promise.resolve());
-    const html = mount<StepsFormProps>(
+    const html = render(
       <StepsForm
         stepFormRender={(dom) => {
           return <div id="content">{dom}</div>;
@@ -525,16 +527,17 @@ describe('StepsForm', () => {
         </StepsForm.StepForm>
       </StepsForm>,
     );
-    await waitForComponentToPaint(html);
-    act(() => {
-      html.find('button.ant-btn.ant-btn-primary').simulate('click');
+    await waitForComponentToPaint(html, 200);
+    await act(async () => {
+      (await html.findByText('下一步')).click();
     });
 
-    await waitForComponentToPaint(html);
+    await waitForComponentToPaint(html, 200);
 
-    act(() => {
-      html.find('button.ant-btn.ant-btn-primary').simulate('click');
+    await act(async () => {
+      (await html.findByText('提 交')).click();
     });
+
     await waitForComponentToPaint(html);
     expect(submit).toBeCalledWith({
       info: {

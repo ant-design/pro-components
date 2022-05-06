@@ -73,6 +73,7 @@ type StepsFormProps<T = Record<string, any>> = {
 
 export const StepsFormProvide = React.createContext<
   | {
+      regForm: (name: string, props: StepFormProps) => void;
       unRegForm: (name: string) => void;
       onFormFinish: (name: string, formData: any) => void;
       keyArray: string[];
@@ -241,7 +242,6 @@ function StepsForm<T = Record<string, any>>(
           maxWidth: Math.min(formArray.length * 320, 1160),
         }}
       >
-        {/* @ts-expect-error */}
         <Steps {...stepsProps} current={step} onChange={undefined}>
           {formArray.map((item) => {
             const itemProps = formMapRef.current.get(item);
@@ -357,7 +357,6 @@ function StepsForm<T = Record<string, any>>(
     return toArray(props.children).map((item, index) => {
       const itemProps = item.props as StepFormProps;
       const name = itemProps.name || `${index}`;
-      regForm(name, itemProps);
       /** 是否是当前的表单 */
       const isShow = step === index;
 
@@ -385,7 +384,7 @@ function StepsForm<T = Record<string, any>>(
         </div>
       );
     });
-  }, [formProps, prefixCls, props.children, regForm, step, stepFormRender]);
+  }, [formProps, prefixCls, props.children, step, stepFormRender]);
 
   const finalStepsDom = useMemo(() => {
     if (stepsRender) {
@@ -430,6 +429,7 @@ function StepsForm<T = Record<string, any>>(
           value={{
             loading,
             setLoading,
+            regForm,
             keyArray: formArray,
             next: nextPage,
             formArrayRef,

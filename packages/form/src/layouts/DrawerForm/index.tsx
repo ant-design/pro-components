@@ -9,6 +9,7 @@ import type { CommonFormProps } from '../../BaseForm';
 import { BaseForm } from '../../BaseForm';
 import { noteOnce } from 'rc-util/lib/warning';
 import merge from 'lodash/merge';
+import { useRefFunction } from '@ant-design/pro-utils';
 
 export type DrawerFormProps<T = Record<string, any>> = Omit<FormProps, 'onFinish' | 'title'> &
   CommonFormProps<T> & {
@@ -24,6 +25,9 @@ export type DrawerFormProps<T = Record<string, any>> = Omit<FormProps, 'onFinish
      * onFinish: async ()=> {await save(); return false}
      */
     onFinish?: (formData: T) => Promise<any>;
+
+    /** @name 提交数据时，禁用取消按钮的超时时间（毫秒）。 */
+    submitTimeout?: number;
 
     /** @name 用于触发抽屉打开的 dom ，只能设置一个*/
     trigger?: JSX.Element;
@@ -54,6 +58,7 @@ function DrawerForm<T = Record<string, any>>({
   onVisibleChange,
   drawerProps,
   onFinish,
+  submitTimeout,
   title,
   width,
   visible: propVisible,
@@ -68,6 +73,7 @@ function DrawerForm<T = Record<string, any>>({
   const context = useContext(ConfigProvider.ConfigContext);
 
   const [, forceUpdate] = useState([]);
+  const [loading, setLoading] = useState(false);
 
   const [visible, setVisible] = useMergedState<boolean>(!!propVisible, {
     value: propVisible,
@@ -109,6 +115,7 @@ function DrawerForm<T = Record<string, any>>({
     if (rest.submitter === false) {
       return false;
     }
+
     return merge(
       {
         searchConfig: {
@@ -117,6 +124,8 @@ function DrawerForm<T = Record<string, any>>({
         },
         resetButtonProps: {
           preventDefault: true,
+          // 提交表单loading时，不可关闭弹框
+          disabled: submitTimeout ? loading : undefined,
           onClick: (e: any) => {
             setVisible(false);
             drawerProps?.onClose?.(e);
@@ -131,6 +140,8 @@ function DrawerForm<T = Record<string, any>>({
     drawerProps,
     rest.submitter,
     setVisible,
+    loading,
+    submitTimeout,
   ]);
 
   const contentRender = useCallback((formDom: any, submitter: any) => {
@@ -142,6 +153,23 @@ function DrawerForm<T = Record<string, any>>({
     );
   }, []);
 
+  const onFinishHandle = useRefFunction(async (values: T) => {
+    const response = onFinish?.(values);
+    if (submitTimeout && response instanceof Promise) {
+      setLoading(true);
+      const timer = setTimeout(() => setLoading(false), submitTimeout);
+      response.finally(() => {
+        clearTimeout(timer);
+        setLoading(false);
+      });
+    }
+    const result = await response;
+    // 返回真值，关闭弹框
+    if (result) {
+      setVisible(false);
+    }
+  });
+
   return (
     <>
       <Drawer
@@ -150,6 +178,8 @@ function DrawerForm<T = Record<string, any>>({
         {...drawerProps}
         visible={visible}
         onClose={(e) => {
+          // 提交表单loading时，阻止弹框关闭
+          if (submitTimeout && loading) return;
           setVisible(false);
           drawerProps?.onClose?.(e);
         }}
@@ -170,7 +200,7 @@ function DrawerForm<T = Record<string, any>>({
           layout="vertical"
           {...rest}
           submitter={submitterConfig}
-          onFinish={async (values) => (await onFinish?.(values)) && setVisible(false)}
+          onFinish={onFinishHandle}
           contentRender={contentRender}
         >
           {children}

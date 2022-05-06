@@ -2,6 +2,33 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.73.0](https://github.com/ant-design/pro-components/compare/@ant-design/pro-table@2.72.1...@ant-design/pro-table@2.73.0) (2022-04-29)
+
+### Bug Fixes
+
+- **table:** if table data is null, render empty table ([281b8bd](https://github.com/ant-design/pro-components/commit/281b8bd541a3f93cb0e6ad3c24e21b0bc5f2f104))
+
+### Features
+
+- **form:** collapse support hidden number ([#5116](https://github.com/ant-design/pro-components/issues/5116)) ([eb14e1a](https://github.com/ant-design/pro-components/commit/eb14e1a0e3cb4aab8888b592c612c3a840e65db0))
+- **table:** recordCreator must set rowKey ([a30ce30](https://github.com/ant-design/pro-components/commit/a30ce301e649a27277b1ed1482333173f1833091))
+
+## [2.72.1](https://github.com/ant-design/pro-components/compare/@ant-design/pro-table@2.72.0...@ant-design/pro-table@2.72.1) (2022-04-25)
+
+**Note:** Version bump only for package @ant-design/pro-table
+
+# [2.72.0](https://github.com/ant-design/pro-components/compare/@ant-design/pro-table@2.71.7...@ant-design/pro-table@2.72.0) (2022-04-24)
+
+### Bug Fixes
+
+- **table:** extra columns unexpected show in form compo ([#5096](https://github.com/ant-design/pro-components/issues/5096)) ([a28d0b9](https://github.com/ant-design/pro-components/commit/a28d0b956e16b077a5038be96898ce9520b414f0))
+- **table:** ts type error ([#5095](https://github.com/ant-design/pro-components/issues/5095)) ([6e14c1f](https://github.com/ant-design/pro-components/commit/6e14c1f1d86a095e4cdc861b045b008a2c6145f2))
+
+### Features
+
+- **form:** 提交表单时，禁用取消按钮和右上角关闭按钮，直到 onFinish 异步回调执行完成 ([#5078](https://github.com/ant-design/pro-components/issues/5078)) ([ff1a4e0](https://github.com/ant-design/pro-components/commit/ff1a4e07df6a42282cf392fb5992d1afa25b7b48))
+- **table:** reinitialize umountRef for react@18 strict mode ([#5085](https://github.com/ant-design/pro-components/issues/5085)) ([8a4652a](https://github.com/ant-design/pro-components/commit/8a4652a143088eee3205195824c7f5720796c020))
+
 ## [2.71.7](https://github.com/ant-design/pro-components/compare/@ant-design/pro-table@2.71.6...@ant-design/pro-table@2.71.7) (2022-04-18)
 
 ### Bug Fixes

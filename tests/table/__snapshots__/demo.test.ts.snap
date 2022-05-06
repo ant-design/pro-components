@@ -1889,7 +1889,7 @@ exports[`table demos 📸 renders ./packages/table/src/components/EditableTable/
                               class="ant-radio-group ant-radio-group-outline ant-pro-field-radio-horizontal"
                             >
                               <label
-                                class="ant-radio-wrapper"
+                                class="ant-radio-wrapper ant-radio-wrapper-in-form-item"
                               >
                                 <span
                                   class="ant-radio"
@@ -1908,7 +1908,7 @@ exports[`table demos 📸 renders ./packages/table/src/components/EditableTable/
                                 </span>
                               </label>
                               <label
-                                class="ant-radio-wrapper ant-radio-wrapper-checked"
+                                class="ant-radio-wrapper ant-radio-wrapper-checked ant-radio-wrapper-in-form-item"
                               >
                                 <span
                                   class="ant-radio ant-radio-checked"
@@ -1928,7 +1928,7 @@ exports[`table demos 📸 renders ./packages/table/src/components/EditableTable/
                                 </span>
                               </label>
                               <label
-                                class="ant-radio-wrapper"
+                                class="ant-radio-wrapper ant-radio-wrapper-in-form-item"
                               >
                                 <span
                                   class="ant-radio"
@@ -3300,7 +3300,7 @@ exports[`table demos 📸 renders ./packages/table/src/components/EditableTable/
                                     style="margin-bottom: 0px;"
                                   >
                                     <label
-                                      class="ant-radio-wrapper"
+                                      class="ant-radio-wrapper ant-radio-wrapper-in-form-item"
                                     >
                                       <span
                                         class="ant-radio"
@@ -3319,7 +3319,7 @@ exports[`table demos 📸 renders ./packages/table/src/components/EditableTable/
                                       </span>
                                     </label>
                                     <label
-                                      class="ant-radio-wrapper ant-radio-wrapper-checked"
+                                      class="ant-radio-wrapper ant-radio-wrapper-checked ant-radio-wrapper-in-form-item"
                                     >
                                       <span
                                         class="ant-radio ant-radio-checked"
@@ -3339,7 +3339,7 @@ exports[`table demos 📸 renders ./packages/table/src/components/EditableTable/
                                       </span>
                                     </label>
                                     <label
-                                      class="ant-radio-wrapper"
+                                      class="ant-radio-wrapper ant-radio-wrapper-in-form-item"
                                     >
                                       <span
                                         class="ant-radio"
@@ -3832,7 +3832,7 @@ exports[`table demos 📸 renders ./packages/table/src/components/EditableTable/
                       class="ant-form-item-control-input-content"
                     >
                       <div
-                        class="ant-input-number"
+                        class="ant-input-number ant-input-number-in-form-item"
                         style="width: 100%;"
                       >
                         <div
@@ -3938,7 +3938,7 @@ exports[`table demos 📸 renders ./packages/table/src/components/EditableTable/
                       class="ant-form-item-control-input-content"
                     >
                       <div
-                        class="ant-input-number"
+                        class="ant-input-number ant-input-number-in-form-item"
                         style="width: 100%;"
                       >
                         <div
@@ -4800,7 +4800,7 @@ exports[`table demos 📸 renders ./packages/table/src/components/EditableTable/
                                     class="ant-form-item-control-input-content"
                                   >
                                     <div
-                                      class="ant-select ant-pro-filed-search-select ant-select-single ant-select-allow-clear ant-select-show-arrow"
+                                      class="ant-select ant-select-in-form-item ant-pro-filed-search-select ant-select-single ant-select-allow-clear ant-select-show-arrow"
                                       style="min-width: 100px;"
                                     >
                                       <div
@@ -5050,7 +5050,7 @@ exports[`table demos 📸 renders ./packages/table/src/components/EditableTable/
                                     class="ant-form-item-control-input-content"
                                   >
                                     <div
-                                      class="ant-select ant-pro-filed-search-select ant-select-single ant-select-allow-clear ant-select-show-arrow"
+                                      class="ant-select ant-select-in-form-item ant-pro-filed-search-select ant-select-single ant-select-allow-clear ant-select-show-arrow"
                                       style="min-width: 100px;"
                                     >
                                       <div
@@ -5300,7 +5300,7 @@ exports[`table demos 📸 renders ./packages/table/src/components/EditableTable/
                                     class="ant-form-item-control-input-content"
                                   >
                                     <div
-                                      class="ant-select ant-pro-filed-search-select ant-select-single ant-select-allow-clear ant-select-show-arrow"
+                                      class="ant-select ant-select-in-form-item ant-pro-filed-search-select ant-select-single ant-select-allow-clear ant-select-show-arrow"
                                       style="min-width: 100px;"
                                     >
                                       <div
@@ -5550,7 +5550,7 @@ exports[`table demos 📸 renders ./packages/table/src/components/EditableTable/
                                     class="ant-form-item-control-input-content"
                                   >
                                     <div
-                                      class="ant-select ant-pro-filed-search-select ant-select-single ant-select-allow-clear ant-select-show-arrow"
+                                      class="ant-select ant-select-in-form-item ant-pro-filed-search-select ant-select-single ant-select-allow-clear ant-select-show-arrow"
                                       style="min-width: 100px;"
                                     >
                                       <div
@@ -5800,7 +5800,7 @@ exports[`table demos 📸 renders ./packages/table/src/components/EditableTable/
                                     class="ant-form-item-control-input-content"
                                   >
                                     <div
-                                      class="ant-select ant-pro-filed-search-select ant-select-single ant-select-allow-clear ant-select-show-arrow"
+                                      class="ant-select ant-select-in-form-item ant-pro-filed-search-select ant-select-single ant-select-allow-clear ant-select-show-arrow"
                                       style="min-width: 100px;"
                                     >
                                       <div
@@ -6050,7 +6050,7 @@ exports[`table demos 📸 renders ./packages/table/src/components/EditableTable/
                                     class="ant-form-item-control-input-content"
                                   >
                                     <div
-                                      class="ant-select ant-pro-filed-search-select ant-select-single ant-select-allow-clear ant-select-show-arrow"
+                                      class="ant-select ant-select-in-form-item ant-pro-filed-search-select ant-select-single ant-select-allow-clear ant-select-show-arrow"
                                       style="min-width: 100px;"
                                     >
                                       <div
@@ -6300,7 +6300,7 @@ exports[`table demos 📸 renders ./packages/table/src/components/EditableTable/
                                     class="ant-form-item-control-input-content"
                                   >
                                     <div
-                                      class="ant-select ant-pro-filed-search-select ant-select-single ant-select-allow-clear ant-select-show-arrow"
+                                      class="ant-select ant-select-in-form-item ant-pro-filed-search-select ant-select-single ant-select-allow-clear ant-select-show-arrow"
                                       style="min-width: 100px;"
                                     >
                                       <div
@@ -6550,7 +6550,7 @@ exports[`table demos 📸 renders ./packages/table/src/components/EditableTable/
                                     class="ant-form-item-control-input-content"
                                   >
                                     <div
-                                      class="ant-select ant-pro-filed-search-select ant-select-single ant-select-allow-clear ant-select-show-arrow"
+                                      class="ant-select ant-select-in-form-item ant-pro-filed-search-select ant-select-single ant-select-allow-clear ant-select-show-arrow"
                                       style="min-width: 100px;"
                                     >
                                       <div
@@ -6800,7 +6800,7 @@ exports[`table demos 📸 renders ./packages/table/src/components/EditableTable/
                                     class="ant-form-item-control-input-content"
                                   >
                                     <div
-                                      class="ant-select ant-pro-filed-search-select ant-select-single ant-select-allow-clear ant-select-show-arrow"
+                                      class="ant-select ant-select-in-form-item ant-pro-filed-search-select ant-select-single ant-select-allow-clear ant-select-show-arrow"
                                       style="min-width: 100px;"
                                     >
                                       <div
@@ -7050,7 +7050,7 @@ exports[`table demos 📸 renders ./packages/table/src/components/EditableTable/
                                     class="ant-form-item-control-input-content"
                                   >
                                     <div
-                                      class="ant-select ant-pro-filed-search-select ant-select-single ant-select-allow-clear ant-select-show-arrow"
+                                      class="ant-select ant-select-in-form-item ant-pro-filed-search-select ant-select-single ant-select-allow-clear ant-select-show-arrow"
                                       style="min-width: 100px;"
                                     >
                                       <div
@@ -7300,7 +7300,7 @@ exports[`table demos 📸 renders ./packages/table/src/components/EditableTable/
                                     class="ant-form-item-control-input-content"
                                   >
                                     <div
-                                      class="ant-select ant-pro-filed-search-select ant-select-single ant-select-allow-clear ant-select-show-arrow"
+                                      class="ant-select ant-select-in-form-item ant-pro-filed-search-select ant-select-single ant-select-allow-clear ant-select-show-arrow"
                                       style="min-width: 100px;"
                                     >
                                       <div
@@ -7550,7 +7550,7 @@ exports[`table demos 📸 renders ./packages/table/src/components/EditableTable/
                                     class="ant-form-item-control-input-content"
                                   >
                                     <div
-                                      class="ant-select ant-pro-filed-search-select ant-select-single ant-select-allow-clear ant-select-show-arrow"
+                                      class="ant-select ant-select-in-form-item ant-pro-filed-search-select ant-select-single ant-select-allow-clear ant-select-show-arrow"
                                       style="min-width: 100px;"
                                     >
                                       <div
@@ -7800,7 +7800,7 @@ exports[`table demos 📸 renders ./packages/table/src/components/EditableTable/
                                     class="ant-form-item-control-input-content"
                                   >
                                     <div
-                                      class="ant-select ant-pro-filed-search-select ant-select-single ant-select-allow-clear ant-select-show-arrow"
+                                      class="ant-select ant-select-in-form-item ant-pro-filed-search-select ant-select-single ant-select-allow-clear ant-select-show-arrow"
                                       style="min-width: 100px;"
                                     >
                                       <div
@@ -8050,7 +8050,7 @@ exports[`table demos 📸 renders ./packages/table/src/components/EditableTable/
                                     class="ant-form-item-control-input-content"
                                   >
                                     <div
-                                      class="ant-select ant-pro-filed-search-select ant-select-single ant-select-allow-clear ant-select-show-arrow"
+                                      class="ant-select ant-select-in-form-item ant-pro-filed-search-select ant-select-single ant-select-allow-clear ant-select-show-arrow"
                                       style="min-width: 100px;"
                                     >
                                       <div
@@ -8300,7 +8300,7 @@ exports[`table demos 📸 renders ./packages/table/src/components/EditableTable/
                                     class="ant-form-item-control-input-content"
                                   >
                                     <div
-                                      class="ant-select ant-pro-filed-search-select ant-select-single ant-select-allow-clear ant-select-show-arrow"
+                                      class="ant-select ant-select-in-form-item ant-pro-filed-search-select ant-select-single ant-select-allow-clear ant-select-show-arrow"
                                       style="min-width: 100px;"
                                     >
                                       <div
@@ -8550,7 +8550,7 @@ exports[`table demos 📸 renders ./packages/table/src/components/EditableTable/
                                     class="ant-form-item-control-input-content"
                                   >
                                     <div
-                                      class="ant-select ant-pro-filed-search-select ant-select-single ant-select-allow-clear ant-select-show-arrow"
+                                      class="ant-select ant-select-in-form-item ant-pro-filed-search-select ant-select-single ant-select-allow-clear ant-select-show-arrow"
                                       style="min-width: 100px;"
                                     >
                                       <div
@@ -8800,7 +8800,7 @@ exports[`table demos 📸 renders ./packages/table/src/components/EditableTable/
                                     class="ant-form-item-control-input-content"
                                   >
                                     <div
-                                      class="ant-select ant-pro-filed-search-select ant-select-single ant-select-allow-clear ant-select-show-arrow"
+                                      class="ant-select ant-select-in-form-item ant-pro-filed-search-select ant-select-single ant-select-allow-clear ant-select-show-arrow"
                                       style="min-width: 100px;"
                                     >
                                       <div
@@ -9050,7 +9050,7 @@ exports[`table demos 📸 renders ./packages/table/src/components/EditableTable/
                                     class="ant-form-item-control-input-content"
                                   >
                                     <div
-                                      class="ant-select ant-pro-filed-search-select ant-select-single ant-select-allow-clear ant-select-show-arrow"
+                                      class="ant-select ant-select-in-form-item ant-pro-filed-search-select ant-select-single ant-select-allow-clear ant-select-show-arrow"
                                       style="min-width: 100px;"
                                     >
                                       <div
@@ -9300,7 +9300,7 @@ exports[`table demos 📸 renders ./packages/table/src/components/EditableTable/
                                     class="ant-form-item-control-input-content"
                                   >
                                     <div
-                                      class="ant-select ant-pro-filed-search-select ant-select-single ant-select-allow-clear ant-select-show-arrow"
+                                      class="ant-select ant-select-in-form-item ant-pro-filed-search-select ant-select-single ant-select-allow-clear ant-select-show-arrow"
                                       style="min-width: 100px;"
                                     >
                                       <div
@@ -9550,7 +9550,7 @@ exports[`table demos 📸 renders ./packages/table/src/components/EditableTable/
                                     class="ant-form-item-control-input-content"
                                   >
                                     <div
-                                      class="ant-select ant-pro-filed-search-select ant-select-single ant-select-allow-clear ant-select-show-arrow"
+                                      class="ant-select ant-select-in-form-item ant-pro-filed-search-select ant-select-single ant-select-allow-clear ant-select-show-arrow"
                                       style="min-width: 100px;"
                                     >
                                       <div
@@ -10110,7 +10110,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/ListToolBar/basic.t
                                     class="ant-pro-field-date-picker-light"
                                   >
                                     <div
-                                      class="ant-picker"
+                                      class="ant-picker ant-picker-focused"
                                     >
                                       <div
                                         class="ant-picker-input"
@@ -10119,7 +10119,6 @@ exports[`table demos 📸 renders ./packages/table/src/demos/ListToolBar/basic.t
                                           autocomplete="off"
                                           id="startdate"
                                           placeholder="请选择日期"
-                                          readonly=""
                                           size="12"
                                           title=""
                                           value=""
@@ -10316,6 +10315,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/ListToolBar/basic.t
                           <th
                             class="ant-table-cell ant-table-column-has-sorters"
                             style="text-align: right;"
+                            tabindex="0"
                           >
                             <div
                               class="ant-table-column-sorters"
@@ -11013,7 +11013,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/ListToolBar/menu.ts
                                     class="ant-pro-field-date-picker-light"
                                   >
                                     <div
-                                      class="ant-picker"
+                                      class="ant-picker ant-picker-focused"
                                     >
                                       <div
                                         class="ant-picker-input"
@@ -11022,7 +11022,6 @@ exports[`table demos 📸 renders ./packages/table/src/demos/ListToolBar/menu.ts
                                           autocomplete="off"
                                           id="startdate"
                                           placeholder="请选择日期"
-                                          readonly=""
                                           size="12"
                                           title=""
                                           value=""
@@ -11249,6 +11248,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/ListToolBar/menu.ts
                           <th
                             class="ant-table-cell ant-table-column-has-sorters"
                             style="text-align: right;"
+                            tabindex="0"
                           >
                             <div
                               class="ant-table-column-sorters"
@@ -12054,7 +12054,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/ListToolBar/multipl
                                 class="ant-pro-field-date-picker-light"
                               >
                                 <div
-                                  class="ant-picker"
+                                  class="ant-picker ant-picker-focused"
                                 >
                                   <div
                                     class="ant-picker-input"
@@ -12063,7 +12063,6 @@ exports[`table demos 📸 renders ./packages/table/src/demos/ListToolBar/multipl
                                       autocomplete="off"
                                       id="startdate"
                                       placeholder="请选择日期"
-                                      readonly=""
                                       size="12"
                                       title=""
                                       value=""
@@ -12170,6 +12169,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/ListToolBar/multipl
                           <th
                             class="ant-table-cell ant-table-column-has-sorters"
                             style="text-align: right;"
+                            tabindex="0"
                           >
                             <div
                               class="ant-table-column-sorters"
@@ -12825,7 +12825,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/ListToolBar/no-titl
                                     class="ant-pro-field-date-picker-light"
                                   >
                                     <div
-                                      class="ant-picker"
+                                      class="ant-picker ant-picker-focused"
                                     >
                                       <div
                                         class="ant-picker-input"
@@ -12834,7 +12834,6 @@ exports[`table demos 📸 renders ./packages/table/src/demos/ListToolBar/no-titl
                                           autocomplete="off"
                                           id="startdate"
                                           placeholder="请选择日期"
-                                          readonly=""
                                           size="12"
                                           title=""
                                           value=""
@@ -13061,6 +13060,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/ListToolBar/no-titl
                           <th
                             class="ant-table-cell ant-table-column-has-sorters"
                             style="text-align: right;"
+                            tabindex="0"
                           >
                             <div
                               class="ant-table-column-sorters"
@@ -13846,7 +13846,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/ListToolBar/tabs.ts
                                       class="ant-pro-field-date-picker-light"
                                     >
                                       <div
-                                        class="ant-picker"
+                                        class="ant-picker ant-picker-focused"
                                       >
                                         <div
                                           class="ant-picker-input"
@@ -13855,7 +13855,6 @@ exports[`table demos 📸 renders ./packages/table/src/demos/ListToolBar/tabs.ts
                                             autocomplete="off"
                                             id="startdate"
                                             placeholder="请选择日期"
-                                            readonly=""
                                             size="12"
                                             title=""
                                             value=""
@@ -13996,6 +13995,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/ListToolBar/tabs.ts
                           <th
                             class="ant-table-cell ant-table-column-has-sorters"
                             style="text-align: right;"
+                            tabindex="0"
                           >
                             <div
                               class="ant-table-column-sorters"
@@ -14751,6 +14751,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/batchOption.tsx cor
                                   class="ant-checkbox ant-checkbox-indeterminate"
                                 >
                                   <input
+                                    aria-checked="mixed"
                                     class="ant-checkbox-input"
                                     type="checkbox"
                                     value=""
@@ -14798,6 +14799,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/batchOption.tsx cor
                           <th
                             class="ant-table-cell ant-table-column-has-sorters"
                             style="text-align: right;"
+                            tabindex="0"
                           >
                             <div
                               class="ant-table-column-sorters"
@@ -14873,6 +14875,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/batchOption.tsx cor
                           </th>
                           <th
                             class="ant-table-cell ant-table-column-has-sorters"
+                            tabindex="0"
                           >
                             <div
                               class="ant-table-column-sorters"
@@ -16230,6 +16233,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/card-title.tsx corr
                           <th
                             class="ant-table-cell ant-table-column-has-sorters"
                             style="text-align: right;"
+                            tabindex="0"
                           >
                             <div
                               class="ant-table-column-sorters"
@@ -17581,7 +17585,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/config-provider.tsx
                     class="qixian-form-item-control-input-content"
                   >
                     <div
-                      class="qixian-select qixian-pro-filed-search-select qixian-select-single qixian-select-allow-clear qixian-select-show-arrow"
+                      class="qixian-select qixian-select-in-form-item qixian-pro-filed-search-select qixian-select-single qixian-select-allow-clear qixian-select-show-arrow"
                       style="width: 100%;"
                     >
                       <div
@@ -22641,7 +22645,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/crud.tsx correctly 
                         class="ant-form-item-control-input-content"
                       >
                         <div
-                          class="ant-select ant-pro-filed-search-select ant-select-single ant-select-allow-clear ant-select-show-arrow"
+                          class="ant-select ant-select-in-form-item ant-pro-filed-search-select ant-select-single ant-select-allow-clear ant-select-show-arrow"
                           style="width: 100%;"
                         >
                           <div
@@ -22763,7 +22767,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/crud.tsx correctly 
                         class="ant-form-item-control-input-content"
                       >
                         <div
-                          class="ant-select ant-pro-filed-search-select ant-select-single ant-select-allow-clear ant-select-show-arrow"
+                          class="ant-select ant-select-in-form-item ant-pro-filed-search-select ant-select-single ant-select-allow-clear ant-select-show-arrow"
                           style="width: 100%;"
                         >
                           <div
@@ -25330,7 +25334,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/dataSource.tsx corr
                     class="ant-form-item-control-input-content"
                   >
                     <div
-                      class="ant-select ant-pro-filed-search-select ant-select-single ant-select-allow-clear ant-select-show-arrow"
+                      class="ant-select ant-select-in-form-item ant-pro-filed-search-select ant-select-single ant-select-allow-clear ant-select-show-arrow"
                       style="width: 100%;"
                     >
                       <div
@@ -25422,7 +25426,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/dataSource.tsx corr
                     class="ant-form-item-control-input-content"
                   >
                     <div
-                      class="ant-select ant-pro-filed-search-select ant-select-single ant-select-allow-clear ant-select-show-arrow"
+                      class="ant-select ant-select-in-form-item ant-pro-filed-search-select ant-select-single ant-select-allow-clear ant-select-show-arrow"
                       style="width: 100%;"
                     >
                       <div
@@ -26148,6 +26152,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/dataSource.tsx corr
                           </th>
                           <th
                             class="ant-table-cell ant-table-column-has-sorters"
+                            tabindex="0"
                           >
                             <div
                               class="ant-table-column-sorters"
@@ -29036,7 +29041,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/dynamic-settings.ts
                             class="ant-form-item-control-input-content"
                           >
                             <div
-                              class="ant-select ant-pro-filed-search-select ant-select-single ant-select-allow-clear ant-select-show-arrow"
+                              class="ant-select ant-select-in-form-item ant-pro-filed-search-select ant-select-single ant-select-allow-clear ant-select-show-arrow"
                               style="width: 100%;"
                             >
                               <div
@@ -29516,6 +29521,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/dynamic-settings.ts
                                     </th>
                                     <th
                                       class="ant-table-cell ant-table-column-has-sorters"
+                                      tabindex="0"
                                     >
                                       <div
                                         class="ant-table-column-sorters"
@@ -30569,7 +30575,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/dynamic-settings.ts
                                         id="size"
                                       >
                                         <label
-                                          class="ant-radio-button-wrapper"
+                                          class="ant-radio-button-wrapper ant-radio-button-wrapper-in-form-item"
                                         >
                                           <span
                                             class="ant-radio-button"
@@ -30588,7 +30594,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/dynamic-settings.ts
                                           </span>
                                         </label>
                                         <label
-                                          class="ant-radio-button-wrapper"
+                                          class="ant-radio-button-wrapper ant-radio-button-wrapper-in-form-item"
                                         >
                                           <span
                                             class="ant-radio-button"
@@ -30607,7 +30613,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/dynamic-settings.ts
                                           </span>
                                         </label>
                                         <label
-                                          class="ant-radio-button-wrapper ant-radio-button-wrapper-checked"
+                                          class="ant-radio-button-wrapper ant-radio-button-wrapper-checked ant-radio-button-wrapper-in-form-item"
                                         >
                                           <span
                                             class="ant-radio-button ant-radio-button-checked"
@@ -31903,6 +31909,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/error-boundaries-fa
                           <th
                             class="ant-table-cell ant-table-column-has-sorters"
                             style="text-align: right;"
+                            tabindex="0"
                           >
                             <div
                               class="ant-table-column-sorters"
@@ -33010,7 +33017,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/intl.tsx correctly 
                     class="ant-form-item-control-input-content"
                   >
                     <div
-                      class="ant-input-number"
+                      class="ant-input-number ant-input-number-in-form-item"
                       style="width: 100%;"
                     >
                       <div
@@ -33939,8 +33946,9 @@ exports[`table demos 📸 renders ./packages/table/src/demos/lightfilter.tsx cor
                                         <span
                                           aria-label="close"
                                           class="anticon anticon-close ant-pro-core-field-label-icon ant-pro-core-field-label-close"
-                                          role="img"
+                                          role="button"
                                           tabindex="-1"
+                                          title="清除"
                                         >
                                           <svg
                                             aria-hidden="true"
@@ -34001,7 +34009,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/lightfilter.tsx cor
                                       class="ant-pro-field-select-light-select"
                                     >
                                       <div
-                                        class="ant-select ant-select-single ant-select-allow-clear ant-select-show-arrow"
+                                        class="ant-select ant-select-in-form-item ant-select-single ant-select-allow-clear ant-select-show-arrow"
                                       >
                                         <div
                                           class="ant-select-selector"
@@ -34352,6 +34360,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/lightfilter.tsx cor
                           </th>
                           <th
                             class="ant-table-cell ant-table-column-has-sorters"
+                            tabindex="0"
                           >
                             <div
                               class="ant-table-column-sorters"
@@ -35073,7 +35082,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/linkage_form.tsx co
                     class="ant-form-item-control-input-content"
                   >
                     <div
-                      class="ant-select ant-select-single ant-select-show-arrow"
+                      class="ant-select ant-select-in-form-item ant-select-single ant-select-show-arrow"
                     >
                       <div
                         class="ant-select-selector"
@@ -35165,7 +35174,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/linkage_form.tsx co
                     class="ant-form-item-control-input-content"
                   >
                     <div
-                      class="ant-select ant-pro-filed-search-select ant-select-single ant-select-allow-clear ant-select-show-arrow"
+                      class="ant-select ant-select-in-form-item ant-pro-filed-search-select ant-select-single ant-select-allow-clear ant-select-show-arrow"
                       style="width: 100%;"
                     >
                       <div
@@ -36021,7 +36030,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/listToolBar.tsx cor
                                     class="ant-pro-field-date-picker-light"
                                   >
                                     <div
-                                      class="ant-picker"
+                                      class="ant-picker ant-picker-focused"
                                     >
                                       <div
                                         class="ant-picker-input"
@@ -36030,7 +36039,6 @@ exports[`table demos 📸 renders ./packages/table/src/demos/listToolBar.tsx cor
                                           autocomplete="off"
                                           id="startdate"
                                           placeholder="请选择日期"
-                                          readonly=""
                                           size="12"
                                           title=""
                                           value=""
@@ -36304,6 +36312,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/listToolBar.tsx cor
                           <th
                             class="ant-table-cell ant-table-column-has-sorters"
                             style="text-align: right;"
+                            tabindex="0"
                           >
                             <div
                               class="ant-table-column-sorters"
@@ -36363,6 +36372,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/listToolBar.tsx cor
                           </th>
                           <th
                             class="ant-table-cell ant-table-column-has-sorters"
+                            tabindex="0"
                           >
                             <div
                               class="ant-table-column-sorters"
@@ -37090,7 +37100,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/no-option.tsx corre
                     class="ant-form-item-control-input-content"
                   >
                     <div
-                      class="ant-select ant-pro-filed-search-select ant-select-single ant-select-allow-clear ant-select-show-arrow"
+                      class="ant-select ant-select-in-form-item ant-pro-filed-search-select ant-select-single ant-select-allow-clear ant-select-show-arrow"
                       style="width: 100%;"
                     >
                       <div
@@ -37212,7 +37222,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/no-option.tsx corre
                     class="ant-form-item-control-input-content"
                   >
                     <div
-                      class="ant-select ant-pro-filed-search-select ant-select-single ant-select-allow-clear ant-select-show-arrow"
+                      class="ant-select ant-select-in-form-item ant-pro-filed-search-select ant-select-single ant-select-allow-clear ant-select-show-arrow"
                       style="width: 100%;"
                     >
                       <div
@@ -37697,6 +37707,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/no-option.tsx corre
                           <th
                             class="ant-table-cell ant-table-column-has-sorters"
                             style="text-align: right;"
+                            tabindex="0"
                           >
                             <div
                               class="ant-table-column-sorters"
@@ -37766,6 +37777,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/no-option.tsx corre
                           </th>
                           <th
                             class="ant-table-cell ant-table-column-has-sorters"
+                            tabindex="0"
                           >
                             <div
                               class="ant-table-column-sorters"
@@ -39809,6 +39821,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/normal.tsx correctl
                           <th
                             class="ant-table-cell ant-table-column-has-sorters"
                             style="text-align: right;"
+                            tabindex="0"
                           >
                             <div
                               class="ant-table-column-sorters"
@@ -39878,6 +39891,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/normal.tsx correctl
                           </th>
                           <th
                             class="ant-table-cell ant-table-column-has-sorters"
+                            tabindex="0"
                           >
                             <div
                               class="ant-table-column-sorters"
@@ -41146,7 +41160,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/open-rules.tsx corr
                     class="ant-form-item-control-input-content"
                   >
                     <div
-                      class="ant-select ant-pro-filed-search-select ant-select-single ant-select-allow-clear ant-select-show-arrow"
+                      class="ant-select ant-select-in-form-item ant-pro-filed-search-select ant-select-single ant-select-allow-clear ant-select-show-arrow"
                       style="width: 100%;"
                     >
                       <div
@@ -41894,7 +41908,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/open-rules.tsx corr
                     class="ant-form-item-control-input-content"
                   >
                     <div
-                      class="ant-select ant-pro-filed-search-select ant-select-single ant-select-allow-clear ant-select-show-arrow"
+                      class="ant-select ant-select-in-form-item ant-pro-filed-search-select ant-select-single ant-select-allow-clear ant-select-show-arrow"
                       style="width: 100%;"
                     >
                       <div
@@ -42554,7 +42568,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/pollinga.tsx correc
                     class="ant-form-item-control-input-content"
                   >
                     <div
-                      class="ant-select ant-pro-filed-search-select ant-select-single ant-select-allow-clear ant-select-show-arrow"
+                      class="ant-select ant-select-in-form-item ant-pro-filed-search-select ant-select-single ant-select-allow-clear ant-select-show-arrow"
                       style="width: 100%;"
                     >
                       <div
@@ -42676,7 +42690,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/pollinga.tsx correc
                     class="ant-form-item-control-input-content"
                   >
                     <div
-                      class="ant-input-number"
+                      class="ant-input-number ant-input-number-in-form-item"
                       style="width: 100%;"
                     >
                       <div
@@ -43686,7 +43700,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/renderTable.tsx cor
                     class="ant-form-item-control-input-content"
                   >
                     <div
-                      class="ant-input-number"
+                      class="ant-input-number ant-input-number-in-form-item"
                       style="width: 100%;"
                     >
                       <div
@@ -44602,7 +44616,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/rtl_table.tsx corre
                     class="ant-form-item-control-input-content"
                   >
                     <div
-                      class="ant-select ant-select-rtl ant-pro-filed-search-select ant-select-single ant-select-allow-clear ant-select-show-arrow"
+                      class="ant-select ant-select-rtl ant-select-in-form-item ant-pro-filed-search-select ant-select-single ant-select-allow-clear ant-select-show-arrow"
                       style="width: 100%;"
                     >
                       <div
@@ -46818,7 +46832,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/search_option.tsx c
                     class="ant-form-item-control-input-content"
                   >
                     <div
-                      class="ant-input-number"
+                      class="ant-input-number ant-input-number-in-form-item"
                       style="width: 100%;"
                     >
                       <div
@@ -47589,7 +47603,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/single.tsx correctl
                     class="ant-form-item-control-input-content"
                   >
                     <div
-                      class="ant-select ant-pro-filed-search-select ant-select-single ant-select-allow-clear ant-select-show-arrow"
+                      class="ant-select ant-select-in-form-item ant-pro-filed-search-select ant-select-single ant-select-allow-clear ant-select-show-arrow"
                       style="width: 100%;"
                     >
                       <div
@@ -48183,6 +48197,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/single.tsx correctl
                           </th>
                           <th
                             class="ant-table-cell ant-table-column-has-sorters"
+                            tabindex="0"
                           >
                             <div
                               class="ant-table-column-sorters"
@@ -49371,7 +49386,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/single-test.tsx cor
                 class="ant-form-item-control-input-content"
               >
                 <div
-                  class="ant-select ant-pro-filed-search-select ant-select-single ant-select-allow-clear ant-select-show-arrow"
+                  class="ant-select ant-select-in-form-item ant-pro-filed-search-select ant-select-single ant-select-allow-clear ant-select-show-arrow"
                   style="min-width: 100px;"
                 >
                   <div
@@ -50246,7 +50261,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/single-test.tsx cor
                     class="ant-form-item-control-input-content"
                   >
                     <div
-                      class="ant-select ant-pro-filed-search-select ant-select-single ant-select-allow-clear ant-select-show-arrow"
+                      class="ant-select ant-select-in-form-item ant-pro-filed-search-select ant-select-single ant-select-allow-clear ant-select-show-arrow"
                       style="width: 100%;"
                     >
                       <div
@@ -53364,6 +53379,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/table-nested.tsx co
                           <th
                             class="ant-table-cell ant-table-column-has-sorters"
                             style="text-align: right;"
+                            tabindex="0"
                           >
                             <div
                               class="ant-table-column-sorters"
@@ -53428,6 +53444,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/table-nested.tsx co
                           </th>
                           <th
                             class="ant-table-cell ant-table-column-has-sorters"
+                            tabindex="0"
                           >
                             <div
                               class="ant-table-column-sorters"
@@ -55205,7 +55222,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/valueType_select.ts
                     class="ant-form-item-control-input-content"
                   >
                     <div
-                      class="ant-select ant-pro-filed-search-select ant-select-single ant-select-allow-clear ant-select-show-arrow"
+                      class="ant-select ant-select-in-form-item ant-pro-filed-search-select ant-select-single ant-select-allow-clear ant-select-show-arrow"
                       style="width: 100%;"
                     >
                       <div
@@ -55328,7 +55345,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/valueType_select.ts
                       id="status"
                     >
                       <label
-                        class="ant-radio-wrapper"
+                        class="ant-radio-wrapper ant-radio-wrapper-in-form-item"
                       >
                         <span
                           class="ant-radio"
@@ -55347,7 +55364,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/valueType_select.ts
                         </span>
                       </label>
                       <label
-                        class="ant-radio-wrapper"
+                        class="ant-radio-wrapper ant-radio-wrapper-in-form-item"
                       >
                         <span
                           class="ant-radio"
@@ -55366,7 +55383,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/valueType_select.ts
                         </span>
                       </label>
                       <label
-                        class="ant-radio-wrapper"
+                        class="ant-radio-wrapper ant-radio-wrapper-in-form-item"
                       >
                         <span
                           class="ant-radio"
@@ -55385,7 +55402,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/valueType_select.ts
                         </span>
                       </label>
                       <label
-                        class="ant-radio-wrapper"
+                        class="ant-radio-wrapper ant-radio-wrapper-in-form-item"
                       >
                         <span
                           class="ant-radio"
@@ -55441,7 +55458,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/valueType_select.ts
                       id="status"
                     >
                       <label
-                        class="ant-radio-button-wrapper"
+                        class="ant-radio-button-wrapper ant-radio-button-wrapper-in-form-item"
                       >
                         <span
                           class="ant-radio-button"
@@ -55460,7 +55477,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/valueType_select.ts
                         </span>
                       </label>
                       <label
-                        class="ant-radio-button-wrapper"
+                        class="ant-radio-button-wrapper ant-radio-button-wrapper-in-form-item"
                       >
                         <span
                           class="ant-radio-button"
@@ -55479,7 +55496,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/valueType_select.ts
                         </span>
                       </label>
                       <label
-                        class="ant-radio-button-wrapper"
+                        class="ant-radio-button-wrapper ant-radio-button-wrapper-in-form-item"
                       >
                         <span
                           class="ant-radio-button"
@@ -55498,7 +55515,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/valueType_select.ts
                         </span>
                       </label>
                       <label
-                        class="ant-radio-button-wrapper"
+                        class="ant-radio-button-wrapper ant-radio-button-wrapper-in-form-item"
                       >
                         <span
                           class="ant-radio-button"
@@ -55555,7 +55572,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/valueType_select.ts
                       style="width: 100%;"
                     >
                       <label
-                        class="ant-checkbox-wrapper ant-checkbox-wrapper-checked ant-checkbox-group-item"
+                        class="ant-checkbox-wrapper ant-checkbox-wrapper-checked ant-checkbox-wrapper-in-form-item ant-checkbox-group-item"
                       >
                         <span
                           class="ant-checkbox ant-checkbox-checked"
@@ -55575,7 +55592,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/valueType_select.ts
                         </span>
                       </label>
                       <label
-                        class="ant-checkbox-wrapper ant-checkbox-group-item"
+                        class="ant-checkbox-wrapper ant-checkbox-wrapper-in-form-item ant-checkbox-group-item"
                       >
                         <span
                           class="ant-checkbox"
@@ -55594,7 +55611,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/valueType_select.ts
                         </span>
                       </label>
                       <label
-                        class="ant-checkbox-wrapper ant-checkbox-group-item"
+                        class="ant-checkbox-wrapper ant-checkbox-wrapper-in-form-item ant-checkbox-group-item"
                       >
                         <span
                           class="ant-checkbox"
@@ -55613,7 +55630,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/valueType_select.ts
                         </span>
                       </label>
                       <label
-                        class="ant-checkbox-wrapper ant-checkbox-group-item"
+                        class="ant-checkbox-wrapper ant-checkbox-wrapper-in-form-item ant-checkbox-group-item"
                       >
                         <span
                           class="ant-checkbox"
@@ -55665,7 +55682,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/valueType_select.ts
                     class="ant-form-item-control-input-content"
                   >
                     <div
-                      class="ant-select ant-cascader ant-pro-field-cascader ant-select-single ant-select-allow-clear ant-select-show-arrow"
+                      class="ant-select ant-cascader ant-select-in-form-item ant-pro-field-cascader ant-select-single ant-select-allow-clear ant-select-show-arrow"
                       style="width: 100%;"
                     >
                       <div
@@ -55762,7 +55779,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/valueType_select.ts
                         class="ant-spin-container"
                       >
                         <div
-                          class="ant-select ant-tree-select ant-pro-field-tree-select ant-select-single ant-select-show-arrow"
+                          class="ant-select ant-tree-select ant-select-in-form-item ant-pro-field-tree-select ant-select-single ant-select-show-arrow"
                           options="[object Object],[object Object]"
                           style="min-width: 60px;"
                         >
@@ -57794,7 +57811,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/valueTypeNumber.tsx
                     class="ant-form-item-control-input-content"
                   >
                     <div
-                      class="ant-input-number"
+                      class="ant-input-number ant-input-number-in-form-item"
                       style="width: 100%;"
                     >
                       <div
@@ -57905,7 +57922,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/valueTypeNumber.tsx
                     class="ant-form-item-control-input-content"
                   >
                     <div
-                      class="ant-input-number"
+                      class="ant-input-number ant-input-number-in-form-item"
                       style="width: 100%;"
                     >
                       <div
@@ -58012,7 +58029,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/valueTypeNumber.tsx
                   class="ant-form-item-control-input-content"
                 >
                   <div
-                    class="ant-input-number"
+                    class="ant-input-number ant-input-number-in-form-item"
                     style="width: 100%;"
                   >
                     <div
@@ -58119,7 +58136,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/valueTypeNumber.tsx
                   class="ant-form-item-control-input-content"
                 >
                   <div
-                    class="ant-input-number"
+                    class="ant-input-number ant-input-number-in-form-item"
                     style="width: 100%;"
                   >
                     <div
@@ -58226,7 +58243,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/valueTypeNumber.tsx
                   class="ant-form-item-control-input-content"
                 >
                   <div
-                    class="ant-input-number"
+                    class="ant-input-number ant-input-number-in-form-item"
                     style="width: 100%;"
                   >
                     <div

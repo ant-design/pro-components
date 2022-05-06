@@ -1,4 +1,5 @@
-const isUrl = (path: string): boolean => {
+const isUrl = (path: string | undefined): boolean => {
+  if (!path) return false;
   if (!path.startsWith('http')) {
     return false;
   }

@@ -41,7 +41,6 @@ const DropdownButton: React.FC<DropdownProps> = ({
     </Menu>
   );
   return (
-    //@ts-expect-error
     <Dropdown overlay={menu} className={classnames(tempClassName, className)}>
       <Button style={style}>
         {children} <DownOutlined />
@@ -56,7 +55,11 @@ const TableDropdown: React.FC<DropdownProps> & {
   const { getPrefixCls } = useContext(ConfigProvider.ConfigContext);
   const className = getPrefixCls('pro-table-dropdown');
   const menu = (
-    <Menu onClick={(params) => onSelect && onSelect(params.key as string)}>
+    <Menu
+      onClick={(params) => {
+        onSelect?.(params.key as string);
+      }}
+    >
       {menus.map(({ key, name, ...rest }) => (
         <Menu.Item key={key} {...rest}>
           {name}
@@ -65,7 +68,6 @@ const TableDropdown: React.FC<DropdownProps> & {
     </Menu>
   );
   return (
-    //@ts-expect-error
     <Dropdown overlay={menu} className={classnames(className, propsClassName)}>
       <a style={style}>{children || <EllipsisOutlined />}</a>
     </Dropdown>

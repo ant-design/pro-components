@@ -2,6 +2,23 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.66.0](https://github.com/ant-design/pro-components/compare/@ant-design/pro-form@1.65.0...@ant-design/pro-form@1.66.0) (2022-04-29)
+
+### Bug Fixes
+
+- **form:** add missed ProFormTreeSelect to the form export ([#5133](https://github.com/ant-design/pro-components/issues/5133)) ([6e852f1](https://github.com/ant-design/pro-components/commit/6e852f119dbfaa5ff82a2ea62436157421756836))
+- **form:** Supplementary English Documents ([#5139](https://github.com/ant-design/pro-components/issues/5139)) ([6fb2ccf](https://github.com/ant-design/pro-components/commit/6fb2ccf811f6262e29fa7782651ca20e10719caa))
+
+### Features
+
+- **form:** collapse support hidden number ([#5116](https://github.com/ant-design/pro-components/issues/5116)) ([eb14e1a](https://github.com/ant-design/pro-components/commit/eb14e1a0e3cb4aab8888b592c612c3a840e65db0))
+
+# [1.65.0](https://github.com/ant-design/pro-components/compare/@ant-design/pro-form@1.64.1...@ant-design/pro-form@1.65.0) (2022-04-24)
+
+### Features
+
+- **form:** 提交表单时，禁用取消按钮和右上角关闭按钮，直到 onFinish 异步回调执行完成 ([#5078](https://github.com/ant-design/pro-components/issues/5078)) ([ff1a4e0](https://github.com/ant-design/pro-components/commit/ff1a4e07df6a42282cf392fb5992d1afa25b7b48))
+
 ## [1.64.1](https://github.com/ant-design/pro-components/compare/@ant-design/pro-form@1.64.0...@ant-design/pro-form@1.64.1) (2022-04-18)
 
 ### Bug Fixes

@@ -9,6 +9,21 @@ group:
 
 # Change Log
 
+## @ant-design/pro-table@2.73.0
+
+`2022-04-29`
+
+- fix(table): if table data is null, render empty table. [281b8bd](https://github.com/ant-design/pro-components/commit/281b8bd)
+- feat(table): recordCreator must set rowKey. [a30ce30](https://github.com/ant-design/pro-components/commit/a30ce30)
+
+## @ant-design/pro-table@2.72.0
+
+`2022-04-24`
+
+- fix(table): extra columns unexpected show in form compo (#5096). [#5096](https://github.com/ant-design/pro-components/pull/#5096) [@sarufarr](https://github.com/sarufarr)
+- feat(table): reinitialize umountRef for react@18 strict mode (#5085). [#5085](https://github.com/ant-design/pro-components/pull/#5085) [@sarufarr](https://github.com/sarufarr)
+- fix(table): ts type error (#5095). [#5095](https://github.com/ant-design/pro-components/pull/#5095) [@Dunqing](https://github.com/Dunqing)
+
 ## @ant-design/pro-table@2.71.7
 
 `2022-04-18`

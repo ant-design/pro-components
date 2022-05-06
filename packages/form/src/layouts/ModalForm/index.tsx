@@ -24,6 +24,9 @@ export type ModalFormProps<T = Record<string, any>> = Omit<FormProps<T>, 'onFini
      */
     onFinish?: (formData: T) => Promise<any>;
 
+    /** @name 提交数据时，禁用取消按钮的超时时间（毫秒）。 */
+    submitTimeout?: number;
+
     /** @name 用于触发抽屉打开的 dom */
     trigger?: JSX.Element;
 
@@ -53,6 +56,7 @@ function ModalForm<T = Record<string, any>>({
   onVisibleChange,
   modalProps,
   onFinish,
+  submitTimeout,
   title,
   width,
   visible: propVisible,
@@ -67,6 +71,7 @@ function ModalForm<T = Record<string, any>>({
   const context = useContext(ConfigProvider.ConfigContext);
 
   const [, forceUpdate] = useState([]);
+  const [loading, setLoading] = useState(false);
 
   const [visible, setVisible] = useMergedState<boolean>(!!propVisible, {
     value: propVisible,
@@ -117,6 +122,8 @@ function ModalForm<T = Record<string, any>>({
         },
         resetButtonProps: {
           preventDefault: true,
+          // 提交表单loading时，不可关闭弹框
+          disabled: submitTimeout ? loading : undefined,
           onClick: (e: any) => {
             setVisible(false);
             modalProps?.onCancel?.(e);
@@ -131,6 +138,8 @@ function ModalForm<T = Record<string, any>>({
     modalProps,
     rest.submitter,
     setVisible,
+    loading,
+    submitTimeout,
   ]);
 
   const contentRender = useCallback((formDom: any, submitter: any) => {
@@ -142,15 +151,38 @@ function ModalForm<T = Record<string, any>>({
     );
   }, []);
 
+  const onFinishHandle = useCallback(
+    async (values: T) => {
+      const response = onFinish?.(values);
+
+      if (submitTimeout && response instanceof Promise) {
+        setLoading(true);
+
+        const timer = setTimeout(() => setLoading(false), submitTimeout);
+        response.finally(() => {
+          clearTimeout(timer);
+          setLoading(false);
+        });
+      }
+      const result = await response;
+      // 返回真值，关闭弹框
+      if (result) {
+        setVisible(false);
+      }
+    },
+    [onFinish, setVisible, submitTimeout],
+  );
+
   return (
     <>
-      {/* @ts-expect-error */}
       <Modal
         title={title}
         width={width || 800}
         {...modalProps}
         visible={visible}
         onCancel={(e) => {
+          // 提交表单loading时，阻止弹框关闭
+          if (submitTimeout && loading) return;
           setVisible(false);
           modalProps?.onCancel?.(e);
         }}
@@ -171,7 +203,7 @@ function ModalForm<T = Record<string, any>>({
           layout="vertical"
           {...rest}
           submitter={submitterConfig}
-          onFinish={async (values) => (await onFinish?.(values)) && setVisible(false)}
+          onFinish={onFinishHandle}
           contentRender={contentRender}
         >
           {children}

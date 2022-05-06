@@ -37,6 +37,7 @@ export default () => {
       drawerProps={{
         destroyOnClose: true,
       }}
+      submitTimeout={2000}
       onFinish={async (values) => {
         await waitTime(2000);
         console.log(values.name);

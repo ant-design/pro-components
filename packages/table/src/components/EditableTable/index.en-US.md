@@ -31,8 +31,6 @@ EditableProTable is essentially the same as ProTable, with a few presets added t
 
 ## API
 
-## API
-
 | Properties | Description | Type | Default |
 | --- | --- | --- | --- |
 | `value` | Same as dataSource, pass in an array of metadata for table rendering | `T[]` | `undefined` |
@@ -41,9 +39,24 @@ EditableProTable is essentially the same as ProTable, with a few presets added t
 | `maxLength` | The maximum number of rows, the New button will disappear when the maximum number of rows is reached | number | - |
 | `editable` | Related configuration of editable table | [TableRowEditable<T>](#editable-Editable row configuration) | - |
 | `controlled` | Whether controlled, if controlled every edit modifies the dataSource | `boolean` | false |
-| `editableFormRef` | table All forms, with some table-specific operations | `React.Ref<EditableFormInstance<T>` | `undefined` |
+| `editableFormRef` | table All forms, with some table-specific operations | `React.Ref<EditableFormInstance<T>>` | `undefined` |
 
 > Other APIs are the same as ProTable.
+
+### Editable New row
+
+When adding a new line, make sure that the `recordCreatorProps.record` key is unique, otherwise it will cause editing errors.
+
+```tsx | pure
+<EditableTable
+  rowKey="id"
+  recordCreatorProps={{
+    position: position as 'top',
+    // Each time you add a new key, you need it
+    record: () => ({ id: getNewId() }),
+  }}
+/>
+```
 
 ### EditableFormInstance Form list form operation
 

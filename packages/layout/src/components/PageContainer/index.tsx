@@ -227,6 +227,7 @@ const ProPageHeader: React.FC<PageContainerProps & { prefixedClassName: string }
   const { breadcrumb } = pageHeaderProps as {
     breadcrumb: BreadcrumbProps;
   };
+
   const noHasBreadCrumb =
     (!breadcrumb || (!breadcrumb?.itemRender && !breadcrumb?.routes?.length)) && !breadcrumbRender;
 
@@ -243,7 +244,6 @@ const ProPageHeader: React.FC<PageContainerProps & { prefixedClassName: string }
 
   return (
     <div className={`${prefixedClassName}-warp`}>
-      {/* @ts-expect-error */}
       <PageHeader
         {...pageHeaderProps}
         breadcrumb={
