@@ -631,7 +631,7 @@ function useEditableArray<RecordType>(
       !dataSourceKeyIndexMapRef.current.has(recordKeyToString(options?.parentKey).toString())
     ) {
       console.warn("can't find record by key", options?.parentKey);
-      return;
+      return false;
     }
     // 暂时不支持多行新增
     if (newLineRecordRef.current && props.onlyAddOneLineAlertMessage !== false) {
@@ -778,7 +778,7 @@ function useEditableArray<RecordType>(
 
   const actionRender = (row: RecordType & { index: number }, form: FormInstance<any>) => {
     const key = props.getRowKey(row, row.index);
-    const config = {
+    const config: ActionRenderConfig<any, NewLineConfig<any>> = {
       saveText,
       cancelText,
       deleteText,

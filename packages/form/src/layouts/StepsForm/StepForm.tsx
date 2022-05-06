@@ -11,8 +11,8 @@ export type StepFormProps<T = Record<string, any>> = {
   step?: number;
   stepProps?: StepProps;
   index?: number;
-} & Omit<FormProps<T>, 'onFinish'> &
-  Omit<CommonFormProps<T>, 'submitter'>;
+} & Omit<FormProps<T>, 'onFinish' | 'form'> &
+  Omit<CommonFormProps<T>, 'submitter' | 'form'>;
 
 function StepForm<T = Record<string, any>>(props: StepFormProps<T>) {
   const formRef = useRef<FormInstance | undefined>();
@@ -26,7 +26,10 @@ function StepForm<T = Record<string, any>>(props: StepFormProps<T>) {
 
   /** Dom 不存在的时候解除挂载 */
   useEffect(() => {
-    context?.regForm(props.name || props.step, props);
+    context?.regForm(
+      props.name || props.step!?.toString(),
+      props as StepFormProps<Record<string, any>>,
+    );
     return () => {
       if (restProps.name) {
         context?.unRegForm(restProps.name);
