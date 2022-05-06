@@ -282,6 +282,64 @@ describe('EditorProTable', () => {
     wrapper.unmount();
   });
 
+  it("📝 EditableProTable can't find record by parentKey", async () => {
+    const onchange = jest.fn();
+    const wrapper = render(
+      <EditableProTable<DataSourceType>
+        rowKey="id"
+        pagination={{
+          pageSize: 2,
+          current: 2,
+        }}
+        editable={{}}
+        onChange={(data) => onchange(data[0].children?.length)}
+        recordCreatorProps={{
+          position: 'bottom',
+          newRecordType: 'dataSource',
+          parentKey: () => 624671234,
+          record: {
+            id: 555,
+          },
+          id: 'addEditRecord',
+        }}
+        columns={columns}
+        value={[
+          {
+            id: 624674790,
+            title: '点击添加按钮，但是和我的parentKey不同，会报错的！',
+            labels: [{ name: 'question', color: 'success' }],
+            state: 'open',
+            time: {
+              created_at: '2020-05-26T07:54:25Z',
+            },
+            children: [
+              {
+                id: 6246747901,
+                title: '嵌套数据的编辑',
+                labels: [{ name: 'question', color: 'success' }],
+                state: 'closed',
+                time: {
+                  created_at: '2020-05-26T07:54:25Z',
+                },
+              },
+            ],
+          },
+        ]}
+      />,
+    );
+    await waitForComponentToPaint(wrapper, 1000);
+
+    await act(async () => {
+      (await wrapper.queryByText('添加一行数据'))?.click();
+    });
+
+    await waitForComponentToPaint(wrapper, 1000);
+
+    expect(onchange).not.toBeCalled();
+
+    wrapper.unmount();
+  });
+
   it('📝 EditableProTable add support parentKey when newRecordType = cache', async () => {
     const fn = jest.fn();
     const wrapper = render(
