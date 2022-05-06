@@ -18,6 +18,8 @@ ProTable 的诞生是为了解决项目中需要写很多 table 的样板代码�
 ![layout
 ](https://gw.alipayobjects.com/zos/antfincdn/Hw%26ryTueTW/bianzu%2525204.png)
 
+若您是内网用户，欢迎使用我们的 [TechUI Studio](https://techui-studio.antfin-inc.com/) 可视化配置生成初始代码。
+
 ## 何时使用
 
 当你的表格需要与服务端进行交互或者需要多种单元格样式时，ProTable 是不二选择。
