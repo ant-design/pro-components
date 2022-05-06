@@ -36,7 +36,7 @@ const FieldTreeSelect: ProFieldFC<GroupProps> = (
     showSearch,
     autoClearSearchValue,
     treeData,
-    searchValue: propsSearchValue = '',
+    searchValue: propsSearchValue,
     ...fieldProps
   } = (rest.fieldProps as TreeSelectProps<any>) || {};
 
