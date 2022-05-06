@@ -26,11 +26,11 @@ function StepForm<T = Record<string, any>>(props: StepFormProps<T>) {
 
   /** Dom 不存在的时候解除挂载 */
   useEffect(() => {
-    context?.regForm(props.name || props.step, props);
+    if (!(props.name || props.step)) return;
+    const name = (props.name || props.step)!.toString();
+    context?.regForm(name, props);
     return () => {
-      if (restProps.name) {
-        context?.unRegForm(restProps.name);
-      }
+      context?.unRegForm(name);
     };
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
