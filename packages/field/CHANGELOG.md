@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.34.8](https://github.com/ant-design/pro-components/compare/@ant-design/pro-field@1.34.6...@ant-design/pro-field@1.34.8) (2022-05-07)
+
+### Bug Fixes
+
+- **form:** searchValue property not work in ProFormTreeSelect ([#5079](https://github.com/ant-design/pro-components/issues/5079)) ([06e4225](https://github.com/ant-design/pro-components/commit/06e4225c784da305a7f9e7dcabc5d90bd1947994))
+
 ## [1.34.7](https://github.com/ant-design/pro-components/compare/@ant-design/pro-field@1.34.6...@ant-design/pro-field@1.34.7) (2022-04-29)
 
 **Note:** Version bump only for package @ant-design/pro-field
