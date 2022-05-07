@@ -11,8 +11,8 @@ export type StepFormProps<T = Record<string, any>> = {
   step?: number;
   stepProps?: StepProps;
   index?: number;
-} & Omit<FormProps<T>, 'onFinish'> &
-  Omit<CommonFormProps<T>, 'submitter'>;
+} & Omit<FormProps<T>, 'onFinish' | 'form'> &
+  Omit<CommonFormProps<T>, 'submitter' | 'form'>;
 
 function StepForm<T = Record<string, any>>(props: StepFormProps<T>) {
   const formRef = useRef<FormInstance | undefined>();
