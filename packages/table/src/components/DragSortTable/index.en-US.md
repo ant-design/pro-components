@@ -1,5 +1,5 @@
 ---
-title: DragSortTable - Drag Sort Table
+title: DragSortTable
 group:
   path: /
 nav:
