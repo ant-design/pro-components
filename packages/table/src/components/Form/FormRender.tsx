@@ -162,13 +162,16 @@ const FormRender = <T, U = any>({
             ? 'text'
             : (item?.valueType as 'text');
         const columnKey = item?.key || item?.dataIndex?.toString();
+     
         return {
           ...item,
           width: undefined,
           ...(item.search ? item.search : {}),
           valueType: finalValueType,
           proFieldProps: {
+            ...item.proFieldProps,
             proFieldKey: columnKey ? `table-field-${columnKey}` : undefined,
+            
           },
         };
       });
