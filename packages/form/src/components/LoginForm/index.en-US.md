@@ -1,5 +1,5 @@
 ---
-title: LoginForm/Page - Login Form
+title: LoginForm/Page
 Order: 2
 group:
   Path: /
