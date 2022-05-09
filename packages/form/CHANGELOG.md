@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.67.1](https://github.com/ant-design/pro-components/compare/@ant-design/pro-form@1.67.0...@ant-design/pro-form@1.67.1) (2022-05-09)
+
+### Bug Fixes
+
+- **login:** fix loginPage style error ([d9941ee](https://github.com/ant-design/pro-components/commit/d9941eeb781448e4674e22b4e9c00a3a1043f707))
+
 # [1.67.0](https://github.com/ant-design/pro-components/compare/@ant-design/pro-form@1.65.0...@ant-design/pro-form@1.67.0) (2022-05-07)
 
 ### Bug Fixes
