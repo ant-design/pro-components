@@ -197,6 +197,7 @@ type BaseLayoutDesignToken = {
      * menu 的背景颜色
      */
     menuBackgroundColor: string;
+
     /**
      * 展开 menuItem 分割线的颜色
      */

@@ -629,7 +629,11 @@ const SiderMenu: React.FC<SiderMenuProps & PrivateSiderMenuProps> = (props) => {
   useEffect(() => {
     return injectGlobal` 
     .${antPrefix}-menu-submenu > .${antPrefix}-menu {
-      background-color: ${designToken.sider.menuBackgroundColor};
+      background-color: ${
+        designToken.sider.menuBackgroundColor === 'transparent'
+          ? '#fff'
+          : designToken.sider.menuBackgroundColor
+      };
     }
     `;
   }, [antPrefix, designToken.sider.menuBackgroundColor]);
