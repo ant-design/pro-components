@@ -344,6 +344,7 @@ export const DeleteEditableAction: React.FC<ActionRenderConfig<any> & { row: any
       const res = await onDelete?.(recordKey, row);
       setLoading(false);
       setTimeout(() => {
+        // 删除之后解除编辑状态，防止新建一行失效
         cancelEditable(recordKey);
       }, 0);
       return res;
@@ -447,10 +448,16 @@ function useEditableArray<RecordType>(
 
   useDeepCompareEffectDebounce(() => {
     const map = new Map<React.Key, React.Key>();
-    props.dataSource?.forEach((record, index) => {
-      map.set(index.toString(), recordKeyToString(props.getRowKey(record, -1)));
-      map.set(recordKeyToString(props.getRowKey(record, -1))?.toString(), index.toString());
-    });
+    const loopGetKey = (dataSource: RecordType[]) => {
+      dataSource?.forEach((record, index) => {
+        map.set(index.toString(), recordKeyToString(props.getRowKey(record, -1)));
+        map.set(recordKeyToString(props.getRowKey(record, -1))?.toString(), index.toString());
+        if (props.childrenColumnName && record[props.childrenColumnName]) {
+          loopGetKey([record[props.childrenColumnName]]);
+        }
+      });
+    };
+    loopGetKey(props.dataSource);
     dataSourceKeyIndexMapRef.current = map;
   }, [props.dataSource]);
 
@@ -619,6 +626,13 @@ function useEditableArray<RecordType>(
    * @name 增加新的行
    */
   const addEditRecord = useRefFunction((row: RecordType, options?: AddLineOptions) => {
+    if (
+      options?.parentKey &&
+      !dataSourceKeyIndexMapRef.current.has(recordKeyToString(options?.parentKey).toString())
+    ) {
+      console.warn("can't find record by key", options?.parentKey);
+      return false;
+    }
     // 暂时不支持多行新增
     if (newLineRecordRef.current && props.onlyAddOneLineAlertMessage !== false) {
       message.warn(props.onlyAddOneLineAlertMessage || '只能新增一行');
@@ -741,6 +755,7 @@ function useEditableArray<RecordType>(
         key: recordKey,
         childrenColumnName: props.childrenColumnName || 'children',
       };
+
       const res = await props?.onDelete?.(recordKey, editRow);
       props.setDataSource(editableRowByKey(actionProps, 'delete'));
       return res;
@@ -763,7 +778,7 @@ function useEditableArray<RecordType>(
 
   const actionRender = (row: RecordType & { index: number }, form: FormInstance<any>) => {
     const key = props.getRowKey(row, row.index);
-    const config = {
+    const config: ActionRenderConfig<any, NewLineConfig<any>> = {
       saveText,
       cancelText,
       deleteText,

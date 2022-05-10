@@ -2,6 +2,26 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.67.1](https://github.com/ant-design/pro-components/compare/@ant-design/pro-form@1.67.0...@ant-design/pro-form@1.67.1) (2022-05-09)
+
+### Bug Fixes
+
+- **login:** fix loginPage style error ([d9941ee](https://github.com/ant-design/pro-components/commit/d9941eeb781448e4674e22b4e9c00a3a1043f707))
+
+# [1.67.0](https://github.com/ant-design/pro-components/compare/@ant-design/pro-form@1.65.0...@ant-design/pro-form@1.67.0) (2022-05-07)
+
+### Bug Fixes
+
+- **form:** add missed ProFormTreeSelect to the form export ([#5133](https://github.com/ant-design/pro-components/issues/5133)) ([6e852f1](https://github.com/ant-design/pro-components/commit/6e852f119dbfaa5ff82a2ea62436157421756836))
+- **form:** StepDoms use context reg form ([82f0eff](https://github.com/ant-design/pro-components/commit/82f0eff2287f430756d1e236c4ad417d2649af80))
+- **form:** Supplementary English Documents ([#5139](https://github.com/ant-design/pro-components/issues/5139)) ([6fb2ccf](https://github.com/ant-design/pro-components/commit/6fb2ccf811f6262e29fa7782651ca20e10719caa))
+- **form:** unRegForm not work when use step ([#5190](https://github.com/ant-design/pro-components/issues/5190)) ([808c3c9](https://github.com/ant-design/pro-components/commit/808c3c964e4a6f368bf24ddb49d45073347e7485))
+- **table:** addEditRecord check parentKey is has record ([#5183](https://github.com/ant-design/pro-components/issues/5183)) ([d568c24](https://github.com/ant-design/pro-components/commit/d568c2425e3794a005ad3e34355f0af1c31a642d))
+
+### Features
+
+- **form:** collapse support hidden number ([#5116](https://github.com/ant-design/pro-components/issues/5116)) ([eb14e1a](https://github.com/ant-design/pro-components/commit/eb14e1a0e3cb4aab8888b592c612c3a840e65db0))
+
 # [1.66.0](https://github.com/ant-design/pro-components/compare/@ant-design/pro-form@1.65.0...@ant-design/pro-form@1.66.0) (2022-04-29)
 
 ### Bug Fixes

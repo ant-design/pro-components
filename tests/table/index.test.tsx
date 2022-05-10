@@ -121,7 +121,7 @@ describe('BasicTable', () => {
     fireEvent.mouseOver(screen.getByText('其他操作'));
     (await html.findByText('编辑')).click();
   });
-  it('🎏 table  support visibilitychange', async () => {
+  it('🎏 table support visibilitychange', async () => {
     const requestFfn = jest.fn();
     let fn: Function | null = null;
     const errorSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
@@ -129,6 +129,7 @@ describe('BasicTable', () => {
       .spyOn(document, 'addEventListener')
       .mockImplementation((eventName, eventFn) => {
         if (eventName === 'visibilitychange') {
+          console.log(eventFn);
           //@ts-expect-error
           fn = eventFn;
         }

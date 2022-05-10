@@ -2,7 +2,11 @@ import React, { memo, useCallback, useContext, useEffect, useMemo, useState } fr
 import type { ProFormFieldProps } from '@ant-design/pro-form';
 import { FieldContext, ProFormField, ProFormDependency } from '@ant-design/pro-form';
 import type { ProFieldEmptyText } from '@ant-design/pro-field';
-import type { ProFieldValueType, ProSchemaComponentTypes } from '@ant-design/pro-utils';
+import type {
+  ProFieldValueType,
+  ProSchemaComponentTypes,
+  UseEditableUtilType,
+} from '@ant-design/pro-utils';
 import { isDeepEqualReact } from '@ant-design/pro-utils';
 import { runFunction } from '@ant-design/pro-utils';
 import { getFieldPropsOrFormItemProps, InlineErrorFormItem } from '@ant-design/pro-utils';
@@ -46,6 +50,7 @@ type CellRenderFromItemProps<T> = {
   counter: ReturnType<typeof useContainer>;
   proFieldProps: ProFormFieldProps;
   subName: string[];
+  editableUtils: UseEditableUtilType;
 };
 
 const CellRenderFromItem = <T,>(props: CellRenderFromItemProps<T>) => {
@@ -178,6 +183,7 @@ const CellRenderFromItem = <T,>(props: CellRenderFromItemProps<T>) => {
                   isEditable: true,
                 },
                 editableForm as any,
+                props.editableUtils,
               );
             }
 

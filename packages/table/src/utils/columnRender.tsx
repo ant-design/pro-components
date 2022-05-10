@@ -130,6 +130,7 @@ export function columnRender<T>({
     recordKey,
     mode,
     prefixName,
+    editableUtils,
   });
 
   const dom: React.ReactNode =

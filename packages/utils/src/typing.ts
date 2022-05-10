@@ -231,6 +231,10 @@ export type ProSchema<
       ) => JSX.Element | null;
     },
     form: FormInstance,
+    action?: Omit<
+      UseEditableUtilType,
+      'newLineRecord' | 'editableKeys' | 'actionRender' | 'setEditableRowKeys'
+    >,
   ) => React.ReactNode;
 
   /**

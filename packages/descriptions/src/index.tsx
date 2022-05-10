@@ -58,8 +58,8 @@ export type ProDescriptionsItemProps<T = Record<string, any>, ValueType = 'text'
   ProSchemaComponentTypes,
   ValueType
 >;
-export type ProDescriptionsActionType = ProCoreActionType;
 
+export type ProDescriptionsActionType = ProCoreActionType;
 export type ProDescriptionsProps<
   RecordType = Record<string, any>,
   ValueType = 'text',
