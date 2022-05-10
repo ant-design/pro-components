@@ -1,5 +1,5 @@
 ---
-title: ProList 
+title: ProList
 order: 12
 group:
   path: /
@@ -68,15 +68,15 @@ Compared with antd's [List](https://ant.design/components/list-cn/), ProList's A
 
 | parameter | description | type | default value |
 | :-- | :-- | :-- | :-- |
-| dataSource | same [configuration](https://ant.design/components/list-cn/#API)  as antd | `any[]` | `false` |
+| dataSource | same [configuration](https://ant.design/components/list-cn/#API) as antd | `any[]` | `false` |
 | actionRef | Table action reference for custom triggering | `MutableRefObject<ActionType>` | - |
 | metas | List item configuration, similar to columns in Table | `Metas` | - |
 | rowKey | row key, usually row id | `string` \| `(row,index)=>string` | `'id'` |
 | headerTitle | List header main title | `React.ReactNode` | - |
 | loading | is loading | `boolean` \| `(item: any) => boolean` | `false` |
 | split | whether to have a split line | `boolean` | `false` |
-| rowSelection | same [configuration](https://ant.design/components/table-cn/#rowSelection)  as antd| `object` \|`boolean` | false |
-| expandable | same [configuration](https://ant.design/components/table-cn/#expandable) as antd  | `object` \| `false` | - |
+| rowSelection | same [configuration](https://ant.design/components/table-cn/#rowSelection) as antd | `object` \|`boolean` | false |
+| expandable | same [configuration](https://ant.design/components/table-cn/#expandable) as antd | `object` \| `false` | - |
 | showActions | When to show actions | `'hover'` \| `'always'` | `'always'` |
 | showExtra | When to show extra | `'hover'` \| `'always'` | `'always'` |
 | onRow | The same [configuration](https://ant.design/components/table-cn/#onRow-%E7%94%A8%E6%B3%95) as antd , when the user passes in the `grid` property , the list will be rendered in card mode, this event will not fire, please use `onItem` | `function(record, index)` | - |
@@ -102,48 +102,48 @@ Same [configuration] as ProTable (https://procomponents.ant.design/components/ta
 The field type corresponding to dataSource is `'new'` \| `'top'` \| `'inline'`.
 
 | parameter | description | type | default value |
-| :--------- | :--- | :--- | :------- |
-| dataIndex | - | - | `'type'` |
+| :-------- | :---------- | :--- | :------------ |
+| dataIndex | -           | -    | `'type'`      |
 
 ### Metas.title
 
 | parameter | description | type | default value |
-| :--------- | :--- | :--- | :--------- |
-| dataIndex | - | - | `'title'` |
+| :-------- | :---------- | :--- | :------------ |
+| dataIndex | -           | -    | `'title'`     |
 
 ### Metas.subTitle
 
 | parameter | description | type | default value |
-| :------------ | :--- | :--- | :------------ |
-| dataIndex | - | - | `'subTitle'` |
+| :-------- | :---------- | :--- | :------------ |
+| dataIndex | -           | -    | `'subTitle'`  |
 
 ### Metas.description
 
-| parameter | description | type | default value |
-| :------------ | :--- | :--- | :--------------- |
-| dataIndex | - | - | `'description'` |
+| parameter | description | type | default value   |
+| :-------- | :---------- | :--- | :-------------- |
+| dataIndex | -           | -    | `'description'` |
 
 ### Metas.avatar
 
 | parameter | description | type | default value |
-| :--------- | :--- | :--- | :--------- |
-| dataIndex | - | - | `'avatar'` |
+| :-------- | :---------- | :--- | :------------ |
+| dataIndex | -           | -    | `'avatar'`    |
 
 ### Metas.actions
 
-| parameter | description | type | default value |
-| :-- | :-- | :-- | :-- |
-| dataIndex | - | - | `'actions'` |
+| parameter       | description                             | type    | default value          |
+| :-------------- | :-------------------------------------- | :------ | :--------------------- |
+| dataIndex       | -                                       | -       | `'actions'`            |
 | cardActionProps | Set where the card list renders actions | `extra` | `'actions' \| 'extra'` |
 
 ### Metas.content
 
 | parameter | description | type | default value |
-| :------------ | :--- | :--- | :---------- |
-| dataIndex | - | - | `'content'` |
+| :-------- | :---------- | :--- | :------------ |
+| dataIndex | -           | -    | `'content'`   |
 
 ### Metas.extra
 
 | parameter | description | type | default value |
-| :--------- | :--- | :--- | :--------- |
-| dataIndex | - | - | `'extra'` |
+| :-------- | :---------- | :--- | :------------ |
+| dataIndex | -           | -    | `'extra'`     |

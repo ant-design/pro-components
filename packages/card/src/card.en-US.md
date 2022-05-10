@@ -7,7 +7,7 @@ group:
   path: /
 ---
 
-# ProCard 
+# ProCard
 
 In-page container cards that provide standard card styles, card segmentation and grid layout capabilities. ProCard creatively combines `Col`, `Row`, `Card`, `Tabs` and other component implementations together, allowing you to complete various card-related layouts with only one component.
 
@@ -20,7 +20,6 @@ In-page container cards that provide standard card styles, card segmentation and
 - When multiple card grids are required, gutter layout.
 - When in-card split layout is required.
 - When the card is required to be foldable.
-  
 
 ## Code demo
 
@@ -212,9 +211,9 @@ All properties of [Tabs.TabPane](https://ant.design/components/tabs-cn/#Tabs.Tab
 
 Used to separate when grouping content.
 
-| parameter | description | type | default value |
-| ---- | -------- | ------------------------ | ------ |
-| type | Separation type | `horizontal \| vertical` | - |
+| parameter | description     | type                     | default value |
+| --------- | --------------- | ------------------------ | ------------- |
+| type      | Separation type | `horizontal \| vertical` | -             |
 
 ### ProCard.Group
 

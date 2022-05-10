@@ -10,7 +10,7 @@ import type { WithFalse } from '../../typings';
 import type { BaseMenuProps } from './BaseMenu';
 import BaseMenu from './BaseMenu';
 import MenuCounter from './Counter';
-import { ItemType } from 'antd/lib/menu/hooks/useItems';
+import type { ItemType } from 'antd/lib/menu/hooks/useItems';
 
 const { Sider } = Layout;
 

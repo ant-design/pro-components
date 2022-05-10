@@ -7,7 +7,7 @@ nav:
   path: /components
 ---
 
-# ProSkeleton 
+# ProSkeleton
 
 > This component is an internal component, please do not use it directly.
 
@@ -15,11 +15,11 @@ Page-level skeleton screen, does not support customization
 
 ## Installation and initialization
 
-````typescript | pure
+```typescript | pure
 import Skeleton from '@ant-design/pro-skeleton';
 
 return <Skeleton type="list" />;
-````
+```
 
 ## DEMO
 
