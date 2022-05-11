@@ -44,7 +44,6 @@ const Demo = () => {
                   display: 'flex',
                   alignItems: 'flex-end',
                   gap: '8px',
-                  height: 60,
                 }}
               >
                 <Button
