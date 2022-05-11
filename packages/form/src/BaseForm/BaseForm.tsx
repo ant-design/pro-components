@@ -159,7 +159,7 @@ export type BaseFormProps<T = Record<string, any>> = {
     submitter: React.ReactElement<SubmitterProps> | undefined,
     form: FormInstance<any>,
   ) => React.ReactNode;
-  fieldProps?: FieldProps;
+  fieldProps?: FieldProps<any>;
   /** 表单初始化完成，form已经存在，可以进行赋值的操作了 */
   onInit?: (values: T, form: ProFormInstance<any>) => void;
   formItemProps?: FormItemProps;
