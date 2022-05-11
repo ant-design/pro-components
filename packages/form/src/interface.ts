@@ -166,9 +166,10 @@ export type GroupProps = {
   children?: React.ReactNode;
 } & ProFormGridConfig;
 
-export type FieldProps = {
+export type FieldProps<T> = {
   style?: React.CSSProperties;
   width?: string;
+  ref?: React.Ref<T> | undefined;
 };
 
 export type LightFilterFooterRender =
@@ -193,7 +194,7 @@ export type ProFormFieldItemProps<T = Record<string, any>> = {
    * @example 设置select 多选
    * <ProFormText fieldProps={{placeholder:"请输入！"}} />
    */
-  fieldProps?: FieldProps & T;
+  fieldProps?: FieldProps<T> & T;
   /**
    * @name 输入的描述，没有值的时候展示
    */
