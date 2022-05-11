@@ -7606,7 +7606,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/Group/demos/base
                 style="max-width: 100%; min-width: 100%;"
               >
                 <div
-                  class="ant-pro-form-list-item "
+                  class="ant-pro-form-list-item ant-pro-form-list-item-show-label"
                   style="display: flex; align-items: flex-end;"
                 >
                   <div

@@ -16,6 +16,7 @@ const Demo = () => {
         itemContainerRender={(doms) => {
           return <ProForm.Group>{doms}</ProForm.Group>;
         }}
+        alwaysShowItemLabel
       >
         {(f, index, action) => {
           console.log(f, index, action);
