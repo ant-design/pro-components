@@ -16,6 +16,7 @@ const Demo = () => {
         itemContainerRender={(doms) => {
           return <ProForm.Group>{doms}</ProForm.Group>;
         }}
+        alwaysShowItemLabel
       >
         {(f, index, action) => {
           console.log(f, index, action);
@@ -44,6 +45,7 @@ const Demo = () => {
                   display: 'flex',
                   alignItems: 'flex-end',
                   gap: '8px',
+                  height: 60,
                 }}
               >
                 <Button
