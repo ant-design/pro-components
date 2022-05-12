@@ -9,6 +9,13 @@ group:
 
 # Change Log
 
+## @ant-design/pro-form@1.67.2
+
+`2022-05-12`
+
+- fix(form): fix bgImg color cover style. [fea7f7d](https://github.com/ant-design/pro-components/commit/fea7f7d)
+- fix(form):FormRender 不能自定义 proFieldProps (#5199). [#5199](https://github.com/ant-design/pro-components/pull/#5199) [@ly4236](https://github.com/ly4236)
+
 ## @ant-design/pro-form@1.66.0
 
 `2022-04-29`
