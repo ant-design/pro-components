@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.67.2](https://github.com/ant-design/pro-components/compare/@ant-design/pro-form@1.67.1...@ant-design/pro-form@1.67.2) (2022-05-12)
+
+### Bug Fixes
+
+- add alwaysShowItemLabel ([0c0ba50](https://github.com/ant-design/pro-components/commit/0c0ba50c3ac6783df27828de93dacc6acf572c3a))
+- **form:** fix bgImg color cover style ([fea7f7d](https://github.com/ant-design/pro-components/commit/fea7f7d18a7c92c574a5f4944e87a8cb835cfd51))
+
 ## [1.67.1](https://github.com/ant-design/pro-components/compare/@ant-design/pro-form@1.67.0...@ant-design/pro-form@1.67.1) (2022-05-09)
 
 ### Bug Fixes
