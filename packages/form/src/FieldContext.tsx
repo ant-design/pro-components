@@ -6,7 +6,7 @@ import type { GroupProps, FieldProps } from './interface';
 import type { CommonFormProps } from './BaseForm';
 
 export type FiledContextProps = {
-  fieldProps?: FieldProps<any>;
+  fieldProps?: FieldProps<unknown>;
   formItemProps?: FormItemProps;
   groupProps?: GroupProps;
   setFieldValueType?: (

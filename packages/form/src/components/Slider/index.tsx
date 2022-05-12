@@ -5,7 +5,10 @@ import { Slider } from 'antd';
 import type { ProFormFieldItemProps } from '../../interface';
 import { createField } from '../../BaseForm/createField';
 
-export type ProFormSliderProps = ProFormFieldItemProps<SliderSingleProps | SliderRangeProps> & {
+export type ProFormSliderProps = ProFormFieldItemProps<
+  SliderSingleProps | SliderRangeProps,
+  unknown
+> & {
   range?: boolean;
   min?: SliderBaseProps['min'];
   max?: SliderBaseProps['max'];

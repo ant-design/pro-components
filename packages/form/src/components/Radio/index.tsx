@@ -6,7 +6,7 @@ import { runFunction } from '@ant-design/pro-utils';
 import type { ProFormFieldItemProps, ProFormFieldRemoteProps } from '../../interface';
 import { createField } from '../../BaseForm/createField';
 
-export type ProFormRadioGroupProps = ProFormFieldItemProps<RadioGroupProps> & {
+export type ProFormRadioGroupProps = ProFormFieldItemProps<RadioGroupProps, HTMLDivElement> & {
   layout?: 'horizontal' | 'vertical';
   radioType?: 'button' | 'radio';
   options?: RadioGroupProps['options'];
