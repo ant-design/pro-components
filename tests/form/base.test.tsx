@@ -281,6 +281,7 @@ describe('ProForm', () => {
     await waitForComponentToPaint(wrapper, 1000);
     expect(formRef.current?.getFieldFormatValue?.('test')?.join('-')).toBe('12-34');
     expect(formRef.current?.getFieldFormatValueObject?.('test')?.test.join('-')).toBe('12-34');
+    expect(formRef.current?.getFieldFormatValueObject?.()?.test.join('-')).toBe('12-34');
     expect(formRef.current?.getFieldsFormatValue?.()?.test.join('-')).toBe('12-34');
     expect(formRef.current?.getFieldFormatValue?.(['test'])?.join('-')).toBe('12-34');
     expect(formRef.current?.getFieldValue?.('test')).toBe('12,34');
