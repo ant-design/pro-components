@@ -234,9 +234,9 @@ function TableRender<T extends Record<string, any>, U, ValueType>(
       )
     : baseTableDom;
 
-  useEffect(() => {
+  useMemo(() => {
     // 如果带了name，说明要用自带的 form，需要设置一下。
-    if (props.name) {
+    if (props.name && props.editable) {
       counter.setEditorTableForm(props.editable!.form!);
     }
   }, [counter, props.editable, props.name]);
@@ -284,7 +284,7 @@ function TableRender<T extends Record<string, any>, U, ValueType>(
       <>
         {toolbarDom}
         {alertDom}
-        {tableDom}
+        {counter.editableForm || !props.editable ? tableDom : null}
       </>
     );
     // eslint-disable-next-line react-hooks/exhaustive-deps

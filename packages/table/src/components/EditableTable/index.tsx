@@ -270,7 +270,7 @@ function EditableTable<
 
   useEffect(() => {
     if (props.name) {
-      formRef.current = props.editable?.form;
+      formRef.current = props?.editable?.form;
     }
   }, [props.editable?.form, props.name]);
 
