@@ -34746,7 +34746,7 @@ exports[`form demos 📸 renders ./packages/form/src/demos/base.tsx correctly 1`
               >
                 <div
                   class="ant-select ant-tree-select ant-select-in-form-item ant-pro-field-tree-select ant-select-multiple ant-select-show-search"
-                  style="min-width: 60px;"
+                  style="min-width: 60px; width: 600px;"
                 >
                   <div
                     class="ant-select-selector"

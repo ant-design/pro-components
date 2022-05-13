@@ -1,7 +1,7 @@
 ﻿import React from 'react';
-import ProField from '../Field';
 import type { ProFormFieldItemProps, ProFormFieldRemoteProps } from '../../interface';
 import type { TreeSelectProps } from 'antd';
+import ProFormField from '../Field';
 
 /**
  * 级联选择框
@@ -13,7 +13,7 @@ const ProFormTreeSelect: React.ForwardRefRenderFunction<
   ProFormFieldItemProps<TreeSelectProps<any>> & ProFormFieldRemoteProps
 > = ({ fieldProps, request, params, proFieldProps, ...rest }, ref) => {
   return (
-    <ProField
+    <ProFormField
       mode="edit"
       valueType="treeSelect"
       fieldProps={fieldProps}

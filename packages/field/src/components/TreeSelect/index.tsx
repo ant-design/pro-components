@@ -15,8 +15,7 @@ export type GroupProps = {
 
 /**
  * Tree select
- *
- * @param param0
+ * A function that returns a React component.
  * @param ref
  */
 const FieldTreeSelect: ProFieldFC<GroupProps> = (
@@ -136,6 +135,7 @@ const FieldTreeSelect: ProFieldFC<GroupProps> = (
           showSearch={showSearch}
           style={{
             minWidth: 60,
+            ...fieldProps.style,
           }}
           searchValue={searchValue}
           autoClearSearchValue={autoClearSearchValue}

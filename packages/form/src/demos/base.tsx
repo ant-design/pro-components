@@ -201,6 +201,7 @@ export default () => {
       <ProFormTreeSelect
         initialValue={['0-0-0']}
         label="树形下拉选择器"
+        width={600}
         request={async () => treeData}
         fieldProps={{
           fieldNames: {
