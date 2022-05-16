@@ -70,7 +70,7 @@ const Group: React.FC<GroupProps> = React.forwardRef((props, ref: any) => {
     ({ children: dom }: { children: React.ReactNode }) => (
       <Space
         {...spaceProps}
-        className={`${className}-container`}
+        className={classNames(`${className}-container`, spaceProps?.className)}
         size={size}
         align={align}
         direction={direction}
