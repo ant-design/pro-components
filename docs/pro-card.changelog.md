@@ -10,6 +10,12 @@ group:
 
 # Change Log
 
+## @ant-design/pro-card@1.20.4
+
+`2022-05-12`
+
+- 依赖库更新
+
 ## @ant-design/pro-card@1.20.0
 
 `2022-04-25`

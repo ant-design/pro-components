@@ -9,6 +9,13 @@ group:
 
 # Change Log
 
+## @ant-design/pro-form@1.68.0
+
+`2022-05-16`
+
+- feat(form): `FieldProps` add `ref` type (#5209). [#5209](https://github.com/ant-design/pro-components/pull/#5209) [@kungege](https://github.com/kungege)
+- fix(form): fix ProFormTreeSelect style no work error. [cb5dfa5](https://github.com/ant-design/pro-components/commit/cb5dfa5)
+
 ## @ant-design/pro-form@1.67.2
 
 `2022-05-12`
