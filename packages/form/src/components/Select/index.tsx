@@ -4,6 +4,7 @@ import ProFormField from '../Field';
 import { runFunction } from '@ant-design/pro-utils';
 import type { ProFormFieldItemProps, ProFormFieldRemoteProps } from '../../interface';
 import FieldContext from '../../FieldContext';
+import type { RefSelectProps } from 'antd/lib/select';
 
 export type ProFormSelectProps<T = any> = ProFormFieldItemProps<
   SelectProps<T> & {
@@ -21,7 +22,8 @@ export type ProFormSelectProps<T = any> = ProFormFieldItemProps<
     resetAfterSelect?: boolean;
     /** 自定义选项渲染 */
     optionItemRender?: (item: T) => React.ReactNode;
-  }
+  },
+  RefSelectProps
 > & {
   options?: SelectProps<any>['options'] | string[];
   mode?: SelectProps<any>['mode'] | 'single';
