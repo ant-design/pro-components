@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.34.11](https://github.com/ant-design/pro-components/compare/@ant-design/pro-field@1.34.10...@ant-design/pro-field@1.34.11) (2022-05-16)
+
+### Bug Fixes
+
+- **form:** fix ProFormTreeSelect style no work error ([cb5dfa5](https://github.com/ant-design/pro-components/commit/cb5dfa5177e7f5ae12d8ff40f911bd01fdf43c85))
+
 ## [1.34.10](https://github.com/ant-design/pro-components/compare/@ant-design/pro-field@1.34.9...@ant-design/pro-field@1.34.10) (2022-05-12)
 
 **Note:** Version bump only for package @ant-design/pro-field

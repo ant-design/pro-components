@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.68.0](https://github.com/ant-design/pro-components/compare/@ant-design/pro-form@1.67.3...@ant-design/pro-form@1.68.0) (2022-05-16)
+
+### Bug Fixes
+
+- **form:** fix ProFormTreeSelect style no work error ([cb5dfa5](https://github.com/ant-design/pro-components/commit/cb5dfa5177e7f5ae12d8ff40f911bd01fdf43c85))
+
+### Features
+
+- **form:** `FieldProps` add `ref` type ([#5209](https://github.com/ant-design/pro-components/issues/5209)) ([de87b58](https://github.com/ant-design/pro-components/commit/de87b5854ae11d878fb4d75356db6a8710af4a68))
+
 ## [1.67.3](https://github.com/ant-design/pro-components/compare/@ant-design/pro-form@1.67.2...@ant-design/pro-form@1.67.3) (2022-05-12)
 
 **Note:** Version bump only for package @ant-design/pro-form
