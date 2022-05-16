@@ -312,7 +312,7 @@ const schemaToDescriptionsItem = (
       const field = (
         <Descriptions.Item
           {...restItem}
-          key={restItem.label?.toString() || index}
+          key={restItem.key || restItem.label?.toString() || index}
           label={
             (title || restItem.label || restItem.tooltip || restItem.tip) && (
               <LabelIconTip
@@ -440,10 +440,12 @@ const ProDescriptions = <RecordType extends Record<string, any>, ValueType = 'te
           valueEnum,
           valueType,
           dataIndex,
+          ellipsis,
+          copyable,
           request: itemRequest,
         } = item?.props as ProDescriptionsItemProps;
 
-        if (!valueType && !valueEnum && !dataIndex && !itemRequest) {
+        if (!valueType && !valueEnum && !dataIndex && !itemRequest && !ellipsis && !copyable) {
           return item;
         }
 
@@ -452,7 +454,6 @@ const ProDescriptions = <RecordType extends Record<string, any>, ValueType = 'te
           entity: dataSource,
         };
       }) as ProDescriptionsItemProps<RecordType, ValueType>[];
-
     return [...(columns || []), ...childrenColumns]
       .filter((item) => {
         if (!item) return false;
