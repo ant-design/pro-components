@@ -43,9 +43,9 @@ export type ProSchemaValueEnumType = {
  *
  * @name ValueEnum 的类型
  */
-export type ProSchemaValueEnumMap = Map<React.ReactText, ProSchemaValueEnumType | React.ReactNode>;
+type ProSchemaValueEnumMap = Map<React.ReactText, ProSchemaValueEnumType | React.ReactNode>;
 
-export type ProSchemaValueEnumObj = Record<string, ProSchemaValueEnumType | React.ReactNode>;
+type ProSchemaValueEnumObj = Record<string, ProSchemaValueEnumType | React.ReactNode>;
 
 export type BaseProFieldFC = {
   /** 值的类型 */
