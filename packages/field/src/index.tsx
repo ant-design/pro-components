@@ -47,6 +47,8 @@ import fieldHOC from './FieldHOC';
 
 const REQUEST_VALUE_TYPE = ['select', 'radio', 'radioButton', 'checkbook'];
 
+const FieldSelectHOC = fieldHOC(FieldSelect);
+
 export type ProFieldMoneyProps = FieldMoneyProps;
 
 export type ProFieldEmptyText = string | false;
@@ -60,10 +62,12 @@ export type ProFieldFC<T = {}> = React.ForwardRefRenderFunction<
 
 /** 轻量筛选的field属性 */
 export type ProFieldLightProps = {
+  // label和clear图标的ref
   lightLabel?: React.RefObject<{
     labelRef: React.RefObject<HTMLElement>;
     clearRef: React.RefObject<HTMLElement>;
   }>;
+  // 是否点击了label
   labelTrigger?: boolean;
 };
 
@@ -352,7 +356,6 @@ const defaultRenderText = (
   }
 
   if (valueType === 'select' || (valueType === 'text' && (props.valueEnum || props.request))) {
-    const FieldSelectHOC = fieldHOC(FieldSelect);
     return <FieldSelectHOC text={dataValue as string} {...props} />;
   }
 
