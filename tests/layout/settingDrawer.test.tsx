@@ -1,8 +1,8 @@
 import { mount, render } from 'enzyme';
 import React from 'react';
-import { act } from 'react-dom/test-utils';
 import { SettingDrawer } from '@ant-design/pro-layout';
 import defaultSettings from './defaultSettings';
+import { render as reactRender, act } from '@testing-library/react';
 
 import { waitForComponentToPaint } from '../util';
 
@@ -23,7 +23,6 @@ describe('settingDrawer.test', () => {
       },
     });
   });
-
   beforeEach(() => {
     // @ts-expect-error
     window.MutationObserver = null;
@@ -54,6 +53,23 @@ describe('settingDrawer.test', () => {
       />,
     );
     expect(html).toMatchSnapshot();
+  });
+
+  it('🌺 colorList key is undefined', () => {
+    render(
+      <SettingDrawer
+        disableUrlParams
+        settings={defaultSettings}
+        colorList={[
+          {
+            key: '',
+            color: 'red',
+          },
+        ]}
+        getContainer={false}
+        collapse
+      />,
+    );
   });
 
   it('🌺  theme color Change', async () => {
@@ -462,21 +478,49 @@ describe('settingDrawer.test', () => {
   });
 
   it('🌺 onLanguageChange support', async () => {
-    const html = mount(
+    let fn: Function | null = null;
+    const addEventListenerSpy = jest
+      .spyOn(document, 'addEventListener')
+      .mockImplementation((eventName, eventFn) => {
+        if (eventName === 'languagechange') {
+          //@ts-expect-error
+          fn = eventFn;
+        }
+      });
+    const html = reactRender(
       <SettingDrawer disableUrlParams settings={defaultSettings} getContainer={false} collapse />,
     );
+    const { rerender } = html;
     await waitForComponentToPaint(html, 200);
     act(() => {
-      expect(html.find('.ant-pro-setting-drawer-title').at(0).text()).toBe('整体风格设置');
+      expect(
+        (
+          html.baseElement.querySelectorAll(
+            '.ant-pro-setting-drawer-title',
+          )[0] as HTMLHeadingElement
+        ).textContent,
+      ).toEqual('整体风格设置');
     });
-
     act(() => {
       window.localStorage.setItem('umi_locale', 'en-US');
     });
-    window.document.dispatchEvent(new Event('languagechange'));
-
+    await waitForComponentToPaint(html, 1200);
     act(() => {
-      expect(html.find('.ant-pro-setting-drawer-title').at(0).text()).toBe('Page style setting');
+      fn?.();
+      rerender(
+        <SettingDrawer disableUrlParams settings={defaultSettings} getContainer={false} collapse />,
+      );
+    });
+    addEventListenerSpy.mockRestore();
+    await waitForComponentToPaint(html, 1200);
+    act(() => {
+      expect(
+        (
+          html.baseElement.querySelectorAll(
+            '.ant-pro-setting-drawer-title',
+          )[0] as HTMLHeadingElement
+        ).textContent,
+      ).toEqual('Page style setting');
     });
     await waitForComponentToPaint(html, 200);
     act(() => {

@@ -1,92 +1,98 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Table valueEnum ListToolBar action is empty array 1`] = `
-<div
-  class="ant-pro-table-list-toolbar"
->
+<DocumentFragment>
   <div
-    class="ant-pro-table-list-toolbar-container"
+    class="ant-pro-table-list-toolbar"
   >
     <div
-      class="ant-pro-table-list-toolbar-left"
-    />
-    <div
-      class="ant-space ant-space-horizontal ant-space-align-center ant-pro-table-list-toolbar-right"
-    />
+      class="ant-pro-table-list-toolbar-container"
+    >
+      <div
+        class="ant-pro-table-list-toolbar-left"
+      />
+      <div
+        class="ant-space ant-space-horizontal ant-space-align-center ant-pro-table-list-toolbar-right"
+      />
+    </div>
   </div>
-</div>
+</DocumentFragment>
 `;
 
 exports[`Table valueEnum ListToolBar action no array 1`] = `
-<div
-  class="ant-pro-table-list-toolbar"
->
+<DocumentFragment>
   <div
-    class="ant-pro-table-list-toolbar-container"
+    class="ant-pro-table-list-toolbar"
   >
     <div
-      class="ant-pro-table-list-toolbar-left"
-    />
-    <div
-      class="ant-space ant-space-horizontal ant-space-align-center ant-pro-table-list-toolbar-right"
+      class="ant-pro-table-list-toolbar-container"
     >
       <div
-        class="ant-space-item"
+        class="ant-pro-table-list-toolbar-left"
+      />
+      <div
+        class="ant-space ant-space-horizontal ant-space-align-center ant-pro-table-list-toolbar-right"
       >
-        <button
-          class="ant-btn ant-btn-primary"
-          type="button"
+        <div
+          class="ant-space-item"
         >
-          <span>
-            添 加
-          </span>
-        </button>
+          <button
+            class="ant-btn ant-btn-primary"
+            type="button"
+          >
+            <span>
+              添 加
+            </span>
+          </button>
+        </div>
       </div>
     </div>
   </div>
-</div>
+</DocumentFragment>
 `;
 
 exports[`Table valueEnum ListToolBar action no jsx 1`] = `
-<div
-  class="ant-pro-table-list-toolbar"
->
+<DocumentFragment>
   <div
-    class="ant-pro-table-list-toolbar-container"
+    class="ant-pro-table-list-toolbar"
   >
     <div
-      class="ant-pro-table-list-toolbar-left"
-    />
-    <div
-      class="ant-space ant-space-horizontal ant-space-align-center ant-pro-table-list-toolbar-right"
+      class="ant-pro-table-list-toolbar-container"
     >
       <div
-        class="ant-space-item"
+        class="ant-pro-table-list-toolbar-left"
+      />
+      <div
+        class="ant-space ant-space-horizontal ant-space-align-center ant-pro-table-list-toolbar-right"
       >
         <div
-          class="ant-space ant-space-horizontal ant-space-align-center"
+          class="ant-space-item"
         >
           <div
-            class="ant-space-item"
-            style="margin-right:8px"
+            class="ant-space ant-space-horizontal ant-space-align-center"
           >
-            <button
-              class="ant-btn ant-btn-primary"
-              type="button"
+            <div
+              class="ant-space-item"
+              style="margin-right: 8px;"
             >
-              <span>
-                添 加
-              </span>
-            </button>
-          </div>
-          <div
-            class="ant-space-item"
-          >
-            shuaxin
+              <button
+                class="ant-btn ant-btn-primary"
+                type="button"
+              >
+                <span>
+                  添 加
+                </span>
+              </button>
+            </div>
+            <div
+              class="ant-space-item"
+            >
+              shuaxin
+            </div>
           </div>
         </div>
       </div>
     </div>
   </div>
-</div>
+</DocumentFragment>
 `;

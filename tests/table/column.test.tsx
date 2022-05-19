@@ -5,6 +5,8 @@ import ProTable from '@ant-design/pro-table';
 import { request } from './demo';
 import { waitForComponentToPaint } from '../util';
 import moment from 'moment';
+import type { RequestOptionsType } from 'packages/utils/src/typing';
+import { act } from 'react-dom/test-utils';
 
 describe('Table ColumnSetting', () => {
   it('🎏 render', async () => {
@@ -232,5 +234,68 @@ describe('Table ColumnSetting', () => {
     );
     await waitForComponentToPaint(html, 1200);
     expect(html.render()).toMatchSnapshot();
+  });
+
+  it('🎏 columns proFieldProps support custom', async () => {
+    const selectOptionsRequest = (a: any) => {
+      return new Promise<RequestOptionsType[]>((resolve) => {
+        setTimeout(() => {
+          const data = [
+            {
+              label: '1',
+              value: 1,
+            },
+            {
+              label: '2',
+              value: 2,
+            },
+            {
+              label: '3',
+              value: 3,
+            },
+            {
+              label: '4',
+              value: 4,
+            },
+          ];
+          const result = data.filter((x) => x.value === a);
+          resolve(result);
+        }, 1000);
+      });
+    };
+    const html = mount(
+      <ProTable
+        rowKey="key"
+        columns={[
+          {
+            title: 'Name',
+            key: 'name',
+            dataIndex: 'name',
+            valueType: 'select',
+            request: async (v) => {
+              const { keyWords } = v;
+              const result = await selectOptionsRequest(keyWords);
+              return result;
+            },
+            proFieldProps: {
+              debounceTime: 1000,
+            },
+          },
+        ]}
+      />,
+    );
+    await waitForComponentToPaint(html, 1200);
+    expect(html.render()).toMatchSnapshot();
+    await act(async () => {
+      html
+        .find('.ant-select-selection-search-input')
+        .simulate('change', { target: { value: '1' } });
+    });
+    const startCount = html.find('.ant-select-item').length;
+    expect(startCount).toBe(0);
+    setTimeout(() => {
+      const count = html.find('.ant-select-item').length;
+      expect(count).toBe(1);
+    }, 1000);
   });
 });

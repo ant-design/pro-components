@@ -7,8 +7,7 @@
   display: flex;
   width: 100%;
   height: 100%;
-  background-repeat: no-repeat;
-  background-size: 100% 100%;
+  background-size: contain;
 }
 
 .@{pro-form-login-prefix-cls}-notice {
@@ -55,13 +54,16 @@
       flex: none;
       align-items: flex-start;
       width: 100%;
+      > div {
+        width: 100%;
+      }
     }
   }
 }
 
 @media (min-width: @screen-md-min) {
   .@{pro-form-login-prefix-cls}-container {
-    padding: 32px 0 24px;
+    padding: 128px 0 24px;
     background-repeat: no-repeat;
     background-position: center 110px;
     background-size: 100%;

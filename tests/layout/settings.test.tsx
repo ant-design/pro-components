@@ -2,6 +2,7 @@ import React from 'react';
 import BasicLayout from '@ant-design/pro-layout';
 import { waitForComponentToPaint, waitTime } from '../util';
 import { render } from '@testing-library/react';
+import '@testing-library/jest-dom';
 import { act } from 'react-dom/test-utils';
 import { _el, _rs } from 'rc-resize-observer/lib/utils/observerUtil';
 

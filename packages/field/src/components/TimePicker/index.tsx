@@ -96,9 +96,7 @@ const FieldTimePicker: ProFieldFC<
             size={size}
             value={valueStr}
             allowClear={allowClear}
-            onClear={() => {
-              onChange?.(null);
-            }}
+            onClear={() => onChange?.(null)}
             expanded={open}
             ref={lightLabel}
           />

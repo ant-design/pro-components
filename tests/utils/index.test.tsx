@@ -13,12 +13,14 @@ import {
   LabelIconTip,
   useDebounceValue,
   isDeepEqualReact,
+  dateArrayFormatter,
+  nanoid,
 } from '@ant-design/pro-utils';
 import { mount } from 'enzyme';
+import { render, act, fireEvent } from '@testing-library/react';
 import { Form, Input } from 'antd';
 import type { Moment } from 'moment';
 import moment from 'moment';
-import { act } from 'react-dom/test-utils';
 import { waitTime, waitForComponentToPaint } from '../util';
 import isDropdownValueType from '../../packages/utils/src/isDropdownValueType/index';
 import { CodeFilled } from '@ant-design/icons';
@@ -53,6 +55,23 @@ describe('utils', () => {
     html.update();
 
     expect(html.text()).toEqual('string');
+  });
+
+  it('dateArrayFormatter', async () => {
+    const dateArrayString = dateArrayFormatter(
+      [moment('2020-01-01'), moment('2020-01-01')],
+      ['YYYY-MM-DD HH:mm:ss', 'YYYY-MM-DD'],
+    );
+
+    expect(dateArrayString).toEqual('2020-01-01 00:00:00 ~ 2020-01-01');
+  });
+  it('dateArrayFormatter support function', async () => {
+    const dateArrayString = dateArrayFormatter(
+      [moment('2020-01-01'), moment('2020-01-01')],
+      ['YYYY-MM-DD HH:mm:ss', (value: Moment) => value.format('YYYY-MM')],
+    );
+
+    expect(dateArrayString).toEqual('2020-01-01 00:00:00 ~ 2020-01');
   });
 
   it('📅 useDebounceValue without deps', async () => {
@@ -388,7 +407,7 @@ describe('utils', () => {
       numberRequired: '必须包含数字',
       alphaRequired: '必须包含字母',
     };
-    const html = mount(
+    const html = render(
       <Form>
         <InlineErrorFormItem
           errorType="popover"
@@ -413,34 +432,36 @@ describe('utils', () => {
           popoverProps={{ trigger: 'focus' }}
           name="title"
         >
-          <Input id="test" />
+          <Input id="test" role="test_input" />
         </InlineErrorFormItem>
       </Form>,
     );
 
-    act(() => {
-      html.find('input#test').simulate('focus');
+    await act(async () => {
+      (await html.findByRole('test_input')).focus();
     });
     await waitForComponentToPaint(html, 100);
-    expect(html.find('div.ant-popover').exists()).toBeFalsy();
+    expect(!!html.baseElement.querySelector('div.ant-popover')).toBeFalsy();
 
-    act(() => {
-      html.find('input#test').simulate('change', {
+    await act(async () => {
+      const dom = await html.findByRole('test_input');
+      fireEvent.change(dom!, {
         target: {
           value: '1',
         },
       });
     });
     await waitForComponentToPaint(html, 1000);
-    expect(html.find('div.ant-popover').exists()).toBeTruthy();
-    const li = html.find(
+    expect(!!html.baseElement.querySelector('div.ant-popover')).toBeTruthy();
+    const li = html.baseElement.querySelectorAll(
       'div.ant-popover .ant-popover-inner-content div.ant-form-item-explain-error',
     );
-    expect(li.exists()).toBeTruthy();
-    expect(li.at(0).text()).toBe(ruleMessage.min);
-    expect(li.at(1).text()).toBe(ruleMessage.alphaRequired);
-    act(() => {
-      html.find('input#test').simulate('change', {
+    expect(li.length > 0).toBeTruthy();
+    expect(li[0].textContent).toBe(ruleMessage.min);
+    expect(li[1].textContent).toBe(ruleMessage.alphaRequired);
+    await act(async () => {
+      const dom = await html.findByRole('test_input');
+      fireEvent.change(dom!, {
         target: {
           value: '12345678901AB',
         },
@@ -448,25 +469,31 @@ describe('utils', () => {
     });
     await waitForComponentToPaint(html, 1000);
 
-    act(() => {
-      html.find('input#test').simulate('change', {
+    await act(async () => {
+      const dom = await html.findByRole('test_input');
+      fireEvent.change(dom!, {
         target: {
           value: '.',
         },
       });
     });
     await waitForComponentToPaint(html, 1000);
-    expect(html.find('div.ant-popover.ant-popover-hidden').exists()).toBeFalsy();
+    expect(
+      html.baseElement.querySelectorAll('div.ant-popover.ant-popover-hidden').length > 0,
+    ).toBeFalsy();
 
-    act(() => {
-      html.find('input#test').simulate('change', {
+    await act(async () => {
+      const dom = await html.findByRole('test_input');
+      fireEvent.change(dom!, {
         target: {
           value: '',
         },
       });
     });
     await waitForComponentToPaint(html, 1000);
-    expect(html.find('div.ant-popover.ant-popover-hidden').exists()).toBeFalsy();
+    expect(
+      html.baseElement.querySelectorAll('div.ant-popover.ant-popover-hidden').length > 0,
+    ).toBeFalsy();
   });
 
   it('📅 transformKeySubmitValue return string', async () => {
@@ -499,6 +526,17 @@ describe('utils', () => {
     expect((html as any)['new-money']).toBe(20);
     expect(html.dateTimeRange.join(',')).toBe('2019-11-16 12:50:26,2019-11-16 12:55:26');
     expect(html.dateRange.join(',')).toBe('2019-11-16 12:50:26,2019-11-16 12:55:26');
+  });
+
+  it('📅 transformKeySubmitValue will return file', async () => {
+    //@ts-expect-error
+    const html = transformKeySubmitValue(false, {
+      dataTime: () => 'new-dataTime',
+      time: () => 'new-time',
+      name: () => 'new-name',
+      money: () => 'new-money',
+    });
+    expect(html).toBeFalsy();
   });
 
   it('📅 transformKeySubmitValue return object', async () => {
@@ -721,7 +759,7 @@ describe('utils', () => {
     expect(isNil(true)).toBe(false);
   });
 
-  it('isUrl', async () => {
+  it('🪓 isUrl', async () => {
     expect(isUrl('https://procomponents.ant.design/components/layout')).toBe(true);
     expect(isUrl('https://procomponents.ant.design/en-US/components/layout#basic-usage')).toBe(
       true,
@@ -730,14 +768,14 @@ describe('utils', () => {
     expect(isUrl('https:://procomponents.ant.design/en-US/components/layout')).toBe(false);
   });
 
-  it('isDropdownValueType', async () => {
+  it('🪓 isDropdownValueType', async () => {
     expect(isDropdownValueType('date')).toBeTruthy();
     expect(isDropdownValueType('dateRange')).toBeFalsy();
     expect(isDropdownValueType('dateTimeRange')).toBeFalsy();
     expect(isDropdownValueType('timeRange')).toBeFalsy();
     expect(isDropdownValueType('select')).toBeTruthy();
   });
-  it('LabelIconTip', async () => {
+  it('🪓 LabelIconTip', async () => {
     const html = mount(
       <LabelIconTip
         label="xxx"
@@ -826,5 +864,13 @@ describe('utils', () => {
     const wrapper = mount(<DeepComponent />);
 
     waitForComponentToPaint(wrapper, 100);
+  });
+
+  it('🪓 nanoid', () => {
+    window.crypto.randomUUID = jest.fn(() => '1234567890abcdef');
+
+    const id = nanoid();
+
+    expect(id).toBe('1234567890abcdef');
   });
 });

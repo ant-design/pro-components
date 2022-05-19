@@ -2,6 +2,41 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.41.2](https://github.com/ant-design/pro-components/compare/@ant-design/pro-utils@1.41.1...@ant-design/pro-utils@1.41.2) (2022-05-12)
+
+**Note:** Version bump only for package @ant-design/pro-utils
+
+## [1.41.1](https://github.com/ant-design/pro-components/compare/@ant-design/pro-utils@1.41.0...@ant-design/pro-utils@1.41.1) (2022-05-12)
+
+**Note:** Version bump only for package @ant-design/pro-utils
+
+# [1.41.0](https://github.com/ant-design/pro-components/compare/@ant-design/pro-utils@1.39.3...@ant-design/pro-utils@1.41.0) (2022-05-07)
+
+### Bug Fixes
+
+- **form:** Simplify light filter ([#5163](https://github.com/ant-design/pro-components/issues/5163)) ([e1018c8](https://github.com/ant-design/pro-components/commit/e1018c8e72063c9da98ec28bd806040754dfb10e))
+- **layout:** support ie11 ([89e2d5a](https://github.com/ant-design/pro-components/commit/89e2d5ab4a0d0ac2f55f8a5f4484ca0a5e844865))
+- **table:** addEditRecord check parentKey is has record ([#5183](https://github.com/ant-design/pro-components/issues/5183)) ([d568c24](https://github.com/ant-design/pro-components/commit/d568c2425e3794a005ad3e34355f0af1c31a642d))
+- **table:** if table data is null, render empty table ([281b8bd](https://github.com/ant-design/pro-components/commit/281b8bd541a3f93cb0e6ad3c24e21b0bc5f2f104))
+
+### Features
+
+- **layout:** use menu items ([e7606ff](https://github.com/ant-design/pro-components/commit/e7606ff2990719402b14d7bc1c2b32c2113ccfac))
+- **table:** recordCreator must set rowKey ([a30ce30](https://github.com/ant-design/pro-components/commit/a30ce301e649a27277b1ed1482333173f1833091))
+- **table:** renderFormIten support action ([5e33e57](https://github.com/ant-design/pro-components/commit/5e33e57fc61deab4668359d74e2cbc45901dd25c))
+
+# [1.40.0](https://github.com/ant-design/pro-components/compare/@ant-design/pro-utils@1.39.3...@ant-design/pro-utils@1.40.0) (2022-04-29)
+
+### Bug Fixes
+
+- **layout:** support ie11 ([89e2d5a](https://github.com/ant-design/pro-components/commit/89e2d5ab4a0d0ac2f55f8a5f4484ca0a5e844865))
+- **table:** if table data is null, render empty table ([281b8bd](https://github.com/ant-design/pro-components/commit/281b8bd541a3f93cb0e6ad3c24e21b0bc5f2f104))
+
+### Features
+
+- **layout:** use menu items ([e7606ff](https://github.com/ant-design/pro-components/commit/e7606ff2990719402b14d7bc1c2b32c2113ccfac))
+- **table:** recordCreator must set rowKey ([a30ce30](https://github.com/ant-design/pro-components/commit/a30ce301e649a27277b1ed1482333173f1833091))
+
 ## [1.39.3](https://github.com/ant-design/pro-components/compare/@ant-design/pro-utils@1.39.2...@ant-design/pro-utils@1.39.3) (2022-04-24)
 
 **Note:** Version bump only for package @ant-design/pro-utils

@@ -2,6 +2,48 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.74.4](https://github.com/ant-design/pro-components/compare/@ant-design/pro-table@2.74.3...@ant-design/pro-table@2.74.4) (2022-05-16)
+
+**Note:** Version bump only for package @ant-design/pro-table
+
+## [2.74.3](https://github.com/ant-design/pro-components/compare/@ant-design/pro-table@2.74.2...@ant-design/pro-table@2.74.3) (2022-05-12)
+
+**Note:** Version bump only for package @ant-design/pro-table
+
+## [2.74.2](https://github.com/ant-design/pro-components/compare/@ant-design/pro-table@2.74.1...@ant-design/pro-table@2.74.2) (2022-05-12)
+
+### Bug Fixes
+
+- **table:** fix children table alway rerender all dom ([17e1b58](https://github.com/ant-design/pro-components/commit/17e1b588066d2fcccdd4e501867bdfdf20b517ec))
+- **table:** use menu.items render menu.item ([6f32179](https://github.com/ant-design/pro-components/commit/6f32179c6f411ac77fb743294d9d7838fa4bfc04))
+
+## [2.74.1](https://github.com/ant-design/pro-components/compare/@ant-design/pro-table@2.74.0...@ant-design/pro-table@2.74.1) (2022-05-09)
+
+**Note:** Version bump only for package @ant-design/pro-table
+
+# [2.74.0](https://github.com/ant-design/pro-components/compare/@ant-design/pro-table@2.72.1...@ant-design/pro-table@2.74.0) (2022-05-07)
+
+### Bug Fixes
+
+- **table:** if table data is null, render empty table ([281b8bd](https://github.com/ant-design/pro-components/commit/281b8bd541a3f93cb0e6ad3c24e21b0bc5f2f104))
+
+### Features
+
+- **form:** collapse support hidden number ([#5116](https://github.com/ant-design/pro-components/issues/5116)) ([eb14e1a](https://github.com/ant-design/pro-components/commit/eb14e1a0e3cb4aab8888b592c612c3a840e65db0))
+- **table:** recordCreator must set rowKey ([a30ce30](https://github.com/ant-design/pro-components/commit/a30ce301e649a27277b1ed1482333173f1833091))
+- **table:** renderFormIten support action ([5e33e57](https://github.com/ant-design/pro-components/commit/5e33e57fc61deab4668359d74e2cbc45901dd25c))
+
+# [2.73.0](https://github.com/ant-design/pro-components/compare/@ant-design/pro-table@2.72.1...@ant-design/pro-table@2.73.0) (2022-04-29)
+
+### Bug Fixes
+
+- **table:** if table data is null, render empty table ([281b8bd](https://github.com/ant-design/pro-components/commit/281b8bd541a3f93cb0e6ad3c24e21b0bc5f2f104))
+
+### Features
+
+- **form:** collapse support hidden number ([#5116](https://github.com/ant-design/pro-components/issues/5116)) ([eb14e1a](https://github.com/ant-design/pro-components/commit/eb14e1a0e3cb4aab8888b592c612c3a840e65db0))
+- **table:** recordCreator must set rowKey ([a30ce30](https://github.com/ant-design/pro-components/commit/a30ce301e649a27277b1ed1482333173f1833091))
+
 ## [2.72.1](https://github.com/ant-design/pro-components/compare/@ant-design/pro-table@2.72.0...@ant-design/pro-table@2.72.1) (2022-04-25)
 
 **Note:** Version bump only for package @ant-design/pro-table

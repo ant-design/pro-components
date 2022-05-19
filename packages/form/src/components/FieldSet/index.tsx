@@ -46,7 +46,7 @@ const FieldSet: React.FC<ProFormFieldSetProps> = ({
   ...rest
 }) => {
   /**
-   * 使用方法的饮用防止闭包
+   * 使用方法的引用防止闭包
    *
    * @param fileValue
    * @param index
@@ -79,13 +79,13 @@ const FieldSet: React.FC<ProFormFieldSetProps> = ({
                 fieldSetOnChange(restParams[0], index);
               },
             },
-            value: value[index],
+            value: value?.[index],
             onChange: undefined,
           }
         : {
             key: index,
             ...((item.props as any) || {}),
-            value: value[index],
+            value: value?.[index],
             onChange: (itemValue: any) => {
               fieldSetOnChange(itemValue, index);
               (item as any).props.onChange?.(itemValue);

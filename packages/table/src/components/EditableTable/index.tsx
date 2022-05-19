@@ -270,7 +270,7 @@ function EditableTable<
 
   useEffect(() => {
     if (props.name) {
-      formRef.current = props.editable?.form;
+      formRef.current = props?.editable?.form;
     }
   }, [props.editable?.form, props.name]);
 
@@ -455,7 +455,6 @@ function FieldEditableTable<
     >
       <Field shouldUpdate={true} name={props.name} isList>
         {(control, _, form) => {
-          if (control.value === undefined || !Array.isArray(control.value)) return null;
           return (
             <EditableTable<DataType, Params, ValueType>
               {...props}
@@ -463,7 +462,7 @@ function FieldEditableTable<
                 ...props.editable,
                 form: form as ProFormInstance,
               }}
-              value={control.value}
+              value={control.value || []}
               onChange={control.onChange}
             />
           );

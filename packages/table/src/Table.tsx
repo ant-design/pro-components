@@ -234,9 +234,9 @@ function TableRender<T extends Record<string, any>, U, ValueType>(
       )
     : baseTableDom;
 
-  useEffect(() => {
+  useMemo(() => {
     // 如果带了name，说明要用自带的 form，需要设置一下。
-    if (props.name) {
+    if (props.name && props.editable) {
       counter.setEditorTableForm(props.editable!.form!);
     }
   }, [counter, props.editable, props.name]);
@@ -284,7 +284,7 @@ function TableRender<T extends Record<string, any>, U, ValueType>(
       <>
         {toolbarDom}
         {alertDom}
-        {tableDom}
+        {counter.editableForm || !props.editable ? tableDom : null}
       </>
     );
     // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -492,7 +492,7 @@ const ProTable = <T extends Record<string, any>, U extends ParamsType, ValueType
     onLoadingChange,
     onRequestError,
     postData,
-    revalidateOnFocus: props.revalidateOnFocus ?? true,
+    revalidateOnFocus: props.revalidateOnFocus ?? false,
     manual: formSearch === undefined,
     polling,
     effects: [stringify(params), stringify(formSearch), stringify(proFilter), stringify(proSort)],
@@ -512,16 +512,18 @@ const ProTable = <T extends Record<string, any>, U extends ParamsType, ValueType
   useEffect(() => {
     // 手动模式和 request 为空都不生效
     if (
-      !props.manualRequest ||
+      props.manualRequest ||
       !props.request ||
       props.revalidateOnFocus === false ||
-      !props.form?.ignoreRules
+      props.form?.ignoreRules
     )
       return;
+
     // 聚焦时重新请求事件
     const visibilitychange = () => {
       if (document.visibilityState === 'visible') action.reload();
     };
+
     document.addEventListener('visibilitychange', visibilitychange);
     return () => document.removeEventListener('visibilitychange', visibilitychange);
     // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -585,7 +587,8 @@ const ProTable = <T extends Record<string, any>, U extends ParamsType, ValueType
         if (request) action.setDataSource([]);
         action.setPageInfo({
           pageSize,
-          current: 1,
+          // 目前只有 List 和 Table 支持分页, List 有分页的时候 还是使用之前的当前页码
+          current: type === 'list' ? current : 1,
         });
       },
     };

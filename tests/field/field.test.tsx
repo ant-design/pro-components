@@ -1,10 +1,10 @@
 import { render, mount } from 'enzyme';
 import { Button, Input } from 'antd';
-import React from 'react';
+import React, { useState } from 'react';
 import moment from 'moment';
-import { act } from 'react-dom/test-utils';
 import Field from '@ant-design/pro-field';
-
+import { render as reactRender, act, fireEvent } from '@testing-library/react';
+import '@testing-library/jest-dom';
 import Demo from './fixtures/demo';
 import { waitForComponentToPaint, waitTime } from '../util';
 import { TreeSelectDemo } from './fixtures/treeSelectDemo';
@@ -72,28 +72,71 @@ describe('Field', () => {
   });
 
   it('🐴 money numberPopoverRender onchange values', async () => {
-    const html = mount(
-      <Field text="100" numberPopoverRender={() => 123} valueType="money" mode="edit" />,
+    const html = reactRender(
+      <Field text="100" numberPopoverRender={() => '1234'} valueType="money" mode="edit" />,
     );
+
     act(() => {
-      html.find('input').simulate('change', {
+      fireEvent.change(html.baseElement.querySelector('input')!, {
         target: {
           value: 1000,
         },
       });
     });
-    html.update();
-    expect(html.find('input').props().value).toBe('￥ 1000');
+    await waitTime(100);
+
+    expect(!!html.queryByDisplayValue('￥ 1000')).toBeTruthy();
+
     act(() => {
-      html.find('input').simulate('change', {
+      fireEvent.change(html.baseElement.querySelector('input')!, {
         target: {
           value: '￥ 100',
         },
       });
     });
+    await waitTime(100);
+    expect(!!html.queryByDisplayValue('￥ 100')).toBeTruthy();
 
-    html.update();
-    expect(html.find('input').props().value).toBe('￥ 100');
+    act(() => {
+      fireEvent.change(html.baseElement.querySelector('input')!, {
+        target: {
+          value: 111111111,
+        },
+      });
+    });
+    await waitTime(100);
+  });
+
+  it('🐴 money show Popover', async () => {
+    const html = reactRender(
+      <Field
+        text="100"
+        numberPopoverRender
+        fieldProps={{
+          visible: true,
+        }}
+        valueType="money"
+        mode="edit"
+      />,
+    );
+
+    act(() => {
+      fireEvent.change(html.baseElement.querySelector('input')!, {
+        target: {
+          value: 111111111,
+        },
+      });
+    });
+    await waitTime(100);
+
+    act(() => {
+      fireEvent.click(html.baseElement.querySelector('.ant-input-number')!);
+      fireEvent.focus(html.baseElement.querySelector('.ant-input-number')!);
+      fireEvent.mouseEnter(html.baseElement.querySelector('.ant-input-number')!);
+      fireEvent.mouseDown(html.baseElement.querySelector('.ant-input-number')!);
+    });
+    await waitTime(100);
+    expect(!!(await html.findByText('￥ 111111111'))).toBeTruthy();
   });
 
   it('🐴 should trigger onChange function provided when change', async () => {
@@ -452,100 +495,122 @@ describe('Field', () => {
     });
   });
 
-  it(`🐴 treeSelect options single value`, async () => {
+  it(`🐴 treeSelect searchValue control mode`, async () => {
+    const onSearch = jest.fn();
     const html = mount(
-      <TreeSelectDemo
-        multiple={false}
-        labelInValue={false}
-        onChange={(res) => {
-          expect(Array.isArray(res)).toBeFalsy();
-          html.setProps({ value: res });
-        }}
-      />,
+      <TreeSelectDemo multiple={false} labelInValue={false} onSearch={onSearch} />,
+    );
+    html
+      .find('.ant-select-selection-search-input')
+      .simulate('change', { target: { value: 'test' } });
+
+    expect(onSearch).toHaveBeenLastCalledWith('test', expect.anything());
+
+    html.setProps({
+      searchValue: 'ProComponents',
+    });
+
+    expect(html.find('.ant-select-selection-search-input').prop('value')).toEqual('ProComponents');
+  });
+
+  it(`🐴 treeSelect options single value`, async () => {
+    const onChangeFn = jest.fn();
+    const TreeSelectChangeDemo = () => {
+      const [value, setValue] = useState();
+      return (
+        <TreeSelectDemo
+          multiple={false}
+          labelInValue={false}
+          onChange={(res) => {
+            onChangeFn(Array.isArray(res));
+            setValue(value);
+          }}
+        />
+      );
+    };
+    const html = reactRender(<TreeSelectChangeDemo />);
+
+    await waitForComponentToPaint(html, 200);
+
+    const searchInput = html.baseElement.querySelector('input.ant-select-selection-search-input');
+
+    expect(!!searchInput).toBeTruthy();
+
+    fireEvent.change(html.baseElement.querySelector('input.ant-select-selection-search-input')!, {
+      target: {
+        value: 'Node5',
+      },
+    });
+
+    const selectTreeTitle = html.baseElement.querySelectorAll<HTMLSpanElement>(
+      'span.ant-select-tree-title',
     );
 
-    await waitForComponentToPaint(html, 200);
+    selectTreeTitle[0]?.click();
 
-    const searchInput = html.find('input.ant-select-selection-search-input');
+    expect(html.queryAllByText('Node2').length > 0).toBeTruthy();
 
-    expect(searchInput.exists()).toBeTruthy();
+    selectTreeTitle[selectTreeTitle.length - 1]?.click();
 
-    act(() => {
-      searchInput.simulate('change', {
-        target: {
-          value: 'Node5',
-        },
-      });
-    });
+    expect(html.queryAllByText('Child Node5').length > 0).toBeTruthy();
 
-    await waitForComponentToPaint(html, 200);
-
-    await waitForComponentToPaint(html, 200);
-
-    const selectTreeTitle = html.find('span.ant-select-tree-title');
-
-    await waitForComponentToPaint(html, 200);
-
-    act(() => {
-      selectTreeTitle.first().simulate('click');
-    });
-
-    await waitForComponentToPaint(html, 200);
-
-    expect(html.text()).toContain('Node2');
-
-    act(() => {
-      selectTreeTitle.last().simulate('click');
-    });
-
-    await waitForComponentToPaint(html, 200);
-
-    expect(html.text()).toContain('Child Node5');
-
-    act(() => {
-      html.unmount();
-    });
+    expect(onChangeFn).toHaveBeenCalledWith(false);
   });
 
   it(`🐴 treeSelect support request function and search, asynchronously loadData`, async () => {
     const requestFn = jest.fn(),
       onSearchFn = jest.fn(),
       onBlurFn = jest.fn(),
+      loadDataFn = jest.fn(),
       onClearFn = jest.fn();
 
-    const html = mount(
-      <TreeSelectDemo
-        onSearch={onSearchFn}
-        onBlur={onBlurFn}
-        onClear={onClearFn}
-        loadData={async (node) => {
-          expect(node).toBeTruthy();
-          return;
-        }}
-        onChange={(res: any) => {
-          html.setProps({ value: res });
-        }}
-        request={requestFn}
-      />,
-    );
+    const TreeSelectChangeDemo = () => {
+      const [value, setValue] = useState();
+      return (
+        <TreeSelectDemo
+          onSearch={onSearchFn}
+          onBlur={onBlurFn}
+          onClear={onClearFn}
+          loadData={async (node) => {
+            loadDataFn(!!node);
+            return;
+          }}
+          value={value}
+          request={requestFn}
+          onChange={() => {
+            setValue(value);
+          }}
+        />
+      );
+    };
+
+    const html = reactRender(<TreeSelectChangeDemo />);
 
     await waitForComponentToPaint(html, 200);
 
     expect(requestFn).toBeCalledTimes(1);
 
     act(() => {
-      html.find('span.ant-select-tree-switcher_close').last().simulate('click');
-      html.find('span.ant-select-tree-switcher_close').last().simulate('click');
+      html.baseElement
+        .querySelectorAll<HTMLSpanElement>('span.ant-select-tree-switcher_close')
+        [
+          html.baseElement.querySelectorAll('span.ant-select-tree-switcher_close').length - 1
+        ].click();
+      html.baseElement
+        .querySelectorAll<HTMLSpanElement>('span.ant-select-tree-switcher_close')
+        [
+          html.baseElement.querySelectorAll('span.ant-select-tree-switcher_close').length - 1
+        ].click();
     });
 
     await waitForComponentToPaint(html, 200);
 
-    const searchInput = html.find('input.ant-select-selection-search-input');
-
-    expect(searchInput.exists()).toBeTruthy();
+    expect(
+      !!html.baseElement.querySelector('input.ant-select-selection-search-input'),
+    ).toBeTruthy();
 
     act(() => {
-      searchInput.simulate('change', {
+      fireEvent.change(html.baseElement.querySelector('input.ant-select-selection-search-input')!, {
         target: {
           value: 'Node5',
         },
@@ -557,47 +622,53 @@ describe('Field', () => {
     expect(onSearchFn).toBeCalled();
 
     act(() => {
-      html.find('.ant-select-tree-switcher_close').forEach((item) => item.simulate('click'));
+      html.baseElement
+        .querySelectorAll<HTMLSpanElement>('.ant-select-tree-switcher_close')
+        .forEach((item) => item.click());
     });
 
     await waitForComponentToPaint(html, 200);
 
-    const selectTreeTitle = html.find('.ant-select-tree-title');
-
-    expect(selectTreeTitle.exists()).toBeTruthy();
-    selectTreeTitle.forEach((item) => console.log(item.text()));
+    const selectTreeTitle =
+      html.baseElement.querySelectorAll<HTMLSpanElement>('.ant-select-tree-title');
 
     expect(selectTreeTitle.length).toBe(2);
 
     await waitForComponentToPaint(html, 200);
 
     act(() => {
-      selectTreeTitle.first().simulate('click');
+      selectTreeTitle[0]?.click();
     });
 
     await waitForComponentToPaint(html, 200);
     act(() => {
-      selectTreeTitle.last().simulate('click');
+      selectTreeTitle[selectTreeTitle.length - 1]?.click();
     });
     await waitForComponentToPaint(html, 200);
 
-    expect(html.text()).toContain('Node2Child Node5');
+    expect(html.queryAllByText('Child Node5').length > 0).toBeTruthy();
+    expect(html.queryAllByText('Node2').length > 0).toBeTruthy();
 
-    expect(html.find('input.ant-select-selection-search-input').prop('value')).toBe('');
+    expect(
+      html.baseElement.querySelector<HTMLInputElement>('input.ant-select-selection-search-input')
+        ?.value,
+    ).toBe('');
 
-    html.find('span.ant-select-clear').simulate('mousedown');
+    act(() => {
+      fireEvent.click(html.baseElement.querySelector('span.ant-select-clear')!, {});
+      fireEvent.mouseDown(html.baseElement.querySelector('span.ant-select-clear')!, {});
+    });
     expect(onClearFn).toBeCalled();
-    expect(html.text()).toContain('');
+    expect(html.baseElement.textContent).toContain('');
 
     act(() => {
-      searchInput.simulate('blur');
+      fireEvent.blur(
+        html.baseElement.querySelector('input.ant-select-selection-search-input')!,
+        {},
+      );
     });
 
     expect(onBlurFn).toBeCalledTimes(1);
-
-    act(() => {
-      html.unmount();
-    });
   });
 
   it('🐴 edit and no plain', async () => {

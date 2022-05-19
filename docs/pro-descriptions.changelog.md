@@ -9,6 +9,12 @@ group:
 
 # Change Log
 
+## @ant-design/pro-descriptions@1.10.74
+
+`2022-05-16`
+
+- 依赖库更新
+
 ## @ant-design/pro-descriptions@1.10.46
 
 `2022-02-24`

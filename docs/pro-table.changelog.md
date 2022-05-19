@@ -9,6 +9,20 @@ group:
 
 # Change Log
 
+## @ant-design/pro-table@2.74.2
+
+`2022-05-12`
+
+- fix(table): fix children table alway rerender all dom. [17e1b58](https://github.com/ant-design/pro-components/commit/17e1b58)
+- fix(table): use menu.items render menu.item. [6f32179](https://github.com/ant-design/pro-components/commit/6f32179)
+
+## @ant-design/pro-table@2.73.0
+
+`2022-04-29`
+
+- fix(table): if table data is null, render empty table. [281b8bd](https://github.com/ant-design/pro-components/commit/281b8bd)
+- feat(table): recordCreator must set rowKey. [a30ce30](https://github.com/ant-design/pro-components/commit/a30ce30)
+
 ## @ant-design/pro-table@2.72.0
 
 `2022-04-24`

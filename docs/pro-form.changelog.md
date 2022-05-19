@@ -9,6 +9,28 @@ group:
 
 # Change Log
 
+## @ant-design/pro-form@1.68.0
+
+`2022-05-16`
+
+- feat(form): `FieldProps` add `ref` type (#5209). [#5209](https://github.com/ant-design/pro-components/pull/#5209) [@kungege](https://github.com/kungege)
+- fix(form): fix ProFormTreeSelect style no work error. [cb5dfa5](https://github.com/ant-design/pro-components/commit/cb5dfa5)
+
+## @ant-design/pro-form@1.67.2
+
+`2022-05-12`
+
+- fix(form): fix bgImg color cover style. [fea7f7d](https://github.com/ant-design/pro-components/commit/fea7f7d)
+- fix(form):FormRender 不能自定义 proFieldProps (#5199). [#5199](https://github.com/ant-design/pro-components/pull/#5199) [@ly4236](https://github.com/ly4236)
+
+## @ant-design/pro-form@1.66.0
+
+`2022-04-29`
+
+- feat(form): collapse support hidden number (#5116). [#5116](https://github.com/ant-design/pro-components/pull/#5116) [@DerrickTel](https://github.com/DerrickTel)
+- fix(form): Supplementary English Documents (#5139). [#5139](https://github.com/ant-design/pro-components/pull/#5139) [@wangmeijian](https://github.com/wangmeijian)
+- fix(form): add missed ProFormTreeSelect to the form export (#5133). [#5133](https://github.com/ant-design/pro-components/pull/#5133) [@Symous](https://github.com/Symous)
+
 ## @ant-design/pro-form@1.65.0
 
 `2022-04-24`

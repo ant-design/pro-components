@@ -5,7 +5,7 @@ import { UploadOutlined } from '@ant-design/icons';
 import type { ProFormFieldItemProps } from '../../interface';
 import { createField } from '../../BaseForm/createField';
 
-export type ProFormDraggerProps = ProFormFieldItemProps<UploadProps> & {
+export type ProFormDraggerProps = ProFormFieldItemProps<UploadProps, HTMLElement> & {
   /**
    * @name  上传文件的图标
    * @default UploadOutlined

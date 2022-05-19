@@ -3,7 +3,7 @@ import ProField from '../Field';
 import type { SwitchProps } from 'antd';
 import type { ProFormFieldItemProps } from '../../interface';
 
-export type ProFormSwitchProps = ProFormFieldItemProps<SwitchProps> & {
+export type ProFormSwitchProps = ProFormFieldItemProps<SwitchProps, HTMLElement> & {
   checkedChildren?: SwitchProps['checkedChildren'];
   unCheckedChildren?: SwitchProps['unCheckedChildren'];
 };

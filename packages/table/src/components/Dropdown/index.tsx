@@ -8,6 +8,7 @@ import './index.less';
 interface MenuItems extends MenuItemProps {
   name: React.ReactNode;
   key: string;
+  title?: string;
 }
 
 export type DropdownProps = {
@@ -55,13 +56,17 @@ const TableDropdown: React.FC<DropdownProps> & {
   const { getPrefixCls } = useContext(ConfigProvider.ConfigContext);
   const className = getPrefixCls('pro-table-dropdown');
   const menu = (
-    <Menu onClick={(params) => onSelect && onSelect(params.key as string)}>
-      {menus.map(({ key, name, ...rest }) => (
-        <Menu.Item key={key} {...rest}>
-          {name}
-        </Menu.Item>
-      ))}
-    </Menu>
+    <Menu
+      onClick={(params) => {
+        onSelect?.(params.key as string);
+      }}
+      items={menus.map(({ key, name, ...rest }) => ({
+        key,
+        ...rest,
+        title: rest.title as string,
+        label: name,
+      }))}
+    />
   );
   return (
     <Dropdown overlay={menu} className={classnames(className, propsClassName)}>

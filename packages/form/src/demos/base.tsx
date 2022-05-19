@@ -163,15 +163,15 @@ export default () => {
         request={async () => [
           {
             value: 'zhejiang',
-            label: 'Zhejiang',
+            label: '浙江',
             children: [
               {
                 value: 'hangzhou',
-                label: 'Hangzhou',
+                label: '杭州',
                 children: [
                   {
                     value: 'xihu',
-                    label: 'West Lake',
+                    label: '西湖',
                   },
                 ],
               },
@@ -194,13 +194,14 @@ export default () => {
             ],
           },
         ]}
-        name="area"
+        name="areaList"
         label="区域"
         initialValue={['zhejiang', 'hangzhou', 'xihu']}
       />
       <ProFormTreeSelect
         initialValue={['0-0-0']}
         label="树形下拉选择器"
+        width={600}
         request={async () => treeData}
         fieldProps={{
           fieldNames: {

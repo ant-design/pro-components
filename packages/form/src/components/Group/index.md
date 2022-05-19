@@ -215,3 +215,7 @@ name 参数必须要是一个数组，如果是嵌套的结构可以这样配置
 ### 增删条目限制
 
 <code src="./demos/countLimit.tsx" heigh="1774px" title="增删条目限制"/>
+
+### 横向布局
+
+<code src="./demos/horizontal-layout.tsx" heigh="174px" title="横向布局"/>
