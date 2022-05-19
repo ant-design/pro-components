@@ -1,16 +1,17 @@
-import React, { useState, useContext, useMemo, useRef, useCallback } from 'react';
+import React, { useState, useContext, useMemo } from 'react';
 import type { SelectProps } from 'antd';
 import { Select, Input, ConfigProvider } from 'antd';
 import { SearchOutlined } from '@ant-design/icons';
 import classNames from 'classnames';
 import { FieldLabel } from '@ant-design/pro-utils';
+import type { ProFieldLightProps } from '../../../index';
 
 import './index.less';
 
 export type LightSelectProps = {
   label?: string;
   placeholder?: any;
-};
+} & ProFieldLightProps;
 
 /**
  * 如果有 label 就优先使用 label
@@ -56,6 +57,8 @@ const LightSelect: React.ForwardRefRenderFunction<any, SelectProps<any> & LightS
     allowClear,
     labelInValue,
     fieldNames,
+    lightLabel,
+    labelTrigger,
     ...restProps
   } = props;
   const { placeholder = label } = props;
@@ -64,26 +67,6 @@ const LightSelect: React.ForwardRefRenderFunction<any, SelectProps<any> & LightS
   const prefixCls = getPrefixCls('pro-field-select-light-select');
   const [open, setOpen] = useState<boolean>(false);
   const [keyword, setKeyword] = useState<string>('');
-  const [labelTrigger, setLabelTrigger] = useState(false);
-  const lightLabel = useRef<{
-    labelRef: React.RefObject<HTMLElement>;
-    clearRef: React.RefObject<HTMLElement>;
-  }>(null);
-
-  // 是label且不是label里面的clear图标触发事件
-  const isTriggeredByLabel = useCallback(
-    (e: React.MouseEvent) => {
-      // 两条语句结果分别命名，可读性好点
-      const isLabelMouseDown = lightLabel.current?.labelRef?.current?.contains(
-        e.target as HTMLElement,
-      );
-      const isClearMouseDown = lightLabel.current?.clearRef?.current?.contains(
-        e.target as HTMLElement,
-      );
-      return isLabelMouseDown && !isClearMouseDown;
-    },
-    [lightLabel],
-  );
 
   const valueMap: Record<string, string> = useMemo(() => {
     const values = {};
@@ -109,19 +92,10 @@ const LightSelect: React.ForwardRefRenderFunction<any, SelectProps<any> & LightS
         className,
       )}
       style={style}
-      onMouseDown={(e) => {
-        // fix: https://github.com/ant-design/pro-components/issues/5010
-        if (isTriggeredByLabel(e)) {
-          setLabelTrigger(true);
-        }
-      }}
-      onMouseUp={() => {
-        setLabelTrigger(false);
-      }}
       onClick={(e) => {
         if (disabled) return;
         // 点击label切换下拉菜单
-        const isLabelClick = lightLabel.current?.labelRef?.current?.contains(
+        const isLabelClick = lightLabel?.current?.labelRef?.current?.contains(
           e.target as HTMLElement,
         );
         if (isLabelClick) {

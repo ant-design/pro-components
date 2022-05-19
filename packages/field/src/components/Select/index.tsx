@@ -31,7 +31,7 @@ import LightSelect from './LightSelect';
 import SearchSelect from './SearchSelect';
 import type { ProFieldStatusType } from '../Status';
 import TableStatus, { ProFieldBadgeColor } from '../Status';
-import type { ProFieldFC } from '../../index';
+import type { ProFieldFC, ProFieldLightProps } from '../../index';
 import './index.less';
 import useSWR from 'swr';
 
@@ -55,7 +55,7 @@ export type FieldSelectProps<FieldProps = any> = {
   id?: string;
 
   children?: ReactNode;
-};
+} & ProFieldLightProps;
 
 export const ObjToMap = (value: ProFieldValueEnumType | undefined): ProSchemaValueEnumMap => {
   if (getType(value) === 'map') {
@@ -423,6 +423,8 @@ const FieldSelect: ProFieldFC<
     label,
     bordered,
     id,
+    lightLabel,
+    labelTrigger,
     ...rest
   } = props;
 
@@ -500,6 +502,8 @@ const FieldSelect: ProFieldFC<
             options={options}
             label={label}
             placeholder={intl.getMessage('tableForm.selectPlaceholder', '请选择')}
+            lightLabel={lightLabel}
+            labelTrigger={labelTrigger}
             {...fieldProps}
           />
         );

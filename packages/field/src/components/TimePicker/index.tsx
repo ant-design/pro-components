@@ -1,20 +1,36 @@
 import { DatePicker, TimePicker, ConfigProvider } from 'antd';
-import React, { useState, useContext, useRef, useCallback } from 'react';
+import React, { useState, useContext } from 'react';
 import moment from 'moment';
 import { FieldLabel, parseValueToMoment } from '@ant-design/pro-utils';
-import type { ProFieldFC } from '../../index';
+import type { ProFieldFC, ProFieldLightProps } from '../../index';
 
 /**
  * 时间选择组件
  *
  * @param
  */
-const FieldTimePicker: ProFieldFC<{
-  text: string | number;
-  format: string;
-}> = ({ text, mode, light, label, format, render, renderFormItem, plain, fieldProps }, ref) => {
+const FieldTimePicker: ProFieldFC<
+  {
+    text: string | number;
+    format: string;
+  } & ProFieldLightProps
+> = (
+  {
+    text,
+    mode,
+    light,
+    label,
+    format,
+    render,
+    renderFormItem,
+    plain,
+    fieldProps,
+    lightLabel,
+    labelTrigger,
+  },
+  ref,
+) => {
   const [open, setOpen] = useState<boolean>(false);
-  const [labelTrigger, setLabelTrigger] = useState(false);
   const size = useContext(ConfigProvider.SizeContext);
   const { getPrefixCls } = useContext(ConfigProvider.ConfigContext);
   const prefixCls = getPrefixCls('pro-field-date-picker');
@@ -22,26 +38,6 @@ const FieldTimePicker: ProFieldFC<{
   const finalFormat = fieldProps?.format || format || 'HH:mm:ss';
 
   const isNumberOrMoment = moment.isMoment(text) || typeof text === 'number';
-
-  const lightLabel = useRef<{
-    labelRef: React.RefObject<HTMLElement>;
-    clearRef: React.RefObject<HTMLElement>;
-  }>(null);
-
-  // 是label且不是label里面的clear图标触发事件
-  const isTriggeredByLabel = useCallback(
-    (e: React.MouseEvent) => {
-      // 两条语句结果分别命名，可读性好点
-      const isLabelMouseDown = lightLabel.current?.labelRef?.current?.contains(
-        e.target as HTMLElement,
-      );
-      const isClearMouseDown = lightLabel.current?.clearRef?.current?.contains(
-        e.target as HTMLElement,
-      );
-      return isLabelMouseDown && !isClearMouseDown;
-    },
-    [lightLabel],
-  );
 
   if (mode === 'read') {
     const dom = (
@@ -63,18 +59,9 @@ const FieldTimePicker: ProFieldFC<{
       dom = (
         <div
           className={`${prefixCls}-light`}
-          onMouseDown={(e) => {
-            // fix: https://github.com/ant-design/pro-components/issues/5010
-            if (isTriggeredByLabel(e)) {
-              setLabelTrigger(true);
-            }
-          }}
-          onMouseUp={() => {
-            setLabelTrigger(false);
-          }}
           onClick={(e) => {
             // 点击label切换下拉菜单
-            const isLabelClick = lightLabel.current?.labelRef?.current?.contains(
+            const isLabelClick = lightLabel?.current?.labelRef?.current?.contains(
               e.target as HTMLElement,
             );
             if (isLabelClick) {
