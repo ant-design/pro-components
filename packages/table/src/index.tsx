@@ -27,7 +27,6 @@ import type { ListToolBarProps } from './components/ListToolBar';
 import ListToolBar from './components/ListToolBar';
 
 import Search from './components/Form';
-import cellRenderToFromItem from './utils/cellRenderToFromItem';
 import type { ColumnsState } from './container';
 import type { ActionType, ProColumns, ProColumnType, ProTableProps, RequestData } from './typing';
 import type { EditableFormInstance } from './components/EditableTable';
@@ -67,7 +66,6 @@ export {
   ConfigConsumer,
   zhCNIntl,
   FieldIndexColumn as IndexColumn,
-  cellRenderToFromItem as defaultRenderText,
   createIntl,
   arEGIntl,
   enUSIntl,
@@ -81,6 +79,7 @@ export {
   zhTWIntl,
   frFRIntl,
   ptBRIntl,
+  ProTable,
 };
 
 export default ProTable;

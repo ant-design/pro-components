@@ -15,6 +15,8 @@ const headPkgs: string[] = [
   'form',
   'table',
   'list',
+  'descriptions',
+  'components',
 ];
 const tailPkgs = readdirSync(join(__dirname, 'packages')).filter(
   (pkg) => pkg.charAt(0) !== '.' && !headPkgs.includes(pkg),

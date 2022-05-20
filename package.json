@@ -6,7 +6,7 @@
   ],
   "scripts": {
     "bootstrap": "node ./scripts/bootstrap.js",
-    "build": "npm run build-lib && webpack && node ./scripts/gen_less_entry.js",
+    "build": "node ./scripts/gen_version.js && npm run build-lib && webpack && node ./scripts/gen_less_entry.js",
     "build-lib": "cross-env BUILD_TYPE=lib father-build && cross-env BUILD_TYPE=es father-build",
     "changelog": "node ./scripts/changelogs.js",
     "check-deps": "node ./scripts/checkDeps.js",
@@ -25,7 +25,8 @@
     "test:update": "jest --updateSnapshot",
     "tsc": "tsc --noEmit",
     "tsc:duplicate": "tsc -p ./tests/tsconfig.duplicate.json",
-    "update:deps": "yarn upgrade-interactive --latest"
+    "update:deps": "yarn upgrade-interactive --latest",
+    "webpack":"node ./scripts/gen_version.js && webpack"
   },
   "browserslist": [
     "last 2 versions",
