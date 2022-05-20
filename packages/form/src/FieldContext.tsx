@@ -1,9 +1,9 @@
-import React from 'react';
+import type { ProSchemaValueType, SearchTransformKeyFn } from '@ant-design/pro-utils';
 import type { FormItemProps } from 'antd';
 import type { NamePath } from 'antd/lib/form/interface';
-import type { ProSchemaValueType, SearchTransformKeyFn } from '@ant-design/pro-utils';
-import type { GroupProps, FieldProps } from './interface';
+import React from 'react';
 import type { CommonFormProps } from './BaseForm';
+import type { FieldProps, GroupProps } from './interface';
 
 export type FiledContextProps = {
   fieldProps?: FieldProps<unknown>;

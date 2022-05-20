@@ -1,12 +1,13 @@
-﻿import React from 'react';
-import { Button, message } from 'antd';
-import ProForm, {
+﻿import { PlusOutlined } from '@ant-design/icons';
+import {
   ModalForm,
-  ProFormText,
+  ProForm,
   ProFormDateRangePicker,
   ProFormSelect,
-} from '@ant-design/pro-form';
-import { PlusOutlined } from '@ant-design/icons';
+  ProFormText,
+} from '@ant-design/pro-components';
+import { Button, message } from 'antd';
+import React from 'react';
 
 const waitTime = (time: number = 100) => {
   return new Promise((resolve) => {

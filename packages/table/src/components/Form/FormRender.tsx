@@ -1,15 +1,12 @@
-﻿import React, { useContext, useMemo } from 'react';
+﻿import type { BaseQueryFilterProps, ProFormProps } from '@ant-design/pro-form';
+import { BetaSchemaForm } from '@ant-design/pro-form';
+import type { ProSchemaComponentTypes } from '@ant-design/pro-utils';
 import type { FormInstance, FormItemProps } from 'antd';
-import { Table } from 'antd';
-import { ConfigProvider } from 'antd';
-import type { BaseQueryFilterProps, ProFormProps } from '@ant-design/pro-form';
+import { ConfigProvider, Table } from 'antd';
 import classNames from 'classnames';
 import omit from 'omit.js';
-import { BetaSchemaForm } from '@ant-design/pro-form';
-
-import type { ProSchemaComponentTypes } from '@ant-design/pro-utils';
+import React, { useContext, useMemo } from 'react';
 import type { ActionType, ProColumns, ProTableProps } from '../../typing';
-
 import './index.less';
 
 function toLowerLine(str: string) {

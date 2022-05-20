@@ -1,8 +1,8 @@
-import React, { useState } from 'react';
-import { Card, Menu, Descriptions } from 'antd';
-import type { ProColumns } from '@ant-design/pro-table';
-import ProTable from '@ant-design/pro-table';
 import { MailOutlined } from '@ant-design/icons';
+import type { ProColumns } from '@ant-design/pro-components';
+import { ProTable } from '@ant-design/pro-components';
+import { Card, Descriptions, Menu } from 'antd';
+import React, { useState } from 'react';
 
 const waitTime = (time: number = 100) => {
   return new Promise((resolve) => {

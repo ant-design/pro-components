@@ -1,8 +1,8 @@
-import React from 'react';
 import { PlusOutlined } from '@ant-design/icons';
+import type { ProColumns } from '@ant-design/pro-components';
+import { ProTable } from '@ant-design/pro-components';
 import { Button } from 'antd';
-import type { ProColumns } from '@ant-design/pro-table';
-import ProTable from '@ant-design/pro-table';
+import React from 'react';
 
 type GithubIssueItem = {
   key: number;

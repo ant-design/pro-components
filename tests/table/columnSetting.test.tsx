@@ -1,11 +1,11 @@
+import ProTable from '@ant-design/pro-table';
+import '@testing-library/jest-dom';
+import { render } from '@testing-library/react';
 import { mount } from 'enzyme';
 import React from 'react';
 import { act } from 'react-dom/test-utils';
-import ProTable from '@ant-design/pro-table';
-import { columns } from './demo';
 import { waitForComponentToPaint } from '../util';
-import { render } from '@testing-library/react';
-import '@testing-library/jest-dom';
+import { columns } from './demo';
 
 describe('Table ColumnSetting', () => {
   beforeEach(() => {

@@ -1,7 +1,7 @@
-﻿import React from 'react';
-import ProField from '../Field';
+﻿import type { CascaderProps } from 'antd';
+import React from 'react';
 import type { ProFormFieldItemProps, ProFormFieldRemoteProps } from '../../interface';
-import type { CascaderProps } from 'antd';
+import ProField from '../Field';
 /**
  * 级联选择框
  *

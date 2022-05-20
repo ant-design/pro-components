@@ -1,8 +1,8 @@
-import React from 'react';
 import { EllipsisOutlined } from '@ant-design/icons';
-import { Button, Dropdown, Menu } from 'antd';
+import { ProCard } from '@ant-design/pro-components';
 import { PageContainer } from '@ant-design/pro-layout';
-import ProCard from '@ant-design/pro-card';
+import { Button, Dropdown, Menu } from 'antd';
+import React from 'react';
 
 export default () => (
   <div

@@ -1,12 +1,11 @@
-import React, { useEffect } from 'react';
+import { getFlatMenus } from '@umijs/route-utils';
 import { Drawer } from 'antd';
 import classNames from 'classnames';
 import Omit from 'omit.js';
-import { getFlatMenus } from '@umijs/route-utils';
-
+import React, { useEffect } from 'react';
+import MenuCounter from './Counter';
 import type { PrivateSiderMenuProps, SiderMenuProps } from './SiderMenu';
 import SiderMenu from './SiderMenu';
-import MenuCounter from './Counter';
 
 const SiderMenuWrapper: React.FC<SiderMenuProps & PrivateSiderMenuProps> = (props) => {
   const {

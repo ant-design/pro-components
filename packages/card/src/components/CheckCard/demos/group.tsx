@@ -2,8 +2,8 @@
  * title: 选项列表
  */
 
+import { CheckCard } from '@ant-design/pro-components';
 import React from 'react';
-import { CheckCard } from '@ant-design/pro-card';
 
 export default () => (
   <div style={{ padding: 24, backgroundColor: '#F0F2F5' }}>

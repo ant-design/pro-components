@@ -1,15 +1,15 @@
-import type { FormItemProps, RowProps, SpaceProps } from 'antd';
-import type { ProFormItemProps } from './components';
-import type { ProFormInstance } from './BaseForm';
-import type { LabelTooltipType } from 'antd/lib/form/FormItemLabel';
-import type React from 'react';
 import type {
   ProFieldProps,
   ProFieldValueType,
   ProSchema,
   SearchConvertKeyFn,
 } from '@ant-design/pro-utils';
+import type { FormItemProps, RowProps, SpaceProps } from 'antd';
+import type { LabelTooltipType } from 'antd/lib/form/FormItemLabel';
 import type { ColProps } from 'antd/lib/grid/col';
+import type React from 'react';
+import type { ProFormInstance } from './BaseForm';
+import type { ProFormItemProps } from './components';
 
 export interface ProFormGridConfig {
   /**

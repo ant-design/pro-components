@@ -1,8 +1,8 @@
-import ProFormField from '../../Field';
 import { omitUndefined } from '@ant-design/pro-utils';
-import type { ProFormFieldProps } from '../../Field';
-import type { ProSchemaRenderValueTypeFunction } from '../typing';
 import omit from 'omit.js';
+import type { ProFormFieldProps } from '../../Field';
+import ProFormField from '../../Field';
+import type { ProSchemaRenderValueTypeFunction } from '../typing';
 
 export const field: ProSchemaRenderValueTypeFunction = (
   item,

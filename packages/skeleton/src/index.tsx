@@ -1,18 +1,18 @@
 import React from 'react';
-import type { ListPageSkeletonProps } from './component/List';
-import ListPageSkeleton, {
-  PageHeaderSkeleton,
-  ListToolbarSkeleton,
-  ListSkeleton,
-  ListSkeletonItem,
-} from './component/List';
-import ResultPageSkeleton from './component/Result';
 import type { DescriptionsPageSkeletonProps } from './component/Descriptions';
 import DescriptionsPageSkeleton, {
-  TableItemSkeleton,
   DescriptionsSkeleton,
+  TableItemSkeleton,
   TableSkeleton,
 } from './component/Descriptions';
+import type { ListPageSkeletonProps } from './component/List';
+import ListPageSkeleton, {
+  ListSkeleton,
+  ListSkeletonItem,
+  ListToolbarSkeleton,
+  PageHeaderSkeleton,
+} from './component/List';
+import ResultPageSkeleton from './component/Result';
 
 const PageSkeleton: React.FC<
   ListPageSkeletonProps &

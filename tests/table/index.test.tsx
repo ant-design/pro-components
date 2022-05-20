@@ -1,12 +1,12 @@
-import { mount, render } from 'enzyme';
-import React, { useRef } from 'react';
-import { Input, Button } from 'antd';
-import { act } from 'react-dom/test-utils';
 import type { ActionType } from '@ant-design/pro-table';
 import ProTable, { TableDropdown } from '@ant-design/pro-table';
-import { columns, request } from './demo';
+import { fireEvent, render as ReactRender, screen } from '@testing-library/react';
+import { Button, Input } from 'antd';
+import { mount, render } from 'enzyme';
+import React, { useRef } from 'react';
+import { act } from 'react-dom/test-utils';
 import { waitForComponentToPaint, waitTime } from '../util';
-import { render as ReactRender, fireEvent, screen } from '@testing-library/react';
+import { columns, request } from './demo';
 
 describe('BasicTable', () => {
   const LINE_STR_COUNT = 20;

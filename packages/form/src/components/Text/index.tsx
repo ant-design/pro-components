@@ -1,8 +1,8 @@
-import React from 'react';
 import type { InputProps } from 'antd';
 import type { InputRef, PasswordProps } from 'antd/lib/input';
-import ProField from '../Field';
+import React from 'react';
 import type { ProFormFieldItemProps } from '../../interface';
+import ProField from '../Field';
 
 const valueType = 'text' as const;
 /**

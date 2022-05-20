@@ -1,8 +1,8 @@
-import React from 'react';
 import type { ProFieldMoneyProps } from '@ant-design/pro-field';
-import ProFormField from '../Field';
-import type { ProFormFieldItemProps } from '../../interface';
 import type { InputNumberProps } from 'antd';
+import React from 'react';
+import type { ProFormFieldItemProps } from '../../interface';
+import ProFormField from '../Field';
 
 export type ProFormMoneyProps = ProFormFieldItemProps<
   Omit<ProFieldMoneyProps, 'valueType' | 'text'> & InputNumberProps

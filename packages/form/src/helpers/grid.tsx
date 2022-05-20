@@ -1,5 +1,5 @@
-import type { RowProps, ColProps } from 'antd';
-import { Row, Col } from 'antd';
+import type { ColProps, RowProps } from 'antd';
+import { Col, Row } from 'antd';
 import { useContext, useMemo } from 'react';
 import FieldContext from '../FieldContext';
 import type { ProFormGridConfig } from '../interface';

@@ -1,9 +1,9 @@
-import React from 'react';
-
-import ProField from '../Field';
-import type { ProFormFieldItemProps } from '../../interface';
 import type { TextAreaProps } from 'antd/lib/input';
 import type { TextAreaRef } from 'antd/lib/input/TextArea';
+import React from 'react';
+import type { ProFormFieldItemProps } from '../../interface';
+import ProField from '../Field';
+
 /**
  * 文本选择组件
  *

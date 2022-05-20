@@ -1,10 +1,9 @@
+import { SettingDrawer } from '@ant-design/pro-layout';
+import { act, render as reactRender } from '@testing-library/react';
 import { mount, render } from 'enzyme';
 import React from 'react';
-import { SettingDrawer } from '@ant-design/pro-layout';
-import defaultSettings from './defaultSettings';
-import { render as reactRender, act } from '@testing-library/react';
-
 import { waitForComponentToPaint } from '../util';
+import defaultSettings from './defaultSettings';
 
 describe('settingDrawer.test', () => {
   beforeAll(() => {

@@ -1,16 +1,15 @@
+import { MenuFoldOutlined, MenuUnfoldOutlined } from '@ant-design/icons';
+import { Layout, Menu } from 'antd';
+import type { SiderProps } from 'antd/lib/layout/Sider';
+import type { ItemType } from 'antd/lib/menu/hooks/useItems';
+import classNames from 'classnames';
 import type { CSSProperties } from 'react';
 import React from 'react';
-import { Layout, Menu } from 'antd';
-import classNames from 'classnames';
-import type { SiderProps } from 'antd/lib/layout/Sider';
-import { MenuUnfoldOutlined, MenuFoldOutlined } from '@ant-design/icons';
-
-import './index.less';
 import type { WithFalse } from '../../typings';
 import type { BaseMenuProps } from './BaseMenu';
 import BaseMenu from './BaseMenu';
 import MenuCounter from './Counter';
-import type { ItemType } from 'antd/lib/menu/hooks/useItems';
+import './index.less';
 
 const { Sider } = Layout;
 

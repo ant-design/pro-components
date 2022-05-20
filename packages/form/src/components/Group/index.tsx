@@ -1,12 +1,12 @@
-import React, { useCallback, useContext, useMemo } from 'react';
-import { Space, ConfigProvider } from 'antd';
 import { RightOutlined } from '@ant-design/icons';
+import { LabelIconTip, useMountMergeState } from '@ant-design/pro-utils';
+import { ConfigProvider, Space } from 'antd';
+import classNames from 'classnames';
+import React, { useCallback, useContext, useMemo } from 'react';
 import FieldContext from '../../FieldContext';
+import { useGridHelpers } from '../../helpers';
 import type { GroupProps } from '../../interface';
 import './index.less';
-import { LabelIconTip, useMountMergeState } from '@ant-design/pro-utils';
-import classNames from 'classnames';
-import { useGridHelpers } from '../../helpers';
 
 const Group: React.FC<GroupProps> = React.forwardRef((props, ref: any) => {
   const { groupProps } = React.useContext(FieldContext);

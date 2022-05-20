@@ -1,19 +1,19 @@
-import React from 'react';
-import { Radio } from 'antd';
 import {
   LightFilter,
-  ProFormText,
   ProFormDatePicker,
-  ProFormSelect,
-  ProFormDigit,
-  ProFormSwitch,
   ProFormDateRangePicker,
   ProFormDateTimePicker,
-  ProFormTimePicker,
   ProFormDateTimeRangePicker,
-  ProFormSlider,
+  ProFormDigit,
   ProFormFieldSet,
-} from '@ant-design/pro-form';
+  ProFormSelect,
+  ProFormSlider,
+  ProFormSwitch,
+  ProFormText,
+  ProFormTimePicker,
+} from '@ant-design/pro-components';
+import { Radio } from 'antd';
+import React from 'react';
 
 export default () => {
   const [mode, setMode] = React.useState<any>('topLeft');

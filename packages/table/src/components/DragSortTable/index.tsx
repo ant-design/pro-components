@@ -1,11 +1,11 @@
-import React, { useMemo, useCallback, useRef, useContext } from 'react';
-import { useDragSort } from '../../utils/useDragSort';
-import type { ParamsType } from '@ant-design/pro-provider';
-import ProTable from '../../Table';
-import { SortableHandle } from 'react-sortable-hoc';
 import { MenuOutlined } from '@ant-design/icons';
-import type { ProColumns, ProTableProps } from '../../typing';
+import type { ParamsType } from '@ant-design/pro-provider';
 import { ConfigProvider } from 'antd';
+import React, { useCallback, useContext, useMemo, useRef } from 'react';
+import { SortableHandle } from 'react-sortable-hoc';
+import ProTable from '../../Table';
+import type { ProColumns, ProTableProps } from '../../typing';
+import { useDragSort } from '../../utils/useDragSort';
 import './index.less';
 
 export type DragTableProps<T, U> = {

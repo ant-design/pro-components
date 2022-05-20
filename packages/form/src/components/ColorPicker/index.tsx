@@ -1,8 +1,8 @@
-﻿import React from 'react';
-import type { SketchPickerProps } from '@chenshuai2144/sketch-color';
+﻿import type { SketchPickerProps } from '@chenshuai2144/sketch-color';
 import type { PopoverProps } from 'antd';
-import ProFromField from '../Field';
+import React from 'react';
 import type { ProFormFieldItemProps } from '../../interface';
+import ProFromField from '../Field';
 
 type ColorPickerProps = SketchPickerProps & {
   value?: string;

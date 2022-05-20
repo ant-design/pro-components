@@ -3,9 +3,9 @@
  */
 
 /* eslint-disable no-console */
+import { CheckCard } from '@ant-design/pro-components';
+import { Avatar, Button, Form } from 'antd';
 import React from 'react';
-import { CheckCard } from '@ant-design/pro-card';
-import { Form, Button, Avatar } from 'antd';
 
 export default () => {
   const [form] = Form.useForm();

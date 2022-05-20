@@ -1,5 +1,5 @@
+import { ProTable } from '@ant-design/pro-components';
 import React from 'react';
-import ProTable from '@ant-design/pro-table';
 
 const valueEnum = {
   0: 'close',

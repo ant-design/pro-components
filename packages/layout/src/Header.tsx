@@ -1,13 +1,12 @@
-import './Header.less';
-
-import React, { Component } from 'react';
-import classNames from 'classnames';
 import { Layout } from 'antd';
+import classNames from 'classnames';
+import React, { Component } from 'react';
 import type { GlobalHeaderProps } from './components/GlobalHeader';
 import GlobalHeader from './components/GlobalHeader';
-import TopNavHeader from './components/TopNavHeader';
-import type { WithFalse } from './typings';
 import type { PrivateSiderMenuProps } from './components/SiderMenu/SiderMenu';
+import TopNavHeader from './components/TopNavHeader';
+import './Header.less';
+import type { WithFalse } from './typings';
 import { clearMenuItem } from './utils/utils';
 
 const { Header } = Layout;

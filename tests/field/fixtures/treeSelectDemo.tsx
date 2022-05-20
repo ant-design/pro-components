@@ -1,7 +1,7 @@
 import Field from '@ant-design/pro-field';
 import type { TreeSelectProps } from 'antd';
-import { waitTime } from '../../util';
 import React from 'react';
+import { waitTime } from '../../util';
 
 export function TreeSelectDemo(
   props: TreeSelectProps<any> & {

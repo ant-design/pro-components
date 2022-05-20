@@ -348,8 +348,8 @@ export interface Route {
 The default ProLayout does not provide a footer, but does provide a DefaultFooter component that supports the configuration of some hyperlinks and some copyright information.
 
 ```tsx | pure
-import { DefaultFooter } from '@ant-design/pro-layout';
 import { GithubOutlined } from '@ant-design/icons';
+import { DefaultFooter } from '@ant-design/pro-layout';
 
 <DefaultFooter
   copyright="@2019 by Anthem Experience Technologies"

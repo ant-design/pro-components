@@ -1,11 +1,11 @@
-﻿import React, { createRef } from 'react';
-import { mount } from 'enzyme';
+﻿import type { ProFormColumnsType, ProFormLayoutType } from '@ant-design/pro-form';
 import { BetaSchemaForm } from '@ant-design/pro-form';
-import type { ProFormColumnsType, ProFormLayoutType } from '@ant-design/pro-form';
-import { waitForComponentToPaint } from '../util';
-import { Input } from 'antd';
-import { act } from 'react-dom/test-utils';
 import type { FormInstance } from 'antd';
+import { Input } from 'antd';
+import { mount } from 'enzyme';
+import React, { createRef } from 'react';
+import { act } from 'react-dom/test-utils';
+import { waitForComponentToPaint } from '../util';
 
 const columns: ProFormColumnsType<any>[] = [
   {

@@ -1,9 +1,8 @@
-import { DatePicker, Tooltip } from 'antd';
-import React from 'react';
-import { parseValueToMoment } from '@ant-design/pro-utils';
 import { useIntl } from '@ant-design/pro-provider';
+import { parseValueToMoment } from '@ant-design/pro-utils';
+import { DatePicker, Tooltip } from 'antd';
 import moment from 'moment';
-
+import React from 'react';
 import type { ProFieldFC } from '../../index';
 
 /**

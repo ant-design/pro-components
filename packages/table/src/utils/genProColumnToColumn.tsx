@@ -1,15 +1,13 @@
-﻿import type { ProSchemaComponentTypes, UseEditableUtilType } from '@ant-design/pro-utils';
-import type { ProFieldEmptyText } from '@ant-design/pro-field';
+﻿import type { ProFieldEmptyText } from '@ant-design/pro-field';
+import { proFieldParsingValueEnumToArray } from '@ant-design/pro-field';
+import type { ProSchemaComponentTypes, UseEditableUtilType } from '@ant-design/pro-utils';
+import { omitBoolean, omitUndefinedAndEmptyArr, runFunction } from '@ant-design/pro-utils';
 import type { TableColumnType, TableProps } from 'antd';
 import { Table } from 'antd';
-import { runFunction } from '@ant-design/pro-utils';
-import { omitBoolean, omitUndefinedAndEmptyArr } from '@ant-design/pro-utils';
-import { proFieldParsingValueEnumToArray } from '@ant-design/pro-field';
-
-import type { ProColumns, ProColumnGroupType } from '../typing';
 import type { useContainer } from '../container';
+import type { ProColumnGroupType, ProColumns } from '../typing';
+import { columnRender, defaultOnFilter, renderColumnsTitle } from './columnRender';
 import { genColumnKey } from './index';
-import { defaultOnFilter, renderColumnsTitle, columnRender } from './columnRender';
 
 /**
  * 转化 columns 到 pro 的格式 主要是 render 方法的自行实现

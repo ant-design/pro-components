@@ -1,11 +1,10 @@
-import React, { useState, useContext, useMemo } from 'react';
-import type { SelectProps } from 'antd';
-import { Select, Input, ConfigProvider } from 'antd';
 import { SearchOutlined } from '@ant-design/icons';
-import classNames from 'classnames';
 import { FieldLabel } from '@ant-design/pro-utils';
+import type { SelectProps } from 'antd';
+import { ConfigProvider, Input, Select } from 'antd';
+import classNames from 'classnames';
+import React, { useContext, useMemo, useState } from 'react';
 import type { ProFieldLightProps } from '../../../index';
-
 import './index.less';
 
 export type LightSelectProps = {

@@ -1,10 +1,10 @@
+import ProTable, { TableDropdown } from '@ant-design/pro-table';
+import '@testing-library/jest-dom';
+import { fireEvent, render } from '@testing-library/react';
 import React from 'react';
 import { act } from 'react-dom/test-utils';
-import ProTable, { TableDropdown } from '@ant-design/pro-table';
-import { request } from './demo';
 import { waitForComponentToPaint, waitTime } from '../util';
-import { fireEvent, render } from '@testing-library/react';
-import '@testing-library/jest-dom';
+import { request } from './demo';
 
 describe('BasicTable pagination', () => {
   it('🎏 pagination current test', async () => {

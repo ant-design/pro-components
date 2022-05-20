@@ -1,9 +1,9 @@
-import React, { useContext } from 'react';
-import { Upload, ConfigProvider } from 'antd';
-import type { DraggerProps, UploadProps } from 'antd/lib/upload';
 import { InboxOutlined } from '@ant-design/icons';
-import type { ProFormFieldItemProps } from '../../interface';
+import { ConfigProvider, Upload } from 'antd';
+import type { DraggerProps, UploadProps } from 'antd/lib/upload';
+import React, { useContext } from 'react';
 import { createField } from '../../BaseForm/createField';
+import type { ProFormFieldItemProps } from '../../interface';
 
 export type ProFormDraggerProps = ProFormFieldItemProps<DraggerProps> & {
   /**

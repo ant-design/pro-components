@@ -1,9 +1,9 @@
-import React, { useMemo } from 'react';
-import type { UploadProps, ButtonProps } from 'antd';
-import { Upload, Button } from 'antd';
 import { UploadOutlined } from '@ant-design/icons';
-import type { ProFormFieldItemProps } from '../../interface';
+import type { ButtonProps, UploadProps } from 'antd';
+import { Button, Upload } from 'antd';
+import React, { useMemo } from 'react';
 import { createField } from '../../BaseForm/createField';
+import type { ProFormFieldItemProps } from '../../interface';
 
 export type ProFormDraggerProps = ProFormFieldItemProps<UploadProps, HTMLElement> & {
   /**

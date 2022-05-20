@@ -1,9 +1,9 @@
 import { isBrowser } from '@ant-design/pro-utils';
-import zhLocal from './zh-CN';
-import zhTWLocal from './zh-TW';
 import enUSLocal from './en-US';
 import itITLocal from './it-IT';
 import koKRLocal from './ko-KR';
+import zhLocal from './zh-CN';
+import zhTWLocal from './zh-TW';
 
 const locales = {
   'zh-CN': zhLocal,
@@ -27,10 +27,9 @@ const getLanguage = (): string => {
 };
 
 export { getLanguage };
+export { gLocaleObject };
 
 const gLocaleObject = (): Record<string, string> => {
   const gLocale = getLanguage();
   return locales[gLocale] || locales['zh-CN'];
 };
-
-export { gLocaleObject };

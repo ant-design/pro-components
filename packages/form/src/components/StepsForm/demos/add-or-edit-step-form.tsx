@@ -1,15 +1,15 @@
 // 主要处理新建和编辑的场景
 
-import type { Moment } from 'moment';
-import React, { useEffect, useRef } from 'react';
-import moment from 'moment';
-import type { ProFormInstance } from '@ant-design/pro-form';
+import type { ProFormInstance } from '@ant-design/pro-components';
 import {
   ProFormDateRangePicker,
   ProFormSelect,
   ProFormText,
   StepsForm,
-} from '@ant-design/pro-form';
+} from '@ant-design/pro-components';
+import type { Moment } from 'moment';
+import moment from 'moment';
+import React, { useEffect, useRef } from 'react';
 
 type FormValue = {
   jobInfo: {

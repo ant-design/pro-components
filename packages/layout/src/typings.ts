@@ -1,8 +1,6 @@
 import type * as H from 'history';
-
-import type { RouteComponentProps as BasicRouteProps, match } from 'react-router-dom';
-
 import type React from 'react';
+import type { match, RouteComponentProps as BasicRouteProps } from 'react-router-dom';
 
 export type LinkProps = {
   to: H.LocationDescriptor;

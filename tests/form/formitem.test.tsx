@@ -1,10 +1,9 @@
-import React from 'react';
 import ProForm, { ProFormText } from '@ant-design/pro-form';
-import { act } from 'react-dom/test-utils';
-
-import { mount } from 'enzyme';
-import { waitForComponentToPaint } from '../util';
 import { Input } from 'antd';
+import { mount } from 'enzyme';
+import React from 'react';
+import { act } from 'react-dom/test-utils';
+import { waitForComponentToPaint } from '../util';
 
 describe('ProForm.Item', () => {
   it('📦 ProForm support fieldProps.onBlur', async () => {

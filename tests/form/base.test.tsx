@@ -1,24 +1,24 @@
-import React, { useRef, useEffect } from 'react';
-import { Button, ConfigProvider, Input } from 'antd';
-import type { ProFormInstance } from '@ant-design/pro-form';
-import { ProFormDateTimePicker } from '@ant-design/pro-form';
-import { ProFormDigitRange } from '@ant-design/pro-form';
-import ProForm, {
-  ProFormText,
-  ProFormCaptcha,
-  ProFormDatePicker,
-  ProFormDependency,
-  ProFormSelect,
-  ProFormColorPicker,
-  ProFormField,
-} from '@ant-design/pro-form';
-import { act } from 'react-dom/test-utils';
 import { FontSizeOutlined } from '@ant-design/icons';
-import { mount } from 'enzyme';
-import { waitTime, waitForComponentToPaint } from '../util';
-import { render as reactRender } from '@testing-library/react';
-import moment from 'moment';
+import type { ProFormInstance } from '@ant-design/pro-form';
+import ProForm, {
+  ProFormCaptcha,
+  ProFormColorPicker,
+  ProFormDatePicker,
+  ProFormDateTimePicker,
+  ProFormDependency,
+  ProFormDigitRange,
+  ProFormField,
+  ProFormSelect,
+  ProFormText,
+} from '@ant-design/pro-form';
 import '@testing-library/jest-dom';
+import { render as reactRender } from '@testing-library/react';
+import { Button, ConfigProvider, Input } from 'antd';
+import { mount } from 'enzyme';
+import moment from 'moment';
+import React, { useEffect, useRef } from 'react';
+import { act } from 'react-dom/test-utils';
+import { waitForComponentToPaint, waitTime } from '../util';
 
 describe('ProForm', () => {
   it('📦 submit props actionsRender=false', async () => {

@@ -1,17 +1,18 @@
-import React from 'react';
-import ProForm, {
-  ProFormSwitch,
-  ProFormText,
-  ProFormRadio,
+import {
+  ProForm,
   ProFormCheckbox,
+  ProFormDigit,
+  ProFormDigitRange,
+  ProFormGroup,
+  ProFormRadio,
   ProFormRate,
   ProFormSelect,
-  ProFormDigit,
   ProFormSlider,
-  ProFormGroup,
-  ProFormDigitRange,
-} from '@ant-design/pro-form';
+  ProFormSwitch,
+  ProFormText,
+} from '@ant-design/pro-components';
 import Mock from 'mockjs';
+import React from 'react';
 
 export const waitTime = (time: number = 100) => {
   return new Promise((resolve) => {

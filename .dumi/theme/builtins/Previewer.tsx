@@ -1,10 +1,10 @@
-﻿import React from 'react';
+﻿// @ts-ignore
+import ProSkeleton from '@ant-design/pro-skeleton';
+import { Spin } from 'antd';
+import PreView, { IPreviewerProps } from 'dumi-theme-default/src/builtins/Previewer';
+import React from 'react';
 import LazyLoad from 'react-lazyload';
 import { isBrowser } from 'umi';
-// @ts-ignore
-import ProSkeleton from '@ant-design/pro-skeleton';
-import PreView, { IPreviewerProps } from 'dumi-theme-default/src/builtins/Previewer';
-import { Spin } from 'antd';
 
 export default ({
   children,

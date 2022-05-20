@@ -1,9 +1,9 @@
-import React from 'react';
 import type { SliderSingleProps } from 'antd';
-import type { SliderRangeProps, SliderBaseProps } from 'antd/lib/slider';
 import { Slider } from 'antd';
-import type { ProFormFieldItemProps } from '../../interface';
+import type { SliderBaseProps, SliderRangeProps } from 'antd/lib/slider';
+import React from 'react';
 import { createField } from '../../BaseForm/createField';
+import type { ProFormFieldItemProps } from '../../interface';
 
 export type ProFormSliderProps = ProFormFieldItemProps<
   SliderSingleProps | SliderRangeProps,

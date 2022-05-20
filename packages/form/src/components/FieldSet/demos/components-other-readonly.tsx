@@ -1,17 +1,18 @@
-import React from 'react';
-import ProForm, {
-  ProFormSwitch,
-  ProFormText,
-  ProFormRadio,
+import {
+  ProForm,
   ProFormCheckbox,
+  ProFormDigit,
+  ProFormFieldSet,
+  ProFormRadio,
   ProFormRate,
   ProFormSelect,
-  ProFormDigit,
   ProFormSlider,
+  ProFormSwitch,
+  ProFormText,
   ProFormUploadButton,
   ProFormUploadDragger,
-  ProFormFieldSet,
-} from '@ant-design/pro-form';
+} from '@ant-design/pro-components';
+import React from 'react';
 
 const Demo = () => (
   <div

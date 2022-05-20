@@ -1,16 +1,16 @@
-import React, { useRef } from 'react';
-
 import { SmileOutlined } from '@ant-design/icons';
-import ProForm, {
-  ProFormSwitch,
-  ProFormRadio,
+import {
+  ProForm,
   ProFormCheckbox,
-  ProFormUploadButton,
   ProFormField,
+  ProFormRadio,
   ProFormSlider,
+  ProFormSwitch,
+  ProFormUploadButton,
   ProFormUploadDragger,
-} from '@ant-design/pro-form';
+} from '@ant-design/pro-components';
 import { Button, Input } from 'antd';
+import React, { useRef } from 'react';
 
 const Demo = () => {
   const formRef = useRef();

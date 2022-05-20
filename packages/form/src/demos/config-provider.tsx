@@ -1,18 +1,19 @@
+import { SmileOutlined } from '@ant-design/icons';
+import {
+  ProForm,
+  ProFormCheckbox,
+  ProFormField,
+  ProFormRadio,
+  ProFormSlider,
+  ProFormSwitch,
+  ProFormText,
+  ProFormUploadButton,
+  ProFormUploadDragger,
+  StepsForm,
+} from '@ant-design/pro-components';
 import { ConfigProvider, Input } from 'antd';
 import enUS from 'antd/lib/locale/en_US';
-import ProForm, {
-  StepsForm,
-  ProFormSwitch,
-  ProFormRadio,
-  ProFormCheckbox,
-  ProFormUploadButton,
-  ProFormField,
-  ProFormSlider,
-  ProFormUploadDragger,
-  ProFormText,
-} from '@ant-design/pro-form';
 import React from 'react';
-import { SmileOutlined } from '@ant-design/icons';
 import { LightWrapper } from '../BaseForm';
 
 export default () => (

@@ -1,12 +1,12 @@
-import { mount } from 'enzyme';
-import React from 'react';
-import { ConfigProvider, Table } from 'antd';
 import ProTable from '@ant-design/pro-table';
-import { request } from './demo';
-import { waitForComponentToPaint } from '../util';
+import { ConfigProvider, Table } from 'antd';
+import { mount } from 'enzyme';
 import moment from 'moment';
 import type { RequestOptionsType } from 'packages/utils/src/typing';
+import React from 'react';
 import { act } from 'react-dom/test-utils';
+import { waitForComponentToPaint } from '../util';
+import { request } from './demo';
 
 describe('Table ColumnSetting', () => {
   it('🎏 render', async () => {

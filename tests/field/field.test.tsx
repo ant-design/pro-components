@@ -1,12 +1,12 @@
-import { render, mount } from 'enzyme';
-import { Button, Input } from 'antd';
-import React, { useState } from 'react';
-import moment from 'moment';
 import Field from '@ant-design/pro-field';
-import { render as reactRender, act, fireEvent } from '@testing-library/react';
 import '@testing-library/jest-dom';
-import Demo from './fixtures/demo';
+import { act, fireEvent, render as reactRender } from '@testing-library/react';
+import { Button, Input } from 'antd';
+import { mount, render } from 'enzyme';
+import moment from 'moment';
+import React, { useState } from 'react';
 import { waitForComponentToPaint, waitTime } from '../util';
+import Demo from './fixtures/demo';
 import { TreeSelectDemo } from './fixtures/treeSelectDemo';
 
 const domRef = React.createRef();

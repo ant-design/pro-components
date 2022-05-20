@@ -1,11 +1,9 @@
-import React, { useContext } from 'react';
-import classNames from 'classnames';
-import { Statistic as AntdStatistic, Tooltip, Badge } from 'antd';
+import { QuestionCircleOutlined } from '@ant-design/icons';
+import { Badge, ConfigProvider, Statistic as AntdStatistic, Tooltip } from 'antd';
 import type { BadgeProps } from 'antd/lib/badge';
 import type { StatisticProps as AntdStatisticProps } from 'antd/lib/statistic/Statistic';
-import { ConfigProvider } from 'antd';
-import { QuestionCircleOutlined } from '@ant-design/icons';
-
+import classNames from 'classnames';
+import React, { useContext } from 'react';
 import './index.less';
 
 export interface StatisticProps extends AntdStatisticProps {

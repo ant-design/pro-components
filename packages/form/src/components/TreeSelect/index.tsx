@@ -1,8 +1,8 @@
-﻿import React from 'react';
-import type { ProFormFieldItemProps, ProFormFieldRemoteProps } from '../../interface';
-import type { TreeSelectProps } from 'antd';
-import ProFormField from '../Field';
+﻿import type { TreeSelectProps } from 'antd';
 import type { RefSelectProps } from 'antd/lib/select';
+import React from 'react';
+import type { ProFormFieldItemProps, ProFormFieldRemoteProps } from '../../interface';
+import ProFormField from '../Field';
 
 /**
  * 级联选择框

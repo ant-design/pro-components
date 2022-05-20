@@ -1,7 +1,7 @@
-import React from 'react';
-import ProField from '../Field';
 import type { RateProps } from 'antd';
+import React from 'react';
 import type { ProFormFieldItemProps } from '../../interface';
+import ProField from '../Field';
 /**
  * 评分组件
  *

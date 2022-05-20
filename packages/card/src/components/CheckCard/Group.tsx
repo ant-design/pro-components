@@ -1,10 +1,10 @@
-import React, { createContext, useCallback, useMemo, useRef, useContext } from 'react';
+import { useMountMergeState } from '@ant-design/pro-utils';
+import { Col, ConfigProvider, Row } from 'antd';
 import classNames from 'classnames';
-import { ConfigProvider, Row, Col } from 'antd';
 import omit from 'omit.js';
+import React, { createContext, useCallback, useContext, useMemo, useRef } from 'react';
 import CheckCard from './index';
 import './index.less';
-import { useMountMergeState } from '@ant-design/pro-utils';
 
 export type CheckCardValueType = string | number | boolean;
 

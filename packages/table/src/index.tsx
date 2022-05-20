@@ -1,38 +1,36 @@
+import { FieldIndexColumn, FieldStatus } from '@ant-design/pro-field';
 import type { IntlType } from '@ant-design/pro-provider';
 import {
-  ConfigProviderWrap,
-  ConfigProvider,
-  ConfigConsumer,
-  createIntl,
   arEGIntl,
-  zhCNIntl,
+  caESIntl,
+  ConfigConsumer,
+  ConfigProvider,
+  ConfigProviderWrap,
+  createIntl,
   enUSIntl,
-  viVNIntl,
+  esESIntl,
+  frFRIntl,
   itITIntl,
   jaJPIntl,
-  esESIntl,
-  caESIntl,
-  ruRUIntl,
   msMYIntl,
-  zhTWIntl,
-  frFRIntl,
   ptBRIntl,
+  ruRUIntl,
+  viVNIntl,
+  zhCNIntl,
+  zhTWIntl,
 } from '@ant-design/pro-provider';
 import type { ProFieldValueType, RowEditableConfig } from '@ant-design/pro-utils';
-
-import { FieldStatus, FieldIndexColumn } from '@ant-design/pro-field';
-import ProTable from './Table';
-import TableDropdown from './components/Dropdown';
-import type { ListToolBarProps } from './components/ListToolBar';
-import ListToolBar from './components/ListToolBar';
-
-import Search from './components/Form';
-import type { ColumnsState } from './container';
-import type { ActionType, ProColumns, ProColumnType, ProTableProps, RequestData } from './typing';
-import type { EditableFormInstance } from './components/EditableTable';
-import EditableProTable from './components/EditableTable';
 import type { DragTableProps } from './components/DragSortTable';
 import DragSortTable from './components/DragSortTable';
+import TableDropdown from './components/Dropdown';
+import type { EditableFormInstance } from './components/EditableTable';
+import EditableProTable from './components/EditableTable';
+import Search from './components/Form';
+import type { ListToolBarProps } from './components/ListToolBar';
+import ListToolBar from './components/ListToolBar';
+import type { ColumnsState } from './container';
+import ProTable from './Table';
+import type { ActionType, ProColumns, ProColumnType, ProTableProps, RequestData } from './typing';
 
 type ProColumnsValueType = ProFieldValueType;
 type TableRowEditable<T> = RowEditableConfig<T>;
@@ -51,7 +49,6 @@ export type {
   ListToolBarProps,
   DragTableProps,
 };
-
 export {
   ConfigProviderWrap,
   TableDropdown,

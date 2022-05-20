@@ -1,14 +1,14 @@
-﻿import React from 'react';
-import ProForm, {
+﻿import ProForm, {
   ProFormFieldSet,
-  ProFormText,
   ProFormRate,
+  ProFormText,
   ProFormTextArea,
 } from '@ant-design/pro-form';
+import { Input } from 'antd';
 import { mount } from 'enzyme';
+import React from 'react';
 import { act } from 'react-dom/test-utils';
 import { waitForComponentToPaint } from '../util';
-import { Input } from 'antd';
 
 describe('ProFormFieldSet', () => {
   it('😊 ProFormFieldSet onChange', async () => {

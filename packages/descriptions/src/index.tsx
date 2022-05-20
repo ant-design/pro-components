@@ -1,34 +1,33 @@
-import React, { useContext, useEffect } from 'react';
-import type { DescriptionsProps, FormInstance, FormProps } from 'antd';
-import { Descriptions, Space, Form, ConfigProvider } from 'antd';
-import { EditOutlined, CloseOutlined, CheckOutlined } from '@ant-design/icons';
-import toArray from 'rc-util/lib/Children/toArray';
+import { CheckOutlined, CloseOutlined, EditOutlined } from '@ant-design/icons';
 import ProForm, { ProFormField } from '@ant-design/pro-form';
+import ProSkeleton from '@ant-design/pro-skeleton';
 import type {
-  ProSchema,
   ProCoreActionType,
+  ProFieldFCMode,
+  ProFieldValueType,
+  ProSchema,
+  ProSchemaComponentTypes,
   RowEditableConfig,
   UseEditableMapUtilType,
-  ProFieldValueType,
-  ProSchemaComponentTypes,
 } from '@ant-design/pro-utils';
 import {
+  ErrorBoundary,
+  genCopyable,
+  getFieldPropsOrFormItemProps,
   InlineErrorFormItem,
   LabelIconTip,
-  genCopyable,
   useEditableMap,
-  ErrorBoundary,
-  getFieldPropsOrFormItemProps,
 } from '@ant-design/pro-utils';
+import type { DescriptionsProps, FormInstance, FormProps } from 'antd';
+import { ConfigProvider, Descriptions, Form, Space } from 'antd';
+import type { LabelTooltipType } from 'antd/lib/form/FormItemLabel';
+import toArray from 'rc-util/lib/Children/toArray';
 import get from 'rc-util/lib/utils/get';
+import React, { useContext, useEffect } from 'react';
 import { stringify } from 'use-json-comparison';
-import ProSkeleton from '@ant-design/pro-skeleton';
+import './index.less';
 import type { RequestData } from './useFetchData';
 import useFetchData from './useFetchData';
-import type { ProFieldFCMode } from '@ant-design/pro-utils';
-import type { LabelTooltipType } from 'antd/lib/form/FormItemLabel';
-
-import './index.less';
 
 // todo remove it
 export interface DescriptionsItemProps {

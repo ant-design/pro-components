@@ -1,6 +1,6 @@
-import React from 'react';
+import { ProForm, ProFormDependency, ProFormSelect, ProFormText } from '@ant-design/pro-components';
 import { Form, message } from 'antd';
-import ProForm, { ProFormText, ProFormSelect, ProFormDependency } from '@ant-design/pro-form';
+import React from 'react';
 
 const waitTime = (time: number = 100) => {
   return new Promise((resolve) => {

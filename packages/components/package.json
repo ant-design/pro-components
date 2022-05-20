@@ -8,9 +8,6 @@
     "ant-design",
     "ant-design-pro"
   ],
-  "sideEffects": [
-    "*.less"
-  ],
   "homepage": "https://github.com/ant-design/pro-components/tree/master/packages/components#readme",
   "bugs": "http://github.com/umijs/plugins/issues",
   "repository": {
@@ -18,6 +15,9 @@
     "url": "https://github.com/ant-design/pro-components"
   },
   "license": "MIT",
+  "sideEffects": [
+    "*.less"
+  ],
   "main": "lib/index.js",
   "module": "es/index.js",
   "types": "lib/index.d.ts",

@@ -4,15 +4,14 @@ import { ConfigProvider, Form } from 'antd';
 import type { LabelTooltipType } from 'antd/lib/form/FormItemLabel';
 import type { FormListFieldData, FormListOperation, FormListProps } from 'antd/lib/form/FormList';
 import type { NamePath } from 'antd/lib/form/interface';
-import type { ReactNode } from 'react';
-import { useEffect } from 'react';
-import React, { useContext, useImperativeHandle, useMemo, useRef } from 'react';
-import './index.less';
 import { noteOnce } from 'rc-util/lib/warning';
+import type { ReactNode } from 'react';
+import React, { useContext, useEffect, useImperativeHandle, useMemo, useRef } from 'react';
 import { useGridHelpers } from '../../helpers';
 import type { ProFormGridConfig } from '../../interface';
-import type { ChildrenItemFunction, FormListActionGuard, ProFromListCommonProps } from './ListItem';
+import './index.less';
 import { ProFormListContainer } from './ListContainer';
+import type { ChildrenItemFunction, FormListActionGuard, ProFromListCommonProps } from './ListItem';
 
 const FormListContext = React.createContext<
   | (FormListFieldData & {

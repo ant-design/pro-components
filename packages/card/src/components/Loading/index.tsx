@@ -1,6 +1,5 @@
+import { Col, Row } from 'antd';
 import React from 'react';
-import { Row, Col } from 'antd';
-
 import './index.less';
 
 type LoadingProps = {
