@@ -520,4 +520,6 @@ const ProDescriptions = <RecordType extends Record<string, any>, ValueType = 'te
 
 ProDescriptions.Item = ProDescriptionsItem;
 
+export { ProDescriptions };
+
 export default ProDescriptions;

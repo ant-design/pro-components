@@ -79,6 +79,7 @@ export {
   zhTWIntl,
   frFRIntl,
   ptBRIntl,
+  ProTable,
 };
 
 export default ProTable;
