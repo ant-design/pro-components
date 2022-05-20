@@ -9,6 +9,12 @@ group:
 
 # Change Log
 
+## @ant-design/pro-table@2.75.0
+
+`2022-05-20`
+
+- fix(table): default close revalidateOnFocus. [b348468](https://github.com/ant-design/pro-components/commit/b348468)
+
 ## @ant-design/pro-table@2.74.2
 
 `2022-05-12`

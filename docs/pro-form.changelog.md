@@ -9,6 +9,12 @@ group:
 
 # Change Log
 
+## @ant-design/pro-form@1.68.1
+
+`2022-05-20`
+
+- fix(form): 解决 ProFormSelect、ProFormDatePicker、ProFormTimePicker 在 LightFilter 模式下点击激活下拉选项后再次点击未隐藏下拉框的问题 (#5169). [#5169](https://github.com/ant-design/pro-components/pull/#5169) [@wangmeijian](https://github.com/wangmeijian)
+
 ## @ant-design/pro-form@1.68.0
 
 `2022-05-16`

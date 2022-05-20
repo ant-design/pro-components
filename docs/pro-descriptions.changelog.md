@@ -9,6 +9,12 @@ group:
 
 # Change Log
 
+## @ant-design/pro-descriptions@1.11.0
+
+`2022-05-20`
+
+- fix(descriptions): fix ellipsis no work error. [e3007a4](https://github.com/ant-design/pro-components/commit/e3007a4)
+
 ## @ant-design/pro-descriptions@1.10.74
 
 `2022-05-16`
