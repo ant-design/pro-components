@@ -25,7 +25,8 @@
     "test:update": "jest --updateSnapshot",
     "tsc": "tsc --noEmit",
     "tsc:duplicate": "tsc -p ./tests/tsconfig.duplicate.json",
-    "update:deps": "yarn upgrade-interactive --latest"
+    "update:deps": "yarn upgrade-interactive --latest",
+    "webpack":"node ./scripts/gen_version.js && webpack"
   },
   "browserslist": [
     "last 2 versions",
