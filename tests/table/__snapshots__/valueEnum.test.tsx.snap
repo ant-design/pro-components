@@ -17,18 +17,22 @@ exports[`Table valueEnum 🎏 customization valueType 1`] = `
       />
       <div
         class="ant-row ant-row-start"
+        role="row"
         style="margin-left: -12px; margin-right: -12px;"
       >
         <div
           class="ant-col ant-col-8"
+          role="cell"
           style="padding-left: 12px; padding-right: 12px;"
         >
           <div
             class="ant-row ant-form-item"
+            role="row"
             style="flex-wrap: nowrap;"
           >
             <div
               class="ant-col ant-form-item-label"
+              role="cell"
               style="flex: 0 0 80px;"
             >
               <label
@@ -41,6 +45,7 @@ exports[`Table valueEnum 🎏 customization valueType 1`] = `
             </div>
             <div
               class="ant-col ant-form-item-control"
+              role="cell"
               style="max-width: calc(100% - 80px);"
             >
               <div
@@ -64,13 +69,16 @@ exports[`Table valueEnum 🎏 customization valueType 1`] = `
         </div>
         <div
           class="ant-col ant-col-8 ant-col-offset-8"
+          role="cell"
           style="padding-left: 12px; padding-right: 12px; text-align: right;"
         >
           <div
             class="ant-row ant-form-item pro-form-query-filter-actions"
+            role="row"
           >
             <div
               class="ant-col ant-form-item-label"
+              role="cell"
             >
               <label
                 class="ant-form-item-no-colon"
@@ -81,6 +89,7 @@ exports[`Table valueEnum 🎏 customization valueType 1`] = `
             </div>
             <div
               class="ant-col ant-form-item-control"
+              role="cell"
             >
               <div
                 class="ant-form-item-control-input"

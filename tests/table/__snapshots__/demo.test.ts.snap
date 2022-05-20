@@ -18,18 +18,22 @@ exports[`table demos 📸 renders ./packages/table/src/components/DragSortTable/
         />
         <div
           class="ant-row ant-row-start"
+          role="row"
           style="margin-left: -12px; margin-right: -12px;"
         >
           <div
             class="ant-col ant-col-8"
+            role="cell"
             style="padding-left: 12px; padding-right: 12px;"
           >
             <div
               class="ant-row ant-form-item"
+              role="row"
               style="flex-wrap: nowrap;"
             >
               <div
                 class="ant-col ant-form-item-label"
+                role="cell"
                 style="flex: 0 0 80px;"
               >
                 <label
@@ -42,6 +46,7 @@ exports[`table demos 📸 renders ./packages/table/src/components/DragSortTable/
               </div>
               <div
                 class="ant-col ant-form-item-control"
+                role="cell"
                 style="max-width: calc(100% - 80px);"
               >
                 <div
@@ -98,14 +103,17 @@ exports[`table demos 📸 renders ./packages/table/src/components/DragSortTable/
           </div>
           <div
             class="ant-col ant-col-8"
+            role="cell"
             style="padding-left: 12px; padding-right: 12px;"
           >
             <div
               class="ant-row ant-form-item"
+              role="row"
               style="flex-wrap: nowrap;"
             >
               <div
                 class="ant-col ant-form-item-label"
+                role="cell"
                 style="flex: 0 0 80px;"
               >
                 <label
@@ -118,6 +126,7 @@ exports[`table demos 📸 renders ./packages/table/src/components/DragSortTable/
               </div>
               <div
                 class="ant-col ant-form-item-control"
+                role="cell"
                 style="max-width: calc(100% - 80px);"
               >
                 <div
@@ -174,10 +183,12 @@ exports[`table demos 📸 renders ./packages/table/src/components/DragSortTable/
           </div>
           <div
             class="ant-row ant-form-item ant-form-item-hidden"
+            role="row"
             style="flex-wrap: nowrap;"
           >
             <div
               class="ant-col ant-form-item-label"
+              role="cell"
               style="flex: 0 0 80px;"
             >
               <label
@@ -190,6 +201,7 @@ exports[`table demos 📸 renders ./packages/table/src/components/DragSortTable/
             </div>
             <div
               class="ant-col ant-form-item-control"
+              role="cell"
               style="max-width: calc(100% - 80px);"
             >
               <div
@@ -245,10 +257,12 @@ exports[`table demos 📸 renders ./packages/table/src/components/DragSortTable/
           </div>
           <div
             class="ant-row ant-form-item ant-form-item-hidden"
+            role="row"
             style="flex-wrap: nowrap;"
           >
             <div
               class="ant-col ant-form-item-label"
+              role="cell"
               style="flex: 0 0 80px;"
             >
               <label
@@ -261,6 +275,7 @@ exports[`table demos 📸 renders ./packages/table/src/components/DragSortTable/
             </div>
             <div
               class="ant-col ant-form-item-control"
+              role="cell"
               style="max-width: calc(100% - 80px);"
             >
               <div
@@ -316,13 +331,16 @@ exports[`table demos 📸 renders ./packages/table/src/components/DragSortTable/
           </div>
           <div
             class="ant-col ant-col-8"
+            role="cell"
             style="padding-left: 12px; padding-right: 12px; text-align: right;"
           >
             <div
               class="ant-row ant-form-item pro-form-query-filter-actions"
+              role="row"
             >
               <div
                 class="ant-col ant-form-item-label"
+                role="cell"
               >
                 <label
                   class="ant-form-item-no-colon"
@@ -333,6 +351,7 @@ exports[`table demos 📸 renders ./packages/table/src/components/DragSortTable/
               </div>
               <div
                 class="ant-col ant-form-item-control"
+                role="cell"
               >
                 <div
                   class="ant-form-item-control-input"
@@ -758,18 +777,22 @@ exports[`table demos 📸 renders ./packages/table/src/components/DragSortTable/
         />
         <div
           class="ant-row ant-row-start"
+          role="row"
           style="margin-left: -12px; margin-right: -12px;"
         >
           <div
             class="ant-col ant-col-8"
+            role="cell"
             style="padding-left: 12px; padding-right: 12px;"
           >
             <div
               class="ant-row ant-form-item"
+              role="row"
               style="flex-wrap: nowrap;"
             >
               <div
                 class="ant-col ant-form-item-label"
+                role="cell"
                 style="flex: 0 0 80px;"
               >
                 <label
@@ -782,6 +805,7 @@ exports[`table demos 📸 renders ./packages/table/src/components/DragSortTable/
               </div>
               <div
                 class="ant-col ant-form-item-control"
+                role="cell"
                 style="max-width: calc(100% - 80px);"
               >
                 <div
@@ -838,14 +862,17 @@ exports[`table demos 📸 renders ./packages/table/src/components/DragSortTable/
           </div>
           <div
             class="ant-col ant-col-8"
+            role="cell"
             style="padding-left: 12px; padding-right: 12px;"
           >
             <div
               class="ant-row ant-form-item"
+              role="row"
               style="flex-wrap: nowrap;"
             >
               <div
                 class="ant-col ant-form-item-label"
+                role="cell"
                 style="flex: 0 0 80px;"
               >
                 <label
@@ -858,6 +885,7 @@ exports[`table demos 📸 renders ./packages/table/src/components/DragSortTable/
               </div>
               <div
                 class="ant-col ant-form-item-control"
+                role="cell"
                 style="max-width: calc(100% - 80px);"
               >
                 <div
@@ -914,10 +942,12 @@ exports[`table demos 📸 renders ./packages/table/src/components/DragSortTable/
           </div>
           <div
             class="ant-row ant-form-item ant-form-item-hidden"
+            role="row"
             style="flex-wrap: nowrap;"
           >
             <div
               class="ant-col ant-form-item-label"
+              role="cell"
               style="flex: 0 0 80px;"
             >
               <label
@@ -930,6 +960,7 @@ exports[`table demos 📸 renders ./packages/table/src/components/DragSortTable/
             </div>
             <div
               class="ant-col ant-form-item-control"
+              role="cell"
               style="max-width: calc(100% - 80px);"
             >
               <div
@@ -985,10 +1016,12 @@ exports[`table demos 📸 renders ./packages/table/src/components/DragSortTable/
           </div>
           <div
             class="ant-row ant-form-item ant-form-item-hidden"
+            role="row"
             style="flex-wrap: nowrap;"
           >
             <div
               class="ant-col ant-form-item-label"
+              role="cell"
               style="flex: 0 0 80px;"
             >
               <label
@@ -1001,6 +1034,7 @@ exports[`table demos 📸 renders ./packages/table/src/components/DragSortTable/
             </div>
             <div
               class="ant-col ant-form-item-control"
+              role="cell"
               style="max-width: calc(100% - 80px);"
             >
               <div
@@ -1056,13 +1090,16 @@ exports[`table demos 📸 renders ./packages/table/src/components/DragSortTable/
           </div>
           <div
             class="ant-col ant-col-8"
+            role="cell"
             style="padding-left: 12px; padding-right: 12px; text-align: right;"
           >
             <div
               class="ant-row ant-form-item pro-form-query-filter-actions"
+              role="row"
             >
               <div
                 class="ant-col ant-form-item-label"
+                role="cell"
               >
                 <label
                   class="ant-form-item-no-colon"
@@ -1073,6 +1110,7 @@ exports[`table demos 📸 renders ./packages/table/src/components/DragSortTable/
               </div>
               <div
                 class="ant-col ant-form-item-control"
+                role="cell"
               >
                 <div
                   class="ant-form-item-control-input"
@@ -1875,9 +1913,11 @@ exports[`table demos 📸 renders ./packages/table/src/components/EditableTable/
                   >
                     <div
                       class="ant-row ant-form-item"
+                      role="row"
                     >
                       <div
                         class="ant-col ant-form-item-control"
+                        role="cell"
                       >
                         <div
                           class="ant-form-item-control-input"
@@ -3265,10 +3305,12 @@ exports[`table demos 📸 renders ./packages/table/src/components/EditableTable/
     />
     <div
       class="ant-row ant-form-item"
+      role="row"
       style="max-width: 100%;"
     >
       <div
         class="ant-col ant-form-item-control"
+        role="cell"
       >
         <div
           class="ant-form-item-control-input"
@@ -3309,9 +3351,11 @@ exports[`table demos 📸 renders ./packages/table/src/components/EditableTable/
                         >
                           <div
                             class="ant-row ant-form-item"
+                            role="row"
                           >
                             <div
                               class="ant-col ant-form-item-control"
+                              role="cell"
                             >
                               <div
                                 class="ant-form-item-control-input"
@@ -3697,9 +3741,11 @@ exports[`table demos 📸 renders ./packages/table/src/components/EditableTable/
     </div>
     <div
       class="ant-row ant-form-item"
+      role="row"
     >
       <div
         class="ant-col ant-form-item-control"
+        role="cell"
       >
         <div
           class="ant-form-item-control-input"
@@ -3843,9 +3889,11 @@ exports[`table demos 📸 renders ./packages/table/src/components/EditableTable/
             >
               <div
                 class="ant-row ant-form-item"
+                role="row"
               >
                 <div
                   class="ant-col ant-form-item-label"
+                  role="cell"
                 >
                   <label
                     class=""
@@ -3856,6 +3904,7 @@ exports[`table demos 📸 renders ./packages/table/src/components/EditableTable/
                 </div>
                 <div
                   class="ant-col ant-form-item-control"
+                  role="cell"
                 >
                   <div
                     class="ant-form-item-control-input"
@@ -3949,9 +3998,11 @@ exports[`table demos 📸 renders ./packages/table/src/components/EditableTable/
             >
               <div
                 class="ant-row ant-form-item"
+                role="row"
               >
                 <div
                   class="ant-col ant-form-item-label"
+                  role="cell"
                 >
                   <label
                     class=""
@@ -3962,6 +4013,7 @@ exports[`table demos 📸 renders ./packages/table/src/components/EditableTable/
                 </div>
                 <div
                   class="ant-col ant-form-item-control"
+                  role="cell"
                 >
                   <div
                     class="ant-form-item-control-input"
@@ -4053,10 +4105,12 @@ exports[`table demos 📸 renders ./packages/table/src/components/EditableTable/
           </div>
           <div
             class="ant-row ant-form-item"
+            role="row"
             style="max-width: 100%;"
           >
             <div
               class="ant-col ant-form-item-label"
+              role="cell"
             >
               <label
                 class=""
@@ -4068,6 +4122,7 @@ exports[`table demos 📸 renders ./packages/table/src/components/EditableTable/
             </div>
             <div
               class="ant-col ant-form-item-control"
+              role="cell"
             >
               <div
                 class="ant-form-item-control-input"
@@ -4774,10 +4829,12 @@ exports[`table demos 📸 renders ./packages/table/src/components/EditableTable/
                           >
                             <div
                               class="ant-row ant-form-item"
+                              role="row"
                               style="margin: -5px 0px -5px 0px;"
                             >
                               <div
                                 class="ant-col ant-form-item-control"
+                                role="cell"
                               >
                                 <div>
                                   <div
@@ -4836,10 +4893,12 @@ exports[`table demos 📸 renders ./packages/table/src/components/EditableTable/
                           >
                             <div
                               class="ant-row ant-form-item"
+                              role="row"
                               style="margin: -5px 0px -5px 0px;"
                             >
                               <div
                                 class="ant-col ant-form-item-control"
+                                role="cell"
                               >
                                 <div
                                   class="ant-form-item-control-input"
@@ -4946,10 +5005,12 @@ exports[`table demos 📸 renders ./packages/table/src/components/EditableTable/
                           >
                             <div
                               class="ant-row ant-form-item"
+                              role="row"
                               style="margin: -5px 0px -5px 0px;"
                             >
                               <div
                                 class="ant-col ant-form-item-control"
+                                role="cell"
                               >
                                 <div
                                   class="ant-form-item-control-input"
@@ -5026,10 +5087,12 @@ exports[`table demos 📸 renders ./packages/table/src/components/EditableTable/
                           >
                             <div
                               class="ant-row ant-form-item"
+                              role="row"
                               style="margin: -5px 0px -5px 0px;"
                             >
                               <div
                                 class="ant-col ant-form-item-control"
+                                role="cell"
                               >
                                 <div>
                                   <div
@@ -5088,10 +5151,12 @@ exports[`table demos 📸 renders ./packages/table/src/components/EditableTable/
                           >
                             <div
                               class="ant-row ant-form-item"
+                              role="row"
                               style="margin: -5px 0px -5px 0px;"
                             >
                               <div
                                 class="ant-col ant-form-item-control"
+                                role="cell"
                               >
                                 <div
                                   class="ant-form-item-control-input"
@@ -5198,10 +5263,12 @@ exports[`table demos 📸 renders ./packages/table/src/components/EditableTable/
                           >
                             <div
                               class="ant-row ant-form-item"
+                              role="row"
                               style="margin: -5px 0px -5px 0px;"
                             >
                               <div
                                 class="ant-col ant-form-item-control"
+                                role="cell"
                               >
                                 <div
                                   class="ant-form-item-control-input"
@@ -5278,10 +5345,12 @@ exports[`table demos 📸 renders ./packages/table/src/components/EditableTable/
                           >
                             <div
                               class="ant-row ant-form-item"
+                              role="row"
                               style="margin: -5px 0px -5px 0px;"
                             >
                               <div
                                 class="ant-col ant-form-item-control"
+                                role="cell"
                               >
                                 <div>
                                   <div
@@ -5340,10 +5409,12 @@ exports[`table demos 📸 renders ./packages/table/src/components/EditableTable/
                           >
                             <div
                               class="ant-row ant-form-item"
+                              role="row"
                               style="margin: -5px 0px -5px 0px;"
                             >
                               <div
                                 class="ant-col ant-form-item-control"
+                                role="cell"
                               >
                                 <div
                                   class="ant-form-item-control-input"
@@ -5450,10 +5521,12 @@ exports[`table demos 📸 renders ./packages/table/src/components/EditableTable/
                           >
                             <div
                               class="ant-row ant-form-item"
+                              role="row"
                               style="margin: -5px 0px -5px 0px;"
                             >
                               <div
                                 class="ant-col ant-form-item-control"
+                                role="cell"
                               >
                                 <div
                                   class="ant-form-item-control-input"
@@ -5530,10 +5603,12 @@ exports[`table demos 📸 renders ./packages/table/src/components/EditableTable/
                           >
                             <div
                               class="ant-row ant-form-item"
+                              role="row"
                               style="margin: -5px 0px -5px 0px;"
                             >
                               <div
                                 class="ant-col ant-form-item-control"
+                                role="cell"
                               >
                                 <div>
                                   <div
@@ -5592,10 +5667,12 @@ exports[`table demos 📸 renders ./packages/table/src/components/EditableTable/
                           >
                             <div
                               class="ant-row ant-form-item"
+                              role="row"
                               style="margin: -5px 0px -5px 0px;"
                             >
                               <div
                                 class="ant-col ant-form-item-control"
+                                role="cell"
                               >
                                 <div
                                   class="ant-form-item-control-input"
@@ -5702,10 +5779,12 @@ exports[`table demos 📸 renders ./packages/table/src/components/EditableTable/
                           >
                             <div
                               class="ant-row ant-form-item"
+                              role="row"
                               style="margin: -5px 0px -5px 0px;"
                             >
                               <div
                                 class="ant-col ant-form-item-control"
+                                role="cell"
                               >
                                 <div
                                   class="ant-form-item-control-input"
@@ -5782,10 +5861,12 @@ exports[`table demos 📸 renders ./packages/table/src/components/EditableTable/
                           >
                             <div
                               class="ant-row ant-form-item"
+                              role="row"
                               style="margin: -5px 0px -5px 0px;"
                             >
                               <div
                                 class="ant-col ant-form-item-control"
+                                role="cell"
                               >
                                 <div>
                                   <div
@@ -5844,10 +5925,12 @@ exports[`table demos 📸 renders ./packages/table/src/components/EditableTable/
                           >
                             <div
                               class="ant-row ant-form-item"
+                              role="row"
                               style="margin: -5px 0px -5px 0px;"
                             >
                               <div
                                 class="ant-col ant-form-item-control"
+                                role="cell"
                               >
                                 <div
                                   class="ant-form-item-control-input"
@@ -5954,10 +6037,12 @@ exports[`table demos 📸 renders ./packages/table/src/components/EditableTable/
                           >
                             <div
                               class="ant-row ant-form-item"
+                              role="row"
                               style="margin: -5px 0px -5px 0px;"
                             >
                               <div
                                 class="ant-col ant-form-item-control"
+                                role="cell"
                               >
                                 <div
                                   class="ant-form-item-control-input"
@@ -6034,10 +6119,12 @@ exports[`table demos 📸 renders ./packages/table/src/components/EditableTable/
                           >
                             <div
                               class="ant-row ant-form-item"
+                              role="row"
                               style="margin: -5px 0px -5px 0px;"
                             >
                               <div
                                 class="ant-col ant-form-item-control"
+                                role="cell"
                               >
                                 <div>
                                   <div
@@ -6096,10 +6183,12 @@ exports[`table demos 📸 renders ./packages/table/src/components/EditableTable/
                           >
                             <div
                               class="ant-row ant-form-item"
+                              role="row"
                               style="margin: -5px 0px -5px 0px;"
                             >
                               <div
                                 class="ant-col ant-form-item-control"
+                                role="cell"
                               >
                                 <div
                                   class="ant-form-item-control-input"
@@ -6206,10 +6295,12 @@ exports[`table demos 📸 renders ./packages/table/src/components/EditableTable/
                           >
                             <div
                               class="ant-row ant-form-item"
+                              role="row"
                               style="margin: -5px 0px -5px 0px;"
                             >
                               <div
                                 class="ant-col ant-form-item-control"
+                                role="cell"
                               >
                                 <div
                                   class="ant-form-item-control-input"
@@ -6286,10 +6377,12 @@ exports[`table demos 📸 renders ./packages/table/src/components/EditableTable/
                           >
                             <div
                               class="ant-row ant-form-item"
+                              role="row"
                               style="margin: -5px 0px -5px 0px;"
                             >
                               <div
                                 class="ant-col ant-form-item-control"
+                                role="cell"
                               >
                                 <div>
                                   <div
@@ -6348,10 +6441,12 @@ exports[`table demos 📸 renders ./packages/table/src/components/EditableTable/
                           >
                             <div
                               class="ant-row ant-form-item"
+                              role="row"
                               style="margin: -5px 0px -5px 0px;"
                             >
                               <div
                                 class="ant-col ant-form-item-control"
+                                role="cell"
                               >
                                 <div
                                   class="ant-form-item-control-input"
@@ -6458,10 +6553,12 @@ exports[`table demos 📸 renders ./packages/table/src/components/EditableTable/
                           >
                             <div
                               class="ant-row ant-form-item"
+                              role="row"
                               style="margin: -5px 0px -5px 0px;"
                             >
                               <div
                                 class="ant-col ant-form-item-control"
+                                role="cell"
                               >
                                 <div
                                   class="ant-form-item-control-input"
@@ -6538,10 +6635,12 @@ exports[`table demos 📸 renders ./packages/table/src/components/EditableTable/
                           >
                             <div
                               class="ant-row ant-form-item"
+                              role="row"
                               style="margin: -5px 0px -5px 0px;"
                             >
                               <div
                                 class="ant-col ant-form-item-control"
+                                role="cell"
                               >
                                 <div>
                                   <div
@@ -6600,10 +6699,12 @@ exports[`table demos 📸 renders ./packages/table/src/components/EditableTable/
                           >
                             <div
                               class="ant-row ant-form-item"
+                              role="row"
                               style="margin: -5px 0px -5px 0px;"
                             >
                               <div
                                 class="ant-col ant-form-item-control"
+                                role="cell"
                               >
                                 <div
                                   class="ant-form-item-control-input"
@@ -6710,10 +6811,12 @@ exports[`table demos 📸 renders ./packages/table/src/components/EditableTable/
                           >
                             <div
                               class="ant-row ant-form-item"
+                              role="row"
                               style="margin: -5px 0px -5px 0px;"
                             >
                               <div
                                 class="ant-col ant-form-item-control"
+                                role="cell"
                               >
                                 <div
                                   class="ant-form-item-control-input"
@@ -6790,10 +6893,12 @@ exports[`table demos 📸 renders ./packages/table/src/components/EditableTable/
                           >
                             <div
                               class="ant-row ant-form-item"
+                              role="row"
                               style="margin: -5px 0px -5px 0px;"
                             >
                               <div
                                 class="ant-col ant-form-item-control"
+                                role="cell"
                               >
                                 <div>
                                   <div
@@ -6852,10 +6957,12 @@ exports[`table demos 📸 renders ./packages/table/src/components/EditableTable/
                           >
                             <div
                               class="ant-row ant-form-item"
+                              role="row"
                               style="margin: -5px 0px -5px 0px;"
                             >
                               <div
                                 class="ant-col ant-form-item-control"
+                                role="cell"
                               >
                                 <div
                                   class="ant-form-item-control-input"
@@ -6962,10 +7069,12 @@ exports[`table demos 📸 renders ./packages/table/src/components/EditableTable/
                           >
                             <div
                               class="ant-row ant-form-item"
+                              role="row"
                               style="margin: -5px 0px -5px 0px;"
                             >
                               <div
                                 class="ant-col ant-form-item-control"
+                                role="cell"
                               >
                                 <div
                                   class="ant-form-item-control-input"
@@ -7042,10 +7151,12 @@ exports[`table demos 📸 renders ./packages/table/src/components/EditableTable/
                           >
                             <div
                               class="ant-row ant-form-item"
+                              role="row"
                               style="margin: -5px 0px -5px 0px;"
                             >
                               <div
                                 class="ant-col ant-form-item-control"
+                                role="cell"
                               >
                                 <div>
                                   <div
@@ -7104,10 +7215,12 @@ exports[`table demos 📸 renders ./packages/table/src/components/EditableTable/
                           >
                             <div
                               class="ant-row ant-form-item"
+                              role="row"
                               style="margin: -5px 0px -5px 0px;"
                             >
                               <div
                                 class="ant-col ant-form-item-control"
+                                role="cell"
                               >
                                 <div
                                   class="ant-form-item-control-input"
@@ -7214,10 +7327,12 @@ exports[`table demos 📸 renders ./packages/table/src/components/EditableTable/
                           >
                             <div
                               class="ant-row ant-form-item"
+                              role="row"
                               style="margin: -5px 0px -5px 0px;"
                             >
                               <div
                                 class="ant-col ant-form-item-control"
+                                role="cell"
                               >
                                 <div
                                   class="ant-form-item-control-input"
@@ -7294,10 +7409,12 @@ exports[`table demos 📸 renders ./packages/table/src/components/EditableTable/
                           >
                             <div
                               class="ant-row ant-form-item"
+                              role="row"
                               style="margin: -5px 0px -5px 0px;"
                             >
                               <div
                                 class="ant-col ant-form-item-control"
+                                role="cell"
                               >
                                 <div>
                                   <div
@@ -7356,10 +7473,12 @@ exports[`table demos 📸 renders ./packages/table/src/components/EditableTable/
                           >
                             <div
                               class="ant-row ant-form-item"
+                              role="row"
                               style="margin: -5px 0px -5px 0px;"
                             >
                               <div
                                 class="ant-col ant-form-item-control"
+                                role="cell"
                               >
                                 <div
                                   class="ant-form-item-control-input"
@@ -7466,10 +7585,12 @@ exports[`table demos 📸 renders ./packages/table/src/components/EditableTable/
                           >
                             <div
                               class="ant-row ant-form-item"
+                              role="row"
                               style="margin: -5px 0px -5px 0px;"
                             >
                               <div
                                 class="ant-col ant-form-item-control"
+                                role="cell"
                               >
                                 <div
                                   class="ant-form-item-control-input"
@@ -7546,10 +7667,12 @@ exports[`table demos 📸 renders ./packages/table/src/components/EditableTable/
                           >
                             <div
                               class="ant-row ant-form-item"
+                              role="row"
                               style="margin: -5px 0px -5px 0px;"
                             >
                               <div
                                 class="ant-col ant-form-item-control"
+                                role="cell"
                               >
                                 <div>
                                   <div
@@ -7608,10 +7731,12 @@ exports[`table demos 📸 renders ./packages/table/src/components/EditableTable/
                           >
                             <div
                               class="ant-row ant-form-item"
+                              role="row"
                               style="margin: -5px 0px -5px 0px;"
                             >
                               <div
                                 class="ant-col ant-form-item-control"
+                                role="cell"
                               >
                                 <div
                                   class="ant-form-item-control-input"
@@ -7718,10 +7843,12 @@ exports[`table demos 📸 renders ./packages/table/src/components/EditableTable/
                           >
                             <div
                               class="ant-row ant-form-item"
+                              role="row"
                               style="margin: -5px 0px -5px 0px;"
                             >
                               <div
                                 class="ant-col ant-form-item-control"
+                                role="cell"
                               >
                                 <div
                                   class="ant-form-item-control-input"
@@ -7798,10 +7925,12 @@ exports[`table demos 📸 renders ./packages/table/src/components/EditableTable/
                           >
                             <div
                               class="ant-row ant-form-item"
+                              role="row"
                               style="margin: -5px 0px -5px 0px;"
                             >
                               <div
                                 class="ant-col ant-form-item-control"
+                                role="cell"
                               >
                                 <div>
                                   <div
@@ -7860,10 +7989,12 @@ exports[`table demos 📸 renders ./packages/table/src/components/EditableTable/
                           >
                             <div
                               class="ant-row ant-form-item"
+                              role="row"
                               style="margin: -5px 0px -5px 0px;"
                             >
                               <div
                                 class="ant-col ant-form-item-control"
+                                role="cell"
                               >
                                 <div
                                   class="ant-form-item-control-input"
@@ -7970,10 +8101,12 @@ exports[`table demos 📸 renders ./packages/table/src/components/EditableTable/
                           >
                             <div
                               class="ant-row ant-form-item"
+                              role="row"
                               style="margin: -5px 0px -5px 0px;"
                             >
                               <div
                                 class="ant-col ant-form-item-control"
+                                role="cell"
                               >
                                 <div
                                   class="ant-form-item-control-input"
@@ -8050,10 +8183,12 @@ exports[`table demos 📸 renders ./packages/table/src/components/EditableTable/
                           >
                             <div
                               class="ant-row ant-form-item"
+                              role="row"
                               style="margin: -5px 0px -5px 0px;"
                             >
                               <div
                                 class="ant-col ant-form-item-control"
+                                role="cell"
                               >
                                 <div>
                                   <div
@@ -8112,10 +8247,12 @@ exports[`table demos 📸 renders ./packages/table/src/components/EditableTable/
                           >
                             <div
                               class="ant-row ant-form-item"
+                              role="row"
                               style="margin: -5px 0px -5px 0px;"
                             >
                               <div
                                 class="ant-col ant-form-item-control"
+                                role="cell"
                               >
                                 <div
                                   class="ant-form-item-control-input"
@@ -8222,10 +8359,12 @@ exports[`table demos 📸 renders ./packages/table/src/components/EditableTable/
                           >
                             <div
                               class="ant-row ant-form-item"
+                              role="row"
                               style="margin: -5px 0px -5px 0px;"
                             >
                               <div
                                 class="ant-col ant-form-item-control"
+                                role="cell"
                               >
                                 <div
                                   class="ant-form-item-control-input"
@@ -8302,10 +8441,12 @@ exports[`table demos 📸 renders ./packages/table/src/components/EditableTable/
                           >
                             <div
                               class="ant-row ant-form-item"
+                              role="row"
                               style="margin: -5px 0px -5px 0px;"
                             >
                               <div
                                 class="ant-col ant-form-item-control"
+                                role="cell"
                               >
                                 <div>
                                   <div
@@ -8364,10 +8505,12 @@ exports[`table demos 📸 renders ./packages/table/src/components/EditableTable/
                           >
                             <div
                               class="ant-row ant-form-item"
+                              role="row"
                               style="margin: -5px 0px -5px 0px;"
                             >
                               <div
                                 class="ant-col ant-form-item-control"
+                                role="cell"
                               >
                                 <div
                                   class="ant-form-item-control-input"
@@ -8474,10 +8617,12 @@ exports[`table demos 📸 renders ./packages/table/src/components/EditableTable/
                           >
                             <div
                               class="ant-row ant-form-item"
+                              role="row"
                               style="margin: -5px 0px -5px 0px;"
                             >
                               <div
                                 class="ant-col ant-form-item-control"
+                                role="cell"
                               >
                                 <div
                                   class="ant-form-item-control-input"
@@ -8554,10 +8699,12 @@ exports[`table demos 📸 renders ./packages/table/src/components/EditableTable/
                           >
                             <div
                               class="ant-row ant-form-item"
+                              role="row"
                               style="margin: -5px 0px -5px 0px;"
                             >
                               <div
                                 class="ant-col ant-form-item-control"
+                                role="cell"
                               >
                                 <div>
                                   <div
@@ -8616,10 +8763,12 @@ exports[`table demos 📸 renders ./packages/table/src/components/EditableTable/
                           >
                             <div
                               class="ant-row ant-form-item"
+                              role="row"
                               style="margin: -5px 0px -5px 0px;"
                             >
                               <div
                                 class="ant-col ant-form-item-control"
+                                role="cell"
                               >
                                 <div
                                   class="ant-form-item-control-input"
@@ -8726,10 +8875,12 @@ exports[`table demos 📸 renders ./packages/table/src/components/EditableTable/
                           >
                             <div
                               class="ant-row ant-form-item"
+                              role="row"
                               style="margin: -5px 0px -5px 0px;"
                             >
                               <div
                                 class="ant-col ant-form-item-control"
+                                role="cell"
                               >
                                 <div
                                   class="ant-form-item-control-input"
@@ -8806,10 +8957,12 @@ exports[`table demos 📸 renders ./packages/table/src/components/EditableTable/
                           >
                             <div
                               class="ant-row ant-form-item"
+                              role="row"
                               style="margin: -5px 0px -5px 0px;"
                             >
                               <div
                                 class="ant-col ant-form-item-control"
+                                role="cell"
                               >
                                 <div>
                                   <div
@@ -8868,10 +9021,12 @@ exports[`table demos 📸 renders ./packages/table/src/components/EditableTable/
                           >
                             <div
                               class="ant-row ant-form-item"
+                              role="row"
                               style="margin: -5px 0px -5px 0px;"
                             >
                               <div
                                 class="ant-col ant-form-item-control"
+                                role="cell"
                               >
                                 <div
                                   class="ant-form-item-control-input"
@@ -8978,10 +9133,12 @@ exports[`table demos 📸 renders ./packages/table/src/components/EditableTable/
                           >
                             <div
                               class="ant-row ant-form-item"
+                              role="row"
                               style="margin: -5px 0px -5px 0px;"
                             >
                               <div
                                 class="ant-col ant-form-item-control"
+                                role="cell"
                               >
                                 <div
                                   class="ant-form-item-control-input"
@@ -9058,10 +9215,12 @@ exports[`table demos 📸 renders ./packages/table/src/components/EditableTable/
                           >
                             <div
                               class="ant-row ant-form-item"
+                              role="row"
                               style="margin: -5px 0px -5px 0px;"
                             >
                               <div
                                 class="ant-col ant-form-item-control"
+                                role="cell"
                               >
                                 <div>
                                   <div
@@ -9120,10 +9279,12 @@ exports[`table demos 📸 renders ./packages/table/src/components/EditableTable/
                           >
                             <div
                               class="ant-row ant-form-item"
+                              role="row"
                               style="margin: -5px 0px -5px 0px;"
                             >
                               <div
                                 class="ant-col ant-form-item-control"
+                                role="cell"
                               >
                                 <div
                                   class="ant-form-item-control-input"
@@ -9230,10 +9391,12 @@ exports[`table demos 📸 renders ./packages/table/src/components/EditableTable/
                           >
                             <div
                               class="ant-row ant-form-item"
+                              role="row"
                               style="margin: -5px 0px -5px 0px;"
                             >
                               <div
                                 class="ant-col ant-form-item-control"
+                                role="cell"
                               >
                                 <div
                                   class="ant-form-item-control-input"
@@ -9310,10 +9473,12 @@ exports[`table demos 📸 renders ./packages/table/src/components/EditableTable/
                           >
                             <div
                               class="ant-row ant-form-item"
+                              role="row"
                               style="margin: -5px 0px -5px 0px;"
                             >
                               <div
                                 class="ant-col ant-form-item-control"
+                                role="cell"
                               >
                                 <div>
                                   <div
@@ -9372,10 +9537,12 @@ exports[`table demos 📸 renders ./packages/table/src/components/EditableTable/
                           >
                             <div
                               class="ant-row ant-form-item"
+                              role="row"
                               style="margin: -5px 0px -5px 0px;"
                             >
                               <div
                                 class="ant-col ant-form-item-control"
+                                role="cell"
                               >
                                 <div
                                   class="ant-form-item-control-input"
@@ -9482,10 +9649,12 @@ exports[`table demos 📸 renders ./packages/table/src/components/EditableTable/
                           >
                             <div
                               class="ant-row ant-form-item"
+                              role="row"
                               style="margin: -5px 0px -5px 0px;"
                             >
                               <div
                                 class="ant-col ant-form-item-control"
+                                role="cell"
                               >
                                 <div
                                   class="ant-form-item-control-input"
@@ -9562,10 +9731,12 @@ exports[`table demos 📸 renders ./packages/table/src/components/EditableTable/
                           >
                             <div
                               class="ant-row ant-form-item"
+                              role="row"
                               style="margin: -5px 0px -5px 0px;"
                             >
                               <div
                                 class="ant-col ant-form-item-control"
+                                role="cell"
                               >
                                 <div>
                                   <div
@@ -9624,10 +9795,12 @@ exports[`table demos 📸 renders ./packages/table/src/components/EditableTable/
                           >
                             <div
                               class="ant-row ant-form-item"
+                              role="row"
                               style="margin: -5px 0px -5px 0px;"
                             >
                               <div
                                 class="ant-col ant-form-item-control"
+                                role="cell"
                               >
                                 <div
                                   class="ant-form-item-control-input"
@@ -9734,10 +9907,12 @@ exports[`table demos 📸 renders ./packages/table/src/components/EditableTable/
                           >
                             <div
                               class="ant-row ant-form-item"
+                              role="row"
                               style="margin: -5px 0px -5px 0px;"
                             >
                               <div
                                 class="ant-col ant-form-item-control"
+                                role="cell"
                               >
                                 <div
                                   class="ant-form-item-control-input"
@@ -10184,9 +10359,11 @@ exports[`table demos 📸 renders ./packages/table/src/demos/ListToolBar/basic.t
                         >
                           <div
                             class="ant-row ant-form-item"
+                            role="row"
                           >
                             <div
                               class="ant-col ant-form-item-control"
+                              role="cell"
                             >
                               <div
                                 class="ant-form-item-control-input"
@@ -11099,9 +11276,11 @@ exports[`table demos 📸 renders ./packages/table/src/demos/ListToolBar/menu.ts
                         >
                           <div
                             class="ant-row ant-form-item"
+                            role="row"
                           >
                             <div
                               class="ant-col ant-form-item-control"
+                              role="cell"
                             >
                               <div
                                 class="ant-form-item-control-input"
@@ -12152,9 +12331,11 @@ exports[`table demos 📸 renders ./packages/table/src/demos/ListToolBar/multipl
                     >
                       <div
                         class="ant-row ant-form-item"
+                        role="row"
                       >
                         <div
                           class="ant-col ant-form-item-control"
+                          role="cell"
                         >
                           <div
                             class="ant-form-item-control-input"
@@ -12935,9 +13116,11 @@ exports[`table demos 📸 renders ./packages/table/src/demos/ListToolBar/no-titl
                         >
                           <div
                             class="ant-row ant-form-item"
+                            role="row"
                           >
                             <div
                               class="ant-col ant-form-item-control"
+                              role="cell"
                             >
                               <div
                                 class="ant-form-item-control-input"
@@ -13968,9 +14151,11 @@ exports[`table demos 📸 renders ./packages/table/src/demos/ListToolBar/tabs.ts
                           >
                             <div
                               class="ant-row ant-form-item"
+                              role="row"
                             >
                               <div
                                 class="ant-col ant-form-item-control"
+                                role="cell"
                               >
                                 <div
                                   class="ant-form-item-control-input"
@@ -17752,18 +17937,22 @@ exports[`table demos 📸 renders ./packages/table/src/demos/config-provider.tsx
         />
         <div
           class="qixian-row qixian-row-start"
+          role="row"
           style="margin-left: -12px; margin-right: -12px;"
         >
           <div
             class="qixian-col qixian-col-8"
+            role="cell"
             style="padding-left: 12px; padding-right: 12px;"
           >
             <div
               class="qixian-row qixian-form-item"
+              role="row"
               style="flex-wrap: nowrap;"
             >
               <div
                 class="qixian-col qixian-form-item-label"
+                role="cell"
                 style="flex: 0 0 80px;"
               >
                 <label
@@ -17776,6 +17965,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/config-provider.tsx
               </div>
               <div
                 class="qixian-col qixian-form-item-control"
+                role="cell"
                 style="max-width: calc(100% - 80px);"
               >
                 <div
@@ -17880,14 +18070,17 @@ exports[`table demos 📸 renders ./packages/table/src/demos/config-provider.tsx
           </div>
           <div
             class="qixian-col qixian-col-8"
+            role="cell"
             style="padding-left: 12px; padding-right: 12px;"
           >
             <div
               class="qixian-row qixian-form-item"
+              role="row"
               style="flex-wrap: nowrap;"
             >
               <div
                 class="qixian-col qixian-form-item-label"
+                role="cell"
                 style="flex: 0 0 80px;"
               >
                 <label
@@ -17900,6 +18093,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/config-provider.tsx
               </div>
               <div
                 class="qixian-col qixian-form-item-control"
+                role="cell"
                 style="max-width: calc(100% - 80px);"
               >
                 <div
@@ -17956,10 +18150,12 @@ exports[`table demos 📸 renders ./packages/table/src/demos/config-provider.tsx
           </div>
           <div
             class="qixian-row qixian-form-item qixian-form-item-hidden"
+            role="row"
             style="flex-wrap: nowrap;"
           >
             <div
               class="qixian-col qixian-form-item-label"
+              role="cell"
               style="flex: 0 0 80px;"
             >
               <label
@@ -17972,6 +18168,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/config-provider.tsx
             </div>
             <div
               class="qixian-col qixian-form-item-control"
+              role="cell"
               style="max-width: calc(100% - 80px);"
             >
               <div
@@ -18029,13 +18226,16 @@ exports[`table demos 📸 renders ./packages/table/src/demos/config-provider.tsx
           </div>
           <div
             class="qixian-col qixian-col-8"
+            role="cell"
             style="padding-left: 12px; padding-right: 12px; text-align: right;"
           >
             <div
               class="qixian-row qixian-form-item pro-form-query-filter-actions"
+              role="row"
             >
               <div
                 class="qixian-col qixian-form-item-label"
+                role="cell"
               >
                 <label
                   class="qixian-form-item-no-colon"
@@ -18046,6 +18246,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/config-provider.tsx
               </div>
               <div
                 class="qixian-col qixian-form-item-control"
+                role="cell"
               >
                 <div
                   class="qixian-form-item-control-input"
@@ -22896,18 +23097,22 @@ exports[`table demos 📸 renders ./packages/table/src/demos/crud.tsx correctly 
             />
             <div
               class="ant-row ant-row-start"
+              role="row"
               style="margin-left: -12px; margin-right: -12px;"
             >
               <div
                 class="ant-col ant-col-8"
+                role="cell"
                 style="padding-left: 12px; padding-right: 12px;"
               >
                 <div
                   class="ant-row ant-form-item"
+                  role="row"
                   style="flex-wrap: nowrap;"
                 >
                   <div
                     class="ant-col ant-form-item-label"
+                    role="cell"
                     style="flex: 0 0 80px;"
                   >
                     <label
@@ -22920,6 +23125,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/crud.tsx correctly 
                   </div>
                   <div
                     class="ant-col ant-form-item-control"
+                    role="cell"
                     style="max-width: calc(100% - 80px);"
                   >
                     <div
@@ -23024,14 +23230,17 @@ exports[`table demos 📸 renders ./packages/table/src/demos/crud.tsx correctly 
               </div>
               <div
                 class="ant-col ant-col-8"
+                role="cell"
                 style="padding-left: 12px; padding-right: 12px;"
               >
                 <div
                   class="ant-row ant-form-item"
+                  role="row"
                   style="flex-wrap: nowrap;"
                 >
                   <div
                     class="ant-col ant-form-item-label"
+                    role="cell"
                     style="flex: 0 0 80px;"
                   >
                     <label
@@ -23044,6 +23253,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/crud.tsx correctly 
                   </div>
                   <div
                     class="ant-col ant-form-item-control"
+                    role="cell"
                     style="max-width: calc(100% - 80px);"
                   >
                     <div
@@ -23121,10 +23331,12 @@ exports[`table demos 📸 renders ./packages/table/src/demos/crud.tsx correctly 
               </div>
               <div
                 class="ant-row ant-form-item ant-form-item-hidden"
+                role="row"
                 style="flex-wrap: nowrap;"
               >
                 <div
                   class="ant-col ant-form-item-label"
+                  role="cell"
                   style="flex: 0 0 80px;"
                 >
                   <label
@@ -23137,6 +23349,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/crud.tsx correctly 
                 </div>
                 <div
                   class="ant-col ant-form-item-control"
+                  role="cell"
                   style="max-width: calc(100% - 80px);"
                 >
                   <div
@@ -23192,10 +23405,12 @@ exports[`table demos 📸 renders ./packages/table/src/demos/crud.tsx correctly 
               </div>
               <div
                 class="ant-row ant-form-item ant-form-item-hidden"
+                role="row"
                 style="flex-wrap: nowrap;"
               >
                 <div
                   class="ant-col ant-form-item-label"
+                  role="cell"
                   style="flex: 0 0 80px;"
                 >
                   <label
@@ -23208,6 +23423,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/crud.tsx correctly 
                 </div>
                 <div
                   class="ant-col ant-form-item-control"
+                  role="cell"
                   style="max-width: calc(100% - 80px);"
                 >
                   <div
@@ -23265,13 +23481,16 @@ exports[`table demos 📸 renders ./packages/table/src/demos/crud.tsx correctly 
               </div>
               <div
                 class="ant-col ant-col-8"
+                role="cell"
                 style="padding-left: 12px; padding-right: 12px; text-align: right;"
               >
                 <div
                   class="ant-row ant-form-item pro-form-query-filter-actions"
+                  role="row"
                 >
                   <div
                     class="ant-col ant-form-item-label"
+                    role="cell"
                   >
                     <label
                       class="ant-form-item-no-colon"
@@ -23282,6 +23501,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/crud.tsx correctly 
                   </div>
                   <div
                     class="ant-col ant-form-item-control"
+                    role="cell"
                   >
                     <div
                       class="ant-form-item-control-input"
@@ -24721,18 +24941,22 @@ exports[`table demos 📸 renders ./packages/table/src/demos/customization-value
         />
         <div
           class="ant-row ant-row-start"
+          role="row"
           style="margin-left: -12px; margin-right: -12px;"
         >
           <div
             class="ant-col ant-col-8"
+            role="cell"
             style="padding-left: 12px; padding-right: 12px;"
           >
             <div
               class="ant-row ant-form-item"
+              role="row"
               style="flex-wrap: nowrap;"
             >
               <div
                 class="ant-col ant-form-item-label"
+                role="cell"
                 style="flex: 0 0 80px;"
               >
                 <label
@@ -24745,6 +24969,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/customization-value
               </div>
               <div
                 class="ant-col ant-form-item-control"
+                role="cell"
                 style="max-width: calc(100% - 80px);"
               >
                 <div
@@ -24768,14 +24993,17 @@ exports[`table demos 📸 renders ./packages/table/src/demos/customization-value
           </div>
           <div
             class="ant-col ant-col-8"
+            role="cell"
             style="padding-left: 12px; padding-right: 12px;"
           >
             <div
               class="ant-row ant-form-item"
+              role="row"
               style="flex-wrap: nowrap;"
             >
               <div
                 class="ant-col ant-form-item-label"
+                role="cell"
                 style="flex: 0 0 80px;"
               >
                 <label
@@ -24788,6 +25016,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/customization-value
               </div>
               <div
                 class="ant-col ant-form-item-control"
+                role="cell"
                 style="max-width: calc(100% - 80px);"
               >
                 <div
@@ -24817,13 +25046,16 @@ exports[`table demos 📸 renders ./packages/table/src/demos/customization-value
           </div>
           <div
             class="ant-col ant-col-8"
+            role="cell"
             style="padding-left: 12px; padding-right: 12px; text-align: right;"
           >
             <div
               class="ant-row ant-form-item pro-form-query-filter-actions"
+              role="row"
             >
               <div
                 class="ant-col ant-form-item-label"
+                role="cell"
               >
                 <label
                   class="ant-form-item-no-colon"
@@ -24834,6 +25066,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/customization-value
               </div>
               <div
                 class="ant-col ant-form-item-control"
+                role="cell"
               >
                 <div
                   class="ant-form-item-control-input"
@@ -25541,17 +25774,21 @@ exports[`table demos 📸 renders ./packages/table/src/demos/dataSource.tsx corr
         />
         <div
           class="ant-row ant-row-start"
+          role="row"
           style="margin-left: -12px; margin-right: -12px;"
         >
           <div
             class="ant-col ant-col-8"
+            role="cell"
             style="padding-left: 12px; padding-right: 12px;"
           >
             <div
               class="ant-row ant-form-item"
+              role="row"
             >
               <div
                 class="ant-col ant-form-item-label"
+                role="cell"
               >
                 <label
                   class=""
@@ -25563,6 +25800,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/dataSource.tsx corr
               </div>
               <div
                 class="ant-col ant-form-item-control"
+                role="cell"
               >
                 <div
                   class="ant-form-item-control-input"
@@ -25618,13 +25856,16 @@ exports[`table demos 📸 renders ./packages/table/src/demos/dataSource.tsx corr
           </div>
           <div
             class="ant-col ant-col-8"
+            role="cell"
             style="padding-left: 12px; padding-right: 12px;"
           >
             <div
               class="ant-row ant-form-item"
+              role="row"
             >
               <div
                 class="ant-col ant-form-item-label"
+                role="cell"
               >
                 <label
                   class=""
@@ -25636,6 +25877,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/dataSource.tsx corr
               </div>
               <div
                 class="ant-col ant-form-item-control"
+                role="cell"
               >
                 <div
                   class="ant-form-item-control-input"
@@ -25712,13 +25954,16 @@ exports[`table demos 📸 renders ./packages/table/src/demos/dataSource.tsx corr
           </div>
           <div
             class="ant-col ant-col-8"
+            role="cell"
             style="padding-left: 12px; padding-right: 12px;"
           >
             <div
               class="ant-row ant-form-item"
+              role="row"
             >
               <div
                 class="ant-col ant-form-item-label"
+                role="cell"
               >
                 <label
                   class=""
@@ -25730,6 +25975,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/dataSource.tsx corr
               </div>
               <div
                 class="ant-col ant-form-item-control"
+                role="cell"
               >
                 <div
                   class="ant-form-item-control-input"
@@ -25833,13 +26079,16 @@ exports[`table demos 📸 renders ./packages/table/src/demos/dataSource.tsx corr
           </div>
           <div
             class="ant-col ant-col-8"
+            role="cell"
             style="padding-left: 12px; padding-right: 12px;"
           >
             <div
               class="ant-row ant-form-item"
+              role="row"
             >
               <div
                 class="ant-col ant-form-item-label"
+                role="cell"
               >
                 <label
                   class=""
@@ -25874,6 +26123,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/dataSource.tsx corr
               </div>
               <div
                 class="ant-col ant-form-item-control"
+                role="cell"
               >
                 <div
                   class="ant-form-item-control-input"
@@ -25931,13 +26181,16 @@ exports[`table demos 📸 renders ./packages/table/src/demos/dataSource.tsx corr
           </div>
           <div
             class="ant-col ant-col-8"
+            role="cell"
             style="padding-left: 12px; padding-right: 12px;"
           >
             <div
               class="ant-row ant-form-item"
+              role="row"
             >
               <div
                 class="ant-col ant-form-item-label"
+                role="cell"
               >
                 <label
                   class=""
@@ -25949,6 +26202,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/dataSource.tsx corr
               </div>
               <div
                 class="ant-col ant-form-item-control"
+                role="cell"
               >
                 <div
                   class="ant-form-item-control-input"
@@ -26004,13 +26258,16 @@ exports[`table demos 📸 renders ./packages/table/src/demos/dataSource.tsx corr
           </div>
           <div
             class="ant-col ant-col-8"
+            role="cell"
             style="padding-left: 12px; padding-right: 12px; text-align: right;"
           >
             <div
               class="ant-row ant-form-item pro-form-query-filter-actions"
+              role="row"
             >
               <div
                 class="ant-col ant-form-item-label"
+                role="cell"
               >
                 <label
                   class="ant-form-item-no-colon"
@@ -26021,6 +26278,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/dataSource.tsx corr
               </div>
               <div
                 class="ant-col ant-form-item-control"
+                role="cell"
               >
                 <div
                   class="ant-form-item-control-input"
@@ -27657,18 +27915,22 @@ exports[`table demos 📸 renders ./packages/table/src/demos/dateFormatter.tsx c
         />
         <div
           class="ant-row ant-row-start"
+          role="row"
           style="margin-left: -12px; margin-right: -12px;"
         >
           <div
             class="ant-col ant-col-8"
+            role="cell"
             style="padding-left: 12px; padding-right: 12px;"
           >
             <div
               class="ant-row ant-form-item"
+              role="row"
               style="flex-wrap: nowrap;"
             >
               <div
                 class="ant-col ant-form-item-label"
+                role="cell"
                 style="flex: 0 0 80px;"
               >
                 <label
@@ -27681,6 +27943,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/dateFormatter.tsx c
               </div>
               <div
                 class="ant-col ant-form-item-control"
+                role="cell"
                 style="max-width: calc(100% - 80px);"
               >
                 <div
@@ -27737,14 +28000,17 @@ exports[`table demos 📸 renders ./packages/table/src/demos/dateFormatter.tsx c
           </div>
           <div
             class="ant-col ant-col-8"
+            role="cell"
             style="padding-left: 12px; padding-right: 12px;"
           >
             <div
               class="ant-row ant-form-item"
+              role="row"
               style="flex-wrap: nowrap;"
             >
               <div
                 class="ant-col ant-form-item-label"
+                role="cell"
                 style="flex: 0 0 80px;"
               >
                 <label
@@ -27757,6 +28023,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/dateFormatter.tsx c
               </div>
               <div
                 class="ant-col ant-form-item-control"
+                role="cell"
                 style="max-width: calc(100% - 80px);"
               >
                 <div
@@ -27839,13 +28106,16 @@ exports[`table demos 📸 renders ./packages/table/src/demos/dateFormatter.tsx c
           </div>
           <div
             class="ant-col ant-col-8"
+            role="cell"
             style="padding-left: 12px; padding-right: 12px; text-align: right;"
           >
             <div
               class="ant-row ant-form-item pro-form-query-filter-actions"
+              role="row"
             >
               <div
                 class="ant-col ant-form-item-label"
+                role="cell"
               >
                 <label
                   class="ant-form-item-no-colon"
@@ -27856,6 +28126,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/dateFormatter.tsx c
               </div>
               <div
                 class="ant-col ant-form-item-control"
+                role="cell"
               >
                 <div
                   class="ant-form-item-control-input"
@@ -28172,18 +28443,22 @@ exports[`table demos 📸 renders ./packages/table/src/demos/dateFormatter.tsx c
         />
         <div
           class="ant-row ant-row-start"
+          role="row"
           style="margin-left: -12px; margin-right: -12px;"
         >
           <div
             class="ant-col ant-col-8"
+            role="cell"
             style="padding-left: 12px; padding-right: 12px;"
           >
             <div
               class="ant-row ant-form-item"
+              role="row"
               style="flex-wrap: nowrap;"
             >
               <div
                 class="ant-col ant-form-item-label"
+                role="cell"
                 style="flex: 0 0 80px;"
               >
                 <label
@@ -28196,6 +28471,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/dateFormatter.tsx c
               </div>
               <div
                 class="ant-col ant-form-item-control"
+                role="cell"
                 style="max-width: calc(100% - 80px);"
               >
                 <div
@@ -28252,14 +28528,17 @@ exports[`table demos 📸 renders ./packages/table/src/demos/dateFormatter.tsx c
           </div>
           <div
             class="ant-col ant-col-8"
+            role="cell"
             style="padding-left: 12px; padding-right: 12px;"
           >
             <div
               class="ant-row ant-form-item"
+              role="row"
               style="flex-wrap: nowrap;"
             >
               <div
                 class="ant-col ant-form-item-label"
+                role="cell"
                 style="flex: 0 0 80px;"
               >
                 <label
@@ -28272,6 +28551,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/dateFormatter.tsx c
               </div>
               <div
                 class="ant-col ant-form-item-control"
+                role="cell"
                 style="max-width: calc(100% - 80px);"
               >
                 <div
@@ -28354,13 +28634,16 @@ exports[`table demos 📸 renders ./packages/table/src/demos/dateFormatter.tsx c
           </div>
           <div
             class="ant-col ant-col-8"
+            role="cell"
             style="padding-left: 12px; padding-right: 12px; text-align: right;"
           >
             <div
               class="ant-row ant-form-item pro-form-query-filter-actions"
+              role="row"
             >
               <div
                 class="ant-col ant-form-item-label"
+                role="cell"
               >
                 <label
                   class="ant-form-item-no-colon"
@@ -28371,6 +28654,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/dateFormatter.tsx c
               </div>
               <div
                 class="ant-col ant-form-item-control"
+                role="cell"
               >
                 <div
                   class="ant-form-item-control-input"
@@ -28687,18 +28971,22 @@ exports[`table demos 📸 renders ./packages/table/src/demos/dateFormatter.tsx c
         />
         <div
           class="ant-row ant-row-start"
+          role="row"
           style="margin-left: -12px; margin-right: -12px;"
         >
           <div
             class="ant-col ant-col-8"
+            role="cell"
             style="padding-left: 12px; padding-right: 12px;"
           >
             <div
               class="ant-row ant-form-item"
+              role="row"
               style="flex-wrap: nowrap;"
             >
               <div
                 class="ant-col ant-form-item-label"
+                role="cell"
                 style="flex: 0 0 80px;"
               >
                 <label
@@ -28711,6 +28999,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/dateFormatter.tsx c
               </div>
               <div
                 class="ant-col ant-form-item-control"
+                role="cell"
                 style="max-width: calc(100% - 80px);"
               >
                 <div
@@ -28767,14 +29056,17 @@ exports[`table demos 📸 renders ./packages/table/src/demos/dateFormatter.tsx c
           </div>
           <div
             class="ant-col ant-col-8"
+            role="cell"
             style="padding-left: 12px; padding-right: 12px;"
           >
             <div
               class="ant-row ant-form-item"
+              role="row"
               style="flex-wrap: nowrap;"
             >
               <div
                 class="ant-col ant-form-item-label"
+                role="cell"
                 style="flex: 0 0 80px;"
               >
                 <label
@@ -28787,6 +29079,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/dateFormatter.tsx c
               </div>
               <div
                 class="ant-col ant-form-item-control"
+                role="cell"
                 style="max-width: calc(100% - 80px);"
               >
                 <div
@@ -28869,13 +29162,16 @@ exports[`table demos 📸 renders ./packages/table/src/demos/dateFormatter.tsx c
           </div>
           <div
             class="ant-col ant-col-8"
+            role="cell"
             style="padding-left: 12px; padding-right: 12px; text-align: right;"
           >
             <div
               class="ant-row ant-form-item pro-form-query-filter-actions"
+              role="row"
             >
               <div
                 class="ant-col ant-form-item-label"
+                role="cell"
               >
                 <label
                   class="ant-form-item-no-colon"
@@ -28886,6 +29182,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/dateFormatter.tsx c
               </div>
               <div
                 class="ant-col ant-form-item-control"
+                role="cell"
               >
                 <div
                   class="ant-form-item-control-input"
@@ -29223,18 +29520,22 @@ exports[`table demos 📸 renders ./packages/table/src/demos/dynamic-settings.ts
                   />
                   <div
                     class="ant-row ant-row-start"
+                    role="row"
                     style="margin-left: -12px; margin-right: -12px;"
                   >
                     <div
                       class="ant-col ant-col-12"
+                      role="cell"
                       style="padding-left: 12px; padding-right: 12px;"
                     >
                       <div
                         class="ant-row ant-form-item"
+                        role="row"
                         style="flex-wrap: nowrap;"
                       >
                         <div
                           class="ant-col ant-form-item-label"
+                          role="cell"
                           style="flex: 0 0 80px;"
                         >
                           <label
@@ -29247,6 +29548,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/dynamic-settings.ts
                         </div>
                         <div
                           class="ant-col ant-form-item-control"
+                          role="cell"
                           style="max-width: calc(100% - 80px);"
                         >
                           <div
@@ -29303,10 +29605,12 @@ exports[`table demos 📸 renders ./packages/table/src/demos/dynamic-settings.ts
                     </div>
                     <div
                       class="ant-row ant-form-item ant-form-item-hidden"
+                      role="row"
                       style="flex-wrap: nowrap;"
                     >
                       <div
                         class="ant-col ant-form-item-label"
+                        role="cell"
                         style="flex: 0 0 80px;"
                       >
                         <label
@@ -29319,6 +29623,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/dynamic-settings.ts
                       </div>
                       <div
                         class="ant-col ant-form-item-control"
+                        role="cell"
                         style="max-width: calc(100% - 80px);"
                       >
                         <div
@@ -29376,10 +29681,12 @@ exports[`table demos 📸 renders ./packages/table/src/demos/dynamic-settings.ts
                     </div>
                     <div
                       class="ant-row ant-form-item ant-form-item-hidden"
+                      role="row"
                       style="flex-wrap: nowrap;"
                     >
                       <div
                         class="ant-col ant-form-item-label"
+                        role="cell"
                         style="flex: 0 0 80px;"
                       >
                         <label
@@ -29392,6 +29699,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/dynamic-settings.ts
                       </div>
                       <div
                         class="ant-col ant-form-item-control"
+                        role="cell"
                         style="max-width: calc(100% - 80px);"
                       >
                         <div
@@ -29468,13 +29776,16 @@ exports[`table demos 📸 renders ./packages/table/src/demos/dynamic-settings.ts
                     </div>
                     <div
                       class="ant-col ant-col-12"
+                      role="cell"
                       style="padding-left: 12px; padding-right: 12px; text-align: right;"
                     >
                       <div
                         class="ant-row ant-form-item pro-form-query-filter-actions"
+                        role="row"
                       >
                         <div
                           class="ant-col ant-form-item-label"
+                          role="cell"
                         >
                           <label
                             class="ant-form-item-no-colon"
@@ -29485,6 +29796,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/dynamic-settings.ts
                         </div>
                         <div
                           class="ant-col ant-form-item-control"
+                          role="cell"
                         >
                           <div
                             class="ant-form-item-control-input"
@@ -30839,9 +31151,11 @@ exports[`table demos 📸 renders ./packages/table/src/demos/dynamic-settings.ts
                             >
                               <div
                                 class="ant-row ant-form-item"
+                                role="row"
                               >
                                 <div
                                   class="ant-col ant-form-item-label"
+                                  role="cell"
                                 >
                                   <label
                                     class="ant-form-item-no-colon"
@@ -30876,6 +31190,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/dynamic-settings.ts
                                 </div>
                                 <div
                                   class="ant-col ant-form-item-control"
+                                  role="cell"
                                 >
                                   <div
                                     class="ant-form-item-control-input"
@@ -30908,9 +31223,11 @@ exports[`table demos 📸 renders ./packages/table/src/demos/dynamic-settings.ts
                             >
                               <div
                                 class="ant-row ant-form-item"
+                                role="row"
                               >
                                 <div
                                   class="ant-col ant-form-item-label"
+                                  role="cell"
                                 >
                                   <label
                                     class="ant-form-item-no-colon"
@@ -30945,6 +31262,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/dynamic-settings.ts
                                 </div>
                                 <div
                                   class="ant-col ant-form-item-control"
+                                  role="cell"
                                 >
                                   <div
                                     class="ant-form-item-control-input"
@@ -31026,9 +31344,11 @@ exports[`table demos 📸 renders ./packages/table/src/demos/dynamic-settings.ts
                             >
                               <div
                                 class="ant-row ant-form-item"
+                                role="row"
                               >
                                 <div
                                   class="ant-col ant-form-item-label"
+                                  role="cell"
                                 >
                                   <label
                                     class="ant-form-item-no-colon"
@@ -31063,6 +31383,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/dynamic-settings.ts
                                 </div>
                                 <div
                                   class="ant-col ant-form-item-control"
+                                  role="cell"
                                 >
                                   <div
                                     class="ant-form-item-control-input"
@@ -31095,9 +31416,11 @@ exports[`table demos 📸 renders ./packages/table/src/demos/dynamic-settings.ts
                             >
                               <div
                                 class="ant-row ant-form-item"
+                                role="row"
                               >
                                 <div
                                   class="ant-col ant-form-item-label"
+                                  role="cell"
                                 >
                                   <label
                                     class="ant-form-item-no-colon"
@@ -31132,6 +31455,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/dynamic-settings.ts
                                 </div>
                                 <div
                                   class="ant-col ant-form-item-control"
+                                  role="cell"
                                 >
                                   <div
                                     class="ant-form-item-control-input"
@@ -31164,9 +31488,11 @@ exports[`table demos 📸 renders ./packages/table/src/demos/dynamic-settings.ts
                             >
                               <div
                                 class="ant-row ant-form-item"
+                                role="row"
                               >
                                 <div
                                   class="ant-col ant-form-item-label"
+                                  role="cell"
                                 >
                                   <label
                                     class="ant-form-item-no-colon"
@@ -31201,6 +31527,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/dynamic-settings.ts
                                 </div>
                                 <div
                                   class="ant-col ant-form-item-control"
+                                  role="cell"
                                 >
                                   <div
                                     class="ant-form-item-control-input"
@@ -31233,9 +31560,11 @@ exports[`table demos 📸 renders ./packages/table/src/demos/dynamic-settings.ts
                             >
                               <div
                                 class="ant-row ant-form-item"
+                                role="row"
                               >
                                 <div
                                   class="ant-col ant-form-item-label"
+                                  role="cell"
                                 >
                                   <label
                                     class="ant-form-item-no-colon"
@@ -31270,6 +31599,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/dynamic-settings.ts
                                 </div>
                                 <div
                                   class="ant-col ant-form-item-control"
+                                  role="cell"
                                 >
                                   <div
                                     class="ant-form-item-control-input"
@@ -31301,9 +31631,11 @@ exports[`table demos 📸 renders ./packages/table/src/demos/dynamic-settings.ts
                             >
                               <div
                                 class="ant-row ant-form-item"
+                                role="row"
                               >
                                 <div
                                   class="ant-col ant-form-item-label"
+                                  role="cell"
                                 >
                                   <label
                                     class="ant-form-item-no-colon"
@@ -31338,6 +31670,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/dynamic-settings.ts
                                 </div>
                                 <div
                                   class="ant-col ant-form-item-control"
+                                  role="cell"
                                 >
                                   <div
                                     class="ant-form-item-control-input"
@@ -31461,9 +31794,11 @@ exports[`table demos 📸 renders ./packages/table/src/demos/dynamic-settings.ts
                             >
                               <div
                                 class="ant-row ant-form-item"
+                                role="row"
                               >
                                 <div
                                   class="ant-col ant-form-item-label"
+                                  role="cell"
                                 >
                                   <label
                                     class="ant-form-item-no-colon"
@@ -31498,6 +31833,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/dynamic-settings.ts
                                 </div>
                                 <div
                                   class="ant-col ant-form-item-control"
+                                  role="cell"
                                 >
                                   <div
                                     class="ant-form-item-control-input"
@@ -31556,9 +31892,11 @@ exports[`table demos 📸 renders ./packages/table/src/demos/dynamic-settings.ts
                             >
                               <div
                                 class="ant-row ant-form-item"
+                                role="row"
                               >
                                 <div
                                   class="ant-col ant-form-item-label"
+                                  role="cell"
                                 >
                                   <label
                                     class="ant-form-item-no-colon"
@@ -31593,6 +31931,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/dynamic-settings.ts
                                 </div>
                                 <div
                                   class="ant-col ant-form-item-control"
+                                  role="cell"
                                 >
                                   <div
                                     class="ant-form-item-control-input"
@@ -31651,9 +31990,11 @@ exports[`table demos 📸 renders ./packages/table/src/demos/dynamic-settings.ts
                             >
                               <div
                                 class="ant-row ant-form-item"
+                                role="row"
                               >
                                 <div
                                   class="ant-col ant-form-item-label"
+                                  role="cell"
                                 >
                                   <label
                                     class="ant-form-item-no-colon"
@@ -31688,6 +32029,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/dynamic-settings.ts
                                 </div>
                                 <div
                                   class="ant-col ant-form-item-control"
+                                  role="cell"
                                 >
                                   <div
                                     class="ant-form-item-control-input"
@@ -31720,9 +32062,11 @@ exports[`table demos 📸 renders ./packages/table/src/demos/dynamic-settings.ts
                             >
                               <div
                                 class="ant-row ant-form-item"
+                                role="row"
                               >
                                 <div
                                   class="ant-col ant-form-item-label"
+                                  role="cell"
                                 >
                                   <label
                                     class="ant-form-item-no-colon"
@@ -31757,6 +32101,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/dynamic-settings.ts
                                 </div>
                                 <div
                                   class="ant-col ant-form-item-control"
+                                  role="cell"
                                 >
                                   <div
                                     class="ant-form-item-control-input"
@@ -31789,9 +32134,11 @@ exports[`table demos 📸 renders ./packages/table/src/demos/dynamic-settings.ts
                             >
                               <div
                                 class="ant-row ant-form-item"
+                                role="row"
                               >
                                 <div
                                   class="ant-col ant-form-item-label"
+                                  role="cell"
                                 >
                                   <label
                                     class="ant-form-item-no-colon"
@@ -31826,6 +32173,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/dynamic-settings.ts
                                 </div>
                                 <div
                                   class="ant-col ant-form-item-control"
+                                  role="cell"
                                 >
                                   <div
                                     class="ant-form-item-control-input"
@@ -31858,9 +32206,11 @@ exports[`table demos 📸 renders ./packages/table/src/demos/dynamic-settings.ts
                             >
                               <div
                                 class="ant-row ant-form-item"
+                                role="row"
                               >
                                 <div
                                   class="ant-col ant-form-item-label"
+                                  role="cell"
                                 >
                                   <label
                                     class="ant-form-item-no-colon"
@@ -31895,6 +32245,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/dynamic-settings.ts
                                 </div>
                                 <div
                                   class="ant-col ant-form-item-control"
+                                  role="cell"
                                 >
                                   <div
                                     class="ant-form-item-control-input"
@@ -31926,9 +32277,11 @@ exports[`table demos 📸 renders ./packages/table/src/demos/dynamic-settings.ts
                             >
                               <div
                                 class="ant-row ant-form-item"
+                                role="row"
                               >
                                 <div
                                   class="ant-col ant-form-item-label"
+                                  role="cell"
                                 >
                                   <label
                                     class="ant-form-item-no-colon"
@@ -31963,6 +32316,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/dynamic-settings.ts
                                 </div>
                                 <div
                                   class="ant-col ant-form-item-control"
+                                  role="cell"
                                 >
                                   <div
                                     class="ant-form-item-control-input"
@@ -32851,18 +33205,22 @@ exports[`table demos 📸 renders ./packages/table/src/demos/form.tsx correctly 
         />
         <div
           class="ant-row ant-row-start"
+          role="row"
           style="margin-left: -12px; margin-right: -12px;"
         >
           <div
             class="ant-col ant-col-8"
+            role="cell"
             style="padding-left: 12px; padding-right: 12px;"
           >
             <div
               class="ant-row ant-form-item"
+              role="row"
               style="flex-wrap: nowrap;"
             >
               <div
                 class="ant-col ant-form-item-label"
+                role="cell"
                 style="flex: 0 0 80px;"
               >
                 <label
@@ -32875,6 +33233,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/form.tsx correctly 
               </div>
               <div
                 class="ant-col ant-form-item-control"
+                role="cell"
                 style="max-width: calc(100% - 80px);"
               >
                 <div
@@ -32931,14 +33290,17 @@ exports[`table demos 📸 renders ./packages/table/src/demos/form.tsx correctly 
           </div>
           <div
             class="ant-col ant-col-8"
+            role="cell"
             style="padding-left: 12px; padding-right: 12px;"
           >
             <div
               class="ant-row ant-form-item"
+              role="row"
               style="flex-wrap: nowrap;"
             >
               <div
                 class="ant-col ant-form-item-label"
+                role="cell"
                 style="flex: 0 0 80px;"
               >
                 <label
@@ -32951,6 +33313,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/form.tsx correctly 
               </div>
               <div
                 class="ant-col ant-form-item-control"
+                role="cell"
                 style="max-width: calc(100% - 80px);"
               >
                 <div
@@ -33009,13 +33372,16 @@ exports[`table demos 📸 renders ./packages/table/src/demos/form.tsx correctly 
           </div>
           <div
             class="ant-col ant-col-8"
+            role="cell"
             style="padding-left: 12px; padding-right: 12px; text-align: right;"
           >
             <div
               class="ant-row ant-form-item pro-form-query-filter-actions"
+              role="row"
             >
               <div
                 class="ant-col ant-form-item-label"
+                role="cell"
               >
                 <label
                   class="ant-form-item-no-colon"
@@ -33026,6 +33392,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/form.tsx correctly 
               </div>
               <div
                 class="ant-col ant-form-item-control"
+                role="cell"
               >
                 <div
                   class="ant-form-item-control-input"
@@ -33383,17 +33750,21 @@ exports[`table demos 📸 renders ./packages/table/src/demos/intl.tsx correctly 
         />
         <div
           class="ant-row ant-row-start"
+          role="row"
           style="margin-left: -12px; margin-right: -12px;"
         >
           <div
             class="ant-col ant-col-8"
+            role="cell"
             style="padding-left: 12px; padding-right: 12px;"
           >
             <div
               class="ant-row ant-form-item"
+              role="row"
             >
               <div
                 class="ant-col ant-form-item-label"
+                role="cell"
               >
                 <label
                   class=""
@@ -33405,6 +33776,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/intl.tsx correctly 
               </div>
               <div
                 class="ant-col ant-form-item-control"
+                role="cell"
               >
                 <div
                   class="ant-form-item-control-input"
@@ -33495,13 +33867,16 @@ exports[`table demos 📸 renders ./packages/table/src/demos/intl.tsx correctly 
           </div>
           <div
             class="ant-col ant-col-8"
+            role="cell"
             style="padding-left: 12px; padding-right: 12px;"
           >
             <div
               class="ant-row ant-form-item"
+              role="row"
             >
               <div
                 class="ant-col ant-form-item-label"
+                role="cell"
               >
                 <label
                   class=""
@@ -33513,6 +33888,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/intl.tsx correctly 
               </div>
               <div
                 class="ant-col ant-form-item-control"
+                role="cell"
               >
                 <div
                   class="ant-form-item-control-input"
@@ -33568,9 +33944,11 @@ exports[`table demos 📸 renders ./packages/table/src/demos/intl.tsx correctly 
           </div>
           <div
             class="ant-row ant-form-item ant-form-item-hidden"
+            role="row"
           >
             <div
               class="ant-col ant-form-item-label"
+              role="cell"
             >
               <label
                 class=""
@@ -33582,6 +33960,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/intl.tsx correctly 
             </div>
             <div
               class="ant-col ant-form-item-control"
+              role="cell"
             >
               <div
                 class="ant-form-item-control-input"
@@ -33638,13 +34017,16 @@ exports[`table demos 📸 renders ./packages/table/src/demos/intl.tsx correctly 
           </div>
           <div
             class="ant-col ant-col-8"
+            role="cell"
             style="padding-left: 12px; padding-right: 12px; text-align: right;"
           >
             <div
               class="ant-row ant-form-item pro-form-query-filter-actions"
+              role="row"
             >
               <div
                 class="ant-col ant-form-item-label"
+                role="cell"
               >
                 <label
                   class="ant-form-item-no-colon"
@@ -33655,6 +34037,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/intl.tsx correctly 
               </div>
               <div
                 class="ant-col ant-form-item-control"
+                role="cell"
               >
                 <div
                   class="ant-form-item-control-input"
@@ -34274,9 +34657,11 @@ exports[`table demos 📸 renders ./packages/table/src/demos/lightfilter.tsx cor
                           >
                             <div
                               class="ant-row ant-form-item"
+                              role="row"
                             >
                               <div
                                 class="ant-col ant-form-item-control"
+                                role="cell"
                               >
                                 <div
                                   class="ant-form-item-control-input"
@@ -34322,9 +34707,11 @@ exports[`table demos 📸 renders ./packages/table/src/demos/lightfilter.tsx cor
                           >
                             <div
                               class="ant-row ant-form-item"
+                              role="row"
                             >
                               <div
                                 class="ant-col ant-form-item-control"
+                                role="cell"
                               >
                                 <div
                                   class="ant-form-item-control-input"
@@ -34395,9 +34782,11 @@ exports[`table demos 📸 renders ./packages/table/src/demos/lightfilter.tsx cor
                           >
                             <div
                               class="ant-row ant-form-item"
+                              role="row"
                             >
                               <div
                                 class="ant-col ant-form-item-control"
+                                role="cell"
                               >
                                 <div
                                   class="ant-form-item-control-input"
@@ -34505,9 +34894,11 @@ exports[`table demos 📸 renders ./packages/table/src/demos/lightfilter.tsx cor
                           >
                             <div
                               class="ant-row ant-form-item"
+                              role="row"
                             >
                               <div
                                 class="ant-col ant-form-item-control"
+                                role="cell"
                               >
                                 <div
                                   class="ant-form-item-control-input"
@@ -35397,18 +35788,22 @@ exports[`table demos 📸 renders ./packages/table/src/demos/linkage_form.tsx co
         />
         <div
           class="ant-row ant-row-start"
+          role="row"
           style="margin-left: -12px; margin-right: -12px;"
         >
           <div
             class="ant-col ant-col-8"
+            role="cell"
             style="padding-left: 12px; padding-right: 12px;"
           >
             <div
               class="ant-row ant-form-item"
+              role="row"
               style="flex-wrap: nowrap;"
             >
               <div
                 class="ant-col ant-form-item-label"
+                role="cell"
                 style="flex: 0 0 80px;"
               >
                 <label
@@ -35421,6 +35816,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/linkage_form.tsx co
               </div>
               <div
                 class="ant-col ant-form-item-control"
+                role="cell"
                 style="max-width: calc(100% - 80px);"
               >
                 <div
@@ -35477,14 +35873,17 @@ exports[`table demos 📸 renders ./packages/table/src/demos/linkage_form.tsx co
           </div>
           <div
             class="ant-col ant-col-8"
+            role="cell"
             style="padding-left: 12px; padding-right: 12px;"
           >
             <div
               class="ant-row ant-form-item"
+              role="row"
               style="flex-wrap: nowrap;"
             >
               <div
                 class="ant-col ant-form-item-label"
+                role="cell"
                 style="flex: 0 0 80px;"
               >
                 <label
@@ -35497,6 +35896,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/linkage_form.tsx co
               </div>
               <div
                 class="ant-col ant-form-item-control"
+                role="cell"
                 style="max-width: calc(100% - 80px);"
               >
                 <div
@@ -35569,14 +35969,17 @@ exports[`table demos 📸 renders ./packages/table/src/demos/linkage_form.tsx co
           </div>
           <div
             class="ant-col ant-col-8"
+            role="cell"
             style="padding-left: 12px; padding-right: 12px;"
           >
             <div
               class="ant-row ant-form-item"
+              role="row"
               style="flex-wrap: nowrap;"
             >
               <div
                 class="ant-col ant-form-item-label"
+                role="cell"
                 style="flex: 0 0 80px;"
               >
                 <label
@@ -35589,6 +35992,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/linkage_form.tsx co
               </div>
               <div
                 class="ant-col ant-form-item-control"
+                role="cell"
                 style="max-width: calc(100% - 80px);"
               >
                 <div
@@ -35693,13 +36097,16 @@ exports[`table demos 📸 renders ./packages/table/src/demos/linkage_form.tsx co
           </div>
           <div
             class="ant-col ant-col-8 ant-col-offset-16"
+            role="cell"
             style="padding-left: 12px; padding-right: 12px; text-align: right;"
           >
             <div
               class="ant-row ant-form-item pro-form-query-filter-actions"
+              role="row"
             >
               <div
                 class="ant-col ant-form-item-label"
+                role="cell"
               >
                 <label
                   class="ant-form-item-no-colon"
@@ -35710,6 +36117,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/linkage_form.tsx co
               </div>
               <div
                 class="ant-col ant-form-item-control"
+                role="cell"
               >
                 <div
                   class="ant-form-item-control-input"
@@ -36444,9 +36852,11 @@ exports[`table demos 📸 renders ./packages/table/src/demos/listToolBar.tsx cor
                         >
                           <div
                             class="ant-row ant-form-item"
+                            role="row"
                           >
                             <div
                               class="ant-col ant-form-item-control"
+                              role="cell"
                             >
                               <div
                                 class="ant-form-item-control-input"
@@ -37375,18 +37785,22 @@ exports[`table demos 📸 renders ./packages/table/src/demos/no-option.tsx corre
         />
         <div
           class="ant-row ant-row-start"
+          role="row"
           style="margin-left: -12px; margin-right: -12px;"
         >
           <div
             class="ant-col ant-col-8"
+            role="cell"
             style="padding-left: 12px; padding-right: 12px;"
           >
             <div
               class="ant-row ant-form-item"
+              role="row"
               style="flex-wrap: nowrap;"
             >
               <div
                 class="ant-col ant-form-item-label"
+                role="cell"
                 style="flex: 0 0 80px;"
               >
                 <label
@@ -37399,6 +37813,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/no-option.tsx corre
               </div>
               <div
                 class="ant-col ant-form-item-control"
+                role="cell"
                 style="max-width: calc(100% - 80px);"
               >
                 <div
@@ -37455,14 +37870,17 @@ exports[`table demos 📸 renders ./packages/table/src/demos/no-option.tsx corre
           </div>
           <div
             class="ant-col ant-col-8"
+            role="cell"
             style="padding-left: 12px; padding-right: 12px;"
           >
             <div
               class="ant-row ant-form-item"
+              role="row"
               style="flex-wrap: nowrap;"
             >
               <div
                 class="ant-col ant-form-item-label"
+                role="cell"
                 style="flex: 0 0 80px;"
               >
                 <label
@@ -37475,6 +37893,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/no-option.tsx corre
               </div>
               <div
                 class="ant-col ant-form-item-control"
+                role="cell"
                 style="max-width: calc(100% - 80px);"
               >
                 <div
@@ -37531,14 +37950,17 @@ exports[`table demos 📸 renders ./packages/table/src/demos/no-option.tsx corre
           </div>
           <div
             class="ant-col ant-col-8"
+            role="cell"
             style="padding-left: 12px; padding-right: 12px;"
           >
             <div
               class="ant-row ant-form-item"
+              role="row"
               style="flex-wrap: nowrap;"
             >
               <div
                 class="ant-col ant-form-item-label"
+                role="cell"
                 style="flex: 0 0 80px;"
               >
                 <label
@@ -37551,6 +37973,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/no-option.tsx corre
               </div>
               <div
                 class="ant-col ant-form-item-control"
+                role="cell"
                 style="max-width: calc(100% - 80px);"
               >
                 <div
@@ -37655,14 +38078,17 @@ exports[`table demos 📸 renders ./packages/table/src/demos/no-option.tsx corre
           </div>
           <div
             class="ant-col ant-col-8"
+            role="cell"
             style="padding-left: 12px; padding-right: 12px;"
           >
             <div
               class="ant-row ant-form-item"
+              role="row"
               style="flex-wrap: nowrap;"
             >
               <div
                 class="ant-col ant-form-item-label"
+                role="cell"
                 style="flex: 0 0 80px;"
               >
                 <label
@@ -37675,6 +38101,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/no-option.tsx corre
               </div>
               <div
                 class="ant-col ant-form-item-control"
+                role="cell"
                 style="max-width: calc(100% - 80px);"
               >
                 <div
@@ -37752,14 +38179,17 @@ exports[`table demos 📸 renders ./packages/table/src/demos/no-option.tsx corre
           </div>
           <div
             class="ant-col ant-col-8"
+            role="cell"
             style="padding-left: 12px; padding-right: 12px;"
           >
             <div
               class="ant-row ant-form-item"
+              role="row"
               style="flex-wrap: nowrap;"
             >
               <div
                 class="ant-col ant-form-item-label"
+                role="cell"
                 style="flex: 0 0 80px;"
               >
                 <label
@@ -37795,6 +38225,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/no-option.tsx corre
               </div>
               <div
                 class="ant-col ant-form-item-control"
+                role="cell"
                 style="max-width: calc(100% - 80px);"
               >
                 <div
@@ -37853,14 +38284,17 @@ exports[`table demos 📸 renders ./packages/table/src/demos/no-option.tsx corre
           </div>
           <div
             class="ant-col ant-col-8"
+            role="cell"
             style="padding-left: 12px; padding-right: 12px;"
           >
             <div
               class="ant-row ant-form-item"
+              role="row"
               style="flex-wrap: nowrap;"
             >
               <div
                 class="ant-col ant-form-item-label"
+                role="cell"
                 style="flex: 0 0 80px;"
               >
                 <label
@@ -37873,6 +38307,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/no-option.tsx corre
               </div>
               <div
                 class="ant-col ant-form-item-control"
+                role="cell"
                 style="max-width: calc(100% - 80px);"
               >
                 <div
@@ -41560,17 +41995,21 @@ exports[`table demos 📸 renders ./packages/table/src/demos/open-rules.tsx corr
         />
         <div
           class="ant-row ant-row-start"
+          role="row"
           style="margin-left: -12px; margin-right: -12px;"
         >
           <div
             class="ant-col ant-col-8"
+            role="cell"
             style="padding-left: 12px; padding-right: 12px;"
           >
             <div
               class="ant-row ant-form-item"
+              role="row"
             >
               <div
                 class="ant-col ant-form-item-label"
+                role="cell"
               >
                 <label
                   class="ant-form-item-required"
@@ -41605,6 +42044,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/open-rules.tsx corr
               </div>
               <div
                 class="ant-col ant-form-item-control"
+                role="cell"
               >
                 <div
                   class="ant-form-item-control-input"
@@ -41660,13 +42100,16 @@ exports[`table demos 📸 renders ./packages/table/src/demos/open-rules.tsx corr
           </div>
           <div
             class="ant-col ant-col-8"
+            role="cell"
             style="padding-left: 12px; padding-right: 12px;"
           >
             <div
               class="ant-row ant-form-item"
+              role="row"
             >
               <div
                 class="ant-col ant-form-item-label"
+                role="cell"
               >
                 <label
                   class="ant-form-item-required"
@@ -41678,6 +42121,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/open-rules.tsx corr
               </div>
               <div
                 class="ant-col ant-form-item-control"
+                role="cell"
               >
                 <div
                   class="ant-form-item-control-input"
@@ -41754,13 +42198,16 @@ exports[`table demos 📸 renders ./packages/table/src/demos/open-rules.tsx corr
           </div>
           <div
             class="ant-col ant-col-8"
+            role="cell"
             style="padding-left: 12px; padding-right: 12px; text-align: right;"
           >
             <div
               class="ant-row ant-form-item pro-form-query-filter-actions"
+              role="row"
             >
               <div
                 class="ant-col ant-form-item-label"
+                role="cell"
               >
                 <label
                   class="ant-form-item-no-colon"
@@ -41771,6 +42218,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/open-rules.tsx corr
               </div>
               <div
                 class="ant-col ant-form-item-control"
+                role="cell"
               >
                 <div
                   class="ant-form-item-control-input"
@@ -42314,17 +42762,21 @@ exports[`table demos 📸 renders ./packages/table/src/demos/open-rules.tsx corr
         />
         <div
           class="ant-row ant-row-start"
+          role="row"
           style="margin-left: -12px; margin-right: -12px;"
         >
           <div
             class="ant-col ant-col-8"
+            role="cell"
             style="padding-left: 12px; padding-right: 12px;"
           >
             <div
               class="ant-row ant-form-item"
+              role="row"
             >
               <div
                 class="ant-col ant-form-item-label"
+                role="cell"
               >
                 <label
                   class=""
@@ -42359,6 +42811,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/open-rules.tsx corr
               </div>
               <div
                 class="ant-col ant-form-item-control"
+                role="cell"
               >
                 <div
                   class="ant-form-item-control-input"
@@ -42414,13 +42867,16 @@ exports[`table demos 📸 renders ./packages/table/src/demos/open-rules.tsx corr
           </div>
           <div
             class="ant-col ant-col-8"
+            role="cell"
             style="padding-left: 12px; padding-right: 12px;"
           >
             <div
               class="ant-row ant-form-item"
+              role="row"
             >
               <div
                 class="ant-col ant-form-item-label"
+                role="cell"
               >
                 <label
                   class=""
@@ -42432,6 +42888,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/open-rules.tsx corr
               </div>
               <div
                 class="ant-col ant-form-item-control"
+                role="cell"
               >
                 <div
                   class="ant-form-item-control-input"
@@ -42508,13 +42965,16 @@ exports[`table demos 📸 renders ./packages/table/src/demos/open-rules.tsx corr
           </div>
           <div
             class="ant-col ant-col-8"
+            role="cell"
             style="padding-left: 12px; padding-right: 12px; text-align: right;"
           >
             <div
               class="ant-row ant-form-item pro-form-query-filter-actions"
+              role="row"
             >
               <div
                 class="ant-col ant-form-item-label"
+                role="cell"
               >
                 <label
                   class="ant-form-item-no-colon"
@@ -42525,6 +42985,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/open-rules.tsx corr
               </div>
               <div
                 class="ant-col ant-form-item-control"
+                role="cell"
               >
                 <div
                   class="ant-form-item-control-input"
@@ -43073,18 +43534,22 @@ exports[`table demos 📸 renders ./packages/table/src/demos/pollinga.tsx correc
         />
         <div
           class="ant-row ant-row-start"
+          role="row"
           style="margin-left: -12px; margin-right: -12px;"
         >
           <div
             class="ant-col ant-col-8"
+            role="cell"
             style="padding-left: 12px; padding-right: 12px;"
           >
             <div
               class="ant-row ant-form-item"
+              role="row"
               style="flex-wrap: nowrap;"
             >
               <div
                 class="ant-col ant-form-item-label"
+                role="cell"
                 style="flex: 0 0 80px;"
               >
                 <label
@@ -43097,6 +43562,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/pollinga.tsx correc
               </div>
               <div
                 class="ant-col ant-form-item-control"
+                role="cell"
                 style="max-width: calc(100% - 80px);"
               >
                 <div
@@ -43201,14 +43667,17 @@ exports[`table demos 📸 renders ./packages/table/src/demos/pollinga.tsx correc
           </div>
           <div
             class="ant-col ant-col-8"
+            role="cell"
             style="padding-left: 12px; padding-right: 12px;"
           >
             <div
               class="ant-row ant-form-item"
+              role="row"
               style="flex-wrap: nowrap;"
             >
               <div
                 class="ant-col ant-form-item-label"
+                role="cell"
                 style="flex: 0 0 80px;"
               >
                 <label
@@ -43221,6 +43690,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/pollinga.tsx correc
               </div>
               <div
                 class="ant-col ant-form-item-control"
+                role="cell"
                 style="max-width: calc(100% - 80px);"
               >
                 <div
@@ -43312,10 +43782,12 @@ exports[`table demos 📸 renders ./packages/table/src/demos/pollinga.tsx correc
           </div>
           <div
             class="ant-row ant-form-item ant-form-item-hidden"
+            role="row"
             style="flex-wrap: nowrap;"
           >
             <div
               class="ant-col ant-form-item-label"
+              role="cell"
               style="flex: 0 0 80px;"
             >
               <label
@@ -43328,6 +43800,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/pollinga.tsx correc
             </div>
             <div
               class="ant-col ant-form-item-control"
+              role="cell"
               style="max-width: calc(100% - 80px);"
             >
               <div
@@ -43385,10 +43858,12 @@ exports[`table demos 📸 renders ./packages/table/src/demos/pollinga.tsx correc
           </div>
           <div
             class="ant-row ant-form-item ant-form-item-hidden"
+            role="row"
             style="flex-wrap: nowrap;"
           >
             <div
               class="ant-col ant-form-item-label"
+              role="cell"
               style="flex: 0 0 80px;"
             >
               <label
@@ -43401,6 +43876,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/pollinga.tsx correc
             </div>
             <div
               class="ant-col ant-form-item-control"
+              role="cell"
               style="max-width: calc(100% - 80px);"
             >
               <div
@@ -43458,13 +43934,16 @@ exports[`table demos 📸 renders ./packages/table/src/demos/pollinga.tsx correc
           </div>
           <div
             class="ant-col ant-col-8"
+            role="cell"
             style="padding-left: 12px; padding-right: 12px; text-align: right;"
           >
             <div
               class="ant-row ant-form-item pro-form-query-filter-actions"
+              role="row"
             >
               <div
                 class="ant-col ant-form-item-label"
+                role="cell"
               >
                 <label
                   class="ant-form-item-no-colon"
@@ -43475,6 +43954,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/pollinga.tsx correc
               </div>
               <div
                 class="ant-col ant-form-item-control"
+                role="cell"
               >
                 <div
                   class="ant-form-item-control-input"
@@ -44147,18 +44627,22 @@ exports[`table demos 📸 renders ./packages/table/src/demos/renderTable.tsx cor
         />
         <div
           class="ant-row ant-row-start"
+          role="row"
           style="margin-left: -12px; margin-right: -12px;"
         >
           <div
             class="ant-col ant-col-8"
+            role="cell"
             style="padding-left: 12px; padding-right: 12px;"
           >
             <div
               class="ant-row ant-form-item"
+              role="row"
               style="flex-wrap: nowrap;"
             >
               <div
                 class="ant-col ant-form-item-label"
+                role="cell"
                 style="flex: 0 0 80px;"
               >
                 <label
@@ -44171,6 +44655,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/renderTable.tsx cor
               </div>
               <div
                 class="ant-col ant-form-item-control"
+                role="cell"
                 style="max-width: calc(100% - 80px);"
               >
                 <div
@@ -44229,14 +44714,17 @@ exports[`table demos 📸 renders ./packages/table/src/demos/renderTable.tsx cor
           </div>
           <div
             class="ant-col ant-col-8"
+            role="cell"
             style="padding-left: 12px; padding-right: 12px;"
           >
             <div
               class="ant-row ant-form-item"
+              role="row"
               style="flex-wrap: nowrap;"
             >
               <div
                 class="ant-col ant-form-item-label"
+                role="cell"
                 style="flex: 0 0 80px;"
               >
                 <label
@@ -44249,6 +44737,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/renderTable.tsx cor
               </div>
               <div
                 class="ant-col ant-form-item-control"
+                role="cell"
                 style="max-width: calc(100% - 80px);"
               >
                 <div
@@ -44340,13 +44829,16 @@ exports[`table demos 📸 renders ./packages/table/src/demos/renderTable.tsx cor
           </div>
           <div
             class="ant-col ant-col-8"
+            role="cell"
             style="padding-left: 12px; padding-right: 12px; text-align: right;"
           >
             <div
               class="ant-row ant-form-item pro-form-query-filter-actions"
+              role="row"
             >
               <div
                 class="ant-col ant-form-item-label"
+                role="cell"
               >
                 <label
                   class="ant-form-item-no-colon"
@@ -44357,6 +44849,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/renderTable.tsx cor
               </div>
               <div
                 class="ant-col ant-form-item-control"
+                role="cell"
               >
                 <div
                   class="ant-form-item-control-input"
@@ -45148,17 +45641,21 @@ exports[`table demos 📸 renders ./packages/table/src/demos/rtl_table.tsx corre
         />
         <div
           class="ant-row ant-row-start ant-row-rtl"
+          role="row"
           style="margin-left: -12px; margin-right: -12px;"
         >
           <div
             class="ant-col ant-col-8 ant-col-rtl"
+            role="cell"
             style="padding-left: 12px; padding-right: 12px;"
           >
             <div
               class="ant-row ant-row-rtl ant-form-item"
+              role="row"
             >
               <div
                 class="ant-col ant-form-item-label ant-col-rtl"
+                role="cell"
               >
                 <label
                   class=""
@@ -45170,6 +45667,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/rtl_table.tsx corre
               </div>
               <div
                 class="ant-col ant-form-item-control ant-col-rtl"
+                role="cell"
               >
                 <div
                   class="ant-form-item-control-input"
@@ -45273,13 +45771,16 @@ exports[`table demos 📸 renders ./packages/table/src/demos/rtl_table.tsx corre
           </div>
           <div
             class="ant-col ant-col-8 ant-col-rtl"
+            role="cell"
             style="padding-left: 12px; padding-right: 12px;"
           >
             <div
               class="ant-row ant-row-rtl ant-form-item"
+              role="row"
             >
               <div
                 class="ant-col ant-form-item-label ant-col-rtl"
+                role="cell"
               >
                 <label
                   class=""
@@ -45291,6 +45792,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/rtl_table.tsx corre
               </div>
               <div
                 class="ant-col ant-form-item-control ant-col-rtl"
+                role="cell"
               >
                 <div
                   class="ant-form-item-control-input"
@@ -45346,9 +45848,11 @@ exports[`table demos 📸 renders ./packages/table/src/demos/rtl_table.tsx corre
           </div>
           <div
             class="ant-row ant-row-rtl ant-form-item ant-form-item-hidden"
+            role="row"
           >
             <div
               class="ant-col ant-form-item-label ant-col-rtl"
+              role="cell"
             >
               <label
                 class=""
@@ -45360,6 +45864,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/rtl_table.tsx corre
             </div>
             <div
               class="ant-col ant-form-item-control ant-col-rtl"
+              role="cell"
             >
               <div
                 class="ant-form-item-control-input"
@@ -45416,13 +45921,16 @@ exports[`table demos 📸 renders ./packages/table/src/demos/rtl_table.tsx corre
           </div>
           <div
             class="ant-col ant-col-8 ant-col-rtl"
+            role="cell"
             style="padding-left: 12px; padding-right: 12px; text-align: right;"
           >
             <div
               class="ant-row ant-row-rtl ant-form-item pro-form-query-filter-actions"
+              role="row"
             >
               <div
                 class="ant-col ant-form-item-label ant-col-rtl"
+                role="cell"
               >
                 <label
                   class="ant-form-item-no-colon"
@@ -45433,6 +45941,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/rtl_table.tsx corre
               </div>
               <div
                 class="ant-col ant-form-item-control ant-col-rtl"
+                role="cell"
               >
                 <div
                   class="ant-form-item-control-input"
@@ -47317,17 +47826,21 @@ exports[`table demos 📸 renders ./packages/table/src/demos/search_option.tsx c
         />
         <div
           class="ant-row ant-row-start"
+          role="row"
           style="margin-left: -12px; margin-right: -12px;"
         >
           <div
             class="ant-col ant-col-8"
+            role="cell"
             style="padding-left: 12px; padding-right: 12px;"
           >
             <div
               class="ant-row ant-form-item"
+              role="row"
             >
               <div
                 class="ant-col ant-form-item-label"
+                role="cell"
               >
                 <label
                   class=""
@@ -47339,6 +47852,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/search_option.tsx c
               </div>
               <div
                 class="ant-col ant-form-item-control"
+                role="cell"
               >
                 <div
                   class="ant-form-item-control-input"
@@ -47394,13 +47908,16 @@ exports[`table demos 📸 renders ./packages/table/src/demos/search_option.tsx c
           </div>
           <div
             class="ant-col ant-col-8"
+            role="cell"
             style="padding-left: 12px; padding-right: 12px;"
           >
             <div
               class="ant-row ant-form-item"
+              role="row"
             >
               <div
                 class="ant-col ant-form-item-label"
+                role="cell"
               >
                 <label
                   class=""
@@ -47412,6 +47929,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/search_option.tsx c
               </div>
               <div
                 class="ant-col ant-form-item-control"
+                role="cell"
               >
                 <div
                   class="ant-form-item-control-input"
@@ -47502,13 +48020,16 @@ exports[`table demos 📸 renders ./packages/table/src/demos/search_option.tsx c
           </div>
           <div
             class="ant-col ant-col-8"
+            role="cell"
             style="padding-left: 12px; padding-right: 12px;"
           >
             <div
               class="ant-row ant-form-item"
+              role="row"
             >
               <div
                 class="ant-col ant-form-item-label"
+                role="cell"
               >
                 <label
                   class=""
@@ -47520,6 +48041,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/search_option.tsx c
               </div>
               <div
                 class="ant-col ant-form-item-control"
+                role="cell"
               >
                 <div
                   class="ant-form-item-control-input"
@@ -47577,13 +48099,16 @@ exports[`table demos 📸 renders ./packages/table/src/demos/search_option.tsx c
           </div>
           <div
             class="ant-col ant-col-8 ant-col-offset-16"
+            role="cell"
             style="padding-left: 12px; padding-right: 12px; text-align: right;"
           >
             <div
               class="ant-row ant-form-item pro-form-query-filter-actions"
+              role="row"
             >
               <div
                 class="ant-col ant-form-item-label"
+                role="cell"
               >
                 <label
                   class="ant-form-item-no-colon"
@@ -47594,6 +48119,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/search_option.tsx c
               </div>
               <div
                 class="ant-col ant-form-item-control"
+                role="cell"
               >
                 <div
                   class="ant-form-item-control-input"
@@ -48069,17 +48595,21 @@ exports[`table demos 📸 renders ./packages/table/src/demos/single.tsx correctl
         />
         <div
           class="ant-row ant-row-start"
+          role="row"
           style="margin-left: -12px; margin-right: -12px;"
         >
           <div
             class="ant-col ant-col-8"
+            role="cell"
             style="padding-left: 12px; padding-right: 12px;"
           >
             <div
               class="ant-row ant-form-item"
+              role="row"
             >
               <div
                 class="ant-col ant-form-item-label"
+                role="cell"
               >
                 <label
                   class=""
@@ -48114,6 +48644,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/single.tsx correctl
               </div>
               <div
                 class="ant-col ant-form-item-control"
+                role="cell"
               >
                 <div
                   class="ant-form-item-control-input"
@@ -48169,13 +48700,16 @@ exports[`table demos 📸 renders ./packages/table/src/demos/single.tsx correctl
           </div>
           <div
             class="ant-col ant-col-8"
+            role="cell"
             style="padding-left: 12px; padding-right: 12px;"
           >
             <div
               class="ant-row ant-form-item"
+              role="row"
             >
               <div
                 class="ant-col ant-form-item-label"
+                role="cell"
               >
                 <label
                   class=""
@@ -48187,6 +48721,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/single.tsx correctl
               </div>
               <div
                 class="ant-col ant-form-item-control"
+                role="cell"
               >
                 <div
                   class="ant-form-item-control-input"
@@ -48263,9 +48798,11 @@ exports[`table demos 📸 renders ./packages/table/src/demos/single.tsx correctl
           </div>
           <div
             class="ant-row ant-form-item ant-form-item-hidden"
+            role="row"
           >
             <div
               class="ant-col ant-form-item-label"
+              role="cell"
             >
               <label
                 class=""
@@ -48277,6 +48814,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/single.tsx correctl
             </div>
             <div
               class="ant-col ant-form-item-control"
+              role="cell"
             >
               <div
                 class="ant-form-item-control-input"
@@ -48373,13 +48911,16 @@ exports[`table demos 📸 renders ./packages/table/src/demos/single.tsx correctl
           </div>
           <div
             class="ant-col ant-col-8"
+            role="cell"
             style="padding-left: 12px; padding-right: 12px; text-align: right;"
           >
             <div
               class="ant-row ant-form-item pro-form-query-filter-actions"
+              role="row"
             >
               <div
                 class="ant-col ant-form-item-label"
+                role="cell"
               >
                 <label
                   class="ant-form-item-no-colon"
@@ -48390,6 +48931,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/single.tsx correctl
               </div>
               <div
                 class="ant-col ant-form-item-control"
+                role="cell"
               >
                 <div
                   class="ant-form-item-control-input"
@@ -49978,9 +50520,11 @@ exports[`table demos 📸 renders ./packages/table/src/demos/single-test.tsx cor
         />
         <div
           class="ant-row ant-form-item"
+          role="row"
         >
           <div
             class="ant-col ant-form-item-label"
+            role="cell"
           >
             <label
               class=""
@@ -49992,6 +50536,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/single-test.tsx cor
           </div>
           <div
             class="ant-col ant-form-item-control"
+            role="cell"
           >
             <div
               class="ant-form-item-control-input"
@@ -50101,9 +50646,11 @@ exports[`table demos 📸 renders ./packages/table/src/demos/single-test.tsx cor
         />
         <div
           class="ant-row ant-form-item"
+          role="row"
         >
           <div
             class="ant-col ant-form-item-label"
+            role="cell"
           >
             <label
               class=""
@@ -50115,6 +50662,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/single-test.tsx cor
           </div>
           <div
             class="ant-col ant-form-item-control"
+            role="cell"
           >
             <div
               class="ant-form-item-control-input"
@@ -50170,9 +50718,11 @@ exports[`table demos 📸 renders ./packages/table/src/demos/single-test.tsx cor
         </div>
         <div
           class="ant-row ant-form-item"
+          role="row"
         >
           <div
             class="ant-col ant-form-item-label"
+            role="cell"
           >
             <label
               class=""
@@ -50184,6 +50734,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/single-test.tsx cor
           </div>
           <div
             class="ant-col ant-form-item-control"
+            role="cell"
           >
             <div
               class="ant-form-item-control-input"
@@ -50324,18 +50875,22 @@ exports[`table demos 📸 renders ./packages/table/src/demos/single-test.tsx cor
         />
         <div
           class="ant-row ant-row-start"
+          role="row"
           style="margin-left: -12px; margin-right: -12px;"
         >
           <div
             class="ant-col ant-col-8"
+            role="cell"
             style="padding-left: 12px; padding-right: 12px;"
           >
             <div
               class="ant-row ant-form-item"
+              role="row"
               style="flex-wrap: nowrap;"
             >
               <div
                 class="ant-col ant-form-item-label"
+                role="cell"
                 style="flex: 0 0 80px;"
               >
                 <label
@@ -50348,6 +50903,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/single-test.tsx cor
               </div>
               <div
                 class="ant-col ant-form-item-control"
+                role="cell"
                 style="max-width: calc(100% - 80px);"
               >
                 <div
@@ -50404,14 +50960,17 @@ exports[`table demos 📸 renders ./packages/table/src/demos/single-test.tsx cor
           </div>
           <div
             class="ant-col ant-col-8"
+            role="cell"
             style="padding-left: 12px; padding-right: 12px;"
           >
             <div
               class="ant-row ant-form-item"
+              role="row"
               style="flex-wrap: nowrap;"
             >
               <div
                 class="ant-col ant-form-item-label"
+                role="cell"
                 style="flex: 0 0 80px;"
               >
                 <label
@@ -50424,6 +50983,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/single-test.tsx cor
               </div>
               <div
                 class="ant-col ant-form-item-control"
+                role="cell"
                 style="max-width: calc(100% - 80px);"
               >
                 <div
@@ -50480,13 +51040,16 @@ exports[`table demos 📸 renders ./packages/table/src/demos/single-test.tsx cor
           </div>
           <div
             class="ant-col ant-col-8"
+            role="cell"
             style="padding-left: 12px; padding-right: 12px; text-align: right;"
           >
             <div
               class="ant-row ant-form-item pro-form-query-filter-actions"
+              role="row"
             >
               <div
                 class="ant-col ant-form-item-label"
+                role="cell"
               >
                 <label
                   class="ant-form-item-no-colon"
@@ -50497,6 +51060,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/single-test.tsx cor
               </div>
               <div
                 class="ant-col ant-form-item-control"
+                role="cell"
               >
                 <div
                   class="ant-form-item-control-input"
@@ -50846,18 +51410,22 @@ exports[`table demos 📸 renders ./packages/table/src/demos/single-test.tsx cor
         />
         <div
           class="ant-row ant-row-start"
+          role="row"
           style="margin-left: -12px; margin-right: -12px;"
         >
           <div
             class="ant-col ant-col-8"
+            role="cell"
             style="padding-left: 12px; padding-right: 12px;"
           >
             <div
               class="ant-row ant-form-item"
+              role="row"
               style="flex-wrap: nowrap;"
             >
               <div
                 class="ant-col ant-form-item-label"
+                role="cell"
                 style="flex: 0 0 80px;"
               >
                 <label
@@ -50870,6 +51438,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/single-test.tsx cor
               </div>
               <div
                 class="ant-col ant-form-item-control"
+                role="cell"
                 style="max-width: calc(100% - 80px);"
               >
                 <div
@@ -50974,14 +51543,17 @@ exports[`table demos 📸 renders ./packages/table/src/demos/single-test.tsx cor
           </div>
           <div
             class="ant-col ant-col-8"
+            role="cell"
             style="padding-left: 12px; padding-right: 12px;"
           >
             <div
               class="ant-row ant-form-item"
+              role="row"
               style="flex-wrap: nowrap;"
             >
               <div
                 class="ant-col ant-form-item-label"
+                role="cell"
                 style="flex: 0 0 80px;"
               >
                 <label
@@ -51017,6 +51589,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/single-test.tsx cor
               </div>
               <div
                 class="ant-col ant-form-item-control"
+                role="cell"
                 style="max-width: calc(100% - 80px);"
               >
                 <div
@@ -51073,10 +51646,12 @@ exports[`table demos 📸 renders ./packages/table/src/demos/single-test.tsx cor
           </div>
           <div
             class="ant-row ant-form-item ant-form-item-hidden"
+            role="row"
             style="flex-wrap: nowrap;"
           >
             <div
               class="ant-col ant-form-item-label"
+              role="cell"
               style="flex: 0 0 80px;"
             >
               <label
@@ -51089,6 +51664,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/single-test.tsx cor
             </div>
             <div
               class="ant-col ant-form-item-control"
+              role="cell"
               style="max-width: calc(100% - 80px);"
             >
               <div
@@ -51111,10 +51687,12 @@ exports[`table demos 📸 renders ./packages/table/src/demos/single-test.tsx cor
           </div>
           <div
             class="ant-row ant-form-item ant-form-item-hidden"
+            role="row"
             style="flex-wrap: nowrap;"
           >
             <div
               class="ant-col ant-form-item-label"
+              role="cell"
               style="flex: 0 0 80px;"
             >
               <label
@@ -51127,6 +51705,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/single-test.tsx cor
             </div>
             <div
               class="ant-col ant-form-item-control"
+              role="cell"
               style="max-width: calc(100% - 80px);"
             >
               <div
@@ -51184,10 +51763,12 @@ exports[`table demos 📸 renders ./packages/table/src/demos/single-test.tsx cor
           </div>
           <div
             class="ant-row ant-form-item ant-form-item-hidden"
+            role="row"
             style="flex-wrap: nowrap;"
           >
             <div
               class="ant-col ant-form-item-label"
+              role="cell"
               style="flex: 0 0 80px;"
             >
               <label
@@ -51200,6 +51781,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/single-test.tsx cor
             </div>
             <div
               class="ant-col ant-form-item-control"
+              role="cell"
               style="max-width: calc(100% - 80px);"
             >
               <div
@@ -51255,10 +51837,12 @@ exports[`table demos 📸 renders ./packages/table/src/demos/single-test.tsx cor
           </div>
           <div
             class="ant-row ant-form-item ant-form-item-hidden"
+            role="row"
             style="flex-wrap: nowrap;"
           >
             <div
               class="ant-col ant-form-item-label"
+              role="cell"
               style="flex: 0 0 80px;"
             >
               <label
@@ -51271,6 +51855,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/single-test.tsx cor
             </div>
             <div
               class="ant-col ant-form-item-control"
+              role="cell"
               style="max-width: calc(100% - 80px);"
             >
               <div
@@ -51325,13 +51910,16 @@ exports[`table demos 📸 renders ./packages/table/src/demos/single-test.tsx cor
           </div>
           <div
             class="ant-col ant-col-8"
+            role="cell"
             style="padding-left: 12px; padding-right: 12px; text-align: right;"
           >
             <div
               class="ant-row ant-form-item pro-form-query-filter-actions"
+              role="row"
             >
               <div
                 class="ant-col ant-form-item-label"
+                role="cell"
               >
                 <label
                   class="ant-form-item-no-colon"
@@ -51342,6 +51930,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/single-test.tsx cor
               </div>
               <div
                 class="ant-col ant-form-item-control"
+                role="cell"
               >
                 <div
                   class="ant-form-item-control-input"
@@ -54835,18 +55424,22 @@ exports[`table demos 📸 renders ./packages/table/src/demos/valueType.tsx corre
         />
         <div
           class="ant-row ant-row-start"
+          role="row"
           style="margin-left: -12px; margin-right: -12px;"
         >
           <div
             class="ant-col ant-col-8"
+            role="cell"
             style="padding-left: 12px; padding-right: 12px;"
           >
             <div
               class="ant-row ant-form-item"
+              role="row"
               style="flex-wrap: nowrap;"
             >
               <div
                 class="ant-col ant-form-item-label"
+                role="cell"
                 style="flex: 0 0 80px;"
               >
                 <label
@@ -54859,6 +55452,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/valueType.tsx corre
               </div>
               <div
                 class="ant-col ant-form-item-control"
+                role="cell"
                 style="max-width: calc(100% - 80px);"
               >
                 <div
@@ -54915,14 +55509,17 @@ exports[`table demos 📸 renders ./packages/table/src/demos/valueType.tsx corre
           </div>
           <div
             class="ant-col ant-col-8"
+            role="cell"
             style="padding-left: 12px; padding-right: 12px;"
           >
             <div
               class="ant-row ant-form-item"
+              role="row"
               style="flex-wrap: nowrap;"
             >
               <div
                 class="ant-col ant-form-item-label"
+                role="cell"
                 style="flex: 0 0 80px;"
               >
                 <label
@@ -54935,6 +55532,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/valueType.tsx corre
               </div>
               <div
                 class="ant-col ant-form-item-control"
+                role="cell"
                 style="max-width: calc(100% - 80px);"
               >
                 <div
@@ -54991,10 +55589,12 @@ exports[`table demos 📸 renders ./packages/table/src/demos/valueType.tsx corre
           </div>
           <div
             class="ant-row ant-form-item ant-form-item-hidden"
+            role="row"
             style="flex-wrap: nowrap;"
           >
             <div
               class="ant-col ant-form-item-label"
+              role="cell"
               style="flex: 0 0 80px;"
             >
               <label
@@ -55007,6 +55607,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/valueType.tsx corre
             </div>
             <div
               class="ant-col ant-form-item-control"
+              role="cell"
               style="max-width: calc(100% - 80px);"
             >
               <div
@@ -55029,13 +55630,16 @@ exports[`table demos 📸 renders ./packages/table/src/demos/valueType.tsx corre
           </div>
           <div
             class="ant-col ant-col-8"
+            role="cell"
             style="padding-left: 12px; padding-right: 12px; text-align: right;"
           >
             <div
               class="ant-row ant-form-item pro-form-query-filter-actions"
+              role="row"
             >
               <div
                 class="ant-col ant-form-item-label"
+                role="cell"
               >
                 <label
                   class="ant-form-item-no-colon"
@@ -55046,6 +55650,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/valueType.tsx corre
               </div>
               <div
                 class="ant-col ant-form-item-control"
+                role="cell"
               >
                 <div
                   class="ant-form-item-control-input"
@@ -55860,17 +56465,21 @@ exports[`table demos 📸 renders ./packages/table/src/demos/valueType_select.ts
         />
         <div
           class="ant-row ant-row-start"
+          role="row"
           style="margin-left: -12px; margin-right: -12px;"
         >
           <div
             class="ant-col ant-col-12"
+            role="cell"
             style="padding-left: 12px; padding-right: 12px;"
           >
             <div
               class="ant-row ant-form-item"
+              role="row"
             >
               <div
                 class="ant-col ant-form-item-label"
+                role="cell"
               >
                 <label
                   class=""
@@ -55882,6 +56491,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/valueType_select.ts
               </div>
               <div
                 class="ant-col ant-form-item-control"
+                role="cell"
               >
                 <div
                   class="ant-form-item-control-input"
@@ -55985,13 +56595,16 @@ exports[`table demos 📸 renders ./packages/table/src/demos/valueType_select.ts
           </div>
           <div
             class="ant-col ant-col-12"
+            role="cell"
             style="padding-left: 12px; padding-right: 12px;"
           >
             <div
               class="ant-row ant-form-item"
+              role="row"
             >
               <div
                 class="ant-col ant-form-item-label"
+                role="cell"
               >
                 <label
                   class=""
@@ -56003,6 +56616,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/valueType_select.ts
               </div>
               <div
                 class="ant-col ant-form-item-control"
+                role="cell"
               >
                 <div
                   class="ant-form-item-control-input"
@@ -56098,13 +56712,16 @@ exports[`table demos 📸 renders ./packages/table/src/demos/valueType_select.ts
           </div>
           <div
             class="ant-col ant-col-12"
+            role="cell"
             style="padding-left: 12px; padding-right: 12px;"
           >
             <div
               class="ant-row ant-form-item"
+              role="row"
             >
               <div
                 class="ant-col ant-form-item-label"
+                role="cell"
               >
                 <label
                   class=""
@@ -56116,6 +56733,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/valueType_select.ts
               </div>
               <div
                 class="ant-col ant-form-item-control"
+                role="cell"
               >
                 <div
                   class="ant-form-item-control-input"
@@ -56211,13 +56829,16 @@ exports[`table demos 📸 renders ./packages/table/src/demos/valueType_select.ts
           </div>
           <div
             class="ant-col ant-col-12"
+            role="cell"
             style="padding-left: 12px; padding-right: 12px;"
           >
             <div
               class="ant-row ant-form-item"
+              role="row"
             >
               <div
                 class="ant-col ant-form-item-label"
+                role="cell"
               >
                 <label
                   class=""
@@ -56229,6 +56850,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/valueType_select.ts
               </div>
               <div
                 class="ant-col ant-form-item-control"
+                role="cell"
               >
                 <div
                   class="ant-form-item-control-input"
@@ -56326,13 +56948,16 @@ exports[`table demos 📸 renders ./packages/table/src/demos/valueType_select.ts
           </div>
           <div
             class="ant-col ant-col-12"
+            role="cell"
             style="padding-left: 12px; padding-right: 12px;"
           >
             <div
               class="ant-row ant-form-item"
+              role="row"
             >
               <div
                 class="ant-col ant-form-item-label"
+                role="cell"
               >
                 <label
                   class=""
@@ -56344,6 +56969,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/valueType_select.ts
               </div>
               <div
                 class="ant-col ant-form-item-control"
+                role="cell"
               >
                 <div
                   class="ant-form-item-control-input"
@@ -56417,13 +57043,16 @@ exports[`table demos 📸 renders ./packages/table/src/demos/valueType_select.ts
           </div>
           <div
             class="ant-col ant-col-12"
+            role="cell"
             style="padding-left: 12px; padding-right: 12px;"
           >
             <div
               class="ant-row ant-form-item"
+              role="row"
             >
               <div
                 class="ant-col ant-form-item-label"
+                role="cell"
               >
                 <label
                   class=""
@@ -56435,6 +57064,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/valueType_select.ts
               </div>
               <div
                 class="ant-col ant-form-item-control"
+                role="cell"
               >
                 <div
                   class="ant-form-item-control-input"
@@ -56515,13 +57145,16 @@ exports[`table demos 📸 renders ./packages/table/src/demos/valueType_select.ts
           </div>
           <div
             class="ant-col ant-col-12 ant-col-offset-12"
+            role="cell"
             style="padding-left: 12px; padding-right: 12px; text-align: right;"
           >
             <div
               class="ant-row ant-form-item pro-form-query-filter-actions"
+              role="row"
             >
               <div
                 class="ant-col ant-form-item-label"
+                role="cell"
               >
                 <label
                   class="ant-form-item-no-colon"
@@ -56532,6 +57165,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/valueType_select.ts
               </div>
               <div
                 class="ant-col ant-form-item-control"
+                role="cell"
               >
                 <div
                   class="ant-form-item-control-input"
@@ -57210,18 +57844,22 @@ exports[`table demos 📸 renders ./packages/table/src/demos/valueTypeDate.tsx c
         />
         <div
           class="ant-row ant-row-start"
+          role="row"
           style="margin-left: -12px; margin-right: -12px;"
         >
           <div
             class="ant-col ant-col-8"
+            role="cell"
             style="padding-left: 12px; padding-right: 12px;"
           >
             <div
               class="ant-row ant-form-item"
+              role="row"
               style="flex-wrap: nowrap;"
             >
               <div
                 class="ant-col ant-form-item-label"
+                role="cell"
                 style="flex: 0 0 80px;"
               >
                 <label
@@ -57234,6 +57872,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/valueTypeDate.tsx c
               </div>
               <div
                 class="ant-col ant-form-item-control"
+                role="cell"
                 style="max-width: calc(100% - 80px);"
               >
                 <div
@@ -57292,14 +57931,17 @@ exports[`table demos 📸 renders ./packages/table/src/demos/valueTypeDate.tsx c
           </div>
           <div
             class="ant-col ant-col-8"
+            role="cell"
             style="padding-left: 12px; padding-right: 12px;"
           >
             <div
               class="ant-row ant-form-item"
+              role="row"
               style="flex-wrap: nowrap;"
             >
               <div
                 class="ant-col ant-form-item-label"
+                role="cell"
                 style="flex: 0 0 80px;"
               >
                 <label
@@ -57312,6 +57954,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/valueTypeDate.tsx c
               </div>
               <div
                 class="ant-col ant-form-item-control"
+                role="cell"
                 style="max-width: calc(100% - 80px);"
               >
                 <div
@@ -57410,10 +58053,12 @@ exports[`table demos 📸 renders ./packages/table/src/demos/valueTypeDate.tsx c
           </div>
           <div
             class="ant-row ant-form-item ant-form-item-hidden"
+            role="row"
             style="flex-wrap: nowrap;"
           >
             <div
               class="ant-col ant-form-item-label"
+              role="cell"
               style="flex: 0 0 80px;"
             >
               <label
@@ -57426,6 +58071,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/valueTypeDate.tsx c
             </div>
             <div
               class="ant-col ant-form-item-control"
+              role="cell"
               style="max-width: calc(100% - 80px);"
             >
               <div
@@ -57523,10 +58169,12 @@ exports[`table demos 📸 renders ./packages/table/src/demos/valueTypeDate.tsx c
           </div>
           <div
             class="ant-row ant-form-item ant-form-item-hidden"
+            role="row"
             style="flex-wrap: nowrap;"
           >
             <div
               class="ant-col ant-form-item-label"
+              role="cell"
               style="flex: 0 0 80px;"
             >
               <label
@@ -57539,6 +58187,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/valueTypeDate.tsx c
             </div>
             <div
               class="ant-col ant-form-item-control"
+              role="cell"
               style="max-width: calc(100% - 80px);"
             >
               <div
@@ -57596,10 +58245,12 @@ exports[`table demos 📸 renders ./packages/table/src/demos/valueTypeDate.tsx c
           </div>
           <div
             class="ant-row ant-form-item ant-form-item-hidden"
+            role="row"
             style="flex-wrap: nowrap;"
           >
             <div
               class="ant-col ant-form-item-label"
+              role="cell"
               style="flex: 0 0 80px;"
             >
               <label
@@ -57612,6 +58263,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/valueTypeDate.tsx c
             </div>
             <div
               class="ant-col ant-form-item-control"
+              role="cell"
               style="max-width: calc(100% - 80px);"
             >
               <div
@@ -57667,10 +58319,12 @@ exports[`table demos 📸 renders ./packages/table/src/demos/valueTypeDate.tsx c
           </div>
           <div
             class="ant-row ant-form-item ant-form-item-hidden"
+            role="row"
             style="flex-wrap: nowrap;"
           >
             <div
               class="ant-col ant-form-item-label"
+              role="cell"
               style="flex: 0 0 80px;"
             >
               <label
@@ -57683,6 +58337,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/valueTypeDate.tsx c
             </div>
             <div
               class="ant-col ant-form-item-control"
+              role="cell"
               style="max-width: calc(100% - 80px);"
             >
               <div
@@ -57743,13 +58398,16 @@ exports[`table demos 📸 renders ./packages/table/src/demos/valueTypeDate.tsx c
           </div>
           <div
             class="ant-col ant-col-8"
+            role="cell"
             style="padding-left: 12px; padding-right: 12px; text-align: right;"
           >
             <div
               class="ant-row ant-form-item pro-form-query-filter-actions"
+              role="row"
             >
               <div
                 class="ant-col ant-form-item-label"
+                role="cell"
               >
                 <label
                   class="ant-form-item-no-colon"
@@ -57760,6 +58418,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/valueTypeDate.tsx c
               </div>
               <div
                 class="ant-col ant-form-item-control"
+                role="cell"
               >
                 <div
                   class="ant-form-item-control-input"
@@ -58470,18 +59129,22 @@ exports[`table demos 📸 renders ./packages/table/src/demos/valueTypeNumber.tsx
         />
         <div
           class="ant-row ant-row-start"
+          role="row"
           style="margin-left: -12px; margin-right: -12px;"
         >
           <div
             class="ant-col ant-col-8"
+            role="cell"
             style="padding-left: 12px; padding-right: 12px;"
           >
             <div
               class="ant-row ant-form-item"
+              role="row"
               style="flex-wrap: nowrap;"
             >
               <div
                 class="ant-col ant-form-item-label"
+                role="cell"
                 style="flex: 0 0 80px;"
               >
                 <label
@@ -58494,6 +59157,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/valueTypeNumber.tsx
               </div>
               <div
                 class="ant-col ant-form-item-control"
+                role="cell"
                 style="max-width: calc(100% - 80px);"
               >
                 <div
@@ -58585,14 +59249,17 @@ exports[`table demos 📸 renders ./packages/table/src/demos/valueTypeNumber.tsx
           </div>
           <div
             class="ant-col ant-col-8"
+            role="cell"
             style="padding-left: 12px; padding-right: 12px;"
           >
             <div
               class="ant-row ant-form-item"
+              role="row"
               style="flex-wrap: nowrap;"
             >
               <div
                 class="ant-col ant-form-item-label"
+                role="cell"
                 style="flex: 0 0 80px;"
               >
                 <label
@@ -58605,6 +59272,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/valueTypeNumber.tsx
               </div>
               <div
                 class="ant-col ant-form-item-control"
+                role="cell"
                 style="max-width: calc(100% - 80px);"
               >
                 <div
@@ -58696,10 +59364,12 @@ exports[`table demos 📸 renders ./packages/table/src/demos/valueTypeNumber.tsx
           </div>
           <div
             class="ant-row ant-form-item ant-form-item-hidden"
+            role="row"
             style="flex-wrap: nowrap;"
           >
             <div
               class="ant-col ant-form-item-label"
+              role="cell"
               style="flex: 0 0 80px;"
             >
               <label
@@ -58712,6 +59382,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/valueTypeNumber.tsx
             </div>
             <div
               class="ant-col ant-form-item-control"
+              role="cell"
               style="max-width: calc(100% - 80px);"
             >
               <div
@@ -58803,10 +59474,12 @@ exports[`table demos 📸 renders ./packages/table/src/demos/valueTypeNumber.tsx
           </div>
           <div
             class="ant-row ant-form-item ant-form-item-hidden"
+            role="row"
             style="flex-wrap: nowrap;"
           >
             <div
               class="ant-col ant-form-item-label"
+              role="cell"
               style="flex: 0 0 80px;"
             >
               <label
@@ -58819,6 +59492,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/valueTypeNumber.tsx
             </div>
             <div
               class="ant-col ant-form-item-control"
+              role="cell"
               style="max-width: calc(100% - 80px);"
             >
               <div
@@ -58910,10 +59584,12 @@ exports[`table demos 📸 renders ./packages/table/src/demos/valueTypeNumber.tsx
           </div>
           <div
             class="ant-row ant-form-item ant-form-item-hidden"
+            role="row"
             style="flex-wrap: nowrap;"
           >
             <div
               class="ant-col ant-form-item-label"
+              role="cell"
               style="flex: 0 0 80px;"
             >
               <label
@@ -58926,6 +59602,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/valueTypeNumber.tsx
             </div>
             <div
               class="ant-col ant-form-item-control"
+              role="cell"
               style="max-width: calc(100% - 80px);"
             >
               <div
@@ -59016,13 +59693,16 @@ exports[`table demos 📸 renders ./packages/table/src/demos/valueTypeNumber.tsx
           </div>
           <div
             class="ant-col ant-col-8"
+            role="cell"
             style="padding-left: 12px; padding-right: 12px; text-align: right;"
           >
             <div
               class="ant-row ant-form-item pro-form-query-filter-actions"
+              role="row"
             >
               <div
                 class="ant-col ant-form-item-label"
+                role="cell"
               >
                 <label
                   class="ant-form-item-no-colon"
@@ -59033,6 +59713,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/valueTypeNumber.tsx
               </div>
               <div
                 class="ant-col ant-form-item-control"
+                role="cell"
               >
                 <div
                   class="ant-form-item-control-input"

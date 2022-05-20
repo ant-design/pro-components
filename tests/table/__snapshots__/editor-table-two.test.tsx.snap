@@ -73,10 +73,12 @@ exports[`EditorProTable 2 📝 columns initialValue alway work 1`] = `
                           >
                             <div
                               class="ant-row ant-form-item"
+                              role="row"
                               style="margin: -5px 0px -5px 0px;"
                             >
                               <div
                                 class="ant-col ant-form-item-control"
+                                role="cell"
                               >
                                 <div
                                   class="ant-form-item-control-input"
@@ -133,10 +135,12 @@ exports[`EditorProTable 2 📝 columns initialValue alway work 1`] = `
                           >
                             <div
                               class="ant-row ant-form-item"
+                              role="row"
                               style="margin: -5px 0px -5px 0px;"
                             >
                               <div
                                 class="ant-col ant-form-item-control"
+                                role="cell"
                               >
                                 <div
                                   class="ant-form-item-control-input"
@@ -193,10 +197,12 @@ exports[`EditorProTable 2 📝 columns initialValue alway work 1`] = `
                           >
                             <div
                               class="ant-row ant-form-item"
+                              role="row"
                               style="margin: -5px 0px -5px 0px;"
                             >
                               <div
                                 class="ant-col ant-form-item-control"
+                                role="cell"
                               >
                                 <div
                                   class="ant-form-item-control-input"
@@ -565,10 +571,12 @@ exports[`EditorProTable 2 📝 renderFormItem run defaultRender 1`] = `
                             />
                             <div
                               class="ant-row ant-form-item"
+                              role="row"
                               style="margin: -5px 0px -5px 0px;"
                             >
                               <div
                                 class="ant-col ant-form-item-control"
+                                role="cell"
                               >
                                 <div
                                   class="ant-form-item-control-input"
@@ -578,10 +586,12 @@ exports[`EditorProTable 2 📝 renderFormItem run defaultRender 1`] = `
                                   >
                                     <div
                                       class="ant-row ant-form-item"
+                                      role="row"
                                       style="margin: -5px 0px -5px 0px;"
                                     >
                                       <div
                                         class="ant-col ant-form-item-control"
+                                        role="cell"
                                       >
                                         <div
                                           class="ant-form-item-control-input"

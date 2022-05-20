@@ -11,9 +11,11 @@ exports[`💵 ProFormMoney 💵 ProFormMoney value expect number 1`] = `
   />
   <div
     class="ant-row ant-form-item"
+    role="row"
   >
     <div
       class="ant-col ant-form-item-control"
+      role="cell"
     >
       <div
         class="ant-form-item-control-input"
@@ -147,9 +149,11 @@ exports[`💵 ProFormMoney 💵 can input negative 1`] = `
   />
   <div
     class="ant-row ant-form-item ant-form-item-has-success"
+    role="row"
   >
     <div
       class="ant-col ant-form-item-control"
+      role="cell"
     >
       <div
         class="ant-form-item-control-input"
@@ -283,9 +287,11 @@ exports[`💵 ProFormMoney 💵 can not input negative 1`] = `
   />
   <div
     class="ant-row ant-form-item"
+    role="row"
   >
     <div
       class="ant-col ant-form-item-control"
+      role="cell"
     >
       <div
         class="ant-form-item-control-input"
@@ -419,9 +425,11 @@ exports[`💵 ProFormMoney 💵 moneySymbol with custom locale 1`] = `
   />
   <div
     class="ant-row ant-form-item"
+    role="row"
   >
     <div
       class="ant-col ant-form-item-control"
+      role="cell"
     >
       <div
         class="ant-form-item-control-input"
@@ -555,9 +563,11 @@ exports[`💵 ProFormMoney 💵 moneySymbol with custom symbol 1`] = `
   />
   <div
     class="ant-row ant-form-item"
+    role="row"
   >
     <div
       class="ant-col ant-form-item-control"
+      role="cell"
     >
       <div
         class="ant-form-item-control-input"
@@ -691,9 +701,11 @@ exports[`💵 ProFormMoney 💵 moneySymbol with global locale 1`] = `
   />
   <div
     class="ant-row ant-form-item"
+    role="row"
   >
     <div
       class="ant-col ant-form-item-control"
+      role="cell"
     >
       <div
         class="ant-form-item-control-input"

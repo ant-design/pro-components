@@ -35,10 +35,12 @@ exports[`Descriptions 📝 columns support editable test 1`] = `
                       >
                         <div
                           class="ant-row ant-form-item"
+                          role="row"
                           style="margin: 0px;"
                         >
                           <div
                             class="ant-col ant-form-item-control"
+                            role="cell"
                           >
                             <div
                               class="ant-form-item-control-input"
@@ -207,10 +209,12 @@ exports[`Descriptions 📝 renderFormItem run defaultRender 1`] = `
                       >
                         <div
                           class="ant-row ant-form-item"
+                          role="row"
                           style="margin: 0px;"
                         >
                           <div
                             class="ant-col ant-form-item-control"
+                            role="cell"
                           >
                             <div
                               class="ant-form-item-control-input"
