@@ -197,65 +197,67 @@ exports[`BasicTable 🎏 base use 1`] = `
               <div
                 class="ant-form-item-control-input-content"
               >
-                <div
-                  class="ant-select ant-select-in-form-item ant-pro-filed-search-select ant-select-single ant-select-allow-clear ant-select-show-arrow"
-                  style="width: 100%;"
-                >
+                <div>
                   <div
-                    class="ant-select-selector"
+                    class="ant-select ant-select-in-form-item ant-pro-filed-search-select ant-select-single ant-select-allow-clear ant-select-show-arrow"
+                    style="width: 100%;"
                   >
-                    <span
-                      class="ant-select-selection-search"
+                    <div
+                      class="ant-select-selector"
                     >
-                      <input
-                        aria-activedescendant="sex_list_0"
-                        aria-autocomplete="list"
-                        aria-controls="sex_list"
-                        aria-haspopup="listbox"
-                        aria-owns="sex_list"
-                        autocomplete="off"
-                        class="ant-select-selection-search-input"
-                        id="sex"
-                        readonly=""
-                        role="combobox"
-                        style="opacity: 0;"
-                        type="search"
-                        unselectable="on"
-                        value=""
-                      />
-                    </span>
+                      <span
+                        class="ant-select-selection-search"
+                      >
+                        <input
+                          aria-activedescendant="sex_list_0"
+                          aria-autocomplete="list"
+                          aria-controls="sex_list"
+                          aria-haspopup="listbox"
+                          aria-owns="sex_list"
+                          autocomplete="off"
+                          class="ant-select-selection-search-input"
+                          id="sex"
+                          readonly=""
+                          role="combobox"
+                          style="opacity: 0;"
+                          type="search"
+                          unselectable="on"
+                          value=""
+                        />
+                      </span>
+                      <span
+                        class="ant-select-selection-placeholder"
+                      >
+                        请选择
+                      </span>
+                    </div>
                     <span
-                      class="ant-select-selection-placeholder"
+                      aria-hidden="true"
+                      class="ant-select-arrow"
+                      style="user-select: none;"
+                      unselectable="on"
                     >
-                      请选择
+                      <span
+                        aria-label="down"
+                        class="anticon anticon-down ant-select-suffix"
+                        role="img"
+                      >
+                        <svg
+                          aria-hidden="true"
+                          data-icon="down"
+                          fill="currentColor"
+                          focusable="false"
+                          height="1em"
+                          viewBox="64 64 896 896"
+                          width="1em"
+                        >
+                          <path
+                            d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"
+                          />
+                        </svg>
+                      </span>
                     </span>
                   </div>
-                  <span
-                    aria-hidden="true"
-                    class="ant-select-arrow"
-                    style="user-select: none;"
-                    unselectable="on"
-                  >
-                    <span
-                      aria-label="down"
-                      class="anticon anticon-down ant-select-suffix"
-                      role="img"
-                    >
-                      <svg
-                        aria-hidden="true"
-                        data-icon="down"
-                        fill="currentColor"
-                        focusable="false"
-                        height="1em"
-                        viewBox="64 64 896 896"
-                        width="1em"
-                      >
-                        <path
-                          d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"
-                        />
-                      </svg>
-                    </span>
-                  </span>
                 </div>
               </div>
             </div>
@@ -287,65 +289,67 @@ exports[`BasicTable 🎏 base use 1`] = `
               <div
                 class="ant-form-item-control-input-content"
               >
-                <div
-                  class="ant-select ant-select-in-form-item ant-pro-filed-search-select ant-select-single ant-select-allow-clear ant-select-show-arrow"
-                  style="width: 100%;"
-                >
+                <div>
                   <div
-                    class="ant-select-selector"
+                    class="ant-select ant-select-in-form-item ant-pro-filed-search-select ant-select-single ant-select-allow-clear ant-select-show-arrow"
+                    style="width: 100%;"
                   >
-                    <span
-                      class="ant-select-selection-search"
+                    <div
+                      class="ant-select-selector"
                     >
-                      <input
-                        aria-activedescendant="status_list_0"
-                        aria-autocomplete="list"
-                        aria-controls="status_list"
-                        aria-haspopup="listbox"
-                        aria-owns="status_list"
-                        autocomplete="off"
-                        class="ant-select-selection-search-input"
-                        id="status"
-                        readonly=""
-                        role="combobox"
-                        style="opacity: 0;"
-                        type="search"
-                        unselectable="on"
-                        value=""
-                      />
-                    </span>
+                      <span
+                        class="ant-select-selection-search"
+                      >
+                        <input
+                          aria-activedescendant="status_list_0"
+                          aria-autocomplete="list"
+                          aria-controls="status_list"
+                          aria-haspopup="listbox"
+                          aria-owns="status_list"
+                          autocomplete="off"
+                          class="ant-select-selection-search-input"
+                          id="status"
+                          readonly=""
+                          role="combobox"
+                          style="opacity: 0;"
+                          type="search"
+                          unselectable="on"
+                          value=""
+                        />
+                      </span>
+                      <span
+                        class="ant-select-selection-placeholder"
+                      >
+                        请选择
+                      </span>
+                    </div>
                     <span
-                      class="ant-select-selection-placeholder"
+                      aria-hidden="true"
+                      class="ant-select-arrow"
+                      style="user-select: none;"
+                      unselectable="on"
                     >
-                      请选择
+                      <span
+                        aria-label="down"
+                        class="anticon anticon-down ant-select-suffix"
+                        role="img"
+                      >
+                        <svg
+                          aria-hidden="true"
+                          data-icon="down"
+                          fill="currentColor"
+                          focusable="false"
+                          height="1em"
+                          viewBox="64 64 896 896"
+                          width="1em"
+                        >
+                          <path
+                            d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"
+                          />
+                        </svg>
+                      </span>
                     </span>
                   </div>
-                  <span
-                    aria-hidden="true"
-                    class="ant-select-arrow"
-                    style="user-select: none;"
-                    unselectable="on"
-                  >
-                    <span
-                      aria-label="down"
-                      class="anticon anticon-down ant-select-suffix"
-                      role="img"
-                    >
-                      <svg
-                        aria-hidden="true"
-                        data-icon="down"
-                        fill="currentColor"
-                        focusable="false"
-                        height="1em"
-                        viewBox="64 64 896 896"
-                        width="1em"
-                      >
-                        <path
-                          d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"
-                        />
-                      </svg>
-                    </span>
-                  </span>
                 </div>
               </div>
             </div>
@@ -625,14 +629,16 @@ exports[`BasicTable 🎏 base use 1`] = `
               <div
                 class="ant-form-item-control-input-content"
               >
-                <input
-                  class="ant-input"
-                  id="date"
-                  placeholder="请输入"
-                  style="width: 100%;"
-                  type="text"
-                  value=""
-                />
+                <div>
+                  <input
+                    class="ant-input"
+                    id="date"
+                    placeholder="请输入"
+                    style="width: 100%;"
+                    type="text"
+                    value=""
+                  />
+                </div>
               </div>
             </div>
           </div>
@@ -663,45 +669,47 @@ exports[`BasicTable 🎏 base use 1`] = `
               <div
                 class="ant-form-item-control-input-content"
               >
-                <div
-                  class="ant-picker"
-                  style="width: 100%;"
-                >
+                <div>
                   <div
-                    class="ant-picker-input"
+                    class="ant-picker"
+                    style="width: 100%;"
                   >
-                    <input
-                      autocomplete="off"
-                      id="dateTime"
-                      placeholder="请选择"
-                      readonly=""
-                      size="21"
-                      title=""
-                      value=""
-                    />
-                    <span
-                      class="ant-picker-suffix"
+                    <div
+                      class="ant-picker-input"
                     >
+                      <input
+                        autocomplete="off"
+                        id="dateTime"
+                        placeholder="请选择"
+                        readonly=""
+                        size="21"
+                        title=""
+                        value=""
+                      />
                       <span
-                        aria-label="calendar"
-                        class="anticon anticon-calendar"
-                        role="img"
+                        class="ant-picker-suffix"
                       >
-                        <svg
-                          aria-hidden="true"
-                          data-icon="calendar"
-                          fill="currentColor"
-                          focusable="false"
-                          height="1em"
-                          viewBox="64 64 896 896"
-                          width="1em"
+                        <span
+                          aria-label="calendar"
+                          class="anticon anticon-calendar"
+                          role="img"
                         >
-                          <path
-                            d="M880 184H712v-64c0-4.4-3.6-8-8-8h-56c-4.4 0-8 3.6-8 8v64H384v-64c0-4.4-3.6-8-8-8h-56c-4.4 0-8 3.6-8 8v64H144c-17.7 0-32 14.3-32 32v664c0 17.7 14.3 32 32 32h736c17.7 0 32-14.3 32-32V216c0-17.7-14.3-32-32-32zm-40 656H184V460h656v380zM184 392V256h128v48c0 4.4 3.6 8 8 8h56c4.4 0 8-3.6 8-8v-48h256v48c0 4.4 3.6 8 8 8h56c4.4 0 8-3.6 8-8v-48h128v136H184z"
-                          />
-                        </svg>
+                          <svg
+                            aria-hidden="true"
+                            data-icon="calendar"
+                            fill="currentColor"
+                            focusable="false"
+                            height="1em"
+                            viewBox="64 64 896 896"
+                            width="1em"
+                          >
+                            <path
+                              d="M880 184H712v-64c0-4.4-3.6-8-8-8h-56c-4.4 0-8 3.6-8 8v64H384v-64c0-4.4-3.6-8-8-8h-56c-4.4 0-8 3.6-8 8v64H144c-17.7 0-32 14.3-32 32v664c0 17.7 14.3 32 32 32h736c17.7 0 32-14.3 32-32V216c0-17.7-14.3-32-32-32zm-40 656H184V460h656v380zM184 392V256h128v48c0 4.4 3.6 8 8 8h56c4.4 0 8-3.6 8-8v-48h256v48c0 4.4 3.6 8 8 8h56c4.4 0 8-3.6 8-8v-48h128v136H184z"
+                            />
+                          </svg>
+                        </span>
                       </span>
-                    </span>
+                    </div>
                   </div>
                 </div>
               </div>
@@ -734,48 +742,50 @@ exports[`BasicTable 🎏 base use 1`] = `
               <div
                 class="ant-form-item-control-input-content"
               >
-                <div
-                  class="ant-picker"
-                  style="width: 100%;"
-                >
+                <div>
                   <div
-                    class="ant-picker-input"
+                    class="ant-picker"
+                    style="width: 100%;"
                   >
-                    <input
-                      autocomplete="off"
-                      id="time"
-                      placeholder="请选择时间"
-                      readonly=""
-                      size="10"
-                      title=""
-                      value=""
-                    />
-                    <span
-                      class="ant-picker-suffix"
+                    <div
+                      class="ant-picker-input"
                     >
+                      <input
+                        autocomplete="off"
+                        id="time"
+                        placeholder="请选择时间"
+                        readonly=""
+                        size="10"
+                        title=""
+                        value=""
+                      />
                       <span
-                        aria-label="clock-circle"
-                        class="anticon anticon-clock-circle"
-                        role="img"
+                        class="ant-picker-suffix"
                       >
-                        <svg
-                          aria-hidden="true"
-                          data-icon="clock-circle"
-                          fill="currentColor"
-                          focusable="false"
-                          height="1em"
-                          viewBox="64 64 896 896"
-                          width="1em"
+                        <span
+                          aria-label="clock-circle"
+                          class="anticon anticon-clock-circle"
+                          role="img"
                         >
-                          <path
-                            d="M512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm0 820c-205.4 0-372-166.6-372-372s166.6-372 372-372 372 166.6 372 372-166.6 372-372 372z"
-                          />
-                          <path
-                            d="M686.7 638.6L544.1 535.5V288c0-4.4-3.6-8-8-8H488c-4.4 0-8 3.6-8 8v275.4c0 2.6 1.2 5 3.3 6.5l165.4 120.6c3.6 2.6 8.6 1.8 11.2-1.7l28.6-39c2.6-3.7 1.8-8.7-1.8-11.2z"
-                          />
-                        </svg>
+                          <svg
+                            aria-hidden="true"
+                            data-icon="clock-circle"
+                            fill="currentColor"
+                            focusable="false"
+                            height="1em"
+                            viewBox="64 64 896 896"
+                            width="1em"
+                          >
+                            <path
+                              d="M512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm0 820c-205.4 0-372-166.6-372-372s166.6-372 372-372 372 166.6 372 372-166.6 372-372 372z"
+                            />
+                            <path
+                              d="M686.7 638.6L544.1 535.5V288c0-4.4-3.6-8-8-8H488c-4.4 0-8 3.6-8 8v275.4c0 2.6 1.2 5 3.3 6.5l165.4 120.6c3.6 2.6 8.6 1.8 11.2-1.7l28.6-39c2.6-3.7 1.8-8.7-1.8-11.2z"
+                            />
+                          </svg>
+                        </span>
                       </span>
-                    </span>
+                    </div>
                   </div>
                 </div>
               </div>
@@ -1453,23 +1463,27 @@ exports[`BasicTable 🎏 base use 1`] = `
                         <td
                           class="ant-table-cell"
                         >
-                          女
+                          <div>
+                            女
+                          </div>
                         </td>
                         <td
                           class="ant-table-cell"
                         >
-                          <span
-                            class="ant-badge ant-badge-status ant-badge-not-a-wrapper"
-                          >
+                          <div>
                             <span
-                              class="ant-badge-status-dot ant-badge-status-default"
-                            />
-                            <span
-                              class="ant-badge-status-text"
+                              class="ant-badge ant-badge-status ant-badge-not-a-wrapper"
                             >
-                              关闭
+                              <span
+                                class="ant-badge-status-dot ant-badge-status-default"
+                              />
+                              <span
+                                class="ant-badge-status-text"
+                              >
+                                关闭
+                              </span>
                             </span>
-                          </span>
+                          </div>
                         </td>
                         <td
                           class="ant-table-cell"
@@ -1498,19 +1512,25 @@ exports[`BasicTable 🎏 base use 1`] = `
                         <td
                           class="ant-table-cell"
                         >
-                          2019-11-16
+                          <div>
+                            2019-11-16
+                          </div>
                         </td>
                         <td
                           class="ant-table-cell"
                         >
-                          2019-11-16 12:50:26
+                          <div>
+                            2019-11-16 12:50:26
+                          </div>
                         </td>
                         <td
                           class="ant-table-cell"
                         >
-                          <span>
-                            12:50:26
-                          </span>
+                          <div>
+                            <span>
+                              12:50:26
+                            </span>
+                          </div>
                         </td>
                         <td
                           class="ant-table-cell"
@@ -1767,23 +1787,27 @@ exports[`BasicTable 🎏 base use 1`] = `
                         <td
                           class="ant-table-cell"
                         >
-                          女
+                          <div>
+                            女
+                          </div>
                         </td>
                         <td
                           class="ant-table-cell"
                         >
-                          <span
-                            class="ant-badge ant-badge-status ant-badge-not-a-wrapper"
-                          >
+                          <div>
                             <span
-                              class="ant-badge-status-dot ant-badge-status-processing"
-                            />
-                            <span
-                              class="ant-badge-status-text"
+                              class="ant-badge ant-badge-status ant-badge-not-a-wrapper"
                             >
-                              运行中
+                              <span
+                                class="ant-badge-status-dot ant-badge-status-processing"
+                              />
+                              <span
+                                class="ant-badge-status-text"
+                              >
+                                运行中
+                              </span>
                             </span>
-                          </span>
+                          </div>
                         </td>
                         <td
                           class="ant-table-cell"
@@ -1812,19 +1836,25 @@ exports[`BasicTable 🎏 base use 1`] = `
                         <td
                           class="ant-table-cell"
                         >
-                          2019-11-16
+                          <div>
+                            2019-11-16
+                          </div>
                         </td>
                         <td
                           class="ant-table-cell"
                         >
-                          2019-11-16 12:52:26
+                          <div>
+                            2019-11-16 12:52:26
+                          </div>
                         </td>
                         <td
                           class="ant-table-cell"
                         >
-                          <span>
-                            12:50:26
-                          </span>
+                          <div>
+                            <span>
+                              12:50:26
+                            </span>
+                          </div>
                         </td>
                         <td
                           class="ant-table-cell"
@@ -2081,23 +2111,27 @@ exports[`BasicTable 🎏 base use 1`] = `
                         <td
                           class="ant-table-cell"
                         >
-                          女
+                          <div>
+                            女
+                          </div>
                         </td>
                         <td
                           class="ant-table-cell"
                         >
-                          <span
-                            class="ant-badge ant-badge-status ant-badge-not-a-wrapper"
-                          >
+                          <div>
                             <span
-                              class="ant-badge-status-dot ant-badge-status-success"
-                            />
-                            <span
-                              class="ant-badge-status-text"
+                              class="ant-badge ant-badge-status ant-badge-not-a-wrapper"
                             >
-                              已上线
+                              <span
+                                class="ant-badge-status-dot ant-badge-status-success"
+                              />
+                              <span
+                                class="ant-badge-status-text"
+                              >
+                                已上线
+                              </span>
                             </span>
-                          </span>
+                          </div>
                         </td>
                         <td
                           class="ant-table-cell"
@@ -2126,19 +2160,25 @@ exports[`BasicTable 🎏 base use 1`] = `
                         <td
                           class="ant-table-cell"
                         >
-                          2019-11-16
+                          <div>
+                            2019-11-16
+                          </div>
                         </td>
                         <td
                           class="ant-table-cell"
                         >
-                          2019-11-16 12:54:26
+                          <div>
+                            2019-11-16 12:54:26
+                          </div>
                         </td>
                         <td
                           class="ant-table-cell"
                         >
-                          <span>
-                            12:50:26
-                          </span>
+                          <div>
+                            <span>
+                              12:50:26
+                            </span>
+                          </div>
                         </td>
                         <td
                           class="ant-table-cell"
@@ -2395,23 +2435,27 @@ exports[`BasicTable 🎏 base use 1`] = `
                         <td
                           class="ant-table-cell"
                         >
-                          男
+                          <div>
+                            男
+                          </div>
                         </td>
                         <td
                           class="ant-table-cell"
                         >
-                          <span
-                            class="ant-badge ant-badge-status ant-badge-not-a-wrapper"
-                          >
+                          <div>
                             <span
-                              class="ant-badge-status-dot ant-badge-status-error"
-                            />
-                            <span
-                              class="ant-badge-status-text"
+                              class="ant-badge ant-badge-status ant-badge-not-a-wrapper"
                             >
-                              异常
+                              <span
+                                class="ant-badge-status-dot ant-badge-status-error"
+                              />
+                              <span
+                                class="ant-badge-status-text"
+                              >
+                                异常
+                              </span>
                             </span>
-                          </span>
+                          </div>
                         </td>
                         <td
                           class="ant-table-cell"
@@ -2440,19 +2484,25 @@ exports[`BasicTable 🎏 base use 1`] = `
                         <td
                           class="ant-table-cell"
                         >
-                          2019-11-16
+                          <div>
+                            2019-11-16
+                          </div>
                         </td>
                         <td
                           class="ant-table-cell"
                         >
-                          2019-11-16 12:56:26
+                          <div>
+                            2019-11-16 12:56:26
+                          </div>
                         </td>
                         <td
                           class="ant-table-cell"
                         >
-                          <span>
-                            12:50:26
-                          </span>
+                          <div>
+                            <span>
+                              12:50:26
+                            </span>
+                          </div>
                         </td>
                         <td
                           class="ant-table-cell"
@@ -2709,23 +2759,27 @@ exports[`BasicTable 🎏 base use 1`] = `
                         <td
                           class="ant-table-cell"
                         >
-                          男
+                          <div>
+                            男
+                          </div>
                         </td>
                         <td
                           class="ant-table-cell"
                         >
-                          <span
-                            class="ant-badge ant-badge-status ant-badge-not-a-wrapper"
-                          >
+                          <div>
                             <span
-                              class="ant-badge-status-dot ant-badge-status-default"
-                            />
-                            <span
-                              class="ant-badge-status-text"
+                              class="ant-badge ant-badge-status ant-badge-not-a-wrapper"
                             >
-                              关闭
+                              <span
+                                class="ant-badge-status-dot ant-badge-status-default"
+                              />
+                              <span
+                                class="ant-badge-status-text"
+                              >
+                                关闭
+                              </span>
                             </span>
-                          </span>
+                          </div>
                         </td>
                         <td
                           class="ant-table-cell"
@@ -2754,19 +2808,25 @@ exports[`BasicTable 🎏 base use 1`] = `
                         <td
                           class="ant-table-cell"
                         >
-                          2019-11-16
+                          <div>
+                            2019-11-16
+                          </div>
                         </td>
                         <td
                           class="ant-table-cell"
                         >
-                          2019-11-16 12:58:26
+                          <div>
+                            2019-11-16 12:58:26
+                          </div>
                         </td>
                         <td
                           class="ant-table-cell"
                         >
-                          <span>
-                            12:50:26
-                          </span>
+                          <div>
+                            <span>
+                              12:50:26
+                            </span>
+                          </div>
                         </td>
                         <td
                           class="ant-table-cell"
@@ -3023,23 +3083,27 @@ exports[`BasicTable 🎏 base use 1`] = `
                         <td
                           class="ant-table-cell"
                         >
-                          男
+                          <div>
+                            男
+                          </div>
                         </td>
                         <td
                           class="ant-table-cell"
                         >
-                          <span
-                            class="ant-badge ant-badge-status ant-badge-not-a-wrapper"
-                          >
+                          <div>
                             <span
-                              class="ant-badge-status-dot ant-badge-status-processing"
-                            />
-                            <span
-                              class="ant-badge-status-text"
+                              class="ant-badge ant-badge-status ant-badge-not-a-wrapper"
                             >
-                              运行中
+                              <span
+                                class="ant-badge-status-dot ant-badge-status-processing"
+                              />
+                              <span
+                                class="ant-badge-status-text"
+                              >
+                                运行中
+                              </span>
                             </span>
-                          </span>
+                          </div>
                         </td>
                         <td
                           class="ant-table-cell"
@@ -3068,19 +3132,25 @@ exports[`BasicTable 🎏 base use 1`] = `
                         <td
                           class="ant-table-cell"
                         >
-                          2019-11-16
+                          <div>
+                            2019-11-16
+                          </div>
                         </td>
                         <td
                           class="ant-table-cell"
                         >
-                          2019-11-16 13:00:26
+                          <div>
+                            2019-11-16 13:00:26
+                          </div>
                         </td>
                         <td
                           class="ant-table-cell"
                         >
-                          <span>
-                            12:50:26
-                          </span>
+                          <div>
+                            <span>
+                              12:50:26
+                            </span>
+                          </div>
                         </td>
                         <td
                           class="ant-table-cell"
@@ -3337,23 +3407,27 @@ exports[`BasicTable 🎏 base use 1`] = `
                         <td
                           class="ant-table-cell"
                         >
-                          男
+                          <div>
+                            男
+                          </div>
                         </td>
                         <td
                           class="ant-table-cell"
                         >
-                          <span
-                            class="ant-badge ant-badge-status ant-badge-not-a-wrapper"
-                          >
+                          <div>
                             <span
-                              class="ant-badge-status-dot ant-badge-status-success"
-                            />
-                            <span
-                              class="ant-badge-status-text"
+                              class="ant-badge ant-badge-status ant-badge-not-a-wrapper"
                             >
-                              已上线
+                              <span
+                                class="ant-badge-status-dot ant-badge-status-success"
+                              />
+                              <span
+                                class="ant-badge-status-text"
+                              >
+                                已上线
+                              </span>
                             </span>
-                          </span>
+                          </div>
                         </td>
                         <td
                           class="ant-table-cell"
@@ -3382,19 +3456,25 @@ exports[`BasicTable 🎏 base use 1`] = `
                         <td
                           class="ant-table-cell"
                         >
-                          2019-11-16
+                          <div>
+                            2019-11-16
+                          </div>
                         </td>
                         <td
                           class="ant-table-cell"
                         >
-                          2019-11-16 13:02:26
+                          <div>
+                            2019-11-16 13:02:26
+                          </div>
                         </td>
                         <td
                           class="ant-table-cell"
                         >
-                          <span>
-                            12:50:26
-                          </span>
+                          <div>
+                            <span>
+                              12:50:26
+                            </span>
+                          </div>
                         </td>
                         <td
                           class="ant-table-cell"
@@ -3651,23 +3731,27 @@ exports[`BasicTable 🎏 base use 1`] = `
                         <td
                           class="ant-table-cell"
                         >
-                          男
+                          <div>
+                            男
+                          </div>
                         </td>
                         <td
                           class="ant-table-cell"
                         >
-                          <span
-                            class="ant-badge ant-badge-status ant-badge-not-a-wrapper"
-                          >
+                          <div>
                             <span
-                              class="ant-badge-status-dot ant-badge-status-error"
-                            />
-                            <span
-                              class="ant-badge-status-text"
+                              class="ant-badge ant-badge-status ant-badge-not-a-wrapper"
                             >
-                              异常
+                              <span
+                                class="ant-badge-status-dot ant-badge-status-error"
+                              />
+                              <span
+                                class="ant-badge-status-text"
+                              >
+                                异常
+                              </span>
                             </span>
-                          </span>
+                          </div>
                         </td>
                         <td
                           class="ant-table-cell"
@@ -3696,19 +3780,25 @@ exports[`BasicTable 🎏 base use 1`] = `
                         <td
                           class="ant-table-cell"
                         >
-                          2019-11-16
+                          <div>
+                            2019-11-16
+                          </div>
                         </td>
                         <td
                           class="ant-table-cell"
                         >
-                          2019-11-16 13:04:26
+                          <div>
+                            2019-11-16 13:04:26
+                          </div>
                         </td>
                         <td
                           class="ant-table-cell"
                         >
-                          <span>
-                            12:50:26
-                          </span>
+                          <div>
+                            <span>
+                              12:50:26
+                            </span>
+                          </div>
                         </td>
                         <td
                           class="ant-table-cell"
@@ -3965,23 +4055,27 @@ exports[`BasicTable 🎏 base use 1`] = `
                         <td
                           class="ant-table-cell"
                         >
-                          男
+                          <div>
+                            男
+                          </div>
                         </td>
                         <td
                           class="ant-table-cell"
                         >
-                          <span
-                            class="ant-badge ant-badge-status ant-badge-not-a-wrapper"
-                          >
+                          <div>
                             <span
-                              class="ant-badge-status-dot ant-badge-status-default"
-                            />
-                            <span
-                              class="ant-badge-status-text"
+                              class="ant-badge ant-badge-status ant-badge-not-a-wrapper"
                             >
-                              关闭
+                              <span
+                                class="ant-badge-status-dot ant-badge-status-default"
+                              />
+                              <span
+                                class="ant-badge-status-text"
+                              >
+                                关闭
+                              </span>
                             </span>
-                          </span>
+                          </div>
                         </td>
                         <td
                           class="ant-table-cell"
@@ -4010,19 +4104,25 @@ exports[`BasicTable 🎏 base use 1`] = `
                         <td
                           class="ant-table-cell"
                         >
-                          2019-11-16
+                          <div>
+                            2019-11-16
+                          </div>
                         </td>
                         <td
                           class="ant-table-cell"
                         >
-                          2019-11-16 13:06:26
+                          <div>
+                            2019-11-16 13:06:26
+                          </div>
                         </td>
                         <td
                           class="ant-table-cell"
                         >
-                          <span>
-                            12:50:26
-                          </span>
+                          <div>
+                            <span>
+                              12:50:26
+                            </span>
+                          </div>
                         </td>
                         <td
                           class="ant-table-cell"
@@ -4279,23 +4379,27 @@ exports[`BasicTable 🎏 base use 1`] = `
                         <td
                           class="ant-table-cell"
                         >
-                          男
+                          <div>
+                            男
+                          </div>
                         </td>
                         <td
                           class="ant-table-cell"
                         >
-                          <span
-                            class="ant-badge ant-badge-status ant-badge-not-a-wrapper"
-                          >
+                          <div>
                             <span
-                              class="ant-badge-status-dot ant-badge-status-processing"
-                            />
-                            <span
-                              class="ant-badge-status-text"
+                              class="ant-badge ant-badge-status ant-badge-not-a-wrapper"
                             >
-                              运行中
+                              <span
+                                class="ant-badge-status-dot ant-badge-status-processing"
+                              />
+                              <span
+                                class="ant-badge-status-text"
+                              >
+                                运行中
+                              </span>
                             </span>
-                          </span>
+                          </div>
                         </td>
                         <td
                           class="ant-table-cell"
@@ -4324,19 +4428,25 @@ exports[`BasicTable 🎏 base use 1`] = `
                         <td
                           class="ant-table-cell"
                         >
-                          2019-11-16
+                          <div>
+                            2019-11-16
+                          </div>
                         </td>
                         <td
                           class="ant-table-cell"
                         >
-                          2019-11-16 13:08:26
+                          <div>
+                            2019-11-16 13:08:26
+                          </div>
                         </td>
                         <td
                           class="ant-table-cell"
                         >
-                          <span>
-                            12:50:26
-                          </span>
+                          <div>
+                            <span>
+                              12:50:26
+                            </span>
+                          </div>
                         </td>
                         <td
                           class="ant-table-cell"
@@ -4593,23 +4703,27 @@ exports[`BasicTable 🎏 base use 1`] = `
                         <td
                           class="ant-table-cell"
                         >
-                          男
+                          <div>
+                            男
+                          </div>
                         </td>
                         <td
                           class="ant-table-cell"
                         >
-                          <span
-                            class="ant-badge ant-badge-status ant-badge-not-a-wrapper"
-                          >
+                          <div>
                             <span
-                              class="ant-badge-status-dot ant-badge-status-success"
-                            />
-                            <span
-                              class="ant-badge-status-text"
+                              class="ant-badge ant-badge-status ant-badge-not-a-wrapper"
                             >
-                              已上线
+                              <span
+                                class="ant-badge-status-dot ant-badge-status-success"
+                              />
+                              <span
+                                class="ant-badge-status-text"
+                              >
+                                已上线
+                              </span>
                             </span>
-                          </span>
+                          </div>
                         </td>
                         <td
                           class="ant-table-cell"
@@ -4638,19 +4752,25 @@ exports[`BasicTable 🎏 base use 1`] = `
                         <td
                           class="ant-table-cell"
                         >
-                          2019-11-16
+                          <div>
+                            2019-11-16
+                          </div>
                         </td>
                         <td
                           class="ant-table-cell"
                         >
-                          2019-11-16 13:10:26
+                          <div>
+                            2019-11-16 13:10:26
+                          </div>
                         </td>
                         <td
                           class="ant-table-cell"
                         >
-                          <span>
-                            12:50:26
-                          </span>
+                          <div>
+                            <span>
+                              12:50:26
+                            </span>
+                          </div>
                         </td>
                         <td
                           class="ant-table-cell"
@@ -4907,23 +5027,27 @@ exports[`BasicTable 🎏 base use 1`] = `
                         <td
                           class="ant-table-cell"
                         >
-                          男
+                          <div>
+                            男
+                          </div>
                         </td>
                         <td
                           class="ant-table-cell"
                         >
-                          <span
-                            class="ant-badge ant-badge-status ant-badge-not-a-wrapper"
-                          >
+                          <div>
                             <span
-                              class="ant-badge-status-dot ant-badge-status-error"
-                            />
-                            <span
-                              class="ant-badge-status-text"
+                              class="ant-badge ant-badge-status ant-badge-not-a-wrapper"
                             >
-                              异常
+                              <span
+                                class="ant-badge-status-dot ant-badge-status-error"
+                              />
+                              <span
+                                class="ant-badge-status-text"
+                              >
+                                异常
+                              </span>
                             </span>
-                          </span>
+                          </div>
                         </td>
                         <td
                           class="ant-table-cell"
@@ -4952,19 +5076,25 @@ exports[`BasicTable 🎏 base use 1`] = `
                         <td
                           class="ant-table-cell"
                         >
-                          2019-11-16
+                          <div>
+                            2019-11-16
+                          </div>
                         </td>
                         <td
                           class="ant-table-cell"
                         >
-                          2019-11-16 13:12:26
+                          <div>
+                            2019-11-16 13:12:26
+                          </div>
                         </td>
                         <td
                           class="ant-table-cell"
                         >
-                          <span>
-                            12:50:26
-                          </span>
+                          <div>
+                            <span>
+                              12:50:26
+                            </span>
+                          </div>
                         </td>
                         <td
                           class="ant-table-cell"
@@ -5221,23 +5351,27 @@ exports[`BasicTable 🎏 base use 1`] = `
                         <td
                           class="ant-table-cell"
                         >
-                          男
+                          <div>
+                            男
+                          </div>
                         </td>
                         <td
                           class="ant-table-cell"
                         >
-                          <span
-                            class="ant-badge ant-badge-status ant-badge-not-a-wrapper"
-                          >
+                          <div>
                             <span
-                              class="ant-badge-status-dot ant-badge-status-default"
-                            />
-                            <span
-                              class="ant-badge-status-text"
+                              class="ant-badge ant-badge-status ant-badge-not-a-wrapper"
                             >
-                              关闭
+                              <span
+                                class="ant-badge-status-dot ant-badge-status-default"
+                              />
+                              <span
+                                class="ant-badge-status-text"
+                              >
+                                关闭
+                              </span>
                             </span>
-                          </span>
+                          </div>
                         </td>
                         <td
                           class="ant-table-cell"
@@ -5266,19 +5400,25 @@ exports[`BasicTable 🎏 base use 1`] = `
                         <td
                           class="ant-table-cell"
                         >
-                          2019-11-16
+                          <div>
+                            2019-11-16
+                          </div>
                         </td>
                         <td
                           class="ant-table-cell"
                         >
-                          2019-11-16 13:14:26
+                          <div>
+                            2019-11-16 13:14:26
+                          </div>
                         </td>
                         <td
                           class="ant-table-cell"
                         >
-                          <span>
-                            12:50:26
-                          </span>
+                          <div>
+                            <span>
+                              12:50:26
+                            </span>
+                          </div>
                         </td>
                         <td
                           class="ant-table-cell"
@@ -5535,23 +5675,27 @@ exports[`BasicTable 🎏 base use 1`] = `
                         <td
                           class="ant-table-cell"
                         >
-                          男
+                          <div>
+                            男
+                          </div>
                         </td>
                         <td
                           class="ant-table-cell"
                         >
-                          <span
-                            class="ant-badge ant-badge-status ant-badge-not-a-wrapper"
-                          >
+                          <div>
                             <span
-                              class="ant-badge-status-dot ant-badge-status-processing"
-                            />
-                            <span
-                              class="ant-badge-status-text"
+                              class="ant-badge ant-badge-status ant-badge-not-a-wrapper"
                             >
-                              运行中
+                              <span
+                                class="ant-badge-status-dot ant-badge-status-processing"
+                              />
+                              <span
+                                class="ant-badge-status-text"
+                              >
+                                运行中
+                              </span>
                             </span>
-                          </span>
+                          </div>
                         </td>
                         <td
                           class="ant-table-cell"
@@ -5580,19 +5724,25 @@ exports[`BasicTable 🎏 base use 1`] = `
                         <td
                           class="ant-table-cell"
                         >
-                          2019-11-16
+                          <div>
+                            2019-11-16
+                          </div>
                         </td>
                         <td
                           class="ant-table-cell"
                         >
-                          2019-11-16 13:16:26
+                          <div>
+                            2019-11-16 13:16:26
+                          </div>
                         </td>
                         <td
                           class="ant-table-cell"
                         >
-                          <span>
-                            12:50:26
-                          </span>
+                          <div>
+                            <span>
+                              12:50:26
+                            </span>
+                          </div>
                         </td>
                         <td
                           class="ant-table-cell"
@@ -5849,23 +5999,27 @@ exports[`BasicTable 🎏 base use 1`] = `
                         <td
                           class="ant-table-cell"
                         >
-                          男
+                          <div>
+                            男
+                          </div>
                         </td>
                         <td
                           class="ant-table-cell"
                         >
-                          <span
-                            class="ant-badge ant-badge-status ant-badge-not-a-wrapper"
-                          >
+                          <div>
                             <span
-                              class="ant-badge-status-dot ant-badge-status-success"
-                            />
-                            <span
-                              class="ant-badge-status-text"
+                              class="ant-badge ant-badge-status ant-badge-not-a-wrapper"
                             >
-                              已上线
+                              <span
+                                class="ant-badge-status-dot ant-badge-status-success"
+                              />
+                              <span
+                                class="ant-badge-status-text"
+                              >
+                                已上线
+                              </span>
                             </span>
-                          </span>
+                          </div>
                         </td>
                         <td
                           class="ant-table-cell"
@@ -5894,19 +6048,25 @@ exports[`BasicTable 🎏 base use 1`] = `
                         <td
                           class="ant-table-cell"
                         >
-                          2019-11-16
+                          <div>
+                            2019-11-16
+                          </div>
                         </td>
                         <td
                           class="ant-table-cell"
                         >
-                          2019-11-16 13:18:26
+                          <div>
+                            2019-11-16 13:18:26
+                          </div>
                         </td>
                         <td
                           class="ant-table-cell"
                         >
-                          <span>
-                            12:50:26
-                          </span>
+                          <div>
+                            <span>
+                              12:50:26
+                            </span>
+                          </div>
                         </td>
                         <td
                           class="ant-table-cell"
@@ -6163,23 +6323,27 @@ exports[`BasicTable 🎏 base use 1`] = `
                         <td
                           class="ant-table-cell"
                         >
-                          男
+                          <div>
+                            男
+                          </div>
                         </td>
                         <td
                           class="ant-table-cell"
                         >
-                          <span
-                            class="ant-badge ant-badge-status ant-badge-not-a-wrapper"
-                          >
+                          <div>
                             <span
-                              class="ant-badge-status-dot ant-badge-status-error"
-                            />
-                            <span
-                              class="ant-badge-status-text"
+                              class="ant-badge ant-badge-status ant-badge-not-a-wrapper"
                             >
-                              异常
+                              <span
+                                class="ant-badge-status-dot ant-badge-status-error"
+                              />
+                              <span
+                                class="ant-badge-status-text"
+                              >
+                                异常
+                              </span>
                             </span>
-                          </span>
+                          </div>
                         </td>
                         <td
                           class="ant-table-cell"
@@ -6208,19 +6372,25 @@ exports[`BasicTable 🎏 base use 1`] = `
                         <td
                           class="ant-table-cell"
                         >
-                          2019-11-16
+                          <div>
+                            2019-11-16
+                          </div>
                         </td>
                         <td
                           class="ant-table-cell"
                         >
-                          2019-11-16 13:20:26
+                          <div>
+                            2019-11-16 13:20:26
+                          </div>
                         </td>
                         <td
                           class="ant-table-cell"
                         >
-                          <span>
-                            12:50:26
-                          </span>
+                          <div>
+                            <span>
+                              12:50:26
+                            </span>
+                          </div>
                         </td>
                         <td
                           class="ant-table-cell"
@@ -6477,23 +6647,27 @@ exports[`BasicTable 🎏 base use 1`] = `
                         <td
                           class="ant-table-cell"
                         >
-                          男
+                          <div>
+                            男
+                          </div>
                         </td>
                         <td
                           class="ant-table-cell"
                         >
-                          <span
-                            class="ant-badge ant-badge-status ant-badge-not-a-wrapper"
-                          >
+                          <div>
                             <span
-                              class="ant-badge-status-dot ant-badge-status-default"
-                            />
-                            <span
-                              class="ant-badge-status-text"
+                              class="ant-badge ant-badge-status ant-badge-not-a-wrapper"
                             >
-                              关闭
+                              <span
+                                class="ant-badge-status-dot ant-badge-status-default"
+                              />
+                              <span
+                                class="ant-badge-status-text"
+                              >
+                                关闭
+                              </span>
                             </span>
-                          </span>
+                          </div>
                         </td>
                         <td
                           class="ant-table-cell"
@@ -6522,19 +6696,25 @@ exports[`BasicTable 🎏 base use 1`] = `
                         <td
                           class="ant-table-cell"
                         >
-                          2019-11-16
+                          <div>
+                            2019-11-16
+                          </div>
                         </td>
                         <td
                           class="ant-table-cell"
                         >
-                          2019-11-16 13:22:26
+                          <div>
+                            2019-11-16 13:22:26
+                          </div>
                         </td>
                         <td
                           class="ant-table-cell"
                         >
-                          <span>
-                            12:50:26
-                          </span>
+                          <div>
+                            <span>
+                              12:50:26
+                            </span>
+                          </div>
                         </td>
                         <td
                           class="ant-table-cell"
@@ -6791,23 +6971,27 @@ exports[`BasicTable 🎏 base use 1`] = `
                         <td
                           class="ant-table-cell"
                         >
-                          男
+                          <div>
+                            男
+                          </div>
                         </td>
                         <td
                           class="ant-table-cell"
                         >
-                          <span
-                            class="ant-badge ant-badge-status ant-badge-not-a-wrapper"
-                          >
+                          <div>
                             <span
-                              class="ant-badge-status-dot ant-badge-status-processing"
-                            />
-                            <span
-                              class="ant-badge-status-text"
+                              class="ant-badge ant-badge-status ant-badge-not-a-wrapper"
                             >
-                              运行中
+                              <span
+                                class="ant-badge-status-dot ant-badge-status-processing"
+                              />
+                              <span
+                                class="ant-badge-status-text"
+                              >
+                                运行中
+                              </span>
                             </span>
-                          </span>
+                          </div>
                         </td>
                         <td
                           class="ant-table-cell"
@@ -6836,19 +7020,25 @@ exports[`BasicTable 🎏 base use 1`] = `
                         <td
                           class="ant-table-cell"
                         >
-                          2019-11-16
+                          <div>
+                            2019-11-16
+                          </div>
                         </td>
                         <td
                           class="ant-table-cell"
                         >
-                          2019-11-16 13:24:26
+                          <div>
+                            2019-11-16 13:24:26
+                          </div>
                         </td>
                         <td
                           class="ant-table-cell"
                         >
-                          <span>
-                            12:50:26
-                          </span>
+                          <div>
+                            <span>
+                              12:50:26
+                            </span>
+                          </div>
                         </td>
                         <td
                           class="ant-table-cell"
@@ -7105,23 +7295,27 @@ exports[`BasicTable 🎏 base use 1`] = `
                         <td
                           class="ant-table-cell"
                         >
-                          男
+                          <div>
+                            男
+                          </div>
                         </td>
                         <td
                           class="ant-table-cell"
                         >
-                          <span
-                            class="ant-badge ant-badge-status ant-badge-not-a-wrapper"
-                          >
+                          <div>
                             <span
-                              class="ant-badge-status-dot ant-badge-status-success"
-                            />
-                            <span
-                              class="ant-badge-status-text"
+                              class="ant-badge ant-badge-status ant-badge-not-a-wrapper"
                             >
-                              已上线
+                              <span
+                                class="ant-badge-status-dot ant-badge-status-success"
+                              />
+                              <span
+                                class="ant-badge-status-text"
+                              >
+                                已上线
+                              </span>
                             </span>
-                          </span>
+                          </div>
                         </td>
                         <td
                           class="ant-table-cell"
@@ -7150,19 +7344,25 @@ exports[`BasicTable 🎏 base use 1`] = `
                         <td
                           class="ant-table-cell"
                         >
-                          2019-11-16
+                          <div>
+                            2019-11-16
+                          </div>
                         </td>
                         <td
                           class="ant-table-cell"
                         >
-                          2019-11-16 13:26:26
+                          <div>
+                            2019-11-16 13:26:26
+                          </div>
                         </td>
                         <td
                           class="ant-table-cell"
                         >
-                          <span>
-                            12:50:26
-                          </span>
+                          <div>
+                            <span>
+                              12:50:26
+                            </span>
+                          </div>
                         </td>
                         <td
                           class="ant-table-cell"
@@ -7419,23 +7619,27 @@ exports[`BasicTable 🎏 base use 1`] = `
                         <td
                           class="ant-table-cell"
                         >
-                          男
+                          <div>
+                            男
+                          </div>
                         </td>
                         <td
                           class="ant-table-cell"
                         >
-                          <span
-                            class="ant-badge ant-badge-status ant-badge-not-a-wrapper"
-                          >
+                          <div>
                             <span
-                              class="ant-badge-status-dot ant-badge-status-error"
-                            />
-                            <span
-                              class="ant-badge-status-text"
+                              class="ant-badge ant-badge-status ant-badge-not-a-wrapper"
                             >
-                              异常
+                              <span
+                                class="ant-badge-status-dot ant-badge-status-error"
+                              />
+                              <span
+                                class="ant-badge-status-text"
+                              >
+                                异常
+                              </span>
                             </span>
-                          </span>
+                          </div>
                         </td>
                         <td
                           class="ant-table-cell"
@@ -7464,19 +7668,25 @@ exports[`BasicTable 🎏 base use 1`] = `
                         <td
                           class="ant-table-cell"
                         >
-                          2019-11-16
+                          <div>
+                            2019-11-16
+                          </div>
                         </td>
                         <td
                           class="ant-table-cell"
                         >
-                          2019-11-16 13:28:26
+                          <div>
+                            2019-11-16 13:28:26
+                          </div>
                         </td>
                         <td
                           class="ant-table-cell"
                         >
-                          <span>
-                            12:50:26
-                          </span>
+                          <div>
+                            <span>
+                              12:50:26
+                            </span>
+                          </div>
                         </td>
                         <td
                           class="ant-table-cell"
@@ -8246,65 +8456,67 @@ exports[`BasicTable 🎏 valueEnum support function 1`] = `
                 <div
                   class="ant-form-item-control-input-content"
                 >
-                  <div
-                    class="ant-select ant-select-in-form-item ant-pro-filed-search-select ant-select-single ant-select-allow-clear ant-select-show-arrow"
-                    style="width: 100%;"
-                  >
+                  <div>
                     <div
-                      class="ant-select-selector"
+                      class="ant-select ant-select-in-form-item ant-pro-filed-search-select ant-select-single ant-select-allow-clear ant-select-show-arrow"
+                      style="width: 100%;"
                     >
-                      <span
-                        class="ant-select-selection-search"
+                      <div
+                        class="ant-select-selector"
                       >
-                        <input
-                          aria-activedescendant="status_list_0"
-                          aria-autocomplete="list"
-                          aria-controls="status_list"
-                          aria-haspopup="listbox"
-                          aria-owns="status_list"
-                          autocomplete="off"
-                          class="ant-select-selection-search-input"
-                          id="status"
-                          readonly=""
-                          role="combobox"
-                          style="opacity: 0;"
-                          type="search"
-                          unselectable="on"
-                          value=""
-                        />
-                      </span>
+                        <span
+                          class="ant-select-selection-search"
+                        >
+                          <input
+                            aria-activedescendant="status_list_0"
+                            aria-autocomplete="list"
+                            aria-controls="status_list"
+                            aria-haspopup="listbox"
+                            aria-owns="status_list"
+                            autocomplete="off"
+                            class="ant-select-selection-search-input"
+                            id="status"
+                            readonly=""
+                            role="combobox"
+                            style="opacity: 0;"
+                            type="search"
+                            unselectable="on"
+                            value=""
+                          />
+                        </span>
+                        <span
+                          class="ant-select-selection-placeholder"
+                        >
+                          请选择
+                        </span>
+                      </div>
                       <span
-                        class="ant-select-selection-placeholder"
+                        aria-hidden="true"
+                        class="ant-select-arrow"
+                        style="user-select: none;"
+                        unselectable="on"
                       >
-                        请选择
+                        <span
+                          aria-label="down"
+                          class="anticon anticon-down ant-select-suffix"
+                          role="img"
+                        >
+                          <svg
+                            aria-hidden="true"
+                            data-icon="down"
+                            fill="currentColor"
+                            focusable="false"
+                            height="1em"
+                            viewBox="64 64 896 896"
+                            width="1em"
+                          >
+                            <path
+                              d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"
+                            />
+                          </svg>
+                        </span>
                       </span>
                     </div>
-                    <span
-                      aria-hidden="true"
-                      class="ant-select-arrow"
-                      style="user-select: none;"
-                      unselectable="on"
-                    >
-                      <span
-                        aria-label="down"
-                        class="anticon anticon-down ant-select-suffix"
-                        role="img"
-                      >
-                        <svg
-                          aria-hidden="true"
-                          data-icon="down"
-                          fill="currentColor"
-                          focusable="false"
-                          height="1em"
-                          viewBox="64 64 896 896"
-                          width="1em"
-                        >
-                          <path
-                            d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"
-                          />
-                        </svg>
-                      </span>
-                    </span>
                   </div>
                 </div>
               </div>
@@ -8329,66 +8541,68 @@ exports[`BasicTable 🎏 valueEnum support function 1`] = `
                 <div
                   class="ant-form-item-control-input-content"
                 >
-                  <div
-                    class="ant-select ant-select-in-form-item ant-pro-filed-search-select ant-select-single ant-select-allow-clear ant-select-show-arrow ant-select-open"
-                    style="width: 100%;"
-                  >
+                  <div>
                     <div
-                      class="ant-select-selector"
+                      class="ant-select ant-select-in-form-item ant-pro-filed-search-select ant-select-single ant-select-allow-clear ant-select-show-arrow ant-select-open"
+                      style="width: 100%;"
                     >
-                      <span
-                        class="ant-select-selection-search"
+                      <div
+                        class="ant-select-selector"
                       >
-                        <input
-                          aria-activedescendant="status_list_0"
-                          aria-autocomplete="list"
-                          aria-controls="status_list"
-                          aria-expanded="true"
-                          aria-haspopup="listbox"
-                          aria-owns="status_list"
-                          autocomplete="off"
-                          class="ant-select-selection-search-input"
-                          id="status"
-                          readonly=""
-                          role="combobox"
-                          style="opacity: 0;"
-                          type="search"
-                          unselectable="on"
-                          value=""
-                        />
-                      </span>
+                        <span
+                          class="ant-select-selection-search"
+                        >
+                          <input
+                            aria-activedescendant="status_list_0"
+                            aria-autocomplete="list"
+                            aria-controls="status_list"
+                            aria-expanded="true"
+                            aria-haspopup="listbox"
+                            aria-owns="status_list"
+                            autocomplete="off"
+                            class="ant-select-selection-search-input"
+                            id="status"
+                            readonly=""
+                            role="combobox"
+                            style="opacity: 0;"
+                            type="search"
+                            unselectable="on"
+                            value=""
+                          />
+                        </span>
+                        <span
+                          class="ant-select-selection-placeholder"
+                        >
+                          请选择
+                        </span>
+                      </div>
                       <span
-                        class="ant-select-selection-placeholder"
+                        aria-hidden="true"
+                        class="ant-select-arrow"
+                        style="user-select: none;"
+                        unselectable="on"
                       >
-                        请选择
+                        <span
+                          aria-label="down"
+                          class="anticon anticon-down ant-select-suffix"
+                          role="img"
+                        >
+                          <svg
+                            aria-hidden="true"
+                            data-icon="down"
+                            fill="currentColor"
+                            focusable="false"
+                            height="1em"
+                            viewBox="64 64 896 896"
+                            width="1em"
+                          >
+                            <path
+                              d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"
+                            />
+                          </svg>
+                        </span>
                       </span>
                     </div>
-                    <span
-                      aria-hidden="true"
-                      class="ant-select-arrow"
-                      style="user-select: none;"
-                      unselectable="on"
-                    >
-                      <span
-                        aria-label="down"
-                        class="anticon anticon-down ant-select-suffix"
-                        role="img"
-                      >
-                        <svg
-                          aria-hidden="true"
-                          data-icon="down"
-                          fill="currentColor"
-                          focusable="false"
-                          height="1em"
-                          viewBox="64 64 896 896"
-                          width="1em"
-                        >
-                          <path
-                            d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"
-                          />
-                        </svg>
-                      </span>
-                    </span>
                   </div>
                 </div>
               </div>
@@ -8521,34 +8735,38 @@ exports[`BasicTable 🎏 valueEnum support function 1`] = `
                         <td
                           class="ant-table-cell"
                         >
-                          <span
-                            class="ant-badge ant-badge-status ant-badge-not-a-wrapper"
-                          >
+                          <div>
                             <span
-                              class="ant-badge-status-dot ant-badge-status-default"
-                            />
-                            <span
-                              class="ant-badge-status-text"
+                              class="ant-badge ant-badge-status ant-badge-not-a-wrapper"
                             >
-                              1关闭
+                              <span
+                                class="ant-badge-status-dot ant-badge-status-default"
+                              />
+                              <span
+                                class="ant-badge-status-text"
+                              >
+                                1关闭
+                              </span>
                             </span>
-                          </span>
+                          </div>
                         </td>
                         <td
                           class="ant-table-cell"
                         >
-                          <span
-                            class="ant-badge ant-badge-status ant-badge-not-a-wrapper"
-                          >
+                          <div>
                             <span
-                              class="ant-badge-status-dot ant-badge-status-default"
-                            />
-                            <span
-                              class="ant-badge-status-text"
+                              class="ant-badge ant-badge-status ant-badge-not-a-wrapper"
                             >
-                              关闭
+                              <span
+                                class="ant-badge-status-dot ant-badge-status-default"
+                              />
+                              <span
+                                class="ant-badge-status-text"
+                              >
+                                关闭
+                              </span>
                             </span>
-                          </span>
+                          </div>
                         </td>
                       </tr>
                       <tr
@@ -8558,34 +8776,38 @@ exports[`BasicTable 🎏 valueEnum support function 1`] = `
                         <td
                           class="ant-table-cell"
                         >
-                          <span
-                            class="ant-badge ant-badge-status ant-badge-not-a-wrapper"
-                          >
+                          <div>
                             <span
-                              class="ant-badge-status-dot ant-badge-status-processing"
-                            />
-                            <span
-                              class="ant-badge-status-text"
+                              class="ant-badge ant-badge-status ant-badge-not-a-wrapper"
                             >
-                              1运行中
+                              <span
+                                class="ant-badge-status-dot ant-badge-status-processing"
+                              />
+                              <span
+                                class="ant-badge-status-text"
+                              >
+                                1运行中
+                              </span>
                             </span>
-                          </span>
+                          </div>
                         </td>
                         <td
                           class="ant-table-cell"
                         >
-                          <span
-                            class="ant-badge ant-badge-status ant-badge-not-a-wrapper"
-                          >
+                          <div>
                             <span
-                              class="ant-badge-status-dot ant-badge-status-processing"
-                            />
-                            <span
-                              class="ant-badge-status-text"
+                              class="ant-badge ant-badge-status ant-badge-not-a-wrapper"
                             >
-                              运行中
+                              <span
+                                class="ant-badge-status-dot ant-badge-status-processing"
+                              />
+                              <span
+                                class="ant-badge-status-text"
+                              >
+                                运行中
+                              </span>
                             </span>
-                          </span>
+                          </div>
                         </td>
                       </tr>
                       <tr
@@ -8595,34 +8817,38 @@ exports[`BasicTable 🎏 valueEnum support function 1`] = `
                         <td
                           class="ant-table-cell"
                         >
-                          <span
-                            class="ant-badge ant-badge-status ant-badge-not-a-wrapper"
-                          >
+                          <div>
                             <span
-                              class="ant-badge-status-dot ant-badge-status-success"
-                            />
-                            <span
-                              class="ant-badge-status-text"
+                              class="ant-badge ant-badge-status ant-badge-not-a-wrapper"
                             >
-                              1已上线
+                              <span
+                                class="ant-badge-status-dot ant-badge-status-success"
+                              />
+                              <span
+                                class="ant-badge-status-text"
+                              >
+                                1已上线
+                              </span>
                             </span>
-                          </span>
+                          </div>
                         </td>
                         <td
                           class="ant-table-cell"
                         >
-                          <span
-                            class="ant-badge ant-badge-status ant-badge-not-a-wrapper"
-                          >
+                          <div>
                             <span
-                              class="ant-badge-status-dot ant-badge-status-success"
-                            />
-                            <span
-                              class="ant-badge-status-text"
+                              class="ant-badge ant-badge-status ant-badge-not-a-wrapper"
                             >
-                              已上线
+                              <span
+                                class="ant-badge-status-dot ant-badge-status-success"
+                              />
+                              <span
+                                class="ant-badge-status-text"
+                              >
+                                已上线
+                              </span>
                             </span>
-                          </span>
+                          </div>
                         </td>
                       </tr>
                       <tr
@@ -8632,34 +8858,38 @@ exports[`BasicTable 🎏 valueEnum support function 1`] = `
                         <td
                           class="ant-table-cell"
                         >
-                          <span
-                            class="ant-badge ant-badge-status ant-badge-not-a-wrapper"
-                          >
+                          <div>
                             <span
-                              class="ant-badge-status-dot ant-badge-status-error"
-                            />
-                            <span
-                              class="ant-badge-status-text"
+                              class="ant-badge ant-badge-status ant-badge-not-a-wrapper"
                             >
-                              1异常
+                              <span
+                                class="ant-badge-status-dot ant-badge-status-error"
+                              />
+                              <span
+                                class="ant-badge-status-text"
+                              >
+                                1异常
+                              </span>
                             </span>
-                          </span>
+                          </div>
                         </td>
                         <td
                           class="ant-table-cell"
                         >
-                          <span
-                            class="ant-badge ant-badge-status ant-badge-not-a-wrapper"
-                          >
+                          <div>
                             <span
-                              class="ant-badge-status-dot ant-badge-status-error"
-                            />
-                            <span
-                              class="ant-badge-status-text"
+                              class="ant-badge ant-badge-status ant-badge-not-a-wrapper"
                             >
-                              异常
+                              <span
+                                class="ant-badge-status-dot ant-badge-status-error"
+                              />
+                              <span
+                                class="ant-badge-status-text"
+                              >
+                                异常
+                              </span>
                             </span>
-                          </span>
+                          </div>
                         </td>
                       </tr>
                       <tr
@@ -8669,34 +8899,38 @@ exports[`BasicTable 🎏 valueEnum support function 1`] = `
                         <td
                           class="ant-table-cell"
                         >
-                          <span
-                            class="ant-badge ant-badge-status ant-badge-not-a-wrapper"
-                          >
+                          <div>
                             <span
-                              class="ant-badge-status-dot ant-badge-status-default"
-                            />
-                            <span
-                              class="ant-badge-status-text"
+                              class="ant-badge ant-badge-status ant-badge-not-a-wrapper"
                             >
-                              1关闭
+                              <span
+                                class="ant-badge-status-dot ant-badge-status-default"
+                              />
+                              <span
+                                class="ant-badge-status-text"
+                              >
+                                1关闭
+                              </span>
                             </span>
-                          </span>
+                          </div>
                         </td>
                         <td
                           class="ant-table-cell"
                         >
-                          <span
-                            class="ant-badge ant-badge-status ant-badge-not-a-wrapper"
-                          >
+                          <div>
                             <span
-                              class="ant-badge-status-dot ant-badge-status-default"
-                            />
-                            <span
-                              class="ant-badge-status-text"
+                              class="ant-badge ant-badge-status ant-badge-not-a-wrapper"
                             >
-                              关闭
+                              <span
+                                class="ant-badge-status-dot ant-badge-status-default"
+                              />
+                              <span
+                                class="ant-badge-status-text"
+                              >
+                                关闭
+                              </span>
                             </span>
-                          </span>
+                          </div>
                         </td>
                       </tr>
                       <tr
@@ -8706,34 +8940,38 @@ exports[`BasicTable 🎏 valueEnum support function 1`] = `
                         <td
                           class="ant-table-cell"
                         >
-                          <span
-                            class="ant-badge ant-badge-status ant-badge-not-a-wrapper"
-                          >
+                          <div>
                             <span
-                              class="ant-badge-status-dot ant-badge-status-processing"
-                            />
-                            <span
-                              class="ant-badge-status-text"
+                              class="ant-badge ant-badge-status ant-badge-not-a-wrapper"
                             >
-                              1运行中
+                              <span
+                                class="ant-badge-status-dot ant-badge-status-processing"
+                              />
+                              <span
+                                class="ant-badge-status-text"
+                              >
+                                1运行中
+                              </span>
                             </span>
-                          </span>
+                          </div>
                         </td>
                         <td
                           class="ant-table-cell"
                         >
-                          <span
-                            class="ant-badge ant-badge-status ant-badge-not-a-wrapper"
-                          >
+                          <div>
                             <span
-                              class="ant-badge-status-dot ant-badge-status-processing"
-                            />
-                            <span
-                              class="ant-badge-status-text"
+                              class="ant-badge ant-badge-status ant-badge-not-a-wrapper"
                             >
-                              运行中
+                              <span
+                                class="ant-badge-status-dot ant-badge-status-processing"
+                              />
+                              <span
+                                class="ant-badge-status-text"
+                              >
+                                运行中
+                              </span>
                             </span>
-                          </span>
+                          </div>
                         </td>
                       </tr>
                       <tr
@@ -8743,34 +8981,38 @@ exports[`BasicTable 🎏 valueEnum support function 1`] = `
                         <td
                           class="ant-table-cell"
                         >
-                          <span
-                            class="ant-badge ant-badge-status ant-badge-not-a-wrapper"
-                          >
+                          <div>
                             <span
-                              class="ant-badge-status-dot ant-badge-status-success"
-                            />
-                            <span
-                              class="ant-badge-status-text"
+                              class="ant-badge ant-badge-status ant-badge-not-a-wrapper"
                             >
-                              1已上线
+                              <span
+                                class="ant-badge-status-dot ant-badge-status-success"
+                              />
+                              <span
+                                class="ant-badge-status-text"
+                              >
+                                1已上线
+                              </span>
                             </span>
-                          </span>
+                          </div>
                         </td>
                         <td
                           class="ant-table-cell"
                         >
-                          <span
-                            class="ant-badge ant-badge-status ant-badge-not-a-wrapper"
-                          >
+                          <div>
                             <span
-                              class="ant-badge-status-dot ant-badge-status-success"
-                            />
-                            <span
-                              class="ant-badge-status-text"
+                              class="ant-badge ant-badge-status ant-badge-not-a-wrapper"
                             >
-                              已上线
+                              <span
+                                class="ant-badge-status-dot ant-badge-status-success"
+                              />
+                              <span
+                                class="ant-badge-status-text"
+                              >
+                                已上线
+                              </span>
                             </span>
-                          </span>
+                          </div>
                         </td>
                       </tr>
                       <tr
@@ -8780,34 +9022,38 @@ exports[`BasicTable 🎏 valueEnum support function 1`] = `
                         <td
                           class="ant-table-cell"
                         >
-                          <span
-                            class="ant-badge ant-badge-status ant-badge-not-a-wrapper"
-                          >
+                          <div>
                             <span
-                              class="ant-badge-status-dot ant-badge-status-error"
-                            />
-                            <span
-                              class="ant-badge-status-text"
+                              class="ant-badge ant-badge-status ant-badge-not-a-wrapper"
                             >
-                              1异常
+                              <span
+                                class="ant-badge-status-dot ant-badge-status-error"
+                              />
+                              <span
+                                class="ant-badge-status-text"
+                              >
+                                1异常
+                              </span>
                             </span>
-                          </span>
+                          </div>
                         </td>
                         <td
                           class="ant-table-cell"
                         >
-                          <span
-                            class="ant-badge ant-badge-status ant-badge-not-a-wrapper"
-                          >
+                          <div>
                             <span
-                              class="ant-badge-status-dot ant-badge-status-error"
-                            />
-                            <span
-                              class="ant-badge-status-text"
+                              class="ant-badge ant-badge-status ant-badge-not-a-wrapper"
                             >
-                              异常
+                              <span
+                                class="ant-badge-status-dot ant-badge-status-error"
+                              />
+                              <span
+                                class="ant-badge-status-text"
+                              >
+                                异常
+                              </span>
                             </span>
-                          </span>
+                          </div>
                         </td>
                       </tr>
                       <tr
@@ -8817,34 +9063,38 @@ exports[`BasicTable 🎏 valueEnum support function 1`] = `
                         <td
                           class="ant-table-cell"
                         >
-                          <span
-                            class="ant-badge ant-badge-status ant-badge-not-a-wrapper"
-                          >
+                          <div>
                             <span
-                              class="ant-badge-status-dot ant-badge-status-default"
-                            />
-                            <span
-                              class="ant-badge-status-text"
+                              class="ant-badge ant-badge-status ant-badge-not-a-wrapper"
                             >
-                              1关闭
+                              <span
+                                class="ant-badge-status-dot ant-badge-status-default"
+                              />
+                              <span
+                                class="ant-badge-status-text"
+                              >
+                                1关闭
+                              </span>
                             </span>
-                          </span>
+                          </div>
                         </td>
                         <td
                           class="ant-table-cell"
                         >
-                          <span
-                            class="ant-badge ant-badge-status ant-badge-not-a-wrapper"
-                          >
+                          <div>
                             <span
-                              class="ant-badge-status-dot ant-badge-status-default"
-                            />
-                            <span
-                              class="ant-badge-status-text"
+                              class="ant-badge ant-badge-status ant-badge-not-a-wrapper"
                             >
-                              关闭
+                              <span
+                                class="ant-badge-status-dot ant-badge-status-default"
+                              />
+                              <span
+                                class="ant-badge-status-text"
+                              >
+                                关闭
+                              </span>
                             </span>
-                          </span>
+                          </div>
                         </td>
                       </tr>
                       <tr
@@ -8854,34 +9104,38 @@ exports[`BasicTable 🎏 valueEnum support function 1`] = `
                         <td
                           class="ant-table-cell"
                         >
-                          <span
-                            class="ant-badge ant-badge-status ant-badge-not-a-wrapper"
-                          >
+                          <div>
                             <span
-                              class="ant-badge-status-dot ant-badge-status-processing"
-                            />
-                            <span
-                              class="ant-badge-status-text"
+                              class="ant-badge ant-badge-status ant-badge-not-a-wrapper"
                             >
-                              1运行中
+                              <span
+                                class="ant-badge-status-dot ant-badge-status-processing"
+                              />
+                              <span
+                                class="ant-badge-status-text"
+                              >
+                                1运行中
+                              </span>
                             </span>
-                          </span>
+                          </div>
                         </td>
                         <td
                           class="ant-table-cell"
                         >
-                          <span
-                            class="ant-badge ant-badge-status ant-badge-not-a-wrapper"
-                          >
+                          <div>
                             <span
-                              class="ant-badge-status-dot ant-badge-status-processing"
-                            />
-                            <span
-                              class="ant-badge-status-text"
+                              class="ant-badge ant-badge-status ant-badge-not-a-wrapper"
                             >
-                              运行中
+                              <span
+                                class="ant-badge-status-dot ant-badge-status-processing"
+                              />
+                              <span
+                                class="ant-badge-status-text"
+                              >
+                                运行中
+                              </span>
                             </span>
-                          </span>
+                          </div>
                         </td>
                       </tr>
                       <tr
@@ -8891,34 +9145,38 @@ exports[`BasicTable 🎏 valueEnum support function 1`] = `
                         <td
                           class="ant-table-cell"
                         >
-                          <span
-                            class="ant-badge ant-badge-status ant-badge-not-a-wrapper"
-                          >
+                          <div>
                             <span
-                              class="ant-badge-status-dot ant-badge-status-success"
-                            />
-                            <span
-                              class="ant-badge-status-text"
+                              class="ant-badge ant-badge-status ant-badge-not-a-wrapper"
                             >
-                              1已上线
+                              <span
+                                class="ant-badge-status-dot ant-badge-status-success"
+                              />
+                              <span
+                                class="ant-badge-status-text"
+                              >
+                                1已上线
+                              </span>
                             </span>
-                          </span>
+                          </div>
                         </td>
                         <td
                           class="ant-table-cell"
                         >
-                          <span
-                            class="ant-badge ant-badge-status ant-badge-not-a-wrapper"
-                          >
+                          <div>
                             <span
-                              class="ant-badge-status-dot ant-badge-status-success"
-                            />
-                            <span
-                              class="ant-badge-status-text"
+                              class="ant-badge ant-badge-status ant-badge-not-a-wrapper"
                             >
-                              已上线
+                              <span
+                                class="ant-badge-status-dot ant-badge-status-success"
+                              />
+                              <span
+                                class="ant-badge-status-text"
+                              >
+                                已上线
+                              </span>
                             </span>
-                          </span>
+                          </div>
                         </td>
                       </tr>
                       <tr
@@ -8928,34 +9186,38 @@ exports[`BasicTable 🎏 valueEnum support function 1`] = `
                         <td
                           class="ant-table-cell"
                         >
-                          <span
-                            class="ant-badge ant-badge-status ant-badge-not-a-wrapper"
-                          >
+                          <div>
                             <span
-                              class="ant-badge-status-dot ant-badge-status-error"
-                            />
-                            <span
-                              class="ant-badge-status-text"
+                              class="ant-badge ant-badge-status ant-badge-not-a-wrapper"
                             >
-                              1异常
+                              <span
+                                class="ant-badge-status-dot ant-badge-status-error"
+                              />
+                              <span
+                                class="ant-badge-status-text"
+                              >
+                                1异常
+                              </span>
                             </span>
-                          </span>
+                          </div>
                         </td>
                         <td
                           class="ant-table-cell"
                         >
-                          <span
-                            class="ant-badge ant-badge-status ant-badge-not-a-wrapper"
-                          >
+                          <div>
                             <span
-                              class="ant-badge-status-dot ant-badge-status-error"
-                            />
-                            <span
-                              class="ant-badge-status-text"
+                              class="ant-badge ant-badge-status ant-badge-not-a-wrapper"
                             >
-                              异常
+                              <span
+                                class="ant-badge-status-dot ant-badge-status-error"
+                              />
+                              <span
+                                class="ant-badge-status-text"
+                              >
+                                异常
+                              </span>
                             </span>
-                          </span>
+                          </div>
                         </td>
                       </tr>
                       <tr
@@ -8965,34 +9227,38 @@ exports[`BasicTable 🎏 valueEnum support function 1`] = `
                         <td
                           class="ant-table-cell"
                         >
-                          <span
-                            class="ant-badge ant-badge-status ant-badge-not-a-wrapper"
-                          >
+                          <div>
                             <span
-                              class="ant-badge-status-dot ant-badge-status-default"
-                            />
-                            <span
-                              class="ant-badge-status-text"
+                              class="ant-badge ant-badge-status ant-badge-not-a-wrapper"
                             >
-                              1关闭
+                              <span
+                                class="ant-badge-status-dot ant-badge-status-default"
+                              />
+                              <span
+                                class="ant-badge-status-text"
+                              >
+                                1关闭
+                              </span>
                             </span>
-                          </span>
+                          </div>
                         </td>
                         <td
                           class="ant-table-cell"
                         >
-                          <span
-                            class="ant-badge ant-badge-status ant-badge-not-a-wrapper"
-                          >
+                          <div>
                             <span
-                              class="ant-badge-status-dot ant-badge-status-default"
-                            />
-                            <span
-                              class="ant-badge-status-text"
+                              class="ant-badge ant-badge-status ant-badge-not-a-wrapper"
                             >
-                              关闭
+                              <span
+                                class="ant-badge-status-dot ant-badge-status-default"
+                              />
+                              <span
+                                class="ant-badge-status-text"
+                              >
+                                关闭
+                              </span>
                             </span>
-                          </span>
+                          </div>
                         </td>
                       </tr>
                       <tr
@@ -9002,34 +9268,38 @@ exports[`BasicTable 🎏 valueEnum support function 1`] = `
                         <td
                           class="ant-table-cell"
                         >
-                          <span
-                            class="ant-badge ant-badge-status ant-badge-not-a-wrapper"
-                          >
+                          <div>
                             <span
-                              class="ant-badge-status-dot ant-badge-status-processing"
-                            />
-                            <span
-                              class="ant-badge-status-text"
+                              class="ant-badge ant-badge-status ant-badge-not-a-wrapper"
                             >
-                              1运行中
+                              <span
+                                class="ant-badge-status-dot ant-badge-status-processing"
+                              />
+                              <span
+                                class="ant-badge-status-text"
+                              >
+                                1运行中
+                              </span>
                             </span>
-                          </span>
+                          </div>
                         </td>
                         <td
                           class="ant-table-cell"
                         >
-                          <span
-                            class="ant-badge ant-badge-status ant-badge-not-a-wrapper"
-                          >
+                          <div>
                             <span
-                              class="ant-badge-status-dot ant-badge-status-processing"
-                            />
-                            <span
-                              class="ant-badge-status-text"
+                              class="ant-badge ant-badge-status ant-badge-not-a-wrapper"
                             >
-                              运行中
+                              <span
+                                class="ant-badge-status-dot ant-badge-status-processing"
+                              />
+                              <span
+                                class="ant-badge-status-text"
+                              >
+                                运行中
+                              </span>
                             </span>
-                          </span>
+                          </div>
                         </td>
                       </tr>
                       <tr
@@ -9039,34 +9309,38 @@ exports[`BasicTable 🎏 valueEnum support function 1`] = `
                         <td
                           class="ant-table-cell"
                         >
-                          <span
-                            class="ant-badge ant-badge-status ant-badge-not-a-wrapper"
-                          >
+                          <div>
                             <span
-                              class="ant-badge-status-dot ant-badge-status-success"
-                            />
-                            <span
-                              class="ant-badge-status-text"
+                              class="ant-badge ant-badge-status ant-badge-not-a-wrapper"
                             >
-                              1已上线
+                              <span
+                                class="ant-badge-status-dot ant-badge-status-success"
+                              />
+                              <span
+                                class="ant-badge-status-text"
+                              >
+                                1已上线
+                              </span>
                             </span>
-                          </span>
+                          </div>
                         </td>
                         <td
                           class="ant-table-cell"
                         >
-                          <span
-                            class="ant-badge ant-badge-status ant-badge-not-a-wrapper"
-                          >
+                          <div>
                             <span
-                              class="ant-badge-status-dot ant-badge-status-success"
-                            />
-                            <span
-                              class="ant-badge-status-text"
+                              class="ant-badge ant-badge-status ant-badge-not-a-wrapper"
                             >
-                              已上线
+                              <span
+                                class="ant-badge-status-dot ant-badge-status-success"
+                              />
+                              <span
+                                class="ant-badge-status-text"
+                              >
+                                已上线
+                              </span>
                             </span>
-                          </span>
+                          </div>
                         </td>
                       </tr>
                       <tr
@@ -9076,34 +9350,38 @@ exports[`BasicTable 🎏 valueEnum support function 1`] = `
                         <td
                           class="ant-table-cell"
                         >
-                          <span
-                            class="ant-badge ant-badge-status ant-badge-not-a-wrapper"
-                          >
+                          <div>
                             <span
-                              class="ant-badge-status-dot ant-badge-status-error"
-                            />
-                            <span
-                              class="ant-badge-status-text"
+                              class="ant-badge ant-badge-status ant-badge-not-a-wrapper"
                             >
-                              1异常
+                              <span
+                                class="ant-badge-status-dot ant-badge-status-error"
+                              />
+                              <span
+                                class="ant-badge-status-text"
+                              >
+                                1异常
+                              </span>
                             </span>
-                          </span>
+                          </div>
                         </td>
                         <td
                           class="ant-table-cell"
                         >
-                          <span
-                            class="ant-badge ant-badge-status ant-badge-not-a-wrapper"
-                          >
+                          <div>
                             <span
-                              class="ant-badge-status-dot ant-badge-status-error"
-                            />
-                            <span
-                              class="ant-badge-status-text"
+                              class="ant-badge ant-badge-status ant-badge-not-a-wrapper"
                             >
-                              异常
+                              <span
+                                class="ant-badge-status-dot ant-badge-status-error"
+                              />
+                              <span
+                                class="ant-badge-status-text"
+                              >
+                                异常
+                              </span>
                             </span>
-                          </span>
+                          </div>
                         </td>
                       </tr>
                       <tr
@@ -9113,34 +9391,38 @@ exports[`BasicTable 🎏 valueEnum support function 1`] = `
                         <td
                           class="ant-table-cell"
                         >
-                          <span
-                            class="ant-badge ant-badge-status ant-badge-not-a-wrapper"
-                          >
+                          <div>
                             <span
-                              class="ant-badge-status-dot ant-badge-status-default"
-                            />
-                            <span
-                              class="ant-badge-status-text"
+                              class="ant-badge ant-badge-status ant-badge-not-a-wrapper"
                             >
-                              1关闭
+                              <span
+                                class="ant-badge-status-dot ant-badge-status-default"
+                              />
+                              <span
+                                class="ant-badge-status-text"
+                              >
+                                1关闭
+                              </span>
                             </span>
-                          </span>
+                          </div>
                         </td>
                         <td
                           class="ant-table-cell"
                         >
-                          <span
-                            class="ant-badge ant-badge-status ant-badge-not-a-wrapper"
-                          >
+                          <div>
                             <span
-                              class="ant-badge-status-dot ant-badge-status-default"
-                            />
-                            <span
-                              class="ant-badge-status-text"
+                              class="ant-badge ant-badge-status ant-badge-not-a-wrapper"
                             >
-                              关闭
+                              <span
+                                class="ant-badge-status-dot ant-badge-status-default"
+                              />
+                              <span
+                                class="ant-badge-status-text"
+                              >
+                                关闭
+                              </span>
                             </span>
-                          </span>
+                          </div>
                         </td>
                       </tr>
                       <tr
@@ -9150,34 +9432,38 @@ exports[`BasicTable 🎏 valueEnum support function 1`] = `
                         <td
                           class="ant-table-cell"
                         >
-                          <span
-                            class="ant-badge ant-badge-status ant-badge-not-a-wrapper"
-                          >
+                          <div>
                             <span
-                              class="ant-badge-status-dot ant-badge-status-processing"
-                            />
-                            <span
-                              class="ant-badge-status-text"
+                              class="ant-badge ant-badge-status ant-badge-not-a-wrapper"
                             >
-                              1运行中
+                              <span
+                                class="ant-badge-status-dot ant-badge-status-processing"
+                              />
+                              <span
+                                class="ant-badge-status-text"
+                              >
+                                1运行中
+                              </span>
                             </span>
-                          </span>
+                          </div>
                         </td>
                         <td
                           class="ant-table-cell"
                         >
-                          <span
-                            class="ant-badge ant-badge-status ant-badge-not-a-wrapper"
-                          >
+                          <div>
                             <span
-                              class="ant-badge-status-dot ant-badge-status-processing"
-                            />
-                            <span
-                              class="ant-badge-status-text"
+                              class="ant-badge ant-badge-status ant-badge-not-a-wrapper"
                             >
-                              运行中
+                              <span
+                                class="ant-badge-status-dot ant-badge-status-processing"
+                              />
+                              <span
+                                class="ant-badge-status-text"
+                              >
+                                运行中
+                              </span>
                             </span>
-                          </span>
+                          </div>
                         </td>
                       </tr>
                       <tr
@@ -9187,34 +9473,38 @@ exports[`BasicTable 🎏 valueEnum support function 1`] = `
                         <td
                           class="ant-table-cell"
                         >
-                          <span
-                            class="ant-badge ant-badge-status ant-badge-not-a-wrapper"
-                          >
+                          <div>
                             <span
-                              class="ant-badge-status-dot ant-badge-status-success"
-                            />
-                            <span
-                              class="ant-badge-status-text"
+                              class="ant-badge ant-badge-status ant-badge-not-a-wrapper"
                             >
-                              1已上线
+                              <span
+                                class="ant-badge-status-dot ant-badge-status-success"
+                              />
+                              <span
+                                class="ant-badge-status-text"
+                              >
+                                1已上线
+                              </span>
                             </span>
-                          </span>
+                          </div>
                         </td>
                         <td
                           class="ant-table-cell"
                         >
-                          <span
-                            class="ant-badge ant-badge-status ant-badge-not-a-wrapper"
-                          >
+                          <div>
                             <span
-                              class="ant-badge-status-dot ant-badge-status-success"
-                            />
-                            <span
-                              class="ant-badge-status-text"
+                              class="ant-badge ant-badge-status ant-badge-not-a-wrapper"
                             >
-                              已上线
+                              <span
+                                class="ant-badge-status-dot ant-badge-status-success"
+                              />
+                              <span
+                                class="ant-badge-status-text"
+                              >
+                                已上线
+                              </span>
                             </span>
-                          </span>
+                          </div>
                         </td>
                       </tr>
                       <tr
@@ -9224,34 +9514,38 @@ exports[`BasicTable 🎏 valueEnum support function 1`] = `
                         <td
                           class="ant-table-cell"
                         >
-                          <span
-                            class="ant-badge ant-badge-status ant-badge-not-a-wrapper"
-                          >
+                          <div>
                             <span
-                              class="ant-badge-status-dot ant-badge-status-error"
-                            />
-                            <span
-                              class="ant-badge-status-text"
+                              class="ant-badge ant-badge-status ant-badge-not-a-wrapper"
                             >
-                              1异常
+                              <span
+                                class="ant-badge-status-dot ant-badge-status-error"
+                              />
+                              <span
+                                class="ant-badge-status-text"
+                              >
+                                1异常
+                              </span>
                             </span>
-                          </span>
+                          </div>
                         </td>
                         <td
                           class="ant-table-cell"
                         >
-                          <span
-                            class="ant-badge ant-badge-status ant-badge-not-a-wrapper"
-                          >
+                          <div>
                             <span
-                              class="ant-badge-status-dot ant-badge-status-error"
-                            />
-                            <span
-                              class="ant-badge-status-text"
+                              class="ant-badge ant-badge-status ant-badge-not-a-wrapper"
                             >
-                              异常
+                              <span
+                                class="ant-badge-status-dot ant-badge-status-error"
+                              />
+                              <span
+                                class="ant-badge-status-text"
+                              >
+                                异常
+                              </span>
                             </span>
-                          </span>
+                          </div>
                         </td>
                       </tr>
                     </tbody>

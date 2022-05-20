@@ -2,17 +2,34 @@ import { DatePicker, TimePicker, ConfigProvider } from 'antd';
 import React, { useState, useContext } from 'react';
 import moment from 'moment';
 import { FieldLabel, parseValueToMoment } from '@ant-design/pro-utils';
-import type { ProFieldFC } from '../../index';
+import type { ProFieldFC, ProFieldLightProps } from '../../index';
 
 /**
  * 时间选择组件
  *
  * @param
  */
-const FieldTimePicker: ProFieldFC<{
-  text: string | number;
-  format: string;
-}> = ({ text, mode, light, label, format, render, renderFormItem, plain, fieldProps }, ref) => {
+const FieldTimePicker: ProFieldFC<
+  {
+    text: string | number;
+    format: string;
+  } & ProFieldLightProps
+> = (
+  {
+    text,
+    mode,
+    light,
+    label,
+    format,
+    render,
+    renderFormItem,
+    plain,
+    fieldProps,
+    lightLabel,
+    labelTrigger,
+  },
+  ref,
+) => {
   const [open, setOpen] = useState<boolean>(false);
   const size = useContext(ConfigProvider.SizeContext);
   const { getPrefixCls } = useContext(ConfigProvider.ConfigContext);
@@ -42,8 +59,16 @@ const FieldTimePicker: ProFieldFC<{
       dom = (
         <div
           className={`${prefixCls}-light`}
-          onClick={() => {
-            setOpen(true);
+          onClick={(e) => {
+            // 点击label切换下拉菜单
+            const isLabelClick = lightLabel?.current?.labelRef?.current?.contains(
+              e.target as HTMLElement,
+            );
+            if (isLabelClick) {
+              setOpen(!open);
+            } else {
+              setOpen(true);
+            }
           }}
         >
           <TimePicker
@@ -57,7 +82,11 @@ const FieldTimePicker: ProFieldFC<{
                 setOpen(false);
               }, 0);
             }}
-            onOpenChange={setOpen}
+            onOpenChange={(isOpen) => {
+              if (!labelTrigger) {
+                setOpen(isOpen);
+              }
+            }}
             open={open}
           />
           <FieldLabel
@@ -69,6 +98,7 @@ const FieldTimePicker: ProFieldFC<{
             allowClear={allowClear}
             onClear={() => onChange?.(null)}
             expanded={open}
+            ref={lightLabel}
           />
         </div>
       );
