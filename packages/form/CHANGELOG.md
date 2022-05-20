@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.68.1](https://github.com/ant-design/pro-components/compare/@ant-design/pro-form@1.68.0...@ant-design/pro-form@1.68.1) (2022-05-20)
+
+### Bug Fixes
+
+- spaceProps.className doesn't work in Form.Group ([8c89b92](https://github.com/ant-design/pro-components/commit/8c89b924e04699d709c4db8e81067728d05ca1c8))
+
 # [1.68.0](https://github.com/ant-design/pro-components/compare/@ant-design/pro-form@1.67.3...@ant-design/pro-form@1.68.0) (2022-05-16)
 
 ### Bug Fixes
