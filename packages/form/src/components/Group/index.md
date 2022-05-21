@@ -30,7 +30,7 @@ ProFormList 与 [Form.List](https://ant.design/components/form-cn/#Form.List) AP
   ]}
   creatorButtonProps={{
     position: 'top',
-    creatorButtonText: '在建一行',
+    creatorButtonText: '再建一行',
   }}
   creatorRecord={{
     useMode: 'none',
