@@ -38,7 +38,7 @@ $ npm i @ant-design/pro-components --save
 每一个包都是一个独立的组件包，使用示例如下 ：
 
 ```tsx
-import ProForm, { ProFormText } from '@ant-design/pro-components';
+import { ProForm, ProFormText } from '@ant-design/pro-components';
 import React from 'react';
 
 export default () => {
