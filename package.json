@@ -26,7 +26,8 @@
     "tsc": "tsc --noEmit",
     "tsc:duplicate": "tsc -p ./tests/tsconfig.duplicate.json",
     "update:deps": "yarn upgrade-interactive --latest",
-    "webpack": "node ./scripts/gen_version.js && webpack"
+    "webpack": "webpack",
+    "version":"node ./scripts/gen_version.js"
   },
   "browserslist": [
     "last 2 versions",
