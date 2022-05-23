@@ -1,5 +1,5 @@
+import { StatisticCard } from '@ant-design/pro-components';
 import React from 'react';
-import { StatisticCard } from '@ant-design/pro-card';
 
 const { Divider } = StatisticCard;
 

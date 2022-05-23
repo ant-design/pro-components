@@ -1,9 +1,9 @@
-﻿import React, { useState, useEffect, useContext } from 'react';
-import { Form, Popover, ConfigProvider } from 'antd';
+﻿import { LoadingOutlined } from '@ant-design/icons';
 import type { FormItemProps, PopoverProps } from 'antd';
+import { ConfigProvider, Form, Popover } from 'antd';
 import type { NamePath } from 'rc-field-form/lib/interface';
+import React, { useContext, useEffect, useState } from 'react';
 import './index.less';
-import { LoadingOutlined } from '@ant-design/icons';
 
 interface InlineErrorFormItemProps extends FormItemProps {
   errorType?: 'popover' | 'default';

@@ -1,15 +1,15 @@
-import React, { useState } from 'react';
-import { Button, Result } from 'antd';
-import { CrownOutlined, TabletOutlined } from '@ant-design/icons';
 import {
+  CrownOutlined,
   InfoCircleOutlined,
   MergeCellsOutlined,
   QuestionCircleOutlined,
+  TabletOutlined,
   UserOutlined,
 } from '@ant-design/icons';
-
-import ProLayout, { PageContainer } from '@ant-design/pro-layout';
 import ProCard from '@ant-design/pro-card';
+import ProLayout, { PageContainer } from '@ant-design/pro-layout';
+import { Button, Result } from 'antd';
+import React, { useState } from 'react';
 
 export default () => {
   const [pathname, setPathname] = useState('/welcome');

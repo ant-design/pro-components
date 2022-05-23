@@ -1,8 +1,8 @@
-import React, { useContext } from 'react';
-import type { WithFalse } from '../../typings';
 import { ConfigProvider } from 'antd';
+import React, { useContext } from 'react';
 import { css, cx } from '../../emotion';
 import { ProLayoutContext } from '../../ProLayoutContext';
+import type { WithFalse } from '../../typings';
 
 export type GlobalFooterProps = {
   links?: WithFalse<

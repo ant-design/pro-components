@@ -1,10 +1,9 @@
 ﻿import type { SketchPickerProps } from '@chenshuai2144/sketch-color';
 import { SketchPicker } from '@chenshuai2144/sketch-color';
-import React, { useContext } from 'react';
-import useMergedState from 'rc-util/lib/hooks/useMergedState';
 import type { PopoverProps } from 'antd';
-import { ConfigProvider } from 'antd';
-import { Popover } from 'antd';
+import { ConfigProvider, Popover } from 'antd';
+import useMergedState from 'rc-util/lib/hooks/useMergedState';
+import React, { useContext } from 'react';
 import type { ProFieldFC } from '../../index';
 
 export const DEFAULT_COLORS = [

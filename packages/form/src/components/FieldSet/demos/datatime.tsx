@@ -1,10 +1,11 @@
-﻿import ProForm, {
+﻿import {
+  ProForm,
   ProFormDatePicker,
   ProFormDateRangePicker,
   ProFormDateTimePicker,
   ProFormDateTimeRangePicker,
   ProFormTimePicker,
-} from '@ant-design/pro-form';
+} from '@ant-design/pro-components';
 import React from 'react';
 
 export default () => {

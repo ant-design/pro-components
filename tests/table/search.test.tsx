@@ -1,13 +1,13 @@
-import { mount } from 'enzyme';
-import React, { createRef } from 'react';
-import MockDate from 'mockdate';
-import { act } from 'react-dom/test-utils';
+import ProTable from '@ant-design/pro-table';
 import { render } from '@testing-library/react';
 import type { FormInstance } from 'antd';
 import { Input } from 'antd';
-import ProTable from '@ant-design/pro-table';
-import { request } from './demo';
+import { mount } from 'enzyme';
+import MockDate from 'mockdate';
+import React, { createRef } from 'react';
+import { act } from 'react-dom/test-utils';
 import { waitForComponentToPaint, waitTime } from '../util';
+import { request } from './demo';
 
 describe('BasicTable Search', () => {
   process.env.NODE_ENV = 'TEST';

@@ -25,7 +25,7 @@ exports[`mobile BasicLayout 📱 base use 1`] = `
           />
           <div
             class="ant-drawer-content-wrapper"
-            style="width: 256px; transform: translateX(-100%);"
+            style="transform: translateX(-100%); width: 256px;"
           >
             <div
               class="ant-drawer-content"

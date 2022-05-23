@@ -1,9 +1,9 @@
-﻿import React, { useState } from 'react';
-import type { ErrorInfo } from 'react';
+﻿import { EllipsisOutlined } from '@ant-design/icons';
+import type { ProColumns } from '@ant-design/pro-components';
+import { ProTable } from '@ant-design/pro-components';
 import { Button, Result, Switch } from 'antd';
-import { EllipsisOutlined } from '@ant-design/icons';
-import type { ProColumns } from '@ant-design/pro-table';
-import ProTable from '@ant-design/pro-table';
+import type { ErrorInfo } from 'react';
+import React, { useState } from 'react';
 
 class CustomBoundary extends React.Component<
   Record<string, any>,

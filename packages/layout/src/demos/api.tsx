@@ -1,8 +1,8 @@
-import React, { useState } from 'react';
-import { Switch } from 'antd';
-import ProLayout, { PageContainer, DefaultFooter } from '@ant-design/pro-layout';
-import defaultProps from './_defaultProps';
 import { GithubOutlined } from '@ant-design/icons';
+import { DefaultFooter, PageContainer, ProLayout } from '@ant-design/pro-components';
+import { Switch } from 'antd';
+import React, { useState } from 'react';
+import defaultProps from './_defaultProps';
 
 export default () => {
   const [loading, setLoading] = useState(false);

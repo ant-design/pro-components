@@ -2,6 +2,24 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.41.4](https://github.com/ant-design/pro-components/compare/@ant-design/pro-utils@1.41.3...@ant-design/pro-utils@1.41.4) (2022-05-20)
+
+**Note:** Version bump only for package @ant-design/pro-utils
+
+## [1.41.3](https://github.com/ant-design/pro-components/compare/@ant-design/pro-utils@1.41.2...@ant-design/pro-utils@1.41.3) (2022-05-20)
+
+### Bug Fixes
+
+- **form:** 解决 ProFormSelect、ProFormDatePicker、ProFormTimePicker 在 LightFilter 模式下点击激活下拉选项后再次点击未隐藏下拉框的问题 ([#5169](https://github.com/ant-design/pro-components/issues/5169)) ([149cdff](https://github.com/ant-design/pro-components/commit/149cdff6e8f433c78bd3d006386b993d28f7f13e)), closes [fix#5010](https://github.com/fix/issues/5010) [fix#5010](https://github.com/fix/issues/5010)
+
+## [1.41.2](https://github.com/ant-design/pro-components/compare/@ant-design/pro-utils@1.41.1...@ant-design/pro-utils@1.41.2) (2022-05-12)
+
+**Note:** Version bump only for package @ant-design/pro-utils
+
+## [1.41.1](https://github.com/ant-design/pro-components/compare/@ant-design/pro-utils@1.41.0...@ant-design/pro-utils@1.41.1) (2022-05-12)
+
+**Note:** Version bump only for package @ant-design/pro-utils
+
 # [1.41.0](https://github.com/ant-design/pro-components/compare/@ant-design/pro-utils@1.39.3...@ant-design/pro-utils@1.41.0) (2022-05-07)
 
 ### Bug Fixes

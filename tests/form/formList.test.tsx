@@ -1,20 +1,20 @@
-﻿import React from 'react';
+﻿import { CloseOutlined, SnippetsOutlined } from '@ant-design/icons';
 import ProForm, {
-  ProFormText,
-  ProFormList,
+  ProFormDatePicker,
   ProFormDependency,
   ProFormGroup,
-  ProFormDatePicker,
+  ProFormList,
+  ProFormText,
 } from '@ant-design/pro-form';
-import { act } from 'react-dom/test-utils';
-import { mount } from 'enzyme';
-import { waitForComponentToPaint, waitTime } from '../util';
-import { SnippetsOutlined, CloseOutlined } from '@ant-design/icons';
-import { Button, Form } from 'antd';
-import _ from 'lodash';
-import type { NamePath } from 'antd/es/form/interface';
-import { render as reactRender } from '@testing-library/react';
 import '@testing-library/jest-dom';
+import { render as reactRender } from '@testing-library/react';
+import { Button, Form } from 'antd';
+import type { NamePath } from 'antd/es/form/interface';
+import { mount } from 'enzyme';
+import _ from 'lodash';
+import React from 'react';
+import { act } from 'react-dom/test-utils';
+import { waitForComponentToPaint, waitTime } from '../util';
 
 describe('ProForm List', () => {
   it('⛲  ProForm.List', async () => {

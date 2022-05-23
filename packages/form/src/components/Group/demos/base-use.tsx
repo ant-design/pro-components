@@ -1,6 +1,6 @@
-﻿import React from 'react';
-import ProForm, { ProFormList, ProFormText, ProFormDependency } from '@ant-design/pro-form';
+﻿import { ProForm, ProFormDependency, ProFormList, ProFormText } from '@ant-design/pro-components';
 import { Button } from 'antd';
+import React from 'react';
 
 const Demo = () => {
   return (
@@ -16,6 +16,7 @@ const Demo = () => {
         itemContainerRender={(doms) => {
           return <ProForm.Group>{doms}</ProForm.Group>;
         }}
+        alwaysShowItemLabel
       >
         {(f, index, action) => {
           console.log(f, index, action);

@@ -1,14 +1,13 @@
-import { createContainer } from 'unstated-next';
-import { useState, useCallback, useRef, useMemo, useEffect } from 'react';
-import useMergedState from 'rc-util/lib/hooks/useMergedState';
-
-import type { ProTableProps } from './index';
-import type { DensitySize } from './components/ToolBar/DensityIcon';
-import type { ActionType } from './typing';
-import type { TableColumnType } from 'antd';
-import { genColumnKey } from './utils';
-import { noteOnce } from 'rc-util/lib/warning';
 import type { ProFormInstance } from '@ant-design/pro-form';
+import type { TableColumnType } from 'antd';
+import useMergedState from 'rc-util/lib/hooks/useMergedState';
+import { noteOnce } from 'rc-util/lib/warning';
+import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
+import { createContainer } from 'unstated-next';
+import type { DensitySize } from './components/ToolBar/DensityIcon';
+import type { ProTableProps } from './index';
+import type { ActionType } from './typing';
+import { genColumnKey } from './utils';
 
 export type ColumnsState = {
   show?: boolean;

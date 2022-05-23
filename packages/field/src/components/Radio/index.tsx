@@ -1,12 +1,11 @@
-﻿import React, { useContext, useImperativeHandle, useRef } from 'react';
-import type { RadioGroupProps } from 'antd';
-import { Radio, ConfigProvider, Spin } from 'antd';
+﻿import type { RadioGroupProps } from 'antd';
+import { ConfigProvider, Radio, Spin } from 'antd';
 import classNames from 'classnames';
+import React, { useContext, useImperativeHandle, useRef } from 'react';
 import type { ProFieldFC } from '../../index';
-
-import './index.less';
 import type { FieldSelectProps } from '../Select';
 import { ObjToMap, proFieldParsingText, useFieldFetchData } from '../Select';
+import './index.less';
 
 export type GroupProps = {
   options?: RadioGroupProps['options'];

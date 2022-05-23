@@ -6,7 +6,7 @@
   ],
   "scripts": {
     "bootstrap": "node ./scripts/bootstrap.js",
-    "build": "npm run build-lib && webpack && node ./scripts/gen_less_entry.js",
+    "build": "node ./scripts/gen_version.js && npm run build-lib && webpack && node ./scripts/gen_less_entry.js",
     "build-lib": "cross-env BUILD_TYPE=lib father-build && cross-env BUILD_TYPE=es father-build",
     "changelog": "node ./scripts/changelogs.js",
     "check-deps": "node ./scripts/checkDeps.js",
@@ -18,14 +18,16 @@
     "prettier": "prettier --write \"**/**.{js,jsx,tsx,ts,less,md,json}\" --loglevel warn",
     "release": "npm run test && node ./scripts/release.js",
     "site": "node ./scripts/preDeploy && cross-env SITE_DEPLOY='TRUE' dumi build",
-    "start": "dumi dev",
+    "start": "node ./scripts/gen_version.js && dumi dev",
     "sync:tnpm": "node -e 'require(\"./scripts/syncTNPM\")()'",
-    "test": "jest",
-    "test:coverage": "jest --coverage",
-    "test:update": "jest --updateSnapshot",
+    "test": "node ./scripts/gen_version.js && jest",
+    "test:coverage": "node ./scripts/gen_version.js && jest --coverage",
+    "test:update": "node ./scripts/gen_version.js && jest --updateSnapshot",
     "tsc": "tsc --noEmit",
     "tsc:duplicate": "tsc -p ./tests/tsconfig.duplicate.json",
-    "update:deps": "yarn upgrade-interactive --latest"
+    "update:deps": "yarn upgrade-interactive --latest",
+    "webpack": "webpack",
+    "version": "node ./scripts/gen_version.js"
   },
   "browserslist": [
     "last 2 versions",
@@ -37,10 +39,13 @@
     "@types/react": "^18.0.0",
     "@types/react-dom": "^18.0.0",
     "prettier": "2.x",
-    "typescript": "4.x",
     "rc-menu": "^9.3.1",
     "react": "^18.0.0",
-    "react-dom": "^18.0.0"
+    "react-dom": "^18.0.0",
+    "typescript": "4.x"
+  },
+  "dependencies": {
+    "prettier-plugin-packagejson": "^2.2.18"
   },
   "devDependencies": {
     "@ant-design/icons": "^4.6.2",
@@ -73,7 +78,7 @@
     "@types/warning": "^3.0.0",
     "@types/xhr-mock": "^2.0.0",
     "@umijs/babel-preset-umi": "^3.0.14",
-    "@umijs/doctor": "^0.0.16",
+    "@umijs/doctor": "^0.1.0",
     "@umijs/fabric": "^2.6.2",
     "@umijs/plugin-analytics": "^0.2.2",
     "@umijs/plugin-antd": "^0.9.0",
@@ -118,6 +123,8 @@
     "octokit": "^1.7.1",
     "pify": "^5.0.0",
     "prettier": "^2.2.1",
+    "prettier-plugin-organize-imports": "^2.3.4",
+    "prettier-plugin-packagejson": "^2.2.18",
     "pretty-quick": "^3.0.1",
     "progress-bar-webpack-plugin": "^2.1.0",
     "query-string": "^6.13.6",

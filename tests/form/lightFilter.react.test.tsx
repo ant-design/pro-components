@@ -1,10 +1,10 @@
-import React from 'react';
-import { LightFilter, QueryFilter, ProFormText } from '@ant-design/pro-form';
-import { act } from 'react-dom/test-utils';
-import { render, cleanup, fireEvent } from '@testing-library/react';
+import { LightFilter, ProFormText, QueryFilter } from '@ant-design/pro-form';
 import '@testing-library/jest-dom';
-import { waitTime } from '../util';
+import { cleanup, fireEvent, render } from '@testing-library/react';
 import { _el, _rs } from 'rc-resize-observer/lib/utils/observerUtil';
+import React from 'react';
+import { act } from 'react-dom/test-utils';
+import { waitTime } from '../util';
 
 describe('✔️ ProFormLightFilter', () => {
   afterEach(() => {

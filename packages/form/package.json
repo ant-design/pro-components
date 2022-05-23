@@ -1,15 +1,12 @@
 {
   "name": "@ant-design/pro-form",
-  "version": "1.67.1",
+  "version": "1.68.2",
   "description": "@ant-design/pro-form",
   "keywords": [
     "antd",
     "admin",
     "ant-design",
     "ant-design-pro"
-  ],
-  "sideEffects": [
-    "*.less"
   ],
   "homepage": "https://github.com/ant-design/pro-components/tree/master/packages/form#readme",
   "bugs": "https://github.com/ant-design/pro-components/issues",
@@ -18,6 +15,9 @@
     "url": "https://github.com/ant-design/pro-components"
   },
   "license": "MIT",
+  "sideEffects": [
+    "*.less"
+  ],
   "main": "lib/index.js",
   "module": "es/index.js",
   "types": "lib/index.d.ts",
@@ -34,9 +34,9 @@
   ],
   "dependencies": {
     "@ant-design/icons": "^4.2.1",
-    "@ant-design/pro-field": "1.34.8",
-    "@ant-design/pro-provider": "1.6.4",
-    "@ant-design/pro-utils": "1.41.0",
+    "@ant-design/pro-field": "1.34.13",
+    "@ant-design/pro-provider": "1.7.1",
+    "@ant-design/pro-utils": "1.41.4",
     "@babel/runtime": "^7.16.3",
     "@umijs/use-params": "^1.0.9",
     "classnames": "^2.2.6",
@@ -48,7 +48,7 @@
     "use-media-antd-query": "^1.0.6"
   },
   "peerDependencies": {
-    "antd": ">=4.18.0",
+    "antd": ">=4.20.0",
     "rc-field-form": "^1.22.0",
     "react": ">=16.9.0",
     "react-dom": ">=16.9.0"

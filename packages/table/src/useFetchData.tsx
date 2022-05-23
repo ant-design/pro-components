@@ -1,13 +1,13 @@
-import { useRef, useEffect, useLayoutEffect } from 'react';
 import {
-  usePrevious,
+  runFunction,
   useDebounceFn,
   useDeepCompareEffect,
   useMountMergeState,
-  runFunction,
+  usePrevious,
   useRefFunction,
 } from '@ant-design/pro-utils';
-import type { PageInfo, RequestData, UseFetchProps, UseFetchDataAction } from './typing';
+import { useEffect, useLayoutEffect, useRef } from 'react';
+import type { PageInfo, RequestData, UseFetchDataAction, UseFetchProps } from './typing';
 import { postDataPipeline } from './utils/index';
 
 /**

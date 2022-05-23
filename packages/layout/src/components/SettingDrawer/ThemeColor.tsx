@@ -1,10 +1,8 @@
-import { css, cx } from '../../emotion';
-
 import { CheckOutlined } from '@ant-design/icons';
-
 import { Tooltip } from 'antd';
-
 import React from 'react';
+import { css, cx } from '../../emotion';
+import './ThemeColor.less';
 
 export type TagProps = {
   color: string;

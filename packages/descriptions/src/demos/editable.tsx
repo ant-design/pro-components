@@ -1,7 +1,6 @@
-import React, { useRef } from 'react';
+import { ProDescriptions } from '@ant-design/pro-components';
 import { Input, Tooltip } from 'antd';
-
-import ProDescriptions from '@ant-design/pro-descriptions';
+import React, { useRef } from 'react';
 
 export default () => {
   const actionRef = useRef();

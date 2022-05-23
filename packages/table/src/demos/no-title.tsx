@@ -1,8 +1,8 @@
-import { Popconfirm, Space, Menu, Dropdown } from 'antd';
-import React from 'react';
-import type { ProColumns } from '@ant-design/pro-table';
-import ProTable from '@ant-design/pro-table';
 import { DownOutlined } from '@ant-design/icons';
+import type { ProColumns } from '@ant-design/pro-components';
+import { ProTable } from '@ant-design/pro-components';
+import { Dropdown, Menu, Popconfirm, Space } from 'antd';
+import React from 'react';
 
 export type Member = {
   avatar: string;

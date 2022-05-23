@@ -2,9 +2,9 @@
  * title: 不同尺寸
  */
 
-import React, { useState } from 'react';
+import { CheckCard } from '@ant-design/pro-components';
 import { Radio } from 'antd';
-import { CheckCard } from '@ant-design/pro-card';
+import React, { useState } from 'react';
 
 export default () => {
   const [size, setSize] = useState('default' as 'default');

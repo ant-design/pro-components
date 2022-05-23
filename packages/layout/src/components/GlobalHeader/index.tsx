@@ -1,18 +1,18 @@
-import React, { useContext } from 'react';
+import type { AvatarProps } from 'antd';
+import { ConfigProvider } from 'antd';
 import classNames from 'classnames';
-import type { HeaderViewProps } from '../../Header';
-import type { SiderMenuProps, PrivateSiderMenuProps } from '../SiderMenu/SiderMenu';
-import { renderLogoAndTitle } from '../SiderMenu/SiderMenu';
+import React, { useContext } from 'react';
 import type { PureSettings } from '../../defaultSettings';
-import { TopNavHeader, RightContent } from '../TopNavHeader';
+import { css, cx } from '../../emotion';
+import type { HeaderViewProps } from '../../Header';
 import type { MenuDataItem } from '../../index';
+import { ProLayoutContext } from '../../ProLayoutContext';
 import type { WithFalse } from '../../typings';
 import { clearMenuItem } from '../../utils/utils';
 import { AppsLogoComponents, defaultRenderLogo } from '../AppsLogoComponents';
-import { css, cx } from '../../emotion';
-import type { AvatarProps } from 'antd';
-import { ProLayoutContext } from '../../ProLayoutContext';
-import { ConfigProvider } from 'antd';
+import type { PrivateSiderMenuProps, SiderMenuProps } from '../SiderMenu/SiderMenu';
+import { renderLogoAndTitle } from '../SiderMenu/SiderMenu';
+import { RightContent, TopNavHeader } from '../TopNavHeader';
 
 export type GlobalHeaderProps = {
   collapsed?: boolean;

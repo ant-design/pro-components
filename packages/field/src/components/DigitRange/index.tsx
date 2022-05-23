@@ -1,6 +1,6 @@
-import React from 'react';
-import { InputNumber, Input } from 'antd';
+import { Input, InputNumber } from 'antd';
 import useMergedState from 'rc-util/lib/hooks/useMergedState';
+import React from 'react';
 import type { ProFieldFC } from '../../index';
 
 export type Value = string | number | undefined;

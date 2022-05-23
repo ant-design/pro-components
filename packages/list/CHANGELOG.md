@@ -2,6 +2,28 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.21.64](https://github.com/ant-design/pro-components/compare/@ant-design/pro-list@1.21.63...@ant-design/pro-list@1.21.64) (2022-05-20)
+
+**Note:** Version bump only for package @ant-design/pro-list
+
+## [1.21.63](https://github.com/ant-design/pro-components/compare/@ant-design/pro-list@1.21.62...@ant-design/pro-list@1.21.63) (2022-05-20)
+
+**Note:** Version bump only for package @ant-design/pro-list
+
+## [1.21.62](https://github.com/ant-design/pro-components/compare/@ant-design/pro-list@1.21.61...@ant-design/pro-list@1.21.62) (2022-05-16)
+
+**Note:** Version bump only for package @ant-design/pro-list
+
+## [1.21.61](https://github.com/ant-design/pro-components/compare/@ant-design/pro-list@1.21.60...@ant-design/pro-list@1.21.61) (2022-05-12)
+
+**Note:** Version bump only for package @ant-design/pro-list
+
+## [1.21.60](https://github.com/ant-design/pro-components/compare/@ant-design/pro-list@1.21.59...@ant-design/pro-list@1.21.60) (2022-05-12)
+
+### Bug Fixes
+
+- **table:** use menu.items render menu.item ([6f32179](https://github.com/ant-design/pro-components/commit/6f32179c6f411ac77fb743294d9d7838fa4bfc04))
+
 ## [1.21.59](https://github.com/ant-design/pro-components/compare/@ant-design/pro-list@1.21.58...@ant-design/pro-list@1.21.59) (2022-05-09)
 
 **Note:** Version bump only for package @ant-design/pro-list

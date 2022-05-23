@@ -3,13 +3,12 @@ import type { ButtonProps, FormInstance } from 'antd';
 import { Spin, Tooltip } from 'antd';
 import type { FormListFieldData, FormListOperation, FormListProps } from 'antd/lib/form/FormList';
 import toArray from 'rc-util/lib/Children/toArray';
+import set from 'rc-util/lib/utils/set';
 import { noteOnce } from 'rc-util/lib/warning';
-import React from 'react';
 import type { ReactNode } from 'react';
-import { useContext, useEffect, useMemo, useRef, useState } from 'react';
+import React, { useContext, useEffect, useMemo, useRef, useState } from 'react';
 import { FormListContext } from '.';
 import { useGridHelpers } from '../../helpers';
-import set from 'rc-util/lib/utils/set';
 
 export type ChildrenItemFunction = (
   /**

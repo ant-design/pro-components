@@ -1,11 +1,11 @@
-import React from 'react';
+import { FullscreenOutlined, SettingOutlined } from '@ant-design/icons';
 import ProTable, { ListToolBar } from '@ant-design/pro-table';
-import { SettingOutlined, FullscreenOutlined } from '@ant-design/icons';
+import '@testing-library/jest-dom';
+import { fireEvent, render } from '@testing-library/react';
 import { Button, Input } from 'antd';
+import React from 'react';
 import { act } from 'react-dom/test-utils';
 import { waitForComponentToPaint } from '../util';
-import { fireEvent, render } from '@testing-library/react';
-import '@testing-library/jest-dom';
 
 describe('Table valueEnum', () => {
   it('ListToolBar onAction', async () => {

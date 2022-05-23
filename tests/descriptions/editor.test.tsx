@@ -1,14 +1,14 @@
-import React, { useRef } from 'react';
-import { InputNumber, Form } from 'antd';
-import type { RowEditableConfig } from '@ant-design/pro-utils';
-import useMergedState from 'rc-util/lib/hooks/useMergedState';
 import type {
   ProDescriptionsActionType,
   ProDescriptionsItemProps,
 } from '@ant-design/pro-descriptions';
 import Descriptions from '@ant-design/pro-descriptions';
+import type { RowEditableConfig } from '@ant-design/pro-utils';
+import { act, fireEvent, render } from '@testing-library/react';
+import { Form, InputNumber } from 'antd';
+import useMergedState from 'rc-util/lib/hooks/useMergedState';
+import React, { useRef } from 'react';
 import { waitForComponentToPaint } from '../util';
-import { fireEvent, act, render } from '@testing-library/react';
 
 type DataSourceType = {
   id: number;

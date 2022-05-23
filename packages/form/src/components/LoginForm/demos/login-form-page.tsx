@@ -1,13 +1,18 @@
-import { LoginFormPage, ProFormText, ProFormCaptcha, ProFormCheckbox } from '@ant-design/pro-form';
 import {
-  UserOutlined,
-  MobileOutlined,
-  LockOutlined,
   AlipayOutlined,
-  WeiboOutlined,
+  LockOutlined,
+  MobileOutlined,
   TaobaoOutlined,
+  UserOutlined,
+  WeiboOutlined,
 } from '@ant-design/icons';
-import { message, Divider, Tabs, Space, Button } from 'antd';
+import {
+  LoginFormPage,
+  ProFormCaptcha,
+  ProFormCheckbox,
+  ProFormText,
+} from '@ant-design/pro-components';
+import { Button, Divider, message, Space, Tabs } from 'antd';
 import type { CSSProperties } from 'react';
 import { useState } from 'react';
 

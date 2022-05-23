@@ -1,12 +1,12 @@
-import React from 'react';
-import type { RadioProps, RadioGroupProps } from 'antd';
-import { Radio } from 'antd';
-import ProField from '../Field';
 import { runFunction } from '@ant-design/pro-utils';
-import type { ProFormFieldItemProps, ProFormFieldRemoteProps } from '../../interface';
+import type { RadioGroupProps, RadioProps } from 'antd';
+import { Radio } from 'antd';
+import React from 'react';
 import { createField } from '../../BaseForm/createField';
+import type { ProFormFieldItemProps, ProFormFieldRemoteProps } from '../../interface';
+import ProField from '../Field';
 
-export type ProFormRadioGroupProps = ProFormFieldItemProps<RadioGroupProps> & {
+export type ProFormRadioGroupProps = ProFormFieldItemProps<RadioGroupProps, HTMLDivElement> & {
   layout?: 'horizontal' | 'vertical';
   radioType?: 'button' | 'radio';
   options?: RadioGroupProps['options'];

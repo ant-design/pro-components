@@ -1,19 +1,19 @@
-﻿import React, { useMemo, useContext, useCallback, useState } from 'react';
-import {
-  pickProFormItemProps,
-  omitUndefined,
-  usePrevious,
+﻿import {
   isDeepEqualReact,
+  omitUndefined,
+  pickProFormItemProps,
+  usePrevious,
 } from '@ant-design/pro-utils';
-import classnames from 'classnames';
-import { noteOnce } from 'rc-util/lib/warning';
-import { stringify } from 'use-json-comparison';
-import FieldContext from '../FieldContext';
-import type { ExtendsProps, ProFormFieldItemProps, ProFormItemCreateConfig } from '../interface';
-import { ProFormItem, ProFormDependency } from '../components';
-import { FieldContext as RcFieldContext } from 'rc-field-form';
 import type { FormItemProps } from 'antd';
+import classnames from 'classnames';
+import { FieldContext as RcFieldContext } from 'rc-field-form';
+import { noteOnce } from 'rc-util/lib/warning';
+import React, { useCallback, useContext, useMemo, useState } from 'react';
+import { stringify } from 'use-json-comparison';
+import { ProFormDependency, ProFormItem } from '../components';
+import FieldContext from '../FieldContext';
 import { useGridHelpers } from '../helpers';
+import type { ExtendsProps, ProFormFieldItemProps, ProFormItemCreateConfig } from '../interface';
 
 export const TYPE = Symbol('ProFormComponent');
 

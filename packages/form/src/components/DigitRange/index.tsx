@@ -1,7 +1,7 @@
-import React from 'react';
 import type { InputNumberProps } from 'antd';
-import ProFormField from '../Field';
+import React from 'react';
 import type { ProFormFieldItemProps } from '../../interface';
+import ProFormField from '../Field';
 
 export type Value = string | number | undefined;
 

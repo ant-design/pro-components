@@ -1,12 +1,11 @@
-import type H from 'history';
 import type { BreadcrumbProps as AntdBreadcrumbProps } from 'antd';
-import React from 'react';
+import type H from 'history';
 import pathToRegexp from 'path-to-regexp';
-
+import React from 'react';
 import type { ProSettings } from '../defaultSettings';
+import type { ProLayoutProps } from '../ProLayout';
 import type { MenuDataItem, MessageDescriptor, WithFalse } from '../typings';
 import { urlToList } from './pathTools';
-import type { ProLayoutProps } from '../ProLayout';
 
 export type BreadcrumbProps = {
   breadcrumbList?: { title: string; href: string }[];

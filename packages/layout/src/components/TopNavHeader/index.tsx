@@ -1,15 +1,14 @@
-import React, { useRef, useState, useMemo, useContext } from 'react';
-import ResizeObserver from 'rc-resize-observer';
-import type { SiderMenuProps, PrivateSiderMenuProps } from '../SiderMenu/SiderMenu';
-import { renderLogoAndTitle } from '../SiderMenu/SiderMenu';
-
-import { BaseMenu } from '../SiderMenu/BaseMenu';
-import type { GlobalHeaderProps } from '../GlobalHeader';
-import { Avatar, ConfigProvider } from 'antd';
-import { AppsLogoComponents } from '../AppsLogoComponents';
-import { css, cx } from '../../emotion';
 import { useDebounceFn } from '@ant-design/pro-utils';
+import { Avatar, ConfigProvider } from 'antd';
+import ResizeObserver from 'rc-resize-observer';
+import React, { useContext, useMemo, useRef, useState } from 'react';
+import { css, cx } from '../../emotion';
 import { ProLayoutContext } from '../../ProLayoutContext';
+import { AppsLogoComponents } from '../AppsLogoComponents';
+import type { GlobalHeaderProps } from '../GlobalHeader';
+import { BaseMenu } from '../SiderMenu/BaseMenu';
+import type { PrivateSiderMenuProps, SiderMenuProps } from '../SiderMenu/SiderMenu';
+import { renderLogoAndTitle } from '../SiderMenu/SiderMenu';
 
 export type TopNavHeaderProps = SiderMenuProps & GlobalHeaderProps & PrivateSiderMenuProps;
 

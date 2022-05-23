@@ -1,24 +1,25 @@
 ﻿/* eslint-disable no-param-reassign */
-import React, { useState } from 'react';
-import ProForm, {
-  ProFormList,
-  ProFormDependency,
-  ProFormSwitch,
-  ProFormText,
-  ProFormSelect,
-  ProFormField,
-} from '@ant-design/pro-form';
-import ProCard from '@ant-design/pro-card';
 import {
+  CopyOutlined,
+  DeleteOutlined,
   HeartOutlined,
   HomeOutlined,
+  PlusOutlined,
   SettingFilled,
   SmileOutlined,
   SyncOutlined,
-  PlusOutlined,
-  DeleteOutlined,
-  CopyOutlined,
 } from '@ant-design/icons';
+import {
+  ProCard,
+  ProForm,
+  ProFormDependency,
+  ProFormField,
+  ProFormList,
+  ProFormSelect,
+  ProFormSwitch,
+  ProFormText,
+} from '@ant-design/pro-components';
+import React, { useState } from 'react';
 
 const IconMap = {
   PlusOutlined,

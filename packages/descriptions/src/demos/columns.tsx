@@ -1,6 +1,5 @@
+import { ProDescriptions } from '@ant-design/pro-components';
 import React from 'react';
-
-import ProDescriptions from '@ant-design/pro-descriptions';
 
 export default () => {
   return (

@@ -1,13 +1,13 @@
-import React, { useContext, useMemo } from 'react';
-import { List, Avatar, Skeleton, ConfigProvider } from 'antd';
+import { RightOutlined } from '@ant-design/icons';
 import type { ProCardProps } from '@ant-design/pro-card';
-import type { GetComponentProps } from './index';
 import ProCard from '@ant-design/pro-card';
-import useMergedState from 'rc-util/lib/hooks/useMergedState';
+import { Avatar, ConfigProvider, List, Skeleton } from 'antd';
 import type { ListGridType } from 'antd/lib/list';
 import type { ExpandableConfig } from 'antd/lib/table/interface';
-import { RightOutlined } from '@ant-design/icons';
 import classNames from 'classnames';
+import useMergedState from 'rc-util/lib/hooks/useMergedState';
+import React, { useContext, useMemo } from 'react';
+import type { GetComponentProps } from './index';
 
 export type RenderExpandIconProps<RecordType> = {
   prefixCls: string;

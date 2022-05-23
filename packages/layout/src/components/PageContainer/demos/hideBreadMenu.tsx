@@ -1,7 +1,7 @@
-import React from 'react';
-import { Descriptions } from 'antd';
+import { ProCard } from '@ant-design/pro-components';
 import { PageContainer } from '@ant-design/pro-layout';
-import ProCard from '@ant-design/pro-card';
+import { Descriptions } from 'antd';
+import React from 'react';
 
 export default () => (
   <div

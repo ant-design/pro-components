@@ -1,14 +1,14 @@
-﻿import { cx } from '../../emotion';
-import { Popover, ConfigProvider } from 'antd';
+﻿import { ConfigProvider, Popover } from 'antd';
 import React, { useContext } from 'react';
+import { cx } from '../../emotion';
+import { ProLayoutContext } from '../../ProLayoutContext';
 import { AppsLogo } from './AppsLogo';
 import {
-  getAppContentLisItem,
-  getAntdPopoverContentListCss,
   appContentListCss,
   appIconsCss,
+  getAntdPopoverContentListCss,
+  getAppContentLisItem,
 } from './css';
-import { ProLayoutContext } from '../../ProLayoutContext';
 
 export type AppsLogoComponentsAppList = {
   title: React.ReactNode;

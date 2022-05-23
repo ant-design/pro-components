@@ -1,10 +1,10 @@
-import type { DatePickerProps } from 'antd';
-import { DatePicker, ConfigProvider } from 'antd';
-import React, { useState, useContext } from 'react';
-import moment from 'moment';
 import { useIntl } from '@ant-design/pro-provider';
 import { FieldLabel, parseValueToMoment } from '@ant-design/pro-utils';
-import type { ProFieldFC } from '../../index';
+import type { DatePickerProps } from 'antd';
+import { ConfigProvider, DatePicker } from 'antd';
+import moment from 'moment';
+import React, { useContext, useState } from 'react';
+import type { ProFieldFC, ProFieldLightProps } from '../../index';
 import './index.less';
 
 /**
@@ -12,13 +12,15 @@ import './index.less';
  *
  * @param
  */
-const FieldDatePicker: ProFieldFC<{
-  text: string | number;
-  format: string;
-  showTime?: boolean;
-  bordered?: boolean;
-  picker?: DatePickerProps['picker'];
-}> = (
+const FieldDatePicker: ProFieldFC<
+  {
+    text: string | number;
+    format: string;
+    showTime?: boolean;
+    bordered?: boolean;
+    picker?: DatePickerProps['picker'];
+  } & ProFieldLightProps
+> = (
   {
     text,
     mode,
@@ -32,6 +34,8 @@ const FieldDatePicker: ProFieldFC<{
     fieldProps,
     picker,
     bordered,
+    lightLabel,
+    labelTrigger,
   },
   ref,
 ) => {
@@ -65,8 +69,17 @@ const FieldDatePicker: ProFieldFC<{
       dom = (
         <div
           className={`${prefixCls}-light`}
-          onClick={() => {
-            setOpen(true);
+          onClick={(e) => {
+            // 点击label切换下拉菜单
+            const isLabelClick = lightLabel?.current?.labelRef?.current?.contains(
+              e.target as HTMLElement,
+            );
+
+            if (isLabelClick) {
+              setOpen(!open);
+            } else {
+              setOpen(true);
+            }
           }}
         >
           <DatePicker
@@ -82,7 +95,11 @@ const FieldDatePicker: ProFieldFC<{
                 setOpen(false);
               }, 0);
             }}
-            onOpenChange={setOpen}
+            onOpenChange={(isOpen) => {
+              if (!labelTrigger) {
+                setOpen(isOpen);
+              }
+            }}
             open={open}
           />
           <FieldLabel
@@ -97,6 +114,7 @@ const FieldDatePicker: ProFieldFC<{
             allowClear={allowClear}
             bordered={bordered}
             expanded={open}
+            ref={lightLabel}
           />
         </div>
       );
@@ -121,5 +139,4 @@ const FieldDatePicker: ProFieldFC<{
   }
   return null;
 };
-
 export default React.forwardRef(FieldDatePicker);

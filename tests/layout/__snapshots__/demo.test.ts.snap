@@ -1918,28 +1918,34 @@ exports[`layout demos 📸 renders ./packages/layout/src/components/WaterMark/de
                             <td
                               class="ant-table-cell"
                             >
-                              <span
-                                class="ant-badge ant-badge-status ant-badge-not-a-wrapper"
-                              >
+                              <div>
                                 <span
-                                  class="ant-badge-status-dot ant-badge-status-default"
-                                />
-                                <span
-                                  class="ant-badge-status-text"
+                                  class="ant-badge ant-badge-status ant-badge-not-a-wrapper"
                                 >
-                                  关闭
+                                  <span
+                                    class="ant-badge-status-dot ant-badge-status-default"
+                                  />
+                                  <span
+                                    class="ant-badge-status-text"
+                                  >
+                                    关闭
+                                  </span>
                                 </span>
-                              </span>
+                              </div>
                             </td>
                             <td
                               class="ant-table-cell"
                             >
-                              兼某某
+                              <div>
+                                兼某某
+                              </div>
                             </td>
                             <td
                               class="ant-table-cell"
                             >
-                              2016-11-21
+                              <div>
+                                2016-11-21
+                              </div>
                             </td>
                             <td
                               class="ant-table-cell ant-table-cell-ellipsis"
@@ -2104,28 +2110,34 @@ exports[`layout demos 📸 renders ./packages/layout/src/components/WaterMark/de
                             <td
                               class="ant-table-cell"
                             >
-                              <span
-                                class="ant-badge ant-badge-status ant-badge-not-a-wrapper"
-                              >
+                              <div>
                                 <span
-                                  class="ant-badge-status-dot ant-badge-status-default"
-                                />
-                                <span
-                                  class="ant-badge-status-text"
+                                  class="ant-badge ant-badge-status ant-badge-not-a-wrapper"
                                 >
-                                  关闭
+                                  <span
+                                    class="ant-badge-status-dot ant-badge-status-default"
+                                  />
+                                  <span
+                                    class="ant-badge-status-text"
+                                  >
+                                    关闭
+                                  </span>
                                 </span>
-                              </span>
+                              </div>
                             </td>
                             <td
                               class="ant-table-cell"
                             >
-                              兼某某
+                              <div>
+                                兼某某
+                              </div>
                             </td>
                             <td
                               class="ant-table-cell"
                             >
-                              2016-11-21
+                              <div>
+                                2016-11-21
+                              </div>
                             </td>
                             <td
                               class="ant-table-cell ant-table-cell-ellipsis"
@@ -2290,28 +2302,34 @@ exports[`layout demos 📸 renders ./packages/layout/src/components/WaterMark/de
                             <td
                               class="ant-table-cell"
                             >
-                              <span
-                                class="ant-badge ant-badge-status ant-badge-not-a-wrapper"
-                              >
+                              <div>
                                 <span
-                                  class="ant-badge-status-dot ant-badge-status-default"
-                                />
-                                <span
-                                  class="ant-badge-status-text"
+                                  class="ant-badge ant-badge-status ant-badge-not-a-wrapper"
                                 >
-                                  关闭
+                                  <span
+                                    class="ant-badge-status-dot ant-badge-status-default"
+                                  />
+                                  <span
+                                    class="ant-badge-status-text"
+                                  >
+                                    关闭
+                                  </span>
                                 </span>
-                              </span>
+                              </div>
                             </td>
                             <td
                               class="ant-table-cell"
                             >
-                              兼某某
+                              <div>
+                                兼某某
+                              </div>
                             </td>
                             <td
                               class="ant-table-cell"
                             >
-                              2016-11-21
+                              <div>
+                                2016-11-21
+                              </div>
                             </td>
                             <td
                               class="ant-table-cell ant-table-cell-ellipsis"
@@ -2476,28 +2494,34 @@ exports[`layout demos 📸 renders ./packages/layout/src/components/WaterMark/de
                             <td
                               class="ant-table-cell"
                             >
-                              <span
-                                class="ant-badge ant-badge-status ant-badge-not-a-wrapper"
-                              >
+                              <div>
                                 <span
-                                  class="ant-badge-status-dot ant-badge-status-default"
-                                />
-                                <span
-                                  class="ant-badge-status-text"
+                                  class="ant-badge ant-badge-status ant-badge-not-a-wrapper"
                                 >
-                                  关闭
+                                  <span
+                                    class="ant-badge-status-dot ant-badge-status-default"
+                                  />
+                                  <span
+                                    class="ant-badge-status-text"
+                                  >
+                                    关闭
+                                  </span>
                                 </span>
-                              </span>
+                              </div>
                             </td>
                             <td
                               class="ant-table-cell"
                             >
-                              兼某某
+                              <div>
+                                兼某某
+                              </div>
                             </td>
                             <td
                               class="ant-table-cell"
                             >
-                              2016-11-21
+                              <div>
+                                2016-11-21
+                              </div>
                             </td>
                             <td
                               class="ant-table-cell ant-table-cell-ellipsis"
@@ -2662,28 +2686,34 @@ exports[`layout demos 📸 renders ./packages/layout/src/components/WaterMark/de
                             <td
                               class="ant-table-cell"
                             >
-                              <span
-                                class="ant-badge ant-badge-status ant-badge-not-a-wrapper"
-                              >
+                              <div>
                                 <span
-                                  class="ant-badge-status-dot ant-badge-status-default"
-                                />
-                                <span
-                                  class="ant-badge-status-text"
+                                  class="ant-badge ant-badge-status ant-badge-not-a-wrapper"
                                 >
-                                  关闭
+                                  <span
+                                    class="ant-badge-status-dot ant-badge-status-default"
+                                  />
+                                  <span
+                                    class="ant-badge-status-text"
+                                  >
+                                    关闭
+                                  </span>
                                 </span>
-                              </span>
+                              </div>
                             </td>
                             <td
                               class="ant-table-cell"
                             >
-                              兼某某
+                              <div>
+                                兼某某
+                              </div>
                             </td>
                             <td
                               class="ant-table-cell"
                             >
-                              2016-11-21
+                              <div>
+                                2016-11-21
+                              </div>
                             </td>
                             <td
                               class="ant-table-cell ant-table-cell-ellipsis"
@@ -2848,28 +2878,34 @@ exports[`layout demos 📸 renders ./packages/layout/src/components/WaterMark/de
                             <td
                               class="ant-table-cell"
                             >
-                              <span
-                                class="ant-badge ant-badge-status ant-badge-not-a-wrapper"
-                              >
+                              <div>
                                 <span
-                                  class="ant-badge-status-dot ant-badge-status-default"
-                                />
-                                <span
-                                  class="ant-badge-status-text"
+                                  class="ant-badge ant-badge-status ant-badge-not-a-wrapper"
                                 >
-                                  关闭
+                                  <span
+                                    class="ant-badge-status-dot ant-badge-status-default"
+                                  />
+                                  <span
+                                    class="ant-badge-status-text"
+                                  >
+                                    关闭
+                                  </span>
                                 </span>
-                              </span>
+                              </div>
                             </td>
                             <td
                               class="ant-table-cell"
                             >
-                              兼某某
+                              <div>
+                                兼某某
+                              </div>
                             </td>
                             <td
                               class="ant-table-cell"
                             >
-                              2016-11-21
+                              <div>
+                                2016-11-21
+                              </div>
                             </td>
                             <td
                               class="ant-table-cell ant-table-cell-ellipsis"
@@ -3034,28 +3070,34 @@ exports[`layout demos 📸 renders ./packages/layout/src/components/WaterMark/de
                             <td
                               class="ant-table-cell"
                             >
-                              <span
-                                class="ant-badge ant-badge-status ant-badge-not-a-wrapper"
-                              >
+                              <div>
                                 <span
-                                  class="ant-badge-status-dot ant-badge-status-default"
-                                />
-                                <span
-                                  class="ant-badge-status-text"
+                                  class="ant-badge ant-badge-status ant-badge-not-a-wrapper"
                                 >
-                                  关闭
+                                  <span
+                                    class="ant-badge-status-dot ant-badge-status-default"
+                                  />
+                                  <span
+                                    class="ant-badge-status-text"
+                                  >
+                                    关闭
+                                  </span>
                                 </span>
-                              </span>
+                              </div>
                             </td>
                             <td
                               class="ant-table-cell"
                             >
-                              兼某某
+                              <div>
+                                兼某某
+                              </div>
                             </td>
                             <td
                               class="ant-table-cell"
                             >
-                              2016-11-21
+                              <div>
+                                2016-11-21
+                              </div>
                             </td>
                             <td
                               class="ant-table-cell ant-table-cell-ellipsis"
@@ -3220,28 +3262,34 @@ exports[`layout demos 📸 renders ./packages/layout/src/components/WaterMark/de
                             <td
                               class="ant-table-cell"
                             >
-                              <span
-                                class="ant-badge ant-badge-status ant-badge-not-a-wrapper"
-                              >
+                              <div>
                                 <span
-                                  class="ant-badge-status-dot ant-badge-status-default"
-                                />
-                                <span
-                                  class="ant-badge-status-text"
+                                  class="ant-badge ant-badge-status ant-badge-not-a-wrapper"
                                 >
-                                  关闭
+                                  <span
+                                    class="ant-badge-status-dot ant-badge-status-default"
+                                  />
+                                  <span
+                                    class="ant-badge-status-text"
+                                  >
+                                    关闭
+                                  </span>
                                 </span>
-                              </span>
+                              </div>
                             </td>
                             <td
                               class="ant-table-cell"
                             >
-                              兼某某
+                              <div>
+                                兼某某
+                              </div>
                             </td>
                             <td
                               class="ant-table-cell"
                             >
-                              2016-11-21
+                              <div>
+                                2016-11-21
+                              </div>
                             </td>
                             <td
                               class="ant-table-cell ant-table-cell-ellipsis"
@@ -3406,28 +3454,34 @@ exports[`layout demos 📸 renders ./packages/layout/src/components/WaterMark/de
                             <td
                               class="ant-table-cell"
                             >
-                              <span
-                                class="ant-badge ant-badge-status ant-badge-not-a-wrapper"
-                              >
+                              <div>
                                 <span
-                                  class="ant-badge-status-dot ant-badge-status-default"
-                                />
-                                <span
-                                  class="ant-badge-status-text"
+                                  class="ant-badge ant-badge-status ant-badge-not-a-wrapper"
                                 >
-                                  关闭
+                                  <span
+                                    class="ant-badge-status-dot ant-badge-status-default"
+                                  />
+                                  <span
+                                    class="ant-badge-status-text"
+                                  >
+                                    关闭
+                                  </span>
                                 </span>
-                              </span>
+                              </div>
                             </td>
                             <td
                               class="ant-table-cell"
                             >
-                              兼某某
+                              <div>
+                                兼某某
+                              </div>
                             </td>
                             <td
                               class="ant-table-cell"
                             >
-                              2016-11-21
+                              <div>
+                                2016-11-21
+                              </div>
                             </td>
                             <td
                               class="ant-table-cell ant-table-cell-ellipsis"
@@ -3592,28 +3646,34 @@ exports[`layout demos 📸 renders ./packages/layout/src/components/WaterMark/de
                             <td
                               class="ant-table-cell"
                             >
-                              <span
-                                class="ant-badge ant-badge-status ant-badge-not-a-wrapper"
-                              >
+                              <div>
                                 <span
-                                  class="ant-badge-status-dot ant-badge-status-default"
-                                />
-                                <span
-                                  class="ant-badge-status-text"
+                                  class="ant-badge ant-badge-status ant-badge-not-a-wrapper"
                                 >
-                                  关闭
+                                  <span
+                                    class="ant-badge-status-dot ant-badge-status-default"
+                                  />
+                                  <span
+                                    class="ant-badge-status-text"
+                                  >
+                                    关闭
+                                  </span>
                                 </span>
-                              </span>
+                              </div>
                             </td>
                             <td
                               class="ant-table-cell"
                             >
-                              兼某某
+                              <div>
+                                兼某某
+                              </div>
                             </td>
                             <td
                               class="ant-table-cell"
                             >
-                              2016-11-21
+                              <div>
+                                2016-11-21
+                              </div>
                             </td>
                             <td
                               class="ant-table-cell ant-table-cell-ellipsis"

@@ -1,15 +1,16 @@
-import React, { useRef } from 'react';
-import { message, TreeSelect } from 'antd';
-import type { ProFormInstance } from '@ant-design/pro-form';
-import { ProFormCascader } from '@ant-design/pro-form';
-import ProForm, {
-  ProFormText,
+import type { ProFormInstance } from '@ant-design/pro-components';
+import {
+  ProForm,
+  ProFormCascader,
   ProFormDateRangePicker,
-  ProFormSelect,
-  ProFormMoney,
   ProFormDigit,
+  ProFormMoney,
+  ProFormSelect,
+  ProFormText,
   ProFormTreeSelect,
-} from '@ant-design/pro-form';
+} from '@ant-design/pro-components';
+import { message, TreeSelect } from 'antd';
+import React, { useRef } from 'react';
 
 const waitTime = (time: number = 100) => {
   return new Promise((resolve) => {
@@ -201,6 +202,7 @@ export default () => {
       <ProFormTreeSelect
         initialValue={['0-0-0']}
         label="树形下拉选择器"
+        width={600}
         request={async () => treeData}
         fieldProps={{
           fieldNames: {

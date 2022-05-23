@@ -1,10 +1,9 @@
+import { ConfigProvider } from 'antd';
 import type { CSSProperties } from 'react';
 import React, { useContext } from 'react';
-import { ConfigProvider } from 'antd';
-
-import { RouteContext } from '../../RouteContext';
 import type { PureSettings } from '../../defaultSettings';
 import { css, cx } from '../../emotion';
+import { RouteContext } from '../../RouteContext';
 
 type GridContentProps = {
   contentWidth?: PureSettings['contentWidth'];

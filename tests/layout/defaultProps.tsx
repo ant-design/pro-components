@@ -1,5 +1,5 @@
+import { ChromeFilled, CrownFilled, SmileFilled, TabletFilled } from '@ant-design/icons';
 import React from 'react';
-import { SmileFilled, CrownFilled, TabletFilled, ChromeFilled } from '@ant-design/icons';
 
 export default {
   route: {

@@ -1,20 +1,18 @@
 import Icon, { createFromIconfontCN } from '@ant-design/icons';
-import { Menu, Skeleton, ConfigProvider } from 'antd';
-import React, { useEffect, useState, useRef, useMemo, useContext } from 'react';
-import { isUrl, isImg, useMountMergeState } from '@ant-design/pro-utils';
-
-import type { MenuTheme, MenuProps } from 'antd';
+import { isImg, isUrl, useMountMergeState } from '@ant-design/pro-utils';
+import type { MenuProps, MenuTheme } from 'antd';
+import { ConfigProvider, Menu, Skeleton } from 'antd';
+import type { ItemType } from 'antd/lib/menu/hooks/useItems';
+import React, { useContext, useEffect, useMemo, useRef, useState } from 'react';
 import type { PureSettings } from '../../defaultSettings';
 import { defaultSettings } from '../../defaultSettings';
-import { getOpenKeysFromMenuData } from '../../utils/utils';
-
-import type { MenuDataItem, MessageDescriptor, Route, RouterTypes, WithFalse } from '../../typings';
-import { MenuCounter } from './Counter';
-import type { PrivateSiderMenuProps } from './SiderMenu';
-import { cx, css } from '../../emotion';
+import { css, cx } from '../../emotion';
 import type { LayoutDesignToken } from '../../ProLayoutContext';
 import { ProLayoutContext } from '../../ProLayoutContext';
-import type { ItemType } from 'antd/lib/menu/hooks/useItems';
+import type { MenuDataItem, MessageDescriptor, Route, RouterTypes, WithFalse } from '../../typings';
+import { getOpenKeysFromMenuData } from '../../utils/utils';
+import { MenuCounter } from './Counter';
+import type { PrivateSiderMenuProps } from './SiderMenu';
 
 // todo
 export type MenuMode = 'vertical' | 'vertical-left' | 'vertical-right' | 'horizontal' | 'inline';

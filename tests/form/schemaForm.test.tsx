@@ -1,11 +1,11 @@
-﻿import React, { createRef } from 'react';
-import { mount } from 'enzyme';
+﻿import type { ProFormColumnsType, ProFormLayoutType } from '@ant-design/pro-form';
 import { BetaSchemaForm } from '@ant-design/pro-form';
-import type { ProFormColumnsType, ProFormLayoutType } from '@ant-design/pro-form';
-import { waitForComponentToPaint } from '../util';
-import { Input } from 'antd';
-import { act } from 'react-dom/test-utils';
+import { act, render } from '@testing-library/react';
 import type { FormInstance } from 'antd';
+import { Input } from 'antd';
+import { mount } from 'enzyme';
+import React, { createRef } from 'react';
+import { waitForComponentToPaint } from '../util';
 
 const columns: ProFormColumnsType<any>[] = [
   {
@@ -595,7 +595,7 @@ describe('SchemaForm', () => {
         ],
       ];
       const formRef = React.createRef<FormInstance>();
-      const wrapper = mount(
+      const wrapper = render(
         <BetaSchemaForm
           visible={true}
           formRef={formRef as any}
@@ -611,7 +611,7 @@ describe('SchemaForm', () => {
           ]}
         />,
       );
-      await waitForComponentToPaint(wrapper);
+      await waitForComponentToPaint(wrapper, 1000);
 
       expect(formRef.current).toBeTruthy();
 
@@ -619,12 +619,15 @@ describe('SchemaForm', () => {
         name: 'Ant Design',
       };
 
+      await waitForComponentToPaint(wrapper, 1000);
+
       formRef.current!.setFieldsValue(value);
 
       expect(formRef.current!.getFieldsValue()).toMatchObject(value);
 
       if (layoutType === 'StepsForm') {
-        wrapper.find('button[type="button"]').simulate('click');
+        const button = await wrapper.findByText('下一步');
+        button?.click();
         await waitForComponentToPaint(wrapper, 1000);
         const stepsValue = {
           next: 'Step 2',

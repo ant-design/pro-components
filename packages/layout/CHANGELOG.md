@@ -2,6 +2,24 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [6.38.4](https://github.com/ant-design/pro-components/compare/@ant-design/pro-layout@6.38.3...@ant-design/pro-layout@6.38.4) (2022-05-20)
+
+**Note:** Version bump only for package @ant-design/pro-layout
+
+## [6.38.3](https://github.com/ant-design/pro-components/compare/@ant-design/pro-layout@6.38.2...@ant-design/pro-layout@6.38.3) (2022-05-20)
+
+**Note:** Version bump only for package @ant-design/pro-layout
+
+## [6.38.2](https://github.com/ant-design/pro-components/compare/@ant-design/pro-layout@6.38.1...@ant-design/pro-layout@6.38.2) (2022-05-12)
+
+**Note:** Version bump only for package @ant-design/pro-layout
+
+## [6.38.1](https://github.com/ant-design/pro-components/compare/@ant-design/pro-layout@6.38.0...@ant-design/pro-layout@6.38.1) (2022-05-12)
+
+### Bug Fixes
+
+- **table:** use menu.items render menu.item ([6f32179](https://github.com/ant-design/pro-components/commit/6f32179c6f411ac77fb743294d9d7838fa4bfc04))
+
 # [6.38.0](https://github.com/ant-design/pro-components/compare/@ant-design/pro-layout@6.36.1...@ant-design/pro-layout@6.38.0) (2022-05-07)
 
 ### Features

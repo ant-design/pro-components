@@ -1,9 +1,10 @@
-﻿import ProForm, {
+﻿import {
+  ProForm,
   ProFormDependency,
   ProFormFieldSet,
   ProFormSelect,
   ProFormText,
-} from '@ant-design/pro-form';
+} from '@ant-design/pro-components';
 import React from 'react';
 
 export default () => {

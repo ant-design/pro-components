@@ -1,8 +1,8 @@
-﻿import React from 'react';
-import { ProFormText, ModalForm } from '@ant-design/pro-form';
-import { Button } from 'antd';
-import { fireEvent, act, render } from '@testing-library/react';
+﻿import { ModalForm, ProFormText } from '@ant-design/pro-form';
 import '@testing-library/jest-dom';
+import { act, fireEvent, render } from '@testing-library/react';
+import { Button } from 'antd';
+import React from 'react';
 import { waitForComponentToPaint, waitTime } from '../util';
 
 describe('ModalForm', () => {

@@ -9,6 +9,26 @@ group:
 
 # Change Log
 
+## @ant-design/pro-form@1.68.1
+
+`2022-05-20`
+
+- fix(form): 解决 ProFormSelect、ProFormDatePicker、ProFormTimePicker 在 LightFilter 模式下点击激活下拉选项后再次点击未隐藏下拉框的问题 (#5169). [#5169](https://github.com/ant-design/pro-components/pull/#5169) [@wangmeijian](https://github.com/wangmeijian)
+
+## @ant-design/pro-form@1.68.0
+
+`2022-05-16`
+
+- feat(form): `FieldProps` add `ref` type (#5209). [#5209](https://github.com/ant-design/pro-components/pull/#5209) [@kungege](https://github.com/kungege)
+- fix(form): fix ProFormTreeSelect style no work error. [cb5dfa5](https://github.com/ant-design/pro-components/commit/cb5dfa5)
+
+## @ant-design/pro-form@1.67.2
+
+`2022-05-12`
+
+- fix(form): fix bgImg color cover style. [fea7f7d](https://github.com/ant-design/pro-components/commit/fea7f7d)
+- fix(form):FormRender 不能自定义 proFieldProps (#5199). [#5199](https://github.com/ant-design/pro-components/pull/#5199) [@ly4236](https://github.com/ly4236)
+
 ## @ant-design/pro-form@1.66.0
 
 `2022-04-29`

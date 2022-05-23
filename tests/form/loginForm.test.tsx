@@ -1,14 +1,14 @@
-import { LoginForm, LoginFormPage, ProFormText } from '@ant-design/pro-form';
-import { mount } from 'enzyme';
-import { waitForComponentToPaint } from '../util';
 import {
   AlipayCircleOutlined,
   TaobaoCircleOutlined,
   UserAddOutlined,
   WeiboCircleOutlined,
 } from '@ant-design/icons';
-import { Alert, Space } from 'antd';
+import { LoginForm, LoginFormPage, ProFormText } from '@ant-design/pro-form';
 import { act, render } from '@testing-library/react';
+import { Alert, Space } from 'antd';
+import { mount } from 'enzyme';
+import { waitForComponentToPaint } from '../util';
 
 describe('LoginForm', () => {
   it('📦 LoginForm should show login message correctly', async () => {

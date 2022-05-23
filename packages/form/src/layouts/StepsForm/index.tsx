@@ -1,25 +1,23 @@
+import { ConfigProviderWrap, useIntl } from '@ant-design/pro-provider';
+import { merge, useRefFunction } from '@ant-design/pro-utils';
+import type { FormInstance, StepsProps } from 'antd';
+import { Button, Col, ConfigProvider, Form, Row, Space, Steps } from 'antd';
+import type { FormProviderProps } from 'antd/lib/form/context';
+import classNames from 'classnames';
+import toArray from 'rc-util/lib/Children/toArray';
+import useMergedState from 'rc-util/lib/hooks/useMergedState';
 import React, {
-  useRef,
   useCallback,
   useContext,
   useImperativeHandle,
   useMemo,
+  useRef,
   useState,
 } from 'react';
-import type { StepsProps, FormInstance } from 'antd';
-import { Col, Row } from 'antd';
-import { Form, Steps, ConfigProvider, Button, Space } from 'antd';
-import toArray from 'rc-util/lib/Children/toArray';
-import type { FormProviderProps } from 'antd/lib/form/context';
-import useMergedState from 'rc-util/lib/hooks/useMergedState';
-import classNames from 'classnames';
-import { ConfigProviderWrap, useIntl } from '@ant-design/pro-provider';
-import { merge, useRefFunction } from '@ant-design/pro-utils';
-
-import type { StepFormProps } from './StepForm';
-import './index.less';
-import type { ProFormProps } from '../ProForm';
 import type { SubmitterProps } from '../../components';
+import type { ProFormProps } from '../ProForm';
+import './index.less';
+import type { StepFormProps } from './StepForm';
 import StepForm from './StepForm';
 
 type StepsFormProps<T = Record<string, any>> = {
@@ -447,6 +445,7 @@ function StepsForm<T = Record<string, any>>(
 }
 
 export type { StepFormProps, StepsFormProps };
+export { StepsFormWarp as StepsForm };
 
 function StepsFormWarp<T = Record<string, any>>(
   props: StepsFormProps<T> & {
@@ -462,5 +461,3 @@ function StepsFormWarp<T = Record<string, any>>(
 
 StepsFormWarp.StepForm = StepForm;
 StepsFormWarp.useForm = Form.useForm;
-
-export { StepsFormWarp as StepsForm };

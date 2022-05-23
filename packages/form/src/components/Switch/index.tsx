@@ -1,9 +1,9 @@
-import React from 'react';
-import ProField from '../Field';
 import type { SwitchProps } from 'antd';
+import React from 'react';
 import type { ProFormFieldItemProps } from '../../interface';
+import ProField from '../Field';
 
-export type ProFormSwitchProps = ProFormFieldItemProps<SwitchProps> & {
+export type ProFormSwitchProps = ProFormFieldItemProps<SwitchProps, HTMLElement> & {
   checkedChildren?: SwitchProps['checkedChildren'];
   unCheckedChildren?: SwitchProps['unCheckedChildren'];
 };

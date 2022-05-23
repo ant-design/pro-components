@@ -1,7 +1,6 @@
+import { useIntl } from '@ant-design/pro-provider';
 import { Input } from 'antd';
 import React, { useEffect, useImperativeHandle, useRef } from 'react';
-import { useIntl } from '@ant-design/pro-provider';
-
 import type { ProFieldFC } from '../../index';
 
 /**

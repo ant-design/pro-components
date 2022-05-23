@@ -26,26 +26,20 @@ ProComponents is focused on middle and backend CRUD and has a lot of pre-defined
 Currently each component of ProComponents is a separate package, you need to install the corresponding npm package in your project and use it.
 
 ```shell
-$ npm i @ant-design/pro-table --save
+$ npm i @ant-design/pro-components --save
 ```
 
 Current ProComponents provides the following components for direct use.
 
-- `npm i @ant-design/pro-form --save`
-- `npm i @ant-design/pro-layout --save`
-- `npm i @ant-design/pro-table --save`
-- `npm i @ant-design/pro-list --save`
-- `npm i @ant-design/pro-descriptions --save`
-- `npm i @ant-design/pro-card --save`
-- `npm i @ant-design/pro-skeleton --save`
+- `npm i @ant-design/pro-components --save`
 
 ## Using in a project
 
 Each package is a separate component package, and is used in the following example.
 
 ```tsx
+import { ProForm, ProFormText } from '@ant-design/pro-components';
 import React from 'react';
-import ProForm, { ProFormText } from '@ant-design/pro-form';
 
 export default () => {
   return (
@@ -63,9 +57,7 @@ export default () => {
 All our packages use less for style management and easy theme customization. If you don't have less-loader you can try to import css from `dist`.
 
 ```tsx | pure
-import '@ant-design/pro-form/dist/form.css';
-import '@ant-design/pro-table/dist/table.css';
-import '@ant-design/pro-layout/dist/layout.css';
+import '@ant-design/pro-components/dist/components.css';
 ```
 
 It is recommended to use less, which allows for easy theme customization and on-demand loading.

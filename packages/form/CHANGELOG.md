@@ -2,6 +2,37 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.68.2](https://github.com/ant-design/pro-components/compare/@ant-design/pro-form@1.68.1...@ant-design/pro-form@1.68.2) (2022-05-20)
+
+**Note:** Version bump only for package @ant-design/pro-form
+
+## [1.68.1](https://github.com/ant-design/pro-components/compare/@ant-design/pro-form@1.68.0...@ant-design/pro-form@1.68.1) (2022-05-20)
+
+### Bug Fixes
+
+- spaceProps.className doesn't work in Form.Group ([8c89b92](https://github.com/ant-design/pro-components/commit/8c89b924e04699d709c4db8e81067728d05ca1c8))
+
+# [1.68.0](https://github.com/ant-design/pro-components/compare/@ant-design/pro-form@1.67.3...@ant-design/pro-form@1.68.0) (2022-05-16)
+
+### Bug Fixes
+
+- **form:** fix ProFormTreeSelect style no work error ([cb5dfa5](https://github.com/ant-design/pro-components/commit/cb5dfa5177e7f5ae12d8ff40f911bd01fdf43c85))
+
+### Features
+
+- **form:** `FieldProps` add `ref` type ([#5209](https://github.com/ant-design/pro-components/issues/5209)) ([de87b58](https://github.com/ant-design/pro-components/commit/de87b5854ae11d878fb4d75356db6a8710af4a68))
+
+## [1.67.3](https://github.com/ant-design/pro-components/compare/@ant-design/pro-form@1.67.2...@ant-design/pro-form@1.67.3) (2022-05-12)
+
+**Note:** Version bump only for package @ant-design/pro-form
+
+## [1.67.2](https://github.com/ant-design/pro-components/compare/@ant-design/pro-form@1.67.1...@ant-design/pro-form@1.67.2) (2022-05-12)
+
+### Bug Fixes
+
+- add alwaysShowItemLabel ([0c0ba50](https://github.com/ant-design/pro-components/commit/0c0ba50c3ac6783df27828de93dacc6acf572c3a))
+- **form:** fix bgImg color cover style ([fea7f7d](https://github.com/ant-design/pro-components/commit/fea7f7d18a7c92c574a5f4944e87a8cb835cfd51))
+
 ## [1.67.1](https://github.com/ant-design/pro-components/compare/@ant-design/pro-form@1.67.0...@ant-design/pro-form@1.67.1) (2022-05-09)
 
 ### Bug Fixes

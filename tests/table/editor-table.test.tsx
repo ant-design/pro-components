@@ -1,9 +1,9 @@
-import React from 'react';
-import { InputNumber } from 'antd';
-import type { ProColumns, EditableFormInstance, ActionType } from '@ant-design/pro-table';
-import { EditableProTable } from '@ant-design/pro-table';
 import ProForm, { ProFormText } from '@ant-design/pro-form';
-import { fireEvent, act, cleanup, render } from '@testing-library/react';
+import type { ActionType, EditableFormInstance, ProColumns } from '@ant-design/pro-table';
+import { EditableProTable } from '@ant-design/pro-table';
+import { act, cleanup, fireEvent, render } from '@testing-library/react';
+import { InputNumber } from 'antd';
+import React from 'react';
 import { waitForComponentToPaint } from '../util';
 
 type DataSourceType = {

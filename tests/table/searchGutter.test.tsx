@@ -1,7 +1,7 @@
+import ProTable from '@ant-design/pro-table';
 import { mount } from 'enzyme';
 import React from 'react';
-import ProTable from '@ant-design/pro-table';
-import { waitForComponentToPaint, waitTime } from '../util';
+import { waitForComponentToPaint } from '../util';
 
 describe('BasicTable SearchGutter', () => {
   const LINE_STR_COUNT = 20;

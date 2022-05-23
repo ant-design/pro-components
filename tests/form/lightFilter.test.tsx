@@ -1,22 +1,22 @@
-import { mount } from 'enzyme';
-import React from 'react';
 import {
   LightFilter,
-  ProFormText,
   ProFormDatePicker,
-  ProFormSelect,
   ProFormDateRangePicker,
   ProFormDateTimePicker,
-  ProFormTimePicker,
   ProFormRadio,
+  ProFormSelect,
   ProFormSlider,
+  ProFormText,
+  ProFormTimePicker,
 } from '@ant-design/pro-form';
+import '@testing-library/jest-dom';
+import { render } from '@testing-library/react';
+import { mount } from 'enzyme';
+import moment from 'moment';
 import KeyCode from 'rc-util/lib/KeyCode';
+import React from 'react';
 import { act } from 'react-dom/test-utils';
 import { waitForComponentToPaint } from '../util';
-import { render } from '@testing-library/react';
-import moment from 'moment';
-import '@testing-library/jest-dom';
 
 describe('LightFilter', () => {
   it(' 🪕 basic use', async () => {

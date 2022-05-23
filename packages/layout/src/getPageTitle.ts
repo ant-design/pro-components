@@ -1,6 +1,6 @@
 import pathToRegexp from 'path-to-regexp';
-import type { MenuDataItem } from './typings';
 import type { ProSettings } from './defaultSettings';
+import type { MenuDataItem } from './typings';
 
 export const matchParamsPath = (
   pathname: string,
@@ -108,9 +108,8 @@ const getPageTitleInfo = (
 };
 
 export { getPageTitleInfo };
+export { getPageTitle };
 
 const getPageTitle = (props: GetPageTitleProps, ignoreTitle?: boolean) => {
   return getPageTitleInfo(props, ignoreTitle).title;
 };
-
-export { getPageTitle };

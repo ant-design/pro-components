@@ -1,16 +1,16 @@
-import React, { useContext } from 'react';
-import classNames from 'classnames';
 import { Layout } from 'antd';
+import classNames from 'classnames';
+import React, { useContext } from 'react';
 import type { GlobalHeaderProps } from './components/GlobalHeader';
 import { GlobalHeader } from './components/GlobalHeader';
-import { TopNavHeader } from './components/TopNavHeader';
-import type { WithFalse } from './typings';
 import type { PrivateSiderMenuProps } from './components/SiderMenu/SiderMenu';
-import { clearMenuItem } from './utils/utils';
-import { cx, css } from './emotion';
+import { TopNavHeader } from './components/TopNavHeader';
+import { css, cx } from './emotion';
+import './Header.less';
 import type { LayoutDesignToken } from './ProLayoutContext';
-import { DefaultDesignToken } from './ProLayoutContext';
-import { ProLayoutContext } from './ProLayoutContext';
+import { DefaultDesignToken, ProLayoutContext } from './ProLayoutContext';
+import type { WithFalse } from './typings';
+import { clearMenuItem } from './utils/utils';
 
 const { Header } = Layout;
 

@@ -1,7 +1,7 @@
-import React, { useState } from 'react';
-import { Steps, Button, Space } from 'antd';
-import ProCard from '@ant-design/pro-card';
+import { ProCard } from '@ant-design/pro-components';
+import { Button, Space, Steps } from 'antd';
 import RcResizeObserver from 'rc-resize-observer';
+import React, { useState } from 'react';
 
 const { Step } = Steps;
 

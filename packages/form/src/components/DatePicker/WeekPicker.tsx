@@ -1,8 +1,8 @@
-import React, { useContext } from 'react';
-import ProField from '../Field';
 import type { WeekPickerProps } from 'antd/lib/date-picker';
-import type { ProFormFieldItemProps } from '../../interface';
+import React, { useContext } from 'react';
 import FieldContext from '../../FieldContext';
+import type { ProFormFieldItemProps } from '../../interface';
+import ProField from '../Field';
 
 const valueType = 'dateWeek' as const;
 /**

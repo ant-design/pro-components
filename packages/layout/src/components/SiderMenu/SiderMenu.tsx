@@ -1,24 +1,21 @@
-import type { CSSProperties } from 'react';
-import { useEffect } from 'react';
-import { useContext } from 'react';
-import React, { useMemo } from 'react';
 import type { AvatarProps } from 'antd';
-import { Avatar, Layout, Menu, ConfigProvider, Space } from 'antd';
-import classNames from 'classnames';
+import { Avatar, ConfigProvider, Layout, Menu, Space } from 'antd';
 import type { SiderProps } from 'antd/lib/layout/Sider';
-import type { WithFalse } from '../../typings';
-import type { BaseMenuProps } from './BaseMenu';
-import { BaseMenu } from './BaseMenu';
-import { MenuCounter } from './Counter';
+import type { ItemType } from 'antd/lib/menu/hooks/useItems';
+import classNames from 'classnames';
+import type { CSSProperties } from 'react';
+import React, { useContext, useEffect, useMemo } from 'react';
+import { css, cx, injectGlobal, keyframes } from '../../emotion';
 import type { HeaderViewProps } from '../../Header';
+import type { LayoutDesignToken } from '../../ProLayoutContext';
+import { ProLayoutContext } from '../../ProLayoutContext';
+import type { WithFalse } from '../../typings';
 import type { AppsLogoComponentsAppList } from '../AppsLogoComponents';
 import { AppsLogoComponents, defaultRenderLogo } from '../AppsLogoComponents';
 import { ArrowSvgIcon } from './Arrow';
-import { cx, css, keyframes, injectGlobal } from '../../emotion';
-import { ProLayoutContext } from '../../ProLayoutContext';
-import type { ItemType } from 'antd/lib/menu/hooks/useItems';
-
-import type { LayoutDesignToken } from '../../ProLayoutContext';
+import type { BaseMenuProps } from './BaseMenu';
+import { BaseMenu } from './BaseMenu';
+import { MenuCounter } from './Counter';
 
 export const defaultIconCss = (designToken: LayoutDesignToken) => css`
   position: absolute;

@@ -2,6 +2,30 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.34.13](https://github.com/ant-design/pro-components/compare/@ant-design/pro-field@1.34.12...@ant-design/pro-field@1.34.13) (2022-05-20)
+
+**Note:** Version bump only for package @ant-design/pro-field
+
+## [1.34.12](https://github.com/ant-design/pro-components/compare/@ant-design/pro-field@1.34.11...@ant-design/pro-field@1.34.12) (2022-05-20)
+
+### Bug Fixes
+
+- **form:** 解决 ProFormSelect、ProFormDatePicker、ProFormTimePicker 在 LightFilter 模式下点击激活下拉选项后再次点击未隐藏下拉框的问题 ([#5169](https://github.com/ant-design/pro-components/issues/5169)) ([149cdff](https://github.com/ant-design/pro-components/commit/149cdff6e8f433c78bd3d006386b993d28f7f13e)), closes [fix#5010](https://github.com/fix/issues/5010) [fix#5010](https://github.com/fix/issues/5010)
+
+## [1.34.11](https://github.com/ant-design/pro-components/compare/@ant-design/pro-field@1.34.10...@ant-design/pro-field@1.34.11) (2022-05-16)
+
+### Bug Fixes
+
+- **form:** fix ProFormTreeSelect style no work error ([cb5dfa5](https://github.com/ant-design/pro-components/commit/cb5dfa5177e7f5ae12d8ff40f911bd01fdf43c85))
+
+## [1.34.10](https://github.com/ant-design/pro-components/compare/@ant-design/pro-field@1.34.9...@ant-design/pro-field@1.34.10) (2022-05-12)
+
+**Note:** Version bump only for package @ant-design/pro-field
+
+## [1.34.9](https://github.com/ant-design/pro-components/compare/@ant-design/pro-field@1.34.8...@ant-design/pro-field@1.34.9) (2022-05-12)
+
+**Note:** Version bump only for package @ant-design/pro-field
+
 ## [1.34.8](https://github.com/ant-design/pro-components/compare/@ant-design/pro-field@1.34.6...@ant-design/pro-field@1.34.8) (2022-05-07)
 
 ### Bug Fixes

@@ -1,15 +1,13 @@
-﻿import React, { useCallback, useContext, useEffect, useMemo, useRef, useState } from 'react';
+﻿import { useRefFunction } from '@ant-design/pro-utils';
 import type { DrawerProps, FormProps } from 'antd';
-import { ConfigProvider } from 'antd';
-import { Drawer } from 'antd';
+import { ConfigProvider, Drawer } from 'antd';
+import merge from 'lodash/merge';
 import useMergedState from 'rc-util/lib/hooks/useMergedState';
+import { noteOnce } from 'rc-util/lib/warning';
+import React, { useCallback, useContext, useEffect, useMemo, useRef, useState } from 'react';
 import { createPortal } from 'react-dom';
-
 import type { CommonFormProps } from '../../BaseForm';
 import { BaseForm } from '../../BaseForm';
-import { noteOnce } from 'rc-util/lib/warning';
-import merge from 'lodash/merge';
-import { useRefFunction } from '@ant-design/pro-utils';
 
 export type DrawerFormProps<T = Record<string, any>> = Omit<FormProps, 'onFinish' | 'title'> &
   CommonFormProps<T> & {

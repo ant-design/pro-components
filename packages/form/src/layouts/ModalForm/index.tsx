@@ -1,13 +1,12 @@
-﻿import React, { useContext, useCallback, useEffect, useMemo, useRef, useState } from 'react';
-import { Modal, ConfigProvider } from 'antd';
-import type { ModalProps, FormProps } from 'antd';
+﻿import type { FormProps, ModalProps } from 'antd';
+import { ConfigProvider, Modal } from 'antd';
+import merge from 'lodash/merge';
 import useMergedState from 'rc-util/lib/hooks/useMergedState';
+import { noteOnce } from 'rc-util/lib/warning';
+import React, { useCallback, useContext, useEffect, useMemo, useRef, useState } from 'react';
 import { createPortal } from 'react-dom';
-
 import type { CommonFormProps } from '../../BaseForm';
 import { BaseForm } from '../../BaseForm';
-import { noteOnce } from 'rc-util/lib/warning';
-import merge from 'lodash/merge';
 
 export type ModalFormProps<T = Record<string, any>> = Omit<FormProps<T>, 'onFinish' | 'title'> &
   CommonFormProps<T> & {
