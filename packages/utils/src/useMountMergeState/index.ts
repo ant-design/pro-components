@@ -1,5 +1,5 @@
 import useMergedState from 'rc-util/lib/hooks/useMergedState';
-import { useEffect, useRef } from 'react';
+import { useEffect, useRef, version } from 'react';
 
 type Dispatch<A> = (value: A) => void;
 
@@ -32,7 +32,9 @@ function useMountMergeState<S>(
       }
     }, 16);
   };
-  return [state, mountSetState];
+
+  // react 18 就不需要 mountSetState 了
+  return version.startsWith('18') ? [state, setState] : [state, mountSetState];
 }
 
 export default useMountMergeState;

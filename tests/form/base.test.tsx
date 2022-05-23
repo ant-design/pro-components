@@ -1,23 +1,24 @@
-import React, { useRef, useEffect } from 'react';
-import { Button, ConfigProvider, Input } from 'antd';
-import type { ProFormInstance } from '@ant-design/pro-form';
-import { ProFormDateTimePicker } from '@ant-design/pro-form';
-import { ProFormDigitRange } from '@ant-design/pro-form';
-import ProForm, {
-  ProFormText,
-  ProFormCaptcha,
-  ProFormDatePicker,
-  ProFormDependency,
-  ProFormSelect,
-  ProFormColorPicker,
-  ProFormField,
-} from '@ant-design/pro-form';
-import { act } from 'react-dom/test-utils';
 import { FontSizeOutlined } from '@ant-design/icons';
-import { mount } from 'enzyme';
-import { waitTime, waitForComponentToPaint } from '../util';
+import type { ProFormInstance } from '@ant-design/pro-form';
+import ProForm, {
+  ProFormCaptcha,
+  ProFormColorPicker,
+  ProFormDatePicker,
+  ProFormDateTimePicker,
+  ProFormDependency,
+  ProFormDigitRange,
+  ProFormField,
+  ProFormSelect,
+  ProFormText,
+} from '@ant-design/pro-form';
+import '@testing-library/jest-dom';
 import { render as reactRender } from '@testing-library/react';
+import { Button, ConfigProvider, Input } from 'antd';
+import { mount } from 'enzyme';
 import moment from 'moment';
+import React, { useEffect, useRef } from 'react';
+import { act } from 'react-dom/test-utils';
+import { waitForComponentToPaint, waitTime } from '../util';
 
 describe('ProForm', () => {
   it('📦 submit props actionsRender=false', async () => {
@@ -145,7 +146,7 @@ describe('ProForm', () => {
 
   it('📦 onFinish should simulate button loading', async () => {
     const fn = jest.fn();
-    const wrapper = mount(
+    const wrapper = reactRender(
       <ProForm
         onFinish={async () => {
           fn();
@@ -155,17 +156,18 @@ describe('ProForm', () => {
     );
 
     await waitForComponentToPaint(wrapper, 200);
-    act(() => {
-      wrapper.find('button.ant-btn-primary').simulate('click');
+    await act(async () => {
+      await (await wrapper.findByText('提 交')).click();
     });
     await waitForComponentToPaint(wrapper, 200);
-    expect(wrapper.find('.ant-btn-loading').exists()).toBe(true);
+    const dom = await (await wrapper.findByText('提 交')).parentElement;
+    expect(dom?.className.includes('ant-btn-loading')).toBe(true);
     expect(fn).toBeCalled();
   });
 
   it('📦 onFinish should simulate button close loading', async () => {
     const fn = jest.fn();
-    const wrapper = mount(
+    const wrapper = reactRender(
       <ProForm
         onFinish={async () => {
           fn();
@@ -176,20 +178,22 @@ describe('ProForm', () => {
     );
 
     await waitForComponentToPaint(wrapper, 200);
-    act(() => {
-      wrapper.find('button.ant-btn-primary').simulate('click');
+    await act(async () => {
+      await (await wrapper.findByText('提 交')).click();
     });
     await waitForComponentToPaint(wrapper, 200);
-    expect(wrapper.find('.ant-btn-loading').exists()).toBe(true);
+    let dom = await (await wrapper.findByText('提 交')).parentElement;
+    expect(dom?.className.includes('ant-btn-loading')).toBe(true);
     expect(fn).toBeCalled();
 
     await waitForComponentToPaint(wrapper, 1000);
 
-    expect(wrapper.find('.ant-btn-loading').exists()).toBe(false);
+    dom = await (await wrapper.findByText('提 交')).parentElement;
+    expect(dom?.className.includes('ant-btn-loading')).toBe(false);
   });
 
   it('📦 onFinish support params and request', async () => {
-    const wrapper = mount(
+    const wrapper = reactRender(
       <ProForm
         request={async (params) => {
           await waitTime(100);
@@ -199,29 +203,33 @@ describe('ProForm', () => {
           name: 'test',
         }}
       >
-        <ProFormText
-          name="name"
-          fieldProps={{
-            id: 'test',
-          }}
-        />
+        <ProFormText name="name" />
       </ProForm>,
     );
 
     await waitForComponentToPaint(wrapper, 200);
 
-    expect(wrapper.find('input#test').props().value).toEqual('test');
+    expect(!!wrapper.findAllByDisplayValue('test')).toBeTruthy();
 
     act(() => {
-      wrapper.setProps({
-        params: {
-          name: '1234',
-        },
-      });
+      wrapper.rerender(
+        <ProForm
+          key="rerender"
+          request={async (params) => {
+            await waitTime(100);
+            return params;
+          }}
+          params={{
+            name: '1234',
+          }}
+        >
+          <ProFormText name="name" />
+        </ProForm>,
+      );
     });
     await waitForComponentToPaint(wrapper, 500);
 
-    expect(wrapper.find('input#test').props().value).toEqual('1234');
+    expect(!!wrapper.findAllByDisplayValue('1234')).toBeTruthy();
   });
 
   it('📦 submit props actionsRender=()=>false', async () => {
@@ -273,6 +281,7 @@ describe('ProForm', () => {
     await waitForComponentToPaint(wrapper, 1000);
     expect(formRef.current?.getFieldFormatValue?.('test')?.join('-')).toBe('12-34');
     expect(formRef.current?.getFieldFormatValueObject?.('test')?.test.join('-')).toBe('12-34');
+    expect(formRef.current?.getFieldFormatValueObject?.()?.test.join('-')).toBe('12-34');
     expect(formRef.current?.getFieldsFormatValue?.()?.test.join('-')).toBe('12-34');
     expect(formRef.current?.getFieldFormatValue?.(['test'])?.join('-')).toBe('12-34');
     expect(formRef.current?.getFieldValue?.('test')).toBe('12,34');

@@ -79,7 +79,7 @@ export type SearchTransformKeyFn = (
 ) => string | Record<string, any>;
 export type SearchConvertKeyFn = (value: any, field: NamePath) => string | Record<string, any>;
 
-export type ProTableEditableFnType<T> = (_: any, record: T, index: number) => boolean;
+export type ProTableEditableFnType<T> = (value: any, record: T, index: number) => boolean;
 
 // 支持的变形，还未完全支持完毕
 /** 支持的变形，还未完全支持完毕 */
@@ -163,7 +163,9 @@ export type ProSchema<
     | ProSchemaValueEnumObj
     | ProSchemaValueEnumMap;
 
-  /** @name 自定义的 formItemProps */
+  /**
+   * @name 自定义的 formItemProps
+   */
   formItemProps?:
     | (FormItemProps & ExtraFormItemProps)
     | ((
@@ -229,9 +231,21 @@ export type ProSchema<
       ) => JSX.Element | null;
     },
     form: FormInstance,
+    action?: Omit<
+      UseEditableUtilType,
+      'newLineRecord' | 'editableKeys' | 'actionRender' | 'setEditableRowKeys'
+    >,
   ) => React.ReactNode;
 
-  /** 可编辑表格是否可编辑 */
+  /**
+   *  @name 可编辑表格是否可编辑
+   *
+   * @example 不允许编辑
+   * editable=false
+   *
+   * @example 如果id=1不允许编辑
+   * editable={(value,row,index)=> row.id !==1 }
+   */
   editable?: false | ProTableEditableFnType<Entity>;
 
   /** @name 从服务器请求枚举 */
@@ -254,7 +268,7 @@ export type ProSchema<
   /** @name 在 table的查询表单 中隐藏 */
   hideInSearch?: boolean;
   /** 设置到 ProField 上面的 Props，内部属性 */
-  proFieldProps?: ProFieldProps;
+  proFieldProps?: ProFieldProps & any;
 } & ExtraProps &
   ValueTypeWithFieldProps<Entity, ComponentsType, ExtraProps, ValueType>;
 

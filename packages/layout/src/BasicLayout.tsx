@@ -1,41 +1,39 @@
-import './BasicLayout.less';
-import type { CSSProperties } from 'react';
-import { useCallback } from 'react';
-import React, { useContext, useEffect, useMemo, useState } from 'react';
-import type { BreadcrumbProps as AntdBreadcrumbProps } from 'antd/lib/breadcrumb';
-import { Layout, ConfigProvider } from 'antd';
-import classNames from 'classnames';
-import warning from 'warning';
-import useMergedState from 'rc-util/lib/hooks/useMergedState';
-import useAntdMediaQuery from 'use-media-antd-query';
-import { useDocumentTitle, isBrowser, useMountMergeState } from '@ant-design/pro-utils';
-import Omit from 'omit.js';
-import useSWR, { useSWRConfig } from 'swr';
+import { ConfigProviderWrap } from '@ant-design/pro-provider';
+import { isBrowser, useDocumentTitle, useMountMergeState } from '@ant-design/pro-utils';
 import { getMatchMenu } from '@umijs/route-utils';
-
-import type { HeaderViewProps } from './Header';
-import Header from './Header';
-import type { MenuDataItem, MessageDescriptor, Route, RouterTypes, WithFalse } from './typings';
-import type { GetPageTitleProps } from './getPageTitle';
-import { getPageTitleInfo } from './getPageTitle';
+import { ConfigProvider, Layout } from 'antd';
+import type { BreadcrumbProps as AntdBreadcrumbProps } from 'antd/lib/breadcrumb';
+import classNames from 'classnames';
+import Omit from 'omit.js';
+import useMergedState from 'rc-util/lib/hooks/useMergedState';
+import type { CSSProperties } from 'react';
+import React, { useCallback, useContext, useEffect, useMemo, useState } from 'react';
+import useSWR, { useSWRConfig } from 'swr';
+import useAntdMediaQuery from 'use-media-antd-query';
+import warning from 'warning';
+import './BasicLayout.less';
+import PageLoading from './components/PageLoading';
+import SiderMenu from './components/SiderMenu';
+import MenuCounter from './components/SiderMenu/Counter';
+import type { SiderMenuProps } from './components/SiderMenu/SiderMenu';
+import type { WaterMarkProps } from './components/WaterMark';
 import type { ProSettings } from './defaultSettings';
 import defaultSettings from './defaultSettings';
+import Footer from './Footer';
+import type { GetPageTitleProps } from './getPageTitle';
+import { getPageTitleInfo } from './getPageTitle';
+import type { HeaderViewProps } from './Header';
+import Header from './Header';
 import type { LocaleType } from './locales';
 import { gLocaleObject } from './locales';
-import Footer from './Footer';
 import RouteContext from './RouteContext';
-import SiderMenu from './components/SiderMenu';
-import type { SiderMenuProps } from './components/SiderMenu/SiderMenu';
+import type { MenuDataItem, MessageDescriptor, Route, RouterTypes, WithFalse } from './typings';
+import compatibleLayout from './utils/compatibleLayout';
 import { getBreadcrumbProps } from './utils/getBreadcrumbProps';
 import getMenuData from './utils/getMenuData';
-import PageLoading from './components/PageLoading';
-import MenuCounter from './components/SiderMenu/Counter';
-import WrapContent from './WrapContent';
-import compatibleLayout from './utils/compatibleLayout';
 import useCurrentMenuLayoutProps from './utils/useCurrentMenuLayoutProps';
 import { clearMenuItem } from './utils/utils';
-import type { WaterMarkProps } from './components/WaterMark';
-import { ConfigProviderWrap } from '@ant-design/pro-provider';
+import WrapContent from './WrapContent';
 
 let layoutIndex = 0;
 
@@ -258,6 +256,7 @@ const renderSiderMenu = (props: BasicLayoutProps, matchMenuKeys: string[]): Reac
   }
   // 这里走了可以少一次循环
   const clearMenuData = clearMenuItem(menuData || []);
+
   if (clearMenuData && clearMenuData?.length < 1 && splitMenus) {
     return null;
   }

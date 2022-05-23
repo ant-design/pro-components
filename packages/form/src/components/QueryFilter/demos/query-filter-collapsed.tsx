@@ -1,5 +1,5 @@
+import { ProFormDatePicker, ProFormText, QueryFilter } from '@ant-design/pro-components';
 import React from 'react';
-import { QueryFilter, ProFormText, ProFormDatePicker } from '@ant-design/pro-form';
 
 export default () => {
   return (

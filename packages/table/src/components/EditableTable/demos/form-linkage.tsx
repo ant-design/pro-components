@@ -1,11 +1,17 @@
+import type {
+  ActionType,
+  EditableFormInstance,
+  ProColumns,
+  ProFormInstance,
+} from '@ant-design/pro-components';
+import {
+  EditableProTable,
+  ProCard,
+  ProForm,
+  ProFormDependency,
+  ProFormDigit,
+} from '@ant-design/pro-components';
 import React, { useRef, useState } from 'react';
-import type { ActionType, ProColumns } from '@ant-design/pro-table';
-import { EditableProTable } from '@ant-design/pro-table';
-import type { ProFormInstance } from '@ant-design/pro-form';
-import { ProFormDigit } from '@ant-design/pro-form';
-import ProForm, { ProFormDependency } from '@ant-design/pro-form';
-import ProCard from '@ant-design/pro-card';
-import set from 'rc-util/lib/utils/set';
 
 type DataSourceType = {
   id: React.Key;
@@ -55,6 +61,7 @@ export default () => {
   const [editableKeys, setEditableRowKeys] = useState<React.Key[]>(() => []);
   const formRef = useRef<ProFormInstance<any>>();
   const actionRef = useRef<ActionType>();
+  const editableFormRef = useRef<EditableFormInstance>();
   const columns: ProColumns<DataSourceType>[] = [
     {
       title: '关联题库',
@@ -99,12 +106,11 @@ export default () => {
           label: '连续型',
         },
       ],
-      fieldProps: (form, { rowKey }) => {
+      fieldProps: (_, { rowIndex }) => {
         return {
           onSelect: () => {
             // 每次选中重置参数
-            const newValue = set({}, [rowKey || [], 'fraction'].flat(1), []);
-            form.setFieldsValue(newValue);
+            editableFormRef.current?.setRowData?.(rowIndex, { fraction: [] });
           },
         };
       },
@@ -207,6 +213,7 @@ export default () => {
             scroll={{
               x: true,
             }}
+            editableFormRef={editableFormRef}
             controlled
             actionRef={actionRef}
             formItemProps={{

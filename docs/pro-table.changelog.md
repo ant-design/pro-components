@@ -9,6 +9,40 @@ group:
 
 # Change Log
 
+## @ant-design/pro-table@2.75.0
+
+`2022-05-20`
+
+- fix(table): default close revalidateOnFocus. [b348468](https://github.com/ant-design/pro-components/commit/b348468)
+
+## @ant-design/pro-table@2.74.2
+
+`2022-05-12`
+
+- fix(table): fix children table alway rerender all dom. [17e1b58](https://github.com/ant-design/pro-components/commit/17e1b58)
+- fix(table): use menu.items render menu.item. [6f32179](https://github.com/ant-design/pro-components/commit/6f32179)
+
+## @ant-design/pro-table@2.73.0
+
+`2022-04-29`
+
+- fix(table): if table data is null, render empty table. [281b8bd](https://github.com/ant-design/pro-components/commit/281b8bd)
+- feat(table): recordCreator must set rowKey. [a30ce30](https://github.com/ant-design/pro-components/commit/a30ce30)
+
+## @ant-design/pro-table@2.72.0
+
+`2022-04-24`
+
+- fix(table): extra columns unexpected show in form compo (#5096). [#5096](https://github.com/ant-design/pro-components/pull/#5096) [@sarufarr](https://github.com/sarufarr)
+- feat(table): reinitialize umountRef for react@18 strict mode (#5085). [#5085](https://github.com/ant-design/pro-components/pull/#5085) [@sarufarr](https://github.com/sarufarr)
+- fix(table): ts type error (#5095). [#5095](https://github.com/ant-design/pro-components/pull/#5095) [@Dunqing](https://github.com/Dunqing)
+
+## @ant-design/pro-table@2.71.7
+
+`2022-04-18`
+
+- fix(table): key does not exist causing error (#5066). [#5066](https://github.com/ant-design/pro-components/pull/#5066) [@Dunqing](https://github.com/Dunqing)
+
 ## @ant-design/pro-table@2.71.4
 
 `2022-04-13`

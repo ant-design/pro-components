@@ -1,10 +1,9 @@
-import type React from 'react';
-import type { TablePaginationConfig } from 'antd';
-import type { SortOrder } from 'antd/es/table/interface';
+import type { IntlType } from '@ant-design/pro-provider';
 import type { UseEditableUtilType } from '@ant-design/pro-utils';
 import { arrayMoveImmutable } from '@ant-design/pro-utils';
-import type { IntlType } from '@ant-design/pro-provider';
-
+import type { TablePaginationConfig } from 'antd';
+import type { SortOrder } from 'antd/es/table/interface';
+import type React from 'react';
 import type {
   ActionType,
   Bordered,
@@ -29,7 +28,7 @@ export const checkUndefinedOrNull = (value: any) => value !== undefined && value
  * @param intl
  */
 export function mergePagination<T>(
-  pagination: TablePaginationConfig | boolean | undefined = {},
+  pagination: TablePaginationConfig | boolean | undefined,
   pageInfo: UseFetchDataAction<T>['pageInfo'] & {
     setPageInfo: any;
   },

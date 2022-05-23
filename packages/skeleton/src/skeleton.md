@@ -7,7 +7,7 @@ nav:
   path: /components
 ---
 
-# ProSkeleton
+# ProSkeleton - 骨架屏
 
 > 该组件为内部组件，请勿直接使用。
 

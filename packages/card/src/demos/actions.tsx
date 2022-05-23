@@ -1,6 +1,6 @@
-import React from 'react';
-import ProCard from '@ant-design/pro-card';
 import { EditOutlined, EllipsisOutlined, SettingOutlined } from '@ant-design/icons';
+import { ProCard } from '@ant-design/pro-components';
+import React from 'react';
 
 export default () => {
   return (

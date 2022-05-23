@@ -1,11 +1,12 @@
+import ProList, { BaseProList } from '@ant-design/pro-list';
+import '@testing-library/jest-dom';
+import { act, fireEvent, render as reactRender } from '@testing-library/react';
+import { Tag } from 'antd';
 import { mount } from 'enzyme';
 import type { ReactText } from 'react';
 import React, { useState } from 'react';
-import ProList, { BaseProList } from '@ant-design/pro-list';
-import { act } from 'react-dom/test-utils';
 import PaginationDemo from '../../packages/list/src/demos/pagination';
 import { waitForComponentToPaint } from '../util';
-import { Tag } from 'antd';
 
 type DataSourceType = {
   name: string;
@@ -422,7 +423,7 @@ describe('List', () => {
 
   it('🚏 filter and request', async () => {
     const onRequest = jest.fn();
-    const html = mount(
+    const html = reactRender(
       <ProList<any, { title: string }>
         metas={{
           title: {
@@ -455,14 +456,14 @@ describe('List', () => {
       />,
     );
     await waitForComponentToPaint(html, 1200);
-    expect(html.find('.ant-pro-list-row-title').length).toEqual(2);
+    expect(html.baseElement.querySelectorAll('.ant-pro-list-row-title').length).toEqual(2);
     act(() => {
-      html.find('.ant-pro-core-field-label').simulate('click');
+      html.baseElement.querySelector<HTMLDivElement>('.ant-pro-core-field-label')?.click();
     });
 
     await waitForComponentToPaint(html, 200);
     act(() => {
-      html.find('.ant-input').simulate('change', {
+      fireEvent.change(html.baseElement.querySelector('.ant-input')!, {
         target: {
           value: 'test',
         },
@@ -470,8 +471,9 @@ describe('List', () => {
     });
 
     await waitForComponentToPaint(html, 200);
-    act(() => {
-      html.find('.ant-btn.ant-btn-primary').simulate('click');
+
+    await act(async () => {
+      (await html.findByText('确 认')).click();
     });
 
     await waitForComponentToPaint(html, 1200);
@@ -601,7 +603,7 @@ describe('List', () => {
   });
 
   it('🚏 ProList support itemHeaderRender', async () => {
-    const html = mount(
+    const html = reactRender(
       <ProList<DataSourceType>
         dataSource={[
           {
@@ -623,13 +625,12 @@ describe('List', () => {
       />,
     );
 
-    waitForComponentToPaint(html);
-
-    expect(html.find('.ant-pro-list-row-header').at(0).text()).toBe('qixian:我是名称');
+    await waitForComponentToPaint(html, 1200);
+    expect(html.baseElement.textContent?.includes('qixian:我是名称')).toBeTruthy();
   });
 
   it('🚏 ProList support itemTitleRender', async () => {
-    const html = mount(
+    const html = reactRender(
       <ProList<DataSourceType>
         dataSource={[
           {
@@ -651,13 +652,13 @@ describe('List', () => {
       />,
     );
 
-    waitForComponentToPaint(html);
+    await waitForComponentToPaint(html, 1200);
 
-    expect(html.find('.ant-pro-list-row-header').at(0).text()).toBe('qixian:我是名称desc text');
+    expect(html.baseElement.textContent?.includes('qixian:我是名称')).toBeTruthy();
   });
 
   it('🚏 list support actions render to extra props', async () => {
-    const html = mount(
+    const html = reactRender(
       <ProList
         grid={{ gutter: 16, column: 2 }}
         dataSource={[
@@ -684,17 +685,18 @@ describe('List', () => {
         }}
       />,
     );
-    waitForComponentToPaint(html, 1000);
+
+    await waitForComponentToPaint(html, 1200);
     // 触发click，执行一下 stopPropagation 的代码
-    act(() => {
-      html.find('.ant-pro-card-extra a').simulate('click');
+    await act(async () => {
+      (await html.findByText('修复'))?.click();
     });
-    expect(html.find('.ant-pro-card-extra a').text()).toEqual('修复');
-    expect(html.find('.ant-pro-card-actions').exists()).toBeFalsy();
+    expect(html.baseElement.textContent?.includes('修复')).toBeTruthy();
+    expect(!!html.baseElement.querySelector('.ant-pro-card-actions')).toBeFalsy();
   });
 
   it('🚏 list support actions render to actions props', async () => {
-    const html = mount(
+    const html = reactRender(
       <ProList
         grid={{ gutter: 16, column: 2 }}
         dataSource={[
@@ -724,22 +726,18 @@ describe('List', () => {
         }}
       />,
     );
-    waitForComponentToPaint(html, 1000);
-    expect(html.find('.ant-pro-card-actions a').text()).toEqual('修复');
-    expect(html.find('.ant-pro-card-extra').exists()).toBeFalsy();
+    await waitForComponentToPaint(html, 1000);
+
+    expect(!!html.baseElement.querySelector('.ant-pro-card-extra')).toBeFalsy();
 
     act(() => {
-      html.find('#edit').simulate('click');
-    });
-
-    act(() => {
-      html.unmount();
+      html.queryByText('修复')?.click();
     });
   });
   it('🚏 trigger list item event when has grid prop', async () => {
     const fn1 = jest.fn();
     const fn2 = jest.fn();
-    const html = mount(
+    const html = reactRender(
       <ProList
         grid={{ gutter: 16, column: 2 }}
         onItem={(record: any) => {
@@ -779,17 +777,16 @@ describe('List', () => {
         }}
       />,
     );
-    waitForComponentToPaint(html, 1000);
+    await waitForComponentToPaint(html, 1000);
 
     act(() => {
-      html.find('.ant-pro-list-row-card .ant-pro-card').simulate('mouseEnter');
-      html.find('.ant-pro-list-row-card .ant-pro-card').simulate('click');
-      expect(fn1).toBeCalledWith('我是名称');
-      expect(fn2).toBeCalledWith('我是名称');
+      fireEvent.mouseEnter(
+        html.baseElement.querySelector('.ant-pro-list-row-card .ant-pro-card')!,
+        {},
+      );
+      fireEvent.click(html.baseElement.querySelector('.ant-pro-list-row-card .ant-pro-card')!, {});
     });
-
-    act(() => {
-      html.unmount();
-    });
+    expect(fn1).toBeCalledWith('我是名称');
+    expect(fn2).toBeCalledWith('我是名称');
   });
 });

@@ -1,25 +1,23 @@
+import { ConfigProviderWrap, useIntl } from '@ant-design/pro-provider';
+import { merge, useRefFunction } from '@ant-design/pro-utils';
+import type { FormInstance, StepsProps } from 'antd';
+import { Button, Col, ConfigProvider, Form, Row, Space, Steps } from 'antd';
+import type { FormProviderProps } from 'antd/lib/form/context';
+import classNames from 'classnames';
+import toArray from 'rc-util/lib/Children/toArray';
+import useMergedState from 'rc-util/lib/hooks/useMergedState';
 import React, {
-  useRef,
   useCallback,
   useContext,
   useImperativeHandle,
   useMemo,
+  useRef,
   useState,
 } from 'react';
-import type { StepsProps, FormInstance } from 'antd';
-import { Col, Row } from 'antd';
-import { Form, Steps, ConfigProvider, Button, Space } from 'antd';
-import toArray from 'rc-util/lib/Children/toArray';
-import type { FormProviderProps } from 'antd/lib/form/context';
-import useMergedState from 'rc-util/lib/hooks/useMergedState';
-import classNames from 'classnames';
-import { ConfigProviderWrap, useIntl } from '@ant-design/pro-provider';
-import { merge, useRefFunction } from '@ant-design/pro-utils';
-
-import type { StepFormProps } from './StepForm';
-import './index.less';
-import type { ProFormProps } from '../ProForm';
 import type { SubmitterProps } from '../../components';
+import type { ProFormProps } from '../ProForm';
+import './index.less';
+import type { StepFormProps } from './StepForm';
 import StepForm from './StepForm';
 
 type StepsFormProps<T = Record<string, any>> = {
@@ -42,7 +40,7 @@ type StepsFormProps<T = Record<string, any>> = {
     defaultDom: React.ReactNode,
   ) => React.ReactNode;
   /** @name 当前展示表单的 formRef */
-  formRef?: React.MutableRefObject<FormInstance<any> | undefined>;
+  formRef?: React.MutableRefObject<FormInstance<any> | undefined | null>;
   /** @name 所有表单的 formMapRef */
   formMapRef?: React.MutableRefObject<React.MutableRefObject<FormInstance<any> | undefined>[]>;
   /**
@@ -69,10 +67,11 @@ type StepsFormProps<T = Record<string, any>> = {
     | false;
 
   containerStyle?: React.CSSProperties;
-} & FormProviderProps;
+} & Omit<FormProviderProps, 'children'>;
 
 export const StepsFormProvide = React.createContext<
   | {
+      regForm: (name: string, props: StepsFormProps<any>) => void;
       unRegForm: (name: string) => void;
       onFormFinish: (name: string, formData: any) => void;
       keyArray: string[];
@@ -133,7 +132,7 @@ const StepsLayoutStrategy: Record<string, (dom: LayoutRenderDom) => React.ReactN
 
 function StepsForm<T = Record<string, any>>(
   props: StepsFormProps<T> & {
-    children: any;
+    children: React.ReactNode;
   },
 ) {
   const { getPrefixCls } = useContext(ConfigProvider.ConfigContext);
@@ -241,7 +240,6 @@ function StepsForm<T = Record<string, any>>(
           maxWidth: Math.min(formArray.length * 320, 1160),
         }}
       >
-        {/* @ts-expect-error */}
         <Steps {...stepsProps} current={step} onChange={undefined}>
           {formArray.map((item) => {
             const itemProps = formMapRef.current.get(item);
@@ -357,7 +355,6 @@ function StepsForm<T = Record<string, any>>(
     return toArray(props.children).map((item, index) => {
       const itemProps = item.props as StepFormProps;
       const name = itemProps.name || `${index}`;
-      regForm(name, itemProps);
       /** 是否是当前的表单 */
       const isShow = step === index;
 
@@ -385,7 +382,7 @@ function StepsForm<T = Record<string, any>>(
         </div>
       );
     });
-  }, [formProps, prefixCls, props.children, regForm, step, stepFormRender]);
+  }, [formProps, prefixCls, props.children, step, stepFormRender]);
 
   const finalStepsDom = useMemo(() => {
     if (stepsRender) {
@@ -430,6 +427,7 @@ function StepsForm<T = Record<string, any>>(
           value={{
             loading,
             setLoading,
+            regForm,
             keyArray: formArray,
             next: nextPage,
             formArrayRef,
@@ -447,6 +445,7 @@ function StepsForm<T = Record<string, any>>(
 }
 
 export type { StepFormProps, StepsFormProps };
+export { StepsFormWarp as StepsForm };
 
 function StepsFormWarp<T = Record<string, any>>(
   props: StepsFormProps<T> & {
@@ -462,5 +461,3 @@ function StepsFormWarp<T = Record<string, any>>(
 
 StepsFormWarp.StepForm = StepForm;
 StepsFormWarp.useForm = Form.useForm;
-
-export { StepsFormWarp as StepsForm };

@@ -1,23 +1,23 @@
-import React, {
-  useState,
-  useImperativeHandle,
-  useRef,
-  useContext,
-  useEffect,
-  useMemo,
-} from 'react';
+import { FilterOutlined } from '@ant-design/icons';
+import { useIntl } from '@ant-design/pro-provider';
+import { FieldLabel, FilterDropdown } from '@ant-design/pro-utils';
 import type { FormProps } from 'antd';
+import { ConfigProvider } from 'antd';
 import type { SizeType } from 'antd/lib/config-provider/SizeContext';
 import classNames from 'classnames';
-import { ConfigProvider } from 'antd';
-import { FilterDropdown, FieldLabel } from '@ant-design/pro-utils';
-import { useIntl } from '@ant-design/pro-provider';
-import { FilterOutlined } from '@ant-design/icons';
 import omit from 'omit.js';
+import React, {
+  useContext,
+  useEffect,
+  useImperativeHandle,
+  useMemo,
+  useRef,
+  useState,
+} from 'react';
 import type { CommonFormProps, ProFormInstance } from '../../BaseForm';
 import { BaseForm } from '../../BaseForm';
-import './index.less';
 import type { LightFilterFooterRender, Placement } from '../../interface';
+import './index.less';
 
 export type LightFilterProps<T> = {
   collapse?: boolean;

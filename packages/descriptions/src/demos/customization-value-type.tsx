@@ -1,8 +1,7 @@
-import React, { useContext, useRef, useState } from 'react';
-import ProDescriptions from '@ant-design/pro-descriptions';
-import ProProvider from '@ant-design/pro-provider';
-import { Input, Space, Tag } from 'antd';
+import { ProDescriptions, ProProvider } from '@ant-design/pro-components';
 import type { InputRef } from 'antd';
+import { Input, Space, Tag } from 'antd';
+import React, { useContext, useRef, useState } from 'react';
 
 const valueEnum = {
   0: 'close',

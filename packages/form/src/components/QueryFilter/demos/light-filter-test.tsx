@@ -1,14 +1,15 @@
-import React from 'react';
-import ProForm, {
+import {
   LightFilter,
-  ProFormText,
-  ProFormSelect,
+  ProForm,
   ProFormDigit,
+  ProFormSelect,
   ProFormSlider,
-} from '@ant-design/pro-form';
+  ProFormText,
+} from '@ant-design/pro-components';
 import { Radio } from 'antd';
 import type { SizeType } from 'antd/lib/config-provider/SizeContext';
 import moment from 'moment';
+import React from 'react';
 
 export default () => {
   const [size, setSize] = React.useState<SizeType>('middle');

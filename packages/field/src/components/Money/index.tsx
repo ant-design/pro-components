@@ -1,10 +1,10 @@
-import React, { useMemo } from 'react';
+import { intlMap as allIntlMap, useIntl } from '@ant-design/pro-provider';
 import type { InputNumberProps } from 'antd';
 import { InputNumber, Popover } from 'antd';
-import { useIntl, intlMap as allIntlMap } from '@ant-design/pro-provider';
-import type { ProFieldFC } from '../../index';
-import useMergedState from 'rc-util/lib/hooks/useMergedState';
 import omit from 'omit.js';
+import useMergedState from 'rc-util/lib/hooks/useMergedState';
+import React, { useMemo } from 'react';
+import type { ProFieldFC } from '../../index';
 
 export type FieldMoneyProps = {
   text: number;
@@ -104,6 +104,7 @@ const DefaultPrecisionCont = 2;
 const InputNumberPopover = React.forwardRef<
   any,
   InputNumberProps & {
+    visible?: boolean;
     content?: (props: InputNumberProps) => React.ReactNode;
   } & {
     numberFormatOptions?: any;
@@ -118,13 +119,19 @@ const InputNumberPopover = React.forwardRef<
     ...rest,
     value,
   });
+
+  const props = {
+    visible: dom ? rest.visible : false,
+  };
   return (
     <Popover
       placement="topLeft"
-      visible={dom ? undefined : false}
-      trigger="focus"
+      {...props}
+      trigger={['focus', 'click']}
       content={dom}
-      getPopupContainer={(triggerNode) => triggerNode?.parentElement || document.body}
+      getPopupContainer={(triggerNode) => {
+        return triggerNode?.parentElement || document.body;
+      }}
     >
       <InputNumber ref={ref} {...rest} value={value} onChange={onChange} />
     </Popover>

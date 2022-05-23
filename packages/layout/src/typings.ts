@@ -1,8 +1,6 @@
 import type * as H from 'history';
-
-import type { RouteComponentProps as BasicRouteProps, match } from 'react-router-dom';
-
 import type React from 'react';
+import type { match, RouteComponentProps as BasicRouteProps } from 'react-router-dom';
 
 export type LinkProps = {
   to: H.LocationDescriptor;
@@ -12,7 +10,7 @@ export type LinkProps = {
 
 export type MenuDataItem = {
   /** @name 子菜单 */
-  routes?: MenuDataItem[];
+  children?: MenuDataItem[];
   /** @name 在菜单中隐藏子节点 */
   hideChildrenInMenu?: boolean;
   /** @name 在菜单中隐藏自己和子节点 */
@@ -39,7 +37,6 @@ export type MenuDataItem = {
   flatMenu?: boolean;
   /** @name 指定外链打开形式，同a标签 */
   target?: string;
-
   [key: string]: any;
 };
 

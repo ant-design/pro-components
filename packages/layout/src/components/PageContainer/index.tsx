@@ -1,24 +1,23 @@
-import { PageHeader, Tabs, Affix, ConfigProvider, Breadcrumb } from 'antd';
+import type {
+  AffixProps,
+  BreadcrumbProps,
+  PageHeaderProps,
+  SpinProps,
+  TabPaneProps,
+  TabsProps,
+} from 'antd';
+import { Affix, Breadcrumb, ConfigProvider, PageHeader, Tabs } from 'antd';
+import classNames from 'classnames';
 import type { ReactNode } from 'react';
 import React, { useContext, useMemo } from 'react';
-import classNames from 'classnames';
-import type {
-  TabsProps,
-  AffixProps,
-  PageHeaderProps,
-  TabPaneProps,
-  SpinProps,
-  BreadcrumbProps,
-} from 'antd';
-
 import RouteContext from '../../RouteContext';
-import GridContent from '../GridContent';
-import FooterToolbar from '../FooterToolbar';
-import './index.less';
-import PageLoading from '../PageLoading';
 import type { WithFalse } from '../../typings';
+import FooterToolbar from '../FooterToolbar';
+import GridContent from '../GridContent';
+import PageLoading from '../PageLoading';
 import type { WaterMarkProps } from '../WaterMark';
 import WaterMark from '../WaterMark';
+import './index.less';
 
 export type PageHeaderTabConfig = {
   /** @name tabs 的列表 */
@@ -227,6 +226,7 @@ const ProPageHeader: React.FC<PageContainerProps & { prefixedClassName: string }
   const { breadcrumb } = pageHeaderProps as {
     breadcrumb: BreadcrumbProps;
   };
+
   const noHasBreadCrumb =
     (!breadcrumb || (!breadcrumb?.itemRender && !breadcrumb?.routes?.length)) && !breadcrumbRender;
 
@@ -243,7 +243,6 @@ const ProPageHeader: React.FC<PageContainerProps & { prefixedClassName: string }
 
   return (
     <div className={`${prefixedClassName}-warp`}>
-      {/* @ts-expect-error */}
       <PageHeader
         {...pageHeaderProps}
         breadcrumb={

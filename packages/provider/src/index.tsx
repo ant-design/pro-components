@@ -1,29 +1,29 @@
-import React, { useContext, useEffect } from 'react';
 import { ConfigProvider as AntdConfigProvider } from 'antd';
-import { useSWRConfig, SWRConfig } from 'swr';
 import zh_CN from 'antd/lib/locale/zh_CN';
-
+import React, { useContext, useEffect } from 'react';
+import { SWRConfig, useSWRConfig } from 'swr';
 import arEG from './locale/ar_EG';
-import zhCN from './locale/zh_CN';
-import enUS from './locale/en_US';
-import enGB from './locale/en_GB';
-import viVN from './locale/vi_VN';
-import itIT from './locale/it_IT';
-import esES from './locale/es_ES';
 import caES from './locale/ca_ES';
+import deDE from './locale/de_DE';
+import enGB from './locale/en_GB';
+import enUS from './locale/en_US';
+import esES from './locale/es_ES';
+import faIR from './locale/fa_IR';
+import frFR from './locale/fr_FR';
+import hrHR from './locale/hr_HR';
+import idID from './locale/id_ID';
+import itIT from './locale/it_IT';
 import jaJP from './locale/ja_JP';
+import koKR from './locale/ko_KR';
+import msMY from './locale/ms_MY';
+import plPL from './locale/pl_PL';
+import ptBR from './locale/pt_BR';
 import ruRU from './locale/ru_RU';
 import srRS from './locale/sr_RS';
-import msMY from './locale/ms_MY';
-import zhTW from './locale/zh_TW';
-import frFR from './locale/fr_FR';
-import ptBR from './locale/pt_BR';
-import koKR from './locale/ko_KR';
-import idID from './locale/id_ID';
-import deDE from './locale/de_DE';
-import faIR from './locale/fa_IR';
 import trTR from './locale/tr_TR';
-import plPL from './locale/pl_PL';
+import viVN from './locale/vi_VN';
+import zhCN from './locale/zh_CN';
+import zhTW from './locale/zh_TW';
 
 export type ProSchemaValueEnumType = {
   /** @name 演示的文案 */
@@ -42,9 +42,9 @@ export type ProSchemaValueEnumType = {
  *
  * @name ValueEnum 的类型
  */
-export type ProSchemaValueEnumMap = Map<React.ReactText, ProSchemaValueEnumType | React.ReactNode>;
+type ProSchemaValueEnumMap = Map<React.ReactText, ProSchemaValueEnumType | React.ReactNode>;
 
-export type ProSchemaValueEnumObj = Record<string, ProSchemaValueEnumType | React.ReactNode>;
+type ProSchemaValueEnumObj = Record<string, ProSchemaValueEnumType | React.ReactNode>;
 
 export type BaseProFieldFC = {
   /** 值的类型 */
@@ -147,6 +147,7 @@ const deDEIntl = createIntl('de_DE', deDE);
 const faIRIntl = createIntl('fa_IR', faIR);
 const trTRIntl = createIntl('tr_TR', trTR);
 const plPLIntl = createIntl('pl_PL', plPL);
+const hrHRIntl = createIntl('hr_', hrHR);
 
 const intlMap = {
   'ar-EG': arEGIntl,
@@ -170,6 +171,7 @@ const intlMap = {
   'fa-IR': faIRIntl,
   'tr-TR': trTRIntl,
   'pl-PL': plPLIntl,
+  'hr-HR': hrHRIntl,
 };
 
 const intlMapKeys = Object.keys(intlMap);
@@ -198,9 +200,11 @@ export {
   faIRIntl,
   trTRIntl,
   plPLIntl,
+  hrHRIntl,
   intlMap,
   intlMapKeys,
 };
+export { ConfigConsumer, ConfigProvider, ConfigProviderWrap, createIntl };
 
 export type ConfigContextPropsType = {
   intl: IntlType;
@@ -307,8 +311,6 @@ const ConfigProviderWrap: React.FC<Record<string, unknown>> = ({
   return <SWRConfig value={{ provider: () => new Map() }}>{configProviderDom}</SWRConfig>;
 };
 
-export { ConfigConsumer, ConfigProvider, ConfigProviderWrap, createIntl };
-
 export function useIntl(): IntlType {
   const { locale } = useContext(AntdConfigProvider.ConfigContext);
   const { intl } = useContext(ConfigContext);
@@ -323,5 +325,6 @@ export function useIntl(): IntlType {
 
   return zhCNIntl;
 }
+export const ProProvider = ConfigContext;
 
 export default ConfigContext;

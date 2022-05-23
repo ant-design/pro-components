@@ -1,12 +1,10 @@
-import './GridContent.less';
-
+import { ConfigProvider } from 'antd';
+import classNames from 'classnames';
 import type { CSSProperties } from 'react';
 import React, { useContext } from 'react';
-import classNames from 'classnames';
-import { ConfigProvider } from 'antd';
-
-import RouteContext from '../../RouteContext';
 import type { PureSettings } from '../../defaultSettings';
+import RouteContext from '../../RouteContext';
+import './GridContent.less';
 
 type GridContentProps = {
   contentWidth?: PureSettings['contentWidth'];

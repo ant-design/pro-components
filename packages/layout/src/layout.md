@@ -137,6 +137,7 @@ PageContainer 配置 `ghost` 可以将页头切换为透明模式。
 | locale | 当前 layout 的语言设置 | `zh-CN` \| `zh-TW` \| `en-US` | navigator.language |
 | settings | layout 的设置 | [`Settings`](#Settings) | - |
 | siderWidth | 侧边菜单宽度 | `number` | 208 |
+| headerHeight | 头部高度 | `number` | 48 |
 | defaultCollapsed | 默认的菜单的收起和展开，会受到 `breakpoint` 的影响，`breakpoint=false` 生效 | `boolean` | - |
 | collapsed | 控制菜单的收起和展开 | `boolean` | - |
 | onCollapse | 菜单的折叠收起事件 | `(collapsed: boolean) => void` | - |
@@ -351,8 +352,8 @@ export interface Route {
 页脚一般一般会展示一些公司和版权信息，默认的 ProLayout 不提供 Footer,但是提供了一个 DefaultFooter 组件，支持配置一些超链接和一些版权信息。
 
 ```tsx | pure
-import { DefaultFooter } from '@ant-design/pro-layout';
 import { GithubOutlined } from '@ant-design/icons';
+import { DefaultFooter } from '@ant-design/pro-layout';
 
 <DefaultFooter
   copyright="@2019 蚂蚁金服体验技术部出品"

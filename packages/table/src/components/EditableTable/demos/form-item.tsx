@@ -1,10 +1,14 @@
-﻿import React, { useRef, useState } from 'react';
-import type { EditableFormInstance, ProColumns } from '@ant-design/pro-table';
-import { EditableProTable } from '@ant-design/pro-table';
-import type { ProFormInstance } from '@ant-design/pro-form';
-import ProForm, { ProFormRadio, ProFormField, ProFormDependency } from '@ant-design/pro-form';
-import ProCard from '@ant-design/pro-card';
+﻿import type { EditableFormInstance, ProColumns, ProFormInstance } from '@ant-design/pro-components';
+import {
+  EditableProTable,
+  ProCard,
+  ProForm,
+  ProFormDependency,
+  ProFormField,
+  ProFormRadio,
+} from '@ant-design/pro-components';
 import { Button } from 'antd';
+import React, { useRef, useState } from 'react';
 
 type DataSourceType = {
   id: React.Key;

@@ -1,8 +1,8 @@
-import React from 'react';
-import { Descriptions } from 'antd';
 import Field from '@ant-design/pro-field';
-import moment from 'moment';
 import type { ProFieldFCMode } from '@ant-design/pro-utils';
+import { Descriptions } from 'antd';
+import moment from 'moment';
+import React from 'react';
 
 export default ({ state, plain }: { state: ProFieldFCMode; plain: boolean }) => (
   <>

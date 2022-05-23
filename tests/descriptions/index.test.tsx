@@ -1,16 +1,16 @@
-import { mount } from 'enzyme';
-import React, { useRef } from 'react';
-import { Button } from 'antd';
 import ProDescriptions from '@ant-design/pro-descriptions';
 import type { ProCoreActionType } from '@ant-design/pro-utils';
-import { act } from 'react-dom/test-utils';
+import '@testing-library/jest-dom';
 import { render as reactRender } from '@testing-library/react';
-
+import { Button } from 'antd';
+import { mount } from 'enzyme';
+import React, { useRef } from 'react';
+import { act } from 'react-dom/test-utils';
 import { waitForComponentToPaint, waitTime } from '../util';
 
 describe('descriptions', () => {
-  it('🥩  descriptions render valueEnum when data = 0', async () => {
-    const html = mount(
+  it('🥩 descriptions render valueEnum when data = 0', async () => {
+    const html = reactRender(
       <ProDescriptions
         columns={[
           {
@@ -32,7 +32,7 @@ describe('descriptions', () => {
       />,
     );
     await waitForComponentToPaint(html, 200);
-    expect(html.find('span.ant-badge-status-text').text()).toBe('关闭');
+    expect(html.baseElement.querySelector('span.ant-badge-status-text')?.innerHTML).toBe('关闭');
   });
 
   it('🎏 onLoadingChange test', async () => {
@@ -114,7 +114,7 @@ describe('descriptions', () => {
                 actionRef.current?.reload();
               }}
             >
-              修改
+              刷新
             </Button>
           }
         >
@@ -124,14 +124,14 @@ describe('descriptions', () => {
         </ProDescriptions>
       );
     };
-    const html = mount(<Reload />);
+    const html = reactRender(<Reload />);
     await waitForComponentToPaint(html, 300);
 
     act(() => {
-      html.find('Button#reload').simulate('click');
+      html.queryByText('刷新')?.click();
     });
     act(() => {
-      html.find('Button#reload').simulate('click');
+      html.queryByText('刷新')?.click();
     });
     await waitForComponentToPaint(html);
 
@@ -202,7 +202,7 @@ describe('descriptions', () => {
     expect(fn).toBeCalledTimes(1);
   });
 
-  it('🏊‍♂️ Progress', () => {
+  it('🏊 Progress', () => {
     const html = mount(
       <ProDescriptions>
         <ProDescriptions.Item label="进度条1" valueType="progress">
@@ -221,7 +221,7 @@ describe('descriptions', () => {
     expect(html.find('.ant-progress-text').at(1).find('.anticon-check-circle')).toBeTruthy();
   });
 
-  it('🏊‍♂️ ProDescriptions support order', () => {
+  it('🏊 ProDescriptions support order', () => {
     const html = mount(
       <ProDescriptions
         dataSource={{

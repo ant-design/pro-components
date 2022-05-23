@@ -2,6 +2,50 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [6.38.4](https://github.com/ant-design/pro-components/compare/@ant-design/pro-layout@6.38.3...@ant-design/pro-layout@6.38.4) (2022-05-20)
+
+**Note:** Version bump only for package @ant-design/pro-layout
+
+## [6.38.3](https://github.com/ant-design/pro-components/compare/@ant-design/pro-layout@6.38.2...@ant-design/pro-layout@6.38.3) (2022-05-20)
+
+**Note:** Version bump only for package @ant-design/pro-layout
+
+## [6.38.2](https://github.com/ant-design/pro-components/compare/@ant-design/pro-layout@6.38.1...@ant-design/pro-layout@6.38.2) (2022-05-12)
+
+**Note:** Version bump only for package @ant-design/pro-layout
+
+## [6.38.1](https://github.com/ant-design/pro-components/compare/@ant-design/pro-layout@6.38.0...@ant-design/pro-layout@6.38.1) (2022-05-12)
+
+### Bug Fixes
+
+- **table:** use menu.items render menu.item ([6f32179](https://github.com/ant-design/pro-components/commit/6f32179c6f411ac77fb743294d9d7838fa4bfc04))
+
+# [6.38.0](https://github.com/ant-design/pro-components/compare/@ant-design/pro-layout@6.36.1...@ant-design/pro-layout@6.38.0) (2022-05-07)
+
+### Features
+
+- **layout:** use menu items ([e7606ff](https://github.com/ant-design/pro-components/commit/e7606ff2990719402b14d7bc1c2b32c2113ccfac))
+
+# [6.37.0](https://github.com/ant-design/pro-components/compare/@ant-design/pro-layout@6.36.1...@ant-design/pro-layout@6.37.0) (2022-04-29)
+
+### Features
+
+- **layout:** use menu items ([e7606ff](https://github.com/ant-design/pro-components/commit/e7606ff2990719402b14d7bc1c2b32c2113ccfac))
+
+## [6.36.1](https://github.com/ant-design/pro-components/compare/@ant-design/pro-layout@6.36.0...@ant-design/pro-layout@6.36.1) (2022-04-25)
+
+**Note:** Version bump only for package @ant-design/pro-layout
+
+# [6.36.0](https://github.com/ant-design/pro-components/compare/@ant-design/pro-layout@6.35.1...@ant-design/pro-layout@6.36.0) (2022-04-24)
+
+### Features
+
+- **layout:** default use children ([1170c6c](https://github.com/ant-design/pro-components/commit/1170c6c22911a7c39ca6dc4fca2c13c5eaf57961))
+
+## [6.35.1](https://github.com/ant-design/pro-components/compare/@ant-design/pro-layout@6.35.0...@ant-design/pro-layout@6.35.1) (2022-04-18)
+
+**Note:** Version bump only for package @ant-design/pro-layout
+
 # [6.35.0](https://github.com/ant-design/pro-components/compare/@ant-design/pro-layout@6.34.11...@ant-design/pro-layout@6.35.0) (2022-04-14)
 
 ### Features

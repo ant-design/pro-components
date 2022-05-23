@@ -1,9 +1,9 @@
+import ProTable from '@ant-design/pro-table';
 import { mount } from 'enzyme';
 import React, { useState } from 'react';
 import { act } from 'react-dom/test-utils';
-import ProTable from '@ant-design/pro-table';
-import { getFetchData } from './demo';
 import { waitForComponentToPaint } from '../util';
+import { getFetchData } from './demo';
 
 describe('BasicTable Search', () => {
   const LINE_STR_COUNT = 20;

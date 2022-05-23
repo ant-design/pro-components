@@ -1,15 +1,4 @@
-import type { ReactNode } from 'react';
-import { useMemo } from 'react';
-import React, {
-  useState,
-  useImperativeHandle,
-  useRef,
-  useContext,
-  useCallback,
-  useEffect,
-} from 'react';
-import type { SelectProps } from 'antd';
-import { Space, Spin, ConfigProvider } from 'antd';
+import { useIntl } from '@ant-design/pro-provider';
 import type {
   ProFieldRequestData,
   ProFieldValueEnumType,
@@ -17,23 +6,31 @@ import type {
   ProSchemaValueEnumObj,
   RequestOptionsType,
 } from '@ant-design/pro-utils';
-
 import {
   nanoid,
+  useDebounceValue,
   useDeepCompareEffect,
   useMountMergeState,
-  useDebounceValue,
 } from '@ant-design/pro-utils';
-
-import { useIntl } from '@ant-design/pro-provider';
-
-import LightSelect from './LightSelect';
-import SearchSelect from './SearchSelect';
+import type { SelectProps } from 'antd';
+import { ConfigProvider, Space, Spin } from 'antd';
+import type { ReactNode } from 'react';
+import React, {
+  useCallback,
+  useContext,
+  useEffect,
+  useImperativeHandle,
+  useMemo,
+  useRef,
+  useState,
+} from 'react';
+import useSWR from 'swr';
+import type { ProFieldFC, ProFieldLightProps } from '../../index';
 import type { ProFieldStatusType } from '../Status';
 import TableStatus, { ProFieldBadgeColor } from '../Status';
-import type { ProFieldFC } from '../../index';
 import './index.less';
-import useSWR from 'swr';
+import LightSelect from './LightSelect';
+import SearchSelect from './SearchSelect';
 
 type SelectOptionType = Partial<RequestOptionsType>[];
 
@@ -55,7 +52,7 @@ export type FieldSelectProps<FieldProps = any> = {
   id?: string;
 
   children?: ReactNode;
-};
+} & ProFieldLightProps;
 
 export const ObjToMap = (value: ProFieldValueEnumType | undefined): ProSchemaValueEnumMap => {
   if (getType(value) === 'map') {
@@ -344,9 +341,11 @@ export const useFieldFetchData = (
       ),
     {
       revalidateIfStale: !cacheForSwr,
-      revalidateOnFocus: !cacheForSwr,
-      revalidateOnReconnect: !cacheForSwr,
+      // 打开 cacheForSwr 的时候才应该支持两个功能
+      revalidateOnReconnect: cacheForSwr,
       shouldRetryOnError: false,
+      // @todo 这个功能感觉应该搞个API出来
+      revalidateOnFocus: false,
     },
   );
 
@@ -421,6 +420,8 @@ const FieldSelect: ProFieldFC<
     label,
     bordered,
     id,
+    lightLabel,
+    labelTrigger,
     ...rest
   } = props;
 
@@ -498,6 +499,8 @@ const FieldSelect: ProFieldFC<
             options={options}
             label={label}
             placeholder={intl.getMessage('tableForm.selectPlaceholder', '请选择')}
+            lightLabel={lightLabel}
+            labelTrigger={labelTrigger}
             {...fieldProps}
           />
         );

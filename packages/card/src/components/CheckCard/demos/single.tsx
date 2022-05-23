@@ -2,8 +2,8 @@
  * title: 单选模式
  */
 
+import { CheckCard } from '@ant-design/pro-components';
 import React from 'react';
-import { CheckCard } from '@ant-design/pro-card';
 
 export default () => (
   <CheckCard.Group

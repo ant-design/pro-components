@@ -1,14 +1,12 @@
-﻿import React, { useContext, useMemo } from 'react';
+﻿import type { BaseQueryFilterProps, ProFormProps } from '@ant-design/pro-form';
+import { BetaSchemaForm } from '@ant-design/pro-form';
+import type { ProSchemaComponentTypes } from '@ant-design/pro-utils';
 import type { FormInstance, FormItemProps } from 'antd';
-import { ConfigProvider } from 'antd';
-import type { BaseQueryFilterProps, ProFormProps } from '@ant-design/pro-form';
+import { ConfigProvider, Table } from 'antd';
 import classNames from 'classnames';
 import omit from 'omit.js';
-import { BetaSchemaForm } from '@ant-design/pro-form';
-
-import type { ProSchemaComponentTypes } from '@ant-design/pro-utils';
+import React, { useContext, useMemo } from 'react';
 import type { ActionType, ProColumns, ProTableProps } from '../../typing';
-
 import './index.less';
 
 function toLowerLine(str: string) {
@@ -143,6 +141,9 @@ const FormRender = <T, U = any>({
   const columnsList = useMemo(() => {
     return columns
       .filter((item) => {
+        if (item === Table.EXPAND_COLUMN || item === Table.SELECTION_COLUMN) {
+          return false;
+        }
         if ((item.hideInSearch || item.search === false) && type !== 'form') {
           return false;
         }
@@ -158,12 +159,14 @@ const FormRender = <T, U = any>({
             ? 'text'
             : (item?.valueType as 'text');
         const columnKey = item?.key || item?.dataIndex?.toString();
+
         return {
           ...item,
           width: undefined,
           ...(item.search ? item.search : {}),
           valueType: finalValueType,
           proFieldProps: {
+            ...item.proFieldProps,
             proFieldKey: columnKey ? `table-field-${columnKey}` : undefined,
           },
         };

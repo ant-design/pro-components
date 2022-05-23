@@ -330,6 +330,8 @@ exports[`List 🚏 show loading state 1`] = `
         >
           <div>
             <div
+              aria-busy="true"
+              aria-live="polite"
               class="ant-spin ant-spin-spinning"
             >
               <span

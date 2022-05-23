@@ -1313,11 +1313,11 @@ exports[`BasicLayout 🥩 mix layout hideInMenu render right 1`] = `
               role="none"
             >
               <div
-                aria-controls="rc-menu-uuid-84044-30-/admin-popup"
+                aria-controls="rc-menu-uuid-84044-34-/admin-popup"
                 aria-expanded="false"
                 aria-haspopup="true"
                 class="ant-menu-submenu-title"
-                data-menu-id="rc-menu-uuid-84044-30-/admin"
+                data-menu-id="rc-menu-uuid-84044-34-/admin"
                 role="menuitem"
                 style="padding-left: 16px;"
                 tabindex="-1"
@@ -1339,10 +1339,11 @@ exports[`BasicLayout 🥩 mix layout hideInMenu render right 1`] = `
             </li>
             <li
               class="ant-menu-item ant-menu-item-only-child"
-              data-menu-id="rc-menu-uuid-84044-30-/list"
+              data-menu-id="rc-menu-uuid-84044-34-/list"
               role="menuitem"
               style="padding-left: 16px;"
               tabindex="-1"
+              title="列表页"
             >
               <span
                 class="ant-menu-title-content"
@@ -1375,7 +1376,7 @@ exports[`BasicLayout 🥩 mix layout hideInMenu render right 1`] = `
           >
             <li
               class="ant-menu-item ant-menu-item-only-child ant-pro-sider-collapsed-button"
-              data-menu-id="rc-menu-uuid-84044-31-collapsed"
+              data-menu-id="rc-menu-uuid-84044-33-collapsed"
               role="menuitem"
               style="padding-left: 16px;"
               tabindex="-1"
@@ -1661,6 +1662,8 @@ exports[`BasicLayout 🥩 support loading 1`] = `
           style="padding-top: 100px; text-align: center;"
         >
           <div
+            aria-busy="true"
+            aria-live="polite"
             class="ant-spin ant-spin-lg ant-spin-spinning"
           >
             <span
@@ -1850,10 +1853,11 @@ exports[`BasicLayout 🥩 support menuDataRender 1`] = `
           >
             <li
               class="ant-menu-item ant-menu-item-only-child"
-              data-menu-id="rc-menu-uuid-84044-3-/home"
+              data-menu-id="rc-menu-uuid-84044-5-/home"
               role="menuitem"
               style="padding-left: 16px;"
               tabindex="-1"
+              title="首页"
             >
               <span
                 class="ant-menu-title-content"
@@ -1874,11 +1878,11 @@ exports[`BasicLayout 🥩 support menuDataRender 1`] = `
               role="none"
             >
               <div
-                aria-controls="rc-menu-uuid-84044-3-/data_hui-popup"
+                aria-controls="rc-menu-uuid-84044-5-/data_hui-popup"
                 aria-expanded="false"
                 aria-haspopup="true"
                 class="ant-menu-submenu-title"
-                data-menu-id="rc-menu-uuid-84044-3-/data_hui"
+                data-menu-id="rc-menu-uuid-84044-5-/data_hui"
                 role="menuitem"
                 style="padding-left: 16px;"
                 tabindex="-1"
@@ -1900,10 +1904,11 @@ exports[`BasicLayout 🥩 support menuDataRender 1`] = `
             </li>
             <li
               class="ant-menu-item ant-menu-item-only-child"
-              data-menu-id="rc-menu-uuid-84044-3-/data_ming"
+              data-menu-id="rc-menu-uuid-84044-5-/data_ming"
               role="menuitem"
               style="padding-left: 16px;"
               tabindex="-1"
+              title="明细数据"
             >
               <span
                 class="ant-menu-title-content"
@@ -1921,10 +1926,11 @@ exports[`BasicLayout 🥩 support menuDataRender 1`] = `
             </li>
             <li
               class="ant-menu-item ant-menu-item-only-child"
-              data-menu-id="rc-menu-uuid-84044-3-/other"
+              data-menu-id="rc-menu-uuid-84044-5-/other"
               role="menuitem"
               style="padding-left: 16px;"
               tabindex="-1"
+              title="其他"
             >
               <span
                 class="ant-menu-title-content"

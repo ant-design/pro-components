@@ -1,17 +1,16 @@
-import './index.less';
 import Icon, { createFromIconfontCN } from '@ant-design/icons';
+import { isImg, isUrl, useMountMergeState } from '@ant-design/pro-utils';
+import type { MenuProps, MenuTheme } from 'antd';
 import { Menu, Skeleton } from 'antd';
-import React, { useEffect, useState, useRef, useMemo } from 'react';
+import type { ItemType } from 'antd/lib/menu/hooks/useItems';
 import classNames from 'classnames';
-import { isUrl, isImg, useMountMergeState } from '@ant-design/pro-utils';
-
-import type { MenuTheme, MenuProps } from 'antd';
+import React, { useEffect, useMemo, useRef, useState } from 'react';
 import type { PureSettings } from '../../defaultSettings';
 import defaultSettings from '../../defaultSettings';
-import { getOpenKeysFromMenuData } from '../../utils/utils';
-
 import type { MenuDataItem, MessageDescriptor, Route, RouterTypes, WithFalse } from '../../typings';
+import { getOpenKeysFromMenuData } from '../../utils/utils';
 import MenuCounter from './Counter';
+import './index.less';
 import type { PrivateSiderMenuProps } from './SiderMenu';
 
 // todo
@@ -80,8 +79,6 @@ export type BaseMenuProps = {
   Omit<MenuProps, 'openKeys' | 'onOpenChange' | 'title'> &
   Partial<PureSettings>;
 
-const { SubMenu, ItemGroup } = Menu;
-
 let IconFont = createFromIconfontCN({
   scriptUrl: defaultSettings.iconfontUrl,
 });
@@ -116,12 +113,13 @@ class MenuUtil {
 
   props: BaseMenuProps;
 
-  getNavMenuItems = (menusData: MenuDataItem[] = [], isChildren: boolean): React.ReactNode[] =>
+  getNavMenuItems = (menusData: MenuDataItem[] = [], isChildren: boolean): ItemType[] =>
     menusData.map((item) => this.getSubMenuOrItem(item, isChildren)).filter((item) => item);
 
   /** Get SubMenu or Item */
-  getSubMenuOrItem = (item: MenuDataItem, isChildren: boolean): React.ReactNode => {
-    if (Array.isArray(item.routes) && item && item.routes.length > 0) {
+  getSubMenuOrItem = (item: MenuDataItem, isChildren: boolean): ItemType => {
+    const children = item?.children || item?.routes;
+    if (Array.isArray(children) && children.length > 0) {
       const name = this.getIntlName(item);
       const { subMenuItemRender, prefixCls, menu, iconPrefixes } = this.props;
       //  get defaultTitle by menuItemRender
@@ -140,19 +138,28 @@ class MenuUtil {
       const title = subMenuItemRender
         ? subMenuItemRender({ ...item, isUrl: false }, defaultTitle)
         : defaultTitle;
-      const MenuComponents: React.ElementType = menu?.type === 'group' ? ItemGroup : SubMenu;
-      return (
-        <MenuComponents title={title} key={item.key || item.path} onTitleClick={item.onTitleClick}>
-          {this.getNavMenuItems(item.routes, true)}
-        </MenuComponents>
-      );
+
+      return {
+        type: menu?.type === 'group' ? ('group' as const) : (undefined as any),
+        label: title,
+        children: this.getNavMenuItems(children, true),
+        onTitleClick: item.onTitleClick,
+        key: item.key || item.path,
+      } as ItemType;
     }
 
-    return (
-      <Menu.Item disabled={item.disabled} key={item.key || item.path} onClick={item.onTitleClick}>
-        {this.getMenuItemPath(item, isChildren)}
-      </Menu.Item>
-    );
+    return {
+      label: this.getMenuItemPath(item, isChildren),
+      title: this.getIntlName(item),
+      key: item.key! || item.path!,
+      disabled: item.disabled,
+      onClick: (e) => {
+        if (isUrl(item?.path)) {
+          window.open(item.path);
+        }
+        item.onTitleClick?.(e);
+      },
+    };
   };
 
   getIntlName = (item: MenuDataItem) => {
@@ -172,7 +179,7 @@ class MenuUtil {
    *
    * @memberof SiderMenu
    */
-  getMenuItemPath = (item: MenuDataItem, isChildren: boolean) => {
+  getMenuItemPath = (item: MenuDataItem, isChildren: boolean): React.ReactNode => {
     const itemPath = this.conversionPath(item.path || '/');
     const {
       location = { pathname: '/' },
@@ -185,29 +192,17 @@ class MenuUtil {
     const name = this.getIntlName(item);
     const { prefixCls } = this.props;
     const icon = isChildren ? null : getIcon(item.icon, iconPrefixes);
-    let defaultItem = (
-      <span className={`${prefixCls}-menu-item`}>
+    const isHttpUrl = isUrl(itemPath);
+    const defaultItem = (
+      <span
+        className={classNames(`${prefixCls}-menu-item`, {
+          [`${prefixCls}-menu-item-link`]: isHttpUrl,
+        })}
+      >
         {icon}
         <span className={`${prefixCls}-menu-item-title`}>{name}</span>
       </span>
     );
-    const isHttpUrl = isUrl(itemPath);
-
-    // Is it a http link
-    if (isHttpUrl) {
-      defaultItem = (
-        <span
-          title={name}
-          onClick={() => {
-            window?.open?.(itemPath);
-          }}
-          className={`${prefixCls}-menu-item ${prefixCls}-menu-item-link`}
-        >
-          {icon}
-          <span className={`${prefixCls}-menu-item-title`}>{name}</span>
-        </span>
-      );
-    }
 
     if (menuItemRender) {
       const renderItemProps = {
@@ -216,7 +211,10 @@ class MenuUtil {
         itemPath,
         isMobile,
         replace: itemPath === location.pathname,
-        onClick: () => onCollapse && onCollapse(true),
+        onClick: () => {
+          if (isHttpUrl) window.open(itemPath);
+          if (onCollapse) onCollapse(true);
+        },
         children: undefined,
       };
       return menuItemRender(renderItemProps, defaultItem, this.props);
@@ -399,6 +397,7 @@ const BaseMenu: React.FC<BaseMenuProps & PrivateSiderMenuProps> = (props) => {
       {...openKeysProps}
       key="Menu"
       mode={mode}
+      items={menuUtils.getNavMenuItems(finallyData, false)}
       inlineIndent={16}
       defaultOpenKeys={defaultOpenKeysRef.current}
       theme={theme}
@@ -407,9 +406,7 @@ const BaseMenu: React.FC<BaseMenuProps & PrivateSiderMenuProps> = (props) => {
       className={cls}
       onOpenChange={setOpenKeys}
       {...props.menuProps}
-    >
-      {menuUtils.getNavMenuItems(finallyData, false)}
-    </Menu>
+    />
   );
 };
 

@@ -1,12 +1,11 @@
-import type { ReactNode } from 'react';
-import React, { useContext, useEffect, useMemo } from 'react';
 import { ConfigProvider } from 'antd';
 import classNames from 'classnames';
 import omit from 'omit.js';
-
-import './index.less';
+import type { ReactNode } from 'react';
+import React, { useContext, useEffect, useMemo } from 'react';
 import type { RouteContextType } from '../../index';
 import { RouteContext } from '../../index';
+import './index.less';
 
 export type FooterToolbarProps = {
   extra?: React.ReactNode;

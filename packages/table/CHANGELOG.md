@@ -2,6 +2,84 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.75.1](https://github.com/ant-design/pro-components/compare/@ant-design/pro-table@2.75.0...@ant-design/pro-table@2.75.1) (2022-05-20)
+
+**Note:** Version bump only for package @ant-design/pro-table
+
+# [2.75.0](https://github.com/ant-design/pro-components/compare/@ant-design/pro-table@2.74.4...@ant-design/pro-table@2.75.0) (2022-05-20)
+
+### Bug Fixes
+
+- **table:** default close revalidateOnFocus ([b348468](https://github.com/ant-design/pro-components/commit/b3484688d59f2140da62304aa1d1c01aaf04412a))
+
+### Features
+
+- **components:** add @ant-design/pro-component ([#5258](https://github.com/ant-design/pro-components/issues/5258)) ([a524391](https://github.com/ant-design/pro-components/commit/a524391aca28b09265097bcbf555fd1261e1e757))
+
+## [2.74.4](https://github.com/ant-design/pro-components/compare/@ant-design/pro-table@2.74.3...@ant-design/pro-table@2.74.4) (2022-05-16)
+
+**Note:** Version bump only for package @ant-design/pro-table
+
+## [2.74.3](https://github.com/ant-design/pro-components/compare/@ant-design/pro-table@2.74.2...@ant-design/pro-table@2.74.3) (2022-05-12)
+
+**Note:** Version bump only for package @ant-design/pro-table
+
+## [2.74.2](https://github.com/ant-design/pro-components/compare/@ant-design/pro-table@2.74.1...@ant-design/pro-table@2.74.2) (2022-05-12)
+
+### Bug Fixes
+
+- **table:** fix children table alway rerender all dom ([17e1b58](https://github.com/ant-design/pro-components/commit/17e1b588066d2fcccdd4e501867bdfdf20b517ec))
+- **table:** use menu.items render menu.item ([6f32179](https://github.com/ant-design/pro-components/commit/6f32179c6f411ac77fb743294d9d7838fa4bfc04))
+
+## [2.74.1](https://github.com/ant-design/pro-components/compare/@ant-design/pro-table@2.74.0...@ant-design/pro-table@2.74.1) (2022-05-09)
+
+**Note:** Version bump only for package @ant-design/pro-table
+
+# [2.74.0](https://github.com/ant-design/pro-components/compare/@ant-design/pro-table@2.72.1...@ant-design/pro-table@2.74.0) (2022-05-07)
+
+### Bug Fixes
+
+- **table:** if table data is null, render empty table ([281b8bd](https://github.com/ant-design/pro-components/commit/281b8bd541a3f93cb0e6ad3c24e21b0bc5f2f104))
+
+### Features
+
+- **form:** collapse support hidden number ([#5116](https://github.com/ant-design/pro-components/issues/5116)) ([eb14e1a](https://github.com/ant-design/pro-components/commit/eb14e1a0e3cb4aab8888b592c612c3a840e65db0))
+- **table:** recordCreator must set rowKey ([a30ce30](https://github.com/ant-design/pro-components/commit/a30ce301e649a27277b1ed1482333173f1833091))
+- **table:** renderFormIten support action ([5e33e57](https://github.com/ant-design/pro-components/commit/5e33e57fc61deab4668359d74e2cbc45901dd25c))
+
+# [2.73.0](https://github.com/ant-design/pro-components/compare/@ant-design/pro-table@2.72.1...@ant-design/pro-table@2.73.0) (2022-04-29)
+
+### Bug Fixes
+
+- **table:** if table data is null, render empty table ([281b8bd](https://github.com/ant-design/pro-components/commit/281b8bd541a3f93cb0e6ad3c24e21b0bc5f2f104))
+
+### Features
+
+- **form:** collapse support hidden number ([#5116](https://github.com/ant-design/pro-components/issues/5116)) ([eb14e1a](https://github.com/ant-design/pro-components/commit/eb14e1a0e3cb4aab8888b592c612c3a840e65db0))
+- **table:** recordCreator must set rowKey ([a30ce30](https://github.com/ant-design/pro-components/commit/a30ce301e649a27277b1ed1482333173f1833091))
+
+## [2.72.1](https://github.com/ant-design/pro-components/compare/@ant-design/pro-table@2.72.0...@ant-design/pro-table@2.72.1) (2022-04-25)
+
+**Note:** Version bump only for package @ant-design/pro-table
+
+# [2.72.0](https://github.com/ant-design/pro-components/compare/@ant-design/pro-table@2.71.7...@ant-design/pro-table@2.72.0) (2022-04-24)
+
+### Bug Fixes
+
+- **table:** extra columns unexpected show in form compo ([#5096](https://github.com/ant-design/pro-components/issues/5096)) ([a28d0b9](https://github.com/ant-design/pro-components/commit/a28d0b956e16b077a5038be96898ce9520b414f0))
+- **table:** ts type error ([#5095](https://github.com/ant-design/pro-components/issues/5095)) ([6e14c1f](https://github.com/ant-design/pro-components/commit/6e14c1f1d86a095e4cdc861b045b008a2c6145f2))
+
+### Features
+
+- **form:** 提交表单时，禁用取消按钮和右上角关闭按钮，直到 onFinish 异步回调执行完成 ([#5078](https://github.com/ant-design/pro-components/issues/5078)) ([ff1a4e0](https://github.com/ant-design/pro-components/commit/ff1a4e07df6a42282cf392fb5992d1afa25b7b48))
+- **table:** reinitialize umountRef for react@18 strict mode ([#5085](https://github.com/ant-design/pro-components/issues/5085)) ([8a4652a](https://github.com/ant-design/pro-components/commit/8a4652a143088eee3205195824c7f5720796c020))
+
+## [2.71.7](https://github.com/ant-design/pro-components/compare/@ant-design/pro-table@2.71.6...@ant-design/pro-table@2.71.7) (2022-04-18)
+
+### Bug Fixes
+
+- **form:** fix revalidateOnFocus alway work error-n ([0ea1618](https://github.com/ant-design/pro-components/commit/0ea1618154634f6e0ac9c64682a71746ab191807))
+
 ## [2.71.6](https://github.com/ant-design/pro-components/compare/@ant-design/pro-table@2.71.5...@ant-design/pro-table@2.71.6) (2022-04-14)
 
 **Note:** Version bump only for package @ant-design/pro-table

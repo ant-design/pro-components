@@ -1,13 +1,13 @@
-import { useRef, useEffect } from 'react';
 import {
-  usePrevious,
+  runFunction,
   useDebounceFn,
   useDeepCompareEffect,
   useMountMergeState,
-  runFunction,
+  usePrevious,
   useRefFunction,
 } from '@ant-design/pro-utils';
-import type { PageInfo, RequestData, UseFetchProps, UseFetchDataAction } from './typing';
+import { useEffect, useLayoutEffect, useRef } from 'react';
+import type { PageInfo, RequestData, UseFetchDataAction, UseFetchProps } from './typing';
 import { postDataPipeline } from './utils/index';
 
 /**
@@ -32,7 +32,7 @@ const useFetchData = <T extends RequestData<any>>(
   defaultData: any[] | undefined,
   options: UseFetchProps,
 ): UseFetchDataAction => {
-  const umountRef = useRef<boolean>();
+  const umountRef = useRef<boolean>(false);
   const { onLoad, manual, polling, onRequestError, debounceTime = 20 } = options || {};
 
   /** 是否首次加载的指示器 */
@@ -141,9 +141,7 @@ const useFetchData = <T extends RequestData<any>>(
       return responseData;
     } catch (e) {
       // 如果没有传递这个方法的话，需要把错误抛出去，以免吞掉错误
-      if (onRequestError === undefined) {
-        throw new Error(e as string);
-      }
+      if (onRequestError === undefined) throw new Error(e as string);
       if (list === undefined) setList([]);
       onRequestError(e as Error);
     } finally {
@@ -189,12 +187,13 @@ const useFetchData = <T extends RequestData<any>>(
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [polling]);
 
-  useEffect(
-    () => () => {
+  useLayoutEffect(() => {
+    umountRef.current = false;
+
+    return () => {
       umountRef.current = true;
-    },
-    [],
-  );
+    };
+  }, []);
 
   /** PageIndex 改变的时候自动刷新 */
   useEffect(() => {

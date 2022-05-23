@@ -1,8 +1,7 @@
-import React, { useState } from 'react';
-
 import type { MenuDataItem } from '@ant-design/pro-layout';
 import ProLayout, { PageContainer } from '@ant-design/pro-layout';
 import { Input } from 'antd';
+import React, { useState } from 'react';
 import complexMenu from './complexMenu';
 
 const filterByMenuDate = (data: MenuDataItem[], keyWord: string): MenuDataItem[] =>
@@ -14,6 +13,7 @@ const filterByMenuDate = (data: MenuDataItem[], keyWord: string): MenuDataItem[]
       ) {
         return {
           ...item,
+          children: filterByMenuDate(item.children || [], keyWord),
           routes: filterByMenuDate(item.routes || [], keyWord),
         };
       }

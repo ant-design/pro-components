@@ -1,15 +1,16 @@
-﻿import React, { useState } from 'react';
-import ProForm, {
-  StepsForm,
-  ProFormText,
+﻿import { PlusOutlined } from '@ant-design/icons';
+import {
+  ProForm,
+  ProFormCheckbox,
   ProFormDatePicker,
   ProFormDateTimePicker,
   ProFormSelect,
+  ProFormText,
   ProFormTextArea,
-  ProFormCheckbox,
-} from '@ant-design/pro-form';
+  StepsForm,
+} from '@ant-design/pro-components';
 import { Button, message, Modal } from 'antd';
-import { PlusOutlined } from '@ant-design/icons';
+import React, { useState } from 'react';
 
 const waitTime = (time: number = 100) => {
   return new Promise((resolve) => {
@@ -41,7 +42,6 @@ export default () => {
         }}
         stepsFormRender={(dom, submitter) => {
           return (
-            // @ts-expect-error
             <Modal
               title="分步表单"
               width={800}

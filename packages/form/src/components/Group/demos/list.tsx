@@ -1,14 +1,15 @@
-﻿import React, { useState } from 'react';
-import ProForm, {
-  ProFormRadio,
-  ProFormList,
-  ProFormText,
-  ProFormFieldSet,
-  ProFormDigit,
-  ProFormSelect,
+﻿import {
+  ProForm,
   ProFormDatePicker,
+  ProFormDigit,
+  ProFormFieldSet,
   ProFormGroup,
-} from '@ant-design/pro-form';
+  ProFormList,
+  ProFormRadio,
+  ProFormSelect,
+  ProFormText,
+} from '@ant-design/pro-components';
+import React, { useState } from 'react';
 
 const Demo = () => {
   const [position, setPosition] = useState<'bottom' | 'top'>('bottom');

@@ -1,9 +1,9 @@
-import { render, mount } from 'enzyme';
-import React from 'react';
 import ProLayout, { PageContainer } from '@ant-design/pro-layout';
+import { mount, render } from 'enzyme';
+import React from 'react';
 import { act } from 'react-dom/test-utils';
-import defaultProps from './defaultProps';
 import { waitForComponentToPaint } from '../util';
+import defaultProps from './defaultProps';
 
 describe('BasicLayout', () => {
   it('base use', () => {
@@ -63,6 +63,7 @@ describe('BasicLayout', () => {
         layout="mix"
         splitMenus
         isMobile={false}
+        headerContentRender={() => <span />}
         rightContentRender={() => <span />}
       >
         <PageContainer title="name" />

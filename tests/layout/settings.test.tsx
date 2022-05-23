@@ -1,9 +1,10 @@
-import React from 'react';
 import BasicLayout from '@ant-design/pro-layout';
-import { waitForComponentToPaint, waitTime } from '../util';
+import '@testing-library/jest-dom';
 import { render } from '@testing-library/react';
-import { act } from 'react-dom/test-utils';
 import { _el, _rs } from 'rc-resize-observer/lib/utils/observerUtil';
+import React from 'react';
+import { act } from 'react-dom/test-utils';
+import { waitForComponentToPaint, waitTime } from '../util';
 
 describe('settings.test', () => {
   it('set title', async () => {

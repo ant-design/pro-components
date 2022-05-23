@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.0.7](https://github.com/ant-design/pro-components/compare/@ant-design/pro-skeleton@1.0.6...@ant-design/pro-skeleton@1.0.7) (2022-05-20)
+
+**Note:** Version bump only for package @ant-design/pro-skeleton
+
+## [1.0.6](https://github.com/ant-design/pro-components/compare/@ant-design/pro-skeleton@1.0.5...@ant-design/pro-skeleton@1.0.6) (2022-05-12)
+
+### Bug Fixes
+
+- **table:** use menu.items render menu.item ([6f32179](https://github.com/ant-design/pro-components/commit/6f32179c6f411ac77fb743294d9d7838fa4bfc04))
+
 ## [1.0.5](https://github.com/ant-design/pro-components/compare/@ant-design/pro-skeleton@1.0.4...@ant-design/pro-skeleton@1.0.5) (2022-02-10)
 
 **Note:** Version bump only for package @ant-design/pro-skeleton

@@ -2,6 +2,46 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.20.6](https://github.com/ant-design/pro-components/compare/@ant-design/pro-card@1.20.5...@ant-design/pro-card@1.20.6) (2022-05-20)
+
+**Note:** Version bump only for package @ant-design/pro-card
+
+## [1.20.5](https://github.com/ant-design/pro-components/compare/@ant-design/pro-card@1.20.4...@ant-design/pro-card@1.20.5) (2022-05-20)
+
+**Note:** Version bump only for package @ant-design/pro-card
+
+## [1.20.4](https://github.com/ant-design/pro-components/compare/@ant-design/pro-card@1.20.3...@ant-design/pro-card@1.20.4) (2022-05-12)
+
+**Note:** Version bump only for package @ant-design/pro-card
+
+## [1.20.3](https://github.com/ant-design/pro-components/compare/@ant-design/pro-card@1.20.2...@ant-design/pro-card@1.20.3) (2022-05-12)
+
+### Bug Fixes
+
+- **table:** use menu.items render menu.item ([6f32179](https://github.com/ant-design/pro-components/commit/6f32179c6f411ac77fb743294d9d7838fa4bfc04))
+
+## [1.20.2](https://github.com/ant-design/pro-components/compare/@ant-design/pro-card@1.20.0...@ant-design/pro-card@1.20.2) (2022-05-07)
+
+**Note:** Version bump only for package @ant-design/pro-card
+
+## [1.20.1](https://github.com/ant-design/pro-components/compare/@ant-design/pro-card@1.20.0...@ant-design/pro-card@1.20.1) (2022-04-29)
+
+**Note:** Version bump only for package @ant-design/pro-card
+
+# [1.20.0](https://github.com/ant-design/pro-components/compare/@ant-design/pro-card@1.19.6...@ant-design/pro-card@1.20.0) (2022-04-25)
+
+### Features
+
+- **Card:** Displays a corner label ([#5127](https://github.com/ant-design/pro-components/issues/5127)) ([fa7d82f](https://github.com/ant-design/pro-components/commit/fa7d82f0046ee59c11c407f6a95b43ad31579c5b))
+
+## [1.19.6](https://github.com/ant-design/pro-components/compare/@ant-design/pro-card@1.19.5...@ant-design/pro-card@1.19.6) (2022-04-24)
+
+**Note:** Version bump only for package @ant-design/pro-card
+
+## [1.19.5](https://github.com/ant-design/pro-components/compare/@ant-design/pro-card@1.19.4...@ant-design/pro-card@1.19.5) (2022-04-18)
+
+**Note:** Version bump only for package @ant-design/pro-card
+
 ## [1.19.4](https://github.com/ant-design/pro-components/compare/@ant-design/pro-card@1.19.3...@ant-design/pro-card@1.19.4) (2022-04-13)
 
 **Note:** Version bump only for package @ant-design/pro-card

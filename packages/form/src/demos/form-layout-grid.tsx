@@ -1,16 +1,17 @@
-import React, { useState } from 'react';
-import { message, Row, Col, Space } from 'antd';
-import ProForm, {
-  ProFormText,
-  ProFormRadio,
+import {
+  ProForm,
   ProFormDatePicker,
   ProFormDateRangePicker,
   ProFormDigit,
+  ProFormRadio,
   ProFormSelect,
   ProFormSwitch,
+  ProFormText,
   ProFormTextArea,
-} from '@ant-design/pro-form';
+} from '@ant-design/pro-components';
+import { Col, message, Row, Space } from 'antd';
 import type { FormLayout } from 'antd/lib/form/Form';
+import React, { useState } from 'react';
 
 const LAYOUT_TYPE_HORIZONTAL = 'horizontal';
 

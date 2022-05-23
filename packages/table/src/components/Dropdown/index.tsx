@@ -1,13 +1,14 @@
-import React, { useContext } from 'react';
-import classnames from 'classnames';
 import { DownOutlined, EllipsisOutlined } from '@ant-design/icons';
 import type { MenuItemProps } from 'antd';
-import { Dropdown, Menu, Button, ConfigProvider } from 'antd';
+import { Button, ConfigProvider, Dropdown, Menu } from 'antd';
+import classnames from 'classnames';
+import React, { useContext } from 'react';
 import './index.less';
 
 interface MenuItems extends MenuItemProps {
   name: React.ReactNode;
   key: string;
+  title?: string;
 }
 
 export type DropdownProps = {
@@ -41,7 +42,6 @@ const DropdownButton: React.FC<DropdownProps> = ({
     </Menu>
   );
   return (
-    //@ts-expect-error
     <Dropdown overlay={menu} className={classnames(tempClassName, className)}>
       <Button style={style}>
         {children} <DownOutlined />
@@ -56,16 +56,19 @@ const TableDropdown: React.FC<DropdownProps> & {
   const { getPrefixCls } = useContext(ConfigProvider.ConfigContext);
   const className = getPrefixCls('pro-table-dropdown');
   const menu = (
-    <Menu onClick={(params) => onSelect && onSelect(params.key as string)}>
-      {menus.map(({ key, name, ...rest }) => (
-        <Menu.Item key={key} {...rest}>
-          {name}
-        </Menu.Item>
-      ))}
-    </Menu>
+    <Menu
+      onClick={(params) => {
+        onSelect?.(params.key as string);
+      }}
+      items={menus.map(({ key, name, ...rest }) => ({
+        key,
+        ...rest,
+        title: rest.title as string,
+        label: name,
+      }))}
+    />
   );
   return (
-    //@ts-expect-error
     <Dropdown overlay={menu} className={classnames(className, propsClassName)}>
       <a style={style}>{children || <EllipsisOutlined />}</a>
     </Dropdown>

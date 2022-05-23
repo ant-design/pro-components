@@ -1,6 +1,6 @@
-import React, { useState, useEffect, useContext } from 'react';
 import { ConfigProvider } from 'antd';
 import classNames from 'classnames';
+import React, { useContext, useEffect, useState } from 'react';
 
 export type WaterMarkProps = {
   /** 类名 */

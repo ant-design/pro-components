@@ -1,5 +1,5 @@
+import { ConfigProvider, Dropdown } from 'antd';
 import React, { useContext } from 'react';
-import { Dropdown, ConfigProvider } from 'antd';
 import type { DropdownFooterProps } from '../DropdownFooter';
 import Footer from '../DropdownFooter';
 import './index.less';
@@ -40,7 +40,6 @@ const FilterDropdown: React.FC<DropdownProps> = (props) => {
   const prefixCls = getPrefixCls('pro-core-field-dropdown');
 
   return (
-    //@ts-expect-error
     <Dropdown
       disabled={disabled}
       placement={placement}

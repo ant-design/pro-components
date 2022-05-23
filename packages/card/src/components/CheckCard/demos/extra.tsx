@@ -2,10 +2,10 @@
  * title: 操作栏
  */
 
-import React from 'react';
-import { CheckCard } from '@ant-design/pro-card';
-import { Dropdown, Menu, message } from 'antd';
 import { EllipsisOutlined } from '@ant-design/icons';
+import { CheckCard } from '@ant-design/pro-components';
+import { Dropdown, Menu, message } from 'antd';
+import React from 'react';
 
 export default () => (
   <CheckCard
@@ -13,7 +13,6 @@ export default () => (
     title="示例一"
     description="选择一个由流程编排提供的典型用户案例，可以从中学习到流程编排很多设计理念。"
     extra={
-      //@ts-expect-error
       <Dropdown
         placement="topCenter"
         overlay={

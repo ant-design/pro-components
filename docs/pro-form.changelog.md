@@ -9,6 +9,56 @@ group:
 
 # Change Log
 
+## @ant-design/pro-form@1.68.1
+
+`2022-05-20`
+
+- fix(form): 解决 ProFormSelect、ProFormDatePicker、ProFormTimePicker 在 LightFilter 模式下点击激活下拉选项后再次点击未隐藏下拉框的问题 (#5169). [#5169](https://github.com/ant-design/pro-components/pull/#5169) [@wangmeijian](https://github.com/wangmeijian)
+
+## @ant-design/pro-form@1.68.0
+
+`2022-05-16`
+
+- feat(form): `FieldProps` add `ref` type (#5209). [#5209](https://github.com/ant-design/pro-components/pull/#5209) [@kungege](https://github.com/kungege)
+- fix(form): fix ProFormTreeSelect style no work error. [cb5dfa5](https://github.com/ant-design/pro-components/commit/cb5dfa5)
+
+## @ant-design/pro-form@1.67.2
+
+`2022-05-12`
+
+- fix(form): fix bgImg color cover style. [fea7f7d](https://github.com/ant-design/pro-components/commit/fea7f7d)
+- fix(form):FormRender 不能自定义 proFieldProps (#5199). [#5199](https://github.com/ant-design/pro-components/pull/#5199) [@ly4236](https://github.com/ly4236)
+
+## @ant-design/pro-form@1.66.0
+
+`2022-04-29`
+
+- feat(form): collapse support hidden number (#5116). [#5116](https://github.com/ant-design/pro-components/pull/#5116) [@DerrickTel](https://github.com/DerrickTel)
+- fix(form): Supplementary English Documents (#5139). [#5139](https://github.com/ant-design/pro-components/pull/#5139) [@wangmeijian](https://github.com/wangmeijian)
+- fix(form): add missed ProFormTreeSelect to the form export (#5133). [#5133](https://github.com/ant-design/pro-components/pull/#5133) [@Symous](https://github.com/Symous)
+
+## @ant-design/pro-form@1.65.0
+
+`2022-04-24`
+
+- feat(form): 提交表单时，禁用取消按钮和右上角关闭按钮，直到 onFinish 异步回调执行完成 (#5078). [#5078](https://github.com/ant-design/pro-components/pull/#5078) [@wangmeijian](https://github.com/wangmeijian)
+- fix(form) 验证码获取 按钮导致登录框宽度动态变化 (#5077). [#5077](https://github.com/ant-design/pro-components/pull/#5077) [@hihuangwei](https://github.com/hihuangwei)
+
+## @ant-design/pro-form@1.65.0
+
+`2022-04-24`
+
+- feat(form): 提交表单时，禁用取消按钮和右上角关闭按钮，直到 onFinish 异步回调执行完成 (#5078). [#5078](https://github.com/ant-design/pro-components/pull/#5078) [@wangmeijian](https://github.com/wangmeijian)
+- fix(form) 验证码获取 按钮导致登录框宽度动态变化 (#5077). [#5077](https://github.com/ant-design/pro-components/pull/#5077) [@hihuangwei](https://github.com/hihuangwei)
+- feat(form): fix test case (#5109). [#5109](https://github.com/ant-design/pro-components/pull/#5109) [@wangmeijian](https://github.com/wangmeijian)
+
+## @ant-design/pro-form@1.64.1
+
+`2022-04-18`
+
+- fix(form): ProFormList RenderProps 透传总行数 count 参数 (#5068). [#5068](https://github.com/ant-design/pro-components/pull/#5068) [@beysong](https://github.com/beysong)
+- fix(form): fix revalidateOnFocus alway work error-n. [0ea1618](https://github.com/ant-design/pro-components/commit/0ea1618)
+
 ## @ant-design/pro-form@1.64.0
 
 `2022-04-14`

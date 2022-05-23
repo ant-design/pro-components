@@ -1,10 +1,9 @@
-﻿import { mount, render } from 'enzyme';
+﻿import BasicLayout from '@ant-design/pro-layout';
+import { mount, render } from 'enzyme';
 import React from 'react';
-import BasicLayout from '@ant-design/pro-layout';
 import { act } from 'react-dom/test-utils';
-
-import defaultProps from './defaultProps';
 import { waitForComponentToPaint } from '../util';
+import defaultProps from './defaultProps';
 
 describe('mobile BasicLayout', () => {
   beforeAll(() => {

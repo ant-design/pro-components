@@ -1,5 +1,5 @@
 import type { DependencyList } from 'react';
-import { useState, useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import useLatest from '../useLatest';
 
 export default function useDebounceValue<T>(

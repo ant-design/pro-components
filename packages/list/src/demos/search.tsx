@@ -1,6 +1,6 @@
-import React from 'react';
-import { Button, Tag, Space } from 'antd';
 import ProList from '@ant-design/pro-list';
+import { Button, Space, Tag } from 'antd';
+import React from 'react';
 import request from 'umi-request';
 
 type GithubIssueItem = {

@@ -1,13 +1,11 @@
-import MockDate from 'mockdate';
+import Adapter from '@cfaester/enzyme-adapter-react-18';
 import Enzyme from 'enzyme';
-import Adapter from 'enzyme-adapter-react-16';
 import 'jest-canvas-mock';
-import moment from 'moment-timezone';
-
 import { enableFetchMocks } from 'jest-fetch-mock';
-import tableData from './table/mock.data.json';
-
+import MockDate from 'mockdate';
+import moment from 'moment-timezone';
 import React from 'react';
+import tableData from './table/mock.data.json';
 
 global.React = React;
 
@@ -20,19 +18,8 @@ jest.setTimeout(60000);
 
 Enzyme.configure({ adapter: new Adapter() });
 
-const eventListener = {};
 /* eslint-disable global-require */
 if (typeof window !== 'undefined') {
-  global.window.resizeTo = (width, height) => {
-    global.window.innerWidth = width || global.window.innerWidth;
-    global.window.innerHeight = height || global.window.innerHeight;
-    global.window.dispatchEvent(new Event('resize'));
-  };
-  document.addEventListener = (name, cb) => {
-    eventListener[name] = cb;
-  };
-  document.dispatchEvent = (event) => eventListener[event.type]?.(event);
-  global.window.scrollTo = () => {};
   // ref: https://github.com/ant-design/ant-design/issues/18774
   if (!window.matchMedia) {
     Object.defineProperty(global.window, 'matchMedia', {
@@ -145,6 +132,3 @@ global.Worker = class {
     this.onmessage(msg);
   }
 };
-
-// @ts-ignore-next-line
-global.URL.createObjectURL = () => {};

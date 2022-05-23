@@ -1,7 +1,6 @@
-import React, { useContext } from 'react';
-import { Button, ConfigProvider } from 'antd';
 import { useIntl } from '@ant-design/pro-provider';
-
+import { Button, ConfigProvider } from 'antd';
+import React, { useContext } from 'react';
 import './index.less';
 
 type LightFilterFooterRender =

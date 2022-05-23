@@ -1,8 +1,8 @@
-import React from 'react';
-import { Dropdown, Menu, Space, Tabs } from 'antd';
 import { DownOutlined } from '@ant-design/icons';
+import { Dropdown, Menu, Space, Tabs } from 'antd';
 import classNames from 'classnames';
 import useMergedState from 'rc-util/lib/hooks/useMergedState';
+import React from 'react';
 import './index.less';
 
 export type ListToolBarMenuItem = {
@@ -69,7 +69,6 @@ const HeaderMenu: React.FC<ListToolBarHeaderMenuProps> = (props) => {
 
   return (
     <div className={classNames(`${prefixCls}-menu`, `${prefixCls}-dropdownmenu`)}>
-      {/* @ts-expect-error */}
       <Dropdown
         trigger={['click']}
         overlay={
@@ -78,13 +77,12 @@ const HeaderMenu: React.FC<ListToolBarHeaderMenuProps> = (props) => {
             onClick={(item) => {
               setActiveKey(item.key);
             }}
-          >
-            {items.map((item, index) => (
-              <Menu.Item key={item.key || index} disabled={item.disabled}>
-                {item.label}
-              </Menu.Item>
-            ))}
-          </Menu>
+            items={items.map((item, index) => ({
+              key: item.key || index,
+              disabled: item.disabled,
+              label: item.label,
+            }))}
+          />
         }
       >
         <Space className={`${prefixCls}-dropdownmenu-label`}>

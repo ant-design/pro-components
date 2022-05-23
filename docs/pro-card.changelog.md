@@ -10,6 +10,18 @@ group:
 
 # Change Log
 
+## @ant-design/pro-card@1.20.4
+
+`2022-05-12`
+
+- 依赖库更新
+
+## @ant-design/pro-card@1.20.0
+
+`2022-04-25`
+
+- feat(Card): Displays a corner label (#5127). [#5127](https://github.com/ant-design/pro-components/pull/#5127) [@wangmeijian](https://github.com/wangmeijian)
+
 ## @ant-design/pro-card@1.19.0
 
 `2022-03-25`

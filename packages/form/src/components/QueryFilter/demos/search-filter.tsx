@@ -1,7 +1,7 @@
-import React, { useState } from 'react';
+import { DownOutlined, UpOutlined } from '@ant-design/icons';
+import { ProForm, ProFormDatePicker, ProFormText, QueryFilter } from '@ant-design/pro-components';
 import { Card, Input, Tabs } from 'antd';
-import { UpOutlined, DownOutlined } from '@ant-design/icons';
-import ProForm, { QueryFilter, ProFormText, ProFormDatePicker } from '@ant-design/pro-form';
+import React, { useState } from 'react';
 import styles from './search-filter.module.less';
 
 const { TabPane } = Tabs;

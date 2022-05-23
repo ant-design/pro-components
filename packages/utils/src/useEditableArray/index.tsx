@@ -1,21 +1,22 @@
 /* eslint-disable react-hooks/exhaustive-deps */
-import React, { useContext, useMemo, useRef, useState } from 'react';
-import type { GetRowKey } from 'antd/lib/table/interface';
-import useMergedState from 'rc-util/lib/hooks/useMergedState';
-import type { FormInstance, FormProps } from 'antd';
-import useLazyKVMap from 'antd/lib/table/hooks/useLazyKVMap';
 import { LoadingOutlined } from '@ant-design/icons';
 import { useIntl } from '@ant-design/pro-provider';
+import type { FormInstance, FormProps } from 'antd';
 import { message, Popconfirm } from 'antd';
-import set from 'rc-util/lib/utils/set';
-import useMountMergeState from '../useMountMergeState';
-import ProFormContext from '../components/ProFormContext';
-import { merge } from '../merge';
 import type { NamePath } from 'antd/lib/form/interface';
-import usePrevious from '../hooks/usePrevious';
+import useLazyKVMap from 'antd/lib/table/hooks/useLazyKVMap';
+import type { GetRowKey } from 'antd/lib/table/interface';
+import useMergedState from 'rc-util/lib/hooks/useMergedState';
 import get from 'rc-util/lib/utils/get';
-import { useDeepCompareEffectDebounce } from '../hooks/useDeepCompareEffect';
+import set from 'rc-util/lib/utils/set';
+import { noteOnce } from 'rc-util/lib/warning';
+import React, { useContext, useMemo, useRef, useState } from 'react';
 import { useDebounceFn, useRefFunction } from '..';
+import ProFormContext from '../components/ProFormContext';
+import { useDeepCompareEffectDebounce } from '../hooks/useDeepCompareEffect';
+import usePrevious from '../hooks/usePrevious';
+import { merge } from '../merge';
+import useMountMergeState from '../useMountMergeState';
 
 export type RowEditableType = 'single' | 'multiple';
 
@@ -343,6 +344,7 @@ export const DeleteEditableAction: React.FC<ActionRenderConfig<any> & { row: any
       const res = await onDelete?.(recordKey, row);
       setLoading(false);
       setTimeout(() => {
+        // 删除之后解除编辑状态，防止新建一行失效
         cancelEditable(recordKey);
       }, 0);
       return res;
@@ -446,10 +448,16 @@ function useEditableArray<RecordType>(
 
   useDeepCompareEffectDebounce(() => {
     const map = new Map<React.Key, React.Key>();
-    props.dataSource?.forEach((record, index) => {
-      map.set(index.toString(), recordKeyToString(props.getRowKey(record, -1)));
-      map.set(recordKeyToString(props.getRowKey(record, -1))?.toString(), index.toString());
-    });
+    const loopGetKey = (dataSource: RecordType[]) => {
+      dataSource?.forEach((record, index) => {
+        map.set(index.toString(), recordKeyToString(props.getRowKey(record, -1)));
+        map.set(recordKeyToString(props.getRowKey(record, -1))?.toString(), index.toString());
+        if (props.childrenColumnName && record[props.childrenColumnName]) {
+          loopGetKey([record[props.childrenColumnName]]);
+        }
+      });
+    };
+    loopGetKey(props.dataSource);
     dataSourceKeyIndexMapRef.current = map;
   }, [props.dataSource]);
 
@@ -465,9 +473,9 @@ function useEditableArray<RecordType>(
       ? (keys) => {
           props?.onChange?.(
             // 计算编辑的key
-            keys,
+            keys.filter((key) => key !== undefined),
             // 计算编辑的行
-            keys.map((key) => getRecordByKey(key)),
+            keys.map((key) => getRecordByKey(key)).filter((key) => key !== undefined),
           );
         }
       : undefined,
@@ -489,8 +497,8 @@ function useEditableArray<RecordType>(
     const recordKey = props.getRowKey(row, -1)?.toString?.();
 
     // 都转化为了字符串，不然 number 和 string
-    const stringEditableKeys = editableKeys.map((key) => key.toString());
-    const stringEditableKeysRef = editableKeysRef?.map((key) => key.toString()) || [];
+    const stringEditableKeys = editableKeys.map((key) => key?.toString());
+    const stringEditableKeysRef = editableKeysRef?.map((key) => key?.toString()) || [];
 
     const preIsEditable =
       (props.tableName && !!stringEditableKeysRef?.includes(recordKey)) ||
@@ -512,7 +520,11 @@ function useEditableArray<RecordType>(
    */
   const startEditable = useRefFunction((recordKey: React.Key) => {
     // 如果是单行的话，不允许多行编辑
-    if (editableKeysSet.size > 0 && editableType === 'single') {
+    if (
+      editableKeysSet.size > 0 &&
+      editableType === 'single' &&
+      props.onlyOneLineEditorAlertMessage !== false
+    ) {
       message.warn(props.onlyOneLineEditorAlertMessage || '只能同时编辑一行');
       return false;
     }
@@ -614,20 +626,39 @@ function useEditableArray<RecordType>(
    * @name 增加新的行
    */
   const addEditRecord = useRefFunction((row: RecordType, options?: AddLineOptions) => {
+    if (
+      options?.parentKey &&
+      !dataSourceKeyIndexMapRef.current.has(recordKeyToString(options?.parentKey).toString())
+    ) {
+      console.warn("can't find record by key", options?.parentKey);
+      return false;
+    }
     // 暂时不支持多行新增
-    if (newLineRecordRef.current) {
+    if (newLineRecordRef.current && props.onlyAddOneLineAlertMessage !== false) {
       message.warn(props.onlyAddOneLineAlertMessage || '只能新增一行');
       return false;
     }
     // 如果是单行的话，不允许多行编辑
-    if (editableKeysSet.size > 0 && editableType === 'single') {
+    if (
+      editableKeysSet.size > 0 &&
+      editableType === 'single' &&
+      props.onlyOneLineEditorAlertMessage !== false
+    ) {
       message.warn(props.onlyOneLineEditorAlertMessage || '只能同时编辑一行');
       return false;
     }
-
     // 防止多次渲染
     const recordKey = props.getRowKey(row, -1);
+
+    if (!recordKey) {
+      noteOnce(
+        !!recordKey,
+        '请设置 recordCreatorProps.record 并返回一个唯一的key  \n  https://procomponents.ant.design/components/editable-table#editable-%E6%96%B0%E5%BB%BA%E8%A1%8C',
+      );
+      throw new Error('请设置 recordCreatorProps.record 并返回一个唯一的key');
+    }
     editableKeysSet.add(recordKey);
+
     setEditableRowKeys(Array.from(editableKeysSet));
 
     // 如果是dataSource 新增模式的话，取消再开始编辑，
@@ -724,6 +755,7 @@ function useEditableArray<RecordType>(
         key: recordKey,
         childrenColumnName: props.childrenColumnName || 'children',
       };
+
       const res = await props?.onDelete?.(recordKey, editRow);
       props.setDataSource(editableRowByKey(actionProps, 'delete'));
       return res;
@@ -746,7 +778,7 @@ function useEditableArray<RecordType>(
 
   const actionRender = (row: RecordType & { index: number }, form: FormInstance<any>) => {
     const key = props.getRowKey(row, row.index);
-    const config = {
+    const config: ActionRenderConfig<any, NewLineConfig<any>> = {
       saveText,
       cancelText,
       deleteText,

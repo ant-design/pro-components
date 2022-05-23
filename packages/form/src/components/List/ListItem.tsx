@@ -3,13 +3,12 @@ import type { ButtonProps, FormInstance } from 'antd';
 import { Spin, Tooltip } from 'antd';
 import type { FormListFieldData, FormListOperation, FormListProps } from 'antd/lib/form/FormList';
 import toArray from 'rc-util/lib/Children/toArray';
+import set from 'rc-util/lib/utils/set';
 import { noteOnce } from 'rc-util/lib/warning';
-import React from 'react';
 import type { ReactNode } from 'react';
-import { useContext, useEffect, useMemo, useRef, useState } from 'react';
+import React, { useContext, useEffect, useMemo, useRef, useState } from 'react';
 import { FormListContext } from '.';
 import { useGridHelpers } from '../../helpers';
-import set from 'rc-util/lib/utils/set';
 
 export type ChildrenItemFunction = (
   /**
@@ -43,6 +42,10 @@ export type ChildrenItemFunction = (
      */
     setCurrentRowData: (data: any) => void;
   },
+  /**
+   * 透传总行数
+   */
+  count: number,
 ) => React.ReactNode;
 
 export type IconConfig = {
@@ -285,10 +288,15 @@ const ProFormListItem: React.FC<
   const childrenArray = listToArray(children as React.ReactNode)
     .map((childrenItem) => {
       if (typeof childrenItem === 'function') {
-        return (childrenItem as ChildrenItemFunction)?.(field, index, {
-          ...action,
-          ...formListAction,
-        });
+        return (childrenItem as ChildrenItemFunction)?.(
+          field,
+          index,
+          {
+            ...action,
+            ...formListAction,
+          },
+          count,
+        );
       }
       return childrenItem;
     })
@@ -320,7 +328,6 @@ const ProFormListItem: React.FC<
     const { Icon = CopyOutlined, tooltipText } = copyIconProps as IconConfig;
     return (
       <Tooltip title={tooltipText} key="copy">
-        {/* @ts-expect-error */}
         <Spin spinning={loadingCopy}>
           <Icon
             className={`${prefixCls}-action-icon action-copy`}
@@ -357,7 +364,6 @@ const ProFormListItem: React.FC<
     const { Icon = DeleteOutlined, tooltipText } = deleteIconProps!;
     return (
       <Tooltip title={tooltipText} key="delete">
-        {/* @ts-expect-error */}
         <Spin spinning={loadingRemove}>
           <Icon
             className={`${prefixCls}-action-icon action-remove`}

@@ -1,8 +1,7 @@
-import React, { useContext, useRef, useEffect, useImperativeHandle } from 'react';
-import type { FormProps, FormInstance } from 'antd';
+import type { FormInstance, FormProps } from 'antd';
 import type { StepProps } from 'rc-steps/lib/Step';
 import { noteOnce } from 'rc-util/lib/warning';
-
+import React, { useContext, useEffect, useImperativeHandle, useRef } from 'react';
 import type { CommonFormProps } from '../../BaseForm';
 import { BaseForm } from '../../BaseForm';
 import { StepsFormProvide } from './index';
@@ -10,19 +9,14 @@ import { StepsFormProvide } from './index';
 export type StepFormProps<T = Record<string, any>> = {
   step?: number;
   stepProps?: StepProps;
-} & Omit<FormProps<T>, 'onFinish'> &
-  Omit<CommonFormProps<T>, 'submitter'>;
+  index?: number;
+} & Omit<FormProps<T>, 'onFinish' | 'form'> &
+  Omit<CommonFormProps<T>, 'submitter' | 'form'>;
 
-function StepForm<T = Record<string, any>>({
-  onFinish,
-  step,
-  formRef: propFormRef,
-  title,
-  stepProps,
-  ...restProps
-}: StepFormProps<T>) {
+function StepForm<T = Record<string, any>>(props: StepFormProps<T>) {
   const formRef = useRef<FormInstance | undefined>();
   const context = useContext(StepsFormProvide);
+  const { onFinish, step, formRef: propFormRef, title, stepProps, ...restProps } = props;
 
   // eslint-disable-next-line @typescript-eslint/dot-notation
   noteOnce(!restProps['submitter'], 'StepForm 不包含提交按钮，请在 StepsForm 上');
@@ -31,10 +25,11 @@ function StepForm<T = Record<string, any>>({
 
   /** Dom 不存在的时候解除挂载 */
   useEffect(() => {
+    if (!(props.name || props.step)) return;
+    const name = (props.name || props.step)!.toString();
+    context?.regForm(name, props);
     return () => {
-      if (restProps.name) {
-        context?.unRegForm(restProps.name);
-      }
+      context?.unRegForm(name);
     };
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);

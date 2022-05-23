@@ -1,8 +1,7 @@
-import React, { useState } from 'react';
 import { EllipsisOutlined } from '@ant-design/icons';
-import { LightFilter, ProFormDatePicker } from '@ant-design/pro-form';
-import type { ProColumns } from '@ant-design/pro-table';
-import ProTable from '@ant-design/pro-table';
+import type { ProColumns } from '@ant-design/pro-components';
+import { LightFilter, ProFormDatePicker, ProTable } from '@ant-design/pro-components';
+import React, { useState } from 'react';
 
 export type TableListItem = {
   key: number;

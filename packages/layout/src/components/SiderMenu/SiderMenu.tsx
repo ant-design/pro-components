@@ -1,15 +1,15 @@
+import { MenuFoldOutlined, MenuUnfoldOutlined } from '@ant-design/icons';
+import { Layout, Menu } from 'antd';
+import type { SiderProps } from 'antd/lib/layout/Sider';
+import type { ItemType } from 'antd/lib/menu/hooks/useItems';
+import classNames from 'classnames';
 import type { CSSProperties } from 'react';
 import React from 'react';
-import { Layout, Menu } from 'antd';
-import classNames from 'classnames';
-import type { SiderProps } from 'antd/lib/layout/Sider';
-import { MenuUnfoldOutlined, MenuFoldOutlined } from '@ant-design/icons';
-
-import './index.less';
 import type { WithFalse } from '../../typings';
 import type { BaseMenuProps } from './BaseMenu';
 import BaseMenu from './BaseMenu';
 import MenuCounter from './Counter';
+import './index.less';
 
 const { Sider } = Layout;
 
@@ -189,6 +189,27 @@ const SiderMenu: React.FC<SiderMenuProps & PrivateSiderMenuProps> = (props) => {
   );
 
   const menuRenderDom = menuContentRender ? menuContentRender(props, menuDom) : menuDom;
+
+  const linksMenuItems: ItemType[] = (links || []).map((node, index) => ({
+    className: `${baseClassName}-link`,
+    label: node,
+    key: index,
+  }));
+
+  if (collapsedButtonRender && !isMobile) {
+    linksMenuItems.push({
+      className: `${baseClassName}-collapsed-button`,
+      //@ts-ignore
+      title: false,
+      key: 'collapsed',
+      onClick: () => {
+        if (onCollapse) {
+          onCollapse(!collapsed);
+        }
+      },
+      label: collapsedButtonRender(collapsed),
+    });
+  }
   return (
     <>
       {fixSiderbar && (
@@ -259,28 +280,8 @@ const SiderMenu: React.FC<SiderMenuProps & PrivateSiderMenuProps> = (props) => {
             selectedKeys={[]}
             openKeys={[]}
             mode="inline"
-          >
-            {(links || []).map((node, index) => (
-              // eslint-disable-next-line react/no-array-index-key
-              <Menu.Item className={`${baseClassName}-link`} key={index}>
-                {node}
-              </Menu.Item>
-            ))}
-            {collapsedButtonRender && !isMobile && (
-              <Menu.Item
-                className={`${baseClassName}-collapsed-button`}
-                title={false}
-                key="collapsed"
-                onClick={() => {
-                  if (onCollapse) {
-                    onCollapse(!collapsed);
-                  }
-                }}
-              >
-                {collapsedButtonRender(collapsed)}
-              </Menu.Item>
-            )}
-          </Menu>
+            items={linksMenuItems}
+          />
         </div>
         {menuFooterRender && (
           <div

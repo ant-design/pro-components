@@ -1,10 +1,10 @@
-import React, { useContext } from 'react';
-import ProField from '../Field';
 import { dateArrayFormatter } from '@ant-design/pro-utils';
 import type { RangePickerProps } from 'antd/lib/date-picker/generatePicker';
 import type { Moment } from 'moment';
-import type { ProFormFieldItemProps } from '../../interface';
+import React, { useContext } from 'react';
 import FieldContext from '../../FieldContext';
+import type { ProFormFieldItemProps } from '../../interface';
+import ProField from '../Field';
 
 const valueType = 'dateTimeRange' as const;
 

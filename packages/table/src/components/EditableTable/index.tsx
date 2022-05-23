@@ -1,19 +1,19 @@
-﻿import React, { useContext, useEffect, useImperativeHandle, useMemo, useRef } from 'react';
-import type { ParamsType } from '@ant-design/pro-provider';
-import type { ButtonProps, FormItemProps } from 'antd';
-import type { NamePath } from 'antd/lib/form/interface';
-import { Button, Form } from 'antd';
-import useMergedState from 'rc-util/lib/hooks/useMergedState';
-import { PlusOutlined } from '@ant-design/icons';
-import { isDeepEqualReact, runFunction, usePrevious, useRefFunction } from '@ant-design/pro-utils';
-import { Field } from 'rc-field-form';
-import ProTable from '../../Table';
-import type { ProTableProps, ActionType } from '../../typing';
-import type { GetRowKey } from 'antd/lib/table/interface';
+﻿import { PlusOutlined } from '@ant-design/icons';
 import type { ProFormInstance } from '@ant-design/pro-form';
 import { ProFormDependency } from '@ant-design/pro-form';
+import type { ParamsType } from '@ant-design/pro-provider';
+import { isDeepEqualReact, runFunction, usePrevious, useRefFunction } from '@ant-design/pro-utils';
+import type { ButtonProps, FormItemProps } from 'antd';
+import { Button, Form } from 'antd';
+import type { NamePath } from 'antd/lib/form/interface';
+import type { GetRowKey } from 'antd/lib/table/interface';
+import { Field } from 'rc-field-form';
+import useMergedState from 'rc-util/lib/hooks/useMergedState';
 import get from 'rc-util/lib/utils/get';
 import set from 'rc-util/lib/utils/set';
+import React, { useContext, useEffect, useImperativeHandle, useMemo, useRef } from 'react';
+import ProTable from '../../Table';
+import type { ActionType, ProTableProps } from '../../typing';
 
 export type EditableFormInstance<T = any> = ProFormInstance<T> & {
   /**
@@ -175,7 +175,7 @@ function EditableTable<
    */
   const coverRowKey = (finlayRowKey: number | string): string | number => {
     /**
-     * 如果是 prop.name 的模式，就需要吧行号转化成具体的rowKey。
+     * 如果是 prop.name 的模式，就需要把行号转化成具体的rowKey。
      */
     if (typeof finlayRowKey === 'number' && !props.name) {
       if (finlayRowKey >= value.length) return finlayRowKey;
@@ -270,7 +270,7 @@ function EditableTable<
 
   useEffect(() => {
     if (props.name) {
-      formRef.current = props.editable?.form;
+      formRef.current = props?.editable?.form;
     }
   }, [props.editable?.form, props.name]);
 
@@ -455,7 +455,6 @@ function FieldEditableTable<
     >
       <Field shouldUpdate={true} name={props.name} isList>
         {(control, _, form) => {
-          if (control.value === undefined || !Array.isArray(control.value)) return null;
           return (
             <EditableTable<DataType, Params, ValueType>
               {...props}
@@ -463,7 +462,7 @@ function FieldEditableTable<
                 ...props.editable,
                 form: form as ProFormInstance,
               }}
-              value={control.value}
+              value={control.value || []}
               onChange={control.onChange}
             />
           );

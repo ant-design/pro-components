@@ -1,8 +1,7 @@
-﻿import React, { useState } from 'react';
-import type { ErrorInfo } from 'react';
+﻿import ProLayout, { PageContainer } from '@ant-design/pro-layout';
 import { Button, Result } from 'antd';
-
-import ProLayout, { PageContainer } from '@ant-design/pro-layout';
+import type { ErrorInfo } from 'react';
+import React, { useState } from 'react';
 
 class CustomBoundary extends React.Component<
   Record<string, any>,

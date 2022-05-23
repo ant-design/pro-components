@@ -1,7 +1,7 @@
-import React from 'react';
+import { ProCard } from '@ant-design/pro-components';
 import ProLayout, { PageContainer } from '@ant-design/pro-layout';
-import ProCard from '@ant-design/pro-card';
 import { Descriptions } from 'antd';
+import React from 'react';
 import defaultProps from './_defaultProps';
 
 const content = (

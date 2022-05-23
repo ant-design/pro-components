@@ -2,9 +2,9 @@
  * title: 布局
  */
 
+import { CheckCard } from '@ant-design/pro-components';
+import { Col, Row } from 'antd';
 import React from 'react';
-import { CheckCard } from '@ant-design/pro-card';
-import { Row, Col } from 'antd';
 
 export default () => (
   <CheckCard.Group style={{ width: '100%' }} size="small">

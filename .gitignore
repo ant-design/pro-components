@@ -39,3 +39,4 @@ screenshot
 .eslintcache
 .changelogs
 .changelog.md
+packages/components/src/version.ts

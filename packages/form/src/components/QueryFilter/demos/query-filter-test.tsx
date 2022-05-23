@@ -1,6 +1,6 @@
-import React from 'react';
-import ProForm, { QueryFilter, ProFormText } from '@ant-design/pro-form';
+import { ProForm, ProFormText, QueryFilter } from '@ant-design/pro-components';
 import { Input } from 'antd';
+import React from 'react';
 
 export default () => {
   return (

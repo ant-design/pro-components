@@ -1,21 +1,19 @@
-﻿import React from 'react';
-import { Space } from 'antd';
+﻿import type { ProFieldEmptyText } from '@ant-design/pro-field';
+import type { ProFormInstance } from '@ant-design/pro-form';
 import type {
   ProFieldValueType,
   ProSchemaComponentTypes,
   ProTableEditableFnType,
   UseEditableUtilType,
 } from '@ant-design/pro-utils';
-import { isNil, genCopyable, isDeepEqualReact } from '@ant-design/pro-utils';
-import type { ProFieldEmptyText } from '@ant-design/pro-field';
-import cellRenderToFromItem from './cellRenderToFromItem';
-import { LabelIconTip } from '@ant-design/pro-utils';
+import { genCopyable, isDeepEqualReact, isNil, LabelIconTip } from '@ant-design/pro-utils';
+import { Space } from 'antd';
 import get from 'rc-util/lib/utils/get';
-
-import type { ActionType, ProColumns } from '../typing';
-import type { useContainer } from '../container';
+import React from 'react';
 import { isMergeCell } from '.';
-import type { ProFormInstance } from '@ant-design/pro-form';
+import type { useContainer } from '../container';
+import type { ActionType, ProColumns } from '../typing';
+import cellRenderToFromItem from './cellRenderToFromItem';
 
 /** 转化列的定义 */
 type ColumnRenderInterface<T> = {
@@ -130,6 +128,7 @@ export function columnRender<T>({
     recordKey,
     mode,
     prefixName,
+    editableUtils,
   });
 
   const dom: React.ReactNode =

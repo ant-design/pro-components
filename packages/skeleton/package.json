@@ -1,6 +1,6 @@
 {
   "name": "@ant-design/pro-skeleton",
-  "version": "1.0.5",
+  "version": "1.0.7",
   "description": "@ant-design/pro-skeleton",
   "keywords": [
     "antd",
@@ -37,7 +37,7 @@
     "use-media-antd-query": "^1.0.6"
   },
   "peerDependencies": {
-    "antd": ">=4.18.0",
+    "antd": ">=4.20.0",
     "react": ">=16.9.0"
   },
   "publishConfig": {

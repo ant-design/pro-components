@@ -1,9 +1,9 @@
-import React from 'react';
 import type { PropsWithChildren } from 'react';
+import React from 'react';
 import Card from './components/Card';
-import TabPane from './components/TabPane';
 import Divider from './components/Divider';
-import type { CardType, CardProps } from './type';
+import TabPane from './components/TabPane';
+import type { CardProps, CardType } from './type';
 
 export type ProCardProps = CardProps;
 

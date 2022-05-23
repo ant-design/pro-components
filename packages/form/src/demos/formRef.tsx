@@ -1,9 +1,8 @@
-import React, { useRef } from 'react';
-import { message, Button } from 'antd';
-import type { ProFormInstance } from '@ant-design/pro-form';
-import { ProFormDatePicker } from '@ant-design/pro-form';
-import ProForm, { ProFormText } from '@ant-design/pro-form';
+import type { ProFormInstance } from '@ant-design/pro-components';
+import { ProForm, ProFormDatePicker, ProFormText } from '@ant-design/pro-components';
+import { Button, message } from 'antd';
 import moment from 'moment';
+import React, { useRef } from 'react';
 
 const waitTime = (time: number = 100) => {
   return new Promise((resolve) => {
@@ -51,7 +50,6 @@ export default () => {
             <Button htmlType="button" onClick={getCompanyName} key="read">
               读取公司
             </Button>,
-            // @ts-expect-error
             <Button.Group key="refs" style={{ display: 'block' }}>
               <Button htmlType="button" onClick={getFormatValues} key="format">
                 获取格式化后的所有数据

@@ -1,17 +1,15 @@
-import React, { useState, useContext, useMemo } from 'react';
-import classNames from 'classnames';
 import {
-  FilterDropdown,
-  FieldLabel,
-  useMountMergeState,
   dateArrayFormatter,
   dateFormatterMap,
+  FieldLabel,
+  FilterDropdown,
+  useMountMergeState,
 } from '@ant-design/pro-utils';
 import { ConfigProvider } from 'antd';
-import type { Placement } from '../../interface';
-
+import classNames from 'classnames';
+import React, { useContext, useMemo, useState } from 'react';
+import type { LightFilterFooterRender, Placement } from '../../interface';
 import './index.less';
-import type { LightFilterFooterRender } from '../../interface';
 
 export type SizeType = 'small' | 'middle' | 'large' | undefined;
 

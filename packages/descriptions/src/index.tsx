@@ -1,34 +1,33 @@
-import React, { useContext, useEffect } from 'react';
-import type { DescriptionsProps, FormInstance, FormProps } from 'antd';
-import { Descriptions, Space, Form, ConfigProvider } from 'antd';
-import { EditOutlined, CloseOutlined, CheckOutlined } from '@ant-design/icons';
-import toArray from 'rc-util/lib/Children/toArray';
+import { CheckOutlined, CloseOutlined, EditOutlined } from '@ant-design/icons';
 import ProForm, { ProFormField } from '@ant-design/pro-form';
+import ProSkeleton from '@ant-design/pro-skeleton';
 import type {
-  ProSchema,
   ProCoreActionType,
+  ProFieldFCMode,
+  ProFieldValueType,
+  ProSchema,
+  ProSchemaComponentTypes,
   RowEditableConfig,
   UseEditableMapUtilType,
-  ProFieldValueType,
-  ProSchemaComponentTypes,
 } from '@ant-design/pro-utils';
 import {
+  ErrorBoundary,
+  genCopyable,
+  getFieldPropsOrFormItemProps,
   InlineErrorFormItem,
   LabelIconTip,
-  genCopyable,
   useEditableMap,
-  ErrorBoundary,
-  getFieldPropsOrFormItemProps,
 } from '@ant-design/pro-utils';
+import type { DescriptionsProps, FormInstance, FormProps } from 'antd';
+import { ConfigProvider, Descriptions, Form, Space } from 'antd';
+import type { LabelTooltipType } from 'antd/lib/form/FormItemLabel';
+import toArray from 'rc-util/lib/Children/toArray';
 import get from 'rc-util/lib/utils/get';
+import React, { useContext, useEffect } from 'react';
 import { stringify } from 'use-json-comparison';
-import ProSkeleton from '@ant-design/pro-skeleton';
+import './index.less';
 import type { RequestData } from './useFetchData';
 import useFetchData from './useFetchData';
-import type { ProFieldFCMode } from '@ant-design/pro-utils';
-import type { LabelTooltipType } from 'antd/lib/form/FormItemLabel';
-
-import './index.less';
 
 // todo remove it
 export interface DescriptionsItemProps {
@@ -312,7 +311,7 @@ const schemaToDescriptionsItem = (
       const field = (
         <Descriptions.Item
           {...restItem}
-          key={restItem.label?.toString() || index}
+          key={restItem.key || restItem.label?.toString() || index}
           label={
             (title || restItem.label || restItem.tooltip || restItem.tip) && (
               <LabelIconTip
@@ -440,10 +439,12 @@ const ProDescriptions = <RecordType extends Record<string, any>, ValueType = 'te
           valueEnum,
           valueType,
           dataIndex,
+          ellipsis,
+          copyable,
           request: itemRequest,
         } = item?.props as ProDescriptionsItemProps;
 
-        if (!valueType && !valueEnum && !dataIndex && !itemRequest) {
+        if (!valueType && !valueEnum && !dataIndex && !itemRequest && !ellipsis && !copyable) {
           return item;
         }
 
@@ -452,7 +453,6 @@ const ProDescriptions = <RecordType extends Record<string, any>, ValueType = 'te
           entity: dataSource,
         };
       }) as ProDescriptionsItemProps<RecordType, ValueType>[];
-
     return [...(columns || []), ...childrenColumns]
       .filter((item) => {
         if (!item) return false;
@@ -519,5 +519,7 @@ const ProDescriptions = <RecordType extends Record<string, any>, ValueType = 'te
 };
 
 ProDescriptions.Item = ProDescriptionsItem;
+
+export { ProDescriptions };
 
 export default ProDescriptions;

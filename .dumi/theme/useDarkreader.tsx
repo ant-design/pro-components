@@ -1,5 +1,5 @@
-﻿import { useState, useEffect, useMemo } from 'react';
-import * as DarkReader from '@umijs/ssr-darkreader';
+﻿import * as DarkReader from '@umijs/ssr-darkreader';
+import { useEffect, useMemo, useState } from 'react';
 
 export type Action = {
   toggle: () => void;

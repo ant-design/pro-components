@@ -1,20 +1,22 @@
-import { mount, render } from 'enzyme';
-import React from 'react';
 import {
   LightFilter,
-  ProFormText,
   ProFormDatePicker,
-  ProFormSelect,
   ProFormDateRangePicker,
   ProFormDateTimePicker,
-  ProFormTimePicker,
   ProFormRadio,
+  ProFormSelect,
   ProFormSlider,
+  ProFormText,
+  ProFormTimePicker,
 } from '@ant-design/pro-form';
+import '@testing-library/jest-dom';
+import { render } from '@testing-library/react';
+import { mount } from 'enzyme';
+import moment from 'moment';
 import KeyCode from 'rc-util/lib/KeyCode';
+import React from 'react';
 import { act } from 'react-dom/test-utils';
 import { waitForComponentToPaint } from '../util';
-import moment from 'moment';
 
 describe('LightFilter', () => {
   it(' 🪕 basic use', async () => {
@@ -667,7 +669,7 @@ describe('LightFilter', () => {
     });
   });
 
-  it('ProFormField support lightProps', () => {
+  it('🪕 ProFormField support lightProps', () => {
     const html = render(
       <LightFilter
         initialValues={{
@@ -699,12 +701,11 @@ describe('LightFilter', () => {
       </LightFilter>,
     );
 
-    expect(html.find('.ant-pro-core-field-label').text()).toBe(
-      '活跃时间: 2001-09-09 01:46:40~2017-07-14 0...2项',
-    );
+    const inputDom = html.findAllByText('活跃时间: 2001-09-09 01:46:40~2017-07-14 0...2项');
+    expect(!!inputDom).toBeTruthy();
   });
 
-  it('lightFilter support placement', async () => {
+  it('🪕 lightFilter support placement', async () => {
     const wrapper = mount(
       <LightFilter
         initialValues={{
