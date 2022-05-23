@@ -9,7 +9,7 @@
     "ant-design-pro"
   ],
   "homepage": "https://github.com/ant-design/pro-components/tree/master/packages/components#readme",
-  "bugs": "http://github.com/umijs/plugins/issues",
+  "bugs": "https://github.com/ant-design/pro-components/issues",
   "repository": {
     "type": "git",
     "url": "https://github.com/ant-design/pro-components"
