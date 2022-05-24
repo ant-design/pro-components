@@ -746,4 +746,37 @@ describe('LightFilter', () => {
       wrapper.unmount();
     });
   });
+
+  it('🪕 component placement priority should higher then lightFilter', async () => {
+    const wrapper = mount(
+      <LightFilter
+        initialValues={{
+          name1: 'yutingzhao1991',
+          name3: '2020-08-19',
+          sex: 'man',
+        }}
+        placement="topRight"
+      >
+        <ProFormSelect
+          name="sex"
+          label="性别"
+          showSearch
+          fieldProps={{
+            allowClear: false,
+            placement: 'bottomRight',
+          }}
+          valueEnum={{
+            man: '男',
+            woman: '女',
+          }}
+        />
+      </LightFilter>,
+    );
+    // 两种加载模式都需要判断（需要lightWrapper和不需要的）
+    wrapper.find('.ant-pro-core-field-label').at(0).simulate('click');
+    expect(wrapper.find('Trigger').at(0).prop('popupPlacement')).toEqual('bottomRight');
+    act(() => {
+      wrapper.unmount();
+    });
+  });
 });
