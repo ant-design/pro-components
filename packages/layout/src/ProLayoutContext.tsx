@@ -145,6 +145,10 @@ type BaseLayoutMenuDesignToken = {
    */
   menuSelectedTextColor: string;
   /**
+   * subMenuItem 的选中字体颜色
+   */
+  subMenuSelectedTextColor: string;
+  /**
    * menuItem 的 hover 背景颜色
    */
   menuItemHoverBgColor: string;
@@ -279,6 +283,7 @@ export const DefaultDesignToken = {
     menuItemCollapsedHoverBgColor: 'rgba(90, 75, 75, 0.03)',
     menuItemCollapsedSelectedBgColor: 'rgba(0, 0, 0, 0.04)',
     menuSelectedTextColor: 'rgb(0,0,0,0.85)',
+    subMenuSelectedTextColor: 'rgb(0,0,0,0.95)',
   },
   header: {
     headerBgColor: 'rgba(240, 242, 245, 0.4)',

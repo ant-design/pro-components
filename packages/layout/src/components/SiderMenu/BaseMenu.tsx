@@ -606,12 +606,10 @@ const BaseMenu: React.FC<BaseMenuProps & PrivateSiderMenuProps> = (props) => {
       `,
       selectedSubMenuItem: css`
         .${antPrefixClassName}-menu-submenu-title {
-          background-color: ${itemSelectedColor};
-          border-radius: ${designToken.borderRadiusBase};
           > * {
-            color: ${menuDesignToken.menuSelectedTextColor};
+            color: ${menuDesignToken.subMenuSelectedTextColor};
             .anticon {
-              color: ${menuDesignToken.menuSelectedTextColor};
+              color: ${menuDesignToken.subMenuSelectedTextColor};
             }
           }
         }
@@ -675,6 +673,7 @@ const BaseMenu: React.FC<BaseMenuProps & PrivateSiderMenuProps> = (props) => {
     menuDesignToken.menuItemSelectedBgColor,
     menuDesignToken.menuSelectedTextColor,
     menuDesignToken.menuTextColor,
+    menuDesignToken.subMenuSelectedTextColor,
     mode,
     prefixCls,
   ]);

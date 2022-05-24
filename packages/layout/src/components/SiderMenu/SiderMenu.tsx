@@ -577,7 +577,14 @@ const SiderMenu: React.FC<SiderMenuProps & PrivateSiderMenuProps> = (props) => {
         >
           <Menu
             inlineIndent={16}
-            className={`${baseClassName}-link-menu`}
+            className={cx(
+              `${baseClassName}-link-menu`,
+              css({
+                border: 'none',
+                boxShadow: 'none',
+                background: 'transparent',
+              }),
+            )}
             selectedKeys={[]}
             openKeys={[]}
             theme="light"

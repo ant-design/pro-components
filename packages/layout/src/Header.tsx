@@ -6,7 +6,6 @@ import { GlobalHeader } from './components/GlobalHeader';
 import type { PrivateSiderMenuProps } from './components/SiderMenu/SiderMenu';
 import { TopNavHeader } from './components/TopNavHeader';
 import { css, cx } from './emotion';
-import './Header.less';
 import type { LayoutDesignToken } from './ProLayoutContext';
 import { DefaultDesignToken, ProLayoutContext } from './ProLayoutContext';
 import type { WithFalse } from './typings';
