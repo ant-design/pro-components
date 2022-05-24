@@ -39,7 +39,7 @@
     "@ant-design/pro-form": "1.68.2",
     "@ant-design/pro-provider": "1.7.1",
     "@ant-design/pro-utils": "1.41.4",
-    "@babel/runtime": "^7.16.3",
+    "@babel/runtime": "^7.18.0",
     "classnames": "^2.2.6",
     "moment": "^2.24.0",
     "omit.js": "^2.0.2",
