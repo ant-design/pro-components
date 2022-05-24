@@ -453,7 +453,7 @@ function useEditableArray<RecordType>(
         map.set(index.toString(), recordKeyToString(props.getRowKey(record, -1)));
         map.set(recordKeyToString(props.getRowKey(record, -1))?.toString(), index.toString());
         if (props.childrenColumnName && record[props.childrenColumnName]) {
-          loopGetKey([record[props.childrenColumnName]]);
+          loopGetKey(record[props.childrenColumnName]);
         }
       });
     };
