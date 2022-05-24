@@ -135,12 +135,14 @@ const LightFilterContainer: React.FC<{
       <div className={`${lightFilterClassName}-container`}>
         {outsideItems.map((child: any, index) => {
           const { key } = child;
+          const { fieldProps } = child.props;
+          const newPlacement = fieldProps?.placement ? fieldProps?.placement : placement;
           return (
             <div className={`${lightFilterClassName}-item`} key={key || index}>
               {React.cloneElement(child, {
                 fieldProps: {
                   ...child.props.fieldProps,
-                  placement: placement,
+                  placement: newPlacement,
                 },
                 // proFieldProps 会直接作为 ProField 的 props 传递过去
                 proFieldProps: {
@@ -196,12 +198,13 @@ const LightFilterContainer: React.FC<{
                 if (moreValues.hasOwnProperty(name)) {
                   newFieldProps[child.props.valuePropName || 'value'] = moreValues[name];
                 }
+                const newPlacement = fieldProps?.placement ? fieldProps?.placement : placement;
                 return (
                   <div className={`${lightFilterClassName}-line`} key={key}>
                     {React.cloneElement(child, {
                       fieldProps: {
                         ...newFieldProps,
-                        placement: placement,
+                        placement: newPlacement,
                       },
                     })}
                   </div>

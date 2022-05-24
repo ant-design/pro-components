@@ -42,7 +42,7 @@ function BetaSchemaForm<T, ValueType = 'text'>(props: FormSchema<T, ValueType>) 
     ...restProps
   } = props;
 
-  const FormRenderCompentons = (FormLayoutType[layoutType] || ProForm) as React.FC<ProFormProps<T>>;
+  const FormRenderComponents = (FormLayoutType[layoutType] || ProForm) as React.FC<ProFormProps<T>>;
   const [form] = Form.useForm();
   const [, forceUpdate] = useState<[]>([]);
   const [formDomsDeps, updatedFormDoms] = useState<[]>([]);
@@ -174,7 +174,7 @@ function BetaSchemaForm<T, ValueType = 'text'>(props: FormSchema<T, ValueType>) 
   }, [columns, layoutType]);
 
   return (
-    <FormRenderCompentons
+    <FormRenderComponents
       {...specificProps}
       {...rest}
       form={props.form || form}
@@ -182,7 +182,7 @@ function BetaSchemaForm<T, ValueType = 'text'>(props: FormSchema<T, ValueType>) 
       onValuesChange={onValuesChange}
     >
       {formChildrenDoms}
-    </FormRenderCompentons>
+    </FormRenderComponents>
   );
 }
 
