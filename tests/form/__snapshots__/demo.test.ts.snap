@@ -38610,10 +38610,10 @@ exports[`form demos 📸 renders ./packages/form/src/demos/layout-base.tsx corre
       >
         <header
           class="ant-layout-header"
-          style="height: 56px; line-height: 56px; background: transparent;"
+          style="height: 56px; line-height: 56px; background-color: transparent;"
         />
         <header
-          class="ant-layout-header ant-pro-fixed-header ant-pro-header ant-design-pro-layout-19h0wrb"
+          class="ant-layout-header ant-pro-fixed-header ant-pro-header ant-design-pro-layout-1mu8lx1"
         >
           <div
             class="ant-pro-global-header ant-pro-global-header-layout-mix ant-design-pro-layout-1n57u1k"

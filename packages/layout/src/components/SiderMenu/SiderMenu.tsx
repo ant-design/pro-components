@@ -516,6 +516,8 @@ const SiderMenu: React.FC<SiderMenuProps & PrivateSiderMenuProps> = (props) => {
     return null;
   }, [collapsed, props?.menu?.hideMenuWhenCollapsed]);
 
+  const menuFooterDom = menuFooterRender && menuFooterRender?.(props);
+
   const menuDomItems = (
     <>
       {headerDom && (
@@ -607,8 +609,7 @@ const SiderMenu: React.FC<SiderMenuProps & PrivateSiderMenuProps> = (props) => {
           ) : null}
         </>
       )}
-
-      {menuFooterRender && (
+      {menuFooterDom && (
         <div
           className={cx([
             `${baseClassName}-footer`,
@@ -618,13 +619,9 @@ const SiderMenu: React.FC<SiderMenuProps & PrivateSiderMenuProps> = (props) => {
               animation: ${proLayoutTitleHide} 0.35s;
               padding-bottom: 16px;
             `,
-            collapsed &&
-              css`
-                display: none;
-              `,
           ])}
         >
-          {menuFooterRender(props)}
+          {menuFooterDom}
         </div>
       )}
     </>

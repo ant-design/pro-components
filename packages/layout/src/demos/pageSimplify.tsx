@@ -304,7 +304,8 @@ export default () => {
             </>
           );
         }}
-        menuFooterRender={() => {
+        menuFooterRender={(props) => {
+          if (props?.collapsed) return undefined;
           return (
             <div
               style={{

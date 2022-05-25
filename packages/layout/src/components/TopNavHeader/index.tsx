@@ -230,7 +230,6 @@ const TopNavHeader: React.FC<TopNavHeaderProps> = (props) => {
           position: relative;
           width: 100%;
           height: 100%;
-          background-color: ${designToken.layoutBgColor};
           @supports (backdrop-filter: blur(20px) saturate(150%)) {
             background-color: transparent;
             backdrop-filter: blur(20px) saturate(150%);

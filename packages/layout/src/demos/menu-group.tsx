@@ -90,7 +90,8 @@ export default () => {
           <QuestionCircleOutlined key="QuestionCircleOutlined" />,
           <MergeCellsOutlined key="MergeCellsOutlined" />,
         ]}
-        menuFooterRender={() => {
+        menuFooterRender={(props) => {
+          if (props?.collapsed) return undefined;
           return (
             <p
               style={{

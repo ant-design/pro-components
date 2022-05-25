@@ -332,10 +332,10 @@ exports[`PageContainer 🐲 FooterToolbar should know width 1`] = `
       style="position: relative;"
     >
       <header
-        class="ant-layout-header ant-pro-top-menu ant-pro-header ant-design-pro-layout-1puro3z"
+        class="ant-layout-header ant-pro-top-menu ant-pro-header ant-design-pro-layout-10gjpyb"
       >
         <div
-          class="ant-pro-top-nav-header light ant-design-pro-layout-1pa0pj2"
+          class="ant-pro-top-nav-header light ant-design-pro-layout-1knlrtj"
         >
           <div
             class="ant-pro-top-nav-header-main ant-design-pro-layout-17ldh9g"
@@ -659,10 +659,10 @@ exports[`PageContainer 🐲 footer should know width 1`] = `
       style="position: relative;"
     >
       <header
-        class="ant-layout-header ant-pro-top-menu ant-pro-header ant-design-pro-layout-1puro3z"
+        class="ant-layout-header ant-pro-top-menu ant-pro-header ant-design-pro-layout-10gjpyb"
       >
         <div
-          class="ant-pro-top-nav-header light ant-design-pro-layout-1pa0pj2"
+          class="ant-pro-top-nav-header light ant-design-pro-layout-1knlrtj"
         >
           <div
             class="ant-pro-top-nav-header-main ant-design-pro-layout-17ldh9g"

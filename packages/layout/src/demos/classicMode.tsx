@@ -39,6 +39,8 @@ export default () => {
             menuItemSelectedBgColor: '#22272b',
             rightActionsItemTextColor: '#dfdfdf',
           },
+          appListIconHoverTextColor: '#fff',
+          appListIconTextColor: '#dfdfdf',
           sider: {
             menuBackgroundColor: '#fff',
             menuItemDividerColor: '#dfdfdf',
@@ -135,7 +137,8 @@ export default () => {
             <GithubFilled key="GithubFilled" />,
           ];
         }}
-        menuFooterRender={() => {
+        menuFooterRender={(props) => {
+          if (props?.collapsed) return undefined;
           return (
             <div
               style={{

@@ -167,7 +167,8 @@ export default () => {
               <GithubFilled key="GithubFilled" />,
             ];
           }}
-          menuFooterRender={() => {
+          menuFooterRender={(props) => {
+            if (props?.collapsed) return undefined;
             return (
               <div
                 style={{

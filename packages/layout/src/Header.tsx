@@ -13,39 +13,34 @@ import { clearMenuItem } from './utils/utils';
 
 const { Header } = Layout;
 
-const ProLayoutFixedHeaderCss = css`
-  position: fixed;
-  top: 0;
-  padding: 0;
-  background: transparent;
-`;
+const ProLayoutFixedHeaderCss = css({
+  position: 'fixed',
+  top: 0,
+  padding: 0,
+  backgroundColor: 'transparent',
+});
 
 const getProLayoutHeaderCss = (designToken: LayoutDesignToken) => {
-  const defaultHeaderCss = css`
+  /**
+   * 有没有设置默认的背景颜色，没有的话是透明的
+   */
+  const isChangeHeaderBgColor =
+    designToken.header.headerBgColor !== DefaultDesignToken.header.headerBgColor;
+  return css`
     z-index: 9;
     width: 100%;
     padding: 0 8px;
-    backdrop-filter: blur(20px) saturate(150%);
     border-bottom: 1px solid ${designToken.borderColorSplit};
     transition: width 0.3s cubic-bezier(0.645, 0.045, 0.355, 1);
-    background-color: ${designToken.layoutBgColor};
-    @supports (backdrop-filter: blur(20px) saturate(150%)) {
-      background-color: transparent;
-      backdrop-filter: blur(20px) saturate(150%);
-    }
+
+    ${isChangeHeaderBgColor && `background-color: ${designToken.header.headerBgColor}`}
+    ${!isChangeHeaderBgColor &&
+    ` @supports (backdrop-filter) {
+        background-color: transparent;
+        backdrop-filter: blur(20px) saturate(150%);
+      }
+    `}
   `;
-  if (designToken.header.headerBgColor !== DefaultDesignToken.header.headerBgColor) {
-    return (
-      defaultHeaderCss &&
-      css`
-        background-color: ${designToken.header.headerBgColor};
-        @supports (backdrop-filter: blur(20px) saturate(150%)) {
-          background-color: ${designToken.header.headerBgColor};
-        }
-      `
-    );
-  }
-  return defaultHeaderCss;
 };
 
 export type HeaderViewProps = GlobalHeaderProps & {
@@ -141,7 +136,6 @@ const DefaultHeader: React.FC<HeaderViewProps & PrivateSiderMenuProps> = (props)
   const right = needFixedHeader ? 0 : undefined;
 
   if (layout === 'side') return null;
-
   return (
     <>
       {needFixedHeader && (
@@ -149,15 +143,12 @@ const DefaultHeader: React.FC<HeaderViewProps & PrivateSiderMenuProps> = (props)
           style={{
             height: headerHeight,
             lineHeight: `${headerHeight}px`,
-            background: 'transparent',
+            backgroundColor: 'transparent',
           }}
         />
       )}
       <Header
         className={cx(
-          className,
-          getProLayoutHeaderCss(designToken),
-          getHeaderActionsCss(),
           needFixedHeader && ProLayoutFixedHeaderCss,
           css({
             height: headerHeight,
@@ -167,6 +158,9 @@ const DefaultHeader: React.FC<HeaderViewProps & PrivateSiderMenuProps> = (props)
             right,
             ...style,
           }),
+          className,
+          getProLayoutHeaderCss(designToken),
+          getHeaderActionsCss(),
         )}
       >
         {renderContent()}
