@@ -259,6 +259,11 @@ export type ProSchema<
   /** @name 依赖字段的name，暂时只在拥有 request 的项目中生效，会自动注入到 params 中 */
   dependencies?: NamePath[];
 
+  /**
+   *  @name 忽略 FormItem，必须要和 renderFormItem 组件一起使用
+   */
+  ignoreFormItem?: boolean;
+
   /** @name 在 descriptions 隐藏 */
   hideInDescriptions?: boolean;
   /** @name 在 Form 中隐藏 */

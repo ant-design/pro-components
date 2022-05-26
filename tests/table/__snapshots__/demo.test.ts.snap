@@ -50639,8 +50639,6 @@ exports[`table demos 📸 renders ./packages/table/src/demos/single-test.tsx cor
         </div>
         <input
           class="ant-input"
-          id="direction"
-          placeholder="请输入"
           type="text"
           value=""
         />
@@ -51644,47 +51642,13 @@ exports[`table demos 📸 renders ./packages/table/src/demos/single-test.tsx cor
               </div>
             </div>
           </div>
-          <div
-            class="ant-row ant-form-item ant-form-item-hidden"
-            role="row"
-            style="flex-wrap: nowrap;"
-          >
-            <div
-              class="ant-col ant-form-item-label"
-              role="cell"
-              style="flex: 0 0 80px;"
-            >
-              <label
-                class=""
-                for="direction"
-                title="动态表单"
-              >
-                动态表单
-              </label>
-            </div>
-            <div
-              class="ant-col ant-form-item-control"
-              role="cell"
-              style="max-width: calc(100% - 80px);"
-            >
-              <div
-                class="ant-form-item-control-input"
-              >
-                <div
-                  class="ant-form-item-control-input-content"
-                >
-                  <input
-                    class="ant-input"
-                    id="direction"
-                    placeholder="请输入"
-                    style="width: 100%;"
-                    type="text"
-                    value=""
-                  />
-                </div>
-              </div>
-            </div>
-          </div>
+          <input
+            class="ant-input"
+            formitemprops="[object Object]"
+            hidden=""
+            type="text"
+            value=""
+          />
           <div
             class="ant-row ant-form-item ant-form-item-hidden"
             role="row"
