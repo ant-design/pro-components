@@ -1,4 +1,4 @@
-import ProList from '@ant-design/pro-list';
+import { ProList } from '@ant-design/pro-components';
 import { ConfigProvider, Progress } from 'antd';
 import type { ReactText } from 'react';
 import React, { useState } from 'react';

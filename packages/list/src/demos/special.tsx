@@ -1,5 +1,5 @@
 import { EllipsisOutlined } from '@ant-design/icons';
-import ProList from '@ant-design/pro-list';
+import { ProList } from '@ant-design/pro-components';
 import { Button, Progress, Tag } from 'antd';
 import type { ReactText } from 'react';
 import React, { useState } from 'react';

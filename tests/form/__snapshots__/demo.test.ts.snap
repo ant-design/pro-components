@@ -3724,10 +3724,16 @@ exports[`form demos 📸 renders ./packages/form/src/components/FieldSet/demos/c
                 >
                   <div
                     class="ant-space-item"
-                    style="margin-right: 8px;"
+                    style="margin-right: 1px;"
                   >
                     Red
                   </div>
+                  <span
+                    class="ant-space-item-split"
+                    style="margin-right: 1px;"
+                  >
+                    ,
+                  </span>
                   <div
                     class="ant-space-item"
                   >
@@ -4174,10 +4180,16 @@ exports[`form demos 📸 renders ./packages/form/src/components/FieldSet/demos/c
                   >
                     <div
                       class="ant-space-item"
-                      style="margin-right: 8px;"
+                      style="margin-right: 1px;"
                     >
                       A
                     </div>
+                    <span
+                      class="ant-space-item-split"
+                      style="margin-right: 1px;"
+                    >
+                      ,
+                    </span>
                     <div
                       class="ant-space-item"
                     >
@@ -14454,9 +14466,15 @@ exports[`form demos 📸 renders ./packages/form/src/components/QueryFilter/demo
                           class="ant-pro-core-field-label ant-pro-core-field-label-middle ant-pro-core-field-label-active"
                         >
                           <span
+                            style="display: inline-flex; align-items: center;"
                             title="打开,关闭"
                           >
-                            性别: 打开,关闭
+                            性别: 
+                            <span
+                              style="padding-left: 4px;"
+                            >
+                              打开,关闭
+                            </span>
                           </span>
                           <span
                             aria-label="down"
@@ -14704,9 +14722,15 @@ exports[`form demos 📸 renders ./packages/form/src/components/QueryFilter/demo
                           class="ant-pro-core-field-label ant-pro-core-field-label-middle ant-pro-core-field-label-active ant-pro-core-field-label-allow-clear"
                         >
                           <span
+                            style="display: inline-flex; align-items: center;"
                             title="zhejiang,杭州,xihu"
                           >
-                            地区: zhejiang,杭州,xihu
+                            地区: 
+                            <span
+                              style="padding-left: 4px;"
+                            >
+                              zhejiang,杭州,xihu
+                            </span>
                           </span>
                           <span
                             aria-label="close"
@@ -15027,9 +15051,15 @@ exports[`form demos 📸 renders ./packages/form/src/components/QueryFilter/demo
                         class="ant-pro-core-field-label ant-pro-core-field-label-middle ant-pro-core-field-label-active ant-pro-core-field-label-allow-clear"
                       >
                         <span
+                          style="display: inline-flex; align-items: center;"
                           title="20~80"
                         >
-                          范围: 20~80
+                          范围: 
+                          <span
+                            style="padding-left: 4px;"
+                          >
+                            20~80
+                          </span>
                         </span>
                         <span
                           aria-label="close"
@@ -15102,9 +15132,14 @@ exports[`form demos 📸 renders ./packages/form/src/components/QueryFilter/demo
                         class="ant-pro-core-field-label ant-pro-core-field-label-middle ant-pro-core-field-label-active ant-pro-core-field-label-allow-clear"
                       >
                         <span
-                          title="20"
+                          style="display: inline-flex; align-items: center;"
                         >
-                          范围: 20
+                          范围: 
+                          <span
+                            style="padding-left: 4px;"
+                          >
+                            20
+                          </span>
                         </span>
                         <span
                           aria-label="close"
@@ -15177,9 +15212,15 @@ exports[`form demos 📸 renders ./packages/form/src/components/QueryFilter/demo
                         class="ant-pro-core-field-label ant-pro-core-field-label-middle ant-pro-core-field-label-active ant-pro-core-field-label-allow-clear"
                       >
                         <span
+                          style="display: inline-flex; align-items: center;"
                           title="yutingzhao1991"
                         >
-                          名称: yutingzhao1991
+                          名称: 
+                          <span
+                            style="padding-left: 4px;"
+                          >
+                            yutingzhao1991
+                          </span>
                         </span>
                         <span
                           aria-label="close"
@@ -15488,9 +15529,16 @@ exports[`form demos 📸 renders ./packages/form/src/components/QueryFilter/demo
                         class="ant-pro-core-field-label ant-pro-core-field-label-middle ant-pro-core-field-label-active ant-pro-core-field-label-allow-clear"
                       >
                         <span
+                          style="display: inline-flex; align-items: center;"
                           title="2019-11-15 12:50:26 ~ 2019-11-16 12:50:26"
                         >
-                          日期时间范围: 2019-11-15 12:50:26 ~ 2019-11-16...2项
+                          日期时间范围: 
+                          <span
+                            style="padding-left: 4px;"
+                          >
+                            2019-11-15 12:50:26 ~ 2019-11-16
+                          </span>
+                          ...2项
                         </span>
                         <span
                           aria-label="close"
@@ -15658,9 +15706,15 @@ exports[`form demos 📸 renders ./packages/form/src/components/QueryFilter/demo
                         class="ant-pro-core-field-label ant-pro-core-field-label-middle ant-pro-core-field-label-active ant-pro-core-field-label-allow-clear"
                       >
                         <span
+                          style="display: inline-flex; align-items: center;"
                           title="12:50:00 ~ 12:50:00"
                         >
-                          时间范围: 12:50:00 ~ 12:50:00
+                          时间范围: 
+                          <span
+                            style="padding-left: 4px;"
+                          >
+                            12:50:00 ~ 12:50:00
+                          </span>
                         </span>
                         <span
                           aria-label="close"
@@ -15929,9 +15983,14 @@ exports[`form demos 📸 renders ./packages/form/src/components/QueryFilter/demo
                         class="ant-pro-core-field-label ant-pro-core-field-label-middle ant-pro-core-field-label-active ant-pro-core-field-label-bordered ant-pro-core-field-label-allow-clear"
                       >
                         <span
+                          style="display: inline-flex; align-items: center;"
                           title="男"
                         >
-                          男
+                          <span
+                            style="padding-left: 4px;"
+                          >
+                            男
+                          </span>
                         </span>
                         <span
                           aria-label="close"
@@ -16324,9 +16383,15 @@ exports[`form demos 📸 renders ./packages/form/src/components/QueryFilter/demo
                             class="ant-pro-core-field-label ant-pro-core-field-label-middle ant-pro-core-field-label-active ant-pro-core-field-label-allow-clear"
                           >
                             <span
+                              style="display: inline-flex; align-items: center;"
                               title="Jack2"
                             >
-                              名称: Jack2
+                              名称: 
+                              <span
+                                style="padding-left: 4px;"
+                              >
+                                Jack2
+                              </span>
                             </span>
                             <span
                               aria-label="close"
@@ -16421,9 +16486,15 @@ exports[`form demos 📸 renders ./packages/form/src/components/QueryFilter/demo
                             class="ant-pro-core-field-label ant-pro-core-field-label-middle ant-pro-core-field-label-active ant-pro-core-field-label-allow-clear"
                           >
                             <span
+                              style="display: inline-flex; align-items: center;"
                               title="Jack2"
                             >
-                              名称: Jack2
+                              名称: 
+                              <span
+                                style="padding-left: 4px;"
+                              >
+                                Jack2
+                              </span>
                             </span>
                             <span
                               aria-label="close"
@@ -17725,9 +17796,15 @@ exports[`form demos 📸 renders ./packages/form/src/components/QueryFilter/demo
                           class="ant-pro-core-field-label ant-pro-core-field-label-middle ant-pro-core-field-label-active"
                         >
                           <span
+                            style="display: inline-flex; align-items: center;"
                             title="打开,关闭"
                           >
-                            性别: 打开,关闭
+                            性别: 
+                            <span
+                              style="padding-left: 4px;"
+                            >
+                              打开,关闭
+                            </span>
                           </span>
                           <span
                             aria-label="down"
@@ -17932,9 +18009,15 @@ exports[`form demos 📸 renders ./packages/form/src/components/QueryFilter/demo
                         class="ant-pro-core-field-label ant-pro-core-field-label-middle ant-pro-core-field-label-active ant-pro-core-field-label-allow-clear"
                       >
                         <span
+                          style="display: inline-flex; align-items: center;"
                           title="20~80"
                         >
-                          范围: 20~80
+                          范围: 
+                          <span
+                            style="padding-left: 4px;"
+                          >
+                            20~80
+                          </span>
                         </span>
                         <span
                           aria-label="close"
@@ -18007,9 +18090,14 @@ exports[`form demos 📸 renders ./packages/form/src/components/QueryFilter/demo
                         class="ant-pro-core-field-label ant-pro-core-field-label-middle ant-pro-core-field-label-active ant-pro-core-field-label-allow-clear"
                       >
                         <span
-                          title="20"
+                          style="display: inline-flex; align-items: center;"
                         >
-                          范围: 20
+                          范围: 
+                          <span
+                            style="padding-left: 4px;"
+                          >
+                            20
+                          </span>
                         </span>
                         <span
                           aria-label="close"
@@ -18082,9 +18170,15 @@ exports[`form demos 📸 renders ./packages/form/src/components/QueryFilter/demo
                         class="ant-pro-core-field-label ant-pro-core-field-label-middle ant-pro-core-field-label-active ant-pro-core-field-label-allow-clear"
                       >
                         <span
+                          style="display: inline-flex; align-items: center;"
                           title="yutingzhao1991"
                         >
-                          名称: yutingzhao1991
+                          名称: 
+                          <span
+                            style="padding-left: 4px;"
+                          >
+                            yutingzhao1991
+                          </span>
                         </span>
                         <span
                           aria-label="close"

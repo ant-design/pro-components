@@ -736,7 +736,7 @@ exports[`field demos 📸 renders ./packages/field/src/demos/base.tsx correctly 
                       >
                         <div
                           class="ant-space-item"
-                          style="margin-right: 8px;"
+                          style="margin-right: 1px;"
                         >
                           <span
                             class="ant-badge ant-badge-status ant-badge-not-a-wrapper"
@@ -751,6 +751,12 @@ exports[`field demos 📸 renders ./packages/field/src/demos/base.tsx correctly 
                             </span>
                           </span>
                         </div>
+                        <span
+                          class="ant-space-item-split"
+                          style="margin-right: 1px;"
+                        >
+                          ,
+                        </span>
                         <div
                           class="ant-space-item"
                         >
@@ -799,10 +805,16 @@ exports[`field demos 📸 renders ./packages/field/src/demos/base.tsx correctly 
                       >
                         <div
                           class="ant-space-item"
-                          style="margin-right: 8px;"
+                          style="margin-right: 1px;"
                         >
                           打开
                         </div>
+                        <span
+                          class="ant-space-item-split"
+                          style="margin-right: 1px;"
+                        >
+                          ,
+                        </span>
                         <div
                           class="ant-space-item"
                         >
@@ -923,16 +935,28 @@ exports[`field demos 📸 renders ./packages/field/src/demos/base.tsx correctly 
                   >
                     <div
                       class="ant-space-item"
-                      style="margin-right: 8px;"
+                      style="margin-right: 1px;"
                     >
                       Zhejiang
                     </div>
+                    <span
+                      class="ant-space-item-split"
+                      style="margin-right: 1px;"
+                    >
+                      ,
+                    </span>
                     <div
                       class="ant-space-item"
-                      style="margin-right: 8px;"
+                      style="margin-right: 1px;"
                     >
                       Hangzhou
                     </div>
+                    <span
+                      class="ant-space-item-split"
+                      style="margin-right: 1px;"
+                    >
+                      ,
+                    </span>
                     <div
                       class="ant-space-item"
                     >

@@ -481,7 +481,7 @@ describe('Field', () => {
         />,
       );
       await waitForComponentToPaint(html, 100);
-      expect(html.text()).toBe('Node1Child Node1');
+      expect(html.text()).toBe('Node1,Child Node1');
 
       act(() => {
         html.setProps({
@@ -491,7 +491,7 @@ describe('Field', () => {
 
       await waitForComponentToPaint(html, 100);
 
-      expect(html.text()).toBe('0-00-0-0');
+      expect(html.text()).toBe('0-0,0-0-0');
     });
   });
 

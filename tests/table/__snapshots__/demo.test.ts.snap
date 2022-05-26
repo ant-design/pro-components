@@ -34726,9 +34726,15 @@ exports[`table demos 📸 renders ./packages/table/src/demos/lightfilter.tsx cor
                                         class="ant-pro-core-field-label ant-pro-core-field-label-middle ant-pro-core-field-label-active ant-pro-core-field-label-allow-clear"
                                       >
                                         <span
+                                          style="display: inline-flex; align-items: center;"
                                           title="2016-11-22 ~ 2016-11-23"
                                         >
-                                          日期范围: 2016-11-22 ~ 2016-11-23
+                                          日期范围: 
+                                          <span
+                                            style="padding-left: 4px;"
+                                          >
+                                            2016-11-22 ~ 2016-11-23
+                                          </span>
                                         </span>
                                         <span
                                           aria-label="close"
@@ -57513,10 +57519,16 @@ exports[`table demos 📸 renders ./packages/table/src/demos/valueType_select.ts
                             >
                               <div
                                 class="ant-space-item"
-                                style="margin-right: 8px;"
+                                style="margin-right: 1px;"
                               >
                                 front end
                               </div>
+                              <span
+                                class="ant-space-item-split"
+                                style="margin-right: 1px;"
+                              >
+                                ,
+                              </span>
                               <div
                                 class="ant-space-item"
                               >
@@ -57532,10 +57544,16 @@ exports[`table demos 📸 renders ./packages/table/src/demos/valueType_select.ts
                             >
                               <div
                                 class="ant-space-item"
-                                style="margin-right: 8px;"
+                                style="margin-right: 1px;"
                               >
                                 front end
                               </div>
+                              <span
+                                class="ant-space-item-split"
+                                style="margin-right: 1px;"
+                              >
+                                ,
+                              </span>
                               <div
                                 class="ant-space-item"
                               >
@@ -57645,10 +57663,16 @@ exports[`table demos 📸 renders ./packages/table/src/demos/valueType_select.ts
                             >
                               <div
                                 class="ant-space-item"
-                                style="margin-right: 8px;"
+                                style="margin-right: 1px;"
                               >
                                 front end
                               </div>
+                              <span
+                                class="ant-space-item-split"
+                                style="margin-right: 1px;"
+                              >
+                                ,
+                              </span>
                               <div
                                 class="ant-space-item"
                               >
@@ -57664,10 +57688,16 @@ exports[`table demos 📸 renders ./packages/table/src/demos/valueType_select.ts
                             >
                               <div
                                 class="ant-space-item"
-                                style="margin-right: 8px;"
+                                style="margin-right: 1px;"
                               >
                                 front end
                               </div>
+                              <span
+                                class="ant-space-item-split"
+                                style="margin-right: 1px;"
+                              >
+                                ,
+                              </span>
                               <div
                                 class="ant-space-item"
                               >

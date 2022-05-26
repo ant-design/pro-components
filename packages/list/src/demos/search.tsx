@@ -1,4 +1,4 @@
-import ProList from '@ant-design/pro-list';
+import { ProList } from '@ant-design/pro-components';
 import { Button, Space, Tag } from 'antd';
 import React from 'react';
 import request from 'umi-request';
