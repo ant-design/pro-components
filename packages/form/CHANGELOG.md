@@ -2,6 +2,19 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.69.0](https://github.com/ant-design/pro-components/compare/@ant-design/pro-form@1.68.2...@ant-design/pro-form@1.69.0) (2022-05-26)
+
+### Bug Fixes
+
+- **form:** default get a form ([2de054b](https://github.com/ant-design/pro-components/commit/2de054b9ab665a10f25b542ddda4983433987adb))
+- **form:** ProFormCheckBox support readonly lable ([ea574c4](https://github.com/ant-design/pro-components/commit/ea574c4d0206f70956a0a2009ba28722716a2ae3))
+- **form:** select placement api dont work in lightFilter ([#5279](https://github.com/ant-design/pro-components/issues/5279)) ([07ad53f](https://github.com/ant-design/pro-components/commit/07ad53f35a428839b11734f3b6bf754cf1d8b770))
+
+### Features
+
+- **table:** renderFormItem support ignoreFormItem ([7aae13d](https://github.com/ant-design/pro-components/commit/7aae13d791452121eedfc38c43676fc9a0f3ba05))
+- **table:** renderFormItem support ignoreFormItem ([#5296](https://github.com/ant-design/pro-components/issues/5296)) ([d6977b5](https://github.com/ant-design/pro-components/commit/d6977b5e2c75c100992b049f4bf1642fd22f351e))
+
 ## [1.68.2](https://github.com/ant-design/pro-components/compare/@ant-design/pro-form@1.68.1...@ant-design/pro-form@1.68.2) (2022-05-20)
 
 **Note:** Version bump only for package @ant-design/pro-form
