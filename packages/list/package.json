@@ -42,7 +42,7 @@
     "rc-resize-observer": "^1.0.0",
     "rc-util": "^4.19.0",
     "unstated-next": "^1.1.0",
-    "use-media-antd-query": "1.0.6"
+    "use-media-antd-query": "^1.1.0"
   },
   "peerDependencies": {
     "antd": ">=4.20.0",
