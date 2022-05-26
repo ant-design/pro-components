@@ -43,13 +43,23 @@ const ProFormListContainer: React.FC<ProFormListItemProps> = (props) => {
     const count = uuidFields.length;
 
     if (actionGuard?.beforeAddRow) {
-      wrapAction.add = async (...rest) =>
-        (await actionGuard.beforeAddRow!(...rest, count)) && action.add(...rest);
+      wrapAction.add = async (...rest) => {
+        const success = await actionGuard.beforeAddRow!(...rest, count);
+        if (success) {
+          return action.add(...rest);
+        }
+        return false;
+      };
     }
 
     if (actionGuard?.beforeRemoveRow) {
-      wrapAction.remove = async (...rest) =>
-        (await actionGuard.beforeRemoveRow!(...rest, count)) && action.remove(...rest);
+      wrapAction.remove = async (...rest) => {
+        const success = await actionGuard.beforeRemoveRow!(...rest, count);
+        if (success) {
+          return action.remove(...rest);
+        }
+        return false;
+      };
     }
 
     return wrapAction;

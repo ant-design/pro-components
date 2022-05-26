@@ -20,7 +20,7 @@ export { default as ProFormItem, FormItemProvide } from './FormItem';
 export type { ProFormItemProps } from './FormItem';
 export { default as Group } from './Group';
 export { ProFormList } from './List';
-export type { ProFormListProps } from './List';
+export type { FormListActionType, ProFormListProps } from './List';
 export { default as ProFormMoney } from './Money';
 export { default as ProFormRadio } from './Radio';
 export { default as ProFormRate } from './Rate';
