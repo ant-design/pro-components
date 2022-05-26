@@ -2,6 +2,17 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.76.0](https://github.com/ant-design/pro-components/compare/@ant-design/pro-table@2.75.1...@ant-design/pro-table@2.76.0) (2022-05-26)
+
+### Bug Fixes
+
+- **table:** use ref funtion ([e81cda6](https://github.com/ant-design/pro-components/commit/e81cda680149c9faa021c537bcf1314045e4bac9))
+- [#5273](https://github.com/ant-design/pro-components/issues/5273) for pro-table ([#5281](https://github.com/ant-design/pro-components/issues/5281)) ([61df2c1](https://github.com/ant-design/pro-components/commit/61df2c1d202504a0396aa667be7fb180cdc03f19))
+
+### Features
+
+- **table:** renderFormItem support ignoreFormItem ([7aae13d](https://github.com/ant-design/pro-components/commit/7aae13d791452121eedfc38c43676fc9a0f3ba05))
+
 ## [2.75.1](https://github.com/ant-design/pro-components/compare/@ant-design/pro-table@2.75.0...@ant-design/pro-table@2.75.1) (2022-05-20)
 
 **Note:** Version bump only for package @ant-design/pro-table

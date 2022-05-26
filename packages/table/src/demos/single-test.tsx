@@ -103,6 +103,7 @@ const columns: ProColumns<GithubIssueItem>[] = [
     formItemProps: {
       noStyle: true,
     },
+    ignoreFormItem: true,
     renderFormItem: () => {
       return <Input />;
     },

@@ -192,6 +192,6 @@ function BaseProList<
 >(props: ProListProps<RecordType, U>) {
   return <ProList cardProps={false} search={false} toolBarRender={false} {...props} />;
 }
-export { BaseProList };
+export { BaseProList, ProList };
 
 export default ProList;

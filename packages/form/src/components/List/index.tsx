@@ -20,7 +20,11 @@ const FormListContext = React.createContext<
   | Record<string, any>
 >({});
 
-export type ProFormListProps = Omit<FormListProps, 'children'> &
+export type FormListActionType<T = any> = FormListOperation & {
+  get: (index: number) => T | undefined;
+};
+
+export type ProFormListProps<T> = Omit<FormListProps, 'children'> &
   ProFromListCommonProps & {
     /**
      * @name 列表的标签
@@ -64,13 +68,14 @@ export type ProFormListProps = Omit<FormListProps, 'children'> &
      * @example  actionRef?.current.add?.({},1);
      * @example  actionRef?.current.remove?.(1);
      * @example  actionRef?.current.move?.(1,2);
+     * @example  actionRef?.current.get?.(1);
      */
-    actionRef?: React.MutableRefObject<FormListOperation | undefined>;
+    actionRef?: React.MutableRefObject<FormListActionType<T> | undefined>;
     /** 放在div上面的属性 */
     style?: React.CSSProperties;
   } & Pick<ProFormGridConfig, 'colProps' | 'rowProps'>;
 
-const ProFormList: React.FC<ProFormListProps> = ({
+function ProFormList<T>({
   actionRender,
   creatorButtonProps,
   label,
@@ -99,7 +104,7 @@ const ProFormList: React.FC<ProFormListProps> = ({
   colProps,
   rowProps,
   ...rest
-}) => {
+}: ProFormListProps<T>) {
   const actionRefs = useRef<FormListOperation>();
   const context = useContext(ConfigProvider.ConfigContext);
   const listContext = useContext(FormListContext);
@@ -115,9 +120,20 @@ const ProFormList: React.FC<ProFormListProps> = ({
     return [listContext.name, rest.name].flat(1);
   }, [listContext.name, rest.name]);
 
-  // eslint-disable-next-line react-hooks/exhaustive-deps
-  useImperativeHandle(actionRef, () => actionRefs.current, [actionRefs.current]);
   const proFormContext = useContext(ProFormContext);
+
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  useImperativeHandle(
+    actionRef,
+    () =>
+      ({
+        ...actionRefs.current,
+        get: (index: number) => {
+          return proFormContext.formRef!.current!.getFieldValue([...name, index]);
+        },
+      } as any),
+    [name, proFormContext.formRef],
+  );
 
   useEffect(() => {
     noteOnce(!!proFormContext.formRef, `ProFormList 必须要放到 ProForm 中,否则会造成行为异常。`);
@@ -181,6 +197,6 @@ const ProFormList: React.FC<ProFormListProps> = ({
       </div>
     </ColWrapper>
   );
-};
+}
 
 export { FormListContext, ProFormList };

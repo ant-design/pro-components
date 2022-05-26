@@ -11,6 +11,7 @@ export type {
 } from './BaseForm';
 export * from './components';
 export type {
+  FormListActionType,
   ProFormCaptchaProps,
   ProFormColumnsType,
   ProFormDependencyProps,

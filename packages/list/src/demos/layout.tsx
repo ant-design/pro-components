@@ -1,5 +1,5 @@
 import { LikeOutlined, MessageOutlined, StarOutlined } from '@ant-design/icons';
-import ProList from '@ant-design/pro-list';
+import { ProList } from '@ant-design/pro-components';
 import { Button, Tag } from 'antd';
 import React from 'react';
 
