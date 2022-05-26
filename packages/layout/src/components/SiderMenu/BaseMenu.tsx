@@ -599,7 +599,7 @@ const BaseMenu: React.FC<BaseMenuProps & PrivateSiderMenuProps> = (props) => {
           }
         }
         .${antPrefixClassName}-menu-submenu-arrow {
-          color: rgba(0, 0, 0, 0.25);
+          color: ${menuDesignToken.menuTextColor};
           transform: rotate(1.25turn);
           transition: transform 0.3s cubic-bezier(0.645, 0.045, 0.355, 1);
         }
@@ -633,6 +633,10 @@ const BaseMenu: React.FC<BaseMenuProps & PrivateSiderMenuProps> = (props) => {
         .${antPrefixClassName}-menu-submenu-arrow {
           display: none;
         }
+      `,
+      collapsedSelectSubMenuItem: css`
+        background-color: ${itemSelectedColor};
+        border-radius: ${designToken.borderRadiusBase};
       `,
       openItem: css`
         .${antPrefixClassName}-menu-submenu-arrow {
@@ -794,6 +798,7 @@ const BaseMenu: React.FC<BaseMenuProps & PrivateSiderMenuProps> = (props) => {
               : menuItemCssMap.horizontalSubMenuItem,
             stateProps?.selected ? menuItemCssMap.selectedSubMenuItem : null,
             stateProps?.open ? menuItemCssMap.openItem : null,
+            collapsed && stateProps?.selected ? menuItemCssMap.collapsedSelectSubMenuItem : null,
           ),
         });
       }}

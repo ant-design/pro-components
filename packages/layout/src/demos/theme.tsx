@@ -21,6 +21,7 @@ export default () => {
         sider: {
           menuBackgroundColor: '#004FD9',
           menuTextColor: 'rgba(255,255,255,0.85)',
+          subMenuSelectedTextColor: '#fff',
           menuTextColorSecondary: 'rgba(255,255,255,0.65)',
           menuSelectedTextColor: '#fff',
           menuTitleTextColor: 'rgba(255,255,255,0.95)',
