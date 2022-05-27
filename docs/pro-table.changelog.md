@@ -9,12 +9,6 @@ group:
 
 # Change Log
 
-## @ant-design/pro-layout@6.38.6
-
-`2022-05-27`
-
-- fix(layout): add pro-layout export. [7233890](https://github.com/ant-design/pro-components/commit/7233890)
-
 ## @ant-design/pro-table@2.76.0
 
 `2022-05-26`
