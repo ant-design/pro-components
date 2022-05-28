@@ -115,7 +115,7 @@ function renderDefaultOption<T>(
       }
 
       if (key === 'setting') {
-        return <ColumnSetting {...options[key]} columns={columns} key={key} />;
+        return <ColumnSetting {...Reflect.get(options, key)} columns={columns} key={key} />;
       }
       if (key === 'fullScreen') {
         return (

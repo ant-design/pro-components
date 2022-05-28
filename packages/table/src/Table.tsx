@@ -847,12 +847,22 @@ const ProTable = <T extends Record<string, any>, U extends ParamsType, ValueType
   );
 };
 
+interface ProviderWrapTypes extends Pick<typeof Table, 'Summary'> {
+  <
+    DataType extends Record<string, any>,
+    Params extends ParamsType = ParamsType,
+    ValueType = 'text',
+  >(
+    props: ProTableProps<DataType, Params, ValueType>,
+  ): JSX.Element;
+}
+
 /**
  * 🏆 Use Ant Design Table like a Pro! 更快 更好 更方便
  *
  * @param props
  */
-const ProviderWarp = <
+const ProviderWarp: ProviderWrapTypes = <
   DataType extends Record<string, any>,
   Params extends ParamsType = ParamsType,
   ValueType = 'text',
