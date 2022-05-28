@@ -52,6 +52,12 @@
     "use-media-antd-query": "^1.1.0",
     "warning": "^4.0.3"
   },
+  "devDependencies": {
+    "@types/react": "^18.0.0",
+    "@types/react-router-dom": "^5.1.0",
+    "antd": "^4.20.0",
+    "react": "^18.0.0"
+  },
   "peerDependencies": {
     "antd": ">=4.20.0",
     "react": ">=16.9.0"
