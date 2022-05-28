@@ -35,19 +35,6 @@
     "> 1%",
     "ie >= 11"
   ],
-  "pnpm": {
-    "packageExtensions": {
-      "dumi": {
-        "peerDependencies": {
-          "@umijs/preset-dumi": "^1"
-        }
-      }
-    }
-  },
-  "resolutions": {
-    "prettier": "2.x",
-    "typescript": "4.x"
-  },
   "dependencies": {
     "prettier-plugin-packagejson": "^2.2.18"
   },
@@ -71,6 +58,8 @@
     "@types/jest": "^27.0.3",
     "@types/mockjs": "^1.0.3",
     "@types/node": "^14.0.26",
+    "@types/react": "^18.0.0",
+    "@types/react-dom": "^18.0.0",
     "@types/react-helmet": "^6.0.0",
     "@types/react-responsive": "^8.0.1",
     "@types/shallowequal": "^1.1.1",
@@ -81,6 +70,7 @@
     "@umijs/plugin-analytics": "^0.2.2",
     "@umijs/plugin-antd": "^0.9.0",
     "@umijs/plugin-esbuild": "^1.1.0",
+    "@umijs/ssr-darkreader": "^4.9.44",
     "@umijs/test": "^3.2.10",
     "@umijs/test-utils": "^3.2.10",
     "@umijs/utils": "^3.2.11",
@@ -128,6 +118,8 @@
     "progress-bar-webpack-plugin": "^2.1.0",
     "query-string": "^6.13.6",
     "rc-resize-observer": "^1.0.0",
+    "react": "^18.0.0",
+    "react-dom": "^18.0.0",
     "react-helmet-async": "^1.0.9",
     "react-lazyload": "^3.0.0",
     "react-markdown": "^4.3.0",
@@ -151,5 +143,20 @@
   "gitHooks": {
     "pre-commit": "pretty-quick --staged",
     "commit-msg": "fabric verify-commit"
+  },
+  "pnpm": {
+    "overrides": {
+      "@types/react": "^18.0.0",
+      "@types/react-dom": "^18.0.0",
+      "react": "^18.0.0",
+      "react-dom": "^18.0.0"
+    },
+    "packageExtensions": {
+      "dumi": {
+        "peerDependencies": {
+          "@umijs/preset-dumi": "^1"
+        }
+      }
+    }
   }
 }
