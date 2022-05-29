@@ -180,11 +180,9 @@ exports[`ProForm 📦 validateFieldsReturnFormatValue 1`] = `
   />
   <div
     class="ant-row ant-form-item ant-form-item-has-success"
-    role="row"
   >
     <div
       class="ant-col ant-form-item-control"
-      role="cell"
     >
       <div
         class="ant-form-item-control-input"
@@ -307,11 +305,9 @@ exports[`ProForm 📦 when dateFormatter is a Function 1`] = `
   />
   <div
     class="ant-row ant-form-item"
-    role="row"
   >
     <div
       class="ant-col ant-form-item-control"
-      role="cell"
     >
       <div
         class="ant-form-item-control-input"

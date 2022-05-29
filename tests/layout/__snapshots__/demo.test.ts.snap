@@ -1383,11 +1383,9 @@ exports[`layout demos 📸 renders ./packages/layout/src/components/WaterMark/de
             >
               <div
                 class="ant-row ant-form-item"
-                role="row"
               >
                 <div
                   class="ant-col ant-form-item-label"
-                  role="cell"
                 >
                   <label
                     class=""
@@ -1399,7 +1397,6 @@ exports[`layout demos 📸 renders ./packages/layout/src/components/WaterMark/de
                 </div>
                 <div
                   class="ant-col ant-form-item-control"
-                  role="cell"
                 >
                   <div
                     class="ant-form-item-control-input"
@@ -1453,11 +1450,9 @@ exports[`layout demos 📸 renders ./packages/layout/src/components/WaterMark/de
               </div>
               <div
                 class="ant-row ant-form-item"
-                role="row"
               >
                 <div
                   class="ant-col ant-form-item-label"
-                  role="cell"
                 >
                   <label
                     class=""
@@ -1469,7 +1464,6 @@ exports[`layout demos 📸 renders ./packages/layout/src/components/WaterMark/de
                 </div>
                 <div
                   class="ant-col ant-form-item-control"
-                  role="cell"
                 >
                   <div
                     class="ant-form-item-control-input"
@@ -1491,11 +1485,9 @@ exports[`layout demos 📸 renders ./packages/layout/src/components/WaterMark/de
               </div>
               <div
                 class="ant-row ant-form-item"
-                role="row"
               >
                 <div
                   class="ant-col ant-form-item-label"
-                  role="cell"
                 >
                   <label
                     class=""
@@ -1507,7 +1499,6 @@ exports[`layout demos 📸 renders ./packages/layout/src/components/WaterMark/de
                 </div>
                 <div
                   class="ant-col ant-form-item-control"
-                  role="cell"
                 >
                   <div
                     class="ant-form-item-control-input"
@@ -1545,11 +1536,9 @@ exports[`layout demos 📸 renders ./packages/layout/src/components/WaterMark/de
               </div>
               <div
                 class="ant-row ant-form-item"
-                role="row"
               >
                 <div
                   class="ant-col ant-form-item-label"
-                  role="cell"
                 >
                   <label
                     class=""
@@ -1561,7 +1550,6 @@ exports[`layout demos 📸 renders ./packages/layout/src/components/WaterMark/de
                 </div>
                 <div
                   class="ant-col ant-form-item-control"
-                  role="cell"
                 >
                   <div
                     class="ant-form-item-control-input"
@@ -1599,11 +1587,9 @@ exports[`layout demos 📸 renders ./packages/layout/src/components/WaterMark/de
               </div>
               <div
                 class="ant-row ant-form-item"
-                role="row"
               >
                 <div
                   class="ant-col ant-form-item-label"
-                  role="cell"
                 >
                   <label
                     class=""
@@ -1615,7 +1601,6 @@ exports[`layout demos 📸 renders ./packages/layout/src/components/WaterMark/de
                 </div>
                 <div
                   class="ant-col ant-form-item-control"
-                  role="cell"
                 >
                   <div
                     class="ant-form-item-control-input"
@@ -13401,11 +13386,9 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/customize-collaps
                   >
                     <div
                       class="ant-row ant-form-item"
-                      role="row"
                     >
                       <div
                         class="ant-col ant-form-item-label"
-                        role="cell"
                       >
                         <label
                           class=""
@@ -13416,7 +13399,6 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/customize-collaps
                       </div>
                       <div
                         class="ant-col ant-form-item-control"
-                        role="cell"
                       >
                         <div
                           class="ant-form-item-control-input"
