@@ -215,5 +215,5 @@ export default {
   ssr: isDeploy ? {} : undefined,
   webpack5: {},
   exportStatic: {},
-  mfsu: false,
+  mfsu: !isDeploy ? {} : undefined,
 };

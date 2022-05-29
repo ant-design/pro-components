@@ -120,6 +120,7 @@
     "react-dom": "^18.0.0",
     "react-helmet-async": "^1.0.9",
     "react-lazyload": "^3.0.0",
+    "react-router": "^5",
     "react-test-renderer": "^18.0.0",
     "slash2": "^2.0.0",
     "style-loader": "^2.0.0",
