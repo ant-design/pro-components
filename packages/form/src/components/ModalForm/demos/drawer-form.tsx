@@ -7,9 +7,10 @@ import {
   ProFormSelect,
   ProFormText,
 } from '@ant-design/pro-components';
-import { Button, message } from 'antd';
+import { Button, Form, message } from 'antd';
 import React, { useRef } from 'react';
 
+const { useForm } = Form;
 const waitTime = (time: number = 100) => {
   return new Promise((resolve) => {
     setTimeout(() => {
@@ -19,6 +20,7 @@ const waitTime = (time: number = 100) => {
 };
 
 export default () => {
+  const [form] = useForm();
   const formRef = useRef<ProFormInstance>();
 
   return (
@@ -26,6 +28,7 @@ export default () => {
       name: string;
       company: string;
     }>
+      form={form}
       title="新建表单"
       formRef={formRef}
       trigger={

@@ -168,6 +168,7 @@ function ModalForm<T = Record<string, any>>({
       if (result) {
         setVisible(false);
       }
+      return result;
     },
     [onFinish, setVisible, submitTimeout],
   );
@@ -202,7 +203,14 @@ function ModalForm<T = Record<string, any>>({
           layout="vertical"
           {...rest}
           submitter={submitterConfig}
-          onFinish={onFinishHandle}
+          onFinish={async (values) => {
+            const result = await onFinishHandle(values);
+            // 返回真值，重置表单
+            if (result && rest.form) {
+              rest.form.resetFields();
+            }
+            return result;
+          }}
           contentRender={contentRender}
         >
           {children}

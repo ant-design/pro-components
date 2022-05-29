@@ -6,9 +6,10 @@ import {
   ProFormSelect,
   ProFormText,
 } from '@ant-design/pro-components';
-import { Button, message } from 'antd';
+import { Button, Form, message } from 'antd';
 import React from 'react';
 
+const { useForm } = Form;
 const waitTime = (time: number = 100) => {
   return new Promise((resolve) => {
     setTimeout(() => {
@@ -18,11 +19,13 @@ const waitTime = (time: number = 100) => {
 };
 
 export default () => {
+  const [form] = useForm();
   return (
     <ModalForm<{
       name: string;
       company: string;
     }>
+      form={form}
       title="新建表单"
       trigger={
         <Button type="primary">
