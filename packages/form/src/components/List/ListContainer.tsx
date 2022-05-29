@@ -1,7 +1,7 @@
 ﻿import { PlusOutlined } from '@ant-design/icons';
 import { nanoid, runFunction } from '@ant-design/pro-utils';
 import { Button } from 'antd';
-import { omit } from 'lodash';
+import omit from 'lodash/omit';
 import { useMemo, useRef, useState } from 'react';
 import type { ProFormListItemProps } from './ListItem';
 import { ProFormListItem } from './ListItem';
