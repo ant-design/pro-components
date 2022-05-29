@@ -50,10 +50,22 @@
     "use-json-comparison": "^1.0.5",
     "use-media-antd-query": "^1.1.0"
   },
+  "pnpm": {
+    "packageExtensions": {
+      "react-sortable-hoc": {
+        "peerDependencies": {
+          "react": ">=16.9.0",
+          "react-dom": ">=16.9.0"
+        }
+      }
+    }
+  },
   "devDependencies": {
     "@types/react": "^18.0.0",
+    "@types/react-dom": "^18.0.0",
     "rc-field-form": "^1.22.0",
-    "react": "^18.0.0"
+    "react": "^18.0.0",
+    "react-dom": "^18.0.0"
   },
   "peerDependencies": {
     "antd": ">=4.20.0",
