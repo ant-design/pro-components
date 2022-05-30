@@ -84,7 +84,7 @@
     "@umijs/test": "^3.2.10",
     "@umijs/test-utils": "^3.2.10",
     "@umijs/utils": "^3.2.11",
-    "antd": "^4.20.2",
+    "antd": "^4.20.6",
     "babel-jest": "^27.3.1",
     "babel-loader": "^8.2.2",
     "babel-plugin-import": "^1.12.2",

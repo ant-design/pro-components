@@ -1571,11 +1571,9 @@ exports[`descriptions demos 📸 renders ./packages/descriptions/src/demos/dynam
                       >
                         <div
                           class="ant-row ant-form-item"
-                          role="row"
                         >
                           <div
                             class="ant-col ant-form-item-label"
-                            role="cell"
                           >
                             <label
                               class=""
@@ -1587,7 +1585,6 @@ exports[`descriptions demos 📸 renders ./packages/descriptions/src/demos/dynam
                           </div>
                           <div
                             class="ant-col ant-form-item-control"
-                            role="cell"
                           >
                             <div
                               class="ant-form-item-control-input"
@@ -1652,11 +1649,9 @@ exports[`descriptions demos 📸 renders ./packages/descriptions/src/demos/dynam
                             >
                               <div
                                 class="ant-row ant-form-item"
-                                role="row"
                               >
                                 <div
                                   class="ant-col ant-form-item-label"
-                                  role="cell"
                                 >
                                   <label
                                     class=""
@@ -1668,7 +1663,6 @@ exports[`descriptions demos 📸 renders ./packages/descriptions/src/demos/dynam
                                 </div>
                                 <div
                                   class="ant-col ant-form-item-control"
-                                  role="cell"
                                 >
                                   <div
                                     class="ant-form-item-control-input"
@@ -1776,11 +1770,9 @@ exports[`descriptions demos 📸 renders ./packages/descriptions/src/demos/dynam
                             >
                               <div
                                 class="ant-row ant-form-item"
-                                role="row"
                               >
                                 <div
                                   class="ant-col ant-form-item-label"
-                                  role="cell"
                                 >
                                   <label
                                     class=""
@@ -1815,7 +1807,6 @@ exports[`descriptions demos 📸 renders ./packages/descriptions/src/demos/dynam
                                 </div>
                                 <div
                                   class="ant-col ant-form-item-control"
-                                  role="cell"
                                 >
                                   <div
                                     class="ant-form-item-control-input"
@@ -1848,11 +1839,9 @@ exports[`descriptions demos 📸 renders ./packages/descriptions/src/demos/dynam
                             >
                               <div
                                 class="ant-row ant-form-item"
-                                role="row"
                               >
                                 <div
                                   class="ant-col ant-form-item-label"
-                                  role="cell"
                                 >
                                   <label
                                     class=""
@@ -1864,7 +1853,6 @@ exports[`descriptions demos 📸 renders ./packages/descriptions/src/demos/dynam
                                 </div>
                                 <div
                                   class="ant-col ant-form-item-control"
-                                  role="cell"
                                 >
                                   <div
                                     class="ant-form-item-control-input"
@@ -1972,11 +1960,9 @@ exports[`descriptions demos 📸 renders ./packages/descriptions/src/demos/dynam
                             >
                               <div
                                 class="ant-row ant-form-item"
-                                role="row"
                               >
                                 <div
                                   class="ant-col ant-form-item-label"
-                                  role="cell"
                                 >
                                   <label
                                     class=""
@@ -2011,7 +1997,6 @@ exports[`descriptions demos 📸 renders ./packages/descriptions/src/demos/dynam
                                 </div>
                                 <div
                                   class="ant-col ant-form-item-control"
-                                  role="cell"
                                 >
                                   <div
                                     class="ant-form-item-control-input"
@@ -2043,11 +2028,9 @@ exports[`descriptions demos 📸 renders ./packages/descriptions/src/demos/dynam
                             >
                               <div
                                 class="ant-row ant-form-item"
-                                role="row"
                               >
                                 <div
                                   class="ant-col ant-form-item-label"
-                                  role="cell"
                                 >
                                   <label
                                     class=""
@@ -2059,7 +2042,6 @@ exports[`descriptions demos 📸 renders ./packages/descriptions/src/demos/dynam
                                 </div>
                                 <div
                                   class="ant-col ant-form-item-control"
-                                  role="cell"
                                 >
                                   <div
                                     class="ant-form-item-control-input"

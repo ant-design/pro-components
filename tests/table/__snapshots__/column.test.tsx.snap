@@ -19,22 +19,18 @@ exports[`Table ColumnSetting 🎏 columns proFieldProps support custom 1`] = `
       />
       <div
         class="ant-row ant-row-start"
-        role="row"
         style="margin-left: -12px; margin-right: -12px;"
       >
         <div
           class="ant-col ant-col-8"
-          role="cell"
           style="padding-left: 12px; padding-right: 12px;"
         >
           <div
             class="ant-row ant-form-item"
-            role="row"
             style="flex-wrap: nowrap;"
           >
             <div
               class="ant-col ant-form-item-label"
-              role="cell"
               style="flex: 0 0 80px;"
             >
               <label
@@ -47,7 +43,6 @@ exports[`Table ColumnSetting 🎏 columns proFieldProps support custom 1`] = `
             </div>
             <div
               class="ant-col ant-form-item-control"
-              role="cell"
               style="max-width: calc(100% - 80px);"
             >
               <div
@@ -125,16 +120,13 @@ exports[`Table ColumnSetting 🎏 columns proFieldProps support custom 1`] = `
         </div>
         <div
           class="ant-col ant-col-8 ant-col-offset-8"
-          role="cell"
           style="padding-left: 12px; padding-right: 12px; text-align: right;"
         >
           <div
             class="ant-row ant-form-item pro-form-query-filter-actions"
-            role="row"
           >
             <div
               class="ant-col ant-form-item-label"
-              role="cell"
             >
               <label
                 class="ant-form-item-no-colon"
@@ -145,7 +137,6 @@ exports[`Table ColumnSetting 🎏 columns proFieldProps support custom 1`] = `
             </div>
             <div
               class="ant-col ant-form-item-control"
-              role="cell"
             >
               <div
                 class="ant-form-item-control-input"
@@ -439,22 +430,18 @@ exports[`Table ColumnSetting 🎏 config provide render 1`] = `
       />
       <div
         class="qixian-row qixian-row-start"
-        role="row"
         style="margin-left: -12px; margin-right: -12px;"
       >
         <div
           class="qixian-col qixian-col-8"
-          role="cell"
           style="padding-left: 12px; padding-right: 12px;"
         >
           <div
             class="qixian-row qixian-form-item"
-            role="row"
             style="flex-wrap: nowrap;"
           >
             <div
               class="qixian-col qixian-form-item-label"
-              role="cell"
               style="flex: 0 0 80px;"
             >
               <label
@@ -467,7 +454,6 @@ exports[`Table ColumnSetting 🎏 config provide render 1`] = `
             </div>
             <div
               class="qixian-col qixian-form-item-control"
-              role="cell"
               style="max-width: calc(100% - 80px);"
             >
               <div
@@ -524,16 +510,13 @@ exports[`Table ColumnSetting 🎏 config provide render 1`] = `
         </div>
         <div
           class="qixian-col qixian-col-8 qixian-col-offset-8"
-          role="cell"
           style="padding-left: 12px; padding-right: 12px; text-align: right;"
         >
           <div
             class="qixian-row qixian-form-item pro-form-query-filter-actions"
-            role="row"
           >
             <div
               class="qixian-col qixian-form-item-label"
-              role="cell"
             >
               <label
                 class="qixian-form-item-no-colon"
@@ -544,7 +527,6 @@ exports[`Table ColumnSetting 🎏 config provide render 1`] = `
             </div>
             <div
               class="qixian-col qixian-form-item-control"
-              role="cell"
             >
               <div
                 class="qixian-form-item-control-input"
@@ -1229,22 +1211,18 @@ exports[`Table ColumnSetting 🎏 extra columns 1`] = `
       />
       <div
         class="ant-row ant-row-start"
-        role="row"
         style="margin-left: -12px; margin-right: -12px;"
       >
         <div
           class="ant-col ant-col-8"
-          role="cell"
           style="padding-left: 12px; padding-right: 12px;"
         >
           <div
             class="ant-row ant-form-item"
-            role="row"
             style="flex-wrap: nowrap;"
           >
             <div
               class="ant-col ant-form-item-label"
-              role="cell"
               style="flex: 0 0 80px;"
             >
               <label
@@ -1257,7 +1235,6 @@ exports[`Table ColumnSetting 🎏 extra columns 1`] = `
             </div>
             <div
               class="ant-col ant-form-item-control"
-              role="cell"
               style="max-width: calc(100% - 80px);"
             >
               <div
@@ -1314,16 +1291,13 @@ exports[`Table ColumnSetting 🎏 extra columns 1`] = `
         </div>
         <div
           class="ant-col ant-col-8 ant-col-offset-8"
-          role="cell"
           style="padding-left: 12px; padding-right: 12px; text-align: right;"
         >
           <div
             class="ant-row ant-form-item pro-form-query-filter-actions"
-            role="row"
           >
             <div
               class="ant-col ant-form-item-label"
-              role="cell"
             >
               <label
                 class="ant-form-item-no-colon"
@@ -1334,7 +1308,6 @@ exports[`Table ColumnSetting 🎏 extra columns 1`] = `
             </div>
             <div
               class="ant-col ant-form-item-control"
-              role="cell"
             >
               <div
                 class="ant-form-item-control-input"
