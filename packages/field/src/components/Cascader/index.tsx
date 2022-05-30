@@ -1,9 +1,10 @@
 ﻿import { LoadingOutlined } from '@ant-design/icons';
 import { useIntl } from '@ant-design/pro-provider';
+import { FieldLabel } from '@ant-design/pro-utils';
 import type { RadioGroupProps } from 'antd';
 import { Cascader, ConfigProvider } from 'antd';
 import classNames from 'classnames';
-import React, { useContext, useImperativeHandle, useMemo, useRef } from 'react';
+import React, { useContext, useImperativeHandle, useMemo, useRef, useState } from 'react';
 import type { ProFieldFC } from '../../index';
 import type { FieldSelectProps } from '../Select';
 import { ObjToMap, proFieldParsingText, useFieldFetchData } from '../Select';
@@ -20,15 +21,16 @@ export type GroupProps = {
  * @param ref
  */
 const FieldCascader: ProFieldFC<GroupProps> = (
-  { radioType, renderFormItem, mode, render, light, ...rest },
+  { radioType, renderFormItem, mode, render, label, light, ...rest },
   ref,
 ) => {
   const { getPrefixCls } = useContext(ConfigProvider.ConfigContext);
   const layoutClassName = getPrefixCls('pro-field-cascader');
-  const coreStyleClassName = getPrefixCls('pro-core-field-label');
   const [loading, options, fetchData] = useFieldFetchData(rest);
   const intl = useIntl();
   const cascaderRef = useRef();
+  const size = useContext(ConfigProvider.SizeContext);
+  const [open, setOpen] = useState(false);
 
   useImperativeHandle(ref, () => ({
     ...(cascaderRef.current || {}),
@@ -78,22 +80,40 @@ const FieldCascader: ProFieldFC<GroupProps> = (
   }
 
   if (mode === 'edit') {
-    const dom = (
+    let dom = (
       <Cascader
         bordered={!light}
         ref={cascaderRef}
-        suffixIcon={loading ? <LoadingOutlined /> : undefined}
+        open={open}
+        onDropdownVisibleChange={setOpen}
+        suffixIcon={loading ? <LoadingOutlined /> : light ? null : undefined}
         placeholder={intl.getMessage('tableForm.selectPlaceholder', '请选择')}
+        allowClear={light ? false : undefined}
         {...rest.fieldProps}
-        className={classNames(rest.fieldProps?.className, layoutClassName, {
-          [`${coreStyleClassName}-active`]: rest?.fieldProps?.value && light,
-        })}
+        className={classNames(rest.fieldProps?.className, layoutClassName)}
         options={options}
       />
     );
 
     if (renderFormItem) {
-      return renderFormItem(rest.text, { mode, ...rest.fieldProps }, dom) || null;
+      dom = renderFormItem(rest.text, { mode, ...rest.fieldProps }, dom) || null;
+    }
+
+    if (light) {
+      const { disabled, allowClear, placeholder } = rest.fieldProps;
+      return (
+        <FieldLabel
+          label={label}
+          disabled={disabled}
+          placeholder={placeholder}
+          size={size}
+          allowClear={allowClear}
+          bordered={rest.bordered}
+          value={dom}
+          onLabelClick={() => setOpen(!open)}
+          onClear={() => rest.fieldProps?.onChange?.(undefined, [], {} as any)}
+        />
+      );
     }
     return dom;
   }
