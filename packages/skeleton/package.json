@@ -33,7 +33,7 @@
     "ie >= 11"
   ],
   "dependencies": {
-    "@babel/runtime": "^7.16.3",
+    "@babel/runtime": "^7.18.0",
     "use-media-antd-query": "^1.1.0"
   },
   "peerDependencies": {
