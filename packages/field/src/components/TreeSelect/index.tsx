@@ -1,9 +1,10 @@
+import { FieldLabel } from '@ant-design/pro-utils';
 import type { RadioGroupProps, TreeSelectProps } from 'antd';
 import { ConfigProvider, Spin, TreeSelect } from 'antd';
 import type { DataNode } from 'antd/lib/tree';
 import classNames from 'classnames';
 import useMergedState from 'rc-util/lib/hooks/useMergedState';
-import React, { useContext, useImperativeHandle, useMemo, useRef } from 'react';
+import React, { useContext, useImperativeHandle, useMemo, useRef, useState } from 'react';
 import type { ProFieldFC } from '../../index';
 import type { FieldSelectProps } from '../Select';
 import { ObjToMap, proFieldParsingText, useFieldFetchData } from '../Select';
@@ -19,13 +20,13 @@ export type GroupProps = {
  * @param ref
  */
 const FieldTreeSelect: ProFieldFC<GroupProps> = (
-  { radioType, renderFormItem, mode, light, render, ...rest },
+  { radioType, renderFormItem, mode, light, label, render, ...rest },
   ref,
 ) => {
   const { getPrefixCls } = useContext(ConfigProvider.ConfigContext);
   const layoutClassName = getPrefixCls('pro-field-tree-select');
-  const coreStyleClassName = getPrefixCls('pro-core-field-label');
   const treeSelectRef = useRef(null);
+  const [open, setOpen] = useState(false);
 
   const {
     onSearch,
@@ -38,6 +39,7 @@ const FieldTreeSelect: ProFieldFC<GroupProps> = (
     searchValue: propsSearchValue,
     ...fieldProps
   } = (rest.fieldProps as TreeSelectProps<any>) || {};
+  const size = useContext(ConfigProvider.SizeContext);
 
   const [loading, options, fetchData] = useFieldFetchData({
     ...rest,
@@ -106,9 +108,11 @@ const FieldTreeSelect: ProFieldFC<GroupProps> = (
 
   if (mode === 'edit') {
     const valuesLength = Array.isArray(fieldProps?.value) ? fieldProps?.value?.length : 0;
-    const dom = (
+    let dom = (
       <Spin spinning={loading}>
         <TreeSelect
+          open={open}
+          onDropdownVisibleChange={setOpen}
           ref={treeSelectRef}
           dropdownMatchSelectWidth={!light}
           tagRender={
@@ -156,14 +160,30 @@ const FieldTreeSelect: ProFieldFC<GroupProps> = (
             fetchData('');
             onBlur?.(event);
           }}
-          className={classNames(fieldProps?.className, layoutClassName, {
-            [`${coreStyleClassName}-active`]: fieldProps?.value && light,
-          })}
+          className={classNames(fieldProps?.className, layoutClassName)}
         />
       </Spin>
     );
+
     if (renderFormItem) {
-      return renderFormItem(rest.text, { mode, ...(fieldProps as any) }, dom) || null;
+      dom = renderFormItem(rest.text, { mode, ...(fieldProps as any) }, dom) || null;
+    }
+
+    if (light) {
+      const { disabled, allowClear, placeholder } = fieldProps;
+      return (
+        <FieldLabel
+          label={label}
+          disabled={disabled}
+          placeholder={placeholder}
+          size={size}
+          onLabelClick={() => setOpen(!open)}
+          allowClear={allowClear}
+          bordered={rest.bordered}
+          value={dom}
+          onClear={() => propsOnChange?.(undefined, [], {} as any)}
+        />
+      );
     }
     return dom;
   }
