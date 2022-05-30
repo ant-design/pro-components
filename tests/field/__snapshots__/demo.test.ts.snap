@@ -4256,11 +4256,9 @@ exports[`field demos 📸 renders ./packages/field/src/demos/search-value.tsx co
   <div>
     <div
       class="ant-row ant-form-item"
-      role="row"
     >
       <div
         class="ant-col ant-form-item-control"
-        role="cell"
       >
         <div
           class="ant-form-item-control-input"
@@ -4338,11 +4336,9 @@ exports[`field demos 📸 renders ./packages/field/src/demos/tree-select-search-
     TreeSelect异步加载
     <div
       class="ant-row ant-form-item"
-      role="row"
     >
       <div
         class="ant-col ant-form-item-control"
-        role="cell"
       >
         <div
           class="ant-form-item-control-input"

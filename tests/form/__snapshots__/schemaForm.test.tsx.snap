@@ -11,11 +11,9 @@ exports[`SchemaForm 😊 SchemaForm support columns 1`] = `
   />
   <div
     class="ant-row ant-form-item"
-    role="row"
   >
     <div
       class="ant-col ant-form-item-label"
-      role="cell"
     >
       <label
         class=""
@@ -27,7 +25,6 @@ exports[`SchemaForm 😊 SchemaForm support columns 1`] = `
     </div>
     <div
       class="ant-col ant-form-item-control"
-      role="cell"
     >
       <div
         class="ant-form-item-control-input"
@@ -82,11 +79,9 @@ exports[`SchemaForm 😊 SchemaForm support columns 1`] = `
   </div>
   <div
     class="ant-row ant-form-item"
-    role="row"
   >
     <div
       class="ant-col ant-form-item-label"
-      role="cell"
     >
       <label
         class=""
@@ -98,7 +93,6 @@ exports[`SchemaForm 😊 SchemaForm support columns 1`] = `
     </div>
     <div
       class="ant-col ant-form-item-control"
-      role="cell"
     >
       <div
         class="ant-form-item-control-input"
@@ -201,11 +195,9 @@ exports[`SchemaForm 😊 SchemaForm support columns 1`] = `
   </div>
   <div
     class="ant-row ant-form-item"
-    role="row"
   >
     <div
       class="ant-col ant-form-item-label"
-      role="cell"
     >
       <label
         class=""
@@ -217,7 +209,6 @@ exports[`SchemaForm 😊 SchemaForm support columns 1`] = `
     </div>
     <div
       class="ant-col ant-form-item-control"
-      role="cell"
     >
       <div
         class="ant-form-item-control-input"
@@ -293,11 +284,9 @@ exports[`SchemaForm 😊 SchemaForm support columns 1`] = `
   </div>
   <div
     class="ant-row ant-form-item"
-    role="row"
   >
     <div
       class="ant-col ant-form-item-label"
-      role="cell"
     >
       <label
         class=""
@@ -309,7 +298,6 @@ exports[`SchemaForm 😊 SchemaForm support columns 1`] = `
     </div>
     <div
       class="ant-col ant-form-item-control"
-      role="cell"
     >
       <div
         class="ant-form-item-control-input"
