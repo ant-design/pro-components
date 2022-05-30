@@ -1,5 +1,4 @@
-import { ProFormRadio, ProFormSwitch } from '@ant-design/pro-components';
-import ProList from '@ant-design/pro-list';
+import { ProFormRadio, ProFormSwitch, ProList } from '@ant-design/pro-components';
 import { Progress, Tag } from 'antd';
 import React, { useState } from 'react';
 

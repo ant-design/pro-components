@@ -1,5 +1,5 @@
 import type { BasicLayoutProps } from './BasicLayout';
-import BasicLayout from './BasicLayout';
+import { default as BasicLayout, default as ProLayout } from './BasicLayout';
 import FooterToolbar from './components/FooterToolbar';
 import GridContent from './components/GridContent';
 import type { PageContainerProps } from './components/PageContainer';
@@ -22,6 +22,7 @@ import getMenuData from './utils/getMenuData';
 export type { ProSettings, ProSettings as Settings } from './defaultSettings';
 export type { MenuDataItem } from './typings';
 export {
+  ProLayout,
   BasicLayout,
   RouteContext,
   PageLoading,

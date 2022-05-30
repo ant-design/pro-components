@@ -33,7 +33,7 @@ export type LightWrapperProps = {
    * @example <caption>自定义数组的转化</caption>
    * labelFormatter={(value) =>value.join('-')} }
    */
-  labelFormatter?: (value: any) => string;
+  labelFormatter?: (value: any) => React.ReactNode;
   bordered?: boolean;
   otherFieldProps?: any;
   valueType?: string;

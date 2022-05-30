@@ -1,5 +1,6 @@
 ﻿import { LabelIconTip, omitUndefined, runFunction, useLatest } from '@ant-design/pro-utils';
 import type { FormInstance, FormProps } from 'antd';
+import { Form } from 'antd';
 import omit from 'omit.js';
 import React, { useCallback, useImperativeHandle, useMemo, useRef, useState } from 'react';
 import type { ProFormProps } from '../../layouts';
@@ -25,14 +26,6 @@ const FormLayoutType = {
   Embed,
 };
 
-const noop: any = () => {};
-const formInstanceNoop: any = {
-  getFieldValue: noop,
-  getFieldsValue: noop,
-  resetFields: noop,
-  setFieldsValue: noop,
-};
-
 /**
  * 此组件可以根据 Json Schema 来生成相应的表单,大部分配置与 antd 的 table 列配置相同
  *
@@ -49,8 +42,8 @@ function BetaSchemaForm<T, ValueType = 'text'>(props: FormSchema<T, ValueType>) 
     ...restProps
   } = props;
 
-  const Form = (FormLayoutType[layoutType] || ProForm) as React.FC<ProFormProps<T>>;
-
+  const FormRenderComponents = (FormLayoutType[layoutType] || ProForm) as React.FC<ProFormProps<T>>;
+  const [form] = Form.useForm();
   const [, forceUpdate] = useState<[]>([]);
   const [formDomsDeps, updatedFormDoms] = useState<[]>([]);
 
@@ -58,7 +51,7 @@ function BetaSchemaForm<T, ValueType = 'text'>(props: FormSchema<T, ValueType>) 
     return omit(restProps, ['formRef'] as any);
   }, [restProps]);
 
-  const formRef = useRef<FormInstance | undefined>(props.form || formInstanceNoop);
+  const formRef = useRef<FormInstance | undefined>(props.form || form);
   const oldValuesRef = useRef<T>();
   const propsRef = useLatest(props);
 
@@ -112,6 +105,7 @@ function BetaSchemaForm<T, ValueType = 'text'>(props: FormSchema<T, ValueType>) 
             tooltip: originItem.tooltip || originItem.tip,
             dependencies: originItem.dependencies,
             proFieldProps: originItem.proFieldProps,
+            ignoreFormItem: originItem.ignoreFormItem,
             getFieldProps: originItem.fieldProps
               ? () => runFunction(originItem.fieldProps, formRef.current, originItem)
               : undefined,
@@ -158,6 +152,7 @@ function BetaSchemaForm<T, ValueType = 'text'>(props: FormSchema<T, ValueType>) 
   );
 
   const formChildrenDoms = useMemo(() => {
+    if (!formRef.current) return;
     // like StepsForm's columns but not only for StepsForm
     if (columns.length && Array.isArray(columns[0])) return;
 
@@ -180,9 +175,15 @@ function BetaSchemaForm<T, ValueType = 'text'>(props: FormSchema<T, ValueType>) 
   }, [columns, layoutType]);
 
   return (
-    <Form formRef={formRef} {...specificProps} {...rest} onValuesChange={onValuesChange}>
+    <FormRenderComponents
+      {...specificProps}
+      {...rest}
+      form={props.form || form}
+      formRef={formRef}
+      onValuesChange={onValuesChange}
+    >
       {formChildrenDoms}
-    </Form>
+    </FormRenderComponents>
   );
 }
 

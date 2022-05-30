@@ -76,6 +76,13 @@ export const useGridHelpers = (props?: (ProFormGridConfig & CommonProps) | boole
         colProps: config?.colProps,
         Wrapper: config?.Wrapper,
       }),
-    [config?.Wrapper, config?.colProps, config.grid, config?.rowProps, grid],
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+    [
+      config?.Wrapper,
+      config.grid,
+      grid,
+      // eslint-disable-next-line react-hooks/exhaustive-deps
+      JSON.stringify([config?.colProps, config?.rowProps]),
+    ],
   );
 };

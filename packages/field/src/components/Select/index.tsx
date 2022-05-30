@@ -74,13 +74,11 @@ export const proFieldParsingText = (
 ): React.ReactNode => {
   if (Array.isArray(text)) {
     return (
-      <Space>
-        {text.map((value) => (
+      <Space split="," size={2}>
+        {text.map((value) =>
           // @ts-ignore
-          <React.Fragment key={value?.value || value}>
-            {proFieldParsingText(value, valueEnumParams)}
-          </React.Fragment>
-        ))}
+          proFieldParsingText(value, valueEnumParams),
+        )}
       </Space>
     );
   }

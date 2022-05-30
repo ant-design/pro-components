@@ -16,7 +16,7 @@ export type FieldLabelProps = {
   placeholder?: React.ReactNode;
   expanded?: boolean;
   className?: string;
-  formatter?: (value: any) => string;
+  formatter?: (value: any) => React.ReactNode;
   style?: React.CSSProperties;
   bordered?: boolean;
   allowClear?: boolean;
@@ -86,7 +86,7 @@ const FieldLabel: React.ForwardRefRenderFunction<any, FieldLabelProps> = (props,
       const getText = () => {
         const isArrayValue = Array.isArray(aValue) && aValue.length > 1;
         const unitText = intl.getMessage('form.lightFilter.itemUnit', '项');
-        if (str.length > 32 && isArrayValue) {
+        if (typeof str === 'string' && str.length > 32 && isArrayValue) {
           return `...${aValue.length}${unitText}`;
         }
         return '';
@@ -94,9 +94,17 @@ const FieldLabel: React.ForwardRefRenderFunction<any, FieldLabelProps> = (props,
       const tail = getText();
 
       return (
-        <span title={str}>
+        <span
+          title={typeof str === 'string' ? str : undefined}
+          style={{
+            display: 'inline-flex',
+            alignItems: 'center',
+          }}
+        >
           {prefix}
-          {str?.toString()?.substr?.(0, 32)}
+          <span style={{ paddingLeft: 4 }}>
+            {typeof str === 'string' ? str?.toString()?.substr?.(0, 32) : str}
+          </span>
           {tail}
         </span>
       );

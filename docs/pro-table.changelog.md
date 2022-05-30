@@ -9,6 +9,15 @@ group:
 
 # Change Log
 
+## @ant-design/pro-table@2.76.0
+
+`2022-05-26`
+
+- fix(table): use ref funtion. [e81cda6](https://github.com/ant-design/pro-components/commit/e81cda6)
+- feat(table): renderFormItem support ignoreFormItem (#5296). [#5296](https://github.com/ant-design/pro-components/pull/#5296) [@chenshuai2144](https://github.com/chenshuai2144)
+- feat(table): renderFormItem support ignoreFormItem. [7aae13d](https://github.com/ant-design/pro-components/commit/7aae13d)
+- fix(table): useEditableArray fix child record traversal (#5244). [#5244](https://github.com/ant-design/pro-components/pull/#5244) [@zhxnlai](https://github.com/zhxnlai)
+
 ## @ant-design/pro-table@2.75.0
 
 `2022-05-20`
