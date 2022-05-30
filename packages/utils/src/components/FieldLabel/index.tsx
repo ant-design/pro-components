@@ -71,7 +71,7 @@ const FieldLabel: React.ForwardRefRenderFunction<any, FieldLabelProps> = (props,
       (!Array.isArray(aValue) || aValue.length)
     ) {
       const prefix = aLabel ? (
-        <span onClick={onLabelClick}>
+        <span onClick={onLabelClick} className={`${prefixCls}-text`}>
           {aLabel}
           {': '}
         </span>

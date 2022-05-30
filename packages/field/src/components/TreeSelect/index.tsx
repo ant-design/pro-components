@@ -1,4 +1,3 @@
-import { useIntl } from '@ant-design/pro-provider';
 import { FieldLabel } from '@ant-design/pro-utils';
 import type { RadioGroupProps, TreeSelectProps } from 'antd';
 import { ConfigProvider, Spin, TreeSelect } from 'antd';
@@ -40,7 +39,6 @@ const FieldTreeSelect: ProFieldFC<GroupProps> = (
     searchValue: propsSearchValue,
     ...fieldProps
   } = (rest.fieldProps as TreeSelectProps<any>) || {};
-  const intl = useIntl();
   const size = useContext(ConfigProvider.SizeContext);
 
   const [loading, options, fetchData] = useFieldFetchData({

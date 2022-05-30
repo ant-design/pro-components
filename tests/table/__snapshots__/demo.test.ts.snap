@@ -34729,7 +34729,9 @@ exports[`table demos 📸 renders ./packages/table/src/demos/lightfilter.tsx cor
                                           style="display: inline-flex; align-items: center;"
                                           title="2016-11-22 ~ 2016-11-23"
                                         >
-                                          <span>
+                                          <span
+                                            class="ant-pro-core-field-label-text"
+                                          >
                                             日期范围: 
                                           </span>
                                           <span
