@@ -30,7 +30,7 @@
     "ie >= 11"
   ],
   "dependencies": {
-    "@babel/runtime": "^7.16.3",
+    "@babel/runtime": "^7.18.0",
     "rc-util": "^5.0.1",
     "swr": "^1.2.0"
   },

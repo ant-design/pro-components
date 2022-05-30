@@ -1,6 +1,7 @@
 import {
   LightFilter,
   ProFormCascader,
+  ProFormCheckbox,
   ProFormDatePicker,
   ProFormDateRangePicker,
   ProFormDateTimePicker,
@@ -125,6 +126,11 @@ export default () => {
             hangzhou: '杭州',
             long: '这是一个很长的用来测试溢出的项目',
           }}
+        />
+        <ProFormCheckbox.Group
+          name="checkbox-group"
+          label="Checkbox.Group"
+          options={['A', 'B', 'C', 'D', 'E', 'F']}
         />
         <ProFormTreeSelect
           initialValue={['0-0', '0-1']}

@@ -20,6 +20,10 @@ export type FieldLabelProps = {
   style?: React.CSSProperties;
   bordered?: boolean;
   allowClear?: boolean;
+  /**
+   * 点击标签的事件，用来唤醒 down menu 状态
+   */
+  onLabelClick?: () => void;
 };
 
 const FieldLabel: React.ForwardRefRenderFunction<any, FieldLabelProps> = (props, ref) => {
@@ -29,6 +33,7 @@ const FieldLabel: React.ForwardRefRenderFunction<any, FieldLabelProps> = (props,
     value,
     size = 'middle',
     disabled,
+    onLabelClick,
     ellipsis,
     placeholder,
     className,
@@ -52,7 +57,7 @@ const FieldLabel: React.ForwardRefRenderFunction<any, FieldLabelProps> = (props,
     if (formatter) {
       return formatter(aValue);
     }
-    return Array.isArray(aValue) ? aValue.join(',') : String(aValue);
+    return Array.isArray(aValue) ? aValue.join(',') : aValue;
   };
 
   const getTextByValue = (
@@ -66,17 +71,22 @@ const FieldLabel: React.ForwardRefRenderFunction<any, FieldLabelProps> = (props,
       (!Array.isArray(aValue) || aValue.length)
     ) {
       const prefix = aLabel ? (
-        <>
+        <span onClick={onLabelClick} className={`${prefixCls}-text`}>
           {aLabel}
           {': '}
-        </>
+        </span>
       ) : (
         ''
       );
       const str = formatterText(aValue);
       if (!ellipsis) {
         return (
-          <span>
+          <span
+            style={{
+              display: 'inline-flex',
+              alignItems: 'center',
+            }}
+          >
             {prefix}
             {formatterText(aValue)}
           </span>

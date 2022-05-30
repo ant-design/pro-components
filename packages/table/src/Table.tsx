@@ -347,7 +347,9 @@ function TableRender<T extends Record<string, any>, U, ValueType>(
   }
   return (
     <ConfigProvider
-      getPopupContainer={() => (counter.rootDomRef.current || document.body) as any as HTMLElement}
+      getPopupContainer={() => {
+        return (counter.rootDomRef.current || document.body) as any as HTMLElement;
+      }}
     >
       {proTableDom}
     </ConfigProvider>

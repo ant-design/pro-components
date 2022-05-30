@@ -93,10 +93,7 @@ const CellRenderFromItem = <T,>(props: CellRenderFromItemProps<T>) => {
       prefixName ? index : key,
       columnProps?.key ?? columnProps?.dataIndex ?? index,
     );
-
-    if (value.join('-') !== formItemName.join('-')) {
-      setName(value);
-    }
+    if (value.join('-') !== formItemName.join('-')) setName(value);
   }, [
     columnProps?.dataIndex,
     columnProps?.key,
@@ -214,9 +211,7 @@ const CellRenderFromItem = <T,>(props: CellRenderFromItemProps<T>) => {
     props.editableUtils,
   ]);
 
-  if (formItemName.length === 0) {
-    return null;
-  }
+  if (formItemName.length === 0) return null;
 
   if (
     typeof columnProps?.renderFormItem === 'function' ||

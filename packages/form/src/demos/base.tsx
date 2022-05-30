@@ -198,6 +198,7 @@ export default () => {
         name="areaList"
         label="区域"
         initialValue={['zhejiang', 'hangzhou', 'xihu']}
+        addonAfter={'qixian'}
       />
       <ProFormTreeSelect
         initialValue={['0-0-0']}

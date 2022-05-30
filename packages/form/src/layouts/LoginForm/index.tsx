@@ -60,18 +60,16 @@ function LoginForm<T = Record<string, any>>(props: Partial<LoginFormProps<T>>) {
           searchConfig: {
             submitText: intl.getMessage('loginForm.submitText', '登录'),
           },
+          ...proFormProps.submitter,
           submitButtonProps: {
             size: 'large',
             style: {
               width: '100%',
             },
+            ...proFormProps.submitter?.submitButtonProps,
           },
-          ...proFormProps.submitter,
           render: (_, dom) => {
             const loginButton = dom.pop();
-            if ((proFormProps?.submitter as any)?.render === undefined) {
-              return loginButton;
-            }
             if (typeof (proFormProps?.submitter as any)?.render === 'function') {
               return (proFormProps?.submitter as any)?.render?.(_, dom);
             }
