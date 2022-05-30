@@ -15921,11 +15921,9 @@ exports[`form demos 📸 renders ./packages/form/src/components/QueryFilter/demo
         >
           <div
             class="ant-row ant-form-item"
-            role="row"
           >
             <div
               class="ant-col ant-form-item-control"
-              role="cell"
             >
               <div
                 class="ant-form-item-control-input"
@@ -16060,11 +16058,9 @@ exports[`form demos 📸 renders ./packages/form/src/components/QueryFilter/demo
         >
           <div
             class="ant-row ant-form-item"
-            role="row"
           >
             <div
               class="ant-col ant-form-item-control"
-              role="cell"
             >
               <div
                 class="ant-form-item-control-input"
