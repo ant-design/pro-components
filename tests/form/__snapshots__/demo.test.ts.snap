@@ -14469,7 +14469,9 @@ exports[`form demos 📸 renders ./packages/form/src/components/QueryFilter/demo
                             style="display: inline-flex; align-items: center;"
                             title="打开,关闭"
                           >
-                            性别: 
+                            <span>
+                              性别: 
+                            </span>
                             <span
                               style="padding-left: 4px;"
                             >
@@ -14725,7 +14727,9 @@ exports[`form demos 📸 renders ./packages/form/src/components/QueryFilter/demo
                             style="display: inline-flex; align-items: center;"
                             title="zhejiang,杭州,xihu"
                           >
-                            地区: 
+                            <span>
+                              地区: 
+                            </span>
                             <span
                               style="padding-left: 4px;"
                             >
@@ -14797,74 +14801,126 @@ exports[`form demos 📸 renders ./packages/form/src/components/QueryFilter/demo
                   <div
                     class="ant-form-item-control-input-content"
                   >
-                    <div
-                      class="ant-spin-nested-loading"
+                    <span
+                      class="ant-pro-core-field-label ant-pro-core-field-label-middle ant-pro-core-field-label-active ant-pro-core-field-label-allow-clear"
                     >
-                      <div
-                        class="ant-spin-container"
+                      <span
+                        style="display: inline-flex; align-items: center;"
                       >
+                        <span>
+                          树形下拉选择器: 
+                        </span>
                         <div
-                          class="ant-select ant-tree-select ant-select-borderless ant-select-in-form-item ant-pro-field-tree-select ant-pro-core-field-label-active ant-select-multiple ant-select-show-search"
-                          style="min-width: 60px;"
+                          class="ant-spin-nested-loading"
                         >
                           <div
-                            class="ant-select-selector"
+                            class="ant-spin-container"
                           >
                             <div
-                              class="ant-select-selection-overflow"
+                              class="ant-select ant-tree-select ant-select-borderless ant-select-in-form-item ant-pro-field-tree-select ant-select-multiple ant-select-show-search"
+                              style="min-width: 60px;"
                             >
                               <div
-                                class="ant-select-selection-overflow-item"
-                                style="opacity: 1;"
-                              >
-                                <span>
-                                  Node1 ,
-                                </span>
-                              </div>
-                              <div
-                                class="ant-select-selection-overflow-item"
-                                style="opacity: 1;"
-                              >
-                                <span>
-                                  Node2 
-                                </span>
-                              </div>
-                              <div
-                                class="ant-select-selection-overflow-item ant-select-selection-overflow-item-suffix"
-                                style="opacity: 1;"
+                                class="ant-select-selector"
                               >
                                 <div
-                                  class="ant-select-selection-search"
-                                  style="width: 0px;"
+                                  class="ant-select-selection-overflow"
                                 >
-                                  <input
-                                    aria-autocomplete="list"
-                                    aria-controls="treeSelect_list"
-                                    aria-haspopup="listbox"
-                                    aria-owns="treeSelect_list"
-                                    autocomplete="off"
-                                    class="ant-select-selection-search-input"
-                                    id="treeSelect"
-                                    readonly=""
-                                    role="combobox"
-                                    style="opacity: 0;"
-                                    type="search"
-                                    unselectable="on"
-                                    value=""
-                                  />
-                                  <span
-                                    aria-hidden="true"
-                                    class="ant-select-selection-search-mirror"
+                                  <div
+                                    class="ant-select-selection-overflow-item"
+                                    style="opacity: 1;"
                                   >
-                                     
-                                  </span>
+                                    <span>
+                                      Node1 ,
+                                    </span>
+                                  </div>
+                                  <div
+                                    class="ant-select-selection-overflow-item"
+                                    style="opacity: 1;"
+                                  >
+                                    <span>
+                                      Node2 
+                                    </span>
+                                  </div>
+                                  <div
+                                    class="ant-select-selection-overflow-item ant-select-selection-overflow-item-suffix"
+                                    style="opacity: 1;"
+                                  >
+                                    <div
+                                      class="ant-select-selection-search"
+                                      style="width: 0px;"
+                                    >
+                                      <input
+                                        aria-autocomplete="list"
+                                        aria-controls="treeSelect_list"
+                                        aria-expanded="false"
+                                        aria-haspopup="listbox"
+                                        aria-owns="treeSelect_list"
+                                        autocomplete="off"
+                                        class="ant-select-selection-search-input"
+                                        id="treeSelect"
+                                        readonly=""
+                                        role="combobox"
+                                        style="opacity: 0;"
+                                        type="search"
+                                        unselectable="on"
+                                        value=""
+                                      />
+                                      <span
+                                        aria-hidden="true"
+                                        class="ant-select-selection-search-mirror"
+                                      >
+                                         
+                                      </span>
+                                    </div>
+                                  </div>
                                 </div>
                               </div>
                             </div>
                           </div>
                         </div>
-                      </div>
-                    </div>
+                      </span>
+                      <span
+                        aria-label="close"
+                        class="anticon anticon-close ant-pro-core-field-label-icon ant-pro-core-field-label-close"
+                        role="button"
+                        tabindex="-1"
+                        title="清除"
+                      >
+                        <svg
+                          aria-hidden="true"
+                          data-icon="close"
+                          fill="currentColor"
+                          focusable="false"
+                          height="1em"
+                          viewBox="64 64 896 896"
+                          width="1em"
+                        >
+                          <path
+                            d="M563.8 512l262.5-312.9c4.4-5.2.7-13.1-6.1-13.1h-79.8c-4.7 0-9.2 2.1-12.3 5.7L511.6 449.8 295.1 191.7c-3-3.6-7.5-5.7-12.3-5.7H203c-6.8 0-10.5 7.9-6.1 13.1L459.4 512 196.9 824.9A7.95 7.95 0 00203 838h79.8c4.7 0 9.2-2.1 12.3-5.7l216.5-258.1 216.5 258.1c3 3.6 7.5 5.7 12.3 5.7h79.8c6.8 0 10.5-7.9 6.1-13.1L563.8 512z"
+                          />
+                        </svg>
+                      </span>
+                      <span
+                        aria-label="down"
+                        class="anticon anticon-down ant-pro-core-field-label-icon ant-pro-core-field-label-arrow"
+                        role="img"
+                      >
+                        <svg
+                          aria-hidden="true"
+                          data-icon="down"
+                          fill="currentColor"
+                          focusable="false"
+                          height="1em"
+                          viewBox="64 64 896 896"
+                          width="1em"
+                        >
+                          <path
+                            d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"
+                          />
+                        </svg>
+                      </span>
+                    </span>
                   </div>
                 </div>
               </div>
@@ -14887,91 +14943,97 @@ exports[`form demos 📸 renders ./packages/form/src/components/QueryFilter/demo
                   <div
                     class="ant-form-item-control-input-content"
                   >
-                    <div
-                      class="ant-select ant-cascader ant-select-borderless ant-select-in-form-item pro-field pro-field-md ant-pro-field-cascader ant-pro-core-field-label-active ant-select-single ant-select-allow-clear ant-select-show-arrow"
+                    <span
+                      class="ant-pro-core-field-label ant-pro-core-field-label-middle ant-pro-core-field-label-active ant-pro-core-field-label-allow-clear"
                     >
-                      <div
-                        class="ant-select-selector"
+                      <span
+                        style="display: inline-flex; align-items: center;"
                       >
-                        <span
-                          class="ant-select-selection-search"
+                        <span>
+                          区域: 
+                        </span>
+                        <div
+                          class="ant-select ant-cascader ant-select-borderless ant-select-in-form-item pro-field pro-field-md ant-pro-field-cascader ant-select-single ant-select-show-arrow"
                         >
-                          <input
-                            aria-autocomplete="list"
-                            aria-controls="area_list"
-                            aria-haspopup="listbox"
-                            aria-owns="area_list"
-                            autocomplete="off"
-                            class="ant-select-selection-search-input"
-                            id="area"
-                            readonly=""
-                            role="combobox"
-                            style="opacity: 0;"
-                            type="search"
+                          <div
+                            class="ant-select-selector"
+                          >
+                            <span
+                              class="ant-select-selection-search"
+                            >
+                              <input
+                                aria-autocomplete="list"
+                                aria-controls="area_list"
+                                aria-expanded="false"
+                                aria-haspopup="listbox"
+                                aria-owns="area_list"
+                                autocomplete="off"
+                                class="ant-select-selection-search-input"
+                                id="area"
+                                readonly=""
+                                role="combobox"
+                                style="opacity: 0;"
+                                type="search"
+                                unselectable="on"
+                                value=""
+                              />
+                            </span>
+                            <span
+                              class="ant-select-selection-item"
+                              title="浙江 / 杭州 / 西湖"
+                            >
+                              浙江 / 杭州 / 西湖
+                            </span>
+                          </div>
+                          <span
+                            aria-hidden="true"
+                            class="ant-select-arrow"
+                            style="user-select: none;"
                             unselectable="on"
-                            value=""
                           />
-                        </span>
-                        <span
-                          class="ant-select-selection-item"
-                          title="浙江 / 杭州 / 西湖"
-                        >
-                          浙江 / 杭州 / 西湖
-                        </span>
-                      </div>
-                      <span
-                        aria-hidden="true"
-                        class="ant-select-arrow"
-                        style="user-select: none;"
-                        unselectable="on"
-                      >
-                        <span
-                          aria-label="down"
-                          class="anticon anticon-down ant-select-suffix"
-                          role="img"
-                        >
-                          <svg
-                            aria-hidden="true"
-                            data-icon="down"
-                            fill="currentColor"
-                            focusable="false"
-                            height="1em"
-                            viewBox="64 64 896 896"
-                            width="1em"
-                          >
-                            <path
-                              d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"
-                            />
-                          </svg>
-                        </span>
+                        </div>
                       </span>
                       <span
-                        aria-hidden="true"
-                        class="ant-select-clear"
-                        style="user-select: none;"
-                        unselectable="on"
+                        aria-label="close"
+                        class="anticon anticon-close ant-pro-core-field-label-icon ant-pro-core-field-label-close"
+                        role="button"
+                        tabindex="-1"
+                        title="清除"
                       >
-                        <span
-                          aria-label="close-circle"
-                          class="anticon anticon-close-circle"
-                          role="img"
+                        <svg
+                          aria-hidden="true"
+                          data-icon="close"
+                          fill="currentColor"
+                          focusable="false"
+                          height="1em"
+                          viewBox="64 64 896 896"
+                          width="1em"
                         >
-                          <svg
-                            aria-hidden="true"
-                            data-icon="close-circle"
-                            fill="currentColor"
-                            focusable="false"
-                            height="1em"
-                            viewBox="64 64 896 896"
-                            width="1em"
-                          >
-                            <path
-                              d="M512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm165.4 618.2l-66-.3L512 563.4l-99.3 118.4-66.1.3c-4.4 0-8-3.5-8-8 0-1.9.7-3.7 1.9-5.2l130.1-155L340.5 359a8.32 8.32 0 01-1.9-5.2c0-4.4 3.6-8 8-8l66.1.3L512 464.6l99.3-118.4 66-.3c4.4 0 8 3.5 8 8 0 1.9-.7 3.7-1.9 5.2L553.5 514l130 155c1.2 1.5 1.9 3.3 1.9 5.2 0 4.4-3.6 8-8 8z"
-                            />
-                          </svg>
-                        </span>
+                          <path
+                            d="M563.8 512l262.5-312.9c4.4-5.2.7-13.1-6.1-13.1h-79.8c-4.7 0-9.2 2.1-12.3 5.7L511.6 449.8 295.1 191.7c-3-3.6-7.5-5.7-12.3-5.7H203c-6.8 0-10.5 7.9-6.1 13.1L459.4 512 196.9 824.9A7.95 7.95 0 00203 838h79.8c4.7 0 9.2-2.1 12.3-5.7l216.5-258.1 216.5 258.1c3 3.6 7.5 5.7 12.3 5.7h79.8c6.8 0 10.5-7.9 6.1-13.1L563.8 512z"
+                          />
+                        </svg>
                       </span>
-                    </div>
+                      <span
+                        aria-label="down"
+                        class="anticon anticon-down ant-pro-core-field-label-icon ant-pro-core-field-label-arrow"
+                        role="img"
+                      >
+                        <svg
+                          aria-hidden="true"
+                          data-icon="down"
+                          fill="currentColor"
+                          focusable="false"
+                          height="1em"
+                          viewBox="64 64 896 896"
+                          width="1em"
+                        >
+                          <path
+                            d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"
+                          />
+                        </svg>
+                      </span>
+                    </span>
                   </div>
                 </div>
               </div>
@@ -15054,7 +15116,9 @@ exports[`form demos 📸 renders ./packages/form/src/components/QueryFilter/demo
                           style="display: inline-flex; align-items: center;"
                           title="20~80"
                         >
-                          范围: 
+                          <span>
+                            范围: 
+                          </span>
                           <span
                             style="padding-left: 4px;"
                           >
@@ -15134,7 +15198,9 @@ exports[`form demos 📸 renders ./packages/form/src/components/QueryFilter/demo
                         <span
                           style="display: inline-flex; align-items: center;"
                         >
-                          范围: 
+                          <span>
+                            范围: 
+                          </span>
                           <span
                             style="padding-left: 4px;"
                           >
@@ -15215,7 +15281,9 @@ exports[`form demos 📸 renders ./packages/form/src/components/QueryFilter/demo
                           style="display: inline-flex; align-items: center;"
                           title="yutingzhao1991"
                         >
-                          名称: 
+                          <span>
+                            名称: 
+                          </span>
                           <span
                             style="padding-left: 4px;"
                           >
@@ -15333,8 +15401,13 @@ exports[`form demos 📸 renders ./packages/form/src/components/QueryFilter/demo
                         <span
                           class="ant-pro-core-field-label ant-pro-core-field-label-middle ant-pro-core-field-label-active"
                         >
-                          <span>
-                            不能清空的日期: 2020-08-19
+                          <span
+                            style="display: inline-flex; align-items: center;"
+                          >
+                            <span>
+                              不能清空的日期: 
+                            </span>
+                            2020-08-19
                           </span>
                           <span
                             aria-label="down"
@@ -15532,7 +15605,9 @@ exports[`form demos 📸 renders ./packages/form/src/components/QueryFilter/demo
                           style="display: inline-flex; align-items: center;"
                           title="2019-11-15 12:50:26 ~ 2019-11-16 12:50:26"
                         >
-                          日期时间范围: 
+                          <span>
+                            日期时间范围: 
+                          </span>
                           <span
                             style="padding-left: 4px;"
                           >
@@ -15709,7 +15784,9 @@ exports[`form demos 📸 renders ./packages/form/src/components/QueryFilter/demo
                           style="display: inline-flex; align-items: center;"
                           title="12:50:00 ~ 12:50:00"
                         >
-                          时间范围: 
+                          <span>
+                            时间范围: 
+                          </span>
                           <span
                             style="padding-left: 4px;"
                           >
@@ -16386,7 +16463,9 @@ exports[`form demos 📸 renders ./packages/form/src/components/QueryFilter/demo
                               style="display: inline-flex; align-items: center;"
                               title="Jack2"
                             >
-                              名称: 
+                              <span>
+                                名称: 
+                              </span>
                               <span
                                 style="padding-left: 4px;"
                               >
@@ -16489,7 +16568,9 @@ exports[`form demos 📸 renders ./packages/form/src/components/QueryFilter/demo
                               style="display: inline-flex; align-items: center;"
                               title="Jack2"
                             >
-                              名称: 
+                              <span>
+                                名称: 
+                              </span>
                               <span
                                 style="padding-left: 4px;"
                               >
@@ -17799,7 +17880,9 @@ exports[`form demos 📸 renders ./packages/form/src/components/QueryFilter/demo
                             style="display: inline-flex; align-items: center;"
                             title="打开,关闭"
                           >
-                            性别: 
+                            <span>
+                              性别: 
+                            </span>
                             <span
                               style="padding-left: 4px;"
                             >
@@ -18012,7 +18095,9 @@ exports[`form demos 📸 renders ./packages/form/src/components/QueryFilter/demo
                           style="display: inline-flex; align-items: center;"
                           title="20~80"
                         >
-                          范围: 
+                          <span>
+                            范围: 
+                          </span>
                           <span
                             style="padding-left: 4px;"
                           >
@@ -18092,7 +18177,9 @@ exports[`form demos 📸 renders ./packages/form/src/components/QueryFilter/demo
                         <span
                           style="display: inline-flex; align-items: center;"
                         >
-                          范围: 
+                          <span>
+                            范围: 
+                          </span>
                           <span
                             style="padding-left: 4px;"
                           >
@@ -18173,7 +18260,9 @@ exports[`form demos 📸 renders ./packages/form/src/components/QueryFilter/demo
                           style="display: inline-flex; align-items: center;"
                           title="yutingzhao1991"
                         >
-                          名称: 
+                          <span>
+                            名称: 
+                          </span>
                           <span
                             style="padding-left: 4px;"
                           >
@@ -36032,6 +36121,7 @@ exports[`form demos 📸 renders ./packages/form/src/demos/base.tsx correctly 1`
                   <input
                     aria-autocomplete="list"
                     aria-controls="areaList_list"
+                    aria-expanded="false"
                     aria-haspopup="listbox"
                     aria-owns="areaList_list"
                     autocomplete="off"
@@ -36161,6 +36251,7 @@ exports[`form demos 📸 renders ./packages/form/src/demos/base.tsx correctly 1`
                           <input
                             aria-autocomplete="list"
                             aria-controls="rc_select_TEST_OR_SSR_list"
+                            aria-expanded="false"
                             aria-haspopup="listbox"
                             aria-owns="rc_select_TEST_OR_SSR_list"
                             autocomplete="off"
