@@ -93,10 +93,7 @@ const CellRenderFromItem = <T,>(props: CellRenderFromItemProps<T>) => {
       prefixName ? index : key,
       columnProps?.key ?? columnProps?.dataIndex ?? index,
     );
-
-    if (value.join('-') !== formItemName.join('-')) {
-      setName(value);
-    }
+    if (value.join('-') !== formItemName.join('-')) setName(value);
   }, [
     columnProps?.dataIndex,
     columnProps?.key,
