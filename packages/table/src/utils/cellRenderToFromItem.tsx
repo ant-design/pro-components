@@ -165,7 +165,6 @@ const CellRenderFromItem = <T,>(props: CellRenderFromItemProps<T>) => {
         {...proFieldProps}
       />
     );
-
     /**
      * 如果没有自定义直接返回
      */
@@ -190,6 +189,8 @@ const CellRenderFromItem = <T,>(props: CellRenderFromItemProps<T>) => {
         editableForm as any,
         props.editableUtils,
       );
+      // 如果需要完全自定义可以不要name
+      if (columnProps.ignoreFormItem) return <>{fieldDom}</>;
     }
 
     return (

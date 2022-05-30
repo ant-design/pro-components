@@ -9,6 +9,20 @@ group:
 
 # Change Log
 
+## @ant-design/pro-form@1.69.1
+
+`2022-05-27`
+
+- fix(form): input will be blur after setState (#5298). [#5298](https://github.com/ant-design/pro-components/pull/#5298) [@Dunqing](https://github.com/Dunqing)
+
+## @ant-design/pro-form@1.69.0
+
+`2022-05-26`
+
+- fix(form): ProFormCheckBox support readonly lable. [ea574c4](https://github.com/ant-design/pro-components/commit/ea574c4)
+- fix(form): select placement api dont work in lightFilter (#5279). [#5279](https://github.com/ant-design/pro-components/pull/#5279) [@ONLY-yours](https://github.com/ONLY-yours)
+- fix(form): default get a form. [2de054b](https://github.com/ant-design/pro-components/commit/2de054b)
+
 ## @ant-design/pro-form@1.68.1
 
 `2022-05-20`

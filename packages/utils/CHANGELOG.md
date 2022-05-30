@@ -2,6 +2,17 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.42.0](https://github.com/ant-design/pro-components/compare/@ant-design/pro-utils@1.41.4...@ant-design/pro-utils@1.42.0) (2022-05-26)
+
+### Bug Fixes
+
+- **form:** ProFormCheckBox support readonly lable ([ea574c4](https://github.com/ant-design/pro-components/commit/ea574c4d0206f70956a0a2009ba28722716a2ae3))
+- **table:** useEditableArray fix child record traversal ([#5244](https://github.com/ant-design/pro-components/issues/5244)) ([762022c](https://github.com/ant-design/pro-components/commit/762022c2ecb514e4533de4713f5fa3f4bd8b042d))
+
+### Features
+
+- **table:** renderFormItem support ignoreFormItem ([7aae13d](https://github.com/ant-design/pro-components/commit/7aae13d791452121eedfc38c43676fc9a0f3ba05))
+
 ## [1.41.4](https://github.com/ant-design/pro-components/compare/@ant-design/pro-utils@1.41.3...@ant-design/pro-utils@1.41.4) (2022-05-20)
 
 **Note:** Version bump only for package @ant-design/pro-utils

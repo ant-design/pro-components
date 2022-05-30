@@ -1,5 +1,5 @@
 import { EllipsisOutlined } from '@ant-design/icons';
-import ProList from '@ant-design/pro-list';
+import { ProList } from '@ant-design/pro-components';
 import { Progress, Tag } from 'antd';
 import React from 'react';
 

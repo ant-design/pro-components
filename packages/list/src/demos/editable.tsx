@@ -1,4 +1,4 @@
-import ProList from '@ant-design/pro-list';
+import { ProList } from '@ant-design/pro-components';
 import { Space, Tag } from 'antd';
 import React, { useState } from 'react';
 

@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.21.66](https://github.com/ant-design/pro-components/compare/@ant-design/pro-list@1.21.65...@ant-design/pro-list@1.21.66) (2022-05-27)
+
+**Note:** Version bump only for package @ant-design/pro-list
+
+## [1.21.65](https://github.com/ant-design/pro-components/compare/@ant-design/pro-list@1.21.64...@ant-design/pro-list@1.21.65) (2022-05-26)
+
+### Bug Fixes
+
+- **form:** ProFormCheckBox support readonly lable ([ea574c4](https://github.com/ant-design/pro-components/commit/ea574c4d0206f70956a0a2009ba28722716a2ae3))
+
 ## [1.21.64](https://github.com/ant-design/pro-components/compare/@ant-design/pro-list@1.21.63...@ant-design/pro-list@1.21.64) (2022-05-20)
 
 **Note:** Version bump only for package @ant-design/pro-list

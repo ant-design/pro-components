@@ -1,5 +1,6 @@
 ﻿import { CloseOutlined, SnippetsOutlined } from '@ant-design/icons';
 import ProForm, {
+  FormListActionType,
   ProFormDatePicker,
   ProFormDependency,
   ProFormGroup,
@@ -7,7 +8,7 @@ import ProForm, {
   ProFormText,
 } from '@ant-design/pro-form';
 import '@testing-library/jest-dom';
-import { render as reactRender } from '@testing-library/react';
+import { render as reactRender, render } from '@testing-library/react';
 import { Button, Form } from 'antd';
 import type { NamePath } from 'antd/es/form/interface';
 import { mount } from 'enzyme';
@@ -1075,5 +1076,64 @@ describe('ProForm List', () => {
       name: '2222',
       nickName: '2222',
     });
+  });
+
+  it('⛲  ProForm.List support actionRef', async () => {
+    const actionRef = React.createRef<
+      FormListActionType<{
+        name: string;
+      }>
+    >();
+    const html = render(
+      <ProForm>
+        <ProFormList
+          name="users"
+          label="用户信息"
+          initialValue={[
+            {
+              name: '1111',
+              nickName: '1111',
+            },
+          ]}
+          // @ts-ignore
+          actionRef={actionRef}
+          fieldExtraRender={() => {
+            return (
+              <Button
+                type="text"
+                onClick={() =>
+                  actionRef.current?.add({
+                    name: '2222',
+                    nickName: '2222',
+                  })
+                }
+              >
+                Add Field
+              </Button>
+            );
+          }}
+        >
+          {() => {
+            return (
+              <div>
+                <ProFormText name="name" />
+                <ProFormText name="nickName" />
+              </div>
+            );
+          }}
+        </ProFormList>
+      </ProForm>,
+    );
+
+    await waitForComponentToPaint(html);
+
+    await act(async () => {
+      const dom = await html.findByText('Add Field');
+      dom.click();
+    });
+
+    const data = actionRef.current?.get(1);
+
+    expect(data?.name).toBe('2222');
   });
 });
