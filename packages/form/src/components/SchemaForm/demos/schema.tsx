@@ -256,7 +256,13 @@ export default () => {
         }}
         direction="vertical"
       >
-        <Alert type="warning" message="QueryFilter 和 lightFilter 暂不支持grid模式" />
+        <Alert
+          type="warning"
+          message="QueryFilter 和 lightFilter 暂不支持grid模式"
+          style={{
+            marginBottom: 24,
+          }}
+        />
         <ProFormSelect
           label="布局方式"
           options={[
