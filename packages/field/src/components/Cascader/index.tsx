@@ -100,11 +100,7 @@ const FieldCascader: ProFieldFC<GroupProps> = (
     }
 
     if (light) {
-      const {
-        disabled,
-        allowClear,
-        placeholder = intl.getMessage('tableForm.selectPlaceholder', '请选择'),
-      } = rest.fieldProps;
+      const { disabled, allowClear, placeholder } = rest.fieldProps;
       return (
         <FieldLabel
           label={label}

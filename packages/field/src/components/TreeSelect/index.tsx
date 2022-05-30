@@ -172,11 +172,7 @@ const FieldTreeSelect: ProFieldFC<GroupProps> = (
     }
 
     if (light) {
-      const {
-        disabled,
-        allowClear,
-        placeholder = intl.getMessage('tableForm.selectPlaceholder', '请选择'),
-      } = fieldProps;
+      const { disabled, allowClear, placeholder } = fieldProps;
       return (
         <FieldLabel
           label={label}
