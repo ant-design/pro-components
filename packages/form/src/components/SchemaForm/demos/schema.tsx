@@ -43,6 +43,15 @@ const columns: ProFormColumnsType<DataItem>[] = [
       xs: 24,
       md: 12,
     },
+    initialValue: '默认值',
+    convertValue: (value) => {
+      return `标题：${value}`;
+    },
+    transform: (value) => {
+      return {
+        title: `${value}-转换`,
+      };
+    },
   },
   {
     title: '状态',

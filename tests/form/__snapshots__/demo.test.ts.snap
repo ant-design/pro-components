@@ -25289,13 +25289,13 @@ exports[`form demos 📸 renders ./packages/form/src/components/SchemaForm/demos
                     id="title"
                     placeholder="请输入"
                     type="text"
-                    value=""
+                    value="标题：默认值"
                   />
                   <span
                     class="ant-input-suffix"
                   >
                     <span
-                      class="ant-input-clear-icon ant-input-clear-icon-hidden"
+                      class="ant-input-clear-icon"
                       role="button"
                       tabindex="-1"
                     >
