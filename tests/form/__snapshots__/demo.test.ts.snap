@@ -25282,7 +25282,6 @@ exports[`form demos 📸 renders ./packages/form/src/components/SchemaForm/demos
               >
                 <span
                   class="ant-input-affix-wrapper ant-input-affix-wrapper-focused pro-field pro-field-md"
-                  style="width: 100%;"
                 >
                   <input
                     class="ant-input"
@@ -25356,7 +25355,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/SchemaForm/demos
                 <div>
                   <div
                     class="ant-select ant-select-in-form-item ant-pro-filed-search-select pro-field pro-field-md ant-select-single ant-select-allow-clear ant-select-show-arrow"
-                    style="width: 100%;"
+                    style="min-width: 100px;"
                   >
                     <div
                       class="ant-select-selector"
@@ -25449,7 +25448,6 @@ exports[`form demos 📸 renders ./packages/form/src/components/SchemaForm/demos
               >
                 <span
                   class="ant-input-affix-wrapper pro-field pro-field-md"
-                  style="width: 100%;"
                 >
                   <input
                     class="ant-input"
@@ -25568,7 +25566,6 @@ exports[`form demos 📸 renders ./packages/form/src/components/SchemaForm/demos
               >
                 <div
                   class="ant-picker ant-picker-range pro-field pro-field-md"
-                  style="width: 100%;"
                 >
                   <div
                     class="ant-picker-input ant-picker-input-active"
@@ -25706,7 +25703,6 @@ exports[`form demos 📸 renders ./packages/form/src/components/SchemaForm/demos
               >
                 <div
                   class="ant-picker ant-picker-range pro-field pro-field-md"
-                  style="width: 100%;"
                 >
                   <div
                     class="ant-picker-input ant-picker-input-active"
@@ -25816,7 +25812,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/SchemaForm/demos
         </div>
       </div>
       <div
-        class="ant-col ant-col-xs-24"
+        class="ant-col ant-col-12"
         style="padding: 8px 8px 8px 8px;"
       >
         <div
@@ -25861,7 +25857,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/SchemaForm/demos
                       <div>
                         <div
                           class="ant-select ant-select-in-form-item ant-pro-filed-search-select pro-field pro-field-xs ant-select-single ant-select-allow-clear ant-select-show-arrow"
-                          style="width: 100%;"
+                          style="min-width: 100px;"
                         >
                           <div
                             class="ant-select-selector"
@@ -25954,7 +25950,6 @@ exports[`form demos 📸 renders ./packages/form/src/components/SchemaForm/demos
                     >
                       <span
                         class="ant-input-affix-wrapper pro-field pro-field-md"
-                        style="width: 100%;"
                       >
                         <input
                           class="ant-input"
@@ -26046,7 +26041,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/SchemaForm/demos
                           style="width: 100%;"
                         >
                           <div
-                            class="ant-col ant-col-xs-24"
+                            class="ant-col ant-col-12"
                             style="padding-left: 4px; padding-right: 4px;"
                           >
                             <div
@@ -26086,7 +26081,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/SchemaForm/demos
                                           <div>
                                             <div
                                               class="ant-select ant-select-in-form-item ant-pro-filed-search-select pro-field pro-field-xs ant-select-single ant-select-allow-clear ant-select-show-arrow"
-                                              style="width: 100%;"
+                                              style="min-width: 100px;"
                                             >
                                               <div
                                                 class="ant-select-selector"
@@ -26206,7 +26201,6 @@ exports[`form demos 📸 renders ./packages/form/src/components/SchemaForm/demos
                                         >
                                           <span
                                             class="ant-input-affix-wrapper pro-field pro-field-md"
-                                            style="width: 100%;"
                                           >
                                             <input
                                               class="ant-input"
@@ -26254,7 +26248,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/SchemaForm/demos
                             </div>
                           </div>
                           <div
-                            class="ant-col ant-col-xs-24"
+                            class="ant-col ant-col-12"
                             style="padding-left: 4px; padding-right: 4px;"
                           >
                             <div
@@ -26272,7 +26266,6 @@ exports[`form demos 📸 renders ./packages/form/src/components/SchemaForm/demos
                                     <div>
                                       <div
                                         class="ant-picker pro-field pro-field-md"
-                                        style="width: 100%;"
                                       >
                                         <div
                                           class="ant-picker-input"
@@ -26476,7 +26469,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/SchemaForm/demos
                   style="margin-left: -8px; margin-right: -8px;"
                 >
                   <div
-                    class="ant-col ant-col-xs-24"
+                    class="ant-col ant-col-12"
                     style="padding-left: 8px; padding-right: 8px;"
                   >
                     <div
@@ -26505,7 +26498,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/SchemaForm/demos
                             <div>
                               <div
                                 class="ant-select ant-select-in-form-item ant-pro-filed-search-select pro-field pro-field-md ant-select-single ant-select-allow-clear ant-select-show-arrow"
-                                style="width: 100%;"
+                                style="min-width: 100px;"
                               >
                                 <div
                                   class="ant-select-selector"
@@ -26570,7 +26563,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/SchemaForm/demos
                     </div>
                   </div>
                   <div
-                    class="ant-col ant-col-xs-24"
+                    class="ant-col ant-col-12"
                     style="padding-left: 8px; padding-right: 8px;"
                   >
                     <div
@@ -26621,7 +26614,6 @@ exports[`form demos 📸 renders ./packages/form/src/components/SchemaForm/demos
                           >
                             <span
                               class="ant-input-affix-wrapper pro-field pro-field-xs"
-                              style="width: 100%;"
                             >
                               <input
                                 class="ant-input"
@@ -26700,7 +26692,6 @@ exports[`form demos 📸 renders ./packages/form/src/components/SchemaForm/demos
               >
                 <div
                   class="ant-picker ant-picker-range pro-field pro-field-md"
-                  style="width: 100%;"
                 >
                   <div
                     class="ant-picker-input ant-picker-input-active"
@@ -37639,7 +37630,6 @@ exports[`form demos 📸 renders ./packages/form/src/demos/form-layout-grid.tsx 
               >
                 <span
                   class="ant-input-affix-wrapper"
-                  style="width: 100%;"
                 >
                   <input
                     class="ant-input"
@@ -37712,7 +37702,6 @@ exports[`form demos 📸 renders ./packages/form/src/demos/form-layout-grid.tsx 
               >
                 <span
                   class="ant-input-affix-wrapper"
-                  style="width: 100%;"
                 >
                   <input
                     class="ant-input"
@@ -37894,7 +37883,6 @@ exports[`form demos 📸 renders ./packages/form/src/demos/form-layout-grid.tsx 
               >
                 <span
                   class="ant-input-affix-wrapper"
-                  style="width: 100%;"
                 >
                   <input
                     class="ant-input"
@@ -37970,7 +37958,6 @@ exports[`form demos 📸 renders ./packages/form/src/demos/form-layout-grid.tsx 
                   id="address"
                   placeholder="请输入"
                   rows="3"
-                  style="width: 100%;"
                 />
               </div>
             </div>
@@ -38007,7 +37994,6 @@ exports[`form demos 📸 renders ./packages/form/src/demos/form-layout-grid.tsx 
                 <div>
                   <div
                     class="ant-picker"
-                    style="width: 100%;"
                   >
                     <div
                       class="ant-picker-input"
@@ -38081,7 +38067,6 @@ exports[`form demos 📸 renders ./packages/form/src/demos/form-layout-grid.tsx 
               >
                 <div
                   class="ant-picker ant-picker-range"
-                  style="width: 100%;"
                 >
                   <div
                     class="ant-picker-input ant-picker-input-active"
@@ -38197,7 +38182,7 @@ exports[`form demos 📸 renders ./packages/form/src/demos/form-layout-grid.tsx 
                 <div>
                   <div
                     class="ant-select ant-select-in-form-item ant-pro-filed-search-select ant-select-single ant-select-allow-clear ant-select-show-arrow"
-                    style="width: 100%;"
+                    style="min-width: 100px;"
                   >
                     <div
                       class="ant-select-selector"
