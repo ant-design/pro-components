@@ -303,9 +303,9 @@ const QueryFilterContent: React.FC<{
         (collapsed &&
           (firstRowFull ||
             // 如果 超过显示长度 且 总长度超过了 24
-            totalSize >= showLength - 1) &&
+            totalSize > showLength - 1) &&
           !!index &&
-          totalSpan >= 24);
+          totalSpan > 24);
 
       itemLength += 1;
 
