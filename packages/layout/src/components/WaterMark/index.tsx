@@ -43,6 +43,8 @@ export type WaterMarkProps = {
   fontWeight?: 'normal' | 'light' | 'weight' | number;
   /** 文字大小 */
   fontSize?: number | string;
+  /** 多行水印文字行高 **/
+  fontLineHeight?: number;
 
   children?: React.ReactNode;
 };
@@ -131,7 +133,7 @@ const WaterMark: React.FC<WaterMarkProps> = (props) => {
         };
       } else if (content) {
         const markSize = Number(fontSize) * ratio
-        let watermark = []
+        let watermark: string[] = []
         if (content.includes('\n')) {
           watermark = content.split('\n')
         } else if (Array.isArray(content)) {
