@@ -1298,6 +1298,78 @@ describe('ProForm', () => {
     expect(wrapper.find('.ant-select-item').length).toBe(4);
   });
 
+  it('📦 SearchSelect support fetchDataOnSearch: false', async () => {
+    const onRequest = jest.fn();
+    const wrapper = mount(
+      <ProForm>
+        <ProFormSelect.SearchSelect
+          name="userQuery"
+          label="查询选择器"
+          fieldProps={{
+            fetchDataOnSearch: false,
+          }}
+          request={async () => {
+            onRequest();
+            return [
+              { label: '全部', value: 'all' },
+              { label: '未解决', value: 'open' },
+              { label: '已解决', value: 'closed' },
+              { label: '解决中', value: 'processing' },
+            ];
+          }}
+        />
+      </ProForm>,
+    );
+    await waitForComponentToPaint(wrapper);
+
+    act(() => {
+      wrapper.find('.ant-select-selection-search-input').simulate('change', {
+        target: {
+          value: '全',
+        },
+      });
+    });
+    await waitForComponentToPaint(wrapper);
+
+    expect(onRequest.mock.calls.length).toBe(1);
+  });
+
+  it('📦 SearchSelect support fetchDataOnSearch: true', async () => {
+    const onRequest = jest.fn();
+    const wrapper = mount(
+      <ProForm>
+        <ProFormSelect.SearchSelect
+          name="userQuery"
+          label="查询选择器"
+          fieldProps={{
+            fetchDataOnSearch: true,
+          }}
+          request={async () => {
+            onRequest();
+            return [
+              { label: '全部', value: 'all' },
+              { label: '未解决', value: 'open' },
+              { label: '已解决', value: 'closed' },
+              { label: '解决中', value: 'processing' },
+            ];
+          }}
+        />
+      </ProForm>,
+    );
+    await waitForComponentToPaint(wrapper);
+
+    act(() => {
+      wrapper.find('.ant-select-selection-search-input').simulate('change', {
+        target: {
+          value: '全',
+        },
+      });
+    });
+    await waitForComponentToPaint(wrapper);
+
+    expect(onRequest.mock.calls.length).toBe(2);
+  });
+
   it('📦 SearchSelect support multiple', async () => {
     const onSearch = jest.fn();
     const onFinish = jest.fn();
