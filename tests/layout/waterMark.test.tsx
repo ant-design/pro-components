@@ -50,6 +50,17 @@ describe('WaterMark', () => {
     wrapper.unmount();
   });
 
+  it('test multi line text watermark', () => {
+    const wrapper = mount(
+      <WaterMark content="Trusple\nWatermark">
+        <div style={{ height: 500 }} />
+      </WaterMark>,
+    );
+    wrapper.update();
+    expect(wrapper).toMatchSnapshot();
+    wrapper.unmount();
+  });
+  
   it('test image watermark', async () => {
     const spy = jest.spyOn(global.console, 'error').mockImplementation();
     const createElement = document.createElement.bind(document);
