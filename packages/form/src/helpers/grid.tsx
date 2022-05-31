@@ -87,7 +87,7 @@ export const useGridHelpers = (props?: (ProFormGridConfig & CommonProps) | boole
       config.grid,
       grid,
       // eslint-disable-next-line react-hooks/exhaustive-deps
-      JSON.stringify([config?.colProps, config?.rowProps]),
+      JSON.stringify([colProps, config?.colProps, config?.rowProps]),
     ],
   );
 };
