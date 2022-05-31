@@ -43,11 +43,9 @@ import FieldText from './components/Text';
 import FieldTextArea from './components/TextArea';
 import FieldTimePicker, { FieldTimeRangePicker } from './components/TimePicker';
 import FieldTreeSelect from './components/TreeSelect';
-import fieldHOC from './FieldHOC';
+import FieldHOC from './FieldHOC';
 
 const REQUEST_VALUE_TYPE = ['select', 'radio', 'radioButton', 'checkbook'];
-
-const FieldSelectHOC = fieldHOC(FieldSelect);
 
 export type ProFieldMoneyProps = FieldMoneyProps;
 
@@ -226,43 +224,47 @@ const defaultRenderText = (
 
   /** 如果是日期的值 */
   if (valueType === 'date') {
-    const FieldDatePickerHOC = fieldHOC(FieldDatePicker);
-    return <FieldDatePickerHOC text={dataValue as string} format="YYYY-MM-DD" {...props} />;
+    return (
+      <FieldHOC>
+        <FieldDatePicker text={dataValue as string} format="YYYY-MM-DD" {...props} />
+      </FieldHOC>
+    );
   }
 
   /** 如果是周的值 */
   if (valueType === 'dateWeek') {
-    const FieldDatePickerHOC = fieldHOC(FieldDatePicker);
     return (
-      <FieldDatePickerHOC text={dataValue as string} format="YYYY-wo" picker="week" {...props} />
+      <FieldHOC>
+        <FieldDatePicker text={dataValue as string} format="YYYY-wo" picker="week" {...props} />
+      </FieldHOC>
     );
   }
 
   /** 如果是月的值 */
   if (valueType === 'dateMonth') {
-    const FieldDatePickerHOC = fieldHOC(FieldDatePicker);
     return (
-      <FieldDatePickerHOC text={dataValue as string} format="YYYY-MM" picker="month" {...props} />
+      <FieldHOC>
+        <FieldDatePicker text={dataValue as string} format="YYYY-MM" picker="month" {...props} />
+      </FieldHOC>
     );
   }
 
   /** 如果是季度的值 */
   if (valueType === 'dateQuarter') {
-    const FieldDatePickerHOC = fieldHOC(FieldDatePicker);
     return (
-      <FieldDatePickerHOC
-        text={dataValue as string}
-        format="YYYY-\QQ"
-        picker="quarter"
-        {...props}
-      />
+      <FieldHOC>
+        <FieldDatePicker text={dataValue as string} format="YYYY-\QQ" picker="quarter" {...props} />
+      </FieldHOC>
     );
   }
 
   /** 如果是年的值 */
   if (valueType === 'dateYear') {
-    const FieldDatePickerHOC = fieldHOC(FieldDatePicker);
-    return <FieldDatePickerHOC text={dataValue as string} format="YYYY" picker="year" {...props} />;
+    return (
+      <FieldHOC>
+        <FieldDatePicker text={dataValue as string} format="YYYY" picker="year" {...props} />
+      </FieldHOC>
+    );
   }
 
   /** 如果是日期范围的值 */
@@ -272,14 +274,15 @@ const defaultRenderText = (
 
   /** 如果是日期加时间类型的值 */
   if (valueType === 'dateTime') {
-    const FieldDatePickerHOC = fieldHOC(FieldDatePicker);
     return (
-      <FieldDatePickerHOC
-        text={dataValue as string}
-        format="YYYY-MM-DD HH:mm:ss"
-        showTime
-        {...props}
-      />
+      <FieldHOC>
+        <FieldDatePicker
+          text={dataValue as string}
+          format="YYYY-MM-DD HH:mm:ss"
+          showTime
+          {...props}
+        />
+      </FieldHOC>
     );
   }
 
@@ -298,8 +301,11 @@ const defaultRenderText = (
 
   /** 如果是时间类型的值 */
   if (valueType === 'time') {
-    const FieldDatePickerHOC = fieldHOC(FieldTimePicker);
-    return <FieldDatePickerHOC text={dataValue as string} format="HH:mm:ss" {...props} />;
+    return (
+      <FieldHOC>
+        <FieldTimePicker text={dataValue as string} format="HH:mm:ss" {...props} />
+      </FieldHOC>
+    );
   }
 
   /** 如果是时间类型的值 */
@@ -356,7 +362,11 @@ const defaultRenderText = (
   }
 
   if (valueType === 'select' || (valueType === 'text' && (props.valueEnum || props.request))) {
-    return <FieldSelectHOC text={dataValue as string} {...props} />;
+    return (
+      <FieldHOC>
+        <FieldSelect text={dataValue as string} {...props} />
+      </FieldHOC>
+    );
   }
 
   if (valueType === 'checkbox') {
