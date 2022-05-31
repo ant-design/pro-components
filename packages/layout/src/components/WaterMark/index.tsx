@@ -85,6 +85,7 @@ const WaterMark: React.FC<WaterMarkProps> = (props) => {
     content,
     offsetLeft,
     offsetTop,
+    fontLineHeight = 0,
     fontStyle = 'normal',
     fontWeight = 'normal',
     fontColor = 'rgba(0,0,0,.15)',
@@ -129,11 +130,26 @@ const WaterMark: React.FC<WaterMarkProps> = (props) => {
           setBase64Url(canvas.toDataURL());
         };
       } else if (content) {
-        const markSize = Number(fontSize) * ratio;
-        ctx.font = `${fontStyle} normal ${fontWeight} ${markSize}px/${markHeight}px ${fontFamily}`;
-        ctx.fillStyle = fontColor;
-        ctx.fillText(content, 0, 0);
-        setBase64Url(canvas.toDataURL());
+        const markSize = Number(fontSize) * ratio
+        let watermark = []
+        if (content.includes('\n')) {
+          watermark = content.split('\n')
+        } else if (Array.isArray(content)) {
+          watermark = content
+        } else {
+          watermark.push(content)
+        }
+        for (let i = 0; i < watermark.length; i++) {
+          ctx.font = `${fontStyle} normal ${fontWeight} ${markSize}px/${markHeight}px ${fontFamily}`
+          ctx.fillStyle = fontColor
+          let y = i * markSize
+          if (i > 0) {
+            y += fontLineHeight
+          }
+          const text = watermark[i]
+          ctx.fillText(text, 0, y)
+        }
+        setBase64Url(canvas.toDataURL())
       }
     } else {
       // eslint-disable-next-line no-console
