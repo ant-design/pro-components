@@ -292,6 +292,9 @@ export default () => {
         rowProps={{
           gutter: [16, 16],
         }}
+        colProps={{
+          span: 12,
+        }}
         grid={layoutType !== 'LightFilter' && layoutType !== 'QueryFilter'}
         onFinish={async (values) => {
           console.log(values);
