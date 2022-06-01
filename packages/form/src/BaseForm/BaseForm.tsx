@@ -302,7 +302,8 @@ function BaseFormComponents<T = Record<string, any>>(props: BaseFormProps<T>) {
       validateFieldsReturnFormatValue: async (nameList?: NamePath[]) => {
         if (!Array.isArray(nameList) && nameList) throw new Error('nameList must be array');
         const values = await formRef.current?.validateFields(nameList);
-        return transformKey(values, omitNil);
+        const transformedKey = transformKey(values, omitNil) 
+        return transformedKey ? transformedKey : {};
       },
       formRef,
     }),
