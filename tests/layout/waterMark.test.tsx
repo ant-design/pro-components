@@ -49,6 +49,28 @@ describe('WaterMark', () => {
     expect(wrapper).toMatchSnapshot();
     wrapper.unmount();
   });
+  
+  it('test \\n text watermark', () => {
+    const wrapper = mount(
+      <WaterMark content="Trusple\nHello\nWorld">
+        <div style={{ height: 500, fontLineHeight = 10 }} />
+      </WaterMark>,
+    );
+    wrapper.update();
+    expect(wrapper).toMatchSnapshot();
+    wrapper.unmount();
+  });
+  
+  it('test array text watermark', () => {
+    const wrapper = mount(
+      <WaterMark content={["Trusple", "Hello", "World"]}>
+        <div style={{ height: 500, fontLineHeight = 10 }} />
+      </WaterMark>,
+    );
+    wrapper.update();
+    expect(wrapper).toMatchSnapshot();
+    wrapper.unmount();
+  });
 
   it('test image watermark', async () => {
     const spy = jest.spyOn(global.console, 'error').mockImplementation();
