@@ -134,12 +134,14 @@ const WaterMark: React.FC<WaterMarkProps> = (props) => {
       } else if (content) {
         const markSize = Number(fontSize) * ratio
         let watermark: string[] = []
-        if (content.includes('\n')) {
-          watermark = content.split('\n')
+        if (typeof content === 'string') {
+          if (content.includes('\n')) {
+            watermark = content.split('\n')
+          } else {
+            watermark.push(content)
+          }
         } else if (Array.isArray(content)) {
           watermark = content
-        } else {
-          watermark.push(content)
         }
         for (let i = 0; i < watermark.length; i++) {
           ctx.font = `${fontStyle} normal ${fontWeight} ${markSize}px/${markHeight}px ${fontFamily}`
