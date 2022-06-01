@@ -26,6 +26,8 @@ const getProLayoutHeaderCss = (designToken: LayoutDesignToken) => {
    */
   const isChangeHeaderBgColor =
     designToken.header.headerBgColor !== DefaultDesignToken.header.headerBgColor;
+
+  console.log(isChangeHeaderBgColor);
   return css`
     z-index: 9;
     width: 100%;
@@ -35,9 +37,9 @@ const getProLayoutHeaderCss = (designToken: LayoutDesignToken) => {
 
     ${isChangeHeaderBgColor && `background-color: ${designToken.header.headerBgColor}`}
     ${!isChangeHeaderBgColor &&
-    ` @supports (backdrop-filter) {
-        background-color: transparent;
-        backdrop-filter: blur(20px) saturate(150%);
+    ` @supports (backdrop-filter: blur(8px) saturate(150%)) {
+        background-color: rgba(255,255,255,0.58);
+        backdrop-filter: blur(8px) saturate(150%);
       }
     `}
   `;
