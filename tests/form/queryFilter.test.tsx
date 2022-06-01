@@ -227,6 +227,20 @@ describe('QueryFilter', () => {
     await waitTime(100);
     expect(wrapper.find('a.ant-pro-form-collapse-button').text()).toBe('close');
   });
+  
+  it('🕵️‍♀️ defaultColsNumber should work', async () => {
+    const wrapper = mount(
+      <QueryFilter defaultColsNumber={5}>
+        <ProFormText label="a" name="a" />
+        <ProFormText label="b" name="b" />
+        <ProFormText label="c" name="c" />
+        <ProFormText label="d" name="d" />
+        <ProFormText label="e" name="e" />
+        <ProFormText label="f" name="f" />
+      </QueryFilter>,
+    );
+    expect(wrapper.find('.ant-row.ant-form-item-hidden').length).toEqual(2);
+  });
 
   it('🕵️‍♀️ colSize不全都是1，collapseRender应该存在', async () => {
     const wrapper = mount(
