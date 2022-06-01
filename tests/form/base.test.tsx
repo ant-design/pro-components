@@ -1367,6 +1367,13 @@ describe('ProForm', () => {
     });
     await waitForComponentToPaint(wrapper);
 
+    act(() => {
+      wrapper.find('.ant-select-selector').simulate('mousedown');
+      wrapper.update();
+    });
+
+    await waitForComponentToPaint(wrapper);
+
     expect(onRequest.mock.calls.length).toBe(2);
   });
 
