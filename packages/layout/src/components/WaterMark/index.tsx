@@ -32,7 +32,7 @@ export type WaterMarkProps = {
   /** 高清印图片源, 为了高清屏幕显示，建议使用 2倍或3倍图，优先使用图片渲染水印。 */
   image?: string;
   /** 水印文字内容 */
-  content?: string;
+  content?: string | string[];
   /** 文字颜色 */
   fontColor?: string;
   /** 文字样式 */
@@ -43,6 +43,8 @@ export type WaterMarkProps = {
   fontWeight?: 'normal' | 'light' | 'weight' | number;
   /** 文字大小 */
   fontSize?: number | string;
+  /** 多行水印文字行高 **/
+  fontLineHeight?: number;
 
   children?: React.ReactNode;
 };
@@ -85,6 +87,7 @@ const WaterMark: React.FC<WaterMarkProps> = (props) => {
     content,
     offsetLeft,
     offsetTop,
+    fontLineHeight = 0,
     fontStyle = 'normal',
     fontWeight = 'normal',
     fontColor = 'rgba(0,0,0,.15)',
@@ -129,11 +132,26 @@ const WaterMark: React.FC<WaterMarkProps> = (props) => {
           setBase64Url(canvas.toDataURL());
         };
       } else if (content) {
-        const markSize = Number(fontSize) * ratio;
-        ctx.font = `${fontStyle} normal ${fontWeight} ${markSize}px/${markHeight}px ${fontFamily}`;
-        ctx.fillStyle = fontColor;
-        ctx.fillText(content, 0, 0);
-        setBase64Url(canvas.toDataURL());
+        const markSize = Number(fontSize) * ratio
+        let watermark: string[] = []
+        if (content.includes('\n')) {
+          watermark = content.split('\n')
+        } else if (Array.isArray(content)) {
+          watermark = content
+        } else {
+          watermark.push(content)
+        }
+        for (let i = 0; i < watermark.length; i++) {
+          ctx.font = `${fontStyle} normal ${fontWeight} ${markSize}px/${markHeight}px ${fontFamily}`
+          ctx.fillStyle = fontColor
+          let y = i * markSize
+          if (i > 0) {
+            y += fontLineHeight
+          }
+          const text = watermark[i]
+          ctx.fillText(text, 0, y)
+        }
+        setBase64Url(canvas.toDataURL())
       }
     } else {
       // eslint-disable-next-line no-console
@@ -186,3 +204,4 @@ const WaterMark: React.FC<WaterMarkProps> = (props) => {
 };
 
 export default WaterMark;
+© 2022 GitHub, Inc.
