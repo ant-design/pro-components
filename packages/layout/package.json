@@ -34,7 +34,7 @@
     "@ant-design/icons": "^4.0.0",
     "@ant-design/pro-provider": "1.7.1",
     "@ant-design/pro-utils": "1.42.0",
-    "@babel/runtime": "^7.16.3",
+    "@babel/runtime": "^7.18.0",
     "@emotion/css": "^11.5.0",
     "@umijs/route-utils": "^2.1.0",
     "@umijs/ssr-darkreader": "^4.9.44",

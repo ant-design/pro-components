@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.69.1](https://github.com/ant-design/pro-components/compare/@ant-design/pro-form@1.69.0...@ant-design/pro-form@1.69.1) (2022-05-27)
+
+### Bug Fixes
+
+- **form:** input will be blur after setState ([#5298](https://github.com/ant-design/pro-components/issues/5298)) ([2a52800](https://github.com/ant-design/pro-components/commit/2a52800baa7a6c657cdad4ffad86efd8fce977b1))
+
 # [1.69.0](https://github.com/ant-design/pro-components/compare/@ant-design/pro-form@1.68.2...@ant-design/pro-form@1.69.0) (2022-05-26)
 
 ### Bug Fixes

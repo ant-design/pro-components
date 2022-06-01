@@ -9,6 +9,12 @@ group:
 
 # Change Log
 
+## @ant-design/pro-form@1.69.1
+
+`2022-05-27`
+
+- fix(form): input will be blur after setState (#5298). [#5298](https://github.com/ant-design/pro-components/pull/#5298) [@Dunqing](https://github.com/Dunqing)
+
 ## @ant-design/pro-form@1.69.0
 
 `2022-05-26`

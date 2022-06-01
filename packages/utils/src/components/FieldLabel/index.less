@@ -4,7 +4,9 @@
 @pro-core-field-label: ~'@{ant-prefix}-pro-core-field-label';
 
 .@{pro-core-field-label} {
-  display: inline-block;
+  display: inline-flex;
+  gap: 4px;
+  align-items: center;
   height: 30px;
   padding: 0 4px;
   font-size: @font-size-base;
@@ -30,22 +32,19 @@
   }
 
   &-icon {
-    margin-top: -2px;
-    margin-left: 4px;
+    height: 12px;
     padding: 1px;
     color: fade(@black, 45%);
     font-size: 12px;
     vertical-align: middle;
-
     &.@{pro-core-field-label}-close {
       display: none;
-      margin-top: -4px;
+      height: 14px;
       padding: 3px;
       color: @white;
       font-size: 8px;
       background-color: fade(@black, 25%);
       border-radius: 50%;
-
       &:hover {
         background-color: fade(@black, 45%);
       }

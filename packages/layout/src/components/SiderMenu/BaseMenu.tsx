@@ -49,6 +49,7 @@ export type BaseMenuProps = {
         isUrl: boolean;
       },
       defaultDom: React.ReactNode,
+      menuProps: BaseMenuProps,
     ) => React.ReactNode
   >;
 
@@ -201,7 +202,7 @@ class MenuUtil {
         );
       // subMenu only title render
       const title = subMenuItemRender
-        ? subMenuItemRender({ ...item, isUrl: false }, defaultTitle)
+        ? subMenuItemRender({ ...item, isUrl: false }, defaultTitle, this.props)
         : subMenuTitle;
 
       const childrenList = this.getNavMenuItems(children, level + 1);

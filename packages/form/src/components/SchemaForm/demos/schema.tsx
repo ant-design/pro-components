@@ -43,6 +43,15 @@ const columns: ProFormColumnsType<DataItem>[] = [
       xs: 24,
       md: 12,
     },
+    initialValue: '默认值',
+    convertValue: (value) => {
+      return `标题：${value}`;
+    },
+    transform: (value) => {
+      return {
+        title: `${value}-转换`,
+      };
+    },
   },
   {
     title: '状态',
@@ -247,7 +256,13 @@ export default () => {
         }}
         direction="vertical"
       >
-        <Alert type="warning" message="QueryFilter 和 lightFilter 暂不支持grid模式" />
+        <Alert
+          type="warning"
+          message="QueryFilter 和 lightFilter 暂不支持grid模式"
+          style={{
+            marginBottom: 24,
+          }}
+        />
         <ProFormSelect
           label="布局方式"
           options={[

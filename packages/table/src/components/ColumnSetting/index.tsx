@@ -149,11 +149,16 @@ const CheckboxList: React.FC<{
     const newColumns = [...sortKeyColumns];
     const findIndex = newColumns.findIndex((columnKey) => columnKey === id);
     const targetIndex = newColumns.findIndex((columnKey) => columnKey === targetId);
-    const isDownWord = dropPosition > findIndex;
+    const isDownWord = dropPosition > targetIndex;
     if (findIndex < 0) return;
     const targetItem = newColumns[findIndex];
     newColumns.splice(findIndex, 1);
-    newColumns.splice(isDownWord ? targetIndex : targetIndex + 1, 0, targetItem);
+
+    if (dropPosition === 0) {
+      newColumns.unshift(targetItem);
+    } else {
+      newColumns.splice(isDownWord ? targetIndex : targetIndex + 1, 0, targetItem);
+    }
     // 重新生成排序数组
     newColumns.forEach((key, order) => {
       newMap[key] = { ...(newMap[key] || {}), order };
