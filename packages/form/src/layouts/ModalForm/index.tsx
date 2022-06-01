@@ -5,7 +5,7 @@ import useMergedState from 'rc-util/lib/hooks/useMergedState';
 import { noteOnce } from 'rc-util/lib/warning';
 import React, { useCallback, useContext, useEffect, useMemo, useRef, useState } from 'react';
 import { createPortal } from 'react-dom';
-import type { CommonFormProps } from '../../BaseForm';
+import type { CommonFormProps, ProFormInstance } from '../../BaseForm';
 import { BaseForm } from '../../BaseForm';
 
 export type ModalFormProps<T = Record<string, any>> = Omit<FormProps<T>, 'onFinish' | 'title'> &
@@ -85,6 +85,8 @@ function ModalForm<T = Record<string, any>>({
     }
     footerRef.current = element;
   }, []);
+
+  const formRef = useRef<ProFormInstance>();
 
   useEffect(() => {
     if (visible && propVisible) {
@@ -168,6 +170,7 @@ function ModalForm<T = Record<string, any>>({
       if (result) {
         setVisible(false);
       }
+      return result;
     },
     [onFinish, setVisible, submitTimeout],
   );
@@ -200,9 +203,18 @@ function ModalForm<T = Record<string, any>>({
         <BaseForm
           formComponentType="ModalForm"
           layout="vertical"
+          formRef={formRef}
           {...rest}
           submitter={submitterConfig}
-          onFinish={onFinishHandle}
+          onFinish={async (values) => {
+            const result = await onFinishHandle(values);
+            const form = rest.formRef?.current ?? formRef.current;
+            // 返回真值，重置表单
+            if (result && form) {
+              form.resetFields();
+            }
+            return result;
+          }}
           contentRender={contentRender}
         >
           {children}
