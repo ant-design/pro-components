@@ -136,12 +136,23 @@ export default () => {
           name="useMode"
           label="合同约定生效方式"
         />
-        <ProFormSelect
+        <ProFormSelect.SearchSelect
           width="xs"
           options={[
             {
               value: 'time',
               label: '履行完终止',
+              type: 'time',
+              options: [
+                {
+                  value: 'time1',
+                  label: '履行完终止1',
+                },
+                {
+                  value: 'time2',
+                  label: '履行完终止2',
+                },
+              ],
             },
           ]}
           name="unusedMode"
