@@ -2,7 +2,6 @@ import { DownOutlined, QuestionCircleOutlined } from '@ant-design/icons';
 import type { ProColumns } from '@ant-design/pro-components';
 import { ProTable, TableDropdown } from '@ant-design/pro-components';
 import { Button, Tooltip } from 'antd';
-import React from 'react';
 
 const valueEnum = {
   0: 'close',

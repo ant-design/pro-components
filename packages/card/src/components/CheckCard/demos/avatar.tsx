@@ -5,7 +5,6 @@
 import { UserOutlined } from '@ant-design/icons';
 import { CheckCard } from '@ant-design/pro-components';
 import { Avatar } from 'antd';
-import React from 'react';
 
 export default () => (
   <CheckCard

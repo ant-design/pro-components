@@ -1,6 +1,5 @@
 import { ProDescriptions } from '@ant-design/pro-components';
 import moment from 'moment';
-import React from 'react';
 
 export default () => {
   return (

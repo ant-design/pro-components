@@ -2,7 +2,7 @@
 import { BetaSchemaForm, ProFormSelect } from '@ant-design/pro-components';
 import { Alert, DatePicker, Space } from 'antd';
 import moment from 'moment';
-import React, { useState } from 'react';
+import { useState } from 'react';
 
 const valueEnum = {
   all: { text: '全部', status: 'Default' },

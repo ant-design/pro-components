@@ -13,7 +13,6 @@ import {
 } from '@ant-design/pro-components';
 import { ConfigProvider, Input } from 'antd';
 import enUS from 'antd/lib/locale/en_US';
-import React from 'react';
 import { LightWrapper } from '../BaseForm';
 
 export default () => (

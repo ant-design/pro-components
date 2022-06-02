@@ -1,6 +1,5 @@
 import { ProFormGroup, ProFormText, QueryFilter } from '@ant-design/pro-form';
 import { mount } from 'enzyme';
-import React from 'react';
 import { act } from 'react-dom/test-utils';
 import { waitForComponentToPaint, waitTime } from '../util';
 
@@ -227,7 +226,7 @@ describe('QueryFilter', () => {
     await waitTime(100);
     expect(wrapper.find('a.ant-pro-form-collapse-button').text()).toBe('close');
   });
-  
+
   it('🕵️‍♀️ defaultColsNumber should work', async () => {
     const wrapper = mount(
       <QueryFilter defaultColsNumber={5}>

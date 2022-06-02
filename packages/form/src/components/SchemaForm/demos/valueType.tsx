@@ -1,6 +1,6 @@
 ﻿import type { ProFieldValueType } from '@ant-design/pro-components';
 import { BetaSchemaForm, ProFormSelect } from '@ant-design/pro-components';
-import React, { useState } from 'react';
+import { useState } from 'react';
 
 const valueEnum = {
   all: { text: '全部', status: 'Default' },

@@ -12,7 +12,6 @@ import {
   ProFormUploadButton,
   ProFormUploadDragger,
 } from '@ant-design/pro-components';
-import React from 'react';
 
 const Demo = () => (
   <div

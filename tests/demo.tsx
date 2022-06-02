@@ -3,7 +3,6 @@ import { act, cleanup, render as reactRender } from '@testing-library/react';
 import glob from 'glob';
 import MockDate from 'mockdate';
 import moment from 'moment';
-import React from 'react';
 import { waitForComponentToPaint } from './util';
 
 type Options = {

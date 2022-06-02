@@ -1,6 +1,5 @@
 import Field from '@ant-design/pro-field';
 import { render } from 'enzyme';
-import React from 'react';
 
 describe('Field Status', () => {
   const statusList = [

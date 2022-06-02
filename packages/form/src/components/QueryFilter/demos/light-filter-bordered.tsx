@@ -8,7 +8,6 @@ import {
   ProFormTreeSelect,
 } from '@ant-design/pro-components';
 import { TreeSelect } from 'antd';
-import React from 'react';
 
 const treeData = [
   {

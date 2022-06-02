@@ -39,7 +39,6 @@ Each package is a separate component package, and is used in the following examp
 
 ```tsx
 import { ProForm, ProFormText } from '@ant-design/pro-components';
-import React from 'react';
 
 export default () => {
   return (

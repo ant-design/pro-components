@@ -1,7 +1,7 @@
 import { EllipsisOutlined } from '@ant-design/icons';
 import type { ProColumns } from '@ant-design/pro-components';
 import { LightFilter, ProFormDatePicker, ProTable } from '@ant-design/pro-components';
-import React, { useState } from 'react';
+import { useState } from 'react';
 
 export type TableListItem = {
   key: number;

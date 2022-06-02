@@ -4,7 +4,6 @@
 
 import { CheckCard } from '@ant-design/pro-components';
 import { Col, Row } from 'antd';
-import React from 'react';
 
 export default () => (
   <CheckCard.Group style={{ width: '100%' }} size="small">

@@ -8,7 +8,7 @@ import {
   ProFormText,
 } from '@ant-design/pro-components';
 import { Button, message, Space } from 'antd';
-import React, { useState } from 'react';
+import { useState } from 'react';
 
 export default () => {
   const [modalVisit, setModalVisit] = useState(false);

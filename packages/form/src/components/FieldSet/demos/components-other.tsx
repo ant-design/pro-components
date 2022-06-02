@@ -12,7 +12,6 @@ import {
   ProFormText,
 } from '@ant-design/pro-components';
 import Mock from 'mockjs';
-import React from 'react';
 
 export const waitTime = (time: number = 100) => {
   return new Promise((resolve) => {

@@ -1,7 +1,7 @@
 import type { ProDescriptionsActionType } from '@ant-design/pro-components';
 import { ProDescriptions } from '@ant-design/pro-components';
 import { Button } from 'antd';
-import React, { useRef } from 'react';
+import { useRef } from 'react';
 
 export default () => {
   const actionRef = useRef<ProDescriptionsActionType>();

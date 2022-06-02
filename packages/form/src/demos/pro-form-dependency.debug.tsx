@@ -7,7 +7,6 @@
   ProFormSwitch,
   ProFormText,
 } from '@ant-design/pro-components';
-import React from 'react';
 
 const Demo = () => {
   return (

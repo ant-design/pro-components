@@ -3,7 +3,7 @@ import type { ActionType, ProColumns } from '@ant-design/pro-components';
 import { ProTable, TableDropdown } from '@ant-design/pro-components';
 import { Button, ConfigProvider, Space, Tag } from 'antd';
 import arEGIntl from 'antd/lib/locale/ar_EG';
-import React, { useRef } from 'react';
+import { useRef } from 'react';
 import request from 'umi-request';
 
 type GithubIssueItem = {

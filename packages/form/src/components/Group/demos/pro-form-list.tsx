@@ -7,7 +7,7 @@ import {
   ProFormText,
 } from '@ant-design/pro-components';
 import { Button, message, Space } from 'antd';
-import React, { useRef } from 'react';
+import { useRef } from 'react';
 
 const Demo = () => {
   const actionRef = useRef<

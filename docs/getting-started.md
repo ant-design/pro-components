@@ -39,7 +39,6 @@ $ npm i @ant-design/pro-components --save
 
 ```tsx
 import { ProForm, ProFormText } from '@ant-design/pro-components';
-import React from 'react';
 
 export default () => {
   return (

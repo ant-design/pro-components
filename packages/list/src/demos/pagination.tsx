@@ -1,7 +1,6 @@
 import { EllipsisOutlined } from '@ant-design/icons';
 import { ProList } from '@ant-design/pro-components';
 import { Progress, Tag } from 'antd';
-import React from 'react';
 
 const data = [
   '语雀的天空',

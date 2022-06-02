@@ -10,7 +10,6 @@ import {
   StepsForm,
 } from '@ant-design/pro-components';
 import { Button, message } from 'antd';
-import React from 'react';
 
 const waitTime = (time: number = 100) => {
   return new Promise((resolve) => {

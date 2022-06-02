@@ -11,7 +11,7 @@ import {
 } from '@ant-design/pro-components';
 import { Col, message, Row, Space } from 'antd';
 import type { FormLayout } from 'antd/lib/form/Form';
-import React, { useState } from 'react';
+import { useState } from 'react';
 
 const LAYOUT_TYPE_HORIZONTAL = 'horizontal';
 

@@ -1,7 +1,6 @@
 ﻿import type { ProFormColumnsType } from '@ant-design/pro-components';
 import { BetaSchemaForm } from '@ant-design/pro-components';
 import { Input } from 'antd';
-import React from 'react';
 
 const valueEnum = {
   all: { text: '全部', status: 'Default' },

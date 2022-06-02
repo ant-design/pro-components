@@ -1,6 +1,6 @@
 import type { ProColumns, ProFormInstance } from '@ant-design/pro-components';
 import { ProTable } from '@ant-design/pro-components';
-import React, { useRef, useState } from 'react';
+import { useRef, useState } from 'react';
 
 export type TableListItem = {
   key: number;
