@@ -2,6 +2,15 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.76.2](https://github.com/ant-design/pro-components/compare/@ant-design/pro-table@2.76.1...@ant-design/pro-table@2.76.2) (2022-06-02)
+
+### Bug Fixes
+
+- **form:** fix Cascader and TreeSelect no has light lable error ([#5310](https://github.com/ant-design/pro-components/issues/5310)) ([2058bf4](https://github.com/ant-design/pro-components/commit/2058bf4179246bd3dd9b2fc7888fb2665e316d30))
+- **table:** fix light filter style error ([884ccac](https://github.com/ant-design/pro-components/commit/884ccaccbb7e66c70508daeb18597269e5ec3213))
+- **table:** if request is null, no triger change ([dc37fe2](https://github.com/ant-design/pro-components/commit/dc37fe2cec17a2cdb49678784598f4d19a983d63))
+- **table:** support dropPosition = 0 ([95d6c29](https://github.com/ant-design/pro-components/commit/95d6c29623040f1afff5faf16ee43a403d62a07c))
+
 ## [2.76.1](https://github.com/ant-design/pro-components/compare/@ant-design/pro-table@2.76.0...@ant-design/pro-table@2.76.1) (2022-05-27)
 
 **Note:** Version bump only for package @ant-design/pro-table

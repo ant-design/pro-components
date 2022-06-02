@@ -2,6 +2,14 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.34.15](https://github.com/ant-design/pro-components/compare/@ant-design/pro-field@1.34.14...@ant-design/pro-field@1.34.15) (2022-06-02)
+
+### Bug Fixes
+
+- **form:** reduce render function ([119df5f](https://github.com/ant-design/pro-components/commit/119df5f33676868035f3202a37a3eb2f06b486ec)), closes [/github.com/ant-design/pro-components/issues/5303#issuecomment-1141626988](https://github.com//github.com/ant-design/pro-components/issues/5303/issues/issuecomment-1141626988)
+- [#5273](https://github.com/ant-design/pro-components/issues/5273) for all components ([#5314](https://github.com/ant-design/pro-components/issues/5314)) ([d25e87c](https://github.com/ant-design/pro-components/commit/d25e87c68db8e3c8d120ffc4cc7cd95e33ce6c24))
+- **form:** fix Cascader and TreeSelect no has light lable error ([#5310](https://github.com/ant-design/pro-components/issues/5310)) ([2058bf4](https://github.com/ant-design/pro-components/commit/2058bf4179246bd3dd9b2fc7888fb2665e316d30))
+
 ## [1.34.14](https://github.com/ant-design/pro-components/compare/@ant-design/pro-field@1.34.13...@ant-design/pro-field@1.34.14) (2022-05-26)
 
 ### Bug Fixes
