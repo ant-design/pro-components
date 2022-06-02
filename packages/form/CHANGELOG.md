@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.69.3](https://github.com/ant-design/pro-components/compare/@ant-design/pro-form@1.69.2...@ant-design/pro-form@1.69.3) (2022-06-02)
+
+### Bug Fixes
+
+- **form:** fix options no work error ([ef9ebb0](https://github.com/ant-design/pro-components/commit/ef9ebb055a18b22885de3ab8e05792fae32c22e2))
+
 ## [1.69.2](https://github.com/ant-design/pro-components/compare/@ant-design/pro-form@1.69.1...@ant-design/pro-form@1.69.2) (2022-06-02)
 
 ### Bug Fixes
