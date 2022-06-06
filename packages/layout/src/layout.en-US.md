@@ -219,7 +219,7 @@ A simple loading page
 RouteContext can provide built-in data for Layout. For example, isMobile and collapsed, which you can consume to customize some of the behavior.
 
 ```tsx | pure
-import { RouteContext, RouteContextType } from '@ant-design/pro-layout';
+import { RouteContext, RouteContextType } from '@ant-design/pro-components';
 
 const Page = () => (
   <RouteContext.
@@ -242,7 +242,7 @@ GridContent encapsulates the [equal-width](https://preview.pro.ant.design/dashbo
 
 Generate menuData and breadcrumb based on router information.
 
-```js | pure import { getMenuData } from '@ant-design/pro-layout';
+```js | pure import { getMenuData } from '@ant-design/pro-components';
 const { breadcrumb, menuData } = getMenuData(routes, menu, formatMessage, menuDataRender);
 ```
 
@@ -258,7 +258,7 @@ const { breadcrumb, menuData } = getMenuData(routes, menu, formatMessage, menuDa
 getPageTitle encapsulates the logic of the title generated on the menuData.
 
 ```js | pure
-import { getPageTitle } from '@ant-design/pro-layout';
+import { getPageTitle } from '@ant-design/pro-components';
 
 const title = getPageTitle({
   pathname,
@@ -309,7 +309,7 @@ export interface Settings {
 ### MenuDataItem
 
 ```ts | pure
-// You can get this type by importing { MenuDataItem } from '@ant-design/pro-layout'
+// You can get this type by importing { MenuDataItem } from '@ant-design/pro-components'
 // to get this type
 
 export interface MenuDataItem {
@@ -349,7 +349,7 @@ The default ProLayout does not provide a footer, but does provide a DefaultFoote
 
 ```tsx | pure
 import { GithubOutlined } from '@ant-design/icons';
-import { DefaultFooter } from '@ant-design/pro-layout';
+import { DefaultFooter } from '@ant-design/pro-components';
 
 <DefaultFooter
   copyright="@2019 by Anthem Experience Technologies"
@@ -391,7 +391,7 @@ Usage.
 RouteContext provides a way to perform operations based on the layout's data, PageContainer and FooterToolbar both rely on RouteContext's data for their functionality.
 
 ```tsx | pure
-import { RouteContext, RouteContextType } from '@ant-design/pro-layout';
+import { RouteContext, RouteContextType } from '@ant-design/pro-components';
 
 const Page = () => (
   <RouteContext.
@@ -443,7 +443,7 @@ ProLayout will automatically generate the menu and auto-select it according to p
 In order to provide more functionality, we extended the routers configuration by adding several configurations for customization, with the following data structure definition:
 
 ```ts | pure
-// You can get this type by importing { MenuDataItem } from '@ant-design/pro-layout'
+// You can get this type by importing { MenuDataItem } from '@ant-design/pro-components'
 // to get this type
 export interface MenuDataItem {
   routes?: MenuDataItem[];

@@ -1,5 +1,4 @@
-import { ProCard } from '@ant-design/pro-components';
-import { PageContainer } from '@ant-design/pro-layout';
+import { PageContainer, ProCard } from '@ant-design/pro-components';
 import { Descriptions } from 'antd';
 
 export default () => (

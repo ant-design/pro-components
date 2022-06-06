@@ -1,5 +1,8 @@
 import { SmileOutlined } from '@ant-design/icons';
 import {
+  BasicLayout,
+  FooterToolbar,
+  PageContainer,
   ProForm,
   ProFormDateRangePicker,
   ProFormDigit,
@@ -9,7 +12,6 @@ import {
   ProFormTextArea,
   ProFormUploadButton,
 } from '@ant-design/pro-components';
-import { BasicLayout, FooterToolbar, PageContainer } from '@ant-design/pro-layout';
 import { Card } from 'antd';
 
 export default () => {

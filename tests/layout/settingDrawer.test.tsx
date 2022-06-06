@@ -1,4 +1,4 @@
-import { SettingDrawer } from '@ant-design/pro-layout';
+import { SettingDrawer } from '@ant-design/pro-components';
 import { act, render as reactRender } from '@testing-library/react';
 import { mount, render } from 'enzyme';
 import { waitForComponentToPaint } from '../util';
