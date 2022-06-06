@@ -1,6 +1,6 @@
 import { Layout } from 'antd';
 import classNames from 'classnames';
-import React, { useContext } from 'react';
+import React, { useCallback, useContext, useMemo } from 'react';
 import type { GlobalHeaderProps } from './components/GlobalHeader';
 import { GlobalHeader } from './components/GlobalHeader';
 import type { PrivateSiderMenuProps } from './components/SiderMenu/SiderMenu';
@@ -62,9 +62,22 @@ export type HeaderViewProps = GlobalHeaderProps & {
 
 const DefaultHeader: React.FC<HeaderViewProps & PrivateSiderMenuProps> = (props) => {
   const designToken = useContext(ProLayoutContext);
+  const {
+    isMobile,
+    fixedHeader,
+    className: propsClassName,
+    style,
+    collapsed,
+    prefixCls,
+    headerHeight,
+    onCollapse,
+    navTheme,
+    layout,
+    headerRender,
+    headerContentRender,
+  } = props;
 
-  const renderContent = () => {
-    const { isMobile, onCollapse, navTheme, layout, headerRender, headerContentRender } = props;
+  const renderContent = useCallback(() => {
     const isTop = layout === 'top';
     const clearMenuData = clearMenuItem(props.menuData || []);
 
@@ -89,10 +102,9 @@ const DefaultHeader: React.FC<HeaderViewProps & PrivateSiderMenuProps> = (props)
       return headerRender(props, defaultDom);
     }
     return defaultDom;
-  };
+  }, [headerContentRender, headerRender, isMobile, layout, navTheme, onCollapse, props]);
 
-  const getHeaderActionsCss = () => {
-    const propsClassName = props.className;
+  const getHeaderActionsCss = useCallback(() => {
     return css`
       .${propsClassName}-header-actions {
         display: flex;
@@ -113,18 +125,10 @@ const DefaultHeader: React.FC<HeaderViewProps & PrivateSiderMenuProps> = (props)
         transition: width 0.3s cubic-bezier(0.645, 0.045, 0.355, 1);
       }
     `;
-  };
+  }, [designToken.colorText, propsClassName]);
 
-  const {
-    fixedHeader,
-    layout,
-    className: propsClassName,
-    style,
-    collapsed,
-    prefixCls,
-    headerHeight,
-  } = props;
   const needFixedHeader = fixedHeader || layout === 'mix';
+
   const isTop = layout === 'top';
 
   const className = classNames(propsClassName, {
@@ -136,7 +140,36 @@ const DefaultHeader: React.FC<HeaderViewProps & PrivateSiderMenuProps> = (props)
 
   const right = needFixedHeader ? 0 : undefined;
 
+  const headerCss = useMemo(() => {
+    if (layout === 'side') return undefined;
+
+    return cx(
+      needFixedHeader && ProLayoutFixedHeaderCss,
+      css({
+        height: headerHeight,
+        lineHeight: `${headerHeight}px`,
+        width: '100%',
+        zIndex: layout === 'mix' ? 100 : 19,
+        right,
+        ...style,
+      }),
+      className,
+      getProLayoutHeaderCss(designToken),
+      getHeaderActionsCss(),
+    );
+  }, [
+    className,
+    designToken,
+    getHeaderActionsCss,
+    headerHeight,
+    layout,
+    needFixedHeader,
+    right,
+    style,
+  ]);
+
   if (layout === 'side') return null;
+
   return (
     <>
       {needFixedHeader && (
@@ -148,24 +181,7 @@ const DefaultHeader: React.FC<HeaderViewProps & PrivateSiderMenuProps> = (props)
           }}
         />
       )}
-      <Header
-        className={cx(
-          needFixedHeader && ProLayoutFixedHeaderCss,
-          css({
-            height: headerHeight,
-            lineHeight: `${headerHeight}px`,
-            width: '100%',
-            zIndex: layout === 'mix' ? 100 : 19,
-            right,
-            ...style,
-          }),
-          className,
-          getProLayoutHeaderCss(designToken),
-          getHeaderActionsCss(),
-        )}
-      >
-        {renderContent()}
-      </Header>
+      <Header className={headerCss}>{renderContent()}</Header>
     </>
   );
 };
