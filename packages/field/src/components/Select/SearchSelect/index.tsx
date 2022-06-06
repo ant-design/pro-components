@@ -159,13 +159,14 @@ const SearchSelect = <T,>(props: SearchSelectProps<T[]>, ref: any) => {
       const value = item[valuePropsName];
       const itemOptions = item[optionsPropsName] ?? [];
 
-      if (optionType === 'optGroup') {
+      if (optionType === 'optGroup' || item.options) {
         return (
           <OptGroup key={value} label={label}>
             {renderOptions(itemOptions)}
           </OptGroup>
         );
       }
+
       return (
         <Option
           {...item}

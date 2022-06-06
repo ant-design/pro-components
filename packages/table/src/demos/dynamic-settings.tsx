@@ -16,7 +16,7 @@ import {
   useDebounceFn,
 } from '@ant-design/pro-components';
 import { Button } from 'antd';
-import React, { useRef, useState } from 'react';
+import { useRef, useState } from 'react';
 
 const valueTypeArray = [
   'password',

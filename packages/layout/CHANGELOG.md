@@ -2,6 +2,17 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [6.38.8](https://github.com/ant-design/pro-components/compare/@ant-design/pro-layout@6.38.7...@ant-design/pro-layout@6.38.8) (2022-06-02)
+
+**Note:** Version bump only for package @ant-design/pro-layout
+
+## [6.38.7](https://github.com/ant-design/pro-components/compare/@ant-design/pro-layout@6.38.6...@ant-design/pro-layout@6.38.7) (2022-06-02)
+
+### Bug Fixes
+
+- **layout:** subMenuItemRender support menu props ([1ac52fb](https://github.com/ant-design/pro-components/commit/1ac52fb2f5e6ee08aa39d951a02e6511eeb05d4b))
+- [#5273](https://github.com/ant-design/pro-components/issues/5273) for all components ([#5314](https://github.com/ant-design/pro-components/issues/5314)) ([d25e87c](https://github.com/ant-design/pro-components/commit/d25e87c68db8e3c8d120ffc4cc7cd95e33ce6c24))
+
 ## [6.38.6](https://github.com/ant-design/pro-components/compare/@ant-design/pro-layout@6.38.5...@ant-design/pro-layout@6.38.6) (2022-05-27)
 
 ### Bug Fixes

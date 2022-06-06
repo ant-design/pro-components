@@ -17,7 +17,7 @@ import viVNIntl from 'antd/lib/locale/vi_VN';
 import zhCNIntl from 'antd/lib/locale/zh_CN';
 import zhTWIntl from 'antd/lib/locale/zh_TW';
 import moment from 'moment';
-import React, { useRef, useState } from 'react';
+import { useRef, useState } from 'react';
 
 const intlMap = {
   zhCNIntl,

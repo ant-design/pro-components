@@ -1,6 +1,6 @@
 import type { ColumnsState, ProColumns } from '@ant-design/pro-components';
 import { ProTable } from '@ant-design/pro-components';
-import React, { useState } from 'react';
+import { useState } from 'react';
 
 const valueEnum = {
   0: 'close',

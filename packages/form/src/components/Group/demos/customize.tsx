@@ -19,7 +19,7 @@ import {
   ProFormSwitch,
   ProFormText,
 } from '@ant-design/pro-components';
-import React, { useState } from 'react';
+import { useState } from 'react';
 
 const IconMap = {
   PlusOutlined,

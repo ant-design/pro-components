@@ -1,7 +1,7 @@
 import type { ActionType } from '@ant-design/pro-table';
 import ProTable, { TableDropdown } from '@ant-design/pro-table';
 import { fireEvent, render as ReactRender, screen } from '@testing-library/react';
-import { Button, Input } from 'antd';
+import { Button, Input, Select } from 'antd';
 import { mount, render } from 'enzyme';
 import React, { useRef } from 'react';
 import { act } from 'react-dom/test-utils';
@@ -1000,6 +1000,18 @@ describe('BasicTable', () => {
             data: [],
           };
         }}
+        toolBarRender={() => [
+          <Select
+            open={true}
+            key="key"
+            options={[
+              {
+                label: '1',
+                value: 1,
+              },
+            ]}
+          />,
+        ]}
         rowKey="key"
       />,
     );
@@ -1027,44 +1039,44 @@ describe('BasicTable', () => {
     expect(exitFullscreen).toBeCalled();
   });
 
-  // it('🎏 size icon test', async () => {
-  //   const fn = jest.fn();
-  //   const html = mount(
-  //     <ProTable
-  //       size="small"
-  //       columns={[
-  //         {
-  //           title: 'money',
-  //           dataIndex: 'money',
-  //           valueType: 'money',
-  //         },
-  //       ]}
-  //       request={async () => {
-  //         return {
-  //           data: [],
-  //         };
-  //       }}
-  //       onSizeChange={(size) => {
-  //         fn(size);
-  //       }}
-  //       rowKey="key"
-  //     />,
-  //   );
-  //   await waitForComponentToPaint(html, 1200);
+  it('🎏 size icon test', async () => {
+    const fn = jest.fn();
+    const html = mount(
+      <ProTable
+        size="small"
+        columns={[
+          {
+            title: 'money',
+            dataIndex: 'money',
+            valueType: 'money',
+          },
+        ]}
+        request={async () => {
+          return {
+            data: [],
+          };
+        }}
+        onSizeChange={(size) => {
+          fn(size);
+        }}
+        rowKey="key"
+      />,
+    );
+    await waitForComponentToPaint(html, 1200);
 
-  //   act(() => {
-  //     html
-  //       .find('.ant-pro-table-list-toolbar-setting-item span.anticon-column-height')
-  //       .simulate('click');
-  //   });
-  //   await waitForComponentToPaint(html, 1200);
-  //   act(() => {
-  //     html.find('li.ant-dropdown-menu-item').at(1).simulate('click');
-  //   });
-  //   await waitForComponentToPaint(html, 1200);
+    act(() => {
+      html
+        .find('.ant-pro-table-list-toolbar-setting-item span.anticon-column-height')
+        .simulate('click');
+    });
+    await waitForComponentToPaint(html, 1200);
+    act(() => {
+      html.find('li.ant-dropdown-menu-item').at(1).simulate('click');
+    });
+    await waitForComponentToPaint(html, 1200);
 
-  //   expect(fn).toBeCalledWith('middle');
-  // });
+    expect(fn).toBeCalledWith('middle');
+  });
 
   it('🎏 loading test', async () => {
     const html = mount(

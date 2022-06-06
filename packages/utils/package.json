@@ -1,6 +1,6 @@
 {
   "name": "@ant-design/pro-utils",
-  "version": "1.42.0",
+  "version": "1.42.1",
   "description": "@ant-design/pro-utils",
   "keywords": [
     "antd",
@@ -34,8 +34,8 @@
   ],
   "dependencies": {
     "@ant-design/icons": "^4.3.0",
-    "@ant-design/pro-provider": "1.7.1",
-    "@babel/runtime": "^7.16.3",
+    "@ant-design/pro-provider": "1.7.2",
+    "@babel/runtime": "^7.18.0",
     "classnames": "^2.2.6",
     "moment": "^2.27.0",
     "rc-util": "^5.0.6",

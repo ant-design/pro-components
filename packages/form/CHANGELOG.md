@@ -2,6 +2,25 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.69.3](https://github.com/ant-design/pro-components/compare/@ant-design/pro-form@1.69.2...@ant-design/pro-form@1.69.3) (2022-06-02)
+
+### Bug Fixes
+
+- **form:** fix options no work error ([ef9ebb0](https://github.com/ant-design/pro-components/commit/ef9ebb055a18b22885de3ab8e05792fae32c22e2))
+
+## [1.69.2](https://github.com/ant-design/pro-components/compare/@ant-design/pro-form@1.69.1...@ant-design/pro-form@1.69.2) (2022-06-02)
+
+### Bug Fixes
+
+- **form:** defaultColsNumber did not meet expect ([#5329](https://github.com/ant-design/pro-components/issues/5329)) ([63827bb](https://github.com/ant-design/pro-components/commit/63827bb52d01b9f19c415057628101d3bad03c31)), closes [#5328](https://github.com/ant-design/pro-components/issues/5328)
+- **form:** fix addonAfter style error ([#5312](https://github.com/ant-design/pro-components/issues/5312)) ([981886d](https://github.com/ant-design/pro-components/commit/981886d746b380f05ce1a7b904e02c7a13630e15)), closes [#5309](https://github.com/ant-design/pro-components/issues/5309)
+- **form:** fix Cascader and TreeSelect no has light lable error ([#5310](https://github.com/ant-design/pro-components/issues/5310)) ([2058bf4](https://github.com/ant-design/pro-components/commit/2058bf4179246bd3dd9b2fc7888fb2665e316d30))
+- **form:** fix loginForm no support submitButtonProps error ([#5313](https://github.com/ant-design/pro-components/issues/5313)) ([78d47de](https://github.com/ant-design/pro-components/commit/78d47deb343820debbb5f1df87b3ec7c70bdfcf7))
+- **form:** reset form after onFinish return true value ([#5306](https://github.com/ant-design/pro-components/issues/5306)) ([d91f24b](https://github.com/ant-design/pro-components/commit/d91f24b9dc998a1b68e9ace20bef3d90161d9c29))
+- **form:** setting colProps in the Form dose not work ([#5318](https://github.com/ant-design/pro-components/issues/5318)) ([177a0e6](https://github.com/ant-design/pro-components/commit/177a0e695ca206a70e6a8cafbbf2536b7475e7bf))
+- **form:** support convertValue for BetaSchemaForm ([09186be](https://github.com/ant-design/pro-components/commit/09186bef8d62915f64d98c7788e402a7986ae2c0))
+- [#5273](https://github.com/ant-design/pro-components/issues/5273) for all components ([#5314](https://github.com/ant-design/pro-components/issues/5314)) ([d25e87c](https://github.com/ant-design/pro-components/commit/d25e87c68db8e3c8d120ffc4cc7cd95e33ce6c24))
+
 ## [1.69.1](https://github.com/ant-design/pro-components/compare/@ant-design/pro-form@1.69.0...@ant-design/pro-form@1.69.1) (2022-05-27)
 
 ### Bug Fixes

@@ -1,5 +1,4 @@
 import type { PropsWithChildren } from 'react';
-import React from 'react';
 import Card from './components/Card';
 import Divider from './components/Divider';
 import TabPane from './components/TabPane';

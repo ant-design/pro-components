@@ -1,5 +1,4 @@
 import ProLayout, { DefaultFooter, PageContainer } from '@ant-design/pro-layout';
-import React from 'react';
 import defaultProps from './_defaultProps';
 
 export default () => (

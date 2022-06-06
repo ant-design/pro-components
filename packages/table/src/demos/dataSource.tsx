@@ -2,7 +2,6 @@ import { EllipsisOutlined, QuestionCircleOutlined, SearchOutlined } from '@ant-d
 import type { ProColumns } from '@ant-design/pro-components';
 import { ProTable, TableDropdown } from '@ant-design/pro-components';
 import { Button, Dropdown, Input, Menu, Tooltip } from 'antd';
-import React from 'react';
 
 const valueEnum = {
   0: 'close',

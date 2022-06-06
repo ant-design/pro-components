@@ -22,6 +22,7 @@ const FormListContext = React.createContext<
 
 export type FormListActionType<T = any> = FormListOperation & {
   get: (index: number) => T | undefined;
+  getList: () => T[] | undefined;
 };
 
 export type ProFormListProps<T> = Omit<FormListProps, 'children'> &
@@ -69,6 +70,7 @@ export type ProFormListProps<T> = Omit<FormListProps, 'children'> &
      * @example  actionRef?.current.remove?.(1);
      * @example  actionRef?.current.move?.(1,2);
      * @example  actionRef?.current.get?.(1);
+     * @example  actionRef?.current.getList?.();
      */
     actionRef?: React.MutableRefObject<FormListActionType<T> | undefined>;
     /** 放在div上面的属性 */
@@ -131,6 +133,7 @@ function ProFormList<T>({
         get: (index: number) => {
           return proFormContext.formRef!.current!.getFieldValue([...name, index]);
         },
+        getList: () => proFormContext.formRef!.current!.getFieldValue([...name]),
       } as any),
     [name, proFormContext.formRef],
   );

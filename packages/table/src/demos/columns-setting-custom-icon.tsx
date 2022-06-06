@@ -1,6 +1,5 @@
 import type { ProColumns } from '@ant-design/pro-components';
 import { ProTable } from '@ant-design/pro-components';
-import React from 'react';
 
 const HeartSvg = () => (
   <svg width="1em" height="1em" fill="currentColor" viewBox="0 0 1024 1024">

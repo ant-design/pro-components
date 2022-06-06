@@ -14,7 +14,6 @@ import { render } from '@testing-library/react';
 import { mount } from 'enzyme';
 import moment from 'moment';
 import KeyCode from 'rc-util/lib/KeyCode';
-import React from 'react';
 import { act } from 'react-dom/test-utils';
 import { waitForComponentToPaint } from '../util';
 

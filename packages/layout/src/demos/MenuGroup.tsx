@@ -1,5 +1,4 @@
 import ProLayout, { PageContainer } from '@ant-design/pro-layout';
-import React from 'react';
 import complexMenu from './complexMenu';
 
 export default () => (

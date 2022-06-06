@@ -1,6 +1,5 @@
 /** Title: 图片水印 */
 import { WaterMark } from '@ant-design/pro-layout';
-import React from 'react';
 
 export default () => {
   return (

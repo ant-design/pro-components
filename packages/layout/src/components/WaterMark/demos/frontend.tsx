@@ -4,7 +4,6 @@ import type { ProColumns } from '@ant-design/pro-components';
 import { ProTable, TableDropdown } from '@ant-design/pro-components';
 import { WaterMark } from '@ant-design/pro-layout';
 import { Tooltip } from 'antd';
-import React from 'react';
 
 const valueEnum = {
   0: 'close',

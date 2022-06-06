@@ -5,7 +5,6 @@
 import { EllipsisOutlined } from '@ant-design/icons';
 import { CheckCard } from '@ant-design/pro-components';
 import { Dropdown, Menu, message } from 'antd';
-import React from 'react';
 
 export default () => (
   <CheckCard

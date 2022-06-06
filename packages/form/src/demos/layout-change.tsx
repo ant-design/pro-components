@@ -20,7 +20,7 @@ import {
   StepsForm,
 } from '@ant-design/pro-components';
 import { Button, message, Space } from 'antd';
-import React, { useState } from 'react';
+import { useState } from 'react';
 
 const iconStyles = {
   marginLeft: '16px',

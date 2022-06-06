@@ -34342,7 +34342,11 @@ exports[`table demos 📸 renders ./packages/table/src/demos/lightfilter.tsx cor
                                           style="display: inline-flex; align-items: center;"
                                           title="2016-11-22 ~ 2016-11-23"
                                         >
-                                          日期范围: 
+                                          <span
+                                            class="ant-pro-core-field-label-text"
+                                          >
+                                            日期范围: 
+                                          </span>
                                           <span
                                             style="padding-left: 4px;"
                                           >
@@ -56337,6 +56341,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/valueType_select.ts
                           <input
                             aria-autocomplete="list"
                             aria-controls="cascader_list"
+                            aria-expanded="false"
                             aria-haspopup="listbox"
                             aria-owns="cascader_list"
                             autocomplete="off"
@@ -56435,6 +56440,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/valueType_select.ts
                               <input
                                 aria-autocomplete="list"
                                 aria-controls="treeSelect_list"
+                                aria-expanded="false"
                                 aria-haspopup="listbox"
                                 aria-owns="treeSelect_list"
                                 autocomplete="off"

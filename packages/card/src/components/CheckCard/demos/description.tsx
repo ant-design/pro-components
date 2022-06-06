@@ -4,7 +4,6 @@
 
 import { CheckCard } from '@ant-design/pro-components';
 import { Typography } from 'antd';
-import React from 'react';
 
 const { Paragraph } = Typography;
 

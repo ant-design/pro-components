@@ -7,7 +7,6 @@
 } from '@ant-design/pro-components';
 import { Form } from 'antd';
 import type { NamePath } from 'antd/es/form/interface';
-import React from 'react';
 
 const Demo = () => {
   const initialValues = {

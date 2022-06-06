@@ -6,7 +6,6 @@
   ProFormDateTimeRangePicker,
   ProFormTimePicker,
 } from '@ant-design/pro-components';
-import React from 'react';
 
 export default () => {
   return (

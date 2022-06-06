@@ -2,7 +2,7 @@ import ProProvider from '@ant-design/pro-provider';
 import ProTable from '@ant-design/pro-table';
 import { Input } from 'antd';
 import { mount } from 'enzyme';
-import React, { useContext } from 'react';
+import { useContext } from 'react';
 import { act } from 'react-dom/test-utils';
 import { waitForComponentToPaint } from '../util';
 

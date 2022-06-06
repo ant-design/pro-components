@@ -1,7 +1,6 @@
 import type { ProColumns } from '@ant-design/pro-components';
 import { ProTable } from '@ant-design/pro-components';
 import { Space, Tag } from 'antd';
-import React from 'react';
 
 type GithubIssueItem = {
   id: number;

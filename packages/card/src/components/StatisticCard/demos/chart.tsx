@@ -1,6 +1,5 @@
 import { EllipsisOutlined } from '@ant-design/icons';
 import { StatisticCard } from '@ant-design/pro-components';
-import React from 'react';
 
 export default () => {
   return (

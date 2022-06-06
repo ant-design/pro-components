@@ -15,19 +15,18 @@ import DensityIcon from './DensityIcon';
 import FullScreenIcon from './FullscreenIcon';
 import './index.less';
 
+export type SettingOptionType = {
+  draggable?: boolean;
+  checkable?: boolean;
+  checkedReset?: boolean;
+  extra?: React.ReactNode;
+  children?: React.ReactNode;
+};
 export type OptionConfig = {
   density?: boolean;
   fullScreen?: OptionsType;
   reload?: OptionsType;
-  setting?:
-    | boolean
-    | {
-        draggable?: boolean;
-        checkable?: boolean;
-        checkedReset?: boolean;
-        extra?: React.ReactNode;
-        children?: React.ReactNode;
-      };
+  setting?: boolean | SettingOptionType;
   search?: (OptionSearchProps & { name?: string }) | boolean;
 };
 
@@ -115,7 +114,9 @@ function renderDefaultOption<T>(
       }
 
       if (key === 'setting') {
-        return <ColumnSetting {...options[key]} columns={columns} key={key} />;
+        return (
+          <ColumnSetting {...(options[key] as SettingOptionType)} columns={columns} key={key} />
+        );
       }
       if (key === 'fullScreen') {
         return (

@@ -9,6 +9,19 @@ group:
 
 # Change Log
 
+## @ant-design/pro-form@1.69.2
+
+`2022-06-02`
+
+- fix(form): defaultColsNumber did not meet expect (#5329). [#5329](https://github.com/ant-design/pro-components/pull/#5329) [@drizzlesconsin](https://github.com/drizzlesconsin)
+- fix(form): setting colProps in the Form dose not work (#5318). [#5318](https://github.com/ant-design/pro-components/pull/#5318) [@Dunqing](https://github.com/Dunqing)
+- fix(form): reset form after onFinish return true value (#5306). [#5306](https://github.com/ant-design/pro-components/pull/#5306) [@wangmeijian](https://github.com/wangmeijian)
+- fix(form): reduce render function. [119df5f](https://github.com/ant-design/pro-components/commit/119df5f)
+- fix(form): support convertValue for BetaSchemaForm. [09186be](https://github.com/ant-design/pro-components/commit/09186be)
+- fix(form): fix loginForm no support submitButtonProps error (#5313). [#5313](https://github.com/ant-design/pro-components/pull/#5313) [@chenshuai2144](https://github.com/chenshuai2144)
+- fix(form): fix addonAfter style error (#5312). [#5312](https://github.com/ant-design/pro-components/pull/#5312) [@chenshuai2144](https://github.com/chenshuai2144)
+- fix(form): fix Cascader and TreeSelect no has light lable error (#5310). [#5310](https://github.com/ant-design/pro-components/pull/#5310) [@chenshuai2144](https://github.com/chenshuai2144)
+
 ## @ant-design/pro-form@1.69.1
 
 `2022-05-27`

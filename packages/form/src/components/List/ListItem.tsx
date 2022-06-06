@@ -49,7 +49,14 @@ export type ChildrenItemFunction = (
 ) => React.ReactNode;
 
 export type IconConfig = {
+  /**
+   * 新的icon的组件，我们会将其实例化
+   * Icon: ()=> <div/>
+   */
   Icon?: React.FC<any>;
+  /**
+   * tooltip 的提示文案
+   */
   tooltipText?: string;
 };
 

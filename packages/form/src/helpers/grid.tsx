@@ -1,8 +1,13 @@
 import type { ColProps, RowProps } from 'antd';
 import { Col, Row } from 'antd';
-import { useContext, useMemo } from 'react';
-import FieldContext from '../FieldContext';
+import { createContext, useContext, useMemo } from 'react';
 import type { ProFormGridConfig } from '../interface';
+
+export const GridContext = createContext<ProFormGridConfig>({
+  grid: false,
+  colProps: undefined,
+  rowProps: undefined,
+});
 
 interface CommonProps {
   Wrapper?: React.FC<any>;
@@ -66,14 +71,14 @@ export const useGridHelpers = (props?: (ProFormGridConfig & CommonProps) | boole
     }
   }, [props]);
 
-  const { grid } = useContext(FieldContext);
+  const { grid, colProps } = useContext(GridContext);
 
   return useMemo(
     () =>
       gridHelpers({
         grid: !!(grid || config.grid),
         rowProps: config?.rowProps,
-        colProps: config?.colProps,
+        colProps: config?.colProps || colProps,
         Wrapper: config?.Wrapper,
       }),
     // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -82,7 +87,7 @@ export const useGridHelpers = (props?: (ProFormGridConfig & CommonProps) | boole
       config.grid,
       grid,
       // eslint-disable-next-line react-hooks/exhaustive-deps
-      JSON.stringify([config?.colProps, config?.rowProps]),
+      JSON.stringify([colProps, config?.colProps, config?.rowProps]),
     ],
   );
 };

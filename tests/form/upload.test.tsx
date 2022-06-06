@@ -1,7 +1,6 @@
 ﻿import ProForm, { ProFormUploadButton, ProFormUploadDragger } from '@ant-design/pro-form';
 import type { UploadFile } from 'antd/lib/upload/interface';
 import { mount } from 'enzyme';
-import React from 'react';
 import { act } from 'react-dom/test-utils';
 import mock from 'xhr-mock';
 import { waitForComponentToPaint, waitTime } from '../util';

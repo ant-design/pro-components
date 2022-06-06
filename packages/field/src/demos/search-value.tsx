@@ -1,5 +1,5 @@
 ﻿import { ProFormSelect } from '@ant-design/pro-components';
-import React, { useState } from 'react';
+import { useState } from 'react';
 
 export default function App() {
   const [searchValue, setSearchValue] = useState('');

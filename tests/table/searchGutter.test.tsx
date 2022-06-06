@@ -1,6 +1,5 @@
 import ProTable from '@ant-design/pro-table';
 import { mount } from 'enzyme';
-import React from 'react';
 import { waitForComponentToPaint } from '../util';
 
 describe('BasicTable SearchGutter', () => {

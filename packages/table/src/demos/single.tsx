@@ -2,7 +2,7 @@ import { EllipsisOutlined, PlusOutlined } from '@ant-design/icons';
 import type { ActionType, ProColumns } from '@ant-design/pro-components';
 import { ProTable, TableDropdown } from '@ant-design/pro-components';
 import { Button, Dropdown, Menu, Space, Tag } from 'antd';
-import React, { useRef } from 'react';
+import { useRef } from 'react';
 import request from 'umi-request';
 
 type GithubIssueItem = {
