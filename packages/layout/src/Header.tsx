@@ -27,7 +27,6 @@ const getProLayoutHeaderCss = (designToken: LayoutDesignToken) => {
   const isChangeHeaderBgColor =
     designToken.header.headerBgColor !== DefaultDesignToken.header.headerBgColor;
 
-  console.log(isChangeHeaderBgColor);
   return css`
     z-index: 9;
     width: 100%;
