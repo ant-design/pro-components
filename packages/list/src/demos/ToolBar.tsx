@@ -143,8 +143,8 @@ export default () => {
               label: <span>我创建的实验室{renderBadge(32, activeKey === 'tab2')}</span>,
             },
           ],
-          onChange(activeKey) {
-            setActiveKey(activeKey);
+          onChange(key) {
+            setActiveKey(key);
           },
         },
         search: {
@@ -152,7 +152,11 @@ export default () => {
             alert(value);
           },
         },
-        actions: [<Button type="primary">新建实验</Button>],
+        actions: [
+          <Button type="primary" key="primary">
+            新建实验
+          </Button>,
+        ],
       }}
     />
   );
