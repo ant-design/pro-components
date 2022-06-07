@@ -10854,7 +10854,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/ListToolBar/basic.t
                 </div>
               </div>
               <ul
-                class="ant-pagination mini ant-table-pagination ant-table-pagination-right"
+                class="ant-pagination ant-pagination-mini ant-table-pagination ant-table-pagination-right"
                 unselectable="unselectable"
               >
                 <li
@@ -11799,7 +11799,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/ListToolBar/menu.ts
                 </div>
               </div>
               <ul
-                class="ant-pagination mini ant-table-pagination ant-table-pagination-right"
+                class="ant-pagination ant-pagination-mini ant-table-pagination ant-table-pagination-right"
                 unselectable="unselectable"
               >
                 <li
@@ -12732,7 +12732,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/ListToolBar/multipl
                 </div>
               </div>
               <ul
-                class="ant-pagination mini ant-table-pagination ant-table-pagination-right"
+                class="ant-pagination ant-pagination-mini ant-table-pagination ant-table-pagination-right"
                 unselectable="unselectable"
               >
                 <li
@@ -13635,7 +13635,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/ListToolBar/no-titl
                 </div>
               </div>
               <ul
-                class="ant-pagination mini ant-table-pagination ant-table-pagination-right"
+                class="ant-pagination ant-pagination-mini ant-table-pagination ant-table-pagination-right"
                 unselectable="unselectable"
               >
                 <li
@@ -14617,7 +14617,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/ListToolBar/tabs.ts
                 </div>
               </div>
               <ul
-                class="ant-pagination mini ant-table-pagination ant-table-pagination-right"
+                class="ant-pagination ant-pagination-mini ant-table-pagination ant-table-pagination-right"
                 unselectable="unselectable"
               >
                 <li
@@ -16131,7 +16131,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/batchOption.tsx cor
                 </div>
               </div>
               <ul
-                class="ant-pagination mini ant-table-pagination ant-table-pagination-right"
+                class="ant-pagination ant-pagination-mini ant-table-pagination ant-table-pagination-right"
                 unselectable="unselectable"
               >
                 <li
@@ -16860,7 +16860,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/card-title.tsx corr
                 </div>
               </div>
               <ul
-                class="ant-pagination mini ant-table-pagination ant-table-pagination-right"
+                class="ant-pagination ant-pagination-mini ant-table-pagination ant-table-pagination-right"
                 unselectable="unselectable"
               >
                 <li
@@ -17641,7 +17641,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/columnsStateMap.tsx
                 </div>
               </div>
               <ul
-                class="ant-pagination mini ant-table-pagination ant-table-pagination-right"
+                class="ant-pagination ant-pagination-mini ant-table-pagination ant-table-pagination-right"
                 unselectable="unselectable"
               >
                 <li
@@ -22646,7 +22646,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/config-provider.tsx
                 </div>
               </div>
               <ul
-                class="qixian-pagination mini qixian-table-pagination qixian-table-pagination-right"
+                class="qixian-pagination qixian-pagination-mini qixian-table-pagination qixian-table-pagination-right"
                 unselectable="unselectable"
               >
                 <li
@@ -24575,7 +24575,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/crud.tsx correctly 
                     </div>
                   </div>
                   <ul
-                    class="ant-pagination mini ant-table-pagination ant-table-pagination-right"
+                    class="ant-pagination ant-pagination-mini ant-table-pagination ant-table-pagination-right"
                     unselectable="unselectable"
                   >
                     <li
@@ -25270,7 +25270,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/customization-value
                 </div>
               </div>
               <ul
-                class="ant-pagination mini ant-table-pagination ant-table-pagination-right"
+                class="ant-pagination ant-pagination-mini ant-table-pagination ant-table-pagination-right"
                 unselectable="unselectable"
               >
                 <li
@@ -27545,7 +27545,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/dataSource.tsx corr
                 </div>
               </div>
               <ul
-                class="ant-pagination mini ant-table-pagination ant-table-pagination-right"
+                class="ant-pagination ant-pagination-mini ant-table-pagination ant-table-pagination-right"
                 unselectable="unselectable"
               >
                 <li
@@ -27998,7 +27998,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/dateFormatter.tsx c
                 </div>
               </div>
               <ul
-                class="ant-pagination mini ant-table-pagination ant-table-pagination-right"
+                class="ant-pagination ant-pagination-mini ant-table-pagination ant-table-pagination-right"
                 unselectable="unselectable"
               >
                 <li
@@ -28513,7 +28513,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/dateFormatter.tsx c
                 </div>
               </div>
               <ul
-                class="ant-pagination mini ant-table-pagination ant-table-pagination-right"
+                class="ant-pagination ant-pagination-mini ant-table-pagination ant-table-pagination-right"
                 unselectable="unselectable"
               >
                 <li
@@ -29028,7 +29028,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/dateFormatter.tsx c
                 </div>
               </div>
               <ul
-                class="ant-pagination mini ant-table-pagination ant-table-pagination-right"
+                class="ant-pagination ant-pagination-mini ant-table-pagination ant-table-pagination-right"
                 unselectable="unselectable"
               >
                 <li
@@ -30397,7 +30397,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/dynamic-settings.ts
                           </div>
                         </div>
                         <ul
-                          class="ant-pagination mini ant-table-pagination ant-table-pagination-right"
+                          class="ant-pagination ant-pagination-mini ant-table-pagination ant-table-pagination-right"
                           unselectable="unselectable"
                         >
                           <li
@@ -32740,7 +32740,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/error-boundaries-fa
                 </div>
               </div>
               <ul
-                class="ant-pagination mini ant-table-pagination ant-table-pagination-right"
+                class="ant-pagination ant-pagination-mini ant-table-pagination ant-table-pagination-right"
                 unselectable="unselectable"
               >
                 <li
@@ -33205,7 +33205,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/form.tsx correctly 
                 </div>
               </div>
               <ul
-                class="ant-pagination mini ant-table-pagination ant-table-pagination-right"
+                class="ant-pagination ant-pagination-mini ant-table-pagination ant-table-pagination-right"
                 unselectable="unselectable"
               >
                 <li
@@ -34128,7 +34128,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/intl.tsx correctly 
                 </div>
               </div>
               <ul
-                class="ant-pagination mini ant-table-pagination ant-table-pagination-right"
+                class="ant-pagination ant-pagination-mini ant-table-pagination ant-table-pagination-right"
                 unselectable="unselectable"
               >
                 <li
@@ -35296,7 +35296,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/lightfilter.tsx cor
                 </div>
               </div>
               <ul
-                class="ant-pagination mini ant-table-pagination ant-table-pagination-right"
+                class="ant-pagination ant-pagination-mini ant-table-pagination ant-table-pagination-right"
                 unselectable="unselectable"
               >
                 <li
@@ -36066,7 +36066,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/linkage_form.tsx co
                 </div>
               </div>
               <ul
-                class="ant-pagination mini ant-table-pagination ant-table-pagination-right"
+                class="ant-pagination ant-pagination-mini ant-table-pagination ant-table-pagination-right"
                 unselectable="unselectable"
               >
                 <li
@@ -37274,7 +37274,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/listToolBar.tsx cor
                 </div>
               </div>
               <ul
-                class="ant-pagination mini ant-table-pagination ant-table-pagination-right"
+                class="ant-pagination ant-pagination-mini ant-table-pagination ant-table-pagination-right"
                 unselectable="unselectable"
               >
                 <li
@@ -39315,7 +39315,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/no-option.tsx corre
                 </div>
               </div>
               <ul
-                class="ant-pagination mini ant-table-pagination ant-table-pagination-right"
+                class="ant-pagination ant-pagination-mini ant-table-pagination ant-table-pagination-right"
                 unselectable="unselectable"
               >
                 <li
@@ -39986,7 +39986,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/no-title.tsx correc
                 </div>
               </div>
               <ul
-                class="ant-pagination mini ant-table-pagination ant-table-pagination-right"
+                class="ant-pagination ant-pagination-mini ant-table-pagination ant-table-pagination-right"
                 unselectable="unselectable"
               >
                 <li
@@ -41459,7 +41459,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/normal.tsx correctl
                 </div>
               </div>
               <ul
-                class="ant-pagination mini ant-table-pagination ant-table-pagination-right"
+                class="ant-pagination ant-pagination-mini ant-table-pagination ant-table-pagination-right"
                 unselectable="unselectable"
               >
                 <li
@@ -42218,7 +42218,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/open-rules.tsx corr
                 </div>
               </div>
               <ul
-                class="ant-pagination mini ant-table-pagination ant-table-pagination-right"
+                class="ant-pagination ant-pagination-mini ant-table-pagination ant-table-pagination-right"
                 unselectable="unselectable"
               >
                 <li
@@ -42972,7 +42972,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/open-rules.tsx corr
                 </div>
               </div>
               <ul
-                class="ant-pagination mini ant-table-pagination ant-table-pagination-right"
+                class="ant-pagination ant-pagination-mini ant-table-pagination ant-table-pagination-right"
                 unselectable="unselectable"
               >
                 <li
@@ -43979,7 +43979,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/pollinga.tsx correc
                 </div>
               </div>
               <ul
-                class="ant-pagination mini ant-table-pagination ant-table-pagination-right"
+                class="ant-pagination ant-pagination-mini ant-table-pagination ant-table-pagination-right"
                 unselectable="unselectable"
               >
                 <li
@@ -44978,7 +44978,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/renderTable.tsx cor
                     </div>
                   </div>
                   <ul
-                    class="ant-pagination mini ant-table-pagination ant-table-pagination-right"
+                    class="ant-pagination ant-pagination-mini ant-table-pagination ant-table-pagination-right"
                     unselectable="unselectable"
                   >
                     <li
@@ -46830,7 +46830,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/rtl_table.tsx corre
                 </div>
               </div>
               <ul
-                class="ant-pagination mini ant-pagination-rtl ant-table-pagination ant-table-pagination-left"
+                class="ant-pagination ant-pagination-mini ant-pagination-rtl ant-table-pagination ant-table-pagination-left"
                 unselectable="unselectable"
               >
                 <li
@@ -47216,7 +47216,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/search.tsx correctl
                 </div>
               </div>
               <ul
-                class="ant-pagination mini ant-table-pagination ant-table-pagination-right"
+                class="ant-pagination ant-pagination-mini ant-table-pagination ant-table-pagination-right"
                 unselectable="unselectable"
               >
                 <li
@@ -47968,7 +47968,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/search_option.tsx c
                 </div>
               </div>
               <ul
-                class="ant-pagination mini ant-table-pagination ant-table-pagination-right"
+                class="ant-pagination ant-pagination-mini ant-table-pagination ant-table-pagination-right"
                 unselectable="unselectable"
               >
                 <li
@@ -49844,7 +49844,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/single.tsx correctl
                 </div>
               </div>
               <ul
-                class="ant-pagination mini ant-table-pagination ant-table-pagination-right"
+                class="ant-pagination ant-pagination-mini ant-table-pagination ant-table-pagination-right"
                 unselectable="unselectable"
               >
                 <li
@@ -50748,7 +50748,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/single-test.tsx cor
                 </div>
               </div>
               <ul
-                class="ant-pagination mini ant-table-pagination ant-table-pagination-right"
+                class="ant-pagination ant-pagination-mini ant-table-pagination ant-table-pagination-right"
                 unselectable="unselectable"
               >
                 <li
@@ -52755,7 +52755,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/single-test.tsx cor
                 </div>
               </div>
               <ul
-                class="ant-pagination mini ant-table-pagination ant-table-pagination-right"
+                class="ant-pagination ant-pagination-mini ant-table-pagination ant-table-pagination-right"
                 unselectable="unselectable"
               >
                 <li
@@ -53700,7 +53700,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/split.tsx correctly
                           </div>
                         </div>
                         <ul
-                          class="ant-pagination mini ant-table-pagination ant-table-pagination-right"
+                          class="ant-pagination ant-pagination-mini ant-table-pagination ant-table-pagination-right"
                           unselectable="unselectable"
                         >
                           <li
@@ -54701,7 +54701,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/table-nested.tsx co
                 </div>
               </div>
               <ul
-                class="ant-pagination mini ant-table-pagination ant-table-pagination-right"
+                class="ant-pagination ant-pagination-mini ant-table-pagination ant-table-pagination-right"
                 unselectable="unselectable"
               >
                 <li
@@ -55566,7 +55566,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/valueType.tsx corre
                 </div>
               </div>
               <ul
-                class="ant-pagination mini ant-table-pagination ant-table-pagination-right"
+                class="ant-pagination ant-pagination-mini ant-table-pagination ant-table-pagination-right"
                 unselectable="unselectable"
               >
                 <li
@@ -57102,7 +57102,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/valueType_select.ts
                 </div>
               </div>
               <ul
-                class="ant-pagination mini ant-table-pagination ant-table-pagination-right"
+                class="ant-pagination ant-pagination-mini ant-table-pagination ant-table-pagination-right"
                 unselectable="unselectable"
               >
                 <li
@@ -58202,7 +58202,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/valueTypeDate.tsx c
                 </div>
               </div>
               <ul
-                class="ant-pagination mini ant-table-pagination ant-table-pagination-right"
+                class="ant-pagination ant-pagination-mini ant-table-pagination ant-table-pagination-right"
                 unselectable="unselectable"
               >
                 <li
@@ -59481,7 +59481,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/valueTypeNumber.tsx
                 </div>
               </div>
               <ul
-                class="ant-pagination mini ant-table-pagination ant-table-pagination-right"
+                class="ant-pagination ant-pagination-mini ant-table-pagination ant-table-pagination-right"
                 unselectable="unselectable"
               >
                 <li
