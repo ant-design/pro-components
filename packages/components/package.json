@@ -43,7 +43,8 @@
     "@ant-design/pro-skeleton": "1.0.9",
     "@ant-design/pro-table": "2.76.3",
     "@ant-design/pro-utils": "1.42.1",
-    "@babel/runtime": "^7.16.3"
+    "@babel/runtime": "^7.16.3",
+    "antd": ">=4.0`"
   },
   "peerDependencies": {
     "antd": ">=4.20.0",
