@@ -206,7 +206,7 @@ class MenuUtil {
         : subMenuTitle;
 
       const childrenList = this.getNavMenuItems(children, level + 1);
-      if (isGroup && level === 0 && this.props.collapsed) {
+      if (isGroup && level === 0 && this.props.collapsed && !menu.collapsedShowGroupTitle) {
         return childrenList;
       }
       return [

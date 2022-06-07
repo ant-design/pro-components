@@ -3824,7 +3824,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/components/WaterMark/de
                   </div>
                 </div>
                 <ul
-                  class="ant-pagination mini ant-table-pagination ant-table-pagination-right"
+                  class="ant-pagination ant-pagination-mini ant-table-pagination ant-table-pagination-right"
                   unselectable="unselectable"
                 >
                   <li
@@ -10017,7 +10017,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/base.tsx correctl
                               </svg>
                             </span>
                             <span
-                              class="ant-pro-menu-item-title ant-design-pro-layout-z6d1z6"
+                              class="ant-pro-menu-item-title"
                             >
                               一一级列表页面
                             </span>
@@ -10060,7 +10060,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/base.tsx correctl
                               </svg>
                             </span>
                             <span
-                              class="ant-pro-menu-item-title ant-design-pro-layout-z6d1z6"
+                              class="ant-pro-menu-item-title"
                             >
                               一二级列表页面
                             </span>
@@ -10103,7 +10103,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/base.tsx correctl
                               </svg>
                             </span>
                             <span
-                              class="ant-pro-menu-item-title ant-design-pro-layout-z6d1z6"
+                              class="ant-pro-menu-item-title"
                             >
                               一三级列表页面
                             </span>
@@ -10152,7 +10152,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/base.tsx correctl
                           </svg>
                         </span>
                         <span
-                          class="ant-pro-menu-item-title ant-design-pro-layout-z6d1z6"
+                          class="ant-pro-menu-item-title"
                         >
                           二级列表页面
                         </span>
@@ -10195,7 +10195,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/base.tsx correctl
                           </svg>
                         </span>
                         <span
-                          class="ant-pro-menu-item-title ant-design-pro-layout-z6d1z6"
+                          class="ant-pro-menu-item-title"
                         >
                           三级列表页面
                         </span>
@@ -10457,7 +10457,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/base.tsx correctl
                               </svg>
                             </span>
                             <span
-                              class="ant-pro-menu-item-title ant-design-pro-layout-z6d1z6"
+                              class="ant-pro-menu-item-title"
                             >
                               欢迎
                             </span>
@@ -10499,7 +10499,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/base.tsx correctl
                               </svg>
                             </span>
                             <span
-                              class="ant-pro-menu-item-title ant-design-pro-layout-z6d1z6"
+                              class="ant-pro-menu-item-title"
                             >
                               管理页
                             </span>
@@ -10541,7 +10541,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/base.tsx correctl
                               </svg>
                             </span>
                             <span
-                              class="ant-pro-menu-item-title ant-design-pro-layout-z6d1z6"
+                              class="ant-pro-menu-item-title"
                             >
                               列表页
                             </span>
@@ -10584,7 +10584,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/base.tsx correctl
                               </svg>
                             </span>
                             <span
-                              class="ant-pro-menu-item-title ant-design-pro-layout-z6d1z6"
+                              class="ant-pro-menu-item-title"
                             >
                               Ant Design 官网外链
                             </span>

@@ -60,9 +60,13 @@ export type PureSettings = {
     locale?: boolean;
     hideMenuWhenCollapsed?: boolean;
     /**
-     * 收起时也展示 title
+     * 收起时也展示标题
      */
     collapsedShowTitle?: boolean;
+    /**
+     * 收起时也展示 分组菜单的标题
+     */
+    collapsedShowGroupTitle?: boolean;
     /**
      * @name 默认打开所有的菜单
      */
