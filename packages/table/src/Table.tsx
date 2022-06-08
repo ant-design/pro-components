@@ -615,6 +615,7 @@ const ProTable = <T extends Record<string, any>, U extends ParamsType, ValueType
   /** 清空所有的选中项 */
   const onCleanSelected = useCallback(() => {
     if (propsRowSelection && propsRowSelection.onChange) {
+      // @ts-ignore
       propsRowSelection.onChange([], []);
     }
     setSelectedRowsAndKey([], []);
@@ -736,6 +737,7 @@ const ProTable = <T extends Record<string, any>, U extends ParamsType, ValueType
     ...propsRowSelection,
     onChange: (keys, rows) => {
       if (propsRowSelection && propsRowSelection.onChange) {
+        // @ts-ignore
         propsRowSelection.onChange(keys, rows);
       }
       setSelectedRowsAndKey(keys, rows);

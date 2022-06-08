@@ -203,6 +203,7 @@ const CheckboxList: React.FC<{
       showLine={false}
       titleRender={(_node) => {
         const node = { ..._node, children: undefined };
+        // @ts-ignore
         return <CheckboxListItem className={className} {...node} columnKey={node.key} />;
       }}
       height={280}

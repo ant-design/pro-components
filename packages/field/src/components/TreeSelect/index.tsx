@@ -135,6 +135,7 @@ const FieldTreeSelect: ProFieldFC<GroupProps> = (
           }
           {...fieldProps}
           bordered={!light}
+          // @ts-ignore
           treeData={(options || treeData) as DataNode[]}
           showSearch={showSearch}
           style={{
