@@ -1,7 +1,7 @@
 import type { FormInstance, FormProps } from 'antd';
 import type { StepProps } from 'rc-steps/lib/Step';
 import { noteOnce } from 'rc-util/lib/warning';
-import React, { useContext, useEffect, useImperativeHandle, useRef } from 'react';
+import { useContext, useEffect, useImperativeHandle, useRef } from 'react';
 import type { CommonFormProps } from '../../BaseForm';
 import { BaseForm } from '../../BaseForm';
 import { StepsFormProvide } from './index';

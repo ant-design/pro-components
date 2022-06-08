@@ -3,7 +3,6 @@
  */
 
 import { CheckCard } from '@ant-design/pro-components';
-import React from 'react';
 
 export default () => (
   <div style={{ padding: 24, backgroundColor: '#f7f8fa' }}>

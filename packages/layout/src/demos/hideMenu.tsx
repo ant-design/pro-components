@@ -1,5 +1,4 @@
-import ProLayout, { PageContainer } from '@ant-design/pro-layout';
-import React from 'react';
+import { PageContainer, ProLayout } from '@ant-design/pro-components';
 import defaultProps from './_defaultProps';
 
 export default () => (

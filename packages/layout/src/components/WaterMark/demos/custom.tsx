@@ -7,10 +7,9 @@ import {
   ProFormField,
   ProFormSlider,
   ProFormText,
+  WaterMark,
 } from '@ant-design/pro-components';
-import { WaterMark } from '@ant-design/pro-layout';
 import { Divider } from 'antd';
-import React from 'react';
 
 export default () => {
   return (

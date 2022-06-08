@@ -1,5 +1,4 @@
 import ProLayout, { SettingDrawer } from '@ant-design/pro-layout';
-import React from 'react';
 import { PageContainer } from '../components/PageContainer';
 import defaultProps from './_defaultProps';
 

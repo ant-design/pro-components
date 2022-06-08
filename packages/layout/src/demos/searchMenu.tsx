@@ -2,7 +2,7 @@ import { PlusCircleFilled, SearchOutlined } from '@ant-design/icons';
 import type { MenuDataItem } from '@ant-design/pro-layout';
 import ProLayout, { PageContainer } from '@ant-design/pro-layout';
 import { Input, Space } from 'antd';
-import React, { useState } from 'react';
+import { useState } from 'react';
 import complexMenu from './complexMenu';
 
 const filterByMenuDate = (data: MenuDataItem[], keyWord: string): MenuDataItem[] =>

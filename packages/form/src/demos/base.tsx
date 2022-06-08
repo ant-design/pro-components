@@ -10,7 +10,7 @@ import {
   ProFormTreeSelect,
 } from '@ant-design/pro-components';
 import { message, TreeSelect } from 'antd';
-import React, { useRef } from 'react';
+import { useRef } from 'react';
 
 const waitTime = (time: number = 100) => {
   return new Promise((resolve) => {
@@ -136,12 +136,23 @@ export default () => {
           name="useMode"
           label="合同约定生效方式"
         />
-        <ProFormSelect
+        <ProFormSelect.SearchSelect
           width="xs"
           options={[
             {
               value: 'time',
               label: '履行完终止',
+              type: 'time',
+              options: [
+                {
+                  value: 'time1',
+                  label: '履行完终止1',
+                },
+                {
+                  value: 'time2',
+                  label: '履行完终止2',
+                },
+              ],
             },
           ]}
           name="unusedMode"

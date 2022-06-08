@@ -1,7 +1,6 @@
-﻿import BasicLayout from '@ant-design/pro-layout';
+﻿import { ProLayout } from '@ant-design/pro-layout';
 import { render } from '@testing-library/react';
 import { mount } from 'enzyme';
-import React from 'react';
 import { act } from 'react-dom/test-utils';
 import { waitForComponentToPaint } from '../util';
 import defaultProps from './defaultProps';
@@ -30,27 +29,25 @@ describe('mobile BasicLayout', () => {
   });
 
   it('📱 base use', async () => {
-    const html = render(
-      <BasicLayout {...defaultProps} getContainer={false} onCollapse={() => {}} />,
-    );
+    const html = render(<ProLayout {...defaultProps} getContainer={false} onCollapse={() => {}} />);
     expect(html.asFragment()).toMatchSnapshot();
   });
 
   it('📱 collapsed=false', async () => {
-    const html = render(<BasicLayout {...defaultProps} getContainer={false} collapsed={false} />);
+    const html = render(<ProLayout {...defaultProps} getContainer={false} collapsed={false} />);
     expect(html.asFragment()).toMatchSnapshot();
   });
 
   it('📱 layout=mix', async () => {
     const html = render(
-      <BasicLayout {...defaultProps} getContainer={false} layout="mix" collapsed={false} />,
+      <ProLayout {...defaultProps} getContainer={false} layout="mix" collapsed={false} />,
     );
     expect(html.asFragment()).toMatchSnapshot();
   });
 
   it('📱 layout=mix and splitMenus', async () => {
     const html = render(
-      <BasicLayout
+      <ProLayout
         {...defaultProps}
         splitMenus
         getContainer={false}
@@ -63,7 +60,7 @@ describe('mobile BasicLayout', () => {
 
   it('📱 layout menuHeaderRender=false', async () => {
     const html = render(
-      <BasicLayout
+      <ProLayout
         {...defaultProps}
         collapsed
         getContainer={false}
@@ -76,7 +73,7 @@ describe('mobile BasicLayout', () => {
 
   it('📱 layout menuHeaderRender', async () => {
     const html = render(
-      <BasicLayout
+      <ProLayout
         {...defaultProps}
         collapsed
         getContainer={false}
@@ -89,7 +86,7 @@ describe('mobile BasicLayout', () => {
 
   it('📱 layout menuHeaderRender', async () => {
     const html = render(
-      <BasicLayout
+      <ProLayout
         {...defaultProps}
         collapsed
         getContainer={false}
@@ -103,7 +100,7 @@ describe('mobile BasicLayout', () => {
   it('📱 layout collapsedButtonRender', async () => {
     const onCollapse = jest.fn();
     const html = mount(
-      <BasicLayout
+      <ProLayout
         {...defaultProps}
         onCollapse={onCollapse}
         collapsed

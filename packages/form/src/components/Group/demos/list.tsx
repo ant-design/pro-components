@@ -9,7 +9,7 @@
   ProFormSelect,
   ProFormText,
 } from '@ant-design/pro-components';
-import React, { useState } from 'react';
+import { useState } from 'react';
 
 const Demo = () => {
   const [position, setPosition] = useState<'bottom' | 'top'>('bottom');

@@ -1,6 +1,5 @@
 import { ProForm, ProFormSelect } from '@ant-design/pro-components';
 import { message } from 'antd';
-import React from 'react';
 
 export default () => {
   return (

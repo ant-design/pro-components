@@ -4,7 +4,7 @@ import { act, fireEvent, render as reactRender } from '@testing-library/react';
 import { Tag } from 'antd';
 import { mount } from 'enzyme';
 import type { ReactText } from 'react';
-import React, { useState } from 'react';
+import { useState } from 'react';
 import PaginationDemo from '../../packages/list/src/demos/pagination';
 import { waitForComponentToPaint } from '../util';
 

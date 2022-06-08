@@ -2,7 +2,6 @@ import { DownOutlined, EllipsisOutlined, QuestionCircleOutlined } from '@ant-des
 import type { ProColumns } from '@ant-design/pro-components';
 import { ProTable } from '@ant-design/pro-components';
 import { Button, Tag, Tooltip } from 'antd';
-import React from 'react';
 
 export type Status = {
   color: string;

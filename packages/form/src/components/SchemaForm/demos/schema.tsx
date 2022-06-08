@@ -2,7 +2,7 @@
 import { BetaSchemaForm, ProFormSelect } from '@ant-design/pro-components';
 import { Alert, DatePicker, Space } from 'antd';
 import moment from 'moment';
-import React, { useState } from 'react';
+import { useState } from 'react';
 
 const valueEnum = {
   all: { text: '全部', status: 'Default' },
@@ -291,6 +291,9 @@ export default () => {
         ]}
         rowProps={{
           gutter: [16, 16],
+        }}
+        colProps={{
+          span: 12,
         }}
         grid={layoutType !== 'LightFilter' && layoutType !== 'QueryFilter'}
         onFinish={async (values) => {

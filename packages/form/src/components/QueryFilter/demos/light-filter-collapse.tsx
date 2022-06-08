@@ -1,5 +1,4 @@
 import { LightFilter, ProFormDateTimePicker, ProFormSelect } from '@ant-design/pro-components';
-import React from 'react';
 
 export default () => {
   return (

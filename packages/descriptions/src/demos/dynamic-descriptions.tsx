@@ -10,7 +10,7 @@
   ProFormText,
   ProFormTextArea,
 } from '@ant-design/pro-components';
-import React, { useState } from 'react';
+import { useState } from 'react';
 
 const valueTypeArray = [
   'password',

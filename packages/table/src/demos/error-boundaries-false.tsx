@@ -1,7 +1,6 @@
 ﻿import { EllipsisOutlined } from '@ant-design/icons';
 import type { ProColumns } from '@ant-design/pro-components';
 import { ProTable } from '@ant-design/pro-components';
-import React from 'react';
 
 export type TableListItem = {
   key: number;

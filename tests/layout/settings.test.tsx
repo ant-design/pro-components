@@ -1,8 +1,7 @@
-import BasicLayout from '@ant-design/pro-layout';
+import { BasicLayout } from '@ant-design/pro-components';
 import '@testing-library/jest-dom';
 import { render } from '@testing-library/react';
 import { _el, _rs } from 'rc-resize-observer/lib/utils/observerUtil';
-import React from 'react';
 import { act } from 'react-dom/test-utils';
 import { waitForComponentToPaint, waitTime } from '../util';
 

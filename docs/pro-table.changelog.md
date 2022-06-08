@@ -9,6 +9,14 @@ group:
 
 # Change Log
 
+## @ant-design/pro-table@2.76.2
+
+`2022-06-02`
+
+- fix(table): fix light filter style error. [884ccac](https://github.com/ant-design/pro-components/commit/884ccac)
+- fix(table): if request is null, no triger change. [dc37fe2](https://github.com/ant-design/pro-components/commit/dc37fe2)
+- fix(table): support dropPosition = 0. [95d6c29](https://github.com/ant-design/pro-components/commit/95d6c29)
+
 ## @ant-design/pro-table@2.76.0
 
 `2022-05-26`

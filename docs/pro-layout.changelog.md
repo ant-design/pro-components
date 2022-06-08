@@ -9,6 +9,12 @@ group:
 
 # Change Log
 
+## @ant-design/pro-layout@6.38.7
+
+`2022-06-02`
+
+- fix(layout): subMenuItemRender support menu props. [1ac52fb](https://github.com/ant-design/pro-components/commit/1ac52fb)
+
 ## @ant-design/pro-layout@6.38.6
 
 `2022-05-27`

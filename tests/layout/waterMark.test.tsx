@@ -1,7 +1,6 @@
 /* eslint-disable @typescript-eslint/ban-types */
-import { WaterMark } from '@ant-design/pro-layout';
+import { WaterMark } from '@ant-design/pro-components';
 import { mount } from 'enzyme';
-import React from 'react';
 import { act } from 'react-dom/test-utils';
 import { waitForComponentToPaint } from '../util';
 

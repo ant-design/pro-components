@@ -4,7 +4,7 @@
 
 import { CheckCard } from '@ant-design/pro-components';
 import { Radio } from 'antd';
-import React, { useState } from 'react';
+import { useState } from 'react';
 
 export default () => {
   const [size, setSize] = useState('default' as 'default');

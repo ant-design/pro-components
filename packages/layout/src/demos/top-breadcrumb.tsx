@@ -1,5 +1,4 @@
-import ProLayout, { PageContainer, ProBreadcrumb } from '@ant-design/pro-layout';
-import React from 'react';
+import { PageContainer, ProBreadcrumb, ProLayout } from '@ant-design/pro-components';
 
 export default () => (
   <div

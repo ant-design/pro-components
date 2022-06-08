@@ -3,7 +3,6 @@ import { ConfigProvider, Table } from 'antd';
 import { mount } from 'enzyme';
 import moment from 'moment';
 import type { RequestOptionsType } from 'packages/utils/src/typing';
-import React from 'react';
 import { act } from 'react-dom/test-utils';
 import { waitForComponentToPaint } from '../util';
 import { request } from './demo';

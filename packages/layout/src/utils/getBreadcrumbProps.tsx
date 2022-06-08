@@ -1,7 +1,6 @@
 import type { BreadcrumbProps as AntdBreadcrumbProps } from 'antd';
 import type H from 'history';
 import pathToRegexp from 'path-to-regexp';
-import React from 'react';
 import type { ProSettings } from '../defaultSettings';
 import type { ProLayoutProps } from '../ProLayout';
 import type { MenuDataItem, MessageDescriptor, WithFalse } from '../typings';

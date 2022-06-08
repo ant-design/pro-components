@@ -1,7 +1,6 @@
 /** Title: 基本使用 */
 
 import { CheckCard } from '@ant-design/pro-components';
-import React from 'react';
 
 export default () => (
   <CheckCard

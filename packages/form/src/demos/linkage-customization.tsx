@@ -11,7 +11,7 @@ import {
   StepsForm,
 } from '@ant-design/pro-components';
 import { Button, message } from 'antd';
-import React, { useState } from 'react';
+import { useState } from 'react';
 
 const waitTime = (time: number = 100) => {
   return new Promise((resolve) => {

@@ -1,6 +1,5 @@
-import ProLayout, { PageContainer } from '@ant-design/pro-layout';
+import { PageContainer, ProLayout } from '@ant-design/pro-components';
 import { mount, render } from 'enzyme';
-import React from 'react';
 import { act } from 'react-dom/test-utils';
 import { waitForComponentToPaint } from '../util';
 import defaultProps from './defaultProps';

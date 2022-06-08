@@ -5,7 +5,6 @@
 import { AppstoreOutlined } from '@ant-design/icons';
 import { CheckCard } from '@ant-design/pro-components';
 import { Tag } from 'antd';
-import React from 'react';
 
 export default () => (
   <>

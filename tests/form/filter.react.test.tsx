@@ -9,7 +9,6 @@ import '@testing-library/jest-dom';
 import { cleanup, fireEvent, render } from '@testing-library/react';
 import { TreeSelect } from 'antd';
 import { _el, _rs } from 'rc-resize-observer/lib/utils/observerUtil';
-import React from 'react';
 import { act } from 'react-dom/test-utils';
 import { waitTime } from '../util';
 
