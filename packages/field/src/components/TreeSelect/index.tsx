@@ -1,7 +1,6 @@
 import { FieldLabel } from '@ant-design/pro-utils';
 import type { RadioGroupProps, TreeSelectProps } from 'antd';
 import { ConfigProvider, Spin, TreeSelect } from 'antd';
-import type { DataNode } from 'antd/lib/tree';
 import classNames from 'classnames';
 import useMergedState from 'rc-util/lib/hooks/useMergedState';
 import React, { useContext, useImperativeHandle, useMemo, useRef, useState } from 'react';
@@ -135,7 +134,7 @@ const FieldTreeSelect: ProFieldFC<GroupProps> = (
           }
           {...fieldProps}
           bordered={!light}
-          treeData={(options || treeData) as DataNode[]}
+          treeData={(options || treeData) as TreeSelectProps['treeData']}
           showSearch={showSearch}
           style={{
             minWidth: 60,
