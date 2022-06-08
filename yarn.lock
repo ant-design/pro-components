@@ -4829,7 +4829,7 @@ antd-mobile@^2.3.1:
     rmc-tabs "~1.2.0"
     rmc-tooltip "~1.0.0"
 
-antd@>=4.0`, antd@^4.1.3, antd@^4.20.7:
+antd@^4.1.3, antd@^4.20.7:
   version "4.21.0"
   resolved "https://registry.npmmirror.com/antd/-/antd-4.21.0.tgz#44e65d08528b28664d3ef00a539964c2133f3338"
   integrity sha512-p8R5scejlWjAIF/NoJ5JF5OMjLbAlCA7u85cNwbtRQOP+14KQDXZyHMT4C5oc9nhz7xxD/Bry6HhPkUmsRuP7Q==
