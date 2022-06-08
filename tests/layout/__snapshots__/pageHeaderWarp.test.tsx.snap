@@ -183,7 +183,7 @@ exports[`BasicLayout base use 1`] = `
                   class="ant-menu-title-content"
                 >
                   <span
-                    class="ant-pro-menu-item ant-design-pro-layout-ytfc15"
+                    class="ant-pro-menu-item ant-design-pro-layout-1mfr4jg"
                     title="welcome"
                   >
                     welcome
@@ -439,7 +439,7 @@ exports[`BasicLayout content is text 1`] = `
                   class="ant-menu-title-content"
                 >
                   <span
-                    class="ant-pro-menu-item ant-design-pro-layout-ytfc15"
+                    class="ant-pro-menu-item ant-design-pro-layout-1mfr4jg"
                     title="welcome"
                   >
                     welcome

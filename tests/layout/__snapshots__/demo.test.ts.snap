@@ -4180,7 +4180,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/AlwaysDefaultOpen
                       class="ant-menu-title-content"
                     >
                       <span
-                        class="ant-pro-menu-item ant-design-pro-layout-ytfc15"
+                        class="ant-pro-menu-item ant-design-pro-layout-1mfr4jg"
                         title="汇总数据"
                       >
                         汇总数据
@@ -4213,7 +4213,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/AlwaysDefaultOpen
                           class="ant-menu-title-content"
                         >
                           <span
-                            class="ant-pro-menu-item ant-design-pro-layout-ytfc15"
+                            class="ant-pro-menu-item ant-design-pro-layout-1mfr4jg"
                             title="域买家维度交易"
                           >
                             域买家维度交易
@@ -4292,7 +4292,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/AlwaysDefaultOpen
                           class="ant-menu-title-content"
                         >
                           <span
-                            class="ant-pro-menu-item ant-design-pro-layout-ytfc15"
+                            class="ant-pro-menu-item ant-design-pro-layout-1mfr4jg"
                             title="维度交易"
                           >
                             维度交易
@@ -4652,7 +4652,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/BreadcrumbsRepeat
                       class="ant-menu-title-content"
                     >
                       <span
-                        class="ant-pro-menu-item ant-design-pro-layout-ytfc15"
+                        class="ant-pro-menu-item ant-design-pro-layout-1mfr4jg"
                         title="管理"
                       >
                         管理
@@ -5072,7 +5072,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/DefaultOpenAllMen
                       class="ant-menu-title-content"
                     >
                       <span
-                        class="ant-pro-menu-item ant-design-pro-layout-ytfc15"
+                        class="ant-pro-menu-item ant-design-pro-layout-1mfr4jg"
                         title="汇总数据"
                       >
                         汇总数据
@@ -5105,7 +5105,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/DefaultOpenAllMen
                           class="ant-menu-title-content"
                         >
                           <span
-                            class="ant-pro-menu-item ant-design-pro-layout-ytfc15"
+                            class="ant-pro-menu-item ant-design-pro-layout-1mfr4jg"
                             title="域买家维度交易"
                           >
                             域买家维度交易
@@ -5184,7 +5184,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/DefaultOpenAllMen
                           class="ant-menu-title-content"
                         >
                           <span
-                            class="ant-pro-menu-item ant-design-pro-layout-ytfc15"
+                            class="ant-pro-menu-item ant-design-pro-layout-1mfr4jg"
                             title="维度交易"
                           >
                             维度交易
@@ -5265,7 +5265,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/DefaultOpenAllMen
                       class="ant-menu-title-content"
                     >
                       <span
-                        class="ant-pro-menu-item ant-design-pro-layout-ytfc15"
+                        class="ant-pro-menu-item ant-design-pro-layout-1mfr4jg"
                         title="明细数据"
                       >
                         明细数据
@@ -5322,7 +5322,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/DefaultOpenAllMen
                       class="ant-menu-title-content"
                     >
                       <span
-                        class="ant-pro-menu-item ant-design-pro-layout-ytfc15"
+                        class="ant-pro-menu-item ant-design-pro-layout-1mfr4jg"
                         title="其他"
                       >
                         其他
@@ -6043,7 +6043,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/MenuGroup.tsx cor
                     class="ant-menu-item-group-title"
                   >
                     <span
-                      class="ant-pro-menu-item ant-design-pro-layout-ytfc15"
+                      class="ant-pro-menu-item ant-design-pro-layout-1mfr4jg"
                       title="汇总数据"
                     >
                       汇总数据
@@ -6070,7 +6070,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/MenuGroup.tsx cor
                           class="ant-menu-title-content"
                         >
                           <span
-                            class="ant-pro-menu-item ant-design-pro-layout-ytfc15"
+                            class="ant-pro-menu-item ant-design-pro-layout-1mfr4jg"
                             title="域买家维度交易"
                           >
                             域买家维度交易
@@ -6099,7 +6099,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/MenuGroup.tsx cor
                           class="ant-menu-title-content"
                         >
                           <span
-                            class="ant-pro-menu-item ant-design-pro-layout-ytfc15"
+                            class="ant-pro-menu-item ant-design-pro-layout-1mfr4jg"
                             title="维度交易"
                           >
                             维度交易
@@ -6123,7 +6123,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/MenuGroup.tsx cor
                     class="ant-menu-item-group-title"
                   >
                     <span
-                      class="ant-pro-menu-item ant-design-pro-layout-ytfc15"
+                      class="ant-pro-menu-item ant-design-pro-layout-1mfr4jg"
                       title="明细数据"
                     >
                       明细数据
@@ -6167,7 +6167,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/MenuGroup.tsx cor
                     class="ant-menu-item-group-title"
                   >
                     <span
-                      class="ant-pro-menu-item ant-design-pro-layout-ytfc15"
+                      class="ant-pro-menu-item ant-design-pro-layout-1mfr4jg"
                       title="其他"
                     >
                       其他
@@ -6501,7 +6501,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/MultipleMenuOnePa
                       class="ant-menu-title-content"
                     >
                       <span
-                        class="ant-pro-menu-item ant-design-pro-layout-ytfc15"
+                        class="ant-pro-menu-item ant-design-pro-layout-1mfr4jg"
                         title="配置中心"
                       >
                         配置中心
@@ -6646,7 +6646,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/MultipleMenuOnePa
                       class="ant-menu-title-content"
                     >
                       <span
-                        class="ant-pro-menu-item ant-design-pro-layout-ytfc15"
+                        class="ant-pro-menu-item ant-design-pro-layout-1mfr4jg"
                         title="资产"
                       >
                         资产
@@ -6675,7 +6675,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/MultipleMenuOnePa
                       class="ant-menu-title-content"
                     >
                       <span
-                        class="ant-pro-menu-item ant-design-pro-layout-ytfc15"
+                        class="ant-pro-menu-item ant-design-pro-layout-1mfr4jg"
                         title="账单"
                       >
                         账单
@@ -6704,7 +6704,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/MultipleMenuOnePa
                       class="ant-menu-title-content"
                     >
                       <span
-                        class="ant-pro-menu-item ant-design-pro-layout-ytfc15"
+                        class="ant-pro-menu-item ant-design-pro-layout-1mfr4jg"
                         title="CIF"
                       >
                         CIF
@@ -6733,7 +6733,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/MultipleMenuOnePa
                       class="ant-menu-title-content"
                     >
                       <span
-                        class="ant-pro-menu-item ant-design-pro-layout-ytfc15"
+                        class="ant-pro-menu-item ant-design-pro-layout-1mfr4jg"
                         title="小工具"
                       >
                         小工具
@@ -7229,7 +7229,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/Nested.tsx correc
                               class="ant-menu-title-content"
                             >
                               <span
-                                class="ant-pro-menu-item ant-design-pro-layout-ytfc15"
+                                class="ant-pro-menu-item ant-design-pro-layout-1mfr4jg"
                                 title="汇总数据"
                               >
                                 汇总数据
@@ -7258,7 +7258,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/Nested.tsx correc
                               class="ant-menu-title-content"
                             >
                               <span
-                                class="ant-pro-menu-item ant-design-pro-layout-ytfc15"
+                                class="ant-pro-menu-item ant-design-pro-layout-1mfr4jg"
                                 title="明细数据"
                               >
                                 明细数据
@@ -7287,7 +7287,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/Nested.tsx correc
                               class="ant-menu-title-content"
                             >
                               <span
-                                class="ant-pro-menu-item ant-design-pro-layout-ytfc15"
+                                class="ant-pro-menu-item ant-design-pro-layout-1mfr4jg"
                                 title="其他"
                               >
                                 其他
@@ -7692,7 +7692,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/TopmenuNested.tsx
                           class="ant-menu-title-content"
                         >
                           <span
-                            class="ant-pro-menu-item ant-design-pro-layout-ytfc15"
+                            class="ant-pro-menu-item ant-design-pro-layout-1mfr4jg"
                             title="汇总数据"
                           >
                             汇总数据
@@ -7720,7 +7720,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/TopmenuNested.tsx
                           class="ant-menu-title-content"
                         >
                           <span
-                            class="ant-pro-menu-item ant-design-pro-layout-ytfc15"
+                            class="ant-pro-menu-item ant-design-pro-layout-1mfr4jg"
                             title="明细数据"
                           >
                             明细数据
@@ -7748,7 +7748,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/TopmenuNested.tsx
                           class="ant-menu-title-content"
                         >
                           <span
-                            class="ant-pro-menu-item ant-design-pro-layout-ytfc15"
+                            class="ant-pro-menu-item ant-design-pro-layout-1mfr4jg"
                             title="其他"
                           >
                             其他
@@ -7880,7 +7880,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/TopmenuNested.tsx
                               class="ant-menu-title-content"
                             >
                               <span
-                                class="ant-pro-menu-item ant-design-pro-layout-ytfc15"
+                                class="ant-pro-menu-item ant-design-pro-layout-1mfr4jg"
                                 title="汇总数据"
                               >
                                 汇总数据
@@ -7909,7 +7909,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/TopmenuNested.tsx
                               class="ant-menu-title-content"
                             >
                               <span
-                                class="ant-pro-menu-item ant-design-pro-layout-ytfc15"
+                                class="ant-pro-menu-item ant-design-pro-layout-1mfr4jg"
                                 title="明细数据"
                               >
                                 明细数据
@@ -7938,7 +7938,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/TopmenuNested.tsx
                               class="ant-menu-title-content"
                             >
                               <span
-                                class="ant-pro-menu-item ant-design-pro-layout-ytfc15"
+                                class="ant-pro-menu-item ant-design-pro-layout-1mfr4jg"
                                 title="其他"
                               >
                                 其他
@@ -8277,7 +8277,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/antd@4MenuIconFor
                     class="ant-menu-title-content"
                   >
                     <span
-                      class="ant-pro-menu-item ant-design-pro-layout-ytfc15"
+                      class="ant-pro-menu-item ant-design-pro-layout-1mfr4jg"
                       title="welcome"
                     >
                       <span
@@ -8333,7 +8333,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/antd@4MenuIconFor
                         class="ant-menu-title-content"
                       >
                         <span
-                          class="ant-pro-menu-item ant-design-pro-layout-ytfc15"
+                          class="ant-pro-menu-item ant-design-pro-layout-1mfr4jg"
                           title="one"
                         >
                           <span
@@ -8932,7 +8932,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/api.tsx correctly
                     class="ant-menu-title-content"
                   >
                     <span
-                      class="ant-pro-menu-item ant-design-pro-layout-ytfc15"
+                      class="ant-pro-menu-item ant-design-pro-layout-1mfr4jg"
                       title="管理页"
                     >
                       <span
@@ -8983,7 +8983,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/api.tsx correctly
                     class="ant-menu-title-content"
                   >
                     <span
-                      class="ant-pro-menu-item ant-design-pro-layout-ytfc15"
+                      class="ant-pro-menu-item ant-design-pro-layout-1mfr4jg"
                       title="列表页"
                     >
                       <span
@@ -9520,7 +9520,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/background-contex
                           class="ant-menu-title-content"
                         >
                           <span
-                            class="ant-pro-menu-item ant-design-pro-layout-ytfc15"
+                            class="ant-pro-menu-item ant-design-pro-layout-1mfr4jg"
                             title="管理页"
                           >
                             <span
@@ -9571,7 +9571,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/background-contex
                           class="ant-menu-title-content"
                         >
                           <span
-                            class="ant-pro-menu-item ant-design-pro-layout-ytfc15"
+                            class="ant-pro-menu-item ant-design-pro-layout-1mfr4jg"
                             title="列表页"
                           >
                             <span
@@ -9973,7 +9973,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/base.tsx correctl
                     class="ant-menu-item-group-title"
                   >
                     <span
-                      class="ant-pro-menu-item ant-design-pro-layout-ytfc15"
+                      class="ant-pro-menu-item ant-design-pro-layout-1mfr4jg"
                       title="一级列表页面"
                     >
                       一级列表页面
@@ -11694,7 +11694,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/classicMode.tsx c
                     class="ant-menu-item-group-title"
                   >
                     <span
-                      class="ant-pro-menu-item ant-design-pro-layout-ytfc15"
+                      class="ant-pro-menu-item ant-design-pro-layout-1mfr4jg"
                       title="一级列表页面"
                     >
                       一级列表页面
@@ -14153,7 +14153,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/config-provider.t
                     class="qixian-menu-title-content"
                   >
                     <span
-                      class="qixian-pro-menu-item ant-design-pro-layout-ytfc15"
+                      class="qixian-pro-menu-item ant-design-pro-layout-1mfr4jg"
                       title="管理页"
                     >
                       <span
@@ -14205,7 +14205,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/config-provider.t
                     class="qixian-menu-title-content"
                   >
                     <span
-                      class="qixian-pro-menu-item ant-design-pro-layout-ytfc15"
+                      class="qixian-pro-menu-item ant-design-pro-layout-1mfr4jg"
                       title="列表页"
                     >
                       <span
@@ -15505,7 +15505,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/customSider.tsx c
                     class="ant-menu-item-group-title"
                   >
                     <span
-                      class="ant-pro-menu-item ant-design-pro-layout-ytfc15"
+                      class="ant-pro-menu-item ant-design-pro-layout-1mfr4jg"
                       title="管理页"
                     >
                       管理页
@@ -15656,7 +15656,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/customSider.tsx c
                     class="ant-menu-item-group-title"
                   >
                     <span
-                      class="ant-pro-menu-item ant-design-pro-layout-ytfc15"
+                      class="ant-pro-menu-item ant-design-pro-layout-1mfr4jg"
                       title="列表页"
                     >
                       列表页
@@ -15683,7 +15683,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/customSider.tsx c
                           class="ant-menu-title-content"
                         >
                           <span
-                            class="ant-pro-menu-item ant-design-pro-layout-ytfc15"
+                            class="ant-pro-menu-item ant-design-pro-layout-1mfr4jg"
                             title="一级列表页面"
                           >
                             <span
@@ -16995,7 +16995,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/customize-collaps
                     class="ant-menu-title-content"
                   >
                     <span
-                      class="ant-pro-menu-item ant-design-pro-layout-ytfc15"
+                      class="ant-pro-menu-item ant-design-pro-layout-1mfr4jg"
                       title="管理页"
                     >
                       <span
@@ -17047,7 +17047,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/customize-collaps
                     class="ant-menu-title-content"
                   >
                     <span
-                      class="ant-pro-menu-item ant-design-pro-layout-ytfc15"
+                      class="ant-pro-menu-item ant-design-pro-layout-1mfr4jg"
                       title="列表页"
                     >
                       <span
@@ -17577,7 +17577,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/customizeMenu.tsx
                       <div>
                         pre 
                         <span
-                          class="ant-pro-menu-item ant-design-pro-layout-ytfc15"
+                          class="ant-pro-menu-item ant-design-pro-layout-1mfr4jg"
                           title="管理页"
                         >
                           <span
@@ -17632,7 +17632,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/customizeMenu.tsx
                       <div>
                         pre 
                         <span
-                          class="ant-pro-menu-item ant-design-pro-layout-ytfc15"
+                          class="ant-pro-menu-item ant-design-pro-layout-1mfr4jg"
                           title="列表页"
                         >
                           <span
@@ -17866,7 +17866,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/designMenuCss.tsx
                     class="ant-menu-item-group-title"
                   >
                     <span
-                      class="ant-pro-menu-item ant-design-pro-layout-ytfc15"
+                      class="ant-pro-menu-item ant-design-pro-layout-1mfr4jg"
                       title="一级列表页面"
                     >
                       一级列表页面
@@ -19876,7 +19876,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/designSiderMenu.t
                     class="ant-menu-item-group-title"
                   >
                     <span
-                      class="ant-pro-menu-item ant-design-pro-layout-ytfc15"
+                      class="ant-pro-menu-item ant-design-pro-layout-1mfr4jg"
                       title="管理页"
                     >
                       管理页
@@ -20027,7 +20027,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/designSiderMenu.t
                     class="ant-menu-item-group-title"
                   >
                     <span
-                      class="ant-pro-menu-item ant-design-pro-layout-ytfc15"
+                      class="ant-pro-menu-item ant-design-pro-layout-1mfr4jg"
                       title="列表页"
                     >
                       列表页
@@ -20054,7 +20054,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/designSiderMenu.t
                           class="ant-menu-title-content"
                         >
                           <span
-                            class="ant-pro-menu-item ant-design-pro-layout-ytfc15"
+                            class="ant-pro-menu-item ant-design-pro-layout-1mfr4jg"
                             title="一级列表页面"
                           >
                             <span
@@ -21508,7 +21508,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/dynamic-settings.
                       class="ant-menu-title-content"
                     >
                       <span
-                        class="ant-pro-menu-item ant-design-pro-layout-ytfc15"
+                        class="ant-pro-menu-item ant-design-pro-layout-1mfr4jg"
                         title="管理页"
                       >
                         <span
@@ -21560,7 +21560,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/dynamic-settings.
                       class="ant-menu-title-content"
                     >
                       <span
-                        class="ant-pro-menu-item ant-design-pro-layout-ytfc15"
+                        class="ant-pro-menu-item ant-design-pro-layout-1mfr4jg"
                         title="列表页"
                       >
                         <span
@@ -23394,7 +23394,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/dynamicMenu.tsx c
                     class="ant-menu-title-content"
                   >
                     <span
-                      class="ant-pro-menu-item ant-design-pro-layout-ytfc15"
+                      class="ant-pro-menu-item ant-design-pro-layout-1mfr4jg"
                       title="welcome"
                     >
                       welcome
@@ -23427,7 +23427,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/dynamicMenu.tsx c
                         class="ant-menu-title-content"
                       >
                         <span
-                          class="ant-pro-menu-item ant-design-pro-layout-ytfc15"
+                          class="ant-pro-menu-item ant-design-pro-layout-1mfr4jg"
                           title="one"
                         >
                           one
@@ -24162,7 +24162,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/footer.tsx correc
                     class="ant-menu-title-content"
                   >
                     <span
-                      class="ant-pro-menu-item ant-design-pro-layout-ytfc15"
+                      class="ant-pro-menu-item ant-design-pro-layout-1mfr4jg"
                       title="管理页"
                     >
                       <span
@@ -24213,7 +24213,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/footer.tsx correc
                     class="ant-menu-title-content"
                   >
                     <span
-                      class="ant-pro-menu-item ant-design-pro-layout-ytfc15"
+                      class="ant-pro-menu-item ant-design-pro-layout-1mfr4jg"
                       title="列表页"
                     >
                       <span
@@ -24528,7 +24528,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/footer-global-too
                     class="ant-menu-item-group-title"
                   >
                     <span
-                      class="ant-pro-menu-item ant-design-pro-layout-ytfc15"
+                      class="ant-pro-menu-item ant-design-pro-layout-1mfr4jg"
                       title="一级列表页面"
                     >
                       一级列表页面
@@ -25744,7 +25744,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/ghost.tsx correct
                       class="ant-menu-title-content"
                     >
                       <span
-                        class="ant-pro-menu-item ant-design-pro-layout-ytfc15"
+                        class="ant-pro-menu-item ant-design-pro-layout-1mfr4jg"
                         title="管理页"
                       >
                         <span
@@ -25796,7 +25796,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/ghost.tsx correct
                       class="ant-menu-title-content"
                     >
                       <span
-                        class="ant-pro-menu-item ant-design-pro-layout-ytfc15"
+                        class="ant-pro-menu-item ant-design-pro-layout-1mfr4jg"
                         title="列表页"
                       >
                         <span
@@ -26402,7 +26402,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/hideMenu.tsx corr
                       class="ant-menu-title-content"
                     >
                       <span
-                        class="ant-pro-menu-item ant-design-pro-layout-ytfc15"
+                        class="ant-pro-menu-item ant-design-pro-layout-1mfr4jg"
                         title="管理页"
                       >
                         <span
@@ -26454,7 +26454,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/hideMenu.tsx corr
                       class="ant-menu-title-content"
                     >
                       <span
-                        class="ant-pro-menu-item ant-design-pro-layout-ytfc15"
+                        class="ant-pro-menu-item ant-design-pro-layout-1mfr4jg"
                         title="列表页"
                       >
                         <span
@@ -28313,7 +28313,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/menu-group.tsx co
                       class="ant-menu-title-content"
                     >
                       <span
-                        class="ant-pro-menu-item ant-design-pro-layout-ytfc15"
+                        class="ant-pro-menu-item ant-design-pro-layout-1mfr4jg"
                         title="管理页"
                       >
                         <span
@@ -28365,7 +28365,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/menu-group.tsx co
                       class="ant-menu-title-content"
                     >
                       <span
-                        class="ant-pro-menu-item ant-design-pro-layout-ytfc15"
+                        class="ant-pro-menu-item ant-design-pro-layout-1mfr4jg"
                         title="列表页"
                       >
                         <span
@@ -29012,7 +29012,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/mixMode.tsx corre
                     class="ant-menu-item-group-title"
                   >
                     <span
-                      class="ant-pro-menu-item ant-design-pro-layout-ytfc15"
+                      class="ant-pro-menu-item ant-design-pro-layout-1mfr4jg"
                       title="一级列表页面"
                     >
                       一级列表页面
@@ -29954,7 +29954,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/pageSimplify.tsx 
                     class="ant-menu-item-group-title"
                   >
                     <span
-                      class="ant-pro-menu-item ant-design-pro-layout-ytfc15"
+                      class="ant-pro-menu-item ant-design-pro-layout-1mfr4jg"
                       title="一级列表页面"
                     >
                       一级列表页面
@@ -30942,7 +30942,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/searchMenu.tsx co
                       class="ant-menu-title-content"
                     >
                       <span
-                        class="ant-pro-menu-item ant-design-pro-layout-ytfc15"
+                        class="ant-pro-menu-item ant-design-pro-layout-1mfr4jg"
                         title="汇总数据"
                       >
                         汇总数据
@@ -30971,7 +30971,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/searchMenu.tsx co
                       class="ant-menu-title-content"
                     >
                       <span
-                        class="ant-pro-menu-item ant-design-pro-layout-ytfc15"
+                        class="ant-pro-menu-item ant-design-pro-layout-1mfr4jg"
                         title="明细数据"
                       >
                         明细数据
@@ -31000,7 +31000,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/searchMenu.tsx co
                       class="ant-menu-title-content"
                     >
                       <span
-                        class="ant-pro-menu-item ant-design-pro-layout-ytfc15"
+                        class="ant-pro-menu-item ant-design-pro-layout-1mfr4jg"
                         title="其他"
                       >
                         其他
@@ -31490,7 +31490,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/siderMode.tsx cor
                     class="ant-menu-item-group-title"
                   >
                     <span
-                      class="ant-pro-menu-item ant-design-pro-layout-ytfc15"
+                      class="ant-pro-menu-item ant-design-pro-layout-1mfr4jg"
                       title="管理页"
                     >
                       管理页
@@ -31641,7 +31641,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/siderMode.tsx cor
                     class="ant-menu-item-group-title"
                   >
                     <span
-                      class="ant-pro-menu-item ant-design-pro-layout-ytfc15"
+                      class="ant-pro-menu-item ant-design-pro-layout-1mfr4jg"
                       title="列表页"
                     >
                       列表页
@@ -31668,7 +31668,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/siderMode.tsx cor
                           class="ant-menu-title-content"
                         >
                           <span
-                            class="ant-pro-menu-item ant-design-pro-layout-ytfc15"
+                            class="ant-pro-menu-item ant-design-pro-layout-1mfr4jg"
                             title="一级列表页面"
                           >
                             <span
@@ -32930,7 +32930,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/siteMenu.tsx corr
                     class="ant-menu-item-group-title"
                   >
                     <span
-                      class="ant-pro-menu-item ant-design-pro-layout-ytfc15"
+                      class="ant-pro-menu-item ant-design-pro-layout-1mfr4jg"
                       title="一级列表页面"
                     >
                       一级列表页面
@@ -34748,7 +34748,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/splitMenus.tsx co
                         class="ant-menu-title-content"
                       >
                         <span
-                          class="ant-pro-menu-item ant-design-pro-layout-ytfc15"
+                          class="ant-pro-menu-item ant-design-pro-layout-1mfr4jg"
                           title="管理页"
                         >
                           <span
@@ -34799,7 +34799,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/splitMenus.tsx co
                         class="ant-menu-title-content"
                       >
                         <span
-                          class="ant-pro-menu-item ant-design-pro-layout-ytfc15"
+                          class="ant-pro-menu-item ant-design-pro-layout-1mfr4jg"
                           title="列表页"
                         >
                           <span
@@ -35473,7 +35473,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/splitMenus.tsx co
                     class="ant-menu-title-content"
                   >
                     <span
-                      class="ant-pro-menu-item ant-design-pro-layout-ytfc15"
+                      class="ant-pro-menu-item ant-design-pro-layout-1mfr4jg"
                       title="管理页"
                     >
                       <span
@@ -35525,7 +35525,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/splitMenus.tsx co
                     class="ant-menu-title-content"
                   >
                     <span
-                      class="ant-pro-menu-item ant-design-pro-layout-ytfc15"
+                      class="ant-pro-menu-item ant-design-pro-layout-1mfr4jg"
                       title="列表页"
                     >
                       <span
@@ -35929,7 +35929,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/splitMenus.tsx co
                     class="ant-menu-title-content"
                   >
                     <span
-                      class="ant-pro-menu-item ant-design-pro-layout-ytfc15"
+                      class="ant-pro-menu-item ant-design-pro-layout-1mfr4jg"
                       title="管理页"
                     >
                       <span
@@ -35981,7 +35981,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/splitMenus.tsx co
                     class="ant-menu-title-content"
                   >
                     <span
-                      class="ant-pro-menu-item ant-design-pro-layout-ytfc15"
+                      class="ant-pro-menu-item ant-design-pro-layout-1mfr4jg"
                       title="列表页"
                     >
                       <span
@@ -36499,7 +36499,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/theme.tsx correct
                     class="ant-menu-title-content"
                   >
                     <span
-                      class="ant-pro-menu-item ant-design-pro-layout-ytfc15"
+                      class="ant-pro-menu-item ant-design-pro-layout-1mfr4jg"
                       title="一级列表页面"
                     >
                       <span
@@ -37120,7 +37120,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/top-breadcrumb.ts
                       class="ant-menu-title-content"
                     >
                       <span
-                        class="ant-pro-menu-item ant-design-pro-layout-ytfc15"
+                        class="ant-pro-menu-item ant-design-pro-layout-1mfr4jg"
                         title="管理"
                       >
                         管理
@@ -37767,7 +37767,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/topMode.tsx corre
                           class="ant-menu-title-content"
                         >
                           <span
-                            class="ant-pro-menu-item ant-design-pro-layout-ytfc15"
+                            class="ant-pro-menu-item ant-design-pro-layout-1mfr4jg"
                             title="管理页"
                           >
                             <span
@@ -37818,7 +37818,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/topMode.tsx corre
                           class="ant-menu-title-content"
                         >
                           <span
-                            class="ant-pro-menu-item ant-design-pro-layout-ytfc15"
+                            class="ant-pro-menu-item ant-design-pro-layout-1mfr4jg"
                             title="列表页"
                           >
                             <span

@@ -157,25 +157,27 @@ class MenuUtil {
 
   /** Get SubMenu or Item */
   getSubMenuOrItem = (item: MenuDataItem, level: number): ItemType | ItemType[] => {
-    const { subMenuItemRender, prefixCls, menu, iconPrefixes, layout } = this.props;
+    const { subMenuItemRender, collapsed, prefixCls, menu, iconPrefixes, layout } = this.props;
+    const isGroup = menu?.type === 'group' && layout !== 'top';
     const designToken = this.props.token;
-    const itemCss = cx(
-      `${prefixCls}-menu-item`,
-      css(`
-       display: flex;
-       align-items: center;
-      `),
-    );
+    const genItemCss = (center?: boolean) =>
+      cx(
+        `${prefixCls}-menu-item`,
+        css`
+          display: flex;
+          align-items: center;
+          justify-content: ${center ? 'center' : 'flex-start'};
+        `,
+      );
     const name = this.getIntlName(item);
     const children = item?.children || item?.routes;
     if (Array.isArray(children) && children.length > 0) {
-      const isGroup = menu?.type === 'group' && layout !== 'top';
       /** Menu 第一级可以有icon，或者 isGroup 时第二级别也要有 */
       const hasIcon = level === 0 || (isGroup && level === 1);
       //  get defaultTitle by menuItemRender
       const iconDom = getIcon(item.icon, iconPrefixes);
       const defaultTitle = item.icon ? (
-        <span className={itemCss} title={name}>
+        <span className={genItemCss()} title={name}>
           {hasIcon && iconDom}
           <span
             className={genMenuItemCss(prefixCls, {
@@ -188,7 +190,7 @@ class MenuUtil {
           </span>
         </span>
       ) : (
-        <span className={itemCss} title={name}>
+        <span className={genItemCss()} title={name}>
           {name}
         </span>
       );
@@ -196,7 +198,7 @@ class MenuUtil {
       /** 如果是 Group 是不需要展示 icon 的 */
       const subMenuTitle =
         isGroup && level === 0 ? (
-          <span className={itemCss} title={name}>
+          <span className={genItemCss(isGroup && level === 0 && collapsed)} title={name}>
             {name}
           </span>
         ) : (
