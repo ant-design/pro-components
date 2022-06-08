@@ -282,7 +282,7 @@ export const DefaultDesignToken = {
     menuItemSelectedBgColor: 'rgba(0, 0, 0, 0.04)',
     menuItemCollapsedHoverBgColor: 'rgba(90, 75, 75, 0.03)',
     menuItemCollapsedSelectedBgColor: 'rgba(0, 0, 0, 0.04)',
-    menuSelectedTextColor: 'rgb(0,0,0,0.85)',
+    menuSelectedTextColor: 'rgb(0,0,0,0.95)',
     subMenuSelectedTextColor: 'rgb(0,0,0,0.95)',
   },
   header: {

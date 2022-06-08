@@ -293,7 +293,7 @@ export type SiderMenuProps = {
 export type PrivateSiderMenuProps = {
   matchMenuKeys: string[];
   originCollapsed?: boolean;
-  menuRenderType?: 'header';
+  menuRenderType?: 'header' | 'sider';
 };
 
 const SiderMenu: React.FC<SiderMenuProps & PrivateSiderMenuProps> = (props) => {

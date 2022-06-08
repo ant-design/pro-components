@@ -1213,7 +1213,7 @@ exports[`BasicLayout 🥩 mix layout hideInMenu render right 1`] = `
               </div>
             </li>
             <li
-              class="ant-pro-menu-item ant-design-pro-layout-1jy8a3x"
+              class="ant-pro-menu-item ant-design-pro-layout-959zjv"
               data-menu-id="rc-menu-uuid-84044-9-/list"
               role="menuitem"
               style="padding-left: 16px;"
@@ -1227,7 +1227,7 @@ exports[`BasicLayout 🥩 mix layout hideInMenu render right 1`] = `
                   class="ant-pro-menu-item ant-design-pro-layout-70qvj9"
                 >
                   <span
-                    class="ant-pro-menu-item-title"
+                    class="ant-pro-menu-item-title ant-design-pro-layout-nq2ff"
                   >
                     列表页
                   </span>

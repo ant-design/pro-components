@@ -210,8 +210,10 @@ const TopNavHeader: React.FC<TopNavHeaderProps> = (props) => {
         {...props.menuProps}
         collapsed={false}
         menuRenderType="header"
+        mode="horizontal"
       />
     );
+
     if (headerContentRender) {
       return headerContentRender(props, defaultDom);
     }

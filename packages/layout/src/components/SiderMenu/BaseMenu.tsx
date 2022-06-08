@@ -3,7 +3,7 @@ import { isImg, isUrl, useMountMergeState } from '@ant-design/pro-utils';
 import type { MenuProps, MenuTheme } from 'antd';
 import { ConfigProvider, Menu, Skeleton } from 'antd';
 import type { ItemType } from 'antd/lib/menu/hooks/useItems';
-import React, { useContext, useEffect, useMemo, useRef, useState } from 'react';
+import React, { useContext, useEffect, useMemo, useRef } from 'react';
 import type { PureSettings } from '../../defaultSettings';
 import { defaultSettings } from '../../defaultSettings';
 import { css, cx } from '../../emotion';
@@ -88,34 +88,34 @@ let IconFont = createFromIconfontCN({
 const genMenuItemCss = (
   prefixCls: string | undefined,
   state: { hasIcon?: boolean; collapsed?: boolean; collapsedShowTitle?: boolean },
-) =>
-  cx(
-    `${prefixCls}-menu-item-title`,
-    state.hasIcon &&
+) => {
+  if (state.hasIcon && state.collapsed) {
+    return cx(
+      `${prefixCls}-menu-item-title`,
       !state.collapsedShowTitle &&
-      css`
-        margin-left: 8px;
-      `,
-    state.hasIcon &&
-      state.collapsed &&
-      !state.collapsedShowTitle &&
-      css`
-        display: none;
-      `,
-    state.hasIcon &&
-      state.collapsed &&
+        css`
+          display: none;
+        `,
       state.collapsedShowTitle &&
-      css`
-        text-align: center;
-        font-size: 12px;
-        height: 20px;
-        line-height: 20px;
-        overflow: hidden;
-        text-overflow: ellipsis;
-        white-space: nowrap;
-        width: 100%;
-      `,
+        css`
+          text-align: center;
+          font-size: 12px;
+          height: 20px;
+          line-height: 20px;
+          overflow: hidden;
+          text-overflow: ellipsis;
+          white-space: nowrap;
+          width: 100%;
+        `,
+    );
+  }
+  return cx(
+    `${prefixCls}-menu-item-title`,
+    css`
+      margin-left: 8px;
+    `,
   );
+};
 
 // Allow menu.js config icon as string or ReactNode
 //   icon: 'setting',
@@ -141,11 +141,13 @@ const getIcon = (
 };
 
 class MenuUtil {
-  constructor(props: BaseMenuProps & { token?: LayoutDesignToken }) {
+  constructor(
+    props: BaseMenuProps & { token?: LayoutDesignToken; menuRenderType?: 'header' | 'sider' },
+  ) {
     this.props = props;
   }
 
-  props: BaseMenuProps & { token?: LayoutDesignToken };
+  props: BaseMenuProps & { token?: LayoutDesignToken; menuRenderType?: 'header' | 'sider' };
 
   getNavMenuItems = (menusData: MenuDataItem[] = [], level: number): ItemType[] =>
     menusData
@@ -269,6 +271,7 @@ class MenuUtil {
       iconPrefixes,
       collapsed,
     } = this.props;
+
     // if local is true formatMessage all name。
     const name = this.getIntlName(item);
     const { prefixCls, menu } = this.props;
@@ -475,13 +478,13 @@ const BaseMenu: React.FC<BaseMenuProps & PrivateSiderMenuProps> = (props) => {
     [openKeys && openKeys.join(','), props.layout, props.collapsed],
   );
 
-  const [menuUtils] = useState(
-    () =>
-      new MenuUtil({
-        ...props,
-        token: designToken,
-      }),
-  );
+  const menuUtils = useMemo(() => {
+    return new MenuUtil({
+      ...props,
+      token: designToken,
+      menuRenderType,
+    });
+  }, [designToken, menuRenderType, props]);
 
   const menuItemCssMap = useMemo(() => {
     const itemHoverColor = !collapsed
@@ -547,7 +550,7 @@ const BaseMenu: React.FC<BaseMenuProps & PrivateSiderMenuProps> = (props) => {
           font-size: 16px;
         }
       `,
-      horizontalItem: css`
+      horizontalMenuItem: css`
         flex-direction: column;
         align-items: center;
         justify-content: center;
@@ -558,14 +561,37 @@ const BaseMenu: React.FC<BaseMenuProps & PrivateSiderMenuProps> = (props) => {
           background-color: ${itemHoverColor};
           border-radius: ${designToken.borderRadiusBase};
         }
-      `,
-      verticalItem: css`
         &:hover {
           background-color: ${itemHoverColor};
           border-radius: ${designToken.borderRadiusBase};
+          > * {
+            color: ${menuDesignToken.menuSelectedTextColor};
+            .anticon {
+              color: ${menuDesignToken.menuSelectedTextColor};
+            }
+            > * {
+              color: ${menuDesignToken.menuSelectedTextColor};
+            }
+          }
         }
       `,
-      selectedItem: css`
+      /**
+       * 水平的 menuItem 需要一个hover
+       */
+      verticalMenuItem: css`
+        &:hover {
+          > * {
+            color: ${menuDesignToken.menuSelectedTextColor};
+            .anticon {
+              color: ${menuDesignToken.menuSelectedTextColor};
+            }
+            > * {
+              color: ${menuDesignToken.menuSelectedTextColor};
+            }
+          }
+        }
+      `,
+      selectedMenuItem: css`
         background-color: ${itemSelectedColor};
         border-radius: ${designToken.borderRadiusBase};
         .${antPrefixClassName}-menu-title-content {
@@ -746,9 +772,6 @@ const BaseMenu: React.FC<BaseMenuProps & PrivateSiderMenuProps> = (props) => {
     );
   }
 
-  // sync props
-  menuUtils.props = props;
-
   // 这次 openKeys === false 的时候的情况，这种情况下帮用户选中一次
   // 第二此不会使用，所以用了 defaultOpenKeys
   // 这里返回 null，是为了让 defaultOpenKeys 生效
@@ -819,8 +842,10 @@ const BaseMenu: React.FC<BaseMenuProps & PrivateSiderMenuProps> = (props) => {
              */
             collapsed && menu?.collapsedShowTitle && menuItemCssMap.collapsedItemShowTitle,
             // 顶部菜单和水平菜单需要不同的 css
-            mode !== 'horizontal' ? menuItemCssMap.verticalItem : menuItemCssMap.horizontalItem,
-            stateProps?.selected ? menuItemCssMap.selectedItem : null,
+            mode !== 'horizontal'
+              ? menuItemCssMap.verticalMenuItem
+              : menuItemCssMap.horizontalMenuItem,
+            stateProps?.selected ? menuItemCssMap.selectedMenuItem : null,
           ),
         });
       }}
