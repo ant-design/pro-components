@@ -5,7 +5,7 @@ import {
   VerticalAlignTopOutlined,
 } from '@ant-design/icons';
 import { useIntl } from '@ant-design/pro-provider';
-import { useRefFunction } from '@ant-design/pro-utils';
+import { runFunction, useRefFunction } from '@ant-design/pro-utils';
 import type { TableColumnType } from 'antd';
 import { Checkbox, ConfigProvider, Popover, Space, Tooltip, Tree } from 'antd';
 import type { CheckboxChangeEvent } from 'antd/lib/checkbox';
@@ -203,8 +203,14 @@ const CheckboxList: React.FC<{
       showLine={false}
       titleRender={(_node) => {
         const node = { ..._node, children: undefined };
-        // @ts-ignore
-        return <CheckboxListItem className={className} {...node} columnKey={node.key} />;
+        return (
+          <CheckboxListItem
+            className={className}
+            {...node}
+            title={runFunction(node.title, node)}
+            columnKey={node.key}
+          />
+        );
       }}
       height={280}
       treeData={treeDataConfig.list}
