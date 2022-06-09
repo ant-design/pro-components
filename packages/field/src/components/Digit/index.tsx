@@ -19,8 +19,15 @@ const FieldDigit: ProFieldFC<FieldDigitProps> = (
   ref,
 ) => {
   if (type === 'read') {
+    let fractionDigits = {} as any;
+    if (fieldProps?.precision) {
+      fractionDigits = {
+        minimumFractionDigits: Number(fieldProps.precision),
+        maximumFractionDigits: Number(fieldProps.precision),
+      };
+    }
     const digit = new Intl.NumberFormat(undefined, {
-      minimumSignificantDigits: 1,
+      ...fractionDigits,
       ...(fieldProps?.intlProps || {}),
     }).format(Number(text) as number);
     const dom = <span ref={ref}>{fieldProps?.formatter?.(digit) || digit}</span>;
