@@ -1,15 +1,15 @@
 /** Title: 自定义配置 */
-import React from 'react';
-import { Divider } from 'antd';
-import { WaterMark } from '@ant-design/pro-layout';
-import ProCard from '@ant-design/pro-card';
-import ProForm, {
-  ProFormDependency,
+import {
+  ProCard,
+  ProForm,
   ProFormColorPicker,
+  ProFormDependency,
+  ProFormField,
   ProFormSlider,
   ProFormText,
-  ProFormField,
-} from '@ant-design/pro-form';
+  WaterMark,
+} from '@ant-design/pro-components';
+import { Divider } from 'antd';
 
 export default () => {
   return (

@@ -1,11 +1,9 @@
-import React from 'react';
 import ProForm, { ProFormMoney } from '@ant-design/pro-form';
-import { act } from 'react-dom/test-utils';
-
-import { mount } from 'enzyme';
-import { waitForComponentToPaint } from '../util';
 import { ConfigProvider } from 'antd';
 import enGBIntl from 'antd/lib/locale/en_GB';
+import { mount } from 'enzyme';
+import { act } from 'react-dom/test-utils';
+import { waitForComponentToPaint } from '../util';
 
 describe('💵 ProFormMoney', () => {
   it('💵 ProFormMoney value expect number', async () => {

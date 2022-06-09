@@ -1,8 +1,8 @@
-import React, { useContext } from 'react';
-import { Alert, Space, ConfigProvider } from 'antd';
-import './index.less';
 import type { IntlType } from '@ant-design/pro-provider';
 import { useIntl } from '@ant-design/pro-provider';
+import { Alert, ConfigProvider, Space } from 'antd';
+import React, { useContext } from 'react';
+import './index.less';
 
 export type AlertRenderType<T> =
   | ((props: {

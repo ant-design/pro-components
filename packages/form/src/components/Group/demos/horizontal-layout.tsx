@@ -1,6 +1,4 @@
-import React from 'react';
-import ProForm, { ProFormList, ProFormText } from '@ant-design/pro-form';
-import ProCard from '@ant-design/pro-card';
+import { ProCard, ProForm, ProFormList, ProFormText } from '@ant-design/pro-components';
 
 const Demo = () => {
   return (

@@ -36,6 +36,7 @@ footer: Open-source MIT Licensed | © 2017-present
 
 | 组件 | 下载量 | 版本 |
 | --- | --- | --- |
+| pro-components | [![layout](https://img.shields.io/npm/dw/@ant-design/pro-components.svg)](https://www.npmjs.com/package/@ant-design/pro-components) | [![npm package](https://img.shields.io/npm/v/@ant-design/pro-components.svg?style=flat-square?style=flat-square)](https://www.npmjs.com/package/@ant-design/pro-components) |
 | pro-layout | [![layout](https://img.shields.io/npm/dw/@ant-design/pro-layout.svg)](https://www.npmjs.com/package/@ant-design/pro-layout) | [![npm package](https://img.shields.io/npm/v/@ant-design/pro-layout.svg?style=flat-square?style=flat-square)](https://www.npmjs.com/package/@ant-design/pro-layout) |
 | pro-table | [![table](https://img.shields.io/npm/dw/@ant-design/pro-table.svg)](https://www.npmjs.com/package/@ant-design/pro-table) | [![npm package](https://img.shields.io/npm/v/@ant-design/pro-table.svg?style=flat-square?style=flat-square)](https://www.npmjs.com/package/@ant-design/pro-table) |
 | pro-field | [![field](https://img.shields.io/npm/dw/@ant-design/pro-field.svg)](https://www.npmjs.com/package/@ant-design/pro-field) | [![npm package](https://img.shields.io/npm/v/@ant-design/pro-field.svg?style=flat-square?style=flat-square)](https://www.npmjs.com/package/@ant-design/pro-field) |

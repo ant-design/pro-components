@@ -1,24 +1,24 @@
+import type { SketchPickerProps } from '@chenshuai2144/sketch-color';
 import type {
-  InputProps,
-  SelectProps,
-  TreeSelectProps,
-  PopoverProps,
-  DatePickerProps,
-  TimeRangePickerProps,
-  CheckboxProps,
-  RateProps,
-  RadioProps,
-  ProgressProps,
   AvatarProps,
-  InputNumberProps,
-  SwitchProps,
   CascaderProps,
+  CheckboxProps,
+  DatePickerProps,
   FormInstance,
   ImageProps,
+  InputNumberProps,
+  InputProps,
+  PopoverProps,
+  ProgressProps,
+  RadioProps,
+  RateProps,
+  SelectProps,
+  SwitchProps,
+  TimeRangePickerProps,
+  TreeSelectProps,
 } from 'antd';
 import type { RangePickerProps } from 'antd/lib/date-picker';
 import type { PasswordProps, TextAreaProps } from 'antd/lib/input';
-import type { SketchPickerProps } from '@chenshuai2144/sketch-color';
 import type { ProFieldRequestData, ProSchema } from '../typing';
 
 export interface ProFieldValueTypeWithFieldProps {

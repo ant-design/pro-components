@@ -1,5 +1,5 @@
+import { ConfigProvider, Space } from 'antd';
 import React, { useContext, useImperativeHandle } from 'react';
-import { Space, ConfigProvider } from 'antd';
 import type { ProFieldFC } from '../../index';
 
 const addArrayKeys = (doms: React.ReactNode[]) =>

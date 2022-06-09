@@ -287,8 +287,7 @@ const valueEnum = {
 ```
 
 ```tsx
-import React from 'react';
-import { ProFormSelect } from '@ant-design/pro-form';
+import { ProFormSelect } from '@ant-design/pro-components';
 
 const valueEnum = {
   all: { text: '全部', status: 'Default' },
@@ -365,8 +364,7 @@ const columns = [
 ```
 
 ```tsx
-import React from 'react';
-import { ProFormSelect } from '@ant-design/pro-form';
+import { ProFormSelect } from '@ant-design/pro-components';
 
 const options = [
   {
@@ -435,8 +433,7 @@ const columns = [
 ```
 
 ```tsx
-import React from 'react';
-import ProForm, { ProFormText, ProFormSelect } from '@ant-design/pro-form';
+import { ProForm, ProFormSelect, ProFormText } from '@ant-design/pro-components';
 
 const request = async (params) => {
   console.log(params);

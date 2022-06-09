@@ -1,8 +1,7 @@
-import React from 'react';
-import moment from 'moment';
 import type { ProColumns } from '@ant-design/pro-table';
-import { TableStatus, TableDropdown } from '@ant-design/pro-table';
+import { TableDropdown, TableStatus } from '@ant-design/pro-table';
 import { Input, message } from 'antd';
+import moment from 'moment';
 
 const getFetchData = (
   size: number,

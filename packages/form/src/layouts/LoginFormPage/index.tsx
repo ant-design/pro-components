@@ -1,9 +1,8 @@
+import { useIntl } from '@ant-design/pro-provider';
 import { ConfigProvider } from 'antd';
 import React, { useContext, useMemo } from 'react';
 import type { ProFormProps } from '../ProForm';
 import { ProForm } from '../ProForm';
-import { useIntl } from '@ant-design/pro-provider';
-
 import './index.less';
 
 export type LoginFormPageProps<T> = {
@@ -76,18 +75,25 @@ export function LoginFormPage<T = Record<string, any>>(props: Partial<LoginFormP
 
   const intl = useIntl();
 
+  const genSubmitButtonProps = () => {
+    if (proFormProps.submitter === false) return false;
+    if (proFormProps.submitter?.submitButtonProps === false) return false;
+    return {
+      size: 'large',
+      style: {
+        width: '100%',
+      },
+      ...proFormProps.submitter?.submitButtonProps,
+    };
+  };
+
   const submitter = {
     searchConfig: {
       submitText: intl.getMessage('loginForm.submitText', '登录'),
     },
     render: (_, dom) => dom.pop(),
-    submitButtonProps: {
-      size: 'large',
-      style: {
-        width: '100%',
-      },
-    },
     ...proFormProps.submitter,
+    submitButtonProps: genSubmitButtonProps(),
   } as ProFormProps['submitter'];
 
   const context = useContext(ConfigProvider.ConfigContext);

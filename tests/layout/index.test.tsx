@@ -1,15 +1,14 @@
+import type { BasicLayoutProps } from '@ant-design/pro-components';
+import { BasicLayout } from '@ant-design/pro-components';
+import { LoginForm, ProFormText } from '@ant-design/pro-form';
+import '@testing-library/jest-dom';
+import { render } from '@testing-library/react';
+import { ConfigProvider } from 'antd';
+import en_US from 'antd/lib/locale/en_US';
 import { mount, render as enzymeRender } from 'enzyme';
 import React, { useState } from 'react';
 import { act } from 'react-dom/test-utils';
-import { render } from '@testing-library/react';
-import '@testing-library/jest-dom';
-import type { BasicLayoutProps } from '@ant-design/pro-layout';
-import BasicLayout from '@ant-design/pro-layout';
-
 import { waitForComponentToPaint } from '../util';
-import { LoginForm, ProFormText } from '@ant-design/pro-form';
-import { ConfigProvider } from 'antd';
-import en_US from 'antd/lib/locale/en_US';
 
 describe('BasicLayout', () => {
   beforeAll(() => {

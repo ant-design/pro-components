@@ -1,8 +1,7 @@
-﻿import React, { useState } from 'react';
-
-import ProDescriptions from '@ant-design/pro-descriptions';
-import ProCard from '@ant-design/pro-card';
-import ProForm, {
+﻿import {
+  ProCard,
+  ProDescriptions,
+  ProForm,
   ProFormDependency,
   ProFormDigit,
   ProFormList,
@@ -10,7 +9,8 @@ import ProForm, {
   ProFormSwitch,
   ProFormText,
   ProFormTextArea,
-} from '@ant-design/pro-form';
+} from '@ant-design/pro-components';
+import { useState } from 'react';
 
 const valueTypeArray = [
   'password',

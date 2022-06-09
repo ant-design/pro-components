@@ -1,8 +1,6 @@
+import type { ProColumns } from '@ant-design/pro-components';
+import { EditableProTable, ProCard, ProFormField, ProFormRadio } from '@ant-design/pro-components';
 import React, { useState } from 'react';
-import type { ProColumns } from '@ant-design/pro-table';
-import { EditableProTable } from '@ant-design/pro-table';
-import { ProFormRadio, ProFormField } from '@ant-design/pro-form';
-import ProCard from '@ant-design/pro-card';
 
 const waitTime = (time: number = 100) => {
   return new Promise((resolve) => {

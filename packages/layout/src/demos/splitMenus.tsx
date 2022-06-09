@@ -1,5 +1,4 @@
-import React from 'react';
-import ProLayout, { SettingDrawer } from '@ant-design/pro-layout';
+import { ProLayout, SettingDrawer } from '@ant-design/pro-components';
 import defaultProps from './_defaultProps';
 
 export default () => {

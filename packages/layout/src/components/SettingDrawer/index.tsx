@@ -1,32 +1,29 @@
-import './index.less';
 import {
-  CopyOutlined,
   CloseOutlined,
+  CopyOutlined,
   NotificationOutlined,
   SettingOutlined,
 } from '@ant-design/icons';
 import { isBrowser, merge } from '@ant-design/pro-utils';
-import { useUrlSearchParams } from '@umijs/use-params';
-
-import { Button, Divider, Drawer, List, Switch, ConfigProvider, message, Alert } from 'antd';
-import React, { useState, useEffect, useRef } from 'react';
 import {
   disable as darkreaderDisable,
   enable as darkreaderEnable,
   setFetchMethod as setFetch,
 } from '@umijs/ssr-darkreader';
-
-import useMergedState from 'rc-util/lib/hooks/useMergedState';
+import { useUrlSearchParams } from '@umijs/use-params';
+import { Alert, Button, ConfigProvider, Divider, Drawer, List, message, Switch } from 'antd';
 import omit from 'omit.js';
+import useMergedState from 'rc-util/lib/hooks/useMergedState';
+import React, { useEffect, useRef, useState } from 'react';
 import type { ProSettings } from '../../defaultSettings';
 import defaultSettings from '../../defaultSettings';
-
+import { getLanguage, gLocaleObject } from '../../locales';
+import { genStringToTheme } from '../../utils/utils';
 import BlockCheckbox from './BlockCheckbox';
-import ThemeColor from './ThemeColor';
-import { gLocaleObject, getLanguage } from '../../locales';
+import './index.less';
 import LayoutSetting, { renderLayoutSettingItem } from './LayoutChange';
 import RegionalSetting from './RegionalChange';
-import { genStringToTheme } from '../../utils/utils';
+import ThemeColor from './ThemeColor';
 
 type BodyProps = {
   title: string;

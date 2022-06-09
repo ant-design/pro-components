@@ -1,8 +1,7 @@
-import React from 'react';
-import moment from 'moment';
-import type { ProColumns } from '@ant-design/pro-table';
-import ProTable from '@ant-design/pro-table';
+import type { ProColumns } from '@ant-design/pro-components';
+import { ProTable } from '@ant-design/pro-components';
 import { Space } from 'antd';
+import moment from 'moment';
 
 const valueEnum = {
   0: 'close',

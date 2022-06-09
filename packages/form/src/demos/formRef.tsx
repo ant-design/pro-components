@@ -1,9 +1,8 @@
-import React, { useRef } from 'react';
-import { message, Button } from 'antd';
-import type { ProFormInstance } from '@ant-design/pro-form';
-import { ProFormDatePicker } from '@ant-design/pro-form';
-import ProForm, { ProFormText } from '@ant-design/pro-form';
+import type { ProFormInstance } from '@ant-design/pro-components';
+import { ProForm, ProFormDatePicker, ProFormText } from '@ant-design/pro-components';
+import { Button, message } from 'antd';
 import moment from 'moment';
+import { useRef } from 'react';
 
 const waitTime = (time: number = 100) => {
   return new Promise((resolve) => {

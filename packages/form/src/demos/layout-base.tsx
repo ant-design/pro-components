@@ -1,16 +1,18 @@
-import React from 'react';
-import ProForm, {
-  ProFormText,
-  ProFormDateRangePicker,
-  ProFormSelect,
-  ProFormRadio,
-  ProFormUploadButton,
-  ProFormDigit,
-  ProFormTextArea,
-} from '@ant-design/pro-form';
-import { BasicLayout, FooterToolbar, PageContainer } from '@ant-design/pro-layout';
-import { Card } from 'antd';
 import { SmileOutlined } from '@ant-design/icons';
+import {
+  BasicLayout,
+  FooterToolbar,
+  PageContainer,
+  ProForm,
+  ProFormDateRangePicker,
+  ProFormDigit,
+  ProFormRadio,
+  ProFormSelect,
+  ProFormText,
+  ProFormTextArea,
+  ProFormUploadButton,
+} from '@ant-design/pro-components';
+import { Card } from 'antd';
 
 export default () => {
   return (

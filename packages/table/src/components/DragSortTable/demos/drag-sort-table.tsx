@@ -1,8 +1,8 @@
-import React, { useState } from 'react';
-import type { ProColumns } from '@ant-design/pro-table';
-import { DragSortTable } from '@ant-design/pro-table';
 import { MenuOutlined } from '@ant-design/icons';
+import type { ProColumns } from '@ant-design/pro-components';
+import { DragSortTable } from '@ant-design/pro-components';
 import { message } from 'antd';
+import { useState } from 'react';
 
 const data = [
   {

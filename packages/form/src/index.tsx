@@ -1,37 +1,31 @@
 import './index.less';
+import { ProForm } from './layouts';
 
 export { ProFormContext } from '@ant-design/pro-utils';
-
 export type {
   FormInstance,
   FormItemProps,
   FormProps,
-  ProFormInstance,
   LightWrapperProps,
+  ProFormInstance,
 } from './BaseForm';
-
+export * from './components';
+export type {
+  FormListActionType,
+  ProFormCaptchaProps,
+  ProFormColumnsType,
+  ProFormDependencyProps,
+  ProFormDigitRangeProps,
+  ProFormFieldProps,
+  ProFormFieldSetProps,
+  ProFormLayoutType,
+  ProFormListProps,
+} from './components';
+export { FieldContext } from './FieldContext';
 export type {
   LightFilterFooterRender,
   ProFormFieldItemProps as ProFormItemProps,
 } from './interface';
-
-export type {
-  ProFormFieldProps,
-  ProFormCaptchaProps,
-  ProFormLayoutType,
-  ProFormFieldSetProps,
-  ProFormDependencyProps,
-  ProFormListProps,
-  ProFormColumnsType,
-  ProFormDigitRangeProps,
-} from './components';
-
-export { FieldContext } from './FieldContext';
-
-import { ProForm } from './layouts';
-
 export * from './layouts';
-
-export * from './components';
 
 export default ProForm;

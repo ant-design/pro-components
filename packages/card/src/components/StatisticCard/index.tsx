@@ -1,13 +1,12 @@
-import React, { useContext } from 'react';
 import { ConfigProvider } from 'antd';
-import Card from '../Card';
-import type { CardProps } from '../../type';
 import classNames from 'classnames';
-import Statistic from '../Statistic';
-import type { StatisticProps } from '../Statistic';
+import React, { useContext } from 'react';
+import type { CardProps } from '../../type';
+import Card from '../Card';
 import Divider from '../Divider';
 import Operation from '../Operation';
-
+import type { StatisticProps } from '../Statistic';
+import Statistic from '../Statistic';
 import './index.less';
 
 export type StatisticCardProps = {

@@ -1,12 +1,12 @@
+import ProList, { BaseProList } from '@ant-design/pro-list';
+import '@testing-library/jest-dom';
+import { act, fireEvent, render as reactRender } from '@testing-library/react';
+import { Tag } from 'antd';
 import { mount } from 'enzyme';
 import type { ReactText } from 'react';
-import React, { useState } from 'react';
-import ProList, { BaseProList } from '@ant-design/pro-list';
+import { useState } from 'react';
 import PaginationDemo from '../../packages/list/src/demos/pagination';
 import { waitForComponentToPaint } from '../util';
-import { render as reactRender, act, fireEvent } from '@testing-library/react';
-import '@testing-library/jest-dom';
-import { Tag } from 'antd';
 
 type DataSourceType = {
   name: string;

@@ -1,10 +1,8 @@
 /** Title: 前置水印 */
-import React from 'react';
-import { WaterMark } from '@ant-design/pro-layout';
-import { Tooltip } from 'antd';
 import { QuestionCircleOutlined } from '@ant-design/icons';
-import type { ProColumns } from '@ant-design/pro-table';
-import ProTable, { TableDropdown } from '@ant-design/pro-table';
+import type { ProColumns } from '@ant-design/pro-components';
+import { ProTable, TableDropdown, WaterMark } from '@ant-design/pro-components';
+import { Tooltip } from 'antd';
 
 const valueEnum = {
   0: 'close',

@@ -1,6 +1,5 @@
-import React from 'react';
-import ProCard, { StatisticCard } from '@ant-design/pro-card';
-import type { StatisticProps } from '@ant-design/pro-card';
+import type { StatisticProps } from '@ant-design/pro-components';
+import { ProCard, StatisticCard } from '@ant-design/pro-components';
 
 const { Statistic } = StatisticCard;
 

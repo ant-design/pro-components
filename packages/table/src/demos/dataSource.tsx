@@ -1,8 +1,7 @@
-import React from 'react';
-import { Button, Tooltip, Dropdown, Menu, Input } from 'antd';
 import { EllipsisOutlined, QuestionCircleOutlined, SearchOutlined } from '@ant-design/icons';
-import type { ProColumns } from '@ant-design/pro-table';
-import ProTable, { TableDropdown } from '@ant-design/pro-table';
+import type { ProColumns } from '@ant-design/pro-components';
+import { ProTable, TableDropdown } from '@ant-design/pro-components';
+import { Button, Dropdown, Input, Menu, Tooltip } from 'antd';
 
 const valueEnum = {
   0: 'close',

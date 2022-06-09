@@ -1,8 +1,8 @@
-import React, { useRef } from 'react';
 import { PlusOutlined } from '@ant-design/icons';
-import { Button, Tag, Space, Input } from 'antd';
-import type { ProColumns, ActionType } from '@ant-design/pro-table';
-import ProTable, { TableDropdown } from '@ant-design/pro-table';
+import type { ActionType, ProColumns } from '@ant-design/pro-components';
+import { ProTable, TableDropdown } from '@ant-design/pro-components';
+import { Button, Input, Space, Tag } from 'antd';
+import { useRef } from 'react';
 import request from 'umi-request';
 
 type GithubIssueItem = {
@@ -103,6 +103,7 @@ const columns: ProColumns<GithubIssueItem>[] = [
     formItemProps: {
       noStyle: true,
     },
+    ignoreFormItem: true,
     renderFormItem: () => {
       return <Input />;
     },

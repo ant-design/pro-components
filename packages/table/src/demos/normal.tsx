@@ -1,8 +1,7 @@
-import React from 'react';
-import { Button, Tooltip } from 'antd';
 import { DownOutlined, QuestionCircleOutlined } from '@ant-design/icons';
-import type { ProColumns } from '@ant-design/pro-table';
-import ProTable, { TableDropdown } from '@ant-design/pro-table';
+import type { ProColumns } from '@ant-design/pro-components';
+import { ProTable, TableDropdown } from '@ant-design/pro-components';
+import { Button, Tooltip } from 'antd';
 
 const valueEnum = {
   0: 'close',
@@ -119,19 +118,12 @@ const columns: ProColumns<TableListItem>[] = [
 export default () => {
   return (
     <ProTable<TableListItem>
-      columns={columns}
-      request={(params, sorter, filter) => {
-        // 表单搜索项会从 params 传入，传递给后端接口。
-        console.log(params, sorter, filter);
-        return Promise.resolve({
-          data: tableListDataSource,
-          success: true,
-        });
-      }}
+      dataSource={tableListDataSource}
       rowKey="key"
       pagination={{
         showQuickJumper: true,
       }}
+      columns={columns}
       search={false}
       dateFormatter="string"
       headerTitle="表格标题"

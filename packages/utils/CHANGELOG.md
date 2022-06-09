@@ -2,6 +2,34 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.42.1](https://github.com/ant-design/pro-components/compare/@ant-design/pro-utils@1.42.0...@ant-design/pro-utils@1.42.1) (2022-06-02)
+
+### Bug Fixes
+
+- [#5273](https://github.com/ant-design/pro-components/issues/5273) for all components ([#5314](https://github.com/ant-design/pro-components/issues/5314)) ([d25e87c](https://github.com/ant-design/pro-components/commit/d25e87c68db8e3c8d120ffc4cc7cd95e33ce6c24))
+- **form:** fix Cascader and TreeSelect no has light lable error ([#5310](https://github.com/ant-design/pro-components/issues/5310)) ([2058bf4](https://github.com/ant-design/pro-components/commit/2058bf4179246bd3dd9b2fc7888fb2665e316d30))
+
+# [1.42.0](https://github.com/ant-design/pro-components/compare/@ant-design/pro-utils@1.41.4...@ant-design/pro-utils@1.42.0) (2022-05-26)
+
+### Bug Fixes
+
+- **form:** ProFormCheckBox support readonly lable ([ea574c4](https://github.com/ant-design/pro-components/commit/ea574c4d0206f70956a0a2009ba28722716a2ae3))
+- **table:** useEditableArray fix child record traversal ([#5244](https://github.com/ant-design/pro-components/issues/5244)) ([762022c](https://github.com/ant-design/pro-components/commit/762022c2ecb514e4533de4713f5fa3f4bd8b042d))
+
+### Features
+
+- **table:** renderFormItem support ignoreFormItem ([7aae13d](https://github.com/ant-design/pro-components/commit/7aae13d791452121eedfc38c43676fc9a0f3ba05))
+
+## [1.41.4](https://github.com/ant-design/pro-components/compare/@ant-design/pro-utils@1.41.3...@ant-design/pro-utils@1.41.4) (2022-05-20)
+
+**Note:** Version bump only for package @ant-design/pro-utils
+
+## [1.41.3](https://github.com/ant-design/pro-components/compare/@ant-design/pro-utils@1.41.2...@ant-design/pro-utils@1.41.3) (2022-05-20)
+
+### Bug Fixes
+
+- **form:** 解决 ProFormSelect、ProFormDatePicker、ProFormTimePicker 在 LightFilter 模式下点击激活下拉选项后再次点击未隐藏下拉框的问题 ([#5169](https://github.com/ant-design/pro-components/issues/5169)) ([149cdff](https://github.com/ant-design/pro-components/commit/149cdff6e8f433c78bd3d006386b993d28f7f13e)), closes [fix#5010](https://github.com/fix/issues/5010) [fix#5010](https://github.com/fix/issues/5010)
+
 ## [1.41.2](https://github.com/ant-design/pro-components/compare/@ant-design/pro-utils@1.41.1...@ant-design/pro-utils@1.41.2) (2022-05-12)
 
 **Note:** Version bump only for package @ant-design/pro-utils

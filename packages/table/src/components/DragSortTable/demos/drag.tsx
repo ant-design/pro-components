@@ -1,10 +1,9 @@
-import React, { useState } from 'react';
-import { SortableContainer, SortableElement, SortableHandle } from 'react-sortable-hoc';
 import { MenuOutlined } from '@ant-design/icons';
-import type { ProColumns } from '@ant-design/pro-table';
-import ProTable from '@ant-design/pro-table';
+import type { ProColumns } from '@ant-design/pro-components';
+import { arrayMoveImmutable, ProTable, useRefFunction } from '@ant-design/pro-components';
+import { useState } from 'react';
+import { SortableContainer, SortableElement, SortableHandle } from 'react-sortable-hoc';
 import './drag.less';
-import { arrayMoveImmutable } from '@ant-design/pro-utils';
 
 const DragHandle = SortableHandle(() => <MenuOutlined style={{ cursor: 'grab', color: '#999' }} />);
 
@@ -60,12 +59,16 @@ export default () => {
   const SortableItem = SortableElement((props: any) => <tr {...props} />);
   const SortContainer = SortableContainer((props: any) => <tbody {...props} />);
 
-  const onSortEnd = ({ oldIndex, newIndex }: { oldIndex: number; newIndex: number }) => {
-    if (oldIndex !== newIndex) {
-      const newData = arrayMoveImmutable([...dataSource], oldIndex, newIndex).filter((el) => !!el);
-      setDataSource([...newData]);
-    }
-  };
+  const onSortEnd = useRefFunction(
+    ({ oldIndex, newIndex }: { oldIndex: number; newIndex: number }) => {
+      if (oldIndex !== newIndex) {
+        const newData = arrayMoveImmutable([...dataSource], oldIndex, newIndex).filter(
+          (el) => !!el,
+        );
+        setDataSource([...newData]);
+      }
+    },
+  );
 
   const DraggableContainer = (props: any) => (
     <SortContainer

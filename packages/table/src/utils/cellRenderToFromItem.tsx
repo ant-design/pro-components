@@ -1,16 +1,19 @@
-import React, { useCallback, useContext, useEffect, useMemo, useState } from 'react';
-import type { ProFormFieldProps } from '@ant-design/pro-form';
-import { FieldContext, ProFormField, ProFormDependency } from '@ant-design/pro-form';
 import type { ProFieldEmptyText } from '@ant-design/pro-field';
+import type { ProFormFieldProps } from '@ant-design/pro-form';
+import { FieldContext, ProFormDependency, ProFormField } from '@ant-design/pro-form';
 import type {
   ProFieldValueType,
   ProSchemaComponentTypes,
   UseEditableUtilType,
 } from '@ant-design/pro-utils';
-import { runFunction } from '@ant-design/pro-utils';
-import { getFieldPropsOrFormItemProps, InlineErrorFormItem } from '@ant-design/pro-utils';
-import type { ProColumnType } from '../index';
+import {
+  getFieldPropsOrFormItemProps,
+  InlineErrorFormItem,
+  runFunction,
+} from '@ant-design/pro-utils';
+import React, { useCallback, useContext, useEffect, useMemo, useState } from 'react';
 import type { useContainer } from '../container';
+import type { ProColumnType } from '../index';
 
 const SHOW_EMPTY_TEXT_LIST = ['', null, undefined];
 
@@ -90,10 +93,7 @@ const CellRenderFromItem = <T,>(props: CellRenderFromItemProps<T>) => {
       prefixName ? index : key,
       columnProps?.key ?? columnProps?.dataIndex ?? index,
     );
-
-    if (value.join('-') !== formItemName.join('-')) {
-      setName(value);
-    }
+    if (value.join('-') !== formItemName.join('-')) setName(value);
   }, [
     columnProps?.dataIndex,
     columnProps?.key,
@@ -162,7 +162,6 @@ const CellRenderFromItem = <T,>(props: CellRenderFromItemProps<T>) => {
         {...proFieldProps}
       />
     );
-
     /**
      * 如果没有自定义直接返回
      */
@@ -187,6 +186,8 @@ const CellRenderFromItem = <T,>(props: CellRenderFromItemProps<T>) => {
         editableForm as any,
         props.editableUtils,
       );
+      // 如果需要完全自定义可以不要name
+      if (columnProps.ignoreFormItem) return <>{fieldDom}</>;
     }
 
     return (
@@ -210,9 +211,7 @@ const CellRenderFromItem = <T,>(props: CellRenderFromItemProps<T>) => {
     props.editableUtils,
   ]);
 
-  if (formItemName.length === 0) {
-    return null;
-  }
+  if (formItemName.length === 0) return null;
 
   if (
     typeof columnProps?.renderFormItem === 'function' ||

@@ -1,6 +1,6 @@
-import React, { useState } from 'react';
-import { StatisticCard } from '@ant-design/pro-card';
+import { StatisticCard } from '@ant-design/pro-components';
 import RcResizeObserver from 'rc-resize-observer';
+import { useState } from 'react';
 
 const { Statistic, Divider } = StatisticCard;
 

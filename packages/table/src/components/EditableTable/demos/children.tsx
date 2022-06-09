@@ -1,8 +1,11 @@
+import {
+  EditableProTable,
+  ProCard,
+  ProColumns,
+  ProFormField,
+  useRefFunction,
+} from '@ant-design/pro-components';
 import React, { useState } from 'react';
-import type { ProColumns } from '@ant-design/pro-table';
-import { EditableProTable } from '@ant-design/pro-table';
-import ProCard from '@ant-design/pro-card';
-import { ProFormField } from '@ant-design/pro-form';
 
 const waitTime = (time: number = 100) => {
   return new Promise((resolve) => {
@@ -74,6 +77,10 @@ const loopDataSourceFilter = (
 export default () => {
   const [editableKeys, setEditableRowKeys] = useState<React.Key[]>([]);
   const [dataSource, setDataSource] = useState<DataSourceType[]>(() => defaultData);
+
+  const removeRow = useRefFunction((record: DataSourceType) => {
+    setDataSource(loopDataSourceFilter(dataSource, record.id));
+  });
   const columns: ProColumns<DataSourceType>[] = [
     {
       title: '活动名称',
@@ -132,7 +139,7 @@ export default () => {
         <a
           key="delete"
           onClick={() => {
-            setDataSource(loopDataSourceFilter(dataSource, record.id));
+            removeRow(record);
           }}
         >
           删除

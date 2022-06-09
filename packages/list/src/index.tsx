@@ -1,16 +1,14 @@
-import React, { useMemo, useContext, useRef, useImperativeHandle } from 'react';
-import type { ListProps, PaginationProps } from 'antd';
-import classNames from 'classnames';
-import type { ProTableProps, ProColumnType, ActionType } from '@ant-design/pro-table';
+import type { ProCardProps } from '@ant-design/pro-card';
+import type { ActionType, ProColumnType, ProTableProps } from '@ant-design/pro-table';
 import ProTable from '@ant-design/pro-table';
+import type { ListProps, PaginationProps } from 'antd';
 import { ConfigProvider } from 'antd';
 import type { LabelTooltipType } from 'antd/lib/form/FormItemLabel';
-
-import ListView from './ListView';
-
+import classNames from 'classnames';
+import React, { useContext, useImperativeHandle, useMemo, useRef } from 'react';
 import './index.less';
 import type { ItemProps } from './Item';
-import type { ProCardProps } from '@ant-design/pro-card';
+import ListView from './ListView';
 
 export type AntdListProps<RecordType> = Omit<ListProps<RecordType>, 'rowKey'>;
 
@@ -194,6 +192,6 @@ function BaseProList<
 >(props: ProListProps<RecordType, U>) {
   return <ProList cardProps={false} search={false} toolBarRender={false} {...props} />;
 }
-export { BaseProList };
+export { BaseProList, ProList };
 
 export default ProList;

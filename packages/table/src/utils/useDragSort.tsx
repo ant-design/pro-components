@@ -1,9 +1,8 @@
-import { SortableContainer, SortableElement } from 'react-sortable-hoc';
-import React from 'react';
+import { useRefFunction } from '@ant-design/pro-utils';
 import type { TableComponents } from 'rc-table/lib/interface';
+import { SortableContainer, SortableElement } from 'react-sortable-hoc';
 import type { SortDataParams } from './index';
 import { sortData } from './index';
-import { useRefFunction } from '@ant-design/pro-utils';
 
 export interface UseDragSortOptions<T> {
   dataSource?: T[];

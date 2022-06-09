@@ -1,12 +1,12 @@
+import { isDeepEqualReact, merge, ProFormContext } from '@ant-design/pro-utils';
+import type { FormItemProps } from 'antd';
 import { Form } from 'antd';
 import type { NamePath } from 'antd/lib/form/interface';
-import type { FormItemProps } from 'antd';
-import set from 'rc-util/lib/utils/set';
 import get from 'rc-util/lib/utils/get';
+import set from 'rc-util/lib/utils/set';
 import { useContext, useMemo } from 'react';
-import { FormListContext } from '../List';
-import { ProFormContext, isDeepEqualReact, merge } from '@ant-design/pro-utils';
 import type { ProFormInstance } from '../../BaseForm';
+import { FormListContext } from '../List';
 
 declare type RenderChildren<Values = any> = (
   values: Record<string, any>,

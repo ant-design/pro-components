@@ -1,8 +1,7 @@
-import { mount } from 'enzyme';
-import React from 'react';
 import ProCard from '@ant-design/pro-card';
-import { waitForComponentToPaint } from '../util';
+import { mount } from 'enzyme';
 import { act } from 'react-dom/test-utils';
+import { waitForComponentToPaint } from '../util';
 
 jest.mock('antd/lib/grid/hooks/useBreakpoint');
 

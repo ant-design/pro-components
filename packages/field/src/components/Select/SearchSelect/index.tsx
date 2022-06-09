@@ -1,9 +1,9 @@
-import React, { useContext, useImperativeHandle, useEffect, useRef, useState } from 'react';
-import type { SelectProps } from 'antd';
-import { Select, ConfigProvider } from 'antd';
-import classNames from 'classnames';
-import type { LabeledValue } from 'antd/es/select';
 import type { RequestOptionsType } from '@ant-design/pro-utils';
+import type { SelectProps } from 'antd';
+import { ConfigProvider, Select } from 'antd';
+import type { LabeledValue } from 'antd/es/select';
+import classNames from 'classnames';
+import React, { useContext, useEffect, useImperativeHandle, useRef, useState } from 'react';
 
 const { Option, OptGroup } = Select;
 
@@ -159,13 +159,14 @@ const SearchSelect = <T,>(props: SearchSelectProps<T[]>, ref: any) => {
       const value = item[valuePropsName];
       const itemOptions = item[optionsPropsName] ?? [];
 
-      if (optionType === 'optGroup') {
+      if (optionType === 'optGroup' || item.options) {
         return (
           <OptGroup key={value} label={label}>
             {renderOptions(itemOptions)}
           </OptGroup>
         );
       }
+
       return (
         <Option
           {...item}

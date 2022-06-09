@@ -1,10 +1,9 @@
-﻿import React from 'react';
-import ProForm, { ProFormUploadButton, ProFormUploadDragger } from '@ant-design/pro-form';
-import { mount } from 'enzyme';
-import mock from 'xhr-mock';
-import { act } from 'react-dom/test-utils';
-import { waitTime, waitForComponentToPaint } from '../util';
+﻿import ProForm, { ProFormUploadButton, ProFormUploadDragger } from '@ant-design/pro-form';
 import type { UploadFile } from 'antd/lib/upload/interface';
+import { mount } from 'enzyme';
+import { act } from 'react-dom/test-utils';
+import mock from 'xhr-mock';
+import { waitForComponentToPaint, waitTime } from '../util';
 
 const mockFile = new File(['foo'], 'foo.png', {
   type: 'image/png',

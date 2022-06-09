@@ -1,7 +1,5 @@
+import { BasicLayout } from '@ant-design/pro-components';
 import { mount } from 'enzyme';
-
-import React from 'react';
-import BasicLayout from '@ant-design/pro-layout';
 import { act } from 'react-dom/test-utils';
 import { waitForComponentToPaint } from '../util';
 

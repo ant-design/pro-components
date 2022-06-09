@@ -1,9 +1,8 @@
-import './index.less';
-
-import React, { useContext } from 'react';
-import classNames from 'classnames';
-import type { WithFalse } from '../../typings';
 import { ConfigProvider } from 'antd';
+import classNames from 'classnames';
+import React, { useContext } from 'react';
+import type { WithFalse } from '../../typings';
+import './index.less';
 
 export type GlobalFooterProps = {
   links?: WithFalse<

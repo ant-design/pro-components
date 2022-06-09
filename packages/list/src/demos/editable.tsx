@@ -1,6 +1,6 @@
-import React, { useState } from 'react';
-import { Tag, Space } from 'antd';
-import ProList from '@ant-design/pro-list';
+import { ProList } from '@ant-design/pro-components';
+import { Space, Tag } from 'antd';
+import { useState } from 'react';
 
 const defaultData = [
   {

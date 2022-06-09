@@ -1,22 +1,21 @@
-import { mount } from 'enzyme';
-import React from 'react';
 import {
   LightFilter,
-  ProFormText,
   ProFormDatePicker,
-  ProFormSelect,
   ProFormDateRangePicker,
   ProFormDateTimePicker,
-  ProFormTimePicker,
   ProFormRadio,
+  ProFormSelect,
   ProFormSlider,
+  ProFormText,
+  ProFormTimePicker,
 } from '@ant-design/pro-form';
+import '@testing-library/jest-dom';
+import { render } from '@testing-library/react';
+import { mount } from 'enzyme';
+import moment from 'moment';
 import KeyCode from 'rc-util/lib/KeyCode';
 import { act } from 'react-dom/test-utils';
 import { waitForComponentToPaint } from '../util';
-import { render } from '@testing-library/react';
-import moment from 'moment';
-import '@testing-library/jest-dom';
 
 describe('LightFilter', () => {
   it(' 🪕 basic use', async () => {
@@ -742,6 +741,39 @@ describe('LightFilter', () => {
     expect(wrapper.find('Trigger').at(0).prop('popupPlacement')).toEqual('topRight');
     wrapper.find('.ant-pro-core-field-label').at(1).simulate('click');
     expect(wrapper.find('Trigger').at(1).prop('popupPlacement')).toEqual('topRight');
+    act(() => {
+      wrapper.unmount();
+    });
+  });
+
+  it('🪕 component placement priority should higher then lightFilter', async () => {
+    const wrapper = mount(
+      <LightFilter
+        initialValues={{
+          name1: 'yutingzhao1991',
+          name3: '2020-08-19',
+          sex: 'man',
+        }}
+        placement="topRight"
+      >
+        <ProFormSelect
+          name="sex"
+          label="性别"
+          showSearch
+          fieldProps={{
+            allowClear: false,
+            placement: 'bottomRight',
+          }}
+          valueEnum={{
+            man: '男',
+            woman: '女',
+          }}
+        />
+      </LightFilter>,
+    );
+    // 两种加载模式都需要判断（需要lightWrapper和不需要的）
+    wrapper.find('.ant-pro-core-field-label').at(0).simulate('click');
+    expect(wrapper.find('Trigger').at(0).prop('popupPlacement')).toEqual('bottomRight');
     act(() => {
       wrapper.unmount();
     });

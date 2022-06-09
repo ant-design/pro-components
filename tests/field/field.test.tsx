@@ -1,12 +1,12 @@
-import { render, mount } from 'enzyme';
-import { Button, Input } from 'antd';
-import React, { useState } from 'react';
-import moment from 'moment';
 import Field from '@ant-design/pro-field';
-import { render as reactRender, act, fireEvent } from '@testing-library/react';
 import '@testing-library/jest-dom';
-import Demo from './fixtures/demo';
+import { act, fireEvent, render as reactRender } from '@testing-library/react';
+import { Button, Input } from 'antd';
+import { mount, render } from 'enzyme';
+import moment from 'moment';
+import React, { useState } from 'react';
 import { waitForComponentToPaint, waitTime } from '../util';
+import Demo from './fixtures/demo';
 import { TreeSelectDemo } from './fixtures/treeSelectDemo';
 
 const domRef = React.createRef();
@@ -481,7 +481,7 @@ describe('Field', () => {
         />,
       );
       await waitForComponentToPaint(html, 100);
-      expect(html.text()).toBe('Node1Child Node1');
+      expect(html.text()).toBe('Node1,Child Node1');
 
       act(() => {
         html.setProps({
@@ -491,7 +491,7 @@ describe('Field', () => {
 
       await waitForComponentToPaint(html, 100);
 
-      expect(html.text()).toBe('0-00-0-0');
+      expect(html.text()).toBe('0-0,0-0-0');
     });
   });
 
@@ -1337,5 +1337,70 @@ describe('Field', () => {
     expect(requestFn).toBeCalledTimes(1);
     await waitForComponentToPaint(html, 10000);
     expect(requestFn).toBeCalledTimes(2);
+  });
+
+  it(`🐴 light select dropdown toggle`, async () => {
+    const html = mount(
+      <Field
+        text="default"
+        valueType="select"
+        mode="edit"
+        light
+        options={[
+          { label: '全部', value: 'all' },
+          { label: '未解决', value: 'open' },
+          { label: '已解决', value: 'closed' },
+          { label: '解决中', value: 'processing' },
+        ]}
+      />,
+    );
+    await waitForComponentToPaint(html, 100);
+
+    act(() => {
+      // 点击label打开DatePicker
+      // jest环境下，click 不会触发mousedown和mouseup，需要手动触发以覆盖相关逻辑代码
+      html.find('.ant-pro-core-field-label').simulate('mousedown');
+      html.find('.ant-pro-core-field-label').simulate('click');
+      html.find('.ant-pro-core-field-label').simulate('mouseup');
+    });
+    await waitForComponentToPaint(html, 100);
+    expect(html.find('.ant-select-dropdown').length).toEqual(1);
+    expect(html.find('.ant-select-dropdown.ant-select-dropdown-hidden').length).toEqual(0);
+
+    act(() => {
+      html.find('.ant-pro-core-field-label').simulate('mousedown');
+      html.find('.ant-pro-core-field-label').simulate('click');
+      html.find('.ant-pro-core-field-label').simulate('mouseup');
+    });
+    await waitForComponentToPaint(html, 100);
+    expect(html.find('.ant-select-dropdown.ant-select-dropdown-hidden').length).toEqual(1);
+  });
+
+  ['date', 'time'].forEach((valueType) => {
+    it(`🐴 ${valueType} light filter dropdown toggle`, async () => {
+      const html = mount(
+        <Field text="default" valueType={valueType as 'date'} mode="edit" light />,
+      );
+      await waitForComponentToPaint(html, 100);
+
+      act(() => {
+        // 点击label打开DatePicker
+        // jest环境下，click 不会触发mousedown和mouseup，需要手动触发以覆盖相关逻辑代码
+        html.find('.ant-pro-core-field-label').simulate('mousedown');
+        html.find('.ant-pro-core-field-label').simulate('click');
+        html.find('.ant-pro-core-field-label').simulate('mouseup');
+      });
+      await waitForComponentToPaint(html, 100);
+      expect(html.find('.ant-picker-dropdown').length).toEqual(1);
+      expect(html.find('.ant-picker-dropdown.ant-picker-dropdown-hidden').length).toEqual(0);
+
+      act(() => {
+        html.find('.ant-pro-core-field-label').simulate('mousedown');
+        html.find('.ant-pro-core-field-label').simulate('click');
+        html.find('.ant-pro-core-field-label').simulate('mouseup');
+      });
+      await waitForComponentToPaint(html, 100);
+      expect(html.find('.ant-picker-dropdown.ant-picker-dropdown-hidden').length).toEqual(1);
+    });
   });
 });

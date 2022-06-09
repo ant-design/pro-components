@@ -1,9 +1,9 @@
 import { useLatest } from '@ant-design/pro-utils';
 import React, { useCallback, useMemo } from 'react';
-import BetaSchemaForm from '../index';
-import { StepsForm as ProStepsForm } from '../../../layouts/StepsForm';
-import type { FormSchema, ProFormPropsType } from '../typing';
 import type { ProFormGridConfig } from '../../../interface';
+import { StepsForm as ProStepsForm } from '../../../layouts/StepsForm';
+import BetaSchemaForm from '../index';
+import type { FormSchema, ProFormPropsType } from '../typing';
 
 type StepsFormProps<T, ValueType> = ProFormPropsType<T, ValueType> &
   Pick<FormSchema, 'steps'> & {

@@ -1,23 +1,23 @@
-import React, {
-  useState,
-  useImperativeHandle,
-  useRef,
-  useContext,
-  useEffect,
-  useMemo,
-} from 'react';
+import { FilterOutlined } from '@ant-design/icons';
+import { useIntl } from '@ant-design/pro-provider';
+import { FieldLabel, FilterDropdown } from '@ant-design/pro-utils';
 import type { FormProps } from 'antd';
+import { ConfigProvider } from 'antd';
 import type { SizeType } from 'antd/lib/config-provider/SizeContext';
 import classNames from 'classnames';
-import { ConfigProvider } from 'antd';
-import { FilterDropdown, FieldLabel } from '@ant-design/pro-utils';
-import { useIntl } from '@ant-design/pro-provider';
-import { FilterOutlined } from '@ant-design/icons';
 import omit from 'omit.js';
+import React, {
+  useContext,
+  useEffect,
+  useImperativeHandle,
+  useMemo,
+  useRef,
+  useState,
+} from 'react';
 import type { CommonFormProps, ProFormInstance } from '../../BaseForm';
 import { BaseForm } from '../../BaseForm';
-import './index.less';
 import type { LightFilterFooterRender, Placement } from '../../interface';
+import './index.less';
 
 export type LightFilterProps<T> = {
   collapse?: boolean;
@@ -135,12 +135,14 @@ const LightFilterContainer: React.FC<{
       <div className={`${lightFilterClassName}-container`}>
         {outsideItems.map((child: any, index) => {
           const { key } = child;
+          const { fieldProps } = child.props;
+          const newPlacement = fieldProps?.placement ? fieldProps?.placement : placement;
           return (
             <div className={`${lightFilterClassName}-item`} key={key || index}>
               {React.cloneElement(child, {
                 fieldProps: {
                   ...child.props.fieldProps,
-                  placement: placement,
+                  placement: newPlacement,
                 },
                 // proFieldProps 会直接作为 ProField 的 props 传递过去
                 proFieldProps: {
@@ -196,12 +198,13 @@ const LightFilterContainer: React.FC<{
                 if (moreValues.hasOwnProperty(name)) {
                   newFieldProps[child.props.valuePropName || 'value'] = moreValues[name];
                 }
+                const newPlacement = fieldProps?.placement ? fieldProps?.placement : placement;
                 return (
                   <div className={`${lightFilterClassName}-line`} key={key}>
                     {React.cloneElement(child, {
                       fieldProps: {
                         ...newFieldProps,
-                        placement: placement,
+                        placement: newPlacement,
                       },
                     })}
                   </div>

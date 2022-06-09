@@ -1,8 +1,8 @@
-import React from 'react';
-import type { FormInstance, ButtonProps } from 'antd';
+import { useIntl } from '@ant-design/pro-provider';
+import type { ButtonProps, FormInstance } from 'antd';
 import { Button, Space } from 'antd';
 import omit from 'omit.js';
-import { useIntl } from '@ant-design/pro-provider';
+import React from 'react';
 
 /** @name 用于配置操作栏 */
 export type SearchConfig = {

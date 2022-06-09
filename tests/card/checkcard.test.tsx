@@ -1,6 +1,5 @@
-import React from 'react';
-import { mount } from 'enzyme';
 import { CheckCard } from '@ant-design/pro-card';
+import { mount } from 'enzyme';
 import { act } from 'react-dom/test-utils';
 import { waitForComponentToPaint } from '../util';
 

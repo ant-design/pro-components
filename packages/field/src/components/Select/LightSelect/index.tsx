@@ -1,16 +1,16 @@
-import React, { useState, useContext, useMemo } from 'react';
-import type { SelectProps } from 'antd';
-import { Select, Input, ConfigProvider } from 'antd';
 import { SearchOutlined } from '@ant-design/icons';
-import classNames from 'classnames';
 import { FieldLabel } from '@ant-design/pro-utils';
-
+import type { SelectProps } from 'antd';
+import { ConfigProvider, Input, Select } from 'antd';
+import classNames from 'classnames';
+import React, { useContext, useMemo, useState } from 'react';
+import type { ProFieldLightProps } from '../../../index';
 import './index.less';
 
 export type LightSelectProps = {
   label?: string;
   placeholder?: any;
-};
+} & ProFieldLightProps;
 
 /**
  * 如果有 label 就优先使用 label
@@ -56,6 +56,8 @@ const LightSelect: React.ForwardRefRenderFunction<any, SelectProps<any> & LightS
     allowClear,
     labelInValue,
     fieldNames,
+    lightLabel,
+    labelTrigger,
     ...restProps
   } = props;
   const { placeholder = label } = props;
@@ -89,8 +91,15 @@ const LightSelect: React.ForwardRefRenderFunction<any, SelectProps<any> & LightS
         className,
       )}
       style={style}
-      onClick={() => {
-        if (!disabled) {
+      onClick={(e) => {
+        if (disabled) return;
+        // 点击label切换下拉菜单
+        const isLabelClick = lightLabel?.current?.labelRef?.current?.contains(
+          e.target as HTMLElement,
+        );
+        if (isLabelClick) {
+          setOpen(!open);
+        } else {
           setOpen(true);
         }
       }}
@@ -147,7 +156,9 @@ const LightSelect: React.ForwardRefRenderFunction<any, SelectProps<any> & LightS
               setKeyword('');
             }, 0);
           }
-          setOpen(isOpen);
+          if (!labelTrigger) {
+            setOpen(isOpen);
+          }
         }}
         prefixCls={customizePrefixCls}
         options={
@@ -174,6 +185,7 @@ const LightSelect: React.ForwardRefRenderFunction<any, SelectProps<any> & LightS
         onClear={() => {
           onChange?.(undefined, undefined as any);
         }}
+        ref={lightLabel}
       />
     </div>
   );

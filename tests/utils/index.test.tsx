@@ -1,29 +1,29 @@
-import React, { useEffect, useState } from 'react';
+import { CodeFilled } from '@ant-design/icons';
 import {
   conversionSubmitValue,
-  parseValueToMoment,
-  transformKeySubmitValue,
+  dateArrayFormatter,
+  DropdownFooter,
+  InlineErrorFormItem,
+  isDeepEqualReact,
   isNil,
   isUrl,
-  InlineErrorFormItem,
-  useDebounceFn,
-  pickProProps,
-  merge,
-  DropdownFooter,
   LabelIconTip,
-  useDebounceValue,
-  isDeepEqualReact,
-  dateArrayFormatter,
+  merge,
   nanoid,
+  parseValueToMoment,
+  pickProProps,
+  transformKeySubmitValue,
+  useDebounceFn,
+  useDebounceValue,
 } from '@ant-design/pro-utils';
-import { mount } from 'enzyme';
-import { render, act, fireEvent } from '@testing-library/react';
+import { act, fireEvent, render } from '@testing-library/react';
 import { Form, Input } from 'antd';
+import { mount } from 'enzyme';
 import type { Moment } from 'moment';
 import moment from 'moment';
-import { waitTime, waitForComponentToPaint } from '../util';
+import React, { useEffect, useState } from 'react';
 import isDropdownValueType from '../../packages/utils/src/isDropdownValueType/index';
-import { CodeFilled } from '@ant-design/icons';
+import { waitForComponentToPaint, waitTime } from '../util';
 
 describe('utils', () => {
   it('📅 useDebounceValue', async () => {

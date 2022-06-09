@@ -1,7 +1,7 @@
-import React, { useState } from 'react';
-import { Button } from 'antd';
 import { RightOutlined } from '@ant-design/icons';
-import ProCard from '@ant-design/pro-card';
+import { ProCard } from '@ant-design/pro-components';
+import { Button } from 'antd';
+import { useState } from 'react';
 
 export default () => {
   const [collapsed, setCollapsed] = useState(true);

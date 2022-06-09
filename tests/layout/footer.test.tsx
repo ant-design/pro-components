@@ -1,6 +1,5 @@
-import React from 'react';
+import { DefaultFooter } from '@ant-design/pro-components';
 import { mount, render } from 'enzyme';
-import { DefaultFooter } from '@ant-design/pro-layout';
 
 describe('DefaultFooter test', () => {
   it('🦶 set title', () => {

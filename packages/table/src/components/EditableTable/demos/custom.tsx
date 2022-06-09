@@ -1,12 +1,9 @@
-import React, { useRef, useState } from 'react';
-import type { ProColumns } from '@ant-design/pro-table';
-import { EditableProTable } from '@ant-design/pro-table';
-import type { ActionType } from '@ant-design/pro-table';
-import ProCard from '@ant-design/pro-card';
-import { Button, Input, Space, Tag, Form } from 'antd';
 import { PlusOutlined } from '@ant-design/icons';
-import { ProFormField } from '@ant-design/pro-form';
+import type { ActionType, ProColumns } from '@ant-design/pro-components';
+import { EditableProTable, ProCard, ProFormField } from '@ant-design/pro-components';
 import type { InputRef } from 'antd';
+import { Button, Form, Input, Space, Tag } from 'antd';
+import React, { useRef, useState } from 'react';
 
 const waitTime = (time: number = 100) => {
   return new Promise((resolve) => {

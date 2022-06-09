@@ -1,11 +1,11 @@
-import { mount } from 'enzyme';
-import React, { useRef } from 'react';
-import { Button } from 'antd';
 import ProDescriptions from '@ant-design/pro-descriptions';
 import type { ProCoreActionType } from '@ant-design/pro-utils';
-import { act } from 'react-dom/test-utils';
-import { render as reactRender } from '@testing-library/react';
 import '@testing-library/jest-dom';
+import { render as reactRender } from '@testing-library/react';
+import { Button } from 'antd';
+import { mount } from 'enzyme';
+import { useRef } from 'react';
+import { act } from 'react-dom/test-utils';
 import { waitForComponentToPaint, waitTime } from '../util';
 
 describe('descriptions', () => {

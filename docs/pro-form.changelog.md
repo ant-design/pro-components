@@ -9,6 +9,46 @@ group:
 
 # Change Log
 
+## @ant-design/pro-form@1.69.2
+
+`2022-06-02`
+
+- fix(form): defaultColsNumber did not meet expect (#5329). [#5329](https://github.com/ant-design/pro-components/pull/#5329) [@drizzlesconsin](https://github.com/drizzlesconsin)
+- fix(form): setting colProps in the Form dose not work (#5318). [#5318](https://github.com/ant-design/pro-components/pull/#5318) [@Dunqing](https://github.com/Dunqing)
+- fix(form): reset form after onFinish return true value (#5306). [#5306](https://github.com/ant-design/pro-components/pull/#5306) [@wangmeijian](https://github.com/wangmeijian)
+- fix(form): reduce render function. [119df5f](https://github.com/ant-design/pro-components/commit/119df5f)
+- fix(form): support convertValue for BetaSchemaForm. [09186be](https://github.com/ant-design/pro-components/commit/09186be)
+- fix(form): fix loginForm no support submitButtonProps error (#5313). [#5313](https://github.com/ant-design/pro-components/pull/#5313) [@chenshuai2144](https://github.com/chenshuai2144)
+- fix(form): fix addonAfter style error (#5312). [#5312](https://github.com/ant-design/pro-components/pull/#5312) [@chenshuai2144](https://github.com/chenshuai2144)
+- fix(form): fix Cascader and TreeSelect no has light lable error (#5310). [#5310](https://github.com/ant-design/pro-components/pull/#5310) [@chenshuai2144](https://github.com/chenshuai2144)
+
+## @ant-design/pro-form@1.69.1
+
+`2022-05-27`
+
+- fix(form): input will be blur after setState (#5298). [#5298](https://github.com/ant-design/pro-components/pull/#5298) [@Dunqing](https://github.com/Dunqing)
+
+## @ant-design/pro-form@1.69.0
+
+`2022-05-26`
+
+- fix(form): ProFormCheckBox support readonly lable. [ea574c4](https://github.com/ant-design/pro-components/commit/ea574c4)
+- fix(form): select placement api dont work in lightFilter (#5279). [#5279](https://github.com/ant-design/pro-components/pull/#5279) [@ONLY-yours](https://github.com/ONLY-yours)
+- fix(form): default get a form. [2de054b](https://github.com/ant-design/pro-components/commit/2de054b)
+
+## @ant-design/pro-form@1.68.1
+
+`2022-05-20`
+
+- fix(form): 解决 ProFormSelect、ProFormDatePicker、ProFormTimePicker 在 LightFilter 模式下点击激活下拉选项后再次点击未隐藏下拉框的问题 (#5169). [#5169](https://github.com/ant-design/pro-components/pull/#5169) [@wangmeijian](https://github.com/wangmeijian)
+
+## @ant-design/pro-form@1.68.0
+
+`2022-05-16`
+
+- feat(form): `FieldProps` add `ref` type (#5209). [#5209](https://github.com/ant-design/pro-components/pull/#5209) [@kungege](https://github.com/kungege)
+- fix(form): fix ProFormTreeSelect style no work error. [cb5dfa5](https://github.com/ant-design/pro-components/commit/cb5dfa5)
+
 ## @ant-design/pro-form@1.67.2
 
 `2022-05-12`

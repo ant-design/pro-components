@@ -1,6 +1,6 @@
-import React, { useState } from 'react';
-import { message, Row, Col, Space } from 'antd';
-import ProForm, { ProFormText, ProFormRadio } from '@ant-design/pro-form';
+import { ProForm, ProFormRadio, ProFormText } from '@ant-design/pro-components';
+import { Col, message, Row, Space } from 'antd';
+import { useState } from 'react';
 
 type LayoutType = Parameters<typeof ProForm>[0]['layout'];
 const LAYOUT_TYPE_HORIZONTAL = 'horizontal';

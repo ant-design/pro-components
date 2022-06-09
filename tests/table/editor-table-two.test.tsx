@@ -1,10 +1,10 @@
-import React, { useRef } from 'react';
-import { Button, Input, InputNumber } from 'antd';
-import type { TableRowEditable, ProColumns, ActionType } from '@ant-design/pro-table';
-import { EditableProTable } from '@ant-design/pro-table';
 import ProForm, { ProFormText } from '@ant-design/pro-form';
+import type { ActionType, ProColumns, TableRowEditable } from '@ant-design/pro-table';
+import { EditableProTable } from '@ant-design/pro-table';
+import { act, fireEvent, render } from '@testing-library/react';
+import { Button, Input, InputNumber } from 'antd';
 import useMergedState from 'rc-util/lib/hooks/useMergedState';
-import { fireEvent, act, render } from '@testing-library/react';
+import React, { useRef } from 'react';
 import { waitForComponentToPaint, waitTime } from '../util';
 
 type DataSourceType = {

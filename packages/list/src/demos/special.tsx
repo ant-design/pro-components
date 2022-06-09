@@ -1,8 +1,8 @@
-import type { ReactText } from 'react';
-import React, { useState } from 'react';
-import { Button, Progress, Tag } from 'antd';
 import { EllipsisOutlined } from '@ant-design/icons';
-import ProList from '@ant-design/pro-list';
+import { ProList } from '@ant-design/pro-components';
+import { Button, Progress, Tag } from 'antd';
+import type { ReactText } from 'react';
+import { useState } from 'react';
 
 const types = ['top', 'inline', 'new'];
 const data = ['语雀的天空（top）', 'Ant Design（inline）', '蚂蚁金服体验科技（new）', 'TechUI'].map(

@@ -1,9 +1,9 @@
-import React, { useMemo } from 'react';
+import { useIntl } from '@ant-design/pro-provider';
 import type { SwitchProps } from 'antd';
 import { Switch } from 'antd';
 import Omit from 'omit.js';
+import React, { useMemo } from 'react';
 import type { ProFieldFC } from '../../index';
-import { useIntl } from '@ant-design/pro-provider';
 
 /**
  * 评分组件

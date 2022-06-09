@@ -1,10 +1,7 @@
-import './ThemeColor.less';
-
 import { CheckOutlined } from '@ant-design/icons';
-
 import { Tooltip } from 'antd';
-
 import React from 'react';
+import './ThemeColor.less';
 
 export type TagProps = {
   color: string;

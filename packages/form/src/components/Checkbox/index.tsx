@@ -1,13 +1,16 @@
-import React from 'react';
+import { runFunction } from '@ant-design/pro-utils';
 import type { CheckboxProps } from 'antd';
 import { Checkbox } from 'antd';
-import ProFormField from '../Field';
-import { runFunction } from '@ant-design/pro-utils';
 import type { CheckboxGroupProps } from 'antd/lib/checkbox';
-import type { ProFormFieldItemProps, ProFormFieldRemoteProps } from '../../interface';
+import React from 'react';
 import { createField } from '../../BaseForm/createField';
+import type { ProFormFieldItemProps, ProFormFieldRemoteProps } from '../../interface';
+import ProFormField from '../Field';
 
-export type ProFormCheckboxGroupProps = ProFormFieldItemProps<CheckboxGroupProps> & {
+export type ProFormCheckboxGroupProps = ProFormFieldItemProps<
+  CheckboxGroupProps,
+  HTMLInputElement
+> & {
   layout?: 'horizontal' | 'vertical';
   options?: CheckboxGroupProps['options'];
 } & ProFormFieldRemoteProps;
@@ -23,13 +26,35 @@ const CheckboxGroup: React.FC<ProFormCheckboxGroupProps> = React.forwardRef(
         options,
         ...fieldProps,
       }}
+      lightProps={{
+        labelFormatter: () => {
+          return (
+            <ProFormField
+              ref={ref}
+              valueType="checkbox"
+              mode="read"
+              valueEnum={runFunction<[any]>(valueEnum, undefined)}
+              filedConfig={{
+                customLightMode: true,
+              }}
+              fieldProps={{
+                options,
+                ...fieldProps,
+              }}
+              proFieldProps={proFieldProps}
+              {...rest}
+            />
+          );
+        },
+        ...rest.lightProps,
+      }}
       proFieldProps={proFieldProps}
       {...rest}
     />
   ),
 );
 
-export type ProFormCheckboxProps = ProFormFieldItemProps<CheckboxProps>;
+export type ProFormCheckboxProps = ProFormFieldItemProps<CheckboxProps, HTMLInputElement>;
 
 /**
  * 多选框的

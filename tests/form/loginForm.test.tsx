@@ -1,14 +1,14 @@
-import { LoginForm, LoginFormPage, ProFormText } from '@ant-design/pro-form';
-import { mount } from 'enzyme';
-import { waitForComponentToPaint } from '../util';
 import {
   AlipayCircleOutlined,
   TaobaoCircleOutlined,
   UserAddOutlined,
   WeiboCircleOutlined,
 } from '@ant-design/icons';
-import { Alert, Space } from 'antd';
+import { LoginForm, LoginFormPage, ProFormText } from '@ant-design/pro-form';
 import { act, render } from '@testing-library/react';
+import { Alert, Space } from 'antd';
+import { mount } from 'enzyme';
+import { waitForComponentToPaint } from '../util';
 
 describe('LoginForm', () => {
   it('📦 LoginForm should show login message correctly', async () => {
@@ -149,7 +149,7 @@ describe('LoginForm', () => {
     expect(!!dom).toBeTruthy();
   });
 
-  it('📦 LoginFormPage support log', async () => {
+  it('📦 LoginFormPage support log=false', async () => {
     const wrapper = render(
       <LoginFormPage logo={false}>
         <ProFormText name="name" />
@@ -160,5 +160,29 @@ describe('LoginForm', () => {
     const dom = await wrapper.baseElement.querySelector('.ant-pro-form-login-page-header');
 
     expect(!!dom).toBeFalsy();
+  });
+
+  it('📦 LoginFormPage support submitButtonProps', async () => {
+    const wrapper = render(
+      <LoginForm
+        logo={false}
+        submitter={{
+          submitButtonProps: {
+            loading: true,
+          },
+        }}
+      >
+        <ProFormText name="name" />
+      </LoginForm>,
+    );
+
+    await waitForComponentToPaint(wrapper);
+    let dom = await wrapper.baseElement.querySelector('.ant-btn-loading');
+
+    expect(!!dom).toBeTruthy();
+
+    dom = await wrapper.baseElement.querySelector('.ant-btn-lg');
+
+    expect(!!dom).toBeTruthy();
   });
 });

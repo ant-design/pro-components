@@ -1,17 +1,3 @@
-import React, { useState } from 'react';
-import { Button, message, Space } from 'antd';
-import ProForm, {
-  ModalForm,
-  DrawerForm,
-  QueryFilter,
-  LightFilter,
-  StepsForm,
-  ProFormText,
-  ProFormDateRangePicker,
-  ProFormSelect,
-  ProFormRadio,
-  LoginForm,
-} from '@ant-design/pro-form';
 import {
   AlipayCircleOutlined,
   LockOutlined,
@@ -20,6 +6,21 @@ import {
   UserOutlined,
   WeiboCircleOutlined,
 } from '@ant-design/icons';
+import {
+  DrawerForm,
+  LightFilter,
+  LoginForm,
+  ModalForm,
+  ProForm,
+  ProFormDateRangePicker,
+  ProFormRadio,
+  ProFormSelect,
+  ProFormText,
+  QueryFilter,
+  StepsForm,
+} from '@ant-design/pro-components';
+import { Button, message, Space } from 'antd';
+import { useState } from 'react';
 
 const iconStyles = {
   marginLeft: '16px',

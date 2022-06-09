@@ -1,10 +1,10 @@
-﻿import React from 'react';
-import ProForm, {
-  ProFormList,
-  ProFormText,
+﻿import {
+  ProForm,
   ProFormDependency,
+  ProFormList,
   ProFormSelect,
-} from '@ant-design/pro-form';
+  ProFormText,
+} from '@ant-design/pro-components';
 
 const Demo = () => {
   return (

@@ -1,12 +1,11 @@
-﻿import { mount } from 'enzyme';
-import React from 'react';
-import { Button } from 'antd';
-import { act } from 'react-dom/test-utils';
-import type { StepsFormProps } from '@ant-design/pro-form';
-import { StepsForm, ProFormText } from '@ant-design/pro-form';
-import { waitForComponentToPaint } from '../util';
-import { render } from '@testing-library/react';
+﻿import type { StepsFormProps } from '@ant-design/pro-form';
+import { ProFormText, StepsForm } from '@ant-design/pro-form';
 import '@testing-library/jest-dom';
+import { render } from '@testing-library/react';
+import { Button } from 'antd';
+import { mount } from 'enzyme';
+import { act } from 'react-dom/test-utils';
+import { waitForComponentToPaint } from '../util';
 
 describe('StepsForm', () => {
   it('🐲 basic use', async () => {

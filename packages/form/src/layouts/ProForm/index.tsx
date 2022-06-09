@@ -1,9 +1,9 @@
-import React from 'react';
 import type { FormProps } from 'antd';
 import { Form } from 'antd';
-import { Group, ProFormItem } from '../../components';
+import React from 'react';
 import type { CommonFormProps } from '../../BaseForm';
 import { BaseForm } from '../../BaseForm';
+import { Group, ProFormItem } from '../../components';
 
 export type ProFormProps<T = Record<string, any>> = Omit<FormProps<T>, 'onFinish'> &
   CommonFormProps<T>;

@@ -1,13 +1,14 @@
-import React, { useState } from 'react';
-import { Button, message, Space } from 'antd';
-import ProForm, {
+import { PlusOutlined } from '@ant-design/icons';
+import {
+  DrawerForm,
   ModalForm,
-  ProFormText,
+  ProForm,
   ProFormDateRangePicker,
   ProFormSelect,
-  DrawerForm,
-} from '@ant-design/pro-form';
-import { PlusOutlined } from '@ant-design/icons';
+  ProFormText,
+} from '@ant-design/pro-components';
+import { Button, message, Space } from 'antd';
+import { useState } from 'react';
 
 export default () => {
   const [modalVisit, setModalVisit] = useState(false);

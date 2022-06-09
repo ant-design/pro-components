@@ -1,11 +1,11 @@
-import React from 'react';
+import { isDeepEqualReact, omitUndefined } from '@ant-design/pro-utils';
 import type { TablePaginationConfig } from 'antd';
 import omit from 'omit.js';
-import { omitUndefined, isDeepEqualReact } from '@ant-design/pro-utils';
-import type { ProTableProps, ActionType } from '../../typing';
+import React from 'react';
+import type { ActionType, ProTableProps } from '../../typing';
 import { isBordered } from '../../utils/index';
-import './index.less';
 import FormRender from './FormRender';
+import './index.less';
 
 type BaseFormProps<T, U> = {
   pagination?: TablePaginationConfig | false;

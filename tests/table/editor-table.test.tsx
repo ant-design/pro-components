@@ -1,9 +1,9 @@
-import React from 'react';
-import { InputNumber } from 'antd';
-import type { ProColumns, EditableFormInstance, ActionType } from '@ant-design/pro-table';
-import { EditableProTable } from '@ant-design/pro-table';
 import ProForm, { ProFormText } from '@ant-design/pro-form';
-import { fireEvent, act, cleanup, render } from '@testing-library/react';
+import type { ActionType, EditableFormInstance, ProColumns } from '@ant-design/pro-table';
+import { EditableProTable } from '@ant-design/pro-table';
+import { act, cleanup, fireEvent, render } from '@testing-library/react';
+import { InputNumber } from 'antd';
+import React from 'react';
 import { waitForComponentToPaint } from '../util';
 
 type DataSourceType = {
@@ -278,6 +278,69 @@ describe('EditorProTable', () => {
     await waitForComponentToPaint(wrapper, 1000);
 
     expect(onchange).toBeCalledWith(2);
+
+    wrapper.unmount();
+  });
+
+  it('📝 EditableProTable add support nested children column', async () => {
+    const onchange = jest.fn();
+    const wrapper = render(
+      <EditableProTable<DataSourceType>
+        rowKey="id"
+        pagination={{
+          pageSize: 2,
+          current: 2,
+        }}
+        editable={{}}
+        expandable={{
+          childrenColumnName: 'children',
+        }}
+        onChange={(data) => {
+          onchange(data[0].children![0]!.children!.length);
+        }}
+        recordCreatorProps={{
+          position: 'top',
+          newRecordType: 'dataSource',
+          parentKey: () => 6246747901,
+          record: {
+            id: 555,
+          },
+          id: 'addEditRecord',
+        }}
+        columns={columns}
+        value={[
+          {
+            id: 624674790,
+            title: '🧐 [问题] build 后还存在 es6 的代码（Umi@2.13.13）',
+            labels: [{ name: 'question', color: 'success' }],
+            state: 'open',
+            time: {
+              created_at: '2020-05-26T07:54:25Z',
+            },
+            children: [
+              {
+                id: 6246747901,
+                title: '嵌套数据的编辑',
+                labels: [{ name: 'question', color: 'success' }],
+                state: 'closed',
+                time: {
+                  created_at: '2020-05-26T07:54:25Z',
+                },
+              },
+            ],
+          },
+        ]}
+      />,
+    );
+    await waitForComponentToPaint(wrapper, 1000);
+
+    await act(async () => {
+      (await wrapper.queryAllByText('添加一行数据')).at(0)?.click();
+    });
+
+    await waitForComponentToPaint(wrapper, 1000);
+
+    expect(onchange).toBeCalledWith(1);
 
     wrapper.unmount();
   });

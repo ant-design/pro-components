@@ -1,15 +1,13 @@
-﻿import React, { useCallback, useContext, useEffect, useMemo, useRef, useState } from 'react';
+﻿import { useRefFunction } from '@ant-design/pro-utils';
 import type { DrawerProps, FormProps } from 'antd';
-import { ConfigProvider } from 'antd';
-import { Drawer } from 'antd';
-import useMergedState from 'rc-util/lib/hooks/useMergedState';
-import { createPortal } from 'react-dom';
-
-import type { CommonFormProps } from '../../BaseForm';
-import { BaseForm } from '../../BaseForm';
-import { noteOnce } from 'rc-util/lib/warning';
+import { ConfigProvider, Drawer } from 'antd';
 import merge from 'lodash/merge';
-import { useRefFunction } from '@ant-design/pro-utils';
+import useMergedState from 'rc-util/lib/hooks/useMergedState';
+import { noteOnce } from 'rc-util/lib/warning';
+import React, { useCallback, useContext, useEffect, useMemo, useRef, useState } from 'react';
+import { createPortal } from 'react-dom';
+import type { CommonFormProps, ProFormInstance } from '../../BaseForm';
+import { BaseForm } from '../../BaseForm';
 
 export type DrawerFormProps<T = Record<string, any>> = Omit<FormProps, 'onFinish' | 'title'> &
   CommonFormProps<T> & {
@@ -88,6 +86,8 @@ function DrawerForm<T = Record<string, any>>({
     }
     footerRef.current = element;
   }, []);
+
+  const formRef = useRef<ProFormInstance>();
 
   useEffect(() => {
     if (visible && propVisible) {
@@ -168,6 +168,7 @@ function DrawerForm<T = Record<string, any>>({
     if (result) {
       setVisible(false);
     }
+    return result;
   });
 
   return (
@@ -198,9 +199,18 @@ function DrawerForm<T = Record<string, any>>({
         <BaseForm
           formComponentType="DrawerForm"
           layout="vertical"
+          formRef={formRef}
           {...rest}
           submitter={submitterConfig}
-          onFinish={onFinishHandle}
+          onFinish={async (values) => {
+            const result = await onFinishHandle(values);
+            const form = rest.formRef?.current ?? formRef.current;
+            // 返回真值，重置表单
+            if (result && form) {
+              form.resetFields();
+            }
+            return result;
+          }}
           contentRender={contentRender}
         >
           {children}

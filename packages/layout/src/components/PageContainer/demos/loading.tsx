@@ -1,6 +1,6 @@
-import React, { useState, useEffect, useMemo } from 'react';
-import { PageContainer } from '@ant-design/pro-layout';
+import { PageContainer } from '@ant-design/pro-components';
 import { Card } from 'antd';
+import React, { useEffect, useMemo, useState } from 'react';
 
 export default () => {
   const customLoadingDom = useMemo(

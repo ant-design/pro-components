@@ -1,5 +1,4 @@
-﻿import React from 'react';
-import ProForm, { ProFormList, ProFormText, ProFormDependency } from '@ant-design/pro-form';
+﻿import { ProForm, ProFormDependency, ProFormList, ProFormText } from '@ant-design/pro-components';
 import { Button } from 'antd';
 
 const Demo = () => {

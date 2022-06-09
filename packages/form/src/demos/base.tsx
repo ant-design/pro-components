@@ -1,15 +1,16 @@
-import React, { useRef } from 'react';
-import { message, TreeSelect } from 'antd';
-import type { ProFormInstance } from '@ant-design/pro-form';
-import { ProFormCascader } from '@ant-design/pro-form';
-import ProForm, {
-  ProFormText,
+import type { ProFormInstance } from '@ant-design/pro-components';
+import {
+  ProForm,
+  ProFormCascader,
   ProFormDateRangePicker,
-  ProFormSelect,
-  ProFormMoney,
   ProFormDigit,
+  ProFormMoney,
+  ProFormSelect,
+  ProFormText,
   ProFormTreeSelect,
-} from '@ant-design/pro-form';
+} from '@ant-design/pro-components';
+import { message, TreeSelect } from 'antd';
+import { useRef } from 'react';
 
 const waitTime = (time: number = 100) => {
   return new Promise((resolve) => {
@@ -135,12 +136,23 @@ export default () => {
           name="useMode"
           label="合同约定生效方式"
         />
-        <ProFormSelect
+        <ProFormSelect.SearchSelect
           width="xs"
           options={[
             {
               value: 'time',
               label: '履行完终止',
+              type: 'time',
+              options: [
+                {
+                  value: 'time1',
+                  label: '履行完终止1',
+                },
+                {
+                  value: 'time2',
+                  label: '履行完终止2',
+                },
+              ],
             },
           ]}
           name="unusedMode"
@@ -197,10 +209,12 @@ export default () => {
         name="areaList"
         label="区域"
         initialValue={['zhejiang', 'hangzhou', 'xihu']}
+        addonAfter={'qixian'}
       />
       <ProFormTreeSelect
         initialValue={['0-0-0']}
         label="树形下拉选择器"
+        width={600}
         request={async () => treeData}
         fieldProps={{
           fieldNames: {

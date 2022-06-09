@@ -1,19 +1,17 @@
-import './index.less';
 import Icon, { createFromIconfontCN } from '@ant-design/icons';
+import { isImg, isUrl, useMountMergeState } from '@ant-design/pro-utils';
+import type { MenuProps, MenuTheme } from 'antd';
 import { Menu, Skeleton } from 'antd';
-import React, { useEffect, useState, useRef, useMemo } from 'react';
+import type { ItemType } from 'antd/lib/menu/hooks/useItems';
 import classNames from 'classnames';
-import { isUrl, isImg, useMountMergeState } from '@ant-design/pro-utils';
-
-import type { MenuTheme, MenuProps } from 'antd';
+import React, { useEffect, useMemo, useRef, useState } from 'react';
 import type { PureSettings } from '../../defaultSettings';
 import defaultSettings from '../../defaultSettings';
-import { getOpenKeysFromMenuData } from '../../utils/utils';
-
 import type { MenuDataItem, MessageDescriptor, Route, RouterTypes, WithFalse } from '../../typings';
+import { getOpenKeysFromMenuData } from '../../utils/utils';
 import MenuCounter from './Counter';
+import './index.less';
 import type { PrivateSiderMenuProps } from './SiderMenu';
-import type { ItemType } from 'antd/lib/menu/hooks/useItems';
 
 // todo
 export type MenuMode = 'vertical' | 'vertical-left' | 'vertical-right' | 'horizontal' | 'inline';
@@ -50,6 +48,7 @@ export type BaseMenuProps = {
         isUrl: boolean;
       },
       defaultDom: React.ReactNode,
+      menuProps: BaseMenuProps,
     ) => React.ReactNode
   >;
 
@@ -138,7 +137,7 @@ class MenuUtil {
 
       // subMenu only title render
       const title = subMenuItemRender
-        ? subMenuItemRender({ ...item, isUrl: false }, defaultTitle)
+        ? subMenuItemRender({ ...item, isUrl: false }, defaultTitle, this.props)
         : defaultTitle;
 
       return {

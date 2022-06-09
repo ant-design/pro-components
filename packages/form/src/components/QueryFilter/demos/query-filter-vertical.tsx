@@ -1,11 +1,10 @@
-import React from 'react';
 import {
-  QueryFilter,
-  ProFormText,
+  ProFormCheckbox,
   ProFormDatePicker,
   ProFormRadio,
-  ProFormCheckbox,
-} from '@ant-design/pro-form';
+  ProFormText,
+  QueryFilter,
+} from '@ant-design/pro-components';
 
 export default () => {
   return (

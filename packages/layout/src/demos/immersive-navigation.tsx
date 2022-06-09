@@ -1,7 +1,7 @@
-import React, { useState } from 'react';
-import { Button, Result, Avatar, Space, Tag } from 'antd';
-import { CrownOutlined, LeftOutlined, UserOutlined, SmileOutlined } from '@ant-design/icons';
-import ProLayout from '@ant-design/pro-layout';
+import { CrownOutlined, LeftOutlined, SmileOutlined, UserOutlined } from '@ant-design/icons';
+import { ProLayout } from '@ant-design/pro-components';
+import { Avatar, Button, Result, Space, Tag } from 'antd';
+import { useState } from 'react';
 
 const defaultProps = {
   routes: [

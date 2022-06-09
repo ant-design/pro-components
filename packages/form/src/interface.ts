@@ -1,15 +1,15 @@
-import type { FormItemProps, RowProps, SpaceProps } from 'antd';
-import type { ProFormItemProps } from './components';
-import type { ProFormInstance } from './BaseForm';
-import type { LabelTooltipType } from 'antd/lib/form/FormItemLabel';
-import type React from 'react';
 import type {
   ProFieldProps,
   ProFieldValueType,
   ProSchema,
   SearchConvertKeyFn,
 } from '@ant-design/pro-utils';
+import type { FormItemProps, RowProps, SpaceProps } from 'antd';
+import type { LabelTooltipType } from 'antd/lib/form/FormItemLabel';
 import type { ColProps } from 'antd/lib/grid/col';
+import type React from 'react';
+import type { ProFormInstance } from './BaseForm';
+import type { ProFormItemProps } from './components';
 
 export interface ProFormGridConfig {
   /**
@@ -166,9 +166,10 @@ export type GroupProps = {
   children?: React.ReactNode;
 } & ProFormGridConfig;
 
-export type FieldProps = {
+export type FieldProps<K> = {
   style?: React.CSSProperties;
   width?: string;
+  ref?: React.Ref<K>;
 };
 
 export type LightFilterFooterRender =
@@ -184,7 +185,7 @@ export type LightFilterFooterRender =
     ) => JSX.Element | false)
   | false;
 
-export type ProFormFieldItemProps<T = Record<string, any>> = {
+export type ProFormFieldItemProps<T = Record<string, any>, K = any> = {
   /**
    * @name 设置到控件上的属性
    *
@@ -193,7 +194,7 @@ export type ProFormFieldItemProps<T = Record<string, any>> = {
    * @example 设置select 多选
    * <ProFormText fieldProps={{placeholder:"请输入！"}} />
    */
-  fieldProps?: FieldProps & T;
+  fieldProps?: FieldProps<K> & T;
   /**
    * @name 输入的描述，没有值的时候展示
    */

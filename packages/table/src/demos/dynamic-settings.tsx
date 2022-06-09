@@ -1,22 +1,22 @@
 import { DownOutlined } from '@ant-design/icons';
-import React, { useState, useRef } from 'react';
-import ProForm, {
+import type { ProColumnType, ProFormInstance } from '@ant-design/pro-components';
+import {
+  ProCard,
+  ProForm,
+  ProFormDependency,
   ProFormDigit,
+  ProFormGroup,
+  ProFormList,
   ProFormRadio,
   ProFormSelect,
   ProFormSwitch,
   ProFormText,
-  ProFormList,
-  ProFormGroup,
-  ProFormDependency,
   ProFormTextArea,
-} from '@ant-design/pro-form';
-import type { ProColumnType } from '@ant-design/pro-table';
-import ProTable from '@ant-design/pro-table';
-import { useDebounceFn } from '@ant-design/pro-utils';
-import ProCard from '@ant-design/pro-card';
+  ProTable,
+  useDebounceFn,
+} from '@ant-design/pro-components';
 import { Button } from 'antd';
-import type { ProFormInstance } from '@ant-design/pro-form';
+import { useRef, useState } from 'react';
 
 const valueTypeArray = [
   'password',

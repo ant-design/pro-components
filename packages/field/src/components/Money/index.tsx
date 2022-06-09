@@ -1,10 +1,10 @@
-import React, { useMemo } from 'react';
+import { intlMap as allIntlMap, useIntl } from '@ant-design/pro-provider';
 import type { InputNumberProps } from 'antd';
 import { InputNumber, Popover } from 'antd';
-import { useIntl, intlMap as allIntlMap } from '@ant-design/pro-provider';
-import type { ProFieldFC } from '../../index';
-import useMergedState from 'rc-util/lib/hooks/useMergedState';
 import omit from 'omit.js';
+import useMergedState from 'rc-util/lib/hooks/useMergedState';
+import React, { useMemo } from 'react';
+import type { ProFieldFC } from '../../index';
 
 export type FieldMoneyProps = {
   text: number;

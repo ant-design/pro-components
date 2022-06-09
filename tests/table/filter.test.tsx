@@ -1,9 +1,8 @@
-import { mount } from 'enzyme';
-import React from 'react';
-import { act } from 'react-dom/test-utils';
 import ProTable from '@ant-design/pro-table';
-import { getFetchData } from './demo';
+import { mount } from 'enzyme';
+import { act } from 'react-dom/test-utils';
 import { waitForComponentToPaint } from '../util';
+import { getFetchData } from './demo';
 
 describe('BasicTable Search', () => {
   it('🎏 filter test', async () => {

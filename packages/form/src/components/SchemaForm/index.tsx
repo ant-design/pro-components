@@ -1,17 +1,18 @@
-﻿import React, { useCallback, useImperativeHandle, useMemo, useRef, useState } from 'react';
-import { LabelIconTip, omitUndefined, useLatest, runFunction } from '@ant-design/pro-utils';
-import { renderValueType } from './valueType';
+﻿import { LabelIconTip, omitUndefined, runFunction, useLatest } from '@ant-design/pro-utils';
+import type { FormInstance, FormProps } from 'antd';
+import { Form } from 'antd';
 import omit from 'omit.js';
+import React, { useCallback, useImperativeHandle, useMemo, useRef, useState } from 'react';
+import type { ProFormProps } from '../../layouts';
 import { DrawerForm } from '../../layouts/DrawerForm';
-import { QueryFilter } from '../../layouts/QueryFilter';
 import { LightFilter } from '../../layouts/LightFilter';
 import { ModalForm } from '../../layouts/ModalForm';
 import { ProForm } from '../../layouts/ProForm';
+import { QueryFilter } from '../../layouts/QueryFilter';
 import { StepsForm as ProStepsForm } from '../../layouts/StepsForm';
-import { StepsForm, Embed } from './layoutType';
-import type { FormInstance, FormProps } from 'antd';
+import { Embed, StepsForm } from './layoutType';
 import type { FormSchema, ProFormColumnsType, ProFormRenderValueTypeHelpers } from './typing';
-import type { ProFormProps } from '../../layouts';
+import { renderValueType } from './valueType';
 
 export * from './typing';
 
@@ -23,14 +24,6 @@ const FormLayoutType = {
   StepsForm: StepsForm,
   ModalForm,
   Embed,
-};
-
-const noop: any = () => {};
-const formInstanceNoop: any = {
-  getFieldValue: noop,
-  getFieldsValue: noop,
-  resetFields: noop,
-  setFieldsValue: noop,
 };
 
 /**
@@ -49,8 +42,8 @@ function BetaSchemaForm<T, ValueType = 'text'>(props: FormSchema<T, ValueType>) 
     ...restProps
   } = props;
 
-  const Form = (FormLayoutType[layoutType] || ProForm) as React.FC<ProFormProps<T>>;
-
+  const FormRenderComponents = (FormLayoutType[layoutType] || ProForm) as React.FC<ProFormProps<T>>;
+  const [form] = Form.useForm();
   const [, forceUpdate] = useState<[]>([]);
   const [formDomsDeps, updatedFormDoms] = useState<[]>([]);
 
@@ -58,7 +51,7 @@ function BetaSchemaForm<T, ValueType = 'text'>(props: FormSchema<T, ValueType>) 
     return omit(restProps, ['formRef'] as any);
   }, [restProps]);
 
-  const formRef = useRef<FormInstance | undefined>(props.form || formInstanceNoop);
+  const formRef = useRef<FormInstance | undefined>(props.form || form);
   const oldValuesRef = useRef<T>();
   const propsRef = useLatest(props);
 
@@ -112,6 +105,7 @@ function BetaSchemaForm<T, ValueType = 'text'>(props: FormSchema<T, ValueType>) 
             tooltip: originItem.tooltip || originItem.tip,
             dependencies: originItem.dependencies,
             proFieldProps: originItem.proFieldProps,
+            ignoreFormItem: originItem.ignoreFormItem,
             getFieldProps: originItem.fieldProps
               ? () => runFunction(originItem.fieldProps, formRef.current, originItem)
               : undefined,
@@ -124,6 +118,7 @@ function BetaSchemaForm<T, ValueType = 'text'>(props: FormSchema<T, ValueType>) 
             request: originItem.request,
             params: originItem.params,
             transform: originItem.transform,
+            convertValue: originItem.convertValue,
           });
 
           item.key = item.key || item.dataIndex?.toString() || index;
@@ -158,6 +153,7 @@ function BetaSchemaForm<T, ValueType = 'text'>(props: FormSchema<T, ValueType>) 
   );
 
   const formChildrenDoms = useMemo(() => {
+    if (!formRef.current) return;
     // like StepsForm's columns but not only for StepsForm
     if (columns.length && Array.isArray(columns[0])) return;
 
@@ -180,9 +176,15 @@ function BetaSchemaForm<T, ValueType = 'text'>(props: FormSchema<T, ValueType>) 
   }, [columns, layoutType]);
 
   return (
-    <Form formRef={formRef} {...specificProps} {...rest} onValuesChange={onValuesChange}>
+    <FormRenderComponents
+      {...specificProps}
+      {...rest}
+      form={props.form || form}
+      formRef={formRef}
+      onValuesChange={onValuesChange}
+    >
       {formChildrenDoms}
-    </Form>
+    </FormRenderComponents>
   );
 }
 

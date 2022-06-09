@@ -1,48 +1,49 @@
-import React, { useContext } from 'react';
-import { Avatar } from 'antd';
-import type {
-  ProFieldValueType,
-  ProFieldValueObjectType,
-  BaseProFieldFC,
-  ProRenderFieldPropsType,
-  ProFieldFCRenderProps,
-  ProFieldTextType,
-  ProFieldRequestData,
-} from '@ant-design/pro-utils';
-import { pickProProps, omitUndefined } from '@ant-design/pro-utils';
 import ConfigContext, { useIntl } from '@ant-design/pro-provider';
-import FieldPercent from './components/Percent';
+import type {
+  BaseProFieldFC,
+  ProFieldFCRenderProps,
+  ProFieldRequestData,
+  ProFieldTextType,
+  ProFieldValueObjectType,
+  ProFieldValueType,
+  ProRenderFieldPropsType,
+} from '@ant-design/pro-utils';
+import { omitUndefined, pickProProps } from '@ant-design/pro-utils';
+import { Avatar } from 'antd';
+// import type {RangeInputNumberProps,ExtraProps as } from './components/DigitRange'
+import { noteOnce } from 'rc-util/lib/warning';
+import React, { useContext } from 'react';
+import FieldCascader from './components/Cascader';
+import FieldCheckbox from './components/Checkbox';
+import FieldCode from './components/Code';
+import FieldColorPicker from './components/ColorPicker';
+import FieldDatePicker from './components/DatePicker';
+import FieldDigit from './components/Digit';
+import FieldDigitRange from './components/DigitRange';
+import FieldFromNow from './components/FromNow';
+import FieldImage from './components/Image';
 import FieldIndexColumn from './components/IndexColumn';
-import FieldProgress from './components/Progress';
 import type { FieldMoneyProps } from './components/Money';
 import FieldMoney from './components/Money';
-import FieldDatePicker from './components/DatePicker';
-import FieldFromNow from './components/FromNow';
-import FieldRangePicker from './components/RangePicker';
-import FieldCode from './components/Code';
-import FieldTimePicker, { FieldTimeRangePicker } from './components/TimePicker';
-import FieldText from './components/Text';
-import FieldTextArea from './components/TextArea';
-import FieldPassword from './components/Password';
-import FieldStatus from './components/Status';
 import FieldOptions from './components/Options';
+import FieldPassword from './components/Password';
+import FieldPercent from './components/Percent';
+import FieldProgress from './components/Progress';
+import FieldRadio from './components/Radio';
+import FieldRangePicker from './components/RangePicker';
+import FieldRate from './components/Rate';
+import FieldSecond from './components/Second';
 import FieldSelect, {
   proFieldParsingText,
   proFieldParsingValueEnumToArray,
 } from './components/Select';
-import FieldCheckbox from './components/Checkbox';
-import FieldRate from './components/Rate';
+import FieldStatus from './components/Status';
 import FieldSwitch from './components/Switch';
-import FieldDigit from './components/Digit';
-import FieldSecond from './components/Second';
-import FieldRadio from './components/Radio';
-import FieldImage from './components/Image';
-import FieldCascader from './components/Cascader';
+import FieldText from './components/Text';
+import FieldTextArea from './components/TextArea';
+import FieldTimePicker, { FieldTimeRangePicker } from './components/TimePicker';
 import FieldTreeSelect from './components/TreeSelect';
-import FieldColorPicker from './components/ColorPicker';
-import FieldDigitRange from './components/DigitRange';
-// import type {RangeInputNumberProps,ExtraProps as } from './components/DigitRange'
-import { noteOnce } from 'rc-util/lib/warning';
+import FieldHOC from './FieldHOC';
 
 const REQUEST_VALUE_TYPE = ['select', 'radio', 'radioButton', 'checkbook'];
 
@@ -56,6 +57,17 @@ export type ProFieldFC<T = {}> = React.ForwardRefRenderFunction<
   any,
   BaseProFieldFC & ProRenderFieldPropsType & T
 >;
+
+/** 轻量筛选的field属性 */
+export type ProFieldLightProps = {
+  // label和clear图标的ref
+  lightLabel?: React.RefObject<{
+    labelRef: React.RefObject<HTMLElement>;
+    clearRef: React.RefObject<HTMLElement>;
+  }>;
+  // 是否点击了label
+  labelTrigger?: boolean;
+};
 
 /** Value type by function */
 export type ProFieldValueTypeFunction<T> = (item: T) => ProFieldValueType | ProFieldValueObjectType;
@@ -212,31 +224,47 @@ const defaultRenderText = (
 
   /** 如果是日期的值 */
   if (valueType === 'date') {
-    return <FieldDatePicker text={dataValue as string} format="YYYY-MM-DD" {...props} />;
+    return (
+      <FieldHOC>
+        <FieldDatePicker text={dataValue as string} format="YYYY-MM-DD" {...props} />
+      </FieldHOC>
+    );
   }
 
   /** 如果是周的值 */
   if (valueType === 'dateWeek') {
-    return <FieldDatePicker text={dataValue as string} format="YYYY-wo" picker="week" {...props} />;
+    return (
+      <FieldHOC>
+        <FieldDatePicker text={dataValue as string} format="YYYY-wo" picker="week" {...props} />
+      </FieldHOC>
+    );
   }
 
   /** 如果是月的值 */
   if (valueType === 'dateMonth') {
     return (
-      <FieldDatePicker text={dataValue as string} format="YYYY-MM" picker="month" {...props} />
+      <FieldHOC>
+        <FieldDatePicker text={dataValue as string} format="YYYY-MM" picker="month" {...props} />
+      </FieldHOC>
     );
   }
 
   /** 如果是季度的值 */
   if (valueType === 'dateQuarter') {
     return (
-      <FieldDatePicker text={dataValue as string} format="YYYY-\QQ" picker="quarter" {...props} />
+      <FieldHOC>
+        <FieldDatePicker text={dataValue as string} format="YYYY-\QQ" picker="quarter" {...props} />
+      </FieldHOC>
     );
   }
 
   /** 如果是年的值 */
   if (valueType === 'dateYear') {
-    return <FieldDatePicker text={dataValue as string} format="YYYY" picker="year" {...props} />;
+    return (
+      <FieldHOC>
+        <FieldDatePicker text={dataValue as string} format="YYYY" picker="year" {...props} />
+      </FieldHOC>
+    );
   }
 
   /** 如果是日期范围的值 */
@@ -247,12 +275,14 @@ const defaultRenderText = (
   /** 如果是日期加时间类型的值 */
   if (valueType === 'dateTime') {
     return (
-      <FieldDatePicker
-        text={dataValue as string}
-        format="YYYY-MM-DD HH:mm:ss"
-        showTime
-        {...props}
-      />
+      <FieldHOC>
+        <FieldDatePicker
+          text={dataValue as string}
+          format="YYYY-MM-DD HH:mm:ss"
+          showTime
+          {...props}
+        />
+      </FieldHOC>
     );
   }
 
@@ -271,7 +301,11 @@ const defaultRenderText = (
 
   /** 如果是时间类型的值 */
   if (valueType === 'time') {
-    return <FieldTimePicker text={dataValue as string} format="HH:mm:ss" {...props} />;
+    return (
+      <FieldHOC>
+        <FieldTimePicker text={dataValue as string} format="HH:mm:ss" {...props} />
+      </FieldHOC>
+    );
   }
 
   /** 如果是时间类型的值 */
@@ -328,7 +362,11 @@ const defaultRenderText = (
   }
 
   if (valueType === 'select' || (valueType === 'text' && (props.valueEnum || props.request))) {
-    return <FieldSelect text={dataValue as string} {...props} />;
+    return (
+      <FieldHOC>
+        <FieldSelect text={dataValue as string} {...props} />
+      </FieldHOC>
+    );
   }
 
   if (valueType === 'checkbox') {
@@ -377,6 +415,22 @@ const defaultRenderText = (
 };
 
 export { defaultRenderText };
+export {
+  FieldPercent,
+  FieldIndexColumn,
+  FieldProgress,
+  FieldMoney,
+  FieldDatePicker,
+  FieldRangePicker,
+  FieldCode,
+  FieldTimePicker,
+  FieldText,
+  FieldStatus,
+  FieldSelect,
+  proFieldParsingText,
+  proFieldParsingValueEnumToArray,
+};
+export type { ProFieldValueType, FieldMoneyProps };
 
 /** ProField 的类型 */
 export type ProFieldPropsType = {
@@ -432,23 +486,5 @@ const ProField: React.ForwardRefRenderFunction<any, ProFieldPropsType> = (
     </React.Fragment>
   );
 };
-
-export {
-  FieldPercent,
-  FieldIndexColumn,
-  FieldProgress,
-  FieldMoney,
-  FieldDatePicker,
-  FieldRangePicker,
-  FieldCode,
-  FieldTimePicker,
-  FieldText,
-  FieldStatus,
-  FieldSelect,
-  proFieldParsingText,
-  proFieldParsingValueEnumToArray,
-};
-
-export type { ProFieldValueType, FieldMoneyProps };
 
 export default React.forwardRef(ProField) as typeof ProField;

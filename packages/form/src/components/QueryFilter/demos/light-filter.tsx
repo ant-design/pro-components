@@ -1,23 +1,24 @@
-import React from 'react';
 import {
   LightFilter,
-  ProFormText,
+  ProFormCascader,
+  ProFormCheckbox,
   ProFormDatePicker,
-  ProFormSelect,
-  ProFormDigit,
-  ProFormSwitch,
   ProFormDateRangePicker,
   ProFormDateTimePicker,
-  ProFormTimePicker,
   ProFormDateTimeRangePicker,
-  ProFormSlider,
+  ProFormDigit,
   ProFormFieldSet,
+  ProFormSelect,
+  ProFormSlider,
+  ProFormSwitch,
+  ProFormText,
+  ProFormTimePicker,
   ProFormTreeSelect,
-  ProFormCascader,
-} from '@ant-design/pro-form';
+} from '@ant-design/pro-components';
 import { Radio, TreeSelect } from 'antd';
 import type { SizeType } from 'antd/lib/config-provider/SizeContext';
 import moment from 'moment';
+import React from 'react';
 
 const treeData = [
   {
@@ -125,6 +126,11 @@ export default () => {
             hangzhou: '杭州',
             long: '这是一个很长的用来测试溢出的项目',
           }}
+        />
+        <ProFormCheckbox.Group
+          name="checkbox-group"
+          label="Checkbox.Group"
+          options={['A', 'B', 'C', 'D', 'E', 'F']}
         />
         <ProFormTreeSelect
           initialValue={['0-0', '0-1']}

@@ -2,10 +2,9 @@
  * title: 自定义头像
  */
 
-import React from 'react';
-import { CheckCard } from '@ant-design/pro-card';
-import { Avatar } from 'antd';
 import { UserOutlined } from '@ant-design/icons';
+import { CheckCard } from '@ant-design/pro-components';
+import { Avatar } from 'antd';
 
 export default () => (
   <CheckCard

@@ -1,10 +1,10 @@
-﻿import React from 'react';
-import ProForm, {
-  ProFormText,
+﻿import {
+  ProForm,
   ProFormDependency,
   ProFormGroup,
   ProFormList,
-} from '@ant-design/pro-form';
+  ProFormText,
+} from '@ant-design/pro-components';
 import { Form } from 'antd';
 import type { NamePath } from 'antd/es/form/interface';
 

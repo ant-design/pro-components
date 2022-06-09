@@ -1,8 +1,6 @@
-import React from 'react';
-
-import ProLayout, { PageContainer } from '@ant-design/pro-layout';
-import { Avatar } from 'antd';
 import { UserOutlined } from '@ant-design/icons';
+import { PageContainer, ProLayout } from '@ant-design/pro-components';
+import { Avatar } from 'antd';
 import complexMenu from './complexMenu';
 
 export default () => (

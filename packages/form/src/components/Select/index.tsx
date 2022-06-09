@@ -1,9 +1,10 @@
-import React, { useContext } from 'react';
-import type { SelectProps } from 'antd';
-import ProFormField from '../Field';
 import { runFunction } from '@ant-design/pro-utils';
-import type { ProFormFieldItemProps, ProFormFieldRemoteProps } from '../../interface';
+import type { SelectProps } from 'antd';
+import type { RefSelectProps } from 'antd/lib/select';
+import React, { useContext } from 'react';
 import FieldContext from '../../FieldContext';
+import type { ProFormFieldItemProps, ProFormFieldRemoteProps } from '../../interface';
+import ProFormField from '../Field';
 
 export type ProFormSelectProps<T = any> = ProFormFieldItemProps<
   SelectProps<T> & {
@@ -21,7 +22,8 @@ export type ProFormSelectProps<T = any> = ProFormFieldItemProps<
     resetAfterSelect?: boolean;
     /** 自定义选项渲染 */
     optionItemRender?: (item: T) => React.ReactNode;
-  }
+  },
+  RefSelectProps
 > & {
   options?: SelectProps<any>['options'] | string[];
   mode?: SelectProps<any>['mode'] | 'single';

@@ -1,25 +1,23 @@
-import React, { useContext, useEffect, useMemo, useRef } from 'react';
-import { useIntl } from '@ant-design/pro-provider';
 import {
   SettingOutlined,
+  VerticalAlignBottomOutlined,
   VerticalAlignMiddleOutlined,
   VerticalAlignTopOutlined,
-  VerticalAlignBottomOutlined,
 } from '@ant-design/icons';
+import { useIntl } from '@ant-design/pro-provider';
+import { runFunction, useRefFunction } from '@ant-design/pro-utils';
 import type { TableColumnType } from 'antd';
-import { Checkbox, Tree, Popover, ConfigProvider, Tooltip, Space } from 'antd';
-import classNames from 'classnames';
+import { Checkbox, ConfigProvider, Popover, Space, Tooltip, Tree } from 'antd';
+import type { CheckboxChangeEvent } from 'antd/lib/checkbox';
 import type { DataNode } from 'antd/lib/tree';
+import classNames from 'classnames';
 import omit from 'omit.js';
-
+import React, { useContext, useEffect, useMemo, useRef } from 'react';
 import type { ColumnsState } from '../../container';
 import Container from '../../container';
-import { genColumnKey } from '../../utils/index';
 import type { ProColumns } from '../../typing';
-
+import { genColumnKey } from '../../utils/index';
 import './index.less';
-import { useRefFunction } from '@ant-design/pro-utils';
-import type { CheckboxChangeEvent } from 'antd/lib/checkbox';
 
 type ColumnSettingProps<T = any> = {
   columns: TableColumnType<T>[];
@@ -151,11 +149,16 @@ const CheckboxList: React.FC<{
     const newColumns = [...sortKeyColumns];
     const findIndex = newColumns.findIndex((columnKey) => columnKey === id);
     const targetIndex = newColumns.findIndex((columnKey) => columnKey === targetId);
-    const isDownWord = dropPosition > findIndex;
+    const isDownWord = dropPosition > targetIndex;
     if (findIndex < 0) return;
     const targetItem = newColumns[findIndex];
     newColumns.splice(findIndex, 1);
-    newColumns.splice(isDownWord ? targetIndex : targetIndex + 1, 0, targetItem);
+
+    if (dropPosition === 0) {
+      newColumns.unshift(targetItem);
+    } else {
+      newColumns.splice(isDownWord ? targetIndex : targetIndex + 1, 0, targetItem);
+    }
     // 重新生成排序数组
     newColumns.forEach((key, order) => {
       newMap[key] = { ...(newMap[key] || {}), order };
@@ -200,7 +203,14 @@ const CheckboxList: React.FC<{
       showLine={false}
       titleRender={(_node) => {
         const node = { ..._node, children: undefined };
-        return <CheckboxListItem className={className} {...node} columnKey={node.key} />;
+        return (
+          <CheckboxListItem
+            className={className}
+            {...node}
+            title={runFunction(node.title, node)}
+            columnKey={node.key}
+          />
+        );
       }}
       height={280}
       treeData={treeDataConfig.list}

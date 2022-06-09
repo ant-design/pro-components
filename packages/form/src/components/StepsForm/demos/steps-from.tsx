@@ -1,16 +1,17 @@
-import React, { useRef } from 'react';
-import type { ProFormInstance } from '@ant-design/pro-form';
-import ProForm, {
-  StepsForm,
-  ProFormText,
-  ProFormDatePicker,
-  ProFormSelect,
-  ProFormTextArea,
+import type { ProFormInstance } from '@ant-design/pro-components';
+import {
+  ProCard,
+  ProForm,
   ProFormCheckbox,
+  ProFormDatePicker,
   ProFormDateRangePicker,
-} from '@ant-design/pro-form';
-import ProCard from '@ant-design/pro-card';
+  ProFormSelect,
+  ProFormText,
+  ProFormTextArea,
+  StepsForm,
+} from '@ant-design/pro-components';
 import { message } from 'antd';
+import { useRef } from 'react';
 
 const waitTime = (time: number = 100) => {
   return new Promise((resolve) => {

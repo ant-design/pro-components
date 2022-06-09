@@ -1,13 +1,12 @@
-import React, { useRef, useState } from 'react';
+import { useDebounceFn } from '@ant-design/pro-utils';
 import classNames from 'classnames';
 import ResizeObserver from 'rc-resize-observer';
-import type { SiderMenuProps, PrivateSiderMenuProps } from '../SiderMenu/SiderMenu';
+import React, { useRef, useState } from 'react';
+import type { GlobalHeaderProps } from '../GlobalHeader';
+import BaseMenu from '../SiderMenu/BaseMenu';
+import type { PrivateSiderMenuProps, SiderMenuProps } from '../SiderMenu/SiderMenu';
 import { defaultRenderLogoAndTitle } from '../SiderMenu/SiderMenu';
 import './index.less';
-
-import BaseMenu from '../SiderMenu/BaseMenu';
-import type { GlobalHeaderProps } from '../GlobalHeader';
-import { useDebounceFn } from '@ant-design/pro-utils';
 
 export type TopNavHeaderProps = SiderMenuProps & GlobalHeaderProps & PrivateSiderMenuProps;
 

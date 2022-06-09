@@ -1,13 +1,11 @@
-import MockDate from 'mockdate';
-import Enzyme from 'enzyme';
 import Adapter from '@cfaester/enzyme-adapter-react-18';
+import Enzyme from 'enzyme';
 import 'jest-canvas-mock';
-import moment from 'moment-timezone';
-
 import { enableFetchMocks } from 'jest-fetch-mock';
-import tableData from './table/mock.data.json';
-
+import MockDate from 'mockdate';
+import moment from 'moment-timezone';
 import React from 'react';
+import tableData from './table/mock.data.json';
 
 global.React = React;
 

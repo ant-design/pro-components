@@ -1,14 +1,14 @@
-﻿import React, { useContext, useEffect, useMemo } from 'react';
-import Layout from 'dumi-theme-default/src/layout';
-import dumiContext from '@umijs/preset-dumi/lib/theme/context';
+﻿import dumiContext from '@umijs/preset-dumi/lib/theme/context';
 import { ConfigProvider, Switch } from 'antd';
-import { IRouteComponentProps, isBrowser } from 'umi';
 import zhCN from 'antd/es/locale/zh_CN';
-import { Helmet, HelmetProvider } from 'react-helmet-async';
+import Layout from 'dumi-theme-default/src/layout';
 import moment from 'moment';
-import { useDarkreader } from './useDarkreader';
 import 'moment/locale/zh-cn';
+import { useContext, useEffect, useMemo } from 'react';
+import { Helmet, HelmetProvider } from 'react-helmet-async';
+import { IRouteComponentProps, isBrowser } from 'umi';
 import './layout.less';
+import { useDarkreader } from './useDarkreader';
 moment.locale('zh-cn');
 
 const DarkButton = () => {

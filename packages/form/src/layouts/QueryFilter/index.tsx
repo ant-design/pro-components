@@ -1,20 +1,18 @@
 /* eslint-disable no-param-reassign */
-import type { ReactElement } from 'react';
-import { useContext } from 'react';
-import React, { useMemo } from 'react';
-import type { FormItemProps, RowProps } from 'antd';
-import { Row, Col, Form, Divider, ConfigProvider } from 'antd';
-import type { FormInstance, FormProps } from 'antd/lib/form/Form';
-import RcResizeObserver from 'rc-resize-observer';
 import { useIntl } from '@ant-design/pro-provider';
 import { isBrowser, useMountMergeState } from '@ant-design/pro-utils';
+import type { FormItemProps, RowProps } from 'antd';
+import { Col, ConfigProvider, Divider, Form, Row } from 'antd';
+import type { FormInstance, FormProps } from 'antd/lib/form/Form';
+import classNames from 'classnames';
+import RcResizeObserver from 'rc-resize-observer';
 import useMergedState from 'rc-util/lib/hooks/useMergedState';
-
+import type { ReactElement } from 'react';
+import React, { useContext, useMemo } from 'react';
 import type { CommonFormProps } from '../../BaseForm';
 import { BaseForm } from '../../BaseForm';
 import type { ActionsProps } from './Actions';
 import Actions from './Actions';
-import classNames from 'classnames';
 
 const CONFIG_SPAN_BREAKPOINTS = {
   xs: 513,
@@ -305,7 +303,7 @@ const QueryFilterContent: React.FC<{
         (collapsed &&
           (firstRowFull ||
             // 如果 超过显示长度 且 总长度超过了 24
-            totalSize >= showLength - 1) &&
+            totalSize > showLength - 1) &&
           !!index &&
           totalSpan >= 24);
 

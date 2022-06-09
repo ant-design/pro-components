@@ -1,10 +1,10 @@
-import React from 'react';
-import { message } from 'antd';
-import ProForm, {
+import {
+  ProForm,
+  ProFormDatePicker,
   ProFormDateRangePicker,
   ProFormSelect,
-  ProFormDatePicker,
-} from '@ant-design/pro-form';
+} from '@ant-design/pro-components';
+import { message } from 'antd';
 
 export default () => {
   return (

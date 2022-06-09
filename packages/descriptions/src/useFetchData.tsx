@@ -1,5 +1,5 @@
-import { useEffect } from 'react';
 import useMergedState from 'rc-util/lib/hooks/useMergedState';
+import { useEffect } from 'react';
 
 export type RequestData<T = any> = {
   data?: T;

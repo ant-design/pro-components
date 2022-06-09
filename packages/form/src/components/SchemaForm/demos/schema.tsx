@@ -1,8 +1,8 @@
-﻿import React, { useState } from 'react';
-import type { ProFormColumnsType, ProFormLayoutType } from '@ant-design/pro-form';
-import { BetaSchemaForm, ProFormSelect } from '@ant-design/pro-form';
-import moment from 'moment';
+﻿import type { ProFormColumnsType, ProFormLayoutType } from '@ant-design/pro-components';
+import { BetaSchemaForm, ProFormSelect } from '@ant-design/pro-components';
 import { Alert, DatePicker, Space } from 'antd';
+import moment from 'moment';
+import { useState } from 'react';
 
 const valueEnum = {
   all: { text: '全部', status: 'Default' },
@@ -42,6 +42,15 @@ const columns: ProFormColumnsType<DataItem>[] = [
     colProps: {
       xs: 24,
       md: 12,
+    },
+    initialValue: '默认值',
+    convertValue: (value) => {
+      return `标题：${value}`;
+    },
+    transform: (value) => {
+      return {
+        title: `${value}-转换`,
+      };
     },
   },
   {
@@ -247,7 +256,13 @@ export default () => {
         }}
         direction="vertical"
       >
-        <Alert type="warning" message="QueryFilter 和 lightFilter 暂不支持grid模式" />
+        <Alert
+          type="warning"
+          message="QueryFilter 和 lightFilter 暂不支持grid模式"
+          style={{
+            marginBottom: 24,
+          }}
+        />
         <ProFormSelect
           label="布局方式"
           options={[
@@ -276,6 +291,9 @@ export default () => {
         ]}
         rowProps={{
           gutter: [16, 16],
+        }}
+        colProps={{
+          span: 12,
         }}
         grid={layoutType !== 'LightFilter' && layoutType !== 'QueryFilter'}
         onFinish={async (values) => {

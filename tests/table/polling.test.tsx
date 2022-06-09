@@ -1,9 +1,8 @@
-import React from 'react';
 import ProTable from '@ant-design/pro-table';
-import { columns } from './demo';
-import { waitForComponentToPaint } from '../util';
-import { render } from '@testing-library/react';
 import '@testing-library/jest-dom';
+import { render } from '@testing-library/react';
+import { waitForComponentToPaint } from '../util';
+import { columns } from './demo';
 
 describe('polling', () => {
   it('⏱️ polling should clearTime', async () => {

@@ -1,10 +1,9 @@
-import React, { useEffect, useMemo, useContext } from 'react';
-import classNames from 'classnames';
-import { Avatar, ConfigProvider } from 'antd';
 import { useMountMergeState } from '@ant-design/pro-utils';
-import CheckCardGroup, { CardLoading, CheckCardGroupConnext } from './Group';
+import { Avatar, ConfigProvider } from 'antd';
+import classNames from 'classnames';
+import React, { useContext, useEffect, useMemo } from 'react';
 import type { CheckCardGroupProps } from './Group';
-
+import CheckCardGroup, { CardLoading, CheckCardGroupConnext } from './Group';
 import './index.less';
 
 interface CheckCardProps {
