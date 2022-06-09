@@ -66,7 +66,7 @@ export type BaseMenuProps = {
         onClick: () => void;
       },
       defaultDom: React.ReactNode,
-      menuProps: BaseMenuProps & PrivateSiderMenuProps,
+      menuProps: BaseMenuProps & Partial<PrivateSiderMenuProps>,
     ) => React.ReactNode
   >;
 
