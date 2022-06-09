@@ -42,7 +42,7 @@ export type {
   FooterProps,
   PageContainerProps,
   TopNavHeaderProps,
-  ProLayoutProps as BasicLayoutProps,
+  ProLayoutProps,
   RouteContextType,
   HeaderProps,
   SettingDrawerProps,

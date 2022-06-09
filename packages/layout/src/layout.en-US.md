@@ -159,12 +159,12 @@ PageContainer configuration `ghost` can switch the page header to transparent mo
 | collapsed | Controls the collapse and expansion of the menu | `boolean` | - |
 | onCollapse | The collapsed event of the menu | `(collapsed: boolean) => void` | - |
 | onPageChange | Triggered on page switch | `(location: Location) => void` | - |
-| headerRender | Custom header render method | `(props: BasicLayoutProps) => ReactNode` | - |
+| headerRender | Custom header render method | `(props: ProLayoutProps) => ReactNode` | - |
 | headerTitleRender | Custom header title method, works in mix mode | `(logo,title,props)=>ReactNode` | - |
-| headerContentRender | Custom header content methods | `(props: BasicLayoutProps) => ReactNode` | - |
+| headerContentRender | Custom header content methods | `(props: ProLayoutProps) => ReactNode` | - |
 | collapsedButtonRender | Custom method for collapsed button | `(collapsed: boolean) => ReactNode` | - |
-| footerRender | Custom render method for footer | `(props: BasicLayoutProps) => JSX.Element \| false` | - |
-| pageTitleRender | The render method for custom page titles | `(props: BasicLayoutProps) => ReactNode` | - |
+| footerRender | Custom render method for footer | `(props: ProLayoutProps) => JSX.Element \| false` | - |
+| pageTitleRender | The render method for custom page titles | `(props: ProLayoutProps) => ReactNode` | - |
 | menuRender | The render method for custom menus | `(props: HeaderViewProps) => ReactNode` | - |
 | postMenuData | View the menu data before displaying it, changes will not trigger a re-render | `(menuData: MenuDataItem[]) => MenuDataItem[]` | - |
 | menuItemRender | The render method for custom menu items | [`(itemProps: MenuDataItem, defaultDom: React.ReactNode, props: BaseMenuProps) => ReactNode`](/components/layout/#menudataitem) | - |

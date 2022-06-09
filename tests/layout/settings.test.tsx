@@ -1,4 +1,4 @@
-import { BasicLayout } from '@ant-design/pro-components';
+import { ProLayout } from '@ant-design/pro-components';
 import '@testing-library/jest-dom';
 import { render } from '@testing-library/react';
 import { _el, _rs } from 'rc-resize-observer/lib/utils/observerUtil';
@@ -7,11 +7,11 @@ import { waitForComponentToPaint, waitTime } from '../util';
 
 describe('settings.test', () => {
   it('set title', async () => {
-    const wrapper = render(<BasicLayout title="test-title" />);
+    const wrapper = render(<ProLayout title="test-title" />);
     await waitForComponentToPaint(wrapper, 160);
     expect(wrapper.getAllByText('test-title')).toBeTruthy();
 
-    wrapper.rerender(<BasicLayout title="test-title-2" />);
+    wrapper.rerender(<ProLayout title="test-title-2" />);
     expect(wrapper.getAllByText('test-title-2')).toBeTruthy();
 
     wrapper.unmount();
@@ -20,7 +20,7 @@ describe('settings.test', () => {
   it('RightContent resize', async () => {
     //@ts-ignore
     const html = render(
-      <BasicLayout
+      <ProLayout
         actionsRender={(renProps) => {
           return [
             <div

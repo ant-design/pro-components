@@ -1,5 +1,5 @@
 ﻿import { MenuFoldOutlined, MenuUnfoldOutlined } from '@ant-design/icons';
-import type { BasicLayoutProps } from '@ant-design/pro-components';
+import type { ProLayoutProps } from '@ant-design/pro-components';
 import { PageContainer, ProFormRadio, ProLayout } from '@ant-design/pro-components';
 import { useState } from 'react';
 import defaultProps from './_defaultProps';
@@ -30,7 +30,7 @@ export default () => {
       </div>
     </PageContainer>
   );
-  const props: BasicLayoutProps = {
+  const props: ProLayoutProps = {
     ...defaultProps,
     location: {
       pathname,
