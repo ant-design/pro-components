@@ -91,9 +91,9 @@ export default () => {
         },
         content: {
           dataIndex: 'content',
-          render: (text: any[]) => (
-            <div style={{ display: 'flex', justifyContent: 'space-around' }}>
-              {text.map((t) => (
+          render: (text) => (
+            <div key="label" style={{ display: 'flex', justifyContent: 'space-around' }}>
+              {(text as any[]).map((t) => (
                 <div key={t.label}>
                   <div style={{ color: '#00000073' }}>{t.label}</div>
                   <div style={{ color: '#000000D9' }}>
