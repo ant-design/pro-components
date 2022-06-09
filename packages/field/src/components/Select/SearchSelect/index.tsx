@@ -73,6 +73,13 @@ export interface SearchSelectProps<T = Record<string, any>>
 
   /** 清空数据 */
   resetData: () => void;
+
+  /**
+   * 当搜索关键词发生变化时是否请求远程数据
+   *
+   * @default true
+   */
+  fetchDataOnSearch?: boolean;
 }
 
 const SearchSelect = <T,>(props: SearchSelectProps<T[]>, ref: any) => {
@@ -85,6 +92,7 @@ const SearchSelect = <T,>(props: SearchSelectProps<T[]>, ref: any) => {
     autoClearSearchValue,
     searchOnFocus = false,
     resetAfterSelect = false,
+    fetchDataOnSearch = true,
     optionFilterProp = 'label',
     optionLabelProp = 'label',
     className,
@@ -205,7 +213,9 @@ const SearchSelect = <T,>(props: SearchSelectProps<T[]>, ref: any) => {
       onSearch={
         showSearch
           ? (value) => {
-              fetchData(value);
+              if (fetchDataOnSearch) {
+                fetchData(value);
+              }
               onSearch?.(value);
               setSearchValue(value);
             }
