@@ -1,4 +1,4 @@
-﻿import BasicLayout from '@ant-design/pro-layout';
+﻿import { BasicLayout } from '@ant-design/pro-components';
 import { mount, render } from 'enzyme';
 import { act } from 'react-dom/test-utils';
 import { waitForComponentToPaint } from '../util';

@@ -1,4 +1,4 @@
-﻿import { SettingDrawer } from '@ant-design/pro-layout';
+﻿import { SettingDrawer } from '@ant-design/pro-components';
 import { isBrowser } from 'umi';
 
 export default ({ children, location, ...rest }) => {
