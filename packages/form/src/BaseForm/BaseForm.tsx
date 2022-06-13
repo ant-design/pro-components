@@ -498,8 +498,8 @@ function BaseFormComponents<T = Record<string, any>>(props: BaseFormProps<T>) {
               {...rest}
               // 组合 urlSearch 和 initialValues
               initialValues={{
-                ...urlParamsMergeInitialValues,
                 ...rest.initialValues,
+                ...urlParamsMergeInitialValues,
               }}
               onValuesChange={(changedValues, values) => {
                 rest?.onValuesChange?.(
