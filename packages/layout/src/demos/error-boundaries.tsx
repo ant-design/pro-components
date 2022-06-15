@@ -1,4 +1,4 @@
-﻿import ProLayout, { PageContainer } from '@ant-design/pro-layout';
+﻿import { PageContainer, ProLayout } from '@ant-design/pro-components';
 import { Button, Result } from 'antd';
 import type { ErrorInfo } from 'react';
 import React, { useState } from 'react';

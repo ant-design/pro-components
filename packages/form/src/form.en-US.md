@@ -294,7 +294,7 @@ The second argument to > render is the default dom array, the first is the reset
         <button type="button" key="rest" onClick={() => props.form?.resetFields()}>
           Reset
         </button>,
-        <button type="button" key="submit" onClick={() => props.form?.submit? ()}>
+        <button type="button" key="submit" onClick={() => props.form?.submit?.()}>
           Submit
         </button>,
       ];

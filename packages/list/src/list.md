@@ -24,6 +24,10 @@ nav:
 
 <code src="./demos/editable.tsx" background="#f5f5f5" title="编辑列表" />
 
+### 带工具栏的列表
+
+<code src="./demos/ToolBar.tsx" background="#f5f5f5" title="带工具栏的列表" />
+
 ### 支持展开的列表
 
 <code src="./demos/expand.tsx" background="#f5f5f5" title="支持展开的列表" />

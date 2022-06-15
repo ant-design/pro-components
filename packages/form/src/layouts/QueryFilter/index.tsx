@@ -380,7 +380,7 @@ const QueryFilterContent: React.FC<{
       return false;
     }
     return true;
-  }, [itemLength, showLength, totalSpan]);
+  }, [totalSize, showLength, totalSpan]);
 
   const offset = useMemo(() => {
     const offsetSpan = (currentSpan % 24) + spanSize.span;

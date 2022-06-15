@@ -1,5 +1,5 @@
 import { GithubOutlined } from '@ant-design/icons';
-import ProLayout, { DefaultFooter, PageContainer } from '@ant-design/pro-layout';
+import { DefaultFooter, PageContainer, ProLayout } from '@ant-design/pro-components';
 import { Avatar, Switch } from 'antd';
 import { useState } from 'react';
 import defaultProps from './_defaultProps';

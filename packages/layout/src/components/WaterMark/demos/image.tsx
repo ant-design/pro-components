@@ -1,5 +1,5 @@
 /** Title: 图片水印 */
-import { WaterMark } from '@ant-design/pro-layout';
+import { WaterMark } from '@ant-design/pro-components';
 
 export default () => {
   return (
