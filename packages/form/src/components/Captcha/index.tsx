@@ -1,7 +1,7 @@
 ﻿import { Button, Input, Form } from 'antd';
 import type { ButtonProps } from 'antd/lib/button';
 import type { InputProps } from 'antd/lib/input';
-import React, { useState, useCallback, useEffect } from 'react';
+import React, { useState, useCallback, useEffect, useImperativeHandle } from 'react';
 import createField from '../../BaseForm/createField';
 import type { ProFormItemProps } from '../../interface';
 
@@ -81,6 +81,10 @@ const ProFormCaptcha: React.FC<ProFormCaptchaProps> = React.forwardRef((props, r
     }
     return () => clearInterval(interval);
   }, [timing]);
+
+  useImperativeHandle(ref, () => ({
+    setTiming: setTiming,
+  }));
 
   return (
     <Form.Item noStyle shouldUpdate>
