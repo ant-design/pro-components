@@ -111,7 +111,7 @@ const FieldCascader: ProFieldFC<GroupProps> = (
           bordered={rest.bordered}
           value={dom}
           onLabelClick={() => setOpen(!open)}
-          onClear={() => rest.fieldProps?.onChange?.(undefined, [], {} as any)}
+          onClear={() => rest.fieldProps?.onChange?.(undefined, undefined, {} as any)}
         />
       );
     }
