@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [6.38.9](https://github.com/ant-design/pro-components/compare/@ant-design/pro-layout@6.38.8...@ant-design/pro-layout@6.38.9) (2022-06-16)
+
+### Bug Fixes
+
+- **layout:** add ProLayout props ([f741437](https://github.com/ant-design/pro-components/commit/f741437c0a5c6a905f231fb960359f904cfcff11))
+- **layout:** proLayout 中 menuItemRender 的 menuProps 定义问题 ([#5217](https://github.com/ant-design/pro-components/issues/5217)) ([991dcd7](https://github.com/ant-design/pro-components/commit/991dcd7195db0fe03502a98cb9c30ec14571b8f1))
+
 ## [6.38.8](https://github.com/ant-design/pro-components/compare/@ant-design/pro-layout@6.38.7...@ant-design/pro-layout@6.38.8) (2022-06-02)
 
 **Note:** Version bump only for package @ant-design/pro-layout
