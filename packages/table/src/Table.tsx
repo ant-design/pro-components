@@ -616,7 +616,7 @@ const ProTable = <T extends Record<string, any>, U extends ParamsType, ValueType
   const onCleanSelected = useCallback(() => {
     if (propsRowSelection && propsRowSelection.onChange) {
       propsRowSelection.onChange([], [], {
-        type: 'all',
+        type: 'none',
       });
     }
     setSelectedRowsAndKey([], []);
