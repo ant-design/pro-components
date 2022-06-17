@@ -95,6 +95,13 @@ export type CommonFormProps<T = Record<string, any>, U = Record<string, any>> = 
   syncToInitialValues?: boolean;
 
   /**
+   * 同步结果到 initialValues时, 如果为true,则以urlParams为主; 默认为false 
+   *
+   * @name 是否将 url 参数写入 initialValues 并且以 url 参数为主
+   */
+  syncToInitialValuesAsImportant?:boolean;
+  
+  /**
    * 如果为 false,会原样保存。
    *
    * @default true
@@ -209,6 +216,7 @@ function BaseFormComponents<T = Record<string, any>>(props: BaseFormProps<T>) {
     extraUrlParams = {},
     syncToUrl,
     syncToInitialValues = true,
+    syncToInitialValuesAsImportant = false,
     onReset,
     omitNil = true,
     isKeyPressSubmit,
@@ -497,10 +505,11 @@ function BaseFormComponents<T = Record<string, any>>(props: BaseFormProps<T>) {
               form={inlineForm}
               {...rest}
               // 组合 urlSearch 和 initialValues
-              initialValues={{
-                ...urlParamsMergeInitialValues,
-                ...rest.initialValues,
-              }}
+              initialValues={
+                syncToInitialValuesAsImportant
+                  ? {...rest.initialValues, ...urlParamsMergeInitialValues}
+                  : {...urlParamsMergeInitialValues, ...rest.initialValues}
+              }
               onValuesChange={(changedValues, values) => {
                 rest?.onValuesChange?.(
                   transformKey(changedValues, omitNil),
