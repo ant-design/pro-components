@@ -1,7 +1,7 @@
 ﻿import type { ButtonProps, InputProps } from 'antd';
 import { Button, Form, Input } from 'antd';
 import type { NamePath } from 'antd/lib/form/interface';
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useImperativeHandle, useState } from 'react';
 import { createField } from '../../BaseForm/createField';
 import type { ProFormFieldItemProps } from '../../interface';
 
@@ -55,6 +55,12 @@ const BaseProFormCaptcha: React.FC<ProFormCaptchaProps> = React.forwardRef((prop
       console.log(error);
     }
   };
+  /**
+   * 暴露ref方法
+   */
+  useImperativeHandle(ref, () => ({
+    setTiming,
+  }));
 
   useEffect(() => {
     let interval: number = 0;
