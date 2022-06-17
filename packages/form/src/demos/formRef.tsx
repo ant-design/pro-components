@@ -1,5 +1,6 @@
 import type { ProFormInstance } from '@ant-design/pro-components';
 import { ProForm, ProFormDatePicker, ProFormText } from '@ant-design/pro-components';
+import { ProFormCaptcha } from '@ant-design/pro-form';
 import { Button, message } from 'antd';
 import moment from 'moment';
 import { useRef } from 'react';
@@ -14,7 +15,8 @@ const waitTime = (time: number = 100) => {
 
 export default () => {
   const formRef = useRef<ProFormInstance>();
-
+  const captchaRef = useRef();
+  const inputRef = useRef();
   const onFill = () => {
     formRef?.current?.setFieldsValue({
       name: '张三',
@@ -23,6 +25,7 @@ export default () => {
   };
 
   const getCompanyName = () => {
+    captchaRef.current?.setTiming(true);
     message.info(`公司名称为 "${formRef?.current?.getFieldValue('company')}"`);
   };
 
@@ -78,6 +81,17 @@ export default () => {
 
       <ProFormText width="md" name="company" label="我方公司名称" placeholder="请输入名称" />
       <ProFormDatePicker name="date" initialValue={moment('2021-08-09')} />
+      <ProFormCaptcha
+        onGetCaptcha={() => {
+          // dosomething()
+          return new Promise((resolve, reject) => {
+            reject();
+          });
+        }}
+        fieldRef={captchaRef}
+        fieldProps={{ ref: inputRef }}
+        name="code"
+      />
     </ProForm>
   );
 };

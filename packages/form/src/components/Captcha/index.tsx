@@ -81,7 +81,6 @@ const BaseProFormCaptcha: React.FC<ProFormCaptchaProps> = React.forwardRef((prop
     return () => clearInterval(interval);
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [timing]);
-
   return (
     <Form.Item noStyle shouldUpdate>
       {({ getFieldValue, validateFields }) => (
