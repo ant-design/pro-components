@@ -59,7 +59,8 @@ const BaseProFormCaptcha: React.FC<ProFormCaptchaProps> = React.forwardRef((prop
    * 暴露ref方法
    */
   useImperativeHandle(ref, () => ({
-    setTiming,
+    startTiming: () => setTiming(true),
+    endTiming: () => setTiming(false),
   }));
 
   useEffect(() => {
