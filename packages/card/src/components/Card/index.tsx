@@ -8,7 +8,7 @@ import React, { useContext } from 'react';
 import type { Breakpoint, CardProps, Gutter } from '../../type';
 import Actions from '../Actions';
 import Loading from '../Loading';
-import './index.less';
+import useStyle from './style';
 
 const { useBreakpoint } = Grid;
 
@@ -51,6 +51,7 @@ const Card = React.forwardRef((props: CardProps, ref: any) => {
   } = props;
   const { getPrefixCls } = useContext(ConfigProvider.ConfigContext);
   const screens = useBreakpoint();
+  const { wrapSSR, hashId } = useStyle();
 
   const [collapsed, setCollapsed] = useMergedState<boolean>(defaultCollapsed, {
     value: controlCollapsed,
@@ -133,7 +134,7 @@ const Card = React.forwardRef((props: CardProps, ref: any) => {
       const { colSpan } = element.props;
       const { span, colSpanStyle } = getColSpanStyle(colSpan);
 
-      const columnClassName = classNames([`${prefixCls}-col`], {
+      const columnClassName = classNames([`${prefixCls}-col`], hashId, {
         [`${prefixCls}-split-vertical`]: split === 'vertical' && index !== childrenArray.length - 1,
         [`${prefixCls}-split-horizontal`]:
           split === 'horizontal' && index !== childrenArray.length - 1,
@@ -164,7 +165,7 @@ const Card = React.forwardRef((props: CardProps, ref: any) => {
     return element;
   });
 
-  const cardCls = classNames(`${prefixCls}`, className, {
+  const cardCls = classNames(`${prefixCls}`, className, hashId, {
     [`${prefixCls}-border`]: bordered,
     [`${prefixCls}-contain-card`]: containProCard,
     [`${prefixCls}-loading`]: loading,
@@ -217,7 +218,7 @@ const Card = React.forwardRef((props: CardProps, ref: any) => {
       />
     ));
 
-  return (
+  return wrapSSR(
     <div
       className={cardCls}
       style={style}
@@ -258,7 +259,7 @@ const Card = React.forwardRef((props: CardProps, ref: any) => {
         </div>
       )}
       {<Actions actions={actions} prefixCls={prefixCls} />}
-    </div>
+    </div>,
   );
 });
 
