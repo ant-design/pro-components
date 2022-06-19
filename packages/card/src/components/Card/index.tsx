@@ -141,7 +141,7 @@ const Card = React.forwardRef((props: CardProps, ref: any) => {
         [`${prefixCls}-col-${span}`]: typeof span === 'number' && span >= 0 && span <= 24,
       });
 
-      return (
+      return wrapSSR(
         <div
           style={{
             ...colSpanStyle,
@@ -159,7 +159,7 @@ const Card = React.forwardRef((props: CardProps, ref: any) => {
           className={columnClassName}
         >
           {React.cloneElement(element)}
-        </div>
+        </div>,
       );
     }
     return element;
