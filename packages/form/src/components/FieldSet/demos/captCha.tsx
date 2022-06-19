@@ -25,11 +25,21 @@ export default () => {
               htmlType="button"
               onClick={() => {
                 // @ts-ignore
-                captchaRef.current?.setTiming(true);
+                captchaRef.current?.startTiming();
               }}
               key="edit"
             >
-              手动计数
+              手动开始计数
+            </Button>,
+            <Button
+              htmlType="button"
+              onClick={() => {
+                // @ts-ignore
+                captchaRef.current?.endTiming();
+              }}
+              key="edit"
+            >
+              手动结束计数
             </Button>,
           ];
         },

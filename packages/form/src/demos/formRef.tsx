@@ -25,7 +25,8 @@ export default () => {
   };
 
   const getCompanyName = () => {
-    captchaRef.current?.setTiming(true);
+    // @ts-ignore
+    captchaRef?.current?.startTiming();
     message.info(`公司名称为 "${formRef?.current?.getFieldValue('company')}"`);
   };
 
