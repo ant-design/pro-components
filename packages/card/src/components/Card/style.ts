@@ -237,11 +237,11 @@ const genGridStyle: GenerateStyle<ProCardToken> = (token) => {
     .map((_, index) => genColStyle(index, token));
 };
 
-export default function useStyle() {
+export default function useStyle(prefixCls: string) {
   return useAntdStyle('ProCard', (token) => {
     const proCardToken: ProCardToken = {
       ...token,
-      componentCls: '.ant-pro-card',
+      componentCls: `.${prefixCls}`,
       cardHoverableHoverBorder: 'transparent',
       proCardDefaultBorder: `${token.lineWidth}px ${token.lineType} ${token.colorSplit}`,
       cardShadow:

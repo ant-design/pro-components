@@ -16,7 +16,7 @@ export type ProCardActionsProps = {
 
 const ProCardActions: React.FC<ProCardActionsProps> = (props) => {
   const { actions, prefixCls } = props;
-  const { wrapSSR, hashId } = useStyle();
+  const { wrapSSR, hashId } = useStyle(prefixCls);
   if (Array.isArray(actions) && actions?.length) {
     return wrapSSR(
       <ul className={classNames(`${prefixCls}-actions`, hashId)}>

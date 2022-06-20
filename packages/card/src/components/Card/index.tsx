@@ -51,7 +51,6 @@ const Card = React.forwardRef((props: CardProps, ref: any) => {
   } = props;
   const { getPrefixCls } = useContext(ConfigProvider.ConfigContext);
   const screens = useBreakpoint();
-  const { wrapSSR, hashId } = useStyle();
 
   const [collapsed, setCollapsed] = useMergedState<boolean>(defaultCollapsed, {
     value: controlCollapsed,
@@ -119,6 +118,7 @@ const Card = React.forwardRef((props: CardProps, ref: any) => {
   };
 
   const prefixCls = getPrefixCls('pro-card');
+  const { wrapSSR, hashId } = useStyle(prefixCls);
 
   const [horizonalGutter, verticalGutter] = getNormalizedGutter(gutter);
 

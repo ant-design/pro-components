@@ -1,15 +1,17 @@
 import { ConfigProvider } from '@madccc/antd';
 import type { AliasToken, GenerateStyle } from '@madccc/antd/es/_util/theme';
+import { useContext } from 'react';
 
-const { useStyle: useAntdStyle } = ConfigProvider;
+const { useStyle: useAntdStyle, ConfigContext } = ConfigProvider;
 
 interface ProCardActionsToken extends AliasToken {
+  antCls: string;
   componentCls: string;
   cardActionIconSize: number;
 }
 
 const genActionsStyle: GenerateStyle<ProCardActionsToken> = (token) => {
-  const { componentCls } = token;
+  const { componentCls, antCls } = token;
 
   return {
     [`${componentCls}-actions`]: {
@@ -20,13 +22,13 @@ const genActionsStyle: GenerateStyle<ProCardActionsToken> = (token) => {
       borderTop: `${token.lineWidth}px ${token.lineType} ${token.colorSplit}`,
       // .clearfix,
 
-      '.ant-space': {
+      [`${antCls}-space`]: {
         gap: '0 !important',
         width: '100%',
       },
 
       [`& > li,
-.ant-space-item`]: {
+        ${antCls}-space-item`]: {
         flex: 1,
         float: 'left',
         margin: `${token.marginSM}px 0`,
@@ -54,8 +56,8 @@ const genActionsStyle: GenerateStyle<ProCardActionsToken> = (token) => {
             transition: 'color 0.3s',
           },
 
-          [`a:not(.ant-btn),
-    > .anticon`]: {
+          [`a:not(${antCls}-btn),
+            > .anticon`]: {
             display: 'inline-block',
             width: '100%',
             color: token.colorTextSecondary,
@@ -81,11 +83,15 @@ const genActionsStyle: GenerateStyle<ProCardActionsToken> = (token) => {
   };
 };
 
-export default function useStyle() {
+export default function useStyle(prefixCls?: string) {
+  const { getPrefixCls } = useContext(ConfigContext);
+  const antCls = `.${getPrefixCls()}`;
+
   return useAntdStyle('ProCardActions', (token) => {
     const proCardActionsToken: ProCardActionsToken = {
       ...token,
-      componentCls: `.ant-pro-card`,
+      componentCls: `.${prefixCls}`,
+      antCls,
       cardActionIconSize: 16,
     };
 
