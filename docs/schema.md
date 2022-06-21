@@ -404,7 +404,6 @@ export default () => (
 - `params` 一般而言 `request` 是惰性的，params 修改会触发 `request` 的重新请求。
 
 ```tsx | pure
-import React from 'react';
 
 const request = async () => [
   { label: '全部', value: 'all' },
