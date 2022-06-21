@@ -71,7 +71,6 @@
     "@types/react-helmet": "^6.0.0",
     "@types/react-intl": "^3.0.0",
     "@types/react-responsive": "^8.0.1",
-    "@types/react-router-dom": "^5.1.0",
     "@types/shallowequal": "^1.1.1",
     "@types/warning": "^3.0.0",
     "@types/xhr-mock": "^2.0.0",
