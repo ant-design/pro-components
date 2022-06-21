@@ -288,6 +288,7 @@ const valueEnum = {
 
 ```tsx
 import { ProFormSelect } from '@ant-design/pro-components';
+import React from 'react';
 
 const valueEnum = {
   all: { text: '全部', status: 'Default' },
@@ -365,6 +366,7 @@ const columns = [
 
 ```tsx
 import { ProFormSelect } from '@ant-design/pro-components';
+import React from 'react';
 
 const options = [
   {
@@ -434,6 +436,7 @@ const columns = [
 
 ```tsx
 import { ProForm, ProFormSelect, ProFormText } from '@ant-design/pro-components';
+import React from 'react';
 
 const request = async (params) => {
   console.log(params);

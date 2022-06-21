@@ -942,7 +942,7 @@ exports[`Table ColumnSetting 🎏 config provide render 1`] = `
               </div>
             </div>
             <ul
-              class="qixian-pagination qixian-pagination-mini qixian-table-pagination qixian-table-pagination-right"
+              class="qixian-pagination mini qixian-table-pagination qixian-table-pagination-right"
               unselectable="unselectable"
             >
               <li
@@ -1636,7 +1636,7 @@ exports[`Table ColumnSetting 🎏 extra columns 1`] = `
               </div>
             </div>
             <ul
-              class="ant-pagination ant-pagination-mini ant-table-pagination ant-table-pagination-right"
+              class="ant-pagination mini ant-table-pagination ant-table-pagination-right"
               unselectable="unselectable"
             >
               <li

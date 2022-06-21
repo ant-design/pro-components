@@ -3824,7 +3824,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/components/WaterMark/de
                   </div>
                 </div>
                 <ul
-                  class="ant-pagination ant-pagination-mini ant-table-pagination ant-table-pagination-right"
+                  class="ant-pagination mini ant-table-pagination ant-table-pagination-right"
                   unselectable="unselectable"
                 >
                   <li
