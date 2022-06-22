@@ -34843,7 +34843,6 @@ exports[`form demos 📸 renders ./packages/form/src/demos/base.tsx correctly 1`
         >
           <div
             class="ant-row ant-form-item"
-            style="max-width: 100%;"
           >
             <div
               class="ant-col ant-form-item-label"
@@ -35777,7 +35776,6 @@ exports[`form demos 📸 renders ./packages/form/src/demos/base.tsx correctly 1`
     </div>
     <div
       class="ant-row ant-form-item"
-      style="max-width: 100%;"
     >
       <div
         class="ant-col ant-form-item-label"

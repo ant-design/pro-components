@@ -157,10 +157,6 @@ const WarpFormItem: React.FC<FormItemProps & WarpFormItemProps> = ({
     }
     return (
       <Form.Item
-        style={{
-          width: 'max-content',
-          maxWidth: '100%',
-        }}
         // @ts-ignore
         _internalItemRender={{
           mark: 'pro_table_render',
