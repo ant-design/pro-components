@@ -82,6 +82,12 @@ export type CommonFormProps<T = Record<string, any>, U = Record<string, any>> = 
    * @name 同步结果到 url 中
    * */
   syncToUrl?: boolean | ((values: T, type: 'get' | 'set') => T);
+
+  /**
+   * @name 当 syncToUrl 为 true，在页面回显示时，以url上的参数为主，默认为false
+   */
+  syncToUrlAsImportant?: boolean;
+
   /**
    * @name 额外的 url 参数 中
    * */
@@ -208,6 +214,7 @@ function BaseFormComponents<T = Record<string, any>>(props: BaseFormProps<T>) {
     formComponentType,
     extraUrlParams = {},
     syncToUrl,
+    syncToUrlAsImportant = false,
     syncToInitialValues = true,
     onReset,
     omitNil = true,
@@ -497,10 +504,11 @@ function BaseFormComponents<T = Record<string, any>>(props: BaseFormProps<T>) {
               form={inlineForm}
               {...rest}
               // 组合 urlSearch 和 initialValues
-              initialValues={{
-                ...urlParamsMergeInitialValues,
-                ...rest.initialValues,
-              }}
+              initialValues={
+                syncToUrlAsImportant
+                  ? { ...rest.initialValues, ...urlParamsMergeInitialValues }
+                  : { ...urlParamsMergeInitialValues, ...rest.initialValues }
+              }
               onValuesChange={(changedValues, values) => {
                 rest?.onValuesChange?.(
                   transformKey(changedValues, omitNil),
