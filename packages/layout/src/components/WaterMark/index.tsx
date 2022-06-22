@@ -165,7 +165,7 @@ const WaterMark: React.FC<WaterMarkProps> = (props) => {
       className={wrapperCls}
     >
       {children}
-      <div
+      {base64Url && <div
         className={waterMakrCls}
         style={{
           zIndex,
@@ -180,7 +180,7 @@ const WaterMark: React.FC<WaterMarkProps> = (props) => {
           backgroundImage: `url('${base64Url}')`,
           ...markStyle,
         }}
-      />
+      />}
     </div>
   );
 };
