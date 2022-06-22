@@ -25,6 +25,11 @@ export type ProFormCaptchaProps = ProFormFieldItemProps<InputProps> & {
   onChange?: any;
 };
 
+export type CaptFieldRef = {
+  startTiming: () => never;
+  endTiming: () => never;
+};
+
 const BaseProFormCaptcha: React.FC<ProFormCaptchaProps> = React.forwardRef((props, ref: any) => {
   const [count, setCount] = useState<number>(props.countDown || 60);
   const [timing, setTiming] = useState(false);
