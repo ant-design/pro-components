@@ -178,13 +178,7 @@ const WarpFormItem: React.FC<FormItemProps & WarpFormItemProps> = ({
                 }}
               >
                 {addonBefore ? <div style={{ marginRight: 8 }}>{addonBefore}</div> : null}
-                <div
-                  style={{
-                    flex: 1,
-                  }}
-                >
-                  {doms.input}
-                </div>
+                {doms.input}
                 {addonAfter ? <div style={{ marginLeft: 8 }}>{addonAfter}</div> : null}
               </div>
               {doms.extra}
