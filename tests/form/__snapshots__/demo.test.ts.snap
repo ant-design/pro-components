@@ -15853,9 +15853,8 @@ exports[`form demos 📸 renders ./packages/form/src/components/QueryFilter/demo
                           <span
                             style="padding-left: 4px;"
                           >
-                            2019-11-15 12:50:26 ~ 2019-11-16
+                            2019-11-15 12:50:26 ~ 2019-11-16 12:50:26
                           </span>
-                          ...2项
                         </span>
                         <span
                           aria-label="close"

@@ -187,11 +187,21 @@ describe('BasicTable', () => {
 
   it('🎏 onLoadingChange should work', async () => {
     const loadingChangerFn = jest.fn();
-    const html = mount(
+    const html = ReactRender(
       <ProTable
         size="small"
-        columns={columns}
-        request={request}
+        columns={[
+          {
+            title: '序号',
+            key: 'index',
+            dataIndex: 'index',
+            valueType: 'index',
+          },
+        ]}
+        request={async (params) => {
+          await waitTime(2500);
+          return request(params);
+        }}
         rowKey="key"
         onLoadingChange={loadingChangerFn}
         rowSelection={{
@@ -204,6 +214,8 @@ describe('BasicTable', () => {
 
     await waitForComponentToPaint(html, 2000);
     expect(loadingChangerFn).toBeCalledWith(true, false);
+    await waitForComponentToPaint(html, 2000);
+    expect(loadingChangerFn).toBeCalledWith(false, true);
   });
 
   it('🎏 do not render default option', async () => {
@@ -494,6 +506,7 @@ describe('BasicTable', () => {
           },
         ]}
         request={async () => {
+          await waitTime(2000);
           return {
             data: [],
           };

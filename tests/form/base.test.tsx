@@ -71,6 +71,40 @@ describe('ProForm', () => {
     expect(fn).toHaveBeenCalledWith('realDark');
   });
 
+  it('📦 ProForm support sync form url as important', async () => {
+    const fn = jest.fn();
+    const wrapper = mount<{ navTheme: string }>(
+      <ProForm
+        onFinish={async (values) => {
+          fn(values.navTheme);
+        }}
+        syncToUrl
+        syncToUrlAsImportant
+      >
+        <ProFormText
+          tooltip={{
+            title: '主题',
+            icon: <FontSizeOutlined />,
+          }}
+          name="navTheme"
+        />
+      </ProForm>,
+    );
+    await waitForComponentToPaint(wrapper);
+
+    act(() => {
+      wrapper.find('button.ant-btn-primary').simulate('click');
+    });
+    await waitForComponentToPaint(wrapper);
+    expect(fn).toHaveBeenCalledWith('realDark');
+
+    act(() => {
+      wrapper.find('button.ant-btn').at(1).simulate('click');
+    });
+    await waitForComponentToPaint(wrapper);
+    expect(fn).toHaveBeenCalledWith('realDark');
+  });
+
   it('📦 ProForm support sync form url and rest', async () => {
     const onFinish = jest.fn();
     const wrapper = mount<{ navTheme: string }>(
