@@ -53,7 +53,6 @@ export const AppsLogoComponents: React.FC<{
 
   return (
     <Popover
-      getPopupContainer={(triggerNode) => triggerNode.parentNode as HTMLElement}
       placement="rightTop"
       trigger={['click', 'hover']}
       zIndex={9999}
