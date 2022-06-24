@@ -449,7 +449,6 @@ const ProFormListItem: React.FC<
 
   return (
     <FormListContext.Provider
-      key={field.name}
       value={{
         ...field,
         listName: [listContext.listName, originName, field.name]

@@ -338,6 +338,7 @@ const ProFormItem: React.FC<ProFormItemProps> = (props) => {
       {...formItemProps}
       {...rest}
       name={name}
+      isListField={formListField.name !== undefined}
     >
       {lightDom}
     </WarpFormItem>
