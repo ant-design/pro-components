@@ -23,11 +23,13 @@ describe('ProFormCaptcha', () => {
                   captchaRef.current?.startTiming();
                 }}
                 key="edit"
+                id="start"
               >
                 手动开始计数
               </Button>,
               <Button
                 htmlType="button"
+                id="end"
                 onClick={() => {
                   // @ts-ignore
                   captchaRef.current?.endTiming();
@@ -52,6 +54,9 @@ describe('ProFormCaptcha', () => {
               reject();
             });
           }}
+          captchaProps={{
+            id: 'captchaButton',
+          }}
           fieldRef={captchaRef}
           name="code"
         />
@@ -59,47 +64,26 @@ describe('ProFormCaptcha', () => {
     );
 
     act(() => {
-      wrapper.find('.ant-form-item-control-input-content button').simulate('click');
+      wrapper.find('button#captchaButton').simulate('click');
     });
-    expect(wrapper.find('div.ant-form-item-control-input-content span')).toHaveTextContent(
-      TimingText,
-    );
+
+    expect(fn).toHaveBeenCalledWith(TimingText);
 
     act(() => {
-      wrapper.find('div.ant-space-align-center button.ant-btn-primary').simulate('click');
+      wrapper.find('button#start').simulate('click');
     });
 
-    expect(wrapper.find('div.ant-form-item-control-input-content span')).toHaveTextContent(
-      '60 秒后重新获取',
-    );
+    expect(wrapper.find('#captchaButton').at(0).html()).toMatch('60 秒后重新获取');
 
     act(() => {
-      wrapper.find('button.ant-btn-default').simulate('click');
+      wrapper.find('button#end').simulate('click');
     });
 
-    expect(wrapper.find('div.ant-form-item-control-input-content span')).toHaveTextContent(
-      '获取验证码',
-    );
+    expect(wrapper.find('#captchaButton').at(0).html()).toMatch('获取验证码');
 
     expect(captchaRef.current).toBeTruthy();
 
-    captchaRef.current?.startTiming?.();
-    expect(wrapper.find('div.ant-form-item-control-input-content span')).toHaveTextContent(
-      '60 秒后重新获取',
-    );
-
-    captchaRef.current?.endTiming?.();
-    expect(wrapper.find('div.ant-form-item-control-input-content span')).toHaveTextContent(
-      '获取验证码',
-    );
-
-    captchaRef.current?.startTiming?.();
-    expect(wrapper.find('div.ant-form-item-control-input-content span')).toHaveTextContent(
-      '60 秒后重新获取',
-    );
     jest.advanceTimersByTime(60000);
-    expect(wrapper.find('div.ant-form-item-control-input-content span')).toHaveTextContent(
-      '获取验证码',
-    );
+    expect(wrapper.find('#captchaButton').at(0).html()).toMatch('获取验证码');
   });
 });
