@@ -66,10 +66,10 @@ describe('ProFormCaptcha', () => {
     );
 
     act(() => {
-      wrapper.find('ant-space-align-center button.ant-btn-primary').simulate('click');
+      wrapper.find('div.ant-space-align-center button.ant-btn-primary').simulate('click');
     });
 
-    expect(wrapper.find('.ant-form-item-control-input-content span')).toHaveTextContent(
+    expect(wrapper.find('div.ant-form-item-control-input-content span')).toHaveTextContent(
       '60 秒后重新获取',
     );
 
@@ -77,28 +77,28 @@ describe('ProFormCaptcha', () => {
       wrapper.find('button.ant-btn-default').simulate('click');
     });
 
-    expect(wrapper.find('.ant-form-item-control-input-content span')).toHaveTextContent(
+    expect(wrapper.find('div.ant-form-item-control-input-content span')).toHaveTextContent(
       '获取验证码',
     );
 
     expect(captchaRef.current).toBeTruthy();
 
     captchaRef.current?.startTiming?.();
-    expect(wrapper.find('.ant-form-item-control-input-content span')).toHaveTextContent(
+    expect(wrapper.find('div.ant-form-item-control-input-content span')).toHaveTextContent(
       '60 秒后重新获取',
     );
 
     captchaRef.current?.endTiming?.();
-    expect(wrapper.find('.ant-form-item-control-input-content span')).toHaveTextContent(
+    expect(wrapper.find('div.ant-form-item-control-input-content span')).toHaveTextContent(
       '获取验证码',
     );
 
     captchaRef.current?.startTiming?.();
-    expect(wrapper.find('.ant-form-item-control-input-content span')).toHaveTextContent(
+    expect(wrapper.find('div.ant-form-item-control-input-content span')).toHaveTextContent(
       '60 秒后重新获取',
     );
     jest.advanceTimersByTime(60000);
-    expect(wrapper.find('.ant-form-item-control-input-content span')).toHaveTextContent(
+    expect(wrapper.find('div.ant-form-item-control-input-content span')).toHaveTextContent(
       '获取验证码',
     );
   });

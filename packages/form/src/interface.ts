@@ -10,7 +10,7 @@ import type { ColProps } from 'antd/lib/grid/col';
 import type React from 'react';
 import type { ProFormInstance } from './BaseForm';
 import type { ProFormItemProps } from './components';
-import { CaptFieldRef } from './components/Captcha';
+import type { CaptFieldRef } from './components/Captcha';
 
 export interface ProFormGridConfig {
   /**
