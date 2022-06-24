@@ -76,10 +76,6 @@ export const siderCss = css`
     z-index: 10;
     min-height: 100%;
   }
-  @supports (backdrop-filter: blur(20px) saturate(150%)) {
-    background-color: rgba(255, 255, 255, 0.58);
-    backdrop-filter: blur(8px) saturate(150%);
-  }
 `;
 
 export const siderTitleViewCss = (designToken: LayoutDesignToken) => css`

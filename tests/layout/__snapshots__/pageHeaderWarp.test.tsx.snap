@@ -15,7 +15,7 @@ exports[`BasicLayout base use 1`] = `
       class="ant-design-pro-layout-l4gpps"
     />
     <aside
-      class="ant-layout-sider ant-layout-sider-light ant-pro-sider ant-pro-sider-fixed ant-pro-sider-layout-side ant-pro-sider-light ant-design-pro-layout-1woklr7"
+      class="ant-layout-sider ant-layout-sider-light ant-pro-sider ant-pro-sider-fixed ant-pro-sider-layout-side ant-pro-sider-light ant-design-pro-layout-1cavu78"
       style="background-color:transparent;flex:0 0 256px;max-width:256px;min-width:256px;width:256px"
     >
       <div
@@ -271,7 +271,7 @@ exports[`BasicLayout content is text 1`] = `
       class="ant-design-pro-layout-l4gpps"
     />
     <aside
-      class="ant-layout-sider ant-layout-sider-light ant-pro-sider ant-pro-sider-fixed ant-pro-sider-layout-side ant-pro-sider-light ant-design-pro-layout-1woklr7"
+      class="ant-layout-sider ant-layout-sider-light ant-pro-sider ant-pro-sider-fixed ant-pro-sider-layout-side ant-pro-sider-light ant-design-pro-layout-1cavu78"
       style="background-color:transparent;flex:0 0 256px;max-width:256px;min-width:256px;width:256px"
     >
       <div

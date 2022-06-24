@@ -36,10 +36,10 @@ const getProLayoutHeaderCss = (designToken: LayoutDesignToken) => {
 
     ${isChangeHeaderBgColor && `background-color: ${designToken.header.headerBgColor}`}
     ${!isChangeHeaderBgColor &&
-    ` @supports (backdrop-filter: blur(8px) saturate(150%)) {
-        background-color: rgba(255,255,255,0.58);
-        backdrop-filter: blur(8px) saturate(150%);
-      }
+    `
+      background-color: rgba(255, 255, 255, 0.58);
+      -webkit-backdrop-filter: blur(8px);
+      backdrop-filter: blur(8px);
     `}
   `;
 };
