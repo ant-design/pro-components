@@ -50,7 +50,7 @@ describe('utils', () => {
 
     expect(html.text()).toEqual('name');
 
-    await waitTime(200);
+    await waitTime(500);
 
     html.update();
 

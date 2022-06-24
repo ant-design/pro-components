@@ -228,8 +228,8 @@ class MenuUtil {
               prefixCls,
               key: item.key! || item.path!,
               style: {
-                padding: this.props.collapsed ? '4px' : '16px 16px',
-                margin: 0,
+                padding: 0,
+                margin: this.props.collapsed ? '4px' : '16px 16px',
                 borderColor: designToken?.sider?.menuItemDividerColor,
               },
             } as ItemType)
