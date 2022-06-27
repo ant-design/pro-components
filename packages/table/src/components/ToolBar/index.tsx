@@ -19,6 +19,7 @@ export type SettingOptionType = {
   draggable?: boolean;
   checkable?: boolean;
   checkedReset?: boolean;
+  listsHeight?: number;
   extra?: React.ReactNode;
   children?: React.ReactNode;
 };

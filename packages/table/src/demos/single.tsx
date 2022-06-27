@@ -171,6 +171,11 @@ export default () => {
       search={{
         labelWidth: 'auto',
       }}
+      options={{
+        setting: {
+          listsHeight: 400,
+        },
+      }}
       form={{
         // 由于配置了 transform，提交的参与与定义的不同这里需要转化一下
         syncToUrl: (values, type) => {
