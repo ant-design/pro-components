@@ -71,7 +71,6 @@ function createField<P extends ProFormFieldItemProps = any>(
       defaultProps,
       ...defaultFormItemProps
     } = { ...props?.filedConfig, ...config } || {};
-
     const {
       label,
       tooltip,
@@ -92,7 +91,6 @@ function createField<P extends ProFormFieldItemProps = any>(
       proFieldProps,
       ...rest
     } = { ...defaultProps, ...props };
-
     const valueType = tmpValueType || rest.valueType;
 
     // 有些 valueType 不需要宽度
@@ -250,7 +248,6 @@ function createField<P extends ProFormFieldItemProps = any>(
         className,
       };
     }, [allowClear, className, onChange, fieldProps, style]);
-
     const field = useMemo(() => {
       return (
         <Field
@@ -261,6 +258,7 @@ function createField<P extends ProFormFieldItemProps = any>(
           {...(rest as P)}
           fieldProps={fieldFieldProps}
           proFieldProps={fieldProFieldProps}
+          ref={props?.fieldRef}
         />
       );
       // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -341,7 +339,6 @@ function createField<P extends ProFormFieldItemProps = any>(
 
   const DependencyWrapper: React.FC<P & ExtendsProps & FunctionFieldProps> = (props) => {
     const { dependencies } = props;
-
     return dependencies ? (
       <ProFormDependency name={dependencies}>
         {(values) => {
