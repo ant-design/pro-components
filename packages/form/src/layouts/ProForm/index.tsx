@@ -36,5 +36,8 @@ function ProForm<T = Record<string, any>>(
 ProForm.Group = Group;
 ProForm.useForm = Form.useForm;
 ProForm.Item = ProFormItem;
+ProForm.useWatch = Form.useWatch;
+ProForm.ErrorList = Form.ErrorList;
+ProForm.Provider = Form.Provider;
 
 export { ProForm };

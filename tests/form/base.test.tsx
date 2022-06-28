@@ -71,6 +71,40 @@ describe('ProForm', () => {
     expect(fn).toHaveBeenCalledWith('realDark');
   });
 
+  it('📦 ProForm support sync form url as important', async () => {
+    const fn = jest.fn();
+    const wrapper = mount<{ navTheme: string }>(
+      <ProForm
+        onFinish={async (values) => {
+          fn(values.navTheme);
+        }}
+        syncToUrl
+        syncToUrlAsImportant
+      >
+        <ProFormText
+          tooltip={{
+            title: '主题',
+            icon: <FontSizeOutlined />,
+          }}
+          name="navTheme"
+        />
+      </ProForm>,
+    );
+    await waitForComponentToPaint(wrapper);
+
+    act(() => {
+      wrapper.find('button.ant-btn-primary').simulate('click');
+    });
+    await waitForComponentToPaint(wrapper);
+    expect(fn).toHaveBeenCalledWith('realDark');
+
+    act(() => {
+      wrapper.find('button.ant-btn').at(1).simulate('click');
+    });
+    await waitForComponentToPaint(wrapper);
+    expect(fn).toHaveBeenCalledWith('realDark');
+  });
+
   it('📦 ProForm support sync form url and rest', async () => {
     const onFinish = jest.fn();
     const wrapper = mount<{ navTheme: string }>(
@@ -1296,6 +1330,85 @@ describe('ProForm', () => {
 
     await waitForComponentToPaint(wrapper);
     expect(wrapper.find('.ant-select-item').length).toBe(4);
+  });
+
+  it('📦 SearchSelect support fetchDataOnSearch: false', async () => {
+    const onRequest = jest.fn();
+    const wrapper = mount(
+      <ProForm>
+        <ProFormSelect.SearchSelect
+          name="userQuery"
+          label="查询选择器"
+          fieldProps={{
+            fetchDataOnSearch: false,
+          }}
+          request={async () => {
+            onRequest();
+            return [
+              { label: '全部', value: 'all' },
+              { label: '未解决', value: 'open' },
+              { label: '已解决', value: 'closed' },
+              { label: '解决中', value: 'processing' },
+            ];
+          }}
+        />
+      </ProForm>,
+    );
+    await waitForComponentToPaint(wrapper);
+
+    act(() => {
+      wrapper.find('.ant-select-selection-search-input').simulate('change', {
+        target: {
+          value: '全',
+        },
+      });
+    });
+    await waitForComponentToPaint(wrapper);
+
+    expect(onRequest.mock.calls.length).toBe(1);
+  });
+
+  it('📦 SearchSelect support fetchDataOnSearch: true', async () => {
+    const onRequest = jest.fn();
+    const wrapper = mount(
+      <ProForm>
+        <ProFormSelect.SearchSelect
+          name="userQuery"
+          label="查询选择器"
+          fieldProps={{
+            fetchDataOnSearch: true,
+          }}
+          request={async () => {
+            onRequest();
+            return [
+              { label: '全部', value: 'all' },
+              { label: '未解决', value: 'open' },
+              { label: '已解决', value: 'closed' },
+              { label: '解决中', value: 'processing' },
+            ];
+          }}
+        />
+      </ProForm>,
+    );
+    await waitForComponentToPaint(wrapper);
+
+    act(() => {
+      wrapper.find('.ant-select-selection-search-input').simulate('change', {
+        target: {
+          value: '全',
+        },
+      });
+    });
+    await waitForComponentToPaint(wrapper);
+
+    act(() => {
+      wrapper.find('.ant-select-selector').simulate('mousedown');
+      wrapper.update();
+    });
+
+    await waitForComponentToPaint(wrapper);
+
+    expect(onRequest.mock.calls.length).toBe(2);
   });
 
   it('📦 SearchSelect support multiple', async () => {

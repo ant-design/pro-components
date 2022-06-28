@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.8.0](https://github.com/ant-design/pro-components/compare/@ant-design/pro-provider@1.7.2...@ant-design/pro-provider@1.8.0) (2022-06-16)
+
+### Features
+
+- add mn_MN locale ([#5372](https://github.com/ant-design/pro-components/issues/5372)) ([e35d38d](https://github.com/ant-design/pro-components/commit/e35d38db2f3e24508769244b84289fc32bb75203))
+
 ## [1.7.2](https://github.com/ant-design/pro-components/compare/@ant-design/pro-provider@1.7.1...@ant-design/pro-provider@1.7.2) (2022-06-02)
 
 ### Bug Fixes

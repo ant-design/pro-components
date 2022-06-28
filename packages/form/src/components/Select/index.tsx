@@ -20,6 +20,12 @@ export type ProFormSelectProps<T = any> = ProFormFieldItemProps<
      * @default false
      */
     resetAfterSelect?: boolean;
+    /**
+     * 当搜索关键词发生变化时是否请求远程数据
+     *
+     * @default true
+     */
+    fetchDataOnSearch?: boolean;
     /** 自定义选项渲染 */
     optionItemRender?: (item: T) => React.ReactNode;
   },

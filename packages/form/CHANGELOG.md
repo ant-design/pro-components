@@ -2,6 +2,15 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.69.4](https://github.com/ant-design/pro-components/compare/@ant-design/pro-form@1.69.3...@ant-design/pro-form@1.69.4) (2022-06-16)
+
+### Bug Fixes
+
+- **form:** export all Form.Item ([0045a93](https://github.com/ant-design/pro-components/commit/0045a9370090e998c8bc1189559a4645427e9e9e))
+- **form:** SearchSelect component support fetchDataOnSearch ([#5321](https://github.com/ant-design/pro-components/issues/5321)) ([3c0cde3](https://github.com/ant-design/pro-components/commit/3c0cde32cc7491fef8665e314927e4bea2bbf97b))
+- typo ([#5346](https://github.com/ant-design/pro-components/issues/5346)) ([1c41d5f](https://github.com/ant-design/pro-components/commit/1c41d5fca836949b55c2a6401bf0e66ad53a0319))
+- **ProForm:** validateFieldsReturnFormatValue 可能为 undefined ([#5331](https://github.com/ant-design/pro-components/issues/5331)) ([5735476](https://github.com/ant-design/pro-components/commit/5735476227a499e45ba4f4b654f0ea4d759805ae))
+
 ## [1.69.3](https://github.com/ant-design/pro-components/compare/@ant-design/pro-form@1.69.2...@ant-design/pro-form@1.69.3) (2022-06-02)
 
 ### Bug Fixes

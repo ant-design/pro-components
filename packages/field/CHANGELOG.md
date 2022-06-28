@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.34.17](https://github.com/ant-design/pro-components/compare/@ant-design/pro-field@1.34.16...@ant-design/pro-field@1.34.17) (2022-06-16)
+
+### Bug Fixes
+
+- **field:** valueType digit support precision ([#5347](https://github.com/ant-design/pro-components/issues/5347)) ([002c21b](https://github.com/ant-design/pro-components/commit/002c21be6e9f492782a8edc0dc4f139939e496d9))
+- **form:** SearchSelect component support fetchDataOnSearch ([#5321](https://github.com/ant-design/pro-components/issues/5321)) ([3c0cde3](https://github.com/ant-design/pro-components/commit/3c0cde32cc7491fef8665e314927e4bea2bbf97b))
+
 ## [1.34.16](https://github.com/ant-design/pro-components/compare/@ant-design/pro-field@1.34.15...@ant-design/pro-field@1.34.16) (2022-06-02)
 
 ### Bug Fixes

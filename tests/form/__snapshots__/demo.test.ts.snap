@@ -1650,6 +1650,114 @@ exports[`form demos 📸 renders ./packages/form/src/components/Dependency/demos
 </DocumentFragment>
 `;
 
+exports[`form demos 📸 renders ./packages/form/src/components/FieldSet/demos/captCha.tsx correctly 1`] = `
+<DocumentFragment>
+  <form
+    autocomplete="off"
+    class="ant-form ant-form-vertical"
+    title="新建表单"
+  >
+    <input
+      style="display: none;"
+      type="text"
+    />
+    <div
+      class="ant-row ant-form-item"
+    >
+      <div
+        class="ant-col ant-form-item-control"
+      >
+        <div
+          class="ant-form-item-control-input"
+        >
+          <div
+            class="ant-form-item-control-input-content"
+          >
+            <div
+              style="display: flex; align-items: center;"
+            >
+              <input
+                class="ant-input"
+                id="code"
+                style="flex: 1; transition: width .3s; margin-right: 8px;"
+                type="text"
+                value=""
+              />
+              <button
+                class="ant-btn ant-btn-default"
+                style="display: block;"
+                type="button"
+              >
+                <span>
+                  获取验证码
+                </span>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div
+      class="ant-space ant-space-horizontal ant-space-align-center"
+      style="flex-wrap: wrap; margin-bottom: -8px;"
+    >
+      <div
+        class="ant-space-item"
+        style="margin-right: 8px; padding-bottom: 8px;"
+      >
+        <button
+          class="ant-btn ant-btn-default"
+          type="button"
+        >
+          <span>
+            重 置
+          </span>
+        </button>
+      </div>
+      <div
+        class="ant-space-item"
+        style="margin-right: 8px; padding-bottom: 8px;"
+      >
+        <button
+          class="ant-btn ant-btn-primary"
+          type="button"
+        >
+          <span>
+            提 交
+          </span>
+        </button>
+      </div>
+      <div
+        class="ant-space-item"
+        style="margin-right: 8px; padding-bottom: 8px;"
+      >
+        <button
+          class="ant-btn ant-btn-default"
+          type="button"
+        >
+          <span>
+            手动开始计数
+          </span>
+        </button>
+      </div>
+      <div
+        class="ant-space-item"
+        style="padding-bottom: 8px;"
+      >
+        <button
+          class="ant-btn ant-btn-default"
+          type="button"
+        >
+          <span>
+            手动结束计数
+          </span>
+        </button>
+      </div>
+    </div>
+  </form>
+</DocumentFragment>
+`;
+
 exports[`form demos 📸 renders ./packages/form/src/components/FieldSet/demos/components-other.tsx correctly 1`] = `
 <DocumentFragment>
   <div
@@ -15745,9 +15853,8 @@ exports[`form demos 📸 renders ./packages/form/src/components/QueryFilter/demo
                           <span
                             style="padding-left: 4px;"
                           >
-                            2019-11-15 12:50:26 ~ 2019-11-16
+                            2019-11-15 12:50:26 ~ 2019-11-16 12:50:26
                           </span>
-                          ...2项
                         </span>
                         <span
                           aria-label="close"
@@ -43916,6 +44023,114 @@ exports[`form demos 📸 renders ./packages/form/src/demos/money.tsx correctly 1
         >
           <span>
             重 置
+          </span>
+        </button>
+      </div>
+    </div>
+  </form>
+</DocumentFragment>
+`;
+
+exports[`form demos 📸 renders ./packages/form/src/demos/pro-form-captCha.tsx correctly 1`] = `
+<DocumentFragment>
+  <form
+    autocomplete="off"
+    class="ant-form ant-form-vertical"
+    title="新建表单"
+  >
+    <input
+      style="display: none;"
+      type="text"
+    />
+    <div
+      class="ant-row ant-form-item"
+    >
+      <div
+        class="ant-col ant-form-item-control"
+      >
+        <div
+          class="ant-form-item-control-input"
+        >
+          <div
+            class="ant-form-item-control-input-content"
+          >
+            <div
+              style="display: flex; align-items: center;"
+            >
+              <input
+                class="ant-input"
+                id="code"
+                style="flex: 1; transition: width .3s; margin-right: 8px;"
+                type="text"
+                value=""
+              />
+              <button
+                class="ant-btn ant-btn-default"
+                style="display: block;"
+                type="button"
+              >
+                <span>
+                  获取验证码
+                </span>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div
+      class="ant-space ant-space-horizontal ant-space-align-center"
+      style="flex-wrap: wrap; margin-bottom: -8px;"
+    >
+      <div
+        class="ant-space-item"
+        style="margin-right: 8px; padding-bottom: 8px;"
+      >
+        <button
+          class="ant-btn ant-btn-default"
+          type="button"
+        >
+          <span>
+            重 置
+          </span>
+        </button>
+      </div>
+      <div
+        class="ant-space-item"
+        style="margin-right: 8px; padding-bottom: 8px;"
+      >
+        <button
+          class="ant-btn ant-btn-primary"
+          type="button"
+        >
+          <span>
+            提 交
+          </span>
+        </button>
+      </div>
+      <div
+        class="ant-space-item"
+        style="margin-right: 8px; padding-bottom: 8px;"
+      >
+        <button
+          class="ant-btn ant-btn-default"
+          type="button"
+        >
+          <span>
+            手动开始计数
+          </span>
+        </button>
+      </div>
+      <div
+        class="ant-space-item"
+        style="padding-bottom: 8px;"
+      >
+        <button
+          class="ant-btn ant-btn-default"
+          type="button"
+        >
+          <span>
+            手动结束计数
           </span>
         </button>
       </div>
