@@ -8,7 +8,7 @@ navigation:
   path: /components
 ---
 
-# Login form
+# LoginForm/Page
 
 LoginForm and LoginFormPage are variants of ProForm. They are specially implemented to adapt to common login form layouts. They are suitable for various login scenarios and reduce layout pressure.
 

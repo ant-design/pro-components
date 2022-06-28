@@ -5,7 +5,7 @@ legacy: /table
 group:
   path: /
 nav:
-  title: 组件
+  title: Components
   path: /components
 ---
 
