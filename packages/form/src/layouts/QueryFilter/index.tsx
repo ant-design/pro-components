@@ -315,7 +315,7 @@ const QueryFilterContent: React.FC<{
         if (!props.preserve) {
           return {
             itemDom: null,
-            colSpan,
+            colSpan: 0,
             hidden: true,
           };
         }
