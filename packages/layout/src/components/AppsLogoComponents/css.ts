@@ -3,7 +3,7 @@ import type { LayoutDesignToken } from '../../ProLayoutContext';
 
 export const appContentListCss = css`
   box-sizing: content-box;
-  width: 656px;
+  max-width: 656px;
   margin: 0;
   padding: 0;
   list-style: none;
