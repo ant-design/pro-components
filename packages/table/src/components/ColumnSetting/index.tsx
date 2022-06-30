@@ -113,7 +113,7 @@ const CheckboxList: React.FC<{
   draggable: boolean;
   checkable: boolean;
   showTitle?: boolean;
-  height?: number;
+  listHeight?: number;
 }> = ({
   list,
   draggable,
