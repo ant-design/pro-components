@@ -399,6 +399,7 @@ const ProTable = <T extends Record<string, any>, U extends ParamsType, ValueType
     manualRequest,
     polling,
     tooltip,
+    revalidateOnFocus = false,
     ...rest
   } = props;
 
@@ -491,7 +492,7 @@ const ProTable = <T extends Record<string, any>, U extends ParamsType, ValueType
     onLoadingChange,
     onRequestError,
     postData,
-    revalidateOnFocus: props.revalidateOnFocus ?? false,
+    revalidateOnFocus,
     manual: formSearch === undefined,
     polling,
     effects: [stringify(params), stringify(formSearch), stringify(proFilter), stringify(proSort)],
@@ -513,7 +514,7 @@ const ProTable = <T extends Record<string, any>, U extends ParamsType, ValueType
     if (
       props.manualRequest ||
       !props.request ||
-      props.revalidateOnFocus === false ||
+      !revalidateOnFocus ||
       props.form?.ignoreRules
     )
       return;
