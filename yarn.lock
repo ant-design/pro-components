@@ -5252,9 +5252,9 @@ aws-lambda@^1.0.7:
     watchpack "^2.0.0-beta.10"
 
 aws-sdk@^2.814.0:
-  version "2.1164.0"
-  resolved "https://registry.npmmirror.com/aws-sdk/-/aws-sdk-2.1164.0.tgz#050ce644ed9993582bd02151bf3ac9d9ebc143f5"
-  integrity sha512-q/M9E68WabF22G8d8lFgo3NH+9RooYswSY9VG6zqN16C19RRm2sGThp8Sxtz/WUK98BAsxSnkLW1ksmy3BsP7Q==
+  version "2.1165.0"
+  resolved "https://registry.npmmirror.com/aws-sdk/-/aws-sdk-2.1165.0.tgz#4da669d1e9020344cef75d961882f52a7931a379"
+  integrity sha512-2oVkSuXsLeErt+H4M2OGIz4p1LPS+QRfY2WnW4QKMndASOcvHKZTfzuY8jmc9ZnDGyguiGdT3idYU8KpNg0sGw==
   dependencies:
     buffer "4.9.2"
     events "1.1.1"
@@ -6004,9 +6004,9 @@ caniuse-api@^3.0.0:
     lodash.uniq "^4.5.0"
 
 caniuse-lite@^1.0.0, caniuse-lite@^1.0.30000971, caniuse-lite@^1.0.30000981, caniuse-lite@^1.0.30001109, caniuse-lite@^1.0.30001359:
-  version "1.0.30001359"
-  resolved "https://registry.npmmirror.com/caniuse-lite/-/caniuse-lite-1.0.30001359.tgz#a1c1cbe1c2da9e689638813618b4219acbd4925e"
-  integrity sha512-Xln/BAsPzEuiVLgJ2/45IaqD9jShtk3Y33anKb4+yLwQzws3+v6odKfpgES/cDEaZMLzSChpIGdbOYtH9MyuHw==
+  version "1.0.30001361"
+  resolved "https://registry.npmmirror.com/caniuse-lite/-/caniuse-lite-1.0.30001361.tgz#ba2adb2527566fb96f3ac7c67698ae7fc495a28d"
+  integrity sha512-ybhCrjNtkFji1/Wto6SSJKkWk6kZgVQsDq5QI83SafsF6FXv2JB4df9eEdH6g8sdGgqTXrFLjAxqBGgYoU3azQ==
 
 capture-exit@^2.0.0:
   version "2.0.0"
@@ -7784,9 +7784,9 @@ ee-first@1.1.1:
   integrity sha512-WMwm9LhRUo+WUaRN+vRuETqG89IgZphVSNkdFgeb6sS/E4OrDIN7t48CAewSHXc6C8lefD8KKfr5vY61brQlow==
 
 electron-to-chromium@^1.4.172:
-  version "1.4.172"
-  resolved "https://registry.npmmirror.com/electron-to-chromium/-/electron-to-chromium-1.4.172.tgz#87335795a3dc19e7b6dd5af291038477d81dc6b1"
-  integrity sha512-yDoFfTJnqBAB6hSiPvzmsBJSrjOXJtHSJoqJdI/zSIh7DYupYnIOHt/bbPw/WE31BJjNTybDdNAs21gCMnTh0Q==
+  version "1.4.174"
+  resolved "https://registry.npmmirror.com/electron-to-chromium/-/electron-to-chromium-1.4.174.tgz#ffdf57f26dd4558c5aabdb4b190c47af1c4e443b"
+  integrity sha512-JER+w+9MV2MBVFOXxP036bLlNOnzbYAWrWU8sNUwoOO69T3w4564WhM5H5atd8VVS8U4vpi0i0kdoYzm1NPQgQ==
 
 elegant-spinner@^1.0.1:
   version "1.0.1"
