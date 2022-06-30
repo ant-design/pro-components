@@ -156,7 +156,7 @@ class MenuUtil {
       disabled: item.disabled,
       onClick: (e) => {
         if (isUrl(item?.path)) {
-          window.open(item.path);
+          window.open(item.path, '_blank');
         }
         item.onTitleClick?.(e);
       },
@@ -213,7 +213,7 @@ class MenuUtil {
         isMobile,
         replace: itemPath === location.pathname,
         onClick: () => {
-          if (isHttpUrl) window.open(itemPath);
+          if (isHttpUrl) window.open(itemPath, '_blank');
           if (onCollapse) onCollapse(true);
         },
         children: undefined,
