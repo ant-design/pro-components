@@ -1,5 +1,5 @@
 ---
-title: ProFormDependency - Data Linkage
+title: ProFormDependency
 order: 1
 group:
   path: /
@@ -8,7 +8,7 @@ nav:
   path: /components
 ---
 
-# Data linkage
+# ProFormDependency - Data Linkage
 
 Data linkage in Form is very common, so we encapsulate a component for data processing.
 

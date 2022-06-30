@@ -4,7 +4,7 @@ order: 12
 group:
   path: /
 nav:
-  title: 组件
+  title: Components
   path: /components
 ---
 

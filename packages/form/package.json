@@ -40,12 +40,15 @@
     "@babel/runtime": "^7.18.0",
     "@umijs/use-params": "^1.0.9",
     "classnames": "^2.2.6",
-    "lodash": "^4.17.21",
+    "lodash.merge": "^4.6.2",
     "omit.js": "^2.0.2",
     "rc-resize-observer": "^1.1.0",
     "rc-util": "^5.0.6",
     "use-json-comparison": "^1.0.5",
     "use-media-antd-query": "^1.1.0"
+  },
+  "devDependencies": {
+    "@types/lodash.merge": "^4.6.7"
   },
   "peerDependencies": {
     "antd": ">=4.20.0",

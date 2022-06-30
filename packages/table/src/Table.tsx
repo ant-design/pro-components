@@ -399,6 +399,7 @@ const ProTable = <T extends Record<string, any>, U extends ParamsType, ValueType
     manualRequest,
     polling,
     tooltip,
+    revalidateOnFocus = false,
     ...rest
   } = props;
 
@@ -491,7 +492,7 @@ const ProTable = <T extends Record<string, any>, U extends ParamsType, ValueType
     onLoadingChange,
     onRequestError,
     postData,
-    revalidateOnFocus: props.revalidateOnFocus ?? false,
+    revalidateOnFocus,
     manual: formSearch === undefined,
     polling,
     effects: [stringify(params), stringify(formSearch), stringify(proFilter), stringify(proSort)],
@@ -510,12 +511,7 @@ const ProTable = <T extends Record<string, any>, U extends ParamsType, ValueType
   /** 默认聚焦的时候重新请求数据，这样可以保证数据都是最新的。 */
   useEffect(() => {
     // 手动模式和 request 为空都不生效
-    if (
-      props.manualRequest ||
-      !props.request ||
-      props.revalidateOnFocus === false ||
-      props.form?.ignoreRules
-    )
+    if (props.manualRequest || !props.request || !revalidateOnFocus || props.form?.ignoreRules)
       return;
 
     // 聚焦时重新请求事件
