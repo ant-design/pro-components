@@ -33,54 +33,6 @@
     classnames "^2.2.6"
     rc-util "^5.9.4"
 
-"@ant-design/pro-layout@7.0.1-beta.20":
-  version "7.0.1-beta.20"
-  resolved "https://registry.npmmirror.com/@ant-design/pro-layout/-/pro-layout-7.0.1-beta.20.tgz#c2d47c8ee86e437e87c08b2ffe7dd5f018484142"
-  integrity sha512-VWibSyGn4GKThKd08DSWmBHf+JQZWVzEWD3SVYImM+57UDvEr5GH1sMZXIQUnfCrQFjTRYatWDeWaKLOaeuG1w==
-  dependencies:
-    "@ant-design/icons" "^4.0.0"
-    "@ant-design/pro-provider" "1.7.1"
-    "@ant-design/pro-utils" "1.42.0"
-    "@babel/runtime" "^7.18.0"
-    "@emotion/css" "^11.5.0"
-    "@umijs/route-utils" "^2.1.0"
-    "@umijs/ssr-darkreader" "^4.9.44"
-    "@umijs/use-params" "^1.0.9"
-    classnames "^2.2.6"
-    lodash.merge "^4.6.2"
-    omit.js "^2.0.2"
-    path-to-regexp "2.4.0"
-    rc-resize-observer "^1.1.0"
-    rc-util "^5.0.6"
-    swr "^1.2.0"
-    unstated-next "^1.1.0"
-    use-json-comparison "^1.0.3"
-    use-media-antd-query "^1.1.0"
-    warning "^4.0.3"
-
-"@ant-design/pro-provider@1.7.1":
-  version "1.7.1"
-  resolved "https://registry.npmmirror.com/@ant-design/pro-provider/-/pro-provider-1.7.1.tgz#cfab05d5ba965fd8b15b09216d764d938940c952"
-  integrity sha512-saZdp86zqG5DmJVTYcEmlgpBjOCugeCIBYXVzGRr5U6FIsg9RKgQagV/eY9oCfPb5xjnP9mKW+6AWeojS90HaA==
-  dependencies:
-    "@babel/runtime" "^7.16.3"
-    rc-util "^5.0.1"
-    swr "^1.2.0"
-
-"@ant-design/pro-utils@1.42.0":
-  version "1.42.0"
-  resolved "https://registry.npmmirror.com/@ant-design/pro-utils/-/pro-utils-1.42.0.tgz#aa55067c6305e6dbc04bdded0db0c3f7c7e1f5fc"
-  integrity sha512-wM+Vt3QqfLIkjYm19qoBVyDfJe/ghS9cdKTpsoziW+WC8Rqh+k5n8Z0hQ3rf2amJqKMGpTThNtz9EIYc/qiLMg==
-  dependencies:
-    "@ant-design/icons" "^4.3.0"
-    "@ant-design/pro-provider" "1.7.1"
-    "@babel/runtime" "^7.16.3"
-    classnames "^2.2.6"
-    moment "^2.27.0"
-    rc-util "^5.0.6"
-    react-sortable-hoc "^2.0.0"
-    swr "^1.2.0"
-
 "@ant-design/react-slick@~0.29.1":
   version "0.29.2"
   resolved "https://registry.npmmirror.com/@ant-design/react-slick/-/react-slick-0.29.2.tgz#53e6a7920ea3562eebb304c15a7fc2d7e619d29c"
@@ -4284,9 +4236,9 @@
     "@umijs/doctor-win32-x64-msvc" "0.1.0"
 
 "@umijs/fabric@^2.6.2":
-  version "2.12.1"
-  resolved "https://registry.npmmirror.com/@umijs/fabric/-/fabric-2.12.1.tgz#b4b6f6dc6e5242cf0b1b6d285becc163999d79b5"
-  integrity sha512-iQPMUI1zEPAm+fjDXskA47EB4MJG/jaOh4rleizMbtTBhY3Vg8gKU4CV4pYJrjLWSxQJQfThP1D1g+jLvtkA4g==
+  version "2.12.2"
+  resolved "https://registry.npmmirror.com/@umijs/fabric/-/fabric-2.12.2.tgz#31df21bfdd2c6b2bff90fbfde5321cb04d79724b"
+  integrity sha512-3fLQ3SOFmyzEbv0ELUPBRMfgMGNkWtJVnhgMmcvgtOfq4g3croDVKQetxjfjJ3cfYqVGtFfbQJ//RuEdYU3+2A==
   dependencies:
     "@babel/core" "^7.12.10"
     "@babel/eslint-parser" "^7.12.1"
@@ -5381,9 +5333,9 @@ aws-lambda@^1.0.7:
     watchpack "^2.0.0-beta.10"
 
 aws-sdk@^2.814.0:
-  version "2.1164.0"
-  resolved "https://registry.npmmirror.com/aws-sdk/-/aws-sdk-2.1164.0.tgz#050ce644ed9993582bd02151bf3ac9d9ebc143f5"
-  integrity sha512-q/M9E68WabF22G8d8lFgo3NH+9RooYswSY9VG6zqN16C19RRm2sGThp8Sxtz/WUK98BAsxSnkLW1ksmy3BsP7Q==
+  version "2.1165.0"
+  resolved "https://registry.npmmirror.com/aws-sdk/-/aws-sdk-2.1165.0.tgz#4da669d1e9020344cef75d961882f52a7931a379"
+  integrity sha512-2oVkSuXsLeErt+H4M2OGIz4p1LPS+QRfY2WnW4QKMndASOcvHKZTfzuY8jmc9ZnDGyguiGdT3idYU8KpNg0sGw==
   dependencies:
     buffer "4.9.2"
     events "1.1.1"
@@ -7922,9 +7874,9 @@ ee-first@1.1.1:
   integrity sha512-WMwm9LhRUo+WUaRN+vRuETqG89IgZphVSNkdFgeb6sS/E4OrDIN7t48CAewSHXc6C8lefD8KKfr5vY61brQlow==
 
 electron-to-chromium@^1.4.172:
-  version "1.4.172"
-  resolved "https://registry.npmmirror.com/electron-to-chromium/-/electron-to-chromium-1.4.172.tgz#87335795a3dc19e7b6dd5af291038477d81dc6b1"
-  integrity sha512-yDoFfTJnqBAB6hSiPvzmsBJSrjOXJtHSJoqJdI/zSIh7DYupYnIOHt/bbPw/WE31BJjNTybDdNAs21gCMnTh0Q==
+  version "1.4.174"
+  resolved "https://registry.npmmirror.com/electron-to-chromium/-/electron-to-chromium-1.4.174.tgz#ffdf57f26dd4558c5aabdb4b190c47af1c4e443b"
+  integrity sha512-JER+w+9MV2MBVFOXxP036bLlNOnzbYAWrWU8sNUwoOO69T3w4564WhM5H5atd8VVS8U4vpi0i0kdoYzm1NPQgQ==
 
 elegant-spinner@^1.0.1:
   version "1.0.1"
