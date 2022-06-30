@@ -176,7 +176,7 @@ PageContainer 配置 `fixedHeader` 可以将吸顶 header。
 | pure | 是否删除掉所有的自带界面 | `boolean` | - |
 | loading | layout 的加载态 | `boolean` | - |
 | location | 当前应用会话的位置信息。如果你的应用创建了自定义的 history，则需要显示指定 location 属性，详见 [issue](https://github.com/ant-design/pro-components/issues/327) | [history.location](https://reactrouter.com/web/api/history) | isBrowser ? window.location : undefined |
-| appList | 跨站点导航列表 | `{ icon, title, desc:, url }[]` | - |
+| appList | 跨站点导航列表 | `{ icon, title, desc:, url, target }[]` | - |
 | menuHeaderRender | 渲染 logo 和 title | `ReactNode` \| `(logo,title)=>ReactNode` | - |
 | menuFooterRender | 在 layout 底部渲染一个块 | `(menuProps)=>ReactNode` | - |
 | onMenuHeaderClick | menu 菜单的头部点击事件 | `(e: React.MouseEvent<HTMLDivElement>) => void` | - |

@@ -104,6 +104,7 @@ export default {
       title: 'AntV',
       desc: '蚂蚁集团全新一代数据可视化解决方案',
       url: 'https://antv.vision/',
+      target: '_blank',
     },
     {
       icon: 'https://gw.alipayobjects.com/zos/antfincdn/upvrAjAPQX/Logo_Tech%252520UI.svg',

@@ -15,6 +15,7 @@ export type AppsLogoComponentsAppList = {
   desc: React.ReactNode;
   icon: React.ReactNode;
   url: string;
+  target?: string;
 }[];
 
 /**
@@ -54,7 +55,7 @@ export const AppsLogoComponents: React.FC<{
   return (
     <Popover
       placement="rightTop"
-      trigger={['click', 'hover']}
+      trigger={['click']}
       zIndex={9999}
       overlayClassName={cx(getAntdPopoverContentListCss(antdPreFixCls))}
       content={
@@ -70,7 +71,7 @@ export const AppsLogoComponents: React.FC<{
                     getAppContentLisItem(designToken),
                   )}
                 >
-                  <a href={app.url} target="_blank" rel="noreferrer">
+                  <a href={app.url} target={app.target} rel="noreferrer">
                     {defaultRenderLogo(app.icon)}
                     <div>
                       <div>{app.title}</div>
@@ -84,7 +85,12 @@ export const AppsLogoComponents: React.FC<{
         </div>
       }
     >
-      <span className={cx(`${prefixCls}-basicLayout-apps-icon`, appIconsCss(designToken))}>
+      <span
+        onClick={(e) => {
+          e.stopPropagation();
+        }}
+        className={cx(`${prefixCls}-basicLayout-apps-icon`, appIconsCss(designToken))}
+      >
         <AppsLogo />
       </span>
     </Popover>
