@@ -316,7 +316,7 @@ class MenuUtil {
         <span
           title={name}
           onClick={() => {
-            window?.open?.(itemPath);
+            window?.open?.(itemPath, '_blank');
           }}
           className={`${prefixCls}-menu-item ${prefixCls}-menu-item-link`}
         >
