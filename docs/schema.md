@@ -288,7 +288,6 @@ const valueEnum = {
 
 ```tsx
 import { ProFormSelect } from '@ant-design/pro-components';
-import React from 'react';
 
 const valueEnum = {
   all: { text: '全部', status: 'Default' },
@@ -366,7 +365,6 @@ const columns = [
 
 ```tsx
 import { ProFormSelect } from '@ant-design/pro-components';
-import React from 'react';
 
 const options = [
   {
@@ -404,7 +402,6 @@ export default () => (
 - `params` 一般而言 `request` 是惰性的，params 修改会触发 `request` 的重新请求。
 
 ```tsx | pure
-
 const request = async () => [
   { label: '全部', value: 'all' },
   { label: '未解决', value: 'open' },
@@ -437,7 +434,6 @@ const columns = [
 
 ```tsx
 import { ProForm, ProFormSelect, ProFormText } from '@ant-design/pro-components';
-import React from 'react';
 
 const request = async (params) => {
   console.log(params);
