@@ -11,7 +11,7 @@ import type { ProSettings } from '@ant-design/pro-layout';
 import { PageContainer, ProLayout, SettingDrawer } from '@ant-design/pro-layout';
 import { css } from '@emotion/css';
 import { Avatar, Dropdown, Image, Input, Space } from 'antd';
-import React, { useState } from 'react';
+import { useState } from 'react';
 import defaultProps from './_defaultProps';
 
 export default () => {
@@ -102,7 +102,7 @@ export default () => {
           if (props.collapsed) return [];
           return (
             <>
-              <Dropdown placement="bottomCenter" overlay={<></>}>
+              <Dropdown placement="bottom" overlay={<></>}>
                 <div
                   style={{
                     color: 'rgba(0, 0, 0, 0.85)',

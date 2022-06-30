@@ -189,7 +189,7 @@ export default () => {
                   type="vertical"
                 />
                 <Dropdown
-                  placement="bottomCenter"
+                  placement="bottom"
                   overlay={
                     <div
                       style={{

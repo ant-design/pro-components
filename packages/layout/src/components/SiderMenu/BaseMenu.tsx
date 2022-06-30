@@ -219,14 +219,14 @@ class MenuUtil {
           key: item.key! || item.path!,
           title: item.tooltip || title,
           label: title,
-          onTitleClick: isGroup ? undefined : item.onTitleClick,
+          // onTitleClick: isGroup ? undefined : item.onTitleClick,
           children: childrenList,
         } as ItemType,
         isGroup && level === 0
           ? ({
               type: 'divider',
               prefixCls,
-              key: item.key! || item.path!,
+              key: (item.key! || item.path!) + '-group',
               style: {
                 padding: 0,
                 margin: this.props.collapsed ? '4px' : '16px 16px',

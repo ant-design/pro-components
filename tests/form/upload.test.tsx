@@ -106,7 +106,7 @@ describe('ProFormUpload', () => {
         name="files"
       />,
     );
-    expect(wrapper.find('Upload Button')).toMatchSnapshot();
+    expect(wrapper.find('Upload Button').html()).toMatchSnapshot();
     act(() => {
       wrapper.setProps({
         buttonProps: {

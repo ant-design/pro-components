@@ -191,7 +191,7 @@ export default () => {
                   type="vertical"
                 />
                 <Dropdown
-                  placement="bottomCenter"
+                  placement="bottom"
                   visible={dropdownVisiable}
                   onVisibleChange={setDropdownVisiable}
                   overlay={
