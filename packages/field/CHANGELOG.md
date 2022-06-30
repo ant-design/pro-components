@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.34.18](https://github.com/ant-design/pro-components/compare/@ant-design/pro-field@1.34.17...@ant-design/pro-field@1.34.18) (2022-06-30)
+
+### Bug Fixes
+
+- **form:** fix cascader clear no work error-n ([#5381](https://github.com/ant-design/pro-components/issues/5381)) ([cf51175](https://github.com/ant-design/pro-components/commit/cf511755b738beb5bcb42b5bcf8393d55b83f722))
+
 ## [1.34.17](https://github.com/ant-design/pro-components/compare/@ant-design/pro-field@1.34.16...@ant-design/pro-field@1.34.17) (2022-06-16)
 
 ### Bug Fixes
