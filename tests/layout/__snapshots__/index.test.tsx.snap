@@ -1227,7 +1227,7 @@ exports[`BasicLayout 🥩 mix layout hideInMenu render right 1`] = `
                   class="ant-pro-menu-item ant-design-pro-layout-70qvj9"
                 >
                   <span
-                    class="ant-pro-menu-item-title ant-design-pro-layout-nq2ff"
+                    class="ant-pro-menu-item-title"
                   >
                     列表页
                   </span>

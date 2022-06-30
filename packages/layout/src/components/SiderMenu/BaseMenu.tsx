@@ -87,7 +87,11 @@ let IconFont = createFromIconfontCN({
 
 const genMenuItemCss = (
   prefixCls: string | undefined,
-  state: { hasIcon?: boolean; collapsed?: boolean; collapsedShowTitle?: boolean },
+  state: {
+    hasIcon?: boolean;
+    collapsed?: boolean;
+    collapsedShowTitle?: boolean;
+  },
 ) => {
   if (state.hasIcon && state.collapsed) {
     return cx(
@@ -111,9 +115,10 @@ const genMenuItemCss = (
   }
   return cx(
     `${prefixCls}-menu-item-title`,
-    css`
-      margin-left: 8px;
-    `,
+    state.hasIcon &&
+      css`
+        margin-left: 8px;
+      `,
   );
 };
 
@@ -557,7 +562,7 @@ const BaseMenu: React.FC<BaseMenuProps & PrivateSiderMenuProps> = (props) => {
         align-items: center;
         justify-content: center;
         .${prefixCls}-menu-item {
-          padding: 0 20px;
+          padding: ${menuDesignToken.horizontalMenuItemPadding};
         }
         .${prefixCls}-title-content:hover {
           background-color: ${itemHoverColor};
