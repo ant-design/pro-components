@@ -7503,7 +7503,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/TopmenuNested.tsx
                   class="ant-pro-top-nav-header-main-left ant-design-pro-layout-12ycn0f"
                 >
                   <div
-                    class="ant-pro-top-nav-header-logo ant-design-pro-layout-x8fe4f"
+                    class="ant-pro-top-nav-header-logo ant-design-pro-layout-c10ook"
                     id="logo"
                   >
                     <a>
@@ -9310,7 +9310,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/background-contex
                     </svg>
                   </span>
                   <div
-                    class="ant-pro-top-nav-header-logo ant-design-pro-layout-x8fe4f"
+                    class="ant-pro-top-nav-header-logo ant-design-pro-layout-c10ook"
                     id="logo"
                   >
                     <a>
@@ -10272,7 +10272,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/base.tsx correctl
                     </svg>
                   </span>
                   <div
-                    class="ant-pro-top-nav-header-logo ant-design-pro-layout-x8fe4f"
+                    class="ant-pro-top-nav-header-logo ant-design-pro-layout-c10ook"
                     id="logo"
                   >
                     <a>
@@ -11993,7 +11993,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/classicMode.tsx c
                     </svg>
                   </span>
                   <div
-                    class="ant-pro-top-nav-header-logo ant-design-pro-layout-demwv9"
+                    class="ant-pro-top-nav-header-logo ant-design-pro-layout-1gqmjan"
                     id="logo"
                   >
                     <a>
@@ -18165,7 +18165,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/designMenuCss.tsx
                     </svg>
                   </span>
                   <div
-                    class="ant-pro-top-nav-header-logo ant-design-pro-layout-demwv9"
+                    class="ant-pro-top-nav-header-logo ant-design-pro-layout-1gqmjan"
                     id="logo"
                   >
                     <a>
@@ -24881,7 +24881,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/footer-global-too
                     </svg>
                   </span>
                   <div
-                    class="ant-pro-top-nav-header-logo ant-design-pro-layout-x8fe4f"
+                    class="ant-pro-top-nav-header-logo ant-design-pro-layout-c10ook"
                     id="logo"
                   >
                     <a>
@@ -29311,7 +29311,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/mixMode.tsx corre
                     </svg>
                   </span>
                   <div
-                    class="ant-pro-top-nav-header-logo ant-design-pro-layout-x8fe4f"
+                    class="ant-pro-top-nav-header-logo ant-design-pro-layout-c10ook"
                     id="logo"
                   >
                     <a>
@@ -30253,7 +30253,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/pageSimplify.tsx 
                     </svg>
                   </span>
                   <div
-                    class="ant-pro-top-nav-header-logo ant-design-pro-layout-x8fe4f"
+                    class="ant-pro-top-nav-header-logo ant-design-pro-layout-c10ook"
                     id="logo"
                   >
                     <a>
@@ -33229,7 +33229,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/siteMenu.tsx corr
                     </svg>
                   </span>
                   <div
-                    class="ant-pro-top-nav-header-logo ant-design-pro-layout-x8fe4f"
+                    class="ant-pro-top-nav-header-logo ant-design-pro-layout-c10ook"
                     id="logo"
                   >
                     <a>
@@ -33861,7 +33861,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/splitMenus.tsx co
                   </svg>
                 </span>
                 <div
-                  class="ant-pro-top-nav-header-logo ant-design-pro-layout-x8fe4f"
+                  class="ant-pro-top-nav-header-logo ant-design-pro-layout-c10ook"
                   id="logo"
                 >
                   <a>
@@ -34291,7 +34291,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/splitMenus.tsx co
                   </svg>
                 </span>
                 <div
-                  class="ant-pro-top-nav-header-logo ant-design-pro-layout-x8fe4f"
+                  class="ant-pro-top-nav-header-logo ant-design-pro-layout-c10ook"
                   id="logo"
                 >
                   <a>
@@ -34984,7 +34984,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/splitMenus.tsx co
                   </svg>
                 </span>
                 <div
-                  class="ant-pro-top-nav-header-logo ant-design-pro-layout-x8fe4f"
+                  class="ant-pro-top-nav-header-logo ant-design-pro-layout-c10ook"
                   id="logo"
                 >
                   <a>
@@ -37557,7 +37557,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/topMode.tsx corre
                     </svg>
                   </span>
                   <div
-                    class="ant-pro-top-nav-header-logo ant-design-pro-layout-x8fe4f"
+                    class="ant-pro-top-nav-header-logo ant-design-pro-layout-c10ook"
                     id="logo"
                   >
                     <a>

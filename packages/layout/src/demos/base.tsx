@@ -168,18 +168,24 @@ export default () => {
             <GithubFilled key="GithubFilled" />,
           ];
         }}
-        headerContentRender={(_, defaultDom) => {
+        headerTitleRender={(logo, title, _) => {
+          const defaultDom = (
+            <a>
+              {logo}
+              {title}
+            </a>
+          );
           if (document.body.clientWidth < 1400) {
             return defaultDom;
           }
           if (_.isMobile) return defaultDom;
           return (
             <>
+              {defaultDom}
               <div
                 style={{
                   display: 'flex',
                   alignItems: 'center',
-                  marginRight: 52,
                 }}
               >
                 <Divider
@@ -284,11 +290,10 @@ export default () => {
                       cursor: 'pointer',
                       display: 'flex',
                       gap: 4,
+                      padding: 18,
                       alignItems: 'center',
-                      minWidth: '180px',
                     }}
                     className={css`
-                      padding: 0 16px;
                       &:hover {
                         background-color: rgba(0, 0, 0, 0.03);
                       }
@@ -299,7 +304,6 @@ export default () => {
                   </div>
                 </Dropdown>
               </div>
-              {defaultDom}
             </>
           );
         }}

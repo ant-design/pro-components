@@ -705,6 +705,7 @@ const BaseMenu: React.FC<BaseMenuProps & PrivateSiderMenuProps> = (props) => {
     collapsed,
     designToken.borderRadiusBase,
     designToken.colorText,
+    menuDesignToken.horizontalMenuItemPadding,
     menuDesignToken.menuItemCollapsedHoverBgColor,
     menuDesignToken.menuItemCollapsedSelectedBgColor,
     menuDesignToken.menuItemHoverBgColor,

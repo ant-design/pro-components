@@ -54,9 +54,10 @@ export const AppsLogoComponents: React.FC<{
 
   return (
     <Popover
-      placement="rightTop"
+      placement="bottomRight"
       trigger={['click']}
       zIndex={9999}
+      arrowPointAtCenter
       overlayClassName={cx(getAntdPopoverContentListCss(antdPreFixCls))}
       content={
         <div className={`${prefixCls}-basicLayout-apps-content`}>
