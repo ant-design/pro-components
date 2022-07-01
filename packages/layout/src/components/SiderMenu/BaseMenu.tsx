@@ -162,7 +162,7 @@ class MenuUtil {
 
   /** Get SubMenu or Item */
   getSubMenuOrItem = (item: MenuDataItem, level: number): ItemType | ItemType[] => {
-    const { subMenuItemRender, collapsed, prefixCls, menu, iconPrefixes, layout } = this.props;
+    const { subMenuItemRender, prefixCls, menu, iconPrefixes, layout } = this.props;
     const isGroup = menu?.type === 'group' && layout !== 'top';
     const designToken = this.props.token;
     const genItemCss = (center?: boolean) =>
@@ -200,19 +200,10 @@ class MenuUtil {
         </span>
       );
 
-      /** 如果是 Group 是不需要展示 icon 的 */
-      const subMenuTitle =
-        isGroup && level === 0 ? (
-          <span className={genItemCss(isGroup && level === 0 && collapsed)} title={name}>
-            {name}
-          </span>
-        ) : (
-          defaultTitle
-        );
       // subMenu only title render
       const title = subMenuItemRender
         ? subMenuItemRender({ ...item, isUrl: false }, defaultTitle, this.props)
-        : subMenuTitle;
+        : defaultTitle;
 
       const childrenList = this.getNavMenuItems(children, level + 1);
       if (isGroup && level === 0 && this.props.collapsed && !menu.collapsedShowGroupTitle) {
@@ -224,7 +215,7 @@ class MenuUtil {
           key: item.key! || item.path!,
           title: item.tooltip || title,
           label: title,
-          // onTitleClick: isGroup ? undefined : item.onTitleClick,
+          onClick: isGroup ? undefined : item.onTitleClick,
           children: childrenList,
         } as ItemType,
         isGroup && level === 0

@@ -290,7 +290,8 @@ export default () => {
                       cursor: 'pointer',
                       display: 'flex',
                       gap: 4,
-                      padding: 18,
+                      paddingLeft: 8,
+                      paddingRight: 12,
                       alignItems: 'center',
                     }}
                     className={css`
