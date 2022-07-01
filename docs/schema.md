@@ -286,7 +286,7 @@ const valueEnum = {
 };
 ```
 
-```tsx
+```tsx | pure
 import { ProFormSelect } from '@ant-design/pro-components';
 
 const valueEnum = {
@@ -363,7 +363,7 @@ const columns = [
 ];
 ```
 
-```tsx
+```tsx | pure
 import { ProFormSelect } from '@ant-design/pro-components';
 
 const options = [
@@ -432,7 +432,7 @@ const columns = [
 ];
 ```
 
-```tsx
+```tsx | pure
 import { ProForm, ProFormSelect, ProFormText } from '@ant-design/pro-components';
 
 const request = async (params) => {
