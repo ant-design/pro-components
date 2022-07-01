@@ -26,7 +26,7 @@ export default {
     total: {
       range: ' ',
       total: 'de',
-      item: 'items',
+      item: 'itens',
     },
   },
   tableToolBar: {
