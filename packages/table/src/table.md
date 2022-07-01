@@ -341,7 +341,7 @@ ProTable 在 antd 的 Table 上进行了一层封装，支持了一些预设，�
 | editable | 可编辑表格的相关配置 | [TableRowEditable<T>](/components/editable-table#editable-编辑行配置) | - |
 | cardBordered | Table 和 Search 外围 Card 组件的边框 | `boolean \| {search?: boolean, table?: boolean}` | false |
 | debounceTime | 防抖时间 | `number` | 10 |
-| revalidateOnFocus | 窗口聚焦时自动重新请求 | `boolean` | `false` |
+| revalidateOnFocus | 窗口聚焦时自动重新请求 | `boolean` | `true` |
 | columnsState | 受控的列状态，可以操作显示隐藏 | `columnsStateType` | - |
 | ErrorBoundary | 自带了错误处理功能，防止白屏，`ErrorBoundary=false` 关闭默认错误边界 | `ReactNode` | 内置 ErrorBoundary |
 

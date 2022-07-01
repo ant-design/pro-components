@@ -2,6 +2,18 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.77.0](https://github.com/ant-design/pro-components/compare/@ant-design/pro-table@2.76.4...@ant-design/pro-table@2.77.0) (2022-06-30)
+
+### Bug Fixes
+
+- **form:** fix cascader clear no work error-n ([#5381](https://github.com/ant-design/pro-components/issues/5381)) ([cf51175](https://github.com/ant-design/pro-components/commit/cf511755b738beb5bcb42b5bcf8393d55b83f722))
+- **table:** default close revalidateOnFocus ([#5441](https://github.com/ant-design/pro-components/issues/5441)) ([88f0782](https://github.com/ant-design/pro-components/commit/88f07825d125d3af56cc55588dcb1ff3edfccb55))
+- **table:** the table header should not be scroll ([#5410](https://github.com/ant-design/pro-components/issues/5410)) ([520246a](https://github.com/ant-design/pro-components/commit/520246a6acf0a13f51dbbe2fbb42bf702952ffbf))
+
+### Features
+
+- **table:** Make ColumnSetting heights editable ([#5449](https://github.com/ant-design/pro-components/issues/5449)) ([9739595](https://github.com/ant-design/pro-components/commit/973959503e994f677554f55db3838e4f1e23d738))
+
 ## [2.76.4](https://github.com/ant-design/pro-components/compare/@ant-design/pro-table@2.76.3...@ant-design/pro-table@2.76.4) (2022-06-16)
 
 **Note:** Version bump only for package @ant-design/pro-table
