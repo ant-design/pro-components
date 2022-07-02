@@ -8,6 +8,7 @@ import type { ProFormListItemProps } from './ListItem';
 import { ProFormListItem } from './ListItem';
 
 const ProFormListContainer: React.FC<ProFormListItemProps> = (props) => {
+  const intl = useIntl();
   const {
     creatorButtonProps,
     prefixCls,
@@ -68,10 +69,9 @@ const ProFormListContainer: React.FC<ProFormListItemProps> = (props) => {
 
   const creatorButton = useMemo(() => {
     if (creatorButtonProps === false || uuidFields.length === max) return null;
-    const intl = useIntl();
     const {
       position = 'bottom',
-      creatorButtonText = intl.getMessage('editableTable.action', '添加一行数据'),
+      creatorButtonText = intl.getMessage('editableTable.action.add', '添加一行数据'),
     } = creatorButtonProps || {};
     return (
       <Button

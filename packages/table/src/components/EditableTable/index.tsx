@@ -137,6 +137,7 @@ function EditableTable<
   Params extends ParamsType = ParamsType,
   ValueType = 'text',
 >(props: EditableProTableProps<DataType, Params, ValueType>) {
+  const intl = useIntl();
   const {
     onTableChange,
     maxLength,
@@ -309,7 +310,7 @@ function EditableTable<
             icon={<PlusOutlined />}
             {...restButtonProps}
           >
-            {creatorButtonText || intl.getMessage('editableTable.action', '添加一行数据')}
+            {creatorButtonText || intl.getMessage('editableTable.action.add', '添加一行数据')}
           </Button>
         </RecordCreator>
       )
