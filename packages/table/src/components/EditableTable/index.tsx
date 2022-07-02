@@ -287,7 +287,6 @@ function EditableTable<
   } = recordCreatorProps || {};
   const isTop = position === 'top';
   const creatorButtonDom = useMemo(() => {
-    const intl = useIntl();
     if (maxLength && maxLength <= value?.length) {
       return false;
     }
