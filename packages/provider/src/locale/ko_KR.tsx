@@ -61,6 +61,7 @@ export default {
       save: '저장',
       cancel: '취소',
       delete: '삭제',
+      add: '데이터 행 추가',
     },
   },
 };

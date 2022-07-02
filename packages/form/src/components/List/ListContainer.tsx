@@ -1,4 +1,5 @@
 ﻿import { PlusOutlined } from '@ant-design/icons';
+import { useIntl } from '@ant-design/pro-provider';
 import { nanoid, runFunction } from '@ant-design/pro-utils';
 import { Button } from 'antd';
 import omit from 'omit.js';
@@ -67,7 +68,11 @@ const ProFormListContainer: React.FC<ProFormListItemProps> = (props) => {
 
   const creatorButton = useMemo(() => {
     if (creatorButtonProps === false || uuidFields.length === max) return null;
-    const { position = 'bottom', creatorButtonText = '添加一行数据' } = creatorButtonProps || {};
+    const intl = useIntl();
+    const {
+      position = 'bottom',
+      creatorButtonText = intl.getMessage('editableTable.action', '添加一行数据'),
+    } = creatorButtonProps || {};
     return (
       <Button
         className={`${prefixCls}-creator-button-${position}`}
