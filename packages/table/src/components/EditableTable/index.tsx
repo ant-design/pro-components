@@ -2,6 +2,7 @@
 import type { ProFormInstance } from '@ant-design/pro-form';
 import { ProFormDependency } from '@ant-design/pro-form';
 import type { ParamsType } from '@ant-design/pro-provider';
+import { useIntl } from '@ant-design/pro-provider';
 import { isDeepEqualReact, runFunction, usePrevious, useRefFunction } from '@ant-design/pro-utils';
 import type { ButtonProps, FormItemProps } from 'antd';
 import { Button, Form } from 'antd';
@@ -136,6 +137,7 @@ function EditableTable<
   Params extends ParamsType = ParamsType,
   ValueType = 'text',
 >(props: EditableProTableProps<DataType, Params, ValueType>) {
+  const intl = useIntl();
   const {
     onTableChange,
     maxLength,
@@ -307,7 +309,7 @@ function EditableTable<
             icon={<PlusOutlined />}
             {...restButtonProps}
           >
-            {creatorButtonText || '添加一行数据'}
+            {creatorButtonText || intl.getMessage('editableTable.action.add', '添加一行数据')}
           </Button>
         </RecordCreator>
       )

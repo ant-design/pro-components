@@ -61,6 +61,7 @@ export default {
       save: 'Sauvegarder',
       cancel: 'Annuler',
       delete: 'Supprimer',
+      add: 'ajouter une ligne de données',
     },
   },
 };

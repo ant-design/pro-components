@@ -53,6 +53,7 @@ export default {
       save: '保存',
       cancel: '取消',
       delete: '删除',
+      add: '添加一行数据',
     },
   },
   switch: {
