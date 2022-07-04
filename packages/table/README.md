@@ -47,7 +47,7 @@ ProTable puts a layer of wrapping on top of antd's Table, supports some presets,
 
 | Properties | Description | Type | Default |
 | --- | --- | --- | --- |
-| request | Method to get `dataSource` | `(params?: {pageSize,current},sort,filter) => {data,success,total}` | - |
+| request | Method to get `dataSource` | `(params?: {pageSize,current,total},sort,filter) => {data,success,total}` | - |
 | params | redundant parameters for `request` queries, triggering a reload if they change | `object` | - |
 | postData | Processes the data obtained by `request` | `(data: T[]) => T[]` | - |
 | defaultData | The default data | `T[]` | - |

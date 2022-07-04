@@ -116,17 +116,23 @@ const useFetchData = <T extends RequestData<any>>(
     }
 
     requesting.current = true;
-    const { pageSize, current } = pageInfo || {};
+    const { pageSize, current, total = 0 } = pageInfo || {};
     try {
       const pageParams =
         options?.pageInfo !== false
           ? {
               current,
               pageSize,
+              total,
             }
           : undefined;
 
-      const { data = [], success, total = 0, ...rest } = (await getData(pageParams)) || {};
+      const {
+        data = [],
+        success,
+        total: totalCount = 0,
+        ...rest
+      } = (await getData(pageParams)) || {};
       // 如果失败了，直接返回，不走剩下的逻辑了
       if (success === false) return [];
 
@@ -134,7 +140,7 @@ const useFetchData = <T extends RequestData<any>>(
         data!,
         [options.postData].filter((item) => item) as any,
       );
-      setDataAndLoading(responseData, total);
+      setDataAndLoading(responseData, totalCount);
       onLoad?.(responseData, rest);
       return responseData;
     } catch (e) {
