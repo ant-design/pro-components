@@ -61,6 +61,7 @@ export default {
       save: 'Spremi',
       cancel: 'Odustani',
       delete: 'Obriši',
+      add: 'dodajte red podataka',
     },
   },
   switch: {

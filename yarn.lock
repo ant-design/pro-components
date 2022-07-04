@@ -2941,9 +2941,9 @@
     "@octokit/types" "^2.0.1"
 
 "@octokit/plugin-paginate-rest@^2.13.3", "@octokit/plugin-paginate-rest@^2.16.8", "@octokit/plugin-paginate-rest@^2.18.0":
-  version "2.20.0"
-  resolved "https://registry.npmmirror.com/@octokit/plugin-paginate-rest/-/plugin-paginate-rest-2.20.0.tgz#874f9d0cd500bfa0f0901a44de834e3de115d28b"
-  integrity sha512-LbemX86JEmOCFo9eRwrtdP5Isq69TefLS1J7w0DO4PMhfpvRfqYVzq9c0eH1xgcx2PSA7/VJHu9SwvNhD9FjVg==
+  version "2.21.0"
+  resolved "https://registry.npmmirror.com/@octokit/plugin-paginate-rest/-/plugin-paginate-rest-2.21.0.tgz#ddd425eaa09214dfdfdc9cc411fcf676b8985e65"
+  integrity sha512-MoGEKjvDpTOCVb5gbeiW7kZm/cRfT256UJwHEuy+y+gTUuKziyXaiOkt5rM/4nzhp8UxVgvok9Tu7dMMpUybiQ==
   dependencies:
     "@octokit/types" "^6.38.1"
 
@@ -3587,9 +3587,9 @@
     "@types/istanbul-lib-report" "*"
 
 "@types/jest@*":
-  version "28.1.3"
-  resolved "https://registry.npmmirror.com/@types/jest/-/jest-28.1.3.tgz#52f3f3e50ce59191ff5fbb1084896cc0cf30c9ce"
-  integrity sha512-Tsbjk8Y2hkBaY/gJsataeb4q9Mubw9EOz7+4RjPkzD5KjTvHHs7cpws22InaoXxAVAhF5HfFbzJjo6oKWqSZLw==
+  version "28.1.4"
+  resolved "https://registry.npmmirror.com/@types/jest/-/jest-28.1.4.tgz#a11ee6c8fd0b52c19c9c18138b78bbcc201dad5a"
+  integrity sha512-telv6G5N7zRJiLcI3Rs3o+ipZ28EnE+7EvF0pSrt2pZOMnAVI/f+6/LucDxOvcBcTeTL3JMF744BbVQAVBUQRA==
   dependencies:
     jest-matcher-utils "^28.0.0"
     pretty-format "^28.0.0"
@@ -4155,9 +4155,9 @@
     "@umijs/doctor-win32-x64-msvc" "0.1.0"
 
 "@umijs/fabric@^2.6.2":
-  version "2.12.1"
-  resolved "https://registry.npmmirror.com/@umijs/fabric/-/fabric-2.12.1.tgz#b4b6f6dc6e5242cf0b1b6d285becc163999d79b5"
-  integrity sha512-iQPMUI1zEPAm+fjDXskA47EB4MJG/jaOh4rleizMbtTBhY3Vg8gKU4CV4pYJrjLWSxQJQfThP1D1g+jLvtkA4g==
+  version "2.12.2"
+  resolved "https://registry.npmmirror.com/@umijs/fabric/-/fabric-2.12.2.tgz#31df21bfdd2c6b2bff90fbfde5321cb04d79724b"
+  integrity sha512-3fLQ3SOFmyzEbv0ELUPBRMfgMGNkWtJVnhgMmcvgtOfq4g3croDVKQetxjfjJ3cfYqVGtFfbQJ//RuEdYU3+2A==
   dependencies:
     "@babel/core" "^7.12.10"
     "@babel/eslint-parser" "^7.12.1"
@@ -5252,9 +5252,9 @@ aws-lambda@^1.0.7:
     watchpack "^2.0.0-beta.10"
 
 aws-sdk@^2.814.0:
-  version "2.1165.0"
-  resolved "https://registry.npmmirror.com/aws-sdk/-/aws-sdk-2.1165.0.tgz#4da669d1e9020344cef75d961882f52a7931a379"
-  integrity sha512-2oVkSuXsLeErt+H4M2OGIz4p1LPS+QRfY2WnW4QKMndASOcvHKZTfzuY8jmc9ZnDGyguiGdT3idYU8KpNg0sGw==
+  version "2.1166.0"
+  resolved "https://registry.npmmirror.com/aws-sdk/-/aws-sdk-2.1166.0.tgz#9bc5ceb3690d2747b941a2e2b8ebacfffb412f41"
+  integrity sha512-9CJQpMtIv2sxvwYTcMCfuCGU8t5qEppnvmo0uFFOm+1Q1uEv5sPg95wQH3Gfj4Mmv4FKWFofgTLksn0u2pDxsw==
   dependencies:
     buffer "4.9.2"
     events "1.1.1"
@@ -15818,9 +15818,9 @@ pretty-quick@^3.0.1:
     multimatch "^4.0.0"
 
 prism-react-renderer@^1.1.1:
-  version "1.3.3"
-  resolved "https://registry.npmmirror.com/prism-react-renderer/-/prism-react-renderer-1.3.3.tgz#9b5a4211a6756eee3c96fee9a05733abc0b0805c"
-  integrity sha512-Viur/7tBTCH2HmYzwCHmt2rEFn+rdIWNIINXyg0StiISbDiIhHKhrFuEK8eMkKgvsIYSjgGqy/hNyucHp6FpoQ==
+  version "1.3.5"
+  resolved "https://registry.npmmirror.com/prism-react-renderer/-/prism-react-renderer-1.3.5.tgz#786bb69aa6f73c32ba1ee813fbe17a0115435085"
+  integrity sha512-IJ+MSwBWKG+SM3b2SUfdrhC+gu01QkV2KmRQgREThBfSQRoufqRfxfHUxpG1WcaFjP+kojcFyO9Qqtpgt3qLCg==
 
 prismjs@^1.21.0:
   version "1.28.0"
@@ -16207,9 +16207,9 @@ rc-collapse@~1.9.1:
     rc-animate "2.x"
 
 rc-collapse@~3.3.0:
-  version "3.3.0"
-  resolved "https://registry.npmmirror.com/rc-collapse/-/rc-collapse-3.3.0.tgz#ecde33a06ca53c6c672c6a46c701052b88723950"
-  integrity sha512-nkxjhpYAAwEVbBvZ/qoatLecD0PpRtQ5ja9G+FP1QmsWhs/4VCruhjvRdSpMn9vfluKUnePe3PEy8eeqTeuE0g==
+  version "3.3.1"
+  resolved "https://registry.npmmirror.com/rc-collapse/-/rc-collapse-3.3.1.tgz#fc66d4c9cfeaf41e932b2de6da2d454874aee55a"
+  integrity sha512-cOJfcSe3R8vocrF8T+PgaHDrgeA1tX+lwfhwSj60NX9QVRidsILIbRNDLD6nAzmcvVC5PWiIRiR4S1OobxdhCg==
   dependencies:
     "@babel/runtime" "^7.10.1"
     classnames "2.x"

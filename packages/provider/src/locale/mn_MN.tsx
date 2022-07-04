@@ -61,6 +61,7 @@ export default {
       save: 'Хадгалах',
       cancel: 'Цуцлах',
       delete: 'Устгах',
+      add: 'мэдээллийн мөр нэмнэ',
     },
   },
   switch: {
