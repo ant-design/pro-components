@@ -1388,7 +1388,7 @@ describe('Field', () => {
       html.find('.ant-pro-core-field-label').simulate('click');
       html.find('.ant-pro-core-field-label').simulate('mouseup');
     });
-    await waitForComponentToPaint(html, 100);
+    await waitForComponentToPaint(html, 1000);
     expect(html.find('.ant-select-dropdown.ant-select-dropdown-hidden').length).toEqual(1);
   });
 

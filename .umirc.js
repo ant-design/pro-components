@@ -40,6 +40,7 @@ export default {
       },
     ],
   ],
+  sitemap: { hostname: 'https://procomponents.ant.design' },
   metas: [
     {
       property: 'og:site_name',

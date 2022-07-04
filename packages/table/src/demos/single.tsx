@@ -48,9 +48,10 @@ const columns: ProColumns<GithubIssueItem>[] = [
     dataIndex: 'state',
     filters: true,
     onFilter: true,
+    ellipsis: true,
     valueType: 'select',
     valueEnum: {
-      all: { text: '全部', status: 'Default' },
+      all: { text: '超长'.repeat(50) },
       open: {
         text: '未解决',
         status: 'Error',
