@@ -10,6 +10,7 @@ export default ({
   ...rest
 }: IPreviewerProps & {
   height: string;
+  iframe: string;
 }) => {
   if (!isBrowser()) {
     return null;
@@ -17,11 +18,15 @@ export default ({
   return (
     <div
       style={{
-        height: rest.height ? `calc(${rest.height} + 128px)` : undefined,
+        height: rest.height && !rest.iframe ? `calc(${rest.height} + 128px)` : undefined,
       }}
     >
       <LazyLoad
-        height={`calc(${rest.height || rest.iframe} + 128px)` || 500}
+        height={
+          rest.height && !rest.iframe
+            ? `calc(${rest.height || rest.iframe} + 128px)` || 500
+            : undefined
+        }
         offset={500}
         placeholder={
           parseInt(rest.height) > 300 ? (
@@ -45,7 +50,7 @@ export default ({
         <PreView {...rest}>
           <div
             style={{
-              minHeight: rest.height,
+              minHeight: rest.height && !rest.iframe ? rest.height : 500,
             }}
           >
             {children}
