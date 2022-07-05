@@ -237,7 +237,8 @@ const SearchSelect = <T,>(props: SearchSelectProps<T[]>, ref: any) => {
         if (mode !== 'multiple') {
           // 单选情况且用户选择了选项
           const dataItem = (optionList && optionList['data-item']) || {};
-          onChange?.({ ...value, ...dataItem }, optionList, ...rest);
+          // 处理下清空触发时的回调参数
+          onChange?.(dataItem ? { ...value, ...dataItem } : void 0, optionList, ...rest);
           return;
         }
         // 合并值
