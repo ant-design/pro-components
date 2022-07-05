@@ -9,4 +9,4 @@ group:
 
 # ProDescriptions Playground
 
-<code src="../../packages/descriptions/src/demos/dynamic-descriptions.tsx" iframe="746px" background="#f5f5f5" title="属性展示"/>
+<code src="../../packages/descriptions/src/demos/dynamic-descriptions.tsx"  height="500px" iframe="746px" background="#f5f5f5" title="属性展示"/>

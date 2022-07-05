@@ -21,7 +21,7 @@ ProLayout 可以提供一个标准又不失灵活的中后台标准布局，同�
 
 ### 基础使用
 
-<code src="./demos/base.tsx" iframe="746px" title="基础使用"/>
+<code src="./demos/base.tsx"  height="500px" iframe="746px" title="基础使用"/>
 
 ### 从服务器加载 menu
 
@@ -29,81 +29,81 @@ ProLayout 提供了强大的菜单功能，但是这样必然会封装很多行�
 
 从服务器加载 menu 主要使用的 API 是 `menuDataRender` 和 `menuRender`,`menuDataRender`可以控制当前的菜单数据，`menuRender`可以控制菜单的 dom 节点。
 
-<code src="./demos/dynamicMenu.tsx" iframe="596px" title="从服务器加载 menu"/>
+<code src="./demos/dynamicMenu.tsx"  height="500px" iframe="596px" title="从服务器加载 menu"/>
 
 ### 从服务器加载 menu 并且使用 icon
 
 这里主要是一个演示，我们需要准备一个枚举来进行 icon 的渲染，可以显著的减少打包的大小
 
-<code src="./demos/antd@4MenuIconFormServe.tsx" iframe="596px" title="从服务器加载 menu 并且使用 icon"/>
+<code src="./demos/antd@4MenuIconFormServe.tsx"  height="500px" iframe="596px" title="从服务器加载 menu 并且使用 icon"/>
 
 ### 自定义 menu 的内容
 
 通过 `menuItemRender`, `subMenuItemRender`,`title`,`logo`,`menuHeaderRender` 可以非常方便的自定义 menu 的样式。如果实在是不满意，可以使用 `menuRender` 完全的自定义。
 
-<code src="./demos/customizeMenu.tsx" iframe="596px" title="自定义 menu 的内容"/>
+<code src="./demos/customizeMenu.tsx"  height="500px" iframe="596px" title="自定义 menu 的内容"/>
 
 ### 自定义页脚
 
 ProLayout 默认不提供页脚，要是和 Pro 官网相同的样式，需要自己引入一下页脚。
 
-<code src="./demos/footer.tsx" iframe="596px" title="自定义页脚"/>
+<code src="./demos/footer.tsx"  height="500px" iframe="596px" title="自定义页脚"/>
 
 这里用于展示 ProLayout 的各种应用，如果你觉得你的用法能帮助到别人，欢迎 PR。
 
 ### 搜索菜单
 
-<code src="./demos/searchMenu.tsx" iframe="596px" title="搜索菜单"/>
+<code src="./demos/searchMenu.tsx"  height="500px" iframe="596px" title="搜索菜单"/>
 
 ### 多个路由对应一个菜单项
 
-<code src="./demos/MultipleMenuOnePath.tsx" iframe="596px" title="多个路由对应一个菜单项"/>
+<code src="./demos/MultipleMenuOnePath.tsx"  height="500px" iframe="596px" title="多个路由对应一个菜单项"/>
 
 ### 默认打开所有菜单
 
 menu 配置 `defaultOpenAll` 可以默认打开所有菜单
 
-<code src="./demos/DefaultOpenAllMenu.tsx" iframe="596px" title="默认打开所有菜单"/>
+<code src="./demos/DefaultOpenAllMenu.tsx"  height="500px" iframe="596px" title="默认打开所有菜单"/>
 
 折叠按钮反复切换后`defaultOpenAll`将失效，menu 配置 `ignoreFlatMenu` 可以忽略手动折叠过的菜单，实现总是默认打开所有菜单
 
-<code src="./demos/AlwaysDefaultOpenAllMenu.tsx" iframe="596px" title="总是默认打开所有菜单"/>
+<code src="./demos/AlwaysDefaultOpenAllMenu.tsx"  height="500px" iframe="596px" title="总是默认打开所有菜单"/>
 
 ### 使用 IconFont
 
-<code src="./demos/IconFont.tsx" iframe="596px" title="使用 IconFont"/>
+<code src="./demos/IconFont.tsx"  height="500px" iframe="596px" title="使用 IconFont"/>
 
 ### ghost 模式
 
 PageContainer 配置 `ghost` 可以将页头切换为透明模式。
 
-<code src="./demos/ghost.tsx" iframe="596px" title="ghost 模式"/>
+<code src="./demos/ghost.tsx"  height="500px" iframe="596px" title="ghost 模式"/>
 
 ### 嵌套布局
 
-<code src="./demos/Nested.tsx" iframe="596px" title="嵌套布局"/>
+<code src="./demos/Nested.tsx"  height="500px" iframe="596px" title="嵌套布局"/>
 
 ### 自定义的 collapsed
 
-<code src="./demos/customize-collapsed.tsx" iframe="596px" title="自定义的 collapsed"/>
+<code src="./demos/customize-collapsed.tsx"  height="500px" iframe="596px" title="自定义的 collapsed"/>
 
 ### 面包屑显示在顶部
 
-<code src="./demos/top-breadcrumb.tsx" iframe="596px" title="面包屑显示在顶部"/>
+<code src="./demos/top-breadcrumb.tsx"  height="500px" iframe="596px" title="面包屑显示在顶部"/>
 
 ### 多级站点导航
 
-<code src="./demos/immersive-navigation.tsx" iframe="596px" title="多级站点导航"/>
+<code src="./demos/immersive-navigation.tsx"  height="500px" iframe="596px" title="多级站点导航"/>
 
 ### 沉浸式导航
 
-<code src="./demos/immersive-navigation-top.tsx" iframe="596px" title="沉浸式导航"/>
+<code src="./demos/immersive-navigation-top.tsx"  height="500px" iframe="596px" title="沉浸式导航"/>
 
 ### layout 自带了错误处理功能，防止白屏
 
-<code src="./demos/error-boundaries.tsx" iframe="596px" title="沉浸式导航"/>
+<code src="./demos/error-boundaries.tsx"  height="500px" iframe="596px" title="沉浸式导航"/>
 
-<code src="./demos/splitMenus.tsx" iframe="500px" title="沉浸式导航" debug />
+<code src="./demos/splitMenus.tsx"  height="500px" iframe="500px" title="沉浸式导航" debug />
 
 ## API
 

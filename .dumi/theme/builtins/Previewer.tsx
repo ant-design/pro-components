@@ -17,11 +17,11 @@ export default ({
   return (
     <div
       style={{
-        height: rest.height ? `calc(${rest.height} + 128px)` : 40,
+        height: rest.height ? `calc(${rest.height} + 128px)` : undefined,
       }}
     >
       <LazyLoad
-        height={`calc(${rest.height} + 128px)` || 500}
+        height={`calc(${rest.height || rest.iframe} + 128px)` || 500}
         offset={500}
         placeholder={
           parseInt(rest.height) > 300 ? (

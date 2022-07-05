@@ -196,7 +196,7 @@ formRef 内置了几个方法来获取转化之后的值，这也是相比 antd 
 
 ### 固定页脚
 
-<code src="./demos/layout-base.tsx" iframe="860px" title="固定页脚"/>
+<code src="./demos/layout-base.tsx"  height="500px" iframe="860px" title="固定页脚"/>
 
 ### ProForm 和 EditableTable 同时使用
 

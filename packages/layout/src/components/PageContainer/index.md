@@ -50,19 +50,19 @@ PageContainer 封装了 antd 的 PageHeader 组件，增加了 tabList 和 conte
 
 ### 基本使用
 
-<code src="./demos/basic.tsx" iframe="651px" title="基本使用" desc="基本使用"/>
+<code src="./demos/basic.tsx"  height="500px" iframe="651px" title="基本使用" desc="基本使用"/>
 
 ### 固定表头
 
-<code src="./demos/fixHeader.tsx" iframe="651px" title="固定表头" desc="通过 `fixedHeader` 固定表头，只有在溢出容器时才会开始计算。"/>
+<code src="./demos/fixHeader.tsx"  height="500px" iframe="651px" title="固定表头" desc="通过 `fixedHeader` 固定表头，只有在溢出容器时才会开始计算。"/>
 
 ### 隐藏面包屑
 
-<code src="./demos/hideBreadMenu.tsx" iframe="651px" title="隐藏面包屑" desc="不配置 `header` 属性中的 `breadcrumb` 即可。"/>
+<code src="./demos/hideBreadMenu.tsx"  height="500px" iframe="651px" title="隐藏面包屑" desc="不配置 `header` 属性中的 `breadcrumb` 即可。"/>
 
 ### 页面加载中
 
-<code src="./demos/loading.tsx" iframe="951px" title="页面加载中" desc="通过 `loading` 属性配置页面加载。"/>
+<code src="./demos/loading.tsx"  height="500px" iframe="951px" title="页面加载中" desc="通过 `loading` 属性配置页面加载。"/>
 
 ## API
 

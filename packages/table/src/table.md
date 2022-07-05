@@ -256,9 +256,9 @@ import { ConfigProvider } from '@ant-design/pro-provide';
 
 ### 自定义错误边界
 
-<code src="./demos/error-boundaries.tsx" title="自定义错误边界" iframe="558px"/>
+<code src="./demos/error-boundaries.tsx" title="自定义错误边界"  height="500px" iframe="558px"/>
 
-<code src="./demos/error-boundaries-false.tsx" debug title="取消自定义错误边界" iframe="462px" />
+<code src="./demos/error-boundaries-false.tsx" debug title="取消自定义错误边界"  height="500px" iframe="462px" />
 
 <code src="./demos/config-provider.tsx" debug background="#f5f5f5" heigh="462px"/>
 
