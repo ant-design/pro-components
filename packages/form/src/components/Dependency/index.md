@@ -42,7 +42,7 @@ name 参数必须要是一个数组，如果是嵌套的结构可以这样配置
 
 ### 互相依赖表单
 
-<code src="./demos/dependency.tsx" heigh="174px" title="互相依赖表单" />
+<code src="./demos/dependency.tsx" heigh="174px" title="互相依赖表单" height="371px"/>
 
 ### 获取表单依赖值
 
@@ -53,4 +53,4 @@ name 参数必须要是一个数组，如果是嵌套的结构可以这样配置
   - `<ProFormDependency>`的`ignoreFormListField`为`true`：根据`name`声明的依赖项，从全局取值（情形 2）
   - `<ProFormDependency>`的`ignoreFormListField`为`false`：根据`name`声明的依赖项，从局部取值（情形 3）
 
-<code src="./demos/dependency2.tsx" heigh="1774px" title="获取表单依赖值" />
+<code src="./demos/dependency2.tsx" heigh="1774px" title="获取表单依赖值" height="1168px"/>

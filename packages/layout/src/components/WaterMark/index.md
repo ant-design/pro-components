@@ -23,25 +23,25 @@ nav:
 
 水印组件默认实现为前置水印，即设想水印会显示在内容的上方，zIndex 默认设置为 9，如果你不希望水印遮挡上层内容，可以调整该值到小于上层内容的 zIndex。
 
-<code src="./demos/frontend.tsx" />
+<code src="./demos/frontend.tsx" height="654px"/>
 
 ### 文字水印
 
 通过 `content` 指定文字水印内容。
 
-<code src="./demos/text.tsx" />
+<code src="./demos/text.tsx" height="581px"/>
 
 ### 图片水印
 
 通过 `image` 指定图片地址。为保证图片高清且不被拉伸，请传入水印图片的宽高 width 和 height, 并上传至少两倍的宽高的 logo 图片地址。
 
-<code src="./demos/image.tsx" />
+<code src="./demos/image.tsx" height="581px"/>
 
 ### 自定义配置
 
 这里给出一些通用配置项。如需进一步配置请联系我们。
 
-<code src="./demos/custom.tsx" background="#f0f2f5"/>
+<code src="./demos/custom.tsx" background="#f0f2f5" height="898px"/>
 
 ## API
 

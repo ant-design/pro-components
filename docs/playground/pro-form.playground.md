@@ -13,8 +13,8 @@ group:
 
 ProForm 的主要功能是预设了很多 layout，如果需要切换只需要改变外面包裹的 Layout 即可，以下是个 demo。
 
-<code src="../../packages/form/src/demos/layout-change.tsx">
+<code src="../../packages/form/src/demos/layout-change.tsx" height="709px"/>
 
 ## FormList
 
-<code src="../../packages/form/src/components/Group/demos/customize.tsx" title="ProForm.List" />
+<code src="../../packages/form/src/components/Group/demos/customize.tsx" title="ProForm.List" height="1002px"/>
