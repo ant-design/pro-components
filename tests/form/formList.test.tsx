@@ -1,6 +1,6 @@
 ﻿import { CloseOutlined, SnippetsOutlined } from '@ant-design/icons';
+import type { FormListActionType } from '@ant-design/pro-form';
 import ProForm, {
-  FormListActionType,
   ProFormDatePicker,
   ProFormDependency,
   ProFormGroup,
@@ -8,7 +8,7 @@ import ProForm, {
   ProFormText,
 } from '@ant-design/pro-form';
 import '@testing-library/jest-dom';
-import { render as reactRender, render } from '@testing-library/react';
+import { fireEvent, render as reactRender, render } from '@testing-library/react';
 import { Button, Form } from 'antd';
 import type { NamePath } from 'antd/es/form/interface';
 import { mount } from 'enzyme';
@@ -1135,5 +1135,63 @@ describe('ProForm List', () => {
     const data = actionRef.current?.get(1);
 
     expect(data?.name).toBe('2222');
+  });
+
+  it('⛲  ProForm.List getCurrentRowData support subList', async () => {
+    const ref = React.createRef<{
+      getCurrentRowData: () => any;
+    }>();
+
+    const html = reactRender(
+      <ProForm>
+        <ProFormList
+          name="users"
+          label="用户信息"
+          initialValue={[
+            {
+              name: '1111',
+            },
+          ]}
+        >
+          <ProFormText name="name" label="姓名" />
+          <ProFormList
+            name="lv1"
+            label="lv1信息"
+            initialValue={[
+              {
+                lv2Name: '1111',
+              },
+            ]}
+          >
+            {(f, idxLv2, action) => {
+              // @ts-ignore
+              ref.current = action;
+              return (
+                <ProFormText
+                  name="lv2Name"
+                  label="层级"
+                  fieldProps={{
+                    id: 'lv2Name',
+                  }}
+                />
+              );
+            }}
+          </ProFormList>
+        </ProFormList>
+      </ProForm>,
+    );
+
+    act(() => {
+      const dom = html.baseElement.querySelector<HTMLInputElement>('#lv2Name');
+      fireEvent.change(dom!, {
+        target: {
+          value: 'test',
+        },
+      });
+    });
+
+    await waitForComponentToPaint(html);
+
+    expect(ref.current?.getCurrentRowData().lv2Name).toBe('test');
   });
 });

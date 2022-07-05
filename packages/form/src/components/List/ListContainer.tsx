@@ -94,7 +94,16 @@ const ProFormListContainer: React.FC<ProFormListItemProps> = (props) => {
         {creatorButtonText}
       </Button>
     );
-  }, [creatorButtonProps, prefixCls, loading, wrapperAction, creatorRecord, uuidFields, max]);
+  }, [
+    creatorButtonProps,
+    uuidFields.length,
+    max,
+    intl,
+    prefixCls,
+    loading,
+    wrapperAction,
+    creatorRecord,
+  ]);
 
   return (
     <div
