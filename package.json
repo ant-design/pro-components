@@ -133,7 +133,6 @@
     "react": "^18.0.0",
     "react-dom": "^18.0.0",
     "react-helmet-async": "^1.0.9",
-    "react-lazyload": "^3.0.0",
     "react-markdown": "^4.3.0",
     "react-sortable-hoc": "^2.0.0",
     "react-test-renderer": "^18.0.0",
