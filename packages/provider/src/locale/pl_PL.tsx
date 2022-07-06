@@ -1,12 +1,7 @@
 export default {
   moneySymbol: 'zł',
   form: {
-    lightFilter: {
-      more: 'Więcej',
-      clear: 'Wyczyść',
-      confirm: 'Potwierdź',
-      itemUnit: 'Ilość',
-    },
+    lightFilter: { more: 'Więcej', clear: 'Wyczyść', confirm: 'Potwierdź', itemUnit: 'Ilość' },
   },
   tableForm: {
     search: 'Szukaj',
@@ -17,18 +12,8 @@ export default {
     inputPlaceholder: 'Proszę podać',
     selectPlaceholder: 'Proszę wybrać',
   },
-  alert: {
-    clear: 'Wyczyść',
-    selected: 'Wybrane',
-    item: 'Wpis',
-  },
-  pagination: {
-    total: {
-      range: ' ',
-      total: 'z',
-      item: 'Wpisów',
-    },
-  },
+  alert: { clear: 'Wyczyść', selected: 'Wybrane', item: 'Wpis' },
+  pagination: { total: { range: ' ', total: 'z', item: 'Wpisów' } },
   tableToolBar: {
     leftPin: 'Przypnij do lewej',
     rightPin: 'Przypnij do prawej',
@@ -48,12 +33,14 @@ export default {
     densityMiddle: 'Sredni',
     densitySmall: 'Kompaktowy',
   },
-  stepsForm: {
-    next: 'Weiter',
-    prev: 'Zurück',
-    submit: 'Abschließen',
+  editableTable: {
+    action: {
+      save: 'Zapisać',
+      cancel: 'Anuluj',
+      delete: 'Usunąć',
+      add: 'Dodawanie wiersza danych',
+    },
   },
-  loginForm: {
-    submitText: 'Zaloguj się',
-  },
+  switch: { open: 'Otwórz go', close: 'Zamknięcie systemu' },
+  loginForm: { submitText: 'Zaloguj się' },
 };

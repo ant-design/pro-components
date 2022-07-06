@@ -1,5 +1,13 @@
 export default {
   moneySymbol: 'RM',
+  form: {
+    lightFilter: {
+      more: 'Lebih banyak penapisan',
+      clear: 'pembersihan',
+      confirm: 'Mengesahkan',
+      itemUnit: 'item',
+    },
+  },
   tableForm: {
     search: 'Cari',
     reset: 'Menetapkan semula',
@@ -9,18 +17,8 @@ export default {
     inputPlaceholder: 'Sila masuk',
     selectPlaceholder: 'Sila pilih',
   },
-  alert: {
-    clear: 'Padam',
-    selected: 'Dipilih',
-    item: 'Item',
-  },
-  pagination: {
-    total: {
-      range: ' ',
-      total: 'daripada',
-      item: 'item',
-    },
-  },
+  alert: { clear: 'Padam', selected: 'Dipilih', item: 'Item' },
+  pagination: { total: { range: ' ', total: 'daripada', item: 'item' } },
   tableToolBar: {
     leftPin: 'Pin ke kiri',
     rightPin: 'Pin ke kanan',
@@ -40,7 +38,14 @@ export default {
     densityMiddle: 'Tengah',
     densitySmall: 'Kecil',
   },
-  loginForm: {
-    submitText: 'Log Masuk',
+  editableTable: {
+    action: {
+      save: 'Simpan',
+      cancel: 'Membatalkan',
+      delete: 'Menghapuskan',
+      add: 'Tambah baris data',
+    },
   },
+  switch: { open: 'Buka', close: 'Matikan' },
+  loginForm: { submitText: 'Log Masuk' },
 };

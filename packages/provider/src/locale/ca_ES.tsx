@@ -1,5 +1,13 @@
 export default {
   moneySymbol: '€',
+  form: {
+    lightFilter: {
+      more: 'máis filtros',
+      clear: 'claro',
+      confirm: 'confirmar',
+      itemUnit: 'elemento',
+    },
+  },
   tableForm: {
     search: 'Cercar',
     reset: 'Netejar',
@@ -9,18 +17,8 @@ export default {
     inputPlaceholder: 'Introduïu valor',
     selectPlaceholder: 'Seleccioneu valor',
   },
-  alert: {
-    clear: 'Netejar',
-    selected: 'Seleccionat',
-    item: 'Article',
-  },
-  pagination: {
-    total: {
-      range: ' ',
-      total: 'de',
-      item: 'articles',
-    },
-  },
+  alert: { clear: 'Netejar', selected: 'Seleccionat', item: 'Article' },
+  pagination: { total: { range: ' ', total: 'de', item: 'articles' } },
   tableToolBar: {
     leftPin: "Pin a l'esquerra",
     rightPin: 'Pin a la dreta',
@@ -40,12 +38,14 @@ export default {
     densityMiddle: 'Mitjà',
     densitySmall: 'Compacte',
   },
-  stepsForm: {
-    next: 'Següent',
-    prev: 'Anterior',
-    submit: 'Finalizar',
+  editableTable: {
+    action: {
+      save: 'gardar',
+      cancel: 'Cancelar',
+      delete: 'eliminar',
+      add: 'engadir unha fila de datos',
+    },
   },
-  loginForm: {
-    submitText: 'Entrar',
-  },
+  switch: { open: 'Aberto', close: 'peche' },
+  loginForm: { submitText: 'Entrar' },
 };

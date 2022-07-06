@@ -1,13 +1,6 @@
 export default {
   moneySymbol: 'RP',
-  form: {
-    lightFilter: {
-      more: 'Lebih',
-      clear: 'Hapus',
-      confirm: 'Konfirmasi',
-      itemUnit: 'Unit',
-    },
-  },
+  form: { lightFilter: { more: 'Lebih', clear: 'Hapus', confirm: 'Konfirmasi', itemUnit: 'Unit' } },
   tableForm: {
     search: 'Cari',
     reset: 'Atur ulang',
@@ -17,18 +10,8 @@ export default {
     inputPlaceholder: 'Masukkan pencarian',
     selectPlaceholder: 'Pilih',
   },
-  alert: {
-    clear: 'Hapus',
-    selected: 'Dipilih',
-    item: 'Butir',
-  },
-  pagination: {
-    total: {
-      range: ' ',
-      total: 'Dari',
-      item: 'Butir',
-    },
-  },
+  alert: { clear: 'Hapus', selected: 'Dipilih', item: 'Butir' },
+  pagination: { total: { range: ' ', total: 'Dari', item: 'Butir' } },
   tableToolBar: {
     leftPin: 'Pin kiri',
     rightPin: 'Pin kanan',
@@ -48,12 +31,9 @@ export default {
     densityMiddle: 'Sedang',
     densitySmall: 'Rapat',
   },
-  stepsForm: {
-    next: 'Selanjutnya',
-    prev: 'Sebelumnya',
-    submit: 'Selesai',
+  editableTable: {
+    action: { save: 'simpan', cancel: 'batalkan', delete: 'hapus', add: 'Tambahkan data baris' },
   },
-  loginForm: {
-    submitText: 'Login',
-  },
+  switch: { open: 'buka', close: 'menutup' },
+  loginForm: { submitText: 'Login' },
 };

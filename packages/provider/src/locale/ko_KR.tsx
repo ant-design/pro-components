@@ -1,13 +1,6 @@
 export default {
   moneySymbol: '₩',
-  form: {
-    lightFilter: {
-      more: '더보기',
-      clear: '취소',
-      confirm: '확인',
-      itemUnit: '건수',
-    },
-  },
+  form: { lightFilter: { more: '더보기', clear: '취소', confirm: '확인', itemUnit: '건수' } },
   tableForm: {
     search: '조회',
     reset: '초기화',
@@ -17,18 +10,8 @@ export default {
     inputPlaceholder: '입력해 주세요',
     selectPlaceholder: '선택해 주세요',
   },
-  alert: {
-    clear: '취소',
-    selected: '선택',
-    item: '건',
-  },
-  pagination: {
-    total: {
-      range: ' ',
-      total: '/ 총',
-      item: '건',
-    },
-  },
+  alert: { clear: '취소', selected: '선택', item: '건' },
+  pagination: { total: { range: ' ', total: '/ 총', item: '건' } },
   tableToolBar: {
     leftPin: '왼쪽으로 핀',
     rightPin: '오른쪽으로 핀',
@@ -48,20 +31,9 @@ export default {
     densityMiddle: '중간 여백',
     densitySmall: '좁은 여백',
   },
-  stepsForm: {
-    next: '다음',
-    prev: '이전',
-    submit: '종료',
-  },
-  loginForm: {
-    submitText: '로그인',
-  },
   editableTable: {
-    action: {
-      save: '저장',
-      cancel: '취소',
-      delete: '삭제',
-      add: '데이터 행 추가',
-    },
+    action: { save: '저장', cancel: '취소', delete: '삭제', add: '데이터 행 추가' },
   },
+  switch: { open: '열어', close: '닫기' },
+  loginForm: { submitText: '로그인' },
 };

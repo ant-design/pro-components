@@ -1,5 +1,13 @@
 export default {
   moneySymbol: '€',
+  form: {
+    lightFilter: {
+      more: 'Più screening',
+      clear: 'rimozione',
+      confirm: 'confermare',
+      itemUnit: 'una',
+    },
+  },
   tableForm: {
     search: 'Filtra',
     reset: 'Pulisci',
@@ -9,18 +17,8 @@ export default {
     inputPlaceholder: 'Digita',
     selectPlaceholder: 'Seleziona',
   },
-  alert: {
-    clear: 'Rimuovi',
-    selected: 'Selezionati',
-    item: 'elementi',
-  },
-  pagination: {
-    total: {
-      range: ' ',
-      total: 'di',
-      item: 'elementi',
-    },
-  },
+  alert: { clear: 'Rimuovi', selected: 'Selezionati', item: 'elementi' },
+  pagination: { total: { range: ' ', total: 'di', item: 'elementi' } },
   tableToolBar: {
     leftPin: 'Fissa a sinistra',
     rightPin: 'Fissa a destra',
@@ -35,11 +33,19 @@ export default {
     exitFullScreen: 'Esci da modalità schermo intero',
     reload: 'Ricarica',
     density: 'Grandezza tabella',
+    densityDefault: 'normale',
     densityLarger: 'Grande',
     densityMiddle: 'Media',
     densitySmall: 'Compatta',
   },
-  loginForm: {
-    submitText: 'Accedi',
+  editableTable: {
+    action: {
+      save: 'conservazione',
+      cancel: 'soppressione',
+      delete: 'cancellare',
+      add: 'Aggiunta di una linea di dati',
+    },
   },
+  switch: { open: 'aprire', close: 'chiusura' },
+  loginForm: { submitText: 'Accedi' },
 };

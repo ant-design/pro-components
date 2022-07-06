@@ -1,12 +1,7 @@
 export default {
   moneySymbol: '₺',
   form: {
-    lightFilter: {
-      more: 'Daha Fazla',
-      clear: 'Temizle',
-      confirm: 'Onayla',
-      itemUnit: 'Öğeler',
-    },
+    lightFilter: { more: 'Daha Fazla', clear: 'Temizle', confirm: 'Onayla', itemUnit: 'Öğeler' },
   },
   tableForm: {
     search: 'Filtrele',
@@ -17,18 +12,8 @@ export default {
     inputPlaceholder: 'Filtrelemek için bir değer girin',
     selectPlaceholder: 'Filtrelemek için bir değer seçin',
   },
-  alert: {
-    clear: 'Temizle',
-    selected: 'Seçili',
-    item: 'Öğe',
-  },
-  pagination: {
-    total: {
-      range: ' ',
-      total: 'Toplam',
-      item: 'Öğe',
-    },
-  },
+  alert: { clear: 'Temizle', selected: 'Seçili', item: 'Öğe' },
+  pagination: { total: { range: ' ', total: 'Toplam', item: 'Öğe' } },
   tableToolBar: {
     leftPin: 'Sola sabitle',
     rightPin: 'Sağa sabitle',
@@ -48,20 +33,9 @@ export default {
     densityMiddle: 'Orta',
     densitySmall: 'Küçük',
   },
-  stepsForm: {
-    next: 'Sıradaki',
-    prev: 'Önceki',
-    submit: 'Gönder',
-  },
-  loginForm: {
-    submitText: 'Giriş Yap',
-  },
   editableTable: {
-    action: {
-      save: 'Kaydet',
-      cancel: 'Vazgeç',
-      delete: 'Sil',
-      add: 'foegje in rige gegevens ta',
-    },
+    action: { save: 'Kaydet', cancel: 'Vazgeç', delete: 'Sil', add: 'foegje in rige gegevens ta' },
   },
+  switch: { open: 'Aç', close: 'Kapat' },
+  loginForm: { submitText: 'Giriş Yap' },
 };

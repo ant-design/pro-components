@@ -1,13 +1,6 @@
 export default {
   moneySymbol: 'تومان',
-  form: {
-    lightFilter: {
-      more: 'بیشتر',
-      clear: 'پاک کردن',
-      confirm: 'تایید',
-      itemUnit: 'مورد',
-    },
-  },
+  form: { lightFilter: { more: 'بیشتر', clear: 'پاک کردن', confirm: 'تایید', itemUnit: 'مورد' } },
   tableForm: {
     search: 'جستجو',
     reset: 'بازنشانی',
@@ -17,18 +10,8 @@ export default {
     inputPlaceholder: 'پیدا کنید',
     selectPlaceholder: 'انتخاب کنید',
   },
-  alert: {
-    clear: 'پاک سازی',
-    selected: 'انتخاب',
-    item: 'مورد',
-  },
-  pagination: {
-    total: {
-      range: ' ',
-      total: 'از',
-      item: 'مورد',
-    },
-  },
+  alert: { clear: 'پاک سازی', selected: 'انتخاب', item: 'مورد' },
+  pagination: { total: { range: ' ', total: 'از', item: 'مورد' } },
   tableToolBar: {
     leftPin: 'سنجاق به چپ',
     rightPin: 'سنجاق به راست',
@@ -48,20 +31,9 @@ export default {
     densityMiddle: 'متوسط',
     densitySmall: 'کوچک',
   },
-  stepsForm: {
-    next: 'بعدی',
-    prev: 'قبلی',
-    submit: 'اتمام',
-  },
-  loginForm: {
-    submitText: 'ورود',
-  },
   editableTable: {
-    action: {
-      save: 'ذخیره',
-      cancel: 'لغو',
-      delete: 'حذف',
-      add: 'یک ردیف داده اضافه کنید',
-    },
+    action: { save: 'ذخیره', cancel: 'لغو', delete: 'حذف', add: 'یک ردیف داده اضافه کنید' },
   },
+  switch: { open: 'بازش کن', close: 'خاموش شدن' },
+  loginForm: { submitText: 'ورود' },
 };

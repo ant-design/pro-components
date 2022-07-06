@@ -1,13 +1,6 @@
 export default {
   moneySymbol: '$',
-  form: {
-    lightFilter: {
-      more: 'المزيد',
-      clear: 'نظف',
-      confirm: 'تأكيد',
-      itemUnit: 'عناصر',
-    },
-  },
+  form: { lightFilter: { more: 'المزيد', clear: 'نظف', confirm: 'تأكيد', itemUnit: 'عناصر' } },
   tableForm: {
     search: 'ابحث',
     reset: 'إعادة تعيين',
@@ -17,18 +10,8 @@ export default {
     inputPlaceholder: 'الرجاء الإدخال',
     selectPlaceholder: 'الرجاء الإختيار',
   },
-  alert: {
-    clear: 'نظف',
-    selected: 'محدد',
-    item: 'عنصر',
-  },
-  pagination: {
-    total: {
-      range: ' ',
-      total: 'من',
-      item: 'عناصر',
-    },
-  },
+  alert: { clear: 'نظف', selected: 'محدد', item: 'عنصر' },
+  pagination: { total: { range: ' ', total: 'من', item: 'عناصر' } },
   tableToolBar: {
     leftPin: 'ثبت على اليسار',
     rightPin: 'ثبت على اليمين',
@@ -48,11 +31,9 @@ export default {
     densityMiddle: 'وسط',
     densitySmall: 'مدمج',
   },
-  stepsForm: {
-    next: 'التالي',
-    prev: 'السابق',
+  editableTable: {
+    action: { save: 'حفظ', cancel: 'إلغاء', delete: 'حذف', add: 'أضف صف البيانات' },
   },
-  loginForm: {
-    submitText: 'تسجيل الدخول',
-  },
+  switch: { open: 'افتح', close: 'إغلاق' },
+  loginForm: { submitText: 'تسجيل الدخول' },
 };

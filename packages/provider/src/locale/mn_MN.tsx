@@ -17,18 +17,8 @@ export default {
     inputPlaceholder: 'Утга оруулна уу',
     selectPlaceholder: 'Утга сонгоно уу',
   },
-  alert: {
-    clear: 'Цэвэрлэх',
-    selected: 'Сонгогдсон',
-    item: 'Нэгж',
-  },
-  pagination: {
-    total: {
-      range: ' ',
-      total: 'of',
-      item: 'нэгжүүд',
-    },
-  },
+  alert: { clear: 'Цэвэрлэх', selected: 'Сонгогдсон', item: 'Нэгж' },
+  pagination: { total: { range: ' ', total: 'of', item: 'нэгжүүд' } },
   tableToolBar: {
     leftPin: 'Зүүн тийш бэхлэх',
     rightPin: 'Баруун тийш бэхлэх',
@@ -48,24 +38,9 @@ export default {
     densityMiddle: 'Дунд',
     densitySmall: 'Жижиг',
   },
-  stepsForm: {
-    next: 'Дараах',
-    prev: 'Өмнөх',
-    submit: 'Дуусгах',
-  },
-  loginForm: {
-    submitText: 'Нэвтрэх',
-  },
   editableTable: {
-    action: {
-      save: 'Хадгалах',
-      cancel: 'Цуцлах',
-      delete: 'Устгах',
-      add: 'мэдээллийн мөр нэмнэ',
-    },
+    action: { save: 'Хадгалах', cancel: 'Цуцлах', delete: 'Устгах', add: 'мэдээллийн мөр нэмнэ' },
   },
-  switch: {
-    open: 'Нээх',
-    close: 'Хаах',
-  },
+  switch: { open: 'Нээх', close: 'Хаах' },
+  loginForm: { submitText: 'Нэвтрэх' },
 };

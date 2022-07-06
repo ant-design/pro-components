@@ -1,13 +1,6 @@
 export default {
   moneySymbol: 'kn',
-  form: {
-    lightFilter: {
-      more: 'Više',
-      clear: 'Očisti',
-      confirm: 'Potvrdi',
-      itemUnit: 'Stavke',
-    },
-  },
+  form: { lightFilter: { more: 'Više', clear: 'Očisti', confirm: 'Potvrdi', itemUnit: 'Stavke' } },
   tableForm: {
     search: 'Pretraži',
     reset: 'Poništi',
@@ -17,18 +10,8 @@ export default {
     inputPlaceholder: 'Unesite',
     selectPlaceholder: 'Odaberite',
   },
-  alert: {
-    clear: 'Očisti',
-    selected: 'Odaberi',
-    item: 'stavke',
-  },
-  pagination: {
-    total: {
-      range: ' ',
-      total: 'od',
-      item: 'stavke',
-    },
-  },
+  alert: { clear: 'Očisti', selected: 'Odaberi', item: 'stavke' },
+  pagination: { total: { range: ' ', total: 'od', item: 'stavke' } },
   tableToolBar: {
     leftPin: 'Prikači lijevo',
     rightPin: 'Prikači desno',
@@ -48,24 +31,9 @@ export default {
     densityMiddle: 'Srednje',
     densitySmall: 'Malo',
   },
-  stepsForm: {
-    next: 'Sljedeći',
-    prev: 'Prethodni',
-    submit: 'Kraj',
-  },
-  loginForm: {
-    submitText: 'Prijava',
-  },
   editableTable: {
-    action: {
-      save: 'Spremi',
-      cancel: 'Odustani',
-      delete: 'Obriši',
-      add: 'dodajte red podataka',
-    },
+    action: { save: 'Spremi', cancel: 'Odustani', delete: 'Obriši', add: 'dodajte red podataka' },
   },
-  switch: {
-    open: 'otvori',
-    close: 'zatvori',
-  },
+  switch: { open: 'otvori', close: 'zatvori' },
+  loginForm: { submitText: 'Prijava' },
 };

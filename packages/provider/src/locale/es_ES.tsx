@@ -1,13 +1,6 @@
 export default {
   moneySymbol: '€',
-  form: {
-    lightFilter: {
-      more: 'Más',
-      clear: 'Limpiar',
-      confirm: 'Confirmar',
-      itemsUnits: 'Objetos',
-    },
-  },
+  form: { lightFilter: { more: 'Más', clear: 'Limpiar', confirm: 'Confirmar', itemUnit: 'una' } },
   tableForm: {
     search: 'Buscar',
     reset: 'Limpiar',
@@ -17,18 +10,8 @@ export default {
     inputPlaceholder: 'Ingrese valor',
     selectPlaceholder: 'Seleccione valor',
   },
-  alert: {
-    clear: 'Limpiar',
-    selected: 'Seleccionado',
-    item: 'Articulo',
-  },
-  pagination: {
-    total: {
-      range: ' ',
-      total: 'de',
-      item: 'artículos',
-    },
-  },
+  alert: { clear: 'Limpiar', selected: 'Seleccionado', item: 'Articulo' },
+  pagination: { total: { range: ' ', total: 'de', item: 'artículos' } },
   tableToolBar: {
     leftPin: 'Pin a la izquierda',
     rightPin: 'Pin a la derecha',
@@ -48,14 +31,6 @@ export default {
     densityMiddle: 'Medio',
     densitySmall: 'Compacto',
   },
-  stepsForm: {
-    next: 'Siguiente',
-    prev: 'Anterior',
-    submit: 'Finalizar',
-  },
-  loginForm: {
-    submitText: 'Entrar',
-  },
   editableTable: {
     action: {
       save: 'Guardar',
@@ -64,8 +39,6 @@ export default {
       add: 'añadir una fila de datos',
     },
   },
-  switch: {
-    open: 'abrir',
-    close: 'cerrar',
-  },
+  switch: { open: 'abrir', close: 'cerrar' },
+  loginForm: { submitText: 'Entrar' },
 };

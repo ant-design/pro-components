@@ -1,5 +1,13 @@
 export default {
   moneySymbol: '¥',
+  form: {
+    lightFilter: {
+      more: 'より多くのスクリーニング',
+      clear: '除去',
+      confirm: '确认',
+      itemUnit: '項',
+    },
+  },
   tableForm: {
     search: '検索',
     reset: 'リセット',
@@ -9,18 +17,8 @@ export default {
     inputPlaceholder: '入力してください',
     selectPlaceholder: '選択してください',
   },
-  alert: {
-    clear: 'クリア',
-    selected: '選択した',
-    item: '項目',
-  },
-  pagination: {
-    total: {
-      range: '記事',
-      total: '/合計',
-      item: ' ',
-    },
-  },
+  alert: { clear: 'クリア', selected: '選択した', item: '項目' },
+  pagination: { total: { range: '記事', total: '/合計', item: ' ' } },
   tableToolBar: {
     leftPin: '左に固定',
     rightPin: '右に固定',
@@ -35,16 +33,14 @@ export default {
     exitFullScreen: '終了',
     reload: '更新',
     density: '行高',
+    densityDefault: '正常',
     densityLarger: '默认',
     densityMiddle: '中',
     densitySmall: '小',
   },
-  stepsForm: {
-    next: '次のステップ',
-    pre: '前へ',
-    submit: '送信',
+  editableTable: {
+    action: { save: '保存', cancel: 'キャンセル', delete: '削除', add: 'データを1行追加する' },
   },
-  loginForm: {
-    submitText: 'ログイン',
-  },
+  switch: { open: '开き', close: '閉鎖' },
+  loginForm: { submitText: 'ログイン' },
 };

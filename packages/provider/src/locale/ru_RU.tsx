@@ -1,13 +1,6 @@
 export default {
   moneySymbol: '₽',
-  form: {
-    lightFilter: {
-      more: 'Еще',
-      clear: 'Очистить',
-      confirm: 'ОК',
-      itemUnit: 'Позиции',
-    },
-  },
+  form: { lightFilter: { more: 'Еще', clear: 'Очистить', confirm: 'ОК', itemUnit: 'Позиции' } },
   tableForm: {
     search: 'Найти',
     reset: 'Сброс',
@@ -17,18 +10,8 @@ export default {
     inputPlaceholder: 'Введите значение',
     selectPlaceholder: 'Выберите значение',
   },
-  alert: {
-    clear: 'Очистить',
-    selected: 'Выбрано',
-    item: 'элементов',
-  },
-  pagination: {
-    total: {
-      range: ' ',
-      total: 'из',
-      item: 'элементов',
-    },
-  },
+  alert: { clear: 'Очистить', selected: 'Выбрано', item: 'элементов' },
+  pagination: { total: { range: ' ', total: 'из', item: 'элементов' } },
   tableToolBar: {
     leftPin: 'Закрепить слева',
     rightPin: 'Закрепить справа',
@@ -48,14 +31,6 @@ export default {
     densityMiddle: 'Средний',
     densitySmall: 'Сжатый',
   },
-  stepsForm: {
-    next: 'Следующий',
-    prev: 'Предыдущий',
-    submit: 'Завершить',
-  },
-  loginForm: {
-    submitText: 'Вход',
-  },
   editableTable: {
     action: {
       save: 'Сохранить',
@@ -64,4 +39,6 @@ export default {
       add: 'добавить ряд данных',
     },
   },
+  switch: { open: 'откр', close: 'закр' },
+  loginForm: { submitText: 'Вход' },
 };

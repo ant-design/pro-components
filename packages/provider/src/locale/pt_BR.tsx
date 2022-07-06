@@ -1,13 +1,6 @@
 export default {
   moneySymbol: 'R$',
-  form: {
-    lightFilter: {
-      more: 'Mais',
-      clear: 'Limpar',
-      confirm: 'Confirmar',
-      itemUnit: 'Itens',
-    },
-  },
+  form: { lightFilter: { more: 'Mais', clear: 'Limpar', confirm: 'Confirmar', itemUnit: 'Itens' } },
   tableForm: {
     search: 'Filtrar',
     reset: 'Limpar',
@@ -17,18 +10,8 @@ export default {
     inputPlaceholder: 'Por favor insira',
     selectPlaceholder: 'Por favor selecione',
   },
-  alert: {
-    clear: 'Limpar',
-    selected: 'Selecionado(s)',
-    item: 'Item(s)',
-  },
-  pagination: {
-    total: {
-      range: ' ',
-      total: 'de',
-      item: 'itens',
-    },
-  },
+  alert: { clear: 'Limpar', selected: 'Selecionado(s)', item: 'Item(s)' },
+  pagination: { total: { range: ' ', total: 'de', item: 'itens' } },
   tableToolBar: {
     leftPin: 'Fixar à esquerda',
     rightPin: 'Fixar à direita',
@@ -48,14 +31,6 @@ export default {
     densityMiddle: 'Médio',
     densitySmall: 'Compacto',
   },
-  stepsForm: {
-    next: 'Próximo',
-    prev: 'Anterior',
-    submit: 'Enviar',
-  },
-  loginForm: {
-    submitText: 'Entrar',
-  },
   editableTable: {
     action: {
       save: 'Salvar',
@@ -64,4 +39,6 @@ export default {
       add: 'adicionar uma linha de dados',
     },
   },
+  switch: { open: 'abrir', close: 'encerramento' },
+  loginForm: { submitText: 'Entrar' },
 };

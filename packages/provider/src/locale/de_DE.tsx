@@ -17,18 +17,8 @@ export default {
     inputPlaceholder: 'Bitte eingeben',
     selectPlaceholder: 'Bitte auswählen',
   },
-  alert: {
-    clear: 'Zurücksetzen',
-    selected: 'Ausgewählt',
-    item: 'Eintrag',
-  },
-  pagination: {
-    total: {
-      range: ' ',
-      total: 'von',
-      item: 'Einträgen',
-    },
-  },
+  alert: { clear: 'Zurücksetzen', selected: 'Ausgewählt', item: 'Eintrag' },
+  pagination: { total: { range: ' ', total: 'von', item: 'Einträgen' } },
   tableToolBar: {
     leftPin: 'Links anheften',
     rightPin: 'Rechts anheften',
@@ -48,12 +38,14 @@ export default {
     densityMiddle: 'Mittel',
     densitySmall: 'Kompakt',
   },
-  stepsForm: {
-    next: 'Weiter',
-    prev: 'Zurück',
-    submit: 'Abschließen',
+  editableTable: {
+    action: {
+      save: 'Intakt?',
+      cancel: 'korrekt',
+      delete: 'Löschen.',
+      add: 'Geben sie eine zeile zu den daten hinzu.',
+    },
   },
-  loginForm: {
-    submitText: 'Anmelden',
-  },
+  switch: { open: 'Aufmachen, los!', close: 'Noch näher.' },
+  loginForm: { submitText: 'Anmelden' },
 };

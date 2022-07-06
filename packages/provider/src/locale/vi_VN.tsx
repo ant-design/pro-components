@@ -1,5 +1,13 @@
 export default {
   moneySymbol: '₫',
+  form: {
+    lightFilter: {
+      more: 'Sàng lọc nhiều hơn',
+      clear: 'Làm sạch',
+      confirm: 'Xác nhận',
+      itemUnit: 'Nghiên cứu',
+    },
+  },
   tableForm: {
     search: 'Tìm kiếm',
     reset: 'Làm lại',
@@ -9,18 +17,8 @@ export default {
     inputPlaceholder: 'nhập dữ liệu',
     selectPlaceholder: 'Vui lòng chọn',
   },
-  alert: {
-    clear: 'Xóa',
-    selected: 'đã chọn',
-    item: 'mục',
-  },
-  pagination: {
-    total: {
-      range: ' ',
-      total: 'trên',
-      item: 'mặt hàng',
-    },
-  },
+  alert: { clear: 'Xóa', selected: 'đã chọn', item: 'mục' },
+  pagination: { total: { range: ' ', total: 'trên', item: 'mặt hàng' } },
   tableToolBar: {
     leftPin: 'Ghim trái',
     rightPin: 'Ghim phải',
@@ -40,7 +38,9 @@ export default {
     densityMiddle: 'Trung bình',
     densitySmall: 'Chật',
   },
-  loginForm: {
-    submitText: 'Đăng nhập',
+  editableTable: {
+    action: { save: 'Bảo tồn', cancel: 'Hủy bỏ', delete: 'Xoá bỏ', add: 'Thêm một dòng dữ liệu' },
   },
+  switch: { open: 'Mở ra', close: 'Đóng cửa' },
+  loginForm: { submitText: 'Đăng nhập' },
 };
