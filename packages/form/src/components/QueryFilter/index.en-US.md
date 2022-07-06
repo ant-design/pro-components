@@ -57,7 +57,7 @@ QueryFilter supports the following properties in addition to the API inherited f
 | labelWidth | label width | `number` \| `'auto'` | `98` |
 | span | width of form items | `number[0 - 24]` | - |
 | split | whether each line has a split line | `boolean` | - |
-| preserve | If set to true, the form data will be lost after being put away | `boolean` | true |
+| preserve | If set to false, the form data will be lost after being put away | `boolean` | true |
 
 #### Responsive Breakpoint Rules
 

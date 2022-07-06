@@ -61,6 +61,7 @@ export default {
       save: 'Guardar',
       cancel: 'Descartar',
       delete: 'Borrar',
+      add: 'añadir una fila de datos',
     },
   },
   switch: {

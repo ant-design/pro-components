@@ -26,7 +26,7 @@ export default {
     total: {
       range: ' ',
       total: 'de',
-      item: 'items',
+      item: 'itens',
     },
   },
   tableToolBar: {
@@ -61,6 +61,7 @@ export default {
       save: 'Salvar',
       cancel: 'Cancelar',
       delete: 'Apagar',
+      add: 'adicionar uma linha de dados',
     },
   },
 };

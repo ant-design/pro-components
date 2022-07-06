@@ -9,7 +9,7 @@ import {
 import ProCard from '@ant-design/pro-card';
 import ProLayout, { PageContainer } from '@ant-design/pro-layout';
 import { Button, Result } from 'antd';
-import React, { useState } from 'react';
+import { useState } from 'react';
 
 export default () => {
   const [pathname, setPathname] = useState('/welcome');

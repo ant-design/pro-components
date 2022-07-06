@@ -25,17 +25,17 @@ return <Skeleton type="list" />;
 
 ### List
 
-<code src="./demos/list.tsx" title="List" />
+<code src="./demos/list.tsx" title="List" height="903px"/>
 
 <code src="./demos/list.static.tsx" title="List" debug />
 
 ### 结果页
 
-<code src="./demos/result.tsx" title="结果页" />
+<code src="./demos/result.tsx" title="结果页" height="715px"/>
 
 ### 详情页
 
-<code src="./demos/descriptions.tsx" title="详情页" />
+<code src="./demos/descriptions.tsx" title="详情页" height="1032px"/>
 
 ## API
 

@@ -55,41 +55,41 @@ interface RequestData {
 
 ### 基本使用
 
-<code src="./demos/base.tsx" title="基础定义列表" />
+<code src="./demos/base.tsx" title="基础定义列表" height="938px"/>
 
 ### 数组类型 dataIndex
 
-<code src="./demos/arrayDataIndex.tsx" title="数组类型dataIndex" />
+<code src="./demos/arrayDataIndex.tsx" title="数组类型dataIndex" height="172px"/>
 
 ### 格式化配置
 
 根据配置格式化日期
 
-<code src="./demos/format.tsx" title="format configuration" />
+<code src="./demos/format.tsx" title="format configuration" height="265px"/>
 
 ### 远程请求数据
 
 通过请求接口数据来展示定义列表
 
-<code src="./demos/request.tsx" title="远程请求数据" />
+<code src="./demos/request.tsx" title="远程请求数据" height="172px"/>
 
 ### columns 配置
 
 通过请求接口数据和 columns 来展示定义列表
 
-<code src="./demos/columns.tsx" title="columns 配置" />
+<code src="./demos/columns.tsx" title="columns 配置" height="243px"/>
 
 ### dataSource 配置数据
 
 ProDescriptions 支持了和 Table 相同的 dataSource
 
-<code src="./demos/use-data-source.tsx" title="dataSource 配置数据"/>
+<code src="./demos/use-data-source.tsx" title="dataSource 配置数据" height="204px"/>
 
 ### 可编辑的定义列表
 
 API 与 ProTable 相同
 
-<code src="./demos/editable.tsx" title="可编辑的定义列表" />
+<code src="./demos/editable.tsx" title="可编辑的定义列表" height="253px"/>
 
 ## API
 

@@ -165,22 +165,24 @@ const WaterMark: React.FC<WaterMarkProps> = (props) => {
       className={wrapperCls}
     >
       {children}
-      {base64Url && <div
-        className={waterMakrCls}
-        style={{
-          zIndex,
-          position: 'absolute',
-          left: 0,
-          top: 0,
-          width: '100%',
-          height: '100%',
-          backgroundSize: `${gapX + width}px`,
-          pointerEvents: 'none',
-          backgroundRepeat: 'repeat',
-          backgroundImage: `url('${base64Url}')`,
-          ...markStyle,
-        }}
-      />}
+      {base64Url && (
+        <div
+          className={waterMakrCls}
+          style={{
+            zIndex,
+            position: 'absolute',
+            left: 0,
+            top: 0,
+            width: '100%',
+            height: '100%',
+            backgroundSize: `${gapX + width}px`,
+            pointerEvents: 'none',
+            backgroundRepeat: 'repeat',
+            backgroundImage: `url('${base64Url}')`,
+            ...markStyle,
+          }}
+        />
+      )}
     </div>
   );
 };

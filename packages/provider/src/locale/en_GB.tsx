@@ -61,6 +61,7 @@ export default {
       save: 'Save',
       cancel: 'Cancel',
       delete: 'Delete',
+      add: 'add a row of data',
     },
   },
   switch: {

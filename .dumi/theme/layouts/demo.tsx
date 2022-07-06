@@ -13,6 +13,7 @@ export default ({ children, location, ...rest }) => {
     <div
       style={{
         padding: 24,
+        contentVisibility: 'auto',
       }}
     >
       <div

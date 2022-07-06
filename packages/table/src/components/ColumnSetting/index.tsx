@@ -26,6 +26,7 @@ type ColumnSettingProps<T = any> = {
   extra?: React.ReactNode;
   checkedReset?: boolean;
   children?: React.ReactNode;
+  listsHeight?: number;
 };
 
 const ToolTipIcon: React.FC<{
@@ -112,7 +113,16 @@ const CheckboxList: React.FC<{
   draggable: boolean;
   checkable: boolean;
   showTitle?: boolean;
-}> = ({ list, draggable, checkable, className, showTitle = true, title: listTitle }) => {
+  listHeight?: number;
+}> = ({
+  list,
+  draggable,
+  checkable,
+  className,
+  showTitle = true,
+  title: listTitle,
+  listHeight = 280,
+}) => {
   const { columnsMap, setColumnsMap, sortKeyColumns, setSortKeyColumns } = Container.useContainer();
   const show = list && list.length > 0;
   const treeDataConfig = useMemo(() => {
@@ -212,7 +222,7 @@ const CheckboxList: React.FC<{
           />
         );
       }}
-      height={280}
+      height={listHeight}
       treeData={treeDataConfig.list}
     />
   );
@@ -229,7 +239,8 @@ const GroupCheckboxList: React.FC<{
   className?: string;
   draggable: boolean;
   checkable: boolean;
-}> = ({ localColumns, className, draggable, checkable }) => {
+  listsHeight?: number;
+}> = ({ localColumns, className, draggable, checkable, listsHeight }) => {
   const rightList: (ProColumns<any> & { index?: number })[] = [];
   const leftList: (ProColumns<any> & { index?: number })[] = [];
   const list: (ProColumns<any> & { index?: number })[] = [];
@@ -266,6 +277,7 @@ const GroupCheckboxList: React.FC<{
         draggable={draggable}
         checkable={checkable}
         className={className}
+        listHeight={listsHeight}
       />
       {/* 如果没有任何固定，不需要显示title */}
       <CheckboxList
@@ -275,6 +287,7 @@ const GroupCheckboxList: React.FC<{
         title={intl.getMessage('tableToolBar.noFixedTitle', '不固定')}
         showTitle={showLeft || showRight}
         className={className}
+        listHeight={listsHeight}
       />
       <CheckboxList
         title={intl.getMessage('tableToolBar.rightFixedTitle', '固定在右侧')}
@@ -282,6 +295,7 @@ const GroupCheckboxList: React.FC<{
         draggable={draggable}
         checkable={checkable}
         className={className}
+        listHeight={listsHeight}
       />
     </div>
   );
@@ -390,6 +404,7 @@ function ColumnSetting<T>(props: ColumnSettingProps<T>) {
           draggable={props.draggable ?? true}
           className={className}
           localColumns={localColumns}
+          listsHeight={props.listsHeight}
         />
       }
     >

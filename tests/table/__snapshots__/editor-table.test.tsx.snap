@@ -251,27 +251,23 @@ exports[`EditorProTable 📝 EditableProTable support recordCreatorProps 1`] = `
                           <td
                             class="ant-table-cell"
                           >
-                            <div>
+                            <span
+                              class="ant-badge ant-badge-status ant-badge-not-a-wrapper"
+                            >
                               <span
-                                class="ant-badge ant-badge-status ant-badge-not-a-wrapper"
+                                class="ant-badge-status-dot ant-badge-status-processing"
+                              />
+                              <span
+                                class="ant-badge-status-text"
                               >
-                                <span
-                                  class="ant-badge-status-dot ant-badge-status-processing"
-                                />
-                                <span
-                                  class="ant-badge-status-text"
-                                >
-                                  解决中
-                                </span>
+                                解决中
                               </span>
-                            </div>
+                            </span>
                           </td>
                           <td
                             class="ant-table-cell"
                           >
-                            <div>
-                              2020-05-26
-                            </div>
+                            2020-05-26
                           </td>
                           <td
                             class="ant-table-cell"
@@ -399,27 +395,23 @@ exports[`EditorProTable 📝 EditableProTable support recordCreatorProps 1`] = `
                           <td
                             class="ant-table-cell"
                           >
-                            <div>
+                            <span
+                              class="ant-badge ant-badge-status ant-badge-not-a-wrapper"
+                            >
                               <span
-                                class="ant-badge ant-badge-status ant-badge-not-a-wrapper"
+                                class="ant-badge-status-dot ant-badge-status-success"
+                              />
+                              <span
+                                class="ant-badge-status-text"
                               >
-                                <span
-                                  class="ant-badge-status-dot ant-badge-status-success"
-                                />
-                                <span
-                                  class="ant-badge-status-text"
-                                >
-                                  已解决
-                                </span>
+                                已解决
                               </span>
-                            </div>
+                            </span>
                           </td>
                           <td
                             class="ant-table-cell"
                           >
-                            <div>
-                              2020-05-26
-                            </div>
+                            2020-05-26
                           </td>
                           <td
                             class="ant-table-cell"
@@ -547,27 +539,23 @@ exports[`EditorProTable 📝 EditableProTable support recordCreatorProps 1`] = `
                           <td
                             class="ant-table-cell"
                           >
-                            <div>
+                            <span
+                              class="ant-badge ant-badge-status ant-badge-not-a-wrapper"
+                            >
                               <span
-                                class="ant-badge ant-badge-status ant-badge-not-a-wrapper"
+                                class="ant-badge-status-dot ant-badge-status-error"
+                              />
+                              <span
+                                class="ant-badge-status-text"
                               >
-                                <span
-                                  class="ant-badge-status-dot ant-badge-status-error"
-                                />
-                                <span
-                                  class="ant-badge-status-text"
-                                >
-                                  未解决
-                                </span>
+                                未解决
                               </span>
-                            </div>
+                            </span>
                           </td>
                           <td
                             class="ant-table-cell"
                           >
-                            <div>
-                              2020-05-26
-                            </div>
+                            2020-05-26
                           </td>
                           <td
                             class="ant-table-cell"
@@ -886,27 +874,23 @@ exports[`EditorProTable 📝 EditableProTable support recordCreatorProps=false 1
                           <td
                             class="ant-table-cell"
                           >
-                            <div>
+                            <span
+                              class="ant-badge ant-badge-status ant-badge-not-a-wrapper"
+                            >
                               <span
-                                class="ant-badge ant-badge-status ant-badge-not-a-wrapper"
+                                class="ant-badge-status-dot ant-badge-status-processing"
+                              />
+                              <span
+                                class="ant-badge-status-text"
                               >
-                                <span
-                                  class="ant-badge-status-dot ant-badge-status-processing"
-                                />
-                                <span
-                                  class="ant-badge-status-text"
-                                >
-                                  解决中
-                                </span>
+                                解决中
                               </span>
-                            </div>
+                            </span>
                           </td>
                           <td
                             class="ant-table-cell"
                           >
-                            <div>
-                              2020-05-26
-                            </div>
+                            2020-05-26
                           </td>
                           <td
                             class="ant-table-cell"
@@ -1034,27 +1018,23 @@ exports[`EditorProTable 📝 EditableProTable support recordCreatorProps=false 1
                           <td
                             class="ant-table-cell"
                           >
-                            <div>
+                            <span
+                              class="ant-badge ant-badge-status ant-badge-not-a-wrapper"
+                            >
                               <span
-                                class="ant-badge ant-badge-status ant-badge-not-a-wrapper"
+                                class="ant-badge-status-dot ant-badge-status-success"
+                              />
+                              <span
+                                class="ant-badge-status-text"
                               >
-                                <span
-                                  class="ant-badge-status-dot ant-badge-status-success"
-                                />
-                                <span
-                                  class="ant-badge-status-text"
-                                >
-                                  已解决
-                                </span>
+                                已解决
                               </span>
-                            </div>
+                            </span>
                           </td>
                           <td
                             class="ant-table-cell"
                           >
-                            <div>
-                              2020-05-26
-                            </div>
+                            2020-05-26
                           </td>
                           <td
                             class="ant-table-cell"
@@ -1182,27 +1162,23 @@ exports[`EditorProTable 📝 EditableProTable support recordCreatorProps=false 1
                           <td
                             class="ant-table-cell"
                           >
-                            <div>
+                            <span
+                              class="ant-badge ant-badge-status ant-badge-not-a-wrapper"
+                            >
                               <span
-                                class="ant-badge ant-badge-status ant-badge-not-a-wrapper"
+                                class="ant-badge-status-dot ant-badge-status-error"
+                              />
+                              <span
+                                class="ant-badge-status-text"
                               >
-                                <span
-                                  class="ant-badge-status-dot ant-badge-status-error"
-                                />
-                                <span
-                                  class="ant-badge-status-text"
-                                >
-                                  未解决
-                                </span>
+                                未解决
                               </span>
-                            </div>
+                            </span>
                           </td>
                           <td
                             class="ant-table-cell"
                           >
-                            <div>
-                              2020-05-26
-                            </div>
+                            2020-05-26
                           </td>
                           <td
                             class="ant-table-cell"

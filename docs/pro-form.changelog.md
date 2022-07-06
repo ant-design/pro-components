@@ -1,13 +1,26 @@
 ﻿---
 title: ProForm - 更新日志
 nav:
-  title: 更新日志
+  title: Changelog
   path: /changelog
 group:
   path: /
 ---
 
 # Change Log
+
+## @ant-design/pro-form@1.70.0
+
+`2022-06-30`
+
+- fix(form): fix the abnormal width caused by addonAfter and addonB… (#5417). [#5417](https://github.com/ant-design/pro-components/pull/#5417) [@wangmeijian](https://github.com/wangmeijian)
+- fix(form): fix col not hidden when QueryFilter preserve is set to false (#5442). [#5442](https://github.com/ant-design/pro-components/pull/#5442) [@NoDocCat](https://github.com/NoDocCat)
+- fix(form): use omit.js instead of lodash to avoid introducing the whole lodash lib (#5438). [#5438](https://github.com/ant-design/pro-components/pull/#5438) [@shijistar](https://github.com/shijistar)
+- feat(form): add captcha methods and createField function Fieldref (#5398). [#5398](https://github.com/ant-design/pro-components/pull/#5398) [@angelporo](https://github.com/angelporo)
+- fix(form): fix FormItems in FormList umount unexpectedly (#5413) (#5437). [#5413](https://github.com/ant-design/pro-components/pull/#5413) [@cbozi](https://github.com/cbozi)
+- fix(form): date time range (#5412). [#5412](https://github.com/ant-design/pro-components/pull/#5412) [@wangmeijian](https://github.com/wangmeijian)
+- feat(form): add syncToUrlAsImportant prop (#5421). [#5421](https://github.com/ant-design/pro-components/pull/#5421) [@Valar103769](https://github.com/Valar103769)
+- fix(form): fix cascader clear no work error-n (#5381). [#5381](https://github.com/ant-design/pro-components/pull/#5381) [@chenshuai2144](https://github.com/chenshuai2144)
 
 ## @ant-design/pro-form@1.69.2
 
