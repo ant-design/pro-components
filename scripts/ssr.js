@@ -21,17 +21,6 @@ const serve = app.listen(port, () => {
   console.log(`服务启动中 ${port}`);
 });
 
-const loopHtmlAst = (ast, fn) => {
-  if (!Array.isArray(ast) && Array.isArray(ast.children)) {
-    ast.children.map((child) => {
-      if (child.type === 'html') {
-        fn(child);
-      }
-      loopHtmlAst(child, fn);
-    });
-  }
-};
-
 const filterList = (filePath) => {
   if (filePath.startsWith('404')) {
     return false;
@@ -43,6 +32,21 @@ const filterList = (filePath) => {
   return false;
 };
 
+const mapHtmlMap = (filePath) => {
+  if (fs.statSync(path.join(distPath, filePath)).isDirectory()) {
+    const dirList = path.join(distPath, filePath);
+    const htmlList = fs
+      .readdirSync(dirList)
+      .map((itemPath) => path.join(filePath, itemPath))
+      .flat(1)
+      .map(mapHtmlMap)
+      .flat(1)
+      .filter(filterList);
+    return htmlList;
+  }
+  return filePath;
+};
+
 const list = fs
   .readdirSync(distPath)
   .filter(filterList)
@@ -52,6 +56,9 @@ const list = fs
       const htmlList = fs
         .readdirSync(dirList)
         .map((itemPath) => path.join(filePath, itemPath))
+        .map(mapHtmlMap)
+        .flat(1)
+        .sort()
         .filter(filterList);
       return htmlList;
     }
@@ -64,7 +71,7 @@ const loop = async () => {
   // 启动浏览器
   const browser = await puppeteer.launch({
     // 关闭无头模式，方便我们看到这个无头浏览器执行的过程
-    headless: false,
+    // headless: false,
     timeout: 30000, // 默认超时为30秒，设置为0则表示不设置超时
   });
 
