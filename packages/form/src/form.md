@@ -160,7 +160,7 @@ formRef 内置了几个方法来获取转化之后的值，这也是相比 antd 
 
 ### 基本使用
 
-<code src="./demos/base.tsx" height="900px" title="基本使用"/>
+<code src="./demos/base.tsx" height="974px" title="基本使用"/>
 
 ### 标签与表单项布局
 
@@ -196,13 +196,13 @@ formRef 内置了几个方法来获取转化之后的值，这也是相比 antd 
 
 ### 固定页脚
 
-<code src="./demos/layout-base.tsx"  height="500px" iframe="860px" title="固定页脚"/>
+<code src="./demos/layout-base.tsx" height="500px" iframe="874px" title="固定页脚"/>
 
 ### ProForm 和 EditableTable 同时使用
 
-<code src="./demos/pro-form-editableTable.tsx" heigh="1774px" title="ProForm 和 EditableTable 同时使用" height="534px"/>
+<code src="./demos/pro-form-editableTable.tsx" height="534px" title="ProForm 和 EditableTable 同时使用"/>
 
-<code src="./demos/linkage-customization.tsx" heigh="1774px" debug/>
+<code src="./demos/linkage-customization.tsx" height="1774px" debug/>
 
 <code src="./demos/pro-form-dependency.debug.tsx" height="548px" title="formRef的使用" debug />
 <code src="./demos/label-col.tsx" height="548px"  debug />

@@ -1,8 +1,6 @@
 ﻿const puppeteer = require('puppeteer');
 const fs = require('fs');
 const path = require('path');
-const glob = require('glob');
-const cheerio = require('cheerio');
 const express = require('express');
 const app = express();
 const port = 3000;
@@ -21,10 +19,6 @@ app.use(express.static(distPath));
 
 const serve = app.listen(port, () => {
   console.log(`服务启动中 ${port}`);
-});
-
-const mdList = glob.sync(path.join(path.join(__dirname, '../', 'packages'), '**/*.md'), {
-  ignore: ['**/node_modules/**', '**/README.md', '**/CHANGELOG.md'],
 });
 
 const loopHtmlAst = (ast, fn) => {
@@ -51,6 +45,7 @@ const filterList = (filePath) => {
   if (filePath.endsWith('.html')) return true;
   return false;
 };
+
 const list = fs
   .readdirSync(distPath)
   .filter(filterList)
@@ -72,109 +67,44 @@ const loop = async () => {
   // 启动浏览器
   const browser = await puppeteer.launch({
     // 关闭无头模式，方便我们看到这个无头浏览器执行的过程
-    // headless: false,
+    headless: false,
     timeout: 30000, // 默认超时为30秒，设置为0则表示不设置超时
   });
 
   // 打开空白页面
   const page = await browser.newPage();
   await page.setViewport({
-    width: 1500,
-    height: 80000,
+    width: 1800,
+    height: 1000,
   });
 
-  let pathObject = {};
-
   for await (htmlPage of list) {
-    await page.goto(`http://localhost:3000/${htmlPage}`);
+    await page.goto(`http://localhost:3000/${htmlPage.replace('index.html', '')}`);
     const scrollHeight = await page.evaluate(() => {
       return document.body.scrollHeight;
     });
-
+    console.log('执行' + htmlPage + '页面!');
     await page.setViewport({
-      width: 1500,
+      width: 1800,
       height: scrollHeight,
     });
     await page.evaluate(() => {
       window.scrollBy(0, window.innerHeight);
     });
-    await waitTime(2000);
-    const demoList = await page.evaluate(() => {
-      const list = [];
-      for (let letter of document.querySelectorAll('.__dumi-default-previewer').values()) {
-        const title = letter
-          .querySelector('.__dumi-default-previewer-desc')
-          ?.getAttribute('data-title');
-
-        list.push({
-          width: letter.querySelector('.__dumi-default-previewer-demo')?.clientWidth,
-          height: letter.querySelector('.__dumi-default-previewer-demo')?.clientHeight,
-          title,
-        });
-      }
-      return list;
+    const html = await page.evaluate(() => {
+      return document.getElementsByTagName('html')[0].innerHTML;
     });
-    if (demoList.length > 0) {
-      pathObject[htmlPage] = demoList;
+    await waitTime(3000);
+    if (htmlPage.endsWith('.html')) {
+      fs.writeFileSync(path.join(distPath, htmlPage), html);
+    } else {
+      fs.writeFileSync(path.join(distPath, htmlPage, 'index.html'), html);
     }
   }
-  Object.keys(pathObject).map(async (htmlPath) => {
-    let fileContent = '';
-    let filePath = '';
-    if (htmlPath.startsWith('playground')) {
-      filePath = path.join(__dirname, '../', 'docs', htmlPath + '.playground.md');
-    }
-    if (htmlPath.startsWith('components')) {
-      filePath = mdList.find((item) => item.includes(`${htmlPath.split('/').pop()}.md`));
-      if (!filePath) {
-        filePath = mdList.find((item) =>
-          item.includes(
-            `${htmlPath
-              .split('/')
-              .pop()
-              .split('-')
-              .map((item) => item.replace(/^\S/, (s) => s.toUpperCase()))
-              .join('')}/index.md`,
-          ),
-        );
-      }
-    }
-    if (filePath) {
-      fileContent = fs.readFileSync(filePath, 'utf8');
-    }
 
-    const demoList = pathObject[htmlPath];
-    let i = 0;
-
-    fileContent.match(new RegExp(/<code(?:(?!\/>).|\n)*?\/>/gm, 'g'))?.map((node) => {
-      const $ = cheerio.load(node);
-      if (node.includes('debug')) return;
-      if ($('code').attr('debug')) {
-        return;
-      }
-      if (!demoList[i]) {
-        console.log(i, demoList[i], node);
-      }
-      if (demoList[i] && $('code').attr('iframe')) {
-        $('code').attr('iframe', parseInt(demoList[i].height + 1) + 'px');
-      }
-
-      if (demoList[i] && !$('code').attr('iframe')) {
-        $('code').attr('height', parseInt(demoList[i].height + 1) + 'px');
-      }
-      i++;
-      fileContent = fileContent.replace(
-        node,
-        $.html('code').replace('></code>', '/>').replace('debug=""', 'debug'),
-      );
-    });
-
-    filePath && fs.writeFileSync(filePath, fileContent);
-  });
   await browser.close();
   await serve.close();
 };
 try {
   loop();
-  console.log(mdList);
 } catch (error) {}

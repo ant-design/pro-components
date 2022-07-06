@@ -179,7 +179,7 @@ supported in `ProForm`, `SchemaForm`, `ModalForm`, `DrawerForm`, `StepsForm`
 
 ### Form linkage
 
-<code src="./demos/linkage-customization.tsx" heigh="1774px" />
+<code src="./demos/linkage-customization.tsx" height="1774px" />
 
 ## Layouts API
 

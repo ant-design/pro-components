@@ -28,7 +28,7 @@ StepsForm 通过 Provider 来管理子表单的数据，每个字表单都是完
 
 ## 分步表单-多卡片
 
-<code src="./demos/multi-card-step-form.tsx" background="#f5f5f5" height="450px" title="分步表单-多卡片"/>
+<code src="./demos/multi-card-step-form.tsx" background="#f5f5f5" height="950px" title="分步表单-多卡片"/>
 
 ## 分步表单-与 Modal 配合使用
 

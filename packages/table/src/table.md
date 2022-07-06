@@ -250,17 +250,17 @@ import { ConfigProvider } from '@ant-design/pro-provide';
 
 #### valueType - 选择类
 
-<code src="./demos/valueType_select.tsx" background="#f5f5f5" heigh="462px" title="valueType - 选择类" height="658px"/>
+<code src="./demos/valueType_select.tsx" background="#f5f5f5" height="658px" title="valueType - 选择类"/>
 
-<code src="./demos/customization-value-type.tsx" debug background="#f5f5f5" heigh="462px" title="自定义 valueType"/>
+<code src="./demos/customization-value-type.tsx" debug background="#f5f5f5" height="462px" title="自定义 valueType"/>
 
 ### 自定义错误边界
 
-<code src="./demos/error-boundaries.tsx" title="自定义错误边界"  height="500px" iframe="558px"/>
+<code src="./demos/error-boundaries.tsx" title="自定义错误边界" height="500px" iframe="572px"/>
 
 <code src="./demos/error-boundaries-false.tsx" debug title="取消自定义错误边界"  height="500px" iframe="462px" />
 
-<code src="./demos/config-provider.tsx" debug background="#f5f5f5" heigh="462px"/>
+<code src="./demos/config-provider.tsx" debug background="#f5f5f5" height="462px"/>
 
 ## API
 

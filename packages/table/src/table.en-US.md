@@ -209,9 +209,9 @@ import { ConfigProvider } from '@ant-design/pro-provide';
 
 #### valueType - Selection Classes
 
-<code src="./demos/valueType_select.tsx" background="#f5f5f5" heigh="462px"/>
+<code src="./demos/valueType_select.tsx" background="#f5f5f5" height="462px"/>
 
-<code src="./demos/config-provider.tsx" debug background="#f5f5f5" heigh="462px"/>
+<code src="./demos/config-provider.tsx" debug background="#f5f5f5" height="462px"/>
 
 ## API
 
