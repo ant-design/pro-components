@@ -33,10 +33,7 @@ const loopHtmlAst = (ast, fn) => {
 };
 
 const filterList = (filePath) => {
-  if (filePath.startsWith('_') || filePath.startsWith('~') || filePath.startsWith('.')) {
-    return false;
-  }
-  if (filePath.endsWith('en-US') || filePath.endsWith('changelog') || filePath.startsWith('404')) {
+  if (filePath.startsWith('404')) {
     return false;
   }
   if (fs.statSync(path.join(distPath, filePath)).isDirectory()) {
@@ -94,7 +91,9 @@ const loop = async () => {
     const html = await page.evaluate(() => {
       return document.getElementsByTagName('html')[0].innerHTML;
     });
-    await waitTime(3000);
+    if (htmlPage.startsWith('components')) {
+      await waitTime(3000);
+    }
     if (htmlPage.endsWith('.html')) {
       fs.writeFileSync(path.join(distPath, htmlPage), html);
     } else {
