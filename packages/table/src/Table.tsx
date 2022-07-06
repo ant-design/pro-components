@@ -762,8 +762,14 @@ const ProTable = <T extends Record<string, any>, U extends ParamsType, ValueType
 
     setFormSearch(values);
   };
-  const loading =
-    typeof action.loading === 'object' ? action.loading?.spinning || false : action.loading;
+
+  const loading = useMemo(() => {
+    if (typeof action.loading === 'object') {
+      return action.loading?.spinning || false;
+    }
+    return action.loading;
+  }, [action.loading]);
+
   const searchNode =
     search === false && type !== 'form' ? null : (
       <FormRender<T, U>
