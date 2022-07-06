@@ -73,6 +73,7 @@ function createField<P extends ProFormFieldItemProps = any>(
     } = { ...props?.filedConfig, ...config } || {};
     const {
       label,
+      required,
       tooltip,
       placeholder,
       width,
@@ -89,6 +90,7 @@ function createField<P extends ProFormFieldItemProps = any>(
       filedConfig,
       cacheForSwr,
       proFieldProps,
+      rules = [],
       ...rest
     } = { ...defaultProps, ...props };
     const valueType = tmpValueType || rest.valueType;
@@ -271,6 +273,13 @@ function createField<P extends ProFormFieldItemProps = any>(
         : {},
     ]);
 
+    const _rules = useMemo(() => {
+      if (required) {
+        return [{ required: true }, ...rules];
+      }
+      return rules;
+    }, [rules, required]);
+
     // 使用useMemo包裹避免不必要的re-render
     const FormItem = useMemo(() => {
       return (
@@ -292,6 +301,7 @@ function createField<P extends ProFormFieldItemProps = any>(
             label: (label as string) || '',
             ...otherProps?.messageVariables,
           }}
+          rules={_rules}
           convertValue={convertValue}
           lightProps={omitUndefined({
             ...fieldProps,
