@@ -236,9 +236,13 @@ const SearchSelect = <T,>(props: SearchSelectProps<T[]>, ref: any) => {
 
         if (mode !== 'multiple') {
           // 单选情况且用户选择了选项
-          const dataItem = (optionList && optionList['data-item']) || {};
-          // 处理下清空触发时的回调参数
-          onChange?.(dataItem ? { ...value, ...dataItem } : void 0, optionList, ...rest);
+          const dataItem = optionList && optionList['data-item'];
+           // 如果value值为空则是清空时产生的回调,直接传原始值就可以了
+          if (typeof value === "undefined" && typeof dataItem === "undefined"){
+            onChange?.(value, optionList, ...rest);
+          } else {
+            onChange?.({ ...value, ...dataItem }, optionList, ...rest);
+          }
           return;
         }
         // 合并值
