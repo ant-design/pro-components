@@ -55,7 +55,7 @@ interface RequestData {
 
 ### 基本使用
 
-<code src="./demos/base.tsx" title="基础定义列表" height="938px"/>
+<code src="./demos/base.tsx" title="基础定义列表" height="438px"/>
 
 ### 数组类型 dataIndex
 

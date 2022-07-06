@@ -50,7 +50,7 @@ nav:
 
 ### 竖排样式
 
-<code src="./demos/layout.tsx" background="#f5f5f5" title="竖排样式" height="995px"/>
+<code src="./demos/layout.tsx" background="#f5f5f5" title="竖排样式" height="495px"/>
 
 ### 一些预设的模式
 
@@ -62,7 +62,7 @@ nav:
 
 ### 卡片列表
 
-<code src="./demos/card-list.tsx" background="#f5f5f5" title="卡片列表" height="950px"/>
+<code src="./demos/card-list.tsx" background="#f5f5f5" title="卡片列表" height="450px"/>
 
 ## API
 

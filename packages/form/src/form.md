@@ -160,7 +160,7 @@ formRef 内置了几个方法来获取转化之后的值，这也是相比 antd 
 
 ### 基本使用
 
-<code src="./demos/base.tsx" height="974px" title="基本使用"/>
+<code src="./demos/base.tsx" height="900px" title="基本使用"/>
 
 ### 标签与表单项布局
 
