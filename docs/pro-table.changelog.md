@@ -9,6 +9,12 @@ group:
 
 # Change Log
 
+## @ant-design/pro-table@2.77.1
+
+`2022-07-06`
+
+- fix(table): method coverRowKey 关于 at 兼容性问题修复 (#5473). [#5473](https://github.com/ant-design/pro-components/pull/#5473) [@tang-xuan11](https://github.com/tang-xuan11)
+
 ## @ant-design/pro-table@2.77.0
 
 `2022-06-30`
