@@ -14,45 +14,45 @@ nav:
 
 ### 查询筛选
 
-<code src="./demos/query-filter.tsx" height="168px" title="查询筛选" />
+<code src="./demos/query-filter.tsx" height="137px" title="查询筛选"/>
 
 <code src="./demos/query-filter-test.tsx" height="168px" title="查询筛选" debug/>
 
 ### 查询筛选-默认收起
 
-<code src="./demos/query-filter-collapsed.tsx" height="56px" title="查询筛选-默认收起"/>
+<code src="./demos/query-filter-collapsed.tsx" height="137px" title="查询筛选-默认收起"/>
 
 ### 查询筛选-垂直布局
 
-<code src="./demos/query-filter-vertical.tsx"  height="172px" title="查询筛选-垂直布局" />
+<code src="./demos/query-filter-vertical.tsx" height="167px" title="查询筛选-垂直布局"/>
 
 ### 查询筛选-搜索
 
-<code src="./demos/search-filter.tsx" background="#f0f2f5" height="274px" title="查询筛选-搜索" />
+<code src="./demos/search-filter.tsx" background="#f0f2f5" height="328px" title="查询筛选-搜索"/>
 
 ### 轻量筛选
 
-<code src="./demos/light-filter.tsx" height="86px" title="轻量筛选" />
+<code src="./demos/light-filter.tsx" height="287px" title="轻量筛选"/>
 
 ### 轻量筛选-自定义 footer
 
-<code src="./demos/light-filter-footer.tsx" height="86px" title="轻量筛选-自定义footer" />
+<code src="./demos/light-filter-footer.tsx" height="283px" title="轻量筛选-自定义footer"/>
 
 ### 轻量筛选-边框模式
 
-<code src="./demos/light-filter-bordered.tsx" height="32px" title="轻量筛选-边框模式"/>
+<code src="./demos/light-filter-bordered.tsx" height="113px" title="轻量筛选-边框模式"/>
 
 ### 轻量筛选-折叠模式
 
 折叠模式下所有的选项都会默认折叠，不管是否有值，控件的 `secondary` 将不再有效。
 
-<code src="./demos/light-filter-collapse.tsx" height="40px" title="轻量筛选-折叠模式" />
+<code src="./demos/light-filter-collapse.tsx" height="113px" title="轻量筛选-折叠模式"/>
 
 ### 轻量筛选-弹出框对齐方式
 
 手动设置轻量筛选的弹出框，默认为 `bottomLeft`
 
-<code src="./demos/light-filter-placement.tsx" height="40px" title="轻量筛选-弹出框对齐方式" />
+<code src="./demos/light-filter-placement.tsx" height="225px" title="轻量筛选-弹出框对齐方式"/>
 
 ## API
 
