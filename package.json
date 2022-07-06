@@ -5,6 +5,7 @@
     "packages/*"
   ],
   "scripts": {
+    "ac": "ac",
     "bootstrap": "node ./scripts/bootstrap.js",
     "build": "npm run version && npm run build-lib && webpack && node ./scripts/gen_less_entry.js",
     "build-lib": "cross-env BUILD_TYPE=lib father-build && cross-env BUILD_TYPE=es father-build",
@@ -85,6 +86,7 @@
     "@umijs/test-utils": "^3.2.10",
     "@umijs/utils": "^3.2.11",
     "antd": "^4.20.7",
+    "auto-command": "^1.1.0",
     "babel-jest": "^27.3.1",
     "babel-loader": "^8.2.2",
     "babel-plugin-import": "^1.12.2",
