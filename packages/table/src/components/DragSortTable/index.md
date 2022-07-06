@@ -15,11 +15,11 @@ nav:
 
 ### 拖拽排序
 
-<code src="./demos/drag.tsx" background="#f5f5f5" height="360px" title="拖拽排序" />
+<code src="./demos/drag.tsx" background="#f5f5f5" height="437px" title="拖拽排序"/>
 
 ### 拖拽排序编辑表格
 
-<code src="./demos/drag-sort-table.tsx" background="#f5f5f5" height="360px" title="可编辑表格" />
+<code src="./demos/drag-sort-table.tsx" background="#f5f5f5" height="697px" title="可编辑表格"/>
 
 ## API
 

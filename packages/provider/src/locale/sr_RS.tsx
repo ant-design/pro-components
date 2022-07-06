@@ -61,6 +61,7 @@ export default {
       save: 'Sačuvaj',
       cancel: 'Poništi',
       delete: 'Obriši',
+      add: 'dodajte red podataka',
     },
   },
 };

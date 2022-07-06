@@ -2,6 +2,19 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.70.0](https://github.com/ant-design/pro-components/compare/@ant-design/pro-form@1.69.4...@ant-design/pro-form@1.70.0) (2022-06-30)
+
+### Bug Fixes
+
+- **form:** fix FormItems in FormList umount unexpectedly ([#5413](https://github.com/ant-design/pro-components/issues/5413)) ([#5437](https://github.com/ant-design/pro-components/issues/5437)) ([632b4a2](https://github.com/ant-design/pro-components/commit/632b4a2a985f93a7bc2d64ddebf83c20d7943d99))
+- **form:** fix the abnormal width caused by addonAfter and addonB… ([#5417](https://github.com/ant-design/pro-components/issues/5417)) ([7cb9362](https://github.com/ant-design/pro-components/commit/7cb9362cfe62ed7a8d8c7754a051af2009d0a2a0))
+- **form:** use omit.js instead of lodash to avoid introducing the whole lodash lib ([#5438](https://github.com/ant-design/pro-components/issues/5438)) ([1a88877](https://github.com/ant-design/pro-components/commit/1a8887708378eeb92b5b2c368dd413d286f53a68))
+
+### Features
+
+- **form:** add captcha methods and createField function Fieldref ([#5398](https://github.com/ant-design/pro-components/issues/5398)) ([097fdce](https://github.com/ant-design/pro-components/commit/097fdce68c270e960a862089893760aab11fbefa)), closes [#5408](https://github.com/ant-design/pro-components/issues/5408) [#5410](https://github.com/ant-design/pro-components/issues/5410) [#5404](https://github.com/ant-design/pro-components/issues/5404)
+- **form:** add syncToUrlAsImportant prop ([#5421](https://github.com/ant-design/pro-components/issues/5421)) ([e71c827](https://github.com/ant-design/pro-components/commit/e71c827f9dc8b3672410e1de0e9b9a3c9957320d))
+
 ## [1.69.4](https://github.com/ant-design/pro-components/compare/@ant-design/pro-form@1.69.3...@ant-design/pro-form@1.69.4) (2022-06-16)
 
 ### Bug Fixes

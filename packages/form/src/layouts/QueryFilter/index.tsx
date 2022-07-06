@@ -315,7 +315,7 @@ const QueryFilterContent: React.FC<{
         if (!props.preserve) {
           return {
             itemDom: null,
-            colSpan,
+            colSpan: 0,
             hidden: true,
           };
         }
@@ -376,7 +376,7 @@ const QueryFilterContent: React.FC<{
 
   /** 是否需要展示 collapseRender */
   const needCollapseRender = useMemo(() => {
-    if (totalSpan < 24 || totalSize < showLength) {
+    if (totalSpan < 24 || totalSize <= showLength) {
       return false;
     }
     return true;

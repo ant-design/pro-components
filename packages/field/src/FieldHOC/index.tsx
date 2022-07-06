@@ -4,6 +4,7 @@ import type { ProFieldLightProps } from '../index';
 function FieldHOC<T extends ProFieldLightProps>(
   props: T & {
     children: React.ReactNode;
+    isLight?: boolean;
   },
 ) {
   const [labelTrigger, setLabelTrigger] = useState(false);
@@ -37,14 +38,18 @@ function FieldHOC<T extends ProFieldLightProps>(
     setLabelTrigger(false);
   };
 
-  return (
-    <div onMouseDown={handleMouseDown} onMouseUp={handleMouseUp}>
-      {React.cloneElement(props.children as JSX.Element, {
-        labelTrigger,
-        lightLabel,
-      })}
-    </div>
-  );
+  if (props.isLight) {
+    return (
+      <div onMouseDown={handleMouseDown} onMouseUp={handleMouseUp}>
+        {React.cloneElement(props.children as JSX.Element, {
+          labelTrigger,
+          lightLabel,
+        })}
+      </div>
+    );
+  }
+
+  return <>{props.children as string}</>;
 }
 
 export default FieldHOC;

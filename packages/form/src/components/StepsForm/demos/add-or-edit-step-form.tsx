@@ -53,8 +53,8 @@ const EditExample = () => {
   useEffect(() => {
     waitTime(1000).then(() => {
       // 编辑场景下需要使用formMapRef循环设置formData
-      formMapRef.current.forEach((formInstanceRef) => {
-        formInstanceRef.current?.setFieldsValue(formValue);
+      formMapRef?.current?.forEach((formInstanceRef) => {
+        formInstanceRef?.current?.setFieldsValue(formValue);
       });
     });
   }, []);

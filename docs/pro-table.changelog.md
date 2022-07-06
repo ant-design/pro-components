@@ -1,13 +1,21 @@
 ---
 title: ProTable - 更新日志
 nav:
-  title: 更新日志
+  title: Changelog
   path: /changelog
 group:
   path: /
 ---
 
 # Change Log
+
+## @ant-design/pro-table@2.77.0
+
+`2022-06-30`
+
+- feat(table): Make ColumnSetting heights editable (#5449). [#5449](https://github.com/ant-design/pro-components/pull/#5449) [@chenshuai2144](https://github.com/chenshuai2144)
+- fix(table): default close revalidateOnFocus (#5441). [#5441](https://github.com/ant-design/pro-components/pull/#5441) [@powerfulyang](https://github.com/powerfulyang)
+- fix(table): the table header should not be scroll (#5410). [#5410](https://github.com/ant-design/pro-components/pull/#5410) [@ONLY-yours](https://github.com/ONLY-yours)
 
 ## @ant-design/pro-table@2.76.2
 
