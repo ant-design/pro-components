@@ -1,22 +1,13 @@
 ﻿import { ConfigProvider, Popover } from 'antd';
-import React, { useContext } from 'react';
+import React, { useContext, useMemo } from 'react';
 import { cx } from '../../emotion';
 import { ProLayoutContext } from '../../ProLayoutContext';
 import { AppsLogo } from './AppsLogo';
-import {
-  appContentListCss,
-  appIconsCss,
-  getAntdPopoverContentListCss,
-  getAppContentLisItem,
-} from './css';
-
-export type AppsLogoComponentsAppList = {
-  title: React.ReactNode;
-  desc: React.ReactNode;
-  icon: React.ReactNode;
-  url: string;
-  target?: string;
-}[];
+import { appIconsCss, getAntdPopoverContentListCss } from './css';
+import { DefaultContent } from './DefaultContent';
+import { SimpleContent } from './SimpleContent';
+import type { AppsLogoComponentsAppList } from './types';
+export type { AppsLogoComponentsAppList };
 
 /**
  * 默认渲染logo的方式，如果是个string，用img。否则直接返回
@@ -52,6 +43,12 @@ export const AppsLogoComponents: React.FC<{
   const antdPreFixCls = antdContext.getPrefixCls();
   if (!props?.appList?.length) return null;
 
+  const simple = useMemo(() => {
+    return appList?.some((app) => {
+      return !app?.desc;
+    });
+  }, [appList]);
+
   return (
     <Popover
       placement="bottomRight"
@@ -60,30 +57,11 @@ export const AppsLogoComponents: React.FC<{
       arrowPointAtCenter
       overlayClassName={cx(getAntdPopoverContentListCss(antdPreFixCls))}
       content={
-        <div className={`${prefixCls}-basicLayout-apps-content`}>
-          <ul className={cx(`${prefixCls}-basicLayout-apps-content-list`, appContentListCss)}>
-            {appList?.map((app, index) => {
-              return (
-                <li
-                  // eslint-disable-next-line react/no-array-index-key
-                  key={index}
-                  className={cx(
-                    `${prefixCls}-basicLayout-apps-content-list-item`,
-                    getAppContentLisItem(designToken),
-                  )}
-                >
-                  <a href={app.url} target={app.target} rel="noreferrer">
-                    {defaultRenderLogo(app.icon)}
-                    <div>
-                      <div>{app.title}</div>
-                      {app.desc ? <span>{app.desc}</span> : null}
-                    </div>
-                  </a>
-                </li>
-              );
-            })}
-          </ul>
-        </div>
+        !simple ? (
+          <DefaultContent appList={appList} prefixCls={prefixCls} />
+        ) : (
+          <SimpleContent appList={appList} prefixCls={prefixCls} />
+        )
       }
     >
       <span

@@ -110,6 +110,70 @@ describe('BasicLayout', () => {
     expect(wrapper.baseElement.querySelectorAll('.ant-pro-basicLayout-apps-icon').length).toBe(1);
   });
 
+  it('🥩 appList icon is simple', async () => {
+    const wrapper = render(
+      <ProLayout
+        appList={[
+          {
+            icon: '',
+            title: '区域产品解决方案',
+            desc: '',
+            url: 'https://ant.design',
+          },
+          {
+            icon: 'https://gw.alipayobjects.com/zos/antfincdn/FLrTNDvlna/antv.png',
+            title: 'AntV',
+            desc: '',
+            url: 'https://antv.vision/',
+            target: '_blank',
+          },
+          {
+            icon: <div>123</div>,
+            title: 'AntV',
+            desc: '',
+            url: 'https://antv.vision/',
+            target: '_blank',
+          },
+          {
+            icon: () => {},
+            title: 'AntV',
+            desc: '',
+            url: 'https://antv.vision/',
+            target: '_blank',
+          },
+        ]}
+        route={{
+          routes: [
+            [
+              {
+                path: '/home',
+                name: '首页',
+                locale: 'menu.home',
+                routes: [
+                  {
+                    path: '/home/overview',
+                    name: '概述',
+                    hideInMenu: true,
+                    exact: true,
+                    locale: 'menu.home.overview',
+                  },
+                ],
+              },
+            ],
+          ],
+        }}
+      />,
+    );
+    await waitForComponentToPaint(wrapper);
+    act(() => {
+      (
+        wrapper.baseElement.querySelector('.ant-pro-basicLayout-apps-icon') as HTMLDivElement
+      )?.click();
+    });
+    await waitForComponentToPaint(wrapper);
+    expect(wrapper.baseElement.querySelectorAll('.ant-pro-basicLayout-apps-icon').length).toBe(1);
+  });
+
   it('🥩 group title when collapsed, title is hidden', async () => {
     const wrapper = render(
       <ProLayout

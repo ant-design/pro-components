@@ -1,9 +1,9 @@
 ﻿import { css } from '../../emotion';
 import type { LayoutDesignToken } from '../../ProLayoutContext';
 
-export const appContentListCss = css`
+export const appContentListCss = (simple = false) => css`
   box-sizing: content-box;
-  max-width: 656px;
+  max-width: ${!simple ? '656px' : '376px'};
   margin: 0;
   padding: 0;
   list-style: none;
@@ -17,14 +17,19 @@ export const getAntdPopoverContentListCss = (prefix: string) => css`
  .${prefix}-popover-inner-content{
     padding:8px;
  }
+
+ .${prefix}-popover-arrow{
+    display: none;
+  }
 `;
 
-export const getAppContentLisItem = (designToken: LayoutDesignToken) => css`
+export const getAppContentLisItem = (designToken: LayoutDesignToken, simple = false) => css`
   position: relative;
   display: inline-block;
-  width: 328px;
-  height: 72px;
-  padding: 16px;
+  width: ${!simple ? '328px' : '104px'};
+  height: ${!simple ? '72px' : '104px'};
+  padding: ${!simple ? '16px' : '24px'};
+  margin: ${!simple ? '0px' : '8px'};
   vertical-align: top;
   list-style-type: none;
   transition: transform 0.2s cubic-bezier(0.333, 0, 0, 1);
@@ -36,15 +41,31 @@ export const getAppContentLisItem = (designToken: LayoutDesignToken) => css`
 
   a {
     display: flex;
+    flex-direction: ${!simple ? 'row' : 'column'};
+    align-items: ${!simple ? 'normal' : 'center'};
     height: 100%;
     font-size: 12px;
     text-decoration: none;
+    & > #avatarLogo {
+      width: 40px;
+      height: 40px;
+      margin: 0 auto;
+      color: #1890ff;
+      font-size: 22px;
+      line-height: 40px;
+      text-align: center;
+      background-color: #e8f0fb;
+      border-radius: 50%;
+    }
+
     & > img {
       width: 40px;
       height: 40px;
     }
+
     & > div {
-      margin-left: 14px;
+      margin-top: ${!simple ? '0px' : '5px'};
+      margin-left: ${!simple ? '14px' : '0px'};
       color: ${designToken.colorHeading};
       font-size: 14px;
       line-height: 22px;
