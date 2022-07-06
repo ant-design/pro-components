@@ -237,8 +237,8 @@ const SearchSelect = <T,>(props: SearchSelectProps<T[]>, ref: any) => {
         if (mode !== 'multiple') {
           // 单选情况且用户选择了选项
           const dataItem = optionList && optionList['data-item'];
-           // 如果value值为空则是清空时产生的回调,直接传原始值就可以了
-          if (typeof value === "undefined" && typeof dataItem === "undefined"){
+          // 如果value值为空则是清空时产生的回调,直接传值就可以了
+          if (!value || !dataItem) {
             onChange?.(value, optionList, ...rest);
           } else {
             onChange?.({ ...value, ...dataItem }, optionList, ...rest);
