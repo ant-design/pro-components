@@ -135,6 +135,7 @@ describe('BasicLayout', () => {
             target: '_blank',
           },
           {
+            // @ts-ignore
             icon: () => {},
             title: 'AntV',
             desc: '',
