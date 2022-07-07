@@ -116,7 +116,7 @@ describe('BasicLayout', () => {
         appList={[
           {
             icon: '',
-            title: '区域产品解决方案',
+            title: '区域产品解决方案平台',
             desc: '',
             url: 'https://ant.design',
           },
