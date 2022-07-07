@@ -41,7 +41,6 @@ export const AppsLogoComponents: React.FC<{
   const { appList, prefixCls = 'ant' } = props;
   const antdContext = useContext(ConfigProvider.ConfigContext);
   const antdPreFixCls = antdContext.getPrefixCls();
-  if (!props?.appList?.length) return null;
 
   const popoverContent = useMemo(() => {
     const isSimple = appList?.some((app) => {
@@ -51,7 +50,9 @@ export const AppsLogoComponents: React.FC<{
       return <SimpleContent appList={appList} prefixCls={prefixCls} />;
     }
     return <DefaultContent appList={appList} prefixCls={prefixCls} />;
-  }, [appList]);
+  }, [appList, prefixCls]);
+
+  if (!props?.appList?.length) return null;
 
   return (
     <Popover
