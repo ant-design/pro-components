@@ -301,13 +301,13 @@ export const useFieldFetchData = (
       return [];
     },
     {
-      value: props.fieldProps?.options,
+      value: props.fieldProps?.options || props.fieldProps?.treeData,
     },
   );
 
   useDeepCompareEffect(() => {
     // 优先使用 fieldProps?.options
-    if (!props.valueEnum || props.fieldProps?.options) return;
+    if (!props.valueEnum || props.fieldProps?.options || props.fieldProps?.treeData) return;
     setOptions(getOptionsFormValueEnum(props.valueEnum));
   }, [props.valueEnum]);
 
