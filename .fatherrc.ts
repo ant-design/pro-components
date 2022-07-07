@@ -33,6 +33,7 @@ if (type === 'lib') {
     runtimeHelpers: true,
     pkgs: [...headPkgs, ...tailPkgs],
     extraBabelPlugins: [
+      [require('./scripts/transform_at')],
       [
         'babel-plugin-import',
         { libraryName: 'antd', libraryDirectory: 'lib', style: true },
@@ -52,6 +53,7 @@ if (type === 'es') {
     pkgs: [...headPkgs, ...tailPkgs],
     extraBabelPlugins: [
       [require('./scripts/replaceLib')],
+      [require('./scripts/transform_at')],
       ['babel-plugin-import', { libraryName: 'antd', libraryDirectory: 'es', style: true }, 'antd'],
     ],
   };
