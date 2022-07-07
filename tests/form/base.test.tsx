@@ -2480,4 +2480,66 @@ describe('ProForm', () => {
 
     expect(html.baseElement.querySelectorAll('.ant-form-item-required').length).toBe(0);
   });
+
+  it('📦 fix onChange will get empty object when you set labelInValue ture in ProForm', async () => {
+    const onChange = jest.fn();
+    const wrapper = mount(
+      <ProForm>
+        <ProFormSelect
+          fieldProps={{
+            labelInValue: true,
+            onChange(value) {
+              onChange(value);
+            },
+          }}
+          name="userQuery"
+          label="查询选择器"
+          valueEnum={{
+            all: { text: '全部', status: 'Default' },
+            open: {
+              text: '未解决',
+              status: 'Error',
+            },
+            closed: {
+              text: '已解决',
+              status: 'Success',
+            },
+            processing: {
+              text: '解决中',
+              status: 'Processing',
+            },
+          }}
+        />
+      </ProForm>,
+    );
+    await waitForComponentToPaint(wrapper);
+
+    act(() => {
+      wrapper.find('.ant-select-selector').simulate('mousedown');
+      wrapper.update();
+    });
+    await waitForComponentToPaint(wrapper);
+    // 选中第一个
+    act(() => {
+      wrapper.find('.ant-select-item').at(0).simulate('click');
+      wrapper.update();
+    });
+
+    await waitForComponentToPaint(wrapper);
+
+    // 鼠标移入选中区域
+    act(() => {
+      wrapper.find('.ant-select').simulate('mouseenter');
+      wrapper.update();
+    });
+    await waitForComponentToPaint(wrapper);
+
+    // 点击删除按钮进行删除操作
+    act(() => {
+      wrapper.find('span.ant-select-clear').last().simulate('mousedown');
+    });
+    await waitForComponentToPaint(wrapper);
+
+    expect(onChange).toBeCalledWith({});
+  });  
 });
