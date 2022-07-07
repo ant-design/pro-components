@@ -64,5 +64,8 @@ export default {
       add: 'мэдээллийн мөр нэмнэ',
     },
   },
-  switch: { open: 'Нээх', close: 'Хаах' },
+  switch: {
+    open: 'Нээх',
+    close: 'Хаах',
+  },
 };

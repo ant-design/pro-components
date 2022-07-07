@@ -1,7 +1,12 @@
 export default {
   moneySymbol: '€',
   form: {
-    lightFilter: { more: 'più', clear: 'pulisci', confirm: 'conferma', itemUnit: 'elementi' },
+    lightFilter: {
+      more: 'più',
+      clear: 'pulisci',
+      confirm: 'conferma',
+      itemUnit: 'elementi',
+    },
   },
   tableForm: {
     search: 'Filtra',
