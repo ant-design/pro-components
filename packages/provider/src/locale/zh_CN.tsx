@@ -49,9 +49,9 @@ export default {
     densitySmall: '紧凑',
   },
   stepsForm: {
-    next: '下一个',
-    prev: '以前的',
-    submit: '完成',
+    next: '下一步',
+    prev: '上一步',
+    submit: '提交',
   },
   loginForm: {
     submitText: '登录',
