@@ -43,10 +43,14 @@ export const AppsLogoComponents: React.FC<{
   const antdPreFixCls = antdContext.getPrefixCls();
   if (!props?.appList?.length) return null;
 
-  const simple = useMemo(() => {
-    return appList?.some((app) => {
+  const popoverContent = useMemo(() => {
+    const isSimple = appList?.some((app) => {
       return !app?.desc;
     });
+    if (isSimple) {
+      return <SimpleContent appList={appList} prefixCls={prefixCls} />;
+    }
+    return <DefaultContent appList={appList} prefixCls={prefixCls} />;
   }, [appList]);
 
   return (
@@ -56,13 +60,7 @@ export const AppsLogoComponents: React.FC<{
       zIndex={9999}
       arrowPointAtCenter
       overlayClassName={cx(getAntdPopoverContentListCss(antdPreFixCls))}
-      content={
-        !simple ? (
-          <DefaultContent appList={appList} prefixCls={prefixCls} />
-        ) : (
-          <SimpleContent appList={appList} prefixCls={prefixCls} />
-        )
-      }
+      content={popoverContent}
     >
       <span
         onClick={(e) => {
