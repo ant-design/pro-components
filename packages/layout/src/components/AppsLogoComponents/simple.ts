@@ -17,10 +17,6 @@ export const getAntdPopoverContentListCss = (prefix: string) => css`
  .${prefix}-popover-inner-content{
     padding:8px;
  }
-
- .${prefix}-popover-arrow{
-    display: none;
-  }
 `;
 
 export const getAppContentLisItem = (designToken: LayoutDesignToken) => css`
@@ -55,7 +51,7 @@ export const getAppContentLisItem = (designToken: LayoutDesignToken) => css`
       line-height: 40px;
       text-align: center;
       background-color: #e8f0fb;
-      border-radius: 50%;
+      border-radius: 4px;
     }
 
     & > img {

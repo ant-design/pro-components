@@ -1,7 +1,7 @@
 import React, { useContext } from 'react';
 import { cx } from '../../emotion';
 import { ProLayoutContext } from '../../ProLayoutContext';
-import { appContentListCss, getAppContentLisItem } from './SimpleCss';
+import { appContentListCss, getAppContentLisItem } from './simple';
 import type { AppsLogoComponentsAppList } from './types';
 
 /**
