@@ -64,4 +64,8 @@ export default {
       add: 'foegje in rige gegevens ta',
     },
   },
+  switch: {
+    open: 'açık',
+    close: 'kapatmak',
+  },
 };

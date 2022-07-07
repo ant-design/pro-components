@@ -5,7 +5,7 @@ export default {
       more: 'Más',
       clear: 'Limpiar',
       confirm: 'Confirmar',
-      itemsUnits: 'Objetos',
+      itemUnit: 'artículos',
     },
   },
   tableForm: {

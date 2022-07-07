@@ -64,4 +64,8 @@ export default {
       add: 'ajouter une ligne de données',
     },
   },
+  switch: {
+    open: 'ouvert',
+    close: 'près',
+  },
 };

@@ -48,6 +48,14 @@ export default {
     densityMiddle: '中等',
     densitySmall: '紧凑',
   },
+  stepsForm: {
+    next: '下一个',
+    prev: '以前的',
+    submit: '完成',
+  },
+  loginForm: {
+    submitText: '登录',
+  },
   editableTable: {
     action: {
       save: '保存',
@@ -59,8 +67,5 @@ export default {
   switch: {
     open: '打开',
     close: '关闭',
-  },
-  loginForm: {
-    submitText: '登录',
   },
 };
