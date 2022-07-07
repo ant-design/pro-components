@@ -13,7 +13,7 @@ export const DefaultContent: React.FC<{
   const { appList, prefixCls = 'ant' } = props;
   return (
     <div className={`${prefixCls}-basicLayout-apps-content`}>
-      <ul className={cx(`${prefixCls}-basicLayout-apps-content-list`, appContentListCss(false))}>
+      <ul className={cx(`${prefixCls}-basicLayout-apps-content-list`, appContentListCss)}>
         {appList?.map((app, index) => {
           return (
             <li

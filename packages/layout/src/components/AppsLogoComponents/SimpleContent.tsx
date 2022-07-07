@@ -1,7 +1,7 @@
 import React, { useContext } from 'react';
 import { cx } from '../../emotion';
 import { ProLayoutContext } from '../../ProLayoutContext';
-import { appContentListCss, getAppContentLisItem } from './css';
+import { appContentListCss, getAppContentLisItem } from './SimpleCss';
 import type { AppsLogoComponentsAppList } from './types';
 
 /**
@@ -22,7 +22,7 @@ export const renderLogo = (
     return logo();
   }
   if (!logo && title && typeof title === 'string') {
-    const symbol = title.substr(0, 1);
+    const symbol = title.substring(0, 1);
     return <div id="avatarLogo">{symbol}</div>;
   }
   return logo;
@@ -36,7 +36,7 @@ export const SimpleContent: React.FC<{
   const { appList, prefixCls = 'ant' } = props;
   return (
     <div className={`${prefixCls}-basicLayout-apps-content`}>
-      <ul className={cx(`${prefixCls}-basicLayout-apps-content-list`, appContentListCss(true))}>
+      <ul className={cx(`${prefixCls}-basicLayout-apps-content-list`, appContentListCss)}>
         {appList?.map((app, index) => {
           return (
             <li
@@ -44,7 +44,7 @@ export const SimpleContent: React.FC<{
               key={index}
               className={cx(
                 `${prefixCls}-basicLayout-apps-content-list-item`,
-                getAppContentLisItem(designToken, true),
+                getAppContentLisItem(designToken),
               )}
             >
               <a href={app.url} target={app.target} rel="noreferrer">
