@@ -9,6 +9,14 @@ group:
 
 # Change Log
 
+## @ant-design/pro-form@1.70.1
+
+`2022-07-06`
+
+- fix(form): fix sublist getCurrentRowData no work error. [47fe90c](https://github.com/ant-design/pro-components/commit/47fe90c)
+- fix(form): remove HOC when light=false. [5862557](https://github.com/ant-design/pro-components/commit/5862557)
+- fix(form): onlu has one item, no render Collapse. [a3758b0](https://github.com/ant-design/pro-components/commit/a3758b0)
+
 ## @ant-design/pro-form@1.70.0
 
 `2022-06-30`

@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.8.1](https://github.com/ant-design/pro-components/compare/@ant-design/pro-provider@1.8.0...@ant-design/pro-provider@1.8.1) (2022-07-06)
+
+### Bug Fixes
+
+- ’添加一行数据'国际化问题 ([#5469](https://github.com/ant-design/pro-components/issues/5469)) ([85cc727](https://github.com/ant-design/pro-components/commit/85cc7275bb58e52e84f25594952d9612742102a0))
+- **provide:** fix the translation of the `items` (PT-Br) ([#5457](https://github.com/ant-design/pro-components/issues/5457)) ([a30ee7a](https://github.com/ant-design/pro-components/commit/a30ee7a7478fd0e31931aeffe8618d1f748c9cad))
+
 # [1.8.0](https://github.com/ant-design/pro-components/compare/@ant-design/pro-provider@1.7.2...@ant-design/pro-provider@1.8.0) (2022-06-16)
 
 ### Features

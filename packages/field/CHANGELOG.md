@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.34.19](https://github.com/ant-design/pro-components/compare/@ant-design/pro-field@1.34.18...@ant-design/pro-field@1.34.19) (2022-07-06)
+
+### Bug Fixes
+
+- **form:** remove HOC when light=false ([5862557](https://github.com/ant-design/pro-components/commit/586255754db878c0c9efa4755ec7469e5cf0c386))
+
 ## [1.34.18](https://github.com/ant-design/pro-components/compare/@ant-design/pro-field@1.34.17...@ant-design/pro-field@1.34.18) (2022-06-30)
 
 ### Bug Fixes

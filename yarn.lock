@@ -5273,9 +5273,9 @@ aws-lambda@^1.0.7:
     watchpack "^2.0.0-beta.10"
 
 aws-sdk@^2.814.0:
-  version "2.1168.0"
-  resolved "https://registry.npmmirror.com/aws-sdk/-/aws-sdk-2.1168.0.tgz#7936459edee0c999065f1ecf2ef0bea89ea056c1"
-  integrity sha512-9+WYoYTHHjLqeWdSSLbNpmc/NgnZpX4LGiyYjXenh4WNRBXshXI0XioTK8BQgDscVzB978EJV8kG1nZGE3USzw==
+  version "2.1169.0"
+  resolved "https://registry.npmmirror.com/aws-sdk/-/aws-sdk-2.1169.0.tgz#06c910092e0dd97ac884ce0939a69c062308184a"
+  integrity sha512-zBJXLih/iBueYt7hDednt7Jncb+6wzUjDh6JMdl2e0A61xb+Z5o0NNkjbJTUJELdx96u3R4+yil0DoRTOipksA==
   dependencies:
     buffer "4.9.2"
     events "1.1.1"
@@ -7808,9 +7808,9 @@ ee-first@1.1.1:
   integrity sha512-WMwm9LhRUo+WUaRN+vRuETqG89IgZphVSNkdFgeb6sS/E4OrDIN7t48CAewSHXc6C8lefD8KKfr5vY61brQlow==
 
 electron-to-chromium@^1.4.172:
-  version "1.4.180"
-  resolved "https://registry.npmmirror.com/electron-to-chromium/-/electron-to-chromium-1.4.180.tgz#380b06037836055d12c7de181ee90b8ed911c3e7"
-  integrity sha512-7at5ash3FD9U5gPa3/wPr6OdiZd/zBjvDZaaHBpcqFOFUhZiWnb7stkqk8xUFL9H9nk7Yok5vCCNK8wyC/+f8A==
+  version "1.4.182"
+  resolved "https://registry.npmmirror.com/electron-to-chromium/-/electron-to-chromium-1.4.182.tgz#5d59214ebfe90b36f23e81cd226a42732cd8c677"
+  integrity sha512-OpEjTADzGoXABjqobGhpy0D2YsTncAax7IkER68ycc4adaq0dqEG9//9aenKPy7BGA90bqQdLac0dPp6uMkcSg==
 
 elegant-spinner@^1.0.1:
   version "1.0.1"
@@ -12220,9 +12220,9 @@ jsprim@^1.2.2:
     verror "1.10.0"
 
 "jsx-ast-utils@^2.4.1 || ^3.0.0":
-  version "3.3.1"
-  resolved "https://registry.npmmirror.com/jsx-ast-utils/-/jsx-ast-utils-3.3.1.tgz#a3e0f1cb7e230954eab4dcbce9f6288a78f8ba44"
-  integrity sha512-pxrjmNpeRw5wwVeWyEAk7QJu2GnBO3uzPFmHCKJJFPKK2Cy0cWL23krGtLdnMmbIi6/FjlrQpPyfQI19ByPOhQ==
+  version "3.3.2"
+  resolved "https://registry.npmmirror.com/jsx-ast-utils/-/jsx-ast-utils-3.3.2.tgz#afe5efe4332cd3515c065072bd4d6b0aa22152bd"
+  integrity sha512-4ZCADZHRkno244xlNnn4AOG6sRQ7iBZ5BbgZ4vW4y5IZw7cVUD1PPeblm1xx/nfmMxPdt/LHsXZW8z/j58+l9Q==
   dependencies:
     array-includes "^3.1.5"
     object.assign "^4.1.2"
@@ -13722,9 +13722,9 @@ moment-timezone@^0.5.31:
     moment ">= 2.9.0"
 
 "moment@>= 2.9.0", moment@^2.24.0, moment@^2.27.0, moment@^2.29.2:
-  version "2.29.3"
-  resolved "https://registry.npmmirror.com/moment/-/moment-2.29.3.tgz#edd47411c322413999f7a5940d526de183c031f3"
-  integrity sha512-c6YRvhEo//6T2Jz/vVtYzqBzwvPT95JBQ+smCytzf7c50oMZRsR/a4w88aD34I+/QVSfnoAnSBFPJHItlOMJVw==
+  version "2.29.4"
+  resolved "https://registry.npmmirror.com/moment/-/moment-2.29.4.tgz#3dbe052889fe7c1b2ed966fcb3a77328964ef108"
+  integrity sha512-5LC9SOxjSc2HF6vO2CyuTDNivEdoz2IvyJJGj6X8DJ0eFyfszE0QiEd+iXmBvUP3WHxSjFH/vIsA0EN00cgr8w==
 
 moo-color@^1.0.2:
   version "1.0.3"
@@ -16174,9 +16174,9 @@ pupa@^2.0.1:
     escape-goat "^2.0.0"
 
 puppeteer@^15.3.0:
-  version "15.3.0"
-  resolved "https://registry.npmmirror.com/puppeteer/-/puppeteer-15.3.0.tgz#2d79200cb72d938dfc7af4fdedaa03c04e7ace14"
-  integrity sha512-PYZwL0DjGeUOauSie6n9Pf+vDUod+vFnC1uHa1Uj3ex1PhRI6DOheau6oJxxj9oyEPWy8SS19KfZDwln4v4LTg==
+  version "15.3.1"
+  resolved "https://registry.npmmirror.com/puppeteer/-/puppeteer-15.3.1.tgz#0ff9b433a8fc3798f5ec82ea4b31ec47857219cf"
+  integrity sha512-Z+SpYBiS1zUzMXV7Wnhe2pyuVCFAFRTq1UrUWHB2CkLos5v7bXvXYuZ3Fn5pSN5IObxijyx4opNYKTCRnGni6Q==
   dependencies:
     cross-fetch "3.1.5"
     debug "4.3.4"
