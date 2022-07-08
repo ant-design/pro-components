@@ -2540,6 +2540,6 @@ describe('ProForm', () => {
     });
     await waitForComponentToPaint(wrapper);
 
-    expect(onChange).toBeCalledWith({});
+    expect(onChange).toBeCalledWith(undefined);
   });  
 });
