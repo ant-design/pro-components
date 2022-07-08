@@ -56,4 +56,16 @@ export default {
   loginForm: {
     submitText: 'Anmelden',
   },
+  editableTable: {
+    action: {
+      save: 'Retten',
+      cancel: 'Abbrechen',
+      delete: 'Löschen',
+      add: 'Hinzufügen einer Datenzeile',
+    },
+  },
+  switch: {
+    open: 'offen',
+    close: 'schließen',
+  },
 };

@@ -64,4 +64,8 @@ export default {
       add: 'dodajte red podataka',
     },
   },
+  switch: {
+    open: 'Отворите',
+    close: 'Затворите',
+  },
 };

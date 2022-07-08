@@ -64,4 +64,8 @@ export default {
       add: 'یک ردیف داده اضافه کنید',
     },
   },
+  switch: {
+    open: 'باز',
+    close: 'نزدیک',
+  },
 };
