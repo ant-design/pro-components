@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.70.2](https://github.com/ant-design/pro-components/compare/@ant-design/pro-form@1.70.1...@ant-design/pro-form@1.70.2) (2022-07-11)
+
+### Bug Fixes
+
+- **form:** SchemaForm dependency use name, filedProps.name is deprecated ([aadbede](https://github.com/ant-design/pro-components/commit/aadbedeb44249115f9cd7763310876064b135c25))
+
 ## [1.70.1](https://github.com/ant-design/pro-components/compare/@ant-design/pro-form@1.70.0...@ant-design/pro-form@1.70.1) (2022-07-06)
 
 ### Bug Fixes

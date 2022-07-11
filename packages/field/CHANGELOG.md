@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.34.20](https://github.com/ant-design/pro-components/compare/@ant-design/pro-field@1.34.19...@ant-design/pro-field@1.34.20) (2022-07-11)
+
+### Bug Fixes
+
+- **form:** fix ProFormTreeSelect treedata no work error ([f13a811](https://github.com/ant-design/pro-components/commit/f13a8117f3467751e08f24ba88983be8d9c0002e))
+- **form:** 设置 labelInValue 为 true 时，onClear 触发后 select 的值非 undefined [#3810](https://github.com/ant-design/pro-components/issues/3810) ([#5485](https://github.com/ant-design/pro-components/issues/5485)) ([a255617](https://github.com/ant-design/pro-components/commit/a255617d384522834b1f5a7fe22c0b910be0a1d2))
+
 ## [1.34.19](https://github.com/ant-design/pro-components/compare/@ant-design/pro-field@1.34.18...@ant-design/pro-field@1.34.19) (2022-07-06)
 
 ### Bug Fixes

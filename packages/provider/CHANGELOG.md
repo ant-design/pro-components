@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.9.0](https://github.com/ant-design/pro-components/compare/@ant-design/pro-provider@1.8.1...@ant-design/pro-provider@1.9.0) (2022-07-11)
+
+### Features
+
+- 国际化基于 en_US 全量补充 ([#5498](https://github.com/ant-design/pro-components/issues/5498)) ([3fab520](https://github.com/ant-design/pro-components/commit/3fab520c16880aaf4864285faff8d94f7c54e800))
+
 ## [1.8.1](https://github.com/ant-design/pro-components/compare/@ant-design/pro-provider@1.8.0...@ant-design/pro-provider@1.8.1) (2022-07-06)
 
 ### Bug Fixes
