@@ -9,6 +9,14 @@ group:
 
 # Change Log
 
+## @ant-design/pro-form@1.70.2
+
+`2022-07-11`
+
+- fix(form): 设置 labelInValue 为 true 时，onClear 触发后 select 的值非 undefined #3810 (#5485). [#5485](https://github.com/ant-design/pro-components/pull/#5485) [@SANmq](https://github.com/SANmq)
+- fix(form): fix ProFormTreeSelect treedata no work error. [f13a811](https://github.com/ant-design/pro-components/commit/f13a811)
+- fix(form): SchemaForm dependency use name, filedProps.name is deprecated. [aadbede](https://github.com/ant-design/pro-components/commit/aadbede)
+
 ## @ant-design/pro-form@1.70.1
 
 `2022-07-06`
