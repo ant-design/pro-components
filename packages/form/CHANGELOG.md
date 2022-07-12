@@ -2,6 +2,20 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.70.2](https://github.com/ant-design/pro-components/compare/@ant-design/pro-form@1.70.1...@ant-design/pro-form@1.70.2) (2022-07-11)
+
+### Bug Fixes
+
+- **form:** SchemaForm dependency use name, filedProps.name is deprecated ([aadbede](https://github.com/ant-design/pro-components/commit/aadbedeb44249115f9cd7763310876064b135c25))
+
+## [1.70.1](https://github.com/ant-design/pro-components/compare/@ant-design/pro-form@1.70.0...@ant-design/pro-form@1.70.1) (2022-07-06)
+
+### Bug Fixes
+
+- **form:** fix sublist getCurrentRowData no work error ([47fe90c](https://github.com/ant-design/pro-components/commit/47fe90c1d90ef6b8e28bdbdda86a915454cb1d64))
+- ’添加一行数据'国际化问题 ([#5469](https://github.com/ant-design/pro-components/issues/5469)) ([85cc727](https://github.com/ant-design/pro-components/commit/85cc7275bb58e52e84f25594952d9612742102a0))
+- **form:** onlu has one item, no render Collapse ([a3758b0](https://github.com/ant-design/pro-components/commit/a3758b019665d7c707ebad2991fbfc5f09de47c2))
+
 # [1.70.0](https://github.com/ant-design/pro-components/compare/@ant-design/pro-form@1.69.4...@ant-design/pro-form@1.70.0) (2022-06-30)
 
 ### Bug Fixes

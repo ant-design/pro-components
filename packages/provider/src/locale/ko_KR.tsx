@@ -64,4 +64,8 @@ export default {
       add: '데이터 행 추가',
     },
   },
+  switch: {
+    open: '열',
+    close: '가까 운',
+  },
 };

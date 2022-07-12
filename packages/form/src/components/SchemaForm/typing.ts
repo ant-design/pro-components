@@ -33,7 +33,7 @@ export type ExtraProColumnType = {
    */
   width?: string | number;
 
-  name?: NamePath;
+  name?: NamePath | NamePath[];
 } & Pick<ProFormGridConfig, 'rowProps' | 'colProps'>;
 
 /**

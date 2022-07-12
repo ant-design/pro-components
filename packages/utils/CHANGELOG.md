@@ -2,6 +2,14 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.42.5](https://github.com/ant-design/pro-components/compare/@ant-design/pro-utils@1.42.4...@ant-design/pro-utils@1.42.5) (2022-07-11)
+
+**Note:** Version bump only for package @ant-design/pro-utils
+
+## [1.42.4](https://github.com/ant-design/pro-components/compare/@ant-design/pro-utils@1.42.3...@ant-design/pro-utils@1.42.4) (2022-07-06)
+
+**Note:** Version bump only for package @ant-design/pro-utils
+
 ## [1.42.3](https://github.com/ant-design/pro-components/compare/@ant-design/pro-utils@1.42.2...@ant-design/pro-utils@1.42.3) (2022-06-30)
 
 ### Bug Fixes

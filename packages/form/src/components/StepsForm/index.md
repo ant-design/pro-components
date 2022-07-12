@@ -10,7 +10,7 @@ nav:
 
 # StepsForm - 分步表单
 
-StepsForm 通过 Provider 来管理子表单的数据，每个字表单都是完整的数据，在 StepsForm 组合成最后的数据。同时自带了一个进度条，和管理进度条的相关 API.
+StepsForm 通过 Provider 来管理子表单的数据，每个子表单都是完整的数据，在 StepsForm 组合成最后的数据。同时自带了一个进度条，和管理进度条的相关 API.
 
 > StepsForm 继承了 Form.Provider ，相关文档可以看[这里](https://ant.design/components/form-cn/#Form.Provider),转化 moment 的值是 ProForm 提供的功能，所以 `onFormFinish` 和 `onFormChange` 其中的值都是未经转化的。
 

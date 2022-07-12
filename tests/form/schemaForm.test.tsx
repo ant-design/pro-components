@@ -513,9 +513,7 @@ describe('SchemaForm', () => {
           },
           {
             valueType: 'dependency',
-            fieldProps: {
-              name: ['name', ['name2', 'text']],
-            },
+            name: ['name', ['name2', 'text']],
             columns: (values) => [
               {
                 valueType: 'select',

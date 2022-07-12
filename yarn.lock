@@ -33,31 +33,6 @@
     classnames "^2.2.6"
     rc-util "^5.9.4"
 
-"@ant-design/pro-layout@7.0.1-beta.26":
-  version "7.0.1-beta.26"
-  resolved "https://registry.npmmirror.com/@ant-design/pro-layout/-/pro-layout-7.0.1-beta.26.tgz#21b257b9303cc3b2daa3bfd9e64719ce3e4219bc"
-  integrity sha512-YHDTK0+DUgVB1BMJbbILsI+5BQr7HBdhq1Hh9wB/przjWV1ShClVpx9NUldhBR7cbrgGtx8VV9xfZqq6C+LABQ==
-  dependencies:
-    "@ant-design/icons" "^4.0.0"
-    "@ant-design/pro-provider" "1.8.0"
-    "@ant-design/pro-utils" "1.42.3"
-    "@babel/runtime" "^7.18.0"
-    "@emotion/css" "^11.5.0"
-    "@umijs/route-utils" "^2.1.0"
-    "@umijs/ssr-darkreader" "^4.9.44"
-    "@umijs/use-params" "^1.0.9"
-    classnames "^2.2.6"
-    lodash.merge "^4.6.2"
-    omit.js "^2.0.2"
-    path-to-regexp "2.4.0"
-    rc-resize-observer "^1.1.0"
-    rc-util "^5.0.6"
-    swr "^1.2.0"
-    unstated-next "^1.1.0"
-    use-json-comparison "^1.0.3"
-    use-media-antd-query "^1.1.0"
-    warning "^4.0.3"
-
 "@ant-design/react-slick@~0.29.1":
   version "0.29.2"
   resolved "https://registry.npmmirror.com/@ant-design/react-slick/-/react-slick-0.29.2.tgz#53e6a7920ea3562eebb304c15a7fc2d7e619d29c"
