@@ -1,7 +1,7 @@
 ﻿import type { ButtonProps, InputProps } from 'antd';
 import { Button, Form, Input } from 'antd';
 import type { NamePath } from 'antd/lib/form/interface';
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useImperativeHandle, useState } from 'react';
 import { createField } from '../../BaseForm/createField';
 import type { ProFormFieldItemProps } from '../../interface';
 
@@ -23,6 +23,11 @@ export type ProFormCaptchaProps = ProFormFieldItemProps<InputProps> & {
 
   value?: any;
   onChange?: any;
+};
+
+export type CaptFieldRef = {
+  startTiming: () => never;
+  endTiming: () => never;
 };
 
 const BaseProFormCaptcha: React.FC<ProFormCaptchaProps> = React.forwardRef((props, ref: any) => {
@@ -55,6 +60,13 @@ const BaseProFormCaptcha: React.FC<ProFormCaptchaProps> = React.forwardRef((prop
       console.log(error);
     }
   };
+  /**
+   * 暴露ref方法
+   */
+  useImperativeHandle(ref, () => ({
+    startTiming: () => setTiming(true),
+    endTiming: () => setTiming(false),
+  }));
 
   useEffect(() => {
     let interval: number = 0;
@@ -75,7 +87,6 @@ const BaseProFormCaptcha: React.FC<ProFormCaptchaProps> = React.forwardRef((prop
     return () => clearInterval(interval);
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [timing]);
-
   return (
     <Form.Item noStyle shouldUpdate>
       {({ getFieldValue, validateFields }) => (

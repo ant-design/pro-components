@@ -1,6 +1,27 @@
 import type * as H from 'history';
 import type React from 'react';
-import type { match, RouteComponentProps as BasicRouteProps } from 'react-router-dom';
+
+export interface StaticContext {
+  statusCode?: number | undefined;
+}
+
+export interface BasicRouteProps<
+  Params extends { [K in keyof Params]?: string } = {},
+  C extends StaticContext = StaticContext,
+  S = H.LocationState,
+> {
+  history: H.History<S>;
+  location: H.Location<S>;
+  match: match<Params>;
+  staticContext?: C | undefined;
+}
+
+export interface match<Params extends { [K in keyof Params]?: string } = {}> {
+  params: Params;
+  isExact: boolean;
+  path: string;
+  url: string;
+}
 
 export type LinkProps = {
   to: H.LocationDescriptor;

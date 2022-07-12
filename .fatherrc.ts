@@ -33,7 +33,11 @@ if (type === 'lib') {
     runtimeHelpers: true,
     pkgs: [...headPkgs, ...tailPkgs],
     extraBabelPlugins: [
-      ['babel-plugin-import', { libraryName: 'antd', libraryDirectory: 'es', style: true }, 'antd'],
+      [
+        'babel-plugin-import',
+        { libraryName: 'antd', libraryDirectory: 'lib', style: true },
+        'antd',
+      ],
     ],
   };
 }

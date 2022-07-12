@@ -104,7 +104,6 @@ const FieldTreeSelect: ProFieldFC<GroupProps> = (
     }
     return dom;
   }
-
   if (mode === 'edit') {
     const valuesLength = Array.isArray(fieldProps?.value) ? fieldProps?.value?.length : 0;
     let dom = (
@@ -134,7 +133,7 @@ const FieldTreeSelect: ProFieldFC<GroupProps> = (
           }
           {...fieldProps}
           bordered={!light}
-          treeData={(options || treeData) as TreeSelectProps['treeData']}
+          treeData={options as TreeSelectProps['treeData']}
           showSearch={showSearch}
           style={{
             minWidth: 60,

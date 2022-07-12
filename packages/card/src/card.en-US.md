@@ -1,7 +1,7 @@
 ---
 title: ProCard
 nav:
-  title: 组件
+  title: Components
   path: /components
 group:
   path: /

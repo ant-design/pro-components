@@ -10,6 +10,7 @@ import type { ColProps } from 'antd/lib/grid/col';
 import type React from 'react';
 import type { ProFormInstance } from './BaseForm';
 import type { ProFormItemProps } from './components';
+import type { CaptFieldRef } from './components/Captcha';
 
 export interface ProFormGridConfig {
   /**
@@ -82,6 +83,9 @@ export type ExtendsProps = {
   formItemProps?: FormItemProps;
   /** 给自定义组件行为开的口子 */
   filedConfig?: ProFormItemCreateConfig;
+
+  // 给proForm添加fieldRef,用来获取暴露的方法
+  fieldRef?: React.Ref<CaptFieldRef | null | undefined>;
 };
 
 export type GroupProps = {

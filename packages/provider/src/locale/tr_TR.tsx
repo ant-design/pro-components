@@ -61,6 +61,11 @@ export default {
       save: 'Kaydet',
       cancel: 'Vazgeç',
       delete: 'Sil',
+      add: 'foegje in rige gegevens ta',
     },
+  },
+  switch: {
+    open: 'açık',
+    close: 'kapatmak',
   },
 };

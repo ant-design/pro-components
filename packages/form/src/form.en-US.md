@@ -171,7 +171,7 @@ supported in `ProForm`, `SchemaForm`, `ModalForm`, `DrawerForm`, `StepsForm`
 
 ### Fixed footer
 
-<code src="./demos/layout-base.tsx" iframe="764px" />
+<code src="./demos/layout-base.tsx"  height="500px" iframe="500px" />
 
 ### Money
 
@@ -179,7 +179,7 @@ supported in `ProForm`, `SchemaForm`, `ModalForm`, `DrawerForm`, `StepsForm`
 
 ### Form linkage
 
-<code src="./demos/linkage-customization.tsx" heigh="1774px" />
+<code src="./demos/linkage-customization.tsx" height="1774px" />
 
 ## Layouts API
 

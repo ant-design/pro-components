@@ -81,9 +81,7 @@ const columns: ProFormColumnsType<DataItem>[] = [
   },
   {
     valueType: 'dependency',
-    fieldProps: {
-      name: ['title'],
-    },
+    name: ['title'],
     columns: ({ title }) => {
       return title !== 'hidden'
         ? [

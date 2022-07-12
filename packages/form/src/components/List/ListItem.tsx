@@ -276,13 +276,19 @@ const ProFormListItem: React.FC<
     };
   }, []);
   const getCurrentRowData = () => {
-    return formInstance.getFieldValue([originName, index?.toString()].flat(1).filter(Boolean));
+    return formInstance.getFieldValue(
+      [listContext.listName, originName, index?.toString()]
+        .flat(1)
+        .filter((item) => item !== null && item !== undefined),
+    );
   };
   const formListAction = {
     getCurrentRowData,
     setCurrentRowData: (data: Record<string, any>) => {
       const oldTableDate = formInstance?.getFieldsValue?.() || {};
-      const rowKeyName = [originName, index?.toString()].flat(1).filter(Boolean);
+      const rowKeyName = [listContext.listName, originName, index?.toString()]
+        .flat(1)
+        .filter(Boolean);
       const updateValues = set(oldTableDate, rowKeyName, {
         // 只是简单的覆盖，如果很复杂的话，需要自己处理
         ...getCurrentRowData(),
@@ -388,7 +394,7 @@ const ProFormListItem: React.FC<
   }, [deleteIconProps, min, count, loadingRemove, prefixCls, setLoadingRemove, action, field.name]);
 
   const defaultActionDom: React.ReactNode[] = useMemo(
-    () => [copyIcon, deleteIcon].filter(Boolean),
+    () => [copyIcon, deleteIcon].filter((item) => item !== null && item !== undefined),
     [copyIcon, deleteIcon],
   );
 
@@ -449,7 +455,6 @@ const ProFormListItem: React.FC<
 
   return (
     <FormListContext.Provider
-      key={field.name}
       value={{
         ...field,
         listName: [listContext.listName, originName, field.name]

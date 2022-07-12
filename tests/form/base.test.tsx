@@ -71,6 +71,40 @@ describe('ProForm', () => {
     expect(fn).toHaveBeenCalledWith('realDark');
   });
 
+  it('📦 ProForm support sync form url as important', async () => {
+    const fn = jest.fn();
+    const wrapper = mount<{ navTheme: string }>(
+      <ProForm
+        onFinish={async (values) => {
+          fn(values.navTheme);
+        }}
+        syncToUrl
+        syncToUrlAsImportant
+      >
+        <ProFormText
+          tooltip={{
+            title: '主题',
+            icon: <FontSizeOutlined />,
+          }}
+          name="navTheme"
+        />
+      </ProForm>,
+    );
+    await waitForComponentToPaint(wrapper);
+
+    act(() => {
+      wrapper.find('button.ant-btn-primary').simulate('click');
+    });
+    await waitForComponentToPaint(wrapper);
+    expect(fn).toHaveBeenCalledWith('realDark');
+
+    act(() => {
+      wrapper.find('button.ant-btn').at(1).simulate('click');
+    });
+    await waitForComponentToPaint(wrapper);
+    expect(fn).toHaveBeenCalledWith('realDark');
+  });
+
   it('📦 ProForm support sync form url and rest', async () => {
     const onFinish = jest.fn();
     const wrapper = mount<{ navTheme: string }>(
@@ -2445,5 +2479,67 @@ describe('ProForm', () => {
     );
 
     expect(html.baseElement.querySelectorAll('.ant-form-item-required').length).toBe(0);
+  });
+
+  it('📦 fix onChange will get empty object when you set labelInValue ture in ProForm', async () => {
+    const onChange = jest.fn();
+    const wrapper = mount(
+      <ProForm>
+        <ProFormSelect
+          fieldProps={{
+            labelInValue: true,
+            onChange(value) {
+              onChange(value);
+            },
+          }}
+          name="userQuery"
+          label="查询选择器"
+          valueEnum={{
+            all: { text: '全部', status: 'Default' },
+            open: {
+              text: '未解决',
+              status: 'Error',
+            },
+            closed: {
+              text: '已解决',
+              status: 'Success',
+            },
+            processing: {
+              text: '解决中',
+              status: 'Processing',
+            },
+          }}
+        />
+      </ProForm>,
+    );
+    await waitForComponentToPaint(wrapper);
+
+    act(() => {
+      wrapper.find('.ant-select-selector').simulate('mousedown');
+      wrapper.update();
+    });
+    await waitForComponentToPaint(wrapper);
+    // 选中第一个
+    act(() => {
+      wrapper.find('.ant-select-item').at(0).simulate('click');
+      wrapper.update();
+    });
+
+    await waitForComponentToPaint(wrapper);
+
+    // 鼠标移入选中区域
+    act(() => {
+      wrapper.find('.ant-select').simulate('mouseenter');
+      wrapper.update();
+    });
+    await waitForComponentToPaint(wrapper);
+
+    // 点击删除按钮进行删除操作
+    act(() => {
+      wrapper.find('span.ant-select-clear').last().simulate('mousedown');
+    });
+    await waitForComponentToPaint(wrapper);
+
+    expect(onChange).toBeCalledWith(undefined);
   });
 });

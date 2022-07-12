@@ -157,10 +157,6 @@ const WarpFormItem: React.FC<FormItemProps & WarpFormItemProps> = ({
     }
     return (
       <Form.Item
-        style={{
-          width: 'max-content',
-          maxWidth: '100%',
-        }}
         // @ts-ignore
         _internalItemRender={{
           mark: 'pro_table_render',
@@ -182,13 +178,7 @@ const WarpFormItem: React.FC<FormItemProps & WarpFormItemProps> = ({
                 }}
               >
                 {addonBefore ? <div style={{ marginRight: 8 }}>{addonBefore}</div> : null}
-                <div
-                  style={{
-                    flex: 1,
-                  }}
-                >
-                  {doms.input}
-                </div>
+                {doms.input}
                 {addonAfter ? <div style={{ marginLeft: 8 }}>{addonAfter}</div> : null}
               </div>
               {doms.extra}
@@ -338,6 +328,7 @@ const ProFormItem: React.FC<ProFormItemProps> = (props) => {
       {...formItemProps}
       {...rest}
       name={name}
+      isListField={formListField.name !== undefined}
     >
       {lightDom}
     </WarpFormItem>

@@ -10,33 +10,33 @@ nav:
 
 # StepsForm - 分步表单
 
-StepsForm 通过 Provider 来管理子表单的数据，每个字表单都是完整的数据，在 StepsForm 组合成最后的数据。同时自带了一个进度条，和管理进度条的相关 API.
+StepsForm 通过 Provider 来管理子表单的数据，每个子表单都是完整的数据，在 StepsForm 组合成最后的数据。同时自带了一个进度条，和管理进度条的相关 API.
 
 > StepsForm 继承了 Form.Provider ，相关文档可以看[这里](https://ant.design/components/form-cn/#Form.Provider),转化 moment 的值是 ProForm 提供的功能，所以 `onFormFinish` 和 `onFormChange` 其中的值都是未经转化的。
 
 ## 分步表单
 
-<code src="./demos/steps-from.tsx" height="532px" title="分步表单" />
+<code src="./demos/steps-from.tsx" height="658px" title="分步表单"/>
 
 ## 分步表单垂直模式
 
-<code src="./demos/steps-form-vertical.tsx" height="532px" title="分步表单垂直模式" />
+<code src="./demos/steps-form-vertical.tsx" height="582px" title="分步表单垂直模式"/>
 
 ## 自定义分步表单按钮
 
-<code src="./demos/customize-steps-from.tsx" height="532px" title="自定义分步表单按钮"/>
+<code src="./demos/customize-steps-from.tsx" height="614px" title="自定义分步表单按钮"/>
 
 ## 分步表单-多卡片
 
-<code src="./demos/multi-card-step-form.tsx"  background="#f5f5f5" height="868px" title="分步表单-多卡片"/>
+<code src="./demos/multi-card-step-form.tsx" background="#f5f5f5" height="950px" title="分步表单-多卡片"/>
 
 ## 分步表单-与 Modal 配合使用
 
-<code src="./demos/modal-step-form.tsx"  background="#f5f5f5" height="32px" title="分步表单-与 Modal 配合使用"/>
+<code src="./demos/modal-step-form.tsx" background="#f5f5f5" height="113px" title="分步表单-与 Modal 配合使用"/>
 
 ## 编辑场景下的分步表单
 
-<code src="./demos/add-or-edit-step-form.tsx" height="532px" title="自定义分步表单按钮"/>
+<code src="./demos/add-or-edit-step-form.tsx" height="349px" title="自定义分步表单按钮"/>
 
 ## API
 

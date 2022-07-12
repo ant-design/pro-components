@@ -1,5 +1,13 @@
 export default {
   moneySymbol: '₫',
+  form: {
+    lightFilter: {
+      more: 'Nhiều hơn',
+      clear: 'Trong',
+      confirm: 'Xác nhận',
+      itemUnit: 'Mục',
+    },
+  },
   tableForm: {
     search: 'Tìm kiếm',
     reset: 'Làm lại',
@@ -40,7 +48,24 @@ export default {
     densityMiddle: 'Trung bình',
     densitySmall: 'Chật',
   },
+  stepsForm: {
+    next: 'Sau',
+    prev: 'Trước',
+    submit: 'Kết thúc',
+  },
   loginForm: {
     submitText: 'Đăng nhập',
+  },
+  editableTable: {
+    action: {
+      save: 'Cứu',
+      cancel: 'Hủy',
+      delete: 'Xóa',
+      add: 'thêm một hàng dữ liệu',
+    },
+  },
+  switch: {
+    open: 'mở',
+    close: 'đóng',
   },
 };

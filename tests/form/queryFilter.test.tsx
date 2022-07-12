@@ -51,7 +51,6 @@ describe('QueryFilter', () => {
     await waitForComponentToPaint(wrapper);
     expect(wrapper.find('.ant-input').length).toEqual(3);
     expect(wrapper.find('.ant-row.ant-form-item-hidden').length).toEqual(1);
-    expect(wrapper.find('.anticon-down').length).toEqual(1);
     expect(onFinish).toHaveBeenCalledWith({
       a: 'testa',
       b: 'testb',
@@ -75,6 +74,7 @@ describe('QueryFilter', () => {
         <ProFormText label="a" name="a" />
         <ProFormText label="b" name="b" />
         <ProFormText label="c" name="c" />
+        <ProFormText label="d" name="d" />
       </QueryFilter>,
     );
     act(() => {
@@ -181,6 +181,8 @@ describe('QueryFilter', () => {
         <ProFormText label="b" name="b" />
         <ProFormText label="c" name="c" />
         <ProFormText label="d" name="d" />
+        <ProFormText label="e" name="e" />
+        <ProFormText label="f" name="f" />
       </QueryFilter>,
     );
 
@@ -214,6 +216,8 @@ describe('QueryFilter', () => {
         <ProFormText label="b" name="b" />
         <ProFormText label="c" name="c" />
         <ProFormText label="d" name="d" />
+        <ProFormText label="e" name="e" />
+        <ProFormText label="f" name="f" />
       </QueryFilter>,
     );
     expect(wrapper.find('a.ant-pro-form-collapse-button').text()).toBe('open');

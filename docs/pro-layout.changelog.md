@@ -1,13 +1,19 @@
 ---
 title: ProLayout - 更新日志
 nav:
-  title: 更新日志
+  title: Changelog
   path: /changelog
 group:
   path: /
 ---
 
 # Change Log
+
+## @ant-design/pro-layout@6.38.11
+
+`2022-07-06`
+
+- fix(layout): alway open new window. [bb03d5e](https://github.com/ant-design/pro-components/commit/bb03d5e)
 
 ## @ant-design/pro-layout@6.38.7
 

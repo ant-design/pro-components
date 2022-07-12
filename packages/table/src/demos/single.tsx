@@ -48,9 +48,10 @@ const columns: ProColumns<GithubIssueItem>[] = [
     dataIndex: 'state',
     filters: true,
     onFilter: true,
+    ellipsis: true,
     valueType: 'select',
     valueEnum: {
-      all: { text: '全部', status: 'Default' },
+      all: { text: '超长'.repeat(50) },
       open: {
         text: '未解决',
         status: 'Error',
@@ -170,6 +171,11 @@ export default () => {
       rowKey="id"
       search={{
         labelWidth: 'auto',
+      }}
+      options={{
+        setting: {
+          listsHeight: 400,
+        },
       }}
       form={{
         // 由于配置了 transform，提交的参与与定义的不同这里需要转化一下

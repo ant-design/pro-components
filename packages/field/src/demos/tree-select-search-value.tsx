@@ -1,4 +1,4 @@
-﻿import { ProFormTreeSelect } from '@ant-design/pro-components';
+﻿import { ProForm, ProFormTreeSelect } from '@ant-design/pro-components';
 import { useState } from 'react';
 
 const treeData = [
@@ -62,54 +62,80 @@ export default function App() {
 
   return (
     <div>
-      TreeSelect异步加载
-      <ProFormTreeSelect
-        name="name"
-        placeholder="请输入搜索关键字"
-        allowClear
-        width={330}
-        secondary
-        request={async () => {
-          return treeData;
-        }}
-        fieldProps={{
-          showArrow: false,
-          filterTreeNode: true,
-          showSearch: true, // 使单选模式可搜索
-          dropdownMatchSelectWidth: false,
-          searchValue,
-          labelInValue: true,
-          autoClearSearchValue: true,
-          open: selectOpen,
-          multiple: true,
-          treeNodeFilterProp: 'title',
-          fieldNames: {
-            label: 'title',
-            value: 'treeValue',
-          },
-          onBlur: () => onBlur(),
-          onFocus: () => onFocus(),
-          onSearch: (val) => onSearch(val),
-          onSelect: () => onSelect(),
-        }}
-      />
-      <div className="keys">
-        <b>常用关键字：</b>
-        {['l', 'c', 'a'].map((item) => {
-          return (
-            <span
-              key={item}
-              onClick={onClick}
-              style={{
-                marginLeft: 8,
-                cursor: 'pointer',
-              }}
-            >
-              {item}
-            </span>
-          );
-        })}
-      </div>
+      <ProForm>
+        <ProFormTreeSelect
+          name="name"
+          placeholder="请输入搜索关键字"
+          allowClear
+          width={330}
+          label="TreeSelect异步加载"
+          secondary
+          request={async () => {
+            return treeData;
+          }}
+          fieldProps={{
+            showArrow: false,
+            filterTreeNode: true,
+            showSearch: true, // 使单选模式可搜索
+            dropdownMatchSelectWidth: false,
+            searchValue,
+            labelInValue: true,
+            autoClearSearchValue: true,
+            open: selectOpen,
+            multiple: true,
+            treeNodeFilterProp: 'title',
+            fieldNames: {
+              label: 'title',
+              value: 'treeValue',
+            },
+            onBlur: () => onBlur(),
+            onFocus: () => onFocus(),
+            onSearch: (val) => onSearch(val),
+            onSelect: () => onSelect(),
+          }}
+        />
+        <ProFormTreeSelect
+          name="name2"
+          initialValue={['0-0', '0-1']}
+          label="TreeSelect treeData"
+          placeholder="请输入搜索关键字"
+          allowClear
+          width={330}
+          secondary
+          fieldProps={{
+            treeData,
+            showArrow: false,
+            filterTreeNode: true,
+            showSearch: true, // 使单选模式可搜索
+            dropdownMatchSelectWidth: false,
+            labelInValue: true,
+            autoClearSearchValue: true,
+            multiple: true,
+            treeNodeFilterProp: 'title',
+            fieldNames: {
+              label: 'title',
+              value: 'treeValue',
+            },
+          }}
+        />
+        <div className="keys">
+          <b>常用关键字：</b>
+          {['l', 'c', 'a'].map((item) => {
+            return (
+              <span
+                key={item}
+                onClick={onClick}
+                style={{
+                  marginLeft: 8,
+                  cursor: 'pointer',
+                }}
+              >
+                {item}
+              </span>
+            );
+          })}
+        </div>
+      </ProForm>
     </div>
   );
 }

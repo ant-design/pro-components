@@ -75,7 +75,7 @@ ProForm 是基于 antd Form 的可降级封装，与 antd 功能完全对齐，�
 | [LightFilter](/components/query-filter) | 一般用于作为行内内置的筛选，比如卡片操作栏和 表格操作栏。 |
 | [StepsForm](/components/steps-form) | 分步表单，需要配置 StepForm 使用。 |
 
-<code src="./demos/layout-change.tsx" height="488px" title="Form 的 layout 切换" />
+<code src="./demos/layout-change.tsx" height="709px" title="Form 的 layout 切换"/>
 
 ## 数据转化
 
@@ -160,49 +160,49 @@ formRef 内置了几个方法来获取转化之后的值，这也是相比 antd 
 
 ### 基本使用
 
-<code src="./demos/base.tsx" height="548px" title="基本使用" />
+<code src="./demos/base.tsx" height="974px" title="基本使用"/>
 
 ### 标签与表单项布局
 
 除了 `LightFilter` 和 `QueryFilter` 这样固定布局的表单样式，其他表单布局支持配置与 `antd` 一致的三种布局方式。
 
-<code src="./demos/form-layout.tsx" title="标签与表单项布局" />
+<code src="./demos/form-layout.tsx" title="标签与表单项布局" height="337px"/>
 
 ### 栅格化布局
 
 同时支持在 `ProForm`, `SchemaForm`, `ModalForm`, `DrawerForm`, `StepsForm` 中使用
 
-<code src="./demos/form-layout-grid.tsx" title="栅格化布局" />
+<code src="./demos/form-layout-grid.tsx" title="栅格化布局" height="437px"/>
 
 ### 表单联动
 
-<code src="./demos/dependency.tsx" height="248px" title="表单联动" />
+<code src="./demos/dependency.tsx" height="457px" title="表单联动"/>
 
 ### 表单方法调用
 
 你可以通过 `formRef` 获取到表单实例的引用，通过引用可以调用表单方法实现表单重置，设置表单，获取表单值等功能。
 
-<code src="./demos/formRef.tsx" height="248px" title="表单方法调用" />
+<code src="./demos/formRef.tsx" height="341px" title="表单方法调用"/>
 
 ### 同步提交结果到 url
 
 打开时也会把 url 的参数设置为默认值，支持 transform, 但是要注意字段的映射。
 
-<code src="./demos/sync-to-url.tsx" height="376px" title="同步提交结果到 url" />
+<code src="./demos/sync-to-url.tsx" height="371px" title="同步提交结果到 url"/>
 
 ### 金额
 
-<code src="./demos/money.tsx" height="248px" title="金额" />
+<code src="./demos/money.tsx" height="629px" title="金额"/>
 
 ### 固定页脚
 
-<code src="./demos/layout-base.tsx" iframe="764px" title="固定页脚" />
+<code src="./demos/layout-base.tsx" height="500px" iframe="874px" title="固定页脚"/>
 
 ### ProForm 和 EditableTable 同时使用
 
-<code src="./demos/pro-form-editableTable.tsx" heigh="1774px" title="ProForm 和 EditableTable 同时使用"/>
+<code src="./demos/pro-form-editableTable.tsx" height="534px" title="ProForm 和 EditableTable 同时使用"/>
 
-<code src="./demos/linkage-customization.tsx" heigh="1774px" debug/>
+<code src="./demos/linkage-customization.tsx" height="1774px" debug/>
 
 <code src="./demos/pro-form-dependency.debug.tsx" height="548px" title="formRef的使用" debug />
 <code src="./demos/label-col.tsx" height="548px"  debug />
@@ -332,33 +332,88 @@ ProFormInstance 与 antd 的 form 相比增加了一些能力。
 
 该属性是 ProForm 在原有的 Antd 的 `FormInstance` 的基础上做的一个上层分装，增加了一些更加便捷的方法。使用方式如下：
 
-<code src="./demos/formRef.tsx" height="548px" title="formRef的使用" />
+<code src="./demos/formRef.tsx" height="341px" title="formRef的使用"/>
 
 ```tsx | pure
-const App = () => {
-  // 绑定一个 ProFormInstance 实例
-  const formRef = useRef<
-    ProFormInstance<{
-      date: string;
-    }>
-  >();
+import type { ProFormInstance } from '@ant-design/pro-components';
+import { ProForm, ProFormDatePicker, ProFormText } from '@ant-design/pro-components';
+import { Button, message } from 'antd';
+import moment from 'moment';
+import { useRef } from 'react';
+
+const waitTime = (time: number = 100) => {
+  return new Promise((resolve) => {
+    setTimeout(() => {
+      resolve(true);
+    }, time);
+  });
+};
+
+export default () => {
+  const formRef = useRef<ProFormInstance>();
+  const onFill = () => {
+    formRef?.current?.setFieldsValue({
+      name: '张三',
+      company: '蚂蚁金服',
+    });
+  };
+
+  const getCompanyName = () => {
+    message.info(`公司名称为 "${formRef?.current?.getFieldValue('company')}"`);
+  };
+
+  const getFormatValues = () => {
+    console.log('格式化后的所有数据：', formRef.current?.getFieldsFormatValue?.());
+  };
+
+  const validateAndGetFormatValue = () => {
+    formRef.current?.validateFieldsReturnFormatValue?.().then((values) => {
+      console.log('校验表单并返回格式化后的所有数据：', values);
+    });
+  };
 
   return (
     <ProForm
-      onValuesChange={async () => {
-        formRef.current?.validateFieldsReturnFormatValue?.().then((val) => {
-          // 以下为格式化之后的表单值
-          console.log(val.date);
-        });
-      }}
-      // 通过formRef进行绑定
+      title="新建表单"
       formRef={formRef}
+      submitter={{
+        render: (props, doms) => {
+          return [
+            ...doms,
+            <Button htmlType="button" onClick={onFill} key="edit">
+              一键填写
+            </Button>,
+            <Button htmlType="button" onClick={getCompanyName} key="read">
+              读取公司
+            </Button>,
+            <Button.Group key="refs" style={{ display: 'block' }}>
+              <Button htmlType="button" onClick={getFormatValues} key="format">
+                获取格式化后的所有数据
+              </Button>
+              <Button htmlType="button" onClick={validateAndGetFormatValue} key="format">
+                校验表单并返回格式化后的所有数据
+              </Button>
+            </Button.Group>,
+          ];
+        },
+      }}
+      onFinish={async (values) => {
+        await waitTime(2000);
+        console.log(values);
+        message.success('提交成功');
+        return true;
+      }}
     >
-      <ProFormDatePicker
-        name="date"
-        initialValue={moment('2021-08-09')}
-        fieldProps={{ open: true }}
+      <ProFormText
+        width="md"
+        name="name"
+        label="签约客户名称"
+        tooltip="最长为 24 位"
+        placeholder="请输入名称"
       />
+
+      <ProFormText width="md" name="company" label="我方公司名称" placeholder="请输入名称" />
+      <ProFormDatePicker name="date" initialValue={moment('2021-08-09')} />
     </ProForm>
   );
 };

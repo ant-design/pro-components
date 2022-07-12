@@ -1,5 +1,13 @@
 export default {
   moneySymbol: '¥',
+  form: {
+    lightFilter: {
+      more: 'もっと',
+      clear: '明確',
+      confirm: '確認',
+      itemUnit: '項目',
+    },
+  },
   tableForm: {
     search: '検索',
     reset: 'リセット',
@@ -35,16 +43,29 @@ export default {
     exitFullScreen: '終了',
     reload: '更新',
     density: '行高',
+    densityDefault: 'デフォルト',
     densityLarger: '默认',
     densityMiddle: '中',
     densitySmall: '小',
   },
   stepsForm: {
     next: '次のステップ',
-    pre: '前へ',
+    prev: '前',
     submit: '送信',
   },
   loginForm: {
     submitText: 'ログイン',
+  },
+  editableTable: {
+    action: {
+      save: '救う',
+      cancel: 'キャンセル',
+      delete: '削除',
+      add: '1行のデータを追加します',
+    },
+  },
+  switch: {
+    open: 'オープン',
+    close: '近い',
   },
 };
