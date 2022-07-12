@@ -505,10 +505,24 @@ const BaseProLayout: React.FC<ProLayoutProps> = (props) => {
   // don't need padding in phone mode
   const hasLeftPadding = propsLayout !== 'top' && !isMobile;
 
-  const [collapsed, onCollapse] = useMergedState<boolean>(() => defaultCollapsed || false, {
-    value: props.collapsed,
-    onChange: propsOnCollapse,
-  });
+  const [collapsed, onCollapse] = useMergedState<boolean>(
+    () => {
+      if (process.env.NODE_ENV === 'TEST') {
+        return false;
+      }
+      if (defaultCollapsed !== undefined) {
+        return defaultCollapsed;
+      }
+      if (isMobile) return true;
+
+      if (colSize === 'md') return true;
+      return false;
+    },
+    {
+      value: props.collapsed,
+      onChange: propsOnCollapse,
+    },
+  );
 
   // Splicing parameters, adding menuData and formatMessage in props
   const defaultProps = Omit(

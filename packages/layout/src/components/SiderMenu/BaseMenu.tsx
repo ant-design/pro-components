@@ -225,7 +225,7 @@ class MenuUtil {
               key: (item.key! || item.path!) + '-group',
               style: {
                 padding: 0,
-                margin: this.props.collapsed ? '4px' : '16px 16px',
+                margin: this.props.collapsed ? '4px' : '12px 16px',
                 borderColor: designToken?.sider?.menuItemDividerColor,
               },
             } as ItemType)

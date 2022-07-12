@@ -1,4 +1,5 @@
 import { PageContainer, ProLayout } from '@ant-design/pro-components';
+import { render as libraryRender } from '@testing-library/react';
 import { mount, render } from 'enzyme';
 import { act } from 'react-dom/test-utils';
 import { waitForComponentToPaint } from '../util';
@@ -56,7 +57,7 @@ describe('BasicLayout', () => {
   });
 
   it('with default prefixCls props TopNavHeader', async () => {
-    const wrapper = mount(
+    const wrapper = libraryRender(
       <ProLayout
         {...defaultProps}
         layout="mix"
@@ -69,22 +70,32 @@ describe('BasicLayout', () => {
       </ProLayout>,
     );
     await waitForComponentToPaint(wrapper);
-    const domHeader = wrapper.find('.ant-pro-top-nav-header-logo');
 
     act(() => {
-      wrapper.setProps({
-        rightContentRender: () => (
-          <div
-            style={{
-              width: 200,
-            }}
-          >
-            xx
-          </div>
-        ),
-      });
+      wrapper.rerender(
+        <ProLayout
+          {...defaultProps}
+          layout="mix"
+          splitMenus
+          isMobile={false}
+          headerContentRender={() => <span />}
+          rightContentRender={() => (
+            <div
+              style={{
+                width: 200,
+              }}
+            >
+              xx
+            </div>
+          )}
+        >
+          <PageContainer title="name" />
+        </ProLayout>,
+      );
     });
-    expect(domHeader.exists()).toBe(true);
+    const domHeader = wrapper.baseElement.querySelector('.ant-pro-top-nav-header-logo');
+
+    expect(!!domHeader).toBe(true);
   });
 
   it('without custom prefixCls props TopNavHeader', async () => {
