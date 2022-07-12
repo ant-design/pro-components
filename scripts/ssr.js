@@ -25,6 +25,10 @@ const filterList = (filePath) => {
   if (filePath.startsWith('404')) {
     return false;
   }
+  if (filePath.includes(':uuid')) {
+    return false;
+  }
+
   if (fs.statSync(path.join(distPath, filePath)).isDirectory()) {
     return true;
   }
@@ -71,8 +75,8 @@ const loop = async () => {
   // 启动浏览器
   const browser = await puppeteer.launch({
     // 关闭无头模式，方便我们看到这个无头浏览器执行的过程
-    // headless: false,
-    timeout: 30000, // 默认超时为30秒，设置为0则表示不设置超时
+    headless: false,
+    timeout: 300000, // 默认超时为30秒，设置为0则表示不设置超时
   });
 
   // 打开空白页面
@@ -86,6 +90,10 @@ const loop = async () => {
     await page.goto(`http://localhost:3000/${htmlPage.replace('index.html', '')}`);
     const scrollHeight = await page.evaluate(() => {
       return document.body.scrollHeight;
+    });
+
+    await page.evaluateOnNewDocument(() => {
+      window.HeadlessChrome = true;
     });
     console.log('执行' + htmlPage + '页面!');
     await page.setViewport({
