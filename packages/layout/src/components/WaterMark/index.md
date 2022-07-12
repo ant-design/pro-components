@@ -31,6 +31,12 @@ nav:
 
 <code src="./demos/text.tsx" height="581px"/>
 
+### 多行文字水印
+
+通过 `content`设置 字符串数组 指定多行文字水印内容。
+
+<code src="./demos/textRows.tsx" height="581px"/>
+
 ### 图片水印
 
 通过 `image` 指定图片地址。为保证图片高清且不被拉伸，请传入水印图片的宽高 width 和 height, 并上传至少两倍的宽高的 logo 图片地址。
@@ -54,7 +60,7 @@ nav:
 | rotate | 水印绘制时，旋转的角度，单位 ° | number | -22 | 2.2.0 |
 | image | 图片源，建议导出 2 倍或 3 倍图，优先使用图片渲染水印 | `string` | - | 2.2.0 |
 | zIndex | 追加的水印元素的 z-index | number | 9 | 2.2.0 |
-| content | 水印文字内容 | `string` | - | 2.2.0 |
+| content | 水印文字内容 | `string` \| `string[]` | - | 2.2.0 |
 | fontColor | 水印文字颜色 | `string` | `rgba(0,0,0,.15)` | 2.2.0 |
 | fontSize | 文字大小 | `string` \| `number` | 16 | 2.2.0 |
 
