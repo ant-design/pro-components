@@ -376,6 +376,8 @@ const QueryFilterContent: React.FC<{
 
   /** 是否需要展示 collapseRender */
   const needCollapseRender = useMemo(() => {
+    console.log('totalSize, showLength, totalSpan', totalSize, showLength, totalSpan);
+
     if (totalSpan < 24 || totalSize <= showLength) {
       return false;
     }
@@ -453,7 +455,8 @@ function QueryFilter<T = Record<string, any>>(props: QueryFilterProps<T>) {
     if (defaultColsNumber !== undefined) {
       return defaultColsNumber;
     }
-    return Math.max(1, 24 / spanSize.span);
+    // 查询重置按钮也会占一个spanSize格子，需要减掉计算
+    return Math.max(1, 24 / spanSize.span - 1);
   }, [defaultColsNumber, spanSize.span]);
 
   /** 计算最大宽度防止溢出换行 */
