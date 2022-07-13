@@ -69,7 +69,11 @@ import type {
   UseEditableType,
   UseEditableUtilType,
 } from './useEditableArray';
-import useEditableArray, { editableRowByKey, recordKeyToString, defaultActionRender } from './useEditableArray';
+import useEditableArray, {
+  defaultActionRender,
+  editableRowByKey,
+  recordKeyToString,
+} from './useEditableArray';
 import type { UseEditableMapType, UseEditableMapUtilType } from './useEditableMap';
 import useEditableMap from './useEditableMap';
 import useMountMergeState from './useMountMergeState';
@@ -153,5 +157,5 @@ export {
   useDeepCompareEffectDebounce,
   useLatest,
   useDebounceValue,
-  defaultActionRender
+  defaultActionRender,
 };
