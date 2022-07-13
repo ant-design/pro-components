@@ -108,6 +108,7 @@ describe('ProTable 组件测试', () => {
     const state = { spinning: true, delay: 1000 };
     const html = mount(
       <ProTableSpinComp
+        poling={1000}
         loading={state}
         postData={(data: any) => {
           setTimeout(() => {
@@ -121,7 +122,7 @@ describe('ProTable 组件测试', () => {
 
   it('ProTable loading boolean 原逻辑不变 渲染正常', () => {
     const ProTableSpinComp = require('../../packages/table/src/index').default;
-    const componentWrapper = shallow(<ProTableSpinComp loading={true} />);
+    const componentWrapper = shallow(<ProTableSpinComp loading={true} poling={undefined} />);
     expect(componentWrapper.html()).toMatchSnapshot();
   });
 });
