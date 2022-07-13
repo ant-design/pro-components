@@ -811,6 +811,7 @@ function useEditableArray<RecordType>(
     editableKeys,
     setEditableRowKeys,
     isEditable,
+    defaultActionRender,
     actionRender,
     startEditable,
     cancelEditable,
