@@ -13205,7 +13205,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/LoginForm/demos/
         <div
           class="ant-pro-form-login-desc"
         >
-          全球最大同性交友网站
+          全球最大的代码托管平台
         </div>
       </div>
       <div
@@ -13674,7 +13674,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/LoginForm/demos/
           <div
             class="ant-pro-form-login-page-desc"
           >
-            全球最大同性交友网站
+            全球最大的代码托管平台
           </div>
         </div>
         <div

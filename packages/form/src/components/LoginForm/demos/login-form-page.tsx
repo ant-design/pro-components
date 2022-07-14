@@ -33,7 +33,7 @@ export default () => {
         backgroundImageUrl="https://gw.alipayobjects.com/zos/rmsportal/FfdJeJRQWjEeGTpqgBKj.png"
         logo="https://github.githubassets.com/images/modules/logos_page/Octocat.png"
         title="Github"
-        subTitle="全球最大同性交友网站"
+        subTitle="全球最大的代码托管平台"
         activityConfig={{
           style: {
             boxShadow: '0px 0px 8px rgba(0, 0, 0, 0.2)',
