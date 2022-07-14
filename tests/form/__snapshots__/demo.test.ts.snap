@@ -39376,7 +39376,917 @@ exports[`form demos 📸 renders ./packages/form/src/demos/labelInValue.tsx corr
 </DocumentFragment>
 `;
 
-exports[`form demos 📸 renders ./packages/form/src/demos/layout-base.tsx correctly 1`] = `
+exports[`form demos 📸 renders ./packages/form/src/demos/layout-change.tsx correctly 1`] = `
+<DocumentFragment>
+  <div
+    class="ant-row ant-form-item"
+  >
+    <div
+      class="ant-col ant-form-item-control"
+    >
+      <div
+        class="ant-form-item-control-input"
+      >
+        <div
+          class="ant-form-item-control-input-content"
+        >
+          <div
+            class="ant-radio-group ant-radio-group-outline ant-pro-field-radio-horizontal"
+          >
+            <label
+              class="ant-radio-button-wrapper ant-radio-button-wrapper-in-form-item"
+            >
+              <span
+                class="ant-radio-button"
+              >
+                <input
+                  class="ant-radio-button-input"
+                  type="radio"
+                  value="LightFilter"
+                />
+                <span
+                  class="ant-radio-button-inner"
+                />
+              </span>
+              <span>
+                LightFilter
+              </span>
+            </label>
+            <label
+              class="ant-radio-button-wrapper ant-radio-button-wrapper-checked ant-radio-button-wrapper-in-form-item"
+            >
+              <span
+                class="ant-radio-button ant-radio-button-checked"
+              >
+                <input
+                  checked=""
+                  class="ant-radio-button-input"
+                  type="radio"
+                  value="ProForm"
+                />
+                <span
+                  class="ant-radio-button-inner"
+                />
+              </span>
+              <span>
+                ProForm
+              </span>
+            </label>
+            <label
+              class="ant-radio-button-wrapper ant-radio-button-wrapper-in-form-item"
+            >
+              <span
+                class="ant-radio-button"
+              >
+                <input
+                  class="ant-radio-button-input"
+                  type="radio"
+                  value="ModalForm"
+                />
+                <span
+                  class="ant-radio-button-inner"
+                />
+              </span>
+              <span>
+                ModalForm
+              </span>
+            </label>
+            <label
+              class="ant-radio-button-wrapper ant-radio-button-wrapper-in-form-item"
+            >
+              <span
+                class="ant-radio-button"
+              >
+                <input
+                  class="ant-radio-button-input"
+                  type="radio"
+                  value="DrawerForm"
+                />
+                <span
+                  class="ant-radio-button-inner"
+                />
+              </span>
+              <span>
+                DrawerForm
+              </span>
+            </label>
+            <label
+              class="ant-radio-button-wrapper ant-radio-button-wrapper-in-form-item"
+            >
+              <span
+                class="ant-radio-button"
+              >
+                <input
+                  class="ant-radio-button-input"
+                  type="radio"
+                  value="QueryFilter"
+                />
+                <span
+                  class="ant-radio-button-inner"
+                />
+              </span>
+              <span>
+                QueryFilter
+              </span>
+            </label>
+            <label
+              class="ant-radio-button-wrapper ant-radio-button-wrapper-in-form-item"
+            >
+              <span
+                class="ant-radio-button"
+              >
+                <input
+                  class="ant-radio-button-input"
+                  type="radio"
+                  value="StepsForm"
+                />
+                <span
+                  class="ant-radio-button-inner"
+                />
+              </span>
+              <span>
+                StepsForm
+              </span>
+            </label>
+            <label
+              class="ant-radio-button-wrapper ant-radio-button-wrapper-in-form-item"
+            >
+              <span
+                class="ant-radio-button"
+              >
+                <input
+                  class="ant-radio-button-input"
+                  type="radio"
+                  value="LoginForm"
+                />
+                <span
+                  class="ant-radio-button-inner"
+                />
+              </span>
+              <span>
+                LoginForm
+              </span>
+            </label>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div
+    style="margin: 24px;"
+  >
+    <form
+      autocomplete="off"
+      class="ant-form ant-form-vertical"
+      labelwidth="auto"
+      trigger="[object Object]"
+    >
+      <input
+        style="display: none;"
+        type="text"
+      />
+      <div
+        class="ant-pro-form-group"
+      >
+        <div
+          class="ant-space ant-space-horizontal ant-space-align-start ant-pro-form-group-container"
+          style="row-gap: 0;"
+        >
+          <div
+            class="ant-space-item"
+            style="margin-right: 32px;"
+          >
+            <div
+              class="ant-row ant-form-item"
+            >
+              <div
+                class="ant-col ant-form-item-label"
+              >
+                <label
+                  class=""
+                  for="name"
+                  title="签约客户名称"
+                >
+                  签约客户名称
+                  <span
+                    aria-label="question-circle"
+                    class="anticon anticon-question-circle ant-form-item-tooltip"
+                    role="img"
+                    title=""
+                  >
+                    <svg
+                      aria-hidden="true"
+                      data-icon="question-circle"
+                      fill="currentColor"
+                      focusable="false"
+                      height="1em"
+                      viewBox="64 64 896 896"
+                      width="1em"
+                    >
+                      <path
+                        d="M512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm0 820c-205.4 0-372-166.6-372-372s166.6-372 372-372 372 166.6 372 372-166.6 372-372 372z"
+                      />
+                      <path
+                        d="M623.6 316.7C593.6 290.4 554 276 512 276s-81.6 14.5-111.6 40.7C369.2 344 352 380.7 352 420v7.6c0 4.4 3.6 8 8 8h48c4.4 0 8-3.6 8-8V420c0-44.1 43.1-80 96-80s96 35.9 96 80c0 31.1-22 59.6-56.1 72.7-21.2 8.1-39.2 22.3-52.1 40.9-13.1 19-19.9 41.8-19.9 64.9V620c0 4.4 3.6 8 8 8h48c4.4 0 8-3.6 8-8v-22.7a48.3 48.3 0 0130.9-44.8c59-22.7 97.1-74.7 97.1-132.5.1-39.3-17.1-76-48.3-103.3zM472 732a40 40 0 1080 0 40 40 0 10-80 0z"
+                      />
+                    </svg>
+                  </span>
+                </label>
+              </div>
+              <div
+                class="ant-col ant-form-item-control"
+              >
+                <div
+                  class="ant-form-item-control-input"
+                >
+                  <div
+                    class="ant-form-item-control-input-content"
+                  >
+                    <span
+                      class="ant-input-affix-wrapper ant-input-affix-wrapper-focused pro-field pro-field-md"
+                    >
+                      <input
+                        class="ant-input"
+                        id="name"
+                        placeholder="请输入名称"
+                        type="text"
+                        value="蚂蚁设计有限公司"
+                      />
+                      <span
+                        class="ant-input-suffix"
+                      >
+                        <span
+                          class="ant-input-clear-icon"
+                          role="button"
+                          tabindex="-1"
+                        >
+                          <span
+                            aria-label="close-circle"
+                            class="anticon anticon-close-circle"
+                            role="img"
+                          >
+                            <svg
+                              aria-hidden="true"
+                              data-icon="close-circle"
+                              fill="currentColor"
+                              focusable="false"
+                              height="1em"
+                              viewBox="64 64 896 896"
+                              width="1em"
+                            >
+                              <path
+                                d="M512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm165.4 618.2l-66-.3L512 563.4l-99.3 118.4-66.1.3c-4.4 0-8-3.5-8-8 0-1.9.7-3.7 1.9-5.2l130.1-155L340.5 359a8.32 8.32 0 01-1.9-5.2c0-4.4 3.6-8 8-8l66.1.3L512 464.6l99.3-118.4 66-.3c4.4 0 8 3.5 8 8 0 1.9-.7 3.7-1.9 5.2L553.5 514l130 155c1.2 1.5 1.9 3.3 1.9 5.2 0 4.4-3.6 8-8 8z"
+                              />
+                            </svg>
+                          </span>
+                        </span>
+                      </span>
+                    </span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div
+            class="ant-space-item"
+          >
+            <div
+              class="ant-row ant-form-item"
+            >
+              <div
+                class="ant-col ant-form-item-label"
+              >
+                <label
+                  class=""
+                  for="company"
+                  title="我方公司名称"
+                >
+                  我方公司名称
+                </label>
+              </div>
+              <div
+                class="ant-col ant-form-item-control"
+              >
+                <div
+                  class="ant-form-item-control-input"
+                >
+                  <div
+                    class="ant-form-item-control-input-content"
+                  >
+                    <span
+                      class="ant-input-affix-wrapper pro-field pro-field-md"
+                    >
+                      <input
+                        class="ant-input"
+                        id="company"
+                        placeholder="请输入名称"
+                        type="text"
+                        value=""
+                      />
+                      <span
+                        class="ant-input-suffix"
+                      >
+                        <span
+                          class="ant-input-clear-icon ant-input-clear-icon-hidden"
+                          role="button"
+                          tabindex="-1"
+                        >
+                          <span
+                            aria-label="close-circle"
+                            class="anticon anticon-close-circle"
+                            role="img"
+                          >
+                            <svg
+                              aria-hidden="true"
+                              data-icon="close-circle"
+                              fill="currentColor"
+                              focusable="false"
+                              height="1em"
+                              viewBox="64 64 896 896"
+                              width="1em"
+                            >
+                              <path
+                                d="M512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm165.4 618.2l-66-.3L512 563.4l-99.3 118.4-66.1.3c-4.4 0-8-3.5-8-8 0-1.9.7-3.7 1.9-5.2l130.1-155L340.5 359a8.32 8.32 0 01-1.9-5.2c0-4.4 3.6-8 8-8l66.1.3L512 464.6l99.3-118.4 66-.3c4.4 0 8 3.5 8 8 0 1.9-.7 3.7-1.9 5.2L553.5 514l130 155c1.2 1.5 1.9 3.3 1.9 5.2 0 4.4-3.6 8-8 8z"
+                              />
+                            </svg>
+                          </span>
+                        </span>
+                      </span>
+                    </span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div
+        class="ant-pro-form-group"
+      >
+        <div
+          class="ant-space ant-space-horizontal ant-space-align-start ant-pro-form-group-container"
+          style="row-gap: 0;"
+        >
+          <div
+            class="ant-space-item"
+            style="margin-right: 32px;"
+          >
+            <div
+              class="ant-row ant-form-item"
+            >
+              <div
+                class="ant-col ant-form-item-label"
+              >
+                <label
+                  class=""
+                  for="contract_name"
+                  title="合同名称"
+                >
+                  合同名称
+                </label>
+              </div>
+              <div
+                class="ant-col ant-form-item-control"
+              >
+                <div
+                  class="ant-form-item-control-input"
+                >
+                  <div
+                    class="ant-form-item-control-input-content"
+                  >
+                    <span
+                      class="ant-input-affix-wrapper pro-field pro-field-md"
+                    >
+                      <input
+                        class="ant-input"
+                        id="contract_name"
+                        placeholder="请输入名称"
+                        type="text"
+                        value=""
+                      />
+                      <span
+                        class="ant-input-suffix"
+                      >
+                        <span
+                          class="ant-input-clear-icon ant-input-clear-icon-hidden"
+                          role="button"
+                          tabindex="-1"
+                        >
+                          <span
+                            aria-label="close-circle"
+                            class="anticon anticon-close-circle"
+                            role="img"
+                          >
+                            <svg
+                              aria-hidden="true"
+                              data-icon="close-circle"
+                              fill="currentColor"
+                              focusable="false"
+                              height="1em"
+                              viewBox="64 64 896 896"
+                              width="1em"
+                            >
+                              <path
+                                d="M512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm165.4 618.2l-66-.3L512 563.4l-99.3 118.4-66.1.3c-4.4 0-8-3.5-8-8 0-1.9.7-3.7 1.9-5.2l130.1-155L340.5 359a8.32 8.32 0 01-1.9-5.2c0-4.4 3.6-8 8-8l66.1.3L512 464.6l99.3-118.4 66-.3c4.4 0 8 3.5 8 8 0 1.9-.7 3.7-1.9 5.2L553.5 514l130 155c1.2 1.5 1.9 3.3 1.9 5.2 0 4.4-3.6 8-8 8z"
+                              />
+                            </svg>
+                          </span>
+                        </span>
+                      </span>
+                    </span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div
+            class="ant-space-item"
+          >
+            <div
+              class="ant-row ant-form-item"
+            >
+              <div
+                class="ant-col ant-form-item-label"
+              >
+                <label
+                  class=""
+                  for="contract_createTime"
+                  title="合同生效时间"
+                >
+                  合同生效时间
+                </label>
+              </div>
+              <div
+                class="ant-col ant-form-item-control"
+              >
+                <div
+                  class="ant-form-item-control-input"
+                >
+                  <div
+                    class="ant-form-item-control-input-content"
+                  >
+                    <div
+                      class="ant-picker ant-picker-range pro-field pro-field-md"
+                    >
+                      <div
+                        class="ant-picker-input ant-picker-input-active"
+                      >
+                        <input
+                          autocomplete="off"
+                          id="contract_createTime"
+                          placeholder="请选择"
+                          readonly=""
+                          size="12"
+                          value=""
+                        />
+                      </div>
+                      <div
+                        class="ant-picker-range-separator"
+                      >
+                        <span
+                          aria-label="to"
+                          class="ant-picker-separator"
+                        >
+                          <span
+                            aria-label="swap-right"
+                            class="anticon anticon-swap-right"
+                            role="img"
+                          >
+                            <svg
+                              aria-hidden="true"
+                              data-icon="swap-right"
+                              fill="currentColor"
+                              focusable="false"
+                              height="1em"
+                              viewBox="0 0 1024 1024"
+                              width="1em"
+                            >
+                              <path
+                                d="M873.1 596.2l-164-208A32 32 0 00684 376h-64.8c-6.7 0-10.4 7.7-6.3 13l144.3 183H152c-4.4 0-8 3.6-8 8v60c0 4.4 3.6 8 8 8h695.9c26.8 0 41.7-30.8 25.2-51.8z"
+                              />
+                            </svg>
+                          </span>
+                        </span>
+                      </div>
+                      <div
+                        class="ant-picker-input"
+                      >
+                        <input
+                          autocomplete="off"
+                          placeholder="请选择"
+                          readonly=""
+                          size="12"
+                          value=""
+                        />
+                      </div>
+                      <div
+                        class="ant-picker-active-bar"
+                        style="left: 0px; width: 0px; position: absolute;"
+                      />
+                      <span
+                        class="ant-picker-suffix"
+                      >
+                        <span
+                          aria-label="calendar"
+                          class="anticon anticon-calendar"
+                          role="img"
+                        >
+                          <svg
+                            aria-hidden="true"
+                            data-icon="calendar"
+                            fill="currentColor"
+                            focusable="false"
+                            height="1em"
+                            viewBox="64 64 896 896"
+                            width="1em"
+                          >
+                            <path
+                              d="M880 184H712v-64c0-4.4-3.6-8-8-8h-56c-4.4 0-8 3.6-8 8v64H384v-64c0-4.4-3.6-8-8-8h-56c-4.4 0-8 3.6-8 8v64H144c-17.7 0-32 14.3-32 32v664c0 17.7 14.3 32 32 32h736c17.7 0 32-14.3 32-32V216c0-17.7-14.3-32-32-32zm-40 656H184V460h656v380zM184 392V256h128v48c0 4.4 3.6 8 8 8h56c4.4 0 8-3.6 8-8v-48h256v48c0 4.4 3.6 8 8 8h56c4.4 0 8-3.6 8-8v-48h128v136H184z"
+                            />
+                          </svg>
+                        </span>
+                      </span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div
+        class="ant-pro-form-group"
+      >
+        <div
+          class="ant-space ant-space-horizontal ant-space-align-start ant-pro-form-group-container"
+          style="row-gap: 0;"
+        >
+          <div
+            class="ant-space-item"
+            style="margin-right: 32px;"
+          >
+            <div
+              class="ant-row ant-form-item"
+            >
+              <div
+                class="ant-col ant-form-item-label"
+              >
+                <label
+                  class=""
+                  for="useMode"
+                  title="合同约定生效方式"
+                >
+                  合同约定生效方式
+                </label>
+              </div>
+              <div
+                class="ant-col ant-form-item-control"
+              >
+                <div
+                  class="ant-form-item-control-input"
+                >
+                  <div
+                    class="ant-form-item-control-input-content"
+                  >
+                    盖章后生效
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div
+            class="ant-space-item"
+          >
+            <div
+              class="ant-row ant-form-item"
+            >
+              <div
+                class="ant-col ant-form-item-label"
+              >
+                <label
+                  class=""
+                  for="unusedMode"
+                  title="合同约定失效效方式"
+                >
+                  合同约定失效效方式
+                </label>
+              </div>
+              <div
+                class="ant-col ant-form-item-control"
+              >
+                <div
+                  class="ant-form-item-control-input"
+                >
+                  <div
+                    class="ant-form-item-control-input-content"
+                  >
+                    <div
+                      class="ant-select ant-select-in-form-item ant-pro-filed-search-select pro-field pro-field-xs ant-select-single ant-select-allow-clear ant-select-show-arrow"
+                      style="min-width: 100px;"
+                    >
+                      <div
+                        class="ant-select-selector"
+                      >
+                        <span
+                          class="ant-select-selection-search"
+                        >
+                          <input
+                            aria-activedescendant="unusedMode_list_0"
+                            aria-autocomplete="list"
+                            aria-controls="unusedMode_list"
+                            aria-haspopup="listbox"
+                            aria-owns="unusedMode_list"
+                            autocomplete="off"
+                            class="ant-select-selection-search-input"
+                            id="unusedMode"
+                            readonly=""
+                            role="combobox"
+                            style="opacity: 0;"
+                            type="search"
+                            unselectable="on"
+                            value=""
+                          />
+                        </span>
+                        <span
+                          class="ant-select-selection-placeholder"
+                        >
+                          请选择
+                        </span>
+                      </div>
+                      <span
+                        aria-hidden="true"
+                        class="ant-select-arrow"
+                        style="user-select: none;"
+                        unselectable="on"
+                      >
+                        <span
+                          aria-label="down"
+                          class="anticon anticon-down ant-select-suffix"
+                          role="img"
+                        >
+                          <svg
+                            aria-hidden="true"
+                            data-icon="down"
+                            fill="currentColor"
+                            focusable="false"
+                            height="1em"
+                            viewBox="64 64 896 896"
+                            width="1em"
+                          >
+                            <path
+                              d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"
+                            />
+                          </svg>
+                        </span>
+                      </span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div
+        class="ant-row ant-form-item"
+      >
+        <div
+          class="ant-col ant-form-item-label"
+        >
+          <label
+            class=""
+            for="id"
+            title="主合同编号"
+          >
+            主合同编号
+          </label>
+        </div>
+        <div
+          class="ant-col ant-form-item-control"
+        >
+          <div
+            class="ant-form-item-control-input"
+          >
+            <div
+              class="ant-form-item-control-input-content"
+            >
+              <span
+                class="ant-input-affix-wrapper pro-field pro-field-sm"
+              >
+                <input
+                  class="ant-input"
+                  id="id"
+                  placeholder="请输入"
+                  type="text"
+                  value=""
+                />
+                <span
+                  class="ant-input-suffix"
+                >
+                  <span
+                    class="ant-input-clear-icon ant-input-clear-icon-hidden"
+                    role="button"
+                    tabindex="-1"
+                  >
+                    <span
+                      aria-label="close-circle"
+                      class="anticon anticon-close-circle"
+                      role="img"
+                    >
+                      <svg
+                        aria-hidden="true"
+                        data-icon="close-circle"
+                        fill="currentColor"
+                        focusable="false"
+                        height="1em"
+                        viewBox="64 64 896 896"
+                        width="1em"
+                      >
+                        <path
+                          d="M512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm165.4 618.2l-66-.3L512 563.4l-99.3 118.4-66.1.3c-4.4 0-8-3.5-8-8 0-1.9.7-3.7 1.9-5.2l130.1-155L340.5 359a8.32 8.32 0 01-1.9-5.2c0-4.4 3.6-8 8-8l66.1.3L512 464.6l99.3-118.4 66-.3c4.4 0 8 3.5 8 8 0 1.9-.7 3.7-1.9 5.2L553.5 514l130 155c1.2 1.5 1.9 3.3 1.9 5.2 0 4.4-3.6 8-8 8z"
+                        />
+                      </svg>
+                    </span>
+                  </span>
+                </span>
+              </span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div
+        class="ant-row ant-form-item"
+      >
+        <div
+          class="ant-col ant-form-item-label"
+        >
+          <label
+            class=""
+            for="project"
+            title="项目名称"
+          >
+            项目名称
+          </label>
+        </div>
+        <div
+          class="ant-col ant-form-item-control"
+        >
+          <div
+            class="ant-form-item-control-input"
+          >
+            <div
+              class="ant-form-item-control-input-content"
+            >
+              <span
+                class="ant-input-affix-wrapper ant-input-affix-wrapper-disabled pro-field pro-field-md"
+              >
+                <input
+                  class="ant-input ant-input-disabled"
+                  disabled=""
+                  id="project"
+                  placeholder="请输入"
+                  type="text"
+                  value="xxxx项目"
+                />
+                <span
+                  class="ant-input-suffix"
+                >
+                  <span
+                    class="ant-input-clear-icon ant-input-clear-icon-hidden"
+                    role="button"
+                    tabindex="-1"
+                  >
+                    <span
+                      aria-label="close-circle"
+                      class="anticon anticon-close-circle"
+                      role="img"
+                    >
+                      <svg
+                        aria-hidden="true"
+                        data-icon="close-circle"
+                        fill="currentColor"
+                        focusable="false"
+                        height="1em"
+                        viewBox="64 64 896 896"
+                        width="1em"
+                      >
+                        <path
+                          d="M512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm165.4 618.2l-66-.3L512 563.4l-99.3 118.4-66.1.3c-4.4 0-8-3.5-8-8 0-1.9.7-3.7 1.9-5.2l130.1-155L340.5 359a8.32 8.32 0 01-1.9-5.2c0-4.4 3.6-8 8-8l66.1.3L512 464.6l99.3-118.4 66-.3c4.4 0 8 3.5 8 8 0 1.9-.7 3.7-1.9 5.2L553.5 514l130 155c1.2 1.5 1.9 3.3 1.9 5.2 0 4.4-3.6 8-8 8z"
+                        />
+                      </svg>
+                    </span>
+                  </span>
+                </span>
+              </span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div
+        class="ant-row ant-form-item"
+      >
+        <div
+          class="ant-col ant-form-item-label"
+        >
+          <label
+            class=""
+            for="mangerName"
+            title="商务经理"
+          >
+            商务经理
+          </label>
+        </div>
+        <div
+          class="ant-col ant-form-item-control"
+        >
+          <div
+            class="ant-form-item-control-input"
+          >
+            <div
+              class="ant-form-item-control-input-content"
+            >
+              <span
+                class="ant-input-affix-wrapper ant-input-affix-wrapper-disabled pro-field pro-field-xs"
+              >
+                <input
+                  class="ant-input ant-input-disabled"
+                  disabled=""
+                  id="mangerName"
+                  placeholder="请输入"
+                  type="text"
+                  value="启途"
+                />
+                <span
+                  class="ant-input-suffix"
+                >
+                  <span
+                    class="ant-input-clear-icon ant-input-clear-icon-hidden"
+                    role="button"
+                    tabindex="-1"
+                  >
+                    <span
+                      aria-label="close-circle"
+                      class="anticon anticon-close-circle"
+                      role="img"
+                    >
+                      <svg
+                        aria-hidden="true"
+                        data-icon="close-circle"
+                        fill="currentColor"
+                        focusable="false"
+                        height="1em"
+                        viewBox="64 64 896 896"
+                        width="1em"
+                      >
+                        <path
+                          d="M512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm165.4 618.2l-66-.3L512 563.4l-99.3 118.4-66.1.3c-4.4 0-8-3.5-8-8 0-1.9.7-3.7 1.9-5.2l130.1-155L340.5 359a8.32 8.32 0 01-1.9-5.2c0-4.4 3.6-8 8-8l66.1.3L512 464.6l99.3-118.4 66-.3c4.4 0 8 3.5 8 8 0 1.9-.7 3.7-1.9 5.2L553.5 514l130 155c1.2 1.5 1.9 3.3 1.9 5.2 0 4.4-3.6 8-8 8z"
+                        />
+                      </svg>
+                    </span>
+                  </span>
+                </span>
+              </span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div
+        class="ant-space ant-space-horizontal ant-space-align-center"
+        style="flex-wrap: wrap; margin-bottom: -8px;"
+      >
+        <div
+          class="ant-space-item"
+          style="margin-right: 8px; padding-bottom: 8px;"
+        >
+          <button
+            class="ant-btn ant-btn-primary"
+            type="button"
+          >
+            <span>
+              提 交
+            </span>
+          </button>
+        </div>
+        <div
+          class="ant-space-item"
+          style="padding-bottom: 8px;"
+        >
+          <button
+            class="ant-btn ant-btn-default"
+            type="button"
+          >
+            <span>
+              重 置
+            </span>
+          </button>
+        </div>
+      </div>
+    </form>
+  </div>
+</DocumentFragment>
+`;
+
+exports[`form demos 📸 renders ./packages/form/src/demos/layout-footer.tsx correctly 1`] = `
 <DocumentFragment>
   <div
     class="ant-design-pro ant-pro-basicLayout screen-md ant-pro-basicLayout-fix-siderbar ant-pro-basicLayout-mix"
@@ -41118,916 +42028,6 @@ exports[`form demos 📸 renders ./packages/form/src/demos/layout-base.tsx corre
         </main>
       </div>
     </section>
-  </div>
-</DocumentFragment>
-`;
-
-exports[`form demos 📸 renders ./packages/form/src/demos/layout-change.tsx correctly 1`] = `
-<DocumentFragment>
-  <div
-    class="ant-row ant-form-item"
-  >
-    <div
-      class="ant-col ant-form-item-control"
-    >
-      <div
-        class="ant-form-item-control-input"
-      >
-        <div
-          class="ant-form-item-control-input-content"
-        >
-          <div
-            class="ant-radio-group ant-radio-group-outline ant-pro-field-radio-horizontal"
-          >
-            <label
-              class="ant-radio-button-wrapper ant-radio-button-wrapper-in-form-item"
-            >
-              <span
-                class="ant-radio-button"
-              >
-                <input
-                  class="ant-radio-button-input"
-                  type="radio"
-                  value="LightFilter"
-                />
-                <span
-                  class="ant-radio-button-inner"
-                />
-              </span>
-              <span>
-                LightFilter
-              </span>
-            </label>
-            <label
-              class="ant-radio-button-wrapper ant-radio-button-wrapper-checked ant-radio-button-wrapper-in-form-item"
-            >
-              <span
-                class="ant-radio-button ant-radio-button-checked"
-              >
-                <input
-                  checked=""
-                  class="ant-radio-button-input"
-                  type="radio"
-                  value="ProForm"
-                />
-                <span
-                  class="ant-radio-button-inner"
-                />
-              </span>
-              <span>
-                ProForm
-              </span>
-            </label>
-            <label
-              class="ant-radio-button-wrapper ant-radio-button-wrapper-in-form-item"
-            >
-              <span
-                class="ant-radio-button"
-              >
-                <input
-                  class="ant-radio-button-input"
-                  type="radio"
-                  value="ModalForm"
-                />
-                <span
-                  class="ant-radio-button-inner"
-                />
-              </span>
-              <span>
-                ModalForm
-              </span>
-            </label>
-            <label
-              class="ant-radio-button-wrapper ant-radio-button-wrapper-in-form-item"
-            >
-              <span
-                class="ant-radio-button"
-              >
-                <input
-                  class="ant-radio-button-input"
-                  type="radio"
-                  value="DrawerForm"
-                />
-                <span
-                  class="ant-radio-button-inner"
-                />
-              </span>
-              <span>
-                DrawerForm
-              </span>
-            </label>
-            <label
-              class="ant-radio-button-wrapper ant-radio-button-wrapper-in-form-item"
-            >
-              <span
-                class="ant-radio-button"
-              >
-                <input
-                  class="ant-radio-button-input"
-                  type="radio"
-                  value="QueryFilter"
-                />
-                <span
-                  class="ant-radio-button-inner"
-                />
-              </span>
-              <span>
-                QueryFilter
-              </span>
-            </label>
-            <label
-              class="ant-radio-button-wrapper ant-radio-button-wrapper-in-form-item"
-            >
-              <span
-                class="ant-radio-button"
-              >
-                <input
-                  class="ant-radio-button-input"
-                  type="radio"
-                  value="StepsForm"
-                />
-                <span
-                  class="ant-radio-button-inner"
-                />
-              </span>
-              <span>
-                StepsForm
-              </span>
-            </label>
-            <label
-              class="ant-radio-button-wrapper ant-radio-button-wrapper-in-form-item"
-            >
-              <span
-                class="ant-radio-button"
-              >
-                <input
-                  class="ant-radio-button-input"
-                  type="radio"
-                  value="LoginForm"
-                />
-                <span
-                  class="ant-radio-button-inner"
-                />
-              </span>
-              <span>
-                LoginForm
-              </span>
-            </label>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-  <div
-    style="margin: 24px;"
-  >
-    <form
-      autocomplete="off"
-      class="ant-form ant-form-vertical"
-      labelwidth="auto"
-      trigger="[object Object]"
-    >
-      <input
-        style="display: none;"
-        type="text"
-      />
-      <div
-        class="ant-pro-form-group"
-      >
-        <div
-          class="ant-space ant-space-horizontal ant-space-align-start ant-pro-form-group-container"
-          style="row-gap: 0;"
-        >
-          <div
-            class="ant-space-item"
-            style="margin-right: 32px;"
-          >
-            <div
-              class="ant-row ant-form-item"
-            >
-              <div
-                class="ant-col ant-form-item-label"
-              >
-                <label
-                  class=""
-                  for="name"
-                  title="签约客户名称"
-                >
-                  签约客户名称
-                  <span
-                    aria-label="question-circle"
-                    class="anticon anticon-question-circle ant-form-item-tooltip"
-                    role="img"
-                    title=""
-                  >
-                    <svg
-                      aria-hidden="true"
-                      data-icon="question-circle"
-                      fill="currentColor"
-                      focusable="false"
-                      height="1em"
-                      viewBox="64 64 896 896"
-                      width="1em"
-                    >
-                      <path
-                        d="M512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm0 820c-205.4 0-372-166.6-372-372s166.6-372 372-372 372 166.6 372 372-166.6 372-372 372z"
-                      />
-                      <path
-                        d="M623.6 316.7C593.6 290.4 554 276 512 276s-81.6 14.5-111.6 40.7C369.2 344 352 380.7 352 420v7.6c0 4.4 3.6 8 8 8h48c4.4 0 8-3.6 8-8V420c0-44.1 43.1-80 96-80s96 35.9 96 80c0 31.1-22 59.6-56.1 72.7-21.2 8.1-39.2 22.3-52.1 40.9-13.1 19-19.9 41.8-19.9 64.9V620c0 4.4 3.6 8 8 8h48c4.4 0 8-3.6 8-8v-22.7a48.3 48.3 0 0130.9-44.8c59-22.7 97.1-74.7 97.1-132.5.1-39.3-17.1-76-48.3-103.3zM472 732a40 40 0 1080 0 40 40 0 10-80 0z"
-                      />
-                    </svg>
-                  </span>
-                </label>
-              </div>
-              <div
-                class="ant-col ant-form-item-control"
-              >
-                <div
-                  class="ant-form-item-control-input"
-                >
-                  <div
-                    class="ant-form-item-control-input-content"
-                  >
-                    <span
-                      class="ant-input-affix-wrapper ant-input-affix-wrapper-focused pro-field pro-field-md"
-                    >
-                      <input
-                        class="ant-input"
-                        id="name"
-                        placeholder="请输入名称"
-                        type="text"
-                        value="蚂蚁设计有限公司"
-                      />
-                      <span
-                        class="ant-input-suffix"
-                      >
-                        <span
-                          class="ant-input-clear-icon"
-                          role="button"
-                          tabindex="-1"
-                        >
-                          <span
-                            aria-label="close-circle"
-                            class="anticon anticon-close-circle"
-                            role="img"
-                          >
-                            <svg
-                              aria-hidden="true"
-                              data-icon="close-circle"
-                              fill="currentColor"
-                              focusable="false"
-                              height="1em"
-                              viewBox="64 64 896 896"
-                              width="1em"
-                            >
-                              <path
-                                d="M512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm165.4 618.2l-66-.3L512 563.4l-99.3 118.4-66.1.3c-4.4 0-8-3.5-8-8 0-1.9.7-3.7 1.9-5.2l130.1-155L340.5 359a8.32 8.32 0 01-1.9-5.2c0-4.4 3.6-8 8-8l66.1.3L512 464.6l99.3-118.4 66-.3c4.4 0 8 3.5 8 8 0 1.9-.7 3.7-1.9 5.2L553.5 514l130 155c1.2 1.5 1.9 3.3 1.9 5.2 0 4.4-3.6 8-8 8z"
-                              />
-                            </svg>
-                          </span>
-                        </span>
-                      </span>
-                    </span>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div
-            class="ant-space-item"
-          >
-            <div
-              class="ant-row ant-form-item"
-            >
-              <div
-                class="ant-col ant-form-item-label"
-              >
-                <label
-                  class=""
-                  for="company"
-                  title="我方公司名称"
-                >
-                  我方公司名称
-                </label>
-              </div>
-              <div
-                class="ant-col ant-form-item-control"
-              >
-                <div
-                  class="ant-form-item-control-input"
-                >
-                  <div
-                    class="ant-form-item-control-input-content"
-                  >
-                    <span
-                      class="ant-input-affix-wrapper pro-field pro-field-md"
-                    >
-                      <input
-                        class="ant-input"
-                        id="company"
-                        placeholder="请输入名称"
-                        type="text"
-                        value=""
-                      />
-                      <span
-                        class="ant-input-suffix"
-                      >
-                        <span
-                          class="ant-input-clear-icon ant-input-clear-icon-hidden"
-                          role="button"
-                          tabindex="-1"
-                        >
-                          <span
-                            aria-label="close-circle"
-                            class="anticon anticon-close-circle"
-                            role="img"
-                          >
-                            <svg
-                              aria-hidden="true"
-                              data-icon="close-circle"
-                              fill="currentColor"
-                              focusable="false"
-                              height="1em"
-                              viewBox="64 64 896 896"
-                              width="1em"
-                            >
-                              <path
-                                d="M512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm165.4 618.2l-66-.3L512 563.4l-99.3 118.4-66.1.3c-4.4 0-8-3.5-8-8 0-1.9.7-3.7 1.9-5.2l130.1-155L340.5 359a8.32 8.32 0 01-1.9-5.2c0-4.4 3.6-8 8-8l66.1.3L512 464.6l99.3-118.4 66-.3c4.4 0 8 3.5 8 8 0 1.9-.7 3.7-1.9 5.2L553.5 514l130 155c1.2 1.5 1.9 3.3 1.9 5.2 0 4.4-3.6 8-8 8z"
-                              />
-                            </svg>
-                          </span>
-                        </span>
-                      </span>
-                    </span>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div
-        class="ant-pro-form-group"
-      >
-        <div
-          class="ant-space ant-space-horizontal ant-space-align-start ant-pro-form-group-container"
-          style="row-gap: 0;"
-        >
-          <div
-            class="ant-space-item"
-            style="margin-right: 32px;"
-          >
-            <div
-              class="ant-row ant-form-item"
-            >
-              <div
-                class="ant-col ant-form-item-label"
-              >
-                <label
-                  class=""
-                  for="contract_name"
-                  title="合同名称"
-                >
-                  合同名称
-                </label>
-              </div>
-              <div
-                class="ant-col ant-form-item-control"
-              >
-                <div
-                  class="ant-form-item-control-input"
-                >
-                  <div
-                    class="ant-form-item-control-input-content"
-                  >
-                    <span
-                      class="ant-input-affix-wrapper pro-field pro-field-md"
-                    >
-                      <input
-                        class="ant-input"
-                        id="contract_name"
-                        placeholder="请输入名称"
-                        type="text"
-                        value=""
-                      />
-                      <span
-                        class="ant-input-suffix"
-                      >
-                        <span
-                          class="ant-input-clear-icon ant-input-clear-icon-hidden"
-                          role="button"
-                          tabindex="-1"
-                        >
-                          <span
-                            aria-label="close-circle"
-                            class="anticon anticon-close-circle"
-                            role="img"
-                          >
-                            <svg
-                              aria-hidden="true"
-                              data-icon="close-circle"
-                              fill="currentColor"
-                              focusable="false"
-                              height="1em"
-                              viewBox="64 64 896 896"
-                              width="1em"
-                            >
-                              <path
-                                d="M512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm165.4 618.2l-66-.3L512 563.4l-99.3 118.4-66.1.3c-4.4 0-8-3.5-8-8 0-1.9.7-3.7 1.9-5.2l130.1-155L340.5 359a8.32 8.32 0 01-1.9-5.2c0-4.4 3.6-8 8-8l66.1.3L512 464.6l99.3-118.4 66-.3c4.4 0 8 3.5 8 8 0 1.9-.7 3.7-1.9 5.2L553.5 514l130 155c1.2 1.5 1.9 3.3 1.9 5.2 0 4.4-3.6 8-8 8z"
-                              />
-                            </svg>
-                          </span>
-                        </span>
-                      </span>
-                    </span>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div
-            class="ant-space-item"
-          >
-            <div
-              class="ant-row ant-form-item"
-            >
-              <div
-                class="ant-col ant-form-item-label"
-              >
-                <label
-                  class=""
-                  for="contract_createTime"
-                  title="合同生效时间"
-                >
-                  合同生效时间
-                </label>
-              </div>
-              <div
-                class="ant-col ant-form-item-control"
-              >
-                <div
-                  class="ant-form-item-control-input"
-                >
-                  <div
-                    class="ant-form-item-control-input-content"
-                  >
-                    <div
-                      class="ant-picker ant-picker-range pro-field pro-field-md"
-                    >
-                      <div
-                        class="ant-picker-input ant-picker-input-active"
-                      >
-                        <input
-                          autocomplete="off"
-                          id="contract_createTime"
-                          placeholder="请选择"
-                          readonly=""
-                          size="12"
-                          value=""
-                        />
-                      </div>
-                      <div
-                        class="ant-picker-range-separator"
-                      >
-                        <span
-                          aria-label="to"
-                          class="ant-picker-separator"
-                        >
-                          <span
-                            aria-label="swap-right"
-                            class="anticon anticon-swap-right"
-                            role="img"
-                          >
-                            <svg
-                              aria-hidden="true"
-                              data-icon="swap-right"
-                              fill="currentColor"
-                              focusable="false"
-                              height="1em"
-                              viewBox="0 0 1024 1024"
-                              width="1em"
-                            >
-                              <path
-                                d="M873.1 596.2l-164-208A32 32 0 00684 376h-64.8c-6.7 0-10.4 7.7-6.3 13l144.3 183H152c-4.4 0-8 3.6-8 8v60c0 4.4 3.6 8 8 8h695.9c26.8 0 41.7-30.8 25.2-51.8z"
-                              />
-                            </svg>
-                          </span>
-                        </span>
-                      </div>
-                      <div
-                        class="ant-picker-input"
-                      >
-                        <input
-                          autocomplete="off"
-                          placeholder="请选择"
-                          readonly=""
-                          size="12"
-                          value=""
-                        />
-                      </div>
-                      <div
-                        class="ant-picker-active-bar"
-                        style="left: 0px; width: 0px; position: absolute;"
-                      />
-                      <span
-                        class="ant-picker-suffix"
-                      >
-                        <span
-                          aria-label="calendar"
-                          class="anticon anticon-calendar"
-                          role="img"
-                        >
-                          <svg
-                            aria-hidden="true"
-                            data-icon="calendar"
-                            fill="currentColor"
-                            focusable="false"
-                            height="1em"
-                            viewBox="64 64 896 896"
-                            width="1em"
-                          >
-                            <path
-                              d="M880 184H712v-64c0-4.4-3.6-8-8-8h-56c-4.4 0-8 3.6-8 8v64H384v-64c0-4.4-3.6-8-8-8h-56c-4.4 0-8 3.6-8 8v64H144c-17.7 0-32 14.3-32 32v664c0 17.7 14.3 32 32 32h736c17.7 0 32-14.3 32-32V216c0-17.7-14.3-32-32-32zm-40 656H184V460h656v380zM184 392V256h128v48c0 4.4 3.6 8 8 8h56c4.4 0 8-3.6 8-8v-48h256v48c0 4.4 3.6 8 8 8h56c4.4 0 8-3.6 8-8v-48h128v136H184z"
-                            />
-                          </svg>
-                        </span>
-                      </span>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div
-        class="ant-pro-form-group"
-      >
-        <div
-          class="ant-space ant-space-horizontal ant-space-align-start ant-pro-form-group-container"
-          style="row-gap: 0;"
-        >
-          <div
-            class="ant-space-item"
-            style="margin-right: 32px;"
-          >
-            <div
-              class="ant-row ant-form-item"
-            >
-              <div
-                class="ant-col ant-form-item-label"
-              >
-                <label
-                  class=""
-                  for="useMode"
-                  title="合同约定生效方式"
-                >
-                  合同约定生效方式
-                </label>
-              </div>
-              <div
-                class="ant-col ant-form-item-control"
-              >
-                <div
-                  class="ant-form-item-control-input"
-                >
-                  <div
-                    class="ant-form-item-control-input-content"
-                  >
-                    盖章后生效
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div
-            class="ant-space-item"
-          >
-            <div
-              class="ant-row ant-form-item"
-            >
-              <div
-                class="ant-col ant-form-item-label"
-              >
-                <label
-                  class=""
-                  for="unusedMode"
-                  title="合同约定失效效方式"
-                >
-                  合同约定失效效方式
-                </label>
-              </div>
-              <div
-                class="ant-col ant-form-item-control"
-              >
-                <div
-                  class="ant-form-item-control-input"
-                >
-                  <div
-                    class="ant-form-item-control-input-content"
-                  >
-                    <div
-                      class="ant-select ant-select-in-form-item ant-pro-filed-search-select pro-field pro-field-xs ant-select-single ant-select-allow-clear ant-select-show-arrow"
-                      style="min-width: 100px;"
-                    >
-                      <div
-                        class="ant-select-selector"
-                      >
-                        <span
-                          class="ant-select-selection-search"
-                        >
-                          <input
-                            aria-activedescendant="unusedMode_list_0"
-                            aria-autocomplete="list"
-                            aria-controls="unusedMode_list"
-                            aria-haspopup="listbox"
-                            aria-owns="unusedMode_list"
-                            autocomplete="off"
-                            class="ant-select-selection-search-input"
-                            id="unusedMode"
-                            readonly=""
-                            role="combobox"
-                            style="opacity: 0;"
-                            type="search"
-                            unselectable="on"
-                            value=""
-                          />
-                        </span>
-                        <span
-                          class="ant-select-selection-placeholder"
-                        >
-                          请选择
-                        </span>
-                      </div>
-                      <span
-                        aria-hidden="true"
-                        class="ant-select-arrow"
-                        style="user-select: none;"
-                        unselectable="on"
-                      >
-                        <span
-                          aria-label="down"
-                          class="anticon anticon-down ant-select-suffix"
-                          role="img"
-                        >
-                          <svg
-                            aria-hidden="true"
-                            data-icon="down"
-                            fill="currentColor"
-                            focusable="false"
-                            height="1em"
-                            viewBox="64 64 896 896"
-                            width="1em"
-                          >
-                            <path
-                              d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"
-                            />
-                          </svg>
-                        </span>
-                      </span>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div
-        class="ant-row ant-form-item"
-      >
-        <div
-          class="ant-col ant-form-item-label"
-        >
-          <label
-            class=""
-            for="id"
-            title="主合同编号"
-          >
-            主合同编号
-          </label>
-        </div>
-        <div
-          class="ant-col ant-form-item-control"
-        >
-          <div
-            class="ant-form-item-control-input"
-          >
-            <div
-              class="ant-form-item-control-input-content"
-            >
-              <span
-                class="ant-input-affix-wrapper pro-field pro-field-sm"
-              >
-                <input
-                  class="ant-input"
-                  id="id"
-                  placeholder="请输入"
-                  type="text"
-                  value=""
-                />
-                <span
-                  class="ant-input-suffix"
-                >
-                  <span
-                    class="ant-input-clear-icon ant-input-clear-icon-hidden"
-                    role="button"
-                    tabindex="-1"
-                  >
-                    <span
-                      aria-label="close-circle"
-                      class="anticon anticon-close-circle"
-                      role="img"
-                    >
-                      <svg
-                        aria-hidden="true"
-                        data-icon="close-circle"
-                        fill="currentColor"
-                        focusable="false"
-                        height="1em"
-                        viewBox="64 64 896 896"
-                        width="1em"
-                      >
-                        <path
-                          d="M512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm165.4 618.2l-66-.3L512 563.4l-99.3 118.4-66.1.3c-4.4 0-8-3.5-8-8 0-1.9.7-3.7 1.9-5.2l130.1-155L340.5 359a8.32 8.32 0 01-1.9-5.2c0-4.4 3.6-8 8-8l66.1.3L512 464.6l99.3-118.4 66-.3c4.4 0 8 3.5 8 8 0 1.9-.7 3.7-1.9 5.2L553.5 514l130 155c1.2 1.5 1.9 3.3 1.9 5.2 0 4.4-3.6 8-8 8z"
-                        />
-                      </svg>
-                    </span>
-                  </span>
-                </span>
-              </span>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div
-        class="ant-row ant-form-item"
-      >
-        <div
-          class="ant-col ant-form-item-label"
-        >
-          <label
-            class=""
-            for="project"
-            title="项目名称"
-          >
-            项目名称
-          </label>
-        </div>
-        <div
-          class="ant-col ant-form-item-control"
-        >
-          <div
-            class="ant-form-item-control-input"
-          >
-            <div
-              class="ant-form-item-control-input-content"
-            >
-              <span
-                class="ant-input-affix-wrapper ant-input-affix-wrapper-disabled pro-field pro-field-md"
-              >
-                <input
-                  class="ant-input ant-input-disabled"
-                  disabled=""
-                  id="project"
-                  placeholder="请输入"
-                  type="text"
-                  value="xxxx项目"
-                />
-                <span
-                  class="ant-input-suffix"
-                >
-                  <span
-                    class="ant-input-clear-icon ant-input-clear-icon-hidden"
-                    role="button"
-                    tabindex="-1"
-                  >
-                    <span
-                      aria-label="close-circle"
-                      class="anticon anticon-close-circle"
-                      role="img"
-                    >
-                      <svg
-                        aria-hidden="true"
-                        data-icon="close-circle"
-                        fill="currentColor"
-                        focusable="false"
-                        height="1em"
-                        viewBox="64 64 896 896"
-                        width="1em"
-                      >
-                        <path
-                          d="M512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm165.4 618.2l-66-.3L512 563.4l-99.3 118.4-66.1.3c-4.4 0-8-3.5-8-8 0-1.9.7-3.7 1.9-5.2l130.1-155L340.5 359a8.32 8.32 0 01-1.9-5.2c0-4.4 3.6-8 8-8l66.1.3L512 464.6l99.3-118.4 66-.3c4.4 0 8 3.5 8 8 0 1.9-.7 3.7-1.9 5.2L553.5 514l130 155c1.2 1.5 1.9 3.3 1.9 5.2 0 4.4-3.6 8-8 8z"
-                        />
-                      </svg>
-                    </span>
-                  </span>
-                </span>
-              </span>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div
-        class="ant-row ant-form-item"
-      >
-        <div
-          class="ant-col ant-form-item-label"
-        >
-          <label
-            class=""
-            for="mangerName"
-            title="商务经理"
-          >
-            商务经理
-          </label>
-        </div>
-        <div
-          class="ant-col ant-form-item-control"
-        >
-          <div
-            class="ant-form-item-control-input"
-          >
-            <div
-              class="ant-form-item-control-input-content"
-            >
-              <span
-                class="ant-input-affix-wrapper ant-input-affix-wrapper-disabled pro-field pro-field-xs"
-              >
-                <input
-                  class="ant-input ant-input-disabled"
-                  disabled=""
-                  id="mangerName"
-                  placeholder="请输入"
-                  type="text"
-                  value="启途"
-                />
-                <span
-                  class="ant-input-suffix"
-                >
-                  <span
-                    class="ant-input-clear-icon ant-input-clear-icon-hidden"
-                    role="button"
-                    tabindex="-1"
-                  >
-                    <span
-                      aria-label="close-circle"
-                      class="anticon anticon-close-circle"
-                      role="img"
-                    >
-                      <svg
-                        aria-hidden="true"
-                        data-icon="close-circle"
-                        fill="currentColor"
-                        focusable="false"
-                        height="1em"
-                        viewBox="64 64 896 896"
-                        width="1em"
-                      >
-                        <path
-                          d="M512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm165.4 618.2l-66-.3L512 563.4l-99.3 118.4-66.1.3c-4.4 0-8-3.5-8-8 0-1.9.7-3.7 1.9-5.2l130.1-155L340.5 359a8.32 8.32 0 01-1.9-5.2c0-4.4 3.6-8 8-8l66.1.3L512 464.6l99.3-118.4 66-.3c4.4 0 8 3.5 8 8 0 1.9-.7 3.7-1.9 5.2L553.5 514l130 155c1.2 1.5 1.9 3.3 1.9 5.2 0 4.4-3.6 8-8 8z"
-                        />
-                      </svg>
-                    </span>
-                  </span>
-                </span>
-              </span>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div
-        class="ant-space ant-space-horizontal ant-space-align-center"
-        style="flex-wrap: wrap; margin-bottom: -8px;"
-      >
-        <div
-          class="ant-space-item"
-          style="margin-right: 8px; padding-bottom: 8px;"
-        >
-          <button
-            class="ant-btn ant-btn-primary"
-            type="button"
-          >
-            <span>
-              提 交
-            </span>
-          </button>
-        </div>
-        <div
-          class="ant-space-item"
-          style="padding-bottom: 8px;"
-        >
-          <button
-            class="ant-btn ant-btn-default"
-            type="button"
-          >
-            <span>
-              重 置
-            </span>
-          </button>
-        </div>
-      </div>
-    </form>
   </div>
 </DocumentFragment>
 `;
