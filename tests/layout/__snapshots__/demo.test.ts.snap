@@ -3909,6 +3909,23 @@ exports[`layout demos 📸 renders ./packages/layout/src/components/WaterMark/de
 </DocumentFragment>
 `;
 
+exports[`layout demos 📸 renders ./packages/layout/src/components/WaterMark/demos/textRows.tsx correctly 1`] = `
+<DocumentFragment>
+  <div
+    class="ant-pro-layout-watermark-wrapper"
+    style="position: relative;"
+  >
+    <div
+      style="height: 500px;"
+    />
+    <div
+      class="ant-pro-layout-watermark"
+      style="z-index: 9; position: absolute; left: 0px; top: 0px; width: 100%; height: 100%; background-size: 332px; pointer-events: none; background-repeat: repeat; background-image: url(data:image/png;base64,00);"
+    />
+  </div>
+</DocumentFragment>
+`;
+
 exports[`layout demos 📸 renders ./packages/layout/src/demos/AlwaysDefaultOpenAllMenu.tsx correctly 1`] = `
 <DocumentFragment>
   <div
@@ -15778,7 +15795,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/dynamicMenu.tsx c
   >
     <section
       class="ant-layout ant-layout-has-sider"
-      style="min-height: 100%; height: 100vh; border: 1px solid #ddd;"
+      style="min-height: 100%; height: 100vh;"
     >
       <aside
         class="ant-layout-sider ant-layout-sider-dark ant-pro-sider ant-pro-sider-layout-side"
