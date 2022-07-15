@@ -35,10 +35,12 @@ type ColumnRenderInterface<T> = {
  */
 export const renderColumnsTitle = (item: ProColumns<any>) => {
   const { title } = item;
+  // ellipsis 的类型 是 boolean | { showTitle?: boolean}
+  const ellipsis = typeof item?.ellipsis === 'boolean' ? item.ellipsis : item?.ellipsis?.showTitle;
   if (title && typeof title === 'function') {
     return title(item, 'table', <LabelIconTip label={null} tooltip={item.tooltip || item.tip} />);
   }
-  return <LabelIconTip label={title} tooltip={item.tooltip || item.tip} ellipsis={item.ellipsis} />;
+  return <LabelIconTip label={title} tooltip={item.tooltip || item.tip} ellipsis={ellipsis} />;
 };
 
 /** 判断可不可编辑 */
