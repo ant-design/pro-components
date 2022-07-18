@@ -13,9 +13,8 @@ group:
 
 `2022-07-14`
 
-* fix(form): fix ProFormUpload typescript error. [5d871ed](https://github.com/ant-design/pro-components/commit/5d871ed)
-* fix(form): collapse calculation rules changed (#5527). [#5527](https://github.com/ant-design/pro-components/pull/#5527) [@ONLY-yours](https://github.com/ONLY-yours)
-
+- fix(form): fix ProFormUpload typescript error. [5d871ed](https://github.com/ant-design/pro-components/commit/5d871ed)
+- fix(form): collapse calculation rules changed (#5527). [#5527](https://github.com/ant-design/pro-components/pull/#5527) [@ONLY-yours](https://github.com/ONLY-yours)
 
 ## @ant-design/pro-form@1.70.2
 

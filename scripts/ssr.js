@@ -120,5 +120,6 @@ const loop = async () => {
   await serve.close();
 };
 try {
+  if (process.env.TEST_UI) return;
   loop();
 } catch (error) {}
