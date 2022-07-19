@@ -5,6 +5,7 @@ import { render } from '@testing-library/react';
 import { Button } from 'antd';
 import { mount, shallow } from 'enzyme';
 import { useRef, useState } from 'react';
+import { act } from 'react-dom/test-utils';
 import { waitForComponentToPaint } from '../util';
 
 export type TableListItem = {
@@ -100,6 +101,30 @@ const ProTableSpinDemo = () => {
 };
 
 export default ProTableSpinDemo;
+
+describe('ProTable test', () => {
+  it('loading and polling props', async () => {
+    const html = mount(<ProTable loading={{ spinning: true, delay: 1000 }} polling={2000} />);
+    await waitForComponentToPaint(html, 1200);
+    act(() => {
+      html.setProps({
+        loading: { spinning: false, delay: 1000 },
+        polling: undefined,
+      });
+    });
+  });
+
+  it('boolean loading and polling props', async () => {
+    const html = mount(<ProTable loading={true} polling={2000} />);
+    await waitForComponentToPaint(html, 1200);
+    act(() => {
+      html.setProps({
+        loading: false,
+        polling: undefined,
+      });
+    });
+  });
+});
 
 describe('ProTable 组件测试', () => {
   it('Protable polling', async () => {
