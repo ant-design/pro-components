@@ -95,7 +95,7 @@
     "cross-env": "^7.0.2",
     "css-loader": "^5.0.2",
     "css-minimizer-webpack-plugin": "^1.2.0",
-    "dumi": "1.1.43",
+    "dumi": "^1.1.45",
     "enzyme": "^3.11.0",
     "enzyme-to-json": "^3.4.3",
     "eslint": "^7.2.0",
