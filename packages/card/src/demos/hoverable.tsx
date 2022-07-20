@@ -1,4 +1,4 @@
-import { ProCard } from '@ant-design/pro-components';
+import { ProCard } from '@ant-design/pro-card';
 
 export default () => {
   return (
