@@ -43,10 +43,11 @@
   "devDependencies": {
     "@types/classnames": "^2.2.10",
     "@types/lodash.tonumber": "^4.0.6",
-    "@types/react-color": "^3.0.4"
+    "@types/react-color": "^3.0.4",
+    "antd": ">=4.20.0",
+    "rc-resize-observer": "^0.2.3"
   },
   "peerDependencies": {
-    "antd": ">=4.20.0",
     "react": ">=16.9.0"
   }
 }

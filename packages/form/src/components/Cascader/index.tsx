@@ -13,7 +13,6 @@ const ProFormCascader: React.ForwardRefRenderFunction<
 > = ({ fieldProps, request, params, proFieldProps, ...rest }, ref) => {
   return (
     <ProField
-      mode="edit"
       valueType="cascader"
       fieldProps={fieldProps}
       ref={ref}

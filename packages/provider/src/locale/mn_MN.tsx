@@ -25,8 +25,8 @@ export default {
   pagination: {
     total: {
       range: ' ',
-      total: 'of',
-      item: 'нэгжүүд',
+      total: 'Нийт',
+      item: 'мөр',
     },
   },
   tableToolBar: {
@@ -38,7 +38,7 @@ export default {
     noFixedTitle: 'Зэрэгцүүлэхгүй',
     reset: 'Шинэчлэх',
     columnDisplay: 'Баганаар харуулах',
-    columnSetting: 'Тохихргоо',
+    columnSetting: 'Тохиргоо',
     fullScreen: 'Бүтэн дэлгэцээр',
     exitFullScreen: 'Бүтэн дэлгэц цуцлах',
     reload: 'Шинэчлэх',
@@ -61,7 +61,7 @@ export default {
       save: 'Хадгалах',
       cancel: 'Цуцлах',
       delete: 'Устгах',
-      add: 'мэдээллийн мөр нэмнэ',
+      add: 'Мөр нэмэх',
     },
   },
   switch: {

@@ -422,7 +422,8 @@ const PageContainer: React.FC<PageContainerProps> = (props) => {
     }
     // 如非上述两种情况，那么要么用户传了一个true,要么用户传了loading配置，使用genLoading生成loading配置后返回PageLoading
     const spinProps = genLoading(loading as boolean | SpinProps);
-    return <PageLoading {...spinProps} />;
+    // 如果传的是loading配置，但spinning传的是false，也不需要显示loading
+    return spinProps.spinning ? <PageLoading {...spinProps} /> : null;
   }, [loading]);
 
   const renderContentDom = useMemo(() => {

@@ -18,7 +18,6 @@ const ProFormDigit: React.ForwardRefRenderFunction<any, ProFormDigitProps> = (
 ) => {
   return (
     <ProFormField
-      mode="edit"
       valueType="digit"
       fieldProps={{
         min,
