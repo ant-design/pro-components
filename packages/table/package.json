@@ -49,8 +49,10 @@
     "use-json-comparison": "^1.0.5",
     "use-media-antd-query": "^1.1.0"
   },
+  "devDependencies": {
+    "antd": ">=4.20.0"
+  },
   "peerDependencies": {
-    "antd": ">=4.20.0",
     "rc-field-form": "^1.22.0",
     "react": ">=16.9.0",
     "react-dom": ">=16.9.0"

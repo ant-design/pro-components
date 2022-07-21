@@ -4302,10 +4302,10 @@
     "@umijs/doctor-linux-x64-gnu" "0.1.0"
     "@umijs/doctor-win32-x64-msvc" "0.1.0"
 
-"@umijs/fabric@^2.6.2":
-  version "2.12.2"
-  resolved "https://registry.npmmirror.com/@umijs/fabric/-/fabric-2.12.2.tgz#31df21bfdd2c6b2bff90fbfde5321cb04d79724b"
-  integrity sha512-3fLQ3SOFmyzEbv0ELUPBRMfgMGNkWtJVnhgMmcvgtOfq4g3croDVKQetxjfjJ3cfYqVGtFfbQJ//RuEdYU3+2A==
+"@umijs/fabric@^3.0.0":
+  version "3.0.0"
+  resolved "https://registry.npmmirror.com/@umijs/fabric/-/fabric-3.0.0.tgz#c85742ca7900e8c70b2a0ef10b0d4580c30c5252"
+  integrity sha512-1mkcltWbSfq0fioR4Bw8mabe1Vjo85LBE84eQM4E5uYXk2qW3zUMrZcp0z8a6RQQDiYitQl3ch8kqaDPStHODw==
   dependencies:
     "@babel/core" "^7.12.10"
     "@babel/eslint-parser" "^7.12.1"
@@ -4329,6 +4329,7 @@
     fast-glob "^3.2.4"
     os-locale "^5.0.0"
     prettier "^2.3.2"
+    prettier-plugin-organize-imports "^3.0.0"
     prettier-plugin-packagejson "^2.2.18"
     prettier-plugin-two-style-order "^1.0.0"
     stylelint "^13.0.0"
@@ -5078,7 +5079,57 @@ antd-mobile@^2.3.1:
     rmc-tabs "~1.2.0"
     rmc-tooltip "~1.0.0"
 
-antd@>=4.0, antd@^4.1.3, antd@^4.20.7:
+antd@>=4.20.0:
+  version "4.21.7"
+  resolved "https://registry.npmmirror.com/antd/-/antd-4.21.7.tgz#a542cbd46539c4de426245efa7bb459ae25cbcf5"
+  integrity sha512-rwPtY2tcMpckAbkQjI7EFtJoa13wog29vKcCJEcWUp8ePhszJI2JUVB67IJxs8ZdvwFmKijl0OSwOKnSkDOgJw==
+  dependencies:
+    "@ant-design/colors" "^6.0.0"
+    "@ant-design/icons" "^4.7.0"
+    "@ant-design/react-slick" "~0.29.1"
+    "@babel/runtime" "^7.18.3"
+    "@ctrl/tinycolor" "^3.4.0"
+    classnames "^2.2.6"
+    copy-to-clipboard "^3.2.0"
+    lodash "^4.17.21"
+    memoize-one "^6.0.0"
+    moment "^2.29.2"
+    rc-cascader "~3.6.0"
+    rc-checkbox "~2.3.0"
+    rc-collapse "~3.3.0"
+    rc-dialog "~8.9.0"
+    rc-drawer "~4.4.2"
+    rc-dropdown "~4.0.0"
+    rc-field-form "~1.26.1"
+    rc-image "~5.7.0"
+    rc-input "~0.0.1-alpha.5"
+    rc-input-number "~7.3.0"
+    rc-mentions "~1.9.0"
+    rc-menu "~9.6.0"
+    rc-motion "^2.5.1"
+    rc-notification "~4.6.0"
+    rc-pagination "~3.1.16"
+    rc-picker "~2.6.8"
+    rc-progress "~3.3.2"
+    rc-rate "~2.9.0"
+    rc-resize-observer "^1.2.0"
+    rc-segmented "~2.1.0"
+    rc-select "~14.1.1"
+    rc-slider "~10.0.0"
+    rc-steps "~4.1.0"
+    rc-switch "~3.2.0"
+    rc-table "~7.25.0"
+    rc-tabs "~11.16.0"
+    rc-textarea "~0.3.0"
+    rc-tooltip "~5.2.0"
+    rc-tree "~5.6.5"
+    rc-tree-select "~5.4.0"
+    rc-trigger "^5.2.10"
+    rc-upload "~4.3.0"
+    rc-util "^5.22.5"
+    scroll-into-view-if-needed "^2.2.25"
+
+antd@^4.1.3, antd@^4.20.7:
   version "4.21.6"
   resolved "https://registry.npmmirror.com/antd/-/antd-4.21.6.tgz#ab8441e132dca4e1418d7b3fba8caf9c93d9f74d"
   integrity sha512-6sizu/2CT0ofxl0nEvWUg5x2z7UOXZV+OqNcnQvrp+nGYI3ySAyzu8rxPvWIoA7NIa3TYnbrFayGy2gAqDGpuA==
@@ -16096,6 +16147,11 @@ prettier-plugin-organize-imports@^2.3.4:
   resolved "https://registry.npmmirror.com/prettier-plugin-organize-imports/-/prettier-plugin-organize-imports-2.3.4.tgz#65473861ae5ab7960439fff270a2258558fbe9ba"
   integrity sha512-R8o23sf5iVL/U71h9SFUdhdOEPsi3nm42FD/oDYIZ2PQa4TNWWuWecxln6jlIQzpZTDMUeO1NicJP6lLn2TtRw==
 
+prettier-plugin-organize-imports@^3.0.0:
+  version "3.0.0"
+  resolved "https://registry.npmmirror.com/prettier-plugin-organize-imports/-/prettier-plugin-organize-imports-3.0.0.tgz#39739423cc7069f2a3bfa58d14f8a502ff163df2"
+  integrity sha512-juSCJs5TMOqGGPaN/A/1xzWFzRPH2LG1LPLCr64dzKaVnPafJdtgDNmDVlU+8A4LbQzVJg0DTvgA8swBuIUhlg==
+
 prettier-plugin-packagejson@^2.2.18:
   version "2.2.18"
   resolved "https://registry.npmmirror.com/prettier-plugin-packagejson/-/prettier-plugin-packagejson-2.2.18.tgz#c5dc50208d7328b10011daea775fd358d43cab1b"
@@ -16674,6 +16730,18 @@ rc-mentions@~1.8.0:
     rc-trigger "^5.0.4"
     rc-util "^5.0.1"
 
+rc-mentions@~1.9.0:
+  version "1.9.0"
+  resolved "https://registry.npmmirror.com/rc-mentions/-/rc-mentions-1.9.0.tgz#0ddff6ab442dce58efa7b9f5ae561b0051173334"
+  integrity sha512-CSC2t8WxK8daS8lylJcquzCgKz4bXLAVNrSHXlTI8fNUy4toot8Sv79wT4fcP/bYgdt07/e3RXzkZfX6xjYYow==
+  dependencies:
+    "@babel/runtime" "^7.10.1"
+    classnames "^2.2.6"
+    rc-menu "~9.6.0"
+    rc-textarea "^0.3.0"
+    rc-trigger "^5.0.4"
+    rc-util "^5.22.5"
+
 rc-menu@~9.6.0:
   version "9.6.0"
   resolved "https://registry.npmmirror.com/rc-menu/-/rc-menu-9.6.0.tgz#3263a729a81ae49cfdadee112e97d3c702922829"
@@ -16900,6 +16968,15 @@ rc-tooltip@^5.0.1, rc-tooltip@~5.1.1:
   integrity sha512-alt8eGMJulio6+4/uDm7nvV+rJq9bsfxFDCI0ljPdbuoygUscbsMYb6EQgwib/uqsXQUvzk+S7A59uYHmEgmDA==
   dependencies:
     "@babel/runtime" "^7.11.2"
+    rc-trigger "^5.0.0"
+
+rc-tooltip@~5.2.0:
+  version "5.2.2"
+  resolved "https://registry.npmmirror.com/rc-tooltip/-/rc-tooltip-5.2.2.tgz#e5cafa8ecebf78108936a0bcb93c150fa81ac93b"
+  integrity sha512-jtQzU/18S6EI3lhSGoDYhPqNpWajMtS5VV/ld1LwyfrDByQpYmw/LW6U7oFXXLukjfDHQ7Ju705A82PRNFWYhg==
+  dependencies:
+    "@babel/runtime" "^7.11.2"
+    classnames "^2.3.1"
     rc-trigger "^5.0.0"
 
 rc-tree-select@~5.4.0:

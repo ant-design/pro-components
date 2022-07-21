@@ -42,8 +42,10 @@
     "react-sortable-hoc": "^2.0.0",
     "swr": "^1.2.0"
   },
+  "devDependencies": {
+    "antd": ">=4.20.0"
+  },
   "peerDependencies": {
-    "antd": ">=4.20.0",
     "react": ">=16.9.0",
     "react-dom": ">=16.9.0"
   },

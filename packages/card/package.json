@@ -41,10 +41,10 @@
     "rc-util": "^5.4.0"
   },
   "devDependencies": {
+    "antd": ">=4.20.0",
     "rc-resize-observer": "^0.2.3"
   },
   "peerDependencies": {
-    "antd": ">=4.20.0",
     "react": ">=16.9.0"
   },
   "publishConfig": {

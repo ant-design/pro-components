@@ -41,8 +41,11 @@
     "rc-util": "^5.0.6",
     "use-json-comparison": "^1.0.5"
   },
-  "peerDependencies": {
+  "devDependencies": {
     "antd": ">=4.20.0",
+    "rc-resize-observer": "^0.2.3"
+  },
+  "peerDependencies": {
     "react": ">=16.9.0"
   },
   "publishConfig": {
