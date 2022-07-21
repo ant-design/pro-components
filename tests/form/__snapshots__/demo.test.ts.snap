@@ -39,7 +39,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/Dependency/demos
             >
               <span
                 aria-live="polite"
-                style="width: 0px; height: 0px; display: flex; overflow: hidden; opacity: 0;"
+                style="width: 0px; height: 0px; position: absolute; overflow: hidden; opacity: 0;"
               />
               <div
                 class="ant-select-selector"
@@ -7647,7 +7647,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/FieldSet/demos/s
                     >
                       <span
                         aria-live="polite"
-                        style="width: 0px; height: 0px; display: flex; overflow: hidden; opacity: 0;"
+                        style="width: 0px; height: 0px; position: absolute; overflow: hidden; opacity: 0;"
                       />
                       <div
                         class="ant-select-selector"
@@ -15029,7 +15029,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/QueryFilter/demo
                         >
                           <span
                             aria-live="polite"
-                            style="width: 0px; height: 0px; display: flex; overflow: hidden; opacity: 0;"
+                            style="width: 0px; height: 0px; position: absolute; overflow: hidden; opacity: 0;"
                           >
                             打开, 关闭
                           </span>
@@ -16636,7 +16636,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/QueryFilter/demo
                       >
                         <span
                           aria-live="polite"
-                          style="width: 0px; height: 0px; display: flex; overflow: hidden; opacity: 0;"
+                          style="width: 0px; height: 0px; position: absolute; overflow: hidden; opacity: 0;"
                         >
                           男
                         </span>
@@ -17723,7 +17723,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/QueryFilter/demo
                         >
                           <span
                             aria-live="polite"
-                            style="width: 0px; height: 0px; display: flex; overflow: hidden; opacity: 0;"
+                            style="width: 0px; height: 0px; position: absolute; overflow: hidden; opacity: 0;"
                           />
                           <div
                             class="ant-select-selector"
@@ -18694,7 +18694,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/QueryFilter/demo
                         >
                           <span
                             aria-live="polite"
-                            style="width: 0px; height: 0px; display: flex; overflow: hidden; opacity: 0;"
+                            style="width: 0px; height: 0px; position: absolute; overflow: hidden; opacity: 0;"
                           >
                             打开, 关闭
                           </span>
@@ -24973,7 +24973,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/SchemaForm/demos
             >
               <span
                 aria-live="polite"
-                style="width: 0px; height: 0px; display: flex; overflow: hidden; opacity: 0;"
+                style="width: 0px; height: 0px; position: absolute; overflow: hidden; opacity: 0;"
               />
               <div
                 class="ant-select-selector"
@@ -29229,7 +29229,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/SchemaForm/demos
                   >
                     <span
                       aria-live="polite"
-                      style="width: 0px; height: 0px; display: flex; overflow: hidden; opacity: 0;"
+                      style="width: 0px; height: 0px; position: absolute; overflow: hidden; opacity: 0;"
                     >
                       123456
                     </span>
@@ -39789,7 +39789,7 @@ exports[`form demos 📸 renders ./packages/form/src/demos/labelInValue.tsx corr
             >
               <span
                 aria-live="polite"
-                style="width: 0px; height: 0px; display: flex; overflow: hidden; opacity: 0;"
+                style="width: 0px; height: 0px; position: absolute; overflow: hidden; opacity: 0;"
               />
               <div
                 class="ant-select-selector"
@@ -45932,7 +45932,7 @@ exports[`form demos 📸 renders ./packages/form/src/demos/sync-to-url.tsx corre
             >
               <span
                 aria-live="polite"
-                style="width: 0px; height: 0px; display: flex; overflow: hidden; opacity: 0;"
+                style="width: 0px; height: 0px; position: absolute; overflow: hidden; opacity: 0;"
               >
                 盖章后生效
               </span>
