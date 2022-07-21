@@ -24,9 +24,11 @@ const PageSkeleton: React.FC<
   if (type === 'result') {
     return <ResultPageSkeleton {...rest} />;
   }
+
   if (type === 'descriptions') {
     return <DescriptionsPageSkeleton {...rest} />;
   }
+
   return <ListPageSkeleton {...rest} />;
 };
 

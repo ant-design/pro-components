@@ -1,6 +1,5 @@
 ﻿import { ProLayout } from '@ant-design/pro-layout';
-import { render } from '@testing-library/react';
-import { mount } from 'enzyme';
+import { render as reactRender, render } from '@testing-library/react';
 import { act } from 'react-dom/test-utils';
 import { waitForComponentToPaint } from '../util';
 import defaultProps from './defaultProps';
@@ -99,11 +98,11 @@ describe('mobile BasicLayout', () => {
 
   it('📱 layout collapsedButtonRender', async () => {
     const onCollapse = jest.fn();
-    const html = mount(
+    const html = reactRender(
       <ProLayout
         {...defaultProps}
         onCollapse={onCollapse}
-        collapsed
+        collapsed={false}
         collapsedButtonRender={() => {
           return 'div';
         }}
@@ -114,11 +113,13 @@ describe('mobile BasicLayout', () => {
 
     waitForComponentToPaint(html);
     act(() => {
-      html.find('span.ant-pro-global-header-collapsed-button').simulate('click');
+      html.baseElement
+        ?.querySelector<HTMLSpanElement>('span.ant-pro-global-header-collapsed-button')
+        ?.click();
     });
     waitForComponentToPaint(html);
     act(() => {
-      html.find('div.ant-drawer-mask').simulate('click');
+      html.baseElement?.querySelector<HTMLDivElement>('div.ant-drawer-mask')?.click();
     });
     waitForComponentToPaint(html);
     expect(onCollapse).toHaveBeenCalled();

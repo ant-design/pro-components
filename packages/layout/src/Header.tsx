@@ -36,10 +36,10 @@ const getProLayoutHeaderCss = (designToken: LayoutDesignToken) => {
 
     ${isChangeHeaderBgColor && `background-color: ${designToken.header.headerBgColor}`}
     ${!isChangeHeaderBgColor &&
-    ` @supports (backdrop-filter: blur(8px) saturate(150%)) {
-        background-color: rgba(255,255,255,0.58);
-        backdrop-filter: blur(8px) saturate(150%);
-      }
+    `
+      background-color: rgba(255, 255, 255, 0.58);
+      -webkit-backdrop-filter: blur(8px);
+      backdrop-filter: blur(8px);
     `}
   `;
 };
@@ -86,7 +86,6 @@ const DefaultHeader: React.FC<HeaderViewProps & PrivateSiderMenuProps> = (props)
         {headerContentRender && headerContentRender(props, null)}
       </GlobalHeader>
     );
-
     if (isTop && !isMobile) {
       defaultDom = (
         <TopNavHeader
@@ -141,7 +140,7 @@ const DefaultHeader: React.FC<HeaderViewProps & PrivateSiderMenuProps> = (props)
   const right = needFixedHeader ? 0 : undefined;
 
   const headerCss = useMemo(() => {
-    if (layout === 'side') return undefined;
+    if (layout === 'side' && !isMobile) return undefined;
 
     return cx(
       needFixedHeader && ProLayoutFixedHeaderCss,
@@ -162,14 +161,14 @@ const DefaultHeader: React.FC<HeaderViewProps & PrivateSiderMenuProps> = (props)
     designToken,
     getHeaderActionsCss,
     headerHeight,
+    isMobile,
     layout,
     needFixedHeader,
     right,
     style,
   ]);
 
-  if (layout === 'side') return null;
-
+  if (layout === 'side' && !isMobile) return null;
   return (
     <>
       {needFixedHeader && (

@@ -2,6 +2,34 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [6.38.13](https://github.com/ant-design/pro-components/compare/@ant-design/pro-layout@6.38.12...@ant-design/pro-layout@6.38.13) (2022-07-14)
+
+### Bug Fixes
+
+- **layout:** defaultCollapsed should use useAntdMediaQuery ([cdf584a](https://github.com/ant-design/pro-components/commit/cdf584aae41d3633f3686de01aaaee76081e0189))
+- **layout:** 支持多行文字水印 ([#5524](https://github.com/ant-design/pro-components/issues/5524)) ([4c7b7d0](https://github.com/ant-design/pro-components/commit/4c7b7d0355b5bf940cccf1924179ced053d09e8f))
+
+## [6.38.12](https://github.com/ant-design/pro-components/compare/@ant-design/pro-layout@6.38.11...@ant-design/pro-layout@6.38.12) (2022-07-11)
+
+**Note:** Version bump only for package @ant-design/pro-layout
+
+## [6.38.11](https://github.com/ant-design/pro-components/compare/@ant-design/pro-layout@6.38.10...@ant-design/pro-layout@6.38.11) (2022-07-06)
+
+### Bug Fixes
+
+- **layout:** alway open new window ([bb03d5e](https://github.com/ant-design/pro-components/commit/bb03d5ef763a66da05a62a642071af4017027dad))
+
+## [6.38.10](https://github.com/ant-design/pro-components/compare/@ant-design/pro-layout@6.38.9...@ant-design/pro-layout@6.38.10) (2022-06-30)
+
+**Note:** Version bump only for package @ant-design/pro-layout
+
+## [6.38.9](https://github.com/ant-design/pro-components/compare/@ant-design/pro-layout@6.38.8...@ant-design/pro-layout@6.38.9) (2022-06-16)
+
+### Bug Fixes
+
+- **layout:** add ProLayout props ([f741437](https://github.com/ant-design/pro-components/commit/f741437c0a5c6a905f231fb960359f904cfcff11))
+- **layout:** proLayout 中 menuItemRender 的 menuProps 定义问题 ([#5217](https://github.com/ant-design/pro-components/issues/5217)) ([991dcd7](https://github.com/ant-design/pro-components/commit/991dcd7195db0fe03502a98cb9c30ec14571b8f1))
+
 ## [6.38.8](https://github.com/ant-design/pro-components/compare/@ant-design/pro-layout@6.38.7...@ant-design/pro-layout@6.38.8) (2022-06-02)
 
 **Note:** Version bump only for package @ant-design/pro-layout

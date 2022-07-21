@@ -1,12 +1,14 @@
 ﻿import { PlusOutlined } from '@ant-design/icons';
+import { useIntl } from '@ant-design/pro-provider';
 import { nanoid, runFunction } from '@ant-design/pro-utils';
 import { Button } from 'antd';
-import { omit } from 'lodash';
+import omit from 'omit.js';
 import { useMemo, useRef, useState } from 'react';
 import type { ProFormListItemProps } from './ListItem';
 import { ProFormListItem } from './ListItem';
 
 const ProFormListContainer: React.FC<ProFormListItemProps> = (props) => {
+  const intl = useIntl();
   const {
     creatorButtonProps,
     prefixCls,
@@ -67,7 +69,10 @@ const ProFormListContainer: React.FC<ProFormListItemProps> = (props) => {
 
   const creatorButton = useMemo(() => {
     if (creatorButtonProps === false || uuidFields.length === max) return null;
-    const { position = 'bottom', creatorButtonText = '添加一行数据' } = creatorButtonProps || {};
+    const {
+      position = 'bottom',
+      creatorButtonText = intl.getMessage('editableTable.action.add', '添加一行数据'),
+    } = creatorButtonProps || {};
     return (
       <Button
         className={`${prefixCls}-creator-button-${position}`}
@@ -82,14 +87,23 @@ const ProFormListContainer: React.FC<ProFormListItemProps> = (props) => {
           let index = uuidFields.length;
           // 如果是顶部，加到第一个，如果不是，为空就是最后一个
           if (position === 'top') index = 0;
-          await wrapperAction.add(runFunction(creatorRecord), index);
+          await wrapperAction.add(runFunction(creatorRecord) || {}, index);
           setLoading(false);
         }}
       >
         {creatorButtonText}
       </Button>
     );
-  }, [creatorButtonProps, prefixCls, loading, wrapperAction, creatorRecord, uuidFields, max]);
+  }, [
+    creatorButtonProps,
+    uuidFields.length,
+    max,
+    intl,
+    prefixCls,
+    loading,
+    wrapperAction,
+    creatorRecord,
+  ]);
 
   return (
     <div

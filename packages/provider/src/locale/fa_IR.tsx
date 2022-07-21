@@ -61,6 +61,11 @@ export default {
       save: 'ذخیره',
       cancel: 'لغو',
       delete: 'حذف',
+      add: 'یک ردیف داده اضافه کنید',
     },
+  },
+  switch: {
+    open: 'باز',
+    close: 'نزدیک',
   },
 };

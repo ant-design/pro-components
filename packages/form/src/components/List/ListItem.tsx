@@ -4,7 +4,6 @@ import { Spin, Tooltip } from 'antd';
 import type { FormListFieldData, FormListOperation, FormListProps } from 'antd/lib/form/FormList';
 import toArray from 'rc-util/lib/Children/toArray';
 import set from 'rc-util/lib/utils/set';
-import { noteOnce } from 'rc-util/lib/warning';
 import type { ReactNode } from 'react';
 import React, { useContext, useEffect, useMemo, useRef, useState } from 'react';
 import { FormListContext } from '.';
@@ -276,13 +275,19 @@ const ProFormListItem: React.FC<
     };
   }, []);
   const getCurrentRowData = () => {
-    return formInstance.getFieldValue([originName, index?.toString()].flat(1).filter(Boolean));
+    return formInstance.getFieldValue(
+      [listContext.listName, originName, index?.toString()]
+        .flat(1)
+        .filter((item) => item !== null && item !== undefined),
+    );
   };
   const formListAction = {
     getCurrentRowData,
     setCurrentRowData: (data: Record<string, any>) => {
       const oldTableDate = formInstance?.getFieldsValue?.() || {};
-      const rowKeyName = [originName, index?.toString()].flat(1).filter(Boolean);
+      const rowKeyName = [listContext.listName, originName, index?.toString()]
+        .flat(1)
+        .filter(Boolean);
       const updateValues = set(oldTableDate, rowKeyName, {
         // 只是简单的覆盖，如果很复杂的话，需要自己处理
         ...getCurrentRowData(),
@@ -309,19 +314,6 @@ const ProFormListItem: React.FC<
     })
     .map((childrenItem, itemIndex) => {
       if (React.isValidElement(childrenItem)) {
-        const hasKey =
-          !!childrenItem.key ||
-          !!childrenItem?.props?.name ||
-          childrenItem?.type?.toString() === 'Symbol(react.fragment)';
-
-        noteOnce(
-          hasKey,
-          'ProFormList 的 children 不设置 key 可能导致更新不及时或者修改不生效的问题，请设置 key。',
-        );
-        noteOnce(
-          hasKey,
-          "ProFormList's children do not set the key may cause updates not to be timely or the modification does not take effect, please set the key.",
-        );
         return React.cloneElement(childrenItem, {
           key: childrenItem.key || childrenItem?.props?.name || itemIndex,
           ...childrenItem?.props,
@@ -388,7 +380,7 @@ const ProFormListItem: React.FC<
   }, [deleteIconProps, min, count, loadingRemove, prefixCls, setLoadingRemove, action, field.name]);
 
   const defaultActionDom: React.ReactNode[] = useMemo(
-    () => [copyIcon, deleteIcon].filter(Boolean),
+    () => [copyIcon, deleteIcon].filter((item) => item !== null && item !== undefined),
     [copyIcon, deleteIcon],
   );
 
@@ -449,7 +441,6 @@ const ProFormListItem: React.FC<
 
   return (
     <FormListContext.Provider
-      key={field.name}
       value={{
         ...field,
         listName: [listContext.listName, originName, field.name]

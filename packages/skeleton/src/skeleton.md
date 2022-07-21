@@ -25,7 +25,7 @@ return <Skeleton type="list" />;
 
 ### List
 
-<code src="./demos/list.tsx" title="List" />
+<code src="./demos/list.tsx" title="List" height="903px"/>
 
 <code src="./demos/list.static.tsx" title="List" debug />
 

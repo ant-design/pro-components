@@ -2,6 +2,38 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.77.3](https://github.com/ant-design/pro-components/compare/@ant-design/pro-table@2.77.2...@ant-design/pro-table@2.77.3) (2022-07-14)
+
+**Note:** Version bump only for package @ant-design/pro-table
+
+## [2.77.2](https://github.com/ant-design/pro-components/compare/@ant-design/pro-table@2.77.1...@ant-design/pro-table@2.77.2) (2022-07-11)
+
+**Note:** Version bump only for package @ant-design/pro-table
+
+## [2.77.1](https://github.com/ant-design/pro-components/compare/@ant-design/pro-table@2.77.0...@ant-design/pro-table@2.77.1) (2022-07-06)
+
+### Bug Fixes
+
+- **form:** remove HOC when light=false ([5862557](https://github.com/ant-design/pro-components/commit/586255754db878c0c9efa4755ec7469e5cf0c386))
+- **table:** method coverRowKey 关于 at 兼容性问题修复 ([#5473](https://github.com/ant-design/pro-components/issues/5473)) ([154af3e](https://github.com/ant-design/pro-components/commit/154af3ed67baf2eaff45f08289518ae787c3812a))
+- ’添加一行数据'国际化问题 ([#5469](https://github.com/ant-design/pro-components/issues/5469)) ([85cc727](https://github.com/ant-design/pro-components/commit/85cc7275bb58e52e84f25594952d9612742102a0))
+
+# [2.77.0](https://github.com/ant-design/pro-components/compare/@ant-design/pro-table@2.76.4...@ant-design/pro-table@2.77.0) (2022-06-30)
+
+### Bug Fixes
+
+- **form:** fix cascader clear no work error-n ([#5381](https://github.com/ant-design/pro-components/issues/5381)) ([cf51175](https://github.com/ant-design/pro-components/commit/cf511755b738beb5bcb42b5bcf8393d55b83f722))
+- **table:** default close revalidateOnFocus ([#5441](https://github.com/ant-design/pro-components/issues/5441)) ([88f0782](https://github.com/ant-design/pro-components/commit/88f07825d125d3af56cc55588dcb1ff3edfccb55))
+- **table:** the table header should not be scroll ([#5410](https://github.com/ant-design/pro-components/issues/5410)) ([520246a](https://github.com/ant-design/pro-components/commit/520246a6acf0a13f51dbbe2fbb42bf702952ffbf))
+
+### Features
+
+- **table:** Make ColumnSetting heights editable ([#5449](https://github.com/ant-design/pro-components/issues/5449)) ([9739595](https://github.com/ant-design/pro-components/commit/973959503e994f677554f55db3838e4f1e23d738))
+
+## [2.76.4](https://github.com/ant-design/pro-components/compare/@ant-design/pro-table@2.76.3...@ant-design/pro-table@2.76.4) (2022-06-16)
+
+**Note:** Version bump only for package @ant-design/pro-table
+
 ## [2.76.3](https://github.com/ant-design/pro-components/compare/@ant-design/pro-table@2.76.2...@ant-design/pro-table@2.76.3) (2022-06-02)
 
 **Note:** Version bump only for package @ant-design/pro-table

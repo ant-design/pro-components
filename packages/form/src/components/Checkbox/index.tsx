@@ -20,7 +20,6 @@ const CheckboxGroup: React.FC<ProFormCheckboxGroupProps> = React.forwardRef(
     <ProFormField
       ref={ref}
       valueType="checkbox"
-      mode="edit"
       valueEnum={runFunction<[any]>(valueEnum, undefined)}
       fieldProps={{
         options,

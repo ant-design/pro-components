@@ -8,7 +8,7 @@ import {
 import ProCard from '@ant-design/pro-card';
 import { PageContainer, ProLayout } from '@ant-design/pro-layout';
 import { Button, Input } from 'antd';
-import React, { useState } from 'react';
+import { useState } from 'react';
 import defaultProps from './_defaultProps';
 
 export default () => {

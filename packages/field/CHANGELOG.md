@@ -2,6 +2,32 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.34.20](https://github.com/ant-design/pro-components/compare/@ant-design/pro-field@1.34.19...@ant-design/pro-field@1.34.20) (2022-07-11)
+
+### Bug Fixes
+
+- **form:** fix ProFormTreeSelect treedata no work error ([f13a811](https://github.com/ant-design/pro-components/commit/f13a8117f3467751e08f24ba88983be8d9c0002e))
+- **form:** 设置 labelInValue 为 true 时，onClear 触发后 select 的值非 undefined [#3810](https://github.com/ant-design/pro-components/issues/3810) ([#5485](https://github.com/ant-design/pro-components/issues/5485)) ([a255617](https://github.com/ant-design/pro-components/commit/a255617d384522834b1f5a7fe22c0b910be0a1d2))
+
+## [1.34.19](https://github.com/ant-design/pro-components/compare/@ant-design/pro-field@1.34.18...@ant-design/pro-field@1.34.19) (2022-07-06)
+
+### Bug Fixes
+
+- **form:** remove HOC when light=false ([5862557](https://github.com/ant-design/pro-components/commit/586255754db878c0c9efa4755ec7469e5cf0c386))
+
+## [1.34.18](https://github.com/ant-design/pro-components/compare/@ant-design/pro-field@1.34.17...@ant-design/pro-field@1.34.18) (2022-06-30)
+
+### Bug Fixes
+
+- **form:** fix cascader clear no work error-n ([#5381](https://github.com/ant-design/pro-components/issues/5381)) ([cf51175](https://github.com/ant-design/pro-components/commit/cf511755b738beb5bcb42b5bcf8393d55b83f722))
+
+## [1.34.17](https://github.com/ant-design/pro-components/compare/@ant-design/pro-field@1.34.16...@ant-design/pro-field@1.34.17) (2022-06-16)
+
+### Bug Fixes
+
+- **field:** valueType digit support precision ([#5347](https://github.com/ant-design/pro-components/issues/5347)) ([002c21b](https://github.com/ant-design/pro-components/commit/002c21be6e9f492782a8edc0dc4f139939e496d9))
+- **form:** SearchSelect component support fetchDataOnSearch ([#5321](https://github.com/ant-design/pro-components/issues/5321)) ([3c0cde3](https://github.com/ant-design/pro-components/commit/3c0cde32cc7491fef8665e314927e4bea2bbf97b))
+
 ## [1.34.16](https://github.com/ant-design/pro-components/compare/@ant-design/pro-field@1.34.15...@ant-design/pro-field@1.34.16) (2022-06-02)
 
 ### Bug Fixes

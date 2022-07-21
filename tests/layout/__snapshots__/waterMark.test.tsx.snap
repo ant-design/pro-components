@@ -22,23 +22,6 @@ exports[`WaterMark test image watermark 1`] = `
     >
       123
     </div>
-    <div
-      className="ant-pro-layout-watermark"
-      style={
-        Object {
-          "backgroundImage": "url('')",
-          "backgroundRepeat": "repeat",
-          "backgroundSize": "332px",
-          "height": "100%",
-          "left": 0,
-          "pointerEvents": "none",
-          "position": "absolute",
-          "top": 0,
-          "width": "100%",
-          "zIndex": 9,
-        }
-      }
-    />
   </div>
 </WaterMark>
 `;

@@ -40,6 +40,7 @@ export default {
       },
     ],
   ],
+  sitemap: { hostname: 'https://procomponents.ant.design' },
   metas: [
     {
       property: 'og:site_name',
@@ -80,12 +81,6 @@ export default {
     },
   ],
   alias,
-  // 用于切换 antd 暗黑模式
-  // antd: {
-  //   dark: true,
-  // },
-  headScripts: ['https://gw.alipayobjects.com/os/antfincdn/fdj3WlJd5c/darkreader.js'],
-  externals: { darkreader: 'window.DarkReader' },
   resolve: {
     includes: [...tailPkgList, 'docs'],
   },
@@ -109,11 +104,6 @@ export default {
       },
     ],
   },
-  analytics: isProduction
-    ? {
-        ga: 'UA-173569162-1',
-      }
-    : false,
   hash: true,
   targets: {
     chrome: 80,

@@ -45,7 +45,7 @@ const useFetchData = <T extends RequestData<any>>(
     onChange: options?.onDataSourceChange,
   });
 
-  const [tableLoading, setLoading] = useMountMergeState<UseFetchDataAction['loading']>(false, {
+  const [tableLoading, setTableLoading] = useMountMergeState<UseFetchDataAction['loading']>(false, {
     value: options?.loading,
     onChange: options?.onLoadingChange,
   });
@@ -95,10 +95,8 @@ const useFetchData = <T extends RequestData<any>>(
    * https://github.com/ant-design/pro-components/issues/4390
    */
   const requestFinally = useRefFunction(() => {
-    requestAnimationFrame(() => {
-      setLoading(false);
-      setPollingLoading(false);
-    });
+    setTableLoading(false);
+    setPollingLoading(false);
   });
   /** 请求数据 */
   const fetchList = async (isPolling: boolean) => {
@@ -112,7 +110,7 @@ const useFetchData = <T extends RequestData<any>>(
       return [];
     }
     if (!isPolling) {
-      setLoading(true);
+      setTableLoading(true);
     } else {
       setPollingLoading(true);
     }

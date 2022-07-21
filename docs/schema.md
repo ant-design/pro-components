@@ -118,7 +118,7 @@ export type ProSchema<T = unknown, U = string, Extra = unknown> = {
 
 ## valueType 列表
 
-<code src="./demos/valueType.tsx" height="154" title="schema 表单" />
+<code src="./demos/valueType.tsx" height="154px" title="schema 表单" />
 
 ### API
 
@@ -204,7 +204,7 @@ return { type: 'percent', showSymbol: true | false, precision: 2 };
 
 ### 自定义 valueType
 
-<code src="./demos/customization-value-type.tsx" height="154" title="schema 表单" />
+<code src="./demos/customization-value-type.tsx" height="154px" title="schema 表单" />
 
 ### valueEnum
 
@@ -286,7 +286,7 @@ const valueEnum = {
 };
 ```
 
-```tsx
+```tsx | pure
 import { ProFormSelect } from '@ant-design/pro-components';
 
 const valueEnum = {
@@ -363,7 +363,7 @@ const columns = [
 ];
 ```
 
-```tsx
+```tsx | pure
 import { ProFormSelect } from '@ant-design/pro-components';
 
 const options = [
@@ -432,7 +432,7 @@ const columns = [
 ];
 ```
 
-```tsx
+```tsx | pure
 import { ProForm, ProFormSelect, ProFormText } from '@ant-design/pro-components';
 
 const request = async (params) => {

@@ -228,7 +228,7 @@ Array [
         style="position:relative"
       >
         <header
-          class="ant-layout-header ant-pro-fixed-header-action ant-pro-top-menu ant-pro-header ant-design-pro-layout-1132ggj"
+          class="ant-layout-header ant-pro-fixed-header-action ant-pro-top-menu ant-pro-header ant-design-pro-layout-1vchm1k"
         >
           <div
             class="ant-pro-top-nav-header light ant-design-pro-layout-143khor"
@@ -240,7 +240,7 @@ Array [
                 class="ant-pro-top-nav-header-main-left ant-design-pro-layout-12ycn0f"
               >
                 <div
-                  class="ant-pro-top-nav-header-logo ant-design-pro-layout-x8fe4f"
+                  class="ant-pro-top-nav-header-logo ant-design-pro-layout-c10ook"
                   id="logo"
                 >
                   <a>
@@ -483,7 +483,7 @@ Array [
           style="height:56px;line-height:56px;background-color:transparent"
         />
         <header
-          class="ant-layout-header ant-pro-fixed-header ant-pro-fixed-header-action ant-pro-header ant-design-pro-layout-192kss7"
+          class="ant-layout-header ant-pro-fixed-header ant-pro-fixed-header-action ant-pro-header ant-design-pro-layout-ufars5"
         >
           <div
             class="ant-pro-global-header ant-pro-global-header-layout-mix ant-design-pro-layout-1n57u1k"
@@ -1227,7 +1227,7 @@ exports[`BasicLayout 🥩 mix layout hideInMenu render right 1`] = `
                   class="ant-pro-menu-item ant-design-pro-layout-70qvj9"
                 >
                   <span
-                    class="ant-pro-menu-item-title ant-design-pro-layout-nq2ff"
+                    class="ant-pro-menu-item-title"
                   >
                     列表页
                   </span>

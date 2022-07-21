@@ -76,6 +76,7 @@ const ColorPicker: React.FC<
             onChange={({ hex, rgb: { r, g, b, a } }) => {
               if (a && a < 1) {
                 setColor(`rgba(${r}, ${g}, ${b}, ${a})`);
+                return;
               }
               setColor(hex);
             }}

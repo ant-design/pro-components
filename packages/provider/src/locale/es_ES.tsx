@@ -5,7 +5,7 @@ export default {
       more: 'Más',
       clear: 'Limpiar',
       confirm: 'Confirmar',
-      itemsUnits: 'Objetos',
+      itemUnit: 'artículos',
     },
   },
   tableForm: {
@@ -61,6 +61,7 @@ export default {
       save: 'Guardar',
       cancel: 'Descartar',
       delete: 'Borrar',
+      add: 'añadir una fila de datos',
     },
   },
   switch: {

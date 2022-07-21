@@ -7,7 +7,7 @@ export const dependency: ProSchemaRenderValueTypeFunction = (item, { genItems })
   if (item.valueType === 'dependency') {
     const fieldProps = item.getFieldProps?.();
     noteOnce(
-      Array.isArray(fieldProps?.name),
+      Array.isArray(item.name ?? fieldProps?.name),
       'SchemaForm: fieldProps.name should be NamePath[] when valueType is "dependency"',
     );
     noteOnce(
@@ -15,10 +15,10 @@ export const dependency: ProSchemaRenderValueTypeFunction = (item, { genItems })
       'SchemaForm: columns should be a function when valueType is "dependency"',
     );
 
-    if (!Array.isArray(fieldProps?.name)) return null;
+    if (!Array.isArray(item.name ?? fieldProps?.name)) return null;
 
     return (
-      <ProFormDependency {...fieldProps} key={item.key}>
+      <ProFormDependency name={item.name} {...fieldProps} key={item.key}>
         {(values: any) => {
           if (!item.columns || typeof item.columns !== 'function') return null;
           return genItems(item.columns(values));

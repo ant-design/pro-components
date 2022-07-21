@@ -144,6 +144,11 @@ type BaseLayoutMenuDesignToken = {
    * menuItem 的选中字体颜色
    */
   menuSelectedTextColor: string;
+
+  /**
+   * 顶部 MenuItem 的 padding 设置
+   */
+  horizontalMenuItemPadding: string;
   /**
    * subMenuItem 的选中字体颜色
    */
@@ -284,6 +289,7 @@ export const DefaultDesignToken = {
     menuItemCollapsedSelectedBgColor: 'rgba(0, 0, 0, 0.04)',
     menuSelectedTextColor: 'rgb(0,0,0,0.95)',
     subMenuSelectedTextColor: 'rgb(0,0,0,0.95)',
+    horizontalMenuItemPadding: '0 20px',
   },
   header: {
     headerBgColor: 'rgba(240, 242, 245, 0.4)',

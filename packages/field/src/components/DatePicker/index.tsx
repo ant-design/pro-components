@@ -7,6 +7,17 @@ import React, { useContext, useState } from 'react';
 import type { ProFieldFC, ProFieldLightProps } from '../../index';
 import './index.less';
 
+const formatDate = (text: any, format: any) => {
+  if (!text) {
+    return '-';
+  }
+  if (typeof format === 'function') {
+    return format(moment(text));
+  } else {
+    return moment(text).format(format || 'YYYY-MM-DD');
+  }
+};
+
 /**
  * 日期选择组件
  *
@@ -46,7 +57,7 @@ const FieldDatePicker: ProFieldFC<
   const [open, setOpen] = useState<boolean>(false);
 
   if (mode === 'read') {
-    const dom = text ? moment(text).format(fieldProps.format || format || 'YYYY-MM-DD') : '-';
+    const dom = formatDate(text, fieldProps.format || format);
     if (render) {
       return render(text, { mode, ...fieldProps }, <>{dom}</>);
     }

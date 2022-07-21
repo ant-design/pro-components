@@ -120,6 +120,7 @@ const { Sider } = Layout;
 const CollapsedIcon: React.FC<any> = (props) => {
   const { isMobile, collapsed, ...rest } = props;
   const designToken = useContext(ProLayoutContext);
+  if (isMobile && collapsed) return null;
   return (
     <div
       {...rest}
@@ -140,7 +141,7 @@ const CollapsedIcon: React.FC<any> = (props) => {
           `),
         isMobile &&
           css(`  > svg {
-            right: ${collapsed ? '-18px' : '-12px'};
+            right: -16px;
             top: 72px;
             transform: ${collapsed ? 'rotate(-90deg) translate(8px, 0px)' : 'rotate(90deg)'};
           `),
@@ -175,9 +176,13 @@ export const renderLogoAndTitle = (
     return renderFunction(logoDom, props.collapsed ? null : titleDom, props);
   }
 
-  if (layout === 'mix' && renderKey === 'menuHeaderRender') {
+  /**
+   * 收起来时候直接不显示
+   */
+  if (props.isMobile) {
     return null;
   }
+  if (layout === 'mix' && renderKey === 'menuHeaderRender') return false;
   if (props.collapsed) {
     return <a key="title">{logoDom}</a>;
   }
@@ -323,6 +328,12 @@ const SiderMenu: React.FC<SiderMenuProps & PrivateSiderMenuProps> = (props) => {
     logoStyle,
   } = props;
 
+  const showSiderExtraDom = useMemo(() => {
+    if (isMobile) return false;
+    if (layout === 'mix') return false;
+    return true;
+  }, [isMobile, layout]);
+
   const designToken = useContext(ProLayoutContext);
 
   const context = useContext(ConfigProvider.ConfigContext);
@@ -451,7 +462,9 @@ const SiderMenu: React.FC<SiderMenuProps & PrivateSiderMenuProps> = (props) => {
         isMobile={isMobile}
         collapsed={originCollapsed}
         className={`${baseClassName}-collapsed-button`}
-        onClick={() => onCollapse?.(!collapsed)}
+        onClick={() => {
+          onCollapse?.(!originCollapsed);
+        }}
       />
     );
     if (collapsedButtonRender) return collapsedButtonRender(collapsed, dom);
@@ -529,7 +542,7 @@ const SiderMenu: React.FC<SiderMenuProps & PrivateSiderMenuProps> = (props) => {
             siderTitleViewCss?.(designToken),
             collapsed && siderTitleViewCollapsedCss,
           ])}
-          onClick={layout !== 'mix' ? onMenuHeaderClick : undefined}
+          onClick={showSiderExtraDom ? onMenuHeaderClick : undefined}
           id="logo"
           style={logoStyle}
         >
@@ -595,7 +608,7 @@ const SiderMenu: React.FC<SiderMenuProps & PrivateSiderMenuProps> = (props) => {
           />
         </div>
       ) : null}
-      {layout !== 'mix' && (
+      {showSiderExtraDom && (
         <>
           {actionAreaDom}
           {rightContentRender ? (

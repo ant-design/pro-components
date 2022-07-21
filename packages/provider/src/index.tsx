@@ -15,6 +15,7 @@ import idID from './locale/id_ID';
 import itIT from './locale/it_IT';
 import jaJP from './locale/ja_JP';
 import koKR from './locale/ko_KR';
+import mnMN from './locale/mn_MN';
 import msMY from './locale/ms_MY';
 import plPL from './locale/pl_PL';
 import ptBR from './locale/pt_BR';
@@ -126,6 +127,7 @@ const createIntl = (locale: string, localeMap: Record<string, any>): IntlType =>
   locale,
 });
 
+const mnMNIntl = createIntl('mn_MN', mnMN);
 const arEGIntl = createIntl('ar_EG', arEG);
 const zhCNIntl = createIntl('zh_CN', zhCN);
 const enUSIntl = createIntl('en_US', enUS);
@@ -150,6 +152,7 @@ const plPLIntl = createIntl('pl_PL', plPL);
 const hrHRIntl = createIntl('hr_', hrHR);
 
 const intlMap = {
+  'mn-MN': mnMNIntl,
   'ar-EG': arEGIntl,
   'zh-CN': zhCNIntl,
   'en-US': enUSIntl,
@@ -179,6 +182,7 @@ const intlMapKeys = Object.keys(intlMap);
 export type ParamsType = Record<string, any>;
 
 export {
+  mnMNIntl,
   arEGIntl,
   enUSIntl,
   enGBIntl,

@@ -9,4 +9,4 @@ group:
 
 # ProTable Playground
 
-<code src="../../packages/table/src/demos/dynamic-settings.tsx" iframe="650px"  background="#f5f5f5"  title="属性展示" />
+<code src="../../packages/table/src/demos/dynamic-settings.tsx" height="500px" iframe="760px" background="#f5f5f5" title="属性展示"/>

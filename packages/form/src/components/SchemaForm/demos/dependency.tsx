@@ -29,9 +29,7 @@ const columns: ProFormColumnsType<DataItem>[] = [
   },
   {
     valueType: 'dependency',
-    fieldProps: {
-      name: ['type'],
-    },
+    name: ['type'],
     columns: ({ type }) => {
       if (type === 'money') {
         return [

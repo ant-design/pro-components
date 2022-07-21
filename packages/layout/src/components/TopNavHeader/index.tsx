@@ -278,6 +278,7 @@ const TopNavHeader: React.FC<TopNavHeaderProps> = (props) => {
                 css`
                   position: relative;
                   min-width: 165px;
+                  display: flex;
                   height: 100%;
                   overflow: hidden;
                   a {

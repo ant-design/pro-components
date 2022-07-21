@@ -1,8 +1,9 @@
 import ProField from '@ant-design/pro-field';
 import type { ProSchema } from '@ant-design/pro-utils';
 import { isDeepEqualReact, runFunction } from '@ant-design/pro-utils';
-import React, { memo, useMemo } from 'react';
+import React, { memo, useContext, useMemo } from 'react';
 import { createField } from '../../BaseForm/createField';
+import { EditOrReadOnlyContext } from '../../BaseForm/EditOrReadOnlyContext';
 import type { ProFormFieldItemProps } from '../../interface';
 
 export type ProFormFieldProps<T = any, FiledProps = Record<string, any>> = ProSchema<
@@ -53,6 +54,8 @@ const BaseProFormField: React.FC<
     ...restProps
   } = props;
 
+  const modeContext = useContext(EditOrReadOnlyContext);
+
   const propsParams = useMemo(() => {
     // 使用dependencies时 dependenciesValues是有值的
     // 此时如果存在request，注入dependenciesValues
@@ -88,7 +91,6 @@ const BaseProFormField: React.FC<
   if (childrenRender) {
     return childrenRender;
   }
-
   return (
     <ProField
       text={fieldProps?.[valuePropName]}
@@ -109,7 +111,7 @@ const BaseProFormField: React.FC<
       valueEnum={runFunction(valueEnum)}
       {...proFieldProps}
       {...restProps}
-      mode={proFieldProps?.mode || 'edit'}
+      mode={proFieldProps?.mode || modeContext.mode || 'edit'}
       params={propsParams}
     />
   );

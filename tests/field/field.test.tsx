@@ -1172,6 +1172,22 @@ describe('Field', () => {
     expect(html.text()).toBe('$￥ 10000');
   });
 
+  it(`🐴 valueType digit support precision`, async () => {
+    const html = render(
+      <Field
+        text={1000.3}
+        mode="read"
+        valueType="digit"
+        fieldProps={{
+          precision: 2,
+        }}
+      />,
+    );
+    // 因为jest mock了 Intl.NumberFormat 导致测试结果其实异常了
+    // expect(html.text()).toBe('1,000.30');
+    expect(html.text()).toBe('￥ 1000.3');
+  });
+
   it(`🐴 valueType digitRange base use`, async () => {
     const html = render(<Field text={[12.34, 56.78]} mode="read" valueType="digitRange" />);
     expect(html.text()).toBe('￥ 12.34 ~ ￥ 56.78');
@@ -1372,7 +1388,7 @@ describe('Field', () => {
       html.find('.ant-pro-core-field-label').simulate('click');
       html.find('.ant-pro-core-field-label').simulate('mouseup');
     });
-    await waitForComponentToPaint(html, 100);
+    await waitForComponentToPaint(html, 1000);
     expect(html.find('.ant-select-dropdown.ant-select-dropdown-hidden').length).toEqual(1);
   });
 

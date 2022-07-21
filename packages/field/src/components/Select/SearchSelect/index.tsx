@@ -73,6 +73,13 @@ export interface SearchSelectProps<T = Record<string, any>>
 
   /** 清空数据 */
   resetData: () => void;
+
+  /**
+   * 当搜索关键词发生变化时是否请求远程数据
+   *
+   * @default true
+   */
+  fetchDataOnSearch?: boolean;
 }
 
 const SearchSelect = <T,>(props: SearchSelectProps<T[]>, ref: any) => {
@@ -85,6 +92,7 @@ const SearchSelect = <T,>(props: SearchSelectProps<T[]>, ref: any) => {
     autoClearSearchValue,
     searchOnFocus = false,
     resetAfterSelect = false,
+    fetchDataOnSearch = true,
     optionFilterProp = 'label',
     optionLabelProp = 'label',
     className,
@@ -205,7 +213,9 @@ const SearchSelect = <T,>(props: SearchSelectProps<T[]>, ref: any) => {
       onSearch={
         showSearch
           ? (value) => {
-              fetchData(value);
+              if (fetchDataOnSearch) {
+                fetchData(value);
+              }
               onSearch?.(value);
               setSearchValue(value);
             }
@@ -226,8 +236,13 @@ const SearchSelect = <T,>(props: SearchSelectProps<T[]>, ref: any) => {
 
         if (mode !== 'multiple') {
           // 单选情况且用户选择了选项
-          const dataItem = (optionList && optionList['data-item']) || {};
-          onChange?.({ ...value, ...dataItem }, optionList, ...rest);
+          const dataItem = optionList && optionList['data-item'];
+          // 如果value值为空则是清空时产生的回调,直接传值就可以了
+          if (!value || !dataItem) {
+            onChange?.(value, optionList, ...rest);
+          } else {
+            onChange?.({ ...value, ...dataItem }, optionList, ...rest);
+          }
           return;
         }
         // 合并值

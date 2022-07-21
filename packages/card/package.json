@@ -1,6 +1,6 @@
 {
   "name": "@ant-design/pro-card",
-  "version": "1.20.9",
+  "version": "1.20.13",
   "description": "@ant-design/pro-card",
   "keywords": [
     "antd",
@@ -34,17 +34,17 @@
   ],
   "dependencies": {
     "@ant-design/icons": "^4.2.1",
-    "@ant-design/pro-utils": "1.42.1",
+    "@ant-design/pro-utils": "1.42.5",
     "@babel/runtime": "^7.18.0",
     "classnames": "^2.2.6",
     "omit.js": "^2.0.2",
     "rc-util": "^5.4.0"
   },
   "devDependencies": {
+    "antd": ">=4.20.0",
     "rc-resize-observer": "^0.2.3"
   },
   "peerDependencies": {
-    "antd": ">=4.20.0",
     "react": ">=16.9.0"
   },
   "publishConfig": {

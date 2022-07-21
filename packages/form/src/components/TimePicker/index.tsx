@@ -14,7 +14,6 @@ const TimeRangePicker: React.FC<ProFormFieldItemProps<RangePickerProps>> = React
     return (
       <ProField
         ref={ref}
-        mode="edit"
         fieldProps={{ getPopupContainer: context.getPopupContainer, ...fieldProps }}
         valueType="timeRange"
         proFieldProps={proFieldProps}
@@ -43,7 +42,6 @@ const ProFormTimePicker: React.FC<ProFormFieldItemProps<DatePickerProps>> = ({
   const context = useContext(FieldContext);
   return (
     <ProField
-      mode="edit"
       fieldProps={{ getPopupContainer: context.getPopupContainer, ...fieldProps }}
       valueType={valueType}
       proFieldProps={proFieldProps}

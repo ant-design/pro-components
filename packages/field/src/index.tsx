@@ -37,6 +37,7 @@ import FieldSelect, {
   proFieldParsingText,
   proFieldParsingValueEnumToArray,
 } from './components/Select';
+import FieldSlider from './components/Slider';
 import FieldStatus from './components/Status';
 import FieldSwitch from './components/Switch';
 import FieldText from './components/Text';
@@ -65,6 +66,7 @@ export type ProFieldLightProps = {
     labelRef: React.RefObject<HTMLElement>;
     clearRef: React.RefObject<HTMLElement>;
   }>;
+
   // 是否点击了label
   labelTrigger?: boolean;
 };
@@ -225,7 +227,7 @@ const defaultRenderText = (
   /** 如果是日期的值 */
   if (valueType === 'date') {
     return (
-      <FieldHOC>
+      <FieldHOC isLight={props.light}>
         <FieldDatePicker text={dataValue as string} format="YYYY-MM-DD" {...props} />
       </FieldHOC>
     );
@@ -234,7 +236,7 @@ const defaultRenderText = (
   /** 如果是周的值 */
   if (valueType === 'dateWeek') {
     return (
-      <FieldHOC>
+      <FieldHOC isLight={props.light}>
         <FieldDatePicker text={dataValue as string} format="YYYY-wo" picker="week" {...props} />
       </FieldHOC>
     );
@@ -243,7 +245,7 @@ const defaultRenderText = (
   /** 如果是月的值 */
   if (valueType === 'dateMonth') {
     return (
-      <FieldHOC>
+      <FieldHOC isLight={props.light}>
         <FieldDatePicker text={dataValue as string} format="YYYY-MM" picker="month" {...props} />
       </FieldHOC>
     );
@@ -252,7 +254,7 @@ const defaultRenderText = (
   /** 如果是季度的值 */
   if (valueType === 'dateQuarter') {
     return (
-      <FieldHOC>
+      <FieldHOC isLight={props.light}>
         <FieldDatePicker text={dataValue as string} format="YYYY-\QQ" picker="quarter" {...props} />
       </FieldHOC>
     );
@@ -261,7 +263,7 @@ const defaultRenderText = (
   /** 如果是年的值 */
   if (valueType === 'dateYear') {
     return (
-      <FieldHOC>
+      <FieldHOC isLight={props.light}>
         <FieldDatePicker text={dataValue as string} format="YYYY" picker="year" {...props} />
       </FieldHOC>
     );
@@ -275,7 +277,7 @@ const defaultRenderText = (
   /** 如果是日期加时间类型的值 */
   if (valueType === 'dateTime') {
     return (
-      <FieldHOC>
+      <FieldHOC isLight={props.light}>
         <FieldDatePicker
           text={dataValue as string}
           format="YYYY-MM-DD HH:mm:ss"
@@ -290,19 +292,21 @@ const defaultRenderText = (
   if (valueType === 'dateTimeRange') {
     // 值不存在的时候显示 "-"
     return (
-      <FieldRangePicker
-        text={dataValue as string[]}
-        format="YYYY-MM-DD HH:mm:ss"
-        showTime
-        {...props}
-      />
+      <FieldHOC isLight={props.light}>
+        <FieldRangePicker
+          text={dataValue as string[]}
+          format="YYYY-MM-DD HH:mm:ss"
+          showTime
+          {...props}
+        />
+      </FieldHOC>
     );
   }
 
   /** 如果是时间类型的值 */
   if (valueType === 'time') {
     return (
-      <FieldHOC>
+      <FieldHOC isLight={props.light}>
         <FieldTimePicker text={dataValue as string} format="HH:mm:ss" {...props} />
       </FieldHOC>
     );
@@ -310,7 +314,11 @@ const defaultRenderText = (
 
   /** 如果是时间类型的值 */
   if (valueType === 'timeRange') {
-    return <FieldTimeRangePicker text={dataValue as string[]} format="HH:mm:ss" {...props} />;
+    return (
+      <FieldHOC isLight={props.light}>
+        <FieldTimeRangePicker text={dataValue as string[]} format="HH:mm:ss" {...props} />
+      </FieldHOC>
+    );
   }
 
   if (valueType === 'fromNow') {
@@ -363,7 +371,7 @@ const defaultRenderText = (
 
   if (valueType === 'select' || (valueType === 'text' && (props.valueEnum || props.request))) {
     return (
-      <FieldHOC>
+      <FieldHOC isLight={props.light}>
         <FieldSelect text={dataValue as string} {...props} />
       </FieldHOC>
     );
@@ -383,6 +391,9 @@ const defaultRenderText = (
 
   if (valueType === 'rate') {
     return <FieldRate text={dataValue as string} {...props} />;
+  }
+  if (valueType === 'slider') {
+    return <FieldSlider text={dataValue as string} {...props} />;
   }
   if (valueType === 'switch') {
     return <FieldSwitch text={dataValue as boolean} {...props} />;

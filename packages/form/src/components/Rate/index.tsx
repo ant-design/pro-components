@@ -14,7 +14,6 @@ const ProFormRate: React.ForwardRefRenderFunction<any, ProFormFieldItemProps<Rat
   return (
     <ProField
       valueType="rate"
-      mode="edit"
       fieldProps={fieldProps}
       ref={ref}
       proFieldProps={proFieldProps}

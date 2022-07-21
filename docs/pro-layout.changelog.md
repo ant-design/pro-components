@@ -1,13 +1,26 @@
 ---
 title: ProLayout - 更新日志
 nav:
-  title: 更新日志
+  title: Changelog
   path: /changelog
 group:
   path: /
 ---
 
 # Change Log
+
+## @ant-design/pro-layout@6.38.13
+
+`2022-07-14`
+
+- fix(layout): 支持多行文字水印 (#5524). [#5524](https://github.com/ant-design/pro-components/pull/#5524) [@liangchaofei](https://github.com/liangchaofei)
+- fix(layout): defaultCollapsed should use useAntdMediaQuery. [cdf584a](https://github.com/ant-design/pro-components/commit/cdf584a)
+
+## @ant-design/pro-layout@6.38.11
+
+`2022-07-06`
+
+- fix(layout): alway open new window. [bb03d5e](https://github.com/ant-design/pro-components/commit/bb03d5e)
 
 ## @ant-design/pro-layout@6.38.7
 

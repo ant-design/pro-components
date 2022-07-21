@@ -92,11 +92,12 @@ const FieldLabel: React.ForwardRefRenderFunction<any, FieldLabelProps> = (props,
           </span>
         );
       }
-
+      // 普通表单值最大长度41，如2022-06-21 20:11:25 ~ 2022-06-22 20:11:25
+      const VALUE_MAX_LENGTH = 41;
       const getText = () => {
         const isArrayValue = Array.isArray(aValue) && aValue.length > 1;
         const unitText = intl.getMessage('form.lightFilter.itemUnit', '项');
-        if (typeof str === 'string' && str.length > 32 && isArrayValue) {
+        if (typeof str === 'string' && str.length > VALUE_MAX_LENGTH && isArrayValue) {
           return `...${aValue.length}${unitText}`;
         }
         return '';
@@ -113,7 +114,7 @@ const FieldLabel: React.ForwardRefRenderFunction<any, FieldLabelProps> = (props,
         >
           {prefix}
           <span style={{ paddingLeft: 4 }}>
-            {typeof str === 'string' ? str?.toString()?.substr?.(0, 32) : str}
+            {typeof str === 'string' ? str?.toString()?.substr?.(0, VALUE_MAX_LENGTH) : str}
           </span>
           {tail}
         </span>

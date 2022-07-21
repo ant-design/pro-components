@@ -430,12 +430,12 @@ const DynamicSettings = () => {
               }
             >
               <ProFormText
-                label="提交按钮文案"
+                label="查询按钮文案"
                 fieldProps={{
                   size: 'small',
                 }}
-                tooltip={`search={{submitText:"提交"}}`}
-                name={['search', 'submitText']}
+                tooltip={`search={{searchText:"查询"}}`}
+                name={['search', 'searchText']}
               />
               <ProFormText
                 label="重置按钮文案"

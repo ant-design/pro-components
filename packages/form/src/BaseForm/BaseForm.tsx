@@ -36,6 +36,7 @@ import { Submitter } from '../components';
 import FieldContext from '../FieldContext';
 import { GridContext, useGridHelpers } from '../helpers';
 import type { FieldProps, GroupProps, ProFormGridConfig } from '../interface';
+import { EditOrReadOnlyContext } from './EditOrReadOnlyContext';
 
 export type CommonFormProps<T = Record<string, any>, U = Record<string, any>> = {
   /**
@@ -82,6 +83,12 @@ export type CommonFormProps<T = Record<string, any>, U = Record<string, any>> = 
    * @name 同步结果到 url 中
    * */
   syncToUrl?: boolean | ((values: T, type: 'get' | 'set') => T);
+
+  /**
+   * @name 当 syncToUrl 为 true，在页面回显示时，以url上的参数为主，默认为false
+   */
+  syncToUrlAsImportant?: boolean;
+
   /**
    * @name 额外的 url 参数 中
    * */
@@ -146,6 +153,12 @@ export type CommonFormProps<T = Record<string, any>, U = Record<string, any>> = 
    * @description 只对有input的类型有效
    */
   autoFocusFirstInput?: boolean;
+
+  /**
+   *  @name 是否只读模式，对所有表单项生效
+   *  @description 优先低于表单项的 readonly
+   */
+  readonly?: boolean;
 } & ProFormGridConfig;
 
 export type BaseFormProps<T = Record<string, any>> = {
@@ -208,6 +221,7 @@ function BaseFormComponents<T = Record<string, any>>(props: BaseFormProps<T>) {
     formComponentType,
     extraUrlParams = {},
     syncToUrl,
+    syncToUrlAsImportant = false,
     syncToInitialValues = true,
     onReset,
     omitNil = true,
@@ -497,10 +511,11 @@ function BaseFormComponents<T = Record<string, any>>(props: BaseFormProps<T>) {
               form={inlineForm}
               {...rest}
               // 组合 urlSearch 和 initialValues
-              initialValues={{
-                ...urlParamsMergeInitialValues,
-                ...rest.initialValues,
-              }}
+              initialValues={
+                syncToUrlAsImportant
+                  ? { ...rest.initialValues, ...urlParamsMergeInitialValues }
+                  : { ...urlParamsMergeInitialValues, ...rest.initialValues }
+              }
               onValuesChange={(changedValues, values) => {
                 rest?.onValuesChange?.(
                   transformKey(changedValues, omitNil),
@@ -576,7 +591,7 @@ function BaseFormComponents<T = Record<string, any>>(props: BaseFormProps<T>) {
 let requestFormCacheId = 0;
 
 function BaseForm<T = Record<string, any>>(props: BaseFormProps<T>) {
-  const { request, params, initialValues, formKey = requestFormCacheId, ...rest } = props;
+  const { request, params, initialValues, formKey = requestFormCacheId, readonly, ...rest } = props;
   useEffect(() => {
     requestFormCacheId += 0;
   }, []);
@@ -594,16 +609,22 @@ function BaseForm<T = Record<string, any>>(props: BaseFormProps<T>) {
   }
 
   return (
-    <ConfigProviderWrap>
-      <BaseFormComponents
-        autoComplete="off"
-        {...rest}
-        initialValues={{
-          ...initialValues,
-          ...initialData,
-        }}
-      />
-    </ConfigProviderWrap>
+    <EditOrReadOnlyContext.Provider
+      value={{
+        mode: props.readonly ? 'read' : 'edit',
+      }}
+    >
+      <ConfigProviderWrap>
+        <BaseFormComponents
+          autoComplete="off"
+          {...rest}
+          initialValues={{
+            ...initialValues,
+            ...initialData,
+          }}
+        />
+      </ConfigProviderWrap>
+    </EditOrReadOnlyContext.Provider>
   );
 }
 

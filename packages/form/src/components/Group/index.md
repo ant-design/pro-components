@@ -59,7 +59,7 @@ ProFormList 与 [Form.List](https://ant.design/components/form-cn/#Form.List) AP
 
 | 参数 | 说明 | 类型 | 默认值 |
 | --- | --- | --- | --- |
-| itemRender | 自定义 Item，可以用来将 action 放到别的地方 | `doms,listMeta)=> ReactNode` | - |
+| itemRender | 自定义 Item，可以用来将 action 放到别的地方 | `(doms,listMeta)=> ReactNode` | - |
 | creatorRecord | 新建一行的默认值 | `Record<string, any> \| () => Record<string, any>` | - |
 | creatorButtonProps | 新建一行按钮的配置 | `buttonProps & { creatorButtonText:string,position:"top"\|"bottom" }` | `{creatorButtonText:"新建一行"}` |
 | label | 与 From.Item 相同 | `ReactNode` | - |
@@ -344,32 +344,32 @@ name 参数必须要是一个数组，如果是嵌套的结构可以这样配置
 
 ### 自定义删除和复制的 tooltip
 
-<code src="./demos/list-tooltip" heigh="174px" title="ProForm.List" />
+<code src="./demos/list-tooltip" title="ProForm.List" height="371px"/>
 
 ### 联动的 FormList
 
-<code src="./demos/base-use" heigh="174px" title="ProForm.List" />
+<code src="./demos/base-use" title="ProForm.List" height="285px"/>
 
 ### 可调整的新建按钮位置
 
-<code src="./demos/list.tsx" heigh="174px" title="ProForm.List-position" />
+<code src="./demos/list.tsx" title="ProForm.List-position" height="686px"/>
 
 ### 表单互相嵌套
 
-<code src="./demos/nested-list.tsx" heigh="174px" title="ProForm.List-ProFormList" />
+<code src="./demos/nested-list.tsx" title="ProForm.List-ProFormList" height="649px"/>
 
 ### 复杂联动
 
-<code src="./demos/dependency.tsx" heigh="174px" title="ProForm.List-dependency" />
+<code src="./demos/dependency.tsx" title="ProForm.List-dependency" height="371px"/>
 
 ### 行为守卫
 
-<code src="./demos/pro-form-list.tsx" heigh="1774px" title="行为守卫"/>
+<code src="./demos/pro-form-list.tsx" height="447px" title="行为守卫"/>
 
 ### 增删条目限制
 
-<code src="./demos/countLimit.tsx" heigh="1774px" title="增删条目限制"/>
+<code src="./demos/countLimit.tsx" height="285px" title="增删条目限制"/>
 
 ### 横向布局
 
-<code src="./demos/horizontal-layout.tsx" heigh="174px" title="横向布局"/>
+<code src="./demos/horizontal-layout.tsx" title="横向布局" height="380px"/>

@@ -24,7 +24,6 @@ const ProFormColorPicker: React.ForwardRefRenderFunction<any, ProFormColorPicker
 ) => {
   return (
     <ProFromField
-      mode="edit"
       valueType="color"
       fieldProps={{
         popoverProps,

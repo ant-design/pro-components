@@ -1,13 +1,49 @@
 ﻿---
 title: ProForm - 更新日志
 nav:
-  title: 更新日志
+  title: Changelog
   path: /changelog
 group:
   path: /
 ---
 
 # Change Log
+
+## @ant-design/pro-form@1.70.3
+
+`2022-07-14`
+
+- fix(form): fix ProFormUpload typescript error. [5d871ed](https://github.com/ant-design/pro-components/commit/5d871ed)
+- fix(form): collapse calculation rules changed (#5527). [#5527](https://github.com/ant-design/pro-components/pull/#5527) [@ONLY-yours](https://github.com/ONLY-yours)
+
+## @ant-design/pro-form@1.70.2
+
+`2022-07-11`
+
+- fix(form): 设置 labelInValue 为 true 时，onClear 触发后 select 的值非 undefined #3810 (#5485). [#5485](https://github.com/ant-design/pro-components/pull/#5485) [@SANmq](https://github.com/SANmq)
+- fix(form): fix ProFormTreeSelect treedata no work error. [f13a811](https://github.com/ant-design/pro-components/commit/f13a811)
+- fix(form): SchemaForm dependency use name, filedProps.name is deprecated. [aadbede](https://github.com/ant-design/pro-components/commit/aadbede)
+
+## @ant-design/pro-form@1.70.1
+
+`2022-07-06`
+
+- fix(form): fix sublist getCurrentRowData no work error. [47fe90c](https://github.com/ant-design/pro-components/commit/47fe90c)
+- fix(form): remove HOC when light=false. [5862557](https://github.com/ant-design/pro-components/commit/5862557)
+- fix(form): onlu has one item, no render Collapse. [a3758b0](https://github.com/ant-design/pro-components/commit/a3758b0)
+
+## @ant-design/pro-form@1.70.0
+
+`2022-06-30`
+
+- fix(form): fix the abnormal width caused by addonAfter and addonB… (#5417). [#5417](https://github.com/ant-design/pro-components/pull/#5417) [@wangmeijian](https://github.com/wangmeijian)
+- fix(form): fix col not hidden when QueryFilter preserve is set to false (#5442). [#5442](https://github.com/ant-design/pro-components/pull/#5442) [@NoDocCat](https://github.com/NoDocCat)
+- fix(form): use omit.js instead of lodash to avoid introducing the whole lodash lib (#5438). [#5438](https://github.com/ant-design/pro-components/pull/#5438) [@shijistar](https://github.com/shijistar)
+- feat(form): add captcha methods and createField function Fieldref (#5398). [#5398](https://github.com/ant-design/pro-components/pull/#5398) [@angelporo](https://github.com/angelporo)
+- fix(form): fix FormItems in FormList umount unexpectedly (#5413) (#5437). [#5413](https://github.com/ant-design/pro-components/pull/#5413) [@cbozi](https://github.com/cbozi)
+- fix(form): date time range (#5412). [#5412](https://github.com/ant-design/pro-components/pull/#5412) [@wangmeijian](https://github.com/wangmeijian)
+- feat(form): add syncToUrlAsImportant prop (#5421). [#5421](https://github.com/ant-design/pro-components/pull/#5421) [@Valar103769](https://github.com/Valar103769)
+- fix(form): fix cascader clear no work error-n (#5381). [#5381](https://github.com/ant-design/pro-components/pull/#5381) [@chenshuai2144](https://github.com/chenshuai2144)
 
 ## @ant-design/pro-form@1.69.2
 

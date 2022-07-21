@@ -7,7 +7,7 @@ nav:
   path: /components
 ---
 
-# Floating Forms
+# Modal/DrawerForm - Floating Forms
 
 ModalForm and DrawerForm are a variant of ProForm, which is still a form in essence. So you can't customize the footer with `footer`, if you want to define the footer you need to use `submitter.render` to customize it. These two forms behave like ProForm and can be modified directly from ProForm.
 

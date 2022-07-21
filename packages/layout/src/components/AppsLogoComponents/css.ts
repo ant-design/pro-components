@@ -3,7 +3,7 @@ import type { LayoutDesignToken } from '../../ProLayoutContext';
 
 export const appContentListCss = css`
   box-sizing: content-box;
-  width: 656px;
+  max-width: 656px;
   margin: 0;
   padding: 0;
   list-style: none;
@@ -29,11 +29,9 @@ export const getAppContentLisItem = (designToken: LayoutDesignToken) => css`
   list-style-type: none;
   transition: transform 0.2s cubic-bezier(0.333, 0, 0, 1);
   border-radius: ${designToken.borderRadiusBase};
-
   &:hover {
     background-color: rgba(0, 0, 0, 0.03);
   }
-
   a {
     display: flex;
     height: 100%;
@@ -51,7 +49,6 @@ export const getAppContentLisItem = (designToken: LayoutDesignToken) => css`
       white-space: nowrap;
       text-overflow: ellipsis;
     }
-
     & > div > span {
       color: ${designToken.colorTextSecondary};
       font-size: 12px;

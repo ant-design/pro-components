@@ -298,7 +298,7 @@ describe('LightFilter', () => {
             Jack: '杰克',
             Jack2: '杰克2',
             TechUI: 'TechUI',
-            long: 'YES这是一个很长很长的测试阿aa阿ABCS',
+            long: 'YES这是一个很长很长的测试阿aa阿ABCDEFGHIJKLM',
           }}
         />
       </LightFilter>,
@@ -336,7 +336,7 @@ describe('LightFilter', () => {
     });
     await waitForComponentToPaint(wrapper);
     expect(wrapper.find('.ant-pro-core-field-label').text()).toEqual(
-      '名称: 杰克2,TechUI,YES这是一个很长很长的测试阿aa阿ABC...3项',
+      '名称: 杰克2,TechUI,YES这是一个很长很长的测试阿aa阿ABCDEFGHIJKL...3项',
     );
     act(() => {
       // press Backspace
@@ -346,7 +346,7 @@ describe('LightFilter', () => {
     await waitForComponentToPaint(wrapper);
 
     expect(wrapper.find('.ant-pro-core-field-label').text()).toEqual(
-      '名称: 杰克2,TechUI,YES这是一个很长很长的测试阿aa阿ABC...3项',
+      '名称: 杰克2,TechUI,YES这是一个很长很长的测试阿aa阿ABCDEFGHIJKL...3项',
     );
 
     act(() => {

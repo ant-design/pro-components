@@ -5,7 +5,7 @@ legacy: /table
 group:
   path: /
 nav:
-  title: 组件
+  title: Components
   path: /components
 ---
 
@@ -209,9 +209,9 @@ import { ConfigProvider } from '@ant-design/pro-provide';
 
 #### valueType - Selection Classes
 
-<code src="./demos/valueType_select.tsx" background="#f5f5f5" heigh="462px"/>
+<code src="./demos/valueType_select.tsx" background="#f5f5f5" height="462px"/>
 
-<code src="./demos/config-provider.tsx" debug background="#f5f5f5" heigh="462px"/>
+<code src="./demos/config-provider.tsx" debug background="#f5f5f5" height="462px"/>
 
 ## API
 
@@ -290,7 +290,7 @@ ProTable puts a layer of wrapping on top of antd's Table, supports some presets,
 | editable | Related configuration of editable table | [TableRowEditable<T>](/components/editable-table#editable-Editable row configuration) | - |
 | cardBordered | Border of Card components around Table and Search | `boolean \| {search?: boolean, table?: boolean}` | false |
 | debounceTime | Debounce time | `number` | 10 |
-| revalidateOnFocus | Automatically re-request when the window is focused | `boolean` | `true` |
+| revalidateOnFocus | Automatically re-request when the window is focused | `boolean` | `false` |
 | columnsState | Column Status Control, you can operate the display hide | `ColumnsStateType` | - |
 
 #### RecordCreator
