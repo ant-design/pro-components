@@ -40,6 +40,7 @@
     "@ant-design/pro-provider": "1.9.1",
     "@ant-design/pro-utils": "1.43.0",
     "@babel/runtime": "^7.18.0",
+    "antd": ">=4.20.0",
     "classnames": "^2.2.6",
     "moment": "^2.24.0",
     "omit.js": "^2.0.2",
@@ -48,9 +49,6 @@
     "unstated-next": "^1.1.0",
     "use-json-comparison": "^1.0.5",
     "use-media-antd-query": "^1.1.0"
-  },
-  "devDependencies": {
-    "antd": ">=4.20.0"
   },
   "peerDependencies": {
     "rc-field-form": "^1.22.0",

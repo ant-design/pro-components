@@ -39,6 +39,7 @@
     "@ant-design/pro-utils": "1.43.0",
     "@babel/runtime": "^7.18.0",
     "@umijs/use-params": "^1.0.9",
+    "antd": ">=4.20.0",
     "classnames": "^2.2.6",
     "lodash.merge": "^4.6.2",
     "omit.js": "^2.0.2",
@@ -48,8 +49,7 @@
     "use-media-antd-query": "^1.1.0"
   },
   "devDependencies": {
-    "@types/lodash.merge": "^4.6.7",
-    "antd": ">=4.20.0"
+    "@types/lodash.merge": "^4.6.7"
   },
   "peerDependencies": {
     "rc-field-form": "^1.22.0",

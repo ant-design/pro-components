@@ -33,6 +33,7 @@
     "@ant-design/pro-utils": "1.43.0",
     "@babel/runtime": "^7.18.0",
     "@chenshuai2144/sketch-color": "^1.0.8",
+    "antd": ">=4.20.0",
     "classnames": "^2.2.6",
     "lodash.tonumber": "^4.0.3",
     "moment": "^2.27.0",
@@ -44,7 +45,6 @@
     "@types/classnames": "^2.2.10",
     "@types/lodash.tonumber": "^4.0.6",
     "@types/react-color": "^3.0.4",
-    "antd": ">=4.20.0",
     "rc-resize-observer": "^0.2.3"
   },
   "peerDependencies": {

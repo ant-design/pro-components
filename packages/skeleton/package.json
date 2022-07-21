@@ -34,10 +34,8 @@
   ],
   "dependencies": {
     "@babel/runtime": "^7.18.0",
+    "antd": ">=4.20.0",
     "use-media-antd-query": "^1.1.0"
-  },
-  "devDependencies": {
-    "antd": ">=4.20.0"
   },
   "peerDependencies": {
     "react": ">=16.9.0"
