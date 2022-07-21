@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.43.0](https://github.com/ant-design/pro-components/compare/@ant-design/pro-utils@1.42.5...@ant-design/pro-utils@1.43.0) (2022-07-21)
+
+### Features
+
+- **form:** Form support readonly ([a5a9611](https://github.com/ant-design/pro-components/commit/a5a9611a9610281d9b4f71a617bbf205f84ca04a))
+- **table:** ProTable columns 的 ellipsis 支持 showTitle ([#5575](https://github.com/ant-design/pro-components/issues/5575)) ([b10229d](https://github.com/ant-design/pro-components/commit/b10229d399d50b5b61ce6d292d36f7b1c5a65a1c))
+
 ## [1.42.5](https://github.com/ant-design/pro-components/compare/@ant-design/pro-utils@1.42.4...@ant-design/pro-utils@1.42.5) (2022-07-11)
 
 **Note:** Version bump only for package @ant-design/pro-utils

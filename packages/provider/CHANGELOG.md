@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.9.1](https://github.com/ant-design/pro-components/compare/@ant-design/pro-provider@1.9.0...@ant-design/pro-provider@1.9.1) (2022-07-21)
+
+### Bug Fixes
+
+- spelling mistakes ([#5570](https://github.com/ant-design/pro-components/issues/5570)) ([01dfbeb](https://github.com/ant-design/pro-components/commit/01dfbeb15e3fbbfdfdc7ac1cce65c2fa322df4a7))
+
 # [1.9.0](https://github.com/ant-design/pro-components/compare/@ant-design/pro-provider@1.8.1...@ant-design/pro-provider@1.9.0) (2022-07-11)
 
 ### Features

@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.71.0](https://github.com/ant-design/pro-components/compare/@ant-design/pro-form@1.70.3...@ant-design/pro-form@1.71.0) (2022-07-21)
+
+### Features
+
+- **form:** Form support readonly ([a5a9611](https://github.com/ant-design/pro-components/commit/a5a9611a9610281d9b4f71a617bbf205f84ca04a))
+
 ## [1.70.3](https://github.com/ant-design/pro-components/compare/@ant-design/pro-form@1.70.2...@ant-design/pro-form@1.70.3) (2022-07-14)
 
 ### Bug Fixes

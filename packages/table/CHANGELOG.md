@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.78.0](https://github.com/ant-design/pro-components/compare/@ant-design/pro-table@2.77.3...@ant-design/pro-table@2.78.0) (2022-07-21)
+
+### Features
+
+- **table:** ProTable columns 的 ellipsis 支持 showTitle ([#5575](https://github.com/ant-design/pro-components/issues/5575)) ([b10229d](https://github.com/ant-design/pro-components/commit/b10229d399d50b5b61ce6d292d36f7b1c5a65a1c))
+
 ## [2.77.3](https://github.com/ant-design/pro-components/compare/@ant-design/pro-table@2.77.2...@ant-design/pro-table@2.77.3) (2022-07-14)
 
 **Note:** Version bump only for package @ant-design/pro-table
