@@ -2,6 +2,8 @@ import chalk from 'chalk';
 import { readdirSync } from 'fs';
 import { join } from 'path';
 
+const theme = require('./default-theme');
+
 const headPkgList = [];
 // utils must build before core
 // runtime must build before renderer-react
@@ -30,16 +32,6 @@ export default {
   title: 'ProComponents',
   mode: 'site',
   logo: 'https://gw.alipayobjects.com/zos/antfincdn/upvrAjAPQX/Logo_Tech%252520UI.svg',
-  extraBabelPlugins: [
-    [
-      'import',
-      {
-        libraryName: 'antd',
-        libraryDirectory: 'es',
-        style: true,
-      },
-    ],
-  ],
   sitemap: { hostname: 'https://procomponents.ant.design' },
   metas: [
     {
@@ -113,13 +105,15 @@ export default {
     ios: false,
   },
   theme: {
+    '@ant-prefix': 'ant',
+    ...theme,
     '@s-site-menu-width': '258px',
     '@root-entry-name': 'variable',
     '@border-radius-base': '4px',
     '@primary-color': '#1677FF',
-    // '@error-color': '#ff4d4',
-    // '@info-color': '#52c41a',
-    // '@warning-color': '#faad14',
+    '@error-color': '#ff4d4',
+    '@info-color': '#52c41a',
+    '@warning-color': '#faad14',
   },
   extraBabelPlugins: ['@emotion'],
   ignoreMomentLocale: true,

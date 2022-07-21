@@ -1,6 +1,6 @@
 import { useStyle as useAntdStyle } from '@ant-design/pro-utils';
-import { ConfigProvider } from 'antdV5';
-import type { AliasToken, GenerateStyle } from 'antdV5/es/theme';
+import { ConfigProvider } from 'antd';
+import type { AliasToken, GenerateStyle } from 'antd/es/theme';
 import { useContext } from 'react';
 
 const { ConfigContext } = ConfigProvider;
@@ -21,7 +21,6 @@ const genActionsStyle: GenerateStyle<ProCardActionsToken> = (token) => {
       listStyle: 'none',
       background: token.colorBgContainer,
       borderTop: `${token.lineWidth}px ${token.lineType} ${token.colorSplit}`,
-      // .clearfix,
 
       [`${antCls}-space`]: {
         gap: '0 !important',
