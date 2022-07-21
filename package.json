@@ -56,6 +56,7 @@
     "@babel/preset-typescript": "^7.8.3",
     "@cfaester/enzyme-adapter-react-18": "^0.5.1",
     "@emotion/babel-plugin": "^11.7.2",
+    "@madccc/antd": "^5.0.0-alpha.0",
     "@octokit/core": "^3.2.5",
     "@octokit/rest": "^18.12.0",
     "@testing-library/dom": "^8.11.3",

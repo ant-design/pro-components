@@ -1,5 +1,7 @@
+import classNames from 'classnames';
 import React from 'react';
 import './index.less';
+import useStyle from './style';
 
 export type ProCardActionsProps = {
   /**
@@ -14,19 +16,21 @@ export type ProCardActionsProps = {
 
 const ProCardActions: React.FC<ProCardActionsProps> = (props) => {
   const { actions, prefixCls } = props;
+  const { wrapSSR, hashId } = useStyle(prefixCls);
   if (Array.isArray(actions) && actions?.length) {
-    return (
-      <ul className={`${prefixCls}-actions`}>
+    return wrapSSR(
+      <ul className={classNames(`${prefixCls}-actions`, hashId)}>
         {actions.map((action, index) => (
           // eslint-disable-next-line react/no-array-index-key
           <li style={{ width: `${100 / actions.length}%` }} key={`action-${index}`}>
             <span>{action}</span>
           </li>
         ))}
-      </ul>
+      </ul>,
     );
   }
-  if (actions) return <ul className={`${prefixCls}-actions`}>{actions}</ul>;
+  if (actions)
+    return wrapSSR(<ul className={classNames(`${prefixCls}-actions`, hashId)}>{actions}</ul>);
   return null;
 };
 
