@@ -1,7 +1,5 @@
-import { ConfigProvider } from '@madccc/antd';
-import type { AliasToken, GenerateStyle } from '@madccc/antd/es/_util/theme';
-
-const { useStyle: useAntdStyle } = ConfigProvider;
+import { useStyle as useAntdStyle } from '@ant-design/pro-utils';
+import type { AliasToken, GenerateStyle } from 'antdV5/es/theme';
 
 interface ProCardToken extends AliasToken {
   componentCls: string;
@@ -12,7 +10,7 @@ interface ProCardToken extends AliasToken {
 
 const genActiveStyle = (token: ProCardToken) => ({
   backgroundColor: token.controlItemBgActive,
-  borderColor: token.colorPrimaryOutline,
+  borderColor: token.controlOutline,
 });
 
 const genProCardStyle: GenerateStyle<ProCardToken> = (token) => {
@@ -26,7 +24,7 @@ const genProCardStyle: GenerateStyle<ProCardToken> = (token) => {
       width: '100%',
       margin: 0,
       padding: 0,
-      backgroundColor: token.colorBgComponent,
+      backgroundColor: token.colorBgContainer,
       borderRadius: token.radiusBase,
 
       '&-col': {
@@ -47,7 +45,7 @@ const genProCardStyle: GenerateStyle<ProCardToken> = (token) => {
         },
 
         [`&${componentCls}-checked:hover`]: {
-          borderColor: token.colorPrimaryOutline,
+          borderColor: token.controlOutline,
         },
       },
 
@@ -168,13 +166,13 @@ const genProCardStyle: GenerateStyle<ProCardToken> = (token) => {
 
       [`${componentCls}-type-inner`]: {
         [`${componentCls}-header`]: {
-          backgroundColor: token.colorBgComponentSecondary,
+          backgroundColor: token.colorFillAlter,
         },
       },
 
       [`${componentCls}-collapsible-icon`]: {
         marginInlineEnd: token.marginXS,
-        color: token.colorActionHover,
+        color: token.colorIconHover,
         ':hover': {
           color: token.colorPrimaryHover,
         },
