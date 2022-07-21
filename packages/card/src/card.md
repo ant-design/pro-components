@@ -33,17 +33,13 @@ group:
 
 当嵌套子卡片时, 组件会自动切换为 `flex` 弹性盒布局，你可以将 `direction`设置为`column`来指定 Flex 方向，你还可以通过配置 `ghost` 属性为 `true` 来去掉背景色和 padding 方便页内布局。
 
-<<<<<<< HEAD <code src="./demos/colspan.tsx"  background="#f7f8fa" title="栅格布局" /> ======= <code src="./demos/colspan.tsx" background="#f0f2f5" title="栅格布局" height="642px"/>
-
-> > > > > > > master
+<code src="./demos/colspan.tsx" background="#f0f2f5" title="栅格布局" height="642px"/>
 
 ### 响应式
 
 `colSpan` 支持 antd 定义的[栅格式响应布局](https://ant.design/components/grid-cn/#components-grid-demo-responsive)。预设六个响应尺寸：`xs` `sm` `md` `lg` `xl` `xxl`。如果要支持响应式，可以写成 `{ xs: 4, sm: 8, md: 10, lg: 12 }`。
 
-<<<<<<< HEAD <code src="./demos/responsive.tsx"  background="#f7f8fa" title="响应式" /> ======= <code src="./demos/responsive.tsx" background="#f0f2f5" title="响应式" height="588px"/>
-
-> > > > > > > master
+<code src="./demos/responsive.tsx" background="#f0f2f5" title="响应式" height="588px"/>
 
 ### 卡片切分
 
@@ -52,106 +48,80 @@ group:
 - 切分时父卡片的内容 `padding` 会被设置为 0。
 - 切分时子卡片的 `border-radius`会被设置为 0。
 
-<<<<<<< HEAD <code src="./demos/split2.tsx" background="#f7f8fa" title="卡片切分" /> ======= <code src="./demos/split2.tsx" background="#f0f2f5" title="卡片切分" height="590px"/>
-
-> > > > > > > master
+<code src="./demos/split2.tsx" background="#f0f2f5" title="卡片切分" height="590px"/>
 
 ### 左右分栏
 
 通过卡片切分能力我们很容易实现左右分栏的效果，很适合左侧是列表，右侧是详情的结构。
 
-<<<<<<< HEAD <code src="./demos/split23.tsx" background="#f7f8fa" title="左右分栏" /> ======= <code src="./demos/split23.tsx" background="#f0f2f5" title="左右分栏" height="547px"/>
-
-> > > > > > > master
+<code src="./demos/split23.tsx" background="#f0f2f5" title="左右分栏" height="547px"/>
 
 ### 复杂切分
 
 通过卡片切分能力我们可以实现更加复杂的数据展现形式。
 
-<<<<<<< HEAD <code src="./demos/split.tsx" background="#f7f8fa" title="复杂切分" /> ======= <code src="./demos/split.tsx" background="#f0f2f5" title="复杂切分" height="565px"/>
-
-> > > > > > > master
+<code src="./demos/split.tsx" background="#f0f2f5" title="复杂切分" height="565px"/>
 
 ### 栅格间隔
 
 栅格常常需要和间隔进行配合，你可以使用 `gutter` 属性，我们推荐使用 `(16+8n)px` 作为栅格间隔(n 是自然数)，如果要支持响应式，可以写成 `{ xs: 8, sm: 16, md: 24, lg: 32 }`。如果需要垂直间距，可以写成数组形式 `[水平间距, 垂直间距][16, { xs: 8, sm: 16, md: 24, lg: 32 }]`。
 
-<<<<<<< HEAD <code src="./demos/gutter.tsx" background="#f7f8fa" title="栅格间隔" /> ======= <code src="./demos/gutter.tsx" background="#f0f2f5" title="栅格间隔" height="531px"/>
-
-> > > > > > > master
+<code src="./demos/gutter.tsx" background="#f0f2f5" title="栅格间隔" height="531px"/>
 
 ### 多行卡片
 
 默认卡片布局不可换行，你可以配置 `wrap` 为 `true` 来让多个卡片之间可以换行，适用于多个卡片排版的情况。
 
-<<<<<<< HEAD <code src="./demos/multipleLine.tsx" background="#f7f8fa" title="多行卡片" /> ======= <code src="./demos/multipleLine.tsx" background="#f0f2f5" title="多行卡片" height="338px"/>
-
-> > > > > > > master
+<code src="./demos/multipleLine.tsx" background="#f0f2f5" title="多行卡片" height="338px"/>
 
 ### 分组展示
 
 你可以嵌套卡片组件来将内容分组, 以及 `Divider` 子组件来分隔这些内容。
 
-<<<<<<< HEAD <code src="./demos/divider.tsx" background="#f7f8fa" title="分组指标" /> ======= <code src="./demos/divider.tsx" background="#f0f2f5" title="分组指标" height="234px"/>
-
-> > > > > > > master
+<code src="./demos/divider.tsx" background="#f0f2f5" title="分组指标" height="234px"/>
 
 ### 标题带分割线
 
 当添加分隔线时会自动增加标题的高度与内容区域分开。
 
-<<<<<<< HEAD <code src="./demos/headerBordered.tsx" background="#f7f8fa" title="标题带分割线"/> ======= <code src="./demos/headerBordered.tsx" background="#f0f2f5" title="标题带分割线" height="209px"/>
-
-> > > > > > > master
+<code src="./demos/headerBordered.tsx" background="#f0f2f5" title="标题带分割线" height="209px"/>
 
 ### 可折叠
 
 - 你可以使用 `collapsible` 来配置卡片是否可折叠，通过 `defaultCollapsed` 属性配置是否默认折叠。
 - 或者你可以通过 `collapsed` 属性受控进行自定义。
 
-<<<<<<< HEAD <code src="./demos/collapsible.tsx" background="#f7f8fa" title="可折叠" /> ======= <code src="./demos/collapsible.tsx" background="#f0f2f5" title="可折叠" height="284px"/>
-
-> > > > > > > master
+<code src="./demos/collapsible.tsx" background="#f0f2f5" title="可折叠" height="284px"/>
 
 ### 卡片组展开
 
 配合 `ghost`幽灵模式和可折叠能力可以实现卡片组展开。
 
-<<<<<<< HEAD <code src="./demos/group.tsx" background="#f7f8fa" title="卡片组展开" /> ======= <code src="./demos/group.tsx" background="#f0f2f5" title="卡片组展开" height="210px"/>
-
-> > > > > > > master
+<code src="./demos/group.tsx" background="#f0f2f5" title="卡片组展开" height="210px"/>
 
 ### 内容居中
 
 配置 `layout` 属性为 `center` 控制内容垂直居中，设置居中时内容部分转为 `flex` 布局，可以使用 `direction` 控制 `flex` 方向。
 
-<<<<<<< HEAD <code src="./demos/layout.tsx" background="#f7f8fa" title="内容居中" /> ======= <code src="./demos/layout.tsx" background="#f0f2f5" title="内容居中" height="281px"/>
-
-> > > > > > > master
+<code src="./demos/layout.tsx" background="#f0f2f5" title="内容居中" height="281px"/>
 
 ### 加载中
 
 配置 `loading`属性为`true`控制卡片加载中，也可以传入 DOM 给`loading`来自定义 loading 展示。
 
-<<<<<<< HEAD <code src="./demos/loading.tsx" background="#f7f8fa" title="加载中" /> ======= <code src="./demos/loading.tsx" background="#f0f2f5" title="加载中" height="540px"/>
-
-> > > > > > > master
+<code src="./demos/loading.tsx" background="#f0f2f5" title="加载中" height="540px"/>
 
 ### 操作项
 
 配置 `actions` 属性来配置卡片操作项。
 
-<<<<<<< HEAD <code src="./demos/actions.tsx" background="#f7f8fa" title="操作项" /> ======= <code src="./demos/actions.tsx" background="#f0f2f5" title="操作项" height="284px"/>
-
-> > > > > > > master
+<code src="./demos/actions.tsx" background="#f0f2f5" title="操作项" height="284px"/>
 
 ### 无标题
 
 头部没有内容时会自动隐藏。
 
-<<<<<<< HEAD <code src="./demos/headless.tsx" background="#f7f8fa" title="无标题" /> ======= <code src="./demos/headless.tsx" background="#f0f2f5" title="无标题" height="151px"/>
-
-> > > > > > > master
+<code src="./demos/headless.tsx" background="#f0f2f5" title="无标题" height="151px"/>
 
 ### 带边框
 
@@ -161,25 +131,19 @@ group:
 
 ### 浮出效果
 
-<<<<<<< HEAD <code src="./demos/hoverable.tsx" title="浮出效果" desc="通过 hoverable 配置浮出效果" background="#f7f8fa"/> ======= <code src="./demos/hoverable.tsx" title="浮出效果" desc="通过 hoverable 配置浮出效果" background="#f0f2f5" height="153px"/>
-
-> > > > > > > master
+<code src="./demos/hoverable.tsx" title="浮出效果" desc="通过 hoverable 配置浮出效果" background="#f0f2f5" height="153px"/>
 
 ### 页签
 
 配置 `tabs` 属性配合 `ProCard.TabPane` 子组件可以配置卡片的标签栏。
 
-<<<<<<< HEAD <code src="./demos/tabs.tsx" background="#f7f8fa" title="页签" /> ======= <code src="./demos/tabs.tsx" background="#f0f2f5" title="页签" height="253px"/>
-
-> > > > > > > master
+<code src="./demos/tabs.tsx" background="#f0f2f5" title="页签" height="253px"/>
 
 ### 卡片式页签
 
 配置 `tab` 的 `type` 为 `card` 来配置卡片式页签。
 
-<<<<<<< HEAD <code src="./demos/tabs-card.tsx" background="#f7f8fa" title="卡片式页签" /> ======= <code src="./demos/tabs-card.tsx" background="#f0f2f5" title="卡片式页签" height="199px"/>
-
-> > > > > > > master
+<code src="./demos/tabs-card.tsx" background="#f0f2f5" title="卡片式页签" height="199px"/>
 
 ### 内部卡片
 
@@ -191,9 +155,7 @@ group:
 
 `Steps` 组件结合 `ProCard` 组件完成竖向步骤示例。
 
-<<<<<<< HEAD <code src="./demos/steps-v.tsx" background="#f7f8fa" title="竖向步骤示例" /> ======= <code src="./demos/steps-v.tsx" background="#f0f2f5" title="竖向步骤示例" height="401px"/>
-
-> > > > > > > master
+<code src="./demos/steps-v.tsx" background="#f0f2f5" title="竖向步骤示例" height="401px"/>
 
 ## API
 

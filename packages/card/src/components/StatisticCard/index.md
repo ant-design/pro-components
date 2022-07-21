@@ -33,26 +33,12 @@ nav:
 
 当图表单独展示在卡片中时。
 
-<<<<<<< HEAD <code src="./demos/chart.tsx" background="#f7f8fa" title="只有图表" /> ======= <code src="./demos/chart.tsx" background="#f0f2f5" title="只有图表" height="429px"/>
-
-> > > > > > > master
+<code src="./demos/chart.tsx" background="#f0f2f5" title="只有图表" height="429px"/>
 
 ### 额外指标
 
 - `footer` 用于设置额外的指标展示区域。
 - 你可以设置 `Statistic` 组件的布局方式`layout` 为 `horizontal` 来展示横向指标。
-
-<<<<<<< HEAD <code src="./demos/footer.tsx" background="#f7f8fa" title="额外指标" />
-
-### 总分/主次关系
-
-<code src="./demos/total.tsx" background="#f7f8fa" title="总分/主次关系"/>
-
-### 总分/业绩目标
-
-# <code src="./demos/total-layout.tsx" background="#f7f8fa" title="总分/业绩目标"/>
-
-<code src="./demos/footer.tsx" background="#f0f2f5" title="额外指标" height="333px"/>
 
 ### 总分/主次关系
 
@@ -61,88 +47,62 @@ nav:
 ### 总分/业绩目标
 
 <code src="./demos/total-layout.tsx" background="#f0f2f5" title="总分/业绩目标" height="358px"/>
->>>>>>> master
 
 ### 分组指标
 
 你可以嵌套指标卡组件来将指标分组, 以及 `Divider` 子组件来分隔这些指标。
 
-<<<<<<< HEAD <code src="./demos/group.tsx" background="#f7f8fa" title="分组指标" />
-
 ### 分组指标带图表
 
-# <code src="./demos/group-chart.tsx" background="#f7f8fa" title="分组指标带图表"/>
-
-<code src="./demos/group.tsx" background="#f0f2f5" title="分组指标" height="234px"/>
-
-### 分组指标带图表
-
-<code src="./demos/group-chart.tsx" background="#f0f2f5" title="分组指标带图表" height="295px"/>
->>>>>>> master
+<code src="./demos/group-chart.tsx" background="#f7f8fa" title="分组指标带图表"/>
 
 ### 公式计算指标
 
 `Operation` 可以接受子元素，借此可以实现各种各样的公式计算指标。
 
-<<<<<<< HEAD <code src="./demos/fomula.tsx" background="#f7f8fa" title="公式计算指标"/> ======= <code src="./demos/fomula.tsx" background="#f0f2f5" title="公式计算指标" height="193px"/>
-
-> > > > > > > master
+<code src="./demos/fomula.tsx" background="#f0f2f5" title="公式计算指标" height="193px"/>
 
 ### 状态展示
 
 你可以给每个数值统计配置 `status` 展示其状态。
 
-<<<<<<< HEAD <code src="./demos/status.tsx" background="#f7f8fa" title="状态展示" /> ======= <code src="./demos/status.tsx" background="#f0f2f5" title="状态展示" height="193px"/>
-
-> > > > > > > master
+<code src="./demos/status.tsx" background="#f0f2f5" title="状态展示" height="193px"/>
 
 ### 图标展示
 
 你可以给每个数值统计配置 `icon` 展示其图标。
 
-<<<<<<< HEAD <code src="./demos/icon.tsx" background="#f7f8fa" title="图标展示" /> ======= <code src="./demos/icon.tsx" background="#f0f2f5" title="图标展示" height="193px"/>
-
-> > > > > > > master
+<code src="./demos/icon.tsx" background="#f0f2f5" title="图标展示" height="193px"/>
 
 ### 卡片布局
 
 配合 `ProCard` 的卡片切分能力可以实现复杂的卡片布局。
 
-<<<<<<< HEAD <code src="./demos/layout.tsx" background="#f7f8fa" title="卡片布局" /> ======= <code src="./demos/layout.tsx" background="#f0f2f5" title="卡片布局" height="732px"/>
-
-> > > > > > > master
+<code src="./demos/layout.tsx" background="#f0f2f5" title="卡片布局" height="732px"/>
 
 ### 图表在右
 
 配置 `chartPlacement` 为 `right` 可以指定图表在数值统计的右边。默认为上下结构。
 
-<<<<<<< HEAD <code src="./demos/horizontal.tsx" background="#f7f8fa" title="图表在右" /> ======= <code src="./demos/horizontal.tsx" background="#f0f2f5" title="图表在右" height="241px"/>
-
-> > > > > > > master
+<code src="./demos/horizontal.tsx" background="#f0f2f5" title="图表在右" height="241px"/>
 
 ### 图表在左
 
 配置 `chartPlacement` 为 `left` 可以指定图表在数值统计的左边。
 
-<<<<<<< HEAD <code src="./demos/horizontal-left.tsx" background="#f7f8fa" title="图表在左" /> ======= <code src="./demos/horizontal-left.tsx" background="#f0f2f5" title="图表在左" height="241px"/>
-
-> > > > > > > master
+<code src="./demos/horizontal-left.tsx" background="#f0f2f5" title="图表在左" height="241px"/>
 
 ### 指标页签联动
 
 结合 `Statistic` 可以实现带指标统计的页签。
 
-<<<<<<< HEAD <code src="./demos/tabs-statistic.tsx" background="#f7f8fa" title="带指标页签" /> ======= <code src="./demos/tabs-statistic.tsx" background="#f0f2f5" title="带指标页签" height="325px"/>
-
-> > > > > > > master
+<code src="./demos/tabs-statistic.tsx" background="#f0f2f5" title="带指标页签" height="325px"/>
 
 ### 环比趋势
 
 你可以使用 `Statistic` 组件配置布局 `layout` 为 `inline` 以及 `trend` 来展示环比趋势。
 
-<<<<<<< HEAD <code src="./demos/trend.tsx" background="#f7f8fa" title="环比趋势" /> ======= <code src="./demos/trend.tsx" background="#f0f2f5" title="环比趋势" height="203px"/>
-
-> > > > > > > master
+<code src="./demos/trend.tsx" background="#f0f2f5" title="环比趋势" height="203px"/>
 
 ## API
 

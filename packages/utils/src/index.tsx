@@ -43,6 +43,7 @@ import pickProFormItemProps from './pickProFormItemProps';
 import pickProProps from './pickProProps';
 import { runFunction } from './runFunction';
 import transformKeySubmitValue from './transformKeySubmitValue';
+import useStyle from './useStyle';
 /** Type */
 import type {
   ProCoreActionType,
@@ -153,4 +154,5 @@ export {
   useDeepCompareEffectDebounce,
   useLatest,
   useDebounceValue,
+  useStyle,
 };

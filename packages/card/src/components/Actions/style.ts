@@ -1,8 +1,9 @@
-import { ConfigProvider } from '@madccc/antd';
-import type { AliasToken, GenerateStyle } from '@madccc/antd/es/_util/theme';
+import { useStyle as useAntdStyle } from '@ant-design/pro-utils';
+import { ConfigProvider } from 'antdV5';
+import type { AliasToken, GenerateStyle } from 'antdV5/es/theme';
 import { useContext } from 'react';
 
-const { useStyle: useAntdStyle, ConfigContext } = ConfigProvider;
+const { ConfigContext } = ConfigProvider;
 
 interface ProCardActionsToken extends AliasToken {
   antCls: string;
@@ -18,7 +19,7 @@ const genActionsStyle: GenerateStyle<ProCardActionsToken> = (token) => {
       margin: 0,
       padding: 0,
       listStyle: 'none',
-      background: token.colorBgComponent,
+      background: token.colorBgContainer,
       borderTop: `${token.lineWidth}px ${token.lineType} ${token.colorSplit}`,
       // .clearfix,
 

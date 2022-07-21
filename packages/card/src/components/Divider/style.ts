@@ -1,7 +1,5 @@
-import { ConfigProvider } from '@madccc/antd';
-import type { AliasToken, GenerateStyle } from '@madccc/antd/es/_util/theme';
-
-const { useStyle: useAntdStyle } = ConfigProvider;
+import { useStyle as useAntdStyle } from '@ant-design/pro-utils';
+import type { AliasToken, GenerateStyle } from 'antdV5/es/theme';
 
 interface ProCardDividerToken extends AliasToken {
   componentCls: string;
