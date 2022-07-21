@@ -1508,6 +1508,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/components/WaterMark/de
                     >
                       <div
                         class="ant-slider ant-slider-horizontal"
+                        style="min-width: 120px;"
                       >
                         <div
                           class="ant-slider-rail"
@@ -1559,6 +1560,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/components/WaterMark/de
                     >
                       <div
                         class="ant-slider ant-slider-horizontal"
+                        style="min-width: 120px;"
                       >
                         <div
                           class="ant-slider-rail"
@@ -1610,6 +1612,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/components/WaterMark/de
                     >
                       <div
                         class="ant-slider ant-slider-horizontal"
+                        style="min-width: 120px;"
                       >
                         <div
                           class="ant-slider-rail"

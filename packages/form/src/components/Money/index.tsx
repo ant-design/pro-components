@@ -23,7 +23,6 @@ const ProFormMoney: React.ForwardRefRenderFunction<any, ProFormMoneyProps> = (
 ) => {
   return (
     <ProFormField
-      mode="edit"
       valueType={{
         type: 'money',
         locale,

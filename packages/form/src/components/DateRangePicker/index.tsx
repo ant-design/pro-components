@@ -18,7 +18,6 @@ const ProFormDateRangePicker: React.FC<ProFormFieldItemProps<RangePickerProps>> 
     return (
       <ProField
         ref={ref}
-        mode="edit"
         fieldProps={{ getPopupContainer: context.getPopupContainer, ...fieldProps }}
         valueType={valueType}
         proFieldProps={proFieldProps}
