@@ -116,7 +116,7 @@ ProForm 自带的 Filed ,与 valueType 基本上一一对应。
 
 ProFormCaptcha 是为了支持中后台中常见的验证码功能开发的组件。
 
-<code src="../demos/pro-form-captCha.tsx" height="169px" title="captcha"/>
+<code src="./demos/pro-form-captCha.tsx" height="169px" title="captcha"/>
 
 ```tsx | pure
 <ProFormCaptcha
