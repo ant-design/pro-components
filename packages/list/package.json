@@ -37,7 +37,7 @@
     "@ant-design/pro-field": "1.35.1",
     "@ant-design/pro-table": "2.78.1",
     "@babel/runtime": "^7.18.0",
-    "antd": ">=4.20.0",
+    "antd": "^4.20.0 ",
     "classnames": "^2.2.6",
     "moment": "^2.24.0",
     "rc-resize-observer": "^1.0.0",
