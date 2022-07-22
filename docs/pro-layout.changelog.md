@@ -9,6 +9,19 @@ group:
 
 # Change Log
 
+## @ant-design/pro-layout@6.38.14
+
+`2022-07-21`
+
+- fix(layout): fix PageContainer loading style error #5568 (#5571). [#5571](https://github.com/ant-design/pro-components/pull/#5571) [@wangmeijian](https://github.com/wangmeijian)
+
+## @ant-design/pro-layout@6.38.13
+
+`2022-07-14`
+
+- fix(layout): 支持多行文字水印 (#5524). [#5524](https://github.com/ant-design/pro-components/pull/#5524) [@liangchaofei](https://github.com/liangchaofei)
+- fix(layout): defaultCollapsed should use useAntdMediaQuery. [cdf584a](https://github.com/ant-design/pro-components/commit/cdf584a)
+
 ## @ant-design/pro-layout@6.38.11
 
 `2022-07-06`

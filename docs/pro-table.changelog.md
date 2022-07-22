@@ -9,6 +9,13 @@ group:
 
 # Change Log
 
+## @ant-design/pro-table@2.78.0
+
+`2022-07-21`
+
+- feat(table):loading 属性支持对象类型(SpinProps) (#5482). [#5482](https://github.com/ant-design/pro-components/pull/#5482) [@kingcwt](https://github.com/kingcwt)
+- feat(table): ProTable columns 的 ellipsis 支持 showTitle (#5575). [#5575](https://github.com/ant-design/pro-components/pull/#5575) [@liangchaofei](https://github.com/liangchaofei)
+
 ## @ant-design/pro-table@2.77.1
 
 `2022-07-06`

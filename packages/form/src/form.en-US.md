@@ -171,7 +171,7 @@ supported in `ProForm`, `SchemaForm`, `ModalForm`, `DrawerForm`, `StepsForm`
 
 ### Fixed footer
 
-<code src="./demos/layout-base.tsx"  height="500px" iframe="500px" />
+<code src="./demos/layout-footer.tsx"  height="500px" iframe="500px" />
 
 ### Money
 

@@ -17,7 +17,6 @@ const ProFormText: React.FC<ProFormFieldItemProps<InputProps, InputRef>> = ({
 }: ProFormFieldItemProps<InputProps, InputRef>) => {
   return (
     <ProField
-      mode="edit"
       valueType={valueType}
       fieldProps={fieldProps}
       filedConfig={
@@ -38,7 +37,6 @@ const Password: React.FC<ProFormFieldItemProps<PasswordProps, InputRef>> = ({
 }: ProFormFieldItemProps<InputProps, InputRef>) => {
   return (
     <ProField
-      mode="edit"
       valueType="password"
       fieldProps={fieldProps}
       proFieldProps={proFieldProps}

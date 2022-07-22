@@ -18,6 +18,7 @@ export default () => {
   return (
     <BasicLayout
       fixSiderbar
+      fixedHeader
       navTheme="light"
       breakpoint={false}
       defaultCollapsed
