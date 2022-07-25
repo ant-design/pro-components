@@ -1194,4 +1194,65 @@ describe('ProForm List', () => {
 
     expect(ref.current?.getCurrentRowData().lv2Name).toBe('test');
   });
+
+  it('⛲  ProForm.List getCurrentRowData and setCurrentRowData support two-dimensional array', async () => {
+    const ref = React.createRef<{
+      getCurrentRowData: () => any;
+      setCurrentRowData: (data: any) => void;
+    }>();
+
+    const html = reactRender(
+      <ProForm>
+        <ProFormList
+          name="twoDimensionalArray"
+          label="一级数组"
+          initialValue={[
+            [
+              {
+                name: '1111',
+              },
+            ],
+          ]}
+        >
+          <ProFormList name={[]} label="二级数组">
+            {(f, idxLv2, action) => {
+              ref.current = action;
+              return (
+                <ProFormText
+                  name="name"
+                  label="用户姓名"
+                  fieldProps={{
+                    id: 'lv2Name',
+                  }}
+                />
+              );
+            }}
+          </ProFormList>
+        </ProFormList>
+      </ProForm>,
+    );
+
+    await waitForComponentToPaint(html);
+
+    expect(ref.current?.getCurrentRowData().name).toBe('1111');
+
+    act(() => {
+      const dom = html.baseElement.querySelector<HTMLInputElement>('#lv2Name');
+      fireEvent.change(dom!, {
+        target: {
+          value: 'test',
+        },
+      });
+    });
+
+    await waitForComponentToPaint(html);
+
+    expect(ref.current?.getCurrentRowData().name).toBe('test');
+
+    ref.current?.setCurrentRowData({ name: 'New Name' });
+
+    await waitForComponentToPaint(html);
+
+    expect(ref.current?.getCurrentRowData().name).toBe('New Name');
+  });
 });

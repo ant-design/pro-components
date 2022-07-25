@@ -287,7 +287,7 @@ const ProFormListItem: React.FC<
       const oldTableDate = formInstance?.getFieldsValue?.() || {};
       const rowKeyName = [listContext.listName, originName, index?.toString()]
         .flat(1)
-        .filter(Boolean);
+        .filter((item) => item !== null && item !== undefined);
       const updateValues = set(oldTableDate, rowKeyName, {
         // 只是简单的覆盖，如果很复杂的话，需要自己处理
         ...getCurrentRowData(),
