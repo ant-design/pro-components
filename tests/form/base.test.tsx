@@ -14,8 +14,8 @@ import ProForm, {
 import '@testing-library/jest-dom';
 import { render as reactRender } from '@testing-library/react';
 import { Button, ConfigProvider, Input } from 'antd';
+import dayjs from 'dayjs';
 import { mount } from 'enzyme';
-import moment from 'moment';
 import React, { useEffect, useRef } from 'react';
 import { act } from 'react-dom/test-utils';
 import { waitForComponentToPaint, waitTime } from '../util';
@@ -2291,7 +2291,7 @@ describe('ProForm', () => {
         >
           <ProFormDatePicker
             name="date"
-            initialValue={moment('2021-08-09')}
+            initialValue={dayjs('2021-08-09')}
             fieldProps={{ open: true }}
           />
         </ProForm>
@@ -2420,7 +2420,7 @@ describe('ProForm', () => {
         >
           <ProFormDateTimePicker
             name="datetime"
-            initialValue={moment('2021-08-09 12:12:12')}
+            initialValue={dayjs('2021-08-09 12:12:12')}
             fieldProps={{ open: true }}
           />
         </ProForm>

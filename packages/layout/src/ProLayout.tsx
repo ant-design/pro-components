@@ -2,7 +2,7 @@ import { ConfigProviderWrap } from '@ant-design/pro-provider';
 import { isBrowser, useDocumentTitle, useMountMergeState } from '@ant-design/pro-utils';
 import { getMatchMenu } from '@umijs/route-utils';
 import { ConfigProvider, Layout } from 'antd';
-import type { BreadcrumbProps as AntdBreadcrumbProps } from 'antd/lib/breadcrumb';
+import type { BreadcrumbProps as AntdBreadcrumbProps } from 'antd/es/breadcrumb';
 import classNames from 'classnames';
 import Omit from 'omit.js';
 import useMergedState from 'rc-util/lib/hooks/useMergedState';
@@ -18,7 +18,6 @@ import type { SiderMenuProps } from './components/SiderMenu/SiderMenu';
 import type { WaterMarkProps } from './components/WaterMark';
 import type { ProSettings } from './defaultSettings';
 import { defaultSettings } from './defaultSettings';
-import { css, cx } from './emotion';
 import { DefaultFooter as Footer } from './Footer';
 import type { GetPageTitleProps } from './getPageTitle';
 import { getPageTitleInfo } from './getPageTitle';
@@ -30,6 +29,7 @@ import { Logo } from './Logo';
 import type { ProLayoutProviderProps } from './ProLayoutContext';
 import { ProLayoutContext, ProLayoutProvider } from './ProLayoutContext';
 import { RouteContext } from './RouteContext';
+import { useStyle } from './style/index';
 import type { MenuDataItem, MessageDescriptor, Route, RouterTypes, WithFalse } from './typings';
 import { getBreadcrumbProps } from './utils/getBreadcrumbProps';
 import { getMenuData } from './utils/getMenuData';
@@ -360,7 +360,7 @@ const BaseProLayout: React.FC<ProLayoutProps> = (props) => {
     route,
     defaultCollapsed,
     style,
-    disableContentMargin,
+    disableContentMargin = true,
     siderWidth: propsSiderWidth,
     menu,
     isChildrenLayout: propsIsChildrenLayout,
@@ -595,14 +595,16 @@ const BaseProLayout: React.FC<ProLayoutProps> = (props) => {
   const isChildrenLayout =
     propsIsChildrenLayout !== undefined ? propsIsChildrenLayout : contextIsChildrenLayout;
 
-  const baseClassName = `${prefixCls}-basicLayout`;
+  const proLayoutClassName = `${prefixCls}-layout`;
+  const { wrapSSR, hashId } = useStyle(proLayoutClassName);
+
   // gen className
-  const className = classNames(props.className, 'ant-design-pro', baseClassName, {
+  const className = classNames(props.className, hashId, 'ant-design-pro', proLayoutClassName, {
     [`screen-${colSize}`]: colSize,
-    [`${baseClassName}-top-menu`]: propsLayout === 'top',
-    [`${baseClassName}-is-children`]: isChildrenLayout,
-    [`${baseClassName}-fix-siderbar`]: fixSiderbar,
-    [`${baseClassName}-${propsLayout}`]: propsLayout,
+    [`${proLayoutClassName}-top-menu`]: propsLayout === 'top',
+    [`${proLayoutClassName}-is-children`]: isChildrenLayout,
+    [`${proLayoutClassName}-fix-siderbar`]: fixSiderbar,
+    [`${proLayoutClassName}-${propsLayout}`]: propsLayout,
   });
 
   /** 计算 slider 的宽度 */
@@ -644,14 +646,7 @@ const BaseProLayout: React.FC<ProLayoutProps> = (props) => {
     return null;
   }, [layoutBgImgList]);
 
-  const antdPrefixCls = context.getPrefixCls();
-
-  const contentClassName = classNames(`${baseClassName}-content`, {
-    [`${baseClassName}-has-header`]: headerDom,
-    [`${baseClassName}-content-disable-margin`]: disableContentMargin,
-  });
-
-  return (
+  return wrapSSR(
     <MenuCounter.Provider>
       <RouteContext.Provider
         value={{
@@ -666,6 +661,7 @@ const BaseProLayout: React.FC<ProLayoutProps> = (props) => {
           hasHeader: !!headerDom,
           siderWidth: leftSiderWidth,
           hasFooter: !!footerDom,
+          disableContentMargin: props.disableContentMargin,
           hasFooterToolbar,
           setHasFooterToolbar,
           pageTitleInfo,
@@ -675,39 +671,10 @@ const BaseProLayout: React.FC<ProLayoutProps> = (props) => {
         }}
       >
         {props.pure ? (
-          <ConfigProviderWrap autoClearCache>{children}</ConfigProviderWrap>
+          <>{children}</>
         ) : (
-          <div
-            className={cx(
-              className,
-              css`
-                // BFC
-                display: flex;
-                flex-direction: column;
-                width: 100%;
-                min-height: 100%;
-                background-color: transparent;
-                .${antdPrefixCls}-layout {
-                  background: transparent;
-                }
-              `,
-            )}
-          >
-            <div
-              className={css`
-                pointer-events: none;
-                position: fixed;
-                overflow: hidden;
-                top: 0;
-                left: 0;
-                z-index: 0;
-                height: 100%;
-                width: 100%;
-                background: ${designToken.layoutBg};
-              `}
-            >
-              {bgImgStyleList}
-            </div>
+          <div className={className}>
+            <div className={`${proLayoutClassName}-bg-list`}>{bgImgStyleList}</div>
             <Layout
               style={{
                 minHeight: '100%',
@@ -722,7 +689,8 @@ const BaseProLayout: React.FC<ProLayoutProps> = (props) => {
                   autoClearCache={false}
                   isChildrenLayout={isChildrenLayout}
                   {...rest}
-                  className={contentClassName}
+                  hasHeader={!!headerDom}
+                  prefixCls={proLayoutClassName}
                   style={contentStyle}
                 >
                   {loading ? <PageLoading /> : children}
@@ -733,7 +701,7 @@ const BaseProLayout: React.FC<ProLayoutProps> = (props) => {
           </div>
         )}
       </RouteContext.Provider>
-    </MenuCounter.Provider>
+    </MenuCounter.Provider>,
   );
 };
 
@@ -745,9 +713,26 @@ BaseProLayout.defaultProps = {
 
 const ProLayout: React.FC<ProLayoutProps> = (props) => {
   return (
-    <ProLayoutProvider token={props.token}>
-      <BaseProLayout {...props} />
-    </ProLayoutProvider>
+    <ConfigProvider
+      theme={{
+        token: {
+          radiusBase: 4,
+          colorPrimary: '#1677FF',
+        },
+        override: {
+          Layout: {
+            colorBgHeader: 'transparent',
+            colorBgBody: 'transparent',
+          },
+        },
+      }}
+    >
+      <ConfigProviderWrap autoClearCache>
+        <ProLayoutProvider token={props.token}>
+          <BaseProLayout {...props} />
+        </ProLayoutProvider>
+      </ConfigProviderWrap>
+    </ConfigProvider>
   );
 };
 

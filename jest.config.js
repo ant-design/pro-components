@@ -25,6 +25,9 @@ module.exports = {
   transform: {
     '\\.(t|j)sx?$': require.resolve('./tests/jsTransformer'),
   },
+  transformIgnorePatterns: [
+    '/node_modules/(?!antd|@ant-design|rc-.+?|@babel/runtime|@umijs/renderer-react|@umijs/preset-umi|umi).+(js|jsx)$',
+  ],
   unmockedModulePathPatterns: ['node_modules/react/', 'node_modules/enzyme/'],
   testURL:
     'http://localhost?navTheme=realDark&layout=mix&primaryColor=techBlue&splitMenus=false&fixedHeader=true',

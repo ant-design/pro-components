@@ -75,7 +75,7 @@ const LightWrapper: React.ForwardRefRenderFunction<any, LightWrapperProps> = (pr
 
   const labelValue = props[valuePropName!];
 
-  /** DataRange的转化，moment 的 toString 有点不好用 */
+  /** DataRange的转化，dayjs 的 toString 有点不好用 */
   const labelText = useMemo(() => {
     if (valueType?.toLowerCase()?.endsWith('range') && !labelFormatter) {
       return dateArrayFormatter(labelValue, dateFormatterMap[valueType] || 'YYYY-MM-DD');

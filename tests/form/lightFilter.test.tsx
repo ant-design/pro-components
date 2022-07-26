@@ -11,8 +11,8 @@ import {
 } from '@ant-design/pro-form';
 import '@testing-library/jest-dom';
 import { render } from '@testing-library/react';
+import dayjs from 'dayjs';
 import { mount } from 'enzyme';
-import moment from 'moment';
 import KeyCode from 'rc-util/lib/KeyCode';
 import { act } from 'react-dom/test-utils';
 import { waitForComponentToPaint } from '../util';
@@ -683,7 +683,7 @@ describe('LightFilter', () => {
             min: 1000000000,
             max: 2000000000,
             tipFormatter: (v: number | undefined) => (
-              <div>{v ? moment.unix(v).format('YYYY-MM-DD HH:mm:ss') : 0}</div>
+              <div>{v ? dayjs.unix(v).format('YYYY-MM-DD HH:mm:ss') : 0}</div>
             ),
           }}
           lightProps={{
@@ -691,7 +691,7 @@ describe('LightFilter', () => {
             labelFormatter: (values) => {
               return values
                 ?.map((value: number) => {
-                  return moment.unix(value).format('YYYY-MM-DD HH:mm:ss');
+                  return dayjs.unix(value).format('YYYY-MM-DD HH:mm:ss');
                 })
                 .join('~');
             },

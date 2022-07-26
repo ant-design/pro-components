@@ -78,7 +78,7 @@ function useEditableMap<RecordType>(
   const startEditable = (recordKey: RecordKey) => {
     // 如果是单行的话，不允许多行编辑
     if (editableKeysSet.size > 0 && editableType === 'single') {
-      message.warn(props.onlyOneLineEditorAlertMessage || '只能同时编辑一行');
+      message.warning(props.onlyOneLineEditorAlertMessage || '只能同时编辑一行');
       return false;
     }
     editableKeysSet.add(recordKeyToString(recordKey));

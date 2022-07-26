@@ -44,7 +44,7 @@
     "@ant-design/pro-table": "2.77.3",
     "@ant-design/pro-utils": "1.42.5",
     "@babel/runtime": "^7.16.3",
-    "antd": ">=4.20.0"
+    "antd": "experimental"
   },
   "peerDependencies": {
     "react": ">=16.9.0",

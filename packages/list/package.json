@@ -38,14 +38,14 @@
     "@ant-design/pro-table": "2.77.3",
     "@babel/runtime": "^7.18.0",
     "classnames": "^2.2.6",
-    "moment": "^2.24.0",
+    "dayjs": "^1.11.4",
     "rc-resize-observer": "^1.0.0",
     "rc-util": "^4.19.0",
     "unstated-next": "^1.1.0",
     "use-media-antd-query": "^1.1.0"
   },
   "devDependencies": {
-    "antd": ">=4.20.0"
+    "antd": "experimental"
   },
   "peerDependencies": {
     "react": ">=16.9.0"

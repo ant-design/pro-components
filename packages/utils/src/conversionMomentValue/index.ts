@@ -1,5 +1,5 @@
-import type { InternalNamePath, NamePath } from 'antd/lib/form/interface';
-import moment from 'moment';
+import type { InternalNamePath, NamePath } from 'antd/es/form/interface';
+import dayjs from 'dayjs';
 import get from 'rc-util/lib/utils/get';
 import isNil from '../isNil';
 import type { ProFieldValueType } from '../typing';
@@ -7,7 +7,7 @@ import type { ProFieldValueType } from '../typing';
 type DateFormatter =
   | 'number'
   | 'string'
-  | ((value: moment.Moment, valueType: string) => string | number)
+  | ((value: dayjs.Dayjs, valueType: string) => string | number)
   | false;
 
 export const dateFormatterMap = {
@@ -48,21 +48,21 @@ export function isPlainObject(o: { constructor: any }) {
 }
 
 /**
- * 根据不同的格式转化 moment
+ * 根据不同的格式转化 dayjs
  *
  * @param value
  * @param dateFormatter
  * @param valueType
  */
 export const convertMoment = (
-  value: moment.Moment,
-  dateFormatter: string | ((value: moment.Moment, valueType: string) => string | number) | false,
+  value: dayjs.Dayjs,
+  dateFormatter: string | ((value: dayjs.Dayjs, valueType: string) => string | number) | false,
   valueType: string,
 ) => {
   if (!dateFormatter) {
     return value;
   }
-  if (moment.isMoment(value)) {
+  if (dayjs.isDayjs(value)) {
     if (dateFormatter === 'number') {
       return value.valueOf();
     }
@@ -80,7 +80,7 @@ export const convertMoment = (
 };
 
 /**
- * 这里主要是来转化一下数据 将 moment 转化为 string 将 all 默认删除
+ * 这里主要是来转化一下数据 将 dayjs 转化为 string 将 all 默认删除
  *
  * @param value
  * @param dateFormatter
@@ -128,8 +128,8 @@ const conversionMomentValue = <T = any>(
       isPlainObject(itemValue) &&
       // 不是数组
       !Array.isArray(itemValue) &&
-      // 不是 moment
-      !moment.isMoment(itemValue)
+      // 不是 dayjs
+      !dayjs.isDayjs(itemValue)
     ) {
       tmpValue[key] = conversionMomentValue(itemValue, dateFormatter, valueTypeMap, omitNil, [key]);
       return;
@@ -137,7 +137,7 @@ const conversionMomentValue = <T = any>(
     // 处理 FormList 的 value
     if (Array.isArray(itemValue)) {
       tmpValue[key] = itemValue.map((arrayValue, index) => {
-        if (moment.isMoment(arrayValue)) {
+        if (dayjs.isDayjs(arrayValue)) {
           return convertMoment(arrayValue, dateFormat || dateFormatter, valueType);
         }
         return conversionMomentValue(arrayValue, dateFormatter, valueTypeMap, omitNil, [

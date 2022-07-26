@@ -18,7 +18,8 @@ import {
 import { useUrlSearchParams } from '@umijs/use-params';
 import type { FormInstance, FormItemProps, FormProps } from 'antd';
 import { ConfigProvider, Form, Spin } from 'antd';
-import type { NamePath } from 'antd/lib/form/interface';
+import type { NamePath } from 'antd/es/form/interface';
+import dayjs from 'dayjs';
 import get from 'rc-util/lib/utils/get';
 import { default as namePathSet, default as set } from 'rc-util/lib/utils/set';
 import { noteOnce } from 'rc-util/lib/warning';
@@ -111,16 +112,16 @@ export type CommonFormProps<T = Record<string, any>, U = Record<string, any>> = 
   /**
    * 格式化 Date 的方式，默认转化为 string
    *
-   * @example  dateFormatter="date" : Moment -> YYYY-MM-DD
-   * @example  dateFormatter="dateTime" Moment -> YYYY-MM-DD  HH:mm:SS
-   * @example  dateFormatter="time" Moment -> HH:mm:SS
-   * @example  dateFormatter=false Moment -> Moment
+   * @example  dateFormatter="date" : Dayjs -> YYYY-MM-DD
+   * @example  dateFormatter="dateTime" Dayjs -> YYYY-MM-DD  HH:mm:SS
+   * @example  dateFormatter="time" Dayjs -> HH:mm:SS
+   * @example  dateFormatter=false Dayjs -> Dayjs
    * @example  dateFormatter={(value)=>value.format("YYYY-MM-DD")}
    */
   dateFormatter?:
     | 'string'
     | 'number'
-    | ((value: moment.Moment, valueType: string) => string | number)
+    | ((value: dayjs.Dayjs, valueType: string) => string | number)
     | false;
 
   /**

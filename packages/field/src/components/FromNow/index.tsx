@@ -1,9 +1,11 @@
 import { useIntl } from '@ant-design/pro-provider';
 import { parseValueToMoment } from '@ant-design/pro-utils';
 import { DatePicker, Tooltip } from 'antd';
-import moment from 'moment';
+import dayjs from 'dayjs';
+import relativeTime from 'dayjs/plugin/relativeTime';
 import type { ProFieldFC } from '../../index';
 
+dayjs.extend(relativeTime);
 /**
  * 与当前的时间进行比较 http://momentjs.cn/docs/displaying/fromnow.html
  *
@@ -17,8 +19,8 @@ const FieldFromNow: ProFieldFC<{
 
   if (mode === 'read') {
     const dom = (
-      <Tooltip title={moment(text).format(fieldProps?.format || format || 'YYYY-MM-DD HH:mm:ss')}>
-        {moment(text).fromNow()}
+      <Tooltip title={dayjs(text).format(fieldProps?.format || format || 'YYYY-MM-DD HH:mm:ss')}>
+        {dayjs(text).fromNow()}
       </Tooltip>
     );
     if (render) {
@@ -28,7 +30,7 @@ const FieldFromNow: ProFieldFC<{
   }
   if (mode === 'edit' || mode === 'update') {
     const placeholder = intl.getMessage('tableForm.selectPlaceholder', '请选择');
-    const momentValue = parseValueToMoment(fieldProps.value) as moment.Moment;
+    const momentValue = parseValueToMoment(fieldProps.value) as dayjs.Dayjs;
     const dom = (
       <DatePicker placeholder={placeholder} showTime {...fieldProps} value={momentValue} />
     );

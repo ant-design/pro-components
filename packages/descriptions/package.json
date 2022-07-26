@@ -42,7 +42,7 @@
     "use-json-comparison": "^1.0.5"
   },
   "devDependencies": {
-    "antd": ">=4.20.0",
+    "antd": "experimental",
     "rc-resize-observer": "^0.2.3"
   },
   "peerDependencies": {

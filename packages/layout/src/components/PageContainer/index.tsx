@@ -1,17 +1,8 @@
-import type {
-  AffixProps,
-  BreadcrumbProps,
-  PageHeaderProps,
-  SpinProps,
-  TabPaneProps,
-  TabsProps,
-} from 'antd';
-import { Affix, Breadcrumb, ConfigProvider, PageHeader, Tabs } from 'antd';
+import type { AffixProps, BreadcrumbProps, SpinProps, TabPaneProps, TabsProps } from 'antd';
+import { Affix, Breadcrumb, ConfigProvider, Tabs } from 'antd';
 import classNames from 'classnames';
 import type { ReactNode } from 'react';
 import React, { useContext, useMemo } from 'react';
-import { css, cx } from '../../emotion';
-import { ProLayoutContext } from '../../ProLayoutContext';
 import { RouteContext } from '../../RouteContext';
 import type { WithFalse } from '../../typings';
 import { FooterToolbar } from '../FooterToolbar';
@@ -19,8 +10,9 @@ import { GridContent } from '../GridContent';
 import { PageLoading } from '../PageLoading';
 import type { WaterMarkProps } from '../WaterMark';
 import { WaterMark } from '../WaterMark';
-
-const [sm, md, lg, xl] = [576, 768, 992, 1200].map((bp) => `@media (min-width: ${bp}px)`);
+import type { PageHeaderProps } from './PageHeader';
+import PageHeader from './PageHeader';
+import { useStyle } from './style/index';
 
 export type PageHeaderTabConfig = {
   /** @name tabs 的列表 */
@@ -145,78 +137,12 @@ const renderPageHeader = (
     return null;
   }
   return (
-    <div
-      className={cx(
-        `${prefixedClassName}-detail`,
-        css`
-          display: flex;
-          ${sm} {
-            display: block;
-          }
-        `,
-      )}
-    >
-      <div
-        className={cx(
-          `${prefixedClassName}-main`,
-          css`
-            width: 100%;
-          `,
-        )}
-      >
-        <div
-          className={cx(
-            `${prefixedClassName}-row`,
-            css`
-              display: flex;
-              width: 100%;
-              ${md} {
-                display: block;
-              }
-            `,
-          )}
-        >
-          {content && (
-            <div
-              className={cx(
-                `${prefixedClassName}-content`,
-                css`
-                  flex: auto;
-                  width: 100%;
-                `,
-              )}
-            >
-              {content}
-            </div>
-          )}
+    <div className={`${prefixedClassName}-detail`}>
+      <div className={`${prefixedClassName}-main`}>
+        <div className={`${prefixedClassName}-row`}>
+          {content && <div className={`${prefixedClassName}-content`}>{content}</div>}
           {extraContent && (
-            <div
-              className={cx(
-                `${prefixedClassName}-extraContent`,
-                css`
-                  flex: 0 1 auto;
-                  min-width: 242px;
-                  margin-left: 88px;
-                  text-align: right;
-
-                  ${sm} {
-                    margin-left: 0;
-                  }
-                  ${md} {
-                    margin-left: 0;
-                    text-align: left;
-                  }
-                  ${lg} {
-                    margin-left: 20px;
-                  }
-                  ${xl} {
-                    margin-left: 44px;
-                  }
-                `,
-              )}
-            >
-              {extraContent}
-            </div>
+            <div className={`${prefixedClassName}-extraContent`}>{extraContent}</div>
           )}
         </div>
       </div>
@@ -259,8 +185,6 @@ const ProPageHeader: React.FC<PageContainerProps & { prefixedClassName: string }
     breadcrumbRender,
     ...restProps
   } = props;
-  const designToken = useContext(ProLayoutContext);
-  const { getPrefixCls } = useContext(ConfigProvider.ConfigContext);
   const getBreadcrumbRender = useMemo(() => {
     if (!breadcrumbRender) {
       return undefined;
@@ -307,28 +231,11 @@ const ProPageHeader: React.FC<PageContainerProps & { prefixedClassName: string }
   ) {
     return null;
   }
-  const antdPrefixCls = getPrefixCls();
   return (
-    <div
-      className={cx(
-        `${prefixedClassName}-warp`,
-        css`
-          background-color: ${designToken.pageContainer?.pageContainerBgColor};
-          .${antdPrefixCls}-tabs-nav {
-            margin: 0;
-          }
-          .${antdPrefixCls}-page-header{
-            padding-left: 40px;
-            padding-right: 40px;
-          }
-          .${antdPrefixCls}-page-header-heading-extra > * {
-            margin-left: 8px;
-          }
-        `,
-      )}
-    >
+    <div className={`${prefixedClassName}-warp`}>
       <PageHeader
         {...pageHeaderProps}
+        className={`${prefixedClassName}-warp-page-header`}
         breadcrumb={
           breadcrumbRender === false
             ? undefined
@@ -356,31 +263,17 @@ const PageContainer: React.FC<PageContainerProps> = (props) => {
     ...restProps
   } = props;
   const value = useContext(RouteContext);
-  const designToken = useContext(ProLayoutContext);
   const { getPrefixCls } = useContext(ConfigProvider.ConfigContext);
   const prefixCls = props.prefixCls || getPrefixCls('pro');
-  const antdPrefixCls = getPrefixCls();
 
-  const prefixedClassName = `${prefixCls}-page-container`;
+  const basePageContainer = `${prefixCls}-page-container`;
 
-  const containerClassName = classNames(prefixedClassName, className, {
-    [`${prefixCls}-page-container-ghost`]: true,
-    [`${prefixCls}-page-container-with-footer`]: footer,
-  });
+  const { wrapSSR, hashId } = useStyle(basePageContainer);
 
   const content = useMemo(() => {
     return children ? (
       <>
-        <div
-          className={cx(
-            `${prefixedClassName}-children-content`,
-            css`
-              margin: ${designToken.pageContainer.pageContainerContentMargin};
-            `,
-          )}
-        >
-          {children}
-        </div>
+        <div className={`${basePageContainer}-children-content`}>{children}</div>
         {value.hasFooterToolbar && (
           <div
             style={{
@@ -391,12 +284,7 @@ const PageContainer: React.FC<PageContainerProps> = (props) => {
         )}
       </>
     ) : null;
-  }, [
-    children,
-    designToken.pageContainer.pageContainerContentMargin,
-    prefixedClassName,
-    value.hasFooterToolbar,
-  ]);
+  }, [children, basePageContainer, value.hasFooterToolbar]);
 
   const memoBreadcrumbRender = useMemo(() => {
     if (breadcrumbRender == false) return false;
@@ -408,7 +296,7 @@ const PageContainer: React.FC<PageContainerProps> = (props) => {
       breadcrumbRender={memoBreadcrumbRender}
       ghost={true}
       prefixCls={undefined}
-      prefixedClassName={prefixedClassName}
+      prefixedClassName={basePageContainer}
     />
   );
   const loadingDom = useMemo(() => {
@@ -439,26 +327,21 @@ const PageContainer: React.FC<PageContainerProps> = (props) => {
     return dom;
   }, [props.waterMarkProps, value.waterMarkProps, loadingDom, content]);
 
-  return (
+  const containerClassName = classNames(basePageContainer, hashId, className, {
+    // layout 如果有 margin 需要给一个负的 margin 对冲一下
+    [`${basePageContainer}-layout-has-margin`]: !value.disableContentMargin,
+    [`${basePageContainer}-ghost`]: true,
+    [`${basePageContainer}-with-footer`]: footer,
+    [`${basePageContainer}-with-affix`]: fixedHeader && pageHeaderDom,
+  });
+
+  return wrapSSR(
     <>
-      <div
-        style={style}
-        className={cx(
-          containerClassName,
-          fixedHeader &&
-            pageHeaderDom &&
-            css`
-              .${antdPrefixCls}-affix {
-                .${prefixedClassName}-warp {
-                  background-color: ${designToken.pageContainer.pageContainerFixedBgColor};
-                }
-              }
-            `,
-        )}
-      >
+      <div style={style} className={containerClassName}>
         {fixedHeader && pageHeaderDom ? (
           // 在 hasHeader 且 fixedHeader 的情况下，才需要设置高度
           <Affix
+            className={`${basePageContainer}-affix`}
             offsetTop={value.hasHeader && value.fixedHeader ? value.headerHeight : 0}
             {...affixProps}
           >
@@ -470,7 +353,7 @@ const PageContainer: React.FC<PageContainerProps> = (props) => {
         {renderContentDom && <GridContent>{renderContentDom}</GridContent>}
       </div>
       {footer && <FooterToolbar prefixCls={prefixCls}>{footer}</FooterToolbar>}
-    </>
+    </>,
   );
 };
 

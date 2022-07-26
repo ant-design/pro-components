@@ -5,7 +5,7 @@ import { LoginForm, ProFormText } from '@ant-design/pro-form';
 import '@testing-library/jest-dom';
 import { render } from '@testing-library/react';
 import { ConfigProvider } from 'antd';
-import en_US from 'antd/lib/locale/en_US';
+import en_US from 'antd/es/locale/en_US';
 import { mount, render as enzymeRender } from 'enzyme';
 import React, { useState } from 'react';
 import { act } from 'react-dom/test-utils';

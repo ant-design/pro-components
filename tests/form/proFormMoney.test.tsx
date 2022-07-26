@@ -1,6 +1,6 @@
 import ProForm, { ProFormMoney } from '@ant-design/pro-form';
 import { ConfigProvider } from 'antd';
-import enGBIntl from 'antd/lib/locale/en_GB';
+import enGBIntl from 'antd/es/locale/en_GB';
 import { mount } from 'enzyme';
 import { act } from 'react-dom/test-utils';
 import { waitForComponentToPaint } from '../util';

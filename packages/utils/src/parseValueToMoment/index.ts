@@ -1,20 +1,20 @@
-import moment from 'moment';
+import dayjs from 'dayjs';
 import isNil from '../isNil';
 
-type DateValue = moment.Moment | moment.Moment[] | string | string[] | number | number[];
+type DateValue = dayjs.Dayjs | dayjs.Dayjs[] | string | string[] | number | number[];
 
 const parseValueToMoment = (
   value: DateValue,
   formatter?: string,
-): moment.Moment | moment.Moment[] | null | undefined => {
-  if (isNil(value) || moment.isMoment(value)) {
-    return value as moment.Moment | null | undefined;
+): dayjs.Dayjs | dayjs.Dayjs[] | null | undefined => {
+  if (isNil(value) || dayjs.isDayjs(value)) {
+    return value as dayjs.Dayjs | null | undefined;
   }
   if (Array.isArray(value)) {
-    return (value as any[]).map((v) => parseValueToMoment(v, formatter) as moment.Moment);
+    return (value as any[]).map((v) => parseValueToMoment(v, formatter) as dayjs.Dayjs);
   }
-  if (typeof value === 'number') return moment(value);
-  return moment(value, formatter);
+  if (typeof value === 'number') return dayjs(value);
+  return dayjs(value, formatter);
 };
 
 export default parseValueToMoment;

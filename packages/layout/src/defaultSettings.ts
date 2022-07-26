@@ -1,5 +1,5 @@
 import type { MenuDataItem } from '@umijs/route-utils';
-import type { MenuTheme } from 'antd/lib/menu/MenuContext';
+import type { MenuTheme } from 'antd/es/menu/MenuContext';
 
 export type ContentWidth = 'Fluid' | 'Fixed';
 

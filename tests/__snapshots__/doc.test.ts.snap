@@ -18,172 +18,104 @@ exports[`docs demos 📸 renders ./docs/demos/customization-value-type.tsx corre
     <div
       class="ant-pro-card-body"
     >
-      <form
-        autocomplete="off"
-        class="ant-form ant-form-vertical"
-        title="自定义 valueType"
+      <div
+        class="ant-pro"
       >
-        <input
-          style="display: none;"
-          type="text"
-        />
-        <div
-          class="ant-pro-form-group"
+        <form
+          autocomplete="off"
+          class="ant-form ant-form-vertical"
+          title="自定义 valueType"
         >
+          <input
+            style="display: none;"
+            type="text"
+          />
           <div
-            class="ant-pro-form-group-title"
-          >
-            标签
-          </div>
-          <div
-            class="ant-space ant-space-horizontal ant-space-align-start ant-pro-form-group-container"
-            style="row-gap: 0;"
+            class="ant-pro-form-group"
           >
             <div
-              class="ant-space-item"
-              style="margin-right: 32px;"
+              class="ant-pro-form-group-title"
             >
-              <div
-                class="ant-row ant-form-item"
-              >
-                <div
-                  class="ant-col ant-form-item-label"
-                >
-                  <label
-                    class=""
-                    for="name"
-                    title="只读链接"
-                  >
-                    只读链接
-                  </label>
-                </div>
-                <div
-                  class="ant-col ant-form-item-control"
-                >
-                  <div
-                    class="ant-form-item-control-input"
-                  >
-                    <div
-                      class="ant-form-item-control-input-content"
-                    >
-                      <a>
-                        TradeCode 1
-                      </a>
-                    </div>
-                  </div>
-                </div>
-              </div>
+              标签
             </div>
             <div
-              class="ant-space-item"
+              class="ant-space ant-space-horizontal ant-space-align-start ant-pro-form-group-container"
+              style="row-gap: 0;"
             >
               <div
-                class="ant-row ant-form-item"
+                class="ant-space-item"
+                style="margin-right: 32px;"
               >
                 <div
-                  class="ant-col ant-form-item-label"
-                >
-                  <label
-                    class=""
-                    for="name"
-                    title="链接"
-                  >
-                    链接
-                  </label>
-                </div>
-                <div
-                  class="ant-col ant-form-item-control"
+                  class="ant-form-item"
                 >
                   <div
-                    class="ant-form-item-control-input"
+                    class="ant-row ant-form-item-row"
                   >
                     <div
-                      class="ant-form-item-control-input-content"
+                      class="ant-col ant-form-item-label"
                     >
-                      <input
-                        class="ant-input"
-                        id="name"
-                        placeholder="请输入链接"
-                        type="text"
-                        value="TradeCode 1"
-                      />
+                      <label
+                        class=""
+                        for="name"
+                        title="只读链接"
+                      >
+                        只读链接
+                      </label>
                     </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div
-          class="ant-pro-form-group"
-        >
-          <div
-            class="ant-pro-form-group-title"
-          >
-            路径
-          </div>
-          <div
-            class="ant-space ant-space-horizontal ant-space-align-start ant-pro-form-group-container"
-            style="row-gap: 0;"
-          >
-            <div
-              class="ant-space-item"
-              style="margin-right: 32px;"
-            >
-              <div
-                class="ant-row ant-form-item"
-              >
-                <div
-                  class="ant-col ant-form-item-label"
-                >
-                  <label
-                    class=""
-                    for="status"
-                    title="标签"
-                  >
-                    标签
-                  </label>
-                </div>
-                <div
-                  class="ant-col ant-form-item-control"
-                >
-                  <div
-                    class="ant-form-item-control-input"
-                  >
                     <div
-                      class="ant-form-item-control-input-content"
+                      class="ant-col ant-form-item-control"
                     >
                       <div
-                        class="ant-space ant-space-horizontal ant-space-align-center"
+                        class="ant-form-item-control-input"
                       >
                         <div
-                          class="ant-space-item"
-                          style="margin-right: 8px;"
+                          class="ant-form-item-control-input-content"
                         >
-                          <span
-                            class="ant-tag"
-                          >
-                            close
-                          </span>
+                          <a>
+                            TradeCode 1
+                          </a>
                         </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div
+                class="ant-space-item"
+              >
+                <div
+                  class="ant-form-item"
+                >
+                  <div
+                    class="ant-row ant-form-item-row"
+                  >
+                    <div
+                      class="ant-col ant-form-item-label"
+                    >
+                      <label
+                        class=""
+                        for="name"
+                        title="链接"
+                      >
+                        链接
+                      </label>
+                    </div>
+                    <div
+                      class="ant-col ant-form-item-control"
+                    >
+                      <div
+                        class="ant-form-item-control-input"
+                      >
                         <div
-                          class="ant-space-item"
-                          style="margin-right: 8px;"
-                        >
-                          <span
-                            class="ant-tag"
-                          >
-                            close
-                          </span>
-                        </div>
-                        <div
-                          class="ant-space-item"
+                          class="ant-form-item-control-input-content"
                         >
                           <input
-                            class="ant-input ant-input-sm"
-                            style="width: 78px;"
+                            class="ant-input"
+                            id="name"
+                            placeholder="请输入链接"
                             type="text"
-                            value=""
+                            value="TradeCode 1"
                           />
                         </div>
                       </div>
@@ -192,81 +124,169 @@ exports[`docs demos 📸 renders ./docs/demos/customization-value-type.tsx corre
                 </div>
               </div>
             </div>
+          </div>
+          <div
+            class="ant-pro-form-group"
+          >
             <div
-              class="ant-space-item"
+              class="ant-pro-form-group-title"
+            >
+              路径
+            </div>
+            <div
+              class="ant-space ant-space-horizontal ant-space-align-start ant-pro-form-group-container"
+              style="row-gap: 0;"
             >
               <div
-                class="ant-row ant-form-item"
+                class="ant-space-item"
+                style="margin-right: 32px;"
               >
                 <div
-                  class="ant-col ant-form-item-label"
-                >
-                  <label
-                    class=""
-                    for="status"
-                    title="只读标签"
-                  >
-                    只读标签
-                  </label>
-                </div>
-                <div
-                  class="ant-col ant-form-item-control"
+                  class="ant-form-item"
                 >
                   <div
-                    class="ant-form-item-control-input"
+                    class="ant-row ant-form-item-row"
                   >
                     <div
-                      class="ant-form-item-control-input-content"
+                      class="ant-col ant-form-item-label"
                     >
-                      <span
-                        class="ant-tag"
+                      <label
+                        class=""
+                        for="status"
+                        title="标签"
                       >
-                        close
-                      </span>
-                      <span
-                        class="ant-tag"
+                        标签
+                      </label>
+                    </div>
+                    <div
+                      class="ant-col ant-form-item-control"
+                    >
+                      <div
+                        class="ant-form-item-control-input"
                       >
-                        close
-                      </span>
+                        <div
+                          class="ant-form-item-control-input-content"
+                        >
+                          <div
+                            class="ant-space ant-space-horizontal ant-space-align-center"
+                          >
+                            <div
+                              class="ant-space-item"
+                              style="margin-right: 8px;"
+                            >
+                              <span
+                                class="ant-tag"
+                              >
+                                close
+                              </span>
+                            </div>
+                            <div
+                              class="ant-space-item"
+                              style="margin-right: 8px;"
+                            >
+                              <span
+                                class="ant-tag"
+                              >
+                                close
+                              </span>
+                            </div>
+                            <div
+                              class="ant-space-item"
+                            >
+                              <input
+                                class="ant-input ant-input-sm"
+                                style="width: 78px;"
+                                type="text"
+                                value=""
+                              />
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div
+                class="ant-space-item"
+              >
+                <div
+                  class="ant-form-item"
+                >
+                  <div
+                    class="ant-row ant-form-item-row"
+                  >
+                    <div
+                      class="ant-col ant-form-item-label"
+                    >
+                      <label
+                        class=""
+                        for="status"
+                        title="只读标签"
+                      >
+                        只读标签
+                      </label>
+                    </div>
+                    <div
+                      class="ant-col ant-form-item-control"
+                    >
+                      <div
+                        class="ant-form-item-control-input"
+                      >
+                        <div
+                          class="ant-form-item-control-input-content"
+                        >
+                          <span
+                            class="ant-tag"
+                          >
+                            close
+                          </span>
+                          <span
+                            class="ant-tag"
+                          >
+                            close
+                          </span>
+                        </div>
+                      </div>
                     </div>
                   </div>
                 </div>
               </div>
             </div>
           </div>
-        </div>
-        <div
-          class="ant-space ant-space-horizontal ant-space-align-center"
-          style="flex-wrap: wrap; margin-bottom: -8px;"
-        >
           <div
-            class="ant-space-item"
-            style="margin-right: 8px; padding-bottom: 8px;"
+            class="ant-space ant-space-horizontal ant-space-align-center"
+            style="flex-wrap: wrap; margin-bottom: -8px;"
           >
-            <button
-              class="ant-btn ant-btn-primary"
-              type="button"
+            <div
+              class="ant-space-item"
+              style="margin-right: 8px; padding-bottom: 8px;"
             >
-              <span>
-                提 交
-              </span>
-            </button>
-          </div>
-          <div
-            class="ant-space-item"
-            style="padding-bottom: 8px;"
-          >
-            <button
-              class="ant-btn ant-btn-default"
-              type="button"
+              <button
+                class="ant-btn ant-btn-primary"
+                type="button"
+              >
+                <span>
+                  提 交
+                </span>
+              </button>
+            </div>
+            <div
+              class="ant-space-item"
+              style="padding-bottom: 8px;"
             >
-              <span>
-                重 置
-              </span>
-            </button>
+              <button
+                class="ant-btn ant-btn-default"
+                type="button"
+              >
+                <span>
+                  重 置
+                </span>
+              </button>
+            </div>
           </div>
-        </div>
-      </form>
+        </form>
+      </div>
     </div>
   </div>
   <div
@@ -286,176 +306,196 @@ exports[`docs demos 📸 renders ./docs/demos/customization-value-type.tsx corre
       class="ant-pro-card-body"
     >
       <div
-        class="ant-pro-table"
+        class="ant-pro"
       >
         <div
-          class="ant-pro-card ant-pro-table-search ant-pro-table-search-query-filter"
+          class="ant-pro-table"
         >
-          <form
-            autocomplete="off"
-            class="ant-form ant-form-horizontal ant-pro-form-query-filter"
+          <div
+            class="ant-pro-card ant-pro-table-search ant-pro-table-search-query-filter"
           >
-            <input
-              style="display: none;"
-              type="text"
-            />
             <div
-              class="ant-row ant-row-start"
-              style="margin-left: -12px; margin-right: -12px;"
+              class="ant-pro"
             >
-              <div
-                class="ant-col ant-col-8"
-                style="padding-left: 12px; padding-right: 12px;"
+              <form
+                autocomplete="off"
+                class="ant-form ant-form-horizontal ant-pro-form-query-filter"
               >
+                <input
+                  style="display: none;"
+                  type="text"
+                />
                 <div
-                  class="ant-row ant-form-item"
-                  style="flex-wrap: nowrap;"
+                  class="ant-row ant-row-start"
+                  style="margin-left: -12px; margin-right: -12px;"
                 >
                   <div
-                    class="ant-col ant-form-item-label"
-                    style="flex: 0 0 80px;"
-                  >
-                    <label
-                      class=""
-                      for="name"
-                      title="链接"
-                    >
-                      链接
-                    </label>
-                  </div>
-                  <div
-                    class="ant-col ant-form-item-control"
-                    style="max-width: calc(100% - 80px);"
+                    class="ant-col ant-col-8"
+                    style="padding-left: 12px; padding-right: 12px;"
                   >
                     <div
-                      class="ant-form-item-control-input"
+                      class="ant-form-item"
+                      style="flex-wrap: nowrap;"
                     >
                       <div
-                        class="ant-form-item-control-input-content"
-                      >
-                        <input
-                          class="ant-input"
-                          id="name"
-                          placeholder="请输入链接"
-                          style="width: 100%;"
-                          type="text"
-                          value=""
-                        />
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div
-                class="ant-col ant-col-8"
-                style="padding-left: 12px; padding-right: 12px;"
-              >
-                <div
-                  class="ant-row ant-form-item"
-                  style="flex-wrap: nowrap;"
-                >
-                  <div
-                    class="ant-col ant-form-item-label"
-                    style="flex: 0 0 80px;"
-                  >
-                    <label
-                      class=""
-                      for="status"
-                      title="标签"
-                    >
-                      标签
-                    </label>
-                  </div>
-                  <div
-                    class="ant-col ant-form-item-control"
-                    style="max-width: calc(100% - 80px);"
-                  >
-                    <div
-                      class="ant-form-item-control-input"
-                    >
-                      <div
-                        class="ant-form-item-control-input-content"
+                        class="ant-row ant-form-item-row"
                       >
                         <div
-                          class="ant-space ant-space-horizontal ant-space-align-center"
+                          class="ant-col ant-form-item-label"
+                          style="flex: 0 0 80px;"
+                        >
+                          <label
+                            class=""
+                            for="name"
+                            title="链接"
+                          >
+                            链接
+                          </label>
+                        </div>
+                        <div
+                          class="ant-col ant-form-item-control"
+                          style="max-width: calc(100% - 80px);"
                         >
                           <div
-                            class="ant-space-item"
+                            class="ant-form-item-control-input"
                           >
-                            <input
-                              class="ant-input ant-input-sm"
-                              style="width: 78px;"
-                              type="text"
-                              value=""
-                            />
+                            <div
+                              class="ant-form-item-control-input-content"
+                            >
+                              <input
+                                class="ant-input"
+                                id="name"
+                                placeholder="请输入链接"
+                                style="width: 100%;"
+                                type="text"
+                                value=""
+                              />
+                            </div>
                           </div>
                         </div>
                       </div>
                     </div>
                   </div>
-                </div>
-              </div>
-              <div
-                class="ant-col ant-col-8"
-                style="padding-left: 12px; padding-right: 12px; text-align: right;"
-              >
-                <div
-                  class="ant-row ant-form-item pro-form-query-filter-actions"
-                >
                   <div
-                    class="ant-col ant-form-item-label"
-                  >
-                    <label
-                      class="ant-form-item-no-colon"
-                      title=" "
-                    >
-                       
-                    </label>
-                  </div>
-                  <div
-                    class="ant-col ant-form-item-control"
+                    class="ant-col ant-col-8"
+                    style="padding-left: 12px; padding-right: 12px;"
                   >
                     <div
-                      class="ant-form-item-control-input"
+                      class="ant-form-item"
+                      style="flex-wrap: nowrap;"
                     >
                       <div
-                        class="ant-form-item-control-input-content"
+                        class="ant-row ant-form-item-row"
                       >
                         <div
-                          class="ant-space ant-space-horizontal ant-space-align-center"
+                          class="ant-col ant-form-item-label"
+                          style="flex: 0 0 80px;"
+                        >
+                          <label
+                            class=""
+                            for="status"
+                            title="标签"
+                          >
+                            标签
+                          </label>
+                        </div>
+                        <div
+                          class="ant-col ant-form-item-control"
+                          style="max-width: calc(100% - 80px);"
                         >
                           <div
-                            class="ant-space-item"
+                            class="ant-form-item-control-input"
                           >
                             <div
-                              class="ant-space ant-space-horizontal ant-space-align-center"
-                              style="flex-wrap: wrap; margin-bottom: -8px;"
+                              class="ant-form-item-control-input-content"
                             >
                               <div
-                                class="ant-space-item"
-                                style="margin-right: 8px; padding-bottom: 8px;"
+                                class="ant-space ant-space-horizontal ant-space-align-center"
                               >
-                                <button
-                                  class="ant-btn ant-btn-default"
-                                  type="button"
+                                <div
+                                  class="ant-space-item"
                                 >
-                                  <span>
-                                    重 置
-                                  </span>
-                                </button>
+                                  <input
+                                    class="ant-input ant-input-sm"
+                                    style="width: 78px;"
+                                    type="text"
+                                    value=""
+                                  />
+                                </div>
                               </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div
+                    class="ant-col ant-col-8"
+                    style="padding-left: 12px; padding-right: 12px; text-align: right;"
+                  >
+                    <div
+                      class="ant-form-item pro-form-query-filter-actions"
+                    >
+                      <div
+                        class="ant-row ant-form-item-row"
+                      >
+                        <div
+                          class="ant-col ant-form-item-label"
+                        >
+                          <label
+                            class="ant-form-item-no-colon"
+                            title=" "
+                          >
+                             
+                          </label>
+                        </div>
+                        <div
+                          class="ant-col ant-form-item-control"
+                        >
+                          <div
+                            class="ant-form-item-control-input"
+                          >
+                            <div
+                              class="ant-form-item-control-input-content"
+                            >
                               <div
-                                class="ant-space-item"
-                                style="padding-bottom: 8px;"
+                                class="ant-space ant-space-horizontal ant-space-align-center"
                               >
-                                <button
-                                  class="ant-btn ant-btn-primary"
-                                  type="button"
+                                <div
+                                  class="ant-space-item"
                                 >
-                                  <span>
-                                    查 询
-                                  </span>
-                                </button>
+                                  <div
+                                    class="ant-space ant-space-horizontal ant-space-align-center"
+                                    style="flex-wrap: wrap; margin-bottom: -8px;"
+                                  >
+                                    <div
+                                      class="ant-space-item"
+                                      style="margin-right: 8px; padding-bottom: 8px;"
+                                    >
+                                      <button
+                                        class="ant-btn ant-btn-default"
+                                        type="button"
+                                      >
+                                        <span>
+                                          重 置
+                                        </span>
+                                      </button>
+                                    </div>
+                                    <div
+                                      class="ant-space-item"
+                                      style="padding-bottom: 8px;"
+                                    >
+                                      <button
+                                        class="ant-btn ant-btn-primary"
+                                        type="button"
+                                      >
+                                        <span>
+                                          查 询
+                                        </span>
+                                      </button>
+                                    </div>
+                                  </div>
+                                </div>
                               </div>
                             </div>
                           </div>
@@ -464,86 +504,86 @@ exports[`docs demos 📸 renders ./docs/demos/customization-value-type.tsx corre
                     </div>
                   </div>
                 </div>
-              </div>
+              </form>
             </div>
-          </form>
-        </div>
-        <div
-          class="ant-pro-card"
-        >
+          </div>
           <div
-            class="ant-pro-card-body"
-            style="padding: 0px;"
+            class="ant-pro-card"
           >
             <div
-              class="ant-table-wrapper"
+              class="ant-pro-card-body"
+              style="padding: 0px;"
             >
               <div
-                class="ant-spin-nested-loading"
+                class="ant-table-wrapper"
               >
                 <div
-                  class="ant-spin-container"
+                  class="ant-spin-nested-loading"
                 >
                   <div
-                    class="ant-table ant-table-middle"
+                    class="ant-spin-container"
                   >
                     <div
-                      class="ant-table-container"
+                      class="ant-table ant-table-middle"
                     >
                       <div
-                        class="ant-table-content"
+                        class="ant-table-container"
                       >
-                        <table
-                          style="table-layout: auto;"
+                        <div
+                          class="ant-table-content"
                         >
-                          <colgroup />
-                          <thead
-                            class="ant-table-thead"
+                          <table
+                            style="table-layout: auto;"
                           >
-                            <tr>
-                              <th
-                                class="ant-table-cell"
-                              >
-                                链接
-                              </th>
-                              <th
-                                class="ant-table-cell"
-                              >
-                                标签
-                              </th>
-                            </tr>
-                          </thead>
-                          <tbody
-                            class="ant-table-tbody"
-                          >
-                            <tr
-                              class="ant-table-row ant-table-row-level-0"
-                              data-row-key="1"
+                            <colgroup />
+                            <thead
+                              class="ant-table-thead"
                             >
-                              <td
-                                class="ant-table-cell"
-                              >
-                                <a>
-                                  TradeCode 1
-                                </a>
-                              </td>
-                              <td
-                                class="ant-table-cell"
-                              >
-                                <span
-                                  class="ant-tag"
+                              <tr>
+                                <th
+                                  class="ant-table-cell"
                                 >
-                                  close
-                                </span>
-                                <span
-                                  class="ant-tag"
+                                  链接
+                                </th>
+                                <th
+                                  class="ant-table-cell"
                                 >
-                                  close
-                                </span>
-                              </td>
-                            </tr>
-                          </tbody>
-                        </table>
+                                  标签
+                                </th>
+                              </tr>
+                            </thead>
+                            <tbody
+                              class="ant-table-tbody"
+                            >
+                              <tr
+                                class="ant-table-row ant-table-row-level-0"
+                                data-row-key="1"
+                              >
+                                <td
+                                  class="ant-table-cell"
+                                >
+                                  <a>
+                                    TradeCode 1
+                                  </a>
+                                </td>
+                                <td
+                                  class="ant-table-cell"
+                                >
+                                  <span
+                                    class="ant-tag"
+                                  >
+                                    close
+                                  </span>
+                                  <span
+                                    class="ant-tag"
+                                  >
+                                    close
+                                  </span>
+                                </td>
+                              </tr>
+                            </tbody>
+                          </table>
+                        </div>
                       </div>
                     </div>
                   </div>
@@ -644,246 +684,262 @@ exports[`docs demos 📸 renders ./docs/demos/customization-value-type.tsx corre
 exports[`docs demos 📸 renders ./docs/demos/valueType.tsx correctly 1`] = `
 <DocumentFragment>
   <div
-    class="ant-row ant-form-item"
+    class="ant-form-item"
   >
     <div
-      class="ant-col ant-form-item-label"
-    >
-      <label
-        class=""
-        title="valueType 选择"
-      >
-        valueType 选择
-      </label>
-    </div>
-    <div
-      class="ant-col ant-form-item-control"
+      class="ant-row ant-form-item-row"
     >
       <div
-        class="ant-form-item-control-input"
+        class="ant-col ant-form-item-label"
+      >
+        <label
+          class=""
+          title="valueType 选择"
+        >
+          valueType 选择
+        </label>
+      </div>
+      <div
+        class="ant-col ant-form-item-control"
       >
         <div
-          class="ant-form-item-control-input-content"
+          class="ant-form-item-control-input"
         >
           <div
-            class="ant-select ant-select-in-form-item ant-pro-filed-search-select ant-select-single ant-select-allow-clear ant-select-show-search"
-            style="width: 200px;"
+            class="ant-form-item-control-input-content"
           >
             <div
-              class="ant-select-selector"
+              class="ant-select ant-select-in-form-item ant-pro-filed-search-select ant-select-single ant-select-allow-clear ant-select-show-search"
+              style="width: 200px;"
             >
-              <span
-                class="ant-select-selection-search"
+              <div
+                class="ant-select-selector"
               >
-                <input
-                  aria-activedescendant="rc_select_TEST_OR_SSR_list_0"
-                  aria-autocomplete="list"
-                  aria-controls="rc_select_TEST_OR_SSR_list"
-                  aria-haspopup="listbox"
-                  aria-owns="rc_select_TEST_OR_SSR_list"
-                  autocomplete="off"
-                  class="ant-select-selection-search-input"
-                  id="rc_select_TEST_OR_SSR"
-                  role="combobox"
-                  type="search"
-                  value=""
-                />
-              </span>
+                <span
+                  class="ant-select-selection-search"
+                >
+                  <input
+                    aria-activedescendant="rc_select_0_list_0"
+                    aria-autocomplete="list"
+                    aria-controls="rc_select_0_list"
+                    aria-haspopup="listbox"
+                    aria-owns="rc_select_0_list"
+                    autocomplete="off"
+                    class="ant-select-selection-search-input"
+                    id="rc_select_0"
+                    role="combobox"
+                    type="search"
+                    value=""
+                  />
+                </span>
+                <span
+                  class="ant-select-selection-item"
+                  title="文本框"
+                >
+                  文本框
+                </span>
+              </div>
               <span
-                class="ant-select-selection-item"
-                title="文本框"
+                aria-hidden="true"
+                class="ant-select-clear"
+                style="user-select: none;"
+                unselectable="on"
               >
-                文本框
+                <span
+                  aria-label="close-circle"
+                  class="anticon anticon-close-circle"
+                  role="img"
+                >
+                  <svg
+                    aria-hidden="true"
+                    data-icon="close-circle"
+                    fill="currentColor"
+                    focusable="false"
+                    height="1em"
+                    viewBox="64 64 896 896"
+                    width="1em"
+                  >
+                    <path
+                      d="M512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm165.4 618.2l-66-.3L512 563.4l-99.3 118.4-66.1.3c-4.4 0-8-3.5-8-8 0-1.9.7-3.7 1.9-5.2l130.1-155L340.5 359a8.32 8.32 0 01-1.9-5.2c0-4.4 3.6-8 8-8l66.1.3L512 464.6l99.3-118.4 66-.3c4.4 0 8 3.5 8 8 0 1.9-.7 3.7-1.9 5.2L553.5 514l130 155c1.2 1.5 1.9 3.3 1.9 5.2 0 4.4-3.6 8-8 8z"
+                    />
+                  </svg>
+                </span>
               </span>
             </div>
-            <span
-              aria-hidden="true"
-              class="ant-select-clear"
-              style="user-select: none;"
-              unselectable="on"
-            >
-              <span
-                aria-label="close-circle"
-                class="anticon anticon-close-circle"
-                role="img"
-              >
-                <svg
-                  aria-hidden="true"
-                  data-icon="close-circle"
-                  fill="currentColor"
-                  focusable="false"
-                  height="1em"
-                  viewBox="64 64 896 896"
-                  width="1em"
-                >
-                  <path
-                    d="M512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm165.4 618.2l-66-.3L512 563.4l-99.3 118.4-66.1.3c-4.4 0-8-3.5-8-8 0-1.9.7-3.7 1.9-5.2l130.1-155L340.5 359a8.32 8.32 0 01-1.9-5.2c0-4.4 3.6-8 8-8l66.1.3L512 464.6l99.3-118.4 66-.3c4.4 0 8 3.5 8 8 0 1.9-.7 3.7-1.9 5.2L553.5 514l130 155c1.2 1.5 1.9 3.3 1.9 5.2 0 4.4-3.6 8-8 8z"
-                  />
-                </svg>
-              </span>
-            </span>
           </div>
         </div>
       </div>
     </div>
   </div>
-  <form
-    autocomplete="off"
-    class="ant-form ant-form-vertical"
+  <div
+    class="ant-pro"
   >
-    <input
-      style="display: none;"
-      type="text"
-    />
-    <div
-      class="ant-pro-form-group"
+    <form
+      autocomplete="off"
+      class="ant-form ant-form-vertical"
     >
+      <input
+        style="display: none;"
+        type="text"
+      />
       <div
-        class="ant-pro-form-group-title"
-      >
-        分组
-      </div>
-      <div
-        class="ant-space ant-space-horizontal ant-space-align-start ant-pro-form-group-container"
-        style="row-gap: 0;"
+        class="ant-pro-form-group"
       >
         <div
-          class="ant-space-item"
-          style="margin-right: 32px;"
+          class="ant-pro-form-group-title"
+        >
+          分组
+        </div>
+        <div
+          class="ant-space ant-space-horizontal ant-space-align-start ant-pro-form-group-container"
+          style="row-gap: 0;"
         >
           <div
-            class="ant-row ant-form-item"
+            class="ant-space-item"
+            style="margin-right: 32px;"
           >
             <div
-              class="ant-col ant-form-item-label"
-            >
-              <label
-                class="ant-form-item-required"
-                for="text"
-                title="编辑器"
-              >
-                编辑器
-              </label>
-            </div>
-            <div
-              class="ant-col ant-form-item-control"
+              class="ant-form-item"
             >
               <div
-                class="ant-form-item-control-input"
+                class="ant-row ant-form-item-row"
               >
                 <div
-                  class="ant-form-item-control-input-content"
+                  class="ant-col ant-form-item-label"
                 >
-                  <span
-                    class="ant-input-affix-wrapper ant-input-affix-wrapper-focused pro-field pro-field-m"
+                  <label
+                    class="ant-form-item-required"
+                    for="text"
+                    title="编辑器"
                   >
-                    <input
-                      class="ant-input"
-                      id="text"
-                      placeholder="请输入"
-                      type="text"
-                      value="123456"
-                    />
-                    <span
-                      class="ant-input-suffix"
+                    编辑器
+                  </label>
+                </div>
+                <div
+                  class="ant-col ant-form-item-control"
+                >
+                  <div
+                    class="ant-form-item-control-input"
+                  >
+                    <div
+                      class="ant-form-item-control-input-content"
                     >
                       <span
-                        class="ant-input-clear-icon"
-                        role="button"
-                        tabindex="-1"
+                        class="ant-input-affix-wrapper ant-input-affix-wrapper-focused pro-field pro-field-m"
                       >
+                        <input
+                          class="ant-input"
+                          id="text"
+                          placeholder="请输入"
+                          type="text"
+                          value="123456"
+                        />
                         <span
-                          aria-label="close-circle"
-                          class="anticon anticon-close-circle"
-                          role="img"
+                          class="ant-input-suffix"
                         >
-                          <svg
-                            aria-hidden="true"
-                            data-icon="close-circle"
-                            fill="currentColor"
-                            focusable="false"
-                            height="1em"
-                            viewBox="64 64 896 896"
-                            width="1em"
+                          <span
+                            class="ant-input-clear-icon"
+                            role="button"
+                            tabindex="-1"
                           >
-                            <path
-                              d="M512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm165.4 618.2l-66-.3L512 563.4l-99.3 118.4-66.1.3c-4.4 0-8-3.5-8-8 0-1.9.7-3.7 1.9-5.2l130.1-155L340.5 359a8.32 8.32 0 01-1.9-5.2c0-4.4 3.6-8 8-8l66.1.3L512 464.6l99.3-118.4 66-.3c4.4 0 8 3.5 8 8 0 1.9-.7 3.7-1.9 5.2L553.5 514l130 155c1.2 1.5 1.9 3.3 1.9 5.2 0 4.4-3.6 8-8 8z"
-                            />
-                          </svg>
+                            <span
+                              aria-label="close-circle"
+                              class="anticon anticon-close-circle"
+                              role="img"
+                            >
+                              <svg
+                                aria-hidden="true"
+                                data-icon="close-circle"
+                                fill="currentColor"
+                                focusable="false"
+                                height="1em"
+                                viewBox="64 64 896 896"
+                                width="1em"
+                              >
+                                <path
+                                  d="M512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm165.4 618.2l-66-.3L512 563.4l-99.3 118.4-66.1.3c-4.4 0-8-3.5-8-8 0-1.9.7-3.7 1.9-5.2l130.1-155L340.5 359a8.32 8.32 0 01-1.9-5.2c0-4.4 3.6-8 8-8l66.1.3L512 464.6l99.3-118.4 66-.3c4.4 0 8 3.5 8 8 0 1.9-.7 3.7-1.9 5.2L553.5 514l130 155c1.2 1.5 1.9 3.3 1.9 5.2 0 4.4-3.6 8-8 8z"
+                                />
+                              </svg>
+                            </span>
+                          </span>
                         </span>
                       </span>
-                    </span>
-                  </span>
+                    </div>
+                  </div>
                 </div>
               </div>
             </div>
           </div>
+          <div
+            class="ant-space-item"
+          >
+            <div
+              class="ant-form-item"
+            >
+              <div
+                class="ant-row ant-form-item-row"
+              >
+                <div
+                  class="ant-col ant-form-item-label"
+                >
+                  <label
+                    class=""
+                    for="text"
+                    title="只读"
+                  >
+                    只读
+                  </label>
+                </div>
+                <div
+                  class="ant-col ant-form-item-control"
+                >
+                  <div
+                    class="ant-form-item-control-input"
+                  >
+                    <div
+                      class="ant-form-item-control-input-content"
+                    >
+                      123456
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div
+        class="ant-space ant-space-horizontal ant-space-align-center"
+        style="flex-wrap: wrap; margin-bottom: -8px;"
+      >
+        <div
+          class="ant-space-item"
+          style="margin-right: 8px; padding-bottom: 8px;"
+        >
+          <button
+            class="ant-btn ant-btn-primary"
+            type="button"
+          >
+            <span>
+              提 交
+            </span>
+          </button>
         </div>
         <div
           class="ant-space-item"
+          style="padding-bottom: 8px;"
         >
-          <div
-            class="ant-row ant-form-item"
+          <button
+            class="ant-btn ant-btn-default"
+            type="button"
           >
-            <div
-              class="ant-col ant-form-item-label"
-            >
-              <label
-                class=""
-                for="text"
-                title="只读"
-              >
-                只读
-              </label>
-            </div>
-            <div
-              class="ant-col ant-form-item-control"
-            >
-              <div
-                class="ant-form-item-control-input"
-              >
-                <div
-                  class="ant-form-item-control-input-content"
-                >
-                  123456
-                </div>
-              </div>
-            </div>
-          </div>
+            <span>
+              重 置
+            </span>
+          </button>
         </div>
       </div>
-    </div>
-    <div
-      class="ant-space ant-space-horizontal ant-space-align-center"
-      style="flex-wrap: wrap; margin-bottom: -8px;"
-    >
-      <div
-        class="ant-space-item"
-        style="margin-right: 8px; padding-bottom: 8px;"
-      >
-        <button
-          class="ant-btn ant-btn-primary"
-          type="button"
-        >
-          <span>
-            提 交
-          </span>
-        </button>
-      </div>
-      <div
-        class="ant-space-item"
-        style="padding-bottom: 8px;"
-      >
-        <button
-          class="ant-btn ant-btn-default"
-          type="button"
-        >
-          <span>
-            重 置
-          </span>
-        </button>
-      </div>
-    </div>
-  </form>
+    </form>
+  </div>
 </DocumentFragment>
 `;

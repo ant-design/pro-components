@@ -1,8 +1,8 @@
 import Field from '@ant-design/pro-field';
 import '@testing-library/jest-dom';
 import { render } from '@testing-library/react';
+import dayjs from 'dayjs';
 import { mount } from 'enzyme';
-import moment from 'moment';
 import { act } from 'react-dom/test-utils';
 import { waitForComponentToPaint } from '../util';
 
@@ -15,7 +15,7 @@ describe('Field', () => {
         <Field
           mode="edit"
           fieldProps={{
-            value: moment(),
+            value: dayjs(),
           }}
           onChange={fn}
           text="100"
@@ -46,7 +46,7 @@ describe('Field', () => {
           format: () => 'YYYY-MM-DD HH:mm:ss',
         }}
         onChange={fn}
-        text={[moment(), moment().add(1, 'd')]}
+        text={[dayjs(), dayjs().add(1, 'd')]}
         light
         valueType="dateRange"
       />,

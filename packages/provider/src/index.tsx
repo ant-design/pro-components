@@ -1,5 +1,5 @@
 import { ConfigProvider as AntdConfigProvider } from 'antd';
-import zh_CN from 'antd/lib/locale/zh_CN';
+import zh_CN from 'antd/es/locale/zh_CN';
 import React, { useContext, useEffect } from 'react';
 import { SWRConfig, useSWRConfig } from 'swr';
 import arEG from './locale/ar_EG';
@@ -293,19 +293,21 @@ const ConfigProviderWrap: React.FC<Record<string, unknown>> = ({
             : {};
 
         return (
-          <Provider {...configProvider}>
-            <ConfigProvider
-              value={{
-                ...value,
-                intl: intl || zhCNIntl,
-              }}
-            >
-              <>
-                {autoClearCache && <CacheClean />}
-                {children}
-              </>
-            </ConfigProvider>
-          </Provider>
+          <div className="ant-pro">
+            <Provider {...configProvider}>
+              <ConfigProvider
+                value={{
+                  ...value,
+                  intl: intl || zhCNIntl,
+                }}
+              >
+                <>
+                  {autoClearCache && <CacheClean />}
+                  {children}
+                </>
+              </ConfigProvider>
+            </Provider>
+          </div>
         );
       }}
     </ConfigConsumer>

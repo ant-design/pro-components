@@ -1,8 +1,8 @@
 import { ConfigProvider } from 'antd';
+import classNames from 'classnames';
 import React, { useContext } from 'react';
-import { css, cx } from '../../emotion';
-import { ProLayoutContext } from '../../ProLayoutContext';
 import type { WithFalse } from '../../typings';
+import { useStyle } from './style';
 
 export type GlobalFooterProps = {
   links?: WithFalse<
@@ -21,8 +21,9 @@ export type GlobalFooterProps = {
 
 const GlobalFooter = ({ className, prefixCls, links, copyright, style }: GlobalFooterProps) => {
   const context = useContext(ConfigProvider.ConfigContext);
-  const designToken = useContext(ProLayoutContext);
   const baseClassName = context.getPrefixCls(prefixCls || 'pro-global-footer');
+
+  const { wrapSSR, hashId } = useStyle(baseClassName);
 
   if (
     (links == null || links === false || (Array.isArray(links) && links.length === 0)) &&
@@ -31,38 +32,10 @@ const GlobalFooter = ({ className, prefixCls, links, copyright, style }: GlobalF
     return null;
   }
 
-  return (
-    <div
-      className={cx(
-        baseClassName,
-        className,
-        css`
-          margin: 48px 0 24px 0;
-          padding: 0 16px;
-          text-align: center;
-        `,
-      )}
-      style={style}
-    >
+  return wrapSSR(
+    <div className={classNames(baseClassName, hashId, className)} style={style}>
       {links && (
-        <div
-          className={cx(
-            `${baseClassName}-links`,
-            css`
-              margin-bottom: 8px;
-              a {
-                color: ${designToken.colorTextSecondary};
-                transition: all 0.3s;
-                &:not(:last-child) {
-                  margin-right: 40px;
-                }
-                &:hover {
-                  color: ${designToken.colorText};
-                }
-              }
-            `,
-          )}
-        >
+        <div className={`${baseClassName}-links`}>
           {links.map((link) => (
             <a
               key={link.key}
@@ -76,20 +49,8 @@ const GlobalFooter = ({ className, prefixCls, links, copyright, style }: GlobalF
           ))}
         </div>
       )}
-      {copyright && (
-        <div
-          className={cx(
-            `${baseClassName}-copyright`,
-            css`
-              font-size: 14px;
-              color: ${designToken.colorTextSecondary};
-            `,
-          )}
-        >
-          {copyright}
-        </div>
-      )}
-    </div>
+      {copyright && <div className={`${baseClassName}-copyright`}>{copyright}</div>}
+    </div>,
   );
 };
 

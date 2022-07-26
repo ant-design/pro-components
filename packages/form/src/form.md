@@ -338,7 +338,7 @@ ProFormInstance 与 antd 的 form 相比增加了一些能力。
 import type { ProFormInstance } from '@ant-design/pro-components';
 import { ProForm, ProFormDatePicker, ProFormText } from '@ant-design/pro-components';
 import { Button, message } from 'antd';
-import moment from 'moment';
+import moment from 'dayjs';
 import { useRef } from 'react';
 
 const waitTime = (time: number = 100) => {

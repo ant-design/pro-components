@@ -4,16 +4,15 @@ import { ConfigProvider } from 'antd';
 import classNames from 'classnames';
 import React, { useContext } from 'react';
 import type { PureSettings } from '../../defaultSettings';
-import { css, cx } from '../../emotion';
 import type { HeaderViewProps } from '../../Header';
 import type { MenuDataItem } from '../../index';
-import { ProLayoutContext } from '../../ProLayoutContext';
 import type { WithFalse } from '../../typings';
 import { clearMenuItem } from '../../utils/utils';
 import { AppsLogoComponents, defaultRenderLogo } from '../AppsLogoComponents';
 import type { PrivateSiderMenuProps, SiderMenuProps } from '../SiderMenu/SiderMenu';
 import { renderLogoAndTitle } from '../SiderMenu/SiderMenu';
 import { RightContent, TopNavHeader } from '../TopNavHeader';
+import { useStyle } from './style';
 
 export type GlobalHeaderProps = {
   collapsed?: boolean;
@@ -95,10 +94,13 @@ const GlobalHeader: React.FC<GlobalHeaderProps & PrivateSiderMenuProps> = (props
     menuData,
     prefixCls,
   } = props;
-  const designToken = useContext(ProLayoutContext);
   const { direction } = useContext(ConfigProvider.ConfigContext);
   const baseClassName = `${prefixCls}-global-header`;
-  const className = classNames(propClassName, baseClassName, {
+  const { wrapSSR, hashId } = useStyle(baseClassName, {
+    isMobile: !!isMobile,
+  });
+
+  const className = classNames(propClassName, baseClassName, hashId, {
     [`${baseClassName}-layout-${layout}`]: layout && headerTheme === 'dark',
   });
 
@@ -122,75 +124,20 @@ const GlobalHeader: React.FC<GlobalHeaderProps & PrivateSiderMenuProps> = (props
 
   const logoClassNames = classNames(`${baseClassName}-logo`, {
     [`${baseClassName}-logo-rtl`]: direction === 'rtl',
+    [`${baseClassName}-logo-mix`]: layout === 'mix',
   });
 
   const logoDom = (
-    <span
-      className={cx(
-        logoClassNames,
-        css`
-          position: relative;
-          min-width: ${isMobile ? '24px' : '154px'};
-          margin-right: ${isMobile ? '0' : '16px'};
-          a {
-            display: flex;
-            align-items: center;
-            height: 100%;
-            min-height: 22px;
-            font-size: 22px;
-            img {
-              height: 28px;
-            }
-            h1 {
-              height: 32px;
-              margin: 0 0 0 8px;
-              color: ${designToken.colorHeading};
-              font-weight: 600;
-              font-size: 18px;
-              line-height: 32px;
-            }
-          }
-        `,
-      )}
-      key="logo"
-    >
+    <span className={logoClassNames} key="logo">
       <a>{defaultRenderLogo(logo)}</a>
     </span>
   );
-  return (
-    <div
-      className={cx(
-        className,
-        css`
-          position: relative;
-          display: flex;
-          align-items: center;
-          height: 100%;
-          padding: 0 16px;
-
-          > a {
-            height: 100%;
-          }
-
-          .${prefixCls}-basicLayout-apps-icon {
-            margin-right: 16px;
-          }
-        `,
-      )}
-      style={{ ...style }}
-    >
+  return wrapSSR(
+    <div className={className} style={{ ...style }}>
       {isMobile && renderLogo(menuHeaderRender, logoDom)}
       {isMobile && (
         <span
-          className={cx(
-            `${baseClassName}-collapsed-button`,
-            css`
-              display: flex;
-              align-items: center;
-              margin-left: 16px;
-              font-size: 20px;
-            `,
-          )}
+          className={`${baseClassName}-collapsed-button`}
           onClick={() => {
             onCollapse?.(!collapsed);
           }}
@@ -201,35 +148,7 @@ const GlobalHeader: React.FC<GlobalHeaderProps & PrivateSiderMenuProps> = (props
       {layout === 'mix' && !isMobile && (
         <>
           <AppsLogoComponents {...props} />
-          <div
-            className={cx(
-              logoClassNames,
-              css`
-                position: relative;
-                min-width: 156px;
-                margin-right: ${isMobile ? '0' : '16px'};
-                a {
-                  display: flex;
-                  align-items: center;
-                  height: 100%;
-                  min-height: 22px;
-                  font-size: 22px;
-                  img {
-                    height: 28px;
-                  }
-                  h1 {
-                    height: 32px;
-                    margin: 0 0 0 8px;
-                    color: ${designToken.colorHeading};
-                    font-weight: 600;
-                    font-size: 18px;
-                    line-height: 32px;
-                  }
-                }
-              `,
-            )}
-            onClick={onMenuHeaderClick}
-          >
+          <div className={logoClassNames} onClick={onMenuHeaderClick}>
             {renderLogoAndTitle({ ...props, collapsed: false }, 'headerTitleRender')}
           </div>
         </>
@@ -238,7 +157,7 @@ const GlobalHeader: React.FC<GlobalHeaderProps & PrivateSiderMenuProps> = (props
       {(rightContentRender || props.actionsRender || props.avatarProps) && (
         <RightContent rightContentRender={rightContentRender} {...props} />
       )}
-    </div>
+    </div>,
   );
 };
 

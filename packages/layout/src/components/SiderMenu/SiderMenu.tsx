@@ -1,156 +1,22 @@
 import type { AvatarProps } from 'antd';
 import { Avatar, ConfigProvider, Layout, Menu, Space } from 'antd';
-import type { SiderProps } from 'antd/lib/layout/Sider';
-import type { ItemType } from 'antd/lib/menu/hooks/useItems';
+import type { SiderProps } from 'antd/es/layout/Sider';
+import type { ItemType } from 'antd/es/menu/hooks/useItems';
 import classNames from 'classnames';
 import type { CSSProperties } from 'react';
-import React, { useContext, useEffect, useMemo } from 'react';
-import { css, cx, injectGlobal, keyframes } from '../../emotion';
+import React, { useContext, useMemo } from 'react';
+import { css, cx } from '../../emotion';
 import type { HeaderViewProps } from '../../Header';
-import type { LayoutDesignToken } from '../../ProLayoutContext';
 import { ProLayoutContext } from '../../ProLayoutContext';
 import type { WithFalse } from '../../typings';
 import type { AppsLogoComponentsAppList } from '../AppsLogoComponents';
 import { AppsLogoComponents, defaultRenderLogo } from '../AppsLogoComponents';
-import { ArrowSvgIcon } from './Arrow';
+import { CollapsedIcon } from '../CollapsedIcon';
 import type { BaseMenuProps } from './BaseMenu';
 import { BaseMenu } from './BaseMenu';
 import { MenuCounter } from './Counter';
 
-export const defaultIconCss = (designToken: LayoutDesignToken) => css`
-  position: absolute;
-  top: 18px;
-  z-index: 101;
-  width: 24px;
-  height: 24px;
-  font-size: 14px;
-  color: ${designToken.sider.collapsedButtonTextColor};
-  text-align: center;
-  border-radius: 40px;
-  right: -13px;
-  background-color: ${designToken.sider.collapsedButtonBgColor};
-  transition: transform 0.3s;
-  font-size: 16px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  cursor: pointer;
-  .anticon {
-    font-size: 14px;
-  }
-
-  &:hover {
-    color: ${designToken.sider.collapsedButtonHoverTextColor};
-  }
-`;
-
-export const proLayoutTitleHide = keyframes`
-0% {
-  display: none;
-  width: 1px;
-  margin: 0;
-  overflow: hidden;
-  white-space: nowrap;
-  opacity: 0;
-}
-80% {
-  display: none;
-  width: 1px;
-  margin: 0;
-  overflow: hidden;
-  white-space: nowrap;
-  opacity: 0;
-}
-100% {
-  display: unset;
-  height: auto;
-  opacity: 1;
-}`;
-
-export const siderCss = css`
-  position: relative;
-  background: transparent;
-
-  &-menu {
-    position: relative;
-    z-index: 10;
-    min-height: 100%;
-  }
-`;
-
-export const siderTitleViewCss = (designToken: LayoutDesignToken) => css`
-  position: relative;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 16px 16px;
-  color: ${designToken.sider.menuTextColor};
-  border-bottom: 1px solid ${designToken.sider.menuItemDividerColor};
-  cursor: pointer;
-
-  > a {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    min-height: 22px;
-    font-size: 22px;
-  }
-
-  img {
-    display: inline-block;
-    height: 22px;
-    vertical-align: middle;
-  }
-
-  h1 {
-    display: inline-block;
-    height: 22px;
-    margin: 0 0 0 6px;
-    color: ${designToken.sider.menuTitleTextColor};
-    font-weight: 600;
-    font-size: 16px;
-    line-height: 22px;
-    vertical-align: middle;
-    animation: ${proLayoutTitleHide} 0.35s;
-  }
-`;
-
 const { Sider } = Layout;
-
-const CollapsedIcon: React.FC<any> = (props) => {
-  const { isMobile, collapsed, ...rest } = props;
-  const designToken = useContext(ProLayoutContext);
-  if (isMobile && collapsed) return null;
-  return (
-    <div
-      {...rest}
-      className={cx(
-        props.className,
-        defaultIconCss(designToken),
-        css(`
-          box-shadow: 0 2px 8px -2px rgba(0,0,0,0.05), 0 1px 4px -1px rgba(25,15,15,0.07), 0 0 1px 0 rgba(0,0,0,0.08);
-          &:hover {
-            box-shadow: 0 4px 16px -4px rgba(0,0,0,0.05), 0 2px 8px -2px rgba(25,15,15,0.07), 0 1px 2px 0 rgba(0,0,0,0.08);
-          }
-        `),
-        !isMobile &&
-          css(`
-        > svg {
-          transform: ${!collapsed ? 'rotate(90deg)' : 'rotate(-90deg)'};
-        }
-          `),
-        isMobile &&
-          css(`  > svg {
-            right: -16px;
-            top: 72px;
-            transform: ${collapsed ? 'rotate(-90deg) translate(8px, 0px)' : 'rotate(90deg)'};
-          `),
-      )}
-    >
-      <ArrowSvgIcon />
-    </div>
-  );
-};
 
 /**
  * 渲染 title 和 logo
@@ -324,7 +190,6 @@ const SiderMenu: React.FC<SiderMenuProps & PrivateSiderMenuProps> = (props) => {
     rightContentRender,
     actionsRender,
     onOpenChange,
-    headerHeight,
     logoStyle,
   } = props;
 
@@ -343,6 +208,7 @@ const SiderMenu: React.FC<SiderMenuProps & PrivateSiderMenuProps> = (props) => {
     [`${baseClassName}-fixed`]: fixSiderbar,
     [`${baseClassName}-layout-${layout}`]: layout && !isMobile,
     [`${baseClassName}-light`]: theme !== 'dark',
+    [`${baseClassName}-mix`]: layout === 'mix' && !isMobile,
   });
 
   const headerDom = renderLogoAndTitle(props);
@@ -380,28 +246,12 @@ const SiderMenu: React.FC<SiderMenuProps & PrivateSiderMenuProps> = (props) => {
   const avatarDom = useMemo(
     () =>
       avatarProps && (
-        <Space
-          align="center"
-          className={cx(
-            `${baseClassName}-actions-avatar`,
-            css`
-              font-size: 14px;
-              padding: 8px;
-              border-radius: ${designToken.borderRadiusBase};
-              & > * {
-                cursor: pointer;
-              }
-              &:hover {
-                background: rgba(0, 0, 0, 0.018);
-              }
-            `,
-          )}
-        >
+        <Space align="center" className={`${baseClassName}-actions-avatar`}>
           <Avatar {...avatarProps} />
           {avatarProps.title && !collapsed && <span>{avatarProps.title}</span>}
         </Space>
       ),
-    [avatarProps, baseClassName, collapsed, designToken.borderRadiusBase],
+    [avatarProps, baseClassName, collapsed],
   );
 
   const actionsDom = useMemo(
@@ -412,34 +262,14 @@ const SiderMenu: React.FC<SiderMenuProps & PrivateSiderMenuProps> = (props) => {
           align="center"
           size={4}
           direction={collapsed ? 'vertical' : 'horizontal'}
-          className={cx([
+          className={classNames([
             `${baseClassName}-actions-list`,
-            css`
-              color: ${designToken.sider.menuTextColorSecondary};
-              animation: ${proLayoutTitleHide} 0.3s;
-            `,
-            collapsed &&
-              css`
-                margin-bottom: 8px;
-                animation: none;
-              `,
+            collapsed && `${baseClassName}-actions-list-collapsed`,
           ])}
         >
           {actionsRender?.(props).map((item, index) => {
             return (
-              <div
-                key={index}
-                className={css`
-                  padding: 6px;
-                  line-height: 16px;
-                  font-size: 16px;
-                  cursor: pointer;
-                  border-radius: ${designToken.borderRadiusBase};
-                  &:hover {
-                    background: rgba(0, 0, 0, 0.018);
-                  }
-                `}
-              >
+              <div key={index} className={`${baseClassName}-actions-list-item`}>
                 {item}
               </div>
             );
@@ -471,63 +301,35 @@ const SiderMenu: React.FC<SiderMenuProps & PrivateSiderMenuProps> = (props) => {
     return dom;
   }, [collapsedButtonRender, isMobile, originCollapsed, baseClassName, collapsed, onCollapse]);
 
-  const siderTitleViewCollapsedCss = useMemo(
-    () => css`
-      flex-direction: column-reverse;
-      .${prefixCls}-basicLayout-apps-icon {
-        margin-bottom: 8px;
-      }
-    `,
-    [prefixCls],
-  );
-
   /** 操作区域的dom */
   const actionAreaDom = useMemo(() => {
     if (!avatarDom && !actionsDom) return null;
 
     return (
       <div
-        className={cx(
+        className={classNames(
           `${baseClassName}-actions`,
           collapsed && `${baseClassName}-actions-collapsed`,
-          css`
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            margin: 4px 0;
-            padding: 0 16px;
-            color: ${designToken.sider.menuTextColor};
-          `,
-          collapsed &&
-            css`
-              flex-direction: column-reverse;
-              padding: 0 8px;
-              font-size: 16px;
-              transition: font-size 0.3s;
-            `,
         )}
       >
         {avatarDom}
         {actionsDom}
       </div>
     );
-  }, [actionsDom, avatarDom, baseClassName, collapsed, designToken.sider.menuTextColor]);
+  }, [actionsDom, avatarDom, baseClassName, collapsed]);
 
   const antPrefix = context.getPrefixCls();
 
   const collapsedWidth = 60;
 
   /* Using the useMemo hook to create a CSS class that will hide the menu when the menu is collapsed. */
-  const hideMenuWhenCollapsedCss = useMemo(() => {
+  const hideMenuWhenCollapsedClassName = useMemo(() => {
     // 收起时完全隐藏菜单
     if (props?.menu?.hideMenuWhenCollapsed && collapsed) {
-      return css`
-        left: -${collapsedWidth - 12}px;
-        position: absolute;
-      `;
+      return `${baseClassName}-hide-menu-collapsed`;
     }
     return null;
-  }, [collapsed, props?.menu?.hideMenuWhenCollapsed]);
+  }, [baseClassName, collapsed, props?.menu?.hideMenuWhenCollapsed]);
 
   const menuFooterDom = menuFooterRender && menuFooterRender?.(props);
 
@@ -539,8 +341,6 @@ const SiderMenu: React.FC<SiderMenuProps & PrivateSiderMenuProps> = (props) => {
             classNames(`${baseClassName}-logo`, {
               [`${baseClassName}-logo-collapsed`]: collapsed,
             }),
-            siderTitleViewCss?.(designToken),
-            collapsed && siderTitleViewCollapsedCss,
           ])}
           onClick={showSiderExtraDom ? onMenuHeaderClick : undefined}
           id="logo"
@@ -552,18 +352,9 @@ const SiderMenu: React.FC<SiderMenuProps & PrivateSiderMenuProps> = (props) => {
       )}
       {extraDom && (
         <div
-          className={cx([
+          className={classNames([
             `${baseClassName}-extra`,
             !headerDom && `${baseClassName}-extra-no-logo`,
-            css`
-              margin-bottom: 16px;
-              padding: 0 16px;
-            `,
-            // no-logo
-            !headerDom &&
-              css`
-                margin-top: 16px;
-              `,
           ])}
         >
           {extraDom}
@@ -579,27 +370,10 @@ const SiderMenu: React.FC<SiderMenuProps & PrivateSiderMenuProps> = (props) => {
         {menuRenderDom}
       </div>
       {links ? (
-        <div
-          className={cx(
-            `${baseClassName}-links`,
-            css`
-              width: 100%;
-              ul.${antPrefix}-menu-root {
-                height: auto;
-              }
-            `,
-          )}
-        >
+        <div className={`${baseClassName}-links`}>
           <Menu
             inlineIndent={16}
-            className={cx(
-              `${baseClassName}-link-menu`,
-              css({
-                border: 'none',
-                boxShadow: 'none',
-                background: 'transparent',
-              }),
-            )}
+            className={`${baseClassName}-link-menu`}
             selectedKeys={[]}
             openKeys={[]}
             theme="light"
@@ -624,14 +398,9 @@ const SiderMenu: React.FC<SiderMenuProps & PrivateSiderMenuProps> = (props) => {
       )}
       {menuFooterDom && (
         <div
-          className={cx([
+          className={classNames([
             `${baseClassName}-footer`,
-            collapsed && `${baseClassName}-footer-collapsed`,
-            css`
-              color: ${designToken.colorTextDisable};
-              animation: ${proLayoutTitleHide} 0.35s;
-              padding-bottom: 16px;
-            `,
+            { [`${baseClassName}-footer-collapsed`]: collapsed },
           ])}
         >
           {menuFooterDom}
@@ -640,21 +409,9 @@ const SiderMenu: React.FC<SiderMenuProps & PrivateSiderMenuProps> = (props) => {
     </>
   );
 
-  useEffect(() => {
-    return injectGlobal` 
-    .${antPrefix}-menu-submenu > .${antPrefix}-menu {
-      background-color: ${
-        designToken.sider.menuBackgroundColor === 'transparent'
-          ? '#fff'
-          : designToken.sider.menuBackgroundColor
-      };
-    }
-    `;
-  }, [antPrefix, designToken.sider.menuBackgroundColor]);
-
   return (
     <>
-      {fixSiderbar && !isMobile && !hideMenuWhenCollapsedCss && (
+      {fixSiderbar && !isMobile && !hideMenuWhenCollapsedClassName && (
         <div
           className={cx(
             css({
@@ -686,9 +443,8 @@ const SiderMenu: React.FC<SiderMenuProps & PrivateSiderMenuProps> = (props) => {
         }}
         width={siderWidth}
         theme={theme}
-        className={cx(
+        className={classNames(
           siderClassName,
-          siderCss,
           css`
             .${antPrefix}-layout-sider-children {
               position: relative;
@@ -698,30 +454,16 @@ const SiderMenu: React.FC<SiderMenuProps & PrivateSiderMenuProps> = (props) => {
               border-right: 1px solid ${designToken.borderColorSplit};
             }
           `,
-          fixSiderbar &&
-            css`
-              position: fixed;
-              top: 0;
-              left: 0;
-              z-index: 100;
-              height: 100%;
-            `,
-          hideMenuWhenCollapsedCss,
-          layout === 'mix' &&
-            !isMobile &&
-            css`
-              height: calc(100% - ${headerHeight}px);
-              top: ${headerHeight}px;
-            `,
+          hideMenuWhenCollapsedClassName,
         )}
       >
-        {hideMenuWhenCollapsedCss ? (
+        {hideMenuWhenCollapsedClassName ? (
           <div
             className={`${baseClassName}-hide-when-collapsed`}
             style={{
               height: '100%',
               width: '100%',
-              opacity: hideMenuWhenCollapsedCss ? 0 : 1,
+              opacity: hideMenuWhenCollapsedClassName ? 0 : 1,
             }}
           >
             {menuDomItems}

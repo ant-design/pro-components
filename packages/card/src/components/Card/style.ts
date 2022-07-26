@@ -1,7 +1,10 @@
+import type { ProAliasToken } from '@ant-design/pro-utils';
 import { useStyle as useAntdStyle } from '@ant-design/pro-utils';
-import type { AliasToken, GenerateStyle } from 'antd/es/theme';
+import type { GenerateStyle } from 'antd/es/theme';
 
-interface ProCardToken extends AliasToken {
+type NewType = ProAliasToken;
+
+interface ProCardToken extends NewType {
   componentCls: string;
   cardHoverableHoverBorder: string;
   proCardDefaultBorder: string;
@@ -26,6 +29,7 @@ const genProCardStyle: GenerateStyle<ProCardToken> = (token) => {
       padding: 0,
       backgroundColor: token.colorBgContainer,
       borderRadius: token.radiusBase,
+      boxShadow: token.boxShadow,
 
       '&-col': {
         width: '100%',

@@ -18,9 +18,9 @@ import {
 } from '@ant-design/pro-utils';
 import { act, fireEvent, render } from '@testing-library/react';
 import { Form, Input } from 'antd';
+import type { Dayjs } from 'dayjs';
+import dayjs from 'dayjs';
 import { mount } from 'enzyme';
-import type { Moment } from 'moment';
-import moment from 'moment';
 import React, { useEffect, useState } from 'react';
 import isDropdownValueType from '../../packages/utils/src/isDropdownValueType/index';
 import { waitForComponentToPaint, waitTime } from '../util';
@@ -59,7 +59,7 @@ describe('utils', () => {
 
   it('dateArrayFormatter', async () => {
     const dateArrayString = dateArrayFormatter(
-      [moment('2020-01-01'), moment('2020-01-01')],
+      [dayjs('2020-01-01'), dayjs('2020-01-01')],
       ['YYYY-MM-DD HH:mm:ss', 'YYYY-MM-DD'],
     );
 
@@ -67,8 +67,8 @@ describe('utils', () => {
   });
   it('dateArrayFormatter support function', async () => {
     const dateArrayString = dateArrayFormatter(
-      [moment('2020-01-01'), moment('2020-01-01')],
-      ['YYYY-MM-DD HH:mm:ss', (value: Moment) => value.format('YYYY-MM')],
+      [dayjs('2020-01-01'), dayjs('2020-01-01')],
+      ['YYYY-MM-DD HH:mm:ss', (value: Dayjs) => value.format('YYYY-MM')],
     );
 
     expect(dateArrayString).toEqual('2020-01-01 00:00:00 ~ 2020-01');
@@ -237,15 +237,15 @@ describe('utils', () => {
   it('📅 conversionSubmitValue string', async () => {
     const html = conversionSubmitValue(
       {
-        dataTime: moment('2019-11-16 12:50:26'),
-        time: moment('2019-11-16 12:50:26'),
+        dataTime: dayjs('2019-11-16 12:50:26'),
+        time: dayjs('2019-11-16 12:50:26'),
         name: 'qixian',
         money: 20,
-        dateTimeRange: [moment('2019-11-16 12:50:26'), moment('2019-11-16 12:50:26')],
-        dateRange: [moment('2019-11-16 12:50:26'), moment('2019-11-16 12:50:26')],
-        timeRange: [moment('2019-11-16 12:50:26'), moment('2019-11-16 12:50:26')],
-        timeRange2: [moment('2019-11-16 12:50:26'), moment('2019-11-16 12:50:26')],
-        dateQuarter: moment('2019-11-16 12:50:26'),
+        dateTimeRange: [dayjs('2019-11-16 12:50:26'), dayjs('2019-11-16 12:50:26')],
+        dateRange: [dayjs('2019-11-16 12:50:26'), dayjs('2019-11-16 12:50:26')],
+        timeRange: [dayjs('2019-11-16 12:50:26'), dayjs('2019-11-16 12:50:26')],
+        timeRange2: [dayjs('2019-11-16 12:50:26'), dayjs('2019-11-16 12:50:26')],
+        dateQuarter: dayjs('2019-11-16 12:50:26'),
       },
       'string',
       {
@@ -270,8 +270,8 @@ describe('utils', () => {
   it('📅 conversionSubmitValue string', async () => {
     const html = conversionSubmitValue(
       {
-        dataTime: moment('2019-11-16 12:50:26'),
-        time: moment('2019-11-16 12:50:26'),
+        dataTime: dayjs('2019-11-16 12:50:26'),
+        time: dayjs('2019-11-16 12:50:26'),
       },
       'string',
       {
@@ -290,11 +290,11 @@ describe('utils', () => {
     const html = conversionSubmitValue<any>(
       {
         date: {
-          dataTime: moment('2019-11-16 12:50:26'),
-          dateTimeRange: [moment('2019-11-16 12:50:26'), moment('2019-11-16 12:50:26')],
-          dateRange: [moment('2019-11-16 12:50:26'), moment('2019-11-16 12:50:26')],
-          timeRange: [moment('2019-11-16 12:50:26'), moment('2019-11-16 12:50:26')],
-          timeRange2: [moment('2019-11-16 12:50:26'), moment('2019-11-16 12:50:26')],
+          dataTime: dayjs('2019-11-16 12:50:26'),
+          dateTimeRange: [dayjs('2019-11-16 12:50:26'), dayjs('2019-11-16 12:50:26')],
+          dateRange: [dayjs('2019-11-16 12:50:26'), dayjs('2019-11-16 12:50:26')],
+          timeRange: [dayjs('2019-11-16 12:50:26'), dayjs('2019-11-16 12:50:26')],
+          timeRange2: [dayjs('2019-11-16 12:50:26'), dayjs('2019-11-16 12:50:26')],
         },
       },
       'string',
@@ -317,14 +317,14 @@ describe('utils', () => {
   it('📅 conversionSubmitValue number', async () => {
     const html = conversionSubmitValue(
       {
-        dataTime: moment('2019-11-16 12:50:26'),
-        time: moment('2019-11-16 12:50:26'),
+        dataTime: dayjs('2019-11-16 12:50:26'),
+        time: dayjs('2019-11-16 12:50:26'),
         name: 'qixian',
         money: 20,
-        dateTimeRange: [moment('2019-11-16 12:50:26'), moment('2019-11-16 12:50:26')],
-        dateRange: [moment('2019-11-16 12:50:26'), moment('2019-11-16 12:50:26')],
-        timeRange: [moment('2019-11-16 12:50:26'), moment('2019-11-16 12:50:26')],
-        timeRange2: [moment('2019-11-16 12:50:26'), moment('2019-11-16 12:50:26')],
+        dateTimeRange: [dayjs('2019-11-16 12:50:26'), dayjs('2019-11-16 12:50:26')],
+        dateRange: [dayjs('2019-11-16 12:50:26'), dayjs('2019-11-16 12:50:26')],
+        timeRange: [dayjs('2019-11-16 12:50:26'), dayjs('2019-11-16 12:50:26')],
+        timeRange2: [dayjs('2019-11-16 12:50:26'), dayjs('2019-11-16 12:50:26')],
       },
       'number',
       {
@@ -344,17 +344,17 @@ describe('utils', () => {
     expect(html.timeRange2.join(',')).toBe('1573908626000,1573908626000');
   });
 
-  it('📅 conversionSubmitValue moment', async () => {
+  it('📅 conversionSubmitValue dayjs', async () => {
     const html = conversionSubmitValue(
       {
-        dataTime: moment('2019-11-16 12:50:26'),
-        time: moment('2019-11-16 12:50:26'),
+        dataTime: dayjs('2019-11-16 12:50:26'),
+        time: dayjs('2019-11-16 12:50:26'),
         name: 'qixian',
         money: 20,
-        dateTimeRange: [moment('2019-11-16 12:50:26'), moment('2019-11-16 12:50:26')],
-        dateRange: [moment('2019-11-16 12:50:26'), moment('2019-11-16 12:50:26')],
-        timeRange: [moment('2019-11-16 12:50:26'), moment('2019-11-16 12:50:26')],
-        timeRange2: [moment('2019-11-16 12:50:26'), moment('2019-11-16 12:50:26')],
+        dateTimeRange: [dayjs('2019-11-16 12:50:26'), dayjs('2019-11-16 12:50:26')],
+        dateRange: [dayjs('2019-11-16 12:50:26'), dayjs('2019-11-16 12:50:26')],
+        timeRange: [dayjs('2019-11-16 12:50:26'), dayjs('2019-11-16 12:50:26')],
+        timeRange2: [dayjs('2019-11-16 12:50:26'), dayjs('2019-11-16 12:50:26')],
       },
       false,
       {
@@ -381,9 +381,9 @@ describe('utils', () => {
     );
   });
 
-  it('📅 parseValueToMoment moment', async () => {
+  it('📅 parseValueToMoment dayjs', async () => {
     const html = parseValueToMoment(['2019-11-16 12:50:26', '2019-11-16 12:50:26'], 'YYYY-MM-DD');
-    expect((html as Moment[]).map((item) => item.valueOf()).join(',')).toBe(
+    expect((html as Dayjs[]).map((item) => item.valueOf()).join(',')).toBe(
       '1573862400000,1573862400000',
     );
   });

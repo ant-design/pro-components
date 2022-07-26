@@ -32,13 +32,6 @@ if (type === 'lib') {
     esm: false,
     runtimeHelpers: true,
     pkgs: [...headPkgs, ...tailPkgs],
-    extraBabelPlugins: [
-      [
-        'babel-plugin-import',
-        { libraryName: 'antd', libraryDirectory: 'lib', style: true },
-        'antd',
-      ],
-    ],
   };
 }
 
@@ -50,10 +43,7 @@ if (type === 'es') {
     },
     runtimeHelpers: true,
     pkgs: [...headPkgs, ...tailPkgs],
-    extraBabelPlugins: [
-      [require('./scripts/replaceLib')],
-      ['babel-plugin-import', { libraryName: 'antd', libraryDirectory: 'es', style: true }, 'antd'],
-    ],
+    extraBabelPlugins: [[require('./scripts/replaceLib')]],
   };
 }
 

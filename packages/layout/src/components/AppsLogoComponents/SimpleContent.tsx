@@ -1,7 +1,4 @@
-import React, { useContext } from 'react';
-import { cx } from '../../emotion';
-import { ProLayoutContext } from '../../ProLayoutContext';
-import { appContentListCss, getAppContentLisItem } from './simple';
+import React from 'react';
 import type { AppsLogoComponentsAppList } from './types';
 
 /**
@@ -30,22 +27,18 @@ export const renderLogo = (
 
 export const SimpleContent: React.FC<{
   appList?: AppsLogoComponentsAppList;
-  prefixCls?: string;
+  baseClassName: string;
 }> = (props) => {
-  const designToken = useContext(ProLayoutContext);
-  const { appList, prefixCls = 'ant' } = props;
+  const { appList, baseClassName } = props;
   return (
-    <div className={`${prefixCls}-basicLayout-apps-content`}>
-      <ul className={cx(`${prefixCls}-basicLayout-apps-content-list`, appContentListCss)}>
+    <div className={`${baseClassName}-content`}>
+      <ul className={`${baseClassName}-content-list`}>
         {appList?.map((app, index) => {
           return (
             <li
               // eslint-disable-next-line react/no-array-index-key
               key={index}
-              className={cx(
-                `${prefixCls}-basicLayout-apps-content-list-item`,
-                getAppContentLisItem(designToken),
-              )}
+              className={`${baseClassName}-content-list-item`}
             >
               <a href={app.url} target={app.target} rel="noreferrer">
                 {renderLogo(app.icon, app.title)}

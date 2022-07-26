@@ -3,7 +3,7 @@ import { useIntl } from '@ant-design/pro-provider';
 import { isBrowser, useMountMergeState } from '@ant-design/pro-utils';
 import type { FormItemProps, RowProps } from 'antd';
 import { Col, ConfigProvider, Divider, Form, Row } from 'antd';
-import type { FormInstance, FormProps } from 'antd/lib/form/Form';
+import type { FormInstance, FormProps } from 'antd/es/form/Form';
 import classNames from 'classnames';
 import RcResizeObserver from 'rc-resize-observer';
 import useMergedState from 'rc-util/lib/hooks/useMergedState';

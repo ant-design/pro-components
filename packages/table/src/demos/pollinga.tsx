@@ -2,7 +2,7 @@ import { LoadingOutlined, ReloadOutlined } from '@ant-design/icons';
 import type { ProColumns } from '@ant-design/pro-components';
 import { ProTable } from '@ant-design/pro-components';
 import { Button } from 'antd';
-import moment from 'moment';
+import dayjs from 'dayjs';
 import { useState } from 'react';
 
 const valueEnum = {
@@ -107,7 +107,7 @@ export default () => {
         };
       }}
       dateFormatter="string"
-      headerTitle={`上次更新时间：${moment(time).format('HH:mm:ss')}`}
+      headerTitle={`上次更新时间：${dayjs(time).format('HH:mm:ss')}`}
       toolBarRender={() => [
         <Button
           key="3"

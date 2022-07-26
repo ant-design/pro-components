@@ -1,7 +1,7 @@
 ﻿import type { ProFormColumnsType, ProFormLayoutType } from '@ant-design/pro-components';
 import { BetaSchemaForm, ProFormSelect } from '@ant-design/pro-components';
 import { Alert, DatePicker, Space } from 'antd';
-import moment from 'moment';
+import dayjs from 'dayjs';
 import { useState } from 'react';
 
 const valueEnum = {
@@ -92,7 +92,7 @@ const columns: ProFormColumnsType<DataItem>[] = [
     title: '创建时间',
     key: 'showTime',
     dataIndex: 'createName',
-    initialValue: [moment().add(-1, 'm'), moment()],
+    initialValue: [dayjs().add(-1, 'm'), dayjs()],
     renderFormItem: () => <DatePicker.RangePicker />,
     width: 'md',
     colProps: {
@@ -103,7 +103,7 @@ const columns: ProFormColumnsType<DataItem>[] = [
   {
     title: '更新时间',
     dataIndex: 'updateName',
-    initialValue: [moment().add(-1, 'm'), moment()],
+    initialValue: [dayjs().add(-1, 'm'), dayjs()],
     renderFormItem: () => <DatePicker.RangePicker />,
     width: 'md',
     colProps: {

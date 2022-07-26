@@ -9,13 +9,14 @@ import type {
   RowEditableConfig,
   SearchTransformKeyFn,
 } from '@ant-design/pro-utils';
-import type { SizeType } from 'antd/lib/config-provider/SizeContext';
-import type { LabelTooltipType } from 'antd/lib/form/FormItemLabel';
-import type { NamePath } from 'antd/lib/form/interface';
-import type { SearchProps } from 'antd/lib/input';
-import type { SpinProps } from 'antd/lib/spin';
-import type { TableProps } from 'antd/lib/table';
-import type { ColumnFilterItem, ColumnType, CompareFn, SortOrder } from 'antd/lib/table/interface';
+import type { SizeType } from 'antd/es/config-provider/SizeContext';
+import type { LabelTooltipType } from 'antd/es/form/FormItemLabel';
+import type { NamePath } from 'antd/es/form/interface';
+import type { SearchProps } from 'antd/es/input';
+import type { SpinProps } from 'antd/es/spin';
+import type { TableProps } from 'antd/es/table';
+import type { ColumnFilterItem, ColumnType, CompareFn, SortOrder } from 'antd/es/table/interface';
+import type dayjs from 'dayjs';
 import type React from 'react';
 import type { CSSProperties } from 'react';
 import type { AlertRenderType } from './components/Alert';
@@ -347,14 +348,14 @@ export type ProTableProps<T, U, ValueType = 'text'> = {
    */
   form?: Omit<ProFormProps & QueryFilterProps, 'form'>;
   /**
-   * 暂时只支持 moment - string 会格式化为 YYYY-DD-MM - number 代表时间戳
+   * 暂时只支持 dayjs - string 会格式化为 YYYY-DD-MM - number 代表时间戳
    *
    * @name 如何格式化日期
    */
   dateFormatter?:
     | 'string'
     | 'number'
-    | ((value: moment.Moment, valueType: string) => string | number)
+    | ((value: dayjs.Dayjs, valueType: string) => string | number)
     | false;
   /** @name 格式化搜索表单提交数据 */
   beforeSearchSubmit?: (params: Partial<U>) => any;

@@ -43,7 +43,8 @@ import pickProFormItemProps from './pickProFormItemProps';
 import pickProProps from './pickProProps';
 import { runFunction } from './runFunction';
 import transformKeySubmitValue from './transformKeySubmitValue';
-import useStyle from './useStyle';
+import type { ProAliasToken } from './useStyle';
+import { useStyle } from './useStyle';
 /** Type */
 import type {
   ProCoreActionType,
@@ -77,6 +78,7 @@ import useMountMergeState from './useMountMergeState';
 
 export type {
   SearchConvertKeyFn,
+  ProAliasToken,
   RequestOptionsType,
   ProSchema,
   ProFormInstanceType,

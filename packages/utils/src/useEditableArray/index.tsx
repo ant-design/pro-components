@@ -3,9 +3,9 @@ import { LoadingOutlined } from '@ant-design/icons';
 import { useIntl } from '@ant-design/pro-provider';
 import type { FormInstance, FormProps } from 'antd';
 import { message, Popconfirm } from 'antd';
-import type { NamePath } from 'antd/lib/form/interface';
-import useLazyKVMap from 'antd/lib/table/hooks/useLazyKVMap';
-import type { GetRowKey } from 'antd/lib/table/interface';
+import type { NamePath } from 'antd/es/form/interface';
+import useLazyKVMap from 'antd/es/table/hooks/useLazyKVMap';
+import type { GetRowKey } from 'antd/es/table/interface';
 import useMergedState from 'rc-util/lib/hooks/useMergedState';
 import get from 'rc-util/lib/utils/get';
 import set from 'rc-util/lib/utils/set';
@@ -525,7 +525,7 @@ function useEditableArray<RecordType>(
       editableType === 'single' &&
       props.onlyOneLineEditorAlertMessage !== false
     ) {
-      message.warn(props.onlyOneLineEditorAlertMessage || '只能同时编辑一行');
+      message.warning(props.onlyOneLineEditorAlertMessage || '只能同时编辑一行');
       return false;
     }
     editableKeysSet.add(recordKey);
@@ -635,7 +635,7 @@ function useEditableArray<RecordType>(
     }
     // 暂时不支持多行新增
     if (newLineRecordRef.current && props.onlyAddOneLineAlertMessage !== false) {
-      message.warn(props.onlyAddOneLineAlertMessage || '只能新增一行');
+      message.warning(props.onlyAddOneLineAlertMessage || '只能新增一行');
       return false;
     }
     // 如果是单行的话，不允许多行编辑
@@ -644,7 +644,7 @@ function useEditableArray<RecordType>(
       editableType === 'single' &&
       props.onlyOneLineEditorAlertMessage !== false
     ) {
-      message.warn(props.onlyOneLineEditorAlertMessage || '只能同时编辑一行');
+      message.warning(props.onlyOneLineEditorAlertMessage || '只能同时编辑一行');
       return false;
     }
     // 防止多次渲染

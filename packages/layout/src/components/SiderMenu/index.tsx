@@ -6,6 +6,7 @@ import React, { useEffect } from 'react';
 import { MenuCounter } from './Counter';
 import type { PrivateSiderMenuProps, SiderMenuProps } from './SiderMenu';
 import { SiderMenu } from './SiderMenu';
+import { useStyle } from './style/index';
 
 const SiderMenuWrapper: React.FC<SiderMenuProps & PrivateSiderMenuProps> = (props) => {
   const {
@@ -42,42 +43,52 @@ const SiderMenuWrapper: React.FC<SiderMenuProps & PrivateSiderMenuProps> = (prop
 
   const omitProps = Omit(props, ['className', 'style']);
 
+  const { wrapSSR, hashId } = useStyle(`${prefixCls}-sider`, {
+    proLayoutHeaderHeight: props.headerHeight || 56,
+    proLayoutCollapsedWidth: 64,
+  });
+
+  const siderClassName = classNames(`${prefixCls}-sider`, className, hashId);
+
   if (hide) {
     return null;
   }
-  return isMobile ? (
-    <Drawer
-      visible={!collapsed}
-      placement="left"
-      className={classNames(`${prefixCls}-drawer-sider`, className)}
-      onClose={() => onCollapse?.(true)}
-      style={{
-        padding: 0,
-        height: '100vh',
-        ...style,
-      }}
-      handler={<div />}
-      closable={false}
-      getContainer={getContainer}
-      width={siderWidth}
-      bodyStyle={{ height: '100vh', padding: 0, display: 'flex', flexDirection: 'row' }}
-    >
+
+  return wrapSSR(
+    isMobile ? (
+      <Drawer
+        visible={!collapsed}
+        placement="left"
+        className={classNames(`${prefixCls}-drawer-sider`, className)}
+        onClose={() => onCollapse?.(true)}
+        style={{
+          padding: 0,
+          height: '100vh',
+          ...style,
+        }}
+        handler={<div />}
+        closable={false}
+        getContainer={getContainer}
+        width={siderWidth}
+        bodyStyle={{ height: '100vh', padding: 0, display: 'flex', flexDirection: 'row' }}
+      >
+        <SiderMenu
+          {...omitProps}
+          isMobile={true}
+          className={siderClassName}
+          collapsed={isMobile ? false : collapsed}
+          splitMenus={false}
+          originCollapsed={collapsed}
+        />
+      </Drawer>
+    ) : (
       <SiderMenu
-        {...omitProps}
-        isMobile={true}
-        className={classNames(`${prefixCls}-sider`, className)}
-        collapsed={isMobile ? false : collapsed}
-        splitMenus={false}
+        className={siderClassName}
         originCollapsed={collapsed}
+        {...omitProps}
+        style={style}
       />
-    </Drawer>
-  ) : (
-    <SiderMenu
-      className={classNames(`${prefixCls}-sider`, className)}
-      originCollapsed={collapsed}
-      {...omitProps}
-      style={style}
-    />
+    ),
   );
 };
 

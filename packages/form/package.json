@@ -49,7 +49,7 @@
   },
   "devDependencies": {
     "@types/lodash.merge": "^4.6.7",
-    "antd": ">=4.20.0"
+    "antd": "experimental"
   },
   "peerDependencies": {
     "rc-field-form": "^1.22.0",

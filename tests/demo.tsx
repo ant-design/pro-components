@@ -1,8 +1,8 @@
 import '@testing-library/jest-dom';
 import { act, cleanup, render as reactRender } from '@testing-library/react';
+import dayjs from 'dayjs';
 import glob from 'glob';
 import MockDate from 'mockdate';
-import moment from 'moment';
 import { waitForComponentToPaint } from './util';
 
 type Options = {
@@ -61,7 +61,7 @@ function demoTest(component: string, options: Options = {}) {
         testMethod = test.skip;
       }
       testMethod(`📸 renders ${file} correctly`, async () => {
-        MockDate.set(moment('2016-11-22').valueOf());
+        MockDate.set(dayjs('2016-11-22').valueOf());
         const Demo = require(`.${file}`).default;
         const wrapper = reactRender(<Demo />);
         await waitForComponentToPaint(wrapper, 2000);

@@ -1,11 +1,9 @@
-﻿import { ConfigProvider, Popover } from 'antd';
-import React, { useContext, useMemo } from 'react';
-import { cx } from '../../emotion';
-import { ProLayoutContext } from '../../ProLayoutContext';
+﻿import { Popover } from 'antd';
+import React, { useMemo } from 'react';
 import { AppsLogo } from './AppsLogo';
-import { appIconsCss, getAntdPopoverContentListCss } from './css';
 import { DefaultContent } from './DefaultContent';
 import { SimpleContent } from './SimpleContent';
+import { useStyle } from './style/index';
 import type { AppsLogoComponentsAppList } from './types';
 export type { AppsLogoComponentsAppList };
 
@@ -37,40 +35,40 @@ export const AppsLogoComponents: React.FC<{
   appList?: AppsLogoComponentsAppList;
   prefixCls?: string;
 }> = (props) => {
-  const designToken = useContext(ProLayoutContext);
-  const { appList, prefixCls = 'ant' } = props;
-  const antdContext = useContext(ConfigProvider.ConfigContext);
-  const antdPreFixCls = antdContext.getPrefixCls();
+  const { appList, prefixCls = 'ant-pro' } = props;
+  const baseClassName = `${prefixCls}-layout-apps`;
+  const { wrapSSR } = useStyle(baseClassName);
 
   const popoverContent = useMemo(() => {
     const isSimple = appList?.some((app) => {
       return !app?.desc;
     });
     if (isSimple) {
-      return <SimpleContent appList={appList} prefixCls={prefixCls} />;
+      return <SimpleContent appList={appList} baseClassName={`${baseClassName}-simple`} />;
     }
-    return <DefaultContent appList={appList} prefixCls={prefixCls} />;
-  }, [appList, prefixCls]);
+    return <DefaultContent appList={appList} baseClassName={`${baseClassName}-default`} />;
+  }, [appList, baseClassName]);
 
   if (!props?.appList?.length) return null;
 
-  return (
+  return wrapSSR(
     <Popover
       placement="bottomRight"
       trigger={['click']}
       zIndex={9999}
       arrowPointAtCenter
-      overlayClassName={cx(getAntdPopoverContentListCss(antdPreFixCls))}
+      overlayClassName={`${baseClassName}-popover`}
       content={popoverContent}
+      getPopupContainer={() => document.querySelector('.ant-pro') || document.body}
     >
       <span
         onClick={(e) => {
           e.stopPropagation();
         }}
-        className={cx(`${prefixCls}-basicLayout-apps-icon`, appIconsCss(designToken))}
+        className={`${baseClassName}-icon`}
       >
         <AppsLogo />
       </span>
-    </Popover>
+    </Popover>,
   );
 };

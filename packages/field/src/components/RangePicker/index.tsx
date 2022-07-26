@@ -1,7 +1,7 @@
 import { useIntl } from '@ant-design/pro-provider';
 import { parseValueToMoment } from '@ant-design/pro-utils';
 import { DatePicker } from 'antd';
-import moment from 'moment';
+import dayjs from 'dayjs';
 import React, { useCallback } from 'react';
 import type { ProFieldFC } from '../../index';
 
@@ -18,7 +18,7 @@ const FieldRangePicker: ProFieldFC<{
   const intl = useIntl();
   const [startText, endText] = Array.isArray(text) ? text : [];
   const genFormatText = useCallback(
-    (formatValue: moment.Moment) => {
+    (formatValue: dayjs.Dayjs) => {
       if (typeof fieldProps?.format === 'function') {
         return fieldProps?.format?.(formatValue);
       }
@@ -28,11 +28,9 @@ const FieldRangePicker: ProFieldFC<{
   );
   // activePickerIndex for https://github.com/ant-design/ant-design/issues/22158
   const parsedStartText: string = startText
-    ? moment(startText).format(genFormatText(moment(startText)))
+    ? dayjs(startText).format(genFormatText(dayjs(startText)))
     : '';
-  const parsedEndText: string = endText
-    ? moment(endText).format(genFormatText(moment(endText)))
-    : '';
+  const parsedEndText: string = endText ? dayjs(endText).format(genFormatText(dayjs(endText))) : '';
 
   if (mode === 'read') {
     const dom = (
@@ -47,7 +45,7 @@ const FieldRangePicker: ProFieldFC<{
     return dom;
   }
   if (mode === 'edit' || mode === 'update') {
-    const momentValue = parseValueToMoment(fieldProps.value) as moment.Moment;
+    const momentValue = parseValueToMoment(fieldProps.value) as dayjs.Dayjs;
     const dom = (
       <DatePicker.RangePicker
         ref={ref}

@@ -33,6 +33,9 @@ export default {
   mode: 'site',
   logo: 'https://gw.alipayobjects.com/zos/antfincdn/upvrAjAPQX/Logo_Tech%252520UI.svg',
   sitemap: { hostname: 'https://procomponents.ant.design' },
+  antd: {
+    disableBabelPluginImport: true,
+  },
   metas: [
     {
       property: 'og:site_name',

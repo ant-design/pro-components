@@ -2,7 +2,7 @@ import Icon, { createFromIconfontCN } from '@ant-design/icons';
 import { isImg, isUrl, useMountMergeState } from '@ant-design/pro-utils';
 import type { MenuProps, MenuTheme } from 'antd';
 import { ConfigProvider, Menu, Skeleton } from 'antd';
-import type { ItemType } from 'antd/lib/menu/hooks/useItems';
+import type { ItemType } from 'antd/es/menu/hooks/useItems';
 import React, { useContext, useEffect, useMemo, useRef } from 'react';
 import type { PureSettings } from '../../defaultSettings';
 import { defaultSettings } from '../../defaultSettings';
@@ -225,6 +225,7 @@ class MenuUtil {
               key: (item.key! || item.path!) + '-group',
               style: {
                 padding: 0,
+                borderBottom: 0,
                 margin: this.props.collapsed ? '4px' : '12px 16px',
                 borderColor: designToken?.sider?.menuItemDividerColor,
               },
@@ -379,7 +380,6 @@ const BaseMenu: React.FC<BaseMenuProps & PrivateSiderMenuProps> = (props) => {
     menu,
     matchMenuKeys,
     iconfontUrl,
-    collapsed,
     selectedKeys: propsSelectedKeys,
     onSelect,
     menuRenderType,
@@ -484,240 +484,11 @@ const BaseMenu: React.FC<BaseMenuProps & PrivateSiderMenuProps> = (props) => {
     });
   }, [designToken, menuRenderType, props]);
 
-  const menuItemCssMap = useMemo(() => {
-    const itemHoverColor = !collapsed
-      ? menuDesignToken.menuItemHoverBgColor
-      : menuDesignToken.menuItemCollapsedHoverBgColor;
-
-    // 顶部 选中之后要有背景色，文件颜色也要变深
-    const itemSelectedColor = !collapsed
-      ? menuDesignToken.menuItemSelectedBgColor
-      : menuDesignToken.menuItemCollapsedSelectedBgColor;
-
-    return {
-      menuItem: css`
-        border-radius: ${designToken.borderRadiusBase};
-        min-height: 40px;
-        display: flex;
-        align-items: center;
-        transition: background-color 0.3s cubic-bezier(0.645, 0.045, 0.355, 1);
-        cursor: pointer;
-        line-height: 40px;
-
-        .${antPrefixClassName}-menu-title-content {
-          display: flex;
-          width: 100%;
-          height: 100%;
-          color: ${menuDesignToken.menuTextColor};
-          font-size: 14px;
-          line-height: 40px;
-          transition: all 0.3s cubic-bezier(0.645, 0.045, 0.355, 1);
-
-          > * {
-            width: 100%;
-            height: 100%;
-            color: ${menuDesignToken.menuTextColor};
-            .anticon {
-              color: ${menuDesignToken.menuTextColor};
-              opacity: 0.69;
-            }
-          }
-        }
-      `,
-      collapsedItemShowTitle: css`
-        margin-top: 12px;
-        margin-bottom: 12px;
-        .${prefixCls}-menu-item {
-          padding-top: 6px;
-          padding-bottom: 6px;
-        }
-      `,
-      collapsedItem: css`
-        .${antPrefixClassName}-menu-title-content {
-          ${mode !== 'horizontal' ? 'width: 100%; line-height: 40px;' : ''}
-        }
-        .${prefixCls}-menu-item {
-          display: flex;
-          flex-direction: column;
-          align-items: center;
-          justify-content: center;
-          width: 100%;
-          padding-top: 6px;
-          padding-bottom: 6px;
-          color: ${menuDesignToken.menuTextColor};
-          font-size: 16px;
-        }
-      `,
-      horizontalMenuItem: css`
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-        .${prefixCls}-menu-item {
-          padding: ${menuDesignToken.horizontalMenuItemPadding};
-        }
-        .${prefixCls}-title-content:hover {
-          background-color: ${itemHoverColor};
-          border-radius: ${designToken.borderRadiusBase};
-        }
-        &:hover {
-          background-color: ${itemHoverColor};
-          border-radius: ${designToken.borderRadiusBase};
-          > * {
-            color: ${menuDesignToken.menuSelectedTextColor};
-            .anticon {
-              color: ${menuDesignToken.menuSelectedTextColor};
-            }
-            > * {
-              color: ${menuDesignToken.menuSelectedTextColor};
-            }
-          }
-        }
-      `,
-      /**
-       * 水平的 menuItem 需要一个hover
-       */
-      verticalMenuItem: css`
-        &:hover {
-          > * {
-            color: ${menuDesignToken.menuSelectedTextColor};
-            .anticon {
-              color: ${menuDesignToken.menuSelectedTextColor};
-            }
-            > * {
-              color: ${menuDesignToken.menuSelectedTextColor};
-            }
-          }
-        }
-      `,
-      selectedMenuItem: css`
-        background-color: ${itemSelectedColor};
-        border-radius: ${designToken.borderRadiusBase};
-        .${antPrefixClassName}-menu-title-content {
-          > * {
-            color: ${menuDesignToken.menuSelectedTextColor};
-            .anticon {
-              color: ${menuDesignToken.menuSelectedTextColor};
-            }
-          }
-        }
-      `,
-      // subMenuItem Style
-      subMenuItem: css`
-        border-radius: ${designToken.borderRadiusBase};
-        min-height: 40px;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: flex-start;
-        transition: background-color 0.3s cubic-bezier(0.645, 0.045, 0.355, 1);
-        cursor: pointer;
-        color: ${menuDesignToken.menuTextColor};
-
-        .${antPrefixClassName}-menu-submenu-title {
-          width: 100%;
-          margin-top: 0;
-          margin-bottom: 0;
-          line-height: 40px;
-          .anticon {
-            color: ${menuDesignToken.menuTextColor};
-            opacity: 0.69;
-          }
-        }
-        .${antPrefixClassName}-menu-submenu-arrow {
-          color: ${menuDesignToken.menuTextColor};
-          transform: rotate(1.25turn);
-          transition: transform 0.3s cubic-bezier(0.645, 0.045, 0.355, 1);
-        }
-      `,
-      selectedSubMenuItem: css`
-        .${antPrefixClassName}-menu-submenu-title {
-          > * {
-            color: ${menuDesignToken.subMenuSelectedTextColor};
-            .anticon {
-              color: ${menuDesignToken.subMenuSelectedTextColor};
-            }
-          }
-        }
-      `,
-      collapsedSubMenuItem: css`
-        .${antPrefixClassName}-menu-submenu-title{
-          padding: 0 !important;
-          width: 100%;
-        }
-        .${antPrefixClassName}-menu-title-content {
-          ${mode !== 'horizontal' ? 'width: 100%;' : ''}
-          display: flex;
-          height: 100%;
-          align-items: center;
-          justify-content: center;
-          font-size: 16px;
-        }
-        .${antPrefixClassName}-menu-submenu-title .anticon {
-          font-size: 16px;
-        }
-        .${antPrefixClassName}-menu-submenu-arrow {
-          display: none;
-        }
-      `,
-      collapsedSelectSubMenuItem: css`
-        background-color: ${itemSelectedColor};
-        border-radius: ${designToken.borderRadiusBase};
-      `,
-      openItem: css`
-        .${antPrefixClassName}-menu-submenu-arrow {
-          transform: rotate(0.75turn);
-        }
-      `,
-      verticalSubItem: css`
-        .${antPrefixClassName}-menu-submenu-title:hover {
-          color: ${menuDesignToken.menuTextColor};
-          background-color: ${itemHoverColor};
-          border-radius: ${designToken.borderRadiusBase};
-        }
-      `,
-      horizontalSubMenuItem: css`
-        .${antPrefixClassName}-menu-submenu-title{
-          min-height: 43px;
-          display: flex;
-          align-items: center;
-        }
-        .${antPrefixClassName}-menu-submenu-title:hover {
-          color:${designToken.colorText};
-          background-color: ${itemHoverColor};
-          border-radius: ${designToken.borderRadiusBase};
-        }
-        .${antPrefixClassName}-menu-submenu-arrow {
-          display: none;
-        }
-      `,
-    };
-  }, [
-    antPrefixClassName,
-    collapsed,
-    designToken.borderRadiusBase,
-    designToken.colorText,
-    menuDesignToken.horizontalMenuItemPadding,
-    menuDesignToken.menuItemCollapsedHoverBgColor,
-    menuDesignToken.menuItemCollapsedSelectedBgColor,
-    menuDesignToken.menuItemHoverBgColor,
-    menuDesignToken.menuItemSelectedBgColor,
-    menuDesignToken.menuSelectedTextColor,
-    menuDesignToken.menuTextColor,
-    menuDesignToken.subMenuSelectedTextColor,
-    mode,
-    prefixCls,
-  ]);
-
   const menuCss = useMemo(() => {
     return css`
     padding: ${props.isMobile ? 0 : '6px'};
     background: transparent;
     border:none !important;
-
-    // 关掉动画避免性能问题
-    * > div {
-      transition: none !important;
-    }
 
     .${antPrefixClassName}-menu-title-content{
       width: 100%;
@@ -805,49 +576,7 @@ const BaseMenu: React.FC<BaseMenuProps & PrivateSiderMenuProps> = (props) => {
             }
           `,
       )}
-      _internalRenderSubMenuItem={(dom, _, stateProps) => {
-        return React.cloneElement(dom, {
-          ...dom.props,
-          className: cx(
-            `${prefixCls}-menu-submenu`,
-            stateProps?.selected && `${prefixCls}-menu-submenu-selected`,
-            stateProps?.open && `${prefixCls}-menu-submenu-open`,
-            menuItemCssMap.subMenuItem,
-            // 收起的样式
-            collapsed && menuItemCssMap.collapsedSubMenuItem,
-            // 顶部菜单和水平菜单需要不同的 css
-            mode !== 'horizontal'
-              ? menuItemCssMap.verticalSubItem
-              : menuItemCssMap.horizontalSubMenuItem,
-            stateProps?.selected ? menuItemCssMap.selectedSubMenuItem : null,
-            stateProps?.open ? menuItemCssMap.openItem : null,
-            collapsed && stateProps?.selected ? menuItemCssMap.collapsedSelectSubMenuItem : null,
-          ),
-        });
-      }}
       items={menuUtils.getNavMenuItems(finallyData, 0)}
-      _internalRenderMenuItem={(dom, itemProps, stateProps) => {
-        return React.cloneElement(dom, {
-          ...dom.props,
-          className: cx(
-            `${prefixCls}-menu-item`,
-            stateProps?.selected && `${prefixCls}-menu-item-selected`,
-            // 展开的样式
-            menuItemCssMap.menuItem,
-            // 收起的样式
-            collapsed && menuItemCssMap.collapsedItem,
-            /**
-             * 收起时展示 title
-             */
-            collapsed && menu?.collapsedShowTitle && menuItemCssMap.collapsedItemShowTitle,
-            // 顶部菜单和水平菜单需要不同的 css
-            mode !== 'horizontal'
-              ? menuItemCssMap.verticalMenuItem
-              : menuItemCssMap.horizontalMenuItem,
-            stateProps?.selected ? menuItemCssMap.selectedMenuItem : null,
-          ),
-        });
-      }}
       onOpenChange={setOpenKeys}
       {...props.menuProps}
     />

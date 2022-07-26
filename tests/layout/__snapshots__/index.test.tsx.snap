@@ -3,10 +3,661 @@
 exports[`BasicLayout 🥩 BasicLayout menu support menu.true 1`] = `
 Array [
   <div
-    class="ant-design-pro ant-pro-basicLayout ant-pro-basicLayout-fix-siderbar ant-pro-basicLayout-side ant-design-pro-layout-1a98z39"
+    class="ant-pro"
   >
     <div
-      class="ant-design-pro-layout-d08s5k"
+      class="ant-design-pro ant-pro-layout ant-pro-layout-fix-siderbar ant-pro-layout-side"
+    >
+      <div
+        class="ant-pro-layout-bg-list"
+      />
+      <section
+        class="ant-layout"
+        style="min-height:100%"
+      >
+        <div
+          class="ant-design-pro-layout-l4gpps"
+        />
+        <aside
+          class="ant-layout-sider ant-layout-sider-light ant-pro-sider ant-pro-sider-fixed ant-pro-sider-layout-side ant-pro-sider-light ant-design-pro-layout-1retjvs"
+          style="background-color:transparent;flex:0 0 256px;max-width:256px;min-width:256px;width:256px"
+        >
+          <div
+            class="ant-layout-sider-children"
+          >
+            <div
+              class="ant-pro-sider-logo"
+              id="logo"
+            >
+              <a>
+                <svg
+                  height="1em"
+                  viewBox="0 0 200 200"
+                  width="1em"
+                >
+                  <defs>
+                    <linearGradient
+                      id="linearGradient-1"
+                      x1="62.1023273%"
+                      x2="108.19718%"
+                      y1="0%"
+                      y2="37.8635764%"
+                    >
+                      <stop
+                        offset="0%"
+                        stop-color="#4285EB"
+                      />
+                      <stop
+                        offset="100%"
+                        stop-color="#2EC7FF"
+                      />
+                    </linearGradient>
+                    <linearGradient
+                      id="linearGradient-2"
+                      x1="69.644116%"
+                      x2="54.0428975%"
+                      y1="0%"
+                      y2="108.456714%"
+                    >
+                      <stop
+                        offset="0%"
+                        stop-color="#29CDFF"
+                      />
+                      <stop
+                        offset="37.8600687%"
+                        stop-color="#148EFF"
+                      />
+                      <stop
+                        offset="100%"
+                        stop-color="#0A60FF"
+                      />
+                    </linearGradient>
+                    <linearGradient
+                      id="linearGradient-3"
+                      x1="69.6908165%"
+                      x2="16.7228981%"
+                      y1="-12.9743587%"
+                      y2="117.391248%"
+                    >
+                      <stop
+                        offset="0%"
+                        stop-color="#FA816E"
+                      />
+                      <stop
+                        offset="41.472606%"
+                        stop-color="#F74A5C"
+                      />
+                      <stop
+                        offset="100%"
+                        stop-color="#F51D2C"
+                      />
+                    </linearGradient>
+                    <linearGradient
+                      id="linearGradient-4"
+                      x1="68.1279872%"
+                      x2="30.4400914%"
+                      y1="-35.6905737%"
+                      y2="114.942679%"
+                    >
+                      <stop
+                        offset="0%"
+                        stop-color="#FA8E7D"
+                      />
+                      <stop
+                        offset="51.2635191%"
+                        stop-color="#F74A5C"
+                      />
+                      <stop
+                        offset="100%"
+                        stop-color="#F51D2C"
+                      />
+                    </linearGradient>
+                  </defs>
+                  <g
+                    fill="none"
+                    fill-rule="evenodd"
+                    stroke="none"
+                    stroke-width="1"
+                  >
+                    <g
+                      transform="translate(-20.000000, -20.000000)"
+                    >
+                      <g
+                        transform="translate(20.000000, 20.000000)"
+                      >
+                        <g>
+                          <g
+                            fill-rule="nonzero"
+                          >
+                            <g>
+                              <path
+                                d="M91.5880863,4.17652823 L4.17996544,91.5127728 C-0.519240605,96.2081146 -0.519240605,103.791885 4.17996544,108.487227 L91.5880863,195.823472 C96.2872923,200.518814 103.877304,200.518814 108.57651,195.823472 L145.225487,159.204632 C149.433969,154.999611 149.433969,148.181924 145.225487,143.976903 C141.017005,139.771881 134.193707,139.771881 129.985225,143.976903 L102.20193,171.737352 C101.032305,172.906015 99.2571609,172.906015 98.0875359,171.737352 L28.285908,101.993122 C27.1162831,100.824459 27.1162831,99.050775 28.285908,97.8821118 L98.0875359,28.1378823 C99.2571609,26.9692191 101.032305,26.9692191 102.20193,28.1378823 L129.985225,55.8983314 C134.193707,60.1033528 141.017005,60.1033528 145.225487,55.8983314 C149.433969,51.69331 149.433969,44.8756232 145.225487,40.6706018 L108.58055,4.05574592 C103.862049,-0.537986846 96.2692618,-0.500797906 91.5880863,4.17652823 Z"
+                                fill="url(#linearGradient-1)"
+                              />
+                              <path
+                                d="M91.5880863,4.17652823 L4.17996544,91.5127728 C-0.519240605,96.2081146 -0.519240605,103.791885 4.17996544,108.487227 L91.5880863,195.823472 C96.2872923,200.518814 103.877304,200.518814 108.57651,195.823472 L145.225487,159.204632 C149.433969,154.999611 149.433969,148.181924 145.225487,143.976903 C141.017005,139.771881 134.193707,139.771881 129.985225,143.976903 L102.20193,171.737352 C101.032305,172.906015 99.2571609,172.906015 98.0875359,171.737352 L28.285908,101.993122 C27.1162831,100.824459 27.1162831,99.050775 28.285908,97.8821118 L98.0875359,28.1378823 C100.999864,25.6271836 105.751642,20.541824 112.729652,19.3524487 C117.915585,18.4685261 123.585219,20.4140239 129.738554,25.1889424 C125.624663,21.0784292 118.571995,14.0340304 108.58055,4.05574592 C103.862049,-0.537986846 96.2692618,-0.500797906 91.5880863,4.17652823 Z"
+                                fill="url(#linearGradient-2)"
+                              />
+                            </g>
+                            <path
+                              d="M153.685633,135.854579 C157.894115,140.0596 164.717412,140.0596 168.925894,135.854579 L195.959977,108.842726 C200.659183,104.147384 200.659183,96.5636133 195.960527,91.8688194 L168.690777,64.7181159 C164.472332,60.5180858 157.646868,60.5241425 153.435895,64.7316526 C149.227413,68.936674 149.227413,75.7543607 153.435895,79.9593821 L171.854035,98.3623765 C173.02366,99.5310396 173.02366,101.304724 171.854035,102.473387 L153.685633,120.626849 C149.47715,124.83187 149.47715,131.649557 153.685633,135.854579 Z"
+                              fill="url(#linearGradient-3)"
+                            />
+                          </g>
+                          <ellipse
+                            cx="100.519339"
+                            cy="100.436681"
+                            fill="url(#linearGradient-4)"
+                            rx="23.6001926"
+                            ry="23.580786"
+                          />
+                        </g>
+                      </g>
+                    </g>
+                  </g>
+                </svg>
+                <h1>
+                  Ant Design Pro
+                </h1>
+              </a>
+            </div>
+            <div
+              style="flex:1;overflow-y:auto;overflow-x:hidden"
+            >
+              <div
+                style="padding:24px"
+              >
+                <div
+                  class="ant-skeleton ant-skeleton-active"
+                >
+                  <div
+                    class="ant-skeleton-content"
+                  >
+                    <ul
+                      class="ant-skeleton-paragraph"
+                    >
+                      <li />
+                      <li />
+                      <li />
+                      <li />
+                      <li />
+                      <li
+                        style="width:61%"
+                      />
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div
+              class="ant-pro-sider-collapsed-button"
+            >
+              <svg
+                aria-hidden="true"
+                fill="currentColor"
+                height="1em"
+                viewBox="0 0 12 12"
+                width="1em"
+              >
+                <path
+                  d="M6.432 7.967a.448.448 0 01-.318.133h-.228a.46.46 0 01-.318-.133L2.488 4.85a.305.305 0 010-.43l.427-.43a.293.293 0 01.42 0L6 6.687l2.665-2.699a.299.299 0 01.426 0l.42.431a.305.305 0 010 .43L6.432 7.967z"
+                />
+              </svg>
+            </div>
+          </div>
+        </aside>
+        <div
+          class="ant-layout"
+          style="position:relative"
+        >
+          <main
+            class="ant-layout-content ant-pro-layout-content ant-pro-layout-has-header"
+          />
+        </div>
+      </section>
+    </div>
+  </div>,
+  <div
+    class="ant-pro"
+  >
+    <div
+      class="ant-design-pro ant-pro-layout ant-pro-layout-top-menu ant-pro-layout-fix-siderbar ant-pro-layout-top"
+    >
+      <div
+        class="ant-pro-layout-bg-list"
+      />
+      <section
+        class="ant-layout"
+        style="min-height:100%"
+      >
+        <div
+          class="ant-layout"
+          style="position:relative"
+        >
+          <header
+            class="ant-layout-header ant-pro-fixed-header-action ant-pro-top-menu ant-pro-header ant-design-pro-layout-1vchm1k"
+          >
+            <div
+              class="ant-pro-top-nav-header light ant-design-pro-layout-143khor"
+            >
+              <div
+                class="ant-pro-top-nav-header-main ant-design-pro-layout-17ldh9g"
+              >
+                <div
+                  class="ant-pro-top-nav-header-main-left ant-design-pro-layout-ky9p8f"
+                >
+                  <div
+                    class="ant-pro-top-nav-header-logo ant-design-pro-layout-c10ook"
+                    id="logo"
+                  >
+                    <a>
+                      <svg
+                        height="1em"
+                        viewBox="0 0 200 200"
+                        width="1em"
+                      >
+                        <defs>
+                          <linearGradient
+                            id="linearGradient-1"
+                            x1="62.1023273%"
+                            x2="108.19718%"
+                            y1="0%"
+                            y2="37.8635764%"
+                          >
+                            <stop
+                              offset="0%"
+                              stop-color="#4285EB"
+                            />
+                            <stop
+                              offset="100%"
+                              stop-color="#2EC7FF"
+                            />
+                          </linearGradient>
+                          <linearGradient
+                            id="linearGradient-2"
+                            x1="69.644116%"
+                            x2="54.0428975%"
+                            y1="0%"
+                            y2="108.456714%"
+                          >
+                            <stop
+                              offset="0%"
+                              stop-color="#29CDFF"
+                            />
+                            <stop
+                              offset="37.8600687%"
+                              stop-color="#148EFF"
+                            />
+                            <stop
+                              offset="100%"
+                              stop-color="#0A60FF"
+                            />
+                          </linearGradient>
+                          <linearGradient
+                            id="linearGradient-3"
+                            x1="69.6908165%"
+                            x2="16.7228981%"
+                            y1="-12.9743587%"
+                            y2="117.391248%"
+                          >
+                            <stop
+                              offset="0%"
+                              stop-color="#FA816E"
+                            />
+                            <stop
+                              offset="41.472606%"
+                              stop-color="#F74A5C"
+                            />
+                            <stop
+                              offset="100%"
+                              stop-color="#F51D2C"
+                            />
+                          </linearGradient>
+                          <linearGradient
+                            id="linearGradient-4"
+                            x1="68.1279872%"
+                            x2="30.4400914%"
+                            y1="-35.6905737%"
+                            y2="114.942679%"
+                          >
+                            <stop
+                              offset="0%"
+                              stop-color="#FA8E7D"
+                            />
+                            <stop
+                              offset="51.2635191%"
+                              stop-color="#F74A5C"
+                            />
+                            <stop
+                              offset="100%"
+                              stop-color="#F51D2C"
+                            />
+                          </linearGradient>
+                        </defs>
+                        <g
+                          fill="none"
+                          fill-rule="evenodd"
+                          stroke="none"
+                          stroke-width="1"
+                        >
+                          <g
+                            transform="translate(-20.000000, -20.000000)"
+                          >
+                            <g
+                              transform="translate(20.000000, 20.000000)"
+                            >
+                              <g>
+                                <g
+                                  fill-rule="nonzero"
+                                >
+                                  <g>
+                                    <path
+                                      d="M91.5880863,4.17652823 L4.17996544,91.5127728 C-0.519240605,96.2081146 -0.519240605,103.791885 4.17996544,108.487227 L91.5880863,195.823472 C96.2872923,200.518814 103.877304,200.518814 108.57651,195.823472 L145.225487,159.204632 C149.433969,154.999611 149.433969,148.181924 145.225487,143.976903 C141.017005,139.771881 134.193707,139.771881 129.985225,143.976903 L102.20193,171.737352 C101.032305,172.906015 99.2571609,172.906015 98.0875359,171.737352 L28.285908,101.993122 C27.1162831,100.824459 27.1162831,99.050775 28.285908,97.8821118 L98.0875359,28.1378823 C99.2571609,26.9692191 101.032305,26.9692191 102.20193,28.1378823 L129.985225,55.8983314 C134.193707,60.1033528 141.017005,60.1033528 145.225487,55.8983314 C149.433969,51.69331 149.433969,44.8756232 145.225487,40.6706018 L108.58055,4.05574592 C103.862049,-0.537986846 96.2692618,-0.500797906 91.5880863,4.17652823 Z"
+                                      fill="url(#linearGradient-1)"
+                                    />
+                                    <path
+                                      d="M91.5880863,4.17652823 L4.17996544,91.5127728 C-0.519240605,96.2081146 -0.519240605,103.791885 4.17996544,108.487227 L91.5880863,195.823472 C96.2872923,200.518814 103.877304,200.518814 108.57651,195.823472 L145.225487,159.204632 C149.433969,154.999611 149.433969,148.181924 145.225487,143.976903 C141.017005,139.771881 134.193707,139.771881 129.985225,143.976903 L102.20193,171.737352 C101.032305,172.906015 99.2571609,172.906015 98.0875359,171.737352 L28.285908,101.993122 C27.1162831,100.824459 27.1162831,99.050775 28.285908,97.8821118 L98.0875359,28.1378823 C100.999864,25.6271836 105.751642,20.541824 112.729652,19.3524487 C117.915585,18.4685261 123.585219,20.4140239 129.738554,25.1889424 C125.624663,21.0784292 118.571995,14.0340304 108.58055,4.05574592 C103.862049,-0.537986846 96.2692618,-0.500797906 91.5880863,4.17652823 Z"
+                                      fill="url(#linearGradient-2)"
+                                    />
+                                  </g>
+                                  <path
+                                    d="M153.685633,135.854579 C157.894115,140.0596 164.717412,140.0596 168.925894,135.854579 L195.959977,108.842726 C200.659183,104.147384 200.659183,96.5636133 195.960527,91.8688194 L168.690777,64.7181159 C164.472332,60.5180858 157.646868,60.5241425 153.435895,64.7316526 C149.227413,68.936674 149.227413,75.7543607 153.435895,79.9593821 L171.854035,98.3623765 C173.02366,99.5310396 173.02366,101.304724 171.854035,102.473387 L153.685633,120.626849 C149.47715,124.83187 149.47715,131.649557 153.685633,135.854579 Z"
+                                    fill="url(#linearGradient-3)"
+                                  />
+                                </g>
+                                <ellipse
+                                  cx="100.519339"
+                                  cy="100.436681"
+                                  fill="url(#linearGradient-4)"
+                                  rx="23.6001926"
+                                  ry="23.580786"
+                                />
+                              </g>
+                            </g>
+                          </g>
+                        </g>
+                      </svg>
+                      <h1>
+                        Ant Design Pro
+                      </h1>
+                    </a>
+                  </div>
+                </div>
+                <div
+                  class="ant-pro-top-nav-header-menu ant-design-pro-layout-1omcxtl"
+                  style="flex:1"
+                >
+                  <div
+                    style="margin-top:16px"
+                  >
+                    <div
+                      class="ant-skeleton ant-skeleton-active"
+                    >
+                      <div
+                        class="ant-skeleton-content"
+                      >
+                        <ul
+                          class="ant-skeleton-paragraph"
+                        >
+                          <li
+                            style="width:61%"
+                          />
+                        </ul>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </header>
+          <main
+            class="ant-layout-content ant-pro-layout-content ant-pro-layout-has-header"
+          />
+        </div>
+      </section>
+    </div>
+  </div>,
+  <div
+    class="ant-pro"
+  >
+    <div
+      class="ant-design-pro ant-pro-layout ant-pro-layout-fix-siderbar ant-pro-layout-mix"
+    >
+      <div
+        class="ant-pro-layout-bg-list"
+      />
+      <section
+        class="ant-layout"
+        style="min-height:100%"
+      >
+        <div
+          class="ant-design-pro-layout-18ivuhd"
+        />
+        <aside
+          class="ant-layout-sider ant-layout-sider-light ant-pro-sider ant-pro-sider-fixed ant-pro-sider-layout-mix ant-pro-sider-light ant-pro-sider-mix ant-design-pro-layout-1retjvs"
+          style="background-color:transparent;flex:0 0 215px;max-width:215px;min-width:215px;width:215px"
+        >
+          <div
+            class="ant-layout-sider-children"
+          >
+            <div
+              style="flex:1;overflow-y:auto;overflow-x:hidden"
+            >
+              <div
+                style="padding:24px"
+              >
+                <div
+                  class="ant-skeleton ant-skeleton-active"
+                >
+                  <div
+                    class="ant-skeleton-content"
+                  >
+                    <ul
+                      class="ant-skeleton-paragraph"
+                    >
+                      <li />
+                      <li />
+                      <li />
+                      <li />
+                      <li />
+                      <li
+                        style="width:61%"
+                      />
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div
+              class="ant-pro-sider-collapsed-button"
+            >
+              <svg
+                aria-hidden="true"
+                fill="currentColor"
+                height="1em"
+                viewBox="0 0 12 12"
+                width="1em"
+              >
+                <path
+                  d="M6.432 7.967a.448.448 0 01-.318.133h-.228a.46.46 0 01-.318-.133L2.488 4.85a.305.305 0 010-.43l.427-.43a.293.293 0 01.42 0L6 6.687l2.665-2.699a.299.299 0 01.426 0l.42.431a.305.305 0 010 .43L6.432 7.967z"
+                />
+              </svg>
+            </div>
+          </div>
+        </aside>
+        <div
+          class="ant-layout"
+          style="position:relative"
+        >
+          <header
+            class="ant-layout-header"
+            style="height:56px;line-height:56px;background-color:transparent"
+          />
+          <header
+            class="ant-layout-header ant-pro-fixed-header ant-pro-fixed-header-action ant-pro-header ant-design-pro-layout-ufars5"
+          >
+            <div
+              class="ant-pro-global-header ant-pro-global-header-layout-mix"
+            >
+              <div
+                class="ant-pro-global-header-logo"
+              >
+                <a>
+                  <svg
+                    height="1em"
+                    viewBox="0 0 200 200"
+                    width="1em"
+                  >
+                    <defs>
+                      <linearGradient
+                        id="linearGradient-1"
+                        x1="62.1023273%"
+                        x2="108.19718%"
+                        y1="0%"
+                        y2="37.8635764%"
+                      >
+                        <stop
+                          offset="0%"
+                          stop-color="#4285EB"
+                        />
+                        <stop
+                          offset="100%"
+                          stop-color="#2EC7FF"
+                        />
+                      </linearGradient>
+                      <linearGradient
+                        id="linearGradient-2"
+                        x1="69.644116%"
+                        x2="54.0428975%"
+                        y1="0%"
+                        y2="108.456714%"
+                      >
+                        <stop
+                          offset="0%"
+                          stop-color="#29CDFF"
+                        />
+                        <stop
+                          offset="37.8600687%"
+                          stop-color="#148EFF"
+                        />
+                        <stop
+                          offset="100%"
+                          stop-color="#0A60FF"
+                        />
+                      </linearGradient>
+                      <linearGradient
+                        id="linearGradient-3"
+                        x1="69.6908165%"
+                        x2="16.7228981%"
+                        y1="-12.9743587%"
+                        y2="117.391248%"
+                      >
+                        <stop
+                          offset="0%"
+                          stop-color="#FA816E"
+                        />
+                        <stop
+                          offset="41.472606%"
+                          stop-color="#F74A5C"
+                        />
+                        <stop
+                          offset="100%"
+                          stop-color="#F51D2C"
+                        />
+                      </linearGradient>
+                      <linearGradient
+                        id="linearGradient-4"
+                        x1="68.1279872%"
+                        x2="30.4400914%"
+                        y1="-35.6905737%"
+                        y2="114.942679%"
+                      >
+                        <stop
+                          offset="0%"
+                          stop-color="#FA8E7D"
+                        />
+                        <stop
+                          offset="51.2635191%"
+                          stop-color="#F74A5C"
+                        />
+                        <stop
+                          offset="100%"
+                          stop-color="#F51D2C"
+                        />
+                      </linearGradient>
+                    </defs>
+                    <g
+                      fill="none"
+                      fill-rule="evenodd"
+                      stroke="none"
+                      stroke-width="1"
+                    >
+                      <g
+                        transform="translate(-20.000000, -20.000000)"
+                      >
+                        <g
+                          transform="translate(20.000000, 20.000000)"
+                        >
+                          <g>
+                            <g
+                              fill-rule="nonzero"
+                            >
+                              <g>
+                                <path
+                                  d="M91.5880863,4.17652823 L4.17996544,91.5127728 C-0.519240605,96.2081146 -0.519240605,103.791885 4.17996544,108.487227 L91.5880863,195.823472 C96.2872923,200.518814 103.877304,200.518814 108.57651,195.823472 L145.225487,159.204632 C149.433969,154.999611 149.433969,148.181924 145.225487,143.976903 C141.017005,139.771881 134.193707,139.771881 129.985225,143.976903 L102.20193,171.737352 C101.032305,172.906015 99.2571609,172.906015 98.0875359,171.737352 L28.285908,101.993122 C27.1162831,100.824459 27.1162831,99.050775 28.285908,97.8821118 L98.0875359,28.1378823 C99.2571609,26.9692191 101.032305,26.9692191 102.20193,28.1378823 L129.985225,55.8983314 C134.193707,60.1033528 141.017005,60.1033528 145.225487,55.8983314 C149.433969,51.69331 149.433969,44.8756232 145.225487,40.6706018 L108.58055,4.05574592 C103.862049,-0.537986846 96.2692618,-0.500797906 91.5880863,4.17652823 Z"
+                                  fill="url(#linearGradient-1)"
+                                />
+                                <path
+                                  d="M91.5880863,4.17652823 L4.17996544,91.5127728 C-0.519240605,96.2081146 -0.519240605,103.791885 4.17996544,108.487227 L91.5880863,195.823472 C96.2872923,200.518814 103.877304,200.518814 108.57651,195.823472 L145.225487,159.204632 C149.433969,154.999611 149.433969,148.181924 145.225487,143.976903 C141.017005,139.771881 134.193707,139.771881 129.985225,143.976903 L102.20193,171.737352 C101.032305,172.906015 99.2571609,172.906015 98.0875359,171.737352 L28.285908,101.993122 C27.1162831,100.824459 27.1162831,99.050775 28.285908,97.8821118 L98.0875359,28.1378823 C100.999864,25.6271836 105.751642,20.541824 112.729652,19.3524487 C117.915585,18.4685261 123.585219,20.4140239 129.738554,25.1889424 C125.624663,21.0784292 118.571995,14.0340304 108.58055,4.05574592 C103.862049,-0.537986846 96.2692618,-0.500797906 91.5880863,4.17652823 Z"
+                                  fill="url(#linearGradient-2)"
+                                />
+                              </g>
+                              <path
+                                d="M153.685633,135.854579 C157.894115,140.0596 164.717412,140.0596 168.925894,135.854579 L195.959977,108.842726 C200.659183,104.147384 200.659183,96.5636133 195.960527,91.8688194 L168.690777,64.7181159 C164.472332,60.5180858 157.646868,60.5241425 153.435895,64.7316526 C149.227413,68.936674 149.227413,75.7543607 153.435895,79.9593821 L171.854035,98.3623765 C173.02366,99.5310396 173.02366,101.304724 171.854035,102.473387 L153.685633,120.626849 C149.47715,124.83187 149.47715,131.649557 153.685633,135.854579 Z"
+                                fill="url(#linearGradient-3)"
+                              />
+                            </g>
+                            <ellipse
+                              cx="100.519339"
+                              cy="100.436681"
+                              fill="url(#linearGradient-4)"
+                              rx="23.6001926"
+                              ry="23.580786"
+                            />
+                          </g>
+                        </g>
+                      </g>
+                    </g>
+                  </svg>
+                  <h1>
+                    Ant Design Pro
+                  </h1>
+                </a>
+              </div>
+              <div
+                style="flex:1"
+              />
+            </div>
+          </header>
+          <main
+            class="ant-layout-content ant-pro-layout-content ant-pro-layout-has-header"
+          />
+        </div>
+      </section>
+    </div>
+  </div>,
+]
+`;
+
+exports[`BasicLayout 🥩 base use 1`] = `
+<div
+  class="ant-pro"
+>
+  <div
+    class="ant-design-pro ant-pro-layout ant-pro-layout-fix-siderbar ant-pro-layout-side"
+  >
+    <div
+      class="ant-pro-layout-bg-list"
     />
     <section
       class="ant-layout"
@@ -16,14 +667,14 @@ Array [
         class="ant-design-pro-layout-l4gpps"
       />
       <aside
-        class="ant-layout-sider ant-layout-sider-light ant-pro-sider ant-pro-sider-fixed ant-pro-sider-layout-side ant-pro-sider-light ant-design-pro-layout-1cavu78"
+        class="ant-layout-sider ant-layout-sider-light ant-pro-sider ant-pro-sider-fixed ant-pro-sider-layout-side ant-pro-sider-light ant-design-pro-layout-1retjvs"
         style="background-color:transparent;flex:0 0 256px;max-width:256px;min-width:256px;width:256px"
       >
         <div
           class="ant-layout-sider-children"
         >
           <div
-            class="ant-pro-sider-logo ant-design-pro-layout-f04tga"
+            class="ant-pro-sider-logo"
             id="logo"
           >
             <a>
@@ -160,34 +811,9 @@ Array [
           </div>
           <div
             style="flex:1;overflow-y:auto;overflow-x:hidden"
-          >
-            <div
-              style="padding:24px"
-            >
-              <div
-                class="ant-skeleton ant-skeleton-active"
-              >
-                <div
-                  class="ant-skeleton-content"
-                >
-                  <ul
-                    class="ant-skeleton-paragraph"
-                  >
-                    <li />
-                    <li />
-                    <li />
-                    <li />
-                    <li />
-                    <li
-                      style="width:61%"
-                    />
-                  </ul>
-                </div>
-              </div>
-            </div>
-          </div>
+          />
           <div
-            class="ant-pro-sider-collapsed-button ant-design-pro-layout-1ec16fj"
+            class="ant-pro-sider-collapsed-button"
           >
             <svg
               aria-hidden="true"
@@ -208,1279 +834,681 @@ Array [
         style="position:relative"
       >
         <main
-          class="ant-layout-content ant-pro-basicLayout-content ant-pro-basicLayout-has-header ant-design-pro-layout-1asytq3"
+          class="ant-layout-content ant-pro-layout-content ant-pro-layout-has-header"
         />
       </div>
     </section>
-  </div>,
-  <div
-    class="ant-design-pro ant-pro-basicLayout ant-pro-basicLayout-top-menu ant-pro-basicLayout-fix-siderbar ant-pro-basicLayout-top ant-design-pro-layout-1a98z39"
-  >
-    <div
-      class="ant-design-pro-layout-d08s5k"
-    />
-    <section
-      class="ant-layout"
-      style="min-height:100%"
-    >
-      <div
-        class="ant-layout"
-        style="position:relative"
-      >
-        <header
-          class="ant-layout-header ant-pro-fixed-header-action ant-pro-top-menu ant-pro-header ant-design-pro-layout-1vchm1k"
-        >
-          <div
-            class="ant-pro-top-nav-header light ant-design-pro-layout-143khor"
-          >
-            <div
-              class="ant-pro-top-nav-header-main ant-design-pro-layout-17ldh9g"
-            >
-              <div
-                class="ant-pro-top-nav-header-main-left ant-design-pro-layout-12ycn0f"
-              >
-                <div
-                  class="ant-pro-top-nav-header-logo ant-design-pro-layout-c10ook"
-                  id="logo"
-                >
-                  <a>
-                    <svg
-                      height="1em"
-                      viewBox="0 0 200 200"
-                      width="1em"
-                    >
-                      <defs>
-                        <linearGradient
-                          id="linearGradient-1"
-                          x1="62.1023273%"
-                          x2="108.19718%"
-                          y1="0%"
-                          y2="37.8635764%"
-                        >
-                          <stop
-                            offset="0%"
-                            stop-color="#4285EB"
-                          />
-                          <stop
-                            offset="100%"
-                            stop-color="#2EC7FF"
-                          />
-                        </linearGradient>
-                        <linearGradient
-                          id="linearGradient-2"
-                          x1="69.644116%"
-                          x2="54.0428975%"
-                          y1="0%"
-                          y2="108.456714%"
-                        >
-                          <stop
-                            offset="0%"
-                            stop-color="#29CDFF"
-                          />
-                          <stop
-                            offset="37.8600687%"
-                            stop-color="#148EFF"
-                          />
-                          <stop
-                            offset="100%"
-                            stop-color="#0A60FF"
-                          />
-                        </linearGradient>
-                        <linearGradient
-                          id="linearGradient-3"
-                          x1="69.6908165%"
-                          x2="16.7228981%"
-                          y1="-12.9743587%"
-                          y2="117.391248%"
-                        >
-                          <stop
-                            offset="0%"
-                            stop-color="#FA816E"
-                          />
-                          <stop
-                            offset="41.472606%"
-                            stop-color="#F74A5C"
-                          />
-                          <stop
-                            offset="100%"
-                            stop-color="#F51D2C"
-                          />
-                        </linearGradient>
-                        <linearGradient
-                          id="linearGradient-4"
-                          x1="68.1279872%"
-                          x2="30.4400914%"
-                          y1="-35.6905737%"
-                          y2="114.942679%"
-                        >
-                          <stop
-                            offset="0%"
-                            stop-color="#FA8E7D"
-                          />
-                          <stop
-                            offset="51.2635191%"
-                            stop-color="#F74A5C"
-                          />
-                          <stop
-                            offset="100%"
-                            stop-color="#F51D2C"
-                          />
-                        </linearGradient>
-                      </defs>
-                      <g
-                        fill="none"
-                        fill-rule="evenodd"
-                        stroke="none"
-                        stroke-width="1"
-                      >
-                        <g
-                          transform="translate(-20.000000, -20.000000)"
-                        >
-                          <g
-                            transform="translate(20.000000, 20.000000)"
-                          >
-                            <g>
-                              <g
-                                fill-rule="nonzero"
-                              >
-                                <g>
-                                  <path
-                                    d="M91.5880863,4.17652823 L4.17996544,91.5127728 C-0.519240605,96.2081146 -0.519240605,103.791885 4.17996544,108.487227 L91.5880863,195.823472 C96.2872923,200.518814 103.877304,200.518814 108.57651,195.823472 L145.225487,159.204632 C149.433969,154.999611 149.433969,148.181924 145.225487,143.976903 C141.017005,139.771881 134.193707,139.771881 129.985225,143.976903 L102.20193,171.737352 C101.032305,172.906015 99.2571609,172.906015 98.0875359,171.737352 L28.285908,101.993122 C27.1162831,100.824459 27.1162831,99.050775 28.285908,97.8821118 L98.0875359,28.1378823 C99.2571609,26.9692191 101.032305,26.9692191 102.20193,28.1378823 L129.985225,55.8983314 C134.193707,60.1033528 141.017005,60.1033528 145.225487,55.8983314 C149.433969,51.69331 149.433969,44.8756232 145.225487,40.6706018 L108.58055,4.05574592 C103.862049,-0.537986846 96.2692618,-0.500797906 91.5880863,4.17652823 Z"
-                                    fill="url(#linearGradient-1)"
-                                  />
-                                  <path
-                                    d="M91.5880863,4.17652823 L4.17996544,91.5127728 C-0.519240605,96.2081146 -0.519240605,103.791885 4.17996544,108.487227 L91.5880863,195.823472 C96.2872923,200.518814 103.877304,200.518814 108.57651,195.823472 L145.225487,159.204632 C149.433969,154.999611 149.433969,148.181924 145.225487,143.976903 C141.017005,139.771881 134.193707,139.771881 129.985225,143.976903 L102.20193,171.737352 C101.032305,172.906015 99.2571609,172.906015 98.0875359,171.737352 L28.285908,101.993122 C27.1162831,100.824459 27.1162831,99.050775 28.285908,97.8821118 L98.0875359,28.1378823 C100.999864,25.6271836 105.751642,20.541824 112.729652,19.3524487 C117.915585,18.4685261 123.585219,20.4140239 129.738554,25.1889424 C125.624663,21.0784292 118.571995,14.0340304 108.58055,4.05574592 C103.862049,-0.537986846 96.2692618,-0.500797906 91.5880863,4.17652823 Z"
-                                    fill="url(#linearGradient-2)"
-                                  />
-                                </g>
-                                <path
-                                  d="M153.685633,135.854579 C157.894115,140.0596 164.717412,140.0596 168.925894,135.854579 L195.959977,108.842726 C200.659183,104.147384 200.659183,96.5636133 195.960527,91.8688194 L168.690777,64.7181159 C164.472332,60.5180858 157.646868,60.5241425 153.435895,64.7316526 C149.227413,68.936674 149.227413,75.7543607 153.435895,79.9593821 L171.854035,98.3623765 C173.02366,99.5310396 173.02366,101.304724 171.854035,102.473387 L153.685633,120.626849 C149.47715,124.83187 149.47715,131.649557 153.685633,135.854579 Z"
-                                  fill="url(#linearGradient-3)"
-                                />
-                              </g>
-                              <ellipse
-                                cx="100.519339"
-                                cy="100.436681"
-                                fill="url(#linearGradient-4)"
-                                rx="23.6001926"
-                                ry="23.580786"
-                              />
-                            </g>
-                          </g>
-                        </g>
-                      </g>
-                    </svg>
-                    <h1>
-                      Ant Design Pro
-                    </h1>
-                  </a>
-                </div>
-              </div>
-              <div
-                class="ant-pro-top-nav-header-menu ant-design-pro-layout-1omcxtl"
-                style="flex:1"
-              >
-                <div
-                  style="margin-top:16px"
-                >
-                  <div
-                    class="ant-skeleton ant-skeleton-active"
-                  >
-                    <div
-                      class="ant-skeleton-content"
-                    >
-                      <ul
-                        class="ant-skeleton-paragraph"
-                      >
-                        <li
-                          style="width:61%"
-                        />
-                      </ul>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </header>
-        <main
-          class="ant-layout-content ant-pro-basicLayout-content ant-pro-basicLayout-has-header ant-design-pro-layout-1asytq3"
-        />
-      </div>
-    </section>
-  </div>,
-  <div
-    class="ant-design-pro ant-pro-basicLayout ant-pro-basicLayout-fix-siderbar ant-pro-basicLayout-mix ant-design-pro-layout-1a98z39"
-  >
-    <div
-      class="ant-design-pro-layout-d08s5k"
-    />
-    <section
-      class="ant-layout"
-      style="min-height:100%"
-    >
-      <div
-        class="ant-design-pro-layout-18ivuhd"
-      />
-      <aside
-        class="ant-layout-sider ant-layout-sider-light ant-pro-sider ant-pro-sider-fixed ant-pro-sider-layout-mix ant-pro-sider-light ant-design-pro-layout-1bs9dph"
-        style="background-color:transparent;flex:0 0 215px;max-width:215px;min-width:215px;width:215px"
-      >
-        <div
-          class="ant-layout-sider-children"
-        >
-          <div
-            style="flex:1;overflow-y:auto;overflow-x:hidden"
-          >
-            <div
-              style="padding:24px"
-            >
-              <div
-                class="ant-skeleton ant-skeleton-active"
-              >
-                <div
-                  class="ant-skeleton-content"
-                >
-                  <ul
-                    class="ant-skeleton-paragraph"
-                  >
-                    <li />
-                    <li />
-                    <li />
-                    <li />
-                    <li />
-                    <li
-                      style="width:61%"
-                    />
-                  </ul>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div
-            class="ant-pro-sider-collapsed-button ant-design-pro-layout-1ec16fj"
-          >
-            <svg
-              aria-hidden="true"
-              fill="currentColor"
-              height="1em"
-              viewBox="0 0 12 12"
-              width="1em"
-            >
-              <path
-                d="M6.432 7.967a.448.448 0 01-.318.133h-.228a.46.46 0 01-.318-.133L2.488 4.85a.305.305 0 010-.43l.427-.43a.293.293 0 01.42 0L6 6.687l2.665-2.699a.299.299 0 01.426 0l.42.431a.305.305 0 010 .43L6.432 7.967z"
-              />
-            </svg>
-          </div>
-        </div>
-      </aside>
-      <div
-        class="ant-layout"
-        style="position:relative"
-      >
-        <header
-          class="ant-layout-header"
-          style="height:56px;line-height:56px;background-color:transparent"
-        />
-        <header
-          class="ant-layout-header ant-pro-fixed-header ant-pro-fixed-header-action ant-pro-header ant-design-pro-layout-ufars5"
-        >
-          <div
-            class="ant-pro-global-header ant-pro-global-header-layout-mix ant-design-pro-layout-1n57u1k"
-          >
-            <div
-              class="ant-pro-global-header-logo ant-design-pro-layout-77pcpe"
-            >
-              <a>
-                <svg
-                  height="1em"
-                  viewBox="0 0 200 200"
-                  width="1em"
-                >
-                  <defs>
-                    <linearGradient
-                      id="linearGradient-1"
-                      x1="62.1023273%"
-                      x2="108.19718%"
-                      y1="0%"
-                      y2="37.8635764%"
-                    >
-                      <stop
-                        offset="0%"
-                        stop-color="#4285EB"
-                      />
-                      <stop
-                        offset="100%"
-                        stop-color="#2EC7FF"
-                      />
-                    </linearGradient>
-                    <linearGradient
-                      id="linearGradient-2"
-                      x1="69.644116%"
-                      x2="54.0428975%"
-                      y1="0%"
-                      y2="108.456714%"
-                    >
-                      <stop
-                        offset="0%"
-                        stop-color="#29CDFF"
-                      />
-                      <stop
-                        offset="37.8600687%"
-                        stop-color="#148EFF"
-                      />
-                      <stop
-                        offset="100%"
-                        stop-color="#0A60FF"
-                      />
-                    </linearGradient>
-                    <linearGradient
-                      id="linearGradient-3"
-                      x1="69.6908165%"
-                      x2="16.7228981%"
-                      y1="-12.9743587%"
-                      y2="117.391248%"
-                    >
-                      <stop
-                        offset="0%"
-                        stop-color="#FA816E"
-                      />
-                      <stop
-                        offset="41.472606%"
-                        stop-color="#F74A5C"
-                      />
-                      <stop
-                        offset="100%"
-                        stop-color="#F51D2C"
-                      />
-                    </linearGradient>
-                    <linearGradient
-                      id="linearGradient-4"
-                      x1="68.1279872%"
-                      x2="30.4400914%"
-                      y1="-35.6905737%"
-                      y2="114.942679%"
-                    >
-                      <stop
-                        offset="0%"
-                        stop-color="#FA8E7D"
-                      />
-                      <stop
-                        offset="51.2635191%"
-                        stop-color="#F74A5C"
-                      />
-                      <stop
-                        offset="100%"
-                        stop-color="#F51D2C"
-                      />
-                    </linearGradient>
-                  </defs>
-                  <g
-                    fill="none"
-                    fill-rule="evenodd"
-                    stroke="none"
-                    stroke-width="1"
-                  >
-                    <g
-                      transform="translate(-20.000000, -20.000000)"
-                    >
-                      <g
-                        transform="translate(20.000000, 20.000000)"
-                      >
-                        <g>
-                          <g
-                            fill-rule="nonzero"
-                          >
-                            <g>
-                              <path
-                                d="M91.5880863,4.17652823 L4.17996544,91.5127728 C-0.519240605,96.2081146 -0.519240605,103.791885 4.17996544,108.487227 L91.5880863,195.823472 C96.2872923,200.518814 103.877304,200.518814 108.57651,195.823472 L145.225487,159.204632 C149.433969,154.999611 149.433969,148.181924 145.225487,143.976903 C141.017005,139.771881 134.193707,139.771881 129.985225,143.976903 L102.20193,171.737352 C101.032305,172.906015 99.2571609,172.906015 98.0875359,171.737352 L28.285908,101.993122 C27.1162831,100.824459 27.1162831,99.050775 28.285908,97.8821118 L98.0875359,28.1378823 C99.2571609,26.9692191 101.032305,26.9692191 102.20193,28.1378823 L129.985225,55.8983314 C134.193707,60.1033528 141.017005,60.1033528 145.225487,55.8983314 C149.433969,51.69331 149.433969,44.8756232 145.225487,40.6706018 L108.58055,4.05574592 C103.862049,-0.537986846 96.2692618,-0.500797906 91.5880863,4.17652823 Z"
-                                fill="url(#linearGradient-1)"
-                              />
-                              <path
-                                d="M91.5880863,4.17652823 L4.17996544,91.5127728 C-0.519240605,96.2081146 -0.519240605,103.791885 4.17996544,108.487227 L91.5880863,195.823472 C96.2872923,200.518814 103.877304,200.518814 108.57651,195.823472 L145.225487,159.204632 C149.433969,154.999611 149.433969,148.181924 145.225487,143.976903 C141.017005,139.771881 134.193707,139.771881 129.985225,143.976903 L102.20193,171.737352 C101.032305,172.906015 99.2571609,172.906015 98.0875359,171.737352 L28.285908,101.993122 C27.1162831,100.824459 27.1162831,99.050775 28.285908,97.8821118 L98.0875359,28.1378823 C100.999864,25.6271836 105.751642,20.541824 112.729652,19.3524487 C117.915585,18.4685261 123.585219,20.4140239 129.738554,25.1889424 C125.624663,21.0784292 118.571995,14.0340304 108.58055,4.05574592 C103.862049,-0.537986846 96.2692618,-0.500797906 91.5880863,4.17652823 Z"
-                                fill="url(#linearGradient-2)"
-                              />
-                            </g>
-                            <path
-                              d="M153.685633,135.854579 C157.894115,140.0596 164.717412,140.0596 168.925894,135.854579 L195.959977,108.842726 C200.659183,104.147384 200.659183,96.5636133 195.960527,91.8688194 L168.690777,64.7181159 C164.472332,60.5180858 157.646868,60.5241425 153.435895,64.7316526 C149.227413,68.936674 149.227413,75.7543607 153.435895,79.9593821 L171.854035,98.3623765 C173.02366,99.5310396 173.02366,101.304724 171.854035,102.473387 L153.685633,120.626849 C149.47715,124.83187 149.47715,131.649557 153.685633,135.854579 Z"
-                              fill="url(#linearGradient-3)"
-                            />
-                          </g>
-                          <ellipse
-                            cx="100.519339"
-                            cy="100.436681"
-                            fill="url(#linearGradient-4)"
-                            rx="23.6001926"
-                            ry="23.580786"
-                          />
-                        </g>
-                      </g>
-                    </g>
-                  </g>
-                </svg>
-                <h1>
-                  Ant Design Pro
-                </h1>
-              </a>
-            </div>
-            <div
-              style="flex:1"
-            />
-          </div>
-        </header>
-        <main
-          class="ant-layout-content ant-pro-basicLayout-content ant-pro-basicLayout-has-header ant-design-pro-layout-1asytq3"
-        />
-      </div>
-    </section>
-  </div>,
-]
-`;
-
-exports[`BasicLayout 🥩 base use 1`] = `
-<div
-  class="ant-design-pro ant-pro-basicLayout ant-pro-basicLayout-fix-siderbar ant-pro-basicLayout-side ant-design-pro-layout-1a98z39"
->
-  <div
-    class="ant-design-pro-layout-d08s5k"
-  />
-  <section
-    class="ant-layout"
-    style="min-height:100%"
-  >
-    <div
-      class="ant-design-pro-layout-l4gpps"
-    />
-    <aside
-      class="ant-layout-sider ant-layout-sider-light ant-pro-sider ant-pro-sider-fixed ant-pro-sider-layout-side ant-pro-sider-light ant-design-pro-layout-1cavu78"
-      style="background-color:transparent;flex:0 0 256px;max-width:256px;min-width:256px;width:256px"
-    >
-      <div
-        class="ant-layout-sider-children"
-      >
-        <div
-          class="ant-pro-sider-logo ant-design-pro-layout-f04tga"
-          id="logo"
-        >
-          <a>
-            <svg
-              height="1em"
-              viewBox="0 0 200 200"
-              width="1em"
-            >
-              <defs>
-                <linearGradient
-                  id="linearGradient-1"
-                  x1="62.1023273%"
-                  x2="108.19718%"
-                  y1="0%"
-                  y2="37.8635764%"
-                >
-                  <stop
-                    offset="0%"
-                    stop-color="#4285EB"
-                  />
-                  <stop
-                    offset="100%"
-                    stop-color="#2EC7FF"
-                  />
-                </linearGradient>
-                <linearGradient
-                  id="linearGradient-2"
-                  x1="69.644116%"
-                  x2="54.0428975%"
-                  y1="0%"
-                  y2="108.456714%"
-                >
-                  <stop
-                    offset="0%"
-                    stop-color="#29CDFF"
-                  />
-                  <stop
-                    offset="37.8600687%"
-                    stop-color="#148EFF"
-                  />
-                  <stop
-                    offset="100%"
-                    stop-color="#0A60FF"
-                  />
-                </linearGradient>
-                <linearGradient
-                  id="linearGradient-3"
-                  x1="69.6908165%"
-                  x2="16.7228981%"
-                  y1="-12.9743587%"
-                  y2="117.391248%"
-                >
-                  <stop
-                    offset="0%"
-                    stop-color="#FA816E"
-                  />
-                  <stop
-                    offset="41.472606%"
-                    stop-color="#F74A5C"
-                  />
-                  <stop
-                    offset="100%"
-                    stop-color="#F51D2C"
-                  />
-                </linearGradient>
-                <linearGradient
-                  id="linearGradient-4"
-                  x1="68.1279872%"
-                  x2="30.4400914%"
-                  y1="-35.6905737%"
-                  y2="114.942679%"
-                >
-                  <stop
-                    offset="0%"
-                    stop-color="#FA8E7D"
-                  />
-                  <stop
-                    offset="51.2635191%"
-                    stop-color="#F74A5C"
-                  />
-                  <stop
-                    offset="100%"
-                    stop-color="#F51D2C"
-                  />
-                </linearGradient>
-              </defs>
-              <g
-                fill="none"
-                fill-rule="evenodd"
-                stroke="none"
-                stroke-width="1"
-              >
-                <g
-                  transform="translate(-20.000000, -20.000000)"
-                >
-                  <g
-                    transform="translate(20.000000, 20.000000)"
-                  >
-                    <g>
-                      <g
-                        fill-rule="nonzero"
-                      >
-                        <g>
-                          <path
-                            d="M91.5880863,4.17652823 L4.17996544,91.5127728 C-0.519240605,96.2081146 -0.519240605,103.791885 4.17996544,108.487227 L91.5880863,195.823472 C96.2872923,200.518814 103.877304,200.518814 108.57651,195.823472 L145.225487,159.204632 C149.433969,154.999611 149.433969,148.181924 145.225487,143.976903 C141.017005,139.771881 134.193707,139.771881 129.985225,143.976903 L102.20193,171.737352 C101.032305,172.906015 99.2571609,172.906015 98.0875359,171.737352 L28.285908,101.993122 C27.1162831,100.824459 27.1162831,99.050775 28.285908,97.8821118 L98.0875359,28.1378823 C99.2571609,26.9692191 101.032305,26.9692191 102.20193,28.1378823 L129.985225,55.8983314 C134.193707,60.1033528 141.017005,60.1033528 145.225487,55.8983314 C149.433969,51.69331 149.433969,44.8756232 145.225487,40.6706018 L108.58055,4.05574592 C103.862049,-0.537986846 96.2692618,-0.500797906 91.5880863,4.17652823 Z"
-                            fill="url(#linearGradient-1)"
-                          />
-                          <path
-                            d="M91.5880863,4.17652823 L4.17996544,91.5127728 C-0.519240605,96.2081146 -0.519240605,103.791885 4.17996544,108.487227 L91.5880863,195.823472 C96.2872923,200.518814 103.877304,200.518814 108.57651,195.823472 L145.225487,159.204632 C149.433969,154.999611 149.433969,148.181924 145.225487,143.976903 C141.017005,139.771881 134.193707,139.771881 129.985225,143.976903 L102.20193,171.737352 C101.032305,172.906015 99.2571609,172.906015 98.0875359,171.737352 L28.285908,101.993122 C27.1162831,100.824459 27.1162831,99.050775 28.285908,97.8821118 L98.0875359,28.1378823 C100.999864,25.6271836 105.751642,20.541824 112.729652,19.3524487 C117.915585,18.4685261 123.585219,20.4140239 129.738554,25.1889424 C125.624663,21.0784292 118.571995,14.0340304 108.58055,4.05574592 C103.862049,-0.537986846 96.2692618,-0.500797906 91.5880863,4.17652823 Z"
-                            fill="url(#linearGradient-2)"
-                          />
-                        </g>
-                        <path
-                          d="M153.685633,135.854579 C157.894115,140.0596 164.717412,140.0596 168.925894,135.854579 L195.959977,108.842726 C200.659183,104.147384 200.659183,96.5636133 195.960527,91.8688194 L168.690777,64.7181159 C164.472332,60.5180858 157.646868,60.5241425 153.435895,64.7316526 C149.227413,68.936674 149.227413,75.7543607 153.435895,79.9593821 L171.854035,98.3623765 C173.02366,99.5310396 173.02366,101.304724 171.854035,102.473387 L153.685633,120.626849 C149.47715,124.83187 149.47715,131.649557 153.685633,135.854579 Z"
-                          fill="url(#linearGradient-3)"
-                        />
-                      </g>
-                      <ellipse
-                        cx="100.519339"
-                        cy="100.436681"
-                        fill="url(#linearGradient-4)"
-                        rx="23.6001926"
-                        ry="23.580786"
-                      />
-                    </g>
-                  </g>
-                </g>
-              </g>
-            </svg>
-            <h1>
-              Ant Design Pro
-            </h1>
-          </a>
-        </div>
-        <div
-          style="flex:1;overflow-y:auto;overflow-x:hidden"
-        />
-        <div
-          class="ant-pro-sider-collapsed-button ant-design-pro-layout-1ec16fj"
-        >
-          <svg
-            aria-hidden="true"
-            fill="currentColor"
-            height="1em"
-            viewBox="0 0 12 12"
-            width="1em"
-          >
-            <path
-              d="M6.432 7.967a.448.448 0 01-.318.133h-.228a.46.46 0 01-.318-.133L2.488 4.85a.305.305 0 010-.43l.427-.43a.293.293 0 01.42 0L6 6.687l2.665-2.699a.299.299 0 01.426 0l.42.431a.305.305 0 010 .43L6.432 7.967z"
-            />
-          </svg>
-        </div>
-      </div>
-    </aside>
-    <div
-      class="ant-layout"
-      style="position:relative"
-    >
-      <main
-        class="ant-layout-content ant-pro-basicLayout-content ant-pro-basicLayout-has-header ant-design-pro-layout-1asytq3"
-      />
-    </div>
-  </section>
+  </div>
 </div>
 `;
 
 exports[`BasicLayout 🥩 contentStyle should change dom 1`] = `
 <div
-  class="ant-design-pro ant-pro-basicLayout ant-pro-basicLayout-fix-siderbar ant-pro-basicLayout-side ant-design-pro-layout-1a98z39"
+  class="ant-pro"
 >
   <div
-    class="ant-design-pro-layout-d08s5k"
-  />
-  <section
-    class="ant-layout"
-    style="min-height:100%"
+    class="ant-design-pro ant-pro-layout ant-pro-layout-fix-siderbar ant-pro-layout-side"
   >
     <div
-      class="ant-design-pro-layout-l4gpps"
+      class="ant-pro-layout-bg-list"
     />
-    <aside
-      class="ant-layout-sider ant-layout-sider-light ant-pro-sider ant-pro-sider-fixed ant-pro-sider-layout-side ant-pro-sider-light ant-design-pro-layout-1cavu78"
-      style="background-color:transparent;flex:0 0 256px;max-width:256px;min-width:256px;width:256px"
+    <section
+      class="ant-layout"
+      style="min-height:100%"
     >
       <div
-        class="ant-layout-sider-children"
+        class="ant-design-pro-layout-l4gpps"
+      />
+      <aside
+        class="ant-layout-sider ant-layout-sider-light ant-pro-sider ant-pro-sider-fixed ant-pro-sider-layout-side ant-pro-sider-light ant-design-pro-layout-1retjvs"
+        style="background-color:transparent;flex:0 0 256px;max-width:256px;min-width:256px;width:256px"
       >
         <div
-          class="ant-pro-sider-logo ant-design-pro-layout-f04tga"
-          id="logo"
+          class="ant-layout-sider-children"
         >
-          <a>
-            <svg
-              height="1em"
-              viewBox="0 0 200 200"
-              width="1em"
-            >
-              <defs>
-                <linearGradient
-                  id="linearGradient-1"
-                  x1="62.1023273%"
-                  x2="108.19718%"
-                  y1="0%"
-                  y2="37.8635764%"
-                >
-                  <stop
-                    offset="0%"
-                    stop-color="#4285EB"
-                  />
-                  <stop
-                    offset="100%"
-                    stop-color="#2EC7FF"
-                  />
-                </linearGradient>
-                <linearGradient
-                  id="linearGradient-2"
-                  x1="69.644116%"
-                  x2="54.0428975%"
-                  y1="0%"
-                  y2="108.456714%"
-                >
-                  <stop
-                    offset="0%"
-                    stop-color="#29CDFF"
-                  />
-                  <stop
-                    offset="37.8600687%"
-                    stop-color="#148EFF"
-                  />
-                  <stop
-                    offset="100%"
-                    stop-color="#0A60FF"
-                  />
-                </linearGradient>
-                <linearGradient
-                  id="linearGradient-3"
-                  x1="69.6908165%"
-                  x2="16.7228981%"
-                  y1="-12.9743587%"
-                  y2="117.391248%"
-                >
-                  <stop
-                    offset="0%"
-                    stop-color="#FA816E"
-                  />
-                  <stop
-                    offset="41.472606%"
-                    stop-color="#F74A5C"
-                  />
-                  <stop
-                    offset="100%"
-                    stop-color="#F51D2C"
-                  />
-                </linearGradient>
-                <linearGradient
-                  id="linearGradient-4"
-                  x1="68.1279872%"
-                  x2="30.4400914%"
-                  y1="-35.6905737%"
-                  y2="114.942679%"
-                >
-                  <stop
-                    offset="0%"
-                    stop-color="#FA8E7D"
-                  />
-                  <stop
-                    offset="51.2635191%"
-                    stop-color="#F74A5C"
-                  />
-                  <stop
-                    offset="100%"
-                    stop-color="#F51D2C"
-                  />
-                </linearGradient>
-              </defs>
-              <g
-                fill="none"
-                fill-rule="evenodd"
-                stroke="none"
-                stroke-width="1"
+          <div
+            class="ant-pro-sider-logo"
+            id="logo"
+          >
+            <a>
+              <svg
+                height="1em"
+                viewBox="0 0 200 200"
+                width="1em"
               >
+                <defs>
+                  <linearGradient
+                    id="linearGradient-1"
+                    x1="62.1023273%"
+                    x2="108.19718%"
+                    y1="0%"
+                    y2="37.8635764%"
+                  >
+                    <stop
+                      offset="0%"
+                      stop-color="#4285EB"
+                    />
+                    <stop
+                      offset="100%"
+                      stop-color="#2EC7FF"
+                    />
+                  </linearGradient>
+                  <linearGradient
+                    id="linearGradient-2"
+                    x1="69.644116%"
+                    x2="54.0428975%"
+                    y1="0%"
+                    y2="108.456714%"
+                  >
+                    <stop
+                      offset="0%"
+                      stop-color="#29CDFF"
+                    />
+                    <stop
+                      offset="37.8600687%"
+                      stop-color="#148EFF"
+                    />
+                    <stop
+                      offset="100%"
+                      stop-color="#0A60FF"
+                    />
+                  </linearGradient>
+                  <linearGradient
+                    id="linearGradient-3"
+                    x1="69.6908165%"
+                    x2="16.7228981%"
+                    y1="-12.9743587%"
+                    y2="117.391248%"
+                  >
+                    <stop
+                      offset="0%"
+                      stop-color="#FA816E"
+                    />
+                    <stop
+                      offset="41.472606%"
+                      stop-color="#F74A5C"
+                    />
+                    <stop
+                      offset="100%"
+                      stop-color="#F51D2C"
+                    />
+                  </linearGradient>
+                  <linearGradient
+                    id="linearGradient-4"
+                    x1="68.1279872%"
+                    x2="30.4400914%"
+                    y1="-35.6905737%"
+                    y2="114.942679%"
+                  >
+                    <stop
+                      offset="0%"
+                      stop-color="#FA8E7D"
+                    />
+                    <stop
+                      offset="51.2635191%"
+                      stop-color="#F74A5C"
+                    />
+                    <stop
+                      offset="100%"
+                      stop-color="#F51D2C"
+                    />
+                  </linearGradient>
+                </defs>
                 <g
-                  transform="translate(-20.000000, -20.000000)"
+                  fill="none"
+                  fill-rule="evenodd"
+                  stroke="none"
+                  stroke-width="1"
                 >
                   <g
-                    transform="translate(20.000000, 20.000000)"
+                    transform="translate(-20.000000, -20.000000)"
                   >
-                    <g>
-                      <g
-                        fill-rule="nonzero"
-                      >
-                        <g>
+                    <g
+                      transform="translate(20.000000, 20.000000)"
+                    >
+                      <g>
+                        <g
+                          fill-rule="nonzero"
+                        >
+                          <g>
+                            <path
+                              d="M91.5880863,4.17652823 L4.17996544,91.5127728 C-0.519240605,96.2081146 -0.519240605,103.791885 4.17996544,108.487227 L91.5880863,195.823472 C96.2872923,200.518814 103.877304,200.518814 108.57651,195.823472 L145.225487,159.204632 C149.433969,154.999611 149.433969,148.181924 145.225487,143.976903 C141.017005,139.771881 134.193707,139.771881 129.985225,143.976903 L102.20193,171.737352 C101.032305,172.906015 99.2571609,172.906015 98.0875359,171.737352 L28.285908,101.993122 C27.1162831,100.824459 27.1162831,99.050775 28.285908,97.8821118 L98.0875359,28.1378823 C99.2571609,26.9692191 101.032305,26.9692191 102.20193,28.1378823 L129.985225,55.8983314 C134.193707,60.1033528 141.017005,60.1033528 145.225487,55.8983314 C149.433969,51.69331 149.433969,44.8756232 145.225487,40.6706018 L108.58055,4.05574592 C103.862049,-0.537986846 96.2692618,-0.500797906 91.5880863,4.17652823 Z"
+                              fill="url(#linearGradient-1)"
+                            />
+                            <path
+                              d="M91.5880863,4.17652823 L4.17996544,91.5127728 C-0.519240605,96.2081146 -0.519240605,103.791885 4.17996544,108.487227 L91.5880863,195.823472 C96.2872923,200.518814 103.877304,200.518814 108.57651,195.823472 L145.225487,159.204632 C149.433969,154.999611 149.433969,148.181924 145.225487,143.976903 C141.017005,139.771881 134.193707,139.771881 129.985225,143.976903 L102.20193,171.737352 C101.032305,172.906015 99.2571609,172.906015 98.0875359,171.737352 L28.285908,101.993122 C27.1162831,100.824459 27.1162831,99.050775 28.285908,97.8821118 L98.0875359,28.1378823 C100.999864,25.6271836 105.751642,20.541824 112.729652,19.3524487 C117.915585,18.4685261 123.585219,20.4140239 129.738554,25.1889424 C125.624663,21.0784292 118.571995,14.0340304 108.58055,4.05574592 C103.862049,-0.537986846 96.2692618,-0.500797906 91.5880863,4.17652823 Z"
+                              fill="url(#linearGradient-2)"
+                            />
+                          </g>
                           <path
-                            d="M91.5880863,4.17652823 L4.17996544,91.5127728 C-0.519240605,96.2081146 -0.519240605,103.791885 4.17996544,108.487227 L91.5880863,195.823472 C96.2872923,200.518814 103.877304,200.518814 108.57651,195.823472 L145.225487,159.204632 C149.433969,154.999611 149.433969,148.181924 145.225487,143.976903 C141.017005,139.771881 134.193707,139.771881 129.985225,143.976903 L102.20193,171.737352 C101.032305,172.906015 99.2571609,172.906015 98.0875359,171.737352 L28.285908,101.993122 C27.1162831,100.824459 27.1162831,99.050775 28.285908,97.8821118 L98.0875359,28.1378823 C99.2571609,26.9692191 101.032305,26.9692191 102.20193,28.1378823 L129.985225,55.8983314 C134.193707,60.1033528 141.017005,60.1033528 145.225487,55.8983314 C149.433969,51.69331 149.433969,44.8756232 145.225487,40.6706018 L108.58055,4.05574592 C103.862049,-0.537986846 96.2692618,-0.500797906 91.5880863,4.17652823 Z"
-                            fill="url(#linearGradient-1)"
-                          />
-                          <path
-                            d="M91.5880863,4.17652823 L4.17996544,91.5127728 C-0.519240605,96.2081146 -0.519240605,103.791885 4.17996544,108.487227 L91.5880863,195.823472 C96.2872923,200.518814 103.877304,200.518814 108.57651,195.823472 L145.225487,159.204632 C149.433969,154.999611 149.433969,148.181924 145.225487,143.976903 C141.017005,139.771881 134.193707,139.771881 129.985225,143.976903 L102.20193,171.737352 C101.032305,172.906015 99.2571609,172.906015 98.0875359,171.737352 L28.285908,101.993122 C27.1162831,100.824459 27.1162831,99.050775 28.285908,97.8821118 L98.0875359,28.1378823 C100.999864,25.6271836 105.751642,20.541824 112.729652,19.3524487 C117.915585,18.4685261 123.585219,20.4140239 129.738554,25.1889424 C125.624663,21.0784292 118.571995,14.0340304 108.58055,4.05574592 C103.862049,-0.537986846 96.2692618,-0.500797906 91.5880863,4.17652823 Z"
-                            fill="url(#linearGradient-2)"
+                            d="M153.685633,135.854579 C157.894115,140.0596 164.717412,140.0596 168.925894,135.854579 L195.959977,108.842726 C200.659183,104.147384 200.659183,96.5636133 195.960527,91.8688194 L168.690777,64.7181159 C164.472332,60.5180858 157.646868,60.5241425 153.435895,64.7316526 C149.227413,68.936674 149.227413,75.7543607 153.435895,79.9593821 L171.854035,98.3623765 C173.02366,99.5310396 173.02366,101.304724 171.854035,102.473387 L153.685633,120.626849 C149.47715,124.83187 149.47715,131.649557 153.685633,135.854579 Z"
+                            fill="url(#linearGradient-3)"
                           />
                         </g>
-                        <path
-                          d="M153.685633,135.854579 C157.894115,140.0596 164.717412,140.0596 168.925894,135.854579 L195.959977,108.842726 C200.659183,104.147384 200.659183,96.5636133 195.960527,91.8688194 L168.690777,64.7181159 C164.472332,60.5180858 157.646868,60.5241425 153.435895,64.7316526 C149.227413,68.936674 149.227413,75.7543607 153.435895,79.9593821 L171.854035,98.3623765 C173.02366,99.5310396 173.02366,101.304724 171.854035,102.473387 L153.685633,120.626849 C149.47715,124.83187 149.47715,131.649557 153.685633,135.854579 Z"
-                          fill="url(#linearGradient-3)"
+                        <ellipse
+                          cx="100.519339"
+                          cy="100.436681"
+                          fill="url(#linearGradient-4)"
+                          rx="23.6001926"
+                          ry="23.580786"
                         />
                       </g>
-                      <ellipse
-                        cx="100.519339"
-                        cy="100.436681"
-                        fill="url(#linearGradient-4)"
-                        rx="23.6001926"
-                        ry="23.580786"
-                      />
                     </g>
                   </g>
                 </g>
-              </g>
-            </svg>
-            <h1>
-              Ant Design Pro
-            </h1>
-          </a>
-        </div>
-        <div
-          style="flex:1;overflow-y:auto;overflow-x:hidden"
-        />
-        <div
-          class="ant-pro-sider-collapsed-button ant-design-pro-layout-1ec16fj"
-        >
-          <svg
-            aria-hidden="true"
-            fill="currentColor"
-            height="1em"
-            viewBox="0 0 12 12"
-            width="1em"
+              </svg>
+              <h1>
+                Ant Design Pro
+              </h1>
+            </a>
+          </div>
+          <div
+            style="flex:1;overflow-y:auto;overflow-x:hidden"
+          />
+          <div
+            class="ant-pro-sider-collapsed-button"
           >
-            <path
-              d="M6.432 7.967a.448.448 0 01-.318.133h-.228a.46.46 0 01-.318-.133L2.488 4.85a.305.305 0 010-.43l.427-.43a.293.293 0 01.42 0L6 6.687l2.665-2.699a.299.299 0 01.426 0l.42.431a.305.305 0 010 .43L6.432 7.967z"
-            />
-          </svg>
+            <svg
+              aria-hidden="true"
+              fill="currentColor"
+              height="1em"
+              viewBox="0 0 12 12"
+              width="1em"
+            >
+              <path
+                d="M6.432 7.967a.448.448 0 01-.318.133h-.228a.46.46 0 01-.318-.133L2.488 4.85a.305.305 0 010-.43l.427-.43a.293.293 0 01.42 0L6 6.687l2.665-2.699a.299.299 0 01.426 0l.42.431a.305.305 0 010 .43L6.432 7.967z"
+              />
+            </svg>
+          </div>
         </div>
+      </aside>
+      <div
+        class="ant-layout"
+        style="position:relative"
+      >
+        <main
+          class="ant-layout-content ant-pro-layout-content ant-pro-layout-has-header"
+          style="padding:56px"
+        />
       </div>
-    </aside>
-    <div
-      class="ant-layout"
-      style="position:relative"
-    >
-      <main
-        class="ant-layout-content ant-pro-basicLayout-content ant-pro-basicLayout-has-header ant-design-pro-layout-1asytq3"
-        style="padding:56px"
-      />
-    </div>
-  </section>
+    </section>
+  </div>
 </div>
 `;
 
 exports[`BasicLayout 🥩 mix layout hideInMenu render right 1`] = `
 <div
-  class="ant-design-pro ant-pro-basicLayout screen-md ant-pro-basicLayout-fix-siderbar ant-pro-basicLayout-side ant-design-pro-layout-1a98z39"
+  class="ant-pro"
 >
   <div
-    class="ant-design-pro-layout-d08s5k"
-  />
-  <section
-    class="ant-layout ant-layout-has-sider"
-    style="min-height: 100%;"
+    class="ant-design-pro ant-pro-layout screen-md ant-pro-layout-fix-siderbar ant-pro-layout-side"
   >
     <div
-      class="ant-design-pro-layout-l4gpps"
+      class="ant-pro-layout-bg-list"
     />
-    <aside
-      class="ant-layout-sider ant-layout-sider-light ant-pro-sider ant-pro-sider-fixed ant-pro-sider-layout-side ant-pro-sider-light ant-design-pro-layout-1cavu78"
-      style="background-color: transparent; flex: 0 0 256px; max-width: 256px; min-width: 256px; width: 256px;"
+    <section
+      class="ant-layout ant-layout-has-sider"
+      style="min-height: 100%;"
     >
       <div
-        class="ant-layout-sider-children"
+        class="ant-design-pro-layout-l4gpps"
+      />
+      <aside
+        class="ant-layout-sider ant-layout-sider-light ant-pro-sider ant-pro-sider-fixed ant-pro-sider-layout-side ant-pro-sider-light ant-design-pro-layout-1retjvs"
+        style="background-color: transparent; flex: 0 0 256px; max-width: 256px; min-width: 256px; width: 256px;"
       >
         <div
-          class="ant-pro-sider-logo ant-design-pro-layout-f04tga"
-          id="logo"
+          class="ant-layout-sider-children"
         >
-          <a>
-            <svg
-              height="1em"
-              viewBox="0 0 200 200"
-              width="1em"
-            >
-              <defs>
-                <linearGradient
-                  id="linearGradient-1"
-                  x1="62.1023273%"
-                  x2="108.19718%"
-                  y1="0%"
-                  y2="37.8635764%"
-                >
-                  <stop
-                    offset="0%"
-                    stop-color="#4285EB"
-                  />
-                  <stop
-                    offset="100%"
-                    stop-color="#2EC7FF"
-                  />
-                </linearGradient>
-                <linearGradient
-                  id="linearGradient-2"
-                  x1="69.644116%"
-                  x2="54.0428975%"
-                  y1="0%"
-                  y2="108.456714%"
-                >
-                  <stop
-                    offset="0%"
-                    stop-color="#29CDFF"
-                  />
-                  <stop
-                    offset="37.8600687%"
-                    stop-color="#148EFF"
-                  />
-                  <stop
-                    offset="100%"
-                    stop-color="#0A60FF"
-                  />
-                </linearGradient>
-                <linearGradient
-                  id="linearGradient-3"
-                  x1="69.6908165%"
-                  x2="16.7228981%"
-                  y1="-12.9743587%"
-                  y2="117.391248%"
-                >
-                  <stop
-                    offset="0%"
-                    stop-color="#FA816E"
-                  />
-                  <stop
-                    offset="41.472606%"
-                    stop-color="#F74A5C"
-                  />
-                  <stop
-                    offset="100%"
-                    stop-color="#F51D2C"
-                  />
-                </linearGradient>
-                <linearGradient
-                  id="linearGradient-4"
-                  x1="68.1279872%"
-                  x2="30.4400914%"
-                  y1="-35.6905737%"
-                  y2="114.942679%"
-                >
-                  <stop
-                    offset="0%"
-                    stop-color="#FA8E7D"
-                  />
-                  <stop
-                    offset="51.2635191%"
-                    stop-color="#F74A5C"
-                  />
-                  <stop
-                    offset="100%"
-                    stop-color="#F51D2C"
-                  />
-                </linearGradient>
-              </defs>
-              <g
-                fill="none"
-                fill-rule="evenodd"
-                stroke="none"
-                stroke-width="1"
+          <div
+            class="ant-pro-sider-logo"
+            id="logo"
+          >
+            <a>
+              <svg
+                height="1em"
+                viewBox="0 0 200 200"
+                width="1em"
               >
+                <defs>
+                  <linearGradient
+                    id="linearGradient-1"
+                    x1="62.1023273%"
+                    x2="108.19718%"
+                    y1="0%"
+                    y2="37.8635764%"
+                  >
+                    <stop
+                      offset="0%"
+                      stop-color="#4285EB"
+                    />
+                    <stop
+                      offset="100%"
+                      stop-color="#2EC7FF"
+                    />
+                  </linearGradient>
+                  <linearGradient
+                    id="linearGradient-2"
+                    x1="69.644116%"
+                    x2="54.0428975%"
+                    y1="0%"
+                    y2="108.456714%"
+                  >
+                    <stop
+                      offset="0%"
+                      stop-color="#29CDFF"
+                    />
+                    <stop
+                      offset="37.8600687%"
+                      stop-color="#148EFF"
+                    />
+                    <stop
+                      offset="100%"
+                      stop-color="#0A60FF"
+                    />
+                  </linearGradient>
+                  <linearGradient
+                    id="linearGradient-3"
+                    x1="69.6908165%"
+                    x2="16.7228981%"
+                    y1="-12.9743587%"
+                    y2="117.391248%"
+                  >
+                    <stop
+                      offset="0%"
+                      stop-color="#FA816E"
+                    />
+                    <stop
+                      offset="41.472606%"
+                      stop-color="#F74A5C"
+                    />
+                    <stop
+                      offset="100%"
+                      stop-color="#F51D2C"
+                    />
+                  </linearGradient>
+                  <linearGradient
+                    id="linearGradient-4"
+                    x1="68.1279872%"
+                    x2="30.4400914%"
+                    y1="-35.6905737%"
+                    y2="114.942679%"
+                  >
+                    <stop
+                      offset="0%"
+                      stop-color="#FA8E7D"
+                    />
+                    <stop
+                      offset="51.2635191%"
+                      stop-color="#F74A5C"
+                    />
+                    <stop
+                      offset="100%"
+                      stop-color="#F51D2C"
+                    />
+                  </linearGradient>
+                </defs>
                 <g
-                  transform="translate(-20.000000, -20.000000)"
+                  fill="none"
+                  fill-rule="evenodd"
+                  stroke="none"
+                  stroke-width="1"
                 >
                   <g
-                    transform="translate(20.000000, 20.000000)"
+                    transform="translate(-20.000000, -20.000000)"
                   >
-                    <g>
-                      <g
-                        fill-rule="nonzero"
-                      >
-                        <g>
+                    <g
+                      transform="translate(20.000000, 20.000000)"
+                    >
+                      <g>
+                        <g
+                          fill-rule="nonzero"
+                        >
+                          <g>
+                            <path
+                              d="M91.5880863,4.17652823 L4.17996544,91.5127728 C-0.519240605,96.2081146 -0.519240605,103.791885 4.17996544,108.487227 L91.5880863,195.823472 C96.2872923,200.518814 103.877304,200.518814 108.57651,195.823472 L145.225487,159.204632 C149.433969,154.999611 149.433969,148.181924 145.225487,143.976903 C141.017005,139.771881 134.193707,139.771881 129.985225,143.976903 L102.20193,171.737352 C101.032305,172.906015 99.2571609,172.906015 98.0875359,171.737352 L28.285908,101.993122 C27.1162831,100.824459 27.1162831,99.050775 28.285908,97.8821118 L98.0875359,28.1378823 C99.2571609,26.9692191 101.032305,26.9692191 102.20193,28.1378823 L129.985225,55.8983314 C134.193707,60.1033528 141.017005,60.1033528 145.225487,55.8983314 C149.433969,51.69331 149.433969,44.8756232 145.225487,40.6706018 L108.58055,4.05574592 C103.862049,-0.537986846 96.2692618,-0.500797906 91.5880863,4.17652823 Z"
+                              fill="url(#linearGradient-1)"
+                            />
+                            <path
+                              d="M91.5880863,4.17652823 L4.17996544,91.5127728 C-0.519240605,96.2081146 -0.519240605,103.791885 4.17996544,108.487227 L91.5880863,195.823472 C96.2872923,200.518814 103.877304,200.518814 108.57651,195.823472 L145.225487,159.204632 C149.433969,154.999611 149.433969,148.181924 145.225487,143.976903 C141.017005,139.771881 134.193707,139.771881 129.985225,143.976903 L102.20193,171.737352 C101.032305,172.906015 99.2571609,172.906015 98.0875359,171.737352 L28.285908,101.993122 C27.1162831,100.824459 27.1162831,99.050775 28.285908,97.8821118 L98.0875359,28.1378823 C100.999864,25.6271836 105.751642,20.541824 112.729652,19.3524487 C117.915585,18.4685261 123.585219,20.4140239 129.738554,25.1889424 C125.624663,21.0784292 118.571995,14.0340304 108.58055,4.05574592 C103.862049,-0.537986846 96.2692618,-0.500797906 91.5880863,4.17652823 Z"
+                              fill="url(#linearGradient-2)"
+                            />
+                          </g>
                           <path
-                            d="M91.5880863,4.17652823 L4.17996544,91.5127728 C-0.519240605,96.2081146 -0.519240605,103.791885 4.17996544,108.487227 L91.5880863,195.823472 C96.2872923,200.518814 103.877304,200.518814 108.57651,195.823472 L145.225487,159.204632 C149.433969,154.999611 149.433969,148.181924 145.225487,143.976903 C141.017005,139.771881 134.193707,139.771881 129.985225,143.976903 L102.20193,171.737352 C101.032305,172.906015 99.2571609,172.906015 98.0875359,171.737352 L28.285908,101.993122 C27.1162831,100.824459 27.1162831,99.050775 28.285908,97.8821118 L98.0875359,28.1378823 C99.2571609,26.9692191 101.032305,26.9692191 102.20193,28.1378823 L129.985225,55.8983314 C134.193707,60.1033528 141.017005,60.1033528 145.225487,55.8983314 C149.433969,51.69331 149.433969,44.8756232 145.225487,40.6706018 L108.58055,4.05574592 C103.862049,-0.537986846 96.2692618,-0.500797906 91.5880863,4.17652823 Z"
-                            fill="url(#linearGradient-1)"
-                          />
-                          <path
-                            d="M91.5880863,4.17652823 L4.17996544,91.5127728 C-0.519240605,96.2081146 -0.519240605,103.791885 4.17996544,108.487227 L91.5880863,195.823472 C96.2872923,200.518814 103.877304,200.518814 108.57651,195.823472 L145.225487,159.204632 C149.433969,154.999611 149.433969,148.181924 145.225487,143.976903 C141.017005,139.771881 134.193707,139.771881 129.985225,143.976903 L102.20193,171.737352 C101.032305,172.906015 99.2571609,172.906015 98.0875359,171.737352 L28.285908,101.993122 C27.1162831,100.824459 27.1162831,99.050775 28.285908,97.8821118 L98.0875359,28.1378823 C100.999864,25.6271836 105.751642,20.541824 112.729652,19.3524487 C117.915585,18.4685261 123.585219,20.4140239 129.738554,25.1889424 C125.624663,21.0784292 118.571995,14.0340304 108.58055,4.05574592 C103.862049,-0.537986846 96.2692618,-0.500797906 91.5880863,4.17652823 Z"
-                            fill="url(#linearGradient-2)"
+                            d="M153.685633,135.854579 C157.894115,140.0596 164.717412,140.0596 168.925894,135.854579 L195.959977,108.842726 C200.659183,104.147384 200.659183,96.5636133 195.960527,91.8688194 L168.690777,64.7181159 C164.472332,60.5180858 157.646868,60.5241425 153.435895,64.7316526 C149.227413,68.936674 149.227413,75.7543607 153.435895,79.9593821 L171.854035,98.3623765 C173.02366,99.5310396 173.02366,101.304724 171.854035,102.473387 L153.685633,120.626849 C149.47715,124.83187 149.47715,131.649557 153.685633,135.854579 Z"
+                            fill="url(#linearGradient-3)"
                           />
                         </g>
-                        <path
-                          d="M153.685633,135.854579 C157.894115,140.0596 164.717412,140.0596 168.925894,135.854579 L195.959977,108.842726 C200.659183,104.147384 200.659183,96.5636133 195.960527,91.8688194 L168.690777,64.7181159 C164.472332,60.5180858 157.646868,60.5241425 153.435895,64.7316526 C149.227413,68.936674 149.227413,75.7543607 153.435895,79.9593821 L171.854035,98.3623765 C173.02366,99.5310396 173.02366,101.304724 171.854035,102.473387 L153.685633,120.626849 C149.47715,124.83187 149.47715,131.649557 153.685633,135.854579 Z"
-                          fill="url(#linearGradient-3)"
+                        <ellipse
+                          cx="100.519339"
+                          cy="100.436681"
+                          fill="url(#linearGradient-4)"
+                          rx="23.6001926"
+                          ry="23.580786"
                         />
                       </g>
-                      <ellipse
-                        cx="100.519339"
-                        cy="100.436681"
-                        fill="url(#linearGradient-4)"
-                        rx="23.6001926"
-                        ry="23.580786"
-                      />
                     </g>
                   </g>
                 </g>
-              </g>
-            </svg>
-            <h1>
-              Ant Design Pro
-            </h1>
-          </a>
-        </div>
-        <div
-          style="flex: 1; overflow-y: auto; overflow-x: hidden;"
-        >
-          <ul
-            class="ant-menu ant-menu-root ant-menu-inline ant-menu-light ant-pro-sider-menu ant-design-pro-layout-130rg7b"
-            data-menu-list="true"
-            role="menu"
-            style="width: 100%;"
-            tabindex="0"
+              </svg>
+              <h1>
+                Ant Design Pro
+              </h1>
+            </a>
+          </div>
+          <div
+            style="flex: 1; overflow-y: auto; overflow-x: hidden;"
           >
-            <li
-              class="ant-pro-menu-submenu ant-design-pro-layout-np6tsm"
-              role="none"
+            <ul
+              class="ant-menu ant-menu-root ant-menu-inline ant-menu-light ant-pro-sider-menu ant-design-pro-layout-7nxh7n"
+              data-menu-list="true"
+              role="menu"
+              style="width: 100%;"
+              tabindex="0"
             >
-              <div
-                aria-controls="rc-menu-uuid-84044-9-/admin-popup"
-                aria-expanded="false"
-                aria-haspopup="true"
-                class="ant-menu-submenu-title"
-                data-menu-id="rc-menu-uuid-84044-9-/admin"
+              <li
+                class="ant-menu-submenu ant-menu-submenu-inline"
+                role="none"
+              >
+                <div
+                  aria-controls="rc-menu-uuid-84044-8-/admin-popup"
+                  aria-expanded="false"
+                  aria-haspopup="true"
+                  class="ant-menu-submenu-title"
+                  data-menu-id="rc-menu-uuid-84044-8-/admin"
+                  role="menuitem"
+                  style="padding-left: 16px;"
+                  tabindex="-1"
+                >
+                  <span
+                    class="ant-menu-title-content"
+                  >
+                    <span
+                      class="ant-pro-menu-item ant-design-pro-layout-1mfr4jg"
+                      title="管理页"
+                    >
+                      管理页
+                    </span>
+                  </span>
+                  <i
+                    class="ant-menu-submenu-arrow"
+                  />
+                </div>
+              </li>
+              <li
+                class="ant-menu-item ant-menu-item-only-child"
+                data-menu-id="rc-menu-uuid-84044-8-/list"
                 role="menuitem"
                 style="padding-left: 16px;"
                 tabindex="-1"
+                title="列表页"
               >
                 <span
                   class="ant-menu-title-content"
                 >
                   <span
-                    class="ant-pro-menu-item ant-design-pro-layout-1mfr4jg"
-                    title="管理页"
+                    class="ant-pro-menu-item ant-design-pro-layout-70qvj9"
                   >
-                    管理页
+                    <span
+                      class="ant-pro-menu-item-title"
+                    >
+                      列表页
+                    </span>
                   </span>
                 </span>
-                <i
-                  class="ant-menu-submenu-arrow"
-                />
-              </div>
-            </li>
-            <li
-              class="ant-pro-menu-item ant-design-pro-layout-959zjv"
-              data-menu-id="rc-menu-uuid-84044-9-/list"
-              role="menuitem"
-              style="padding-left: 16px;"
-              tabindex="-1"
-              title="列表页"
-            >
-              <span
-                class="ant-menu-title-content"
-              >
-                <span
-                  class="ant-pro-menu-item ant-design-pro-layout-70qvj9"
-                >
-                  <span
-                    class="ant-pro-menu-item-title"
-                  >
-                    列表页
-                  </span>
-                </span>
-              </span>
-            </li>
-          </ul>
-          <div
-            aria-hidden="true"
-            style="display: none;"
-          />
-        </div>
-        <div
-          class="ant-pro-sider-collapsed-button ant-design-pro-layout-1ec16fj"
-        >
-          <svg
-            aria-hidden="true"
-            fill="currentColor"
-            height="1em"
-            viewBox="0 0 12 12"
-            width="1em"
-          >
-            <path
-              d="M6.432 7.967a.448.448 0 01-.318.133h-.228a.46.46 0 01-.318-.133L2.488 4.85a.305.305 0 010-.43l.427-.43a.293.293 0 01.42 0L6 6.687l2.665-2.699a.299.299 0 01.426 0l.42.431a.305.305 0 010 .43L6.432 7.967z"
+              </li>
+            </ul>
+            <div
+              aria-hidden="true"
+              style="display: none;"
             />
-          </svg>
+          </div>
+          <div
+            class="ant-pro-sider-collapsed-button"
+          >
+            <svg
+              aria-hidden="true"
+              fill="currentColor"
+              height="1em"
+              viewBox="0 0 12 12"
+              width="1em"
+            >
+              <path
+                d="M6.432 7.967a.448.448 0 01-.318.133h-.228a.46.46 0 01-.318-.133L2.488 4.85a.305.305 0 010-.43l.427-.43a.293.293 0 01.42 0L6 6.687l2.665-2.699a.299.299 0 01.426 0l.42.431a.305.305 0 010 .43L6.432 7.967z"
+              />
+            </svg>
+          </div>
         </div>
+      </aside>
+      <div
+        class="ant-layout"
+        style="position: relative;"
+      >
+        <main
+          class="ant-layout-content ant-pro-layout-content ant-pro-layout-has-header"
+        />
       </div>
-    </aside>
-    <div
-      class="ant-layout"
-      style="position: relative;"
-    >
-      <main
-        class="ant-layout-content ant-pro-basicLayout-content ant-pro-basicLayout-has-header ant-design-pro-layout-1asytq3"
-      />
-    </div>
-  </section>
+    </section>
+  </div>
 </div>
 `;
 
 exports[`BasicLayout 🥩 support loading 1`] = `
 <div
-  class="ant-design-pro ant-pro-basicLayout screen-md ant-pro-basicLayout-fix-siderbar ant-pro-basicLayout-side ant-design-pro-layout-1a98z39"
+  class="ant-pro"
 >
   <div
-    class="ant-design-pro-layout-d08s5k"
-  />
-  <section
-    class="ant-layout ant-layout-has-sider"
-    style="min-height: 100%;"
+    class="ant-design-pro ant-pro-layout screen-md ant-pro-layout-fix-siderbar ant-pro-layout-side"
   >
     <div
-      class="ant-design-pro-layout-l4gpps"
+      class="ant-pro-layout-bg-list"
     />
-    <aside
-      class="ant-layout-sider ant-layout-sider-light ant-pro-sider ant-pro-sider-fixed ant-pro-sider-layout-side ant-pro-sider-light ant-design-pro-layout-1cavu78"
-      style="background-color: transparent; flex: 0 0 256px; max-width: 256px; min-width: 256px; width: 256px;"
+    <section
+      class="ant-layout ant-layout-has-sider"
+      style="min-height: 100%;"
     >
       <div
-        class="ant-layout-sider-children"
+        class="ant-design-pro-layout-l4gpps"
+      />
+      <aside
+        class="ant-layout-sider ant-layout-sider-light ant-pro-sider ant-pro-sider-fixed ant-pro-sider-layout-side ant-pro-sider-light ant-design-pro-layout-1retjvs"
+        style="background-color: transparent; flex: 0 0 256px; max-width: 256px; min-width: 256px; width: 256px;"
       >
         <div
-          class="ant-pro-sider-logo ant-design-pro-layout-f04tga"
-          id="logo"
+          class="ant-layout-sider-children"
         >
-          <a>
-            <svg
-              height="1em"
-              viewBox="0 0 200 200"
-              width="1em"
-            >
-              <defs>
-                <linearGradient
-                  id="linearGradient-1"
-                  x1="62.1023273%"
-                  x2="108.19718%"
-                  y1="0%"
-                  y2="37.8635764%"
-                >
-                  <stop
-                    offset="0%"
-                    stop-color="#4285EB"
-                  />
-                  <stop
-                    offset="100%"
-                    stop-color="#2EC7FF"
-                  />
-                </linearGradient>
-                <linearGradient
-                  id="linearGradient-2"
-                  x1="69.644116%"
-                  x2="54.0428975%"
-                  y1="0%"
-                  y2="108.456714%"
-                >
-                  <stop
-                    offset="0%"
-                    stop-color="#29CDFF"
-                  />
-                  <stop
-                    offset="37.8600687%"
-                    stop-color="#148EFF"
-                  />
-                  <stop
-                    offset="100%"
-                    stop-color="#0A60FF"
-                  />
-                </linearGradient>
-                <linearGradient
-                  id="linearGradient-3"
-                  x1="69.6908165%"
-                  x2="16.7228981%"
-                  y1="-12.9743587%"
-                  y2="117.391248%"
-                >
-                  <stop
-                    offset="0%"
-                    stop-color="#FA816E"
-                  />
-                  <stop
-                    offset="41.472606%"
-                    stop-color="#F74A5C"
-                  />
-                  <stop
-                    offset="100%"
-                    stop-color="#F51D2C"
-                  />
-                </linearGradient>
-                <linearGradient
-                  id="linearGradient-4"
-                  x1="68.1279872%"
-                  x2="30.4400914%"
-                  y1="-35.6905737%"
-                  y2="114.942679%"
-                >
-                  <stop
-                    offset="0%"
-                    stop-color="#FA8E7D"
-                  />
-                  <stop
-                    offset="51.2635191%"
-                    stop-color="#F74A5C"
-                  />
-                  <stop
-                    offset="100%"
-                    stop-color="#F51D2C"
-                  />
-                </linearGradient>
-              </defs>
-              <g
-                fill="none"
-                fill-rule="evenodd"
-                stroke="none"
-                stroke-width="1"
+          <div
+            class="ant-pro-sider-logo"
+            id="logo"
+          >
+            <a>
+              <svg
+                height="1em"
+                viewBox="0 0 200 200"
+                width="1em"
               >
+                <defs>
+                  <linearGradient
+                    id="linearGradient-1"
+                    x1="62.1023273%"
+                    x2="108.19718%"
+                    y1="0%"
+                    y2="37.8635764%"
+                  >
+                    <stop
+                      offset="0%"
+                      stop-color="#4285EB"
+                    />
+                    <stop
+                      offset="100%"
+                      stop-color="#2EC7FF"
+                    />
+                  </linearGradient>
+                  <linearGradient
+                    id="linearGradient-2"
+                    x1="69.644116%"
+                    x2="54.0428975%"
+                    y1="0%"
+                    y2="108.456714%"
+                  >
+                    <stop
+                      offset="0%"
+                      stop-color="#29CDFF"
+                    />
+                    <stop
+                      offset="37.8600687%"
+                      stop-color="#148EFF"
+                    />
+                    <stop
+                      offset="100%"
+                      stop-color="#0A60FF"
+                    />
+                  </linearGradient>
+                  <linearGradient
+                    id="linearGradient-3"
+                    x1="69.6908165%"
+                    x2="16.7228981%"
+                    y1="-12.9743587%"
+                    y2="117.391248%"
+                  >
+                    <stop
+                      offset="0%"
+                      stop-color="#FA816E"
+                    />
+                    <stop
+                      offset="41.472606%"
+                      stop-color="#F74A5C"
+                    />
+                    <stop
+                      offset="100%"
+                      stop-color="#F51D2C"
+                    />
+                  </linearGradient>
+                  <linearGradient
+                    id="linearGradient-4"
+                    x1="68.1279872%"
+                    x2="30.4400914%"
+                    y1="-35.6905737%"
+                    y2="114.942679%"
+                  >
+                    <stop
+                      offset="0%"
+                      stop-color="#FA8E7D"
+                    />
+                    <stop
+                      offset="51.2635191%"
+                      stop-color="#F74A5C"
+                    />
+                    <stop
+                      offset="100%"
+                      stop-color="#F51D2C"
+                    />
+                  </linearGradient>
+                </defs>
                 <g
-                  transform="translate(-20.000000, -20.000000)"
+                  fill="none"
+                  fill-rule="evenodd"
+                  stroke="none"
+                  stroke-width="1"
                 >
                   <g
-                    transform="translate(20.000000, 20.000000)"
+                    transform="translate(-20.000000, -20.000000)"
                   >
-                    <g>
-                      <g
-                        fill-rule="nonzero"
-                      >
-                        <g>
+                    <g
+                      transform="translate(20.000000, 20.000000)"
+                    >
+                      <g>
+                        <g
+                          fill-rule="nonzero"
+                        >
+                          <g>
+                            <path
+                              d="M91.5880863,4.17652823 L4.17996544,91.5127728 C-0.519240605,96.2081146 -0.519240605,103.791885 4.17996544,108.487227 L91.5880863,195.823472 C96.2872923,200.518814 103.877304,200.518814 108.57651,195.823472 L145.225487,159.204632 C149.433969,154.999611 149.433969,148.181924 145.225487,143.976903 C141.017005,139.771881 134.193707,139.771881 129.985225,143.976903 L102.20193,171.737352 C101.032305,172.906015 99.2571609,172.906015 98.0875359,171.737352 L28.285908,101.993122 C27.1162831,100.824459 27.1162831,99.050775 28.285908,97.8821118 L98.0875359,28.1378823 C99.2571609,26.9692191 101.032305,26.9692191 102.20193,28.1378823 L129.985225,55.8983314 C134.193707,60.1033528 141.017005,60.1033528 145.225487,55.8983314 C149.433969,51.69331 149.433969,44.8756232 145.225487,40.6706018 L108.58055,4.05574592 C103.862049,-0.537986846 96.2692618,-0.500797906 91.5880863,4.17652823 Z"
+                              fill="url(#linearGradient-1)"
+                            />
+                            <path
+                              d="M91.5880863,4.17652823 L4.17996544,91.5127728 C-0.519240605,96.2081146 -0.519240605,103.791885 4.17996544,108.487227 L91.5880863,195.823472 C96.2872923,200.518814 103.877304,200.518814 108.57651,195.823472 L145.225487,159.204632 C149.433969,154.999611 149.433969,148.181924 145.225487,143.976903 C141.017005,139.771881 134.193707,139.771881 129.985225,143.976903 L102.20193,171.737352 C101.032305,172.906015 99.2571609,172.906015 98.0875359,171.737352 L28.285908,101.993122 C27.1162831,100.824459 27.1162831,99.050775 28.285908,97.8821118 L98.0875359,28.1378823 C100.999864,25.6271836 105.751642,20.541824 112.729652,19.3524487 C117.915585,18.4685261 123.585219,20.4140239 129.738554,25.1889424 C125.624663,21.0784292 118.571995,14.0340304 108.58055,4.05574592 C103.862049,-0.537986846 96.2692618,-0.500797906 91.5880863,4.17652823 Z"
+                              fill="url(#linearGradient-2)"
+                            />
+                          </g>
                           <path
-                            d="M91.5880863,4.17652823 L4.17996544,91.5127728 C-0.519240605,96.2081146 -0.519240605,103.791885 4.17996544,108.487227 L91.5880863,195.823472 C96.2872923,200.518814 103.877304,200.518814 108.57651,195.823472 L145.225487,159.204632 C149.433969,154.999611 149.433969,148.181924 145.225487,143.976903 C141.017005,139.771881 134.193707,139.771881 129.985225,143.976903 L102.20193,171.737352 C101.032305,172.906015 99.2571609,172.906015 98.0875359,171.737352 L28.285908,101.993122 C27.1162831,100.824459 27.1162831,99.050775 28.285908,97.8821118 L98.0875359,28.1378823 C99.2571609,26.9692191 101.032305,26.9692191 102.20193,28.1378823 L129.985225,55.8983314 C134.193707,60.1033528 141.017005,60.1033528 145.225487,55.8983314 C149.433969,51.69331 149.433969,44.8756232 145.225487,40.6706018 L108.58055,4.05574592 C103.862049,-0.537986846 96.2692618,-0.500797906 91.5880863,4.17652823 Z"
-                            fill="url(#linearGradient-1)"
-                          />
-                          <path
-                            d="M91.5880863,4.17652823 L4.17996544,91.5127728 C-0.519240605,96.2081146 -0.519240605,103.791885 4.17996544,108.487227 L91.5880863,195.823472 C96.2872923,200.518814 103.877304,200.518814 108.57651,195.823472 L145.225487,159.204632 C149.433969,154.999611 149.433969,148.181924 145.225487,143.976903 C141.017005,139.771881 134.193707,139.771881 129.985225,143.976903 L102.20193,171.737352 C101.032305,172.906015 99.2571609,172.906015 98.0875359,171.737352 L28.285908,101.993122 C27.1162831,100.824459 27.1162831,99.050775 28.285908,97.8821118 L98.0875359,28.1378823 C100.999864,25.6271836 105.751642,20.541824 112.729652,19.3524487 C117.915585,18.4685261 123.585219,20.4140239 129.738554,25.1889424 C125.624663,21.0784292 118.571995,14.0340304 108.58055,4.05574592 C103.862049,-0.537986846 96.2692618,-0.500797906 91.5880863,4.17652823 Z"
-                            fill="url(#linearGradient-2)"
+                            d="M153.685633,135.854579 C157.894115,140.0596 164.717412,140.0596 168.925894,135.854579 L195.959977,108.842726 C200.659183,104.147384 200.659183,96.5636133 195.960527,91.8688194 L168.690777,64.7181159 C164.472332,60.5180858 157.646868,60.5241425 153.435895,64.7316526 C149.227413,68.936674 149.227413,75.7543607 153.435895,79.9593821 L171.854035,98.3623765 C173.02366,99.5310396 173.02366,101.304724 171.854035,102.473387 L153.685633,120.626849 C149.47715,124.83187 149.47715,131.649557 153.685633,135.854579 Z"
+                            fill="url(#linearGradient-3)"
                           />
                         </g>
-                        <path
-                          d="M153.685633,135.854579 C157.894115,140.0596 164.717412,140.0596 168.925894,135.854579 L195.959977,108.842726 C200.659183,104.147384 200.659183,96.5636133 195.960527,91.8688194 L168.690777,64.7181159 C164.472332,60.5180858 157.646868,60.5241425 153.435895,64.7316526 C149.227413,68.936674 149.227413,75.7543607 153.435895,79.9593821 L171.854035,98.3623765 C173.02366,99.5310396 173.02366,101.304724 171.854035,102.473387 L153.685633,120.626849 C149.47715,124.83187 149.47715,131.649557 153.685633,135.854579 Z"
-                          fill="url(#linearGradient-3)"
+                        <ellipse
+                          cx="100.519339"
+                          cy="100.436681"
+                          fill="url(#linearGradient-4)"
+                          rx="23.6001926"
+                          ry="23.580786"
                         />
                       </g>
-                      <ellipse
-                        cx="100.519339"
-                        cy="100.436681"
-                        fill="url(#linearGradient-4)"
-                        rx="23.6001926"
-                        ry="23.580786"
-                      />
                     </g>
                   </g>
                 </g>
-              </g>
-            </svg>
-            <h1>
-              Ant Design Pro
-            </h1>
-          </a>
-        </div>
-        <div
-          style="flex: 1; overflow-y: auto; overflow-x: hidden;"
-        />
-        <div
-          class="ant-pro-sider-collapsed-button ant-design-pro-layout-1ec16fj"
-        >
-          <svg
-            aria-hidden="true"
-            fill="currentColor"
-            height="1em"
-            viewBox="0 0 12 12"
-            width="1em"
-          >
-            <path
-              d="M6.432 7.967a.448.448 0 01-.318.133h-.228a.46.46 0 01-.318-.133L2.488 4.85a.305.305 0 010-.43l.427-.43a.293.293 0 01.42 0L6 6.687l2.665-2.699a.299.299 0 01.426 0l.42.431a.305.305 0 010 .43L6.432 7.967z"
-            />
-          </svg>
-        </div>
-      </div>
-    </aside>
-    <div
-      class="ant-layout"
-      style="position: relative;"
-    >
-      <main
-        class="ant-layout-content ant-pro-basicLayout-content ant-pro-basicLayout-has-header ant-design-pro-layout-1asytq3"
-      >
-        <div
-          style="padding-top: 100px; text-align: center;"
-        >
+              </svg>
+              <h1>
+                Ant Design Pro
+              </h1>
+            </a>
+          </div>
           <div
-            aria-busy="true"
-            aria-live="polite"
-            class="ant-spin ant-spin-lg ant-spin-spinning"
+            style="flex: 1; overflow-y: auto; overflow-x: hidden;"
+          />
+          <div
+            class="ant-pro-sider-collapsed-button"
           >
-            <span
-              class="ant-spin-dot ant-spin-dot-spin"
+            <svg
+              aria-hidden="true"
+              fill="currentColor"
+              height="1em"
+              viewBox="0 0 12 12"
+              width="1em"
             >
-              <i
-                class="ant-spin-dot-item"
+              <path
+                d="M6.432 7.967a.448.448 0 01-.318.133h-.228a.46.46 0 01-.318-.133L2.488 4.85a.305.305 0 010-.43l.427-.43a.293.293 0 01.42 0L6 6.687l2.665-2.699a.299.299 0 01.426 0l.42.431a.305.305 0 010 .43L6.432 7.967z"
               />
-              <i
-                class="ant-spin-dot-item"
-              />
-              <i
-                class="ant-spin-dot-item"
-              />
-              <i
-                class="ant-spin-dot-item"
-              />
-            </span>
+            </svg>
           </div>
         </div>
-      </main>
-    </div>
-  </section>
+      </aside>
+      <div
+        class="ant-layout"
+        style="position: relative;"
+      >
+        <main
+          class="ant-layout-content ant-pro-layout-content ant-pro-layout-has-header"
+        >
+          <div
+            style="padding-top: 100px; text-align: center;"
+          >
+            <div
+              aria-busy="true"
+              aria-live="polite"
+              class="ant-spin ant-spin-lg ant-spin-spinning"
+            >
+              <span
+                class="ant-spin-dot ant-spin-dot-spin"
+              >
+                <i
+                  class="ant-spin-dot-item"
+                />
+                <i
+                  class="ant-spin-dot-item"
+                />
+                <i
+                  class="ant-spin-dot-item"
+                />
+                <i
+                  class="ant-spin-dot-item"
+                />
+              </span>
+            </div>
+          </div>
+        </main>
+      </div>
+    </section>
+  </div>
 </div>
 `;

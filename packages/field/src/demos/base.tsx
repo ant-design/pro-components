@@ -1,7 +1,7 @@
 import type { ProFieldFCMode } from '@ant-design/pro-components';
 import Field from '@ant-design/pro-field';
 import { Descriptions, Radio, Space, Switch } from 'antd';
-import moment from 'moment';
+import dayjs from 'dayjs';
 import { useState } from 'react';
 
 export default () => {
@@ -284,7 +284,7 @@ export default () => {
         </Descriptions.Item>
         <Descriptions.Item label="日期时间">
           <Field
-            text={moment('2019-11-16 12:50:26').valueOf()}
+            text={dayjs('2019-11-16 12:50:26').valueOf()}
             valueType="dateTime"
             mode={state}
             plain={plain}
@@ -293,13 +293,13 @@ export default () => {
         <Descriptions.Item label="相对于当前时间">
           <Space>
             <Field
-              text={moment('2019-11-16 12:50:26').valueOf()}
+              text={dayjs('2019-11-16 12:50:26').valueOf()}
               valueType="fromNow"
               mode={state}
               plain={plain}
             />
             <Field
-              text={moment('2020-11-16 12:50:26').valueOf()}
+              text={dayjs('2020-11-16 12:50:26').valueOf()}
               valueType="fromNow"
               mode={state}
               plain={plain}
@@ -308,7 +308,7 @@ export default () => {
         </Descriptions.Item>
         <Descriptions.Item label="日期">
           <Field
-            text={moment('2019-11-16 12:50:26').valueOf()}
+            text={dayjs('2019-11-16 12:50:26').valueOf()}
             valueType="date"
             mode={state}
             plain={plain}
@@ -317,8 +317,8 @@ export default () => {
         <Descriptions.Item label="日期区间">
           <Field
             text={[
-              moment('2019-11-16 12:50:26').add(-1, 'd').valueOf(),
-              moment('2019-11-16 12:50:26').valueOf(),
+              dayjs('2019-11-16 12:50:26').add(-1, 'd').valueOf(),
+              dayjs('2019-11-16 12:50:26').valueOf(),
             ]}
             plain={plain}
             valueType="dateRange"
@@ -328,8 +328,8 @@ export default () => {
         <Descriptions.Item label="日期时间区间">
           <Field
             text={[
-              moment('2019-11-16 12:50:26').add(-1, 'd').valueOf(),
-              moment('2019-11-16 12:50:26').valueOf(),
+              dayjs('2019-11-16 12:50:26').add(-1, 'd').valueOf(),
+              dayjs('2019-11-16 12:50:26').valueOf(),
             ]}
             plain={plain}
             valueType="dateTimeRange"
@@ -338,7 +338,7 @@ export default () => {
         </Descriptions.Item>
         <Descriptions.Item label="时间">
           <Field
-            text={moment('2019-11-16 12:50:26').valueOf()}
+            text={dayjs('2019-11-16 12:50:26').valueOf()}
             plain={plain}
             valueType="time"
             mode={state}
@@ -347,8 +347,8 @@ export default () => {
         <Descriptions.Item label="时间区间">
           <Field
             text={[
-              moment('2019-11-16 12:50:26').add(-1, 'd').valueOf(),
-              moment('2019-11-16 12:50:26').valueOf(),
+              dayjs('2019-11-16 12:50:26').add(-1, 'd').valueOf(),
+              dayjs('2019-11-16 12:50:26').valueOf(),
             ]}
             plain={plain}
             valueType="timeRange"

@@ -2,7 +2,7 @@ import { useIntl } from '@ant-design/pro-provider';
 import { FieldLabel, parseValueToMoment } from '@ant-design/pro-utils';
 import type { DatePickerProps } from 'antd';
 import { ConfigProvider, DatePicker } from 'antd';
-import moment from 'moment';
+import dayjs from 'dayjs';
 import React, { useContext, useState } from 'react';
 import type { ProFieldFC, ProFieldLightProps } from '../../index';
 import './index.less';
@@ -12,9 +12,9 @@ const formatDate = (text: any, format: any) => {
     return '-';
   }
   if (typeof format === 'function') {
-    return format(moment(text));
+    return format(dayjs(text));
   } else {
-    return moment(text).format(format || 'YYYY-MM-DD');
+    return dayjs(text).format(format || 'YYYY-MM-DD');
   }
 };
 
@@ -73,7 +73,7 @@ const FieldDatePicker: ProFieldFC<
       placeholder = intl.getMessage('tableForm.selectPlaceholder', '请选择'),
     } = fieldProps;
 
-    const momentValue = parseValueToMoment(value) as moment.Moment;
+    const momentValue = parseValueToMoment(value) as dayjs.Dayjs;
 
     if (light) {
       const valueStr: string = (momentValue && momentValue.format(format)) || '';

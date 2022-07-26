@@ -20,7 +20,7 @@ import type {
   SorterResult,
   SortOrder,
   TableCurrentDataSource,
-} from 'antd/lib/table/interface';
+} from 'antd/es/table/interface';
 import classNames from 'classnames';
 import React, {
   useCallback,

@@ -41,7 +41,7 @@
     "@ant-design/pro-utils": "1.42.5",
     "@babel/runtime": "^7.18.0",
     "classnames": "^2.2.6",
-    "moment": "^2.24.0",
+    "dayjs": "^1.11.4",
     "omit.js": "^2.0.2",
     "rc-util": "^5.0.1",
     "react-sortable-hoc": "^2.0.0",
@@ -50,7 +50,7 @@
     "use-media-antd-query": "^1.1.0"
   },
   "devDependencies": {
-    "antd": ">=4.20.0"
+    "antd": "experimental"
   },
   "peerDependencies": {
     "rc-field-form": "^1.22.0",

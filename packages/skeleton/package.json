@@ -37,7 +37,7 @@
     "use-media-antd-query": "^1.1.0"
   },
   "devDependencies": {
-    "antd": ">=4.20.0"
+    "antd": "experimental"
   },
   "peerDependencies": {
     "react": ">=16.9.0"

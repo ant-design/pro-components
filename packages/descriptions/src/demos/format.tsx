@@ -1,5 +1,5 @@
 import { ProDescriptions } from '@ant-design/pro-components';
-import moment from 'moment';
+import dayjs from 'dayjs';
 
 export default () => {
   return (
@@ -12,7 +12,7 @@ export default () => {
           }}
           valueType="date"
         >
-          {moment().valueOf()}
+          {dayjs().valueOf()}
         </ProDescriptions.Item>
         <ProDescriptions.Item
           label="日期区间"
@@ -21,7 +21,7 @@ export default () => {
           }}
           valueType="dateTimeRange"
         >
-          {[moment().add(-1, 'd').valueOf(), moment().valueOf()]}
+          {[dayjs().add(-1, 'd').valueOf(), dayjs().valueOf()]}
         </ProDescriptions.Item>
         <ProDescriptions.Item
           label="时间"
@@ -30,7 +30,7 @@ export default () => {
           }}
           valueType="time"
         >
-          {moment().valueOf()}
+          {dayjs().valueOf()}
         </ProDescriptions.Item>
 
         <ProDescriptions.Item
@@ -40,7 +40,7 @@ export default () => {
           }}
           valueType="dateTime"
         >
-          {moment().valueOf()}
+          {dayjs().valueOf()}
         </ProDescriptions.Item>
 
         <ProDescriptions.Item
@@ -50,7 +50,7 @@ export default () => {
           }}
           valueType="fromNow"
         >
-          {moment().add(-1, 'month').valueOf()}
+          {dayjs().add(-1, 'month').valueOf()}
         </ProDescriptions.Item>
       </ProDescriptions>
     </>

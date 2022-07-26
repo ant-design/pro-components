@@ -1,11 +1,12 @@
+import type { ProAliasToken } from '@ant-design/pro-utils';
 import { useStyle as useAntdStyle } from '@ant-design/pro-utils';
 import { ConfigProvider } from 'antd';
-import type { AliasToken, GenerateStyle } from 'antd/es/theme';
+import type { GenerateStyle } from 'antd/es/theme';
 import { useContext } from 'react';
 
 const { ConfigContext } = ConfigProvider;
 
-interface ProCardActionsToken extends AliasToken {
+interface ProCardActionsToken extends ProAliasToken {
   antCls: string;
   componentCls: string;
   cardActionIconSize: number;

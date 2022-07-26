@@ -5,292 +5,312 @@ exports[`EditorProTable 2 📝 EditableProTable support recordCreatorProps.posit
 exports[`EditorProTable 2 📝 columns initialValue alway work 1`] = `
 <DocumentFragment>
   <div
-    class="ant-pro-table"
+    class="ant-pro"
   >
     <div
-      class="ant-pro-card"
+      class="ant-pro-table"
     >
       <div
-        class="ant-pro-card-body"
-        style="padding-top: 0px;"
+        class="ant-pro-card"
       >
         <div
-          class="ant-table-wrapper"
+          class="ant-pro-card-body"
+          style="padding-top: 0px;"
         >
           <div
-            class="ant-spin-nested-loading"
+            class="ant-pro"
           >
             <div
-              class="ant-spin-container"
+              class="ant-table-wrapper"
             >
               <div
-                class="ant-table ant-table-middle ant-table-layout-fixed"
+                class="ant-spin-nested-loading"
               >
                 <div
-                  class="ant-table-container"
+                  class="ant-spin-container"
                 >
                   <div
-                    class="ant-table-content"
+                    class="ant-table ant-table-middle ant-table-layout-fixed"
                   >
-                    <table
-                      style="table-layout: fixed;"
+                    <div
+                      class="ant-table-container"
                     >
-                      <colgroup>
-                        <col
-                          style="width: 48px;"
-                        />
-                        <col
-                          style="width: 48px;"
-                        />
-                        <col
-                          style="width: 48px;"
-                        />
-                      </colgroup>
-                      <thead
-                        class="ant-table-thead"
+                      <div
+                        class="ant-table-content"
                       >
-                        <tr>
-                          <th
-                            class="ant-table-cell"
-                          />
-                          <th
-                            class="ant-table-cell"
-                          />
-                          <th
-                            class="ant-table-cell"
-                          />
-                        </tr>
-                      </thead>
-                      <tbody
-                        class="ant-table-tbody"
-                      >
-                        <tr
-                          class="ant-table-row ant-table-row-level-0"
-                          data-row-key="624748504"
+                        <table
+                          style="table-layout: fixed;"
                         >
-                          <td
-                            class="ant-table-cell"
+                          <colgroup>
+                            <col
+                              style="width: 48px;"
+                            />
+                            <col
+                              style="width: 48px;"
+                            />
+                            <col
+                              style="width: 48px;"
+                            />
+                          </colgroup>
+                          <thead
+                            class="ant-table-thead"
                           >
-                            <div
-                              class="ant-row ant-form-item"
-                              style="margin: -5px 0px -5px 0px;"
+                            <tr>
+                              <th
+                                class="ant-table-cell"
+                              />
+                              <th
+                                class="ant-table-cell"
+                              />
+                              <th
+                                class="ant-table-cell"
+                              />
+                            </tr>
+                          </thead>
+                          <tbody
+                            class="ant-table-tbody"
+                          >
+                            <tr
+                              class="ant-table-row ant-table-row-level-0"
+                              data-row-key="624748504"
                             >
-                              <div
-                                class="ant-col ant-form-item-control"
+                              <td
+                                class="ant-table-cell"
                               >
                                 <div
-                                  class="ant-form-item-control-input"
+                                  class="ant-form-item"
+                                  style="margin: -5px 0px -5px 0px;"
                                 >
                                   <div
-                                    class="ant-form-item-control-input-content"
+                                    class="ant-row ant-form-item-row"
                                   >
-                                    <span
-                                      class="ant-input-affix-wrapper"
+                                    <div
+                                      class="ant-col ant-form-item-control"
                                     >
-                                      <input
-                                        class="ant-input"
-                                        placeholder="请输入"
-                                        type="text"
-                                        value="🐛 [BUG]yarn install命令 antd2.4.5会报错"
-                                      />
-                                      <span
-                                        class="ant-input-suffix"
+                                      <div
+                                        class="ant-form-item-control-input"
                                       >
-                                        <span
-                                          class="ant-input-clear-icon"
-                                          role="button"
-                                          tabindex="-1"
+                                        <div
+                                          class="ant-form-item-control-input-content"
                                         >
                                           <span
-                                            aria-label="close-circle"
-                                            class="anticon anticon-close-circle"
-                                            role="img"
+                                            class="ant-input-affix-wrapper"
                                           >
-                                            <svg
-                                              aria-hidden="true"
-                                              data-icon="close-circle"
-                                              fill="currentColor"
-                                              focusable="false"
-                                              height="1em"
-                                              viewBox="64 64 896 896"
-                                              width="1em"
+                                            <input
+                                              class="ant-input"
+                                              placeholder="请输入"
+                                              type="text"
+                                              value="🐛 [BUG]yarn install命令 antd2.4.5会报错"
+                                            />
+                                            <span
+                                              class="ant-input-suffix"
                                             >
-                                              <path
-                                                d="M512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm165.4 618.2l-66-.3L512 563.4l-99.3 118.4-66.1.3c-4.4 0-8-3.5-8-8 0-1.9.7-3.7 1.9-5.2l130.1-155L340.5 359a8.32 8.32 0 01-1.9-5.2c0-4.4 3.6-8 8-8l66.1.3L512 464.6l99.3-118.4 66-.3c4.4 0 8 3.5 8 8 0 1.9-.7 3.7-1.9 5.2L553.5 514l130 155c1.2 1.5 1.9 3.3 1.9 5.2 0 4.4-3.6 8-8 8z"
-                                              />
-                                            </svg>
+                                              <span
+                                                class="ant-input-clear-icon"
+                                                role="button"
+                                                tabindex="-1"
+                                              >
+                                                <span
+                                                  aria-label="close-circle"
+                                                  class="anticon anticon-close-circle"
+                                                  role="img"
+                                                >
+                                                  <svg
+                                                    aria-hidden="true"
+                                                    data-icon="close-circle"
+                                                    fill="currentColor"
+                                                    focusable="false"
+                                                    height="1em"
+                                                    viewBox="64 64 896 896"
+                                                    width="1em"
+                                                  >
+                                                    <path
+                                                      d="M512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm165.4 618.2l-66-.3L512 563.4l-99.3 118.4-66.1.3c-4.4 0-8-3.5-8-8 0-1.9.7-3.7 1.9-5.2l130.1-155L340.5 359a8.32 8.32 0 01-1.9-5.2c0-4.4 3.6-8 8-8l66.1.3L512 464.6l99.3-118.4 66-.3c4.4 0 8 3.5 8 8 0 1.9-.7 3.7-1.9 5.2L553.5 514l130 155c1.2 1.5 1.9 3.3 1.9 5.2 0 4.4-3.6 8-8 8z"
+                                                    />
+                                                  </svg>
+                                                </span>
+                                              </span>
+                                            </span>
                                           </span>
-                                        </span>
-                                      </span>
-                                    </span>
+                                        </div>
+                                      </div>
+                                    </div>
                                   </div>
                                 </div>
-                              </div>
-                            </div>
-                          </td>
-                          <td
-                            class="ant-table-cell"
-                          >
-                            <div
-                              class="ant-row ant-form-item"
-                              style="margin: -5px 0px -5px 0px;"
-                            >
-                              <div
-                                class="ant-col ant-form-item-control"
+                              </td>
+                              <td
+                                class="ant-table-cell"
                               >
                                 <div
-                                  class="ant-form-item-control-input"
+                                  class="ant-form-item"
+                                  style="margin: -5px 0px -5px 0px;"
                                 >
                                   <div
-                                    class="ant-form-item-control-input-content"
+                                    class="ant-row ant-form-item-row"
                                   >
-                                    <span
-                                      class="ant-input-affix-wrapper"
+                                    <div
+                                      class="ant-col ant-form-item-control"
                                     >
-                                      <input
-                                        class="ant-input"
-                                        placeholder="请输入"
-                                        type="text"
-                                        value="123"
-                                      />
-                                      <span
-                                        class="ant-input-suffix"
+                                      <div
+                                        class="ant-form-item-control-input"
                                       >
-                                        <span
-                                          class="ant-input-clear-icon"
-                                          role="button"
-                                          tabindex="-1"
+                                        <div
+                                          class="ant-form-item-control-input-content"
                                         >
                                           <span
-                                            aria-label="close-circle"
-                                            class="anticon anticon-close-circle"
-                                            role="img"
+                                            class="ant-input-affix-wrapper"
                                           >
-                                            <svg
-                                              aria-hidden="true"
-                                              data-icon="close-circle"
-                                              fill="currentColor"
-                                              focusable="false"
-                                              height="1em"
-                                              viewBox="64 64 896 896"
-                                              width="1em"
+                                            <input
+                                              class="ant-input"
+                                              placeholder="请输入"
+                                              type="text"
+                                              value="123"
+                                            />
+                                            <span
+                                              class="ant-input-suffix"
                                             >
-                                              <path
-                                                d="M512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm165.4 618.2l-66-.3L512 563.4l-99.3 118.4-66.1.3c-4.4 0-8-3.5-8-8 0-1.9.7-3.7 1.9-5.2l130.1-155L340.5 359a8.32 8.32 0 01-1.9-5.2c0-4.4 3.6-8 8-8l66.1.3L512 464.6l99.3-118.4 66-.3c4.4 0 8 3.5 8 8 0 1.9-.7 3.7-1.9 5.2L553.5 514l130 155c1.2 1.5 1.9 3.3 1.9 5.2 0 4.4-3.6 8-8 8z"
-                                              />
-                                            </svg>
+                                              <span
+                                                class="ant-input-clear-icon"
+                                                role="button"
+                                                tabindex="-1"
+                                              >
+                                                <span
+                                                  aria-label="close-circle"
+                                                  class="anticon anticon-close-circle"
+                                                  role="img"
+                                                >
+                                                  <svg
+                                                    aria-hidden="true"
+                                                    data-icon="close-circle"
+                                                    fill="currentColor"
+                                                    focusable="false"
+                                                    height="1em"
+                                                    viewBox="64 64 896 896"
+                                                    width="1em"
+                                                  >
+                                                    <path
+                                                      d="M512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm165.4 618.2l-66-.3L512 563.4l-99.3 118.4-66.1.3c-4.4 0-8-3.5-8-8 0-1.9.7-3.7 1.9-5.2l130.1-155L340.5 359a8.32 8.32 0 01-1.9-5.2c0-4.4 3.6-8 8-8l66.1.3L512 464.6l99.3-118.4 66-.3c4.4 0 8 3.5 8 8 0 1.9-.7 3.7-1.9 5.2L553.5 514l130 155c1.2 1.5 1.9 3.3 1.9 5.2 0 4.4-3.6 8-8 8z"
+                                                    />
+                                                  </svg>
+                                                </span>
+                                              </span>
+                                            </span>
                                           </span>
-                                        </span>
-                                      </span>
-                                    </span>
+                                        </div>
+                                      </div>
+                                    </div>
                                   </div>
                                 </div>
-                              </div>
-                            </div>
-                          </td>
-                          <td
-                            class="ant-table-cell"
-                          >
-                            <div
-                              class="ant-row ant-form-item"
-                              style="margin: -5px 0px -5px 0px;"
-                            >
-                              <div
-                                class="ant-col ant-form-item-control"
+                              </td>
+                              <td
+                                class="ant-table-cell"
                               >
                                 <div
-                                  class="ant-form-item-control-input"
+                                  class="ant-form-item"
+                                  style="margin: -5px 0px -5px 0px;"
                                 >
                                   <div
-                                    class="ant-form-item-control-input-content"
+                                    class="ant-row ant-form-item-row"
                                   >
-                                    <span
-                                      class="ant-input-affix-wrapper"
+                                    <div
+                                      class="ant-col ant-form-item-control"
                                     >
-                                      <input
-                                        class="ant-input"
-                                        placeholder="请输入"
-                                        type="text"
-                                        value="1234"
-                                      />
-                                      <span
-                                        class="ant-input-suffix"
+                                      <div
+                                        class="ant-form-item-control-input"
                                       >
-                                        <span
-                                          class="ant-input-clear-icon"
-                                          role="button"
-                                          tabindex="-1"
+                                        <div
+                                          class="ant-form-item-control-input-content"
                                         >
                                           <span
-                                            aria-label="close-circle"
-                                            class="anticon anticon-close-circle"
-                                            role="img"
+                                            class="ant-input-affix-wrapper"
                                           >
-                                            <svg
-                                              aria-hidden="true"
-                                              data-icon="close-circle"
-                                              fill="currentColor"
-                                              focusable="false"
-                                              height="1em"
-                                              viewBox="64 64 896 896"
-                                              width="1em"
+                                            <input
+                                              class="ant-input"
+                                              placeholder="请输入"
+                                              type="text"
+                                              value="1234"
+                                            />
+                                            <span
+                                              class="ant-input-suffix"
                                             >
-                                              <path
-                                                d="M512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm165.4 618.2l-66-.3L512 563.4l-99.3 118.4-66.1.3c-4.4 0-8-3.5-8-8 0-1.9.7-3.7 1.9-5.2l130.1-155L340.5 359a8.32 8.32 0 01-1.9-5.2c0-4.4 3.6-8 8-8l66.1.3L512 464.6l99.3-118.4 66-.3c4.4 0 8 3.5 8 8 0 1.9-.7 3.7-1.9 5.2L553.5 514l130 155c1.2 1.5 1.9 3.3 1.9 5.2 0 4.4-3.6 8-8 8z"
-                                              />
-                                            </svg>
+                                              <span
+                                                class="ant-input-clear-icon"
+                                                role="button"
+                                                tabindex="-1"
+                                              >
+                                                <span
+                                                  aria-label="close-circle"
+                                                  class="anticon anticon-close-circle"
+                                                  role="img"
+                                                >
+                                                  <svg
+                                                    aria-hidden="true"
+                                                    data-icon="close-circle"
+                                                    fill="currentColor"
+                                                    focusable="false"
+                                                    height="1em"
+                                                    viewBox="64 64 896 896"
+                                                    width="1em"
+                                                  >
+                                                    <path
+                                                      d="M512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm165.4 618.2l-66-.3L512 563.4l-99.3 118.4-66.1.3c-4.4 0-8-3.5-8-8 0-1.9.7-3.7 1.9-5.2l130.1-155L340.5 359a8.32 8.32 0 01-1.9-5.2c0-4.4 3.6-8 8-8l66.1.3L512 464.6l99.3-118.4 66-.3c4.4 0 8 3.5 8 8 0 1.9-.7 3.7-1.9 5.2L553.5 514l130 155c1.2 1.5 1.9 3.3 1.9 5.2 0 4.4-3.6 8-8 8z"
+                                                    />
+                                                  </svg>
+                                                </span>
+                                              </span>
+                                            </span>
                                           </span>
-                                        </span>
-                                      </span>
-                                    </span>
+                                        </div>
+                                      </div>
+                                    </div>
                                   </div>
                                 </div>
-                              </div>
-                            </div>
-                          </td>
-                        </tr>
-                      </tbody>
-                    </table>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </div>
                   </div>
                 </div>
               </div>
             </div>
+            <button
+              class="ant-btn ant-btn-dashed"
+              style="display: block; margin: 10px 0px; width: 100%;"
+              type="button"
+            >
+              <span
+                aria-label="plus"
+                class="anticon anticon-plus"
+                role="img"
+              >
+                <svg
+                  aria-hidden="true"
+                  data-icon="plus"
+                  fill="currentColor"
+                  focusable="false"
+                  height="1em"
+                  viewBox="64 64 896 896"
+                  width="1em"
+                >
+                  <defs>
+                    <style />
+                  </defs>
+                  <path
+                    d="M482 152h60q8 0 8 8v704q0 8-8 8h-60q-8 0-8-8V160q0-8 8-8z"
+                  />
+                  <path
+                    d="M176 474h672q8 0 8 8v60q0 8-8 8H176q-8 0-8-8v-60q0-8 8-8z"
+                  />
+                </svg>
+              </span>
+              <span>
+                添加一行数据
+              </span>
+            </button>
           </div>
         </div>
-        <button
-          class="ant-btn ant-btn-dashed"
-          style="display: block; margin: 10px 0px; width: 100%;"
-          type="button"
-        >
-          <span
-            aria-label="plus"
-            class="anticon anticon-plus"
-            role="img"
-          >
-            <svg
-              aria-hidden="true"
-              data-icon="plus"
-              fill="currentColor"
-              focusable="false"
-              height="1em"
-              viewBox="64 64 896 896"
-              width="1em"
-            >
-              <defs>
-                <style />
-              </defs>
-              <path
-                d="M482 152h60q8 0 8 8v704q0 8-8 8h-60q-8 0-8-8V160q0-8 8-8z"
-              />
-              <path
-                d="M176 474h672q8 0 8 8v60q0 8-8 8H176q-8 0-8-8v-60q0-8 8-8z"
-              />
-            </svg>
-          </span>
-          <span>
-            添加一行数据
-          </span>
-        </button>
       </div>
     </div>
   </div>
@@ -300,197 +320,205 @@ exports[`EditorProTable 2 📝 columns initialValue alway work 1`] = `
 exports[`EditorProTable 2 📝 columns support editable test 1`] = `
 <DocumentFragment>
   <div
-    class="ant-pro-table"
+    class="ant-pro"
   >
     <div
-      class="ant-pro-card"
+      class="ant-pro-table"
     >
       <div
-        class="ant-pro-card-body"
-        style="padding-top: 0px;"
+        class="ant-pro-card"
       >
         <div
-          class="ant-table-wrapper"
+          class="ant-pro-card-body"
+          style="padding-top: 0px;"
         >
           <div
-            class="ant-spin-nested-loading"
+            class="ant-pro"
           >
             <div
-              class="ant-spin-container"
+              class="ant-table-wrapper"
             >
               <div
-                class="ant-table ant-table-middle ant-table-layout-fixed"
+                class="ant-spin-nested-loading"
               >
                 <div
-                  class="ant-table-container"
+                  class="ant-spin-container"
                 >
                   <div
-                    class="ant-table-content"
+                    class="ant-table ant-table-middle ant-table-layout-fixed"
                   >
-                    <table
-                      style="table-layout: fixed;"
+                    <div
+                      class="ant-table-container"
                     >
-                      <colgroup>
-                        <col
-                          style="width: 48px;"
-                        />
-                        <col
-                          style="width: 48px;"
-                        />
-                      </colgroup>
-                      <thead
-                        class="ant-table-thead"
+                      <div
+                        class="ant-table-content"
                       >
-                        <tr>
-                          <th
-                            class="ant-table-cell"
-                          />
-                          <th
-                            class="ant-table-cell"
-                          />
-                        </tr>
-                      </thead>
-                      <tbody
-                        class="ant-table-tbody"
-                      >
-                        <tr
-                          class="ant-table-row ant-table-row-level-0"
-                          data-row-key="624748504"
+                        <table
+                          style="table-layout: fixed;"
                         >
-                          <td
-                            class="ant-table-cell ant-table-cell-with-append"
-                          >
-                            <span
-                              class="ant-table-row-indent indent-level-0"
-                              style="padding-left: 0px;"
+                          <colgroup>
+                            <col
+                              style="width: 48px;"
                             />
-                            <button
-                              aria-label="展开行"
-                              class="ant-table-row-expand-icon ant-table-row-expand-icon-spaced"
-                              type="button"
+                            <col
+                              style="width: 48px;"
                             />
-                            <div
-                              class="ant-pro-field-index-column ant-pro-field-index-column-border"
-                            >
-                              1
-                            </div>
-                          </td>
-                          <td
-                            class="ant-table-cell"
+                          </colgroup>
+                          <thead
+                            class="ant-table-thead"
                           >
-                            <div
-                              class="ant-pro-field-index-column ant-pro-field-index-column-border"
-                            >
-                              1
-                            </div>
-                          </td>
-                        </tr>
-                        <tr
-                          class="ant-table-row ant-table-row-level-0"
-                          data-row-key="624691229"
-                        >
-                          <td
-                            class="ant-table-cell ant-table-cell-with-append"
+                            <tr>
+                              <th
+                                class="ant-table-cell"
+                              />
+                              <th
+                                class="ant-table-cell"
+                              />
+                            </tr>
+                          </thead>
+                          <tbody
+                            class="ant-table-tbody"
                           >
-                            <span
-                              class="ant-table-row-indent indent-level-0"
-                              style="padding-left: 0px;"
-                            />
-                            <button
-                              aria-label="展开行"
-                              class="ant-table-row-expand-icon ant-table-row-expand-icon-spaced"
-                              type="button"
-                            />
-                            <div
-                              class="ant-pro-field-index-column ant-pro-field-index-column-border"
+                            <tr
+                              class="ant-table-row ant-table-row-level-0"
+                              data-row-key="624748504"
                             >
-                              2
-                            </div>
-                          </td>
-                          <td
-                            class="ant-table-cell"
-                          >
-                            <div
-                              class="ant-pro-field-index-column ant-pro-field-index-column-border"
+                              <td
+                                class="ant-table-cell ant-table-cell-with-append"
+                              >
+                                <span
+                                  class="ant-table-row-indent indent-level-0"
+                                  style="padding-left: 0px;"
+                                />
+                                <button
+                                  aria-label="展开行"
+                                  class="ant-table-row-expand-icon ant-table-row-expand-icon-spaced"
+                                  type="button"
+                                />
+                                <div
+                                  class="ant-pro-field-index-column ant-pro-field-index-column-border"
+                                >
+                                  1
+                                </div>
+                              </td>
+                              <td
+                                class="ant-table-cell"
+                              >
+                                <div
+                                  class="ant-pro-field-index-column ant-pro-field-index-column-border"
+                                >
+                                  1
+                                </div>
+                              </td>
+                            </tr>
+                            <tr
+                              class="ant-table-row ant-table-row-level-0"
+                              data-row-key="624691229"
                             >
-                              2
-                            </div>
-                          </td>
-                        </tr>
-                        <tr
-                          class="ant-table-row ant-table-row-level-0"
-                          data-row-key="624674790"
-                        >
-                          <td
-                            class="ant-table-cell ant-table-cell-with-append"
-                          >
-                            <span
-                              class="ant-table-row-indent indent-level-0"
-                              style="padding-left: 0px;"
-                            />
-                            <button
-                              aria-label="展开行"
-                              class="ant-table-row-expand-icon ant-table-row-expand-icon-collapsed"
-                              type="button"
-                            />
-                            <div
-                              class="ant-pro-field-index-column ant-pro-field-index-column-border"
+                              <td
+                                class="ant-table-cell ant-table-cell-with-append"
+                              >
+                                <span
+                                  class="ant-table-row-indent indent-level-0"
+                                  style="padding-left: 0px;"
+                                />
+                                <button
+                                  aria-label="展开行"
+                                  class="ant-table-row-expand-icon ant-table-row-expand-icon-spaced"
+                                  type="button"
+                                />
+                                <div
+                                  class="ant-pro-field-index-column ant-pro-field-index-column-border"
+                                >
+                                  2
+                                </div>
+                              </td>
+                              <td
+                                class="ant-table-cell"
+                              >
+                                <div
+                                  class="ant-pro-field-index-column ant-pro-field-index-column-border"
+                                >
+                                  2
+                                </div>
+                              </td>
+                            </tr>
+                            <tr
+                              class="ant-table-row ant-table-row-level-0"
+                              data-row-key="624674790"
                             >
-                              3
-                            </div>
-                          </td>
-                          <td
-                            class="ant-table-cell"
-                          >
-                            <div
-                              class="ant-pro-field-index-column ant-pro-field-index-column-border"
-                            >
-                              3
-                            </div>
-                          </td>
-                        </tr>
-                      </tbody>
-                    </table>
+                              <td
+                                class="ant-table-cell ant-table-cell-with-append"
+                              >
+                                <span
+                                  class="ant-table-row-indent indent-level-0"
+                                  style="padding-left: 0px;"
+                                />
+                                <button
+                                  aria-label="展开行"
+                                  class="ant-table-row-expand-icon ant-table-row-expand-icon-collapsed"
+                                  type="button"
+                                />
+                                <div
+                                  class="ant-pro-field-index-column ant-pro-field-index-column-border"
+                                >
+                                  3
+                                </div>
+                              </td>
+                              <td
+                                class="ant-table-cell"
+                              >
+                                <div
+                                  class="ant-pro-field-index-column ant-pro-field-index-column-border"
+                                >
+                                  3
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </div>
                   </div>
                 </div>
               </div>
             </div>
+            <button
+              class="ant-btn ant-btn-dashed"
+              style="display: block; margin: 10px 0px; width: 100%;"
+              type="button"
+            >
+              <span
+                aria-label="plus"
+                class="anticon anticon-plus"
+                role="img"
+              >
+                <svg
+                  aria-hidden="true"
+                  data-icon="plus"
+                  fill="currentColor"
+                  focusable="false"
+                  height="1em"
+                  viewBox="64 64 896 896"
+                  width="1em"
+                >
+                  <defs>
+                    <style />
+                  </defs>
+                  <path
+                    d="M482 152h60q8 0 8 8v704q0 8-8 8h-60q-8 0-8-8V160q0-8 8-8z"
+                  />
+                  <path
+                    d="M176 474h672q8 0 8 8v60q0 8-8 8H176q-8 0-8-8v-60q0-8 8-8z"
+                  />
+                </svg>
+              </span>
+              <span>
+                添加一行数据
+              </span>
+            </button>
           </div>
         </div>
-        <button
-          class="ant-btn ant-btn-dashed"
-          style="display: block; margin: 10px 0px; width: 100%;"
-          type="button"
-        >
-          <span
-            aria-label="plus"
-            class="anticon anticon-plus"
-            role="img"
-          >
-            <svg
-              aria-hidden="true"
-              data-icon="plus"
-              fill="currentColor"
-              focusable="false"
-              height="1em"
-              viewBox="64 64 896 896"
-              width="1em"
-            >
-              <defs>
-                <style />
-              </defs>
-              <path
-                d="M482 152h60q8 0 8 8v704q0 8-8 8h-60q-8 0-8-8V160q0-8 8-8z"
-              />
-              <path
-                d="M176 474h672q8 0 8 8v60q0 8-8 8H176q-8 0-8-8v-60q0-8 8-8z"
-              />
-            </svg>
-          </span>
-          <span>
-            添加一行数据
-          </span>
-        </button>
       </div>
     </div>
   </div>
@@ -500,99 +528,115 @@ exports[`EditorProTable 2 📝 columns support editable test 1`] = `
 exports[`EditorProTable 2 📝 renderFormItem run defaultRender 1`] = `
 <DocumentFragment>
   <div
-    class="ant-pro-table"
+    class="ant-pro"
   >
     <div
-      class="ant-pro-card"
+      class="ant-pro-table"
     >
       <div
-        class="ant-pro-card-body"
-        style="padding-top: 0px;"
+        class="ant-pro-card"
       >
         <div
-          class="ant-table-wrapper"
+          class="ant-pro-card-body"
+          style="padding-top: 0px;"
         >
           <div
-            class="ant-spin-nested-loading"
+            class="ant-pro"
           >
             <div
-              class="ant-spin-container"
+              class="ant-table-wrapper"
             >
               <div
-                class="ant-table ant-table-middle ant-table-layout-fixed"
+                class="ant-spin-nested-loading"
               >
                 <div
-                  class="ant-table-container"
+                  class="ant-spin-container"
                 >
                   <div
-                    class="ant-table-content"
+                    class="ant-table ant-table-middle ant-table-layout-fixed"
                   >
-                    <table
-                      style="table-layout: fixed;"
+                    <div
+                      class="ant-table-container"
                     >
-                      <colgroup>
-                        <col
-                          style="width: 48px;"
-                        />
-                      </colgroup>
-                      <thead
-                        class="ant-table-thead"
+                      <div
+                        class="ant-table-content"
                       >
-                        <tr>
-                          <th
-                            class="ant-table-cell"
-                          />
-                        </tr>
-                      </thead>
-                      <tbody
-                        class="ant-table-tbody"
-                      >
-                        <tr
-                          class="ant-table-row ant-table-row-level-0"
-                          data-row-key="624748504"
+                        <table
+                          style="table-layout: fixed;"
                         >
-                          <td
-                            class="ant-table-cell ant-table-cell-with-append"
+                          <colgroup>
+                            <col
+                              style="width: 48px;"
+                            />
+                          </colgroup>
+                          <thead
+                            class="ant-table-thead"
                           >
-                            <span
-                              class="ant-table-row-indent indent-level-0"
-                              style="padding-left: 0px;"
-                            />
-                            <button
-                              aria-label="展开行"
-                              class="ant-table-row-expand-icon ant-table-row-expand-icon-spaced"
-                              type="button"
-                            />
-                            <div
-                              class="ant-row ant-form-item"
-                              style="margin: -5px 0px -5px 0px;"
+                            <tr>
+                              <th
+                                class="ant-table-cell"
+                              />
+                            </tr>
+                          </thead>
+                          <tbody
+                            class="ant-table-tbody"
+                          >
+                            <tr
+                              class="ant-table-row ant-table-row-level-0"
+                              data-row-key="624748504"
                             >
-                              <div
-                                class="ant-col ant-form-item-control"
+                              <td
+                                class="ant-table-cell ant-table-cell-with-append"
                               >
+                                <span
+                                  class="ant-table-row-indent indent-level-0"
+                                  style="padding-left: 0px;"
+                                />
+                                <button
+                                  aria-label="展开行"
+                                  class="ant-table-row-expand-icon ant-table-row-expand-icon-spaced"
+                                  type="button"
+                                />
                                 <div
-                                  class="ant-form-item-control-input"
+                                  class="ant-form-item"
+                                  style="margin: -5px 0px -5px 0px;"
                                 >
                                   <div
-                                    class="ant-form-item-control-input-content"
+                                    class="ant-row ant-form-item-row"
                                   >
                                     <div
-                                      class="ant-row ant-form-item"
-                                      style="margin: -5px 0px -5px 0px;"
+                                      class="ant-col ant-form-item-control"
                                     >
                                       <div
-                                        class="ant-col ant-form-item-control"
+                                        class="ant-form-item-control-input"
                                       >
                                         <div
-                                          class="ant-form-item-control-input"
+                                          class="ant-form-item-control-input-content"
                                         >
                                           <div
-                                            class="ant-form-item-control-input-content"
+                                            class="ant-form-item"
+                                            style="margin: -5px 0px -5px 0px;"
                                           >
                                             <div
-                                              class="ant-pro-field-index-column ant-pro-field-index-column-border"
+                                              class="ant-row ant-form-item-row"
                                             >
-                                              1
+                                              <div
+                                                class="ant-col ant-form-item-control"
+                                              >
+                                                <div
+                                                  class="ant-form-item-control-input"
+                                                >
+                                                  <div
+                                                    class="ant-form-item-control-input-content"
+                                                  >
+                                                    <div
+                                                      class="ant-pro-field-index-column ant-pro-field-index-column-border"
+                                                    >
+                                                      1
+                                                    </div>
+                                                  </div>
+                                                </div>
+                                              </div>
                                             </div>
                                           </div>
                                         </div>
@@ -600,98 +644,98 @@ exports[`EditorProTable 2 📝 renderFormItem run defaultRender 1`] = `
                                     </div>
                                   </div>
                                 </div>
-                              </div>
-                            </div>
-                          </td>
-                        </tr>
-                        <tr
-                          class="ant-table-row ant-table-row-level-0"
-                          data-row-key="624691229"
-                        >
-                          <td
-                            class="ant-table-cell ant-table-cell-with-append"
-                          >
-                            <span
-                              class="ant-table-row-indent indent-level-0"
-                              style="padding-left: 0px;"
-                            />
-                            <button
-                              aria-label="展开行"
-                              class="ant-table-row-expand-icon ant-table-row-expand-icon-spaced"
-                              type="button"
-                            />
-                            <div
-                              class="ant-pro-field-index-column ant-pro-field-index-column-border"
+                              </td>
+                            </tr>
+                            <tr
+                              class="ant-table-row ant-table-row-level-0"
+                              data-row-key="624691229"
                             >
-                              2
-                            </div>
-                          </td>
-                        </tr>
-                        <tr
-                          class="ant-table-row ant-table-row-level-0"
-                          data-row-key="624674790"
-                        >
-                          <td
-                            class="ant-table-cell ant-table-cell-with-append"
-                          >
-                            <span
-                              class="ant-table-row-indent indent-level-0"
-                              style="padding-left: 0px;"
-                            />
-                            <button
-                              aria-label="展开行"
-                              class="ant-table-row-expand-icon ant-table-row-expand-icon-collapsed"
-                              type="button"
-                            />
-                            <div
-                              class="ant-pro-field-index-column ant-pro-field-index-column-border"
+                              <td
+                                class="ant-table-cell ant-table-cell-with-append"
+                              >
+                                <span
+                                  class="ant-table-row-indent indent-level-0"
+                                  style="padding-left: 0px;"
+                                />
+                                <button
+                                  aria-label="展开行"
+                                  class="ant-table-row-expand-icon ant-table-row-expand-icon-spaced"
+                                  type="button"
+                                />
+                                <div
+                                  class="ant-pro-field-index-column ant-pro-field-index-column-border"
+                                >
+                                  2
+                                </div>
+                              </td>
+                            </tr>
+                            <tr
+                              class="ant-table-row ant-table-row-level-0"
+                              data-row-key="624674790"
                             >
-                              3
-                            </div>
-                          </td>
-                        </tr>
-                      </tbody>
-                    </table>
+                              <td
+                                class="ant-table-cell ant-table-cell-with-append"
+                              >
+                                <span
+                                  class="ant-table-row-indent indent-level-0"
+                                  style="padding-left: 0px;"
+                                />
+                                <button
+                                  aria-label="展开行"
+                                  class="ant-table-row-expand-icon ant-table-row-expand-icon-collapsed"
+                                  type="button"
+                                />
+                                <div
+                                  class="ant-pro-field-index-column ant-pro-field-index-column-border"
+                                >
+                                  3
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </div>
                   </div>
                 </div>
               </div>
             </div>
+            <button
+              class="ant-btn ant-btn-dashed"
+              style="display: block; margin: 10px 0px; width: 100%;"
+              type="button"
+            >
+              <span
+                aria-label="plus"
+                class="anticon anticon-plus"
+                role="img"
+              >
+                <svg
+                  aria-hidden="true"
+                  data-icon="plus"
+                  fill="currentColor"
+                  focusable="false"
+                  height="1em"
+                  viewBox="64 64 896 896"
+                  width="1em"
+                >
+                  <defs>
+                    <style />
+                  </defs>
+                  <path
+                    d="M482 152h60q8 0 8 8v704q0 8-8 8h-60q-8 0-8-8V160q0-8 8-8z"
+                  />
+                  <path
+                    d="M176 474h672q8 0 8 8v60q0 8-8 8H176q-8 0-8-8v-60q0-8 8-8z"
+                  />
+                </svg>
+              </span>
+              <span>
+                添加一行数据
+              </span>
+            </button>
           </div>
         </div>
-        <button
-          class="ant-btn ant-btn-dashed"
-          style="display: block; margin: 10px 0px; width: 100%;"
-          type="button"
-        >
-          <span
-            aria-label="plus"
-            class="anticon anticon-plus"
-            role="img"
-          >
-            <svg
-              aria-hidden="true"
-              data-icon="plus"
-              fill="currentColor"
-              focusable="false"
-              height="1em"
-              viewBox="64 64 896 896"
-              width="1em"
-            >
-              <defs>
-                <style />
-              </defs>
-              <path
-                d="M482 152h60q8 0 8 8v704q0 8-8 8h-60q-8 0-8-8V160q0-8 8-8z"
-              />
-              <path
-                d="M176 474h672q8 0 8 8v60q0 8-8 8H176q-8 0-8-8v-60q0-8 8-8z"
-              />
-            </svg>
-          </span>
-          <span>
-            添加一行数据
-          </span>
-        </button>
       </div>
     </div>
   </div>

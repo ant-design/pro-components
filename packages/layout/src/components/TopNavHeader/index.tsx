@@ -264,7 +264,7 @@ const TopNavHeader: React.FC<TopNavHeaderProps> = (props) => {
                 display: flex;
                 align-items: center;
                 min-width: 192px;
-                .${antdPreFix}-pro-basicLayout-apps-icon {
+                .${antdPreFix}-pro-layout-apps-icon {
                   margin-right: 16px;
                 }
               `,

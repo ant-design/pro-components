@@ -2,8 +2,8 @@ import Field from '@ant-design/pro-field';
 import '@testing-library/jest-dom';
 import { act, fireEvent, render as reactRender } from '@testing-library/react';
 import { Button, Input } from 'antd';
+import dayjs from 'dayjs';
 import { mount, render } from 'enzyme';
-import moment from 'moment';
 import React, { useState } from 'react';
 import { waitForComponentToPaint, waitTime } from '../util';
 import Demo from './fixtures/demo';
@@ -735,7 +735,7 @@ describe('Field', () => {
       if (valueType === 'option') return;
       const html = render(
         <Field
-          text={moment('2019-11-16 12:50:26').valueOf()}
+          text={dayjs('2019-11-16 12:50:26').valueOf()}
           mode="edit"
           valueType={valueType as 'text'}
           renderFormItem={() => <>qixian</>}
@@ -1149,7 +1149,7 @@ describe('Field', () => {
   it(`🐴 valueType renderFormItem return number`, async () => {
     const html = render(
       <Field
-        text={moment('2019-11-16 12:50:26').valueOf()}
+        text={dayjs('2019-11-16 12:50:26').valueOf()}
         mode="edit"
         // @ts-expect-error
         renderFormItem={() => 2}
