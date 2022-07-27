@@ -1,8 +1,9 @@
 import type { CSSInterpolation } from '@ant-design/cssinjs';
 import { useStyleRegister } from '@ant-design/cssinjs';
-import { theme as antdTheme } from 'antd';
+import { ConfigProvider, theme as antdTheme } from 'antd';
 import type { AliasToken } from 'antd/es/theme';
 import type React from 'react';
+import { useContext } from 'react';
 
 const { useToken } = antdTheme;
 
@@ -13,6 +14,7 @@ export type UseStyleResult = {
 
 export type ProAliasToken = AliasToken & {
   proComponentsCls: string;
+  antCls: string;
 };
 
 export function useStyle(
@@ -20,11 +22,16 @@ export function useStyle(
   styleFn: (token: ProAliasToken) => CSSInterpolation,
 ): UseStyleResult {
   const { token, hashId, theme } = useToken();
-  const proComponentsCls = '.ant-pro';
+  const { getPrefixCls } = useContext(ConfigProvider.ConfigContext);
+  const proComponentsCls = `.${getPrefixCls()}-pro`;
   return {
     wrapSSR: useStyleRegister({ theme, token, hashId, path: [componentName] }, () => {
       return {
-        [proComponentsCls]: styleFn({ ...token, proComponentsCls: '.ant-pro' }),
+        [proComponentsCls]: styleFn({
+          ...token,
+          antCls: '.' + getPrefixCls(),
+          proComponentsCls: '.ant-pro',
+        }),
       };
     }),
     hashId,

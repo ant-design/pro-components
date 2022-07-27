@@ -1,7 +1,6 @@
 import { QuestionCircleOutlined } from '@ant-design/icons';
+import type { BadgeProps, StatisticProps as AntdStatisticProps } from 'antd';
 import { Badge, ConfigProvider, Statistic as AntdStatistic, Tooltip } from 'antd';
-import type { BadgeProps } from 'antd/es/badge';
-import type { StatisticProps as AntdStatisticProps } from 'antd/es/statistic/Statistic';
 import classNames from 'classnames';
 import React, { useContext } from 'react';
 import './index.less';

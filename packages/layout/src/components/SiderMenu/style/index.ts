@@ -31,7 +31,7 @@ const genSiderMenuStyle: GenerateStyle<SiderMenuToken> = (token) => {
         zIndex: '100',
         height: '100%',
       },
-      '&-sider-children': {
+      [`${token.antCls}-layout-sider-children`]: {
         position: 'relative',
         display: 'flex',
         flexDirection: 'column',

@@ -9,12 +9,11 @@ import type {
   RowEditableConfig,
   SearchTransformKeyFn,
 } from '@ant-design/pro-utils';
+import type { SpinProps, TableProps } from 'antd';
 import type { SizeType } from 'antd/es/config-provider/SizeContext';
 import type { LabelTooltipType } from 'antd/es/form/FormItemLabel';
 import type { NamePath } from 'antd/es/form/interface';
 import type { SearchProps } from 'antd/es/input';
-import type { SpinProps } from 'antd/es/spin';
-import type { TableProps } from 'antd/es/table';
 import type { ColumnFilterItem, ColumnType, CompareFn, SortOrder } from 'antd/es/table/interface';
 import type dayjs from 'dayjs';
 import type React from 'react';
