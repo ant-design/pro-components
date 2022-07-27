@@ -1,18 +1,19 @@
 import Icon, { createFromIconfontCN } from '@ant-design/icons';
 import { isImg, isUrl, useMountMergeState } from '@ant-design/pro-utils';
 import type { MenuProps, MenuTheme } from 'antd';
-import { ConfigProvider, Menu, Skeleton } from 'antd';
+import { Menu, Skeleton } from 'antd';
 import type { ItemType } from 'antd/es/menu/hooks/useItems';
+import classNames from 'classnames';
 import React, { useContext, useEffect, useMemo, useRef } from 'react';
 import type { PureSettings } from '../../defaultSettings';
 import { defaultSettings } from '../../defaultSettings';
-import { css, cx } from '../../emotion';
 import type { LayoutDesignToken } from '../../ProLayoutContext';
 import { ProLayoutContext } from '../../ProLayoutContext';
 import type { MenuDataItem, MessageDescriptor, Route, RouterTypes, WithFalse } from '../../typings';
 import { getOpenKeysFromMenuData } from '../../utils/utils';
 import { MenuCounter } from './Counter';
 import type { PrivateSiderMenuProps } from './SiderMenu';
+import { useStyle } from './style/menu';
 
 // todo
 export type MenuMode = 'vertical' | 'vertical-left' | 'vertical-right' | 'horizontal' | 'inline';
@@ -85,43 +86,6 @@ let IconFont = createFromIconfontCN({
   scriptUrl: defaultSettings.iconfontUrl,
 });
 
-const genMenuItemCss = (
-  prefixCls: string | undefined,
-  state: {
-    hasIcon?: boolean;
-    collapsed?: boolean;
-    collapsedShowTitle?: boolean;
-  },
-) => {
-  if (state.hasIcon && state.collapsed) {
-    return cx(
-      `${prefixCls}-menu-item-title`,
-      !state.collapsedShowTitle &&
-        css`
-          display: none;
-        `,
-      state.collapsedShowTitle &&
-        css`
-          text-align: center;
-          font-size: 12px;
-          height: 20px;
-          line-height: 20px;
-          overflow: hidden;
-          text-overflow: ellipsis;
-          white-space: nowrap;
-          width: 100%;
-        `,
-    );
-  }
-  return cx(
-    `${prefixCls}-menu-item-title`,
-    state.hasIcon &&
-      css`
-        margin-left: 8px;
-      `,
-  );
-};
-
 // Allow menu.js config icon as string or ReactNode
 //   icon: 'setting',
 //   icon: 'icon-geren' #For Iconfont ,
@@ -147,12 +111,20 @@ const getIcon = (
 
 class MenuUtil {
   constructor(
-    props: BaseMenuProps & { token?: LayoutDesignToken; menuRenderType?: 'header' | 'sider' },
+    props: BaseMenuProps & {
+      token?: LayoutDesignToken;
+      menuRenderType?: 'header' | 'sider';
+      baseClassName: string;
+    },
   ) {
     this.props = props;
   }
 
-  props: BaseMenuProps & { token?: LayoutDesignToken; menuRenderType?: 'header' | 'sider' };
+  props: BaseMenuProps & {
+    token?: LayoutDesignToken;
+    menuRenderType?: 'header' | 'sider';
+    baseClassName: string;
+  };
 
   getNavMenuItems = (menusData: MenuDataItem[] = [], level: number): ItemType[] =>
     menusData
@@ -162,18 +134,10 @@ class MenuUtil {
 
   /** Get SubMenu or Item */
   getSubMenuOrItem = (item: MenuDataItem, level: number): ItemType | ItemType[] => {
-    const { subMenuItemRender, prefixCls, menu, iconPrefixes, layout } = this.props;
+    const { subMenuItemRender, baseClassName, prefixCls, menu, iconPrefixes, layout } = this.props;
     const isGroup = menu?.type === 'group' && layout !== 'top';
     const designToken = this.props.token;
-    const genItemCss = (center?: boolean) =>
-      cx(
-        `${prefixCls}-menu-item`,
-        css`
-          display: flex;
-          align-items: center;
-          justify-content: ${center ? 'center' : 'flex-start'};
-        `,
-      );
+
     const name = this.getIntlName(item);
     const children = item?.children || item?.routes;
     if (Array.isArray(children) && children.length > 0) {
@@ -182,22 +146,12 @@ class MenuUtil {
       //  get defaultTitle by menuItemRender
       const iconDom = getIcon(item.icon, iconPrefixes);
       const defaultTitle = item.icon ? (
-        <span className={genItemCss()} title={name}>
+        <span title={name}>
           {hasIcon && iconDom}
-          <span
-            className={genMenuItemCss(prefixCls, {
-              hasIcon: hasIcon && !!iconDom,
-              collapsed: this.props.collapsed,
-              collapsedShowTitle: this.props.menu?.collapsedShowTitle,
-            })}
-          >
-            {name}
-          </span>
+          <span>{name}</span>
         </span>
       ) : (
-        <span className={genItemCss()} title={name}>
-          {name}
-        </span>
+        <span title={name}>{name}</span>
       );
 
       // subMenu only title render
@@ -209,20 +163,23 @@ class MenuUtil {
       if (isGroup && level === 0 && this.props.collapsed && !menu.collapsedShowGroupTitle) {
         return childrenList;
       }
+      const menuType = isGroup && level === 0 ? ('group' as const) : undefined;
       return [
         {
-          type: isGroup && level === 0 ? ('group' as const) : undefined,
+          type: menuType,
           key: item.key! || item.path!,
           title: item.tooltip || title,
           label: title,
           onClick: isGroup ? undefined : item.onTitleClick,
           children: childrenList,
+          className: menuType == 'group' ? `${baseClassName}-submenu` : `${baseClassName}-group`,
         } as ItemType,
         isGroup && level === 0
           ? ({
               type: 'divider',
               prefixCls,
-              key: (item.key! || item.path!) + '-group',
+              className: `${baseClassName}-divider`,
+              key: (item.key! || item.path!) + '-group-divider',
               style: {
                 padding: 0,
                 borderBottom: 0,
@@ -235,6 +192,7 @@ class MenuUtil {
     }
 
     return {
+      className: `${baseClassName}-menu-item`,
       title: item.tooltip || name,
       disabled: item.disabled,
       key: item.key! || item.path!,
@@ -268,7 +226,6 @@ class MenuUtil {
       onCollapse,
       menuItemRender,
       iconPrefixes,
-      collapsed,
     } = this.props;
 
     // if local is true formatMessage all name。
@@ -279,26 +236,10 @@ class MenuUtil {
     const hasIcon = level === 0 || (isGroup && level === 1);
     const icon = !hasIcon ? null : getIcon(item.icon, iconPrefixes);
     let defaultItem = (
-      <span
-        className={cx(
-          `${prefixCls}-menu-item`,
-          css({
-            display: 'flex',
-            alignItems: 'center',
-          }),
-        )}
-      >
+      <>
         {icon}
-        <span
-          className={genMenuItemCss(prefixCls, {
-            hasIcon: !!icon && hasIcon,
-            collapsed,
-            collapsedShowTitle: this.props.menu?.collapsedShowTitle,
-          })}
-        >
-          {name}
-        </span>
-      </span>
+        <span>{name}</span>
+      </>
     );
     const isHttpUrl = isUrl(itemPath);
 
@@ -313,15 +254,7 @@ class MenuUtil {
           className={`${prefixCls}-menu-item ${prefixCls}-menu-item-link`}
         >
           {icon}
-          <span
-            className={genMenuItemCss(prefixCls, {
-              hasIcon: hasIcon && !!icon,
-              collapsed: this.props.collapsed,
-              collapsedShowTitle: this.props.menu?.collapsedShowTitle,
-            })}
-          >
-            {name}
-          </span>
+          <span>{name}</span>
         </span>
       );
     }
@@ -373,10 +306,10 @@ const BaseMenu: React.FC<BaseMenuProps & PrivateSiderMenuProps> = (props) => {
   const {
     mode,
     className,
-    prefixCls,
     handleOpenChange,
     style,
     menuData,
+    prefixCls,
     menu,
     matchMenuKeys,
     iconfontUrl,
@@ -387,11 +320,7 @@ const BaseMenu: React.FC<BaseMenuProps & PrivateSiderMenuProps> = (props) => {
   } = props;
 
   const designToken = useContext(ProLayoutContext);
-  const menuDesignToken = menuRenderType === 'header' ? designToken.header : designToken.sider;
-  const context = useContext(ConfigProvider.ConfigContext);
-
-  const antPrefixClassName = context.getPrefixCls();
-
+  const baseClassName = `${prefixCls}-base-menu`;
   // 用于减少 defaultOpenKeys 计算的组件
   const defaultOpenKeysRef = useRef<string[]>([]);
 
@@ -481,44 +410,11 @@ const BaseMenu: React.FC<BaseMenuProps & PrivateSiderMenuProps> = (props) => {
       ...props,
       token: designToken,
       menuRenderType,
+      baseClassName,
     });
-  }, [designToken, menuRenderType, props]);
+  }, [designToken, baseClassName, menuRenderType, props]);
 
-  const menuCss = useMemo(() => {
-    return css`
-    padding: ${props.isMobile ? 0 : '6px'};
-    background: transparent;
-    border:none !important;
-
-    .${antPrefixClassName}-menu-title-content{
-      width: 100%;
-    }
-
-    &.${antPrefixClassName}-layout-sider-collapsed {
-      flex-direction: column;
-      padding-bottom: 24px;
-    }
-
-    .${antPrefixClassName}-menu-root {
-      padding: 8px;
-    }
-
-    .${antPrefixClassName}-menu-sub {
-      background: transparent;
-    }
-
-    .${prefixCls}-menu-item-divider {
-      &:last-child {
-        display: none;
-      }
-    }
-    .${antPrefixClassName}-menu-item-group-title {
-      color: ${menuDesignToken.menuTextColorSecondary};
-      font-size: 12px;
-      line-height: 20px;
-    }
-  `;
-  }, [antPrefixClassName, menuDesignToken.menuTextColorSecondary, prefixCls, props.isMobile]);
+  const { wrapSSR, hashId } = useStyle(baseClassName);
 
   if (menu?.loading) {
     return (
@@ -554,8 +450,7 @@ const BaseMenu: React.FC<BaseMenuProps & PrivateSiderMenuProps> = (props) => {
   if (finallyData && finallyData?.length < 1) {
     return null;
   }
-
-  return (
+  return wrapSSR(
     <Menu
       {...openKeysProps}
       key="Menu"
@@ -564,22 +459,18 @@ const BaseMenu: React.FC<BaseMenuProps & PrivateSiderMenuProps> = (props) => {
       defaultOpenKeys={defaultOpenKeysRef.current}
       theme="light"
       selectedKeys={selectedKeys}
-      style={style}
-      className={cx(
-        className,
-        menuCss,
-        mode === 'horizontal' &&
-          css`
-            li.${antPrefixClassName}-menu-item {
-              height: 100%;
-              line-height: 1;
-            }
-          `,
-      )}
+      style={{
+        backgroundColor: 'transparent',
+        border: 'none',
+        ...style,
+      }}
+      className={classNames(className, hashId, baseClassName, {
+        [`${baseClassName}-horizontal`]: mode === 'horizontal',
+      })}
       items={menuUtils.getNavMenuItems(finallyData, 0)}
       onOpenChange={setOpenKeys}
       {...props.menuProps}
-    />
+    />,
   );
 };
 

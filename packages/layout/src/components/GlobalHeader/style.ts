@@ -21,7 +21,7 @@ const genGlobalHeaderStyle: GenerateStyle<GlobalHeaderToken> = (token) => {
       '> a': {
         height: '100%',
       },
-      [`.${token.proComponentsCls}-layout-apps-icon`]: {
+      [`${token.proComponentsCls}-layout-apps-icon`]: {
         marginRight: 16,
       },
       '&-collapsed-button': { minHeight: '22px', fontSize: '22px', marginLeft: '16px' },

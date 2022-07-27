@@ -1,12 +1,11 @@
 import type { AvatarProps } from 'antd';
-import { Avatar, ConfigProvider, Layout, Menu, Space } from 'antd';
+import { Avatar, Layout, Menu, Space } from 'antd';
 import type { SiderProps } from 'antd/es/layout/Sider';
 import type { ItemType } from 'antd/es/menu/hooks/useItems';
 import classNames from 'classnames';
 import type { CSSProperties } from 'react';
-import React, { useContext, useMemo } from 'react';
+import React, { useMemo } from 'react';
 import type { HeaderViewProps } from '../../Header';
-import { ProLayoutContext } from '../../ProLayoutContext';
 import type { WithFalse } from '../../typings';
 import type { AppsLogoComponentsAppList } from '../AppsLogoComponents';
 import { AppsLogoComponents, defaultRenderLogo } from '../AppsLogoComponents';
@@ -198,9 +197,6 @@ const SiderMenu: React.FC<SiderMenuProps & PrivateSiderMenuProps> = (props) => {
     return true;
   }, [isMobile, layout]);
 
-  const designToken = useContext(ProLayoutContext);
-
-  const context = useContext(ConfigProvider.ConfigContext);
   const baseClassName = `${prefixCls}-sider`;
   const { flatMenuKeys } = MenuCounter.useContainer();
   const siderClassName = classNames(`${baseClassName}`, {
@@ -431,12 +427,9 @@ const SiderMenu: React.FC<SiderMenuProps & PrivateSiderMenuProps> = (props) => {
           onCollapse?.(collapse);
         }}
         collapsedWidth={collapsedWidth}
-        style={{
-          backgroundColor: designToken.sider.menuBackgroundColor,
-          ...style,
-        }}
-        width={siderWidth}
+        style={style}
         theme={theme}
+        width={siderWidth}
         // @ts-expect-error
         siderChildrenClassName={`${baseClassName}-sider-children`}
         className={classNames(siderClassName, hideMenuWhenCollapsedClassName)}

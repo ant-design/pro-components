@@ -1,5 +1,6 @@
 import { useDebounceFn } from '@ant-design/pro-utils';
 import { Avatar, ConfigProvider } from 'antd';
+import classNames from 'classnames';
 import ResizeObserver from 'rc-resize-observer';
 import React, { useContext, useMemo, useRef, useState } from 'react';
 import { css, cx } from '../../emotion';
@@ -9,6 +10,7 @@ import type { GlobalHeaderProps } from '../GlobalHeader';
 import { BaseMenu } from '../SiderMenu/BaseMenu';
 import type { PrivateSiderMenuProps, SiderMenuProps } from '../SiderMenu/SiderMenu';
 import { renderLogoAndTitle } from '../SiderMenu/SiderMenu';
+import { useStyle } from './style';
 
 export type TopNavHeaderProps = SiderMenuProps & GlobalHeaderProps & PrivateSiderMenuProps;
 
@@ -191,12 +193,11 @@ const TopNavHeader: React.FC<TopNavHeaderProps> = (props) => {
     layout,
     actionsRender,
   } = props;
-  const designToken = useContext(ProLayoutContext);
   const { getPrefixCls } = useContext(ConfigProvider.ConfigContext);
-  const antdPreFix = getPrefixCls();
 
   const prefixCls = `${props.prefixCls || getPrefixCls('pro')}-top-nav-header`;
 
+  const { wrapSSR, hashId } = useStyle(prefixCls);
   const headerDom = renderLogoAndTitle(
     { ...props, collapsed: false },
     layout === 'mix' ? 'headerTitleRender' : undefined,
@@ -207,6 +208,7 @@ const TopNavHeader: React.FC<TopNavHeaderProps> = (props) => {
       <BaseMenu
         theme="light"
         {...props}
+        className={`${prefixCls}-base-menu`}
         {...props.menuProps}
         collapsed={false}
         menuRenderType="header"
@@ -218,120 +220,37 @@ const TopNavHeader: React.FC<TopNavHeaderProps> = (props) => {
       return headerContentRender(props, defaultDom);
     }
     return defaultDom;
-  }, [headerContentRender, props]);
+  }, [headerContentRender, prefixCls, props]);
 
-  return (
+  return wrapSSR(
     <div
-      className={cx(
-        prefixCls,
-        propsClassName,
-        {
-          light: true,
-        },
-        css`
-          position: relative;
-          width: 100%;
-          height: 100%;
-          background-color: transparent;
-
-          .${antdPreFix}-menu {
-            background: transparent;
-          }
-          .anticon {
-            color: inherit;
-          }
-        `,
-      )}
+      className={classNames(prefixCls, hashId, propsClassName, {
+        [`${prefixCls}-light`]: true,
+      })}
       style={style}
     >
       <div
         ref={ref}
-        className={cx(
-          `${prefixCls}-main`,
-          `${contentWidth === 'Fixed' ? 'wide' : ''}`,
-          css`
-            display: flex;
-            height: 100%;
-            padding-left: 16px;
-          `,
-        )}
+        className={classNames(`${prefixCls}-main`, {
+          [`${prefixCls}-wide`]: contentWidth === 'Fixed',
+        })}
       >
         {headerDom && (
-          <div
-            className={cx(
-              `${prefixCls}-main-left`,
-              css`
-                display: flex;
-                align-items: center;
-                min-width: 192px;
-                .${antdPreFix}-pro-layout-apps-icon {
-                  margin-right: 16px;
-                }
-              `,
-            )}
-            onClick={onMenuHeaderClick}
-          >
+          <div className={classNames(`${prefixCls}-main-left`)} onClick={onMenuHeaderClick}>
             <AppsLogoComponents {...props} />
-            <div
-              className={cx(
-                `${prefixCls}-logo`,
-                css`
-                  position: relative;
-                  min-width: 165px;
-                  display: flex;
-                  height: 100%;
-                  overflow: hidden;
-                  a {
-                    display: flex;
-                    align-items: center;
-                    min-height: 22px;
-                    font-size: 22px;
-                  }
-                  img {
-                    display: inline-block;
-                    height: 32px;
-                    vertical-align: middle;
-                  }
-
-                  h1 {
-                    display: inline-block;
-                    margin: 0 0 0 6px;
-                    color: ${designToken?.header?.headerTitleColor};
-                    font-weight: 600;
-                    font-size: 16px;
-                    vertical-align: top;
-                  }
-                `,
-              )}
-              key="logo"
-              id="logo"
-            >
+            <div className={`${prefixCls}-logo`} key="logo" id="logo">
               {headerDom}
             </div>
           </div>
         )}
-        <div
-          style={{ flex: 1 }}
-          className={cx(
-            `${prefixCls}-menu`,
-            css`
-              min-width: 0;
-              display: flex;
-              align-items: center;
-              .${antdPreFix}-menu.${antdPreFix}-menu-horizontal {
-                height: 100%;
-                border: none;
-              }
-            `,
-          )}
-        >
+        <div style={{ flex: 1 }} className={`${prefixCls}-menu`}>
           {contentDom}
         </div>
         {(rightContentRender || actionsRender || props.avatarProps) && (
           <RightContent rightContentRender={rightContentRender} {...props} />
         )}
       </div>
-    </div>
+    </div>,
   );
 };
 

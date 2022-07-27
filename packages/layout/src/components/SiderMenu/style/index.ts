@@ -71,7 +71,7 @@ const genSiderMenuStyle: GenerateStyle<SiderMenuToken> = (token) => {
         },
         '&-collapsed': {
           flexDirection: 'column',
-          'ant-pro-layout-apps-icon': {
+          [`${token.proComponentsCls}-layout-apps-icon`]: {
             marginBottom: 8,
           },
         },
