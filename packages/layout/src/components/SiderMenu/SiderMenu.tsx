@@ -429,8 +429,6 @@ const SiderMenu: React.FC<SiderMenuProps & PrivateSiderMenuProps> = (props) => {
         style={style}
         theme={theme}
         width={siderWidth}
-        // @ts-expect-error
-        siderChildrenClassName={`${baseClassName}-sider-children`}
         className={classNames(siderClassName, hideMenuWhenCollapsedClassName)}
       >
         {hideMenuWhenCollapsedClassName ? (
