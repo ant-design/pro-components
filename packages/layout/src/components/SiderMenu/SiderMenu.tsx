@@ -5,7 +5,6 @@ import type { ItemType } from 'antd/es/menu/hooks/useItems';
 import classNames from 'classnames';
 import type { CSSProperties } from 'react';
 import React, { useContext, useMemo } from 'react';
-import { css, cx } from '../../emotion';
 import type { HeaderViewProps } from '../../Header';
 import { ProLayoutContext } from '../../ProLayoutContext';
 import type { WithFalse } from '../../typings';
@@ -318,8 +317,6 @@ const SiderMenu: React.FC<SiderMenuProps & PrivateSiderMenuProps> = (props) => {
     );
   }, [actionsDom, avatarDom, baseClassName, collapsed]);
 
-  const antPrefix = context.getPrefixCls();
-
   const collapsedWidth = 60;
 
   /* Using the useMemo hook to create a CSS class that will hide the menu when the menu is collapsed. */
@@ -337,7 +334,7 @@ const SiderMenu: React.FC<SiderMenuProps & PrivateSiderMenuProps> = (props) => {
     <>
       {headerDom && (
         <div
-          className={cx([
+          className={classNames([
             classNames(`${baseClassName}-logo`, {
               [`${baseClassName}-logo-collapsed`]: collapsed,
             }),
@@ -413,17 +410,14 @@ const SiderMenu: React.FC<SiderMenuProps & PrivateSiderMenuProps> = (props) => {
     <>
       {fixSiderbar && !isMobile && !hideMenuWhenCollapsedClassName && (
         <div
-          className={cx(
-            css({
-              width: collapsed ? collapsedWidth : siderWidth,
-              overflow: 'hidden',
-              flex: `0 0 ${collapsed ? collapsedWidth : siderWidth}px`,
-              maxWidth: collapsed ? collapsedWidth : siderWidth,
-              minWidth: collapsed ? collapsedWidth : siderWidth,
-              transition: `background-color 0.3s, min-width 0.3s, max-width 0.3s cubic-bezier(0.645, 0.045, 0.355, 1)`,
-              ...style,
-            }),
-          )}
+          style={{
+            width: collapsed ? collapsedWidth : siderWidth,
+            overflow: 'hidden',
+            flex: `0 0 ${collapsed ? collapsedWidth : siderWidth}px`,
+            maxWidth: collapsed ? collapsedWidth : siderWidth,
+            minWidth: collapsed ? collapsedWidth : siderWidth,
+            ...style,
+          }}
         />
       )}
 
@@ -443,19 +437,9 @@ const SiderMenu: React.FC<SiderMenuProps & PrivateSiderMenuProps> = (props) => {
         }}
         width={siderWidth}
         theme={theme}
-        className={classNames(
-          siderClassName,
-          css`
-            .${antPrefix}-layout-sider-children {
-              position: relative;
-              display: flex;
-              flex-direction: column;
-              height: 100%;
-              border-right: 1px solid ${designToken.borderColorSplit};
-            }
-          `,
-          hideMenuWhenCollapsedClassName,
-        )}
+        // @ts-expect-error
+        siderChildrenClassName={`${baseClassName}-sider-children`}
+        className={classNames(siderClassName, hideMenuWhenCollapsedClassName)}
       >
         {hideMenuWhenCollapsedClassName ? (
           <div

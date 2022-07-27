@@ -31,6 +31,13 @@ const genSiderMenuStyle: GenerateStyle<SiderMenuToken> = (token) => {
         zIndex: '100',
         height: '100%',
       },
+      '&-sider-children': {
+        position: 'relative',
+        display: 'flex',
+        flexDirection: 'column',
+        height: '100%',
+        borderRight: `1px solid ${token.colorSplit}`,
+      },
       '&-logo': {
         position: 'relative',
         display: 'flex',
