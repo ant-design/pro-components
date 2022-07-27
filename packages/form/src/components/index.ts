@@ -1,5 +1,5 @@
 export { default as ProFormCaptcha } from './Captcha';
-export type { ProFormCaptchaProps } from './Captcha';
+export type { CaptFieldRef, ProFormCaptchaProps } from './Captcha';
 export { default as ProFormCascader } from './Cascader';
 export { default as ProFormCheckbox } from './Checkbox';
 export { default as ProFormColorPicker } from './ColorPicker';

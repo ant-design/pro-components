@@ -1,8 +1,8 @@
 import { ProForm, ProFormCaptcha } from '@ant-design/pro-components';
 
+import type { CaptFieldRef } from '@ant-design/pro-components';
 import { Button, message } from 'antd';
 import { useRef } from 'react';
-import type { CaptFieldRef } from '../components/Captcha';
 
 const waitTime = (time: number = 100) => {
   return new Promise((resolve) => {
