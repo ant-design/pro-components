@@ -787,11 +787,68 @@ describe('EditorProTable', () => {
       );
     });
 
-    waitForComponentToPaint(wrapper, 100);
+    await waitForComponentToPaint(wrapper, 100);
     expect(
       wrapper.container.querySelectorAll<HTMLInputElement>(
         '.ant-table-cell .ant-row.ant-form-item .ant-form-item-control-input input',
       )[1].value,
     ).toBe('🐛 [BUG]无法创建工程npm create umi');
+  });
+
+  it('📝 EditableProTable support nested children column without config "childrenColumnName:children" and "position:top"', async () => {
+    const fn = jest.fn();
+    const wrapper = render(
+      <EditableProTable<DataSourceType>
+        rowKey="id"
+        pagination={{
+          pageSize: 2,
+          current: 2,
+        }}
+        editable={{
+          onChange: (keys) => fn(keys[0]),
+        }}
+        recordCreatorProps={{
+          parentKey: () => 6246747901,
+          record: {
+            id: 555,
+          },
+          id: 'addEditRecord',
+        }}
+        columns={columns}
+        value={[
+          {
+            id: 624674790,
+            title: '🧐 [问题] build 后还存在 es6 的代码（Umi@2.13.13）',
+            labels: [{ name: 'question', color: 'success' }],
+            state: 'open',
+            time: {
+              created_at: '2020-05-26T07:54:25Z',
+            },
+            children: [
+              {
+                id: 6246747901,
+                title: '嵌套数据的编辑',
+                labels: [{ name: 'question', color: 'success' }],
+                state: 'closed',
+                time: {
+                  created_at: '2020-05-26T07:54:25Z',
+                },
+              },
+            ],
+          },
+        ]}
+      />,
+    );
+    await waitForComponentToPaint(wrapper, 1000);
+
+    await act(async () => {
+      (await wrapper.queryAllByText('添加一行数据')).at(0)?.click();
+    });
+
+    await waitForComponentToPaint(wrapper, 1000);
+
+    expect(fn).toBeCalledWith(555);
+
+    wrapper.unmount();
   });
 });

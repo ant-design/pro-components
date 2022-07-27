@@ -207,27 +207,36 @@ export function editableRowByKey<RecordType>(
     kvMap.delete(key);
   }
 
-  const fill = (map: Map<string, RecordType & { map_row_parentKey?: string }>) => {
+  const fill = (
+    map: Map<string, RecordType & { map_row_parentKey?: string; map_row_key?: string }>,
+  ) => {
     const kvArrayMap = new Map<string, RecordType[]>();
     const kvSource: RecordType[] = [];
     map.forEach((value) => {
-      if (value.map_row_parentKey) {
-        // @ts-ignore
-        const { map_row_parentKey, map_row_key, ...reset } = value;
+      if (value.map_row_parentKey && !value.map_row_key) {
+        const { map_row_parentKey, ...rest } = value;
+        kvArrayMap.set(map_row_parentKey, [
+          ...(kvArrayMap.get(map_row_parentKey) || []),
+          rest as unknown as RecordType,
+        ]);
+      }
+    });
+    map.forEach((value) => {
+      if (value.map_row_parentKey && value.map_row_key) {
+        const { map_row_parentKey, map_row_key, ...rest } = value;
         if (kvArrayMap.has(map_row_key)) {
-          reset[childrenColumnName] = kvArrayMap.get(map_row_key);
+          rest[childrenColumnName] = kvArrayMap.get(map_row_key);
         }
         kvArrayMap.set(map_row_parentKey, [
           ...(kvArrayMap.get(map_row_parentKey) || []),
-          reset as unknown as RecordType,
+          rest as unknown as RecordType,
         ]);
       }
     });
     map.forEach((value) => {
       if (!value.map_row_parentKey) {
-        // @ts-ignore
         const { map_row_key, ...rest } = value;
-        if (kvArrayMap.has(map_row_key)) {
+        if (map_row_key && kvArrayMap.has(map_row_key)) {
           const item = {
             ...rest,
             [childrenColumnName]: kvArrayMap.get(map_row_key),
@@ -240,9 +249,7 @@ export function editableRowByKey<RecordType>(
     });
     return kvSource;
   };
-  const source = fill(kvMap);
-
-  return source;
+  return fill(kvMap);
 }
 
 /**
@@ -448,12 +455,17 @@ function useEditableArray<RecordType>(
 
   useDeepCompareEffectDebounce(() => {
     const map = new Map<React.Key, React.Key>();
-    const loopGetKey = (dataSource: RecordType[]) => {
+    //存在children时会覆盖Map的key,导致使用数组索引查找key错误
+    const loopGetKey = (dataSource: RecordType[], parentIndex?: number) => {
       dataSource?.forEach((record, index) => {
-        map.set(index.toString(), recordKeyToString(props.getRowKey(record, -1)));
-        map.set(recordKeyToString(props.getRowKey(record, -1))?.toString(), index.toString());
+        const key =
+          parentIndex === undefined
+            ? index.toString()
+            : parentIndex.toString() + '_' + index.toString();
+        map.set(key, recordKeyToString(props.getRowKey(record, -1)));
+        map.set(recordKeyToString(props.getRowKey(record, -1))?.toString(), key);
         if (props.childrenColumnName && record[props.childrenColumnName]) {
-          loopGetKey(record[props.childrenColumnName]);
+          loopGetKey(record[props.childrenColumnName], index);
         }
       });
     };
