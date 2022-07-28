@@ -27,8 +27,8 @@ const genGlobalHeaderStyle: GenerateStyle<GlobalHeaderToken> = (token) => {
       '&-collapsed-button': { minHeight: '22px', fontSize: '22px', marginLeft: '16px' },
       '&-logo': {
         position: 'relative',
-        minWidth: token.isMobile ? '24px' : '154px',
-        marginRight: token.isMobile ? '0' : '16px',
+        minWidth: '154px',
+        marginRight: '16px',
         a: {
           display: 'flex',
           alignItems: 'center',
@@ -45,6 +45,10 @@ const genGlobalHeaderStyle: GenerateStyle<GlobalHeaderToken> = (token) => {
           fontSize: '18px',
           lineHeight: '32px',
         },
+      },
+      '&-logo-mobile': {
+        minWidth: '24px',
+        marginRight: 0,
       },
     },
   };

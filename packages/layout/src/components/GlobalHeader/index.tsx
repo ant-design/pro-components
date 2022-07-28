@@ -125,6 +125,7 @@ const GlobalHeader: React.FC<GlobalHeaderProps & PrivateSiderMenuProps> = (props
   const logoClassNames = classNames(`${baseClassName}-logo`, {
     [`${baseClassName}-logo-rtl`]: direction === 'rtl',
     [`${baseClassName}-logo-mix`]: layout === 'mix',
+    [`${baseClassName}-logo-mobile`]: isMobile,
   });
 
   const logoDom = (
