@@ -456,16 +456,16 @@ function useEditableArray<RecordType>(
   useDeepCompareEffectDebounce(() => {
     const map = new Map<React.Key, React.Key>();
     //存在children时会覆盖Map的key,导致使用数组索引查找key错误
-    const loopGetKey = (dataSource: RecordType[], parentIndex?: number) => {
+    const loopGetKey = (dataSource: RecordType[], parentKey?: string) => {
       dataSource?.forEach((record, index) => {
         const key =
-          parentIndex === undefined
+          parentKey === undefined || parentKey === null
             ? index.toString()
-            : parentIndex.toString() + '_' + index.toString();
+            : parentKey + '_' + index.toString();
         map.set(key, recordKeyToString(props.getRowKey(record, -1)));
         map.set(recordKeyToString(props.getRowKey(record, -1))?.toString(), key);
         if (props.childrenColumnName && record[props.childrenColumnName]) {
-          loopGetKey(record[props.childrenColumnName], index);
+          loopGetKey(record[props.childrenColumnName], key);
         }
       });
     };
