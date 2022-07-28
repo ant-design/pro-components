@@ -2,7 +2,7 @@ import type { ProFormInstance } from '@ant-design/pro-form';
 import type { TableColumnType } from 'antd';
 import useMergedState from 'rc-util/lib/hooks/useMergedState';
 import { noteOnce } from 'rc-util/lib/warning';
-import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
+import { useCallback, useEffect, useLayoutEffect, useMemo, useRef, useState } from 'react';
 import { createContainer } from 'unstated-next';
 import type { DensitySize } from './components/ToolBar/DensityIcon';
 import type { ProTableProps } from './index';
@@ -102,6 +102,30 @@ function useContainer(props: UseContainerProps = {}) {
       onChange: props.columnsState?.onChange || props.onColumnsStateChange,
     },
   );
+
+  /**  配置或列更改时对columnsMap重新赋值 */
+  useLayoutEffect(() => {
+    const { persistenceType, persistenceKey } = props.columnsState || {};
+
+    if (persistenceKey && persistenceType && typeof window !== 'undefined') {
+      /** 从持久化中读取数据 */
+      const storage = window[persistenceType];
+      try {
+        const storageValue = storage?.getItem(persistenceKey);
+        if (storageValue) {
+          setColumnsMap(JSON.parse(storageValue));
+        } else {
+          setColumnsMap(defaultColumnKeyMap);
+        }
+      } catch (error) {
+        console.warn(error);
+      }
+    }
+  }, [
+    props.columnsState?.persistenceKey,
+    defaultColumnKeyMap,
+    props.columnsState?.persistenceType,
+  ]);
 
   noteOnce(!props.columnsStateMap, 'columnsStateMap已经废弃，请使用 columnsState.value 替换');
   noteOnce(

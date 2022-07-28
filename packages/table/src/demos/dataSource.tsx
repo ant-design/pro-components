@@ -2,6 +2,7 @@ import { EllipsisOutlined, QuestionCircleOutlined, SearchOutlined } from '@ant-d
 import type { ProColumns } from '@ant-design/pro-components';
 import { ProTable, TableDropdown } from '@ant-design/pro-components';
 import { Button, Dropdown, Input, Menu, Tooltip } from 'antd';
+import { useState } from 'react';
 
 const valueEnum = {
   0: 'close',
@@ -136,16 +137,46 @@ const menu = (
 );
 
 export default () => {
+  const [status, setStatus] = useState('all');
+
+  const dynamicColumns: ProColumns<TableListItem>[] = [
+    ...(status === 'close'
+      ? [
+          {
+            title: 'second',
+            width: 120,
+            dataIndex: 'testKey',
+            key: 'key_second',
+            hideInSearch: true,
+          },
+        ]
+      : [
+          {
+            title: 'first',
+            width: 120,
+            dataIndex: 'testKey',
+            key: 'key_first',
+            hideInSearch: true,
+          },
+        ]),
+    ...columns,
+  ];
   return (
     <ProTable<TableListItem>
-      columns={columns}
+      columns={dynamicColumns}
       request={(params, sorter, filter) => {
         // 表单搜索项会从 params 传入，传递给后端接口。
         console.log(params, sorter, filter);
+        const { status } = params;
+        setStatus(status);
         return Promise.resolve({
           data: tableListDataSource,
           success: true,
         });
+      }}
+      columnsState={{
+        persistenceKey: `test_${status}`,
+        persistenceType: 'localStorage',
       }}
       rowKey="key"
       pagination={{
