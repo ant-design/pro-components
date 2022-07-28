@@ -106,16 +106,9 @@ export const getFormatMessage = (): ((data: { id: string; defaultMessage?: strin
   return formatMessage;
 };
 
-const updateTheme = async (dark: boolean, color?: string) => {
+const updateTheme = async (dark: boolean) => {
   if (typeof window === 'undefined') return;
   if (typeof window.MutationObserver === 'undefined') return;
-
-  if (!ConfigProvider.config) return;
-  ConfigProvider.config({
-    theme: {
-      primaryColor: genStringToTheme(color) || '#1677FF',
-    },
-  });
 
   if (dark) {
     const defaultTheme = {
@@ -172,7 +165,7 @@ const initState = (
 
   // 如果 url 中设置主题，进行一次加载。
   if (defaultSettings.navTheme !== urlParams.navTheme && urlParams.navTheme) {
-    updateTheme(settings.navTheme === 'realDark', urlParams.primaryColor);
+    updateTheme(settings.navTheme === 'realDark');
   }
 };
 
@@ -280,7 +273,7 @@ const SettingDrawer: React.FC<SettingDrawerProps> = (props) => {
   }, []);
 
   useEffect(() => {
-    updateTheme(settingState.navTheme === 'realDark', settingState.primaryColor);
+    updateTheme(settingState.navTheme === 'realDark');
   }, [settingState.primaryColor, settingState.navTheme]);
   /**
    * 修改设置

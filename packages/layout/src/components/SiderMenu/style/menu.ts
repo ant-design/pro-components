@@ -45,7 +45,15 @@ const genProLayoutBaseMenuStyle: GenerateStyle<ProLayoutBaseMenuToken> = (token)
     [token.componentCls]: {
       background: 'transparent',
       border: 'none',
-
+      '&-group': {
+        [`${token.antCls}-menu-item-group-title`]: {
+          fontSize: 12,
+          color: 'rgba(0, 0, 0, 0.45)',
+          '.anticon': {
+            marginRight: 8,
+          },
+        },
+      },
       '&-group-divider': {
         color: token.colorTextSecondary,
         fontSize: 12,

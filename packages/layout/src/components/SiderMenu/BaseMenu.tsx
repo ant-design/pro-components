@@ -172,7 +172,7 @@ class MenuUtil {
           label: title,
           onClick: isGroup ? undefined : item.onTitleClick,
           children: childrenList,
-          className: menuType == 'group' ? `${baseClassName}-submenu` : `${baseClassName}-group`,
+          className: menuType == 'group' ? `${baseClassName}-group` : `${baseClassName}-submenu`,
         } as ItemType,
         isGroup && level === 0
           ? ({

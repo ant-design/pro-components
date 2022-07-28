@@ -36,8 +36,10 @@ const genSiderMenuStyle: GenerateStyle<SiderMenuToken> = (token) => {
         display: 'flex',
         flexDirection: 'column',
         height: '100%',
+        padding: 6,
         borderRight: `1px solid ${token.colorSplit}`,
       },
+
       '&-logo': {
         position: 'relative',
         display: 'flex',

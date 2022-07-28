@@ -681,9 +681,39 @@ const BaseProLayout: React.FC<ProLayoutProps> = (props) => {
                 ...style,
               }}
             >
-              {siderMenuDom}
+              <ConfigProvider
+                theme={{
+                  override: {
+                    Menu: {
+                      colorItemBgSelected: 'rgba(0, 0, 0, 0.04)',
+                      colorItemBgActive: 'rgba(0, 0, 0, 0.04)',
+                      colorActiveBarWidth: 0,
+                      colorItemText: 'rgba(0, 0, 0, 0.65)',
+                      colorItemTextHover: 'rgba(0, 0, 0, 0.85)',
+                      colorItemTextSelected: 'rgba(0, 0, 0, 1)',
+                    },
+                  },
+                }}
+              >
+                {siderMenuDom}
+              </ConfigProvider>
               <div style={genLayoutStyle} className={context.getPrefixCls('layout')}>
-                {headerDom}
+                <ConfigProvider
+                  theme={{
+                    override: {
+                      Menu: {
+                        colorItemBgSelected: 'rgba(0, 0, 0, 0.04)',
+                        colorItemBgActive: 'rgba(0, 0, 0, 0.04)',
+                        colorActiveBarWidth: 0,
+                        colorItemText: 'rgba(0, 0, 0, 0.65)',
+                        colorItemTextHover: 'rgba(0, 0, 0, 0.85)',
+                        colorItemTextSelected: 'rgba(0, 0, 0, 1)',
+                      },
+                    },
+                  }}
+                >
+                  {headerDom}
+                </ConfigProvider>
                 <WrapContent
                   disableContentMargin={disableContentMargin}
                   autoClearCache={false}
