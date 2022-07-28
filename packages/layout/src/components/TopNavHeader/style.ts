@@ -5,6 +5,7 @@ import type { GenerateStyle } from 'antd/es/theme';
 export interface TopNavHeaderToken extends ProAliasToken {
   componentCls: string;
   proLayoutColorHeaderTitle: string;
+  proLayoutColorHeader: number;
 }
 
 const genTopNavHeaderStyle: GenerateStyle<TopNavHeaderToken> = (token) => {
@@ -47,7 +48,13 @@ const genTopNavHeaderStyle: GenerateStyle<TopNavHeaderToken> = (token) => {
           verticalAlign: 'top',
         },
       },
-      '&-menu': { minWidth: '0', display: 'flex', alignItems: 'center' },
+      '&-menu': {
+        minWidth: '0',
+        display: 'flex',
+        alignItems: 'center',
+        padding: 6,
+        lineHeight: `${token.proLayoutColorHeader - 12}px`,
+      },
     },
   };
 };
@@ -57,6 +64,7 @@ export function useStyle(prefixCls: string) {
     const topNavHeaderToken: TopNavHeaderToken = {
       ...token,
       componentCls: `.${prefixCls}`,
+      proLayoutColorHeader: 56,
       proLayoutColorHeaderTitle: token.colorTextHeading,
     };
 
