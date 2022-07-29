@@ -55,6 +55,45 @@ const genTopNavHeaderStyle: GenerateStyle<TopNavHeaderToken> = (token) => {
         padding: 6,
         lineHeight: `${token.proLayoutColorHeader - 12}px`,
       },
+      '&-header-actions': {
+        display: 'flex',
+        height: '100%',
+        '&-item': {
+          display: 'inline-flex',
+          alignItems: 'center',
+          justifyContent: 'center',
+          padding: '0px 6px',
+          fontSize: '16px',
+          cursor: 'pointer',
+          borderRadius: token.radiusBase,
+          '> *': {
+            padding: 6,
+            borderRadius: token.radiusBase,
+            ':hover': {
+              backgroundColor: 'rgba(0, 0, 0, 0.03)',
+            },
+          },
+        },
+        '&-avatar': {
+          display: 'inline-flex',
+          alignItems: 'center',
+          justifyContent: 'center',
+          paddingLeft: '16px',
+          paddingRight: '16px',
+          '> div': {
+            height: '44px',
+            padding: '8px',
+            cursor: 'pointer',
+            display: 'flex',
+            alignItems: 'center',
+            lineHeight: '44px',
+            borderRadius: token.radiusBase,
+            '&:hover': {
+              backgroundColor: 'rgba(0, 0, 0, 0.03)',
+            },
+          },
+        },
+      },
     },
   };
 };

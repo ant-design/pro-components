@@ -45,6 +45,10 @@ const genGlobalHeaderStyle: GenerateStyle<GlobalHeaderToken> = (token) => {
           fontSize: '18px',
           lineHeight: '32px',
         },
+        '&-mix': {
+          display: 'flex',
+          alignItems: 'center',
+        },
       },
       '&-logo-mobile': {
         minWidth: '24px',

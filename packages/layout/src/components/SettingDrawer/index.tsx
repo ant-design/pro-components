@@ -11,18 +11,18 @@ import {
   setFetchMethod as setFetch,
 } from '@umijs/ssr-darkreader';
 import { useUrlSearchParams } from '@umijs/use-params';
-import { Alert, Button, ConfigProvider, Divider, Drawer, List, message, Switch } from 'antd';
+import { Alert, Button, Divider, Drawer, List, message, Switch } from 'antd';
 import omit from 'omit.js';
 import useMergedState from 'rc-util/lib/hooks/useMergedState';
-import React, { useContext, useEffect, useRef, useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import type { ProSettings } from '../../defaultSettings';
 import { defaultSettings } from '../../defaultSettings';
-import { css, cx } from '../../emotion';
 import { getLanguage, gLocaleObject } from '../../locales';
 import { genStringToTheme } from '../../utils/utils';
 import { BlockCheckbox } from './BlockCheckbox';
 import { LayoutSetting, renderLayoutSettingItem } from './LayoutChange';
 import { RegionalSetting } from './RegionalChange';
+import { useStyle } from './style/index';
 import { ThemeColor } from './ThemeColor';
 
 type BodyProps = {
@@ -38,18 +38,7 @@ type MergerSettingsType<T> = Partial<T> & {
 
 const Body: React.FC<BodyProps> = ({ children, prefixCls, title }) => (
   <div style={{ marginBottom: 24 }}>
-    <h3
-      className={cx(
-        `${prefixCls}-drawer-title`,
-        css`
-          margin-bottom: 12px;
-          font-size: 14px;
-          line-height: 22px;
-        `,
-      )}
-    >
-      {title}
-    </h3>
+    <h3 className={`${prefixCls}-body-title`}>{title}</h3>
     {children}
   </div>
 );
@@ -226,9 +215,6 @@ const SettingDrawer: React.FC<SettingDrawerProps> = (props) => {
     themeOnly,
   } = props;
   const firstRender = useRef<boolean>(true);
-  const context = useContext(ConfigProvider.ConfigContext);
-
-  const antPrefix = context.getPrefixCls();
 
   const [show, setShow] = useMergedState(false, {
     value: props.collapse,
@@ -341,9 +327,11 @@ const SettingDrawer: React.FC<SettingDrawerProps> = (props) => {
 
     setUrlParams(diffParams);
   }, [setUrlParams, settingState, urlParams, pathname, disableUrlParams]);
-  const baseClassName = `${prefixCls}-setting`;
+  const baseClassName = `${prefixCls}-setting-drawer`;
 
-  return (
+  const { wrapSSR } = useStyle(baseClassName);
+
+  return wrapSSR(
     <Drawer
       visible={show}
       width={300}
@@ -352,29 +340,7 @@ const SettingDrawer: React.FC<SettingDrawerProps> = (props) => {
       placement="right"
       getContainer={getContainer}
       handler={
-        <div
-          className={cx(
-            `${baseClassName}-drawer-handle`,
-            css`
-              position: absolute;
-              top: 240px;
-              right: 300px;
-              z-index: 0;
-              display: flex;
-              align-items: center;
-              justify-content: center;
-              width: 48px;
-              height: 48px;
-              font-size: 16px;
-              text-align: center;
-              background-color: var(--ant-primary-color);
-              border-radius: 4px 0 0 4px;
-              cursor: pointer;
-              pointer-events: auto;
-            `,
-          )}
-          onClick={() => setShow(!show)}
-        >
+        <div className={`${baseClassName}-handle`} onClick={() => setShow(!show)}>
           {show ? (
             <CloseOutlined
               style={{
@@ -396,20 +362,7 @@ const SettingDrawer: React.FC<SettingDrawerProps> = (props) => {
         zIndex: 999,
       }}
     >
-      <div
-        className={cx(
-          `${baseClassName}-drawer-content`,
-          css`
-            position: relative;
-            min-height: 100%;
-            .${antPrefix}-list-item {
-              span {
-                flex: 1;
-              }
-            }
-          `,
-        )}
-      >
+      <div className={`${baseClassName}-content`}>
         <Body
           title={formatMessage({
             id: 'app.setting.pagestyle',
@@ -454,6 +407,7 @@ const SettingDrawer: React.FC<SettingDrawerProps> = (props) => {
             prefixCls={baseClassName}
           >
             <ThemeColor
+              prefixCls={baseClassName}
               colorList={colorList}
               value={genStringToTheme(primaryColor)!}
               formatMessage={formatMessage}
@@ -560,7 +514,7 @@ const SettingDrawer: React.FC<SettingDrawerProps> = (props) => {
           </>
         )}
       </div>
-    </Drawer>
+    </Drawer>,
   );
 };
 

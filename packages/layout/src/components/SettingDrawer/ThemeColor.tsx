@@ -1,7 +1,6 @@
 import { CheckOutlined } from '@ant-design/icons';
 import { Tooltip } from 'antd';
 import React from 'react';
-import { css, cx } from '../../emotion';
 
 export type TagProps = {
   color: string;
@@ -21,6 +20,7 @@ export type ThemeColorProps = {
     key: string;
     color: string;
   }[];
+  prefixCls: string;
   value: string;
   onChange: (color: string) => void;
   formatMessage: (data: { id: any; defaultMessage?: string }) => string;
@@ -30,52 +30,33 @@ const ThemeColor: React.ForwardRefRenderFunction<HTMLDivElement, ThemeColorProps
   value,
   colorList,
   onChange,
+  prefixCls,
   formatMessage,
 }) => {
   if (!colorList || colorList?.length < 1) {
     return null;
   }
+  const baseClassName = prefixCls + '-theme-color';
   return (
-    <div
-      className={css`
-        margin-top: 16px;
-        overflow: hidden;
-      `}
-    >
-      <div className={cx('theme-color-content', css``)}>
-        {colorList?.map(({ key, color }) => {
-          if (!key) return null;
-          return (
-            <Tooltip
-              key={color}
-              title={formatMessage({
-                id: `app.setting.themecolor.${key}`,
-              })}
-            >
-              <Tag
-                className={cx(
-                  'theme-color-block',
-                  css`
-                    float: left;
-                    width: 20px;
-                    height: 20px;
-                    margin-top: 8px;
-                    margin-right: 8px;
-                    color: #fff;
-                    font-weight: bold;
-                    text-align: center;
-                    border-radius: 2px;
-                    cursor: pointer;
-                  `,
-                )}
-                color={color}
-                check={value === color}
-                onClick={() => onChange && onChange(color)}
-              />
-            </Tooltip>
-          );
-        })}
-      </div>
+    <div className={baseClassName}>
+      {colorList?.map(({ key, color }) => {
+        if (!key) return null;
+        return (
+          <Tooltip
+            key={color}
+            title={formatMessage({
+              id: `app.setting.themecolor.${key}`,
+            })}
+          >
+            <Tag
+              className={`${baseClassName}-block`}
+              color={color}
+              check={value === color}
+              onClick={() => onChange && onChange(color)}
+            />
+          </Tooltip>
+        );
+      })}
     </div>
   );
 };

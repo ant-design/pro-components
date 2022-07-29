@@ -20,12 +20,20 @@ export type ProAliasToken = AliasToken & {
 export function useStyle(
   componentName: string,
   styleFn: (token: ProAliasToken) => CSSInterpolation,
+  warpProStyle: boolean = true,
 ): UseStyleResult {
   const { token, hashId, theme } = useToken();
   const { getPrefixCls } = useContext(ConfigProvider.ConfigContext);
   const proComponentsCls = `.${getPrefixCls()}-pro`;
   return {
     wrapSSR: useStyleRegister({ theme, token, hashId, path: [componentName] }, () => {
+      if (!warpProStyle) {
+        return styleFn({
+          ...token,
+          antCls: '.' + getPrefixCls(),
+          proComponentsCls: '.ant-pro',
+        });
+      }
       return {
         [proComponentsCls]: styleFn({
           ...token,

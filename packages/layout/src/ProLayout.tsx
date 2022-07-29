@@ -694,6 +694,8 @@ const BaseProLayout: React.FC<ProLayoutProps> = (props) => {
                       colorItemText: 'rgba(0, 0, 0, 0.65)',
                       colorItemTextHover: 'rgba(0, 0, 0, 0.85)',
                       colorItemTextSelected: 'rgba(0, 0, 0, 1)',
+                      colorItemBg: 'transparent',
+                      colorSubItemBg: 'transparent',
                     },
                   },
                 }}
@@ -705,6 +707,8 @@ const BaseProLayout: React.FC<ProLayoutProps> = (props) => {
                   theme={{
                     override: {
                       Menu: {
+                        colorItemBg: 'transparent',
+                        colorSubItemBg: 'transparent',
                         radiusItem: 4,
                         colorItemBgSelected: 'rgba(0, 0, 0, 0.04)',
                         colorItemBgActive: 'rgba(0, 0, 0, 0.04)',

@@ -3,8 +3,6 @@ import { Avatar, ConfigProvider } from 'antd';
 import classNames from 'classnames';
 import ResizeObserver from 'rc-resize-observer';
 import React, { useContext, useMemo, useRef, useState } from 'react';
-import { css, cx } from '../../emotion';
-import { ProLayoutContext } from '../../ProLayoutContext';
 import { AppsLogoComponents } from '../AppsLogoComponents';
 import type { GlobalHeaderProps } from '../GlobalHeader';
 import { BaseMenu } from '../SiderMenu/BaseMenu';
@@ -27,7 +25,6 @@ export const RightContent: React.FC<TopNavHeaderProps> = ({
   headerContentRender,
   ...props
 }) => {
-  const designToken = useContext(ProLayoutContext);
   const [rightSize, setRightSize] = useState<number | string>('auto');
 
   const avatarDom = useMemo(() => {
@@ -54,15 +51,7 @@ export const RightContent: React.FC<TopNavHeaderProps> = ({
     if (!doms && !avatarDom) return null;
     if (!Array.isArray(doms)) doms = [doms];
     return (
-      <div
-        className={cx(
-          `${prefixCls}-header-actions`,
-          css`
-            display: flex;
-            height: 100%;
-          `,
-        )}
-      >
+      <div className={`${prefixCls}-header-actions`}>
         {doms.filter(Boolean).map((dom, index) => {
           let hideHover = false;
           // 如果配置了 hideHover 就不展示 hover 效果了
@@ -73,63 +62,17 @@ export const RightContent: React.FC<TopNavHeaderProps> = ({
             <div
               // eslint-disable-next-line react/no-array-index-key
               key={index}
-              className={cx(
-                `${prefixCls}-header-actions-item`,
-                css`
-                  display: inline-flex;
-                  align-items: center;
-                  justify-content: center;
-                  padding: 0px 6px;
-                  font-size: 16px;
-                  color: ${designToken?.header?.rightActionsItemTextColor};
-                  cursor: pointer;
-                  border-radius: ${designToken.borderRadiusBase};
-                `,
-                !hideHover &&
-                  css`
-                    > * {
-                      padding: 6px;
-                      border-radius: ${designToken.borderRadiusBase};
-                      &:hover {
-                        background-color: ${designToken.header?.rightActionsItemHoverBgColor};
-                      }
-                    }
-                  `,
-              )}
+              className={classNames(`${prefixCls}-header-actions-item`, {
+                [`${prefixCls}-header-actions-hover`]: !hideHover,
+              })}
             >
               {dom}
             </div>
           );
         })}
         {avatarDom && (
-          <span
-            className={cx(
-              `${prefixCls}-header-actions-item`,
-              css`
-                display: inline-flex;
-                align-items: center;
-                justify-content: center;
-                padding-left: 16px;
-                padding-right: 16px;
-              `,
-            )}
-          >
-            <div
-              className={css`
-                height: 44px;
-                padding: 8px;
-                cursor: pointer;
-                display: flex;
-                align-items: center;
-                line-height: 44px;
-                border-radius: ${designToken.borderRadiusBase};
-                &:hover {
-                  background-color: rgba(0, 0, 0, 0.03);
-                }
-              `}
-            >
-              {avatarDom}
-            </div>
+          <span className={`${prefixCls}-header-actions-avatar`}>
+            <div>{avatarDom}</div>
           </span>
         )}
       </div>
@@ -247,7 +190,7 @@ const TopNavHeader: React.FC<TopNavHeaderProps> = (props) => {
           {contentDom}
         </div>
         {(rightContentRender || actionsRender || props.avatarProps) && (
-          <RightContent rightContentRender={rightContentRender} {...props} />
+          <RightContent rightContentRender={rightContentRender} {...props} prefixCls={prefixCls} />
         )}
       </div>
     </div>,
