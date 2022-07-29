@@ -1,11 +1,10 @@
 import { SearchOutlined } from '@ant-design/icons';
-import { FieldLabel } from '@ant-design/pro-utils';
+import { FieldLabel, useStyle } from '@ant-design/pro-utils';
 import type { SelectProps } from 'antd';
 import { ConfigProvider, Input, Select } from 'antd';
 import classNames from 'classnames';
 import React, { useContext, useMemo, useState } from 'react';
 import type { ProFieldLightProps } from '../../../index';
-import './index.less';
 
 export type LightSelectProps = {
   label?: string;
@@ -67,6 +66,33 @@ const LightSelect: React.ForwardRefRenderFunction<any, SelectProps<any> & LightS
   const [open, setOpen] = useState<boolean>(false);
   const [keyword, setKeyword] = useState<string>('');
 
+  // css
+  const { wrapSSR } = useStyle('LightSelect', (token) => {
+    return {
+      [prefixCls]: {
+        color: token.colorPrimary,
+        [`${token.antCls}-select`]: {
+          position: 'absolute',
+          width: '153px',
+          height: '28px',
+          visibility: 'hidden',
+          '&-selector': {
+            height: 28,
+          },
+        },
+
+        [`&.@${prefixCls}-searchable`]: {
+          [`${token.antCls}-select`]: {
+            width: '200px',
+            '&-selector': {
+              height: 28,
+            },
+          },
+        },
+      },
+    };
+  });
+
   const valueMap: Record<string, string> = useMemo(() => {
     const values = {};
     options?.forEach((item) => {
@@ -81,7 +107,7 @@ const LightSelect: React.ForwardRefRenderFunction<any, SelectProps<any> & LightS
     ? value.map((v) => getValueOrLabel(valueMap, v))
     : getValueOrLabel(valueMap, value);
 
-  return (
+  return wrapSSR(
     <div
       className={classNames(
         prefixCls,
@@ -187,7 +213,7 @@ const LightSelect: React.ForwardRefRenderFunction<any, SelectProps<any> & LightS
         }}
         ref={lightLabel}
       />
-    </div>
+    </div>,
   );
 };
 

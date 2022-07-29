@@ -11,6 +11,7 @@ import {
   useDebounceValue,
   useDeepCompareEffect,
   useMountMergeState,
+  useStyle,
 } from '@ant-design/pro-utils';
 import type { SelectProps } from 'antd';
 import { ConfigProvider, Space, Spin } from 'antd';
@@ -28,7 +29,6 @@ import useSWR from 'swr';
 import type { ProFieldFC, ProFieldLightProps } from '../../index';
 import type { ProFieldStatusType } from '../Status';
 import TableStatus, { ProFieldBadgeColor } from '../Status';
-import './index.less';
 import LightSelect from './LightSelect';
 import SearchSelect from './SearchSelect';
 
@@ -124,6 +124,22 @@ const Highlight: React.FC<{
   const { getPrefixCls } = useContext(ConfigProvider.ConfigContext);
   const lightCls = getPrefixCls('pro-select-item-option-content-light');
   const optionCls = getPrefixCls('pro-select-item-option-content');
+
+  // css
+  const { wrapSSR } = useStyle('Highlight', (token) => {
+    return {
+      [lightCls]: {
+        color: token.colorPrimary,
+      },
+      [optionCls]: {
+        flex: 'auto',
+        overflow: 'hidden',
+        whiteSpace: 'nowrap',
+        textOverflow: 'ellipsis',
+      },
+    };
+  });
+
   const matchKeywordsRE = new RegExp(
     words.map((word) => word.replace(/[-[\]/{}()*+?.\\^$|]/g, '\\$&')).join('|'),
     'gi',
@@ -156,12 +172,14 @@ const Highlight: React.FC<{
     matchText = matchText.slice(matchLength);
   }
 
-  return React.createElement(
-    'div',
-    {
-      className: optionCls,
-    },
-    ...elements,
+  return wrapSSR(
+    React.createElement(
+      'div',
+      {
+        className: optionCls,
+      },
+      ...elements,
+    ),
   );
 };
 

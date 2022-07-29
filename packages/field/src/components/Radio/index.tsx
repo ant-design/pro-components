@@ -1,11 +1,11 @@
-﻿import type { RadioGroupProps } from 'antd';
+﻿import { useStyle } from '@ant-design/pro-utils';
+import type { RadioGroupProps } from 'antd';
 import { ConfigProvider, Radio, Spin } from 'antd';
 import classNames from 'classnames';
 import React, { useContext, useImperativeHandle, useRef } from 'react';
 import type { ProFieldFC } from '../../index';
 import type { FieldSelectProps } from '../Select';
 import { ObjToMap, proFieldParsingText, useFieldFetchData } from '../Select';
-import './index.less';
 
 export type GroupProps = {
   options?: RadioGroupProps['options'];
@@ -32,6 +32,17 @@ const FieldRadio: ProFieldFC<GroupProps> = (
     fetchData: () => fetchData(),
   }));
 
+  // css
+  const { wrapSSR, hashId } = useStyle('checkbox', (token) => {
+    return {
+      [`${layoutClassName}-horizontal`]: {
+        [`${token.antCls}-radio-wrapper`]: {
+          display: 'block',
+          marginRight: 0,
+        },
+      },
+    };
+  });
   if (loading) {
     return <Spin size="small" />;
   }
@@ -52,12 +63,13 @@ const FieldRadio: ProFieldFC<GroupProps> = (
 
   if (mode === 'edit') {
     const RadioComponents = radioType === 'button' ? Radio.Button : Radio;
-    const dom = (
+    const dom = wrapSSR(
       <Radio.Group
         ref={radioRef}
         {...rest.fieldProps}
         className={classNames(
           rest.fieldProps?.className,
+          hashId,
           `${layoutClassName}-${rest.fieldProps.layout || 'horizontal'}`,
         )}
         options={undefined}
@@ -67,7 +79,7 @@ const FieldRadio: ProFieldFC<GroupProps> = (
             {item.label}
           </RadioComponents>
         ))}
-      </Radio.Group>
+      </Radio.Group>,
     );
     if (renderFormItem) {
       return renderFormItem(rest.text, { mode, ...rest.fieldProps }, dom) || null;

@@ -25,7 +25,6 @@ import toArray from 'rc-util/lib/Children/toArray';
 import get from 'rc-util/lib/utils/get';
 import React, { useContext, useEffect } from 'react';
 import { stringify } from 'use-json-comparison';
-import './index.less';
 import type { RequestData } from './useFetchData';
 import useFetchData from './useFetchData';
 

@@ -1,11 +1,10 @@
 import { useIntl } from '@ant-design/pro-provider';
-import { FieldLabel, parseValueToMoment } from '@ant-design/pro-utils';
+import { FieldLabel, parseValueToMoment, useStyle } from '@ant-design/pro-utils';
 import type { DatePickerProps } from 'antd';
 import { ConfigProvider, DatePicker } from 'antd';
 import dayjs from 'dayjs';
 import React, { useContext, useState } from 'react';
 import type { ProFieldFC, ProFieldLightProps } from '../../index';
-import './index.less';
 
 const formatDate = (text: any, format: any) => {
   if (!text) {
@@ -56,6 +55,21 @@ const FieldDatePicker: ProFieldFC<
   const prefixCls = getPrefixCls('pro-field-date-picker');
   const [open, setOpen] = useState<boolean>(false);
 
+  // css
+  const { wrapSSR, hashId } = useStyle('DatePicker', (token) => {
+    return {
+      [`${prefixCls}-light`]: {
+        [`${token.antCls}-picker,${token.antCls}-calendar-picker`]: {
+          position: 'absolute',
+          width: '80px',
+          height: '28px',
+          overflow: 'hidden',
+          visibility: 'hidden',
+        },
+      },
+    };
+  });
+
   if (mode === 'read') {
     const dom = formatDate(text, fieldProps.format || format);
     if (render) {
@@ -79,7 +93,7 @@ const FieldDatePicker: ProFieldFC<
       const valueStr: string = (momentValue && momentValue.format(format)) || '';
       dom = (
         <div
-          className={`${prefixCls}-light`}
+          className={`${prefixCls}-light ${hashId}`}
           onClick={(e) => {
             // 点击label切换下拉菜单
             const isLabelClick = lightLabel?.current?.labelRef?.current?.contains(
@@ -146,7 +160,7 @@ const FieldDatePicker: ProFieldFC<
     if (renderFormItem) {
       return renderFormItem(text, { mode, ...fieldProps }, dom);
     }
-    return dom;
+    return wrapSSR(dom);
   }
   return null;
 };
