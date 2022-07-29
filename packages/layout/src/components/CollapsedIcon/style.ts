@@ -40,11 +40,11 @@ const genSiderMenuStyle: GenerateStyle<SiderMenuToken> = (token) => {
       },
       '& > svg': {
         transition: 'transform  0.3s',
-        transform: 'rotate(-90deg)',
+        transform: 'rotate(90deg)',
       },
       '&-collapsed': {
         '& > svg': {
-          transform: 'rotate(90deg)',
+          transform: 'rotate(-90deg)',
         },
       },
     },
