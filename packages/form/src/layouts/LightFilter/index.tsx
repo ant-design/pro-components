@@ -17,7 +17,7 @@ import React, {
 import type { CommonFormProps, ProFormInstance } from '../../BaseForm';
 import { BaseForm } from '../../BaseForm';
 import type { LightFilterFooterRender, Placement } from '../../interface';
-import './index.less';
+import { useStyle } from './style';
 
 export type LightFilterProps<T> = {
   collapse?: boolean;
@@ -83,6 +83,7 @@ const LightFilterContainer: React.FC<{
   } = props;
   const intl = useIntl();
   const lightFilterClassName = `${prefixCls}-light-filter`;
+  const { wrapSSR, hashId } = useStyle(lightFilterClassName);
 
   const [open, setOpen] = useState<boolean>(false);
   const [moreValues, setMoreValues] = useState<Record<string, any>>(() => {
@@ -126,9 +127,9 @@ const LightFilterContainer: React.FC<{
     );
   };
 
-  return (
+  return wrapSSR(
     <div
-      className={classNames(lightFilterClassName, `${lightFilterClassName}-${size}`, {
+      className={classNames(lightFilterClassName, hashId, `${lightFilterClassName}-${size}`, {
         [`${lightFilterClassName}-effective`]: Object.keys(values).some((key) => values[key]),
       })}
     >
@@ -214,7 +215,7 @@ const LightFilterContainer: React.FC<{
           </div>
         ) : null}
       </div>
-    </div>
+    </div>,
   );
 };
 

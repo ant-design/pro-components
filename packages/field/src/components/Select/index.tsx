@@ -128,10 +128,10 @@ const Highlight: React.FC<{
   // css
   const { wrapSSR } = useStyle('Highlight', (token) => {
     return {
-      [lightCls]: {
+      [`.${lightCls}`]: {
         color: token.colorPrimary,
       },
-      [optionCls]: {
+      [`.${optionCls}`]: {
         flex: 'auto',
         overflow: 'hidden',
         whiteSpace: 'nowrap',

@@ -58,7 +58,7 @@ const FieldDatePicker: ProFieldFC<
   // css
   const { wrapSSR, hashId } = useStyle('DatePicker', (token) => {
     return {
-      [`${prefixCls}-light`]: {
+      [`.${prefixCls}-light`]: {
         [`${token.antCls}-picker,${token.antCls}-calendar-picker`]: {
           position: 'absolute',
           width: '80px',

@@ -1,4 +1,3 @@
-import './index.less';
 import { ProForm } from './layouts';
 
 export { ProFormContext } from '@ant-design/pro-utils';

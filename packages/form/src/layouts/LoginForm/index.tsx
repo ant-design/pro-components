@@ -1,9 +1,10 @@
 import { useIntl } from '@ant-design/pro-provider';
 import { ConfigProvider } from 'antd';
+import classNames from 'classnames';
 import React, { useContext, useMemo } from 'react';
 import type { ProFormProps } from '../ProForm';
 import { ProForm } from '../ProForm';
-import './index.less';
+import { useStyle } from './style';
 
 export type LoginFormProps<T> = {
   /**
@@ -80,7 +81,7 @@ function LoginForm<T = Record<string, any>>(props: Partial<LoginFormProps<T>>) {
   const context = useContext(ConfigProvider.ConfigContext);
   const baseClassName = context.getPrefixCls('pro-form-login');
   const getCls = (className: string) => `${baseClassName}-${className}`;
-
+  const { wrapSSR, hashId } = useStyle(baseClassName);
   /** 生成logo 的dom，如果是string 设置为图片 如果是个 dom 就原样保留 */
   const logoDom = useMemo(() => {
     if (!logo) return null;
@@ -90,8 +91,8 @@ function LoginForm<T = Record<string, any>>(props: Partial<LoginFormProps<T>>) {
     return logo;
   }, [logo]);
 
-  return (
-    <div className={getCls('container')}>
+  return wrapSSR(
+    <div className={classNames(getCls('container'), hashId)}>
       <div className={getCls('top')}>
         {title || logoDom ? (
           <div className={getCls('header')}>
@@ -112,9 +113,9 @@ function LoginForm<T = Record<string, any>>(props: Partial<LoginFormProps<T>>) {
           {message}
           {children}
         </ProForm>
-        {actions ? <div className={getCls('other')}>{actions}</div> : null}
+        {actions ? <div className={getCls('main-other')}>{actions}</div> : null}
       </div>
-    </div>
+    </div>,
   );
 }
 export { LoginForm };

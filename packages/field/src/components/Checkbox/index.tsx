@@ -27,7 +27,7 @@ const FieldCheckbox: ProFieldFC<GroupProps> = (
   // css
   const { wrapSSR, hashId } = useStyle('Checkbox', (token) => {
     return {
-      [layoutClassName]: {
+      [`.${layoutClassName}`]: {
         '&-horizontal': {
           [`${token.antCls}-checkbox-group-item`]: {
             display: 'flex',

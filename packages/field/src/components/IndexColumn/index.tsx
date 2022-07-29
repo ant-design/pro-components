@@ -19,7 +19,7 @@ const IndexColumn: React.ForwardRefRenderFunction<any, { border?: boolean; child
   // css
   const { wrapSSR, hashId } = useStyle('IndexColumn', () => {
     return {
-      [className]: {
+      [`.${className}`]: {
         display: 'inline-flex',
         alignItems: 'center',
         justifyContent: 'center',

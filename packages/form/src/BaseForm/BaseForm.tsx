@@ -14,12 +14,14 @@ import {
   useFetchData,
   useMountMergeState,
   usePrevious,
+  useStyle,
 } from '@ant-design/pro-utils';
 import { useUrlSearchParams } from '@umijs/use-params';
 import type { FormInstance, FormItemProps, FormProps } from 'antd';
 import { ConfigProvider, Form, Spin } from 'antd';
 import type { NamePath } from 'antd/es/form/interface';
-import dayjs from 'dayjs';
+import classNames from 'classnames';
+import type dayjs from 'dayjs';
 import get from 'rc-util/lib/utils/get';
 import { default as namePathSet, default as set } from 'rc-util/lib/utils/set';
 import { noteOnce } from 'rc-util/lib/warning';
@@ -240,6 +242,53 @@ function BaseFormComponents<T = Record<string, any>>(props: BaseFormProps<T>) {
   const [urlSearch, setUrlSearch] = useUrlSearchParams({}, { disabled: !syncToUrl });
   const formRef = useRef<ProFormInstance<any>>(inlineForm! || ({} as any));
   const { RowWrapper } = useGridHelpers({ grid, rowProps });
+  const { getPrefixCls } = useContext(ConfigProvider.ConfigContext);
+  const prefixCls = getPrefixCls('pro-form');
+
+  // css
+  const { wrapSSR, hashId } = useStyle('ProForm', (token) => {
+    return {
+      [`.${prefixCls}`]: {
+        '*': {
+          boxSizing: 'border-box',
+        },
+        [`> div:not(${token.proComponentsCls}-form-light-filter)`]: {
+          '.pro-field': {
+            maxWidth: '100%',
+            // 适用于短数字，短文本或者选项
+            '&-xs': {
+              width: 104,
+            },
+            '&-s': {
+              width: 216,
+            },
+            // 适用于较短字段录入、如姓名、电话、ID 等。
+            '&-sm': {
+              width: 216,
+            },
+            '&-m': {
+              width: 328,
+            },
+            // 标准宽度，适用于大部分字段长度
+            '&-md': {
+              width: 328,
+            },
+            '&-l': {
+              width: 440,
+            },
+            // 适用于较长字段录入，如长网址、标签组、文件路径等。
+            '&-lg': {
+              width: 440,
+            },
+            // 适用于长文本录入，如长链接、描述、备注等，通常搭配自适应多行输入框或定高文本域使用。
+            '&-xl': {
+              width: 552,
+            },
+          },
+        },
+      },
+    };
+  });
 
   const fieldsValueType = useRef<
     Record<
@@ -479,7 +528,7 @@ function BaseFormComponents<T = Record<string, any>>(props: BaseFormProps<T>) {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [extraUrlParams, syncToUrl]);
 
-  return (
+  return wrapSSR(
     // 增加国际化的能力，与 table 组件可以统一
     <FieldContext.Provider
       value={{
@@ -511,6 +560,7 @@ function BaseFormComponents<T = Record<string, any>>(props: BaseFormProps<T>) {
               }}
               form={inlineForm}
               {...rest}
+              className={classNames(props.className, hashId, prefixCls)}
               // 组合 urlSearch 和 initialValues
               initialValues={
                 syncToUrlAsImportant
@@ -584,7 +634,7 @@ function BaseFormComponents<T = Record<string, any>>(props: BaseFormProps<T>) {
           </GridContext.Provider>
         </ConfigProvider.SizeContext.Provider>
       </ProFormContext.Provider>
-    </FieldContext.Provider>
+    </FieldContext.Provider>,
   );
 }
 

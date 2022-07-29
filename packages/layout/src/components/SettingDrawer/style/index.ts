@@ -114,16 +114,12 @@ const genSettingDrawerStyle: GenerateStyle<SettingDrawerToken> = (token) => {
 };
 
 export function useStyle(prefixCls: string) {
-  return useAntdStyle(
-    'pro-layout-setting-drawer',
-    (token) => {
-      const settingDrawerToken: SettingDrawerToken = {
-        ...token,
-        componentCls: `.${prefixCls}`,
-      };
+  return useAntdStyle('pro-layout-setting-drawer', (token) => {
+    const settingDrawerToken: SettingDrawerToken = {
+      ...token,
+      componentCls: `.${prefixCls}`,
+    };
 
-      return [genSettingDrawerStyle(settingDrawerToken)];
-    },
-    false,
-  );
+    return [genSettingDrawerStyle(settingDrawerToken)];
+  });
 }

@@ -35,7 +35,7 @@ const FieldRadio: ProFieldFC<GroupProps> = (
   // css
   const { wrapSSR, hashId } = useStyle('checkbox', (token) => {
     return {
-      [`${layoutClassName}-horizontal`]: {
+      [`.${layoutClassName}-horizontal`]: {
         [`${token.antCls}-radio-wrapper`]: {
           display: 'block',
           marginRight: 0,
