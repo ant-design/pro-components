@@ -100,6 +100,7 @@ function LoginForm<T = Record<string, any>>(props: Partial<LoginFormProps<T>>) {
           </div>
         ) : null}
         {subTitle ? <div className={getCls('desc')}>{subTitle}</div> : null}
+        {title || subTitle ? <div className={getCls('desc-bottom')}></div> : null}
       </div>
       <div
         className={getCls('main')}
