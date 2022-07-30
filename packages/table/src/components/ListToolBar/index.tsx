@@ -9,7 +9,7 @@ import React, { useContext, useMemo } from 'react';
 import useAntdMediaQuery from 'use-media-antd-query';
 import type { ListToolBarHeaderMenuProps } from './HeaderMenu';
 import HeaderMenu from './HeaderMenu';
-import './index.less';
+import { useStyle } from './style';
 
 export type ListToolBarSetting = {
   icon: React.ReactNode;
@@ -295,8 +295,10 @@ const ListToolBar: React.FC<ListToolBarProps> = ({
     );
   }, [hasLeft, hasRight, isMobile, leftTitleDom, prefixCls, rightTitleDom]);
 
-  return (
-    <div style={style} className={classNames(`${prefixCls}`, className)}>
+  const { wrapSSR, hashId } = useStyle(prefixCls);
+
+  return wrapSSR(
+    <div style={style} className={classNames(prefixCls, hashId, className)}>
       {titleNode}
       <ListToolBarTabBar
         filtersNode={filtersNode}
@@ -304,7 +306,7 @@ const ListToolBar: React.FC<ListToolBarProps> = ({
         tabs={tabs}
         multipleLine={multipleLine}
       />
-    </div>
+    </div>,
   );
 };
 
