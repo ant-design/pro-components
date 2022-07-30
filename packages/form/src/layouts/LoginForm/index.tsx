@@ -96,11 +96,12 @@ function LoginForm<T = Record<string, any>>(props: Partial<LoginFormProps<T>>) {
         {title || logoDom ? (
           <div className={getCls('header')}>
             {logoDom ? <span className={getCls('logo')}>{logoDom}</span> : null}
+            {logoDom && title ? <span className={getCls('title-logo-space')} /> : null}
             {title ? <span className={getCls('title')}>{title}</span> : null}
           </div>
         ) : null}
         {subTitle ? <div className={getCls('desc')}>{subTitle}</div> : null}
-        {title || subTitle ? <div className={getCls('desc-bottom')}></div> : null}
+        {logoDom || title || subTitle ? <div className={getCls('desc-bottom')} /> : null}
       </div>
       <div
         className={getCls('main')}
