@@ -4,7 +4,7 @@ import classNames from 'classnames';
 import React, { useContext, useEffect, useMemo } from 'react';
 import type { CheckCardGroupProps } from './Group';
 import CheckCardGroup, { CardLoading, CheckCardGroupConnext } from './Group';
-import './index.less';
+import { useStyle } from './style';
 
 interface CheckCardProps {
   /**
@@ -180,6 +180,8 @@ const CheckCard: React.FC<CheckCardProps> & {
   const checkCardProps: CheckCardProps = { ...others };
   const prefixCls = getPrefixCls('pro-checkcard', customizePrefixCls);
 
+  const { wrapSSR, hashId } = useStyle(prefixCls);
+
   checkCardProps.checked = stateChecked;
 
   let multiple = false;
@@ -211,6 +213,7 @@ const CheckCard: React.FC<CheckCardProps> & {
     [`${prefixCls}-multiple`]: multiple,
     [`${prefixCls}-disabled`]: disabled,
     [`${prefixCls}-bordered`]: bordered,
+    hashId,
   });
 
   const metaDom = useMemo(() => {
@@ -256,7 +259,7 @@ const CheckCard: React.FC<CheckCardProps> & {
     );
   }, [avatar, cardLoading, cover, description, extra, prefixCls, title]);
 
-  return (
+  return wrapSSR(
     <div
       className={classString}
       style={style}
@@ -267,7 +270,7 @@ const CheckCard: React.FC<CheckCardProps> & {
       }}
     >
       {metaDom}
-    </div>
+    </div>,
   );
 };
 
