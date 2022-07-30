@@ -3,7 +3,7 @@ import type { BadgeProps, StatisticProps as AntdStatisticProps } from 'antd';
 import { Badge, ConfigProvider, Statistic as AntdStatistic, Tooltip } from 'antd';
 import classNames from 'classnames';
 import React, { useContext } from 'react';
-import './index.less';
+import { useStyle } from './style';
 
 export interface StatisticProps extends AntdStatisticProps {
   /**
@@ -52,6 +52,7 @@ const Statistic: React.FC<StatisticProps> = (props) => {
 
   const { getPrefixCls } = useContext(ConfigProvider.ConfigContext);
   const prefixCls = getPrefixCls('pro-card-statistic');
+  const { wrapSSR, hashId } = useStyle(prefixCls);
   const classString = classNames(prefixCls, className);
   const statusClass = classNames(`${prefixCls}-status`);
   const iconClass = classNames(`${prefixCls}-icon`);
@@ -61,6 +62,7 @@ const Statistic: React.FC<StatisticProps> = (props) => {
   const statisticClassName = classNames({
     [`${prefixCls}-layout-${layout}`]: layout,
     [`${prefixCls}-trend-${trend}`]: trend,
+    hashId,
   });
 
   const tipDom = tip && (
@@ -83,7 +85,7 @@ const Statistic: React.FC<StatisticProps> = (props) => {
 
   const iconDom = icon && <div className={iconClass}>{icon}</div>;
 
-  return (
+  return wrapSSR(
     <div className={classString} style={style}>
       {iconDom}
       <div className={wrapperClass}>
@@ -114,7 +116,7 @@ const Statistic: React.FC<StatisticProps> = (props) => {
           )}
         </div>
       </div>
-    </div>
+    </div>,
   );
 };
 
