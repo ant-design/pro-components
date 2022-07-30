@@ -36,7 +36,7 @@ import Alert from './components/Alert';
 import FormRender from './components/Form';
 import Toolbar from './components/ToolBar';
 import Container from './container';
-import './index.less';
+import { useStyle } from './style';
 import type {
   OptionSearchProps,
   PageInfo,
@@ -862,14 +862,18 @@ const ProviderWarp = <
   const { getPrefixCls } = useContext(ConfigProvider.ConfigContext);
   const ErrorComponent =
     props.ErrorBoundary === false ? React.Fragment : props.ErrorBoundary || ErrorBoundary;
+  const { wrapSSR } = useStyle(getPrefixCls('pro-table'));
+
   return (
     <Container.Provider initialState={props}>
       <ConfigProviderWrap>
         <ErrorComponent>
-          <ProTable<DataType, Params, ValueType>
-            defaultClassName={getPrefixCls('pro-table')}
-            {...props}
-          />
+          {wrapSSR(
+            <ProTable<DataType, Params, ValueType>
+              defaultClassName={getPrefixCls('pro-table')}
+              {...props}
+            />,
+          )}
         </ErrorComponent>
       </ConfigProviderWrap>
     </Container.Provider>
