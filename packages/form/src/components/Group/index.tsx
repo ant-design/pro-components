@@ -6,7 +6,7 @@ import React, { useCallback, useContext, useMemo } from 'react';
 import FieldContext from '../../FieldContext';
 import { useGridHelpers } from '../../helpers';
 import type { GroupProps } from '../../interface';
-import './index.less';
+import { useStyle } from './style';
 
 const Group: React.FC<GroupProps> = React.forwardRef((props, ref: any) => {
   const { groupProps } = React.useContext(FieldContext);
@@ -40,6 +40,7 @@ const Group: React.FC<GroupProps> = React.forwardRef((props, ref: any) => {
   const { ColWrapper, RowWrapper } = useGridHelpers(props);
 
   const className = getPrefixCls('pro-form-group');
+  const { wrapSSR, hashId } = useStyle(className);
 
   const collapsibleButton = collapsible && (
     <RightOutlined
@@ -118,10 +119,10 @@ const Group: React.FC<GroupProps> = React.forwardRef((props, ref: any) => {
     ];
   }, [children, RowWrapper, Wrapper, autoFocus]);
 
-  return (
+  return wrapSSR(
     <ColWrapper>
       <div
-        className={classNames(className, {
+        className={classNames(className, hashId, {
           [`${className}-twoLine`]: labelLayout === 'twoLine',
         })}
         style={style}
@@ -155,7 +156,7 @@ const Group: React.FC<GroupProps> = React.forwardRef((props, ref: any) => {
         )}
         {collapsible && collapsed ? null : childrenDoms}
       </div>
-    </ColWrapper>
+    </ColWrapper>,
   );
 });
 

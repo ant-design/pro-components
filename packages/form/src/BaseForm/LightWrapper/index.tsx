@@ -9,7 +9,7 @@ import { ConfigProvider } from 'antd';
 import classNames from 'classnames';
 import React, { useContext, useMemo, useState } from 'react';
 import type { LightFilterFooterRender, Placement } from '../../interface';
-import './index.less';
+import { useStyle } from './style';
 
 export type SizeType = 'small' | 'middle' | 'large' | undefined;
 
@@ -65,6 +65,7 @@ const LightWrapper: React.ForwardRefRenderFunction<any, LightWrapperProps> = (pr
 
   const { getPrefixCls } = useContext(ConfigProvider.ConfigContext);
   const prefixCls = getPrefixCls('pro-field-light-wrapper');
+  const { wrapSSR, hashId } = useStyle(prefixCls);
   const [tempValue, setTempValue] = useState<string | undefined>(props[valuePropName!]);
   const [open, setOpen] = useMountMergeState<boolean>(false);
 
@@ -82,7 +83,7 @@ const LightWrapper: React.ForwardRefRenderFunction<any, LightWrapperProps> = (pr
     }
     return labelValue;
   }, [labelValue, valueType, labelFormatter]);
-  return (
+  return wrapSSR(
     <FilterDropdown
       disabled={disabled}
       onVisibleChange={setOpen}
@@ -117,7 +118,7 @@ const LightWrapper: React.ForwardRefRenderFunction<any, LightWrapperProps> = (pr
       }}
       footerRender={footerRender}
     >
-      <div className={classNames(`${prefixCls}-container`, className)} style={style}>
+      <div className={classNames(`${prefixCls}-container`, hashId, className)} style={style}>
         {React.cloneElement(children as JSX.Element, {
           ...rest,
           [valuePropName!]: tempValue,
@@ -127,7 +128,7 @@ const LightWrapper: React.ForwardRefRenderFunction<any, LightWrapperProps> = (pr
           ...(children as JSX.Element).props,
         })}
       </div>
-    </FilterDropdown>
+    </FilterDropdown>,
   );
 };
 

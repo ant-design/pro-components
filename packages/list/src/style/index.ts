@@ -197,10 +197,10 @@ const genProListStyle: GenerateStyle<ProListToken> = (token) => {
         [`${token.antCls}-list-list`]: {
           '&-item': { padding: '12px', cursor: 'pointer' },
         },
-        [`.${token.antCls}-list-vertical .${token.proComponentsCls}-list-row ${token.antCls}-list`]:
+        [`${token.antCls}-list-vertical .${token.proComponentsCls}-list-row ${token.antCls}-list`]:
           {
             '&-header': { padding: '0', borderBottom: 'none' },
-            [`.${token.antCls}-list-item`]: {
+            [`${token.antCls}-list-item`]: {
               width: '100%',
               padding: '12px 18px 12px 24px',
               '&-meta-avatar': { display: 'flex', alignItems: 'center', marginRight: '8px' },
