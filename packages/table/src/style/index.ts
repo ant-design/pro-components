@@ -47,6 +47,30 @@ const genProListStyle: GenerateStyle<ProListToken> = (token) => {
       '75%': { transform: 'rotate(270deg)' },
       '100%': { transform: 'rotate(360deg)' },
     },
+
+    '&-search': {
+      marginBottom: '16px',
+      padding: '24px',
+      paddingBottom: '0',
+      background: '@component-background',
+      '&-ghost': {
+        background: 'transparent',
+      },
+      [`&${token.componentCls}-form`]: { margin: '0', padding: '0 16px', overflow: 'unset' },
+      '&-light': { marginBottom: '0', padding: '16px 0' },
+      '&-form-option': {
+        [`${token.antCls}-form-item`]: {},
+        [`${token.antCls}-form-item-label`]: {},
+        [`${token.antCls}-form-item-control-input`]: {},
+      },
+      '@media (max-width: 575px)': {
+        [token.componentCls]: {
+          height: 'auto !important',
+          paddingBottom: '24px',
+          [`${token.antCls}-form-item-label`]: { minWidth: '80px', textAlign: 'left' },
+        },
+      },
+    },
   };
 };
 
