@@ -9,6 +9,7 @@ import React, { useContext, useImperativeHandle, useMemo, useRef } from 'react';
 import './index.less';
 import type { ItemProps } from './Item';
 import ListView from './ListView';
+import { useStyle } from './style/index';
 
 export type AntdListProps<RecordType> = Omit<ListProps<RecordType>, 'rowKey'>;
 
@@ -135,11 +136,13 @@ function ProList<
   }, [metals]);
 
   const prefixCls = getPrefixCls('pro-list', props.prefixCls);
-  const listClassName = classNames(prefixCls, {
+
+  const { wrapSSR, hashId } = useStyle(prefixCls);
+  const listClassName = classNames(prefixCls, hashId, {
     [`${prefixCls}-no-split`]: !split,
   });
 
-  return (
+  return wrapSSR(
     <ProTable<RecordType, U>
       tooltip={tooltip}
       {...(rest as any)}
@@ -182,7 +185,7 @@ function ProList<
           />
         );
       }}
-    />
+    />,
   );
 }
 
