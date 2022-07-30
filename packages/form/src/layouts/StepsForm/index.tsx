@@ -16,9 +16,9 @@ import React, {
 } from 'react';
 import type { SubmitterProps } from '../../components';
 import type { ProFormProps } from '../ProForm';
-import './index.less';
 import type { StepFormProps } from './StepForm';
 import StepForm from './StepForm';
+import { useStyle } from './style';
 
 type StepsFormProps<T = Record<string, any>> = {
   /**
@@ -137,6 +137,8 @@ function StepsForm<T = Record<string, any>>(
 ) {
   const { getPrefixCls } = useContext(ConfigProvider.ConfigContext);
   const prefixCls = getPrefixCls('pro-steps-form');
+
+  const { wrapSSR, hashId } = useStyle(prefixCls);
 
   const {
     current,
@@ -420,8 +422,8 @@ function StepsForm<T = Record<string, any>>(
     return layoutRender(doms);
   }, [finalStepsDom, formContainer, layoutRender, stepsFormRender, submitterDom]);
 
-  return (
-    <div className={prefixCls}>
+  return wrapSSR(
+    <div className={classNames(prefixCls, hashId)}>
       <Form.Provider {...rest}>
         <StepsFormProvide.Provider
           value={{
@@ -440,7 +442,7 @@ function StepsForm<T = Record<string, any>>(
           {stepsFormDom}
         </StepsFormProvide.Provider>
       </Form.Provider>
-    </div>
+    </div>,
   );
 }
 
