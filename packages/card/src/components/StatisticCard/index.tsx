@@ -7,7 +7,7 @@ import Divider from '../Divider';
 import Operation from '../Operation';
 import type { StatisticProps } from '../Statistic';
 import Statistic from '../Statistic';
-import './index.less';
+import { useStyle } from './style';
 
 export type StatisticCardProps = {
   /** 图表配置 */
@@ -33,7 +33,8 @@ const StatisticCard: React.FC<StatisticCardProps> & {
   const { children, statistic, className, chart, chartPlacement, footer, ...others } = props;
   const { getPrefixCls } = useContext(ConfigProvider.ConfigContext);
   const prefixCls = getPrefixCls('pro-statistic-card');
-  const classString = classNames(prefixCls, className);
+  const { wrapSSR, hashId } = useStyle(prefixCls);
+  const classString = classNames(prefixCls, className, hashId);
 
   // 在 StatisticCard 中时默认为 vertical。
   const statisticDom = statistic && <Statistic layout="vertical" {...statistic} />;
@@ -66,12 +67,12 @@ const StatisticCard: React.FC<StatisticCardProps> & {
 
   const footerDom = footer && <div className={`${prefixCls}-footer`}>{footer}</div>;
 
-  return (
+  return wrapSSR(
     <Card className={classString} {...others}>
       {contentDom}
       {children}
       {footerDom}
-    </Card>
+    </Card>,
   );
 };
 
