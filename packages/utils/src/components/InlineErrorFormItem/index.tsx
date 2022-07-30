@@ -3,7 +3,7 @@ import type { FormItemProps, PopoverProps } from 'antd';
 import { ConfigProvider, Form, Popover } from 'antd';
 import type { NamePath } from 'rc-field-form/lib/interface';
 import React, { useContext, useEffect, useState } from 'react';
-import './index.less';
+import { useStyle } from './style';
 
 interface InlineErrorFormItemProps extends FormItemProps {
   errorType?: 'popover' | 'default';
@@ -32,14 +32,15 @@ const InlineErrorFormItem: React.FC<{
   const [visible, setVisible] = useState<boolean | undefined>(false);
   const [errorStringList, setErrorList] = useState<string[]>([]);
   const { getPrefixCls } = useContext(ConfigProvider.ConfigContext);
+  const prefixCls = getPrefixCls();
+
+  const { wrapSSR, hashId } = useStyle(`${prefixCls}-form-item-with-help`);
 
   useEffect(() => {
     if (inputProps.validateStatus !== 'validating') {
       setErrorList(inputProps.errors);
     }
   }, [inputProps.errors, inputProps.validateStatus]);
-
-  const prefixCls = getPrefixCls();
 
   return (
     <Popover
@@ -53,12 +54,12 @@ const InlineErrorFormItem: React.FC<{
       }}
       getPopupContainer={popoverProps?.getPopupContainer}
       getTooltipContainer={popoverProps?.getTooltipContainer}
-      content={
-        <div className={`${prefixCls}-form-item-with-help`}>
+      content={wrapSSR(
+        <div className={`${prefixCls}-form-item-with-help ${hashId}`}>
           {inputProps.validateStatus === 'validating' ? <LoadingOutlined /> : null}
           {errorList}
-        </div>
-      }
+        </div>,
+      )}
       {...popoverProps}
     >
       <div>

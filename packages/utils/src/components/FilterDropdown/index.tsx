@@ -2,7 +2,7 @@ import { ConfigProvider, Dropdown } from 'antd';
 import React, { useContext } from 'react';
 import type { DropdownFooterProps } from '../DropdownFooter';
 import Footer from '../DropdownFooter';
-import './index.less';
+import { useStyle } from './style';
 
 declare const Placements: [
   'topLeft',
@@ -38,8 +38,9 @@ const FilterDropdown: React.FC<DropdownProps> = (props) => {
     props;
   const { getPrefixCls } = useContext(ConfigProvider.ConfigContext);
   const prefixCls = getPrefixCls('pro-core-field-dropdown');
+  const { wrapSSR, hashId } = useStyle(prefixCls);
 
-  return (
+  return wrapSSR(
     <Dropdown
       disabled={disabled}
       placement={placement}
@@ -47,14 +48,14 @@ const FilterDropdown: React.FC<DropdownProps> = (props) => {
       visible={visible}
       onVisibleChange={onVisibleChange}
       overlay={
-        <div className={`${prefixCls}-overlay`}>
+        <div className={`${prefixCls}-overlay ${hashId}`}>
           <div className={`${prefixCls}-content`}>{children}</div>
           {footer && <Footer disabled={disabled} footerRender={footerRender} {...footer} />}
         </div>
       }
     >
       <span className={`${prefixCls}-label`}>{label}</span>
-    </Dropdown>
+    </Dropdown>,
   );
 };
 

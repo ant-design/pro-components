@@ -1,7 +1,8 @@
 import { useIntl } from '@ant-design/pro-provider';
 import { Button, ConfigProvider } from 'antd';
+import classNames from 'classnames';
 import React, { useContext } from 'react';
-import './index.less';
+import { useStyle } from './style';
 
 type LightFilterFooterRender =
   | ((
@@ -25,6 +26,7 @@ const DropdownFooter: React.FC<DropdownFooterProps> = (props) => {
   const { onClear, onConfirm, disabled, footerRender } = props;
   const { getPrefixCls } = useContext(ConfigProvider.ConfigContext);
   const prefixCls = getPrefixCls('pro-core-dropdown-footer');
+  const { wrapSSR, hashId } = useStyle(prefixCls);
   const defaultFooter = [
     <Button
       key="clear"
@@ -61,15 +63,15 @@ const DropdownFooter: React.FC<DropdownFooterProps> = (props) => {
 
   const renderDom = footerRender?.(onConfirm, onClear) || defaultFooter;
 
-  return (
+  return wrapSSR(
     <div
-      className={prefixCls}
+      className={classNames(prefixCls, hashId)}
       onClick={(e) =>
         (e.target as Element).getAttribute('data-type') !== 'confirm' && e.stopPropagation()
       }
     >
       {renderDom}
-    </div>
+    </div>,
   );
 };
 

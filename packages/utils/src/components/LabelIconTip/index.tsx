@@ -3,7 +3,7 @@ import { ConfigProvider, Tooltip } from 'antd';
 import type { LabelTooltipType, WrapperTooltipProps } from 'antd/es/form/FormItemLabel';
 import classNames from 'classnames';
 import React, { useContext } from 'react';
-import './index.less';
+import { useStyle } from './style';
 
 /**
  * 在 form 的 label 后面增加一个 tips 来展示一些说明文案
@@ -18,20 +18,22 @@ const LabelIconTip: React.FC<{
 }> = (props) => {
   const { label, tooltip, ellipsis, subTitle } = props;
   const { getPrefixCls } = useContext(ConfigProvider.ConfigContext);
+  const className = getPrefixCls('pro-core-label-tip');
 
+  const { wrapSSR, hashId } = useStyle(className);
   if (!tooltip && !subTitle) {
     return <>{label}</>;
   }
-  const className = getPrefixCls('pro-core-label-tip');
   const tooltipProps =
     typeof tooltip === 'string' || React.isValidElement(tooltip)
       ? { title: tooltip }
       : (tooltip as WrapperTooltipProps);
 
   const icon = tooltipProps?.icon || <InfoCircleOutlined />;
-  return (
+
+  return wrapSSR(
     <div
-      className={className}
+      className={classNames(className, hashId)}
       onMouseDown={(e) => e.stopPropagation()}
       onMouseLeave={(e) => e.stopPropagation()}
       onMouseMove={(e) => e.stopPropagation()}
@@ -49,7 +51,7 @@ const LabelIconTip: React.FC<{
           <span className={`${className}-icon`}>{icon}</span>
         </Tooltip>
       )}
-    </div>
+    </div>,
   );
 };
 

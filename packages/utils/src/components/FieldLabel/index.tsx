@@ -4,7 +4,7 @@ import { ConfigProvider } from 'antd';
 import type { SizeType } from 'antd/es/config-provider/SizeContext';
 import classNames from 'classnames';
 import React, { useContext, useImperativeHandle, useRef } from 'react';
-import './index.less';
+import { useStyle } from './style';
 
 export type FieldLabelProps = {
   label?: React.ReactNode;
@@ -44,6 +44,7 @@ const FieldLabel: React.ForwardRefRenderFunction<any, FieldLabelProps> = (props,
   } = props;
   const { getPrefixCls } = useContext(ConfigProvider.ConfigContext);
   const prefixCls = getPrefixCls('pro-core-field-label');
+  const { wrapSSR, hashId } = useStyle(prefixCls);
   const intl = useIntl();
   const clearRef = useRef<HTMLElement>(null);
   const labelRef = useRef<HTMLElement>(null);
@@ -122,10 +123,11 @@ const FieldLabel: React.ForwardRefRenderFunction<any, FieldLabelProps> = (props,
     }
     return aLabel || placeholder;
   };
-  return (
+  return wrapSSR(
     <span
       className={classNames(
         prefixCls,
+        hashId,
         `${prefixCls}-${size}`,
         {
           [`${prefixCls}-active`]: !!value || value === 0,
@@ -154,7 +156,7 @@ const FieldLabel: React.ForwardRefRenderFunction<any, FieldLabelProps> = (props,
         />
       )}
       <DownOutlined className={classNames(`${prefixCls}-icon`, `${prefixCls}-arrow`)} />
-    </span>
+    </span>,
   );
 };
 
