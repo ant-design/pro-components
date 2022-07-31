@@ -3498,7 +3498,7 @@ exports[`list demos 📸 renders ./packages/list/src/demos/filter.tsx correctly 
                       >
                         <form
                           autocomplete="off"
-                          class="ant-form ant-form-horizontal"
+                          class="ant-form ant-form-horizontal ant-pro-form"
                         >
                           <input
                             style="display: none;"
@@ -6106,7 +6106,7 @@ exports[`list demos 📸 renders ./packages/list/src/demos/search.tsx correctly 
         >
           <form
             autocomplete="off"
-            class="ant-form ant-form-horizontal ant-pro-form-query-filter"
+            class="ant-form ant-form-horizontal ant-pro-form-query-filter ant-pro-form"
           >
             <input
               style="display: none;"

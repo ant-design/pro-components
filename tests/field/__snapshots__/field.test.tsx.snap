@@ -2522,7 +2522,7 @@ exports[`Field 🐴 money valueType is Object 1`] = `
 
 exports[`Field 🐴 money valueType is Object 2`] = `
 <span>
-  ￥ 100
+  ¥100.00
 </span>
 `;
 
@@ -3176,7 +3176,7 @@ exports[`Field 🐴 read and plain 1`] = `
                 class="ant-descriptions-item-content"
               >
                 <span>
-                  ￥ 100
+                  ¥100.00
                 </span>
               </span>
             </div>
@@ -3753,7 +3753,7 @@ exports[`Field 🐴 read ant no plain 1`] = `
                 class="ant-descriptions-item-content"
               >
                 <span>
-                  ￥ 100
+                  ¥100.00
                 </span>
               </span>
             </div>

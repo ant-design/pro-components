@@ -26,26 +26,25 @@ exports[`settingDrawer.test 🌺 base user 1`] = `
             class="ant-drawer-body"
           >
             <div
-              class="ant-pro-setting-drawer-content ant-design-pro-layout-1d13jk3"
+              class="ant-pro-setting-drawer-content"
             >
               <div
                 style="margin-bottom:24px"
               >
                 <h3
-                  class="ant-pro-setting-drawer-title ant-design-pro-layout-19crn7j"
+                  class="ant-pro-setting-drawer-body-title"
                 >
                   整体风格设置
                 </h3>
                 <div
                   class="ant-pro-setting-drawer-block-checkbox"
-                  style="display:flex;min-height:42px"
                 >
                   <div
-                    class="ant-pro-setting-drawer-block-checkbox-item ant-pro-setting-drawer-block-checkbox-item-light ant-pro-setting-drawer-block-checkbox-theme-item ant-design-pro-layout-1hs9yxk"
+                    class="ant-pro-setting-drawer-block-checkbox-item ant-pro-setting-drawer-block-checkbox-item-light ant-pro-setting-drawer-block-checkbox-theme-item"
                   >
                     <span
                       aria-label="check"
-                      class="anticon anticon-check ant-pro-setting-drawer-block-checkbox-selectIcon ant-design-pro-layout-fsey5o"
+                      class="anticon anticon-check ant-pro-setting-drawer-block-checkbox-selectIcon"
                       role="img"
                       style="display:none"
                     >
@@ -70,73 +69,69 @@ exports[`settingDrawer.test 🌺 base user 1`] = `
                 style="margin-bottom:24px"
               >
                 <h3
-                  class="ant-pro-setting-drawer-title ant-design-pro-layout-19crn7j"
+                  class="ant-pro-setting-drawer-body-title"
                 >
                   主题色
                 </h3>
                 <div
-                  class="ant-design-pro-layout-1xmh8xu"
+                  class="ant-pro-setting-drawer-theme-color"
                 >
                   <div
-                    class="theme-color-content ant-design-pro-layout-0"
+                    class="ant-pro-setting-drawer-theme-color-block"
+                    style="background-color:#1677FF"
                   >
-                    <div
-                      class="theme-color-block ant-design-pro-layout-1v4zi6f"
-                      style="background-color:#1677FF"
+                    <span
+                      aria-label="check"
+                      class="anticon anticon-check"
+                      role="img"
                     >
-                      <span
-                        aria-label="check"
-                        class="anticon anticon-check"
-                        role="img"
+                      <svg
+                        aria-hidden="true"
+                        data-icon="check"
+                        fill="currentColor"
+                        focusable="false"
+                        height="1em"
+                        viewBox="64 64 896 896"
+                        width="1em"
                       >
-                        <svg
-                          aria-hidden="true"
-                          data-icon="check"
-                          fill="currentColor"
-                          focusable="false"
-                          height="1em"
-                          viewBox="64 64 896 896"
-                          width="1em"
-                        >
-                          <path
-                            d="M912 190h-69.9c-9.8 0-19.1 4.5-25.1 12.2L404.7 724.5 207 474a32 32 0 00-25.1-12.2H112c-6.7 0-10.4 7.7-6.3 12.9l273.9 347c12.8 16.2 37.4 16.2 50.3 0l488.4-618.9c4.1-5.1.4-12.8-6.3-12.8z"
-                          />
-                        </svg>
-                      </span>
-                    </div>
-                    <div
-                      class="theme-color-block ant-design-pro-layout-1v4zi6f"
-                      style="background-color:#1890ff"
-                    />
-                    <div
-                      class="theme-color-block ant-design-pro-layout-1v4zi6f"
-                      style="background-color:#F5222D"
-                    />
-                    <div
-                      class="theme-color-block ant-design-pro-layout-1v4zi6f"
-                      style="background-color:#FA541C"
-                    />
-                    <div
-                      class="theme-color-block ant-design-pro-layout-1v4zi6f"
-                      style="background-color:#FAAD14"
-                    />
-                    <div
-                      class="theme-color-block ant-design-pro-layout-1v4zi6f"
-                      style="background-color:#13C2C2"
-                    />
-                    <div
-                      class="theme-color-block ant-design-pro-layout-1v4zi6f"
-                      style="background-color:#52C41A"
-                    />
-                    <div
-                      class="theme-color-block ant-design-pro-layout-1v4zi6f"
-                      style="background-color:#2F54EB"
-                    />
-                    <div
-                      class="theme-color-block ant-design-pro-layout-1v4zi6f"
-                      style="background-color:#722ED1"
-                    />
+                        <path
+                          d="M912 190h-69.9c-9.8 0-19.1 4.5-25.1 12.2L404.7 724.5 207 474a32 32 0 00-25.1-12.2H112c-6.7 0-10.4 7.7-6.3 12.9l273.9 347c12.8 16.2 37.4 16.2 50.3 0l488.4-618.9c4.1-5.1.4-12.8-6.3-12.8z"
+                        />
+                      </svg>
+                    </span>
                   </div>
+                  <div
+                    class="ant-pro-setting-drawer-theme-color-block"
+                    style="background-color:#1890ff"
+                  />
+                  <div
+                    class="ant-pro-setting-drawer-theme-color-block"
+                    style="background-color:#F5222D"
+                  />
+                  <div
+                    class="ant-pro-setting-drawer-theme-color-block"
+                    style="background-color:#FA541C"
+                  />
+                  <div
+                    class="ant-pro-setting-drawer-theme-color-block"
+                    style="background-color:#FAAD14"
+                  />
+                  <div
+                    class="ant-pro-setting-drawer-theme-color-block"
+                    style="background-color:#13C2C2"
+                  />
+                  <div
+                    class="ant-pro-setting-drawer-theme-color-block"
+                    style="background-color:#52C41A"
+                  />
+                  <div
+                    class="ant-pro-setting-drawer-theme-color-block"
+                    style="background-color:#2F54EB"
+                  />
+                  <div
+                    class="ant-pro-setting-drawer-theme-color-block"
+                    style="background-color:#722ED1"
+                  />
                 </div>
               </div>
               <div
@@ -147,20 +142,19 @@ exports[`settingDrawer.test 🌺 base user 1`] = `
                 style="margin-bottom:24px"
               >
                 <h3
-                  class="ant-pro-setting-drawer-title ant-design-pro-layout-19crn7j"
+                  class="ant-pro-setting-drawer-body-title"
                 >
                   导航模式
                 </h3>
                 <div
                   class="ant-pro-setting-drawer-block-checkbox"
-                  style="display:flex;min-height:42px"
                 >
                   <div
-                    class="ant-pro-setting-drawer-block-checkbox-item ant-pro-setting-drawer-block-checkbox-item-side ant-pro-setting-drawer-block-checkbox-layout-item ant-design-pro-layout-1t3ehi9"
+                    class="ant-pro-setting-drawer-block-checkbox-item ant-pro-setting-drawer-block-checkbox-item-side ant-pro-setting-drawer-block-checkbox-layout-item"
                   >
                     <span
                       aria-label="check"
-                      class="anticon anticon-check ant-pro-setting-drawer-block-checkbox-selectIcon ant-design-pro-layout-fsey5o"
+                      class="anticon anticon-check ant-pro-setting-drawer-block-checkbox-selectIcon"
                       role="img"
                       style="display:block"
                     >
@@ -180,11 +174,11 @@ exports[`settingDrawer.test 🌺 base user 1`] = `
                     </span>
                   </div>
                   <div
-                    class="ant-pro-setting-drawer-block-checkbox-item ant-pro-setting-drawer-block-checkbox-item-top ant-pro-setting-drawer-block-checkbox-layout-item ant-design-pro-layout-1hy2hgu"
+                    class="ant-pro-setting-drawer-block-checkbox-item ant-pro-setting-drawer-block-checkbox-item-top ant-pro-setting-drawer-block-checkbox-layout-item"
                   >
                     <span
                       aria-label="check"
-                      class="anticon anticon-check ant-pro-setting-drawer-block-checkbox-selectIcon ant-design-pro-layout-fsey5o"
+                      class="anticon anticon-check ant-pro-setting-drawer-block-checkbox-selectIcon"
                       role="img"
                       style="display:none"
                     >
@@ -204,11 +198,11 @@ exports[`settingDrawer.test 🌺 base user 1`] = `
                     </span>
                   </div>
                   <div
-                    class="ant-pro-setting-drawer-block-checkbox-item ant-pro-setting-drawer-block-checkbox-item-mix ant-pro-setting-drawer-block-checkbox-layout-item ant-design-pro-layout-1h0229g"
+                    class="ant-pro-setting-drawer-block-checkbox-item ant-pro-setting-drawer-block-checkbox-item-mix ant-pro-setting-drawer-block-checkbox-layout-item"
                   >
                     <span
                       aria-label="check"
-                      class="anticon anticon-check ant-pro-setting-drawer-block-checkbox-selectIcon ant-design-pro-layout-fsey5o"
+                      class="anticon anticon-check ant-pro-setting-drawer-block-checkbox-selectIcon"
                       role="img"
                       style="display:none"
                     >
@@ -413,7 +407,7 @@ exports[`settingDrawer.test 🌺 base user 1`] = `
                 style="margin-bottom:24px"
               >
                 <h3
-                  class="ant-pro-setting-drawer-title ant-design-pro-layout-19crn7j"
+                  class="ant-pro-setting-drawer-body-title"
                 >
                   内容区域
                 </h3>
@@ -554,7 +548,7 @@ exports[`settingDrawer.test 🌺 base user 1`] = `
                 style="margin-bottom:24px"
               >
                 <h3
-                  class="ant-pro-setting-drawer-title ant-design-pro-layout-19crn7j"
+                  class="ant-pro-setting-drawer-body-title"
                 >
                   其他设置
                 </h3>
@@ -675,7 +669,7 @@ exports[`settingDrawer.test 🌺 base user 1`] = `
         </div>
       </div>
       <div
-        class="ant-pro-setting-drawer-handle ant-design-pro-layout-17figvx"
+        class="ant-pro-setting-drawer-handle"
       >
         <span
           aria-label="close"
@@ -729,26 +723,25 @@ exports[`settingDrawer.test 🌺 hideColors = true 1`] = `
             class="ant-drawer-body"
           >
             <div
-              class="ant-pro-setting-drawer-content ant-design-pro-layout-1d13jk3"
+              class="ant-pro-setting-drawer-content"
             >
               <div
                 style="margin-bottom:24px"
               >
                 <h3
-                  class="ant-pro-setting-drawer-title ant-design-pro-layout-19crn7j"
+                  class="ant-pro-setting-drawer-body-title"
                 >
                   整体风格设置
                 </h3>
                 <div
                   class="ant-pro-setting-drawer-block-checkbox"
-                  style="display:flex;min-height:42px"
                 >
                   <div
-                    class="ant-pro-setting-drawer-block-checkbox-item ant-pro-setting-drawer-block-checkbox-item-light ant-pro-setting-drawer-block-checkbox-theme-item ant-design-pro-layout-1hs9yxk"
+                    class="ant-pro-setting-drawer-block-checkbox-item ant-pro-setting-drawer-block-checkbox-item-light ant-pro-setting-drawer-block-checkbox-theme-item"
                   >
                     <span
                       aria-label="check"
-                      class="anticon anticon-check ant-pro-setting-drawer-block-checkbox-selectIcon ant-design-pro-layout-fsey5o"
+                      class="anticon anticon-check ant-pro-setting-drawer-block-checkbox-selectIcon"
                       role="img"
                       style="display:none"
                     >
@@ -777,20 +770,19 @@ exports[`settingDrawer.test 🌺 hideColors = true 1`] = `
                 style="margin-bottom:24px"
               >
                 <h3
-                  class="ant-pro-setting-drawer-title ant-design-pro-layout-19crn7j"
+                  class="ant-pro-setting-drawer-body-title"
                 >
                   导航模式
                 </h3>
                 <div
                   class="ant-pro-setting-drawer-block-checkbox"
-                  style="display:flex;min-height:42px"
                 >
                   <div
-                    class="ant-pro-setting-drawer-block-checkbox-item ant-pro-setting-drawer-block-checkbox-item-side ant-pro-setting-drawer-block-checkbox-layout-item ant-design-pro-layout-1t3ehi9"
+                    class="ant-pro-setting-drawer-block-checkbox-item ant-pro-setting-drawer-block-checkbox-item-side ant-pro-setting-drawer-block-checkbox-layout-item"
                   >
                     <span
                       aria-label="check"
-                      class="anticon anticon-check ant-pro-setting-drawer-block-checkbox-selectIcon ant-design-pro-layout-fsey5o"
+                      class="anticon anticon-check ant-pro-setting-drawer-block-checkbox-selectIcon"
                       role="img"
                       style="display:block"
                     >
@@ -810,11 +802,11 @@ exports[`settingDrawer.test 🌺 hideColors = true 1`] = `
                     </span>
                   </div>
                   <div
-                    class="ant-pro-setting-drawer-block-checkbox-item ant-pro-setting-drawer-block-checkbox-item-top ant-pro-setting-drawer-block-checkbox-layout-item ant-design-pro-layout-1hy2hgu"
+                    class="ant-pro-setting-drawer-block-checkbox-item ant-pro-setting-drawer-block-checkbox-item-top ant-pro-setting-drawer-block-checkbox-layout-item"
                   >
                     <span
                       aria-label="check"
-                      class="anticon anticon-check ant-pro-setting-drawer-block-checkbox-selectIcon ant-design-pro-layout-fsey5o"
+                      class="anticon anticon-check ant-pro-setting-drawer-block-checkbox-selectIcon"
                       role="img"
                       style="display:none"
                     >
@@ -834,11 +826,11 @@ exports[`settingDrawer.test 🌺 hideColors = true 1`] = `
                     </span>
                   </div>
                   <div
-                    class="ant-pro-setting-drawer-block-checkbox-item ant-pro-setting-drawer-block-checkbox-item-mix ant-pro-setting-drawer-block-checkbox-layout-item ant-design-pro-layout-1h0229g"
+                    class="ant-pro-setting-drawer-block-checkbox-item ant-pro-setting-drawer-block-checkbox-item-mix ant-pro-setting-drawer-block-checkbox-layout-item"
                   >
                     <span
                       aria-label="check"
-                      class="anticon anticon-check ant-pro-setting-drawer-block-checkbox-selectIcon ant-design-pro-layout-fsey5o"
+                      class="anticon anticon-check ant-pro-setting-drawer-block-checkbox-selectIcon"
                       role="img"
                       style="display:none"
                     >
@@ -1043,7 +1035,7 @@ exports[`settingDrawer.test 🌺 hideColors = true 1`] = `
                 style="margin-bottom:24px"
               >
                 <h3
-                  class="ant-pro-setting-drawer-title ant-design-pro-layout-19crn7j"
+                  class="ant-pro-setting-drawer-body-title"
                 >
                   内容区域
                 </h3>
@@ -1184,7 +1176,7 @@ exports[`settingDrawer.test 🌺 hideColors = true 1`] = `
                 style="margin-bottom:24px"
               >
                 <h3
-                  class="ant-pro-setting-drawer-title ant-design-pro-layout-19crn7j"
+                  class="ant-pro-setting-drawer-body-title"
                 >
                   其他设置
                 </h3>
@@ -1305,7 +1297,7 @@ exports[`settingDrawer.test 🌺 hideColors = true 1`] = `
         </div>
       </div>
       <div
-        class="ant-pro-setting-drawer-handle ant-design-pro-layout-17figvx"
+        class="ant-pro-setting-drawer-handle"
       >
         <span
           aria-label="close"
@@ -1359,26 +1351,25 @@ exports[`settingDrawer.test 🌺 hideCopyButton = true 1`] = `
             class="ant-drawer-body"
           >
             <div
-              class="ant-pro-setting-drawer-content ant-design-pro-layout-1d13jk3"
+              class="ant-pro-setting-drawer-content"
             >
               <div
                 style="margin-bottom:24px"
               >
                 <h3
-                  class="ant-pro-setting-drawer-title ant-design-pro-layout-19crn7j"
+                  class="ant-pro-setting-drawer-body-title"
                 >
                   整体风格设置
                 </h3>
                 <div
                   class="ant-pro-setting-drawer-block-checkbox"
-                  style="display:flex;min-height:42px"
                 >
                   <div
-                    class="ant-pro-setting-drawer-block-checkbox-item ant-pro-setting-drawer-block-checkbox-item-light ant-pro-setting-drawer-block-checkbox-theme-item ant-design-pro-layout-1hs9yxk"
+                    class="ant-pro-setting-drawer-block-checkbox-item ant-pro-setting-drawer-block-checkbox-item-light ant-pro-setting-drawer-block-checkbox-theme-item"
                   >
                     <span
                       aria-label="check"
-                      class="anticon anticon-check ant-pro-setting-drawer-block-checkbox-selectIcon ant-design-pro-layout-fsey5o"
+                      class="anticon anticon-check ant-pro-setting-drawer-block-checkbox-selectIcon"
                       role="img"
                       style="display:none"
                     >
@@ -1403,73 +1394,69 @@ exports[`settingDrawer.test 🌺 hideCopyButton = true 1`] = `
                 style="margin-bottom:24px"
               >
                 <h3
-                  class="ant-pro-setting-drawer-title ant-design-pro-layout-19crn7j"
+                  class="ant-pro-setting-drawer-body-title"
                 >
                   主题色
                 </h3>
                 <div
-                  class="ant-design-pro-layout-1xmh8xu"
+                  class="ant-pro-setting-drawer-theme-color"
                 >
                   <div
-                    class="theme-color-content ant-design-pro-layout-0"
+                    class="ant-pro-setting-drawer-theme-color-block"
+                    style="background-color:#1677FF"
                   >
-                    <div
-                      class="theme-color-block ant-design-pro-layout-1v4zi6f"
-                      style="background-color:#1677FF"
+                    <span
+                      aria-label="check"
+                      class="anticon anticon-check"
+                      role="img"
                     >
-                      <span
-                        aria-label="check"
-                        class="anticon anticon-check"
-                        role="img"
+                      <svg
+                        aria-hidden="true"
+                        data-icon="check"
+                        fill="currentColor"
+                        focusable="false"
+                        height="1em"
+                        viewBox="64 64 896 896"
+                        width="1em"
                       >
-                        <svg
-                          aria-hidden="true"
-                          data-icon="check"
-                          fill="currentColor"
-                          focusable="false"
-                          height="1em"
-                          viewBox="64 64 896 896"
-                          width="1em"
-                        >
-                          <path
-                            d="M912 190h-69.9c-9.8 0-19.1 4.5-25.1 12.2L404.7 724.5 207 474a32 32 0 00-25.1-12.2H112c-6.7 0-10.4 7.7-6.3 12.9l273.9 347c12.8 16.2 37.4 16.2 50.3 0l488.4-618.9c4.1-5.1.4-12.8-6.3-12.8z"
-                          />
-                        </svg>
-                      </span>
-                    </div>
-                    <div
-                      class="theme-color-block ant-design-pro-layout-1v4zi6f"
-                      style="background-color:#1890ff"
-                    />
-                    <div
-                      class="theme-color-block ant-design-pro-layout-1v4zi6f"
-                      style="background-color:#F5222D"
-                    />
-                    <div
-                      class="theme-color-block ant-design-pro-layout-1v4zi6f"
-                      style="background-color:#FA541C"
-                    />
-                    <div
-                      class="theme-color-block ant-design-pro-layout-1v4zi6f"
-                      style="background-color:#FAAD14"
-                    />
-                    <div
-                      class="theme-color-block ant-design-pro-layout-1v4zi6f"
-                      style="background-color:#13C2C2"
-                    />
-                    <div
-                      class="theme-color-block ant-design-pro-layout-1v4zi6f"
-                      style="background-color:#52C41A"
-                    />
-                    <div
-                      class="theme-color-block ant-design-pro-layout-1v4zi6f"
-                      style="background-color:#2F54EB"
-                    />
-                    <div
-                      class="theme-color-block ant-design-pro-layout-1v4zi6f"
-                      style="background-color:#722ED1"
-                    />
+                        <path
+                          d="M912 190h-69.9c-9.8 0-19.1 4.5-25.1 12.2L404.7 724.5 207 474a32 32 0 00-25.1-12.2H112c-6.7 0-10.4 7.7-6.3 12.9l273.9 347c12.8 16.2 37.4 16.2 50.3 0l488.4-618.9c4.1-5.1.4-12.8-6.3-12.8z"
+                        />
+                      </svg>
+                    </span>
                   </div>
+                  <div
+                    class="ant-pro-setting-drawer-theme-color-block"
+                    style="background-color:#1890ff"
+                  />
+                  <div
+                    class="ant-pro-setting-drawer-theme-color-block"
+                    style="background-color:#F5222D"
+                  />
+                  <div
+                    class="ant-pro-setting-drawer-theme-color-block"
+                    style="background-color:#FA541C"
+                  />
+                  <div
+                    class="ant-pro-setting-drawer-theme-color-block"
+                    style="background-color:#FAAD14"
+                  />
+                  <div
+                    class="ant-pro-setting-drawer-theme-color-block"
+                    style="background-color:#13C2C2"
+                  />
+                  <div
+                    class="ant-pro-setting-drawer-theme-color-block"
+                    style="background-color:#52C41A"
+                  />
+                  <div
+                    class="ant-pro-setting-drawer-theme-color-block"
+                    style="background-color:#2F54EB"
+                  />
+                  <div
+                    class="ant-pro-setting-drawer-theme-color-block"
+                    style="background-color:#722ED1"
+                  />
                 </div>
               </div>
               <div
@@ -1480,20 +1467,19 @@ exports[`settingDrawer.test 🌺 hideCopyButton = true 1`] = `
                 style="margin-bottom:24px"
               >
                 <h3
-                  class="ant-pro-setting-drawer-title ant-design-pro-layout-19crn7j"
+                  class="ant-pro-setting-drawer-body-title"
                 >
                   导航模式
                 </h3>
                 <div
                   class="ant-pro-setting-drawer-block-checkbox"
-                  style="display:flex;min-height:42px"
                 >
                   <div
-                    class="ant-pro-setting-drawer-block-checkbox-item ant-pro-setting-drawer-block-checkbox-item-side ant-pro-setting-drawer-block-checkbox-layout-item ant-design-pro-layout-1t3ehi9"
+                    class="ant-pro-setting-drawer-block-checkbox-item ant-pro-setting-drawer-block-checkbox-item-side ant-pro-setting-drawer-block-checkbox-layout-item"
                   >
                     <span
                       aria-label="check"
-                      class="anticon anticon-check ant-pro-setting-drawer-block-checkbox-selectIcon ant-design-pro-layout-fsey5o"
+                      class="anticon anticon-check ant-pro-setting-drawer-block-checkbox-selectIcon"
                       role="img"
                       style="display:block"
                     >
@@ -1513,11 +1499,11 @@ exports[`settingDrawer.test 🌺 hideCopyButton = true 1`] = `
                     </span>
                   </div>
                   <div
-                    class="ant-pro-setting-drawer-block-checkbox-item ant-pro-setting-drawer-block-checkbox-item-top ant-pro-setting-drawer-block-checkbox-layout-item ant-design-pro-layout-1hy2hgu"
+                    class="ant-pro-setting-drawer-block-checkbox-item ant-pro-setting-drawer-block-checkbox-item-top ant-pro-setting-drawer-block-checkbox-layout-item"
                   >
                     <span
                       aria-label="check"
-                      class="anticon anticon-check ant-pro-setting-drawer-block-checkbox-selectIcon ant-design-pro-layout-fsey5o"
+                      class="anticon anticon-check ant-pro-setting-drawer-block-checkbox-selectIcon"
                       role="img"
                       style="display:none"
                     >
@@ -1537,11 +1523,11 @@ exports[`settingDrawer.test 🌺 hideCopyButton = true 1`] = `
                     </span>
                   </div>
                   <div
-                    class="ant-pro-setting-drawer-block-checkbox-item ant-pro-setting-drawer-block-checkbox-item-mix ant-pro-setting-drawer-block-checkbox-layout-item ant-design-pro-layout-1h0229g"
+                    class="ant-pro-setting-drawer-block-checkbox-item ant-pro-setting-drawer-block-checkbox-item-mix ant-pro-setting-drawer-block-checkbox-layout-item"
                   >
                     <span
                       aria-label="check"
-                      class="anticon anticon-check ant-pro-setting-drawer-block-checkbox-selectIcon ant-design-pro-layout-fsey5o"
+                      class="anticon anticon-check ant-pro-setting-drawer-block-checkbox-selectIcon"
                       role="img"
                       style="display:none"
                     >
@@ -1746,7 +1732,7 @@ exports[`settingDrawer.test 🌺 hideCopyButton = true 1`] = `
                 style="margin-bottom:24px"
               >
                 <h3
-                  class="ant-pro-setting-drawer-title ant-design-pro-layout-19crn7j"
+                  class="ant-pro-setting-drawer-body-title"
                 >
                   内容区域
                 </h3>
@@ -1887,7 +1873,7 @@ exports[`settingDrawer.test 🌺 hideCopyButton = true 1`] = `
                 style="margin-bottom:24px"
               >
                 <h3
-                  class="ant-pro-setting-drawer-title ant-design-pro-layout-19crn7j"
+                  class="ant-pro-setting-drawer-body-title"
                 >
                   其他设置
                 </h3>
@@ -1980,7 +1966,7 @@ exports[`settingDrawer.test 🌺 hideCopyButton = true 1`] = `
         </div>
       </div>
       <div
-        class="ant-pro-setting-drawer-handle ant-design-pro-layout-17figvx"
+        class="ant-pro-setting-drawer-handle"
       >
         <span
           aria-label="close"
@@ -2034,26 +2020,25 @@ exports[`settingDrawer.test 🌺 hideHintAlert = true 1`] = `
             class="ant-drawer-body"
           >
             <div
-              class="ant-pro-setting-drawer-content ant-design-pro-layout-1d13jk3"
+              class="ant-pro-setting-drawer-content"
             >
               <div
                 style="margin-bottom:24px"
               >
                 <h3
-                  class="ant-pro-setting-drawer-title ant-design-pro-layout-19crn7j"
+                  class="ant-pro-setting-drawer-body-title"
                 >
                   整体风格设置
                 </h3>
                 <div
                   class="ant-pro-setting-drawer-block-checkbox"
-                  style="display:flex;min-height:42px"
                 >
                   <div
-                    class="ant-pro-setting-drawer-block-checkbox-item ant-pro-setting-drawer-block-checkbox-item-light ant-pro-setting-drawer-block-checkbox-theme-item ant-design-pro-layout-1hs9yxk"
+                    class="ant-pro-setting-drawer-block-checkbox-item ant-pro-setting-drawer-block-checkbox-item-light ant-pro-setting-drawer-block-checkbox-theme-item"
                   >
                     <span
                       aria-label="check"
-                      class="anticon anticon-check ant-pro-setting-drawer-block-checkbox-selectIcon ant-design-pro-layout-fsey5o"
+                      class="anticon anticon-check ant-pro-setting-drawer-block-checkbox-selectIcon"
                       role="img"
                       style="display:none"
                     >
@@ -2078,73 +2063,69 @@ exports[`settingDrawer.test 🌺 hideHintAlert = true 1`] = `
                 style="margin-bottom:24px"
               >
                 <h3
-                  class="ant-pro-setting-drawer-title ant-design-pro-layout-19crn7j"
+                  class="ant-pro-setting-drawer-body-title"
                 >
                   主题色
                 </h3>
                 <div
-                  class="ant-design-pro-layout-1xmh8xu"
+                  class="ant-pro-setting-drawer-theme-color"
                 >
                   <div
-                    class="theme-color-content ant-design-pro-layout-0"
+                    class="ant-pro-setting-drawer-theme-color-block"
+                    style="background-color:#1677FF"
                   >
-                    <div
-                      class="theme-color-block ant-design-pro-layout-1v4zi6f"
-                      style="background-color:#1677FF"
+                    <span
+                      aria-label="check"
+                      class="anticon anticon-check"
+                      role="img"
                     >
-                      <span
-                        aria-label="check"
-                        class="anticon anticon-check"
-                        role="img"
+                      <svg
+                        aria-hidden="true"
+                        data-icon="check"
+                        fill="currentColor"
+                        focusable="false"
+                        height="1em"
+                        viewBox="64 64 896 896"
+                        width="1em"
                       >
-                        <svg
-                          aria-hidden="true"
-                          data-icon="check"
-                          fill="currentColor"
-                          focusable="false"
-                          height="1em"
-                          viewBox="64 64 896 896"
-                          width="1em"
-                        >
-                          <path
-                            d="M912 190h-69.9c-9.8 0-19.1 4.5-25.1 12.2L404.7 724.5 207 474a32 32 0 00-25.1-12.2H112c-6.7 0-10.4 7.7-6.3 12.9l273.9 347c12.8 16.2 37.4 16.2 50.3 0l488.4-618.9c4.1-5.1.4-12.8-6.3-12.8z"
-                          />
-                        </svg>
-                      </span>
-                    </div>
-                    <div
-                      class="theme-color-block ant-design-pro-layout-1v4zi6f"
-                      style="background-color:#1890ff"
-                    />
-                    <div
-                      class="theme-color-block ant-design-pro-layout-1v4zi6f"
-                      style="background-color:#F5222D"
-                    />
-                    <div
-                      class="theme-color-block ant-design-pro-layout-1v4zi6f"
-                      style="background-color:#FA541C"
-                    />
-                    <div
-                      class="theme-color-block ant-design-pro-layout-1v4zi6f"
-                      style="background-color:#FAAD14"
-                    />
-                    <div
-                      class="theme-color-block ant-design-pro-layout-1v4zi6f"
-                      style="background-color:#13C2C2"
-                    />
-                    <div
-                      class="theme-color-block ant-design-pro-layout-1v4zi6f"
-                      style="background-color:#52C41A"
-                    />
-                    <div
-                      class="theme-color-block ant-design-pro-layout-1v4zi6f"
-                      style="background-color:#2F54EB"
-                    />
-                    <div
-                      class="theme-color-block ant-design-pro-layout-1v4zi6f"
-                      style="background-color:#722ED1"
-                    />
+                        <path
+                          d="M912 190h-69.9c-9.8 0-19.1 4.5-25.1 12.2L404.7 724.5 207 474a32 32 0 00-25.1-12.2H112c-6.7 0-10.4 7.7-6.3 12.9l273.9 347c12.8 16.2 37.4 16.2 50.3 0l488.4-618.9c4.1-5.1.4-12.8-6.3-12.8z"
+                        />
+                      </svg>
+                    </span>
                   </div>
+                  <div
+                    class="ant-pro-setting-drawer-theme-color-block"
+                    style="background-color:#1890ff"
+                  />
+                  <div
+                    class="ant-pro-setting-drawer-theme-color-block"
+                    style="background-color:#F5222D"
+                  />
+                  <div
+                    class="ant-pro-setting-drawer-theme-color-block"
+                    style="background-color:#FA541C"
+                  />
+                  <div
+                    class="ant-pro-setting-drawer-theme-color-block"
+                    style="background-color:#FAAD14"
+                  />
+                  <div
+                    class="ant-pro-setting-drawer-theme-color-block"
+                    style="background-color:#13C2C2"
+                  />
+                  <div
+                    class="ant-pro-setting-drawer-theme-color-block"
+                    style="background-color:#52C41A"
+                  />
+                  <div
+                    class="ant-pro-setting-drawer-theme-color-block"
+                    style="background-color:#2F54EB"
+                  />
+                  <div
+                    class="ant-pro-setting-drawer-theme-color-block"
+                    style="background-color:#722ED1"
+                  />
                 </div>
               </div>
               <div
@@ -2155,20 +2136,19 @@ exports[`settingDrawer.test 🌺 hideHintAlert = true 1`] = `
                 style="margin-bottom:24px"
               >
                 <h3
-                  class="ant-pro-setting-drawer-title ant-design-pro-layout-19crn7j"
+                  class="ant-pro-setting-drawer-body-title"
                 >
                   导航模式
                 </h3>
                 <div
                   class="ant-pro-setting-drawer-block-checkbox"
-                  style="display:flex;min-height:42px"
                 >
                   <div
-                    class="ant-pro-setting-drawer-block-checkbox-item ant-pro-setting-drawer-block-checkbox-item-side ant-pro-setting-drawer-block-checkbox-layout-item ant-design-pro-layout-1t3ehi9"
+                    class="ant-pro-setting-drawer-block-checkbox-item ant-pro-setting-drawer-block-checkbox-item-side ant-pro-setting-drawer-block-checkbox-layout-item"
                   >
                     <span
                       aria-label="check"
-                      class="anticon anticon-check ant-pro-setting-drawer-block-checkbox-selectIcon ant-design-pro-layout-fsey5o"
+                      class="anticon anticon-check ant-pro-setting-drawer-block-checkbox-selectIcon"
                       role="img"
                       style="display:block"
                     >
@@ -2188,11 +2168,11 @@ exports[`settingDrawer.test 🌺 hideHintAlert = true 1`] = `
                     </span>
                   </div>
                   <div
-                    class="ant-pro-setting-drawer-block-checkbox-item ant-pro-setting-drawer-block-checkbox-item-top ant-pro-setting-drawer-block-checkbox-layout-item ant-design-pro-layout-1hy2hgu"
+                    class="ant-pro-setting-drawer-block-checkbox-item ant-pro-setting-drawer-block-checkbox-item-top ant-pro-setting-drawer-block-checkbox-layout-item"
                   >
                     <span
                       aria-label="check"
-                      class="anticon anticon-check ant-pro-setting-drawer-block-checkbox-selectIcon ant-design-pro-layout-fsey5o"
+                      class="anticon anticon-check ant-pro-setting-drawer-block-checkbox-selectIcon"
                       role="img"
                       style="display:none"
                     >
@@ -2212,11 +2192,11 @@ exports[`settingDrawer.test 🌺 hideHintAlert = true 1`] = `
                     </span>
                   </div>
                   <div
-                    class="ant-pro-setting-drawer-block-checkbox-item ant-pro-setting-drawer-block-checkbox-item-mix ant-pro-setting-drawer-block-checkbox-layout-item ant-design-pro-layout-1h0229g"
+                    class="ant-pro-setting-drawer-block-checkbox-item ant-pro-setting-drawer-block-checkbox-item-mix ant-pro-setting-drawer-block-checkbox-layout-item"
                   >
                     <span
                       aria-label="check"
-                      class="anticon anticon-check ant-pro-setting-drawer-block-checkbox-selectIcon ant-design-pro-layout-fsey5o"
+                      class="anticon anticon-check ant-pro-setting-drawer-block-checkbox-selectIcon"
                       role="img"
                       style="display:none"
                     >
@@ -2421,7 +2401,7 @@ exports[`settingDrawer.test 🌺 hideHintAlert = true 1`] = `
                 style="margin-bottom:24px"
               >
                 <h3
-                  class="ant-pro-setting-drawer-title ant-design-pro-layout-19crn7j"
+                  class="ant-pro-setting-drawer-body-title"
                 >
                   内容区域
                 </h3>
@@ -2562,7 +2542,7 @@ exports[`settingDrawer.test 🌺 hideHintAlert = true 1`] = `
                 style="margin-bottom:24px"
               >
                 <h3
-                  class="ant-pro-setting-drawer-title ant-design-pro-layout-19crn7j"
+                  class="ant-pro-setting-drawer-body-title"
                 >
                   其他设置
                 </h3>
@@ -2648,7 +2628,7 @@ exports[`settingDrawer.test 🌺 hideHintAlert = true 1`] = `
         </div>
       </div>
       <div
-        class="ant-pro-setting-drawer-handle ant-design-pro-layout-17figvx"
+        class="ant-pro-setting-drawer-handle"
       >
         <span
           aria-label="close"
@@ -2702,26 +2682,25 @@ exports[`settingDrawer.test 🌺 settings = undefined 1`] = `
             class="ant-drawer-body"
           >
             <div
-              class="ant-pro-setting-drawer-content ant-design-pro-layout-1d13jk3"
+              class="ant-pro-setting-drawer-content"
             >
               <div
                 style="margin-bottom:24px"
               >
                 <h3
-                  class="ant-pro-setting-drawer-title ant-design-pro-layout-19crn7j"
+                  class="ant-pro-setting-drawer-body-title"
                 >
                   整体风格设置
                 </h3>
                 <div
                   class="ant-pro-setting-drawer-block-checkbox"
-                  style="display:flex;min-height:42px"
                 >
                   <div
-                    class="ant-pro-setting-drawer-block-checkbox-item ant-pro-setting-drawer-block-checkbox-item-light ant-pro-setting-drawer-block-checkbox-theme-item ant-design-pro-layout-1hs9yxk"
+                    class="ant-pro-setting-drawer-block-checkbox-item ant-pro-setting-drawer-block-checkbox-item-light ant-pro-setting-drawer-block-checkbox-theme-item"
                   >
                     <span
                       aria-label="check"
-                      class="anticon anticon-check ant-pro-setting-drawer-block-checkbox-selectIcon ant-design-pro-layout-fsey5o"
+                      class="anticon anticon-check ant-pro-setting-drawer-block-checkbox-selectIcon"
                       role="img"
                       style="display:block"
                     >
@@ -2746,73 +2725,69 @@ exports[`settingDrawer.test 🌺 settings = undefined 1`] = `
                 style="margin-bottom:24px"
               >
                 <h3
-                  class="ant-pro-setting-drawer-title ant-design-pro-layout-19crn7j"
+                  class="ant-pro-setting-drawer-body-title"
                 >
                   主题色
                 </h3>
                 <div
-                  class="ant-design-pro-layout-1xmh8xu"
+                  class="ant-pro-setting-drawer-theme-color"
                 >
                   <div
-                    class="theme-color-content ant-design-pro-layout-0"
+                    class="ant-pro-setting-drawer-theme-color-block"
+                    style="background-color:#1677FF"
                   >
-                    <div
-                      class="theme-color-block ant-design-pro-layout-1v4zi6f"
-                      style="background-color:#1677FF"
+                    <span
+                      aria-label="check"
+                      class="anticon anticon-check"
+                      role="img"
                     >
-                      <span
-                        aria-label="check"
-                        class="anticon anticon-check"
-                        role="img"
+                      <svg
+                        aria-hidden="true"
+                        data-icon="check"
+                        fill="currentColor"
+                        focusable="false"
+                        height="1em"
+                        viewBox="64 64 896 896"
+                        width="1em"
                       >
-                        <svg
-                          aria-hidden="true"
-                          data-icon="check"
-                          fill="currentColor"
-                          focusable="false"
-                          height="1em"
-                          viewBox="64 64 896 896"
-                          width="1em"
-                        >
-                          <path
-                            d="M912 190h-69.9c-9.8 0-19.1 4.5-25.1 12.2L404.7 724.5 207 474a32 32 0 00-25.1-12.2H112c-6.7 0-10.4 7.7-6.3 12.9l273.9 347c12.8 16.2 37.4 16.2 50.3 0l488.4-618.9c4.1-5.1.4-12.8-6.3-12.8z"
-                          />
-                        </svg>
-                      </span>
-                    </div>
-                    <div
-                      class="theme-color-block ant-design-pro-layout-1v4zi6f"
-                      style="background-color:#1890ff"
-                    />
-                    <div
-                      class="theme-color-block ant-design-pro-layout-1v4zi6f"
-                      style="background-color:#F5222D"
-                    />
-                    <div
-                      class="theme-color-block ant-design-pro-layout-1v4zi6f"
-                      style="background-color:#FA541C"
-                    />
-                    <div
-                      class="theme-color-block ant-design-pro-layout-1v4zi6f"
-                      style="background-color:#FAAD14"
-                    />
-                    <div
-                      class="theme-color-block ant-design-pro-layout-1v4zi6f"
-                      style="background-color:#13C2C2"
-                    />
-                    <div
-                      class="theme-color-block ant-design-pro-layout-1v4zi6f"
-                      style="background-color:#52C41A"
-                    />
-                    <div
-                      class="theme-color-block ant-design-pro-layout-1v4zi6f"
-                      style="background-color:#2F54EB"
-                    />
-                    <div
-                      class="theme-color-block ant-design-pro-layout-1v4zi6f"
-                      style="background-color:#722ED1"
-                    />
+                        <path
+                          d="M912 190h-69.9c-9.8 0-19.1 4.5-25.1 12.2L404.7 724.5 207 474a32 32 0 00-25.1-12.2H112c-6.7 0-10.4 7.7-6.3 12.9l273.9 347c12.8 16.2 37.4 16.2 50.3 0l488.4-618.9c4.1-5.1.4-12.8-6.3-12.8z"
+                        />
+                      </svg>
+                    </span>
                   </div>
+                  <div
+                    class="ant-pro-setting-drawer-theme-color-block"
+                    style="background-color:#1890ff"
+                  />
+                  <div
+                    class="ant-pro-setting-drawer-theme-color-block"
+                    style="background-color:#F5222D"
+                  />
+                  <div
+                    class="ant-pro-setting-drawer-theme-color-block"
+                    style="background-color:#FA541C"
+                  />
+                  <div
+                    class="ant-pro-setting-drawer-theme-color-block"
+                    style="background-color:#FAAD14"
+                  />
+                  <div
+                    class="ant-pro-setting-drawer-theme-color-block"
+                    style="background-color:#13C2C2"
+                  />
+                  <div
+                    class="ant-pro-setting-drawer-theme-color-block"
+                    style="background-color:#52C41A"
+                  />
+                  <div
+                    class="ant-pro-setting-drawer-theme-color-block"
+                    style="background-color:#2F54EB"
+                  />
+                  <div
+                    class="ant-pro-setting-drawer-theme-color-block"
+                    style="background-color:#722ED1"
+                  />
                 </div>
               </div>
               <div
@@ -2823,20 +2798,19 @@ exports[`settingDrawer.test 🌺 settings = undefined 1`] = `
                 style="margin-bottom:24px"
               >
                 <h3
-                  class="ant-pro-setting-drawer-title ant-design-pro-layout-19crn7j"
+                  class="ant-pro-setting-drawer-body-title"
                 >
                   导航模式
                 </h3>
                 <div
                   class="ant-pro-setting-drawer-block-checkbox"
-                  style="display:flex;min-height:42px"
                 >
                   <div
-                    class="ant-pro-setting-drawer-block-checkbox-item ant-pro-setting-drawer-block-checkbox-item-side ant-pro-setting-drawer-block-checkbox-layout-item ant-design-pro-layout-1t3ehi9"
+                    class="ant-pro-setting-drawer-block-checkbox-item ant-pro-setting-drawer-block-checkbox-item-side ant-pro-setting-drawer-block-checkbox-layout-item"
                   >
                     <span
                       aria-label="check"
-                      class="anticon anticon-check ant-pro-setting-drawer-block-checkbox-selectIcon ant-design-pro-layout-fsey5o"
+                      class="anticon anticon-check ant-pro-setting-drawer-block-checkbox-selectIcon"
                       role="img"
                       style="display:block"
                     >
@@ -2856,11 +2830,11 @@ exports[`settingDrawer.test 🌺 settings = undefined 1`] = `
                     </span>
                   </div>
                   <div
-                    class="ant-pro-setting-drawer-block-checkbox-item ant-pro-setting-drawer-block-checkbox-item-top ant-pro-setting-drawer-block-checkbox-layout-item ant-design-pro-layout-1hy2hgu"
+                    class="ant-pro-setting-drawer-block-checkbox-item ant-pro-setting-drawer-block-checkbox-item-top ant-pro-setting-drawer-block-checkbox-layout-item"
                   >
                     <span
                       aria-label="check"
-                      class="anticon anticon-check ant-pro-setting-drawer-block-checkbox-selectIcon ant-design-pro-layout-fsey5o"
+                      class="anticon anticon-check ant-pro-setting-drawer-block-checkbox-selectIcon"
                       role="img"
                       style="display:none"
                     >
@@ -2880,11 +2854,11 @@ exports[`settingDrawer.test 🌺 settings = undefined 1`] = `
                     </span>
                   </div>
                   <div
-                    class="ant-pro-setting-drawer-block-checkbox-item ant-pro-setting-drawer-block-checkbox-item-mix ant-pro-setting-drawer-block-checkbox-layout-item ant-design-pro-layout-1h0229g"
+                    class="ant-pro-setting-drawer-block-checkbox-item ant-pro-setting-drawer-block-checkbox-item-mix ant-pro-setting-drawer-block-checkbox-layout-item"
                   >
                     <span
                       aria-label="check"
-                      class="anticon anticon-check ant-pro-setting-drawer-block-checkbox-selectIcon ant-design-pro-layout-fsey5o"
+                      class="anticon anticon-check ant-pro-setting-drawer-block-checkbox-selectIcon"
                       role="img"
                       style="display:none"
                     >
@@ -3089,7 +3063,7 @@ exports[`settingDrawer.test 🌺 settings = undefined 1`] = `
                 style="margin-bottom:24px"
               >
                 <h3
-                  class="ant-pro-setting-drawer-title ant-design-pro-layout-19crn7j"
+                  class="ant-pro-setting-drawer-body-title"
                 >
                   内容区域
                 </h3>
@@ -3230,7 +3204,7 @@ exports[`settingDrawer.test 🌺 settings = undefined 1`] = `
                 style="margin-bottom:24px"
               >
                 <h3
-                  class="ant-pro-setting-drawer-title ant-design-pro-layout-19crn7j"
+                  class="ant-pro-setting-drawer-body-title"
                 >
                   其他设置
                 </h3>
@@ -3351,7 +3325,7 @@ exports[`settingDrawer.test 🌺 settings = undefined 1`] = `
         </div>
       </div>
       <div
-        class="ant-pro-setting-drawer-handle ant-design-pro-layout-17figvx"
+        class="ant-pro-setting-drawer-handle"
       >
         <span
           aria-label="close"

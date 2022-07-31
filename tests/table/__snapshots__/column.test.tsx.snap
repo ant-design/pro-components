@@ -17,7 +17,7 @@ exports[`Table ColumnSetting 🎏 columns proFieldProps support custom 1`] = `
       >
         <form
           autocomplete="off"
-          class="ant-form ant-form-horizontal ant-pro-form-query-filter"
+          class="ant-form ant-form-horizontal ant-pro-form-query-filter ant-pro-form"
         >
           <input
             style="display: none;"
@@ -441,7 +441,7 @@ exports[`Table ColumnSetting 🎏 config provide render 1`] = `
       >
         <form
           autocomplete="off"
-          class="qixian-form qixian-form-horizontal qixian-pro-form-query-filter"
+          class="qixian-form qixian-form-horizontal qixian-pro-form-query-filter qixian-pro-form"
         >
           <input
             style="display: none;"
@@ -1238,7 +1238,7 @@ exports[`Table ColumnSetting 🎏 extra columns 1`] = `
       >
         <form
           autocomplete="off"
-          class="ant-form ant-form-horizontal ant-pro-form-query-filter"
+          class="ant-form ant-form-horizontal ant-pro-form-query-filter ant-pro-form"
         >
           <input
             style="display: none;"

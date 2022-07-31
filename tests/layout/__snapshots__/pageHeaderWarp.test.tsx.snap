@@ -15,11 +15,11 @@ exports[`BasicLayout base use 1`] = `
       style="min-height:100%"
     >
       <div
-        class="ant-design-pro-layout-l4gpps"
+        style="width:256px;overflow:hidden;flex:0 0 256px;max-width:256px;min-width:256px"
       />
       <aside
-        class="ant-layout-sider ant-layout-sider-light ant-pro-sider ant-pro-sider-fixed ant-pro-sider-layout-side ant-pro-sider-light ant-design-pro-layout-1retjvs"
-        style="background-color:transparent;flex:0 0 256px;max-width:256px;min-width:256px;width:256px"
+        class="ant-layout-sider ant-layout-sider-light ant-pro-sider ant-pro-sider-fixed ant-pro-sider-layout-side ant-pro-sider-light"
+        style="flex:0 0 256px;max-width:256px;min-width:256px;width:256px"
       >
         <div
           class="ant-layout-sider-children"
@@ -164,14 +164,14 @@ exports[`BasicLayout base use 1`] = `
             style="flex:1;overflow-y:auto;overflow-x:hidden"
           >
             <ul
-              class="ant-menu ant-menu-root ant-menu-inline ant-menu-light ant-pro-sider-menu ant-design-pro-layout-7nxh7n"
+              class="ant-menu ant-menu-root ant-menu-inline ant-pro-sider-menu ant-pro-base-menu"
               data-menu-list="true"
               role="menu"
-              style="width:100%"
+              style="background-color:transparent;border:none;width:100%"
               tabindex="0"
             >
               <li
-                class="ant-menu-submenu ant-menu-submenu-inline"
+                class="ant-menu-submenu ant-menu-submenu-inline ant-pro-base-menu-submenu"
                 role="none"
               >
                 <div
@@ -186,7 +186,6 @@ exports[`BasicLayout base use 1`] = `
                     class="ant-menu-title-content"
                   >
                     <span
-                      class="ant-pro-menu-item ant-design-pro-layout-1mfr4jg"
                       title="welcome"
                     >
                       welcome
@@ -275,11 +274,11 @@ exports[`BasicLayout content is text 1`] = `
       style="min-height:100%"
     >
       <div
-        class="ant-design-pro-layout-l4gpps"
+        style="width:256px;overflow:hidden;flex:0 0 256px;max-width:256px;min-width:256px"
       />
       <aside
-        class="ant-layout-sider ant-layout-sider-light ant-pro-sider ant-pro-sider-fixed ant-pro-sider-layout-side ant-pro-sider-light ant-design-pro-layout-1retjvs"
-        style="background-color:transparent;flex:0 0 256px;max-width:256px;min-width:256px;width:256px"
+        class="ant-layout-sider ant-layout-sider-light ant-pro-sider ant-pro-sider-fixed ant-pro-sider-layout-side ant-pro-sider-light"
+        style="flex:0 0 256px;max-width:256px;min-width:256px;width:256px"
       >
         <div
           class="ant-layout-sider-children"
@@ -424,14 +423,14 @@ exports[`BasicLayout content is text 1`] = `
             style="flex:1;overflow-y:auto;overflow-x:hidden"
           >
             <ul
-              class="ant-menu ant-menu-root ant-menu-inline ant-menu-light ant-pro-sider-menu ant-design-pro-layout-7nxh7n"
+              class="ant-menu ant-menu-root ant-menu-inline ant-pro-sider-menu ant-pro-base-menu"
               data-menu-list="true"
               role="menu"
-              style="width:100%"
+              style="background-color:transparent;border:none;width:100%"
               tabindex="0"
             >
               <li
-                class="ant-menu-submenu ant-menu-submenu-inline"
+                class="ant-menu-submenu ant-menu-submenu-inline ant-pro-base-menu-submenu"
                 role="none"
               >
                 <div
@@ -446,7 +445,6 @@ exports[`BasicLayout content is text 1`] = `
                     class="ant-menu-title-content"
                   >
                     <span
-                      class="ant-pro-menu-item ant-design-pro-layout-1mfr4jg"
                       title="welcome"
                     >
                       welcome

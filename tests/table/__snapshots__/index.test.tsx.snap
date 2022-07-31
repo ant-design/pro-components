@@ -15,7 +15,7 @@ exports[`BasicTable 🎏 base use 1`] = `
       >
         <form
           autocomplete="off"
-          class="ant-form ant-form-horizontal ant-pro-form-query-filter"
+          class="ant-form ant-form-horizontal ant-pro-form-query-filter ant-pro-form"
         >
           <input
             style="display: none;"
@@ -1547,7 +1547,7 @@ exports[`BasicTable 🎏 base use 1`] = `
                             class="ant-table-cell"
                           >
                             <span>
-                              ￥ 10000.26
+                              ¥10,000.26
                             </span>
                           </td>
                           <td
@@ -1861,7 +1861,7 @@ exports[`BasicTable 🎏 base use 1`] = `
                             class="ant-table-cell"
                           >
                             <span>
-                              ￥ 20000.52
+                              ¥20,000.52
                             </span>
                           </td>
                           <td
@@ -2175,7 +2175,7 @@ exports[`BasicTable 🎏 base use 1`] = `
                             class="ant-table-cell"
                           >
                             <span>
-                              ￥ 30000.78
+                              ¥30,000.78
                             </span>
                           </td>
                           <td
@@ -2489,7 +2489,7 @@ exports[`BasicTable 🎏 base use 1`] = `
                             class="ant-table-cell"
                           >
                             <span>
-                              ￥ 40001.04
+                              ¥40,001.04
                             </span>
                           </td>
                           <td
@@ -2803,7 +2803,7 @@ exports[`BasicTable 🎏 base use 1`] = `
                             class="ant-table-cell"
                           >
                             <span>
-                              ￥ 50001.3
+                              ¥50,001.30
                             </span>
                           </td>
                           <td
@@ -3117,7 +3117,7 @@ exports[`BasicTable 🎏 base use 1`] = `
                             class="ant-table-cell"
                           >
                             <span>
-                              ￥ 60001.56
+                              ¥60,001.56
                             </span>
                           </td>
                           <td
@@ -3431,7 +3431,7 @@ exports[`BasicTable 🎏 base use 1`] = `
                             class="ant-table-cell"
                           >
                             <span>
-                              ￥ 70001.82
+                              ¥70,001.82
                             </span>
                           </td>
                           <td
@@ -3745,7 +3745,7 @@ exports[`BasicTable 🎏 base use 1`] = `
                             class="ant-table-cell"
                           >
                             <span>
-                              ￥ 80002.08
+                              ¥80,002.08
                             </span>
                           </td>
                           <td
@@ -4059,7 +4059,7 @@ exports[`BasicTable 🎏 base use 1`] = `
                             class="ant-table-cell"
                           >
                             <span>
-                              ￥ 90002.34
+                              ¥90,002.34
                             </span>
                           </td>
                           <td
@@ -4373,7 +4373,7 @@ exports[`BasicTable 🎏 base use 1`] = `
                             class="ant-table-cell"
                           >
                             <span>
-                              ￥ 100002.6
+                              ¥100,002.60
                             </span>
                           </td>
                           <td
@@ -4687,7 +4687,7 @@ exports[`BasicTable 🎏 base use 1`] = `
                             class="ant-table-cell"
                           >
                             <span>
-                              ￥ 110002.86
+                              ¥110,002.86
                             </span>
                           </td>
                           <td
@@ -5001,7 +5001,7 @@ exports[`BasicTable 🎏 base use 1`] = `
                             class="ant-table-cell"
                           >
                             <span>
-                              ￥ 120003.12
+                              ¥120,003.12
                             </span>
                           </td>
                           <td
@@ -5315,7 +5315,7 @@ exports[`BasicTable 🎏 base use 1`] = `
                             class="ant-table-cell"
                           >
                             <span>
-                              ￥ 130003.38
+                              ¥130,003.38
                             </span>
                           </td>
                           <td
@@ -5629,7 +5629,7 @@ exports[`BasicTable 🎏 base use 1`] = `
                             class="ant-table-cell"
                           >
                             <span>
-                              ￥ 140003.64
+                              ¥140,003.64
                             </span>
                           </td>
                           <td
@@ -5943,7 +5943,7 @@ exports[`BasicTable 🎏 base use 1`] = `
                             class="ant-table-cell"
                           >
                             <span>
-                              ￥ 150003.9
+                              ¥150,003.90
                             </span>
                           </td>
                           <td
@@ -6257,7 +6257,7 @@ exports[`BasicTable 🎏 base use 1`] = `
                             class="ant-table-cell"
                           >
                             <span>
-                              ￥ 160004.16
+                              ¥160,004.16
                             </span>
                           </td>
                           <td
@@ -6571,7 +6571,7 @@ exports[`BasicTable 🎏 base use 1`] = `
                             class="ant-table-cell"
                           >
                             <span>
-                              ￥ 170004.42
+                              ¥170,004.42
                             </span>
                           </td>
                           <td
@@ -6885,7 +6885,7 @@ exports[`BasicTable 🎏 base use 1`] = `
                             class="ant-table-cell"
                           >
                             <span>
-                              ￥ 180004.68
+                              ¥180,004.68
                             </span>
                           </td>
                           <td
@@ -7199,7 +7199,7 @@ exports[`BasicTable 🎏 base use 1`] = `
                             class="ant-table-cell"
                           >
                             <span>
-                              ￥ 190004.94
+                              ¥190,004.94
                             </span>
                           </td>
                           <td
@@ -7513,7 +7513,7 @@ exports[`BasicTable 🎏 base use 1`] = `
                             class="ant-table-cell"
                           >
                             <span>
-                              ￥ 200005.2
+                              ¥200,005.20
                             </span>
                           </td>
                           <td
@@ -7916,7 +7916,7 @@ exports[`BasicTable 🎏 columns = undefined 1`] = `
       >
         <form
           autocomplete="off"
-          class="ant-form ant-form-horizontal ant-pro-form-query-filter"
+          class="ant-form ant-form-horizontal ant-pro-form-query-filter ant-pro-form"
         >
           <input
             style="display:none"
@@ -8283,7 +8283,7 @@ exports[`BasicTable 🎏 valueEnum support function 1`] = `
       >
         <form
           autocomplete="off"
-          class="ant-form ant-form-horizontal ant-pro-form-query-filter"
+          class="ant-form ant-form-horizontal ant-pro-form-query-filter ant-pro-form"
         >
           <input
             style="display: none;"

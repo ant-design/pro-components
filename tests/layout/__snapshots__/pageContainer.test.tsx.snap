@@ -337,19 +337,19 @@ exports[`PageContainer 🐲 FooterToolbar should know width 1`] = `
         style="position: relative;"
       >
         <header
-          class="ant-layout-header ant-pro-top-menu ant-pro-header ant-design-pro-layout-1vchm1k"
+          class="ant-layout-header ant-pro-layout-header ant-pro-layout-header-top-menu ant-pro-layout-header-header"
         >
           <div
-            class="ant-pro-top-nav-header light ant-design-pro-layout-143khor"
+            class="ant-pro-top-nav-header ant-pro-top-nav-header-light"
           >
             <div
-              class="ant-pro-top-nav-header-main ant-design-pro-layout-17ldh9g"
+              class="ant-pro-top-nav-header-main"
             >
               <div
-                class="ant-pro-top-nav-header-main-left ant-design-pro-layout-ky9p8f"
+                class="ant-pro-top-nav-header-main-left"
               >
                 <div
-                  class="ant-pro-top-nav-header-logo ant-design-pro-layout-c10ook"
+                  class="ant-pro-top-nav-header-logo"
                   id="logo"
                 >
                   <a>
@@ -486,7 +486,7 @@ exports[`PageContainer 🐲 FooterToolbar should know width 1`] = `
                 </div>
               </div>
               <div
-                class="ant-pro-top-nav-header-menu ant-design-pro-layout-1omcxtl"
+                class="ant-pro-top-nav-header-menu"
                 style="flex: 1;"
               />
             </div>
@@ -668,19 +668,19 @@ exports[`PageContainer 🐲 footer should know width 1`] = `
         style="position: relative;"
       >
         <header
-          class="ant-layout-header ant-pro-top-menu ant-pro-header ant-design-pro-layout-1vchm1k"
+          class="ant-layout-header ant-pro-layout-header ant-pro-layout-header-top-menu ant-pro-layout-header-header"
         >
           <div
-            class="ant-pro-top-nav-header light ant-design-pro-layout-143khor"
+            class="ant-pro-top-nav-header ant-pro-top-nav-header-light"
           >
             <div
-              class="ant-pro-top-nav-header-main ant-design-pro-layout-17ldh9g"
+              class="ant-pro-top-nav-header-main"
             >
               <div
-                class="ant-pro-top-nav-header-main-left ant-design-pro-layout-ky9p8f"
+                class="ant-pro-top-nav-header-main-left"
               >
                 <div
-                  class="ant-pro-top-nav-header-logo ant-design-pro-layout-c10ook"
+                  class="ant-pro-top-nav-header-logo"
                   id="logo"
                 >
                   <a>
@@ -817,7 +817,7 @@ exports[`PageContainer 🐲 footer should know width 1`] = `
                 </div>
               </div>
               <div
-                class="ant-pro-top-nav-header-menu ant-design-pro-layout-1omcxtl"
+                class="ant-pro-top-nav-header-menu"
                 style="flex: 1;"
               />
             </div>
@@ -891,11 +891,11 @@ exports[`PageContainer 🐲 pro-layout support breadcrumbProps 1`] = `
       style="min-height:100%"
     >
       <div
-        class="ant-design-pro-layout-l4gpps"
+        style="width:256px;overflow:hidden;flex:0 0 256px;max-width:256px;min-width:256px"
       />
       <aside
-        class="ant-layout-sider ant-layout-sider-light ant-pro-sider ant-pro-sider-fixed ant-pro-sider-layout-side ant-pro-sider-light ant-design-pro-layout-1retjvs"
-        style="background-color:transparent;flex:0 0 256px;max-width:256px;min-width:256px;width:256px"
+        class="ant-layout-sider ant-layout-sider-light ant-pro-sider ant-pro-sider-fixed ant-pro-sider-layout-side ant-pro-sider-light"
+        style="flex:0 0 256px;max-width:256px;min-width:256px;width:256px"
       >
         <div
           class="ant-layout-sider-children"

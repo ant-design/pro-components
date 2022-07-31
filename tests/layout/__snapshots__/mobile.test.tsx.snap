@@ -41,8 +41,8 @@ exports[`mobile BasicLayout 📱 base use 1`] = `
                     style="height: 100vh; padding: 0px; display: flex; flex-direction: row;"
                   >
                     <aside
-                      class="ant-layout-sider ant-layout-sider-light ant-pro-sider ant-pro-sider-fixed ant-pro-sider-light ant-design-pro-layout-1retjvs"
-                      style="background-color: transparent; flex: 0 0 256px; max-width: 256px; min-width: 256px; width: 256px;"
+                      class="ant-layout-sider ant-layout-sider-light ant-pro-sider ant-pro-sider-fixed ant-pro-sider-light"
+                      style="flex: 0 0 256px; max-width: 256px; min-width: 256px; width: 256px;"
                     >
                       <div
                         class="ant-layout-sider-children"
@@ -89,13 +89,13 @@ exports[`mobile BasicLayout 📱 base use 1`] = `
           style="position: relative;"
         >
           <header
-            class="ant-layout-header ant-pro-header ant-design-pro-layout-1vchm1k"
+            class="ant-layout-header ant-pro-layout-header ant-pro-layout-header-header"
           >
             <div
               class="ant-pro-global-header ant-pro-global-header-layout-side"
             >
               <span
-                class="ant-pro-global-header-logo"
+                class="ant-pro-global-header-logo ant-pro-global-header-logo-mobile"
               >
                 <a>
                   <svg
@@ -305,8 +305,8 @@ exports[`mobile BasicLayout 📱 collapsed=false 1`] = `
                     style="height: 100vh; padding: 0px; display: flex; flex-direction: row;"
                   >
                     <aside
-                      class="ant-layout-sider ant-layout-sider-light ant-pro-sider ant-pro-sider-fixed ant-pro-sider-light ant-design-pro-layout-1retjvs"
-                      style="background-color: transparent; flex: 0 0 256px; max-width: 256px; min-width: 256px; width: 256px;"
+                      class="ant-layout-sider ant-layout-sider-light ant-pro-sider ant-pro-sider-fixed ant-pro-sider-light"
+                      style="flex: 0 0 256px; max-width: 256px; min-width: 256px; width: 256px;"
                     >
                       <div
                         class="ant-layout-sider-children"
@@ -368,13 +368,13 @@ exports[`mobile BasicLayout 📱 collapsed=false 1`] = `
           style="position: relative;"
         >
           <header
-            class="ant-layout-header ant-pro-fixed-header-action ant-pro-header ant-design-pro-layout-1vchm1k"
+            class="ant-layout-header ant-pro-layout-header ant-pro-layout-header-fixed-header-action ant-pro-layout-header-header"
           >
             <div
               class="ant-pro-global-header ant-pro-global-header-layout-side"
             >
               <span
-                class="ant-pro-global-header-logo"
+                class="ant-pro-global-header-logo ant-pro-global-header-logo-mobile"
               >
                 <a>
                   <svg
@@ -584,8 +584,8 @@ exports[`mobile BasicLayout 📱 layout menuHeaderRender 1`] = `
                     style="height: 100vh; padding: 0px; display: flex; flex-direction: row;"
                   >
                     <aside
-                      class="ant-layout-sider ant-layout-sider-light ant-pro-sider ant-pro-sider-fixed ant-pro-sider-light ant-design-pro-layout-1retjvs"
-                      style="background-color: transparent; flex: 0 0 215px; max-width: 215px; min-width: 215px; width: 215px;"
+                      class="ant-layout-sider ant-layout-sider-light ant-pro-sider ant-pro-sider-fixed ant-pro-sider-light"
+                      style="flex: 0 0 215px; max-width: 215px; min-width: 215px; width: 215px;"
                     >
                       <div
                         class="ant-layout-sider-children"
@@ -642,7 +642,7 @@ exports[`mobile BasicLayout 📱 layout menuHeaderRender 1`] = `
             style="height: 56px; line-height: 56px; background-color: transparent;"
           />
           <header
-            class="ant-layout-header ant-pro-fixed-header ant-pro-header ant-design-pro-layout-ufars5"
+            class="ant-layout-header ant-pro-layout-header ant-pro-layout-header-fixed-header ant-pro-layout-header-mix ant-pro-layout-header-header"
           >
             <div
               class="ant-pro-global-header ant-pro-global-header-layout-mix"
@@ -727,8 +727,8 @@ exports[`mobile BasicLayout 📱 layout menuHeaderRender 2`] = `
                     style="height: 100vh; padding: 0px; display: flex; flex-direction: row;"
                   >
                     <aside
-                      class="ant-layout-sider ant-layout-sider-light ant-pro-sider ant-pro-sider-fixed ant-pro-sider-light ant-design-pro-layout-1retjvs"
-                      style="background-color: transparent; flex: 0 0 215px; max-width: 215px; min-width: 215px; width: 215px;"
+                      class="ant-layout-sider ant-layout-sider-light ant-pro-sider ant-pro-sider-fixed ant-pro-sider-light"
+                      style="flex: 0 0 215px; max-width: 215px; min-width: 215px; width: 215px;"
                     >
                       <div
                         class="ant-layout-sider-children"
@@ -785,7 +785,7 @@ exports[`mobile BasicLayout 📱 layout menuHeaderRender 2`] = `
             style="height: 56px; line-height: 56px; background-color: transparent;"
           />
           <header
-            class="ant-layout-header ant-pro-fixed-header ant-pro-header ant-design-pro-layout-ufars5"
+            class="ant-layout-header ant-pro-layout-header ant-pro-layout-header-fixed-header ant-pro-layout-header-mix ant-pro-layout-header-header"
           >
             <div
               class="ant-pro-global-header ant-pro-global-header-layout-mix"
@@ -870,8 +870,8 @@ exports[`mobile BasicLayout 📱 layout menuHeaderRender=false 1`] = `
                     style="height: 100vh; padding: 0px; display: flex; flex-direction: row;"
                   >
                     <aside
-                      class="ant-layout-sider ant-layout-sider-light ant-pro-sider ant-pro-sider-fixed ant-pro-sider-light ant-design-pro-layout-1retjvs"
-                      style="background-color: transparent; flex: 0 0 215px; max-width: 215px; min-width: 215px; width: 215px;"
+                      class="ant-layout-sider ant-layout-sider-light ant-pro-sider ant-pro-sider-fixed ant-pro-sider-light"
+                      style="flex: 0 0 215px; max-width: 215px; min-width: 215px; width: 215px;"
                     >
                       <div
                         class="ant-layout-sider-children"
@@ -922,7 +922,7 @@ exports[`mobile BasicLayout 📱 layout menuHeaderRender=false 1`] = `
             style="height: 56px; line-height: 56px; background-color: transparent;"
           />
           <header
-            class="ant-layout-header ant-pro-fixed-header ant-pro-header ant-design-pro-layout-ufars5"
+            class="ant-layout-header ant-pro-layout-header ant-pro-layout-header-fixed-header ant-pro-layout-header-mix ant-pro-layout-header-header"
           >
             <div
               class="ant-pro-global-header ant-pro-global-header-layout-mix"
@@ -1006,8 +1006,8 @@ exports[`mobile BasicLayout 📱 layout=mix 1`] = `
                     style="height: 100vh; padding: 0px; display: flex; flex-direction: row;"
                   >
                     <aside
-                      class="ant-layout-sider ant-layout-sider-light ant-pro-sider ant-pro-sider-fixed ant-pro-sider-light ant-design-pro-layout-1retjvs"
-                      style="background-color: transparent; flex: 0 0 215px; max-width: 215px; min-width: 215px; width: 215px;"
+                      class="ant-layout-sider ant-layout-sider-light ant-pro-sider ant-pro-sider-fixed ant-pro-sider-light"
+                      style="flex: 0 0 215px; max-width: 215px; min-width: 215px; width: 215px;"
                     >
                       <div
                         class="ant-layout-sider-children"
@@ -1073,13 +1073,13 @@ exports[`mobile BasicLayout 📱 layout=mix 1`] = `
             style="height: 56px; line-height: 56px; background-color: transparent;"
           />
           <header
-            class="ant-layout-header ant-pro-fixed-header ant-pro-fixed-header-action ant-pro-header ant-design-pro-layout-ufars5"
+            class="ant-layout-header ant-pro-layout-header ant-pro-layout-header-fixed-header ant-pro-layout-header-mix ant-pro-layout-header-fixed-header-action ant-pro-layout-header-header"
           >
             <div
               class="ant-pro-global-header ant-pro-global-header-layout-mix"
             >
               <span
-                class="ant-pro-global-header-logo"
+                class="ant-pro-global-header-logo ant-pro-global-header-logo-mix ant-pro-global-header-logo-mobile"
               >
                 <a>
                   <svg
@@ -1289,8 +1289,8 @@ exports[`mobile BasicLayout 📱 layout=mix and splitMenus 1`] = `
                     style="height: 100vh; padding: 0px; display: flex; flex-direction: row;"
                   >
                     <aside
-                      class="ant-layout-sider ant-layout-sider-light ant-pro-sider ant-pro-sider-fixed ant-pro-sider-light ant-design-pro-layout-1retjvs"
-                      style="background-color: transparent; flex: 0 0 215px; max-width: 215px; min-width: 215px; width: 215px;"
+                      class="ant-layout-sider ant-layout-sider-light ant-pro-sider ant-pro-sider-fixed ant-pro-sider-light"
+                      style="flex: 0 0 215px; max-width: 215px; min-width: 215px; width: 215px;"
                     >
                       <div
                         class="ant-layout-sider-children"
@@ -1356,13 +1356,13 @@ exports[`mobile BasicLayout 📱 layout=mix and splitMenus 1`] = `
             style="height: 56px; line-height: 56px; background-color: transparent;"
           />
           <header
-            class="ant-layout-header ant-pro-fixed-header ant-pro-fixed-header-action ant-pro-header ant-design-pro-layout-ufars5"
+            class="ant-layout-header ant-pro-layout-header ant-pro-layout-header-fixed-header ant-pro-layout-header-mix ant-pro-layout-header-fixed-header-action ant-pro-layout-header-header"
           >
             <div
               class="ant-pro-global-header ant-pro-global-header-layout-mix"
             >
               <span
-                class="ant-pro-global-header-logo"
+                class="ant-pro-global-header-logo ant-pro-global-header-logo-mix ant-pro-global-header-logo-mobile"
               >
                 <a>
                   <svg

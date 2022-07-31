@@ -486,7 +486,7 @@ exports[`descriptions demos 📸 renders ./packages/descriptions/src/demos/base.
                   class="ant-descriptions-item-content"
                 >
                   <span>
-                    ￥ 100
+                    ¥100.00
                   </span>
                 </span>
               </div>
@@ -1001,7 +1001,7 @@ exports[`descriptions demos 📸 renders ./packages/descriptions/src/demos/colum
                   class="ant-descriptions-item-content"
                 >
                   <span>
-                    ￥ 1212100
+                    ¥1,212,100.00
                   </span>
                 </span>
               </div>
@@ -1393,7 +1393,7 @@ exports[`descriptions demos 📸 renders ./packages/descriptions/src/demos/dynam
                             class="ant-descriptions-item-content"
                           >
                             <span>
-                              ￥ 1212100
+                              ¥1,212,100.00
                             </span>
                           </span>
                         </div>
@@ -1432,7 +1432,7 @@ exports[`descriptions demos 📸 renders ./packages/descriptions/src/demos/dynam
       >
         <form
           autocomplete="off"
-          class="ant-form ant-form-vertical"
+          class="ant-form ant-form-vertical ant-pro-form"
         >
           <input
             style="display: none;"
@@ -3277,7 +3277,7 @@ exports[`descriptions demos 📸 renders ./packages/descriptions/src/demos/reque
                   class="ant-descriptions-item-content"
                 >
                   <span>
-                    ￥ 12121
+                    ¥12,121.00
                   </span>
                 </span>
               </div>
@@ -3536,7 +3536,7 @@ exports[`descriptions demos 📸 renders ./packages/descriptions/src/demos/use-d
                   class="ant-descriptions-item-content"
                 >
                   <span>
-                    ￥ 1212100
+                    ¥1,212,100.00
                   </span>
                 </span>
               </div>

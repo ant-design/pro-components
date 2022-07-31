@@ -15,7 +15,7 @@ exports[`Table valueEnum 🎏 customization valueType 1`] = `
       >
         <form
           autocomplete="off"
-          class="ant-form ant-form-horizontal ant-pro-form-query-filter"
+          class="ant-form ant-form-horizontal ant-pro-form-query-filter ant-pro-form"
         >
           <input
             style="display: none;"

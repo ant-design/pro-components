@@ -27,8 +27,10 @@ const genLightFilterStyle: GenerateStyle<LightFilterToken> = (token) => {
       '&-collapse-icon': {
         width: token.controlHeight,
         height: token.controlHeight,
-        lineHeight: token.controlHeight + 'px',
         borderRadius: '50%',
+        display: 'flex',
+        alignItems: 'center',
+        justifyContent: 'center',
       },
       '&-effective': {
         [`${token.componentCls}-collapse-icon`]: {

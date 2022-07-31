@@ -110,8 +110,6 @@ Object.defineProperty(window, 'cancelAnimationFrame', {
 // 2016-11-22 15:22:44
 MockDate.set(1479799364000);
 
-Intl.NumberFormat = jest.fn().mockImplementation(() => mockFormatExpression);
-
 Math.random = () => 0.8404419276253765;
 
 fetch.mockResponse(async () => {

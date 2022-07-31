@@ -6,7 +6,7 @@ exports[`ProForm 📦 submit props actionsRender is one 1`] = `
 >
   <form
     autocomplete="off"
-    class="ant-form ant-form-vertical"
+    class="ant-form ant-form-vertical ant-pro-form"
   >
     <input
       style="display: none;"
@@ -25,7 +25,7 @@ exports[`ProForm 📦 submit props actionsRender=()=>[] 1`] = `
 >
   <form
     autocomplete="off"
-    class="ant-form ant-form-vertical"
+    class="ant-form ant-form-vertical ant-pro-form"
   >
     <input
       style="display: none;"
@@ -41,7 +41,7 @@ exports[`ProForm 📦 submit props actionsRender=()=>false 1`] = `
 >
   <form
     autocomplete="off"
-    class="ant-form ant-form-vertical"
+    class="ant-form ant-form-vertical ant-pro-form"
   >
     <input
       style="display: none;"
@@ -57,7 +57,7 @@ exports[`ProForm 📦 submit props actionsRender=false 1`] = `
 >
   <form
     autocomplete="off"
-    class="ant-form ant-form-vertical"
+    class="ant-form ant-form-vertical ant-pro-form"
   >
     <input
       style="display: none;"
@@ -73,7 +73,7 @@ exports[`ProForm 📦 submit props actionsRender=false 2`] = `
 >
   <form
     autocomplete="off"
-    class="ant-form ant-form-vertical"
+    class="ant-form ant-form-vertical ant-pro-form"
   >
     <input
       style="display: none;"
@@ -89,7 +89,7 @@ exports[`ProForm 📦 submit props render=()=>[] 1`] = `
 >
   <form
     autocomplete="off"
-    class="ant-form ant-form-vertical"
+    class="ant-form ant-form-vertical ant-pro-form"
   >
     <input
       style="display: none;"
@@ -113,7 +113,7 @@ exports[`ProForm 📦 submitter props support resetButtonProps 1`] = `
 >
   <form
     autocomplete="off"
-    class="ant-form ant-form-vertical"
+    class="ant-form ant-form-vertical ant-pro-form"
   >
     <input
       style="display: none;"
@@ -160,7 +160,7 @@ exports[`ProForm 📦 submitter props support submitButtonProps 1`] = `
 >
   <form
     autocomplete="off"
-    class="ant-form ant-form-vertical"
+    class="ant-form ant-form-vertical ant-pro-form"
   >
     <input
       style="display: none;"
@@ -330,7 +330,7 @@ exports[`ProForm 📦 when dateFormatter is a Function 1`] = `
 >
   <form
     autocomplete="off"
-    class="ant-form ant-form-vertical"
+    class="ant-form ant-form-vertical ant-pro-form"
   >
     <input
       style="display: none;"
