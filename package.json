@@ -49,6 +49,7 @@
     "prettier-plugin-packagejson": "^2.2.18"
   },
   "devDependencies": {
+    "@ant-design/antd-theme-variable": "^1.0.0",
     "@ant-design/cssinjs": "^0.0.0-alpha.38",
     "@ant-design/icons": "^4.6.2",
     "@babel/core": "^7.16.0",

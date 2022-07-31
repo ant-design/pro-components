@@ -10,6 +10,11 @@
     "@jridgewell/gen-mapping" "^0.1.0"
     "@jridgewell/trace-mapping" "^0.3.9"
 
+"@ant-design/antd-theme-variable@^1.0.0":
+  version "1.0.0"
+  resolved "https://registry.npmmirror.com/@ant-design/antd-theme-variable/-/antd-theme-variable-1.0.0.tgz#b930e20fa3de9300bf3987aaccfd11529568b93f"
+  integrity sha512-0vr5GCwM7xlAl6NxG1lPbABO+SYioNJL3HVy2FA8wTlsIMoZvQwcwsxTw6eLQCiN9V2UQ8kBtfz8DW8utVVE5w==
+
 "@ant-design/colors@^6.0.0":
   version "6.0.0"
   resolved "https://registry.npmmirror.com/@ant-design/colors/-/colors-6.0.0.tgz#9b9366257cffcc47db42b9d0203bb592c13c0298"

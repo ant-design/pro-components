@@ -2,7 +2,7 @@ import chalk from 'chalk';
 import { readdirSync } from 'fs';
 import { join } from 'path';
 
-const theme = require('./default-theme');
+const theme = require('@ant-design/antd-theme-variable');
 
 const headPkgList = [];
 // utils must build before core
@@ -23,8 +23,6 @@ console.log(`🌼 alias list \n${chalk.blue(Object.keys(alias).join('\n'))}`);
 const tailPkgList = pkgList
   .map((path) => [join('packages', path, 'src')])
   .reduce((acc, val) => acc.concat(val), []);
-
-const isProduction = process.env.NODE_ENV === 'production';
 
 const isDeploy = process.env.SITE_DEPLOY === 'TRUE';
 
