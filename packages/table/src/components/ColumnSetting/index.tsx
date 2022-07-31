@@ -17,7 +17,7 @@ import type { ColumnsState } from '../../container';
 import Container from '../../container';
 import type { ProColumns } from '../../typing';
 import { genColumnKey } from '../../utils/index';
-import './index.less';
+import { useStyle } from './style';
 
 type ColumnSettingProps<T = any> = {
   columns: TableColumnType<T>[];
@@ -371,7 +371,8 @@ function ColumnSetting<T>(props: ColumnSettingProps<T>) {
   const intl = useIntl();
   const { getPrefixCls } = useContext(ConfigProvider.ConfigContext);
   const className = getPrefixCls('pro-table-column-setting');
-  return (
+  const { wrapSSR } = useStyle(className);
+  return wrapSSR(
     <Popover
       arrowPointAtCenter
       title={
@@ -413,7 +414,7 @@ function ColumnSetting<T>(props: ColumnSettingProps<T>) {
           <SettingOutlined />
         </Tooltip>
       )}
-    </Popover>
+    </Popover>,
   );
 }
 
