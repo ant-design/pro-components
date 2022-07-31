@@ -17,14 +17,14 @@ const genProStyle: GenerateStyle<ProToken> = (token) => {
         height: '32px',
       },
       '&-overlay': {
-        [`.@{ant-prefix}-popover-inner-content`]: {
+        [`${token.antCls}-popover-inner-content`]: {
           width: '200px',
           padding: '0px',
           paddingBottom: '8px',
         },
-        [`.@{ant-prefix}-tree-node-content-wrapper:hover`]: { backgroundColor: 'transparent' },
-        [`.@{ant-prefix}-tree-draggable-icon`]: { cursor: 'grab' },
-        [`.@{ant-prefix}-tree-treenode`]: {
+        [`${token.antCls}-tree-node-content-wrapper:hover`]: { backgroundColor: 'transparent' },
+        [`${token.antCls}-tree-draggable-icon`]: { cursor: 'grab' },
+        [`${token.antCls}-tree-treenode`]: {
           alignItems: 'center',
           '&:hover': {
             backgroundColor: token.controlItemBgActive,
@@ -32,7 +32,7 @@ const genProStyle: GenerateStyle<ProToken> = (token) => {
               display: 'block',
             },
           },
-          [`.@{ant-prefix}-tree-checkbox`]: { top: '0', margin: '0', marginRight: '4px' },
+          [`${token.antCls}-tree-checkbox`]: { top: '0', margin: '0', marginRight: '4px' },
         },
       },
     },

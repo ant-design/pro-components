@@ -9,28 +9,20 @@ export interface ProToken extends ProAliasToken {
 const genProStyle: GenerateStyle<ProToken> = (token) => {
   return {
     [token.componentCls]: {
-      marginBottom: 16,
-      [`${token.antCls}-alert${token.antCls}-alert-no-icon`]: {
-        padding: `${token.paddingSM} ${token.paddingLG}`,
-      },
-      '$-info': {
-        display: 'flex',
-        alignItems: 'center',
-        transition: 'all 0.3s',
-        '&-content': {
-          flex: 1,
-        },
-        '&-option': {
-          minWidth: 48,
-          paddingLeft: 16,
-        },
-      },
+      display: 'flex',
+      flexDirection: 'column',
+      justifyContent: 'flex-end',
+      margin: `${token.marginLG} 0`,
+      color: 'rgba(0, 0, 0, 0.85)',
+      fontWeight: '500',
+      fontSize: '20px',
+      lineHeight: '38px',
     },
   };
 };
 
 export function useStyle(prefixCls: string) {
-  return useAntdStyle('CheckCard', (token) => {
+  return useAntdStyle('Operation', (token) => {
     const proToken: ProToken = {
       ...token,
       componentCls: `.${prefixCls}`,

@@ -71,6 +71,61 @@ const genProListStyle: GenerateStyle<ProListToken> = (token) => {
         },
       },
     },
+    '&-toolbar': {
+      display: 'flex',
+      alignItems: 'center',
+      justifyContent: 'space-between',
+      height: '64px',
+      padding: '0 24px',
+      '&-option': { display: 'flex', alignItems: 'center', justifyContent: 'flex-end' },
+      '&-title': {
+        flex: '1',
+        color: token.colorTextLabel,
+        fontWeight: '500',
+        fontSize: '16px',
+        lineHeight: '24px',
+        opacity: '0.85',
+      },
+    },
+    [`@media (max-width: ${token.screenXS})`]: {
+      [token.componentCls]: {
+        '.ant-table': {
+          width: '100%',
+          overflowX: 'auto',
+          '&-thead > tr,&-tbody > tr': {
+            '> th,> td': {
+              whiteSpace: 'pre',
+              '>span': {
+                display: 'block',
+              },
+            },
+          },
+        },
+      },
+    },
+    '@media (max-width: 575px)': {
+      [`${token.componentCls}-toolbar`]: {
+        flexDirection: 'column',
+        alignItems: 'flex-start',
+        justifyContent: 'flex-start',
+        height: 'auto',
+        marginBottom: '16px',
+        marginLeft: '16px',
+        padding: '8px',
+        paddingTop: '16px',
+        lineHeight: 'normal',
+        '&-title': {
+          marginBottom: 16,
+        },
+        '&-option': { display: 'flex', justifyContent: 'space-between', width: '100%' },
+        '&-default-option': {
+          display: 'flex',
+          flex: '1',
+          alignItems: 'center',
+          justifyContent: 'flex-end',
+        },
+      },
+    },
   };
 };
 

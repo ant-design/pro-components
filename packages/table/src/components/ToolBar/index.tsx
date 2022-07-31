@@ -13,7 +13,6 @@ import type { ListToolBarProps } from '../ListToolBar';
 import ListToolBar from '../ListToolBar';
 import DensityIcon from './DensityIcon';
 import FullScreenIcon from './FullscreenIcon';
-import './index.less';
 
 export type SettingOptionType = {
   draggable?: boolean;

@@ -1,6 +1,6 @@
 import { Col, Row } from 'antd';
 import React from 'react';
-import './index.less';
+import { useStyle } from './style';
 
 type LoadingProps = {
   /** 类名 */
@@ -13,8 +13,9 @@ type LoadingProps = {
 
 const Loading: React.FC<LoadingProps> = (props) => {
   const { style, prefix } = props;
+  const { wrapSSR } = useStyle(prefix || 'ant-pro-card');
 
-  return (
+  return wrapSSR(
     <div className={`${prefix}-loading-content`} style={style}>
       <Row gutter={8}>
         <Col span={22}>
@@ -56,7 +57,7 @@ const Loading: React.FC<LoadingProps> = (props) => {
           <div className={`${prefix}-loading-block`} />
         </Col>
       </Row>
-    </div>
+    </div>,
   );
 };
 
