@@ -4,7 +4,6 @@ import classNames from 'classnames';
 import omit from 'omit.js';
 import React, { createContext, useCallback, useContext, useMemo, useRef } from 'react';
 import CheckCard from './index';
-import './index.less';
 
 export type CheckCardValueType = string | number | boolean;
 

@@ -1,6 +1,5 @@
 import classNames from 'classnames';
 import React from 'react';
-import './index.less';
 import useStyle from './style';
 
 export type ProCardActionsProps = {

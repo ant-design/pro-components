@@ -73,7 +73,9 @@ const DefaultHeader: React.FC<HeaderViewProps & PrivateSiderMenuProps> = (props)
 
   const isTop = layout === 'top';
   const baseClassName = `${prefixCls}-layout-header`;
-  const { wrapSSR, hashId } = useStyle(baseClassName);
+  const { wrapSSR, hashId } = useStyle(baseClassName, {
+    proLayoutCls: prefixCls || 'ant-pro-layout',
+  });
 
   const className = classNames(propsClassName, hashId, baseClassName, {
     [`${baseClassName}-fixed-header`]: needFixedHeader,

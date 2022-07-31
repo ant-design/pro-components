@@ -1,4 +1,5 @@
-import { Avatar, AvatarProps, Layout, Menu, SiderProps, Space } from 'antd';
+import type { AvatarProps, SiderProps } from 'antd';
+import { Avatar, Layout, Menu, Space } from 'antd';
 import type { ItemType } from 'antd/es/menu/hooks/useItems';
 import classNames from 'classnames';
 import type { CSSProperties } from 'react';

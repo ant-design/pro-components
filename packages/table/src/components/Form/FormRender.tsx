@@ -7,7 +7,6 @@ import classNames from 'classnames';
 import omit from 'omit.js';
 import React, { useContext, useMemo } from 'react';
 import type { ActionType, ProColumns, ProTableProps } from '../../typing';
-import './index.less';
 
 function toLowerLine(str: string) {
   let temp = str.replace(/[A-Z]/g, (match) => {

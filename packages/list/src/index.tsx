@@ -6,7 +6,6 @@ import { ConfigProvider } from 'antd';
 import type { LabelTooltipType } from 'antd/es/form/FormItemLabel';
 import classNames from 'classnames';
 import React, { useContext, useImperativeHandle, useMemo, useRef } from 'react';
-import './index.less';
 import type { ItemProps } from './Item';
 import ListView from './ListView';
 import { useStyle } from './style/index';

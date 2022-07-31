@@ -25,15 +25,13 @@ export function useStyle(
   const { getPrefixCls } = useContext(ConfigProvider.ConfigContext);
   const proComponentsCls = `.${getPrefixCls()}-pro`;
   return {
-    wrapSSR: useStyleRegister({ theme, token, hashId, path: [componentName] }, () => {
-      return {
-        body: styleFn({
-          ...token,
-          antCls: '.' + getPrefixCls(),
-          proComponentsCls,
-        }),
-      };
-    }),
+    wrapSSR: useStyleRegister({ theme, token, hashId, path: [componentName] }, () =>
+      styleFn({
+        ...token,
+        antCls: '.' + getPrefixCls(),
+        proComponentsCls,
+      }),
+    ),
     hashId,
   };
 }

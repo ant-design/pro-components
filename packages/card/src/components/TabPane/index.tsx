@@ -3,7 +3,6 @@ import classNames from 'classnames';
 import React, { useContext } from 'react';
 import type { ProCardTabPaneProps } from '../../type';
 import Card from '../Card';
-import './index.less';
 
 const TabPane: React.FC<ProCardTabPaneProps> = (props) => {
   const {

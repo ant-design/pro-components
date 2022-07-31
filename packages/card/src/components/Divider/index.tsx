@@ -1,7 +1,6 @@
 import { ConfigProvider } from 'antd';
 import classNames from 'classnames';
 import React, { useContext } from 'react';
-import './index.less';
 import useStyle from './style';
 
 export type ProCardDividerProps = {

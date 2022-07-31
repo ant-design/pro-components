@@ -46,6 +46,7 @@ const SiderMenuWrapper: React.FC<SiderMenuProps & PrivateSiderMenuProps> = (prop
   const { wrapSSR, hashId } = useStyle(`${prefixCls}-sider`, {
     proLayoutHeaderHeight: props.headerHeight || 56,
     proLayoutCollapsedWidth: 64,
+    proLayoutCls: prefixCls || 'ant-pro-layout',
   });
 
   const siderClassName = classNames(`${prefixCls}-sider`, className, hashId);

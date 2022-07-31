@@ -5,7 +5,6 @@ import React from 'react';
 import type { ActionType, ProTableProps } from '../../typing';
 import { isBordered } from '../../utils/index';
 import FormRender from './FormRender';
-import './index.less';
 
 type BaseFormProps<T, U> = {
   pagination?: TablePaginationConfig | false;
