@@ -1,6 +1,6 @@
 {
   "name": "@ant-design/pro-form",
-  "version": "2.0.0-experimental.3",
+  "version": "2.0.0-experimental.4",
   "description": "@ant-design/pro-form",
   "keywords": [
     "antd",
@@ -30,9 +30,9 @@
   ],
   "dependencies": {
     "@ant-design/icons": "^4.2.1",
-    "@ant-design/pro-field": "2.0.0-experimental.3",
+    "@ant-design/pro-field": "2.0.0-experimental.4",
     "@ant-design/pro-provider": "2.0.0-experimental.3",
-    "@ant-design/pro-utils": "2.0.0-experimental.3",
+    "@ant-design/pro-utils": "2.0.0-experimental.4",
     "@babel/runtime": "^7.18.0",
     "@umijs/use-params": "^1.0.9",
     "classnames": "^2.2.6",
