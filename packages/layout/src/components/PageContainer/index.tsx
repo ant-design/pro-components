@@ -7,11 +7,11 @@ import { RouteContext } from '../../RouteContext';
 import type { WithFalse } from '../../typings';
 import { FooterToolbar } from '../FooterToolbar';
 import { GridContent } from '../GridContent';
+import type { PageHeaderProps } from '../PageHeader';
+import PageHeader from '../PageHeader';
 import { PageLoading } from '../PageLoading';
 import type { WaterMarkProps } from '../WaterMark';
 import { WaterMark } from '../WaterMark';
-import type { PageHeaderProps } from './PageHeader';
-import PageHeader from './PageHeader';
 import { useStyle } from './style/index';
 
 export type PageHeaderTabConfig = {
