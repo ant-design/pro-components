@@ -30,7 +30,11 @@ const genAppsLogoComponentsStyle: GenerateStyle<AppsLogoComponentsToken> = (toke
           backgroundColor: token.appListIconHoverBgColor,
         },
       },
-      '&-popover': {},
+      '&-popover': {
+        '*': {
+          boxSizing: 'border-box',
+        },
+      },
       '&-simple': genAppsLogoComponentsSimpleListStyle(token),
       '&-default': genAppsLogoComponentsDefaultListStyle(token),
     },

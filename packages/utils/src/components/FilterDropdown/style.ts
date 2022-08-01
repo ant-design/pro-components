@@ -14,6 +14,9 @@ const genProStyle: GenerateStyle<ProToken> = (token) => {
       marginTop: '4px',
       backgroundColor: token.colorBgContainer,
       boxShadow: token.boxShadowCard,
+      '*': {
+        boxSizing: 'border-box',
+      },
     },
     [`${token.componentCls}-content`]: { padding: '16px' },
   };
