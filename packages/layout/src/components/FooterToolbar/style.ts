@@ -11,6 +11,7 @@ export interface AppsLogoComponentsToken extends ProAliasToken {
 const genFooterToolBarStyle: GenerateStyle<AppsLogoComponentsToken> = (token) => {
   return {
     [token.componentCls]: {
+      ...resetComponent?.(token),
       position: 'fixed',
       right: 0,
       bottom: 0,
@@ -20,9 +21,8 @@ const genFooterToolBarStyle: GenerateStyle<AppsLogoComponentsToken> = (token) =>
       width: '100%',
       padding: '0 24px',
       boxSizing: 'border-box',
-      '*': resetComponent?.(token),
-
       lineHeight: '64px',
+      /* A way to reset the style of the component. */
       backgroundColor: token.proLayoutBgColor || 'rgba(255, 255, 255, 0.58)',
       borderTop: `1px solid ${token.colorSplit}`,
       '-webkit-backdrop-filter': 'blur(8px)',

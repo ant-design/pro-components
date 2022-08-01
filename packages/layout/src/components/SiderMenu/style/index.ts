@@ -21,7 +21,7 @@ const genSiderMenuStyle: GenerateStyle<SiderMenuToken> = (token) => {
         position: 'relative',
         background: 'transparent',
         boxSizing: 'border-box',
-        '*': resetComponent?.(token),
+        ...resetComponent?.(token),
         '&-menu': {
           position: 'relative',
           zIndex: 10,

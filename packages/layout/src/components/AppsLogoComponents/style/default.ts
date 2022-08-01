@@ -24,7 +24,8 @@ const genAppsLogoComponentsDefaultListStyle: GenerateStyle<AppsLogoComponentsTok
           '&:hover': {
             backgroundColor: 'rgba(0, 0, 0, 0.03)',
           },
-          '*': resetComponent?.(token),
+          '*': { boxSizing: 'border-box' },
+          '* div': resetComponent?.(token),
           a: {
             display: 'flex',
             height: '100%',
