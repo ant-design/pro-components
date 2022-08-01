@@ -25,8 +25,7 @@
   "browserslist": [
     "last 2 versions",
     "Firefox ESR",
-    "> 1%",
-    "ie >= 11"
+    "> 1%"
   ],
   "dependencies": {
     "@babel/runtime": "^7.18.0",
