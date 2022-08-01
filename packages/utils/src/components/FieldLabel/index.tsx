@@ -37,7 +37,6 @@ const FieldLabel: React.ForwardRefRenderFunction<any, FieldLabelProps> = (props,
     ellipsis,
     placeholder,
     className,
-    style,
     formatter,
     bordered,
     allowClear = true,
@@ -137,7 +136,6 @@ const FieldLabel: React.ForwardRefRenderFunction<any, FieldLabelProps> = (props,
         },
         className,
       )}
-      style={style}
       ref={labelRef}
     >
       {getTextByValue(label, value)}
