@@ -661,7 +661,7 @@ const BaseProLayout: React.FC<ProLayoutProps> = (props) => {
           hasHeader: !!headerDom,
           siderWidth: leftSiderWidth,
           hasFooter: !!footerDom,
-          disableContentMargin: props.disableContentMargin,
+          disableContentMargin,
           hasFooterToolbar,
           setHasFooterToolbar,
           pageTitleInfo,
