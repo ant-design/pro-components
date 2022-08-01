@@ -1,6 +1,6 @@
 {
   "name": "@ant-design/pro-descriptions",
-  "version": "2.0.0-experimental.1",
+  "version": "2.0.0-experimental.2",
   "description": "@ant-design/pro-descriptions",
   "keywords": [
     "antd",
@@ -33,10 +33,10 @@
     "ie >= 11"
   ],
   "dependencies": {
-    "@ant-design/pro-field": "2.0.0-experimental.1",
-    "@ant-design/pro-form": "2.0.0-experimental.1",
-    "@ant-design/pro-skeleton": "2.0.0-experimental.1",
-    "@ant-design/pro-utils": "2.0.0-experimental.1",
+    "@ant-design/pro-field": "2.0.0-experimental.2",
+    "@ant-design/pro-form": "2.0.0-experimental.2",
+    "@ant-design/pro-skeleton": "2.0.0-experimental.2",
+    "@ant-design/pro-utils": "2.0.0-experimental.2",
     "@babel/runtime": "^7.18.0",
     "rc-util": "^5.0.6",
     "use-json-comparison": "^1.0.5"

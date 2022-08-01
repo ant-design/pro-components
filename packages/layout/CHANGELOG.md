@@ -2,6 +2,22 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [7.0.0-experimental.2](https://github.com/ant-design/pro-components/compare/@ant-design/pro-layout@6.38.16...@ant-design/pro-layout@7.0.0-experimental.2) (2022-08-01)
+
+### Bug Fixes
+
+- **layout:** 部分浏览器下避免不必要的 http 请求([#5418](https://github.com/ant-design/pro-components/issues/5418)) ([#5419](https://github.com/ant-design/pro-components/issues/5419)) ([1c9d01e](https://github.com/ant-design/pro-components/commit/1c9d01e5589926d51be92f2224db0878e16ba8f7))
+- **layout:** alway open new window ([5555ff2](https://github.com/ant-design/pro-components/commit/5555ff20f16da25be07f3a216cc760e0652e9d1f))
+- **layout:** update code ([a503e3a](https://github.com/ant-design/pro-components/commit/a503e3a44f325d0e170e99958ebfc8ab7f0cbca7))
+- conflic ([0c4c36a](https://github.com/ant-design/pro-components/commit/0c4c36a3c511de435cd7f8a78c16e53e68e95378))
+- **pro-layout:** Merge branch 'new-layout' of github.com:ant-design/pro-components into new-layout ([3329e6c](https://github.com/ant-design/pro-components/commit/3329e6c1f7c9e290e5c29a74c63f71de898b434a))
+- console error ([3d6b111](https://github.com/ant-design/pro-components/commit/3d6b11130f702f881a9252ef5df081f058146bc4))
+
+### Features
+
+- **layout:** add appList url target ([#5448](https://github.com/ant-design/pro-components/issues/5448)) ([1fbb886](https://github.com/ant-design/pro-components/commit/1fbb8863f4c04d0cd360a442e9622ae31d6e974b))
+- **layout:** layout support simple app list ([#5501](https://github.com/ant-design/pro-components/issues/5501)) ([2fe76ed](https://github.com/ant-design/pro-components/commit/2fe76edea9acd07d1f167762ebd52f6fe7a163a2))
+
 ## [6.38.16](https://github.com/ant-design/pro-components/compare/@ant-design/pro-layout@6.38.15...@ant-design/pro-layout@6.38.16) (2022-07-22)
 
 **Note:** Version bump only for package @ant-design/pro-layout

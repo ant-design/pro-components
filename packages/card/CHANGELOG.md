@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.0.0-experimental.2](https://github.com/ant-design/pro-components/compare/@ant-design/pro-card@1.20.16...@ant-design/pro-card@2.0.0-experimental.2) (2022-08-01)
+
+### Features
+
+- cssinjs ([#5596](https://github.com/ant-design/pro-components/issues/5596)) ([b82c7d2](https://github.com/ant-design/pro-components/commit/b82c7d2a1021506918947df56aaa66c3181187c7))
+
 ## [1.20.16](https://github.com/ant-design/pro-components/compare/@ant-design/pro-card@1.20.15...@ant-design/pro-card@1.20.16) (2022-07-22)
 
 **Note:** Version bump only for package @ant-design/pro-card

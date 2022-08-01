@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.0.0-experimental.2](https://github.com/ant-design/pro-components/compare/@ant-design/pro-form@1.71.2...@ant-design/pro-form@2.0.0-experimental.2) (2022-08-01)
+
+### Features
+
+- **form:** export type CaptFieldRef from Captcha ([#5605](https://github.com/ant-design/pro-components/issues/5605)) ([f178778](https://github.com/ant-design/pro-components/commit/f17877804a0cf7c8bf8c86f34255ed2699cc9dbd))
+
 ## [1.71.2](https://github.com/ant-design/pro-components/compare/@ant-design/pro-form@1.71.1...@ant-design/pro-form@1.71.2) (2022-07-22)
 
 **Note:** Version bump only for package @ant-design/pro-form

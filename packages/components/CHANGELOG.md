@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.0.0-experimental.2](https://github.com/ant-design/pro-components/compare/@ant-design/pro-components@1.1.14...@ant-design/pro-components@2.0.0-experimental.2) (2022-08-01)
+
+### Features
+
+- **layout:** layout support simple app list ([#5501](https://github.com/ant-design/pro-components/issues/5501)) ([2fe76ed](https://github.com/ant-design/pro-components/commit/2fe76edea9acd07d1f167762ebd52f6fe7a163a2))
+
 ## [1.1.14](https://github.com/ant-design/pro-components/compare/@ant-design/pro-components@1.1.13...@ant-design/pro-components@1.1.14) (2022-07-22)
 
 **Note:** Version bump only for package @ant-design/pro-components
