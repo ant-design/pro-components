@@ -153,6 +153,10 @@ const TopNavHeader: React.FC<TopNavHeaderProps> = (props) => {
         {...props}
         className={`${prefixCls}-base-menu`}
         {...props.menuProps}
+        style={{
+          width: '100%',
+          ...props.menuProps?.style,
+        }}
         collapsed={false}
         menuRenderType="header"
         mode="horizontal"

@@ -326,10 +326,10 @@ const PageContainer: React.FC<PageContainerProps> = (props) => {
     }
     return dom;
   }, [props.waterMarkProps, value.waterMarkProps, loadingDom, content]);
-
   const containerClassName = classNames(basePageContainer, hashId, className, {
     // layout 如果有 margin 需要给一个负的 margin 对冲一下
-    [`${basePageContainer}-layout-has-margin`]: !value.disableContentMargin,
+    [`${basePageContainer}-layout-has-margin`]:
+      value.disableContentMargin !== undefined && !value.disableContentMargin,
     [`${basePageContainer}-ghost`]: true,
     [`${basePageContainer}-with-footer`]: footer,
     [`${basePageContainer}-with-affix`]: fixedHeader && pageHeaderDom,
