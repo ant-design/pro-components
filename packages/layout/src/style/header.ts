@@ -41,7 +41,7 @@ const genProLayoutHeaderStyle: GenerateStyle<ProLayoutHeaderToken> = (token) => 
           },
         },
         '&-header-realDark': { boxShadow: '0 2px 8px 0 rgba(0, 0, 0, 65%)' },
-        '&--header-actions-header-action': {
+        '&-header-actions-header-action': {
           transition: 'width 0.3s cubic-bezier(0.645, 0.045, 0.355, 1)',
         },
       },

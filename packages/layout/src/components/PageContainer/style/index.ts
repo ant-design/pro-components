@@ -24,7 +24,7 @@ const genPageContainerStyle: GenerateStyle<PageContainerToken> = (token) => {
       },
       '&-warp': {
         backgroundColor: token.pageContainerBgColor,
-        ['&--page-header']: {
+        ['&-page-header']: {
           paddingLeft: 40,
           paddingRight: 40,
         },

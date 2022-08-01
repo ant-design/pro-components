@@ -5,7 +5,6 @@ import type {
   ProRequestData,
   SearchTransformKeyFn,
 } from '@ant-design/pro-utils';
-import { resetComponent } from 'antd/es/style';
 
 import {
   conversionMomentValue,
@@ -252,7 +251,6 @@ function BaseFormComponents<T = Record<string, any>>(props: BaseFormProps<T>) {
     return {
       [`.${prefixCls}`]: {
         '*': { boxSizing: 'border-box' },
-        '* div': resetComponent?.(token),
         [`> div:not(${token.proComponentsCls}-form-light-filter)`]: {
           '.pro-field': {
             maxWidth: '100%',

@@ -1,6 +1,5 @@
 ﻿import type { ProAliasToken } from '@ant-design/pro-utils';
 import { useStyle as useAntdStyle } from '@ant-design/pro-utils';
-import { resetComponent } from 'antd/es/style';
 import type { GenerateStyle } from 'antd/es/theme';
 
 export interface ProLayoutToken extends ProAliasToken {
@@ -19,9 +18,8 @@ const genProLayoutStyle: GenerateStyle<ProLayoutToken> = (token) => {
         backgroundColor: 'transparent',
         position: 'relative',
         '*': { boxSizing: 'border-box' },
-        '* div': resetComponent?.(token),
         '&-content-has-margin': {
-          margin: 24,
+          margin: '16px 24px',
         },
       },
       [`${token.componentCls}-bg-list`]: {
