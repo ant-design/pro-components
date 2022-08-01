@@ -4,37 +4,15 @@ const TerserPlugin = require('terser-webpack-plugin');
 const CssMinimizerPlugin = require('css-minimizer-webpack-plugin');
 const ProgressBarPlugin = require('progress-bar-webpack-plugin');
 // const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
-const { readdirSync } = require('fs');
 
-const tailPkgs = readdirSync(path.join(__dirname, 'packages')).filter(
-  (pkg) => pkg.charAt(0) !== '.',
-);
-
-// const tailPkgs = ['table'];
-
-const isCI = process.env.PRO_COMPONENTS_CI === 'CI';
-
-const externals = isCI
-  ? tailPkgs.reduce((pre, value) => {
-      return {
-        ...pre,
-        [`@ant-design/pro-${value}`]: `Pro${value
-          .toLowerCase()
-          .replace(/( |^)[a-z]/g, (L) => L.toUpperCase())}`,
-      };
-    }, {})
-  : {};
-
-console.log(externals);
+const tailPkgs = ['components'];
 
 const webPackConfigList = [];
 
 tailPkgs.forEach((pkg) => {
   const entry = {};
   entry[`${pkg}`] = `./packages/${pkg}/src/index.tsx`;
-  if (!isCI) {
-    entry[`${pkg}.min`] = `./packages/${pkg}/src/index.tsx`;
-  }
+  entry[`${pkg}.min`] = `./packages/${pkg}/src/index.tsx`;
   const config = {
     entry,
     output: {
@@ -48,19 +26,17 @@ tailPkgs.forEach((pkg) => {
     resolve: {
       extensions: ['.ts', '.tsx', '.json', '.css', '.js', '.less'],
     },
-    optimization: isCI
-      ? {
-          minimize: true,
-          minimizer: [
-            new TerserPlugin({
-              include: /\.min\.js$/,
-            }),
-            new CssMinimizerPlugin({
-              include: /\.min\.js$/,
-            }),
-          ],
-        }
-      : { concatenateModules: false },
+    optimization: {
+      minimize: true,
+      minimizer: [
+        new TerserPlugin({
+          include: /\.min\.js$/,
+        }),
+        new CssMinimizerPlugin({
+          include: /\.min\.js$/,
+        }),
+      ],
+    },
     module: {
       rules: [
         {
@@ -73,7 +49,6 @@ tailPkgs.forEach((pkg) => {
             loader: 'babel-loader',
             options: {
               presets: ['@umijs/babel-preset-umi/app'],
-              plugins: [require('./scripts/replaceLib')],
             },
           },
         },
@@ -84,7 +59,6 @@ tailPkgs.forEach((pkg) => {
             loader: 'babel-loader',
             options: {
               presets: ['@umijs/babel-preset-umi/app'],
-              plugins: [require('./scripts/replaceLib')],
             },
           },
         },
@@ -129,7 +103,6 @@ tailPkgs.forEach((pkg) => {
         react: 'React',
         'react-dom': 'ReactDOM',
         antd: 'antd',
-        ...externals,
       },
     ],
     plugins: [

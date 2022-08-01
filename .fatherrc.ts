@@ -22,29 +22,11 @@ const tailPkgs = readdirSync(join(__dirname, 'packages')).filter(
   (pkg) => pkg.charAt(0) !== '.' && !headPkgs.includes(pkg),
 );
 
-const type = process.env.BUILD_TYPE;
-
-let config = {};
-
-if (type === 'lib') {
-  config = {
-    cjs: { type: 'babel', lazy: true },
-    esm: false,
-    runtimeHelpers: true,
-    pkgs: [...headPkgs, ...tailPkgs],
-  };
-}
-
-if (type === 'es') {
-  config = {
-    cjs: false,
-    esm: {
-      type: 'babel',
-    },
-    runtimeHelpers: true,
-    pkgs: [...headPkgs, ...tailPkgs],
-    extraBabelPlugins: [[require('./scripts/replaceLib')]],
-  };
-}
-
-export default config;
+export default {
+  cjs: false,
+  esm: {
+    type: 'babel',
+  },
+  runtimeHelpers: true,
+  pkgs: [...headPkgs, ...tailPkgs],
+};

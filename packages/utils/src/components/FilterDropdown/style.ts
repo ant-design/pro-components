@@ -1,6 +1,6 @@
-﻿import type { ProAliasToken } from '@ant-design/pro-utils';
-import { useStyle as useAntdStyle } from '@ant-design/pro-utils';
-import type { GenerateStyle } from 'antd/es/theme';
+﻿import type { GenerateStyle } from 'antd/es/theme';
+import type { ProAliasToken } from '../../useStyle';
+import { useStyle as useAntdStyle } from '../../useStyle';
 
 export interface ProToken extends ProAliasToken {
   componentCls: string;

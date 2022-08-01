@@ -6,8 +6,8 @@
   ],
   "scripts": {
     "bootstrap": "node ./scripts/bootstrap.js",
-    "build": "npm run version && npm run build-lib && webpack && node ./scripts/gen_less_entry.js",
-    "build-lib": "cross-env BUILD_TYPE=lib father-build && cross-env BUILD_TYPE=es father-build",
+    "build": "npm run version && npm run build-components && webpack",
+    "build-components": "father-build",
     "changelog": "node ./scripts/changelogs.js",
     "check-deps": "node ./scripts/checkDeps.js",
     "checkPublish": "node ./scripts/checkPublish.js",
