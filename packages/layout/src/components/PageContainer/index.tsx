@@ -8,7 +8,7 @@ import type { WithFalse } from '../../typings';
 import { FooterToolbar } from '../FooterToolbar';
 import { GridContent } from '../GridContent';
 import type { PageHeaderProps } from '../PageHeader';
-import PageHeader from '../PageHeader';
+import { PageHeader } from '../PageHeader';
 import { PageLoading } from '../PageLoading';
 import type { WaterMarkProps } from '../WaterMark';
 import { WaterMark } from '../WaterMark';

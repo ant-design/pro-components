@@ -43,7 +43,7 @@ import pickProFormItemProps from './pickProFormItemProps';
 import pickProProps from './pickProProps';
 import { runFunction } from './runFunction';
 import transformKeySubmitValue from './transformKeySubmitValue';
-import type { ProAliasToken } from './useStyle';
+import type { lighten, ProAliasToken, setAlpha } from './useStyle';
 import { useStyle } from './useStyle';
 /** Type */
 import type {
@@ -157,4 +157,6 @@ export {
   useLatest,
   useDebounceValue,
   useStyle,
+  setAlpha,
+  lighten,
 };

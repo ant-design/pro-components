@@ -3348,9 +3348,9 @@
     any-observable "^0.3.0"
 
 "@sinclair/typebox@^0.24.1":
-  version "0.24.22"
-  resolved "https://registry.npmmirror.com/@sinclair/typebox/-/typebox-0.24.22.tgz#0da18e6e75701d6609c7c68fe18002bb1f47345f"
-  integrity sha512-JsBe3cOFpNZ6yjBYnXKhcENWy5qZE3PQZwExQ5ksA/h8qp4bwwxFmy07A6bC2R6qv6+RF3SfrbQTskTwYNTXUQ==
+  version "0.24.23"
+  resolved "https://registry.npmmirror.com/@sinclair/typebox/-/typebox-0.24.23.tgz#ce30c80e93a69e8f18fd77f8995b3afdb6bb9974"
+  integrity sha512-dhpD3rztStcXgwuhJhg10CA2YJfwx799VlzZpuEi/8ijKriQST6rEpA8mDYlyaVkxWlTiVFme1s1fc6rx8+BhA==
 
 "@sindresorhus/is@^0.14.0":
   version "0.14.0"

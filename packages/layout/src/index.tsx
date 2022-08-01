@@ -2,6 +2,9 @@ import { FooterToolbar } from './components/FooterToolbar';
 import { GridContent } from './components/GridContent';
 import type { PageContainerProps } from './components/PageContainer';
 import { PageContainer, ProBreadcrumb, ProPageHeader } from './components/PageContainer';
+import type { PageHeaderProps } from './components/PageHeader';
+import { PageHeader } from './components/PageHeader';
+
 import { PageLoading } from './components/PageLoading';
 import type { SettingDrawerProps, SettingDrawerState } from './components/SettingDrawer';
 import { SettingDrawer } from './components/SettingDrawer';
@@ -22,6 +25,7 @@ import { getMenuData } from './utils/getMenuData';
 export type { ProSettings, ProSettings as Settings } from './defaultSettings';
 export type { MenuDataItem } from './typings';
 export {
+  PageHeader,
   ProLayout,
   RouteContext,
   PageLoading,
@@ -40,6 +44,7 @@ export {
 };
 export type {
   FooterProps,
+  PageHeaderProps,
   PageContainerProps,
   TopNavHeaderProps,
   ProLayoutProps,
