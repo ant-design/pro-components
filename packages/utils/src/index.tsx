@@ -43,8 +43,8 @@ import pickProFormItemProps from './pickProFormItemProps';
 import pickProProps from './pickProProps';
 import { runFunction } from './runFunction';
 import transformKeySubmitValue from './transformKeySubmitValue';
-import type { lighten, ProAliasToken, setAlpha } from './useStyle';
-import { useStyle } from './useStyle';
+import type { ProAliasToken } from './useStyle';
+import { lighten, setAlpha, useStyle } from './useStyle';
 /** Type */
 import type {
   ProCoreActionType,
