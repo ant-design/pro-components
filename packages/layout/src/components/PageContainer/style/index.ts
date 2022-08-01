@@ -1,7 +1,8 @@
+import type { ProAliasToken } from '@ant-design/pro-utils';
 import { useStyle as useAntdStyle } from '@ant-design/pro-utils';
-import type { AliasToken, GenerateStyle } from 'antd/es/theme';
+import type { GenerateStyle } from 'antd/es/theme';
 
-export interface PageContainerToken extends AliasToken {
+export interface PageContainerToken extends ProAliasToken {
   componentCls: string;
   pageContainerBgColor: string;
 }
@@ -18,8 +19,11 @@ const genPageContainerStyle: GenerateStyle<PageContainerToken> = (token) => {
         margin: 24,
       },
       '&-affix': {
-        [`${token.componentCls}-warp`]: {
-          backgroundColor: token.colorBgContainer,
+        [`${token.antCls}-affix`]: {
+          [`${token.componentCls}-warp`]: {
+            backgroundColor: token.colorBgContainer,
+            boxShadow: '0 2px 8px #f0f1f2',
+          },
         },
       },
       '&-warp': {

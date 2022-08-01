@@ -341,9 +341,9 @@ const PageContainer: React.FC<PageContainerProps> = (props) => {
         {fixedHeader && pageHeaderDom ? (
           // 在 hasHeader 且 fixedHeader 的情况下，才需要设置高度
           <Affix
-            className={`${basePageContainer}-affix`}
             offsetTop={value.hasHeader && value.fixedHeader ? value.headerHeight : 0}
             {...affixProps}
+            className={`${basePageContainer}-affix`}
           >
             {pageHeaderDom}
           </Affix>

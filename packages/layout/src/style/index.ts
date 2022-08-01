@@ -9,6 +9,10 @@ export interface ProLayoutToken extends ProAliasToken {
 
 const genProLayoutStyle: GenerateStyle<ProLayoutToken> = (token) => {
   return {
+    body: {
+      padding: 0,
+      margin: 0,
+    },
     [token.componentCls]: {
       [`${token.componentCls}-content`]: {
         display: 'flex',

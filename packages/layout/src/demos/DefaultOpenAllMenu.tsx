@@ -11,6 +11,8 @@ export default () => (
       location={{
         pathname: '/data_hui/data_hui2',
       }}
+      collapsed
+      collapsedButtonRender={false}
       route={{
         routes: complexMenu,
       }}

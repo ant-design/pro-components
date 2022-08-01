@@ -16,11 +16,11 @@ const genFooterToolBarStyle: GenerateStyle<GlobalFooterToken> = (token) => {
       '&-links': {
         marginBottom: '8px',
         color: token.colorTextSecondary,
-        '&:not(:last-child)': {
-          marginRight: 40,
-        },
-        '&:hover': {
-          color: token.colorText,
+        '> *:not(:last-child)': {
+          marginRight: 8,
+          '&:hover': {
+            color: token.colorText,
+          },
         },
       },
       '&-copyright': { fontSize: '14px', color: token.colorText },
