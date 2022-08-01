@@ -1,5 +1,6 @@
 ﻿import type { ProAliasToken } from '@ant-design/pro-utils';
 import { useStyle as useAntdStyle } from '@ant-design/pro-utils';
+import { resetComponent } from 'antd/es/style';
 import type { GenerateStyle } from 'antd/es/theme';
 
 export interface SiderMenuToken extends ProAliasToken {
@@ -20,7 +21,7 @@ const genSiderMenuStyle: GenerateStyle<SiderMenuToken> = (token) => {
         position: 'relative',
         background: 'transparent',
         boxSizing: 'border-box',
-        '*': { boxSizing: 'border-box' },
+        ...resetComponent(token),
         '&-menu': {
           position: 'relative',
           zIndex: 10,

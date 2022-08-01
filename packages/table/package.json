@@ -40,7 +40,6 @@
     "@ant-design/pro-provider": "1.9.3",
     "@ant-design/pro-utils": "1.43.2",
     "@babel/runtime": "^7.18.0",
-    "antd": "^4.20.0 ",
     "classnames": "^2.2.6",
     "dayjs": "^1.11.4",
     "omit.js": "^2.0.2",

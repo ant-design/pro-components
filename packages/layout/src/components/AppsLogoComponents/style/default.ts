@@ -1,6 +1,6 @@
-﻿import type { GenerateStyle } from 'antd/es/theme';
+﻿import { resetComponent } from 'antd/es/style';
+import type { GenerateStyle } from 'antd/es/theme';
 import type { AppsLogoComponentsToken } from './index';
-
 const genAppsLogoComponentsDefaultListStyle: GenerateStyle<AppsLogoComponentsToken> = (token) => {
   return {
     '&-content': {
@@ -24,9 +24,7 @@ const genAppsLogoComponentsDefaultListStyle: GenerateStyle<AppsLogoComponentsTok
           '&:hover': {
             backgroundColor: 'rgba(0, 0, 0, 0.03)',
           },
-          '*': {
-            boxSizing: 'border-box',
-          },
+          ...resetComponent(token),
           a: {
             display: 'flex',
             height: '100%',

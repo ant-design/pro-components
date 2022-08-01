@@ -33,7 +33,6 @@
     "@ant-design/pro-utils": "1.43.2",
     "@babel/runtime": "^7.18.0",
     "@chenshuai2144/sketch-color": "^1.0.8",
-    "antd": "^4.20.0 ",
     "classnames": "^2.2.6",
     "dayjs": "^1.11.4",
     "lodash.tonumber": "^4.0.3",

@@ -1,5 +1,6 @@
 ﻿import type { ProAliasToken } from '@ant-design/pro-utils';
 import { useStyle as useAntdStyle } from '@ant-design/pro-utils';
+import { resetComponent } from 'antd/es/style';
 import type { GenerateStyle } from 'antd/es/theme';
 
 export interface AppsLogoComponentsToken extends ProAliasToken {
@@ -19,9 +20,7 @@ const genFooterToolBarStyle: GenerateStyle<AppsLogoComponentsToken> = (token) =>
       width: '100%',
       padding: '0 24px',
       boxSizing: 'border-box',
-      '*': {
-        boxSizing: 'border-box',
-      },
+      ...resetComponent(token),
 
       lineHeight: '64px',
       backgroundColor: token.proLayoutBgColor || 'rgba(255, 255, 255, 0.58)',

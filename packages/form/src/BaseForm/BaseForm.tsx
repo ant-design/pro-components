@@ -5,6 +5,8 @@ import type {
   ProRequestData,
   SearchTransformKeyFn,
 } from '@ant-design/pro-utils';
+import { resetComponent } from 'antd/es/style';
+
 import {
   conversionMomentValue,
   isDeepEqualReact,
@@ -249,9 +251,7 @@ function BaseFormComponents<T = Record<string, any>>(props: BaseFormProps<T>) {
   const { wrapSSR, hashId } = useStyle('ProForm', (token) => {
     return {
       [`.${prefixCls}`]: {
-        '*': {
-          boxSizing: 'border-box',
-        },
+        ...resetComponent(token),
         [`> div:not(${token.proComponentsCls}-form-light-filter)`]: {
           '.pro-field': {
             maxWidth: '100%',

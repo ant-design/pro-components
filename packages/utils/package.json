@@ -36,7 +36,6 @@
     "@ant-design/icons": "^4.3.0",
     "@ant-design/pro-provider": "1.9.3",
     "@babel/runtime": "^7.18.0",
-    "antd": "^4.20.0 ",
     "classnames": "^2.2.6",
     "dayjs": "^1.11.4",
     "rc-util": "^5.0.6",
