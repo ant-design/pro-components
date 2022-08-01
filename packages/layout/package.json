@@ -32,13 +32,14 @@
   ],
   "dependencies": {
     "@ant-design/icons": "^4.0.0",
-    "@ant-design/pro-provider": "1.9.0",
-    "@ant-design/pro-utils": "1.42.5",
+    "@ant-design/pro-provider": "1.9.3",
+    "@ant-design/pro-utils": "1.43.2",
     "@babel/runtime": "^7.18.0",
     "@emotion/css": "^11.5.0",
     "@umijs/route-utils": "^2.1.0",
     "@umijs/ssr-darkreader": "^4.9.44",
     "@umijs/use-params": "^1.0.9",
+    "antd": "^4.20.0 ",
     "classnames": "^2.2.6",
     "lodash.merge": "^4.6.2",
     "omit.js": "^2.0.2",
@@ -50,9 +51,6 @@
     "use-json-comparison": "^1.0.3",
     "use-media-antd-query": "^1.1.0",
     "warning": "^4.0.3"
-  },
-  "devDependencies": {
-    "antd": ">=4.20.0"
   },
   "peerDependencies": {
     "react": ">=16.9.0"

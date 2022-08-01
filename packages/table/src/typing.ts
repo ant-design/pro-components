@@ -93,7 +93,7 @@ export type ProColumnType<T = unknown, ValueType = 'text'> = ProSchema<
     initialValue?: any;
 
     /** @name 是否缩略 */
-    ellipsis?: boolean;
+    ellipsis?: boolean | { showTitle?: boolean };
     /** @name 是否拷贝 */
     copyable?: boolean;
 
