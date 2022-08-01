@@ -27,6 +27,7 @@
     "tsc:duplicate": "tsc -p ./tests/tsconfig.duplicate.json",
     "update:deps": "yarn upgrade-interactive --latest",
     "webpack": "npm run version && webpack",
+    "publishOnly": "node ./scripts/release.js --publishOnly",
     "version": "node ./scripts/gen_version.js"
   },
   "browserslist": [
