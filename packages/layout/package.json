@@ -1,6 +1,6 @@
 {
   "name": "@ant-design/pro-layout",
-  "version": "7.0.0-experimental.2",
+  "version": "7.0.0-experimental.3",
   "description": "@ant-design/pro-layout",
   "keywords": [
     "antd",
@@ -31,8 +31,8 @@
   ],
   "dependencies": {
     "@ant-design/icons": "^4.0.0",
-    "@ant-design/pro-provider": "2.0.0-experimental.2",
-    "@ant-design/pro-utils": "2.0.0-experimental.2",
+    "@ant-design/pro-provider": "2.0.0-experimental.3",
+    "@ant-design/pro-utils": "2.0.0-experimental.3",
     "@babel/runtime": "^7.18.0",
     "@umijs/route-utils": "^2.1.0",
     "@umijs/ssr-darkreader": "^4.9.44",
