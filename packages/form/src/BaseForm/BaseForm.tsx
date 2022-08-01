@@ -251,7 +251,7 @@ function BaseFormComponents<T = Record<string, any>>(props: BaseFormProps<T>) {
   const { wrapSSR, hashId } = useStyle('ProForm', (token) => {
     return {
       [`.${prefixCls}`]: {
-        ...resetComponent(token),
+        '*': resetComponent?.(token),
         [`> div:not(${token.proComponentsCls}-form-light-filter)`]: {
           '.pro-field': {
             maxWidth: '100%',

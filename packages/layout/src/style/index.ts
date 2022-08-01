@@ -18,7 +18,7 @@ const genProLayoutStyle: GenerateStyle<ProLayoutToken> = (token) => {
         minHeight: '100%',
         backgroundColor: 'transparent',
         position: 'relative',
-        ...resetComponent(token),
+        '*': resetComponent?.(token),
         '&-content-has-margin': {
           margin: 24,
         },

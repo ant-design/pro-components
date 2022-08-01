@@ -24,7 +24,7 @@ const textOverflowEllipsis = (): CSSObject => ({
 const genPageHeaderStyle: GenerateStyle<PageHeaderToken> = (token) => {
   return {
     [token.componentCls]: {
-      ...resetComponent(token),
+      '*': resetComponent?.(token),
       position: 'relative',
       backgroundColor: token.colorBgContainer,
       padding: `${token.pageHeaderPaddingVertical}px ${token.pageHeaderPadding}px`,

@@ -20,7 +20,7 @@ const genFooterToolBarStyle: GenerateStyle<AppsLogoComponentsToken> = (token) =>
       width: '100%',
       padding: '0 24px',
       boxSizing: 'border-box',
-      ...resetComponent(token),
+      '*': resetComponent?.(token),
 
       lineHeight: '64px',
       backgroundColor: token.proLayoutBgColor || 'rgba(255, 255, 255, 0.58)',
