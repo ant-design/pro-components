@@ -16,13 +16,11 @@
   "sideEffects": [
     "*.less"
   ],
-  "main": "lib/index.js",
+  "main": "es/index.js",
   "module": "es/index.js",
   "types": "es/index.d.ts",
   "files": [
-    "lib",
     "es",
-    "src",
     "dist"
   ],
   "browserslist": [
