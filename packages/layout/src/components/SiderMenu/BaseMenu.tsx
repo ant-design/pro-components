@@ -500,6 +500,7 @@ const BaseMenu: React.FC<BaseMenuProps & PrivateSiderMenuProps> = (props) => {
         min-height: 40px;
         display: flex;
         align-items: center;
+        margin: 4px 0;
         transition: background-color 0.3s cubic-bezier(0.645, 0.045, 0.355, 1);
         cursor: pointer;
         line-height: 40px;
@@ -552,6 +553,7 @@ const BaseMenu: React.FC<BaseMenuProps & PrivateSiderMenuProps> = (props) => {
         flex-direction: column;
         align-items: center;
         justify-content: center;
+        margin: ${menuDesignToken.horizontalMenuItemMargin};
         .${prefixCls}-menu-item {
           padding: ${menuDesignToken.horizontalMenuItemPadding};
         }
@@ -609,6 +611,7 @@ const BaseMenu: React.FC<BaseMenuProps & PrivateSiderMenuProps> = (props) => {
         flex-direction: column;
         justify-content: center;
         align-items: flex-start;
+        margin: 4px 0;
         transition: background-color 0.3s cubic-bezier(0.645, 0.045, 0.355, 1);
         cursor: pointer;
         color: ${menuDesignToken.menuTextColor};
@@ -669,6 +672,7 @@ const BaseMenu: React.FC<BaseMenuProps & PrivateSiderMenuProps> = (props) => {
         }
       `,
       verticalSubItem: css`
+        margin: ${menuDesignToken.horizontalMenuItemMargin};
         .${antPrefixClassName}-menu-submenu-title:hover {
           color: ${menuDesignToken.menuTextColor};
           background-color: ${itemHoverColor};
@@ -696,6 +700,7 @@ const BaseMenu: React.FC<BaseMenuProps & PrivateSiderMenuProps> = (props) => {
     collapsed,
     designToken.borderRadiusBase,
     designToken.colorText,
+    menuDesignToken.horizontalMenuItemMargin,
     menuDesignToken.horizontalMenuItemPadding,
     menuDesignToken.menuItemCollapsedHoverBgColor,
     menuDesignToken.menuItemCollapsedSelectedBgColor,
