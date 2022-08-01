@@ -10,9 +10,6 @@
   },
   "license": "MIT",
   "author": "chenshuai2144",
-  "sideEffects": [
-    "*.less"
-  ],
   "main": "es/index.js",
   "module": "es/index.js",
   "types": "es/index.d.ts",
