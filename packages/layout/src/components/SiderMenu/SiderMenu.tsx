@@ -1,7 +1,7 @@
 import type { AvatarProps } from 'antd';
 import { Avatar, ConfigProvider, Layout, Menu, Space } from 'antd';
-import type { SiderProps } from 'antd/lib/layout/Sider';
-import type { ItemType } from 'antd/lib/menu/hooks/useItems';
+import type { SiderProps } from 'antd/es/layout/Sider';
+import type { ItemType } from 'antd/es/menu/hooks/useItems';
 import classNames from 'classnames';
 import type { CSSProperties } from 'react';
 import React, { useContext, useEffect, useMemo } from 'react';

@@ -1,6 +1,6 @@
 import { InfoCircleOutlined } from '@ant-design/icons';
 import { ConfigProvider, Tooltip } from 'antd';
-import type { LabelTooltipType, WrapperTooltipProps } from 'antd/lib/form/FormItemLabel';
+import type { LabelTooltipType, WrapperTooltipProps } from 'antd/es/form/FormItemLabel';
 import classNames from 'classnames';
 import React, { useContext } from 'react';
 import './index.less';

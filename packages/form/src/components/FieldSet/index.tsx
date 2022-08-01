@@ -1,7 +1,7 @@
 ﻿import { useRefFunction } from '@ant-design/pro-utils';
 import type { FormItemProps, SpaceProps } from 'antd';
 import { Input, Space } from 'antd';
-import type { GroupProps } from 'antd/lib/input';
+import type { GroupProps } from 'antd/es/input';
 import toArray from 'rc-util/lib/Children/toArray';
 import React, { useCallback, useImperativeHandle, useMemo } from 'react';
 import { createField } from '../../BaseForm/createField';

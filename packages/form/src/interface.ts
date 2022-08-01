@@ -5,8 +5,8 @@ import type {
   SearchConvertKeyFn,
 } from '@ant-design/pro-utils';
 import type { FormItemProps, RowProps, SpaceProps } from 'antd';
-import type { LabelTooltipType } from 'antd/lib/form/FormItemLabel';
-import type { ColProps } from 'antd/lib/grid/col';
+import type { LabelTooltipType } from 'antd/es/form/FormItemLabel';
+import type { ColProps } from 'antd/es/grid/col';
 import type React from 'react';
 import type { ProFormInstance } from './BaseForm';
 import type { ProFormItemProps } from './components';

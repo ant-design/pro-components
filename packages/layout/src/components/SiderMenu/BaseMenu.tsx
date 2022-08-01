@@ -2,7 +2,7 @@ import Icon, { createFromIconfontCN } from '@ant-design/icons';
 import { isImg, isUrl, useMountMergeState } from '@ant-design/pro-utils';
 import type { MenuProps, MenuTheme } from 'antd';
 import { ConfigProvider, Menu, Skeleton } from 'antd';
-import type { ItemType } from 'antd/lib/menu/hooks/useItems';
+import type { ItemType } from 'antd/es/menu/hooks/useItems';
 import React, { useContext, useEffect, useMemo, useRef } from 'react';
 import type { PureSettings } from '../../defaultSettings';
 import { defaultSettings } from '../../defaultSettings';

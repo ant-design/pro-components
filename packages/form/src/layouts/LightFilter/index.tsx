@@ -3,7 +3,7 @@ import { useIntl } from '@ant-design/pro-provider';
 import { FieldLabel, FilterDropdown } from '@ant-design/pro-utils';
 import type { FormProps } from 'antd';
 import { ConfigProvider } from 'antd';
-import type { SizeType } from 'antd/lib/config-provider/SizeContext';
+import type { SizeType } from 'antd/es/config-provider/SizeContext';
 import classNames from 'classnames';
 import omit from 'omit.js';
 import React, {

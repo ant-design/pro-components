@@ -6,7 +6,7 @@ import type {
   SearchTransformKeyFn,
 } from '@ant-design/pro-utils';
 import type { FormInstance, FormProps } from 'antd';
-import type { NamePath } from 'antd/lib/form/interface';
+import type { NamePath } from 'antd/es/form/interface';
 import type { CommonFormProps } from '../../BaseForm';
 import type { ProFormGridConfig } from '../../interface';
 import type {

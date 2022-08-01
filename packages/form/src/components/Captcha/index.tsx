@@ -1,6 +1,6 @@
 ﻿import type { ButtonProps, InputProps } from 'antd';
 import { Button, Form, Input } from 'antd';
-import type { NamePath } from 'antd/lib/form/interface';
+import type { NamePath } from 'antd/es/form/interface';
 import React, { useEffect, useImperativeHandle, useState } from 'react';
 import { createField } from '../../BaseForm/createField';
 import type { ProFormFieldItemProps } from '../../interface';

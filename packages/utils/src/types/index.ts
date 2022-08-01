@@ -18,9 +18,9 @@ import type {
   TimeRangePickerProps,
   TreeSelectProps,
 } from 'antd';
-import type { RangePickerProps } from 'antd/lib/date-picker';
-import type { PasswordProps, TextAreaProps } from 'antd/lib/input';
-import type { SliderRangeProps } from 'antd/lib/slider';
+import type { RangePickerProps } from 'antd/es/date-picker';
+import type { PasswordProps, TextAreaProps } from 'antd/es/input';
+import type { SliderRangeProps } from 'antd/es/slider';
 import type { ProFieldRequestData, ProSchema } from '../typing';
 
 export interface ProFieldValueTypeWithFieldProps {

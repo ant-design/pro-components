@@ -1,4 +1,4 @@
-import type { WeekPickerProps } from 'antd/lib/date-picker';
+import type { WeekPickerProps } from 'antd/es/date-picker';
 import React, { useContext } from 'react';
 import FieldContext from '../../FieldContext';
 import type { ProFormFieldItemProps } from '../../interface';
