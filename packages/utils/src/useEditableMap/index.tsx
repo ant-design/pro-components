@@ -1,7 +1,6 @@
 ﻿/* eslint-disable react-hooks/exhaustive-deps */
 import { useIntl } from '@ant-design/pro-provider';
 import type { FormInstance } from 'antd';
-import { message } from 'antd';
 import useMergedState from 'rc-util/lib/hooks/useMergedState';
 import type React from 'react';
 import { useCallback, useMemo } from 'react';
@@ -14,6 +13,14 @@ import type {
 } from '../useEditableArray';
 import { defaultActionRender, recordKeyToString } from '../useEditableArray';
 
+/**
+ * 兼容antd@4 和 antd@5 的warning
+ * @param messageStr
+ */
+const warning = (messageStr: React.ReactNode) => {
+  // @ts-ignore
+  return (message.warn || message.warning)(messageStr);
+};
 /**
  * 使用map 来删除数据，性能一般 但是准确率比较高
  *
@@ -78,7 +85,7 @@ function useEditableMap<RecordType>(
   const startEditable = (recordKey: RecordKey) => {
     // 如果是单行的话，不允许多行编辑
     if (editableKeysSet.size > 0 && editableType === 'single') {
-      message.warn(props.onlyOneLineEditorAlertMessage || '只能同时编辑一行');
+      warning(props.onlyOneLineEditorAlertMessage || '只能同时编辑一行');
       return false;
     }
     editableKeysSet.add(recordKeyToString(recordKey));
