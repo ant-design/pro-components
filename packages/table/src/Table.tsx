@@ -762,6 +762,14 @@ const ProTable = <T extends Record<string, any>, U extends ParamsType, ValueType
 
     setFormSearch(values);
   };
+
+  const loading = useMemo(() => {
+    if (typeof action.loading === 'object') {
+      return action.loading?.spinning || false;
+    }
+    return action.loading;
+  }, [action.loading]);
+
   const searchNode =
     search === false && type !== 'form' ? null : (
       <FormRender<T, U>
@@ -775,7 +783,7 @@ const ProTable = <T extends Record<string, any>, U extends ParamsType, ValueType
         ghost={ghost}
         onReset={props.onReset}
         onSubmit={props.onSubmit}
-        loading={!!action.loading}
+        loading={!!loading}
         manualRequest={manualRequest}
         search={search}
         form={props.form}

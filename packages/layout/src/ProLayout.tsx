@@ -251,7 +251,7 @@ const footerRender = (props: ProLayoutProps): React.ReactNode => {
 };
 
 const renderSiderMenu = (props: ProLayoutProps, matchMenuKeys: string[]): React.ReactNode => {
-  const { layout, navTheme, isMobile, openKeys, splitMenus, menuRender } = props;
+  const { layout, navTheme, isMobile, selectedKeys, openKeys, splitMenus, menuRender } = props;
   if (props.menuRender === false || props.pure) {
     return null;
   }
@@ -259,7 +259,7 @@ const renderSiderMenu = (props: ProLayoutProps, matchMenuKeys: string[]): React.
 
   /** 如果是分割菜单模式，需要专门实现一下 */
   if (splitMenus && (openKeys !== false || layout === 'mix') && !isMobile) {
-    const [key] = matchMenuKeys;
+    const [key] = selectedKeys || matchMenuKeys;
     if (key) {
       menuData = props.menuData?.find((item) => item.key === key)?.routes || [];
     } else {

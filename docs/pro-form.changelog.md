@@ -9,6 +9,12 @@ group:
 
 # Change Log
 
+## @ant-design/pro-form@1.71.0
+
+`2022-07-21`
+
+- feat(form): Form support readonly. [a5a9611](https://github.com/ant-design/pro-components/commit/a5a9611)
+
 ## @ant-design/pro-form@1.70.3
 
 `2022-07-14`

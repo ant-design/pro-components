@@ -18,6 +18,15 @@ import usePrevious from '../hooks/usePrevious';
 import { merge } from '../merge';
 import useMountMergeState from '../useMountMergeState';
 
+/**
+ * 兼容antd@4 和 antd@5 的warning
+ * @param messageStr
+ */
+const warning = (messageStr: React.ReactNode) => {
+  // @ts-ignore
+  return (message.warn || message.warning)(messageStr);
+};
+
 export type RowEditableType = 'single' | 'multiple';
 
 export type RecordKey = React.Key | React.Key[];
@@ -525,7 +534,7 @@ function useEditableArray<RecordType>(
       editableType === 'single' &&
       props.onlyOneLineEditorAlertMessage !== false
     ) {
-      message.warning(props.onlyOneLineEditorAlertMessage || '只能同时编辑一行');
+      warning(props.onlyOneLineEditorAlertMessage || '只能同时编辑一行');
       return false;
     }
     editableKeysSet.add(recordKey);
@@ -635,7 +644,7 @@ function useEditableArray<RecordType>(
     }
     // 暂时不支持多行新增
     if (newLineRecordRef.current && props.onlyAddOneLineAlertMessage !== false) {
-      message.warning(props.onlyAddOneLineAlertMessage || '只能新增一行');
+      warning(props.onlyAddOneLineAlertMessage || '只能新增一行');
       return false;
     }
     // 如果是单行的话，不允许多行编辑
@@ -644,7 +653,7 @@ function useEditableArray<RecordType>(
       editableType === 'single' &&
       props.onlyOneLineEditorAlertMessage !== false
     ) {
-      message.warning(props.onlyOneLineEditorAlertMessage || '只能同时编辑一行');
+      warning(props.onlyOneLineEditorAlertMessage || '只能同时编辑一行');
       return false;
     }
     // 防止多次渲染

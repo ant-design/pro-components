@@ -14,7 +14,7 @@ const LabelIconTip: React.FC<{
   label: React.ReactNode;
   subTitle?: React.ReactNode;
   tooltip?: string | LabelTooltipType;
-  ellipsis?: boolean;
+  ellipsis?: boolean | { showTitle?: boolean };
 }> = (props) => {
   const { label, tooltip, ellipsis, subTitle } = props;
   const { getPrefixCls } = useContext(ConfigProvider.ConfigContext);

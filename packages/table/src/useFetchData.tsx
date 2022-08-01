@@ -95,12 +95,16 @@ const useFetchData = <T extends RequestData<any>>(
    * https://github.com/ant-design/pro-components/issues/4390
    */
   const requestFinally = useRefFunction(() => {
-    setTableLoading(false);
+    if (typeof tableLoading === 'object') {
+      setTableLoading({ ...tableLoading, spinning: false });
+    } else {
+      setTableLoading(false);
+    }
     setPollingLoading(false);
   });
   /** 请求数据 */
   const fetchList = async (isPolling: boolean) => {
-    if (tableLoading || requesting.current || !getData) {
+    if ((tableLoading && typeof tableLoading === 'boolean') || requesting.current || !getData) {
       return [];
     }
 
@@ -110,7 +114,11 @@ const useFetchData = <T extends RequestData<any>>(
       return [];
     }
     if (!isPolling) {
-      setTableLoading(true);
+      if (typeof tableLoading === 'object') {
+        setTableLoading({ ...tableLoading, spinning: true });
+      } else {
+        setTableLoading(true);
+      }
     } else {
       setPollingLoading(true);
     }

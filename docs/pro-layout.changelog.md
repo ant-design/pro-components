@@ -9,6 +9,12 @@ group:
 
 # Change Log
 
+## @ant-design/pro-layout@6.38.14
+
+`2022-07-21`
+
+- fix(layout): fix PageContainer loading style error #5568 (#5571). [#5571](https://github.com/ant-design/pro-components/pull/#5571) [@wangmeijian](https://github.com/wangmeijian)
+
 ## @ant-design/pro-layout@6.38.13
 
 `2022-07-14`
