@@ -460,6 +460,7 @@ const SettingDrawer: React.FC<SettingDrawerProps> = (props) => {
               prefixCls={baseClassName}
             >
               <ThemeColor
+                prefixCls={baseClassName}
                 colorList={colorList}
                 value={genStringToTheme(primaryColor)!}
                 formatMessage={formatMessage}
