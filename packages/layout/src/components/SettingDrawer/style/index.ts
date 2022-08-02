@@ -8,24 +8,24 @@ export interface SettingDrawerToken extends ProAliasToken {
 
 const genSettingDrawerStyle: GenerateStyle<SettingDrawerToken> = (token) => {
   return {
+    [`${token.componentCls}-handle`]: {
+      position: 'fixed',
+      top: '240px',
+      right: '0px',
+      zIndex: '0',
+      display: 'flex',
+      alignItems: 'center',
+      justifyContent: 'center',
+      width: '48px',
+      height: '48px',
+      fontSize: '16px',
+      textAlign: 'center',
+      backgroundColor: token.colorPrimary,
+      borderRadius: '4px 0 0 4px',
+      cursor: 'pointer',
+      pointerEvents: 'auto',
+    },
     [token.componentCls]: {
-      '&-handle': {
-        position: 'fixed',
-        top: '240px',
-        right: '0px',
-        zIndex: '0',
-        display: 'flex',
-        alignItems: 'center',
-        justifyContent: 'center',
-        width: '48px',
-        height: '48px',
-        fontSize: '16px',
-        textAlign: 'center',
-        backgroundColor: token.colorPrimary,
-        borderRadius: '4px 0 0 4px',
-        cursor: 'pointer',
-        pointerEvents: 'auto',
-      },
       '&-content': { position: 'relative', minHeight: '100%' },
       '&-body-title': { marginBottom: '12px', fontSize: '14px', lineHeight: '22px' },
       '&-block-checkbox': {
