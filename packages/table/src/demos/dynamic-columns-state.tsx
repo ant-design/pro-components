@@ -101,7 +101,7 @@ export default () => {
       title: '关闭时字段',
       dataIndex: 'statusText',
     },
-    // ...columns,
+    ...columns,
   ];
 
   const runningColumns: ProColumns<TableListItem>[] = [
@@ -115,7 +115,7 @@ export default () => {
       title: '运行时字段',
       dataIndex: 'statusText',
     },
-    // ...columns,
+    ...columns,
   ];
   return (
     <ProTable<TableListItem>
