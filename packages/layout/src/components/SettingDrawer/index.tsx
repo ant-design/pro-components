@@ -332,15 +332,8 @@ const SettingDrawer: React.FC<SettingDrawerProps> = (props) => {
   const { wrapSSR } = useStyle(baseClassName);
 
   return wrapSSR(
-    <Drawer
-      visible={show}
-      width={300}
-      closable={false}
-      onClose={() => setShow(false)}
-      placement="right"
-      getContainer={getContainer}
-      handler={
-        <div className={`${baseClassName}-handle`} onClick={() => setShow(!show)}>
+    <>
+    <div className={`${baseClassName}-handle`} onClick={() => setShow(!show)}>
           {show ? (
             <CloseOutlined
               style={{
@@ -357,7 +350,14 @@ const SettingDrawer: React.FC<SettingDrawerProps> = (props) => {
             />
           )}
         </div>
-      }
+    <Drawer
+      visible={show}
+      width={300}
+      closable={false}
+      onClose={() => setShow(false)}
+      placement="right"
+      getContainer={getContainer}
+     
       style={{
         zIndex: 999,
       }}
@@ -514,7 +514,7 @@ const SettingDrawer: React.FC<SettingDrawerProps> = (props) => {
           </>
         )}
       </div>
-    </Drawer>,
+    </Drawer></>
   );
 };
 

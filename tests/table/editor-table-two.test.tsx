@@ -252,7 +252,7 @@ describe('EditorProTable 2', () => {
     act(() => {
       fireEvent.change(
         wrapper.container.querySelectorAll(
-          '.ant-table-cell .ant-row.ant-form-item .ant-form-item-control-input input',
+          '.ant-table-cell  .ant-form-item .ant-form-item-control-input input',
         )[1],
         {
           target: {
@@ -331,7 +331,7 @@ describe('EditorProTable 2', () => {
     act(() => {
       fireEvent.change(
         wrapper.container.querySelectorAll(
-          '.ant-table-cell .ant-row.ant-form-item .ant-form-item-control-input input',
+          '.ant-table-cell .ant-form-item .ant-form-item-control-input input',
         )[0],
         {
           target: {
@@ -412,7 +412,7 @@ describe('EditorProTable 2', () => {
     act(() => {
       fireEvent.change(
         wrapper.container.querySelectorAll(
-          '.ant-table-cell .ant-row.ant-form-item .ant-form-item-control-input input',
+          '.ant-table-cell .ant-row .ant-form-item .ant-form-item-control-input input',
         )[0],
         {
           target: {
@@ -470,7 +470,7 @@ describe('EditorProTable 2', () => {
     act(() => {
       fireEvent.change(
         wrapper.container.querySelectorAll(
-          '.ant-table-cell .ant-row.ant-form-item .ant-form-item-control-input input',
+          '.ant-table-cell .ant-form-item .ant-form-item-control-input input',
         )[1],
         {
           target: {
