@@ -189,7 +189,7 @@ function StepsForm<T = Record<string, any>>(
    * 解除挂载掉这个 form，同时步数 -1
    */
   const unRegForm = useCallback((name: string) => {
-    setFormArray((oldFormArray) => oldFormArray.filter((n) => n === name));
+    setFormArray((oldFormArray) => oldFormArray.filter((n) => n !== name));
     formMapRef.current.delete(name);
     formDataRef.current.delete(name);
   }, []);
