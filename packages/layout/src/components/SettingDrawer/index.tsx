@@ -1,9 +1,4 @@
-import {
-  CloseOutlined,
-  CopyOutlined,
-  NotificationOutlined,
-  SettingOutlined,
-} from '@ant-design/icons';
+import { CopyOutlined, NotificationOutlined } from '@ant-design/icons';
 import { isBrowser, merge } from '@ant-design/pro-utils';
 import {
   disable as darkreaderDisable,
@@ -358,47 +353,47 @@ const SettingDrawer: React.FC<SettingDrawerProps> = (props) => {
       onClose={() => setShow(false)}
       placement="right"
       getContainer={getContainer}
-      handler={
-        <div
-          className={cx(
-            `${baseClassName}-drawer-handle`,
-            css`
-              position: absolute;
-              top: 240px;
-              right: 300px;
-              z-index: 0;
-              display: flex;
-              align-items: center;
-              justify-content: center;
-              width: 48px;
-              height: 48px;
-              font-size: 16px;
-              text-align: center;
-              background-color: var(--ant-primary-color);
-              border-radius: 4px 0 0 4px;
-              cursor: pointer;
-              pointer-events: auto;
-            `,
-          )}
-          onClick={() => setShow(!show)}
-        >
-          {show ? (
-            <CloseOutlined
-              style={{
-                color: '#fff',
-                fontSize: 20,
-              }}
-            />
-          ) : (
-            <SettingOutlined
-              style={{
-                color: '#fff',
-                fontSize: 20,
-              }}
-            />
-          )}
-        </div>
-      }
+      // handler={
+      //   <div
+      //     className={cx(
+      //       `${baseClassName}-drawer-handle`,
+      //       css`
+      //         position: absolute;
+      //         top: 240px;
+      //         right: 300px;
+      //         z-index: 0;
+      //         display: flex;
+      //         align-items: center;
+      //         justify-content: center;
+      //         width: 48px;
+      //         height: 48px;
+      //         font-size: 16px;
+      //         text-align: center;
+      //         background-color: var(--ant-primary-color);
+      //         border-radius: 4px 0 0 4px;
+      //         cursor: pointer;
+      //         pointer-events: auto;
+      //       `,
+      //     )}
+      //     onClick={() => setShow(!show)}
+      //   >
+      //     {show ? (
+      //       <CloseOutlined
+      //         style={{
+      //           color: '#fff',
+      //           fontSize: 20,
+      //         }}
+      //       />
+      //     ) : (
+      //       <SettingOutlined
+      //         style={{
+      //           color: '#fff',
+      //           fontSize: 20,
+      //         }}
+      //       />
+      //     )}
+      //   </div>
+      // }
       style={{
         zIndex: 999,
       }}
