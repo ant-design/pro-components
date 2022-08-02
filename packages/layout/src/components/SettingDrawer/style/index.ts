@@ -10,9 +10,9 @@ const genSettingDrawerStyle: GenerateStyle<SettingDrawerToken> = (token) => {
   return {
     [token.componentCls]: {
       '&-handle': {
-        position: 'absolute',
+        position: 'fixed',
         top: '240px',
-        right: '300px',
+        right: '0px',
         zIndex: '0',
         display: 'flex',
         alignItems: 'center',
