@@ -1,5 +1,4 @@
-﻿import { SettingDrawer } from '@ant-design/pro-components';
-import { isBrowser } from 'umi';
+﻿import { isBrowser } from 'umi';
 
 export default ({ children, location, ...rest }) => {
   if (!isBrowser()) {
@@ -26,7 +25,6 @@ export default ({ children, location, ...rest }) => {
         }}
       >
         {children}
-        <SettingDrawer themeOnly enableDarkTheme />
       </div>
     </div>
   );
