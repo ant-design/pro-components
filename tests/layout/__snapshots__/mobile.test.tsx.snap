@@ -13,73 +13,79 @@ exports[`mobile BasicLayout 📱 base use 1`] = `
       style="min-height: 100%;"
     >
       <div
-        class=""
+        class="ant-drawer ant-drawer-left ant-pro-drawer-sider ant-drawer-inline"
+        style="padding: 0px; height: 100vh;"
+        tabindex="-1"
       >
         <div
-          class="ant-drawer ant-drawer-left ant-pro-drawer-sider"
-          style="padding: 0px; height: 100vh;"
-          tabindex="-1"
+          aria-hidden="true"
+          data-sentinel="start"
+          style="width: 0px; height: 0px; overflow: hidden; outline: none; position: absolute;"
+          tabindex="0"
+        />
+        <div
+          class="ant-drawer-content-wrapper ant-drawer-content-wrapper-hidden"
+          style="width: 256px;"
         >
           <div
-            class="ant-drawer-mask"
-          />
-          <div
-            class="ant-drawer-content-wrapper"
-            style="width: 256px; transform: translateX(-100%);"
+            aria-modal="true"
+            class="ant-drawer-content"
+            role="dialog"
           >
             <div
-              class="ant-drawer-content"
+              class="ant-drawer-wrapper-body"
             >
               <div
-                class="ant-drawer-wrapper-body"
+                class="ant-drawer-body"
+                style="height: 100vh; padding: 0px; display: flex; flex-direction: row;"
               >
-                <div
-                  class="ant-drawer-body"
-                  style="height: 100vh; padding: 0px; display: flex; flex-direction: row;"
+                <aside
+                  class="ant-layout-sider ant-layout-sider-light ant-pro-sider ant-pro-sider-fixed ant-pro-sider-light ant-design-pro-layout-1cavu78"
+                  style="background-color: transparent; flex: 0 0 256px; max-width: 256px; min-width: 256px; width: 256px;"
                 >
-                  <aside
-                    class="ant-layout-sider ant-layout-sider-light ant-pro-sider ant-pro-sider-fixed ant-pro-sider-light ant-design-pro-layout-1cavu78"
-                    style="background-color: transparent; flex: 0 0 256px; max-width: 256px; min-width: 256px; width: 256px;"
+                  <div
+                    class="ant-layout-sider-children"
                   >
                     <div
-                      class="ant-layout-sider-children"
+                      style="flex: 1; overflow-y: auto; overflow-x: hidden;"
                     >
                       <div
-                        style="flex: 1; overflow-y: auto; overflow-x: hidden;"
+                        style="padding: 24px;"
                       >
                         <div
-                          style="padding: 24px;"
+                          class="ant-skeleton ant-skeleton-active"
                         >
                           <div
-                            class="ant-skeleton ant-skeleton-active"
+                            class="ant-skeleton-content"
                           >
-                            <div
-                              class="ant-skeleton-content"
+                            <ul
+                              class="ant-skeleton-paragraph"
                             >
-                              <ul
-                                class="ant-skeleton-paragraph"
-                              >
-                                <li />
-                                <li />
-                                <li />
-                                <li />
-                                <li />
-                                <li
-                                  style="width: 61%;"
-                                />
-                              </ul>
-                            </div>
+                              <li />
+                              <li />
+                              <li />
+                              <li />
+                              <li />
+                              <li
+                                style="width: 61%;"
+                              />
+                            </ul>
                           </div>
                         </div>
                       </div>
                     </div>
-                  </aside>
-                </div>
+                  </div>
+                </aside>
               </div>
             </div>
-            <div />
           </div>
         </div>
+        <div
+          aria-hidden="true"
+          data-sentinel="end"
+          style="width: 0px; height: 0px; overflow: hidden; outline: none; position: absolute;"
+          tabindex="0"
+        />
       </div>
       <div
         class="ant-layout"
@@ -273,88 +279,97 @@ exports[`mobile BasicLayout 📱 collapsed=false 1`] = `
       style="min-height: 100%;"
     >
       <div
-        class=""
+        class="ant-drawer ant-drawer-left ant-pro-drawer-sider ant-drawer-open ant-drawer-inline"
+        style="padding: 0px; height: 100vh;"
+        tabindex="-1"
       >
         <div
-          class="ant-drawer ant-drawer-left ant-drawer-open ant-pro-drawer-sider"
-          style="padding: 0px; height: 100vh;"
-          tabindex="-1"
+          class="ant-drawer-mask"
+        />
+        <div
+          aria-hidden="true"
+          data-sentinel="start"
+          style="width: 0px; height: 0px; overflow: hidden; outline: none; position: absolute;"
+          tabindex="0"
+        />
+        <div
+          class="ant-drawer-content-wrapper"
+          style="width: 256px;"
         >
           <div
-            class="ant-drawer-mask"
-          />
-          <div
-            class="ant-drawer-content-wrapper"
-            style="width: 256px;"
+            aria-modal="true"
+            class="ant-drawer-content"
+            role="dialog"
           >
             <div
-              class="ant-drawer-content"
+              class="ant-drawer-wrapper-body"
             >
               <div
-                class="ant-drawer-wrapper-body"
+                class="ant-drawer-body"
+                style="height: 100vh; padding: 0px; display: flex; flex-direction: row;"
               >
-                <div
-                  class="ant-drawer-body"
-                  style="height: 100vh; padding: 0px; display: flex; flex-direction: row;"
+                <aside
+                  class="ant-layout-sider ant-layout-sider-light ant-pro-sider ant-pro-sider-fixed ant-pro-sider-light ant-design-pro-layout-1cavu78"
+                  style="background-color: transparent; flex: 0 0 256px; max-width: 256px; min-width: 256px; width: 256px;"
                 >
-                  <aside
-                    class="ant-layout-sider ant-layout-sider-light ant-pro-sider ant-pro-sider-fixed ant-pro-sider-light ant-design-pro-layout-1cavu78"
-                    style="background-color: transparent; flex: 0 0 256px; max-width: 256px; min-width: 256px; width: 256px;"
+                  <div
+                    class="ant-layout-sider-children"
                   >
                     <div
-                      class="ant-layout-sider-children"
+                      style="flex: 1; overflow-y: auto; overflow-x: hidden;"
                     >
                       <div
-                        style="flex: 1; overflow-y: auto; overflow-x: hidden;"
+                        style="padding: 24px;"
                       >
                         <div
-                          style="padding: 24px;"
+                          class="ant-skeleton ant-skeleton-active"
                         >
                           <div
-                            class="ant-skeleton ant-skeleton-active"
+                            class="ant-skeleton-content"
                           >
-                            <div
-                              class="ant-skeleton-content"
+                            <ul
+                              class="ant-skeleton-paragraph"
                             >
-                              <ul
-                                class="ant-skeleton-paragraph"
-                              >
-                                <li />
-                                <li />
-                                <li />
-                                <li />
-                                <li />
-                                <li
-                                  style="width: 61%;"
-                                />
-                              </ul>
-                            </div>
+                              <li />
+                              <li />
+                              <li />
+                              <li />
+                              <li />
+                              <li
+                                style="width: 61%;"
+                              />
+                            </ul>
                           </div>
                         </div>
                       </div>
-                      <div
-                        class="ant-pro-sider-collapsed-button ant-design-pro-layout-1dglhug"
-                      >
-                        <svg
-                          aria-hidden="true"
-                          fill="currentColor"
-                          height="1em"
-                          viewBox="0 0 12 12"
-                          width="1em"
-                        >
-                          <path
-                            d="M6.432 7.967a.448.448 0 01-.318.133h-.228a.46.46 0 01-.318-.133L2.488 4.85a.305.305 0 010-.43l.427-.43a.293.293 0 01.42 0L6 6.687l2.665-2.699a.299.299 0 01.426 0l.42.431a.305.305 0 010 .43L6.432 7.967z"
-                          />
-                        </svg>
-                      </div>
                     </div>
-                  </aside>
-                </div>
+                    <div
+                      class="ant-pro-sider-collapsed-button ant-design-pro-layout-1dglhug"
+                    >
+                      <svg
+                        aria-hidden="true"
+                        fill="currentColor"
+                        height="1em"
+                        viewBox="0 0 12 12"
+                        width="1em"
+                      >
+                        <path
+                          d="M6.432 7.967a.448.448 0 01-.318.133h-.228a.46.46 0 01-.318-.133L2.488 4.85a.305.305 0 010-.43l.427-.43a.293.293 0 01.42 0L6 6.687l2.665-2.699a.299.299 0 01.426 0l.42.431a.305.305 0 010 .43L6.432 7.967z"
+                        />
+                      </svg>
+                    </div>
+                  </div>
+                </aside>
               </div>
             </div>
-            <div />
           </div>
         </div>
+        <div
+          aria-hidden="true"
+          data-sentinel="end"
+          style="width: 0px; height: 0px; overflow: hidden; outline: none; position: absolute;"
+          tabindex="0"
+        />
       </div>
       <div
         class="ant-layout"
@@ -544,83 +559,26 @@ exports[`mobile BasicLayout 📱 layout menuHeaderRender 1`] = `
       class="ant-design-pro-layout-d08s5k"
     />
     <section
-      class="ant-layout ant-layout-has-sider"
+      class="ant-layout"
       style="min-height: 100%;"
     >
       <div
-        class=""
+        class="ant-drawer ant-drawer-left ant-pro-drawer-sider ant-drawer-inline"
+        style="padding: 0px; height: 100vh;"
+        tabindex="-1"
       >
         <div
-          class="ant-drawer ant-drawer-left ant-pro-drawer-sider"
-          style="padding: 0px; height: 100vh;"
-          tabindex="-1"
-        >
-          <div
-            class="ant-drawer-mask"
-          />
-          <div
-            class="ant-drawer-content-wrapper"
-            style="transform: translateX(-100%); width: 215px;"
-          >
-            <div
-              class="ant-drawer-content"
-            >
-              <div
-                class="ant-drawer-wrapper-body"
-              >
-                <div
-                  class="ant-drawer-body"
-                  style="height: 100vh; padding: 0px; display: flex; flex-direction: row;"
-                >
-                  <aside
-                    class="ant-layout-sider ant-layout-sider-light ant-pro-sider ant-pro-sider-fixed ant-pro-sider-light ant-design-pro-layout-1cavu78"
-                    style="background-color: transparent; flex: 0 0 215px; max-width: 215px; min-width: 215px; width: 215px;"
-                  >
-                    <div
-                      class="ant-layout-sider-children"
-                    >
-                      <div
-                        class="ant-pro-sider-logo ant-design-pro-layout-f04tga"
-                        id="logo"
-                      >
-                        title
-                      </div>
-                      <div
-                        style="flex: 1; overflow-y: auto; overflow-x: hidden;"
-                      >
-                        <div
-                          style="padding: 24px;"
-                        >
-                          <div
-                            class="ant-skeleton ant-skeleton-active"
-                          >
-                            <div
-                              class="ant-skeleton-content"
-                            >
-                              <ul
-                                class="ant-skeleton-paragraph"
-                              >
-                                <li />
-                                <li />
-                                <li />
-                                <li />
-                                <li />
-                                <li
-                                  style="width: 61%;"
-                                />
-                              </ul>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </aside>
-                </div>
-              </div>
-            </div>
-            <div />
-          </div>
-        </div>
+          aria-hidden="true"
+          data-sentinel="start"
+          style="width: 0px; height: 0px; overflow: hidden; outline: none; position: absolute;"
+          tabindex="0"
+        />
+        <div
+          aria-hidden="true"
+          data-sentinel="end"
+          style="width: 0px; height: 0px; overflow: hidden; outline: none; position: absolute;"
+          tabindex="0"
+        />
       </div>
       <div
         class="ant-layout"
@@ -683,83 +641,26 @@ exports[`mobile BasicLayout 📱 layout menuHeaderRender 2`] = `
       class="ant-design-pro-layout-d08s5k"
     />
     <section
-      class="ant-layout ant-layout-has-sider"
+      class="ant-layout"
       style="min-height: 100%;"
     >
       <div
-        class=""
+        class="ant-drawer ant-drawer-left ant-pro-drawer-sider ant-drawer-inline"
+        style="padding: 0px; height: 100vh;"
+        tabindex="-1"
       >
         <div
-          class="ant-drawer ant-drawer-left ant-pro-drawer-sider"
-          style="padding: 0px; height: 100vh;"
-          tabindex="-1"
-        >
-          <div
-            class="ant-drawer-mask"
-          />
-          <div
-            class="ant-drawer-content-wrapper"
-            style="transform: translateX(-100%); width: 215px;"
-          >
-            <div
-              class="ant-drawer-content"
-            >
-              <div
-                class="ant-drawer-wrapper-body"
-              >
-                <div
-                  class="ant-drawer-body"
-                  style="height: 100vh; padding: 0px; display: flex; flex-direction: row;"
-                >
-                  <aside
-                    class="ant-layout-sider ant-layout-sider-light ant-pro-sider ant-pro-sider-fixed ant-pro-sider-light ant-design-pro-layout-1cavu78"
-                    style="background-color: transparent; flex: 0 0 215px; max-width: 215px; min-width: 215px; width: 215px;"
-                  >
-                    <div
-                      class="ant-layout-sider-children"
-                    >
-                      <div
-                        class="ant-pro-sider-logo ant-design-pro-layout-f04tga"
-                        id="logo"
-                      >
-                        title
-                      </div>
-                      <div
-                        style="flex: 1; overflow-y: auto; overflow-x: hidden;"
-                      >
-                        <div
-                          style="padding: 24px;"
-                        >
-                          <div
-                            class="ant-skeleton ant-skeleton-active"
-                          >
-                            <div
-                              class="ant-skeleton-content"
-                            >
-                              <ul
-                                class="ant-skeleton-paragraph"
-                              >
-                                <li />
-                                <li />
-                                <li />
-                                <li />
-                                <li />
-                                <li
-                                  style="width: 61%;"
-                                />
-                              </ul>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </aside>
-                </div>
-              </div>
-            </div>
-            <div />
-          </div>
-        </div>
+          aria-hidden="true"
+          data-sentinel="start"
+          style="width: 0px; height: 0px; overflow: hidden; outline: none; position: absolute;"
+          tabindex="0"
+        />
+        <div
+          aria-hidden="true"
+          data-sentinel="end"
+          style="width: 0px; height: 0px; overflow: hidden; outline: none; position: absolute;"
+          tabindex="0"
+        />
       </div>
       <div
         class="ant-layout"
@@ -822,77 +723,26 @@ exports[`mobile BasicLayout 📱 layout menuHeaderRender=false 1`] = `
       class="ant-design-pro-layout-d08s5k"
     />
     <section
-      class="ant-layout ant-layout-has-sider"
+      class="ant-layout"
       style="min-height: 100%;"
     >
       <div
-        class=""
+        class="ant-drawer ant-drawer-left ant-pro-drawer-sider ant-drawer-inline"
+        style="padding: 0px; height: 100vh;"
+        tabindex="-1"
       >
         <div
-          class="ant-drawer ant-drawer-left ant-pro-drawer-sider"
-          style="padding: 0px; height: 100vh;"
-          tabindex="-1"
-        >
-          <div
-            class="ant-drawer-mask"
-          />
-          <div
-            class="ant-drawer-content-wrapper"
-            style="transform: translateX(-100%); width: 215px;"
-          >
-            <div
-              class="ant-drawer-content"
-            >
-              <div
-                class="ant-drawer-wrapper-body"
-              >
-                <div
-                  class="ant-drawer-body"
-                  style="height: 100vh; padding: 0px; display: flex; flex-direction: row;"
-                >
-                  <aside
-                    class="ant-layout-sider ant-layout-sider-light ant-pro-sider ant-pro-sider-fixed ant-pro-sider-light ant-design-pro-layout-1cavu78"
-                    style="background-color: transparent; flex: 0 0 215px; max-width: 215px; min-width: 215px; width: 215px;"
-                  >
-                    <div
-                      class="ant-layout-sider-children"
-                    >
-                      <div
-                        style="flex: 1; overflow-y: auto; overflow-x: hidden;"
-                      >
-                        <div
-                          style="padding: 24px;"
-                        >
-                          <div
-                            class="ant-skeleton ant-skeleton-active"
-                          >
-                            <div
-                              class="ant-skeleton-content"
-                            >
-                              <ul
-                                class="ant-skeleton-paragraph"
-                              >
-                                <li />
-                                <li />
-                                <li />
-                                <li />
-                                <li />
-                                <li
-                                  style="width: 61%;"
-                                />
-                              </ul>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </aside>
-                </div>
-              </div>
-            </div>
-            <div />
-          </div>
-        </div>
+          aria-hidden="true"
+          data-sentinel="start"
+          style="width: 0px; height: 0px; overflow: hidden; outline: none; position: absolute;"
+          tabindex="0"
+        />
+        <div
+          aria-hidden="true"
+          data-sentinel="end"
+          style="width: 0px; height: 0px; overflow: hidden; outline: none; position: absolute;"
+          tabindex="0"
+        />
       </div>
       <div
         class="ant-layout"
@@ -958,88 +808,97 @@ exports[`mobile BasicLayout 📱 layout=mix 1`] = `
       style="min-height: 100%;"
     >
       <div
-        class=""
+        class="ant-drawer ant-drawer-left ant-pro-drawer-sider ant-drawer-open ant-drawer-inline"
+        style="padding: 0px; height: 100vh;"
+        tabindex="-1"
       >
         <div
-          class="ant-drawer ant-drawer-left ant-drawer-open ant-pro-drawer-sider"
-          style="padding: 0px; height: 100vh;"
-          tabindex="-1"
+          class="ant-drawer-mask"
+        />
+        <div
+          aria-hidden="true"
+          data-sentinel="start"
+          style="width: 0px; height: 0px; overflow: hidden; outline: none; position: absolute;"
+          tabindex="0"
+        />
+        <div
+          class="ant-drawer-content-wrapper"
+          style="width: 215px;"
         >
           <div
-            class="ant-drawer-mask"
-          />
-          <div
-            class="ant-drawer-content-wrapper"
-            style="width: 215px;"
+            aria-modal="true"
+            class="ant-drawer-content"
+            role="dialog"
           >
             <div
-              class="ant-drawer-content"
+              class="ant-drawer-wrapper-body"
             >
               <div
-                class="ant-drawer-wrapper-body"
+                class="ant-drawer-body"
+                style="height: 100vh; padding: 0px; display: flex; flex-direction: row;"
               >
-                <div
-                  class="ant-drawer-body"
-                  style="height: 100vh; padding: 0px; display: flex; flex-direction: row;"
+                <aside
+                  class="ant-layout-sider ant-layout-sider-light ant-pro-sider ant-pro-sider-fixed ant-pro-sider-light ant-design-pro-layout-1cavu78"
+                  style="background-color: transparent; flex: 0 0 215px; max-width: 215px; min-width: 215px; width: 215px;"
                 >
-                  <aside
-                    class="ant-layout-sider ant-layout-sider-light ant-pro-sider ant-pro-sider-fixed ant-pro-sider-light ant-design-pro-layout-1cavu78"
-                    style="background-color: transparent; flex: 0 0 215px; max-width: 215px; min-width: 215px; width: 215px;"
+                  <div
+                    class="ant-layout-sider-children"
                   >
                     <div
-                      class="ant-layout-sider-children"
+                      style="flex: 1; overflow-y: auto; overflow-x: hidden;"
                     >
                       <div
-                        style="flex: 1; overflow-y: auto; overflow-x: hidden;"
+                        style="padding: 24px;"
                       >
                         <div
-                          style="padding: 24px;"
+                          class="ant-skeleton ant-skeleton-active"
                         >
                           <div
-                            class="ant-skeleton ant-skeleton-active"
+                            class="ant-skeleton-content"
                           >
-                            <div
-                              class="ant-skeleton-content"
+                            <ul
+                              class="ant-skeleton-paragraph"
                             >
-                              <ul
-                                class="ant-skeleton-paragraph"
-                              >
-                                <li />
-                                <li />
-                                <li />
-                                <li />
-                                <li />
-                                <li
-                                  style="width: 61%;"
-                                />
-                              </ul>
-                            </div>
+                              <li />
+                              <li />
+                              <li />
+                              <li />
+                              <li />
+                              <li
+                                style="width: 61%;"
+                              />
+                            </ul>
                           </div>
                         </div>
                       </div>
-                      <div
-                        class="ant-pro-sider-collapsed-button ant-design-pro-layout-1dglhug"
-                      >
-                        <svg
-                          aria-hidden="true"
-                          fill="currentColor"
-                          height="1em"
-                          viewBox="0 0 12 12"
-                          width="1em"
-                        >
-                          <path
-                            d="M6.432 7.967a.448.448 0 01-.318.133h-.228a.46.46 0 01-.318-.133L2.488 4.85a.305.305 0 010-.43l.427-.43a.293.293 0 01.42 0L6 6.687l2.665-2.699a.299.299 0 01.426 0l.42.431a.305.305 0 010 .43L6.432 7.967z"
-                          />
-                        </svg>
-                      </div>
                     </div>
-                  </aside>
-                </div>
+                    <div
+                      class="ant-pro-sider-collapsed-button ant-design-pro-layout-1dglhug"
+                    >
+                      <svg
+                        aria-hidden="true"
+                        fill="currentColor"
+                        height="1em"
+                        viewBox="0 0 12 12"
+                        width="1em"
+                      >
+                        <path
+                          d="M6.432 7.967a.448.448 0 01-.318.133h-.228a.46.46 0 01-.318-.133L2.488 4.85a.305.305 0 010-.43l.427-.43a.293.293 0 01.42 0L6 6.687l2.665-2.699a.299.299 0 01.426 0l.42.431a.305.305 0 010 .43L6.432 7.967z"
+                        />
+                      </svg>
+                    </div>
+                  </div>
+                </aside>
               </div>
             </div>
-            <div />
           </div>
         </div>
+        <div
+          aria-hidden="true"
+          data-sentinel="end"
+          style="width: 0px; height: 0px; overflow: hidden; outline: none; position: absolute;"
+          tabindex="0"
+        />
       </div>
       <div
         class="ant-layout"
@@ -1237,88 +1096,97 @@ exports[`mobile BasicLayout 📱 layout=mix and splitMenus 1`] = `
       style="min-height: 100%;"
     >
       <div
-        class=""
+        class="ant-drawer ant-drawer-left ant-pro-drawer-sider ant-drawer-open ant-drawer-inline"
+        style="padding: 0px; height: 100vh;"
+        tabindex="-1"
       >
         <div
-          class="ant-drawer ant-drawer-left ant-drawer-open ant-pro-drawer-sider"
-          style="padding: 0px; height: 100vh;"
-          tabindex="-1"
+          class="ant-drawer-mask"
+        />
+        <div
+          aria-hidden="true"
+          data-sentinel="start"
+          style="width: 0px; height: 0px; overflow: hidden; outline: none; position: absolute;"
+          tabindex="0"
+        />
+        <div
+          class="ant-drawer-content-wrapper"
+          style="width: 215px;"
         >
           <div
-            class="ant-drawer-mask"
-          />
-          <div
-            class="ant-drawer-content-wrapper"
-            style="width: 215px;"
+            aria-modal="true"
+            class="ant-drawer-content"
+            role="dialog"
           >
             <div
-              class="ant-drawer-content"
+              class="ant-drawer-wrapper-body"
             >
               <div
-                class="ant-drawer-wrapper-body"
+                class="ant-drawer-body"
+                style="height: 100vh; padding: 0px; display: flex; flex-direction: row;"
               >
-                <div
-                  class="ant-drawer-body"
-                  style="height: 100vh; padding: 0px; display: flex; flex-direction: row;"
+                <aside
+                  class="ant-layout-sider ant-layout-sider-light ant-pro-sider ant-pro-sider-fixed ant-pro-sider-light ant-design-pro-layout-1cavu78"
+                  style="background-color: transparent; flex: 0 0 215px; max-width: 215px; min-width: 215px; width: 215px;"
                 >
-                  <aside
-                    class="ant-layout-sider ant-layout-sider-light ant-pro-sider ant-pro-sider-fixed ant-pro-sider-light ant-design-pro-layout-1cavu78"
-                    style="background-color: transparent; flex: 0 0 215px; max-width: 215px; min-width: 215px; width: 215px;"
+                  <div
+                    class="ant-layout-sider-children"
                   >
                     <div
-                      class="ant-layout-sider-children"
+                      style="flex: 1; overflow-y: auto; overflow-x: hidden;"
                     >
                       <div
-                        style="flex: 1; overflow-y: auto; overflow-x: hidden;"
+                        style="padding: 24px;"
                       >
                         <div
-                          style="padding: 24px;"
+                          class="ant-skeleton ant-skeleton-active"
                         >
                           <div
-                            class="ant-skeleton ant-skeleton-active"
+                            class="ant-skeleton-content"
                           >
-                            <div
-                              class="ant-skeleton-content"
+                            <ul
+                              class="ant-skeleton-paragraph"
                             >
-                              <ul
-                                class="ant-skeleton-paragraph"
-                              >
-                                <li />
-                                <li />
-                                <li />
-                                <li />
-                                <li />
-                                <li
-                                  style="width: 61%;"
-                                />
-                              </ul>
-                            </div>
+                              <li />
+                              <li />
+                              <li />
+                              <li />
+                              <li />
+                              <li
+                                style="width: 61%;"
+                              />
+                            </ul>
                           </div>
                         </div>
                       </div>
-                      <div
-                        class="ant-pro-sider-collapsed-button ant-design-pro-layout-1dglhug"
-                      >
-                        <svg
-                          aria-hidden="true"
-                          fill="currentColor"
-                          height="1em"
-                          viewBox="0 0 12 12"
-                          width="1em"
-                        >
-                          <path
-                            d="M6.432 7.967a.448.448 0 01-.318.133h-.228a.46.46 0 01-.318-.133L2.488 4.85a.305.305 0 010-.43l.427-.43a.293.293 0 01.42 0L6 6.687l2.665-2.699a.299.299 0 01.426 0l.42.431a.305.305 0 010 .43L6.432 7.967z"
-                          />
-                        </svg>
-                      </div>
                     </div>
-                  </aside>
-                </div>
+                    <div
+                      class="ant-pro-sider-collapsed-button ant-design-pro-layout-1dglhug"
+                    >
+                      <svg
+                        aria-hidden="true"
+                        fill="currentColor"
+                        height="1em"
+                        viewBox="0 0 12 12"
+                        width="1em"
+                      >
+                        <path
+                          d="M6.432 7.967a.448.448 0 01-.318.133h-.228a.46.46 0 01-.318-.133L2.488 4.85a.305.305 0 010-.43l.427-.43a.293.293 0 01.42 0L6 6.687l2.665-2.699a.299.299 0 01.426 0l.42.431a.305.305 0 010 .43L6.432 7.967z"
+                        />
+                      </svg>
+                    </div>
+                  </div>
+                </aside>
               </div>
             </div>
-            <div />
           </div>
         </div>
+        <div
+          aria-hidden="true"
+          data-sentinel="end"
+          style="width: 0px; height: 0px; overflow: hidden; outline: none; position: absolute;"
+          tabindex="0"
+        />
       </div>
       <div
         class="ant-layout"
