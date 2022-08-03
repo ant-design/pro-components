@@ -37,7 +37,7 @@ type MergerSettingsType<T> = Partial<T> & {
 };
 
 const Body: React.FC<BodyProps> = ({ children, prefixCls, title }) => (
-  <div style={{ marginBottom: 24 }}>
+  <div style={{ marginBlockEnd: 24 }}>
     <h3 className={`${prefixCls}-body-title`}>{title}</h3>
     {children}
   </div>
@@ -333,188 +333,188 @@ const SettingDrawer: React.FC<SettingDrawerProps> = (props) => {
 
   return wrapSSR(
     <>
-    <div className={`${baseClassName}-handle`} onClick={() => setShow(!show)}>
-          {show ? (
-            <CloseOutlined
-              style={{
-                color: '#fff',
-                fontSize: 20,
-              }}
-            />
-          ) : (
-            <SettingOutlined
-              style={{
-                color: '#fff',
-                fontSize: 20,
-              }}
-            />
-          )}
-        </div>
-    <Drawer
-      visible={show}
-      width={300}
-      closable={false}
-      onClose={() => setShow(false)}
-      placement="right"
-      getContainer={getContainer}
-     
-      style={{
-        zIndex: 999,
-      }}
-    >
-      <div className={`${baseClassName}-content`}>
-        <Body
-          title={formatMessage({
-            id: 'app.setting.pagestyle',
-            defaultMessage: 'Page style setting',
-          })}
-          prefixCls={baseClassName}
-        >
-          <BlockCheckbox
-            prefixCls={baseClassName}
-            list={[
-              {
-                key: 'light',
-                title: formatMessage({
-                  id: 'app.setting.pagestyle.light',
-                  defaultMessage: '亮色菜单风格',
-                }),
-              },
-              {
-                key: 'realDark',
-                title: formatMessage({
-                  id: 'app.setting.pagestyle.realdark',
-                  defaultMessage: '暗色菜单风格',
-                }),
-              },
-            ].filter((item) => {
-              if (item.key === 'dark' && settingState.layout === 'mix') return false;
-              if (item.key === 'realDark' && !enableDarkTheme) return false;
-              return true;
-            })}
-            value={navTheme!}
-            configType="theme"
-            key="navTheme"
-            onChange={(value) => changeSetting('navTheme', value)}
+      <div className={`${baseClassName}-handle`} onClick={() => setShow(!show)}>
+        {show ? (
+          <CloseOutlined
+            style={{
+              color: '#fff',
+              fontSize: 20,
+            }}
           />
-        </Body>
-        {colorList !== false && (
+        ) : (
+          <SettingOutlined
+            style={{
+              color: '#fff',
+              fontSize: 20,
+            }}
+          />
+        )}
+      </div>
+      <Drawer
+        visible={show}
+        width={300}
+        closable={false}
+        onClose={() => setShow(false)}
+        placement="right"
+        getContainer={getContainer}
+        style={{
+          zIndex: 999,
+        }}
+      >
+        <div className={`${baseClassName}-content`}>
           <Body
             title={formatMessage({
-              id: 'app.setting.themecolor',
-              defaultMessage: 'Theme color',
+              id: 'app.setting.pagestyle',
+              defaultMessage: 'Page style setting',
             })}
             prefixCls={baseClassName}
           >
-            <ThemeColor
+            <BlockCheckbox
               prefixCls={baseClassName}
-              colorList={colorList}
-              value={genStringToTheme(primaryColor)!}
-              formatMessage={formatMessage}
-              onChange={(color) => changeSetting('primaryColor', color)}
+              list={[
+                {
+                  key: 'light',
+                  title: formatMessage({
+                    id: 'app.setting.pagestyle.light',
+                    defaultMessage: '亮色菜单风格',
+                  }),
+                },
+                {
+                  key: 'realDark',
+                  title: formatMessage({
+                    id: 'app.setting.pagestyle.realdark',
+                    defaultMessage: '暗色菜单风格',
+                  }),
+                },
+              ].filter((item) => {
+                if (item.key === 'dark' && settingState.layout === 'mix') return false;
+                if (item.key === 'realDark' && !enableDarkTheme) return false;
+                return true;
+              })}
+              value={navTheme!}
+              configType="theme"
+              key="navTheme"
+              onChange={(value) => changeSetting('navTheme', value)}
             />
           </Body>
-        )}
-        {!themeOnly && (
-          <>
-            <Divider />
+          {colorList !== false && (
             <Body
+              title={formatMessage({
+                id: 'app.setting.themecolor',
+                defaultMessage: 'Theme color',
+              })}
               prefixCls={baseClassName}
-              title={formatMessage({ id: 'app.setting.navigationmode' })}
             >
-              <BlockCheckbox
+              <ThemeColor
                 prefixCls={baseClassName}
-                value={layout!}
-                key="layout"
-                configType="layout"
-                list={[
-                  {
-                    key: 'side',
-                    title: formatMessage({ id: 'app.setting.sidemenu' }),
-                  },
-                  {
-                    key: 'top',
-                    title: formatMessage({ id: 'app.setting.topmenu' }),
-                  },
-                  {
-                    key: 'mix',
-                    title: formatMessage({ id: 'app.setting.mixmenu' }),
-                  },
-                ]}
-                onChange={(value) => changeSetting('layout', value)}
+                colorList={colorList}
+                value={genStringToTheme(primaryColor)!}
+                formatMessage={formatMessage}
+                onChange={(color) => changeSetting('primaryColor', color)}
               />
             </Body>
-            <LayoutSetting settings={settingState} changeSetting={changeSetting} />
-            <Divider />
-
-            <Body
-              prefixCls={baseClassName}
-              title={formatMessage({ id: 'app.setting.regionalsettings' })}
-            >
-              <RegionalSetting settings={settingState} changeSetting={changeSetting} />
-            </Body>
-
-            <Divider />
-
-            <Body
-              prefixCls={baseClassName}
-              title={formatMessage({ id: 'app.setting.othersettings' })}
-            >
-              <List
-                split={false}
-                renderItem={renderLayoutSettingItem}
-                dataSource={[
-                  {
-                    title: formatMessage({ id: 'app.setting.weakmode' }),
-                    action: (
-                      <Switch
-                        size="small"
-                        className="color-weak"
-                        checked={!!colorWeak}
-                        onChange={(checked) => {
-                          changeSetting('colorWeak', checked);
-                        }}
-                      />
-                    ),
-                  },
-                ]}
-              />
-            </Body>
-            {hideHintAlert && hideCopyButton ? null : <Divider />}
-
-            {hideHintAlert ? null : (
-              <Alert
-                type="warning"
-                message={formatMessage({
-                  id: 'app.setting.production.hint',
-                })}
-                icon={<NotificationOutlined />}
-                showIcon
-                style={{ marginBottom: 16 }}
-              />
-            )}
-
-            {hideCopyButton ? null : (
-              <Button
-                block
-                icon={<CopyOutlined />}
-                style={{ marginBottom: 24 }}
-                onClick={async () => {
-                  try {
-                    await navigator.clipboard.writeText(genCopySettingJson(settingState));
-                    message.success(formatMessage({ id: 'app.setting.copyinfo' }));
-                  } catch (error) {
-                    // console.log(error);
-                  }
-                }}
+          )}
+          {!themeOnly && (
+            <>
+              <Divider />
+              <Body
+                prefixCls={baseClassName}
+                title={formatMessage({ id: 'app.setting.navigationmode' })}
               >
-                {formatMessage({ id: 'app.setting.copy' })}
-              </Button>
-            )}
-          </>
-        )}
-      </div>
-    </Drawer></>
+                <BlockCheckbox
+                  prefixCls={baseClassName}
+                  value={layout!}
+                  key="layout"
+                  configType="layout"
+                  list={[
+                    {
+                      key: 'side',
+                      title: formatMessage({ id: 'app.setting.sidemenu' }),
+                    },
+                    {
+                      key: 'top',
+                      title: formatMessage({ id: 'app.setting.topmenu' }),
+                    },
+                    {
+                      key: 'mix',
+                      title: formatMessage({ id: 'app.setting.mixmenu' }),
+                    },
+                  ]}
+                  onChange={(value) => changeSetting('layout', value)}
+                />
+              </Body>
+              <LayoutSetting settings={settingState} changeSetting={changeSetting} />
+              <Divider />
+
+              <Body
+                prefixCls={baseClassName}
+                title={formatMessage({ id: 'app.setting.regionalsettings' })}
+              >
+                <RegionalSetting settings={settingState} changeSetting={changeSetting} />
+              </Body>
+
+              <Divider />
+
+              <Body
+                prefixCls={baseClassName}
+                title={formatMessage({ id: 'app.setting.othersettings' })}
+              >
+                <List
+                  split={false}
+                  renderItem={renderLayoutSettingItem}
+                  dataSource={[
+                    {
+                      title: formatMessage({ id: 'app.setting.weakmode' }),
+                      action: (
+                        <Switch
+                          size="small"
+                          className="color-weak"
+                          checked={!!colorWeak}
+                          onChange={(checked) => {
+                            changeSetting('colorWeak', checked);
+                          }}
+                        />
+                      ),
+                    },
+                  ]}
+                />
+              </Body>
+              {hideHintAlert && hideCopyButton ? null : <Divider />}
+
+              {hideHintAlert ? null : (
+                <Alert
+                  type="warning"
+                  message={formatMessage({
+                    id: 'app.setting.production.hint',
+                  })}
+                  icon={<NotificationOutlined />}
+                  showIcon
+                  style={{ marginBlockEnd: 16 }}
+                />
+              )}
+
+              {hideCopyButton ? null : (
+                <Button
+                  block
+                  icon={<CopyOutlined />}
+                  style={{ marginBlockEnd: 24 }}
+                  onClick={async () => {
+                    try {
+                      await navigator.clipboard.writeText(genCopySettingJson(settingState));
+                      message.success(formatMessage({ id: 'app.setting.copyinfo' }));
+                    } catch (error) {
+                      // console.log(error);
+                    }
+                  }}
+                >
+                  {formatMessage({ id: 'app.setting.copy' })}
+                </Button>
+              )}
+            </>
+          )}
+        </div>
+      </Drawer>
+    </>,
   );
 };
 

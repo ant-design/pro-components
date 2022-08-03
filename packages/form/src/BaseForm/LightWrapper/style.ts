@@ -9,11 +9,12 @@ export interface ProToken extends ProAliasToken {
 const genProStyle: GenerateStyle<ProToken> = (token) => {
   return {
     [`${token.componentCls}-collapse-label`]: {
-      padding: 1,
+      paddingInline: 1,
+      paddingBlock: 1,
     },
     [`${token.componentCls}-container`]: {
       [`${token.antCls}-form-item`]: {
-        marginBottom: 0,
+        marginBlockEnd: 0,
       },
     },
   };

@@ -14,7 +14,7 @@ const genProStyle: GenerateStyle<ProToken> = (token) => {
       maxWidth: '100%',
       '&-icon': {
         display: 'block',
-        marginLeft: '4px',
+        marginInlineStart: '4px',
         cursor: 'pointer',
         '&:hover': {
           color: token.colorPrimaryBgHover,
@@ -22,7 +22,7 @@ const genProStyle: GenerateStyle<ProToken> = (token) => {
       },
       '&-title': { display: 'inline-flex', flex: '1' },
       '&-subtitle ': {
-        marginLeft: '8px',
+        marginInlineStart: 8,
         color: token.colorTextSecondary,
         fontWeight: 'normal',
         fontSize: token.fontSize,

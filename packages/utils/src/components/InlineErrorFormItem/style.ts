@@ -10,7 +10,11 @@ const genProStyle: GenerateStyle<ProToken> = (token) => {
   const progressBgCls = `${token.antCls}-progress-bg`;
   return {
     [token.componentCls]: {
-      '&-multiple': { padding: '6px 8px 12px 8px' },
+      '&-multiple': {
+        paddingBlockStart: 6,
+        paddingBlockEnd: 12,
+        paddingInline: 8,
+      },
       '&-progress': {
         '&-success': {
           [progressBgCls]: {

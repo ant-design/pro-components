@@ -15,20 +15,21 @@ const genGlobalHeaderStyle: GenerateStyle<GlobalHeaderToken> = (token) => {
       background: 'transparent',
       display: 'flex',
       alignItems: 'center',
-      padding: '0 16px',
+      marginBlock: 0,
+      marginInline: 16,
       height: token.proLayoutHeaderHeight,
       boxSizing: 'border-box',
       '> a': {
         height: '100%',
       },
       [`${token.proComponentsCls}-layout-apps-icon`]: {
-        marginRight: 16,
+        marginInlineEnd: 16,
       },
-      '&-collapsed-button': { minHeight: '22px', fontSize: '22px', marginLeft: '16px' },
+      '&-collapsed-button': { minHeight: '22px', fontSize: '22px', marginInlineStart: '16px' },
       '&-logo': {
         position: 'relative',
         minWidth: '154px',
-        marginRight: '16px',
+        marginInlineEnd: '16px',
         a: {
           display: 'flex',
           alignItems: 'center',
@@ -39,7 +40,9 @@ const genGlobalHeaderStyle: GenerateStyle<GlobalHeaderToken> = (token) => {
         img: { height: '28px' },
         h1: {
           height: '32px',
-          margin: '0 0 0 8px',
+          marginBlock: 0,
+          marginInline: 0,
+          marginInlineStart: 8,
           fontWeight: '600',
           color: token.colorTextHeading,
           fontSize: '18px',
@@ -52,7 +55,7 @@ const genGlobalHeaderStyle: GenerateStyle<GlobalHeaderToken> = (token) => {
       },
       '&-logo-mobile': {
         minWidth: '24px',
-        marginRight: 0,
+        marginInlineEnd: 0,
       },
     },
   };

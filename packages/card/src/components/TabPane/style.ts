@@ -11,45 +11,45 @@ const genProStyle: GenerateStyle<ProToken> = (token) => {
     [token.componentCls]: {
       '&-tabs': {
         [`${token.antCls}-tabs-top > ${token.antCls}-tabs-nav`]: {
-          marginBottom: 0,
+          marginBlockEnd: 0,
           [`${token.antCls}-tabs-nav-list`]: {
-            marginTop: token.marginXS,
-            paddingLeft: token.padding,
+            marginBlockStart: token.marginXS,
+            paddingInlineStart: token.padding,
           },
         },
         [`${token.antCls}-tabs-bottom > ${token.antCls}-tabs-nav`]: {
-          marginBottom: 0,
+          marginBlockEnd: 0,
           [`${token.antCls}-tabs-nav-list`]: {
-            paddingLeft: token.padding,
+            paddingInlineStart: token.padding,
           },
         },
         [`${token.antCls}-tabs-left`]: {
           [`${token.antCls}-tabs-content-holder`]: {
             [`${token.antCls}-tabs-content`]: {
               [`${token.antCls}-tabs-tabpane`]: {
-                paddingLeft: 0,
+                paddingInlineStart: 0,
               },
             },
           },
         },
         [`${token.antCls}-tabs-left > ${token.antCls}-tabs-nav`]: {
-          marginRight: 0,
+          marginInlineEnd: 0,
           [`${token.antCls}-tabs-nav-list`]: {
-            paddingTop: token.padding,
+            paddingBlockStart: token.padding,
           },
         },
         [`${token.antCls}-tabs-right`]: {
           [`${token.antCls}-tabs-content-holder`]: {
             [`${token.antCls}-tabs-content`]: {
               [`${token.antCls}-tabs-tabpane`]: {
-                paddingLeft: 0,
+                paddingInlineStart: 0,
               },
             },
           },
         },
         [`${token.antCls}-tabs-right > ${token.antCls}-tabs-nav`]: {
           [`${token.antCls}-tabs-nav-list`]: {
-            paddingTop: token.padding,
+            paddingBlockStart: token.padding,
           },
         },
       },

@@ -16,10 +16,10 @@ interface InternalProps extends InlineErrorFormItemProps {
 }
 
 const FIX_INLINE_STYLE = {
-  marginTop: -5,
-  marginBottom: -5,
-  marginLeft: 0,
-  marginRight: 0,
+  marginBlockStart: -5,
+  marginBlockEnd: -5,
+  marginInlineStart: 0,
+  marginInlineEnd: 0,
 };
 
 const InlineErrorFormItem: React.FC<{

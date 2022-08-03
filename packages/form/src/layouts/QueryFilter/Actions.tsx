@@ -37,7 +37,7 @@ const defaultCollapseRender: ActionsProps['collapseRender'] = (collapsed, _, int
         {hiddenNum && `(${hiddenNum})`}
         <DownOutlined
           style={{
-            marginLeft: '0.5em',
+            marginInlineStart: '0.5em',
             transition: '0.3s all',
             transform: `rotate(${collapsed ? 0 : 0.5}turn)`,
           }}
@@ -50,7 +50,7 @@ const defaultCollapseRender: ActionsProps['collapseRender'] = (collapsed, _, int
       {intl.getMessage('tableForm.expand', '收起')}
       <DownOutlined
         style={{
-          marginLeft: '0.5em',
+          marginInlineStart: '0.5em',
           transition: '0.3s all',
           transform: `rotate(${collapsed ? 0 : 0.5}turn)`,
         }}

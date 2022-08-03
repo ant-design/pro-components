@@ -1,5 +1,4 @@
-﻿import type { ProAliasToken } from '@ant-design/pro-utils';
-import { useStyle as useAntdStyle } from '@ant-design/pro-utils';
+﻿import { ProAliasToken, useStyle as useAntdStyle } from '@ant-design/pro-utils';
 import type { GenerateStyle } from 'antd/es/theme';
 
 export interface SettingDrawerToken extends ProAliasToken {
@@ -10,8 +9,8 @@ const genSettingDrawerStyle: GenerateStyle<SettingDrawerToken> = (token) => {
   return {
     [`${token.componentCls}-handle`]: {
       position: 'fixed',
-      top: '240px',
-      right: '0px',
+      insetBlockStart: '240px',
+      insetInlineEnd: '0px',
       zIndex: '0',
       display: 'flex',
       alignItems: 'center',
@@ -21,13 +20,16 @@ const genSettingDrawerStyle: GenerateStyle<SettingDrawerToken> = (token) => {
       fontSize: '16px',
       textAlign: 'center',
       backgroundColor: token.colorPrimary,
-      borderRadius: '4px 0 0 4px',
+      borderEndStartRadius: token.radiusLG,
+      borderStartStartRadius: token.radiusLG,
+      '-webkit-backdropilter': 'saturate(180%) blur(20px)',
+      backdropFilter: 'saturate(180%) blur(20px)',
       cursor: 'pointer',
       pointerEvents: 'auto',
     },
     [token.componentCls]: {
       '&-content': { position: 'relative', minHeight: '100%' },
-      '&-body-title': { marginBottom: '12px', fontSize: '14px', lineHeight: '22px' },
+      '&-body-title': { marginBlockEnd: '12px', fontSize: '14px', lineHeight: '22px' },
       '&-block-checkbox': {
         display: 'flex',
         minHeight: 42,
@@ -35,7 +37,7 @@ const genSettingDrawerStyle: GenerateStyle<SettingDrawerToken> = (token) => {
           position: 'relative',
           width: '44px',
           height: '36px',
-          marginRight: '16px',
+          marginInlineEnd: '16px',
           overflow: 'hidden',
           backgroundColor: '#f7f8fa',
           borderRadius: '4px',
@@ -43,8 +45,8 @@ const genSettingDrawerStyle: GenerateStyle<SettingDrawerToken> = (token) => {
           cursor: 'pointer',
           '&::before': {
             position: 'absolute',
-            top: '0',
-            left: '0',
+            insetBlockStart: '0',
+            insetInlineStart: '0',
             width: '33%',
             height: '100%',
             backgroundColor: '#fff',
@@ -52,8 +54,8 @@ const genSettingDrawerStyle: GenerateStyle<SettingDrawerToken> = (token) => {
           },
           '&::after': {
             position: 'absolute',
-            top: '0',
-            left: '0',
+            insetBlockStart: '0',
+            insetInlineStart: 0,
             width: '100%',
             height: '25%',
             backgroundColor: '#fff',
@@ -84,7 +86,7 @@ const genSettingDrawerStyle: GenerateStyle<SettingDrawerToken> = (token) => {
         },
         '&-selectIcon': {
           position: 'absolute',
-          right: '6px',
+          insetInlineEnd: '6px',
           bottom: '4px',
           color: token.colorPrimary,
           fontWeight: 'bold',
@@ -94,14 +96,14 @@ const genSettingDrawerStyle: GenerateStyle<SettingDrawerToken> = (token) => {
         },
       },
       '&-theme-color': {
-        marginTop: '16px',
+        marginBlockStart: '16px',
         overflow: 'hidden',
         '&-block': {
           float: 'left',
           width: '20px',
           height: '20px',
-          marginTop: '8px',
-          marginRight: '8px',
+          marginBlockStart: 8,
+          marginInlineEnd: 8,
           color: '#fff',
           fontWeight: 'bold',
           textAlign: 'center',

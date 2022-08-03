@@ -26,13 +26,19 @@ const genProCardStyle: GenerateStyle<ProCardToken> = (token) => {
       flexDirection: 'column',
       boxSizing: 'border-box',
       width: '100%',
-      margin: 0,
-      padding: 0,
+      marginBlock: 0,
+      marginInline: 0,
+      paddingBlock: 0,
+      paddingInline: 0,
       backgroundColor: token.colorBgContainer,
       borderRadius: token.radiusBase,
       ...resetComponent?.(token),
       '> *': {
         boxSizing: 'border-box',
+      },
+      '&-box-shadow': {
+        boxShadow: token.boxShadowCard,
+        borderColor: token.cardHoverableHoverBorder,
       },
       '&-col': {
         width: '100%',
@@ -60,7 +66,7 @@ const genProCardStyle: GenerateStyle<ProCardToken> = (token) => {
         ...genActiveStyle(token),
         '&::after': {
           position: 'absolute',
-          top: 2,
+          insetBlockStart: 2,
           insetInlineEnd: 2,
           width: 0,
           height: 0,
@@ -79,11 +85,12 @@ const genProCardStyle: GenerateStyle<ProCardToken> = (token) => {
       '&&-size-small': {
         [componentCls]: {
           '&-header': {
-            padding: `${token.paddingXS}px ${token.paddingSM}px`,
-            paddingBottom: 0,
+            paddingInline: token.paddingSM,
+            paddingBlock: token.paddingXS,
+            paddingBlockEnd: 0,
 
             '&-border': {
-              paddingBottom: token.paddingXS,
+              paddingBlockEnd: token.paddingXS,
             },
           },
 
@@ -92,7 +99,8 @@ const genProCardStyle: GenerateStyle<ProCardToken> = (token) => {
           },
 
           '&-body': {
-            padding: token.paddingSM,
+            paddingInline: token.paddingSM,
+            paddingBlock: token.paddingSM,
           },
         },
       },
@@ -103,19 +111,21 @@ const genProCardStyle: GenerateStyle<ProCardToken> = (token) => {
         [`> ${componentCls}`]: {
           '&-header': {
             paddingInlineEnd: 0,
-            paddingBottom: token.padding,
+            paddingBlockEnd: token.padding,
             paddingInlineStart: 0,
           },
 
           '&-body': {
-            padding: 0,
+            paddingBlock: 0,
+            paddingInline: 0,
             backgroundColor: 'transparent',
           },
         },
       },
 
       '&&-split > &-body': {
-        padding: 0,
+        paddingBlock: 0,
+        paddingInline: 0,
       },
 
       '&&-contain-card > &-body': {
@@ -133,7 +143,7 @@ const genProCardStyle: GenerateStyle<ProCardToken> = (token) => {
       '&&-collapse': {
         [`> ${componentCls}`]: {
           '&-header': {
-            paddingBottom: token.padding,
+            paddingBlockEnd: token.padding,
             borderBottom: 0,
           },
 
@@ -147,11 +157,12 @@ const genProCardStyle: GenerateStyle<ProCardToken> = (token) => {
         display: 'flex',
         alignItems: 'center',
         justifyContent: 'space-between',
-        padding: `${token.padding}px ${token.paddingLG}px`,
-        paddingBottom: 0,
+        paddingInline: token.paddingLG,
+        paddingBlock: token.padding,
+        paddingBlockEnd: 0,
         '&-border': {
           '&': {
-            paddingBottom: token.padding,
+            paddingBlockEnd: token.padding,
           },
           borderBottom: `${token.lineWidth}px ${token.lineType} ${token.colorSplit}`,
         },
@@ -193,7 +204,8 @@ const genProCardStyle: GenerateStyle<ProCardToken> = (token) => {
         display: 'block',
         boxSizing: 'border-box',
         height: '100%',
-        padding: token.paddingLG,
+        paddingInline: token.paddingLG,
+        paddingBlock: token.paddingLG,
 
         '&-center': {
           display: 'flex',

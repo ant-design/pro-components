@@ -32,6 +32,7 @@ const Card = React.forwardRef((props: CardProps, ref: any) => {
     split,
     headerBordered = false,
     bordered = false,
+    boxShadow = true,
     children,
     size,
     actions,
@@ -146,12 +147,12 @@ const Card = React.forwardRef((props: CardProps, ref: any) => {
           style={{
             ...colSpanStyle,
             ...getStyle(horizonalGutter! > 0, {
-              paddingRight: horizonalGutter / 2,
-              paddingLeft: horizonalGutter / 2,
+              paddingInlineEnd: horizonalGutter / 2,
+              paddingInlineStart: horizonalGutter / 2,
             }),
             ...getStyle(verticalGutter! > 0, {
-              paddingTop: verticalGutter / 2,
-              paddingBottom: verticalGutter / 2,
+              paddingBlockStart: verticalGutter / 2,
+              paddingBlockEnd: verticalGutter / 2,
             }),
           }}
           // eslint-disable-next-line react/no-array-index-key
@@ -167,6 +168,7 @@ const Card = React.forwardRef((props: CardProps, ref: any) => {
 
   const cardCls = classNames(`${prefixCls}`, className, hashId, {
     [`${prefixCls}-border`]: bordered,
+    [`${prefixCls}-box-shadow`]: boxShadow,
     [`${prefixCls}-contain-card`]: containProCard,
     [`${prefixCls}-loading`]: loading,
     [`${prefixCls}-split`]: split === 'vertical' || split === 'horizontal',
@@ -186,12 +188,12 @@ const Card = React.forwardRef((props: CardProps, ref: any) => {
 
   const cardBodyStyle = {
     ...getStyle(horizonalGutter! > 0, {
-      marginRight: -horizonalGutter / 2,
-      marginLeft: -horizonalGutter / 2,
+      marginInlineEnd: -horizonalGutter / 2,
+      marginInlineStart: -horizonalGutter / 2,
     }),
     ...getStyle(verticalGutter! > 0, {
-      marginTop: -verticalGutter / 2,
-      marginBottom: -verticalGutter / 2,
+      marginBlockStart: -verticalGutter / 2,
+      marginBlockEnd: -verticalGutter / 2,
     }),
     ...bodyStyle,
   };

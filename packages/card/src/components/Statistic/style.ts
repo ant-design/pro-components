@@ -12,21 +12,21 @@ const genProStyle: GenerateStyle<ProListToken> = (token) => {
       display: 'flex',
       fontSize: token.fontSize,
       '& + &': {
-        marginTop: 4,
+        marginBlockStart: 4,
       },
       '&-tip': {
-        marginLeft: 4,
+        marginInlineStart: 4,
       },
       '&-wrapper': { display: 'flex', width: '100%' },
       '&-icon': {
-        marginRight: 16,
+        marginInlineEnd: 16,
       },
       '&-trend-icon': {
         width: '0',
         height: '0',
-        borderRight: '3.5px solid transparent',
-        borderBottom: '9px solid #000',
-        borderLeft: '3.5px solid transparent',
+        borderInlineEnd: '3.5px solid transparent',
+        borderBlockEnd: '9px solid #000',
+        borderInlineStart: '3.5px solid transparent',
         '&-up': { transform: 'rotate(0deg)' },
         '&-down': { transform: 'rotate(180deg)' },
       },
@@ -43,8 +43,8 @@ const genProStyle: GenerateStyle<ProListToken> = (token) => {
         display: 'inline-flex',
         color: token.colorTextSecondary,
         [`${token.antCls}-statistic-title`]: {
-          marginRight: '6px',
-          marginBottom: '0',
+          marginInlineEnd: '6px',
+          marginBlockEnd: '0',
         },
         [`${token.antCls}-statistic-content`]: {
           color: token.colorTextSecondary,
@@ -57,7 +57,7 @@ const genProStyle: GenerateStyle<ProListToken> = (token) => {
           display: 'flex',
           justifyContent: 'space-between',
           [`${token.antCls}-statistic-title`]: {
-            marginBottom: '0',
+            marginBlockEnd: '0',
           },
           [`${token.antCls}-statistic-content-value`]: {
             fontWeight: 500,

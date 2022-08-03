@@ -19,7 +19,7 @@ import { useState } from 'react';
 type LoginType = 'phone' | 'account';
 
 const iconStyles: CSSProperties = {
-  marginLeft: '16px',
+  marginInlineStart: '16px',
   color: 'rgba(0, 0, 0, 0.2)',
   fontSize: '24px',
   verticalAlign: 'middle',
@@ -129,7 +129,7 @@ export default () => {
         )}
         <div
           style={{
-            marginBottom: 24,
+            marginBlockEnd: 24,
           }}
         >
           <ProFormCheckbox noStyle name="autoLogin">

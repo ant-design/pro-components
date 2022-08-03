@@ -56,7 +56,7 @@ export default () => {
                   width: 16,
                   height: 16,
                   margin: '0 16px',
-                  marginRight: 10,
+                  marginInlineEnd: 10,
                 }}
               />
               {!props?.collapsed && 'Preview Pro'}

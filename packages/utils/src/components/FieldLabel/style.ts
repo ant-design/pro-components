@@ -13,7 +13,8 @@ const genProStyle: GenerateStyle<ProToken> = (token) => {
       gap: '4px',
       alignItems: 'center',
       height: '30px',
-      padding: '0 4px',
+      paddingBlock: 0,
+      paddingInline: 4,
       fontSize: '@font-size-base',
       lineHeight: '30px',
       borderRadius: '2px',
@@ -22,7 +23,8 @@ const genProStyle: GenerateStyle<ProToken> = (token) => {
         backgroundColor: 'rgba(0,0,0,0.1)',
       },
       '&-active': {
-        padding: '0 12px',
+        paddingBlock: 0,
+        paddingInline: 12,
         backgroundColor: 'rgba(0,0,0,0.04)',
         [`&${token.componentCls}-allow-clear:hover:not(${token.componentCls}-disabled)`]: {
           [`${token.componentCls}-arrow`]: {
@@ -35,16 +37,18 @@ const genProStyle: GenerateStyle<ProToken> = (token) => {
       },
       '&-icon': {
         height: '12px',
-        padding: '1px',
+        paddingBlock: 1,
+        paddingInline: 1,
         color: token.colorIcon,
         fontSize: '12px',
         verticalAlign: 'middle',
         [`&${token.componentCls}-close`]: {
           display: 'none',
           height: '14px',
-          padding: '3px',
+          paddingBlock: 4,
+          paddingInline: 4,
           color: token.colorBgBase,
-          fontSize: '8px',
+          fontSize: 8,
           backgroundColor: token.colorTextPlaceholder,
           borderRadius: '50%',
           '&:hover': {
@@ -61,22 +65,30 @@ const genProStyle: GenerateStyle<ProToken> = (token) => {
       },
       '&-small': {
         height: '24px',
-        padding: '0 4px',
+        paddingBlock: 0,
+        paddingInline: 4,
         fontSize: token.fontSizeSM,
         lineHeight: '24px',
-        [`&${token.componentCls}-active`]: { padding: '0 8px' },
+        [`&${token.componentCls}-active`]: { paddingBlock: 0, paddingInline: 8 },
         [`${token.componentCls}-icon`]: {
-          padding: 0,
+          paddingBlock: 0,
+          paddingInline: 0,
         },
-        [`${token.componentCls}-close`]: { marginTop: '-2px', padding: '3px', fontSize: '6px' },
+        [`${token.componentCls}-close`]: {
+          marginBlockStart: '-2px',
+          paddingBlock: 4,
+          paddingInline: 4,
+          fontSize: '6px',
+        },
       },
       '&-bordered': {
         height: '32px',
-        padding: '0 12px',
+        paddingBlock: 0,
+        paddingInline: 12,
         border: `${token.controlLineWidth} solid ${token.colorBorder}`,
         borderRadius: '@border-radius-base',
       },
-      '&-bordered&-small': { height: '24px', padding: '0 8px' },
+      '&-bordered&-small': { height: '24px', paddingBlock: 0, paddingInline: 8 },
       '&-bordered&-active': {
         backgroundColor: token.colorBgBase,
       },

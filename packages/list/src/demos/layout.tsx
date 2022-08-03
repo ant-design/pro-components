@@ -5,7 +5,7 @@ import React from 'react';
 
 const IconText = ({ icon, text }: { icon: any; text: string }) => (
   <span>
-    {React.createElement(icon, { style: { marginRight: 8 } })}
+    {React.createElement(icon, { style: { marginInlineEnd: 8 } })}
     {text}
   </span>
 );

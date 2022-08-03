@@ -176,10 +176,10 @@ export const FieldRender: React.FC<
   return (
     <div
       style={{
-        marginTop: -5,
-        marginBottom: -5,
-        marginLeft: 0,
-        marginRight: 0,
+        marginBlockStart: -5,
+        marginBlockEnd: -5,
+        marginInlineStart: 0,
+        marginInlineEnd: 0,
       }}
     >
       <Form.Item noStyle shouldUpdate={(pre, next) => pre !== next}>

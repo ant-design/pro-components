@@ -13,13 +13,14 @@ const genFooterToolBarStyle: GenerateStyle<AppsLogoComponentsToken> = (token) =>
     [token.componentCls]: {
       ...resetComponent?.(token),
       position: 'fixed',
-      right: 0,
+      insetInlineEnd: 0,
       bottom: 0,
       zIndex: 99,
       display: 'flex',
       alignItems: 'center',
       width: '100%',
-      padding: '0 24px',
+      paddingInline: 24,
+      paddingBlock: 0,
       boxSizing: 'border-box',
       lineHeight: '64px',
       /* A way to reset the style of the component. */
@@ -32,9 +33,10 @@ const genFooterToolBarStyle: GenerateStyle<AppsLogoComponentsToken> = (token) =>
       },
       '&-right': {
         '> *': {
-          marginRight: 8,
+          marginInlineEnd: 8,
           '&:last-child': {
-            margin: 0,
+            marginBlock: 0,
+            marginInline: 0,
           },
         },
       },

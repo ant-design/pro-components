@@ -215,7 +215,7 @@ export default () => {
                   <ProCard
                     bordered
                     style={{
-                      marginBottom: 8,
+                      marginBlockEnd: 8,
                       position: 'relative',
                     }}
                   >
@@ -267,7 +267,7 @@ export default () => {
                     <ProFormTextArea
                       formItemProps={{
                         style: {
-                          marginTop: 8,
+                          marginBlockStart: 8,
                         },
                       }}
                       fieldProps={{

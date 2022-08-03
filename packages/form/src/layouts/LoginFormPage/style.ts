@@ -18,11 +18,13 @@ const genLoginFormStyle: GenerateStyle<LoginFormToken> = (token) => {
         flex: '1',
         alignItems: 'flex-end',
         '&-activity': {
-          margin: '24px',
-          padding: '24px',
+          marginBlock: 24,
+          marginInline: 24,
+          paddingInline: 24,
+          paddingBlock: 24,
           '&-title': { fontWeight: '500', fontSize: '28px' },
-          '&-subTitle': { marginTop: '8px', fontSize: '16px' },
-          '&-action': { marginTop: '24px' },
+          '&-subTitle': { marginBlockStart: 8, fontSize: '16px' },
+          '&-action': { marginBlockStart: '24px' },
         },
       },
       '&-container': {
@@ -31,7 +33,8 @@ const genLoginFormStyle: GenerateStyle<LoginFormToken> = (token) => {
         flexDirection: 'column',
         maxWidth: '550px',
         height: '100%',
-        padding: '32px 0',
+        paddingInline: 0,
+        paddingBlock: 32,
         overflow: 'auto',
         background: token.colorBgContainer,
       },
@@ -50,7 +53,7 @@ const genLoginFormStyle: GenerateStyle<LoginFormToken> = (token) => {
       },
       '&-title': {
         position: 'relative',
-        top: '2px',
+        tinsetBlockStartop: '2px',
         color: '@heading-color',
         fontWeight: '600',
         fontSize: '33px',
@@ -58,22 +61,22 @@ const genLoginFormStyle: GenerateStyle<LoginFormToken> = (token) => {
       '&-logo': {
         width: '44px',
         height: '44px',
-        marginRight: '16px',
+        marginInlineEnd: '16px',
         verticalAlign: 'top',
         img: {
           width: '100%',
         },
       },
       '&-desc': {
-        marginTop: '12px',
-        marginBottom: '40px',
+        marginBlockStart: '12px',
+        marginBlockEnd: '40px',
         color: token.colorTextSecondary,
         fontSize: token.fontSize,
       },
       '&-main': {
         width: '328px',
         margin: '0 auto',
-        '&-other': { marginTop: '24px', lineHeight: '22px', textAlign: 'left' },
+        '&-other': { marginBlockStart: '24px', lineHeight: '22px', textAlign: 'left' },
       },
     },
     [`@media (max-width: ${token.screenMDMin}`]: {
@@ -94,7 +97,9 @@ const genLoginFormStyle: GenerateStyle<LoginFormToken> = (token) => {
     [`@media (min-width: ${token.screenMDMin}`]: {
       [token.componentCls]: {
         '&-container': {
-          padding: '128px 0 24px',
+          paddingInline: 0,
+          paddingBlockStart: 128,
+          paddingBlockEnd: 24,
           backgroundRepeat: 'no-repeat',
           backgroundPosition: 'center 110px',
           backgroundSize: '100%',

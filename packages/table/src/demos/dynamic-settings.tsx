@@ -614,13 +614,13 @@ const DynamicSettings = () => {
                   <ProCard
                     bordered
                     style={{
-                      marginBottom: 8,
+                      marginBlockEnd: 8,
                       position: 'relative',
                     }}
                     bodyStyle={{
                       padding: 8,
-                      paddingRight: 16,
-                      paddingTop: 16,
+                      paddingInlineEnd: 16,
+                      paddingBlockStart: 16,
                     }}
                   >
                     <div
@@ -648,7 +648,7 @@ const DynamicSettings = () => {
               />
               <ProFormGroup
                 style={{
-                  marginTop: 8,
+                  marginBlockStart: 8,
                 }}
               >
                 <ProFormSwitch label="过长省略" name="ellipsis" />
@@ -656,7 +656,7 @@ const DynamicSettings = () => {
               </ProFormGroup>
               <ProFormGroup
                 style={{
-                  marginTop: 8,
+                  marginBlockStart: 8,
                 }}
                 size={8}
               >
@@ -689,7 +689,7 @@ const DynamicSettings = () => {
               </ProFormGroup>
               <ProFormGroup
                 style={{
-                  marginTop: 8,
+                  marginBlockStart: 8,
                 }}
                 size={8}
               >
@@ -704,7 +704,7 @@ const DynamicSettings = () => {
                     <ProFormTextArea
                       formItemProps={{
                         style: {
-                          marginTop: 8,
+                          marginBlockStart: 8,
                         },
                       }}
                       fieldProps={{

@@ -101,7 +101,7 @@ export default () => {
                 key="SearchOutlined"
                 aria-hidden
                 style={{
-                  marginTop: '24px',
+                  marginBlockStart: '24px',
                   display: 'flex',
                   alignItems: 'center',
                 }}
@@ -113,7 +113,7 @@ export default () => {
                 <Input
                   style={{
                     borderRadius: 4,
-                    marginRight: 12,
+                    marginInlineEnd: 12,
                     backgroundColor: 'rgba(0,0,0,0.03)',
                   }}
                   prefix={

@@ -13,7 +13,8 @@ const genProListStyle: GenerateStyle<ProListToken> = (token) => {
       '&-container': {
         display: 'flex',
         justifyContent: 'space-between',
-        padding: `${token.padding} 0`,
+        paddingBlock: token.padding,
+        paddingInline: 0,
         ' &-mobile': { flexDirection: 'column' },
       },
       '&-title': {
@@ -30,7 +31,8 @@ const genProListStyle: GenerateStyle<ProListToken> = (token) => {
         justifyContent: 'flex-start',
       },
       '&-setting-item': {
-        margin: '0 4px',
+        marginBlock: 0,
+        marginInline: 4,
         color: token.colorIconHover,
         fontSize: token.fontSizeLG,
         cursor: 'pointer',
@@ -41,16 +43,21 @@ const genProListStyle: GenerateStyle<ProListToken> = (token) => {
       },
       '&-left': { display: 'flex', alignItems: 'center', justifyContent: 'flex-start' },
       '&-right': { display: 'flex', justifyContent: 'flex-end' },
-      '&-extra-line': { marginBottom: token.margin },
+      '&-extra-line': { marginBlockEnd: token.margin },
       '&-filter': {
-        '&:not(:last-child)': { marginRight: token.margin },
+        '&:not(:last-child)': { marginInlineEnd: token.margin },
         display: 'flex',
         alignItems: 'center',
-        [`div.$${token.antCls}-pro-table-search`]: { margin: '0', padding: '0' },
+        [`div.$${token.antCls}-pro-table-search`]: {
+          marginBlock: 0,
+          marginInline: 0,
+          paddingBlock: 0,
+          paddingInline: 0,
+        },
       },
       '&-inline-menu-item': {
         display: 'inline-block',
-        marginRight: token.marginLG,
+        marginInlineEnd: token.marginLG,
         cursor: 'pointer',
         opacity: '0.75',
         '&-active': { fontWeight: 'bold', opacity: '1' },
@@ -61,12 +68,12 @@ const genProListStyle: GenerateStyle<ProListToken> = (token) => {
         textAlign: 'center',
         cursor: 'pointer',
         [`${token.antCls}-tabs-top > ${token.antCls}-tabs-nav`]: {
-          marginBottom: 0,
+          marginBlockEnd: 0,
           '&::before': { borderBottom: 0 },
           [`${token.antCls}-tabs-nav-list`]: {
-            marginTop: 0,
+            marginBlockStart: 0,
             '${token.antCls}-tabs-tab': {
-              paddingTop: 0,
+              paddingBlockStart: 0,
             },
           },
         },
@@ -74,7 +81,7 @@ const genProListStyle: GenerateStyle<ProListToken> = (token) => {
       '@media (max-width: 575px)': {
         [token.componentCls]: {
           '&-container': { display: 'flex', flexWrap: 'wrap' },
-          '&-left': { marginBottom: '16px' },
+          '&-left': { marginBlockEnd: '16px' },
         },
       },
     },

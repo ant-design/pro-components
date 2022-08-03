@@ -80,7 +80,7 @@ export default () => {
                 display: 'flex',
                 justifyContent: 'end',
                 alignItems: 'center',
-                marginRight: 24,
+                marginInlineEnd: 24,
               }}
             >
               <Button key="1">上一步</Button>
@@ -131,7 +131,7 @@ export default () => {
                   style={{
                     display: 'flex',
                     alignItems: 'center',
-                    marginRight: 24,
+                    marginInlineEnd: 24,
                   }}
                   onMouseDown={(e) => {
                     e.stopPropagation();
@@ -141,7 +141,7 @@ export default () => {
                   <Input
                     style={{
                       borderRadius: 4,
-                      marginRight: 12,
+                      marginInlineEnd: 12,
                       backgroundColor: 'rgba(0,0,0,0.03)',
                     }}
                     prefix={
@@ -173,7 +173,7 @@ export default () => {
               <div
                 style={{
                   textAlign: 'center',
-                  paddingTop: 12,
+                  paddingBlockStart: 12,
                 }}
               >
                 <div>© 2021 Made with love</div>

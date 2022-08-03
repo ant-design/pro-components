@@ -16,14 +16,19 @@ const genLightFilterStyle: GenerateStyle<LightFilterToken> = (token) => {
       '&-small': {
         lineHeight: token.lineHeight,
       },
-      '&-container': { display: 'flex', flexWrap: 'wrap', marginTop: '-8px', marginRight: '-4px' },
+      '&-container': {
+        display: 'flex',
+        flexWrap: 'wrap',
+        marginBlockStart: '-8px',
+        marginInlineEnd: '-4px',
+      },
       '&-item': {
-        '&:not(:last-child)': { marginRight: '8px' },
-        marginTop: '8px',
+        '&:not(:last-child)': { marginInlineEnd: 8 },
+        marginBlockStart: 8,
         whiteSpace: 'nowrap',
       },
       '&-line': { minWidth: '198px' },
-      '&-line:not(:first-child)': { marginTop: '16px', marginBottom: '8px' },
+      '&-line:not(:first-child)': { marginBlockStart: '16px', marginBlockEnd: 8 },
       '&-collapse-icon': {
         width: token.controlHeight,
         height: token.controlHeight,

@@ -13,14 +13,14 @@ const genSiderMenuStyle: GenerateStyle<SiderMenuToken> = (token) => {
   return {
     [token.componentCls]: {
       position: 'absolute',
-      top: '18px',
+      insetBlockStart: '18px',
       zIndex: '101',
       width: '24px',
       height: '24px',
       fontSize: ['14px', '16px'],
       textAlign: 'center',
       borderRadius: '40px',
-      right: '-13px',
+      insetInlineEnd: '-13px',
       transition: 'transform 0.3s',
       display: 'flex',
       alignItems: 'center',

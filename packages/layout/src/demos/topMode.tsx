@@ -34,7 +34,7 @@ const Item: React.FC<{ children: React.ReactNode }> = (props) => (
     {props.children}
     <DoubleRightOutlined
       style={{
-        marginLeft: 4,
+        marginInlineStart: 4,
       }}
     />
   </div>
@@ -54,7 +54,7 @@ const List: React.FC<{ title: string; style?: React.CSSProperties }> = (props) =
           color: 'rgba(0,0,0,0.85)',
           lineHeight: '24px',
           fontWeight: 500,
-          marginBottom: 16,
+          marginBlockEnd: 16,
         }}
       >
         {props.title}
@@ -132,7 +132,7 @@ export default () => {
                 style={{
                   display: 'flex',
                   alignItems: 'center',
-                  marginRight: 24,
+                  marginInlineEnd: 24,
                 }}
                 onMouseDown={(e) => {
                   e.stopPropagation();
@@ -142,7 +142,7 @@ export default () => {
                 <Input
                   style={{
                     borderRadius: 4,
-                    marginRight: 12,
+                    marginInlineEnd: 12,
                     backgroundColor: 'rgba(0,0,0,0.03)',
                   }}
                   prefix={
@@ -179,7 +179,7 @@ export default () => {
                 style={{
                   display: 'flex',
                   alignItems: 'center',
-                  marginRight: 52,
+                  marginInlineEnd: 52,
                 }}
               >
                 <Divider
@@ -208,7 +208,7 @@ export default () => {
                           <List
                             title="其他解决方案"
                             style={{
-                              marginTop: 32,
+                              marginBlockStart: 32,
                             }}
                           />
                         </div>
@@ -217,7 +217,7 @@ export default () => {
                           style={{
                             width: '308px',
                             borderLeft: '1px solid rgba(0,0,0,0.06)',
-                            paddingLeft: 16,
+                            paddingInlineStart: 16,
                           }}
                         >
                           <div
@@ -247,7 +247,7 @@ export default () => {
                                 <img src="https://gw.alipayobjects.com/zos/antfincdn/6FTGmLLmN/bianzu%25252013.svg" />
                                 <div
                                   style={{
-                                    marginLeft: 14,
+                                    marginInlineStart: 14,
                                   }}
                                 >
                                   <div

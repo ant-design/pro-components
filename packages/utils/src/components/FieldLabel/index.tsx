@@ -113,7 +113,7 @@ const FieldLabel: React.ForwardRefRenderFunction<any, FieldLabelProps> = (props,
           }}
         >
           {prefix}
-          <span style={{ paddingLeft: 4 }}>
+          <span style={{ paddingInlineStart: 4 }}>
             {typeof str === 'string' ? str?.toString()?.substr?.(0, VALUE_MAX_LENGTH) : str}
           </span>
           {tail}

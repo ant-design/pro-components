@@ -18,12 +18,13 @@ const genProStyle: GenerateStyle<ProToken> = (token) => {
       '&-loading-content': {
         width: '100%',
         p: {
-          margin: 0,
+          marginBlock: 0,
+          marginInline: 0,
         },
       },
       '&-loading-block': {
         height: '14px',
-        margin: '4px 0',
+        marginBlock: '4px',
         background: `linear-gradient(90deg, rgba(54, 61, 64, 0.2), rgba(54, 61, 64, 0.4), rgba(54, 61, 64, 0.2))`,
         backgroundSize: '600% 600%',
         borderRadius: token.radiusBase,

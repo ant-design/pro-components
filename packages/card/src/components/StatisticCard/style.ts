@@ -12,10 +12,10 @@ const genProStyle: GenerateStyle<ProListToken> = (token) => {
       '&-chart': {
         display: 'flex',
         flexDirection: 'column',
-        marginTop: '8px',
-        marginBottom: '8px',
-        '&-left': { marginTop: '0', marginRight: '16px' },
-        '&-right': { marginTop: '0', marginLeft: '16px' },
+        marginBlockStart: 8,
+        marginBlockEnd: 8,
+        '&-left': { marginBlockStart: '0', marginInlineEnd: '16px' },
+        '&-right': { marginBlockStart: '0', marginInlineStart: '16px' },
       },
       '&-content': {
         display: 'flex',
@@ -26,8 +26,8 @@ const genProStyle: GenerateStyle<ProListToken> = (token) => {
         },
       },
       '&-footer': {
-        marginTop: '8px',
-        paddingTop: '16px',
+        marginBlockStart: 8,
+        paddingBlockStart: '16px',
         borderTop: `rgba(0, 0, 0, 0.08) solid ${token.colorBorder}`,
       },
     },

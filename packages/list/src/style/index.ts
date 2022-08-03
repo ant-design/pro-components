@@ -10,7 +10,7 @@ const genProListStyle: GenerateStyle<ProListToken> = (token) => {
   return {
     [token.componentCls]: {
       backgroundColor: 'transparent',
-      [`${token.proComponentsCls}-table-alert`]: { marginBottom: '16px' },
+      [`${token.proComponentsCls}-table-alert`]: { marginBlockEnd: '16px' },
       '&-row': {
         borderBottom: `1px solid ${token.colorSplit}`,
         '&:last-child': {
@@ -36,14 +36,17 @@ const genProListStyle: GenerateStyle<ProListToken> = (token) => {
           },
         },
         '&-card': {
-          margin: '8px 0',
-          padding: '0 8px',
+          marginBlock: 8,
+          marginInline: 0,
+          paddingBlock: 0,
+          paddingInline: 8,
           '&:hover': {
             backgroundColor: 'transparent',
           },
           [`${token.antCls}-list-item-meta-title`]: {
             flexShrink: '9',
-            margin: '0',
+            marginBlock: 0,
+            marginInline: 0,
             lineHeight: '22px',
           },
         },
@@ -51,7 +54,8 @@ const genProListStyle: GenerateStyle<ProListToken> = (token) => {
           [`${token.componentCls}-list-item`]: {
             '&-meta': {
               '&-avatar,&-description,&-title': {
-                padding: '6px 0',
+                paddingBlock: 6,
+                paddingInline: 0,
               },
             },
             '&-action': {
@@ -104,7 +108,8 @@ const genProListStyle: GenerateStyle<ProListToken> = (token) => {
           alignItems: 'center',
           justifyContent: 'space-between',
           height: '44px',
-          padding: '0 24px',
+          paddingInline: 24,
+          paddingBlock: 0,
           color: token.colorTextSecondary,
           lineHeight: '44px',
           background: 'rgba(0, 0, 0, 0.02)',
@@ -112,14 +117,14 @@ const genProListStyle: GenerateStyle<ProListToken> = (token) => {
             display: 'none',
           },
           '&-actions > *': {
-            marginInlineEnd: '8px',
+            marginInlineEnd: 8,
             '&:last-child': {
               marginInlineEnd: 0,
             },
           },
         },
         '&-expand-icon': {
-          marginRight: '8px',
+          marginInlineEnd: 8,
           color: token.colorTextSecondary,
           '> .anticon > svg': {
             transition: '0.3s',
@@ -131,7 +136,7 @@ const genProListStyle: GenerateStyle<ProListToken> = (token) => {
           },
         },
         '&-title': {
-          marginRight: '16px',
+          marginInlineEnd: '16px',
           wordBreak: 'break-all',
           cursor: 'pointer',
           '&:hover': {
@@ -143,15 +148,16 @@ const genProListStyle: GenerateStyle<ProListToken> = (token) => {
           display: 'flex',
           flex: '1',
           flexDirection: 'column',
-          margin: '0 32px',
+          marginBlock: 0,
+          marginInline: 32,
         },
         '&-subTitle': { color: 'rgba(0, 0, 0, 0.45)' },
-        '&-description': { marginTop: '4px', wordBreak: 'break-all' },
+        '&-description': { marginBlockStart: '4px', wordBreak: 'break-all' },
         '&-avatar': { display: 'flex' },
         '&-header': { display: 'flex', flex: '1', justifyContent: 'flex-start' },
         '&-header-title': { display: 'flex', alignItems: 'center', justifyContent: 'flex-start' },
         '&-header-option': { display: 'flex' },
-        '&-checkbox': { width: '16px', marginRight: '12px' },
+        '&-checkbox': { width: '16px', marginInlineEnd: '12px' },
         '&-no-split': {
           [`${token.componentCls}-row`]: { borderBottom: 'none' },
           [`${token.antCls}-list ${token.antCls}-list-item`]: { borderBottom: 'none' },
@@ -171,12 +177,12 @@ const genProListStyle: GenerateStyle<ProListToken> = (token) => {
             alignItems: 'flex-start',
             justifyContent: 'center',
           },
-          '&-content': { margin: '0' },
-          '&-subTitle': { marginTop: '8px' },
+          '&-content': { marginBlock: 0, marginInline: 0 },
+          '&-subTitle': { marginBlockStart: 8 },
           [`${token.antCls}-list-item-extra`]: {
             display: 'flex',
             alignItems: 'center',
-            marginLeft: '32px',
+            marginInlineStart: '32px',
             [`${token.componentCls}-row-description`]: {
               marginBlockStart: 16,
             },
@@ -195,15 +201,17 @@ const genProListStyle: GenerateStyle<ProListToken> = (token) => {
           marginBlockEnd: token.marginLG,
         },
         [`${token.antCls}-list-list`]: {
-          '&-item': { padding: '12px', cursor: 'pointer' },
+          '&-item': { cursor: 'pointer', paddingBlock: 12, paddingInline: 12 },
         },
         [`${token.antCls}-list-vertical .${token.proComponentsCls}-list-row ${token.antCls}-list`]:
           {
-            '&-header': { padding: '0', borderBottom: 'none' },
+            '&-header': { paddingBlock: 0, paddingInline: 0, borderBottom: 'none' },
             [`${token.antCls}-list-item`]: {
               width: '100%',
-              padding: '12px 18px 12px 24px',
-              '&-meta-avatar': { display: 'flex', alignItems: 'center', marginRight: '8px' },
+              paddingBlock: 12,
+              paddingInlineStart: 24,
+              paddingInlineEnd: 18,
+              '&-meta-avatar': { display: 'flex', alignItems: 'center', marginInlineEnd: 8 },
               '&-action-split': {
                 display: 'none',
               },

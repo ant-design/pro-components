@@ -11,14 +11,14 @@ const genProStyle: GenerateStyle<ProToken> = (token) => {
     [`${token.componentCls}-label`]: { cursor: 'pointer' },
     [`${token.componentCls}-overlay`]: {
       minWidth: '200px',
-      marginTop: '4px',
+      marginBlockStart: '4px',
       backgroundColor: token.colorBgContainer,
       boxShadow: token.boxShadowCard,
       '*': {
         boxSizing: 'border-box',
       },
     },
-    [`${token.componentCls}-content`]: { padding: '16px' },
+    [`${token.componentCls}-content`]: { paddingBlock: 16, paddingInline: 16 },
   };
 };
 

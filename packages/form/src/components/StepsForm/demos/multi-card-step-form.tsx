@@ -48,7 +48,7 @@ export default () => {
             headerBordered
             collapsible
             style={{
-              marginBottom: 16,
+              marginBlockEnd: 16,
               minWidth: 800,
               maxWidth: '100%',
             }}
@@ -74,7 +74,7 @@ export default () => {
             collapsible
             style={{
               minWidth: 800,
-              marginBottom: 16,
+              marginBlockEnd: 16,
             }}
           >
             <ProFormDigit
@@ -106,7 +106,7 @@ export default () => {
           <ProCard
             style={{
               minWidth: 800,
-              marginBottom: 16,
+              marginBlockEnd: 16,
               maxWidth: '100%',
             }}
           >
@@ -130,7 +130,7 @@ export default () => {
         <StepsForm.StepForm name="time" title="第三步骤">
           <ProCard
             style={{
-              marginBottom: 16,
+              marginBlockEnd: 16,
               minWidth: 800,
               maxWidth: '100%',
             }}

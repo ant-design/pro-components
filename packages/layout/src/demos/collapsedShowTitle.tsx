@@ -67,7 +67,7 @@ export default () => {
               style={{
                 display: 'flex',
                 alignItems: 'center',
-                marginRight: 24,
+                marginInlineEnd: 24,
               }}
               onMouseDown={(e) => {
                 e.stopPropagation();
@@ -77,7 +77,7 @@ export default () => {
               <Input
                 style={{
                   borderRadius: 4,
-                  marginRight: 12,
+                  marginInlineEnd: 12,
                   backgroundColor: 'rgba(0,0,0,0.03)',
                 }}
                 prefix={
@@ -109,7 +109,7 @@ export default () => {
           <p
             style={{
               textAlign: 'center',
-              paddingTop: 12,
+              paddingBlockStart: 12,
             }}
           >
             Power by Ant Design

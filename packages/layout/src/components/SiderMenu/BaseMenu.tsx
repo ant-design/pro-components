@@ -423,7 +423,7 @@ const BaseMenu: React.FC<BaseMenuProps & PrivateSiderMenuProps> = (props) => {
           mode?.includes('inline')
             ? { padding: 24 }
             : {
-                marginTop: 16,
+                marginBlockStart: 16,
               }
         }
       >

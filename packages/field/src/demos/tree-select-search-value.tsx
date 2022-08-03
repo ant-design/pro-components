@@ -126,7 +126,7 @@ export default function App() {
                 key={item}
                 onClick={onClick}
                 style={{
-                  marginLeft: 8,
+                  marginInlineStart: 8,
                   cursor: 'pointer',
                 }}
               >

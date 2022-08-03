@@ -6,40 +6,6 @@ export interface ProLayoutBaseMenuToken extends ProAliasToken {
   componentCls: string;
 }
 
-// const menuCss = useMemo(() => {
-//     return css`
-//     padding: ${props.isMobile ? 0 : '6px'};
-//     background: transparent;
-//     border:none !important;
-
-//     .${antPrefixClassName}-menu-title-content{
-//       width: 100%;
-//     }
-
-//     &.${antPrefixClassName}-layout-sider-collapsed {
-//       flex-direction: column;
-//       padding-bottom: 24px;
-//     }
-
-//     .${antPrefixClassName}-menu-root {
-//       padding: 8px;
-//     }
-
-//     .${antPrefixClassName}-menu-sub {
-//       background: transparent;
-//     }
-
-//     .${prefixCls}-menu-item-divider {
-//       &:last-child {
-//         display: none;
-//       }
-//     }
-//     .${antPrefixClassName}-menu-item-group-title {
-//       color: ${menuDesignToken.menuTextColorSecondary};
-//       font-size: 12px;
-//       line-height: 20px;
-//     }
-//   `;
 const genProLayoutBaseMenuStyle: GenerateStyle<ProLayoutBaseMenuToken> = (token) => {
   return {
     [token.componentCls]: {
@@ -50,7 +16,7 @@ const genProLayoutBaseMenuStyle: GenerateStyle<ProLayoutBaseMenuToken> = (token)
           fontSize: 12,
           color: 'rgba(0, 0, 0, 0.45)',
           '.anticon': {
-            marginRight: 8,
+            marginInlineEnd: 8,
           },
         },
       },

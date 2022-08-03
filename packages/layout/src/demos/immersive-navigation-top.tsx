@@ -68,7 +68,7 @@ export default () => {
             },
           }}
           style={{
-            paddingTop: 48,
+            paddingBlockStart: 48,
           }}
           extra={[
             <Input.Search

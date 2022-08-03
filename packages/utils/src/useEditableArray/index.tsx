@@ -324,7 +324,7 @@ export function SaveEditableAction<T>({
       {loading ? (
         <LoadingOutlined
           style={{
-            marginRight: 8,
+            marginInlineEnd: 8,
           }}
         />
       ) : null}
@@ -370,7 +370,7 @@ export const DeleteEditableAction: React.FC<ActionRenderConfig<any> & { row: any
         {loading ? (
           <LoadingOutlined
             style={{
-              marginRight: 8,
+              marginInlineEnd: 8,
             }}
           />
         ) : null}

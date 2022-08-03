@@ -31,7 +31,7 @@ const FieldCheckbox: ProFieldFC<GroupProps> = (
         '&-horizontal': {
           [`${token.antCls}-checkbox-group-item`]: {
             display: 'flex',
-            marginRight: 0,
+            marginInlineEnd: 0,
           },
         },
       },

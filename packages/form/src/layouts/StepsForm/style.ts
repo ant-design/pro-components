@@ -17,7 +17,7 @@ const genStepsFormStyle: GenerateStyle<StepsFormToken> = (token) => {
       },
       '&-step': {
         display: 'none',
-        marginTop: '32px',
+        marginBlockStart: '32px',
         '&-active': {
           display: 'block',
         },

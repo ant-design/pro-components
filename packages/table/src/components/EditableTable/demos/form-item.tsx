@@ -143,7 +143,7 @@ export default () => {
             key="render"
             fieldProps={{
               style: {
-                marginBottom: 0,
+                marginBlockEnd: 0,
               },
               value: position,
               onChange: (e) => setPosition(e.target.value),

@@ -17,8 +17,10 @@ const genActionsStyle: GenerateStyle<ProCardActionsToken> = (token) => {
 
   return {
     [`${componentCls}-actions`]: {
-      margin: 0,
-      padding: 0,
+      marginBlock: 0,
+      marginInline: 0,
+      paddingBlock: 0,
+      paddingInline: 0,
       listStyle: 'none',
       background: token.colorBgContainer,
       borderTop: `${token.lineWidth}px ${token.lineType} ${token.colorSplit}`,
@@ -32,7 +34,8 @@ const genActionsStyle: GenerateStyle<ProCardActionsToken> = (token) => {
         ${antCls}-space-item`]: {
         flex: 1,
         float: 'left',
-        margin: `${token.marginSM}px 0`,
+        marginBlock: token.marginSM,
+        marginInline: 0,
         color: token.colorTextSecondary,
         textAlign: 'center',
 

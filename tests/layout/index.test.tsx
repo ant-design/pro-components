@@ -207,7 +207,7 @@ describe('BasicLayout', () => {
               style={{
                 textAlign: 'center',
                 color: 'rgba(0,0,0,0.6)',
-                paddingTop: 12,
+                paddingBlockStart: 12,
               }}
             >
               Power by Ant Design
@@ -255,7 +255,7 @@ describe('BasicLayout', () => {
               style={{
                 textAlign: 'center',
                 color: 'rgba(0,0,0,0.6)',
-                paddingTop: 12,
+                paddingBlockStart: 12,
               }}
             >
               Power by Ant Design

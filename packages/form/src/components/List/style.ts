@@ -35,9 +35,9 @@ const genProStyle: GenerateStyle<ProToken> = (token) => {
           },
         },
       },
-      '&-action': { display: 'flex', height: '32px', marginBottom: '24px', lineHeight: '32px' },
+      '&-action': { display: 'flex', height: '32px', marginBlockEnd: '24px', lineHeight: '32px' },
       '&-action-icon': {
-        marginLeft: '8px',
+        marginInlineStart: 8,
         cursor: 'pointer',
         transition: 'color 0.3s ease-in-out',
         '&:hover': {
@@ -47,12 +47,12 @@ const genProStyle: GenerateStyle<ProToken> = (token) => {
       [`${token.proComponentsCls}-card ${token.proComponentsCls}-card-extra`]: {
         [token.componentCls]: {
           '&-action': {
-            marginBottom: 0,
+            marginBlockEnd: 0,
           },
         },
       },
       '&-creator-button-top': {
-        marginBottom: 24,
+        marginBlockEnd: 24,
       },
     },
   };

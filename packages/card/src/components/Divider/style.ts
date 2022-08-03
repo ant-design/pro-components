@@ -13,20 +13,23 @@ const genDividerStyle: GenerateStyle<ProCardDividerToken> = (token) => {
       '&-divider': {
         flex: 'none',
         width: token.lineWidth,
-        margin: `${token.marginLG}px ${token.marginXS}px`,
+        marginInline: token.marginXS,
+        marginBlock: token.marginLG,
         backgroundColor: token.colorSplit,
-
         '&-horizontal': {
           width: 'initial',
           height: token.lineWidth,
-          margin: `${token.marginXS}px ${token.marginLG}px`,
+          marginInline: token.marginLG,
+          marginBlock: token.marginXS,
         },
       },
 
       '&&-size-small &-divider': {
-        margin: `${token.marginLG}px ${token.marginXS}px`,
+        marginBlock: token.marginLG,
+        marginInline: token.marginXS,
         '&-horizontal': {
-          margin: `${token.marginXS}px ${token.marginLG}px`,
+          marginBlock: token.marginXS,
+          marginInline: token.marginLG,
         },
       },
     },

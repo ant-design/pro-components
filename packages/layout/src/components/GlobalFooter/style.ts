@@ -10,14 +10,18 @@ export interface GlobalFooterToken extends ProAliasToken {
 const genFooterToolBarStyle: GenerateStyle<GlobalFooterToken> = (token) => {
   return {
     [token.componentCls]: {
-      margin: '48px 0 24px 0',
-      padding: '0 16px',
+      marginBlock: 0,
+      marginBlockStart: 48,
+      marginBlockEnd: 24,
+      marginInline: 0,
+      paddingBlock: 0,
+      paddingInline: 16,
       textAlign: 'center',
       '&-links': {
-        marginBottom: '8px',
+        marginBlockEnd: 8,
         color: token.colorTextSecondary,
         '> *:not(:last-child)': {
-          marginRight: 8,
+          marginInlineEnd: 8,
           '&:hover': {
             color: token.colorText,
           },

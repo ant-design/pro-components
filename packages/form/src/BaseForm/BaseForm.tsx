@@ -652,7 +652,7 @@ function BaseForm<T = Record<string, any>>(props: BaseFormProps<T>) {
   });
   if (!initialData && props.request) {
     return (
-      <div style={{ paddingTop: 50, paddingBottom: 50, textAlign: 'center' }}>
+      <div style={{ paddingBlockStart: 50, paddingBlockEnd: 50, textAlign: 'center' }}>
         <Spin />
       </div>
     );

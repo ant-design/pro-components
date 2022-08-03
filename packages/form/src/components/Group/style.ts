@@ -9,7 +9,7 @@ export interface ProToken extends ProAliasToken {
 const genProStyle: GenerateStyle<ProToken> = (token) => {
   return {
     [token.componentCls]: {
-      '&-title': { marginBottom: token.marginXL, fontWeight: 'bold' },
+      '&-title': { marginBlockEnd: token.marginXL, fontWeight: 'bold' },
       '&-container': {
         flexWrap: 'wrap',
         maxWidth: '100%',
@@ -21,7 +21,7 @@ const genProStyle: GenerateStyle<ProToken> = (token) => {
         display: 'block',
         width: '100%',
         [`${token.componentCls}-title`]: { width: '100%', margin: '8px 0' },
-        [`${token.componentCls}-container`]: { paddingLeft: 16 },
+        [`${token.componentCls}-container`]: { paddingInlineStart: 16 },
         [`${token.antCls}-space-item,${token.antCls}-form-item`]: {
           maxWidth: '100%',
         },

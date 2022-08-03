@@ -17,7 +17,7 @@ const genProListStyle: GenerateStyle<ProListToken> = (token) => {
       },
 
       '&-extra': {
-        marginBottom: 16,
+        marginBlockEnd: 16,
       },
       '&-polling': {
         [`${token.componentCls}-list-toolbar-setting-item`]: {
@@ -34,10 +34,12 @@ const genProListStyle: GenerateStyle<ProListToken> = (token) => {
       },
       [`${token.antCls}-table${token.antCls}-table-tbody${token.antCls}-table-wrapper:only-child${token.antCls}-table`]:
         {
-          margin: 0,
+          marginBlock: 0,
+          marginInline: 0,
         },
       [`${token.antCls}-table${token.antCls}-table-middle ${token.componentCls}`]: {
-        margin: '-12px -8px',
+        marginBlock: -12,
+        marginInline: -8,
       },
     },
     '@keyframes turn': {
@@ -49,15 +51,28 @@ const genProListStyle: GenerateStyle<ProListToken> = (token) => {
     },
 
     '&-search': {
-      marginBottom: '16px',
-      padding: '24px',
-      paddingBottom: '0',
+      marginBlockEnd: '16px',
+      paddingBlock: 24,
+      paddingInline: 24,
+      paddingBlockEnd: '0',
       background: '@component-background',
       '&-ghost': {
         background: 'transparent',
       },
-      [`&${token.componentCls}-form`]: { margin: '0', padding: '0 16px', overflow: 'unset' },
-      '&-light': { marginBottom: '0', padding: '16px 0' },
+      [`&${token.componentCls}-form`]: {
+        marginBlock: 0,
+        marginInline: 0,
+        paddingBlock: 0,
+        paddingInline: 16,
+        overflow: 'unset',
+      },
+
+      '&-light': {
+        marginBlockEnd: '0',
+        padding: '16px 0',
+        paddingBlock: 16,
+        paddingInline: 0,
+      },
       '&-form-option': {
         [`${token.antCls}-form-item`]: {},
         [`${token.antCls}-form-item-label`]: {},
@@ -66,7 +81,7 @@ const genProListStyle: GenerateStyle<ProListToken> = (token) => {
       '@media (max-width: 575px)': {
         [token.componentCls]: {
           height: 'auto !important',
-          paddingBottom: '24px',
+          paddingBlockEnd: '24px',
           [`${token.antCls}-form-item-label`]: { minWidth: '80px', textAlign: 'left' },
         },
       },
@@ -76,7 +91,8 @@ const genProListStyle: GenerateStyle<ProListToken> = (token) => {
       alignItems: 'center',
       justifyContent: 'space-between',
       height: '64px',
-      padding: '0 24px',
+      paddingInline: 24,
+      paddingBlock: 0,
       '&-option': { display: 'flex', alignItems: 'center', justifyContent: 'flex-end' },
       '&-title': {
         flex: '1',
@@ -109,13 +125,14 @@ const genProListStyle: GenerateStyle<ProListToken> = (token) => {
         alignItems: 'flex-start',
         justifyContent: 'flex-start',
         height: 'auto',
-        marginBottom: '16px',
-        marginLeft: '16px',
-        padding: '8px',
-        paddingTop: '16px',
+        marginBlockEnd: '16px',
+        marginInlineStart: '16px',
+        paddingBlock: 8,
+        paddingInline: 8,
+        paddingBlockStart: '16px',
         lineHeight: 'normal',
         '&-title': {
-          marginBottom: 16,
+          marginBlockEnd: 16,
         },
         '&-option': { display: 'flex', justifyContent: 'space-between', width: '100%' },
         '&-default-option': {

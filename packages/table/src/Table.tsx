@@ -265,7 +265,7 @@ function TableRender<T extends Record<string, any>, U, ValueType>(
               if (props.loading === false) return;
               const loadingProps = props.loading === true ? {} : props.loading;
               return (
-                <div style={{ paddingTop: 100, textAlign: 'center' }}>
+                <div style={{ paddingBlockStart: 100, textAlign: 'center' }}>
                   <Spin size="large" {...loadingProps} />
                 </div>
               );
@@ -299,7 +299,7 @@ function TableRender<T extends Record<string, any>, U, ValueType>(
         bodyStyle={
           toolbarDom
             ? {
-                paddingTop: 0,
+                paddingBlockStart: 0,
               }
             : {
                 padding: 0,

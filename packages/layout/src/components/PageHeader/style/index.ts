@@ -27,19 +27,20 @@ const genPageHeaderStyle: GenerateStyle<PageHeaderToken> = (token) => {
       ...resetComponent?.(token),
       position: 'relative',
       backgroundColor: token.colorBgContainer,
-      padding: `${token.pageHeaderPaddingVertical}px ${token.pageHeaderPadding}px`,
+      paddingBlock: token.pageHeaderPaddingVertical,
+      paddingInline: token.pageHeaderPadding,
       '&-ghost': {
         backgroundColor: token.pageHeaderBgGhost,
       },
 
       '&-has-breadcrumb': {
-        paddingTop: token.pageHeaderPaddingBreadCrumb,
+        paddingBlockStart: token.pageHeaderPaddingBreadCrumb,
       },
       '&-has-footer': {
-        paddingBottom: 0,
+        paddingBlockEnd: 0,
       },
       '&-back': {
-        marginRight: token.margin,
+        marginInlineEnd: token.margin,
         fontSize: 16,
         lineHeight: 1,
         '&-button': {
@@ -49,18 +50,19 @@ const genPageHeaderStyle: GenerateStyle<PageHeaderToken> = (token) => {
         },
         [`${token.componentCls}-rlt &`]: {
           float: 'right',
-          marginRight: 0,
-          marginLeft: 0,
+          marginInlineEnd: 0,
+          marginInlineStart: 0,
         },
       },
       [`${'ant'}-divider-vertical`]: {
         height: 14,
-        margin: `0 ${token.marginSM}px`,
+        marginBlock: 0,
+        marginInline: token.marginSM,
         verticalAlign: 'middle',
       },
 
       [`&-breadcrumb + &-heading`]: {
-        marginTop: token.marginXS,
+        marginBlockStart: token.marginXS,
       },
       '&-heading': {
         display: 'flex',
@@ -68,28 +70,30 @@ const genPageHeaderStyle: GenerateStyle<PageHeaderToken> = (token) => {
         '&-left': {
           display: 'flex',
           alignItems: 'center',
-          margin: `${token.marginXS / 2}px 0`,
+          marginBlock: token.marginXS / 2,
+          marginInlineEnd: 0,
+          marginInlineStart: 0,
           overflow: 'hidden',
         },
         '&-title': {
-          marginRight: token.marginSM,
-          marginBottom: 0,
+          marginInlineEnd: token.marginSM,
+          marginBlockEnd: 0,
           color: token.colorTextHeading,
           fontWeight: 600,
           fontSize: token.pageHeaderFontSizeHeaderTitle,
           lineHeight: token.controlHeight + 'px',
           ...textOverflowEllipsis(),
           [`${token.componentCls}-rlt &`]: {
-            marginRight: 0,
-            marginLeft: token.marginSM,
+            marginInlineEnd: 0,
+            marginInlineStart: token.marginSM,
           },
         },
         '&-avatar': {
-          marginRight: token.marginSM,
+          marginInlineEnd: token.marginSM,
           [`${token.componentCls}-rlt &`]: {
             float: 'right',
-            marginRight: 0,
-            marginLeft: token.marginSM,
+            marginInlineEnd: 0,
+            marginInlineStart: token.marginSM,
           },
         },
         '&-tags': {
@@ -98,25 +102,27 @@ const genPageHeaderStyle: GenerateStyle<PageHeaderToken> = (token) => {
           },
         },
         '&-sub-title': {
-          marginRight: token.marginSM,
+          marginInlineEnd: token.marginSM,
           color: token.colorTextSecondary,
           fontSize: token.pageHeaderFontSizeHeaderSubTitle,
           lineHeight: token.lineHeight,
           ...textOverflowEllipsis(),
           [`${token.componentCls}-rlt &`]: {
             float: 'right',
-            marginRight: 0,
-            marginLeft: 12,
+            marginInlineEnd: 0,
+            marginInlineStart: 12,
           },
         },
         '&-extra': {
-          margin: `${token.marginXS / 2}px 0`,
+          marginBlock: token.marginXS / 2,
+          marginInlineEnd: 0,
+          marginInlineStart: 0,
           whiteSpace: 'nowrap',
           '> *': {
             'white-space': 'unset',
             [`${token.componentCls}-rlt &`]: {
-              marginRight: token.marginSM,
-              marginLeft: 0,
+              marginInlineEnd: token.marginSM,
+              marginInlineStart: 0,
             },
           },
           [`${token.componentCls}-rlt &`]: {
@@ -124,16 +130,16 @@ const genPageHeaderStyle: GenerateStyle<PageHeaderToken> = (token) => {
           },
           '*:first-child': {
             [`${token.componentCls}-rlt &`]: {
-              marginRight: 0,
+              marginInlineEnd: 0,
             },
           },
         },
       },
       '&-content': {
-        paddingTop: token.pageHeaderPaddingContentPadding,
+        paddingBlockStart: token.pageHeaderPaddingContentPadding,
       },
       '&-footer': {
-        marginTop: token.margin,
+        marginBlockStart: token.margin,
       },
       '&-compact &-heading': {
         flexWrap: 'wrap',

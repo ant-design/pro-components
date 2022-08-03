@@ -21,13 +21,13 @@ const genTopNavHeaderStyle: GenerateStyle<TopNavHeaderToken> = (token) => {
       '&-main': {
         display: 'flex',
         height: '100%',
-        paddingLeft: '16px',
+        paddingInlineStart: '16px',
         '&-left': {
           display: 'flex',
           alignItems: 'center',
           minWidth: '192px',
           [`${token.proComponentsCls}-layout-apps-icon`]: {
-            marginRight: 16,
+            marginInlineEnd: 16,
           },
         },
       },
@@ -41,7 +41,7 @@ const genTopNavHeaderStyle: GenerateStyle<TopNavHeaderToken> = (token) => {
         img: { display: 'inline-block', height: '32px', verticalAlign: 'middle' },
         h1: {
           display: 'inline-block',
-          margin: '0 0 0 6px',
+          marginInlineStart: 6,
           fontWeight: '600',
           fontSize: '16px',
           color: token?.proLayoutColorHeaderTitle,
@@ -52,7 +52,8 @@ const genTopNavHeaderStyle: GenerateStyle<TopNavHeaderToken> = (token) => {
         minWidth: '0',
         display: 'flex',
         alignItems: 'center',
-        padding: 6,
+        paddingInline: 6,
+        paddingBlock: 6,
         lineHeight: `${token.proLayoutColorHeader - 12}px`,
       },
       '&-header-actions': {
@@ -62,12 +63,14 @@ const genTopNavHeaderStyle: GenerateStyle<TopNavHeaderToken> = (token) => {
           display: 'inline-flex',
           alignItems: 'center',
           justifyContent: 'center',
-          padding: '0px 6px',
+          paddingBlock: 0,
+          paddingInline: 6,
           fontSize: '16px',
           cursor: 'pointer',
           borderRadius: token.radiusBase,
           '> *': {
-            padding: 6,
+            paddingInline: 6,
+            paddingBlock: 6,
             borderRadius: token.radiusBase,
             ':hover': {
               backgroundColor: 'rgba(0, 0, 0, 0.03)',
@@ -78,11 +81,12 @@ const genTopNavHeaderStyle: GenerateStyle<TopNavHeaderToken> = (token) => {
           display: 'inline-flex',
           alignItems: 'center',
           justifyContent: 'center',
-          paddingLeft: '16px',
-          paddingRight: '16px',
+          paddingInlineStart: '16px',
+          paddingInlineEnd: '16px',
           '> div': {
             height: '44px',
-            padding: '8px',
+            paddingInline: 8,
+            paddingBlock: 8,
             cursor: 'pointer',
             display: 'flex',
             alignItems: 'center',

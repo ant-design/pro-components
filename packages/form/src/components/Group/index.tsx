@@ -45,7 +45,7 @@ const Group: React.FC<GroupProps> = React.forwardRef((props, ref: any) => {
   const collapsibleButton = collapsible && (
     <RightOutlined
       style={{
-        marginRight: 8,
+        marginInlineEnd: 8,
       }}
       rotate={!collapsed ? 90 : undefined}
     />

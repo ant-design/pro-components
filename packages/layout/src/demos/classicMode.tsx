@@ -100,7 +100,7 @@ export default () => {
                 style={{
                   display: 'flex',
                   alignItems: 'center',
-                  marginRight: 24,
+                  marginInlineEnd: 24,
                 }}
                 onMouseDown={(e) => {
                   e.stopPropagation();
@@ -110,7 +110,7 @@ export default () => {
                 <Input
                   style={{
                     borderRadius: 4,
-                    marginRight: 12,
+                    marginInlineEnd: 12,
                     backgroundColor: 'rgba(57,62,67,1)',
                     color: '#fff',
                   }}
@@ -143,7 +143,7 @@ export default () => {
             <div
               style={{
                 textAlign: 'center',
-                paddingTop: 12,
+                paddingBlockStart: 12,
               }}
             >
               <div>© 2021 Made with love</div>

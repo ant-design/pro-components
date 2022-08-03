@@ -47,8 +47,8 @@ class CustomBoundary extends React.Component<
                   borderLeftStyle: 'solid',
                   padding: '20px 45px 20px 26px',
                   margin: 'auto',
-                  marginBottom: '30px',
-                  marginTop: '20px',
+                  marginBlockEnd: '30px',
+                  marginBlockStart: '20px',
                 }}
               >
                 <p>注意</p>

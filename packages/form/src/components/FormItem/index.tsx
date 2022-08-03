@@ -177,9 +177,9 @@ const WarpFormItem: React.FC<FormItemProps & WarpFormItemProps> = ({
                   alignItems: 'center',
                 }}
               >
-                {addonBefore ? <div style={{ marginRight: 8 }}>{addonBefore}</div> : null}
+                {addonBefore ? <div style={{ marginInlineEnd: 8 }}>{addonBefore}</div> : null}
                 {doms.input}
-                {addonAfter ? <div style={{ marginLeft: 8 }}>{addonAfter}</div> : null}
+                {addonAfter ? <div style={{ marginInlineStart: 8 }}>{addonAfter}</div> : null}
               </div>
               {doms.extra}
               {doms.errorList}

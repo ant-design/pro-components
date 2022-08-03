@@ -31,8 +31,8 @@ const genProStyle: GenerateStyle<ProListToken> = (token) => {
       position: 'relative',
       display: 'inline-block',
       width: '320px',
-      marginRight: '16px',
-      marginBottom: '16px',
+      marginInlineEnd: '16px',
+      marginBlockEnd: '16px',
       color: token.colorText,
       fontSize: token.fontSizeBase,
       lineHeight: token.lineHeight,
@@ -42,10 +42,10 @@ const genProStyle: GenerateStyle<ProListToken> = (token) => {
       cursor: 'pointer',
       transition: `all 0.3s`,
       '&:last-child': {
-        marginRight: 0,
+        marginInlineEnd: 0,
       },
       '& + &': {
-        marginLeft: '0 !important',
+        marginInlineStart: '0 !important',
       },
       '&-bordered': {
         border: `${token.lineWidth} solid ${token.colorBorder}`,
@@ -57,13 +57,15 @@ const genProStyle: GenerateStyle<ProListToken> = (token) => {
         overflow: 'hidden',
         userSelect: 'none',
         '&-content': {
-          padding: `${token.paddingSM} ${token.padding}`,
+          paddingInline: token.padding,
+          paddingBlock: token.paddingSM,
           p: {
-            margin: 0,
+            marginBlock: 0,
+            marginInline: 0,
           },
           '&-block': {
             height: '14px',
-            margin: '4px 0',
+            marginBlock: '4px',
             background: `linear-gradient(90deg, rgba(54, 61, 64, 0.2), rgba(54, 61, 64, 0.4), rgba(54, 61, 64, 0.2))`,
           },
           '@keyframes card-loading': {
@@ -84,19 +86,21 @@ const genProStyle: GenerateStyle<ProListToken> = (token) => {
         width: 212,
       },
       '&-cover': {
-        padding: token.paddingXXS,
+        paddingInline: token.paddingXXS,
+        paddingBlock: token.paddingXXS,
         img: { width: '100%', height: '100%', overflow: 'hidden', borderRadius: token.radiusBase },
       },
       '&-content': {
         display: 'flex',
-        padding: `${token.paddingSM} ${token.padding}`,
+        paddingInline: token.paddingSM,
+        paddingBlock: token.padding,
       },
       '&-avatar-header': { display: 'flex', alignItems: 'center' },
-      '&-avatar': { paddingRight: 8 },
+      '&-avatar': { paddingInlineEnd: 8 },
       '&-detail': {
         overflow: 'hidden',
         '> div:not(:last-child)': {
-          marginBottom: 4,
+          marginBlockEnd: 4,
         },
       },
       '&-header': { display: 'flex', alignItems: 'center', justifyContent: 'space-between' },
@@ -119,8 +123,8 @@ const genProStyle: GenerateStyle<ProListToken> = (token) => {
       [`${token.componentCls}-checked`]: {
         '&::after': {
           position: 'absolute',
-          top: '2px',
-          right: '2px',
+          insetBlockStart: 2,
+          insetInlineEnd: 2,
           width: '0',
           height: '0',
           border: `6px solid ${token.colorPrimary}`,

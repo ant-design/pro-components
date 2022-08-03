@@ -36,7 +36,7 @@ export const RightContent: React.FC<TopNavHeaderProps> = ({
         <span
           key="name"
           style={{
-            marginLeft: 8,
+            marginInlineStart: 8,
           }}
         >
           {title}

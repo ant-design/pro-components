@@ -102,7 +102,7 @@ export default () => {
               移动自
               <DownOutlined
                 style={{
-                  marginLeft: 8,
+                  marginInlineStart: 8,
                 }}
               />
             </Button>

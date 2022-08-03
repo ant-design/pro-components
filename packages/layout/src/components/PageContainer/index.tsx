@@ -278,7 +278,7 @@ const PageContainer: React.FC<PageContainerProps> = (props) => {
           <div
             style={{
               height: 48,
-              marginTop: 24,
+              marginBlockStart: 24,
             }}
           />
         )}

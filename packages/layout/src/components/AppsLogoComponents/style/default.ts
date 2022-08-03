@@ -7,8 +7,10 @@ const genAppsLogoComponentsDefaultListStyle: GenerateStyle<AppsLogoComponentsTok
       '&-list': {
         boxSizing: 'content-box',
         maxWidth: 656,
-        margin: 0,
-        padding: 0,
+        marginBlock: 0,
+        marginInline: 0,
+        paddingBlock: 0,
+        paddingInline: 0,
         listStyle: 'none',
         '> *': { boxSizing: 'border-box' },
         '&-item': {
@@ -16,7 +18,8 @@ const genAppsLogoComponentsDefaultListStyle: GenerateStyle<AppsLogoComponentsTok
           display: 'inline-block',
           width: 328,
           height: 72,
-          padding: 16,
+          paddingInline: 16,
+          paddingBlock: 16,
           verticalAlign: 'top',
           listStyleType: 'none',
           transition: 'transform 0.2s cubic-bezier(0.333, 0, 0, 1)',
@@ -36,7 +39,7 @@ const genAppsLogoComponentsDefaultListStyle: GenerateStyle<AppsLogoComponentsTok
               height: 40,
             },
             '& > div': {
-              marginLeft: 14,
+              marginInlineStart: 14,
               color: token.colorTextHeading,
               fontSize: 14,
               lineHeight: '22px',

@@ -23,7 +23,7 @@ import { Button, message, Space } from 'antd';
 import { useState } from 'react';
 
 const iconStyles = {
-  marginLeft: '16px',
+  marginInlineStart: '16px',
   color: 'rgba(0, 0, 0, 0.2)',
   fontSize: '24px',
   verticalAlign: 'middle',

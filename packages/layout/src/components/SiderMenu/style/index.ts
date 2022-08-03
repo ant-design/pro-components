@@ -29,8 +29,8 @@ const genSiderMenuStyle: GenerateStyle<SiderMenuToken> = (token) => {
         },
         '&-fixed': {
           position: 'fixed',
-          top: 0,
-          left: 0,
+          insetBlockStart: 0,
+          insetInlineStart: 0,
           zIndex: '100',
           height: '100%',
         },
@@ -39,8 +39,9 @@ const genSiderMenuStyle: GenerateStyle<SiderMenuToken> = (token) => {
           display: 'flex',
           flexDirection: 'column',
           height: '100%',
-          padding: 6,
-          borderRight: `1px solid ${token.colorSplit}`,
+          paddingInline: 6,
+          paddingBlock: 6,
+          borderInlineEnd: `1px solid ${token.colorSplit}`,
         },
 
         '&-logo': {
@@ -48,7 +49,8 @@ const genSiderMenuStyle: GenerateStyle<SiderMenuToken> = (token) => {
           display: 'flex',
           alignItems: 'center',
           justifyContent: 'space-between',
-          padding: 16,
+          paddingInline: 16,
+          paddingBlock: 16,
           color: token.proLayoutMenuTextColor,
           cursor: 'pointer',
           borderBottom: `1px solid ${token.proLayoutMenuItemDividerColor}`,
@@ -67,7 +69,9 @@ const genSiderMenuStyle: GenerateStyle<SiderMenuToken> = (token) => {
           h1: {
             display: 'inline-block',
             height: 22,
-            margin: '0 0 0 6px',
+            marginBlock: 0,
+            marginInlineEnd: 0,
+            marginInlineStart: 6,
             color: token.proLayoutMenuTitleTextColor,
             fontWeight: 600,
             fontSize: 16,
@@ -77,7 +81,7 @@ const genSiderMenuStyle: GenerateStyle<SiderMenuToken> = (token) => {
           '&-collapsed': {
             flexDirection: 'column',
             [`${token.proComponentsCls}-layout-apps-icon`]: {
-              marginBottom: 8,
+              marginBlockEnd: 8,
             },
           },
         },
@@ -85,23 +89,25 @@ const genSiderMenuStyle: GenerateStyle<SiderMenuToken> = (token) => {
           display: 'flex',
           alignItems: 'center',
           justifyContent: 'space-between',
-          margin: '4px 0',
-          padding: '0 16px',
+          marginBlock: 4,
+          marginInline: 16,
           color: token.proLayoutMenuTextColor,
           '&-collapsed': {
             flexDirection: 'column-reverse',
-            padding: '0 8px',
+            paddingBlock: 0,
+            paddingInline: 8,
             fontSize: 16,
             transition: 'font-size 0.3s ease-in-out',
           },
           '&-list': {
             color: token.proLayoutMenuTextSecondaryColor,
             '&-collapsed': {
-              marginBottom: 8,
+              marginBlockEnd: 8,
               animation: 'none',
             },
             '&-item': {
-              padding: 6,
+              paddingInline: 6,
+              paddingBlock: 6,
               lineHeight: '16px',
               fontSize: 16,
               cursor: 'pointer',
@@ -113,7 +119,8 @@ const genSiderMenuStyle: GenerateStyle<SiderMenuToken> = (token) => {
           },
           '&-avatar': {
             fontSize: 14,
-            padding: 8,
+            paddingInline: 8,
+            paddingBlock: 8,
             borderRadius: token.radiusBase,
             '& > *': {
               cursor: 'pointer',
@@ -124,18 +131,19 @@ const genSiderMenuStyle: GenerateStyle<SiderMenuToken> = (token) => {
           },
         },
         '&-hide-menu-collapsed': {
-          left: `-${token.proLayoutCollapsedWidth - 12}px`,
+          insetInlineStart: `-${token.proLayoutCollapsedWidth - 12}px`,
           position: 'absolute',
         },
         '&-mix': {
           height: `calc(100% - ${token.proLayoutHeaderHeight}px)`,
-          top: `${token.proLayoutHeaderHeight}px`,
+          insetBlockStart: `${token.proLayoutHeaderHeight}px`,
         },
         '&-extra': {
-          marginBottom: 16,
-          padding: '0 16px',
+          marginBlockEnd: 16,
+          marginBlock: 0,
+          marginInline: 16,
           '&-no-logo': {
-            marginTop: 16,
+            marginBlockStart: 16,
           },
         },
         '&-links': {
@@ -151,7 +159,7 @@ const genSiderMenuStyle: GenerateStyle<SiderMenuToken> = (token) => {
         },
         '&-footer': {
           color: token.colorTextDisabled,
-          paddingBottom: 16,
+          paddingBlockEnd: 16,
           fontSize: token.fontSize,
         },
       },

@@ -365,7 +365,7 @@ const QueryFilterContent: React.FC<{
       return [
         colItem,
         <Col span="24" key="line">
-          <Divider style={{ marginTop: -8, marginBottom: 16 }} dashed />
+          <Divider style={{ marginBlockStart: -8, marginBlockEnd: 16 }} dashed />
         </Col>,
       ];
     }
@@ -503,7 +503,7 @@ function QueryFilter<T = Record<string, any>>(props: QueryFilterProps<T>) {
         groupProps={{
           titleStyle: {
             display: 'inline-block',
-            marginRight: 16,
+            marginInlineEnd: 16,
           },
         }}
         contentRender={(items, renderSubmitter, form) => (

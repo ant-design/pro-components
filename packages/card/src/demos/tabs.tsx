@@ -11,7 +11,7 @@ export default () => {
 
   return (
     <div>
-      <Space style={{ marginBottom: 16 }}>
+      <Space style={{ marginBlockEnd: 16 }}>
         Tab position：
         <Select
           value={tabPosition}

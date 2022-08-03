@@ -42,7 +42,7 @@ export default () => {
           !collapsed && (
             <Space
               style={{
-                marginTop: 16,
+                marginBlockStart: 16,
               }}
               align="center"
             >

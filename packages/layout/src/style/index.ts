@@ -10,8 +10,10 @@ export interface ProLayoutToken extends ProAliasToken {
 const genProLayoutStyle: GenerateStyle<ProLayoutToken> = (token) => {
   return {
     body: {
-      padding: 0,
-      margin: 0,
+      paddingBlock: 0,
+      paddingInline: 0,
+      marginBlock: 0,
+      marginInline: 0,
     },
     [token.componentCls]: {
       [`${token.componentCls}-content`]: {
@@ -23,15 +25,16 @@ const genProLayoutStyle: GenerateStyle<ProLayoutToken> = (token) => {
         position: 'relative',
         '*': { boxSizing: 'border-box' },
         '&-content-has-margin': {
-          margin: '16px 24px',
+          marginBlock: 16,
+          marginInline: 24,
         },
       },
       [`${token.componentCls}-bg-list`]: {
         pointerEvents: 'none',
         position: 'fixed',
         overflow: 'hidden',
-        top: 0,
-        left: 0,
+        insetBlockStart: 0,
+        insetInlineStart: 0,
         zIndex: 0,
         height: '100%',
         width: '100%',

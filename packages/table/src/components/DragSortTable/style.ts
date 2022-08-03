@@ -10,7 +10,7 @@ const genProListStyle: GenerateStyle<ProListToken> = (token) => {
   return {
     [token.componentCls]: {
       '&-visible-cell': { display: 'flex', alignItems: 'center' },
-      '&-icon': { marginRight: '8px', color: '#999', cursor: 'grab' },
+      '&-icon': { marginInlineEnd: 8, color: '#999', cursor: 'grab' },
     },
   };
 };

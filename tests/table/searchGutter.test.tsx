@@ -61,8 +61,8 @@ describe('BasicTable SearchGutter', () => {
       />,
     );
     await waitForComponentToPaint(html, 1200);
-    expect((html.find('.ant-col').at(0).props().style || {}).paddingLeft).toBe(8);
-    expect((html.find('.ant-col').at(0).props().style || {}).paddingTop).toBe(12);
+    expect((html.find('.ant-col').at(0).props().style || {}).paddingInlineStart).toBe(8);
+    expect((html.find('.ant-col').at(0).props().style || {}).paddingBlockStart).toBe(12);
   });
 
   it('🎏 ProTable searchGutter default is [24 0]', async () => {
@@ -90,7 +90,7 @@ describe('BasicTable SearchGutter', () => {
       />,
     );
     await waitForComponentToPaint(html, 1200);
-    expect((html.find('.ant-col').at(0).props().style || {}).paddingLeft).toBe(12);
-    expect((html.find('.ant-col').at(0).props().style || {}).paddingTop).toBe(undefined);
+    expect((html.find('.ant-col').at(0).props().style || {}).paddingInlineStart).toBe(12);
+    expect((html.find('.ant-col').at(0).props().style || {}).paddingBlockStart).toBe(undefined);
   });
 });

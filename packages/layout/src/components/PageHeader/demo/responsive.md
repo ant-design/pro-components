@@ -46,7 +46,7 @@ const extraContent = (
       title="Status"
       value="Pending"
       style={{
-        marginRight: 32,
+        marginInlineEnd: 32,
       }}
     />
     <Statistic title="Price" prefix="$" value={568.08} />

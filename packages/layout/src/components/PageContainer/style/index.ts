@@ -13,10 +13,12 @@ const genPageContainerStyle: GenerateStyle<PageContainerToken> = (token) => {
     [token.componentCls]: {
       position: 'relative',
       '&-layout-has-margin': {
-        margin: -24,
+        marginBlock: -24,
+        marginInline: -24,
       },
       '&-children-content': {
-        margin: 24,
+        marginBlock: 24,
+        marginInline: 24,
       },
       '&-affix': {
         [`${token.antCls}-affix`]: {
@@ -29,8 +31,8 @@ const genPageContainerStyle: GenerateStyle<PageContainerToken> = (token) => {
       '&-warp': {
         backgroundColor: token.pageContainerBgColor,
         ['&-page-header']: {
-          paddingLeft: 40,
-          paddingRight: 40,
+          paddingInlineStart: 40,
+          paddingInlineEnd: 40,
         },
       },
       '&-detail': {
@@ -56,20 +58,20 @@ const genPageContainerStyle: GenerateStyle<PageContainerToken> = (token) => {
       '&-extraContent': {
         flex: '0 1 auto',
         minWidth: '242px',
-        marginLeft: 88,
-        textAlign: 'right',
+        marginInlineStart: 88,
+        textAlign: 'end',
         [sm]: {
-          marginLeft: 0,
+          marginInlineStart: 0,
         },
         [md]: {
-          marginLeft: 0,
-          textAlign: 'left',
+          marginInlineStart: 0,
+          textAlign: 'start',
         },
         [lg]: {
-          marginLeft: 20,
+          marginInlineStart: 20,
         },
         [xl]: {
-          marginLeft: 44,
+          marginInlineStart: 44,
         },
       },
     },

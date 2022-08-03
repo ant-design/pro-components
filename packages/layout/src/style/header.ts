@@ -16,17 +16,18 @@ const genProLayoutHeaderStyle: GenerateStyle<ProLayoutHeaderToken> = (token) => 
         lineHeight: `${token.ProLayoutHeaderHeaderHeight}px`,
         zIndex: '9',
         width: '100%',
-        padding: '0 8px',
+        paddingBlock: 0,
+        paddingInline: 8,
         borderBottom: `1px solid ${token.colorSplit}`,
         backgroundColor: 'rgba(255, 255, 255, 0.58)',
         WebkitBackdropFilter: 'blur(8px)',
         backdropFilter: 'blur(8px)',
         '&-fixed-header': {
           position: 'fixed',
-          top: 0,
+          insetBlockStart: 0,
           width: '100%',
           zIndex: 100,
-          right: 0,
+          insetInlineEnd: 0,
         },
         '&-header-actions': {
           display: 'flex',
@@ -34,7 +35,8 @@ const genProLayoutHeaderStyle: GenerateStyle<ProLayoutHeaderToken> = (token) => 
           fontSize: '16',
           cursor: 'pointer',
           '&-item': {
-            padding: '0 8px',
+            paddingBlock: 0,
+            paddingInline: 8,
             '&:hover': {
               color: token.colorText,
             },
