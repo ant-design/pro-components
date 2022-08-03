@@ -18,6 +18,7 @@ const genProStyle: GenerateStyle<ProToken> = (token) => {
       },
       '&-overlay': {
         '*': {
+          fontFamily: token.fontFamily,
           boxSizing: 'border-box',
         },
         [`${token.antCls}-popover-inner-content`]: {

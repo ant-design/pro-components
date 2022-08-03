@@ -116,7 +116,7 @@ const genProListStyle: GenerateStyle<ProListToken> = (token) => {
           '&-actions': {
             display: 'none',
           },
-          '&-actions > *': {
+          '&-actions *': {
             marginInlineEnd: 8,
             '&:last-child': {
               marginInlineEnd: 0,

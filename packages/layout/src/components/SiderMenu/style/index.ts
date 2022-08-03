@@ -122,7 +122,7 @@ const genSiderMenuStyle: GenerateStyle<SiderMenuToken> = (token) => {
             paddingInline: 8,
             paddingBlock: 8,
             borderRadius: token.radiusBase,
-            '& > *': {
+            '& *': {
               cursor: 'pointer',
             },
             '&:hover': {

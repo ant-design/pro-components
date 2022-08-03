@@ -34,6 +34,7 @@ const genAppsLogoComponentsStyle: GenerateStyle<AppsLogoComponentsToken> = (toke
       '&-popover': {
         '*': {
           boxSizing: 'border-box',
+          fontFamily: token.fontFamily,
         },
       },
       '&-simple': genAppsLogoComponentsSimpleListStyle(token),

@@ -15,6 +15,7 @@ const genProStyle: GenerateStyle<ProToken> = (token) => {
       backgroundColor: token.colorBgContainer,
       boxShadow: token.boxShadowCard,
       '*': {
+        fontFamily: token.fontFamily,
         boxSizing: 'border-box',
       },
     },

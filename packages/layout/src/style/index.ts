@@ -14,6 +14,7 @@ const genProLayoutStyle: GenerateStyle<ProLayoutToken> = (token) => {
       paddingInline: 0,
       marginBlock: 0,
       marginInline: 0,
+      fontFamily: token.fontFamily,
     },
     [token.componentCls]: {
       [`${token.componentCls}-content`]: {
@@ -23,7 +24,7 @@ const genProLayoutStyle: GenerateStyle<ProLayoutToken> = (token) => {
         minHeight: '100%',
         backgroundColor: 'transparent',
         position: 'relative',
-        '*': { boxSizing: 'border-box' },
+        '*': { boxSizing: 'border-box', fontFamily: token.fontFamily },
         '&-content-has-margin': {
           marginBlock: 16,
           marginInline: 24,
