@@ -121,11 +121,7 @@ function useContainer(props: UseContainerProps = {}) {
         console.warn(error);
       }
     }
-  }, [
-    props.columnsState?.persistenceKey,
-    defaultColumnKeyMap,
-    props.columnsState?.persistenceType,
-  ]);
+  }, [props.columnsState, defaultColumnKeyMap, setColumnsMap]);
 
   noteOnce(!props.columnsStateMap, 'columnsStateMap已经废弃，请使用 columnsState.value 替换');
   noteOnce(
