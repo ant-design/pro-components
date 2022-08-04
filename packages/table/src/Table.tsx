@@ -626,7 +626,7 @@ const ProTable = <T extends Record<string, any>, U extends ParamsType, ValueType
     ...props.editable,
     tableName: props.name,
     getRowKey,
-    childrenColumnName: props.expandable?.childrenColumnName,
+    childrenColumnName: props.expandable?.childrenColumnName || 'children',
     dataSource: action.dataSource || [],
     setDataSource: (data) => {
       props.editable?.onValuesChange?.(undefined as any, data);
