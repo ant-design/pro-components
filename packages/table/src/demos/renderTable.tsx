@@ -72,26 +72,50 @@ export default () => {
             defaultSelectedKeys={['1']}
             defaultOpenKeys={['sub1']}
             mode="inline"
-          >
-            <Menu.SubMenu
-              key="sub1"
-              title={
-                <span>
-                  <MailOutlined />
-                  <span>Navigation One</span>
-                </span>
-              }
-            >
-              <Menu.ItemGroup key="g1" title="Item 1">
-                <Menu.Item key="1">Option 1</Menu.Item>
-                <Menu.Item key="2">Option 2</Menu.Item>
-              </Menu.ItemGroup>
-              <Menu.ItemGroup key="g2" title="Item 2">
-                <Menu.Item key="3">Option 3</Menu.Item>
-                <Menu.Item key="4">Option 4</Menu.Item>
-              </Menu.ItemGroup>
-            </Menu.SubMenu>
-          </Menu>
+            items={[
+              {
+                key: 'sub1',
+                label: (
+                  <span>
+                    <MailOutlined />
+                    <span>Navigation One</span>
+                  </span>
+                ),
+                children: [
+                  {
+                    type: 'group',
+                    key: 'g1',
+                    label: 'Item 1',
+                    children: [
+                      {
+                        key: '1',
+                        label: 'Option 1',
+                      },
+                      {
+                        key: '2',
+                        label: 'Option 2',
+                      },
+                    ],
+                  },
+                  {
+                    type: 'group',
+                    key: 'g2',
+                    label: 'Item 2',
+                    children: [
+                      {
+                        key: '3',
+                        label: 'Option 3',
+                      },
+                      {
+                        key: '4',
+                        label: 'Option 4',
+                      },
+                    ],
+                  },
+                ],
+              },
+            ]}
+          />
           <div
             style={{
               flex: 1,
