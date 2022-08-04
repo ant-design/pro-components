@@ -19,6 +19,8 @@ import type { RouteContextType } from './RouteContext';
 import RouteContext from './RouteContext';
 import getMenuData from './utils/getMenuData';
 
+export const PageHeaderWrapper = PageContainer;
+
 export type { ProSettings, ProSettings as Settings } from './defaultSettings';
 export type { MenuDataItem } from './typings';
 export {
@@ -32,7 +34,6 @@ export {
   DefaultFooter,
   SettingDrawer,
   getPageTitle,
-  PageHeaderWrapper,
   getMenuData,
   PageContainer,
   FooterToolbar,
@@ -51,7 +52,5 @@ export type {
   SettingDrawerProps,
   SettingDrawerState,
 };
-
-const PageHeaderWrapper = PageContainer;
 
 export default BasicLayout;

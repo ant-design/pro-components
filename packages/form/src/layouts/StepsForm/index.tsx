@@ -443,10 +443,6 @@ function StepsForm<T = Record<string, any>>(
     </div>
   );
 }
-
-export type { StepFormProps, StepsFormProps };
-export { StepsFormWarp as StepsForm };
-
 function StepsFormWarp<T = Record<string, any>>(
   props: StepsFormProps<T> & {
     children: any;
@@ -461,3 +457,6 @@ function StepsFormWarp<T = Record<string, any>>(
 
 StepsFormWarp.StepForm = StepForm;
 StepsFormWarp.useForm = Form.useForm;
+
+export type { StepFormProps, StepsFormProps };
+export { StepsFormWarp as StepsForm };

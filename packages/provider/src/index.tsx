@@ -121,7 +121,7 @@ function get(
  * @param locale
  * @param localeMap
  */
-const createIntl = (locale: string, localeMap: Record<string, any>): IntlType => ({
+export const createIntl = (locale: string, localeMap: Record<string, any>): IntlType => ({
   getMessage: (id: string, defaultMessage: string) =>
     get(localeMap, id, defaultMessage) || defaultMessage,
   locale,
@@ -208,7 +208,6 @@ export {
   intlMap,
   intlMapKeys,
 };
-export { ConfigConsumer, ConfigProvider, ConfigProviderWrap, createIntl };
 
 export type ConfigContextPropsType = {
   intl: IntlType;
@@ -223,7 +222,7 @@ const ConfigContext = React.createContext<ConfigContextPropsType>({
   valueTypeMap: {},
 });
 
-const { Consumer: ConfigConsumer, Provider: ConfigProvider } = ConfigContext;
+export const { Consumer: ConfigConsumer, Provider: ConfigProvider } = ConfigContext;
 
 /**
  * 根据 antd 的 key 来找到的 locale 插件的 key
@@ -265,7 +264,7 @@ const CacheClean = () => {
  *
  * @param param0
  */
-const ConfigProviderWrap: React.FC<Record<string, unknown>> = ({
+export const ConfigProviderWrap: React.FC<Record<string, unknown>> = ({
   children,
   autoClearCache = false,
 }) => {
