@@ -18,7 +18,7 @@ const genPageContainerStyle: GenerateStyle<PageContainerToken> = (token) => {
       },
       '&-children-content': {
         marginBlock: 24,
-        marginInline: 24,
+        marginInline: 40,
       },
       '&-affix': {
         [`${token.antCls}-affix`]: {
