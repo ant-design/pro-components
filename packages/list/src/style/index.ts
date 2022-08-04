@@ -44,7 +44,7 @@ const genProListStyle: GenerateStyle<ProListToken> = (token) => {
             backgroundColor: 'transparent',
           },
           [`${token.antCls}-list-item-meta-title`]: {
-            flexShrink: '9',
+            flexShrink: 9,
             marginBlock: 0,
             marginInline: 0,
             lineHeight: '22px',

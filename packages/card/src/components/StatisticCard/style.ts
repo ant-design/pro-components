@@ -14,8 +14,8 @@ const genProStyle: GenerateStyle<ProListToken> = (token) => {
         flexDirection: 'column',
         marginBlockStart: 8,
         marginBlockEnd: 8,
-        '&-left': { marginBlockStart: '0', marginInlineEnd: '16px' },
-        '&-right': { marginBlockStart: '0', marginInlineStart: '16px' },
+        '&-left': { marginBlockStart: 0, marginInlineEnd: '16px' },
+        '&-right': { marginBlockStart: 0, marginInlineStart: '16px' },
       },
       '&-content': {
         display: 'flex',

@@ -12,7 +12,7 @@ const genLightFilterStyle: GenerateStyle<LightFilterToken> = (token) => {
       lineHeight: '30px',
       // 防止 &-container 负 margin 溢出影响外部布局
       // @see https://yuque.antfin-inc.com/tech-ui/topics/523
-      '&::before': { display: 'block', height: '0', visibility: 'hidden', content: "'.'" },
+      '&::before': { display: 'block', height: 0, visibility: 'hidden', content: "'.'" },
       '&-small': {
         lineHeight: token.lineHeight,
       },

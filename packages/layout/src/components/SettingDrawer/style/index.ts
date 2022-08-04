@@ -11,7 +11,7 @@ const genSettingDrawerStyle: GenerateStyle<SettingDrawerToken> = (token) => {
       position: 'fixed',
       insetBlockStart: '240px',
       insetInlineEnd: '0px',
-      zIndex: '0',
+      zIndex: 0,
       display: 'flex',
       alignItems: 'center',
       justifyContent: 'center',
@@ -45,8 +45,8 @@ const genSettingDrawerStyle: GenerateStyle<SettingDrawerToken> = (token) => {
           cursor: 'pointer',
           '&::before': {
             position: 'absolute',
-            insetBlockStart: '0',
-            insetInlineStart: '0',
+            insetBlockStart: 0,
+            insetInlineStart: 0,
             width: '33%',
             height: '100%',
             backgroundColor: '#fff',
@@ -54,7 +54,7 @@ const genSettingDrawerStyle: GenerateStyle<SettingDrawerToken> = (token) => {
           },
           '&::after': {
             position: 'absolute',
-            insetBlockStart: '0',
+            insetBlockStart: 0,
             insetInlineStart: 0,
             width: '100%',
             height: '25%',

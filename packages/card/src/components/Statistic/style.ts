@@ -22,8 +22,8 @@ const genProStyle: GenerateStyle<ProListToken> = (token) => {
         marginInlineEnd: 16,
       },
       '&-trend-icon': {
-        width: '0',
-        height: '0',
+        width: 0,
+        height: 0,
         borderInlineEnd: '3.5px solid transparent',
         borderBlockEnd: '9px solid #000',
         borderInlineStart: '3.5px solid transparent',
@@ -44,7 +44,7 @@ const genProStyle: GenerateStyle<ProListToken> = (token) => {
         color: token.colorTextSecondary,
         [`${token.antCls}-statistic-title`]: {
           marginInlineEnd: '6px',
-          marginBlockEnd: '0',
+          marginBlockEnd: 0,
         },
         [`${token.antCls}-statistic-content`]: {
           color: token.colorTextSecondary,
@@ -57,7 +57,7 @@ const genProStyle: GenerateStyle<ProListToken> = (token) => {
           display: 'flex',
           justifyContent: 'space-between',
           [`${token.antCls}-statistic-title`]: {
-            marginBlockEnd: '0',
+            marginBlockEnd: 0,
           },
           [`${token.antCls}-statistic-content-value`]: {
             fontWeight: 500,

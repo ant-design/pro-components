@@ -38,7 +38,7 @@ const genProStyle: GenerateStyle<ProToken> = (token) => {
             },
           },
           [`${token.antCls}-tree-checkbox`]: {
-            insetBlockStart: '0',
+            insetBlockStart: 0,
             marginBlock: 0,
             marginInline: 0,
             marginInlineEnd: '4px',

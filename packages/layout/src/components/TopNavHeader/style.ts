@@ -49,7 +49,7 @@ const genTopNavHeaderStyle: GenerateStyle<TopNavHeaderToken> = (token) => {
         },
       },
       '&-menu': {
-        minWidth: '0',
+        minWidth: 0,
         display: 'flex',
         alignItems: 'center',
         paddingInline: 6,

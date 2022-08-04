@@ -54,7 +54,7 @@ const genProListStyle: GenerateStyle<ProListToken> = (token) => {
       marginBlockEnd: '16px',
       paddingBlock: 24,
       paddingInline: 24,
-      paddingBlockEnd: '0',
+      paddingBlockEnd: 0,
       background: '@component-background',
       '&-ghost': {
         background: 'transparent',
@@ -68,7 +68,7 @@ const genProListStyle: GenerateStyle<ProListToken> = (token) => {
       },
 
       '&-light': {
-        marginBlockEnd: '0',
+        marginBlockEnd: 0,
         padding: '16px 0',
         paddingBlock: 16,
         paddingInline: 0,
