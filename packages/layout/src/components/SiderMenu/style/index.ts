@@ -79,9 +79,12 @@ const genSiderMenuStyle: GenerateStyle<SiderMenuToken> = (token) => {
             verticalAlign: 'middle',
           },
           '&-collapsed': {
-            flexDirection: 'column',
+            flexDirection: 'column-reverse',
+            margin: -6,
             [`${token.proComponentsCls}-layout-apps-icon`]: {
               marginBlockEnd: 8,
+              fontSize: 16,
+              transition: 'font-size 0.2s ease-in-out,color 0.2s ease-in-out',
             },
           },
         },
