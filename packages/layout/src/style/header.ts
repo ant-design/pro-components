@@ -14,6 +14,7 @@ const genProLayoutHeaderStyle: GenerateStyle<ProLayoutHeaderToken> = (token) => 
       [token.componentCls]: {
         height: token.ProLayoutHeaderHeaderHeight,
         lineHeight: `${token.ProLayoutHeaderHeaderHeight}px`,
+        // hitu 用了这个属性，不能删除哦 @南取
         zIndex: 19,
         width: '100%',
         paddingBlock: 0,
