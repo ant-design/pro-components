@@ -759,6 +759,8 @@ const ProLayout: React.FC<ProLayoutProps> = (props) => {
         token: {
           radiusBase: 4,
           colorPrimary: '#1677FF',
+          colorError: '#ff4d4f',
+          colorInfo: '#1677FF',
         },
         override: {
           Layout: {

@@ -5,6 +5,7 @@ import { ConfigProvider, theme as antdTheme } from 'antd';
 import type { AliasToken } from 'antd/es/theme';
 import type React from 'react';
 import { useContext } from 'react';
+import * as batToken from './token';
 
 export const setAlpha = (baseColor: string, alpha: number) =>
   new TinyColor(baseColor).setAlpha(alpha).toRgbString();
@@ -14,7 +15,7 @@ export const lighten = (baseColor: string, brightness: number) => {
   return instance.lighten(brightness).toHexString();
 };
 
-const { useToken } = antdTheme;
+const { useToken } = { ...batToken, ...antdTheme };
 
 export type UseStyleResult = {
   wrapSSR: (node: React.ReactElement) => React.ReactElement;
