@@ -77,7 +77,7 @@ export type CardProps = {
   /** 选中改变 */
   onChecked?: (e: React.MouseEvent<HTMLDivElement, MouseEvent>) => void;
   /** card的阴影 */
-  boxShadow: boolean;
+  boxShadow?: boolean;
 } & Omit<React.HTMLAttributes<HTMLDivElement>, 'title'>;
 
 export type ProCardTabPaneProps = {
