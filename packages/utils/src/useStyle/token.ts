@@ -377,7 +377,7 @@ export const token = {
   hashId: '',
 };
 
-export const useSyle = () => {
+export const useToken = () => {
   const [stateToken] = useState(token);
   return stateToken;
 };

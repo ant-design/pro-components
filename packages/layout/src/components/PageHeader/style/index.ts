@@ -44,7 +44,7 @@ const genPageHeaderStyle: GenerateStyle<PageHeaderToken> = (token) => {
         fontSize: 16,
         lineHeight: 1,
         '&-button': {
-          ...operationUnit(token),
+          ...operationUnit?.(token),
           color: token.pageHeaderColorBack,
           cursor: 'pointer',
         },
