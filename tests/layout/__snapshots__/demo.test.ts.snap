@@ -313,18 +313,18 @@ exports[`layout demos 📸 renders ./packages/layout/src/components/PageContaine
             class="ant-pro-page-container-children-content"
           >
             <div
-              class="ant-pro-card ant-pro-card-contain-card ant-pro-card-ghost"
+              class="ant-pro-card ant-pro-card-box-shadow ant-pro-card-contain-card ant-pro-card-ghost"
             >
               <div
                 class="ant-pro-card-body ant-pro-card-body-direction-column"
-                style="margin-top: -8px; margin-bottom: -8px;"
+                style="margin-block-start: -8px; margin-block-end: -8px;"
               >
                 <div
                   class="ant-pro-card-col"
-                  style="padding-top: 8px; padding-bottom: 8px;"
+                  style="padding-block-start: 8px; padding-block-end: 8px;"
                 >
                   <div
-                    class="ant-pro-card"
+                    class="ant-pro-card ant-pro-card-box-shadow"
                     style="height: 200px;"
                   >
                     <div
@@ -334,22 +334,22 @@ exports[`layout demos 📸 renders ./packages/layout/src/components/PageContaine
                 </div>
                 <div
                   class="ant-pro-card-col"
-                  style="padding-top: 8px; padding-bottom: 8px;"
+                  style="padding-block-start: 8px; padding-block-end: 8px;"
                 >
                   <div
-                    class="ant-pro-card ant-pro-card-contain-card ant-pro-card-ghost"
+                    class="ant-pro-card ant-pro-card-box-shadow ant-pro-card-contain-card ant-pro-card-ghost"
                     style="height: 200px;"
                   >
                     <div
                       class="ant-pro-card-body"
-                      style="margin-right: -8px; margin-left: -8px;"
+                      style="margin-inline-end: -8px; margin-inline-start: -8px;"
                     >
                       <div
                         class="ant-pro-card-col ant-pro-card-col-16"
-                        style="padding-right: 8px; padding-left: 8px;"
+                        style="padding-inline-end: 8px; padding-inline-start: 8px;"
                       >
                         <div
-                          class="ant-pro-card"
+                          class="ant-pro-card ant-pro-card-box-shadow"
                         >
                           <div
                             class="ant-pro-card-body"
@@ -358,10 +358,10 @@ exports[`layout demos 📸 renders ./packages/layout/src/components/PageContaine
                       </div>
                       <div
                         class="ant-pro-card-col ant-pro-card-col-8"
-                        style="padding-right: 8px; padding-left: 8px;"
+                        style="padding-inline-end: 8px; padding-inline-start: 8px;"
                       >
                         <div
-                          class="ant-pro-card"
+                          class="ant-pro-card ant-pro-card-box-shadow"
                         >
                           <div
                             class="ant-pro-card-body"
@@ -645,18 +645,18 @@ exports[`layout demos 📸 renders ./packages/layout/src/components/PageContaine
             class="ant-pro-page-container-children-content"
           >
             <div
-              class="ant-pro-card ant-pro-card-contain-card ant-pro-card-ghost"
+              class="ant-pro-card ant-pro-card-box-shadow ant-pro-card-contain-card ant-pro-card-ghost"
             >
               <div
                 class="ant-pro-card-body ant-pro-card-body-direction-column"
-                style="margin-top: -8px; margin-bottom: -8px;"
+                style="margin-block-start: -8px; margin-block-end: -8px;"
               >
                 <div
                   class="ant-pro-card-col"
-                  style="padding-top: 8px; padding-bottom: 8px;"
+                  style="padding-block-start: 8px; padding-block-end: 8px;"
                 >
                   <div
-                    class="ant-pro-card"
+                    class="ant-pro-card ant-pro-card-box-shadow"
                     style="height: 200px;"
                   >
                     <div
@@ -666,22 +666,22 @@ exports[`layout demos 📸 renders ./packages/layout/src/components/PageContaine
                 </div>
                 <div
                   class="ant-pro-card-col"
-                  style="padding-top: 8px; padding-bottom: 8px;"
+                  style="padding-block-start: 8px; padding-block-end: 8px;"
                 >
                   <div
-                    class="ant-pro-card ant-pro-card-contain-card ant-pro-card-ghost"
+                    class="ant-pro-card ant-pro-card-box-shadow ant-pro-card-contain-card ant-pro-card-ghost"
                     style="height: 200px;"
                   >
                     <div
                       class="ant-pro-card-body"
-                      style="margin-right: -8px; margin-left: -8px;"
+                      style="margin-inline-end: -8px; margin-inline-start: -8px;"
                     >
                       <div
                         class="ant-pro-card-col ant-pro-card-col-16"
-                        style="padding-right: 8px; padding-left: 8px;"
+                        style="padding-inline-end: 8px; padding-inline-start: 8px;"
                       >
                         <div
-                          class="ant-pro-card"
+                          class="ant-pro-card ant-pro-card-box-shadow"
                         >
                           <div
                             class="ant-pro-card-body"
@@ -690,10 +690,10 @@ exports[`layout demos 📸 renders ./packages/layout/src/components/PageContaine
                       </div>
                       <div
                         class="ant-pro-card-col ant-pro-card-col-8"
-                        style="padding-right: 8px; padding-left: 8px;"
+                        style="padding-inline-end: 8px; padding-inline-start: 8px;"
                       >
                         <div
-                          class="ant-pro-card"
+                          class="ant-pro-card ant-pro-card-box-shadow"
                         >
                           <div
                             class="ant-pro-card-body"
@@ -758,7 +758,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/components/PageContaine
                   >
                     <div
                       class="ant-descriptions"
-                      style="margin-bottom: -16px;"
+                      style="margin-block-end: -16px;"
                     >
                       <div
                         class="ant-descriptions-view"
@@ -872,18 +872,18 @@ exports[`layout demos 📸 renders ./packages/layout/src/components/PageContaine
             class="ant-pro-page-container-children-content"
           >
             <div
-              class="ant-pro-card ant-pro-card-contain-card ant-pro-card-ghost"
+              class="ant-pro-card ant-pro-card-box-shadow ant-pro-card-contain-card ant-pro-card-ghost"
             >
               <div
                 class="ant-pro-card-body ant-pro-card-body-direction-column"
-                style="margin-top: -8px; margin-bottom: -8px;"
+                style="margin-block-start: -8px; margin-block-end: -8px;"
               >
                 <div
                   class="ant-pro-card-col"
-                  style="padding-top: 8px; padding-bottom: 8px;"
+                  style="padding-block-start: 8px; padding-block-end: 8px;"
                 >
                   <div
-                    class="ant-pro-card"
+                    class="ant-pro-card ant-pro-card-box-shadow"
                     style="height: 200px;"
                   >
                     <div
@@ -893,22 +893,22 @@ exports[`layout demos 📸 renders ./packages/layout/src/components/PageContaine
                 </div>
                 <div
                   class="ant-pro-card-col"
-                  style="padding-top: 8px; padding-bottom: 8px;"
+                  style="padding-block-start: 8px; padding-block-end: 8px;"
                 >
                   <div
-                    class="ant-pro-card ant-pro-card-contain-card ant-pro-card-ghost"
+                    class="ant-pro-card ant-pro-card-box-shadow ant-pro-card-contain-card ant-pro-card-ghost"
                     style="height: 200px;"
                   >
                     <div
                       class="ant-pro-card-body"
-                      style="margin-right: -8px; margin-left: -8px;"
+                      style="margin-inline-end: -8px; margin-inline-start: -8px;"
                     >
                       <div
                         class="ant-pro-card-col ant-pro-card-col-16"
-                        style="padding-right: 8px; padding-left: 8px;"
+                        style="padding-inline-end: 8px; padding-inline-start: 8px;"
                       >
                         <div
-                          class="ant-pro-card"
+                          class="ant-pro-card ant-pro-card-box-shadow"
                         >
                           <div
                             class="ant-pro-card-body"
@@ -917,10 +917,10 @@ exports[`layout demos 📸 renders ./packages/layout/src/components/PageContaine
                       </div>
                       <div
                         class="ant-pro-card-col ant-pro-card-col-8"
-                        style="padding-right: 8px; padding-left: 8px;"
+                        style="padding-inline-end: 8px; padding-inline-start: 8px;"
                       >
                         <div
-                          class="ant-pro-card"
+                          class="ant-pro-card ant-pro-card-box-shadow"
                         >
                           <div
                             class="ant-pro-card-body"
@@ -1035,7 +1035,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/components/PageContaine
               class="ant-pro-grid-content-children"
             >
               <div
-                style="padding-top: 100px; text-align: center;"
+                style="padding-block-start: 100px; text-align: center;"
               >
                 <div
                   aria-busy="true"
@@ -1155,7 +1155,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/components/PageContaine
               class="ant-pro-grid-content-children"
             >
               <div
-                style="padding-top: 100px; text-align: center;"
+                style="padding-block-start: 100px; text-align: center;"
               >
                 <div
                   aria-busy="true"
@@ -1307,7 +1307,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/components/WaterMark/de
         type="text"
       />
       <div
-        class="ant-pro-card ant-pro-card-border ant-pro-card-contain-card ant-pro-card-split"
+        class="ant-pro-card ant-pro-card-border ant-pro-card-box-shadow ant-pro-card-contain-card ant-pro-card-split"
       >
         <div
           class="ant-pro-card-header ant-pro-card-header-border"
@@ -1326,7 +1326,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/components/WaterMark/de
             style="width: 70%; flex-shrink: 0;"
           >
             <div
-              class="ant-pro-card"
+              class="ant-pro-card ant-pro-card-box-shadow"
             >
               <div
                 class="ant-pro-card-body"
@@ -1372,7 +1372,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/components/WaterMark/de
             class="ant-pro-card-col"
           >
             <div
-              class="ant-pro-card"
+              class="ant-pro-card ant-pro-card-box-shadow"
             >
               <div
                 class="ant-pro-card-header"
@@ -1706,7 +1706,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/components/WaterMark/de
         class="ant-pro-table"
       >
         <div
-          class="ant-pro-card"
+          class="ant-pro-card ant-pro-card-box-shadow"
         >
           <div
             class="ant-pro-card-body"
@@ -1847,7 +1847,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/components/WaterMark/de
                                       aria-label="question-circle"
                                       class="anticon anticon-question-circle"
                                       role="img"
-                                      style="margin-left: 4px;"
+                                      style="margin-inline-start: 4px;"
                                     >
                                       <svg
                                         aria-hidden="true"
@@ -9180,7 +9180,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/background-contex
                                 />
                               </span>
                               <span
-                                style="margin-left: 8px;"
+                                style="margin-inline-start: 8px;"
                               >
                                 <div>
                                   七妮妮
@@ -9287,7 +9287,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/background-contex
                       class="ant-pro-page-container-children-content"
                     >
                       <div
-                        class="ant-pro-card"
+                        class="ant-pro-card ant-pro-card-box-shadow"
                         style="height: 200vh; min-height: 800px;"
                       >
                         <div
@@ -9598,7 +9598,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/base.tsx correctl
                 class="ant-pro-sider-footer"
               >
                 <div
-                  style="text-align: center; padding-top: 12px;"
+                  style="text-align: center; padding-block-start: 12px;"
                 >
                   <div>
                     © 2021 Made with love
@@ -10097,7 +10097,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/base.tsx correctl
                                 />
                               </span>
                               <span
-                                style="margin-left: 8px;"
+                                style="margin-inline-start: 8px;"
                               >
                                 七妮妮
                               </span>
@@ -10248,7 +10248,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/base.tsx correctl
                       class="ant-pro-page-container-children-content"
                     >
                       <div
-                        class="ant-pro-card"
+                        class="ant-pro-card ant-pro-card-box-shadow"
                         style="height: 200vh; min-height: 800px;"
                       >
                         <div
@@ -10259,7 +10259,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/base.tsx correctl
                       </div>
                     </div>
                     <div
-                      style="height: 48px; margin-top: 24px;"
+                      style="height: 48px; margin-block-start: 24px;"
                     />
                   </div>
                 </div>
@@ -10614,7 +10614,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/classicMode.tsx c
                 class="ant-pro-sider-footer"
               >
                 <div
-                  style="text-align: center; padding-top: 12px;"
+                  style="text-align: center; padding-block-start: 12px;"
                 >
                   <div>
                     © 2021 Made with love
@@ -11113,7 +11113,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/classicMode.tsx c
                                 />
                               </span>
                               <span
-                                style="margin-left: 8px;"
+                                style="margin-inline-start: 8px;"
                               >
                                 <div
                                   style="color: rgb(223, 223, 223);"
@@ -11268,7 +11268,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/classicMode.tsx c
                       class="ant-pro-page-container-children-content"
                     >
                       <div
-                        class="ant-pro-card"
+                        class="ant-pro-card ant-pro-card-box-shadow"
                         style="height: 200vh; min-height: 800px;"
                       >
                         <div
@@ -11279,7 +11279,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/classicMode.tsx c
                       </div>
                     </div>
                     <div
-                      style="height: 48px; margin-top: 24px;"
+                      style="height: 48px; margin-block-start: 24px;"
                     />
                   </div>
                 </div>
@@ -11825,7 +11825,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/collapsedShowTitl
                     class="ant-pro-page-container-children-content"
                   >
                     <div
-                      class="ant-pro-card"
+                      class="ant-pro-card ant-pro-card-box-shadow"
                       style="height: 200vh; min-height: 800px;"
                     >
                       <div
@@ -11836,7 +11836,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/collapsedShowTitl
                     </div>
                   </div>
                   <div
-                    style="height: 48px; margin-top: 24px;"
+                    style="height: 48px; margin-block-start: 24px;"
                   />
                 </div>
               </div>
@@ -12293,7 +12293,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/config-provider.t
                 <img
                   alt="pro-logo"
                   src="https://procomponents.ant.design/favicon.ico"
-                  style="width: 16px; height: 16px; margin: 0px 10px 0px 16px;"
+                  style="width: 16px; height: 16px; margin: 0px 16px; margin-inline-end: 10px;"
                 />
                 Preview Pro
               </a>
@@ -13081,7 +13081,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/config-provider.t
                     </div>
                   </div>
                   <div
-                    style="height: 48px; margin-top: 24px;"
+                    style="height: 48px; margin-block-start: 24px;"
                   />
                 </div>
               </div>
@@ -13371,11 +13371,11 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/customSider.tsx c
                 </div>
                 <div
                   aria-hidden="true"
-                  style="margin-top: 24px; display: flex; align-items: center;"
+                  style="margin-block-start: 24px; display: flex; align-items: center;"
                 >
                   <span
                     class="ant-input-affix-wrapper ant-input-affix-wrapper-borderless"
-                    style="border-radius: 4px; margin-right: 12px; background-color: rgba(0, 0, 0, 0.03);"
+                    style="border-radius: 4px; margin-inline-end: 12px; background-color: rgba(0, 0, 0, 0.03);"
                   >
                     <span
                       class="ant-input-prefix"
@@ -13930,7 +13930,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/customSider.tsx c
                         </div>
                         <div
                           class="ant-space ant-space-horizontal ant-space-align-center"
-                          style="width: 100%; margin-top: 32px;"
+                          style="width: 100%; margin-block-start: 32px;"
                         >
                           <div
                             class="ant-space-item"
@@ -13949,7 +13949,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/customSider.tsx c
                             style="margin-right: 16px;"
                           >
                             <div
-                              style="font-size: 14px; margin-right: 32px;"
+                              style="font-size: 14px; margin-inline-end: 32px;"
                             >
                               七妮妮
                             </div>
@@ -14144,7 +14144,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/customSider.tsx c
                       class="ant-pro-page-container-children-content"
                     >
                       <div
-                        class="ant-pro-card"
+                        class="ant-pro-card ant-pro-card-box-shadow"
                         style="height: 100vh; min-height: 800px;"
                       >
                         <div
@@ -15371,7 +15371,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/designMenuCss.tsx
                 class="ant-pro-sider-footer"
               >
                 <div
-                  style="text-align: center; padding-top: 12px;"
+                  style="text-align: center; padding-block-start: 12px;"
                 >
                   <div>
                     © 2021 Made with love
@@ -15870,7 +15870,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/designMenuCss.tsx
                                 />
                               </span>
                               <span
-                                style="margin-left: 8px;"
+                                style="margin-inline-start: 8px;"
                               >
                                 <div
                                   style="color: rgb(223, 223, 223);"
@@ -16025,7 +16025,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/designMenuCss.tsx
                       class="ant-pro-page-container-children-content"
                     >
                       <div
-                        class="ant-pro-card"
+                        class="ant-pro-card ant-pro-card-box-shadow"
                         style="height: 200vh; min-height: 800px;"
                       >
                         <div
@@ -16036,7 +16036,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/designMenuCss.tsx
                       </div>
                     </div>
                     <div
-                      style="height: 48px; margin-top: 24px;"
+                      style="height: 48px; margin-block-start: 24px;"
                     />
                   </div>
                 </div>
@@ -16327,11 +16327,11 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/designSiderMenu.t
                 </div>
                 <div
                   aria-hidden="true"
-                  style="margin-top: 24px; display: flex; align-items: center;"
+                  style="margin-block-start: 24px; display: flex; align-items: center;"
                 >
                   <span
                     class="ant-input-affix-wrapper ant-input-affix-wrapper-borderless"
-                    style="border-radius: 4px; margin-right: 12px; background-color: rgba(0, 0, 0, 0.03);"
+                    style="border-radius: 4px; margin-inline-end: 12px; background-color: rgba(0, 0, 0, 0.03);"
                   >
                     <span
                       class="ant-input-prefix"
@@ -17087,7 +17087,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/designSiderMenu.t
                       class="ant-pro-page-container-children-content"
                     >
                       <div
-                        class="ant-pro-card"
+                        class="ant-pro-card ant-pro-card-box-shadow"
                         style="height: 100vh; min-height: 800px;"
                       >
                         <div
@@ -17553,7 +17553,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/dynamic-settings.
                   <img
                     alt="pro-logo"
                     src="https://procomponents.ant.design/favicon.ico"
-                    style="width: 16px; height: 16px; margin: 0px 10px 0px 16px;"
+                    style="width: 16px; height: 16px; margin: 0px 16px; margin-inline-end: 10px;"
                   />
                   Preview Pro
                 </a>
@@ -18345,7 +18345,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/dynamic-settings.
                         </div>
                       </div>
                       <div
-                        style="height: 48px; margin-top: 24px;"
+                        style="height: 48px; margin-block-start: 24px;"
                       />
                       <div
                         class="ant-pro-layout-watermark"
@@ -19941,7 +19941,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/footer-global-too
                 class="ant-pro-sider-footer"
               >
                 <div
-                  style="text-align: center; padding-top: 12px;"
+                  style="text-align: center; padding-block-start: 12px;"
                 >
                   <div>
                     © 2021 Made with love
@@ -20494,7 +20494,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/footer-global-too
                                 />
                               </span>
                               <span
-                                style="margin-left: 8px;"
+                                style="margin-inline-start: 8px;"
                               >
                                 七妮妮
                               </span>
@@ -20599,7 +20599,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/footer-global-too
                       class="ant-pro-page-container-children-content"
                     >
                       <div
-                        class="ant-pro-card"
+                        class="ant-pro-card ant-pro-card-box-shadow"
                         style="min-height: 800px;"
                       >
                         <div
@@ -20615,7 +20615,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/footer-global-too
             </main>
             <div
               class="ant-space ant-space-horizontal ant-space-align-center"
-              style="height: 64px; display: flex; justify-content: end; align-items: center; margin-right: 24px;"
+              style="height: 64px; display: flex; justify-content: end; align-items: center; margin-inline-end: 24px;"
             >
               <div
                 class="ant-space-item"
@@ -21227,19 +21227,19 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/ghost.tsx correct
                       class="ant-pro-page-container-children-content"
                     >
                       <div
-                        class="ant-pro-card ant-pro-card-contain-card ant-pro-card-ghost"
+                        class="ant-pro-card ant-pro-card-box-shadow ant-pro-card-contain-card ant-pro-card-ghost"
                         style="height: 200vh;"
                       >
                         <div
                           class="ant-pro-card-body ant-pro-card-body-direction-column"
-                          style="margin-top: -8px; margin-bottom: -8px;"
+                          style="margin-block-start: -8px; margin-block-end: -8px;"
                         >
                           <div
                             class="ant-pro-card-col"
-                            style="padding-top: 8px; padding-bottom: 8px;"
+                            style="padding-block-start: 8px; padding-block-end: 8px;"
                           >
                             <div
-                              class="ant-pro-card"
+                              class="ant-pro-card ant-pro-card-box-shadow"
                               style="height: 200px;"
                             >
                               <div
@@ -21249,22 +21249,22 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/ghost.tsx correct
                           </div>
                           <div
                             class="ant-pro-card-col"
-                            style="padding-top: 8px; padding-bottom: 8px;"
+                            style="padding-block-start: 8px; padding-block-end: 8px;"
                           >
                             <div
-                              class="ant-pro-card ant-pro-card-contain-card ant-pro-card-ghost"
+                              class="ant-pro-card ant-pro-card-box-shadow ant-pro-card-contain-card ant-pro-card-ghost"
                               style="height: 200px;"
                             >
                               <div
                                 class="ant-pro-card-body"
-                                style="margin-right: -8px; margin-left: -8px;"
+                                style="margin-inline-end: -8px; margin-inline-start: -8px;"
                               >
                                 <div
                                   class="ant-pro-card-col ant-pro-card-col-16"
-                                  style="padding-right: 8px; padding-left: 8px;"
+                                  style="padding-inline-end: 8px; padding-inline-start: 8px;"
                                 >
                                   <div
-                                    class="ant-pro-card"
+                                    class="ant-pro-card ant-pro-card-box-shadow"
                                   >
                                     <div
                                       class="ant-pro-card-body"
@@ -21273,10 +21273,10 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/ghost.tsx correct
                                 </div>
                                 <div
                                   class="ant-pro-card-col ant-pro-card-col-8"
-                                  style="padding-right: 8px; padding-left: 8px;"
+                                  style="padding-inline-end: 8px; padding-inline-start: 8px;"
                                 >
                                   <div
-                                    class="ant-pro-card"
+                                    class="ant-pro-card ant-pro-card-box-shadow"
                                   >
                                     <div
                                       class="ant-pro-card-body"
@@ -22730,7 +22730,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/immersive-navigat
           >
             <div
               class="ant-pro-page-container ant-pro-page-container-ghost"
-              style="padding-top: 48px;"
+              style="padding-block-start: 48px;"
             >
               <div
                 class="ant-pro-page-container-warp"
@@ -23650,7 +23650,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/menu-group.tsx co
                 class="ant-pro-sider-footer"
               >
                 <p
-                  style="text-align: center; color: rgba(0, 0, 0, 0.6); padding-top: 12px;"
+                  style="text-align: center; color: rgba(0, 0, 0, 0.6); padding-block-start: 12px;"
                 >
                   Power by Ant Design
                 </p>
@@ -23703,7 +23703,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/menu-group.tsx co
                         class="ant-pro-page-container-children-content"
                       >
                         <div
-                          class="ant-pro-card"
+                          class="ant-pro-card ant-pro-card-box-shadow"
                           style="height: 120vh; min-height: 600px;"
                         >
                           <div
@@ -24347,7 +24347,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/mixMode.tsx corre
                 class="ant-pro-sider-footer"
               >
                 <div
-                  style="text-align: center; padding-top: 12px;"
+                  style="text-align: center; padding-block-start: 12px;"
                 >
                   <div>
                     © 2021 Made with love
@@ -24846,7 +24846,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/mixMode.tsx corre
                                 />
                               </span>
                               <span
-                                style="margin-left: 8px;"
+                                style="margin-inline-start: 8px;"
                               >
                                 七妮妮
                               </span>
@@ -24951,7 +24951,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/mixMode.tsx corre
                       class="ant-pro-page-container-children-content"
                     >
                       <div
-                        class="ant-pro-card"
+                        class="ant-pro-card ant-pro-card-box-shadow"
                         style="height: 100vh; min-height: 800px;"
                       >
                         <div
@@ -25262,7 +25262,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/pageSimplify.tsx 
                 class="ant-pro-sider-footer"
               >
                 <div
-                  style="text-align: center; padding-top: 12px;"
+                  style="text-align: center; padding-block-start: 12px;"
                 >
                   <div>
                     © 2021 Made with love
@@ -25466,7 +25466,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/pageSimplify.tsx 
                     style="flex: 1;"
                   >
                     <div
-                      style="display: flex; align-items: center; margin-right: 52px;"
+                      style="display: flex; align-items: center; margin-inline-end: 52px;"
                     >
                       <div
                         class="ant-divider ant-divider-vertical"
@@ -25596,7 +25596,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/pageSimplify.tsx 
                                 />
                               </span>
                               <span
-                                style="margin-left: 8px;"
+                                style="margin-inline-start: 8px;"
                               >
                                 <div>
                                   七妮妮
@@ -25703,7 +25703,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/pageSimplify.tsx 
                       class="ant-pro-page-container-children-content"
                     >
                       <div
-                        class="ant-pro-card"
+                        class="ant-pro-card ant-pro-card-box-shadow"
                         style="height: 200vh; min-height: 800px;"
                       >
                         <div
@@ -25894,7 +25894,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/searchMenu.tsx co
               >
                 <div
                   class="ant-space ant-space-horizontal ant-space-align-center"
-                  style="margin-top: 16px;"
+                  style="margin-block-start: 16px;"
                 >
                   <div
                     class="ant-space-item"
@@ -26436,11 +26436,11 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/siderMode.tsx cor
                 </div>
                 <div
                   aria-hidden="true"
-                  style="margin-top: 24px; display: flex; align-items: center;"
+                  style="margin-block-start: 24px; display: flex; align-items: center;"
                 >
                   <span
                     class="ant-input-affix-wrapper ant-input-affix-wrapper-borderless"
-                    style="border-radius: 4px; margin-right: 12px; background-color: rgba(0, 0, 0, 0.03);"
+                    style="border-radius: 4px; margin-inline-end: 12px; background-color: rgba(0, 0, 0, 0.03);"
                   >
                     <span
                       class="ant-input-prefix"
@@ -27196,7 +27196,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/siderMode.tsx cor
                       class="ant-pro-page-container-children-content"
                     >
                       <div
-                        class="ant-pro-card"
+                        class="ant-pro-card ant-pro-card-box-shadow"
                         style="height: 100vh; min-height: 800px;"
                       >
                         <div
@@ -27531,7 +27531,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/siteMenu.tsx corr
                 class="ant-pro-sider-footer"
               >
                 <div
-                  style="text-align: center; padding-top: 12px;"
+                  style="text-align: center; padding-block-start: 12px;"
                 >
                   <div>
                     © 2021 Made with love
@@ -28030,7 +28030,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/siteMenu.tsx corr
                                 />
                               </span>
                               <span
-                                style="margin-left: 8px;"
+                                style="margin-inline-start: 8px;"
                               >
                                 七妮妮
                               </span>
@@ -28135,7 +28135,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/siteMenu.tsx corr
                       class="ant-pro-page-container-children-content"
                     >
                       <div
-                        class="ant-pro-card"
+                        class="ant-pro-card ant-pro-card-box-shadow"
                         style="height: 100vh; min-height: 800px;"
                       >
                         <div
@@ -31095,7 +31095,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/theme.tsx correct
               class="ant-pro-sider-footer"
             >
               <p
-                style="text-align: center; padding-top: 12px;"
+                style="text-align: center; padding-block-start: 12px;"
               >
                 Power by Ant Design
               </p>
@@ -31259,7 +31259,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/theme.tsx correct
                     class="ant-pro-page-container-children-content"
                   >
                     <div
-                      class="ant-pro-card"
+                      class="ant-pro-card ant-pro-card-box-shadow"
                       style="height: 200vh; min-height: 800px;"
                     >
                       <div
@@ -31270,7 +31270,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/theme.tsx correct
                     </div>
                   </div>
                   <div
-                    style="height: 48px; margin-top: 24px;"
+                    style="height: 48px; margin-block-start: 24px;"
                   />
                 </div>
               </div>
@@ -32281,7 +32281,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/topMode.tsx corre
                                 />
                               </span>
                               <span
-                                style="margin-left: 8px;"
+                                style="margin-inline-start: 8px;"
                               >
                                 七妮妮
                               </span>
@@ -32386,7 +32386,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/topMode.tsx corre
                       class="ant-pro-page-container-children-content"
                     >
                       <div
-                        class="ant-pro-card"
+                        class="ant-pro-card ant-pro-card-box-shadow"
                         style="height: 100vh; min-height: 800px;"
                       >
                         <div

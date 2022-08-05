@@ -415,7 +415,7 @@ exports[`table demos 📸 renders ./packages/table/src/components/DragSortTable/
                                   aria-label="down"
                                   class="anticon anticon-down"
                                   role="img"
-                                  style="margin-left: 0.5em; transition: 0.3s all; transform: rotate(0turn);"
+                                  style="margin-inline-start: 0.5em; transition: 0.3s all; transform: rotate(0turn);"
                                 >
                                   <svg
                                     aria-hidden="true"
@@ -445,11 +445,11 @@ exports[`table demos 📸 renders ./packages/table/src/components/DragSortTable/
         </div>
       </div>
       <div
-        class="ant-pro-card"
+        class="ant-pro-card ant-pro-card-box-shadow"
       >
         <div
           class="ant-pro-card-body"
-          style="padding-top: 0px;"
+          style="padding-block-start: 0;"
         >
           <div
             class="ant-pro-table-list-toolbar"
@@ -1183,7 +1183,7 @@ exports[`table demos 📸 renders ./packages/table/src/components/DragSortTable/
                                   aria-label="down"
                                   class="anticon anticon-down"
                                   role="img"
-                                  style="margin-left: 0.5em; transition: 0.3s all; transform: rotate(0turn);"
+                                  style="margin-inline-start: 0.5em; transition: 0.3s all; transform: rotate(0turn);"
                                 >
                                   <svg
                                     aria-hidden="true"
@@ -1213,11 +1213,11 @@ exports[`table demos 📸 renders ./packages/table/src/components/DragSortTable/
         </div>
       </div>
       <div
-        class="ant-pro-card"
+        class="ant-pro-card ant-pro-card-box-shadow"
       >
         <div
           class="ant-pro-card-body"
-          style="padding-top: 0px;"
+          style="padding-block-start: 0;"
         >
           <div
             class="ant-pro-table-list-toolbar"
@@ -1560,11 +1560,11 @@ exports[`table demos 📸 renders ./packages/table/src/components/DragSortTable/
       class="ant-pro-table"
     >
       <div
-        class="ant-pro-card"
+        class="ant-pro-card ant-pro-card-box-shadow"
       >
         <div
           class="ant-pro-card-body"
-          style="padding-top: 0px;"
+          style="padding-block-start: 0;"
         >
           <div
             class="ant-pro-table-list-toolbar"
@@ -1903,11 +1903,11 @@ exports[`table demos 📸 renders ./packages/table/src/components/EditableTable/
       class="ant-pro-table"
     >
       <div
-        class="ant-pro-card"
+        class="ant-pro-card ant-pro-card-box-shadow"
       >
         <div
           class="ant-pro-card-body"
-          style="padding-top: 0px;"
+          style="padding-block-start: 0;"
         >
           <div
             class="ant-pro-table-list-toolbar"
@@ -2406,7 +2406,7 @@ exports[`table demos 📸 renders ./packages/table/src/components/EditableTable/
     </div>
   </div>
   <div
-    class="ant-pro-card ant-pro-card-collapse"
+    class="ant-pro-card ant-pro-card-box-shadow ant-pro-card-collapse"
   >
     <div
       class="ant-pro-card-header ant-pro-card-header-border ant-pro-card-header-collapsible"
@@ -2479,11 +2479,11 @@ exports[`table demos 📸 renders ./packages/table/src/components/EditableTable/
       class="ant-pro-table"
     >
       <div
-        class="ant-pro-card"
+        class="ant-pro-card ant-pro-card-box-shadow"
       >
         <div
           class="ant-pro-card-body"
-          style="padding-top: 0px;"
+          style="padding-block-start: 0;"
         >
           <div
             class="ant-pro-table-list-toolbar"
@@ -2851,7 +2851,7 @@ exports[`table demos 📸 renders ./packages/table/src/components/EditableTable/
     </div>
   </div>
   <div
-    class="ant-pro-card ant-pro-card-collapse"
+    class="ant-pro-card ant-pro-card-box-shadow ant-pro-card-collapse"
   >
     <div
       class="ant-pro-card-header ant-pro-card-header-border ant-pro-card-header-collapsible"
@@ -2986,11 +2986,11 @@ exports[`table demos 📸 renders ./packages/table/src/components/EditableTable/
       class="ant-pro-table"
     >
       <div
-        class="ant-pro-card"
+        class="ant-pro-card ant-pro-card-box-shadow"
       >
         <div
           class="ant-pro-card-body"
-          style="padding-top: 0px;"
+          style="padding-block-start: 0;"
         >
           <div
             class="ant-pro-table-list-toolbar"
@@ -3247,7 +3247,7 @@ exports[`table demos 📸 renders ./packages/table/src/components/EditableTable/
     </div>
   </div>
   <div
-    class="ant-pro-card ant-pro-card-collapse"
+    class="ant-pro-card ant-pro-card-box-shadow ant-pro-card-collapse"
   >
     <div
       class="ant-pro-card-header ant-pro-card-header-border ant-pro-card-header-collapsible"
@@ -3397,7 +3397,7 @@ exports[`table demos 📸 renders ./packages/table/src/components/EditableTable/
                                         >
                                           <div
                                             class="ant-radio-group ant-radio-group-outline ant-pro-field-radio-horizontal"
-                                            style="margin-bottom: 0px;"
+                                            style="margin-block-end: 0;"
                                           >
                                             <label
                                               class="ant-radio-wrapper ant-radio-wrapper-in-form-item"
@@ -3677,7 +3677,7 @@ exports[`table demos 📸 renders ./packages/table/src/components/EditableTable/
                 class="ant-form-item-control-input-content"
               >
                 <div
-                  class="ant-pro-card ant-pro-card-collapse"
+                  class="ant-pro-card ant-pro-card-box-shadow ant-pro-card-collapse"
                 >
                   <div
                     class="ant-pro-card-header ant-pro-card-header-border ant-pro-card-header-collapsible"
@@ -3780,7 +3780,7 @@ exports[`table demos 📸 renders ./packages/table/src/components/EditableTable/
 exports[`table demos 📸 renders ./packages/table/src/components/EditableTable/demos/form-linkage.tsx correctly 1`] = `
 <DocumentFragment>
   <div
-    class="ant-pro-card"
+    class="ant-pro-card ant-pro-card-box-shadow"
   >
     <div
       class="ant-pro-card-body"
@@ -3800,7 +3800,7 @@ exports[`table demos 📸 renders ./packages/table/src/components/EditableTable/
               type="text"
             />
             <div
-              style="display: flex; align-items: center; gap: 16px; padding-bottom: 16px;"
+              style="display: flex; align-items: center; gap: 16px; padding-block-end: 16px;"
             >
               <div
                 style="flex: 1;"
@@ -4306,11 +4306,11 @@ exports[`table demos 📸 renders ./packages/table/src/components/EditableTable/
       class="ant-pro-table"
     >
       <div
-        class="ant-pro-card"
+        class="ant-pro-card ant-pro-card-box-shadow"
       >
         <div
           class="ant-pro-card-body"
-          style="padding-top: 0px;"
+          style="padding-block-start: 0;"
         >
           <div
             class="ant-pro-table-list-toolbar"
@@ -4468,7 +4468,7 @@ exports[`table demos 📸 renders ./packages/table/src/components/EditableTable/
                               >
                                 <div
                                   class="ant-form-item"
-                                  style="margin: -5px 0px -5px 0px;"
+                                  style="margin-block-start: -5px; margin-block-end: -5px; margin-inline-start: 0; margin-inline-end: 0;"
                                 >
                                   <div
                                     class="ant-row ant-form-item-row"
@@ -4534,7 +4534,7 @@ exports[`table demos 📸 renders ./packages/table/src/components/EditableTable/
                               >
                                 <div
                                   class="ant-form-item"
-                                  style="margin: -5px 0px -5px 0px;"
+                                  style="margin-block-start: -5px; margin-block-end: -5px; margin-inline-start: 0; margin-inline-end: 0;"
                                 >
                                   <div
                                     class="ant-row ant-form-item-row"
@@ -4646,7 +4646,7 @@ exports[`table demos 📸 renders ./packages/table/src/components/EditableTable/
                               >
                                 <div
                                   class="ant-form-item"
-                                  style="margin: -5px 0px -5px 0px;"
+                                  style="margin-block-start: -5px; margin-block-end: -5px; margin-inline-start: 0; margin-inline-end: 0;"
                                 >
                                   <div
                                     class="ant-row ant-form-item-row"
@@ -4730,7 +4730,7 @@ exports[`table demos 📸 renders ./packages/table/src/components/EditableTable/
                               >
                                 <div
                                   class="ant-form-item"
-                                  style="margin: -5px 0px -5px 0px;"
+                                  style="margin-block-start: -5px; margin-block-end: -5px; margin-inline-start: 0; margin-inline-end: 0;"
                                 >
                                   <div
                                     class="ant-row ant-form-item-row"
@@ -4796,7 +4796,7 @@ exports[`table demos 📸 renders ./packages/table/src/components/EditableTable/
                               >
                                 <div
                                   class="ant-form-item"
-                                  style="margin: -5px 0px -5px 0px;"
+                                  style="margin-block-start: -5px; margin-block-end: -5px; margin-inline-start: 0; margin-inline-end: 0;"
                                 >
                                   <div
                                     class="ant-row ant-form-item-row"
@@ -4908,7 +4908,7 @@ exports[`table demos 📸 renders ./packages/table/src/components/EditableTable/
                               >
                                 <div
                                   class="ant-form-item"
-                                  style="margin: -5px 0px -5px 0px;"
+                                  style="margin-block-start: -5px; margin-block-end: -5px; margin-inline-start: 0; margin-inline-end: 0;"
                                 >
                                   <div
                                     class="ant-row ant-form-item-row"
@@ -4992,7 +4992,7 @@ exports[`table demos 📸 renders ./packages/table/src/components/EditableTable/
                               >
                                 <div
                                   class="ant-form-item"
-                                  style="margin: -5px 0px -5px 0px;"
+                                  style="margin-block-start: -5px; margin-block-end: -5px; margin-inline-start: 0; margin-inline-end: 0;"
                                 >
                                   <div
                                     class="ant-row ant-form-item-row"
@@ -5058,7 +5058,7 @@ exports[`table demos 📸 renders ./packages/table/src/components/EditableTable/
                               >
                                 <div
                                   class="ant-form-item"
-                                  style="margin: -5px 0px -5px 0px;"
+                                  style="margin-block-start: -5px; margin-block-end: -5px; margin-inline-start: 0; margin-inline-end: 0;"
                                 >
                                   <div
                                     class="ant-row ant-form-item-row"
@@ -5170,7 +5170,7 @@ exports[`table demos 📸 renders ./packages/table/src/components/EditableTable/
                               >
                                 <div
                                   class="ant-form-item"
-                                  style="margin: -5px 0px -5px 0px;"
+                                  style="margin-block-start: -5px; margin-block-end: -5px; margin-inline-start: 0; margin-inline-end: 0;"
                                 >
                                   <div
                                     class="ant-row ant-form-item-row"
@@ -5254,7 +5254,7 @@ exports[`table demos 📸 renders ./packages/table/src/components/EditableTable/
                               >
                                 <div
                                   class="ant-form-item"
-                                  style="margin: -5px 0px -5px 0px;"
+                                  style="margin-block-start: -5px; margin-block-end: -5px; margin-inline-start: 0; margin-inline-end: 0;"
                                 >
                                   <div
                                     class="ant-row ant-form-item-row"
@@ -5320,7 +5320,7 @@ exports[`table demos 📸 renders ./packages/table/src/components/EditableTable/
                               >
                                 <div
                                   class="ant-form-item"
-                                  style="margin: -5px 0px -5px 0px;"
+                                  style="margin-block-start: -5px; margin-block-end: -5px; margin-inline-start: 0; margin-inline-end: 0;"
                                 >
                                   <div
                                     class="ant-row ant-form-item-row"
@@ -5432,7 +5432,7 @@ exports[`table demos 📸 renders ./packages/table/src/components/EditableTable/
                               >
                                 <div
                                   class="ant-form-item"
-                                  style="margin: -5px 0px -5px 0px;"
+                                  style="margin-block-start: -5px; margin-block-end: -5px; margin-inline-start: 0; margin-inline-end: 0;"
                                 >
                                   <div
                                     class="ant-row ant-form-item-row"
@@ -5516,7 +5516,7 @@ exports[`table demos 📸 renders ./packages/table/src/components/EditableTable/
                               >
                                 <div
                                   class="ant-form-item"
-                                  style="margin: -5px 0px -5px 0px;"
+                                  style="margin-block-start: -5px; margin-block-end: -5px; margin-inline-start: 0; margin-inline-end: 0;"
                                 >
                                   <div
                                     class="ant-row ant-form-item-row"
@@ -5582,7 +5582,7 @@ exports[`table demos 📸 renders ./packages/table/src/components/EditableTable/
                               >
                                 <div
                                   class="ant-form-item"
-                                  style="margin: -5px 0px -5px 0px;"
+                                  style="margin-block-start: -5px; margin-block-end: -5px; margin-inline-start: 0; margin-inline-end: 0;"
                                 >
                                   <div
                                     class="ant-row ant-form-item-row"
@@ -5694,7 +5694,7 @@ exports[`table demos 📸 renders ./packages/table/src/components/EditableTable/
                               >
                                 <div
                                   class="ant-form-item"
-                                  style="margin: -5px 0px -5px 0px;"
+                                  style="margin-block-start: -5px; margin-block-end: -5px; margin-inline-start: 0; margin-inline-end: 0;"
                                 >
                                   <div
                                     class="ant-row ant-form-item-row"
@@ -5778,7 +5778,7 @@ exports[`table demos 📸 renders ./packages/table/src/components/EditableTable/
                               >
                                 <div
                                   class="ant-form-item"
-                                  style="margin: -5px 0px -5px 0px;"
+                                  style="margin-block-start: -5px; margin-block-end: -5px; margin-inline-start: 0; margin-inline-end: 0;"
                                 >
                                   <div
                                     class="ant-row ant-form-item-row"
@@ -5844,7 +5844,7 @@ exports[`table demos 📸 renders ./packages/table/src/components/EditableTable/
                               >
                                 <div
                                   class="ant-form-item"
-                                  style="margin: -5px 0px -5px 0px;"
+                                  style="margin-block-start: -5px; margin-block-end: -5px; margin-inline-start: 0; margin-inline-end: 0;"
                                 >
                                   <div
                                     class="ant-row ant-form-item-row"
@@ -5956,7 +5956,7 @@ exports[`table demos 📸 renders ./packages/table/src/components/EditableTable/
                               >
                                 <div
                                   class="ant-form-item"
-                                  style="margin: -5px 0px -5px 0px;"
+                                  style="margin-block-start: -5px; margin-block-end: -5px; margin-inline-start: 0; margin-inline-end: 0;"
                                 >
                                   <div
                                     class="ant-row ant-form-item-row"
@@ -6040,7 +6040,7 @@ exports[`table demos 📸 renders ./packages/table/src/components/EditableTable/
                               >
                                 <div
                                   class="ant-form-item"
-                                  style="margin: -5px 0px -5px 0px;"
+                                  style="margin-block-start: -5px; margin-block-end: -5px; margin-inline-start: 0; margin-inline-end: 0;"
                                 >
                                   <div
                                     class="ant-row ant-form-item-row"
@@ -6106,7 +6106,7 @@ exports[`table demos 📸 renders ./packages/table/src/components/EditableTable/
                               >
                                 <div
                                   class="ant-form-item"
-                                  style="margin: -5px 0px -5px 0px;"
+                                  style="margin-block-start: -5px; margin-block-end: -5px; margin-inline-start: 0; margin-inline-end: 0;"
                                 >
                                   <div
                                     class="ant-row ant-form-item-row"
@@ -6218,7 +6218,7 @@ exports[`table demos 📸 renders ./packages/table/src/components/EditableTable/
                               >
                                 <div
                                   class="ant-form-item"
-                                  style="margin: -5px 0px -5px 0px;"
+                                  style="margin-block-start: -5px; margin-block-end: -5px; margin-inline-start: 0; margin-inline-end: 0;"
                                 >
                                   <div
                                     class="ant-row ant-form-item-row"
@@ -6302,7 +6302,7 @@ exports[`table demos 📸 renders ./packages/table/src/components/EditableTable/
                               >
                                 <div
                                   class="ant-form-item"
-                                  style="margin: -5px 0px -5px 0px;"
+                                  style="margin-block-start: -5px; margin-block-end: -5px; margin-inline-start: 0; margin-inline-end: 0;"
                                 >
                                   <div
                                     class="ant-row ant-form-item-row"
@@ -6368,7 +6368,7 @@ exports[`table demos 📸 renders ./packages/table/src/components/EditableTable/
                               >
                                 <div
                                   class="ant-form-item"
-                                  style="margin: -5px 0px -5px 0px;"
+                                  style="margin-block-start: -5px; margin-block-end: -5px; margin-inline-start: 0; margin-inline-end: 0;"
                                 >
                                   <div
                                     class="ant-row ant-form-item-row"
@@ -6480,7 +6480,7 @@ exports[`table demos 📸 renders ./packages/table/src/components/EditableTable/
                               >
                                 <div
                                   class="ant-form-item"
-                                  style="margin: -5px 0px -5px 0px;"
+                                  style="margin-block-start: -5px; margin-block-end: -5px; margin-inline-start: 0; margin-inline-end: 0;"
                                 >
                                   <div
                                     class="ant-row ant-form-item-row"
@@ -6564,7 +6564,7 @@ exports[`table demos 📸 renders ./packages/table/src/components/EditableTable/
                               >
                                 <div
                                   class="ant-form-item"
-                                  style="margin: -5px 0px -5px 0px;"
+                                  style="margin-block-start: -5px; margin-block-end: -5px; margin-inline-start: 0; margin-inline-end: 0;"
                                 >
                                   <div
                                     class="ant-row ant-form-item-row"
@@ -6630,7 +6630,7 @@ exports[`table demos 📸 renders ./packages/table/src/components/EditableTable/
                               >
                                 <div
                                   class="ant-form-item"
-                                  style="margin: -5px 0px -5px 0px;"
+                                  style="margin-block-start: -5px; margin-block-end: -5px; margin-inline-start: 0; margin-inline-end: 0;"
                                 >
                                   <div
                                     class="ant-row ant-form-item-row"
@@ -6742,7 +6742,7 @@ exports[`table demos 📸 renders ./packages/table/src/components/EditableTable/
                               >
                                 <div
                                   class="ant-form-item"
-                                  style="margin: -5px 0px -5px 0px;"
+                                  style="margin-block-start: -5px; margin-block-end: -5px; margin-inline-start: 0; margin-inline-end: 0;"
                                 >
                                   <div
                                     class="ant-row ant-form-item-row"
@@ -6826,7 +6826,7 @@ exports[`table demos 📸 renders ./packages/table/src/components/EditableTable/
                               >
                                 <div
                                   class="ant-form-item"
-                                  style="margin: -5px 0px -5px 0px;"
+                                  style="margin-block-start: -5px; margin-block-end: -5px; margin-inline-start: 0; margin-inline-end: 0;"
                                 >
                                   <div
                                     class="ant-row ant-form-item-row"
@@ -6892,7 +6892,7 @@ exports[`table demos 📸 renders ./packages/table/src/components/EditableTable/
                               >
                                 <div
                                   class="ant-form-item"
-                                  style="margin: -5px 0px -5px 0px;"
+                                  style="margin-block-start: -5px; margin-block-end: -5px; margin-inline-start: 0; margin-inline-end: 0;"
                                 >
                                   <div
                                     class="ant-row ant-form-item-row"
@@ -7004,7 +7004,7 @@ exports[`table demos 📸 renders ./packages/table/src/components/EditableTable/
                               >
                                 <div
                                   class="ant-form-item"
-                                  style="margin: -5px 0px -5px 0px;"
+                                  style="margin-block-start: -5px; margin-block-end: -5px; margin-inline-start: 0; margin-inline-end: 0;"
                                 >
                                   <div
                                     class="ant-row ant-form-item-row"
@@ -7088,7 +7088,7 @@ exports[`table demos 📸 renders ./packages/table/src/components/EditableTable/
                               >
                                 <div
                                   class="ant-form-item"
-                                  style="margin: -5px 0px -5px 0px;"
+                                  style="margin-block-start: -5px; margin-block-end: -5px; margin-inline-start: 0; margin-inline-end: 0;"
                                 >
                                   <div
                                     class="ant-row ant-form-item-row"
@@ -7154,7 +7154,7 @@ exports[`table demos 📸 renders ./packages/table/src/components/EditableTable/
                               >
                                 <div
                                   class="ant-form-item"
-                                  style="margin: -5px 0px -5px 0px;"
+                                  style="margin-block-start: -5px; margin-block-end: -5px; margin-inline-start: 0; margin-inline-end: 0;"
                                 >
                                   <div
                                     class="ant-row ant-form-item-row"
@@ -7266,7 +7266,7 @@ exports[`table demos 📸 renders ./packages/table/src/components/EditableTable/
                               >
                                 <div
                                   class="ant-form-item"
-                                  style="margin: -5px 0px -5px 0px;"
+                                  style="margin-block-start: -5px; margin-block-end: -5px; margin-inline-start: 0; margin-inline-end: 0;"
                                 >
                                   <div
                                     class="ant-row ant-form-item-row"
@@ -7350,7 +7350,7 @@ exports[`table demos 📸 renders ./packages/table/src/components/EditableTable/
                               >
                                 <div
                                   class="ant-form-item"
-                                  style="margin: -5px 0px -5px 0px;"
+                                  style="margin-block-start: -5px; margin-block-end: -5px; margin-inline-start: 0; margin-inline-end: 0;"
                                 >
                                   <div
                                     class="ant-row ant-form-item-row"
@@ -7416,7 +7416,7 @@ exports[`table demos 📸 renders ./packages/table/src/components/EditableTable/
                               >
                                 <div
                                   class="ant-form-item"
-                                  style="margin: -5px 0px -5px 0px;"
+                                  style="margin-block-start: -5px; margin-block-end: -5px; margin-inline-start: 0; margin-inline-end: 0;"
                                 >
                                   <div
                                     class="ant-row ant-form-item-row"
@@ -7528,7 +7528,7 @@ exports[`table demos 📸 renders ./packages/table/src/components/EditableTable/
                               >
                                 <div
                                   class="ant-form-item"
-                                  style="margin: -5px 0px -5px 0px;"
+                                  style="margin-block-start: -5px; margin-block-end: -5px; margin-inline-start: 0; margin-inline-end: 0;"
                                 >
                                   <div
                                     class="ant-row ant-form-item-row"
@@ -7612,7 +7612,7 @@ exports[`table demos 📸 renders ./packages/table/src/components/EditableTable/
                               >
                                 <div
                                   class="ant-form-item"
-                                  style="margin: -5px 0px -5px 0px;"
+                                  style="margin-block-start: -5px; margin-block-end: -5px; margin-inline-start: 0; margin-inline-end: 0;"
                                 >
                                   <div
                                     class="ant-row ant-form-item-row"
@@ -7678,7 +7678,7 @@ exports[`table demos 📸 renders ./packages/table/src/components/EditableTable/
                               >
                                 <div
                                   class="ant-form-item"
-                                  style="margin: -5px 0px -5px 0px;"
+                                  style="margin-block-start: -5px; margin-block-end: -5px; margin-inline-start: 0; margin-inline-end: 0;"
                                 >
                                   <div
                                     class="ant-row ant-form-item-row"
@@ -7790,7 +7790,7 @@ exports[`table demos 📸 renders ./packages/table/src/components/EditableTable/
                               >
                                 <div
                                   class="ant-form-item"
-                                  style="margin: -5px 0px -5px 0px;"
+                                  style="margin-block-start: -5px; margin-block-end: -5px; margin-inline-start: 0; margin-inline-end: 0;"
                                 >
                                   <div
                                     class="ant-row ant-form-item-row"
@@ -7874,7 +7874,7 @@ exports[`table demos 📸 renders ./packages/table/src/components/EditableTable/
                               >
                                 <div
                                   class="ant-form-item"
-                                  style="margin: -5px 0px -5px 0px;"
+                                  style="margin-block-start: -5px; margin-block-end: -5px; margin-inline-start: 0; margin-inline-end: 0;"
                                 >
                                   <div
                                     class="ant-row ant-form-item-row"
@@ -7940,7 +7940,7 @@ exports[`table demos 📸 renders ./packages/table/src/components/EditableTable/
                               >
                                 <div
                                   class="ant-form-item"
-                                  style="margin: -5px 0px -5px 0px;"
+                                  style="margin-block-start: -5px; margin-block-end: -5px; margin-inline-start: 0; margin-inline-end: 0;"
                                 >
                                   <div
                                     class="ant-row ant-form-item-row"
@@ -8052,7 +8052,7 @@ exports[`table demos 📸 renders ./packages/table/src/components/EditableTable/
                               >
                                 <div
                                   class="ant-form-item"
-                                  style="margin: -5px 0px -5px 0px;"
+                                  style="margin-block-start: -5px; margin-block-end: -5px; margin-inline-start: 0; margin-inline-end: 0;"
                                 >
                                   <div
                                     class="ant-row ant-form-item-row"
@@ -8136,7 +8136,7 @@ exports[`table demos 📸 renders ./packages/table/src/components/EditableTable/
                               >
                                 <div
                                   class="ant-form-item"
-                                  style="margin: -5px 0px -5px 0px;"
+                                  style="margin-block-start: -5px; margin-block-end: -5px; margin-inline-start: 0; margin-inline-end: 0;"
                                 >
                                   <div
                                     class="ant-row ant-form-item-row"
@@ -8202,7 +8202,7 @@ exports[`table demos 📸 renders ./packages/table/src/components/EditableTable/
                               >
                                 <div
                                   class="ant-form-item"
-                                  style="margin: -5px 0px -5px 0px;"
+                                  style="margin-block-start: -5px; margin-block-end: -5px; margin-inline-start: 0; margin-inline-end: 0;"
                                 >
                                   <div
                                     class="ant-row ant-form-item-row"
@@ -8314,7 +8314,7 @@ exports[`table demos 📸 renders ./packages/table/src/components/EditableTable/
                               >
                                 <div
                                   class="ant-form-item"
-                                  style="margin: -5px 0px -5px 0px;"
+                                  style="margin-block-start: -5px; margin-block-end: -5px; margin-inline-start: 0; margin-inline-end: 0;"
                                 >
                                   <div
                                     class="ant-row ant-form-item-row"
@@ -8398,7 +8398,7 @@ exports[`table demos 📸 renders ./packages/table/src/components/EditableTable/
                               >
                                 <div
                                   class="ant-form-item"
-                                  style="margin: -5px 0px -5px 0px;"
+                                  style="margin-block-start: -5px; margin-block-end: -5px; margin-inline-start: 0; margin-inline-end: 0;"
                                 >
                                   <div
                                     class="ant-row ant-form-item-row"
@@ -8464,7 +8464,7 @@ exports[`table demos 📸 renders ./packages/table/src/components/EditableTable/
                               >
                                 <div
                                   class="ant-form-item"
-                                  style="margin: -5px 0px -5px 0px;"
+                                  style="margin-block-start: -5px; margin-block-end: -5px; margin-inline-start: 0; margin-inline-end: 0;"
                                 >
                                   <div
                                     class="ant-row ant-form-item-row"
@@ -8576,7 +8576,7 @@ exports[`table demos 📸 renders ./packages/table/src/components/EditableTable/
                               >
                                 <div
                                   class="ant-form-item"
-                                  style="margin: -5px 0px -5px 0px;"
+                                  style="margin-block-start: -5px; margin-block-end: -5px; margin-inline-start: 0; margin-inline-end: 0;"
                                 >
                                   <div
                                     class="ant-row ant-form-item-row"
@@ -8660,7 +8660,7 @@ exports[`table demos 📸 renders ./packages/table/src/components/EditableTable/
                               >
                                 <div
                                   class="ant-form-item"
-                                  style="margin: -5px 0px -5px 0px;"
+                                  style="margin-block-start: -5px; margin-block-end: -5px; margin-inline-start: 0; margin-inline-end: 0;"
                                 >
                                   <div
                                     class="ant-row ant-form-item-row"
@@ -8726,7 +8726,7 @@ exports[`table demos 📸 renders ./packages/table/src/components/EditableTable/
                               >
                                 <div
                                   class="ant-form-item"
-                                  style="margin: -5px 0px -5px 0px;"
+                                  style="margin-block-start: -5px; margin-block-end: -5px; margin-inline-start: 0; margin-inline-end: 0;"
                                 >
                                   <div
                                     class="ant-row ant-form-item-row"
@@ -8838,7 +8838,7 @@ exports[`table demos 📸 renders ./packages/table/src/components/EditableTable/
                               >
                                 <div
                                   class="ant-form-item"
-                                  style="margin: -5px 0px -5px 0px;"
+                                  style="margin-block-start: -5px; margin-block-end: -5px; margin-inline-start: 0; margin-inline-end: 0;"
                                 >
                                   <div
                                     class="ant-row ant-form-item-row"
@@ -8922,7 +8922,7 @@ exports[`table demos 📸 renders ./packages/table/src/components/EditableTable/
                               >
                                 <div
                                   class="ant-form-item"
-                                  style="margin: -5px 0px -5px 0px;"
+                                  style="margin-block-start: -5px; margin-block-end: -5px; margin-inline-start: 0; margin-inline-end: 0;"
                                 >
                                   <div
                                     class="ant-row ant-form-item-row"
@@ -8988,7 +8988,7 @@ exports[`table demos 📸 renders ./packages/table/src/components/EditableTable/
                               >
                                 <div
                                   class="ant-form-item"
-                                  style="margin: -5px 0px -5px 0px;"
+                                  style="margin-block-start: -5px; margin-block-end: -5px; margin-inline-start: 0; margin-inline-end: 0;"
                                 >
                                   <div
                                     class="ant-row ant-form-item-row"
@@ -9100,7 +9100,7 @@ exports[`table demos 📸 renders ./packages/table/src/components/EditableTable/
                               >
                                 <div
                                   class="ant-form-item"
-                                  style="margin: -5px 0px -5px 0px;"
+                                  style="margin-block-start: -5px; margin-block-end: -5px; margin-inline-start: 0; margin-inline-end: 0;"
                                 >
                                   <div
                                     class="ant-row ant-form-item-row"
@@ -9184,7 +9184,7 @@ exports[`table demos 📸 renders ./packages/table/src/components/EditableTable/
                               >
                                 <div
                                   class="ant-form-item"
-                                  style="margin: -5px 0px -5px 0px;"
+                                  style="margin-block-start: -5px; margin-block-end: -5px; margin-inline-start: 0; margin-inline-end: 0;"
                                 >
                                   <div
                                     class="ant-row ant-form-item-row"
@@ -9250,7 +9250,7 @@ exports[`table demos 📸 renders ./packages/table/src/components/EditableTable/
                               >
                                 <div
                                   class="ant-form-item"
-                                  style="margin: -5px 0px -5px 0px;"
+                                  style="margin-block-start: -5px; margin-block-end: -5px; margin-inline-start: 0; margin-inline-end: 0;"
                                 >
                                   <div
                                     class="ant-row ant-form-item-row"
@@ -9362,7 +9362,7 @@ exports[`table demos 📸 renders ./packages/table/src/components/EditableTable/
                               >
                                 <div
                                   class="ant-form-item"
-                                  style="margin: -5px 0px -5px 0px;"
+                                  style="margin-block-start: -5px; margin-block-end: -5px; margin-inline-start: 0; margin-inline-end: 0;"
                                 >
                                   <div
                                     class="ant-row ant-form-item-row"
@@ -9446,7 +9446,7 @@ exports[`table demos 📸 renders ./packages/table/src/components/EditableTable/
                               >
                                 <div
                                   class="ant-form-item"
-                                  style="margin: -5px 0px -5px 0px;"
+                                  style="margin-block-start: -5px; margin-block-end: -5px; margin-inline-start: 0; margin-inline-end: 0;"
                                 >
                                   <div
                                     class="ant-row ant-form-item-row"
@@ -9512,7 +9512,7 @@ exports[`table demos 📸 renders ./packages/table/src/components/EditableTable/
                               >
                                 <div
                                   class="ant-form-item"
-                                  style="margin: -5px 0px -5px 0px;"
+                                  style="margin-block-start: -5px; margin-block-end: -5px; margin-inline-start: 0; margin-inline-end: 0;"
                                 >
                                   <div
                                     class="ant-row ant-form-item-row"
@@ -9624,7 +9624,7 @@ exports[`table demos 📸 renders ./packages/table/src/components/EditableTable/
                               >
                                 <div
                                   class="ant-form-item"
-                                  style="margin: -5px 0px -5px 0px;"
+                                  style="margin-block-start: -5px; margin-block-end: -5px; margin-inline-start: 0; margin-inline-end: 0;"
                                 >
                                   <div
                                     class="ant-row ant-form-item-row"
@@ -9747,7 +9747,7 @@ exports[`table demos 📸 renders ./packages/table/src/components/EditableTable/
     </div>
   </div>
   <div
-    class="ant-pro-card ant-pro-card-collapse"
+    class="ant-pro-card ant-pro-card-box-shadow ant-pro-card-collapse"
   >
     <div
       class="ant-pro-card-header ant-pro-card-header-border ant-pro-card-header-collapsible"
@@ -9942,11 +9942,11 @@ exports[`table demos 📸 renders ./packages/table/src/demos/ListToolBar/basic.t
       class="ant-pro-table"
     >
       <div
-        class="ant-pro-card"
+        class="ant-pro-card ant-pro-card-box-shadow"
       >
         <div
           class="ant-pro-card-body"
-          style="padding-top: 0px;"
+          style="padding-block-start: 0;"
         >
           <div
             class="ant-pro-table-list-toolbar"
@@ -10854,11 +10854,11 @@ exports[`table demos 📸 renders ./packages/table/src/demos/ListToolBar/menu.ts
       class="ant-pro-table"
     >
       <div
-        class="ant-pro-card"
+        class="ant-pro-card ant-pro-card-box-shadow"
       >
         <div
           class="ant-pro-card-body"
-          style="padding-top: 0px;"
+          style="padding-block-start: 0;"
         >
           <div
             class="ant-pro-table-list-toolbar"
@@ -11801,11 +11801,11 @@ exports[`table demos 📸 renders ./packages/table/src/demos/ListToolBar/multipl
       class="ant-pro-table"
     >
       <div
-        class="ant-pro-card"
+        class="ant-pro-card ant-pro-card-box-shadow"
       >
         <div
           class="ant-pro-card-body"
-          style="padding-top: 0px;"
+          style="padding-block-start: 0;"
         >
           <div
             class="ant-pro-table-list-toolbar"
@@ -11899,7 +11899,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/ListToolBar/multipl
                           aria-label="down"
                           class="anticon anticon-down"
                           role="img"
-                          style="margin-left: 8px;"
+                          style="margin-inline-start: 8px;"
                         >
                           <svg
                             aria-hidden="true"
@@ -12736,11 +12736,11 @@ exports[`table demos 📸 renders ./packages/table/src/demos/ListToolBar/no-titl
       class="ant-pro-table"
     >
       <div
-        class="ant-pro-card"
+        class="ant-pro-card ant-pro-card-box-shadow"
       >
         <div
           class="ant-pro-card-body"
-          style="padding-top: 0px;"
+          style="padding-block-start: 0;"
         >
           <div
             class="ant-pro-table-list-toolbar"
@@ -13641,11 +13641,11 @@ exports[`table demos 📸 renders ./packages/table/src/demos/ListToolBar/tabs.ts
       class="ant-pro-table"
     >
       <div
-        class="ant-pro-card"
+        class="ant-pro-card ant-pro-card-box-shadow"
       >
         <div
           class="ant-pro-card-body"
-          style="padding-top: 0px;"
+          style="padding-block-start: 0;"
         >
           <div
             class="ant-pro-table-list-toolbar"
@@ -14615,11 +14615,11 @@ exports[`table demos 📸 renders ./packages/table/src/demos/batchOption.tsx cor
       class="ant-pro-table"
     >
       <div
-        class="ant-pro-card"
+        class="ant-pro-card ant-pro-card-box-shadow"
       >
         <div
           class="ant-pro-card-body"
-          style="padding-top: 0px;"
+          style="padding-block-start: 0;"
         >
           <div
             class="ant-pro-table-list-toolbar"
@@ -14692,7 +14692,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/batchOption.tsx cor
                           <span>
                             已选 1 项
                             <a
-                              style="margin-left: 8px;"
+                              style="margin-inline-start: 8px;"
                             >
                               取消选择
                             </a>
@@ -16113,7 +16113,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/card-title.tsx corr
       class="ant-pro-table"
     >
       <div
-        class="ant-pro-card ant-pro-card-border"
+        class="ant-pro-card ant-pro-card-border ant-pro-card-box-shadow"
       >
         <div
           class="ant-pro-card-header"
@@ -16126,7 +16126,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/card-title.tsx corr
         </div>
         <div
           class="ant-pro-card-body"
-          style="padding-top: 0px;"
+          style="padding-block-start: 0;"
         >
           <div
             class="ant-pro-table-list-toolbar"
@@ -16836,11 +16836,11 @@ exports[`table demos 📸 renders ./packages/table/src/demos/columns-setting-cus
       class="ant-pro-table"
     >
       <div
-        class="ant-pro-card"
+        class="ant-pro-card ant-pro-card-box-shadow"
       >
         <div
           class="ant-pro-card-body"
-          style="padding-top: 0px;"
+          style="padding-block-start: 0;"
         >
           <div
             class="ant-pro-table-list-toolbar"
@@ -17128,11 +17128,11 @@ exports[`table demos 📸 renders ./packages/table/src/demos/columnsStateMap.tsx
       class="ant-pro-table"
     >
       <div
-        class="ant-pro-card"
+        class="ant-pro-card ant-pro-card-box-shadow"
       >
         <div
           class="ant-pro-card-body"
-          style="padding-top: 0px;"
+          style="padding-block-start: 0;"
         >
           <div
             class="ant-pro-table-list-toolbar"
@@ -17989,7 +17989,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/config-provider.tsx
                                   aria-label="down"
                                   class="anticon anticon-down"
                                   role="img"
-                                  style="margin-left: 0.5em; transition: 0.3s all; transform: rotate(0turn);"
+                                  style="margin-inline-start: 0.5em; transition: 0.3s all; transform: rotate(0turn);"
                                 >
                                   <svg
                                     aria-hidden="true"
@@ -18019,11 +18019,11 @@ exports[`table demos 📸 renders ./packages/table/src/demos/config-provider.tsx
         </div>
       </div>
       <div
-        class="qixian-pro-card"
+        class="qixian-pro-card qixian-pro-card-box-shadow"
       >
         <div
           class="qixian-pro-card-body"
-          style="padding-top: 0px;"
+          style="padding-block-start: 0;"
         >
           <div
             class="qixian-pro-table-list-toolbar"
@@ -22551,7 +22551,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/config-provider.tsx
 exports[`table demos 📸 renders ./packages/table/src/demos/crud.tsx correctly 1`] = `
 <DocumentFragment>
   <div
-    class="ant-pro-card"
+    class="ant-pro-card ant-pro-card-box-shadow"
   >
     <div
       class="ant-pro-card-body"
@@ -23167,7 +23167,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/crud.tsx correctly 
                                       aria-label="down"
                                       class="anticon anticon-down"
                                       role="img"
-                                      style="margin-left: 0.5em; transition: 0.3s all; transform: rotate(0turn);"
+                                      style="margin-inline-start: 0.5em; transition: 0.3s all; transform: rotate(0turn);"
                                     >
                                       <svg
                                         aria-hidden="true"
@@ -23197,11 +23197,11 @@ exports[`table demos 📸 renders ./packages/table/src/demos/crud.tsx correctly 
             </div>
           </div>
           <div
-            class="ant-pro-card"
+            class="ant-pro-card ant-pro-card-box-shadow"
           >
             <div
               class="ant-pro-card-body"
-              style="padding-top: 0px;"
+              style="padding-block-start: 0;"
             >
               <div
                 class="ant-pro-table-list-toolbar"
@@ -24719,11 +24719,11 @@ exports[`table demos 📸 renders ./packages/table/src/demos/customization-value
         </div>
       </div>
       <div
-        class="ant-pro-card"
+        class="ant-pro-card ant-pro-card-box-shadow"
       >
         <div
           class="ant-pro-card-body"
-          style="padding-top: 0px;"
+          style="padding-block-start: 0;"
         >
           <div
             class="ant-pro-table-list-toolbar"
@@ -25699,7 +25699,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/dataSource.tsx corr
                           aria-label="question-circle"
                           class="anticon anticon-question-circle"
                           role="img"
-                          style="margin-left: 4px;"
+                          style="margin-inline-start: 4px;"
                         >
                           <svg
                             aria-hidden="true"
@@ -25932,7 +25932,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/dataSource.tsx corr
                                   aria-label="down"
                                   class="anticon anticon-down"
                                   role="img"
-                                  style="margin-left: 0.5em; transition: 0.3s all; transform: rotate(0.5turn);"
+                                  style="margin-inline-start: 0.5em; transition: 0.3s all; transform: rotate(0.5turn);"
                                 >
                                   <svg
                                     aria-hidden="true"
@@ -25962,11 +25962,11 @@ exports[`table demos 📸 renders ./packages/table/src/demos/dataSource.tsx corr
         </div>
       </div>
       <div
-        class="ant-pro-card"
+        class="ant-pro-card ant-pro-card-box-shadow"
       >
         <div
           class="ant-pro-card-body"
-          style="padding-top: 0px;"
+          style="padding-block-start: 0;"
         >
           <div
             class="ant-pro-table-list-toolbar"
@@ -26337,7 +26337,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/dataSource.tsx corr
                                     aria-label="question-circle"
                                     class="anticon anticon-question-circle"
                                     role="img"
-                                    style="margin-left: 4px;"
+                                    style="margin-inline-start: 4px;"
                                   >
                                     <svg
                                       aria-hidden="true"
@@ -27755,11 +27755,11 @@ exports[`table demos 📸 renders ./packages/table/src/demos/dateFormatter.tsx c
         </div>
       </div>
       <div
-        class="ant-pro-card"
+        class="ant-pro-card ant-pro-card-box-shadow"
       >
         <div
           class="ant-pro-card-body"
-          style="padding-top: 0px;"
+          style="padding-block-start: 0;"
         >
           <div
             class="ant-pro-table-list-toolbar"
@@ -28286,11 +28286,11 @@ exports[`table demos 📸 renders ./packages/table/src/demos/dateFormatter.tsx c
         </div>
       </div>
       <div
-        class="ant-pro-card"
+        class="ant-pro-card ant-pro-card-box-shadow"
       >
         <div
           class="ant-pro-card-body"
-          style="padding-top: 0px;"
+          style="padding-block-start: 0;"
         >
           <div
             class="ant-pro-table-list-toolbar"
@@ -28817,11 +28817,11 @@ exports[`table demos 📸 renders ./packages/table/src/demos/dateFormatter.tsx c
         </div>
       </div>
       <div
-        class="ant-pro-card"
+        class="ant-pro-card ant-pro-card-box-shadow"
       >
         <div
           class="ant-pro-card-body"
-          style="padding-top: 0px;"
+          style="padding-block-start: 0;"
         >
           <div
             class="ant-pro-table-list-toolbar"
@@ -29066,7 +29066,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/dateFormatter.tsx c
 exports[`table demos 📸 renders ./packages/table/src/demos/dynamic-settings.tsx correctly 1`] = `
 <DocumentFragment>
   <div
-    class="ant-pro-card ant-pro-card-border ant-pro-card-contain-card ant-pro-card-split"
+    class="ant-pro-card ant-pro-card-border ant-pro-card-box-shadow ant-pro-card-contain-card ant-pro-card-split"
     style="height: 100vh; overflow: hidden;"
   >
     <div
@@ -29076,7 +29076,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/dynamic-settings.ts
         class="ant-pro-card-col ant-pro-card-split-vertical"
       >
         <div
-          class="ant-pro-card"
+          class="ant-pro-card ant-pro-card-box-shadow"
           style="height: 100vh; overflow: auto;"
         >
           <div
@@ -29434,7 +29434,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/dynamic-settings.ts
                                             aria-label="down"
                                             class="anticon anticon-down"
                                             role="img"
-                                            style="margin-left: 0.5em; transition: 0.3s all; transform: rotate(0turn);"
+                                            style="margin-inline-start: 0.5em; transition: 0.3s all; transform: rotate(0turn);"
                                           >
                                             <svg
                                               aria-hidden="true"
@@ -29464,11 +29464,11 @@ exports[`table demos 📸 renders ./packages/table/src/demos/dynamic-settings.ts
                   </div>
                 </div>
                 <div
-                  class="ant-pro-card"
+                  class="ant-pro-card ant-pro-card-box-shadow"
                 >
                   <div
                     class="ant-pro-card-body"
-                    style="padding-top: 0px;"
+                    style="padding-block-start: 0;"
                   >
                     <div
                       class="ant-pro-table-list-toolbar"
@@ -30537,7 +30537,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/dynamic-settings.ts
             type="text"
           />
           <div
-            class="ant-pro-card"
+            class="ant-pro-card ant-pro-card-box-shadow"
             style="height: 100vh; overflow: auto; box-shadow: 2px 0 6px rgba(0, 21, 41, 0.35); top: 0px; right: 0px; width: 470px;"
           >
             <div
@@ -30670,7 +30670,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/dynamic-settings.ts
                       tabindex="0"
                     >
                       <div
-                        class="ant-pro-card"
+                        class="ant-pro-card ant-pro-card-box-shadow"
                       >
                         <div
                           class="ant-pro-card-body"
@@ -30687,7 +30687,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/dynamic-settings.ts
                                   aria-label="right"
                                   class="anticon anticon-right"
                                   role="img"
-                                  style="margin-right: 8px;"
+                                  style="margin-inline-end: 8px;"
                                 >
                                   <svg
                                     aria-hidden="true"
@@ -31292,7 +31292,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/dynamic-settings.ts
                                         aria-label="right"
                                         class="anticon anticon-right"
                                         role="img"
-                                        style="margin-right: 8px;"
+                                        style="margin-inline-end: 8px;"
                                       >
                                         <svg
                                           aria-hidden="true"
@@ -32008,7 +32008,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/error-boundaries.ts
         class="ant-result-extra"
       >
         <div
-          style="max-width: 620px; text-align: left; background-color: rgba(255, 229, 100, 0.3); border-left-color: #ffe564; border-left-width: 9px; border-left-style: solid; padding: 20px 45px 20px 26px; margin: 20px auto 30px auto;"
+          style="max-width: 620px; text-align: left; background-color: rgba(255, 229, 100, 0.3); border-left-color: #ffe564; border-left-width: 9px; border-left-style: solid; padding: 20px 45px 20px 26px; margin: auto; margin-block-end: 30px; margin-block-start: 20px;"
         >
           <p>
             注意
@@ -32074,11 +32074,11 @@ exports[`table demos 📸 renders ./packages/table/src/demos/error-boundaries-fa
       class="ant-pro-table"
     >
       <div
-        class="ant-pro-card"
+        class="ant-pro-card ant-pro-card-box-shadow"
       >
         <div
           class="ant-pro-card-body"
-          style="padding-top: 0px;"
+          style="padding-block-start: 0;"
         >
           <div
             class="ant-pro-table-list-toolbar"
@@ -33031,11 +33031,11 @@ exports[`table demos 📸 renders ./packages/table/src/demos/form.tsx correctly 
         </div>
       </div>
       <div
-        class="ant-pro-card"
+        class="ant-pro-card ant-pro-card-box-shadow"
       >
         <div
           class="ant-pro-card-body"
-          style="padding-top: 0px;"
+          style="padding-block-start: 0;"
         >
           <div
             class="ant-pro-table-list-toolbar"
@@ -33680,7 +33680,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/intl.tsx correctly 
                                   aria-label="down"
                                   class="anticon anticon-down"
                                   role="img"
-                                  style="margin-left: 0.5em; transition: 0.3s all; transform: rotate(0turn);"
+                                  style="margin-inline-start: 0.5em; transition: 0.3s all; transform: rotate(0turn);"
                                 >
                                   <svg
                                     aria-hidden="true"
@@ -33710,11 +33710,11 @@ exports[`table demos 📸 renders ./packages/table/src/demos/intl.tsx correctly 
         </div>
       </div>
       <div
-        class="ant-pro-card"
+        class="ant-pro-card ant-pro-card-box-shadow"
       >
         <div
           class="ant-pro-card-body"
-          style="padding-top: 0px;"
+          style="padding-block-start: 0;"
         >
           <div
             class="ant-pro-table-list-toolbar"
@@ -34199,11 +34199,11 @@ exports[`table demos 📸 renders ./packages/table/src/demos/lightfilter.tsx cor
       class="ant-pro-table"
     >
       <div
-        class="ant-pro-card"
+        class="ant-pro-card ant-pro-card-box-shadow"
       >
         <div
           class="ant-pro-card-body"
-          style="padding-top: 0px;"
+          style="padding-block-start: 0;"
         >
           <div
             class="ant-pro-table-list-toolbar"
@@ -34330,7 +34330,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/lightfilter.tsx cor
                                                   日期范围: 
                                                 </span>
                                                 <span
-                                                  style="padding-left: 4px;"
+                                                  style="padding-inline-start: 4px;"
                                                 >
                                                   2016-11-22 ~ 2016-11-23
                                                 </span>
@@ -34567,7 +34567,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/lightfilter.tsx cor
                                                   aria-label="question-circle"
                                                   class="anticon anticon-question-circle"
                                                   role="img"
-                                                  style="margin-left: 4px;"
+                                                  style="margin-inline-start: 4px;"
                                                 >
                                                   <svg
                                                     aria-hidden="true"
@@ -34779,7 +34779,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/lightfilter.tsx cor
                                     aria-label="question-circle"
                                     class="anticon anticon-question-circle"
                                     role="img"
-                                    style="margin-left: 4px;"
+                                    style="margin-inline-start: 4px;"
                                   >
                                     <svg
                                       aria-hidden="true"
@@ -35782,7 +35782,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/linkage_form.tsx co
                                   aria-label="down"
                                   class="anticon anticon-down"
                                   role="img"
-                                  style="margin-left: 0.5em; transition: 0.3s all; transform: rotate(0.5turn);"
+                                  style="margin-inline-start: 0.5em; transition: 0.3s all; transform: rotate(0.5turn);"
                                 >
                                   <svg
                                     aria-hidden="true"
@@ -35812,11 +35812,11 @@ exports[`table demos 📸 renders ./packages/table/src/demos/linkage_form.tsx co
         </div>
       </div>
       <div
-        class="ant-pro-card"
+        class="ant-pro-card ant-pro-card-box-shadow"
       >
         <div
           class="ant-pro-card-body"
-          style="padding-top: 0px;"
+          style="padding-block-start: 0;"
         >
           <div
             class="ant-pro-table-list-toolbar"
@@ -36161,11 +36161,11 @@ exports[`table demos 📸 renders ./packages/table/src/demos/listToolBar.tsx cor
       class="ant-pro-table"
     >
       <div
-        class="ant-pro-card"
+        class="ant-pro-card ant-pro-card-box-shadow"
       >
         <div
           class="ant-pro-card-body"
-          style="padding-top: 0px;"
+          style="padding-block-start: 0;"
         >
           <div
             class="ant-pro-table-list-toolbar"
@@ -36220,7 +36220,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/listToolBar.tsx cor
                                   <sup
                                     class="ant-scroll-number ant-badge-count ant-badge-multiple-words"
                                     data-show="true"
-                                    style="margin-top: -2px; margin-left: 4px; color: rgb(24, 144, 255); background-color: rgb(230, 247, 255);"
+                                    style="margin-block-start: -2px; margin-inline-start: 4px; color: rgb(24, 144, 255); background-color: rgb(230, 247, 255);"
                                     title="99"
                                   >
                                     <span
@@ -36267,7 +36267,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/listToolBar.tsx cor
                                   <sup
                                     class="ant-scroll-number ant-badge-count ant-badge-multiple-words"
                                     data-show="true"
-                                    style="margin-top: -2px; margin-left: 4px; color: rgb(153, 153, 153); background-color: rgb(238, 238, 238);"
+                                    style="margin-block-start: -2px; margin-inline-start: 4px; color: rgb(153, 153, 153); background-color: rgb(238, 238, 238);"
                                     title="30"
                                   >
                                     <span
@@ -36314,7 +36314,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/listToolBar.tsx cor
                                   <sup
                                     class="ant-scroll-number ant-badge-count ant-badge-multiple-words"
                                     data-show="true"
-                                    style="margin-top: -2px; margin-left: 4px; color: rgb(153, 153, 153); background-color: rgb(238, 238, 238);"
+                                    style="margin-block-start: -2px; margin-inline-start: 4px; color: rgb(153, 153, 153); background-color: rgb(238, 238, 238);"
                                     title="30"
                                   >
                                     <span
@@ -36829,7 +36829,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/listToolBar.tsx cor
                                     aria-label="question-circle"
                                     class="anticon anticon-question-circle"
                                     role="img"
-                                    style="margin-left: 4px;"
+                                    style="margin-inline-start: 4px;"
                                   >
                                     <svg
                                       aria-hidden="true"
@@ -37778,7 +37778,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/no-option.tsx corre
                           aria-label="question-circle"
                           class="anticon anticon-question-circle"
                           role="img"
-                          style="margin-left: 4px;"
+                          style="margin-inline-start: 4px;"
                         >
                           <svg
                             aria-hidden="true"
@@ -37941,11 +37941,11 @@ exports[`table demos 📸 renders ./packages/table/src/demos/no-option.tsx corre
         </div>
       </div>
       <div
-        class="ant-pro-card"
+        class="ant-pro-card ant-pro-card-box-shadow"
       >
         <div
           class="ant-pro-card-body"
-          style="padding-top: 0px;"
+          style="padding-block-start: 0;"
         >
           <div
             class="ant-pro-table-list-toolbar"
@@ -38266,7 +38266,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/no-option.tsx corre
                                     aria-label="question-circle"
                                     class="anticon anticon-question-circle"
                                     role="img"
-                                    style="margin-left: 4px;"
+                                    style="margin-inline-start: 4px;"
                                   >
                                     <svg
                                       aria-hidden="true"
@@ -39388,7 +39388,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/no-title.tsx correc
       class="ant-pro-table"
     >
       <div
-        class="ant-pro-card"
+        class="ant-pro-card ant-pro-card-box-shadow"
       >
         <div
           class="ant-pro-card-body"
@@ -40063,11 +40063,11 @@ exports[`table demos 📸 renders ./packages/table/src/demos/normal.tsx correctl
       class="ant-pro-table"
     >
       <div
-        class="ant-pro-card"
+        class="ant-pro-card ant-pro-card-box-shadow"
       >
         <div
           class="ant-pro-card-body"
-          style="padding-top: 0px;"
+          style="padding-block-start: 0;"
         >
           <div
             class="ant-pro-table-list-toolbar"
@@ -40388,7 +40388,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/normal.tsx correctl
                                     aria-label="question-circle"
                                     class="anticon anticon-question-circle"
                                     role="img"
-                                    style="margin-left: 4px;"
+                                    style="margin-inline-start: 4px;"
                                   >
                                     <svg
                                       aria-hidden="true"
@@ -41802,11 +41802,11 @@ exports[`table demos 📸 renders ./packages/table/src/demos/open-rules.tsx corr
         </div>
       </div>
       <div
-        class="ant-pro-card"
+        class="ant-pro-card ant-pro-card-box-shadow"
       >
         <div
           class="ant-pro-card-body"
-          style="padding-top: 0px;"
+          style="padding-block-start: 0;"
         >
           <div
             class="ant-pro-table-list-toolbar"
@@ -42570,11 +42570,11 @@ exports[`table demos 📸 renders ./packages/table/src/demos/open-rules.tsx corr
         </div>
       </div>
       <div
-        class="ant-pro-card"
+        class="ant-pro-card ant-pro-card-box-shadow"
       >
         <div
           class="ant-pro-card-body"
-          style="padding-top: 0px;"
+          style="padding-block-start: 0;"
         >
           <div
             class="ant-pro-table-list-toolbar"
@@ -43538,7 +43538,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/pollinga.tsx correc
                                   aria-label="down"
                                   class="anticon anticon-down"
                                   role="img"
-                                  style="margin-left: 0.5em; transition: 0.3s all; transform: rotate(0turn);"
+                                  style="margin-inline-start: 0.5em; transition: 0.3s all; transform: rotate(0turn);"
                                 >
                                   <svg
                                     aria-hidden="true"
@@ -43568,11 +43568,11 @@ exports[`table demos 📸 renders ./packages/table/src/demos/pollinga.tsx correc
         </div>
       </div>
       <div
-        class="ant-pro-card"
+        class="ant-pro-card ant-pro-card-box-shadow"
       >
         <div
           class="ant-pro-card-body"
-          style="padding-top: 0px;"
+          style="padding-block-start: 0;"
         >
           <div
             class="ant-pro-table-list-toolbar"
@@ -44706,11 +44706,11 @@ exports[`table demos 📸 renders ./packages/table/src/demos/renderTable.tsx cor
           style="flex: 1;"
         >
           <div
-            class="ant-pro-card"
+            class="ant-pro-card ant-pro-card-box-shadow"
           >
             <div
               class="ant-pro-card-body"
-              style="padding-top: 0px;"
+              style="padding-block-start: 0;"
             >
               <div
                 class="ant-pro-table-list-toolbar"
@@ -45518,7 +45518,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/rtl_table.tsx corre
                                   aria-label="down"
                                   class="anticon anticon-down"
                                   role="img"
-                                  style="margin-left: 0.5em; transition: 0.3s all; transform: rotate(0turn);"
+                                  style="margin-inline-start: 0.5em; transition: 0.3s all; transform: rotate(0turn);"
                                 >
                                   <svg
                                     aria-hidden="true"
@@ -45548,11 +45548,11 @@ exports[`table demos 📸 renders ./packages/table/src/demos/rtl_table.tsx corre
         </div>
       </div>
       <div
-        class="ant-pro-card"
+        class="ant-pro-card ant-pro-card-box-shadow"
       >
         <div
           class="ant-pro-card-body"
-          style="padding-top: 0px;"
+          style="padding-block-start: 0;"
         >
           <div
             class="ant-pro-table-list-toolbar"
@@ -46966,11 +46966,11 @@ exports[`table demos 📸 renders ./packages/table/src/demos/search.tsx correctl
       class="ant-pro-table"
     >
       <div
-        class="ant-pro-card"
+        class="ant-pro-card ant-pro-card-box-shadow"
       >
         <div
           class="ant-pro-card-body"
-          style="padding-top: 0px;"
+          style="padding-block-start: 0;"
         >
           <div
             class="ant-pro-table-list-toolbar"
@@ -47696,7 +47696,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/search_option.tsx c
                                   aria-label="down"
                                   class="anticon anticon-down"
                                   role="img"
-                                  style="margin-left: 0.5em; transition: 0.3s all; transform: rotate(0.5turn);"
+                                  style="margin-inline-start: 0.5em; transition: 0.3s all; transform: rotate(0.5turn);"
                                 >
                                   <svg
                                     aria-hidden="true"
@@ -47726,11 +47726,11 @@ exports[`table demos 📸 renders ./packages/table/src/demos/search_option.tsx c
         </div>
       </div>
       <div
-        class="ant-pro-card"
+        class="ant-pro-card ant-pro-card-box-shadow"
       >
         <div
           class="ant-pro-card-body"
-          style="padding-top: 0px;"
+          style="padding-block-start: 0;"
         >
           <div
             class="ant-pro-table-list-toolbar"
@@ -48499,7 +48499,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/single.tsx correctl
                                   aria-label="down"
                                   class="anticon anticon-down"
                                   role="img"
-                                  style="margin-left: 0.5em; transition: 0.3s all; transform: rotate(0turn);"
+                                  style="margin-inline-start: 0.5em; transition: 0.3s all; transform: rotate(0turn);"
                                 >
                                   <svg
                                     aria-hidden="true"
@@ -48529,11 +48529,11 @@ exports[`table demos 📸 renders ./packages/table/src/demos/single.tsx correctl
         </div>
       </div>
       <div
-        class="ant-pro-card ant-pro-card-border"
+        class="ant-pro-card ant-pro-card-border ant-pro-card-box-shadow"
       >
         <div
           class="ant-pro-card-body"
-          style="padding-top: 0px;"
+          style="padding-block-start: 0;"
         >
           <div
             class="ant-pro-table-list-toolbar"
@@ -50654,11 +50654,11 @@ exports[`table demos 📸 renders ./packages/table/src/demos/single-test.tsx cor
         </div>
       </div>
       <div
-        class="ant-pro-card"
+        class="ant-pro-card ant-pro-card-box-shadow"
       >
         <div
           class="ant-pro-card-body"
-          style="padding-top: 0px;"
+          style="padding-block-start: 0;"
         >
           <div
             class="ant-pro-table-list-toolbar"
@@ -51496,7 +51496,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/single-test.tsx cor
                                   aria-label="down"
                                   class="anticon anticon-down"
                                   role="img"
-                                  style="margin-left: 0.5em; transition: 0.3s all; transform: rotate(0turn);"
+                                  style="margin-inline-start: 0.5em; transition: 0.3s all; transform: rotate(0turn);"
                                 >
                                   <svg
                                     aria-hidden="true"
@@ -51526,11 +51526,11 @@ exports[`table demos 📸 renders ./packages/table/src/demos/single-test.tsx cor
         </div>
       </div>
       <div
-        class="ant-pro-card"
+        class="ant-pro-card ant-pro-card-box-shadow"
       >
         <div
           class="ant-pro-card-body"
-          style="padding-top: 0px;"
+          style="padding-block-start: 0;"
         >
           <div
             class="ant-pro-table-list-toolbar"
@@ -52987,7 +52987,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/single-test.tsx cor
 exports[`table demos 📸 renders ./packages/table/src/demos/split.tsx correctly 1`] = `
 <DocumentFragment>
   <div
-    class="ant-pro-card ant-pro-card-contain-card ant-pro-card-split"
+    class="ant-pro-card ant-pro-card-box-shadow ant-pro-card-contain-card ant-pro-card-split"
   >
     <div
       class="ant-pro-card-body"
@@ -52997,7 +52997,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/split.tsx correctly
         style="width: 384px; flex-shrink: 0;"
       >
         <div
-          class="ant-pro-card ant-pro-card-ghost"
+          class="ant-pro-card ant-pro-card-box-shadow ant-pro-card-ghost"
         >
           <div
             class="ant-pro-card-body"
@@ -53009,11 +53009,11 @@ exports[`table demos 📸 renders ./packages/table/src/demos/split.tsx correctly
                 class="ant-pro-table"
               >
                 <div
-                  class="ant-pro-card"
+                  class="ant-pro-card ant-pro-card-box-shadow"
                 >
                   <div
                     class="ant-pro-card-body"
-                    style="padding-top: 0px;"
+                    style="padding-block-start: 0;"
                   >
                     <div
                       class="ant-pro-table-list-toolbar"
@@ -53600,7 +53600,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/split.tsx correctly
         class="ant-pro-card-col"
       >
         <div
-          class="ant-pro-card"
+          class="ant-pro-card ant-pro-card-box-shadow"
         >
           <div
             class="ant-pro-card-header"
@@ -53621,7 +53621,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/split.tsx correctly
                 class="ant-pro-table"
               >
                 <div
-                  class="ant-pro-card"
+                  class="ant-pro-card ant-pro-card-box-shadow"
                 >
                   <div
                     class="ant-pro-card-body"
@@ -53956,11 +53956,11 @@ exports[`table demos 📸 renders ./packages/table/src/demos/table-nested.tsx co
       class="ant-pro-table"
     >
       <div
-        class="ant-pro-card"
+        class="ant-pro-card ant-pro-card-box-shadow"
       >
         <div
           class="ant-pro-card-body"
-          style="padding-top: 0px;"
+          style="padding-block-start: 0;"
         >
           <div
             class="ant-pro-table-list-toolbar"
@@ -54190,7 +54190,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/table-nested.tsx co
                                     aria-label="question-circle"
                                     class="anticon anticon-question-circle"
                                     role="img"
-                                    style="margin-left: 4px;"
+                                    style="margin-inline-start: 4px;"
                                   >
                                     <svg
                                       aria-hidden="true"
@@ -55190,7 +55190,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/valueType.tsx corre
                                   aria-label="down"
                                   class="anticon anticon-down"
                                   role="img"
-                                  style="margin-left: 0.5em; transition: 0.3s all; transform: rotate(0turn);"
+                                  style="margin-inline-start: 0.5em; transition: 0.3s all; transform: rotate(0turn);"
                                 >
                                   <svg
                                     aria-hidden="true"
@@ -55220,11 +55220,11 @@ exports[`table demos 📸 renders ./packages/table/src/demos/valueType.tsx corre
         </div>
       </div>
       <div
-        class="ant-pro-card"
+        class="ant-pro-card ant-pro-card-box-shadow"
       >
         <div
           class="ant-pro-card-body"
-          style="padding-top: 0px;"
+          style="padding-block-start: 0;"
         >
           <div
             class="ant-pro-table-list-toolbar"
@@ -56712,7 +56712,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/valueType_select.ts
                                   aria-label="down"
                                   class="anticon anticon-down"
                                   role="img"
-                                  style="margin-left: 0.5em; transition: 0.3s all; transform: rotate(0.5turn);"
+                                  style="margin-inline-start: 0.5em; transition: 0.3s all; transform: rotate(0.5turn);"
                                 >
                                   <svg
                                     aria-hidden="true"
@@ -56742,11 +56742,11 @@ exports[`table demos 📸 renders ./packages/table/src/demos/valueType_select.ts
         </div>
       </div>
       <div
-        class="ant-pro-card"
+        class="ant-pro-card ant-pro-card-box-shadow"
       >
         <div
           class="ant-pro-card-body"
-          style="padding-top: 0px;"
+          style="padding-block-start: 0;"
         >
           <div
             class="ant-pro-table-list-toolbar"
@@ -57994,7 +57994,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/valueTypeDate.tsx c
                                   aria-label="down"
                                   class="anticon anticon-down"
                                   role="img"
-                                  style="margin-left: 0.5em; transition: 0.3s all; transform: rotate(0turn);"
+                                  style="margin-inline-start: 0.5em; transition: 0.3s all; transform: rotate(0turn);"
                                 >
                                   <svg
                                     aria-hidden="true"
@@ -58024,11 +58024,11 @@ exports[`table demos 📸 renders ./packages/table/src/demos/valueTypeDate.tsx c
         </div>
       </div>
       <div
-        class="ant-pro-card"
+        class="ant-pro-card ant-pro-card-box-shadow"
       >
         <div
           class="ant-pro-card-body"
-          style="padding-top: 0px;"
+          style="padding-block-start: 0;"
         >
           <div
             class="ant-pro-table-list-toolbar"
@@ -59287,7 +59287,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/valueTypeNumber.tsx
                                   aria-label="down"
                                   class="anticon anticon-down"
                                   role="img"
-                                  style="margin-left: 0.5em; transition: 0.3s all; transform: rotate(0turn);"
+                                  style="margin-inline-start: 0.5em; transition: 0.3s all; transform: rotate(0turn);"
                                 >
                                   <svg
                                     aria-hidden="true"
@@ -59317,11 +59317,11 @@ exports[`table demos 📸 renders ./packages/table/src/demos/valueTypeNumber.tsx
         </div>
       </div>
       <div
-        class="ant-pro-card"
+        class="ant-pro-card ant-pro-card-box-shadow"
       >
         <div
           class="ant-pro-card-body"
-          style="padding-top: 0px;"
+          style="padding-block-start: 0;"
         >
           <div
             class="ant-pro-table-list-toolbar"

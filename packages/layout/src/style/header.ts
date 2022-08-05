@@ -14,7 +14,7 @@ const genProLayoutHeaderStyle: GenerateStyle<ProLayoutHeaderToken> = (token) => 
       [token.componentCls]: {
         height: token.ProLayoutHeaderHeaderHeight,
         lineHeight: `${token.ProLayoutHeaderHeaderHeight}px`,
-        zIndex: 9,
+        zIndex: 19,
         width: '100%',
         paddingBlock: 0,
         paddingInline: 8,

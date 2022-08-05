@@ -388,7 +388,7 @@ Array [
                   style="flex:1"
                 >
                   <div
-                    style="margin-top:16px"
+                    style="margin-block-start:16px"
                   >
                     <div
                       class="ant-skeleton ant-skeleton-active"
@@ -1474,7 +1474,7 @@ exports[`BasicLayout 🥩 support loading 1`] = `
           class="ant-layout-content ant-pro-layout-content ant-pro-layout-has-header"
         >
           <div
-            style="padding-top: 100px; text-align: center;"
+            style="padding-block-start: 100px; text-align: center;"
           >
             <div
               aria-busy="true"

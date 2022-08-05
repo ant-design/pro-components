@@ -4293,17 +4293,17 @@ exports[`field demos 📸 renders ./packages/field/src/demos/search-value.tsx co
         常用关键字：
       </b>
       <span
-        style="margin-left: 8px; cursor: pointer;"
+        style="margin-inline-start: 8px; cursor: pointer;"
       >
         l
       </span>
       <span
-        style="margin-left: 8px; cursor: pointer;"
+        style="margin-inline-start: 8px; cursor: pointer;"
       >
         c
       </span>
       <span
-        style="margin-left: 8px; cursor: pointer;"
+        style="margin-inline-start: 8px; cursor: pointer;"
       >
         a
       </span>
@@ -4612,17 +4612,17 @@ exports[`field demos 📸 renders ./packages/field/src/demos/tree-select-search-
             常用关键字：
           </b>
           <span
-            style="margin-left: 8px; cursor: pointer;"
+            style="margin-inline-start: 8px; cursor: pointer;"
           >
             l
           </span>
           <span
-            style="margin-left: 8px; cursor: pointer;"
+            style="margin-inline-start: 8px; cursor: pointer;"
           >
             c
           </span>
           <span
-            style="margin-left: 8px; cursor: pointer;"
+            style="margin-inline-start: 8px; cursor: pointer;"
           >
             a
           </span>

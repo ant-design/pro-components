@@ -151,11 +151,11 @@ exports[`Table valueEnum 🎏 customization valueType 1`] = `
       </div>
     </div>
     <div
-      class="ant-pro-card"
+      class="ant-pro-card ant-pro-card-box-shadow"
     >
       <div
         class="ant-pro-card-body"
-        style="padding-top: 0px;"
+        style="padding-block-start: 0;"
       >
         <div
           class="ant-pro-table-list-toolbar"

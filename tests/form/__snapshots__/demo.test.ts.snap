@@ -1761,7 +1761,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/FieldSet/demos/c
                   <input
                     class="ant-input"
                     id="code"
-                    style="flex: 1; transition: width .3s; margin-right: 8px;"
+                    style="flex: 1; transition: width .3s; margin-inline-end: 8px;"
                     type="text"
                     value=""
                   />
@@ -1851,7 +1851,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/FieldSet/demos/c
       aria-checked="false"
       class="ant-switch"
       role="switch"
-      style="margin-bottom: 16px;"
+      style="margin-block-end: 16px;"
       type="button"
     >
       <div
@@ -6043,7 +6043,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/FieldSet/demos/d
       aria-checked="false"
       class="ant-switch"
       role="switch"
-      style="margin-bottom: 16px;"
+      style="margin-block-end: 16px;"
       type="button"
     >
       <div
@@ -7353,7 +7353,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/FieldSet/demos/f
       aria-checked="false"
       class="ant-switch"
       role="switch"
-      style="margin-bottom: 16px;"
+      style="margin-block-end: 16px;"
       type="button"
     >
       <div
@@ -7915,7 +7915,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/FieldSet/demos/p
                   <input
                     class="ant-input"
                     id="code"
-                    style="flex: 1; transition: width .3s; margin-right: 8px;"
+                    style="flex: 1; transition: width .3s; margin-inline-end: 8px;"
                     type="text"
                     value=""
                   />
@@ -8005,7 +8005,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/FieldSet/demos/s
       aria-checked="false"
       class="ant-switch"
       role="switch"
-      style="margin-bottom: 16px;"
+      style="margin-block-end: 16px;"
       type="button"
     >
       <div
@@ -9326,7 +9326,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/Group/demos/coun
 exports[`form demos 📸 renders ./packages/form/src/components/Group/demos/customize.tsx correctly 1`] = `
 <DocumentFragment>
   <div
-    class="ant-pro-card ant-pro-card-border ant-pro-card-contain-card ant-pro-card-split"
+    class="ant-pro-card ant-pro-card-border ant-pro-card-box-shadow ant-pro-card-contain-card ant-pro-card-split"
   >
     <div
       class="ant-pro-card-body"
@@ -9336,7 +9336,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/Group/demos/cust
         style="width: calc(100% - 400px); flex-shrink: 0;"
       >
         <div
-          class="ant-pro-card"
+          class="ant-pro-card ant-pro-card-box-shadow"
         >
           <div
             class="ant-pro-card-body"
@@ -9693,7 +9693,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/Group/demos/cust
         style="width: 400px; flex-shrink: 0;"
       >
         <div
-          class="ant-pro-card"
+          class="ant-pro-card ant-pro-card-box-shadow"
         >
           <div
             class="ant-pro-card-header"
@@ -11357,8 +11357,8 @@ exports[`form demos 📸 renders ./packages/form/src/components/Group/demos/hori
                     style="max-width: 100%; min-width: 100%;"
                   >
                     <div
-                      class="ant-pro-card ant-pro-card-border"
-                      style="margin-bottom: 8px;"
+                      class="ant-pro-card ant-pro-card-border ant-pro-card-box-shadow"
+                      style="margin-block-end: 8px;"
                     >
                       <div
                         class="ant-pro-card-header"
@@ -11371,7 +11371,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/Group/demos/hori
                       </div>
                       <div
                         class="ant-pro-card-body"
-                        style="padding-bottom: 0px;"
+                        style="padding-block-end: 0;"
                       >
                         <div
                           class="ant-pro-form-list-container"
@@ -11449,7 +11449,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/Group/demos/hori
                           </div>
                           <div
                             class="ant-form-item"
-                            style="margin-bottom: 0px;"
+                            style="margin-block-end: 0;"
                           >
                             <div
                               class="ant-row ant-form-item-row"
@@ -11496,7 +11496,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/Group/demos/hori
                                                   style="max-width: 100%; min-width: 100%;"
                                                 >
                                                   <div
-                                                    style="display: inline-flex; margin-right: 25px;"
+                                                    style="display: inline-flex; margin-inline-end: 25px;"
                                                   >
                                                     <div
                                                       class="ant-pro-form-list-container"
@@ -11563,7 +11563,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/Group/demos/hori
                                                     </div>
                                                   </div>
                                                   <div
-                                                    style="display: inline-flex; margin-right: 25px;"
+                                                    style="display: inline-flex; margin-inline-end: 25px;"
                                                   >
                                                     <div
                                                       class="ant-pro-form-list-container"
@@ -13321,8 +13321,8 @@ exports[`form demos 📸 renders ./packages/form/src/components/Group/demos/nest
                     style="max-width: 100%; min-width: 100%;"
                   >
                     <div
-                      class="ant-pro-card ant-pro-card-border"
-                      style="margin-bottom: 8px;"
+                      class="ant-pro-card ant-pro-card-border ant-pro-card-box-shadow"
+                      style="margin-block-end: 8px;"
                     >
                       <div
                         class="ant-pro-card-header"
@@ -13946,7 +13946,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/Group/demos/pro-
 <DocumentFragment>
   <div
     class="ant-space ant-space-horizontal ant-space-align-center"
-    style="margin-bottom: 24px;"
+    style="margin-block-end: 24px;"
   >
     <div
       class="ant-space-item"
@@ -14056,8 +14056,8 @@ exports[`form demos 📸 renders ./packages/form/src/components/Group/demos/pro-
                     style="max-width: 100%; min-width: 100%;"
                   >
                     <div
-                      class="ant-pro-card ant-pro-card-border"
-                      style="margin-bottom: 8px;"
+                      class="ant-pro-card ant-pro-card-border ant-pro-card-box-shadow"
+                      style="margin-block-end: 8px;"
                     >
                       <div
                         class="ant-pro-card-header"
@@ -14426,7 +14426,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/LoginForm/demos/
               type="text"
             />
             <div
-              class="ant-tabs ant-tabs-top"
+              class="ant-tabs ant-tabs-top ant-tabs-centered"
             >
               <div
                 class="ant-tabs-nav"
@@ -14638,7 +14638,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/LoginForm/demos/
                       >
                         <span
                           class="ant-input-affix-wrapper ant-input-affix-wrapper-lg"
-                          style="flex: 1; transition: width .3s; margin-right: 8px;"
+                          style="flex: 1; transition: width .3s; margin-inline-end: 8px;"
                         >
                           <span
                             class="ant-input-prefix"
@@ -14687,7 +14687,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/LoginForm/demos/
               </div>
             </div>
             <div
-              style="margin-bottom: 24px;"
+              style="margin-block-end: 24px;"
             >
               <label
                 class="ant-checkbox-wrapper"
@@ -14746,7 +14746,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/LoginForm/demos/
                 aria-label="alipay-circle"
                 class="anticon anticon-alipay-circle"
                 role="img"
-                style="margin-left: 16px; color: rgba(0, 0, 0, 0.2); font-size: 24px; vertical-align: middle; cursor: pointer;"
+                style="margin-inline-start: 16px; color: rgba(0, 0, 0, 0.2); font-size: 24px; vertical-align: middle; cursor: pointer;"
               >
                 <svg
                   aria-hidden="true"
@@ -14771,7 +14771,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/LoginForm/demos/
                 aria-label="taobao-circle"
                 class="anticon anticon-taobao-circle"
                 role="img"
-                style="margin-left: 16px; color: rgba(0, 0, 0, 0.2); font-size: 24px; vertical-align: middle; cursor: pointer;"
+                style="margin-inline-start: 16px; color: rgba(0, 0, 0, 0.2); font-size: 24px; vertical-align: middle; cursor: pointer;"
               >
                 <svg
                   aria-hidden="true"
@@ -14795,7 +14795,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/LoginForm/demos/
                 aria-label="weibo-circle"
                 class="anticon anticon-weibo-circle"
                 role="img"
-                style="margin-left: 16px; color: rgba(0, 0, 0, 0.2); font-size: 24px; vertical-align: middle; cursor: pointer;"
+                style="margin-inline-start: 16px; color: rgba(0, 0, 0, 0.2); font-size: 24px; vertical-align: middle; cursor: pointer;"
               >
                 <svg
                   aria-hidden="true"
@@ -14906,7 +14906,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/LoginForm/demos/
                 type="text"
               />
               <div
-                class="ant-tabs ant-tabs-top"
+                class="ant-tabs ant-tabs-top ant-tabs-centered"
               >
                 <div
                   class="ant-tabs-nav"
@@ -15118,7 +15118,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/LoginForm/demos/
                         >
                           <span
                             class="ant-input-affix-wrapper ant-input-affix-wrapper-lg"
-                            style="flex: 1; transition: width .3s; margin-right: 8px;"
+                            style="flex: 1; transition: width .3s; margin-inline-end: 8px;"
                           >
                             <span
                               class="ant-input-prefix"
@@ -15167,7 +15167,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/LoginForm/demos/
                 </div>
               </div>
               <div
-                style="margin-bottom: 24px;"
+                style="margin-block-end: 24px;"
               >
                 <label
                   class="ant-checkbox-wrapper"
@@ -15831,7 +15831,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/QueryFilter/demo
                                   性别: 
                                 </span>
                                 <span
-                                  style="padding-left: 4px;"
+                                  style="padding-inline-start: 4px;"
                                 >
                                   打开,关闭
                                 </span>
@@ -16093,7 +16093,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/QueryFilter/demo
                                   地区: 
                                 </span>
                                 <span
-                                  style="padding-left: 4px;"
+                                  style="padding-inline-start: 4px;"
                                 >
                                   zhejiang,杭州,xihu
                                 </span>
@@ -16548,7 +16548,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/QueryFilter/demo
                                 范围: 
                               </span>
                               <span
-                                style="padding-left: 4px;"
+                                style="padding-inline-start: 4px;"
                               >
                                 20,80
                               </span>
@@ -16634,7 +16634,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/QueryFilter/demo
                                 范围: 
                               </span>
                               <span
-                                style="padding-left: 4px;"
+                                style="padding-inline-start: 4px;"
                               >
                                 20
                               </span>
@@ -16721,7 +16721,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/QueryFilter/demo
                                 名称: 
                               </span>
                               <span
-                                style="padding-left: 4px;"
+                                style="padding-inline-start: 4px;"
                               >
                                 yutingzhao1991
                               </span>
@@ -17057,7 +17057,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/QueryFilter/demo
                                 日期时间范围: 
                               </span>
                               <span
-                                style="padding-left: 4px;"
+                                style="padding-inline-start: 4px;"
                               >
                                 2019-11-15 12:50:26 ~ 2019-11-16 12:50:26
                               </span>
@@ -17241,7 +17241,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/QueryFilter/demo
                                 时间范围: 
                               </span>
                               <span
-                                style="padding-left: 4px;"
+                                style="padding-inline-start: 4px;"
                               >
                                 12:50:SS ~ 12:50:SS
                               </span>
@@ -17525,7 +17525,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/QueryFilter/demo
                               title="男"
                             >
                               <span
-                                style="padding-left: 4px;"
+                                style="padding-inline-start: 4px;"
                               >
                                 男
                               </span>
@@ -18197,7 +18197,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/QueryFilter/demo
                                     名称: 
                                   </span>
                                   <span
-                                    style="padding-left: 4px;"
+                                    style="padding-inline-start: 4px;"
                                   >
                                     Jack2
                                   </span>
@@ -18310,7 +18310,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/QueryFilter/demo
                                     名称: 
                                   </span>
                                   <span
-                                    style="padding-left: 4px;"
+                                    style="padding-inline-start: 4px;"
                                   >
                                     Jack2
                                   </span>
@@ -18532,7 +18532,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/QueryFilter/demo
       <form
         autocomplete="off"
         class="ant-form ant-form-horizontal ant-pro-form"
-        style="margin-top: 40px;"
+        style="margin-block-start: 40px;"
       >
         <input
           style="display: none;"
@@ -19668,7 +19668,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/QueryFilter/demo
                                   性别: 
                                 </span>
                                 <span
-                                  style="padding-left: 4px;"
+                                  style="padding-inline-start: 4px;"
                                 >
                                   打开,关闭
                                 </span>
@@ -19891,7 +19891,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/QueryFilter/demo
                                 范围: 
                               </span>
                               <span
-                                style="padding-left: 4px;"
+                                style="padding-inline-start: 4px;"
                               >
                                 20,80
                               </span>
@@ -19977,7 +19977,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/QueryFilter/demo
                                 范围: 
                               </span>
                               <span
-                                style="padding-left: 4px;"
+                                style="padding-inline-start: 4px;"
                               >
                                 20
                               </span>
@@ -20064,7 +20064,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/QueryFilter/demo
                                 名称: 
                               </span>
                               <span
-                                style="padding-left: 4px;"
+                                style="padding-inline-start: 4px;"
                               >
                                 yutingzhao1991
                               </span>
@@ -20739,7 +20739,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/QueryFilter/demo
                             aria-label="down"
                             class="anticon anticon-down"
                             role="img"
-                            style="margin-left: 0.5em; transition: 0.3s all; transform: rotate(0turn);"
+                            style="margin-inline-start: 0.5em; transition: 0.3s all; transform: rotate(0turn);"
                           >
                             <svg
                               aria-hidden="true"
@@ -21326,7 +21326,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/QueryFilter/demo
                             aria-label="down"
                             class="anticon anticon-down"
                             role="img"
-                            style="margin-left: 0.5em; transition: 0.3s all; transform: rotate(0turn);"
+                            style="margin-inline-start: 0.5em; transition: 0.3s all; transform: rotate(0turn);"
                           >
                             <svg
                               aria-hidden="true"
@@ -22562,7 +22562,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/QueryFilter/demo
                             aria-label="down"
                             class="anticon anticon-down"
                             role="img"
-                            style="margin-left: 0.5em; transition: 0.3s all; transform: rotate(0.5turn);"
+                            style="margin-inline-start: 0.5em; transition: 0.3s all; transform: rotate(0.5turn);"
                           >
                             <svg
                               aria-hidden="true"
@@ -23164,7 +23164,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/QueryFilter/demo
                             aria-label="down"
                             class="anticon anticon-down"
                             role="img"
-                            style="margin-left: 0.5em; transition: 0.3s all; transform: rotate(0.5turn);"
+                            style="margin-inline-start: 0.5em; transition: 0.3s all; transform: rotate(0.5turn);"
                           >
                             <svg
                               aria-hidden="true"
@@ -23766,7 +23766,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/QueryFilter/demo
                             aria-label="down"
                             class="anticon anticon-down"
                             role="img"
-                            style="margin-left: 0.5em; transition: 0.3s all; transform: rotate(0.5turn);"
+                            style="margin-inline-start: 0.5em; transition: 0.3s all; transform: rotate(0.5turn);"
                           >
                             <svg
                               aria-hidden="true"
@@ -24368,7 +24368,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/QueryFilter/demo
                             aria-label="down"
                             class="anticon anticon-down"
                             role="img"
-                            style="margin-left: 0.5em; transition: 0.3s all; transform: rotate(0.5turn);"
+                            style="margin-inline-start: 0.5em; transition: 0.3s all; transform: rotate(0.5turn);"
                           >
                             <svg
                               aria-hidden="true"
@@ -24927,7 +24927,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/QueryFilter/demo
                             aria-label="down"
                             class="anticon anticon-down"
                             role="img"
-                            style="margin-left: 0.5em; transition: 0.3s all; transform: rotate(0turn);"
+                            style="margin-inline-start: 0.5em; transition: 0.3s all; transform: rotate(0turn);"
                           >
                             <svg
                               aria-hidden="true"
@@ -24965,7 +24965,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/QueryFilter/demo
   >
     <div
       class="ant-card-body"
-      style="padding-bottom: 0px;"
+      style="padding-block-end: 0;"
     >
       <div>
         <span
@@ -25194,7 +25194,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/QueryFilter/demo
               >
                 <div
                   class="ant-pro-form-group-title"
-                  style="display: inline-block; margin-right: 16px;"
+                  style="display: inline-block; margin-inline-end: 16px;"
                 >
                   姓名
                 </div>
@@ -25277,7 +25277,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/QueryFilter/demo
               <div
                 class="ant-divider ant-divider-horizontal ant-divider-dashed"
                 role="separator"
-                style="margin-top: -8px; margin-bottom: 16px;"
+                style="margin-block-start: -8px; margin-block-end: 16px;"
               />
             </div>
             <div
@@ -25289,7 +25289,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/QueryFilter/demo
               >
                 <div
                   class="ant-pro-form-group-title"
-                  style="display: inline-block; margin-right: 16px;"
+                  style="display: inline-block; margin-inline-end: 16px;"
                 >
                   详情
                 </div>
@@ -27388,7 +27388,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/SchemaForm/demos
         class="ant-alert ant-alert-warning ant-alert-no-icon"
         data-show="true"
         role="alert"
-        style="margin-bottom: 24px;"
+        style="margin-block-end: 24px;"
       >
         <div
           class="ant-alert-content"
@@ -31406,7 +31406,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/StepsForm/demos/
 exports[`form demos 📸 renders ./packages/form/src/components/StepsForm/demos/customize-steps-from.tsx correctly 1`] = `
 <DocumentFragment>
   <div
-    class="ant-pro-card"
+    class="ant-pro-card ant-pro-card-box-shadow"
   >
     <div
       class="ant-pro-card-body"
@@ -32814,8 +32814,8 @@ exports[`form demos 📸 renders ./packages/form/src/components/StepsForm/demos/
                     type="text"
                   />
                   <div
-                    class="ant-pro-card ant-pro-card-border"
-                    style="margin-bottom: 16px; min-width: 800px; max-width: 100%;"
+                    class="ant-pro-card ant-pro-card-border ant-pro-card-box-shadow"
+                    style="margin-block-end: 16px; min-width: 800px; max-width: 100%;"
                   >
                     <div
                       class="ant-pro-card-header ant-pro-card-header-border ant-pro-card-header-collapsible"
@@ -33129,8 +33129,8 @@ exports[`form demos 📸 renders ./packages/form/src/components/StepsForm/demos/
                     </div>
                   </div>
                   <div
-                    class="ant-pro-card ant-pro-card-border"
-                    style="min-width: 800px; margin-bottom: 16px;"
+                    class="ant-pro-card ant-pro-card-border ant-pro-card-box-shadow"
+                    style="min-width: 800px; margin-block-end: 16px;"
                   >
                     <div
                       class="ant-pro-card-header ant-pro-card-header-border ant-pro-card-header-collapsible"
@@ -33681,8 +33681,8 @@ exports[`form demos 📸 renders ./packages/form/src/components/StepsForm/demos/
                     type="text"
                   />
                   <div
-                    class="ant-pro-card"
-                    style="min-width: 800px; margin-bottom: 16px; max-width: 100%;"
+                    class="ant-pro-card ant-pro-card-box-shadow"
+                    style="min-width: 800px; margin-block-end: 16px; max-width: 100%;"
                   >
                     <div
                       class="ant-pro-card-body"
@@ -34073,8 +34073,8 @@ exports[`form demos 📸 renders ./packages/form/src/components/StepsForm/demos/
                     type="text"
                   />
                   <div
-                    class="ant-pro-card"
-                    style="margin-bottom: 16px; min-width: 800px; max-width: 100%;"
+                    class="ant-pro-card ant-pro-card-box-shadow"
+                    style="margin-block-end: 16px; min-width: 800px; max-width: 100%;"
                   >
                     <div
                       class="ant-pro-card-body"
@@ -34440,7 +34440,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/StepsForm/demos/
 exports[`form demos 📸 renders ./packages/form/src/components/StepsForm/demos/steps-form-vertical.tsx correctly 1`] = `
 <DocumentFragment>
   <div
-    class="ant-pro-card"
+    class="ant-pro-card ant-pro-card-box-shadow"
   >
     <div
       class="ant-pro-card-body"
@@ -35772,7 +35772,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/StepsForm/demos/
 exports[`form demos 📸 renders ./packages/form/src/components/StepsForm/demos/steps-from.tsx correctly 1`] = `
 <DocumentFragment>
   <div
-    class="ant-pro-card"
+    class="ant-pro-card ant-pro-card-box-shadow"
   >
     <div
       class="ant-pro-card-body"
@@ -37080,7 +37080,7 @@ exports[`form demos 📸 renders ./packages/form/src/demos/base.tsx correctly 1`
                     style="display: flex; align-items: center;"
                   >
                     <div
-                      style="margin-right: 8px;"
+                      style="margin-inline-end: 8px;"
                     >
                       <a>
                         客户名称应该怎么获得？
@@ -37135,7 +37135,7 @@ exports[`form demos 📸 renders ./packages/form/src/demos/base.tsx correctly 1`
                       </div>
                     </div>
                     <div
-                      style="margin-left: 8px;"
+                      style="margin-inline-start: 8px;"
                     >
                       <a>
                         点击查看更多
@@ -38120,7 +38120,7 @@ exports[`form demos 📸 renders ./packages/form/src/demos/base.tsx correctly 1`
                 </div>
               </div>
               <div
-                style="margin-left: 8px;"
+                style="margin-inline-start: 8px;"
               >
                 qixian
               </div>
@@ -44640,7 +44640,7 @@ exports[`form demos 📸 renders ./packages/form/src/demos/layout-footer.tsx cor
                     </div>
                   </div>
                   <div
-                    style="height: 48px; margin-top: 24px;"
+                    style="height: 48px; margin-block-start: 24px;"
                   />
                 </div>
               </div>
@@ -44656,7 +44656,7 @@ exports[`form demos 📸 renders ./packages/form/src/demos/layout-footer.tsx cor
 exports[`form demos 📸 renders ./packages/form/src/demos/linkage-customization.tsx correctly 1`] = `
 <DocumentFragment>
   <div
-    class="ant-pro-card"
+    class="ant-pro-card ant-pro-card-box-shadow"
   >
     <div
       class="ant-pro-card-body"
@@ -46662,8 +46662,8 @@ exports[`form demos 📸 renders ./packages/form/src/demos/pro-form-dependency.d
                     style="max-width: 100%; min-width: 100%;"
                   >
                     <div
-                      class="ant-pro-card ant-pro-card-border"
-                      style="margin-bottom: 8px;"
+                      class="ant-pro-card ant-pro-card-border ant-pro-card-box-shadow"
+                      style="margin-block-end: 8px;"
                     >
                       <div
                         class="ant-pro-card-header"
@@ -47405,7 +47405,7 @@ exports[`form demos 📸 renders ./packages/form/src/demos/pro-form-editableTabl
                     class="ant-pro-table"
                   >
                     <div
-                      class="ant-pro-card"
+                      class="ant-pro-card ant-pro-card-box-shadow"
                     >
                       <div
                         class="ant-pro-card-body"
@@ -47561,7 +47561,7 @@ exports[`form demos 📸 renders ./packages/form/src/demos/pro-form-editableTabl
                                             >
                                               <div
                                                 class="ant-form-item"
-                                                style="margin: -5px 0px -5px 0px;"
+                                                style="margin-block-start: -5px; margin-block-end: -5px; margin-inline-start: 0; margin-inline-end: 0;"
                                               >
                                                 <div
                                                   class="ant-row ant-form-item-row"
@@ -47625,7 +47625,7 @@ exports[`form demos 📸 renders ./packages/form/src/demos/pro-form-editableTabl
                                             >
                                               <div
                                                 class="ant-form-item"
-                                                style="margin: -5px 0px -5px 0px;"
+                                                style="margin-block-start: -5px; margin-block-end: -5px; margin-inline-start: 0; margin-inline-end: 0;"
                                               >
                                                 <div
                                                   class="ant-row ant-form-item-row"
@@ -47737,7 +47737,7 @@ exports[`form demos 📸 renders ./packages/form/src/demos/pro-form-editableTabl
                                             >
                                               <div
                                                 class="ant-form-item"
-                                                style="margin: -5px 0px -5px 0px;"
+                                                style="margin-block-start: -5px; margin-block-end: -5px; margin-inline-start: 0; margin-inline-end: 0;"
                                               >
                                                 <div
                                                   class="ant-row ant-form-item-row"
@@ -47788,7 +47788,7 @@ exports[`form demos 📸 renders ./packages/form/src/demos/pro-form-editableTabl
                                             >
                                               <div
                                                 class="ant-form-item"
-                                                style="margin: -5px 0px -5px 0px;"
+                                                style="margin-block-start: -5px; margin-block-end: -5px; margin-inline-start: 0; margin-inline-end: 0;"
                                               >
                                                 <div
                                                   class="ant-row ant-form-item-row"
@@ -47852,7 +47852,7 @@ exports[`form demos 📸 renders ./packages/form/src/demos/pro-form-editableTabl
                                             >
                                               <div
                                                 class="ant-form-item"
-                                                style="margin: -5px 0px -5px 0px;"
+                                                style="margin-block-start: -5px; margin-block-end: -5px; margin-inline-start: 0; margin-inline-end: 0;"
                                               >
                                                 <div
                                                   class="ant-row ant-form-item-row"
@@ -47964,7 +47964,7 @@ exports[`form demos 📸 renders ./packages/form/src/demos/pro-form-editableTabl
                                             >
                                               <div
                                                 class="ant-form-item"
-                                                style="margin: -5px 0px -5px 0px;"
+                                                style="margin-block-start: -5px; margin-block-end: -5px; margin-inline-start: 0; margin-inline-end: 0;"
                                               >
                                                 <div
                                                   class="ant-row ant-form-item-row"

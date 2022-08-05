@@ -3,8 +3,8 @@
 exports[`docs demos 📸 renders ./docs/demos/customization-value-type.tsx correctly 1`] = `
 <DocumentFragment>
   <div
-    class="ant-pro-card ant-pro-card-border"
-    style="margin-bottom: 24px;"
+    class="ant-pro-card ant-pro-card-border ant-pro-card-box-shadow"
+    style="margin-block-end: 24px;"
   >
     <div
       class="ant-pro-card-header"
@@ -290,8 +290,8 @@ exports[`docs demos 📸 renders ./docs/demos/customization-value-type.tsx corre
     </div>
   </div>
   <div
-    class="ant-pro-card ant-pro-card-border"
-    style="margin-bottom: 24px;"
+    class="ant-pro-card ant-pro-card-border ant-pro-card-box-shadow"
+    style="margin-block-end: 24px;"
   >
     <div
       class="ant-pro-card-header"
@@ -508,7 +508,7 @@ exports[`docs demos 📸 renders ./docs/demos/customization-value-type.tsx corre
             </div>
           </div>
           <div
-            class="ant-pro-card"
+            class="ant-pro-card ant-pro-card-box-shadow"
           >
             <div
               class="ant-pro-card-body"
@@ -596,8 +596,8 @@ exports[`docs demos 📸 renders ./docs/demos/customization-value-type.tsx corre
     </div>
   </div>
   <div
-    class="ant-pro-card ant-pro-card-border"
-    style="margin-bottom: 24px;"
+    class="ant-pro-card ant-pro-card-border ant-pro-card-box-shadow"
+    style="margin-block-end: 24px;"
   >
     <div
       class="ant-pro-card-header"

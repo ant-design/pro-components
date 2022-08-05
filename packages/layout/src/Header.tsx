@@ -94,6 +94,7 @@ const DefaultHeader: React.FC<HeaderViewProps & PrivateSiderMenuProps> = (props)
             height: headerHeight,
             lineHeight: `${headerHeight}px`,
             backgroundColor: 'transparent',
+            zIndex: 19,
             ...style,
           }}
         />

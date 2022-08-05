@@ -205,11 +205,11 @@ exports[`Table ColumnSetting 🎏 columns proFieldProps support custom 1`] = `
       </div>
     </div>
     <div
-      class="ant-pro-card"
+      class="ant-pro-card ant-pro-card-box-shadow"
     >
       <div
         class="ant-pro-card-body"
-        style="padding-top: 0px;"
+        style="padding-block-start: 0;"
       >
         <div
           class="ant-pro-table-list-toolbar"
@@ -610,11 +610,11 @@ exports[`Table ColumnSetting 🎏 config provide render 1`] = `
       </div>
     </div>
     <div
-      class="qixian-pro-card"
+      class="qixian-pro-card qixian-pro-card-box-shadow"
     >
       <div
         class="qixian-pro-card-body"
-        style="padding-top: 0px;"
+        style="padding-block-start: 0;"
       >
         <div
           class="qixian-pro-table-list-toolbar"
@@ -1407,11 +1407,11 @@ exports[`Table ColumnSetting 🎏 extra columns 1`] = `
       </div>
     </div>
     <div
-      class="ant-pro-card"
+      class="ant-pro-card ant-pro-card-box-shadow"
     >
       <div
         class="ant-pro-card-body"
-        style="padding-top: 0px;"
+        style="padding-block-start: 0;"
       >
         <div
           class="ant-pro-table-list-toolbar"
