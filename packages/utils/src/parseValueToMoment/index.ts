@@ -1,9 +1,9 @@
 import dayjs from 'dayjs';
-import isNil from '../isNil';
+import { isNil } from '../isNil';
 
 type DateValue = dayjs.Dayjs | dayjs.Dayjs[] | string | string[] | number | number[];
 
-const parseValueToDay = (
+export const parseValueToDay = (
   value: DateValue,
   formatter?: string,
 ): dayjs.Dayjs | dayjs.Dayjs[] | null | undefined => {
@@ -16,5 +16,3 @@ const parseValueToDay = (
   if (typeof value === 'number') return dayjs(value);
   return dayjs(value, formatter);
 };
-
-export default parseValueToDay;

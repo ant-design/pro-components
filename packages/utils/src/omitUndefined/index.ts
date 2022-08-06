@@ -1,4 +1,4 @@
-const omitUndefined = <T>(obj: T): T => {
+export const omitUndefined = <T>(obj: T): T => {
   const newObj = {} as T;
   Object.keys(obj || {}).forEach((key) => {
     if (obj[key] !== undefined) {
@@ -10,5 +10,3 @@ const omitUndefined = <T>(obj: T): T => {
   }
   return newObj;
 };
-
-export default omitUndefined;

@@ -10,12 +10,12 @@ import { useStyle } from './style';
  *
  * @param props
  */
-const LabelIconTip: React.FC<{
+export const LabelIconTip: React.FC<{
   label: React.ReactNode;
   subTitle?: React.ReactNode;
   tooltip?: string | LabelTooltipType;
   ellipsis?: boolean | { showTitle?: boolean };
-}> = (props) => {
+}> = React.memo((props) => {
   const { label, tooltip, ellipsis, subTitle } = props;
   const { getPrefixCls } = useContext(ConfigProvider.ConfigContext);
   const className = getPrefixCls('pro-core-label-tip');
@@ -53,6 +53,4 @@ const LabelIconTip: React.FC<{
       )}
     </div>,
   );
-};
-
-export default React.memo(LabelIconTip);
+});

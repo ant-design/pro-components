@@ -14,7 +14,7 @@ const formatString = (endText: any, format: FormatType) => {
  *
  * @param value
  */
-const dateArrayFormatter = (value: any[], format: FormatType | FormatType[]) => {
+export const dateArrayFormatter = (value: any[], format: FormatType | FormatType[]) => {
   const [startText, endText] = Array.isArray(value) ? value : [];
 
   let formatFirst: FormatType;
@@ -36,5 +36,3 @@ const dateArrayFormatter = (value: any[], format: FormatType | FormatType[]) => 
 
   return valueStr;
 };
-
-export default dateArrayFormatter;

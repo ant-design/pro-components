@@ -5,6 +5,7 @@ import {
   DropdownFooter,
   InlineErrorFormItem,
   isDeepEqualReact,
+  isDropdownValueType,
   isNil,
   isUrl,
   LabelIconTip,
@@ -22,7 +23,6 @@ import type { Dayjs } from 'dayjs';
 import dayjs from 'dayjs';
 import { mount } from 'enzyme';
 import React, { useEffect, useState } from 'react';
-import isDropdownValueType from '../../packages/utils/src/isDropdownValueType/index';
 import { waitForComponentToPaint, waitTime } from '../util';
 
 describe('utils', () => {

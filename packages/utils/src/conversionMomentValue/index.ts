@@ -1,7 +1,7 @@
 import type { InternalNamePath, NamePath } from 'antd/es/form/interface';
 import dayjs from 'dayjs';
 import get from 'rc-util/lib/utils/get';
-import isNil from '../isNil';
+import { isNil } from '../isNil';
 import type { ProFieldValueType } from '../typing';
 
 type DateFormatter =
@@ -86,7 +86,7 @@ export const convertMoment = (
  * @param dateFormatter
  * @param proColumnsMap
  */
-const conversionMomentValue = <T = any>(
+export const conversionMomentValue = <T = any>(
   value: T,
   dateFormatter: DateFormatter,
   valueTypeMap: Record<
@@ -152,5 +152,3 @@ const conversionMomentValue = <T = any>(
 
   return tmpValue;
 };
-
-export default conversionMomentValue;

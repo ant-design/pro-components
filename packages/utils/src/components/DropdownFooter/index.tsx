@@ -75,4 +75,4 @@ const DropdownFooter: React.FC<DropdownFooterProps> = (props) => {
   );
 };
 
-export default DropdownFooter;
+export { DropdownFooter };

@@ -42,7 +42,7 @@ export type AddLineOptions = {
  *
  * @param props
  */
-function useEditableMap<RecordType>(
+export function useEditableMap<RecordType>(
   props: RowEditableConfig<RecordType> & {
     dataSource: RecordType;
     childrenColumnName: string | undefined;
@@ -195,5 +195,3 @@ function useEditableMap<RecordType>(
 export type UseEditableMapType = typeof useEditableMap;
 
 export type UseEditableMapUtilType = ReturnType<UseEditableMapType>;
-
-export default useEditableMap;

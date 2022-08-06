@@ -1,7 +1,7 @@
 import { ConfigProvider, Dropdown } from 'antd';
 import React, { useContext } from 'react';
 import type { DropdownFooterProps } from '../DropdownFooter';
-import Footer from '../DropdownFooter';
+import { DropdownFooter } from '../DropdownFooter';
 import { useStyle } from './style';
 
 declare const Placements: [
@@ -50,7 +50,7 @@ const FilterDropdown: React.FC<DropdownProps> = (props) => {
       overlay={
         <div className={`${prefixCls}-overlay ${hashId}`}>
           <div className={`${prefixCls}-content`}>{children}</div>
-          {footer && <Footer disabled={disabled} footerRender={footerRender} {...footer} />}
+          {footer && <DropdownFooter disabled={disabled} footerRender={footerRender} {...footer} />}
         </div>
       }
     >
@@ -59,4 +59,4 @@ const FilterDropdown: React.FC<DropdownProps> = (props) => {
   );
 };
 
-export default FilterDropdown;
+export { FilterDropdown };

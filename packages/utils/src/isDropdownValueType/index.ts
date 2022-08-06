@@ -1,4 +1,4 @@
-const isDropdownValueType = (valueType: string) => {
+export const isDropdownValueType = (valueType: string) => {
   let isDropdown = false;
   if (
     (typeof valueType === 'string' &&
@@ -11,5 +11,3 @@ const isDropdownValueType = (valueType: string) => {
   }
   return isDropdown;
 };
-
-export default isDropdownValueType;

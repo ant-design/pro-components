@@ -1,7 +1,7 @@
 import { useEffect } from 'react';
-import isBrowser from '../../isBrowser';
+import { isBrowser } from '../../isBrowser';
 
-function useDocumentTitle(
+export function useDocumentTitle(
   titleInfo: {
     title: string;
     id: string;
@@ -16,5 +16,3 @@ function useDocumentTitle(
     }
   }, [titleInfo.title, titleText]);
 }
-
-export default useDocumentTitle;

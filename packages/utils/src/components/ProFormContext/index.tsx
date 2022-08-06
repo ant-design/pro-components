@@ -38,10 +38,8 @@ export type ProFormInstanceType<T> = {
   validateFieldsReturnFormatValue?: (nameList?: NamePath[]) => Promise<T>;
 };
 
-const ProFormContext = React.createContext<
+export const ProFormContext = React.createContext<
   ProFormInstanceType<any> & {
     formRef?: React.MutableRefObject<FormInstance<any>>;
   }
 >({});
-
-export default ProFormContext;

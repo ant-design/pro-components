@@ -8,11 +8,15 @@ import { useStyle } from './style';
 interface InlineErrorFormItemProps extends FormItemProps {
   errorType?: 'popover' | 'default';
   popoverProps?: PopoverProps;
+  children: any;
+  name: NamePath;
+  rules: FormItemProps['rules'];
 }
 
 interface InternalProps extends InlineErrorFormItemProps {
   name: NamePath;
   rules: FormItemProps['rules'];
+  children: any;
 }
 
 const FIX_INLINE_STYLE = {
@@ -22,7 +26,7 @@ const FIX_INLINE_STYLE = {
   marginInlineEnd: 0,
 };
 
-const InlineErrorFormItem: React.FC<{
+const InlineErrorFormItemPopover: React.FC<{
   inputProps: any;
   input: JSX.Element;
   errorList: JSX.Element;
@@ -70,7 +74,7 @@ const InlineErrorFormItem: React.FC<{
   );
 };
 
-const InternalFormItem: React.FC<InternalProps> = ({
+const InternalFormItemFunction: React.FC<InternalProps & FormItemProps> = ({
   label,
   rules,
   name,
@@ -96,7 +100,13 @@ const InternalFormItem: React.FC<InternalProps> = ({
             errorList: JSX.Element;
             extra: JSX.Element;
           },
-        ) => <InlineErrorFormItem inputProps={inputProps} popoverProps={popoverProps} {...doms} />,
+        ) => (
+          <InlineErrorFormItemPopover
+            inputProps={inputProps}
+            popoverProps={popoverProps}
+            {...doms}
+          />
+        ),
       }}
       {...rest}
       style={{
@@ -109,14 +119,14 @@ const InternalFormItem: React.FC<InternalProps> = ({
   );
 };
 
-export default (props: InlineErrorFormItemProps) => {
+export const InlineErrorFormItem = (props: InlineErrorFormItemProps) => {
   const { errorType, rules, name, popoverProps, children, ...rest } = props;
 
   if (name && rules?.length && errorType === 'popover') {
     return (
-      <InternalFormItem name={name} rules={rules!} popoverProps={popoverProps} {...rest}>
+      <InternalFormItemFunction name={name} rules={rules!} popoverProps={popoverProps} {...rest}>
         {children}
-      </InternalFormItem>
+      </InternalFormItemFunction>
     );
   }
   return (

@@ -12,11 +12,11 @@ import set from 'rc-util/lib/utils/set';
 import { noteOnce } from 'rc-util/lib/warning';
 import React, { useContext, useMemo, useRef, useState } from 'react';
 import { useDebounceFn, useRefFunction } from '..';
-import ProFormContext from '../components/ProFormContext';
+import { ProFormContext } from '../components/ProFormContext';
 import { useDeepCompareEffectDebounce } from '../hooks/useDeepCompareEffect';
-import usePrevious from '../hooks/usePrevious';
+import { usePrevious } from '../hooks/usePrevious';
 import { merge } from '../merge';
-import useMountMergeState from '../useMountMergeState';
+import { useMountMergeState } from '../useMountMergeState';
 
 /**
  * 兼容antd@4 和 antd@5 的warning
@@ -444,7 +444,7 @@ export function defaultActionRender<T>(row: T, config: ActionRenderConfig<T, New
  *
  * @param props
  */
-function useEditableArray<RecordType>(
+export function useEditableArray<RecordType>(
   props: RowEditableConfig<RecordType> & {
     getRowKey: GetRowKey<RecordType>;
     dataSource: RecordType[];
@@ -845,5 +845,3 @@ function useEditableArray<RecordType>(
 export type UseEditableType = typeof useEditableArray;
 
 export type UseEditableUtilType = ReturnType<UseEditableType>;
-
-export default useEditableArray;
