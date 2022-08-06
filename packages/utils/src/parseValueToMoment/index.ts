@@ -3,7 +3,7 @@ import isNil from '../isNil';
 
 type DateValue = dayjs.Dayjs | dayjs.Dayjs[] | string | string[] | number | number[];
 
-const parseValueToMoment = (
+const parseValueToDay = (
   value: DateValue,
   formatter?: string,
 ): dayjs.Dayjs | dayjs.Dayjs[] | null | undefined => {
@@ -11,10 +11,10 @@ const parseValueToMoment = (
     return value as dayjs.Dayjs | null | undefined;
   }
   if (Array.isArray(value)) {
-    return (value as any[]).map((v) => parseValueToMoment(v, formatter) as dayjs.Dayjs);
+    return (value as any[]).map((v) => parseValueToDay(v, formatter) as dayjs.Dayjs);
   }
   if (typeof value === 'number') return dayjs(value);
   return dayjs(value, formatter);
 };
 
-export default parseValueToMoment;
+export default parseValueToDay;

@@ -1,5 +1,5 @@
 import { useIntl } from '@ant-design/pro-provider';
-import { parseValueToMoment } from '@ant-design/pro-utils';
+import { parseValueToDay } from '@ant-design/pro-utils';
 import { DatePicker } from 'antd';
 import dayjs from 'dayjs';
 import React, { useCallback } from 'react';
@@ -45,7 +45,7 @@ const FieldRangePicker: ProFieldFC<{
     return dom;
   }
   if (mode === 'edit' || mode === 'update') {
-    const momentValue = parseValueToMoment(fieldProps.value) as dayjs.Dayjs;
+    const momentValue = parseValueToDay(fieldProps.value) as dayjs.Dayjs;
     const dom = (
       <DatePicker.RangePicker
         ref={ref}

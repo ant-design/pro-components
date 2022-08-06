@@ -1,5 +1,5 @@
 import { useIntl } from '@ant-design/pro-provider';
-import { FieldLabel, parseValueToMoment, useStyle } from '@ant-design/pro-utils';
+import { FieldLabel, parseValueToDay, useStyle } from '@ant-design/pro-utils';
 import type { DatePickerProps } from 'antd';
 import { ConfigProvider, DatePicker } from 'antd';
 import dayjs from 'dayjs';
@@ -87,7 +87,7 @@ const FieldDatePicker: ProFieldFC<
       placeholder = intl.getMessage('tableForm.selectPlaceholder', '请选择'),
     } = fieldProps;
 
-    const momentValue = parseValueToMoment(value) as dayjs.Dayjs;
+    const momentValue = parseValueToDay(value) as dayjs.Dayjs;
 
     if (light) {
       const valueStr: string = (momentValue && momentValue.format(format)) || '';

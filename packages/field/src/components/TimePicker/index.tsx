@@ -1,4 +1,4 @@
-import { FieldLabel, parseValueToMoment } from '@ant-design/pro-utils';
+import { FieldLabel, parseValueToDay } from '@ant-design/pro-utils';
 import { ConfigProvider, DatePicker, TimePicker } from 'antd';
 import dayjs from 'dayjs';
 import React, { useContext, useState } from 'react';
@@ -53,9 +53,9 @@ const FieldTimePicker: ProFieldFC<
   if (mode === 'edit' || mode === 'update') {
     let dom;
     const { disabled, onChange, placeholder, allowClear, value } = fieldProps;
-    const momentValue = parseValueToMoment(value, finalFormat) as dayjs.Dayjs;
+    const dayValue = parseValueToDay(value, finalFormat) as dayjs.Dayjs;
     if (light) {
-      const valueStr: string = (momentValue && momentValue.format(finalFormat)) || '';
+      const valueStr: string = (dayValue && dayValue.format(finalFormat)) || '';
       dom = (
         <div
           className={`${prefixCls}-light`}
@@ -72,7 +72,7 @@ const FieldTimePicker: ProFieldFC<
           }}
         >
           <TimePicker
-            value={momentValue}
+            value={dayValue}
             format={format}
             ref={ref}
             {...fieldProps}
@@ -109,7 +109,7 @@ const FieldTimePicker: ProFieldFC<
           format={format}
           bordered={plain === undefined ? true : !plain}
           {...fieldProps}
-          value={momentValue}
+          value={dayValue}
         />
       );
     }
@@ -157,7 +157,7 @@ const FieldTimeRangePicker: ProFieldFC<{
   }
   if (mode === 'edit' || mode === 'update') {
     const { value } = fieldProps;
-    const momentValue = parseValueToMoment(value, finalFormat) as dayjs.Dayjs[];
+    const momentValue = parseValueToDay(value, finalFormat) as dayjs.Dayjs[];
 
     const dom = (
       <TimePicker.RangePicker

@@ -1,5 +1,5 @@
 import { useIntl } from '@ant-design/pro-provider';
-import { parseValueToMoment } from '@ant-design/pro-utils';
+import { parseValueToDay } from '@ant-design/pro-utils';
 import { DatePicker, Tooltip } from 'antd';
 import dayjs from 'dayjs';
 import relativeTime from 'dayjs/plugin/relativeTime';
@@ -30,7 +30,7 @@ const FieldFromNow: ProFieldFC<{
   }
   if (mode === 'edit' || mode === 'update') {
     const placeholder = intl.getMessage('tableForm.selectPlaceholder', '请选择');
-    const momentValue = parseValueToMoment(fieldProps.value) as dayjs.Dayjs;
+    const momentValue = parseValueToDay(fieldProps.value) as dayjs.Dayjs;
     const dom = (
       <DatePicker placeholder={placeholder} showTime {...fieldProps} value={momentValue} />
     );

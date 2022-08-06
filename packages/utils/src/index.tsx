@@ -38,7 +38,7 @@ import { nanoid } from './nanoid';
 import omitBoolean from './omitBoolean';
 import omitUndefined from './omitUndefined';
 import omitUndefinedAndEmptyArr from './omitUndefinedAndEmptyArr';
-import parseValueToMoment from './parseValueToMoment';
+import parseValueToDay from './parseValueToMoment';
 import pickProFormItemProps from './pickProFormItemProps';
 import pickProProps from './pickProProps';
 import { runFunction } from './runFunction';
@@ -124,7 +124,7 @@ export {
   conversionMomentValue as conversionSubmitValue,
   conversionMomentValue,
   convertMoment,
-  parseValueToMoment,
+  parseValueToDay,
   genCopyable,
   useDocumentTitle,
   isImg,

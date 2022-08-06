@@ -10,7 +10,7 @@ import {
   LabelIconTip,
   merge,
   nanoid,
-  parseValueToMoment,
+  parseValueToDay,
   pickProProps,
   transformKeySubmitValue,
   useDebounceFn,
@@ -382,7 +382,7 @@ describe('utils', () => {
   });
 
   it('📅 parseValueToMoment dayjs', async () => {
-    const html = parseValueToMoment(['2019-11-16 12:50:26', '2019-11-16 12:50:26'], 'YYYY-MM-DD');
+    const html = parseValueToDay(['2019-11-16 12:50:26', '2019-11-16 12:50:26'], 'YYYY-MM-DD');
     expect((html as Dayjs[]).map((item) => item.valueOf()).join(',')).toBe(
       '1573862400000,1573862400000',
     );
