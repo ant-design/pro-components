@@ -3540,9 +3540,9 @@
     "@types/react-dom" "^18.0.0"
 
 "@testing-library/user-event@^14.0.0":
-  version "14.3.0"
-  resolved "https://registry.npmmirror.com/@testing-library/user-event/-/user-event-14.3.0.tgz#0a6750b94b40e4739706d41e8efc2ccf64d2aad9"
-  integrity sha512-P02xtBBa8yMaLhK8CzJCIns8rqwnF6FxhR9zs810flHOBXUYCFjLd8Io1rQrAkQRWEmW2PGdZIEdMxf/KLsqFA==
+  version "14.4.1"
+  resolved "https://registry.npmmirror.com/@testing-library/user-event/-/user-event-14.4.1.tgz#dfa1cceef4833f5288a4090d1b85dce5d8dc20b6"
+  integrity sha512-Gr20dje1RaNxZ1ehHGPvFkLswfetBQKCfRD/lo6sUJQ52X2TV/QnqUpkjoShfEebrB2KiTPfQkcONwdQiofLhg==
 
 "@tootallnate/once@1":
   version "1.1.2"
@@ -4410,10 +4410,10 @@
     regenerator-runtime "0.13.5"
     schema-utils "^3.0.0"
 
-"@umijs/preset-dumi@1.1.46":
-  version "1.1.46"
-  resolved "https://registry.npmmirror.com/@umijs/preset-dumi/-/preset-dumi-1.1.46.tgz#300d6458ab3424a5035116d135b85ca7c0bb9d7f"
-  integrity sha512-1jqT1oL0wajgPKLxZyscRpA6KEVyPaI8zuOgtcVmEcsEf96QhmUqGY6w7k4cN6vFYZwCQ6aKL7cF8vA4h1kt9w==
+"@umijs/preset-dumi@1.1.47":
+  version "1.1.47"
+  resolved "https://registry.npmmirror.com/@umijs/preset-dumi/-/preset-dumi-1.1.47.tgz#b11927a182a465694db2926ab561dc4704a18797"
+  integrity sha512-yv3dzeMSCc5CjmRe8nkVtodNYcJefyRev3T+hhjx74hPtwxNOVlx7PsDov66xdnw9uWUNbfBL7c5g3xT1sCWJQ==
   dependencies:
     "@babel/core" "^7.7.2"
     "@babel/generator" "^7.7.2"
@@ -4431,7 +4431,7 @@
     copy-text-to-clipboard "^2.2.0"
     deepmerge "^4.2.2"
     dumi-assets-types "1.0.0"
-    dumi-theme-default "1.1.22"
+    dumi-theme-default "1.1.23"
     enhanced-resolve "^4.1.1"
     github-slugger "^1.3.0"
     hast-util-has-property "^1.0.4"
@@ -4483,9 +4483,9 @@
     react-router-config "5.1.1"
 
 "@umijs/route-utils@^2.1.0":
-  version "2.1.5"
-  resolved "https://registry.npmmirror.com/@umijs/route-utils/-/route-utils-2.1.5.tgz#37cd8799faa56ab7fd7add3f51d1620b45b3d44a"
-  integrity sha512-ByDXNljAMWeCyHOKkM3gc18TgvtAGV9Di/A0MGnzVrf8PY/MdwogGSOktf3Z4w1Iqha2Bt8vHZk3SnQF8C8P4w==
+  version "2.2.0"
+  resolved "https://registry.npmmirror.com/@umijs/route-utils/-/route-utils-2.2.0.tgz#f76a02d2fc19ce70f9ad17308f80a4f3550ee65b"
+  integrity sha512-1t/A5+KuoK+AX0FcddNbUKMpMskuDsSSZRlQoTXDBBTDKUgWwG8KSX/NnfTCYJQrntL4A9WYymygop1jAw+Wdw==
   dependencies:
     "@qixian.cs/path-to-regexp" "^6.1.0"
     fast-deep-equal "^3.1.3"
@@ -5449,9 +5449,9 @@ aws-lambda@^1.0.7:
     watchpack "^2.0.0-beta.10"
 
 aws-sdk@^2.814.0:
-  version "2.1186.0"
-  resolved "https://registry.npmmirror.com/aws-sdk/-/aws-sdk-2.1186.0.tgz#f08fc5f1f53defa1fff83177621947dc0ca8d29b"
-  integrity sha512-3yDWwNWgbSH9tRVyan0PlRU938Po9QH+06XHwRNwAa/6bixYl4L48c6YgpfxBpwl0IvcCCTivD7ZqshndwishQ==
+  version "2.1188.0"
+  resolved "https://registry.npmmirror.com/aws-sdk/-/aws-sdk-2.1188.0.tgz#94b710948ef2924093a8d6fe42443a792385afa2"
+  integrity sha512-4KXwjRjbCzU1luTOeH+ded92H51I4UuHaZzx2EI+JA0II1+q48heTxFlFd7yp7jGz9UwjPb6k12Jv1W3r0JWxA==
   dependencies:
     buffer "4.9.2"
     events "1.1.1"
@@ -7168,9 +7168,9 @@ copy-text-to-clipboard@^2.2.0:
   integrity sha512-WRvoIdnTs1rgPMkgA2pUOa/M4Enh2uzCwdKsOMYNAJiz/4ZvEJgmbF4OmninPmlFdAWisfeh0tH+Cpf7ni3RqQ==
 
 copy-to-clipboard@^3.2.0:
-  version "3.3.1"
-  resolved "https://registry.npmmirror.com/copy-to-clipboard/-/copy-to-clipboard-3.3.1.tgz#115aa1a9998ffab6196f93076ad6da3b913662ae"
-  integrity sha512-i13qo6kIHTTpCm8/Wup+0b1mVWETvu2kIMzKoK8FpkLkFxlt0znUAHcMzox+T8sPlqtZXq3CulEjQHsYiGFJUw==
+  version "3.3.2"
+  resolved "https://registry.npmmirror.com/copy-to-clipboard/-/copy-to-clipboard-3.3.2.tgz#5b263ec2366224b100181dded7ce0579b340c107"
+  integrity sha512-Vme1Z6RUDzrb6xAI7EZlVZ5uvOk2F//GaxKUxajDqm9LhOVM1inxNAD2vy+UZDYsd0uyA9s7b3/FVZPSxqrCfg==
   dependencies:
     toggle-selection "^1.0.6"
 
@@ -8122,10 +8122,10 @@ dumi-assets-types@1.0.0:
   resolved "https://registry.npmmirror.com/dumi-assets-types/-/dumi-assets-types-1.0.0.tgz#d5368cb11045b203bf1ef1080e553b2287a2ec81"
   integrity sha512-7nhSeWM15vybbUAMPLZsdls2jKoHB2UU4P1RM6kLPucuS8eC/HSmufquFqTTYtX4oIDLHGtil/dVtMreNGwhdA==
 
-dumi-theme-default@1.1.22:
-  version "1.1.22"
-  resolved "https://registry.npmmirror.com/dumi-theme-default/-/dumi-theme-default-1.1.22.tgz#d6aa0584c70f6cb4cf0a2491062deade2f87df1b"
-  integrity sha512-9IZt+eSgsUUEewJhT1TY4FMRUpaRKPmpL/lPyoe0aP6D2NVlvNujbJOBmVgomKZwwCjMIV4f01CxizdNr8OY9w==
+dumi-theme-default@1.1.23:
+  version "1.1.23"
+  resolved "https://registry.npmmirror.com/dumi-theme-default/-/dumi-theme-default-1.1.23.tgz#1a71d5bae2939689d38b81e74dce91ec97daec09"
+  integrity sha512-XtxS0f9c0YToL2QBYjXtrvoZ9nmlWzA0zgLra7Joh8KNiK2c4UqYTh91dAThp0AbnFuG2eOxR7w/PxA8OyK4og==
   dependencies:
     lodash.throttle "^4.1.1"
     prism-react-renderer "^1.1.1"
@@ -8136,11 +8136,11 @@ dumi-theme-default@1.1.22:
     react-error-boundary "^3.1.4"
 
 dumi@^1.1.46:
-  version "1.1.46"
-  resolved "https://registry.npmmirror.com/dumi/-/dumi-1.1.46.tgz#54c507a1fe4ea795d62ada0055995f52c98052eb"
-  integrity sha512-D60Osji6Hl4R2kJP2tUHVvQ70UR3mOVrrSvPqAtOCUZ98rn/SU7X19rElKoA3jY1w5dPMoaknSKFnsvhWb+q+Q==
+  version "1.1.47"
+  resolved "https://registry.npmmirror.com/dumi/-/dumi-1.1.47.tgz#91829fc0034c293328f1d2901fddaea0aa933c7a"
+  integrity sha512-K3eix0oxnAVQwoZlNUShg2/lZxRU515U3QoOJBdPQfiOPbPv1+/N/p17PHz1L/MBaFReb7UrhUalyb6jPd36og==
   dependencies:
-    "@umijs/preset-dumi" "1.1.46"
+    "@umijs/preset-dumi" "1.1.47"
     umi "^3.0.0"
 
 duplexer3@^0.1.4:
@@ -8192,9 +8192,9 @@ ee-first@1.1.1:
   integrity sha512-WMwm9LhRUo+WUaRN+vRuETqG89IgZphVSNkdFgeb6sS/E4OrDIN7t48CAewSHXc6C8lefD8KKfr5vY61brQlow==
 
 electron-to-chromium@^1.4.202:
-  version "1.4.208"
-  resolved "https://registry.npmmirror.com/electron-to-chromium/-/electron-to-chromium-1.4.208.tgz#ecb5b47c8cc212a43172ffc5ce50178a638a5d74"
-  integrity sha512-diMr4t69FigAGUk2KovP0bygEtN/9AkqEVkzjEp0cu+zFFbZMVvwACpTTfuj1mAmFR5kNoSW8wGKDFWIvmThiQ==
+  version "1.4.211"
+  resolved "https://registry.npmmirror.com/electron-to-chromium/-/electron-to-chromium-1.4.211.tgz#afaa8b58313807501312d598d99b953568d60f91"
+  integrity sha512-BZSbMpyFQU0KBJ1JG26XGeFI3i4op+qOYGxftmZXFZoHkhLgsSv4DHDJfl8ogII3hIuzGt51PaZ195OVu0yJ9A==
 
 elegant-spinner@^1.0.1:
   version "1.0.1"
@@ -9114,9 +9114,9 @@ fast-levenshtein@^2.0.6, fast-levenshtein@~2.0.6:
   integrity sha512-DCXu6Ifhqcks7TZKY3Hxp3y6qphY5SJZmrWMDrKcERSOXWQdMhU9Ig/PYrzyw/ul9jOIyh0N4M0tbC5hodg8dw==
 
 fastest-levenshtein@^1.0.12:
-  version "1.0.14"
-  resolved "https://registry.npmmirror.com/fastest-levenshtein/-/fastest-levenshtein-1.0.14.tgz#9054384e4b7a78c88d01a4432dc18871af0ac859"
-  integrity sha512-tFfWHjnuUfKE186Tfgr+jtaFc0mZTApEgKDOeyN+FwOqRkO/zK/3h1AiRd8u8CY53owL3CUmGr/oI9p/RdyLTA==
+  version "1.0.16"
+  resolved "https://registry.npmmirror.com/fastest-levenshtein/-/fastest-levenshtein-1.0.16.tgz#210e61b6ff181de91ea9b3d1b84fdedd47e034e5"
+  integrity sha512-eRnCtTTtGZFpQCwhJiUOuxPQWRXVKYDn0b2PeHfXL6/Zi53SLAzAHfVhVWK2AryC/WH05kGfxhFIPvTF0SXQzg==
 
 fastparse@^1.1.2:
   version "1.1.2"

@@ -38,11 +38,22 @@ export default () => (
             key="dropdown"
             trigger={['click']}
             overlay={
-              <Menu>
-                <Menu.Item key="1">下拉菜单</Menu.Item>
-                <Menu.Item key="2">下拉菜单2</Menu.Item>
-                <Menu.Item key="3">下拉菜单3</Menu.Item>
-              </Menu>
+              <Menu
+                items={[
+                  {
+                    label: '下拉菜单',
+                    key: '1',
+                  },
+                  {
+                    label: '下拉菜单2',
+                    key: '2',
+                  },
+                  {
+                    label: '下拉菜单3',
+                    key: '3',
+                  },
+                ]}
+              />
             }
           >
             <Button key="4" style={{ padding: '0 8px' }}>
