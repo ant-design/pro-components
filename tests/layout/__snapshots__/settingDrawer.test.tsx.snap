@@ -3,7 +3,7 @@
 exports[`settingDrawer.test 🌺 base user 1`] = `
 Array [
   <div
-    class="ant-pro-setting-drawer-handle"
+    class="ant-pro-setting-drawer-drawer-handle"
   >
     <span
       aria-label="close"
@@ -56,7 +56,7 @@ Array [
             class="ant-drawer-body"
           >
             <div
-              class="ant-pro-setting-drawer-content"
+              class="ant-pro-setting-drawer-drawer-content"
             >
               <div
                 style="margin-block-end:24px"
@@ -712,7 +712,7 @@ Array [
 exports[`settingDrawer.test 🌺 hideColors = true 1`] = `
 Array [
   <div
-    class="ant-pro-setting-drawer-handle"
+    class="ant-pro-setting-drawer-drawer-handle"
   >
     <span
       aria-label="close"
@@ -765,7 +765,7 @@ Array [
             class="ant-drawer-body"
           >
             <div
-              class="ant-pro-setting-drawer-content"
+              class="ant-pro-setting-drawer-drawer-content"
             >
               <div
                 style="margin-block-end:24px"
@@ -1352,7 +1352,7 @@ Array [
 exports[`settingDrawer.test 🌺 hideCopyButton = true 1`] = `
 Array [
   <div
-    class="ant-pro-setting-drawer-handle"
+    class="ant-pro-setting-drawer-drawer-handle"
   >
     <span
       aria-label="close"
@@ -1405,7 +1405,7 @@ Array [
             class="ant-drawer-body"
           >
             <div
-              class="ant-pro-setting-drawer-content"
+              class="ant-pro-setting-drawer-drawer-content"
             >
               <div
                 style="margin-block-end:24px"
@@ -2033,7 +2033,7 @@ Array [
 exports[`settingDrawer.test 🌺 hideHintAlert = true 1`] = `
 Array [
   <div
-    class="ant-pro-setting-drawer-handle"
+    class="ant-pro-setting-drawer-drawer-handle"
   >
     <span
       aria-label="close"
@@ -2086,7 +2086,7 @@ Array [
             class="ant-drawer-body"
           >
             <div
-              class="ant-pro-setting-drawer-content"
+              class="ant-pro-setting-drawer-drawer-content"
             >
               <div
                 style="margin-block-end:24px"
@@ -2707,7 +2707,7 @@ Array [
 exports[`settingDrawer.test 🌺 settings = undefined 1`] = `
 Array [
   <div
-    class="ant-pro-setting-drawer-handle"
+    class="ant-pro-setting-drawer-drawer-handle"
   >
     <span
       aria-label="close"
@@ -2760,7 +2760,7 @@ Array [
             class="ant-drawer-body"
           >
             <div
-              class="ant-pro-setting-drawer-content"
+              class="ant-pro-setting-drawer-drawer-content"
             >
               <div
                 style="margin-block-end:24px"

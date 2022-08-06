@@ -33,12 +33,15 @@ const DropdownButton: React.FC<DropdownProps> = ({
   const { getPrefixCls } = useContext(ConfigProvider.ConfigContext);
 
   const tempClassName = getPrefixCls('pro-table-dropdown');
+
   const menu = (
-    <Menu onClick={(params) => onSelect && onSelect(params.key as string)}>
-      {menus?.map((item) => (
-        <Menu.Item key={item.key}>{item.name}</Menu.Item>
-      ))}
-    </Menu>
+    <Menu
+      onClick={(params) => onSelect && onSelect(params.key as string)}
+      items={menus?.map((item) => ({
+        label: item.name,
+        key: item.key,
+      }))}
+    />
   );
   return (
     <Dropdown overlay={menu} className={classnames(tempClassName, className)}>

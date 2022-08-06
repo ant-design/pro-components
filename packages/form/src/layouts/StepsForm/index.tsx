@@ -191,7 +191,7 @@ function StepsForm<T = Record<string, any>>(
    * 解除挂载掉这个 form，同时步数 -1
    */
   const unRegForm = useCallback((name: string) => {
-    setFormArray((oldFormArray) => oldFormArray.filter((n) => n === name));
+    setFormArray((oldFormArray) => oldFormArray.filter((n) => n !== name));
     formMapRef.current.delete(name);
     formDataRef.current.delete(name);
   }, []);
@@ -445,10 +445,6 @@ function StepsForm<T = Record<string, any>>(
     </div>,
   );
 }
-
-export type { StepFormProps, StepsFormProps };
-export { StepsFormWarp as StepsForm };
-
 function StepsFormWarp<T = Record<string, any>>(
   props: StepsFormProps<T> & {
     children: any;
@@ -463,3 +459,6 @@ function StepsFormWarp<T = Record<string, any>>(
 
 StepsFormWarp.StepForm = StepForm;
 StepsFormWarp.useForm = Form.useForm;
+
+export type { StepFormProps, StepsFormProps };
+export { StepsFormWarp as StepsForm };

@@ -982,7 +982,7 @@ exports[`BasicTable 🎏 base use 1`] = `
                                 aria-label="down"
                                 class="anticon anticon-down"
                                 role="img"
-                                style="margin-left: 0.5em; transition: 0.3s all; transform: rotate(0turn);"
+                                style="margin-inline-start: 0.5em; transition: 0.3s all; transform: rotate(0turn);"
                               >
                                 <svg
                                   aria-hidden="true"
@@ -1012,11 +1012,11 @@ exports[`BasicTable 🎏 base use 1`] = `
       </div>
     </div>
     <div
-      class="ant-pro-card"
+      class="ant-pro-card ant-pro-card-box-shadow"
     >
       <div
         class="ant-pro-card-body"
-        style="padding-top: 0px;"
+        style="padding-block-start: 0;"
       >
         <div
           class="ant-pro-table-list-toolbar"
@@ -8005,11 +8005,11 @@ exports[`BasicTable 🎏 columns = undefined 1`] = `
       </div>
     </div>
     <div
-      class="ant-pro-card"
+      class="ant-pro-card ant-pro-card-box-shadow"
     >
       <div
         class="ant-pro-card-body"
-        style="padding-top:0"
+        style="padding-block-start:0"
       >
         <div
           class="ant-pro-table-list-toolbar"
@@ -8559,11 +8559,11 @@ exports[`BasicTable 🎏 valueEnum support function 1`] = `
       </div>
     </div>
     <div
-      class="ant-pro-card"
+      class="ant-pro-card ant-pro-card-box-shadow"
     >
       <div
         class="ant-pro-card-body"
-        style="padding-top: 0px;"
+        style="padding-block-start: 0;"
       >
         <div
           class="ant-table-wrapper"

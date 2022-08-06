@@ -91,11 +91,23 @@ export default () => {
           <Dropdown
             key="overlay"
             overlay={
-              <Menu onClick={() => alert('menu click')}>
-                <Menu.Item key="1">菜单</Menu.Item>
-                <Menu.Item key="2">列表</Menu.Item>
-                <Menu.Item key="3">表单</Menu.Item>
-              </Menu>
+              <Menu
+                onClick={() => alert('menu click')}
+                items={[
+                  {
+                    label: '菜单',
+                    key: '1',
+                  },
+                  {
+                    label: '列表',
+                    key: '2',
+                  },
+                  {
+                    label: '表单',
+                    key: '3',
+                  },
+                ]}
+              />
             }
           >
             <Button>

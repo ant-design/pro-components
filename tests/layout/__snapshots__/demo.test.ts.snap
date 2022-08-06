@@ -9631,7 +9631,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/base.tsx correctl
           >
             <header
               class="ant-layout-header"
-              style="height: 56px; line-height: 56px; background-color: transparent;"
+              style="height: 56px; line-height: 56px; background-color: transparent; z-index: 19;"
             />
             <header
               class="ant-layout-header ant-pro-layout-header ant-pro-layout-header-fixed-header ant-pro-layout-header-mix ant-pro-layout-header-fixed-header-action ant-pro-layout-header-header"
@@ -10298,7 +10298,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/base.tsx correctl
       </div>
     </div>
     <div
-      class="ant-pro-setting-drawer-handle"
+      class="ant-pro-setting-drawer-drawer-handle"
     >
       <span
         aria-label="setting"
@@ -10647,7 +10647,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/classicMode.tsx c
           >
             <header
               class="ant-layout-header"
-              style="height: 56px; line-height: 56px; background-color: transparent;"
+              style="height: 56px; line-height: 56px; background-color: transparent; z-index: 19;"
             />
             <header
               class="ant-layout-header ant-pro-layout-header ant-pro-layout-header-fixed-header ant-pro-layout-header-mix ant-pro-layout-header-fixed-header-action ant-pro-layout-header-header"
@@ -11318,7 +11318,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/classicMode.tsx c
       </div>
     </div>
     <div
-      class="ant-pro-setting-drawer-handle"
+      class="ant-pro-setting-drawer-drawer-handle"
     >
       <span
         aria-label="setting"
@@ -13120,7 +13120,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/config-provider.t
     </div>
   </div>
   <div
-    class="ant-pro-setting-drawer-handle"
+    class="ant-pro-setting-drawer-drawer-handle"
   >
     <span
       aria-label="setting"
@@ -14163,7 +14163,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/customSider.tsx c
       </div>
     </div>
     <div
-      class="ant-pro-setting-drawer-handle"
+      class="ant-pro-setting-drawer-drawer-handle"
     >
       <span
         aria-label="setting"
@@ -14416,7 +14416,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/customize-collaps
         >
           <header
             class="ant-layout-header"
-            style="height: 56px; line-height: 56px; background-color: transparent;"
+            style="height: 56px; line-height: 56px; background-color: transparent; z-index: 19;"
           />
           <header
             class="ant-layout-header ant-pro-layout-header ant-pro-layout-header-fixed-header ant-pro-layout-header-mix ant-pro-layout-header-fixed-header-action ant-pro-layout-header-header"
@@ -15404,7 +15404,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/designMenuCss.tsx
           >
             <header
               class="ant-layout-header"
-              style="height: 56px; line-height: 56px; background-color: transparent;"
+              style="height: 56px; line-height: 56px; background-color: transparent; z-index: 19;"
             />
             <header
               class="ant-layout-header ant-pro-layout-header ant-pro-layout-header-fixed-header ant-pro-layout-header-mix ant-pro-layout-header-fixed-header-action ant-pro-layout-header-header"
@@ -16075,7 +16075,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/designMenuCss.tsx
       </div>
     </div>
     <div
-      class="ant-pro-setting-drawer-handle"
+      class="ant-pro-setting-drawer-drawer-handle"
     >
       <span
         aria-label="setting"
@@ -17106,7 +17106,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/designSiderMenu.t
       </div>
     </div>
     <div
-      class="ant-pro-setting-drawer-handle"
+      class="ant-pro-setting-drawer-drawer-handle"
     >
       <span
         aria-label="setting"
@@ -18389,7 +18389,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/dynamic-settings.
       </div>
     </div>
     <div
-      class="ant-pro-setting-drawer-handle"
+      class="ant-pro-setting-drawer-drawer-handle"
     >
       <span
         aria-label="setting"
@@ -19974,7 +19974,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/footer-global-too
           >
             <header
               class="ant-layout-header"
-              style="height: 100px; line-height: 100px; background-color: transparent;"
+              style="height: 100px; line-height: 100px; background-color: transparent; z-index: 19;"
             />
             <header
               class="ant-layout-header ant-pro-layout-header ant-pro-layout-header-fixed-header ant-pro-layout-header-mix ant-pro-layout-header-fixed-header-action ant-pro-layout-header-header"
@@ -24380,7 +24380,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/mixMode.tsx corre
           >
             <header
               class="ant-layout-header"
-              style="height: 56px; line-height: 56px; background-color: transparent;"
+              style="height: 56px; line-height: 56px; background-color: transparent; z-index: 19;"
             />
             <header
               class="ant-layout-header ant-pro-layout-header ant-pro-layout-header-fixed-header ant-pro-layout-header-mix ant-pro-layout-header-fixed-header-action ant-pro-layout-header-header"
@@ -25295,7 +25295,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/pageSimplify.tsx 
           >
             <header
               class="ant-layout-header"
-              style="height: 56px; line-height: 56px; background-color: transparent;"
+              style="height: 56px; line-height: 56px; background-color: transparent; z-index: 19;"
             />
             <header
               class="ant-layout-header ant-pro-layout-header ant-pro-layout-header-fixed-header ant-pro-layout-header-mix ant-pro-layout-header-fixed-header-action ant-pro-layout-header-header"
@@ -27215,7 +27215,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/siderMode.tsx cor
       </div>
     </div>
     <div
-      class="ant-pro-setting-drawer-handle"
+      class="ant-pro-setting-drawer-drawer-handle"
     >
       <span
         aria-label="setting"
@@ -27564,7 +27564,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/siteMenu.tsx corr
           >
             <header
               class="ant-layout-header"
-              style="height: 56px; line-height: 56px; background-color: transparent;"
+              style="height: 56px; line-height: 56px; background-color: transparent; z-index: 19;"
             />
             <header
               class="ant-layout-header ant-pro-layout-header ant-pro-layout-header-fixed-header ant-pro-layout-header-mix ant-pro-layout-header-fixed-header-action ant-pro-layout-header-header"
@@ -28183,7 +28183,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/splitMenus.tsx co
         >
           <header
             class="ant-layout-header"
-            style="height: 56px; line-height: 56px; background-color: transparent;"
+            style="height: 56px; line-height: 56px; background-color: transparent; z-index: 19;"
           />
           <header
             class="ant-layout-header ant-pro-layout-header ant-pro-layout-header-fixed-header ant-pro-layout-header-mix ant-pro-layout-header-fixed-header-action ant-pro-layout-header-header"
@@ -28602,7 +28602,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/splitMenus.tsx co
         >
           <header
             class="ant-layout-header"
-            style="height: 56px; line-height: 56px; background-color: transparent;"
+            style="height: 56px; line-height: 56px; background-color: transparent; z-index: 19;"
           />
           <header
             class="ant-layout-header ant-pro-layout-header ant-pro-layout-header-fixed-header ant-pro-layout-header-mix ant-pro-layout-header-fixed-header-action ant-pro-layout-header-header"
@@ -29271,7 +29271,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/splitMenus.tsx co
         >
           <header
             class="ant-layout-header"
-            style="height: 56px; line-height: 56px; background-color: transparent;"
+            style="height: 56px; line-height: 56px; background-color: transparent; z-index: 19;"
           />
           <header
             class="ant-layout-header ant-pro-layout-header ant-pro-layout-header-fixed-header ant-pro-layout-header-mix ant-pro-layout-header-fixed-header-action ant-pro-layout-header-header"
@@ -29912,7 +29912,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/splitMenus.tsx co
         >
           <header
             class="ant-layout-header"
-            style="height: 56px; line-height: 56px; background-color: transparent;"
+            style="height: 56px; line-height: 56px; background-color: transparent; z-index: 19;"
           />
           <header
             class="ant-layout-header ant-pro-layout-header ant-pro-layout-header-fixed-header ant-pro-layout-header-mix ant-pro-layout-header-fixed-header-action ant-pro-layout-header-header"
@@ -30356,7 +30356,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/splitMenus.tsx co
         >
           <header
             class="ant-layout-header"
-            style="height: 56px; line-height: 56px; background-color: transparent;"
+            style="height: 56px; line-height: 56px; background-color: transparent; z-index: 19;"
           />
           <header
             class="ant-layout-header ant-pro-layout-header ant-pro-layout-header-fixed-header ant-pro-layout-header-mix ant-pro-layout-header-fixed-header-action ant-pro-layout-header-header"
@@ -30567,7 +30567,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/splitMenus.tsx co
     </div>
   </div>
   <div
-    class="ant-pro-setting-drawer-handle"
+    class="ant-pro-setting-drawer-drawer-handle"
   >
     <span
       aria-label="close"
@@ -31444,7 +31444,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/top-breadcrumb.ts
           >
             <header
               class="ant-layout-header"
-              style="height: 56px; line-height: 56px; background-color: transparent;"
+              style="height: 56px; line-height: 56px; background-color: transparent; z-index: 19;"
             />
             <header
               class="ant-layout-header ant-pro-layout-header ant-pro-layout-header-fixed-header ant-pro-layout-header-mix ant-pro-layout-header-fixed-header-action ant-pro-layout-header-header"

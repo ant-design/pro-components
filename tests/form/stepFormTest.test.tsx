@@ -4,6 +4,7 @@ import '@testing-library/jest-dom';
 import { render } from '@testing-library/react';
 import { Button } from 'antd';
 import { mount } from 'enzyme';
+import React from 'react';
 import { act } from 'react-dom/test-utils';
 import { waitForComponentToPaint } from '../util';
 
@@ -544,5 +545,36 @@ describe('StepsForm', () => {
         age: '22',
       },
     });
+  });
+
+  it('🐲 properly unregister form', async () => {
+    const Forms = () => {
+      const [show, setShow] = React.useState(true);
+      return (
+        <StepsForm>
+          <StepsForm.StepForm name="step1" title="表单1">
+            表单 1
+            <button type="button" onClick={() => setShow(false)}>
+              隐藏表单3
+            </button>
+          </StepsForm.StepForm>
+          <StepsForm.StepForm name="step2" title="表单2">
+            表单 2
+          </StepsForm.StepForm>
+          {show ? (
+            <StepsForm.StepForm name="step3" title="表单3">
+              表单 3
+            </StepsForm.StepForm>
+          ) : null}
+        </StepsForm>
+      );
+    };
+    const html = render(<Forms />);
+    await waitForComponentToPaint(html);
+    expect(html.container.querySelectorAll('.ant-steps-item')).toHaveLength(3);
+    await act(async () => {
+      (await html.findByText('隐藏表单3')).click();
+    });
+    expect(html.container.querySelectorAll('.ant-steps-item')).toHaveLength(2);
   });
 });

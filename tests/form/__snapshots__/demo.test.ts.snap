@@ -42982,7 +42982,7 @@ exports[`form demos 📸 renders ./packages/form/src/demos/layout-footer.tsx cor
         >
           <header
             class="ant-layout-header"
-            style="height: 56px; line-height: 56px; background-color: transparent;"
+            style="height: 56px; line-height: 56px; background-color: transparent; z-index: 19;"
           />
           <header
             class="ant-layout-header ant-pro-layout-header ant-pro-layout-header-fixed-header ant-pro-layout-header-mix ant-pro-layout-header-header"

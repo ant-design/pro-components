@@ -22,7 +22,6 @@ import { genStringToTheme } from '../../utils/utils';
 import { BlockCheckbox } from './BlockCheckbox';
 import { LayoutSetting, renderLayoutSettingItem } from './LayoutChange';
 import { RegionalSetting } from './RegionalChange';
-import { useStyle } from './style/index';
 import { ThemeColor } from './ThemeColor';
 
 type BodyProps = {
@@ -189,7 +188,7 @@ const genCopySettingJson = (settingState: MergerSettingsType<ProSettings>) =>
  *
  * @param props
  */
-const SettingDrawer: React.FC<SettingDrawerProps> = (props) => {
+export const SettingDrawer: React.FC<SettingDrawerProps> = (props) => {
   const {
     defaultSettings: propsDefaultSettings = undefined,
     settings: propsSettings = undefined,
@@ -329,11 +328,9 @@ const SettingDrawer: React.FC<SettingDrawerProps> = (props) => {
   }, [setUrlParams, settingState, urlParams, pathname, disableUrlParams]);
   const baseClassName = `${prefixCls}-setting-drawer`;
 
-  const { wrapSSR } = useStyle(baseClassName);
-
-  return wrapSSR(
+  return (
     <>
-      <div className={`${baseClassName}-handle`} onClick={() => setShow(!show)}>
+      <div className={`${baseClassName}-drawer-handle`} onClick={() => setShow(!show)}>
         {show ? (
           <CloseOutlined
             style={{
@@ -361,7 +358,7 @@ const SettingDrawer: React.FC<SettingDrawerProps> = (props) => {
           zIndex: 999,
         }}
       >
-        <div className={`${baseClassName}-content`}>
+        <div className={`${baseClassName}-drawer-content`}>
           <Body
             title={formatMessage({
               id: 'app.setting.pagestyle',
@@ -514,8 +511,6 @@ const SettingDrawer: React.FC<SettingDrawerProps> = (props) => {
           )}
         </div>
       </Drawer>
-    </>,
+    </>
   );
 };
-
-export { SettingDrawer };

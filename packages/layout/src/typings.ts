@@ -6,7 +6,7 @@ export interface StaticContext {
 }
 
 export interface BasicRouteProps<
-  Params extends { [K in keyof Params]?: string } = {},
+  Params extends { [K in keyof Params]?: string } = Record<string, any>,
   C extends StaticContext = StaticContext,
   S = H.LocationState,
 > {
@@ -16,7 +16,7 @@ export interface BasicRouteProps<
   staticContext?: C | undefined;
 }
 
-export interface match<Params extends { [K in keyof Params]?: string } = {}> {
+export interface match<Params extends { [K in keyof Params]?: string } = Record<string, any>> {
   params: Params;
   isExact: boolean;
   path: string;
