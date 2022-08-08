@@ -148,19 +148,41 @@ const TopNavHeader: React.FC<TopNavHeaderProps> = (props) => {
 
   const contentDom = useMemo(() => {
     const defaultDom = (
-      <BaseMenu
-        theme="light"
-        {...props}
-        className={`${prefixCls}-base-menu`}
-        {...props.menuProps}
-        style={{
-          width: '100%',
-          ...props.menuProps?.style,
+      <ConfigProvider
+        theme={{
+          hashed: true,
+          override: {
+            Menu: {
+              colorItemBg: 'transparent',
+              colorSubItemBg: 'transparent',
+              radiusItem: 4,
+              colorItemBgSelected: 'rgba(0, 0, 0, 0.04)',
+              colorItemBgActive: 'rgba(0, 0, 0, 0.04)',
+              colorItemBgSelectedHorizontal: 'rgba(0, 0, 0, 0.04)',
+              colorActiveBarWidth: 0,
+              colorActiveBarHeight: 0,
+              colorActiveBarBorderSize: 0,
+              colorItemText: 'rgba(0, 0, 0, 0.65)',
+              colorItemTextHover: 'rgba(0, 0, 0, 0.85)',
+              colorItemTextSelected: 'rgba(0, 0, 0, 1)',
+            },
+          },
         }}
-        collapsed={false}
-        menuRenderType="header"
-        mode="horizontal"
-      />
+      >
+        <BaseMenu
+          theme="light"
+          {...props}
+          className={`${prefixCls}-base-menu`}
+          {...props.menuProps}
+          style={{
+            width: '100%',
+            ...props.menuProps?.style,
+          }}
+          collapsed={false}
+          menuRenderType="header"
+          mode="horizontal"
+        />
+      </ConfigProvider>
     );
 
     if (headerContentRender) {

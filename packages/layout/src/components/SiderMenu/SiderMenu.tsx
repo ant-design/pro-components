@@ -1,5 +1,4 @@
-import type { AvatarProps, SiderProps } from 'antd';
-import { Avatar, Layout, Menu, Space } from 'antd';
+import { Avatar, AvatarProps, ConfigProvider, Layout, Menu, SiderProps, Space } from 'antd';
 import type { ItemType } from 'antd/es/menu/hooks/useItems';
 import classNames from 'classnames';
 import type { CSSProperties } from 'react';
@@ -415,6 +414,7 @@ const SiderMenu: React.FC<SiderMenuProps & PrivateSiderMenuProps> = (props) => {
           }}
         />
       )}
+
       <Sider
         collapsible
         trigger={null}
@@ -430,20 +430,40 @@ const SiderMenu: React.FC<SiderMenuProps & PrivateSiderMenuProps> = (props) => {
         width={siderWidth}
         className={classNames(siderClassName, hideMenuWhenCollapsedClassName)}
       >
-        {hideMenuWhenCollapsedClassName ? (
-          <div
-            className={`${baseClassName}-hide-when-collapsed`}
-            style={{
-              height: '100%',
-              width: '100%',
-              opacity: hideMenuWhenCollapsedClassName ? 0 : 1,
-            }}
-          >
-            {menuDomItems}
-          </div>
-        ) : (
-          menuDomItems
-        )}
+        <ConfigProvider
+          theme={{
+            override: {
+              Menu: {
+                radiusItem: 4,
+                colorItemBgSelected: 'rgba(0, 0, 0, 0.04)',
+                colorItemBgActive: 'rgba(0, 0, 0, 0.04)',
+                colorActiveBarWidth: 0,
+                colorActiveBarHeight: 0,
+                colorActiveBarBorderSize: 0,
+                colorItemText: 'rgba(0, 0, 0, 0.65)',
+                colorItemTextHover: 'rgba(0, 0, 0, 0.85)',
+                colorItemTextSelected: 'rgba(0, 0, 0, 1)',
+                colorItemBg: 'transparent',
+                colorSubItemBg: 'transparent',
+              },
+            },
+          }}
+        >
+          {hideMenuWhenCollapsedClassName ? (
+            <div
+              className={`${baseClassName}-hide-when-collapsed`}
+              style={{
+                height: '100%',
+                width: '100%',
+                opacity: hideMenuWhenCollapsedClassName ? 0 : 1,
+              }}
+            >
+              {menuDomItems}
+            </div>
+          ) : (
+            menuDomItems
+          )}
+        </ConfigProvider>
         {collapsedDom}
       </Sider>
     </>

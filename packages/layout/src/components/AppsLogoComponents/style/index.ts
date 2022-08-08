@@ -48,7 +48,7 @@ export function useStyle(prefixCls: string) {
     const proCardToken: AppsLogoComponentsToken = {
       ...token,
       componentCls: `.${prefixCls}`,
-      appListIconTextColor: token.colorTextSecondary,
+      appListIconTextColor: 'rgb(102, 102, 102)',
       appListIconHoverTextColor: token.colorLinkHover,
       appListIconHoverBgColor: 'rgba(0, 0, 0, 0.04)',
     };

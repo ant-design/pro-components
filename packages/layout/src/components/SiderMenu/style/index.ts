@@ -43,7 +43,11 @@ const genSiderMenuStyle: GenerateStyle<SiderMenuToken> = (token) => {
           paddingBlock: 6,
           borderInlineEnd: `1px solid ${token.colorSplit}`,
         },
-
+        [`${token.antCls}-menu`]: {
+          [`${token.antCls}-menu-item-group-title`]: {
+            fontSize: token.fontSizeSM,
+          },
+        },
         '&-logo': {
           position: 'relative',
           display: 'flex',

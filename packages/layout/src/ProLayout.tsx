@@ -681,50 +681,9 @@ const BaseProLayout: React.FC<ProLayoutProps> = (props) => {
                 ...style,
               }}
             >
-              <ConfigProvider
-                theme={{
-                  override: {
-                    Menu: {
-                      radiusItem: 4,
-                      colorItemBgSelected: 'rgba(0, 0, 0, 0.04)',
-                      colorItemBgActive: 'rgba(0, 0, 0, 0.04)',
-                      colorActiveBarWidth: 0,
-                      colorActiveBarHeight: 0,
-                      colorActiveBarBorderSize: 0,
-                      colorItemText: 'rgba(0, 0, 0, 0.65)',
-                      colorItemTextHover: 'rgba(0, 0, 0, 0.85)',
-                      colorItemTextSelected: 'rgba(0, 0, 0, 1)',
-                      colorItemBg: 'transparent',
-                      colorSubItemBg: 'transparent',
-                    },
-                  },
-                }}
-              >
-                {siderMenuDom}
-              </ConfigProvider>
+              {siderMenuDom}
               <div style={genLayoutStyle} className={context.getPrefixCls('layout')}>
-                <ConfigProvider
-                  theme={{
-                    override: {
-                      Menu: {
-                        colorItemBg: 'transparent',
-                        colorSubItemBg: 'transparent',
-                        radiusItem: 4,
-                        colorItemBgSelected: 'rgba(0, 0, 0, 0.04)',
-                        colorItemBgActive: 'rgba(0, 0, 0, 0.04)',
-                        colorItemBgSelectedHorizontal: 'rgba(0, 0, 0, 0.04)',
-                        colorActiveBarWidth: 0,
-                        colorActiveBarHeight: 0,
-                        colorActiveBarBorderSize: 0,
-                        colorItemText: 'rgba(0, 0, 0, 0.65)',
-                        colorItemTextHover: 'rgba(0, 0, 0, 0.85)',
-                        colorItemTextSelected: 'rgba(0, 0, 0, 1)',
-                      },
-                    },
-                  }}
-                >
-                  {headerDom}
-                </ConfigProvider>
+                {headerDom}
                 <WrapContent
                   disableContentMargin={disableContentMargin}
                   autoClearCache={false}
