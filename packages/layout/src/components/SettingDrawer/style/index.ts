@@ -1,4 +1,5 @@
-﻿import { ProAliasToken, useStyle as useAntdStyle } from '@ant-design/pro-utils';
+﻿import type { ProAliasToken } from '@ant-design/pro-utils';
+import { useStyle as useAntdStyle } from '@ant-design/pro-utils';
 import type { GenerateStyle } from 'antd/es/theme';
 
 export interface SettingDrawerToken extends ProAliasToken {
@@ -63,8 +64,8 @@ const genSettingDrawerStyle: GenerateStyle<SettingDrawerToken> = (token) => {
           },
           '&-realDark': {
             backgroundColor: 'rgba(0, 21, 41, 0.85)',
-            '&::before': { backgroundColor: 'rgba(0, 21, 41, 0.65)' },
-            '&::after': { backgroundColor: 'rgba(0, 21, 41, 0.85)' },
+            '&::before': { backgroundColor: token.colorTextSecondary },
+            '&::after': { backgroundColor: token.colorText },
           },
           '&-light': {
             backgroundColor: token.colorBgContainer,

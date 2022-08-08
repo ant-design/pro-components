@@ -22,6 +22,7 @@ import { genStringToTheme } from '../../utils/utils';
 import { BlockCheckbox } from './BlockCheckbox';
 import { LayoutSetting, renderLayoutSettingItem } from './LayoutChange';
 import { RegionalSetting } from './RegionalChange';
+import { useStyle } from './style/index';
 import { ThemeColor } from './ThemeColor';
 
 type BodyProps = {
@@ -327,10 +328,11 @@ export const SettingDrawer: React.FC<SettingDrawerProps> = (props) => {
     setUrlParams(diffParams);
   }, [setUrlParams, settingState, urlParams, pathname, disableUrlParams]);
   const baseClassName = `${prefixCls}-setting-drawer`;
+  const { wrapSSR, hashId } = useStyle(baseClassName);
 
-  return (
+  return wrapSSR(
     <>
-      <div className={`${baseClassName}-drawer-handle`} onClick={() => setShow(!show)}>
+      <div className={`${baseClassName}-handle ${hashId}`} onClick={() => setShow(!show)}>
         {show ? (
           <CloseOutlined
             style={{
@@ -511,6 +513,6 @@ export const SettingDrawer: React.FC<SettingDrawerProps> = (props) => {
           )}
         </div>
       </Drawer>
-    </>
+    </>,
   );
 };

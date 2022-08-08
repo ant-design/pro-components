@@ -1,5 +1,5 @@
 ﻿import type { ProAliasToken } from '@ant-design/pro-utils';
-import { useStyle as useAntdStyle } from '@ant-design/pro-utils';
+import { setAlpha, useStyle as useAntdStyle } from '@ant-design/pro-utils';
 import type { GenerateStyle } from 'antd/es/theme';
 
 export interface TopNavHeaderToken extends ProAliasToken {
@@ -28,6 +28,7 @@ const genTopNavHeaderStyle: GenerateStyle<TopNavHeaderToken> = (token) => {
           minWidth: '192px',
           [`${token.proComponentsCls}-layout-apps-icon`]: {
             marginInlineEnd: 16,
+            marginInlineStart: -8,
           },
         },
       },
@@ -69,6 +70,7 @@ const genTopNavHeaderStyle: GenerateStyle<TopNavHeaderToken> = (token) => {
           justifyContent: 'center',
           paddingBlock: 0,
           paddingInline: 6,
+          color: setAlpha(token.colorTextBase, 0.65),
           fontSize: '16px',
           cursor: 'pointer',
           borderRadius: token.radiusBase,
@@ -87,8 +89,10 @@ const genTopNavHeaderStyle: GenerateStyle<TopNavHeaderToken> = (token) => {
           justifyContent: 'center',
           paddingInlineStart: '16px',
           paddingInlineEnd: '16px',
+          color: setAlpha(token.colorTextBase, 0.65),
           '> div': {
             height: '44px',
+            color: setAlpha(token.colorTextBase, 0.65),
             paddingInline: 8,
             paddingBlock: 8,
             cursor: 'pointer',
