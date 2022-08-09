@@ -210,7 +210,7 @@ function ModalForm<T = Record<string, any>>({
             const result = await onFinishHandle(values);
             const form = rest.formRef?.current ?? formRef.current;
             // 返回真值，重置表单
-            if (result && form) {
+            if (result && form && modalProps?.destroyOnClose) {
               form.resetFields();
             }
             return result;
