@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.0.0-experimental.9](https://github.com/ant-design/pro-components/compare/@ant-design/pro-utils@2.0.0-experimental.8...@ant-design/pro-utils@2.0.0-experimental.9) (2022-08-10)
+
+### Bug Fixes
+
+- **table:** useEditableArray fix nested children can not be add when position is not top and expandable.childrenColumnName isundefined ([#5643](https://github.com/ant-design/pro-components/issues/5643)) ([9604686](https://github.com/ant-design/pro-components/commit/960468691a4528aaf0a92bfaf1ce5742c2d24a52))
+
 # [2.0.0-experimental.8](https://github.com/ant-design/pro-components/compare/@ant-design/pro-utils@2.0.0-experimental.7...@ant-design/pro-utils@2.0.0-experimental.8) (2022-08-05)
 
 **Note:** Version bump only for package @ant-design/pro-utils

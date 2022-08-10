@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.0.0-experimental.9](https://github.com/ant-design/pro-components/compare/@ant-design/pro-form@2.0.0-experimental.8...@ant-design/pro-form@2.0.0-experimental.9) (2022-08-10)
+
+### Bug Fixes
+
+- **form:** Stepsform to correctly unregister form ([#5668](https://github.com/ant-design/pro-components/issues/5668)) ([1a52400](https://github.com/ant-design/pro-components/commit/1a52400d16e361a79dfacdd252542144721279c6))
+
 # [2.0.0-experimental.8](https://github.com/ant-design/pro-components/compare/@ant-design/pro-form@1.72.0...@ant-design/pro-form@2.0.0-experimental.8) (2022-08-05)
 
 **Note:** Version bump only for package @ant-design/pro-form

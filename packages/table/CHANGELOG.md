@@ -2,6 +2,17 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.0.0-experimental.9](https://github.com/ant-design/pro-components/compare/@ant-design/pro-table@3.0.0-experimental.8...@ant-design/pro-table@3.0.0-experimental.9) (2022-08-10)
+
+### Bug Fixes
+
+- **table:** useEditableArray fix nested children can not be add when position is not top and expandable.childrenColumnName isundefined ([#5643](https://github.com/ant-design/pro-components/issues/5643)) ([9604686](https://github.com/ant-design/pro-components/commit/960468691a4528aaf0a92bfaf1ce5742c2d24a52))
+- **table:** 表格批量操作没有默认值报错 ([#5674](https://github.com/ant-design/pro-components/issues/5674)) ([67b7e76](https://github.com/ant-design/pro-components/commit/67b7e7682cf5f1b47a136ffc2c50d64c9d8d7d6b))
+
+### Features
+
+- **table:** support dynamic columns persistence ([#5645](https://github.com/ant-design/pro-components/issues/5645)) ([ae1ddb0](https://github.com/ant-design/pro-components/commit/ae1ddb07527821a5c9094082b2b9b661ad21bf6e))
+
 # [3.0.0-experimental.8](https://github.com/ant-design/pro-components/compare/@ant-design/pro-table@2.78.3...@ant-design/pro-table@3.0.0-experimental.8) (2022-08-05)
 
 **Note:** Version bump only for package @ant-design/pro-table
