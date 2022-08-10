@@ -186,9 +186,9 @@ function TableRender<T extends Record<string, any>, U, ValueType>(
     pagination,
     onChange: (
       changePagination: TablePaginationConfig,
-      filters: Record<string, (React.Key | boolean)[] | null>,
-      sorter: SorterResult<T> | SorterResult<T>[],
-      extra: TableCurrentDataSource<T>,
+      filters: Record<string, any | null>,
+      sorter: SorterResult<any> | SorterResult<any[]>,
+      extra: TableCurrentDataSource<any>,
     ) => {
       rest.onChange?.(changePagination, filters, sorter, extra);
       if (!useLocaleFilter) {
