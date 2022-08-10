@@ -203,7 +203,6 @@ export default () => {
       pagination={{
         pageSize: 5,
         onChange: (page) => console.log(page),
-        // current: 4
       }}
       dateFormatter="string"
       headerTitle="高级表格"
