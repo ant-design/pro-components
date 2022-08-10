@@ -11,6 +11,19 @@ const genProLayoutBaseMenuStyle: GenerateStyle<ProLayoutBaseMenuToken> = (token)
     [token.componentCls]: {
       background: 'transparent',
       border: 'none',
+      [`&-collapsed`]: {
+        [`${token.antCls}-menu-item, 
+        ${token.antCls}-menu-item-group > ${token.antCls}-menu-item-group-list > ${token.antCls}-menu-item, 
+        ${token.antCls}-menu-item-group > ${token.antCls}-menu-item-group-list > ${token.antCls}-menu-submenu > ${token.antCls}-menu-submenu-title, 
+        ${token.antCls}-menu-submenu > ${token.antCls}-menu-submenu-title`]: {
+          paddingInline: '16px !important',
+        },
+        [`${token.componentCls}-group`]: {
+          [`${token.antCls}-menu-item-group-title`]: {
+            paddingInline: 0,
+          },
+        },
+      },
       '&-group': {
         [`${token.antCls}-menu-item-group-title`]: {
           fontSize: 12,

@@ -116,6 +116,7 @@ export default () => {
         }}
         menu={{
           type: 'group',
+          collapsedShowGroupTitle: true,
         }}
         disableContentMargin
         avatarProps={{

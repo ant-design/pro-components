@@ -46,6 +46,13 @@ const genSiderMenuStyle: GenerateStyle<SiderMenuToken> = (token) => {
         [`${token.antCls}-menu`]: {
           [`${token.antCls}-menu-item-group-title`]: {
             fontSize: token.fontSizeSM,
+            paddingBottom: 4,
+          },
+        },
+        [`&-collapsed`]: {
+          [`${token.antCls}-layout-sider-children`]: {
+            paddingInline: 4,
+            paddingBlock: 4,
           },
         },
         '&-logo': {

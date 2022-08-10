@@ -199,6 +199,7 @@ const SiderMenu: React.FC<SiderMenuProps & PrivateSiderMenuProps> = (props) => {
   const { flatMenuKeys } = MenuCounter.useContainer();
   const siderClassName = classNames(`${baseClassName}`, {
     [`${baseClassName}-fixed`]: fixSiderbar,
+    [`${baseClassName}-collapsed`]: props.collapsed,
     [`${baseClassName}-layout-${layout}`]: layout && !isMobile,
     [`${baseClassName}-light`]: theme !== 'dark',
     [`${baseClassName}-mix`]: layout === 'mix' && !isMobile,
@@ -410,11 +411,11 @@ const SiderMenu: React.FC<SiderMenuProps & PrivateSiderMenuProps> = (props) => {
             flex: `0 0 ${collapsed ? collapsedWidth : siderWidth}px`,
             maxWidth: collapsed ? collapsedWidth : siderWidth,
             minWidth: collapsed ? collapsedWidth : siderWidth,
+            transition: 'all 0.2s ease 0s',
             ...style,
           }}
         />
       )}
-
       <Sider
         collapsible
         trigger={null}

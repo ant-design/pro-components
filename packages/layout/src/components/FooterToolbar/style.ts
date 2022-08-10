@@ -28,6 +28,7 @@ const genFooterToolBarStyle: GenerateStyle<AppsLogoComponentsToken> = (token) =>
       borderTop: `1px solid ${token.colorSplit}`,
       '-webkit-backdrop-filter': 'blur(8px)',
       backdropFilter: 'blur(8px)',
+      transition: 'all 0.2s ease 0s',
       '&-left': {
         flex: 1,
       },

@@ -466,6 +466,7 @@ const BaseMenu: React.FC<BaseMenuProps & PrivateSiderMenuProps> = (props) => {
       }}
       className={classNames(className, hashId, baseClassName, {
         [`${baseClassName}-horizontal`]: mode === 'horizontal',
+        [`${baseClassName}-collapsed`]: props.collapsed,
       })}
       items={menuUtils.getNavMenuItems(finallyData, 0)}
       onOpenChange={setOpenKeys}
