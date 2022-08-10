@@ -252,6 +252,7 @@ const useFetchData = <T extends RequestData<any>>(
       await fetchListDebounce.run(false);
     },
     pageInfo,
+    prePage,
     pollingLoading,
     reset: async () => {
       const { pageInfo: optionPageInfo } = options || {};

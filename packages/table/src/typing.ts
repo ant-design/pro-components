@@ -47,6 +47,7 @@ export type UseFetchDataAction<T = any> = {
   reset: () => void;
   pollingLoading: boolean;
   setPageInfo: (pageInfo: Partial<PageInfo>) => void;
+  prePage: number | undefined;
 };
 
 /** 转化列的定义 */

@@ -469,6 +469,7 @@ const ProTable = <T extends Record<string, any>, U extends ParamsType, ValueType
   // ============================ useFetchData ============================
   const fetchData = useMemo(() => {
     if (!request) return undefined;
+
     return async (pageParams?: Record<string, any>) => {
       const actionParams = {
         ...(pageParams || {}),
@@ -482,7 +483,6 @@ const ProTable = <T extends Record<string, any>, U extends ParamsType, ValueType
       return response as RequestData<T>;
     };
   }, [formSearch, params, proFilter, proSort, request]);
-
   const action = useFetchData(fetchData, defaultData, {
     pageInfo: propsPagination === false ? false : fetchPagination,
     loading: props.loading,
@@ -571,6 +571,10 @@ const ProTable = <T extends Record<string, any>, U extends ParamsType, ValueType
       ...action.pageInfo,
       setPageInfo: ({ pageSize, current }: PageInfo) => {
         const { pageInfo } = action;
+        // 如果 pagination中传入的current的固定值，不允许切换分页
+        if (fetchPagination?.current === action?.prePage) {
+          return;
+        }
         // pageSize 发生改变，并且你不是在第一页，切回到第一页
         // 这样可以防止出现 跳转到一个空的数据页的问题
         if (pageSize === pageInfo.pageSize || pageInfo.current === 1) {
