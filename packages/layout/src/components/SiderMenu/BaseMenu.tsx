@@ -5,10 +5,10 @@ import { Menu, Skeleton } from 'antd';
 import type { ItemType } from 'antd/es/menu/hooks/useItems';
 import classNames from 'classnames';
 import React, { useContext, useEffect, useMemo, useRef } from 'react';
+import type { LayoutDesignToken } from '../../context/ProLayoutContext';
+import { ProLayoutContext } from '../../context/ProLayoutContext';
 import type { PureSettings } from '../../defaultSettings';
 import { defaultSettings } from '../../defaultSettings';
-import type { LayoutDesignToken } from '../../ProLayoutContext';
-import { ProLayoutContext } from '../../ProLayoutContext';
 import type { MenuDataItem, MessageDescriptor, Route, RouterTypes, WithFalse } from '../../typings';
 import { getOpenKeysFromMenuData } from '../../utils/utils';
 import { MenuCounter } from './Counter';
@@ -184,7 +184,7 @@ class MenuUtil {
                 padding: 0,
                 borderBottom: 0,
                 margin: this.props.collapsed ? '4px' : '12px 16px',
-                borderColor: designToken?.sider?.menuItemDividerColor,
+                borderColor: designToken?.sider?.colorMenuItemDivider,
               },
             } as ItemType)
           : undefined,

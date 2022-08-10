@@ -2,8 +2,8 @@ import { CopyrightOutlined } from '@ant-design/icons';
 import { Layout } from 'antd';
 import type { CSSProperties } from 'react';
 import React, { Fragment } from 'react';
-import { GlobalFooter } from './components/GlobalFooter';
-import type { WithFalse } from './typings';
+import type { WithFalse } from '../typings';
+import { GlobalFooter } from './GlobalFooter';
 
 const { Footer } = Layout;
 

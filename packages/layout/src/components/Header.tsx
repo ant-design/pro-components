@@ -1,13 +1,13 @@
 import { Layout } from 'antd';
 import classNames from 'classnames';
 import React, { useCallback } from 'react';
-import type { GlobalHeaderProps } from './components/GlobalHeader';
-import { GlobalHeader } from './components/GlobalHeader';
-import type { PrivateSiderMenuProps } from './components/SiderMenu/SiderMenu';
-import { TopNavHeader } from './components/TopNavHeader';
-import { useStyle } from './style/header';
-import type { WithFalse } from './typings';
-import { clearMenuItem } from './utils/utils';
+import { useStyle } from '../style/header';
+import type { WithFalse } from '../typings';
+import { clearMenuItem } from '../utils/utils';
+import type { GlobalHeaderProps } from './GlobalHeader';
+import { GlobalHeader } from './GlobalHeader';
+import type { PrivateSiderMenuProps } from './SiderMenu/SiderMenu';
+import { TopNavHeader } from './TopNavHeader';
 
 const { Header } = Layout;
 
