@@ -14,13 +14,16 @@ const genProStyle: GenerateStyle<ProToken> = (token) => {
       alignItems: 'center',
       height: '30px',
       paddingBlock: 0,
-      paddingInline: 4,
-      fontSize: '@font-size-base',
+      paddingInline: 8,
+      fontSize: token.fontSizeBase,
       lineHeight: '30px',
       borderRadius: '2px',
       cursor: 'pointer',
       '&:hover': {
         backgroundColor: 'rgba(0,0,0,0.1)',
+      },
+      '*': {
+        boxSizing: 'border-box',
       },
       '&-active': {
         paddingBlock: 0,
@@ -31,7 +34,7 @@ const genProStyle: GenerateStyle<ProToken> = (token) => {
             display: 'none',
           },
           [`${token.componentCls}-close`]: {
-            display: 'inline-block',
+            display: 'inline-flex',
           },
         },
       },
@@ -44,9 +47,10 @@ const genProStyle: GenerateStyle<ProToken> = (token) => {
         verticalAlign: 'middle',
         [`&${token.componentCls}-close`]: {
           display: 'none',
-          height: '14px',
-          paddingBlock: 4,
-          paddingInline: 4,
+          height: 14,
+          alignItems: 'center',
+          justifyContent: 'center',
+          width: 14,
           color: token.colorBgBase,
           fontSize: 8,
           backgroundColor: token.colorTextPlaceholder,

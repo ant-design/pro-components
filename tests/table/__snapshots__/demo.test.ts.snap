@@ -16,14 +16,14 @@ exports[`table demos 📸 renders ./packages/table/src/components/DragSortTable/
         >
           <form
             autocomplete="off"
-            class="ant-form ant-form-horizontal ant-pro-form-query-filter ant-pro-form"
+            class="ant-form ant-form-horizontal ant-pro-query-filter ant-pro-form"
           >
             <input
               style="display: none;"
               type="text"
             />
             <div
-              class="ant-row ant-row-start"
+              class="ant-row ant-row-start ant-pro-query-filter-row"
               style="margin-left: -12px; margin-right: -12px;"
             >
               <div
@@ -341,7 +341,7 @@ exports[`table demos 📸 renders ./packages/table/src/components/DragSortTable/
                 style="padding-left: 12px; padding-right: 12px; text-align: right;"
               >
                 <div
-                  class="ant-form-item pro-form-query-filter-actions"
+                  class="ant-form-item ant-pro-query-filter-actions"
                 >
                   <div
                     class="ant-row ant-form-item-row"
@@ -408,7 +408,7 @@ exports[`table demos 📸 renders ./packages/table/src/components/DragSortTable/
                               class="ant-space-item"
                             >
                               <a
-                                class="ant-pro-form-collapse-button"
+                                class="ant-pro-query-filter-collapse-button"
                               >
                                 展开
                                 <span
@@ -445,7 +445,7 @@ exports[`table demos 📸 renders ./packages/table/src/components/DragSortTable/
         </div>
       </div>
       <div
-        class="ant-pro-card ant-pro-card-box-shadow"
+        class="ant-pro-card"
       >
         <div
           class="ant-pro-card-body"
@@ -784,14 +784,14 @@ exports[`table demos 📸 renders ./packages/table/src/components/DragSortTable/
         >
           <form
             autocomplete="off"
-            class="ant-form ant-form-horizontal ant-pro-form-query-filter ant-pro-form"
+            class="ant-form ant-form-horizontal ant-pro-query-filter ant-pro-form"
           >
             <input
               style="display: none;"
               type="text"
             />
             <div
-              class="ant-row ant-row-start"
+              class="ant-row ant-row-start ant-pro-query-filter-row"
               style="margin-left: -12px; margin-right: -12px;"
             >
               <div
@@ -1109,7 +1109,7 @@ exports[`table demos 📸 renders ./packages/table/src/components/DragSortTable/
                 style="padding-left: 12px; padding-right: 12px; text-align: right;"
               >
                 <div
-                  class="ant-form-item pro-form-query-filter-actions"
+                  class="ant-form-item ant-pro-query-filter-actions"
                 >
                   <div
                     class="ant-row ant-form-item-row"
@@ -1176,7 +1176,7 @@ exports[`table demos 📸 renders ./packages/table/src/components/DragSortTable/
                               class="ant-space-item"
                             >
                               <a
-                                class="ant-pro-form-collapse-button"
+                                class="ant-pro-query-filter-collapse-button"
                               >
                                 展开
                                 <span
@@ -1213,7 +1213,7 @@ exports[`table demos 📸 renders ./packages/table/src/components/DragSortTable/
         </div>
       </div>
       <div
-        class="ant-pro-card ant-pro-card-box-shadow"
+        class="ant-pro-card"
       >
         <div
           class="ant-pro-card-body"
@@ -1560,7 +1560,7 @@ exports[`table demos 📸 renders ./packages/table/src/components/DragSortTable/
       class="ant-pro-table"
     >
       <div
-        class="ant-pro-card ant-pro-card-box-shadow"
+        class="ant-pro-card"
       >
         <div
           class="ant-pro-card-body"
@@ -1903,7 +1903,7 @@ exports[`table demos 📸 renders ./packages/table/src/components/EditableTable/
       class="ant-pro-table"
     >
       <div
-        class="ant-pro-card ant-pro-card-box-shadow"
+        class="ant-pro-card"
       >
         <div
           class="ant-pro-card-body"
@@ -2406,7 +2406,7 @@ exports[`table demos 📸 renders ./packages/table/src/components/EditableTable/
     </div>
   </div>
   <div
-    class="ant-pro-card ant-pro-card-box-shadow ant-pro-card-collapse"
+    class="ant-pro-card ant-pro-card-collapse"
   >
     <div
       class="ant-pro-card-header ant-pro-card-header-border ant-pro-card-header-collapsible"
@@ -2479,7 +2479,7 @@ exports[`table demos 📸 renders ./packages/table/src/components/EditableTable/
       class="ant-pro-table"
     >
       <div
-        class="ant-pro-card ant-pro-card-box-shadow"
+        class="ant-pro-card"
       >
         <div
           class="ant-pro-card-body"
@@ -2851,7 +2851,7 @@ exports[`table demos 📸 renders ./packages/table/src/components/EditableTable/
     </div>
   </div>
   <div
-    class="ant-pro-card ant-pro-card-box-shadow ant-pro-card-collapse"
+    class="ant-pro-card ant-pro-card-collapse"
   >
     <div
       class="ant-pro-card-header ant-pro-card-header-border ant-pro-card-header-collapsible"
@@ -2986,7 +2986,7 @@ exports[`table demos 📸 renders ./packages/table/src/components/EditableTable/
       class="ant-pro-table"
     >
       <div
-        class="ant-pro-card ant-pro-card-box-shadow"
+        class="ant-pro-card"
       >
         <div
           class="ant-pro-card-body"
@@ -3247,7 +3247,7 @@ exports[`table demos 📸 renders ./packages/table/src/components/EditableTable/
     </div>
   </div>
   <div
-    class="ant-pro-card ant-pro-card-box-shadow ant-pro-card-collapse"
+    class="ant-pro-card ant-pro-card-collapse"
   >
     <div
       class="ant-pro-card-header ant-pro-card-header-border ant-pro-card-header-collapsible"
@@ -3677,7 +3677,7 @@ exports[`table demos 📸 renders ./packages/table/src/components/EditableTable/
                 class="ant-form-item-control-input-content"
               >
                 <div
-                  class="ant-pro-card ant-pro-card-box-shadow ant-pro-card-collapse"
+                  class="ant-pro-card ant-pro-card-collapse"
                 >
                   <div
                     class="ant-pro-card-header ant-pro-card-header-border ant-pro-card-header-collapsible"
@@ -3780,7 +3780,7 @@ exports[`table demos 📸 renders ./packages/table/src/components/EditableTable/
 exports[`table demos 📸 renders ./packages/table/src/components/EditableTable/demos/form-linkage.tsx correctly 1`] = `
 <DocumentFragment>
   <div
-    class="ant-pro-card ant-pro-card-box-shadow"
+    class="ant-pro-card"
   >
     <div
       class="ant-pro-card-body"
@@ -4306,7 +4306,7 @@ exports[`table demos 📸 renders ./packages/table/src/components/EditableTable/
       class="ant-pro-table"
     >
       <div
-        class="ant-pro-card ant-pro-card-box-shadow"
+        class="ant-pro-card"
       >
         <div
           class="ant-pro-card-body"
@@ -9747,7 +9747,7 @@ exports[`table demos 📸 renders ./packages/table/src/components/EditableTable/
     </div>
   </div>
   <div
-    class="ant-pro-card ant-pro-card-box-shadow ant-pro-card-collapse"
+    class="ant-pro-card ant-pro-card-collapse"
   >
     <div
       class="ant-pro-card-header ant-pro-card-header-border ant-pro-card-header-collapsible"
@@ -9942,7 +9942,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/ListToolBar/basic.t
       class="ant-pro-table"
     >
       <div
-        class="ant-pro-card ant-pro-card-box-shadow"
+        class="ant-pro-card"
       >
         <div
           class="ant-pro-card-body"
@@ -10854,7 +10854,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/ListToolBar/menu.ts
       class="ant-pro-table"
     >
       <div
-        class="ant-pro-card ant-pro-card-box-shadow"
+        class="ant-pro-card"
       >
         <div
           class="ant-pro-card-body"
@@ -11801,7 +11801,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/ListToolBar/multipl
       class="ant-pro-table"
     >
       <div
-        class="ant-pro-card ant-pro-card-box-shadow"
+        class="ant-pro-card"
       >
         <div
           class="ant-pro-card-body"
@@ -12736,7 +12736,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/ListToolBar/no-titl
       class="ant-pro-table"
     >
       <div
-        class="ant-pro-card ant-pro-card-box-shadow"
+        class="ant-pro-card"
       >
         <div
           class="ant-pro-card-body"
@@ -13641,7 +13641,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/ListToolBar/tabs.ts
       class="ant-pro-table"
     >
       <div
-        class="ant-pro-card ant-pro-card-box-shadow"
+        class="ant-pro-card"
       >
         <div
           class="ant-pro-card-body"
@@ -14615,7 +14615,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/batchOption.tsx cor
       class="ant-pro-table"
     >
       <div
-        class="ant-pro-card ant-pro-card-box-shadow"
+        class="ant-pro-card"
       >
         <div
           class="ant-pro-card-body"
@@ -16113,7 +16113,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/card-title.tsx corr
       class="ant-pro-table"
     >
       <div
-        class="ant-pro-card ant-pro-card-border ant-pro-card-box-shadow"
+        class="ant-pro-card ant-pro-card-border"
       >
         <div
           class="ant-pro-card-header"
@@ -16836,7 +16836,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/columns-setting-cus
       class="ant-pro-table"
     >
       <div
-        class="ant-pro-card ant-pro-card-box-shadow"
+        class="ant-pro-card"
       >
         <div
           class="ant-pro-card-body"
@@ -17128,7 +17128,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/columnsStateMap.tsx
       class="ant-pro-table"
     >
       <div
-        class="ant-pro-card ant-pro-card-box-shadow"
+        class="ant-pro-card"
       >
         <div
           class="ant-pro-card-body"
@@ -17619,14 +17619,14 @@ exports[`table demos 📸 renders ./packages/table/src/demos/config-provider.tsx
         >
           <form
             autocomplete="off"
-            class="qixian-form qixian-form-horizontal qixian-pro-form-query-filter qixian-pro-form"
+            class="qixian-form qixian-form-horizontal qixian-pro-query-filter qixian-pro-form"
           >
             <input
               style="display: none;"
               type="text"
             />
             <div
-              class="qixian-row qixian-row-start"
+              class="qixian-row qixian-row-start qixian-pro-query-filter-row"
               style="margin-left: -12px; margin-right: -12px;"
             >
               <div
@@ -17915,7 +17915,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/config-provider.tsx
                 style="padding-left: 12px; padding-right: 12px; text-align: right;"
               >
                 <div
-                  class="qixian-form-item pro-form-query-filter-actions"
+                  class="qixian-form-item qixian-pro-query-filter-actions"
                 >
                   <div
                     class="qixian-row qixian-form-item-row"
@@ -17982,7 +17982,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/config-provider.tsx
                               class="qixian-space-item"
                             >
                               <a
-                                class="qixian-pro-form-collapse-button"
+                                class="qixian-pro-query-filter-collapse-button"
                               >
                                 展开
                                 <span
@@ -18019,7 +18019,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/config-provider.tsx
         </div>
       </div>
       <div
-        class="qixian-pro-card qixian-pro-card-box-shadow"
+        class="qixian-pro-card"
       >
         <div
           class="qixian-pro-card-body"
@@ -22551,7 +22551,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/config-provider.tsx
 exports[`table demos 📸 renders ./packages/table/src/demos/crud.tsx correctly 1`] = `
 <DocumentFragment>
   <div
-    class="ant-pro-card ant-pro-card-box-shadow"
+    class="ant-pro-card"
   >
     <div
       class="ant-pro-card-body"
@@ -22703,14 +22703,14 @@ exports[`table demos 📸 renders ./packages/table/src/demos/crud.tsx correctly 
             >
               <form
                 autocomplete="off"
-                class="ant-form ant-form-horizontal ant-pro-form-query-filter ant-pro-form"
+                class="ant-form ant-form-horizontal ant-pro-query-filter ant-pro-form"
               >
                 <input
                   style="display: none;"
                   type="text"
                 />
                 <div
-                  class="ant-row ant-row-start"
+                  class="ant-row ant-row-start ant-pro-query-filter-row"
                   style="margin-left: -12px; margin-right: -12px;"
                 >
                   <div
@@ -23093,7 +23093,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/crud.tsx correctly 
                     style="padding-left: 12px; padding-right: 12px; text-align: right;"
                   >
                     <div
-                      class="ant-form-item pro-form-query-filter-actions"
+                      class="ant-form-item ant-pro-query-filter-actions"
                     >
                       <div
                         class="ant-row ant-form-item-row"
@@ -23160,7 +23160,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/crud.tsx correctly 
                                   class="ant-space-item"
                                 >
                                   <a
-                                    class="ant-pro-form-collapse-button"
+                                    class="ant-pro-query-filter-collapse-button"
                                   >
                                     展开
                                     <span
@@ -23197,7 +23197,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/crud.tsx correctly 
             </div>
           </div>
           <div
-            class="ant-pro-card ant-pro-card-box-shadow"
+            class="ant-pro-card"
           >
             <div
               class="ant-pro-card-body"
@@ -24530,14 +24530,14 @@ exports[`table demos 📸 renders ./packages/table/src/demos/customization-value
         >
           <form
             autocomplete="off"
-            class="ant-form ant-form-horizontal ant-pro-form-query-filter ant-pro-form"
+            class="ant-form ant-form-horizontal ant-pro-query-filter ant-pro-form"
           >
             <input
               style="display: none;"
               type="text"
             />
             <div
-              class="ant-row ant-row-start"
+              class="ant-row ant-row-start ant-pro-query-filter-row"
               style="margin-left: -12px; margin-right: -12px;"
             >
               <div
@@ -24645,7 +24645,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/customization-value
                 style="padding-left: 12px; padding-right: 12px; text-align: right;"
               >
                 <div
-                  class="ant-form-item pro-form-query-filter-actions"
+                  class="ant-form-item ant-pro-query-filter-actions"
                 >
                   <div
                     class="ant-row ant-form-item-row"
@@ -24719,7 +24719,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/customization-value
         </div>
       </div>
       <div
-        class="ant-pro-card ant-pro-card-box-shadow"
+        class="ant-pro-card"
       >
         <div
           class="ant-pro-card-body"
@@ -25370,14 +25370,14 @@ exports[`table demos 📸 renders ./packages/table/src/demos/dataSource.tsx corr
         >
           <form
             autocomplete="off"
-            class="ant-form ant-form-vertical ant-pro-form-query-filter ant-pro-form"
+            class="ant-form ant-form-vertical ant-pro-query-filter ant-pro-form"
           >
             <input
               style="display: none;"
               type="text"
             />
             <div
-              class="ant-row ant-row-start"
+              class="ant-row ant-row-start ant-pro-query-filter-row"
               style="margin-left: -12px; margin-right: -12px;"
             >
               <div
@@ -25858,7 +25858,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/dataSource.tsx corr
                 style="padding-left: 12px; padding-right: 12px; text-align: right;"
               >
                 <div
-                  class="ant-form-item pro-form-query-filter-actions"
+                  class="ant-form-item ant-pro-query-filter-actions"
                 >
                   <div
                     class="ant-row ant-form-item-row"
@@ -25925,7 +25925,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/dataSource.tsx corr
                               class="ant-space-item"
                             >
                               <a
-                                class="ant-pro-form-collapse-button"
+                                class="ant-pro-query-filter-collapse-button"
                               >
                                 收起
                                 <span
@@ -25962,7 +25962,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/dataSource.tsx corr
         </div>
       </div>
       <div
-        class="ant-pro-card ant-pro-card-box-shadow"
+        class="ant-pro-card"
       >
         <div
           class="ant-pro-card-body"
@@ -27482,14 +27482,14 @@ exports[`table demos 📸 renders ./packages/table/src/demos/dateFormatter.tsx c
         >
           <form
             autocomplete="off"
-            class="ant-form ant-form-horizontal ant-pro-form-query-filter ant-pro-form"
+            class="ant-form ant-form-horizontal ant-pro-query-filter ant-pro-form"
           >
             <input
               style="display: none;"
               type="text"
             />
             <div
-              class="ant-row ant-row-start"
+              class="ant-row ant-row-start ant-pro-query-filter-row"
               style="margin-left: -12px; margin-right: -12px;"
             >
               <div
@@ -27681,7 +27681,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/dateFormatter.tsx c
                 style="padding-left: 12px; padding-right: 12px; text-align: right;"
               >
                 <div
-                  class="ant-form-item pro-form-query-filter-actions"
+                  class="ant-form-item ant-pro-query-filter-actions"
                 >
                   <div
                     class="ant-row ant-form-item-row"
@@ -27755,7 +27755,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/dateFormatter.tsx c
         </div>
       </div>
       <div
-        class="ant-pro-card ant-pro-card-box-shadow"
+        class="ant-pro-card"
       >
         <div
           class="ant-pro-card-body"
@@ -28013,14 +28013,14 @@ exports[`table demos 📸 renders ./packages/table/src/demos/dateFormatter.tsx c
         >
           <form
             autocomplete="off"
-            class="ant-form ant-form-horizontal ant-pro-form-query-filter ant-pro-form"
+            class="ant-form ant-form-horizontal ant-pro-query-filter ant-pro-form"
           >
             <input
               style="display: none;"
               type="text"
             />
             <div
-              class="ant-row ant-row-start"
+              class="ant-row ant-row-start ant-pro-query-filter-row"
               style="margin-left: -12px; margin-right: -12px;"
             >
               <div
@@ -28212,7 +28212,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/dateFormatter.tsx c
                 style="padding-left: 12px; padding-right: 12px; text-align: right;"
               >
                 <div
-                  class="ant-form-item pro-form-query-filter-actions"
+                  class="ant-form-item ant-pro-query-filter-actions"
                 >
                   <div
                     class="ant-row ant-form-item-row"
@@ -28286,7 +28286,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/dateFormatter.tsx c
         </div>
       </div>
       <div
-        class="ant-pro-card ant-pro-card-box-shadow"
+        class="ant-pro-card"
       >
         <div
           class="ant-pro-card-body"
@@ -28544,14 +28544,14 @@ exports[`table demos 📸 renders ./packages/table/src/demos/dateFormatter.tsx c
         >
           <form
             autocomplete="off"
-            class="ant-form ant-form-horizontal ant-pro-form-query-filter ant-pro-form"
+            class="ant-form ant-form-horizontal ant-pro-query-filter ant-pro-form"
           >
             <input
               style="display: none;"
               type="text"
             />
             <div
-              class="ant-row ant-row-start"
+              class="ant-row ant-row-start ant-pro-query-filter-row"
               style="margin-left: -12px; margin-right: -12px;"
             >
               <div
@@ -28743,7 +28743,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/dateFormatter.tsx c
                 style="padding-left: 12px; padding-right: 12px; text-align: right;"
               >
                 <div
-                  class="ant-form-item pro-form-query-filter-actions"
+                  class="ant-form-item ant-pro-query-filter-actions"
                 >
                   <div
                     class="ant-row ant-form-item-row"
@@ -28817,7 +28817,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/dateFormatter.tsx c
         </div>
       </div>
       <div
-        class="ant-pro-card ant-pro-card-box-shadow"
+        class="ant-pro-card"
       >
         <div
           class="ant-pro-card-body"
@@ -29079,14 +29079,14 @@ exports[`table demos 📸 renders ./packages/table/src/demos/dynamic-columns-sta
         >
           <form
             autocomplete="off"
-            class="ant-form ant-form-vertical ant-pro-form-query-filter ant-pro-form"
+            class="ant-form ant-form-vertical ant-pro-query-filter ant-pro-form"
           >
             <input
               style="display: none;"
               type="text"
             />
             <div
-              class="ant-row ant-row-start"
+              class="ant-row ant-row-start ant-pro-query-filter-row"
               style="margin-left: -12px; margin-right: -12px;"
             >
               <div
@@ -29505,7 +29505,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/dynamic-columns-sta
                 style="padding-left: 12px; padding-right: 12px; text-align: right;"
               >
                 <div
-                  class="ant-form-item pro-form-query-filter-actions"
+                  class="ant-form-item ant-pro-query-filter-actions"
                 >
                   <div
                     class="ant-row ant-form-item-row"
@@ -29572,7 +29572,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/dynamic-columns-sta
                               class="ant-space-item"
                             >
                               <a
-                                class="ant-pro-form-collapse-button"
+                                class="ant-pro-query-filter-collapse-button"
                               >
                                 收起
                                 <span
@@ -29609,7 +29609,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/dynamic-columns-sta
         </div>
       </div>
       <div
-        class="ant-pro-card ant-pro-card-box-shadow"
+        class="ant-pro-card"
       >
         <div
           class="ant-pro-card-body"
@@ -30647,7 +30647,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/dynamic-columns-sta
 exports[`table demos 📸 renders ./packages/table/src/demos/dynamic-settings.tsx correctly 1`] = `
 <DocumentFragment>
   <div
-    class="ant-pro-card ant-pro-card-border ant-pro-card-box-shadow ant-pro-card-contain-card ant-pro-card-split"
+    class="ant-pro-card ant-pro-card-border ant-pro-card-contain-card ant-pro-card-split"
     style="height: 100vh; overflow: hidden;"
   >
     <div
@@ -30657,7 +30657,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/dynamic-settings.ts
         class="ant-pro-card-col ant-pro-card-split-vertical"
       >
         <div
-          class="ant-pro-card ant-pro-card-box-shadow"
+          class="ant-pro-card"
           style="height: 100vh; overflow: auto;"
         >
           <div
@@ -30677,14 +30677,14 @@ exports[`table demos 📸 renders ./packages/table/src/demos/dynamic-settings.ts
                   >
                     <form
                       autocomplete="off"
-                      class="ant-form ant-form-horizontal ant-pro-form-query-filter ant-pro-form"
+                      class="ant-form ant-form-horizontal ant-pro-query-filter ant-pro-form"
                     >
                       <input
                         style="display: none;"
                         type="text"
                       />
                       <div
-                        class="ant-row ant-row-start"
+                        class="ant-row ant-row-start ant-pro-query-filter-row"
                         style="margin-left: -12px; margin-right: -12px;"
                       >
                         <div
@@ -30941,7 +30941,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/dynamic-settings.ts
                           style="padding-left: 12px; padding-right: 12px; text-align: right;"
                         >
                           <div
-                            class="ant-form-item pro-form-query-filter-actions"
+                            class="ant-form-item ant-pro-query-filter-actions"
                           >
                             <div
                               class="ant-row ant-form-item-row"
@@ -31008,7 +31008,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/dynamic-settings.ts
                                         class="ant-space-item"
                                       >
                                         <a
-                                          class="ant-pro-form-collapse-button"
+                                          class="ant-pro-query-filter-collapse-button"
                                         >
                                           展开
                                           <span
@@ -31045,7 +31045,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/dynamic-settings.ts
                   </div>
                 </div>
                 <div
-                  class="ant-pro-card ant-pro-card-box-shadow"
+                  class="ant-pro-card"
                 >
                   <div
                     class="ant-pro-card-body"
@@ -32118,7 +32118,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/dynamic-settings.ts
             type="text"
           />
           <div
-            class="ant-pro-card ant-pro-card-box-shadow"
+            class="ant-pro-card"
             style="height: 100vh; overflow: auto; box-shadow: 2px 0 6px rgba(0, 21, 41, 0.35); top: 0px; right: 0px; width: 470px;"
           >
             <div
@@ -33646,7 +33646,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/error-boundaries-fa
       class="ant-pro-table"
     >
       <div
-        class="ant-pro-card ant-pro-card-box-shadow"
+        class="ant-pro-card"
       >
         <div
           class="ant-pro-card-body"
@@ -34354,14 +34354,14 @@ exports[`table demos 📸 renders ./packages/table/src/demos/form.tsx correctly 
         >
           <form
             autocomplete="off"
-            class="ant-form ant-form-horizontal ant-pro-form-query-filter ant-pro-form"
+            class="ant-form ant-form-horizontal ant-pro-query-filter ant-pro-form"
           >
             <input
               style="display: none;"
               type="text"
             />
             <div
-              class="ant-row ant-row-start"
+              class="ant-row ant-row-start ant-pro-query-filter-row"
               style="margin-left: -12px; margin-right: -12px;"
             >
               <div
@@ -34529,7 +34529,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/form.tsx correctly 
                 style="padding-left: 12px; padding-right: 12px; text-align: right;"
               >
                 <div
-                  class="ant-form-item pro-form-query-filter-actions"
+                  class="ant-form-item ant-pro-query-filter-actions"
                 >
                   <div
                     class="ant-row ant-form-item-row"
@@ -34603,7 +34603,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/form.tsx correctly 
         </div>
       </div>
       <div
-        class="ant-pro-card ant-pro-card-box-shadow"
+        class="ant-pro-card"
       >
         <div
           class="ant-pro-card-body"
@@ -34902,14 +34902,14 @@ exports[`table demos 📸 renders ./packages/table/src/demos/intl.tsx correctly 
         >
           <form
             autocomplete="off"
-            class="ant-form ant-form-horizontal ant-pro-form-query-filter ant-pro-form"
+            class="ant-form ant-form-horizontal ant-pro-query-filter ant-pro-form"
           >
             <input
               style="display: none;"
               type="text"
             />
             <div
-              class="ant-row ant-row-start"
+              class="ant-row ant-row-start ant-pro-query-filter-row"
               style="margin-left: -12px; margin-right: -12px;"
             >
               <div
@@ -35178,7 +35178,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/intl.tsx correctly 
                 style="padding-left: 12px; padding-right: 12px; text-align: right;"
               >
                 <div
-                  class="ant-form-item pro-form-query-filter-actions"
+                  class="ant-form-item ant-pro-query-filter-actions"
                 >
                   <div
                     class="ant-row ant-form-item-row"
@@ -35245,7 +35245,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/intl.tsx correctly 
                               class="ant-space-item"
                             >
                               <a
-                                class="ant-pro-form-collapse-button"
+                                class="ant-pro-query-filter-collapse-button"
                               >
                                 展开
                                 <span
@@ -35282,7 +35282,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/intl.tsx correctly 
         </div>
       </div>
       <div
-        class="ant-pro-card ant-pro-card-box-shadow"
+        class="ant-pro-card"
       >
         <div
           class="ant-pro-card-body"
@@ -35771,7 +35771,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/lightfilter.tsx cor
       class="ant-pro-table"
     >
       <div
-        class="ant-pro-card ant-pro-card-box-shadow"
+        class="ant-pro-card"
       >
         <div
           class="ant-pro-card-body"
@@ -36950,14 +36950,14 @@ exports[`table demos 📸 renders ./packages/table/src/demos/linkage_form.tsx co
         >
           <form
             autocomplete="off"
-            class="ant-form ant-form-horizontal ant-pro-form-query-filter ant-pro-form"
+            class="ant-form ant-form-horizontal ant-pro-query-filter ant-pro-form"
           >
             <input
               style="display: none;"
               type="text"
             />
             <div
-              class="ant-row ant-row-start"
+              class="ant-row ant-row-start ant-pro-query-filter-row"
               style="margin-left: -12px; margin-right: -12px;"
             >
               <div
@@ -37267,7 +37267,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/linkage_form.tsx co
                 style="padding-left: 12px; padding-right: 12px; text-align: right;"
               >
                 <div
-                  class="ant-form-item pro-form-query-filter-actions"
+                  class="ant-form-item ant-pro-query-filter-actions"
                 >
                   <div
                     class="ant-row ant-form-item-row"
@@ -37347,7 +37347,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/linkage_form.tsx co
                               class="ant-space-item"
                             >
                               <a
-                                class="ant-pro-form-collapse-button"
+                                class="ant-pro-query-filter-collapse-button"
                               >
                                 收起
                                 <span
@@ -37384,7 +37384,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/linkage_form.tsx co
         </div>
       </div>
       <div
-        class="ant-pro-card ant-pro-card-box-shadow"
+        class="ant-pro-card"
       >
         <div
           class="ant-pro-card-body"
@@ -37733,7 +37733,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/listToolBar.tsx cor
       class="ant-pro-table"
     >
       <div
-        class="ant-pro-card ant-pro-card-box-shadow"
+        class="ant-pro-card"
       >
         <div
           class="ant-pro-card-body"
@@ -38930,14 +38930,14 @@ exports[`table demos 📸 renders ./packages/table/src/demos/no-option.tsx corre
         >
           <form
             autocomplete="off"
-            class="ant-form ant-form-horizontal ant-pro-form-query-filter ant-pro-form"
+            class="ant-form ant-form-horizontal ant-pro-query-filter ant-pro-form"
           >
             <input
               style="display: none;"
               type="text"
             />
             <div
-              class="ant-row ant-row-start"
+              class="ant-row ant-row-start ant-pro-query-filter-row"
               style="margin-left: -12px; margin-right: -12px;"
             >
               <div
@@ -39513,7 +39513,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/no-option.tsx corre
         </div>
       </div>
       <div
-        class="ant-pro-card ant-pro-card-box-shadow"
+        class="ant-pro-card"
       >
         <div
           class="ant-pro-card-body"
@@ -40960,7 +40960,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/no-title.tsx correc
       class="ant-pro-table"
     >
       <div
-        class="ant-pro-card ant-pro-card-box-shadow"
+        class="ant-pro-card"
       >
         <div
           class="ant-pro-card-body"
@@ -41635,7 +41635,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/normal.tsx correctl
       class="ant-pro-table"
     >
       <div
-        class="ant-pro-card ant-pro-card-box-shadow"
+        class="ant-pro-card"
       >
         <div
           class="ant-pro-card-body"
@@ -43089,14 +43089,14 @@ exports[`table demos 📸 renders ./packages/table/src/demos/open-rules.tsx corr
         >
           <form
             autocomplete="off"
-            class="ant-form ant-form-horizontal ant-pro-form-query-filter ant-pro-form"
+            class="ant-form ant-form-horizontal ant-pro-query-filter ant-pro-form"
           >
             <input
               style="display: none;"
               type="text"
             />
             <div
-              class="ant-row ant-row-start"
+              class="ant-row ant-row-start ant-pro-query-filter-row"
               style="margin-left: -12px; margin-right: -12px;"
             >
               <div
@@ -43300,7 +43300,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/open-rules.tsx corr
                 style="padding-left: 12px; padding-right: 12px; text-align: right;"
               >
                 <div
-                  class="ant-form-item pro-form-query-filter-actions"
+                  class="ant-form-item ant-pro-query-filter-actions"
                 >
                   <div
                     class="ant-row ant-form-item-row"
@@ -43374,7 +43374,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/open-rules.tsx corr
         </div>
       </div>
       <div
-        class="ant-pro-card ant-pro-card-box-shadow"
+        class="ant-pro-card"
       >
         <div
           class="ant-pro-card-body"
@@ -43857,14 +43857,14 @@ exports[`table demos 📸 renders ./packages/table/src/demos/open-rules.tsx corr
         >
           <form
             autocomplete="off"
-            class="ant-form ant-form-horizontal ant-pro-form-query-filter ant-pro-form"
+            class="ant-form ant-form-horizontal ant-pro-query-filter ant-pro-form"
           >
             <input
               style="display: none;"
               type="text"
             />
             <div
-              class="ant-row ant-row-start"
+              class="ant-row ant-row-start ant-pro-query-filter-row"
               style="margin-left: -12px; margin-right: -12px;"
             >
               <div
@@ -44068,7 +44068,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/open-rules.tsx corr
                 style="padding-left: 12px; padding-right: 12px; text-align: right;"
               >
                 <div
-                  class="ant-form-item pro-form-query-filter-actions"
+                  class="ant-form-item ant-pro-query-filter-actions"
                 >
                   <div
                     class="ant-row ant-form-item-row"
@@ -44142,7 +44142,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/open-rules.tsx corr
         </div>
       </div>
       <div
-        class="ant-pro-card ant-pro-card-box-shadow"
+        class="ant-pro-card"
       >
         <div
           class="ant-pro-card-body"
@@ -44630,14 +44630,14 @@ exports[`table demos 📸 renders ./packages/table/src/demos/pollinga.tsx correc
         >
           <form
             autocomplete="off"
-            class="ant-form ant-form-horizontal ant-pro-form-query-filter ant-pro-form"
+            class="ant-form ant-form-horizontal ant-pro-query-filter ant-pro-form"
           >
             <input
               style="display: none;"
               type="text"
             />
             <div
-              class="ant-row ant-row-start"
+              class="ant-row ant-row-start ant-pro-query-filter-row"
               style="margin-left: -12px; margin-right: -12px;"
             >
               <div
@@ -45036,7 +45036,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/pollinga.tsx correc
                 style="padding-left: 12px; padding-right: 12px; text-align: right;"
               >
                 <div
-                  class="ant-form-item pro-form-query-filter-actions"
+                  class="ant-form-item ant-pro-query-filter-actions"
                 >
                   <div
                     class="ant-row ant-form-item-row"
@@ -45103,7 +45103,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/pollinga.tsx correc
                               class="ant-space-item"
                             >
                               <a
-                                class="ant-pro-form-collapse-button"
+                                class="ant-pro-query-filter-collapse-button"
                               >
                                 展开
                                 <span
@@ -45140,7 +45140,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/pollinga.tsx correc
         </div>
       </div>
       <div
-        class="ant-pro-card ant-pro-card-box-shadow"
+        class="ant-pro-card"
       >
         <div
           class="ant-pro-card-body"
@@ -45714,14 +45714,14 @@ exports[`table demos 📸 renders ./packages/table/src/demos/renderTable.tsx cor
         >
           <form
             autocomplete="off"
-            class="ant-form ant-form-horizontal ant-pro-form-query-filter ant-pro-form"
+            class="ant-form ant-form-horizontal ant-pro-query-filter ant-pro-form"
           >
             <input
               style="display: none;"
               type="text"
             />
             <div
-              class="ant-row ant-row-start"
+              class="ant-row ant-row-start ant-pro-query-filter-row"
               style="margin-left: -12px; margin-right: -12px;"
             >
               <div
@@ -45924,7 +45924,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/renderTable.tsx cor
                 style="padding-left: 12px; padding-right: 12px; text-align: right;"
               >
                 <div
-                  class="ant-form-item pro-form-query-filter-actions"
+                  class="ant-form-item ant-pro-query-filter-actions"
                 >
                   <div
                     class="ant-row ant-form-item-row"
@@ -46278,7 +46278,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/renderTable.tsx cor
           style="flex: 1;"
         >
           <div
-            class="ant-pro-card ant-pro-card-box-shadow"
+            class="ant-pro-card"
           >
             <div
               class="ant-pro-card-body"
@@ -46729,14 +46729,14 @@ exports[`table demos 📸 renders ./packages/table/src/demos/rtl_table.tsx corre
         >
           <form
             autocomplete="off"
-            class="ant-form ant-form-horizontal ant-form-rtl ant-pro-form-query-filter ant-pro-form"
+            class="ant-form ant-form-horizontal ant-form-rtl ant-pro-query-filter ant-pro-form"
           >
             <input
               style="display: none;"
               type="text"
             />
             <div
-              class="ant-row ant-row-start ant-row-rtl"
+              class="ant-row ant-row-start ant-row-rtl ant-pro-query-filter-row"
               style="margin-left: -12px; margin-right: -12px;"
             >
               <div
@@ -47016,7 +47016,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/rtl_table.tsx corre
                 style="padding-left: 12px; padding-right: 12px; text-align: right;"
               >
                 <div
-                  class="ant-form-item pro-form-query-filter-actions"
+                  class="ant-form-item ant-pro-query-filter-actions"
                 >
                   <div
                     class="ant-row ant-row-rtl ant-form-item-row"
@@ -47083,7 +47083,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/rtl_table.tsx corre
                               class="ant-space-item"
                             >
                               <a
-                                class="ant-pro-form-collapse-button"
+                                class="ant-pro-query-filter-collapse-button"
                               >
                                 مُقلص
                                 <span
@@ -47120,7 +47120,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/rtl_table.tsx corre
         </div>
       </div>
       <div
-        class="ant-pro-card ant-pro-card-box-shadow"
+        class="ant-pro-card"
       >
         <div
           class="ant-pro-card-body"
@@ -48538,7 +48538,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/search.tsx correctl
       class="ant-pro-table"
     >
       <div
-        class="ant-pro-card ant-pro-card-box-shadow"
+        class="ant-pro-card"
       >
         <div
           class="ant-pro-card-body"
@@ -48900,14 +48900,14 @@ exports[`table demos 📸 renders ./packages/table/src/demos/search_option.tsx c
         >
           <form
             autocomplete="off"
-            class="ant-form ant-form-horizontal ant-pro-form-query-filter ant-pro-form"
+            class="ant-form ant-form-horizontal ant-pro-query-filter ant-pro-form"
           >
             <input
               style="display: none;"
               type="text"
             />
             <div
-              class="ant-row ant-row-start"
+              class="ant-row ant-row-start ant-pro-query-filter-row"
               style="margin-left: -12px; margin-right: -12px;"
             >
               <div
@@ -49181,7 +49181,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/search_option.tsx c
                 style="padding-left: 12px; padding-right: 12px; text-align: right;"
               >
                 <div
-                  class="ant-form-item pro-form-query-filter-actions"
+                  class="ant-form-item ant-pro-query-filter-actions"
                 >
                   <div
                     class="ant-row ant-form-item-row"
@@ -49261,7 +49261,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/search_option.tsx c
                               class="ant-space-item"
                             >
                               <a
-                                class="ant-pro-form-collapse-button"
+                                class="ant-pro-query-filter-collapse-button"
                               >
                                 收起
                                 <span
@@ -49298,7 +49298,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/search_option.tsx c
         </div>
       </div>
       <div
-        class="ant-pro-card ant-pro-card-box-shadow"
+        class="ant-pro-card"
       >
         <div
           class="ant-pro-card-body"
@@ -49672,14 +49672,14 @@ exports[`table demos 📸 renders ./packages/table/src/demos/single.tsx correctl
         >
           <form
             autocomplete="off"
-            class="ant-form ant-form-horizontal ant-pro-form-query-filter ant-pro-form"
+            class="ant-form ant-form-horizontal ant-pro-query-filter ant-pro-form"
           >
             <input
               style="display: none;"
               type="text"
             />
             <div
-              class="ant-row ant-row-start"
+              class="ant-row ant-row-start ant-pro-query-filter-row"
               style="margin-left: -12px; margin-right: -12px;"
             >
               <div
@@ -49997,7 +49997,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/single.tsx correctl
                 style="padding-left: 12px; padding-right: 12px; text-align: right;"
               >
                 <div
-                  class="ant-form-item pro-form-query-filter-actions"
+                  class="ant-form-item ant-pro-query-filter-actions"
                 >
                   <div
                     class="ant-row ant-form-item-row"
@@ -50064,7 +50064,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/single.tsx correctl
                               class="ant-space-item"
                             >
                               <a
-                                class="ant-pro-form-collapse-button"
+                                class="ant-pro-query-filter-collapse-button"
                               >
                                 展开
                                 <span
@@ -50101,7 +50101,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/single.tsx correctl
         </div>
       </div>
       <div
-        class="ant-pro-card ant-pro-card-border ant-pro-card-box-shadow"
+        class="ant-pro-card ant-pro-card-border"
       >
         <div
           class="ant-pro-card-body"
@@ -51977,14 +51977,14 @@ exports[`table demos 📸 renders ./packages/table/src/demos/single-test.tsx cor
         >
           <form
             autocomplete="off"
-            class="ant-form ant-form-horizontal ant-pro-form-query-filter ant-pro-form"
+            class="ant-form ant-form-horizontal ant-pro-query-filter ant-pro-form"
           >
             <input
               style="display: none;"
               type="text"
             />
             <div
-              class="ant-row ant-row-start"
+              class="ant-row ant-row-start ant-pro-query-filter-row"
               style="margin-left: -12px; margin-right: -12px;"
             >
               <div
@@ -52152,7 +52152,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/single-test.tsx cor
                 style="padding-left: 12px; padding-right: 12px; text-align: right;"
               >
                 <div
-                  class="ant-form-item pro-form-query-filter-actions"
+                  class="ant-form-item ant-pro-query-filter-actions"
                 >
                   <div
                     class="ant-row ant-form-item-row"
@@ -52226,7 +52226,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/single-test.tsx cor
         </div>
       </div>
       <div
-        class="ant-pro-card ant-pro-card-box-shadow"
+        class="ant-pro-card"
       >
         <div
           class="ant-pro-card-body"
@@ -52519,14 +52519,14 @@ exports[`table demos 📸 renders ./packages/table/src/demos/single-test.tsx cor
         >
           <form
             autocomplete="off"
-            class="ant-form ant-form-horizontal ant-pro-form-query-filter ant-pro-form"
+            class="ant-form ant-form-horizontal ant-pro-query-filter ant-pro-form"
           >
             <input
               style="display: none;"
               type="text"
             />
             <div
-              class="ant-row ant-row-start"
+              class="ant-row ant-row-start ant-pro-query-filter-row"
               style="margin-left: -12px; margin-right: -12px;"
             >
               <div
@@ -52994,7 +52994,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/single-test.tsx cor
                 style="padding-left: 12px; padding-right: 12px; text-align: right;"
               >
                 <div
-                  class="ant-form-item pro-form-query-filter-actions"
+                  class="ant-form-item ant-pro-query-filter-actions"
                 >
                   <div
                     class="ant-row ant-form-item-row"
@@ -53061,7 +53061,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/single-test.tsx cor
                               class="ant-space-item"
                             >
                               <a
-                                class="ant-pro-form-collapse-button"
+                                class="ant-pro-query-filter-collapse-button"
                               >
                                 展开
                                 <span
@@ -53098,7 +53098,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/single-test.tsx cor
         </div>
       </div>
       <div
-        class="ant-pro-card ant-pro-card-box-shadow"
+        class="ant-pro-card"
       >
         <div
           class="ant-pro-card-body"
@@ -54559,7 +54559,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/single-test.tsx cor
 exports[`table demos 📸 renders ./packages/table/src/demos/split.tsx correctly 1`] = `
 <DocumentFragment>
   <div
-    class="ant-pro-card ant-pro-card-box-shadow ant-pro-card-contain-card ant-pro-card-split"
+    class="ant-pro-card ant-pro-card-contain-card ant-pro-card-split"
   >
     <div
       class="ant-pro-card-body"
@@ -54569,7 +54569,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/split.tsx correctly
         style="width: 384px; flex-shrink: 0;"
       >
         <div
-          class="ant-pro-card ant-pro-card-box-shadow ant-pro-card-ghost"
+          class="ant-pro-card ant-pro-card-ghost"
         >
           <div
             class="ant-pro-card-body"
@@ -54581,7 +54581,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/split.tsx correctly
                 class="ant-pro-table"
               >
                 <div
-                  class="ant-pro-card ant-pro-card-box-shadow"
+                  class="ant-pro-card"
                 >
                   <div
                     class="ant-pro-card-body"
@@ -55172,7 +55172,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/split.tsx correctly
         class="ant-pro-card-col"
       >
         <div
-          class="ant-pro-card ant-pro-card-box-shadow"
+          class="ant-pro-card"
         >
           <div
             class="ant-pro-card-header"
@@ -55193,7 +55193,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/split.tsx correctly
                 class="ant-pro-table"
               >
                 <div
-                  class="ant-pro-card ant-pro-card-box-shadow"
+                  class="ant-pro-card"
                 >
                   <div
                     class="ant-pro-card-body"
@@ -55528,7 +55528,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/table-nested.tsx co
       class="ant-pro-table"
     >
       <div
-        class="ant-pro-card ant-pro-card-box-shadow"
+        class="ant-pro-card"
       >
         <div
           class="ant-pro-card-body"
@@ -56471,14 +56471,14 @@ exports[`table demos 📸 renders ./packages/table/src/demos/valueType.tsx corre
         >
           <form
             autocomplete="off"
-            class="ant-form ant-form-horizontal ant-pro-form-query-filter ant-pro-form"
+            class="ant-form ant-form-horizontal ant-pro-query-filter ant-pro-form"
           >
             <input
               style="display: none;"
               type="text"
             />
             <div
-              class="ant-row ant-row-start"
+              class="ant-row ant-row-start ant-pro-query-filter-row"
               style="margin-left: -12px; margin-right: -12px;"
             >
               <div
@@ -56688,7 +56688,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/valueType.tsx corre
                 style="padding-left: 12px; padding-right: 12px; text-align: right;"
               >
                 <div
-                  class="ant-form-item pro-form-query-filter-actions"
+                  class="ant-form-item ant-pro-query-filter-actions"
                 >
                   <div
                     class="ant-row ant-form-item-row"
@@ -56755,7 +56755,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/valueType.tsx corre
                               class="ant-space-item"
                             >
                               <a
-                                class="ant-pro-form-collapse-button"
+                                class="ant-pro-query-filter-collapse-button"
                               >
                                 展开
                                 <span
@@ -56792,7 +56792,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/valueType.tsx corre
         </div>
       </div>
       <div
-        class="ant-pro-card ant-pro-card-box-shadow"
+        class="ant-pro-card"
       >
         <div
           class="ant-pro-card-body"
@@ -57520,14 +57520,14 @@ exports[`table demos 📸 renders ./packages/table/src/demos/valueType_select.ts
         >
           <form
             autocomplete="off"
-            class="ant-form ant-form-horizontal ant-pro-form-query-filter ant-pro-form"
+            class="ant-form ant-form-horizontal ant-pro-query-filter ant-pro-form"
           >
             <input
               style="display: none;"
               type="text"
             />
             <div
-              class="ant-row ant-row-start"
+              class="ant-row ant-row-start ant-pro-query-filter-row"
               style="margin-left: -12px; margin-right: -12px;"
             >
               <div
@@ -58210,7 +58210,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/valueType_select.ts
                 style="padding-left: 12px; padding-right: 12px; text-align: right;"
               >
                 <div
-                  class="ant-form-item pro-form-query-filter-actions"
+                  class="ant-form-item ant-pro-query-filter-actions"
                 >
                   <div
                     class="ant-row ant-form-item-row"
@@ -58277,7 +58277,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/valueType_select.ts
                               class="ant-space-item"
                             >
                               <a
-                                class="ant-pro-form-collapse-button"
+                                class="ant-pro-query-filter-collapse-button"
                               >
                                 收起
                                 <span
@@ -58314,7 +58314,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/valueType_select.ts
         </div>
       </div>
       <div
-        class="ant-pro-card ant-pro-card-box-shadow"
+        class="ant-pro-card"
       >
         <div
           class="ant-pro-card-body"
@@ -58930,14 +58930,14 @@ exports[`table demos 📸 renders ./packages/table/src/demos/valueTypeDate.tsx c
         >
           <form
             autocomplete="off"
-            class="ant-form ant-form-horizontal ant-pro-form-query-filter ant-pro-form"
+            class="ant-form ant-form-horizontal ant-pro-query-filter ant-pro-form"
           >
             <input
               style="display: none;"
               type="text"
             />
             <div
-              class="ant-row ant-row-start"
+              class="ant-row ant-row-start ant-pro-query-filter-row"
               style="margin-left: -12px; margin-right: -12px;"
             >
               <div
@@ -59492,7 +59492,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/valueTypeDate.tsx c
                 style="padding-left: 12px; padding-right: 12px; text-align: right;"
               >
                 <div
-                  class="ant-form-item pro-form-query-filter-actions"
+                  class="ant-form-item ant-pro-query-filter-actions"
                 >
                   <div
                     class="ant-row ant-form-item-row"
@@ -59559,7 +59559,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/valueTypeDate.tsx c
                               class="ant-space-item"
                             >
                               <a
-                                class="ant-pro-form-collapse-button"
+                                class="ant-pro-query-filter-collapse-button"
                               >
                                 展开
                                 <span
@@ -59596,7 +59596,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/valueTypeDate.tsx c
         </div>
       </div>
       <div
-        class="ant-pro-card ant-pro-card-box-shadow"
+        class="ant-pro-card"
       >
         <div
           class="ant-pro-card-body"
@@ -60208,14 +60208,14 @@ exports[`table demos 📸 renders ./packages/table/src/demos/valueTypeNumber.tsx
         >
           <form
             autocomplete="off"
-            class="ant-form ant-form-horizontal ant-pro-form-query-filter ant-pro-form"
+            class="ant-form ant-form-horizontal ant-pro-query-filter ant-pro-form"
           >
             <input
               style="display: none;"
               type="text"
             />
             <div
-              class="ant-row ant-row-start"
+              class="ant-row ant-row-start ant-pro-query-filter-row"
               style="margin-left: -12px; margin-right: -12px;"
             >
               <div
@@ -60785,7 +60785,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/valueTypeNumber.tsx
                 style="padding-left: 12px; padding-right: 12px; text-align: right;"
               >
                 <div
-                  class="ant-form-item pro-form-query-filter-actions"
+                  class="ant-form-item ant-pro-query-filter-actions"
                 >
                   <div
                     class="ant-row ant-form-item-row"
@@ -60852,7 +60852,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/valueTypeNumber.tsx
                               class="ant-space-item"
                             >
                               <a
-                                class="ant-pro-form-collapse-button"
+                                class="ant-pro-query-filter-collapse-button"
                               >
                                 展开
                                 <span
@@ -60889,7 +60889,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/valueTypeNumber.tsx
         </div>
       </div>
       <div
-        class="ant-pro-card ant-pro-card-box-shadow"
+        class="ant-pro-card"
       >
         <div
           class="ant-pro-card-body"

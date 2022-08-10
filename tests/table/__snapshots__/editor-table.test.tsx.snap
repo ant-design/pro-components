@@ -9,7 +9,7 @@ exports[`EditorProTable 📝 EditableProTable support recordCreatorProps 1`] = `
       class="ant-pro-table"
     >
       <div
-        class="ant-pro-card ant-pro-card-box-shadow"
+        class="ant-pro-card"
       >
         <div
           class="ant-pro-card-body"
@@ -640,7 +640,7 @@ exports[`EditorProTable 📝 EditableProTable support recordCreatorProps=false 1
       class="ant-pro-table"
     >
       <div
-        class="ant-pro-card ant-pro-card-box-shadow"
+        class="ant-pro-card"
       >
         <div
           class="ant-pro-card-body"

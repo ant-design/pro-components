@@ -32,7 +32,7 @@ const Card = React.forwardRef((props: CardProps, ref: any) => {
     split,
     headerBordered = false,
     bordered = false,
-    boxShadow = true,
+    boxShadow = false,
     children,
     size,
     actions,

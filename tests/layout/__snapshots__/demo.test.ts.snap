@@ -313,7 +313,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/components/PageContaine
             class="ant-pro-page-container-children-content"
           >
             <div
-              class="ant-pro-card ant-pro-card-box-shadow ant-pro-card-contain-card ant-pro-card-ghost"
+              class="ant-pro-card ant-pro-card-contain-card ant-pro-card-ghost"
             >
               <div
                 class="ant-pro-card-body ant-pro-card-body-direction-column"
@@ -324,7 +324,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/components/PageContaine
                   style="padding-block-start: 8px; padding-block-end: 8px;"
                 >
                   <div
-                    class="ant-pro-card ant-pro-card-box-shadow"
+                    class="ant-pro-card"
                     style="height: 200px;"
                   >
                     <div
@@ -337,7 +337,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/components/PageContaine
                   style="padding-block-start: 8px; padding-block-end: 8px;"
                 >
                   <div
-                    class="ant-pro-card ant-pro-card-box-shadow ant-pro-card-contain-card ant-pro-card-ghost"
+                    class="ant-pro-card ant-pro-card-contain-card ant-pro-card-ghost"
                     style="height: 200px;"
                   >
                     <div
@@ -349,7 +349,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/components/PageContaine
                         style="padding-inline-end: 8px; padding-inline-start: 8px;"
                       >
                         <div
-                          class="ant-pro-card ant-pro-card-box-shadow"
+                          class="ant-pro-card"
                         >
                           <div
                             class="ant-pro-card-body"
@@ -361,7 +361,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/components/PageContaine
                         style="padding-inline-end: 8px; padding-inline-start: 8px;"
                       >
                         <div
-                          class="ant-pro-card ant-pro-card-box-shadow"
+                          class="ant-pro-card"
                         >
                           <div
                             class="ant-pro-card-body"
@@ -645,7 +645,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/components/PageContaine
             class="ant-pro-page-container-children-content"
           >
             <div
-              class="ant-pro-card ant-pro-card-box-shadow ant-pro-card-contain-card ant-pro-card-ghost"
+              class="ant-pro-card ant-pro-card-contain-card ant-pro-card-ghost"
             >
               <div
                 class="ant-pro-card-body ant-pro-card-body-direction-column"
@@ -656,7 +656,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/components/PageContaine
                   style="padding-block-start: 8px; padding-block-end: 8px;"
                 >
                   <div
-                    class="ant-pro-card ant-pro-card-box-shadow"
+                    class="ant-pro-card"
                     style="height: 200px;"
                   >
                     <div
@@ -669,7 +669,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/components/PageContaine
                   style="padding-block-start: 8px; padding-block-end: 8px;"
                 >
                   <div
-                    class="ant-pro-card ant-pro-card-box-shadow ant-pro-card-contain-card ant-pro-card-ghost"
+                    class="ant-pro-card ant-pro-card-contain-card ant-pro-card-ghost"
                     style="height: 200px;"
                   >
                     <div
@@ -681,7 +681,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/components/PageContaine
                         style="padding-inline-end: 8px; padding-inline-start: 8px;"
                       >
                         <div
-                          class="ant-pro-card ant-pro-card-box-shadow"
+                          class="ant-pro-card"
                         >
                           <div
                             class="ant-pro-card-body"
@@ -693,7 +693,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/components/PageContaine
                         style="padding-inline-end: 8px; padding-inline-start: 8px;"
                       >
                         <div
-                          class="ant-pro-card ant-pro-card-box-shadow"
+                          class="ant-pro-card"
                         >
                           <div
                             class="ant-pro-card-body"
@@ -872,7 +872,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/components/PageContaine
             class="ant-pro-page-container-children-content"
           >
             <div
-              class="ant-pro-card ant-pro-card-box-shadow ant-pro-card-contain-card ant-pro-card-ghost"
+              class="ant-pro-card ant-pro-card-contain-card ant-pro-card-ghost"
             >
               <div
                 class="ant-pro-card-body ant-pro-card-body-direction-column"
@@ -883,7 +883,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/components/PageContaine
                   style="padding-block-start: 8px; padding-block-end: 8px;"
                 >
                   <div
-                    class="ant-pro-card ant-pro-card-box-shadow"
+                    class="ant-pro-card"
                     style="height: 200px;"
                   >
                     <div
@@ -896,7 +896,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/components/PageContaine
                   style="padding-block-start: 8px; padding-block-end: 8px;"
                 >
                   <div
-                    class="ant-pro-card ant-pro-card-box-shadow ant-pro-card-contain-card ant-pro-card-ghost"
+                    class="ant-pro-card ant-pro-card-contain-card ant-pro-card-ghost"
                     style="height: 200px;"
                   >
                     <div
@@ -908,7 +908,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/components/PageContaine
                         style="padding-inline-end: 8px; padding-inline-start: 8px;"
                       >
                         <div
-                          class="ant-pro-card ant-pro-card-box-shadow"
+                          class="ant-pro-card"
                         >
                           <div
                             class="ant-pro-card-body"
@@ -920,7 +920,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/components/PageContaine
                         style="padding-inline-end: 8px; padding-inline-start: 8px;"
                       >
                         <div
-                          class="ant-pro-card ant-pro-card-box-shadow"
+                          class="ant-pro-card"
                         >
                           <div
                             class="ant-pro-card-body"
@@ -1307,7 +1307,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/components/WaterMark/de
         type="text"
       />
       <div
-        class="ant-pro-card ant-pro-card-border ant-pro-card-box-shadow ant-pro-card-contain-card ant-pro-card-split"
+        class="ant-pro-card ant-pro-card-border ant-pro-card-contain-card ant-pro-card-split"
       >
         <div
           class="ant-pro-card-header ant-pro-card-header-border"
@@ -1326,7 +1326,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/components/WaterMark/de
             style="width: 70%; flex-shrink: 0;"
           >
             <div
-              class="ant-pro-card ant-pro-card-box-shadow"
+              class="ant-pro-card"
             >
               <div
                 class="ant-pro-card-body"
@@ -1372,7 +1372,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/components/WaterMark/de
             class="ant-pro-card-col"
           >
             <div
-              class="ant-pro-card ant-pro-card-box-shadow"
+              class="ant-pro-card"
             >
               <div
                 class="ant-pro-card-header"
@@ -1706,7 +1706,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/components/WaterMark/de
         class="ant-pro-table"
       >
         <div
-          class="ant-pro-card ant-pro-card-box-shadow"
+          class="ant-pro-card"
         >
           <div
             class="ant-pro-card-body"
@@ -7087,7 +7087,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/TopmenuNested.tsx
                     style="flex: 1;"
                   >
                     <ul
-                      class="ant-menu-overflow ant-menu ant-menu-root ant-menu-horizontal ant-pro-top-nav-header-base-menu ant-pro-base-menu ant-pro-base-menu-horizontal"
+                      class="ant-menu-overflow ant-menu ant-menu-root ant-menu-horizontal ant-pro-top-nav-header-base-menu css-dev-only-do-not-override-imcqnm ant-pro-base-menu ant-pro-base-menu-horizontal css-dev-only-do-not-override-imcqnm"
                       data-menu-list="true"
                       role="menu"
                       style="background-color: transparent; width: 100%;"
@@ -8861,7 +8861,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/background-contex
                     style="flex: 1;"
                   >
                     <ul
-                      class="ant-menu-overflow ant-menu ant-menu-root ant-menu-horizontal ant-pro-top-nav-header-base-menu ant-pro-base-menu ant-pro-base-menu-horizontal"
+                      class="ant-menu-overflow ant-menu ant-menu-root ant-menu-horizontal ant-pro-top-nav-header-base-menu css-dev-only-do-not-override-imcqnm ant-pro-base-menu ant-pro-base-menu-horizontal css-dev-only-do-not-override-imcqnm"
                       data-menu-list="true"
                       role="menu"
                       style="background-color: transparent; width: 100%;"
@@ -9287,7 +9287,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/background-contex
                       class="ant-pro-page-container-children-content"
                     >
                       <div
-                        class="ant-pro-card ant-pro-card-box-shadow"
+                        class="ant-pro-card"
                         style="height: 200vh; min-height: 800px;"
                       >
                         <div
@@ -9802,7 +9802,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/base.tsx correctl
                     style="flex: 1;"
                   >
                     <ul
-                      class="ant-menu-overflow ant-menu ant-menu-root ant-menu-horizontal ant-pro-top-nav-header-base-menu ant-pro-base-menu ant-pro-base-menu-horizontal"
+                      class="ant-menu-overflow ant-menu ant-menu-root ant-menu-horizontal ant-pro-top-nav-header-base-menu css-dev-only-do-not-override-imcqnm ant-pro-base-menu ant-pro-base-menu-horizontal css-dev-only-do-not-override-imcqnm"
                       data-menu-list="true"
                       role="menu"
                       style="background-color: transparent; width: 100%;"
@@ -10248,7 +10248,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/base.tsx correctl
                       class="ant-pro-page-container-children-content"
                     >
                       <div
-                        class="ant-pro-card ant-pro-card-box-shadow"
+                        class="ant-pro-card"
                         style="height: 200vh; min-height: 800px;"
                       >
                         <div
@@ -10298,7 +10298,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/base.tsx correctl
       </div>
     </div>
     <div
-      class="ant-pro-setting-drawer-drawer-handle"
+      class="ant-pro-setting-drawer-handle "
     >
       <span
         aria-label="setting"
@@ -10818,7 +10818,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/classicMode.tsx c
                     style="flex: 1;"
                   >
                     <ul
-                      class="ant-menu-overflow ant-menu ant-menu-root ant-menu-horizontal ant-pro-top-nav-header-base-menu ant-pro-base-menu ant-pro-base-menu-horizontal"
+                      class="ant-menu-overflow ant-menu ant-menu-root ant-menu-horizontal ant-pro-top-nav-header-base-menu css-dev-only-do-not-override-imcqnm ant-pro-base-menu ant-pro-base-menu-horizontal css-dev-only-do-not-override-imcqnm"
                       data-menu-list="true"
                       role="menu"
                       style="background-color: transparent; width: 100%;"
@@ -11268,7 +11268,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/classicMode.tsx c
                       class="ant-pro-page-container-children-content"
                     >
                       <div
-                        class="ant-pro-card ant-pro-card-box-shadow"
+                        class="ant-pro-card"
                         style="height: 200vh; min-height: 800px;"
                       >
                         <div
@@ -11318,7 +11318,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/classicMode.tsx c
       </div>
     </div>
     <div
-      class="ant-pro-setting-drawer-drawer-handle"
+      class="ant-pro-setting-drawer-handle "
     >
       <span
         aria-label="setting"
@@ -11825,7 +11825,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/collapsedShowTitl
                     class="ant-pro-page-container-children-content"
                   >
                     <div
-                      class="ant-pro-card ant-pro-card-box-shadow"
+                      class="ant-pro-card"
                       style="height: 200vh; min-height: 800px;"
                     >
                       <div
@@ -13120,7 +13120,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/config-provider.t
     </div>
   </div>
   <div
-    class="ant-pro-setting-drawer-drawer-handle"
+    class="ant-pro-setting-drawer-handle "
   >
     <span
       aria-label="setting"
@@ -14144,7 +14144,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/customSider.tsx c
                       class="ant-pro-page-container-children-content"
                     >
                       <div
-                        class="ant-pro-card ant-pro-card-box-shadow"
+                        class="ant-pro-card"
                         style="height: 100vh; min-height: 800px;"
                       >
                         <div
@@ -14163,7 +14163,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/customSider.tsx c
       </div>
     </div>
     <div
-      class="ant-pro-setting-drawer-drawer-handle"
+      class="ant-pro-setting-drawer-handle "
     >
       <span
         aria-label="setting"
@@ -15575,7 +15575,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/designMenuCss.tsx
                     style="flex: 1;"
                   >
                     <ul
-                      class="ant-menu-overflow ant-menu ant-menu-root ant-menu-horizontal ant-pro-top-nav-header-base-menu ant-pro-base-menu ant-pro-base-menu-horizontal"
+                      class="ant-menu-overflow ant-menu ant-menu-root ant-menu-horizontal ant-pro-top-nav-header-base-menu css-dev-only-do-not-override-imcqnm ant-pro-base-menu ant-pro-base-menu-horizontal css-dev-only-do-not-override-imcqnm"
                       data-menu-list="true"
                       role="menu"
                       style="background-color: transparent; width: 100%;"
@@ -16025,7 +16025,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/designMenuCss.tsx
                       class="ant-pro-page-container-children-content"
                     >
                       <div
-                        class="ant-pro-card ant-pro-card-box-shadow"
+                        class="ant-pro-card"
                         style="height: 200vh; min-height: 800px;"
                       >
                         <div
@@ -16075,7 +16075,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/designMenuCss.tsx
       </div>
     </div>
     <div
-      class="ant-pro-setting-drawer-drawer-handle"
+      class="ant-pro-setting-drawer-handle "
     >
       <span
         aria-label="setting"
@@ -17087,7 +17087,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/designSiderMenu.t
                       class="ant-pro-page-container-children-content"
                     >
                       <div
-                        class="ant-pro-card ant-pro-card-box-shadow"
+                        class="ant-pro-card"
                         style="height: 100vh; min-height: 800px;"
                       >
                         <div
@@ -17106,7 +17106,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/designSiderMenu.t
       </div>
     </div>
     <div
-      class="ant-pro-setting-drawer-drawer-handle"
+      class="ant-pro-setting-drawer-handle "
     >
       <span
         aria-label="setting"
@@ -18389,7 +18389,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/dynamic-settings.
       </div>
     </div>
     <div
-      class="ant-pro-setting-drawer-drawer-handle"
+      class="ant-pro-setting-drawer-handle "
     >
       <span
         aria-label="setting"
@@ -20199,7 +20199,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/footer-global-too
                     style="flex: 1;"
                   >
                     <ul
-                      class="ant-menu-overflow ant-menu ant-menu-root ant-menu-horizontal ant-pro-top-nav-header-base-menu ant-pro-base-menu ant-pro-base-menu-horizontal"
+                      class="ant-menu-overflow ant-menu ant-menu-root ant-menu-horizontal ant-pro-top-nav-header-base-menu css-dev-only-do-not-override-imcqnm ant-pro-base-menu ant-pro-base-menu-horizontal css-dev-only-do-not-override-imcqnm"
                       data-menu-list="true"
                       role="menu"
                       style="background-color: transparent; width: 100%;"
@@ -20599,7 +20599,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/footer-global-too
                       class="ant-pro-page-container-children-content"
                     >
                       <div
-                        class="ant-pro-card ant-pro-card-box-shadow"
+                        class="ant-pro-card"
                         style="min-height: 800px;"
                       >
                         <div
@@ -21227,7 +21227,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/ghost.tsx correct
                       class="ant-pro-page-container-children-content"
                     >
                       <div
-                        class="ant-pro-card ant-pro-card-box-shadow ant-pro-card-contain-card ant-pro-card-ghost"
+                        class="ant-pro-card ant-pro-card-contain-card ant-pro-card-ghost"
                         style="height: 200vh;"
                       >
                         <div
@@ -21239,7 +21239,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/ghost.tsx correct
                             style="padding-block-start: 8px; padding-block-end: 8px;"
                           >
                             <div
-                              class="ant-pro-card ant-pro-card-box-shadow"
+                              class="ant-pro-card"
                               style="height: 200px;"
                             >
                               <div
@@ -21252,7 +21252,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/ghost.tsx correct
                             style="padding-block-start: 8px; padding-block-end: 8px;"
                           >
                             <div
-                              class="ant-pro-card ant-pro-card-box-shadow ant-pro-card-contain-card ant-pro-card-ghost"
+                              class="ant-pro-card ant-pro-card-contain-card ant-pro-card-ghost"
                               style="height: 200px;"
                             >
                               <div
@@ -21264,7 +21264,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/ghost.tsx correct
                                   style="padding-inline-end: 8px; padding-inline-start: 8px;"
                                 >
                                   <div
-                                    class="ant-pro-card ant-pro-card-box-shadow"
+                                    class="ant-pro-card"
                                   >
                                     <div
                                       class="ant-pro-card-body"
@@ -21276,7 +21276,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/ghost.tsx correct
                                   style="padding-inline-end: 8px; padding-inline-start: 8px;"
                                 >
                                   <div
-                                    class="ant-pro-card ant-pro-card-box-shadow"
+                                    class="ant-pro-card"
                                   >
                                     <div
                                       class="ant-pro-card-body"
@@ -23703,7 +23703,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/menu-group.tsx co
                         class="ant-pro-page-container-children-content"
                       >
                         <div
-                          class="ant-pro-card ant-pro-card-box-shadow"
+                          class="ant-pro-card"
                           style="height: 120vh; min-height: 600px;"
                         >
                           <div
@@ -24551,7 +24551,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/mixMode.tsx corre
                     style="flex: 1;"
                   >
                     <ul
-                      class="ant-menu-overflow ant-menu ant-menu-root ant-menu-horizontal ant-pro-top-nav-header-base-menu ant-pro-base-menu ant-pro-base-menu-horizontal"
+                      class="ant-menu-overflow ant-menu ant-menu-root ant-menu-horizontal ant-pro-top-nav-header-base-menu css-dev-only-do-not-override-imcqnm ant-pro-base-menu ant-pro-base-menu-horizontal css-dev-only-do-not-override-imcqnm"
                       data-menu-list="true"
                       role="menu"
                       style="background-color: transparent; width: 100%;"
@@ -24951,7 +24951,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/mixMode.tsx corre
                       class="ant-pro-page-container-children-content"
                     >
                       <div
-                        class="ant-pro-card ant-pro-card-box-shadow"
+                        class="ant-pro-card"
                         style="height: 100vh; min-height: 800px;"
                       >
                         <div
@@ -25703,7 +25703,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/pageSimplify.tsx 
                       class="ant-pro-page-container-children-content"
                     >
                       <div
-                        class="ant-pro-card ant-pro-card-box-shadow"
+                        class="ant-pro-card"
                         style="height: 200vh; min-height: 800px;"
                       >
                         <div
@@ -27196,7 +27196,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/siderMode.tsx cor
                       class="ant-pro-page-container-children-content"
                     >
                       <div
-                        class="ant-pro-card ant-pro-card-box-shadow"
+                        class="ant-pro-card"
                         style="height: 100vh; min-height: 800px;"
                       >
                         <div
@@ -27215,7 +27215,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/siderMode.tsx cor
       </div>
     </div>
     <div
-      class="ant-pro-setting-drawer-drawer-handle"
+      class="ant-pro-setting-drawer-handle "
     >
       <span
         aria-label="setting"
@@ -27735,7 +27735,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/siteMenu.tsx corr
                     style="flex: 1;"
                   >
                     <ul
-                      class="ant-menu-overflow ant-menu ant-menu-root ant-menu-horizontal ant-pro-top-nav-header-base-menu ant-pro-base-menu ant-pro-base-menu-horizontal"
+                      class="ant-menu-overflow ant-menu ant-menu-root ant-menu-horizontal ant-pro-top-nav-header-base-menu css-dev-only-do-not-override-imcqnm ant-pro-base-menu ant-pro-base-menu-horizontal css-dev-only-do-not-override-imcqnm"
                       data-menu-list="true"
                       role="menu"
                       style="background-color: transparent; width: 100%;"
@@ -28135,7 +28135,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/siteMenu.tsx corr
                       class="ant-pro-page-container-children-content"
                     >
                       <div
-                        class="ant-pro-card ant-pro-card-box-shadow"
+                        class="ant-pro-card"
                         style="height: 100vh; min-height: 800px;"
                       >
                         <div
@@ -28354,7 +28354,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/splitMenus.tsx co
                   style="flex: 1;"
                 >
                   <ul
-                    class="ant-menu-overflow ant-menu ant-menu-root ant-menu-horizontal ant-pro-top-nav-header-base-menu ant-pro-base-menu ant-pro-base-menu-horizontal"
+                    class="ant-menu-overflow ant-menu ant-menu-root ant-menu-horizontal ant-pro-top-nav-header-base-menu css-dev-only-do-not-override-imcqnm ant-pro-base-menu ant-pro-base-menu-horizontal css-dev-only-do-not-override-imcqnm"
                     data-menu-list="true"
                     role="menu"
                     style="background-color: transparent; width: 100%;"
@@ -28773,7 +28773,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/splitMenus.tsx co
                   style="flex: 1;"
                 >
                   <ul
-                    class="ant-menu-overflow ant-menu ant-menu-root ant-menu-horizontal ant-pro-top-nav-header-base-menu ant-pro-base-menu ant-pro-base-menu-horizontal"
+                    class="ant-menu-overflow ant-menu ant-menu-root ant-menu-horizontal ant-pro-top-nav-header-base-menu css-dev-only-do-not-override-imcqnm ant-pro-base-menu ant-pro-base-menu-horizontal css-dev-only-do-not-override-imcqnm"
                     data-menu-list="true"
                     role="menu"
                     style="background-color: transparent; width: 100%;"
@@ -29007,7 +29007,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/splitMenus.tsx co
                   style="flex: 1;"
                 >
                   <ul
-                    class="ant-menu-overflow ant-menu ant-menu-root ant-menu-horizontal ant-pro-top-nav-header-base-menu ant-pro-base-menu ant-pro-base-menu-horizontal"
+                    class="ant-menu-overflow ant-menu ant-menu-root ant-menu-horizontal ant-pro-top-nav-header-base-menu css-dev-only-do-not-override-imcqnm ant-pro-base-menu ant-pro-base-menu-horizontal css-dev-only-do-not-override-imcqnm"
                     data-menu-list="true"
                     role="menu"
                     style="background-color: transparent; width: 100%;"
@@ -29442,7 +29442,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/splitMenus.tsx co
                   style="flex: 1;"
                 >
                   <ul
-                    class="ant-menu-overflow ant-menu ant-menu-root ant-menu-horizontal ant-pro-top-nav-header-base-menu ant-pro-base-menu ant-pro-base-menu-horizontal"
+                    class="ant-menu-overflow ant-menu ant-menu-root ant-menu-horizontal ant-pro-top-nav-header-base-menu css-dev-only-do-not-override-imcqnm ant-pro-base-menu ant-pro-base-menu-horizontal css-dev-only-do-not-override-imcqnm"
                     data-menu-list="true"
                     role="menu"
                     style="background-color: transparent; width: 100%;"
@@ -30567,7 +30567,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/splitMenus.tsx co
     </div>
   </div>
   <div
-    class="ant-pro-setting-drawer-drawer-handle"
+    class="ant-pro-setting-drawer-handle "
   >
     <span
       aria-label="close"
@@ -31259,7 +31259,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/theme.tsx correct
                     class="ant-pro-page-container-children-content"
                   >
                     <div
-                      class="ant-pro-card ant-pro-card-box-shadow"
+                      class="ant-pro-card"
                       style="height: 200vh; min-height: 800px;"
                     >
                       <div
@@ -31962,7 +31962,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/topMode.tsx corre
                     style="flex: 1;"
                   >
                     <ul
-                      class="ant-menu-overflow ant-menu ant-menu-root ant-menu-horizontal ant-pro-top-nav-header-base-menu ant-pro-base-menu ant-pro-base-menu-horizontal"
+                      class="ant-menu-overflow ant-menu ant-menu-root ant-menu-horizontal ant-pro-top-nav-header-base-menu css-dev-only-do-not-override-imcqnm ant-pro-base-menu ant-pro-base-menu-horizontal css-dev-only-do-not-override-imcqnm"
                       data-menu-list="true"
                       role="menu"
                       style="background-color: transparent; width: 100%;"
@@ -32386,7 +32386,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/topMode.tsx corre
                       class="ant-pro-page-container-children-content"
                     >
                       <div
-                        class="ant-pro-card ant-pro-card-box-shadow"
+                        class="ant-pro-card"
                         style="height: 100vh; min-height: 800px;"
                       >
                         <div

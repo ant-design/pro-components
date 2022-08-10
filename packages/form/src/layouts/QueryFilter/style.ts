@@ -8,22 +8,18 @@ export interface ProToken extends ProAliasToken {
 
 const genProStyle: GenerateStyle<ProToken> = (token) => {
   return {
-    [token.componentCls]: {
-      marginBlockEnd: 16,
-      [`${token.antCls}-alert ${token.antCls}-alert-no-icon`]: {
-        paddingBlock: token.paddingSM,
-        paddingInline: token.paddingLG,
-      },
-      '&-info': {
-        display: 'flex',
-        alignItems: 'center',
-        transition: 'all 0.3s',
-        '&-content': {
-          flex: 1,
+    [token.proComponentsCls]: {
+      [token.componentCls]: {
+        padding: 24,
+        [`${token.antCls}-form-item`]: {
+          marginBlock: 0,
         },
-        '&-option': {
-          minWidth: 48,
-          paddingInlineStart: 16,
+        '&-row': {
+          rowGap: 24,
+        },
+        '&-collapse-button': {
+          display: 'flex',
+          alignItems: 'center',
         },
       },
     },
@@ -31,7 +27,7 @@ const genProStyle: GenerateStyle<ProToken> = (token) => {
 };
 
 export function useStyle(prefixCls: string) {
-  return useAntdStyle('ProTableAlert', (token) => {
+  return useAntdStyle('QueryFilter', (token) => {
     const proToken: ProToken = {
       ...token,
       componentCls: `.${prefixCls}`,

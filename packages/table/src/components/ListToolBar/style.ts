@@ -38,7 +38,7 @@ const genProListStyle: GenerateStyle<ProListToken> = (token) => {
         cursor: 'pointer',
         '> span': { display: 'block', width: '100%', height: '100%' },
         '&:hover': {
-          color: token.colorPrimaryBgHover,
+          color: token.colorPrimary,
         },
       },
       '&-left': { display: 'flex', alignItems: 'center', justifyContent: 'flex-start' },

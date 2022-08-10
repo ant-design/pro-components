@@ -15,14 +15,14 @@ exports[`BasicTable 🎏 base use 1`] = `
       >
         <form
           autocomplete="off"
-          class="ant-form ant-form-horizontal ant-pro-form-query-filter ant-pro-form"
+          class="ant-form ant-form-horizontal ant-pro-query-filter ant-pro-form"
         >
           <input
             style="display: none;"
             type="text"
           />
           <div
-            class="ant-row ant-row-start"
+            class="ant-row ant-row-start ant-pro-query-filter-row"
             style="margin-left: -12px; margin-right: -12px;"
           >
             <div
@@ -908,7 +908,7 @@ exports[`BasicTable 🎏 base use 1`] = `
               style="padding-left: 12px; padding-right: 12px; text-align: right;"
             >
               <div
-                class="ant-form-item pro-form-query-filter-actions"
+                class="ant-form-item ant-pro-query-filter-actions"
               >
                 <div
                   class="ant-row ant-form-item-row"
@@ -975,7 +975,7 @@ exports[`BasicTable 🎏 base use 1`] = `
                             class="ant-space-item"
                           >
                             <a
-                              class="ant-pro-form-collapse-button"
+                              class="ant-pro-query-filter-collapse-button"
                             >
                               展开
                               <span
@@ -1012,7 +1012,7 @@ exports[`BasicTable 🎏 base use 1`] = `
       </div>
     </div>
     <div
-      class="ant-pro-card ant-pro-card-box-shadow"
+      class="ant-pro-card"
     >
       <div
         class="ant-pro-card-body"
@@ -7916,14 +7916,14 @@ exports[`BasicTable 🎏 columns = undefined 1`] = `
       >
         <form
           autocomplete="off"
-          class="ant-form ant-form-horizontal ant-pro-form-query-filter ant-pro-form"
+          class="ant-form ant-form-horizontal ant-pro-query-filter ant-pro-form"
         >
           <input
             style="display:none"
             type="text"
           />
           <div
-            class="ant-row ant-row-start"
+            class="ant-row ant-row-start ant-pro-query-filter-row"
             style="margin-left:-12px;margin-right:-12px"
           >
             <div
@@ -7931,7 +7931,7 @@ exports[`BasicTable 🎏 columns = undefined 1`] = `
               style="padding-left:12px;padding-right:12px;text-align:right"
             >
               <div
-                class="ant-form-item pro-form-query-filter-actions"
+                class="ant-form-item ant-pro-query-filter-actions"
               >
                 <div
                   class="ant-row ant-form-item-row"
@@ -8005,7 +8005,7 @@ exports[`BasicTable 🎏 columns = undefined 1`] = `
       </div>
     </div>
     <div
-      class="ant-pro-card ant-pro-card-box-shadow"
+      class="ant-pro-card"
     >
       <div
         class="ant-pro-card-body"
@@ -8283,14 +8283,14 @@ exports[`BasicTable 🎏 valueEnum support function 1`] = `
       >
         <form
           autocomplete="off"
-          class="ant-form ant-form-horizontal ant-pro-form-query-filter ant-pro-form"
+          class="ant-form ant-form-horizontal ant-pro-query-filter ant-pro-form"
         >
           <input
             style="display: none;"
             type="text"
           />
           <div
-            class="ant-row ant-row-start"
+            class="ant-row ant-row-start ant-pro-query-filter-row"
             style="margin-left: -12px; margin-right: -12px;"
           >
             <div
@@ -8485,7 +8485,7 @@ exports[`BasicTable 🎏 valueEnum support function 1`] = `
               style="padding-left: 12px; padding-right: 12px; text-align: right;"
             >
               <div
-                class="ant-form-item pro-form-query-filter-actions"
+                class="ant-form-item ant-pro-query-filter-actions"
               >
                 <div
                   class="ant-row ant-form-item-row"
@@ -8559,7 +8559,7 @@ exports[`BasicTable 🎏 valueEnum support function 1`] = `
       </div>
     </div>
     <div
-      class="ant-pro-card ant-pro-card-box-shadow"
+      class="ant-pro-card"
     >
       <div
         class="ant-pro-card-body"

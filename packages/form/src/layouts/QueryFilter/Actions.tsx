@@ -70,12 +70,13 @@ const Actions: React.FC<ActionsProps> = (props) => {
   const intl = useIntl();
 
   const collapseRender = omitBoolean(props.collapseRender) || defaultCollapseRender;
+
   return (
     <Space style={style} size={16}>
       {submitter}
       {props.collapseRender !== false && (
         <a
-          className={getPrefixCls('pro-form-collapse-button')}
+          className={getPrefixCls('pro-query-filter-collapse-button')}
           onClick={() => setCollapsed(!collapsed)}
         >
           {collapseRender?.(collapsed, props, intl, hiddenNum)}

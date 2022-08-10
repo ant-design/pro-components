@@ -9,7 +9,7 @@ exports[`list demos 📸 renders ./packages/list/src/demos/ToolBar.tsx correctly
       class="ant-pro-table ant-pro-list ant-pro-list ant-pro-list-no-split"
     >
       <div
-        class="ant-pro-card ant-pro-card-box-shadow"
+        class="ant-pro-card"
       >
         <div
           class="ant-pro-card-body"
@@ -623,7 +623,7 @@ exports[`list demos 📸 renders ./packages/list/src/demos/base.tsx correctly 1`
       class="ant-pro-table ant-pro-list ant-pro-list ant-pro-list-no-split"
     >
       <div
-        class="ant-pro-card ant-pro-card-box-shadow"
+        class="ant-pro-card"
       >
         <div
           class="ant-pro-card-body"
@@ -1355,7 +1355,7 @@ exports[`list demos 📸 renders ./packages/list/src/demos/card-list.tsx correct
         class="ant-pro-table ant-pro-list ant-pro-list ant-pro-list-no-split"
       >
         <div
-          class="ant-pro-card ant-pro-card-box-shadow"
+          class="ant-pro-card"
         >
           <div
             class="ant-pro-card-body"
@@ -1398,7 +1398,7 @@ exports[`list demos 📸 renders ./packages/list/src/demos/card-list.tsx correct
                         class="ant-pro-list-row-show-action-hover ant-pro-list-row-card"
                       >
                         <div
-                          class="ant-pro-card ant-pro-card-border ant-pro-card-box-shadow ant-pro-card-hoverable"
+                          class="ant-pro-card ant-pro-card-border ant-pro-card-hoverable"
                           column="2"
                         >
                           <div
@@ -1522,7 +1522,7 @@ exports[`list demos 📸 renders ./packages/list/src/demos/card-list.tsx correct
                         class="ant-pro-list-row-show-action-hover ant-pro-list-row-card"
                       >
                         <div
-                          class="ant-pro-card ant-pro-card-border ant-pro-card-box-shadow ant-pro-card-hoverable"
+                          class="ant-pro-card ant-pro-card-border ant-pro-card-hoverable"
                           column="2"
                         >
                           <div
@@ -1646,7 +1646,7 @@ exports[`list demos 📸 renders ./packages/list/src/demos/card-list.tsx correct
                         class="ant-pro-list-row-show-action-hover ant-pro-list-row-card"
                       >
                         <div
-                          class="ant-pro-card ant-pro-card-border ant-pro-card-box-shadow ant-pro-card-hoverable"
+                          class="ant-pro-card ant-pro-card-border ant-pro-card-hoverable"
                           column="2"
                         >
                           <div
@@ -1770,7 +1770,7 @@ exports[`list demos 📸 renders ./packages/list/src/demos/card-list.tsx correct
                         class="ant-pro-list-row-show-action-hover ant-pro-list-row-card"
                       >
                         <div
-                          class="ant-pro-card ant-pro-card-border ant-pro-card-box-shadow ant-pro-card-hoverable"
+                          class="ant-pro-card ant-pro-card-border ant-pro-card-hoverable"
                           column="2"
                         >
                           <div
@@ -1894,7 +1894,7 @@ exports[`list demos 📸 renders ./packages/list/src/demos/card-list.tsx correct
                         class="ant-pro-list-row-show-action-hover ant-pro-list-row-card"
                       >
                         <div
-                          class="ant-pro-card ant-pro-card-border ant-pro-card-box-shadow ant-pro-card-hoverable"
+                          class="ant-pro-card ant-pro-card-border ant-pro-card-hoverable"
                           column="2"
                         >
                           <div
@@ -2018,7 +2018,7 @@ exports[`list demos 📸 renders ./packages/list/src/demos/card-list.tsx correct
                         class="ant-pro-list-row-show-action-hover ant-pro-list-row-card"
                       >
                         <div
-                          class="ant-pro-card ant-pro-card-border ant-pro-card-box-shadow ant-pro-card-hoverable"
+                          class="ant-pro-card ant-pro-card-border ant-pro-card-hoverable"
                           column="2"
                         >
                           <div
@@ -2142,7 +2142,7 @@ exports[`list demos 📸 renders ./packages/list/src/demos/card-list.tsx correct
                         class="ant-pro-list-row-show-action-hover ant-pro-list-row-card"
                       >
                         <div
-                          class="ant-pro-card ant-pro-card-border ant-pro-card-box-shadow ant-pro-card-hoverable"
+                          class="ant-pro-card ant-pro-card-border ant-pro-card-hoverable"
                           column="2"
                         >
                           <div
@@ -2266,7 +2266,7 @@ exports[`list demos 📸 renders ./packages/list/src/demos/card-list.tsx correct
                         class="ant-pro-list-row-show-action-hover ant-pro-list-row-card"
                       >
                         <div
-                          class="ant-pro-card ant-pro-card-border ant-pro-card-box-shadow ant-pro-card-hoverable"
+                          class="ant-pro-card ant-pro-card-border ant-pro-card-hoverable"
                           column="2"
                         >
                           <div
@@ -2493,7 +2493,7 @@ exports[`list demos 📸 renders ./packages/list/src/demos/editable.tsx correctl
       class="ant-pro-table ant-pro-list ant-pro-list ant-pro-list-no-split"
     >
       <div
-        class="ant-pro-card ant-pro-card-box-shadow"
+        class="ant-pro-card"
       >
         <div
           class="ant-pro-card-body"
@@ -2952,7 +2952,7 @@ exports[`list demos 📸 renders ./packages/list/src/demos/expand.tsx correctly 
       class="ant-pro-table ant-pro-list ant-pro-list ant-pro-list-no-split"
     >
       <div
-        class="ant-pro-card ant-pro-card-box-shadow"
+        class="ant-pro-card"
       >
         <div
           class="ant-pro-card-body"
@@ -3459,7 +3459,7 @@ exports[`list demos 📸 renders ./packages/list/src/demos/filter.tsx correctly 
       class="ant-pro-table ant-pro-list ant-pro-list ant-pro-list-no-split"
     >
       <div
-        class="ant-pro-card ant-pro-card-box-shadow"
+        class="ant-pro-card"
       >
         <div
           class="ant-pro-card-body"
@@ -4382,7 +4382,7 @@ exports[`list demos 📸 renders ./packages/list/src/demos/layout.tsx correctly 
       class="ant-pro-table ant-pro-list ant-pro-list ant-pro-list-no-split"
     >
       <div
-        class="ant-pro-card ant-pro-card-box-shadow"
+        class="ant-pro-card"
       >
         <div
           class="ant-pro-card-body"
@@ -5157,7 +5157,7 @@ exports[`list demos 📸 renders ./packages/list/src/demos/pagination.tsx correc
       class="ant-pro-table ant-pro-list ant-pro-list ant-pro-list-no-split"
     >
       <div
-        class="ant-pro-card ant-pro-card-box-shadow"
+        class="ant-pro-card"
       >
         <div
           class="ant-pro-card-body"
@@ -6106,14 +6106,14 @@ exports[`list demos 📸 renders ./packages/list/src/demos/search.tsx correctly 
         >
           <form
             autocomplete="off"
-            class="ant-form ant-form-horizontal ant-pro-form-query-filter ant-pro-form"
+            class="ant-form ant-form-horizontal ant-pro-query-filter ant-pro-form"
           >
             <input
               style="display: none;"
               type="text"
             />
             <div
-              class="ant-row ant-row-start"
+              class="ant-row ant-row-start ant-pro-query-filter-row"
               style="margin-left: -12px; margin-right: -12px;"
             >
               <div
@@ -6300,7 +6300,7 @@ exports[`list demos 📸 renders ./packages/list/src/demos/search.tsx correctly 
                 style="padding-left: 12px; padding-right: 12px; text-align: right;"
               >
                 <div
-                  class="ant-form-item pro-form-query-filter-actions"
+                  class="ant-form-item ant-pro-query-filter-actions"
                 >
                   <div
                     class="ant-row ant-form-item-row"
@@ -6374,7 +6374,7 @@ exports[`list demos 📸 renders ./packages/list/src/demos/search.tsx correctly 
         </div>
       </div>
       <div
-        class="ant-pro-card ant-pro-card-box-shadow"
+        class="ant-pro-card"
       >
         <div
           class="ant-pro-card-body"
@@ -7097,7 +7097,7 @@ exports[`list demos 📸 renders ./packages/list/src/demos/selectedRow.tsx corre
       class="ant-pro-table ant-pro-list ant-pro-list ant-pro-list-no-split"
     >
       <div
-        class="ant-pro-card ant-pro-card-box-shadow"
+        class="ant-pro-card"
       >
         <div
           class="ant-pro-card-body"
@@ -7845,7 +7845,7 @@ exports[`list demos 📸 renders ./packages/list/src/demos/size.tsx correctly 1`
       class="ant-pro-table ant-pro-list ant-pro-list"
     >
       <div
-        class="ant-pro-card ant-pro-card-box-shadow"
+        class="ant-pro-card"
       >
         <div
           class="ant-pro-card-body"
@@ -8352,7 +8352,7 @@ exports[`list demos 📸 renders ./packages/list/src/demos/special.tsx correctly
       class="ant-pro-table ant-pro-list ant-pro-list ant-pro-list-no-split"
     >
       <div
-        class="ant-pro-card ant-pro-card-box-shadow"
+        class="ant-pro-card"
       >
         <div
           class="ant-pro-card-body"
@@ -9035,7 +9035,7 @@ exports[`list demos 📸 renders ./packages/list/src/demos/testConfigProvider.ts
       class="qixian-pro-pro-table qixian-pro-pro-list qixian-pro-pro-list qixian-pro-pro-list-no-split"
     >
       <div
-        class="qixian-pro-pro-card qixian-pro-pro-card-box-shadow"
+        class="qixian-pro-pro-card"
       >
         <div
           class="qixian-pro-pro-card-body"

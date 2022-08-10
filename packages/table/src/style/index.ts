@@ -41,6 +41,56 @@ const genProListStyle: GenerateStyle<ProListToken> = (token) => {
         marginBlock: -12,
         marginInline: -8,
       },
+
+      '& &-search': {
+        marginBlockEnd: '16px',
+        background: token.colorBgContainer,
+        '&-ghost': {
+          background: 'transparent',
+        },
+        [`&${token.componentCls}-form`]: {
+          marginBlock: 0,
+          marginInline: 0,
+          paddingBlock: 0,
+          paddingInline: 16,
+          overflow: 'unset',
+        },
+
+        '&-light-filter': {
+          marginBlockEnd: 0,
+          paddingBlock: 0,
+          paddingInline: 8,
+        },
+        '&-form-option': {
+          [`${token.antCls}-form-item`]: {},
+          [`${token.antCls}-form-item-label`]: {},
+          [`${token.antCls}-form-item-control-input`]: {},
+        },
+        '@media (max-width: 575px)': {
+          [token.componentCls]: {
+            height: 'auto !important',
+            paddingBlockEnd: '24px',
+            [`${token.antCls}-form-item-label`]: { minWidth: '80px', textAlign: 'left' },
+          },
+        },
+      },
+      '&-toolbar': {
+        display: 'flex',
+        alignItems: 'center',
+        justifyContent: 'space-between',
+        height: '64px',
+        paddingInline: 24,
+        paddingBlock: 0,
+        '&-option': { display: 'flex', alignItems: 'center', justifyContent: 'flex-end' },
+        '&-title': {
+          flex: '1',
+          color: token.colorTextLabel,
+          fontWeight: '500',
+          fontSize: '16px',
+          lineHeight: '24px',
+          opacity: '0.85',
+        },
+      },
     },
     '@keyframes turn': {
       '0%': { transform: 'rotate(0deg)' },
@@ -50,59 +100,6 @@ const genProListStyle: GenerateStyle<ProListToken> = (token) => {
       '100%': { transform: 'rotate(360deg)' },
     },
 
-    '&-search': {
-      marginBlockEnd: '16px',
-      paddingBlock: 24,
-      paddingInline: 24,
-      paddingBlockEnd: 0,
-      background: '@component-background',
-      '&-ghost': {
-        background: 'transparent',
-      },
-      [`&${token.componentCls}-form`]: {
-        marginBlock: 0,
-        marginInline: 0,
-        paddingBlock: 0,
-        paddingInline: 16,
-        overflow: 'unset',
-      },
-
-      '&-light': {
-        marginBlockEnd: 0,
-        padding: '16px 0',
-        paddingBlock: 16,
-        paddingInline: 0,
-      },
-      '&-form-option': {
-        [`${token.antCls}-form-item`]: {},
-        [`${token.antCls}-form-item-label`]: {},
-        [`${token.antCls}-form-item-control-input`]: {},
-      },
-      '@media (max-width: 575px)': {
-        [token.componentCls]: {
-          height: 'auto !important',
-          paddingBlockEnd: '24px',
-          [`${token.antCls}-form-item-label`]: { minWidth: '80px', textAlign: 'left' },
-        },
-      },
-    },
-    '&-toolbar': {
-      display: 'flex',
-      alignItems: 'center',
-      justifyContent: 'space-between',
-      height: '64px',
-      paddingInline: 24,
-      paddingBlock: 0,
-      '&-option': { display: 'flex', alignItems: 'center', justifyContent: 'flex-end' },
-      '&-title': {
-        flex: '1',
-        color: token.colorTextLabel,
-        fontWeight: '500',
-        fontSize: '16px',
-        lineHeight: '24px',
-        opacity: '0.85',
-      },
-    },
     [`@media (max-width: ${token.screenXS})`]: {
       [token.componentCls]: {
         '.ant-table': {

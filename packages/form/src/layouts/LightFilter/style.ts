@@ -10,7 +10,6 @@ const genLightFilterStyle: GenerateStyle<LightFilterToken> = (token) => {
   return {
     [token.componentCls]: {
       lineHeight: '30px',
-      // 防止 &-container 负 margin 溢出影响外部布局
       // @see https://yuque.antfin-inc.com/tech-ui/topics/523
       '&::before': { display: 'block', height: 0, visibility: 'hidden', content: "'.'" },
       '&-small': {
@@ -19,13 +18,13 @@ const genLightFilterStyle: GenerateStyle<LightFilterToken> = (token) => {
       '&-container': {
         display: 'flex',
         flexWrap: 'wrap',
-        marginBlockStart: '-8px',
-        marginInlineEnd: '-4px',
+        gap: 8,
       },
       '&-item': {
-        '&:not(:last-child)': { marginInlineEnd: 8 },
-        marginBlockStart: 8,
         whiteSpace: 'nowrap',
+        [`${token.antCls}-form-item`]: {
+          marginBlock: 0,
+        },
       },
       '&-line': { minWidth: '198px' },
       '&-line:not(:first-child)': { marginBlockStart: '16px', marginBlockEnd: 8 },

@@ -3,7 +3,7 @@
 exports[`docs demos 📸 renders ./docs/demos/customization-value-type.tsx correctly 1`] = `
 <DocumentFragment>
   <div
-    class="ant-pro-card ant-pro-card-border ant-pro-card-box-shadow"
+    class="ant-pro-card ant-pro-card-border"
     style="margin-block-end: 24px;"
   >
     <div
@@ -290,7 +290,7 @@ exports[`docs demos 📸 renders ./docs/demos/customization-value-type.tsx corre
     </div>
   </div>
   <div
-    class="ant-pro-card ant-pro-card-border ant-pro-card-box-shadow"
+    class="ant-pro-card ant-pro-card-border"
     style="margin-block-end: 24px;"
   >
     <div
@@ -319,14 +319,14 @@ exports[`docs demos 📸 renders ./docs/demos/customization-value-type.tsx corre
             >
               <form
                 autocomplete="off"
-                class="ant-form ant-form-horizontal ant-pro-form-query-filter ant-pro-form"
+                class="ant-form ant-form-horizontal ant-pro-query-filter ant-pro-form"
               >
                 <input
                   style="display: none;"
                   type="text"
                 />
                 <div
-                  class="ant-row ant-row-start"
+                  class="ant-row ant-row-start ant-pro-query-filter-row"
                   style="margin-left: -12px; margin-right: -12px;"
                 >
                   <div
@@ -434,7 +434,7 @@ exports[`docs demos 📸 renders ./docs/demos/customization-value-type.tsx corre
                     style="padding-left: 12px; padding-right: 12px; text-align: right;"
                   >
                     <div
-                      class="ant-form-item pro-form-query-filter-actions"
+                      class="ant-form-item ant-pro-query-filter-actions"
                     >
                       <div
                         class="ant-row ant-form-item-row"
@@ -508,7 +508,7 @@ exports[`docs demos 📸 renders ./docs/demos/customization-value-type.tsx corre
             </div>
           </div>
           <div
-            class="ant-pro-card ant-pro-card-box-shadow"
+            class="ant-pro-card"
           >
             <div
               class="ant-pro-card-body"
@@ -596,7 +596,7 @@ exports[`docs demos 📸 renders ./docs/demos/customization-value-type.tsx corre
     </div>
   </div>
   <div
-    class="ant-pro-card ant-pro-card-border ant-pro-card-box-shadow"
+    class="ant-pro-card ant-pro-card-border"
     style="margin-block-end: 24px;"
   >
     <div

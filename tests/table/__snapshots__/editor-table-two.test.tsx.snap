@@ -11,7 +11,7 @@ exports[`EditorProTable 2 📝 columns initialValue alway work 1`] = `
       class="ant-pro-table"
     >
       <div
-        class="ant-pro-card ant-pro-card-box-shadow"
+        class="ant-pro-card"
       >
         <div
           class="ant-pro-card-body"
@@ -326,7 +326,7 @@ exports[`EditorProTable 2 📝 columns support editable test 1`] = `
       class="ant-pro-table"
     >
       <div
-        class="ant-pro-card ant-pro-card-box-shadow"
+        class="ant-pro-card"
       >
         <div
           class="ant-pro-card-body"
@@ -534,7 +534,7 @@ exports[`EditorProTable 2 📝 renderFormItem run defaultRender 1`] = `
       class="ant-pro-table"
     >
       <div
-        class="ant-pro-card ant-pro-card-box-shadow"
+        class="ant-pro-card"
       >
         <div
           class="ant-pro-card-body"

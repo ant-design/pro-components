@@ -70,7 +70,6 @@ const LightSelect: React.ForwardRefRenderFunction<any, SelectProps<any> & LightS
   const { wrapSSR } = useStyle('LightSelect', (token) => {
     return {
       [`.${prefixCls}`]: {
-        color: token.colorPrimary,
         [`${token.antCls}-select`]: {
           position: 'absolute',
           width: '153px',

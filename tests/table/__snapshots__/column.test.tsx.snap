@@ -17,14 +17,14 @@ exports[`Table ColumnSetting 🎏 columns proFieldProps support custom 1`] = `
       >
         <form
           autocomplete="off"
-          class="ant-form ant-form-horizontal ant-pro-form-query-filter ant-pro-form"
+          class="ant-form ant-form-horizontal ant-pro-query-filter ant-pro-form"
         >
           <input
             style="display: none;"
             type="text"
           />
           <div
-            class="ant-row ant-row-start"
+            class="ant-row ant-row-start ant-pro-query-filter-row"
             style="margin-left: -12px; margin-right: -12px;"
           >
             <div
@@ -131,7 +131,7 @@ exports[`Table ColumnSetting 🎏 columns proFieldProps support custom 1`] = `
               style="padding-left: 12px; padding-right: 12px; text-align: right;"
             >
               <div
-                class="ant-form-item pro-form-query-filter-actions"
+                class="ant-form-item ant-pro-query-filter-actions"
               >
                 <div
                   class="ant-row ant-form-item-row"
@@ -205,7 +205,7 @@ exports[`Table ColumnSetting 🎏 columns proFieldProps support custom 1`] = `
       </div>
     </div>
     <div
-      class="ant-pro-card ant-pro-card-box-shadow"
+      class="ant-pro-card"
     >
       <div
         class="ant-pro-card-body"
@@ -441,14 +441,14 @@ exports[`Table ColumnSetting 🎏 config provide render 1`] = `
       >
         <form
           autocomplete="off"
-          class="qixian-form qixian-form-horizontal qixian-pro-form-query-filter qixian-pro-form"
+          class="qixian-form qixian-form-horizontal qixian-pro-query-filter qixian-pro-form"
         >
           <input
             style="display: none;"
             type="text"
           />
           <div
-            class="qixian-row qixian-row-start"
+            class="qixian-row qixian-row-start qixian-pro-query-filter-row"
             style="margin-left: -12px; margin-right: -12px;"
           >
             <div
@@ -536,7 +536,7 @@ exports[`Table ColumnSetting 🎏 config provide render 1`] = `
               style="padding-left: 12px; padding-right: 12px; text-align: right;"
             >
               <div
-                class="qixian-form-item pro-form-query-filter-actions"
+                class="qixian-form-item qixian-pro-query-filter-actions"
               >
                 <div
                   class="qixian-row qixian-form-item-row"
@@ -610,7 +610,7 @@ exports[`Table ColumnSetting 🎏 config provide render 1`] = `
       </div>
     </div>
     <div
-      class="qixian-pro-card qixian-pro-card-box-shadow"
+      class="qixian-pro-card"
     >
       <div
         class="qixian-pro-card-body"
@@ -1238,14 +1238,14 @@ exports[`Table ColumnSetting 🎏 extra columns 1`] = `
       >
         <form
           autocomplete="off"
-          class="ant-form ant-form-horizontal ant-pro-form-query-filter ant-pro-form"
+          class="ant-form ant-form-horizontal ant-pro-query-filter ant-pro-form"
         >
           <input
             style="display: none;"
             type="text"
           />
           <div
-            class="ant-row ant-row-start"
+            class="ant-row ant-row-start ant-pro-query-filter-row"
             style="margin-left: -12px; margin-right: -12px;"
           >
             <div
@@ -1333,7 +1333,7 @@ exports[`Table ColumnSetting 🎏 extra columns 1`] = `
               style="padding-left: 12px; padding-right: 12px; text-align: right;"
             >
               <div
-                class="ant-form-item pro-form-query-filter-actions"
+                class="ant-form-item ant-pro-query-filter-actions"
               >
                 <div
                   class="ant-row ant-form-item-row"
@@ -1407,7 +1407,7 @@ exports[`Table ColumnSetting 🎏 extra columns 1`] = `
       </div>
     </div>
     <div
-      class="ant-pro-card ant-pro-card-box-shadow"
+      class="ant-pro-card"
     >
       <div
         class="ant-pro-card-body"

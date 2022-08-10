@@ -13,6 +13,7 @@ import type { CommonFormProps } from '../../BaseForm';
 import { BaseForm } from '../../BaseForm';
 import type { ActionsProps } from './Actions';
 import Actions from './Actions';
+import { useStyle } from './style';
 
 const CONFIG_SPAN_BREAKPOINTS = {
   xs: 513,
@@ -386,9 +387,15 @@ const QueryFilterContent: React.FC<{
     const offsetSpan = (currentSpan % 24) + spanSize.span;
     return 24 - offsetSpan;
   }, [currentSpan, spanSize.span]);
-
+  const context = useContext(ConfigProvider.ConfigContext);
+  const baseClassName = context.getPrefixCls('pro-query-filter');
   return (
-    <Row gutter={searchGutter} justify="start" key="resize-observer-row">
+    <Row
+      gutter={searchGutter}
+      className={`${baseClassName}-row`}
+      justify="start"
+      key="resize-observer-row"
+    >
       {doms}
       {submitter && (
         <Col
@@ -399,7 +406,7 @@ const QueryFilterContent: React.FC<{
             textAlign: 'right',
           }}
         >
-          <Form.Item label=" " colon={false} className="pro-form-query-filter-actions">
+          <Form.Item label=" " colon={false} className={`${baseClassName}-actions`}>
             <Actions
               hiddenNum={hiddenNum}
               key="pro-form-query-filter-actions"
@@ -441,7 +448,8 @@ function QueryFilter<T = Record<string, any>>(props: QueryFilterProps<T>) {
   } = props;
 
   const context = useContext(ConfigProvider.ConfigContext);
-  const baseClassName = context.getPrefixCls('pro-form-query-filter');
+  const baseClassName = context.getPrefixCls('pro-query-filter');
+  const { wrapSSR, hashId } = useStyle(baseClassName);
 
   const [width, setWidth] = useMountMergeState(
     () => (typeof style?.width === 'number' ? style?.width : defaultWidth) as number,
@@ -477,7 +485,7 @@ function QueryFilter<T = Record<string, any>>(props: QueryFilterProps<T>) {
     return undefined;
   }, [spanSize.layout, labelWidth]);
 
-  return (
+  return wrapSSR(
     <RcResizeObserver
       key="resize-observer"
       onResize={(offset) => {
@@ -490,7 +498,7 @@ function QueryFilter<T = Record<string, any>>(props: QueryFilterProps<T>) {
         isKeyPressSubmit
         preserve={preserve}
         {...rest}
-        className={classNames(baseClassName, rest.className)}
+        className={classNames(baseClassName, hashId, rest.className)}
         onReset={onReset}
         style={style}
         layout={spanSize.layout}
@@ -528,7 +536,7 @@ function QueryFilter<T = Record<string, any>>(props: QueryFilterProps<T>) {
           />
         )}
       />
-    </RcResizeObserver>
+    </RcResizeObserver>,
   );
 }
 

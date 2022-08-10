@@ -1210,7 +1210,7 @@ exports[`descriptions demos 📸 renders ./packages/descriptions/src/demos/custo
 exports[`descriptions demos 📸 renders ./packages/descriptions/src/demos/dynamic-descriptions.tsx correctly 1`] = `
 <DocumentFragment>
   <div
-    class="ant-pro-card ant-pro-card-border ant-pro-card-box-shadow ant-pro-card-contain-card ant-pro-card-split"
+    class="ant-pro-card ant-pro-card-border ant-pro-card-contain-card ant-pro-card-split"
     style="height: 500px;"
   >
     <div
@@ -1221,7 +1221,7 @@ exports[`descriptions demos 📸 renders ./packages/descriptions/src/demos/dynam
         style="width: calc(100% - 500px); flex-shrink: 0;"
       >
         <div
-          class="ant-pro-card ant-pro-card-box-shadow"
+          class="ant-pro-card"
         >
           <div
             class="ant-pro-card-body"
@@ -1439,7 +1439,7 @@ exports[`descriptions demos 📸 renders ./packages/descriptions/src/demos/dynam
             type="text"
           />
           <div
-            class="ant-pro-card ant-pro-card-box-shadow"
+            class="ant-pro-card"
             style="width: 500px;"
           >
             <div

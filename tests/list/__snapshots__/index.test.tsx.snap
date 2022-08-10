@@ -8,7 +8,7 @@ exports[`List 🚏 ProList support rowClassName as a function 1`] = `
     class="ant-pro-table ant-pro-list ant-pro-list ant-pro-list-no-split"
   >
     <div
-      class="ant-pro-card ant-pro-card-box-shadow"
+      class="ant-pro-card"
     >
       <div
         class="ant-pro-card-body"
@@ -126,7 +126,7 @@ exports[`List 🚏 ProList support rowClassName as a string 1`] = `
     class="ant-pro-table ant-pro-list ant-pro-list ant-pro-list-no-split"
   >
     <div
-      class="ant-pro-card ant-pro-card-box-shadow"
+      class="ant-pro-card"
     >
       <div
         class="ant-pro-card-body"
@@ -203,7 +203,7 @@ exports[`List 🚏 only has content 1`] = `
     class="ant-pro-table ant-pro-list ant-pro-list ant-pro-list-no-split"
   >
     <div
-      class="ant-pro-card ant-pro-card-box-shadow"
+      class="ant-pro-card"
     >
       <div
         class="ant-pro-card-body"
@@ -257,7 +257,7 @@ exports[`List 🚏 only has description 1`] = `
     class="ant-pro-table ant-pro-list ant-pro-list ant-pro-list-no-split"
   >
     <div
-      class="ant-pro-card ant-pro-card-box-shadow"
+      class="ant-pro-card"
     >
       <div
         class="ant-pro-card-body"
@@ -335,7 +335,7 @@ exports[`List 🚏 show loading state 1`] = `
     class="ant-pro-table ant-pro-list ant-pro-list ant-pro-list-no-split"
   >
     <div
-      class="ant-pro-card ant-pro-card-box-shadow"
+      class="ant-pro-card"
     >
       <div
         class="ant-pro-card-body"
