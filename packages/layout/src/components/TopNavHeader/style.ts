@@ -39,9 +39,9 @@ const genTopNavHeaderStyle: GenerateStyle<TopNavHeaderToken> = (token) => {
         height: '100%',
         alignItems: 'center',
         overflow: 'hidden',
-        a: { display: 'flex', alignItems: 'center', minHeight: '22px', fontSize: '22px' },
-        img: { display: 'inline-block', height: '32px', verticalAlign: 'middle' },
-        h1: {
+        '> a': { display: 'flex', alignItems: 'center', minHeight: '22px', fontSize: '22px' },
+        'a > img': { display: 'inline-block', height: '32px', verticalAlign: 'middle' },
+        'a > h1': {
           display: 'inline-block',
           marginBlock: 0,
           marginInline: 0,
