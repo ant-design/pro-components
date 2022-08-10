@@ -27,7 +27,7 @@ import type { LocaleType } from './locales';
 import { gLocaleObject } from './locales';
 import { Logo } from './Logo';
 import type { ProLayoutProviderProps } from './ProLayoutContext';
-import { ProLayoutContext, ProLayoutProvider } from './ProLayoutContext';
+import { ProLayoutProvider } from './ProLayoutContext';
 import { RouteContext } from './RouteContext';
 import { useStyle } from './style/index';
 import type { MenuDataItem, MessageDescriptor, Route, RouterTypes, WithFalse } from './typings';
@@ -370,7 +370,6 @@ const BaseProLayout: React.FC<ProLayoutProps> = (props) => {
     formatMessage: propsFormatMessage,
     loading,
   } = props || {};
-  const designToken = useContext(ProLayoutContext);
 
   const siderWidth = useMemo(() => {
     if (propsSiderWidth) return propsSiderWidth;
@@ -381,27 +380,6 @@ const BaseProLayout: React.FC<ProLayoutProps> = (props) => {
   const context = useContext(ConfigProvider.ConfigContext);
 
   const prefixCls = props.prefixCls ?? context.getPrefixCls('pro');
-
-  // 设置主题
-  useEffect(() => {
-    ConfigProvider.config({
-      theme: {
-        primaryColor: designToken.primaryColor,
-        infoColor: designToken.infoColor,
-        successColor: designToken.successColor,
-        // processingColor: designToken.processingColor,
-        errorColor: designToken.errorColor,
-        warningColor: designToken.warningColor,
-      },
-    });
-  }, [
-    designToken.errorColor,
-    designToken.infoColor,
-    designToken.primaryColor,
-    // designToken.processingColor,
-    designToken.successColor,
-    designToken.warningColor,
-  ]);
 
   const [menuLoading, setMenuLoading] = useMountMergeState(false, {
     value: menu?.loading,

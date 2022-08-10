@@ -13,9 +13,8 @@ const genProListStyle: GenerateStyle<ProListToken> = (token) => {
       '&:not(:root):fullscreen': {
         minHeight: '100vh',
         overflow: 'auto',
-        background: '@component-background',
+        background: token.colorBgContainer,
       },
-
       '&-extra': {
         marginBlockEnd: 16,
       },

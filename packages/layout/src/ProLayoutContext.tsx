@@ -1,257 +1,72 @@
-﻿import React from 'react';
-
-export type BaseDesignToken = {
-  /**
-   * 主色
-   */
-  primaryColor: string;
-
-  /**
-   *错误色
-   */
-  errorColor: string;
-
-  /**
-   * 成功色
-   */
-  successColor: string;
-
-  /**
-   *通知色
-   */
-  infoColor: string;
-
-  /**
-   *警告色
-   */
-
-  warningColor: string;
-
-  /**
-   * 正文色
-   */
-  colorText: string;
-  /**
-   * 次级色
-   */
-  colorTextSecondary: string;
-  /**
-   * 禁用的颜色
-   */
-  colorTextDisable: string;
-  /**
-   * 标题色
-   */
-  colorHeading: string;
-
-  /**
-   * 边框基本色
-   */
-  borderColorBase: string;
-
-  /**
-   * 分隔边框的颜色
-   */
-  borderColorSplit: string;
-
-  /**
-   * 默认阴影
-   */
-  boxShadowBase: string;
-
-  /**
-   * 默认圆角
-   */
-  borderRadiusBase: string;
-};
-
-export const baseDesignTokens: BaseDesignToken = {
-  /**
-   * 主色
-   */
-  primaryColor: '#1677FF',
-
-  /**
-   *错误色
-   */
-  errorColor: '#ff4d4f',
-
-  /**
-   * 成功色
-   */
-  successColor: '#1677FF',
-
-  /**
-   *通知色
-   */
-  infoColor: '#1677FF',
-
-  /**
-   *警告色
-   */
-  warningColor: '#faad14',
-
-  /**
-   * 正文色
-   */
-  colorText: 'rgba(0, 0, 0, 0.65)',
-  /**
-   * 标题色
-   */
-  colorHeading: 'rgba(0, 0, 0, 0.85)',
-  /**
-   * 次级色
-   */
-  colorTextSecondary: 'rgba(0, 0, 0, 0.45)',
-
-  /**
-   * 禁用的文本颜色
-   */
-  colorTextDisable: 'rgba(0, 0, 0, 0.25)',
-
-  /**
-   * 边框基本色
-   */
-  borderColorBase: '#d9d9d9',
-
-  /**
-   * 分隔边框的颜色
-   */
-  borderColorSplit: 'rgba(0, 0, 0, 0.06)',
-
-  /**
-   * 默认阴影
-   */
-  boxShadowBase: '',
-
-  /**
-   * 默认圆角
-   */
-  borderRadiusBase: '4px',
-};
-
-type BaseLayoutMenuDesignToken = {
-  /**
-   * menuItem 的字体颜色
-   */
-  menuTextColor: string;
-
-  /**
-   * menu 的二级字体颜色，比如 footer 和 action 的 icon
-   */
-  menuTextColorSecondary: string;
-  /**
-   * menuItem 的选中字体颜色
-   */
-  menuSelectedTextColor: string;
-
-  /**
-   * 顶部 MenuItem 的 padding 设置
-   */
-  horizontalMenuItemPadding: string;
-  /**
-   * 顶部 MenuItem 的 margin 设置
-   */
-  horizontalMenuItemMargin: string;
-  /**
-   * subMenuItem 的选中字体颜色
-   */
-  subMenuSelectedTextColor: string;
-  /**
-   * menuItem 的 hover 背景颜色
-   */
-  menuItemHoverBgColor: string;
-  /**
-   * menuItem 的选中背景颜色
-   */
-  menuItemSelectedBgColor: string;
-
-  /**
-   * 收起 menuItem 的 hover 背景颜色
-   */
-  menuItemCollapsedHoverBgColor: string;
-  /**
-   * 收起 menuItem 的选中背景颜色
-   */
-  menuItemCollapsedSelectedBgColor: string;
-};
+﻿import { useToken } from '@ant-design/pro-utils';
+import type { GlobalToken } from 'antd/es/theme/interface';
+import React from 'react';
 
 type BaseLayoutDesignToken = {
   /**
-   * layout 的背景颜色
+   * 跨站点应用的图标hover颜色
    */
-  layoutBgColor: string;
-  /**
-   * layout 的背景
-   */
-  layoutBg: string;
-  /**
-   * 跨站点应用的图标颜色
-   */
-  appListIconTextColor: string;
+  colorBgAppListIconHover: string;
   /**
    * 跨站点应用的图标hover颜色
    */
-  appListIconHoverTextColor: string;
+  colorTextAppListIconHover: string;
   /**
-   * 跨站点应用的图标hover背景颜色
+   * 跨站点应用的图标hover颜色
    */
-  appListIconHoverBgColor: string;
+  colorTextAppListIcon: string;
+  /**
+   * layout 的背景
+   */
+  bgLayout: string;
+  /**
+   * layout 的背景颜色
+   */
+  colorBgLayout: string;
 
   /**
    * 侧边side的 token 配置
    */
-  sider: BaseLayoutMenuDesignToken & {
+  sider: {
+    colorBgCollapsedButton: string;
+    colorTextCollapsedButtonHover: string;
+    colorTextCollapsedButton: string;
+    marginHorizontalMenuItem: string;
+    paddingHorizontalMenuItem: string;
+    colorMenuBackground: string;
+    colorBgMenuItemCollapsedHover: string;
+    colorBgMenuItemCollapsedSelected: string;
+    colorMenuItemDivider: string;
+    colorBgMenuItemHover: string;
+    colorBgMenuItemSelected: string;
+    colorTextMenuSelected: string;
+    colorMenuSubArrow: string;
+    colorTextMenu: string;
+    colorTextMenuSecondary: string;
     /**
      * menu 顶部 title 的字体颜色
      */
-    menuTitleTextColor: string;
-    /**
-     * menu 的背景颜色
-     */
-    menuBackgroundColor: string;
-
-    /**
-     * 展开 menuItem 分割线的颜色
-     */
-    menuItemDividerColor: string;
-    /**
-     * menuItem 的箭头颜色
-     */
-    menuSubArrowColor: string;
-    /**
-     * 展开收起按钮背景颜色
-     */
-    collapsedButtonBgColor: string;
-    /**
-     *  展开收起按钮 hover 时字体颜色
-     */
-    collapsedButtonHoverTextColor: string;
-    /**
-     * 展开收起按钮字体颜色
-     */
-    collapsedButtonTextColor: string;
+    colorTextMenuTitle: string;
+    colorTextSubMenuSelected: string;
   };
   /**
    * header 的 token 设置
    */
-  header: BaseLayoutMenuDesignToken & {
-    /**
-     * header 的标题颜色
-     */
-    headerTitleColor: string;
-    /**
-     * header 的背景颜色
-     */
-    headerBgColor: string;
-    /**
-     * 右上角字体颜色
-     */
-    rightActionsItemTextColor: string;
-    /**
-     * 右上角选中的 hover 颜色
-     */
-    rightActionsItemHoverBgColor: string;
+  header: {
+    colorBgHeader: string;
+    colorHeaderTitle: string;
+    marginHorizontalMenuItem: string;
+    paddingHorizontalMenuItem: string;
+    colorBgMenuItemCollapsedHover: string;
+    colorBgMenuItemCollapsedSelected: string;
+    colorBgMenuItemHover: string;
+    colorBgMenuItemSelected: string;
+    colorTextMenuSelected: string;
+    colorTextMenu: string;
+    colorTextMenuSecondary: string;
+    colorBgRightActionsItemHover: string;
+    colorTextRightActionsItem: string;
+    colorTextSubMenuSelected: string;
   };
 
   /**
@@ -259,17 +74,17 @@ type BaseLayoutDesignToken = {
    */
   pageContainer: {
     /**
-     * pageContainer 自带的 margin
-     */
-    pageContainerContentMargin: string;
-    /**
      * pageContainer 的背景颜色
      */
-    pageContainerBgColor: string;
+    colorBgPageContainer: string;
+    /**
+     * pageContainer 自带的 margin
+     */
+    marginPageContainerContent: string;
     /**
      * pageContainer 被固定时的背景颜色
      */
-    pageContainerFixedBgColor: string;
+    colorBgPageContainerFixed: string;
   };
 };
 
@@ -279,69 +94,130 @@ type DeepPartial<T> = T extends object
     }
   : T;
 
-export type LayoutDesignToken = BaseLayoutDesignToken & BaseDesignToken;
+export type LayoutDesignToken = BaseLayoutDesignToken & GlobalToken;
 
 // DesignToken 的默认样式
-export const DefaultDesignToken = {
-  layoutBgColor: '#f7f8fa',
-  layoutBg: 'linear-gradient(#fff, #f7f8fa 28%)',
-  appListIconTextColor: '#666',
-  menuToken: {
-    menuItemHoverBgColor: 'rgba(90, 75, 75, 0.03)',
-    menuItemSelectedBgColor: 'rgba(0, 0, 0, 0.04)',
-    menuItemCollapsedHoverBgColor: 'rgba(90, 75, 75, 0.03)',
-    menuItemCollapsedSelectedBgColor: 'rgba(0, 0, 0, 0.04)',
-    menuSelectedTextColor: 'rgb(0,0,0,0.95)',
-    subMenuSelectedTextColor: 'rgb(0,0,0,0.95)',
-    horizontalMenuItemPadding: '0 16px',
-    horizontalMenuItemMargin: '0 4px',
-  },
+export const DefaultDesignToken: BaseLayoutDesignToken = {
+  colorBgAppListIconHover: 'rgba(0, 0, 0, 0.04)',
+  colorTextAppListIconHover: 'rgba(0, 0, 0, 0.85)',
+  colorTextAppListIcon: '#666',
   header: {
-    headerBgColor: 'rgba(240, 242, 245, 0.4)',
-    rightActionsItemHoverBgColor: 'rgba(0, 0, 0, 0.03)',
+    colorBgHeader: 'rgba(240, 242, 245, 0.4)',
+    colorHeaderTitle: 'rgba(0, 0, 0, 0.85)',
+    marginHorizontalMenuItem: '0 4px',
+    paddingHorizontalMenuItem: '0 16px',
+    colorBgMenuItemCollapsedHover: 'rgba(90, 75, 75, 0.03)',
+    colorBgMenuItemCollapsedSelected: 'rgba(0, 0, 0, 0.04)',
+    colorBgMenuItemHover: 'rgba(90, 75, 75, 0.03)',
+    colorBgMenuItemSelected: 'rgba(0, 0, 0, 0.04)',
+    colorTextMenuSelected: 'rgb(0,0,0,0.95)',
+    colorTextMenu: 'rgba(0, 0, 0, 0.85)',
+    colorTextMenuSecondary: 'rgba(0, 0, 0, 0.45)',
+    colorBgRightActionsItemHover: 'rgba(0, 0, 0, 0.03)',
+    colorTextRightActionsItem: 'rgba(0, 0, 0, 0.45)',
+    colorTextSubMenuSelected: 'rgb(0,0,0,0.95)',
+  },
+  bgLayout: 'linear-gradient(#fff, #f7f8fa 28%)',
+  colorBgLayout: '#f7f8fa',
+  pageContainer: {
+    colorBgPageContainer: 'transparent',
+    marginPageContainerContent: '0px 40px 0px 40px',
+    colorBgPageContainerFixed: '#fff',
   },
   sider: {
-    menuBackgroundColor: 'transparent',
-    menuSubArrowColor: 'rgba(0, 0, 0, 0.25)',
-    collapsedButtonBgColor: '#fff',
-  },
-  pageContainer: {
-    pageContainerBgColor: 'transparent',
-    pageContainerFixedBgColor: '#fff',
-    pageContainerContentMargin: '0px 40px 0px 40px',
+    colorBgCollapsedButton: '#fff',
+    colorTextCollapsedButtonHover: 'rgba(0, 0, 0, 0.85)',
+    colorTextCollapsedButton: 'rgba(0, 0, 0, 0.45)',
+    marginHorizontalMenuItem: '0 4px',
+    paddingHorizontalMenuItem: '0 16px',
+    colorMenuBackground: 'transparent',
+    colorBgMenuItemCollapsedHover: 'rgba(90, 75, 75, 0.03)',
+    colorBgMenuItemCollapsedSelected: 'rgba(0, 0, 0, 0.04)',
+    colorMenuItemDivider: 'rgba(0, 0, 0, 0.06)',
+    colorBgMenuItemHover: 'rgba(90, 75, 75, 0.03)',
+    colorBgMenuItemSelected: 'rgba(0, 0, 0, 0.04)',
+    colorTextMenuSelected: 'rgb(0,0,0,0.95)',
+    colorMenuSubArrow: 'rgba(0, 0, 0, 0.25)',
+    colorTextMenu: 'rgba(0, 0, 0, 0.85)',
+    colorTextMenuSecondary: 'rgba(0, 0, 0, 0.45)',
+    colorTextMenuTitle: 'rgba(0, 0, 0, 0.85)',
+    colorTextSubMenuSelected: 'rgb(0,0,0,0.95)',
   },
 };
 
+function decamelize(word: string) {
+  const separator = '_';
+  const split = /(?=[A-Z])/;
+  return word.split(split).join(separator).toLowerCase().split(separator);
+}
+function firstUpperCase(str: string) {
+  return str.toLowerCase().replace(/( |^)[a-z]/g, (L) => L.toUpperCase());
+}
+function sortKey(key: string) {
+  return decamelize(key)
+    .sort((a, b) => {
+      if (['color', 'padding', 'margin', 'radius'].includes(a)) {
+        return -10;
+      }
+      if (['color', 'padding', 'margin', 'radius'].includes(b)) {
+        return 10;
+      }
+
+      if (['bg', 'text', 'border'].includes(a)) {
+        return -9;
+      }
+      if (['bg', 'text', 'border'].includes(b)) {
+        return 9;
+      }
+      return 0;
+    })
+    .map((item, index) => {
+      if (index === 0) return item;
+      return firstUpperCase(item);
+    })
+    .join('');
+}
+function sortToken(token: Record<string, any>) {
+  const newToken = {};
+  Object.keys(token)
+    .sort()
+    .forEach((key) => {
+      if (key && typeof token[key] !== 'object') {
+        newToken[sortKey(key)] = token[key];
+      }
+      if (key && typeof token[key] === 'object') {
+        newToken[sortKey(key)] = sortToken(token[key]);
+      }
+    });
+
+  return newToken;
+}
+
 export const getLayoutDesignToken: (
   baseDesignTokens: DeepPartial<LayoutDesignToken>,
-) => LayoutDesignToken = (designTokens) => {
-  const finalDesignTokens = { ...baseDesignTokens, ...designTokens };
-  const menuToken = {
-    menuTextColor: finalDesignTokens.colorText,
-    menuTextColorSecondary: finalDesignTokens.colorTextSecondary,
-    ...DefaultDesignToken.menuToken,
-  };
-  return {
-    ...designTokens,
+  antdToken: Record<string, any>,
+) => LayoutDesignToken = (designTokens, antdToken) => {
+  const finalDesignTokens = { ...designTokens };
+
+  return sortToken({
+    ...DefaultDesignToken,
     layoutBgColor: '#f7f8fa',
     layoutBg: 'linear-gradient(#fff, #f7f8fa 28%)',
     appListIconTextColor: '#666',
-    appListIconHoverTextColor: finalDesignTokens.colorText,
-    appListIconHoverBgColor: menuToken.menuItemSelectedBgColor,
+    appListIconHoverTextColor: antdToken.colorText,
+    appListIconHoverBgColor: finalDesignTokens?.sider?.colorBgMenuItemSelected,
     ...finalDesignTokens,
     header: {
-      ...menuToken,
-      headerTitleColor: finalDesignTokens.colorHeading,
-      rightActionsItemTextColor: finalDesignTokens.colorTextSecondary,
+      headerTitleColor: antdToken.colorTextHeading,
+      rightActionsItemTextColor: antdToken.colorTextSecondary,
       ...DefaultDesignToken.header,
       ...finalDesignTokens.header,
     },
     sider: {
-      ...menuToken,
-      menuItemDividerColor: finalDesignTokens.borderColorSplit,
-      menuTitleTextColor: finalDesignTokens.colorHeading,
-      collapsedButtonTextColor: menuToken?.menuTextColorSecondary,
-      collapsedButtonHoverTextColor: menuToken?.menuTextColor,
+      menuItemDividerColor: antdToken.colorSplit,
+      menuTitleTextColor: antdToken.colorTextHeading,
+      collapsedButtonTextColor: finalDesignTokens?.sider?.colorTextMenuSecondary,
+      collapsedButtonHoverTextColor: finalDesignTokens?.sider?.colorTextMenu,
       ...DefaultDesignToken.sider,
       ...finalDesignTokens.sider,
     },
@@ -349,10 +225,10 @@ export const getLayoutDesignToken: (
       ...DefaultDesignToken.pageContainer,
       ...finalDesignTokens.pageContainer,
     },
-  } as LayoutDesignToken;
+  }) as LayoutDesignToken;
 };
 
-const defaultToken = getLayoutDesignToken(baseDesignTokens);
+const defaultToken = getLayoutDesignToken(DefaultDesignToken, {});
 
 export const ProLayoutContext = React.createContext<LayoutDesignToken>(defaultToken);
 
@@ -362,10 +238,12 @@ export type ProLayoutProviderProps = {
 };
 
 export const ProLayoutProvider: React.FC<ProLayoutProviderProps> = (props) => {
+  const { token } = useToken();
+  console.log(getLayoutDesignToken(props?.token || {}, token));
   return (
     <ProLayoutContext.Provider
       value={{
-        ...getLayoutDesignToken(props?.token || {}),
+        ...getLayoutDesignToken(props?.token || {}, token),
       }}
     >
       {props.children}

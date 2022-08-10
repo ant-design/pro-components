@@ -34,6 +34,8 @@ export const lighten = (baseColor: string, brightness: number) => {
  */
 const { useToken } = { ...batToken, ...antdTheme };
 
+export { useToken };
+
 export type UseStyleResult = {
   wrapSSR: (node: React.ReactElement) => React.ReactElement;
   hashId: string;

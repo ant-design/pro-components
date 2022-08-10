@@ -44,7 +44,7 @@ import { pickProProps } from './pickProProps';
 import { runFunction } from './runFunction';
 import { transformKeySubmitValue } from './transformKeySubmitValue';
 import type { ProAliasToken } from './useStyle';
-import { lighten, setAlpha, useStyle } from './useStyle';
+import { lighten, setAlpha, useStyle, useToken } from './useStyle';
 /** Type */
 import type {
   ProCoreActionType,
@@ -126,6 +126,7 @@ export {
   convertMoment,
   parseValueToDay,
   genCopyable,
+  useToken,
   useDocumentTitle,
   isImg,
   omitBoolean,
