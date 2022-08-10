@@ -221,7 +221,7 @@ export const FieldRender: React.FC<
           return (
             <Space>
               <InlineErrorFormItem
-                name={dataIndex}
+                name={dataIndex!}
                 {...formItemProps}
                 style={{
                   margin: 0,

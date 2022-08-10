@@ -9,8 +9,6 @@ interface InlineErrorFormItemProps extends FormItemProps {
   errorType?: 'popover' | 'default';
   popoverProps?: PopoverProps;
   children: any;
-  name: NamePath;
-  rules: FormItemProps['rules'];
 }
 
 interface InternalProps extends InlineErrorFormItemProps {

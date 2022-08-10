@@ -33,7 +33,10 @@ const compatibleStyle: GenerateStyle<ProLayoutToken> = (token) => {
     return {};
   }
   return {
+    [token.proComponentsCls]: { width: '100%', height: '100%' },
     [token.componentCls]: {
+      width: '100%',
+      height: '100%',
       [token.antCls]: {
         '&-menu': {
           color: defaultMenuToken.colorItemText,
