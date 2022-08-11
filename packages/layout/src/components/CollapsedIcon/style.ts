@@ -1,15 +1,17 @@
 ﻿import type { ProAliasToken } from '@ant-design/pro-utils';
 import { useStyle as useAntdStyle } from '@ant-design/pro-utils';
 import type { GenerateStyle } from 'antd/es/theme';
+import { useContext } from 'react';
+import type { BaseLayoutDesignToken } from '../../context/ProLayoutContext';
+import { ProLayoutContext } from '../../context/ProLayoutContext';
 
 export interface SiderMenuToken extends ProAliasToken {
   componentCls: string;
-  proLayoutCollapsedButtonTextColor: string;
-  proLayoutCollapsedButtonBgColor: string;
-  proLayoutCollapsedButtonHoverTextColor: string;
 }
 
-const genSiderMenuStyle: GenerateStyle<SiderMenuToken> = (token) => {
+const genSiderMenuStyle: GenerateStyle<SiderMenuToken & BaseLayoutDesignToken['sider']> = (
+  token,
+) => {
   return {
     [token.componentCls]: {
       position: 'absolute',
@@ -26,12 +28,12 @@ const genSiderMenuStyle: GenerateStyle<SiderMenuToken> = (token) => {
       alignItems: 'center',
       justifyContent: 'center',
       cursor: 'pointer',
-      color: token.proLayoutCollapsedButtonTextColor,
-      backgroundColor: token.proLayoutCollapsedButtonBgColor,
+      color: token.colorTextCollapsedButton,
+      backgroundColor: token.colorBgCollapsedButton,
       boxShadow:
         '0 2px 8px -2px rgba(0,0,0,0.05), 0 1px 4px -1px rgba(25,15,15,0.07), 0 0 1px 0 rgba(0,0,0,0.08)',
       '&:hover': {
-        color: token.proLayoutCollapsedButtonHoverTextColor,
+        color: token.colorTextCollapsedButtonHover,
         boxShadow:
           '0 4px 16px -4px rgba(0,0,0,0.05), 0 2px 8px -2px rgba(25,15,15,0.07), 0 1px 2px 0 rgba(0,0,0,0.08)',
       },
@@ -52,15 +54,13 @@ const genSiderMenuStyle: GenerateStyle<SiderMenuToken> = (token) => {
 };
 
 export function useStyle(prefixCls: string) {
+  const { sider } = useContext(ProLayoutContext);
   return useAntdStyle('sider-menu-collapsed-icon', (token) => {
-    const siderMenuToken: SiderMenuToken = {
+    const siderMenuToken: SiderMenuToken & BaseLayoutDesignToken['sider'] = {
       ...token,
       componentCls: `.${prefixCls}`,
-      proLayoutCollapsedButtonTextColor: token.colorTextSecondary,
-      proLayoutCollapsedButtonBgColor: token.colorBgContainer,
-      proLayoutCollapsedButtonHoverTextColor: token.colorTextHeading,
+      ...sider,
     };
-
     return [genSiderMenuStyle(siderMenuToken)];
   });
 }

@@ -3974,7 +3974,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/AlwaysDefaultOpen
           style="min-height: 100%;"
         >
           <aside
-            class="ant-layout-sider ant-layout-sider-light ant-layout-sider-collapsed ant-pro-sider ant-pro-sider-fixed ant-pro-sider-layout-side ant-pro-sider-light ant-pro-sider-hide-menu-collapsed"
+            class="ant-layout-sider ant-layout-sider-light ant-layout-sider-collapsed ant-pro-sider ant-pro-sider-fixed ant-pro-sider-collapsed ant-pro-sider-layout-side ant-pro-sider-light ant-pro-sider-hide-menu-collapsed"
             style="flex: 0 0 60px; max-width: 60px; min-width: 60px; width: 60px;"
           >
             <div
@@ -4121,7 +4121,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/AlwaysDefaultOpen
                   style="flex: 1; overflow-y: auto; overflow-x: hidden;"
                 >
                   <ul
-                    class="ant-menu ant-menu-root ant-menu-vertical ant-pro-sider-menu ant-pro-base-menu ant-menu-inline-collapsed"
+                    class="ant-menu ant-menu-root ant-menu-vertical ant-pro-sider-menu ant-pro-base-menu ant-pro-base-menu-collapsed ant-menu-inline-collapsed"
                     data-menu-list="true"
                     role="menu"
                     style="background-color: transparent; width: 100%;"
@@ -4261,7 +4261,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/BreadcrumbsRepeat
           style="min-height: 100%;"
         >
           <div
-            style="width: 256px; overflow: hidden; flex: 0 0 256px; max-width: 256px; min-width: 256px;"
+            style="width: 256px; overflow: hidden; flex: 0 0 256px; max-width: 256px; min-width: 256px; transition: all 0.2s ease 0s;"
           />
           <aside
             class="ant-layout-sider ant-layout-sider-light ant-pro-sider ant-pro-sider-fixed ant-pro-sider-layout-side ant-pro-sider-light"
@@ -4672,7 +4672,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/DefaultOpenAllMen
           style="min-height: 100%;"
         >
           <aside
-            class="ant-layout-sider ant-layout-sider-light ant-layout-sider-collapsed ant-pro-sider ant-pro-sider-fixed ant-pro-sider-layout-side ant-pro-sider-light ant-pro-sider-hide-menu-collapsed"
+            class="ant-layout-sider ant-layout-sider-light ant-layout-sider-collapsed ant-pro-sider ant-pro-sider-fixed ant-pro-sider-collapsed ant-pro-sider-layout-side ant-pro-sider-light ant-pro-sider-hide-menu-collapsed"
             style="flex: 0 0 60px; max-width: 60px; min-width: 60px; width: 60px;"
           >
             <div
@@ -4819,7 +4819,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/DefaultOpenAllMen
                   style="flex: 1; overflow-y: auto; overflow-x: hidden;"
                 >
                   <ul
-                    class="ant-menu ant-menu-root ant-menu-vertical ant-pro-sider-menu ant-pro-base-menu ant-menu-inline-collapsed"
+                    class="ant-menu ant-menu-root ant-menu-vertical ant-pro-sider-menu ant-pro-base-menu ant-pro-base-menu-collapsed ant-menu-inline-collapsed"
                     data-menu-list="true"
                     role="menu"
                     style="background-color: transparent; width: 100%;"
@@ -5013,7 +5013,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/IconFont.tsx corr
           style="min-height: 100%;"
         >
           <div
-            style="width: 256px; overflow: hidden; flex: 0 0 256px; max-width: 256px; min-width: 256px;"
+            style="width: 256px; overflow: hidden; flex: 0 0 256px; max-width: 256px; min-width: 256px; transition: all 0.2s ease 0s;"
           />
           <aside
             class="ant-layout-sider ant-layout-sider-light ant-pro-sider ant-pro-sider-fixed ant-pro-sider-layout-side ant-pro-sider-light"
@@ -5373,7 +5373,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/MenuGroup.tsx cor
           style="min-height: 100%;"
         >
           <div
-            style="width: 256px; overflow: hidden; flex: 0 0 256px; max-width: 256px; min-width: 256px;"
+            style="width: 256px; overflow: hidden; flex: 0 0 256px; max-width: 256px; min-width: 256px; transition: all 0.2s ease 0s;"
           />
           <aside
             class="ant-layout-sider ant-layout-sider-light ant-pro-sider ant-pro-sider-fixed ant-pro-sider-layout-side ant-pro-sider-light"
@@ -5817,7 +5817,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/MultipleMenuOnePa
           style="min-height: 100%;"
         >
           <div
-            style="width: 256px; overflow: hidden; flex: 0 0 256px; max-width: 256px; min-width: 256px;"
+            style="width: 256px; overflow: hidden; flex: 0 0 256px; max-width: 256px; min-width: 256px; transition: all 0.2s ease 0s;"
           />
           <aside
             class="ant-layout-sider ant-layout-sider-light ant-pro-sider ant-pro-sider-fixed ant-pro-sider-layout-side ant-pro-sider-light"
@@ -6342,7 +6342,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/Nested.tsx correc
           style="min-height: 100%;"
         >
           <aside
-            class="ant-layout-sider ant-layout-sider-light ant-layout-sider-collapsed ant-pro-sider ant-pro-sider-layout-side ant-pro-sider-light"
+            class="ant-layout-sider ant-layout-sider-light ant-layout-sider-collapsed ant-pro-sider ant-pro-sider-collapsed ant-pro-sider-layout-side ant-pro-sider-light"
             style="flex: 0 0 60px; max-width: 60px; min-width: 60px; width: 60px;"
           >
             <div
@@ -6485,7 +6485,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/Nested.tsx correc
                 style="flex: 1; overflow-y: auto; overflow-x: hidden;"
               >
                 <ul
-                  class="ant-menu ant-menu-root ant-menu-vertical ant-pro-sider-menu ant-pro-base-menu ant-menu-inline-collapsed"
+                  class="ant-menu ant-menu-root ant-menu-vertical ant-pro-sider-menu ant-pro-base-menu ant-pro-base-menu-collapsed ant-menu-inline-collapsed"
                   data-menu-list="true"
                   role="menu"
                   style="background-color: transparent; width: 100%;"
@@ -7087,7 +7087,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/TopmenuNested.tsx
                     style="flex: 1;"
                   >
                     <ul
-                      class="ant-menu-overflow ant-menu ant-menu-root ant-menu-horizontal ant-pro-top-nav-header-base-menu css-dev-only-do-not-override-imcqnm ant-pro-base-menu ant-pro-base-menu-horizontal css-dev-only-do-not-override-imcqnm"
+                      class="ant-menu-overflow ant-menu ant-menu-root ant-menu-horizontal ant-pro-top-nav-header-base-menu css-dev-only-do-not-override-1sskj1a ant-pro-base-menu ant-pro-base-menu-horizontal css-dev-only-do-not-override-1sskj1a"
                       data-menu-list="true"
                       role="menu"
                       style="background-color: transparent; width: 100%;"
@@ -7255,7 +7255,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/TopmenuNested.tsx
                     style="min-height: 100%;"
                   >
                     <div
-                      style="width: 256px; overflow: hidden; flex: 0 0 256px; max-width: 256px; min-width: 256px;"
+                      style="width: 256px; overflow: hidden; flex: 0 0 256px; max-width: 256px; min-width: 256px; transition: all 0.2s ease 0s;"
                     />
                     <aside
                       class="ant-layout-sider ant-layout-sider-light ant-pro-sider ant-pro-sider-fixed ant-pro-sider-layout-side ant-pro-sider-light"
@@ -7534,7 +7534,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/antd@4MenuIconFor
         style="min-height: 500px;"
       >
         <div
-          style="width: 256px; overflow: hidden; flex: 0 0 256px; max-width: 256px; min-width: 256px;"
+          style="width: 256px; overflow: hidden; flex: 0 0 256px; max-width: 256px; min-width: 256px; transition: all 0.2s ease 0s;"
         />
         <aside
           class="ant-layout-sider ant-layout-sider-light ant-pro-sider ant-pro-sider-fixed ant-pro-sider-layout-side ant-pro-sider-light"
@@ -8124,10 +8124,10 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/api.tsx correctly
         style="min-height: 100%; height: 100vh;"
       >
         <div
-          style="width: 60px; overflow: hidden; flex: 0 0 60px; max-width: 60px; min-width: 60px;"
+          style="width: 60px; overflow: hidden; flex: 0 0 60px; max-width: 60px; min-width: 60px; transition: all 0.2s ease 0s;"
         />
         <aside
-          class="ant-layout-sider ant-layout-sider-light ant-layout-sider-collapsed ant-pro-sider ant-pro-sider-fixed ant-pro-sider-layout-side ant-pro-sider-light"
+          class="ant-layout-sider ant-layout-sider-light ant-layout-sider-collapsed ant-pro-sider ant-pro-sider-fixed ant-pro-sider-collapsed ant-pro-sider-layout-side ant-pro-sider-light"
           style="flex: 0 0 60px; max-width: 60px; min-width: 60px; width: 60px;"
         >
           <div
@@ -8285,7 +8285,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/api.tsx correctly
               style="flex: 1; overflow-y: auto; overflow-x: hidden;"
             >
               <ul
-                class="ant-menu ant-menu-root ant-menu-vertical ant-pro-sider-menu ant-pro-base-menu ant-menu-inline-collapsed"
+                class="ant-menu ant-menu-root ant-menu-vertical ant-pro-sider-menu ant-pro-base-menu ant-pro-base-menu-collapsed ant-menu-inline-collapsed"
                 data-menu-list="true"
                 role="menu"
                 style="background-color: transparent; width: 100%;"
@@ -8861,7 +8861,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/background-contex
                     style="flex: 1;"
                   >
                     <ul
-                      class="ant-menu-overflow ant-menu ant-menu-root ant-menu-horizontal ant-pro-top-nav-header-base-menu css-dev-only-do-not-override-imcqnm ant-pro-base-menu ant-pro-base-menu-horizontal css-dev-only-do-not-override-imcqnm"
+                      class="ant-menu-overflow ant-menu ant-menu-root ant-menu-horizontal ant-pro-top-nav-header-base-menu css-dev-only-do-not-override-1sskj1a ant-pro-base-menu ant-pro-base-menu-horizontal css-dev-only-do-not-override-1sskj1a"
                       data-menu-list="true"
                       role="menu"
                       style="background-color: transparent; width: 100%;"
@@ -9234,7 +9234,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/background-contex
                             <a
                               href="/list/sub-page"
                             >
-                              一级列表页面
+                              列表页面
                             </a>
                           </span>
                           <span
@@ -9342,7 +9342,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/base.tsx correctl
           style="min-height: 100%;"
         >
           <div
-            style="width: 215px; overflow: hidden; flex: 0 0 215px; max-width: 215px; min-width: 215px;"
+            style="width: 215px; overflow: hidden; flex: 0 0 215px; max-width: 215px; min-width: 215px; transition: all 0.2s ease 0s;"
           />
           <aside
             class="ant-layout-sider ant-layout-sider-light ant-pro-sider ant-pro-sider-fixed ant-pro-sider-layout-mix ant-pro-sider-light ant-pro-sider-mix"
@@ -9368,7 +9368,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/base.tsx correctl
                       class="ant-menu-item-group-title"
                     >
                       <span
-                        title="一级列表页面"
+                        title="列表页面"
                       >
                         <span
                           aria-label="crown"
@@ -9390,7 +9390,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/base.tsx correctl
                           </svg>
                         </span>
                         <span>
-                          一级列表页面
+                          列表页面
                         </span>
                       </span>
                     </div>
@@ -9802,7 +9802,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/base.tsx correctl
                     style="flex: 1;"
                   >
                     <ul
-                      class="ant-menu-overflow ant-menu ant-menu-root ant-menu-horizontal ant-pro-top-nav-header-base-menu css-dev-only-do-not-override-imcqnm ant-pro-base-menu ant-pro-base-menu-horizontal css-dev-only-do-not-override-imcqnm"
+                      class="ant-menu-overflow ant-menu ant-menu-root ant-menu-horizontal ant-pro-top-nav-header-base-menu css-dev-only-do-not-override-1sskj1a ant-pro-base-menu ant-pro-base-menu-horizontal css-dev-only-do-not-override-1sskj1a"
                       data-menu-list="true"
                       role="menu"
                       style="background-color: transparent; width: 100%;"
@@ -10149,7 +10149,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/base.tsx correctl
                             <a
                               href="/list/sub-page"
                             >
-                              一级列表页面
+                              列表页面
                             </a>
                           </span>
                           <span
@@ -10358,7 +10358,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/classicMode.tsx c
           style="min-height: 100%;"
         >
           <div
-            style="width: 215px; overflow: hidden; flex: 0 0 215px; max-width: 215px; min-width: 215px;"
+            style="width: 215px; overflow: hidden; flex: 0 0 215px; max-width: 215px; min-width: 215px; transition: all 0.2s ease 0s;"
           />
           <aside
             class="ant-layout-sider ant-layout-sider-light ant-pro-sider ant-pro-sider-fixed ant-pro-sider-layout-mix ant-pro-sider-light ant-pro-sider-mix"
@@ -10384,7 +10384,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/classicMode.tsx c
                       class="ant-menu-item-group-title"
                     >
                       <span
-                        title="一级列表页面"
+                        title="列表页面"
                       >
                         <span
                           aria-label="crown"
@@ -10406,7 +10406,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/classicMode.tsx c
                           </svg>
                         </span>
                         <span>
-                          一级列表页面
+                          列表页面
                         </span>
                       </span>
                     </div>
@@ -10818,7 +10818,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/classicMode.tsx c
                     style="flex: 1;"
                   >
                     <ul
-                      class="ant-menu-overflow ant-menu ant-menu-root ant-menu-horizontal ant-pro-top-nav-header-base-menu css-dev-only-do-not-override-imcqnm ant-pro-base-menu ant-pro-base-menu-horizontal css-dev-only-do-not-override-imcqnm"
+                      class="ant-menu-overflow ant-menu ant-menu-root ant-menu-horizontal ant-pro-top-nav-header-base-menu css-dev-only-do-not-override-1awyqki ant-pro-base-menu ant-pro-base-menu-horizontal css-dev-only-do-not-override-1awyqki"
                       data-menu-list="true"
                       role="menu"
                       style="background-color: transparent; width: 100%;"
@@ -11169,7 +11169,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/classicMode.tsx c
                             <a
                               href="/list/sub-page"
                             >
-                              一级列表页面
+                              列表页面
                             </a>
                           </span>
                           <span
@@ -11361,10 +11361,10 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/collapsedShowTitl
         style="min-height: 100%;"
       >
         <div
-          style="width: 60px; overflow: hidden; flex: 0 0 60px; max-width: 60px; min-width: 60px;"
+          style="width: 60px; overflow: hidden; flex: 0 0 60px; max-width: 60px; min-width: 60px; transition: all 0.2s ease 0s;"
         />
         <aside
-          class="ant-layout-sider ant-layout-sider-light ant-layout-sider-collapsed ant-pro-sider ant-pro-sider-fixed ant-pro-sider-layout-side ant-pro-sider-light"
+          class="ant-layout-sider ant-layout-sider-light ant-layout-sider-collapsed ant-pro-sider ant-pro-sider-fixed ant-pro-sider-collapsed ant-pro-sider-layout-side ant-pro-sider-light"
           style="flex: 0 0 60px; max-width: 60px; min-width: 60px; width: 60px;"
         >
           <div
@@ -11507,7 +11507,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/collapsedShowTitl
               style="flex: 1; overflow-y: auto; overflow-x: hidden;"
             >
               <ul
-                class="ant-menu ant-menu-root ant-menu-vertical ant-pro-sider-menu ant-pro-base-menu ant-menu-inline-collapsed"
+                class="ant-menu ant-menu-root ant-menu-vertical ant-pro-sider-menu ant-pro-base-menu ant-pro-base-menu-collapsed ant-menu-inline-collapsed"
                 data-menu-list="true"
                 role="menu"
                 style="background-color: transparent; width: 100%;"
@@ -11893,7 +11893,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/config-provider.t
         style="min-height: 100%; max-height: 100vh;"
       >
         <div
-          style="width: 256px; overflow: hidden; flex: 0 0 256px; max-width: 256px; min-width: 256px;"
+          style="width: 256px; overflow: hidden; flex: 0 0 256px; max-width: 256px; min-width: 256px; transition: all 0.2s ease 0s;"
         />
         <aside
           class="qixian-layout-sider qixian-layout-sider-light qixian-pro-sider qixian-pro-sider-fixed qixian-pro-sider-layout-side qixian-pro-sider-light"
@@ -13179,7 +13179,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/customSider.tsx c
           style="min-height: 100%;"
         >
           <div
-            style="width: 256px; overflow: hidden; flex: 0 0 256px; max-width: 256px; min-width: 256px;"
+            style="width: 256px; overflow: hidden; flex: 0 0 256px; max-width: 256px; min-width: 256px; transition: all 0.2s ease 0s;"
           />
           <aside
             class="ant-layout-sider ant-layout-sider-light ant-pro-sider ant-pro-sider-fixed ant-pro-sider-layout-side ant-pro-sider-light"
@@ -13684,7 +13684,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/customSider.tsx c
                             class="ant-menu-title-content"
                           >
                             <span
-                              title="一级列表页面"
+                              title="列表页面"
                             >
                               <span
                                 aria-label="crown"
@@ -13706,7 +13706,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/customSider.tsx c
                                 </svg>
                               </span>
                               <span>
-                                一级列表页面
+                                列表页面
                               </span>
                             </span>
                           </span>
@@ -14091,7 +14091,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/customSider.tsx c
                             <a
                               href="/list/sub-page"
                             >
-                              一级列表页面
+                              列表页面
                             </a>
                           </span>
                           <span
@@ -14206,7 +14206,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/customize-collaps
         style="min-height: 100%;"
       >
         <div
-          style="width: 215px; overflow: hidden; max-width: 215px; min-width: 215px; flex: 0 0 215px;"
+          style="width: 215px; overflow: hidden; max-width: 215px; min-width: 215px; transition: all 0.2s ease 0s; flex: 0 0 215px;"
         />
         <aside
           class="ant-layout-sider ant-layout-sider-light ant-pro-sider ant-pro-sider-fixed ant-pro-sider-layout-mix ant-pro-sider-light ant-pro-sider-mix"
@@ -14748,7 +14748,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/customizeMenu.tsx
           style="min-height: 100%;"
         >
           <div
-            style="width: 256px; overflow: hidden; flex: 0 0 256px; max-width: 256px; min-width: 256px;"
+            style="width: 256px; overflow: hidden; flex: 0 0 256px; max-width: 256px; min-width: 256px; transition: all 0.2s ease 0s;"
           />
           <aside
             class="ant-layout-sider ant-layout-sider-light ant-pro-sider ant-pro-sider-fixed ant-pro-sider-layout-side ant-pro-sider-light"
@@ -15115,7 +15115,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/designMenuCss.tsx
           style="min-height: 100%;"
         >
           <div
-            style="width: 215px; overflow: hidden; flex: 0 0 215px; max-width: 215px; min-width: 215px;"
+            style="width: 215px; overflow: hidden; flex: 0 0 215px; max-width: 215px; min-width: 215px; transition: all 0.2s ease 0s;"
           />
           <aside
             class="ant-layout-sider ant-layout-sider-light ant-pro-sider ant-pro-sider-fixed ant-pro-sider-layout-mix ant-pro-sider-light ant-pro-sider-mix"
@@ -15141,7 +15141,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/designMenuCss.tsx
                       class="ant-menu-item-group-title"
                     >
                       <span
-                        title="一级列表页面"
+                        title="列表页面"
                       >
                         <span
                           aria-label="crown"
@@ -15163,7 +15163,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/designMenuCss.tsx
                           </svg>
                         </span>
                         <span>
-                          一级列表页面
+                          列表页面
                         </span>
                       </span>
                     </div>
@@ -15575,7 +15575,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/designMenuCss.tsx
                     style="flex: 1;"
                   >
                     <ul
-                      class="ant-menu-overflow ant-menu ant-menu-root ant-menu-horizontal ant-pro-top-nav-header-base-menu css-dev-only-do-not-override-imcqnm ant-pro-base-menu ant-pro-base-menu-horizontal css-dev-only-do-not-override-imcqnm"
+                      class="ant-menu-overflow ant-menu ant-menu-root ant-menu-horizontal ant-pro-top-nav-header-base-menu css-dev-only-do-not-override-1awyqki ant-pro-base-menu ant-pro-base-menu-horizontal css-dev-only-do-not-override-1awyqki"
                       data-menu-list="true"
                       role="menu"
                       style="background-color: transparent; width: 100%;"
@@ -15926,7 +15926,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/designMenuCss.tsx
                             <a
                               href="/list/sub-page"
                             >
-                              一级列表页面
+                              列表页面
                             </a>
                           </span>
                           <span
@@ -16135,7 +16135,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/designSiderMenu.t
           style="min-height: 100%;"
         >
           <div
-            style="width: 256px; overflow: hidden; flex: 0 0 256px; max-width: 256px; min-width: 256px;"
+            style="width: 256px; overflow: hidden; flex: 0 0 256px; max-width: 256px; min-width: 256px; transition: all 0.2s ease 0s;"
           />
           <aside
             class="ant-layout-sider ant-layout-sider-light ant-pro-sider ant-pro-sider-fixed ant-pro-sider-layout-side ant-pro-sider-light"
@@ -16640,7 +16640,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/designSiderMenu.t
                             class="ant-menu-title-content"
                           >
                             <span
-                              title="一级列表页面"
+                              title="列表页面"
                             >
                               <span
                                 aria-label="crown"
@@ -16662,7 +16662,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/designSiderMenu.t
                                 </svg>
                               </span>
                               <span>
-                                一级列表页面
+                                列表页面
                               </span>
                             </span>
                           </span>
@@ -17034,7 +17034,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/designSiderMenu.t
                             <a
                               href="/list/sub-page"
                             >
-                              一级列表页面
+                              列表页面
                             </a>
                           </span>
                           <span
@@ -17153,7 +17153,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/dynamic-settings.
           style="min-height: 100%;"
         >
           <div
-            style="width: 256px; overflow: hidden; flex: 0 0 256px; max-width: 256px; min-width: 256px;"
+            style="width: 256px; overflow: hidden; flex: 0 0 256px; max-width: 256px; min-width: 256px; transition: all 0.2s ease 0s;"
           />
           <aside
             class="ant-layout-sider ant-layout-sider-light ant-pro-sider ant-pro-sider-fixed ant-pro-sider-layout-side ant-pro-sider-light"
@@ -18432,7 +18432,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/dynamicMenu.tsx c
         style="min-height: 100%; height: 100vh;"
       >
         <div
-          style="width: 256px; overflow: hidden; flex: 0 0 256px; max-width: 256px; min-width: 256px;"
+          style="width: 256px; overflow: hidden; flex: 0 0 256px; max-width: 256px; min-width: 256px; transition: all 0.2s ease 0s;"
         />
         <aside
           class="ant-layout-sider ant-layout-sider-light ant-pro-sider ant-pro-sider-fixed ant-pro-sider-layout-side ant-pro-sider-light"
@@ -18852,7 +18852,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/error-boundaries.
           style="min-height: 100%;"
         >
           <div
-            style="width: 256px; overflow: hidden; flex: 0 0 256px; max-width: 256px; min-width: 256px;"
+            style="width: 256px; overflow: hidden; flex: 0 0 256px; max-width: 256px; min-width: 256px; transition: all 0.2s ease 0s;"
           />
           <aside
             class="ant-layout-sider ant-layout-sider-light ant-pro-sider ant-pro-sider-fixed ant-pro-sider-layout-side ant-pro-sider-light"
@@ -19131,10 +19131,10 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/footer.tsx correc
         style="min-height: 100%; height: 100vh;"
       >
         <div
-          style="width: 60px; overflow: hidden; flex: 0 0 60px; max-width: 60px; min-width: 60px;"
+          style="width: 60px; overflow: hidden; flex: 0 0 60px; max-width: 60px; min-width: 60px; transition: all 0.2s ease 0s;"
         />
         <aside
-          class="ant-layout-sider ant-layout-sider-light ant-layout-sider-collapsed ant-pro-sider ant-pro-sider-fixed ant-pro-sider-layout-side ant-pro-sider-light"
+          class="ant-layout-sider ant-layout-sider-light ant-layout-sider-collapsed ant-pro-sider ant-pro-sider-fixed ant-pro-sider-collapsed ant-pro-sider-layout-side ant-pro-sider-light"
           style="flex: 0 0 60px; max-width: 60px; min-width: 60px; width: 60px;"
         >
           <div
@@ -19292,7 +19292,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/footer.tsx correc
               style="flex: 1; overflow-y: auto; overflow-x: hidden;"
             >
               <ul
-                class="ant-menu ant-menu-root ant-menu-vertical ant-pro-sider-menu ant-pro-base-menu ant-menu-inline-collapsed"
+                class="ant-menu ant-menu-root ant-menu-vertical ant-pro-sider-menu ant-pro-base-menu ant-pro-base-menu-collapsed ant-menu-inline-collapsed"
                 data-menu-list="true"
                 role="menu"
                 style="background-color: transparent; width: 100%;"
@@ -19685,7 +19685,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/footer-global-too
           style="min-height: 100%;"
         >
           <div
-            style="width: 215px; overflow: hidden; flex: 0 0 215px; max-width: 215px; min-width: 215px;"
+            style="width: 215px; overflow: hidden; flex: 0 0 215px; max-width: 215px; min-width: 215px; transition: all 0.2s ease 0s;"
           />
           <aside
             class="ant-layout-sider ant-layout-sider-light ant-pro-sider ant-pro-sider-fixed ant-pro-sider-layout-mix ant-pro-sider-light ant-pro-sider-mix"
@@ -19711,7 +19711,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/footer-global-too
                       class="ant-menu-item-group-title"
                     >
                       <span
-                        title="一级列表页面"
+                        title="列表页面"
                       >
                         <span
                           aria-label="crown"
@@ -19733,7 +19733,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/footer-global-too
                           </svg>
                         </span>
                         <span>
-                          一级列表页面
+                          列表页面
                         </span>
                       </span>
                     </div>
@@ -20199,7 +20199,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/footer-global-too
                     style="flex: 1;"
                   >
                     <ul
-                      class="ant-menu-overflow ant-menu ant-menu-root ant-menu-horizontal ant-pro-top-nav-header-base-menu css-dev-only-do-not-override-imcqnm ant-pro-base-menu ant-pro-base-menu-horizontal css-dev-only-do-not-override-imcqnm"
+                      class="ant-menu-overflow ant-menu ant-menu-root ant-menu-horizontal ant-pro-top-nav-header-base-menu css-dev-only-do-not-override-1sskj1a ant-pro-base-menu ant-pro-base-menu-horizontal css-dev-only-do-not-override-1sskj1a"
                       data-menu-list="true"
                       role="menu"
                       style="background-color: transparent; width: 100%;"
@@ -20546,7 +20546,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/footer-global-too
                             <a
                               href="/list/sub-page"
                             >
-                              一级列表页面
+                              列表页面
                             </a>
                           </span>
                           <span
@@ -20670,7 +20670,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/ghost.tsx correct
           style="min-height: 100%;"
         >
           <div
-            style="width: 256px; overflow: hidden; flex: 0 0 256px; max-width: 256px; min-width: 256px;"
+            style="width: 256px; overflow: hidden; flex: 0 0 256px; max-width: 256px; min-width: 256px; transition: all 0.2s ease 0s;"
           />
           <aside
             class="ant-layout-sider ant-layout-sider-light ant-pro-sider ant-pro-sider-fixed ant-pro-sider-layout-side ant-pro-sider-light"
@@ -21320,7 +21320,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/hideMenu.tsx corr
           style="background: rgb(255, 255, 255); box-shadow: 2px 0 6px rgba(0, 21, 41, 0.35); overflow: hidden; height: 100%; width: 256px;"
         >
           <div
-            style="width: 256px; overflow: hidden; flex: 0 0 256px; max-width: 256px; min-width: 256px;"
+            style="width: 256px; overflow: hidden; flex: 0 0 256px; max-width: 256px; min-width: 256px; transition: all 0.2s ease 0s;"
           />
           <aside
             class="ant-layout-sider ant-layout-sider-light ant-pro-sider ant-pro-sider-fixed ant-pro-sider-layout-side ant-pro-sider-light"
@@ -21778,7 +21778,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/immersive-navigat
         style="min-height: 100%;"
       >
         <div
-          style="width: 256px; overflow: hidden; flex: 0 0 256px; max-width: 256px; min-width: 256px;"
+          style="width: 256px; overflow: hidden; flex: 0 0 256px; max-width: 256px; min-width: 256px; transition: all 0.2s ease 0s;"
         />
         <aside
           class="ant-layout-sider ant-layout-sider-light ant-pro-sider ant-pro-sider-fixed ant-pro-sider-layout-side ant-pro-sider-light"
@@ -22397,7 +22397,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/immersive-navigat
         style="min-height: 100%;"
       >
         <div
-          style="width: 256px; overflow: hidden; flex: 0 0 256px; max-width: 256px; min-width: 256px;"
+          style="width: 256px; overflow: hidden; flex: 0 0 256px; max-width: 256px; min-width: 256px; transition: all 0.2s ease 0s;"
         />
         <aside
           class="ant-layout-sider ant-layout-sider-light ant-pro-sider ant-pro-sider-fixed ant-pro-sider-layout-side ant-pro-sider-light"
@@ -23247,7 +23247,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/menu-group.tsx co
           style="min-height: 100%;"
         >
           <div
-            style="width: 256px; overflow: hidden; flex: 0 0 256px; max-width: 256px; min-width: 256px;"
+            style="width: 256px; overflow: hidden; flex: 0 0 256px; max-width: 256px; min-width: 256px; transition: all 0.2s ease 0s;"
           />
           <aside
             class="ant-layout-sider ant-layout-sider-light ant-pro-sider ant-pro-sider-fixed ant-pro-sider-layout-side ant-pro-sider-light"
@@ -24091,7 +24091,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/mixMode.tsx corre
           style="min-height: 100%;"
         >
           <div
-            style="width: 215px; overflow: hidden; flex: 0 0 215px; max-width: 215px; min-width: 215px;"
+            style="width: 215px; overflow: hidden; flex: 0 0 215px; max-width: 215px; min-width: 215px; transition: all 0.2s ease 0s;"
           />
           <aside
             class="ant-layout-sider ant-layout-sider-light ant-pro-sider ant-pro-sider-fixed ant-pro-sider-layout-mix ant-pro-sider-light ant-pro-sider-mix"
@@ -24117,7 +24117,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/mixMode.tsx corre
                       class="ant-menu-item-group-title"
                     >
                       <span
-                        title="一级列表页面"
+                        title="列表页面"
                       >
                         <span
                           aria-label="crown"
@@ -24139,7 +24139,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/mixMode.tsx corre
                           </svg>
                         </span>
                         <span>
-                          一级列表页面
+                          列表页面
                         </span>
                       </span>
                     </div>
@@ -24551,7 +24551,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/mixMode.tsx corre
                     style="flex: 1;"
                   >
                     <ul
-                      class="ant-menu-overflow ant-menu ant-menu-root ant-menu-horizontal ant-pro-top-nav-header-base-menu css-dev-only-do-not-override-imcqnm ant-pro-base-menu ant-pro-base-menu-horizontal css-dev-only-do-not-override-imcqnm"
+                      class="ant-menu-overflow ant-menu ant-menu-root ant-menu-horizontal ant-pro-top-nav-header-base-menu css-dev-only-do-not-override-1sskj1a ant-pro-base-menu ant-pro-base-menu-horizontal css-dev-only-do-not-override-1sskj1a"
                       data-menu-list="true"
                       role="menu"
                       style="background-color: transparent; width: 100%;"
@@ -24898,7 +24898,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/mixMode.tsx corre
                             <a
                               href="/list/sub-page"
                             >
-                              一级列表页面
+                              列表页面
                             </a>
                           </span>
                           <span
@@ -25006,7 +25006,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/pageSimplify.tsx 
           style="min-height: 100%;"
         >
           <div
-            style="width: 215px; overflow: hidden; flex: 0 0 215px; max-width: 215px; min-width: 215px;"
+            style="width: 215px; overflow: hidden; flex: 0 0 215px; max-width: 215px; min-width: 215px; transition: all 0.2s ease 0s;"
           />
           <aside
             class="ant-layout-sider ant-layout-sider-light ant-pro-sider ant-pro-sider-fixed ant-pro-sider-layout-mix ant-pro-sider-light ant-pro-sider-mix"
@@ -25032,7 +25032,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/pageSimplify.tsx 
                       class="ant-menu-item-group-title"
                     >
                       <span
-                        title="一级列表页面"
+                        title="列表页面"
                       >
                         <span
                           aria-label="crown"
@@ -25054,7 +25054,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/pageSimplify.tsx 
                           </svg>
                         </span>
                         <span>
-                          一级列表页面
+                          列表页面
                         </span>
                       </span>
                     </div>
@@ -25650,7 +25650,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/pageSimplify.tsx 
                             <a
                               href="/list/sub-page"
                             >
-                              一级列表页面
+                              列表页面
                             </a>
                           </span>
                           <span
@@ -25744,7 +25744,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/searchMenu.tsx co
           style="min-height: 100%;"
         >
           <div
-            style="width: 256px; overflow: hidden; flex: 0 0 256px; max-width: 256px; min-width: 256px;"
+            style="width: 256px; overflow: hidden; flex: 0 0 256px; max-width: 256px; min-width: 256px; transition: all 0.2s ease 0s;"
           />
           <aside
             class="ant-layout-sider ant-layout-sider-light ant-pro-sider ant-pro-sider-fixed ant-pro-sider-layout-side ant-pro-sider-light"
@@ -26244,7 +26244,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/siderMode.tsx cor
           style="min-height: 100%;"
         >
           <div
-            style="width: 216px; overflow: hidden; flex: 0 0 216px; max-width: 216px; min-width: 216px;"
+            style="width: 216px; overflow: hidden; flex: 0 0 216px; max-width: 216px; min-width: 216px; transition: all 0.2s ease 0s;"
           />
           <aside
             class="ant-layout-sider ant-layout-sider-light ant-pro-sider ant-pro-sider-fixed ant-pro-sider-layout-side ant-pro-sider-light"
@@ -26749,7 +26749,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/siderMode.tsx cor
                             class="ant-menu-title-content"
                           >
                             <span
-                              title="一级列表页面"
+                              title="列表页面"
                             >
                               <span
                                 aria-label="crown"
@@ -26771,7 +26771,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/siderMode.tsx cor
                                 </svg>
                               </span>
                               <span>
-                                一级列表页面
+                                列表页面
                               </span>
                             </span>
                           </span>
@@ -27143,7 +27143,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/siderMode.tsx cor
                             <a
                               href="/list/sub-page"
                             >
-                              一级列表页面
+                              列表页面
                             </a>
                           </span>
                           <span
@@ -27275,7 +27275,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/siteMenu.tsx corr
           style="min-height: 100%;"
         >
           <div
-            style="width: 215px; overflow: hidden; flex: 0 0 215px; max-width: 215px; min-width: 215px;"
+            style="width: 215px; overflow: hidden; flex: 0 0 215px; max-width: 215px; min-width: 215px; transition: all 0.2s ease 0s;"
           />
           <aside
             class="ant-layout-sider ant-layout-sider-light ant-pro-sider ant-pro-sider-fixed ant-pro-sider-layout-mix ant-pro-sider-light ant-pro-sider-mix"
@@ -27301,7 +27301,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/siteMenu.tsx corr
                       class="ant-menu-item-group-title"
                     >
                       <span
-                        title="一级列表页面"
+                        title="列表页面"
                       >
                         <span
                           aria-label="crown"
@@ -27323,7 +27323,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/siteMenu.tsx corr
                           </svg>
                         </span>
                         <span>
-                          一级列表页面
+                          列表页面
                         </span>
                       </span>
                     </div>
@@ -27735,7 +27735,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/siteMenu.tsx corr
                     style="flex: 1;"
                   >
                     <ul
-                      class="ant-menu-overflow ant-menu ant-menu-root ant-menu-horizontal ant-pro-top-nav-header-base-menu css-dev-only-do-not-override-imcqnm ant-pro-base-menu ant-pro-base-menu-horizontal css-dev-only-do-not-override-imcqnm"
+                      class="ant-menu-overflow ant-menu ant-menu-root ant-menu-horizontal ant-pro-top-nav-header-base-menu css-dev-only-do-not-override-1sskj1a ant-pro-base-menu ant-pro-base-menu-horizontal css-dev-only-do-not-override-1sskj1a"
                       data-menu-list="true"
                       role="menu"
                       style="background-color: transparent; width: 100%;"
@@ -28082,7 +28082,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/siteMenu.tsx corr
                             <a
                               href="/list/sub-page"
                             >
-                              一级列表页面
+                              列表页面
                             </a>
                           </span>
                           <span
@@ -28354,7 +28354,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/splitMenus.tsx co
                   style="flex: 1;"
                 >
                   <ul
-                    class="ant-menu-overflow ant-menu ant-menu-root ant-menu-horizontal ant-pro-top-nav-header-base-menu css-dev-only-do-not-override-imcqnm ant-pro-base-menu ant-pro-base-menu-horizontal css-dev-only-do-not-override-imcqnm"
+                    class="ant-menu-overflow ant-menu ant-menu-root ant-menu-horizontal ant-pro-top-nav-header-base-menu css-dev-only-do-not-override-1sskj1a ant-pro-base-menu ant-pro-base-menu-horizontal css-dev-only-do-not-override-1sskj1a"
                     data-menu-list="true"
                     role="menu"
                     style="background-color: transparent; width: 100%;"
@@ -28773,7 +28773,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/splitMenus.tsx co
                   style="flex: 1;"
                 >
                   <ul
-                    class="ant-menu-overflow ant-menu ant-menu-root ant-menu-horizontal ant-pro-top-nav-header-base-menu css-dev-only-do-not-override-imcqnm ant-pro-base-menu ant-pro-base-menu-horizontal css-dev-only-do-not-override-imcqnm"
+                    class="ant-menu-overflow ant-menu ant-menu-root ant-menu-horizontal ant-pro-top-nav-header-base-menu css-dev-only-do-not-override-1sskj1a ant-pro-base-menu ant-pro-base-menu-horizontal css-dev-only-do-not-override-1sskj1a"
                     data-menu-list="true"
                     role="menu"
                     style="background-color: transparent; width: 100%;"
@@ -29007,7 +29007,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/splitMenus.tsx co
                   style="flex: 1;"
                 >
                   <ul
-                    class="ant-menu-overflow ant-menu ant-menu-root ant-menu-horizontal ant-pro-top-nav-header-base-menu css-dev-only-do-not-override-imcqnm ant-pro-base-menu ant-pro-base-menu-horizontal css-dev-only-do-not-override-imcqnm"
+                    class="ant-menu-overflow ant-menu ant-menu-root ant-menu-horizontal ant-pro-top-nav-header-base-menu css-dev-only-do-not-override-1sskj1a ant-pro-base-menu ant-pro-base-menu-horizontal css-dev-only-do-not-override-1sskj1a"
                     data-menu-list="true"
                     role="menu"
                     style="background-color: transparent; width: 100%;"
@@ -29442,7 +29442,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/splitMenus.tsx co
                   style="flex: 1;"
                 >
                   <ul
-                    class="ant-menu-overflow ant-menu ant-menu-root ant-menu-horizontal ant-pro-top-nav-header-base-menu css-dev-only-do-not-override-imcqnm ant-pro-base-menu ant-pro-base-menu-horizontal css-dev-only-do-not-override-imcqnm"
+                    class="ant-menu-overflow ant-menu ant-menu-root ant-menu-horizontal ant-pro-top-nav-header-base-menu css-dev-only-do-not-override-1sskj1a ant-pro-base-menu ant-pro-base-menu-horizontal css-dev-only-do-not-override-1sskj1a"
                     data-menu-list="true"
                     role="menu"
                     style="background-color: transparent; width: 100%;"
@@ -29691,7 +29691,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/splitMenus.tsx co
         style="min-height: 100%; height: 100vh;"
       >
         <div
-          style="width: 215px; overflow: hidden; flex: 0 0 215px; max-width: 215px; min-width: 215px;"
+          style="width: 215px; overflow: hidden; flex: 0 0 215px; max-width: 215px; min-width: 215px; transition: all 0.2s ease 0s;"
         />
         <aside
           class="ant-layout-sider ant-layout-sider-light ant-pro-sider ant-pro-sider-fixed ant-pro-sider-layout-mix ant-pro-sider-light ant-pro-sider-mix"
@@ -30135,7 +30135,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/splitMenus.tsx co
         style="min-height: 100%; height: 100vh;"
       >
         <div
-          style="width: 215px; overflow: hidden; flex: 0 0 215px; max-width: 215px; min-width: 215px;"
+          style="width: 215px; overflow: hidden; flex: 0 0 215px; max-width: 215px; min-width: 215px; transition: all 0.2s ease 0s;"
         />
         <aside
           class="ant-layout-sider ant-layout-sider-light ant-pro-sider ant-pro-sider-fixed ant-pro-sider-layout-mix ant-pro-sider-light ant-pro-sider-mix"
@@ -30609,7 +30609,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/theme.tsx correct
         style="min-height: 100%;"
       >
         <div
-          style="width: 256px; overflow: hidden; flex: 0 0 256px; max-width: 256px; min-width: 256px;"
+          style="width: 256px; overflow: hidden; flex: 0 0 256px; max-width: 256px; min-width: 256px; transition: all 0.2s ease 0s;"
         />
         <aside
           class="ant-layout-sider ant-layout-sider-light ant-pro-sider ant-pro-sider-fixed ant-pro-sider-layout-side ant-pro-sider-light"
@@ -30797,7 +30797,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/theme.tsx correct
                       class="ant-menu-title-content"
                     >
                       <span
-                        title="一级列表页面"
+                        title="列表页面"
                       >
                         <span
                           aria-label="crown"
@@ -30819,7 +30819,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/theme.tsx correct
                           </svg>
                         </span>
                         <span>
-                          一级列表页面
+                          列表页面
                         </span>
                       </span>
                     </span>
@@ -31160,7 +31160,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/theme.tsx correct
                           <a
                             href="/list/sub-page"
                           >
-                            一级列表页面
+                            列表页面
                           </a>
                         </span>
                         <span
@@ -31330,7 +31330,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/top-breadcrumb.ts
           style="min-height: 100%;"
         >
           <div
-            style="width: 215px; overflow: hidden; flex: 0 0 215px; max-width: 215px; min-width: 215px;"
+            style="width: 215px; overflow: hidden; flex: 0 0 215px; max-width: 215px; min-width: 215px; transition: all 0.2s ease 0s;"
           />
           <aside
             class="ant-layout-sider ant-layout-sider-light ant-pro-sider ant-pro-sider-fixed ant-pro-sider-layout-mix ant-pro-sider-light ant-pro-sider-mix"
@@ -31962,7 +31962,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/topMode.tsx corre
                     style="flex: 1;"
                   >
                     <ul
-                      class="ant-menu-overflow ant-menu ant-menu-root ant-menu-horizontal ant-pro-top-nav-header-base-menu css-dev-only-do-not-override-imcqnm ant-pro-base-menu ant-pro-base-menu-horizontal css-dev-only-do-not-override-imcqnm"
+                      class="ant-menu-overflow ant-menu ant-menu-root ant-menu-horizontal ant-pro-top-nav-header-base-menu css-dev-only-do-not-override-1sskj1a ant-pro-base-menu ant-pro-base-menu-horizontal css-dev-only-do-not-override-1sskj1a"
                       data-menu-list="true"
                       role="menu"
                       style="background-color: transparent; width: 100%;"
@@ -32333,7 +32333,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/topMode.tsx corre
                             <a
                               href="/list/sub-page"
                             >
-                              一级列表页面
+                              列表页面
                             </a>
                           </span>
                           <span

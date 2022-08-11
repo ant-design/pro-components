@@ -2,24 +2,25 @@
 import { useStyle as useAntdStyle } from '@ant-design/pro-utils';
 import { resetComponent } from 'antd/es/style';
 import type { GenerateStyle } from 'antd/es/theme';
+import { useContext } from 'react';
+import type { BaseLayoutDesignToken } from '../../../context/ProLayoutContext';
+import { ProLayoutContext } from '../../../context/ProLayoutContext';
 
 export interface SiderMenuToken extends ProAliasToken {
   componentCls: string;
   proLayoutCls: string;
   proLayoutCollapsedWidth: number;
   proLayoutHeaderHeight: number;
-  proLayoutMenuTextColor: string;
-  proLayoutMenuTextSecondaryColor: string;
-  proLayoutMenuItemDividerColor: string;
-  proLayoutMenuTitleTextColor: string;
 }
 
-const genSiderMenuStyle: GenerateStyle<SiderMenuToken> = (token) => {
+const genSiderMenuStyle: GenerateStyle<SiderMenuToken & BaseLayoutDesignToken['sider']> = (
+  token,
+) => {
   return {
     [token.proLayoutCls]: {
       [token.componentCls]: {
         position: 'relative',
-        background: 'transparent',
+        background: token.colorMenuBackground || 'transparent',
         boxSizing: 'border-box',
         ...resetComponent?.(token),
         '&-menu': {
@@ -62,9 +63,9 @@ const genSiderMenuStyle: GenerateStyle<SiderMenuToken> = (token) => {
           justifyContent: 'space-between',
           paddingInline: 16,
           paddingBlock: 16,
-          color: token.proLayoutMenuTextColor,
+          color: token.colorTextMenu,
           cursor: 'pointer',
-          borderBottom: `1px solid ${token.proLayoutMenuItemDividerColor}`,
+          borderBottom: `1px solid ${token.colorMenuItemDivider}`,
           '> a': {
             display: 'flex',
             alignItems: 'center',
@@ -83,7 +84,7 @@ const genSiderMenuStyle: GenerateStyle<SiderMenuToken> = (token) => {
             marginBlock: 0,
             marginInlineEnd: 0,
             marginInlineStart: 6,
-            color: token.proLayoutMenuTitleTextColor,
+            color: token.colorTextMenuTitle,
             fontWeight: 600,
             fontSize: 16,
             lineHeight: '22px',
@@ -105,7 +106,7 @@ const genSiderMenuStyle: GenerateStyle<SiderMenuToken> = (token) => {
           justifyContent: 'space-between',
           marginBlock: 4,
           marginInline: 16,
-          color: token.proLayoutMenuTextColor,
+          color: token.colorTextMenu,
           '&-collapsed': {
             flexDirection: 'column-reverse',
             paddingBlock: 0,
@@ -114,7 +115,7 @@ const genSiderMenuStyle: GenerateStyle<SiderMenuToken> = (token) => {
             transition: 'font-size 0.3s ease-in-out',
           },
           '&-list': {
-            color: token.proLayoutMenuTextSecondaryColor,
+            color: token.colorTextMenuSecondary,
             '&-collapsed': {
               marginBlockEnd: 8,
               animation: 'none',
@@ -172,7 +173,7 @@ const genSiderMenuStyle: GenerateStyle<SiderMenuToken> = (token) => {
           background: 'transparent',
         },
         '&-footer': {
-          color: token.colorTextDisabled,
+          color: token.colorTextMenuSecondary,
           paddingBlockEnd: 16,
           fontSize: token.fontSize,
         },
@@ -193,17 +194,15 @@ export function useStyle(
     proLayoutCollapsedWidth: number;
   },
 ) {
+  const { sider } = useContext(ProLayoutContext);
   return useAntdStyle('sider-menu', (token) => {
-    const siderMenuToken: SiderMenuToken = {
+    const siderMenuToken: SiderMenuToken & BaseLayoutDesignToken['sider'] = {
       ...token,
       componentCls: `.${prefixCls}`,
       proLayoutCls: `.${proLayoutCls}`,
       proLayoutHeaderHeight,
       proLayoutCollapsedWidth,
-      proLayoutMenuTextSecondaryColor: token.colorTextSecondary,
-      proLayoutMenuTitleTextColor: token.colorTextHeading,
-      proLayoutMenuTextColor: token.colorText,
-      proLayoutMenuItemDividerColor: token.colorSplit,
+      ...sider,
     };
 
     return [genSiderMenuStyle(siderMenuToken)];

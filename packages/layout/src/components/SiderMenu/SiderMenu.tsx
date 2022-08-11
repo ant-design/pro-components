@@ -1,8 +1,8 @@
 import { Avatar, AvatarProps, ConfigProvider, Layout, Menu, SiderProps, Space } from 'antd';
 import type { ItemType } from 'antd/es/menu/hooks/useItems';
 import classNames from 'classnames';
-import type { CSSProperties } from 'react';
-import React, { useMemo } from 'react';
+import React, { CSSProperties, useContext, useMemo } from 'react';
+import { ProLayoutContext } from '../../context/ProLayoutContext';
 import type { WithFalse } from '../../typings';
 import type { AppsLogoComponentsAppList } from '../AppsLogoComponents';
 import { AppsLogoComponents, defaultRenderLogo } from '../AppsLogoComponents';
@@ -401,6 +401,7 @@ const SiderMenu: React.FC<SiderMenuProps & PrivateSiderMenuProps> = (props) => {
     </>
   );
 
+  const { sider } = useContext(ProLayoutContext);
   return (
     <>
       {fixSiderbar && !isMobile && !hideMenuWhenCollapsedClassName && (
@@ -436,14 +437,14 @@ const SiderMenu: React.FC<SiderMenuProps & PrivateSiderMenuProps> = (props) => {
             override: {
               Menu: {
                 radiusItem: 4,
-                colorItemBgSelected: 'rgba(0, 0, 0, 0.04)',
-                colorItemBgActive: 'rgba(0, 0, 0, 0.04)',
+                colorItemBgSelected: sider.colorBgMenuItemSelected || 'rgba(0, 0, 0, 0.04)',
+                colorItemBgActive: sider.colorBgMenuItemHover || 'rgba(0, 0, 0, 0.04)',
                 colorActiveBarWidth: 0,
                 colorActiveBarHeight: 0,
                 colorActiveBarBorderSize: 0,
-                colorItemText: 'rgba(0, 0, 0, 0.65)',
-                colorItemTextHover: 'rgba(0, 0, 0, 0.85)',
-                colorItemTextSelected: 'rgba(0, 0, 0, 1)',
+                colorItemText: sider.colorTextMenu || 'rgba(0, 0, 0, 0.65)',
+                colorItemTextHover: sider.colorTextMenuActive || 'rgba(0, 0, 0, 0.85)',
+                colorItemTextSelected: sider.colorTextMenuSelected || 'rgba(0, 0, 0, 1)',
                 colorItemBg: 'transparent',
                 colorSubItemBg: 'transparent',
               },

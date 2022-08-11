@@ -3,6 +3,7 @@ import { Avatar, ConfigProvider } from 'antd';
 import classNames from 'classnames';
 import ResizeObserver from 'rc-resize-observer';
 import React, { useContext, useMemo, useRef, useState } from 'react';
+import { ProLayoutContext } from '../../context/ProLayoutContext';
 import { AppsLogoComponents } from '../AppsLogoComponents';
 import type { GlobalHeaderProps } from '../GlobalHeader';
 import { BaseMenu } from '../SiderMenu/BaseMenu';
@@ -137,6 +138,7 @@ const TopNavHeader: React.FC<TopNavHeaderProps> = (props) => {
     actionsRender,
   } = props;
   const { getPrefixCls } = useContext(ConfigProvider.ConfigContext);
+  const { header } = useContext(ProLayoutContext);
 
   const prefixCls = `${props.prefixCls || getPrefixCls('pro')}-top-nav-header`;
 
@@ -156,15 +158,16 @@ const TopNavHeader: React.FC<TopNavHeaderProps> = (props) => {
               colorItemBg: 'transparent',
               colorSubItemBg: 'transparent',
               radiusItem: 4,
-              colorItemBgSelected: 'rgba(0, 0, 0, 0.04)',
-              colorItemBgActive: 'rgba(0, 0, 0, 0.04)',
-              colorItemBgSelectedHorizontal: 'rgba(0, 0, 0, 0.04)',
+              colorItemBgSelected: header.colorBgMenuItemSelected || 'rgba(0, 0, 0, 0.04)',
+              colorItemBgActive: header.colorBgMenuItemHover || 'rgba(0, 0, 0, 0.04)',
+              colorItemBgSelectedHorizontal:
+                header.colorBgMenuItemSelected || 'rgba(0, 0, 0, 0.04)',
               colorActiveBarWidth: 0,
               colorActiveBarHeight: 0,
               colorActiveBarBorderSize: 0,
-              colorItemText: 'rgba(0, 0, 0, 0.65)',
-              colorItemTextHover: 'rgba(0, 0, 0, 0.85)',
-              colorItemTextSelected: 'rgba(0, 0, 0, 1)',
+              colorItemText: header.colorTextMenu || 'rgba(0, 0, 0, 0.65)',
+              colorItemTextHover: header.colorTextMenuActive || 'rgba(0, 0, 0, 0.85)',
+              colorItemTextSelected: header.colorTextMenuSelected || 'rgba(0, 0, 0, 1)',
             },
           },
         }}

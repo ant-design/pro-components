@@ -42886,10 +42886,10 @@ exports[`form demos 📸 renders ./packages/form/src/demos/layout-footer.tsx cor
         style="min-height: 100%;"
       >
         <div
-          style="width: 60px; overflow: hidden; flex: 0 0 60px; max-width: 60px; min-width: 60px;"
+          style="width: 60px; overflow: hidden; flex: 0 0 60px; max-width: 60px; min-width: 60px; transition: all 0.2s ease 0s;"
         />
         <aside
-          class="ant-layout-sider ant-layout-sider-light ant-layout-sider-collapsed ant-pro-sider ant-pro-sider-fixed ant-pro-sider-layout-mix ant-pro-sider-light ant-pro-sider-mix"
+          class="ant-layout-sider ant-layout-sider-light ant-layout-sider-collapsed ant-pro-sider ant-pro-sider-fixed ant-pro-sider-collapsed ant-pro-sider-layout-mix ant-pro-sider-light ant-pro-sider-mix"
           style="flex: 0 0 60px; max-width: 60px; min-width: 60px; width: 60px;"
         >
           <div
@@ -42899,7 +42899,7 @@ exports[`form demos 📸 renders ./packages/form/src/demos/layout-footer.tsx cor
               style="flex: 1; overflow-y: auto; overflow-x: hidden;"
             >
               <ul
-                class="ant-menu ant-menu-root ant-menu-vertical ant-pro-sider-menu ant-pro-base-menu ant-menu-inline-collapsed"
+                class="ant-menu ant-menu-root ant-menu-vertical ant-pro-sider-menu ant-pro-base-menu ant-pro-base-menu-collapsed ant-menu-inline-collapsed"
                 data-menu-list="true"
                 role="menu"
                 style="background-color: transparent; width: 100%;"

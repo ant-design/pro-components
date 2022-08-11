@@ -2,7 +2,7 @@
 import type { GlobalToken } from 'antd/es/theme/interface';
 import React from 'react';
 
-type BaseLayoutDesignToken = {
+export type BaseLayoutDesignToken = {
   /**
    * 跨站点应用的图标hover颜色
    */
@@ -40,7 +40,7 @@ type BaseLayoutDesignToken = {
     colorBgMenuItemHover: string;
     colorBgMenuItemSelected: string;
     colorTextMenuSelected: string;
-    colorMenuSubArrow: string;
+    colorTextMenuActive: string;
     colorTextMenu: string;
     colorTextMenuSecondary: string;
     /**
@@ -62,11 +62,11 @@ type BaseLayoutDesignToken = {
     colorBgMenuItemHover: string;
     colorBgMenuItemSelected: string;
     colorTextMenuSelected: string;
+    colorTextMenuActive: string;
     colorTextMenu: string;
     colorTextMenuSecondary: string;
     colorBgRightActionsItemHover: string;
     colorTextRightActionsItem: string;
-    colorTextSubMenuSelected: string;
   };
 
   /**
@@ -115,7 +115,7 @@ export const DefaultDesignToken: BaseLayoutDesignToken = {
     colorTextMenuSecondary: 'rgba(0, 0, 0, 0.45)',
     colorBgRightActionsItemHover: 'rgba(0, 0, 0, 0.03)',
     colorTextRightActionsItem: 'rgba(0, 0, 0, 0.45)',
-    colorTextSubMenuSelected: 'rgb(0,0,0,0.95)',
+    colorTextMenuActive: 'rgb(0,0,0,0.85)',
   },
   bgLayout: 'linear-gradient(#fff, #f7f8fa 28%)',
   colorBgLayout: '#f7f8fa',
@@ -137,7 +137,7 @@ export const DefaultDesignToken: BaseLayoutDesignToken = {
     colorBgMenuItemHover: 'rgba(90, 75, 75, 0.03)',
     colorBgMenuItemSelected: 'rgba(0, 0, 0, 0.04)',
     colorTextMenuSelected: 'rgb(0,0,0,0.95)',
-    colorMenuSubArrow: 'rgba(0, 0, 0, 0.25)',
+    colorTextMenuActive: 'rgba(0, 0, 0, 0.85)',
     colorTextMenu: 'rgba(0, 0, 0, 0.85)',
     colorTextMenuSecondary: 'rgba(0, 0, 0, 0.45)',
     colorTextMenuTitle: 'rgba(0, 0, 0, 0.85)',
@@ -208,24 +208,18 @@ export const getLayoutDesignToken: (
     appListIconHoverBgColor: finalDesignTokens?.sider?.colorBgMenuItemSelected,
     ...finalDesignTokens,
     header: {
-      headerTitleColor: antdToken.colorTextHeading,
-      rightActionsItemTextColor: antdToken.colorTextSecondary,
       ...DefaultDesignToken.header,
       ...finalDesignTokens.header,
-    },
+    } as LayoutDesignToken['header'],
     sider: {
-      menuItemDividerColor: antdToken.colorSplit,
-      menuTitleTextColor: antdToken.colorTextHeading,
-      collapsedButtonTextColor: finalDesignTokens?.sider?.colorTextMenuSecondary,
-      collapsedButtonHoverTextColor: finalDesignTokens?.sider?.colorTextMenu,
       ...DefaultDesignToken.sider,
       ...finalDesignTokens.sider,
-    },
+    } as LayoutDesignToken['sider'],
     pageContainer: {
       ...DefaultDesignToken.pageContainer,
       ...finalDesignTokens.pageContainer,
     },
-  }) as LayoutDesignToken;
+  } as LayoutDesignToken) as LayoutDesignToken;
 };
 
 const defaultToken = getLayoutDesignToken(DefaultDesignToken, {});
@@ -239,7 +233,6 @@ export type ProLayoutProviderProps = {
 
 export const ProLayoutProvider: React.FC<ProLayoutProviderProps> = (props) => {
   const { token } = useToken();
-  console.log(getLayoutDesignToken(props?.token || {}, token));
   return (
     <ProLayoutContext.Provider
       value={{

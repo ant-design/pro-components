@@ -46,6 +46,7 @@ export default {
           {
             path: '/list/sub-page',
             name: '列表页面',
+            icon: <CrownFilled />,
             routes: [
               {
                 path: 'sub-sub-page1',

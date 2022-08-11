@@ -1,17 +1,19 @@
 ﻿import type { ProAliasToken } from '@ant-design/pro-utils';
 import { useStyle as useAntdStyle } from '@ant-design/pro-utils';
 import type { GenerateStyle } from 'antd/es/theme';
+import { useContext } from 'react';
+import type { BaseLayoutDesignToken } from '../../../context/ProLayoutContext';
+import { ProLayoutContext } from '../../../context/ProLayoutContext';
 import { genAppsLogoComponentsDefaultListStyle } from './default';
 import { genAppsLogoComponentsSimpleListStyle } from './simple';
 
 export interface AppsLogoComponentsToken extends ProAliasToken {
   componentCls: string;
-  appListIconTextColor: string;
-  appListIconHoverTextColor: string;
-  appListIconHoverBgColor: string;
 }
 
-const genAppsLogoComponentsStyle: GenerateStyle<AppsLogoComponentsToken> = (token) => {
+const genAppsLogoComponentsStyle: GenerateStyle<AppsLogoComponentsToken & BaseLayoutDesignToken> = (
+  token,
+) => {
   return {
     [token.componentCls]: {
       '&-icon': {
@@ -25,10 +27,10 @@ const genAppsLogoComponentsStyle: GenerateStyle<AppsLogoComponentsToken> = (toke
         height: 28,
         width: 28,
         cursor: 'pointer',
-        color: token.appListIconTextColor,
+        color: token.colorTextAppListIcon,
         '&:hover': {
-          color: token.appListIconHoverTextColor,
-          backgroundColor: token.appListIconHoverBgColor,
+          color: token.colorTextAppListIconHover,
+          backgroundColor: token.colorBgAppListIconHover,
         },
       },
       '&-popover': {
@@ -44,13 +46,12 @@ const genAppsLogoComponentsStyle: GenerateStyle<AppsLogoComponentsToken> = (toke
 };
 
 export function useStyle(prefixCls: string) {
+  const proToken = useContext(ProLayoutContext);
   return useAntdStyle('apps-logo-components', (token) => {
-    const proCardToken: AppsLogoComponentsToken = {
+    const proCardToken: AppsLogoComponentsToken & BaseLayoutDesignToken = {
       ...token,
       componentCls: `.${prefixCls}`,
-      appListIconTextColor: 'rgb(102, 102, 102)',
-      appListIconHoverTextColor: token.colorLinkHover,
-      appListIconHoverBgColor: 'rgba(0, 0, 0, 0.04)',
+      ...proToken,
     };
 
     return [genAppsLogoComponentsStyle(proCardToken)];
