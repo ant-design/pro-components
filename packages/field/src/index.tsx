@@ -255,7 +255,12 @@ const defaultRenderText = (
   if (valueType === 'dateQuarter') {
     return (
       <FieldHOC isLight={props.light}>
-        <FieldDatePicker text={dataValue as string} format="YYYY-\QQ" picker="quarter" {...props} />
+        <FieldDatePicker
+          text={dataValue as string}
+          format="YYYY-[Q]Q"
+          picker="quarter"
+          {...props}
+        />
       </FieldHOC>
     );
   }

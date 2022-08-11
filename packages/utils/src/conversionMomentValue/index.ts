@@ -4,6 +4,10 @@ import get from 'rc-util/lib/utils/get';
 import { isNil } from '../isNil';
 import type { ProFieldValueType } from '../typing';
 
+import quarterOfYear from 'dayjs/plugin/quarterOfYear';
+
+dayjs.extend(quarterOfYear);
+
 type DateFormatter =
   | 'number'
   | 'string'
@@ -16,7 +20,7 @@ export const dateFormatterMap = {
   date: 'YYYY-MM-DD',
   dateWeek: 'YYYY-wo',
   dateMonth: 'YYYY-MM',
-  dateQuarter: 'YYYY-\\QQ',
+  dateQuarter: 'YYYY-[Q]Q',
   dateYear: 'YYYY',
   dateRange: 'YYYY-MM-DD',
   dateTime: 'YYYY-MM-DD HH:mm:ss',

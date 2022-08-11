@@ -751,11 +751,9 @@ describe('EditorProTable', () => {
       />,
     );
     await waitForComponentToPaint(wrapper, 1100);
-
     expect(
-      wrapper.container.querySelectorAll<HTMLInputElement>(
-        '.ant-table-cell .ant-form-item-control-input input',
-      )[1].value,
+      wrapper.container.querySelectorAll<HTMLInputElement>('.ant-form-item-control-input input')[1]
+        .value,
     ).toBe('🐛 [BUG]yarn install命令 antd2.4.5会报错');
 
     act(() => {
@@ -789,9 +787,8 @@ describe('EditorProTable', () => {
 
     await waitForComponentToPaint(wrapper, 100);
     expect(
-      wrapper.container.querySelectorAll<HTMLInputElement>(
-        '.ant-table-cell .ant-form-item-control-input input',
-      )[1].value,
+      wrapper.container.querySelectorAll<HTMLInputElement>('.ant-form-item-control-input input')[1]
+        .value,
     ).toBe('🐛 [BUG]无法创建工程npm create umi');
   });
 

@@ -330,9 +330,7 @@ describe('EditorProTable 2', () => {
     await waitForComponentToPaint(wrapper, 1000);
     act(() => {
       fireEvent.change(
-        wrapper.container.querySelectorAll(
-          '.ant-table-cell .ant-form-item .ant-form-item-control-input input',
-        )[0],
+        wrapper.container.querySelectorAll('.ant-table-cell .ant-form-item-control-input input')[0],
         {
           target: {
             value: '🐛 [BUG]yarn install命令',
@@ -469,9 +467,7 @@ describe('EditorProTable 2', () => {
 
     act(() => {
       fireEvent.change(
-        wrapper.container.querySelectorAll(
-          '.ant-table-cell .ant-form-item .ant-form-item-control-input input',
-        )[1],
+        wrapper.container.querySelectorAll('.ant-table-cell .ant-form-item-control-input input')[1],
         {
           target: {
             value: '🐛 [BUG]yarn install命令',

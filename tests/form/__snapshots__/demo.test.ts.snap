@@ -5605,7 +5605,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/FieldSet/demos/c
                       <div
                         class="ant-form-item-control-input-content"
                       >
-                        2016-\\44
+                        2016-Q4
                       </div>
                     </div>
                   </div>
@@ -6766,8 +6766,8 @@ exports[`form demos 📸 renders ./packages/form/src/components/FieldSet/demos/d
                               placeholder="请选择"
                               readonly=""
                               size="12"
-                              title="2016-\\\\44"
-                              value="2016-\\\\44"
+                              title="2016-Q4"
+                              value="2016-Q4"
                             />
                             <span
                               class="ant-picker-suffix"

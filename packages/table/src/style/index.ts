@@ -69,7 +69,7 @@ const genProListStyle: GenerateStyle<ProListToken> = (token) => {
           [token.componentCls]: {
             height: 'auto !important',
             paddingBlockEnd: '24px',
-            [`${token.antCls}-form-item-label`]: { minWidth: '80px', textAlign: 'left' },
+            [`${token.antCls}-form-item-label`]: { minWidth: '80px', textAlign: 'start' },
           },
         },
       },

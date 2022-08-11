@@ -21,7 +21,6 @@ import { act, fireEvent, render } from '@testing-library/react';
 import { Form, Input } from 'antd';
 import type { Dayjs } from 'dayjs';
 import dayjs from 'dayjs';
-import { mount } from 'enzyme';
 import React, { useEffect, useState } from 'react';
 import { waitForComponentToPaint, waitTime } from '../util';
 
@@ -33,31 +32,25 @@ describe('utils', () => {
       return <>{value}</>;
     };
 
-    const html = mount(<App deps={['name']} />);
+    const html = render(<App deps={['name']} />);
 
     await waitTime(100);
 
-    expect(html.text()).toEqual('name');
+    expect(html.baseElement?.textContent).toEqual('name');
 
     act(() => {
-      html.setProps({
-        deps: ['string'],
-      });
+      html.rerender(<App deps={['string']} />);
     });
     await waitTime(100);
 
-    html.update();
-
-    expect(html.text()).toEqual('name');
+    expect(html.baseElement?.textContent).toEqual('name');
 
     await waitTime(500);
 
-    html.update();
-
-    expect(html.text()).toEqual('string');
+    expect(html.baseElement?.textContent).toEqual('string');
   });
 
-  it('dateArrayFormatter', async () => {
+  it('📅 dateArrayFormatter', async () => {
     const dateArrayString = dateArrayFormatter(
       [dayjs('2020-01-01'), dayjs('2020-01-01')],
       ['YYYY-MM-DD HH:mm:ss', 'YYYY-MM-DD'],
@@ -65,7 +58,7 @@ describe('utils', () => {
 
     expect(dateArrayString).toEqual('2020-01-01 00:00:00 ~ 2020-01-01');
   });
-  it('dateArrayFormatter support function', async () => {
+  it('📅 dateArrayFormatter support function', async () => {
     const dateArrayString = dateArrayFormatter(
       [dayjs('2020-01-01'), dayjs('2020-01-01')],
       ['YYYY-MM-DD HH:mm:ss', (value: Dayjs) => value.format('YYYY-MM')],
@@ -88,21 +81,17 @@ describe('utils', () => {
       return <>{value}</>;
     };
 
-    const html = mount(<App deps={['name']} />);
+    const html = render(<App deps={['name']} />);
 
-    expect(html.text()).toEqual('name');
+    expect(html.baseElement?.textContent).toEqual('name');
 
     act(() => {
-      html.setProps({
-        deps: ['string'],
-      });
+      html.rerender(<App deps={['string']} />);
     });
 
     waitTime(1000);
 
-    html.update();
-
-    expect(html.text()).toEqual('name');
+    expect(html.baseElement?.textContent).toEqual('name');
   });
 
   it('📅 useDebounceFn', async () => {
@@ -128,48 +117,47 @@ describe('utils', () => {
         />
       );
     };
-    const html = mount(<App />);
+    const html = render(<App />);
 
     expect(fn).toBeCalledTimes(1);
 
     // wait === undefined
     act(() => {
-      html.find('#test').simulate('click');
+      html.baseElement.querySelector<HTMLDivElement>('#test')?.click();
     });
 
     expect(fn).toBeCalledTimes(3);
 
-    // wait === 80
-    html.setProps({
-      wait: 80,
+    act(() => {
+      html.rerender(<App wait={80} />);
     });
 
     act(() => {
-      html.find('#test').simulate('click');
+      html.baseElement.querySelector<HTMLDivElement>('#test')?.click();
     });
 
     await waitTime(100);
 
     expect(fn).toBeCalledTimes(4);
 
-    // wait === 0
-    html.setProps({
-      wait: 0,
+    act(() => {
+      html.rerender(<App wait={0} />);
     });
 
     act(() => {
-      html.find('#test').simulate('click');
+      html.baseElement.querySelector<HTMLDivElement>('#test')?.click();
     });
 
     expect(fn).toBeCalledTimes(6);
 
     // wait === 100 but callback is cancelled
-    html.setProps({
-      wait: 100,
+
+    act(() => {
+      html.rerender(<App wait={100} />);
     });
 
     act(() => {
-      html.find('#test').simulate('click');
+      html.baseElement.querySelector<HTMLDivElement>('#test')?.click();
     });
 
     await waitTime(50);
@@ -204,7 +192,7 @@ describe('utils', () => {
       return <div />;
     };
 
-    mount(<App />);
+    render(<App />);
 
     await waitTime(100);
 
@@ -389,15 +377,17 @@ describe('utils', () => {
   });
 
   it('📅 DropdownFooter click', async () => {
-    const html = mount(
+    const html = render(
       <DropdownFooter>
         <Input id="test" />
       </DropdownFooter>,
     );
     act(() => {
-      html.find('.ant-pro-core-dropdown-footer').simulate('click');
+      html.baseElement.querySelector<HTMLDivElement>('.ant-pro-core-dropdown-footer')?.click();
     });
-    expect(html.find('.ant-pro-core-dropdown-footer').exists()).toBeTruthy();
+    expect(
+      !!html.baseElement.querySelector<HTMLDivElement>('.ant-pro-core-dropdown-footer'),
+    ).toBeTruthy();
   });
 
   it('📅 InlineErrorFormItem onValuesChange', async () => {
@@ -776,7 +766,7 @@ describe('utils', () => {
     expect(isDropdownValueType('select')).toBeTruthy();
   });
   it('🪓 LabelIconTip', async () => {
-    const html = mount(
+    const html = render(
       <LabelIconTip
         label="xxx"
         subTitle="xxx"
@@ -788,15 +778,16 @@ describe('utils', () => {
     );
 
     act(() => {
-      html.find('div').at(0).simulate('mousedown');
-      html.find('div').at(0).simulate('mouseleave');
-      html.find('div').at(0).simulate('mousemove');
+      const dom = html.baseElement.querySelector('div');
+      fireEvent.mouseDown(dom!);
+      fireEvent.mouseLeave(dom!);
+      fireEvent.mouseMove(dom!);
     });
 
-    expect(html.render()).toMatchSnapshot();
+    expect(html.baseElement).toMatchSnapshot();
   });
 
-  it('isDeepEqualReact', () => {
+  it('🪓 isDeepEqualReact', () => {
     const CustomComponent: React.FC<any> = () => {
       return <div />;
     };
@@ -861,7 +852,7 @@ describe('utils', () => {
       return <CustomComponent a={a} b={b} />;
     };
 
-    const wrapper = mount(<DeepComponent />);
+    const wrapper = render(<DeepComponent />);
 
     waitForComponentToPaint(wrapper, 100);
   });

@@ -4,15 +4,21 @@ import { ProFormDependency } from '@ant-design/pro-form';
 import type { ParamsType } from '@ant-design/pro-provider';
 import { useIntl } from '@ant-design/pro-provider';
 import { isDeepEqualReact, runFunction, usePrevious, useRefFunction } from '@ant-design/pro-utils';
-import type { ButtonProps, FormItemProps } from 'antd';
+import type { ButtonProps, FormInstance, FormItemProps } from 'antd';
 import { Button, Form } from 'antd';
 import type { NamePath } from 'antd/es/form/interface';
 import type { GetRowKey } from 'antd/es/table/interface';
-import { Field } from 'rc-field-form';
 import useMergedState from 'rc-util/lib/hooks/useMergedState';
 import get from 'rc-util/lib/utils/get';
 import set from 'rc-util/lib/utils/set';
-import React, { useContext, useEffect, useImperativeHandle, useMemo, useRef } from 'react';
+import React, {
+  useContext,
+  useEffect,
+  useImperativeHandle,
+  useMemo,
+  useRef,
+  useState,
+} from 'react';
 import ProTable from '../../Table';
 import type { ActionType, ProTableProps } from '../../typing';
 
@@ -441,6 +447,28 @@ function EditableTable<
   );
 }
 
+const FieldEditableTableValue: React.FC<{
+  value?: any;
+  onChange?: (value: any) => void;
+  children: (value: any, onChange: any, form: FormInstance) => React.ReactNode;
+}> = (props) => {
+  const [, forgetUpdate] = useState({});
+  const ref = useRef<FormInstance>();
+  return (
+    <React.Fragment key="FieldEditableTableValue">
+      <Form.Item shouldUpdate>
+        {(form) => {
+          if (ref.current) return null;
+          ref.current = form as any;
+          forgetUpdate({});
+          return null;
+        }}
+      </Form.Item>
+      {ref.current && props.children(props.value, props.onChange, ref.current)}
+    </React.Fragment>
+  );
+};
+
 function FieldEditableTable<
   DataType extends Record<string, any>,
   Params extends ParamsType = ParamsType,
@@ -455,21 +483,21 @@ function FieldEditableTable<
       {...props?.formItemProps}
       name={props.name}
     >
-      <Field shouldUpdate={true} name={props.name} isList>
-        {(control, _, form) => {
+      <FieldEditableTableValue>
+        {(value, onChange, form) => {
           return (
             <EditableTable<DataType, Params, ValueType>
               {...props}
               editable={{
                 ...props.editable,
-                form: form as ProFormInstance,
+                form,
               }}
-              value={control.value || []}
-              onChange={control.onChange}
+              value={value}
+              onChange={onChange}
             />
           );
         }}
-      </Field>
+      </FieldEditableTableValue>
     </Form.Item>
   );
 }

@@ -3347,6 +3347,25 @@ exports[`table demos 📸 renders ./packages/table/src/components/EditableTable/
                 class="ant-form-item-control-input-content"
               >
                 <div
+                  class="ant-form-item"
+                >
+                  <div
+                    class="ant-row ant-form-item-row"
+                  >
+                    <div
+                      class="ant-col ant-form-item-control"
+                    >
+                      <div
+                        class="ant-form-item-control-input"
+                      >
+                        <div
+                          class="ant-form-item-control-input-content"
+                        />
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div
                   class="ant-pro"
                 >
                   <div
@@ -3491,7 +3510,7 @@ exports[`table demos 📸 renders ./packages/table/src/components/EditableTable/
                           class="ant-spin-container"
                         >
                           <div
-                            class="ant-table ant-table-middle ant-table-empty ant-table-layout-fixed ant-table-scroll-horizontal"
+                            class="ant-table ant-table-middle ant-table-layout-fixed ant-table-scroll-horizontal"
                           >
                             <div
                               class="ant-table-container"
@@ -3600,16 +3619,121 @@ exports[`table demos 📸 renders ./packages/table/src/components/EditableTable/
                                       </td>
                                     </tr>
                                     <tr
-                                      class="ant-table-placeholder"
+                                      class="ant-table-row ant-table-row-level-0"
+                                      data-row-key="624748504"
                                     >
                                       <td
                                         class="ant-table-cell"
-                                        colspan="5"
+                                      >
+                                        活动名称一
+                                      </td>
+                                      <td
+                                        class="ant-table-cell"
+                                      >
+                                        <span
+                                          class="ant-badge ant-badge-status ant-badge-not-a-wrapper"
+                                        >
+                                          <span
+                                            class="ant-badge-status-dot ant-badge-status-error"
+                                          />
+                                          <span
+                                            class="ant-badge-status-text"
+                                          >
+                                            未解决
+                                          </span>
+                                        </span>
+                                      </td>
+                                      <td
+                                        class="ant-table-cell"
+                                      >
+                                        这个活动真好玩
+                                      </td>
+                                      <td
+                                        class="ant-table-cell"
+                                      >
+                                        2020-05-26
+                                      </td>
+                                      <td
+                                        class="ant-table-cell"
                                       >
                                         <div
-                                          class="ant-table-expanded-row-fixed"
-                                          style="width: 0px; position: sticky; left: 0px; overflow: hidden;"
-                                        />
+                                          class="ant-space ant-space-horizontal ant-space-align-center"
+                                        >
+                                          <div
+                                            class="ant-space-item"
+                                            style="margin-right: 16px;"
+                                          >
+                                            <a>
+                                              编辑
+                                            </a>
+                                          </div>
+                                          <div
+                                            class="ant-space-item"
+                                          >
+                                            <a>
+                                              删除
+                                            </a>
+                                          </div>
+                                        </div>
+                                      </td>
+                                    </tr>
+                                    <tr
+                                      class="ant-table-row ant-table-row-level-0"
+                                      data-row-key="624691229"
+                                    >
+                                      <td
+                                        class="ant-table-cell"
+                                      >
+                                        活动名称二
+                                      </td>
+                                      <td
+                                        class="ant-table-cell"
+                                      >
+                                        <span
+                                          class="ant-badge ant-badge-status ant-badge-not-a-wrapper"
+                                        >
+                                          <span
+                                            class="ant-badge-status-dot ant-badge-status-success"
+                                          />
+                                          <span
+                                            class="ant-badge-status-text"
+                                          >
+                                            已解决
+                                          </span>
+                                        </span>
+                                      </td>
+                                      <td
+                                        class="ant-table-cell"
+                                      >
+                                        这个活动真好玩
+                                      </td>
+                                      <td
+                                        class="ant-table-cell"
+                                      >
+                                        2020-05-26
+                                      </td>
+                                      <td
+                                        class="ant-table-cell"
+                                      >
+                                        <div
+                                          class="ant-space ant-space-horizontal ant-space-align-center"
+                                        >
+                                          <div
+                                            class="ant-space-item"
+                                            style="margin-right: 16px;"
+                                          >
+                                            <a>
+                                              编辑
+                                            </a>
+                                          </div>
+                                          <div
+                                            class="ant-space-item"
+                                          >
+                                            <a>
+                                              删除
+                                            </a>
+                                          </div>
+                                        </div>
                                       </td>
                                     </tr>
                                   </tbody>
@@ -4061,6 +4185,25 @@ exports[`table demos 📸 renders ./packages/table/src/components/EditableTable/
                       class="ant-form-item-control-input-content"
                     >
                       <div
+                        class="ant-form-item"
+                      >
+                        <div
+                          class="ant-row ant-form-item-row"
+                        >
+                          <div
+                            class="ant-col ant-form-item-control"
+                          >
+                            <div
+                              class="ant-form-item-control-input"
+                            >
+                              <div
+                                class="ant-form-item-control-input-content"
+                              />
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <div
                         class="ant-pro"
                       >
                         <div
@@ -4076,7 +4219,7 @@ exports[`table demos 📸 renders ./packages/table/src/components/EditableTable/
                                 class="ant-spin-container"
                               >
                                 <div
-                                  class="ant-table ant-table-middle ant-table-empty ant-table-layout-fixed ant-table-scroll-horizontal"
+                                  class="ant-table ant-table-middle ant-table-layout-fixed ant-table-scroll-horizontal"
                                 >
                                   <div
                                     class="ant-table-container"
@@ -4197,16 +4340,303 @@ exports[`table demos 📸 renders ./packages/table/src/components/EditableTable/
                                             </td>
                                           </tr>
                                           <tr
-                                            class="ant-table-placeholder"
+                                            class="ant-table-row ant-table-row-level-0"
+                                            data-row-key="624748504"
                                           >
                                             <td
+                                              class="ant-table-cell ant-table-cell-ellipsis"
+                                              title="题库名称一"
+                                            >
+                                              <span
+                                                class="ant-typography ant-typography-ellipsis ant-typography-single-line ant-typography-ellipsis-single-line"
+                                                style="width: 100%; margin: 0px; padding: 0px;"
+                                                title=""
+                                              >
+                                                题库名称一
+                                              </span>
+                                            </td>
+                                            <td
                                               class="ant-table-cell"
-                                              colspan="6"
+                                            >
+                                              <span
+                                                class="ant-badge ant-badge-status ant-badge-not-a-wrapper"
+                                              >
+                                                <span
+                                                  class="ant-badge-status-dot ant-badge-status-default"
+                                                />
+                                                <span
+                                                  class="ant-badge-status-text"
+                                                >
+                                                  多选题
+                                                </span>
+                                              </span>
+                                            </td>
+                                            <td
+                                              class="ant-table-cell"
+                                            >
+                                              <span>
+                                                10
+                                              </span>
+                                            </td>
+                                            <td
+                                              class="ant-table-cell"
+                                            >
+                                              连续型
+                                            </td>
+                                            <td
+                                              class="ant-table-cell"
+                                            >
+                                              <span>
+                                                20
+                                              </span>
+                                            </td>
+                                            <td
+                                              class="ant-table-cell"
                                             >
                                               <div
-                                                class="ant-table-expanded-row-fixed"
-                                                style="width: 0px; position: sticky; left: 0px; overflow: hidden;"
-                                              />
+                                                class="ant-space ant-space-horizontal ant-space-align-center"
+                                              >
+                                                <div
+                                                  class="ant-space-item"
+                                                  style="margin-right: 16px;"
+                                                >
+                                                  <a>
+                                                    移除
+                                                  </a>
+                                                </div>
+                                                <div
+                                                  class="ant-space-item"
+                                                >
+                                                  <a>
+                                                    编辑
+                                                  </a>
+                                                </div>
+                                              </div>
+                                            </td>
+                                          </tr>
+                                          <tr
+                                            class="ant-table-row ant-table-row-level-0"
+                                            data-row-key="624691229"
+                                          >
+                                            <td
+                                              class="ant-table-cell ant-table-cell-ellipsis"
+                                              title="题库名称二"
+                                            >
+                                              <span
+                                                class="ant-typography ant-typography-ellipsis ant-typography-single-line ant-typography-ellipsis-single-line"
+                                                style="width: 100%; margin: 0px; padding: 0px;"
+                                                title=""
+                                              >
+                                                题库名称二
+                                              </span>
+                                            </td>
+                                            <td
+                                              class="ant-table-cell"
+                                            >
+                                              <span
+                                                class="ant-badge ant-badge-status ant-badge-not-a-wrapper"
+                                              >
+                                                <span
+                                                  class="ant-badge-status-dot ant-badge-status-warning"
+                                                />
+                                                <span
+                                                  class="ant-badge-status-text"
+                                                >
+                                                  单选题
+                                                </span>
+                                              </span>
+                                            </td>
+                                            <td
+                                              class="ant-table-cell"
+                                            >
+                                              <span>
+                                                10
+                                              </span>
+                                            </td>
+                                            <td
+                                              class="ant-table-cell"
+                                            >
+                                              连续型
+                                            </td>
+                                            <td
+                                              class="ant-table-cell"
+                                            >
+                                              <span>
+                                                20
+                                              </span>
+                                            </td>
+                                            <td
+                                              class="ant-table-cell"
+                                            >
+                                              <div
+                                                class="ant-space ant-space-horizontal ant-space-align-center"
+                                              >
+                                                <div
+                                                  class="ant-space-item"
+                                                  style="margin-right: 16px;"
+                                                >
+                                                  <a>
+                                                    移除
+                                                  </a>
+                                                </div>
+                                                <div
+                                                  class="ant-space-item"
+                                                >
+                                                  <a>
+                                                    编辑
+                                                  </a>
+                                                </div>
+                                              </div>
+                                            </td>
+                                          </tr>
+                                          <tr
+                                            class="ant-table-row ant-table-row-level-0"
+                                            data-row-key="624748503"
+                                          >
+                                            <td
+                                              class="ant-table-cell ant-table-cell-ellipsis"
+                                              title="题库名称三"
+                                            >
+                                              <span
+                                                class="ant-typography ant-typography-ellipsis ant-typography-single-line ant-typography-ellipsis-single-line"
+                                                style="width: 100%; margin: 0px; padding: 0px;"
+                                                title=""
+                                              >
+                                                题库名称三
+                                              </span>
+                                            </td>
+                                            <td
+                                              class="ant-table-cell"
+                                            >
+                                              <span
+                                                class="ant-badge ant-badge-status ant-badge-not-a-wrapper"
+                                              >
+                                                <span
+                                                  class="ant-badge-status-dot ant-badge-status-success"
+                                                />
+                                                <span
+                                                  class="ant-badge-status-text"
+                                                >
+                                                  判断题
+                                                </span>
+                                              </span>
+                                            </td>
+                                            <td
+                                              class="ant-table-cell"
+                                            >
+                                              <span>
+                                                10
+                                              </span>
+                                            </td>
+                                            <td
+                                              class="ant-table-cell"
+                                            >
+                                              连续型
+                                            </td>
+                                            <td
+                                              class="ant-table-cell"
+                                            >
+                                              <span>
+                                                20
+                                              </span>
+                                            </td>
+                                            <td
+                                              class="ant-table-cell"
+                                            >
+                                              <div
+                                                class="ant-space ant-space-horizontal ant-space-align-center"
+                                              >
+                                                <div
+                                                  class="ant-space-item"
+                                                  style="margin-right: 16px;"
+                                                >
+                                                  <a>
+                                                    移除
+                                                  </a>
+                                                </div>
+                                                <div
+                                                  class="ant-space-item"
+                                                >
+                                                  <a>
+                                                    编辑
+                                                  </a>
+                                                </div>
+                                              </div>
+                                            </td>
+                                          </tr>
+                                          <tr
+                                            class="ant-table-row ant-table-row-level-0"
+                                            data-row-key="624691220"
+                                          >
+                                            <td
+                                              class="ant-table-cell ant-table-cell-ellipsis"
+                                              title="题库名称四"
+                                            >
+                                              <span
+                                                class="ant-typography ant-typography-ellipsis ant-typography-single-line ant-typography-ellipsis-single-line"
+                                                style="width: 100%; margin: 0px; padding: 0px;"
+                                                title=""
+                                              >
+                                                题库名称四
+                                              </span>
+                                            </td>
+                                            <td
+                                              class="ant-table-cell"
+                                            >
+                                              <span
+                                                class="ant-badge ant-badge-status ant-badge-not-a-wrapper"
+                                              >
+                                                <span
+                                                  class="ant-badge-status-dot ant-badge-status-error"
+                                                />
+                                                <span
+                                                  class="ant-badge-status-text"
+                                                >
+                                                  填空题
+                                                </span>
+                                              </span>
+                                            </td>
+                                            <td
+                                              class="ant-table-cell"
+                                            >
+                                              <span>
+                                                10
+                                              </span>
+                                            </td>
+                                            <td
+                                              class="ant-table-cell"
+                                            >
+                                              连续型
+                                            </td>
+                                            <td
+                                              class="ant-table-cell"
+                                            >
+                                              <span>
+                                                20
+                                              </span>
+                                            </td>
+                                            <td
+                                              class="ant-table-cell"
+                                            >
+                                              <div
+                                                class="ant-space ant-space-horizontal ant-space-align-center"
+                                              >
+                                                <div
+                                                  class="ant-space-item"
+                                                  style="margin-right: 16px;"
+                                                >
+                                                  <a>
+                                                    移除
+                                                  </a>
+                                                </div>
+                                                <div
+                                                  class="ant-space-item"
+                                                >
+                                                  <a>
+                                                    编辑
+                                                  </a>
+                                                </div>
+                                              </div>
                                             </td>
                                           </tr>
                                         </tbody>
