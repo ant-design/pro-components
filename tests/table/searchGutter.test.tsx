@@ -1,7 +1,6 @@
 import ProTable from '@ant-design/pro-table';
-import { mount } from 'enzyme';
+import { render } from '@testing-library/react';
 import { waitForComponentToPaint } from '../util';
-
 describe('BasicTable SearchGutter', () => {
   const LINE_STR_COUNT = 20;
   // Mock offsetHeight
@@ -39,7 +38,7 @@ describe('BasicTable SearchGutter', () => {
   });
 
   it('🎏 ProTable support searchGutter', async () => {
-    const html = mount(
+    const html = render(
       <ProTable
         size="small"
         options={{
@@ -61,12 +60,12 @@ describe('BasicTable SearchGutter', () => {
       />,
     );
     await waitForComponentToPaint(html, 1200);
-    expect((html.find('.ant-col').at(0).props().style || {}).paddingInlineStart).toBe(8);
-    expect((html.find('.ant-col').at(0).props().style || {}).paddingBlockStart).toBe(12);
+    const ele = html.baseElement.querySelector<HTMLDivElement>('.ant-col');
+    expect(window.getComputedStyle(ele!).padding).toBe('12px 8px 12px 8px');
   });
 
-  it('🎏 ProTable searchGutter default is [24 0]', async () => {
-    const html = mount(
+  fit('🎏 ProTable searchGutter default is [24 0]', async () => {
+    const html = render(
       <ProTable
         size="small"
         options={{
@@ -74,11 +73,9 @@ describe('BasicTable SearchGutter', () => {
           reload: false,
           setting: false,
         }}
-        search={
-          {
-            // searchGutter: 24,
-          }
-        }
+        search={{
+          searchGutter: 12,
+        }}
         columns={[
           {
             dataIndex: 'money',
@@ -90,7 +87,8 @@ describe('BasicTable SearchGutter', () => {
       />,
     );
     await waitForComponentToPaint(html, 1200);
-    expect((html.find('.ant-col').at(0).props().style || {}).paddingInlineStart).toBe(12);
-    expect((html.find('.ant-col').at(0).props().style || {}).paddingBlockStart).toBe(undefined);
+    html.debug();
+    const ele = html.baseElement.querySelector<HTMLDivElement>('.ant-col');
+    expect(ele?.style.paddingLeft).toBe('12px');
   });
 });

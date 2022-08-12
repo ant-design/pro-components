@@ -187,7 +187,7 @@ describe('QueryFilter', () => {
     );
 
     act(() => {
-      wrapper.find('.ant-pro-form-collapse-button').simulate('click');
+      wrapper.find('.ant-pro-query-filter-collapse-button').simulate('click');
     });
     await waitForComponentToPaint(wrapper);
 
@@ -220,7 +220,7 @@ describe('QueryFilter', () => {
         <ProFormText label="f" name="f" />
       </QueryFilter>,
     );
-    expect(wrapper.find('a.ant-pro-form-collapse-button').text()).toBe('open');
+    expect(wrapper.find('a.ant-pro-query-filter-collapse-button').text()).toBe('open');
 
     act(() => {
       wrapper.setProps({
@@ -228,7 +228,7 @@ describe('QueryFilter', () => {
       });
     });
     await waitTime(100);
-    expect(wrapper.find('a.ant-pro-form-collapse-button').text()).toBe('close');
+    expect(wrapper.find('a.ant-pro-query-filter-collapse-button').text()).toBe('close');
   });
 
   it('🕵️‍♀️ defaultColsNumber should work', async () => {
@@ -253,7 +253,7 @@ describe('QueryFilter', () => {
       </QueryFilter>,
     );
 
-    expect(wrapper.find('a.ant-pro-form-collapse-button').length).toEqual(1);
+    expect(wrapper.find('a.ant-pro-query-filter-collapse-button').length).toEqual(1);
   });
 
   it('🕵️‍♀️ 表单首项独占一行，收起时应该只展示一项就行了', async () => {

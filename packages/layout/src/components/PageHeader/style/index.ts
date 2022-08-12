@@ -1,7 +1,6 @@
 import type { CSSObject } from '@ant-design/cssinjs';
 import type { ProAliasToken } from '@ant-design/pro-utils';
-import { useStyle as useAntdStyle } from '@ant-design/pro-utils';
-import { operationUnit, resetComponent } from 'antd/es/style';
+import { operationUnit, resetComponent, useStyle as useAntdStyle } from '@ant-design/pro-utils';
 import type { GenerateStyle } from 'antd/es/theme';
 export interface PageHeaderToken extends ProAliasToken {
   componentCls: string;
@@ -20,7 +19,6 @@ const textOverflowEllipsis = (): CSSObject => ({
   whiteSpace: 'nowrap',
   textOverflow: 'ellipsis',
 });
-
 const genPageHeaderStyle: GenerateStyle<PageHeaderToken> = (token) => {
   return {
     [token.componentCls]: {

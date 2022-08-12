@@ -1,6 +1,5 @@
 ﻿import type { ProAliasToken } from '@ant-design/pro-utils';
 import { useStyle as useAntdStyle } from '@ant-design/pro-utils';
-import { resetComponent } from 'antd/es/style';
 import type { GenerateStyle } from 'antd/es/theme';
 import { useContext } from 'react';
 import type { BaseLayoutDesignToken } from '../../../context/ProLayoutContext';
@@ -22,7 +21,6 @@ const genSiderMenuStyle: GenerateStyle<SiderMenuToken & BaseLayoutDesignToken['s
         position: 'relative',
         background: token.colorMenuBackground || 'transparent',
         boxSizing: 'border-box',
-        ...resetComponent?.(token),
         '&-menu': {
           position: 'relative',
           zIndex: 10,

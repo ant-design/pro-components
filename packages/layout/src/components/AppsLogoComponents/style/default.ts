@@ -1,4 +1,4 @@
-﻿import { resetComponent } from 'antd/es/style';
+﻿import { resetComponent } from '@ant-design/pro-utils';
 import type { GenerateStyle } from 'antd/es/theme';
 import type { AppsLogoComponentsToken } from './index';
 const genAppsLogoComponentsDefaultListStyle: GenerateStyle<AppsLogoComponentsToken> = (token) => {

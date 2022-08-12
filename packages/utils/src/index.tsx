@@ -44,7 +44,7 @@ import { pickProProps } from './pickProProps';
 import { runFunction } from './runFunction';
 import { transformKeySubmitValue } from './transformKeySubmitValue';
 import type { ProAliasToken } from './useStyle';
-import { lighten, setAlpha, useStyle, useToken } from './useStyle';
+import { lighten, operationUnit, resetComponent, setAlpha, useStyle, useToken } from './useStyle';
 /** Type */
 import type {
   ProCoreActionType,
@@ -159,5 +159,7 @@ export {
   useDebounceValue,
   useStyle,
   setAlpha,
+  resetComponent,
+  operationUnit,
   lighten,
 };

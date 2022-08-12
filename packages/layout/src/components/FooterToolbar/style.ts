@@ -1,6 +1,5 @@
 ﻿import type { ProAliasToken } from '@ant-design/pro-utils';
 import { useStyle as useAntdStyle } from '@ant-design/pro-utils';
-import { resetComponent } from 'antd/es/style';
 import type { GenerateStyle } from 'antd/es/theme';
 
 export interface AppsLogoComponentsToken extends ProAliasToken {
@@ -11,7 +10,6 @@ export interface AppsLogoComponentsToken extends ProAliasToken {
 const genFooterToolBarStyle: GenerateStyle<AppsLogoComponentsToken> = (token) => {
   return {
     [token.componentCls]: {
-      ...resetComponent?.(token),
       position: 'fixed',
       insetInlineEnd: 0,
       bottom: 0,

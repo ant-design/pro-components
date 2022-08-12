@@ -1,4 +1,4 @@
-import type { CSSInterpolation } from '@ant-design/cssinjs';
+import type { CSSInterpolation, CSSObject } from '@ant-design/cssinjs';
 import { useStyleRegister } from '@ant-design/cssinjs';
 import { TinyColor } from '@ctrl/tinycolor';
 import { ConfigProvider, theme as antdTheme } from 'antd';
@@ -55,6 +55,34 @@ export type ProAliasToken = AliasToken & {
    */
   antCls: string;
 };
+
+export const resetComponent = (token: ProAliasToken): CSSObject => ({
+  boxSizing: 'border-box',
+  margin: 0,
+  padding: 0,
+  color: token.colorText,
+  fontSize: token.fontSize,
+  lineHeight: token.lineHeight,
+  listStyle: 'none',
+});
+
+export const operationUnit = (token: ProAliasToken): CSSObject => ({
+  // FIXME: This use link but is a operation unit. Seems should be a colorPrimary.
+  // And Typography use this to generate link style which should not do this.
+  color: token.colorLink,
+  textDecoration: 'none',
+  outline: 'none',
+  cursor: 'pointer',
+  transition: `color ${token.motionDurationSlow}`,
+
+  '&:focus, &:hover': {
+    color: token.colorLinkHover,
+  },
+
+  '&:active': {
+    color: token.colorLinkActive,
+  },
+});
 
 /**
  * 封装了一下 antd 的 useStyle，支持了一下antd@4
