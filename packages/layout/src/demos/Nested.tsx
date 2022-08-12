@@ -14,7 +14,7 @@ export default () => (
       }}
       fixSiderbar={false}
       collapsedButtonRender={false}
-      collapsed
+      collapsed={false}
       iconfontUrl="//at.alicdn.com/t/font_8d5l8fzk5b87iudi.js"
       route={{
         routes: [

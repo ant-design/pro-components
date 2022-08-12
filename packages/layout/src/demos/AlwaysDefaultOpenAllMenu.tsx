@@ -10,7 +10,7 @@ export default () => (
       location={{
         pathname: '/data_hui/data_hui2',
       }}
-      collapsed
+      collapsed={false}
       collapsedButtonRender={false}
       route={{
         routes: [

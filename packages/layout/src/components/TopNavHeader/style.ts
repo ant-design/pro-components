@@ -72,7 +72,7 @@ const genTopNavHeaderStyle: GenerateStyle<TopNavHeaderToken & BaseLayoutDesignTo
           justifyContent: 'center',
           paddingBlock: 0,
           paddingInline: 6,
-          color: setAlpha(token.colorTextBase, 0.65),
+          color: token.colorTextRightActionsItem,
           fontSize: '16px',
           cursor: 'pointer',
           borderRadius: token.radiusBase,

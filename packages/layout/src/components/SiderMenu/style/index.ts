@@ -102,7 +102,7 @@ const genSiderMenuStyle: GenerateStyle<SiderMenuToken & BaseLayoutDesignToken['s
           alignItems: 'center',
           justifyContent: 'space-between',
           marginBlock: 4,
-          marginInline: 16,
+          marginInline: 0,
           color: token.colorTextMenu,
           '&-collapsed': {
             flexDirection: 'column-reverse',

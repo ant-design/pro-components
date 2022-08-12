@@ -53,6 +53,7 @@ export default () => {
         location={{
           pathname,
         }}
+        collapsed={false}
         menu={{
           type: 'group',
         }}
