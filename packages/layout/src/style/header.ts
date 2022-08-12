@@ -1,6 +1,9 @@
 ﻿import type { ProAliasToken } from '@ant-design/pro-utils';
 import { useStyle as useAntdStyle } from '@ant-design/pro-utils';
 import type { GenerateStyle } from 'antd/es/theme';
+import { useContext } from 'react';
+import type { LayoutDesignToken } from '../context/ProLayoutContext';
+import { ProLayoutContext } from '../context/ProLayoutContext';
 
 export interface ProLayoutHeaderToken extends ProAliasToken {
   componentCls: string;
@@ -8,7 +11,9 @@ export interface ProLayoutHeaderToken extends ProAliasToken {
   proLayoutCls: string;
 }
 
-const genProLayoutHeaderStyle: GenerateStyle<ProLayoutHeaderToken> = (token) => {
+const genProLayoutHeaderStyle: GenerateStyle<ProLayoutHeaderToken & LayoutDesignToken['header']> = (
+  token,
+) => {
   return {
     [token.proLayoutCls]: {
       [token.componentCls]: {
@@ -20,7 +25,7 @@ const genProLayoutHeaderStyle: GenerateStyle<ProLayoutHeaderToken> = (token) => 
         paddingBlock: 0,
         paddingInline: 8,
         borderBottom: `1px solid ${token.colorSplit}`,
-        backgroundColor: 'rgba(255, 255, 255, 0.58)',
+        backgroundColor: token.colorBgHeader || 'rgba(255, 255, 255, 0.4)',
         WebkitBackdropFilter: 'blur(8px)',
         backdropFilter: 'blur(8px)',
         '&-fixed-header': {
@@ -53,12 +58,15 @@ const genProLayoutHeaderStyle: GenerateStyle<ProLayoutHeaderToken> = (token) => 
 };
 
 export function useStyle(prefixCls: string, props: { proLayoutCls: string }) {
+  const { header } = useContext(ProLayoutContext);
+
   return useAntdStyle('pro-layout-header', (token) => {
-    const ProLayoutHeaderToken: ProLayoutHeaderToken = {
+    const ProLayoutHeaderToken: ProLayoutHeaderToken & LayoutDesignToken['header'] = {
       ...token,
       componentCls: `.${prefixCls}`,
       proLayoutCls: `.${props.proLayoutCls}`,
       ProLayoutHeaderHeaderHeight: 56,
+      ...header,
     };
 
     return [genProLayoutHeaderStyle(ProLayoutHeaderToken)];

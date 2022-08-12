@@ -699,12 +699,6 @@ const ProLayout: React.FC<ProLayoutProps> = (props) => {
           colorError: '#ff4d4f',
           colorInfo: '#1677FF',
         },
-        override: {
-          Layout: {
-            colorBgHeader: 'transparent',
-            colorBgBody: 'transparent',
-          },
-        },
       }}
     >
       <ConfigProviderWrap autoClearCache>

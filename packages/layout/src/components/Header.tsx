@@ -1,4 +1,4 @@
-import { Layout } from 'antd';
+import { ConfigProvider, Layout } from 'antd';
 import classNames from 'classnames';
 import React, { useCallback } from 'react';
 import { useStyle } from '../style/header';
@@ -88,20 +88,31 @@ const DefaultHeader: React.FC<HeaderViewProps & PrivateSiderMenuProps> = (props)
   if (layout === 'side' && !isMobile) return null;
   return wrapSSR(
     <>
-      {needFixedHeader && (
-        <Header
-          style={{
-            height: headerHeight,
-            lineHeight: `${headerHeight}px`,
-            backgroundColor: 'transparent',
-            zIndex: 19,
-            ...style,
-          }}
-        />
-      )}
-      <Header className={className} style={style}>
-        {renderContent()}
-      </Header>
+      <ConfigProvider
+        theme={{
+          override: {
+            Layout: {
+              colorBgHeader: 'transparent',
+              colorBgBody: 'transparent',
+            },
+          },
+        }}
+      >
+        {needFixedHeader && (
+          <Header
+            style={{
+              height: headerHeight,
+              lineHeight: `${headerHeight}px`,
+              backgroundColor: 'transparent',
+              zIndex: 19,
+              ...style,
+            }}
+          />
+        )}
+        <Header className={className} style={style}>
+          {renderContent()}
+        </Header>{' '}
+      </ConfigProvider>
     </>,
   );
 };
