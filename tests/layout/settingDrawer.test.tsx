@@ -90,7 +90,7 @@ describe('settingDrawer.test', () => {
         settings={defaultSettings}
         collapse
         getContainer={false}
-        onSettingChange={(setting) => onSettingChange(setting.primaryColor)}
+        onSettingChange={(setting) => onSettingChange(setting.colorPrimary)}
       />,
     );
     await waitForComponentToPaint(wrapper);
@@ -163,7 +163,7 @@ describe('settingDrawer.test', () => {
       fixedHeader: true,
       fixSiderbar: true,
       headerHeight: 56,
-      primaryColor: '#1677FF',
+      colorPrimary: '#1677FF',
       splitMenus: false,
     });
     act(() => {

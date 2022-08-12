@@ -93,19 +93,19 @@ export default () => {
         token={{
           header: {
             colorBgHeader: '#292f33',
-            headerTitleColor: '#fff',
-            menuTextColor: '#dfdfdf',
-            menuTextColorSecondary: '#dfdfdf',
-            menuSelectedTextColor: '#fff',
-            menuItemSelectedBgColor: '#22272b',
-            rightActionsItemTextColor: '#dfdfdf',
+            colorHeaderTitle: '#fff',
+            colorTextMenu: '#dfdfdf',
+            colorTextMenuSecondary: '#dfdfdf',
+            colorTextMenuSelected: '#fff',
+            colorBgMenuItemSelected: '#22272b',
+            colorTextRightActionsItem: '#dfdfdf',
           },
           sider: {
             colorMenuBackground: '#fff',
-            menuItemDividerColor: '#dfdfdf',
-            menuTextColor: '#595959',
-            menuSelectedTextColor: 'rgba(42,122,251,1)',
-            menuItemSelectedBgColor: 'rgba(230,243,254,1)',
+            colorMenuItemDivider: '#dfdfdf',
+            colorTextMenu: '#595959',
+            colorTextMenuSelected: 'rgba(42,122,251,1)',
+            colorBgMenuItemSelected: 'rgba(230,243,254,1)',
           },
         }}
         bgLayoutImgList={[

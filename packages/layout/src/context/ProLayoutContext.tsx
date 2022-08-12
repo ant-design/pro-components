@@ -15,14 +15,11 @@ export type BaseLayoutDesignToken = {
    * 跨站点应用的图标hover颜色
    */
   colorTextAppListIcon: string;
-  /**
-   * layout 的背景
-   */
-  bgLayout: string;
+
   /**
    * layout 的背景颜色
    */
-  colorBgLayout: string;
+  bgLayout: string;
 
   /**
    * 侧边side的 token 配置
@@ -114,7 +111,6 @@ export const DefaultDesignToken: BaseLayoutDesignToken = {
     heightLayoutHeader: 56,
   },
   bgLayout: 'linear-gradient(#fff, #f7f8fa 28%)',
-  colorBgLayout: '#f7f8fa',
   pageContainer: {
     colorBgPageContainer: 'transparent',
     marginBlockPageContainerContent: 40,
@@ -193,13 +189,11 @@ export const getLayoutDesignToken: (
   antdToken: Record<string, any>,
 ) => LayoutDesignToken = (designTokens, antdToken) => {
   const finalDesignTokens = { ...designTokens };
-
   return sortToken({
     ...DefaultDesignToken,
-    colorBgLayout: '#f7f8fa',
     bgLayout: 'linear-gradient(#fff, #f7f8fa 28%)',
-    appListIconTextColor: '#666',
-    appListIconHoverTextColor: antdToken.colorText,
+    colorTextAppListIcon: '#666',
+    colorTextAppListIconHover: antdToken.colorText,
     appListIconHoverBgColor: finalDesignTokens?.sider?.colorBgMenuItemSelected,
     ...finalDesignTokens,
     header: {

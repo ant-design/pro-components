@@ -180,7 +180,7 @@ export const defaultTheme = {
   colorFillSecondary: 'rgba(0, 0, 0, 0.04)',
   colorFillTertiary: 'rgba(0, 0, 0, 0.03)',
   colorFillQuaternary: 'rgba(0, 0, 0, 0.02)',
-  colorBgLayout: '#f5f5f5',
+  bgLayout: '#f5f5f5',
   colorBgContainer: '#ffffff',
   colorBgElevated: '#ffffff',
   colorBorder: '#d9d9d9',

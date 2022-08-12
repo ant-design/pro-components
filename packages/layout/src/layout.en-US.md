@@ -285,7 +285,7 @@ export interface Settings {
   /** Theme for nav menu */
   navTheme: 'light' | 'dark';
   /** Primary color of ant design */
-  primaryColor: string;
+  colorPrimary: string;
   /** Nav menu position: `side` or `top` */
   layout: 'side' | 'top';
   /** Layout of content: `Fluid` or `Fixed`, only works when layout is top */
@@ -413,26 +413,26 @@ The default token part comes from antd and may be changed, but here's the layout
 
 | token | Description | The default value is |
 | --- | --- | --- |
-| primaryColor | The main color is | `#1677FF` |
-| errorColor | Error color | `#ff4d4f` |
-| successColor | Success color | `#52c41a` |
-| infoColor | Notification color | `#1677FF` |
-| warningColor | Warning color | `#faad14` |
-| headingColor | Title color | `rgba(0, 0, 0, 0.85)` |
-| textColor | Body color | `rgba(0, 0, 0, 0.65)` |
-| textColorSecondary | Secondary color | `rgba(0, 0, 0, 0.45)` |
-| borderColorBase | Border basic color | `#d9d9d9` |
-| borderColorSplit | The color | that separates the border `rgba(0, 0, 0, 0.06)` |
-| borderRadiusBase | The default rounded corners | `4px` |
+| colorPrimary | The main color is | `#1677FF` |
+| colorError | Error color | `#ff4d4f` |
+| colorSuccess | Success color | `#52c41a` |
+| colorInfo | Notification color | `#1677FF` |
+| colorWarning | Warning color | `#faad14` |
+| colorTextHeading | Title color | `rgba(0, 0, 0, 0.85)` |
+| colorText | Body color | `rgba(0, 0, 0, 0.65)` |
+| colorTextSecondary | Secondary color | `rgba(0, 0, 0, 0.45)` |
+| colorBorder | Border basic color | `#d9d9d9` |
+| colorSplit | The color | that separates the border `rgba(0, 0, 0, 0.06)` |
+| radiusBase | The default rounded corners | `4px` |
 
 ### The token of layout
 
 | token | Description | The default value is |
 | --- | --- | --- |
-| colorBgLayout | Layout background color | `#f7f8fa` |
-| appListIconTextColor | The icon color applied across sites is | `#666` |
-| appListIconHoverTextColor | Icons applied across sites hover color | `rgba(0, 0, 0, 0.65)` |
-| appListIconHoverTextColor | Icons for cross-site apps hover background color | `rgba(0, 0, 0, 0.04)` |
+| bgLayout | Layout background color | `#f7f8fa` |
+| colorTextAppListIcon | The icon color applied across sites is | `#666` |
+| colorTextAppListIconHover | Icons applied across sites hover color | `rgba(0, 0, 0, 0.65)` |
+| colorTextAppListIconHover | Icons for cross-site apps hover background color | `rgba(0, 0, 0, 0.04)` |
 
 ### Sider Token
 
@@ -441,42 +441,42 @@ Sider Token is the color value of the side menu, unlike the top menu.
 | token | Description | The default value is |
 | --- | --- | --- |
 | colorMenuBackground | The background color of menu is | `transparent` |
-| menuTitleTextColor | The title font color of the sider is | `headingColor` |
-| menuItemDividerColor | The color of the menuItem divider line | `borderColorSplit` |
+| colorTextMenuTitle | The title font color of the sider is | `colorTextHeading` |
+| colorMenuItemDivider | The color of the menuItem divider line | `colorSplit` |
 | menuSubArrowColor | The arrow color of menuItem is | `rgba(0, 0, 0, 0.25)` |
-| menuTextColor | MenuItem's font color | `textColor` |
-| menuTextColorSecondary | Secondary font colors for menus, such as footers and icons for actions | `textColor` |
-| menuSelectedTextColor | MenuItem has a selected font color | `rgb(0,0,0)` |
-| menuItemHoverBgColor | menuItem's hover background color | `rgba(90, 75, 75, 0.03)` |
-| menuItemSelectedBgColor | MenuItem's selected background color | `rgba(0, 0, 0, 0.04)` |
-| menuItemCollapsedHoverBgColor | Collapse menuItem's hover background color | `rgba(0, 145, 255, 0.1)` |
-| menuItemCollapsedSelectedBgColor | Collapse the selected background color | menuItem `rgba(0, 145, 255, 0.08)` |
-| collapsedButtonBgColor | Expand the Collapse button background color | `#fff` |
-| collapsedButtonTextColor | Expand the Collapse button hover font color | `menuTextColorSecondary` |
-| collapsedButtonHoverTextColor | Font color when the collapse button hover is expanded | `menuTextColor` |
+| colorTextMenu | MenuItem's font color | `colorText` |
+| colorTextMenuSecondary | Secondary font colors for menus, such as footers and icons for actions | `colorText` |
+| colorTextMenuSelected | MenuItem has a selected font color | `rgb(0,0,0)` |
+| colorBgMenuItemHover | menuItem's hover background color | `rgba(90, 75, 75, 0.03)` |
+| colorBgMenuItemSelected | MenuItem's selected background color | `rgba(0, 0, 0, 0.04)` |
+| colorBgMenuItemCollapsedHover | Collapse menuItem's hover background color | `rgba(0, 145, 255, 0.1)` |
+| colorBgMenuItemCollapsedSelected | Collapse the selected background color | menuItem `rgba(0, 145, 255, 0.08)` |
+| colorBgCollapsedButton | Expand the Collapse button background color | `#fff` |
+| colorTextCollapsedButton | Expand the Collapse button hover font color | `colorTextMenuSecondary` |
+| colorTextCollapsedButtonHover | Font color when the collapse button hover is expanded | `colorTextMenu` |
 
 ### Header Token
 
 | token | Description | The default value is |
 | --- | --- | --- |
-| headerTitleColor | The title font color of the sider is | `headingColor` |
-| menuTextColor | MenuItem's font color | `textColor` |
-| menuTextColorSecondary | Secondary font colors for menus, such as footers and icons for actions | `textColor` |
-| menuSelectedTextColor | MenuItem has a selected font color | `rgb(0,0,0)` |
-| menuItemHoverBgColor | menuItem's hover background color | `rgba(90, 75, 75, 0.03)` |
-| menuItemSelectedBgColor | MenuItem's selected background color | `rgba(0, 0, 0, 0.04)` |
-| menuItemCollapsedHoverBgColor | Collapse menuItem's hover background color | `rgba(0, 145, 255, 0.1)` |
-| menuItemCollapsedSelectedBgColor | Collapse the selected background color | menuItem `rgba(0, 145, 255, 0.08)` |
-| rightActionsItemTextColor | Font color | in the upper-right corner `textColorSecondary` |
-| rightActionsItemHoverBgColor | The hover color selected in the upper-right corner | `rgba(0, 0, 0, 0.03)` |
+| colorHeaderTitle | The title font color of the sider is | `colorTextHeading` |
+| colorTextMenu | MenuItem's font color | `colorText` |
+| colorTextMenuSecondary | Secondary font colors for menus, such as footers and icons for actions | `colorText` |
+| colorTextMenuSelected | MenuItem has a selected font color | `rgb(0,0,0)` |
+| colorBgMenuItemHover | menuItem's hover background color | `rgba(90, 75, 75, 0.03)` |
+| colorBgMenuItemSelected | MenuItem's selected background color | `rgba(0, 0, 0, 0.04)` |
+| colorBgMenuItemCollapsedHover | Collapse menuItem's hover background color | `rgba(0, 145, 255, 0.1)` |
+| colorBgMenuItemCollapsedSelected | Collapse the selected background color | menuItem `rgba(0, 145, 255, 0.08)` |
+| colorTextRightActionsItem | Font color | in the upper-right corner `colorTextSecondary` |
+| colorBgRightActionsItemHover | The hover color selected in the upper-right corner | `rgba(0, 0, 0, 0.03)` |
 
 ### pageContainer Token
 
 | token | Description | The default value is |
 | --- | --- | --- |
-| pageContainerContentMargin | PageContainer comes with a margin | `#fff` |
+| marginBlockPageContainerContent | PageContainer comes with a margin | `#fff` |
 | colorBgPageContainer | The background color of pageContainer is | `transparent` |
-| pageContainerFixedBgColor | PageContainer is fixed when the background color | `#FFF` |
+| colorBgPageContainerFixed | PageContainer is fixed when the background color | `#FFF` |
 
 ## FAQ
 

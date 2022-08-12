@@ -349,7 +349,7 @@ export interface Settings {
   /** Theme for nav menu */
   navTheme: 'light' | 'dark';
   /** Primary color of ant design */
-  primaryColor: string;
+  colorPrimary: string;
   /** Nav menu position: `side` or `top` */
   layout: 'side' | 'top';
   /** Layout of content: `Fluid` or `Fixed`, only works when layout is top */
@@ -478,26 +478,26 @@ Token 是一种设计系统的基本元素，可以使用 Token 快速的修改�
 
 | token              | 说明           | 默认值                |
 | ------------------ | -------------- | --------------------- |
-| primaryColor       | 主色           | `#1677FF`             |
-| errorColor         | 错误色         | `#ff4d4f`             |
-| successColor       | 成功色         | `#52c41a`             |
-| infoColor          | 通知色         | `#1677FF`             |
-| warningColor       | 警告色         | `#faad14`             |
-| headingColor       | 标题色         | `rgba(0, 0, 0, 0.85)` |
-| textColor          | 正文色         | `rgba(0, 0, 0, 0.65)` |
-| textColorSecondary | 次级色         | `rgba(0, 0, 0, 0.45)` |
-| borderColorBase    | 边框基本色     | `#d9d9d9`             |
-| borderColorSplit   | 分隔边框的颜色 | `rgba(0, 0, 0, 0.06)` |
-| borderRadiusBase   | 默认圆角       | `4px`                 |
+| colorPrimary       | 主色           | `#1677FF`             |
+| colorError         | 错误色         | `#ff4d4f`             |
+| colorSuccess       | 成功色         | `#52c41a`             |
+| colorInfo          | 通知色         | `#1677FF`             |
+| colorWarning       | 警告色         | `#faad14`             |
+| colorTextHeading   | 标题色         | `rgba(0, 0, 0, 0.85)` |
+| colorText          | 正文色         | `rgba(0, 0, 0, 0.65)` |
+| colorTextSecondary | 次级色         | `rgba(0, 0, 0, 0.45)` |
+| colorBorder        | 边框基本色     | `#d9d9d9`             |
+| colorSplit         | 分隔边框的颜色 | `rgba(0, 0, 0, 0.06)` |
+| radiusBase         | 默认圆角       | `4px`                 |
 
 ### Layout 的 token
 
 | token                     | 说明                            | 默认值                |
 | ------------------------- | ------------------------------- | --------------------- |
-| colorBgLayout             | layout 的背景颜色               | `#f7f8fa`             |
-| appListIconTextColor      | 跨站点应用的图标颜色            | `#666`                |
-| appListIconHoverTextColor | 跨站点应用的图标 hover 颜色     | `rgba(0, 0, 0, 0.65)` |
-| appListIconHoverTextColor | 跨站点应用的图标 hover 背景颜色 | `rgba(0, 0, 0, 0.04)` |
+| bgLayout                  | layout 的背景颜色               | `#f7f8fa`             |
+| colorTextAppListIcon      | 跨站点应用的图标颜色            | `#666`                |
+| colorTextAppListIconHover | 跨站点应用的图标 hover 颜色     | `rgba(0, 0, 0, 0.65)` |
+| colorTextAppListIconHover | 跨站点应用的图标 hover 背景颜色 | `rgba(0, 0, 0, 0.04)` |
 
 ### Sider Token
 
@@ -506,42 +506,42 @@ Sider Token 是 侧边菜单的色值，与顶部菜单不同。
 | token | 说明 | 默认值 |
 | --- | --- | --- |
 | colorMenuBackground | menu 的背景颜色 | `transparent` |
-| menuTitleTextColor | sider 的标题字体颜色 | `headingColor` |
-| menuItemDividerColor | menuItem 分割线的颜色 | `borderColorSplit` |
-| menuSubArrowColor | menuItem 的箭头颜色 | `rgba(0, 0, 0, 0.25)` |
-| menuTextColor | menuItem 的字体颜色 | `textColor` |
-| menuTextColorSecondary | menu 的二级字体颜色，比如 footer 和 action 的 icon | `textColor` |
-| menuSelectedTextColor | menuItem 的选中字体颜色 | `rgb(0,0,0)` |
-| menuItemHoverBgColor | menuItem 的 hover 背景颜色 | `rgba(90, 75, 75, 0.03)` |
-| menuItemSelectedBgColor | menuItem 的选中背景颜色 | `rgba(0, 0, 0, 0.04)` |
-| menuItemCollapsedHoverBgColor | 收起 menuItem 的 hover 背景颜色 | `rgba(0, 145, 255, 0.1)` |
-| menuItemCollapsedSelectedBgColor | 收起 menuItem 的选中背景颜色 | `rgba(0, 145, 255, 0.08)` |
-| collapsedButtonBgColor | 展开收起按钮背景颜色 | `#fff` |
-| collapsedButtonTextColor | 展开收起按钮 hover 字体颜色 | `menuTextColorSecondary` |
-| collapsedButtonHoverTextColor | 展开收起按钮 hover 时字体颜色 | `menuTextColor` |
+| colorTextMenuTitle | sider 的标题字体颜色 | `colorTextHeading` |
+| colorMenuItemDivider | menuItem 分割线的颜色 | `colorSplit` |
+| colorTextMenu | menuItem 的字体颜色 | `colorText` |
+| colorTextMenuSecondary | menu 的二级字体颜色，比如 footer 和 action 的 icon | `colorText` |
+| colorTextMenuSelected | menuItem 的选中字体颜色 | `rgb(0,0,0)` |
+| colorBgMenuItemHover | menuItem 的 hover 背景颜色 | `rgba(90, 75, 75, 0.03)` |
+| colorBgMenuItemSelected | menuItem 的选中背景颜色 | `rgba(0, 0, 0, 0.04)` |
+| colorBgMenuItemCollapsedHover | 收起 menuItem 的 hover 背景颜色 | `rgba(0, 145, 255, 0.1)` |
+| colorBgMenuItemCollapsedSelected | 收起 menuItem 的选中背景颜色 | `rgba(0, 145, 255, 0.08)` |
+| colorBgCollapsedButton | 展开收起按钮背景颜色 | `#fff` |
+| colorTextCollapsedButton | 展开收起按钮 hover 字体颜色 | `colorTextMenuSecondary` |
+| colorTextCollapsedButtonHover | 展开收起按钮 hover 时字体颜色 | `colorTextMenu` |
 
 ### Header Token
 
 | token | 说明 | 默认值 |
 | --- | --- | --- |
-| headerTitleColor | sider 的标题字体颜色 | `headingColor` |
-| menuTextColor | menuItem 的字体颜色 | `textColor` |
-| menuTextColorSecondary | menu 的二级字体颜色，比如 footer 和 action 的 icon | `textColor` |
-| menuSelectedTextColor | menuItem 的选中字体颜色 | `rgb(0,0,0)` |
-| menuItemHoverBgColor | menuItem 的 hover 背景颜色 | `rgba(90, 75, 75, 0.03)` |
-| menuItemSelectedBgColor | menuItem 的选中背景颜色 | `rgba(0, 0, 0, 0.04)` |
-| menuItemCollapsedHoverBgColor | 收起 menuItem 的 hover 背景颜色 | `rgba(0, 145, 255, 0.1)` |
-| menuItemCollapsedSelectedBgColor | 收起 menuItem 的选中背景颜色 | `rgba(0, 145, 255, 0.08)` |
-| rightActionsItemTextColor | 右上角字体颜色 | `textColorSecondary` |
-| rightActionsItemHoverBgColor | 右上角选中的 hover 颜色 | `rgba(0, 0, 0, 0.03)` |
+| colorHeaderTitle | sider 的标题字体颜色 | `colorTextHeading` |
+| colorTextMenu | menuItem 的字体颜色 | `colorText` |
+| colorTextMenuSecondary | menu 的二级字体颜色，比如 footer 和 action 的 icon | `colorText` |
+| colorTextMenuSelected | menuItem 的选中字体颜色 | `rgb(0,0,0)` |
+| colorBgMenuItemHover | menuItem 的 hover 背景颜色 | `rgba(90, 75, 75, 0.03)` |
+| colorBgMenuItemSelected | menuItem 的选中背景颜色 | `rgba(0, 0, 0, 0.04)` |
+| colorBgMenuItemCollapsedHover | 收起 menuItem 的 hover 背景颜色 | `rgba(0, 145, 255, 0.1)` |
+| colorBgMenuItemCollapsedSelected | 收起 menuItem 的选中背景颜色 | `rgba(0, 145, 255, 0.08)` |
+| colorTextRightActionsItem | 右上角字体颜色 | `colorTextSecondary` |
+| colorBgRightActionsItemHover | 右上角选中的 hover 颜色 | `rgba(0, 0, 0, 0.03)` |
 
 ### pageContainer Token
 
-| token                      | 说明                             | 默认值        |
-| -------------------------- | -------------------------------- | ------------- |
-| pageContainerContentMargin | pageContainer 自带的 margin      | `#fff`        |
-| colorBgPageContainer       | pageContainer 的背景颜色         | `transparent` |
-| pageContainerFixedBgColor  | pageContainer 被固定时的背景颜色 | `#FFF`        |
+| token                            | 说明                               | 默认值        |
+| -------------------------------- | ---------------------------------- | ------------- |
+| marginBlockPageContainerContent  | pageContainer 自带的 margin block  | `24`          |
+| marginInlinePageContainerContent | pageContainer 自带的 margin inline | `40`          |
+| colorBgPageContainer             | pageContainer 的背景颜色           | `transparent` |
+| colorBgPageContainerFixed        | pageContainer 被固定时的背景颜色   | `#FFF`        |
 
 ## FAQ
 

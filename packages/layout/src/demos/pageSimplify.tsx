@@ -91,7 +91,7 @@ export default () => {
     >
       <ProLayout
         token={{
-          colorBgLayout: '#fff',
+          bgLayout: '#fff',
           header: {
             colorBgHeader: '#fff',
           },

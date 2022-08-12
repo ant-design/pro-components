@@ -32,7 +32,7 @@ type BodyProps = {
 };
 
 type MergerSettingsType<T> = Partial<T> & {
-  primaryColor?: string;
+  colorPrimary?: string;
   colorWeak?: boolean;
 };
 
@@ -137,7 +137,7 @@ const initState = (
   const replaceSetting = {};
   Object.keys(urlParams).forEach((key) => {
     if (defaultSettings[key] || defaultSettings[key] === undefined) {
-      if (key === 'primaryColor') {
+      if (key === 'colorPrimary') {
         replaceSetting[key] = genStringToTheme(urlParams[key]);
         return;
       }
@@ -176,7 +176,7 @@ const genCopySettingJson = (settingState: MergerSettingsType<ProSettings>) =>
     omit(
       {
         ...settingState,
-        primaryColor: settingState.primaryColor,
+        colorPrimary: settingState.colorPrimary,
       },
       ['colorWeak'],
     ),
@@ -237,7 +237,7 @@ export const SettingDrawer: React.FC<SettingDrawerProps> = (props) => {
     },
   );
 
-  const { navTheme, primaryColor, layout, colorWeak } = settingState || {};
+  const { navTheme, colorPrimary, layout, colorWeak } = settingState || {};
 
   useEffect(() => {
     // 语言修改，这个是和 locale 是配置起来的
@@ -260,7 +260,7 @@ export const SettingDrawer: React.FC<SettingDrawerProps> = (props) => {
 
   useEffect(() => {
     updateTheme(settingState.navTheme === 'realDark');
-  }, [settingState.primaryColor, settingState.navTheme]);
+  }, [settingState.colorPrimary, settingState.navTheme]);
   /**
    * 修改设置
    *
@@ -407,9 +407,9 @@ export const SettingDrawer: React.FC<SettingDrawerProps> = (props) => {
               <ThemeColor
                 prefixCls={baseClassName}
                 colorList={colorList}
-                value={genStringToTheme(primaryColor)!}
+                value={genStringToTheme(colorPrimary)!}
                 formatMessage={formatMessage}
-                onChange={(color) => changeSetting('primaryColor', color)}
+                onChange={(color) => changeSetting('colorPrimary', color)}
               />
             </Body>
           )}

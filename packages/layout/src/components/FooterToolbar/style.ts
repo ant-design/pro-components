@@ -4,7 +4,7 @@ import type { GenerateStyle } from 'antd/es/theme';
 
 export interface AppsLogoComponentsToken extends ProAliasToken {
   componentCls: string;
-  procolorBgLayout?: string;
+  probgLayout?: string;
 }
 
 const genFooterToolBarStyle: GenerateStyle<AppsLogoComponentsToken> = (token) => {
@@ -22,7 +22,7 @@ const genFooterToolBarStyle: GenerateStyle<AppsLogoComponentsToken> = (token) =>
       boxSizing: 'border-box',
       lineHeight: '64px',
       /* A way to reset the style of the component. */
-      backgroundColor: token.procolorBgLayout || 'rgba(255, 255, 255, 0.58)',
+      backgroundColor: token.probgLayout || 'rgba(255, 255, 255, 0.58)',
       borderTop: `1px solid ${token.colorSplit}`,
       '-webkit-backdrop-filter': 'blur(8px)',
       backdropFilter: 'blur(8px)',

@@ -120,7 +120,7 @@ export type PureSettings = {
    */
   iconfontUrl?: string;
   /** @name 主色，需要配合 umi 使用 */
-  primaryColor?: string;
+  colorPrimary?: string;
   /** @name 全局增加滤镜 */
   colorWeak?: boolean;
   /**
@@ -141,7 +141,7 @@ const defaultSettings: ProSettings = {
   fixSiderbar: true,
   headerHeight: 56,
   iconfontUrl: '',
-  primaryColor: '#1677FF',
+  colorPrimary: '#1677FF',
   splitMenus: false,
 };
 export { defaultSettings };
