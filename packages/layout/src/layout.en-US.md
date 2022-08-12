@@ -429,7 +429,7 @@ The default token part comes from antd and may be changed, but here's the layout
 
 | token | Description | The default value is |
 | --- | --- | --- |
-| layoutBgColor | Layout background color | `#f7f8fa` |
+| colorBgLayout | Layout background color | `#f7f8fa` |
 | appListIconTextColor | The icon color applied across sites is | `#666` |
 | appListIconHoverTextColor | Icons applied across sites hover color | `rgba(0, 0, 0, 0.65)` |
 | appListIconHoverTextColor | Icons for cross-site apps hover background color | `rgba(0, 0, 0, 0.04)` |
@@ -440,7 +440,7 @@ Sider Token is the color value of the side menu, unlike the top menu.
 
 | token | Description | The default value is |
 | --- | --- | --- |
-| menuBackgroundColor | The background color of menu is | `transparent` |
+| colorMenuBackground | The background color of menu is | `transparent` |
 | menuTitleTextColor | The title font color of the sider is | `headingColor` |
 | menuItemDividerColor | The color of the menuItem divider line | `borderColorSplit` |
 | menuSubArrowColor | The arrow color of menuItem is | `rgba(0, 0, 0, 0.25)` |
@@ -475,7 +475,7 @@ Sider Token is the color value of the side menu, unlike the top menu.
 | token | Description | The default value is |
 | --- | --- | --- |
 | pageContainerContentMargin | PageContainer comes with a margin | `#fff` |
-| pageContainerBgColor | The background color of pageContainer is | `transparent` |
+| colorBgPageContainer | The background color of pageContainer is | `transparent` |
 | pageContainerFixedBgColor | PageContainer is fixed when the background color | `#FFF` |
 
 ## FAQ

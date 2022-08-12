@@ -91,19 +91,18 @@ export default () => {
     >
       <ProLayout
         token={{
-          layoutBgColor: '#fff',
+          colorBgLayout: '#fff',
           header: {
-            headerBgColor: '#fff',
+            colorBgHeader: '#fff',
           },
           sider: {
-            menuBackgroundColor: '#fff',
+            colorMenuBackground: '#fff',
           },
           pageContainer: {
-            pageContainerBgColor: '#fff',
-            pageContainerContentMargin: '#fff',
+            colorBgPageContainer: '#fff',
           },
         }}
-        layoutBgImgList={[
+        bgLayoutImgList={[
           {
             src: 'https://img.alicdn.com/imgextra/i2/O1CN01O4etvp1DvpFLKfuWq_!!6000000000279-2-tps-609-606.png',
             left: 85,

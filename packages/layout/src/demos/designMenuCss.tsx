@@ -92,7 +92,7 @@ export default () => {
       <ProLayout
         token={{
           header: {
-            headerBgColor: '#292f33',
+            colorBgHeader: '#292f33',
             headerTitleColor: '#fff',
             menuTextColor: '#dfdfdf',
             menuTextColorSecondary: '#dfdfdf',
@@ -101,14 +101,14 @@ export default () => {
             rightActionsItemTextColor: '#dfdfdf',
           },
           sider: {
-            menuBackgroundColor: '#fff',
+            colorMenuBackground: '#fff',
             menuItemDividerColor: '#dfdfdf',
             menuTextColor: '#595959',
             menuSelectedTextColor: 'rgba(42,122,251,1)',
             menuItemSelectedBgColor: 'rgba(230,243,254,1)',
           },
         }}
-        layoutBgImgList={[
+        bgLayoutImgList={[
           {
             src: 'https://img.alicdn.com/imgextra/i2/O1CN01O4etvp1DvpFLKfuWq_!!6000000000279-2-tps-609-606.png',
             left: 85,

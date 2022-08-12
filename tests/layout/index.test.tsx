@@ -178,7 +178,7 @@ describe('BasicLayout', () => {
   it('🥩 group title when collapsed, title is hidden', async () => {
     const wrapper = render(
       <ProLayout
-        layoutBgImgList={[
+        bgLayoutImgList={[
           {
             src: 'https://gw.alipayobjects.com/zos/antfincdn/tQVPs1q2X%26/yonghushenfen.png',
           },
@@ -225,7 +225,7 @@ describe('BasicLayout', () => {
 
     wrapper.rerender(
       <ProLayout
-        layoutBgImgList={[
+        bgLayoutImgList={[
           {
             src: 'https://gw.alipayobjects.com/zos/antfincdn/tQVPs1q2X%26/yonghushenfen.png',
           },

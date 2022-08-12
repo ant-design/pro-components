@@ -90,7 +90,7 @@ export default () => {
       }}
     >
       <ProLayout
-        layoutBgImgList={[
+        bgLayoutImgList={[
           {
             src: 'https://img.alicdn.com/imgextra/i2/O1CN01O4etvp1DvpFLKfuWq_!!6000000000279-2-tps-609-606.png',
             left: 85,

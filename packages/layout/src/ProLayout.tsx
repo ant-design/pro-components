@@ -50,7 +50,7 @@ type GlobalTypes = Omit<
 
 export type ProLayoutProps = GlobalTypes & {
   /** Layout 的品牌配置，表现为一张背景图片 */
-  layoutBgImgList?: {
+  bgLayoutImgList?: {
     src?: string;
     width?: string;
     height?: string;
@@ -366,7 +366,7 @@ const BaseProLayout: React.FC<ProLayoutProps> = (props) => {
     isChildrenLayout: propsIsChildrenLayout,
     menuDataRender,
     actionRef,
-    layoutBgImgList,
+    bgLayoutImgList,
     formatMessage: propsFormatMessage,
     loading,
   } = props || {};
@@ -607,8 +607,8 @@ const BaseProLayout: React.FC<ProLayoutProps> = (props) => {
   const [hasFooterToolbar, setHasFooterToolbar] = useState(false);
   useDocumentTitle(pageTitleInfo, props.title || false);
   const bgImgStyleList = useMemo(() => {
-    if (layoutBgImgList && layoutBgImgList.length > 0) {
-      return layoutBgImgList.map((item, index) => {
+    if (bgLayoutImgList && bgLayoutImgList.length > 0) {
+      return bgLayoutImgList.map((item, index) => {
         return (
           <img
             key={index}
@@ -622,7 +622,7 @@ const BaseProLayout: React.FC<ProLayoutProps> = (props) => {
       });
     }
     return null;
-  }, [layoutBgImgList]);
+  }, [bgLayoutImgList]);
 
   return wrapSSR(
     <MenuCounter.Provider>

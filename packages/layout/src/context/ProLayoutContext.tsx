@@ -196,8 +196,8 @@ export const getLayoutDesignToken: (
 
   return sortToken({
     ...DefaultDesignToken,
-    layoutBgColor: '#f7f8fa',
-    layoutBg: 'linear-gradient(#fff, #f7f8fa 28%)',
+    colorBgLayout: '#f7f8fa',
+    bgLayout: 'linear-gradient(#fff, #f7f8fa 28%)',
     appListIconTextColor: '#666',
     appListIconHoverTextColor: antdToken.colorText,
     appListIconHoverBgColor: finalDesignTokens?.sider?.colorBgMenuItemSelected,

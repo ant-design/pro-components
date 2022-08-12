@@ -4,7 +4,7 @@ import type { GenerateStyle } from 'antd/es/theme';
 
 export interface GlobalFooterToken extends ProAliasToken {
   componentCls: string;
-  proLayoutBgColor?: string;
+  procolorBgLayout?: string;
 }
 
 const genFooterToolBarStyle: GenerateStyle<GlobalFooterToken> = (token) => {
