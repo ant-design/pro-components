@@ -78,9 +78,13 @@ export type BaseLayoutDesignToken = {
      */
     colorBgPageContainer: string;
     /**
-     * pageContainer 自带的 margin
+     * pageContainer 自带的 margin inline
      */
-    marginPageContainerContent: string;
+    marginInlinePageContainerContent: number;
+    /**
+     * pageContainer 自带的 margin block
+     */
+    marginBlockPageContainerContent: number;
     /**
      * pageContainer 被固定时的背景颜色
      */
@@ -121,7 +125,8 @@ export const DefaultDesignToken: BaseLayoutDesignToken = {
   colorBgLayout: '#f7f8fa',
   pageContainer: {
     colorBgPageContainer: 'transparent',
-    marginPageContainerContent: '0px 40px 0px 40px',
+    marginBlockPageContainerContent: 40,
+    marginInlinePageContainerContent: 24,
     colorBgPageContainerFixed: '#fff',
   },
   sider: {
