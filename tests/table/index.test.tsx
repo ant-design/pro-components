@@ -1477,7 +1477,7 @@ describe('BasicTable', () => {
     expect(fn).toBeCalledTimes(2);
   });
 
-  fit('🎏 support showHiddenNum', async () => {
+  it('🎏 support showHiddenNum', async () => {
     const ref = React.createRef<ActionType>();
     const fn = jest.fn();
     const html = ReactRender(

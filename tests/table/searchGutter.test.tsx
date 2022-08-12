@@ -64,7 +64,7 @@ describe('BasicTable SearchGutter', () => {
     expect(window.getComputedStyle(ele!).padding).toBe('12px 8px 12px 8px');
   });
 
-  fit('🎏 ProTable searchGutter default is [24 0]', async () => {
+  it('🎏 ProTable searchGutter default is [24 0]', async () => {
     const html = render(
       <ProTable
         size="small"
