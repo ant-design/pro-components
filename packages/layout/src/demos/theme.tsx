@@ -21,7 +21,6 @@ export default () => {
         colorBgAppListIconHover: 'rgba(0,0,0,0.06)',
         colorTextAppListIconHover: 'rgba(255,255,255,0.95)',
         colorTextAppListIcon: 'rgba(255,255,255,0.85)',
-
         sider: {
           colorBgCollapsedButton: '#fff',
           colorTextCollapsedButtonHover: 'rgba(0,0,0,0.65)',

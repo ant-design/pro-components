@@ -111,7 +111,7 @@ const DefaultHeader: React.FC<HeaderViewProps & PrivateSiderMenuProps> = (props)
         )}
         <Header className={className} style={style}>
           {renderContent()}
-        </Header>{' '}
+        </Header>
       </ConfigProvider>
     </>,
   );

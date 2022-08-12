@@ -1,14 +1,16 @@
 ﻿import type { ProAliasToken } from '@ant-design/pro-utils';
 import { setAlpha, useStyle as useAntdStyle } from '@ant-design/pro-utils';
 import type { GenerateStyle } from 'antd/es/theme';
-
+import { useContext } from 'react';
+import type { BaseLayoutDesignToken } from '../../context/ProLayoutContext';
+import { ProLayoutContext } from '../../context/ProLayoutContext';
 export interface TopNavHeaderToken extends ProAliasToken {
   componentCls: string;
-  proLayoutColorHeaderTitle: string;
-  proLayoutColorHeader: number;
 }
 
-const genTopNavHeaderStyle: GenerateStyle<TopNavHeaderToken> = (token) => {
+const genTopNavHeaderStyle: GenerateStyle<TopNavHeaderToken & BaseLayoutDesignToken['header']> = (
+  token,
+) => {
   return {
     [token.componentCls]: {
       position: 'relative',
@@ -49,7 +51,7 @@ const genTopNavHeaderStyle: GenerateStyle<TopNavHeaderToken> = (token) => {
           marginInlineStart: 6,
           fontWeight: '600',
           fontSize: '16px',
-          color: token?.proLayoutColorHeaderTitle,
+          color: token?.colorHeaderTitle,
           verticalAlign: 'top',
         },
       },
@@ -59,7 +61,7 @@ const genTopNavHeaderStyle: GenerateStyle<TopNavHeaderToken> = (token) => {
         alignItems: 'center',
         paddingInline: 6,
         paddingBlock: 6,
-        lineHeight: `${token.proLayoutColorHeader - 12}px`,
+        lineHeight: `${token.heightLayoutHeader - 12}px`,
       },
       '&-header-actions': {
         display: 'flex',
@@ -79,7 +81,7 @@ const genTopNavHeaderStyle: GenerateStyle<TopNavHeaderToken> = (token) => {
             paddingBlock: 6,
             borderRadius: token.radiusBase,
             ':hover': {
-              backgroundColor: 'rgba(0, 0, 0, 0.03)',
+              backgroundColor: token.colorBgRightActionsItemHover,
             },
           },
         },
@@ -111,12 +113,12 @@ const genTopNavHeaderStyle: GenerateStyle<TopNavHeaderToken> = (token) => {
 };
 
 export function useStyle(prefixCls: string) {
+  const { header } = useContext(ProLayoutContext);
   return useAntdStyle('top-nav-header', (token) => {
-    const topNavHeaderToken: TopNavHeaderToken = {
+    const topNavHeaderToken: TopNavHeaderToken & BaseLayoutDesignToken['header'] = {
       ...token,
       componentCls: `.${prefixCls}`,
-      proLayoutColorHeader: 56,
-      proLayoutColorHeaderTitle: token.colorTextHeading,
+      ...header,
     };
 
     return [genTopNavHeaderStyle(topNavHeaderToken)];

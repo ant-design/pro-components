@@ -31,8 +31,6 @@ export type BaseLayoutDesignToken = {
     colorBgCollapsedButton: string;
     colorTextCollapsedButtonHover: string;
     colorTextCollapsedButton: string;
-    marginHorizontalMenuItem: string;
-    paddingHorizontalMenuItem: string;
     colorMenuBackground: string;
     colorBgMenuItemCollapsedHover: string;
     colorBgMenuItemCollapsedSelected: string;
@@ -55,10 +53,6 @@ export type BaseLayoutDesignToken = {
   header: {
     colorBgHeader: string;
     colorHeaderTitle: string;
-    marginHorizontalMenuItem: string;
-    paddingHorizontalMenuItem: string;
-    colorBgMenuItemCollapsedHover: string;
-    colorBgMenuItemCollapsedSelected: string;
     colorBgMenuItemHover: string;
     colorBgMenuItemSelected: string;
     colorTextMenuSelected: string;
@@ -67,6 +61,7 @@ export type BaseLayoutDesignToken = {
     colorTextMenuSecondary: string;
     colorBgRightActionsItemHover: string;
     colorTextRightActionsItem: string;
+    heightLayoutHeader: number;
   };
 
   /**
@@ -108,10 +103,6 @@ export const DefaultDesignToken: BaseLayoutDesignToken = {
   header: {
     colorBgHeader: 'rgba(240, 242, 245, 0.4)',
     colorHeaderTitle: 'rgba(0, 0, 0, 0.85)',
-    marginHorizontalMenuItem: '0 4px',
-    paddingHorizontalMenuItem: '0 16px',
-    colorBgMenuItemCollapsedHover: 'rgba(90, 75, 75, 0.03)',
-    colorBgMenuItemCollapsedSelected: 'rgba(0, 0, 0, 0.04)',
     colorBgMenuItemHover: 'rgba(90, 75, 75, 0.03)',
     colorBgMenuItemSelected: 'rgba(0, 0, 0, 0.04)',
     colorTextMenuSelected: 'rgb(0,0,0,0.95)',
@@ -120,6 +111,7 @@ export const DefaultDesignToken: BaseLayoutDesignToken = {
     colorBgRightActionsItemHover: 'rgba(0, 0, 0, 0.03)',
     colorTextRightActionsItem: 'rgba(0, 0, 0, 0.45)',
     colorTextMenuActive: 'rgb(0,0,0,0.85)',
+    heightLayoutHeader: 56,
   },
   bgLayout: 'linear-gradient(#fff, #f7f8fa 28%)',
   colorBgLayout: '#f7f8fa',
@@ -133,8 +125,6 @@ export const DefaultDesignToken: BaseLayoutDesignToken = {
     colorBgCollapsedButton: '#fff',
     colorTextCollapsedButtonHover: 'rgba(0, 0, 0, 0.85)',
     colorTextCollapsedButton: 'rgba(0, 0, 0, 0.45)',
-    marginHorizontalMenuItem: '0 4px',
-    paddingHorizontalMenuItem: '0 16px',
     colorMenuBackground: 'transparent',
     colorBgMenuItemCollapsedHover: 'rgba(90, 75, 75, 0.03)',
     colorBgMenuItemCollapsedSelected: 'rgba(0, 0, 0, 0.04)',

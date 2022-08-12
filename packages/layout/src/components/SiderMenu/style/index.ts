@@ -7,16 +7,15 @@ import { ProLayoutContext } from '../../../context/ProLayoutContext';
 
 export interface SiderMenuToken extends ProAliasToken {
   componentCls: string;
-  proLayoutCls: string;
   proLayoutCollapsedWidth: number;
-  proLayoutHeaderHeight: number;
+  heightLayoutHeader: number;
 }
 
 const genSiderMenuStyle: GenerateStyle<SiderMenuToken & BaseLayoutDesignToken['sider']> = (
   token,
 ) => {
   return {
-    [token.proLayoutCls]: {
+    [`${token.proComponentsCls}-layout`]: {
       [token.componentCls]: {
         position: 'relative',
         background: token.colorMenuBackground || 'transparent',
@@ -148,8 +147,8 @@ const genSiderMenuStyle: GenerateStyle<SiderMenuToken & BaseLayoutDesignToken['s
           position: 'absolute',
         },
         '&-mix': {
-          height: `calc(100% - ${token.proLayoutHeaderHeight}px)`,
-          insetBlockStart: `${token.proLayoutHeaderHeight}px`,
+          height: `calc(100% - ${token.heightLayoutHeader}px)`,
+          insetBlockStart: `${token.heightLayoutHeader}px`,
         },
         '&-extra': {
           marginBlockEnd: 16,
@@ -183,23 +182,18 @@ const genSiderMenuStyle: GenerateStyle<SiderMenuToken & BaseLayoutDesignToken['s
 export function useStyle(
   prefixCls: string,
   {
-    proLayoutCls,
-    proLayoutHeaderHeight,
     proLayoutCollapsedWidth,
   }: {
-    proLayoutCls: string;
-    proLayoutHeaderHeight: number;
     proLayoutCollapsedWidth: number;
   },
 ) {
-  const { sider } = useContext(ProLayoutContext);
+  const { sider, header } = useContext(ProLayoutContext);
   return useAntdStyle('sider-menu', (token) => {
     const siderMenuToken: SiderMenuToken & BaseLayoutDesignToken['sider'] = {
       ...token,
       componentCls: `.${prefixCls}`,
-      proLayoutCls: `.${proLayoutCls}`,
-      proLayoutHeaderHeight,
       proLayoutCollapsedWidth,
+      heightLayoutHeader: header.heightLayoutHeader,
       ...sider,
     };
 

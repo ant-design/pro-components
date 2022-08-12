@@ -1,11 +1,12 @@
 ﻿import type { ProAliasToken } from '@ant-design/pro-utils';
 import { useStyle as useAntdStyle } from '@ant-design/pro-utils';
 import type { GenerateStyle } from 'antd/es/theme';
+import { useContext } from 'react';
+import { ProLayoutContext } from '../../context/ProLayoutContext';
 
 export interface GlobalHeaderToken extends ProAliasToken {
   componentCls: string;
-  isMobile: boolean;
-  proLayoutHeaderHeight: number;
+  heightLayoutHeader: number;
 }
 
 const genGlobalHeaderStyle: GenerateStyle<GlobalHeaderToken> = (token) => {
@@ -17,7 +18,7 @@ const genGlobalHeaderStyle: GenerateStyle<GlobalHeaderToken> = (token) => {
       alignItems: 'center',
       marginBlock: 0,
       marginInline: 16,
-      height: token.proLayoutHeaderHeight,
+      height: token.heightLayoutHeader,
       boxSizing: 'border-box',
       '> a': {
         height: '100%',
@@ -61,13 +62,13 @@ const genGlobalHeaderStyle: GenerateStyle<GlobalHeaderToken> = (token) => {
   };
 };
 
-export function useStyle(prefixCls: string, props: { isMobile: boolean }) {
+export function useStyle(prefixCls: string) {
+  const { header } = useContext(ProLayoutContext);
   return useAntdStyle('pro-layout-global-header', (token) => {
     const GlobalHeaderToken: GlobalHeaderToken = {
       ...token,
       componentCls: `.${prefixCls}`,
-      proLayoutHeaderHeight: 56,
-      ...props,
+      heightLayoutHeader: header.heightLayoutHeader,
     };
 
     return [genGlobalHeaderStyle(GlobalHeaderToken)];
