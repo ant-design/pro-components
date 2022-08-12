@@ -2,10 +2,12 @@
 import { useStyle as useAntdStyle } from '@ant-design/pro-utils';
 import { version } from 'antd';
 import type { GenerateStyle } from 'antd/es/theme';
+import { useContext } from 'react';
+import type { LayoutDesignToken } from '../context/ProLayoutContext';
+import { ProLayoutContext } from '../context/ProLayoutContext';
 
 export interface ProLayoutToken extends ProAliasToken {
   componentCls: string;
-  proLayoutBg: string;
 }
 const defaultMenuToken = {
   colorItemBg: 'transparent',
@@ -118,7 +120,7 @@ const compatibleStyle: GenerateStyle<ProLayoutToken> = (token) => {
   };
 };
 
-const genProLayoutStyle: GenerateStyle<ProLayoutToken> = (token) => {
+const genProLayoutStyle: GenerateStyle<ProLayoutToken & LayoutDesignToken> = (token) => {
   return {
     body: {
       paddingBlock: 0,
@@ -134,10 +136,10 @@ const genProLayoutStyle: GenerateStyle<ProLayoutToken> = (token) => {
         width: '100%',
         backgroundColor: 'transparent',
         position: 'relative',
-        '*': { boxSizing: 'border-box', fontFamily: token.fontFamily },
+        '*': { boxSizing: 'border-box' },
         '&-content-has-margin': {
-          marginBlock: 16,
-          marginInline: 24,
+          marginBlock: token.pageContainer.marginBlockPageContainerContent,
+          marginInline: token.pageContainer.marginInlinePageContainerContent,
         },
       },
       [`${token.componentCls}-bg-list`]: {
@@ -149,18 +151,19 @@ const genProLayoutStyle: GenerateStyle<ProLayoutToken> = (token) => {
         zIndex: 0,
         height: '100%',
         width: '100%',
-        background: token.proLayoutBg,
+        background: token.bgLayout,
       },
     },
   };
 };
 
 export function useStyle(prefixCls: string) {
+  const proToken = useContext(ProLayoutContext);
   return useAntdStyle('pro-layout', (token) => {
-    const proLayoutToken: ProLayoutToken = {
+    const proLayoutToken: ProLayoutToken & LayoutDesignToken = {
       ...token,
       componentCls: `.${prefixCls}`,
-      proLayoutBg: 'transparent',
+      ...proToken,
     };
 
     return [genProLayoutStyle(proLayoutToken), compatibleStyle(proLayoutToken)];
