@@ -95,20 +95,20 @@ describe('settingDrawer.test', () => {
     );
     await waitForComponentToPaint(wrapper);
     act(() => {
-      const button = wrapper.find('div.theme-color-content div.theme-color-block').at(0);
+      const button = wrapper.find('div.ant-pro-setting-drawer-theme-color-block').at(0);
       button.simulate('click');
     });
     await waitForComponentToPaint(wrapper);
     expect(onSettingChange).toBeCalledWith('#1677FF');
 
     act(() => {
-      const button = wrapper.find('div.theme-color-content div.theme-color-block').at(1);
+      const button = wrapper.find('div.ant-pro-setting-drawer-theme-color-block').at(1);
       button.simulate('click');
     });
     await waitForComponentToPaint(wrapper);
 
     expect(onSettingChange).toBeCalledWith('#F5222D');
-    expect(wrapper.find('div.theme-color-content div.theme-color-block').length).toBe(9);
+    expect(wrapper.find('div.ant-pro-setting-drawer-theme-color-block').length).toBe(9);
     act(() => {
       wrapper.unmount();
     });
@@ -495,7 +495,7 @@ describe('settingDrawer.test', () => {
       expect(
         (
           html.baseElement.querySelectorAll(
-            '.ant-pro-setting-drawer-title',
+            '.ant-pro-setting-drawer-body-title',
           )[0] as HTMLHeadingElement
         ).textContent,
       ).toEqual('整体风格设置');
@@ -516,7 +516,7 @@ describe('settingDrawer.test', () => {
       expect(
         (
           html.baseElement.querySelectorAll(
-            '.ant-pro-setting-drawer-title',
+            '.ant-pro-setting-drawer-body-title',
           )[0] as HTMLHeadingElement
         ).textContent,
       ).toEqual('Page style setting');

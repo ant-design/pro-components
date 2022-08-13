@@ -44,7 +44,7 @@ describe('LoginForm', () => {
     );
     await waitForComponentToPaint(wrapper);
 
-    expect(wrapper.find('.ant-pro-form-login-other .anticon').length).toEqual(3);
+    expect(wrapper.find('.ant-pro-form-login-main-other .anticon').length).toEqual(3);
   });
 
   it('📦 LoginForm support string logo', async () => {

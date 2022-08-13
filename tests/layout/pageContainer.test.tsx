@@ -407,6 +407,8 @@ describe('PageContainer', () => {
         }}
       />,
     );
-    expect(html.container.getElementsByClassName('has-breadcrumb')[0].innerHTML).toBe('diss');
+    expect(
+      html.container.getElementsByClassName('ant-page-header-has-breadcrumb')[0].innerHTML,
+    ).toBe('diss');
   });
 });

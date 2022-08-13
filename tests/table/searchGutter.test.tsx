@@ -89,6 +89,6 @@ describe('BasicTable SearchGutter', () => {
     await waitForComponentToPaint(html, 1200);
     html.debug();
     const ele = html.baseElement.querySelector<HTMLDivElement>('.ant-col');
-    expect(ele?.style.paddingLeft).toBe('12px');
+    expect(ele?.style.paddingLeft).toBe('6px');
   });
 });

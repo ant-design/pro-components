@@ -389,9 +389,7 @@ describe('LightFilter', () => {
     });
     await waitForComponentToPaint(wrapper);
 
-    expect(wrapper.find('.ant-pro-core-field-label').text()).toEqual(
-      '日期范围: 2016-11-02 ~ 2016-11-12',
-    );
+    expect(wrapper.find('.ant-pro-core-field-label').text()).toMatchSnapshot();
 
     await waitForComponentToPaint(wrapper);
     expect(onFinish).toHaveBeenCalledWith({ date: ['2016-11-02', '2016-11-12'] });
@@ -430,9 +428,7 @@ describe('LightFilter', () => {
     });
     await waitForComponentToPaint(wrapper);
 
-    expect(wrapper.find('.ant-pro-core-field-label').text()).toEqual(
-      '日期范围: 2016-11-02 ~ 2016-11-12',
-    );
+    expect(wrapper.find('.ant-pro-core-field-label').text()).toMatchSnapshot();
     await waitForComponentToPaint(wrapper);
     act(() => {
       wrapper.unmount();
@@ -461,9 +457,7 @@ describe('LightFilter', () => {
     });
     await waitForComponentToPaint(wrapper);
 
-    expect(wrapper.find('.ant-pro-core-field-label').text()).toEqual(
-      '日期时间: 2016-11-05 07:22:44',
-    );
+    expect(wrapper.find('.ant-pro-core-field-label').text()).toMatchSnapshot();
     expect(onFinish).toHaveBeenCalledWith({ datetime: '2016-11-05 07:22:44' });
 
     await waitForComponentToPaint(wrapper);
