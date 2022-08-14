@@ -3909,7 +3909,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/components/WaterMark/de
     </div>
     <div
       class="ant-pro-layout-watermark"
-      style="z-index: 9; position: absolute; left: 0px; top: 0px; width: 100%; height: 100%; background-size: 327px; pointer-events: none; background-repeat: repeat; background-image: url();"
+      style="z-index: 9; position: absolute; left: 0px; top: 0px; width: 100%; height: 100%; background-size: 327px; pointer-events: none; background-repeat: repeat;"
     />
   </div>
 </DocumentFragment>
