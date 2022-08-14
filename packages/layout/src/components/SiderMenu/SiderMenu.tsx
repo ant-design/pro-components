@@ -1,7 +1,9 @@
-import { Avatar, AvatarProps, ConfigProvider, Layout, Menu, SiderProps, Space } from 'antd';
+import type { AvatarProps, SiderProps} from 'antd';
+import { Avatar, ConfigProvider, Layout, Menu, Space } from 'antd';
 import type { ItemType } from 'antd/es/menu/hooks/useItems';
 import classNames from 'classnames';
-import React, { CSSProperties, useContext, useMemo } from 'react';
+import type { CSSProperties} from 'react';
+import React, { useContext, useMemo } from 'react';
 import { ProLayoutContext } from '../../context/ProLayoutContext';
 import type { WithFalse } from '../../typings';
 import type { AppsLogoComponentsAppList } from '../AppsLogoComponents';
