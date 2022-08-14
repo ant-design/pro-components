@@ -96,9 +96,7 @@ const GlobalHeader: React.FC<GlobalHeaderProps & PrivateSiderMenuProps> = (props
   } = props;
   const { direction } = useContext(ConfigProvider.ConfigContext);
   const baseClassName = `${prefixCls}-global-header`;
-  const { wrapSSR, hashId } = useStyle(baseClassName, {
-    isMobile: !!isMobile,
-  });
+  const { wrapSSR, hashId } = useStyle(baseClassName);
 
   const className = classNames(propClassName, baseClassName, hashId, {
     [`${baseClassName}-layout-${layout}`]: layout && headerTheme === 'dark',
