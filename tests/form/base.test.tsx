@@ -12,7 +12,7 @@ import ProForm, {
   ProFormText,
 } from '@ant-design/pro-form';
 import '@testing-library/jest-dom';
-import { render as reactRender } from '@testing-library/react';
+import { fireEvent, render } from '@testing-library/react';
 import { Button, ConfigProvider, Input } from 'antd';
 import dayjs from 'dayjs';
 import { mount } from 'enzyme';
@@ -22,20 +22,20 @@ import { waitForComponentToPaint, waitTime } from '../util';
 
 describe('ProForm', () => {
   it('📦 submit props actionsRender=false', async () => {
-    const wrapper = mount(<ProForm submitter={false} />);
+    const wrapper = render(<ProForm submitter={false} />);
     await waitForComponentToPaint(wrapper);
-    expect(wrapper.render()).toMatchSnapshot();
+    expect(wrapper.baseElement).toMatchSnapshot();
   });
 
   it('📦 componentSize is work', async () => {
-    const wrapper = mount(
+    const wrapper = render(
       <ConfigProvider componentSize="small">
         <ProForm>
           <ProFormText />
         </ProForm>
       </ConfigProvider>,
     );
-    expect(wrapper.find('.ant-input-sm').length).toBe(1);
+    expect(wrapper.baseElement.querySelectorAll('.ant-input-sm').length).toBe(1);
   });
 
   it('📦 ProForm support sync form url', async () => {
@@ -180,7 +180,7 @@ describe('ProForm', () => {
 
   it('📦 onFinish should simulate button loading', async () => {
     const fn = jest.fn();
-    const wrapper = reactRender(
+    const wrapper = render(
       <ProForm
         onFinish={async () => {
           fn();
@@ -201,7 +201,7 @@ describe('ProForm', () => {
 
   it('📦 onFinish should simulate button close loading', async () => {
     const fn = jest.fn();
-    const wrapper = reactRender(
+    const wrapper = render(
       <ProForm
         onFinish={async () => {
           fn();
@@ -227,7 +227,7 @@ describe('ProForm', () => {
   });
 
   it('📦 onFinish support params and request', async () => {
-    const wrapper = reactRender(
+    const wrapper = render(
       <ProForm
         request={async (params) => {
           await waitTime(100);
@@ -504,7 +504,7 @@ describe('ProForm', () => {
   });
 
   it('📦 ProFormCaptcha support onGetCaptcha', async () => {
-    const wrapper = mount(
+    const wrapper = render(
       <ProForm>
         <ProFormCaptcha
           onGetCaptcha={async () => {
@@ -520,19 +520,19 @@ describe('ProForm', () => {
       </ProForm>,
     );
     await waitForComponentToPaint(wrapper);
-    expect(wrapper.find('Button#test').text()).toBe('获取验证码');
+    expect(!!wrapper.queryByText('获取验证码')).toBeTruthy();
     act(() => {
-      wrapper.find('Button#test').simulate('click');
+      fireEvent.click(wrapper.baseElement.querySelector('#test')!);
     });
     await waitForComponentToPaint(wrapper, 100);
 
-    expect(wrapper.find('button#test').text()).toBe('2 秒后重新获取');
+    expect(!!wrapper.queryByText('2 秒后重新获取')).toBeTruthy();
     await waitForComponentToPaint(wrapper, 1200);
 
-    expect(wrapper.find('button#test').text()).toBe('1 秒后重新获取');
+    expect(!!wrapper.queryByText('1 秒后重新获取')).toBeTruthy();
 
     await waitForComponentToPaint(wrapper, 2000);
-    expect(wrapper.find('Button#test').text()).toBe('获取验证码');
+    expect(!!wrapper.queryByText('获取验证码')).toBeTruthy();
   });
 
   it('📦 ProFormCaptcha support value and onchange', async () => {
@@ -569,7 +569,7 @@ describe('ProForm', () => {
   });
 
   it('📦 ProFormCaptcha support captchaTextRender', async () => {
-    const wrapper = mount(
+    const wrapper = render(
       <ProForm>
         <ProFormCaptcha
           onGetCaptcha={async () => {
@@ -585,16 +585,17 @@ describe('ProForm', () => {
       </ProForm>,
     );
     await waitForComponentToPaint(wrapper);
-    expect(wrapper.find('Button#test').text()).toBe('获 取');
+    await waitForComponentToPaint(wrapper);
+    expect(!!wrapper.queryByText('获 取')).toBeTruthy();
     act(() => {
-      wrapper.find('Button#test').simulate('click');
+      fireEvent.click(wrapper.baseElement.querySelector('#test')!);
     });
     await waitForComponentToPaint(wrapper, 100);
-    expect(wrapper.find('button#test').text()).toBe('重新获取');
+    expect(!!wrapper.queryByText('重新获取')).toBeTruthy();
   });
 
   it('📦 ProFormCaptcha onGetCaptcha throw error', async () => {
-    const wrapper = mount(
+    const wrapper = render(
       <ProForm>
         <ProFormCaptcha
           onGetCaptcha={async () => {
@@ -612,16 +613,16 @@ describe('ProForm', () => {
     );
     await waitForComponentToPaint(wrapper);
     act(() => {
-      wrapper.find('Button#test').simulate('click');
+      fireEvent.click(wrapper.baseElement.querySelector('#test')!);
     });
     await waitForComponentToPaint(wrapper);
 
-    expect(wrapper.find('button#test').text()).toBe('获 取');
+    expect(!!wrapper.queryByText('获 取')).toBeTruthy();
   });
 
   it('📦 ProFormCaptcha onGetCaptcha support rules', async () => {
     const fn = jest.fn();
-    const wrapper = mount(
+    const wrapper = render(
       <ProForm>
         <ProFormText
           name="phone"
@@ -647,25 +648,22 @@ describe('ProForm', () => {
     );
     await waitForComponentToPaint(wrapper);
     act(() => {
-      wrapper.find('Button#test').simulate('click');
+      fireEvent.click(wrapper.baseElement.querySelector('#test')!);
     });
 
     expect(fn).not.toBeCalled();
     act(() => {
-      wrapper
-        .find('input')
-        .at(1)
-        .simulate('change', {
-          target: {
-            value: 'tech',
-          },
-        });
+      fireEvent.change(wrapper.baseElement.querySelectorAll('input')[1], {
+        target: {
+          value: 'tech',
+        },
+      });
     });
 
     await waitForComponentToPaint(wrapper);
 
     act(() => {
-      wrapper.find('Button#test').simulate('click');
+      fireEvent.click(wrapper.baseElement.querySelector('#test')!);
     });
     await waitForComponentToPaint(wrapper);
     expect(fn).toBeCalled();
@@ -866,7 +864,7 @@ describe('ProForm', () => {
 
   it('📦 DatePicker', async () => {
     const onFinish = jest.fn();
-    const wrapper = mount(
+    const wrapper = render(
       <ProForm
         onFinish={onFinish}
         initialValues={{
@@ -884,10 +882,10 @@ describe('ProForm', () => {
       </ProForm>,
     );
     act(() => {
-      wrapper.find('.ant-picker-cell').at(2).simulate('click');
+      fireEvent.click(wrapper.baseElement.querySelectorAll('.ant-picker-cell')[2]);
     });
     act(() => {
-      wrapper.find('.ant-btn-primary').simulate('submit');
+      fireEvent.submit(wrapper.baseElement.querySelector('.ant-btn-primary')!);
     });
     await waitForComponentToPaint(wrapper);
     expect(onFinish).toHaveBeenCalledWith({
@@ -2444,7 +2442,7 @@ describe('ProForm', () => {
   });
 
   it(`📦 rules change should rerender`, () => {
-    const html = reactRender(
+    const html = render(
       <ProForm>
         <ProFormText
           width="md"
