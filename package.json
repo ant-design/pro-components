@@ -26,7 +26,7 @@
     "tsc": "tsc --noEmit",
     "tsc:duplicate": "tsc -p ./tests/tsconfig.duplicate.json",
     "update:deps": "yarn upgrade-interactive --latest",
-    "webpack": "npm run version && webpack",
+    "webpack": "npm run version && npm run build && webpack",
     "publishOnly": "node ./scripts/release.js --publishOnly --tag=experimental",
     "version": "node ./scripts/gen_version.js"
   },
