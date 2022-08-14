@@ -1,8 +1,9 @@
 import { UploadOutlined } from '@ant-design/icons';
 import type { ButtonProps, UploadProps } from 'antd';
 import { Button, Upload } from 'antd';
-import React, { useMemo } from 'react';
+import React, { useContext, useMemo } from 'react';
 import { createField } from '../../BaseForm/createField';
+import { EditOrReadOnlyContext } from '../../BaseForm/EditOrReadOnlyContext';
 import type { ProFormFieldItemProps } from '../../interface';
 
 type PickUploadProps = Pick<
@@ -80,9 +81,11 @@ const BaseProFormUploadButton: React.ForwardRefRenderFunction<any, ProFormDragge
     return restProps.fileList ?? restProps.value;
   }, [restProps.fileList, restProps.value]);
 
+  const modeContext = useContext(EditOrReadOnlyContext);
+  const mode = proFieldProps?.mode || modeContext.mode || 'edit';
+
   // 如果配置了 max ，并且 超过了文件列表的大小，就不展示按钮
-  const showUploadButton =
-    (max === undefined || !value || value?.length < max) && proFieldProps?.mode !== 'read';
+  const showUploadButton = (max === undefined || !value || value?.length < max) && mode !== 'read';
 
   const isPictureCard = (listType ?? fieldProps?.listType) === 'picture-card';
   return (
