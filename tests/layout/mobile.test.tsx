@@ -125,8 +125,6 @@ describe('mobile BasicLayout', () => {
     expect(onCollapse).toHaveBeenCalled();
 
     waitForComponentToPaint(html);
-    act(() => {
-      html.unmount();
-    });
+    html.unmount();
   });
 });

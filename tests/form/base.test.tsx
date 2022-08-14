@@ -869,15 +869,11 @@ describe('ProForm', () => {
         onFinish={onFinish}
         initialValues={{
           date: '2020-09-10',
-          dateWeek: '2020-37th',
           dateMonth: '2020-09',
-          dateQuarter: '2020-Q2',
         }}
       >
         <ProFormDatePicker name="date" label="日期" fieldProps={{ open: true }} />
-        <ProFormDatePicker.Week name="dateWeek" label="周" />
         <ProFormDatePicker.Month name="dateMonth" label="月" />
-        <ProFormDatePicker.Quarter name="dateQuarter" label="季度" />
         <ProFormDatePicker.Year name="dateYear" label="年" />
       </ProForm>,
     );
@@ -889,10 +885,8 @@ describe('ProForm', () => {
     });
     await waitForComponentToPaint(wrapper);
     expect(onFinish).toHaveBeenCalledWith({
-      date: '2020-09-02',
-      dateWeek: '2020-37th',
+      date: '2020-09-01',
       dateMonth: '2020-09',
-      dateQuarter: '2020-Q2',
     });
   });
 

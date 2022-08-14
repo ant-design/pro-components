@@ -162,9 +162,7 @@ describe('utils', () => {
 
     await waitTime(50);
 
-    act(() => {
-      html.unmount();
-    });
+    html.unmount();
 
     await waitTime(100);
 

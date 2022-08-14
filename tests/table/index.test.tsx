@@ -189,9 +189,7 @@ describe('BasicTable', () => {
     addEventListenerSpy.mockRestore();
     expect(requestFfn).toBeCalledTimes(2);
 
-    act(() => {
-      html.unmount();
-    });
+    html.unmount();
     await waitTime(100);
   });
 
@@ -962,9 +960,7 @@ describe('BasicTable', () => {
     expect(postFn).toBeCalled();
     // test useEffect render
 
-    act(() => {
-      html.unmount();
-    });
+    html.unmount();
   });
 
   it('🎏 fullscreen icon test', async () => {

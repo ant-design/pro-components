@@ -3,8 +3,11 @@ import { FieldLabel, parseValueToDay, useStyle } from '@ant-design/pro-utils';
 import type { DatePickerProps } from 'antd';
 import { ConfigProvider, DatePicker } from 'antd';
 import dayjs from 'dayjs';
+import weekOfYear from 'dayjs/plugin/weekOfYear';
 import React, { useContext, useState } from 'react';
 import type { ProFieldFC, ProFieldLightProps } from '../../index';
+
+dayjs.extend(weekOfYear);
 
 const formatDate = (text: any, format: any) => {
   if (!text) {

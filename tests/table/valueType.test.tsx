@@ -1,6 +1,6 @@
 import ProProvider from '@ant-design/pro-provider';
 import ProTable from '@ant-design/pro-table';
-import { act, render as reactRender } from '@testing-library/react';
+import { render as reactRender } from '@testing-library/react';
 import { Input } from 'antd';
 import { waitForComponentToPaint } from '../util';
 
@@ -66,9 +66,7 @@ describe('BasicTable valueType', () => {
       'TradeCode',
     );
 
-    act(() => {
-      html.unmount();
-    });
+    html.unmount();
   });
 
   it('🎏 table valueType render support fieldProps', async () => {
@@ -110,8 +108,6 @@ describe('BasicTable valueType', () => {
       'TradeCode',
     );
 
-    act(() => {
-      html.unmount();
-    });
+    html.unmount();
   });
 });

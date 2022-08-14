@@ -193,9 +193,7 @@ describe('BasicTable Search', () => {
 
     expect(!!html.baseElement.querySelector('.ant-spin')).toBeTruthy();
 
-    act(() => {
-      html.unmount();
-    });
+    html.unmount();
   });
 
   it('🎏 manualRequest no render loading dom', async () => {
@@ -239,9 +237,7 @@ describe('BasicTable Search', () => {
 
     expect(!!html.baseElement.querySelector('.ant-spin')).toBeFalsy();
 
-    act(() => {
-      html.unmount();
-    });
+    html.unmount();
   });
 
   it('🎏 manualRequest test', async () => {
@@ -317,9 +313,7 @@ describe('BasicTable Search', () => {
 
     expect(!!html.baseElement.querySelector('.ant-col.ant-col-12')).toBeTruthy();
 
-    act(() => {
-      html.unmount();
-    });
+    html.unmount();
   });
 
   it('🎏 transform test', async () => {
@@ -377,9 +371,7 @@ describe('BasicTable Search', () => {
     expect(formValues.endTime).toBe('2020-09-22');
     expect(fn).toBeCalledTimes(1);
 
-    act(() => {
-      html.unmount();
-    });
+    html.unmount();
   });
 
   it('🎏 renderFormItem test and fieldProps onChange', async () => {
@@ -433,9 +425,7 @@ describe('BasicTable Search', () => {
     });
     expect(onChangeFn).toBeCalledWith('12');
     expect(fn).toBeCalledWith('12');
-    act(() => {
-      html.unmount();
-    });
+    html.unmount();
   });
 
   it('🎏 renderFormItem support return false', async () => {
@@ -554,9 +544,7 @@ describe('BasicTable Search', () => {
 
     expect(html.baseElement.querySelector('.ant-empty')).toBeTruthy();
 
-    act(() => {
-      html.unmount();
-    });
+    html.unmount();
   });
 
   it('🎏 request load null', async () => {
@@ -587,9 +575,7 @@ describe('BasicTable Search', () => {
       // @ts-ignore
       html.dive().html();
     }).toThrowError();
-    act(() => {
-      html.unmount();
-    });
+    html.unmount();
   });
 
   it('🎏 request load more time', async () => {

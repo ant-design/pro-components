@@ -166,9 +166,7 @@ describe('settingDrawer.test', () => {
       colorPrimary: '#1677FF',
       splitMenus: false,
     });
-    act(() => {
-      html.unmount();
-    });
+    html.unmount();
   });
 
   it('🌺 hideCopyButton = true', () => {
@@ -214,9 +212,7 @@ describe('settingDrawer.test', () => {
     });
     await waitForComponentToPaint(html);
     expect(fn).toBeCalled();
-    act(() => {
-      html.unmount();
-    });
+    html.unmount();
   });
 
   it('🌺 onCollapseChange', async () => {
@@ -522,9 +518,7 @@ describe('settingDrawer.test', () => {
       ).toEqual('Page style setting');
     });
     await waitForComponentToPaint(html, 200);
-    act(() => {
-      html.unmount();
-    });
+    html.unmount();
     window.localStorage.setItem('umi_locale', 'zh-CN');
   });
 });

@@ -18,7 +18,7 @@ import { act } from 'react-dom/test-utils';
 import { waitForComponentToPaint, waitTime } from '../util';
 
 describe('ProForm List', () => {
-  it('⛲  ProForm.List', async () => {
+  it('⛲ ProForm.List', async () => {
     const fn = jest.fn();
     const html = mount(
       <ProForm
@@ -51,7 +51,7 @@ describe('ProForm List', () => {
     expect(fn).toBeCalledWith(['name', 'nickName']);
   });
 
-  it('⛲  ProForm.List add button', async () => {
+  it('⛲ ProForm.List add button', async () => {
     const fn = jest.fn();
     const html = mount(
       <ProForm
@@ -94,7 +94,7 @@ describe('ProForm List', () => {
     expect(fn).toBeCalledWith([]);
   });
 
-  it('⛲  ProForm.List render children', async () => {
+  it('⛲ ProForm.List render children', async () => {
     const fn = jest.fn();
     const html = mount(
       <ProForm
@@ -139,9 +139,9 @@ describe('ProForm List', () => {
     });
   });
 
-  it('⛲  ProForm.List getCurrentRowData and setCurrentRowData', async () => {
+  it('⛲ ProForm.List getCurrentRowData and setCurrentRowData', async () => {
     const fn = jest.fn();
-    const html = mount(
+    const html = render(
       <ProForm
         onFinish={async (values) => {
           fn(values.users[0]);
@@ -198,7 +198,7 @@ describe('ProForm List', () => {
     await waitForComponentToPaint(html, 2000);
 
     act(() => {
-      html.find('.ant-btn.ant-btn-primary').simulate('click');
+      html.baseElement.querySelector<HTMLDivElement>('.ant-btn.ant-btn-primary')?.click();
     });
 
     await waitForComponentToPaint(html);
@@ -209,13 +209,13 @@ describe('ProForm List', () => {
     });
 
     act(() => {
-      html.find('ProFormListItem').find('#set').at(0).simulate('click');
+      html.baseElement.querySelector<HTMLDivElement>('#set')?.click();
     });
 
     await waitForComponentToPaint(html, 2000);
 
     act(() => {
-      html.find('.ant-btn.ant-btn-primary').simulate('click');
+      html.baseElement.querySelector<HTMLDivElement>('.ant-btn.ant-btn-primary')?.click();
     });
 
     await waitForComponentToPaint(html);
@@ -226,11 +226,11 @@ describe('ProForm List', () => {
     });
 
     act(() => {
-      html.find('ProFormListItem').find('#clear').at(0).simulate('click');
+      html.baseElement.querySelector<HTMLDivElement>('#clear')?.click();
     });
 
     act(() => {
-      html.find('.ant-btn.ant-btn-primary').simulate('click');
+      html.baseElement.querySelector<HTMLDivElement>('.ant-btn.ant-btn-primary')?.click();
     });
 
     await waitForComponentToPaint(html);
@@ -241,7 +241,7 @@ describe('ProForm List', () => {
     });
   });
 
-  it('⛲  ProForm.List close button', async () => {
+  it('⛲ ProForm.List close button', async () => {
     const html = mount(
       <ProForm>
         <ProFormText name="name" label="姓名" />
@@ -257,7 +257,7 @@ describe('ProForm List', () => {
     expect(html.find('.ant-btn.ant-pro-form-list-creator-button-bottom').exists()).toBeFalsy();
   });
 
-  it('⛲  ProForm.List add button when creatorRecord', async () => {
+  it('⛲ ProForm.List add button when creatorRecord', async () => {
     const fn = jest.fn();
     const html = mount(
       <ProForm
@@ -304,7 +304,7 @@ describe('ProForm List', () => {
     });
   });
 
-  it('⛲  ProForm.List add button on top', async () => {
+  it('⛲ ProForm.List add button on top', async () => {
     const fn = jest.fn();
     const html = mount(
       <ProForm
@@ -351,7 +351,7 @@ describe('ProForm List', () => {
     expect(fn).toBeCalledWith([]);
   });
 
-  it('⛲  ProForm.List copy to newline', async () => {
+  it('⛲ ProForm.List copy to newline', async () => {
     const fn = jest.fn();
     const html = mount(
       <ProForm
@@ -392,7 +392,7 @@ describe('ProForm List', () => {
     });
   });
 
-  it('⛲  ProForm.List delete icon', async () => {
+  it('⛲ ProForm.List delete icon', async () => {
     const fn = jest.fn();
     const html = mount(
       <ProForm
@@ -442,7 +442,7 @@ describe('ProForm List', () => {
     });
   });
 
-  it('⛲  ProForm.List itemRender', async () => {
+  it('⛲ ProForm.List itemRender', async () => {
     const fn = jest.fn();
     const html = mount(
       <ProForm
@@ -484,7 +484,7 @@ describe('ProForm List', () => {
     expect(html.find('#test').exists()).toBe(true);
   });
 
-  it('⛲  ProForm.List in ProForm.List', async () => {
+  it('⛲ ProForm.List in ProForm.List', async () => {
     const fn = jest.fn();
     const html = mount(
       <ProForm
@@ -564,7 +564,7 @@ describe('ProForm List', () => {
     ]);
   });
 
-  it('⛲  ProForm.List support ProFormDependency', async () => {
+  it('⛲ ProForm.List support ProFormDependency', async () => {
     const fn = jest.fn();
     const html = mount(
       <ProForm>
@@ -614,7 +614,7 @@ describe('ProForm List', () => {
     expect(fn).toBeCalledWith('222');
   });
 
-  it('⛲  ProForm.List support ProFormDependency2', async () => {
+  it('⛲ ProForm.List support ProFormDependency2', async () => {
     const initialValues = {
       a: 1,
       b: 2,
@@ -737,7 +737,7 @@ describe('ProForm List', () => {
     );
   });
 
-  it('⛲  ProForm.List support copyIconProps and deleteIconProps', async () => {
+  it('⛲ ProForm.List support copyIconProps and deleteIconProps', async () => {
     const html = mount(
       <ProForm>
         <ProFormList
@@ -762,7 +762,7 @@ describe('ProForm List', () => {
     expect(html.find('.ant-pro-form-list-action').exists()).toBeFalsy();
   });
 
-  it('⛲  ProForm.List support copyIconProps.icon and deleteIconProps.icon', async () => {
+  it('⛲ ProForm.List support copyIconProps.icon and deleteIconProps.icon', async () => {
     const html = mount(
       <ProForm>
         <ProFormList
@@ -792,7 +792,7 @@ describe('ProForm List', () => {
     expect(html.find('.anticon-close').exists()).toBeTruthy();
   });
 
-  it('⛲  ProForm.List use behavior guard when triggering behavior', async () => {
+  it('⛲ ProForm.List use behavior guard when triggering behavior', async () => {
     const fnAdd = jest.fn();
     const fnRemove = jest.fn();
     const html = reactRender(
@@ -883,7 +883,7 @@ describe('ProForm List', () => {
     expect(html.baseElement.querySelectorAll('input.ant-input').length).toBe(2);
   });
 
-  it('⛲  ProForm.List warning after remove', async () => {
+  it('⛲ ProForm.List warning after remove', async () => {
     const errorSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
 
     const fnRemove = jest.fn();
@@ -923,7 +923,7 @@ describe('ProForm List', () => {
     errorSpy.mockRestore();
   });
 
-  it('⛲  ProForm.List hide action btn when over limit', async () => {
+  it('⛲ ProForm.List hide action btn when over limit', async () => {
     const html = reactRender(
       <ProForm>
         <ProFormList
@@ -977,7 +977,7 @@ describe('ProForm List', () => {
 
   it('⛲ valid to set the format property in ProForm.List', async () => {
     const onFinish = jest.fn();
-    const html = mount(
+    const html = render(
       <ProForm
         onFinish={onFinish}
         initialValues={{
@@ -1003,7 +1003,9 @@ describe('ProForm List', () => {
         </ProFormList>
       </ProForm>,
     );
-    html.find('#submit').first().simulate('click');
+    act(() => {
+      html.queryByText('提 交')?.click();
+    });
     await waitForComponentToPaint(html);
     expect(onFinish).toBeCalledWith({
       list: [
@@ -1014,7 +1016,7 @@ describe('ProForm List', () => {
     });
   });
 
-  it('⛲  ProForm.List fieldExtraRender', async () => {
+  it('⛲ ProForm.List fieldExtraRender', async () => {
     const fn = jest.fn();
     const html = mount(
       <ProForm
@@ -1078,7 +1080,7 @@ describe('ProForm List', () => {
     });
   });
 
-  it('⛲  ProForm.List support actionRef', async () => {
+  it('⛲ ProForm.List support actionRef', async () => {
     const actionRef = React.createRef<
       FormListActionType<{
         name: string;
@@ -1137,7 +1139,7 @@ describe('ProForm List', () => {
     expect(data?.name).toBe('2222');
   });
 
-  it('⛲  ProForm.List getCurrentRowData support subList', async () => {
+  it('⛲ ProForm.List getCurrentRowData support subList', async () => {
     const ref = React.createRef<{
       getCurrentRowData: () => any;
     }>();

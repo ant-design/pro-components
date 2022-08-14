@@ -29,9 +29,7 @@ describe('StepsForm', () => {
     expect(html.find('div.ant-steps-item-title').at(1).text()).toBe('表单2');
     expect(html.find('div.ant-steps-item-title').at(2).text()).toBe('表单3');
     await waitForComponentToPaint(html, 100);
-    act(() => {
-      html.unmount();
-    });
+    html.unmount();
   });
 
   it('🐲 stepsRender', async () => {
@@ -61,9 +59,7 @@ describe('StepsForm', () => {
     expect(html.find('.ant-steps').exists()).toBeTruthy();
     expect(html.find('div#test').exists()).toBeTruthy();
     await waitForComponentToPaint(html, 100);
-    act(() => {
-      html.unmount();
-    });
+    html.unmount();
   });
 
   it('🐲 pre button ', async () => {
@@ -92,9 +88,7 @@ describe('StepsForm', () => {
     });
     expect(onCurrentChange).toBeCalledWith(0);
     await waitForComponentToPaint(html, 100);
-    act(() => {
-      html.unmount();
-    });
+    html.unmount();
   });
 
   it('🐲 async onFinish', async () => {
@@ -140,9 +134,7 @@ describe('StepsForm', () => {
     expect(currentFn).toBeCalled();
 
     await waitForComponentToPaint(html, 100);
-    act(() => {
-      html.unmount();
-    });
+    html.unmount();
   });
 
   it('🐲 submit when onFinish is null', async () => {
@@ -178,9 +170,7 @@ describe('StepsForm', () => {
     expect(currentFn).toBeCalled();
 
     await waitForComponentToPaint(html);
-    act(() => {
-      html.unmount();
-    });
+    html.unmount();
   });
 
   it('🐲 onFinish return true', async () => {
@@ -221,9 +211,7 @@ describe('StepsForm', () => {
     expect(currentFn).toBeCalledWith(0);
 
     await waitForComponentToPaint(html, 1200);
-    act(() => {
-      html.unmount();
-    });
+    html.unmount();
   });
 
   it('🐲 onFinish throw error', async () => {
@@ -255,9 +243,7 @@ describe('StepsForm', () => {
     await waitForComponentToPaint(html);
     expect(currentFn).not.toBeCalledWith(0);
 
-    act(() => {
-      html.unmount();
-    });
+    html.unmount();
   });
 
   it('🐲 submitter render=false', () => {
@@ -314,9 +300,7 @@ describe('StepsForm', () => {
     expect(fn).toBeCalledWith(0);
 
     await waitForComponentToPaint(html);
-    act(() => {
-      html.unmount();
-    });
+    html.unmount();
   });
 
   it('🐲 current min=0', async () => {
@@ -355,9 +339,7 @@ describe('StepsForm', () => {
     expect(fn).toBeCalledTimes(0);
 
     await waitForComponentToPaint(html);
-    act(() => {
-      html.unmount();
-    });
+    html.unmount();
   });
 
   it('🐲 current max=1', async () => {
@@ -396,9 +378,7 @@ describe('StepsForm', () => {
     expect(fn).toBeCalledTimes(0);
 
     await waitForComponentToPaint(html);
-    act(() => {
-      html.unmount();
-    });
+    html.unmount();
   });
 
   it('🐲 submitter=false', async () => {
@@ -417,9 +397,7 @@ describe('StepsForm', () => {
       html.find('.ant-pro-steps-form-step-active button.ant-btn.ant-btn-primary').exists(),
     ).toBeFalsy();
     await waitForComponentToPaint(html, 100);
-    act(() => {
-      html.unmount();
-    });
+    html.unmount();
   });
 
   it('🐲 submitter render function', async () => {
@@ -447,9 +425,7 @@ describe('StepsForm', () => {
     expect(html.find('button#next').exists()).toBeTruthy();
 
     await waitForComponentToPaint(html, 100);
-    act(() => {
-      html.unmount();
-    });
+    html.unmount();
   });
 
   it('🐲 support stepsFormRender', async () => {
@@ -478,9 +454,7 @@ describe('StepsForm', () => {
     expect(html.find('#footer button').exists()).toBeTruthy();
 
     await waitForComponentToPaint(html);
-    act(() => {
-      html.unmount();
-    });
+    html.unmount();
   });
 
   it('🐲 support stepsFormRender', async () => {
@@ -505,9 +479,7 @@ describe('StepsForm', () => {
     expect(html.find('form #content').exists()).toBeTruthy();
 
     await waitForComponentToPaint(html);
-    act(() => {
-      html.unmount();
-    });
+    html.unmount();
   });
 
   it('🐲 support deepmerge form value', async () => {

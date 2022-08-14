@@ -338,9 +338,7 @@ describe('SchemaForm', () => {
     expect(html.find('div.ant-steps-item-title').at(1).text()).toBe('表单2');
     expect(html.find('div.ant-steps-item-title').at(2).text()).toBe('表单3');
     await waitForComponentToPaint(html, 100);
-    act(() => {
-      html.unmount();
-    });
+    html.unmount();
   });
 
   it('😊 SchemaForm support table columns', async () => {
