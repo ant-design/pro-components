@@ -37,7 +37,7 @@ Current ProComponents provides the following components for direct use.
 
 Each package is a separate component package, and is used in the following example.
 
-```tsx
+```tsx | pure
 import { ProForm, ProFormText } from '@ant-design/pro-components';
 
 export default () => {
