@@ -392,7 +392,7 @@ describe('LightFilter', () => {
     expect(wrapper.find('.ant-pro-core-field-label').text()).toMatchSnapshot();
 
     await waitForComponentToPaint(wrapper);
-    expect(onFinish).toHaveBeenCalledWith({ date: ['2016-11-02', '2016-11-12'] });
+    expect(onFinish).toHaveBeenCalledWith({ date: ['2016-11-01', '2016-11-11'] });
 
     act(() => {
       // close
@@ -458,7 +458,7 @@ describe('LightFilter', () => {
     await waitForComponentToPaint(wrapper);
 
     expect(wrapper.find('.ant-pro-core-field-label').text()).toMatchSnapshot();
-    expect(onFinish).toHaveBeenCalledWith({ datetime: '2016-11-05 07:22:44' });
+    expect(onFinish).toHaveBeenCalledWith({ datetime: '2016-11-04 07:22:44' });
 
     await waitForComponentToPaint(wrapper);
     act(() => {

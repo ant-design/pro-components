@@ -2307,7 +2307,7 @@ describe('ProForm', () => {
       wrapper.find('.ant-picker-cell').at(2).simulate('click');
     });
     await waitForComponentToPaint(wrapper, 100);
-    expect(fn2).toHaveBeenCalledWith('2021-07-28');
+    expect(fn2).toHaveBeenCalledWith('2021-08-03');
     act(() => {
       expect(wrapper.render()).toMatchSnapshot();
     });
