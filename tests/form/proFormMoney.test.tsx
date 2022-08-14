@@ -146,4 +146,31 @@ describe('💵 ProFormMoney', () => {
     expect(fn).toHaveBeenCalledWith(-55.33);
     expect(wrapper.render()).toMatchSnapshot();
   });
+
+  it('💵 update money precision when init', async () => {
+    const fn = jest.fn();
+    const wrapper = mount<{ amount: string }>(
+      <ProForm
+        onFinish={async (values) => {
+          fn(values.amount);
+        }}
+      >
+        <ProFormMoney
+          name="amount"
+          initialValue={444444444.333333333}
+          fieldProps={{ precision: 2 }}
+          customSymbol="💰"
+        />
+      </ProForm>,
+    );
+    await waitForComponentToPaint(wrapper);
+    expect(String(wrapper.find('input#amount').at(0).props().value).substring(0, 2)).toBe('💰');
+    expect(String(wrapper.find('input#amount').at(0).props().value)).toBe('💰 444,444,444.33');
+    act(() => {
+      wrapper.find('button.ant-btn-primary').simulate('click');
+    });
+    await waitForComponentToPaint(wrapper);
+    expect(fn).toHaveBeenCalledWith(444444444.333333333);
+    expect(wrapper.render()).toMatchSnapshot();
+  });
 });
