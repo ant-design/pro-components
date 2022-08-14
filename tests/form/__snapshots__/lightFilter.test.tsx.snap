@@ -1,0 +1,5 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`LightFilter  🪕 DateRangePicker 1`] = `"日期范围: 2016-11-01 ~ 2016-11-11"`;
+
+exports[`LightFilter  🪕 DateTimePicker 1`] = `"日期时间: 2016-11-04 07:22:44"`;

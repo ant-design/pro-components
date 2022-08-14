@@ -92,11 +92,15 @@ const getTextByLocale = (
 
   if (!moneyText && moneyText !== 0) return '';
 
-  return new Intl.NumberFormat(localeStr || 'zh-Hans-CN', {
-    ...(intlMap[localeStr || 'zh-Hans-CN'] || intlMap['zh-Hans-CN']),
-    maximumFractionDigits: precision,
-    ...config,
-  }).format(moneyText);
+  try {
+    return new Intl.NumberFormat(localeStr || 'zh-Hans-CN', {
+      ...(intlMap[localeStr || 'zh-Hans-CN'] || intlMap['zh-Hans-CN']),
+      maximumFractionDigits: precision,
+      ...config,
+    }).format(moneyText);
+  } catch (error) {
+    return moneyText;
+  }
 };
 
 const DefaultPrecisionCont = 2;
@@ -110,7 +114,7 @@ const InputNumberPopover = React.forwardRef<
     numberFormatOptions?: any;
     numberPopoverRender?: any;
   }
->(({ content, numberFormatOptions, numberPopoverRender, ...rest }, ref) => {
+>(({ content, numberFormatOptions, numberPopoverRender, visible, ...rest }, ref) => {
   const [value, onChange] = useMergedState<any>(() => rest.defaultValue, {
     value: rest.value,
     onChange: rest.onChange,
@@ -121,7 +125,7 @@ const InputNumberPopover = React.forwardRef<
   });
 
   const props = {
-    visible: dom ? rest.visible : false,
+    visible: dom ? visible : false,
   };
   return (
     <Popover
