@@ -194,7 +194,7 @@ describe('BasicTable valueType', () => {
     expect(html.find('span[title="Typescript"]').length).toBe(0);
     expect(html.find('span[title="Go"]').length).toBe(0);
 
-    expect(html).toMatchSnapshot();
+    expect(html.render()).toMatchSnapshot();
 
     act(() => {
       html.unmount();
