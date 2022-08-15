@@ -11184,14 +11184,6 @@ exports[`table demos 📸 renders ./packages/table/src/demos/ListToolBar/menu.ts
             >
               <div
                 class="ant-space-item"
-                style="margin-right: 8px;"
-              >
-                <div
-                  class="ant-pro-table-list-toolbar-title"
-                />
-              </div>
-              <div
-                class="ant-space-item"
               >
                 <div
                   class="ant-pro-table-list-toolbar-menu ant-pro-table-list-toolbar-dropdownmenu"
@@ -13048,14 +13040,6 @@ exports[`table demos 📸 renders ./packages/table/src/demos/ListToolBar/no-titl
             <div
               class="ant-space ant-space-horizontal ant-space-align-center ant-pro-table-list-toolbar-left"
             >
-              <div
-                class="ant-space-item"
-                style="margin-right: 8px;"
-              >
-                <div
-                  class="ant-pro-table-list-toolbar-title"
-                />
-              </div>
               <div
                 class="ant-space-item"
               >
@@ -17124,14 +17108,6 @@ exports[`table demos 📸 renders ./packages/table/src/demos/columns-setting-cus
             <div
               class="ant-space ant-space-horizontal ant-space-align-center ant-pro-table-list-toolbar-left"
             >
-              <div
-                class="ant-space-item"
-                style="margin-right: 8px;"
-              >
-                <div
-                  class="ant-pro-table-list-toolbar-title"
-                />
-              </div>
               <div
                 class="ant-space-item"
               >
@@ -37909,14 +37885,6 @@ exports[`table demos 📸 renders ./packages/table/src/demos/listToolBar.tsx cor
             >
               <div
                 class="ant-space-item"
-                style="margin-right: 8px;"
-              >
-                <div
-                  class="ant-pro-table-list-toolbar-title"
-                />
-              </div>
-              <div
-                class="ant-space-item"
               >
                 <div
                   class="ant-tabs ant-tabs-top"
@@ -54645,14 +54613,6 @@ exports[`table demos 📸 renders ./packages/table/src/demos/split.tsx correctly
                       >
                         <div
                           class="ant-space-item"
-                          style="margin-right: 8px;"
-                        >
-                          <div
-                            class="ant-pro-table-list-toolbar-title"
-                          />
-                        </div>
-                        <div
-                          class="ant-space-item"
                         >
                           <div
                             class="ant-pro-table-list-toolbar-search"
@@ -57101,6 +57061,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/valueType.tsx corre
                               <img
                                 class="ant-image-img"
                                 src="https://zos.alipayobjects.com/rmsportal/jkjgkEfvpUPVyRjUImniVslZfWPnJuuZ.png"
+                                width="32"
                               />
                               <div
                                 class="ant-image-mask"
@@ -57228,6 +57189,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/valueType.tsx corre
                               <img
                                 class="ant-image-img"
                                 src="https://zos.alipayobjects.com/rmsportal/jkjgkEfvpUPVyRjUImniVslZfWPnJuuZ.png"
+                                width="32"
                               />
                               <div
                                 class="ant-image-mask"
