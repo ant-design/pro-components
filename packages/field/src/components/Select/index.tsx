@@ -200,7 +200,6 @@ function filerByItem(
   keyWords?: string,
 ) {
   if (!keyWords) return true;
-  console.log('====>', item, item.label, item.value);
   if (
     item?.label?.toString().toLowerCase().includes(keyWords.toLowerCase()) ||
     item?.value?.toString().toLowerCase().includes(keyWords.toLowerCase())
