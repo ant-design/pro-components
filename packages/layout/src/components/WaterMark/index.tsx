@@ -181,9 +181,11 @@ const WaterMark: React.FC<WaterMarkProps> = (props) => {
           backgroundSize: `${gapX + width}px`,
           pointerEvents: 'none',
           backgroundRepeat: 'repeat',
-          ...(base64Url ? {
-            backgroundImage: `url('${base64Url}')`,
-          } : null),
+          ...(base64Url
+            ? {
+                backgroundImage: `url('${base64Url}')`,
+              }
+            : null),
           ...markStyle,
         }}
       />
