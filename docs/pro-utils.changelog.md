@@ -9,6 +9,12 @@ group:
 
 # Change Log
 
+## @ant-design/pro-utils@1.44.0
+
+`2022-08-15`
+
+- fix(utils): 修复构建预览页面时因 SSR 模式无 window 对象导致构建失败的问题 (#5716). [#5716](https://github.com/ant-design/pro-components/pull/#5716) [@kiner-tang](https://github.com/kiner-tang)
+
 ## @ant-design/pro-utils@1.38.1
 
 `2022-03-28`
