@@ -51,6 +51,9 @@ function useEditableMap<RecordType>(
 ) {
   const editableType = props.type || 'single';
 
+  // Internationalization
+  const intl = useIntl();
+
   const [editableKeys, setEditableRowKeys] = useMergedState<React.Key[]>([], {
     value: props.editableKeys,
     onChange: props.onChange
@@ -86,7 +89,10 @@ function useEditableMap<RecordType>(
   const startEditable = (recordKey: RecordKey) => {
     // 如果是单行的话，不允许多行编辑
     if (editableKeysSet.size > 0 && editableType === 'single') {
-      warning(props.onlyOneLineEditorAlertMessage || '只能同时编辑一行');
+      warning(
+        props.onlyOneLineEditorAlertMessage ||
+          intl.getMessage('editableTable.onlyOneLineEditor', '只能同时编辑一行'),
+      );
       return false;
     }
     editableKeysSet.add(recordKeyToString(recordKey));
@@ -145,8 +151,6 @@ function useEditableMap<RecordType>(
     return true;
   };
 
-  // Internationalization
-  const intl = useIntl();
   const saveText = intl.getMessage('editableTable.action.save', '保存');
   const deleteText = intl.getMessage('editableTable.action.delete', '删除');
   const cancelText = intl.getMessage('editableTable.action.cancel', '取消');
@@ -164,7 +168,7 @@ function useEditableMap<RecordType>(
         saveText,
         cancelText,
         deleteText,
-        deletePopconfirmMessage: '删除此行？',
+        deletePopconfirmMessage: `${intl.getMessage('deleteThisLine', '删除此行')}?`,
         editorType: 'Map',
         ...config,
       };

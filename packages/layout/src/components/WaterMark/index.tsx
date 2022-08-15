@@ -67,7 +67,7 @@ const getPixelRatio = (context: any) => {
   return (window.devicePixelRatio || 1) / backingStore;
 };
 
-const WaterMark: React.FC<WaterMarkProps> = (props) => {
+export const WaterMark: React.FC<WaterMarkProps> = (props) => {
   const {
     children,
     style,
@@ -169,26 +169,26 @@ const WaterMark: React.FC<WaterMarkProps> = (props) => {
       className={wrapperCls}
     >
       {children}
-      {base64Url && (
-        <div
-          className={waterMakrCls}
-          style={{
-            zIndex,
-            position: 'absolute',
-            left: 0,
-            top: 0,
-            width: '100%',
-            height: '100%',
-            backgroundSize: `${gapX + width}px`,
-            pointerEvents: 'none',
-            backgroundRepeat: 'repeat',
-            backgroundImage: `url('${base64Url}')`,
-            ...markStyle,
-          }}
-        />
-      )}
+      <div
+        className={waterMakrCls}
+        style={{
+          zIndex,
+          position: 'absolute',
+          left: 0,
+          top: 0,
+          width: '100%',
+          height: '100%',
+          backgroundSize: `${gapX + width}px`,
+          pointerEvents: 'none',
+          backgroundRepeat: 'repeat',
+          ...(base64Url
+            ? {
+                backgroundImage: `url('${base64Url}')`,
+              }
+            : {}),
+          ...markStyle,
+        }}
+      />
     </div>
   );
 };
-
-export { WaterMark };
