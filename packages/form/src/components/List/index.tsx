@@ -1,4 +1,5 @@
 ﻿import { CopyOutlined, DeleteOutlined } from '@ant-design/icons';
+import { useIntl } from '@ant-design/pro-provider';
 import { ProFormContext } from '@ant-design/pro-utils';
 import { ConfigProvider, Form } from 'antd';
 import type { LabelTooltipType } from 'antd/es/form/FormItemLabel';
@@ -78,40 +79,45 @@ export type ProFormListProps<T> = Omit<FormListProps, 'children'> &
     style?: React.CSSProperties;
   } & Pick<ProFormGridConfig, 'colProps' | 'rowProps'>;
 
-function ProFormList<T>({
-  actionRender,
-  creatorButtonProps,
-  label,
-  alwaysShowItemLabel,
-  tooltip,
-  creatorRecord,
-  itemRender,
-  rules,
-  itemContainerRender,
-  fieldExtraRender,
-  copyIconProps = {
-    Icon: CopyOutlined,
-    tooltipText: '复制此行',
-  },
-  children,
-  deleteIconProps = {
-    Icon: DeleteOutlined,
-    tooltipText: '删除此行',
-  },
-  actionRef,
-  style,
-  prefixCls,
-  actionGuard,
-  min,
-  max,
-  colProps,
-  rowProps,
-  ...rest
-}: ProFormListProps<T>) {
+function ProFormList<T>(props: ProFormListProps<T>) {
   const actionRefs = useRef<FormListOperation>();
   const context = useContext(ConfigProvider.ConfigContext);
   const listContext = useContext(FormListContext);
   const baseClassName = context.getPrefixCls('pro-form-list');
+
+  // Internationalization
+  const intl = useIntl();
+
+  const {
+    actionRender,
+    creatorButtonProps,
+    label,
+    alwaysShowItemLabel,
+    tooltip,
+    creatorRecord,
+    itemRender,
+    rules,
+    itemContainerRender,
+    fieldExtraRender,
+    copyIconProps = {
+      Icon: CopyOutlined,
+      tooltipText: intl.getMessage('copyThisLine', '复制此行'),
+    },
+    children,
+    deleteIconProps = {
+      Icon: DeleteOutlined,
+      tooltipText: intl.getMessage('deleteThisLine', '删除此行'),
+    },
+    actionRef,
+    style,
+    prefixCls,
+    actionGuard,
+    min,
+    max,
+    colProps,
+    rowProps,
+    ...rest
+  } = props;
 
   const { ColWrapper, RowWrapper } = useGridHelpers({ colProps, rowProps });
 

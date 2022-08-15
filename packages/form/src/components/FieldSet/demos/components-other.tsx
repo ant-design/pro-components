@@ -10,6 +10,8 @@ import {
   ProFormSlider,
   ProFormSwitch,
   ProFormText,
+  ProFormUploadButton,
+  ProFormUploadDragger,
 } from '@ant-design/pro-components';
 import { Switch } from 'antd';
 import Mock from 'mockjs';
@@ -246,6 +248,8 @@ const Demo = () => {
             }}
           />
           <ProFormRate name="rate" label="Rate" />
+          <ProFormUploadButton name="pic" label="上传" />
+          <ProFormUploadDragger name="drag-pic" label="拖拽上传" />
         </ProFormGroup>
       </ProForm>
     </div>

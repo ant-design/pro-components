@@ -3,6 +3,7 @@ import { ConfigProvider, Upload } from 'antd';
 import type { DraggerProps, UploadProps } from 'antd/es/upload';
 import React, { useContext } from 'react';
 import { createField } from '../../BaseForm/createField';
+import { EditOrReadOnlyContext } from '../../BaseForm/EditOrReadOnlyContext';
 import type { ProFormFieldItemProps } from '../../interface';
 
 export type ProFormDraggerProps = ProFormFieldItemProps<DraggerProps> & {
@@ -70,11 +71,14 @@ const BaseProFormUploadDragger: React.FC<ProFormDraggerProps> = React.forwardRef
     ref: any,
   ) => {
     const context = useContext(ConfigProvider.ConfigContext);
+    const modeContext = useContext(EditOrReadOnlyContext);
+    const mode = proFieldProps?.mode || modeContext.mode || 'edit';
+
     const baseClassName = context.getPrefixCls('upload');
     // 如果配置了 max ，并且 超过了文件列表的大小，就不展示按钮
     const showUploadButton =
       (max === undefined || !value || value?.length < max) &&
-      proFieldProps?.mode !== 'read' &&
+      mode !== 'read' &&
       proFieldProps?.readonly !== true;
     return (
       <Upload.Dragger

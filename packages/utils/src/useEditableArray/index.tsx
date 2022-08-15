@@ -815,7 +815,8 @@ export function useEditableArray<RecordType>(
       form,
       editableKeys,
       setEditableRowKeys,
-      deletePopconfirmMessage: props.deletePopconfirmMessage || '删除此行？',
+      deletePopconfirmMessage:
+        props.deletePopconfirmMessage || `${intl.getMessage('deleteThisLine', '删除此行')}?`,
     };
     const defaultDoms = defaultActionRender<RecordType>(row, config);
 

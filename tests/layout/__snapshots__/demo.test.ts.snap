@@ -3917,6 +3917,10 @@ exports[`layout demos 📸 renders ./packages/layout/src/components/WaterMark/de
         Lorem ipsum dolor sit amet consectetur adipisicing elit. Aperiam, accusantium quo corporis fugit possimus quaerat ad consequatur veniam voluptatum ut cumque illo beatae. Magni assumenda eligendi itaque eum voluptate non!
       </p>
     </div>
+    <div
+      class="ant-pro-layout-watermark"
+      style="z-index: 9; position: absolute; left: 0px; top: 0px; width: 100%; height: 100%; background-size: 327px; pointer-events: none; background-repeat: repeat;"
+    />
   </div>
 </DocumentFragment>
 `;

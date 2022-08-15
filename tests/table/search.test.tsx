@@ -418,6 +418,7 @@ describe('BasicTable Search', () => {
     await waitForComponentToPaint(html, 1200);
 
     expect(html.baseElement.querySelector('input#renderFormItem')).toBeTruthy();
+
     act(() => {
       fireEvent.change(html.baseElement.querySelector('input#renderFormItem')!, {
         target: { value: '12' },

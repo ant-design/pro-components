@@ -26,7 +26,7 @@ describe('Field', () => {
     act(() => {
       fireEvent.mouseDown(html.baseElement.querySelector('.ant-input-number')!, {});
     });
-    expect(html.baseElement.querySelector('input')?.value).toBe('￥ 1000');
+    expect(html.baseElement.querySelector('input')?.value).toBe('￥ 1,000');
     act(() => {
       fireEvent.change(html.baseElement.querySelector('input')!, {
         target: {
