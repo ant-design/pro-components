@@ -2,6 +2,18 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.79.0](https://github.com/ant-design/pro-components/compare/@ant-design/pro-table@2.78.3...@ant-design/pro-table@2.79.0) (2022-08-15)
+
+### Bug Fixes
+
+- **table:** useEditableArray fix nested children can not be add when position is not top and expandable.childrenColumnName isundefined ([#5643](https://github.com/ant-design/pro-components/issues/5643)) ([9604686](https://github.com/ant-design/pro-components/commit/960468691a4528aaf0a92bfaf1ce5742c2d24a52))
+- **table:** 修复 ProTable 的 ListToolBar 没有 headTitle 时，左侧会有多余的边距 ([#5694](https://github.com/ant-design/pro-components/issues/5694)) ([4bb3e3f](https://github.com/ant-design/pro-components/commit/4bb3e3f7befef1b69c1c7902ddd17c07344e006f))
+- **table:** 表格批量操作没有默认值报错 ([#5674](https://github.com/ant-design/pro-components/issues/5674)) ([67b7e76](https://github.com/ant-design/pro-components/commit/67b7e7682cf5f1b47a136ffc2c50d64c9d8d7d6b))
+
+### Features
+
+- **table:** support dynamic columns persistence ([#5645](https://github.com/ant-design/pro-components/issues/5645)) ([ae1ddb0](https://github.com/ant-design/pro-components/commit/ae1ddb07527821a5c9094082b2b9b661ad21bf6e))
+
 ## [2.78.3](https://github.com/ant-design/pro-components/compare/@ant-design/pro-table@2.78.2...@ant-design/pro-table@2.78.3) (2022-08-02)
 
 **Note:** Version bump only for package @ant-design/pro-table
