@@ -85,13 +85,12 @@ const getTextByLocale = (
   precision: number,
   config?: any,
 ) => {
-  let moneyText = paramsText;
+  let moneyText: number | string | undefined = paramsText?.toString().replaceAll(',', '');
   if (typeof moneyText === 'string') {
     moneyText = Number(moneyText);
   }
 
   if (!moneyText && moneyText !== 0) return '';
-
   try {
     return new Intl.NumberFormat(localeStr || 'zh-Hans-CN', {
       ...(intlMap[localeStr || 'zh-Hans-CN'] || intlMap['zh-Hans-CN']),
@@ -127,6 +126,7 @@ const InputNumberPopover = React.forwardRef<
   const props = {
     visible: dom ? visible : false,
   };
+
   return (
     <Popover
       placement="topLeft"
@@ -203,7 +203,7 @@ const FieldMoney: ProFieldFC<FieldMoneyProps> = (
   }
 
   if (type === 'edit' || type === 'update') {
-    const getFormatedValue = (value?: string | number) => {
+    const getFormateValue = (value?: string | number) => {
       const reg = new RegExp(
         `\\B(?=(\\d{${3 + (precision - DefaultPrecisionCont)}})+(?!\\d))`,
         'g',
@@ -218,14 +218,16 @@ const FieldMoney: ProFieldFC<FieldMoneyProps> = (
         )}`;
       return `${resInt}${resFloat}`;
     };
+
     const dom = (
       <InputNumberPopover
         content={(props) => {
           if (numberPopoverRender === false) return;
           if (!props.value) return;
+
           const localeText = getTextByLocale(
             moneySymbol ? locale : false,
-            `${getFormatedValue(props.value)}`,
+            `${getFormateValue(props.value)}`,
             precision,
             {
               ...numberFormatOptions,
@@ -243,7 +245,7 @@ const FieldMoney: ProFieldFC<FieldMoneyProps> = (
         // 删除默认min={0}，允许输入一个负数的金额，用户可自行配置min来限制是否允许小于0的金额
         formatter={(value) => {
           if (value && moneySymbol) {
-            return `${moneySymbol} ${getFormatedValue(value)}`;
+            return `${moneySymbol} ${getFormateValue(value)}`;
           }
           return value!?.toString();
         }}

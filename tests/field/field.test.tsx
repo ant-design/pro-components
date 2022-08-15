@@ -24,7 +24,7 @@ describe('Field', () => {
     });
 
     act(() => {
-      fireEvent.mouseDown(html.baseElement.querySelector('.ant-input-number')!, {});
+      fireEvent.mouseDown(html.baseElement.querySelector('.ant-input-number-input')!, {});
     });
     expect(html.baseElement.querySelector('input')?.value).toBe('￥ 1,000');
     act(() => {
@@ -46,7 +46,7 @@ describe('Field', () => {
     });
 
     act(() => {
-      fireEvent.mouseDown(html.baseElement.querySelector('.ant-input-number')!, {});
+      fireEvent.mouseDown(html.baseElement.querySelector('.ant-input-number-input')!, {});
     });
 
     expect(html.baseElement.querySelector('input')?.value).toBe('1000');
@@ -109,21 +109,22 @@ describe('Field', () => {
     );
 
     act(() => {
-      fireEvent.change(html.baseElement.querySelector('input')!, {
+      fireEvent.change(html.baseElement.querySelector('.ant-input-number-input')!, {
         target: {
           value: 111111111,
         },
       });
     });
+
     await waitTime(100);
 
     act(() => {
-      fireEvent.click(html.baseElement.querySelector('.ant-input-number')!);
-      fireEvent.focus(html.baseElement.querySelector('.ant-input-number')!);
-      fireEvent.mouseEnter(html.baseElement.querySelector('.ant-input-number')!);
-      fireEvent.mouseDown(html.baseElement.querySelector('.ant-input-number')!);
+      fireEvent.click(html.baseElement.querySelector('.ant-input-number-input')!);
+      fireEvent.focus(html.baseElement.querySelector('.ant-input-number-input')!);
+      fireEvent.mouseEnter(html.baseElement.querySelector('.ant-input-number-input')!);
+      fireEvent.mouseDown(html.baseElement.querySelector('.ant-input-number-input')!);
     });
-    await waitTime(100);
+
     expect(!!(await html.findByText('¥1.11亿'))).toBeTruthy();
     html.unmount();
   });
@@ -895,7 +896,7 @@ describe('Field', () => {
       />,
     );
     act(() => {
-      fireEvent.change(html.baseElement.querySelector('.ant-input-number-input')!, {
+      fireEvent.change(html.baseElement.querySelector('.ant-input-number-input-input')!, {
         target: {
           value: '100',
         },
@@ -1025,7 +1026,7 @@ describe('Field', () => {
     });
     // edit test
     act(() => {
-      fireEvent.change(html.baseElement.querySelector('.ant-input-number-input')!, {
+      fireEvent.change(html.baseElement.querySelector('.ant-input-number-input-input')!, {
         target: {
           value: '123',
         },
@@ -1033,7 +1034,7 @@ describe('Field', () => {
     });
     expect(html.baseElement.querySelector('input')?.value).toBe('??? 123');
     act(() => {
-      fireEvent.change(html.baseElement.querySelector('.ant-input-number-input')!, {
+      fireEvent.change(html.baseElement.querySelector('.ant-input-number-input-input')!, {
         target: {
           value: '123456',
         },
@@ -1074,7 +1075,7 @@ describe('Field', () => {
     });
     // edit test
     act(() => {
-      fireEvent.change(html.baseElement.querySelector('.ant-input-number-input')!, {
+      fireEvent.change(html.baseElement.querySelector('.ant-input-number-input-input')!, {
         target: {
           value: '123',
         },
@@ -1082,7 +1083,7 @@ describe('Field', () => {
     });
     expect(html.baseElement.querySelector('input')?.value).toBe(`${magicPrefix} 123`);
     act(() => {
-      fireEvent.change(html.baseElement.querySelector('.ant-input-number-input')!, {
+      fireEvent.change(html.baseElement.querySelector('.ant-input-number-input-input')!, {
         target: {
           value: '123456',
         },
@@ -1267,10 +1268,11 @@ describe('Field', () => {
     const html = render(<Field mode="edit" valueType="digitRange" />);
     await waitForComponentToPaint(html);
     expect(
-      html.baseElement.querySelector<HTMLInputElement>('.ant-input-number-input')?.placeholder,
+      html.baseElement.querySelector<HTMLInputElement>('.ant-input-number-input-input')
+        ?.placeholder,
     ).toBe('请输入');
     expect(
-      html.baseElement.querySelectorAll<HTMLInputElement>('.ant-input-number-input')[1]
+      html.baseElement.querySelectorAll<HTMLInputElement>('.ant-input-number-input-input')[1]
         ?.placeholder,
     ).toBe('请输入');
 
@@ -1281,10 +1283,11 @@ describe('Field', () => {
     const html = render(<Field mode="edit" valueType="digitRange" placeholder={['Min', 'Max']} />);
     await waitForComponentToPaint(html);
     expect(
-      html.baseElement.querySelector<HTMLInputElement>('.ant-input-number-input')?.placeholder,
+      html.baseElement.querySelector<HTMLInputElement>('.ant-input-number-input-input')
+        ?.placeholder,
     ).toBe('Min');
     expect(
-      html.baseElement.querySelectorAll<HTMLInputElement>('.ant-input-number-input')[1]
+      html.baseElement.querySelectorAll<HTMLInputElement>('.ant-input-number-input-input')[1]
         ?.placeholder,
     ).toBe('Max');
     html.unmount();
@@ -1294,7 +1297,7 @@ describe('Field', () => {
     const html = render(<Field mode="edit" valueType="digitRange" />);
     await waitForComponentToPaint(html);
     act(() => {
-      fireEvent.change(html.baseElement.querySelector('.ant-input-number-input')!, {
+      fireEvent.change(html.baseElement.querySelector('.ant-input-number-input-input')!, {
         target: {
           value: '12.34',
         },
@@ -1303,20 +1306,20 @@ describe('Field', () => {
 
     await waitForComponentToPaint(html);
 
-    expect(html.baseElement.querySelector<HTMLInputElement>('.ant-input-number-input')?.value).toBe(
-      '12.34',
-    );
+    expect(
+      html.baseElement.querySelector<HTMLInputElement>('.ant-input-number-input-input')?.value,
+    ).toBe('12.34');
 
     act(() => {
-      fireEvent.change(html.baseElement.querySelector('.ant-input-number-input')!, {
+      fireEvent.change(html.baseElement.querySelector('.ant-input-number-input-input')!, {
         target: {
           value: '56.78',
         },
       });
     });
-    expect(html.baseElement.querySelector<HTMLInputElement>('.ant-input-number-input')?.value).toBe(
-      '56.78',
-    );
+    expect(
+      html.baseElement.querySelector<HTMLInputElement>('.ant-input-number-input-input')?.value,
+    ).toBe('56.78');
     html.unmount();
   });
 
@@ -1324,7 +1327,7 @@ describe('Field', () => {
     const html = render(<Field mode="edit" valueType="digitRange" />);
     await waitForComponentToPaint(html);
     act(() => {
-      fireEvent.change(html.baseElement.querySelector('.ant-input-number-input')!, {
+      fireEvent.change(html.baseElement.querySelector('.ant-input-number-input-input')!, {
         target: {
           value: '56.78',
         },
@@ -1333,12 +1336,12 @@ describe('Field', () => {
 
     await waitForComponentToPaint(html);
 
-    expect(html.baseElement.querySelector<HTMLInputElement>('.ant-input-number-input')?.value).toBe(
-      '56.78',
-    );
+    expect(
+      html.baseElement.querySelector<HTMLInputElement>('.ant-input-number-input-input')?.value,
+    ).toBe('56.78');
 
     act(() => {
-      fireEvent.change(html.baseElement.querySelector('.ant-input-number-input')!, {
+      fireEvent.change(html.baseElement.querySelector('.ant-input-number-input-input')!, {
         target: {
           value: '12.34',
         },
@@ -1348,14 +1351,14 @@ describe('Field', () => {
     await waitForComponentToPaint(html);
 
     act(() => {
-      fireEvent.blur(html.baseElement.querySelector('.ant-input-number-input')!);
+      fireEvent.blur(html.baseElement.querySelector('.ant-input-number-input-input')!);
     });
 
     await waitForComponentToPaint(html);
 
-    expect(html.baseElement.querySelector<HTMLInputElement>('.ant-input-number-input')?.value).toBe(
-      '12.34',
-    );
+    expect(
+      html.baseElement.querySelector<HTMLInputElement>('.ant-input-number-input-input')?.value,
+    ).toBe('12.34');
 
     html.unmount();
   });
