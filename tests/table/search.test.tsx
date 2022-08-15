@@ -138,7 +138,7 @@ describe('BasicTable Search', () => {
         rowKey="key"
       />,
     );
-    await waitForComponentToPaint(html, 1200);
+    await waitForComponentToPaint(html, 2000);
 
     const dom = await (await html.findAllByText('重 置')).at(0);
 
@@ -188,7 +188,7 @@ describe('BasicTable Search', () => {
         rowKey="key"
       />,
     );
-    await waitForComponentToPaint(html, 1200);
+    await waitForComponentToPaint(html, 2000);
     expect(fn).toBeCalledTimes(1);
 
     expect(!!html.baseElement.querySelector('.ant-spin')).toBeTruthy();
@@ -232,7 +232,7 @@ describe('BasicTable Search', () => {
         rowKey="key"
       />,
     );
-    await waitForComponentToPaint(html, 1200);
+    await waitForComponentToPaint(html, 2000);
     expect(fn).toBeCalledTimes(0);
 
     expect(!!html.baseElement.querySelector('.ant-spin')).toBeFalsy();
@@ -263,13 +263,13 @@ describe('BasicTable Search', () => {
         rowKey="key"
       />,
     );
-    await waitForComponentToPaint(html, 1200);
+    await waitForComponentToPaint(html, 2000);
     MockDate.set(1479799364001);
 
     act(() => {
       actionRef.current?.reload();
     });
-    await waitForComponentToPaint(html, 1200);
+    await waitForComponentToPaint(html, 2000);
 
     expect(requestFn).toBeCalledTimes(1);
   });
@@ -309,7 +309,7 @@ describe('BasicTable Search', () => {
         rowKey="key"
       />,
     );
-    await waitForComponentToPaint(html, 200);
+    await waitForComponentToPaint(html, 1000);
 
     expect(!!html.baseElement.querySelector('.ant-col.ant-col-12')).toBeTruthy();
 
@@ -358,6 +358,7 @@ describe('BasicTable Search', () => {
       />,
     );
     await waitForComponentToPaint(html, 1400);
+
     const dom = await (await html.findAllByText('查 询')).at(0);
 
     act(() => {
@@ -415,7 +416,7 @@ describe('BasicTable Search', () => {
         rowKey="key"
       />,
     );
-    await waitForComponentToPaint(html, 1200);
+    await waitForComponentToPaint(html, 2000);
 
     expect(html.baseElement.querySelector('input#renderFormItem')).toBeTruthy();
 
@@ -455,7 +456,7 @@ describe('BasicTable Search', () => {
         rowKey="key"
       />,
     );
-    await waitForComponentToPaint(html, 1200);
+    await waitForComponentToPaint(html, 2000);
 
     expect(html.baseElement.querySelectorAll('div.ant-form-item').length).toBe(2);
     expect(html.baseElement.querySelectorAll('.money-class').length).toBe(0);
