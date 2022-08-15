@@ -242,7 +242,7 @@ describe('QueryFilter', () => {
         <ProFormText label="f" name="f" />
       </QueryFilter>,
     );
-    expect(wrapper.find('.ant-row .ant-form-item-hidden').length).toEqual(2);
+    expect(wrapper.find('.ant-row .ant-form-item-hidden').length).toEqual(3);
   });
 
   it('🕵️‍♀️ colSize不全都是1，collapseRender应该存在', async () => {
