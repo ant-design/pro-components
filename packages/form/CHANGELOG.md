@@ -2,6 +2,37 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.72.0](https://github.com/ant-design/pro-components/compare/@ant-design/pro-form@1.71.2...@ant-design/pro-form@1.72.0) (2022-08-02)
+
+### Bug Fixes
+
+- **layout:** suppoer new darwer version ([bb82097](https://github.com/ant-design/pro-components/commit/bb82097fcd9da37b9733108426c184c66e55af4a))
+
+### Features
+
+- **form:** export type CaptFieldRef from Captcha ([#5605](https://github.com/ant-design/pro-components/issues/5605)) ([f178778](https://github.com/ant-design/pro-components/commit/f17877804a0cf7c8bf8c86f34255ed2699cc9dbd))
+
+## [1.71.2](https://github.com/ant-design/pro-components/compare/@ant-design/pro-form@1.71.1...@ant-design/pro-form@1.71.2) (2022-07-22)
+
+**Note:** Version bump only for package @ant-design/pro-form
+
+## [1.71.1](https://github.com/ant-design/pro-components/compare/@ant-design/pro-form@1.71.0...@ant-design/pro-form@1.71.1) (2022-07-21)
+
+**Note:** Version bump only for package @ant-design/pro-form
+
+# [1.71.0](https://github.com/ant-design/pro-components/compare/@ant-design/pro-form@1.70.3...@ant-design/pro-form@1.71.0) (2022-07-21)
+
+### Features
+
+- **form:** Form support readonly ([a5a9611](https://github.com/ant-design/pro-components/commit/a5a9611a9610281d9b4f71a617bbf205f84ca04a))
+
+## [1.70.3](https://github.com/ant-design/pro-components/compare/@ant-design/pro-form@1.70.2...@ant-design/pro-form@1.70.3) (2022-07-14)
+
+### Bug Fixes
+
+- **form:** collapse calculation rules changed ([#5527](https://github.com/ant-design/pro-components/issues/5527)) ([b5c6060](https://github.com/ant-design/pro-components/commit/b5c6060ceae92953d2b261815700972b1e591568))
+- **form:** fix ProFormUpload typescript error ([5d871ed](https://github.com/ant-design/pro-components/commit/5d871ed051d1134c8e23ddf7ad8a59ceef79270c))
+
 ## [1.70.2](https://github.com/ant-design/pro-components/compare/@ant-design/pro-form@1.70.1...@ant-design/pro-form@1.70.2) (2022-07-11)
 
 ### Bug Fixes

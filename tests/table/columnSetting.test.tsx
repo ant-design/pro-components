@@ -989,4 +989,30 @@ describe('Table ColumnSetting', () => {
 
     expect(onChange).toBeCalledWith('middle');
   });
+  it('🎏 columnSetting ellipsis support showTitle', async () => {
+    const html = mount(
+      <ProTable
+        columns={[
+          {
+            title: 'Name',
+            key: 'name',
+            dataIndex: 'name',
+            ellipsis: {
+              showTitle: true,
+            },
+          },
+        ]}
+        dataSource={[
+          {
+            key: 1,
+            name: `我是超长的名称`,
+          },
+        ]}
+        rowKey="key"
+      />,
+    );
+    await waitForComponentToPaint(html);
+    const ellipsisList = html.find('.ant-typography-ellipsis');
+    expect(ellipsisList.length).toBe(2);
+  });
 });

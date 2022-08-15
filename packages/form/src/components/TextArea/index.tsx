@@ -16,7 +16,6 @@ const ProFormTextArea: React.ForwardRefRenderFunction<
   return (
     <ProField
       ref={ref}
-      mode="edit"
       valueType="textarea"
       fieldProps={fieldProps}
       proFieldProps={proFieldProps}

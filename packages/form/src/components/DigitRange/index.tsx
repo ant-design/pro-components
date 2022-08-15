@@ -31,7 +31,6 @@ const ProFormDigit: React.ForwardRefRenderFunction<any, ProFormDigitRangeProps> 
 ) => {
   return (
     <ProFormField
-      mode="edit"
       valueType="digitRange"
       fieldProps={{
         ...fieldProps,

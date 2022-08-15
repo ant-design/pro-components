@@ -31,11 +31,11 @@ return <Skeleton type="list" />;
 
 ### 结果页
 
-<code src="./demos/result.tsx" title="结果页" height="715px"/>
+<code src="./demos/result.tsx" title="结果页" />
 
 ### 详情页
 
-<code src="./demos/descriptions.tsx" title="详情页" height="1032px"/>
+<code src="./demos/descriptions.tsx" title="详情页" />
 
 ## API
 

@@ -16,7 +16,6 @@ const RadioGroup: React.FC<ProFormRadioGroupProps> = React.forwardRef(
   ({ fieldProps, options, radioType, layout, proFieldProps, valueEnum, ...rest }, ref: any) => {
     return (
       <ProField
-        mode="edit"
         valueType={radioType === 'button' ? 'radioButton' : 'radio'}
         ref={ref}
         valueEnum={runFunction<[any]>(valueEnum, undefined)}

@@ -4,7 +4,6 @@ import { Spin, Tooltip } from 'antd';
 import type { FormListFieldData, FormListOperation, FormListProps } from 'antd/lib/form/FormList';
 import toArray from 'rc-util/lib/Children/toArray';
 import set from 'rc-util/lib/utils/set';
-import { noteOnce } from 'rc-util/lib/warning';
 import type { ReactNode } from 'react';
 import React, { useContext, useEffect, useMemo, useRef, useState } from 'react';
 import { FormListContext } from '.';
@@ -315,19 +314,6 @@ const ProFormListItem: React.FC<
     })
     .map((childrenItem, itemIndex) => {
       if (React.isValidElement(childrenItem)) {
-        const hasKey =
-          !!childrenItem.key ||
-          !!childrenItem?.props?.name ||
-          childrenItem?.type?.toString() === 'Symbol(react.fragment)';
-
-        noteOnce(
-          hasKey,
-          'ProFormList 的 children 不设置 key 可能导致更新不及时或者修改不生效的问题，请设置 key。',
-        );
-        noteOnce(
-          hasKey,
-          "ProFormList's children do not set the key may cause updates not to be timely or the modification does not take effect, please set the key.",
-        );
         return React.cloneElement(childrenItem, {
           key: childrenItem.key || childrenItem?.props?.name || itemIndex,
           ...childrenItem?.props,

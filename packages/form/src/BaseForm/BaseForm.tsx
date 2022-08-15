@@ -36,6 +36,7 @@ import { Submitter } from '../components';
 import FieldContext from '../FieldContext';
 import { GridContext, useGridHelpers } from '../helpers';
 import type { FieldProps, GroupProps, ProFormGridConfig } from '../interface';
+import { EditOrReadOnlyContext } from './EditOrReadOnlyContext';
 
 export type CommonFormProps<T = Record<string, any>, U = Record<string, any>> = {
   /**
@@ -152,6 +153,12 @@ export type CommonFormProps<T = Record<string, any>, U = Record<string, any>> = 
    * @description 只对有input的类型有效
    */
   autoFocusFirstInput?: boolean;
+
+  /**
+   *  @name 是否只读模式，对所有表单项生效
+   *  @description 优先低于表单项的 readonly
+   */
+  readonly?: boolean;
 } & ProFormGridConfig;
 
 export type BaseFormProps<T = Record<string, any>> = {
@@ -584,7 +591,7 @@ function BaseFormComponents<T = Record<string, any>>(props: BaseFormProps<T>) {
 let requestFormCacheId = 0;
 
 function BaseForm<T = Record<string, any>>(props: BaseFormProps<T>) {
-  const { request, params, initialValues, formKey = requestFormCacheId, ...rest } = props;
+  const { request, params, initialValues, formKey = requestFormCacheId, readonly, ...rest } = props;
   useEffect(() => {
     requestFormCacheId += 0;
   }, []);
@@ -602,16 +609,22 @@ function BaseForm<T = Record<string, any>>(props: BaseFormProps<T>) {
   }
 
   return (
-    <ConfigProviderWrap>
-      <BaseFormComponents
-        autoComplete="off"
-        {...rest}
-        initialValues={{
-          ...initialValues,
-          ...initialData,
-        }}
-      />
-    </ConfigProviderWrap>
+    <EditOrReadOnlyContext.Provider
+      value={{
+        mode: props.readonly ? 'read' : 'edit',
+      }}
+    >
+      <ConfigProviderWrap>
+        <BaseFormComponents
+          autoComplete="off"
+          {...rest}
+          initialValues={{
+            ...initialValues,
+            ...initialData,
+          }}
+        />
+      </ConfigProviderWrap>
+    </EditOrReadOnlyContext.Provider>
   );
 }
 

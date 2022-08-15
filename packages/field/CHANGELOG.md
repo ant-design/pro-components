@@ -2,6 +2,20 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.35.2](https://github.com/ant-design/pro-components/compare/@ant-design/pro-field@1.35.1...@ant-design/pro-field@1.35.2) (2022-07-22)
+
+**Note:** Version bump only for package @ant-design/pro-field
+
+## [1.35.1](https://github.com/ant-design/pro-components/compare/@ant-design/pro-field@1.35.0...@ant-design/pro-field@1.35.1) (2022-07-21)
+
+**Note:** Version bump only for package @ant-design/pro-field
+
+# [1.35.0](https://github.com/ant-design/pro-components/compare/@ant-design/pro-field@1.34.20...@ant-design/pro-field@1.35.0) (2022-07-21)
+
+### Features
+
+- **form:** Form support readonly ([a5a9611](https://github.com/ant-design/pro-components/commit/a5a9611a9610281d9b4f71a617bbf205f84ca04a))
+
 ## [1.34.20](https://github.com/ant-design/pro-components/compare/@ant-design/pro-field@1.34.19...@ant-design/pro-field@1.34.20) (2022-07-11)
 
 ### Bug Fixes

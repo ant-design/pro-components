@@ -59,7 +59,7 @@ ProFormList 与 [Form.List](https://ant.design/components/form-cn/#Form.List) AP
 
 | 参数 | 说明 | 类型 | 默认值 |
 | --- | --- | --- | --- |
-| itemRender | 自定义 Item，可以用来将 action 放到别的地方 | `doms,listMeta)=> ReactNode` | - |
+| itemRender | 自定义 Item，可以用来将 action 放到别的地方 | `(doms,listMeta)=> ReactNode` | - |
 | creatorRecord | 新建一行的默认值 | `Record<string, any> \| () => Record<string, any>` | - |
 | creatorButtonProps | 新建一行按钮的配置 | `buttonProps & { creatorButtonText:string,position:"top"\|"bottom" }` | `{creatorButtonText:"新建一行"}` |
 | label | 与 From.Item 相同 | `ReactNode` | - |

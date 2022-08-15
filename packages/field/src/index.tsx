@@ -37,6 +37,7 @@ import FieldSelect, {
   proFieldParsingText,
   proFieldParsingValueEnumToArray,
 } from './components/Select';
+import FieldSlider from './components/Slider';
 import FieldStatus from './components/Status';
 import FieldSwitch from './components/Switch';
 import FieldText from './components/Text';
@@ -390,6 +391,9 @@ const defaultRenderText = (
 
   if (valueType === 'rate') {
     return <FieldRate text={dataValue as string} {...props} />;
+  }
+  if (valueType === 'slider') {
+    return <FieldSlider text={dataValue as string} {...props} />;
   }
   if (valueType === 'switch') {
     return <FieldSwitch text={dataValue as boolean} {...props} />;

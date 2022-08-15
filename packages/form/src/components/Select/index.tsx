@@ -62,7 +62,6 @@ const ProFormSelectComponents = React.forwardRef<any, ProFormSelectProps<any>>(
 
     return (
       <ProFormField<any>
-        mode="edit"
         valueEnum={runFunction(valueEnum)}
         request={request}
         params={params}
@@ -107,7 +106,6 @@ const SearchSelect = React.forwardRef<any, ProFormSelectProps<any>>(
     const context = useContext(FieldContext);
     return (
       <ProFormField<any>
-        mode="edit"
         valueEnum={runFunction(valueEnum)}
         request={request}
         params={params}

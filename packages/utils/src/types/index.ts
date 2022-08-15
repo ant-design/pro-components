@@ -13,12 +13,14 @@ import type {
   RadioProps,
   RateProps,
   SelectProps,
+  SliderSingleProps,
   SwitchProps,
   TimeRangePickerProps,
   TreeSelectProps,
 } from 'antd';
 import type { RangePickerProps } from 'antd/lib/date-picker';
 import type { PasswordProps, TextAreaProps } from 'antd/lib/input';
+import type { SliderRangeProps } from 'antd/lib/slider';
 import type { ProFieldRequestData, ProSchema } from '../typing';
 
 export interface ProFieldValueTypeWithFieldProps {
@@ -43,6 +45,7 @@ export interface ProFieldValueTypeWithFieldProps {
   select: SelectProps;
   checkbox: CheckboxProps;
   rate: RateProps;
+  slider: SliderSingleProps | SliderRangeProps;
   radio: RadioProps;
   radioButton: RadioProps;
   progress: ProgressProps;

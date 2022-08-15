@@ -20,7 +20,6 @@ export default () => {
       <ProLayout
         style={{
           height: '100vh',
-          border: '1px solid #ddd',
         }}
         actionRef={actionRef}
         menu={{

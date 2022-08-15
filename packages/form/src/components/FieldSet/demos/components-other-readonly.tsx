@@ -1,6 +1,11 @@
 import {
   ProForm,
   ProFormCheckbox,
+  ProFormDatePicker,
+  ProFormDateRangePicker,
+  ProFormDateTimePicker,
+  ProFormDateTimeRangePicker,
+  ProFormDependency,
   ProFormDigit,
   ProFormFieldSet,
   ProFormRadio,
@@ -9,6 +14,7 @@ import {
   ProFormSlider,
   ProFormSwitch,
   ProFormText,
+  ProFormTimePicker,
   ProFormUploadButton,
   ProFormUploadDragger,
 } from '@ant-design/pro-components';
@@ -20,6 +26,7 @@ const Demo = () => (
     }}
   >
     <ProForm
+      readonly
       name="validate_other"
       initialValues={{
         'select-multiple': ['red', 'green'],
@@ -77,6 +84,16 @@ const Demo = () => (
             url: 'https://gw.alipayobjects.com/zos/antfincdn/7%24YOiS6YIm/huaban.png',
           },
         ],
+        date: Date.now(),
+        dateWeek: Date.now(),
+        dateMonth: Date.now(),
+        dateQuarter: Date.now(),
+        dateYear: Date.now(),
+        dateTime: Date.now(),
+        time: '00:01:05',
+        timeRange: ['05:00:00', '11:00:00'],
+        dateTimeRange: [Date.now(), Date.now() - 1000 * 60 * 60 * 24],
+        dateRange: [Date.now(), Date.now() - 1000 * 60 * 60 * 24],
       }}
       onValuesChange={(_, values) => {
         console.log(values);
@@ -222,6 +239,95 @@ const Demo = () => (
         <ProFormText width="md" readonly />
       </ProFormFieldSet>
       <ProFormUploadDragger readonly max={4} label="Dragger" name="dragger" />
+
+      <ProForm.Group title="日期相关分组">
+        <ProFormDatePicker name="date" label="日期" />
+        <ProFormDatePicker
+          name="date"
+          fieldProps={{
+            format: 'YY-MM',
+          }}
+          label="年月"
+        />
+        <ProFormTimePicker name="time" label="时间" />
+        <ProFormTimePicker.RangePicker name="timeRange" label="时间区间" />
+        <ProFormDatePicker.Week name="dateWeek" label="周" />
+        <ProFormDatePicker.Month name="dateMonth" label="月" />
+        <ProFormDatePicker.Quarter name="dateQuarter" label="季度" />
+        <ProFormDatePicker.Year name="dateYear" label="年" />
+        <ProFormDateTimePicker
+          name="dateTime"
+          label="日期时间"
+          fieldProps={{
+            format: (value) => value.format('YYYY-MM-DD'),
+          }}
+        />
+        <ProFormDateRangePicker name="dateRange" label="日期区间" />
+        <ProFormDateTimeRangePicker name="dateTimeRange" label="日期时间区间" />
+      </ProForm.Group>
+      <ProForm.Group title="其他相关分组">
+        <ProForm.Item label="互相依赖的表单">
+          <ProFormDependency name={['list']}>
+            {({ list }) => {
+              return <div>{JSON.stringify(list, null, 2)}</div>;
+            }}
+          </ProFormDependency>
+        </ProForm.Item>
+        <ProFormFieldSet name="list" label="组件列表">
+          <ProFormText width="md" />
+          <ProFormSelect
+            width="md"
+            request={async () => [
+              { label: '全部', value: 'all' },
+              { label: '未解决', value: 'open' },
+              { label: '已解决', value: 'closed' },
+              { label: '解决中', value: 'processing' },
+            ]}
+            name="useMode"
+            label="合同约定生效方式"
+          />
+          <ProFormText width="md" />
+        </ProFormFieldSet>
+
+        <ProFormFieldSet
+          name="list"
+          label="组件列表- Input.Group"
+          type="group"
+          rules={[
+            {
+              validator: (_, value) => {
+                const [name, name1, name2] = value || [];
+                if (!name) {
+                  throw new Error('第一个值不能为空');
+                }
+                if (!name1) {
+                  throw new Error('第二个值不能为空');
+                }
+                if (!name2) {
+                  throw new Error('第三个值不能为空');
+                }
+              },
+            },
+          ]}
+          transform={(value: any) => ({ list: value, startTime: value[0], endTime: value[1] })}
+        >
+          <ProFormText width="md" />
+          <ProFormText width="md" />
+          <ProFormText width="md" />
+        </ProFormFieldSet>
+
+        <ProFormFieldSet
+          name="list"
+          label="组件列表"
+          transform={(value: any) => ({ list: value, startTime: value[0], endTime: value[1] })}
+        >
+          <ProFormText width="md" readonly />
+          -
+          <ProFormText width="md" readonly />
+          -
+          <ProFormText width="md" readonly />
+        </ProFormFieldSet>
+      </ProForm.Group>
     </ProForm>
   </div>
 );

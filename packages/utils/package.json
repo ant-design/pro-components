@@ -1,6 +1,6 @@
 {
   "name": "@ant-design/pro-utils",
-  "version": "1.42.5",
+  "version": "1.43.2",
   "description": "@ant-design/pro-utils",
   "keywords": [
     "antd",
@@ -34,8 +34,9 @@
   ],
   "dependencies": {
     "@ant-design/icons": "^4.3.0",
-    "@ant-design/pro-provider": "1.9.0",
+    "@ant-design/pro-provider": "1.9.3",
     "@babel/runtime": "^7.18.0",
+    "antd": "^4.20.0 ",
     "classnames": "^2.2.6",
     "moment": "^2.27.0",
     "rc-util": "^5.0.6",
@@ -43,7 +44,6 @@
     "swr": "^1.2.0"
   },
   "peerDependencies": {
-    "antd": ">=4.20.0",
     "react": ">=16.9.0",
     "react-dom": ">=16.9.0"
   },

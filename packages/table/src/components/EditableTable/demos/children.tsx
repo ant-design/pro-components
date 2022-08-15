@@ -1,7 +1,7 @@
+import type { ProColumns } from '@ant-design/pro-components';
 import {
   EditableProTable,
   ProCard,
-  ProColumns,
   ProFormField,
   useRefFunction,
 } from '@ant-design/pro-components';

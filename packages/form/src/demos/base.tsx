@@ -101,6 +101,7 @@ export default () => {
           width="md"
           name="name"
           required
+          dependencies={[['contract', 'name']]}
           addonBefore={<a>客户名称应该怎么获得？</a>}
           addonAfter={<a>点击查看更多</a>}
           label="签约客户名称"

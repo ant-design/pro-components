@@ -16,12 +16,18 @@ const DarkButton = () => {
     if (!isBrowser()) {
       return 'light';
     }
+    if ((window as any).HeadlessChrome) {
+      return 'light';
+    }
 
     return matchMedia?.('(prefers-color-scheme: dark)').matches && 'dark';
   }, []);
 
   const defaultDarken = useMemo(() => {
     if (!isBrowser()) {
+      return 'light';
+    }
+    if ((window as any).HeadlessChrome) {
       return 'light';
     }
     return localStorage.getItem('procomponents_dark_theme') || colorScheme;
@@ -41,6 +47,9 @@ const DarkButton = () => {
   }, [isDark]);
 
   if (!isBrowser()) {
+    return null;
+  }
+  if ((window as any).HeadlessChrome) {
     return null;
   }
   return (
@@ -76,7 +85,11 @@ const LayoutPage = ({ children, ...props }: IRouteComponentProps) => {
   const context = useContext(dumiContext);
   useEffect(() => {
     if (!isBrowser()) {
-      return null;
+      return;
+    }
+
+    if ((window as any).HeadlessChrome) {
+      return;
     }
 
     loadJS('https://www.googletagmanager.com/gtag/js?id=G-RMBLDHGL1N', function () {

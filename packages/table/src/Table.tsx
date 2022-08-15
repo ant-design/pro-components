@@ -289,7 +289,7 @@ function TableRender<T extends Record<string, any>, U, ValueType>(
 
   /** Table 区域的 dom，为了方便 render */
   const tableAreaDom =
-    // cardProps 或者 有了name 就不需要这个padding了，不然会导致不好对其
+    // cardProps 或者 有了name 就不需要这个padding了，不然会导致不好对齐
     cardProps === false || !!props.name ? (
       tableContentDom
     ) : (
@@ -415,7 +415,7 @@ const ProTable = <T extends Record<string, any>, U extends ParamsType, ValueType
 
   /** 单选多选的相关逻辑 */
   const [selectedRowKeys, setSelectedRowKeys] = useMountMergeState<React.ReactText[] | undefined>(
-    propsRowSelection ? propsRowSelection?.defaultSelectedRowKeys : undefined,
+    propsRowSelection ? propsRowSelection?.defaultSelectedRowKeys || [] : undefined,
     {
       value: propsRowSelection ? propsRowSelection.selectedRowKeys : undefined,
     },
@@ -536,7 +536,7 @@ const ProTable = <T extends Record<string, any>, U extends ParamsType, ValueType
       if (index === -1) {
         return (record as any)?.[rowKey as string];
       }
-      // 如果 props 中有name 的话，用index 来做行好，这样方便转化为 index
+      // 如果 props 中有name 的话，用index 来做行号，这样方便转化为 index
       if (props.name) {
         return index?.toString();
       }
@@ -626,7 +626,7 @@ const ProTable = <T extends Record<string, any>, U extends ParamsType, ValueType
     ...props.editable,
     tableName: props.name,
     getRowKey,
-    childrenColumnName: props.expandable?.childrenColumnName,
+    childrenColumnName: props.expandable?.childrenColumnName || 'children',
     dataSource: action.dataSource || [],
     setDataSource: (data) => {
       props.editable?.onValuesChange?.(undefined as any, data);
@@ -762,6 +762,14 @@ const ProTable = <T extends Record<string, any>, U extends ParamsType, ValueType
 
     setFormSearch(values);
   };
+
+  const loading = useMemo(() => {
+    if (typeof action.loading === 'object') {
+      return action.loading?.spinning || false;
+    }
+    return action.loading;
+  }, [action.loading]);
+
   const searchNode =
     search === false && type !== 'form' ? null : (
       <FormRender<T, U>
@@ -775,7 +783,7 @@ const ProTable = <T extends Record<string, any>, U extends ParamsType, ValueType
         ghost={ghost}
         onReset={props.onReset}
         onSubmit={props.onSubmit}
-        loading={!!action.loading}
+        loading={!!loading}
         manualRequest={manualRequest}
         search={search}
         form={props.form}

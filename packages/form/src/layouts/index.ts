@@ -14,6 +14,6 @@ export { QueryFilter } from './QueryFilter';
 export type { BaseQueryFilterProps, QueryFilterProps } from './QueryFilter';
 export { StepsForm } from './StepsForm';
 export type { StepFormProps, StepsFormProps } from './StepsForm';
-export { ProForm, ProFormGroup };
+export { ProForm };
 
-const ProFormGroup = ProForm.Group;
+export const ProFormGroup = ProForm.Group;

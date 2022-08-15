@@ -17,7 +17,6 @@ const ProFormSwitch: React.FC<ProFormSwitchProps> = React.forwardRef(
     return (
       <ProField
         valueType="switch"
-        mode="edit"
         fieldProps={{
           unCheckedChildren,
           checkedChildren,

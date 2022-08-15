@@ -17,7 +17,6 @@ const ProFormDatePickerWeek: React.FC<ProFormFieldItemProps<WeekPickerProps>> = 
     return (
       <ProField
         ref={ref}
-        mode="edit"
         valueType={valueType}
         fieldProps={{ getPopupContainer: context.getPopupContainer, ...fieldProps }}
         proFieldProps={proFieldProps}

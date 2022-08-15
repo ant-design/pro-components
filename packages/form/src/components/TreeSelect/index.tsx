@@ -15,7 +15,6 @@ const ProFormTreeSelect: React.ForwardRefRenderFunction<
 > = ({ fieldProps, request, params, proFieldProps, ...rest }, ref) => {
   return (
     <ProFormField
-      mode="edit"
       valueType="treeSelect"
       fieldProps={fieldProps}
       ref={ref}

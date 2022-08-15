@@ -196,25 +196,27 @@ function DrawerForm<T = Record<string, any>>({
           )
         }
       >
-        <BaseForm
-          formComponentType="DrawerForm"
-          layout="vertical"
-          formRef={formRef}
-          {...rest}
-          submitter={submitterConfig}
-          onFinish={async (values) => {
-            const result = await onFinishHandle(values);
-            const form = rest.formRef?.current ?? formRef.current;
-            // 返回真值，重置表单
-            if (result && form) {
-              form.resetFields();
-            }
-            return result;
-          }}
-          contentRender={contentRender}
-        >
-          {children}
-        </BaseForm>
+        <>
+          <BaseForm
+            formComponentType="DrawerForm"
+            layout="vertical"
+            formRef={formRef}
+            {...rest}
+            submitter={submitterConfig}
+            onFinish={async (values) => {
+              const result = await onFinishHandle(values);
+              const form = rest.formRef?.current ?? formRef.current;
+              // 返回真值，重置表单
+              if (result && form && drawerProps?.destroyOnClose) {
+                form.resetFields();
+              }
+              return result;
+            }}
+            contentRender={contentRender}
+          >
+            {children}
+          </BaseForm>
+        </>
       </Drawer>
       {triggerDom}
     </>

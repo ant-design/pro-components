@@ -58,10 +58,18 @@ for (let i = 0; i < 5; i += 1) {
 }
 
 const roleMenu = (
-  <Menu>
-    <Menu.Item key="admin">管理员</Menu.Item>
-    <Menu.Item key="operator">操作员</Menu.Item>
-  </Menu>
+  <Menu
+    items={[
+      {
+        label: '管理员',
+        key: 'admin',
+      },
+      {
+        label: '操作员',
+        key: 'operator',
+      },
+    ]}
+  />
 );
 
 const MemberList: React.FC = () => {
