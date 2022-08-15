@@ -199,7 +199,7 @@ const FieldMoney: ProFieldFC<FieldMoneyProps> = (
   }
 
   if (type === 'edit' || type === 'update') {
-    const getFormatedValue = (value?: string | number) => {
+    const getFormateValue = (value?: string | number) => {
       const reg = new RegExp(
         `\\B(?=(\\d{${3 + (precision - DefaultPrecisionCont)}})+(?!\\d))`,
         'g',
@@ -221,7 +221,7 @@ const FieldMoney: ProFieldFC<FieldMoneyProps> = (
           if (!props.value) return;
           const localeText = getTextByLocale(
             moneySymbol ? locale : false,
-            `${getFormatedValue(props.value)}`,
+            `${getFormateValue(props.value)}`,
             precision,
             {
               ...numberFormatOptions,
@@ -239,7 +239,7 @@ const FieldMoney: ProFieldFC<FieldMoneyProps> = (
         // 删除默认min={0}，允许输入一个负数的金额，用户可自行配置min来限制是否允许小于0的金额
         formatter={(value) => {
           if (value && moneySymbol) {
-            return `${moneySymbol} ${getFormatedValue(value)}`;
+            return `${moneySymbol} ${getFormateValue(value)}`;
           }
           return value!?.toString();
         }}
