@@ -17185,9 +17185,9 @@ rc-mentions@~1.9.1:
     rc-util "^5.22.5"
 
 rc-menu@~9.6.0:
-  version "9.6.2"
-  resolved "https://registry.npmmirror.com/rc-menu/-/rc-menu-9.6.2.tgz#3d987c90adf520c014a235c7ac7d4575676ae528"
-  integrity sha512-sSobfm30OAw6XfVaj+rEkBfalLxbZ3uOsB876MCG6NmwXQGSKRv+arTBnJnJqAmCGh2dMyb/Jf9kTCMpII6RTg==
+  version "9.6.3"
+  resolved "https://registry.npmmirror.com/rc-menu/-/rc-menu-9.6.3.tgz#f0373d0391a97db94147106cddffe87b1e4f4e36"
+  integrity sha512-KY9QilKWgkJZ0JSpOBgIpQF2wMRRodRxpIMYyIJ3Nd5N6xfVLOxXCxevHcBplt+Ez7MhUF+I03MuAKqWQJLZgw==
   dependencies:
     "@babel/runtime" "^7.10.1"
     classnames "2.x"
