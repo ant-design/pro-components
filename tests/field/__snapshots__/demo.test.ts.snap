@@ -180,7 +180,6 @@ exports[`field demos 📸 renders ./packages/field/src/demos/base.tsx correctly 
                     <img
                       class="ant-image-img"
                       src="https://zos.alipayobjects.com/rmsportal/jkjgkEfvpUPVyRjUImniVslZfWPnJuuZ.png"
-                      width="32"
                     />
                     <div
                       class="ant-image-mask"

@@ -57061,7 +57061,6 @@ exports[`table demos 📸 renders ./packages/table/src/demos/valueType.tsx corre
                               <img
                                 class="ant-image-img"
                                 src="https://zos.alipayobjects.com/rmsportal/jkjgkEfvpUPVyRjUImniVslZfWPnJuuZ.png"
-                                width="32"
                               />
                               <div
                                 class="ant-image-mask"
@@ -57189,7 +57188,6 @@ exports[`table demos 📸 renders ./packages/table/src/demos/valueType.tsx corre
                               <img
                                 class="ant-image-img"
                                 src="https://zos.alipayobjects.com/rmsportal/jkjgkEfvpUPVyRjUImniVslZfWPnJuuZ.png"
-                                width="32"
                               />
                               <div
                                 class="ant-image-mask"
