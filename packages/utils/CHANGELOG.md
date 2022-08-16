@@ -2,6 +2,17 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.44.0](https://github.com/ant-design/pro-components/compare/@ant-design/pro-utils@1.43.2...@ant-design/pro-utils@1.44.0) (2022-08-15)
+
+### Bug Fixes
+
+- **table:** useEditableArray fix nested children can not be add when position is not top and expandable.childrenColumnName isundefined ([#5643](https://github.com/ant-design/pro-components/issues/5643)) ([9604686](https://github.com/ant-design/pro-components/commit/960468691a4528aaf0a92bfaf1ce5742c2d24a52))
+- **utils:** 修复构建预览页面时因 SSR 模式无 window 对象导致构建失败的问题 ([#5716](https://github.com/ant-design/pro-components/issues/5716)) ([642258b](https://github.com/ant-design/pro-components/commit/642258bcc525ecb83eb7200c5128fd616acc41d5))
+
+### Features
+
+- **locale:** Add multilingual translation ([#5685](https://github.com/ant-design/pro-components/issues/5685)) ([0de3c0d](https://github.com/ant-design/pro-components/commit/0de3c0dd559b4133c8b3195efbfb2590d26617fa))
+
 ## [1.43.2](https://github.com/ant-design/pro-components/compare/@ant-design/pro-utils@1.43.1...@ant-design/pro-utils@1.43.2) (2022-07-22)
 
 **Note:** Version bump only for package @ant-design/pro-utils

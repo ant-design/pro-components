@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.35.3](https://github.com/ant-design/pro-components/compare/@ant-design/pro-field@1.35.2...@ant-design/pro-field@1.35.3) (2022-08-15)
+
+### Bug Fixes
+
+- **field:** 修复金额输入框因正则问题导致格式化异常的问题 ([#5715](https://github.com/ant-design/pro-components/issues/5715)) ([d32df82](https://github.com/ant-design/pro-components/commit/d32df82a1fdf0e912c6e3818616256468aaa703a))
+- **form:** fix moneySymbol=false no work error ([398415c](https://github.com/ant-design/pro-components/commit/398415cd79318d6e56340d0a60f5d5bea40c0684))
+
 ## [1.35.2](https://github.com/ant-design/pro-components/compare/@ant-design/pro-field@1.35.1...@ant-design/pro-field@1.35.2) (2022-07-22)
 
 **Note:** Version bump only for package @ant-design/pro-field

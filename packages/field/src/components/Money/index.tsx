@@ -80,7 +80,7 @@ const intlMap = {
 };
 
 const getTextByLocale = (
-  localeStr: string | false,
+  moneySymbol: string | false,
   paramsText: number | string | undefined,
   precision: number,
   config?: any,
@@ -91,9 +91,9 @@ const getTextByLocale = (
   }
 
   if (!moneyText && moneyText !== 0) return '';
-
-  return new Intl.NumberFormat(localeStr || 'zh-Hans-CN', {
-    ...(intlMap[localeStr || 'zh-Hans-CN'] || intlMap['zh-Hans-CN']),
+  // readonly moneySymbol = false, unused currency
+  return new Intl.NumberFormat(moneySymbol || 'zh-Hans-CN', {
+    ...(moneySymbol === false ? {} : intlMap[moneySymbol || 'zh-Hans-CN'] || intlMap['zh-Hans-CN']),
     maximumFractionDigits: precision,
     ...config,
   }).format(moneyText);

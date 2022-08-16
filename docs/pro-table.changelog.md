@@ -9,6 +9,15 @@ group:
 
 # Change Log
 
+## @ant-design/pro-table@2.79.0
+
+`2022-08-15`
+
+- fix(table): 修复 ProTable 的 ListToolBar 没有 headTitle 时，左侧会有多余的边距 (#5694). [#5694](https://github.com/ant-design/pro-components/pull/#5694) [@WuJiY](https://github.com/WuJiY)
+- feat(table): support dynamic columns persistence (#5645). [#5645](https://github.com/ant-design/pro-components/pull/#5645) [@fe-noob](https://github.com/fe-noob)
+- fix(table): useEditableArray fix nested children can not be add when position is not top and expandable.childrenColumnName isundefined (#5643). [#5643](https://github.com/ant-design/pro-components/pull/#5643) [@zd5043039119](https://github.com/zd5043039119)
+- fix(table): 表格批量操作没有默认值报错 (#5674). [#5674](https://github.com/ant-design/pro-components/pull/#5674) [@liangchaofei](https://github.com/liangchaofei)
+
 ## @ant-design/pro-table@2.78.0
 
 `2022-07-21`

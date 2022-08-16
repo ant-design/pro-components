@@ -71,6 +71,20 @@ describe('Field', () => {
     expect(html.find('input').props().value).toBe('100');
   });
 
+  it('🐴 money moneySymbol=false, no render moneySymbol', async () => {
+    const html = reactRender(
+      <Field
+        text="100"
+        fieldProps={{
+          moneySymbol: false,
+        }}
+        valueType="money"
+        mode="read"
+      />,
+    );
+    expect(html.baseElement.textContent).toBe('￥ 100');
+  });
+
   it('🐴 money numberPopoverRender onchange values', async () => {
     const html = reactRender(
       <Field text="100" numberPopoverRender={() => '1234'} valueType="money" mode="edit" />,

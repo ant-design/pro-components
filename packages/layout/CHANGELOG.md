@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [6.38.18](https://github.com/ant-design/pro-components/compare/@ant-design/pro-layout@6.38.17...@ant-design/pro-layout@6.38.18) (2022-08-15)
+
+### Bug Fixes
+
+- **form:** 修复查询表单展示「展开」按钮的逻辑错误问题 ([#5723](https://github.com/ant-design/pro-components/issues/5723)) ([2f7b0e4](https://github.com/ant-design/pro-components/commit/2f7b0e4b5ce43ed83469cd6115169f729b2887fa))
+- **layout:** 水印导致页面发起 404 请求 ([#5712](https://github.com/ant-design/pro-components/issues/5712)) ([7f0eba2](https://github.com/ant-design/pro-components/commit/7f0eba2f9710994e6bc4f5941fa314b8275a8618))
+
 ## [6.38.17](https://github.com/ant-design/pro-components/compare/@ant-design/pro-layout@6.38.16...@ant-design/pro-layout@6.38.17) (2022-08-02)
 
 ### Bug Fixes

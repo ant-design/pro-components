@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.10.0](https://github.com/ant-design/pro-components/compare/@ant-design/pro-provider@1.9.3...@ant-design/pro-provider@1.10.0) (2022-08-15)
+
+### Features
+
+- **locale:** Add multilingual translation ([#5685](https://github.com/ant-design/pro-components/issues/5685)) ([0de3c0d](https://github.com/ant-design/pro-components/commit/0de3c0dd559b4133c8b3195efbfb2590d26617fa))
+
 ## [1.9.3](https://github.com/ant-design/pro-components/compare/@ant-design/pro-provider@1.9.2...@ant-design/pro-provider@1.9.3) (2022-07-22)
 
 **Note:** Version bump only for package @ant-design/pro-provider

@@ -187,7 +187,7 @@ function TableRender<T extends Record<string, any>, U, ValueType>(
     onChange: (
       changePagination: TablePaginationConfig,
       filters: Record<string, (React.Key | boolean)[] | null>,
-      sorter: SorterResult<T> | SorterResult<T>[],
+      sorter: SorterResult<T> | SorterResult<T[]>,
       extra: TableCurrentDataSource<T>,
     ) => {
       rest.onChange?.(changePagination, filters, sorter, extra);
