@@ -193,7 +193,6 @@ describe('BasicTable valueType', () => {
     expect(html.find('span[title="Java"]').length).toBe(0);
     expect(html.find('span[title="Typescript"]').length).toBe(0);
     expect(html.find('span[title="Go"]').length).toBe(0);
-
     expect(html.render()).toMatchSnapshot();
 
     act(() => {
