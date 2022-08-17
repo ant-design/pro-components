@@ -371,8 +371,10 @@ export const defaultTheme = {
   _hashId: 'css-dev-only-do-not-override-5zawe1',
 };
 
+export type AliasToken = typeof defaultTheme;
+
 export const token = {
-  theme: { id: 0 },
+  theme: { id: 0 } as any,
   token: defaultTheme,
   hashId: '',
 };

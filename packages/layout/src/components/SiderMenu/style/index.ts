@@ -1,6 +1,5 @@
-﻿import type { ProAliasToken } from '@ant-design/pro-utils';
+﻿import type { GenerateStyle, ProAliasToken } from '@ant-design/pro-utils';
 import { useStyle as useAntdStyle } from '@ant-design/pro-utils';
-import type { GenerateStyle } from 'antd/es/theme';
 import { useContext } from 'react';
 import type { BaseLayoutDesignToken } from '../../../context/ProLayoutContext';
 import { ProLayoutContext } from '../../../context/ProLayoutContext';
@@ -47,12 +46,6 @@ const genSiderMenuStyle: GenerateStyle<SiderMenuToken & BaseLayoutDesignToken['s
             paddingBottom: 4,
           },
         },
-        [`&-collapsed`]: {
-          [`${token.antCls}-layout-sider-children`]: {
-            paddingInline: 4,
-            paddingBlock: 4,
-          },
-        },
         '&-logo': {
           position: 'relative',
           display: 'flex',
@@ -69,27 +62,28 @@ const genSiderMenuStyle: GenerateStyle<SiderMenuToken & BaseLayoutDesignToken['s
             justifyContent: 'center',
             minHeight: 22,
             fontSize: 22,
-          },
-          img: {
-            display: 'inline-block',
-            height: 22,
-            verticalAlign: 'middle',
-          },
-          h1: {
-            display: 'inline-block',
-            height: 22,
-            marginBlock: 0,
-            marginInlineEnd: 0,
-            marginInlineStart: 6,
-            color: token.colorTextMenuTitle,
-            fontWeight: 600,
-            fontSize: 16,
-            lineHeight: '22px',
-            verticalAlign: 'middle',
+            '> img': {
+              display: 'inline-block',
+              height: 22,
+              verticalAlign: 'middle',
+            },
+            '> h1': {
+              display: 'inline-block',
+              height: 22,
+              marginBlock: 0,
+              marginInlineEnd: 0,
+              marginInlineStart: 6,
+              color: token.colorTextMenuTitle,
+              fontWeight: 600,
+              fontSize: 16,
+              lineHeight: '22px',
+              verticalAlign: 'middle',
+            },
           },
           '&-collapsed': {
             flexDirection: 'column-reverse',
-            margin: -6,
+            margin: 0,
+            padding: 12,
             [`${token.proComponentsCls}-layout-apps-icon`]: {
               marginBlockEnd: 8,
               fontSize: 16,

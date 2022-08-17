@@ -1,6 +1,5 @@
-﻿import type { ProAliasToken } from '@ant-design/pro-utils';
+﻿import type { GenerateStyle, ProAliasToken } from '@ant-design/pro-utils';
 import { useStyle as useAntdStyle } from '@ant-design/pro-utils';
-import type { GenerateStyle } from 'antd/es/theme';
 
 export interface LightFilterToken extends ProAliasToken {
   componentCls: string;

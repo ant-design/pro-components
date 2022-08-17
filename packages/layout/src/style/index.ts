@@ -1,7 +1,6 @@
-﻿import type { ProAliasToken } from '@ant-design/pro-utils';
+﻿import type { GenerateStyle, ProAliasToken } from '@ant-design/pro-utils';
 import { useStyle as useAntdStyle } from '@ant-design/pro-utils';
 import { version } from 'antd';
-import type { GenerateStyle } from 'antd/es/theme';
 import { useContext } from 'react';
 import type { LayoutDesignToken } from '../context/ProLayoutContext';
 import { ProLayoutContext } from '../context/ProLayoutContext';
@@ -9,20 +8,7 @@ import { ProLayoutContext } from '../context/ProLayoutContext';
 export interface ProLayoutToken extends ProAliasToken {
   componentCls: string;
 }
-const defaultMenuToken = {
-  colorItemBg: 'transparent',
-  colorSubItemBg: 'transparent',
-  radiusItem: 4,
-  colorItemBgSelected: 'rgba(0, 0, 0, 0.04)',
-  colorItemBgActive: 'rgba(0, 0, 0, 0.04)',
-  colorItemBgSelectedHorizontal: 'rgba(0, 0, 0, 0.04)',
-  colorActiveBarWidth: 0,
-  colorActiveBarHeight: 0,
-  colorActiveBarBorderSize: 0,
-  colorItemText: 'rgba(0, 0, 0, 0.65)',
-  colorItemTextHover: 'rgba(0, 0, 0, 0.85)',
-  colorItemTextSelected: 'rgba(0, 0, 0, 1)',
-};
+
 /**
  * 主要区别：
  * 需要手动引入 import 'antd/dist/antd.css';
@@ -30,7 +16,7 @@ const defaultMenuToken = {
  * @param token
  * @returns
  */
-const compatibleStyle: GenerateStyle<ProLayoutToken> = (token) => {
+const compatibleStyle: GenerateStyle<ProLayoutToken & LayoutDesignToken> = (token) => {
   if (version.startsWith('5')) {
     return {};
   }
@@ -39,72 +25,103 @@ const compatibleStyle: GenerateStyle<ProLayoutToken> = (token) => {
     [token.componentCls]: {
       width: '100%',
       height: '100%',
-      [token.antCls]: {
-        '&-menu': {
-          color: defaultMenuToken.colorItemText,
+      [`${token.proComponentsCls}-base-menu`]: {
+        color: token.sider.colorTextMenu,
+        [`${token.antCls}-menu-sub`]: {
+          color: token.sider.colorTextMenu,
         },
-        '&-menu-inline': {
+        [`& ${token.antCls}-layout`]: {
+          backgroundColor: 'transparent',
+        },
+        [`${token.antCls}-menu-submenu-expand-icon, ${token.antCls}-menu-submenu-arrow`]: {
+          color: 'inherit',
+        },
+        [`&${token.antCls}-menu`]: {
+          color: token.sider.colorTextMenu,
+          [`${token.antCls}-menu-item a`]: {
+            color: 'inherit',
+          },
+        },
+        [`&${token.antCls}-menu-inline`]: {
           [`${token.antCls}-menu-selected::after,${token.antCls}-menu-item-selected::after`]: {
             display: 'none',
           },
         },
-        [`&-menu-sub${token.antCls}-menu-inline`]: {
+        [`${token.antCls}-menu-sub ${token.antCls}-menu-inline`]: {
           backgroundColor: 'transparent!important',
         },
-        [`&-menu:not(&-menu-horizontal)`]: {
-          [`${token.antCls}-menu-item-selected`]: {
-            backgroundColor: defaultMenuToken.colorItemBgSelected,
-            borderRadius: 4,
-          },
+        [`${token.antCls}-menu-item:active, 
+        ${token.antCls}-menu-submenu-title:active`]: {
+          backgroundColor: 'transparent!important',
         },
-        [`&-menu-item-selected`]: {
-          color: defaultMenuToken.colorItemTextSelected,
-        },
-        [`&-menu-submenu-selected`]: {
-          color: defaultMenuToken.colorItemTextSelected,
-        },
-        [`&-menu-light`]: {
+        [`&${token.antCls}-menu-light`]: {
           [`${token.antCls}-menu-item:hover, 
             ${token.antCls}-menu-item-active,
             ${token.antCls}-menu-submenu-active, 
             ${token.antCls}-menu-submenu-title:hover`]: {
-            color: defaultMenuToken.colorItemTextHover,
+            color: token.sider.colorTextMenuActive,
+            borderRadius: token.radiusBase,
             [`${token.antCls}-menu-submenu-arrow`]: {
-              color: defaultMenuToken.colorItemTextHover,
+              color: token.sider.colorTextMenuActive,
             },
           },
         },
-        [`${token.antCls}-menu:not(${token.antCls}-menu-inline) ${token.antCls}-menu-submenu-open`]:
-          {
-            color: defaultMenuToken.colorItemTextHover,
+        [`&${token.antCls}-menu:not(${token.antCls}-menu-horizontal)`]: {
+          [`${token.antCls}-menu-item-selected`]: {
+            backgroundColor: token.sider.colorBgMenuItemSelected,
+            borderRadius: token.radiusBase,
           },
-        [`&-menu-vertical`]: {
+          [`${token.antCls}-menu-item:hover, 
+            ${token.antCls}-menu-item-active,
+            ${token.antCls}-menu-submenu-title:hover`]: {
+            color: token.sider.colorTextMenuActive,
+            borderRadius: token.radiusBase,
+            [`${token.antCls}-menu-submenu-arrow`]: {
+              color: token.sider.colorTextMenuActive,
+            },
+          },
+        },
+        [`${token.antCls}-menu-item-selected`]: {
+          color: token.sider.colorTextMenuSelected,
+        },
+        [`${token.antCls}-menu-submenu-selected`]: {
+          color: token.sider.colorTextMenuSelected,
+        },
+        [`&${token.antCls}-menu:not(${token.antCls}-menu-inline) ${token.antCls}-menu-submenu-open`]:
+          {
+            color: token.sider.colorTextMenuSelected,
+          },
+
+        [`&${token.antCls}-menu-vertical`]: {
           [`${token.antCls}-menu-submenu-selected`]: {
-            backgroundColor: defaultMenuToken.colorItemBgSelected,
-            borderRadius: 4,
-            color: defaultMenuToken.colorItemTextHover,
+            borderRadius: token.radiusBase,
+            color: token.sider.colorTextMenuSelected,
           },
         },
 
-        [`&-menu-horizontal`]: {
+        [`${token.antCls}-menu-submenu:hover > ${token.antCls}-menu-submenu-title > ${token.antCls}-menu-submenu-arrow`]:
+          {
+            color: token.sider.colorTextMenuActive,
+          },
+
+        [`&${token.antCls}-menu-horizontal`]: {
           [`${token.antCls}-menu-item:hover,
           ${token.antCls}-menu-submenu:hover,
           ${token.antCls}-menu-item-active,
           ${token.antCls}-menu-submenu-active`]: {
-            backgroundColor: defaultMenuToken.colorItemBgSelected,
             borderRadius: 4,
-            color: defaultMenuToken.colorItemTextHover,
+            color: token.header.colorTextMenuActive,
           },
 
           [`${token.antCls}-menu-item-open,
           ${token.antCls}-menu-submenu-open,
           ${token.antCls}-menu-item-selected,
           ${token.antCls}-menu-submenu-selected`]: {
-            backgroundColor: defaultMenuToken.colorItemBgSelected,
-            color: defaultMenuToken.colorItemTextSelected,
-            borderRadius: 4,
+            backgroundColor: token.header.colorBgMenuItemSelected,
+            borderRadius: token.radiusBase,
+            color: token.header.colorTextMenuSelected,
             [`${token.antCls}-menu-submenu-arrow`]: {
-              color: defaultMenuToken.colorItemTextHover,
+              color: token.header.colorTextMenuSelected,
             },
           },
           [`> ${token.antCls}-menu-item, > ${token.antCls}-menu-submenu`]: {
@@ -113,6 +130,65 @@ const compatibleStyle: GenerateStyle<ProLayoutToken> = (token) => {
           },
           [`> ${token.antCls}-menu-item::after, > ${token.antCls}-menu-submenu::after`]: {
             display: 'none',
+          },
+        },
+      },
+
+      [`${token.proComponentsCls}-top-nav-header-base-menu`]: {
+        [`&${token.antCls}-menu`]: {
+          color: token.header.colorTextMenu,
+          [`${token.antCls}-menu-item a`]: {
+            color: 'inherit',
+          },
+        },
+        [`&${token.antCls}-menu-light`]: {
+          [`${token.antCls}-menu-item:hover, 
+            ${token.antCls}-menu-item-active,
+            ${token.antCls}-menu-submenu-active, 
+            ${token.antCls}-menu-submenu-title:hover`]: {
+            color: token.header.colorTextMenuActive,
+            borderRadius: token.radiusBase,
+            [`${token.antCls}-menu-submenu-arrow`]: {
+              color: token.header.colorTextMenuActive,
+            },
+          },
+        },
+      },
+    },
+    [`${token.antCls}-menu-sub${token.antCls}-menu-inline`]: {
+      backgroundColor: 'transparent!important',
+    },
+    [`${token.antCls}-menu-submenu-popup`]: {
+      backgroundColor: 'rgba(255, 255, 255, 0.42)',
+      '-webkit-backdrop-filter': 'blur(8px)',
+      backdropFilter: 'blur(8px)',
+      [`${token.antCls}-menu`]: {
+        background: 'transparent !important',
+        backgroundColor: 'transparent !important',
+        [`${token.antCls}-menu-item:active, 
+        ${token.antCls}-menu-submenu-title:active`]: {
+          backgroundColor: 'transparent!important',
+        },
+      },
+      [`${token.antCls}-menu-item-selected`]: {
+        color: token.sider.colorTextMenuSelected,
+      },
+      [`${token.antCls}-menu-submenu-selected`]: {
+        color: token.sider.colorTextMenuSelected,
+      },
+      [`${token.antCls}-menu:not(${token.antCls}-menu-horizontal)`]: {
+        [`${token.antCls}-menu-item-selected`]: {
+          backgroundColor: 'rgba(0, 0, 0, 0.04)',
+          borderRadius: token.radiusBase,
+          color: token.sider.colorTextMenuSelected,
+        },
+        [`${token.antCls}-menu-item:hover, 
+          ${token.antCls}-menu-item-active,
+          ${token.antCls}-menu-submenu-title:hover`]: {
+          color: token.sider.colorTextMenuActive,
+          borderRadius: token.radiusBase,
+          [`${token.antCls}-menu-submenu-arrow`]: {
+            color: token.sider.colorTextMenuActive,
           },
         },
       },
@@ -145,6 +221,7 @@ const genProLayoutStyle: GenerateStyle<ProLayoutToken & LayoutDesignToken> = (to
           marginInline: token.pageContainer.marginInlinePageContainerContent,
         },
       },
+
       [`${token.componentCls}-bg-list`]: {
         pointerEvents: 'none',
         position: 'fixed',

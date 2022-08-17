@@ -134,7 +134,8 @@ class MenuUtil {
 
   /** Get SubMenu or Item */
   getSubMenuOrItem = (item: MenuDataItem, level: number): ItemType | ItemType[] => {
-    const { subMenuItemRender, baseClassName, prefixCls, menu, iconPrefixes, layout } = this.props;
+    const { subMenuItemRender, baseClassName, prefixCls, collapsed, menu, iconPrefixes, layout } =
+      this.props;
     const isGroup = menu?.type === 'group' && layout !== 'top';
     const designToken = this.props.token;
 
@@ -146,10 +147,18 @@ class MenuUtil {
       //  get defaultTitle by menuItemRender
       const iconDom = getIcon(item.icon, iconPrefixes);
       const defaultTitle = item.icon ? (
-        <span title={name}>
-          {hasIcon && iconDom}
-          <span>{name}</span>
-        </span>
+        <div
+          title={name}
+          className={classNames(`${baseClassName}-item-title`, {
+            [`${baseClassName}-item-title-collapsed`]: collapsed,
+            [`${baseClassName}-item-collapsed-show-title`]: menu?.collapsedShowTitle && collapsed,
+          })}
+        >
+          {hasIcon && iconDom ? (
+            <span className={`anticon ${baseClassName}-item-icon`}>{iconDom}</span>
+          ) : null}
+          <span className={`${baseClassName}-item-text`}>{name}</span>
+        </div>
       ) : (
         <span title={name}>{name}</span>
       );
@@ -231,16 +240,21 @@ class MenuUtil {
 
     // if local is true formatMessage all name。
     const name = this.getIntlName(item);
-    const { prefixCls, menu } = this.props;
+    const { baseClassName, menu, collapsed } = this.props;
     const isGroup = menu?.type === 'group';
     /** Menu 第一级可以有icon，或者 isGroup 时第二级别也要有 */
     const hasIcon = level === 0 || (isGroup && level === 1);
     const icon = !hasIcon ? null : getIcon(item.icon, iconPrefixes);
     let defaultItem = (
-      <>
-        {icon}
-        <span>{name}</span>
-      </>
+      <div
+        className={classNames(`${baseClassName}-item-title`, {
+          [`${baseClassName}-item-title-collapsed`]: collapsed,
+          [`${baseClassName}-item-collapsed-show-title`]: menu?.collapsedShowTitle && collapsed,
+        })}
+      >
+        {icon ? <span className={`anticon ${baseClassName}-item-icon`}>{icon}</span> : null}
+        <span className={`${baseClassName}-item-text`}>{name}</span>
+      </div>
     );
     const isHttpUrl = isUrl(itemPath);
 
@@ -252,7 +266,7 @@ class MenuUtil {
           onClick={() => {
             window?.open?.(itemPath, '_blank');
           }}
-          className={`${prefixCls}-menu-item ${prefixCls}-menu-item-link`}
+          className={`${baseClassName}-item ${baseClassName}-item-link`}
         >
           {icon}
           <span>{name}</span>

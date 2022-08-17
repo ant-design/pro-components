@@ -179,7 +179,7 @@ export const getLayoutDesignToken: (
       colorBgMenuItemCollapsedHover: 'rgba(90, 75, 75, 0.03)',
       colorBgMenuItemCollapsedSelected: setAlpha(antdToken.colorTextBase, 0.04),
       colorMenuItemDivider: setAlpha(antdToken.colorTextBase, 0.06),
-      colorBgMenuItemHover: 'rgba(90, 75, 75, 0.03)',
+      colorBgMenuItemHover: setAlpha(antdToken.colorTextBase, 0.03),
       colorBgMenuItemSelected: setAlpha(antdToken.colorTextBase, 0.04),
       colorTextMenuSelected: setAlpha(antdToken.colorTextBase, 0.95),
       colorTextMenuActive: antdToken.colorText,

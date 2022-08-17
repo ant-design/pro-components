@@ -1,4 +1,4 @@
-﻿import type { GenerateStyle } from 'antd/es/theme';
+﻿import type { GenerateStyle } from '@ant-design/pro-utils';
 import type { ProAliasToken } from '../../useStyle';
 import { useStyle as useAntdStyle } from '../../useStyle';
 

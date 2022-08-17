@@ -1,8 +1,7 @@
 import { ConfigProviderWrap } from '@ant-design/pro-provider';
 import { isBrowser, useDocumentTitle, useMountMergeState } from '@ant-design/pro-utils';
 import { getMatchMenu } from '@umijs/route-utils';
-import type { BreadcrumbProps as AntdBreadcrumbProps } from 'antd';
-import { ConfigProvider, Layout } from 'antd';
+import { BreadcrumbProps as AntdBreadcrumbProps, ConfigProvider, Layout, version } from 'antd';
 import classNames from 'classnames';
 import Omit from 'omit.js';
 import useMergedState from 'rc-util/lib/hooks/useMergedState';
@@ -36,6 +35,10 @@ import { getMenuData } from './utils/getMenuData';
 import { useCurrentMenuLayoutProps } from './utils/useCurrentMenuLayoutProps';
 import { clearMenuItem } from './utils/utils';
 import { WrapContent } from './WrapContent';
+
+if (!version.startsWith('5.')) {
+  require('antd/dist/antd.css');
+}
 
 let layoutIndex = 0;
 

@@ -1,10 +1,11 @@
 import type { CSSInterpolation, CSSObject } from '@ant-design/cssinjs';
 import { useStyleRegister } from '@ant-design/cssinjs';
 import { TinyColor } from '@ctrl/tinycolor';
+// @ts-ignore
 import { ConfigProvider, theme as antdTheme } from 'antd';
-import type { AliasToken } from 'antd/es/theme';
 import type React from 'react';
 import { useContext } from 'react';
+import type { AliasToken } from './token';
 import * as batToken from './token';
 
 /**
@@ -29,10 +30,14 @@ export const lighten = (baseColor: string, brightness: number) => {
   return instance.lighten(brightness).toHexString();
 };
 
+export type GenerateStyle<
+  ComponentToken extends object = AliasToken,
+  ReturnType = CSSInterpolation,
+> = (token: ComponentToken) => ReturnType;
 /**
  * 如果 antd 里面没有，就用我 mock 的，这样 antd@4 和 antd@5 可以兼容
  */
-const { useToken } = { ...batToken, ...antdTheme };
+const { useToken } = { ...batToken, ...antdTheme } as typeof batToken;
 
 export { useToken };
 

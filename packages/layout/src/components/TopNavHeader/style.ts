@@ -1,6 +1,5 @@
-﻿import type { ProAliasToken } from '@ant-design/pro-utils';
+﻿import type { GenerateStyle, ProAliasToken } from '@ant-design/pro-utils';
 import { setAlpha, useStyle as useAntdStyle } from '@ant-design/pro-utils';
-import type { GenerateStyle } from 'antd/es/theme';
 import { useContext } from 'react';
 import type { BaseLayoutDesignToken } from '../../context/ProLayoutContext';
 import { ProLayoutContext } from '../../context/ProLayoutContext';
@@ -41,9 +40,9 @@ const genTopNavHeaderStyle: GenerateStyle<TopNavHeaderToken & BaseLayoutDesignTo
         height: '100%',
         alignItems: 'center',
         overflow: 'hidden',
-        '> a': { display: 'flex', alignItems: 'center', minHeight: '22px', fontSize: '22px' },
-        'a > img': { display: 'inline-block', height: '32px', verticalAlign: 'middle' },
-        'a > h1': {
+        '> *': { display: 'flex', alignItems: 'center', minHeight: '22px', fontSize: '22px' },
+        '> * > img': { display: 'inline-block', height: '32px', verticalAlign: 'middle' },
+        '> * > h1': {
           display: 'inline-block',
           marginBlock: 0,
           marginInline: 0,

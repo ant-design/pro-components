@@ -37,6 +37,7 @@ export default () => {
             colorTextMenuSecondary: '#dfdfdf',
             colorTextMenuSelected: '#fff',
             colorBgMenuItemSelected: '#22272b',
+            colorTextMenuActive: 'rgba(255,255,255,0.85)',
             colorTextRightActionsItem: '#dfdfdf',
           },
           colorTextAppListIconHover: '#fff',
@@ -47,6 +48,7 @@ export default () => {
             colorBgMenuItemHover: '#f6f6f6',
             colorTextMenu: '#595959',
             colorTextMenuSelected: '#242424',
+            colorTextMenuActive: '#242424',
             colorBgMenuItemCollapsedHover: '#242424',
           },
         }}
