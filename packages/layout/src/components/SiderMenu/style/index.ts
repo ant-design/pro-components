@@ -37,8 +37,8 @@ const genSiderMenuStyle: GenerateStyle<SiderMenuToken & BaseLayoutDesignToken['s
           display: 'flex',
           flexDirection: 'column',
           height: '100%',
-          paddingInline: 6,
-          paddingBlock: 6,
+          paddingInline: token.paddingInlineLayoutMenu,
+          paddingBlock: token.paddingBlockLayoutMenu,
           borderInlineEnd: `1px solid ${token.colorSplit}`,
         },
         [`${token.antCls}-menu`]: {

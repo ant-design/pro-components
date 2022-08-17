@@ -1,8 +1,8 @@
-import type { AvatarProps, SiderProps} from 'antd';
+import type { AvatarProps, SiderProps } from 'antd';
 import { Avatar, ConfigProvider, Layout, Menu, Space } from 'antd';
 import type { ItemType } from 'antd/es/menu/hooks/useItems';
 import classNames from 'classnames';
-import type { CSSProperties} from 'react';
+import type { CSSProperties } from 'react';
 import React, { useContext, useMemo } from 'react';
 import { ProLayoutContext } from '../../context/ProLayoutContext';
 import type { WithFalse } from '../../typings';
@@ -243,7 +243,7 @@ const SiderMenu: React.FC<SiderMenuProps & PrivateSiderMenuProps> = (props) => {
     () =>
       avatarProps && (
         <Space align="center" className={`${baseClassName}-actions-avatar`}>
-          <Avatar {...avatarProps} />
+          <Avatar size={28} {...avatarProps} />
           {avatarProps.title && !collapsed && <span>{avatarProps.title}</span>}
         </Space>
       ),
@@ -403,7 +403,7 @@ const SiderMenu: React.FC<SiderMenuProps & PrivateSiderMenuProps> = (props) => {
     </>
   );
 
-  const { sider } = useContext(ProLayoutContext);
+  const { sider, header } = useContext(ProLayoutContext);
   return (
     <>
       {fixSiderbar && !isMobile && !hideMenuWhenCollapsedClassName && (
@@ -415,6 +415,8 @@ const SiderMenu: React.FC<SiderMenuProps & PrivateSiderMenuProps> = (props) => {
             maxWidth: collapsed ? collapsedWidth : siderWidth,
             minWidth: collapsed ? collapsedWidth : siderWidth,
             transition: 'all 0.2s ease 0s',
+            height: `calc(100% - ${header.heightLayoutHeader}px)`,
+            marginBlockStart: `${header.heightLayoutHeader}px`,
             ...style,
           }}
         />

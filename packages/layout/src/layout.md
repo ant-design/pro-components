@@ -472,24 +472,6 @@ const Page = () => (
 
 Token 是一种设计系统的基本元素，可以使用 Token 快速的修改组件库的基础样式。Layout 中可以通过 token 属性来配置这些颜色。
 
-### 默认的 token
-
-默认的 token 部分来自于 antd，可能会有一些改动，以下是 layout 依赖的部分。
-
-| token              | 说明           | 默认值                |
-| ------------------ | -------------- | --------------------- |
-| colorPrimary       | 主色           | `#1677FF`             |
-| colorError         | 错误色         | `#ff4d4f`             |
-| colorSuccess       | 成功色         | `#52c41a`             |
-| colorInfo          | 通知色         | `#1677FF`             |
-| colorWarning       | 警告色         | `#faad14`             |
-| colorTextHeading   | 标题色         | `rgba(0, 0, 0, 0.85)` |
-| colorText          | 正文色         | `rgba(0, 0, 0, 0.65)` |
-| colorTextSecondary | 次级色         | `rgba(0, 0, 0, 0.45)` |
-| colorBorder        | 边框基本色     | `#d9d9d9`             |
-| colorSplit         | 分隔边框的颜色 | `rgba(0, 0, 0, 0.06)` |
-| radiusBase         | 默认圆角       | `4px`                 |
-
 ### Layout 的 token
 
 | token                     | 说明                            | 默认值                |

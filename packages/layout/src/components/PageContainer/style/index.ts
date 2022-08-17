@@ -34,7 +34,7 @@ const genPageContainerStyle: GenerateStyle<
       },
       '&-warp': {
         backgroundColor: token.colorBgPageContainer,
-        ['&-page-header']: {
+        ['& &-page-header']: {
           paddingInlineStart: 40,
           paddingInlineEnd: 40,
         },

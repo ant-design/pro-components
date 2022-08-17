@@ -71,16 +71,17 @@ const genTopNavHeaderStyle: GenerateStyle<TopNavHeaderToken & BaseLayoutDesignTo
           alignItems: 'center',
           justifyContent: 'center',
           paddingBlock: 0,
-          paddingInline: 6,
+          paddingInline: 2,
           color: token.colorTextRightActionsItem,
           fontSize: '16px',
           cursor: 'pointer',
           borderRadius: token.radiusBase,
+
           '> *': {
             paddingInline: 6,
             paddingBlock: 6,
             borderRadius: token.radiusBase,
-            ':hover': {
+            '&:hover': {
               backgroundColor: token.colorBgRightActionsItemHover,
             },
           },

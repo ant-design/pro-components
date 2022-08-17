@@ -1,4 +1,4 @@
-﻿import { useToken } from '@ant-design/pro-utils';
+﻿import { setAlpha, useToken } from '@ant-design/pro-utils';
 import type { GlobalToken } from 'antd/es/theme/interface';
 import React from 'react';
 
@@ -38,6 +38,8 @@ export type BaseLayoutDesignToken = {
     colorTextMenuActive: string;
     colorTextMenu: string;
     colorTextMenuSecondary: string;
+    paddingInlineLayoutMenu: number;
+    paddingBlockLayoutMenu: number;
     /**
      * menu 顶部 title 的字体颜色
      */
@@ -91,50 +93,6 @@ type DeepPartial<T> = T extends object
   : T;
 
 export type LayoutDesignToken = BaseLayoutDesignToken & GlobalToken;
-
-// DesignToken 的默认样式
-export const DefaultDesignToken: BaseLayoutDesignToken = {
-  colorBgAppListIconHover: 'rgba(0, 0, 0, 0.04)',
-  colorTextAppListIconHover: 'rgba(0, 0, 0, 0.85)',
-  colorTextAppListIcon: '#666',
-  header: {
-    colorBgHeader: 'rgba(240, 242, 245, 0.4)',
-    colorHeaderTitle: 'rgba(0, 0, 0, 0.85)',
-    colorBgMenuItemHover: 'rgba(90, 75, 75, 0.03)',
-    colorBgMenuItemSelected: 'rgba(0, 0, 0, 0.04)',
-    colorTextMenuSelected: 'rgb(0,0,0,0.95)',
-    colorTextMenu: 'rgba(0, 0, 0, 0.85)',
-    colorTextMenuSecondary: 'rgba(0, 0, 0, 0.45)',
-    colorBgRightActionsItemHover: 'rgba(0, 0, 0, 0.03)',
-    colorTextRightActionsItem: 'rgba(0, 0, 0, 0.45)',
-    colorTextMenuActive: 'rgb(0,0,0,0.85)',
-    heightLayoutHeader: 56,
-  },
-  bgLayout: 'linear-gradient(#fff, #f7f8fa 28%)',
-  pageContainer: {
-    colorBgPageContainer: 'transparent',
-    marginBlockPageContainerContent: 40,
-    marginInlinePageContainerContent: 24,
-    colorBgPageContainerFixed: '#fff',
-  },
-  sider: {
-    colorBgCollapsedButton: '#fff',
-    colorTextCollapsedButtonHover: 'rgba(0, 0, 0, 0.85)',
-    colorTextCollapsedButton: 'rgba(0, 0, 0, 0.45)',
-    colorMenuBackground: 'transparent',
-    colorBgMenuItemCollapsedHover: 'rgba(90, 75, 75, 0.03)',
-    colorBgMenuItemCollapsedSelected: 'rgba(0, 0, 0, 0.04)',
-    colorMenuItemDivider: 'rgba(0, 0, 0, 0.06)',
-    colorBgMenuItemHover: 'rgba(90, 75, 75, 0.03)',
-    colorBgMenuItemSelected: 'rgba(0, 0, 0, 0.04)',
-    colorTextMenuSelected: 'rgb(0,0,0,0.95)',
-    colorTextMenuActive: 'rgba(0, 0, 0, 0.85)',
-    colorTextMenu: 'rgba(0, 0, 0, 0.85)',
-    colorTextMenuSecondary: 'rgba(0, 0, 0, 0.45)',
-    colorTextMenuTitle: 'rgba(0, 0, 0, 0.85)',
-    colorTextSubMenuSelected: 'rgb(0,0,0,0.95)',
-  },
-};
 
 function decamelize(word: string) {
   const separator = '_';
@@ -190,28 +148,58 @@ export const getLayoutDesignToken: (
 ) => LayoutDesignToken = (designTokens, antdToken) => {
   const finalDesignTokens = { ...designTokens };
   return sortToken({
-    ...DefaultDesignToken,
     bgLayout: 'linear-gradient(#fff, #f7f8fa 28%)',
     colorTextAppListIcon: '#666',
-    colorTextAppListIconHover: antdToken.colorText,
     appListIconHoverBgColor: finalDesignTokens?.sider?.colorBgMenuItemSelected,
+    colorBgAppListIconHover: 'rgba(0, 0, 0, 0.04)',
+    colorTextAppListIconHover: antdToken.colorTextBase,
     ...finalDesignTokens,
     header: {
-      ...DefaultDesignToken.header,
+      colorBgHeader: 'rgba(240, 242, 245, 0.4)',
+      colorHeaderTitle: antdToken.colorText,
+      colorBgMenuItemHover: setAlpha(antdToken.colorTextBase, 0.03),
+      colorBgMenuItemSelected: 'transparent',
+      colorTextMenuSelected: setAlpha(antdToken.colorTextBase, 0.95),
+      colorBgRightActionsItemHover: setAlpha(antdToken.colorTextBase, 0.03),
+      colorTextRightActionsItem: antdToken.colorTextTertiary,
+      heightLayoutHeader: 56,
+      colorTextMenu: setAlpha(antdToken.colorTextBase, 0.65),
+      colorTextMenuSecondary: antdToken.colorTextTertiary,
+      colorTextMenuTitle: antdToken.colorText,
+      colorTextMenuActive: antdToken.colorText,
       ...finalDesignTokens.header,
     } as LayoutDesignToken['header'],
     sider: {
-      ...DefaultDesignToken.sider,
+      paddingInlineLayoutMenu: 8,
+      paddingBlockLayoutMenu: 8,
+      colorBgCollapsedButton: '#fff',
+      colorTextCollapsedButtonHover: antdToken.colorTextSecondary,
+      colorTextCollapsedButton: setAlpha(antdToken.colorTextBase, 0.25),
+      colorMenuBackground: 'transparent',
+      colorBgMenuItemCollapsedHover: 'rgba(90, 75, 75, 0.03)',
+      colorBgMenuItemCollapsedSelected: setAlpha(antdToken.colorTextBase, 0.04),
+      colorMenuItemDivider: setAlpha(antdToken.colorTextBase, 0.06),
+      colorBgMenuItemHover: 'rgba(90, 75, 75, 0.03)',
+      colorBgMenuItemSelected: setAlpha(antdToken.colorTextBase, 0.04),
+      colorTextMenuSelected: setAlpha(antdToken.colorTextBase, 0.95),
+      colorTextMenuActive: antdToken.colorText,
+      colorTextMenu: setAlpha(antdToken.colorTextBase, 0.65),
+      colorTextMenuSecondary: antdToken.colorTextTertiary,
+      colorTextMenuTitle: antdToken.colorText,
+      colorTextSubMenuSelected: setAlpha(antdToken.colorTextBase, 0.95),
       ...finalDesignTokens.sider,
     } as LayoutDesignToken['sider'],
     pageContainer: {
-      ...DefaultDesignToken.pageContainer,
+      colorBgPageContainer: 'transparent',
+      marginBlockPageContainerContent: 24,
+      marginInlinePageContainerContent: 40,
+      colorBgPageContainerFixed: '#fff',
       ...finalDesignTokens.pageContainer,
     },
   } as LayoutDesignToken) as LayoutDesignToken;
 };
 
-const defaultToken = getLayoutDesignToken(DefaultDesignToken, {});
+const defaultToken = getLayoutDesignToken({}, {});
 
 export const ProLayoutContext = React.createContext<LayoutDesignToken>(defaultToken);
 

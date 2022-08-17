@@ -1,5 +1,6 @@
 ﻿import { Popover } from 'antd';
-import React, { useMemo } from 'react';
+import classNames from 'classnames';
+import React, { useMemo, useState } from 'react';
 import { AppsLogo } from './AppsLogo';
 import { DefaultContent } from './DefaultContent';
 import { SimpleContent } from './SimpleContent';
@@ -36,8 +37,11 @@ export const AppsLogoComponents: React.FC<{
   prefixCls?: string;
 }> = (props) => {
   const { appList, prefixCls = 'ant-pro' } = props;
+  const ref = React.useRef<HTMLDivElement>(null);
   const baseClassName = `${prefixCls}-layout-apps`;
   const { wrapSSR } = useStyle(baseClassName);
+
+  const [visible, setVisible] = useState(false);
 
   const popoverContent = useMemo(() => {
     const isSimple = appList?.some((app) => {
@@ -52,23 +56,29 @@ export const AppsLogoComponents: React.FC<{
   if (!props?.appList?.length) return null;
 
   return wrapSSR(
-    <Popover
-      placement="bottomRight"
-      trigger={['click']}
-      zIndex={9999}
-      arrowPointAtCenter
-      overlayClassName={`${baseClassName}-popover`}
-      content={popoverContent}
-      getPopupContainer={() => document.querySelector('.ant-pro') || document.body}
-    >
-      <span
-        onClick={(e) => {
-          e.stopPropagation();
-        }}
-        className={`${baseClassName}-icon`}
+    <>
+      <div ref={ref} />
+      <Popover
+        placement="bottomRight"
+        trigger={['click']}
+        zIndex={9999}
+        arrowPointAtCenter
+        onVisibleChange={setVisible}
+        overlayClassName={`${baseClassName}-popover`}
+        content={popoverContent}
+        getPopupContainer={() => ref.current || document.body}
       >
-        <AppsLogo />
-      </span>
-    </Popover>,
+        <span
+          onClick={(e) => {
+            e.stopPropagation();
+          }}
+          className={classNames(`${baseClassName}-icon`, {
+            [`${baseClassName}-icon-active`]: visible,
+          })}
+        >
+          <AppsLogo />
+        </span>
+      </Popover>
+    </>,
   );
 };

@@ -32,6 +32,10 @@ const genAppsLogoComponentsStyle: GenerateStyle<AppsLogoComponentsToken & BaseLa
           color: token.colorTextAppListIconHover,
           backgroundColor: token.colorBgAppListIconHover,
         },
+        '&-active': {
+          color: token.colorTextAppListIconHover,
+          backgroundColor: token.colorBgAppListIconHover,
+        },
       },
       '&-popover': {
         '*': {

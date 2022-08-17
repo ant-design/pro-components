@@ -1,3 +1,4 @@
+import { isUrl } from '@ant-design/pro-utils';
 import React from 'react';
 import type { AppsLogoComponentsAppList } from './types';
 
@@ -12,12 +13,18 @@ export const renderLogo = (
   logo: React.ReactNode | (() => React.ReactNode),
   title?: React.ReactNode,
 ): React.ReactNode => {
-  if (logo && typeof logo === 'string') {
+  if (logo && typeof logo === 'string' && isUrl(logo)) {
     return <img src={logo} alt="logo" />;
   }
+
   if (typeof logo === 'function') {
     return logo();
   }
+
+  if (logo && typeof logo === 'string') {
+    return <div id="avatarLogo">{logo}</div>;
+  }
+
   if (!logo && title && typeof title === 'string') {
     const symbol = title.substring(0, 1);
     return <div id="avatarLogo">{symbol}</div>;
