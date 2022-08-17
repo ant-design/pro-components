@@ -57,7 +57,7 @@ export type CommonFormProps<T = Record<string, any>, U = Record<string, any>> = 
     | SubmitterProps<{
         form?: FormInstance<any>;
       }>
-    | false;
+    | boolean;
 
   /**
    * @name 表单结束后调用
