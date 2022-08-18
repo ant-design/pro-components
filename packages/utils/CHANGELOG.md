@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.0.0-experimental.11](https://github.com/ant-design/pro-components/compare/@ant-design/pro-utils@2.0.0-experimental.10...@ant-design/pro-utils@2.0.0-experimental.11) (2022-08-18)
+
+### Bug Fixes
+
+- **utils:** 修复构建预览页面时因 SSR 模式无 window 对象导致构建失败的问题 ([#5716](https://github.com/ant-design/pro-components/issues/5716)) ([642258b](https://github.com/ant-design/pro-components/commit/642258bcc525ecb83eb7200c5128fd616acc41d5))
+
+### Features
+
+- **locale:** Add multilingual translation ([#5685](https://github.com/ant-design/pro-components/issues/5685)) ([0de3c0d](https://github.com/ant-design/pro-components/commit/0de3c0dd559b4133c8b3195efbfb2590d26617fa))
+
 # [2.0.0-experimental.10](https://github.com/ant-design/pro-components/compare/@ant-design/pro-utils@2.0.0-experimental.9...@ant-design/pro-utils@2.0.0-experimental.10) (2022-08-12)
 
 **Note:** Version bump only for package @ant-design/pro-utils

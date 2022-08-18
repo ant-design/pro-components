@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.0.0-experimental.11](https://github.com/ant-design/pro-components/compare/@ant-design/pro-table@3.0.0-experimental.10...@ant-design/pro-table@3.0.0-experimental.11) (2022-08-18)
+
+### Bug Fixes
+
+- **table:** 修复 ProTable 的 ListToolBar 没有 headTitle 时，左侧会有多余的边距 ([#5694](https://github.com/ant-design/pro-components/issues/5694)) ([4bb3e3f](https://github.com/ant-design/pro-components/commit/4bb3e3f7befef1b69c1c7902ddd17c07344e006f))
+
 # [3.0.0-experimental.10](https://github.com/ant-design/pro-components/compare/@ant-design/pro-table@3.0.0-experimental.9...@ant-design/pro-table@3.0.0-experimental.10) (2022-08-12)
 
 **Note:** Version bump only for package @ant-design/pro-table

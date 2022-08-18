@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [7.0.0-experimental.12](https://github.com/ant-design/pro-components/compare/@ant-design/pro-layout@7.0.0-experimental.11...@ant-design/pro-layout@7.0.0-experimental.12) (2022-08-18)
+
+### Bug Fixes
+
+- **layout:** 水印导致页面发起 404 请求 ([#5712](https://github.com/ant-design/pro-components/issues/5712)) ([7f0eba2](https://github.com/ant-design/pro-components/commit/7f0eba2f9710994e6bc4f5941fa314b8275a8618))
+
 # [7.0.0-experimental.11](https://github.com/ant-design/pro-components/compare/@ant-design/pro-layout@7.0.0-experimental.10...@ant-design/pro-layout@7.0.0-experimental.11) (2022-08-12)
 
 **Note:** Version bump only for package @ant-design/pro-layout
