@@ -41,6 +41,9 @@ const genProLayoutBaseMenuStyle: GenerateStyle<
         '&-collapsed': {
           flexDirection: 'column',
           justifyContent: 'center',
+          [`${token.componentCls}-item-text`]: {
+            maxWidth: '100%',
+          },
           [`${token.componentCls}-item-text-has-icon`]: {
             display: 'none !important',
           },

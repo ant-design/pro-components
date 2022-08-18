@@ -152,10 +152,15 @@ class MenuUtil {
 
     if (Array.isArray(children) && children.length > 0) {
       /** Menu 第一级可以有icon，或者 isGroup 时第二级别也要有 */
-      const hasIcon = level === 0 || (isGroup && level === 1);
+      const shouldHasIcon = level === 0 || (isGroup && level === 1);
+
       //  get defaultTitle by menuItemRender
       const iconDom = getIcon(item.icon, iconPrefixes);
-      const defaultIcon = collapsed ? getMenuTitleSymbol(name) : null;
+      /**
+       * 如果没有icon在收起的时候用首字母代替
+       */
+      const defaultIcon = collapsed && shouldHasIcon ? getMenuTitleSymbol(name) : null;
+
       const defaultTitle = (
         <div
           title={name}
@@ -164,7 +169,8 @@ class MenuUtil {
             [`${baseClassName}-item-collapsed-show-title`]: menu?.collapsedShowTitle && collapsed,
           })}
         >
-          {menuType === 'group' && collapsed ? null : hasIcon && iconDom ? (
+          {/* 收起的时候group模式就不要展示icon了，放不下 */}
+          {menuType === 'group' && collapsed ? null : shouldHasIcon && iconDom ? (
             <span className={`anticon ${baseClassName}-item-icon`}>{iconDom}</span>
           ) : (
             defaultIcon
@@ -172,7 +178,7 @@ class MenuUtil {
           <span
             className={classNames(`${baseClassName}-item-text`, {
               [`${baseClassName}-item-text-has-icon`]:
-                menuType !== 'group' && hasIcon && (iconDom || defaultIcon),
+                menuType !== 'group' && shouldHasIcon && (iconDom || defaultIcon),
             })}
           >
             {name}
@@ -261,7 +267,7 @@ class MenuUtil {
     /** Menu 第一级可以有icon，或者 isGroup 时第二级别也要有 */
     const hasIcon = level === 0 || (isGroup && level === 1);
     const icon = !hasIcon ? null : getIcon(item.icon, iconPrefixes);
-    const defaultIcon = collapsed ? getMenuTitleSymbol(name) : null;
+    const defaultIcon = collapsed && hasIcon ? getMenuTitleSymbol(name) : null;
     let defaultItem = (
       <div
         className={classNames(`${baseClassName}-item-title`, {
