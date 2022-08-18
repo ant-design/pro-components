@@ -94,60 +94,12 @@ type DeepPartial<T> = T extends object
 
 export type LayoutDesignToken = BaseLayoutDesignToken & GlobalToken;
 
-function decamelize(word: string) {
-  const separator = '_';
-  const split = /(?=[A-Z])/;
-  return word.split(split).join(separator).toLowerCase().split(separator);
-}
-function firstUpperCase(str: string) {
-  return str.toLowerCase().replace(/( |^)[a-z]/g, (L) => L.toUpperCase());
-}
-function sortKey(key: string) {
-  return decamelize(key)
-    .sort((a, b) => {
-      if (['color', 'padding', 'margin', 'radius'].includes(a)) {
-        return -10;
-      }
-      if (['color', 'padding', 'margin', 'radius'].includes(b)) {
-        return 10;
-      }
-
-      if (['bg', 'text', 'border'].includes(a)) {
-        return -9;
-      }
-      if (['bg', 'text', 'border'].includes(b)) {
-        return 9;
-      }
-      return 0;
-    })
-    .map((item, index) => {
-      if (index === 0) return item;
-      return firstUpperCase(item);
-    })
-    .join('');
-}
-function sortToken(token: Record<string, any>) {
-  const newToken = {};
-  Object.keys(token)
-    .sort()
-    .forEach((key) => {
-      if (key && typeof token[key] !== 'object') {
-        newToken[sortKey(key)] = token[key];
-      }
-      if (key && typeof token[key] === 'object') {
-        newToken[sortKey(key)] = sortToken(token[key]);
-      }
-    });
-
-  return newToken;
-}
-
 export const getLayoutDesignToken: (
   baseDesignTokens: DeepPartial<LayoutDesignToken>,
   antdToken: Record<string, any>,
 ) => LayoutDesignToken = (designTokens, antdToken) => {
   const finalDesignTokens = { ...designTokens };
-  return sortToken({
+  return {
     bgLayout: 'linear-gradient(#fff, #f7f8fa 28%)',
     colorTextAppListIcon: '#666',
     appListIconHoverBgColor: finalDesignTokens?.sider?.colorBgMenuItemSelected,
@@ -196,7 +148,7 @@ export const getLayoutDesignToken: (
       colorBgPageContainerFixed: '#fff',
       ...finalDesignTokens.pageContainer,
     },
-  } as LayoutDesignToken) as LayoutDesignToken;
+  } as LayoutDesignToken as LayoutDesignToken;
 };
 
 const defaultToken = getLayoutDesignToken({}, {});

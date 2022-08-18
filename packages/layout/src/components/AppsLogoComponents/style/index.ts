@@ -54,11 +54,11 @@ const genAppsLogoComponentsStyle: GenerateStyle<AppsLogoComponentsToken & BaseLa
 export function useStyle(prefixCls: string) {
   const proToken = useContext(ProLayoutContext);
   return useAntdStyle('apps-logo-components', (token) => {
-    const proCardToken: AppsLogoComponentsToken & BaseLayoutDesignToken = {
+    const proCardToken = {
       ...token,
       componentCls: `.${prefixCls}`,
       ...proToken,
-    };
+    } as AppsLogoComponentsToken & BaseLayoutDesignToken;
 
     return [genAppsLogoComponentsStyle(proCardToken)];
   });
