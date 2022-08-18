@@ -50,7 +50,7 @@
     "warning": "^4.0.3"
   },
   "devDependencies": {
-    "antd": "experimental"
+    "antd": ">=4.20.0"
   },
   "peerDependencies": {
     "react": ">=16.9.0"

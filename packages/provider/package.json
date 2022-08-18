@@ -33,7 +33,7 @@
     "swr": "^1.2.0"
   },
   "devDependencies": {
-    "antd": "experimental"
+    "antd": ">=4.20.0"
   },
   "peerDependencies": {
     "react": ">=16.9.0"
