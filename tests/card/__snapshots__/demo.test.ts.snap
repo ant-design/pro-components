@@ -5460,42 +5460,6 @@ exports[`card demos 📸 renders ./packages/card/src/components/StatisticCard/de
                 关联展示内容 全部
               </div>
             </div>
-            <div
-              aria-hidden="true"
-              aria-labelledby="rc-tabs-1-tab-2"
-              class="ant-tabs-tabpane"
-              id="rc-tabs-1-panel-2"
-              role="tabpanel"
-              style="display: none; width: 100%;"
-              tabindex="-1"
-            />
-            <div
-              aria-hidden="true"
-              aria-labelledby="rc-tabs-1-tab-3"
-              class="ant-tabs-tabpane"
-              id="rc-tabs-1-panel-3"
-              role="tabpanel"
-              style="display: none; width: 100%;"
-              tabindex="-1"
-            />
-            <div
-              aria-hidden="true"
-              aria-labelledby="rc-tabs-1-tab-4"
-              class="ant-tabs-tabpane"
-              id="rc-tabs-1-panel-4"
-              role="tabpanel"
-              style="display: none; width: 100%;"
-              tabindex="-1"
-            />
-            <div
-              aria-hidden="true"
-              aria-labelledby="rc-tabs-1-tab-5"
-              class="ant-tabs-tabpane"
-              id="rc-tabs-1-panel-5"
-              role="tabpanel"
-              style="display: none; width: 100%;"
-              tabindex="-1"
-            />
           </div>
         </div>
       </div>
@@ -5885,42 +5849,6 @@ exports[`card demos 📸 renders ./packages/card/src/components/StatisticCard/de
                 关联展示内容 全部
               </div>
             </div>
-            <div
-              aria-hidden="true"
-              aria-labelledby="rc-tabs-0-tab-2"
-              class="ant-tabs-tabpane"
-              id="rc-tabs-0-panel-2"
-              role="tabpanel"
-              style="display: none; width: 100%;"
-              tabindex="-1"
-            />
-            <div
-              aria-hidden="true"
-              aria-labelledby="rc-tabs-0-tab-3"
-              class="ant-tabs-tabpane"
-              id="rc-tabs-0-panel-3"
-              role="tabpanel"
-              style="display: none; width: 100%;"
-              tabindex="-1"
-            />
-            <div
-              aria-hidden="true"
-              aria-labelledby="rc-tabs-0-tab-4"
-              class="ant-tabs-tabpane"
-              id="rc-tabs-0-panel-4"
-              role="tabpanel"
-              style="display: none; width: 100%;"
-              tabindex="-1"
-            />
-            <div
-              aria-hidden="true"
-              aria-labelledby="rc-tabs-0-tab-5"
-              class="ant-tabs-tabpane"
-              id="rc-tabs-0-panel-5"
-              role="tabpanel"
-              style="display: none; width: 100%;"
-              tabindex="-1"
-            />
           </div>
         </div>
       </div>
@@ -9670,15 +9598,6 @@ exports[`card demos 📸 renders ./packages/card/src/demos/tabs.tsx correctly 1`
               class="ant-tabs-content ant-tabs-content-top"
             >
               <div
-                aria-hidden="true"
-                aria-labelledby="rc-tabs-3-tab-tab1"
-                class="ant-tabs-tabpane"
-                id="rc-tabs-3-panel-tab1"
-                role="tabpanel"
-                style="display: none;"
-                tabindex="-1"
-              />
-              <div
                 aria-hidden="false"
                 aria-labelledby="rc-tabs-3-tab-tab2"
                 class="ant-tabs-tabpane ant-tabs-tabpane-active"
@@ -9805,15 +9724,6 @@ exports[`card demos 📸 renders ./packages/card/src/demos/tabs-card.tsx correct
             >
               内容一
             </div>
-            <div
-              aria-hidden="true"
-              aria-labelledby="rc-tabs-2-tab-tab2"
-              class="ant-tabs-tabpane"
-              id="rc-tabs-2-panel-tab2"
-              role="tabpanel"
-              style="display: none;"
-              tabindex="-1"
-            />
           </div>
         </div>
       </div>

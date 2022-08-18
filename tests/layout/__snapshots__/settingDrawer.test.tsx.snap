@@ -47,7 +47,6 @@ Array [
         aria-modal="true"
         class="ant-drawer-content"
         role="dialog"
-        style="z-index:999"
       >
         <div
           class="ant-drawer-wrapper-body"
@@ -756,7 +755,6 @@ Array [
         aria-modal="true"
         class="ant-drawer-content"
         role="dialog"
-        style="z-index:999"
       >
         <div
           class="ant-drawer-wrapper-body"
@@ -1396,7 +1394,6 @@ Array [
         aria-modal="true"
         class="ant-drawer-content"
         role="dialog"
-        style="z-index:999"
       >
         <div
           class="ant-drawer-wrapper-body"
@@ -2077,7 +2074,6 @@ Array [
         aria-modal="true"
         class="ant-drawer-content"
         role="dialog"
-        style="z-index:999"
       >
         <div
           class="ant-drawer-wrapper-body"
@@ -2751,7 +2747,6 @@ Array [
         aria-modal="true"
         class="ant-drawer-content"
         role="dialog"
-        style="z-index:999"
       >
         <div
           class="ant-drawer-wrapper-body"

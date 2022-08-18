@@ -16,7 +16,7 @@ Array [
         style="min-height:100%"
       >
         <div
-          style="width:256px;overflow:hidden;flex:0 0 256px;max-width:256px;min-width:256px;transition:all 0.2s ease 0s"
+          style="width:256px;overflow:hidden;flex:0 0 256px;max-width:256px;min-width:256px;transition:all 0.2s ease 0s;height:calc(100% - 56px);margin-block-start:56px"
         />
         <aside
           class="ant-layout-sider ant-layout-sider-light ant-pro-sider ant-pro-sider-fixed ant-pro-sider-layout-side ant-pro-sider-light"
@@ -391,7 +391,7 @@ Array [
                     style="margin-block-start:16px"
                   >
                     <div
-                      class="ant-skeleton ant-skeleton-active css-dev-only-do-not-override-1pp52cf"
+                      class="ant-skeleton ant-skeleton-active css-dev-only-do-not-override-1s88xan"
                     >
                       <div
                         class="ant-skeleton-content"
@@ -431,7 +431,7 @@ Array [
         style="min-height:100%"
       >
         <div
-          style="width:215px;overflow:hidden;flex:0 0 215px;max-width:215px;min-width:215px;transition:all 0.2s ease 0s"
+          style="width:215px;overflow:hidden;flex:0 0 215px;max-width:215px;min-width:215px;transition:all 0.2s ease 0s;height:calc(100% - 56px);margin-block-start:56px"
         />
         <aside
           class="ant-layout-sider ant-layout-sider-light ant-pro-sider ant-pro-sider-fixed ant-pro-sider-layout-mix ant-pro-sider-light ant-pro-sider-mix"
@@ -664,7 +664,7 @@ exports[`BasicLayout 🥩 base use 1`] = `
       style="min-height:100%"
     >
       <div
-        style="width:256px;overflow:hidden;flex:0 0 256px;max-width:256px;min-width:256px;transition:all 0.2s ease 0s"
+        style="width:256px;overflow:hidden;flex:0 0 256px;max-width:256px;min-width:256px;transition:all 0.2s ease 0s;height:calc(100% - 56px);margin-block-start:56px"
       />
       <aside
         class="ant-layout-sider ant-layout-sider-light ant-pro-sider ant-pro-sider-fixed ant-pro-sider-layout-side ant-pro-sider-light"
@@ -857,7 +857,7 @@ exports[`BasicLayout 🥩 contentStyle should change dom 1`] = `
       style="min-height:100%"
     >
       <div
-        style="width:256px;overflow:hidden;flex:0 0 256px;max-width:256px;min-width:256px;transition:all 0.2s ease 0s"
+        style="width:256px;overflow:hidden;flex:0 0 256px;max-width:256px;min-width:256px;transition:all 0.2s ease 0s;height:calc(100% - 56px);margin-block-start:56px"
       />
       <aside
         class="ant-layout-sider ant-layout-sider-light ant-pro-sider ant-pro-sider-fixed ant-pro-sider-layout-side ant-pro-sider-light"
@@ -1051,7 +1051,7 @@ exports[`BasicLayout 🥩 mix layout hideInMenu render right 1`] = `
       style="min-height: 100%;"
     >
       <div
-        style="width: 256px; overflow: hidden; flex: 0 0 256px; max-width: 256px; min-width: 256px; transition: all 0.2s ease 0s;"
+        style="width: 256px; overflow: hidden; flex: 0 0 256px; max-width: 256px; min-width: 256px; transition: all 0.2s ease 0s; height: calc(100% - 56px); margin-block-start: 56px;"
       />
       <aside
         class="ant-layout-sider ant-layout-sider-light ant-pro-sider ant-pro-sider-fixed ant-pro-sider-layout-side ant-pro-sider-light"
@@ -1245,9 +1245,15 @@ exports[`BasicLayout 🥩 mix layout hideInMenu render right 1`] = `
                 <span
                   class="ant-menu-title-content"
                 >
-                  <span>
-                    列表页
-                  </span>
+                  <div
+                    class="ant-pro-base-menu-item-title"
+                  >
+                    <span
+                      class="ant-pro-base-menu-item-text"
+                    >
+                      列表页
+                    </span>
+                  </div>
                 </span>
               </li>
             </ul>
@@ -1301,7 +1307,7 @@ exports[`BasicLayout 🥩 support loading 1`] = `
       style="min-height: 100%;"
     >
       <div
-        style="width: 256px; overflow: hidden; flex: 0 0 256px; max-width: 256px; min-width: 256px; transition: all 0.2s ease 0s;"
+        style="width: 256px; overflow: hidden; flex: 0 0 256px; max-width: 256px; min-width: 256px; transition: all 0.2s ease 0s; height: calc(100% - 56px); margin-block-start: 56px;"
       />
       <aside
         class="ant-layout-sider ant-layout-sider-light ant-pro-sider ant-pro-sider-fixed ant-pro-sider-layout-side ant-pro-sider-light"

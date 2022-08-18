@@ -2137,15 +2137,6 @@ exports[`descriptions demos 📸 renders ./packages/descriptions/src/demos/dynam
                         </div>
                       </div>
                     </div>
-                    <div
-                      aria-hidden="true"
-                      aria-labelledby="rc-tabs-0-tab-columns"
-                      class="ant-tabs-tabpane"
-                      id="rc-tabs-0-panel-columns"
-                      role="tabpanel"
-                      style="display: none;"
-                      tabindex="-1"
-                    />
                   </div>
                 </div>
               </div>

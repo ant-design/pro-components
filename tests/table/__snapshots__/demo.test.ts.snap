@@ -14401,15 +14401,6 @@ exports[`table demos 📸 renders ./packages/table/src/demos/ListToolBar/tabs.ts
                       role="tabpanel"
                       tabindex="0"
                     />
-                    <div
-                      aria-hidden="true"
-                      aria-labelledby="rc-tabs-3-tab-tab2"
-                      class="ant-tabs-tabpane"
-                      id="rc-tabs-3-panel-tab2"
-                      role="tabpanel"
-                      style="display: none;"
-                      tabindex="-1"
-                    />
                   </div>
                 </div>
               </div>
@@ -23073,24 +23064,6 @@ exports[`table demos 📸 renders ./packages/table/src/demos/crud.tsx correctly 
               id="rc-tabs-0-panel-table"
               role="tabpanel"
               tabindex="0"
-            />
-            <div
-              aria-hidden="true"
-              aria-labelledby="rc-tabs-0-tab-form"
-              class="ant-tabs-tabpane"
-              id="rc-tabs-0-panel-form"
-              role="tabpanel"
-              style="display: none;"
-              tabindex="-1"
-            />
-            <div
-              aria-hidden="true"
-              aria-labelledby="rc-tabs-0-tab-descriptions"
-              class="ant-tabs-tabpane"
-              id="rc-tabs-0-panel-descriptions"
-              role="tabpanel"
-              style="display: none;"
-              tabindex="-1"
             />
           </div>
         </div>
@@ -33906,33 +33879,6 @@ exports[`table demos 📸 renders ./packages/table/src/demos/dynamic-settings.ts
                         </div>
                       </div>
                     </div>
-                    <div
-                      aria-hidden="true"
-                      aria-labelledby="rc-tabs-1-tab-tab3"
-                      class="ant-tabs-tabpane"
-                      id="rc-tabs-1-panel-tab3"
-                      role="tabpanel"
-                      style="display: none;"
-                      tabindex="-1"
-                    />
-                    <div
-                      aria-hidden="true"
-                      aria-labelledby="rc-tabs-1-tab-tab2"
-                      class="ant-tabs-tabpane"
-                      id="rc-tabs-1-panel-tab2"
-                      role="tabpanel"
-                      style="display: none;"
-                      tabindex="-1"
-                    />
-                    <div
-                      aria-hidden="true"
-                      aria-labelledby="rc-tabs-1-tab-tab4"
-                      class="ant-tabs-tabpane"
-                      id="rc-tabs-1-panel-tab4"
-                      role="tabpanel"
-                      style="display: none;"
-                      tabindex="-1"
-                    />
                   </div>
                 </div>
               </div>
@@ -38367,24 +38313,6 @@ exports[`table demos 📸 renders ./packages/table/src/demos/listToolBar.tsx cor
                           id="rc-tabs-2-panel-tab1"
                           role="tabpanel"
                           tabindex="0"
-                        />
-                        <div
-                          aria-hidden="true"
-                          aria-labelledby="rc-tabs-2-tab-tab2"
-                          class="ant-tabs-tabpane"
-                          id="rc-tabs-2-panel-tab2"
-                          role="tabpanel"
-                          style="display: none;"
-                          tabindex="-1"
-                        />
-                        <div
-                          aria-hidden="true"
-                          aria-labelledby="rc-tabs-2-tab-tab3"
-                          class="ant-tabs-tabpane"
-                          id="rc-tabs-2-panel-tab3"
-                          role="tabpanel"
-                          style="display: none;"
-                          tabindex="-1"
                         />
                       </div>
                     </div>
@@ -57460,6 +57388,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/valueType.tsx corre
                                 <img
                                   class="ant-image-img"
                                   src="https://zos.alipayobjects.com/rmsportal/jkjgkEfvpUPVyRjUImniVslZfWPnJuuZ.png"
+                                  width="32"
                                 />
                                 <div
                                   class="ant-image-mask"
@@ -57587,6 +57516,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/valueType.tsx corre
                                 <img
                                   class="ant-image-img"
                                   src="https://zos.alipayobjects.com/rmsportal/jkjgkEfvpUPVyRjUImniVslZfWPnJuuZ.png"
+                                  width="32"
                                 />
                                 <div
                                   class="ant-image-mask"

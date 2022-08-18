@@ -33,7 +33,6 @@ exports[`mobile BasicLayout 📱 base use 1`] = `
               aria-modal="true"
               class="ant-drawer-content ant-pro-drawer-sider"
               role="dialog"
-              style="padding: 0px; height: 100vh;"
             >
               <div
                 class="ant-drawer-wrapper-body"
@@ -306,7 +305,6 @@ exports[`mobile BasicLayout 📱 collapsed=false 1`] = `
               aria-modal="true"
               class="ant-drawer-content ant-pro-drawer-sider"
               role="dialog"
-              style="padding: 0px; height: 100vh;"
             >
               <div
                 class="ant-drawer-wrapper-body"
@@ -848,7 +846,6 @@ exports[`mobile BasicLayout 📱 layout=mix 1`] = `
               aria-modal="true"
               class="ant-drawer-content ant-pro-drawer-sider"
               role="dialog"
-              style="padding: 0px; height: 100vh;"
             >
               <div
                 class="ant-drawer-wrapper-body"
@@ -1140,7 +1137,6 @@ exports[`mobile BasicLayout 📱 layout=mix and splitMenus 1`] = `
               aria-modal="true"
               class="ant-drawer-content ant-pro-drawer-sider"
               role="dialog"
-              style="padding: 0px; height: 100vh;"
             >
               <div
                 class="ant-drawer-wrapper-body"
