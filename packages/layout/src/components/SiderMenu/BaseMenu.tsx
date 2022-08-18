@@ -164,13 +164,11 @@ class MenuUtil {
             [`${baseClassName}-item-collapsed-show-title`]: menu?.collapsedShowTitle && collapsed,
           })}
         >
-          {menuType === 'group' && !collapsed ? (
-            hasIcon && iconDom ? (
-              <span className={`anticon ${baseClassName}-item-icon`}>{iconDom}</span>
-            ) : (
-              defaultIcon
-            )
-          ) : null}
+          {menuType === 'group' && collapsed ? null : hasIcon && iconDom ? (
+            <span className={`anticon ${baseClassName}-item-icon`}>{iconDom}</span>
+          ) : (
+            defaultIcon
+          )}
           <span
             className={classNames(`${baseClassName}-item-text`, {
               [`${baseClassName}-item-text-has-icon`]:

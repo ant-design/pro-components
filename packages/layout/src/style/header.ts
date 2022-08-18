@@ -64,7 +64,7 @@ export function useStyle(prefixCls: string, props: { proLayoutCls: string }) {
       ...token,
       componentCls: `.${prefixCls}`,
       proLayoutCls: `.${props.proLayoutCls}`,
-      ProLayoutHeaderHeaderHeight: 56,
+      ProLayoutHeaderHeaderHeight: header.heightLayoutHeader,
       ...header,
     };
 

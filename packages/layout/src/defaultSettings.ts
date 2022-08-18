@@ -22,11 +22,7 @@ export type PureSettings = {
    * @type  "light" | "dark"
    */
   headerTheme?: MenuTheme;
-  /**
-   * @name customize header height
-   * @example 顶栏高度修改为64 headerHeight={64}
-   */
-  headerHeight?: number;
+
   /**
    * @name layout 的布局方式
    * @type  'side' | 'top' | 'mix'
@@ -139,7 +135,6 @@ const defaultSettings: ProSettings = {
   contentWidth: 'Fluid',
   fixedHeader: false,
   fixSiderbar: true,
-  headerHeight: 56,
   iconfontUrl: '',
   colorPrimary: '#1677FF',
   splitMenus: false,

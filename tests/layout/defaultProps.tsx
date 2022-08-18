@@ -1,4 +1,13 @@
-import { ChromeFilled, CrownFilled, SmileFilled, TabletFilled } from '@ant-design/icons';
+import {
+  AreaChartOutlined,
+  ChromeFilled,
+  CrownFilled,
+  FundFilled,
+  FundOutlined,
+  PieChartFilled,
+  SmileFilled,
+  TabletFilled,
+} from '@ant-design/icons';
 
 export default {
   route: {
@@ -32,6 +41,82 @@ export const bigDefaultProps = {
   route: {
     path: '/',
     routes: [
+      {
+        path: '/data',
+        name: '数据中心',
+        component: '',
+        routes: [
+          {
+            name: '总览数据',
+            icon: <FundFilled />,
+            routes: [
+              {
+                path: '/data/overview',
+                name: '行业数据概览',
+                component: '',
+              },
+            ],
+          },
+          {
+            name: '政企线数据',
+            icon: <PieChartFilled />,
+            routes: [
+              {
+                path: '/gover/industry',
+                name: '行业数据',
+                component: '',
+              },
+              {
+                path: '/gover/efficiency',
+                name: '人效数据',
+                component: '',
+              },
+              {
+                path: '/gover/unusual',
+                name: '异动数据',
+                component: '',
+              },
+            ],
+          },
+          {
+            name: '商业线数据',
+            icon: <AreaChartOutlined />,
+            routes: [
+              {
+                path: '/business/industry',
+                name: '行业数据',
+                component: '',
+              },
+              {
+                path: '/business/real',
+                name: '实时数据',
+                component: '',
+              },
+              {
+                path: '/business/history',
+                name: '历史数据',
+                component: '',
+              },
+            ],
+          },
+          {
+            name: '小二数据',
+            icon: <FundOutlined />,
+            routes: [
+              {
+                path: '/bd/industry',
+                name: '作业画像',
+                component: '',
+              },
+              {
+                path: '/bd/efficiency',
+                name: '效率分析',
+                component: '',
+              },
+            ],
+          },
+        ],
+      },
       {
         path: '/welcome',
         name: '欢迎',

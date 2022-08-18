@@ -234,6 +234,11 @@ const genProLayoutStyle: GenerateStyle<ProLayoutToken & LayoutDesignToken> = (to
         background: token.bgLayout,
       },
     },
+    [`${token.antCls}-menu-submenu-popup`]: {
+      backgroundColor: 'rgba(255, 255, 255, 0.42)',
+      '-webkit-backdrop-filter': 'blur(8px)',
+      backdropFilter: 'blur(8px)',
+    },
   };
 };
 

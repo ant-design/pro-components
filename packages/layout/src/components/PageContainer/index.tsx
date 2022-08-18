@@ -3,6 +3,7 @@ import { Affix, Breadcrumb, ConfigProvider, Tabs } from 'antd';
 import classNames from 'classnames';
 import type { ReactNode } from 'react';
 import React, { useContext, useMemo } from 'react';
+import { ProLayoutContext } from '../../context/ProLayoutContext';
 import { RouteContext } from '../../context/RouteContext';
 import type { WithFalse } from '../../typings';
 import { FooterToolbar } from '../FooterToolbar';
@@ -335,13 +336,15 @@ const PageContainer: React.FC<PageContainerProps> = (props) => {
     [`${basePageContainer}-with-affix`]: fixedHeader && pageHeaderDom,
   });
 
+  const token = useContext(ProLayoutContext);
+
   return wrapSSR(
     <>
       <div style={style} className={containerClassName}>
         {fixedHeader && pageHeaderDom ? (
           // 在 hasHeader 且 fixedHeader 的情况下，才需要设置高度
           <Affix
-            offsetTop={value.hasHeader && value.fixedHeader ? value.headerHeight : 0}
+            offsetTop={value.hasHeader && value.fixedHeader ? token.header.heightLayoutHeader : 0}
             {...affixProps}
             className={`${basePageContainer}-affix`}
           >

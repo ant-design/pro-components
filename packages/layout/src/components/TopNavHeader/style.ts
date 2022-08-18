@@ -40,9 +40,18 @@ const genTopNavHeaderStyle: GenerateStyle<TopNavHeaderToken & BaseLayoutDesignTo
         height: '100%',
         alignItems: 'center',
         overflow: 'hidden',
-        '> *': { display: 'flex', alignItems: 'center', minHeight: '22px', fontSize: '22px' },
-        '> * > img': { display: 'inline-block', height: '32px', verticalAlign: 'middle' },
-        '> * > h1': {
+        '> *:first-child': {
+          display: 'flex',
+          alignItems: 'center',
+          minHeight: '22px',
+          fontSize: '22px',
+        },
+        '> *:first-child > img': {
+          display: 'inline-block',
+          height: '32px',
+          verticalAlign: 'middle',
+        },
+        '> *:first-child > h1': {
           display: 'inline-block',
           marginBlock: 0,
           marginInline: 0,

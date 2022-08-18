@@ -1,6 +1,7 @@
 import { ConfigProvider, Layout } from 'antd';
 import classNames from 'classnames';
-import React, { useCallback } from 'react';
+import React, { useCallback, useContext } from 'react';
+import { ProLayoutContext } from '../context/ProLayoutContext';
 import { useStyle } from '../style/header';
 import type { WithFalse } from '../typings';
 import { clearMenuItem } from '../utils/utils';
@@ -35,14 +36,13 @@ const DefaultHeader: React.FC<HeaderViewProps & PrivateSiderMenuProps> = (props)
     style,
     collapsed,
     prefixCls,
-    headerHeight,
     onCollapse,
     navTheme,
     layout,
     headerRender,
     headerContentRender,
   } = props;
-
+  const { header } = useContext(ProLayoutContext);
   const renderContent = useCallback(() => {
     const isTop = layout === 'top';
     const clearMenuData = clearMenuItem(props.menuData || []);
@@ -101,8 +101,8 @@ const DefaultHeader: React.FC<HeaderViewProps & PrivateSiderMenuProps> = (props)
         {needFixedHeader && (
           <Header
             style={{
-              height: headerHeight,
-              lineHeight: `${headerHeight}px`,
+              height: header.heightLayoutHeader,
+              lineHeight: `${header.heightLayoutHeader}px`,
               backgroundColor: 'transparent',
               zIndex: 19,
               ...style,

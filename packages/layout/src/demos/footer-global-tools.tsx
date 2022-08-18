@@ -22,7 +22,6 @@ export default () => {
 
   return (
     <>
-      <Alert message="Warning text" banner />
       <div
         id="test-pro-layout"
         style={{
@@ -30,7 +29,11 @@ export default () => {
         }}
       >
         <ProLayout
-          headerHeight={100}
+          token={{
+            header: {
+              heightLayoutHeader: 108,
+            },
+          }}
           headerRender={(props, defaultDom) => (
             <>
               <Alert
