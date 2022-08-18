@@ -187,29 +187,6 @@ describe('BasicLayout', () => {
         menu={{
           type: 'group',
         }}
-        avatarProps={{
-          src: 'https://gw.alipayobjects.com/zos/antfincdn/efFD%24IOql2/weixintupian_20170331104822.jpg',
-          size: 'small',
-          title: '七妮妮',
-        }}
-        actionsRender={() => [
-          <InfoCircleFilled key="InfoCircleFilled" />,
-          <QuestionCircleFilled key="QuestionCircleFilled" />,
-          <GithubFilled key="GithubFilled" />,
-        ]}
-        menuFooterRender={() => {
-          return (
-            <p
-              style={{
-                textAlign: 'center',
-                color: 'rgba(0,0,0,0.6)',
-                paddingBlockStart: 12,
-              }}
-            >
-              Power by Ant Design
-            </p>
-          );
-        }}
       >
         <div />
       </ProLayout>,

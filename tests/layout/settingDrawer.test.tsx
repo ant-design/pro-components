@@ -162,7 +162,6 @@ describe('settingDrawer.test', () => {
       contentWidth: 'Fluid',
       fixedHeader: true,
       fixSiderbar: true,
-      headerHeight: 56,
       colorPrimary: '#1677FF',
       splitMenus: false,
     });
