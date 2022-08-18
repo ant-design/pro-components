@@ -1,7 +1,7 @@
+import type { GenerateStyle, ProAliasToken } from '@ant-design/pro-utils';
 import { useStyle as useAntdStyle } from '@ant-design/pro-utils';
-import type { AliasToken, GenerateStyle } from 'antd/es/theme';
 
-interface ProCardDividerToken extends AliasToken {
+interface ProCardDividerToken extends ProAliasToken {
   componentCls: string;
 }
 

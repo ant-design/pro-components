@@ -240,11 +240,11 @@ const genProLayoutStyle: GenerateStyle<ProLayoutToken & LayoutDesignToken> = (to
 export function useStyle(prefixCls: string) {
   const proToken = useContext(ProLayoutContext);
   return useAntdStyle('pro-layout', (token) => {
-    const proLayoutToken: ProLayoutToken & LayoutDesignToken = {
+    const proLayoutToken = {
       ...token,
       componentCls: `.${prefixCls}`,
       ...proToken,
-    };
+    } as ProLayoutToken & LayoutDesignToken;
 
     return [genProLayoutStyle(proLayoutToken), compatibleStyle(proLayoutToken)];
   });
