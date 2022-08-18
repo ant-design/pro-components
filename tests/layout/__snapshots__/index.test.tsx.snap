@@ -1223,11 +1223,16 @@ exports[`BasicLayout 🥩 mix layout hideInMenu render right 1`] = `
                   <span
                     class="ant-menu-title-content"
                   >
-                    <span
+                    <div
+                      class="ant-pro-base-menu-item-title"
                       title="管理页"
                     >
-                      管理页
-                    </span>
+                      <span
+                        class="ant-pro-base-menu-item-text"
+                      >
+                        管理页
+                      </span>
+                    </div>
                   </span>
                   <i
                     class="ant-menu-submenu-arrow"

@@ -109,6 +109,13 @@ const getIcon = (
   return icon;
 };
 
+const getMenuTitleSymbol = (title: React.ReactNode) => {
+  if (title && typeof title === 'string') {
+    const symbol = title.substring(0, 1).toUpperCase();
+    return symbol;
+  }
+  return null;
+};
 class MenuUtil {
   constructor(
     props: BaseMenuProps & {
@@ -141,12 +148,15 @@ class MenuUtil {
 
     const name = this.getIntlName(item);
     const children = item?.children || item?.routes;
+    const menuType = isGroup && level === 0 ? ('group' as const) : undefined;
+
     if (Array.isArray(children) && children.length > 0) {
       /** Menu 第一级可以有icon，或者 isGroup 时第二级别也要有 */
       const hasIcon = level === 0 || (isGroup && level === 1);
       //  get defaultTitle by menuItemRender
       const iconDom = getIcon(item.icon, iconPrefixes);
-      const defaultTitle = item.icon ? (
+      const defaultIcon = collapsed ? getMenuTitleSymbol(name) : null;
+      const defaultTitle = (
         <div
           title={name}
           className={classNames(`${baseClassName}-item-title`, {
@@ -154,13 +164,22 @@ class MenuUtil {
             [`${baseClassName}-item-collapsed-show-title`]: menu?.collapsedShowTitle && collapsed,
           })}
         >
-          {hasIcon && iconDom ? (
-            <span className={`anticon ${baseClassName}-item-icon`}>{iconDom}</span>
+          {menuType === 'group' && !collapsed ? (
+            hasIcon && iconDom ? (
+              <span className={`anticon ${baseClassName}-item-icon`}>{iconDom}</span>
+            ) : (
+              defaultIcon
+            )
           ) : null}
-          <span className={`${baseClassName}-item-text`}>{name}</span>
+          <span
+            className={classNames(`${baseClassName}-item-text`, {
+              [`${baseClassName}-item-text-has-icon`]:
+                menuType !== 'group' && hasIcon && (iconDom || defaultIcon),
+            })}
+          >
+            {name}
+          </span>
         </div>
-      ) : (
-        <span title={name}>{name}</span>
       );
 
       // subMenu only title render
@@ -172,7 +191,6 @@ class MenuUtil {
       if (isGroup && level === 0 && this.props.collapsed && !menu.collapsedShowGroupTitle) {
         return childrenList;
       }
-      const menuType = isGroup && level === 0 ? ('group' as const) : undefined;
       return [
         {
           type: menuType,
@@ -245,6 +263,7 @@ class MenuUtil {
     /** Menu 第一级可以有icon，或者 isGroup 时第二级别也要有 */
     const hasIcon = level === 0 || (isGroup && level === 1);
     const icon = !hasIcon ? null : getIcon(item.icon, iconPrefixes);
+    const defaultIcon = collapsed ? getMenuTitleSymbol(name) : null;
     let defaultItem = (
       <div
         className={classNames(`${baseClassName}-item-title`, {
@@ -252,8 +271,14 @@ class MenuUtil {
           [`${baseClassName}-item-collapsed-show-title`]: menu?.collapsedShowTitle && collapsed,
         })}
       >
-        {icon ? <span className={`anticon ${baseClassName}-item-icon`}>{icon}</span> : null}
-        <span className={`${baseClassName}-item-text`}>{name}</span>
+        {icon ? <span className={`anticon ${baseClassName}-item-icon`}>{icon}</span> : defaultIcon}
+        <span
+          className={classNames(`${baseClassName}-item-text`, {
+            [`${baseClassName}-item-text-has-icon`]: hasIcon && (icon || defaultIcon),
+          })}
+        >
+          {name}
+        </span>
       </div>
     );
     const isHttpUrl = isUrl(itemPath);
@@ -266,10 +291,24 @@ class MenuUtil {
           onClick={() => {
             window?.open?.(itemPath, '_blank');
           }}
-          className={`${baseClassName}-item ${baseClassName}-item-link`}
+          className={classNames(`${baseClassName}-item-title`, {
+            [`${baseClassName}-item-title-collapsed`]: collapsed,
+            [`${baseClassName}-item-link`]: true,
+            [`${baseClassName}-item-collapsed-show-title`]: menu?.collapsedShowTitle && collapsed,
+          })}
         >
-          {icon}
-          <span>{name}</span>
+          {icon ? (
+            <span className={`anticon ${baseClassName}-item-icon`}>{icon}</span>
+          ) : (
+            defaultIcon
+          )}
+          <span
+            className={classNames(`${baseClassName}-item-text`, {
+              [`${baseClassName}-item-text-has-icon`]: hasIcon && (icon || defaultIcon),
+            })}
+          >
+            {name}
+          </span>
         </span>
       );
     }

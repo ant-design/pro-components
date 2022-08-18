@@ -51,7 +51,7 @@ const genSiderMenuStyle: GenerateStyle<SiderMenuToken & BaseLayoutDesignToken['s
           display: 'flex',
           alignItems: 'center',
           justifyContent: 'space-between',
-          paddingInline: 16,
+          paddingInline: 12,
           paddingBlock: 16,
           color: token.colorTextMenu,
           cursor: 'pointer',
