@@ -49,11 +49,10 @@
     "use-media-antd-query": "^1.1.0",
     "warning": "^4.0.3"
   },
-  "devDependencies": {
-    "antd": ">=4.20.0"
-  },
   "peerDependencies": {
-    "react": ">=16.9.0"
+    "antd": ">=4.20.0",
+    "react": ">=16.9.0",
+    "react-dom": ">=16.9.0"
   },
   "publishConfig": {
     "access": "public"

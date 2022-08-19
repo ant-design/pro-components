@@ -39,10 +39,10 @@
     "@ant-design/pro-skeleton": "2.0.0-experimental.6",
     "@ant-design/pro-table": "3.0.0-experimental.13",
     "@ant-design/pro-utils": "2.0.0-experimental.12",
-    "@babel/runtime": "^7.16.3",
-    "antd": ">=4.20.0"
+    "@babel/runtime": "^7.16.3"
   },
   "peerDependencies": {
+    "antd": ">=4.20.0",
     "react": ">=16.9.0",
     "react-dom": ">=16.9.0"
   },
