@@ -206,7 +206,7 @@ function filerByItem(
   ) {
     return true;
   }
-  if (item.optionType === 'optGroup' && (item.children || item.options)) {
+  if (item.children || item.options) {
     const findItem = [...(item.children || []), item.options || []].find((mapItem) => {
       return filerByItem(mapItem, keyWords);
     });
@@ -266,7 +266,7 @@ export const useFieldFetchData = (
     cacheForSwr?: boolean;
   },
 ): [boolean, SelectOptionType, (keyWord?: string) => void, () => void] => {
-  const { cacheForSwr } = props;
+  const { cacheForSwr, fieldProps } = props;
 
   const [keyWords, setKeyWords] = useState<string | undefined>(props.defaultKeyWords);
   /** Key 是用来缓存请求的，如果不在是有问题 */
@@ -293,6 +293,30 @@ export const useFieldFetchData = (
     );
   }, []);
 
+  const defaultOptions = useMemo(() => {
+    if (!fieldProps) return undefined;
+    const data = fieldProps?.options || fieldProps?.treeData;
+    if (!data) return undefined;
+    const { children, label, value } = fieldProps.fieldNames || {};
+    const traverseFieldKey = (_options: typeof options, type: 'children' | 'label' | 'value') => {
+      if (!_options?.length) return;
+      const length = _options.length;
+      let i = 0;
+      while (i < length) {
+        const cur = _options[i++];
+        if (cur[children] || cur[label] || cur[value]) {
+          cur[type] = cur[type === 'children' ? children : type === 'label' ? label : value];
+          traverseFieldKey(cur[children], type);
+        }
+      }
+    };
+
+    if (children) traverseFieldKey(data, 'children');
+    if (label) traverseFieldKey(data, 'label');
+    if (value) traverseFieldKey(data, 'value');
+    return data;
+  }, [fieldProps]);
+
   const [options, setOptions] = useMountMergeState<SelectOptionType>(
     () => {
       if (props.valueEnum) {
@@ -301,7 +325,7 @@ export const useFieldFetchData = (
       return [];
     },
     {
-      value: props.fieldProps?.options || props.fieldProps?.treeData,
+      value: defaultOptions,
     },
   );
 
@@ -355,7 +379,7 @@ export const useFieldFetchData = (
           value: item,
         };
       }
-      if (item?.optionType === 'optGroup' && (item.children || item.options)) {
+      if (item.children || item.options) {
         const childrenOptions = [...(item.children || []), ...(item.options || [])].filter(
           (mapItem) => {
             return filerByItem(mapItem, keyWords);
