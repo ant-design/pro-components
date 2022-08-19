@@ -37,7 +37,7 @@ export default () => {
                 // @ts-ignore
                 captchaRef.current?.endTiming();
               }}
-              key="edit"
+              key="edit2"
             >
               手动结束计数
             </Button>,

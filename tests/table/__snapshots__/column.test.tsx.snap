@@ -1587,6 +1587,7 @@ exports[`Table ColumnSetting 🎏 extra columns 1`] = `
                           class="ant-table-cell ant-table-row-expand-icon-cell"
                         >
                           <button
+                            aria-expanded="false"
                             aria-label="展开行"
                             class="ant-table-row-expand-icon ant-table-row-expand-icon-collapsed"
                             type="button"
@@ -1626,6 +1627,7 @@ exports[`Table ColumnSetting 🎏 extra columns 1`] = `
                           class="ant-table-cell ant-table-row-expand-icon-cell"
                         >
                           <button
+                            aria-expanded="false"
                             aria-label="展开行"
                             class="ant-table-row-expand-icon ant-table-row-expand-icon-collapsed"
                             type="button"

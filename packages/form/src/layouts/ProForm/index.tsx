@@ -39,5 +39,6 @@ ProForm.Item = ProFormItem;
 ProForm.useWatch = Form.useWatch;
 ProForm.ErrorList = Form.ErrorList;
 ProForm.Provider = Form.Provider;
+ProForm.useFormInstance = Form.useFormInstance;
 
 export { ProForm };
