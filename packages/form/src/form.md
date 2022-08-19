@@ -390,7 +390,7 @@ export default () => {
               <Button htmlType="button" onClick={getFormatValues} key="format">
                 获取格式化后的所有数据
               </Button>
-              <Button htmlType="button" onClick={validateAndGetFormatValue} key="format">
+              <Button htmlType="button" onClick={validateAndGetFormatValue} key="format2">
                 校验表单并返回格式化后的所有数据
               </Button>
             </Button.Group>,

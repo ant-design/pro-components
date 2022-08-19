@@ -142,6 +142,7 @@ export const FieldRender: React.FC<
     renderFormItem,
     params,
   } = props;
+  const form = ProForm.useFormInstance();
 
   const fieldConfig = {
     text,
@@ -173,80 +174,76 @@ export const FieldRender: React.FC<
     return <ProFormField name={dataIndex} {...fieldConfig} fieldProps={fieldProps} />;
   }
 
+  const renderDom = () => {
+    const formItemProps = getFieldPropsOrFormItemProps(
+      props.formItemProps,
+      form as FormInstance<any>,
+      {
+        ...props,
+        rowKey: dataIndex,
+        isEditable: true,
+      },
+    );
+    const fieldProps = getFieldPropsOrFormItemProps(props.fieldProps, form as FormInstance<any>, {
+      ...props,
+      rowKey: dataIndex,
+      isEditable: true,
+    });
+    const dom = renderFormItem
+      ? renderFormItem?.(
+          {
+            ...props,
+            type: 'descriptions',
+          },
+          {
+            isEditable: true,
+            recordKey: dataIndex,
+            record: form.getFieldValue([dataIndex].flat(1) as React.ReactText[]),
+            defaultRender: () => <ProFormField {...fieldConfig} fieldProps={fieldProps} />,
+            type: 'descriptions',
+          },
+          form as FormInstance<any>,
+        )
+      : undefined;
+    return (
+      <Space>
+        <InlineErrorFormItem
+          name={dataIndex}
+          {...formItemProps}
+          style={{
+            margin: 0,
+            ...(formItemProps?.style || {}),
+          }}
+          initialValue={text || formItemProps?.initialValue}
+        >
+          {dom || (
+            <ProFormField
+              {...fieldConfig}
+              // @ts-ignore
+              proFieldProps={{ ...fieldConfig.proFieldProps }}
+              fieldProps={fieldProps}
+            />
+          )}
+        </InlineErrorFormItem>
+        {editableUtils?.actionRender?.(dataIndex || index, {
+          cancelText: <CloseOutlined />,
+          saveText: <CheckOutlined />,
+          deleteText: false,
+        })}
+      </Space>
+    ) as React.ReactNode;
+  };
+
   return (
     <div
       style={{
-        marginBlockStart: -5,
-        marginBlockEnd: -5,
-        marginInlineStart: 0,
-        marginInlineEnd: 0,
+        marginTop: -5,
+        marginBottom: -5,
+        marginLeft: 0,
+        marginRight: 0,
       }}
     >
-      <Form.Item noStyle shouldUpdate={(pre, next) => pre !== next}>
-        {(form) => {
-          const formItemProps = getFieldPropsOrFormItemProps(
-            props.formItemProps,
-            form as FormInstance<any>,
-            {
-              ...props,
-              rowKey: dataIndex,
-              isEditable: true,
-            },
-          );
-          const fieldProps = getFieldPropsOrFormItemProps(
-            props.fieldProps,
-            form as FormInstance<any>,
-            {
-              ...props,
-              rowKey: dataIndex,
-              isEditable: true,
-            },
-          );
-          const dom = renderFormItem
-            ? renderFormItem?.(
-                {
-                  ...props,
-                  type: 'descriptions',
-                },
-                {
-                  isEditable: true,
-                  recordKey: dataIndex,
-                  record: form.getFieldValue([dataIndex].flat(1) as React.ReactText[]),
-                  defaultRender: () => <ProFormField {...fieldConfig} fieldProps={fieldProps} />,
-                  type: 'descriptions',
-                },
-                form as FormInstance<any>,
-              )
-            : undefined;
-          return (
-            <Space>
-              <InlineErrorFormItem
-                name={dataIndex!}
-                {...formItemProps}
-                style={{
-                  margin: 0,
-                  ...(formItemProps?.style || {}),
-                }}
-                initialValue={text || formItemProps?.initialValue}
-              >
-                {dom || (
-                  <ProFormField
-                    {...fieldConfig}
-                    // @ts-ignore
-                    proFieldProps={{ ...fieldConfig.proFieldProps }}
-                    fieldProps={fieldProps}
-                  />
-                )}
-              </InlineErrorFormItem>
-              {editableUtils?.actionRender?.(dataIndex || index, form as FormInstance<any>, {
-                cancelText: <CloseOutlined />,
-                saveText: <CheckOutlined />,
-                deleteText: false,
-              })}
-            </Space>
-          ) as React.ReactNode;
-        }}
-      </Form.Item>
+      {renderDom()}
     </div>
   );
 };

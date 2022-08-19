@@ -39,7 +39,7 @@ const TopNavHeader: React.FC<TopNavHeaderProps> = (props) => {
     const defaultDom = (
       <ConfigProvider
         theme={{
-          hashed: true,
+          hashed: process.env.NODE_ENV !== 'test',
           override: {
             Menu: {
               colorItemBg: 'transparent',

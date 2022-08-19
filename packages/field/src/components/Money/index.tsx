@@ -263,6 +263,8 @@ const FieldMoney: ProFieldFC<FieldMoneyProps> = (
           'precision',
           'numberPopoverRender',
           'customSymbol',
+          'moneySymbol',
+          'visible',
         ])}
       />
     );

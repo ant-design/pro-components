@@ -2,27 +2,11 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
-# [7.0.0-experimental.17](https://github.com/ant-design/pro-components/compare/@ant-design/pro-layout@7.0.0-experimental.16...@ant-design/pro-layout@7.0.0-experimental.17) (2022-08-19)
+## [6.38.19](https://github.com/ant-design/pro-components/compare/@ant-design/pro-layout@6.38.18...@ant-design/pro-layout@6.38.19) (2022-08-19)
 
 **Note:** Version bump only for package @ant-design/pro-layout
 
-# [7.0.0-experimental.16](https://github.com/ant-design/pro-components/compare/@ant-design/pro-layout@7.0.0-experimental.15...@ant-design/pro-layout@7.0.0-experimental.16) (2022-08-19)
-
-**Note:** Version bump only for package @ant-design/pro-layout
-
-# [7.0.0-experimental.15](https://github.com/ant-design/pro-components/compare/@ant-design/pro-layout@7.0.0-experimental.14...@ant-design/pro-layout@7.0.0-experimental.15) (2022-08-18)
-
-**Note:** Version bump only for package @ant-design/pro-layout
-
-# [7.0.0-experimental.14](https://github.com/ant-design/pro-components/compare/@ant-design/pro-layout@7.0.0-experimental.13...@ant-design/pro-layout@7.0.0-experimental.14) (2022-08-18)
-
-**Note:** Version bump only for package @ant-design/pro-layout
-
-# [7.0.0-experimental.13](https://github.com/ant-design/pro-components/compare/@ant-design/pro-layout@7.0.0-experimental.12...@ant-design/pro-layout@7.0.0-experimental.13) (2022-08-18)
-
-**Note:** Version bump only for package @ant-design/pro-layout
-
-# [7.0.0-experimental.12](https://github.com/ant-design/pro-components/compare/@ant-design/pro-layout@7.0.0-experimental.11...@ant-design/pro-layout@7.0.0-experimental.12) (2022-08-18)
+## [6.38.18](https://github.com/ant-design/pro-components/compare/@ant-design/pro-layout@6.38.17...@ant-design/pro-layout@6.38.18) (2022-08-15)
 
 ### Bug Fixes
 

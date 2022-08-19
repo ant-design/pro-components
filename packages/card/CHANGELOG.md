@@ -2,43 +2,7 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
-# [2.0.0-experimental.12](https://github.com/ant-design/pro-components/compare/@ant-design/pro-card@2.0.0-experimental.11...@ant-design/pro-card@2.0.0-experimental.12) (2022-08-19)
-
-**Note:** Version bump only for package @ant-design/pro-card
-
-# [2.0.0-experimental.11](https://github.com/ant-design/pro-components/compare/@ant-design/pro-card@2.0.0-experimental.10...@ant-design/pro-card@2.0.0-experimental.11) (2022-08-18)
-
-**Note:** Version bump only for package @ant-design/pro-card
-
-# [2.0.0-experimental.10](https://github.com/ant-design/pro-components/compare/@ant-design/pro-card@2.0.0-experimental.9...@ant-design/pro-card@2.0.0-experimental.10) (2022-08-12)
-
-**Note:** Version bump only for package @ant-design/pro-card
-
-# [2.0.0-experimental.9](https://github.com/ant-design/pro-components/compare/@ant-design/pro-card@2.0.0-experimental.8...@ant-design/pro-card@2.0.0-experimental.9) (2022-08-10)
-
-**Note:** Version bump only for package @ant-design/pro-card
-
-# [2.0.0-experimental.8](https://github.com/ant-design/pro-components/compare/@ant-design/pro-card@2.0.0-experimental.7...@ant-design/pro-card@2.0.0-experimental.8) (2022-08-05)
-
-**Note:** Version bump only for package @ant-design/pro-card
-
-# [2.0.0-experimental.7](https://github.com/ant-design/pro-components/compare/@ant-design/pro-card@2.0.0-experimental.6...@ant-design/pro-card@2.0.0-experimental.7) (2022-08-01)
-
-**Note:** Version bump only for package @ant-design/pro-card
-
-# [2.0.0-experimental.6](https://github.com/ant-design/pro-components/compare/@ant-design/pro-card@2.0.0-experimental.5...@ant-design/pro-card@2.0.0-experimental.6) (2022-08-01)
-
-**Note:** Version bump only for package @ant-design/pro-card
-
-# [2.0.0-experimental.5](https://github.com/ant-design/pro-components/compare/@ant-design/pro-card@2.0.0-experimental.4...@ant-design/pro-card@2.0.0-experimental.5) (2022-08-01)
-
-**Note:** Version bump only for package @ant-design/pro-card
-
-# [2.0.0-experimental.4](https://github.com/ant-design/pro-components/compare/@ant-design/pro-card@2.0.0-experimental.3...@ant-design/pro-card@2.0.0-experimental.4) (2022-08-01)
-
-**Note:** Version bump only for package @ant-design/pro-card
-
-# [2.0.0-experimental.3](https://github.com/ant-design/pro-components/compare/@ant-design/pro-card@2.0.0-experimental.2...@ant-design/pro-card@2.0.0-experimental.3) (2022-08-01)
+## [1.20.17](https://github.com/ant-design/pro-components/compare/@ant-design/pro-card@1.20.16...@ant-design/pro-card@1.20.17) (2022-08-15)
 
 **Note:** Version bump only for package @ant-design/pro-card
 

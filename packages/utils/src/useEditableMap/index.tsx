@@ -1,6 +1,5 @@
 ﻿/* eslint-disable react-hooks/exhaustive-deps */
 import { useIntl } from '@ant-design/pro-provider';
-import type { FormInstance } from 'antd';
 import { message } from 'antd';
 import useMergedState from 'rc-util/lib/hooks/useMergedState';
 import type React from 'react';
@@ -156,7 +155,7 @@ export function useEditableMap<RecordType>(
   const cancelText = intl.getMessage('editableTable.action.cancel', '取消');
 
   const actionRender = useCallback(
-    (key: RecordKey, form: FormInstance<any>, config?: ActionTypeText<RecordType>) => {
+    (key: RecordKey, config?: ActionTypeText<RecordType>) => {
       const renderConfig: ActionRenderConfig<RecordType, NewLineConfig<RecordType>> = {
         recordKey: key,
         cancelEditable,
@@ -164,7 +163,6 @@ export function useEditableMap<RecordType>(
         onSave,
         editableKeys,
         setEditableRowKeys,
-        form,
         saveText,
         cancelText,
         deleteText,

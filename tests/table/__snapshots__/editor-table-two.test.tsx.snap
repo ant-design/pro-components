@@ -391,6 +391,7 @@ exports[`EditorProTable 2 📝 columns support editable test 1`] = `
                                   style="padding-left: 0px;"
                                 />
                                 <button
+                                  aria-expanded="false"
                                   aria-label="展开行"
                                   class="ant-table-row-expand-icon ant-table-row-expand-icon-spaced"
                                   type="button"
@@ -423,6 +424,7 @@ exports[`EditorProTable 2 📝 columns support editable test 1`] = `
                                   style="padding-left: 0px;"
                                 />
                                 <button
+                                  aria-expanded="false"
                                   aria-label="展开行"
                                   class="ant-table-row-expand-icon ant-table-row-expand-icon-spaced"
                                   type="button"
@@ -455,6 +457,7 @@ exports[`EditorProTable 2 📝 columns support editable test 1`] = `
                                   style="padding-left: 0px;"
                                 />
                                 <button
+                                  aria-expanded="false"
                                   aria-label="展开行"
                                   class="ant-table-row-expand-icon ant-table-row-expand-icon-collapsed"
                                   type="button"
@@ -593,6 +596,7 @@ exports[`EditorProTable 2 📝 renderFormItem run defaultRender 1`] = `
                                   style="padding-left: 0px;"
                                 />
                                 <button
+                                  aria-expanded="false"
                                   aria-label="展开行"
                                   class="ant-table-row-expand-icon ant-table-row-expand-icon-spaced"
                                   type="button"
@@ -658,6 +662,7 @@ exports[`EditorProTable 2 📝 renderFormItem run defaultRender 1`] = `
                                   style="padding-left: 0px;"
                                 />
                                 <button
+                                  aria-expanded="false"
                                   aria-label="展开行"
                                   class="ant-table-row-expand-icon ant-table-row-expand-icon-spaced"
                                   type="button"
@@ -681,6 +686,7 @@ exports[`EditorProTable 2 📝 renderFormItem run defaultRender 1`] = `
                                   style="padding-left: 0px;"
                                 />
                                 <button
+                                  aria-expanded="false"
                                   aria-label="展开行"
                                   class="ant-table-row-expand-icon ant-table-row-expand-icon-collapsed"
                                   type="button"

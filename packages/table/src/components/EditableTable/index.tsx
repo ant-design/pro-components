@@ -1,6 +1,6 @@
 ﻿import { PlusOutlined } from '@ant-design/icons';
 import type { ProFormInstance } from '@ant-design/pro-form';
-import { ProFormDependency } from '@ant-design/pro-form';
+import ProForm, { ProFormDependency } from '@ant-design/pro-form';
 import type { ParamsType } from '@ant-design/pro-provider';
 import { useIntl } from '@ant-design/pro-provider';
 import { isDeepEqualReact, runFunction, usePrevious, useRefFunction } from '@ant-design/pro-utils';
@@ -474,7 +474,10 @@ function FieldEditableTable<
   Params extends ParamsType = ParamsType,
   ValueType = 'text',
 >(props: EditableProTableProps<DataType, Params, ValueType>) {
+  const form = ProForm.useFormInstance();
+
   if (!props.name) return <EditableTable<DataType, Params, ValueType> {...props} />;
+
   return (
     <Form.Item
       style={{
@@ -483,21 +486,13 @@ function FieldEditableTable<
       {...props?.formItemProps}
       name={props.name}
     >
-      <FieldEditableTableValue>
-        {(value, onChange, form) => {
-          return (
-            <EditableTable<DataType, Params, ValueType>
-              {...props}
-              editable={{
-                ...props.editable,
-                form,
-              }}
-              value={value}
-              onChange={onChange}
-            />
-          );
+      <EditableTable<DataType, Params, ValueType>
+        {...props}
+        editable={{
+          ...props.editable,
+          form: form as ProFormInstance,
         }}
-      </FieldEditableTableValue>
+      />
     </Form.Item>
   );
 }

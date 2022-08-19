@@ -1761,7 +1761,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/FieldSet/demos/c
                   <input
                     class="ant-input"
                     id="code"
-                    style="flex: 1; transition: width .3s; margin-inline-end: 8px;"
+                    style="flex: 1; transition: width .3s; margin-right: 8px;"
                     type="text"
                     value=""
                   />
@@ -8097,7 +8097,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/FieldSet/demos/p
                   <input
                     class="ant-input"
                     id="code"
-                    style="flex: 1; transition: width .3s; margin-inline-end: 8px;"
+                    style="flex: 1; transition: width .3s; margin-right: 8px;"
                     type="text"
                     value=""
                   />
@@ -14811,7 +14811,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/LoginForm/demos/
                       >
                         <span
                           class="ant-input-affix-wrapper ant-input-affix-wrapper-lg"
-                          style="flex: 1; transition: width .3s; margin-inline-end: 8px;"
+                          style="flex: 1; transition: width .3s; margin-right: 8px;"
                         >
                           <span
                             class="ant-input-prefix"
@@ -15282,7 +15282,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/LoginForm/demos/
                         >
                           <span
                             class="ant-input-affix-wrapper ant-input-affix-wrapper-lg"
-                            style="flex: 1; transition: width .3s; margin-inline-end: 8px;"
+                            style="flex: 1; transition: width .3s; margin-right: 8px;"
                           >
                             <span
                               class="ant-input-prefix"

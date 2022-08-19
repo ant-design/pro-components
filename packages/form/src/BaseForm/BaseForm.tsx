@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import { ConfigProviderWrap } from '@ant-design/pro-provider';
 import type {
   ProFieldValueType,
@@ -5,7 +6,6 @@ import type {
   ProRequestData,
   SearchTransformKeyFn,
 } from '@ant-design/pro-utils';
-
 import {
   conversionMomentValue,
   isDeepEqualReact,
@@ -15,6 +15,7 @@ import {
   useFetchData,
   useMountMergeState,
   usePrevious,
+  useRefFunction,
   useStyle,
 } from '@ant-design/pro-utils';
 import { useUrlSearchParams } from '@umijs/use-params';
@@ -23,6 +24,7 @@ import { ConfigProvider, Form, Spin } from 'antd';
 import type { NamePath } from 'antd/es/form/interface';
 import classNames from 'classnames';
 import type dayjs from 'dayjs';
+import omit from 'omit.js';
 import get from 'rc-util/lib/utils/get';
 import { default as namePathSet, default as set } from 'rc-util/lib/utils/set';
 import { noteOnce } from 'rc-util/lib/warning';
@@ -115,10 +117,10 @@ export type CommonFormProps<T = Record<string, any>, U = Record<string, any>> = 
   /**
    * 格式化 Date 的方式，默认转化为 string
    *
-   * @example  dateFormatter="date" : Dayjs -> YYYY-MM-DD
-   * @example  dateFormatter="dateTime" Dayjs -> YYYY-MM-DD  HH:mm:SS
-   * @example  dateFormatter="time" Dayjs -> HH:mm:SS
-   * @example  dateFormatter=false Dayjs -> Dayjs
+   * @example  dateFormatter="date" : Moment -> YYYY-MM-DD
+   * @example  dateFormatter="dateTime" Moment -> YYYY-MM-DD  HH:mm:SS
+   * @example  dateFormatter="time" Moment -> HH:mm:SS
+   * @example  dateFormatter=false Moment -> Moment
    * @example  dateFormatter={(value)=>value.format("YYYY-MM-DD")}
    */
   dateFormatter?:
@@ -210,8 +212,245 @@ const covertFormName = (name?: NamePath) => {
   return [name];
 };
 
-function BaseFormComponents<T = Record<string, any>>(props: BaseFormProps<T>) {
+function BaseFormComponents<T = Record<string, any>>(
+  props: BaseFormProps<T> & {
+    loading: boolean;
+    onUrlSearchChange: (value: Record<string, string | number>) => void;
+    transformKey: (values: any, omit: boolean, parentKey?: NamePath) => any;
+  },
+) {
   const {
+    children,
+    contentRender,
+    submitter,
+    fieldProps,
+    formItemProps,
+    groupProps,
+    transformKey,
+    formRef: propsFormRef,
+    onInit,
+    form,
+    loading,
+    formComponentType,
+    extraUrlParams = {},
+    syncToUrl,
+    onUrlSearchChange,
+    onReset,
+    omitNil = true,
+    isKeyPressSubmit,
+    autoFocusFirstInput = true,
+    grid,
+    rowProps,
+    colProps,
+    ...rest
+  } = props;
+
+  const forminstance = Form.useFormInstance();
+
+  const sizeContextValue = useContext(ConfigProvider.SizeContext);
+
+  /** 同步 url 上的参数 */
+  const formRef = useRef<ProFormInstance<any>>((form || forminstance) as any);
+  const { RowWrapper } = useGridHelpers({ grid, rowProps });
+
+  const getForminstance = useRefFunction(() => forminstance);
+
+  const formatValues = useMemo(
+    () => ({
+      /**
+       * 获取被 ProForm 格式化后的所有数据
+       * @param allData boolean
+       * @returns T
+       *
+       * @example  getFieldsFormatValue(true) ->返回所有数据，即使没有被 form 托管的
+       */
+      getFieldsFormatValue: (allData?: true) => {
+        return transformKey(getForminstance()?.getFieldsValue(allData!), omitNil);
+      },
+      /**
+       * 获取被 ProForm 格式化后的单个数据
+       * @param nameList (string|number)[]
+       * @returns T
+       *
+       * @example {a:{b:value}} -> getFieldFormatValue(['a', 'b']) -> value
+       */
+      /** 获取格式化之后的单个数据 */
+      getFieldFormatValue: (paramsNameList: NamePath = []) => {
+        const nameList = covertFormName(paramsNameList);
+        if (!nameList) throw new Error('nameList is require');
+        const value = getForminstance()?.getFieldValue(nameList!);
+        const obj = nameList ? set({}, nameList as string[], value) : value;
+        return get(transformKey(obj, omitNil, nameList), nameList as string[]);
+      },
+      /**
+       * 获取被 ProForm 格式化后的单个数据, 包含他的 name
+       * @param nameList (string|number)[]
+       * @returns T
+       *
+       * @example  {a:{b:value}} -> getFieldFormatValueObject(['a', 'b']) -> {a:{b:value}}
+       */
+      /** 获取格式化之后的单个数据 */
+      getFieldFormatValueObject: (paramsNameList?: NamePath) => {
+        const nameList = covertFormName(paramsNameList);
+        const value = getForminstance()?.getFieldValue(nameList!);
+        const obj = nameList ? set({}, nameList as string[], value) : value;
+        return transformKey(obj, omitNil, nameList);
+      },
+      /** 
+      /**
+       *验字段后返回格式化之后的所有数据
+       * @param nameList (string|number)[]
+       * @returns T
+       * 
+       * @example validateFieldsReturnFormatValue -> {a:{b:value}}
+       */
+      validateFieldsReturnFormatValue: async (nameList?: NamePath[]) => {
+        if (!Array.isArray(nameList) && nameList) throw new Error('nameList must be array');
+        const values = await getForminstance()?.validateFields(nameList);
+        const transformedKey = transformKey(values, omitNil);
+        return transformedKey ? transformedKey : {};
+      },
+      formRef,
+    }),
+    [omitNil, transformKey],
+  );
+
+  const items = useMemo(() => {
+    return React.Children.toArray(children as any).map((item, index) => {
+      if (index === 0 && React.isValidElement(item) && autoFocusFirstInput) {
+        return React.cloneElement(item, {
+          ...item.props,
+          autoFocus: autoFocusFirstInput,
+        });
+      }
+      return item;
+    });
+  }, [autoFocusFirstInput, children]);
+
+  /** 计算 props 的对象 */
+  const submitterProps: SubmitterProps = useMemo(
+    () => (typeof submitter === 'boolean' || !submitter ? {} : submitter),
+    [submitter],
+  );
+
+  useImperativeHandle(propsFormRef, () => formRef.current, []);
+
+  /** 渲染提交按钮与重置按钮 */
+  const submitterNode = useMemo(() => {
+    if (submitter === false) return undefined;
+    return (
+      <Submitter
+        key="submitter"
+        {...submitterProps}
+        onReset={() => {
+          const finalValues = transformKey(formRef.current?.getFieldsValue(), omitNil);
+          submitterProps?.onReset?.(finalValues);
+          onReset?.(finalValues);
+          // 如果 syncToUrl，清空一下数据
+          if (syncToUrl) {
+            // 把没有的值设置为未定义可以删掉 url 的参数
+            const params = Object.keys(
+              transformKey(formRef.current?.getFieldsValue(), false),
+            ).reduce((pre, next) => {
+              return {
+                ...pre,
+                [next]: finalValues[next] || undefined,
+              };
+            }, extraUrlParams);
+
+            /** 在同步到 url 上时对参数进行转化 */
+            onUrlSearchChange(genParams(syncToUrl, params, 'set'));
+          }
+        }}
+        submitButtonProps={{
+          loading,
+          ...submitterProps.submitButtonProps,
+        }}
+      />
+    );
+  }, [
+    submitter,
+    submitterProps,
+    loading,
+    transformKey,
+    omitNil,
+    onReset,
+    syncToUrl,
+    extraUrlParams,
+    onUrlSearchChange,
+  ]);
+
+  const content = useMemo(() => {
+    const wrapItems = grid ? <RowWrapper>{items}</RowWrapper> : items;
+    if (contentRender) {
+      return contentRender(wrapItems as any, submitterNode, formRef.current);
+    }
+    return wrapItems;
+  }, [grid, RowWrapper, items, contentRender, submitterNode]);
+
+  const preInitialValues = usePrevious(props.initialValues);
+
+  // 提示一个 initialValues ，问的人实在是太多了
+  useEffect(() => {
+    if (syncToUrl || !props.initialValues || !preInitialValues || rest.request) return;
+    const isEqual = isDeepEqualReact(props.initialValues, preInitialValues);
+    noteOnce(
+      isEqual,
+      `initialValues 只在 form 初始化时生效，如果你需要异步加载推荐使用 request，或者 initialValues ? <Form/> : null `,
+    );
+    noteOnce(
+      isEqual,
+      `The initialValues only take effect when the form is initialized, if you need to load asynchronously recommended request, or the initialValues ? <Form/> : null `,
+    );
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [props.initialValues]);
+
+  // 初始化给一个默认的 form
+  useImperativeHandle(
+    propsFormRef,
+    () => {
+      return {
+        ...formRef.current,
+        ...formatValues,
+      };
+    },
+    [],
+  );
+
+  useEffect(() => {
+    const finalValues = transformKey(formRef.current?.getFieldsValue?.(true), omitNil);
+    onInit?.(finalValues, formRef.current);
+  }, []);
+
+  return (
+    <ProFormContext.Provider value={formatValues}>
+      <ConfigProvider.SizeContext.Provider value={rest.size || sizeContextValue}>
+        <GridContext.Provider value={{ grid, colProps }}>
+          {rest.component !== false && (
+            <input
+              type="text"
+              style={{
+                display: 'none',
+              }}
+            />
+          )}
+          {content}
+        </GridContext.Provider>
+      </ConfigProvider.SizeContext.Provider>
+    </ProFormContext.Provider>
+  );
+}
+
+/** 自动的formKey 防止重复 */
+let requestFormCacheId = 0;
+
+function BaseForm<T = Record<string, any>>(props: BaseFormProps<T>) {
+  const {
+    extraUrlParams = {},
+    syncToUrl,
+    isKeyPressSubmit,
+    syncToUrlAsImportant = false,
+    syncToInitialValues = true,
     children,
     contentRender,
     submitter,
@@ -223,29 +462,33 @@ function BaseFormComponents<T = Record<string, any>>(props: BaseFormProps<T>) {
     onInit,
     form,
     formComponentType,
-    extraUrlParams = {},
-    syncToUrl,
-    syncToUrlAsImportant = false,
-    syncToInitialValues = true,
     onReset,
-    omitNil = true,
-    isKeyPressSubmit,
-    autoFocusFirstInput = true,
     grid,
     rowProps,
     colProps,
-    ...rest
+    omitNil,
+    request,
+    params,
+    initialValues,
+    formKey = requestFormCacheId,
+    readonly,
+    ...propRest
   } = props;
-  const sizeContextValue = useContext(ConfigProvider.SizeContext);
-
-  const [inlineForm] = Form.useForm(form);
-  /** 同步 url 上的参数 */
+  const formRef = useRef<ProFormInstance<any>>({} as any);
+  const [loading, setLoading] = useMountMergeState<boolean>(false);
   const [urlSearch, setUrlSearch] = useUrlSearchParams({}, { disabled: !syncToUrl });
-  const formRef = useRef<ProFormInstance<any>>(inlineForm! || ({} as any));
-  const { RowWrapper } = useGridHelpers({ grid, rowProps });
+
+  useEffect(() => {
+    requestFormCacheId += 0;
+  }, []);
+  const [initialData] = useFetchData({
+    request,
+    params,
+    proFieldKey: formKey,
+  });
+
   const { getPrefixCls } = useContext(ConfigProvider.ConfigContext);
   const prefixCls = getPrefixCls('pro-form');
-
   // css
   const { wrapSSR, hashId } = useStyle('ProForm', (token) => {
     return {
@@ -289,6 +532,17 @@ function BaseFormComponents<T = Record<string, any>>(props: BaseFormProps<T>) {
     };
   });
 
+  // 如果为 false，不需要触发设置进去
+  const [urlParamsMergeInitialValues, setUrlParamsMergeInitialValues] = useState(() => {
+    if (!syncToUrl) {
+      return {};
+    }
+    return genParams(syncToUrl, urlSearch, 'get');
+  });
+
+  /** 保存 transformKeyRef，用于对表单key transform */
+  const transformKeyRef = useRef<Record<string, SearchTransformKeyFn | undefined>>({});
+
   const fieldsValueType = useRef<
     Record<
       string,
@@ -299,178 +553,36 @@ function BaseFormComponents<T = Record<string, any>>(props: BaseFormProps<T>) {
     >
   >({});
 
-  /** 保存 transformKeyRef，用于对表单key transform */
-  const transformKeyRef = useRef<Record<string, SearchTransformKeyFn | undefined>>({});
-
   /** 使用 callback 的类型 */
   const transformKey = useCallback(
-    (values: any, omit: boolean, parentKey?: NamePath) =>
+    (values: any, paramsOmitNil: boolean, parentKey?: NamePath) =>
       transformKeySubmitValue(
-        conversionMomentValue(values, dateFormatter, fieldsValueType.current, omit, parentKey),
+        conversionMomentValue(
+          values,
+          dateFormatter,
+          fieldsValueType.current,
+          paramsOmitNil,
+          parentKey,
+        ),
         transformKeyRef.current,
-        omit,
+        paramsOmitNil,
       ),
     [dateFormatter],
   );
 
-  const formatValues = useMemo(
-    () => ({
-      /**
-       * 获取被 ProForm 格式化后的所有数据
-       * @param allData boolean
-       * @returns T
-       *
-       * @example  getFieldsFormatValue(true) ->返回所有数据，即使没有被 form 托管的
-       */
-      getFieldsFormatValue: (allData?: true) => {
-        return transformKey(formRef.current?.getFieldsValue(allData!), omitNil);
-      },
-      /**
-       * 获取被 ProForm 格式化后的单个数据
-       * @param nameList (string|number)[]
-       * @returns T
-       *
-       * @example {a:{b:value}} -> getFieldFormatValue(['a', 'b']) -> value
-       */
-      /** 获取格式化之后的单个数据 */
-      getFieldFormatValue: (paramsNameList: NamePath = []) => {
-        const nameList = covertFormName(paramsNameList);
-        if (!nameList) throw new Error('nameList is require');
-        const value = formRef.current?.getFieldValue(nameList!);
-        const obj = nameList ? set({}, nameList as string[], value) : value;
-        return get(transformKey(obj, omitNil, nameList), nameList as string[]);
-      },
-      /**
-       * 获取被 ProForm 格式化后的单个数据, 包含他的 name
-       * @param nameList (string|number)[]
-       * @returns T
-       *
-       * @example  {a:{b:value}} -> getFieldFormatValueObject(['a', 'b']) -> {a:{b:value}}
-       */
-      /** 获取格式化之后的单个数据 */
-      getFieldFormatValueObject: (paramsNameList?: NamePath) => {
-        const nameList = covertFormName(paramsNameList);
-        const value = formRef.current?.getFieldValue(nameList!);
-        const obj = nameList ? set({}, nameList as string[], value) : value;
-        return transformKey(obj, omitNil, nameList);
-      },
-      /** 
-      /**
-       *验字段后返回格式化之后的所有数据
-       * @param nameList (string|number)[]
-       * @returns T
-       * 
-       * @example validateFieldsReturnFormatValue -> {a:{b:value}}
-       */
-      validateFieldsReturnFormatValue: async (nameList?: NamePath[]) => {
-        if (!Array.isArray(nameList) && nameList) throw new Error('nameList must be array');
-        const values = await formRef.current?.validateFields(nameList);
-        const transformedKey = transformKey(values, omitNil);
-        return transformedKey ? transformedKey : {};
-      },
-      formRef,
-    }),
-    [omitNil, transformKey],
-  );
-  /** 利用反射把值传的到处都是，并且总是新的 */
-  const responseForm = useMemo(() => {
-    const response: ProFormInstance<any> = { ...formRef.current };
-    Object.keys(formRef.current || {}).forEach((key) => {
-      Object.defineProperty(response, key, {
-        get: () => {
-          return formRef.current[key];
-        },
-      });
-    });
+  useEffect(() => {
+    if (syncToInitialValues) return;
+    setUrlParamsMergeInitialValues({});
+  }, [syncToInitialValues]);
 
-    Object.keys(formatValues).forEach((key) => {
-      Object.defineProperty(response, key, {
-        get: () => {
-          return formatValues[key];
-        },
-      });
+  useEffect(() => {
+    if (!syncToUrl) return;
+    setUrlSearch({
+      ...urlSearch,
+      ...extraUrlParams,
     });
-    return response;
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
-
-  const [loading, setLoading] = useMountMergeState<boolean>(false);
-
-  const items = useMemo(() => {
-    return React.Children.toArray(children as any).map((item, index) => {
-      if (index === 0 && React.isValidElement(item) && autoFocusFirstInput) {
-        return React.cloneElement(item, {
-          ...item.props,
-          autoFocus: autoFocusFirstInput,
-        });
-      }
-      return item;
-    });
-  }, [autoFocusFirstInput, children]);
-
-  /** 计算 props 的对象 */
-  const submitterProps: SubmitterProps = useMemo(
-    () => (typeof submitter === 'boolean' || !submitter ? {} : submitter),
-    [submitter],
-  );
-
-  // 初始化给一个默认的 form
-  useImperativeHandle(propsFormRef, () => responseForm);
-
-  /** 渲染提交按钮与重置按钮 */
-  const submitterNode = useMemo(() => {
-    if (submitter === false) return undefined;
-    return (
-      <Submitter
-        key="submitter"
-        {...submitterProps}
-        onReset={() => {
-          const finalValues = transformKey(formRef.current?.getFieldsValue(), omitNil);
-          submitterProps?.onReset?.(finalValues);
-          onReset?.(finalValues);
-          // 如果 syncToUrl，清空一下数据
-          if (syncToUrl) {
-            // 把没有的值设置为未定义可以删掉 url 的参数
-            const params = Object.keys(
-              transformKey(formRef.current?.getFieldsValue(), false),
-            ).reduce((pre, next) => {
-              return {
-                ...pre,
-                [next]: finalValues[next] || undefined,
-              };
-            }, extraUrlParams);
-
-            /** 在同步到 url 上时对参数进行转化 */
-            setUrlSearch(genParams(syncToUrl, params, 'set'));
-          }
-        }}
-        form={responseForm as FormInstance<any>}
-        submitButtonProps={{
-          loading,
-          ...submitterProps.submitButtonProps,
-        }}
-      />
-    );
-  }, [
-    submitter,
-    submitterProps,
-    responseForm,
-    loading,
-    transformKey,
-    omitNil,
-    onReset,
-    syncToUrl,
-    extraUrlParams,
-    setUrlSearch,
-  ]);
-
-  const content = useMemo(() => {
-    const wrapItems = grid ? <RowWrapper>{items}</RowWrapper> : items;
-    if (contentRender) {
-      return contentRender(wrapItems as any, submitterNode, formRef.current);
-    }
-    return wrapItems;
-  }, [grid, RowWrapper, items, contentRender, submitterNode]);
+  }, [extraUrlParams, syncToUrl]);
 
   const getPopupContainer = useMemo(() => {
     if (typeof window === 'undefined') return undefined;
@@ -482,199 +594,124 @@ function BaseFormComponents<T = Record<string, any>>(props: BaseFormProps<T>) {
     return undefined;
   }, [formComponentType]);
 
-  useEffect(() => {
-    const finalValues = transformKey(formRef.current?.getFieldsValue(true), omitNil);
-    onInit?.(finalValues, responseForm);
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
+  const onFinish = useRefFunction(async () => {
+    // 没设置 onFinish 就不执行
+    if (!propRest.onFinish) return;
+    // 防止重复提交
+    if (loading) return;
+    setLoading(true);
+    try {
+      const finalValues = formRef?.current?.getFieldsFormatValue?.();
+      await propRest.onFinish(finalValues);
 
-  // 如果为 false，不需要触发设置进去
-  const [urlParamsMergeInitialValues, setUrlParamsMergeInitialValues] = useState(() => {
-    if (!syncToUrl) {
-      return {};
+      if (syncToUrl) {
+        // 把没有的值设置为未定义可以删掉 url 的参数
+        const syncToUrlParams = Object.keys(
+          formRef?.current?.getFieldsFormatValue?.(undefined, false),
+        ).reduce((pre, next) => {
+          return {
+            ...pre,
+            [next]: finalValues[next] ?? undefined,
+          };
+        }, extraUrlParams);
+        // fix #3547: 当原先在url中存在的字段被删除时，应该将 params 中的该字段设置为 undefined,以便触发url同步删除
+        Object.keys(urlSearch).forEach((key) => {
+          if (
+            syncToUrlParams[key] !== false &&
+            syncToUrlParams[key] !== 0 &&
+            !syncToUrlParams[key]
+          ) {
+            syncToUrlParams[key] = undefined;
+          }
+        });
+        /** 在同步到 url 上时对参数进行转化 */
+        setUrlSearch(genParams(syncToUrl, syncToUrlParams, 'set'));
+      }
+
+      setLoading(false);
+    } catch (error) {
+      // console.log(error);
+      setLoading(false);
     }
-    return genParams(syncToUrl, urlSearch, 'get');
   });
 
-  useEffect(() => {
-    if (syncToInitialValues) return;
-    setUrlParamsMergeInitialValues({});
-  }, [syncToInitialValues]);
+  useImperativeHandle(propsFormRef, () => formRef.current, []);
 
-  const preInitialValues = usePrevious(props.initialValues);
-
-  // 提示一个 initialValues ，问的人实在是太多了
-  useEffect(() => {
-    if (syncToUrl || !props.initialValues || !preInitialValues || rest.request) return;
-    const isEqual = isDeepEqualReact(props.initialValues, preInitialValues);
-    noteOnce(
-      isEqual,
-      `initialValues 只在 form 初始化时生效，如果你需要异步加载推荐使用 request，或者 initialValues ? <Form/> : null `,
-    );
-    noteOnce(
-      isEqual,
-      `The initialValues only take effect when the form is initialized, if you need to load asynchronously recommended request, or the initialValues ? <Form/> : null `,
-    );
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [props.initialValues]);
-
-  useEffect(() => {
-    if (!syncToUrl) return;
-    setUrlSearch({
-      ...urlSearch,
-      ...extraUrlParams,
-    });
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [extraUrlParams, syncToUrl]);
-
-  return wrapSSR(
-    // 增加国际化的能力，与 table 组件可以统一
-    <FieldContext.Provider
-      value={{
-        formRef,
-        fieldProps,
-        formItemProps,
-        groupProps,
-        formComponentType,
-        getPopupContainer,
-        setFieldValueType: (name, { valueType = 'text', dateFormat, transform }) => {
-          if (!Array.isArray(name)) return;
-          transformKeyRef.current = namePathSet(transformKeyRef.current, name, transform);
-          fieldsValueType.current = namePathSet(fieldsValueType.current, name, {
-            valueType,
-            dateFormat,
-          });
-        },
-      }}
-    >
-      <ProFormContext.Provider value={formatValues}>
-        <ConfigProvider.SizeContext.Provider value={rest.size || sizeContextValue}>
-          <GridContext.Provider value={{ grid, colProps }}>
-            <Form
-              onKeyPress={(event) => {
-                if (!isKeyPressSubmit) return;
-                if (event.key === 'Enter') {
-                  formRef.current?.submit();
-                }
-              }}
-              form={inlineForm}
-              {...rest}
-              className={classNames(props.className, hashId, prefixCls)}
-              // 组合 urlSearch 和 initialValues
-              initialValues={
-                syncToUrlAsImportant
-                  ? { ...rest.initialValues, ...urlParamsMergeInitialValues }
-                  : { ...urlParamsMergeInitialValues, ...rest.initialValues }
-              }
-              onValuesChange={(changedValues, values) => {
-                rest?.onValuesChange?.(
-                  transformKey(changedValues, omitNil),
-                  transformKey(values, omitNil),
-                );
-              }}
-              onFinish={async () => {
-                // 没设置 onFinish 就不执行
-                if (!rest.onFinish) return;
-                // 防止重复提交
-                if (loading) return;
-                setLoading(true);
-                try {
-                  const finalValues = transformKey(formRef.current?.getFieldsValue(), omitNil);
-                  await rest.onFinish(finalValues);
-
-                  if (syncToUrl) {
-                    // 把没有的值设置为未定义可以删掉 url 的参数
-                    const params = Object.keys(
-                      transformKey(formRef.current?.getFieldsValue(), false),
-                    ).reduce((pre, next) => {
-                      return {
-                        ...pre,
-                        [next]: finalValues[next] ?? undefined,
-                      };
-                    }, extraUrlParams);
-                    // fix #3547: 当原先在url中存在的字段被删除时，应该将 params 中的该字段设置为 undefined,以便触发url同步删除
-                    Object.keys(urlSearch).forEach((key) => {
-                      if (params[key] !== false && params[key] !== 0 && !params[key]) {
-                        params[key] = undefined;
-                      }
-                    });
-                    /** 在同步到 url 上时对参数进行转化 */
-                    setUrlSearch(genParams(syncToUrl, params, 'set'));
-                  }
-
-                  setLoading(false);
-                } catch (error) {
-                  // console.log(error);
-                  setLoading(false);
-                }
-              }}
-            >
-              {rest.component !== false && (
-                <input
-                  type="text"
-                  style={{
-                    display: 'none',
-                  }}
-                />
-              )}
-              <Form.Item noStyle shouldUpdate>
-                {(formInstance) => {
-                  if (propsFormRef)
-                    (propsFormRef as React.MutableRefObject<ProFormInstance>).current = {
-                      ...(formInstance as FormInstance),
-                      ...formatValues,
-                    };
-                  formRef.current = formInstance as FormInstance;
-                  return null;
-                }}
-              </Form.Item>
-              {content}
-            </Form>
-          </GridContext.Provider>
-        </ConfigProvider.SizeContext.Provider>
-      </ProFormContext.Provider>
-    </FieldContext.Provider>,
-  );
-}
-
-/** 自动的formKey 防止重复 */
-let requestFormCacheId = 0;
-
-function BaseForm<T = Record<string, any>>(props: BaseFormProps<T>) {
-  const { request, params, initialValues, formKey = requestFormCacheId, readonly, ...rest } = props;
-  useEffect(() => {
-    requestFormCacheId += 0;
-  }, []);
-  const [initialData] = useFetchData({
-    request,
-    params,
-    proFieldKey: formKey,
-  });
   if (!initialData && props.request) {
     return (
-      <div style={{ paddingBlockStart: 50, paddingBlockEnd: 50, textAlign: 'center' }}>
+      <div style={{ paddingTop: 50, paddingBottom: 50, textAlign: 'center' }}>
         <Spin />
       </div>
     );
   }
 
-  return (
+  return wrapSSR(
     <EditOrReadOnlyContext.Provider
       value={{
         mode: props.readonly ? 'read' : 'edit',
       }}
     >
       <ConfigProviderWrap>
-        <BaseFormComponents
-          autoComplete="off"
-          {...rest}
-          initialValues={{
-            ...initialValues,
-            ...initialData,
+        {/* // 增加国际化的能力，与 table 组件可以统一 */}
+        <FieldContext.Provider
+          value={{
+            formRef,
+            fieldProps,
+            formItemProps,
+            groupProps,
+            formComponentType,
+            getPopupContainer,
+            setFieldValueType: (name, { valueType = 'text', dateFormat, transform }) => {
+              if (!Array.isArray(name)) return;
+              transformKeyRef.current = namePathSet(transformKeyRef.current, name, transform);
+              fieldsValueType.current = namePathSet(fieldsValueType.current, name, {
+                valueType,
+                dateFormat,
+              });
+            },
           }}
-        />
+        >
+          <Form
+            onKeyPress={(event) => {
+              if (!isKeyPressSubmit) return;
+              if (event.key === 'Enter') {
+                formRef.current?.submit();
+              }
+            }}
+            autoComplete="off"
+            form={form}
+            {...omit(propRest, ['autoFocusFirstInput'])}
+            // 组合 urlSearch 和 initialValues
+            initialValues={
+              syncToUrlAsImportant
+                ? { ...initialData, ...initialValues, ...urlParamsMergeInitialValues }
+                : { ...urlParamsMergeInitialValues, ...initialData, ...initialValues }
+            }
+            onValuesChange={(changedValues, values) => {
+              propRest?.onValuesChange?.(
+                transformKey(changedValues, !!omitNil),
+                transformKey(values, !!omitNil),
+              );
+            }}
+            className={classNames(props.className, prefixCls, hashId)}
+            onFinish={onFinish}
+          >
+            <BaseFormComponents
+              transformKey={transformKey}
+              autoComplete="off"
+              loading={loading}
+              onUrlSearchChange={setUrlSearch}
+              {...props}
+              formRef={formRef}
+              initialValues={{
+                ...initialValues,
+                ...initialData,
+              }}
+            />
+          </Form>
+        </FieldContext.Provider>
       </ConfigProviderWrap>
-    </EditOrReadOnlyContext.Provider>
+    </EditOrReadOnlyContext.Provider>,
   );
 }
 

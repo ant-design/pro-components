@@ -27,7 +27,7 @@ exports[`Descriptions 📝 columns support editable test 1`] = `
                     class="ant-descriptions-item-content"
                   >
                     <div
-                      style="margin-block-start: -5px; margin-block-end: -5px; margin-inline-start: 0; margin-inline-end: 0;"
+                      style="margin: -5px 0px -5px 0px;"
                     >
                       <div
                         class="ant-space ant-space-horizontal ant-space-align-center"
@@ -207,7 +207,7 @@ exports[`Descriptions 📝 renderFormItem run defaultRender 1`] = `
                     class="ant-descriptions-item-content"
                   >
                     <div
-                      style="margin-block-start: -5px; margin-block-end: -5px; margin-inline-start: 0; margin-inline-end: 0;"
+                      style="margin: -5px 0px -5px 0px;"
                     >
                       <div
                         class="ant-space ant-space-horizontal ant-space-align-center"

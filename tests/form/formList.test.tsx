@@ -8,13 +8,12 @@ import ProForm, {
   ProFormText,
 } from '@ant-design/pro-form';
 import '@testing-library/jest-dom';
-import { fireEvent, render as reactRender, render } from '@testing-library/react';
+import { act, fireEvent, render as reactRender, render } from '@testing-library/react';
 import { Button, Form } from 'antd';
 import type { NamePath } from 'antd/es/form/interface';
 import { mount } from 'enzyme';
 import _ from 'lodash';
 import React from 'react';
-import { act } from 'react-dom/test-utils';
 import { waitForComponentToPaint, waitTime } from '../util';
 
 describe('ProForm List', () => {

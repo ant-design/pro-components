@@ -5089,9 +5089,9 @@ ansi-wrap@0.1.0, ansi-wrap@^0.1.0:
   integrity sha512-ZyznvL8k/FZeQHr2T6LzcJ/+vBApDnMNZvfVFy3At0knswWd6rJ3/0Hhmpu8oqa6C92npmozs890sX9Dl6q+Qw==
 
 antd@experimental:
-  version "5.0.0-experimental.18"
-  resolved "https://registry.npmmirror.com/antd/-/antd-5.0.0-experimental.18.tgz#9e62f38c8dab57dd0468a5d9bcf120b0bc2aff8b"
-  integrity sha512-K3yNylA+akpNtU0BaVNVuY1JK+9F/uEzhbz0I6QY2RiUb4c/XWFVCeVVkpcdAaxTTndoK/7y4sl6cYxoykX6qA==
+  version "5.0.0-experimental.19"
+  resolved "https://registry.npmmirror.com/antd/-/antd-5.0.0-experimental.19.tgz#e0469988da86a1b647868a74455e27edbbae5105"
+  integrity sha512-teVDkrIk2I4E0ILiGc225O/sKHbqfPxQs8AEgc9+YMN7tSCifEtJngCevqBDtImTUvXtVf1C+OvHTtJmIVLVLg==
   dependencies:
     "@ant-design/colors" "^6.0.0"
     "@ant-design/cssinjs" "^0.0.0-alpha.40"
@@ -5115,7 +5115,7 @@ antd@experimental:
     rc-input "~0.1.2"
     rc-input-number "~7.3.5"
     rc-mentions "~1.9.1"
-    rc-menu "~9.6.0"
+    rc-menu "~9.6.3"
     rc-motion "^2.6.1"
     rc-notification "~5.0.0-alpha.9"
     rc-pagination "~3.1.17"
@@ -9369,9 +9369,9 @@ flat-cache@^3.0.4:
     rimraf "^3.0.2"
 
 flatted@^3.1.0:
-  version "3.2.6"
-  resolved "https://registry.npmmirror.com/flatted/-/flatted-3.2.6.tgz#022e9218c637f9f3fc9c35ab9c9193f05add60b2"
-  integrity sha512-0sQoMh9s0BYsm+12Huy/rkKxVu4R1+r96YX5cG44rHV0pQ6iC3Q+mkoMFaGWObMFYQxCVT+ssG1ksneA2MI9KQ==
+  version "3.2.7"
+  resolved "https://registry.npmmirror.com/flatted/-/flatted-3.2.7.tgz#609f39207cb614b89d0765b477cb2d437fbf9787"
+  integrity sha512-5nqDSxl8nn5BSNxyR3n4I6eDmbolI6WT+QqR547RwxQapgjQBmtktdP+HTBb/a/zLsbzERTONyUB5pefh5TtjQ==
 
 flatten@^1.0.2:
   version "1.0.3"
@@ -17232,7 +17232,7 @@ rc-mentions@~1.9.1:
     rc-trigger "^5.0.4"
     rc-util "^5.22.5"
 
-rc-menu@~9.6.0:
+rc-menu@~9.6.0, rc-menu@~9.6.3:
   version "9.6.3"
   resolved "https://registry.npmmirror.com/rc-menu/-/rc-menu-9.6.3.tgz#f0373d0391a97db94147106cddffe87b1e4f4e36"
   integrity sha512-KY9QilKWgkJZ0JSpOBgIpQF2wMRRodRxpIMYyIJ3Nd5N6xfVLOxXCxevHcBplt+Ez7MhUF+I03MuAKqWQJLZgw==
@@ -21175,9 +21175,9 @@ webidl-conversions@^7.0.0:
   integrity sha512-VwddBukDzu71offAQR975unBIGqfKZpM+8ZX6ySk8nYhVoo5CYaZyzt3YBvYtRtO+aoGlqxPg/B87NGVZ/fu6g==
 
 webpack-bundle-analyzer@^4.4.0:
-  version "4.5.0"
-  resolved "https://registry.npmmirror.com/webpack-bundle-analyzer/-/webpack-bundle-analyzer-4.5.0.tgz#1b0eea2947e73528754a6f9af3e91b2b6e0f79d5"
-  integrity sha512-GUMZlM3SKwS8Z+CKeIFx7CVoHn3dXFcUAjT/dcZQQmfSZGvitPfMob2ipjai7ovFFqPvTqkEZ/leL4O0YOdAYQ==
+  version "4.6.0"
+  resolved "https://registry.npmmirror.com/webpack-bundle-analyzer/-/webpack-bundle-analyzer-4.6.0.tgz#37cebc936a0c516a628aee895c6be59c4d8e141d"
+  integrity sha512-V3RcBMHW1aEclxgmYA9VxLKNJ/rYEe/BRcShxeYX+kerGu93PZB0gb0R8CW9lwvyQSfhln+flCCirdpTvwnESQ==
   dependencies:
     acorn "^8.0.4"
     acorn-walk "^8.0.0"

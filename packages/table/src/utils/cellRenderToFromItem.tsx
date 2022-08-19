@@ -1,6 +1,6 @@
 import type { ProFieldEmptyText } from '@ant-design/pro-field';
 import type { ProFormFieldProps } from '@ant-design/pro-form';
-import { FieldContext, ProFormDependency, ProFormField } from '@ant-design/pro-form';
+import { FieldContext, ProForm, ProFormDependency, ProFormField } from '@ant-design/pro-form';
 import type {
   ProFieldValueType,
   ProSchemaComponentTypes,
@@ -70,7 +70,7 @@ const CellRenderFromItem = <T,>(props: CellRenderFromItemProps<T>) => {
     proFieldProps,
   } = props;
 
-  const { editableForm } = counter;
+  const editableForm = ProForm.useFormInstance();
 
   const key = recordKey || index;
   const [formItemName, setName] = useState<React.Key[]>(() =>

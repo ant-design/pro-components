@@ -14,13 +14,8 @@ import {
   useMountMergeState,
 } from '@ant-design/pro-utils';
 import type { TablePaginationConfig } from 'antd';
-import { ConfigProvider, Spin, Table } from 'antd';
-import type {
-  GetRowKey,
-  SorterResult,
-  SortOrder,
-  TableCurrentDataSource,
-} from 'antd/es/table/interface';
+import { ConfigProvider, Table } from 'antd';
+import type { GetRowKey, SortOrder, TableCurrentDataSource } from 'antd/es/table/interface';
 import classNames from 'classnames';
 import React, {
   useCallback,
@@ -187,7 +182,7 @@ function TableRender<T extends Record<string, any>, U, ValueType>(
     onChange: (
       changePagination: TablePaginationConfig,
       filters: Record<string, (React.Key | boolean)[] | null>,
-      sorter: SorterResult<T> | SorterResult<T[]>,
+      sorter: any,
       extra: TableCurrentDataSource<T>,
     ) => {
       rest.onChange?.(changePagination, filters, sorter, extra);
@@ -231,13 +226,6 @@ function TableRender<T extends Record<string, any>, U, ValueType>(
       )
     : baseTableDom;
 
-  useMemo(() => {
-    // 如果带了name，说明要用自带的 form，需要设置一下。
-    if (props.name && props.editable) {
-      counter.setEditorTableForm(props.editable!.form!);
-    }
-  }, [counter, props.editable, props.name]);
-
   const tableContentDom = useMemo(() => {
     if (props.editable && !props.name) {
       return (
@@ -245,14 +233,8 @@ function TableRender<T extends Record<string, any>, U, ValueType>(
           {toolbarDom}
           {alertDom}
           <ProForm
-            onInit={(_, form) => {
-              counter.setEditorTableForm(form);
-            }}
-            // @ts-ignore
-            formRef={(form) => {
-              counter.setEditorTableForm(form);
-            }}
             {...props.editable?.formProps}
+            formRef={props.editable?.formProps?.formRef as any}
             component={false}
             form={props.editable?.form}
             onValuesChange={editableUtils.onValuesChange}
@@ -260,16 +242,6 @@ function TableRender<T extends Record<string, any>, U, ValueType>(
             submitter={false}
             omitNil={false}
             dateFormatter={props.dateFormatter}
-            contentRender={(items: React.ReactNode) => {
-              if (counter.editableForm) return items;
-              if (props.loading === false) return;
-              const loadingProps = props.loading === true ? {} : props.loading;
-              return (
-                <div style={{ paddingBlockStart: 100, textAlign: 'center' }}>
-                  <Spin size="large" {...loadingProps} />
-                </div>
-              );
-            }}
           >
             {tableDom}
           </ProForm>
@@ -281,7 +253,7 @@ function TableRender<T extends Record<string, any>, U, ValueType>(
       <>
         {toolbarDom}
         {alertDom}
-        {counter.editableForm || !props.editable ? tableDom : null}
+        {tableDom}
       </>
     );
     // eslint-disable-next-line react-hooks/exhaustive-deps
