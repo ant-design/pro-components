@@ -1,5 +1,6 @@
 import { InputNumber } from 'antd';
-import React from 'react';
+import { omit } from 'lodash';
+import React, { useCallback } from 'react';
 import type { ProFieldFC } from '../../index';
 
 export type FieldDigitProps = {
@@ -18,6 +19,13 @@ const FieldDigit: ProFieldFC<FieldDigitProps> = (
   { text, mode: type, render, placeholder, renderFormItem, fieldProps },
   ref,
 ) => {
+  const proxyChange = useCallback(
+    (value: number) => {
+      const val = Number(value.toFixed(fieldProps.precision || 0));
+      return fieldProps?.onChange(val);
+    },
+    [fieldProps],
+  );
   if (type === 'read') {
     let fractionDigits = {} as any;
     if (fieldProps?.precision) {
@@ -37,7 +45,15 @@ const FieldDigit: ProFieldFC<FieldDigitProps> = (
     return dom;
   }
   if (type === 'edit' || type === 'update') {
-    const dom = <InputNumber ref={ref} min={0} placeholder={placeholder} {...fieldProps} />;
+    const dom = (
+      <InputNumber
+        ref={ref}
+        min={0}
+        placeholder={placeholder}
+        {...omit(fieldProps, 'onChange')}
+        onChange={proxyChange}
+      />
+    );
     if (renderFormItem) {
       return renderFormItem(text, { mode: type, ...fieldProps }, dom);
     }

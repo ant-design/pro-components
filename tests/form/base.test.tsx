@@ -1,13 +1,14 @@
 import { FontSizeOutlined } from '@ant-design/icons';
-import type { ProFormInstance } from '@ant-design/pro-form';
 import ProForm, {
   ProFormCaptcha,
   ProFormColorPicker,
   ProFormDatePicker,
   ProFormDateTimePicker,
   ProFormDependency,
+  ProFormDigit,
   ProFormDigitRange,
   ProFormField,
+  ProFormInstance,
   ProFormSelect,
   ProFormText,
 } from '@ant-design/pro-form';
@@ -2541,5 +2542,40 @@ describe('ProForm', () => {
     await waitForComponentToPaint(wrapper);
 
     expect(onChange).toBeCalledWith(undefined);
+  });
+
+  it(`📦 valueType digit with precision value`, async () => {
+    const fn = jest.fn();
+    const html = mount(
+      <ProForm
+        onFinish={async (value) => {
+          fn(value.count);
+        }}
+      >
+        <ProFormDigit
+          name="count"
+          label="认输"
+          fieldProps={{
+            precision: 0,
+          }}
+        />
+      </ProForm>,
+    );
+
+    await waitForComponentToPaint(html, 300);
+    act(() => {
+      html.find('input#count').simulate('change', {
+        target: {
+          value: '22.22',
+        },
+      });
+      html.find('input#count').simulate('blur');
+      html.find('button.ant-btn-primary').simulate('click');
+      html.update();
+    });
+    await waitForComponentToPaint(html, 300);
+    expect(html.find('input#count').props().value).toBe('22');
+    expect(fn).toBeCalledWith(22);
+    expect(html.render()).toMatchSnapshot();
   });
 });
