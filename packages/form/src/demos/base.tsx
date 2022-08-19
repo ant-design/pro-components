@@ -112,12 +112,7 @@ export default () => {
         <ProFormText width="md" name="company" label="我方公司名称" placeholder="请输入名称" />
       </ProForm.Group>
       <ProForm.Group>
-        <ProFormDigit
-          name="count"
-          label="人数"
-          width="lg"
-          fieldProps={{ precision: 0, addonAfter: '%' }}
-        />
+        <ProFormDigit name="count" label="人数" width="lg" />
       </ProForm.Group>
       <ProForm.Group>
         <ProFormText
