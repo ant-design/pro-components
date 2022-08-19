@@ -271,6 +271,7 @@ const QueryFilterContent: React.FC<{
   }, [props, resetText, searchText, optionRender]);
 
   // totalSpan 统计控件占的位置，计算 offset 保证查询按钮在最后一列
+  // 默认把查询按钮、重置按钮、展开等功能性按钮所占用的空间加入到totalSpan中
   let totalSpan = spanSize.span;
   let itemLength = 0;
   //首个表单项是否占满第一行
