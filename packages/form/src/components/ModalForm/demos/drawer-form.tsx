@@ -20,6 +20,7 @@ const waitTime = (time: number = 100) => {
 
 export default () => {
   const formRef = useRef<ProFormInstance>();
+  // const [form] = useForm<{name: string, company: string}>();
 
   return (
     <DrawerForm<{
@@ -27,6 +28,7 @@ export default () => {
       company: string;
     }>
       title="新建表单"
+      // form={form}
       formRef={formRef}
       trigger={
         <Button type="primary">

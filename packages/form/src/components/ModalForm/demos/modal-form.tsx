@@ -7,6 +7,7 @@ import {
   ProFormText,
 } from '@ant-design/pro-components';
 import { Button, message } from 'antd';
+import { useForm } from 'antd/lib/form/Form';
 
 const waitTime = (time: number = 100) => {
   return new Promise((resolve) => {
@@ -17,6 +18,7 @@ const waitTime = (time: number = 100) => {
 };
 
 export default () => {
+  const [form] = useForm<{ name: string; company: string }>();
   return (
     <ModalForm<{
       name: string;
@@ -29,8 +31,10 @@ export default () => {
           新建表单
         </Button>
       }
+      form={form}
       autoFocusFirstInput
       modalProps={{
+        destroyOnClose: true,
         onCancel: () => console.log('run'),
       }}
       submitTimeout={2000}
