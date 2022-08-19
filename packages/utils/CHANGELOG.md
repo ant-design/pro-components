@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.0.0-experimental.13](https://github.com/ant-design/pro-components/compare/@ant-design/pro-utils@2.0.0-experimental.12...@ant-design/pro-utils@2.0.0-experimental.13) (2022-08-19)
+
+### Bug Fixes
+
+- **table:** editable table 增加子记录时没有按照 position 方向增加 ([#5736](https://github.com/ant-design/pro-components/issues/5736)) ([eb91a04](https://github.com/ant-design/pro-components/commit/eb91a049c580a167f48ddfde3b7a81a3f1dd27ea))
+
 # [2.0.0-experimental.12](https://github.com/ant-design/pro-components/compare/@ant-design/pro-utils@2.0.0-experimental.11...@ant-design/pro-utils@2.0.0-experimental.12) (2022-08-19)
 
 **Note:** Version bump only for package @ant-design/pro-utils

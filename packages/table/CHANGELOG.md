@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.0.0-experimental.14](https://github.com/ant-design/pro-components/compare/@ant-design/pro-table@3.0.0-experimental.13...@ant-design/pro-table@3.0.0-experimental.14) (2022-08-19)
+
+### Bug Fixes
+
+- **form:** 修复在 table 中指定 valueType 为 treeSelect 并使用 options 和自定义字段名时无法筛选的问题 ([#5722](https://github.com/ant-design/pro-components/issues/5722)) ([93dacf3](https://github.com/ant-design/pro-components/commit/93dacf341652a82c4b091201258526ff44cacbad))
+
 # [3.0.0-experimental.13](https://github.com/ant-design/pro-components/compare/@ant-design/pro-table@3.0.0-experimental.12...@ant-design/pro-table@3.0.0-experimental.13) (2022-08-19)
 
 **Note:** Version bump only for package @ant-design/pro-table

@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.0.0-experimental.13](https://github.com/ant-design/pro-components/compare/@ant-design/pro-field@2.0.0-experimental.12...@ant-design/pro-field@2.0.0-experimental.13) (2022-08-19)
+
+### Bug Fixes
+
+- **form:** fix moneySymbol=false no work error ([398415c](https://github.com/ant-design/pro-components/commit/398415cd79318d6e56340d0a60f5d5bea40c0684))
+- **form:** 修复在 table 中指定 valueType 为 treeSelect 并使用 options 和自定义字段名时无法筛选的问题 ([#5722](https://github.com/ant-design/pro-components/issues/5722)) ([93dacf3](https://github.com/ant-design/pro-components/commit/93dacf341652a82c4b091201258526ff44cacbad))
+
 # [2.0.0-experimental.12](https://github.com/ant-design/pro-components/compare/@ant-design/pro-field@2.0.0-experimental.11...@ant-design/pro-field@2.0.0-experimental.12) (2022-08-19)
 
 **Note:** Version bump only for package @ant-design/pro-field
