@@ -1,8 +1,7 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 import { LoadingOutlined } from '@ant-design/icons';
-import type { ProFormProps } from '@ant-design/pro-form';
 import { useIntl } from '@ant-design/pro-provider';
-import type { FormInstance } from 'antd';
+import type { FormInstance, FormProps } from 'antd';
 import { Form, message, Popconfirm } from 'antd';
 import type { NamePath } from 'antd/lib/form/interface';
 import useLazyKVMap from 'antd/lib/table/hooks/useLazyKVMap';
@@ -54,7 +53,7 @@ export type ActionRenderFunction<T> = (
 export type RowEditableConfig<DataType> = {
   /** @name 控制可编辑表格的 From的设置 */
   formProps?: Omit<
-    ProFormProps<DataType> & {
+    FormProps<DataType> & {
       formRef?: React.Ref<FormInstance | undefined>;
       onInit?: (values: DataType, form: FormInstance) => void;
     },

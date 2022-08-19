@@ -4,12 +4,7 @@ exports[`ProForm 📦 submit props actionsRender is one 1`] = `
 <body>
   <style
     rc-util-key="antd-wave"
-  >
-    
-      [ant-click-animating-without-extra-node='true']::after, .ant-click-animating-node {
-        --antd-wave-shadow-color: buttonface;
-      }
-  </style>
+  />
   <div>
     <form
       autocomplete="off"
@@ -55,12 +50,7 @@ exports[`ProForm 📦 submit props actionsRender=()=>false 1`] = `
 <body>
   <style
     rc-util-key="antd-wave"
-  >
-    
-      [ant-click-animating-without-extra-node='true']::after, .ant-click-animating-node {
-        --antd-wave-shadow-color: buttonface;
-      }
-  </style>
+  />
   <div>
     <form
       autocomplete="off"
