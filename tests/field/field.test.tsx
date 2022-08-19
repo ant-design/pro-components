@@ -58,6 +58,20 @@ describe('Field', () => {
     html.unmount();
   });
 
+  it('🐴 money moneySymbol=false, no render moneySymbol', async () => {
+    const html = render(
+      <Field
+        text="100"
+        fieldProps={{
+          moneySymbol: false,
+        }}
+        valueType="money"
+        mode="read"
+      />,
+    );
+    expect(html.baseElement.textContent).toBe('100');
+  });
+
   it('🐴 money numberPopoverRender onchange values', async () => {
     const html = render(
       <Field text="100" numberPopoverRender={() => '1234'} valueType="money" mode="edit" />,
@@ -71,8 +85,6 @@ describe('Field', () => {
       });
     });
     await waitTime(100);
-
-    html.debug();
 
     expect(!!html.queryByDisplayValue('￥ 1,000')).toBeTruthy();
 

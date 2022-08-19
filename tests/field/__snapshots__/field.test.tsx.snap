@@ -2544,7 +2544,7 @@ exports[`Field 🐴 money valueType is Object 2`] = `
 <body>
   <div>
     <span>
-      ¥100.00
+      100
     </span>
   </div>
 </body>
@@ -2647,7 +2647,7 @@ exports[`Field 🐴 money valueType is Object 5`] = `
   <div />
   <div>
     <span>
-      ¥100.00
+      100
     </span>
   </div>
 </body>
@@ -2753,7 +2753,7 @@ exports[`Field 🐴 money valueType is Object 8`] = `
   <div />
   <div>
     <span>
-      ¥100.00
+      100
     </span>
   </div>
 </body>
@@ -2862,7 +2862,7 @@ exports[`Field 🐴 money valueType is Object 11`] = `
   <div />
   <div>
     <span>
-      ¥100.00
+      100
     </span>
   </div>
 </body>

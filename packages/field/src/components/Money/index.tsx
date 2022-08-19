@@ -80,7 +80,7 @@ const intlMap = {
 };
 
 const getTextByLocale = (
-  localeStr: string | false,
+  moneySymbol: string | false,
   paramsText: number | string | undefined,
   precision: number,
   config?: any,
@@ -92,14 +92,16 @@ const getTextByLocale = (
 
   if (!moneyText && moneyText !== 0) return '';
   try {
-    return new Intl.NumberFormat(localeStr || 'zh-Hans-CN', {
-      ...(intlMap[localeStr || 'zh-Hans-CN'] || intlMap['zh-Hans-CN']),
-      maximumFractionDigits: precision,
-      ...config,
-    }).format(moneyText);
+   // readonly moneySymbol = false, unused currency
+  return new Intl.NumberFormat(moneySymbol || 'zh-Hans-CN', {
+    ...(moneySymbol === false ? {} : intlMap[moneySymbol || 'zh-Hans-CN'] || intlMap['zh-Hans-CN']),
+    maximumFractionDigits: precision,
+    ...config,
+  }).format(moneyText); 
   } catch (error) {
     return moneyText;
   }
+  
 };
 
 const DefaultPrecisionCont = 2;

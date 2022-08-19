@@ -221,15 +221,22 @@ export function editableRowByKey<RecordType>(
   ) => {
     const kvArrayMap = new Map<string, RecordType[]>();
     const kvSource: RecordType[] = [];
-    map.forEach((value) => {
-      if (value.map_row_parentKey && !value.map_row_key) {
-        const { map_row_parentKey, ...rest } = value;
-        kvArrayMap.set(map_row_parentKey, [
-          ...(kvArrayMap.get(map_row_parentKey) || []),
-          rest as unknown as RecordType,
-        ]);
-      }
-    });
+    const fillNewRecord = () => {
+      map.forEach((value) => {
+        if (value.map_row_parentKey && !value.map_row_key) {
+          const { map_row_parentKey, ...rest } = value;
+          kvArrayMap.set(map_row_parentKey, [
+            ...(kvArrayMap.get(map_row_parentKey) || []),
+            rest as unknown as RecordType,
+          ]);
+        }
+      });
+    };
+
+    if (action === 'top') {
+      fillNewRecord();
+    }
+
     map.forEach((value) => {
       if (value.map_row_parentKey && value.map_row_key) {
         const { map_row_parentKey, map_row_key, ...rest } = value;
@@ -242,6 +249,11 @@ export function editableRowByKey<RecordType>(
         ]);
       }
     });
+
+    if (action === 'update') {
+      fillNewRecord();
+    }
+
     map.forEach((value) => {
       if (!value.map_row_parentKey) {
         const { map_row_key, ...rest } = value;

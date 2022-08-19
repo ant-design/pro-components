@@ -1,8 +1,39 @@
 import ProProvider from '@ant-design/pro-provider';
 import ProTable from '@ant-design/pro-table';
-import { render as reactRender } from '@testing-library/react';
+import { act, fireEvent, render as reactRender, render } from '@testing-library/react';
 import { Input } from 'antd';
 import { waitForComponentToPaint } from '../util';
+
+const cascaderOptions = [
+  {
+    field: 'front end',
+    value: 'fe',
+    language: [
+      {
+        field: 'Javascript',
+        value: 'js',
+      },
+      {
+        field: 'Typescript',
+        value: 'ts',
+      },
+    ],
+  },
+  {
+    field: 'back end',
+    value: 'be',
+    language: [
+      {
+        field: 'Java',
+        value: 'java',
+      },
+      {
+        field: 'Go',
+        value: 'go',
+      },
+    ],
+  },
+];
 
 const defaultProps = {
   columns: [
@@ -14,6 +45,24 @@ const defaultProps = {
       fieldProps: {
         color: 'red',
       },
+    },
+    {
+      title: '树形下拉框',
+      key: 'treeSelect',
+      dataIndex: 'treeSelect',
+      width: 100,
+      fieldProps: {
+        options: cascaderOptions,
+        fieldNames: {
+          children: 'language',
+          label: 'field',
+        },
+        showSearch: true,
+        filterTreeNode: true,
+        multiple: true,
+        treeNodeFilterProp: 'field',
+      },
+      valueType: 'treeSelect',
     },
   ],
   rowKey: 'key',
@@ -107,6 +156,39 @@ describe('BasicTable valueType', () => {
     expect((html.asFragment().querySelector('input#name') as HTMLInputElement).value).toBe(
       'TradeCode',
     );
+
+    html.unmount();
+  });
+  it('🎏 table support filter when valueType is treeSelect', async () => {
+    const html = render(<ProTable {...defaultProps} />);
+    await waitForComponentToPaint(html, 1200);
+
+    act(() => {
+      fireEvent.change(html.baseElement.querySelector('input#treeSelect')!, {
+        target: {
+          value: 'Ja',
+        },
+      });
+    });
+    await waitForComponentToPaint(html, 500);
+    expect(html.baseElement.querySelectorAll('span[title="Javascript"]').length).toBe(1);
+    expect(html.baseElement.querySelectorAll('span[title="Java"]').length).toBe(1);
+    expect(html.baseElement.querySelectorAll('span[title="Typescript"]').length).toBe(0);
+    expect(html.baseElement.querySelectorAll('span[title="Go"]').length).toBe(0);
+
+    act(() => {
+      fireEvent.change(html.baseElement.querySelector('input#treeSelect')!, {
+        target: {
+          value: 'Javasc',
+        },
+      });
+    });
+    await waitForComponentToPaint(html, 500);
+    expect(html.baseElement.querySelectorAll('span[title="Javascript"]').length).toBe(1);
+    expect(html.baseElement.querySelectorAll('span[title="Java"]').length).toBe(0);
+    expect(html.baseElement.querySelectorAll('span[title="Typescript"]').length).toBe(0);
+    expect(html.baseElement.querySelectorAll('span[title="Go"]').length).toBe(0);
+    expect(html.baseElement).toMatchSnapshot();
 
     html.unmount();
   });
