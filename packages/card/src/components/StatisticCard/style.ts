@@ -19,7 +19,7 @@ const genProStyle: GenerateStyle<ProListToken> = (token) => {
       '&-content': {
         display: 'flex',
         flexDirection: 'column',
-        '&-horizonta': {
+        '&-horizontal': {
           flexDirection: 'row',
           [`${token.componentCls}-chart`]: { alignItems: 'center', alignSelf: 'flex-start' },
         },
