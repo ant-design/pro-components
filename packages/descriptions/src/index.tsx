@@ -19,7 +19,7 @@ import {
   useEditableMap,
 } from '@ant-design/pro-utils';
 import type { DescriptionsProps, FormInstance, FormProps } from 'antd';
-import { ConfigProvider, Descriptions, Form, Space } from 'antd';
+import { ConfigProvider, Descriptions, Space } from 'antd';
 import type { LabelTooltipType } from 'antd/es/form/FormItemLabel';
 import toArray from 'rc-util/lib/Children/toArray';
 import get from 'rc-util/lib/utils/get';
