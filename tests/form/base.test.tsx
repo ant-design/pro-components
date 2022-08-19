@@ -22,7 +22,7 @@ describe('ProForm', () => {
   it('📦 submit props actionsRender=false', async () => {
     const wrapper = render(<ProForm submitter={false} />);
 
-    expect(wrapper.baseElement).toMatchSnapshot();
+    expect(wrapper.asFragment()).toMatchSnapshot();
     wrapper.unmount();
   });
 
@@ -270,7 +270,7 @@ describe('ProForm', () => {
       />,
     );
 
-    expect(wrapper.baseElement).toMatchSnapshot();
+    expect(wrapper.asFragment()).toMatchSnapshot();
     wrapper.unmount();
   });
 
@@ -283,7 +283,7 @@ describe('ProForm', () => {
       />,
     );
 
-    expect(wrapper.baseElement).toMatchSnapshot();
+    expect(wrapper.asFragment()).toMatchSnapshot();
     wrapper.unmount();
   });
 
@@ -383,7 +383,7 @@ describe('ProForm', () => {
       />,
     );
 
-    expect(wrapper.baseElement).toMatchSnapshot();
+    expect(wrapper.asFragment()).toMatchSnapshot();
   });
 
   it('📦 submit props actionsRender=()=>[]', async () => {
@@ -395,7 +395,7 @@ describe('ProForm', () => {
       />,
     );
 
-    expect(wrapper.baseElement).toMatchSnapshot();
+    expect(wrapper.asFragment()).toMatchSnapshot();
     wrapper.unmount();
   });
 
@@ -412,7 +412,7 @@ describe('ProForm', () => {
       />,
     );
 
-    expect(wrapper.baseElement).toMatchSnapshot();
+    expect(wrapper.asFragment()).toMatchSnapshot();
   });
 
   it('📦 submitter props support submitButtonProps', async () => {
@@ -431,7 +431,7 @@ describe('ProForm', () => {
     );
 
     act(() => {
-      expect(wrapper.baseElement).toMatchSnapshot();
+      expect(wrapper.asFragment()).toMatchSnapshot();
     });
 
     act(() => {
@@ -458,7 +458,7 @@ describe('ProForm', () => {
     );
 
     act(() => {
-      expect(wrapper.baseElement).toMatchSnapshot();
+      expect(wrapper.asFragment()).toMatchSnapshot();
     });
     act(() => {
       wrapper.baseElement.querySelectorAll<HTMLElement>('button.test_button')[0].click();
@@ -2396,7 +2396,7 @@ describe('ProForm', () => {
     });
     expect(fn2).toHaveBeenCalledWith('2021-07-28');
 
-    expect(wrapper.baseElement).toMatchSnapshot();
+    expect(wrapper.asFragment()).toMatchSnapshot();
     wrapper.unmount();
   });
 
@@ -2499,7 +2499,7 @@ describe('ProForm', () => {
     expect(fn2).toHaveBeenCalledWith('2021/08/09 12:12:12');
 
     act(() => {
-      expect(wrapper.baseElement).toMatchSnapshot();
+      expect(wrapper.asFragment()).toMatchSnapshot();
     });
   });
 
