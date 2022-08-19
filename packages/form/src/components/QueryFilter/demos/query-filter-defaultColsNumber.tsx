@@ -2,7 +2,7 @@ import { ProFormDatePicker, ProFormText, QueryFilter } from '@ant-design/pro-com
 
 export default () => {
   return (
-    <QueryFilter defaultCollapsed split defaultColsNumber={6}>
+    <QueryFilter defaultCollapsed split defaultColsNumber={5}>
       <ProFormText name="name" label="应用名称" />
       <ProFormDatePicker name="createDate" label="创建时间" />
       <ProFormText name="status" label="应用状态" />

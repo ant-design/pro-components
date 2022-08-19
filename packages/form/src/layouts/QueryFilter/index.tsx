@@ -271,7 +271,7 @@ const QueryFilterContent: React.FC<{
   }, [props, resetText, searchText, optionRender]);
 
   // totalSpan 统计控件占的位置，计算 offset 保证查询按钮在最后一列
-  let totalSpan = 0;
+  let totalSpan = spanSize.span;
   let itemLength = 0;
   //首个表单项是否占满第一行
   let firstRowFull = false;
@@ -376,7 +376,7 @@ const QueryFilterContent: React.FC<{
 
   /** 是否需要展示 collapseRender */
   const needCollapseRender = useMemo(() => {
-    if (totalSpan < 24 || totalSize <= showLength) {
+    if (totalSpan < 24 || totalSize < showLength) {
       return false;
     }
     return true;
@@ -452,9 +452,9 @@ function QueryFilter<T = Record<string, any>>(props: QueryFilterProps<T>) {
   const showLength = useMemo(() => {
     // 查询重置按钮也会占一个spanSize格子，需要减掉计算
     if (defaultColsNumber !== undefined) {
-      return defaultColsNumber - 1;
+      return defaultColsNumber + 1;
     }
-    return Math.max(1, 24 / spanSize.span - 1);
+    return Math.max(1, 24 / spanSize.span + 1);
   }, [defaultColsNumber, spanSize.span]);
 
   /** 计算最大宽度防止溢出换行 */

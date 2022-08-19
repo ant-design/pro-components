@@ -50,7 +50,7 @@ describe('QueryFilter', () => {
     });
     await waitForComponentToPaint(wrapper);
     expect(wrapper.find('.ant-input').length).toEqual(3);
-    expect(wrapper.find('.ant-row .ant-form-item-hidden').length).toEqual(1);
+    expect(wrapper.find('.ant-row .ant-form-item-hidden').length).toEqual(0);
     expect(onFinish).toHaveBeenCalledWith({
       a: 'testa',
       b: 'testb',
@@ -81,12 +81,13 @@ describe('QueryFilter', () => {
       wrapper.find('.ant-btn-primary').simulate('submit');
     });
     await waitForComponentToPaint(wrapper);
-    expect(wrapper.find('.ant-input').length).toEqual(2);
+    expect(wrapper.find('.ant-input').length).toEqual(3);
     expect(wrapper.find('.ant-row .ant-form-item-hidden').length).toEqual(0);
     expect(wrapper.find('.anticon-down').length).toEqual(1);
     expect(onFinish).toHaveBeenCalledWith({
       a: 'testa',
       b: 'testb',
+      c: 'testc',
     });
   });
 
@@ -128,7 +129,7 @@ describe('QueryFilter', () => {
         <ProFormText label="d" name="d" />
       </QueryFilter>,
     );
-    expect(wrapper.find('.ant-row .ant-form-item-hidden').length).toEqual(2);
+    expect(wrapper.find('.ant-row .ant-form-item-hidden').length).toEqual(1);
   });
 
   it('🕵️‍♀️ responsive 1064 with vertical', async () => {
@@ -141,7 +142,7 @@ describe('QueryFilter', () => {
       </QueryFilter>,
     );
 
-    expect(wrapper.find('.ant-row .ant-form-item-hidden').length).toEqual(1);
+    expect(wrapper.find('.ant-row .ant-form-item-hidden').length).toEqual(0);
   });
 
   it('🕵️‍♀️ submitter support render', async () => {
@@ -242,7 +243,7 @@ describe('QueryFilter', () => {
         <ProFormText label="f" name="f" />
       </QueryFilter>,
     );
-    expect(wrapper.find('.ant-row .ant-form-item-hidden').length).toEqual(3);
+    expect(wrapper.find('.ant-row .ant-form-item-hidden').length).toEqual(1);
   });
 
   it('🕵️‍♀️ colSize不全都是1，collapseRender应该存在', async () => {
@@ -312,7 +313,7 @@ describe('QueryFilter', () => {
         <ProFormText label="f" name="f" />
       </QueryFilter>,
     );
-    expect(wrapper1.find('.ant-pro-form-collapse-button').length).toEqual(1);
+    expect(wrapper1.find('.ant-pro-form-collapse-button').length).toEqual(0);
     const wrapper2 = mount(
       <QueryFilter defaultColsNumber={7}>
         <ProFormText label="a" name="a" />

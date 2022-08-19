@@ -12,6 +12,7 @@ nav:
 
 有些是时候表单要与别的组件组合使用，常见的有 Table ，List 等，这时候就需要一些特殊形态的表单。QueryFilter 和 LightFilter 解决了配合组件使用的问题，避免了复杂的样式设置。ProTable 中默认 支持了 QueryFilter 和 LightFilter 作为自己的筛选表单。
 
+<!--
 ### 查询筛选
 
 <code src="./demos/query-filter.tsx" height="137px" title="查询筛选"/>
@@ -32,9 +33,13 @@ nav:
 
 ### 轻量筛选
 
-<code src="./demos/light-filter.tsx" height="287px" title="轻量筛选"/>
+<code src="./demos/light-filter.tsx" height="287px" title="轻量筛选"/> -->
 
-### 轻量筛选-自定义 footer
+### 轻量筛选-默认展开数量
+
+<code src="./demos/query-filter-defaultColsNumber.tsx" height="287px" title="轻量筛选-默认展开数量"/>
+
+<!-- ### 轻量筛选-自定义 footer
 
 <code src="./demos/light-filter-footer.tsx" height="283px" title="轻量筛选-自定义footer"/>
 
@@ -104,4 +109,4 @@ LightFilter 除了继承 ProForm 的 API 以外还支持下面的属性。
 | collapse | 是否默认折叠全部字段 | `boolean` | `false` |
 | collapseLabel | 折叠区域的标签 | `ReactNode` | `更多筛选 <DownOutlined/>` |
 | footerRender | 底部内容，当不需要默认底部按钮时，可以设为 footer={false} | `(onClear?: () => void, onConfirm: () => void) => JSX.Element \| false)`\|`false` | - |
-| placement | 选择框弹出的位置 ：`bottomLeft` `bottomRight` `topLeft` `topRight` | string | bottomLeft |
+| placement | 选择框弹出的位置 ：`bottomLeft` `bottomRight` `topLeft` `topRight` | string | bottomLeft | -->
