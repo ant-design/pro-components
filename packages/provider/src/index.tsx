@@ -211,6 +211,7 @@ export {
 
 export type ConfigContextPropsType = {
   intl: IntlType;
+  isDeps: boolean;
   valueTypeMap: Record<string, ProRenderFieldPropsType>;
 };
 
@@ -219,6 +220,7 @@ const ConfigContext = React.createContext<ConfigContextPropsType>({
     ...zhCNIntl,
     locale: 'default',
   },
+  isDeps: false,
   valueTypeMap: {},
 });
 
@@ -271,6 +273,7 @@ export const ConfigProviderWrap: React.FC<Record<string, unknown>> = ({
   const { locale } = useContext(AntdConfigProvider.ConfigContext);
   // 如果 locale 不存在自动注入的 AntdConfigProvider
   const Provider = locale === undefined ? AntdConfigProvider : React.Fragment;
+  const proProvide = useContext(ConfigContext);
 
   const configProviderDom = (
     <ConfigConsumer>
@@ -291,23 +294,24 @@ export const ConfigProviderWrap: React.FC<Record<string, unknown>> = ({
               }
             : {};
 
-        return (
-          <div className="ant-pro">
-            <Provider {...configProvider}>
-              <ConfigProvider
-                value={{
-                  ...value,
-                  intl: intl || zhCNIntl,
-                }}
-              >
-                <>
-                  {autoClearCache && <CacheClean />}
-                  {children}
-                </>
-              </ConfigProvider>
-            </Provider>
-          </div>
+        const provide = (
+          <Provider {...configProvider}>
+            <ConfigProvider
+              value={{
+                ...value,
+                isDeps: true,
+                intl: intl || zhCNIntl,
+              }}
+            >
+              <>
+                {autoClearCache && <CacheClean />}
+                {children}
+              </>
+            </ConfigProvider>
+          </Provider>
         );
+        if (proProvide.isDeps) return provide;
+        return <div className="ant-pro">{provide}</div>;
       }}
     </ConfigConsumer>
   );

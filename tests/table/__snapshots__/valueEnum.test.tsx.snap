@@ -10,133 +10,129 @@ exports[`Table valueEnum 🎏 customization valueType 1`] = `
     <div
       class="ant-pro-card ant-pro-table-search ant-pro-table-search-query-filter"
     >
-      <div
-        class="ant-pro"
+      <form
+        autocomplete="off"
+        class="ant-form ant-form-horizontal ant-pro-query-filter ant-pro-form"
       >
-        <form
-          autocomplete="off"
-          class="ant-form ant-form-horizontal ant-pro-query-filter ant-pro-form"
+        <input
+          style="display: none;"
+          type="text"
+        />
+        <div
+          class="ant-row ant-row-start ant-pro-query-filter-row"
+          style="margin-left: -12px; margin-right: -12px;"
         >
-          <input
-            style="display: none;"
-            type="text"
-          />
           <div
-            class="ant-row ant-row-start ant-pro-query-filter-row"
-            style="margin-left: -12px; margin-right: -12px;"
+            class="ant-col ant-col-8"
+            style="padding-left: 12px; padding-right: 12px;"
           >
             <div
-              class="ant-col ant-col-8"
-              style="padding-left: 12px; padding-right: 12px;"
+              class="ant-form-item"
+              style="flex-wrap: nowrap;"
             >
               <div
-                class="ant-form-item"
-                style="flex-wrap: nowrap;"
+                class="ant-row ant-form-item-row"
               >
                 <div
-                  class="ant-row ant-form-item-row"
+                  class="ant-col ant-form-item-label"
+                  style="flex: 0 0 80px;"
+                >
+                  <label
+                    class=""
+                    for="name"
+                    title="链接"
+                  >
+                    链接
+                  </label>
+                </div>
+                <div
+                  class="ant-col ant-form-item-control"
+                  style="max-width: calc(100% - 80px);"
                 >
                   <div
-                    class="ant-col ant-form-item-label"
-                    style="flex: 0 0 80px;"
-                  >
-                    <label
-                      class=""
-                      for="name"
-                      title="链接"
-                    >
-                      链接
-                    </label>
-                  </div>
-                  <div
-                    class="ant-col ant-form-item-control"
-                    style="max-width: calc(100% - 80px);"
+                    class="ant-form-item-control-input"
                   >
                     <div
-                      class="ant-form-item-control-input"
+                      class="ant-form-item-control-input-content"
                     >
-                      <div
-                        class="ant-form-item-control-input-content"
-                      >
-                        <input
-                          class="ant-input"
-                          id="name"
-                          placeholder="请输入链接"
-                          style="width: 100%;"
-                          type="text"
-                          value=""
-                        />
-                      </div>
+                      <input
+                        class="ant-input"
+                        id="name"
+                        placeholder="请输入链接"
+                        style="width: 100%;"
+                        type="text"
+                        value=""
+                      />
                     </div>
                   </div>
                 </div>
               </div>
             </div>
+          </div>
+          <div
+            class="ant-col ant-col-8 ant-col-offset-8"
+            style="padding-left: 12px; padding-right: 12px; text-align: right;"
+          >
             <div
-              class="ant-col ant-col-8 ant-col-offset-8"
-              style="padding-left: 12px; padding-right: 12px; text-align: right;"
+              class="ant-form-item ant-pro-query-filter-actions"
             >
               <div
-                class="ant-form-item ant-pro-query-filter-actions"
+                class="ant-row ant-form-item-row"
               >
                 <div
-                  class="ant-row ant-form-item-row"
+                  class="ant-col ant-form-item-label"
+                >
+                  <label
+                    class="ant-form-item-no-colon"
+                    title=" "
+                  >
+                     
+                  </label>
+                </div>
+                <div
+                  class="ant-col ant-form-item-control"
                 >
                   <div
-                    class="ant-col ant-form-item-label"
-                  >
-                    <label
-                      class="ant-form-item-no-colon"
-                      title=" "
-                    >
-                       
-                    </label>
-                  </div>
-                  <div
-                    class="ant-col ant-form-item-control"
+                    class="ant-form-item-control-input"
                   >
                     <div
-                      class="ant-form-item-control-input"
+                      class="ant-form-item-control-input-content"
                     >
                       <div
-                        class="ant-form-item-control-input-content"
+                        class="ant-space ant-space-horizontal ant-space-align-center"
                       >
                         <div
-                          class="ant-space ant-space-horizontal ant-space-align-center"
+                          class="ant-space-item"
                         >
                           <div
-                            class="ant-space-item"
+                            class="ant-space ant-space-horizontal ant-space-align-center"
+                            style="flex-wrap: wrap; margin-bottom: -8px;"
                           >
                             <div
-                              class="ant-space ant-space-horizontal ant-space-align-center"
-                              style="flex-wrap: wrap; margin-bottom: -8px;"
+                              class="ant-space-item"
+                              style="margin-right: 8px; padding-bottom: 8px;"
                             >
-                              <div
-                                class="ant-space-item"
-                                style="margin-right: 8px; padding-bottom: 8px;"
+                              <button
+                                class="ant-btn ant-btn-default"
+                                type="button"
                               >
-                                <button
-                                  class="ant-btn ant-btn-default"
-                                  type="button"
-                                >
-                                  <span>
-                                    重 置
-                                  </span>
-                                </button>
-                              </div>
-                              <div
-                                class="ant-space-item"
-                                style="padding-bottom: 8px;"
+                                <span>
+                                  重 置
+                                </span>
+                              </button>
+                            </div>
+                            <div
+                              class="ant-space-item"
+                              style="padding-bottom: 8px;"
+                            >
+                              <button
+                                class="ant-btn ant-btn-primary"
+                                type="button"
                               >
-                                <button
-                                  class="ant-btn ant-btn-primary"
-                                  type="button"
-                                >
-                                  <span>
-                                    查 询
-                                  </span>
-                                </button>
-                              </div>
+                                <span>
+                                  查 询
+                                </span>
+                              </button>
                             </div>
                           </div>
                         </div>
@@ -147,8 +143,8 @@ exports[`Table valueEnum 🎏 customization valueType 1`] = `
               </div>
             </div>
           </div>
-        </form>
-      </div>
+        </div>
+      </form>
     </div>
     <div
       class="ant-pro-card"
