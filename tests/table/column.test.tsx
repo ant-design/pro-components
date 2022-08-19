@@ -49,7 +49,6 @@ describe('Table ColumnSetting', () => {
           },
         }}
         request={async (params) => {
-          console.log(params);
           callBack(params.date);
           return {
             data: [

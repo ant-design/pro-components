@@ -9866,7 +9866,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/background-contex
                     />
                   </div>
                   <div
-                    class="ant-pro-top-nav-header-right-content"
+                    class="ant-pro-global-header-right-content"
                     style="min-width: auto; height: 100%;"
                   >
                     <div
@@ -9876,10 +9876,10 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/background-contex
                         style="display: flex; align-items: center; height: 100%; justify-content: flex-end;"
                       >
                         <div
-                          class="ant-pro-top-nav-header-header-actions"
+                          class="ant-pro-global-header-header-actions "
                         >
                           <div
-                            class="ant-pro-top-nav-header-header-actions-item ant-pro-top-nav-header-header-actions-hover"
+                            class="ant-pro-global-header-header-actions-item ant-pro-global-header-header-actions-hover"
                           >
                             <span
                               aria-label="info-circle"
@@ -9902,7 +9902,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/background-contex
                             </span>
                           </div>
                           <div
-                            class="ant-pro-top-nav-header-header-actions-item ant-pro-top-nav-header-header-actions-hover"
+                            class="ant-pro-global-header-header-actions-item ant-pro-global-header-header-actions-hover"
                           >
                             <span
                               aria-label="question-circle"
@@ -9925,7 +9925,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/background-contex
                             </span>
                           </div>
                           <div
-                            class="ant-pro-top-nav-header-header-actions-item ant-pro-top-nav-header-header-actions-hover"
+                            class="ant-pro-global-header-header-actions-item ant-pro-global-header-header-actions-hover"
                           >
                             <span
                               aria-label="github"
@@ -9948,7 +9948,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/background-contex
                             </span>
                           </div>
                           <span
-                            class="ant-pro-top-nav-header-header-actions-avatar"
+                            class="ant-pro-global-header-header-actions-avatar"
                           >
                             <div>
                               <span
@@ -10878,7 +10878,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/base.tsx correctl
                     />
                   </div>
                   <div
-                    class="ant-pro-top-nav-header-right-content"
+                    class="ant-pro-global-header-right-content"
                     style="min-width: auto; height: 100%;"
                   >
                     <div
@@ -10888,10 +10888,10 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/base.tsx correctl
                         style="display: flex; align-items: center; height: 100%; justify-content: flex-end;"
                       >
                         <div
-                          class="ant-pro-top-nav-header-header-actions"
+                          class="ant-pro-global-header-header-actions "
                         >
                           <div
-                            class="ant-pro-top-nav-header-header-actions-item ant-pro-top-nav-header-header-actions-hover"
+                            class="ant-pro-global-header-header-actions-item ant-pro-global-header-header-actions-hover"
                           >
                             <span
                               aria-label="info-circle"
@@ -10914,7 +10914,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/base.tsx correctl
                             </span>
                           </div>
                           <div
-                            class="ant-pro-top-nav-header-header-actions-item ant-pro-top-nav-header-header-actions-hover"
+                            class="ant-pro-global-header-header-actions-item ant-pro-global-header-header-actions-hover"
                           >
                             <span
                               aria-label="question-circle"
@@ -10937,7 +10937,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/base.tsx correctl
                             </span>
                           </div>
                           <div
-                            class="ant-pro-top-nav-header-header-actions-item ant-pro-top-nav-header-header-actions-hover"
+                            class="ant-pro-global-header-header-actions-item ant-pro-global-header-header-actions-hover"
                           >
                             <span
                               aria-label="github"
@@ -10960,7 +10960,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/base.tsx correctl
                             </span>
                           </div>
                           <span
-                            class="ant-pro-top-nav-header-header-actions-avatar"
+                            class="ant-pro-global-header-header-actions-avatar"
                           >
                             <div>
                               <span
@@ -11989,7 +11989,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/classicMode.tsx c
                     />
                   </div>
                   <div
-                    class="ant-pro-top-nav-header-right-content"
+                    class="ant-pro-global-header-right-content"
                     style="min-width: auto; height: 100%;"
                   >
                     <div
@@ -11999,10 +11999,10 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/classicMode.tsx c
                         style="display: flex; align-items: center; height: 100%; justify-content: flex-end;"
                       >
                         <div
-                          class="ant-pro-top-nav-header-header-actions"
+                          class="ant-pro-global-header-header-actions "
                         >
                           <div
-                            class="ant-pro-top-nav-header-header-actions-item ant-pro-top-nav-header-header-actions-hover"
+                            class="ant-pro-global-header-header-actions-item ant-pro-global-header-header-actions-hover"
                           >
                             <span
                               aria-label="info-circle"
@@ -12025,7 +12025,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/classicMode.tsx c
                             </span>
                           </div>
                           <div
-                            class="ant-pro-top-nav-header-header-actions-item ant-pro-top-nav-header-header-actions-hover"
+                            class="ant-pro-global-header-header-actions-item ant-pro-global-header-header-actions-hover"
                           >
                             <span
                               aria-label="question-circle"
@@ -12048,7 +12048,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/classicMode.tsx c
                             </span>
                           </div>
                           <div
-                            class="ant-pro-top-nav-header-header-actions-item ant-pro-top-nav-header-header-actions-hover"
+                            class="ant-pro-global-header-header-actions-item ant-pro-global-header-header-actions-hover"
                           >
                             <span
                               aria-label="github"
@@ -12071,7 +12071,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/classicMode.tsx c
                             </span>
                           </div>
                           <span
-                            class="ant-pro-top-nav-header-header-actions-avatar"
+                            class="ant-pro-global-header-header-actions-avatar"
                           >
                             <div>
                               <span
@@ -17064,7 +17064,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/designMenuCss.tsx
                     />
                   </div>
                   <div
-                    class="ant-pro-top-nav-header-right-content"
+                    class="ant-pro-global-header-right-content"
                     style="min-width: auto; height: 100%;"
                   >
                     <div
@@ -17074,10 +17074,10 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/designMenuCss.tsx
                         style="display: flex; align-items: center; height: 100%; justify-content: flex-end;"
                       >
                         <div
-                          class="ant-pro-top-nav-header-header-actions"
+                          class="ant-pro-global-header-header-actions "
                         >
                           <div
-                            class="ant-pro-top-nav-header-header-actions-item ant-pro-top-nav-header-header-actions-hover"
+                            class="ant-pro-global-header-header-actions-item ant-pro-global-header-header-actions-hover"
                           >
                             <span
                               aria-label="info-circle"
@@ -17100,7 +17100,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/designMenuCss.tsx
                             </span>
                           </div>
                           <div
-                            class="ant-pro-top-nav-header-header-actions-item ant-pro-top-nav-header-header-actions-hover"
+                            class="ant-pro-global-header-header-actions-item ant-pro-global-header-header-actions-hover"
                           >
                             <span
                               aria-label="question-circle"
@@ -17123,7 +17123,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/designMenuCss.tsx
                             </span>
                           </div>
                           <div
-                            class="ant-pro-top-nav-header-header-actions-item ant-pro-top-nav-header-header-actions-hover"
+                            class="ant-pro-global-header-header-actions-item ant-pro-global-header-header-actions-hover"
                           >
                             <span
                               aria-label="github"
@@ -17146,7 +17146,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/designMenuCss.tsx
                             </span>
                           </div>
                           <span
-                            class="ant-pro-top-nav-header-header-actions-avatar"
+                            class="ant-pro-global-header-header-actions-avatar"
                           >
                             <div>
                               <span
@@ -21944,7 +21944,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/footer-global-too
                     />
                   </div>
                   <div
-                    class="ant-pro-top-nav-header-right-content"
+                    class="ant-pro-global-header-right-content"
                     style="min-width: auto; height: 100%;"
                   >
                     <div
@@ -21954,10 +21954,10 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/footer-global-too
                         style="display: flex; align-items: center; height: 100%; justify-content: flex-end;"
                       >
                         <div
-                          class="ant-pro-top-nav-header-header-actions"
+                          class="ant-pro-global-header-header-actions "
                         >
                           <div
-                            class="ant-pro-top-nav-header-header-actions-item ant-pro-top-nav-header-header-actions-hover"
+                            class="ant-pro-global-header-header-actions-item ant-pro-global-header-header-actions-hover"
                           >
                             <span
                               aria-label="info-circle"
@@ -21980,7 +21980,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/footer-global-too
                             </span>
                           </div>
                           <div
-                            class="ant-pro-top-nav-header-header-actions-item ant-pro-top-nav-header-header-actions-hover"
+                            class="ant-pro-global-header-header-actions-item ant-pro-global-header-header-actions-hover"
                           >
                             <span
                               aria-label="question-circle"
@@ -22003,7 +22003,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/footer-global-too
                             </span>
                           </div>
                           <div
-                            class="ant-pro-top-nav-header-header-actions-item ant-pro-top-nav-header-header-actions-hover"
+                            class="ant-pro-global-header-header-actions-item ant-pro-global-header-header-actions-hover"
                           >
                             <span
                               aria-label="github"
@@ -22026,7 +22026,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/footer-global-too
                             </span>
                           </div>
                           <span
-                            class="ant-pro-top-nav-header-header-actions-avatar"
+                            class="ant-pro-global-header-header-actions-avatar"
                           >
                             <div>
                               <span
@@ -26529,7 +26529,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/mixMode.tsx corre
                     />
                   </div>
                   <div
-                    class="ant-pro-top-nav-header-right-content"
+                    class="ant-pro-global-header-right-content"
                     style="min-width: auto; height: 100%;"
                   >
                     <div
@@ -26539,10 +26539,10 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/mixMode.tsx corre
                         style="display: flex; align-items: center; height: 100%; justify-content: flex-end;"
                       >
                         <div
-                          class="ant-pro-top-nav-header-header-actions"
+                          class="ant-pro-global-header-header-actions "
                         >
                           <div
-                            class="ant-pro-top-nav-header-header-actions-item ant-pro-top-nav-header-header-actions-hover"
+                            class="ant-pro-global-header-header-actions-item ant-pro-global-header-header-actions-hover"
                           >
                             <span
                               aria-label="info-circle"
@@ -26565,7 +26565,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/mixMode.tsx corre
                             </span>
                           </div>
                           <div
-                            class="ant-pro-top-nav-header-header-actions-item ant-pro-top-nav-header-header-actions-hover"
+                            class="ant-pro-global-header-header-actions-item ant-pro-global-header-header-actions-hover"
                           >
                             <span
                               aria-label="question-circle"
@@ -26588,7 +26588,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/mixMode.tsx corre
                             </span>
                           </div>
                           <div
-                            class="ant-pro-top-nav-header-header-actions-item ant-pro-top-nav-header-header-actions-hover"
+                            class="ant-pro-global-header-header-actions-item ant-pro-global-header-header-actions-hover"
                           >
                             <span
                               aria-label="github"
@@ -26611,7 +26611,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/mixMode.tsx corre
                             </span>
                           </div>
                           <span
-                            class="ant-pro-top-nav-header-header-actions-avatar"
+                            class="ant-pro-global-header-header-actions-avatar"
                           >
                             <div>
                               <span
@@ -27338,7 +27338,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/pageSimplify.tsx 
                     </div>
                   </div>
                   <div
-                    class="ant-pro-top-nav-header-right-content"
+                    class="ant-pro-global-header-right-content"
                     style="min-width: auto; height: 100%;"
                   >
                     <div
@@ -27348,10 +27348,10 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/pageSimplify.tsx 
                         style="display: flex; align-items: center; height: 100%; justify-content: flex-end;"
                       >
                         <div
-                          class="ant-pro-top-nav-header-header-actions"
+                          class="ant-pro-global-header-header-actions "
                         >
                           <div
-                            class="ant-pro-top-nav-header-header-actions-item ant-pro-top-nav-header-header-actions-hover"
+                            class="ant-pro-global-header-header-actions-item ant-pro-global-header-header-actions-hover"
                           >
                             <span
                               aria-label="info-circle"
@@ -27374,7 +27374,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/pageSimplify.tsx 
                             </span>
                           </div>
                           <div
-                            class="ant-pro-top-nav-header-header-actions-item ant-pro-top-nav-header-header-actions-hover"
+                            class="ant-pro-global-header-header-actions-item ant-pro-global-header-header-actions-hover"
                           >
                             <span
                               aria-label="question-circle"
@@ -27397,7 +27397,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/pageSimplify.tsx 
                             </span>
                           </div>
                           <div
-                            class="ant-pro-top-nav-header-header-actions-item ant-pro-top-nav-header-header-actions-hover"
+                            class="ant-pro-global-header-header-actions-item ant-pro-global-header-header-actions-hover"
                           >
                             <span
                               aria-label="github"
@@ -27420,7 +27420,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/pageSimplify.tsx 
                             </span>
                           </div>
                           <span
-                            class="ant-pro-top-nav-header-header-actions-avatar"
+                            class="ant-pro-global-header-header-actions-avatar"
                           >
                             <div>
                               <span
@@ -29994,7 +29994,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/siteMenu.tsx corr
                     />
                   </div>
                   <div
-                    class="ant-pro-top-nav-header-right-content"
+                    class="ant-pro-global-header-right-content"
                     style="min-width: auto; height: 100%;"
                   >
                     <div
@@ -30004,10 +30004,10 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/siteMenu.tsx corr
                         style="display: flex; align-items: center; height: 100%; justify-content: flex-end;"
                       >
                         <div
-                          class="ant-pro-top-nav-header-header-actions"
+                          class="ant-pro-global-header-header-actions "
                         >
                           <div
-                            class="ant-pro-top-nav-header-header-actions-item ant-pro-top-nav-header-header-actions-hover"
+                            class="ant-pro-global-header-header-actions-item ant-pro-global-header-header-actions-hover"
                           >
                             <span
                               aria-label="info-circle"
@@ -30030,7 +30030,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/siteMenu.tsx corr
                             </span>
                           </div>
                           <div
-                            class="ant-pro-top-nav-header-header-actions-item ant-pro-top-nav-header-header-actions-hover"
+                            class="ant-pro-global-header-header-actions-item ant-pro-global-header-header-actions-hover"
                           >
                             <span
                               aria-label="question-circle"
@@ -30053,7 +30053,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/siteMenu.tsx corr
                             </span>
                           </div>
                           <div
-                            class="ant-pro-top-nav-header-header-actions-item ant-pro-top-nav-header-header-actions-hover"
+                            class="ant-pro-global-header-header-actions-item ant-pro-global-header-header-actions-hover"
                           >
                             <span
                               aria-label="github"
@@ -30076,7 +30076,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/siteMenu.tsx corr
                             </span>
                           </div>
                           <span
-                            class="ant-pro-top-nav-header-header-actions-avatar"
+                            class="ant-pro-global-header-header-actions-avatar"
                           >
                             <div>
                               <span
@@ -31391,7 +31391,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/splitMenus.tsx co
                   />
                 </div>
                 <div
-                  class="ant-pro-top-nav-header-right-content"
+                  class="ant-pro-global-header-right-content"
                   style="min-width: auto; height: 100%;"
                 >
                   <div
@@ -31835,7 +31835,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/splitMenus.tsx co
                   />
                 </div>
                 <div
-                  class="ant-pro-top-nav-header-right-content"
+                  class="ant-pro-global-header-right-content"
                   style="min-width: auto; height: 100%;"
                 >
                   <div
@@ -31845,10 +31845,10 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/splitMenus.tsx co
                       style="display: flex; align-items: center; height: 100%; justify-content: flex-end;"
                     >
                       <div
-                        class="ant-pro-top-nav-header-header-actions"
+                        class="ant-pro-global-header-header-actions "
                       >
                         <span
-                          class="ant-pro-top-nav-header-header-actions-avatar"
+                          class="ant-pro-global-header-header-actions-avatar"
                         >
                           <div>
                             <span
@@ -32305,7 +32305,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/splitMenus.tsx co
                 style="flex: 1;"
               />
               <div
-                class="ant-pro-right-content"
+                class="ant-pro-global-header-right-content"
                 style="min-width: auto; height: 100%;"
               >
                 <div
@@ -32315,17 +32315,17 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/splitMenus.tsx co
                     style="display: flex; align-items: center; height: 100%; justify-content: flex-end;"
                   >
                     <div
-                      class="ant-pro-header-actions"
+                      class="ant-pro-global-header-header-actions "
                     >
                       <div
-                        class="ant-pro-header-actions-item ant-pro-header-actions-hover"
+                        class="ant-pro-global-header-header-actions-item ant-pro-global-header-header-actions-hover"
                       >
                         <a>
                           key
                         </a>
                       </div>
                       <span
-                        class="ant-pro-header-actions-avatar"
+                        class="ant-pro-global-header-header-actions-avatar"
                       >
                         <div>
                           <span
@@ -34545,7 +34545,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/topMode.tsx corre
                     />
                   </div>
                   <div
-                    class="ant-pro-top-nav-header-right-content"
+                    class="ant-pro-global-header-right-content"
                     style="min-width: auto; height: 100%;"
                   >
                     <div
@@ -34555,10 +34555,10 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/topMode.tsx corre
                         style="display: flex; align-items: center; height: 100%; justify-content: flex-end;"
                       >
                         <div
-                          class="ant-pro-top-nav-header-header-actions"
+                          class="ant-pro-global-header-header-actions "
                         >
                           <div
-                            class="ant-pro-top-nav-header-header-actions-item ant-pro-top-nav-header-header-actions-hover"
+                            class="ant-pro-global-header-header-actions-item ant-pro-global-header-header-actions-hover"
                           >
                             <span
                               aria-label="info-circle"
@@ -34581,7 +34581,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/topMode.tsx corre
                             </span>
                           </div>
                           <div
-                            class="ant-pro-top-nav-header-header-actions-item ant-pro-top-nav-header-header-actions-hover"
+                            class="ant-pro-global-header-header-actions-item ant-pro-global-header-header-actions-hover"
                           >
                             <span
                               aria-label="question-circle"
@@ -34604,7 +34604,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/topMode.tsx corre
                             </span>
                           </div>
                           <div
-                            class="ant-pro-top-nav-header-header-actions-item ant-pro-top-nav-header-header-actions-hover"
+                            class="ant-pro-global-header-header-actions-item ant-pro-global-header-header-actions-hover"
                           >
                             <span
                               aria-label="github"
@@ -34627,7 +34627,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/topMode.tsx corre
                             </span>
                           </div>
                           <span
-                            class="ant-pro-top-nav-header-header-actions-avatar"
+                            class="ant-pro-global-header-header-actions-avatar"
                           >
                             <div>
                               <span

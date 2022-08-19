@@ -639,7 +639,6 @@ describe('BasicTable Search', () => {
           },
         ]}
         request={(params) => {
-          console.log('-->', params);
           fn2(params.since);
           return Promise.resolve({
             data: [
@@ -657,8 +656,7 @@ describe('BasicTable Search', () => {
           showSizeChanger: true,
         }}
         options={false}
-        dateFormatter={(value, valueType) => {
-          console.log('====>', value, valueType);
+        dateFormatter={(value) => {
           return value.format('YYYY/MM/DD HH:mm:ss');
         }}
         headerTitle="表单赋值"

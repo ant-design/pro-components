@@ -161,7 +161,6 @@ describe('BasicTable', () => {
       .spyOn(document, 'addEventListener')
       .mockImplementation((eventName, eventFn) => {
         if (eventName === 'visibilitychange') {
-          console.log(eventFn);
           //@ts-expect-error
           fn = eventFn;
         }

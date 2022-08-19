@@ -11,7 +11,8 @@ import { AppsLogoComponents, defaultRenderLogo } from '../AppsLogoComponents';
 import type { HeaderViewProps } from '../Header';
 import type { PrivateSiderMenuProps, SiderMenuProps } from '../SiderMenu/SiderMenu';
 import { renderLogoAndTitle } from '../SiderMenu/SiderMenu';
-import { RightContent, TopNavHeader } from '../TopNavHeader';
+import { TopNavHeader } from '../TopNavHeader';
+import { RightContent } from './RightContent';
 import { useStyle } from './style';
 
 export type GlobalHeaderProps = {

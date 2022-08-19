@@ -84,7 +84,6 @@ const ProTableSpinDemo = () => {
         </Button>,
       ]}
       postData={(data) => {
-        console.log(data, 'fuck');
         setTimeout(() => {
           setLoading({
             ...loading,
