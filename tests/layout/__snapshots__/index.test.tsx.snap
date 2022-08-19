@@ -391,7 +391,7 @@ Array [
                     style="margin-block-start:16px"
                   >
                     <div
-                      class="ant-skeleton ant-skeleton-active"
+                      class="ant-skeleton ant-skeleton-active css-dev-only-do-not-override-1md0x4s"
                     >
                       <div
                         class="ant-skeleton-content"
@@ -1200,7 +1200,7 @@ exports[`BasicLayout 🥩 mix layout hideInMenu render right 1`] = `
             style="flex: 1; overflow-y: auto; overflow-x: hidden;"
           >
             <ul
-              class="ant-menu ant-menu-root ant-menu-inline ant-menu-light ant-pro-sider-menu ant-pro-base-menu"
+              class="ant-menu ant-menu-root ant-menu-inline ant-pro-sider-menu ant-pro-base-menu"
               data-menu-list="true"
               role="menu"
               style="background-color: transparent; width: 100%;"
