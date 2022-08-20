@@ -6,8 +6,7 @@ import {
   ProFormSelect,
   ProFormText,
 } from '@ant-design/pro-components';
-import { Button, message } from 'antd';
-import { useForm } from 'antd/lib/form/Form';
+import { Button, Form, message } from 'antd';
 
 const waitTime = (time: number = 100) => {
   return new Promise((resolve) => {
@@ -18,7 +17,7 @@ const waitTime = (time: number = 100) => {
 };
 
 export default () => {
-  const [form] = useForm<{ name: string; company: string }>();
+  const [form] = Form.useForm<{ name: string; company: string }>();
 
   return (
     <DrawerForm<{
