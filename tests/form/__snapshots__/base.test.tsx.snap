@@ -334,9 +334,9 @@ exports[`ProForm 📦 valueType digit with precision value 1`] = `
         <label
           class=""
           for="count"
-          title="认输"
+          title="人数"
         >
-          认输
+          人数
         </label>
       </div>
       <div
