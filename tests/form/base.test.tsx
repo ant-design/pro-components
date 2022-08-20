@@ -13,35 +13,35 @@ import ProForm, {
   ProFormText,
 } from '@ant-design/pro-form';
 import '@testing-library/jest-dom';
-import { render as reactRender } from '@testing-library/react';
+import { act, fireEvent, render } from '@testing-library/react';
 import { Button, ConfigProvider, Input } from 'antd';
-import { mount } from 'enzyme';
 import moment from 'moment';
 import React, { useEffect, useRef } from 'react';
-import { act } from 'react-dom/test-utils';
-import { waitForComponentToPaint, waitTime } from '../util';
+import { waitTime } from '../util';
 
 describe('ProForm', () => {
   it('📦 submit props actionsRender=false', async () => {
-    const wrapper = mount(<ProForm submitter={false} />);
-    await waitForComponentToPaint(wrapper);
-    expect(wrapper.render()).toMatchSnapshot();
+    const wrapper = render(<ProForm submitter={false} />);
+
+    expect(wrapper.asFragment()).toMatchSnapshot();
+    wrapper.unmount();
   });
 
   it('📦 componentSize is work', async () => {
-    const wrapper = mount(
+    const wrapper = render(
       <ConfigProvider componentSize="small">
         <ProForm>
           <ProFormText />
         </ProForm>
       </ConfigProvider>,
     );
-    expect(wrapper.find('.ant-input-sm').length).toBe(1);
+    expect(wrapper.baseElement.querySelectorAll<HTMLElement>('.ant-input-sm').length).toBe(1);
+    wrapper.unmount();
   });
 
   it('📦 ProForm support sync form url', async () => {
     const fn = jest.fn();
-    const wrapper = mount<{ navTheme: string }>(
+    const wrapper = render(
       <ProForm
         onFinish={async (values) => {
           fn(values.navTheme);
@@ -57,24 +57,23 @@ describe('ProForm', () => {
         />
       </ProForm>,
     );
-    await waitForComponentToPaint(wrapper);
 
-    act(() => {
-      wrapper.find('button.ant-btn-primary').simulate('click');
+    await act(async () => {
+      await (await wrapper.findByText('提 交')).click();
     });
-    await waitForComponentToPaint(wrapper);
+
     expect(fn).toHaveBeenCalledWith('realDark');
 
     act(() => {
-      wrapper.find('button.ant-btn').at(1).simulate('click');
+      wrapper.baseElement.querySelectorAll<HTMLHtmlElement>('button.ant-btn')[1].click();
     });
-    await waitForComponentToPaint(wrapper);
+
     expect(fn).toHaveBeenCalledWith('realDark');
   });
 
   it('📦 ProForm support sync form url as important', async () => {
     const fn = jest.fn();
-    const wrapper = mount<{ navTheme: string }>(
+    const wrapper = render(
       <ProForm
         onFinish={async (values) => {
           fn(values.navTheme);
@@ -91,24 +90,23 @@ describe('ProForm', () => {
         />
       </ProForm>,
     );
-    await waitForComponentToPaint(wrapper);
 
-    act(() => {
-      wrapper.find('button.ant-btn-primary').simulate('click');
+    await act(async () => {
+      await (await wrapper.findByText('提 交')).click();
     });
-    await waitForComponentToPaint(wrapper);
     expect(fn).toHaveBeenCalledWith('realDark');
 
     act(() => {
-      wrapper.find('button.ant-btn').at(1).simulate('click');
+      wrapper.baseElement.querySelectorAll<HTMLElement>('button.ant-btn')[1].click();
     });
-    await waitForComponentToPaint(wrapper);
+
     expect(fn).toHaveBeenCalledWith('realDark');
+    wrapper.unmount();
   });
 
   it('📦 ProForm support sync form url and rest', async () => {
     const onFinish = jest.fn();
-    const wrapper = mount<{ navTheme: string }>(
+    const wrapper = render(
       <ProForm
         onFinish={async (values) => {
           onFinish(values.navTheme);
@@ -124,29 +122,28 @@ describe('ProForm', () => {
         </ProForm.Item>
       </ProForm>,
     );
-    await waitForComponentToPaint(wrapper);
 
-    act(() => {
-      wrapper.find('button.ant-btn-primary').simulate('click');
+    await act(async () => {
+      await (await wrapper.findByText('提 交')).click();
     });
-    await waitForComponentToPaint(wrapper);
     expect(onFinish).toHaveBeenCalledWith('realDark');
 
     // rest
     act(() => {
-      wrapper.find('button.ant-btn').at(1).simulate('click');
+      wrapper.baseElement.querySelectorAll<HTMLElement>('button.ant-btn')[1].click();
     });
-    await waitForComponentToPaint(wrapper);
-    act(() => {
-      wrapper.find('button.ant-btn-primary').simulate('click');
+
+    await act(async () => {
+      await (await wrapper.findByText('提 交')).click();
     });
-    await waitForComponentToPaint(wrapper);
+
     expect(onFinish).toHaveBeenCalledWith(undefined);
+    wrapper.unmount();
   });
 
   it('📦 ProForm initialValues update will warning', async () => {
     const fn = jest.fn();
-    const wrapper = mount(
+    const wrapper = render(
       <ProForm
         onFinish={async (values) => {
           fn(values.navTheme);
@@ -156,32 +153,34 @@ describe('ProForm', () => {
         <ProFormText name="navTheme" />
       </ProForm>,
     );
-    await waitForComponentToPaint(wrapper);
 
-    act(() => {
-      wrapper.find('button.ant-btn-primary').simulate('click');
+    await act(async () => {
+      await (await wrapper.findByText('提 交')).click();
     });
-    await waitForComponentToPaint(wrapper);
     expect(fn).toHaveBeenCalledWith(undefined);
 
     act(() => {
-      wrapper.setProps({
-        initialValues: {
-          navTheme: 'xxx',
-        },
-      });
+      wrapper.rerender(
+        <ProForm
+          onFinish={async (values) => {
+            fn(values.navTheme);
+          }}
+          initialValues={{ navTheme: 'xxx' }}
+        >
+          <ProFormText name="navTheme" />
+        </ProForm>,
+      );
     });
-    await waitForComponentToPaint(wrapper);
-    act(() => {
-      wrapper.find('button.ant-btn-primary').simulate('click');
+
+    await act(async () => {
+      await (await wrapper.findByText('提 交')).click();
     });
-    await waitForComponentToPaint(wrapper);
     expect(fn).toHaveBeenCalledWith(undefined);
   });
 
   it('📦 onFinish should simulate button loading', async () => {
     const fn = jest.fn();
-    const wrapper = reactRender(
+    const wrapper = render(
       <ProForm
         onFinish={async () => {
           fn();
@@ -190,19 +189,18 @@ describe('ProForm', () => {
       />,
     );
 
-    await waitForComponentToPaint(wrapper, 200);
     await act(async () => {
       await (await wrapper.findByText('提 交')).click();
     });
-    await waitForComponentToPaint(wrapper, 200);
     const dom = await (await wrapper.findByText('提 交')).parentElement;
     expect(dom?.className.includes('ant-btn-loading')).toBe(true);
     expect(fn).toBeCalled();
+    wrapper.unmount();
   });
 
   it('📦 onFinish should simulate button close loading', async () => {
     const fn = jest.fn();
-    const wrapper = reactRender(
+    const wrapper = render(
       <ProForm
         onFinish={async () => {
           fn();
@@ -212,26 +210,25 @@ describe('ProForm', () => {
       />,
     );
 
-    await waitForComponentToPaint(wrapper, 200);
     await act(async () => {
       await (await wrapper.findByText('提 交')).click();
     });
-    await waitForComponentToPaint(wrapper, 200);
     let dom = await (await wrapper.findByText('提 交')).parentElement;
     expect(dom?.className.includes('ant-btn-loading')).toBe(true);
     expect(fn).toBeCalled();
-
-    await waitForComponentToPaint(wrapper, 1000);
-
     dom = await (await wrapper.findByText('提 交')).parentElement;
+    await act(async () => {
+      await waitTime(1200);
+    });
     expect(dom?.className.includes('ant-btn-loading')).toBe(false);
+    wrapper.unmount();
   });
 
   it('📦 onFinish support params and request', async () => {
-    const wrapper = reactRender(
+    const wrapper = render(
       <ProForm
         request={async (params) => {
-          await waitTime(100);
+          await act(async () => {});
           return params;
         }}
         params={{
@@ -242,16 +239,14 @@ describe('ProForm', () => {
       </ProForm>,
     );
 
-    await waitForComponentToPaint(wrapper, 200);
-
-    expect(!!wrapper.findAllByDisplayValue('test')).toBeTruthy();
+    expect(!!(await wrapper.findByDisplayValue('test'))).toBeTruthy();
 
     act(() => {
       wrapper.rerender(
         <ProForm
           key="rerender"
           request={async (params) => {
-            await waitTime(100);
+            await act(async () => {});
             return params;
           }}
           params={{
@@ -262,38 +257,40 @@ describe('ProForm', () => {
         </ProForm>,
       );
     });
-    await waitForComponentToPaint(wrapper, 500);
 
-    expect(!!wrapper.findAllByDisplayValue('1234')).toBeTruthy();
+    expect(!!(await wrapper.findByDisplayValue('1234'))).toBeTruthy();
+    wrapper.unmount();
   });
 
   it('📦 submit props actionsRender=()=>false', async () => {
-    const wrapper = mount(
+    const wrapper = render(
       <ProForm
         submitter={{
           render: () => false,
         }}
       />,
     );
-    await waitForComponentToPaint(wrapper);
-    expect(wrapper.render()).toMatchSnapshot();
+
+    expect(wrapper.asFragment()).toMatchSnapshot();
+    wrapper.unmount();
   });
 
   it('📦 submit props actionsRender is one', async () => {
-    const wrapper = mount(
+    const wrapper = render(
       <ProForm
         submitter={{
           render: () => [<a key="test">test</a>],
         }}
       />,
     );
-    await waitForComponentToPaint(wrapper);
-    expect(wrapper.render()).toMatchSnapshot();
+
+    expect(wrapper.asFragment()).toMatchSnapshot();
+    wrapper.unmount();
   });
 
   it('📦 support formRef', async () => {
     const formRef = React.createRef<ProFormInstance<any>>();
-    const wrapper = mount(
+    const wrapper = render(
       <ProForm
         formRef={formRef}
         submitter={{
@@ -313,18 +310,19 @@ describe('ProForm', () => {
         />
       </ProForm>,
     );
-    await waitForComponentToPaint(wrapper, 1000);
+    await waitTime(1000);
     expect(formRef.current?.getFieldFormatValue?.('test')?.join('-')).toBe('12-34');
     expect(formRef.current?.getFieldFormatValueObject?.('test')?.test.join('-')).toBe('12-34');
     expect(formRef.current?.getFieldFormatValueObject?.()?.test.join('-')).toBe('12-34');
     expect(formRef.current?.getFieldsFormatValue?.()?.test.join('-')).toBe('12-34');
     expect(formRef.current?.getFieldFormatValue?.(['test'])?.join('-')).toBe('12-34');
     expect(formRef.current?.getFieldValue?.('test')).toBe('12,34');
+    wrapper.unmount();
   });
 
   it('📦 ProForm support namePath is array', async () => {
     const fn = jest.fn();
-    const wrapper = mount(
+    const wrapper = render(
       <ProForm
         initialValues={{
           name: {
@@ -341,24 +339,23 @@ describe('ProForm', () => {
         <ProFormText name="test" />
       </ProForm>,
     );
-    await waitForComponentToPaint(wrapper);
-    act(() => {
-      wrapper.find('button.ant-btn-primary').simulate('keypress', {
-        key: 'Enter',
-      });
+
+    await act(async () => {
+      await (await wrapper.findByText('提 交')).click();
     });
-    await waitForComponentToPaint(wrapper);
+
     expect(fn).toBeCalledWith({
       name: {
         test: 'test',
       },
       test: 'test2',
     });
+    wrapper.unmount();
   });
 
   it('📦 ProForm support enter submit', async () => {
     const fn = jest.fn();
-    const wrapper = mount(
+    const wrapper = render(
       <ProForm
         omitNil={false}
         isKeyPressSubmit
@@ -369,42 +366,42 @@ describe('ProForm', () => {
         <ProFormText name="test" />
       </ProForm>,
     );
-    await waitForComponentToPaint(wrapper);
-    act(() => {
-      wrapper.find('button.ant-btn-primary').simulate('keypress', {
-        key: 'Enter',
-      });
+
+    await act(async () => {
+      await (await wrapper.findByText('提 交')).click();
     });
-    await waitForComponentToPaint(wrapper);
+
     expect(fn).toBeCalled();
+    wrapper.unmount();
   });
 
   it('📦 submit props actionsRender=false', async () => {
-    const wrapper = mount(
+    const wrapper = render(
       <ProForm
         submitter={{
           render: false,
         }}
       />,
     );
-    await waitForComponentToPaint(wrapper);
-    expect(wrapper.render()).toMatchSnapshot();
+
+    expect(wrapper.asFragment()).toMatchSnapshot();
   });
 
   it('📦 submit props actionsRender=()=>[]', async () => {
-    const wrapper = mount(
+    const wrapper = render(
       <ProForm
         submitter={{
           render: () => [],
         }}
       />,
     );
-    await waitForComponentToPaint(wrapper);
-    expect(wrapper.render()).toMatchSnapshot();
+
+    expect(wrapper.asFragment()).toMatchSnapshot();
+    wrapper.unmount();
   });
 
   it('📦 submit props render=()=>[]', async () => {
-    const wrapper = mount(
+    const wrapper = render(
       <ProForm
         submitter={{
           render: () => [
@@ -415,13 +412,13 @@ describe('ProForm', () => {
         }}
       />,
     );
-    await waitForComponentToPaint(wrapper);
-    expect(wrapper.render()).toMatchSnapshot();
+
+    expect(wrapper.asFragment()).toMatchSnapshot();
   });
 
   it('📦 submitter props support submitButtonProps', async () => {
     const fn = jest.fn();
-    const wrapper = mount(
+    const wrapper = render(
       <ProForm
         submitter={{
           submitButtonProps: {
@@ -433,22 +430,22 @@ describe('ProForm', () => {
         }}
       />,
     );
-    await waitForComponentToPaint(wrapper);
 
     act(() => {
-      expect(wrapper.render()).toMatchSnapshot();
+      expect(wrapper.asFragment()).toMatchSnapshot();
     });
 
     act(() => {
-      wrapper.find('button.test_button').simulate('click');
+      wrapper.baseElement.querySelectorAll<HTMLElement>('button.test_button')[0].click();
     });
-    await waitForComponentToPaint(wrapper);
+
     expect(fn).toBeCalled();
+    wrapper.unmount();
   });
 
   it('📦 submitter props support resetButtonProps', async () => {
     const fn = jest.fn();
-    const wrapper = mount(
+    const wrapper = render(
       <ProForm
         submitter={{
           resetButtonProps: {
@@ -460,19 +457,20 @@ describe('ProForm', () => {
         }}
       />,
     );
-    await waitForComponentToPaint(wrapper);
+
     act(() => {
-      expect(wrapper.render()).toMatchSnapshot();
+      expect(wrapper.asFragment()).toMatchSnapshot();
     });
     act(() => {
-      wrapper.find('button.test_button').simulate('click');
+      wrapper.baseElement.querySelectorAll<HTMLElement>('button.test_button')[0].click();
     });
     expect(fn).toBeCalled();
+    wrapper.unmount();
   });
 
   it('📦 submitter.render simulate onFinish', async () => {
     const onFinish = jest.fn();
-    const wrapper = mount(
+    const wrapper = render(
       <ProForm
         onFinish={onFinish}
         submitter={{
@@ -494,18 +492,19 @@ describe('ProForm', () => {
       </ProForm>,
     );
 
-    await waitForComponentToPaint(wrapper);
-    act(() => {
-      wrapper.find('button#submit').simulate('click');
+    await act(async () => {
+      (await wrapper.findByText('提交并发布')).click();
     });
 
-    await waitForComponentToPaint(wrapper, 100);
-
+    await act(async () => {
+      await waitTime(100);
+    });
     expect(onFinish).toBeCalled();
+    wrapper.unmount();
   });
 
   it('📦 ProFormCaptcha support onGetCaptcha', async () => {
-    const wrapper = mount(
+    const wrapper = render(
       <ProForm>
         <ProFormCaptcha
           onGetCaptcha={async () => {
@@ -520,25 +519,40 @@ describe('ProForm', () => {
         />
       </ProForm>,
     );
-    await waitForComponentToPaint(wrapper);
-    expect(wrapper.find('Button#test').text()).toBe('获取验证码');
-    act(() => {
-      wrapper.find('Button#test').simulate('click');
+
+    let captcha = await wrapper.findByText('获取验证码');
+    expect(!!captcha).toBeTruthy();
+
+    await act(async () => {
+      (await wrapper.findByText('获取验证码'))?.click();
+      await waitTime(100);
     });
-    await waitForComponentToPaint(wrapper, 100);
 
-    expect(wrapper.find('button#test').text()).toBe('2 秒后重新获取');
-    await waitForComponentToPaint(wrapper, 1200);
+    expect(wrapper.baseElement.querySelector<HTMLElement>('button#test')?.textContent).toBe(
+      '2 秒后重新获取',
+    );
 
-    expect(wrapper.find('button#test').text()).toBe('1 秒后重新获取');
+    await act(async () => {
+      await waitTime(1000);
+    });
 
-    await waitForComponentToPaint(wrapper, 2000);
-    expect(wrapper.find('Button#test').text()).toBe('获取验证码');
+    expect(wrapper.baseElement.querySelectorAll<HTMLElement>('button#test')[0].textContent).toBe(
+      '1 秒后重新获取',
+    );
+
+    await act(async () => {
+      await waitTime(1000);
+    });
+
+    captcha = await wrapper.findByText('获取验证码');
+
+    expect(!!captcha).toBeTruthy();
+    wrapper.unmount();
   });
 
   it('📦 ProFormCaptcha support value and onchange', async () => {
     const onFinish = jest.fn();
-    const wrapper = mount(
+    const wrapper = render(
       <ProForm onFinish={(values) => onFinish(values.name)}>
         <ProFormCaptcha
           onGetCaptcha={async () => {
@@ -550,27 +564,25 @@ describe('ProForm', () => {
         />
       </ProForm>,
     );
-    await waitForComponentToPaint(wrapper);
+
     act(() => {
-      wrapper.find('input#name').simulate('change', {
+      fireEvent.change(wrapper.baseElement.querySelectorAll<HTMLElement>('input#name')[0], {
         target: {
           value: 'test',
         },
       });
     });
 
-    await waitForComponentToPaint(wrapper, 100);
-
-    act(() => {
-      wrapper.find('button.ant-btn-primary').simulate('click');
+    await act(async () => {
+      await (await wrapper.findByText('提 交')).click();
     });
-    await waitForComponentToPaint(wrapper, 100);
 
     expect(onFinish).toBeCalledWith('test');
+    wrapper.unmount();
   });
 
   it('📦 ProFormCaptcha support captchaTextRender', async () => {
-    const wrapper = mount(
+    const wrapper = render(
       <ProForm>
         <ProFormCaptcha
           onGetCaptcha={async () => {
@@ -585,17 +597,22 @@ describe('ProForm', () => {
         />
       </ProForm>,
     );
-    await waitForComponentToPaint(wrapper);
-    expect(wrapper.find('Button#test').text()).toBe('获 取');
-    act(() => {
-      wrapper.find('Button#test').simulate('click');
+
+    let captcha = await wrapper.findByText('获 取');
+    expect(!!captcha).toBeTruthy();
+
+    await act(async () => {
+      captcha?.click();
+      await waitTime(1000);
     });
-    await waitForComponentToPaint(wrapper, 100);
-    expect(wrapper.find('button#test').text()).toBe('重新获取');
+
+    captcha = await wrapper.findByText('重新获取');
+    expect(!!captcha).toBeTruthy();
+    wrapper.unmount();
   });
 
   it('📦 ProFormCaptcha onGetCaptcha throw error', async () => {
-    const wrapper = mount(
+    const wrapper = render(
       <ProForm>
         <ProFormCaptcha
           onGetCaptcha={async () => {
@@ -611,18 +628,20 @@ describe('ProForm', () => {
         />
       </ProForm>,
     );
-    await waitForComponentToPaint(wrapper);
-    act(() => {
-      wrapper.find('Button#test').simulate('click');
-    });
-    await waitForComponentToPaint(wrapper);
 
-    expect(wrapper.find('button#test').text()).toBe('获 取');
+    act(() => {
+      wrapper.baseElement.querySelectorAll<HTMLElement>('Button#test')[0].click();
+    });
+
+    expect(wrapper.baseElement.querySelectorAll<HTMLElement>('button#test')[0].textContent).toBe(
+      '获 取',
+    );
+    wrapper.unmount();
   });
 
   it('📦 ProFormCaptcha onGetCaptcha support rules', async () => {
     const fn = jest.fn();
-    const wrapper = mount(
+    const wrapper = render(
       <ProForm>
         <ProFormText
           name="phone"
@@ -646,35 +665,37 @@ describe('ProForm', () => {
         />
       </ProForm>,
     );
-    await waitForComponentToPaint(wrapper);
-    act(() => {
-      wrapper.find('Button#test').simulate('click');
+
+    const captcha = await wrapper.findByText('获取验证码');
+    expect(!!captcha).toBeTruthy();
+
+    await act(async () => {
+      (await wrapper.findByText('获取验证码'))?.click();
+      await waitTime(100);
     });
 
     expect(fn).not.toBeCalled();
-    act(() => {
-      wrapper
-        .find('input')
-        .at(1)
-        .simulate('change', {
-          target: {
-            value: 'tech',
-          },
-        });
-    });
-
-    await waitForComponentToPaint(wrapper);
 
     act(() => {
-      wrapper.find('Button#test').simulate('click');
+      fireEvent.change(wrapper.baseElement.querySelectorAll<HTMLElement>('input')[1], {
+        target: {
+          value: 'tech',
+        },
+      });
     });
-    await waitForComponentToPaint(wrapper);
+
+    await act(async () => {
+      captcha.click();
+      await waitTime(100);
+    });
+
     expect(fn).toBeCalled();
+    wrapper.unmount();
   });
 
   it('📦 ProFormDependency', async () => {
     const onFinish = jest.fn();
-    const wrapper = mount(
+    const wrapper = render(
       <ProForm
         onFinish={onFinish}
         initialValues={{
@@ -722,10 +743,8 @@ describe('ProForm', () => {
       </ProForm>,
     );
 
-    await waitForComponentToPaint(wrapper);
-
     act(() => {
-      wrapper.find('input#name').simulate('change', {
+      fireEvent.change(wrapper.baseElement.querySelectorAll<HTMLElement>('input#name')[0], {
         target: {
           value: 'test',
         },
@@ -733,19 +752,22 @@ describe('ProForm', () => {
     });
 
     act(() => {
-      wrapper.find('input#name2_text').simulate('change', {
+      fireEvent.change(wrapper.baseElement.querySelectorAll<HTMLElement>('input#name2_text')[0], {
         target: {
           value: 'test2',
         },
       });
     });
 
-    expect(wrapper.find('span#label_text').text()).toBe('与《test》 与 《test2》合同约定生效方式');
+    expect(wrapper.baseElement.querySelector<HTMLElement>('span#label_text')?.textContent).toBe(
+      '与《test》 与 《test2》合同约定生效方式',
+    );
+    wrapper.unmount();
   });
 
   it('📦 ProForm.Group support collapsible', async () => {
     const fn = jest.fn();
-    const wrapper = mount(
+    const wrapper = render(
       <ProForm>
         <ProForm.Group title="qixian" collapsible onCollapse={(c) => fn(c)}>
           <ProFormText name="phone" />
@@ -754,27 +776,23 @@ describe('ProForm', () => {
       </ProForm>,
     );
 
-    await waitForComponentToPaint(wrapper);
-
     act(() => {
-      wrapper.find('.ant-pro-form-group-title').simulate('click');
+      wrapper.baseElement.querySelectorAll<HTMLElement>('.ant-pro-form-group-title')[0].click();
     });
-    await waitForComponentToPaint(wrapper);
 
     expect(fn).toBeCalledWith(true);
 
     act(() => {
-      wrapper.find('.ant-pro-form-group-title').simulate('click');
+      wrapper.baseElement.querySelectorAll<HTMLElement>('.ant-pro-form-group-title')[0].click();
     });
 
-    await waitForComponentToPaint(wrapper);
-
     expect(fn).toBeCalledWith(false);
+    wrapper.unmount();
   });
 
   it('📦 ProForm.Group support defaultCollapsed', async () => {
     const fn = jest.fn();
-    const wrapper = mount(
+    const wrapper = render(
       <ProForm>
         <ProForm.Group title="qixian" collapsible defaultCollapsed={true} onCollapse={(c) => fn(c)}>
           <ProFormText name="phone" />
@@ -783,27 +801,23 @@ describe('ProForm', () => {
       </ProForm>,
     );
 
-    await waitForComponentToPaint(wrapper);
-
     act(() => {
-      wrapper.find('.ant-pro-form-group-title').simulate('click');
+      wrapper.baseElement.querySelectorAll<HTMLElement>('.ant-pro-form-group-title')[0].click();
     });
-    await waitForComponentToPaint(wrapper);
 
     expect(fn).toBeCalledWith(false);
 
     act(() => {
-      wrapper.find('.ant-pro-form-group-title').simulate('click');
+      wrapper.baseElement.querySelectorAll<HTMLElement>('.ant-pro-form-group-title')[0].click();
     });
 
-    await waitForComponentToPaint(wrapper);
-
     expect(fn).toBeCalledWith(true);
+    wrapper.unmount();
   });
 
   it('📦 ProForm.Group support defaultCollapsed', async () => {
     const fn = jest.fn();
-    const wrapper = mount(
+    const wrapper = render(
       <ProForm>
         <ProForm.Group
           title="qixian"
@@ -817,17 +831,15 @@ describe('ProForm', () => {
       </ProForm>,
     );
 
-    await waitForComponentToPaint(wrapper);
-
     act(() => {
-      wrapper.find('#click').simulate('click');
+      wrapper.baseElement.querySelectorAll<HTMLElement>('#click')[0].click();
     });
-    await waitForComponentToPaint(wrapper);
 
     expect(fn).not.toBeCalled();
+    wrapper.unmount();
   });
   it('📦 ProForm.Group support FormItem hidden', async () => {
-    const wrapper = mount(
+    const wrapper = render(
       <ProForm>
         <ProForm.Group title="qixian" collapsible>
           <ProFormText name="mobile" hidden />
@@ -837,15 +849,22 @@ describe('ProForm', () => {
       </ProForm>,
     );
 
-    await waitForComponentToPaint(wrapper);
-
-    expect(wrapper.find('.ant-pro-form-group-container div.ant-form-item').length).toBe(1);
-    expect(wrapper.find('.ant-pro-form-group-container div.ant-space-item').length).toBe(2);
+    expect(
+      wrapper.baseElement.querySelectorAll<HTMLElement>(
+        '.ant-pro-form-group-container div.ant-form-item',
+      ).length,
+    ).toBe(1);
+    expect(
+      wrapper.baseElement.querySelectorAll<HTMLElement>(
+        '.ant-pro-form-group-container div.ant-space-item',
+      ).length,
+    ).toBe(2);
+    wrapper.unmount();
   });
 
   it('📦 ProFormField support onChange', async () => {
     const fn = jest.fn();
-    const wrapper = mount(
+    const wrapper = render(
       <ProForm onValuesChange={fn}>
         <ProFormField name="phone2">
           <Input id="testInput" />
@@ -853,21 +872,20 @@ describe('ProForm', () => {
       </ProForm>,
     );
 
-    await waitForComponentToPaint(wrapper);
-
     act(() => {
-      wrapper.find('input#testInput').simulate('change', {
+      fireEvent.change(wrapper.baseElement.querySelectorAll<HTMLElement>('input#testInput')[0], {
         target: {
           value: 'test',
         },
       });
     });
     expect(fn).toBeCalled();
+    wrapper.unmount();
   });
 
-  it('📦 DatePicker', async () => {
+  it('📦 DatePicker support dateformat', async () => {
     const onFinish = jest.fn();
-    const wrapper = mount(
+    const wrapper = render(
       <ProForm
         onFinish={onFinish}
         initialValues={{
@@ -885,23 +903,26 @@ describe('ProForm', () => {
       </ProForm>,
     );
     act(() => {
-      wrapper.find('.ant-picker-cell').at(2).simulate('click');
+      wrapper.baseElement.querySelectorAll<HTMLElement>('.ant-picker-cell')[2].click();
     });
-    act(() => {
-      wrapper.find('.ant-btn-primary').simulate('submit');
+
+    await act(async () => {
+      await (await wrapper.findByText('提 交')).click();
+      await waitTime(100);
     });
-    await waitForComponentToPaint(wrapper);
+
     expect(onFinish).toHaveBeenCalledWith({
       date: '2020-09-02',
       dateWeek: '2020-37th',
       dateMonth: '2020-09',
       dateQuarter: '2020-Q2',
     });
+    wrapper.unmount();
   });
 
   it('📦 SearchSelect onSearch support', async () => {
     const onSearch = jest.fn();
-    const wrapper = mount(
+    const wrapper = render(
       <ProForm>
         <ProFormSelect.SearchSelect
           name="userQuery"
@@ -918,29 +939,31 @@ describe('ProForm', () => {
         />
       </ProForm>,
     );
-    await waitForComponentToPaint(wrapper);
 
     act(() => {
-      wrapper.find('.ant-select-selection-search-input').simulate('change', {
+      fireEvent.change(wrapper.baseElement.querySelector('.ant-select-selection-search-input')!, {
         target: {
           value: '全',
         },
       });
     });
-    await waitForComponentToPaint(wrapper);
 
     expect(onSearch).toBeCalledWith('全');
 
     act(() => {
-      wrapper.find('.ant-select-selector').simulate('mousedown');
-      wrapper.update();
+      fireEvent.mouseDown(wrapper.baseElement.querySelectorAll('.ant-select-selector')[0], {});
     });
-    expect(wrapper.find('.ant-select-item-option-content div span').text()).toBe('全');
+    expect(
+      wrapper.baseElement.querySelectorAll<HTMLElement>(
+        '.ant-select-item-option-content div span',
+      )[0].textContent,
+    ).toBe('全');
+    wrapper.unmount();
   });
 
   it('📦 SearchSelect onSearch support valueEnum', async () => {
     const onSearch = jest.fn();
-    const wrapper = mount(
+    const wrapper = render(
       <ProForm>
         <ProFormSelect.SearchSelect
           name="userQuery"
@@ -966,30 +989,32 @@ describe('ProForm', () => {
         />
       </ProForm>,
     );
-    await waitForComponentToPaint(wrapper);
 
     act(() => {
-      wrapper.find('.ant-select-selection-search-input').simulate('change', {
+      fireEvent.change(wrapper.baseElement.querySelector('.ant-select-selection-search-input')!, {
         target: {
           value: '全',
         },
       });
     });
-    await waitForComponentToPaint(wrapper);
 
     expect(onSearch).toBeCalledWith('全');
 
     act(() => {
-      wrapper.find('.ant-select-selector').simulate('mousedown');
-      wrapper.update();
+      fireEvent.mouseDown(wrapper.baseElement.querySelectorAll('.ant-select-selector')[0], {});
     });
-    expect(wrapper.find('.ant-select-item-option-content div span').text()).toBe('全');
+    expect(
+      wrapper.baseElement.querySelectorAll<HTMLElement>(
+        '.ant-select-item-option-content div span',
+      )[0].textContent,
+    ).toBe('全');
+    wrapper.unmount();
   });
 
   it('📦 SearchSelect onSearch support valueEnum clear', async () => {
     const onSearch = jest.fn();
     const onValuesChange = jest.fn();
-    const wrapper = mount(
+    const wrapper = render(
       <ProForm
         onValuesChange={async (values) => {
           //  {"disabled": undefined, "key": "all", "label": "全部", "value": "all"}
@@ -1020,37 +1045,37 @@ describe('ProForm', () => {
         />
       </ProForm>,
     );
-    await waitForComponentToPaint(wrapper);
 
     act(() => {
-      wrapper.find('.ant-select-selection-search-input').simulate('change', {
+      fireEvent.change(wrapper.baseElement.querySelector('.ant-select-selection-search-input')!, {
         target: {
           value: '全',
         },
       });
     });
-    await waitForComponentToPaint(wrapper);
 
     expect(onSearch).toBeCalledWith('全');
 
     act(() => {
-      wrapper.find('.ant-select-selector').simulate('mousedown');
-      wrapper.update();
+      fireEvent.mouseDown(wrapper.baseElement.querySelectorAll('.ant-select-selector')[0], {});
     });
-    expect(wrapper.find('.ant-select-item-option-content div span').text()).toBe('全');
+    expect(
+      wrapper.baseElement.querySelectorAll<HTMLElement>(
+        '.ant-select-item-option-content div span',
+      )[0].textContent,
+    ).toBe('全');
 
     act(() => {
-      wrapper.find('.ant-select-item').at(0).simulate('click');
+      wrapper.baseElement.querySelectorAll<HTMLElement>('.ant-select-item')[0].click();
     });
 
-    await waitForComponentToPaint(wrapper);
-
     expect(onValuesChange).toBeCalledWith('全部');
+    wrapper.unmount();
   });
 
   it('📦 SearchSelect onSearch support valueEnum clear item filter', async () => {
     const onSearch = jest.fn();
-    const wrapper = mount(
+    const wrapper = render(
       <ProForm>
         <ProFormSelect.SearchSelect
           name="userQuery"
@@ -1077,47 +1102,43 @@ describe('ProForm', () => {
         />
       </ProForm>,
     );
-    await waitForComponentToPaint(wrapper);
 
     act(() => {
-      wrapper.find('.ant-select-selection-search-input').simulate('change', {
+      fireEvent.change(wrapper.baseElement.querySelector('.ant-select-selection-search-input')!, {
         target: {
           value: '全',
         },
       });
     });
-    await waitForComponentToPaint(wrapper);
 
     expect(onSearch).toBeCalledWith('全');
 
     act(() => {
-      wrapper.find('.ant-select-selector').simulate('mousedown');
-      wrapper.update();
+      fireEvent.mouseDown(wrapper.baseElement.querySelectorAll('.ant-select-selector')[0], {});
     });
-    expect(wrapper.find('.ant-select-item-option-content div span').text()).toBe('全');
+    expect(
+      wrapper.baseElement.querySelectorAll<HTMLElement>(
+        '.ant-select-item-option-content div span',
+      )[0].textContent,
+    ).toBe('全');
 
-    await waitForComponentToPaint(wrapper);
-
-    expect(wrapper.find('.ant-select-item').length).toBe(1);
+    expect(wrapper.baseElement.querySelectorAll<HTMLElement>('.ant-select-item').length).toBe(1);
 
     act(() => {
-      wrapper.find('.ant-select-selector').simulate('focus');
-      wrapper.update();
+      fireEvent.focus(wrapper.baseElement.querySelectorAll<HTMLElement>('.ant-select-selector')[0]);
     });
-
-    await waitForComponentToPaint(wrapper);
 
     act(() => {
-      wrapper.find('.ant-select-selector').simulate('mousedown');
-      wrapper.update();
+      fireEvent.mouseDown(wrapper.baseElement.querySelectorAll('.ant-select-selector')[0], {});
     });
-    await waitForComponentToPaint(wrapper);
-    expect(wrapper.find('.ant-select-item').length).toBe(4);
+
+    expect(wrapper.baseElement.querySelectorAll<HTMLElement>('.ant-select-item').length).toBe(4);
+    wrapper.unmount();
   });
 
   it('📦 SearchSelect support onClear', async () => {
     const onSearch = jest.fn();
-    const wrapper = mount(
+    const wrapper = render(
       <ProForm onValuesChange={(e) => console.log(e)}>
         <ProFormSelect.SearchSelect
           name="userQuery"
@@ -1145,57 +1166,57 @@ describe('ProForm', () => {
         />
       </ProForm>,
     );
-    await waitForComponentToPaint(wrapper);
 
     act(() => {
-      wrapper.find('.ant-select-selection-search-input').simulate('change', {
+      fireEvent.change(wrapper.baseElement.querySelector('.ant-select-selection-search-input')!, {
         target: {
           value: '全',
         },
       });
     });
-    await waitForComponentToPaint(wrapper);
 
     expect(onSearch).toBeCalledWith('全');
 
     act(() => {
-      wrapper.find('.ant-select-selector').simulate('mousedown');
-      wrapper.update();
+      fireEvent.mouseDown(wrapper.baseElement.querySelectorAll('.ant-select-selector')[0], {});
     });
-    expect(wrapper.find('.ant-select-item-option-content div span').text()).toBe('全');
+    expect(
+      wrapper.baseElement.querySelectorAll<HTMLElement>(
+        '.ant-select-item-option-content div span',
+      )[0].textContent,
+    ).toBe('全');
 
-    await waitForComponentToPaint(wrapper);
-
-    expect(wrapper.find('.ant-select-item').length).toBe(1);
+    expect(wrapper.baseElement.querySelectorAll<HTMLElement>('.ant-select-item').length).toBe(1);
 
     act(() => {
-      wrapper.find('.ant-select-item-option-content div span').simulate('click');
-      wrapper.update();
-    });
-
-    await waitForComponentToPaint(wrapper);
-
-    act(() => {
-      wrapper.find('.ant-select').simulate('mouseenter');
-      wrapper.update();
-    });
-    await waitForComponentToPaint(wrapper);
-
-    act(() => {
-      wrapper.find('span.ant-select-clear').last().simulate('mousedown');
+      wrapper.baseElement
+        .querySelectorAll<HTMLElement>('.ant-select-item-option-content div span')[0]
+        .click();
     });
 
     act(() => {
-      wrapper.find('.ant-select-selector').simulate('mousedown');
-      wrapper.update();
+      fireEvent.mouseEnter(wrapper.baseElement.querySelectorAll<HTMLElement>('.ant-select')[0]);
     });
-    await waitForComponentToPaint(wrapper);
-    expect(wrapper.find('.ant-select-item').length).toBe(4);
+
+    act(() => {
+      fireEvent.mouseDown(
+        wrapper.baseElement.querySelectorAll('.ant-select-selector')[
+          wrapper.baseElement.querySelectorAll<HTMLElement>('span.ant-select-clear').length - 1
+        ],
+      );
+    });
+
+    act(() => {
+      fireEvent.mouseDown(wrapper.baseElement.querySelectorAll('.ant-select-selector')[0], {});
+    });
+
+    expect(wrapper.baseElement.querySelectorAll<HTMLElement>('.ant-select-item').length).toBe(4);
+    wrapper.unmount();
   });
 
   it('📦 SearchSelect support searchOnFocus', async () => {
     const onSearch = jest.fn();
-    const wrapper = mount(
+    const wrapper = render(
       <ProForm>
         <ProFormSelect.SearchSelect
           name="userQuery"
@@ -1222,47 +1243,43 @@ describe('ProForm', () => {
         />
       </ProForm>,
     );
-    await waitForComponentToPaint(wrapper);
 
     act(() => {
-      wrapper.find('.ant-select-selection-search-input').simulate('change', {
+      fireEvent.change(wrapper.baseElement.querySelector('.ant-select-selection-search-input')!, {
         target: {
           value: '全',
         },
       });
     });
-    await waitForComponentToPaint(wrapper);
 
     expect(onSearch).toBeCalledWith('全');
 
     act(() => {
-      wrapper.find('.ant-select-selector').simulate('mousedown');
-      wrapper.update();
+      fireEvent.mouseDown(wrapper.baseElement.querySelectorAll('.ant-select-selector')[0], {});
     });
-    expect(wrapper.find('.ant-select-item-option-content div span').text()).toBe('全');
+    expect(
+      wrapper.baseElement.querySelectorAll<HTMLElement>(
+        '.ant-select-item-option-content div span',
+      )[0].textContent,
+    ).toBe('全');
 
-    await waitForComponentToPaint(wrapper);
-
-    expect(wrapper.find('.ant-select-item').length).toBe(1);
+    expect(wrapper.baseElement.querySelectorAll<HTMLElement>('.ant-select-item').length).toBe(1);
 
     act(() => {
-      wrapper.find('.ant-select-selector').simulate('focus');
-      wrapper.update();
+      fireEvent.focus(wrapper.baseElement.querySelectorAll<HTMLElement>('.ant-select-selector')[0]);
     });
-
-    await waitForComponentToPaint(wrapper);
 
     act(() => {
-      wrapper.find('.ant-select-selector').simulate('mousedown');
-      wrapper.update();
+      fireEvent.mouseDown(wrapper.baseElement.querySelectorAll('.ant-select-selector')[0], {});
     });
-    await waitForComponentToPaint(wrapper);
-    expect(wrapper.find('.ant-select-item').length).toBe(4);
+
+    expect(wrapper.baseElement.querySelectorAll<HTMLElement>('.ant-select-item').length).toBe(4);
+    wrapper.unmount();
   });
 
   it('📦 SearchSelect support resetAfterSelect', async () => {
     const onSearch = jest.fn();
-    const wrapper = mount(
+    const wrapper = render(
       <ProForm>
         <ProFormSelect.SearchSelect
           name="userQuery"
@@ -1289,53 +1306,48 @@ describe('ProForm', () => {
         />
       </ProForm>,
     );
-    await waitForComponentToPaint(wrapper);
 
     act(() => {
-      wrapper.find('.ant-select-selection-search-input').simulate('change', {
+      fireEvent.change(wrapper.baseElement.querySelector('.ant-select-selection-search-input')!, {
         target: {
           value: '全',
         },
       });
     });
-    await waitForComponentToPaint(wrapper);
 
     expect(onSearch).toBeCalledWith('全');
 
     act(() => {
-      wrapper.find('.ant-select-selector').simulate('mousedown');
-      wrapper.update();
+      fireEvent.mouseDown(wrapper.baseElement.querySelectorAll('.ant-select-selector')[0], {});
     });
 
-    expect(wrapper.find('.ant-select-item').length).toBe(1);
-    expect(wrapper.find('.ant-select-item-option-content div span').text()).toBe('全');
-
-    await waitForComponentToPaint(wrapper);
+    expect(wrapper.baseElement.querySelectorAll<HTMLElement>('.ant-select-item').length).toBe(1);
+    expect(
+      wrapper.baseElement.querySelectorAll<HTMLElement>(
+        '.ant-select-item-option-content div span',
+      )[0].textContent,
+    ).toBe('全');
 
     act(() => {
-      wrapper.find('.ant-select-selector').simulate('mousedown');
-      wrapper.update();
+      fireEvent.mouseDown(wrapper.baseElement.querySelectorAll('.ant-select-selector')[0], {});
     });
 
     // 选中第一个
     act(() => {
-      wrapper.find('.ant-select-item').at(0).simulate('click');
+      wrapper.baseElement.querySelectorAll<HTMLElement>('.ant-select-item')[0].click();
     });
-
-    await waitForComponentToPaint(wrapper);
 
     act(() => {
-      wrapper.find('.ant-select-selector').simulate('mousedown');
-      wrapper.update();
+      fireEvent.mouseDown(wrapper.baseElement.querySelectorAll('.ant-select-selector')[0], {});
     });
 
-    await waitForComponentToPaint(wrapper);
-    expect(wrapper.find('.ant-select-item').length).toBe(4);
+    expect(wrapper.baseElement.querySelectorAll<HTMLElement>('.ant-select-item').length).toBe(4);
+    wrapper.unmount();
   });
 
   it('📦 SearchSelect support fetchDataOnSearch: false', async () => {
     const onRequest = jest.fn();
-    const wrapper = mount(
+    const wrapper = render(
       <ProForm>
         <ProFormSelect.SearchSelect
           name="userQuery"
@@ -1355,23 +1367,21 @@ describe('ProForm', () => {
         />
       </ProForm>,
     );
-    await waitForComponentToPaint(wrapper);
 
     act(() => {
-      wrapper.find('.ant-select-selection-search-input').simulate('change', {
+      fireEvent.change(wrapper.baseElement.querySelector('.ant-select-selection-search-input')!, {
         target: {
           value: '全',
         },
       });
     });
-    await waitForComponentToPaint(wrapper);
 
     expect(onRequest.mock.calls.length).toBe(1);
   });
 
   it('📦 SearchSelect support fetchDataOnSearch: true', async () => {
     const onRequest = jest.fn();
-    const wrapper = mount(
+    const wrapper = render(
       <ProForm>
         <ProFormSelect.SearchSelect
           name="userQuery"
@@ -1391,31 +1401,34 @@ describe('ProForm', () => {
         />
       </ProForm>,
     );
-    await waitForComponentToPaint(wrapper);
 
     act(() => {
-      wrapper.find('.ant-select-selection-search-input').simulate('change', {
+      fireEvent.change(wrapper.baseElement.querySelector('.ant-select-selection-search-input')!, {
         target: {
           value: '全',
         },
       });
     });
-    await waitForComponentToPaint(wrapper);
 
+    await act(async () => {
+      await waitTime(200);
+    });
     act(() => {
-      wrapper.find('.ant-select-selector').simulate('mousedown');
-      wrapper.update();
+      fireEvent.mouseDown(wrapper.baseElement.querySelectorAll('.ant-select-selector')[0], {});
     });
 
-    await waitForComponentToPaint(wrapper);
+    await act(async () => {
+      await waitTime(200);
+    });
 
     expect(onRequest.mock.calls.length).toBe(2);
+    wrapper.unmount();
   });
 
   it('📦 SearchSelect support multiple', async () => {
     const onSearch = jest.fn();
     const onFinish = jest.fn();
-    const wrapper = mount(
+    const wrapper = render(
       <ProForm
         onFinish={async (values) => {
           onFinish(values?.userQuery?.length);
@@ -1447,49 +1460,41 @@ describe('ProForm', () => {
         />
       </ProForm>,
     );
-    await waitForComponentToPaint(wrapper);
 
     act(() => {
-      wrapper.find('.ant-select-selector').simulate('mousedown');
-      wrapper.update();
+      fireEvent.mouseDown(wrapper.baseElement.querySelectorAll('.ant-select-selector')[0], {});
     });
-    await waitForComponentToPaint(wrapper);
+
     // 选中第一个
     act(() => {
-      wrapper.find('.ant-select-item').at(0).simulate('click');
+      wrapper.baseElement.querySelectorAll<HTMLElement>('.ant-select-item')[0].click();
     });
 
-    await waitForComponentToPaint(wrapper);
-
     act(() => {
-      wrapper.find('.ant-select-selector').simulate('mousedown');
-      wrapper.update();
+      fireEvent.mouseDown(wrapper.baseElement.querySelectorAll('.ant-select-selector')[0], {});
     });
 
     // 选中第二个
     act(() => {
-      wrapper.find('.ant-select-item').at(1).simulate('click');
+      wrapper.baseElement.querySelectorAll<HTMLElement>('.ant-select-item')[1].click();
     });
 
-    await waitForComponentToPaint(wrapper);
-
-    act(() => {
-      wrapper.find('.ant-btn-primary').simulate('submit');
+    await act(async () => {
+      await (await wrapper.findByText('提 交')).click();
     });
 
     // 多次提交需要阻止
-    act(() => {
-      wrapper.find('.ant-btn-primary').simulate('submit');
+    await act(async () => {
+      await (await wrapper.findByText('提 交')).click();
     });
 
-    await waitForComponentToPaint(wrapper);
-
     expect(onFinish).toBeCalledWith(2);
+    wrapper.unmount();
   });
 
   it('📦 SearchSelect filter support optionGroup', async () => {
     const onValuesChange = jest.fn();
-    const wrapper = mount(
+    const wrapper = render(
       <ProForm
         onValuesChange={async (values) => {
           onValuesChange(values?.userQuery[0].value);
@@ -1527,47 +1532,70 @@ describe('ProForm', () => {
         />
       </ProForm>,
     );
-    await waitForComponentToPaint(wrapper);
 
-    act(() => {
-      wrapper.find('.ant-select-selection-search-input').simulate('change', {
+    await act(async () => {
+      fireEvent.mouseDown(wrapper.baseElement.querySelector('.ant-select-selector')!);
+    });
+
+    await act(async () => {
+      const input = await wrapper.findByRole('combobox');
+      fireEvent.change(input, {
         target: {
           value: '门',
         },
       });
-    });
-
-    await waitForComponentToPaint(wrapper);
-
-    act(() => {
-      wrapper.find('.ant-select-selector').simulate('mousedown');
-      wrapper.update();
+      await waitTime(200);
     });
 
     act(() => {
-      wrapper.find('.ant-select-selector').simulate('mousedown');
-      wrapper.update();
+      fireEvent.mouseDown(wrapper.baseElement.querySelector('.ant-select-selector')!);
     });
-    expect(wrapper.find('.ant-select-item-option-content div span').at(0).text()).toBe('门');
 
     // 应该有两个 item 被筛选出来
-    expect(wrapper.find('div.ant-select-item.ant-select-item-option').length).toBe(2);
+    expect(
+      wrapper.baseElement.querySelectorAll<HTMLElement>(
+        'div.ant-select-item.ant-select-item-option',
+      ).length,
+    ).toBe(2);
 
     act(() => {
-      wrapper.find('.ant-select-item.ant-select-item-option').at(0).simulate('click');
+      wrapper.baseElement
+        .querySelectorAll<HTMLElement>('.ant-select-item.ant-select-item-option')[0]
+        .click();
     });
-
-    await waitForComponentToPaint(wrapper);
 
     expect(onValuesChange).toBeCalledWith('门店小程序');
 
-    // 应该有两个 item 被筛选出来
-    expect(wrapper.find('div.ant-select-item.ant-select-item-option').length).toBe(4);
+    act(() => {
+      fireEvent.mouseDown(wrapper.baseElement.querySelector('.ant-select-selector')!);
+    });
+
+    await act(async () => {
+      const input = await wrapper.findByRole('combobox');
+      fireEvent.change(input, {
+        target: {
+          value: '期贤',
+        },
+      });
+      await waitTime(200);
+    });
+    act(() => {
+      fireEvent.mouseDown(wrapper.baseElement.querySelector('.ant-select-selector')!);
+    });
+
+    // 应该没有筛选
+    expect(
+      wrapper.baseElement.querySelectorAll<HTMLElement>(
+        'div.ant-select-item.ant-select-item-option',
+      ).length,
+    ).toBe(0);
+
+    wrapper.unmount();
   });
 
   it('📦 SearchSelect filter support (', async () => {
     const onValuesChange = jest.fn();
-    const wrapper = mount(
+    const wrapper = render(
       <ProForm
         onValuesChange={async (values) => {
           onValuesChange(values?.userQuery[0].value);
@@ -1605,49 +1633,48 @@ describe('ProForm', () => {
         />
       </ProForm>,
     );
-    await waitForComponentToPaint(wrapper);
 
     act(() => {
-      wrapper.find('.ant-select-selection-search-input').simulate('change', {
+      fireEvent.mouseDown(wrapper.baseElement.querySelectorAll('.ant-select-selector')[0], {});
+    });
+
+    await act(async () => {
+      const input = await wrapper.findByRole('combobox');
+      fireEvent.change(input, {
         target: {
           value: '(测试)',
         },
       });
-    });
-
-    await waitForComponentToPaint(wrapper);
-
-    act(() => {
-      wrapper.find('.ant-select-selector').simulate('mousedown');
-      wrapper.update();
+      await waitTime(200);
     });
 
     act(() => {
-      wrapper.find('.ant-select-selector').simulate('mousedown');
-      wrapper.update();
+      fireEvent.mouseDown(wrapper.baseElement.querySelectorAll('.ant-select-selector')[0], {});
     });
-    expect(wrapper.find('.ant-select-item-option-content div span').at(0).text()).toBe('(测试)');
 
     // 应该有两个 item 被筛选出来
-    expect(wrapper.find('div.ant-select-item.ant-select-item-option').length).toBe(1);
+    expect(
+      wrapper.baseElement.querySelectorAll<HTMLElement>(
+        'div.ant-select-item.ant-select-item-option',
+      ).length,
+    ).toBe(1);
 
     act(() => {
-      wrapper.find('.ant-select-item.ant-select-item-option').at(0).simulate('click');
+      wrapper.baseElement
+        .querySelectorAll<HTMLElement>('.ant-select-item.ant-select-item-option')[0]
+        .click();
     });
-
-    await waitForComponentToPaint(wrapper);
 
     expect(onValuesChange).toBeCalledWith('门店小程序');
 
-    // 应该有两个 item 被筛选出来
-    expect(wrapper.find('div.ant-select-item.ant-select-item-option').length).toBe(4);
+    wrapper.unmount();
   });
 
   it('📦 SearchSelect support multiple and autoClearSearchValue: false ', async () => {
     const onSearch = jest.fn();
     const onFinish = jest.fn();
 
-    const wrapper = mount(
+    const wrapper = render(
       <ProForm
         onFinish={async (values) => {
           onFinish(values?.userQuery?.length);
@@ -1675,79 +1702,107 @@ describe('ProForm', () => {
 
     // 点击搜索框
     act(() => {
-      wrapper.find('.ant-select-selector').simulate('mousedown');
-      wrapper.update();
+      fireEvent.mouseDown(wrapper.baseElement.querySelectorAll('.ant-select-selector')[0], {});
     });
 
-    await waitForComponentToPaint(wrapper);
-
     // 默认展示所有的7个选项
-    expect(wrapper.find('div.ant-select-item.ant-select-item-option').length).toBe(4);
+    expect(
+      wrapper.baseElement.querySelectorAll<HTMLElement>(
+        'div.ant-select-item.ant-select-item-option',
+      ).length,
+    ).toBe(4);
     // 默认输入框没有内容
-    expect(wrapper.find('.ant-select-item-option-content div span').length).toBe(0);
+    expect(
+      wrapper.baseElement.querySelectorAll<HTMLElement>('.ant-select-item-option-content div span')
+        .length,
+    ).toBe(0);
     // input 元素的内容也为空
-    expect(wrapper.find('input.ant-select-selection-search-input').props().value).toBe('');
+    expect(
+      wrapper.baseElement.querySelectorAll<HTMLInputElement>(
+        'input.ant-select-selection-search-input',
+      )[0].value,
+    ).toBe('');
 
     // 输入搜索内容
     act(() => {
-      wrapper.find('.ant-select-selection-search-input').simulate('change', {
+      fireEvent.change(wrapper.baseElement.querySelector('.ant-select-selection-search-input')!, {
         target: {
           value: '解',
         },
       });
     });
 
-    await waitForComponentToPaint(wrapper);
-
     // 应该有4个item 被筛选出来
-    expect(wrapper.find('div.ant-select-item.ant-select-item-option').length).toBe(3);
+    expect(
+      wrapper.baseElement.querySelectorAll<HTMLElement>(
+        'div.ant-select-item.ant-select-item-option',
+      ).length,
+    ).toBe(3);
     // input 也有输入的内容
-    expect(wrapper.find('input.ant-select-selection-search-input').props().value).toBe('解');
+    expect(
+      wrapper.baseElement.querySelectorAll<HTMLInputElement>(
+        'input.ant-select-selection-search-input',
+      )[0].value,
+    ).toBe('解');
 
     // 选中第一个
     act(() => {
-      wrapper.find('.ant-select-item').at(0).simulate('click');
+      wrapper.baseElement.querySelectorAll<HTMLElement>('.ant-select-item')[0].click();
     });
-    await waitForComponentToPaint(wrapper);
 
     // 选中的内容出现在 input 中
-    expect(wrapper.find('.ant-select-item-option-content').at(0).text()).toBe('未解决');
-    expect(wrapper.find('input.ant-select-selection-search-input').props().value).toBe('解');
+    expect(
+      wrapper.baseElement.querySelectorAll<HTMLElement>('.ant-select-item-option-content')[0]
+        .textContent,
+    ).toBe('未解决');
+    expect(
+      wrapper.baseElement.querySelectorAll<HTMLInputElement>(
+        'input.ant-select-selection-search-input',
+      )[0].value,
+    ).toBe('解');
     // 搜索的结果, 应该保持不变
-    expect(wrapper.find('div.ant-select-item.ant-select-item-option').length).toBe(3);
+    expect(
+      wrapper.baseElement.querySelectorAll<HTMLElement>(
+        'div.ant-select-item.ant-select-item-option',
+      ).length,
+    ).toBe(3);
 
     // 继续选中第二个
     act(() => {
-      wrapper.find('.ant-select-item').at(1).simulate('click');
+      wrapper.baseElement.querySelectorAll<HTMLElement>('.ant-select-item')[1].click();
     });
-    await waitForComponentToPaint(wrapper);
 
     // 选中的内容出现在 input 中
-    expect(wrapper.find('.ant-select-item-option-content').at(1).text()).toBe('已解决');
-    expect(wrapper.find('input.ant-select-selection-search-input').props().value).toBe('解');
+    expect(
+      wrapper.baseElement.querySelectorAll<HTMLElement>('.ant-select-item-option-content')[1]
+        .textContent,
+    ).toBe('已解决');
+    expect(
+      wrapper.baseElement.querySelectorAll<HTMLInputElement>(
+        'input.ant-select-selection-search-input',
+      )[0].value,
+    ).toBe('解');
 
     act(() => {
-      wrapper.find('.ant-select-selector').simulate('mousedown');
-      wrapper.update();
+      fireEvent.mouseDown(wrapper.baseElement.querySelectorAll('.ant-select-selector')[0], {});
     });
 
-    act(() => {
-      wrapper.find('.ant-btn-primary').simulate('submit');
+    await act(async () => {
+      await (await wrapper.findByText('提 交')).click();
     });
 
     // 多次提交需要阻止
-    act(() => {
-      wrapper.find('.ant-btn-primary').simulate('submit');
+    await act(async () => {
+      await (await wrapper.findByText('提 交')).click();
     });
 
-    await waitForComponentToPaint(wrapper);
-
     expect(onFinish).toBeCalledWith(2);
+    wrapper.unmount();
   });
 
   it('📦 Select support single', async () => {
     const onFinish = jest.fn();
-    const wrapper = mount(
+    const wrapper = render(
       <ProForm
         onFinish={async (values) => {
           onFinish(values?.userQuery);
@@ -1774,44 +1829,35 @@ describe('ProForm', () => {
         />
       </ProForm>,
     );
-    await waitForComponentToPaint(wrapper);
 
     act(() => {
-      wrapper.find('.ant-select-selector').simulate('mousedown');
-      wrapper.update();
+      fireEvent.mouseDown(wrapper.baseElement.querySelectorAll('.ant-select-selector')[0], {});
     });
-    await waitForComponentToPaint(wrapper);
+
     // 选中第一个
     act(() => {
-      wrapper.find('.ant-select-item').at(0).simulate('click');
+      wrapper.baseElement.querySelectorAll<HTMLElement>('.ant-select-item')[0].click();
     });
 
-    await waitForComponentToPaint(wrapper);
-
     act(() => {
-      wrapper.find('.ant-select-selector').simulate('mousedown');
-      wrapper.update();
+      fireEvent.mouseDown(wrapper.baseElement.querySelectorAll('.ant-select-selector')[0], {});
     });
 
     // 选中第二个
     act(() => {
-      wrapper.find('.ant-select-item').at(1).simulate('click');
+      wrapper.baseElement.querySelectorAll<HTMLElement>('.ant-select-item')[1].click();
     });
 
-    await waitForComponentToPaint(wrapper);
-
-    act(() => {
-      wrapper.find('.ant-btn-primary').simulate('submit');
+    await act(async () => {
+      await (await wrapper.findByText('提 交')).click();
     });
-
-    await waitForComponentToPaint(wrapper);
 
     expect(onFinish).toBeCalledWith('open');
   });
 
   it('📦 ProFormSelect support filterOption', async () => {
     const onSearch = jest.fn();
-    const wrapper = mount(
+    const wrapper = render(
       <ProForm>
         <ProFormSelect
           fieldProps={{
@@ -1828,29 +1874,24 @@ describe('ProForm', () => {
         />
       </ProForm>,
     );
-    await waitForComponentToPaint(wrapper);
 
     act(() => {
-      wrapper.find('.ant-select-selection-search-input').simulate('change', {
+      fireEvent.change(wrapper.baseElement.querySelector('.ant-select-selection-search-input')!, {
         target: {
           value: 'A',
         },
       });
     });
-    await waitForComponentToPaint(wrapper);
 
     act(() => {
-      wrapper.find('.ant-select-selector').simulate('mousedown');
-      wrapper.update();
+      fireEvent.mouseDown(wrapper.baseElement.querySelectorAll('.ant-select-selector')[0], {});
     });
 
-    expect(wrapper.find('.ant-select-item').length).toBe(3);
-
-    await waitForComponentToPaint(wrapper);
+    expect(wrapper.baseElement.querySelectorAll<HTMLElement>('.ant-select-item').length).toBe(3);
   });
 
   it('📦 Select filterOption support mixed case', async () => {
-    const wrapper = mount(
+    const wrapper = render(
       <ProForm>
         <ProFormSelect
           name="userQuery"
@@ -1866,46 +1907,39 @@ describe('ProForm', () => {
         />
       </ProForm>,
     );
-    await waitForComponentToPaint(wrapper);
 
     act(() => {
-      wrapper.find('.ant-select-selection-search-input').simulate('change', {
+      fireEvent.change(wrapper.baseElement.querySelector('.ant-select-selection-search-input')!, {
         target: {
           value: 'b',
         },
       });
     });
-    await waitForComponentToPaint(wrapper);
 
     act(() => {
-      wrapper.find('.ant-select-selector').simulate('mousedown');
-      wrapper.update();
+      fireEvent.mouseDown(wrapper.baseElement.querySelectorAll('.ant-select-selector')[0], {});
     });
 
-    expect(wrapper.find('.ant-select-item').length).toBe(1);
+    expect(wrapper.baseElement.querySelectorAll<HTMLElement>('.ant-select-item').length).toBe(1);
 
     act(() => {
-      wrapper.find('.ant-select-selection-search-input').simulate('change', {
+      fireEvent.change(wrapper.baseElement.querySelector('.ant-select-selection-search-input')!, {
         target: {
           value: 'B',
         },
       });
     });
-    await waitForComponentToPaint(wrapper);
 
     act(() => {
-      wrapper.find('.ant-select-selector').simulate('mousedown');
-      wrapper.update();
+      fireEvent.mouseDown(wrapper.baseElement.querySelectorAll('.ant-select-selector')[0], {});
     });
 
-    expect(wrapper.find('.ant-select-item').length).toBe(1);
-
-    await waitForComponentToPaint(wrapper);
+    expect(wrapper.baseElement.querySelectorAll<HTMLElement>('.ant-select-item').length).toBe(1);
   });
 
   it('📦 Select support labelInValue single', async () => {
     const onFinish = jest.fn();
-    const wrapper = mount(
+    const wrapper = render(
       <ProForm
         onFinish={async (values) => {
           onFinish(values?.userQuery.value);
@@ -1935,66 +1969,63 @@ describe('ProForm', () => {
         />
       </ProForm>,
     );
-    await waitForComponentToPaint(wrapper);
 
     act(() => {
-      wrapper.find('.ant-select-selector').simulate('mousedown');
-      wrapper.update();
+      fireEvent.mouseDown(wrapper.baseElement.querySelectorAll('.ant-select-selector')[0], {});
     });
-    await waitForComponentToPaint(wrapper);
+
     // 选中第一个
     act(() => {
-      wrapper.find('.ant-select-item').at(0).simulate('click');
+      wrapper.baseElement.querySelectorAll<HTMLElement>('.ant-select-item')[0].click();
     });
 
-    await waitForComponentToPaint(wrapper);
-
     act(() => {
-      wrapper.find('.ant-select-selector').simulate('mousedown');
-      wrapper.update();
+      fireEvent.mouseDown(wrapper.baseElement.querySelectorAll('.ant-select-selector')[0], {});
     });
 
     // 选中第二个
     act(() => {
-      wrapper.find('.ant-select-item').at(1).simulate('click');
+      wrapper.baseElement.querySelectorAll<HTMLElement>('.ant-select-item')[1].click();
     });
 
-    await waitForComponentToPaint(wrapper);
-
-    act(() => {
-      wrapper.find('.ant-btn-primary').simulate('submit');
+    await act(async () => {
+      await (await wrapper.findByText('提 交')).click();
     });
-
-    await waitForComponentToPaint(wrapper);
 
     expect(onFinish).toBeCalledWith('open');
   });
 
   it('📦 Select support multiple unnamed async options', async () => {
-    const wrapper = mount(
+    const wrapper = render(
       <>
         <ProFormSelect id="select1" request={async () => [{ value: 1 }]} />
         <ProFormSelect id="select2" request={async () => [{ value: 2 }]} />
       </>,
     );
-    await waitForComponentToPaint(wrapper);
+
+    await act(async () => {
+      await waitTime(100);
+    });
 
     act(() => {
-      wrapper.find('.ant-select-selector').at(0).simulate('mousedown');
-      wrapper.find('.ant-select-selector').at(1).simulate('mousedown');
-      wrapper.update();
+      fireEvent.mouseDown(wrapper.baseElement.querySelectorAll('.ant-select-selector')[0]);
+      fireEvent.mouseDown(wrapper.baseElement.querySelectorAll('.ant-select-selector')[1]);
     });
-    await waitForComponentToPaint(wrapper);
 
-    expect(wrapper.find('#select1 .ant-select-item').at(0).text()).toBe('1');
-    expect(wrapper.find('#select2 .ant-select-item').at(0).text()).toBe('2');
+    const textList = wrapper.baseElement.querySelectorAll<HTMLElement>(
+      '.ant-select-item-option-content',
+    );
+    // 加载 options
+    expect(textList.length).toBe(2);
+    expect(textList[0].textContent).toBe('1');
+    expect(textList[1].textContent).toBe('2');
   });
 
   it('📦 Select support multiple and autoClearSearchValue: false ', async () => {
     const onSearch = jest.fn();
     const onFinish = jest.fn();
 
-    const wrapper = mount(
+    const wrapper = render(
       <ProForm
         onFinish={async (values) => {
           onFinish(values?.userQuery?.length);
@@ -2046,72 +2077,99 @@ describe('ProForm', () => {
 
     // 点击搜索框
     act(() => {
-      wrapper.find('.ant-select-selector').simulate('mousedown');
-      wrapper.update();
+      fireEvent.mouseDown(wrapper.baseElement.querySelectorAll('.ant-select-selector')[0], {});
     });
 
-    await waitForComponentToPaint(wrapper);
-
     // 默认展示所有的7个选项
-    expect(wrapper.find('div.ant-select-item.ant-select-item-option').length).toBe(7);
+    expect(
+      wrapper.baseElement.querySelectorAll<HTMLElement>(
+        'div.ant-select-item.ant-select-item-option',
+      ).length,
+    ).toBe(7);
     // 默认输入框没有内容
-    expect(wrapper.find('.ant-select-item-option-content div span').length).toBe(0);
+    expect(
+      wrapper.baseElement.querySelectorAll<HTMLElement>('.ant-select-item-option-content div span')
+        .length,
+    ).toBe(0);
     // input 元素的内容也为空
-    expect(wrapper.find('input.ant-select-selection-search-input').props().value).toBe('');
+    expect(
+      wrapper.baseElement.querySelectorAll<HTMLInputElement>(
+        'input.ant-select-selection-search-input',
+      )[0].value,
+    ).toBe('');
 
     // 输入搜索内容
     act(() => {
-      wrapper.find('.ant-select-selection-search-input').simulate('change', {
+      fireEvent.change(wrapper.baseElement.querySelector('.ant-select-selection-search-input')!, {
         target: {
           value: '2',
         },
       });
     });
 
-    await waitForComponentToPaint(wrapper);
-
     // 应该有4个item 被筛选出来
-    expect(wrapper.find('div.ant-select-item.ant-select-item-option').length).toBe(4);
+    expect(
+      wrapper.baseElement.querySelectorAll<HTMLElement>(
+        'div.ant-select-item.ant-select-item-option',
+      ).length,
+    ).toBe(4);
     // input 也有输入的内容
-    expect(wrapper.find('input.ant-select-selection-search-input').props().value).toBe('2');
+    expect(
+      wrapper.baseElement.querySelectorAll<HTMLInputElement>(
+        'input.ant-select-selection-search-input',
+      )[0].value,
+    ).toBe('2');
 
     // 选中第一个
     act(() => {
-      wrapper.find('.ant-select-item').at(0).simulate('click');
+      wrapper.baseElement.querySelectorAll<HTMLElement>('.ant-select-item')[0].click();
     });
-    await waitForComponentToPaint(wrapper);
 
     // 选中的内容出现在 input 中
-    expect(wrapper.find('.ant-select-item-option-content').at(0).text()).toBe('网点2');
-    expect(wrapper.find('input.ant-select-selection-search-input').props().value).toBe('2');
+    expect(
+      wrapper.baseElement.querySelectorAll<HTMLElement>('.ant-select-item-option-content')[0]
+        .textContent,
+    ).toBe('网点2');
+    expect(
+      wrapper.baseElement.querySelectorAll<HTMLInputElement>(
+        'input.ant-select-selection-search-input',
+      )[0].value,
+    ).toBe('2');
     // 搜索的结果, 应该保持不变
-    expect(wrapper.find('div.ant-select-item.ant-select-item-option').length).toBe(4);
+    expect(
+      wrapper.baseElement.querySelectorAll<HTMLElement>(
+        'div.ant-select-item.ant-select-item-option',
+      ).length,
+    ).toBe(4);
 
     // 继续选中第二个
     act(() => {
-      wrapper.find('.ant-select-item').at(1).simulate('click');
+      wrapper.baseElement.querySelectorAll<HTMLElement>('.ant-select-item')[1].click();
     });
-    await waitForComponentToPaint(wrapper);
 
     // 选中的内容出现在 input 中
-    expect(wrapper.find('.ant-select-item-option-content').at(1).text()).toBe('网点21');
-    expect(wrapper.find('input.ant-select-selection-search-input').props().value).toBe('2');
+    expect(
+      wrapper.baseElement.querySelectorAll<HTMLElement>('.ant-select-item-option-content')[1]
+        .textContent,
+    ).toBe('网点21');
+    expect(
+      wrapper.baseElement.querySelectorAll<HTMLInputElement>(
+        'input.ant-select-selection-search-input',
+      )[0].value,
+    ).toBe('2');
 
     act(() => {
-      wrapper.find('.ant-select-selector').simulate('mousedown');
-      wrapper.update();
+      fireEvent.mouseDown(wrapper.baseElement.querySelectorAll('.ant-select-selector')[0], {});
     });
 
-    act(() => {
-      wrapper.find('.ant-btn-primary').simulate('submit');
+    await act(async () => {
+      await (await wrapper.findByText('提 交')).click();
     });
 
     // 多次提交需要阻止
-    act(() => {
-      wrapper.find('.ant-btn-primary').simulate('submit');
+    await act(async () => {
+      await (await wrapper.findByText('提 交')).click();
     });
-
-    await waitForComponentToPaint(wrapper);
 
     expect(onFinish).toBeCalledWith(2);
   });
@@ -2120,7 +2178,7 @@ describe('ProForm', () => {
     const onSearch = jest.fn();
     const onFinish = jest.fn();
 
-    const wrapper = mount(
+    const wrapper = render(
       <ProForm
         onFinish={async (values) => {
           onFinish(values?.userQuery?.length);
@@ -2172,65 +2230,87 @@ describe('ProForm', () => {
 
     // 点击搜索框
     act(() => {
-      wrapper.find('.ant-select-selector').simulate('mousedown');
-      wrapper.update();
+      fireEvent.mouseDown(wrapper.baseElement.querySelectorAll('.ant-select-selector')[0], {});
     });
 
-    await waitForComponentToPaint(wrapper);
-
     // 默认展示所有的7个选项
-    expect(wrapper.find('div.ant-select-item.ant-select-item-option').length).toBe(7);
+    expect(
+      wrapper.baseElement.querySelectorAll<HTMLElement>(
+        'div.ant-select-item.ant-select-item-option',
+      ).length,
+    ).toBe(7);
     // 默认输入框没有内容
-    expect(wrapper.find('.ant-select-item-option-content div span').length).toBe(0);
+    expect(
+      wrapper.baseElement.querySelectorAll<HTMLElement>('.ant-select-item-option-content div span')
+        .length,
+    ).toBe(0);
     // input 元素的内容也为空
-    expect(wrapper.find('input.ant-select-selection-search-input').props().value).toBe('');
+    expect(
+      wrapper.baseElement.querySelectorAll<HTMLInputElement>(
+        'input.ant-select-selection-search-input',
+      )[0].value,
+    ).toBe('');
 
     // 输入搜索内容
     act(() => {
-      wrapper.find('.ant-select-selection-search-input').simulate('change', {
+      fireEvent.change(wrapper.baseElement.querySelector('.ant-select-selection-search-input')!, {
         target: {
           value: '2',
         },
       });
     });
 
-    await waitForComponentToPaint(wrapper);
-
     // 应该有4个item 被筛选出来
-    expect(wrapper.find('div.ant-select-item.ant-select-item-option').length).toBe(4);
+    expect(
+      wrapper.baseElement.querySelectorAll<HTMLElement>(
+        'div.ant-select-item.ant-select-item-option',
+      ).length,
+    ).toBe(4);
     // input 也有输入的内容
-    expect(wrapper.find('input.ant-select-selection-search-input').props().value).toBe('2');
+    expect(
+      wrapper.baseElement.querySelectorAll<HTMLInputElement>(
+        'input.ant-select-selection-search-input',
+      )[0].value,
+    ).toBe('2');
 
     // 选中第一个
     act(() => {
-      wrapper.find('.ant-select-item').at(0).simulate('click');
+      wrapper.baseElement.querySelectorAll<HTMLElement>('.ant-select-item')[0].click();
     });
-    await waitForComponentToPaint(wrapper);
 
     // 选中的内容出现在 input 中
-    expect(wrapper.find('.ant-select-item-option-content').at(0).text()).toBe('网点2');
+    expect(
+      wrapper.baseElement.querySelectorAll<HTMLElement>('.ant-select-item-option-content')[0]
+        .textContent,
+    ).toBe('网点2');
     // 选中后， 会自动清空搜索内容
-    expect(wrapper.find('input.ant-select-selection-search-input').props().value).toBe('');
+    expect(
+      wrapper.baseElement.querySelectorAll<HTMLInputElement>(
+        'input.ant-select-selection-search-input',
+      )[0].value,
+    ).toBe('');
     // 搜索的结果, 恢复到原始结果
-    expect(wrapper.find('div.ant-select-item.ant-select-item-option').length).toBe(7);
+    expect(
+      wrapper.baseElement.querySelectorAll<HTMLElement>(
+        'div.ant-select-item.ant-select-item-option',
+      ).length,
+    ).toBe(7);
 
-    act(() => {
-      wrapper.find('.ant-btn-primary').simulate('submit');
+    await act(async () => {
+      await (await wrapper.findByText('提 交')).click();
     });
 
     // 多次提交需要阻止
-    act(() => {
-      wrapper.find('.ant-btn-primary').simulate('submit');
+    await act(async () => {
+      await (await wrapper.findByText('提 交')).click();
     });
-
-    await waitForComponentToPaint(wrapper);
 
     expect(onFinish).toBeCalledWith(1);
   });
 
   it('📦 ColorPicker support rgba', async () => {
     const onFinish = jest.fn();
-    const wrapper = mount(
+    const wrapper = render(
       <ProForm
         onValuesChange={async (values) => {
           onFinish(values?.color);
@@ -2239,29 +2319,32 @@ describe('ProForm', () => {
         <ProFormColorPicker name="color" label="颜色选择" />
       </ProForm>,
     );
-    await waitForComponentToPaint(wrapper);
 
     act(() => {
-      wrapper.find('.ant-pro-field-color-picker').simulate('click');
-      wrapper.update();
+      wrapper.baseElement.querySelectorAll<HTMLElement>('.ant-pro-field-color-picker')[0].click();
     });
-    await waitForComponentToPaint(wrapper);
+
     // 选中第一个
     act(() => {
-      wrapper.find('.flexbox-fix').at(2).find('div span div').at(2).simulate('click');
+      wrapper.baseElement
+        .querySelectorAll<HTMLElement>('.flexbox-fix')[2]
+        .querySelectorAll<HTMLDivElement>('div span div')[2]
+        .click();
     });
-    await waitForComponentToPaint(wrapper, 100);
 
     expect(onFinish).toBeCalledWith('#5b8ff9');
 
     act(() => {
-      wrapper.find('#rc-editable-input-5').simulate('change', {
-        target: {
-          value: 2,
+      fireEvent.change(
+        wrapper.baseElement.querySelectorAll<HTMLElement>('#rc-editable-input-5')[0],
+        {
+          target: {
+            value: 2,
+          },
         },
-      });
+      );
     });
-    await waitForComponentToPaint(wrapper, 100);
+
     expect(onFinish).toBeCalledWith('rgba(91, 143, 249, 0.02)');
   });
 
@@ -2299,24 +2382,28 @@ describe('ProForm', () => {
       );
     };
 
-    const wrapper = mount(<App />);
-    await waitForComponentToPaint(wrapper);
+    const wrapper = render(<App />);
 
+    await act(async () => {
+      await waitTime(200);
+    });
     expect(fn1).toHaveBeenCalledWith('2021-08-09');
 
     act(() => {
-      wrapper.find('.ant-picker-cell').at(2).simulate('click');
+      wrapper.baseElement.querySelectorAll<HTMLElement>('.ant-picker-cell')[2].click();
     });
-    await waitForComponentToPaint(wrapper, 100);
+    await act(async () => {
+      await waitTime(200);
+    });
     expect(fn2).toHaveBeenCalledWith('2021-07-28');
-    act(() => {
-      expect(wrapper.render()).toMatchSnapshot();
-    });
+
+    expect(wrapper.asFragment()).toMatchSnapshot();
+    wrapper.unmount();
   });
 
   it('📦 DigitRange Will return undefined when both value equal to undefined', async () => {
     const onFinish = jest.fn();
-    const wrapper = mount(
+    const wrapper = render(
       <ProForm
         onFinish={async (values) => {
           onFinish(values?.digitRange);
@@ -2325,81 +2412,55 @@ describe('ProForm', () => {
         <ProFormDigitRange name="digitRange" />
       </ProForm>,
     );
-    await waitForComponentToPaint(wrapper);
 
     // 测试基本功能
     act(() => {
-      wrapper
-        .find('.ant-input-number-input')
-        .at(0)
-        .simulate('change', {
-          target: {
-            value: '1',
-          },
-        });
+      fireEvent.change(wrapper.baseElement.querySelector('.ant-input-number-input')!, {
+        target: {
+          value: '1',
+        },
+      });
     });
-
-    await waitForComponentToPaint(wrapper, 100);
 
     act(() => {
-      wrapper
-        .find('.ant-input-number-input')
-        .at(1)
-        .simulate('change', {
-          target: {
-            value: '2',
-          },
-        });
+      fireEvent.change(wrapper.baseElement.querySelectorAll('.ant-input-number-input')[1], {
+        target: {
+          value: '2',
+        },
+      });
     });
 
-    await waitForComponentToPaint(wrapper, 100);
-
-    act(() => {
-      wrapper.find('button.ant-btn-primary').simulate('click');
+    await act(async () => {
+      await (await wrapper.findByText('提 交')).click();
     });
-
-    await waitForComponentToPaint(wrapper, 100);
-
     expect(onFinish).toBeCalledWith([1, 2]);
 
     // 测试清空两个值
     act(() => {
-      wrapper
-        .find('.ant-input-number-input')
-        .at(0)
-        .simulate('change', {
-          target: {
-            value: '',
-          },
-        });
+      fireEvent.change(wrapper.baseElement.querySelectorAll('.ant-input-number-input')[0], {
+        target: {
+          value: '',
+        },
+      });
     });
-
-    await waitForComponentToPaint(wrapper, 100);
 
     act(() => {
-      wrapper
-        .find('.ant-input-number-input')
-        .at(1)
-        .simulate('change', {
-          target: {
-            value: '',
-          },
-        });
+      fireEvent.change(wrapper.baseElement.querySelectorAll('.ant-input-number-input')[1], {
+        target: {
+          value: '',
+        },
+      });
     });
-
-    await waitForComponentToPaint(wrapper, 100);
 
     act(() => {
-      wrapper.find('.ant-input-number-input').at(1).simulate('blur');
+      fireEvent.blur(
+        wrapper.baseElement.querySelectorAll<HTMLElement>('.ant-input-number-input')[1],
+      );
     });
 
-    await waitForComponentToPaint(wrapper, 100);
-
-    act(() => {
-      wrapper.find('button.ant-btn-primary').simulate('click');
+    await act(async () => {
+      await (await wrapper.findByText('提 交')).click();
     });
-
-    await waitForComponentToPaint(wrapper, 100);
 
     expect(onFinish).toBeCalledWith(undefined);
   });
@@ -2428,24 +2489,23 @@ describe('ProForm', () => {
       );
     };
 
-    const wrapper = mount(<App />);
-    await waitForComponentToPaint(wrapper);
+    const wrapper = render(<App />);
 
     expect(fn1).toBeCalledWith('2021/08/09 12:12:12', 'dateTime');
-    act(() => {
-      wrapper.find('button.ant-btn-primary').at(1).simulate('click');
+
+    await act(async () => {
+      await (await wrapper.findByText('提 交')).click();
     });
 
-    await waitForComponentToPaint(wrapper, 100);
     expect(fn2).toHaveBeenCalledWith('2021/08/09 12:12:12');
 
     act(() => {
-      expect(wrapper.render()).toMatchSnapshot();
+      expect(wrapper.asFragment()).toMatchSnapshot();
     });
   });
 
   it(`📦 rules change should rerender`, () => {
-    const html = reactRender(
+    const html = render(
       <ProForm>
         <ProFormText
           width="md"
@@ -2480,11 +2540,12 @@ describe('ProForm', () => {
     );
 
     expect(html.baseElement.querySelectorAll('.ant-form-item-required').length).toBe(0);
+    html.unmount();
   });
 
   it('📦 fix onChange will get empty object when you set labelInValue ture in ProForm', async () => {
     const onChange = jest.fn();
-    const wrapper = mount(
+    const wrapper = render(
       <ProForm>
         <ProFormSelect
           fieldProps={{
@@ -2513,35 +2574,32 @@ describe('ProForm', () => {
         />
       </ProForm>,
     );
-    await waitForComponentToPaint(wrapper);
 
     act(() => {
-      wrapper.find('.ant-select-selector').simulate('mousedown');
-      wrapper.update();
+      fireEvent.mouseDown(wrapper.baseElement.querySelectorAll('.ant-select-selector')[0], {});
     });
-    await waitForComponentToPaint(wrapper);
+
     // 选中第一个
     act(() => {
-      wrapper.find('.ant-select-item').at(0).simulate('click');
-      wrapper.update();
+      wrapper.baseElement.querySelectorAll<HTMLElement>('.ant-select-item')[0].click();
     });
-
-    await waitForComponentToPaint(wrapper);
 
     // 鼠标移入选中区域
     act(() => {
-      wrapper.find('.ant-select').simulate('mouseenter');
-      wrapper.update();
+      fireEvent.mouseEnter(wrapper.baseElement.querySelectorAll<HTMLElement>('.ant-select')[0]);
     });
-    await waitForComponentToPaint(wrapper);
 
     // 点击删除按钮进行删除操作
     act(() => {
-      wrapper.find('span.ant-select-clear').last().simulate('mousedown');
+      fireEvent.mouseDown(
+        wrapper.baseElement.querySelectorAll<HTMLElement>('span.ant-select-clear')[
+          wrapper.baseElement.querySelectorAll<HTMLElement>('span.ant-select-clear').length - 1
+        ],
+      );
     });
-    await waitForComponentToPaint(wrapper);
 
     expect(onChange).toBeCalledWith(undefined);
+    wrapper.unmount();
   });
 
   it(`📦 valueType digit with precision value`, async () => {

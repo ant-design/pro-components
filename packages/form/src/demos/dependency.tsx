@@ -1,5 +1,5 @@
 import { ProForm, ProFormDependency, ProFormSelect, ProFormText } from '@ant-design/pro-components';
-import { Form, message } from 'antd';
+import { message } from 'antd';
 
 const waitTime = (time: number = 100) => {
   return new Promise((resolve) => {
@@ -56,7 +56,7 @@ export default () => {
         }}
       </ProFormDependency>
       {/* noStyle shouldUpdate 是必选的，写了 name 就会失效 */}
-      <Form.Item noStyle shouldUpdate>
+      <ProForm.Item noStyle shouldUpdate>
         {(form) => {
           return (
             <ProFormSelect
@@ -72,7 +72,7 @@ export default () => {
             />
           );
         }}
-      </Form.Item>
+      </ProForm.Item>
     </ProForm>
   );
 };

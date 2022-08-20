@@ -1,7 +1,6 @@
 ﻿import { DrawerForm, ProFormText } from '@ant-design/pro-form';
 import '@testing-library/jest-dom';
-import { render } from '@testing-library/react';
-import { act } from 'react-dom/test-utils';
+import { act, render } from '@testing-library/react';
 import { waitForComponentToPaint, waitTime } from '../util';
 
 describe('DrawerForm', () => {
