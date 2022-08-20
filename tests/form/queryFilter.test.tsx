@@ -227,7 +227,9 @@ describe('QueryFilter', () => {
         collapsed: false,
       });
     });
-    await waitTime(100);
+    await act(async () => {
+      await waitTime(100);
+    });
     expect(wrapper.find('a.ant-pro-form-collapse-button').text()).toBe('close');
   });
 

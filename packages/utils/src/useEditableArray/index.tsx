@@ -2,7 +2,7 @@
 import { LoadingOutlined } from '@ant-design/icons';
 import { useIntl } from '@ant-design/pro-provider';
 import type { FormInstance, FormProps } from 'antd';
-import { message, Popconfirm } from 'antd';
+import { Form, message, Popconfirm } from 'antd';
 import type { NamePath } from 'antd/lib/form/interface';
 import useLazyKVMap from 'antd/lib/table/hooks/useLazyKVMap';
 import type { GetRowKey } from 'antd/lib/table/interface';
@@ -126,7 +126,6 @@ export type ActionRenderConfig<T, LineConfig = NewLineConfig<T>> = {
   editableKeys?: RowEditableConfig<T>['editableKeys'];
   recordKey: RecordKey;
   index?: number;
-  form: FormInstance<any>;
   cancelEditable: (key: RecordKey) => void;
   onSave: RowEditableConfig<T>['onSave'];
   onCancel: RowEditableConfig<T>['onCancel'];
@@ -272,7 +271,6 @@ export function editableRowByKey<RecordType>(
 export function SaveEditableAction<T>({
   recordKey,
   onSave,
-  form,
   row,
   children,
   newLineConfig,
@@ -280,6 +278,7 @@ export function SaveEditableAction<T>({
   tableName,
 }: ActionRenderConfig<T> & { row: any; children: any }) {
   const context = useContext(ProFormContext);
+  const form = Form.useFormInstance();
   const [loading, setLoading] = useMountMergeState<boolean>(false);
   return (
     <a
@@ -395,7 +394,6 @@ const CancelEditableAction: React.FC<ActionRenderConfig<any> & { row: any }> = (
     recordKey,
     tableName,
     newLineConfig,
-    form,
     editorType,
     onCancel,
     cancelEditable,
@@ -403,6 +401,7 @@ const CancelEditableAction: React.FC<ActionRenderConfig<any> & { row: any }> = (
     cancelText,
   } = props;
   const context = useContext(ProFormContext);
+  const form = Form.useFormInstance();
   return (
     <a
       key="cancel"
@@ -800,7 +799,7 @@ function useEditableArray<RecordType>(
     },
   );
 
-  const actionRender = (row: RecordType & { index: number }, form: FormInstance<any>) => {
+  const actionRender = (row: RecordType & { index: number }) => {
     const key = props.getRowKey(row, row.index);
     const config: ActionRenderConfig<any, NewLineConfig<any>> = {
       saveText,
@@ -815,7 +814,6 @@ function useEditableArray<RecordType>(
       onCancel: actionCancelRef,
       onDelete: actionDeleteRef,
       onSave: actionSaveRef,
-      form,
       editableKeys,
       setEditableRowKeys,
       deletePopconfirmMessage:

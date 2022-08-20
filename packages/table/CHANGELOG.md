@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.80.0](https://github.com/ant-design/pro-components/compare/@ant-design/pro-table@2.79.0...@ant-design/pro-table@2.80.0) (2022-08-19)
+
+### Bug Fixes
+
+- **form:** 修复在 table 中指定 valueType 为 treeSelect 并使用 options 和自定义字段名时无法筛选的问题 ([#5722](https://github.com/ant-design/pro-components/issues/5722)) ([93dacf3](https://github.com/ant-design/pro-components/commit/93dacf341652a82c4b091201258526ff44cacbad))
+
+### Features
+
+- **form:** support Pro.useFormInstance ([d53eccc](https://github.com/ant-design/pro-components/commit/d53eccca812e477c68f59243b227e3141526ce69))
+
 # [2.79.0](https://github.com/ant-design/pro-components/compare/@ant-design/pro-table@2.78.3...@ant-design/pro-table@2.79.0) (2022-08-15)
 
 ### Bug Fixes

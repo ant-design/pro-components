@@ -9,6 +9,12 @@ group:
 
 # Change Log
 
+## @ant-design/pro-table@2.80.0
+
+`2022-08-19`
+
+- fix(table): editable table 增加子记录时没有按照 position 方向增加 (#5736). [#5736](https://github.com/ant-design/pro-components/pull/#5736) [@zd5043039119](https://github.com/zd5043039119)
+
 ## @ant-design/pro-table@2.79.0
 
 `2022-08-15`

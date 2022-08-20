@@ -1,4 +1,3 @@
-import type { ProFormInstance } from '@ant-design/pro-form';
 import type { TableColumnType } from 'antd';
 import useMergedState from 'rc-util/lib/hooks/useMergedState';
 import { noteOnce } from 'rc-util/lib/warning';
@@ -40,9 +39,6 @@ function useContainer(props: UseContainerProps = {}) {
 
   /** 自己 props 的引用 */
   const propsRef = useRef<ProTableProps<any, any, any>>();
-
-  /** 可编辑表格的formRef */
-  const editableFormRef = useRef<ProFormInstance<any>>();
 
   // 共享状态比较难，就放到这里了
   const [keyWords, setKeyWords] = useState<string | undefined>('');
@@ -178,10 +174,7 @@ function useContainer(props: UseContainerProps = {}) {
     setPrefixName: (name: any) => {
       prefixNameRef.current = name;
     },
-    setEditorTableForm: (form: ProFormInstance<any>) => {
-      editableFormRef.current = form;
-    },
-    editableForm: editableFormRef.current,
+
     setColumnsMap,
     columns: props.columns,
     rootDomRef,
@@ -198,10 +191,6 @@ function useContainer(props: UseContainerProps = {}) {
 
   Object.defineProperty(renderValue, 'action', {
     get: () => actionRef.current,
-  });
-
-  Object.defineProperty(renderValue, 'editableForm', {
-    get: () => editableFormRef.current,
   });
 
   return renderValue;
