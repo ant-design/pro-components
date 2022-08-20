@@ -72,6 +72,7 @@ export default () => {
       useMode?: string;
     }>
       onFinish={async (values) => {
+        console.log(formRef.current);
         await waitTime(2000);
         console.log(values);
         const val1 = await formRef.current?.validateFields();
@@ -216,6 +217,7 @@ export default () => {
         initialValue={['0-0-0']}
         label="树形下拉选择器"
         width={600}
+        name="tree"
         request={async () => treeData}
         fieldProps={{
           fieldNames: {

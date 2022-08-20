@@ -82,6 +82,10 @@ export type CommonFormProps<T = Record<string, any>, U = Record<string, any>> = 
     | React.MutableRefObject<ProFormInstance<T> | undefined>
     | React.RefObject<ProFormInstance<T> | undefined>;
 
+  innerFormRef?:
+    | React.MutableRefObject<ProFormInstance<T> | undefined>
+    | React.RefObject<ProFormInstance<T> | undefined>;
+
   /**
    * @name 同步结果到 url 中
    * */
@@ -225,6 +229,7 @@ function BaseFormComponents<T = Record<string, any>>(
     groupProps,
     transformKey,
     formRef: propsFormRef,
+    innerFormRef,
     onInit,
     form,
     loading,
@@ -331,6 +336,7 @@ function BaseFormComponents<T = Record<string, any>>(
   );
 
   useImperativeHandle(propsFormRef, () => formRef.current, []);
+  useImperativeHandle(innerFormRef, () => formRef.current, []);
 
   /** 渲染提交按钮与重置按钮 */
   const submitterNode = useMemo(() => {
@@ -405,6 +411,16 @@ function BaseFormComponents<T = Record<string, any>>(
   // 初始化给一个默认的 form
   useImperativeHandle(
     propsFormRef,
+    () => {
+      return {
+        ...formRef.current,
+        ...formatValues,
+      };
+    },
+    [],
+  );
+  useImperativeHandle(
+    innerFormRef,
     () => {
       return {
         ...formRef.current,
@@ -586,8 +602,6 @@ function BaseForm<T = Record<string, any>>(props: BaseFormProps<T>) {
     }
   });
 
-  useImperativeHandle(propsFormRef, () => formRef.current, []);
-
   if (!initialData && props.request) {
     return (
       <div style={{ paddingTop: 50, paddingBottom: 50, textAlign: 'center' }}>
@@ -652,7 +666,8 @@ function BaseForm<T = Record<string, any>>(props: BaseFormProps<T>) {
               loading={loading}
               onUrlSearchChange={setUrlSearch}
               {...props}
-              formRef={formRef}
+              formRef={propsFormRef}
+              innerFormRef={formRef}
               initialValues={{
                 ...initialValues,
                 ...initialData,

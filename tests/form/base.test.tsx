@@ -14,9 +14,10 @@ import ProForm, {
 import '@testing-library/jest-dom';
 import { act, fireEvent, render } from '@testing-library/react';
 import { Button, ConfigProvider, Input } from 'antd';
+import { mount } from 'enzyme';
 import moment from 'moment';
 import React, { useEffect, useRef } from 'react';
-import { waitTime } from '../util';
+import { waitForComponentToPaint, waitTime } from '../util';
 
 describe('ProForm', () => {
   it('📦 submit props actionsRender=false', async () => {
@@ -2599,5 +2600,40 @@ describe('ProForm', () => {
 
     expect(onChange).toBeCalledWith(undefined);
     wrapper.unmount();
+  });
+
+  it('📦 init formRef', async () => {
+    const valuesFn = jest.fn();
+    const valuesFn2 = jest.fn();
+    const valuesFn3 = jest.fn();
+    const App = () => {
+      const formRef = useRef<ProFormInstance<{ name: string }>>();
+      return (
+        <ProForm
+          formRef={formRef}
+          onFinish={async (values) => {
+            valuesFn(values.name);
+            const val1 = await formRef.current?.validateFields();
+            valuesFn2(val1?.name);
+            const val2 = await formRef.current?.validateFieldsReturnFormatValue?.();
+            valuesFn3(val2?.name);
+          }}
+          initialValues={{
+            name: 'kiner',
+          }}
+        >
+          <ProFormText name="name" />
+        </ProForm>
+      );
+    };
+    const wrapper = mount(<App />);
+    await waitForComponentToPaint(wrapper, 300);
+    act(() => {
+      wrapper.find('.ant-btn-primary').simulate('click');
+    });
+    await waitForComponentToPaint(wrapper, 300);
+    expect(valuesFn).toBeCalledWith('kiner');
+    expect(valuesFn2).toBeCalledWith('kiner');
+    expect(valuesFn3).toBeCalledWith('kiner');
   });
 });
