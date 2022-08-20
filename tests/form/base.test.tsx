@@ -1,4 +1,5 @@
 import { FontSizeOutlined } from '@ant-design/icons';
+import type { ProFormInstance } from '@ant-design/pro-form';
 import ProForm, {
   ProFormCaptcha,
   ProFormColorPicker,
@@ -8,16 +9,16 @@ import ProForm, {
   ProFormDigit,
   ProFormDigitRange,
   ProFormField,
-  ProFormInstance,
   ProFormSelect,
   ProFormText,
 } from '@ant-design/pro-form';
 import '@testing-library/jest-dom';
 import { act, fireEvent, render } from '@testing-library/react';
 import { Button, ConfigProvider, Input } from 'antd';
+import { mount } from 'enzyme';
 import moment from 'moment';
 import React, { useEffect, useRef } from 'react';
-import { waitTime } from '../util';
+import { waitForComponentToPaint, waitTime } from '../util';
 
 describe('ProForm', () => {
   it('📦 submit props actionsRender=false', async () => {
@@ -2612,7 +2613,7 @@ describe('ProForm', () => {
       >
         <ProFormDigit
           name="count"
-          label="认输"
+          label="人数"
           fieldProps={{
             precision: 0,
           }}
