@@ -2611,6 +2611,7 @@ exports[`table demos 📸 renders ./packages/table/src/components/EditableTable/
                               style="padding-left: 0px;"
                             />
                             <button
+                              aria-expanded="true"
                               aria-label="关闭行"
                               class="ant-table-row-expand-icon ant-table-row-expand-icon-expanded"
                               type="button"
@@ -2671,6 +2672,7 @@ exports[`table demos 📸 renders ./packages/table/src/components/EditableTable/
                               style="padding-left: 15px;"
                             />
                             <button
+                              aria-expanded="true"
                               aria-label="关闭行"
                               class="ant-table-row-expand-icon ant-table-row-expand-icon-spaced"
                               type="button"
@@ -2731,6 +2733,7 @@ exports[`table demos 📸 renders ./packages/table/src/components/EditableTable/
                               style="padding-left: 0px;"
                             />
                             <button
+                              aria-expanded="true"
                               aria-label="关闭行"
                               class="ant-table-row-expand-icon ant-table-row-expand-icon-spaced"
                               type="button"
@@ -3452,6 +3455,7 @@ exports[`table demos 📸 renders ./packages/table/src/components/EditableTable/
                     >
                       <div
                         class="ant-table ant-table-middle ant-table-layout-fixed ant-table-scroll-horizontal"
+                        id="table"
                       >
                         <div
                           class="ant-table-container"
@@ -4134,6 +4138,7 @@ exports[`table demos 📸 renders ./packages/table/src/components/EditableTable/
                           >
                             <div
                               class="ant-table ant-table-middle ant-table-layout-fixed ant-table-scroll-horizontal"
+                              id="table"
                             >
                               <div
                                 class="ant-table-container"
@@ -52289,6 +52294,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/single-test.tsx cor
                               style="padding-left: 0px;"
                             />
                             <button
+                              aria-expanded="false"
                               aria-label="展开行"
                               class="ant-table-row-expand-icon ant-table-row-expand-icon-collapsed"
                               type="button"
@@ -55716,6 +55722,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/table-nested.tsx co
                             class="ant-table-cell ant-table-row-expand-icon-cell"
                           >
                             <button
+                              aria-expanded="false"
                               aria-label="展开行"
                               class="ant-table-row-expand-icon ant-table-row-expand-icon-collapsed"
                               type="button"
@@ -55819,6 +55826,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/table-nested.tsx co
                             class="ant-table-cell ant-table-row-expand-icon-cell"
                           >
                             <button
+                              aria-expanded="false"
                               aria-label="展开行"
                               class="ant-table-row-expand-icon ant-table-row-expand-icon-collapsed"
                               type="button"
@@ -55922,6 +55930,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/table-nested.tsx co
                             class="ant-table-cell ant-table-row-expand-icon-cell"
                           >
                             <button
+                              aria-expanded="false"
                               aria-label="展开行"
                               class="ant-table-row-expand-icon ant-table-row-expand-icon-collapsed"
                               type="button"
@@ -56025,6 +56034,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/table-nested.tsx co
                             class="ant-table-cell ant-table-row-expand-icon-cell"
                           >
                             <button
+                              aria-expanded="false"
                               aria-label="展开行"
                               class="ant-table-row-expand-icon ant-table-row-expand-icon-collapsed"
                               type="button"
@@ -56128,6 +56138,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/table-nested.tsx co
                             class="ant-table-cell ant-table-row-expand-icon-cell"
                           >
                             <button
+                              aria-expanded="false"
                               aria-label="展开行"
                               class="ant-table-row-expand-icon ant-table-row-expand-icon-collapsed"
                               type="button"

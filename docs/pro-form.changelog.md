@@ -9,6 +9,13 @@ group:
 
 # Change Log
 
+## @ant-design/pro-form@1.74.0
+
+`2022-08-19`
+
+- feat(form): support Pro.useFormInstance. [d53eccc](https://github.com/ant-design/pro-components/commit/d53eccc)
+- fix(form): 修复在 table 中指定 valueType 为 treeSelect 并使用 options 和自定义字段名时无法筛选的问题 (#5722). [#5722](https://github.com/ant-design/pro-components/pull/#5722) [@kiner-tang](https://github.com/kiner-tang)
+
 ## @ant-design/pro-form@1.73.0
 
 `2022-08-15`
