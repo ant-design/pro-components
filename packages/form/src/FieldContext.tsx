@@ -20,6 +20,8 @@ export type FiledContextProps = {
   ) => void;
   /** Form 组件的类型 */
   formComponentType?: string;
+  /** 获取表单实例计数器 */
+  formKey: string;
 
   /** 表单的 getPopupContainer 控制 */
   getPopupContainer?: (e: HTMLElement) => ParentNode;
