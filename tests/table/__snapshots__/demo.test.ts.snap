@@ -17640,7 +17640,6 @@ exports[`table demos 📸 renders ./packages/table/src/demos/columnsStateMap.tsx
                         <colgroup>
                           <col />
                           <col />
-                          <col />
                           <col
                             style="width: 120px;"
                           />
@@ -17690,11 +17689,6 @@ exports[`table demos 📸 renders ./packages/table/src/demos/columnsStateMap.tsx
                             <th
                               class="ant-table-cell"
                             >
-                              创建时间
-                            </th>
-                            <th
-                              class="ant-table-cell"
-                            >
                               更新时间
                             </th>
                             <th
@@ -17726,11 +17720,6 @@ exports[`table demos 📸 renders ./packages/table/src/demos/columnsStateMap.tsx
                                   关闭
                                 </span>
                               </span>
-                            </td>
-                            <td
-                              class="ant-table-cell"
-                            >
-                              2016-11-21 23:59:58
                             </td>
                             <td
                               class="ant-table-cell"
@@ -17780,11 +17769,6 @@ exports[`table demos 📸 renders ./packages/table/src/demos/columnsStateMap.tsx
                                   关闭
                                 </span>
                               </span>
-                            </td>
-                            <td
-                              class="ant-table-cell"
-                            >
-                              2016-11-21 23:59:58
                             </td>
                             <td
                               class="ant-table-cell"
@@ -34399,7 +34383,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/form.tsx correctly 
                               id="since"
                               placeholder="请选择"
                               readonly=""
-                              size="21"
+                              size="12"
                               title=""
                               value=""
                             />
@@ -34625,7 +34609,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/form.tsx correctly 
                             <td
                               class="ant-table-cell"
                             >
-                              2020-10-13 15:09:54
+                              2020-10-13
                             </td>
                           </tr>
                         </tbody>
@@ -35008,78 +34992,6 @@ exports[`table demos 📸 renders ./packages/table/src/demos/intl.tsx correctly 
               </div>
             </div>
             <div
-              class="ant-form-item ant-form-item-hidden"
-            >
-              <div
-                class="ant-row ant-form-item-row"
-              >
-                <div
-                  class="ant-col ant-form-item-label"
-                >
-                  <label
-                    class=""
-                    for="since"
-                    title="Created Time"
-                  >
-                    Created Time
-                  </label>
-                </div>
-                <div
-                  class="ant-col ant-form-item-control"
-                >
-                  <div
-                    class="ant-form-item-control-input"
-                  >
-                    <div
-                      class="ant-form-item-control-input-content"
-                    >
-                      <div
-                        class="ant-picker"
-                        style="width: 100%;"
-                      >
-                        <div
-                          class="ant-picker-input"
-                        >
-                          <input
-                            autocomplete="off"
-                            id="since"
-                            placeholder="请选择"
-                            readonly=""
-                            size="21"
-                            title=""
-                            value=""
-                          />
-                          <span
-                            class="ant-picker-suffix"
-                          >
-                            <span
-                              aria-label="calendar"
-                              class="anticon anticon-calendar"
-                              role="img"
-                            >
-                              <svg
-                                aria-hidden="true"
-                                data-icon="calendar"
-                                fill="currentColor"
-                                focusable="false"
-                                height="1em"
-                                viewBox="64 64 896 896"
-                                width="1em"
-                              >
-                                <path
-                                  d="M880 184H712v-64c0-4.4-3.6-8-8-8h-56c-4.4 0-8 3.6-8 8v64H384v-64c0-4.4-3.6-8-8-8h-56c-4.4 0-8 3.6-8 8v64H144c-17.7 0-32 14.3-32 32v664c0 17.7 14.3 32 32 32h736c17.7 0 32-14.3 32-32V216c0-17.7-14.3-32-32-32zm-40 656H184V460h656v380zM184 392V256h128v48c0 4.4 3.6 8 8 8h56c4.4 0 8-3.6 8-8v-48h256v48c0 4.4 3.6 8 8 8h56c4.4 0 8-3.6 8-8v-48h128v136H184z"
-                                />
-                              </svg>
-                            </span>
-                          </span>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div
               class="ant-col ant-col-8"
               style="padding-left: 12px; padding-right: 12px; text-align: right;"
             >
@@ -35113,7 +35025,6 @@ exports[`table demos 📸 renders ./packages/table/src/demos/intl.tsx correctly 
                         >
                           <div
                             class="ant-space-item"
-                            style="margin-right: 16px;"
                           >
                             <div
                               class="ant-space ant-space-horizontal ant-space-align-center"
@@ -35146,35 +35057,6 @@ exports[`table demos 📸 renders ./packages/table/src/demos/intl.tsx correctly 
                                 </button>
                               </div>
                             </div>
-                          </div>
-                          <div
-                            class="ant-space-item"
-                          >
-                            <a
-                              class="ant-pro-query-filter-collapse-button"
-                            >
-                              展开
-                              <span
-                                aria-label="down"
-                                class="anticon anticon-down"
-                                role="img"
-                                style="margin-inline-start: 0.5em; transition: 0.3s all; transform: rotate(0turn);"
-                              >
-                                <svg
-                                  aria-hidden="true"
-                                  data-icon="down"
-                                  fill="currentColor"
-                                  focusable="false"
-                                  height="1em"
-                                  viewBox="64 64 896 896"
-                                  width="1em"
-                                >
-                                  <path
-                                    d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"
-                                  />
-                                </svg>
-                              </span>
-                            </a>
                           </div>
                         </div>
                       </div>
@@ -35506,11 +35388,6 @@ exports[`table demos 📸 renders ./packages/table/src/demos/intl.tsx correctly 
                             >
                               Money
                             </th>
-                            <th
-                              class="ant-table-cell"
-                            >
-                              Created Time
-                            </th>
                           </tr>
                         </thead>
                         <tbody
@@ -35560,11 +35437,6 @@ exports[`table demos 📸 renders ./packages/table/src/demos/intl.tsx correctly 
                               <span>
                                 ¥84.04
                               </span>
-                            </td>
-                            <td
-                              class="ant-table-cell"
-                            >
-                              2020-10-13 15:09:54
                             </td>
                           </tr>
                         </tbody>
@@ -48461,11 +48333,6 @@ exports[`table demos 📸 renders ./packages/table/src/demos/search.tsx correctl
                             >
                               标题
                             </th>
-                            <th
-                              class="ant-table-cell"
-                            >
-                              创建时间
-                            </th>
                           </tr>
                         </thead>
                         <tbody
@@ -48488,11 +48355,6 @@ exports[`table demos 📸 renders ./packages/table/src/demos/search.tsx correctl
                               class="ant-table-cell"
                             >
                               TradeCode 1
-                            </td>
-                            <td
-                              class="ant-table-cell"
-                            >
-                              2020-10-13 15:09:54
                             </td>
                           </tr>
                         </tbody>
@@ -48809,83 +48671,6 @@ exports[`table demos 📸 renders ./packages/table/src/demos/search_option.tsx c
             </div>
             <div
               class="ant-col ant-col-8"
-              style="padding-left: 12px; padding-right: 12px;"
-            >
-              <div
-                class="ant-form-item"
-              >
-                <div
-                  class="ant-row ant-form-item-row"
-                >
-                  <div
-                    class="ant-col ant-form-item-label"
-                  >
-                    <label
-                      class=""
-                      for="since"
-                      title="Created Time"
-                    >
-                      Created Time
-                    </label>
-                  </div>
-                  <div
-                    class="ant-col ant-form-item-control"
-                  >
-                    <div
-                      class="ant-form-item-control-input"
-                    >
-                      <div
-                        class="ant-form-item-control-input-content"
-                      >
-                        <div
-                          class="ant-picker"
-                          style="width: 100%;"
-                        >
-                          <div
-                            class="ant-picker-input"
-                          >
-                            <input
-                              autocomplete="off"
-                              id="since"
-                              placeholder="请选择"
-                              readonly=""
-                              size="21"
-                              title=""
-                              value=""
-                            />
-                            <span
-                              class="ant-picker-suffix"
-                            >
-                              <span
-                                aria-label="calendar"
-                                class="anticon anticon-calendar"
-                                role="img"
-                              >
-                                <svg
-                                  aria-hidden="true"
-                                  data-icon="calendar"
-                                  fill="currentColor"
-                                  focusable="false"
-                                  height="1em"
-                                  viewBox="64 64 896 896"
-                                  width="1em"
-                                >
-                                  <path
-                                    d="M880 184H712v-64c0-4.4-3.6-8-8-8h-56c-4.4 0-8 3.6-8 8v64H384v-64c0-4.4-3.6-8-8-8h-56c-4.4 0-8 3.6-8 8v64H144c-17.7 0-32 14.3-32 32v664c0 17.7 14.3 32 32 32h736c17.7 0 32-14.3 32-32V216c0-17.7-14.3-32-32-32zm-40 656H184V460h656v380zM184 392V256h128v48c0 4.4 3.6 8 8 8h56c4.4 0 8-3.6 8-8v-48h256v48c0 4.4 3.6 8 8 8h56c4.4 0 8-3.6 8-8v-48h128v136H184z"
-                                  />
-                                </svg>
-                              </span>
-                            </span>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div
-              class="ant-col ant-col-8 ant-col-offset-16"
               style="padding-left: 12px; padding-right: 12px; text-align: right;"
             >
               <div
@@ -48918,7 +48703,6 @@ exports[`table demos 📸 renders ./packages/table/src/demos/search_option.tsx c
                         >
                           <div
                             class="ant-space-item"
-                            style="margin-right: 16px;"
                           >
                             <div
                               class="ant-space ant-space-horizontal ant-space-align-center"
@@ -48964,35 +48748,6 @@ exports[`table demos 📸 renders ./packages/table/src/demos/search_option.tsx c
                                 </button>
                               </div>
                             </div>
-                          </div>
-                          <div
-                            class="ant-space-item"
-                          >
-                            <a
-                              class="ant-pro-query-filter-collapse-button"
-                            >
-                              收起
-                              <span
-                                aria-label="down"
-                                class="anticon anticon-down"
-                                role="img"
-                                style="margin-inline-start: 0.5em; transition: 0.3s all; transform: rotate(0.5turn);"
-                              >
-                                <svg
-                                  aria-hidden="true"
-                                  data-icon="down"
-                                  fill="currentColor"
-                                  focusable="false"
-                                  height="1em"
-                                  viewBox="64 64 896 896"
-                                  width="1em"
-                                >
-                                  <path
-                                    d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"
-                                  />
-                                </svg>
-                              </span>
-                            </a>
                           </div>
                         </div>
                       </div>
@@ -49222,11 +48977,6 @@ exports[`table demos 📸 renders ./packages/table/src/demos/search_option.tsx c
                             >
                               Money
                             </th>
-                            <th
-                              class="ant-table-cell"
-                            >
-                              Created Time
-                            </th>
                           </tr>
                         </thead>
                         <tbody
@@ -49256,11 +49006,6 @@ exports[`table demos 📸 renders ./packages/table/src/demos/search_option.tsx c
                               <span>
                                 ¥84.04
                               </span>
-                            </td>
-                            <td
-                              class="ant-table-cell"
-                            >
-                              2020-10-13 15:09:54
                             </td>
                           </tr>
                         </tbody>
