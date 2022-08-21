@@ -21,7 +21,7 @@
     "dumi": "node ./scripts/preDeploy && cross-env SITE_DEPLOY='TRUE' dumi build",
     "start": "npm run version && dumi dev",
     "sync:tnpm": "node -e 'require(\"./scripts/syncTNPM\")()'",
-    "test": "npm run version && jest",
+    "test": "npm run version && jest -w=4",
     "test:coverage": "npm run version && jest --coverage",
     "test:update": "pnpm run version && jest --updateSnapshot",
     "tsc": "tsc --noEmit",
