@@ -6,6 +6,7 @@ import ProForm, {
   ProFormDatePicker,
   ProFormDateTimePicker,
   ProFormDependency,
+  ProFormDigit,
   ProFormDigitRange,
   ProFormField,
   ProFormSelect,
@@ -14,9 +15,10 @@ import ProForm, {
 import '@testing-library/jest-dom';
 import { act, fireEvent, render } from '@testing-library/react';
 import { Button, ConfigProvider, Input } from 'antd';
+import { mount } from 'enzyme';
 import moment from 'moment';
 import React, { useEffect, useRef } from 'react';
-import { waitTime } from '../util';
+import { waitForComponentToPaint, waitTime } from '../util';
 
 describe('ProForm', () => {
   it('📦 submit props actionsRender=false', async () => {
@@ -2599,5 +2601,40 @@ describe('ProForm', () => {
 
     expect(onChange).toBeCalledWith(undefined);
     wrapper.unmount();
+  });
+
+  it(`📦 valueType digit with precision value`, async () => {
+    const fn = jest.fn();
+    const html = mount(
+      <ProForm
+        onFinish={async (value) => {
+          fn(value.count);
+        }}
+      >
+        <ProFormDigit
+          name="count"
+          label="人数"
+          fieldProps={{
+            precision: 0,
+          }}
+        />
+      </ProForm>,
+    );
+
+    await waitForComponentToPaint(html, 300);
+    act(() => {
+      html.find('input#count').simulate('change', {
+        target: {
+          value: '22.22',
+        },
+      });
+      html.find('input#count').simulate('blur');
+      html.find('button.ant-btn-primary').simulate('click');
+      html.update();
+    });
+    await waitForComponentToPaint(html, 300);
+    expect(html.find('input#count').props().value).toBe('22');
+    expect(fn).toBeCalledWith(22);
+    expect(html.render()).toMatchSnapshot();
   });
 });
