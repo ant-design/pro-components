@@ -6,8 +6,14 @@ import type { LabelTooltipType } from 'antd/lib/form/FormItemLabel';
 import type { FormListFieldData, FormListOperation, FormListProps } from 'antd/lib/form/FormList';
 import type { NamePath } from 'antd/lib/form/interface';
 import { noteOnce } from 'rc-util/lib/warning';
-import type { ReactNode } from 'react';
-import React, { useContext, useEffect, useImperativeHandle, useMemo, useRef } from 'react';
+import React, {
+  ReactNode,
+  useContext,
+  useEffect,
+  useImperativeHandle,
+  useMemo,
+  useRef,
+} from 'react';
 import { useGridHelpers } from '../../helpers';
 import type { ProFormGridConfig } from '../../interface';
 import './index.less';
@@ -76,6 +82,10 @@ export type ProFormListProps<T> = Omit<FormListProps, 'children'> &
     actionRef?: React.MutableRefObject<FormListActionType<T> | undefined>;
     /** 放在div上面的属性 */
     style?: React.CSSProperties;
+    /** 是否同时校验列表是否为空 */
+    isValidateList?: boolean;
+    /** 当 isValidateList 为 true 时执行为空提示 */
+    emptyListMessage?: string;
   } & Pick<ProFormGridConfig, 'colProps' | 'rowProps'>;
 
 function ProFormList<T>(props: ProFormListProps<T>) {
@@ -115,10 +125,14 @@ function ProFormList<T>(props: ProFormListProps<T>) {
     max,
     colProps,
     rowProps,
+    isValidateList = false,
+    emptyListMessage = '列表不能为空',
     ...rest
   } = props;
 
   const { ColWrapper, RowWrapper } = useGridHelpers({ colProps, rowProps });
+
+  const proFormContext = useContext(ProFormContext);
 
   // 处理 list 的嵌套
   const name = useMemo(() => {
@@ -127,8 +141,6 @@ function ProFormList<T>(props: ProFormListProps<T>) {
     }
     return [listContext.name, rest.name].flat(1);
   }, [listContext.name, rest.name]);
-
-  const proFormContext = useContext(ProFormContext);
 
   // eslint-disable-next-line react-hooks/exhaustive-deps
   useImperativeHandle(
@@ -163,14 +175,27 @@ function ProFormList<T>(props: ProFormListProps<T>) {
           tooltip={tooltip}
           style={style}
           {...rest}
-          name={undefined}
-          rules={undefined}
+          name={isValidateList ? name : undefined}
+          rules={
+            isValidateList
+              ? [
+                  {
+                    validator: (rule, value) => {
+                      if (!value || value.length === 0) {
+                        return Promise.reject(new Error(emptyListMessage));
+                      }
+                      return Promise.resolve();
+                    },
+                    required: true,
+                  },
+                ]
+              : undefined
+          }
         >
           <Form.List rules={rules} {...rest} name={name}>
             {(fields, action, meta) => {
               // 将 action 暴露给外部
               actionRefs.current = action;
-
               return (
                 <RowWrapper>
                   <ProFormListContainer
@@ -194,6 +219,18 @@ function ProFormList<T>(props: ProFormListProps<T>) {
                     min={min}
                     max={max}
                     count={fields.length}
+                    onAfterAdd={() => {
+                      if (isValidateList) {
+                        proFormContext.formRef!.current!.validateFields([name]);
+                      }
+                    }}
+                    onAfterRemove={(a, count) => {
+                      if (isValidateList) {
+                        if (count === 0) {
+                          proFormContext.formRef!.current!.validateFields([name]);
+                        }
+                      }
+                    }}
                   >
                     {children}
                   </ProFormListContainer>

@@ -20,6 +20,8 @@ const ProFormListContainer: React.FC<ProFormListItemProps> = (props) => {
     max,
     fieldExtraRender,
     meta,
+    onAfterAdd,
+    onAfterRemove,
   } = props;
   const fieldKeyMap = useRef(new Map<string, string>());
   const [loading, setLoading] = useState(false);
@@ -48,9 +50,17 @@ const ProFormListContainer: React.FC<ProFormListItemProps> = (props) => {
       wrapAction.add = async (...rest) => {
         const success = await actionGuard.beforeAddRow!(...rest, count);
         if (success) {
-          return action.add(...rest);
+          const res = action.add(...rest);
+          onAfterAdd?.(...rest, count);
+          return res;
         }
         return false;
+      };
+    } else {
+      wrapAction.add = async (...rest) => {
+        const res = action.add(...rest);
+        onAfterAdd?.(...rest, count);
+        return res;
       };
     }
 
@@ -58,14 +68,29 @@ const ProFormListContainer: React.FC<ProFormListItemProps> = (props) => {
       wrapAction.remove = async (...rest) => {
         const success = await actionGuard.beforeRemoveRow!(...rest, count);
         if (success) {
-          return action.remove(...rest);
+          const res = action.remove(...rest);
+          onAfterRemove?.(...rest, count + 1);
+          return res;
         }
         return false;
+      };
+    } else {
+      wrapAction.remove = async (...rest) => {
+        const res = action.remove(...rest);
+        onAfterRemove?.(...rest, count - 1);
+        return res;
       };
     }
 
     return wrapAction;
-  }, [action, actionGuard, uuidFields]);
+  }, [
+    action,
+    actionGuard?.beforeAddRow,
+    actionGuard?.beforeRemoveRow,
+    onAfterAdd,
+    onAfterRemove,
+    uuidFields.length,
+  ]);
 
   const creatorButton = useMemo(() => {
     if (creatorButtonProps === false || uuidFields.length === max) return null;

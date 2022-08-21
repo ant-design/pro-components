@@ -229,6 +229,14 @@ export type ProFormListItemProps = ProFromListCommonProps & {
   count: number;
 
   children?: ReactNode | ChildrenItemFunction;
+  /**
+   * 数据新增成功回调
+   */
+  onAfterAdd?: (...params: [...Parameters<FormListOperation['add']>, number]) => void;
+  /**
+   * 数据移除成功回调
+   */
+  onAfterRemove?: (...params: [...Parameters<FormListOperation['remove']>, number]) => void;
 };
 
 const ProFormListItem: React.FC<
