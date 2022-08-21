@@ -9,6 +9,7 @@ import type {
 import {
   conversionMomentValue,
   isDeepEqualReact,
+  nanoid,
   ProFormContext,
   runFunction,
   transformKeySubmitValue,
@@ -473,6 +474,7 @@ function BaseForm<T = Record<string, any>>(props: BaseFormProps<T>) {
   const formRef = useRef<ProFormInstance<any>>({} as any);
   const [loading, setLoading] = useMountMergeState<boolean>(false);
   const [urlSearch, setUrlSearch] = useUrlSearchParams({}, { disabled: !syncToUrl });
+  const curFormKey = useRef<string>(nanoid());
 
   useEffect(() => {
     requestFormCacheId += 0;
@@ -612,6 +614,7 @@ function BaseForm<T = Record<string, any>>(props: BaseFormProps<T>) {
             groupProps,
             formComponentType,
             getPopupContainer,
+            formKey: curFormKey.current,
             setFieldValueType: (name, { valueType = 'text', dateFormat, transform }) => {
               if (!Array.isArray(name)) return;
               transformKeyRef.current = namePathSet(transformKeyRef.current, name, transform);
