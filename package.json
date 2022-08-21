@@ -18,6 +18,7 @@
     "prettier": "prettier --write \"**/**.{js,jsx,tsx,ts,less,md,json}\" --loglevel warn",
     "release": "npm run test && node ./scripts/release.js --tag=experimental",
     "site": "node ./scripts/preDeploy && cross-env SITE_DEPLOY='TRUE' dumi build && node scripts/ssr.js",
+    "dumi": "node ./scripts/preDeploy && cross-env SITE_DEPLOY='TRUE' dumi build",
     "start": "npm run version && dumi dev",
     "sync:tnpm": "node -e 'require(\"./scripts/syncTNPM\")()'",
     "test": "npm run version && jest",
