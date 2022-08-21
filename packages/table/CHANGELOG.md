@@ -2,35 +2,12 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
-# [3.0.0-experimental.14](https://github.com/ant-design/pro-components/compare/@ant-design/pro-table@3.0.0-experimental.13...@ant-design/pro-table@3.0.0-experimental.14) (2022-08-19)
-
-### Bug Fixes
-
-- **form:** 修复在 table 中指定 valueType 为 treeSelect 并使用 options 和自定义字段名时无法筛选的问题 ([#5722](https://github.com/ant-design/pro-components/issues/5722)) ([93dacf3](https://github.com/ant-design/pro-components/commit/93dacf341652a82c4b091201258526ff44cacbad))
-
-# [3.0.0-experimental.13](https://github.com/ant-design/pro-components/compare/@ant-design/pro-table@3.0.0-experimental.12...@ant-design/pro-table@3.0.0-experimental.13) (2022-08-19)
-
-**Note:** Version bump only for package @ant-design/pro-table
-
-# [3.0.0-experimental.12](https://github.com/ant-design/pro-components/compare/@ant-design/pro-table@3.0.0-experimental.11...@ant-design/pro-table@3.0.0-experimental.12) (2022-08-18)
-
-**Note:** Version bump only for package @ant-design/pro-table
-
-# [3.0.0-experimental.11](https://github.com/ant-design/pro-components/compare/@ant-design/pro-table@3.0.0-experimental.10...@ant-design/pro-table@3.0.0-experimental.11) (2022-08-18)
-
-### Bug Fixes
-
-- **table:** 修复 ProTable 的 ListToolBar 没有 headTitle 时，左侧会有多余的边距 ([#5694](https://github.com/ant-design/pro-components/issues/5694)) ([4bb3e3f](https://github.com/ant-design/pro-components/commit/4bb3e3f7befef1b69c1c7902ddd17c07344e006f))
-
-# [3.0.0-experimental.10](https://github.com/ant-design/pro-components/compare/@ant-design/pro-table@3.0.0-experimental.9...@ant-design/pro-table@3.0.0-experimental.10) (2022-08-12)
-
-**Note:** Version bump only for package @ant-design/pro-table
-
-# [3.0.0-experimental.9](https://github.com/ant-design/pro-components/compare/@ant-design/pro-table@3.0.0-experimental.8...@ant-design/pro-table@3.0.0-experimental.9) (2022-08-10)
+# [2.79.0](https://github.com/ant-design/pro-components/compare/@ant-design/pro-table@2.78.3...@ant-design/pro-table@2.79.0) (2022-08-15)
 
 ### Bug Fixes
 
 - **table:** useEditableArray fix nested children can not be add when position is not top and expandable.childrenColumnName isundefined ([#5643](https://github.com/ant-design/pro-components/issues/5643)) ([9604686](https://github.com/ant-design/pro-components/commit/960468691a4528aaf0a92bfaf1ce5742c2d24a52))
+- **table:** 修复 ProTable 的 ListToolBar 没有 headTitle 时，左侧会有多余的边距 ([#5694](https://github.com/ant-design/pro-components/issues/5694)) ([4bb3e3f](https://github.com/ant-design/pro-components/commit/4bb3e3f7befef1b69c1c7902ddd17c07344e006f))
 - **table:** 表格批量操作没有默认值报错 ([#5674](https://github.com/ant-design/pro-components/issues/5674)) ([67b7e76](https://github.com/ant-design/pro-components/commit/67b7e7682cf5f1b47a136ffc2c50d64c9d8d7d6b))
 
 ### Features

@@ -2,20 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
-# [2.0.0-experimental.13](https://github.com/ant-design/pro-components/compare/@ant-design/pro-utils@2.0.0-experimental.12...@ant-design/pro-utils@2.0.0-experimental.13) (2022-08-19)
+# [1.44.0](https://github.com/ant-design/pro-components/compare/@ant-design/pro-utils@1.43.2...@ant-design/pro-utils@1.44.0) (2022-08-15)
+
+> > > > > > > master
 
 ### Bug Fixes
 
-- **table:** editable table 增加子记录时没有按照 position 方向增加 ([#5736](https://github.com/ant-design/pro-components/issues/5736)) ([eb91a04](https://github.com/ant-design/pro-components/commit/eb91a049c580a167f48ddfde3b7a81a3f1dd27ea))
-
-# [2.0.0-experimental.12](https://github.com/ant-design/pro-components/compare/@ant-design/pro-utils@2.0.0-experimental.11...@ant-design/pro-utils@2.0.0-experimental.12) (2022-08-19)
-
-**Note:** Version bump only for package @ant-design/pro-utils
-
-# [2.0.0-experimental.11](https://github.com/ant-design/pro-components/compare/@ant-design/pro-utils@2.0.0-experimental.10...@ant-design/pro-utils@2.0.0-experimental.11) (2022-08-18)
-
-### Bug Fixes
-
+- **table:** useEditableArray fix nested children can not be add when position is not top and expandable.childrenColumnName isundefined ([#5643](https://github.com/ant-design/pro-components/issues/5643)) ([9604686](https://github.com/ant-design/pro-components/commit/960468691a4528aaf0a92bfaf1ce5742c2d24a52))
 - **utils:** 修复构建预览页面时因 SSR 模式无 window 对象导致构建失败的问题 ([#5716](https://github.com/ant-design/pro-components/issues/5716)) ([642258b](https://github.com/ant-design/pro-components/commit/642258bcc525ecb83eb7200c5128fd616acc41d5))
 
 ### Features
