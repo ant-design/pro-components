@@ -81,12 +81,6 @@ const columns: ProColumns<GithubIssueItem>[] = [
     ),
   },
   {
-    title: 'تاريخ الإنشاء',
-    key: 'since',
-    dataIndex: 'created_at',
-    valueType: 'date',
-  },
-  {
     title: 'التشغيل',
     valueType: 'option',
     render: (text, record, _, action) => [

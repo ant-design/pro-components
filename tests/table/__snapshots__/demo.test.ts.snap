@@ -18145,81 +18145,6 @@ exports[`table demos 📸 renders ./packages/table/src/demos/config-provider.tsx
               </div>
             </div>
             <div
-              class="qixian-form-item qixian-form-item-hidden"
-              style="flex-wrap: nowrap;"
-            >
-              <div
-                class="qixian-row qixian-form-item-row"
-              >
-                <div
-                  class="qixian-col qixian-form-item-label"
-                  style="flex: 0 0 80px;"
-                >
-                  <label
-                    class=""
-                    for="since"
-                    title="创建时间"
-                  >
-                    创建时间
-                  </label>
-                </div>
-                <div
-                  class="qixian-col qixian-form-item-control"
-                  style="max-width: calc(100% - 80px);"
-                >
-                  <div
-                    class="qixian-form-item-control-input"
-                  >
-                    <div
-                      class="qixian-form-item-control-input-content"
-                    >
-                      <div
-                        class="qixian-picker"
-                        style="width: 100%;"
-                      >
-                        <div
-                          class="qixian-picker-input"
-                        >
-                          <input
-                            autocomplete="off"
-                            id="since"
-                            placeholder="请选择"
-                            readonly=""
-                            size="21"
-                            title=""
-                            value=""
-                          />
-                          <span
-                            class="qixian-picker-suffix"
-                          >
-                            <span
-                              aria-label="calendar"
-                              class="anticon anticon-calendar"
-                              role="img"
-                            >
-                              <svg
-                                aria-hidden="true"
-                                data-icon="calendar"
-                                fill="currentColor"
-                                focusable="false"
-                                height="1em"
-                                viewBox="64 64 896 896"
-                                width="1em"
-                              >
-                                <path
-                                  d="M880 184H712v-64c0-4.4-3.6-8-8-8h-56c-4.4 0-8 3.6-8 8v64H384v-64c0-4.4-3.6-8-8-8h-56c-4.4 0-8 3.6-8 8v64H144c-17.7 0-32 14.3-32 32v664c0 17.7 14.3 32 32 32h736c17.7 0 32-14.3 32-32V216c0-17.7-14.3-32-32-32zm-40 656H184V460h656v380zM184 392V256h128v48c0 4.4 3.6 8 8 8h56c4.4 0 8-3.6 8-8v-48h256v48c0 4.4 3.6 8 8 8h56c4.4 0 8-3.6 8-8v-48h128v136H184z"
-                                />
-                              </svg>
-                            </span>
-                          </span>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div
               class="qixian-col qixian-col-8"
               style="padding-left: 12px; padding-right: 12px; text-align: right;"
             >
@@ -18253,7 +18178,6 @@ exports[`table demos 📸 renders ./packages/table/src/demos/config-provider.tsx
                         >
                           <div
                             class="qixian-space-item"
-                            style="margin-right: 16px;"
                           >
                             <div
                               class="qixian-space qixian-space-horizontal qixian-space-align-center"
@@ -18286,35 +18210,6 @@ exports[`table demos 📸 renders ./packages/table/src/demos/config-provider.tsx
                                 </button>
                               </div>
                             </div>
-                          </div>
-                          <div
-                            class="qixian-space-item"
-                          >
-                            <a
-                              class="qixian-pro-query-filter-collapse-button"
-                            >
-                              展开
-                              <span
-                                aria-label="down"
-                                class="anticon anticon-down"
-                                role="img"
-                                style="margin-inline-start: 0.5em; transition: 0.3s all; transform: rotate(0turn);"
-                              >
-                                <svg
-                                  aria-hidden="true"
-                                  data-icon="down"
-                                  fill="currentColor"
-                                  focusable="false"
-                                  height="1em"
-                                  viewBox="64 64 896 896"
-                                  width="1em"
-                                >
-                                  <path
-                                    d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"
-                                  />
-                                </svg>
-                              </span>
-                            </a>
                           </div>
                         </div>
                       </div>
@@ -18529,9 +18424,6 @@ exports[`table demos 📸 renders ./packages/table/src/demos/config-provider.tsx
                           <col
                             style="width: 10%;"
                           />
-                          <col
-                            style="width: 20%;"
-                          />
                         </colgroup>
                         <thead
                           class="qixian-table-thead"
@@ -18623,11 +18515,6 @@ exports[`table demos 📸 renders ./packages/table/src/demos/config-provider.tsx
                               class="qixian-table-cell"
                             >
                               标签
-                            </th>
-                            <th
-                              class="qixian-table-cell"
-                            >
-                              创建时间
                             </th>
                             <th
                               class="qixian-table-cell"
@@ -18767,11 +18654,6 @@ exports[`table demos 📸 renders ./packages/table/src/demos/config-provider.tsx
                                   </span>
                                 </div>
                               </div>
-                            </td>
-                            <td
-                              class="qixian-table-cell"
-                            >
-                              2020-05-26 17:42:56
                             </td>
                             <td
                               class="qixian-table-cell"
@@ -18970,11 +18852,6 @@ exports[`table demos 📸 renders ./packages/table/src/demos/config-provider.tsx
                                   </span>
                                 </div>
                               </div>
-                            </td>
-                            <td
-                              class="qixian-table-cell"
-                            >
-                              2020-05-26 16:19:22
                             </td>
                             <td
                               class="qixian-table-cell"
@@ -19180,11 +19057,6 @@ exports[`table demos 📸 renders ./packages/table/src/demos/config-provider.tsx
                             <td
                               class="qixian-table-cell"
                             >
-                              2020-05-26 15:54:25
-                            </td>
-                            <td
-                              class="qixian-table-cell"
-                            >
                               <div
                                 class="qixian-space qixian-space-horizontal qixian-space-align-center"
                               >
@@ -19382,11 +19254,6 @@ exports[`table demos 📸 renders ./packages/table/src/demos/config-provider.tsx
                                   </span>
                                 </div>
                               </div>
-                            </td>
-                            <td
-                              class="qixian-table-cell"
-                            >
-                              2020-05-26 13:58:24
                             </td>
                             <td
                               class="qixian-table-cell"
@@ -19592,11 +19459,6 @@ exports[`table demos 📸 renders ./packages/table/src/demos/config-provider.tsx
                             <td
                               class="qixian-table-cell"
                             >
-                              2020-05-26 12:25:59
-                            </td>
-                            <td
-                              class="qixian-table-cell"
-                            >
                               <div
                                 class="qixian-space qixian-space-horizontal qixian-space-align-center"
                               >
@@ -19794,11 +19656,6 @@ exports[`table demos 📸 renders ./packages/table/src/demos/config-provider.tsx
                                   </span>
                                 </div>
                               </div>
-                            </td>
-                            <td
-                              class="qixian-table-cell"
-                            >
-                              2020-05-26 10:13:47
                             </td>
                             <td
                               class="qixian-table-cell"
@@ -20004,11 +19861,6 @@ exports[`table demos 📸 renders ./packages/table/src/demos/config-provider.tsx
                             <td
                               class="qixian-table-cell"
                             >
-                              2020-05-26 01:34:21
-                            </td>
-                            <td
-                              class="qixian-table-cell"
-                            >
                               <div
                                 class="qixian-space qixian-space-horizontal qixian-space-align-center"
                               >
@@ -20206,11 +20058,6 @@ exports[`table demos 📸 renders ./packages/table/src/demos/config-provider.tsx
                                   </span>
                                 </div>
                               </div>
-                            </td>
-                            <td
-                              class="qixian-table-cell"
-                            >
-                              2020-05-25 21:27:09
                             </td>
                             <td
                               class="qixian-table-cell"
@@ -20416,11 +20263,6 @@ exports[`table demos 📸 renders ./packages/table/src/demos/config-provider.tsx
                             <td
                               class="qixian-table-cell"
                             >
-                              2020-05-25 16:20:31
-                            </td>
-                            <td
-                              class="qixian-table-cell"
-                            >
                               <div
                                 class="qixian-space qixian-space-horizontal qixian-space-align-center"
                               >
@@ -20618,11 +20460,6 @@ exports[`table demos 📸 renders ./packages/table/src/demos/config-provider.tsx
                                   </span>
                                 </div>
                               </div>
-                            </td>
-                            <td
-                              class="qixian-table-cell"
-                            >
-                              2020-05-23 23:00:49
                             </td>
                             <td
                               class="qixian-table-cell"
@@ -20828,11 +20665,6 @@ exports[`table demos 📸 renders ./packages/table/src/demos/config-provider.tsx
                             <td
                               class="qixian-table-cell"
                             >
-                              2020-05-23 10:46:12
-                            </td>
-                            <td
-                              class="qixian-table-cell"
-                            >
                               <div
                                 class="qixian-space qixian-space-horizontal qixian-space-align-center"
                               >
@@ -21030,11 +20862,6 @@ exports[`table demos 📸 renders ./packages/table/src/demos/config-provider.tsx
                                   </span>
                                 </div>
                               </div>
-                            </td>
-                            <td
-                              class="qixian-table-cell"
-                            >
-                              2020-05-22 10:20:27
                             </td>
                             <td
                               class="qixian-table-cell"
@@ -21240,11 +21067,6 @@ exports[`table demos 📸 renders ./packages/table/src/demos/config-provider.tsx
                             <td
                               class="qixian-table-cell"
                             >
-                              2020-05-21 16:45:13
-                            </td>
-                            <td
-                              class="qixian-table-cell"
-                            >
                               <div
                                 class="qixian-space qixian-space-horizontal qixian-space-align-center"
                               >
@@ -21442,11 +21264,6 @@ exports[`table demos 📸 renders ./packages/table/src/demos/config-provider.tsx
                                   </span>
                                 </div>
                               </div>
-                            </td>
-                            <td
-                              class="qixian-table-cell"
-                            >
-                              2020-05-21 16:04:36
                             </td>
                             <td
                               class="qixian-table-cell"
@@ -21652,11 +21469,6 @@ exports[`table demos 📸 renders ./packages/table/src/demos/config-provider.tsx
                             <td
                               class="qixian-table-cell"
                             >
-                              2020-05-21 14:51:22
-                            </td>
-                            <td
-                              class="qixian-table-cell"
-                            >
                               <div
                                 class="qixian-space qixian-space-horizontal qixian-space-align-center"
                               >
@@ -21854,11 +21666,6 @@ exports[`table demos 📸 renders ./packages/table/src/demos/config-provider.tsx
                                   </span>
                                 </div>
                               </div>
-                            </td>
-                            <td
-                              class="qixian-table-cell"
-                            >
-                              2020-05-21 13:56:36
                             </td>
                             <td
                               class="qixian-table-cell"
@@ -22064,11 +21871,6 @@ exports[`table demos 📸 renders ./packages/table/src/demos/config-provider.tsx
                             <td
                               class="qixian-table-cell"
                             >
-                              2020-05-21 10:47:35
-                            </td>
-                            <td
-                              class="qixian-table-cell"
-                            >
                               <div
                                 class="qixian-space qixian-space-horizontal qixian-space-align-center"
                               >
@@ -22266,11 +22068,6 @@ exports[`table demos 📸 renders ./packages/table/src/demos/config-provider.tsx
                                   </span>
                                 </div>
                               </div>
-                            </td>
-                            <td
-                              class="qixian-table-cell"
-                            >
-                              2020-05-20 10:02:33
                             </td>
                             <td
                               class="qixian-table-cell"
@@ -22476,11 +22273,6 @@ exports[`table demos 📸 renders ./packages/table/src/demos/config-provider.tsx
                             <td
                               class="qixian-table-cell"
                             >
-                              2020-05-20 09:20:55
-                            </td>
-                            <td
-                              class="qixian-table-cell"
-                            >
                               <div
                                 class="qixian-space qixian-space-horizontal qixian-space-align-center"
                               >
@@ -22678,11 +22470,6 @@ exports[`table demos 📸 renders ./packages/table/src/demos/config-provider.tsx
                                   </span>
                                 </div>
                               </div>
-                            </td>
-                            <td
-                              class="qixian-table-cell"
-                            >
-                              2020-05-19 17:22:47
                             </td>
                             <td
                               class="qixian-table-cell"
@@ -23301,81 +23088,6 @@ exports[`table demos 📸 renders ./packages/table/src/demos/crud.tsx correctly 
                   </div>
                 </div>
                 <div
-                  class="ant-form-item ant-form-item-hidden"
-                  style="flex-wrap: nowrap;"
-                >
-                  <div
-                    class="ant-row ant-form-item-row"
-                  >
-                    <div
-                      class="ant-col ant-form-item-label"
-                      style="flex: 0 0 80px;"
-                    >
-                      <label
-                        class=""
-                        for="since"
-                        title="创建时间"
-                      >
-                        创建时间
-                      </label>
-                    </div>
-                    <div
-                      class="ant-col ant-form-item-control"
-                      style="max-width: calc(100% - 80px);"
-                    >
-                      <div
-                        class="ant-form-item-control-input"
-                      >
-                        <div
-                          class="ant-form-item-control-input-content"
-                        >
-                          <div
-                            class="ant-picker"
-                            style="width: 100%;"
-                          >
-                            <div
-                              class="ant-picker-input"
-                            >
-                              <input
-                                autocomplete="off"
-                                id="since"
-                                placeholder="请选择"
-                                readonly=""
-                                size="21"
-                                title=""
-                                value=""
-                              />
-                              <span
-                                class="ant-picker-suffix"
-                              >
-                                <span
-                                  aria-label="calendar"
-                                  class="anticon anticon-calendar"
-                                  role="img"
-                                >
-                                  <svg
-                                    aria-hidden="true"
-                                    data-icon="calendar"
-                                    fill="currentColor"
-                                    focusable="false"
-                                    height="1em"
-                                    viewBox="64 64 896 896"
-                                    width="1em"
-                                  >
-                                    <path
-                                      d="M880 184H712v-64c0-4.4-3.6-8-8-8h-56c-4.4 0-8 3.6-8 8v64H384v-64c0-4.4-3.6-8-8-8h-56c-4.4 0-8 3.6-8 8v64H144c-17.7 0-32 14.3-32 32v664c0 17.7 14.3 32 32 32h736c17.7 0 32-14.3 32-32V216c0-17.7-14.3-32-32-32zm-40 656H184V460h656v380zM184 392V256h128v48c0 4.4 3.6 8 8 8h56c4.4 0 8-3.6 8-8v-48h256v48c0 4.4 3.6 8 8 8h56c4.4 0 8-3.6 8-8v-48h128v136H184z"
-                                    />
-                                  </svg>
-                                </span>
-                              </span>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <div
                   class="ant-col ant-col-8"
                   style="padding-left: 12px; padding-right: 12px; text-align: right;"
                 >
@@ -23744,11 +23456,6 @@ exports[`table demos 📸 renders ./packages/table/src/demos/crud.tsx correctly 
                                 <th
                                   class="ant-table-cell"
                                 >
-                                  创建时间
-                                </th>
-                                <th
-                                  class="ant-table-cell"
-                                >
                                   option
                                 </th>
                               </tr>
@@ -23884,11 +23591,6 @@ exports[`table demos 📸 renders ./packages/table/src/demos/crud.tsx correctly 
                                       </span>
                                     </div>
                                   </div>
-                                </td>
-                                <td
-                                  class="ant-table-cell"
-                                >
-                                  2020-05-26 17:42:56
                                 </td>
                                 <td
                                   class="ant-table-cell"
@@ -24065,11 +23767,6 @@ exports[`table demos 📸 renders ./packages/table/src/demos/crud.tsx correctly 
                                       </span>
                                     </div>
                                   </div>
-                                </td>
-                                <td
-                                  class="ant-table-cell"
-                                >
-                                  2020-05-26 16:19:22
                                 </td>
                                 <td
                                   class="ant-table-cell"
@@ -24251,11 +23948,6 @@ exports[`table demos 📸 renders ./packages/table/src/demos/crud.tsx correctly 
                                 <td
                                   class="ant-table-cell"
                                 >
-                                  2020-05-26 15:54:25
-                                </td>
-                                <td
-                                  class="ant-table-cell"
-                                >
                                   <div
                                     class="ant-space ant-space-horizontal ant-space-align-center"
                                   >
@@ -24433,11 +24125,6 @@ exports[`table demos 📸 renders ./packages/table/src/demos/crud.tsx correctly 
                                 <td
                                   class="ant-table-cell"
                                 >
-                                  2020-05-26 13:58:24
-                                </td>
-                                <td
-                                  class="ant-table-cell"
-                                >
                                   <div
                                     class="ant-space ant-space-horizontal ant-space-align-center"
                                   >
@@ -24611,11 +24298,6 @@ exports[`table demos 📸 renders ./packages/table/src/demos/crud.tsx correctly 
                                       </span>
                                     </div>
                                   </div>
-                                </td>
-                                <td
-                                  class="ant-table-cell"
-                                >
-                                  2020-05-26 12:25:59
                                 </td>
                                 <td
                                   class="ant-table-cell"
@@ -47102,78 +46784,6 @@ exports[`table demos 📸 renders ./packages/table/src/demos/rtl_table.tsx corre
               </div>
             </div>
             <div
-              class="ant-form-item ant-form-item-hidden"
-            >
-              <div
-                class="ant-row ant-row-rtl ant-form-item-row"
-              >
-                <div
-                  class="ant-col ant-form-item-label ant-col-rtl"
-                >
-                  <label
-                    class=""
-                    for="since"
-                    title="تاريخ الإنشاء"
-                  >
-                    تاريخ الإنشاء
-                  </label>
-                </div>
-                <div
-                  class="ant-col ant-form-item-control ant-col-rtl"
-                >
-                  <div
-                    class="ant-form-item-control-input"
-                  >
-                    <div
-                      class="ant-form-item-control-input-content"
-                    >
-                      <div
-                        class="ant-picker ant-picker-rtl"
-                        style="width: 100%;"
-                      >
-                        <div
-                          class="ant-picker-input"
-                        >
-                          <input
-                            autocomplete="off"
-                            id="since"
-                            placeholder="الرجاء الإختيار"
-                            readonly=""
-                            size="12"
-                            title=""
-                            value=""
-                          />
-                          <span
-                            class="ant-picker-suffix"
-                          >
-                            <span
-                              aria-label="calendar"
-                              class="anticon anticon-calendar"
-                              role="img"
-                            >
-                              <svg
-                                aria-hidden="true"
-                                data-icon="calendar"
-                                fill="currentColor"
-                                focusable="false"
-                                height="1em"
-                                viewBox="64 64 896 896"
-                                width="1em"
-                              >
-                                <path
-                                  d="M880 184H712v-64c0-4.4-3.6-8-8-8h-56c-4.4 0-8 3.6-8 8v64H384v-64c0-4.4-3.6-8-8-8h-56c-4.4 0-8 3.6-8 8v64H144c-17.7 0-32 14.3-32 32v664c0 17.7 14.3 32 32 32h736c17.7 0 32-14.3 32-32V216c0-17.7-14.3-32-32-32zm-40 656H184V460h656v380zM184 392V256h128v48c0 4.4 3.6 8 8 8h56c4.4 0 8-3.6 8-8v-48h256v48c0 4.4 3.6 8 8 8h56c4.4 0 8-3.6 8-8v-48h128v136H184z"
-                                />
-                              </svg>
-                            </span>
-                          </span>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div
               class="ant-col ant-col-8 ant-col-rtl"
               style="padding-left: 12px; padding-right: 12px; text-align: right;"
             >
@@ -47207,7 +46817,6 @@ exports[`table demos 📸 renders ./packages/table/src/demos/rtl_table.tsx corre
                         >
                           <div
                             class="ant-space-item"
-                            style="margin-left: 16px;"
                           >
                             <div
                               class="ant-space ant-space-horizontal ant-space-rtl ant-space-align-center"
@@ -47240,35 +46849,6 @@ exports[`table demos 📸 renders ./packages/table/src/demos/rtl_table.tsx corre
                                 </button>
                               </div>
                             </div>
-                          </div>
-                          <div
-                            class="ant-space-item"
-                          >
-                            <a
-                              class="ant-pro-query-filter-collapse-button"
-                            >
-                              مُقلص
-                              <span
-                                aria-label="down"
-                                class="anticon anticon-down"
-                                role="img"
-                                style="margin-inline-start: 0.5em; transition: 0.3s all; transform: rotate(0turn);"
-                              >
-                                <svg
-                                  aria-hidden="true"
-                                  data-icon="down"
-                                  fill="currentColor"
-                                  focusable="false"
-                                  height="1em"
-                                  viewBox="64 64 896 896"
-                                  width="1em"
-                                >
-                                  <path
-                                    d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"
-                                  />
-                                </svg>
-                              </span>
-                            </a>
                           </div>
                         </div>
                       </div>
@@ -47572,11 +47152,6 @@ exports[`table demos 📸 renders ./packages/table/src/demos/rtl_table.tsx corre
                             <th
                               class="ant-table-cell"
                             >
-                              تاريخ الإنشاء
-                            </th>
-                            <th
-                              class="ant-table-cell"
-                            >
                               التشغيل
                             </th>
                           </tr>
@@ -47713,11 +47288,6 @@ exports[`table demos 📸 renders ./packages/table/src/demos/rtl_table.tsx corre
                                   </span>
                                 </div>
                               </div>
-                            </td>
-                            <td
-                              class="ant-table-cell"
-                            >
-                              2020-05-26
                             </td>
                             <td
                               class="ant-table-cell"
@@ -47906,11 +47476,6 @@ exports[`table demos 📸 renders ./packages/table/src/demos/rtl_table.tsx corre
                                   </span>
                                 </div>
                               </div>
-                            </td>
-                            <td
-                              class="ant-table-cell"
-                            >
-                              2020-05-26
                             </td>
                             <td
                               class="ant-table-cell"
@@ -48105,11 +47670,6 @@ exports[`table demos 📸 renders ./packages/table/src/demos/rtl_table.tsx corre
                             <td
                               class="ant-table-cell"
                             >
-                              2020-05-26
-                            </td>
-                            <td
-                              class="ant-table-cell"
-                            >
                               <div
                                 class="ant-space ant-space-horizontal ant-space-rtl ant-space-align-center"
                               >
@@ -48300,11 +47860,6 @@ exports[`table demos 📸 renders ./packages/table/src/demos/rtl_table.tsx corre
                             <td
                               class="ant-table-cell"
                             >
-                              2020-05-26
-                            </td>
-                            <td
-                              class="ant-table-cell"
-                            >
                               <div
                                 class="ant-space ant-space-horizontal ant-space-rtl ant-space-align-center"
                               >
@@ -48491,11 +48046,6 @@ exports[`table demos 📸 renders ./packages/table/src/demos/rtl_table.tsx corre
                                   </span>
                                 </div>
                               </div>
-                            </td>
-                            <td
-                              class="ant-table-cell"
-                            >
-                              2020-05-26
                             </td>
                             <td
                               class="ant-table-cell"
@@ -50776,7 +50326,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/single.tsx correctl
                             <td
                               class="ant-table-cell"
                             >
-                              2020-05-26 17:42:56
+                              2020-05-26
                             </td>
                             <td
                               class="ant-table-cell"
@@ -50971,7 +50521,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/single.tsx correctl
                             <td
                               class="ant-table-cell"
                             >
-                              2020-05-26 16:19:22
+                              2020-05-26
                             </td>
                             <td
                               class="ant-table-cell"
@@ -51167,7 +50717,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/single.tsx correctl
                             <td
                               class="ant-table-cell"
                             >
-                              2020-05-26 15:54:25
+                              2020-05-26
                             </td>
                             <td
                               class="ant-table-cell"
@@ -51363,7 +50913,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/single.tsx correctl
                             <td
                               class="ant-table-cell"
                             >
-                              2020-05-26 13:58:24
+                              2020-05-26
                             </td>
                             <td
                               class="ant-table-cell"
@@ -51559,7 +51109,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/single.tsx correctl
                             <td
                               class="ant-table-cell"
                             >
-                              2020-05-26 12:25:59
+                              2020-05-26
                             </td>
                             <td
                               class="ant-table-cell"

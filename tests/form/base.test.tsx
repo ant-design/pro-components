@@ -6,6 +6,7 @@ import ProForm, {
   ProFormDatePicker,
   ProFormDateTimePicker,
   ProFormDependency,
+  ProFormDigit,
   ProFormDigitRange,
   ProFormField,
   ProFormSelect,
@@ -16,7 +17,7 @@ import { act, fireEvent, render } from '@testing-library/react';
 import { Button, ConfigProvider, Input } from 'antd';
 import dayjs from 'dayjs';
 import React, { useEffect, useRef } from 'react';
-import { waitTime } from '../util';
+import { waitForComponentToPaint, waitTime } from '../util';
 
 describe('ProForm', () => {
   it('📦 submit props actionsRender=false', async () => {
@@ -1414,7 +1415,7 @@ describe('ProForm', () => {
       await waitTime(200);
     });
 
-    expect(onRequest.mock.calls.length).toBe(2);
+    expect(onRequest.mock.calls.length).toBe(3);
     wrapper.unmount();
   });
 
@@ -2596,5 +2597,45 @@ describe('ProForm', () => {
 
     expect(onChange).toBeCalledWith(undefined);
     wrapper.unmount();
+  });
+
+  it(`📦 valueType digit with precision value`, async () => {
+    const fn = jest.fn();
+    const html = render(
+      <ProForm
+        onFinish={async (value) => {
+          fn(value.count);
+        }}
+      >
+        <ProFormDigit
+          name="count"
+          label="人数"
+          fieldProps={{
+            precision: 0,
+          }}
+        />
+      </ProForm>,
+    );
+
+    await waitForComponentToPaint(html, 300);
+    act(() => {
+      const dom = html.baseElement.querySelector<HTMLInputElement>('input#count')!;
+      fireEvent.change(dom, {
+        target: {
+          value: '22.22',
+        },
+      });
+      fireEvent.blur(dom);
+      fireEvent.click(dom);
+    });
+    await waitForComponentToPaint(html, 300);
+    expect(html.baseElement.querySelector<HTMLInputElement>('input#count')?.value).toBe('22');
+
+    await act(async () => {
+      await (await html.findByText('提 交')).click();
+    });
+
+    expect(fn).toBeCalledWith(22);
+    expect(html.asFragment()).toMatchSnapshot();
   });
 });
