@@ -1422,7 +1422,7 @@ describe('ProForm', () => {
       await waitTime(200);
     });
 
-    expect(onRequest.mock.calls.length).toBe(2);
+    expect(onRequest.mock.calls.length).toBe(3);
     wrapper.unmount();
   });
 
