@@ -6,6 +6,7 @@ import ProForm, {
   ProFormDatePicker,
   ProFormDateTimePicker,
   ProFormDependency,
+  ProFormDigit,
   ProFormDigitRange,
   ProFormField,
   ProFormSelect,
@@ -1421,7 +1422,7 @@ describe('ProForm', () => {
       await waitTime(200);
     });
 
-    expect(onRequest.mock.calls.length).toBe(2);
+    expect(onRequest.mock.calls.length).toBe(3);
     wrapper.unmount();
   });
 
@@ -2635,5 +2636,40 @@ describe('ProForm', () => {
     expect(valuesFn).toBeCalledWith('kiner');
     expect(valuesFn2).toBeCalledWith('kiner');
     expect(valuesFn3).toBeCalledWith('kiner');
+  });
+  it(`📦 valueType digit with precision value`, async () => {
+    const fn = jest.fn();
+    const html = mount(
+      <ProForm
+        onFinish={async (value) => {
+          fn(value.count);
+        }}
+      >
+        <ProFormDigit
+          name="count"
+          label="人数"
+          fieldProps={{
+            precision: 0,
+          }}
+        />
+      </ProForm>,
+    );
+
+    await waitForComponentToPaint(html, 300);
+    act(() => {
+      html.find('input#count').simulate('change', {
+        target: {
+          value: '22.22',
+        },
+      });
+      html.find('input#count').simulate('blur');
+      html.find('button.ant-btn-primary').simulate('click');
+      html.update();
+    });
+    await waitForComponentToPaint(html, 300);
+    expect(html.find('input#count').props().value).toBe('22');
+    expect(fn).toBeCalledWith(22);
+    expect(html.render()).toMatchSnapshot();
+
   });
 });

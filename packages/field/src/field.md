@@ -23,6 +23,8 @@ nav:
 
 <code src="./demos/tree-select-search-value.tsx" debug/>
 
+<code src="./demos/select-request.tsx" debug/>
+
 ## API
 
 ```typescript | pure

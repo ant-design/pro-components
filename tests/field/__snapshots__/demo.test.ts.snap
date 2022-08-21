@@ -4313,6 +4313,254 @@ exports[`field demos 📸 renders ./packages/field/src/demos/search-value.tsx co
 </DocumentFragment>
 `;
 
+exports[`field demos 📸 renders ./packages/field/src/demos/select-request.tsx correctly 1`] = `
+<DocumentFragment>
+  <div
+    class="App"
+  >
+    <form
+      autocomplete="off"
+      class="ant-form ant-form-vertical"
+    >
+      <input
+        style="display: none;"
+        type="text"
+      />
+      <div
+        class="ant-form-item"
+      >
+        <div
+          class="ant-row ant-form-item-row"
+        >
+          <div
+            class="ant-col ant-form-item-control"
+          >
+            <div
+              class="ant-form-item-control-input"
+            >
+              <div
+                class="ant-form-item-control-input-content"
+              >
+                <div
+                  class="ant-select ant-select-in-form-item ant-pro-filed-search-select ant-select-single ant-select-allow-clear ant-select-show-arrow ant-select-show-search"
+                  style="min-width: 100px;"
+                >
+                  <div
+                    class="ant-select-selector"
+                  >
+                    <span
+                      class="ant-select-selection-search"
+                    >
+                      <input
+                        aria-activedescendant="select_list_0"
+                        aria-autocomplete="list"
+                        aria-controls="select_list"
+                        aria-expanded="false"
+                        aria-haspopup="listbox"
+                        aria-owns="select_list"
+                        autocomplete="off"
+                        class="ant-select-selection-search-input"
+                        id="select"
+                        role="combobox"
+                        type="search"
+                        value=""
+                      />
+                    </span>
+                    <span
+                      class="ant-select-selection-placeholder"
+                    >
+                      请选择
+                    </span>
+                  </div>
+                  <span
+                    aria-hidden="true"
+                    class="ant-select-arrow"
+                    style="user-select: none;"
+                    unselectable="on"
+                  >
+                    <span
+                      aria-label="down"
+                      class="anticon anticon-down ant-select-suffix"
+                      role="img"
+                    >
+                      <svg
+                        aria-hidden="true"
+                        data-icon="down"
+                        fill="currentColor"
+                        focusable="false"
+                        height="1em"
+                        viewBox="64 64 896 896"
+                        width="1em"
+                      >
+                        <path
+                          d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"
+                        />
+                      </svg>
+                    </span>
+                  </span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div
+        class="ant-space ant-space-horizontal ant-space-align-center"
+        style="flex-wrap: wrap; margin-bottom: -8px;"
+      >
+        <div
+          class="ant-space-item"
+          style="margin-right: 8px; padding-bottom: 8px;"
+        >
+          <button
+            class="ant-btn ant-btn-primary"
+            type="button"
+          >
+            <span>
+              提 交
+            </span>
+          </button>
+        </div>
+        <div
+          class="ant-space-item"
+          style="padding-bottom: 8px;"
+        >
+          <button
+            class="ant-btn ant-btn-default"
+            type="button"
+          >
+            <span>
+              重 置
+            </span>
+          </button>
+        </div>
+      </div>
+    </form>
+    <form
+      autocomplete="off"
+      class="ant-form ant-form-vertical"
+    >
+      <input
+        style="display: none;"
+        type="text"
+      />
+      <div
+        class="ant-form-item"
+      >
+        <div
+          class="ant-row ant-form-item-row"
+        >
+          <div
+            class="ant-col ant-form-item-control"
+          >
+            <div
+              class="ant-form-item-control-input"
+            >
+              <div
+                class="ant-form-item-control-input-content"
+              >
+                <div
+                  class="ant-select ant-select-in-form-item ant-pro-filed-search-select ant-select-focused ant-select-single ant-select-allow-clear ant-select-show-arrow ant-select-show-search"
+                  style="min-width: 100px;"
+                >
+                  <span
+                    aria-live="polite"
+                    style="width: 0px; height: 0px; position: absolute; overflow: hidden; opacity: 0;"
+                  />
+                  <div
+                    class="ant-select-selector"
+                  >
+                    <span
+                      class="ant-select-selection-search"
+                    >
+                      <input
+                        aria-activedescendant="select_list_0"
+                        aria-autocomplete="list"
+                        aria-controls="select_list"
+                        aria-haspopup="listbox"
+                        aria-owns="select_list"
+                        autocomplete="off"
+                        class="ant-select-selection-search-input"
+                        id="select"
+                        role="combobox"
+                        type="search"
+                        value=""
+                      />
+                    </span>
+                    <span
+                      class="ant-select-selection-placeholder"
+                    >
+                      请选择
+                    </span>
+                  </div>
+                  <span
+                    aria-hidden="true"
+                    class="ant-select-arrow"
+                    style="user-select: none;"
+                    unselectable="on"
+                  >
+                    <span
+                      aria-label="down"
+                      class="anticon anticon-down ant-select-suffix"
+                      role="img"
+                    >
+                      <svg
+                        aria-hidden="true"
+                        data-icon="down"
+                        fill="currentColor"
+                        focusable="false"
+                        height="1em"
+                        viewBox="64 64 896 896"
+                        width="1em"
+                      >
+                        <path
+                          d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"
+                        />
+                      </svg>
+                    </span>
+                  </span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div
+        class="ant-space ant-space-horizontal ant-space-align-center"
+        style="flex-wrap: wrap; margin-bottom: -8px;"
+      >
+        <div
+          class="ant-space-item"
+          style="margin-right: 8px; padding-bottom: 8px;"
+        >
+          <button
+            class="ant-btn ant-btn-primary"
+            type="button"
+          >
+            <span>
+              提 交
+            </span>
+          </button>
+        </div>
+        <div
+          class="ant-space-item"
+          style="padding-bottom: 8px;"
+        >
+          <button
+            class="ant-btn ant-btn-default"
+            type="button"
+          >
+            <span>
+              重 置
+            </span>
+          </button>
+        </div>
+      </div>
+    </form>
+  </div>
+</DocumentFragment>
+`;
+
 exports[`field demos 📸 renders ./packages/field/src/demos/tree-select-search-value.tsx correctly 1`] = `
 <DocumentFragment>
   <div>
