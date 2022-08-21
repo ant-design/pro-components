@@ -51224,7 +51224,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/single-test.tsx cor
                           id="since"
                           placeholder="请选择"
                           readonly=""
-                          size="21"
+                          size="12"
                           title=""
                           value=""
                         />
@@ -52240,7 +52240,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/single-test.tsx cor
                             id="since"
                             placeholder="请选择"
                             readonly=""
-                            size="21"
+                            size="12"
                             title=""
                             value=""
                           />
@@ -52976,7 +52976,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/single-test.tsx cor
                                 style="width: 100%; margin: 0px; padding: 0px;"
                                 title=""
                               >
-                                2020-05-26 17:42:56
+                                2020-05-26
                               </span>
                             </td>
                             <td
@@ -53181,7 +53181,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/single-test.tsx cor
                                 style="width: 100%; margin: 0px; padding: 0px;"
                                 title=""
                               >
-                                2020-05-26 16:19:22
+                                2020-05-26
                               </span>
                             </td>
                             <td
@@ -53387,7 +53387,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/single-test.tsx cor
                                 style="width: 100%; margin: 0px; padding: 0px;"
                                 title=""
                               >
-                                2020-05-26 15:54:25
+                                2020-05-26
                               </span>
                             </td>
                             <td
@@ -53593,7 +53593,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/single-test.tsx cor
                                 style="width: 100%; margin: 0px; padding: 0px;"
                                 title=""
                               >
-                                2020-05-26 13:58:24
+                                2020-05-26
                               </span>
                             </td>
                             <td
@@ -53799,7 +53799,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/single-test.tsx cor
                                 style="width: 100%; margin: 0px; padding: 0px;"
                                 title=""
                               >
-                                2020-05-26 12:25:59
+                                2020-05-26
                               </span>
                             </td>
                             <td
