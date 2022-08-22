@@ -227,6 +227,7 @@ const QueryFilterContent: React.FC<{
   ignoreRules?: boolean;
   preserve?: boolean;
   showHiddenNum?: boolean;
+  excludeBuildInCompSpan?: boolean;
 }> = (props) => {
   const intl = useIntl();
   const resetText = props.resetText || intl.getMessage('tableForm.reset', '重置');
@@ -517,6 +518,7 @@ function QueryFilter<T = Record<string, any>>(props: QueryFilterProps<T>) {
         }}
         contentRender={(items, renderSubmitter, form) => (
           <QueryFilterContent
+            excludeBuildInCompSpan={excludeBuildInCompSpan}
             spanSize={spanSize}
             collapsed={controlCollapsed}
             form={form}
