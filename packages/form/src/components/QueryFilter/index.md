@@ -70,7 +70,7 @@ QueryFilter 除了继承 ProForm 的 API 以外还支持下面的属性。
 | defaultCollapsed | 默认状态下是否折叠超出的表单项 | `boolean` | true |
 | onCollapse | 切换表单折叠状态时的回调 | `(collapsed)=>void` | - |
 | hideRequiredMark | 隐藏所有表单项的必选标记，**默认隐藏** | `boolean` | true |
-| defaultColsNumber | 自定义折叠状态下默认显示的表单控件数量，没有设置或小于 0，则显示一行控件; 数量大于等于控件数量则隐藏展开按钮， | `number` | - |
+| defaultColsNumber | 自定义折叠状态下默认显示的表单控件数量，没有设置或小于 0，则显示一行控件; 数量大于等于控件数量则隐藏展开按钮 | `number` | - |
 | excludeBuildInCompSpan | 是否忽略内部组件占用空间，如设置此属性，传入`defaultColsNumber`时只需要根据需求传入要默认展示的用户组件数量即可，无需关心内部组件的空间占用 | `boolean` | `false` |
 | labelWidth | label 宽度 | `number` \| `'auto'` | `80` |
 | span | 表单项宽度 | `number[0 - 24]` | - |
