@@ -188,9 +188,11 @@ function createField<P extends ProFormFieldItemProps = any>(
       let name = otherProps?.name;
       if (Array.isArray(name)) name = name.join('_');
       if (Array.isArray(prefixName) && name) name = `${prefixName.join('.')}.${name}`;
-      return name && `form-field-${name}`;
+      const key = name && `form-${contextValue.formKey ?? ''}-field-${name}`;
+      return key;
+
       // eslint-disable-next-line react-hooks/exhaustive-deps
-    }, [stringify(otherProps?.name), prefixName]);
+    }, [stringify(otherProps?.name), prefixName, contextValue.formKey]);
 
     const prefRest = usePrevious(rest);
 
