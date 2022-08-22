@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.80.1](https://github.com/ant-design/pro-components/compare/@ant-design/pro-table@2.80.0...@ant-design/pro-table@2.80.1) (2022-08-22)
+
+### Bug Fixes
+
+- 解决 EditableTable 与 ProForm 配合使用时初始化数据也会触发 onValuesChange 的问题 ([#5751](https://github.com/ant-design/pro-components/issues/5751)) ([639aa22](https://github.com/ant-design/pro-components/commit/639aa22922f377407cc222590ff0bc3bcac0de16))
+
 # [2.80.0](https://github.com/ant-design/pro-components/compare/@ant-design/pro-table@2.79.0...@ant-design/pro-table@2.80.0) (2022-08-19)
 
 ### Bug Fixes
