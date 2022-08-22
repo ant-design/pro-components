@@ -108,8 +108,6 @@ Object.defineProperty(window, 'cancelAnimationFrame', {
 MockDate.set(1479799364000);
 timezone_mock.register('UTC');
 
-console.log(Date.now());
-
 Math.random = () => 0.8404419276253765;
 
 fetch.mockResponse(async () => {
