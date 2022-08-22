@@ -1,5 +1,4 @@
 import Adapter from '@cfaester/enzyme-adapter-react-18';
-import dayjs from 'dayjs';
 import Enzyme from 'enzyme';
 import 'jest-canvas-mock';
 import { enableFetchMocks } from 'jest-fetch-mock';
@@ -106,8 +105,10 @@ Object.defineProperty(window, 'cancelAnimationFrame', {
 });
 
 // 2016-11-22 15:22:44
-MockDate.set(dayjs('2016-11-22 15:22:44').toDate());
+MockDate.set(1479799364000);
 timezone_mock.register('UTC');
+
+console.log(Date.now());
 
 Math.random = () => 0.8404419276253765;
 

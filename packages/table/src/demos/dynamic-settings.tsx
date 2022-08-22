@@ -111,7 +111,7 @@ const genData = (total: number) => {
       key: i,
       name: 'John Brown',
       age: i + 10,
-      time: Date.now(),
+      time: 1661136793649 + i * 1000,
       address: i % 2 === 0 ? 'london' : 'New York',
       description: `My name is John Brown, I am ${i}2 years old, living in New York No. ${i} Lake Park.`,
     });
