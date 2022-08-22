@@ -457,7 +457,7 @@ describe('LightFilter', () => {
     await waitForComponentToPaint(wrapper);
 
     expect(wrapper.find('.ant-pro-core-field-label').text()).toMatchSnapshot();
-    expect(onFinish).toHaveBeenCalledWith({ datetime: '2016-11-04 07:22:44' });
+    expect(onFinish).toHaveBeenCalledWith({ datetime: '2016-11-04 16:00:00' });
 
     await waitForComponentToPaint(wrapper);
     act(() => {
@@ -482,10 +482,10 @@ describe('LightFilter', () => {
       wrapper.find('.ant-picker-now-btn').simulate('click');
     });
     await waitForComponentToPaint(wrapper);
-    expect(wrapper.find('.ant-pro-core-field-label').text()).toEqual('时间: 07:22:44');
+    expect(wrapper.find('.ant-pro-core-field-label').text()).toEqual('时间: 16:00:00');
 
     await waitForComponentToPaint(wrapper);
-    expect(onFinish).toHaveBeenCalledWith({ time: '07:22:44' });
+    expect(onFinish).toHaveBeenCalledWith({ time: '16:00:00' });
 
     await waitForComponentToPaint(wrapper);
     act(() => {

@@ -391,7 +391,7 @@ Array [
                     style="margin-block-start:16px"
                   >
                     <div
-                      class="ant-skeleton ant-skeleton-active css-dev-only-do-not-override-1stfap4"
+                      class="ant-skeleton ant-skeleton-active"
                     >
                       <div
                         class="ant-skeleton-content"

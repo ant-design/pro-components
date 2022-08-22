@@ -53,7 +53,7 @@ describe('Field', () => {
     );
 
     expect(html.baseElement.innerHTML).toBe(
-      '<div><div><div>2016-11-22 07:22:44</div><div>2016-11-23 07:22:44</div></div></div>',
+      '<div><div><div>2016-11-21 16:00:00</div><div>2016-11-22 16:00:00</div></div></div>',
     );
   });
 });

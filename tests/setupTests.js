@@ -110,7 +110,7 @@ dayjs.extend(utc);
 dayjs.extend(timezone);
 dayjs.tz.setDefault('UTC');
 // 2016-11-22 15:22:44
-MockDate.set(dayjs('2016-11-22 15:22:44').valueOf());
+MockDate.set(1479744000000);
 timezone_mock.register('UTC');
 
 Math.random = () => 0.8404419276253765;
