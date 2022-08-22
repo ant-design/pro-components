@@ -60,7 +60,7 @@ function demoTest(component: string, options: Options = {}) {
         testMethod = test.skip;
       }
       testMethod(`📸 renders ${file} correctly`, async () => {
-        MockDate.set(1479744000005);
+        MockDate.set(1479744000000);
         const Demo = require(`.${file}`).default;
         const wrapper = reactRender(<Demo />);
         await waitForComponentToPaint(wrapper, 2000);

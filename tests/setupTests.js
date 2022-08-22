@@ -1,4 +1,5 @@
 import Adapter from '@cfaester/enzyme-adapter-react-18';
+import dayjs from 'dayjs';
 import Enzyme from 'enzyme';
 import 'jest-canvas-mock';
 import { enableFetchMocks } from 'jest-fetch-mock';
@@ -103,9 +104,13 @@ Object.defineProperty(window, 'localStorage', {
 Object.defineProperty(window, 'cancelAnimationFrame', {
   value: () => null,
 });
-
+var utc = require('dayjs/plugin/utc');
+var timezone = require('dayjs/plugin/timezone');
+dayjs.extend(utc);
+dayjs.extend(timezone);
+dayjs.tz.setDefault('UTC');
 // 2016-11-22 15:22:44
-MockDate.set(1479799364000);
+MockDate.set(dayjs('2016-11-22 15:22:44').valueOf());
 timezone_mock.register('UTC');
 
 Math.random = () => 0.8404419276253765;
