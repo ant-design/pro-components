@@ -94,7 +94,13 @@ export type BaseQueryFilterProps = Omit<ActionsProps, 'submitter' | 'setCollapse
    * @type 'horizontal' | 'inline' | 'vertical';
    */
   layout?: FormProps['layout'];
+  /** 默认展开的表单组件数量 */
   defaultColsNumber?: number;
+  /**
+   * @description defaultColsNumber 是否排除内部占用空间单独计算，即开启后，用户传入 defaultColsNumber 为多少，实际默认展示多少个用户组件
+   * 默认为：false
+   */
+  excludeBuildInCompSpan?: boolean;
   /**
    * @name 文字标签的宽度
    *
@@ -243,6 +249,7 @@ const QueryFilterContent: React.FC<{
     showLength,
     searchGutter,
     showHiddenNum,
+    excludeBuildInCompSpan = false,
   } = props;
 
   const submitter = useMemo(() => {
@@ -272,7 +279,7 @@ const QueryFilterContent: React.FC<{
 
   // totalSpan 统计控件占的位置，计算 offset 保证查询按钮在最后一列
   // 默认把查询按钮、重置按钮、展开等功能性按钮所占用的空间加入到totalSpan中
-  let totalSpan = spanSize.span;
+  let totalSpan = excludeBuildInCompSpan ? spanSize.span : 0;
   let itemLength = 0;
   //首个表单项是否占满第一行
   let firstRowFull = false;
@@ -438,6 +445,7 @@ function QueryFilter<T = Record<string, any>>(props: QueryFilterProps<T>) {
     preserve = true,
     ignoreRules,
     showHiddenNum = false,
+    excludeBuildInCompSpan = false,
     ...rest
   } = props;
 
@@ -453,10 +461,10 @@ function QueryFilter<T = Record<string, any>>(props: QueryFilterProps<T>) {
   const showLength = useMemo(() => {
     // 查询重置按钮也会占一个spanSize格子，需要减掉计算
     if (defaultColsNumber !== undefined) {
-      return defaultColsNumber + 1;
+      return defaultColsNumber + (excludeBuildInCompSpan ? 1 : 0);
     }
-    return Math.max(1, 24 / spanSize.span + 1);
-  }, [defaultColsNumber, spanSize.span]);
+    return Math.max(1, 24 / spanSize.span + (excludeBuildInCompSpan ? 1 : -1));
+  }, [defaultColsNumber, spanSize.span, excludeBuildInCompSpan]);
 
   /** 计算最大宽度防止溢出换行 */
   const formItemFixStyle: FormItemProps<any> | undefined = useMemo(() => {

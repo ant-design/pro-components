@@ -1387,6 +1387,6 @@ describe('BasicTable', () => {
     );
     await waitForComponentToPaint(html, 2000);
 
-    expect(html.find('.ant-pro-form-collapse-button').text()).toBe('展开(8)');
+    expect(html.find('.ant-pro-form-collapse-button').text()).toBe('展开(9)');
   });
 });
