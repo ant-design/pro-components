@@ -2,13 +2,11 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
-# [2.0.0-experimental.13](https://github.com/ant-design/pro-components/compare/@ant-design/pro-form@2.0.0-experimental.12...@ant-design/pro-form@2.0.0-experimental.13) (2022-08-19)
+# [1.74.0](https://github.com/ant-design/pro-components/compare/@ant-design/pro-form@1.73.0...@ant-design/pro-form@1.74.0) (2022-08-19)
 
-**Note:** Version bump only for package @ant-design/pro-form
+### Features
 
-# [2.0.0-experimental.12](https://github.com/ant-design/pro-components/compare/@ant-design/pro-form@2.0.0-experimental.11...@ant-design/pro-form@2.0.0-experimental.12) (2022-08-19)
-
-**Note:** Version bump only for package @ant-design/pro-form
+- **form:** support Pro.useFormInstance ([d53eccc](https://github.com/ant-design/pro-components/commit/d53eccca812e477c68f59243b227e3141526ce69))
 
 # [2.0.0-experimental.11](https://github.com/ant-design/pro-components/compare/@ant-design/pro-form@2.0.0-experimental.10...@ant-design/pro-form@2.0.0-experimental.11) (2022-08-18)
 
