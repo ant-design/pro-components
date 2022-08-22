@@ -29,7 +29,7 @@ const defaultData: DataSourceType = {
   title: '🐛 [BUG]yarn install命令 antd2.4.5会报错',
   labels: [{ name: 'bug', color: 'error' }],
   time: {
-    created_at: '2020-05-26T09:42:56Z',
+    created_at: '1590486176000',
   },
   state: 'processing',
 };

@@ -2257,7 +2257,7 @@ exports[`table demos 📸 renders ./packages/table/src/components/EditableTable/
                             <td
                               class="ant-table-cell"
                             >
-                              2020-05-26
+                              1594-02-02
                             </td>
                             <td
                               class="ant-table-cell"
@@ -2321,7 +2321,7 @@ exports[`table demos 📸 renders ./packages/table/src/components/EditableTable/
                             <td
                               class="ant-table-cell"
                             >
-                              2020-05-26
+                              1593-12-13
                             </td>
                             <td
                               class="ant-table-cell"
@@ -2438,8 +2438,8 @@ exports[`table demos 📸 renders ./packages/table/src/components/EditableTable/
     "readonly": "活动名称一",
     "decs": "这个活动真好玩",
     "state": "open",
-    "created_at": "2020-05-26T09:42:56Z",
-    "update_at": "2020-05-26T09:42:56Z"
+    "created_at": "1590486176000",
+    "update_at": "1590486176000"
   },
   {
     "id": 624691229,
@@ -2447,8 +2447,8 @@ exports[`table demos 📸 renders ./packages/table/src/components/EditableTable/
     "readonly": "活动名称二",
     "decs": "这个活动真好玩",
     "state": "closed",
-    "created_at": "2020-05-26T08:19:22Z",
-    "update_at": "2020-05-26T08:19:22Z"
+    "created_at": "1590481162000",
+    "update_at": "1590481162000"
   }
 ]
         </code>
@@ -2651,7 +2651,7 @@ exports[`table demos 📸 renders ./packages/table/src/components/EditableTable/
                             <td
                               class="ant-table-cell"
                             >
-                              2020-05-26
+                              1594-02-02
                             </td>
                             <td
                               class="ant-table-cell"
@@ -2712,7 +2712,7 @@ exports[`table demos 📸 renders ./packages/table/src/components/EditableTable/
                             <td
                               class="ant-table-cell"
                             >
-                              2020-05-26
+                              1593-12-13
                             </td>
                             <td
                               class="ant-table-cell"
@@ -2773,7 +2773,7 @@ exports[`table demos 📸 renders ./packages/table/src/components/EditableTable/
                             <td
                               class="ant-table-cell"
                             >
-                              2020-05-26
+                              1593-12-13
                             </td>
                             <td
                               class="ant-table-cell"
@@ -2881,16 +2881,16 @@ exports[`table demos 📸 renders ./packages/table/src/components/EditableTable/
     "title": "活动名称一",
     "decs": "这个活动真好玩",
     "state": "open",
-    "created_at": "2020-05-26T09:42:56Z",
-    "update_at": "2020-05-26T09:42:56Z",
+    "created_at": "1590486176000",
+    "update_at": "1590486176000",
     "children": [
       {
         "id": 6246912293,
         "title": "活动名称二",
         "decs": "这个活动真好玩",
         "state": "closed",
-        "created_at": "2020-05-26T08:19:22Z",
-        "update_at": "2020-05-26T08:19:22Z"
+        "created_at": "1590481162000",
+        "update_at": "1590481162000"
       }
     ]
   },
@@ -2899,8 +2899,8 @@ exports[`table demos 📸 renders ./packages/table/src/components/EditableTable/
     "title": "活动名称二",
     "decs": "这个活动真好玩",
     "state": "closed",
-    "created_at": "2020-05-26T08:19:22Z",
-    "update_at": "2020-05-26T08:19:22Z"
+    "created_at": "1590481162000",
+    "update_at": "1590481162000"
   }
 ]
         </code>
@@ -3278,7 +3278,7 @@ exports[`table demos 📸 renders ./packages/table/src/components/EditableTable/
       }
     ],
     "state": "open",
-    "created_at": "2020-05-26T09:42:56Z"
+    "created_at": "1590486176000"
   },
   {
     "id": 624691229,
@@ -3290,7 +3290,7 @@ exports[`table demos 📸 renders ./packages/table/src/components/EditableTable/
       }
     ],
     "state": "closed",
-    "created_at": "2020-05-26T08:19:22Z"
+    "created_at": "1590481162000"
   }
 ]
         </code>
@@ -3613,7 +3613,7 @@ exports[`table demos 📸 renders ./packages/table/src/components/EditableTable/
                                     <td
                                       class="ant-table-cell"
                                     >
-                                      2020-05-26
+                                      1594-02-02
                                     </td>
                                     <td
                                       class="ant-table-cell"
@@ -3672,7 +3672,7 @@ exports[`table demos 📸 renders ./packages/table/src/components/EditableTable/
                                     <td
                                       class="ant-table-cell"
                                     >
-                                      2020-05-26
+                                      1593-12-13
                                     </td>
                                     <td
                                       class="ant-table-cell"
@@ -3805,16 +3805,16 @@ exports[`table demos 📸 renders ./packages/table/src/components/EditableTable/
     "title": "活动名称一",
     "decs": "这个活动真好玩",
     "state": "open",
-    "created_at": "2020-05-26T09:42:56Z",
-    "update_at": "2020-05-26T09:42:56Z"
+    "created_at": "1590486176000",
+    "update_at": "1590486176000"
   },
   {
     "id": "624691229",
     "title": "活动名称二",
     "decs": "这个活动真好玩",
     "state": "closed",
-    "created_at": "2020-05-26T08:19:22Z",
-    "update_at": "2020-05-26T08:19:22Z"
+    "created_at": "1590481162000",
+    "update_at": "1590481162000"
   }
 ]
                       </code>
@@ -10155,140 +10155,140 @@ exports[`table demos 📸 renders ./packages/table/src/components/EditableTable/
     "title": "活动名称0",
     "decs": "这个活动真好玩",
     "state": "open",
-    "created_at": "2020-05-26T09:42:56Z"
+    "created_at": "1590486176000"
   },
   {
     "id": "1479744000001",
     "title": "活动名称1",
     "decs": "这个活动真好玩",
     "state": "open",
-    "created_at": "2020-05-26T09:42:56Z"
+    "created_at": "1590486176000"
   },
   {
     "id": "1479744000002",
     "title": "活动名称2",
     "decs": "这个活动真好玩",
     "state": "open",
-    "created_at": "2020-05-26T09:42:56Z"
+    "created_at": "1590486176000"
   },
   {
     "id": "1479744000003",
     "title": "活动名称3",
     "decs": "这个活动真好玩",
     "state": "open",
-    "created_at": "2020-05-26T09:42:56Z"
+    "created_at": "1590486176000"
   },
   {
     "id": "1479744000004",
     "title": "活动名称4",
     "decs": "这个活动真好玩",
     "state": "open",
-    "created_at": "2020-05-26T09:42:56Z"
+    "created_at": "1590486176000"
   },
   {
     "id": "1479744000005",
     "title": "活动名称5",
     "decs": "这个活动真好玩",
     "state": "open",
-    "created_at": "2020-05-26T09:42:56Z"
+    "created_at": "1590486176000"
   },
   {
     "id": "1479744000006",
     "title": "活动名称6",
     "decs": "这个活动真好玩",
     "state": "open",
-    "created_at": "2020-05-26T09:42:56Z"
+    "created_at": "1590486176000"
   },
   {
     "id": "1479744000007",
     "title": "活动名称7",
     "decs": "这个活动真好玩",
     "state": "open",
-    "created_at": "2020-05-26T09:42:56Z"
+    "created_at": "1590486176000"
   },
   {
     "id": "1479744000008",
     "title": "活动名称8",
     "decs": "这个活动真好玩",
     "state": "open",
-    "created_at": "2020-05-26T09:42:56Z"
+    "created_at": "1590486176000"
   },
   {
     "id": "1479744000009",
     "title": "活动名称9",
     "decs": "这个活动真好玩",
     "state": "open",
-    "created_at": "2020-05-26T09:42:56Z"
+    "created_at": "1590486176000"
   },
   {
     "id": "1479744000010",
     "title": "活动名称10",
     "decs": "这个活动真好玩",
     "state": "open",
-    "created_at": "2020-05-26T09:42:56Z"
+    "created_at": "1590486176000"
   },
   {
     "id": "1479744000011",
     "title": "活动名称11",
     "decs": "这个活动真好玩",
     "state": "open",
-    "created_at": "2020-05-26T09:42:56Z"
+    "created_at": "1590486176000"
   },
   {
     "id": "1479744000012",
     "title": "活动名称12",
     "decs": "这个活动真好玩",
     "state": "open",
-    "created_at": "2020-05-26T09:42:56Z"
+    "created_at": "1590486176000"
   },
   {
     "id": "1479744000013",
     "title": "活动名称13",
     "decs": "这个活动真好玩",
     "state": "open",
-    "created_at": "2020-05-26T09:42:56Z"
+    "created_at": "1590486176000"
   },
   {
     "id": "1479744000014",
     "title": "活动名称14",
     "decs": "这个活动真好玩",
     "state": "open",
-    "created_at": "2020-05-26T09:42:56Z"
+    "created_at": "1590486176000"
   },
   {
     "id": "1479744000015",
     "title": "活动名称15",
     "decs": "这个活动真好玩",
     "state": "open",
-    "created_at": "2020-05-26T09:42:56Z"
+    "created_at": "1590486176000"
   },
   {
     "id": "1479744000016",
     "title": "活动名称16",
     "decs": "这个活动真好玩",
     "state": "open",
-    "created_at": "2020-05-26T09:42:56Z"
+    "created_at": "1590486176000"
   },
   {
     "id": "1479744000017",
     "title": "活动名称17",
     "decs": "这个活动真好玩",
     "state": "open",
-    "created_at": "2020-05-26T09:42:56Z"
+    "created_at": "1590486176000"
   },
   {
     "id": "1479744000018",
     "title": "活动名称18",
     "decs": "这个活动真好玩",
     "state": "open",
-    "created_at": "2020-05-26T09:42:56Z"
+    "created_at": "1590486176000"
   },
   {
     "id": "1479744000019",
     "title": "活动名称19",
     "decs": "这个活动真好玩",
     "state": "open",
-    "created_at": "2020-05-26T09:42:56Z"
+    "created_at": "1590486176000"
   }
 ]
         </code>
@@ -43474,7 +43474,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/open-rules.tsx corr
                             <td
                               class="ant-table-cell"
                             >
-                              2020-05-26
+                              1594-02-02
                             </td>
                           </tr>
                         </tbody>
@@ -44238,7 +44238,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/open-rules.tsx corr
                             <td
                               class="ant-table-cell"
                             >
-                              2020-05-26
+                              1594-02-02
                             </td>
                           </tr>
                         </tbody>
