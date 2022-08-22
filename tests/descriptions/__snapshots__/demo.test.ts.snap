@@ -625,7 +625,7 @@ exports[`descriptions demos 📸 renders ./packages/descriptions/src/demos/base.
                 <span
                   class="ant-descriptions-item-content"
                 >
-                  2016-11-22 00:00:00
+                  2016-11-22 15:22:44
                 </span>
               </div>
             </td>
@@ -669,10 +669,10 @@ exports[`descriptions demos 📸 renders ./packages/descriptions/src/demos/base.
                 >
                   <div>
                     <div>
-                      2016-11-21 00:00:00
+                      2016-11-21 15:22:44
                     </div>
                     <div>
-                      2016-11-22 00:00:00
+                      2016-11-22 15:22:44
                     </div>
                   </div>
                 </span>
@@ -698,7 +698,7 @@ exports[`descriptions demos 📸 renders ./packages/descriptions/src/demos/base.
                   class="ant-descriptions-item-content"
                 >
                   <span>
-                    00:00:00
+                    15:22:44
                   </span>
                 </span>
               </div>
@@ -3049,10 +3049,10 @@ exports[`descriptions demos 📸 renders ./packages/descriptions/src/demos/forma
                 >
                   <div>
                     <div>
-                      2016.11.21 00:00:00
+                      2016.11.21 15:22:44
                     </div>
                     <div>
-                      2016.11.22 00:00:00
+                      2016.11.22 15:22:44
                     </div>
                   </div>
                 </span>
@@ -3098,7 +3098,7 @@ exports[`descriptions demos 📸 renders ./packages/descriptions/src/demos/forma
                 <span
                   class="ant-descriptions-item-content"
                 >
-                  2016.11.22 00:00:SS
+                  2016.11.22 15:22:SS
                 </span>
               </div>
             </td>

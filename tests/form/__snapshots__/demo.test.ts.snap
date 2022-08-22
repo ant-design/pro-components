@@ -5943,10 +5943,10 @@ exports[`form demos 📸 renders ./packages/form/src/components/FieldSet/demos/c
                       >
                         <div>
                           <div>
-                            2016-11-22 00:00:00
+                            2016-11-22 15:22:44
                           </div>
                           <div>
-                            2016-11-21 00:00:00
+                            2016-11-21 15:22:44
                           </div>
                         </div>
                       </div>
@@ -7388,7 +7388,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/FieldSet/demos/d
                               placeholder="请选择"
                               readonly=""
                               size="21"
-                              value="2016-11-21 00:00:00"
+                              value="2016-11-21 15:22:44"
                             />
                           </div>
                           <div
@@ -7427,7 +7427,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/FieldSet/demos/d
                               placeholder="请选择"
                               readonly=""
                               size="21"
-                              value="2016-11-22 00:00:00"
+                              value="2016-11-22 15:22:44"
                             />
                           </div>
                           <div
@@ -28633,7 +28633,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/SchemaForm/demos
                           placeholder="请"
                           readonly=""
                           size="12"
-                          value="2016-11-21"
+                          value="2016-11-22"
                         />
                       </div>
                       <div
@@ -28774,7 +28774,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/SchemaForm/demos
                           placeholder="请"
                           readonly=""
                           size="12"
-                          value="2016-11-21"
+                          value="2016-11-22"
                         />
                       </div>
                       <div
@@ -29355,8 +29355,8 @@ exports[`form demos 📸 renders ./packages/form/src/components/SchemaForm/demos
                                                 placeholder="请选择"
                                                 readonly=""
                                                 size="21"
-                                                title="2016-11-22 00:00:00"
-                                                value="2016-11-22 00:00:00"
+                                                title="2016-11-22 15:22:44"
+                                                value="2016-11-22 15:22:44"
                                               />
                                               <span
                                                 class="ant-picker-suffix"
@@ -31941,7 +31941,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/StepsForm/demos/
                                 id="step2_syncTableInfo_timeRange"
                                 placeholder="请选择"
                                 size="12"
-                                value="2016-11-21"
+                                value="2016-11-22"
                               />
                             </div>
                             <div

@@ -2,7 +2,8 @@ import '@testing-library/jest-dom';
 import { act, cleanup, render as reactRender } from '@testing-library/react';
 import glob from 'glob';
 import MockDate from 'mockdate';
-import { waitForComponentToPaint } from './util';
+import timezone_mock from 'timezone-mock';
+import { waitTime } from './util';
 
 type Options = {
   skip?: boolean;
@@ -60,17 +61,17 @@ function demoTest(component: string, options: Options = {}) {
         testMethod = test.skip;
       }
       testMethod(`📸 renders ${file} correctly`, async () => {
-        MockDate.set(1479744000000);
+        MockDate.set(1479828164000);
+        timezone_mock.register('UTC');
         const Demo = require(`.${file}`).default;
         const wrapper = reactRender(<Demo />);
-        await waitForComponentToPaint(wrapper, 2000);
         // Convert aria related content
-        act(() => {
-          const dom = wrapper.asFragment();
-          expect(dom).toMatchSnapshot();
+        await act(async () => {
+          await waitTime(2000);
         });
+        const dom = wrapper.asFragment();
+        expect(dom).toMatchSnapshot();
         wrapper.unmount();
-        MockDate.reset();
         cleanup();
       });
     });

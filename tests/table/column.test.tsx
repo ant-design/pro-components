@@ -65,7 +65,7 @@ describe('Table ColumnSetting', () => {
     );
     await waitForComponentToPaint(html, 1000);
     expect(callBack).toBeCalled();
-    expect(callBack).toBeCalledWith('2016-11-21');
+    expect(callBack).toBeCalledWith('2016-11-22');
   });
 
   it('🎏 config provide render', async () => {
