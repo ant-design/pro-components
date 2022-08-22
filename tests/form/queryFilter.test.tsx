@@ -352,4 +352,43 @@ describe('QueryFilter', () => {
     );
     expect(wrapper3.find('.ant-pro-form-collapse-button').length).toEqual(0);
   });
+
+  it('🕵️‍♀️ should be ignore build in component span when excludeBuildInCompSpan is true', async () => {
+    const wrapper0 = mount(
+      <QueryFilter defaultColsNumber={3} excludeBuildInCompSpan>
+        <ProFormText label="a" name="a" />
+        <ProFormText label="b" name="b" />
+        <ProFormText label="c" name="c" />
+        <ProFormText label="d" name="d" />
+        <ProFormText label="e" name="e" />
+        <ProFormText label="f" name="f" />
+      </QueryFilter>,
+    );
+    expect(wrapper0.find('.ant-row .ant-form-item-hidden').length).toEqual(3);
+    expect(wrapper0.find('.ant-pro-form-collapse-button').length).toEqual(1);
+    const wrapper1 = mount(
+      <QueryFilter defaultColsNumber={6} excludeBuildInCompSpan>
+        <ProFormText label="a" name="a" />
+        <ProFormText label="b" name="b" />
+        <ProFormText label="c" name="c" />
+        <ProFormText label="d" name="d" />
+        <ProFormText label="e" name="e" />
+        <ProFormText label="f" name="f" />
+      </QueryFilter>,
+    );
+    expect(wrapper1.find('.ant-row .ant-form-item-hidden').length).toEqual(0);
+    expect(wrapper1.find('.ant-pro-form-collapse-button').length).toEqual(0);
+    const wrapper2 = mount(
+      <QueryFilter defaultColsNumber={7} excludeBuildInCompSpan>
+        <ProFormText label="a" name="a" />
+        <ProFormText label="b" name="b" />
+        <ProFormText label="c" name="c" />
+        <ProFormText label="d" name="d" />
+        <ProFormText label="e" name="e" />
+        <ProFormText label="f" name="f" />
+      </QueryFilter>,
+    );
+    expect(wrapper1.find('.ant-row .ant-form-item-hidden').length).toEqual(0);
+    expect(wrapper2.find('.ant-pro-form-collapse-button').length).toEqual(0);
+  });
 });
