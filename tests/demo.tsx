@@ -59,7 +59,7 @@ function demoTest(component: string, options: Options = {}) {
         testMethod = test.skip;
       }
       testMethod(`📸 renders ${file} correctly`, async () => {
-        MockDate.set(moment('2016-11-22').valueOf());
+        MockDate.set(1479828164000);
         const Demo = require(`.${file}`).default;
         const wrapper = reactRender(<Demo />);
         // Convert aria related content
