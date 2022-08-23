@@ -3,6 +3,7 @@ import type { GlobalToken } from 'antd/es/theme/interface';
 import React from 'react';
 
 export type BaseLayoutDesignToken = {
+  colorPrimary: string;
   /**
    * 跨站点应用的图标hover颜色
    */
@@ -143,7 +144,7 @@ export const getLayoutDesignToken: (
     } as LayoutDesignToken['sider'],
     pageContainer: {
       colorBgPageContainer: 'transparent',
-      marginBlockPageContainerContent: 24,
+      marginBlockPageContainerContent: 16,
       marginInlinePageContainerContent: 40,
       colorBgPageContainerFixed: '#fff',
       ...finalDesignTokens.pageContainer,

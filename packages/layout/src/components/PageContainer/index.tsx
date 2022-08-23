@@ -264,6 +264,7 @@ const PageContainer: React.FC<PageContainerProps> = (props) => {
     ...restProps
   } = props;
   const value = useContext(RouteContext);
+  const { pageContainer } = useContext(ProLayoutContext);
   const { getPrefixCls } = useContext(ConfigProvider.ConfigContext);
   const prefixCls = props.prefixCls || getPrefixCls('pro');
 
@@ -278,14 +279,19 @@ const PageContainer: React.FC<PageContainerProps> = (props) => {
         {value.hasFooterToolbar && (
           <div
             style={{
-              height: 48,
-              marginBlockStart: 24,
+              height: 64,
+              marginBlockStart: pageContainer.marginBlockPageContainerContent,
             }}
           />
         )}
       </>
     ) : null;
-  }, [children, basePageContainer, value.hasFooterToolbar]);
+  }, [
+    children,
+    basePageContainer,
+    value.hasFooterToolbar,
+    pageContainer.marginBlockPageContainerContent,
+  ]);
 
   const memoBreadcrumbRender = useMemo(() => {
     if (breadcrumbRender == false) return false;

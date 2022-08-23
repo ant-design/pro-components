@@ -225,6 +225,13 @@ export type ProLayoutProps = GlobalTypes & {
    */
   ErrorBoundary?: any;
 
+  /**
+   * @name  侧边菜单的类型, menu.type 的快捷方式
+   * @type "sub" | "group"
+   * @example group
+   */
+  siderMenuType?: 'sub' | 'group';
+
   isChildrenLayout?: boolean;
 };
 
@@ -363,6 +370,7 @@ const BaseProLayout: React.FC<ProLayoutProps> = (props) => {
     disableContentMargin = true,
     siderWidth: propsSiderWidth,
     menu,
+    siderMenuType,
     isChildrenLayout: propsIsChildrenLayout,
     menuDataRender,
     actionRef,
@@ -506,7 +514,7 @@ const BaseProLayout: React.FC<ProLayoutProps> = (props) => {
       ...currentMenuLayoutProps,
       formatMessage,
       breadcrumb,
-      menu: { ...menu, loading: menuLoading },
+      menu: { ...menu, type: siderMenuType || menu?.type, loading: menuLoading },
       layout: propsLayout as 'side',
     },
     ['className', 'style', 'breadcrumbRender'],
@@ -690,12 +698,13 @@ BaseProLayout.defaultProps = {
 };
 
 const ProLayout: React.FC<ProLayoutProps> = (props) => {
+  const { colorPrimary } = props;
   return (
     <ConfigProvider
       theme={{
         token: {
           radiusBase: 4,
-          colorPrimary: '#1677FF',
+          colorPrimary: colorPrimary || '#1677FF',
           colorError: '#ff4d4f',
           colorInfo: '#1677FF',
         },

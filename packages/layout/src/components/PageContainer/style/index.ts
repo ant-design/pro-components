@@ -16,11 +16,11 @@ const genPageContainerStyle: GenerateStyle<
     [token.componentCls]: {
       position: 'relative',
       '&-layout-has-margin': {
-        marginBlock: -24,
-        marginInline: -24,
+        marginBlock: -(token.marginBlockPageContainerContent - 8),
+        marginInline: -token.marginInlinePageContainerContent,
       },
       '&-children-content': {
-        marginBlock: token.marginBlockPageContainerContent,
+        marginBlock: token.marginBlockPageContainerContent - 8,
         marginInline: token.marginInlinePageContainerContent,
       },
       '&-affix': {

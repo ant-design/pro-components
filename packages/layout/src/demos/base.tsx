@@ -114,8 +114,8 @@ export default () => {
         location={{
           pathname,
         }}
+        siderMenuType="group"
         menu={{
-          type: 'group',
           collapsedShowGroupTitle: true,
         }}
         disableContentMargin
@@ -360,17 +360,18 @@ export default () => {
             <div />
           </ProCard>
         </PageContainer>
+
+        <SettingDrawer
+          pathname={pathname}
+          enableDarkTheme
+          getContainer={() => document.getElementById('test-pro-layout')}
+          settings={settings}
+          onSettingChange={(changeSetting) => {
+            setSetting(changeSetting);
+          }}
+          disableUrlParams={false}
+        />
       </ProLayout>
-      <SettingDrawer
-        pathname={pathname}
-        enableDarkTheme
-        getContainer={() => document.getElementById('test-pro-layout')}
-        settings={settings}
-        onSettingChange={(changeSetting) => {
-          setSetting(changeSetting);
-        }}
-        disableUrlParams={false}
-      />
     </div>
   );
 };

@@ -20,6 +20,8 @@ import { defaultSettings } from '../../defaultSettings';
 import { getLanguage, gLocaleObject } from '../../locales';
 import { genStringToTheme } from '../../utils/utils';
 import { BlockCheckbox } from './BlockCheckbox';
+import { GroupIcon } from './icon/group';
+import { SubIcon } from './icon/sub';
 import { LayoutSetting, renderLayoutSettingItem } from './LayoutChange';
 import { RegionalSetting } from './RegionalChange';
 import { useStyle } from './style/index';
@@ -237,7 +239,7 @@ export const SettingDrawer: React.FC<SettingDrawerProps> = (props) => {
     },
   );
 
-  const { navTheme, colorPrimary, layout, colorWeak } = settingState || {};
+  const { navTheme, colorPrimary, siderMenuType, layout, colorWeak } = settingState || {};
 
   useEffect(() => {
     // 语言修改，这个是和 locale 是配置起来的
@@ -449,6 +451,32 @@ export const SettingDrawer: React.FC<SettingDrawerProps> = (props) => {
                   onChange={(value) => changeSetting('layout', value)}
                 />
               </Body>
+              {settingState.layout == 'side' || settingState.layout == 'mix' ? (
+                <Body
+                  prefixCls={baseClassName}
+                  title={formatMessage({ id: 'app.setting.sidermenutype' })}
+                >
+                  <BlockCheckbox
+                    prefixCls={baseClassName}
+                    value={siderMenuType!}
+                    key="siderMenuType"
+                    configType="siderMenuType"
+                    list={[
+                      {
+                        key: 'sub',
+                        icon: <SubIcon />,
+                        title: formatMessage({ id: 'app.setting.sidermenutype-sub' }),
+                      },
+                      {
+                        key: 'group',
+                        icon: <GroupIcon />,
+                        title: formatMessage({ id: 'app.setting.sidermenutype-group' }),
+                      },
+                    ]}
+                    onChange={(value) => changeSetting('siderMenuType', value)}
+                  />
+                </Body>
+              ) : null}
               <LayoutSetting settings={settingState} changeSetting={changeSetting} />
               <Divider />
 

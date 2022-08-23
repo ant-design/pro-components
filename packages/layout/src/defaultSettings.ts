@@ -125,6 +125,10 @@ export type PureSettings = {
    * @name 切割菜单
    */
   splitMenus?: boolean;
+  /**
+   * 侧边菜单模式
+   */
+  siderMenuType?: 'sub' | 'group';
 };
 
 export type ProSettings = PureSettings & RenderSetting;
