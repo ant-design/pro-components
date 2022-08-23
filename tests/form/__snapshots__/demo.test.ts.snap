@@ -43819,7 +43819,7 @@ exports[`form demos 📸 renders ./packages/form/src/demos/layout-footer.tsx cor
             </div>
           </header>
           <main
-            class="ant-layout-content ant-pro-layout-content ant-pro-layout-has-header"
+            class="ant-layout-content ant-pro-layout-content ant-pro-layout-has-header ant-pro-layout-content-has-page-container"
           >
             <div
               class="ant-pro-page-container ant-pro-page-container-ghost"

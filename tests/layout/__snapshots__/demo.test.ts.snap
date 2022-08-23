@@ -4346,7 +4346,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/AlwaysDefaultOpen
             style="position: relative;"
           >
             <main
-              class="ant-layout-content ant-pro-layout-content ant-pro-layout-has-header"
+              class="ant-layout-content ant-pro-layout-content ant-pro-layout-has-header ant-pro-layout-content-has-page-container"
             >
               <div
                 class="ant-pro-page-container ant-pro-page-container-ghost"
@@ -4686,7 +4686,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/BreadcrumbsRepeat
             style="position: relative;"
           >
             <main
-              class="ant-layout-content ant-pro-layout-content ant-pro-layout-has-header"
+              class="ant-layout-content ant-pro-layout-content ant-pro-layout-has-header ant-pro-layout-content-has-page-container"
             >
               <div
                 class="ant-pro-page-container ant-pro-page-container-ghost"
@@ -5383,7 +5383,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/DefaultOpenAllMen
             style="position: relative;"
           >
             <main
-              class="ant-layout-content ant-pro-layout-content ant-pro-layout-has-header"
+              class="ant-layout-content ant-pro-layout-content ant-pro-layout-has-header ant-pro-layout-content-has-page-container"
             >
               <div
                 class="ant-pro-page-container ant-pro-page-container-ghost"
@@ -5769,7 +5769,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/IconFont.tsx corr
             style="position: relative;"
           >
             <main
-              class="ant-layout-content ant-pro-layout-content ant-pro-layout-has-header"
+              class="ant-layout-content ant-pro-layout-content ant-pro-layout-has-header ant-pro-layout-content-has-page-container"
             >
               <div
                 class="ant-pro-page-container ant-pro-page-container-ghost"
@@ -6258,7 +6258,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/MenuGroup.tsx cor
             style="position: relative;"
           >
             <main
-              class="ant-layout-content ant-pro-layout-content ant-pro-layout-has-header"
+              class="ant-layout-content ant-pro-layout-content ant-pro-layout-has-header ant-pro-layout-content-has-page-container"
             >
               <div
                 class="ant-pro-page-container ant-pro-page-container-ghost"
@@ -6796,7 +6796,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/MultipleMenuOnePa
             style="position: relative;"
           >
             <main
-              class="ant-layout-content ant-pro-layout-content ant-pro-layout-has-header"
+              class="ant-layout-content ant-pro-layout-content ant-pro-layout-has-header ant-pro-layout-content-has-page-container"
             >
               <div
                 class="ant-pro-page-container ant-pro-page-container-ghost"
@@ -7416,7 +7416,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/Nested.tsx correc
                     style="position: relative; min-height: 0;"
                   >
                     <main
-                      class="ant-layout-content ant-pro-layout-content ant-pro-layout-has-header"
+                      class="ant-layout-content ant-pro-layout-content ant-pro-layout-has-header ant-pro-layout-content-has-page-container"
                     >
                       <div
                         class="ant-pro-page-container ant-pro-page-container-ghost"
@@ -8057,7 +8057,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/TopmenuNested.tsx
                     style="position: relative; min-height: 0;"
                   >
                     <main
-                      class="ant-layout-content ant-pro-layout-content ant-pro-layout-has-header"
+                      class="ant-layout-content ant-pro-layout-content ant-pro-layout-has-header ant-pro-layout-content-has-page-container"
                     >
                       <div
                         class="ant-pro-page-container ant-pro-page-container-ghost"
@@ -8535,7 +8535,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/antd@4MenuIconFor
           style="position: relative;"
         >
           <main
-            class="ant-layout-content ant-pro-layout-content ant-pro-layout-has-header"
+            class="ant-layout-content ant-pro-layout-content ant-pro-layout-has-header ant-pro-layout-content-has-page-container"
           >
             <div
               class="ant-pro-page-container ant-pro-page-container-ghost"
@@ -9211,7 +9211,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/api.tsx correctly
           style="position: relative;"
         >
           <main
-            class="ant-layout-content ant-pro-layout-content ant-pro-layout-has-header"
+            class="ant-layout-content ant-pro-layout-content ant-pro-layout-has-header ant-pro-layout-content-has-page-container"
           >
             <div
               class="ant-pro-page-container ant-pro-page-container-ghost"
@@ -9931,7 +9931,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/background-contex
               </div>
             </header>
             <main
-              class="ant-layout-content ant-pro-layout-content ant-pro-layout-has-header"
+              class="ant-layout-content ant-pro-layout-content ant-pro-layout-has-header ant-pro-layout-content-has-page-container"
             >
               <div
                 class="ant-pro-page-container ant-pro-page-container-ghost"
@@ -10937,7 +10937,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/base.tsx correctl
               </div>
             </header>
             <main
-              class="ant-layout-content ant-pro-layout-content ant-pro-layout-has-header"
+              class="ant-layout-content ant-pro-layout-content ant-pro-layout-has-header ant-pro-layout-content-has-page-container"
             >
               <div
                 class="ant-pro-page-container ant-pro-page-container-ghost ant-pro-page-container-with-footer"
@@ -12049,7 +12049,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/classicMode.tsx c
               </div>
             </header>
             <main
-              class="ant-layout-content ant-pro-layout-content ant-pro-layout-has-header"
+              class="ant-layout-content ant-pro-layout-content ant-pro-layout-has-header ant-pro-layout-content-has-page-container"
             >
               <div
                 class="ant-pro-page-container ant-pro-page-container-ghost ant-pro-page-container-with-footer"
@@ -12694,7 +12694,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/collapsedShowTitl
           style="position: relative;"
         >
           <main
-            class="ant-layout-content ant-pro-layout-content ant-pro-layout-has-header"
+            class="ant-layout-content ant-pro-layout-content ant-pro-layout-has-header ant-pro-layout-content-has-page-container"
           >
             <div
               class="ant-pro-page-container ant-pro-page-container-ghost ant-pro-page-container-with-footer"
@@ -13293,7 +13293,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/config-provider.t
           style="position: relative;"
         >
           <main
-            class="qixian-layout-content qixian-pro-layout-content qixian-pro-layout-has-header"
+            class="qixian-layout-content qixian-pro-layout-content qixian-pro-layout-has-header qixian-pro-layout-content-has-page-container"
           >
             <div
               class="qixian-pro-page-container qixian-pro-page-container-ghost qixian-pro-page-container-with-footer"
@@ -15122,7 +15122,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/customSider.tsx c
             style="position: relative;"
           >
             <main
-              class="ant-layout-content ant-pro-layout-content ant-pro-layout-has-header"
+              class="ant-layout-content ant-pro-layout-content ant-pro-layout-has-header ant-pro-layout-content-has-page-container"
             >
               <div
                 class="ant-pro-page-container ant-pro-page-container-ghost"
@@ -15701,7 +15701,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/customize-collaps
             </div>
           </header>
           <main
-            class="ant-layout-content ant-pro-layout-content ant-pro-layout-has-header"
+            class="ant-layout-content ant-pro-layout-content ant-pro-layout-has-header ant-pro-layout-content-has-page-container"
           >
             <div
               class="ant-pro-page-container ant-pro-page-container-ghost"
@@ -16135,7 +16135,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/customizeMenu.tsx
             style="position: relative;"
           >
             <main
-              class="ant-layout-content ant-pro-layout-content ant-pro-layout-has-header"
+              class="ant-layout-content ant-pro-layout-content ant-pro-layout-has-header ant-pro-layout-content-has-page-container"
             >
               <div
                 class="ant-pro-page-container ant-pro-page-container-ghost"
@@ -17103,7 +17103,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/designMenuCss.tsx
               </div>
             </header>
             <main
-              class="ant-layout-content ant-pro-layout-content ant-pro-layout-has-header"
+              class="ant-layout-content ant-pro-layout-content ant-pro-layout-has-header ant-pro-layout-content-has-page-container"
             >
               <div
                 class="ant-pro-page-container ant-pro-page-container-ghost ant-pro-page-container-with-footer"
@@ -18315,7 +18315,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/designSiderMenu.t
             style="position: relative;"
           >
             <main
-              class="ant-layout-content ant-pro-layout-content ant-pro-layout-has-header"
+              class="ant-layout-content ant-pro-layout-content ant-pro-layout-has-header ant-pro-layout-content-has-page-container"
             >
               <div
                 class="ant-pro-page-container ant-pro-page-container-ghost"
@@ -18928,7 +18928,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/dynamic-settings.
             style="position: relative;"
           >
             <main
-              class="ant-layout-content ant-pro-layout-content ant-pro-layout-has-header"
+              class="ant-layout-content ant-pro-layout-content ant-pro-layout-has-header ant-pro-layout-content-has-page-container"
             >
               <div
                 class="ant-pro-page-container ant-pro-page-container-ghost ant-pro-page-container-with-footer"
@@ -20073,7 +20073,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/dynamicMenu.tsx c
           style="position: relative;"
         >
           <main
-            class="ant-layout-content ant-pro-layout-content ant-pro-layout-has-header"
+            class="ant-layout-content ant-pro-layout-content ant-pro-layout-has-header ant-pro-layout-content-has-page-container"
           >
             <div
               class="ant-pro-page-container ant-pro-page-container-ghost"
@@ -20892,7 +20892,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/footer.tsx correc
           style="position: relative;"
         >
           <main
-            class="ant-layout-content ant-pro-layout-content ant-pro-layout-has-header"
+            class="ant-layout-content ant-pro-layout-content ant-pro-layout-has-header ant-pro-layout-content-has-page-container"
           >
             <div
               class="ant-pro-page-container ant-pro-page-container-ghost"
@@ -21964,7 +21964,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/footer-global-too
               </div>
             </header>
             <main
-              class="ant-layout-content ant-pro-layout-content ant-pro-layout-has-header"
+              class="ant-layout-content ant-pro-layout-content ant-pro-layout-has-header ant-pro-layout-content-has-page-container"
             >
               <div
                 class="ant-pro-page-container ant-pro-page-container-ghost"
@@ -22524,7 +22524,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/ghost.tsx correct
             style="position: relative;"
           >
             <main
-              class="ant-layout-content ant-pro-layout-content ant-pro-layout-has-header"
+              class="ant-layout-content ant-pro-layout-content ant-pro-layout-has-header ant-pro-layout-content-has-page-container"
             >
               <div
                 class="ant-pro-page-container ant-pro-page-container-ghost ant-pro-page-container-with-affix"
@@ -23202,7 +23202,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/hideMenu.tsx corr
           style="position: relative;"
         >
           <main
-            class="ant-layout-content ant-pro-layout-content ant-pro-layout-has-header"
+            class="ant-layout-content ant-pro-layout-content ant-pro-layout-has-header ant-pro-layout-content-has-page-container"
           >
             <div
               class="ant-pro-page-container ant-pro-page-container-ghost"
@@ -24294,7 +24294,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/immersive-navigat
           style="position: relative;"
         >
           <main
-            class="ant-layout-content ant-pro-layout-content"
+            class="ant-layout-content ant-pro-layout-content ant-pro-layout-content-has-page-container"
           >
             <div
               class="ant-pro-page-container ant-pro-page-container-ghost"
@@ -25255,7 +25255,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/menu-group.tsx co
             style="position: relative;"
           >
             <main
-              class="ant-layout-content ant-pro-layout-content ant-pro-layout-has-header"
+              class="ant-layout-content ant-pro-layout-content ant-pro-layout-has-header ant-pro-layout-content-has-page-container"
             >
               <div
                 class="ant-pro-page-container ant-pro-page-container-ghost"
@@ -26526,7 +26526,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/mixMode.tsx corre
               </div>
             </header>
             <main
-              class="ant-layout-content ant-pro-layout-content ant-pro-layout-has-header"
+              class="ant-layout-content ant-pro-layout-content ant-pro-layout-has-header ant-pro-layout-content-has-page-container"
             >
               <div
                 class="ant-pro-page-container ant-pro-page-container-ghost"
@@ -27333,7 +27333,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/pageSimplify.tsx 
               </div>
             </header>
             <main
-              class="ant-layout-content ant-pro-layout-content ant-pro-layout-has-header"
+              class="ant-layout-content ant-pro-layout-content ant-pro-layout-has-header ant-pro-layout-content-has-page-container"
             >
               <div
                 class="ant-pro-page-container ant-pro-page-container-ghost"
@@ -27838,7 +27838,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/searchMenu.tsx co
             style="position: relative;"
           >
             <main
-              class="ant-layout-content ant-pro-layout-content ant-pro-layout-has-header"
+              class="ant-layout-content ant-pro-layout-content ant-pro-layout-has-header ant-pro-layout-content-has-page-container"
             >
               <div
                 class="ant-pro-page-container ant-pro-page-container-ghost"
@@ -28755,7 +28755,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/siderMode.tsx cor
             style="position: relative;"
           >
             <main
-              class="ant-layout-content ant-pro-layout-content ant-pro-layout-has-header"
+              class="ant-layout-content ant-pro-layout-content ant-pro-layout-has-header ant-pro-layout-content-has-page-container"
             >
               <div
                 class="ant-pro-page-container ant-pro-page-container-ghost"
@@ -29786,7 +29786,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/siteMenu.tsx corr
               </div>
             </header>
             <main
-              class="ant-layout-content ant-pro-layout-content ant-pro-layout-has-header"
+              class="ant-layout-content ant-pro-layout-content ant-pro-layout-has-header ant-pro-layout-content-has-page-container"
             >
               <div
                 class="ant-pro-page-container ant-pro-page-container-ghost"
@@ -32463,7 +32463,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/splitMenus.tsx co
             </div>
           </header>
           <main
-            class="ant-layout-content ant-pro-layout-content ant-pro-layout-has-header"
+            class="ant-layout-content ant-pro-layout-content ant-pro-layout-has-header ant-pro-layout-content-has-page-container"
           >
             <div
               class="ant-pro-page-container ant-pro-page-container-ghost"
@@ -33108,7 +33108,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/theme.tsx correct
           style="position: relative;"
         >
           <main
-            class="ant-layout-content ant-pro-layout-content ant-pro-layout-has-header"
+            class="ant-layout-content ant-pro-layout-content ant-pro-layout-has-header ant-pro-layout-content-has-page-container"
           >
             <div
               class="ant-pro-page-container ant-pro-page-container-ghost ant-pro-page-container-with-footer"
@@ -33683,7 +33683,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/top-breadcrumb.ts
               </div>
             </header>
             <main
-              class="ant-layout-content ant-pro-layout-content ant-pro-layout-has-header"
+              class="ant-layout-content ant-pro-layout-content ant-pro-layout-has-header ant-pro-layout-content-has-page-container"
             >
               <div
                 class="ant-pro-page-container ant-pro-page-container-ghost"
@@ -34322,7 +34322,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/topMode.tsx corre
               </div>
             </header>
             <main
-              class="ant-layout-content ant-pro-layout-content ant-pro-layout-has-header"
+              class="ant-layout-content ant-pro-layout-content ant-pro-layout-has-header ant-pro-layout-content-has-page-container"
             >
               <div
                 class="ant-pro-page-container ant-pro-page-container-ghost"
