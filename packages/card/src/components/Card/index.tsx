@@ -60,6 +60,13 @@ const Card = React.forwardRef((props: CardProps, ref: any) => {
 
   // 顺序决定如何进行响应式取值，按最大响应值依次取值，请勿修改。
   const responsiveArray: Breakpoint[] = ['xxl', 'xl', 'lg', 'md', 'sm', 'xs'];
+  // 修改组合传给antd tabs的参数
+  const ModifyTabItemsContant = tabs?.items?.map((item) => {
+    return {
+      ...item,
+      children: <Card {...tabs?.cardProps}>{item.children}</Card>,
+    };
+  });
 
   /**
    * 根据响应式获取 gutter, 参考 antd 实现
@@ -251,7 +258,7 @@ const Card = React.forwardRef((props: CardProps, ref: any) => {
       )}
       {tabs ? (
         <div className={`${prefixCls}-tabs`}>
-          <Tabs onChange={tabs.onChange} {...tabs}>
+          <Tabs onChange={tabs.onChange} {...tabs} items={ModifyTabItemsContant}>
             {loading ? loadingDOM : children}
           </Tabs>
         </div>

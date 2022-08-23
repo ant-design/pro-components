@@ -194,19 +194,17 @@ group:
 | activeKey | 当前选中项 | string | - |
 | type | 页签的基本样式，可选 `line`、`card`、`editable-card` 类型 | string | inline |
 | onChange | 回调 | `(activeKey: string) => void;` | - |
+| items | 基于 antd 拓展的页签的基本配置，必填 | `ItemsProps` | - |
 
 - 更多属性见 antd [Tab](https://ant.design/components/tabs-cn/#Tabs) API 描述。
 
-### ProCard.TabPane
+### ItemsProps
 
-支持 [Tabs.TabPane](https://ant.design/components/tabs-cn/#Tabs.TabPane) 的所有属性。
+支持 [Tabs](https://ant.design/components/tabs-cn/#Tabs.TabPane) 下页签的所有属性。
 
-| 参数 | 说明 | 类型 | 默认值 |
-| :-- | :-- | :-- | :-- |
-| key | 对应 activeKey，用于标定是否选中和 dom 更新，一定不要重复，不然会造成表现异常 | `string` | - |
-| tab | 选项卡头显示文字 | `ReactNode` | - |
-| disabled | 不可用 | `boolean` | false |
-| cardProps | ProCard 卡片属性透传 | `ProCard` | - |
+| 参数      | 说明                 | 类型      | 默认值 |
+| :-------- | :------------------- | :-------- | :----- |
+| cardProps | ProCard 卡片属性透传 | `ProCard` | -      |
 
 ### ProCard.Divider
 

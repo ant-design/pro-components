@@ -93,15 +93,20 @@ describe('Card', () => {
       <ProCard
         tabs={{
           onChange: fn,
+          items: [
+            {
+              label: 'tab1',
+              key: 'tab1',
+              children: '产品一',
+            },
+            {
+              label: 'tab2',
+              key: 'tab2',
+              children: '产品二',
+            },
+          ],
         }}
-      >
-        <ProCard.TabPane key="tab1" tab="产品一">
-          内容一
-        </ProCard.TabPane>
-        <ProCard.TabPane key="tab2" tab="产品二">
-          内容二
-        </ProCard.TabPane>
-      </ProCard>,
+      />,
     );
     act(() => {
       wrapper.find('.ant-pro-card-tabs .ant-tabs-tab').at(1).simulate('click');

@@ -5,7 +5,10 @@ import type { ReactNode } from 'react';
 export type Breakpoint = 'xxl' | 'xl' | 'lg' | 'md' | 'sm' | 'xs';
 export type Gutter = number | Partial<Record<Breakpoint, number>>;
 // eslint-disable-next-line @typescript-eslint/ban-types
-export type ProCardTabsProps = {} & TabsProps;
+export type ProCardTabsProps = {
+  // 透传的card样式props
+  cardProps?: CardProps;
+} & TabsProps;
 
 export type ColSpanType = number | string;
 
