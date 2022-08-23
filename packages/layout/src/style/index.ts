@@ -220,7 +220,7 @@ const genProLayoutStyle: GenerateStyle<ProLayoutToken & LayoutDesignToken> = (to
             width: '100%',
           },
           '*': { boxSizing: 'border-box' },
-          '&-content-has-margin': {
+          '&-has-margin': {
             marginBlock: token.pageContainer.marginBlockPageContainerContent,
             marginInline: token.pageContainer.marginInlinePageContainerContent,
           },

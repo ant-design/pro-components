@@ -332,7 +332,14 @@ export const SettingDrawer: React.FC<SettingDrawerProps> = (props) => {
 
   return wrapSSR(
     <>
-      <div className={`${baseClassName}-handle ${hashId}`} onClick={() => setShow(!show)}>
+      <div
+        className={`${baseClassName}-handle ${hashId}`}
+        onClick={() => setShow(!show)}
+        style={{
+          width: 48,
+          height: 48,
+        }}
+      >
         {show ? (
           <CloseOutlined
             style={{
