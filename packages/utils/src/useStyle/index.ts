@@ -59,6 +59,7 @@ export type ProAliasToken = AliasToken & {
    * @example .ant
    */
   antCls: string;
+  hashId?: string;
 };
 
 export const resetComponent = (token: ProAliasToken): CSSObject => ({
@@ -110,8 +111,9 @@ export function useStyle(
     wrapSSR: useStyleRegister({ theme, token, hashId, path: [componentName] }, () =>
       styleFn({
         ...token,
+        hashId,
         antCls: '.' + getPrefixCls(),
-        proComponentsCls,
+        proComponentsCls: hashId + proComponentsCls,
       }),
     ),
     hashId,

@@ -43825,62 +43825,58 @@ exports[`form demos 📸 renders ./packages/form/src/demos/layout-footer.tsx cor
               class="ant-pro-page-container ant-pro-page-container-ghost"
             >
               <div
-                class="ant-pro-page-container-warp"
+                class="ant-page-header ant-pro-page-container-warp-page-header ant-pro-page-container-warp-page-header ant-page-header-has-breadcrumb ant-page-header-ghost"
               >
-                <div
-                  class="ant-page-header ant-pro-page-container-warp-page-header ant-pro-page-container-warp-page-header ant-page-header-has-breadcrumb ant-page-header-ghost"
+                <nav
+                  class="ant-breadcrumb ant-page-header-breadcrumb"
                 >
-                  <nav
-                    class="ant-breadcrumb ant-page-header-breadcrumb"
-                  >
-                    <ol>
-                      <li>
-                        <span
-                          class="ant-breadcrumb-link"
-                        >
-                          <a
-                            href="/one"
-                          >
-                            一级名称
-                          </a>
-                        </span>
-                        <span
-                          class="ant-breadcrumb-separator"
-                        >
-                          /
-                        </span>
-                      </li>
-                      <li>
-                        <span
-                          class="ant-breadcrumb-link"
-                        >
-                          <a
-                            href="/one/two"
-                          >
-                            二级名称
-                          </a>
-                        </span>
-                        <span
-                          class="ant-breadcrumb-separator"
-                        >
-                          /
-                        </span>
-                      </li>
-                    </ol>
-                  </nav>
-                  <div
-                    class="ant-page-header-heading"
-                  >
-                    <div
-                      class="ant-page-header-heading-left"
-                    >
+                  <ol>
+                    <li>
                       <span
-                        class="ant-page-header-heading-title"
-                        title="输入表单"
+                        class="ant-breadcrumb-link"
                       >
-                        输入表单
+                        <a
+                          href="/one"
+                        >
+                          一级名称
+                        </a>
                       </span>
-                    </div>
+                      <span
+                        class="ant-breadcrumb-separator"
+                      >
+                        /
+                      </span>
+                    </li>
+                    <li>
+                      <span
+                        class="ant-breadcrumb-link"
+                      >
+                        <a
+                          href="/one/two"
+                        >
+                          二级名称
+                        </a>
+                      </span>
+                      <span
+                        class="ant-breadcrumb-separator"
+                      >
+                        /
+                      </span>
+                    </li>
+                  </ol>
+                </nav>
+                <div
+                  class="ant-page-header-heading"
+                >
+                  <div
+                    class="ant-page-header-heading-left"
+                  >
+                    <span
+                      class="ant-page-header-heading-title"
+                      title="输入表单"
+                    >
+                      输入表单
+                    </span>
                   </div>
                 </div>
               </div>
@@ -45324,7 +45320,7 @@ exports[`form demos 📸 renders ./packages/form/src/demos/layout-footer.tsx cor
                     </div>
                   </div>
                   <div
-                    style="height: 64px; margin-block-start: 16px;"
+                    style="height: 64px; margin-block-start: 24px;"
                   />
                 </div>
               </div>

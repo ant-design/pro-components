@@ -44,6 +44,11 @@ const FooterToolbar: React.FC<FooterToolbarProps> = (props) => {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [value.collapsed, value.hasSiderMenu, value.isMobile, value.siderWidth]);
 
+  const containerDom = useMemo(() => {
+    // 只读取一次就行了，不然总是的渲染
+    return getTargetContainer?.() || document.querySelector('.ant-pro') || document.body;
+  }, []);
+
   const dom = (
     <>
       <div className={`${baseClassName}-left`}>{extra}</div>
@@ -81,13 +86,8 @@ const FooterToolbar: React.FC<FooterToolbarProps> = (props) => {
         : dom}
     </div>
   );
-  const ssrDom = !isBrowser()
-    ? renderDom
-    : createPortal(
-        renderDom,
-        getTargetContainer?.() || document.querySelector('.ant-pro') || document.body,
-        baseClassName,
-      );
+
+  const ssrDom = !isBrowser() ? renderDom : createPortal(renderDom, containerDom, baseClassName);
   return wrapSSR(ssrDom);
 };
 

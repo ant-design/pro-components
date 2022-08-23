@@ -144,7 +144,7 @@ export const getLayoutDesignToken: (
     } as LayoutDesignToken['sider'],
     pageContainer: {
       colorBgPageContainer: 'transparent',
-      marginBlockPageContainerContent: 16,
+      marginBlockPageContainerContent: 24,
       marginInlinePageContainerContent: 40,
       colorBgPageContainerFixed: '#fff',
       ...finalDesignTokens.pageContainer,

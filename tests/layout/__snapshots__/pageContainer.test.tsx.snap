@@ -2,10 +2,10 @@
 
 exports[`PageContainer ⚡️ support fixHeader 1`] = `
 <div
-  class="ant-pro-page-container ant-pro-page-container-ghost"
+  class="ant-pro"
 >
   <div
-    class="ant-pro-page-container-warp"
+    class="ant-pro-page-container ant-pro-page-container-ghost"
   >
     <div
       class="ant-page-header ant-pro-page-container-warp-page-header ant-pro-page-container-warp-page-header ant-page-header-ghost"
@@ -31,16 +31,16 @@ exports[`PageContainer ⚡️ support fixHeader 1`] = `
 
 exports[`PageContainer ⚡️ support fixedHeader 1`] = `
 <div
-  class="ant-pro-page-container ant-pro-page-container-ghost ant-pro-page-container-with-affix"
+  class="ant-pro"
 >
   <div
-    class="ant-pro-page-container-affix"
+    class="ant-pro-page-container ant-pro-page-container-ghost ant-pro-page-container-with-affix"
   >
     <div
-      class=""
+      class="ant-pro-page-container-affix"
     >
       <div
-        class="ant-pro-page-container-warp"
+        class=""
       >
         <div
           class="ant-page-header ant-pro-page-container-warp-page-header ant-pro-page-container-warp-page-header ant-page-header-ghost"
@@ -67,33 +67,31 @@ exports[`PageContainer ⚡️ support fixedHeader 1`] = `
 `;
 
 exports[`PageContainer ⚡️ support footer 1`] = `
-Array [
+<div
+  class="ant-pro"
+>
   <div
     class="ant-pro-page-container ant-pro-page-container-ghost ant-pro-page-container-with-footer"
   >
     <div
-      class="ant-pro-page-container-warp"
+      class="ant-page-header ant-pro-page-container-warp-page-header ant-pro-page-container-warp-page-header ant-page-header-ghost"
     >
       <div
-        class="ant-page-header ant-pro-page-container-warp-page-header ant-pro-page-container-warp-page-header ant-page-header-ghost"
+        class="ant-page-header-heading"
       >
         <div
-          class="ant-page-header-heading"
+          class="ant-page-header-heading-left"
         >
-          <div
-            class="ant-page-header-heading-left"
+          <span
+            class="ant-page-header-heading-title"
+            title="期贤"
           >
-            <span
-              class="ant-page-header-heading-title"
-              title="期贤"
-            >
-              期贤
-            </span>
-          </div>
+            期贤
+          </span>
         </div>
       </div>
     </div>
-  </div>,
+  </div>
   <div
     class="ant-pro-footer-bar"
   >
@@ -109,16 +107,16 @@ Array [
         right
       </button>
     </div>
-  </div>,
-]
+  </div>
+</div>
 `;
 
 exports[`PageContainer ⚡️ support loading 1`] = `
 <div
-  class="ant-pro-page-container ant-pro-page-container-ghost"
+  class="ant-pro"
 >
   <div
-    class="ant-pro-page-container-warp"
+    class="ant-pro-page-container ant-pro-page-container-ghost"
   >
     <div
       class="ant-page-header ant-pro-page-container-warp-page-header ant-pro-page-container-warp-page-header ant-page-header-ghost"
@@ -138,37 +136,37 @@ exports[`PageContainer ⚡️ support loading 1`] = `
         </div>
       </div>
     </div>
-  </div>
-  <div
-    class="ant-pro-grid-content"
-  >
     <div
-      class="ant-pro-grid-content-children"
+      class="ant-pro-grid-content"
     >
       <div
-        style="padding-block-start:100px;text-align:center"
+        class="ant-pro-grid-content-children"
       >
         <div
-          aria-busy="true"
-          aria-live="polite"
-          class="ant-spin ant-spin-lg ant-spin-spinning"
+          style="padding-block-start:100px;text-align:center"
         >
-          <span
-            class="ant-spin-dot ant-spin-dot-spin"
+          <div
+            aria-busy="true"
+            aria-live="polite"
+            class="ant-spin ant-spin-lg ant-spin-spinning"
           >
-            <i
-              class="ant-spin-dot-item"
-            />
-            <i
-              class="ant-spin-dot-item"
-            />
-            <i
-              class="ant-spin-dot-item"
-            />
-            <i
-              class="ant-spin-dot-item"
-            />
-          </span>
+            <span
+              class="ant-spin-dot ant-spin-dot-spin"
+            >
+              <i
+                class="ant-spin-dot-item"
+              />
+              <i
+                class="ant-spin-dot-item"
+              />
+              <i
+                class="ant-spin-dot-item"
+              />
+              <i
+                class="ant-spin-dot-item"
+              />
+            </span>
+          </div>
         </div>
       </div>
     </div>
@@ -178,10 +176,10 @@ exports[`PageContainer ⚡️ support loading 1`] = `
 
 exports[`PageContainer ⚡️ support more loading props 1`] = `
 <div
-  class="ant-pro-page-container ant-pro-page-container-ghost"
+  class="ant-pro"
 >
   <div
-    class="ant-pro-page-container-warp"
+    class="ant-pro-page-container ant-pro-page-container-ghost"
   >
     <div
       class="ant-page-header ant-pro-page-container-warp-page-header ant-pro-page-container-warp-page-header ant-page-header-ghost"
@@ -201,41 +199,41 @@ exports[`PageContainer ⚡️ support more loading props 1`] = `
         </div>
       </div>
     </div>
-  </div>
-  <div
-    class="ant-pro-grid-content"
-  >
     <div
-      class="ant-pro-grid-content-children"
+      class="ant-pro-grid-content"
     >
       <div
-        style="padding-block-start:100px;text-align:center"
+        class="ant-pro-grid-content-children"
       >
         <div
-          aria-busy="true"
-          aria-live="polite"
-          class="ant-spin ant-spin-lg ant-spin-spinning ant-spin-show-text"
+          style="padding-block-start:100px;text-align:center"
         >
-          <span
-            class="ant-spin-dot ant-spin-dot-spin"
-          >
-            <i
-              class="ant-spin-dot-item"
-            />
-            <i
-              class="ant-spin-dot-item"
-            />
-            <i
-              class="ant-spin-dot-item"
-            />
-            <i
-              class="ant-spin-dot-item"
-            />
-          </span>
           <div
-            class="ant-spin-text"
+            aria-busy="true"
+            aria-live="polite"
+            class="ant-spin ant-spin-lg ant-spin-spinning ant-spin-show-text"
           >
-            加载中
+            <span
+              class="ant-spin-dot ant-spin-dot-spin"
+            >
+              <i
+                class="ant-spin-dot-item"
+              />
+              <i
+                class="ant-spin-dot-item"
+              />
+              <i
+                class="ant-spin-dot-item"
+              />
+              <i
+                class="ant-spin-dot-item"
+              />
+            </span>
+            <div
+              class="ant-spin-text"
+            >
+              加载中
+            </div>
           </div>
         </div>
       </div>
@@ -247,10 +245,10 @@ exports[`PageContainer ⚡️ support more loading props 1`] = `
 exports[`PageContainer 🌛 PageContainer with custom loading 1`] = `
 <DocumentFragment>
   <div
-    class="ant-pro-page-container custom-className ant-pro-page-container-ghost"
+    class="ant-pro"
   >
     <div
-      class="ant-pro-page-container-warp"
+      class="ant-pro-page-container custom-className ant-pro-page-container-ghost"
     >
       <div
         class="ant-page-header ant-pro-page-container-warp-page-header ant-pro-page-container-warp-page-header ant-page-header-ghost"
@@ -270,18 +268,18 @@ exports[`PageContainer 🌛 PageContainer with custom loading 1`] = `
           </div>
         </div>
       </div>
-    </div>
-    <div
-      class="ant-pro-grid-content"
-    >
       <div
-        class="ant-pro-grid-content-children"
+        class="ant-pro-grid-content"
       >
         <div
-          id="customLoading"
-          style="color: red; padding: 30px; text-align: center;"
+          class="ant-pro-grid-content-children"
         >
-          自定义加载...
+          <div
+            id="customLoading"
+            style="color: red; padding: 30px; text-align: center;"
+          >
+            自定义加载...
+          </div>
         </div>
       </div>
     </div>
@@ -291,10 +289,10 @@ exports[`PageContainer 🌛 PageContainer with custom loading 1`] = `
 
 exports[`PageContainer 🐛 className prop should not be passed to its page header, fix #3493 1`] = `
 <div
-  class="ant-pro-page-container custom-className ant-pro-page-container-ghost"
+  class="ant-pro"
 >
   <div
-    class="ant-pro-page-container-warp"
+    class="ant-pro-page-container custom-className ant-pro-page-container-ghost"
   >
     <div
       class="ant-page-header ant-pro-page-container-warp-page-header ant-pro-page-container-warp-page-header ant-page-header-ghost"
@@ -499,13 +497,6 @@ exports[`PageContainer 🐲 FooterToolbar should know width 1`] = `
             class="ant-pro-page-container ant-pro-page-container-ghost"
           >
             <div
-              class="ant-pro-page-container-warp"
-            >
-              <div
-                class="ant-page-header ant-pro-page-container-warp-page-header ant-pro-page-container-warp-page-header ant-page-header-ghost"
-              />
-            </div>
-            <div
               class="ant-pro-grid-content"
             >
               <div
@@ -533,7 +524,7 @@ exports[`PageContainer 🐲 FooterToolbar should know width 1`] = `
                   </div>
                 </div>
                 <div
-                  style="height: 64px; margin-block-start: 16px;"
+                  style="height: 64px; margin-block-start: 24px;"
                 />
               </div>
             </div>
@@ -547,10 +538,10 @@ exports[`PageContainer 🐲 FooterToolbar should know width 1`] = `
 
 exports[`PageContainer 🐲 content is text and title is null 1`] = `
 <div
-  class="ant-pro-page-container ant-pro-page-container-ghost"
+  class="ant-pro"
 >
   <div
-    class="ant-pro-page-container-warp"
+    class="ant-pro-page-container ant-pro-page-container-ghost"
   >
     <div
       class="ant-page-header ant-pro-page-container-warp-page-header ant-pro-page-container-warp-page-header ant-page-header-ghost"
@@ -583,10 +574,10 @@ exports[`PageContainer 🐲 content is text and title is null 1`] = `
 
 exports[`PageContainer 🐲 content is text and title is null 2`] = `
 <div
-  class="ant-pro-page-container ant-pro-page-container-ghost"
+  class="ant-pro"
 >
   <div
-    class="ant-pro-page-container-warp"
+    class="ant-pro-page-container ant-pro-page-container-ghost"
   >
     <div
       class="ant-page-header ant-pro-page-container-warp-page-header ant-pro-page-container-warp-page-header ant-page-header-ghost"
@@ -620,10 +611,12 @@ exports[`PageContainer 🐲 content is text and title is null 2`] = `
 `;
 
 exports[`PageContainer 🐲 footer is null, do not render footerToolbar  1`] = `
-Array [
+<div
+  class="ant-pro"
+>
   <div
     class="ant-pro-page-container ant-pro-page-container-ghost ant-pro-page-container-with-footer"
-  />,
+  />
   <div
     class="ant-pro-footer-bar"
   >
@@ -639,14 +632,18 @@ Array [
         qixian
       </button>
     </div>
-  </div>,
-]
+  </div>
+</div>
 `;
 
 exports[`PageContainer 🐲 footer is null, do not render footerToolbar  2`] = `
 <div
-  class="ant-pro-page-container ant-pro-page-container-ghost"
-/>
+  class="ant-pro"
+>
+  <div
+    class="ant-pro-page-container ant-pro-page-container-ghost"
+  />
+</div>
 `;
 
 exports[`PageContainer 🐲 footer should know width 1`] = `
@@ -830,24 +827,20 @@ exports[`PageContainer 🐲 footer should know width 1`] = `
             class="ant-pro-page-container ant-pro-page-container-ghost ant-pro-page-container-with-footer"
           >
             <div
-              class="ant-pro-page-container-warp"
+              class="ant-page-header ant-pro-page-container-warp-page-header ant-pro-page-container-warp-page-header ant-page-header-ghost"
             >
               <div
-                class="ant-page-header ant-pro-page-container-warp-page-header ant-pro-page-container-warp-page-header ant-page-header-ghost"
+                class="ant-page-header-heading"
               >
                 <div
-                  class="ant-page-header-heading"
+                  class="ant-page-header-heading-left"
                 >
-                  <div
-                    class="ant-page-header-heading-left"
+                  <span
+                    class="ant-page-header-heading-title"
+                    title="期贤"
                   >
-                    <span
-                      class="ant-page-header-heading-title"
-                      title="期贤"
-                    >
-                      期贤
-                    </span>
-                  </div>
+                    期贤
+                  </span>
                 </div>
               </div>
             </div>
@@ -1067,89 +1060,85 @@ exports[`PageContainer 🐲 pro-layout support breadcrumbProps 1`] = `
             class="ant-pro-page-container ant-pro-page-container-ghost"
           >
             <div
-              class="ant-pro-page-container-warp"
+              class="ant-page-header ant-pro-page-container-warp-page-header ant-pro-page-container-warp-page-header ant-page-header-has-breadcrumb ant-page-header-ghost"
             >
-              <div
-                class="ant-page-header ant-pro-page-container-warp-page-header ant-pro-page-container-warp-page-header ant-page-header-has-breadcrumb ant-page-header-ghost"
+              <nav
+                class="ant-breadcrumb ant-page-header-breadcrumb"
               >
-                <nav
-                  class="ant-breadcrumb ant-page-header-breadcrumb"
-                >
-                  <ol>
-                    <li>
+                <ol>
+                  <li>
+                    <span
+                      class="ant-breadcrumb-link"
+                    >
+                      <a
+                        href="index"
+                      >
+                        home
+                      </a>
+                    </span>
+                    <span
+                      class="ant-breadcrumb-separator"
+                    >
+                      &gt;
+                    </span>
+                  </li>
+                  <li>
+                    <span
+                      class="ant-dropdown-trigger ant-breadcrumb-overlay-link"
+                    >
                       <span
                         class="ant-breadcrumb-link"
                       >
                         <a
-                          href="index"
+                          href="first"
                         >
-                          home
+                          first
                         </a>
                       </span>
                       <span
-                        class="ant-breadcrumb-separator"
+                        aria-label="down"
+                        class="anticon anticon-down"
+                        role="img"
                       >
-                        &gt;
-                      </span>
-                    </li>
-                    <li>
-                      <span
-                        class="ant-dropdown-trigger ant-breadcrumb-overlay-link"
-                      >
-                        <span
-                          class="ant-breadcrumb-link"
+                        <svg
+                          aria-hidden="true"
+                          data-icon="down"
+                          fill="currentColor"
+                          focusable="false"
+                          height="1em"
+                          viewBox="64 64 896 896"
+                          width="1em"
                         >
-                          <a
-                            href="first"
-                          >
-                            first
-                          </a>
-                        </span>
-                        <span
-                          aria-label="down"
-                          class="anticon anticon-down"
-                          role="img"
-                        >
-                          <svg
-                            aria-hidden="true"
-                            data-icon="down"
-                            fill="currentColor"
-                            focusable="false"
-                            height="1em"
-                            viewBox="64 64 896 896"
-                            width="1em"
-                          >
-                            <path
-                              d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"
-                            />
-                          </svg>
-                        </span>
+                          <path
+                            d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"
+                          />
+                        </svg>
                       </span>
-                      <span
-                        class="ant-breadcrumb-separator"
+                    </span>
+                    <span
+                      class="ant-breadcrumb-separator"
+                    >
+                      &gt;
+                    </span>
+                  </li>
+                  <li>
+                    <span
+                      class="ant-breadcrumb-link"
+                    >
+                      <a
+                        href="second"
                       >
-                        &gt;
-                      </span>
-                    </li>
-                    <li>
-                      <span
-                        class="ant-breadcrumb-link"
-                      >
-                        <a
-                          href="second"
-                        >
-                          second
-                        </a>
-                      </span>
-                      <span
-                        class="ant-breadcrumb-separator"
-                      >
-                        &gt;
-                      </span>
-                    </li>
-                  </ol>
-                </nav>
-              </div>
+                        second
+                      </a>
+                    </span>
+                    <span
+                      class="ant-breadcrumb-separator"
+                    >
+                      &gt;
+                    </span>
+                  </li>
+                </ol>
+              </nav>
             </div>
           </div>
         </main>
@@ -1161,10 +1150,10 @@ exports[`PageContainer 🐲 pro-layout support breadcrumbProps 1`] = `
 
 exports[`PageContainer 💄 base use 1`] = `
 <div
-  class="ant-pro-page-container ant-pro-page-container-ghost"
+  class="ant-pro"
 >
   <div
-    class="ant-pro-page-container-warp"
+    class="ant-pro-page-container ant-pro-page-container-ghost"
   >
     <div
       class="ant-page-header ant-pro-page-container-warp-page-header ant-pro-page-container-warp-page-header ant-page-header-ghost"
@@ -1190,8 +1179,12 @@ exports[`PageContainer 💄 base use 1`] = `
 
 exports[`PageContainer 💄 config is null 1`] = `
 <div
-  class="ant-pro-page-container ant-pro-page-container-ghost"
-/>
+  class="ant-pro"
+>
+  <div
+    class="ant-pro-page-container ant-pro-page-container-ghost"
+  />
+</div>
 `;
 
 exports[`PageContainer 🔥 footer bar support extra 1`] = `
@@ -1227,53 +1220,51 @@ exports[`PageContainer 🔥 footer bar support renderContent 1`] = `
 `;
 
 exports[`PageContainer 🔥 support footer and breadcrumb 1`] = `
-Array [
+<div
+  class="ant-pro"
+>
   <div
     class="ant-pro-page-container ant-pro-page-container-ghost ant-pro-page-container-with-footer"
   >
     <div
-      class="ant-pro-page-container-warp"
+      class="ant-page-header ant-pro-page-container-warp-page-header ant-pro-page-container-warp-page-header ant-page-header-has-breadcrumb ant-page-header-ghost"
     >
-      <div
-        class="ant-page-header ant-pro-page-container-warp-page-header ant-pro-page-container-warp-page-header ant-page-header-has-breadcrumb ant-page-header-ghost"
+      <nav
+        class="ant-breadcrumb ant-page-header-breadcrumb"
       >
-        <nav
-          class="ant-breadcrumb ant-page-header-breadcrumb"
-        >
-          <ol>
-            <li>
-              <span
-                class="ant-breadcrumb-link"
-              >
-                <span>
-                  home
-                </span>
-              </span>
-              <span
-                class="ant-breadcrumb-separator"
-              >
-                /
-              </span>
-            </li>
-          </ol>
-        </nav>
-        <div
-          class="ant-page-header-heading"
-        >
-          <div
-            class="ant-page-header-heading-left"
-          >
+        <ol>
+          <li>
             <span
-              class="ant-page-header-heading-title"
-              title="期贤"
+              class="ant-breadcrumb-link"
             >
-              期贤
+              <span>
+                home
+              </span>
             </span>
-          </div>
+            <span
+              class="ant-breadcrumb-separator"
+            >
+              /
+            </span>
+          </li>
+        </ol>
+      </nav>
+      <div
+        class="ant-page-header-heading"
+      >
+        <div
+          class="ant-page-header-heading-left"
+        >
+          <span
+            class="ant-page-header-heading-title"
+            title="期贤"
+          >
+            期贤
+          </span>
         </div>
       </div>
     </div>
-  </div>,
+  </div>
   <div
     class="ant-pro-footer-bar"
   >
@@ -1289,6 +1280,6 @@ Array [
         right
       </button>
     </div>
-  </div>,
-]
+  </div>
+</div>
 `;

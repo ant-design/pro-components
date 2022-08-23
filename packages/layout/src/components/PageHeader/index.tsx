@@ -181,14 +181,21 @@ const PageHeader: React.FC<PageHeaderProps> = (props) => {
     [`${prefixCls}-rtl`]: direction === 'rtl',
     [`${prefixCls}-compact`]: compact,
   });
+  const title = renderTitle(prefixCls, props, direction);
+  const childDom = children && renderChildren(prefixCls, children);
+  const footerDom = renderFooter(prefixCls, footer);
+
+  if (!breadcrumbDom && !title && !footerDom && !childDom) {
+    return null;
+  }
 
   return wrapSSR(
     <ResizeObserver onResize={onResize}>
       <div className={className} style={style}>
         {breadcrumbDom}
-        {renderTitle(prefixCls, props, direction)}
-        {children && renderChildren(prefixCls, children)}
-        {renderFooter(prefixCls, footer)}
+        {title}
+        {childDom}
+        {footerDom}
       </div>
     </ResizeObserver>,
   );
