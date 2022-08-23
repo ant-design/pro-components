@@ -984,4 +984,57 @@ describe('EditorProTable', () => {
 
     wrapper.unmount();
   });
+
+  it('📝 EditableProTable onValuesChange will not trigger when init', async () => {
+    const valuesChangeFn = jest.fn();
+    const wrapper = render(
+      <ProForm<{
+        table: DataSourceType[];
+      }>
+        initialValues={{
+          table: defaultData,
+        }}
+        validateTrigger="onBlur"
+      >
+        <EditableProTable<DataSourceType>
+          rowKey="id"
+          scroll={{
+            x: 960,
+          }}
+          headerTitle="可编辑表格"
+          maxLength={5}
+          name="table"
+          columns={columns}
+          editable={{
+            type: 'multiple',
+            onValuesChange: (values) => {
+              valuesChangeFn(values.title);
+            },
+          }}
+        />
+      </ProForm>,
+    );
+
+    await waitForComponentToPaint(wrapper, 300);
+    expect(valuesChangeFn).toBeCalledTimes(0);
+
+    await act(async () => {
+      (await wrapper.queryAllByText('编辑')).at(0)?.click();
+    });
+    await waitForComponentToPaint(wrapper, 500);
+    act(() => {
+      fireEvent.change(
+        wrapper.container
+          .querySelectorAll('.ant-table-tbody tr.ant-table-row')[0]
+          .querySelectorAll(`td .ant-input`)[0],
+        {
+          target: {
+            value: 'test',
+          },
+        },
+      );
+    });
+    expect(valuesChangeFn).toBeCalledTimes(1);
+    expect(valuesChangeFn).toBeCalledWith('test');
+  });
 });

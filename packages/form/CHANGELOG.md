@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.74.1](https://github.com/ant-design/pro-components/compare/@ant-design/pro-form@1.74.0...@ant-design/pro-form@1.74.1) (2022-08-22)
+
+### Bug Fixes
+
+- **form:** fix from ref no work error ([0ff0ead](https://github.com/ant-design/pro-components/commit/0ff0ead3d056beaf3f307bc83d4265c05835cc48))
+- **form:** 两个 ProForm 表单下存在相同 name 的 ProFormSelect 时，request 得到的结果会造成覆盖问题 ([#5748](https://github.com/ant-design/pro-components/issues/5748)) ([c283059](https://github.com/ant-design/pro-components/commit/c28305922c507c59eea6e61086ccf9171748178a))
+
 # [1.74.0](https://github.com/ant-design/pro-components/compare/@ant-design/pro-form@1.73.0...@ant-design/pro-form@1.74.0) (2022-08-19)
 
 ### Features
