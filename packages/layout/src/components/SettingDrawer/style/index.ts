@@ -43,6 +43,7 @@ const genSettingDrawerStyle: GenerateStyle<SettingDrawerToken> = (token) => {
           boxShadow: '0 1px 2.5px 0 rgba(0, 0, 0, 0.18)',
           cursor: 'pointer',
           fontSize: 56,
+          lineHeight: 56,
           '&::before': {
             position: 'absolute',
             insetBlockStart: 0,
