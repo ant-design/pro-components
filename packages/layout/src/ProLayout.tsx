@@ -605,6 +605,7 @@ const BaseProLayout: React.FC<ProLayoutProps> = (props) => {
   }, [location.pathname, location.pathname?.search]);
 
   const [hasFooterToolbar, setHasFooterToolbar] = useState(false);
+  const [hasPageContainer, setHasPageContainer] = useState(false);
   useDocumentTitle(pageTitleInfo, props.title || false);
   const bgImgStyleList = useMemo(() => {
     if (bgLayoutImgList && bgLayoutImgList.length > 0) {
@@ -633,6 +634,8 @@ const BaseProLayout: React.FC<ProLayoutProps> = (props) => {
           menuData,
           isMobile,
           collapsed,
+          hasPageContainer,
+          setHasPageContainer,
           isChildrenLayout: true,
           title: pageTitleInfo.pageName,
           hasSiderMenu: !!siderMenuDom,
@@ -662,7 +665,7 @@ const BaseProLayout: React.FC<ProLayoutProps> = (props) => {
               <div style={genLayoutStyle} className={context.getPrefixCls('layout')}>
                 {headerDom}
                 <WrapContent
-                  autoClearCache={false}
+                  hasPageContainer={hasPageContainer}
                   isChildrenLayout={isChildrenLayout}
                   {...rest}
                   hasHeader={!!headerDom}

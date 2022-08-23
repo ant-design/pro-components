@@ -2,8 +2,7 @@ import { ConfigProviderWrap } from '@ant-design/pro-provider';
 import type { AffixProps, BreadcrumbProps, SpinProps, TabPaneProps, TabsProps } from 'antd';
 import { Affix, Breadcrumb, ConfigProvider, Tabs } from 'antd';
 import classNames from 'classnames';
-import type { ReactNode } from 'react';
-import React, { useContext, useMemo } from 'react';
+import React, { ReactNode, useContext, useEffect, useMemo } from 'react';
 import { ProLayoutContext } from '../../context/ProLayoutContext';
 import { RouteContext } from '../../context/RouteContext';
 import type { WithFalse } from '../../typings';
@@ -266,6 +265,17 @@ const PageContainer: React.FC<PageContainerProps> = (props) => {
     ...restProps
   } = props;
   const value = useContext(RouteContext);
+  /** 告诉 props 是否存在 footerBar */
+  useEffect(() => {
+    if (!value || !value?.setHasPageContainer) {
+      return () => {};
+    }
+    value?.setHasPageContainer?.(true);
+    return () => {
+      value?.setHasPageContainer?.(false);
+    };
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
   const { pageContainer } = useContext(ProLayoutContext);
   const { getPrefixCls } = useContext(ConfigProvider.ConfigContext);
   const prefixCls = props.prefixCls || getPrefixCls('pro');

@@ -218,9 +218,10 @@ const genProLayoutStyle: GenerateStyle<ProLayoutToken & LayoutDesignToken> = (to
           backgroundColor: 'transparent',
           position: 'relative',
           '*': { boxSizing: 'border-box' },
-          '&-has-margin': {
-            marginBlock: token.pageContainer.marginBlockPageContainerContent,
-            marginInline: token.pageContainer.marginInlinePageContainerContent,
+          marginBlock: token.pageContainer.marginBlockPageContainerContent,
+          marginInline: token.pageContainer.marginInlinePageContainerContent,
+          '&-has-page-container': {
+            margin: 0,
           },
         },
 

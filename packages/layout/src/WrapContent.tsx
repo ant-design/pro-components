@@ -5,7 +5,7 @@ import type { CSSProperties } from 'react';
 import React from 'react';
 
 const WrapContent: React.FC<{
-  autoClearCache?: boolean;
+  hasPageContainer?: boolean;
   isChildrenLayout?: boolean;
   prefixCls?: string;
   style?: CSSProperties;
@@ -15,10 +15,11 @@ const WrapContent: React.FC<{
   children?: React.ReactNode;
   hasHeader: boolean;
 }> = (props) => {
-  const { style, prefixCls, children } = props;
+  const { style, prefixCls, children, hasPageContainer } = props;
 
   const contentClassName = classNames(`${prefixCls}-content`, {
     [`${prefixCls}-has-header`]: props.hasHeader,
+    [`${prefixCls}-content-has-page-container`]: hasPageContainer,
   });
 
   const ErrorComponent = props.ErrorBoundary || ErrorBoundary;

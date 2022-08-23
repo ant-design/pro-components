@@ -17,7 +17,9 @@ export type RouteContextType = {
   isChildrenLayout?: boolean;
   hasFooterToolbar?: boolean;
   hasFooter?: boolean;
+  hasPageContainer?: boolean;
   setHasFooterToolbar?: React.Dispatch<React.SetStateAction<boolean>>;
+  setHasPageContainer?: React.Dispatch<React.SetStateAction<boolean>>;
   pageTitleInfo?: {
     title: string;
     id: string;
