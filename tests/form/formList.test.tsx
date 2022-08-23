@@ -13,6 +13,7 @@ import { Button, Form } from 'antd';
 import type { NamePath } from 'antd/es/form/interface';
 import { mount } from 'enzyme';
 import _ from 'lodash';
+import moment from 'moment';
 import React from 'react';
 import { waitForComponentToPaint, waitTime } from '../util';
 
@@ -1192,5 +1193,38 @@ describe('ProForm List', () => {
     await waitForComponentToPaint(html);
 
     expect(ref.current?.getCurrentRowData().lv2Name).toBe('test');
+  });
+  it('⛲  ProForm.List transform should be call', async () => {
+    const handleFinish = jest.fn();
+    const html = mount(
+      <ProForm
+        onFinish={async (values) => {
+          console.log('kiner:', values);
+          handleFinish(values.datas[0].date);
+        }}
+      >
+        <ProFormList name="datas" initialValue={[{ date: '2022-10-12 10:00:00' }]}>
+          {() => {
+            return (
+              <ProFormDatePicker
+                name="date"
+                transform={(value) => {
+                  return {
+                    date: moment(value).unix(),
+                  };
+                }}
+              />
+            );
+          }}
+        </ProFormList>
+      </ProForm>,
+    );
+
+    await waitForComponentToPaint(html);
+    act(() => {
+      html.find('.ant-btn.ant-btn-primary').simulate('click');
+    });
+    await waitForComponentToPaint(html, 300);
+    expect(handleFinish).toBeCalledWith(1665568800);
   });
 });
