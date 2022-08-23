@@ -193,13 +193,6 @@ export type ProLayoutProps = GlobalTypes & {
 
   className?: string;
 
-  /**
-   * @name 取消 content的 margin
-   *
-   * @example 取消内容的 margin  disableContentMargin={true}
-   * */
-  disableContentMargin?: boolean;
-
   /** PageHeader 的 BreadcrumbProps 配置，会透传下去 */
   breadcrumbProps?: AntdBreadcrumbProps & LayoutBreadcrumbProps;
 
@@ -367,7 +360,6 @@ const BaseProLayout: React.FC<ProLayoutProps> = (props) => {
     route,
     defaultCollapsed,
     style,
-    disableContentMargin = true,
     siderWidth: propsSiderWidth,
     menu,
     siderMenuType,
@@ -647,7 +639,6 @@ const BaseProLayout: React.FC<ProLayoutProps> = (props) => {
           hasHeader: !!headerDom,
           siderWidth: leftSiderWidth,
           hasFooter: !!footerDom,
-          disableContentMargin,
           hasFooterToolbar,
           setHasFooterToolbar,
           pageTitleInfo,
@@ -671,7 +662,6 @@ const BaseProLayout: React.FC<ProLayoutProps> = (props) => {
               <div style={genLayoutStyle} className={context.getPrefixCls('layout')}>
                 {headerDom}
                 <WrapContent
-                  disableContentMargin={disableContentMargin}
                   autoClearCache={false}
                   isChildrenLayout={isChildrenLayout}
                   {...rest}

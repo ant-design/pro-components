@@ -23,7 +23,6 @@ export type RouteContextType = {
     id: string;
     pageName: string;
   };
-  disableContentMargin?: boolean;
   matchMenus?: MenuDataItem[];
   matchMenuKeys?: string[];
   currentMenu?: PureSettings & MenuDataItem;

@@ -10,17 +10,15 @@ const WrapContent: React.FC<{
   prefixCls?: string;
   style?: CSSProperties;
   location?: any;
-  disableContentMargin?: boolean;
   contentHeight?: number | string;
   ErrorBoundary?: any;
   children?: React.ReactNode;
   hasHeader: boolean;
 }> = (props) => {
-  const { style, prefixCls, children, disableContentMargin } = props;
+  const { style, prefixCls, children } = props;
 
   const contentClassName = classNames(`${prefixCls}-content`, {
     [`${prefixCls}-has-header`]: props.hasHeader,
-    [`${prefixCls}-content-has-margin`]: !disableContentMargin,
   });
 
   const ErrorComponent = props.ErrorBoundary || ErrorBoundary;

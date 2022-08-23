@@ -36,7 +36,6 @@ export default () => (
         ],
       }}
       headerRender={false}
-      disableContentMargin
     >
       <ProLayout
         location={{
