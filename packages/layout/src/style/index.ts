@@ -216,9 +216,6 @@ const genProLayoutStyle: GenerateStyle<ProLayoutToken & LayoutDesignToken> = (to
           width: '100%',
           backgroundColor: 'transparent',
           position: 'relative',
-          '> *': {
-            width: '100%',
-          },
           '*': { boxSizing: 'border-box' },
           '&-has-margin': {
             marginBlock: token.pageContainer.marginBlockPageContainerContent,
