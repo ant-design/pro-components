@@ -9318,9 +9318,10 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/api.tsx correctly
               class="ant-pro-global-footer"
             >
               <div
-                class="ant-pro-global-footer-links"
+                class="ant-pro-global-footer-list"
               >
                 <a
+                  class="ant-pro-global-footer-list-link"
                   href="https://pro.ant.design"
                   rel="noreferrer"
                   target="_blank"
@@ -9329,6 +9330,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/api.tsx correctly
                   Ant Design Pro
                 </a>
                 <a
+                  class="ant-pro-global-footer-list-link"
                   href="https://github.com/ant-design/ant-design-pro"
                   rel="noreferrer"
                   target="_blank"
@@ -9355,6 +9357,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/api.tsx correctly
                   </span>
                 </a>
                 <a
+                  class="ant-pro-global-footer-list-link"
                   href="https://ant.design"
                   rel="noreferrer"
                   target="_blank"
@@ -21048,9 +21051,10 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/footer.tsx correc
               class="ant-pro-global-footer"
             >
               <div
-                class="ant-pro-global-footer-links"
+                class="ant-pro-global-footer-list"
               >
                 <a
+                  class="ant-pro-global-footer-list-link"
                   href="www.alipay.com"
                   rel="noreferrer"
                   target="_self"
@@ -21059,6 +21063,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/footer.tsx correc
                   layout
                 </a>
                 <a
+                  class="ant-pro-global-footer-list-link"
                   href="www.alipay.com"
                   rel="noreferrer"
                   target="_self"
