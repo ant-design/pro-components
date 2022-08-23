@@ -1,3 +1,21 @@
+// 兼容代码-----------
+import 'antd/es/anchor/style';
+import 'antd/es/breadcrumb/style';
+import 'antd/es/divider/style';
+import 'antd/es/drawer/style';
+import 'antd/es/layout/style';
+import 'antd/es/list/style';
+import 'antd/es/menu/style';
+import 'antd/es/message/style';
+import 'antd/es/popover/style';
+import 'antd/es/select/style';
+import 'antd/es/space/style';
+import 'antd/es/spin/style';
+import 'antd/es/switch/style';
+import 'antd/es/tabs/style';
+import 'antd/es/tooltip/style';
+//----------------------
+
 import { FooterToolbar } from './components/FooterToolbar';
 import { GridContent } from './components/GridContent';
 import type { PageContainerProps } from './components/PageContainer';

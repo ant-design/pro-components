@@ -205,42 +205,44 @@ const genProLayoutStyle: GenerateStyle<ProLayoutToken & LayoutDesignToken> = (to
       marginInline: 0,
       fontFamily: token.fontFamily,
     },
-    [token.componentCls]: {
-      [`& ${token.antCls}-layout`]: {
-        backgroundColor: 'transparent',
-      },
-      [`${token.componentCls}-content`]: {
-        display: 'flex',
-        flexDirection: 'column',
-        width: '100%',
-        backgroundColor: 'transparent',
-        position: 'relative',
-        '> *': {
+    [token.proComponentsCls]: {
+      [`& ${token.componentCls}`]: {
+        [`& ${token.antCls}-layout`]: {
+          backgroundColor: 'transparent',
+        },
+        [`${token.componentCls}-content`]: {
+          display: 'flex',
+          flexDirection: 'column',
           width: '100%',
+          backgroundColor: 'transparent',
+          position: 'relative',
+          '> *': {
+            width: '100%',
+          },
+          '*': { boxSizing: 'border-box' },
+          '&-content-has-margin': {
+            marginBlock: token.pageContainer.marginBlockPageContainerContent,
+            marginInline: token.pageContainer.marginInlinePageContainerContent,
+          },
         },
-        '*': { boxSizing: 'border-box' },
-        '&-content-has-margin': {
-          marginBlock: token.pageContainer.marginBlockPageContainerContent,
-          marginInline: token.pageContainer.marginInlinePageContainerContent,
-        },
-      },
 
-      [`${token.componentCls}-bg-list`]: {
-        pointerEvents: 'none',
-        position: 'fixed',
-        overflow: 'hidden',
-        insetBlockStart: 0,
-        insetInlineStart: 0,
-        zIndex: 0,
-        height: '100%',
-        width: '100%',
-        background: token.bgLayout,
+        [`${token.componentCls}-bg-list`]: {
+          pointerEvents: 'none',
+          position: 'fixed',
+          overflow: 'hidden',
+          insetBlockStart: 0,
+          insetInlineStart: 0,
+          zIndex: 0,
+          height: '100%',
+          width: '100%',
+          background: token.bgLayout,
+        },
       },
-    },
-    [`${token.antCls}-menu-submenu-popup`]: {
-      backgroundColor: 'rgba(255, 255, 255, 0.42)',
-      '-webkit-backdrop-filter': 'blur(8px)',
-      backdropFilter: 'blur(8px)',
+      [`${token.antCls}-menu-submenu-popup`]: {
+        backgroundColor: 'rgba(255, 255, 255, 0.42)',
+        '-webkit-backdrop-filter': 'blur(8px)',
+        backdropFilter: 'blur(8px)',
+      },
     },
   };
 };
