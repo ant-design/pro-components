@@ -1,5 +1,6 @@
 import { ConfigProvider as AntdConfigProvider } from 'antd';
 import zh_CN from 'antd/es/locale/zh_CN';
+import { useToken } from 'antd/es/theme';
 import classNames from 'classnames';
 import React, { useContext, useEffect } from 'react';
 import { SWRConfig, useSWRConfig } from 'swr';
@@ -272,6 +273,7 @@ export const ConfigProviderWrap: React.FC<Record<string, unknown>> = ({
   autoClearCache = false,
 }) => {
   const { locale } = useContext(AntdConfigProvider.ConfigContext);
+  const [, , hashId] = useToken();
   // 如果 locale 不存在自动注入的 AntdConfigProvider
   const Provider = locale === undefined ? AntdConfigProvider : React.Fragment;
   const proProvide = useContext(ConfigContext);
@@ -293,7 +295,6 @@ export const ConfigProviderWrap: React.FC<Record<string, unknown>> = ({
                 locale: zh_CN,
               }
             : {};
-
         const provide = (
           <Provider {...configProvider}>
             <ConfigProvider
@@ -311,7 +312,7 @@ export const ConfigProviderWrap: React.FC<Record<string, unknown>> = ({
           </Provider>
         );
         if (proProvide.isDeps) return provide;
-        return <div className={classNames('ant-pro')}>{provide}</div>;
+        return <div className={classNames('ant-pro', hashId)}>{provide}</div>;
       }}
     </ConfigConsumer>
   );

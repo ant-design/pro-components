@@ -1931,13 +1931,13 @@ exports[`field demos 📸 renders ./packages/field/src/demos/base_test.tsx corre
                       class="ant-input ant-input-disabled"
                       disabled=""
                       placeholder="~"
-                      style="width: 30px; text-align: center; border-left: 0; border-right: 0; pointer-events: none; background-color: rgb(255, 255, 255);"
+                      style="width: 30px; text-align: center; border-inline-start: 0; border-inline-end: 0; pointer-events: none; background-color: rgb(255, 255, 255);"
                       type="text"
                       value=""
                     />
                     <div
                       class="ant-input-number"
-                      style="border-left: 0;"
+                      style="border-inline-start: 0;"
                     >
                       <div
                         class="ant-input-number-handler-wrap"
@@ -2823,7 +2823,7 @@ exports[`field demos 📸 renders ./packages/field/src/demos/base_test.tsx corre
                   class="ant-descriptions-item-content"
                 >
                   <div
-                    class="ant-radio-group ant-radio-group-outline ant-pro-field-radio-horizontal"
+                    class="ant-radio-group ant-radio-group-outline ant-pro-field-radio-vertical"
                   >
                     <label
                       class="ant-radio-wrapper ant-radio-wrapper-disabled"
@@ -2922,7 +2922,7 @@ exports[`field demos 📸 renders ./packages/field/src/demos/base_test.tsx corre
                   class="ant-descriptions-item-content"
                 >
                   <div
-                    class="ant-radio-group ant-radio-group-outline ant-pro-field-radio-horizontal"
+                    class="ant-radio-group ant-radio-group-outline ant-pro-field-radio-vertical"
                   >
                     <label
                       class="ant-radio-button-wrapper ant-radio-button-wrapper-disabled"

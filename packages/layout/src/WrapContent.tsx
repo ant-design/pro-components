@@ -1,4 +1,4 @@
-import { ErrorBoundary } from '@ant-design/pro-utils';
+import { ErrorBoundary, useToken } from '@ant-design/pro-utils';
 import { Layout } from 'antd';
 import classNames from 'classnames';
 import type { CSSProperties } from 'react';
@@ -15,9 +15,10 @@ const WrapContent: React.FC<{
   children?: React.ReactNode;
   hasHeader: boolean;
 }> = (props) => {
+  const { hashId } = useToken();
   const { style, prefixCls, children, hasPageContainer } = props;
 
-  const contentClassName = classNames(`${prefixCls}-content`, {
+  const contentClassName = classNames(`${prefixCls}-content`, hashId, {
     [`${prefixCls}-has-header`]: props.hasHeader,
     [`${prefixCls}-content-has-page-container`]: hasPageContainer,
   });

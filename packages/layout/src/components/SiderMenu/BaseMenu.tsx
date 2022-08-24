@@ -93,14 +93,13 @@ let IconFont = createFromIconfontCN({
 //   icon: '/favicon.png',
 //   icon: <Icon type="setting" />,
 const getIcon = (
-  icon?: string | React.ReactNode,
+  icon: string | React.ReactNode,
   iconPrefixes: string = 'icon-',
+  className: string,
 ): React.ReactNode => {
   if (typeof icon === 'string' && icon !== '') {
     if (isUrl(icon) || isImg(icon)) {
-      return (
-        <Icon component={() => <img src={icon} alt="icon" className="ant-pro-sider-menu-icon" />} />
-      );
+      return <Icon component={() => <img src={icon} alt="icon" className={className} />} />;
     }
     if (icon.startsWith(iconPrefixes)) {
       return <IconFont type={icon} />;
@@ -155,7 +154,11 @@ class MenuUtil {
       const shouldHasIcon = level === 0 || (isGroup && level === 1);
 
       //  get defaultTitle by menuItemRender
-      const iconDom = getIcon(item.icon, iconPrefixes);
+      const iconDom = getIcon(
+        item.icon,
+        iconPrefixes,
+        `${baseClassName}-icon ${designToken?.hashId}`,
+      );
       /**
        * 如果没有icon在收起的时候用首字母代替
        */
@@ -164,19 +167,21 @@ class MenuUtil {
       const defaultTitle = (
         <div
           title={name}
-          className={classNames(`${baseClassName}-item-title`, {
+          className={classNames(`${baseClassName}-item-title`, designToken?.hashId, {
             [`${baseClassName}-item-title-collapsed`]: collapsed,
             [`${baseClassName}-item-collapsed-show-title`]: menu?.collapsedShowTitle && collapsed,
           })}
         >
           {/* 收起的时候group模式就不要展示icon了，放不下 */}
           {menuType === 'group' && collapsed ? null : shouldHasIcon && iconDom ? (
-            <span className={`anticon ${baseClassName}-item-icon`}>{iconDom}</span>
+            <span className={`anticon ${baseClassName}-item-icon ${designToken?.hashId}`}>
+              {iconDom}
+            </span>
           ) : (
             defaultIcon
           )}
           <span
-            className={classNames(`${baseClassName}-item-text`, {
+            className={classNames(`${baseClassName}-item-text`, designToken?.hashId, {
               [`${baseClassName}-item-text-has-icon`]:
                 menuType !== 'group' && shouldHasIcon && (iconDom || defaultIcon),
             })}
@@ -258,6 +263,7 @@ class MenuUtil {
       onCollapse,
       menuItemRender,
       iconPrefixes,
+      token,
     } = this.props;
 
     // if local is true formatMessage all name。
@@ -266,18 +272,24 @@ class MenuUtil {
     const isGroup = menu?.type === 'group';
     /** Menu 第一级可以有icon，或者 isGroup 时第二级别也要有 */
     const hasIcon = level === 0 || (isGroup && level === 1);
-    const icon = !hasIcon ? null : getIcon(item.icon, iconPrefixes);
+    const icon = !hasIcon
+      ? null
+      : getIcon(item.icon, iconPrefixes, `${baseClassName}-icon ${token?.hashId}`);
     const defaultIcon = collapsed && hasIcon ? getMenuTitleSymbol(name) : null;
     let defaultItem = (
       <div
-        className={classNames(`${baseClassName}-item-title`, {
+        className={classNames(`${baseClassName}-item-title`, token?.hashId, {
           [`${baseClassName}-item-title-collapsed`]: collapsed,
           [`${baseClassName}-item-collapsed-show-title`]: menu?.collapsedShowTitle && collapsed,
         })}
       >
-        {icon ? <span className={`anticon ${baseClassName}-item-icon`}>{icon}</span> : defaultIcon}
+        {icon ? (
+          <span className={`anticon ${baseClassName}-item-icon ${token?.hashId}`}>{icon}</span>
+        ) : (
+          defaultIcon
+        )}
         <span
-          className={classNames(`${baseClassName}-item-text`, {
+          className={classNames(`${baseClassName}-item-text`, token?.hashId, {
             [`${baseClassName}-item-text-has-icon`]: hasIcon && (icon || defaultIcon),
           })}
         >
@@ -295,19 +307,19 @@ class MenuUtil {
           onClick={() => {
             window?.open?.(itemPath, '_blank');
           }}
-          className={classNames(`${baseClassName}-item-title`, {
+          className={classNames(`${baseClassName}-item-title`, token?.hashId, {
             [`${baseClassName}-item-title-collapsed`]: collapsed,
             [`${baseClassName}-item-link`]: true,
             [`${baseClassName}-item-collapsed-show-title`]: menu?.collapsedShowTitle && collapsed,
           })}
         >
           {icon ? (
-            <span className={`anticon ${baseClassName}-item-icon`}>{icon}</span>
+            <span className={`anticon ${baseClassName}-item-icon ${token?.hashId}`}>{icon}</span>
           ) : (
             defaultIcon
           )}
           <span
-            className={classNames(`${baseClassName}-item-text`, {
+            className={classNames(`${baseClassName}-item-text`, token?.hashId, {
               [`${baseClassName}-item-text-has-icon`]: hasIcon && (icon || defaultIcon),
             })}
           >

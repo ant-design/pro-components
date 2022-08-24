@@ -13,6 +13,7 @@ export type BlockCheckboxProps = {
   }[];
   configType: string;
   prefixCls: string;
+  hashId: string;
 };
 
 const BlockCheckbox: React.FC<BlockCheckboxProps> = ({
@@ -21,8 +22,9 @@ const BlockCheckbox: React.FC<BlockCheckboxProps> = ({
   onChange,
   list,
   prefixCls,
+  hashId,
 }) => {
-  const baseClassName = `${prefixCls}-block-checkbox`;
+  const baseClassName = `${prefixCls}-block-checkbox ${hashId}`;
   const dom = useMemo(() => {
     const domList = (list || []).map((item) => (
       <Tooltip title={item.title} key={item.key}>

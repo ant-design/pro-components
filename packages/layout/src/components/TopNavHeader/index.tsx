@@ -62,7 +62,7 @@ const TopNavHeader: React.FC<TopNavHeaderProps> = (props) => {
         <BaseMenu
           theme="light"
           {...props}
-          className={`${prefixCls}-base-menu`}
+          className={`${prefixCls}-base-menu ${hashId}`}
           {...props.menuProps}
           style={{
             width: '100%',
@@ -80,6 +80,7 @@ const TopNavHeader: React.FC<TopNavHeaderProps> = (props) => {
     }
     return defaultDom;
   }, [
+    hashId,
     header.colorBgMenuItemHover,
     header.colorBgMenuItemSelected,
     header.colorTextMenu,
@@ -99,19 +100,22 @@ const TopNavHeader: React.FC<TopNavHeaderProps> = (props) => {
     >
       <div
         ref={ref}
-        className={classNames(`${prefixCls}-main`, {
+        className={classNames(`${prefixCls}-main`, hashId, {
           [`${prefixCls}-wide`]: contentWidth === 'Fixed',
         })}
       >
         {headerDom && (
-          <div className={classNames(`${prefixCls}-main-left`)} onClick={onMenuHeaderClick}>
+          <div
+            className={classNames(`${prefixCls}-main-left ${hashId}`)}
+            onClick={onMenuHeaderClick}
+          >
             <AppsLogoComponents {...props} />
-            <div className={`${prefixCls}-logo`} key="logo" id="logo">
+            <div className={`${prefixCls}-logo ${hashId}`} key="logo" id="logo">
               {headerDom}
             </div>
           </div>
         )}
-        <div style={{ flex: 1 }} className={`${prefixCls}-menu`}>
+        <div style={{ flex: 1 }} className={`${prefixCls}-menu ${hashId}`}>
           {contentDom}
         </div>
         {(rightContentRender || actionsRender || props.avatarProps) && (

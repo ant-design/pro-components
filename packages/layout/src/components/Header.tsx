@@ -90,6 +90,7 @@ const DefaultHeader: React.FC<HeaderViewProps & PrivateSiderMenuProps> = (props)
     <>
       <ConfigProvider
         theme={{
+          hashed: process.env.NODE_ENV?.toLowerCase() !== 'test',
           override: {
             Layout: {
               colorBgHeader: 'transparent',

@@ -695,6 +695,7 @@ const ProLayout: React.FC<ProLayoutProps> = (props) => {
   return (
     <ConfigProvider
       theme={{
+        hashed: process.env.NODE_ENV?.toLowerCase() !== 'test',
         token: {
           radiusBase: 4,
           colorPrimary: colorPrimary || '#1677FF',

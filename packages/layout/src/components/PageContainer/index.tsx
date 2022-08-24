@@ -2,7 +2,8 @@ import { ConfigProviderWrap } from '@ant-design/pro-provider';
 import type { AffixProps, BreadcrumbProps, SpinProps, TabPaneProps, TabsProps } from 'antd';
 import { Affix, Breadcrumb, ConfigProvider, Tabs } from 'antd';
 import classNames from 'classnames';
-import React, { ReactNode, useContext, useEffect, useMemo } from 'react';
+import type { ReactNode } from 'react';
+import React, { useContext, useEffect, useMemo } from 'react';
 import { ProLayoutContext } from '../../context/ProLayoutContext';
 import { RouteContext } from '../../context/RouteContext';
 import type { WithFalse } from '../../typings';
@@ -102,14 +103,23 @@ const renderFooter: React.FC<
   Omit<
     PageContainerProps & {
       prefixedClassName: string;
+      hashId: string;
     },
     'title'
   >
-> = ({ tabList, tabActiveKey, onTabChange, tabBarExtraContent, tabProps, prefixedClassName }) => {
+> = ({
+  tabList,
+  tabActiveKey,
+  onTabChange,
+  hashId,
+  tabBarExtraContent,
+  tabProps,
+  prefixedClassName,
+}) => {
   if (Array.isArray(tabList) || tabBarExtraContent) {
     return (
       <Tabs
-        className={`${prefixedClassName}-tabs`}
+        className={`${prefixedClassName}-tabs ${hashId}`}
         activeKey={tabActiveKey}
         onChange={(key) => {
           if (onTabChange) {
@@ -133,17 +143,18 @@ const renderPageHeader = (
   content: React.ReactNode,
   extraContent: React.ReactNode,
   prefixedClassName: string,
+  hashId: string,
 ): React.ReactNode => {
   if (!content && !extraContent) {
     return null;
   }
   return (
-    <div className={`${prefixedClassName}-detail`}>
-      <div className={`${prefixedClassName}-main`}>
-        <div className={`${prefixedClassName}-row`}>
-          {content && <div className={`${prefixedClassName}-content`}>{content}</div>}
+    <div className={`${prefixedClassName}-detail ${hashId}`}>
+      <div className={`${prefixedClassName}-main ${hashId}`}>
+        <div className={`${prefixedClassName}-row ${hashId}`}>
+          {content && <div className={`${prefixedClassName}-content ${hashId}`}>{content}</div>}
           {extraContent && (
-            <div className={`${prefixedClassName}-extraContent`}>{extraContent}</div>
+            <div className={`${prefixedClassName}-extraContent ${hashId}`}>{extraContent}</div>
           )}
         </div>
       </div>
@@ -173,7 +184,7 @@ const ProBreadcrumb: React.FC<BreadcrumbProps> = (props) => {
 };
 
 const memoRenderPageHeader = (
-  props: PageContainerProps & { prefixedClassName: string; value: any },
+  props: PageContainerProps & { prefixedClassName: string; value: any; hashId: string },
 ) => {
   const {
     title,
@@ -184,6 +195,7 @@ const memoRenderPageHeader = (
     extraContent,
     style,
     prefixCls,
+    hashId,
     value,
     breadcrumbRender,
     ...restProps
@@ -211,6 +223,7 @@ const memoRenderPageHeader = (
     ...restProps,
     footer: renderFooter({
       ...restProps,
+      hashId,
       breadcrumbRender,
       prefixedClassName,
     }),
@@ -238,7 +251,7 @@ const memoRenderPageHeader = (
   return (
     <PageHeader
       {...pageHeaderProps}
-      className={`${prefixedClassName}-warp-page-header`}
+      className={`${prefixedClassName}-warp-page-header ${hashId}`}
       breadcrumb={
         breadcrumbRender === false
           ? undefined
@@ -247,7 +260,7 @@ const memoRenderPageHeader = (
       breadcrumbRender={getBreadcrumbRender()}
       prefixCls={prefixCls}
     >
-      {header?.children || renderPageHeader(content, extraContent, prefixedClassName)}
+      {header?.children || renderPageHeader(content, extraContent, prefixedClassName, hashId)}
     </PageHeader>
   );
 };
@@ -293,6 +306,7 @@ const PageContainer: React.FC<PageContainerProps> = (props) => {
     ...restProps,
     breadcrumbRender: memoBreadcrumbRender,
     ghost: true,
+    hashId,
     prefixCls: undefined,
     prefixedClassName: basePageContainer,
     value,
@@ -316,7 +330,9 @@ const PageContainer: React.FC<PageContainerProps> = (props) => {
   const content = useMemo(() => {
     return children ? (
       <>
-        <div className={classNames(`${basePageContainer}-children-content`)}>{children}</div>
+        <div className={classNames(`${basePageContainer}-children-content ${hashId}`)}>
+          {children}
+        </div>
         {value.hasFooterToolbar && (
           <div
             style={{
@@ -330,6 +346,7 @@ const PageContainer: React.FC<PageContainerProps> = (props) => {
   }, [
     children,
     basePageContainer,
+    hashId,
     value.hasFooterToolbar,
     pageContainer.marginBlockPageContainerContent,
   ]);
@@ -363,7 +380,7 @@ const PageContainer: React.FC<PageContainerProps> = (props) => {
           <Affix
             offsetTop={value.hasHeader && value.fixedHeader ? token.header.heightLayoutHeader : 0}
             {...affixProps}
-            className={`${basePageContainer}-affix`}
+            className={`${basePageContainer}-affix ${hashId}`}
           >
             {pageHeaderDom}
           </Affix>
@@ -381,6 +398,7 @@ const ProPageHeader = (props: PageContainerProps & { prefixedClassName: string }
   const value = useContext(RouteContext);
   return memoRenderPageHeader({
     ...props,
+    hashId: '',
     value,
   });
 };

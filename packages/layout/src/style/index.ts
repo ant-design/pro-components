@@ -32,6 +32,7 @@ const compatibleStyle: GenerateStyle<ProLayoutToken & LayoutDesignToken> = (toke
         },
         [`& ${token.antCls}-layout`]: {
           backgroundColor: 'transparent',
+          width: '100%',
         },
         [`${token.antCls}-menu-submenu-expand-icon, ${token.antCls}-menu-submenu-arrow`]: {
           color: 'inherit',
@@ -210,6 +211,7 @@ const genProLayoutStyle: GenerateStyle<ProLayoutToken & LayoutDesignToken> = (to
         [`& ${token.antCls}-layout`]: {
           display: 'flex',
           backgroundColor: 'transparent',
+          width: '100%',
         },
         [`${token.componentCls}-content`]: {
           display: 'flex',
