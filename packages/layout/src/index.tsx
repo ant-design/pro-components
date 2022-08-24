@@ -1,5 +1,6 @@
 // 兼容代码-----------
 import 'antd/es/anchor/style';
+import 'antd/es/avatar/style';
 import 'antd/es/breadcrumb/style';
 import 'antd/es/divider/style';
 import 'antd/es/drawer/style';
