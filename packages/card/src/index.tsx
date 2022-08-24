@@ -8,6 +8,8 @@ import type { ProCardProps } from './ProCard';
 import ProCard from './ProCard';
 import type { ProCardTabsProps } from './type';
 
+import 'antd/es/card/style';
+
 export type {
   ProCardTabsProps,
   ProCardProps,
