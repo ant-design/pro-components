@@ -117,13 +117,13 @@ const renderFooter: React.FC<
           }
         }}
         tabBarExtraContent={tabBarExtraContent}
+        items={tabList?.map((item, index) => ({
+          label: item.tab,
+          ...item,
+          key: item.key?.toString() || index?.toString(),
+        }))}
         {...tabProps}
-      >
-        {tabList?.map((item, index) => (
-          // eslint-disable-next-line react/no-array-index-key
-          <Tabs.TabPane {...item} tab={item.tab} key={item.key || index} />
-        ))}
-      </Tabs>
+      />
     );
   }
   return null;
