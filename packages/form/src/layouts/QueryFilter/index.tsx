@@ -2,7 +2,7 @@
 import { useIntl } from '@ant-design/pro-provider';
 import { isBrowser, useMountMergeState } from '@ant-design/pro-utils';
 import type { FormItemProps, RowProps } from 'antd';
-import { Col, ConfigProvider, Divider, Form, Row } from 'antd';
+import { Col, ConfigProvider, Form, Row } from 'antd';
 import type { FormInstance, FormProps } from 'antd/es/form/Form';
 import classNames from 'classnames';
 import RcResizeObserver from 'rc-resize-observer';
@@ -218,6 +218,7 @@ const QueryFilterContent: React.FC<{
     span: number;
     layout: FormProps['layout'];
   };
+  baseClassName: string;
   optionRender: BaseQueryFilterProps['optionRender'];
   ignoreRules?: boolean;
   preserve?: boolean;
@@ -356,21 +357,19 @@ const QueryFilterContent: React.FC<{
 
     currentSpan += colSpan;
 
-    const colItem = (
+    if (split && currentSpan % 24 === 0 && index < itemLength - 1) {
+      return (
+        <Col key={itemKey} span={colSpan} className={`${props.baseClassName}-row-split-line`}>
+          {itemDom}
+        </Col>
+      );
+    }
+
+    return (
       <Col key={itemKey} span={colSpan}>
         {itemDom}
       </Col>
     );
-
-    if (split && currentSpan % 24 === 0 && index < itemLength - 1) {
-      return [
-        colItem,
-        <Col span="24" key="line">
-          <Divider style={{ marginBlockStart: -8, marginBlockEnd: 16 }} dashed />
-        </Col>,
-      ];
-    }
-    return colItem;
   });
 
   const hiddenNum = showHiddenNum && processedList.filter((item) => item.hidden).length;
@@ -526,6 +525,7 @@ function QueryFilter<T = Record<string, any>>(props: QueryFilterProps<T>) {
             submitter={renderSubmitter}
             items={items}
             split={split}
+            baseClassName={baseClassName}
             resetText={props.resetText}
             searchText={props.searchText}
             searchGutter={searchGutter}

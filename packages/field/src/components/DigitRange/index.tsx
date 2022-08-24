@@ -100,8 +100,8 @@ const FieldDigitRange: ProFieldFC<FieldDigitRangeProps> = (
           style={{
             width: separatorWidth,
             textAlign: 'center',
-            borderLeft: 0,
-            borderRight: 0,
+            borderInlineStart: 0,
+            borderInlineEnd: 0,
             pointerEvents: 'none',
             backgroundColor: '#FFF',
           }}
@@ -112,7 +112,7 @@ const FieldDigitRange: ProFieldFC<FieldDigitRangeProps> = (
           {...fieldProps}
           placeholder={Array.isArray(placeholderValue) ? placeholderValue[1] : placeholderValue}
           id={id ?? `${id}-1`}
-          style={{ width: `calc((100% - ${separatorWidth}px) / 2)`, borderLeft: 0 }}
+          style={{ width: `calc((100% - ${separatorWidth}px) / 2)`, borderInlineStart: 0 }}
           value={valuePair?.[1]}
           defaultValue={defaultValue?.[1]}
           onChange={(changedValue) => handleChange(1, changedValue)}

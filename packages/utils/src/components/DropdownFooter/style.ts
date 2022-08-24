@@ -13,7 +13,7 @@ const genProStyle: GenerateStyle<ProToken> = (token) => {
       paddingBlock: 16,
       paddingInlineStart: 8,
       paddingInlineEnd: 16,
-      borderTop: `1px solid ${token.colorSplit}`,
+      borderBlockStart: `1px solid ${token.colorSplit}`,
     },
   };
 };

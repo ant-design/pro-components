@@ -23,7 +23,7 @@ const genProLayoutHeaderStyle: GenerateStyle<ProLayoutHeaderToken & LayoutDesign
         width: '100%',
         paddingBlock: 0,
         paddingInline: 8,
-        borderBottom: `1px solid ${token.colorSplit}`,
+        borderBlockEnd: `1px solid ${token.colorSplit}`,
         backgroundColor: token.colorBgHeader || 'rgba(255, 255, 255, 0.4)',
         WebkitBackdropFilter: 'blur(8px)',
         backdropFilter: 'blur(8px)',

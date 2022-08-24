@@ -213,7 +213,7 @@ class MenuUtil {
               key: (item.key! || item.path!) + '-group-divider',
               style: {
                 padding: 0,
-                borderBottom: 0,
+                borderBlockEnd: 0,
                 margin: this.props.collapsed ? '4px' : '6px 16px',
                 marginBlockStart: this.props.collapsed ? 4 : 8,
                 borderColor: designToken?.sider?.colorMenuItemDivider,

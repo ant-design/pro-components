@@ -216,7 +216,7 @@ export default () => {
                         <div
                           style={{
                             width: '308px',
-                            borderLeft: '1px solid rgba(0,0,0,0.06)',
+                            borderInlineStart: '1px solid rgba(0,0,0,0.06)',
                             paddingInlineStart: 16,
                           }}
                         >

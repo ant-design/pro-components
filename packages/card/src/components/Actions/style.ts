@@ -22,7 +22,7 @@ const genActionsStyle: GenerateStyle<ProCardActionsToken> = (token) => {
       paddingInline: 0,
       listStyle: 'none',
       background: token.colorBgContainer,
-      borderTop: `${token.lineWidth}px ${token.lineType} ${token.colorSplit}`,
+      borderBlockStart: `${token.lineWidth}px ${token.lineType} ${token.colorSplit}`,
 
       [`${antCls}-space`]: {
         gap: '0 !important',

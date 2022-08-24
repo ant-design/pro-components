@@ -57,7 +57,8 @@ const StatisticSkeleton: React.FC<{
             // eslint-disable-next-line react/no-array-index-key
             key={index}
             style={{
-              borderLeft: arraySize > 2 && index === 1 ? '1px solid rgba(0,0,0,0.06)' : undefined,
+              borderInlineStart:
+                arraySize > 2 && index === 1 ? '1px solid rgba(0,0,0,0.06)' : undefined,
               paddingInlineStart: firstWidth(index),
               flex: 1,
               marginInlineEnd: index === 0 ? 16 : 0,
@@ -159,8 +160,8 @@ export const ListSkeleton: React.FC<{
       <Card
         bordered={false}
         style={{
-          borderTopRightRadius: 0,
-          borderTopLeftRadius: 0,
+          borderBlockStartRightRadius: 0,
+          borderBlockStartLeftRadius: 0,
         }}
         bodyStyle={{
           display: 'flex',
@@ -219,8 +220,8 @@ export const ListToolbarSkeleton = ({ active }: { active: boolean }) => (
   <Card
     bordered={false}
     style={{
-      borderBottomRightRadius: 0,
-      borderBottomLeftRadius: 0,
+      borderBlockEndRightRadius: 0,
+      borderBlockEndLeftRadius: 0,
     }}
     bodyStyle={{
       paddingBlockEnd: 8,

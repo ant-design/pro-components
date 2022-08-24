@@ -70,7 +70,7 @@ const genProStyle: GenerateStyle<ProListToken> = (token) => {
           [`${token.antCls}-statistic-content`]: {
             color: '#f5222d',
             [`${token.componentCls}--trend-icon`]: {
-              borderBottomColor: '#f5222d',
+              borderBlockEndColor: '#f5222d',
             },
           },
         },
@@ -78,7 +78,7 @@ const genProStyle: GenerateStyle<ProListToken> = (token) => {
           [`${token.antCls}-statistic-content`]: {
             color: '#389e0d',
             [`${token.componentCls}--trend-icon`]: {
-              borderBottomColor: '#52c41a',
+              borderBlockEndColor: '#52c41a',
             },
           },
         },
