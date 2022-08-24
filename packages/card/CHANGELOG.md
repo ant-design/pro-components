@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.0.0-experimental.16](https://github.com/ant-design/pro-components/compare/@ant-design/pro-card@2.0.0-experimental.15...@ant-design/pro-card@2.0.0-experimental.16) (2022-08-24)
+
+### Features
+
+- add card tabs change ([#5761](https://github.com/ant-design/pro-components/issues/5761)) ([5504423](https://github.com/ant-design/pro-components/commit/55044237907b466991e91297f4fe623b185dc8df))
+
 # [2.0.0-experimental.15](https://github.com/ant-design/pro-components/compare/@ant-design/pro-card@2.0.0-experimental.14...@ant-design/pro-card@2.0.0-experimental.15) (2022-08-23)
 
 **Note:** Version bump only for package @ant-design/pro-card
