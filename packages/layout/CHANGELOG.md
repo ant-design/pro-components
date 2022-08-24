@@ -2,6 +2,10 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [7.0.0-experimental.29](https://github.com/ant-design/pro-components/compare/@ant-design/pro-layout@7.0.0-experimental.28...@ant-design/pro-layout@7.0.0-experimental.29) (2022-08-24)
+
+**Note:** Version bump only for package @ant-design/pro-layout
+
 # [7.0.0-experimental.28](https://github.com/ant-design/pro-components/compare/@ant-design/pro-layout@7.0.0-experimental.27...@ant-design/pro-layout@7.0.0-experimental.28) (2022-08-24)
 
 **Note:** Version bump only for package @ant-design/pro-layout
