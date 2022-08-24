@@ -107,15 +107,12 @@ const ProFormListContainer: React.FC<ProFormListItemProps> = (props) => {
     creatorRecord,
   ]);
 
-  let defaultStyle: CSSProperties = {
+  const defaultStyle: CSSProperties = {
     width: 'max-content',
     maxWidth: '100%',
     minWidth: '100%',
+    ...containerStyle,
   };
-
-  if (containerStyle) {
-    defaultStyle = { ...containerStyle };
-  }
 
   return (
     <div style={defaultStyle} className={containerClassName}>
