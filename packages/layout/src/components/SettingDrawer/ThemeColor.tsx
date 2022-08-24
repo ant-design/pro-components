@@ -38,9 +38,9 @@ const ThemeColor: React.ForwardRefRenderFunction<HTMLDivElement, ThemeColorProps
   if (!colorList || colorList?.length < 1) {
     return null;
   }
-  const baseClassName = `${prefixCls}-theme-color ${hashId}`;
+  const baseClassName = `${prefixCls}-theme-color`;
   return (
-    <div className={baseClassName}>
+    <div className={`${baseClassName} ${hashId}`}>
       {colorList?.map(({ key, color }) => {
         if (!key) return null;
         return (

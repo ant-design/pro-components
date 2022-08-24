@@ -121,6 +121,7 @@ class MenuUtil {
       token?: LayoutDesignToken;
       menuRenderType?: 'header' | 'sider';
       baseClassName: string;
+      hashId: string;
     },
   ) {
     this.props = props;
@@ -130,6 +131,7 @@ class MenuUtil {
     token?: LayoutDesignToken;
     menuRenderType?: 'header' | 'sider';
     baseClassName: string;
+    hashId: string;
   };
 
   getNavMenuItems = (menusData: MenuDataItem[] = [], level: number): ItemType[] =>
@@ -157,7 +159,7 @@ class MenuUtil {
       const iconDom = getIcon(
         item.icon,
         iconPrefixes,
-        `${baseClassName}-icon ${designToken?.hashId}`,
+        `${baseClassName}-icon ${this.props?.hashId}`,
       );
       /**
        * 如果没有icon在收起的时候用首字母代替
@@ -167,21 +169,21 @@ class MenuUtil {
       const defaultTitle = (
         <div
           title={name}
-          className={classNames(`${baseClassName}-item-title`, designToken?.hashId, {
+          className={classNames(`${baseClassName}-item-title`, this.props?.hashId, {
             [`${baseClassName}-item-title-collapsed`]: collapsed,
             [`${baseClassName}-item-collapsed-show-title`]: menu?.collapsedShowTitle && collapsed,
           })}
         >
           {/* 收起的时候group模式就不要展示icon了，放不下 */}
           {menuType === 'group' && collapsed ? null : shouldHasIcon && iconDom ? (
-            <span className={`anticon ${baseClassName}-item-icon ${designToken?.hashId}`}>
+            <span className={`anticon ${baseClassName}-item-icon ${this.props?.hashId}`}>
               {iconDom}
             </span>
           ) : (
             defaultIcon
           )}
           <span
-            className={classNames(`${baseClassName}-item-text`, designToken?.hashId, {
+            className={classNames(`${baseClassName}-item-text`, this.props?.hashId, {
               [`${baseClassName}-item-text-has-icon`]:
                 menuType !== 'group' && shouldHasIcon && (iconDom || defaultIcon),
             })}
@@ -263,7 +265,6 @@ class MenuUtil {
       onCollapse,
       menuItemRender,
       iconPrefixes,
-      token,
     } = this.props;
 
     // if local is true formatMessage all name。
@@ -274,22 +275,22 @@ class MenuUtil {
     const hasIcon = level === 0 || (isGroup && level === 1);
     const icon = !hasIcon
       ? null
-      : getIcon(item.icon, iconPrefixes, `${baseClassName}-icon ${token?.hashId}`);
+      : getIcon(item.icon, iconPrefixes, `${baseClassName}-icon ${this.props?.hashId}`);
     const defaultIcon = collapsed && hasIcon ? getMenuTitleSymbol(name) : null;
     let defaultItem = (
       <div
-        className={classNames(`${baseClassName}-item-title`, token?.hashId, {
+        className={classNames(`${baseClassName}-item-title`, this.props?.hashId, {
           [`${baseClassName}-item-title-collapsed`]: collapsed,
           [`${baseClassName}-item-collapsed-show-title`]: menu?.collapsedShowTitle && collapsed,
         })}
       >
         {icon ? (
-          <span className={`anticon ${baseClassName}-item-icon ${token?.hashId}`}>{icon}</span>
+          <span className={`anticon ${baseClassName}-item-icon ${this.props?.hashId}`}>{icon}</span>
         ) : (
           defaultIcon
         )}
         <span
-          className={classNames(`${baseClassName}-item-text`, token?.hashId, {
+          className={classNames(`${baseClassName}-item-text`, this.props?.hashId, {
             [`${baseClassName}-item-text-has-icon`]: hasIcon && (icon || defaultIcon),
           })}
         >
@@ -307,19 +308,21 @@ class MenuUtil {
           onClick={() => {
             window?.open?.(itemPath, '_blank');
           }}
-          className={classNames(`${baseClassName}-item-title`, token?.hashId, {
+          className={classNames(`${baseClassName}-item-title`, this.props?.hashId, {
             [`${baseClassName}-item-title-collapsed`]: collapsed,
             [`${baseClassName}-item-link`]: true,
             [`${baseClassName}-item-collapsed-show-title`]: menu?.collapsedShowTitle && collapsed,
           })}
         >
           {icon ? (
-            <span className={`anticon ${baseClassName}-item-icon ${token?.hashId}`}>{icon}</span>
+            <span className={`anticon ${baseClassName}-item-icon ${this.props?.hashId}`}>
+              {icon}
+            </span>
           ) : (
             defaultIcon
           )}
           <span
-            className={classNames(`${baseClassName}-item-text`, token?.hashId, {
+            className={classNames(`${baseClassName}-item-text`, this.props?.hashId, {
               [`${baseClassName}-item-text-has-icon`]: hasIcon && (icon || defaultIcon),
             })}
           >
@@ -474,6 +477,7 @@ const BaseMenu: React.FC<BaseMenuProps & PrivateSiderMenuProps> = (props) => {
     // eslint-disable-next-line react-hooks/exhaustive-deps
     [openKeys && openKeys.join(','), props.layout, props.collapsed],
   );
+  const { wrapSSR, hashId } = useStyle(baseClassName);
 
   const menuUtils = useMemo(() => {
     return new MenuUtil({
@@ -481,10 +485,9 @@ const BaseMenu: React.FC<BaseMenuProps & PrivateSiderMenuProps> = (props) => {
       token: designToken,
       menuRenderType,
       baseClassName,
+      hashId,
     });
-  }, [designToken, baseClassName, menuRenderType, props]);
-
-  const { wrapSSR, hashId } = useStyle(baseClassName);
+  }, [props, designToken, menuRenderType, baseClassName, hashId]);
 
   if (menu?.loading) {
     return (

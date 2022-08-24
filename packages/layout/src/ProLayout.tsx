@@ -662,7 +662,7 @@ const BaseProLayout: React.FC<ProLayoutProps> = (props) => {
               }}
             >
               {siderMenuDom}
-              <div style={genLayoutStyle} className={context.getPrefixCls('layout')}>
+              <div style={genLayoutStyle} className={`${proLayoutClassName}-container`}>
                 {headerDom}
                 <WrapContent
                   hasPageContainer={hasPageContainer}

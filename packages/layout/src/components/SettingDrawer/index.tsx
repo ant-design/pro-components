@@ -39,9 +39,9 @@ type MergerSettingsType<T> = Partial<T> & {
   colorWeak?: boolean;
 };
 
-const Body: React.FC<BodyProps> = ({ children, prefixCls, title }) => (
+const Body: React.FC<BodyProps> = ({ children, hashId, prefixCls, title }) => (
   <div style={{ marginBlockEnd: 24 }}>
-    <h3 className={`${prefixCls}-body-title`}>{title}</h3>
+    <h3 className={`${prefixCls}-body-title ${hashId}`}>{title}</h3>
     {children}
   </div>
 );

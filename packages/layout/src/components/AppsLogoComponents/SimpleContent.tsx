@@ -35,17 +35,18 @@ export const renderLogo = (
 export const SimpleContent: React.FC<{
   appList?: AppsLogoComponentsAppList;
   baseClassName: string;
+  hashId?: string;
 }> = (props) => {
-  const { appList, baseClassName } = props;
+  const { appList, baseClassName, hashId } = props;
   return (
-    <div className={`${baseClassName}-content`}>
-      <ul className={`${baseClassName}-content-list`}>
+    <div className={`${baseClassName}-content ${hashId}`}>
+      <ul className={`${baseClassName}-content-list ${hashId}`}>
         {appList?.map((app, index) => {
           return (
             <li
               // eslint-disable-next-line react/no-array-index-key
               key={index}
-              className={`${baseClassName}-content-list-item`}
+              className={`${baseClassName}-content-list-item ${hashId}`}
             >
               <a href={app.url} target={app.target} rel="noreferrer">
                 {renderLogo(app.icon, app.title)}

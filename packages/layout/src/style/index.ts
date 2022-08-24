@@ -226,7 +226,13 @@ const genProLayoutStyle: GenerateStyle<ProLayoutToken & LayoutDesignToken> = (to
             margin: 0,
           },
         },
-
+        [`${token.componentCls}-container`]: {
+          width: '100%',
+          display: 'flex',
+          flexDirection: 'column',
+          minWidth: 0,
+          minHeight: 0,
+        },
         [`${token.componentCls}-bg-list`]: {
           pointerEvents: 'none',
           position: 'fixed',
