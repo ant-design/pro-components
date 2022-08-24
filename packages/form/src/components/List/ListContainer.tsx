@@ -20,6 +20,8 @@ const ProFormListContainer: React.FC<ProFormListItemProps> = (props) => {
     max,
     fieldExtraRender,
     meta,
+    containerClassName,
+    containerStyle,
   } = props;
   const fieldKeyMap = useRef(new Map<string, string>());
   const [loading, setLoading] = useState(false);
@@ -106,13 +108,7 @@ const ProFormListContainer: React.FC<ProFormListItemProps> = (props) => {
   ]);
 
   return (
-    <div
-      style={{
-        width: 'max-content',
-        maxWidth: '100%',
-        minWidth: '100%',
-      }}
-    >
+    <div style={{ ...containerStyle }} className={containerClassName}>
       {creatorButtonProps !== false && creatorButtonProps?.position === 'top' && creatorButton}
       {uuidFields.map((field, index) => {
         return (
