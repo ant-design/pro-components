@@ -3,6 +3,10 @@ import useMergedState from 'rc-util/lib/hooks/useMergedState';
 import React from 'react';
 import type { ProFieldFC } from '../../index';
 
+// 兼容代码-----------
+import 'antd/es/input-number/style';
+//----------------------
+
 export type Value = string | number | undefined;
 
 export type ValuePair = Value[];

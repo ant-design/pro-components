@@ -3,6 +3,9 @@ import { Input } from 'antd';
 import React from 'react';
 import type { ProFieldFC } from '../../index';
 
+// 兼容代码-----------
+import 'antd/es/input/style';
+//------------
 /**
  * 最基本的组件，就是个普通的 Input.TextArea
  *

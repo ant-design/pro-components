@@ -7,6 +7,10 @@ import weekOfYear from 'dayjs/plugin/weekOfYear';
 import React, { useContext, useState } from 'react';
 import type { ProFieldFC, ProFieldLightProps } from '../../index';
 
+// 兼容代码-----------
+import 'antd/es/date-picker/style';
+//----------------------
+
 dayjs.extend(weekOfYear);
 
 const formatDate = (text: any, format: any) => {

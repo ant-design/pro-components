@@ -2,6 +2,9 @@ import { Slider } from 'antd';
 import React from 'react';
 import type { ProFieldFC } from '../../index';
 
+// 兼容代码-----------
+import 'antd/es/slider/style';
+//------------
 /**
  * 评分组件
  *

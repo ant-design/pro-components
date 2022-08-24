@@ -1,3 +1,4 @@
+import 'antd/es/skeleton/style';
 import React from 'react';
 import type { DescriptionsPageSkeletonProps } from './component/Descriptions';
 import DescriptionsPageSkeleton, {

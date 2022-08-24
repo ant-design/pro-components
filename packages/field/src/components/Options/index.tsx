@@ -2,6 +2,10 @@ import { ConfigProvider, Space } from 'antd';
 import React, { useContext, useImperativeHandle } from 'react';
 import type { ProFieldFC } from '../../index';
 
+// 兼容代码-----------
+import 'antd/es/space/style';
+//----------------------
+
 const addArrayKeys = (doms: React.ReactNode[]) =>
   doms.map((dom, index) => {
     if (!React.isValidElement(dom)) {
