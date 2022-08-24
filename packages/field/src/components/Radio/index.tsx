@@ -72,7 +72,7 @@ const FieldRadio: ProFieldFC<GroupProps> = (
         className={classNames(
           rest.fieldProps?.className,
           hashId,
-          `${layoutClassName}-${rest.fieldProps.layout || 'horizontal'}`,
+          `${layoutClassName}-${rest.fieldProps.layout || 'vertical'}`,
         )}
         options={undefined}
       >
