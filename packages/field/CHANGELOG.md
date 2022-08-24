@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.36.2](https://github.com/ant-design/pro-components/compare/@ant-design/pro-field@1.36.1...@ant-design/pro-field@1.36.2) (2022-08-24)
+
+### Bug Fixes
+
+- **form:** fix ProFormMoney precision style error ([e15f9b6](https://github.com/ant-design/pro-components/commit/e15f9b645f6fc3681ca3cd0d02ce0d3c31479107))
+
 ## [1.36.1](https://github.com/ant-design/pro-components/compare/@ant-design/pro-field@1.36.0...@ant-design/pro-field@1.36.1) (2022-08-22)
 
 ### Bug Fixes

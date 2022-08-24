@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.74.2](https://github.com/ant-design/pro-components/compare/@ant-design/pro-form@1.74.1...@ant-design/pro-form@1.74.2) (2022-08-24)
+
+### Bug Fixes
+
+- **form:** fix ProFormMoney precision style error ([e15f9b6](https://github.com/ant-design/pro-components/commit/e15f9b645f6fc3681ca3cd0d02ce0d3c31479107))
+- 解决 ProFormList 下的表单组件未调用 transform 方法问题 ([#5759](https://github.com/ant-design/pro-components/issues/5759)) ([6e4396d](https://github.com/ant-design/pro-components/commit/6e4396d7e7816cb1f58385859ce4074f3571d2e4))
+
 ## [1.74.1](https://github.com/ant-design/pro-components/compare/@ant-design/pro-form@1.74.0...@ant-design/pro-form@1.74.1) (2022-08-22)
 
 ### Bug Fixes
