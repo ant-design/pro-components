@@ -1944,7 +1944,7 @@ exports[`table demos 📸 renders ./packages/table/src/components/EditableTable/
                                 class="ant-form-item-control-input-content"
                               >
                                 <div
-                                  class="ant-radio-group ant-radio-group-outline ant-pro-field-radio-horizontal"
+                                  class="ant-radio-group ant-radio-group-outline ant-pro-field-radio-vertical"
                                 >
                                   <label
                                     class="ant-radio-wrapper ant-radio-wrapper-in-form-item"
@@ -3376,7 +3376,7 @@ exports[`table demos 📸 renders ./packages/table/src/components/EditableTable/
                                         class="ant-form-item-control-input-content"
                                       >
                                         <div
-                                          class="ant-radio-group ant-radio-group-outline ant-pro-field-radio-horizontal"
+                                          class="ant-radio-group ant-radio-group-outline ant-pro-field-radio-vertical"
                                           style="margin-block-end: 0;"
                                         >
                                           <label
@@ -29203,7 +29203,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/dynamic-columns-sta
                         class="ant-form-item-control-input-content"
                       >
                         <div
-                          class="ant-radio-group ant-radio-group-outline ant-pro-field-radio-horizontal"
+                          class="ant-radio-group ant-radio-group-outline ant-pro-field-radio-vertical"
                           id="status"
                         >
                           <label
@@ -32336,7 +32336,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/dynamic-settings.ts
                                       class="ant-form-item-control-input-content"
                                     >
                                       <div
-                                        class="ant-radio-group ant-radio-group-outline ant-radio-group-small ant-pro-field-radio-horizontal"
+                                        class="ant-radio-group ant-radio-group-outline ant-radio-group-small ant-pro-field-radio-vertical"
                                         id="size"
                                       >
                                         <label
@@ -57109,7 +57109,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/valueType_select.ts
                         class="ant-form-item-control-input-content"
                       >
                         <div
-                          class="ant-radio-group ant-radio-group-outline ant-pro-field-radio-horizontal"
+                          class="ant-radio-group ant-radio-group-outline ant-pro-field-radio-vertical"
                           id="status"
                         >
                           <label
@@ -57226,7 +57226,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/valueType_select.ts
                         class="ant-form-item-control-input-content"
                       >
                         <div
-                          class="ant-radio-group ant-radio-group-outline ant-pro-field-radio-horizontal"
+                          class="ant-radio-group ant-radio-group-outline ant-pro-field-radio-vertical"
                           id="status"
                         >
                           <label

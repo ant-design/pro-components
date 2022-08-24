@@ -47,7 +47,7 @@ const genProStyle: GenerateStyle<ProListToken> = (token) => {
         marginInlineStart: '0 !important',
       },
       '&-bordered': {
-        border: `${token.lineWidth} solid ${token.colorBorder}`,
+        border: `${token.lineWidth}px solid ${token.colorBorder}`,
       },
       '&-group': {
         display: 'inline-block',
@@ -75,7 +75,21 @@ const genProStyle: GenerateStyle<ProListToken> = (token) => {
         },
       },
       '&:focus': proCheckCardActive(token),
-      '&-checked': proCheckCardActive(token),
+      '&-checked': {
+        ...proCheckCardActive(token),
+        '&:after': {
+          position: 'absolute',
+          insetBlockStart: 2,
+          insetInlineEnd: 2,
+          width: 0,
+          height: 0,
+          border: `6px solid ${token.colorPrimary}`,
+          borderBottom: '6px solid transparent',
+          borderLeft: '6px solid transparent',
+          borderTopRightRadius: '2px',
+          content: "''",
+        },
+      },
       '&-disabled': proCheckCardDisabled(token),
       '&[disabled]': proCheckCardDisabled(token),
       '&-lg': {
@@ -117,20 +131,6 @@ const genProStyle: GenerateStyle<ProListToken> = (token) => {
       [`&:not(${token.componentCls}-disabled)`]: {
         '&:hover': {
           borderColor: token.colorPrimary,
-        },
-      },
-      [`${token.componentCls}-checked`]: {
-        '&::after': {
-          position: 'absolute',
-          insetBlockStart: 2,
-          insetInlineEnd: 2,
-          width: 0,
-          height: 0,
-          border: `6px solid ${token.colorPrimary}`,
-          borderBottom: '6px solid transparent',
-          borderLeft: '6px solid transparent',
-          borderTopRightRadius: '2px',
-          content: "''",
         },
       },
     },
