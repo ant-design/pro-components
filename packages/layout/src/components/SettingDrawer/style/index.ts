@@ -39,17 +39,17 @@ const genSettingDrawerStyle: GenerateStyle<SettingDrawerToken> = (token) => {
           height: '36px',
           marginInlineEnd: '16px',
           overflow: 'hidden',
-          backgroundColor: '#f7f8fa',
           borderRadius: '4px',
           boxShadow: '0 1px 2.5px 0 rgba(0, 0, 0, 0.18)',
           cursor: 'pointer',
+          fontSize: 56,
+          lineHeight: '56px',
           '&::before': {
             position: 'absolute',
             insetBlockStart: 0,
             insetInlineStart: 0,
             width: '33%',
             height: '100%',
-            backgroundColor: '#fff',
             content: "''",
           },
           '&::after': {
@@ -58,7 +58,6 @@ const genSettingDrawerStyle: GenerateStyle<SettingDrawerToken> = (token) => {
             insetInlineStart: 0,
             width: '100%',
             height: '25%',
-            backgroundColor: '#fff',
             content: "''",
           },
           '&-realDark': {
@@ -71,20 +70,24 @@ const genSettingDrawerStyle: GenerateStyle<SettingDrawerToken> = (token) => {
             '&::before': { backgroundColor: token.colorBgContainer },
             '&::after': { backgroundColor: token.colorBgContainer },
           },
+
           '&-dark,&-side': {
+            backgroundColor: '#f7f8fa',
             '&::before': { zIndex: '1', backgroundColor: '#001529' },
             '&::after': { backgroundColor: token.colorBgContainer },
           },
           '&-top': {
+            backgroundColor: '#f7f8fa',
             '&::before': { backgroundColor: 'transparent' },
             '&::after': { backgroundColor: '#001529' },
           },
           '&-mix': {
-            '&::before': { backgroundColor: 'transparent' },
+            backgroundColor: '#f7f8fa',
+            '&::before': { backgroundColor: token.colorBgContainer },
             '&::after': { backgroundColor: '#001529' },
           },
         },
-        '&-selectIcon': {
+        '& &-selectIcon': {
           position: 'absolute',
           insetInlineEnd: '6px',
           bottom: '4px',
@@ -98,7 +101,7 @@ const genSettingDrawerStyle: GenerateStyle<SettingDrawerToken> = (token) => {
       '&-theme-color': {
         marginBlockStart: '16px',
         overflow: 'hidden',
-        '&-block': {
+        '& &-block': {
           float: 'left',
           width: '20px',
           height: '20px',

@@ -5,6 +5,10 @@ import dayjs from 'dayjs';
 import React, { useCallback } from 'react';
 import type { ProFieldFC } from '../../index';
 
+// 兼容代码-----------
+import 'antd/es/date-picker/style';
+//------------
+
 /**
  * 日期范围选择组件
  *

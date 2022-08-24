@@ -105,11 +105,16 @@ const ListToolBarTabBar: React.FC<{
   return (
     <div className={`${prefixCls}-extra-line`}>
       {tabs.items && tabs.items.length ? (
-        <Tabs activeKey={tabs.activeKey} onChange={tabs.onChange} tabBarExtraContent={filtersNode}>
-          {tabs.items.map((tab, index) => (
-            <Tabs.TabPane key={tab.key || index} {...tab} />
-          ))}
-        </Tabs>
+        <Tabs
+          activeKey={tabs.activeKey}
+          items={tabs.items.map((item, index) => ({
+            label: item.tab,
+            ...item,
+            key: item.key?.toString() || index?.toString(),
+          }))}
+          onChange={tabs.onChange}
+          tabBarExtraContent={filtersNode}
+        />
       ) : (
         filtersNode
       )}

@@ -403,7 +403,7 @@ const SiderMenu: React.FC<SiderMenuProps & PrivateSiderMenuProps> = (props) => {
     </>
   );
 
-  const { sider, header } = useContext(ProLayoutContext);
+  const { sider } = useContext(ProLayoutContext);
   return (
     <>
       {fixSiderbar && !isMobile && !hideMenuWhenCollapsedClassName && (
@@ -415,8 +415,6 @@ const SiderMenu: React.FC<SiderMenuProps & PrivateSiderMenuProps> = (props) => {
             maxWidth: collapsed ? collapsedWidth : siderWidth,
             minWidth: collapsed ? collapsedWidth : siderWidth,
             transition: 'all 0.2s ease 0s',
-            height: `calc(100% - ${header.heightLayoutHeader}px)`,
-            marginBlockStart: `${header.heightLayoutHeader}px`,
             ...style,
           }}
         />

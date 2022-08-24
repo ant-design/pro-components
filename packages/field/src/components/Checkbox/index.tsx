@@ -10,7 +10,9 @@ export type GroupProps = {
   layout?: 'horizontal' | 'vertical';
   options?: CheckboxGroupProps['options'];
 } & FieldSelectProps;
-
+// 兼容代码-----------
+import 'antd/es/checkbox/style';
+//----------------------
 /**
  * 多选组件
  *

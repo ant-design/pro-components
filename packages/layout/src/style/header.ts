@@ -15,7 +15,7 @@ const genProLayoutHeaderStyle: GenerateStyle<ProLayoutHeaderToken & LayoutDesign
 ) => {
   return {
     [token.proLayoutCls]: {
-      [token.componentCls]: {
+      [`.ant-layout-header${token.componentCls}`]: {
         height: token.ProLayoutHeaderHeaderHeight,
         lineHeight: `${token.ProLayoutHeaderHeaderHeight}px`,
         // hitu 用了这个属性，不能删除哦 @南取
@@ -39,7 +39,7 @@ const genProLayoutHeaderStyle: GenerateStyle<ProLayoutHeaderToken & LayoutDesign
           alignItems: 'center',
           fontSize: '16',
           cursor: 'pointer',
-          '&-item': {
+          '& &-item': {
             paddingBlock: 0,
             paddingInline: 8,
             '&:hover': {

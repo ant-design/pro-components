@@ -9,6 +9,7 @@ export type BlockCheckboxProps = {
   list?: {
     title: string;
     key: string;
+    icon?: React.ReactNode;
   }[];
   configType: string;
   prefixCls: string;
@@ -39,6 +40,7 @@ const BlockCheckbox: React.FC<BlockCheckboxProps> = ({
               display: value === item.key ? 'block' : 'none',
             }}
           />
+          {item?.icon ? <div className={`${baseClassName}-icon`}>{item.icon}</div> : null}
         </div>
       </Tooltip>
     ));

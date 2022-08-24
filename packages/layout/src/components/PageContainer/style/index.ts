@@ -16,8 +16,8 @@ const genPageContainerStyle: GenerateStyle<
     [token.componentCls]: {
       position: 'relative',
       '&-layout-has-margin': {
-        marginBlock: -24,
-        marginInline: -24,
+        marginBlock: token.marginBlockPageContainerContent,
+        marginInline: -token.marginInlinePageContainerContent,
       },
       '&-children-content': {
         marginBlock: token.marginBlockPageContainerContent,
@@ -31,11 +31,14 @@ const genPageContainerStyle: GenerateStyle<
           },
         },
       },
-      '&-warp': {
-        backgroundColor: token.colorBgPageContainer,
-        ['& &-page-header']: {
-          paddingInlineStart: 40,
-          paddingInlineEnd: 40,
+      ['& &-warp-page-header']: {
+        marginBlock: token.marginBlockPageContainerContent / 2,
+        paddingInlineStart: 40,
+        paddingInlineEnd: 40,
+        [`& ~ ${token.proComponentsCls}-grid-content`]: {
+          [`${token.proComponentsCls}-page-container-children-content`]: {
+            marginBlock: token.marginBlockPageContainerContent / 3,
+          },
         },
       },
       '&-detail': {

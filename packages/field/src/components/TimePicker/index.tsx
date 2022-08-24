@@ -4,6 +4,10 @@ import dayjs from 'dayjs';
 import React, { useContext, useState } from 'react';
 import type { ProFieldFC, ProFieldLightProps } from '../../index';
 
+// 兼容代码-----------
+import 'antd/es/date-picker/style';
+//----------------------;
+
 /**
  * 时间选择组件
  *

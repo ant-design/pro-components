@@ -2,6 +2,36 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.0.0-experimental.19](https://github.com/ant-design/pro-components/compare/@ant-design/pro-table@3.0.0-experimental.18...@ant-design/pro-table@3.0.0-experimental.19) (2022-08-24)
+
+**Note:** Version bump only for package @ant-design/pro-table
+
+# [3.0.0-experimental.18](https://github.com/ant-design/pro-components/compare/@ant-design/pro-table@3.0.0-experimental.17...@ant-design/pro-table@3.0.0-experimental.18) (2022-08-24)
+
+**Note:** Version bump only for package @ant-design/pro-table
+
+# [3.0.0-experimental.17](https://github.com/ant-design/pro-components/compare/@ant-design/pro-table@3.0.0-experimental.16...@ant-design/pro-table@3.0.0-experimental.17) (2022-08-24)
+
+**Note:** Version bump only for package @ant-design/pro-table
+
+# [3.0.0-experimental.16](https://github.com/ant-design/pro-components/compare/@ant-design/pro-table@3.0.0-experimental.15...@ant-design/pro-table@3.0.0-experimental.16) (2022-08-23)
+
+**Note:** Version bump only for package @ant-design/pro-table
+
+# [3.0.0-experimental.15](https://github.com/ant-design/pro-components/compare/@ant-design/pro-table@2.80.1...@ant-design/pro-table@3.0.0-experimental.15) (2022-08-23)
+
+**Note:** Version bump only for package @ant-design/pro-table
+
+# [2.79.0](https://github.com/ant-design/pro-components/compare/@ant-design/pro-table@2.78.3...@ant-design/pro-table@2.79.0) (2022-08-15)
+
+### Bug Fixes
+
+- **form:** 修复在 table 中指定 valueType 为 treeSelect 并使用 options 和自定义字段名时无法筛选的问题 ([#5722](https://github.com/ant-design/pro-components/issues/5722)) ([93dacf3](https://github.com/ant-design/pro-components/commit/93dacf341652a82c4b091201258526ff44cacbad))
+
+### Features
+
+- **form:** support Pro.useFormInstance ([d53eccc](https://github.com/ant-design/pro-components/commit/d53eccca812e477c68f59243b227e3141526ce69))
+
 # [2.79.0](https://github.com/ant-design/pro-components/compare/@ant-design/pro-table@2.78.3...@ant-design/pro-table@2.79.0) (2022-08-15)
 
 ### Bug Fixes
@@ -14,31 +44,7 @@ All notable changes to this project will be documented in this file. See [Conven
 
 - **table:** support dynamic columns persistence ([#5645](https://github.com/ant-design/pro-components/issues/5645)) ([ae1ddb0](https://github.com/ant-design/pro-components/commit/ae1ddb07527821a5c9094082b2b9b661ad21bf6e))
 
-# [3.0.0-experimental.8](https://github.com/ant-design/pro-components/compare/@ant-design/pro-table@2.78.3...@ant-design/pro-table@3.0.0-experimental.8) (2022-08-05)
-
-**Note:** Version bump only for package @ant-design/pro-table
-
-# [3.0.0-experimental.7](https://github.com/ant-design/pro-components/compare/@ant-design/pro-table@3.0.0-experimental.6...@ant-design/pro-table@3.0.0-experimental.7) (2022-08-01)
-
-**Note:** Version bump only for package @ant-design/pro-table
-
-# [3.0.0-experimental.6](https://github.com/ant-design/pro-components/compare/@ant-design/pro-table@3.0.0-experimental.5...@ant-design/pro-table@3.0.0-experimental.6) (2022-08-01)
-
-**Note:** Version bump only for package @ant-design/pro-table
-
-# [3.0.0-experimental.5](https://github.com/ant-design/pro-components/compare/@ant-design/pro-table@3.0.0-experimental.4...@ant-design/pro-table@3.0.0-experimental.5) (2022-08-01)
-
-**Note:** Version bump only for package @ant-design/pro-table
-
-# [3.0.0-experimental.4](https://github.com/ant-design/pro-components/compare/@ant-design/pro-table@3.0.0-experimental.3...@ant-design/pro-table@3.0.0-experimental.4) (2022-08-01)
-
-**Note:** Version bump only for package @ant-design/pro-table
-
-# [3.0.0-experimental.3](https://github.com/ant-design/pro-components/compare/@ant-design/pro-table@3.0.0-experimental.2...@ant-design/pro-table@3.0.0-experimental.3) (2022-08-01)
-
-**Note:** Version bump only for package @ant-design/pro-table
-
-# [3.0.0-experimental.2](https://github.com/ant-design/pro-components/compare/@ant-design/pro-table@2.78.2...@ant-design/pro-table@3.0.0-experimental.2) (2022-08-01)
+## [2.78.3](https://github.com/ant-design/pro-components/compare/@ant-design/pro-table@2.78.2...@ant-design/pro-table@2.78.3) (2022-08-02)
 
 **Note:** Version bump only for package @ant-design/pro-table
 

@@ -5,6 +5,10 @@ import dayjs from 'dayjs';
 import relativeTime from 'dayjs/plugin/relativeTime';
 import type { ProFieldFC } from '../../index';
 
+// 兼容代码-----------
+import 'antd/es/date-picker/style';
+//----------------------
+
 dayjs.extend(relativeTime);
 /**
  * 与当前的时间进行比较 http://momentjs.cn/docs/displaying/fromnow.html

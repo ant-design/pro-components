@@ -3,6 +3,7 @@ import type { GlobalToken } from 'antd/es/theme/interface';
 import React from 'react';
 
 export type BaseLayoutDesignToken = {
+  colorPrimary: string;
   /**
    * 跨站点应用的图标hover颜色
    */

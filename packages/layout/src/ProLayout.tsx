@@ -193,13 +193,6 @@ export type ProLayoutProps = GlobalTypes & {
 
   className?: string;
 
-  /**
-   * @name 取消 content的 margin
-   *
-   * @example 取消内容的 margin  disableContentMargin={true}
-   * */
-  disableContentMargin?: boolean;
-
   /** PageHeader 的 BreadcrumbProps 配置，会透传下去 */
   breadcrumbProps?: AntdBreadcrumbProps & LayoutBreadcrumbProps;
 
@@ -224,6 +217,13 @@ export type ProLayoutProps = GlobalTypes & {
    * @example ErrorBoundary={<MyErrorBoundary/>}
    */
   ErrorBoundary?: any;
+
+  /**
+   * @name  侧边菜单的类型, menu.type 的快捷方式
+   * @type "sub" | "group"
+   * @example group
+   */
+  siderMenuType?: 'sub' | 'group';
 
   isChildrenLayout?: boolean;
 };
@@ -360,9 +360,9 @@ const BaseProLayout: React.FC<ProLayoutProps> = (props) => {
     route,
     defaultCollapsed,
     style,
-    disableContentMargin = true,
     siderWidth: propsSiderWidth,
     menu,
+    siderMenuType,
     isChildrenLayout: propsIsChildrenLayout,
     menuDataRender,
     actionRef,
@@ -506,7 +506,7 @@ const BaseProLayout: React.FC<ProLayoutProps> = (props) => {
       ...currentMenuLayoutProps,
       formatMessage,
       breadcrumb,
-      menu: { ...menu, loading: menuLoading },
+      menu: { ...menu, type: siderMenuType || menu?.type, loading: menuLoading },
       layout: propsLayout as 'side',
     },
     ['className', 'style', 'breadcrumbRender'],
@@ -605,6 +605,7 @@ const BaseProLayout: React.FC<ProLayoutProps> = (props) => {
   }, [location.pathname, location.pathname?.search]);
 
   const [hasFooterToolbar, setHasFooterToolbar] = useState(false);
+  const [hasPageContainer, setHasPageContainer] = useState(false);
   useDocumentTitle(pageTitleInfo, props.title || false);
   const bgImgStyleList = useMemo(() => {
     if (bgLayoutImgList && bgLayoutImgList.length > 0) {
@@ -633,13 +634,14 @@ const BaseProLayout: React.FC<ProLayoutProps> = (props) => {
           menuData,
           isMobile,
           collapsed,
+          hasPageContainer,
+          setHasPageContainer,
           isChildrenLayout: true,
           title: pageTitleInfo.pageName,
           hasSiderMenu: !!siderMenuDom,
           hasHeader: !!headerDom,
           siderWidth: leftSiderWidth,
           hasFooter: !!footerDom,
-          disableContentMargin,
           hasFooterToolbar,
           setHasFooterToolbar,
           pageTitleInfo,
@@ -663,8 +665,7 @@ const BaseProLayout: React.FC<ProLayoutProps> = (props) => {
               <div style={genLayoutStyle} className={context.getPrefixCls('layout')}>
                 {headerDom}
                 <WrapContent
-                  disableContentMargin={disableContentMargin}
-                  autoClearCache={false}
+                  hasPageContainer={hasPageContainer}
                   isChildrenLayout={isChildrenLayout}
                   {...rest}
                   hasHeader={!!headerDom}
@@ -690,12 +691,13 @@ BaseProLayout.defaultProps = {
 };
 
 const ProLayout: React.FC<ProLayoutProps> = (props) => {
+  const { colorPrimary } = props;
   return (
     <ConfigProvider
       theme={{
         token: {
           radiusBase: 4,
-          colorPrimary: '#1677FF',
+          colorPrimary: colorPrimary || '#1677FF',
           colorError: '#ff4d4f',
           colorInfo: '#1677FF',
         },

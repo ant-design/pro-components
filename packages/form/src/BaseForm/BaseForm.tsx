@@ -246,15 +246,22 @@ function BaseFormComponents<T = Record<string, any>>(
     ...rest
   } = props;
 
-  const forminstance = Form.useFormInstance();
+  /**
+   * 获取 form 实例
+   */
+  const formInstance = Form.useFormInstance();
 
   const sizeContextValue = useContext(ConfigProvider.SizeContext);
 
   /** 同步 url 上的参数 */
-  const formRef = useRef<ProFormInstance<any>>((form || forminstance) as any);
+  const formRef = useRef<ProFormInstance<any>>((form || formInstance) as any);
+
+  /**
+   * 获取布局
+   */
   const { RowWrapper } = useGridHelpers({ grid, rowProps });
 
-  const getForminstance = useRefFunction(() => forminstance);
+  const getFormInstance = useRefFunction(() => formInstance);
 
   const formatValues = useMemo(
     () => ({
@@ -266,7 +273,7 @@ function BaseFormComponents<T = Record<string, any>>(
        * @example  getFieldsFormatValue(true) ->返回所有数据，即使没有被 form 托管的
        */
       getFieldsFormatValue: (allData?: true) => {
-        return transformKey(getForminstance()?.getFieldsValue(allData!), omitNil);
+        return transformKey(getFormInstance()?.getFieldsValue(allData!), omitNil);
       },
       /**
        * 获取被 ProForm 格式化后的单个数据
@@ -279,7 +286,7 @@ function BaseFormComponents<T = Record<string, any>>(
       getFieldFormatValue: (paramsNameList: NamePath = []) => {
         const nameList = covertFormName(paramsNameList);
         if (!nameList) throw new Error('nameList is require');
-        const value = getForminstance()?.getFieldValue(nameList!);
+        const value = getFormInstance()?.getFieldValue(nameList!);
         const obj = nameList ? set({}, nameList as string[], value) : value;
         return get(transformKey(obj, omitNil, nameList), nameList as string[]);
       },
@@ -293,7 +300,7 @@ function BaseFormComponents<T = Record<string, any>>(
       /** 获取格式化之后的单个数据 */
       getFieldFormatValueObject: (paramsNameList?: NamePath) => {
         const nameList = covertFormName(paramsNameList);
-        const value = getForminstance()?.getFieldValue(nameList!);
+        const value = getFormInstance()?.getFieldValue(nameList!);
         const obj = nameList ? set({}, nameList as string[], value) : value;
         return transformKey(obj, omitNil, nameList);
       },
@@ -307,7 +314,7 @@ function BaseFormComponents<T = Record<string, any>>(
        */
       validateFieldsReturnFormatValue: async (nameList?: NamePath[]) => {
         if (!Array.isArray(nameList) && nameList) throw new Error('nameList must be array');
-        const values = await getForminstance()?.validateFields(nameList);
+        const values = await getFormInstance()?.validateFields(nameList);
         const transformedKey = transformKey(values, omitNil);
         return transformedKey ? transformedKey : {};
       },
@@ -334,7 +341,17 @@ function BaseFormComponents<T = Record<string, any>>(
     [submitter],
   );
 
-  useImperativeHandle(propsFormRef, () => formRef.current, []);
+  // 初始化给一个默认的 form
+  useImperativeHandle(
+    propsFormRef,
+    () => {
+      return {
+        ...formInstance,
+        ...formatValues,
+      };
+    },
+    [formatValues, formInstance],
+  );
 
   /** 渲染提交按钮与重置按钮 */
   const submitterNode = useMemo(() => {
@@ -417,7 +434,6 @@ function BaseFormComponents<T = Record<string, any>>(
     },
     [],
   );
-
   useEffect(() => {
     const finalValues = transformKey(formRef.current?.getFieldsValue?.(true), omitNil);
     onInit?.(finalValues, formRef.current);
@@ -637,7 +653,14 @@ function BaseForm<T = Record<string, any>>(props: BaseFormProps<T>) {
     }
   });
 
-  useImperativeHandle(propsFormRef, () => formRef.current, []);
+  // 初始化给一个默认的 form
+  useImperativeHandle(
+    propsFormRef,
+    () => {
+      return formRef.current;
+    },
+    [!initialData],
+  );
 
   if (!initialData && props.request) {
     return (

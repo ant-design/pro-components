@@ -32,6 +32,10 @@ import TableStatus, { ProFieldBadgeColor } from '../Status';
 import LightSelect from './LightSelect';
 import SearchSelect from './SearchSelect';
 
+// 兼容代码-----------
+import 'antd/es/select/style';
+//------------
+
 type SelectOptionType = Partial<RequestOptionsType>[];
 
 export type FieldSelectProps<FieldProps = any> = {

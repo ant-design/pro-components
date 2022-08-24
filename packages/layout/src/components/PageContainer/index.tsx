@@ -1,8 +1,8 @@
+import { ConfigProviderWrap } from '@ant-design/pro-provider';
 import type { AffixProps, BreadcrumbProps, SpinProps, TabPaneProps, TabsProps } from 'antd';
 import { Affix, Breadcrumb, ConfigProvider, Tabs } from 'antd';
 import classNames from 'classnames';
-import type { ReactNode } from 'react';
-import React, { useContext, useMemo } from 'react';
+import React, { ReactNode, useContext, useEffect, useMemo } from 'react';
 import { ProLayoutContext } from '../../context/ProLayoutContext';
 import { RouteContext } from '../../context/RouteContext';
 import type { WithFalse } from '../../typings';
@@ -117,13 +117,13 @@ const renderFooter: React.FC<
           }
         }}
         tabBarExtraContent={tabBarExtraContent}
+        items={tabList?.map((item, index) => ({
+          label: item.tab,
+          ...item,
+          key: item.key?.toString() || index?.toString(),
+        }))}
         {...tabProps}
-      >
-        {tabList?.map((item, index) => (
-          // eslint-disable-next-line react/no-array-index-key
-          <Tabs.TabPane {...item} tab={item.tab} key={item.key || index} />
-        ))}
-      </Tabs>
+      />
     );
   }
   return null;
@@ -172,8 +172,9 @@ const ProBreadcrumb: React.FC<BreadcrumbProps> = (props) => {
   );
 };
 
-const ProPageHeader: React.FC<PageContainerProps & { prefixedClassName: string }> = (props) => {
-  const value = useContext(RouteContext);
+const memoRenderPageHeader = (
+  props: PageContainerProps & { prefixedClassName: string; value: any },
+) => {
   const {
     title,
     content,
@@ -183,15 +184,16 @@ const ProPageHeader: React.FC<PageContainerProps & { prefixedClassName: string }
     extraContent,
     style,
     prefixCls,
+    value,
     breadcrumbRender,
     ...restProps
   } = props;
-  const getBreadcrumbRender = useMemo(() => {
+  const getBreadcrumbRender = () => {
     if (!breadcrumbRender) {
       return undefined;
     }
     return breadcrumbRender;
-  }, [breadcrumbRender]);
+  };
 
   if (pageHeaderRender === false) {
     return null;
@@ -232,22 +234,21 @@ const ProPageHeader: React.FC<PageContainerProps & { prefixedClassName: string }
   ) {
     return null;
   }
+
   return (
-    <div className={`${prefixedClassName}-warp`}>
-      <PageHeader
-        {...pageHeaderProps}
-        className={`${prefixedClassName}-warp-page-header`}
-        breadcrumb={
-          breadcrumbRender === false
-            ? undefined
-            : { ...pageHeaderProps.breadcrumb, ...value.breadcrumbProps }
-        }
-        breadcrumbRender={getBreadcrumbRender}
-        prefixCls={prefixCls}
-      >
-        {header?.children || renderPageHeader(content, extraContent, prefixedClassName)}
-      </PageHeader>
-    </div>
+    <PageHeader
+      {...pageHeaderProps}
+      className={`${prefixedClassName}-warp-page-header`}
+      breadcrumb={
+        breadcrumbRender === false
+          ? undefined
+          : { ...pageHeaderProps.breadcrumb, ...value.breadcrumbProps }
+      }
+      breadcrumbRender={getBreadcrumbRender()}
+      prefixCls={prefixCls}
+    >
+      {header?.children || renderPageHeader(content, extraContent, prefixedClassName)}
+    </PageHeader>
   );
 };
 
@@ -264,6 +265,18 @@ const PageContainer: React.FC<PageContainerProps> = (props) => {
     ...restProps
   } = props;
   const value = useContext(RouteContext);
+  /** 告诉 props 是否存在 footerBar */
+  useEffect(() => {
+    if (!value || !value?.setHasPageContainer) {
+      return () => {};
+    }
+    value?.setHasPageContainer?.(true);
+    return () => {
+      value?.setHasPageContainer?.(false);
+    };
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
+  const { pageContainer } = useContext(ProLayoutContext);
   const { getPrefixCls } = useContext(ConfigProvider.ConfigContext);
   const prefixCls = props.prefixCls || getPrefixCls('pro');
 
@@ -271,35 +284,20 @@ const PageContainer: React.FC<PageContainerProps> = (props) => {
 
   const { wrapSSR, hashId } = useStyle(basePageContainer);
 
-  const content = useMemo(() => {
-    return children ? (
-      <>
-        <div className={`${basePageContainer}-children-content`}>{children}</div>
-        {value.hasFooterToolbar && (
-          <div
-            style={{
-              height: 48,
-              marginBlockStart: 24,
-            }}
-          />
-        )}
-      </>
-    ) : null;
-  }, [children, basePageContainer, value.hasFooterToolbar]);
-
   const memoBreadcrumbRender = useMemo(() => {
     if (breadcrumbRender == false) return false;
     return breadcrumbRender || restProps?.header?.breadcrumbRender;
   }, [breadcrumbRender, restProps?.header?.breadcrumbRender]);
-  const pageHeaderDom = (
-    <ProPageHeader
-      {...restProps}
-      breadcrumbRender={memoBreadcrumbRender}
-      ghost={true}
-      prefixCls={undefined}
-      prefixedClassName={basePageContainer}
-    />
-  );
+
+  const pageHeaderDom = memoRenderPageHeader({
+    ...restProps,
+    breadcrumbRender: memoBreadcrumbRender,
+    ghost: true,
+    prefixCls: undefined,
+    prefixedClassName: basePageContainer,
+    value,
+  });
+
   const loadingDom = useMemo(() => {
     // 当loading时一个合法的ReactNode时，说明用户使用了自定义loading,直接返回改自定义loading
     if (React.isValidElement(loading)) {
@@ -315,6 +313,27 @@ const PageContainer: React.FC<PageContainerProps> = (props) => {
     return spinProps.spinning ? <PageLoading {...spinProps} /> : null;
   }, [loading]);
 
+  const content = useMemo(() => {
+    return children ? (
+      <>
+        <div className={classNames(`${basePageContainer}-children-content`)}>{children}</div>
+        {value.hasFooterToolbar && (
+          <div
+            style={{
+              height: 64,
+              marginBlockStart: pageContainer.marginBlockPageContainerContent,
+            }}
+          />
+        )}
+      </>
+    ) : null;
+  }, [
+    children,
+    basePageContainer,
+    value.hasFooterToolbar,
+    pageContainer.marginBlockPageContainerContent,
+  ]);
+
   const renderContentDom = useMemo(() => {
     // 只要loadingDom非空我们就渲染loadingDom,否则渲染内容
     const dom = loadingDom || content;
@@ -327,10 +346,8 @@ const PageContainer: React.FC<PageContainerProps> = (props) => {
     }
     return dom;
   }, [props.waterMarkProps, value.waterMarkProps, loadingDom, content]);
+
   const containerClassName = classNames(basePageContainer, hashId, className, {
-    // layout 如果有 margin 需要给一个负的 margin 对冲一下
-    [`${basePageContainer}-layout-has-margin`]:
-      value.disableContentMargin !== undefined && !value.disableContentMargin,
     [`${basePageContainer}-ghost`]: true,
     [`${basePageContainer}-with-footer`]: footer,
     [`${basePageContainer}-with-affix`]: fixedHeader && pageHeaderDom,
@@ -339,7 +356,7 @@ const PageContainer: React.FC<PageContainerProps> = (props) => {
   const token = useContext(ProLayoutContext);
 
   return wrapSSR(
-    <>
+    <ConfigProviderWrap>
       <div style={style} className={containerClassName}>
         {fixedHeader && pageHeaderDom ? (
           // 在 hasHeader 且 fixedHeader 的情况下，才需要设置高度
@@ -356,8 +373,16 @@ const PageContainer: React.FC<PageContainerProps> = (props) => {
         {renderContentDom && <GridContent>{renderContentDom}</GridContent>}
       </div>
       {footer && <FooterToolbar prefixCls={prefixCls}>{footer}</FooterToolbar>}
-    </>,
+    </ConfigProviderWrap>,
   );
+};
+
+const ProPageHeader = (props: PageContainerProps & { prefixedClassName: string }) => {
+  const value = useContext(RouteContext);
+  return memoRenderPageHeader({
+    ...props,
+    value,
+  });
 };
 
 export { ProPageHeader, PageContainer, ProBreadcrumb };

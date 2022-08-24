@@ -1,5 +1,6 @@
 import { ConfigProvider as AntdConfigProvider } from 'antd';
 import zh_CN from 'antd/es/locale/zh_CN';
+import classNames from 'classnames';
 import React, { useContext, useEffect } from 'react';
 import { SWRConfig, useSWRConfig } from 'swr';
 import arEG from './locale/ar_EG';
@@ -274,7 +275,6 @@ export const ConfigProviderWrap: React.FC<Record<string, unknown>> = ({
   // 如果 locale 不存在自动注入的 AntdConfigProvider
   const Provider = locale === undefined ? AntdConfigProvider : React.Fragment;
   const proProvide = useContext(ConfigContext);
-
   const configProviderDom = (
     <ConfigConsumer>
       {(value) => {
@@ -311,7 +311,7 @@ export const ConfigProviderWrap: React.FC<Record<string, unknown>> = ({
           </Provider>
         );
         if (proProvide.isDeps) return provide;
-        return <div className="ant-pro">{provide}</div>;
+        return <div className={classNames('ant-pro')}>{provide}</div>;
       }}
     </ConfigConsumer>
   );

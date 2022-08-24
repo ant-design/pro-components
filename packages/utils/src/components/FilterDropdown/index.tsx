@@ -4,6 +4,8 @@ import type { DropdownFooterProps } from '../DropdownFooter';
 import { DropdownFooter } from '../DropdownFooter';
 import { useStyle } from './style';
 
+import 'antd/es/dropdown/style';
+
 declare const Placements: [
   'topLeft',
   'topCenter',
