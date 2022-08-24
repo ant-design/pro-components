@@ -4,6 +4,7 @@ import 'antd/es/drawer/style';
 import 'antd/es/form/style';
 import 'antd/es/steps/style';
 import 'antd/es/tabs/style';
+import 'antd/es/upload/style';
 //----------------------
 export { ProFormContext } from '@ant-design/pro-utils';
 export type {
