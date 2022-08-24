@@ -160,8 +160,8 @@ export const ListSkeleton: React.FC<{
       <Card
         bordered={false}
         style={{
-          borderBlockStartRightRadius: 0,
-          borderBlockStartLeftRadius: 0,
+          borderTopRightRadius: 0,
+          borderTopLeftRadius: 0,
         }}
         bodyStyle={{
           display: 'flex',
@@ -220,8 +220,8 @@ export const ListToolbarSkeleton = ({ active }: { active: boolean }) => (
   <Card
     bordered={false}
     style={{
-      borderBlockEndRightRadius: 0,
-      borderBlockEndLeftRadius: 0,
+      borderBottomRightRadius: 0,
+      borderBottomLeftRadius: 0,
     }}
     bodyStyle={{
       paddingBlockEnd: 8,
