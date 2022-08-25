@@ -1,7 +1,8 @@
-﻿import { DrawerForm, ProFormText } from '@ant-design/pro-form';
+﻿import { DrawerForm, ModalForm, ProFormText } from '@ant-design/pro-form';
 import '@testing-library/jest-dom';
 import { act, fireEvent, render } from '@testing-library/react';
-import { Button } from 'antd';
+import { Button, Form } from 'antd';
+import { mount } from 'enzyme';
 import React from 'react';
 import { waitForComponentToPaint } from '../util';
 
@@ -571,5 +572,120 @@ describe('DrawerForm', () => {
     });
 
     expect(ref.current).toBeTruthy();
+  });
+
+  const tests = [
+    {
+      name: 'drawerForm',
+      Comp: DrawerForm,
+      close: '.ant-drawer-close',
+      props: 'drawerProps',
+    },
+    {
+      name: 'modalForm',
+      Comp: ModalForm,
+      close: '.ant-modal-close',
+      props: 'modalProps',
+    },
+  ];
+  tests.forEach((item) => {
+    const { name, Comp, close, props } = item;
+    it(`📦 ${name} resetFields when destroy`, async () => {
+      const App = () => {
+        const [form] = Form.useForm();
+        const prop = {
+          [props]: {
+            destroyOnClose: true,
+          },
+        };
+        return (
+          <Comp
+            {...prop}
+            form={form}
+            onFinish={async () => {
+              return true;
+            }}
+            trigger={
+              <Button id="new" type="primary">
+                新建
+              </Button>
+            }
+          >
+            <ProFormText name="name" />
+          </Comp>
+        );
+      };
+      const html = mount(<App />);
+      await waitForComponentToPaint(html, 300);
+      // 点击取消按钮后重置
+      act(() => {
+        html.find('#new').at(0).simulate('click');
+      });
+      await waitForComponentToPaint(html, 300);
+      act(() => {
+        html
+          .find('input#name')
+          .at(0)
+          .simulate('change', {
+            target: {
+              value: '12345',
+            },
+          });
+      });
+      await waitForComponentToPaint(html, 300);
+      expect(html.find('input#name').props().value).toBe('12345');
+      act(() => {
+        html.find('.ant-btn-default').at(0).simulate('click');
+      });
+      act(() => {
+        html.find('#new').at(0).simulate('click');
+      });
+      await waitForComponentToPaint(html, 300);
+      expect(html.find('input#name').props().value).toBeFalsy();
+      // 点击关闭按钮后重置
+      act(() => {
+        html
+          .find('input#name')
+          .at(0)
+          .simulate('change', {
+            target: {
+              value: '12345',
+            },
+          });
+      });
+      await waitForComponentToPaint(html, 300);
+      expect(html.find('input#name').props().value).toBe('12345');
+      act(() => {
+        html.find(close).at(0).simulate('click');
+      });
+      act(() => {
+        html.find('#new').at(0).simulate('click');
+      });
+      await waitForComponentToPaint(html, 300);
+      expect(html.find('input#name').props().value).toBeFalsy();
+      // 点击提交按钮后重置
+      act(() => {
+        html
+          .find('input#name')
+          .at(0)
+          .simulate('change', {
+            target: {
+              value: '12345',
+            },
+          });
+      });
+      await waitForComponentToPaint(html, 300);
+      expect(html.find('input#name').props().value).toBe('12345');
+      act(() => {
+        html.find('.ant-btn-primary').at(0).simulate('click');
+      });
+      await waitForComponentToPaint(html, 300);
+      act(() => {
+        html.find('#new').at(0).simulate('click');
+      });
+      await waitForComponentToPaint(html, 300);
+      expect(html.find('input#name').props().value).toBeFalsy();
+      html.unmount();
+    });
   });
 });
