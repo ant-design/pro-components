@@ -2,6 +2,10 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.0.0-experimental.11](https://github.com/ant-design/pro-components/compare/@ant-design/pro-provider@2.0.0-experimental.10...@ant-design/pro-provider@2.0.0-experimental.11) (2022-08-25)
+
+**Note:** Version bump only for package @ant-design/pro-provider
+
 # [2.0.0-experimental.10](https://github.com/ant-design/pro-components/compare/@ant-design/pro-provider@2.0.0-experimental.9...@ant-design/pro-provider@2.0.0-experimental.10) (2022-08-23)
 
 **Note:** Version bump only for package @ant-design/pro-provider
