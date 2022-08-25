@@ -40,7 +40,7 @@
   "resolutions": {
     "@types/react": "^18.0.0",
     "@types/react-dom": "^18.0.0",
-    "antd": "^4.x",
+    "antd": "experimental",
     "prettier": "2.x",
     "react": "^18.0.0",
     "react-dom": "^18.0.0",

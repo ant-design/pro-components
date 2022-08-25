@@ -29,7 +29,7 @@ import zhCN from './locale/zh_CN';
 import zhTW from './locale/zh_TW';
 
 const { useToken } = antdTheme || {
-  useToken: () => [],
+  useToken: () => {},
 };
 
 export type ProSchemaValueEnumType = {
@@ -277,7 +277,7 @@ export const ConfigProviderWrap: React.FC<Record<string, unknown>> = ({
   autoClearCache = false,
 }) => {
   const { locale } = useContext(AntdConfigProvider.ConfigContext);
-  const [, , hashId] = useToken?.();
+  const { hashId } = useToken?.();
   // 如果 locale 不存在自动注入的 AntdConfigProvider
   const Provider = locale === undefined ? AntdConfigProvider : React.Fragment;
   const proProvide = useContext(ConfigContext);
