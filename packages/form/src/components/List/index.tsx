@@ -76,6 +76,14 @@ export type ProFormListProps<T> = Omit<FormListProps, 'children'> &
     actionRef?: React.MutableRefObject<FormListActionType<T> | undefined>;
     /** 放在div上面的属性 */
     style?: React.CSSProperties;
+    /**
+     * 数据新增成功回调
+     */
+    onAfterAdd?: (...params: [...Parameters<FormListOperation['add']>, number]) => void;
+    /**
+     * 数据移除成功回调
+     */
+    onAfterRemove?: (...params: [...Parameters<FormListOperation['remove']>, number]) => void;
   } & Pick<ProFormGridConfig, 'colProps' | 'rowProps'>;
 
 function ProFormList<T>(props: ProFormListProps<T>) {
@@ -115,6 +123,8 @@ function ProFormList<T>(props: ProFormListProps<T>) {
     max,
     colProps,
     rowProps,
+    onAfterAdd,
+    onAfterRemove,
     ...rest
   } = props;
 
@@ -194,6 +204,8 @@ function ProFormList<T>(props: ProFormListProps<T>) {
                     min={min}
                     max={max}
                     count={fields.length}
+                    onAfterAdd={onAfterAdd}
+                    onAfterRemove={onAfterRemove}
                   >
                     {children}
                   </ProFormListContainer>

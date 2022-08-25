@@ -156,7 +156,7 @@ describe('ProForm List', () => {
             },
           ]}
         >
-          {(field, index, action) => {
+          {(_field, index, action) => {
             return (
               <div key="nickName">
                 <ProFormText key="name" name="name" />
@@ -1162,7 +1162,7 @@ describe('ProForm List', () => {
               },
             ]}
           >
-            {(f, idxLv2, action) => {
+            {(_f, _idxLv2, action) => {
               // @ts-ignore
               ref.current = action;
               return (
@@ -1214,7 +1214,7 @@ describe('ProForm List', () => {
           ]}
         >
           <ProFormList name={[]} label="二级数组">
-            {(f, idxLv2, action) => {
+            {(_f, _idxLv2, action) => {
               // @ts-ignore
               ref.current = action;
               return (
@@ -1254,5 +1254,51 @@ describe('ProForm List', () => {
     await waitForComponentToPaint(html);
 
     expect(ref.current?.getCurrentRowData().name).toBe('New Name');
+  });
+  it('⛲  ProForm.List action hooks should be emit', async () => {
+    const handleAdd = jest.fn();
+    const handleRemove = jest.fn();
+
+    const html = reactRender(
+      <ProForm>
+        <ProFormList
+          name="list"
+          label="表格"
+          initialValue={[
+            [
+              {
+                name: '1111',
+              },
+            ],
+          ]}
+          onAfterAdd={(a, b, count) => {
+            handleAdd(count);
+          }}
+          onAfterRemove={(a, count) => {
+            handleRemove(count);
+          }}
+        >
+          <ProFormText name="name" />
+        </ProFormList>
+      </ProForm>,
+    );
+
+    await waitForComponentToPaint(html);
+    // 删除按钮
+    await act(async () => {
+      html.baseElement.querySelectorAll<HTMLDivElement>('.action-remove')[0]?.click?.();
+    });
+    expect(handleRemove).toBeCalledWith(0);
+
+    // 新增按钮
+    await act(async () => {
+      const createBtn = await html.baseElement.querySelector(
+        '.ant-pro-form-list-creator-button-bottom',
+      );
+      if (createBtn) {
+        fireEvent.click(createBtn);
+      }
+    });
+    expect(handleAdd).toBeCalledWith(1);
   });
 });
