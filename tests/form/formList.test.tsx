@@ -13,7 +13,6 @@ import { Button, Form } from 'antd';
 import type { NamePath } from 'antd/es/form/interface';
 import { mount } from 'enzyme';
 import _ from 'lodash';
-import moment from 'moment';
 import React from 'react';
 import { waitForComponentToPaint, waitTime } from '../util';
 
@@ -1194,37 +1193,66 @@ describe('ProForm List', () => {
 
     expect(ref.current?.getCurrentRowData().lv2Name).toBe('test');
   });
-  it('⛲  ProForm.List transform should be call', async () => {
-    const handleFinish = jest.fn();
-    const html = mount(
-      <ProForm
-        onFinish={async (values) => {
-          console.log('kiner:', values);
-          handleFinish(values.datas[0].date);
-        }}
-      >
-        <ProFormList name="datas" initialValue={[{ date: '2022-10-12 10:00:00' }]}>
-          {() => {
-            return (
-              <ProFormDatePicker
-                name="date"
-                transform={(value) => {
-                  return {
-                    date: moment(value).unix(),
-                  };
-                }}
-              />
-            );
-          }}
+
+  it('⛲  ProForm.List getCurrentRowData and setCurrentRowData support two-dimensional array', async () => {
+    const ref = React.createRef<{
+      getCurrentRowData: () => any;
+      setCurrentRowData: (data: any) => void;
+    }>();
+
+    const html = reactRender(
+      <ProForm>
+        <ProFormList
+          name="twoDimensionalArray"
+          label="一级数组"
+          initialValue={[
+            [
+              {
+                name: '1111',
+              },
+            ],
+          ]}
+        >
+          <ProFormList name={[]} label="二级数组">
+            {(f, idxLv2, action) => {
+              // @ts-ignore
+              ref.current = action;
+              return (
+                <ProFormText
+                  name="name"
+                  label="用户姓名"
+                  fieldProps={{
+                    id: 'lv2Name',
+                  }}
+                />
+              );
+            }}
+          </ProFormList>
         </ProFormList>
       </ProForm>,
     );
 
     await waitForComponentToPaint(html);
+
+    expect(ref.current?.getCurrentRowData().name).toBe('1111');
+
     act(() => {
-      html.find('.ant-btn.ant-btn-primary').simulate('click');
+      const dom = html.baseElement.querySelector<HTMLInputElement>('#lv2Name');
+      fireEvent.change(dom!, {
+        target: {
+          value: 'test',
+        },
+      });
     });
-    await waitForComponentToPaint(html, 300);
-    expect(handleFinish).toBeCalledWith(1665568800);
+
+    await waitForComponentToPaint(html);
+
+    expect(ref.current?.getCurrentRowData().name).toBe('test');
+
+    ref.current?.setCurrentRowData({ name: 'New Name' });
+
+    await waitForComponentToPaint(html);
+
+    expect(ref.current?.getCurrentRowData().name).toBe('New Name');
   });
 });
