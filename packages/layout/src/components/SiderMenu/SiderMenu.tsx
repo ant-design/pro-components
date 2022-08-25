@@ -440,6 +440,7 @@ const SiderMenu: React.FC<SiderMenuProps & PrivateSiderMenuProps> = (props) => {
         className={classNames(siderClassName, hashId, hideMenuWhenCollapsedClassName)}
       >
         <ConfigProvider
+          // @ts-ignore
           theme={{
             hashed: false,
             override: {

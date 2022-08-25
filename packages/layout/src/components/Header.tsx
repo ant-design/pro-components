@@ -89,6 +89,7 @@ const DefaultHeader: React.FC<HeaderViewProps & PrivateSiderMenuProps> = (props)
   return wrapSSR(
     <>
       <ConfigProvider
+        // @ts-ignore
         theme={{
           hashed: process.env.NODE_ENV?.toLowerCase() !== 'test',
           override: {

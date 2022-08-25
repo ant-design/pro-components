@@ -216,6 +216,9 @@ const genProLayoutStyle: GenerateStyle<ProLayoutToken & LayoutDesignToken> = (to
       fontFamily: token.fontFamily,
     },
     [token.proComponentsCls]: {
+      [`${token.antCls}-layout`]: {
+        backgroundColor: 'transparent !important',
+      },
       [`& ${token.componentCls}`]: {
         [`& ${token.antCls}-layout`]: {
           display: 'flex',

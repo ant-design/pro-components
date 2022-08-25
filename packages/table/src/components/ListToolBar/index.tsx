@@ -107,6 +107,7 @@ const ListToolBarTabBar: React.FC<{
       {tabs.items && tabs.items.length ? (
         <Tabs
           activeKey={tabs.activeKey}
+          //@ts-ignore
           items={tabs.items.map((item, index) => ({
             label: item.tab,
             ...item,
@@ -114,7 +115,11 @@ const ListToolBarTabBar: React.FC<{
           }))}
           onChange={tabs.onChange}
           tabBarExtraContent={filtersNode}
-        />
+        >
+          {tabs.items?.map((item, index) => {
+            return <Tabs.TabPane {...item} key={item.key || index} tab={item.tab} />;
+          })}
+        </Tabs>
       ) : (
         filtersNode
       )}

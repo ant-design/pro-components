@@ -28,8 +28,13 @@ const genSettingDrawerStyle: GenerateStyle<SettingDrawerToken> = (token) => {
       pointerEvents: 'auto',
     },
     [token.componentCls]: {
-      '&-content': { position: 'relative', minHeight: '100%' },
-      '&-body-title': { marginBlockEnd: '12px', fontSize: '14px', lineHeight: '22px' },
+      '&-content': { position: 'relative', minHeight: '100%', color: token.colorText },
+      '&-body-title': {
+        marginBlockEnd: '12px',
+        fontSize: '14px',
+        lineHeight: '22px',
+        color: token.colorTextHeading,
+      },
       '&-block-checkbox': {
         display: 'flex',
         minHeight: 42,

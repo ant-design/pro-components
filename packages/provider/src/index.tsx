@@ -1,3 +1,4 @@
+//@ts-ignore
 import { ConfigProvider as AntdConfigProvider, theme as antdTheme } from 'antd';
 import zh_CN from 'antd/es/locale/zh_CN';
 import classNames from 'classnames';

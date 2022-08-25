@@ -59,13 +59,18 @@ const HeaderMenu: React.FC<ListToolBarHeaderMenuProps> = (props) => {
   if (type === 'tab') {
     return (
       <Tabs
+        //@ts-ignore
         items={items.map((item) => ({
           ...item,
           key: item.key?.toString(),
         }))}
         activeKey={activeItem.key as string}
         onTabClick={(key) => setActiveKey(key)}
-      />
+      >
+        {items?.map((item, index) => {
+          return <Tabs.TabPane {...item} key={item.key || index} tab={item.label} />;
+        })}
+      </Tabs>
     );
   }
 

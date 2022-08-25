@@ -127,13 +127,18 @@ const renderFooter: React.FC<
           }
         }}
         tabBarExtraContent={tabBarExtraContent}
+        // @ts-ignore
         items={tabList?.map((item, index) => ({
           label: item.tab,
           ...item,
           key: item.key?.toString() || index?.toString(),
         }))}
         {...tabProps}
-      />
+      >
+        {tabList?.map((item, index) => {
+          return <Tabs.TabPane key={item.key || index} tab={item.tab} {...item} />;
+        })}
+      </Tabs>
     );
   }
   return null;

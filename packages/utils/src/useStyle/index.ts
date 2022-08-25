@@ -39,8 +39,6 @@ export type GenerateStyle<
  */
 const { useToken } = { ...batToken, ...antdTheme } as unknown as typeof batToken;
 
-console.log({ ...batToken, ...antdTheme });
-
 export { useToken };
 
 export type UseStyleResult = {
