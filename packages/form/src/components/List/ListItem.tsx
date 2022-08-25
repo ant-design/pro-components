@@ -4,7 +4,7 @@ import { Spin, Tooltip } from 'antd';
 import type { FormListFieldData, FormListOperation, FormListProps } from 'antd/lib/form/FormList';
 import toArray from 'rc-util/lib/Children/toArray';
 import set from 'rc-util/lib/utils/set';
-import type { ReactNode } from 'react';
+import type { CSSProperties, ReactNode } from 'react';
 import React, { useContext, useEffect, useMemo, useRef, useState } from 'react';
 import { FormListContext } from '.';
 import { useGridHelpers } from '../../helpers';
@@ -205,6 +205,14 @@ export type ProFromListCommonProps = {
    * @name 允许增加的最少条数，删除时校验
    */
   min?: number;
+  /**
+   * @name 盒子的类名称
+   */
+  containerClassName?: string;
+  /**
+   * @name 盒子的样式
+   */
+  containerStyle?: CSSProperties;
 };
 
 export type ProFormListItemProps = ProFromListCommonProps & {

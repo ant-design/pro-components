@@ -3,7 +3,7 @@ import { useIntl } from '@ant-design/pro-provider';
 import { nanoid, runFunction } from '@ant-design/pro-utils';
 import { Button } from 'antd';
 import omit from 'omit.js';
-import { useMemo, useRef, useState } from 'react';
+import { CSSProperties, useMemo, useRef, useState } from 'react';
 import type { ProFormListItemProps } from './ListItem';
 import { ProFormListItem } from './ListItem';
 
@@ -20,6 +20,8 @@ const ProFormListContainer: React.FC<ProFormListItemProps> = (props) => {
     max,
     fieldExtraRender,
     meta,
+    containerClassName,
+    containerStyle,
   } = props;
   const fieldKeyMap = useRef(new Map<string, string>());
   const [loading, setLoading] = useState(false);
@@ -105,14 +107,15 @@ const ProFormListContainer: React.FC<ProFormListItemProps> = (props) => {
     creatorRecord,
   ]);
 
+  const defaultStyle: CSSProperties = {
+    width: 'max-content',
+    maxWidth: '100%',
+    minWidth: '100%',
+    ...containerStyle,
+  };
+
   return (
-    <div
-      style={{
-        width: 'max-content',
-        maxWidth: '100%',
-        minWidth: '100%',
-      }}
-    >
+    <div style={defaultStyle} className={containerClassName}>
       {creatorButtonProps !== false && creatorButtonProps?.position === 'top' && creatorButton}
       {uuidFields.map((field, index) => {
         return (
