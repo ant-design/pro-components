@@ -10,9 +10,6 @@ const genProStyle: GenerateStyle<ProToken> = (token) => {
     [token.proComponentsCls]: {
       [token.componentCls]: {
         padding: 24,
-        [`&${token.antCls}-form-horizontal`]: {
-          paddingInline: 0,
-        },
         [`${token.antCls}-form-item`]: {
           marginBlock: 0,
         },
