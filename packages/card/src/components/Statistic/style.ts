@@ -38,6 +38,36 @@ const genProStyle: GenerateStyle<ProListToken> = (token) => {
       [`${token.antCls}-statistic-title`]: {
         color: token.colorText,
       },
+      '&-trend-up': {
+        [`${token.antCls}-statistic-content`]: {
+          color: '#f5222d',
+          [`${token.componentCls}-trend-icon`]: {
+            borderBlockEndColor: '#f5222d',
+          },
+        },
+      },
+      '&-trend-down': {
+        [`${token.antCls}-statistic-content`]: {
+          color: '#389e0d',
+          [`${token.componentCls}-trend-icon`]: {
+            borderBlockEndColor: '#52c41a',
+          },
+        },
+      },
+      '&-layout-horizontal': {
+        display: 'flex',
+        justifyContent: 'space-between',
+        [`${token.antCls}-statistic-title`]: {
+          marginBlockEnd: 0,
+        },
+        [`${token.antCls}-statistic-content-value`]: {
+          fontWeight: 500,
+        },
+        [`${token.antCls}-statistic-title,${token.antCls}-statistic-content,${token.antCls}-statistic-content-suffix,${token.antCls}-statistic-content-prefix,${token.antCls}-statistic-content-value-decimal`]:
+          {
+            fontSize: token.fontSizeBase,
+          },
+      },
       '&-layout-inline': {
         display: 'inline-flex',
         color: token.colorTextSecondary,
@@ -52,36 +82,6 @@ const genProStyle: GenerateStyle<ProListToken> = (token) => {
           {
             fontSize: token.fontSizeSM,
           },
-        '&-layout-horizontal': {
-          display: 'flex',
-          justifyContent: 'space-between',
-          [`${token.antCls}-statistic-title`]: {
-            marginBlockEnd: 0,
-          },
-          [`${token.antCls}-statistic-content-value`]: {
-            fontWeight: 500,
-          },
-          [`${token.antCls}-statistic-title,${token.antCls}-statistic-content,${token.antCls}-statistic-content-suffix,${token.antCls}-statistic-content-prefix,${token.antCls}-statistic-content-value-decimal`]:
-            {
-              fontSize: token.fontSizeSM,
-            },
-        },
-        '&-trend-up': {
-          [`${token.antCls}-statistic-content`]: {
-            color: '#f5222d',
-            [`${token.componentCls}--trend-icon`]: {
-              borderBlockEndColor: '#f5222d',
-            },
-          },
-        },
-        '&-trend-down': {
-          [`${token.antCls}-statistic-content`]: {
-            color: '#389e0d',
-            [`${token.componentCls}--trend-icon`]: {
-              borderBlockEndColor: '#52c41a',
-            },
-          },
-        },
       },
     },
   };
