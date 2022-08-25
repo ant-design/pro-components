@@ -1215,6 +1215,7 @@ describe('ProForm List', () => {
         >
           <ProFormList name={[]} label="二级数组">
             {(f, idxLv2, action) => {
+              // @ts-ignore
               ref.current = action;
               return (
                 <ProFormText
