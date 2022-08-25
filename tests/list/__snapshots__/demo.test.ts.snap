@@ -1250,7 +1250,7 @@ exports[`list demos 📸 renders ./packages/list/src/demos/card-list.tsx correct
               class="ant-form-item-control-input-content"
             >
               <div
-                class="ant-radio-group ant-radio-group-outline ant-pro-field-radio-horizontal"
+                class="ant-radio-group ant-radio-group-outline ant-pro-field-radio-vertical"
               >
                 <label
                   class="ant-radio-wrapper ant-radio-wrapper-in-form-item"

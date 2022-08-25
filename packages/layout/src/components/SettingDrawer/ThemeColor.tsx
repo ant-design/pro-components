@@ -24,6 +24,7 @@ export type ThemeColorProps = {
   value: string;
   onChange: (color: string) => void;
   formatMessage: (data: { id: any; defaultMessage?: string }) => string;
+  hashId: string;
 };
 
 const ThemeColor: React.ForwardRefRenderFunction<HTMLDivElement, ThemeColorProps> = ({
@@ -32,13 +33,14 @@ const ThemeColor: React.ForwardRefRenderFunction<HTMLDivElement, ThemeColorProps
   onChange,
   prefixCls,
   formatMessage,
+  hashId,
 }) => {
   if (!colorList || colorList?.length < 1) {
     return null;
   }
-  const baseClassName = prefixCls + '-theme-color';
+  const baseClassName = `${prefixCls}-theme-color`;
   return (
-    <div className={baseClassName}>
+    <div className={`${baseClassName} ${hashId}`}>
       {colorList?.map(({ key, color }) => {
         if (!key) return null;
         return (
@@ -49,7 +51,7 @@ const ThemeColor: React.ForwardRefRenderFunction<HTMLDivElement, ThemeColorProps
             })}
           >
             <Tag
-              className={`${baseClassName}-block`}
+              className={`${baseClassName}-block ${hashId}`}
               color={color}
               check={value === color}
               onClick={() => onChange && onChange(color)}

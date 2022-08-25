@@ -2,19 +2,21 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
-# [2.0.0-experimental.17](https://github.com/ant-design/pro-components/compare/@ant-design/pro-utils@2.0.0-experimental.16...@ant-design/pro-utils@2.0.0-experimental.17) (2022-08-24)
+# [2.0.0-experimental.19](https://github.com/ant-design/pro-components/compare/@ant-design/pro-utils@2.0.0-experimental.18...@ant-design/pro-utils@2.0.0-experimental.19) (2022-08-25)
 
 **Note:** Version bump only for package @ant-design/pro-utils
 
-# [2.0.0-experimental.16](https://github.com/ant-design/pro-components/compare/@ant-design/pro-utils@2.0.0-experimental.15...@ant-design/pro-utils@2.0.0-experimental.16) (2022-08-24)
+# [2.0.0-experimental.18](https://github.com/ant-design/pro-components/compare/@ant-design/pro-utils@1.45.1...@ant-design/pro-utils@2.0.0-experimental.18) (2022-08-25)
 
-**Note:** Version bump only for package @ant-design/pro-utils
+### Features
 
-# [2.0.0-experimental.15](https://github.com/ant-design/pro-components/compare/@ant-design/pro-utils@2.0.0-experimental.14...@ant-design/pro-utils@2.0.0-experimental.15) (2022-08-23)
+- cssinjs ([#5596](https://github.com/ant-design/pro-components/issues/5596)) ([b82c7d2](https://github.com/ant-design/pro-components/commit/b82c7d2a1021506918947df56aaa66c3181187c7))
 
-**Note:** Version bump only for package @ant-design/pro-utils
+# [1.45.0](https://github.com/ant-design/pro-components/compare/@ant-design/pro-utils@1.44.0...@ant-design/pro-utils@1.45.0) (2022-08-19)
 
-# [2.0.0-experimental.14](https://github.com/ant-design/pro-components/compare/@ant-design/pro-utils@2.0.0-experimental.13...@ant-design/pro-utils@2.0.0-experimental.14) (2022-08-23)
+### Bug Fixes
+
+- **table:** editable table 增加子记录时没有按照 position 方向增加 ([#5736](https://github.com/ant-design/pro-components/issues/5736)) ([eb91a04](https://github.com/ant-design/pro-components/commit/eb91a049c580a167f48ddfde3b7a81a3f1dd27ea))
 
 ### Features
 

@@ -5114,7 +5114,7 @@ exports[`card demos 📸 renders ./packages/card/src/components/StatisticCard/de
                 >
                   <div
                     class="ant-pro-card-statistic"
-                    style="width: 120px; border-right: 1px solid #f0f0f0;"
+                    style="width: 120px; border-inline-end: 1px solid #f0f0f0;"
                   >
                     <div
                       class="ant-pro-card-statistic-wrapper"
@@ -5503,7 +5503,7 @@ exports[`card demos 📸 renders ./packages/card/src/components/StatisticCard/de
                 >
                   <div
                     class="ant-pro-card-statistic"
-                    style="width: 120px; border-right: 1px solid #f0f0f0;"
+                    style="width: 120px; border-inline-end: 1px solid #f0f0f0;"
                   >
                     <div
                       class="ant-pro-card-statistic-wrapper"

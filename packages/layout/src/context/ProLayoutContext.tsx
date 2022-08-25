@@ -1,8 +1,10 @@
 ﻿import { setAlpha, useToken } from '@ant-design/pro-utils';
+// @ts-ignore
 import type { GlobalToken } from 'antd/es/theme/interface';
 import React from 'react';
 
 export type BaseLayoutDesignToken = {
+  hashId: string;
   colorPrimary: string;
   /**
    * 跨站点应用的图标hover颜色
@@ -162,11 +164,12 @@ export type ProLayoutProviderProps = {
 };
 
 export const ProLayoutProvider: React.FC<ProLayoutProviderProps> = (props) => {
-  const { token } = useToken();
+  const { token, hashId } = useToken();
   return (
     <ProLayoutContext.Provider
       value={{
         ...getLayoutDesignToken(props?.token || {}, token),
+        hashId,
       }}
     >
       {props.children}

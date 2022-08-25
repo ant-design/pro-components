@@ -1226,7 +1226,7 @@ exports[`skeleton demos 📸 renders ./packages/skeleton/src/demos/list.tsx corr
               </div>
             </div>
             <div
-              style="border-left: 1px solid rgba(0,0,0,0.06); padding-inline-start: 42px; flex: 1; margin-inline-end: 0;"
+              style="border-inline-start: 1px solid rgba(0,0,0,0.06); padding-inline-start: 42px; flex: 1; margin-inline-end: 0;"
             >
               <div
                 class="ant-skeleton ant-skeleton-active"

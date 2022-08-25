@@ -2,14 +2,17 @@ import type { ProFormInstance } from '@ant-design/pro-components';
 import {
   ProForm,
   ProFormCascader,
+  ProFormDatePicker,
   ProFormDateRangePicker,
   ProFormDigit,
+  ProFormList,
   ProFormMoney,
   ProFormSelect,
   ProFormText,
   ProFormTreeSelect,
 } from '@ant-design/pro-components';
 import { message, TreeSelect } from 'antd';
+import moment from 'moment';
 import { useRef } from 'react';
 
 const waitTime = (time: number = 100) => {
@@ -226,6 +229,28 @@ export default () => {
           placeholder: 'Please select',
         }}
       />
+      <ProFormDatePicker
+        name="date"
+        transform={(value) => {
+          return {
+            date: moment(value).unix(),
+          };
+        }}
+      />
+      <ProFormList name="datas" initialValue={[{ date: '2022-10-12 10:00:00' }]}>
+        {() => {
+          return (
+            <ProFormDatePicker
+              name="date"
+              transform={(value) => {
+                return {
+                  date: moment(value).unix(),
+                };
+              }}
+            />
+          );
+        }}
+      </ProFormList>
     </ProForm>
   );
 };
