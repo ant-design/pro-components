@@ -82,6 +82,14 @@ export type ProFormListProps<T> = Omit<FormListProps, 'children'> &
     actionRef?: React.MutableRefObject<FormListActionType<T> | undefined>;
     /** 放在div上面的属性 */
     style?: React.CSSProperties;
+    /**
+     * 数据新增成功回调
+     */
+    onAfterAdd?: (...params: [...Parameters<FormListOperation['add']>, number]) => void;
+    /**
+     * 数据移除成功回调
+     */
+    onAfterRemove?: (...params: [...Parameters<FormListOperation['remove']>, number]) => void;
     /** 是否同时校验列表是否为空 */
     isValidateList?: boolean;
     /** 当 isValidateList 为 true 时执行为空提示 */
@@ -125,6 +133,8 @@ function ProFormList<T>(props: ProFormListProps<T>) {
     max,
     colProps,
     rowProps,
+    onAfterAdd,
+    onAfterRemove,
     isValidateList = false,
     emptyListMessage = '列表不能为空',
     ...rest
@@ -219,17 +229,19 @@ function ProFormList<T>(props: ProFormListProps<T>) {
                     min={min}
                     max={max}
                     count={fields.length}
-                    onAfterAdd={() => {
+                    onAfterAdd={(defaultValue, insertIndex, count) => {
                       if (isValidateList) {
                         proFormContext.formRef!.current!.validateFields([name]);
                       }
+                      onAfterAdd?.(defaultValue, insertIndex, count);
                     }}
-                    onAfterRemove={(a, count) => {
+                    onAfterRemove={(index, count) => {
                       if (isValidateList) {
                         if (count === 0) {
                           proFormContext.formRef!.current!.validateFields([name]);
                         }
                       }
+                      onAfterRemove?.(index, count);
                     }}
                   >
                     {children}

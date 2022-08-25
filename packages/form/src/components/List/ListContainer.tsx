@@ -53,7 +53,7 @@ const ProFormListContainer: React.FC<ProFormListItemProps> = (props) => {
         const success = await actionGuard.beforeAddRow!(...rest, count);
         if (success) {
           const res = action.add(...rest);
-          onAfterAdd?.(...rest, count);
+          onAfterAdd?.(...rest, count + 1);
           return res;
         }
         return false;
@@ -61,7 +61,7 @@ const ProFormListContainer: React.FC<ProFormListItemProps> = (props) => {
     } else {
       wrapAction.add = async (...rest) => {
         const res = action.add(...rest);
-        onAfterAdd?.(...rest, count);
+        onAfterAdd?.(...rest, count + 1);
         return res;
       };
     }
@@ -71,7 +71,7 @@ const ProFormListContainer: React.FC<ProFormListItemProps> = (props) => {
         const success = await actionGuard.beforeRemoveRow!(...rest, count);
         if (success) {
           const res = action.remove(...rest);
-          onAfterRemove?.(...rest, count + 1);
+          onAfterRemove?.(...rest, count - 1);
           return res;
         }
         return false;
