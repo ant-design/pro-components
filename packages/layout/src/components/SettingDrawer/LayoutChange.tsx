@@ -20,7 +20,8 @@ export const renderLayoutSettingItem = (item: SettingItemProps) => {
 const LayoutSetting: React.FC<{
   settings: Partial<ProSettings>;
   changeSetting: (key: string, value: any, hideLoading?: boolean) => void;
-}> = ({ settings = {}, changeSetting }) => {
+  hashId: string;
+}> = ({ settings = {}, changeSetting, hashId }) => {
   const formatMessage = getFormatMessage();
   const { contentWidth, splitMenus, fixedHeader, layout, fixSiderbar } =
     settings || defaultSettings;
@@ -38,7 +39,7 @@ const LayoutSetting: React.FC<{
             <Select
               value={contentWidth || 'Fixed'}
               size="small"
-              className="content-width"
+              className={`content-width ${hashId}`}
               onSelect={(value: string) => {
                 changeSetting('contentWidth', value);
               }}

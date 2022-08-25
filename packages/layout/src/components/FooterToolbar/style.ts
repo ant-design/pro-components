@@ -21,7 +21,7 @@ const genFooterToolBarStyle: GenerateStyle<AppsLogoComponentsToken> = (token) =>
       lineHeight: '64px',
       /* A way to reset the style of the component. */
       backgroundColor: 'rgba(255, 255, 255, 0.58)',
-      borderTop: `1px solid ${token.colorSplit}`,
+      borderBlockStart: `1px solid ${token.colorSplit}`,
       '-webkit-backdrop-filter': 'blur(8px)',
       backdropFilter: 'blur(8px)',
       transition: 'all 0.2s ease 0s',

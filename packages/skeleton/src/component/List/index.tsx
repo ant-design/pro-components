@@ -57,7 +57,8 @@ const StatisticSkeleton: React.FC<{
             // eslint-disable-next-line react/no-array-index-key
             key={index}
             style={{
-              borderLeft: arraySize > 2 && index === 1 ? '1px solid rgba(0,0,0,0.06)' : undefined,
+              borderInlineStart:
+                arraySize > 2 && index === 1 ? '1px solid rgba(0,0,0,0.06)' : undefined,
               paddingInlineStart: firstWidth(index),
               flex: 1,
               marginInlineEnd: index === 0 ? 16 : 0,

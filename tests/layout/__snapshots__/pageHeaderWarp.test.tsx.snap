@@ -2,7 +2,7 @@
 
 exports[`BasicLayout base use 1`] = `
 <div
-  class="ant-pro"
+  class="ant-pro "
 >
   <div
     class="ant-design-pro ant-pro-layout ant-pro-layout-fix-siderbar ant-pro-layout-side"
@@ -164,7 +164,7 @@ exports[`BasicLayout base use 1`] = `
             style="flex:1;overflow-y:auto;overflow-x:hidden"
           >
             <ul
-              class="ant-menu ant-menu-root ant-menu-inline ant-pro-sider-menu ant-pro-base-menu"
+              class="ant-menu ant-menu-root ant-menu-inline ant-pro-sider-menu  ant-pro-base-menu"
               data-menu-list="true"
               role="menu"
               style="background-color:transparent;border:none;width:100%"
@@ -225,7 +225,7 @@ exports[`BasicLayout base use 1`] = `
         </div>
       </aside>
       <div
-        class="ant-layout"
+        class="ant-pro-layout-container"
         style="position:relative"
       >
         <main
@@ -235,16 +235,16 @@ exports[`BasicLayout base use 1`] = `
             class="ant-pro-page-container ant-pro-page-container-ghost"
           >
             <div
-              class="ant-page-header ant-pro-page-container-warp-page-header ant-pro-page-container-warp-page-header ant-page-header-ghost"
+              class="ant-page-header ant-pro-page-container-warp-page-header  ant-pro-page-container-warp-page-header  ant-page-header-ghost"
             >
               <div
-                class="ant-page-header-heading"
+                class="ant-page-header-heading "
               >
                 <div
-                  class="ant-page-header-heading-left"
+                  class="ant-page-header-heading-left "
                 >
                   <span
-                    class="ant-page-header-heading-title"
+                    class="ant-page-header-heading-title "
                     title="welcome"
                   >
                     welcome
@@ -262,7 +262,7 @@ exports[`BasicLayout base use 1`] = `
 
 exports[`BasicLayout content is text 1`] = `
 <div
-  class="ant-pro"
+  class="ant-pro "
 >
   <div
     class="ant-design-pro ant-pro-layout ant-pro-layout-fix-siderbar ant-pro-layout-side"
@@ -424,7 +424,7 @@ exports[`BasicLayout content is text 1`] = `
             style="flex:1;overflow-y:auto;overflow-x:hidden"
           >
             <ul
-              class="ant-menu ant-menu-root ant-menu-inline ant-pro-sider-menu ant-pro-base-menu"
+              class="ant-menu ant-menu-root ant-menu-inline ant-pro-sider-menu  ant-pro-base-menu"
               data-menu-list="true"
               role="menu"
               style="background-color:transparent;border:none;width:100%"
@@ -485,7 +485,7 @@ exports[`BasicLayout content is text 1`] = `
         </div>
       </aside>
       <div
-        class="ant-layout"
+        class="ant-pro-layout-container"
         style="position:relative"
       >
         <main
@@ -495,16 +495,16 @@ exports[`BasicLayout content is text 1`] = `
             class="ant-pro-page-container ant-pro-page-container-ghost"
           >
             <div
-              class="ant-page-header ant-pro-page-container-warp-page-header ant-pro-page-container-warp-page-header ant-page-header-ghost"
+              class="ant-page-header ant-pro-page-container-warp-page-header  ant-pro-page-container-warp-page-header  ant-page-header-ghost"
             >
               <div
-                class="ant-page-header-heading"
+                class="ant-page-header-heading "
               >
                 <div
-                  class="ant-page-header-heading-left"
+                  class="ant-page-header-heading-left "
                 >
                   <span
-                    class="ant-page-header-heading-title"
+                    class="ant-page-header-heading-title "
                     title="welcome"
                   >
                     welcome
@@ -512,19 +512,19 @@ exports[`BasicLayout content is text 1`] = `
                 </div>
               </div>
               <div
-                class="ant-page-header-content"
+                class="ant-page-header-content "
               >
                 <div
-                  class="ant-pro-page-container-detail"
+                  class="ant-pro-page-container-detail "
                 >
                   <div
-                    class="ant-pro-page-container-main"
+                    class="ant-pro-page-container-main "
                   >
                     <div
-                      class="ant-pro-page-container-row"
+                      class="ant-pro-page-container-row "
                     >
                       <div
-                        class="ant-pro-page-container-content"
+                        class="ant-pro-page-container-content "
                       >
                         just so so
                       </div>

@@ -82,6 +82,13 @@ export default () => {
         fieldProps={{ precision: 2 }}
         customSymbol="💰"
       />
+      <ProFormMoney
+        label="小数点精度-0"
+        name="amount6"
+        initialValue={2222222222.222222}
+        fieldProps={{ precision: 0 }}
+        customSymbol="💰"
+      />
     </ProForm>
   );
 };

@@ -70,7 +70,7 @@ const genProCardStyle: GenerateStyle<ProCardToken> = (token) => {
           width: 0,
           height: 0,
           border: `6px solid ${token.colorPrimary}`,
-          borderBottom: '6px solid transparent',
+          borderBlockEnd: '6px solid transparent',
           borderInlineStart: '6px solid transparent',
           borderStartEndRadius: 2,
           content: '""',
@@ -143,7 +143,7 @@ const genProCardStyle: GenerateStyle<ProCardToken> = (token) => {
         [`> ${componentCls}`]: {
           '&-header': {
             paddingBlockEnd: token.padding,
-            borderBottom: 0,
+            borderBlockEnd: 0,
           },
 
           '&-body': {
@@ -163,7 +163,7 @@ const genProCardStyle: GenerateStyle<ProCardToken> = (token) => {
           '&': {
             paddingBlockEnd: token.padding,
           },
-          borderBottom: `${token.lineWidth}px ${token.lineType} ${token.colorSplit}`,
+          borderBlockEnd: `${token.lineWidth}px ${token.lineType} ${token.colorSplit}`,
         },
 
         '&-collapsible': {
@@ -220,7 +220,7 @@ const genProCardStyle: GenerateStyle<ProCardToken> = (token) => {
       },
 
       [`&${componentCls}-split-horizontal`]: {
-        borderBottom: `${token.lineWidth}px ${token.lineType} ${token.colorSplit}`,
+        borderBlockEnd: `${token.lineWidth}px ${token.lineType} ${token.colorSplit}`,
       },
     },
 

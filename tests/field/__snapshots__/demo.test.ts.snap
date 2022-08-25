@@ -1931,13 +1931,13 @@ exports[`field demos 📸 renders ./packages/field/src/demos/base_test.tsx corre
                       class="ant-input ant-input-disabled"
                       disabled=""
                       placeholder="~"
-                      style="width: 30px; text-align: center; border-left: 0; border-right: 0; pointer-events: none; background-color: rgb(255, 255, 255);"
+                      style="width: 30px; text-align: center; border-inline-start: 0; border-inline-end: 0; pointer-events: none; background-color: rgb(255, 255, 255);"
                       type="text"
                       value=""
                     />
                     <div
                       class="ant-input-number"
-                      style="border-left: 0;"
+                      style="border-inline-start: 0;"
                     >
                       <div
                         class="ant-input-number-handler-wrap"
@@ -4319,7 +4319,7 @@ exports[`field demos 📸 renders ./packages/field/src/demos/select-request.tsx 
     class="App"
   >
     <div
-      class="ant-pro"
+      class="ant-pro "
     >
       <form
         autocomplete="off"
@@ -4441,7 +4441,7 @@ exports[`field demos 📸 renders ./packages/field/src/demos/select-request.tsx 
       </form>
     </div>
     <div
-      class="ant-pro"
+      class="ant-pro "
     >
       <form
         autocomplete="off"
@@ -4573,7 +4573,7 @@ exports[`field demos 📸 renders ./packages/field/src/demos/tree-select-search-
 <DocumentFragment>
   <div>
     <div
-      class="ant-pro"
+      class="ant-pro "
     >
       <form
         autocomplete="off"

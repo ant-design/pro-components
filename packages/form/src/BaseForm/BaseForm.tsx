@@ -706,7 +706,7 @@ function BaseForm<T = Record<string, any>>(props: BaseFormProps<T>) {
             }}
             autoComplete="off"
             form={form}
-            {...omit(propRest, ['autoFocusFirstInput'])}
+            {...omit(propRest, ['labelWidth', 'autoFocusFirstInput'] as any[])}
             // 组合 urlSearch 和 initialValues
             initialValues={
               syncToUrlAsImportant

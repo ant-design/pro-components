@@ -3,7 +3,7 @@
 exports[`form demos 📸 renders ./packages/form/src/components/Dependency/demos/dependency.tsx correctly 1`] = `
 <DocumentFragment>
   <div
-    class="ant-pro"
+    class="ant-pro "
   >
     <form
       autocomplete="off"
@@ -543,7 +543,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/Dependency/demos
 exports[`form demos 📸 renders ./packages/form/src/components/Dependency/demos/dependency2.tsx correctly 1`] = `
 <DocumentFragment>
   <div
-    class="ant-pro"
+    class="ant-pro "
   >
     <form
       autocomplete="off"
@@ -1729,7 +1729,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/Dependency/demos
 exports[`form demos 📸 renders ./packages/form/src/components/FieldSet/demos/captCha.tsx correctly 1`] = `
 <DocumentFragment>
   <div
-    class="ant-pro"
+    class="ant-pro "
   >
     <form
       autocomplete="off"
@@ -1864,7 +1864,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/FieldSet/demos/c
       </span>
     </button>
     <div
-      class="ant-pro"
+      class="ant-pro "
     >
       <form
         autocomplete="off"
@@ -3187,13 +3187,13 @@ exports[`form demos 📸 renders ./packages/form/src/components/FieldSet/demos/c
                             class="ant-input ant-input-disabled"
                             disabled=""
                             placeholder="-"
-                            style="width: 60px; text-align: center; border-left: 0; border-right: 0; pointer-events: none; background-color: rgb(255, 255, 255);"
+                            style="width: 60px; text-align: center; border-inline-start: 0; border-inline-end: 0; pointer-events: none; background-color: rgb(255, 255, 255);"
                             type="text"
                             value=""
                           />
                           <div
                             class="ant-input-number"
-                            style="border-left: 0;"
+                            style="border-inline-start: 0;"
                           >
                             <div
                               class="ant-input-number-handler-wrap"
@@ -4123,7 +4123,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/FieldSet/demos/c
     style="padding: 24px;"
   >
     <div
-      class="ant-pro"
+      class="ant-pro "
     >
       <form
         autocomplete="off"
@@ -6238,7 +6238,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/FieldSet/demos/d
       </span>
     </button>
     <div
-      class="ant-pro"
+      class="ant-pro "
     >
       <form
         autocomplete="off"
@@ -7548,7 +7548,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/FieldSet/demos/f
       </span>
     </button>
     <div
-      class="ant-pro"
+      class="ant-pro "
     >
       <form
         autocomplete="off"
@@ -8065,7 +8065,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/FieldSet/demos/f
 exports[`form demos 📸 renders ./packages/form/src/components/FieldSet/demos/pro-form-captCha.tsx correctly 1`] = `
 <DocumentFragment>
   <div
-    class="ant-pro"
+    class="ant-pro "
   >
     <form
       autocomplete="off"
@@ -8200,7 +8200,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/FieldSet/demos/s
       </span>
     </button>
     <div
-      class="ant-pro"
+      class="ant-pro "
     >
       <form
         autocomplete="off"
@@ -8518,7 +8518,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/FieldSet/demos/s
 exports[`form demos 📸 renders ./packages/form/src/components/FieldSet/demos/upload.tsx correctly 1`] = `
 <DocumentFragment>
   <div
-    class="ant-pro"
+    class="ant-pro "
   >
     <form
       autocomplete="off"
@@ -8826,7 +8826,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/FieldSet/demos/u
 exports[`form demos 📸 renders ./packages/form/src/components/Group/demos/base-use.tsx correctly 1`] = `
 <DocumentFragment>
   <div
-    class="ant-pro"
+    class="ant-pro "
   >
     <form
       autocomplete="off"
@@ -9276,7 +9276,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/Group/demos/base
 exports[`form demos 📸 renders ./packages/form/src/components/Group/demos/countLimit.tsx correctly 1`] = `
 <DocumentFragment>
   <div
-    class="ant-pro"
+    class="ant-pro "
   >
     <form
       autocomplete="off"
@@ -9524,7 +9524,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/Group/demos/cust
             class="ant-pro-card-body"
           >
             <div
-              class="ant-pro"
+              class="ant-pro "
             >
               <form
                 autocomplete="off"
@@ -9890,7 +9890,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/Group/demos/cust
             class="ant-pro-card-body"
           >
             <div
-              class="ant-pro"
+              class="ant-pro "
             >
               <form
                 autocomplete="off"
@@ -10976,7 +10976,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/Group/demos/cust
 exports[`form demos 📸 renders ./packages/form/src/components/Group/demos/dependency.tsx correctly 1`] = `
 <DocumentFragment>
   <div
-    class="ant-pro"
+    class="ant-pro "
   >
     <form
       autocomplete="off"
@@ -11497,7 +11497,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/Group/demos/depe
 exports[`form demos 📸 renders ./packages/form/src/components/Group/demos/horizontal-layout.tsx correctly 1`] = `
 <DocumentFragment>
   <div
-    class="ant-pro"
+    class="ant-pro "
   >
     <form
       autocomplete="off"
@@ -11976,7 +11976,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/Group/demos/list
     </div>
   </div>
   <div
-    class="ant-pro"
+    class="ant-pro "
   >
     <form
       autocomplete="off"
@@ -12967,7 +12967,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/Group/demos/list
 exports[`form demos 📸 renders ./packages/form/src/components/Group/demos/list-tooltip.tsx correctly 1`] = `
 <DocumentFragment>
   <div
-    class="ant-pro"
+    class="ant-pro "
   >
     <form
       autocomplete="off"
@@ -13390,7 +13390,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/Group/demos/list
 exports[`form demos 📸 renders ./packages/form/src/components/Group/demos/nested-list.tsx correctly 1`] = `
 <DocumentFragment>
   <div
-    class="ant-pro"
+    class="ant-pro "
   >
     <form
       autocomplete="off"
@@ -14196,7 +14196,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/Group/demos/pro-
     </div>
   </div>
   <div
-    class="ant-pro"
+    class="ant-pro "
   >
     <form
       autocomplete="off"
@@ -14597,7 +14597,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/LoginForm/demos/
         style="width: 328px;"
       >
         <div
-          class="ant-pro"
+          class="ant-pro "
         >
           <form
             autocomplete="off"
@@ -15068,7 +15068,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/LoginForm/demos/
           class="ant-pro-form-login-page-main"
         >
           <div
-            class="ant-pro"
+            class="ant-pro "
           >
             <form
               autocomplete="off"
@@ -15880,7 +15880,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/QueryFilter/demo
     <br />
     <br />
     <div
-      class="ant-pro"
+      class="ant-pro "
     >
       <form
         autocomplete="off"
@@ -17553,7 +17553,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/QueryFilter/demo
 exports[`form demos 📸 renders ./packages/form/src/components/QueryFilter/demos/light-filter-bordered.tsx correctly 1`] = `
 <DocumentFragment>
   <div
-    class="ant-pro"
+    class="ant-pro "
   >
     <form
       autocomplete="off"
@@ -18205,7 +18205,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/QueryFilter/demo
 exports[`form demos 📸 renders ./packages/form/src/components/QueryFilter/demos/light-filter-collapse.tsx correctly 1`] = `
 <DocumentFragment>
   <div
-    class="ant-pro"
+    class="ant-pro "
   >
     <form
       autocomplete="off"
@@ -18311,7 +18311,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/QueryFilter/demo
         style="margin-bottom: 8px;"
       >
         <div
-          class="ant-pro"
+          class="ant-pro "
         >
           <form
             autocomplete="off"
@@ -18424,7 +18424,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/QueryFilter/demo
         style="margin-bottom: 8px;"
       >
         <div
-          class="ant-pro"
+          class="ant-pro "
         >
           <form
             autocomplete="off"
@@ -18537,7 +18537,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/QueryFilter/demo
         style="margin-bottom: 8px;"
       >
         <div
-          class="ant-pro"
+          class="ant-pro "
         >
           <form
             autocomplete="off"
@@ -18571,7 +18571,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/QueryFilter/demo
         class="ant-space-item"
       >
         <div
-          class="ant-pro"
+          class="ant-pro "
         >
           <form
             autocomplete="off"
@@ -18691,7 +18691,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/QueryFilter/demo
       </label>
     </div>
     <div
-      class="ant-pro"
+      class="ant-pro "
     >
       <form
         autocomplete="off"
@@ -19717,7 +19717,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/QueryFilter/demo
     <br />
     <br />
     <div
-      class="ant-pro"
+      class="ant-pro "
     >
       <form
         autocomplete="off"
@@ -20292,7 +20292,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/QueryFilter/demo
 exports[`form demos 📸 renders ./packages/form/src/components/QueryFilter/demos/query-filter.tsx correctly 1`] = `
 <DocumentFragment>
   <div
-    class="ant-pro"
+    class="ant-pro "
   >
     <form
       autocomplete="off"
@@ -20937,7 +20937,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/QueryFilter/demo
 exports[`form demos 📸 renders ./packages/form/src/components/QueryFilter/demos/query-filter-collapsed.tsx correctly 1`] = `
 <DocumentFragment>
   <div
-    class="ant-pro"
+    class="ant-pro "
   >
     <form
       autocomplete="off"
@@ -21524,7 +21524,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/QueryFilter/demo
 exports[`form demos 📸 renders ./packages/form/src/components/QueryFilter/demos/query-filter-defaultColsNumber.tsx correctly 1`] = `
 <DocumentFragment>
   <div
-    class="ant-pro"
+    class="ant-pro "
   >
     <form
       autocomplete="off"
@@ -21699,7 +21699,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/QueryFilter/demo
           </div>
         </div>
         <div
-          class="ant-col ant-col-8"
+          class="ant-col ant-col-8 ant-pro-query-filter-row-split-line"
           style="padding-left: 12px; padding-right: 12px;"
         >
           <div
@@ -21777,16 +21777,6 @@ exports[`form demos 📸 renders ./packages/form/src/components/QueryFilter/demo
               </div>
             </div>
           </div>
-        </div>
-        <div
-          class="ant-col ant-col-24"
-          style="padding-left: 12px; padding-right: 12px;"
-        >
-          <div
-            class="ant-divider ant-divider-horizontal ant-divider-dashed"
-            role="separator"
-            style="margin-block-start: -8px; margin-block-end: 16px;"
-          />
         </div>
         <div
           class="ant-col ant-col-8"
@@ -22131,7 +22121,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/QueryFilter/demo
 exports[`form demos 📸 renders ./packages/form/src/components/QueryFilter/demos/query-filter-test.tsx correctly 1`] = `
 <DocumentFragment>
   <div
-    class="ant-pro"
+    class="ant-pro "
   >
     <form
       autocomplete="off"
@@ -22428,7 +22418,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/QueryFilter/demo
     </form>
   </div>
   <div
-    class="ant-pro"
+    class="ant-pro "
   >
     <form
       autocomplete="off"
@@ -22760,7 +22750,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/QueryFilter/demo
     </form>
   </div>
   <div
-    class="ant-pro"
+    class="ant-pro "
   >
     <form
       autocomplete="off"
@@ -23362,7 +23352,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/QueryFilter/demo
     </form>
   </div>
   <div
-    class="ant-pro"
+    class="ant-pro "
   >
     <form
       autocomplete="off"
@@ -23964,7 +23954,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/QueryFilter/demo
     </form>
   </div>
   <div
-    class="ant-pro"
+    class="ant-pro "
   >
     <form
       autocomplete="off"
@@ -24566,7 +24556,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/QueryFilter/demo
     </form>
   </div>
   <div
-    class="ant-pro"
+    class="ant-pro "
   >
     <form
       autocomplete="off"
@@ -25173,7 +25163,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/QueryFilter/demo
 exports[`form demos 📸 renders ./packages/form/src/components/QueryFilter/demos/query-filter-vertical.tsx correctly 1`] = `
 <DocumentFragment>
   <div
-    class="ant-pro"
+    class="ant-pro "
   >
     <form
       autocomplete="off"
@@ -25924,7 +25914,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/QueryFilter/demo
         </div>
       </div>
       <div
-        class="ant-pro"
+        class="ant-pro "
       >
         <form
           autocomplete="off"
@@ -25939,7 +25929,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/QueryFilter/demo
             style="margin-left: -12px; margin-right: -12px;"
           >
             <div
-              class="ant-col ant-col-24"
+              class="ant-col ant-col-24 ant-pro-query-filter-row-split-line"
               style="padding-left: 12px; padding-right: 12px;"
             >
               <div
@@ -26022,16 +26012,6 @@ exports[`form demos 📸 renders ./packages/form/src/components/QueryFilter/demo
                   </div>
                 </div>
               </div>
-            </div>
-            <div
-              class="ant-col ant-col-24"
-              style="padding-left: 12px; padding-right: 12px;"
-            >
-              <div
-                class="ant-divider ant-divider-horizontal ant-divider-dashed"
-                role="separator"
-                style="margin-block-start: -8px; margin-block-end: 16px;"
-              />
             </div>
             <div
               class="ant-col ant-col-24"
@@ -26217,7 +26197,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/QueryFilter/demo
 exports[`form demos 📸 renders ./packages/form/src/components/SchemaForm/demos/customization-value-type.tsx correctly 1`] = `
 <DocumentFragment>
   <div
-    class="ant-pro"
+    class="ant-pro "
   >
     <form
       autocomplete="off"
@@ -26491,7 +26471,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/SchemaForm/demos
 exports[`form demos 📸 renders ./packages/form/src/components/SchemaForm/demos/dependencies.tsx correctly 1`] = `
 <DocumentFragment>
   <div
-    class="ant-pro"
+    class="ant-pro "
   >
     <form
       autocomplete="off"
@@ -26932,7 +26912,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/SchemaForm/demos
 exports[`form demos 📸 renders ./packages/form/src/components/SchemaForm/demos/dependency.tsx correctly 1`] = `
 <DocumentFragment>
   <div
-    class="ant-pro"
+    class="ant-pro "
   >
     <form
       autocomplete="off"
@@ -27076,7 +27056,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/SchemaForm/demos
 exports[`form demos 📸 renders ./packages/form/src/components/SchemaForm/demos/dynamic-rerender.tsx correctly 1`] = `
 <DocumentFragment>
   <div
-    class="ant-pro"
+    class="ant-pro "
   >
     <form
       autocomplete="off"
@@ -27513,7 +27493,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/SchemaForm/demos
 exports[`form demos 📸 renders ./packages/form/src/components/SchemaForm/demos/embed.tsx correctly 1`] = `
 <DocumentFragment>
   <div
-    class="ant-pro"
+    class="ant-pro "
   >
     <form
       autocomplete="off"
@@ -28277,7 +28257,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/SchemaForm/demos
     </div>
   </div>
   <div
-    class="ant-pro"
+    class="ant-pro "
   >
     <form
       autocomplete="off"
@@ -29911,7 +29891,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/SchemaForm/demos
 exports[`form demos 📸 renders ./packages/form/src/components/SchemaForm/demos/steps-form.tsx correctly 1`] = `
 <DocumentFragment>
   <div
-    class="ant-pro"
+    class="ant-pro "
   >
     <div
       class="ant-pro-steps-form"
@@ -31368,7 +31348,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/SchemaForm/demos
     </div>
   </div>
   <div
-    class="ant-pro"
+    class="ant-pro "
   >
     <form
       autocomplete="off"
@@ -31596,7 +31576,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/SchemaForm/demos
 exports[`form demos 📸 renders ./packages/form/src/components/StepsForm/demos/add-or-edit-step-form.tsx correctly 1`] = `
 <DocumentFragment>
   <div
-    class="ant-pro"
+    class="ant-pro "
   >
     <div
       class="ant-pro-steps-form"
@@ -32145,7 +32125,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/StepsForm/demos/
       class="ant-pro-card-body"
     >
       <div
-        class="ant-pro"
+        class="ant-pro "
       >
         <div
           class="ant-pro-steps-form"
@@ -33385,7 +33365,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/StepsForm/demos/
     </span>
   </button>
   <div
-    class="ant-pro"
+    class="ant-pro "
   >
     <div
       class="ant-pro-steps-form"
@@ -33397,7 +33377,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/StepsForm/demos/
 exports[`form demos 📸 renders ./packages/form/src/components/StepsForm/demos/multi-card-step-form.tsx correctly 1`] = `
 <DocumentFragment>
   <div
-    class="ant-pro"
+    class="ant-pro "
   >
     <div
       class="ant-pro-steps-form"
@@ -35155,7 +35135,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/StepsForm/demos/
       class="ant-pro-card-body"
     >
       <div
-        class="ant-pro"
+        class="ant-pro "
       >
         <div
           class="ant-pro-steps-form"
@@ -36475,7 +36455,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/StepsForm/demos/
       class="ant-pro-card-body"
     >
       <div
-        class="ant-pro"
+        class="ant-pro "
       >
         <div
           class="ant-pro-steps-form"
@@ -37697,7 +37677,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/StepsForm/demos/
 exports[`form demos 📸 renders ./packages/form/src/demos/base.tsx correctly 1`] = `
 <DocumentFragment>
   <div
-    class="ant-pro"
+    class="ant-pro "
   >
     <form
       autocomplete="off"
@@ -38902,6 +38882,280 @@ exports[`form demos 📸 renders ./packages/form/src/demos/base.tsx correctly 1`
         </div>
       </div>
       <div
+        class="ant-form-item"
+      >
+        <div
+          class="ant-row ant-form-item-row"
+        >
+          <div
+            class="ant-col ant-form-item-control"
+          >
+            <div
+              class="ant-form-item-control-input"
+            >
+              <div
+                class="ant-form-item-control-input-content"
+              >
+                <div
+                  class="ant-picker"
+                >
+                  <div
+                    class="ant-picker-input"
+                  >
+                    <input
+                      autocomplete="off"
+                      id="date"
+                      placeholder="请选择"
+                      readonly=""
+                      size="12"
+                      title=""
+                      value=""
+                    />
+                    <span
+                      class="ant-picker-suffix"
+                    >
+                      <span
+                        aria-label="calendar"
+                        class="anticon anticon-calendar"
+                        role="img"
+                      >
+                        <svg
+                          aria-hidden="true"
+                          data-icon="calendar"
+                          fill="currentColor"
+                          focusable="false"
+                          height="1em"
+                          viewBox="64 64 896 896"
+                          width="1em"
+                        >
+                          <path
+                            d="M880 184H712v-64c0-4.4-3.6-8-8-8h-56c-4.4 0-8 3.6-8 8v64H384v-64c0-4.4-3.6-8-8-8h-56c-4.4 0-8 3.6-8 8v64H144c-17.7 0-32 14.3-32 32v664c0 17.7 14.3 32 32 32h736c17.7 0 32-14.3 32-32V216c0-17.7-14.3-32-32-32zm-40 656H184V460h656v380zM184 392V256h128v48c0 4.4 3.6 8 8 8h56c4.4 0 8-3.6 8-8v-48h256v48c0 4.4 3.6 8 8 8h56c4.4 0 8-3.6 8-8v-48h128v136H184z"
+                          />
+                        </svg>
+                      </span>
+                    </span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div
+        class="ant-pro-form-list"
+      >
+        <div
+          class="ant-form-item"
+        >
+          <div
+            class="ant-row ant-form-item-row"
+          >
+            <div
+              class="ant-col ant-form-item-control"
+            >
+              <div
+                class="ant-form-item-control-input"
+              >
+                <div
+                  class="ant-form-item-control-input-content"
+                >
+                  <div
+                    style="max-width: 100%; min-width: 100%;"
+                  >
+                    <div
+                      class="ant-pro-form-list-item "
+                      style="display: flex; align-items: flex-end;"
+                    >
+                      <div
+                        class="ant-pro-form-list-container"
+                      >
+                        <div
+                          class="ant-form-item"
+                        >
+                          <div
+                            class="ant-row ant-form-item-row"
+                          >
+                            <div
+                              class="ant-col ant-form-item-control"
+                            >
+                              <div
+                                class="ant-form-item-control-input"
+                              >
+                                <div
+                                  class="ant-form-item-control-input-content"
+                                >
+                                  <div
+                                    class="ant-picker"
+                                  >
+                                    <div
+                                      class="ant-picker-input"
+                                    >
+                                      <input
+                                        autocomplete="off"
+                                        id="datas_0_date"
+                                        placeholder="请选择"
+                                        readonly=""
+                                        size="12"
+                                        title="2022-10-12"
+                                        value="2022-10-12"
+                                      />
+                                      <span
+                                        class="ant-picker-suffix"
+                                      >
+                                        <span
+                                          aria-label="calendar"
+                                          class="anticon anticon-calendar"
+                                          role="img"
+                                        >
+                                          <svg
+                                            aria-hidden="true"
+                                            data-icon="calendar"
+                                            fill="currentColor"
+                                            focusable="false"
+                                            height="1em"
+                                            viewBox="64 64 896 896"
+                                            width="1em"
+                                          >
+                                            <path
+                                              d="M880 184H712v-64c0-4.4-3.6-8-8-8h-56c-4.4 0-8 3.6-8 8v64H384v-64c0-4.4-3.6-8-8-8h-56c-4.4 0-8 3.6-8 8v64H144c-17.7 0-32 14.3-32 32v664c0 17.7 14.3 32 32 32h736c17.7 0 32-14.3 32-32V216c0-17.7-14.3-32-32-32zm-40 656H184V460h656v380zM184 392V256h128v48c0 4.4 3.6 8 8 8h56c4.4 0 8-3.6 8-8v-48h256v48c0 4.4 3.6 8 8 8h56c4.4 0 8-3.6 8-8v-48h128v136H184z"
+                                            />
+                                          </svg>
+                                        </span>
+                                      </span>
+                                      <span
+                                        class="ant-picker-clear"
+                                        role="button"
+                                      >
+                                        <span
+                                          aria-label="close-circle"
+                                          class="anticon anticon-close-circle"
+                                          role="img"
+                                        >
+                                          <svg
+                                            aria-hidden="true"
+                                            data-icon="close-circle"
+                                            fill="currentColor"
+                                            focusable="false"
+                                            height="1em"
+                                            viewBox="64 64 896 896"
+                                            width="1em"
+                                          >
+                                            <path
+                                              d="M512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm165.4 618.2l-66-.3L512 563.4l-99.3 118.4-66.1.3c-4.4 0-8-3.5-8-8 0-1.9.7-3.7 1.9-5.2l130.1-155L340.5 359a8.32 8.32 0 01-1.9-5.2c0-4.4 3.6-8 8-8l66.1.3L512 464.6l99.3-118.4 66-.3c4.4 0 8 3.5 8 8 0 1.9-.7 3.7-1.9 5.2L553.5 514l130 155c1.2 1.5 1.9 3.3 1.9 5.2 0 4.4-3.6 8-8 8z"
+                                            />
+                                          </svg>
+                                        </span>
+                                      </span>
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <div
+                        class="ant-pro-form-list-action"
+                      >
+                        <div
+                          class="ant-spin-nested-loading"
+                        >
+                          <div
+                            class="ant-spin-container"
+                          >
+                            <span
+                              aria-label="copy"
+                              class="anticon anticon-copy ant-pro-form-list-action-icon action-copy"
+                              role="img"
+                              tabindex="-1"
+                            >
+                              <svg
+                                aria-hidden="true"
+                                data-icon="copy"
+                                fill="currentColor"
+                                focusable="false"
+                                height="1em"
+                                viewBox="64 64 896 896"
+                                width="1em"
+                              >
+                                <path
+                                  d="M832 64H296c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8h496v688c0 4.4 3.6 8 8 8h56c4.4 0 8-3.6 8-8V96c0-17.7-14.3-32-32-32zM704 192H192c-17.7 0-32 14.3-32 32v530.7c0 8.5 3.4 16.6 9.4 22.6l173.3 173.3c2.2 2.2 4.7 4 7.4 5.5v1.9h4.2c3.5 1.3 7.2 2 11 2H704c17.7 0 32-14.3 32-32V224c0-17.7-14.3-32-32-32zM350 856.2L263.9 770H350v86.2zM664 888H414V746c0-22.1-17.9-40-40-40H232V264h432v624z"
+                                />
+                              </svg>
+                            </span>
+                          </div>
+                        </div>
+                        <div
+                          class="ant-spin-nested-loading"
+                        >
+                          <div
+                            class="ant-spin-container"
+                          >
+                            <span
+                              aria-label="delete"
+                              class="anticon anticon-delete ant-pro-form-list-action-icon action-remove"
+                              role="img"
+                              tabindex="-1"
+                            >
+                              <svg
+                                aria-hidden="true"
+                                data-icon="delete"
+                                fill="currentColor"
+                                focusable="false"
+                                height="1em"
+                                viewBox="64 64 896 896"
+                                width="1em"
+                              >
+                                <path
+                                  d="M360 184h-8c4.4 0 8-3.6 8-8v8h304v-8c0 4.4 3.6 8 8 8h-8v72h72v-80c0-35.3-28.7-64-64-64H352c-35.3 0-64 28.7-64 64v80h72v-72zm504 72H160c-17.7 0-32 14.3-32 32v32c0 4.4 3.6 8 8 8h60.4l24.7 523c1.6 34.1 29.8 61 63.9 61h454c34.2 0 62.3-26.8 63.9-61l24.7-523H888c4.4 0 8-3.6 8-8v-32c0-17.7-14.3-32-32-32zM731.3 840H292.7l-24.2-512h487l-24.2 512z"
+                                />
+                              </svg>
+                            </span>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <button
+                      class="ant-btn ant-btn-dashed ant-btn-block ant-pro-form-list-creator-button-bottom"
+                      type="button"
+                    >
+                      <span
+                        aria-label="plus"
+                        class="anticon anticon-plus"
+                        role="img"
+                      >
+                        <svg
+                          aria-hidden="true"
+                          data-icon="plus"
+                          fill="currentColor"
+                          focusable="false"
+                          height="1em"
+                          viewBox="64 64 896 896"
+                          width="1em"
+                        >
+                          <defs>
+                            <style />
+                          </defs>
+                          <path
+                            d="M482 152h60q8 0 8 8v704q0 8-8 8h-60q-8 0-8-8V160q0-8 8-8z"
+                          />
+                          <path
+                            d="M176 474h672q8 0 8 8v60q0 8-8 8H176q-8 0-8-8v-60q0-8 8-8z"
+                          />
+                        </svg>
+                      </span>
+                      <span>
+                        添加一行数据
+                      </span>
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div
         class="ant-space ant-space-horizontal ant-space-align-center"
         style="flex-wrap: wrap; margin-bottom: -8px;"
       >
@@ -38940,7 +39194,7 @@ exports[`form demos 📸 renders ./packages/form/src/demos/base.tsx correctly 1`
 exports[`form demos 📸 renders ./packages/form/src/demos/components-test.tsx correctly 1`] = `
 <DocumentFragment>
   <div
-    class="ant-pro"
+    class="ant-pro "
   >
     <form
       autocomplete="off"
@@ -39417,7 +39671,7 @@ exports[`form demos 📸 renders ./packages/form/src/demos/components-test.tsx c
 exports[`form demos 📸 renders ./packages/form/src/demos/config-provider.tsx correctly 1`] = `
 <DocumentFragment>
   <div
-    class="ant-pro"
+    class="ant-pro "
   >
     <div
       class="ant-pro-steps-form"
@@ -39577,7 +39831,7 @@ exports[`form demos 📸 renders ./packages/form/src/demos/config-provider.tsx c
     </div>
   </div>
   <div
-    class="ant-pro"
+    class="ant-pro "
   >
     <form
       autocomplete="off"
@@ -40077,7 +40331,7 @@ exports[`form demos 📸 renders ./packages/form/src/demos/config-provider.tsx c
 exports[`form demos 📸 renders ./packages/form/src/demos/dependency.tsx correctly 1`] = `
 <DocumentFragment>
   <div
-    class="ant-pro"
+    class="ant-pro "
   >
     <form
       autocomplete="off"
@@ -40550,7 +40804,7 @@ exports[`form demos 📸 renders ./packages/form/src/demos/dependency.tsx correc
 exports[`form demos 📸 renders ./packages/form/src/demos/form-layout.tsx correctly 1`] = `
 <DocumentFragment>
   <div
-    class="ant-pro"
+    class="ant-pro "
   >
     <form
       autocomplete="off"
@@ -40933,7 +41187,7 @@ exports[`form demos 📸 renders ./packages/form/src/demos/form-layout.tsx corre
 exports[`form demos 📸 renders ./packages/form/src/demos/form-layout-grid.tsx correctly 1`] = `
 <DocumentFragment>
   <div
-    class="ant-pro"
+    class="ant-pro "
   >
     <form
       autocomplete="off"
@@ -41836,7 +42090,7 @@ exports[`form demos 📸 renders ./packages/form/src/demos/form-layout-grid.tsx 
 exports[`form demos 📸 renders ./packages/form/src/demos/formRef.tsx correctly 1`] = `
 <DocumentFragment>
   <div
-    class="ant-pro"
+    class="ant-pro "
   >
     <form
       autocomplete="off"
@@ -42187,7 +42441,7 @@ exports[`form demos 📸 renders ./packages/form/src/demos/formRef.tsx correctly
 exports[`form demos 📸 renders ./packages/form/src/demos/label-col.tsx correctly 1`] = `
 <DocumentFragment>
   <div
-    class="ant-pro"
+    class="ant-pro "
   >
     <form
       autocomplete="off"
@@ -42456,7 +42710,7 @@ exports[`form demos 📸 renders ./packages/form/src/demos/label-col.tsx correct
 exports[`form demos 📸 renders ./packages/form/src/demos/labelInValue.tsx correctly 1`] = `
 <DocumentFragment>
   <div
-    class="ant-pro"
+    class="ant-pro "
   >
     <form
       autocomplete="off"
@@ -42761,12 +43015,11 @@ exports[`form demos 📸 renders ./packages/form/src/demos/layout-change.tsx cor
     style="margin: 24px;"
   >
     <div
-      class="ant-pro"
+      class="ant-pro "
     >
       <form
         autocomplete="off"
         class="ant-form ant-form-vertical ant-pro-form"
-        labelwidth="auto"
         trigger="[object Object]"
       >
         <input
@@ -43554,7 +43807,7 @@ exports[`form demos 📸 renders ./packages/form/src/demos/layout-change.tsx cor
 exports[`form demos 📸 renders ./packages/form/src/demos/layout-footer.tsx correctly 1`] = `
 <DocumentFragment>
   <div
-    class="ant-pro"
+    class="ant-pro "
   >
     <div
       class="ant-design-pro ant-pro-layout screen-md ant-pro-layout-fix-siderbar ant-pro-layout-mix"
@@ -43580,7 +43833,7 @@ exports[`form demos 📸 renders ./packages/form/src/demos/layout-footer.tsx cor
               style="flex: 1; overflow-y: auto; overflow-x: hidden;"
             >
               <ul
-                class="ant-menu ant-menu-root ant-menu-vertical ant-pro-sider-menu ant-pro-base-menu ant-pro-base-menu-collapsed ant-menu-inline-collapsed"
+                class="ant-menu ant-menu-root ant-menu-vertical ant-pro-sider-menu  ant-pro-base-menu ant-pro-base-menu-collapsed ant-menu-inline-collapsed"
                 data-menu-list="true"
                 role="menu"
                 style="background-color: transparent; width: 100%;"
@@ -43607,7 +43860,7 @@ exports[`form demos 📸 renders ./packages/form/src/demos/layout-footer.tsx cor
                         title="一级名称"
                       >
                         <span
-                          class="anticon ant-pro-base-menu-item-icon"
+                          class="anticon ant-pro-base-menu-item-icon "
                         >
                           <span
                             aria-label="smile"
@@ -43665,7 +43918,7 @@ exports[`form demos 📸 renders ./packages/form/src/demos/layout-footer.tsx cor
           </div>
         </aside>
         <div
-          class="ant-layout"
+          class="ant-pro-layout-container"
           style="position: relative;"
         >
           <header
@@ -43825,7 +44078,7 @@ exports[`form demos 📸 renders ./packages/form/src/demos/layout-footer.tsx cor
               class="ant-pro-page-container ant-pro-page-container-ghost"
             >
               <div
-                class="ant-page-header ant-pro-page-container-warp-page-header ant-pro-page-container-warp-page-header ant-page-header-has-breadcrumb ant-page-header-ghost"
+                class="ant-page-header ant-pro-page-container-warp-page-header  ant-pro-page-container-warp-page-header  ant-page-header-has-breadcrumb ant-page-header-ghost"
               >
                 <nav
                   class="ant-breadcrumb ant-page-header-breadcrumb"
@@ -43866,13 +44119,13 @@ exports[`form demos 📸 renders ./packages/form/src/demos/layout-footer.tsx cor
                   </ol>
                 </nav>
                 <div
-                  class="ant-page-header-heading"
+                  class="ant-page-header-heading "
                 >
                   <div
-                    class="ant-page-header-heading-left"
+                    class="ant-page-header-heading-left "
                   >
                     <span
-                      class="ant-page-header-heading-title"
+                      class="ant-page-header-heading-title "
                       title="输入表单"
                     >
                       输入表单
@@ -43884,10 +44137,10 @@ exports[`form demos 📸 renders ./packages/form/src/demos/layout-footer.tsx cor
                 class="ant-pro-grid-content"
               >
                 <div
-                  class="ant-pro-grid-content-children"
+                  class="ant-pro-grid-content-children "
                 >
                   <div
-                    class="ant-pro-page-container-children-content"
+                    class="ant-pro-page-container-children-content "
                   >
                     <div
                       class="ant-card ant-card-bordered"
@@ -45292,10 +45545,10 @@ exports[`form demos 📸 renders ./packages/form/src/demos/layout-footer.tsx cor
                             style="width: calc(100% - 60px);"
                           >
                             <div
-                              class="ant-pro-footer-bar-left"
+                              class="ant-pro-footer-bar-left "
                             />
                             <div
-                              class="ant-pro-footer-bar-right"
+                              class="ant-pro-footer-bar-right "
                             >
                               <button
                                 class="ant-btn ant-btn-default"
@@ -45342,7 +45595,7 @@ exports[`form demos 📸 renders ./packages/form/src/demos/linkage-customization
       class="ant-pro-card-body"
     >
       <div
-        class="ant-pro"
+        class="ant-pro "
       >
         <div
           class="ant-pro-steps-form"
@@ -46519,7 +46772,7 @@ exports[`form demos 📸 renders ./packages/form/src/demos/linkage-customization
 exports[`form demos 📸 renders ./packages/form/src/demos/money.tsx correctly 1`] = `
 <DocumentFragment>
   <div
-    class="ant-pro"
+    class="ant-pro "
   >
     <form
       autocomplete="off"
@@ -47287,6 +47540,114 @@ exports[`form demos 📸 renders ./packages/form/src/demos/money.tsx correctly 1
         </div>
       </div>
       <div
+        class="ant-form-item"
+      >
+        <div
+          class="ant-row ant-form-item-row"
+        >
+          <div
+            class="ant-col ant-form-item-label"
+          >
+            <label
+              class=""
+              for="amount6"
+              title="小数点精度-0"
+            >
+              小数点精度-0
+            </label>
+          </div>
+          <div
+            class="ant-col ant-form-item-control"
+          >
+            <div
+              class="ant-form-item-control-input"
+            >
+              <div
+                class="ant-form-item-control-input-content"
+              >
+                <div
+                  class="ant-input-number ant-input-number-in-form-item"
+                  style="width: 100%;"
+                >
+                  <div
+                    class="ant-input-number-handler-wrap"
+                  >
+                    <span
+                      aria-disabled="false"
+                      aria-label="Increase Value"
+                      class="ant-input-number-handler ant-input-number-handler-up"
+                      role="button"
+                      unselectable="on"
+                    >
+                      <span
+                        aria-label="up"
+                        class="anticon anticon-up ant-input-number-handler-up-inner"
+                        role="img"
+                      >
+                        <svg
+                          aria-hidden="true"
+                          data-icon="up"
+                          fill="currentColor"
+                          focusable="false"
+                          height="1em"
+                          viewBox="64 64 896 896"
+                          width="1em"
+                        >
+                          <path
+                            d="M890.5 755.3L537.9 269.2c-12.8-17.6-39-17.6-51.7 0L133.5 755.3A8 8 0 00140 768h75c5.1 0 9.9-2.5 12.9-6.6L512 369.8l284.1 391.6c3 4.1 7.8 6.6 12.9 6.6h75c6.5 0 10.3-7.4 6.5-12.7z"
+                          />
+                        </svg>
+                      </span>
+                    </span>
+                    <span
+                      aria-disabled="false"
+                      aria-label="Decrease Value"
+                      class="ant-input-number-handler ant-input-number-handler-down"
+                      role="button"
+                      unselectable="on"
+                    >
+                      <span
+                        aria-label="down"
+                        class="anticon anticon-down ant-input-number-handler-down-inner"
+                        role="img"
+                      >
+                        <svg
+                          aria-hidden="true"
+                          data-icon="down"
+                          fill="currentColor"
+                          focusable="false"
+                          height="1em"
+                          viewBox="64 64 896 896"
+                          width="1em"
+                        >
+                          <path
+                            d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"
+                          />
+                        </svg>
+                      </span>
+                    </span>
+                  </div>
+                  <div
+                    class="ant-input-number-input-wrap"
+                  >
+                    <input
+                      aria-valuenow="2222222222.222222"
+                      autocomplete="off"
+                      class="ant-input-number-input"
+                      id="amount6"
+                      placeholder="请输入"
+                      role="spinbutton"
+                      step="1"
+                      value="💰 2,222,222,222"
+                    />
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div
         class="ant-space ant-space-horizontal ant-space-align-center"
         style="flex-wrap: wrap; margin-bottom: -8px;"
       >
@@ -47325,7 +47686,7 @@ exports[`form demos 📸 renders ./packages/form/src/demos/money.tsx correctly 1
 exports[`form demos 📸 renders ./packages/form/src/demos/pro-form-dependency.debug.tsx correctly 1`] = `
 <DocumentFragment>
   <div
-    class="ant-pro"
+    class="ant-pro "
   >
     <form
       autocomplete="off"
@@ -47884,7 +48245,7 @@ exports[`form demos 📸 renders ./packages/form/src/demos/pro-form-dependency.d
 exports[`form demos 📸 renders ./packages/form/src/demos/pro-form-editableTable.tsx correctly 1`] = `
 <DocumentFragment>
   <div
-    class="ant-pro"
+    class="ant-pro "
   >
     <form
       autocomplete="off"
@@ -48831,7 +49192,7 @@ exports[`form demos 📸 renders ./packages/form/src/demos/pro-form-editableTabl
 exports[`form demos 📸 renders ./packages/form/src/demos/sync-to-url.tsx correctly 1`] = `
 <DocumentFragment>
   <div
-    class="ant-pro"
+    class="ant-pro "
   >
     <form
       autocomplete="off"

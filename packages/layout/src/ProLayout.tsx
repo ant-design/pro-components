@@ -662,7 +662,7 @@ const BaseProLayout: React.FC<ProLayoutProps> = (props) => {
               }}
             >
               {siderMenuDom}
-              <div style={genLayoutStyle} className={context.getPrefixCls('layout')}>
+              <div style={genLayoutStyle} className={`${proLayoutClassName}-container`}>
                 {headerDom}
                 <WrapContent
                   hasPageContainer={hasPageContainer}
@@ -694,7 +694,9 @@ const ProLayout: React.FC<ProLayoutProps> = (props) => {
   const { colorPrimary } = props;
   return (
     <ConfigProvider
+      // @ts-ignore
       theme={{
+        hashed: process.env.NODE_ENV?.toLowerCase() !== 'test',
         token: {
           radiusBase: 4,
           colorPrimary: colorPrimary || '#1677FF',

@@ -2,6 +2,10 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.0.0-experimental.9](https://github.com/ant-design/pro-components/compare/@ant-design/pro-skeleton@2.0.0-experimental.8...@ant-design/pro-skeleton@2.0.0-experimental.9) (2022-08-24)
+
+**Note:** Version bump only for package @ant-design/pro-skeleton
+
 # [2.0.0-experimental.8](https://github.com/ant-design/pro-components/compare/@ant-design/pro-skeleton@2.0.0-experimental.7...@ant-design/pro-skeleton@2.0.0-experimental.8) (2022-08-24)
 
 **Note:** Version bump only for package @ant-design/pro-skeleton

@@ -3,7 +3,7 @@
 exports[`BasicLayout 🥩 BasicLayout menu support menu.true 1`] = `
 Array [
   <div
-    class="ant-pro"
+    class="ant-pro "
   >
     <div
       class="ant-design-pro ant-pro-layout ant-pro-layout-fix-siderbar ant-pro-layout-side"
@@ -207,7 +207,7 @@ Array [
           </div>
         </aside>
         <div
-          class="ant-layout"
+          class="ant-pro-layout-container"
           style="position:relative"
         >
           <main
@@ -218,7 +218,7 @@ Array [
     </div>
   </div>,
   <div
-    class="ant-pro"
+    class="ant-pro "
   >
     <div
       class="ant-design-pro ant-pro-layout ant-pro-layout-top-menu ant-pro-layout-fix-siderbar ant-pro-layout-top"
@@ -231,7 +231,7 @@ Array [
         style="min-height:100%"
       >
         <div
-          class="ant-layout"
+          class="ant-pro-layout-container"
           style="position:relative"
         >
           <header
@@ -244,10 +244,10 @@ Array [
                 class="ant-pro-top-nav-header-main"
               >
                 <div
-                  class="ant-pro-top-nav-header-main-left"
+                  class="ant-pro-top-nav-header-main-left "
                 >
                   <div
-                    class="ant-pro-top-nav-header-logo"
+                    class="ant-pro-top-nav-header-logo "
                     id="logo"
                   >
                     <a>
@@ -384,7 +384,7 @@ Array [
                   </div>
                 </div>
                 <div
-                  class="ant-pro-top-nav-header-menu"
+                  class="ant-pro-top-nav-header-menu "
                   style="flex:1"
                 >
                   <div
@@ -418,7 +418,7 @@ Array [
     </div>
   </div>,
   <div
-    class="ant-pro"
+    class="ant-pro "
   >
     <div
       class="ant-design-pro ant-pro-layout ant-pro-layout-fix-siderbar ant-pro-layout-mix"
@@ -486,7 +486,7 @@ Array [
           </div>
         </aside>
         <div
-          class="ant-layout"
+          class="ant-pro-layout-container"
           style="position:relative"
         >
           <header
@@ -651,7 +651,7 @@ Array [
 
 exports[`BasicLayout 🥩 base use 1`] = `
 <div
-  class="ant-pro"
+  class="ant-pro "
 >
   <div
     class="ant-design-pro ant-pro-layout ant-pro-layout-fix-siderbar ant-pro-layout-side"
@@ -830,7 +830,7 @@ exports[`BasicLayout 🥩 base use 1`] = `
         </div>
       </aside>
       <div
-        class="ant-layout"
+        class="ant-pro-layout-container"
         style="position:relative"
       >
         <main
@@ -844,7 +844,7 @@ exports[`BasicLayout 🥩 base use 1`] = `
 
 exports[`BasicLayout 🥩 contentStyle should change dom 1`] = `
 <div
-  class="ant-pro"
+  class="ant-pro "
 >
   <div
     class="ant-design-pro ant-pro-layout ant-pro-layout-fix-siderbar ant-pro-layout-side"
@@ -1023,7 +1023,7 @@ exports[`BasicLayout 🥩 contentStyle should change dom 1`] = `
         </div>
       </aside>
       <div
-        class="ant-layout"
+        class="ant-pro-layout-container"
         style="position:relative"
       >
         <main
@@ -1038,7 +1038,7 @@ exports[`BasicLayout 🥩 contentStyle should change dom 1`] = `
 
 exports[`BasicLayout 🥩 mix layout hideInMenu render right 1`] = `
 <div
-  class="ant-pro"
+  class="ant-pro "
 >
   <div
     class="ant-design-pro ant-pro-layout screen-md ant-pro-layout-fix-siderbar ant-pro-layout-side"
@@ -1200,7 +1200,7 @@ exports[`BasicLayout 🥩 mix layout hideInMenu render right 1`] = `
             style="flex: 1; overflow-y: auto; overflow-x: hidden;"
           >
             <ul
-              class="ant-menu ant-menu-root ant-menu-inline ant-pro-sider-menu ant-pro-base-menu"
+              class="ant-menu ant-menu-root ant-menu-inline ant-pro-sider-menu  ant-pro-base-menu"
               data-menu-list="true"
               role="menu"
               style="background-color: transparent; width: 100%;"
@@ -1285,7 +1285,7 @@ exports[`BasicLayout 🥩 mix layout hideInMenu render right 1`] = `
         </div>
       </aside>
       <div
-        class="ant-layout"
+        class="ant-pro-layout-container"
         style="position: relative;"
       >
         <main
@@ -1299,7 +1299,7 @@ exports[`BasicLayout 🥩 mix layout hideInMenu render right 1`] = `
 
 exports[`BasicLayout 🥩 support loading 1`] = `
 <div
-  class="ant-pro"
+  class="ant-pro "
 >
   <div
     class="ant-design-pro ant-pro-layout screen-md ant-pro-layout-fix-siderbar ant-pro-layout-side"
@@ -1478,7 +1478,7 @@ exports[`BasicLayout 🥩 support loading 1`] = `
         </div>
       </aside>
       <div
-        class="ant-layout"
+        class="ant-pro-layout-container"
         style="position: relative;"
       >
         <main

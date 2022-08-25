@@ -27,7 +27,7 @@ const genProStyle: GenerateStyle<ProListToken> = (token) => {
       '&-footer': {
         marginBlockStart: 8,
         paddingBlockStart: '16px',
-        borderTop: `rgba(0, 0, 0, 0.08) solid ${token.colorBorder}`,
+        borderBlockStart: `rgba(0, 0, 0, 0.08) solid ${token.colorBorder}`,
       },
     },
   };

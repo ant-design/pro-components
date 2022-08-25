@@ -69,6 +69,7 @@ const renderTitle = (
   prefixCls: string,
   props: PageHeaderProps,
   direction: DirectionType = 'ltr',
+  hashId: string,
 ) => {
   const { title, avatar, subTitle, tags, extra, onBack } = props;
   const headingPrefixCls = `${prefixCls}-heading`;
@@ -81,19 +82,19 @@ const renderTitle = (
   const backIconDom = renderBack(prefixCls, backIcon, onBack);
   const hasTitle = backIconDom || avatar || hasHeading;
   return (
-    <div className={headingPrefixCls}>
+    <div className={headingPrefixCls + ' ' + hashId}>
       {hasTitle && (
-        <div className={`${headingPrefixCls}-left`}>
+        <div className={`${headingPrefixCls}-left ${hashId}`}>
           {backIconDom}
           {avatar && (
             <Avatar
-              className={classNames(`${headingPrefixCls}-avatar`, avatar.className)}
+              className={classNames(`${headingPrefixCls}-avatar`, hashId, avatar.className)}
               {...avatar}
             />
           )}
           {title && (
             <span
-              className={`${headingPrefixCls}-title`}
+              className={`${headingPrefixCls}-title ${hashId}`}
               title={typeof title === 'string' ? title : undefined}
             >
               {title}
@@ -101,17 +102,17 @@ const renderTitle = (
           )}
           {subTitle && (
             <span
-              className={`${headingPrefixCls}-sub-title`}
+              className={`${headingPrefixCls}-sub-title ${hashId}`}
               title={typeof subTitle === 'string' ? subTitle : undefined}
             >
               {subTitle}
             </span>
           )}
-          {tags && <span className={`${headingPrefixCls}-tags`}>{tags}</span>}
+          {tags && <span className={`${headingPrefixCls}-tags ${hashId}`}>{tags}</span>}
         </div>
       )}
       {extra && (
-        <span className={`${headingPrefixCls}-extra`}>
+        <span className={`${headingPrefixCls}-extra ${hashId}`}>
           <Space>{extra}</Space>
         </span>
       )}
@@ -119,15 +120,15 @@ const renderTitle = (
   );
 };
 
-const renderFooter = (prefixCls: string, footer: React.ReactNode) => {
+const renderFooter = (prefixCls: string, footer: React.ReactNode, hashId: string) => {
   if (footer) {
-    return <div className={`${prefixCls}-footer`}>{footer}</div>;
+    return <div className={`${prefixCls}-footer ${hashId}`}>{footer}</div>;
   }
   return null;
 };
 
-const renderChildren = (prefixCls: string, children: React.ReactNode) => (
-  <div className={`${prefixCls}-content`}>{children}</div>
+const renderChildren = (prefixCls: string, children: React.ReactNode, hashId: string) => (
+  <div className={`${prefixCls}-content ${hashId}`}>{children}</div>
 );
 
 const PageHeader: React.FC<PageHeaderProps> = (props) => {
@@ -157,6 +158,7 @@ const PageHeader: React.FC<PageHeaderProps> = (props) => {
 
   const prefixCls = getPrefixCls('page-header', customizePrefixCls);
   const { wrapSSR, hashId } = useStyle(prefixCls);
+
   const getDefaultBreadcrumbDom = () => {
     if ((breadcrumb as BreadcrumbProps)?.routes) {
       return renderBreadcrumb(breadcrumb as BreadcrumbProps, prefixCls);
@@ -181,9 +183,9 @@ const PageHeader: React.FC<PageHeaderProps> = (props) => {
     [`${prefixCls}-rtl`]: direction === 'rtl',
     [`${prefixCls}-compact`]: compact,
   });
-  const title = renderTitle(prefixCls, props, direction);
-  const childDom = children && renderChildren(prefixCls, children);
-  const footerDom = renderFooter(prefixCls, footer);
+  const title = renderTitle(prefixCls, props, direction, hashId);
+  const childDom = children && renderChildren(prefixCls, children, hashId);
+  const footerDom = renderFooter(prefixCls, footer, hashId);
 
   if (!breadcrumbDom && !title && !footerDom && !childDom) {
     return null;

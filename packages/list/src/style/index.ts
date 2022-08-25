@@ -11,11 +11,15 @@ const genProListStyle: GenerateStyle<ProListToken> = (token) => {
       backgroundColor: 'transparent',
       [`${token.proComponentsCls}-table-alert`]: { marginBlockEnd: '16px' },
       '&-row': {
-        borderBottom: `1px solid ${token.colorSplit}`,
+        borderBlockEnd: `1px solid ${token.colorSplit}`,
+        [`${token.antCls}-list-item-meta-title`]: {
+          borderBlockEnd: 'none',
+          margin: 0,
+        },
         '&:last-child': {
-          borderBottom: 'none',
+          borderBlockEnd: 'none',
           [`${token.antCls}-list-item`]: {
-            borderBottom: 'none',
+            borderBlockEnd: 'none',
           },
         },
         '&:hover': {
@@ -158,17 +162,17 @@ const genProListStyle: GenerateStyle<ProListToken> = (token) => {
         '&-header-option': { display: 'flex' },
         '&-checkbox': { width: '16px', marginInlineEnd: '12px' },
         '&-no-split': {
-          [`${token.componentCls}-row`]: { borderBottom: 'none' },
-          [`${token.antCls}-list ${token.antCls}-list-item`]: { borderBottom: 'none' },
+          [`${token.componentCls}-row`]: { borderBlockEnd: 'none' },
+          [`${token.antCls}-list ${token.antCls}-list-item`]: { borderBlockEnd: 'none' },
         },
         '&-bordered': {
           [`${token.componentCls}-toolbar`]: {
-            borderBottom: `1px solid ${token.colorSplit}`,
+            borderBlockEnd: `1px solid ${token.colorSplit}`,
           },
         },
         [`${token.antCls}-list-vertical`]: {
           [`${token.componentCls}-row`]: {
-            borderBottom: '12px 18px 12px 24px',
+            borderBlockEnd: '12px 18px 12px 24px',
           },
           '&-header-title': {
             display: 'flex',
@@ -204,7 +208,7 @@ const genProListStyle: GenerateStyle<ProListToken> = (token) => {
         },
         [`${token.antCls}-list-vertical .${token.proComponentsCls}-list-row ${token.antCls}-list`]:
           {
-            '&-header': { paddingBlock: 0, paddingInline: 0, borderBottom: 'none' },
+            '&-header': { paddingBlock: 0, paddingInline: 0, borderBlockEnd: 'none' },
             [`${token.antCls}-list-item`]: {
               width: '100%',
               paddingBlock: 12,

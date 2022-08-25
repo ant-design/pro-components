@@ -56,13 +56,13 @@ Array [
             class="ant-drawer-body"
           >
             <div
-              class="ant-pro-setting-drawer-drawer-content"
+              class="ant-pro-setting-drawer-drawer-content "
             >
               <div
                 style="margin-block-end:24px"
               >
                 <h3
-                  class="ant-pro-setting-drawer-body-title"
+                  class="ant-pro-setting-drawer-body-title "
                 >
                   整体风格设置
                 </h3>
@@ -74,7 +74,7 @@ Array [
                   >
                     <span
                       aria-label="check"
-                      class="anticon anticon-check ant-pro-setting-drawer-block-checkbox-selectIcon"
+                      class="anticon anticon-check ant-pro-setting-drawer-block-checkbox-selectIcon "
                       role="img"
                       style="display:none"
                     >
@@ -99,15 +99,15 @@ Array [
                 style="margin-block-end:24px"
               >
                 <h3
-                  class="ant-pro-setting-drawer-body-title"
+                  class="ant-pro-setting-drawer-body-title "
                 >
                   主题色
                 </h3>
                 <div
-                  class="ant-pro-setting-drawer-theme-color"
+                  class="ant-pro-setting-drawer-theme-color "
                 >
                   <div
-                    class="ant-pro-setting-drawer-theme-color-block"
+                    class="ant-pro-setting-drawer-theme-color-block "
                     style="background-color:#1677FF"
                   >
                     <span
@@ -131,35 +131,35 @@ Array [
                     </span>
                   </div>
                   <div
-                    class="ant-pro-setting-drawer-theme-color-block"
+                    class="ant-pro-setting-drawer-theme-color-block "
                     style="background-color:#1890ff"
                   />
                   <div
-                    class="ant-pro-setting-drawer-theme-color-block"
+                    class="ant-pro-setting-drawer-theme-color-block "
                     style="background-color:#F5222D"
                   />
                   <div
-                    class="ant-pro-setting-drawer-theme-color-block"
+                    class="ant-pro-setting-drawer-theme-color-block "
                     style="background-color:#FA541C"
                   />
                   <div
-                    class="ant-pro-setting-drawer-theme-color-block"
+                    class="ant-pro-setting-drawer-theme-color-block "
                     style="background-color:#FAAD14"
                   />
                   <div
-                    class="ant-pro-setting-drawer-theme-color-block"
+                    class="ant-pro-setting-drawer-theme-color-block "
                     style="background-color:#13C2C2"
                   />
                   <div
-                    class="ant-pro-setting-drawer-theme-color-block"
+                    class="ant-pro-setting-drawer-theme-color-block "
                     style="background-color:#52C41A"
                   />
                   <div
-                    class="ant-pro-setting-drawer-theme-color-block"
+                    class="ant-pro-setting-drawer-theme-color-block "
                     style="background-color:#2F54EB"
                   />
                   <div
-                    class="ant-pro-setting-drawer-theme-color-block"
+                    class="ant-pro-setting-drawer-theme-color-block "
                     style="background-color:#722ED1"
                   />
                 </div>
@@ -172,7 +172,7 @@ Array [
                 style="margin-block-end:24px"
               >
                 <h3
-                  class="ant-pro-setting-drawer-body-title"
+                  class="ant-pro-setting-drawer-body-title "
                 >
                   导航模式
                 </h3>
@@ -184,7 +184,7 @@ Array [
                   >
                     <span
                       aria-label="check"
-                      class="anticon anticon-check ant-pro-setting-drawer-block-checkbox-selectIcon"
+                      class="anticon anticon-check ant-pro-setting-drawer-block-checkbox-selectIcon "
                       role="img"
                       style="display:block"
                     >
@@ -208,7 +208,7 @@ Array [
                   >
                     <span
                       aria-label="check"
-                      class="anticon anticon-check ant-pro-setting-drawer-block-checkbox-selectIcon"
+                      class="anticon anticon-check ant-pro-setting-drawer-block-checkbox-selectIcon "
                       role="img"
                       style="display:none"
                     >
@@ -232,7 +232,7 @@ Array [
                   >
                     <span
                       aria-label="check"
-                      class="anticon anticon-check ant-pro-setting-drawer-block-checkbox-selectIcon"
+                      class="anticon anticon-check ant-pro-setting-drawer-block-checkbox-selectIcon "
                       role="img"
                       style="display:none"
                     >
@@ -257,7 +257,7 @@ Array [
                 style="margin-block-end:24px"
               >
                 <h3
-                  class="ant-pro-setting-drawer-body-title"
+                  class="ant-pro-setting-drawer-body-title "
                 >
                   侧边菜单类型
                 </h3>
@@ -269,7 +269,7 @@ Array [
                   >
                     <span
                       aria-label="check"
-                      class="anticon anticon-check ant-pro-setting-drawer-block-checkbox-selectIcon"
+                      class="anticon anticon-check ant-pro-setting-drawer-block-checkbox-selectIcon "
                       role="img"
                       style="display:none"
                     >
@@ -288,7 +288,7 @@ Array [
                       </svg>
                     </span>
                     <div
-                      class="ant-pro-setting-drawer-block-checkbox-icon"
+                      class="ant-pro-setting-drawer-block-checkbox-icon "
                     >
                       <svg
                         height="1em"
@@ -484,7 +484,7 @@ Array [
                   >
                     <span
                       aria-label="check"
-                      class="anticon anticon-check ant-pro-setting-drawer-block-checkbox-selectIcon"
+                      class="anticon anticon-check ant-pro-setting-drawer-block-checkbox-selectIcon "
                       role="img"
                       style="display:none"
                     >
@@ -503,7 +503,7 @@ Array [
                       </svg>
                     </span>
                     <div
-                      class="ant-pro-setting-drawer-block-checkbox-icon"
+                      class="ant-pro-setting-drawer-block-checkbox-icon "
                     >
                       <svg
                         height="1em"
@@ -712,7 +712,7 @@ Array [
                         >
                           <li>
                             <div
-                              class="ant-select ant-select-sm content-width ant-select-single ant-select-show-arrow"
+                              class="ant-select ant-select-sm content-width  ant-select-single ant-select-show-arrow"
                               style="width:80px"
                             >
                               <div
@@ -871,7 +871,7 @@ Array [
                 style="margin-block-end:24px"
               >
                 <h3
-                  class="ant-pro-setting-drawer-body-title"
+                  class="ant-pro-setting-drawer-body-title "
                 >
                   内容区域
                 </h3>
@@ -901,7 +901,7 @@ Array [
                             <li>
                               <button
                                 aria-checked="true"
-                                class="ant-switch ant-switch-small regional-header ant-switch-checked"
+                                class="ant-switch ant-switch-small regional-header  ant-switch-checked"
                                 role="switch"
                                 type="button"
                               >
@@ -929,7 +929,7 @@ Array [
                             <li>
                               <button
                                 aria-checked="true"
-                                class="ant-switch ant-switch-small regional-footer ant-switch-checked"
+                                class="ant-switch ant-switch-small regional-footer  ant-switch-checked"
                                 role="switch"
                                 type="button"
                               >
@@ -957,7 +957,7 @@ Array [
                             <li>
                               <button
                                 aria-checked="true"
-                                class="ant-switch ant-switch-small regional-menu ant-switch-checked"
+                                class="ant-switch ant-switch-small regional-menu  ant-switch-checked"
                                 role="switch"
                                 type="button"
                               >
@@ -985,7 +985,7 @@ Array [
                             <li>
                               <button
                                 aria-checked="true"
-                                class="ant-switch ant-switch-small regional-menuHeader ant-switch-checked"
+                                class="ant-switch ant-switch-small regional-menuHeader  ant-switch-checked"
                                 role="switch"
                                 type="button"
                               >
@@ -1012,7 +1012,7 @@ Array [
                 style="margin-block-end:24px"
               >
                 <h3
-                  class="ant-pro-setting-drawer-body-title"
+                  class="ant-pro-setting-drawer-body-title "
                 >
                   其他设置
                 </h3>
@@ -1199,13 +1199,13 @@ Array [
             class="ant-drawer-body"
           >
             <div
-              class="ant-pro-setting-drawer-drawer-content"
+              class="ant-pro-setting-drawer-drawer-content "
             >
               <div
                 style="margin-block-end:24px"
               >
                 <h3
-                  class="ant-pro-setting-drawer-body-title"
+                  class="ant-pro-setting-drawer-body-title "
                 >
                   整体风格设置
                 </h3>
@@ -1217,7 +1217,7 @@ Array [
                   >
                     <span
                       aria-label="check"
-                      class="anticon anticon-check ant-pro-setting-drawer-block-checkbox-selectIcon"
+                      class="anticon anticon-check ant-pro-setting-drawer-block-checkbox-selectIcon "
                       role="img"
                       style="display:none"
                     >
@@ -1246,7 +1246,7 @@ Array [
                 style="margin-block-end:24px"
               >
                 <h3
-                  class="ant-pro-setting-drawer-body-title"
+                  class="ant-pro-setting-drawer-body-title "
                 >
                   导航模式
                 </h3>
@@ -1258,7 +1258,7 @@ Array [
                   >
                     <span
                       aria-label="check"
-                      class="anticon anticon-check ant-pro-setting-drawer-block-checkbox-selectIcon"
+                      class="anticon anticon-check ant-pro-setting-drawer-block-checkbox-selectIcon "
                       role="img"
                       style="display:block"
                     >
@@ -1282,7 +1282,7 @@ Array [
                   >
                     <span
                       aria-label="check"
-                      class="anticon anticon-check ant-pro-setting-drawer-block-checkbox-selectIcon"
+                      class="anticon anticon-check ant-pro-setting-drawer-block-checkbox-selectIcon "
                       role="img"
                       style="display:none"
                     >
@@ -1306,7 +1306,7 @@ Array [
                   >
                     <span
                       aria-label="check"
-                      class="anticon anticon-check ant-pro-setting-drawer-block-checkbox-selectIcon"
+                      class="anticon anticon-check ant-pro-setting-drawer-block-checkbox-selectIcon "
                       role="img"
                       style="display:none"
                     >
@@ -1331,7 +1331,7 @@ Array [
                 style="margin-block-end:24px"
               >
                 <h3
-                  class="ant-pro-setting-drawer-body-title"
+                  class="ant-pro-setting-drawer-body-title "
                 >
                   侧边菜单类型
                 </h3>
@@ -1343,7 +1343,7 @@ Array [
                   >
                     <span
                       aria-label="check"
-                      class="anticon anticon-check ant-pro-setting-drawer-block-checkbox-selectIcon"
+                      class="anticon anticon-check ant-pro-setting-drawer-block-checkbox-selectIcon "
                       role="img"
                       style="display:none"
                     >
@@ -1362,7 +1362,7 @@ Array [
                       </svg>
                     </span>
                     <div
-                      class="ant-pro-setting-drawer-block-checkbox-icon"
+                      class="ant-pro-setting-drawer-block-checkbox-icon "
                     >
                       <svg
                         height="1em"
@@ -1558,7 +1558,7 @@ Array [
                   >
                     <span
                       aria-label="check"
-                      class="anticon anticon-check ant-pro-setting-drawer-block-checkbox-selectIcon"
+                      class="anticon anticon-check ant-pro-setting-drawer-block-checkbox-selectIcon "
                       role="img"
                       style="display:none"
                     >
@@ -1577,7 +1577,7 @@ Array [
                       </svg>
                     </span>
                     <div
-                      class="ant-pro-setting-drawer-block-checkbox-icon"
+                      class="ant-pro-setting-drawer-block-checkbox-icon "
                     >
                       <svg
                         height="1em"
@@ -1786,7 +1786,7 @@ Array [
                         >
                           <li>
                             <div
-                              class="ant-select ant-select-sm content-width ant-select-single ant-select-show-arrow"
+                              class="ant-select ant-select-sm content-width  ant-select-single ant-select-show-arrow"
                               style="width:80px"
                             >
                               <div
@@ -1945,7 +1945,7 @@ Array [
                 style="margin-block-end:24px"
               >
                 <h3
-                  class="ant-pro-setting-drawer-body-title"
+                  class="ant-pro-setting-drawer-body-title "
                 >
                   内容区域
                 </h3>
@@ -1975,7 +1975,7 @@ Array [
                             <li>
                               <button
                                 aria-checked="true"
-                                class="ant-switch ant-switch-small regional-header ant-switch-checked"
+                                class="ant-switch ant-switch-small regional-header  ant-switch-checked"
                                 role="switch"
                                 type="button"
                               >
@@ -2003,7 +2003,7 @@ Array [
                             <li>
                               <button
                                 aria-checked="true"
-                                class="ant-switch ant-switch-small regional-footer ant-switch-checked"
+                                class="ant-switch ant-switch-small regional-footer  ant-switch-checked"
                                 role="switch"
                                 type="button"
                               >
@@ -2031,7 +2031,7 @@ Array [
                             <li>
                               <button
                                 aria-checked="true"
-                                class="ant-switch ant-switch-small regional-menu ant-switch-checked"
+                                class="ant-switch ant-switch-small regional-menu  ant-switch-checked"
                                 role="switch"
                                 type="button"
                               >
@@ -2059,7 +2059,7 @@ Array [
                             <li>
                               <button
                                 aria-checked="true"
-                                class="ant-switch ant-switch-small regional-menuHeader ant-switch-checked"
+                                class="ant-switch ant-switch-small regional-menuHeader  ant-switch-checked"
                                 role="switch"
                                 type="button"
                               >
@@ -2086,7 +2086,7 @@ Array [
                 style="margin-block-end:24px"
               >
                 <h3
-                  class="ant-pro-setting-drawer-body-title"
+                  class="ant-pro-setting-drawer-body-title "
                 >
                   其他设置
                 </h3>
@@ -2273,13 +2273,13 @@ Array [
             class="ant-drawer-body"
           >
             <div
-              class="ant-pro-setting-drawer-drawer-content"
+              class="ant-pro-setting-drawer-drawer-content "
             >
               <div
                 style="margin-block-end:24px"
               >
                 <h3
-                  class="ant-pro-setting-drawer-body-title"
+                  class="ant-pro-setting-drawer-body-title "
                 >
                   整体风格设置
                 </h3>
@@ -2291,7 +2291,7 @@ Array [
                   >
                     <span
                       aria-label="check"
-                      class="anticon anticon-check ant-pro-setting-drawer-block-checkbox-selectIcon"
+                      class="anticon anticon-check ant-pro-setting-drawer-block-checkbox-selectIcon "
                       role="img"
                       style="display:none"
                     >
@@ -2316,15 +2316,15 @@ Array [
                 style="margin-block-end:24px"
               >
                 <h3
-                  class="ant-pro-setting-drawer-body-title"
+                  class="ant-pro-setting-drawer-body-title "
                 >
                   主题色
                 </h3>
                 <div
-                  class="ant-pro-setting-drawer-theme-color"
+                  class="ant-pro-setting-drawer-theme-color "
                 >
                   <div
-                    class="ant-pro-setting-drawer-theme-color-block"
+                    class="ant-pro-setting-drawer-theme-color-block "
                     style="background-color:#1677FF"
                   >
                     <span
@@ -2348,35 +2348,35 @@ Array [
                     </span>
                   </div>
                   <div
-                    class="ant-pro-setting-drawer-theme-color-block"
+                    class="ant-pro-setting-drawer-theme-color-block "
                     style="background-color:#1890ff"
                   />
                   <div
-                    class="ant-pro-setting-drawer-theme-color-block"
+                    class="ant-pro-setting-drawer-theme-color-block "
                     style="background-color:#F5222D"
                   />
                   <div
-                    class="ant-pro-setting-drawer-theme-color-block"
+                    class="ant-pro-setting-drawer-theme-color-block "
                     style="background-color:#FA541C"
                   />
                   <div
-                    class="ant-pro-setting-drawer-theme-color-block"
+                    class="ant-pro-setting-drawer-theme-color-block "
                     style="background-color:#FAAD14"
                   />
                   <div
-                    class="ant-pro-setting-drawer-theme-color-block"
+                    class="ant-pro-setting-drawer-theme-color-block "
                     style="background-color:#13C2C2"
                   />
                   <div
-                    class="ant-pro-setting-drawer-theme-color-block"
+                    class="ant-pro-setting-drawer-theme-color-block "
                     style="background-color:#52C41A"
                   />
                   <div
-                    class="ant-pro-setting-drawer-theme-color-block"
+                    class="ant-pro-setting-drawer-theme-color-block "
                     style="background-color:#2F54EB"
                   />
                   <div
-                    class="ant-pro-setting-drawer-theme-color-block"
+                    class="ant-pro-setting-drawer-theme-color-block "
                     style="background-color:#722ED1"
                   />
                 </div>
@@ -2389,7 +2389,7 @@ Array [
                 style="margin-block-end:24px"
               >
                 <h3
-                  class="ant-pro-setting-drawer-body-title"
+                  class="ant-pro-setting-drawer-body-title "
                 >
                   导航模式
                 </h3>
@@ -2401,7 +2401,7 @@ Array [
                   >
                     <span
                       aria-label="check"
-                      class="anticon anticon-check ant-pro-setting-drawer-block-checkbox-selectIcon"
+                      class="anticon anticon-check ant-pro-setting-drawer-block-checkbox-selectIcon "
                       role="img"
                       style="display:block"
                     >
@@ -2425,7 +2425,7 @@ Array [
                   >
                     <span
                       aria-label="check"
-                      class="anticon anticon-check ant-pro-setting-drawer-block-checkbox-selectIcon"
+                      class="anticon anticon-check ant-pro-setting-drawer-block-checkbox-selectIcon "
                       role="img"
                       style="display:none"
                     >
@@ -2449,7 +2449,7 @@ Array [
                   >
                     <span
                       aria-label="check"
-                      class="anticon anticon-check ant-pro-setting-drawer-block-checkbox-selectIcon"
+                      class="anticon anticon-check ant-pro-setting-drawer-block-checkbox-selectIcon "
                       role="img"
                       style="display:none"
                     >
@@ -2474,7 +2474,7 @@ Array [
                 style="margin-block-end:24px"
               >
                 <h3
-                  class="ant-pro-setting-drawer-body-title"
+                  class="ant-pro-setting-drawer-body-title "
                 >
                   侧边菜单类型
                 </h3>
@@ -2486,7 +2486,7 @@ Array [
                   >
                     <span
                       aria-label="check"
-                      class="anticon anticon-check ant-pro-setting-drawer-block-checkbox-selectIcon"
+                      class="anticon anticon-check ant-pro-setting-drawer-block-checkbox-selectIcon "
                       role="img"
                       style="display:none"
                     >
@@ -2505,7 +2505,7 @@ Array [
                       </svg>
                     </span>
                     <div
-                      class="ant-pro-setting-drawer-block-checkbox-icon"
+                      class="ant-pro-setting-drawer-block-checkbox-icon "
                     >
                       <svg
                         height="1em"
@@ -2701,7 +2701,7 @@ Array [
                   >
                     <span
                       aria-label="check"
-                      class="anticon anticon-check ant-pro-setting-drawer-block-checkbox-selectIcon"
+                      class="anticon anticon-check ant-pro-setting-drawer-block-checkbox-selectIcon "
                       role="img"
                       style="display:none"
                     >
@@ -2720,7 +2720,7 @@ Array [
                       </svg>
                     </span>
                     <div
-                      class="ant-pro-setting-drawer-block-checkbox-icon"
+                      class="ant-pro-setting-drawer-block-checkbox-icon "
                     >
                       <svg
                         height="1em"
@@ -2929,7 +2929,7 @@ Array [
                         >
                           <li>
                             <div
-                              class="ant-select ant-select-sm content-width ant-select-single ant-select-show-arrow"
+                              class="ant-select ant-select-sm content-width  ant-select-single ant-select-show-arrow"
                               style="width:80px"
                             >
                               <div
@@ -3088,7 +3088,7 @@ Array [
                 style="margin-block-end:24px"
               >
                 <h3
-                  class="ant-pro-setting-drawer-body-title"
+                  class="ant-pro-setting-drawer-body-title "
                 >
                   内容区域
                 </h3>
@@ -3118,7 +3118,7 @@ Array [
                             <li>
                               <button
                                 aria-checked="true"
-                                class="ant-switch ant-switch-small regional-header ant-switch-checked"
+                                class="ant-switch ant-switch-small regional-header  ant-switch-checked"
                                 role="switch"
                                 type="button"
                               >
@@ -3146,7 +3146,7 @@ Array [
                             <li>
                               <button
                                 aria-checked="true"
-                                class="ant-switch ant-switch-small regional-footer ant-switch-checked"
+                                class="ant-switch ant-switch-small regional-footer  ant-switch-checked"
                                 role="switch"
                                 type="button"
                               >
@@ -3174,7 +3174,7 @@ Array [
                             <li>
                               <button
                                 aria-checked="true"
-                                class="ant-switch ant-switch-small regional-menu ant-switch-checked"
+                                class="ant-switch ant-switch-small regional-menu  ant-switch-checked"
                                 role="switch"
                                 type="button"
                               >
@@ -3202,7 +3202,7 @@ Array [
                             <li>
                               <button
                                 aria-checked="true"
-                                class="ant-switch ant-switch-small regional-menuHeader ant-switch-checked"
+                                class="ant-switch ant-switch-small regional-menuHeader  ant-switch-checked"
                                 role="switch"
                                 type="button"
                               >
@@ -3229,7 +3229,7 @@ Array [
                 style="margin-block-end:24px"
               >
                 <h3
-                  class="ant-pro-setting-drawer-body-title"
+                  class="ant-pro-setting-drawer-body-title "
                 >
                   其他设置
                 </h3>
@@ -3388,13 +3388,13 @@ Array [
             class="ant-drawer-body"
           >
             <div
-              class="ant-pro-setting-drawer-drawer-content"
+              class="ant-pro-setting-drawer-drawer-content "
             >
               <div
                 style="margin-block-end:24px"
               >
                 <h3
-                  class="ant-pro-setting-drawer-body-title"
+                  class="ant-pro-setting-drawer-body-title "
                 >
                   整体风格设置
                 </h3>
@@ -3406,7 +3406,7 @@ Array [
                   >
                     <span
                       aria-label="check"
-                      class="anticon anticon-check ant-pro-setting-drawer-block-checkbox-selectIcon"
+                      class="anticon anticon-check ant-pro-setting-drawer-block-checkbox-selectIcon "
                       role="img"
                       style="display:none"
                     >
@@ -3431,15 +3431,15 @@ Array [
                 style="margin-block-end:24px"
               >
                 <h3
-                  class="ant-pro-setting-drawer-body-title"
+                  class="ant-pro-setting-drawer-body-title "
                 >
                   主题色
                 </h3>
                 <div
-                  class="ant-pro-setting-drawer-theme-color"
+                  class="ant-pro-setting-drawer-theme-color "
                 >
                   <div
-                    class="ant-pro-setting-drawer-theme-color-block"
+                    class="ant-pro-setting-drawer-theme-color-block "
                     style="background-color:#1677FF"
                   >
                     <span
@@ -3463,35 +3463,35 @@ Array [
                     </span>
                   </div>
                   <div
-                    class="ant-pro-setting-drawer-theme-color-block"
+                    class="ant-pro-setting-drawer-theme-color-block "
                     style="background-color:#1890ff"
                   />
                   <div
-                    class="ant-pro-setting-drawer-theme-color-block"
+                    class="ant-pro-setting-drawer-theme-color-block "
                     style="background-color:#F5222D"
                   />
                   <div
-                    class="ant-pro-setting-drawer-theme-color-block"
+                    class="ant-pro-setting-drawer-theme-color-block "
                     style="background-color:#FA541C"
                   />
                   <div
-                    class="ant-pro-setting-drawer-theme-color-block"
+                    class="ant-pro-setting-drawer-theme-color-block "
                     style="background-color:#FAAD14"
                   />
                   <div
-                    class="ant-pro-setting-drawer-theme-color-block"
+                    class="ant-pro-setting-drawer-theme-color-block "
                     style="background-color:#13C2C2"
                   />
                   <div
-                    class="ant-pro-setting-drawer-theme-color-block"
+                    class="ant-pro-setting-drawer-theme-color-block "
                     style="background-color:#52C41A"
                   />
                   <div
-                    class="ant-pro-setting-drawer-theme-color-block"
+                    class="ant-pro-setting-drawer-theme-color-block "
                     style="background-color:#2F54EB"
                   />
                   <div
-                    class="ant-pro-setting-drawer-theme-color-block"
+                    class="ant-pro-setting-drawer-theme-color-block "
                     style="background-color:#722ED1"
                   />
                 </div>
@@ -3504,7 +3504,7 @@ Array [
                 style="margin-block-end:24px"
               >
                 <h3
-                  class="ant-pro-setting-drawer-body-title"
+                  class="ant-pro-setting-drawer-body-title "
                 >
                   导航模式
                 </h3>
@@ -3516,7 +3516,7 @@ Array [
                   >
                     <span
                       aria-label="check"
-                      class="anticon anticon-check ant-pro-setting-drawer-block-checkbox-selectIcon"
+                      class="anticon anticon-check ant-pro-setting-drawer-block-checkbox-selectIcon "
                       role="img"
                       style="display:block"
                     >
@@ -3540,7 +3540,7 @@ Array [
                   >
                     <span
                       aria-label="check"
-                      class="anticon anticon-check ant-pro-setting-drawer-block-checkbox-selectIcon"
+                      class="anticon anticon-check ant-pro-setting-drawer-block-checkbox-selectIcon "
                       role="img"
                       style="display:none"
                     >
@@ -3564,7 +3564,7 @@ Array [
                   >
                     <span
                       aria-label="check"
-                      class="anticon anticon-check ant-pro-setting-drawer-block-checkbox-selectIcon"
+                      class="anticon anticon-check ant-pro-setting-drawer-block-checkbox-selectIcon "
                       role="img"
                       style="display:none"
                     >
@@ -3589,7 +3589,7 @@ Array [
                 style="margin-block-end:24px"
               >
                 <h3
-                  class="ant-pro-setting-drawer-body-title"
+                  class="ant-pro-setting-drawer-body-title "
                 >
                   侧边菜单类型
                 </h3>
@@ -3601,7 +3601,7 @@ Array [
                   >
                     <span
                       aria-label="check"
-                      class="anticon anticon-check ant-pro-setting-drawer-block-checkbox-selectIcon"
+                      class="anticon anticon-check ant-pro-setting-drawer-block-checkbox-selectIcon "
                       role="img"
                       style="display:none"
                     >
@@ -3620,7 +3620,7 @@ Array [
                       </svg>
                     </span>
                     <div
-                      class="ant-pro-setting-drawer-block-checkbox-icon"
+                      class="ant-pro-setting-drawer-block-checkbox-icon "
                     >
                       <svg
                         height="1em"
@@ -3816,7 +3816,7 @@ Array [
                   >
                     <span
                       aria-label="check"
-                      class="anticon anticon-check ant-pro-setting-drawer-block-checkbox-selectIcon"
+                      class="anticon anticon-check ant-pro-setting-drawer-block-checkbox-selectIcon "
                       role="img"
                       style="display:none"
                     >
@@ -3835,7 +3835,7 @@ Array [
                       </svg>
                     </span>
                     <div
-                      class="ant-pro-setting-drawer-block-checkbox-icon"
+                      class="ant-pro-setting-drawer-block-checkbox-icon "
                     >
                       <svg
                         height="1em"
@@ -4044,7 +4044,7 @@ Array [
                         >
                           <li>
                             <div
-                              class="ant-select ant-select-sm content-width ant-select-single ant-select-show-arrow"
+                              class="ant-select ant-select-sm content-width  ant-select-single ant-select-show-arrow"
                               style="width:80px"
                             >
                               <div
@@ -4203,7 +4203,7 @@ Array [
                 style="margin-block-end:24px"
               >
                 <h3
-                  class="ant-pro-setting-drawer-body-title"
+                  class="ant-pro-setting-drawer-body-title "
                 >
                   内容区域
                 </h3>
@@ -4233,7 +4233,7 @@ Array [
                             <li>
                               <button
                                 aria-checked="true"
-                                class="ant-switch ant-switch-small regional-header ant-switch-checked"
+                                class="ant-switch ant-switch-small regional-header  ant-switch-checked"
                                 role="switch"
                                 type="button"
                               >
@@ -4261,7 +4261,7 @@ Array [
                             <li>
                               <button
                                 aria-checked="true"
-                                class="ant-switch ant-switch-small regional-footer ant-switch-checked"
+                                class="ant-switch ant-switch-small regional-footer  ant-switch-checked"
                                 role="switch"
                                 type="button"
                               >
@@ -4289,7 +4289,7 @@ Array [
                             <li>
                               <button
                                 aria-checked="true"
-                                class="ant-switch ant-switch-small regional-menu ant-switch-checked"
+                                class="ant-switch ant-switch-small regional-menu  ant-switch-checked"
                                 role="switch"
                                 type="button"
                               >
@@ -4317,7 +4317,7 @@ Array [
                             <li>
                               <button
                                 aria-checked="true"
-                                class="ant-switch ant-switch-small regional-menuHeader ant-switch-checked"
+                                class="ant-switch ant-switch-small regional-menuHeader  ant-switch-checked"
                                 role="switch"
                                 type="button"
                               >
@@ -4344,7 +4344,7 @@ Array [
                 style="margin-block-end:24px"
               >
                 <h3
-                  class="ant-pro-setting-drawer-body-title"
+                  class="ant-pro-setting-drawer-body-title "
                 >
                   其他设置
                 </h3>
@@ -4496,13 +4496,13 @@ Array [
             class="ant-drawer-body"
           >
             <div
-              class="ant-pro-setting-drawer-drawer-content"
+              class="ant-pro-setting-drawer-drawer-content "
             >
               <div
                 style="margin-block-end:24px"
               >
                 <h3
-                  class="ant-pro-setting-drawer-body-title"
+                  class="ant-pro-setting-drawer-body-title "
                 >
                   整体风格设置
                 </h3>
@@ -4514,7 +4514,7 @@ Array [
                   >
                     <span
                       aria-label="check"
-                      class="anticon anticon-check ant-pro-setting-drawer-block-checkbox-selectIcon"
+                      class="anticon anticon-check ant-pro-setting-drawer-block-checkbox-selectIcon "
                       role="img"
                       style="display:block"
                     >
@@ -4539,15 +4539,15 @@ Array [
                 style="margin-block-end:24px"
               >
                 <h3
-                  class="ant-pro-setting-drawer-body-title"
+                  class="ant-pro-setting-drawer-body-title "
                 >
                   主题色
                 </h3>
                 <div
-                  class="ant-pro-setting-drawer-theme-color"
+                  class="ant-pro-setting-drawer-theme-color "
                 >
                   <div
-                    class="ant-pro-setting-drawer-theme-color-block"
+                    class="ant-pro-setting-drawer-theme-color-block "
                     style="background-color:#1677FF"
                   >
                     <span
@@ -4571,35 +4571,35 @@ Array [
                     </span>
                   </div>
                   <div
-                    class="ant-pro-setting-drawer-theme-color-block"
+                    class="ant-pro-setting-drawer-theme-color-block "
                     style="background-color:#1890ff"
                   />
                   <div
-                    class="ant-pro-setting-drawer-theme-color-block"
+                    class="ant-pro-setting-drawer-theme-color-block "
                     style="background-color:#F5222D"
                   />
                   <div
-                    class="ant-pro-setting-drawer-theme-color-block"
+                    class="ant-pro-setting-drawer-theme-color-block "
                     style="background-color:#FA541C"
                   />
                   <div
-                    class="ant-pro-setting-drawer-theme-color-block"
+                    class="ant-pro-setting-drawer-theme-color-block "
                     style="background-color:#FAAD14"
                   />
                   <div
-                    class="ant-pro-setting-drawer-theme-color-block"
+                    class="ant-pro-setting-drawer-theme-color-block "
                     style="background-color:#13C2C2"
                   />
                   <div
-                    class="ant-pro-setting-drawer-theme-color-block"
+                    class="ant-pro-setting-drawer-theme-color-block "
                     style="background-color:#52C41A"
                   />
                   <div
-                    class="ant-pro-setting-drawer-theme-color-block"
+                    class="ant-pro-setting-drawer-theme-color-block "
                     style="background-color:#2F54EB"
                   />
                   <div
-                    class="ant-pro-setting-drawer-theme-color-block"
+                    class="ant-pro-setting-drawer-theme-color-block "
                     style="background-color:#722ED1"
                   />
                 </div>
@@ -4612,7 +4612,7 @@ Array [
                 style="margin-block-end:24px"
               >
                 <h3
-                  class="ant-pro-setting-drawer-body-title"
+                  class="ant-pro-setting-drawer-body-title "
                 >
                   导航模式
                 </h3>
@@ -4624,7 +4624,7 @@ Array [
                   >
                     <span
                       aria-label="check"
-                      class="anticon anticon-check ant-pro-setting-drawer-block-checkbox-selectIcon"
+                      class="anticon anticon-check ant-pro-setting-drawer-block-checkbox-selectIcon "
                       role="img"
                       style="display:block"
                     >
@@ -4648,7 +4648,7 @@ Array [
                   >
                     <span
                       aria-label="check"
-                      class="anticon anticon-check ant-pro-setting-drawer-block-checkbox-selectIcon"
+                      class="anticon anticon-check ant-pro-setting-drawer-block-checkbox-selectIcon "
                       role="img"
                       style="display:none"
                     >
@@ -4672,7 +4672,7 @@ Array [
                   >
                     <span
                       aria-label="check"
-                      class="anticon anticon-check ant-pro-setting-drawer-block-checkbox-selectIcon"
+                      class="anticon anticon-check ant-pro-setting-drawer-block-checkbox-selectIcon "
                       role="img"
                       style="display:none"
                     >
@@ -4697,7 +4697,7 @@ Array [
                 style="margin-block-end:24px"
               >
                 <h3
-                  class="ant-pro-setting-drawer-body-title"
+                  class="ant-pro-setting-drawer-body-title "
                 >
                   侧边菜单类型
                 </h3>
@@ -4709,7 +4709,7 @@ Array [
                   >
                     <span
                       aria-label="check"
-                      class="anticon anticon-check ant-pro-setting-drawer-block-checkbox-selectIcon"
+                      class="anticon anticon-check ant-pro-setting-drawer-block-checkbox-selectIcon "
                       role="img"
                       style="display:none"
                     >
@@ -4728,7 +4728,7 @@ Array [
                       </svg>
                     </span>
                     <div
-                      class="ant-pro-setting-drawer-block-checkbox-icon"
+                      class="ant-pro-setting-drawer-block-checkbox-icon "
                     >
                       <svg
                         height="1em"
@@ -4924,7 +4924,7 @@ Array [
                   >
                     <span
                       aria-label="check"
-                      class="anticon anticon-check ant-pro-setting-drawer-block-checkbox-selectIcon"
+                      class="anticon anticon-check ant-pro-setting-drawer-block-checkbox-selectIcon "
                       role="img"
                       style="display:none"
                     >
@@ -4943,7 +4943,7 @@ Array [
                       </svg>
                     </span>
                     <div
-                      class="ant-pro-setting-drawer-block-checkbox-icon"
+                      class="ant-pro-setting-drawer-block-checkbox-icon "
                     >
                       <svg
                         height="1em"
@@ -5152,7 +5152,7 @@ Array [
                         >
                           <li>
                             <div
-                              class="ant-select ant-select-sm content-width ant-select-single ant-select-show-arrow"
+                              class="ant-select ant-select-sm content-width  ant-select-single ant-select-show-arrow"
                               style="width:80px"
                             >
                               <div
@@ -5311,7 +5311,7 @@ Array [
                 style="margin-block-end:24px"
               >
                 <h3
-                  class="ant-pro-setting-drawer-body-title"
+                  class="ant-pro-setting-drawer-body-title "
                 >
                   内容区域
                 </h3>
@@ -5341,7 +5341,7 @@ Array [
                             <li>
                               <button
                                 aria-checked="true"
-                                class="ant-switch ant-switch-small regional-header ant-switch-checked"
+                                class="ant-switch ant-switch-small regional-header  ant-switch-checked"
                                 role="switch"
                                 type="button"
                               >
@@ -5369,7 +5369,7 @@ Array [
                             <li>
                               <button
                                 aria-checked="true"
-                                class="ant-switch ant-switch-small regional-footer ant-switch-checked"
+                                class="ant-switch ant-switch-small regional-footer  ant-switch-checked"
                                 role="switch"
                                 type="button"
                               >
@@ -5397,7 +5397,7 @@ Array [
                             <li>
                               <button
                                 aria-checked="true"
-                                class="ant-switch ant-switch-small regional-menu ant-switch-checked"
+                                class="ant-switch ant-switch-small regional-menu  ant-switch-checked"
                                 role="switch"
                                 type="button"
                               >
@@ -5425,7 +5425,7 @@ Array [
                             <li>
                               <button
                                 aria-checked="true"
-                                class="ant-switch ant-switch-small regional-menuHeader ant-switch-checked"
+                                class="ant-switch ant-switch-small regional-menuHeader  ant-switch-checked"
                                 role="switch"
                                 type="button"
                               >
@@ -5452,7 +5452,7 @@ Array [
                 style="margin-block-end:24px"
               >
                 <h3
-                  class="ant-pro-setting-drawer-body-title"
+                  class="ant-pro-setting-drawer-body-title "
                 >
                   其他设置
                 </h3>

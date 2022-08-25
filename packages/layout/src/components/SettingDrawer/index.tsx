@@ -31,6 +31,7 @@ type BodyProps = {
   title: string;
   prefixCls: string;
   children?: React.ReactNode;
+  hashId: string;
 };
 
 type MergerSettingsType<T> = Partial<T> & {
@@ -38,9 +39,9 @@ type MergerSettingsType<T> = Partial<T> & {
   colorWeak?: boolean;
 };
 
-const Body: React.FC<BodyProps> = ({ children, prefixCls, title }) => (
+const Body: React.FC<BodyProps> = ({ children, hashId, prefixCls, title }) => (
   <div style={{ marginBlockEnd: 24 }}>
-    <h3 className={`${prefixCls}-body-title`}>{title}</h3>
+    <h3 className={`${prefixCls}-body-title ${hashId}`}>{title}</h3>
     {children}
   </div>
 );
@@ -369,15 +370,17 @@ export const SettingDrawer: React.FC<SettingDrawerProps> = (props) => {
           zIndex: 999,
         }}
       >
-        <div className={`${baseClassName}-drawer-content`}>
+        <div className={`${baseClassName}-drawer-content ${hashId}`}>
           <Body
             title={formatMessage({
               id: 'app.setting.pagestyle',
               defaultMessage: 'Page style setting',
             })}
+            hashId={hashId}
             prefixCls={baseClassName}
           >
             <BlockCheckbox
+              hashId={hashId}
               prefixCls={baseClassName}
               list={[
                 {
@@ -407,6 +410,7 @@ export const SettingDrawer: React.FC<SettingDrawerProps> = (props) => {
           </Body>
           {colorList !== false && (
             <Body
+              hashId={hashId}
               title={formatMessage({
                 id: 'app.setting.themecolor',
                 defaultMessage: 'Theme color',
@@ -414,6 +418,7 @@ export const SettingDrawer: React.FC<SettingDrawerProps> = (props) => {
               prefixCls={baseClassName}
             >
               <ThemeColor
+                hashId={hashId}
                 prefixCls={baseClassName}
                 colorList={colorList}
                 value={genStringToTheme(colorPrimary)!}
@@ -426,6 +431,7 @@ export const SettingDrawer: React.FC<SettingDrawerProps> = (props) => {
             <>
               <Divider />
               <Body
+                hashId={hashId}
                 prefixCls={baseClassName}
                 title={formatMessage({ id: 'app.setting.navigationmode' })}
               >
@@ -433,6 +439,7 @@ export const SettingDrawer: React.FC<SettingDrawerProps> = (props) => {
                   prefixCls={baseClassName}
                   value={layout!}
                   key="layout"
+                  hashId={hashId}
                   configType="layout"
                   list={[
                     {
@@ -453,6 +460,7 @@ export const SettingDrawer: React.FC<SettingDrawerProps> = (props) => {
               </Body>
               {settingState.layout == 'side' || settingState.layout == 'mix' ? (
                 <Body
+                  hashId={hashId}
                   prefixCls={baseClassName}
                   title={formatMessage({ id: 'app.setting.sidermenutype' })}
                 >
@@ -460,6 +468,7 @@ export const SettingDrawer: React.FC<SettingDrawerProps> = (props) => {
                     prefixCls={baseClassName}
                     value={siderMenuType!}
                     key="siderMenuType"
+                    hashId={hashId}
                     configType="siderMenuType"
                     list={[
                       {
@@ -477,19 +486,29 @@ export const SettingDrawer: React.FC<SettingDrawerProps> = (props) => {
                   />
                 </Body>
               ) : null}
-              <LayoutSetting settings={settingState} changeSetting={changeSetting} />
+              <LayoutSetting
+                hashId={hashId}
+                settings={settingState}
+                changeSetting={changeSetting}
+              />
               <Divider />
 
               <Body
+                hashId={hashId}
                 prefixCls={baseClassName}
                 title={formatMessage({ id: 'app.setting.regionalsettings' })}
               >
-                <RegionalSetting settings={settingState} changeSetting={changeSetting} />
+                <RegionalSetting
+                  hashId={hashId}
+                  settings={settingState}
+                  changeSetting={changeSetting}
+                />
               </Body>
 
               <Divider />
 
               <Body
+                hashId={hashId}
                 prefixCls={baseClassName}
                 title={formatMessage({ id: 'app.setting.othersettings' })}
               >

@@ -44,7 +44,7 @@ const genAppsLogoComponentsSimpleListStyle: GenerateStyle<AppsLogoComponentsToke
               fontSize: 22,
               lineHeight: '40px',
               textAlign: 'center',
-              backgroundColor: token.colorPrimaryBgHover,
+              backgroundImage: 'linear-gradient(180deg, #E8F0FB 0%, #F6F8FC 100%)',
               borderRadius: token.radiusBase,
             },
             '& > img': {

@@ -2,6 +2,22 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.0.0-experimental.23](https://github.com/ant-design/pro-components/compare/@ant-design/pro-list@2.0.0-experimental.22...@ant-design/pro-list@2.0.0-experimental.23) (2022-08-25)
+
+**Note:** Version bump only for package @ant-design/pro-list
+
+# [2.0.0-experimental.22](https://github.com/ant-design/pro-components/compare/@ant-design/pro-list@2.0.0-experimental.21...@ant-design/pro-list@2.0.0-experimental.22) (2022-08-25)
+
+**Note:** Version bump only for package @ant-design/pro-list
+
+# [2.0.0-experimental.21](https://github.com/ant-design/pro-components/compare/@ant-design/pro-list@1.21.81...@ant-design/pro-list@2.0.0-experimental.21) (2022-08-25)
+
+**Note:** Version bump only for package @ant-design/pro-list
+
+# [2.0.0-experimental.20](https://github.com/ant-design/pro-components/compare/@ant-design/pro-list@2.0.0-experimental.19...@ant-design/pro-list@2.0.0-experimental.20) (2022-08-24)
+
+**Note:** Version bump only for package @ant-design/pro-list
+
 # [2.0.0-experimental.19](https://github.com/ant-design/pro-components/compare/@ant-design/pro-list@2.0.0-experimental.18...@ant-design/pro-list@2.0.0-experimental.19) (2022-08-24)
 
 **Note:** Version bump only for package @ant-design/pro-list

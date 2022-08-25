@@ -213,17 +213,18 @@ const FieldMoney: ProFieldFC<FieldMoneyProps> = (
   if (type === 'edit' || type === 'update') {
     const getFormateValue = (value?: string | number) => {
       const reg = new RegExp(
-        `\\B(?=(\\d{${3 + (precision - DefaultPrecisionCont)}})+(?!\\d))`,
+        `\\B(?=(\\d{${3 + Math.max(precision - DefaultPrecisionCont, 0)}})+(?!\\d))`,
         'g',
       );
       const [intS, floatS] = String(value).split('.');
       const resInt = intS.replace(reg, ',');
       let resFloat = '';
-      if (floatS)
+      if (floatS && precision > 0)
         resFloat = `.${floatS.slice(
           0,
           precision === undefined ? DefaultPrecisionCont : precision,
         )}`;
+
       return `${resInt}${resFloat}`;
     };
 

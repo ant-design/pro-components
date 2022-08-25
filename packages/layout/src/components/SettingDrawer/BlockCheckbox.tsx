@@ -13,6 +13,7 @@ export type BlockCheckboxProps = {
   }[];
   configType: string;
   prefixCls: string;
+  hashId: string;
 };
 
 const BlockCheckbox: React.FC<BlockCheckboxProps> = ({
@@ -21,6 +22,7 @@ const BlockCheckbox: React.FC<BlockCheckboxProps> = ({
   onChange,
   list,
   prefixCls,
+  hashId,
 }) => {
   const baseClassName = `${prefixCls}-block-checkbox`;
   const dom = useMemo(() => {
@@ -28,6 +30,7 @@ const BlockCheckbox: React.FC<BlockCheckboxProps> = ({
       <Tooltip title={item.title} key={item.key}>
         <div
           className={classNames(
+            hashId,
             `${baseClassName}-item`,
             `${baseClassName}-item-${item.key}`,
             `${baseClassName}-${configType}-item`,
@@ -35,19 +38,19 @@ const BlockCheckbox: React.FC<BlockCheckboxProps> = ({
           onClick={() => onChange(item.key)}
         >
           <CheckOutlined
-            className={`${baseClassName}-selectIcon`}
+            className={`${baseClassName}-selectIcon ${hashId}`}
             style={{
               display: value === item.key ? 'block' : 'none',
             }}
           />
-          {item?.icon ? <div className={`${baseClassName}-icon`}>{item.icon}</div> : null}
+          {item?.icon ? <div className={`${baseClassName}-icon ${hashId}`}>{item.icon}</div> : null}
         </div>
       </Tooltip>
     ));
     return domList;
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [value, list?.length, onChange]);
-  return <div className={baseClassName}>{dom}</div>;
+  return <div className={classNames(baseClassName, hashId)}>{dom}</div>;
 };
 
 export { BlockCheckbox };

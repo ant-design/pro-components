@@ -68,7 +68,7 @@ const genProListStyle: GenerateStyle<ProListToken> = (token) => {
         cursor: 'pointer',
         [`${token.antCls}-tabs-top > ${token.antCls}-tabs-nav`]: {
           marginBlockEnd: 0,
-          '&::before': { borderBottom: 0 },
+          '&::before': { borderBlockEnd: 0 },
           [`${token.antCls}-tabs-nav-list`]: {
             marginBlockStart: 0,
             '${token.antCls}-tabs-tab': {
