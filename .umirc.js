@@ -108,8 +108,6 @@ export default {
     '@root-entry-name': 'variable',
     ...theme,
     '@primary-color': '#1677FF',
-    '@error-color': '#ff4d4',
-    '@info-color': '#52c41a',
     '@warning-color': '#faad14',
     '@heading-color': 'rgba(255, 255, 255, 0.85)',
     '@text-color': 'rgba(255, 255, 255, 0.65)',

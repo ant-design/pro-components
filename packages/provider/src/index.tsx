@@ -1,6 +1,5 @@
-import { ConfigProvider as AntdConfigProvider } from 'antd';
+import { ConfigProvider as AntdConfigProvider, theme as antdTheme } from 'antd';
 import zh_CN from 'antd/es/locale/zh_CN';
-import { useToken } from 'antd/es/theme';
 import classNames from 'classnames';
 import React, { useContext, useEffect } from 'react';
 import { SWRConfig, useSWRConfig } from 'swr';
@@ -27,6 +26,10 @@ import trTR from './locale/tr_TR';
 import viVN from './locale/vi_VN';
 import zhCN from './locale/zh_CN';
 import zhTW from './locale/zh_TW';
+
+const { useToken } = antdTheme || {
+  useToken: () => [],
+};
 
 export type ProSchemaValueEnumType = {
   /** @name 演示的文案 */
@@ -273,7 +276,7 @@ export const ConfigProviderWrap: React.FC<Record<string, unknown>> = ({
   autoClearCache = false,
 }) => {
   const { locale } = useContext(AntdConfigProvider.ConfigContext);
-  const [, , hashId] = useToken();
+  const [, , hashId] = useToken?.();
   // 如果 locale 不存在自动注入的 AntdConfigProvider
   const Provider = locale === undefined ? AntdConfigProvider : React.Fragment;
   const proProvide = useContext(ConfigContext);

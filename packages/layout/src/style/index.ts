@@ -153,6 +153,12 @@ const compatibleStyle: GenerateStyle<ProLayoutToken & LayoutDesignToken> = (toke
               color: token.header.colorTextMenuActive,
             },
           },
+
+          [`${token.antCls}-menu-item-selected`]: {
+            color: token.header.colorTextMenuActive,
+            fontWeight: 'bold',
+            borderRadius: token.radiusBase,
+          },
         },
       },
     },
@@ -173,15 +179,18 @@ const compatibleStyle: GenerateStyle<ProLayoutToken & LayoutDesignToken> = (toke
       },
       [`${token.antCls}-menu-item-selected`]: {
         color: token.sider.colorTextMenuSelected,
+        fontWeight: 'bold',
       },
       [`${token.antCls}-menu-submenu-selected`]: {
         color: token.sider.colorTextMenuSelected,
+        fontWeight: 'bold',
       },
       [`${token.antCls}-menu:not(${token.antCls}-menu-horizontal)`]: {
         [`${token.antCls}-menu-item-selected`]: {
           backgroundColor: 'rgba(0, 0, 0, 0.04)',
           borderRadius: token.radiusBase,
           color: token.sider.colorTextMenuSelected,
+          fontWeight: 'bold',
         },
         [`${token.antCls}-menu-item:hover, 
           ${token.antCls}-menu-item-active,
