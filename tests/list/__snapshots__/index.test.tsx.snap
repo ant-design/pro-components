@@ -2,7 +2,7 @@
 
 exports[`List 🚏 ProList support rowClassName as a function 1`] = `
 <div
-  class="ant-pro"
+  class="ant-pro "
 >
   <div
     class="ant-pro-table ant-pro-list ant-pro-list ant-pro-list-no-split"
@@ -120,7 +120,7 @@ exports[`List 🚏 ProList support rowClassName as a function 1`] = `
 
 exports[`List 🚏 ProList support rowClassName as a string 1`] = `
 <div
-  class="ant-pro"
+  class="ant-pro "
 >
   <div
     class="ant-pro-table ant-pro-list ant-pro-list ant-pro-list-no-split"
@@ -197,7 +197,7 @@ exports[`List 🚏 ProList support rowClassName as a string 1`] = `
 
 exports[`List 🚏 only has content 1`] = `
 <div
-  class="ant-pro"
+  class="ant-pro "
 >
   <div
     class="ant-pro-table ant-pro-list ant-pro-list ant-pro-list-no-split"
@@ -251,7 +251,7 @@ exports[`List 🚏 only has content 1`] = `
 
 exports[`List 🚏 only has description 1`] = `
 <div
-  class="ant-pro"
+  class="ant-pro "
 >
   <div
     class="ant-pro-table ant-pro-list ant-pro-list ant-pro-list-no-split"
@@ -329,7 +329,7 @@ exports[`List 🚏 only has description 1`] = `
 
 exports[`List 🚏 show loading state 1`] = `
 <div
-  class="ant-pro"
+  class="ant-pro "
 >
   <div
     class="ant-pro-table ant-pro-list ant-pro-list ant-pro-list-no-split"
