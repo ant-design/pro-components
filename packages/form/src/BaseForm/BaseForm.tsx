@@ -69,7 +69,7 @@ export type CommonFormProps<T = Record<string, any>, U = Record<string, any>> = 
    *
    * @example onFinish={async (values) => { await save(values); return true }}
    */
-  onFinish?: (formData: T) => Promise<boolean | void>;
+  onFinish?: (formData: T) => Promise<boolean | void> | boolean | void;
 
   /**
    * @name 获取 ProFormInstance
