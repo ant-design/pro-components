@@ -43833,7 +43833,7 @@ exports[`form demos 📸 renders ./packages/form/src/demos/layout-footer.tsx cor
               style="flex: 1; overflow-y: auto; overflow-x: hidden;"
             >
               <ul
-                class="ant-menu ant-menu-root ant-menu-vertical ant-pro-sider-menu ant-pro-base-menu ant-pro-base-menu-collapsed ant-menu-inline-collapsed"
+                class="ant-menu ant-menu-root ant-menu-vertical ant-pro-sider-menu  ant-pro-base-menu ant-pro-base-menu-collapsed ant-menu-inline-collapsed"
                 data-menu-list="true"
                 role="menu"
                 style="background-color: transparent; width: 100%;"
@@ -43860,7 +43860,7 @@ exports[`form demos 📸 renders ./packages/form/src/demos/layout-footer.tsx cor
                         title="一级名称"
                       >
                         <span
-                          class="anticon ant-pro-base-menu-item-icon"
+                          class="anticon ant-pro-base-menu-item-icon "
                         >
                           <span
                             aria-label="smile"
@@ -43918,7 +43918,7 @@ exports[`form demos 📸 renders ./packages/form/src/demos/layout-footer.tsx cor
           </div>
         </aside>
         <div
-          class="ant-layout"
+          class="ant-pro-layout-container"
           style="position: relative;"
         >
           <header
@@ -44078,7 +44078,7 @@ exports[`form demos 📸 renders ./packages/form/src/demos/layout-footer.tsx cor
               class="ant-pro-page-container ant-pro-page-container-ghost"
             >
               <div
-                class="ant-page-header ant-pro-page-container-warp-page-header ant-pro-page-container-warp-page-header ant-page-header-has-breadcrumb ant-page-header-ghost"
+                class="ant-page-header ant-pro-page-container-warp-page-header  ant-pro-page-container-warp-page-header  ant-page-header-has-breadcrumb ant-page-header-ghost"
               >
                 <nav
                   class="ant-breadcrumb ant-page-header-breadcrumb"
@@ -44119,13 +44119,13 @@ exports[`form demos 📸 renders ./packages/form/src/demos/layout-footer.tsx cor
                   </ol>
                 </nav>
                 <div
-                  class="ant-page-header-heading"
+                  class="ant-page-header-heading "
                 >
                   <div
-                    class="ant-page-header-heading-left"
+                    class="ant-page-header-heading-left "
                   >
                     <span
-                      class="ant-page-header-heading-title"
+                      class="ant-page-header-heading-title "
                       title="输入表单"
                     >
                       输入表单
@@ -44137,10 +44137,10 @@ exports[`form demos 📸 renders ./packages/form/src/demos/layout-footer.tsx cor
                 class="ant-pro-grid-content"
               >
                 <div
-                  class="ant-pro-grid-content-children"
+                  class="ant-pro-grid-content-children "
                 >
                   <div
-                    class="ant-pro-page-container-children-content"
+                    class="ant-pro-page-container-children-content "
                   >
                     <div
                       class="ant-card ant-card-bordered"
@@ -45545,10 +45545,10 @@ exports[`form demos 📸 renders ./packages/form/src/demos/layout-footer.tsx cor
                             style="width: calc(100% - 60px);"
                           >
                             <div
-                              class="ant-pro-footer-bar-left"
+                              class="ant-pro-footer-bar-left "
                             />
                             <div
-                              class="ant-pro-footer-bar-right"
+                              class="ant-pro-footer-bar-right "
                             >
                               <button
                                 class="ant-btn ant-btn-default"

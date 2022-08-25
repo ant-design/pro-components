@@ -29,7 +29,11 @@ import zhCN from './locale/zh_CN';
 import zhTW from './locale/zh_TW';
 
 const { useToken } = antdTheme || {
-  useToken: () => {},
+  useToken: () => {
+    return {
+      hashId: '',
+    };
+  },
 };
 
 export type ProSchemaValueEnumType = {
