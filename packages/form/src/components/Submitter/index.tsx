@@ -1,6 +1,6 @@
 import { useIntl } from '@ant-design/pro-provider';
-import type { ButtonProps, FormInstance } from 'antd';
-import { Button, Space } from 'antd';
+import type { ButtonProps } from 'antd';
+import { Button, Form, Space } from 'antd';
 import omit from 'omit.js';
 import React from 'react';
 
@@ -42,14 +42,14 @@ export type SubmitterProps<T = Record<string, any>> = {
  * @param props
  */
 
-const Submitter: React.FC<SubmitterProps & { form: FormInstance }> = (props) => {
+const Submitter: React.FC<SubmitterProps> = (props) => {
   const intl = useIntl();
+  const form = Form.useFormInstance();
   if (props.render === false) {
     return null;
   }
 
   const {
-    form,
     onSubmit,
     render,
     onReset,
@@ -104,7 +104,7 @@ const Submitter: React.FC<SubmitterProps & { form: FormInstance }> = (props) => 
     );
   }
 
-  const renderDom = render ? render({ ...props, submit, reset }, dom) : dom;
+  const renderDom = render ? render({ ...props, form, submit, reset }, dom) : dom;
   if (!renderDom) {
     return null;
   }

@@ -1,8 +1,7 @@
-import type { ProFormInstance } from '@ant-design/pro-form';
 import type { TableColumnType } from 'antd';
 import useMergedState from 'rc-util/lib/hooks/useMergedState';
 import { noteOnce } from 'rc-util/lib/warning';
-import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
+import { useCallback, useEffect, useLayoutEffect, useMemo, useRef, useState } from 'react';
 import { createContainer } from 'unstated-next';
 import type { DensitySize } from './components/ToolBar/DensityIcon';
 import type { ProTableProps } from './index';
@@ -40,9 +39,6 @@ function useContainer(props: UseContainerProps = {}) {
 
   /** 自己 props 的引用 */
   const propsRef = useRef<ProTableProps<any, any, any>>();
-
-  /** 可编辑表格的formRef */
-  const editableFormRef = useRef<ProFormInstance<any>>();
 
   // 共享状态比较难，就放到这里了
   const [keyWords, setKeyWords] = useState<string | undefined>('');
@@ -103,6 +99,26 @@ function useContainer(props: UseContainerProps = {}) {
     },
   );
 
+  /**  配置或列更改时对columnsMap重新赋值 */
+  useLayoutEffect(() => {
+    const { persistenceType, persistenceKey } = props.columnsState || {};
+
+    if (persistenceKey && persistenceType && typeof window !== 'undefined') {
+      /** 从持久化中读取数据 */
+      const storage = window[persistenceType];
+      try {
+        const storageValue = storage?.getItem(persistenceKey);
+        if (storageValue) {
+          setColumnsMap(JSON.parse(storageValue));
+        } else {
+          setColumnsMap(defaultColumnKeyMap);
+        }
+      } catch (error) {
+        console.warn(error);
+      }
+    }
+  }, [props.columnsState, defaultColumnKeyMap, setColumnsMap]);
+
   noteOnce(!props.columnsStateMap, 'columnsStateMap已经废弃，请使用 columnsState.value 替换');
   noteOnce(
     !props.columnsStateMap,
@@ -158,10 +174,7 @@ function useContainer(props: UseContainerProps = {}) {
     setPrefixName: (name: any) => {
       prefixNameRef.current = name;
     },
-    setEditorTableForm: (form: ProFormInstance<any>) => {
-      editableFormRef.current = form;
-    },
-    editableForm: editableFormRef.current,
+
     setColumnsMap,
     columns: props.columns,
     rootDomRef,
@@ -178,10 +191,6 @@ function useContainer(props: UseContainerProps = {}) {
 
   Object.defineProperty(renderValue, 'action', {
     get: () => actionRef.current,
-  });
-
-  Object.defineProperty(renderValue, 'editableForm', {
-    get: () => editableFormRef.current,
   });
 
   return renderValue;

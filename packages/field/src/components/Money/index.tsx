@@ -80,7 +80,7 @@ const intlMap = {
 };
 
 const getTextByLocale = (
-  localeStr: string | false,
+  moneySymbol: string | false,
   paramsText: number | string | undefined,
   precision: number,
   config?: any,
@@ -91,9 +91,9 @@ const getTextByLocale = (
   }
 
   if (!moneyText && moneyText !== 0) return '';
-
-  return new Intl.NumberFormat(localeStr || 'zh-Hans-CN', {
-    ...(intlMap[localeStr || 'zh-Hans-CN'] || intlMap['zh-Hans-CN']),
+  // readonly moneySymbol = false, unused currency
+  return new Intl.NumberFormat(moneySymbol || 'zh-Hans-CN', {
+    ...(moneySymbol === false ? {} : intlMap[moneySymbol || 'zh-Hans-CN'] || intlMap['zh-Hans-CN']),
     maximumFractionDigits: precision,
     ...config,
   }).format(moneyText);
@@ -199,21 +199,37 @@ const FieldMoney: ProFieldFC<FieldMoneyProps> = (
   }
 
   if (type === 'edit' || type === 'update') {
+    const getFormateValue = (value?: string | number) => {
+      const reg = new RegExp(
+        `\\B(?=(\\d{${3 + Math.max(precision - DefaultPrecisionCont, 0)}})+(?!\\d))`,
+        'g',
+      );
+      const [intS, floatS] = String(value).split('.');
+      const resInt = intS.replace(reg, ',');
+      let resFloat = '';
+      if (floatS && precision > 0)
+        resFloat = `.${floatS.slice(
+          0,
+          precision === undefined ? DefaultPrecisionCont : precision,
+        )}`;
+
+      return `${resInt}${resFloat}`;
+    };
     const dom = (
       <InputNumberPopover
         content={(props) => {
           if (numberPopoverRender === false) return;
           if (!props.value) return;
-          const reg = new RegExp(`/B(?=(d{${3 + (precision - DefaultPrecisionCont)}})+(?!d))/g`);
           const localeText = getTextByLocale(
             moneySymbol ? locale : false,
-            props.value?.toString()?.replace(reg, ','),
+            `${getFormateValue(props.value)}`,
             precision,
             {
               ...numberFormatOptions,
               notation: 'compact',
             },
           );
+
           if (typeof numberPopoverRender === 'function') {
             return numberPopoverRender?.(props, localeText);
           }
@@ -224,8 +240,7 @@ const FieldMoney: ProFieldFC<FieldMoneyProps> = (
         // 删除默认min={0}，允许输入一个负数的金额，用户可自行配置min来限制是否允许小于0的金额
         formatter={(value) => {
           if (value && moneySymbol) {
-            const reg = new RegExp(`/B(?=(d{${3 + (precision - DefaultPrecisionCont)}})+(?!d))/g`);
-            return `${moneySymbol} ${value}`.replace(reg, ',');
+            return `${moneySymbol} ${getFormateValue(value)}`;
           }
           return value!?.toString();
         }}
@@ -241,6 +256,8 @@ const FieldMoney: ProFieldFC<FieldMoneyProps> = (
           'precision',
           'numberPopoverRender',
           'customSymbol',
+          'moneySymbol',
+          'visible',
         ])}
       />
     );

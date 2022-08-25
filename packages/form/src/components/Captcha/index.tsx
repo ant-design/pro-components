@@ -31,6 +31,7 @@ export type CaptFieldRef = {
 };
 
 const BaseProFormCaptcha: React.FC<ProFormCaptchaProps> = React.forwardRef((props, ref: any) => {
+  const form = Form.useFormInstance();
   const [count, setCount] = useState<number>(props.countDown || 60);
   const [timing, setTiming] = useState(false);
   const [loading, setLoading] = useState<boolean>();
@@ -88,51 +89,47 @@ const BaseProFormCaptcha: React.FC<ProFormCaptchaProps> = React.forwardRef((prop
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [timing]);
   return (
-    <Form.Item noStyle shouldUpdate>
-      {({ getFieldValue, validateFields }) => (
-        <div
-          style={{
-            ...fieldProps?.style,
-            display: 'flex',
-            alignItems: 'center',
-          }}
-          ref={ref}
-        >
-          <Input
-            {...fieldProps}
-            style={{
-              flex: 1,
-              transition: 'width .3s',
-              marginRight: 8,
-            }}
-          />
-          <Button
-            style={{
-              display: 'block',
-            }}
-            disabled={timing}
-            loading={loading}
-            {...captchaProps}
-            onClick={async () => {
-              try {
-                if (phoneName) {
-                  await validateFields([phoneName].flat(1) as string[]);
-                  const mobile = getFieldValue([phoneName].flat(1) as string[]);
-                  await onGetCaptcha(mobile);
-                } else {
-                  await onGetCaptcha('');
-                }
-              } catch (error) {
-                // eslint-disable-next-line no-console
-                console.log(error);
-              }
-            }}
-          >
-            {captchaTextRender(timing, count)}
-          </Button>
-        </div>
-      )}
-    </Form.Item>
+    <div
+      style={{
+        ...fieldProps?.style,
+        display: 'flex',
+        alignItems: 'center',
+      }}
+      ref={ref}
+    >
+      <Input
+        {...fieldProps}
+        style={{
+          flex: 1,
+          transition: 'width .3s',
+          marginRight: 8,
+        }}
+      />
+      <Button
+        style={{
+          display: 'block',
+        }}
+        disabled={timing}
+        loading={loading}
+        {...captchaProps}
+        onClick={async () => {
+          try {
+            if (phoneName) {
+              await form.validateFields([phoneName].flat(1) as string[]);
+              const mobile = form.getFieldValue([phoneName].flat(1) as string[]);
+              await onGetCaptcha(mobile);
+            } else {
+              await onGetCaptcha('');
+            }
+          } catch (error) {
+            // eslint-disable-next-line no-console
+            console.log(error);
+          }
+        }}
+      >
+        {captchaTextRender(timing, count)}
+      </Button>
+    </div>
   );
 });
 

@@ -2,6 +2,41 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.74.2](https://github.com/ant-design/pro-components/compare/@ant-design/pro-form@1.74.1...@ant-design/pro-form@1.74.2) (2022-08-24)
+
+### Bug Fixes
+
+- **form:** fix ProFormMoney precision style error ([e15f9b6](https://github.com/ant-design/pro-components/commit/e15f9b645f6fc3681ca3cd0d02ce0d3c31479107))
+- 解决 ProFormList 下的表单组件未调用 transform 方法问题 ([#5759](https://github.com/ant-design/pro-components/issues/5759)) ([6e4396d](https://github.com/ant-design/pro-components/commit/6e4396d7e7816cb1f58385859ce4074f3571d2e4))
+
+## [1.74.1](https://github.com/ant-design/pro-components/compare/@ant-design/pro-form@1.74.0...@ant-design/pro-form@1.74.1) (2022-08-22)
+
+### Bug Fixes
+
+- **form:** fix from ref no work error ([0ff0ead](https://github.com/ant-design/pro-components/commit/0ff0ead3d056beaf3f307bc83d4265c05835cc48))
+- **form:** 两个 ProForm 表单下存在相同 name 的 ProFormSelect 时，request 得到的结果会造成覆盖问题 ([#5748](https://github.com/ant-design/pro-components/issues/5748)) ([c283059](https://github.com/ant-design/pro-components/commit/c28305922c507c59eea6e61086ccf9171748178a))
+
+# [1.74.0](https://github.com/ant-design/pro-components/compare/@ant-design/pro-form@1.73.0...@ant-design/pro-form@1.74.0) (2022-08-19)
+
+### Features
+
+- **form:** support Pro.useFormInstance ([d53eccc](https://github.com/ant-design/pro-components/commit/d53eccca812e477c68f59243b227e3141526ce69))
+
+# [1.73.0](https://github.com/ant-design/pro-components/compare/@ant-design/pro-form@1.72.0...@ant-design/pro-form@1.73.0) (2022-08-15)
+
+### Bug Fixes
+
+- **field:** 修复金额输入框因正则问题导致格式化异常的问题 ([#5715](https://github.com/ant-design/pro-components/issues/5715)) ([d32df82](https://github.com/ant-design/pro-components/commit/d32df82a1fdf0e912c6e3818616256468aaa703a))
+- **form:** destroyOnClose does not work as expected ([#5687](https://github.com/ant-design/pro-components/issues/5687)) ([c2fac32](https://github.com/ant-design/pro-components/commit/c2fac3270f9a936e84b683918b234a954b5417c8))
+- **form:** Stepsform to correctly unregister form ([#5668](https://github.com/ant-design/pro-components/issues/5668)) ([1a52400](https://github.com/ant-design/pro-components/commit/1a52400d16e361a79dfacdd252542144721279c6))
+- **form:** UploadButton and UploadDragger readonly not working with Form Context ([#5689](https://github.com/ant-design/pro-components/issues/5689)) ([4a36c54](https://github.com/ant-design/pro-components/commit/4a36c54fbd1f64a7dc247a5f9c8f13768f824e14))
+- **form:** 修复查询表单传入的 defaultColsNumber 与表单项数量相同时未显示展开按钮的问题 ([#5718](https://github.com/ant-design/pro-components/issues/5718)) ([e4520d1](https://github.com/ant-design/pro-components/commit/e4520d11e4861230153cd924adb412ff7a61f23f))
+- **form:** 修复查询表单展示「展开」按钮的逻辑错误问题 ([#5723](https://github.com/ant-design/pro-components/issues/5723)) ([2f7b0e4](https://github.com/ant-design/pro-components/commit/2f7b0e4b5ce43ed83469cd6115169f729b2887fa))
+
+### Features
+
+- **locale:** Add multilingual translation ([#5685](https://github.com/ant-design/pro-components/issues/5685)) ([0de3c0d](https://github.com/ant-design/pro-components/commit/0de3c0dd559b4133c8b3195efbfb2590d26617fa))
+
 # [1.72.0](https://github.com/ant-design/pro-components/compare/@ant-design/pro-form@1.71.2...@ant-design/pro-form@1.72.0) (2022-08-02)
 
 ### Bug Fixes

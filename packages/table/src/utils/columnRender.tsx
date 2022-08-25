@@ -1,5 +1,4 @@
 ﻿import type { ProFieldEmptyText } from '@ant-design/pro-field';
-import type { ProFormInstance } from '@ant-design/pro-form';
 import type {
   ProFieldValueType,
   ProSchemaComponentTypes,
@@ -73,9 +72,8 @@ export const defaultOnFilter = (value: string, record: any, dataIndex: string | 
 };
 
 class OptionsCell extends React.Component<{
-  children: (form: ProFormInstance) => React.ReactNode;
+  children: React.ReactNode;
   record: any;
-  form: ProFormInstance;
 }> {
   shouldComponentUpdate(nextProps: any) {
     const { children, ...restProps } = this.props;
@@ -83,7 +81,7 @@ class OptionsCell extends React.Component<{
     return !isDeepEqualReact(restProps, restNextProps);
   }
   render() {
-    return <Space>{this.props.children(this.props.form)}</Space>;
+    return <Space>{this.props.children}</Space>;
   }
 }
 /**
@@ -102,7 +100,7 @@ export function columnRender<T>({
   subName,
   editableUtils,
 }: ColumnRenderInterface<T>): any {
-  const { action, prefixName, editableForm } = counter;
+  const { action, prefixName } = counter;
   const { isEditable, recordKey } = editableUtils.isEditable({ ...rowData, index });
   const { renderText = (val: any) => val } = columnProps;
 
@@ -139,16 +137,11 @@ export function columnRender<T>({
   if (mode === 'edit') {
     if (columnProps.valueType === 'option') {
       return (
-        <OptionsCell record={rowData} form={editableForm!}>
-          {(inform) => {
-            return editableUtils.actionRender(
-              {
-                ...rowData,
-                index: columnProps.index || index,
-              },
-              inform!,
-            );
-          }}
+        <OptionsCell record={rowData}>
+          {editableUtils.actionRender({
+            ...rowData,
+            index: columnProps.index || index,
+          })}
         </OptionsCell>
       );
     }

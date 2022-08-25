@@ -68,11 +68,33 @@ const transformKeySubmitValue = <T extends object = any>(
       const key = parentsKey ? [parentsKey, entityKey].flat(1) : [entityKey].flat(1);
       const itemValue = tempValues[entityKey];
       const transformFunction = get(dataFormatMap, key);
+
+      const _transformArray = (transformFn: any) => {
+        if (!Array.isArray(transformFn)) return entityKey;
+        transformFunction.forEach((fn: any, idx: number) => {
+          if (typeof fn === 'function') {
+            itemValue[idx] = fn(itemValue, entityKey, tempValues);
+          }
+          if (typeof fn === 'object' && !Array.isArray(fn)) {
+            Object.keys(fn).forEach((curK) => {
+              if (typeof fn[curK] === 'function') {
+                const res = fn[curK](tempValues[entityKey][idx][curK], entityKey, tempValues);
+                itemValue[idx][curK] = typeof res === 'object' ? res[curK] : res;
+              }
+            });
+          }
+          if (typeof fn === 'object' && Array.isArray(fn)) {
+            _transformArray(fn);
+          }
+        });
+        return entityKey;
+      };
+
       const transform = () => {
         const tempKey =
           typeof transformFunction === 'function'
             ? transformFunction?.(itemValue, entityKey, tempValues)
-            : entityKey;
+            : _transformArray(transformFunction);
         // { [key:string]:any } 数组也能通过编译
         if (Array.isArray(tempKey)) {
           result = namePathSet(result, tempKey, itemValue);

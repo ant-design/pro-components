@@ -1,6 +1,6 @@
 ﻿import { PlusOutlined } from '@ant-design/icons';
 import type { ProFormInstance } from '@ant-design/pro-form';
-import { ProFormDependency } from '@ant-design/pro-form';
+import ProForm, { ProFormDependency } from '@ant-design/pro-form';
 import type { ParamsType } from '@ant-design/pro-provider';
 import { useIntl } from '@ant-design/pro-provider';
 import { isDeepEqualReact, runFunction, usePrevious, useRefFunction } from '@ant-design/pro-utils';
@@ -8,7 +8,6 @@ import type { ButtonProps, FormItemProps } from 'antd';
 import { Button, Form } from 'antd';
 import type { NamePath } from 'antd/lib/form/interface';
 import type { GetRowKey } from 'antd/lib/table/interface';
-import { Field } from 'rc-field-form';
 import useMergedState from 'rc-util/lib/hooks/useMergedState';
 import get from 'rc-util/lib/utils/get';
 import set from 'rc-util/lib/utils/set';
@@ -432,7 +431,8 @@ function EditableTable<
               return !isDeepEqualReact(item, preData?.[index]);
             });
             if (!changeItem) return null;
-            props?.editable?.onValuesChange?.(changeItem, list);
+            // 如果不存在 preData 说明是初始化，此时不需要触发 onValuesChange
+            if (preData) props?.editable?.onValuesChange?.(changeItem, list);
             return null;
           }}
         </ProFormDependency>
@@ -446,7 +446,10 @@ function FieldEditableTable<
   Params extends ParamsType = ParamsType,
   ValueType = 'text',
 >(props: EditableProTableProps<DataType, Params, ValueType>) {
+  const form = ProForm.useFormInstance();
+
   if (!props.name) return <EditableTable<DataType, Params, ValueType> {...props} />;
+
   return (
     <Form.Item
       style={{
@@ -455,21 +458,13 @@ function FieldEditableTable<
       {...props?.formItemProps}
       name={props.name}
     >
-      <Field shouldUpdate={true} name={props.name} isList>
-        {(control, _, form) => {
-          return (
-            <EditableTable<DataType, Params, ValueType>
-              {...props}
-              editable={{
-                ...props.editable,
-                form: form as ProFormInstance,
-              }}
-              value={control.value || []}
-              onChange={control.onChange}
-            />
-          );
+      <EditableTable<DataType, Params, ValueType>
+        {...props}
+        editable={{
+          ...props.editable,
+          form: form as ProFormInstance,
         }}
-      </Field>
+      />
     </Form.Item>
   );
 }

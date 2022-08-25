@@ -2,7 +2,7 @@
 import { LoadingOutlined } from '@ant-design/icons';
 import { useIntl } from '@ant-design/pro-provider';
 import type { FormInstance, FormProps } from 'antd';
-import { message, Popconfirm } from 'antd';
+import { Form, message, Popconfirm } from 'antd';
 import type { NamePath } from 'antd/lib/form/interface';
 import useLazyKVMap from 'antd/lib/table/hooks/useLazyKVMap';
 import type { GetRowKey } from 'antd/lib/table/interface';
@@ -126,7 +126,6 @@ export type ActionRenderConfig<T, LineConfig = NewLineConfig<T>> = {
   editableKeys?: RowEditableConfig<T>['editableKeys'];
   recordKey: RecordKey;
   index?: number;
-  form: FormInstance<any>;
   cancelEditable: (key: RecordKey) => void;
   onSave: RowEditableConfig<T>['onSave'];
   onCancel: RowEditableConfig<T>['onCancel'];
@@ -207,27 +206,48 @@ export function editableRowByKey<RecordType>(
     kvMap.delete(key);
   }
 
-  const fill = (map: Map<string, RecordType & { map_row_parentKey?: string }>) => {
+  const fill = (
+    map: Map<string, RecordType & { map_row_parentKey?: string; map_row_key?: string }>,
+  ) => {
     const kvArrayMap = new Map<string, RecordType[]>();
     const kvSource: RecordType[] = [];
+    const fillNewRecord = () => {
+      map.forEach((value) => {
+        if (value.map_row_parentKey && !value.map_row_key) {
+          const { map_row_parentKey, ...rest } = value;
+          kvArrayMap.set(map_row_parentKey, [
+            ...(kvArrayMap.get(map_row_parentKey) || []),
+            rest as unknown as RecordType,
+          ]);
+        }
+      });
+    };
+
+    if (action === 'top') {
+      fillNewRecord();
+    }
+
     map.forEach((value) => {
-      if (value.map_row_parentKey) {
-        // @ts-ignore
-        const { map_row_parentKey, map_row_key, ...reset } = value;
+      if (value.map_row_parentKey && value.map_row_key) {
+        const { map_row_parentKey, map_row_key, ...rest } = value;
         if (kvArrayMap.has(map_row_key)) {
-          reset[childrenColumnName] = kvArrayMap.get(map_row_key);
+          rest[childrenColumnName] = kvArrayMap.get(map_row_key);
         }
         kvArrayMap.set(map_row_parentKey, [
           ...(kvArrayMap.get(map_row_parentKey) || []),
-          reset as unknown as RecordType,
+          rest as unknown as RecordType,
         ]);
       }
     });
+
+    if (action === 'update') {
+      fillNewRecord();
+    }
+
     map.forEach((value) => {
       if (!value.map_row_parentKey) {
-        // @ts-ignore
         const { map_row_key, ...rest } = value;
-        if (kvArrayMap.has(map_row_key)) {
+        if (map_row_key && kvArrayMap.has(map_row_key)) {
           const item = {
             ...rest,
             [childrenColumnName]: kvArrayMap.get(map_row_key),
@@ -240,9 +260,7 @@ export function editableRowByKey<RecordType>(
     });
     return kvSource;
   };
-  const source = fill(kvMap);
-
-  return source;
+  return fill(kvMap);
 }
 
 /**
@@ -253,7 +271,6 @@ export function editableRowByKey<RecordType>(
 export function SaveEditableAction<T>({
   recordKey,
   onSave,
-  form,
   row,
   children,
   newLineConfig,
@@ -261,6 +278,7 @@ export function SaveEditableAction<T>({
   tableName,
 }: ActionRenderConfig<T> & { row: any; children: any }) {
   const context = useContext(ProFormContext);
+  const form = Form.useFormInstance();
   const [loading, setLoading] = useMountMergeState<boolean>(false);
   return (
     <a
@@ -376,7 +394,6 @@ const CancelEditableAction: React.FC<ActionRenderConfig<any> & { row: any }> = (
     recordKey,
     tableName,
     newLineConfig,
-    form,
     editorType,
     onCancel,
     cancelEditable,
@@ -384,6 +401,7 @@ const CancelEditableAction: React.FC<ActionRenderConfig<any> & { row: any }> = (
     cancelText,
   } = props;
   const context = useContext(ProFormContext);
+  const form = Form.useFormInstance();
   return (
     <a
       key="cancel"
@@ -448,12 +466,17 @@ function useEditableArray<RecordType>(
 
   useDeepCompareEffectDebounce(() => {
     const map = new Map<React.Key, React.Key>();
-    const loopGetKey = (dataSource: RecordType[]) => {
+    //存在children时会覆盖Map的key,导致使用数组索引查找key错误
+    const loopGetKey = (dataSource: RecordType[], parentKey?: string) => {
       dataSource?.forEach((record, index) => {
-        map.set(index.toString(), recordKeyToString(props.getRowKey(record, -1)));
-        map.set(recordKeyToString(props.getRowKey(record, -1))?.toString(), index.toString());
+        const key =
+          parentKey === undefined || parentKey === null
+            ? index.toString()
+            : parentKey + '_' + index.toString();
+        map.set(key, recordKeyToString(props.getRowKey(record, -1)));
+        map.set(recordKeyToString(props.getRowKey(record, -1))?.toString(), key);
         if (props.childrenColumnName && record[props.childrenColumnName]) {
-          loopGetKey(record[props.childrenColumnName]);
+          loopGetKey(record[props.childrenColumnName], key);
         }
       });
     };
@@ -776,7 +799,7 @@ function useEditableArray<RecordType>(
     },
   );
 
-  const actionRender = (row: RecordType & { index: number }, form: FormInstance<any>) => {
+  const actionRender = (row: RecordType & { index: number }) => {
     const key = props.getRowKey(row, row.index);
     const config: ActionRenderConfig<any, NewLineConfig<any>> = {
       saveText,
@@ -791,10 +814,10 @@ function useEditableArray<RecordType>(
       onCancel: actionCancelRef,
       onDelete: actionDeleteRef,
       onSave: actionSaveRef,
-      form,
       editableKeys,
       setEditableRowKeys,
-      deletePopconfirmMessage: props.deletePopconfirmMessage || '删除此行？',
+      deletePopconfirmMessage:
+        props.deletePopconfirmMessage || `${intl.getMessage('deleteThisLine', '删除此行')}?`,
     };
     const defaultDoms = defaultActionRender<RecordType>(row, config);
 

@@ -227,7 +227,9 @@ describe('QueryFilter', () => {
         collapsed: false,
       });
     });
-    await waitTime(100);
+    await act(async () => {
+      await waitTime(100);
+    });
     expect(wrapper.find('a.ant-pro-form-collapse-button').text()).toBe('close');
   });
 
@@ -242,7 +244,7 @@ describe('QueryFilter', () => {
         <ProFormText label="f" name="f" />
       </QueryFilter>,
     );
-    expect(wrapper.find('.ant-row .ant-form-item-hidden').length).toEqual(2);
+    expect(wrapper.find('.ant-row .ant-form-item-hidden').length).toEqual(3);
   });
 
   it('🕵️‍♀️ colSize不全都是1，collapseRender应该存在', async () => {
@@ -288,5 +290,41 @@ describe('QueryFilter', () => {
     await waitForComponentToPaint(wrapper);
 
     expect(wrapper.find('.ant-pro-form-group').exists()).toBeFalsy();
+  });
+
+  it('🕵️‍♀️ collapseRender', async () => {
+    const wrapper0 = mount(
+      <QueryFilter defaultColsNumber={3}>
+        <ProFormText label="a" name="a" />
+        <ProFormText label="b" name="b" />
+        <ProFormText label="c" name="c" />
+        <ProFormText label="d" name="d" />
+        <ProFormText label="e" name="e" />
+        <ProFormText label="f" name="f" />
+      </QueryFilter>,
+    );
+    expect(wrapper0.find('.ant-pro-form-collapse-button').length).toEqual(1);
+    const wrapper1 = mount(
+      <QueryFilter defaultColsNumber={6}>
+        <ProFormText label="a" name="a" />
+        <ProFormText label="b" name="b" />
+        <ProFormText label="c" name="c" />
+        <ProFormText label="d" name="d" />
+        <ProFormText label="e" name="e" />
+        <ProFormText label="f" name="f" />
+      </QueryFilter>,
+    );
+    expect(wrapper1.find('.ant-pro-form-collapse-button').length).toEqual(1);
+    const wrapper2 = mount(
+      <QueryFilter defaultColsNumber={7}>
+        <ProFormText label="a" name="a" />
+        <ProFormText label="b" name="b" />
+        <ProFormText label="c" name="c" />
+        <ProFormText label="d" name="d" />
+        <ProFormText label="e" name="e" />
+        <ProFormText label="f" name="f" />
+      </QueryFilter>,
+    );
+    expect(wrapper2.find('.ant-pro-form-collapse-button').length).toEqual(0);
   });
 });

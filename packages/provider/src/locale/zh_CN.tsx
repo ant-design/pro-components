@@ -1,5 +1,7 @@
 export default {
   moneySymbol: '￥',
+  deleteThisLine: '删除此行',
+  copyThisLine: '复制此行',
   form: {
     lightFilter: {
       more: '更多筛选',
@@ -57,6 +59,7 @@ export default {
     submitText: '登录',
   },
   editableTable: {
+    onlyOneLineEditor: '只能同时编辑一行',
     action: {
       save: '保存',
       cancel: '取消',

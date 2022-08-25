@@ -2,6 +2,24 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.12.2](https://github.com/ant-design/pro-components/compare/@ant-design/pro-descriptions@1.12.1...@ant-design/pro-descriptions@1.12.2) (2022-08-24)
+
+**Note:** Version bump only for package @ant-design/pro-descriptions
+
+## [1.12.1](https://github.com/ant-design/pro-components/compare/@ant-design/pro-descriptions@1.12.0...@ant-design/pro-descriptions@1.12.1) (2022-08-22)
+
+**Note:** Version bump only for package @ant-design/pro-descriptions
+
+# [1.12.0](https://github.com/ant-design/pro-components/compare/@ant-design/pro-descriptions@1.11.16...@ant-design/pro-descriptions@1.12.0) (2022-08-19)
+
+### Features
+
+- **form:** support Pro.useFormInstance ([d53eccc](https://github.com/ant-design/pro-components/commit/d53eccca812e477c68f59243b227e3141526ce69))
+
+## [1.11.16](https://github.com/ant-design/pro-components/compare/@ant-design/pro-descriptions@1.11.15...@ant-design/pro-descriptions@1.11.16) (2022-08-15)
+
+**Note:** Version bump only for package @ant-design/pro-descriptions
+
 ## [1.11.15](https://github.com/ant-design/pro-components/compare/@ant-design/pro-descriptions@1.11.14...@ant-design/pro-descriptions@1.11.15) (2022-08-02)
 
 **Note:** Version bump only for package @ant-design/pro-descriptions

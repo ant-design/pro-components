@@ -3,7 +3,7 @@ import { act, cleanup, render as reactRender } from '@testing-library/react';
 import glob from 'glob';
 import MockDate from 'mockdate';
 import moment from 'moment';
-import { waitForComponentToPaint } from './util';
+import { waitTime } from './util';
 
 type Options = {
   skip?: boolean;
@@ -64,12 +64,12 @@ function demoTest(component: string, options: Options = {}) {
         MockDate.set(moment('2016-11-22').valueOf());
         const Demo = require(`.${file}`).default;
         const wrapper = reactRender(<Demo />);
-        await waitForComponentToPaint(wrapper, 2000);
         // Convert aria related content
-        act(() => {
-          const dom = wrapper.asFragment();
-          expect(dom).toMatchSnapshot();
+        await act(async () => {
+          await waitTime(2000);
         });
+        expect(wrapper.asFragment()).toMatchSnapshot();
+
         wrapper.unmount();
         MockDate.reset();
         cleanup();

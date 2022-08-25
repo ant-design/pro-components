@@ -787,11 +787,254 @@ describe('EditorProTable', () => {
       );
     });
 
-    waitForComponentToPaint(wrapper, 100);
+    await waitForComponentToPaint(wrapper, 100);
     expect(
       wrapper.container.querySelectorAll<HTMLInputElement>(
         '.ant-table-cell .ant-form-item-control-input input',
       )[1].value,
     ).toBe('🐛 [BUG]无法创建工程npm create umi');
+  });
+
+  it('📝 EditableProTable support nested children column without config "childrenColumnName:children" and "position:top"', async () => {
+    const fn = jest.fn();
+    const wrapper = render(
+      <EditableProTable<DataSourceType>
+        rowKey="id"
+        pagination={{
+          pageSize: 2,
+          current: 2,
+        }}
+        editable={{
+          onChange: (keys) => fn(keys[0]),
+        }}
+        recordCreatorProps={{
+          parentKey: () => 6246747901,
+          record: {
+            id: 555,
+          },
+          id: 'addEditRecord',
+        }}
+        columns={columns}
+        value={[
+          {
+            id: 624674790,
+            title: '🧐 [问题] build 后还存在 es6 的代码（Umi@2.13.13）',
+            labels: [{ name: 'question', color: 'success' }],
+            state: 'open',
+            time: {
+              created_at: '2020-05-26T07:54:25Z',
+            },
+            children: [
+              {
+                id: 6246747901,
+                title: '嵌套数据的编辑',
+                labels: [{ name: 'question', color: 'success' }],
+                state: 'closed',
+                time: {
+                  created_at: '2020-05-26T07:54:25Z',
+                },
+              },
+            ],
+          },
+        ]}
+      />,
+    );
+    await waitForComponentToPaint(wrapper, 1000);
+
+    await act(async () => {
+      (await wrapper.queryAllByText('添加一行数据')).at(0)?.click();
+    });
+
+    await waitForComponentToPaint(wrapper, 1000);
+
+    expect(fn).toBeCalledWith(555);
+
+    wrapper.unmount();
+  });
+
+  it('📝 EditableProTable add new child line when position = top', async () => {
+    const fn = jest.fn();
+    const wrapper = render(
+      <EditableProTable<DataSourceType>
+        rowKey="id"
+        pagination={{
+          pageSize: 2,
+          current: 2,
+        }}
+        editable={{
+          onChange: (keys) => fn(keys[0]),
+        }}
+        recordCreatorProps={{
+          parentKey: () => 624674790,
+          position: 'top',
+          record: {
+            id: 555,
+          },
+          id: 'addEditRecord',
+        }}
+        columns={columns}
+        expandable={{
+          defaultExpandAllRows: true,
+        }}
+        value={[
+          {
+            id: 624674790,
+            title: '🧐 [问题] build 后还存在 es6 的代码（Umi@2.13.13）',
+            labels: [{ name: 'question', color: 'success' }],
+            state: 'open',
+            time: {
+              created_at: '2020-05-26T07:54:25Z',
+            },
+            children: [
+              {
+                id: 6246747901,
+                title: '嵌套数据的编辑',
+                labels: [{ name: 'question', color: 'success' }],
+                state: 'closed',
+                time: {
+                  created_at: '2020-05-26T07:54:25Z',
+                },
+              },
+            ],
+          },
+        ]}
+      />,
+    );
+    await waitForComponentToPaint(wrapper, 1000);
+
+    await act(async () => {
+      (await wrapper.queryAllByText('添加一行数据')).at(0)?.click();
+    });
+
+    await waitForComponentToPaint(wrapper, 1000);
+
+    expect(fn).toBeCalledWith(555);
+
+    const { dataset } = wrapper.container.querySelectorAll(
+      '.ant-table-tbody tr.ant-table-row',
+    )[1] as HTMLElement;
+
+    expect(dataset.rowKey).toBe('555');
+
+    wrapper.unmount();
+  });
+
+  it('📝 EditableProTable add new child line when position <> top', async () => {
+    const fn = jest.fn();
+    const wrapper = render(
+      <EditableProTable<DataSourceType>
+        rowKey="id"
+        pagination={{
+          pageSize: 2,
+          current: 2,
+        }}
+        editable={{
+          onChange: (keys) => fn(keys[0]),
+        }}
+        recordCreatorProps={{
+          parentKey: () => 624674790,
+          record: {
+            id: 555,
+          },
+          id: 'addEditRecord',
+        }}
+        columns={columns}
+        expandable={{
+          defaultExpandAllRows: true,
+        }}
+        value={[
+          {
+            id: 624674790,
+            title: '🧐 [问题] build 后还存在 es6 的代码（Umi@2.13.13）',
+            labels: [{ name: 'question', color: 'success' }],
+            state: 'open',
+            time: {
+              created_at: '2020-05-26T07:54:25Z',
+            },
+            children: [
+              {
+                id: 6246747901,
+                title: '嵌套数据的编辑',
+                labels: [{ name: 'question', color: 'success' }],
+                state: 'closed',
+                time: {
+                  created_at: '2020-05-26T07:54:25Z',
+                },
+              },
+            ],
+          },
+        ]}
+      />,
+    );
+    await waitForComponentToPaint(wrapper, 1000);
+
+    await act(async () => {
+      (await wrapper.queryAllByText('添加一行数据')).at(0)?.click();
+    });
+
+    await waitForComponentToPaint(wrapper, 1000);
+
+    expect(fn).toBeCalledWith(555);
+
+    const { dataset } = wrapper.container.querySelectorAll(
+      '.ant-table-tbody tr.ant-table-row',
+    )[2] as HTMLElement;
+
+    expect(dataset.rowKey).toBe('555');
+
+    wrapper.unmount();
+  });
+
+  it('📝 EditableProTable onValuesChange will not trigger when init', async () => {
+    const valuesChangeFn = jest.fn();
+    const wrapper = render(
+      <ProForm<{
+        table: DataSourceType[];
+      }>
+        initialValues={{
+          table: defaultData,
+        }}
+        validateTrigger="onBlur"
+      >
+        <EditableProTable<DataSourceType>
+          rowKey="id"
+          scroll={{
+            x: 960,
+          }}
+          headerTitle="可编辑表格"
+          maxLength={5}
+          name="table"
+          columns={columns}
+          editable={{
+            type: 'multiple',
+            onValuesChange: (values) => {
+              valuesChangeFn(values.title);
+            },
+          }}
+        />
+      </ProForm>,
+    );
+
+    await waitForComponentToPaint(wrapper, 300);
+    expect(valuesChangeFn).toBeCalledTimes(0);
+
+    await act(async () => {
+      (await wrapper.queryAllByText('编辑')).at(0)?.click();
+    });
+    await waitForComponentToPaint(wrapper, 500);
+    act(() => {
+      fireEvent.change(
+        wrapper.container
+          .querySelectorAll('.ant-table-tbody tr.ant-table-row')[0]
+          .querySelectorAll(`td .ant-input`)[0],
+        {
+          target: {
+            value: 'test',
+          },
+        },
+      );
+    });
+    expect(valuesChangeFn).toBeCalledTimes(1);
+    expect(valuesChangeFn).toBeCalledWith('test');
   });
 });

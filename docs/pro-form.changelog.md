@@ -9,6 +9,32 @@ group:
 
 # Change Log
 
+## @ant-design/pro-form@1.74.1
+
+`2022-08-22`
+
+- fix(form): fix from ref no work error. [0ff0ead](https://github.com/ant-design/pro-components/commit/0ff0ead)
+- fix(form): 两个 ProForm 表单下存在相同 name 的 ProFormSelect 时，request 得到的结果会造成覆盖问题 (#5748). [#5748](https://github.com/ant-design/pro-components/pull/#5748) [@kiner-tang](https://github.com/kiner-tang)
+- fix(form): ProFormDigit 保持显示值与 onFinish 中的值统一 (#5747). [#5747](https://github.com/ant-design/pro-components/pull/#5747) [@kiner-tang](https://github.com/kiner-tang)
+
+## @ant-design/pro-form@1.74.0
+
+`2022-08-19`
+
+- feat(form): support Pro.useFormInstance. [d53eccc](https://github.com/ant-design/pro-components/commit/d53eccc)
+- fix(form): 修复在 table 中指定 valueType 为 treeSelect 并使用 options 和自定义字段名时无法筛选的问题 (#5722). [#5722](https://github.com/ant-design/pro-components/pull/#5722) [@kiner-tang](https://github.com/kiner-tang)
+
+## @ant-design/pro-form@1.73.0
+
+`2022-08-15`
+
+- fix(form): fix moneySymbol=false no work error. [398415c](https://github.com/ant-design/pro-components/commit/398415c)
+- fix(form): 修复查询表单展示「展开」按钮的逻辑错误问题 (#5723). [#5723](https://github.com/ant-design/pro-components/pull/#5723) [@ONLY-yours](https://github.com/ONLY-yours)
+- fix(form): 修复查询表单传入的 defaultColsNumber 与表单项数量相同时未显示展开按钮的问题 (#5718). [#5718](https://github.com/ant-design/pro-components/pull/#5718) [@kiner-tang](https://github.com/kiner-tang)
+- fix(form): UploadButton and UploadDragger readonly not working with Form Context (#5689). [#5689](https://github.com/ant-design/pro-components/pull/#5689) [@leoooy](https://github.com/leoooy)
+- fix(form): destroyOnClose does not work as expected (#5687). [#5687](https://github.com/ant-design/pro-components/pull/#5687) [@loulin](https://github.com/loulin)
+- fix(form): Stepsform to correctly unregister form (#5668). [#5668](https://github.com/ant-design/pro-components/pull/#5668) [@shiawuen](https://github.com/shiawuen)
+
 ## @ant-design/pro-form@1.71.0
 
 `2022-07-21`

@@ -2,6 +2,22 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.1.19](https://github.com/ant-design/pro-components/compare/@ant-design/pro-components@1.1.18...@ant-design/pro-components@1.1.19) (2022-08-24)
+
+**Note:** Version bump only for package @ant-design/pro-components
+
+## [1.1.18](https://github.com/ant-design/pro-components/compare/@ant-design/pro-components@1.1.17...@ant-design/pro-components@1.1.18) (2022-08-22)
+
+**Note:** Version bump only for package @ant-design/pro-components
+
+## [1.1.17](https://github.com/ant-design/pro-components/compare/@ant-design/pro-components@1.1.16...@ant-design/pro-components@1.1.17) (2022-08-19)
+
+**Note:** Version bump only for package @ant-design/pro-components
+
+## [1.1.16](https://github.com/ant-design/pro-components/compare/@ant-design/pro-components@1.1.15...@ant-design/pro-components@1.1.16) (2022-08-15)
+
+**Note:** Version bump only for package @ant-design/pro-components
+
 ## [1.1.15](https://github.com/ant-design/pro-components/compare/@ant-design/pro-components@1.1.14...@ant-design/pro-components@1.1.15) (2022-08-02)
 
 **Note:** Version bump only for package @ant-design/pro-components

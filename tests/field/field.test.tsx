@@ -31,7 +31,7 @@ describe('Field', () => {
       html.find('InputNumber').simulate('mousedown');
     });
     html.update();
-    expect(html.find('input').props().value).toBe('￥ 1000');
+    expect(html.find('input').props().value).toBe('￥ 1,000');
     act(() => {
       html.find('input').simulate('change', {
         target: {
@@ -71,6 +71,20 @@ describe('Field', () => {
     expect(html.find('input').props().value).toBe('100');
   });
 
+  it('🐴 money moneySymbol=false, no render moneySymbol', async () => {
+    const html = reactRender(
+      <Field
+        text="100"
+        fieldProps={{
+          moneySymbol: false,
+        }}
+        valueType="money"
+        mode="read"
+      />,
+    );
+    expect(html.baseElement.textContent).toBe('￥ 100');
+  });
+
   it('🐴 money numberPopoverRender onchange values', async () => {
     const html = reactRender(
       <Field text="100" numberPopoverRender={() => '1234'} valueType="money" mode="edit" />,
@@ -85,7 +99,7 @@ describe('Field', () => {
     });
     await waitTime(100);
 
-    expect(!!html.queryByDisplayValue('￥ 1000')).toBeTruthy();
+    expect(!!html.queryByDisplayValue('￥ 1,000')).toBeTruthy();
 
     act(() => {
       fireEvent.change(html.baseElement.querySelector('input')!, {
@@ -136,7 +150,7 @@ describe('Field', () => {
       fireEvent.mouseDown(html.baseElement.querySelector('.ant-input-number')!);
     });
     await waitTime(100);
-    expect(!!(await html.findByText('￥ 111111111'))).toBeTruthy();
+    expect(!!(await html.queryByDisplayValue('￥ 111,111,111'))).toBeTruthy();
   });
 
   it('🐴 should trigger onChange function provided when change', async () => {

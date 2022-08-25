@@ -136,11 +136,22 @@ const columns: ProColumns<GithubIssueItem>[] = [
 ];
 
 const menu = (
-  <Menu>
-    <Menu.Item key="1">1st item</Menu.Item>
-    <Menu.Item key="2">2nd item</Menu.Item>
-    <Menu.Item key="3">3rd item</Menu.Item>
-  </Menu>
+  <Menu
+    items={[
+      {
+        label: '1st item',
+        key: '1',
+      },
+      {
+        label: '2nd item',
+        key: '1',
+      },
+      {
+        label: '3rd item',
+        key: '1',
+      },
+    ]}
+  />
 );
 
 export default () => {

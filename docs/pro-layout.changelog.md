@@ -9,6 +9,12 @@ group:
 
 # Change Log
 
+## @ant-design/pro-layout@6.38.18
+
+`2022-08-15`
+
+- fix(layout): 水印导致页面发起 404 请求 (#5712). [#5712](https://github.com/ant-design/pro-components/pull/#5712) [@taoliujun](https://github.com/taoliujun)
+
 ## @ant-design/pro-layout@6.38.14
 
 `2022-07-21`

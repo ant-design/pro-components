@@ -114,12 +114,17 @@ const columns: ProColumns<TableListItem>[] = [
     key: 'treeSelect',
     dataIndex: 'treeSelect',
     width: 100,
+    // request: async () => cascaderOptions,
     fieldProps: {
       options: cascaderOptions,
       fieldNames: {
         children: 'language',
         label: 'field',
       },
+      showSearch: true,
+      filterTreeNode: true,
+      multiple: true,
+      treeNodeFilterProp: 'field',
     },
     valueType: 'treeSelect',
   },
