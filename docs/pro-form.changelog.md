@@ -9,6 +9,14 @@ group:
 
 # Change Log
 
+## @ant-design/pro-form@1.74.1
+
+`2022-08-22`
+
+- fix(form): fix from ref no work error. [0ff0ead](https://github.com/ant-design/pro-components/commit/0ff0ead)
+- fix(form): 两个 ProForm 表单下存在相同 name 的 ProFormSelect 时，request 得到的结果会造成覆盖问题 (#5748). [#5748](https://github.com/ant-design/pro-components/pull/#5748) [@kiner-tang](https://github.com/kiner-tang)
+- fix(form): ProFormDigit 保持显示值与 onFinish 中的值统一 (#5747). [#5747](https://github.com/ant-design/pro-components/pull/#5747) [@kiner-tang](https://github.com/kiner-tang)
+
 ## @ant-design/pro-form@1.74.0
 
 `2022-08-19`

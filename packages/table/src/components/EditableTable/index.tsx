@@ -431,7 +431,8 @@ function EditableTable<
               return !isDeepEqualReact(item, preData?.[index]);
             });
             if (!changeItem) return null;
-            props?.editable?.onValuesChange?.(changeItem, list);
+            // 如果不存在 preData 说明是初始化，此时不需要触发 onValuesChange
+            if (preData) props?.editable?.onValuesChange?.(changeItem, list);
             return null;
           }}
         </ProFormDependency>
