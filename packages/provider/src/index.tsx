@@ -1,7 +1,6 @@
 //@ts-ignore
 import { ConfigProvider as AntdConfigProvider, theme as antdTheme } from 'antd';
 import zh_CN from 'antd/es/locale/zh_CN';
-import classNames from 'classnames';
 import React, { useContext, useEffect } from 'react';
 import { SWRConfig, useSWRConfig } from 'swr';
 import arEG from './locale/ar_EG';
@@ -320,7 +319,7 @@ export const ConfigProviderWrap: React.FC<Record<string, unknown>> = ({
           </Provider>
         );
         if (proProvide.isDeps) return provide;
-        return <div className={classNames('ant-pro', hashId)}>{provide}</div>;
+        return <div className={`ant-pro ${hashId}`}>{provide}</div>;
       }}
     </ConfigConsumer>
   );
