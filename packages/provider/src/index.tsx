@@ -300,6 +300,9 @@ export const ConfigProviderWrap: React.FC<Record<string, unknown>> = ({
           locale === undefined
             ? {
                 locale: zh_CN,
+                theme: {
+                  hashed: process.env.NODE_ENV?.toLowerCase() !== 'test',
+                },
               }
             : {};
         const provide = (

@@ -78,7 +78,7 @@ export type BaseMenuProps = {
    * @example 增加菜单图标 postMenuData={(menuData) => { return menuData.map(item => { return { ...item, icon: <Icon type={item.icon} /> } }) }}
    */
   postMenuData?: (menusData?: MenuDataItem[]) => MenuDataItem[];
-} & Partial<RouterTypes<Route>> &
+} & Partial<RouterTypes> &
   Omit<MenuProps, 'openKeys' | 'onOpenChange' | 'title'> &
   Partial<PureSettings>;
 

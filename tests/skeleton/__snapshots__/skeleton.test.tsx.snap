@@ -5,14 +5,14 @@ exports[`skeleton 🥩 descriptions api use 1`] = `
   style="width: 100%;"
 >
   <div
-    class="ant-card css-dev-only-do-not-override-17xsbyy"
+    class="ant-card"
     style="border-top-right-radius: 0; border-top-left-radius: 0;"
   >
     <div
       class="ant-card-body"
     >
       <div
-        class="ant-skeleton ant-skeleton-element ant-skeleton-active css-dev-only-do-not-override-17xsbyy"
+        class="ant-skeleton ant-skeleton-element ant-skeleton-active"
       >
         <span
           class="ant-skeleton-button ant-skeleton-button-sm"
@@ -26,7 +26,7 @@ exports[`skeleton 🥩 descriptions api use 1`] = `
           style="flex: 1; padding-inline-start: 0; padding-inline-end: 24px;"
         >
           <div
-            class="ant-skeleton ant-skeleton-active css-dev-only-do-not-override-17xsbyy"
+            class="ant-skeleton ant-skeleton-active"
           >
             <div
               class="ant-skeleton-content"
@@ -38,7 +38,7 @@ exports[`skeleton 🥩 descriptions api use 1`] = `
             </div>
           </div>
           <div
-            class="ant-skeleton ant-skeleton-active css-dev-only-do-not-override-17xsbyy"
+            class="ant-skeleton ant-skeleton-active"
           >
             <div
               class="ant-skeleton-content"
@@ -50,7 +50,7 @@ exports[`skeleton 🥩 descriptions api use 1`] = `
             </div>
           </div>
           <div
-            class="ant-skeleton ant-skeleton-active css-dev-only-do-not-override-17xsbyy"
+            class="ant-skeleton ant-skeleton-active"
           >
             <div
               class="ant-skeleton-content"
@@ -66,7 +66,7 @@ exports[`skeleton 🥩 descriptions api use 1`] = `
           style="flex: 1; padding-inline-start: 24px; padding-inline-end: 24px;"
         >
           <div
-            class="ant-skeleton ant-skeleton-active css-dev-only-do-not-override-17xsbyy"
+            class="ant-skeleton ant-skeleton-active"
           >
             <div
               class="ant-skeleton-content"
@@ -78,7 +78,7 @@ exports[`skeleton 🥩 descriptions api use 1`] = `
             </div>
           </div>
           <div
-            class="ant-skeleton ant-skeleton-active css-dev-only-do-not-override-17xsbyy"
+            class="ant-skeleton ant-skeleton-active"
           >
             <div
               class="ant-skeleton-content"
@@ -90,7 +90,7 @@ exports[`skeleton 🥩 descriptions api use 1`] = `
             </div>
           </div>
           <div
-            class="ant-skeleton ant-skeleton-active css-dev-only-do-not-override-17xsbyy"
+            class="ant-skeleton ant-skeleton-active"
           >
             <div
               class="ant-skeleton-content"
@@ -106,7 +106,7 @@ exports[`skeleton 🥩 descriptions api use 1`] = `
           style="flex: 1; padding-inline-start: 24px; padding-inline-end: 0;"
         >
           <div
-            class="ant-skeleton ant-skeleton-active css-dev-only-do-not-override-17xsbyy"
+            class="ant-skeleton ant-skeleton-active"
           >
             <div
               class="ant-skeleton-content"
@@ -118,7 +118,7 @@ exports[`skeleton 🥩 descriptions api use 1`] = `
             </div>
           </div>
           <div
-            class="ant-skeleton ant-skeleton-active css-dev-only-do-not-override-17xsbyy"
+            class="ant-skeleton ant-skeleton-active"
           >
             <div
               class="ant-skeleton-content"
@@ -130,7 +130,7 @@ exports[`skeleton 🥩 descriptions api use 1`] = `
             </div>
           </div>
           <div
-            class="ant-skeleton ant-skeleton-active css-dev-only-do-not-override-17xsbyy"
+            class="ant-skeleton ant-skeleton-active"
           >
             <div
               class="ant-skeleton-content"
@@ -147,7 +147,7 @@ exports[`skeleton 🥩 descriptions api use 1`] = `
         style="margin-block-start: 32px;"
       >
         <div
-          class="ant-skeleton ant-skeleton-element ant-skeleton-active css-dev-only-do-not-override-17xsbyy"
+          class="ant-skeleton ant-skeleton-element ant-skeleton-active"
         >
           <span
             class="ant-skeleton-button ant-skeleton-button-sm"
@@ -161,7 +161,7 @@ exports[`skeleton 🥩 descriptions api use 1`] = `
             style="flex: 1; margin-inline-end: 24px; max-width: 300px;"
           >
             <div
-              class="ant-skeleton ant-skeleton-active css-dev-only-do-not-override-17xsbyy"
+              class="ant-skeleton ant-skeleton-active"
             >
               <div
                 class="ant-skeleton-content"
@@ -173,7 +173,7 @@ exports[`skeleton 🥩 descriptions api use 1`] = `
               </div>
             </div>
             <div
-              class="ant-skeleton ant-skeleton-active css-dev-only-do-not-override-17xsbyy"
+              class="ant-skeleton ant-skeleton-active"
             >
               <div
                 class="ant-skeleton-content"
@@ -185,7 +185,7 @@ exports[`skeleton 🥩 descriptions api use 1`] = `
               </div>
             </div>
             <div
-              class="ant-skeleton ant-skeleton-active css-dev-only-do-not-override-17xsbyy"
+              class="ant-skeleton ant-skeleton-active"
             >
               <div
                 class="ant-skeleton-content"
@@ -204,7 +204,7 @@ exports[`skeleton 🥩 descriptions api use 1`] = `
               style="max-width: 300px; margin: auto;"
             >
               <div
-                class="ant-skeleton ant-skeleton-active css-dev-only-do-not-override-17xsbyy"
+                class="ant-skeleton ant-skeleton-active"
               >
                 <div
                   class="ant-skeleton-content"
@@ -216,7 +216,7 @@ exports[`skeleton 🥩 descriptions api use 1`] = `
                 </div>
               </div>
               <div
-                class="ant-skeleton ant-skeleton-active css-dev-only-do-not-override-17xsbyy"
+                class="ant-skeleton ant-skeleton-active"
               >
                 <div
                   class="ant-skeleton-content"
@@ -237,19 +237,19 @@ exports[`skeleton 🥩 descriptions api use 1`] = `
     style="padding: 0px 24px;"
   >
     <div
-      class="ant-divider css-dev-only-do-not-override-17xsbyy ant-divider-horizontal"
+      class="ant-divider ant-divider-horizontal"
       role="separator"
       style="margin: 0px;"
     />
   </div>
   <div
-    class="ant-card css-dev-only-do-not-override-17xsbyy"
+    class="ant-card"
   >
     <div
       class="ant-card-body"
     >
       <div
-        class="ant-skeleton ant-skeleton-element ant-skeleton-active css-dev-only-do-not-override-17xsbyy"
+        class="ant-skeleton ant-skeleton-element ant-skeleton-active"
       >
         <span
           class="ant-skeleton-button ant-skeleton-button-sm"
@@ -263,7 +263,7 @@ exports[`skeleton 🥩 descriptions api use 1`] = `
           style="flex: 1; padding-inline-start: 0; padding-inline-end: 32px;"
         >
           <div
-            class="ant-skeleton ant-skeleton-active css-dev-only-do-not-override-17xsbyy"
+            class="ant-skeleton ant-skeleton-active"
           >
             <div
               class="ant-skeleton-content"
@@ -279,7 +279,7 @@ exports[`skeleton 🥩 descriptions api use 1`] = `
           style="flex: 1; padding-inline-start: 20px; padding-inline-end: 32px;"
         >
           <div
-            class="ant-skeleton ant-skeleton-active css-dev-only-do-not-override-17xsbyy"
+            class="ant-skeleton ant-skeleton-active"
           >
             <div
               class="ant-skeleton-content"
@@ -295,7 +295,7 @@ exports[`skeleton 🥩 descriptions api use 1`] = `
           style="flex: 1; padding-inline-start: 20px; padding-inline-end: 32px;"
         >
           <div
-            class="ant-skeleton ant-skeleton-active css-dev-only-do-not-override-17xsbyy"
+            class="ant-skeleton ant-skeleton-active"
           >
             <div
               class="ant-skeleton-content"
@@ -311,7 +311,7 @@ exports[`skeleton 🥩 descriptions api use 1`] = `
           style="flex: 3; padding-inline-start: 32px;"
         >
           <div
-            class="ant-skeleton ant-skeleton-active css-dev-only-do-not-override-17xsbyy"
+            class="ant-skeleton ant-skeleton-active"
           >
             <div
               class="ant-skeleton-content"
@@ -328,7 +328,7 @@ exports[`skeleton 🥩 descriptions api use 1`] = `
         style="padding: 0px 0px;"
       >
         <div
-          class="ant-divider css-dev-only-do-not-override-17xsbyy ant-divider-horizontal"
+          class="ant-divider ant-divider-horizontal"
           role="separator"
           style="margin: 0px;"
         />
@@ -340,7 +340,7 @@ exports[`skeleton 🥩 descriptions api use 1`] = `
           style="flex: 1; padding-inline-start: 20px; padding-inline-end: 32px;"
         >
           <div
-            class="ant-skeleton ant-skeleton-active css-dev-only-do-not-override-17xsbyy"
+            class="ant-skeleton ant-skeleton-active"
           >
             <div
               class="ant-skeleton-content"
@@ -356,7 +356,7 @@ exports[`skeleton 🥩 descriptions api use 1`] = `
           style="flex: 1; padding-inline-start: 20px; padding-inline-end: 32px;"
         >
           <div
-            class="ant-skeleton ant-skeleton-active css-dev-only-do-not-override-17xsbyy"
+            class="ant-skeleton ant-skeleton-active"
           >
             <div
               class="ant-skeleton-content"
@@ -372,7 +372,7 @@ exports[`skeleton 🥩 descriptions api use 1`] = `
           style="flex: 1; padding-inline-start: 20px; padding-inline-end: 32px;"
         >
           <div
-            class="ant-skeleton ant-skeleton-active css-dev-only-do-not-override-17xsbyy"
+            class="ant-skeleton ant-skeleton-active"
           >
             <div
               class="ant-skeleton-content"
@@ -388,7 +388,7 @@ exports[`skeleton 🥩 descriptions api use 1`] = `
           style="flex: 3; padding-inline-start: 32px;"
         >
           <div
-            class="ant-skeleton ant-skeleton-active css-dev-only-do-not-override-17xsbyy"
+            class="ant-skeleton ant-skeleton-active"
           >
             <div
               class="ant-skeleton-content"
@@ -405,7 +405,7 @@ exports[`skeleton 🥩 descriptions api use 1`] = `
         style="padding: 0px 0px;"
       >
         <div
-          class="ant-divider css-dev-only-do-not-override-17xsbyy ant-divider-horizontal"
+          class="ant-divider ant-divider-horizontal"
           role="separator"
           style="margin: 0px;"
         />
@@ -417,7 +417,7 @@ exports[`skeleton 🥩 descriptions api use 1`] = `
           style="flex: 1; padding-inline-start: 20px; padding-inline-end: 32px;"
         >
           <div
-            class="ant-skeleton ant-skeleton-active css-dev-only-do-not-override-17xsbyy"
+            class="ant-skeleton ant-skeleton-active"
           >
             <div
               class="ant-skeleton-content"
@@ -433,7 +433,7 @@ exports[`skeleton 🥩 descriptions api use 1`] = `
           style="flex: 1; padding-inline-start: 20px; padding-inline-end: 32px;"
         >
           <div
-            class="ant-skeleton ant-skeleton-active css-dev-only-do-not-override-17xsbyy"
+            class="ant-skeleton ant-skeleton-active"
           >
             <div
               class="ant-skeleton-content"
@@ -449,7 +449,7 @@ exports[`skeleton 🥩 descriptions api use 1`] = `
           style="flex: 1; padding-inline-start: 20px; padding-inline-end: 32px;"
         >
           <div
-            class="ant-skeleton ant-skeleton-active css-dev-only-do-not-override-17xsbyy"
+            class="ant-skeleton ant-skeleton-active"
           >
             <div
               class="ant-skeleton-content"
@@ -465,7 +465,7 @@ exports[`skeleton 🥩 descriptions api use 1`] = `
           style="flex: 3; padding-inline-start: 32px;"
         >
           <div
-            class="ant-skeleton ant-skeleton-active css-dev-only-do-not-override-17xsbyy"
+            class="ant-skeleton ant-skeleton-active"
           >
             <div
               class="ant-skeleton-content"
@@ -482,7 +482,7 @@ exports[`skeleton 🥩 descriptions api use 1`] = `
         style="padding: 0px 0px;"
       >
         <div
-          class="ant-divider css-dev-only-do-not-override-17xsbyy ant-divider-horizontal"
+          class="ant-divider ant-divider-horizontal"
           role="separator"
           style="margin: 0px;"
         />
@@ -494,7 +494,7 @@ exports[`skeleton 🥩 descriptions api use 1`] = `
           style="flex: 1; padding-inline-start: 20px; padding-inline-end: 32px;"
         >
           <div
-            class="ant-skeleton ant-skeleton-active css-dev-only-do-not-override-17xsbyy"
+            class="ant-skeleton ant-skeleton-active"
           >
             <div
               class="ant-skeleton-content"
@@ -510,7 +510,7 @@ exports[`skeleton 🥩 descriptions api use 1`] = `
           style="flex: 1; padding-inline-start: 20px; padding-inline-end: 32px;"
         >
           <div
-            class="ant-skeleton ant-skeleton-active css-dev-only-do-not-override-17xsbyy"
+            class="ant-skeleton ant-skeleton-active"
           >
             <div
               class="ant-skeleton-content"
@@ -526,7 +526,7 @@ exports[`skeleton 🥩 descriptions api use 1`] = `
           style="flex: 1; padding-inline-start: 20px; padding-inline-end: 32px;"
         >
           <div
-            class="ant-skeleton ant-skeleton-active css-dev-only-do-not-override-17xsbyy"
+            class="ant-skeleton ant-skeleton-active"
           >
             <div
               class="ant-skeleton-content"
@@ -542,7 +542,7 @@ exports[`skeleton 🥩 descriptions api use 1`] = `
           style="flex: 3; padding-inline-start: 32px;"
         >
           <div
-            class="ant-skeleton ant-skeleton-active css-dev-only-do-not-override-17xsbyy"
+            class="ant-skeleton ant-skeleton-active"
           >
             <div
               class="ant-skeleton-content"
@@ -559,7 +559,7 @@ exports[`skeleton 🥩 descriptions api use 1`] = `
         style="padding: 0px 0px;"
       >
         <div
-          class="ant-divider css-dev-only-do-not-override-17xsbyy ant-divider-horizontal"
+          class="ant-divider ant-divider-horizontal"
           role="separator"
           style="margin: 0px;"
         />
@@ -571,7 +571,7 @@ exports[`skeleton 🥩 descriptions api use 1`] = `
           style="flex: 1; padding-inline-start: 20px; padding-inline-end: 32px;"
         >
           <div
-            class="ant-skeleton ant-skeleton-active css-dev-only-do-not-override-17xsbyy"
+            class="ant-skeleton ant-skeleton-active"
           >
             <div
               class="ant-skeleton-content"
@@ -587,7 +587,7 @@ exports[`skeleton 🥩 descriptions api use 1`] = `
           style="flex: 1; padding-inline-start: 20px; padding-inline-end: 32px;"
         >
           <div
-            class="ant-skeleton ant-skeleton-active css-dev-only-do-not-override-17xsbyy"
+            class="ant-skeleton ant-skeleton-active"
           >
             <div
               class="ant-skeleton-content"
@@ -603,7 +603,7 @@ exports[`skeleton 🥩 descriptions api use 1`] = `
           style="flex: 1; padding-inline-start: 20px; padding-inline-end: 32px;"
         >
           <div
-            class="ant-skeleton ant-skeleton-active css-dev-only-do-not-override-17xsbyy"
+            class="ant-skeleton ant-skeleton-active"
           >
             <div
               class="ant-skeleton-content"
@@ -619,7 +619,7 @@ exports[`skeleton 🥩 descriptions api use 1`] = `
           style="flex: 3; padding-inline-start: 32px;"
         >
           <div
-            class="ant-skeleton ant-skeleton-active css-dev-only-do-not-override-17xsbyy"
+            class="ant-skeleton ant-skeleton-active"
           >
             <div
               class="ant-skeleton-content"
@@ -636,7 +636,7 @@ exports[`skeleton 🥩 descriptions api use 1`] = `
         style="padding: 0px 0px;"
       >
         <div
-          class="ant-divider css-dev-only-do-not-override-17xsbyy ant-divider-horizontal"
+          class="ant-divider ant-divider-horizontal"
           role="separator"
           style="margin: 0px;"
         />
@@ -648,7 +648,7 @@ exports[`skeleton 🥩 descriptions api use 1`] = `
           style="flex: 1; padding-inline-start: 20px; padding-inline-end: 32px;"
         >
           <div
-            class="ant-skeleton ant-skeleton-active css-dev-only-do-not-override-17xsbyy"
+            class="ant-skeleton ant-skeleton-active"
           >
             <div
               class="ant-skeleton-content"
@@ -664,7 +664,7 @@ exports[`skeleton 🥩 descriptions api use 1`] = `
           style="flex: 1; padding-inline-start: 20px; padding-inline-end: 32px;"
         >
           <div
-            class="ant-skeleton ant-skeleton-active css-dev-only-do-not-override-17xsbyy"
+            class="ant-skeleton ant-skeleton-active"
           >
             <div
               class="ant-skeleton-content"
@@ -680,7 +680,7 @@ exports[`skeleton 🥩 descriptions api use 1`] = `
           style="flex: 1; padding-inline-start: 20px; padding-inline-end: 32px;"
         >
           <div
-            class="ant-skeleton ant-skeleton-active css-dev-only-do-not-override-17xsbyy"
+            class="ant-skeleton ant-skeleton-active"
           >
             <div
               class="ant-skeleton-content"
@@ -696,7 +696,7 @@ exports[`skeleton 🥩 descriptions api use 1`] = `
           style="flex: 3; padding-inline-start: 32px;"
         >
           <div
-            class="ant-skeleton ant-skeleton-active css-dev-only-do-not-override-17xsbyy"
+            class="ant-skeleton ant-skeleton-active"
           >
             <div
               class="ant-skeleton-content"
@@ -713,7 +713,7 @@ exports[`skeleton 🥩 descriptions api use 1`] = `
         style="padding: 0px 0px;"
       >
         <div
-          class="ant-divider css-dev-only-do-not-override-17xsbyy ant-divider-horizontal"
+          class="ant-divider ant-divider-horizontal"
           role="separator"
           style="margin: 0px;"
         />
@@ -725,7 +725,7 @@ exports[`skeleton 🥩 descriptions api use 1`] = `
           style="flex: 1; padding-inline-start: 20px; padding-inline-end: 32px;"
         >
           <div
-            class="ant-skeleton ant-skeleton-active css-dev-only-do-not-override-17xsbyy"
+            class="ant-skeleton ant-skeleton-active"
           >
             <div
               class="ant-skeleton-content"
@@ -741,7 +741,7 @@ exports[`skeleton 🥩 descriptions api use 1`] = `
           style="flex: 1; padding-inline-start: 20px; padding-inline-end: 32px;"
         >
           <div
-            class="ant-skeleton ant-skeleton-active css-dev-only-do-not-override-17xsbyy"
+            class="ant-skeleton ant-skeleton-active"
           >
             <div
               class="ant-skeleton-content"
@@ -757,7 +757,7 @@ exports[`skeleton 🥩 descriptions api use 1`] = `
           style="flex: 1; padding-inline-start: 20px; padding-inline-end: 32px;"
         >
           <div
-            class="ant-skeleton ant-skeleton-active css-dev-only-do-not-override-17xsbyy"
+            class="ant-skeleton ant-skeleton-active"
           >
             <div
               class="ant-skeleton-content"
@@ -773,7 +773,7 @@ exports[`skeleton 🥩 descriptions api use 1`] = `
           style="flex: 3; padding-inline-start: 32px;"
         >
           <div
-            class="ant-skeleton ant-skeleton-active css-dev-only-do-not-override-17xsbyy"
+            class="ant-skeleton ant-skeleton-active"
           >
             <div
               class="ant-skeleton-content"
@@ -790,7 +790,7 @@ exports[`skeleton 🥩 descriptions api use 1`] = `
         style="padding: 0px 0px;"
       >
         <div
-          class="ant-divider css-dev-only-do-not-override-17xsbyy ant-divider-horizontal"
+          class="ant-divider ant-divider-horizontal"
           role="separator"
           style="margin: 0px;"
         />
@@ -802,7 +802,7 @@ exports[`skeleton 🥩 descriptions api use 1`] = `
           style="flex: 1; padding-inline-start: 20px; padding-inline-end: 32px;"
         >
           <div
-            class="ant-skeleton ant-skeleton-active css-dev-only-do-not-override-17xsbyy"
+            class="ant-skeleton ant-skeleton-active"
           >
             <div
               class="ant-skeleton-content"
@@ -818,7 +818,7 @@ exports[`skeleton 🥩 descriptions api use 1`] = `
           style="flex: 1; padding-inline-start: 20px; padding-inline-end: 32px;"
         >
           <div
-            class="ant-skeleton ant-skeleton-active css-dev-only-do-not-override-17xsbyy"
+            class="ant-skeleton ant-skeleton-active"
           >
             <div
               class="ant-skeleton-content"
@@ -834,7 +834,7 @@ exports[`skeleton 🥩 descriptions api use 1`] = `
           style="flex: 1; padding-inline-start: 20px; padding-inline-end: 32px;"
         >
           <div
-            class="ant-skeleton ant-skeleton-active css-dev-only-do-not-override-17xsbyy"
+            class="ant-skeleton ant-skeleton-active"
           >
             <div
               class="ant-skeleton-content"
@@ -850,7 +850,7 @@ exports[`skeleton 🥩 descriptions api use 1`] = `
           style="flex: 3; padding-inline-start: 32px;"
         >
           <div
-            class="ant-skeleton ant-skeleton-active css-dev-only-do-not-override-17xsbyy"
+            class="ant-skeleton ant-skeleton-active"
           >
             <div
               class="ant-skeleton-content"
@@ -867,7 +867,7 @@ exports[`skeleton 🥩 descriptions api use 1`] = `
         style="padding: 0px 0px;"
       >
         <div
-          class="ant-divider css-dev-only-do-not-override-17xsbyy ant-divider-horizontal"
+          class="ant-divider ant-divider-horizontal"
           role="separator"
           style="margin: 0px;"
         />
@@ -879,7 +879,7 @@ exports[`skeleton 🥩 descriptions api use 1`] = `
           style="flex: 1; padding-inline-start: 20px; padding-inline-end: 32px;"
         >
           <div
-            class="ant-skeleton ant-skeleton-active css-dev-only-do-not-override-17xsbyy"
+            class="ant-skeleton ant-skeleton-active"
           >
             <div
               class="ant-skeleton-content"
@@ -895,7 +895,7 @@ exports[`skeleton 🥩 descriptions api use 1`] = `
           style="flex: 1; padding-inline-start: 20px; padding-inline-end: 32px;"
         >
           <div
-            class="ant-skeleton ant-skeleton-active css-dev-only-do-not-override-17xsbyy"
+            class="ant-skeleton ant-skeleton-active"
           >
             <div
               class="ant-skeleton-content"
@@ -911,7 +911,7 @@ exports[`skeleton 🥩 descriptions api use 1`] = `
           style="flex: 1; padding-inline-start: 20px; padding-inline-end: 32px;"
         >
           <div
-            class="ant-skeleton ant-skeleton-active css-dev-only-do-not-override-17xsbyy"
+            class="ant-skeleton ant-skeleton-active"
           >
             <div
               class="ant-skeleton-content"
@@ -927,7 +927,7 @@ exports[`skeleton 🥩 descriptions api use 1`] = `
           style="flex: 3; padding-inline-start: 32px;"
         >
           <div
-            class="ant-skeleton ant-skeleton-active css-dev-only-do-not-override-17xsbyy"
+            class="ant-skeleton ant-skeleton-active"
           >
             <div
               class="ant-skeleton-content"
@@ -944,7 +944,7 @@ exports[`skeleton 🥩 descriptions api use 1`] = `
         style="padding: 0px 0px;"
       >
         <div
-          class="ant-divider css-dev-only-do-not-override-17xsbyy ant-divider-horizontal"
+          class="ant-divider ant-divider-horizontal"
           role="separator"
           style="margin: 0px;"
         />
@@ -956,7 +956,7 @@ exports[`skeleton 🥩 descriptions api use 1`] = `
           style="flex: 1; padding-inline-start: 20px; padding-inline-end: 32px;"
         >
           <div
-            class="ant-skeleton ant-skeleton-active css-dev-only-do-not-override-17xsbyy"
+            class="ant-skeleton ant-skeleton-active"
           >
             <div
               class="ant-skeleton-content"
@@ -972,7 +972,7 @@ exports[`skeleton 🥩 descriptions api use 1`] = `
           style="flex: 1; padding-inline-start: 20px; padding-inline-end: 32px;"
         >
           <div
-            class="ant-skeleton ant-skeleton-active css-dev-only-do-not-override-17xsbyy"
+            class="ant-skeleton ant-skeleton-active"
           >
             <div
               class="ant-skeleton-content"
@@ -988,7 +988,7 @@ exports[`skeleton 🥩 descriptions api use 1`] = `
           style="flex: 1; padding-inline-start: 20px; padding-inline-end: 32px;"
         >
           <div
-            class="ant-skeleton ant-skeleton-active css-dev-only-do-not-override-17xsbyy"
+            class="ant-skeleton ant-skeleton-active"
           >
             <div
               class="ant-skeleton-content"
@@ -1004,7 +1004,7 @@ exports[`skeleton 🥩 descriptions api use 1`] = `
           style="flex: 3; padding-inline-start: 32px;"
         >
           <div
-            class="ant-skeleton ant-skeleton-active css-dev-only-do-not-override-17xsbyy"
+            class="ant-skeleton ant-skeleton-active"
           >
             <div
               class="ant-skeleton-content"
@@ -1021,7 +1021,7 @@ exports[`skeleton 🥩 descriptions api use 1`] = `
         style="padding: 0px 0px;"
       >
         <div
-          class="ant-divider css-dev-only-do-not-override-17xsbyy ant-divider-horizontal"
+          class="ant-divider ant-divider-horizontal"
           role="separator"
           style="margin: 0px;"
         />
@@ -1033,7 +1033,7 @@ exports[`skeleton 🥩 descriptions api use 1`] = `
           style="flex: 1; padding-inline-start: 20px; padding-inline-end: 32px;"
         >
           <div
-            class="ant-skeleton ant-skeleton-active css-dev-only-do-not-override-17xsbyy"
+            class="ant-skeleton ant-skeleton-active"
           >
             <div
               class="ant-skeleton-content"
@@ -1049,7 +1049,7 @@ exports[`skeleton 🥩 descriptions api use 1`] = `
           style="flex: 1; padding-inline-start: 20px; padding-inline-end: 32px;"
         >
           <div
-            class="ant-skeleton ant-skeleton-active css-dev-only-do-not-override-17xsbyy"
+            class="ant-skeleton ant-skeleton-active"
           >
             <div
               class="ant-skeleton-content"
@@ -1065,7 +1065,7 @@ exports[`skeleton 🥩 descriptions api use 1`] = `
           style="flex: 1; padding-inline-start: 20px; padding-inline-end: 32px;"
         >
           <div
-            class="ant-skeleton ant-skeleton-active css-dev-only-do-not-override-17xsbyy"
+            class="ant-skeleton ant-skeleton-active"
           >
             <div
               class="ant-skeleton-content"
@@ -1081,7 +1081,7 @@ exports[`skeleton 🥩 descriptions api use 1`] = `
           style="flex: 3; padding-inline-start: 32px;"
         >
           <div
-            class="ant-skeleton ant-skeleton-active css-dev-only-do-not-override-17xsbyy"
+            class="ant-skeleton ant-skeleton-active"
           >
             <div
               class="ant-skeleton-content"
@@ -1098,7 +1098,7 @@ exports[`skeleton 🥩 descriptions api use 1`] = `
         style="padding: 0px 0px;"
       >
         <div
-          class="ant-divider css-dev-only-do-not-override-17xsbyy ant-divider-horizontal"
+          class="ant-divider ant-divider-horizontal"
           role="separator"
           style="margin: 0px;"
         />
@@ -1107,7 +1107,7 @@ exports[`skeleton 🥩 descriptions api use 1`] = `
         style="display: flex; justify-content: flex-end; padding-block-start: 16px;"
       >
         <div
-          class="ant-skeleton ant-skeleton-active css-dev-only-do-not-override-17xsbyy"
+          class="ant-skeleton ant-skeleton-active"
         >
           <div
             class="ant-skeleton-content"
@@ -1129,14 +1129,14 @@ exports[`skeleton 🥩 descriptions api use 2`] = `
   style="width: 100%;"
 >
   <div
-    class="ant-card css-dev-only-do-not-override-17xsbyy"
+    class="ant-card"
     style="border-top-right-radius: 0; border-top-left-radius: 0;"
   >
     <div
       class="ant-card-body"
     >
       <div
-        class="ant-skeleton ant-skeleton-element ant-skeleton-active css-dev-only-do-not-override-17xsbyy"
+        class="ant-skeleton ant-skeleton-element ant-skeleton-active"
       >
         <span
           class="ant-skeleton-button ant-skeleton-button-sm"
@@ -1150,7 +1150,7 @@ exports[`skeleton 🥩 descriptions api use 2`] = `
           style="flex: 1; padding-inline-start: 0; padding-inline-end: 24px;"
         >
           <div
-            class="ant-skeleton ant-skeleton-active css-dev-only-do-not-override-17xsbyy"
+            class="ant-skeleton ant-skeleton-active"
           >
             <div
               class="ant-skeleton-content"
@@ -1162,7 +1162,7 @@ exports[`skeleton 🥩 descriptions api use 2`] = `
             </div>
           </div>
           <div
-            class="ant-skeleton ant-skeleton-active css-dev-only-do-not-override-17xsbyy"
+            class="ant-skeleton ant-skeleton-active"
           >
             <div
               class="ant-skeleton-content"
@@ -1174,7 +1174,7 @@ exports[`skeleton 🥩 descriptions api use 2`] = `
             </div>
           </div>
           <div
-            class="ant-skeleton ant-skeleton-active css-dev-only-do-not-override-17xsbyy"
+            class="ant-skeleton ant-skeleton-active"
           >
             <div
               class="ant-skeleton-content"
@@ -1190,7 +1190,7 @@ exports[`skeleton 🥩 descriptions api use 2`] = `
           style="flex: 1; padding-inline-start: 24px; padding-inline-end: 24px;"
         >
           <div
-            class="ant-skeleton ant-skeleton-active css-dev-only-do-not-override-17xsbyy"
+            class="ant-skeleton ant-skeleton-active"
           >
             <div
               class="ant-skeleton-content"
@@ -1202,7 +1202,7 @@ exports[`skeleton 🥩 descriptions api use 2`] = `
             </div>
           </div>
           <div
-            class="ant-skeleton ant-skeleton-active css-dev-only-do-not-override-17xsbyy"
+            class="ant-skeleton ant-skeleton-active"
           >
             <div
               class="ant-skeleton-content"
@@ -1214,7 +1214,7 @@ exports[`skeleton 🥩 descriptions api use 2`] = `
             </div>
           </div>
           <div
-            class="ant-skeleton ant-skeleton-active css-dev-only-do-not-override-17xsbyy"
+            class="ant-skeleton ant-skeleton-active"
           >
             <div
               class="ant-skeleton-content"
@@ -1230,7 +1230,7 @@ exports[`skeleton 🥩 descriptions api use 2`] = `
           style="flex: 1; padding-inline-start: 24px; padding-inline-end: 0;"
         >
           <div
-            class="ant-skeleton ant-skeleton-active css-dev-only-do-not-override-17xsbyy"
+            class="ant-skeleton ant-skeleton-active"
           >
             <div
               class="ant-skeleton-content"
@@ -1242,7 +1242,7 @@ exports[`skeleton 🥩 descriptions api use 2`] = `
             </div>
           </div>
           <div
-            class="ant-skeleton ant-skeleton-active css-dev-only-do-not-override-17xsbyy"
+            class="ant-skeleton ant-skeleton-active"
           >
             <div
               class="ant-skeleton-content"
@@ -1254,7 +1254,7 @@ exports[`skeleton 🥩 descriptions api use 2`] = `
             </div>
           </div>
           <div
-            class="ant-skeleton ant-skeleton-active css-dev-only-do-not-override-17xsbyy"
+            class="ant-skeleton ant-skeleton-active"
           >
             <div
               class="ant-skeleton-content"
@@ -1271,7 +1271,7 @@ exports[`skeleton 🥩 descriptions api use 2`] = `
         style="margin-block-start: 32px;"
       >
         <div
-          class="ant-skeleton ant-skeleton-element ant-skeleton-active css-dev-only-do-not-override-17xsbyy"
+          class="ant-skeleton ant-skeleton-element ant-skeleton-active"
         >
           <span
             class="ant-skeleton-button ant-skeleton-button-sm"
@@ -1285,7 +1285,7 @@ exports[`skeleton 🥩 descriptions api use 2`] = `
             style="flex: 1; margin-inline-end: 24px; max-width: 300px;"
           >
             <div
-              class="ant-skeleton ant-skeleton-active css-dev-only-do-not-override-17xsbyy"
+              class="ant-skeleton ant-skeleton-active"
             >
               <div
                 class="ant-skeleton-content"
@@ -1297,7 +1297,7 @@ exports[`skeleton 🥩 descriptions api use 2`] = `
               </div>
             </div>
             <div
-              class="ant-skeleton ant-skeleton-active css-dev-only-do-not-override-17xsbyy"
+              class="ant-skeleton ant-skeleton-active"
             >
               <div
                 class="ant-skeleton-content"
@@ -1309,7 +1309,7 @@ exports[`skeleton 🥩 descriptions api use 2`] = `
               </div>
             </div>
             <div
-              class="ant-skeleton ant-skeleton-active css-dev-only-do-not-override-17xsbyy"
+              class="ant-skeleton ant-skeleton-active"
             >
               <div
                 class="ant-skeleton-content"
@@ -1328,7 +1328,7 @@ exports[`skeleton 🥩 descriptions api use 2`] = `
               style="max-width: 300px; margin: auto;"
             >
               <div
-                class="ant-skeleton ant-skeleton-active css-dev-only-do-not-override-17xsbyy"
+                class="ant-skeleton ant-skeleton-active"
               >
                 <div
                   class="ant-skeleton-content"
@@ -1340,7 +1340,7 @@ exports[`skeleton 🥩 descriptions api use 2`] = `
                 </div>
               </div>
               <div
-                class="ant-skeleton ant-skeleton-active css-dev-only-do-not-override-17xsbyy"
+                class="ant-skeleton ant-skeleton-active"
               >
                 <div
                   class="ant-skeleton-content"
@@ -1361,19 +1361,19 @@ exports[`skeleton 🥩 descriptions api use 2`] = `
     style="padding: 0px 24px;"
   >
     <div
-      class="ant-divider css-dev-only-do-not-override-17xsbyy ant-divider-horizontal"
+      class="ant-divider ant-divider-horizontal"
       role="separator"
       style="margin: 0px;"
     />
   </div>
   <div
-    class="ant-card css-dev-only-do-not-override-17xsbyy"
+    class="ant-card"
   >
     <div
       class="ant-card-body"
     >
       <div
-        class="ant-skeleton ant-skeleton-element ant-skeleton-active css-dev-only-do-not-override-17xsbyy"
+        class="ant-skeleton ant-skeleton-element ant-skeleton-active"
       >
         <span
           class="ant-skeleton-button ant-skeleton-button-sm"
@@ -1387,7 +1387,7 @@ exports[`skeleton 🥩 descriptions api use 2`] = `
           style="flex: 1; padding-inline-start: 0; padding-inline-end: 32px;"
         >
           <div
-            class="ant-skeleton ant-skeleton-active css-dev-only-do-not-override-17xsbyy"
+            class="ant-skeleton ant-skeleton-active"
           >
             <div
               class="ant-skeleton-content"
@@ -1403,7 +1403,7 @@ exports[`skeleton 🥩 descriptions api use 2`] = `
           style="flex: 1; padding-inline-start: 20px; padding-inline-end: 32px;"
         >
           <div
-            class="ant-skeleton ant-skeleton-active css-dev-only-do-not-override-17xsbyy"
+            class="ant-skeleton ant-skeleton-active"
           >
             <div
               class="ant-skeleton-content"
@@ -1419,7 +1419,7 @@ exports[`skeleton 🥩 descriptions api use 2`] = `
           style="flex: 1; padding-inline-start: 20px; padding-inline-end: 32px;"
         >
           <div
-            class="ant-skeleton ant-skeleton-active css-dev-only-do-not-override-17xsbyy"
+            class="ant-skeleton ant-skeleton-active"
           >
             <div
               class="ant-skeleton-content"
@@ -1435,7 +1435,7 @@ exports[`skeleton 🥩 descriptions api use 2`] = `
           style="flex: 3; padding-inline-start: 32px;"
         >
           <div
-            class="ant-skeleton ant-skeleton-active css-dev-only-do-not-override-17xsbyy"
+            class="ant-skeleton ant-skeleton-active"
           >
             <div
               class="ant-skeleton-content"
@@ -1452,7 +1452,7 @@ exports[`skeleton 🥩 descriptions api use 2`] = `
         style="padding: 0px 0px;"
       >
         <div
-          class="ant-divider css-dev-only-do-not-override-17xsbyy ant-divider-horizontal"
+          class="ant-divider ant-divider-horizontal"
           role="separator"
           style="margin: 0px;"
         />
@@ -1464,7 +1464,7 @@ exports[`skeleton 🥩 descriptions api use 2`] = `
           style="flex: 1; padding-inline-start: 20px; padding-inline-end: 32px;"
         >
           <div
-            class="ant-skeleton ant-skeleton-active css-dev-only-do-not-override-17xsbyy"
+            class="ant-skeleton ant-skeleton-active"
           >
             <div
               class="ant-skeleton-content"
@@ -1480,7 +1480,7 @@ exports[`skeleton 🥩 descriptions api use 2`] = `
           style="flex: 1; padding-inline-start: 20px; padding-inline-end: 32px;"
         >
           <div
-            class="ant-skeleton ant-skeleton-active css-dev-only-do-not-override-17xsbyy"
+            class="ant-skeleton ant-skeleton-active"
           >
             <div
               class="ant-skeleton-content"
@@ -1496,7 +1496,7 @@ exports[`skeleton 🥩 descriptions api use 2`] = `
           style="flex: 1; padding-inline-start: 20px; padding-inline-end: 32px;"
         >
           <div
-            class="ant-skeleton ant-skeleton-active css-dev-only-do-not-override-17xsbyy"
+            class="ant-skeleton ant-skeleton-active"
           >
             <div
               class="ant-skeleton-content"
@@ -1512,7 +1512,7 @@ exports[`skeleton 🥩 descriptions api use 2`] = `
           style="flex: 3; padding-inline-start: 32px;"
         >
           <div
-            class="ant-skeleton ant-skeleton-active css-dev-only-do-not-override-17xsbyy"
+            class="ant-skeleton ant-skeleton-active"
           >
             <div
               class="ant-skeleton-content"
@@ -1529,7 +1529,7 @@ exports[`skeleton 🥩 descriptions api use 2`] = `
         style="padding: 0px 0px;"
       >
         <div
-          class="ant-divider css-dev-only-do-not-override-17xsbyy ant-divider-horizontal"
+          class="ant-divider ant-divider-horizontal"
           role="separator"
           style="margin: 0px;"
         />
@@ -1541,7 +1541,7 @@ exports[`skeleton 🥩 descriptions api use 2`] = `
           style="flex: 1; padding-inline-start: 20px; padding-inline-end: 32px;"
         >
           <div
-            class="ant-skeleton ant-skeleton-active css-dev-only-do-not-override-17xsbyy"
+            class="ant-skeleton ant-skeleton-active"
           >
             <div
               class="ant-skeleton-content"
@@ -1557,7 +1557,7 @@ exports[`skeleton 🥩 descriptions api use 2`] = `
           style="flex: 1; padding-inline-start: 20px; padding-inline-end: 32px;"
         >
           <div
-            class="ant-skeleton ant-skeleton-active css-dev-only-do-not-override-17xsbyy"
+            class="ant-skeleton ant-skeleton-active"
           >
             <div
               class="ant-skeleton-content"
@@ -1573,7 +1573,7 @@ exports[`skeleton 🥩 descriptions api use 2`] = `
           style="flex: 1; padding-inline-start: 20px; padding-inline-end: 32px;"
         >
           <div
-            class="ant-skeleton ant-skeleton-active css-dev-only-do-not-override-17xsbyy"
+            class="ant-skeleton ant-skeleton-active"
           >
             <div
               class="ant-skeleton-content"
@@ -1589,7 +1589,7 @@ exports[`skeleton 🥩 descriptions api use 2`] = `
           style="flex: 3; padding-inline-start: 32px;"
         >
           <div
-            class="ant-skeleton ant-skeleton-active css-dev-only-do-not-override-17xsbyy"
+            class="ant-skeleton ant-skeleton-active"
           >
             <div
               class="ant-skeleton-content"
@@ -1606,7 +1606,7 @@ exports[`skeleton 🥩 descriptions api use 2`] = `
         style="padding: 0px 0px;"
       >
         <div
-          class="ant-divider css-dev-only-do-not-override-17xsbyy ant-divider-horizontal"
+          class="ant-divider ant-divider-horizontal"
           role="separator"
           style="margin: 0px;"
         />
@@ -1618,7 +1618,7 @@ exports[`skeleton 🥩 descriptions api use 2`] = `
           style="flex: 1; padding-inline-start: 20px; padding-inline-end: 32px;"
         >
           <div
-            class="ant-skeleton ant-skeleton-active css-dev-only-do-not-override-17xsbyy"
+            class="ant-skeleton ant-skeleton-active"
           >
             <div
               class="ant-skeleton-content"
@@ -1634,7 +1634,7 @@ exports[`skeleton 🥩 descriptions api use 2`] = `
           style="flex: 1; padding-inline-start: 20px; padding-inline-end: 32px;"
         >
           <div
-            class="ant-skeleton ant-skeleton-active css-dev-only-do-not-override-17xsbyy"
+            class="ant-skeleton ant-skeleton-active"
           >
             <div
               class="ant-skeleton-content"
@@ -1650,7 +1650,7 @@ exports[`skeleton 🥩 descriptions api use 2`] = `
           style="flex: 1; padding-inline-start: 20px; padding-inline-end: 32px;"
         >
           <div
-            class="ant-skeleton ant-skeleton-active css-dev-only-do-not-override-17xsbyy"
+            class="ant-skeleton ant-skeleton-active"
           >
             <div
               class="ant-skeleton-content"
@@ -1666,7 +1666,7 @@ exports[`skeleton 🥩 descriptions api use 2`] = `
           style="flex: 3; padding-inline-start: 32px;"
         >
           <div
-            class="ant-skeleton ant-skeleton-active css-dev-only-do-not-override-17xsbyy"
+            class="ant-skeleton ant-skeleton-active"
           >
             <div
               class="ant-skeleton-content"
@@ -1683,7 +1683,7 @@ exports[`skeleton 🥩 descriptions api use 2`] = `
         style="padding: 0px 0px;"
       >
         <div
-          class="ant-divider css-dev-only-do-not-override-17xsbyy ant-divider-horizontal"
+          class="ant-divider ant-divider-horizontal"
           role="separator"
           style="margin: 0px;"
         />
@@ -1695,7 +1695,7 @@ exports[`skeleton 🥩 descriptions api use 2`] = `
           style="flex: 1; padding-inline-start: 20px; padding-inline-end: 32px;"
         >
           <div
-            class="ant-skeleton ant-skeleton-active css-dev-only-do-not-override-17xsbyy"
+            class="ant-skeleton ant-skeleton-active"
           >
             <div
               class="ant-skeleton-content"
@@ -1711,7 +1711,7 @@ exports[`skeleton 🥩 descriptions api use 2`] = `
           style="flex: 1; padding-inline-start: 20px; padding-inline-end: 32px;"
         >
           <div
-            class="ant-skeleton ant-skeleton-active css-dev-only-do-not-override-17xsbyy"
+            class="ant-skeleton ant-skeleton-active"
           >
             <div
               class="ant-skeleton-content"
@@ -1727,7 +1727,7 @@ exports[`skeleton 🥩 descriptions api use 2`] = `
           style="flex: 1; padding-inline-start: 20px; padding-inline-end: 32px;"
         >
           <div
-            class="ant-skeleton ant-skeleton-active css-dev-only-do-not-override-17xsbyy"
+            class="ant-skeleton ant-skeleton-active"
           >
             <div
               class="ant-skeleton-content"
@@ -1743,7 +1743,7 @@ exports[`skeleton 🥩 descriptions api use 2`] = `
           style="flex: 3; padding-inline-start: 32px;"
         >
           <div
-            class="ant-skeleton ant-skeleton-active css-dev-only-do-not-override-17xsbyy"
+            class="ant-skeleton ant-skeleton-active"
           >
             <div
               class="ant-skeleton-content"
@@ -1760,7 +1760,7 @@ exports[`skeleton 🥩 descriptions api use 2`] = `
         style="padding: 0px 0px;"
       >
         <div
-          class="ant-divider css-dev-only-do-not-override-17xsbyy ant-divider-horizontal"
+          class="ant-divider ant-divider-horizontal"
           role="separator"
           style="margin: 0px;"
         />
@@ -1772,7 +1772,7 @@ exports[`skeleton 🥩 descriptions api use 2`] = `
           style="flex: 1; padding-inline-start: 20px; padding-inline-end: 32px;"
         >
           <div
-            class="ant-skeleton ant-skeleton-active css-dev-only-do-not-override-17xsbyy"
+            class="ant-skeleton ant-skeleton-active"
           >
             <div
               class="ant-skeleton-content"
@@ -1788,7 +1788,7 @@ exports[`skeleton 🥩 descriptions api use 2`] = `
           style="flex: 1; padding-inline-start: 20px; padding-inline-end: 32px;"
         >
           <div
-            class="ant-skeleton ant-skeleton-active css-dev-only-do-not-override-17xsbyy"
+            class="ant-skeleton ant-skeleton-active"
           >
             <div
               class="ant-skeleton-content"
@@ -1804,7 +1804,7 @@ exports[`skeleton 🥩 descriptions api use 2`] = `
           style="flex: 1; padding-inline-start: 20px; padding-inline-end: 32px;"
         >
           <div
-            class="ant-skeleton ant-skeleton-active css-dev-only-do-not-override-17xsbyy"
+            class="ant-skeleton ant-skeleton-active"
           >
             <div
               class="ant-skeleton-content"
@@ -1820,7 +1820,7 @@ exports[`skeleton 🥩 descriptions api use 2`] = `
           style="flex: 3; padding-inline-start: 32px;"
         >
           <div
-            class="ant-skeleton ant-skeleton-active css-dev-only-do-not-override-17xsbyy"
+            class="ant-skeleton ant-skeleton-active"
           >
             <div
               class="ant-skeleton-content"
@@ -1837,7 +1837,7 @@ exports[`skeleton 🥩 descriptions api use 2`] = `
         style="padding: 0px 0px;"
       >
         <div
-          class="ant-divider css-dev-only-do-not-override-17xsbyy ant-divider-horizontal"
+          class="ant-divider ant-divider-horizontal"
           role="separator"
           style="margin: 0px;"
         />
@@ -1849,7 +1849,7 @@ exports[`skeleton 🥩 descriptions api use 2`] = `
           style="flex: 1; padding-inline-start: 20px; padding-inline-end: 32px;"
         >
           <div
-            class="ant-skeleton ant-skeleton-active css-dev-only-do-not-override-17xsbyy"
+            class="ant-skeleton ant-skeleton-active"
           >
             <div
               class="ant-skeleton-content"
@@ -1865,7 +1865,7 @@ exports[`skeleton 🥩 descriptions api use 2`] = `
           style="flex: 1; padding-inline-start: 20px; padding-inline-end: 32px;"
         >
           <div
-            class="ant-skeleton ant-skeleton-active css-dev-only-do-not-override-17xsbyy"
+            class="ant-skeleton ant-skeleton-active"
           >
             <div
               class="ant-skeleton-content"
@@ -1881,7 +1881,7 @@ exports[`skeleton 🥩 descriptions api use 2`] = `
           style="flex: 1; padding-inline-start: 20px; padding-inline-end: 32px;"
         >
           <div
-            class="ant-skeleton ant-skeleton-active css-dev-only-do-not-override-17xsbyy"
+            class="ant-skeleton ant-skeleton-active"
           >
             <div
               class="ant-skeleton-content"
@@ -1897,7 +1897,7 @@ exports[`skeleton 🥩 descriptions api use 2`] = `
           style="flex: 3; padding-inline-start: 32px;"
         >
           <div
-            class="ant-skeleton ant-skeleton-active css-dev-only-do-not-override-17xsbyy"
+            class="ant-skeleton ant-skeleton-active"
           >
             <div
               class="ant-skeleton-content"
@@ -1914,7 +1914,7 @@ exports[`skeleton 🥩 descriptions api use 2`] = `
         style="padding: 0px 0px;"
       >
         <div
-          class="ant-divider css-dev-only-do-not-override-17xsbyy ant-divider-horizontal"
+          class="ant-divider ant-divider-horizontal"
           role="separator"
           style="margin: 0px;"
         />
@@ -1926,7 +1926,7 @@ exports[`skeleton 🥩 descriptions api use 2`] = `
           style="flex: 1; padding-inline-start: 20px; padding-inline-end: 32px;"
         >
           <div
-            class="ant-skeleton ant-skeleton-active css-dev-only-do-not-override-17xsbyy"
+            class="ant-skeleton ant-skeleton-active"
           >
             <div
               class="ant-skeleton-content"
@@ -1942,7 +1942,7 @@ exports[`skeleton 🥩 descriptions api use 2`] = `
           style="flex: 1; padding-inline-start: 20px; padding-inline-end: 32px;"
         >
           <div
-            class="ant-skeleton ant-skeleton-active css-dev-only-do-not-override-17xsbyy"
+            class="ant-skeleton ant-skeleton-active"
           >
             <div
               class="ant-skeleton-content"
@@ -1958,7 +1958,7 @@ exports[`skeleton 🥩 descriptions api use 2`] = `
           style="flex: 1; padding-inline-start: 20px; padding-inline-end: 32px;"
         >
           <div
-            class="ant-skeleton ant-skeleton-active css-dev-only-do-not-override-17xsbyy"
+            class="ant-skeleton ant-skeleton-active"
           >
             <div
               class="ant-skeleton-content"
@@ -1974,7 +1974,7 @@ exports[`skeleton 🥩 descriptions api use 2`] = `
           style="flex: 3; padding-inline-start: 32px;"
         >
           <div
-            class="ant-skeleton ant-skeleton-active css-dev-only-do-not-override-17xsbyy"
+            class="ant-skeleton ant-skeleton-active"
           >
             <div
               class="ant-skeleton-content"
@@ -1991,7 +1991,7 @@ exports[`skeleton 🥩 descriptions api use 2`] = `
         style="padding: 0px 0px;"
       >
         <div
-          class="ant-divider css-dev-only-do-not-override-17xsbyy ant-divider-horizontal"
+          class="ant-divider ant-divider-horizontal"
           role="separator"
           style="margin: 0px;"
         />
@@ -2003,7 +2003,7 @@ exports[`skeleton 🥩 descriptions api use 2`] = `
           style="flex: 1; padding-inline-start: 20px; padding-inline-end: 32px;"
         >
           <div
-            class="ant-skeleton ant-skeleton-active css-dev-only-do-not-override-17xsbyy"
+            class="ant-skeleton ant-skeleton-active"
           >
             <div
               class="ant-skeleton-content"
@@ -2019,7 +2019,7 @@ exports[`skeleton 🥩 descriptions api use 2`] = `
           style="flex: 1; padding-inline-start: 20px; padding-inline-end: 32px;"
         >
           <div
-            class="ant-skeleton ant-skeleton-active css-dev-only-do-not-override-17xsbyy"
+            class="ant-skeleton ant-skeleton-active"
           >
             <div
               class="ant-skeleton-content"
@@ -2035,7 +2035,7 @@ exports[`skeleton 🥩 descriptions api use 2`] = `
           style="flex: 1; padding-inline-start: 20px; padding-inline-end: 32px;"
         >
           <div
-            class="ant-skeleton ant-skeleton-active css-dev-only-do-not-override-17xsbyy"
+            class="ant-skeleton ant-skeleton-active"
           >
             <div
               class="ant-skeleton-content"
@@ -2051,7 +2051,7 @@ exports[`skeleton 🥩 descriptions api use 2`] = `
           style="flex: 3; padding-inline-start: 32px;"
         >
           <div
-            class="ant-skeleton ant-skeleton-active css-dev-only-do-not-override-17xsbyy"
+            class="ant-skeleton ant-skeleton-active"
           >
             <div
               class="ant-skeleton-content"
@@ -2068,7 +2068,7 @@ exports[`skeleton 🥩 descriptions api use 2`] = `
         style="padding: 0px 0px;"
       >
         <div
-          class="ant-divider css-dev-only-do-not-override-17xsbyy ant-divider-horizontal"
+          class="ant-divider ant-divider-horizontal"
           role="separator"
           style="margin: 0px;"
         />
@@ -2080,7 +2080,7 @@ exports[`skeleton 🥩 descriptions api use 2`] = `
           style="flex: 1; padding-inline-start: 20px; padding-inline-end: 32px;"
         >
           <div
-            class="ant-skeleton ant-skeleton-active css-dev-only-do-not-override-17xsbyy"
+            class="ant-skeleton ant-skeleton-active"
           >
             <div
               class="ant-skeleton-content"
@@ -2096,7 +2096,7 @@ exports[`skeleton 🥩 descriptions api use 2`] = `
           style="flex: 1; padding-inline-start: 20px; padding-inline-end: 32px;"
         >
           <div
-            class="ant-skeleton ant-skeleton-active css-dev-only-do-not-override-17xsbyy"
+            class="ant-skeleton ant-skeleton-active"
           >
             <div
               class="ant-skeleton-content"
@@ -2112,7 +2112,7 @@ exports[`skeleton 🥩 descriptions api use 2`] = `
           style="flex: 1; padding-inline-start: 20px; padding-inline-end: 32px;"
         >
           <div
-            class="ant-skeleton ant-skeleton-active css-dev-only-do-not-override-17xsbyy"
+            class="ant-skeleton ant-skeleton-active"
           >
             <div
               class="ant-skeleton-content"
@@ -2128,7 +2128,7 @@ exports[`skeleton 🥩 descriptions api use 2`] = `
           style="flex: 3; padding-inline-start: 32px;"
         >
           <div
-            class="ant-skeleton ant-skeleton-active css-dev-only-do-not-override-17xsbyy"
+            class="ant-skeleton ant-skeleton-active"
           >
             <div
               class="ant-skeleton-content"
@@ -2145,7 +2145,7 @@ exports[`skeleton 🥩 descriptions api use 2`] = `
         style="padding: 0px 0px;"
       >
         <div
-          class="ant-divider css-dev-only-do-not-override-17xsbyy ant-divider-horizontal"
+          class="ant-divider ant-divider-horizontal"
           role="separator"
           style="margin: 0px;"
         />
@@ -2157,7 +2157,7 @@ exports[`skeleton 🥩 descriptions api use 2`] = `
           style="flex: 1; padding-inline-start: 20px; padding-inline-end: 32px;"
         >
           <div
-            class="ant-skeleton ant-skeleton-active css-dev-only-do-not-override-17xsbyy"
+            class="ant-skeleton ant-skeleton-active"
           >
             <div
               class="ant-skeleton-content"
@@ -2173,7 +2173,7 @@ exports[`skeleton 🥩 descriptions api use 2`] = `
           style="flex: 1; padding-inline-start: 20px; padding-inline-end: 32px;"
         >
           <div
-            class="ant-skeleton ant-skeleton-active css-dev-only-do-not-override-17xsbyy"
+            class="ant-skeleton ant-skeleton-active"
           >
             <div
               class="ant-skeleton-content"
@@ -2189,7 +2189,7 @@ exports[`skeleton 🥩 descriptions api use 2`] = `
           style="flex: 1; padding-inline-start: 20px; padding-inline-end: 32px;"
         >
           <div
-            class="ant-skeleton ant-skeleton-active css-dev-only-do-not-override-17xsbyy"
+            class="ant-skeleton ant-skeleton-active"
           >
             <div
               class="ant-skeleton-content"
@@ -2205,7 +2205,7 @@ exports[`skeleton 🥩 descriptions api use 2`] = `
           style="flex: 3; padding-inline-start: 32px;"
         >
           <div
-            class="ant-skeleton ant-skeleton-active css-dev-only-do-not-override-17xsbyy"
+            class="ant-skeleton ant-skeleton-active"
           >
             <div
               class="ant-skeleton-content"
@@ -2222,7 +2222,7 @@ exports[`skeleton 🥩 descriptions api use 2`] = `
         style="padding: 0px 0px;"
       >
         <div
-          class="ant-divider css-dev-only-do-not-override-17xsbyy ant-divider-horizontal"
+          class="ant-divider ant-divider-horizontal"
           role="separator"
           style="margin: 0px;"
         />
@@ -2231,7 +2231,7 @@ exports[`skeleton 🥩 descriptions api use 2`] = `
         style="display: flex; justify-content: flex-end; padding-block-start: 16px;"
       >
         <div
-          class="ant-skeleton ant-skeleton-active css-dev-only-do-not-override-17xsbyy"
+          class="ant-skeleton ant-skeleton-active"
         >
           <div
             class="ant-skeleton-content"
@@ -2256,7 +2256,7 @@ exports[`skeleton 🥩 descriptions base use 1`] = `
     style="margin-block-end:16px"
   >
     <div
-      class="ant-skeleton css-dev-only-do-not-override-17xsbyy"
+      class="ant-skeleton"
     >
       <div
         class="ant-skeleton-content"
@@ -2268,7 +2268,7 @@ exports[`skeleton 🥩 descriptions base use 1`] = `
       </div>
     </div>
     <div
-      class="ant-skeleton ant-skeleton-element ant-skeleton-active css-dev-only-do-not-override-17xsbyy"
+      class="ant-skeleton ant-skeleton-element ant-skeleton-active"
     >
       <span
         class="ant-skeleton-button ant-skeleton-button-sm"
@@ -2276,14 +2276,14 @@ exports[`skeleton 🥩 descriptions base use 1`] = `
     </div>
   </div>
   <div
-    class="ant-card css-dev-only-do-not-override-17xsbyy"
+    class="ant-card"
     style="border-top-right-radius:0;border-top-left-radius:0"
   >
     <div
       class="ant-card-body"
     >
       <div
-        class="ant-skeleton ant-skeleton-element ant-skeleton-active css-dev-only-do-not-override-17xsbyy"
+        class="ant-skeleton ant-skeleton-element ant-skeleton-active"
       >
         <span
           class="ant-skeleton-button ant-skeleton-button-sm"
@@ -2297,7 +2297,7 @@ exports[`skeleton 🥩 descriptions base use 1`] = `
           style="flex:1;padding-inline-start:0;padding-inline-end:24px"
         >
           <div
-            class="ant-skeleton ant-skeleton-active css-dev-only-do-not-override-17xsbyy"
+            class="ant-skeleton ant-skeleton-active"
           >
             <div
               class="ant-skeleton-content"
@@ -2309,7 +2309,7 @@ exports[`skeleton 🥩 descriptions base use 1`] = `
             </div>
           </div>
           <div
-            class="ant-skeleton ant-skeleton-active css-dev-only-do-not-override-17xsbyy"
+            class="ant-skeleton ant-skeleton-active"
           >
             <div
               class="ant-skeleton-content"
@@ -2321,7 +2321,7 @@ exports[`skeleton 🥩 descriptions base use 1`] = `
             </div>
           </div>
           <div
-            class="ant-skeleton ant-skeleton-active css-dev-only-do-not-override-17xsbyy"
+            class="ant-skeleton ant-skeleton-active"
           >
             <div
               class="ant-skeleton-content"
@@ -2337,7 +2337,7 @@ exports[`skeleton 🥩 descriptions base use 1`] = `
           style="flex:1;padding-inline-start:24px;padding-inline-end:24px"
         >
           <div
-            class="ant-skeleton ant-skeleton-active css-dev-only-do-not-override-17xsbyy"
+            class="ant-skeleton ant-skeleton-active"
           >
             <div
               class="ant-skeleton-content"
@@ -2349,7 +2349,7 @@ exports[`skeleton 🥩 descriptions base use 1`] = `
             </div>
           </div>
           <div
-            class="ant-skeleton ant-skeleton-active css-dev-only-do-not-override-17xsbyy"
+            class="ant-skeleton ant-skeleton-active"
           >
             <div
               class="ant-skeleton-content"
@@ -2361,7 +2361,7 @@ exports[`skeleton 🥩 descriptions base use 1`] = `
             </div>
           </div>
           <div
-            class="ant-skeleton ant-skeleton-active css-dev-only-do-not-override-17xsbyy"
+            class="ant-skeleton ant-skeleton-active"
           >
             <div
               class="ant-skeleton-content"
@@ -2377,7 +2377,7 @@ exports[`skeleton 🥩 descriptions base use 1`] = `
           style="flex:1;padding-inline-start:24px;padding-inline-end:0"
         >
           <div
-            class="ant-skeleton ant-skeleton-active css-dev-only-do-not-override-17xsbyy"
+            class="ant-skeleton ant-skeleton-active"
           >
             <div
               class="ant-skeleton-content"
@@ -2389,7 +2389,7 @@ exports[`skeleton 🥩 descriptions base use 1`] = `
             </div>
           </div>
           <div
-            class="ant-skeleton ant-skeleton-active css-dev-only-do-not-override-17xsbyy"
+            class="ant-skeleton ant-skeleton-active"
           >
             <div
               class="ant-skeleton-content"
@@ -2401,7 +2401,7 @@ exports[`skeleton 🥩 descriptions base use 1`] = `
             </div>
           </div>
           <div
-            class="ant-skeleton ant-skeleton-active css-dev-only-do-not-override-17xsbyy"
+            class="ant-skeleton ant-skeleton-active"
           >
             <div
               class="ant-skeleton-content"
@@ -2418,7 +2418,7 @@ exports[`skeleton 🥩 descriptions base use 1`] = `
         style="margin-block-start:32px"
       >
         <div
-          class="ant-skeleton ant-skeleton-element ant-skeleton-active css-dev-only-do-not-override-17xsbyy"
+          class="ant-skeleton ant-skeleton-element ant-skeleton-active"
         >
           <span
             class="ant-skeleton-button ant-skeleton-button-sm"
@@ -2432,7 +2432,7 @@ exports[`skeleton 🥩 descriptions base use 1`] = `
             style="flex:1;margin-inline-end:24px;max-width:300px"
           >
             <div
-              class="ant-skeleton ant-skeleton-active css-dev-only-do-not-override-17xsbyy"
+              class="ant-skeleton ant-skeleton-active"
             >
               <div
                 class="ant-skeleton-content"
@@ -2444,7 +2444,7 @@ exports[`skeleton 🥩 descriptions base use 1`] = `
               </div>
             </div>
             <div
-              class="ant-skeleton ant-skeleton-active css-dev-only-do-not-override-17xsbyy"
+              class="ant-skeleton ant-skeleton-active"
             >
               <div
                 class="ant-skeleton-content"
@@ -2456,7 +2456,7 @@ exports[`skeleton 🥩 descriptions base use 1`] = `
               </div>
             </div>
             <div
-              class="ant-skeleton ant-skeleton-active css-dev-only-do-not-override-17xsbyy"
+              class="ant-skeleton ant-skeleton-active"
             >
               <div
                 class="ant-skeleton-content"
@@ -2475,7 +2475,7 @@ exports[`skeleton 🥩 descriptions base use 1`] = `
               style="max-width:300px;margin:auto"
             >
               <div
-                class="ant-skeleton ant-skeleton-active css-dev-only-do-not-override-17xsbyy"
+                class="ant-skeleton ant-skeleton-active"
               >
                 <div
                   class="ant-skeleton-content"
@@ -2487,7 +2487,7 @@ exports[`skeleton 🥩 descriptions base use 1`] = `
                 </div>
               </div>
               <div
-                class="ant-skeleton ant-skeleton-active css-dev-only-do-not-override-17xsbyy"
+                class="ant-skeleton ant-skeleton-active"
               >
                 <div
                   class="ant-skeleton-content"
@@ -2508,19 +2508,19 @@ exports[`skeleton 🥩 descriptions base use 1`] = `
     style="padding:0 24px"
   >
     <div
-      class="ant-divider css-dev-only-do-not-override-17xsbyy ant-divider-horizontal"
+      class="ant-divider ant-divider-horizontal"
       role="separator"
       style="margin:0"
     />
   </div>
   <div
-    class="ant-card css-dev-only-do-not-override-17xsbyy"
+    class="ant-card"
   >
     <div
       class="ant-card-body"
     >
       <div
-        class="ant-skeleton ant-skeleton-element ant-skeleton-active css-dev-only-do-not-override-17xsbyy"
+        class="ant-skeleton ant-skeleton-element ant-skeleton-active"
       >
         <span
           class="ant-skeleton-button ant-skeleton-button-sm"
@@ -2534,7 +2534,7 @@ exports[`skeleton 🥩 descriptions base use 1`] = `
           style="flex:1;padding-inline-start:0;padding-inline-end:32px"
         >
           <div
-            class="ant-skeleton ant-skeleton-active css-dev-only-do-not-override-17xsbyy"
+            class="ant-skeleton ant-skeleton-active"
           >
             <div
               class="ant-skeleton-content"
@@ -2550,7 +2550,7 @@ exports[`skeleton 🥩 descriptions base use 1`] = `
           style="flex:1;padding-inline-start:20px;padding-inline-end:32px"
         >
           <div
-            class="ant-skeleton ant-skeleton-active css-dev-only-do-not-override-17xsbyy"
+            class="ant-skeleton ant-skeleton-active"
           >
             <div
               class="ant-skeleton-content"
@@ -2566,7 +2566,7 @@ exports[`skeleton 🥩 descriptions base use 1`] = `
           style="flex:1;padding-inline-start:20px;padding-inline-end:32px"
         >
           <div
-            class="ant-skeleton ant-skeleton-active css-dev-only-do-not-override-17xsbyy"
+            class="ant-skeleton ant-skeleton-active"
           >
             <div
               class="ant-skeleton-content"
@@ -2582,7 +2582,7 @@ exports[`skeleton 🥩 descriptions base use 1`] = `
           style="flex:3;padding-inline-start:32px"
         >
           <div
-            class="ant-skeleton ant-skeleton-active css-dev-only-do-not-override-17xsbyy"
+            class="ant-skeleton ant-skeleton-active"
           >
             <div
               class="ant-skeleton-content"
@@ -2599,7 +2599,7 @@ exports[`skeleton 🥩 descriptions base use 1`] = `
         style="padding:0px 0px"
       >
         <div
-          class="ant-divider css-dev-only-do-not-override-17xsbyy ant-divider-horizontal"
+          class="ant-divider ant-divider-horizontal"
           role="separator"
           style="margin:0"
         />
@@ -2611,7 +2611,7 @@ exports[`skeleton 🥩 descriptions base use 1`] = `
           style="flex:1;padding-inline-start:20px;padding-inline-end:32px"
         >
           <div
-            class="ant-skeleton ant-skeleton-active css-dev-only-do-not-override-17xsbyy"
+            class="ant-skeleton ant-skeleton-active"
           >
             <div
               class="ant-skeleton-content"
@@ -2627,7 +2627,7 @@ exports[`skeleton 🥩 descriptions base use 1`] = `
           style="flex:1;padding-inline-start:20px;padding-inline-end:32px"
         >
           <div
-            class="ant-skeleton ant-skeleton-active css-dev-only-do-not-override-17xsbyy"
+            class="ant-skeleton ant-skeleton-active"
           >
             <div
               class="ant-skeleton-content"
@@ -2643,7 +2643,7 @@ exports[`skeleton 🥩 descriptions base use 1`] = `
           style="flex:1;padding-inline-start:20px;padding-inline-end:32px"
         >
           <div
-            class="ant-skeleton ant-skeleton-active css-dev-only-do-not-override-17xsbyy"
+            class="ant-skeleton ant-skeleton-active"
           >
             <div
               class="ant-skeleton-content"
@@ -2659,7 +2659,7 @@ exports[`skeleton 🥩 descriptions base use 1`] = `
           style="flex:3;padding-inline-start:32px"
         >
           <div
-            class="ant-skeleton ant-skeleton-active css-dev-only-do-not-override-17xsbyy"
+            class="ant-skeleton ant-skeleton-active"
           >
             <div
               class="ant-skeleton-content"
@@ -2676,7 +2676,7 @@ exports[`skeleton 🥩 descriptions base use 1`] = `
         style="padding:0px 0px"
       >
         <div
-          class="ant-divider css-dev-only-do-not-override-17xsbyy ant-divider-horizontal"
+          class="ant-divider ant-divider-horizontal"
           role="separator"
           style="margin:0"
         />
@@ -2688,7 +2688,7 @@ exports[`skeleton 🥩 descriptions base use 1`] = `
           style="flex:1;padding-inline-start:20px;padding-inline-end:32px"
         >
           <div
-            class="ant-skeleton ant-skeleton-active css-dev-only-do-not-override-17xsbyy"
+            class="ant-skeleton ant-skeleton-active"
           >
             <div
               class="ant-skeleton-content"
@@ -2704,7 +2704,7 @@ exports[`skeleton 🥩 descriptions base use 1`] = `
           style="flex:1;padding-inline-start:20px;padding-inline-end:32px"
         >
           <div
-            class="ant-skeleton ant-skeleton-active css-dev-only-do-not-override-17xsbyy"
+            class="ant-skeleton ant-skeleton-active"
           >
             <div
               class="ant-skeleton-content"
@@ -2720,7 +2720,7 @@ exports[`skeleton 🥩 descriptions base use 1`] = `
           style="flex:1;padding-inline-start:20px;padding-inline-end:32px"
         >
           <div
-            class="ant-skeleton ant-skeleton-active css-dev-only-do-not-override-17xsbyy"
+            class="ant-skeleton ant-skeleton-active"
           >
             <div
               class="ant-skeleton-content"
@@ -2736,7 +2736,7 @@ exports[`skeleton 🥩 descriptions base use 1`] = `
           style="flex:3;padding-inline-start:32px"
         >
           <div
-            class="ant-skeleton ant-skeleton-active css-dev-only-do-not-override-17xsbyy"
+            class="ant-skeleton ant-skeleton-active"
           >
             <div
               class="ant-skeleton-content"
@@ -2753,7 +2753,7 @@ exports[`skeleton 🥩 descriptions base use 1`] = `
         style="padding:0px 0px"
       >
         <div
-          class="ant-divider css-dev-only-do-not-override-17xsbyy ant-divider-horizontal"
+          class="ant-divider ant-divider-horizontal"
           role="separator"
           style="margin:0"
         />
@@ -2765,7 +2765,7 @@ exports[`skeleton 🥩 descriptions base use 1`] = `
           style="flex:1;padding-inline-start:20px;padding-inline-end:32px"
         >
           <div
-            class="ant-skeleton ant-skeleton-active css-dev-only-do-not-override-17xsbyy"
+            class="ant-skeleton ant-skeleton-active"
           >
             <div
               class="ant-skeleton-content"
@@ -2781,7 +2781,7 @@ exports[`skeleton 🥩 descriptions base use 1`] = `
           style="flex:1;padding-inline-start:20px;padding-inline-end:32px"
         >
           <div
-            class="ant-skeleton ant-skeleton-active css-dev-only-do-not-override-17xsbyy"
+            class="ant-skeleton ant-skeleton-active"
           >
             <div
               class="ant-skeleton-content"
@@ -2797,7 +2797,7 @@ exports[`skeleton 🥩 descriptions base use 1`] = `
           style="flex:1;padding-inline-start:20px;padding-inline-end:32px"
         >
           <div
-            class="ant-skeleton ant-skeleton-active css-dev-only-do-not-override-17xsbyy"
+            class="ant-skeleton ant-skeleton-active"
           >
             <div
               class="ant-skeleton-content"
@@ -2813,7 +2813,7 @@ exports[`skeleton 🥩 descriptions base use 1`] = `
           style="flex:3;padding-inline-start:32px"
         >
           <div
-            class="ant-skeleton ant-skeleton-active css-dev-only-do-not-override-17xsbyy"
+            class="ant-skeleton ant-skeleton-active"
           >
             <div
               class="ant-skeleton-content"
@@ -2830,7 +2830,7 @@ exports[`skeleton 🥩 descriptions base use 1`] = `
         style="padding:0px 0px"
       >
         <div
-          class="ant-divider css-dev-only-do-not-override-17xsbyy ant-divider-horizontal"
+          class="ant-divider ant-divider-horizontal"
           role="separator"
           style="margin:0"
         />
@@ -2842,7 +2842,7 @@ exports[`skeleton 🥩 descriptions base use 1`] = `
           style="flex:1;padding-inline-start:20px;padding-inline-end:32px"
         >
           <div
-            class="ant-skeleton ant-skeleton-active css-dev-only-do-not-override-17xsbyy"
+            class="ant-skeleton ant-skeleton-active"
           >
             <div
               class="ant-skeleton-content"
@@ -2858,7 +2858,7 @@ exports[`skeleton 🥩 descriptions base use 1`] = `
           style="flex:1;padding-inline-start:20px;padding-inline-end:32px"
         >
           <div
-            class="ant-skeleton ant-skeleton-active css-dev-only-do-not-override-17xsbyy"
+            class="ant-skeleton ant-skeleton-active"
           >
             <div
               class="ant-skeleton-content"
@@ -2874,7 +2874,7 @@ exports[`skeleton 🥩 descriptions base use 1`] = `
           style="flex:1;padding-inline-start:20px;padding-inline-end:32px"
         >
           <div
-            class="ant-skeleton ant-skeleton-active css-dev-only-do-not-override-17xsbyy"
+            class="ant-skeleton ant-skeleton-active"
           >
             <div
               class="ant-skeleton-content"
@@ -2890,7 +2890,7 @@ exports[`skeleton 🥩 descriptions base use 1`] = `
           style="flex:3;padding-inline-start:32px"
         >
           <div
-            class="ant-skeleton ant-skeleton-active css-dev-only-do-not-override-17xsbyy"
+            class="ant-skeleton ant-skeleton-active"
           >
             <div
               class="ant-skeleton-content"
@@ -2907,7 +2907,7 @@ exports[`skeleton 🥩 descriptions base use 1`] = `
         style="padding:0px 0px"
       >
         <div
-          class="ant-divider css-dev-only-do-not-override-17xsbyy ant-divider-horizontal"
+          class="ant-divider ant-divider-horizontal"
           role="separator"
           style="margin:0"
         />
@@ -2916,7 +2916,7 @@ exports[`skeleton 🥩 descriptions base use 1`] = `
         style="display:flex;justify-content:flex-end;padding-block-start:16px"
       >
         <div
-          class="ant-skeleton ant-skeleton-active css-dev-only-do-not-override-17xsbyy"
+          class="ant-skeleton ant-skeleton-active"
         >
           <div
             class="ant-skeleton-content"
@@ -2938,7 +2938,7 @@ exports[`skeleton 🥩 list api use 1`] = `
   style="width: 100%;"
 >
   <div
-    class="ant-card css-dev-only-do-not-override-17xsbyy"
+    class="ant-card"
     style="margin-block-end: 16px;"
   >
     <div
@@ -2951,7 +2951,7 @@ exports[`skeleton 🥩 list api use 1`] = `
           style="padding-inline-start: 0; flex: 1; margin-inline-end: 16px;"
         >
           <div
-            class="ant-skeleton ant-skeleton-active css-dev-only-do-not-override-17xsbyy"
+            class="ant-skeleton ant-skeleton-active"
           >
             <div
               class="ant-skeleton-content"
@@ -2963,7 +2963,7 @@ exports[`skeleton 🥩 list api use 1`] = `
             </div>
           </div>
           <div
-            class="ant-skeleton ant-skeleton-element ant-skeleton-active css-dev-only-do-not-override-17xsbyy"
+            class="ant-skeleton ant-skeleton-element ant-skeleton-active"
           >
             <span
               class="ant-skeleton-button"
@@ -2975,7 +2975,7 @@ exports[`skeleton 🥩 list api use 1`] = `
           style="border-inline-start: 1px solid rgba(0,0,0,0.06); padding-inline-start: 42px; flex: 1; margin-inline-end: 0;"
         >
           <div
-            class="ant-skeleton ant-skeleton-active css-dev-only-do-not-override-17xsbyy"
+            class="ant-skeleton ant-skeleton-active"
           >
             <div
               class="ant-skeleton-content"
@@ -2987,7 +2987,7 @@ exports[`skeleton 🥩 list api use 1`] = `
             </div>
           </div>
           <div
-            class="ant-skeleton ant-skeleton-element ant-skeleton-active css-dev-only-do-not-override-17xsbyy"
+            class="ant-skeleton ant-skeleton-element ant-skeleton-active"
           >
             <span
               class="ant-skeleton-button"
@@ -2999,7 +2999,7 @@ exports[`skeleton 🥩 list api use 1`] = `
           style="padding-inline-start: 42px; flex: 1; margin-inline-end: 0;"
         >
           <div
-            class="ant-skeleton ant-skeleton-active css-dev-only-do-not-override-17xsbyy"
+            class="ant-skeleton ant-skeleton-active"
           >
             <div
               class="ant-skeleton-content"
@@ -3011,7 +3011,7 @@ exports[`skeleton 🥩 list api use 1`] = `
             </div>
           </div>
           <div
-            class="ant-skeleton ant-skeleton-element ant-skeleton-active css-dev-only-do-not-override-17xsbyy"
+            class="ant-skeleton ant-skeleton-element ant-skeleton-active"
           >
             <span
               class="ant-skeleton-button"
@@ -3023,21 +3023,21 @@ exports[`skeleton 🥩 list api use 1`] = `
     </div>
   </div>
   <div
-    class="ant-card css-dev-only-do-not-override-17xsbyy"
+    class="ant-card"
   >
     <div
       class="ant-card-body"
       style="padding: 0px;"
     >
       <div
-        class="ant-card css-dev-only-do-not-override-17xsbyy"
+        class="ant-card"
       >
         <div
           class="ant-card-body"
           style="padding: 0px;"
         >
           <div
-            class="ant-card css-dev-only-do-not-override-17xsbyy"
+            class="ant-card"
             style="border-radius: 0;"
           >
             <div
@@ -3051,7 +3051,7 @@ exports[`skeleton 🥩 list api use 1`] = `
                   style="max-width: 100%; flex: 1;"
                 >
                   <div
-                    class="ant-skeleton ant-skeleton-active css-dev-only-do-not-override-17xsbyy"
+                    class="ant-skeleton ant-skeleton-active"
                   >
                     <div
                       class="ant-skeleton-content"
@@ -3072,7 +3072,7 @@ exports[`skeleton 🥩 list api use 1`] = `
                   </div>
                 </div>
                 <div
-                  class="ant-skeleton ant-skeleton-element ant-skeleton-active css-dev-only-do-not-override-17xsbyy"
+                  class="ant-skeleton ant-skeleton-element ant-skeleton-active"
                 >
                   <span
                     class="ant-skeleton-button ant-skeleton-button-sm"
@@ -3086,13 +3086,13 @@ exports[`skeleton 🥩 list api use 1`] = `
             style="padding: 0px 24px;"
           >
             <div
-              class="ant-divider css-dev-only-do-not-override-17xsbyy ant-divider-horizontal"
+              class="ant-divider ant-divider-horizontal"
               role="separator"
               style="margin: 0px;"
             />
           </div>
           <div
-            class="ant-card css-dev-only-do-not-override-17xsbyy"
+            class="ant-card"
             style="border-radius: 0;"
           >
             <div
@@ -3106,7 +3106,7 @@ exports[`skeleton 🥩 list api use 1`] = `
                   style="max-width: 100%; flex: 1;"
                 >
                   <div
-                    class="ant-skeleton ant-skeleton-active css-dev-only-do-not-override-17xsbyy"
+                    class="ant-skeleton ant-skeleton-active"
                   >
                     <div
                       class="ant-skeleton-content"
@@ -3127,7 +3127,7 @@ exports[`skeleton 🥩 list api use 1`] = `
                   </div>
                 </div>
                 <div
-                  class="ant-skeleton ant-skeleton-element ant-skeleton-active css-dev-only-do-not-override-17xsbyy"
+                  class="ant-skeleton ant-skeleton-element ant-skeleton-active"
                 >
                   <span
                     class="ant-skeleton-button ant-skeleton-button-sm"
@@ -3141,13 +3141,13 @@ exports[`skeleton 🥩 list api use 1`] = `
             style="padding: 0px 24px;"
           >
             <div
-              class="ant-divider css-dev-only-do-not-override-17xsbyy ant-divider-horizontal"
+              class="ant-divider ant-divider-horizontal"
               role="separator"
               style="margin: 0px;"
             />
           </div>
           <div
-            class="ant-card css-dev-only-do-not-override-17xsbyy"
+            class="ant-card"
             style="border-radius: 0;"
           >
             <div
@@ -3161,7 +3161,7 @@ exports[`skeleton 🥩 list api use 1`] = `
                   style="max-width: 100%; flex: 1;"
                 >
                   <div
-                    class="ant-skeleton ant-skeleton-active css-dev-only-do-not-override-17xsbyy"
+                    class="ant-skeleton ant-skeleton-active"
                   >
                     <div
                       class="ant-skeleton-content"
@@ -3182,7 +3182,7 @@ exports[`skeleton 🥩 list api use 1`] = `
                   </div>
                 </div>
                 <div
-                  class="ant-skeleton ant-skeleton-element ant-skeleton-active css-dev-only-do-not-override-17xsbyy"
+                  class="ant-skeleton ant-skeleton-element ant-skeleton-active"
                 >
                   <span
                     class="ant-skeleton-button ant-skeleton-button-sm"
@@ -3196,13 +3196,13 @@ exports[`skeleton 🥩 list api use 1`] = `
             style="padding: 0px 24px;"
           >
             <div
-              class="ant-divider css-dev-only-do-not-override-17xsbyy ant-divider-horizontal"
+              class="ant-divider ant-divider-horizontal"
               role="separator"
               style="margin: 0px;"
             />
           </div>
           <div
-            class="ant-card css-dev-only-do-not-override-17xsbyy"
+            class="ant-card"
             style="border-radius: 0;"
           >
             <div
@@ -3216,7 +3216,7 @@ exports[`skeleton 🥩 list api use 1`] = `
                   style="max-width: 100%; flex: 1;"
                 >
                   <div
-                    class="ant-skeleton ant-skeleton-active css-dev-only-do-not-override-17xsbyy"
+                    class="ant-skeleton ant-skeleton-active"
                   >
                     <div
                       class="ant-skeleton-content"
@@ -3237,7 +3237,7 @@ exports[`skeleton 🥩 list api use 1`] = `
                   </div>
                 </div>
                 <div
-                  class="ant-skeleton ant-skeleton-element ant-skeleton-active css-dev-only-do-not-override-17xsbyy"
+                  class="ant-skeleton ant-skeleton-element ant-skeleton-active"
                 >
                   <span
                     class="ant-skeleton-button ant-skeleton-button-sm"
@@ -3251,13 +3251,13 @@ exports[`skeleton 🥩 list api use 1`] = `
             style="padding: 0px 24px;"
           >
             <div
-              class="ant-divider css-dev-only-do-not-override-17xsbyy ant-divider-horizontal"
+              class="ant-divider ant-divider-horizontal"
               role="separator"
               style="margin: 0px;"
             />
           </div>
           <div
-            class="ant-card css-dev-only-do-not-override-17xsbyy"
+            class="ant-card"
             style="border-radius: 0;"
           >
             <div
@@ -3271,7 +3271,7 @@ exports[`skeleton 🥩 list api use 1`] = `
                   style="max-width: 100%; flex: 1;"
                 >
                   <div
-                    class="ant-skeleton ant-skeleton-active css-dev-only-do-not-override-17xsbyy"
+                    class="ant-skeleton ant-skeleton-active"
                   >
                     <div
                       class="ant-skeleton-content"
@@ -3292,7 +3292,7 @@ exports[`skeleton 🥩 list api use 1`] = `
                   </div>
                 </div>
                 <div
-                  class="ant-skeleton ant-skeleton-element ant-skeleton-active css-dev-only-do-not-override-17xsbyy"
+                  class="ant-skeleton ant-skeleton-element ant-skeleton-active"
                 >
                   <span
                     class="ant-skeleton-button ant-skeleton-button-sm"
@@ -3306,13 +3306,13 @@ exports[`skeleton 🥩 list api use 1`] = `
             style="padding: 0px 24px;"
           >
             <div
-              class="ant-divider css-dev-only-do-not-override-17xsbyy ant-divider-horizontal"
+              class="ant-divider ant-divider-horizontal"
               role="separator"
               style="margin: 0px;"
             />
           </div>
           <div
-            class="ant-card css-dev-only-do-not-override-17xsbyy"
+            class="ant-card"
             style="border-radius: 0;"
           >
             <div
@@ -3326,7 +3326,7 @@ exports[`skeleton 🥩 list api use 1`] = `
                   style="max-width: 100%; flex: 1;"
                 >
                   <div
-                    class="ant-skeleton ant-skeleton-active css-dev-only-do-not-override-17xsbyy"
+                    class="ant-skeleton ant-skeleton-active"
                   >
                     <div
                       class="ant-skeleton-content"
@@ -3347,7 +3347,7 @@ exports[`skeleton 🥩 list api use 1`] = `
                   </div>
                 </div>
                 <div
-                  class="ant-skeleton ant-skeleton-element ant-skeleton-active css-dev-only-do-not-override-17xsbyy"
+                  class="ant-skeleton ant-skeleton-element ant-skeleton-active"
                 >
                   <span
                     class="ant-skeleton-button ant-skeleton-button-sm"
@@ -3361,13 +3361,13 @@ exports[`skeleton 🥩 list api use 1`] = `
             style="padding: 0px 24px;"
           >
             <div
-              class="ant-divider css-dev-only-do-not-override-17xsbyy ant-divider-horizontal"
+              class="ant-divider ant-divider-horizontal"
               role="separator"
               style="margin: 0px;"
             />
           </div>
           <div
-            class="ant-card css-dev-only-do-not-override-17xsbyy"
+            class="ant-card"
             style="border-radius: 0;"
           >
             <div
@@ -3381,7 +3381,7 @@ exports[`skeleton 🥩 list api use 1`] = `
                   style="max-width: 100%; flex: 1;"
                 >
                   <div
-                    class="ant-skeleton ant-skeleton-active css-dev-only-do-not-override-17xsbyy"
+                    class="ant-skeleton ant-skeleton-active"
                   >
                     <div
                       class="ant-skeleton-content"
@@ -3402,7 +3402,7 @@ exports[`skeleton 🥩 list api use 1`] = `
                   </div>
                 </div>
                 <div
-                  class="ant-skeleton ant-skeleton-element ant-skeleton-active css-dev-only-do-not-override-17xsbyy"
+                  class="ant-skeleton ant-skeleton-element ant-skeleton-active"
                 >
                   <span
                     class="ant-skeleton-button ant-skeleton-button-sm"
@@ -3416,13 +3416,13 @@ exports[`skeleton 🥩 list api use 1`] = `
             style="padding: 0px 24px;"
           >
             <div
-              class="ant-divider css-dev-only-do-not-override-17xsbyy ant-divider-horizontal"
+              class="ant-divider ant-divider-horizontal"
               role="separator"
               style="margin: 0px;"
             />
           </div>
           <div
-            class="ant-card css-dev-only-do-not-override-17xsbyy"
+            class="ant-card"
             style="border-radius: 0;"
           >
             <div
@@ -3436,7 +3436,7 @@ exports[`skeleton 🥩 list api use 1`] = `
                   style="max-width: 100%; flex: 1;"
                 >
                   <div
-                    class="ant-skeleton ant-skeleton-active css-dev-only-do-not-override-17xsbyy"
+                    class="ant-skeleton ant-skeleton-active"
                   >
                     <div
                       class="ant-skeleton-content"
@@ -3457,7 +3457,7 @@ exports[`skeleton 🥩 list api use 1`] = `
                   </div>
                 </div>
                 <div
-                  class="ant-skeleton ant-skeleton-element ant-skeleton-active css-dev-only-do-not-override-17xsbyy"
+                  class="ant-skeleton ant-skeleton-element ant-skeleton-active"
                 >
                   <span
                     class="ant-skeleton-button ant-skeleton-button-sm"
@@ -3471,13 +3471,13 @@ exports[`skeleton 🥩 list api use 1`] = `
             style="padding: 0px 24px;"
           >
             <div
-              class="ant-divider css-dev-only-do-not-override-17xsbyy ant-divider-horizontal"
+              class="ant-divider ant-divider-horizontal"
               role="separator"
               style="margin: 0px;"
             />
           </div>
           <div
-            class="ant-card css-dev-only-do-not-override-17xsbyy"
+            class="ant-card"
             style="border-radius: 0;"
           >
             <div
@@ -3491,7 +3491,7 @@ exports[`skeleton 🥩 list api use 1`] = `
                   style="max-width: 100%; flex: 1;"
                 >
                   <div
-                    class="ant-skeleton ant-skeleton-active css-dev-only-do-not-override-17xsbyy"
+                    class="ant-skeleton ant-skeleton-active"
                   >
                     <div
                       class="ant-skeleton-content"
@@ -3512,7 +3512,7 @@ exports[`skeleton 🥩 list api use 1`] = `
                   </div>
                 </div>
                 <div
-                  class="ant-skeleton ant-skeleton-element ant-skeleton-active css-dev-only-do-not-override-17xsbyy"
+                  class="ant-skeleton ant-skeleton-element ant-skeleton-active"
                 >
                   <span
                     class="ant-skeleton-button ant-skeleton-button-sm"
@@ -3526,13 +3526,13 @@ exports[`skeleton 🥩 list api use 1`] = `
             style="padding: 0px 24px;"
           >
             <div
-              class="ant-divider css-dev-only-do-not-override-17xsbyy ant-divider-horizontal"
+              class="ant-divider ant-divider-horizontal"
               role="separator"
               style="margin: 0px;"
             />
           </div>
           <div
-            class="ant-card css-dev-only-do-not-override-17xsbyy"
+            class="ant-card"
             style="border-radius: 0;"
           >
             <div
@@ -3546,7 +3546,7 @@ exports[`skeleton 🥩 list api use 1`] = `
                   style="max-width: 100%; flex: 1;"
                 >
                   <div
-                    class="ant-skeleton ant-skeleton-active css-dev-only-do-not-override-17xsbyy"
+                    class="ant-skeleton ant-skeleton-active"
                   >
                     <div
                       class="ant-skeleton-content"
@@ -3567,7 +3567,7 @@ exports[`skeleton 🥩 list api use 1`] = `
                   </div>
                 </div>
                 <div
-                  class="ant-skeleton ant-skeleton-element ant-skeleton-active css-dev-only-do-not-override-17xsbyy"
+                  class="ant-skeleton ant-skeleton-element ant-skeleton-active"
                 >
                   <span
                     class="ant-skeleton-button ant-skeleton-button-sm"
@@ -3581,7 +3581,7 @@ exports[`skeleton 🥩 list api use 1`] = `
             style="padding: 0px 24px;"
           >
             <div
-              class="ant-divider css-dev-only-do-not-override-17xsbyy ant-divider-horizontal"
+              class="ant-divider ant-divider-horizontal"
               role="separator"
               style="margin: 0px;"
             />
@@ -3607,7 +3607,7 @@ exports[`skeleton 🥩 list base use 1`] = `
     style="margin-block-end:16px"
   >
     <div
-      class="ant-skeleton css-dev-only-do-not-override-17xsbyy"
+      class="ant-skeleton"
     >
       <div
         class="ant-skeleton-content"
@@ -3619,7 +3619,7 @@ exports[`skeleton 🥩 list base use 1`] = `
       </div>
     </div>
     <div
-      class="ant-skeleton ant-skeleton-element ant-skeleton-active css-dev-only-do-not-override-17xsbyy"
+      class="ant-skeleton ant-skeleton-element ant-skeleton-active"
     >
       <span
         class="ant-skeleton-button ant-skeleton-button-sm"
@@ -3627,7 +3627,7 @@ exports[`skeleton 🥩 list base use 1`] = `
     </div>
   </div>
   <div
-    class="ant-card css-dev-only-do-not-override-17xsbyy"
+    class="ant-card"
     style="margin-block-end:16px"
   >
     <div
@@ -3640,7 +3640,7 @@ exports[`skeleton 🥩 list base use 1`] = `
           style="padding-inline-start:0;flex:1;margin-inline-end:16px"
         >
           <div
-            class="ant-skeleton ant-skeleton-active css-dev-only-do-not-override-17xsbyy"
+            class="ant-skeleton ant-skeleton-active"
           >
             <div
               class="ant-skeleton-content"
@@ -3652,7 +3652,7 @@ exports[`skeleton 🥩 list base use 1`] = `
             </div>
           </div>
           <div
-            class="ant-skeleton ant-skeleton-element ant-skeleton-active css-dev-only-do-not-override-17xsbyy"
+            class="ant-skeleton ant-skeleton-element ant-skeleton-active"
           >
             <span
               class="ant-skeleton-button"
@@ -3664,7 +3664,7 @@ exports[`skeleton 🥩 list base use 1`] = `
           style="border-inline-start:1px solid rgba(0,0,0,0.06);padding-inline-start:42px;flex:1;margin-inline-end:0"
         >
           <div
-            class="ant-skeleton ant-skeleton-active css-dev-only-do-not-override-17xsbyy"
+            class="ant-skeleton ant-skeleton-active"
           >
             <div
               class="ant-skeleton-content"
@@ -3676,7 +3676,7 @@ exports[`skeleton 🥩 list base use 1`] = `
             </div>
           </div>
           <div
-            class="ant-skeleton ant-skeleton-element ant-skeleton-active css-dev-only-do-not-override-17xsbyy"
+            class="ant-skeleton ant-skeleton-element ant-skeleton-active"
           >
             <span
               class="ant-skeleton-button"
@@ -3688,7 +3688,7 @@ exports[`skeleton 🥩 list base use 1`] = `
           style="padding-inline-start:42px;flex:1;margin-inline-end:0"
         >
           <div
-            class="ant-skeleton ant-skeleton-active css-dev-only-do-not-override-17xsbyy"
+            class="ant-skeleton ant-skeleton-active"
           >
             <div
               class="ant-skeleton-content"
@@ -3700,7 +3700,7 @@ exports[`skeleton 🥩 list base use 1`] = `
             </div>
           </div>
           <div
-            class="ant-skeleton ant-skeleton-element ant-skeleton-active css-dev-only-do-not-override-17xsbyy"
+            class="ant-skeleton ant-skeleton-element ant-skeleton-active"
           >
             <span
               class="ant-skeleton-button"
@@ -3712,7 +3712,7 @@ exports[`skeleton 🥩 list base use 1`] = `
           style="padding-inline-start:42px;flex:1;margin-inline-end:0"
         >
           <div
-            class="ant-skeleton ant-skeleton-active css-dev-only-do-not-override-17xsbyy"
+            class="ant-skeleton ant-skeleton-active"
           >
             <div
               class="ant-skeleton-content"
@@ -3724,7 +3724,7 @@ exports[`skeleton 🥩 list base use 1`] = `
             </div>
           </div>
           <div
-            class="ant-skeleton ant-skeleton-element ant-skeleton-active css-dev-only-do-not-override-17xsbyy"
+            class="ant-skeleton ant-skeleton-element ant-skeleton-active"
           >
             <span
               class="ant-skeleton-button"
@@ -3736,7 +3736,7 @@ exports[`skeleton 🥩 list base use 1`] = `
           style="padding-inline-start:42px;flex:1;margin-inline-end:0"
         >
           <div
-            class="ant-skeleton ant-skeleton-active css-dev-only-do-not-override-17xsbyy"
+            class="ant-skeleton ant-skeleton-active"
           >
             <div
               class="ant-skeleton-content"
@@ -3748,7 +3748,7 @@ exports[`skeleton 🥩 list base use 1`] = `
             </div>
           </div>
           <div
-            class="ant-skeleton ant-skeleton-element ant-skeleton-active css-dev-only-do-not-override-17xsbyy"
+            class="ant-skeleton ant-skeleton-element ant-skeleton-active"
           >
             <span
               class="ant-skeleton-button"
@@ -3760,7 +3760,7 @@ exports[`skeleton 🥩 list base use 1`] = `
           style="padding-inline-start:42px;flex:1;margin-inline-end:0"
         >
           <div
-            class="ant-skeleton ant-skeleton-active css-dev-only-do-not-override-17xsbyy"
+            class="ant-skeleton ant-skeleton-active"
           >
             <div
               class="ant-skeleton-content"
@@ -3772,7 +3772,7 @@ exports[`skeleton 🥩 list base use 1`] = `
             </div>
           </div>
           <div
-            class="ant-skeleton ant-skeleton-element ant-skeleton-active css-dev-only-do-not-override-17xsbyy"
+            class="ant-skeleton ant-skeleton-element ant-skeleton-active"
           >
             <span
               class="ant-skeleton-button"
@@ -3784,14 +3784,14 @@ exports[`skeleton 🥩 list base use 1`] = `
     </div>
   </div>
   <div
-    class="ant-card css-dev-only-do-not-override-17xsbyy"
+    class="ant-card"
   >
     <div
       class="ant-card-body"
       style="padding:0"
     >
       <div
-        class="ant-card css-dev-only-do-not-override-17xsbyy"
+        class="ant-card"
         style="border-bottom-right-radius:0;border-bottom-left-radius:0"
       >
         <div
@@ -3799,7 +3799,7 @@ exports[`skeleton 🥩 list base use 1`] = `
           style="padding-block-end:8px"
         >
           <div
-            class="ant-space css-dev-only-do-not-override-17xsbyy ant-space-horizontal ant-space-align-center"
+            class="ant-space ant-space-horizontal ant-space-align-center"
             style="width:100%;justify-content:space-between"
           >
             <div
@@ -3807,7 +3807,7 @@ exports[`skeleton 🥩 list base use 1`] = `
               style="margin-right:8px"
             >
               <div
-                class="ant-skeleton ant-skeleton-element ant-skeleton-active css-dev-only-do-not-override-17xsbyy"
+                class="ant-skeleton ant-skeleton-element ant-skeleton-active"
               >
                 <span
                   class="ant-skeleton-button ant-skeleton-button-sm"
@@ -3819,14 +3819,14 @@ exports[`skeleton 🥩 list base use 1`] = `
               class="ant-space-item"
             >
               <div
-                class="ant-space css-dev-only-do-not-override-17xsbyy ant-space-horizontal ant-space-align-center"
+                class="ant-space ant-space-horizontal ant-space-align-center"
               >
                 <div
                   class="ant-space-item"
                   style="margin-right:8px"
                 >
                   <div
-                    class="ant-skeleton ant-skeleton-element ant-skeleton-active css-dev-only-do-not-override-17xsbyy"
+                    class="ant-skeleton ant-skeleton-element ant-skeleton-active"
                   >
                     <span
                       class="ant-skeleton-button ant-skeleton-button-sm"
@@ -3838,7 +3838,7 @@ exports[`skeleton 🥩 list base use 1`] = `
                   class="ant-space-item"
                 >
                   <div
-                    class="ant-skeleton ant-skeleton-element ant-skeleton-active css-dev-only-do-not-override-17xsbyy"
+                    class="ant-skeleton ant-skeleton-element ant-skeleton-active"
                   >
                     <span
                       class="ant-skeleton-button ant-skeleton-button-sm"
@@ -3852,14 +3852,14 @@ exports[`skeleton 🥩 list base use 1`] = `
         </div>
       </div>
       <div
-        class="ant-card css-dev-only-do-not-override-17xsbyy"
+        class="ant-card"
       >
         <div
           class="ant-card-body"
           style="padding:0"
         >
           <div
-            class="ant-card css-dev-only-do-not-override-17xsbyy"
+            class="ant-card"
             style="border-radius:0"
           >
             <div
@@ -3873,7 +3873,7 @@ exports[`skeleton 🥩 list base use 1`] = `
                   style="max-width:100%;flex:1"
                 >
                   <div
-                    class="ant-skeleton ant-skeleton-active css-dev-only-do-not-override-17xsbyy"
+                    class="ant-skeleton ant-skeleton-active"
                   >
                     <div
                       class="ant-skeleton-content"
@@ -3894,7 +3894,7 @@ exports[`skeleton 🥩 list base use 1`] = `
                   </div>
                 </div>
                 <div
-                  class="ant-skeleton ant-skeleton-element ant-skeleton-active css-dev-only-do-not-override-17xsbyy"
+                  class="ant-skeleton ant-skeleton-element ant-skeleton-active"
                 >
                   <span
                     class="ant-skeleton-button ant-skeleton-button-sm"
@@ -3908,13 +3908,13 @@ exports[`skeleton 🥩 list base use 1`] = `
             style="padding:0 24px"
           >
             <div
-              class="ant-divider css-dev-only-do-not-override-17xsbyy ant-divider-horizontal"
+              class="ant-divider ant-divider-horizontal"
               role="separator"
               style="margin:0"
             />
           </div>
           <div
-            class="ant-card css-dev-only-do-not-override-17xsbyy"
+            class="ant-card"
             style="border-radius:0"
           >
             <div
@@ -3928,7 +3928,7 @@ exports[`skeleton 🥩 list base use 1`] = `
                   style="max-width:100%;flex:1"
                 >
                   <div
-                    class="ant-skeleton ant-skeleton-active css-dev-only-do-not-override-17xsbyy"
+                    class="ant-skeleton ant-skeleton-active"
                   >
                     <div
                       class="ant-skeleton-content"
@@ -3949,7 +3949,7 @@ exports[`skeleton 🥩 list base use 1`] = `
                   </div>
                 </div>
                 <div
-                  class="ant-skeleton ant-skeleton-element ant-skeleton-active css-dev-only-do-not-override-17xsbyy"
+                  class="ant-skeleton ant-skeleton-element ant-skeleton-active"
                 >
                   <span
                     class="ant-skeleton-button ant-skeleton-button-sm"
@@ -3963,13 +3963,13 @@ exports[`skeleton 🥩 list base use 1`] = `
             style="padding:0 24px"
           >
             <div
-              class="ant-divider css-dev-only-do-not-override-17xsbyy ant-divider-horizontal"
+              class="ant-divider ant-divider-horizontal"
               role="separator"
               style="margin:0"
             />
           </div>
           <div
-            class="ant-card css-dev-only-do-not-override-17xsbyy"
+            class="ant-card"
             style="border-radius:0"
           >
             <div
@@ -3983,7 +3983,7 @@ exports[`skeleton 🥩 list base use 1`] = `
                   style="max-width:100%;flex:1"
                 >
                   <div
-                    class="ant-skeleton ant-skeleton-active css-dev-only-do-not-override-17xsbyy"
+                    class="ant-skeleton ant-skeleton-active"
                   >
                     <div
                       class="ant-skeleton-content"
@@ -4004,7 +4004,7 @@ exports[`skeleton 🥩 list base use 1`] = `
                   </div>
                 </div>
                 <div
-                  class="ant-skeleton ant-skeleton-element ant-skeleton-active css-dev-only-do-not-override-17xsbyy"
+                  class="ant-skeleton ant-skeleton-element ant-skeleton-active"
                 >
                   <span
                     class="ant-skeleton-button ant-skeleton-button-sm"
@@ -4018,13 +4018,13 @@ exports[`skeleton 🥩 list base use 1`] = `
             style="padding:0 24px"
           >
             <div
-              class="ant-divider css-dev-only-do-not-override-17xsbyy ant-divider-horizontal"
+              class="ant-divider ant-divider-horizontal"
               role="separator"
               style="margin:0"
             />
           </div>
           <div
-            class="ant-card css-dev-only-do-not-override-17xsbyy"
+            class="ant-card"
             style="border-radius:0"
           >
             <div
@@ -4038,7 +4038,7 @@ exports[`skeleton 🥩 list base use 1`] = `
                   style="max-width:100%;flex:1"
                 >
                   <div
-                    class="ant-skeleton ant-skeleton-active css-dev-only-do-not-override-17xsbyy"
+                    class="ant-skeleton ant-skeleton-active"
                   >
                     <div
                       class="ant-skeleton-content"
@@ -4059,7 +4059,7 @@ exports[`skeleton 🥩 list base use 1`] = `
                   </div>
                 </div>
                 <div
-                  class="ant-skeleton ant-skeleton-element ant-skeleton-active css-dev-only-do-not-override-17xsbyy"
+                  class="ant-skeleton ant-skeleton-element ant-skeleton-active"
                 >
                   <span
                     class="ant-skeleton-button ant-skeleton-button-sm"
@@ -4073,13 +4073,13 @@ exports[`skeleton 🥩 list base use 1`] = `
             style="padding:0 24px"
           >
             <div
-              class="ant-divider css-dev-only-do-not-override-17xsbyy ant-divider-horizontal"
+              class="ant-divider ant-divider-horizontal"
               role="separator"
               style="margin:0"
             />
           </div>
           <div
-            class="ant-card css-dev-only-do-not-override-17xsbyy"
+            class="ant-card"
             style="border-radius:0"
           >
             <div
@@ -4093,7 +4093,7 @@ exports[`skeleton 🥩 list base use 1`] = `
                   style="max-width:100%;flex:1"
                 >
                   <div
-                    class="ant-skeleton ant-skeleton-active css-dev-only-do-not-override-17xsbyy"
+                    class="ant-skeleton ant-skeleton-active"
                   >
                     <div
                       class="ant-skeleton-content"
@@ -4114,7 +4114,7 @@ exports[`skeleton 🥩 list base use 1`] = `
                   </div>
                 </div>
                 <div
-                  class="ant-skeleton ant-skeleton-element ant-skeleton-active css-dev-only-do-not-override-17xsbyy"
+                  class="ant-skeleton ant-skeleton-element ant-skeleton-active"
                 >
                   <span
                     class="ant-skeleton-button ant-skeleton-button-sm"
@@ -4128,13 +4128,13 @@ exports[`skeleton 🥩 list base use 1`] = `
             style="padding:0 24px"
           >
             <div
-              class="ant-divider css-dev-only-do-not-override-17xsbyy ant-divider-horizontal"
+              class="ant-divider ant-divider-horizontal"
               role="separator"
               style="margin:0"
             />
           </div>
           <div
-            class="ant-card css-dev-only-do-not-override-17xsbyy"
+            class="ant-card"
             style="border-top-right-radius:0;border-top-left-radius:0"
           >
             <div
@@ -4142,7 +4142,7 @@ exports[`skeleton 🥩 list base use 1`] = `
               style="display:flex;align-items:center;justify-content:center"
             >
               <div
-                class="ant-skeleton ant-skeleton-element ant-skeleton-active css-dev-only-do-not-override-17xsbyy"
+                class="ant-skeleton ant-skeleton-element ant-skeleton-active"
               >
                 <span
                   class="ant-skeleton-button ant-skeleton-button-sm"
@@ -4166,7 +4166,7 @@ exports[`skeleton 🥩 result base use 1`] = `
     style="margin-block-end:16px"
   >
     <div
-      class="ant-skeleton css-dev-only-do-not-override-17xsbyy"
+      class="ant-skeleton"
     >
       <div
         class="ant-skeleton-content"
@@ -4178,7 +4178,7 @@ exports[`skeleton 🥩 result base use 1`] = `
       </div>
     </div>
     <div
-      class="ant-skeleton ant-skeleton-element ant-skeleton-active css-dev-only-do-not-override-17xsbyy"
+      class="ant-skeleton ant-skeleton-element ant-skeleton-active"
     >
       <span
         class="ant-skeleton-button ant-skeleton-button-sm"
@@ -4186,7 +4186,7 @@ exports[`skeleton 🥩 result base use 1`] = `
     </div>
   </div>
   <div
-    class="ant-card ant-card-bordered css-dev-only-do-not-override-17xsbyy"
+    class="ant-card ant-card-bordered"
   >
     <div
       class="ant-card-body"
@@ -4195,7 +4195,7 @@ exports[`skeleton 🥩 result base use 1`] = `
         style="display:flex;justify-content:center;align-items:center;flex-direction:column;padding:128px"
       >
         <div
-          class="ant-skeleton ant-skeleton-element css-dev-only-do-not-override-17xsbyy"
+          class="ant-skeleton ant-skeleton-element"
         >
           <span
             class="ant-skeleton-avatar ant-skeleton-avatar-circle"
@@ -4203,7 +4203,7 @@ exports[`skeleton 🥩 result base use 1`] = `
           />
         </div>
         <div
-          class="ant-skeleton ant-skeleton-element ant-skeleton-active css-dev-only-do-not-override-17xsbyy"
+          class="ant-skeleton ant-skeleton-element ant-skeleton-active"
         >
           <span
             class="ant-skeleton-button"
@@ -4211,7 +4211,7 @@ exports[`skeleton 🥩 result base use 1`] = `
           />
         </div>
         <div
-          class="ant-skeleton ant-skeleton-element ant-skeleton-active css-dev-only-do-not-override-17xsbyy"
+          class="ant-skeleton ant-skeleton-element ant-skeleton-active"
         >
           <span
             class="ant-skeleton-button ant-skeleton-button-sm"
@@ -4219,7 +4219,7 @@ exports[`skeleton 🥩 result base use 1`] = `
           />
         </div>
         <div
-          class="ant-space css-dev-only-do-not-override-17xsbyy ant-space-horizontal ant-space-align-center"
+          class="ant-space ant-space-horizontal ant-space-align-center"
           style="margin-block-start:24px"
         >
           <div
@@ -4227,7 +4227,7 @@ exports[`skeleton 🥩 result base use 1`] = `
             style="margin-right:8px"
           >
             <div
-              class="ant-skeleton ant-skeleton-element ant-skeleton-active css-dev-only-do-not-override-17xsbyy"
+              class="ant-skeleton ant-skeleton-element ant-skeleton-active"
             >
               <span
                 class="ant-skeleton-button"
@@ -4239,7 +4239,7 @@ exports[`skeleton 🥩 result base use 1`] = `
             class="ant-space-item"
           >
             <div
-              class="ant-skeleton ant-skeleton-element ant-skeleton-active css-dev-only-do-not-override-17xsbyy"
+              class="ant-skeleton ant-skeleton-element ant-skeleton-active"
             >
               <span
                 class="ant-skeleton-button"
@@ -4259,7 +4259,7 @@ exports[`skeleton 🥩 statistic=1,span=16 1`] = `
   style="width: 100%;"
 >
   <div
-    class="ant-card css-dev-only-do-not-override-17xsbyy"
+    class="ant-card"
     style="margin-block-end: 16px;"
   >
     <div
@@ -4272,7 +4272,7 @@ exports[`skeleton 🥩 statistic=1,span=16 1`] = `
           style="padding-inline-start: 0; flex: 1; margin-inline-end: 16px;"
         >
           <div
-            class="ant-skeleton ant-skeleton-active css-dev-only-do-not-override-17xsbyy"
+            class="ant-skeleton ant-skeleton-active"
           >
             <div
               class="ant-skeleton-content"
@@ -4284,7 +4284,7 @@ exports[`skeleton 🥩 statistic=1,span=16 1`] = `
             </div>
           </div>
           <div
-            class="ant-skeleton ant-skeleton-element ant-skeleton-active css-dev-only-do-not-override-17xsbyy"
+            class="ant-skeleton ant-skeleton-element ant-skeleton-active"
           >
             <span
               class="ant-skeleton-button"
@@ -4296,21 +4296,21 @@ exports[`skeleton 🥩 statistic=1,span=16 1`] = `
     </div>
   </div>
   <div
-    class="ant-card css-dev-only-do-not-override-17xsbyy"
+    class="ant-card"
   >
     <div
       class="ant-card-body"
       style="padding: 0px;"
     >
       <div
-        class="ant-card css-dev-only-do-not-override-17xsbyy"
+        class="ant-card"
       >
         <div
           class="ant-card-body"
           style="padding: 0px;"
         >
           <div
-            class="ant-card css-dev-only-do-not-override-17xsbyy"
+            class="ant-card"
             style="border-radius: 0;"
           >
             <div
@@ -4324,7 +4324,7 @@ exports[`skeleton 🥩 statistic=1,span=16 1`] = `
                   style="max-width: 100%; flex: 1;"
                 >
                   <div
-                    class="ant-skeleton ant-skeleton-active css-dev-only-do-not-override-17xsbyy"
+                    class="ant-skeleton ant-skeleton-active"
                   >
                     <div
                       class="ant-skeleton-content"
@@ -4345,7 +4345,7 @@ exports[`skeleton 🥩 statistic=1,span=16 1`] = `
                   </div>
                 </div>
                 <div
-                  class="ant-skeleton ant-skeleton-element ant-skeleton-active css-dev-only-do-not-override-17xsbyy"
+                  class="ant-skeleton ant-skeleton-element ant-skeleton-active"
                 >
                   <span
                     class="ant-skeleton-button ant-skeleton-button-sm"
@@ -4359,13 +4359,13 @@ exports[`skeleton 🥩 statistic=1,span=16 1`] = `
             style="padding: 0px 24px;"
           >
             <div
-              class="ant-divider css-dev-only-do-not-override-17xsbyy ant-divider-horizontal"
+              class="ant-divider ant-divider-horizontal"
               role="separator"
               style="margin: 0px;"
             />
           </div>
           <div
-            class="ant-card css-dev-only-do-not-override-17xsbyy"
+            class="ant-card"
             style="border-radius: 0;"
           >
             <div
@@ -4379,7 +4379,7 @@ exports[`skeleton 🥩 statistic=1,span=16 1`] = `
                   style="max-width: 100%; flex: 1;"
                 >
                   <div
-                    class="ant-skeleton ant-skeleton-active css-dev-only-do-not-override-17xsbyy"
+                    class="ant-skeleton ant-skeleton-active"
                   >
                     <div
                       class="ant-skeleton-content"
@@ -4400,7 +4400,7 @@ exports[`skeleton 🥩 statistic=1,span=16 1`] = `
                   </div>
                 </div>
                 <div
-                  class="ant-skeleton ant-skeleton-element ant-skeleton-active css-dev-only-do-not-override-17xsbyy"
+                  class="ant-skeleton ant-skeleton-element ant-skeleton-active"
                 >
                   <span
                     class="ant-skeleton-button ant-skeleton-button-sm"
@@ -4414,13 +4414,13 @@ exports[`skeleton 🥩 statistic=1,span=16 1`] = `
             style="padding: 0px 24px;"
           >
             <div
-              class="ant-divider css-dev-only-do-not-override-17xsbyy ant-divider-horizontal"
+              class="ant-divider ant-divider-horizontal"
               role="separator"
               style="margin: 0px;"
             />
           </div>
           <div
-            class="ant-card css-dev-only-do-not-override-17xsbyy"
+            class="ant-card"
             style="border-radius: 0;"
           >
             <div
@@ -4434,7 +4434,7 @@ exports[`skeleton 🥩 statistic=1,span=16 1`] = `
                   style="max-width: 100%; flex: 1;"
                 >
                   <div
-                    class="ant-skeleton ant-skeleton-active css-dev-only-do-not-override-17xsbyy"
+                    class="ant-skeleton ant-skeleton-active"
                   >
                     <div
                       class="ant-skeleton-content"
@@ -4455,7 +4455,7 @@ exports[`skeleton 🥩 statistic=1,span=16 1`] = `
                   </div>
                 </div>
                 <div
-                  class="ant-skeleton ant-skeleton-element ant-skeleton-active css-dev-only-do-not-override-17xsbyy"
+                  class="ant-skeleton ant-skeleton-element ant-skeleton-active"
                 >
                   <span
                     class="ant-skeleton-button ant-skeleton-button-sm"
@@ -4469,13 +4469,13 @@ exports[`skeleton 🥩 statistic=1,span=16 1`] = `
             style="padding: 0px 24px;"
           >
             <div
-              class="ant-divider css-dev-only-do-not-override-17xsbyy ant-divider-horizontal"
+              class="ant-divider ant-divider-horizontal"
               role="separator"
               style="margin: 0px;"
             />
           </div>
           <div
-            class="ant-card css-dev-only-do-not-override-17xsbyy"
+            class="ant-card"
             style="border-radius: 0;"
           >
             <div
@@ -4489,7 +4489,7 @@ exports[`skeleton 🥩 statistic=1,span=16 1`] = `
                   style="max-width: 100%; flex: 1;"
                 >
                   <div
-                    class="ant-skeleton ant-skeleton-active css-dev-only-do-not-override-17xsbyy"
+                    class="ant-skeleton ant-skeleton-active"
                   >
                     <div
                       class="ant-skeleton-content"
@@ -4510,7 +4510,7 @@ exports[`skeleton 🥩 statistic=1,span=16 1`] = `
                   </div>
                 </div>
                 <div
-                  class="ant-skeleton ant-skeleton-element ant-skeleton-active css-dev-only-do-not-override-17xsbyy"
+                  class="ant-skeleton ant-skeleton-element ant-skeleton-active"
                 >
                   <span
                     class="ant-skeleton-button ant-skeleton-button-sm"
@@ -4524,13 +4524,13 @@ exports[`skeleton 🥩 statistic=1,span=16 1`] = `
             style="padding: 0px 24px;"
           >
             <div
-              class="ant-divider css-dev-only-do-not-override-17xsbyy ant-divider-horizontal"
+              class="ant-divider ant-divider-horizontal"
               role="separator"
               style="margin: 0px;"
             />
           </div>
           <div
-            class="ant-card css-dev-only-do-not-override-17xsbyy"
+            class="ant-card"
             style="border-radius: 0;"
           >
             <div
@@ -4544,7 +4544,7 @@ exports[`skeleton 🥩 statistic=1,span=16 1`] = `
                   style="max-width: 100%; flex: 1;"
                 >
                   <div
-                    class="ant-skeleton ant-skeleton-active css-dev-only-do-not-override-17xsbyy"
+                    class="ant-skeleton ant-skeleton-active"
                   >
                     <div
                       class="ant-skeleton-content"
@@ -4565,7 +4565,7 @@ exports[`skeleton 🥩 statistic=1,span=16 1`] = `
                   </div>
                 </div>
                 <div
-                  class="ant-skeleton ant-skeleton-element ant-skeleton-active css-dev-only-do-not-override-17xsbyy"
+                  class="ant-skeleton ant-skeleton-element ant-skeleton-active"
                 >
                   <span
                     class="ant-skeleton-button ant-skeleton-button-sm"
@@ -4579,13 +4579,13 @@ exports[`skeleton 🥩 statistic=1,span=16 1`] = `
             style="padding: 0px 24px;"
           >
             <div
-              class="ant-divider css-dev-only-do-not-override-17xsbyy ant-divider-horizontal"
+              class="ant-divider ant-divider-horizontal"
               role="separator"
               style="margin: 0px;"
             />
           </div>
           <div
-            class="ant-card css-dev-only-do-not-override-17xsbyy"
+            class="ant-card"
             style="border-radius: 0;"
           >
             <div
@@ -4599,7 +4599,7 @@ exports[`skeleton 🥩 statistic=1,span=16 1`] = `
                   style="max-width: 100%; flex: 1;"
                 >
                   <div
-                    class="ant-skeleton ant-skeleton-active css-dev-only-do-not-override-17xsbyy"
+                    class="ant-skeleton ant-skeleton-active"
                   >
                     <div
                       class="ant-skeleton-content"
@@ -4620,7 +4620,7 @@ exports[`skeleton 🥩 statistic=1,span=16 1`] = `
                   </div>
                 </div>
                 <div
-                  class="ant-skeleton ant-skeleton-element ant-skeleton-active css-dev-only-do-not-override-17xsbyy"
+                  class="ant-skeleton ant-skeleton-element ant-skeleton-active"
                 >
                   <span
                     class="ant-skeleton-button ant-skeleton-button-sm"
@@ -4634,13 +4634,13 @@ exports[`skeleton 🥩 statistic=1,span=16 1`] = `
             style="padding: 0px 24px;"
           >
             <div
-              class="ant-divider css-dev-only-do-not-override-17xsbyy ant-divider-horizontal"
+              class="ant-divider ant-divider-horizontal"
               role="separator"
               style="margin: 0px;"
             />
           </div>
           <div
-            class="ant-card css-dev-only-do-not-override-17xsbyy"
+            class="ant-card"
             style="border-radius: 0;"
           >
             <div
@@ -4654,7 +4654,7 @@ exports[`skeleton 🥩 statistic=1,span=16 1`] = `
                   style="max-width: 100%; flex: 1;"
                 >
                   <div
-                    class="ant-skeleton ant-skeleton-active css-dev-only-do-not-override-17xsbyy"
+                    class="ant-skeleton ant-skeleton-active"
                   >
                     <div
                       class="ant-skeleton-content"
@@ -4675,7 +4675,7 @@ exports[`skeleton 🥩 statistic=1,span=16 1`] = `
                   </div>
                 </div>
                 <div
-                  class="ant-skeleton ant-skeleton-element ant-skeleton-active css-dev-only-do-not-override-17xsbyy"
+                  class="ant-skeleton ant-skeleton-element ant-skeleton-active"
                 >
                   <span
                     class="ant-skeleton-button ant-skeleton-button-sm"
@@ -4689,13 +4689,13 @@ exports[`skeleton 🥩 statistic=1,span=16 1`] = `
             style="padding: 0px 24px;"
           >
             <div
-              class="ant-divider css-dev-only-do-not-override-17xsbyy ant-divider-horizontal"
+              class="ant-divider ant-divider-horizontal"
               role="separator"
               style="margin: 0px;"
             />
           </div>
           <div
-            class="ant-card css-dev-only-do-not-override-17xsbyy"
+            class="ant-card"
             style="border-radius: 0;"
           >
             <div
@@ -4709,7 +4709,7 @@ exports[`skeleton 🥩 statistic=1,span=16 1`] = `
                   style="max-width: 100%; flex: 1;"
                 >
                   <div
-                    class="ant-skeleton ant-skeleton-active css-dev-only-do-not-override-17xsbyy"
+                    class="ant-skeleton ant-skeleton-active"
                   >
                     <div
                       class="ant-skeleton-content"
@@ -4730,7 +4730,7 @@ exports[`skeleton 🥩 statistic=1,span=16 1`] = `
                   </div>
                 </div>
                 <div
-                  class="ant-skeleton ant-skeleton-element ant-skeleton-active css-dev-only-do-not-override-17xsbyy"
+                  class="ant-skeleton ant-skeleton-element ant-skeleton-active"
                 >
                   <span
                     class="ant-skeleton-button ant-skeleton-button-sm"
@@ -4744,13 +4744,13 @@ exports[`skeleton 🥩 statistic=1,span=16 1`] = `
             style="padding: 0px 24px;"
           >
             <div
-              class="ant-divider css-dev-only-do-not-override-17xsbyy ant-divider-horizontal"
+              class="ant-divider ant-divider-horizontal"
               role="separator"
               style="margin: 0px;"
             />
           </div>
           <div
-            class="ant-card css-dev-only-do-not-override-17xsbyy"
+            class="ant-card"
             style="border-radius: 0;"
           >
             <div
@@ -4764,7 +4764,7 @@ exports[`skeleton 🥩 statistic=1,span=16 1`] = `
                   style="max-width: 100%; flex: 1;"
                 >
                   <div
-                    class="ant-skeleton ant-skeleton-active css-dev-only-do-not-override-17xsbyy"
+                    class="ant-skeleton ant-skeleton-active"
                   >
                     <div
                       class="ant-skeleton-content"
@@ -4785,7 +4785,7 @@ exports[`skeleton 🥩 statistic=1,span=16 1`] = `
                   </div>
                 </div>
                 <div
-                  class="ant-skeleton ant-skeleton-element ant-skeleton-active css-dev-only-do-not-override-17xsbyy"
+                  class="ant-skeleton ant-skeleton-element ant-skeleton-active"
                 >
                   <span
                     class="ant-skeleton-button ant-skeleton-button-sm"
@@ -4799,13 +4799,13 @@ exports[`skeleton 🥩 statistic=1,span=16 1`] = `
             style="padding: 0px 24px;"
           >
             <div
-              class="ant-divider css-dev-only-do-not-override-17xsbyy ant-divider-horizontal"
+              class="ant-divider ant-divider-horizontal"
               role="separator"
               style="margin: 0px;"
             />
           </div>
           <div
-            class="ant-card css-dev-only-do-not-override-17xsbyy"
+            class="ant-card"
             style="border-radius: 0;"
           >
             <div
@@ -4819,7 +4819,7 @@ exports[`skeleton 🥩 statistic=1,span=16 1`] = `
                   style="max-width: 100%; flex: 1;"
                 >
                   <div
-                    class="ant-skeleton ant-skeleton-active css-dev-only-do-not-override-17xsbyy"
+                    class="ant-skeleton ant-skeleton-active"
                   >
                     <div
                       class="ant-skeleton-content"
@@ -4840,7 +4840,7 @@ exports[`skeleton 🥩 statistic=1,span=16 1`] = `
                   </div>
                 </div>
                 <div
-                  class="ant-skeleton ant-skeleton-element ant-skeleton-active css-dev-only-do-not-override-17xsbyy"
+                  class="ant-skeleton ant-skeleton-element ant-skeleton-active"
                 >
                   <span
                     class="ant-skeleton-button ant-skeleton-button-sm"
@@ -4854,7 +4854,7 @@ exports[`skeleton 🥩 statistic=1,span=16 1`] = `
             style="padding: 0px 24px;"
           >
             <div
-              class="ant-divider css-dev-only-do-not-override-17xsbyy ant-divider-horizontal"
+              class="ant-divider ant-divider-horizontal"
               role="separator"
               style="margin: 0px;"
             />

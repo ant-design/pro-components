@@ -332,7 +332,7 @@ const ProFormListItem: React.FC<
       if (React.isValidElement(childrenItem)) {
         return React.cloneElement(childrenItem, {
           key: childrenItem.key || childrenItem?.props?.name || itemIndex,
-          ...childrenItem?.props,
+          ...(childrenItem?.props || {}),
         });
       }
       return childrenItem;

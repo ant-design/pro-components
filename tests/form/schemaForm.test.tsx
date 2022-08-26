@@ -1,10 +1,6 @@
 ﻿import type { ProFormColumnsType, ProFormLayoutType } from '@ant-design/pro-form';
 import { BetaSchemaForm } from '@ant-design/pro-form';
-<<<<<<< HEAD
-import { act, render } from '@testing-library/react';
-=======
-import { fireEvent, render } from '@testing-library/react';
->>>>>>> master
+import { act, fireEvent, render } from '@testing-library/react';
 import type { FormInstance } from 'antd';
 import { Input } from 'antd';
 import { mount } from 'enzyme';

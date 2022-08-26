@@ -360,7 +360,9 @@ export const SettingDrawer: React.FC<SettingDrawerProps> = (props) => {
         )}
       </div>
       <Drawer
+        //@ts-expect-error
         visible={show}
+        open={show}
         width={300}
         closable={false}
         onClose={() => setShow(false)}

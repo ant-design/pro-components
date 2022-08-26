@@ -3,11 +3,11 @@ import { useStyleRegister } from '@ant-design/cssinjs';
 import { TinyColor } from '@ctrl/tinycolor';
 // @ts-ignore
 import { ConfigProvider, theme as antdTheme } from 'antd';
+
 import type React from 'react';
 import { useContext } from 'react';
 import type { AliasToken } from './token';
 import * as batToken from './token';
-
 /**
  * 把一个颜色设置一下透明度
  * @example (#fff, 0.5) => rgba(255, 255, 255, 0.5)
@@ -99,6 +99,7 @@ export function useStyle(
   styleFn: (token: ProAliasToken) => CSSInterpolation,
 ): UseStyleResult {
   const { token, hashId, theme } = useToken();
+
   const { getPrefixCls } = useContext(ConfigProvider.ConfigContext);
   /**
    * pro 的 类

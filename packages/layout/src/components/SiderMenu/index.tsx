@@ -56,7 +56,9 @@ const SiderMenuWrapper: React.FC<SiderMenuProps & PrivateSiderMenuProps> = (prop
   return wrapSSR(
     isMobile ? (
       <Drawer
+        //@ts-expect-error
         visible={!collapsed}
+        open={!collapsed}
         placement="left"
         className={classNames(`${prefixCls}-drawer-sider`, className)}
         onClose={() => onCollapse?.(true)}

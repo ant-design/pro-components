@@ -30,12 +30,20 @@ export type DrawerFormProps<T = Record<string, any>> = Omit<FormProps, 'onFinish
     /** @name 用于触发抽屉打开的 dom ，只能设置一个*/
     trigger?: JSX.Element;
 
+    /**
+     * @name 受控的打开关闭
+     * */
+    visible?: DrawerProps['open'];
+
     /** @name 受控的打开关闭 */
-    visible?: DrawerProps['visible'];
+    open?: DrawerProps['open'];
 
     /**
      * @name 打开关闭的事件 */
     onVisibleChange?: (visible: boolean) => void;
+    /**
+     * @name 打开关闭的事件 */
+    afterOpenChange?: (visible: boolean) => void;
     /**
      * 不支持 'visible'，请使用全局的 visible
      *
@@ -60,6 +68,7 @@ function DrawerForm<T = Record<string, any>>({
   title,
   width,
   visible: propVisible,
+  open: propOpen,
   ...rest
 }: DrawerFormProps<T>) {
   noteOnce(
@@ -67,14 +76,13 @@ function DrawerForm<T = Record<string, any>>({
     !rest['footer'] || !drawerProps?.footer,
     'DrawerForm 是一个 ProForm 的特殊布局，如果想自定义按钮，请使用 submit.render 自定义。',
   );
-
   const context = useContext(ConfigProvider.ConfigContext);
 
   const [, forceUpdate] = useState([]);
   const [loading, setLoading] = useState(false);
 
   const [visible, setVisible] = useMergedState<boolean>(!!propVisible, {
-    value: propVisible,
+    value: propOpen || propVisible,
     onChange: onVisibleChange,
   });
 
@@ -187,13 +195,19 @@ function DrawerForm<T = Record<string, any>>({
         title={title}
         width={width || 800}
         {...drawerProps}
+        // @ts-expect-error
         visible={visible}
+        open={visible}
         onClose={(e) => {
           // 提交表单loading时，阻止弹框关闭
           if (submitTimeout && loading) return;
-          resetFields();
           setVisible(false);
           drawerProps?.onClose?.(e);
+          resetFields();
+        }}
+        afterOpenChange={(e) => {
+          resetFields();
+          drawerProps?.afterOpenChange?.(e);
         }}
         footer={
           rest.submitter !== false && (

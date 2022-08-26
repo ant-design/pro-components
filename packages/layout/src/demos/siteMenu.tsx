@@ -80,7 +80,7 @@ export default () => {
     splitMenus: true,
   };
 
-  const [dropdownVisiable, setDropdownVisiable] = useState(true);
+  const [dropdownVisible, setDropdownVisible] = useState(true);
 
   const [pathname, setPathname] = useState('/list/sub-page/sub-sub-page1');
 
@@ -192,8 +192,11 @@ export default () => {
                 />
                 <Dropdown
                   placement="bottom"
-                  visible={dropdownVisiable}
-                  onVisibleChange={setDropdownVisiable}
+                  //@ts-expect-error
+                  visible={dropdownVisible}
+                  open={dropdownVisible}
+                  onVisibleChange={setDropdownVisible}
+                  onOpenChange={setDropdownVisible}
                   overlay={
                     <div
                       style={{

@@ -44,7 +44,7 @@ export type LayoutBreadcrumbProps = {
 };
 
 type GlobalTypes = Omit<
-  Partial<RouterTypes<Route>> & SiderMenuProps & HeaderViewProps & ProLayoutProviderProps,
+  Partial<RouterTypes> & SiderMenuProps & HeaderViewProps & ProLayoutProviderProps,
   'collapsed'
 >;
 
@@ -81,7 +81,7 @@ export type ProLayoutProps = GlobalTypes & {
    * @example 获取切换的页面地址 onPageChange={(location) => { console.log("切换到："+location.pathname) }}
    *
    * */
-  onPageChange?: (location?: RouterTypes<Route>['location']) => void;
+  onPageChange?: (location?: RouterTypes['location']) => void;
 
   /**
    * @name layout 的 loading 效果，设置完成之后只展示一个 loading
