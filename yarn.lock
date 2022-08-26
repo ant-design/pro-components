@@ -3741,6 +3741,13 @@
   dependencies:
     "@types/lodash" "*"
 
+"@types/lodash.omit@^4.5.7":
+  version "4.5.7"
+  resolved "http://npm.indexed.cn/@types%2flodash.omit/-/lodash.omit-4.5.7.tgz#2357ed2412b4164344e8ee41f85bb0b2920304ba"
+  integrity sha512-6q6cNg0tQ6oTWjSM+BcYMBhan54P/gLqBldG4AuXd3nKr0oeVekWNS4VrNEu3BhCSDXtGapi7zjhnna0s03KpA==
+  dependencies:
+    "@types/lodash" "*"
+
 "@types/lodash.tonumber@^4.0.6":
   version "4.0.7"
   resolved "https://registry.npmmirror.com/@types/lodash.tonumber/-/lodash.tonumber-4.0.7.tgz#f0e6874f145eb6fe0604fa497b4025410aa02fc4"
@@ -13332,6 +13339,11 @@ lodash.merge@^4.4.0, lodash.merge@^4.6.2:
   version "4.6.2"
   resolved "https://registry.npmmirror.com/lodash.merge/-/lodash.merge-4.6.2.tgz#558aa53b43b661e1925a0afdfa36a9a1085fe57a"
   integrity sha512-0KpjqXRVvrYyCsX1swR/XTK0va6VQkQM6MNo7PqW77ByjAhoARA8EfrP1N4+KlKj8YS0ZUCtRT/YUuhyYDujIQ==
+
+lodash.omit@^4.5.0:
+  version "4.5.0"
+  resolved "http://npm.indexed.cn/lodash.omit/-/lodash.omit-4.5.0.tgz#6eb19ae5a1ee1dd9df0b969e66ce0b7fa30b5e60"
+  integrity sha1-brGa5aHuHdnfC5aeZs4Lf6MLXmA=
 
 lodash.once@^4.0.0:
   version "4.1.1"
