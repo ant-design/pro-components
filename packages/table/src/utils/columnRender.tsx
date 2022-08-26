@@ -5,7 +5,7 @@ import type {
   ProTableEditableFnType,
   UseEditableUtilType,
 } from '@ant-design/pro-utils';
-import { genCopyable, isDeepEqualReact, isNil, LabelIconTip } from '@ant-design/pro-utils';
+import { genCopyable, isNil, LabelIconTip } from '@ant-design/pro-utils';
 import { Space } from 'antd';
 import get from 'rc-util/lib/utils/get';
 import React from 'react';
@@ -71,19 +71,6 @@ export const defaultOnFilter = (value: string, record: any, dataIndex: string | 
   return String(itemValue) === String(value);
 };
 
-class OptionsCell extends React.Component<{
-  children: React.ReactNode;
-  record: any;
-}> {
-  shouldComponentUpdate(nextProps: any) {
-    const { children, ...restProps } = this.props;
-    const { children: nextChildren, ...restNextProps } = nextProps;
-    return !isDeepEqualReact(restProps, restNextProps);
-  }
-  render() {
-    return <Space>{this.props.children}</Space>;
-  }
-}
 /**
  * 这个组件负责单元格的具体渲染
  *
@@ -137,12 +124,12 @@ export function columnRender<T>({
   if (mode === 'edit') {
     if (columnProps.valueType === 'option') {
       return (
-        <OptionsCell record={rowData}>
+        <Space>
           {editableUtils.actionRender({
             ...rowData,
             index: columnProps.index || index,
           })}
-        </OptionsCell>
+        </Space>
       );
     }
     return dom;

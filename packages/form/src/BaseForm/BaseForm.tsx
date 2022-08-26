@@ -469,7 +469,7 @@ function BaseForm<T = Record<string, any>>(props: BaseFormProps<T>) {
     grid,
     rowProps,
     colProps,
-    omitNil,
+    omitNil = true,
     request,
     params,
     initialValues,
