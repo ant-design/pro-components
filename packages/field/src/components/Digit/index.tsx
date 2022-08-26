@@ -1,5 +1,5 @@
 import { InputNumber } from 'antd';
-import { omit } from 'lodash';
+import omit from 'lodash.omit';
 import React, { useCallback } from 'react';
 import type { ProFieldFC } from '../../index';
 
