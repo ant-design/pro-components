@@ -2,6 +2,19 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.0.0-experimental.22](https://github.com/ant-design/pro-components/compare/@ant-design/pro-card@1.20.20...@ant-design/pro-card@2.0.0-experimental.22) (2022-08-26)
+
+### Bug Fixes
+
+- **card:** check card style fixed ([#5769](https://github.com/ant-design/pro-components/issues/5769)) ([2fcd7ff](https://github.com/ant-design/pro-components/commit/2fcd7ff7c727ec26032bc23160eae16715340398))
+- **card:** static card trend up & done css lost ([#5777](https://github.com/ant-design/pro-components/issues/5777)) ([9510239](https://github.com/ant-design/pro-components/commit/95102390d2895abd6dd6591205cef05a6ebc52c0))
+- card style fixed ([#5741](https://github.com/ant-design/pro-components/issues/5741)) ([4698978](https://github.com/ant-design/pro-components/commit/46989786151df482c3109240942716002adc3d44))
+
+### Features
+
+- add card tabs change ([#5761](https://github.com/ant-design/pro-components/issues/5761)) ([5504423](https://github.com/ant-design/pro-components/commit/55044237907b466991e91297f4fe623b185dc8df))
+- cssinjs ([#5596](https://github.com/ant-design/pro-components/issues/5596)) ([b82c7d2](https://github.com/ant-design/pro-components/commit/b82c7d2a1021506918947df56aaa66c3181187c7))
+
 # [2.0.0-experimental.21](https://github.com/ant-design/pro-components/compare/@ant-design/pro-card@2.0.0-experimental.20...@ant-design/pro-card@2.0.0-experimental.21) (2022-08-25)
 
 **Note:** Version bump only for package @ant-design/pro-card
