@@ -7062,7 +7062,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/Nested.tsx correc
                 >
                   <li
                     class="ant-menu-item ant-menu-item-selected ant-menu-item-only-child ant-pro-base-menu-menu-item"
-                    data-menu-id="rc-menu-uuid-84044-69-/home"
+                    data-menu-id="rc-menu-uuid-84044-41-/home"
                     role="menuitem"
                     style="padding-left: 16px;"
                     tabindex="-1"
@@ -7105,7 +7105,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/Nested.tsx correc
                   </li>
                   <li
                     class="ant-menu-item ant-menu-item-only-child ant-pro-base-menu-menu-item"
-                    data-menu-id="rc-menu-uuid-84044-69-/home/overview"
+                    data-menu-id="rc-menu-uuid-84044-41-/home/overview"
                     role="menuitem"
                     style="padding-left: 16px;"
                     tabindex="-1"
@@ -7148,7 +7148,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/Nested.tsx correc
                   </li>
                   <li
                     class="ant-menu-item ant-menu-item-only-child ant-pro-base-menu-menu-item"
-                    data-menu-id="rc-menu-uuid-84044-69-/home/search"
+                    data-menu-id="rc-menu-uuid-84044-41-/home/search"
                     role="menuitem"
                     style="padding-left: 16px;"
                     tabindex="-1"
@@ -7233,7 +7233,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/Nested.tsx correc
                         >
                           <li
                             class="ant-menu-item ant-menu-item-selected ant-menu-item-only-child ant-pro-base-menu-menu-item"
-                            data-menu-id="rc-menu-uuid-84044-70-/home"
+                            data-menu-id="rc-menu-uuid-84044-42-/home"
                             role="menuitem"
                             style="padding-left: 16px;"
                             tabindex="-1"
@@ -7258,11 +7258,11 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/Nested.tsx correc
                             role="none"
                           >
                             <div
-                              aria-controls="rc-menu-uuid-84044-70-/data_hui-popup"
+                              aria-controls="rc-menu-uuid-84044-42-/data_hui-popup"
                               aria-expanded="false"
                               aria-haspopup="true"
                               class="ant-menu-submenu-title"
-                              data-menu-id="rc-menu-uuid-84044-70-/data_hui"
+                              data-menu-id="rc-menu-uuid-84044-42-/data_hui"
                               role="menuitem"
                               style="padding-left: 16px;"
                               tabindex="-1"
@@ -7291,11 +7291,11 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/Nested.tsx correc
                             role="none"
                           >
                             <div
-                              aria-controls="rc-menu-uuid-84044-70-/data_ming-popup"
+                              aria-controls="rc-menu-uuid-84044-42-/data_ming-popup"
                               aria-expanded="false"
                               aria-haspopup="true"
                               class="ant-menu-submenu-title"
-                              data-menu-id="rc-menu-uuid-84044-70-/data_ming"
+                              data-menu-id="rc-menu-uuid-84044-42-/data_ming"
                               role="menuitem"
                               style="padding-left: 16px;"
                               tabindex="-1"
@@ -7324,11 +7324,11 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/Nested.tsx correc
                             role="none"
                           >
                             <div
-                              aria-controls="rc-menu-uuid-84044-70-/other-popup"
+                              aria-controls="rc-menu-uuid-84044-42-/other-popup"
                               aria-expanded="false"
                               aria-haspopup="true"
                               class="ant-menu-submenu-title"
-                              data-menu-id="rc-menu-uuid-84044-70-/other"
+                              data-menu-id="rc-menu-uuid-84044-42-/other"
                               role="menuitem"
                               style="padding-left: 16px;"
                               tabindex="-1"
@@ -9573,7 +9573,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/background-contex
                     >
                       <li
                         class="ant-menu-overflow-item ant-menu-item ant-menu-item-only-child ant-pro-base-menu-menu-item"
-                        data-menu-id="rc-menu-uuid-84044-7-/welcome"
+                        data-menu-id="rc-menu-uuid-84044-2-/welcome"
                         role="menuitem"
                         style="opacity: 1; order: 0;"
                         tabindex="-1"
@@ -9624,7 +9624,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/background-contex
                         style="opacity: 1; order: 1;"
                       >
                         <div
-                          aria-controls="rc-menu-uuid-84044-7-/admin-popup"
+                          aria-controls="rc-menu-uuid-84044-2-/admin-popup"
                           aria-expanded="false"
                           aria-haspopup="true"
                           class="ant-menu-submenu-title"
@@ -9679,7 +9679,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/background-contex
                         style="opacity: 1; order: 2;"
                       >
                         <div
-                          aria-controls="rc-menu-uuid-84044-7-/list-popup"
+                          aria-controls="rc-menu-uuid-84044-2-/list-popup"
                           aria-expanded="false"
                           aria-haspopup="true"
                           class="ant-menu-submenu-title"
@@ -9782,11 +9782,11 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/background-contex
                         style="opacity: 0; height: 0px; overflow-y: hidden; order: 9007199254740991; pointer-events: none; position: absolute;"
                       >
                         <div
-                          aria-controls="rc-menu-uuid-84044-7-rc-menu-more-popup"
+                          aria-controls="rc-menu-uuid-84044-2-rc-menu-more-popup"
                           aria-expanded="false"
                           aria-haspopup="true"
                           class="ant-menu-submenu-title"
-                          data-menu-id="rc-menu-uuid-84044-7-rc-menu-more"
+                          data-menu-id="rc-menu-uuid-84044-2-rc-menu-more"
                           role="menuitem"
                           tabindex="-1"
                         >
@@ -10137,7 +10137,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/base.tsx correctl
                     >
                       <li
                         class="ant-menu-item ant-menu-item-selected ant-menu-item-only-child ant-pro-base-menu-menu-item"
-                        data-menu-id="rc-menu-uuid-84044-10-/list/sub-page/sub-sub-page1"
+                        data-menu-id="rc-menu-uuid-84044-5-/list/sub-page/sub-sub-page1"
                         role="menuitem"
                         style="padding-left: 16px;"
                         tabindex="-1"
@@ -10184,7 +10184,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/base.tsx correctl
                       </li>
                       <li
                         class="ant-menu-item ant-menu-item-only-child ant-pro-base-menu-menu-item"
-                        data-menu-id="rc-menu-uuid-84044-10-/list/sub-page/sub-sub-page2"
+                        data-menu-id="rc-menu-uuid-84044-5-/list/sub-page/sub-sub-page2"
                         role="menuitem"
                         style="padding-left: 16px;"
                         tabindex="-1"
@@ -10231,7 +10231,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/base.tsx correctl
                       </li>
                       <li
                         class="ant-menu-item ant-menu-item-only-child ant-pro-base-menu-menu-item"
-                        data-menu-id="rc-menu-uuid-84044-10-/list/sub-page/sub-sub-page3"
+                        data-menu-id="rc-menu-uuid-84044-5-/list/sub-page/sub-sub-page3"
                         role="menuitem"
                         style="padding-left: 16px;"
                         tabindex="-1"
@@ -10284,7 +10284,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/base.tsx correctl
                   />
                   <li
                     class="ant-menu-item ant-menu-item-only-child ant-pro-base-menu-menu-item"
-                    data-menu-id="rc-menu-uuid-84044-10-/list/sub-page2"
+                    data-menu-id="rc-menu-uuid-84044-5-/list/sub-page2"
                     role="menuitem"
                     style="padding-left: 16px;"
                     tabindex="-1"
@@ -10331,7 +10331,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/base.tsx correctl
                   </li>
                   <li
                     class="ant-menu-item ant-menu-item-only-child ant-pro-base-menu-menu-item"
-                    data-menu-id="rc-menu-uuid-84044-10-/list/sub-page3"
+                    data-menu-id="rc-menu-uuid-84044-5-/list/sub-page3"
                     role="menuitem"
                     style="padding-left: 16px;"
                     tabindex="-1"
@@ -10599,7 +10599,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/base.tsx correctl
                     >
                       <li
                         class="ant-menu-overflow-item ant-menu-item ant-menu-item-only-child ant-pro-base-menu-menu-item"
-                        data-menu-id="rc-menu-uuid-84044-11-/welcome"
+                        data-menu-id="rc-menu-uuid-84044-6-/welcome"
                         role="menuitem"
                         style="opacity: 1; order: 0;"
                         tabindex="-1"
@@ -10790,11 +10790,11 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/base.tsx correctl
                         style="opacity: 0; height: 0px; overflow-y: hidden; order: 9007199254740991; pointer-events: none; position: absolute;"
                       >
                         <div
-                          aria-controls="rc-menu-uuid-84044-11-rc-menu-more-popup"
+                          aria-controls="rc-menu-uuid-84044-6-rc-menu-more-popup"
                           aria-expanded="false"
                           aria-haspopup="true"
                           class="ant-menu-submenu-title"
-                          data-menu-id="rc-menu-uuid-84044-11-rc-menu-more"
+                          data-menu-id="rc-menu-uuid-84044-6-rc-menu-more"
                           role="menuitem"
                           tabindex="-1"
                         >
@@ -11245,7 +11245,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/classicMode.tsx c
                     >
                       <li
                         class="ant-menu-item ant-menu-item-selected ant-menu-item-only-child ant-pro-base-menu-menu-item"
-                        data-menu-id="rc-menu-uuid-84044-16-/list/sub-page/sub-sub-page1"
+                        data-menu-id="rc-menu-uuid-84044-9-/list/sub-page/sub-sub-page1"
                         role="menuitem"
                         style="padding-left: 16px;"
                         tabindex="-1"
@@ -11292,7 +11292,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/classicMode.tsx c
                       </li>
                       <li
                         class="ant-menu-item ant-menu-item-only-child ant-pro-base-menu-menu-item"
-                        data-menu-id="rc-menu-uuid-84044-16-/list/sub-page/sub-sub-page2"
+                        data-menu-id="rc-menu-uuid-84044-9-/list/sub-page/sub-sub-page2"
                         role="menuitem"
                         style="padding-left: 16px;"
                         tabindex="-1"
@@ -11339,7 +11339,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/classicMode.tsx c
                       </li>
                       <li
                         class="ant-menu-item ant-menu-item-only-child ant-pro-base-menu-menu-item"
-                        data-menu-id="rc-menu-uuid-84044-16-/list/sub-page/sub-sub-page3"
+                        data-menu-id="rc-menu-uuid-84044-9-/list/sub-page/sub-sub-page3"
                         role="menuitem"
                         style="padding-left: 16px;"
                         tabindex="-1"
@@ -11392,7 +11392,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/classicMode.tsx c
                   />
                   <li
                     class="ant-menu-item ant-menu-item-only-child ant-pro-base-menu-menu-item"
-                    data-menu-id="rc-menu-uuid-84044-16-/list/sub-page2"
+                    data-menu-id="rc-menu-uuid-84044-9-/list/sub-page2"
                     role="menuitem"
                     style="padding-left: 16px;"
                     tabindex="-1"
@@ -11439,7 +11439,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/classicMode.tsx c
                   </li>
                   <li
                     class="ant-menu-item ant-menu-item-only-child ant-pro-base-menu-menu-item"
-                    data-menu-id="rc-menu-uuid-84044-16-/list/sub-page3"
+                    data-menu-id="rc-menu-uuid-84044-9-/list/sub-page3"
                     role="menuitem"
                     style="padding-left: 16px;"
                     tabindex="-1"
@@ -11707,7 +11707,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/classicMode.tsx c
                     >
                       <li
                         class="ant-menu-overflow-item ant-menu-item ant-menu-item-only-child ant-pro-base-menu-menu-item"
-                        data-menu-id="rc-menu-uuid-84044-17-/welcome"
+                        data-menu-id="rc-menu-uuid-84044-10-/welcome"
                         role="menuitem"
                         style="opacity: 1; order: 0;"
                         tabindex="-1"
@@ -11898,11 +11898,11 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/classicMode.tsx c
                         style="opacity: 0; height: 0px; overflow-y: hidden; order: 9007199254740991; pointer-events: none; position: absolute;"
                       >
                         <div
-                          aria-controls="rc-menu-uuid-84044-17-rc-menu-more-popup"
+                          aria-controls="rc-menu-uuid-84044-10-rc-menu-more-popup"
                           aria-expanded="false"
                           aria-haspopup="true"
                           class="ant-menu-submenu-title"
-                          data-menu-id="rc-menu-uuid-84044-17-rc-menu-more"
+                          data-menu-id="rc-menu-uuid-84044-10-rc-menu-more"
                           role="menuitem"
                           tabindex="-1"
                         >
@@ -12232,7 +12232,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/classicMode.tsx c
       </div>
     </div>
     <div
-      class="ant-pro-setting-drawer-handle "
+      class="ant-pro-setting-drawer-handle css-dev-only-do-not-override-17xsbyy"
       style="width: 48px; height: 48px;"
     >
       <span
@@ -12430,7 +12430,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/collapsedShowTitl
               >
                 <li
                   class="ant-menu-item ant-menu-item-only-child ant-pro-base-menu-menu-item"
-                  data-menu-id="rc-menu-uuid-84044-19-/welcome"
+                  data-menu-id="rc-menu-uuid-84044-12-/welcome"
                   role="menuitem"
                   tabindex="-1"
                   title="欢迎"
@@ -12476,7 +12476,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/collapsedShowTitl
                 </li>
                 <li
                   class="ant-menu-item ant-menu-item-only-child ant-pro-base-menu-menu-item"
-                  data-menu-id="rc-menu-uuid-84044-19-/admin"
+                  data-menu-id="rc-menu-uuid-84044-12-/admin"
                   role="menuitem"
                   tabindex="-1"
                   title="管理"
@@ -12522,7 +12522,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/collapsedShowTitl
                 </li>
                 <li
                   class="ant-menu-item ant-menu-item-selected ant-menu-item-only-child ant-pro-base-menu-menu-item"
-                  data-menu-id="rc-menu-uuid-84044-19-/list"
+                  data-menu-id="rc-menu-uuid-84044-12-/list"
                   role="menuitem"
                   tabindex="-1"
                   title="列表"
@@ -13007,7 +13007,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/config-provider.t
               >
                 <li
                   class="qixian-menu-item qixian-menu-item-selected qixian-menu-item-only-child qixian-pro-base-menu-menu-item"
-                  data-menu-id="rc-menu-uuid-84044-21-/welcome"
+                  data-menu-id="rc-menu-uuid-84044-14-/welcome"
                   role="menuitem"
                   style="padding-left: 16px;"
                   tabindex="-1"
@@ -13057,11 +13057,11 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/config-provider.t
                   role="none"
                 >
                   <div
-                    aria-controls="rc-menu-uuid-84044-21-/admin-popup"
+                    aria-controls="rc-menu-uuid-84044-14-/admin-popup"
                     aria-expanded="false"
                     aria-haspopup="true"
                     class="qixian-menu-submenu-title"
-                    data-menu-id="rc-menu-uuid-84044-21-/admin"
+                    data-menu-id="rc-menu-uuid-84044-14-/admin"
                     role="menuitem"
                     style="padding-left: 16px;"
                     tabindex="-1"
@@ -13113,11 +13113,11 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/config-provider.t
                   role="none"
                 >
                   <div
-                    aria-controls="rc-menu-uuid-84044-21-/list-popup"
+                    aria-controls="rc-menu-uuid-84044-14-/list-popup"
                     aria-expanded="false"
                     aria-haspopup="true"
                     class="qixian-menu-submenu-title"
-                    data-menu-id="rc-menu-uuid-84044-21-/list"
+                    data-menu-id="rc-menu-uuid-84044-14-/list"
                     role="menuitem"
                     style="padding-left: 16px;"
                     tabindex="-1"
@@ -13166,7 +13166,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/config-provider.t
                 </li>
                 <li
                   class="qixian-menu-item qixian-menu-item-only-child qixian-pro-base-menu-menu-item"
-                  data-menu-id="rc-menu-uuid-84044-21-https://ant.design"
+                  data-menu-id="rc-menu-uuid-84044-14-https://ant.design"
                   role="menuitem"
                   style="padding-left: 16px;"
                   tabindex="-1"
@@ -13612,10 +13612,10 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/config-provider.t
                             class="qixian-tabs-tab qixian-tabs-tab-active"
                           >
                             <div
-                              aria-controls="rc-tabs-2-panel-base"
+                              aria-controls="rc-tabs-0-panel-base"
                               aria-selected="true"
                               class="qixian-tabs-tab-btn"
-                              id="rc-tabs-2-tab-base"
+                              id="rc-tabs-0-tab-base"
                               role="tab"
                               tabindex="0"
                             >
@@ -13626,10 +13626,10 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/config-provider.t
                             class="qixian-tabs-tab"
                           >
                             <div
-                              aria-controls="rc-tabs-2-panel-info"
+                              aria-controls="rc-tabs-0-panel-info"
                               aria-selected="false"
                               class="qixian-tabs-tab-btn"
-                              id="rc-tabs-2-tab-info"
+                              id="rc-tabs-0-tab-info"
                               role="tab"
                               tabindex="0"
                             >
@@ -13646,12 +13646,12 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/config-provider.t
                         class="qixian-tabs-nav-operations qixian-tabs-nav-operations-hidden"
                       >
                         <button
-                          aria-controls="rc-tabs-2-more-popup"
+                          aria-controls="rc-tabs-0-more-popup"
                           aria-expanded="false"
                           aria-haspopup="listbox"
                           aria-hidden="true"
                           class="qixian-tabs-nav-more"
-                          id="rc-tabs-2-more"
+                          id="rc-tabs-0-more"
                           style="visibility: hidden; order: 1;"
                           tabindex="-1"
                           type="button"
@@ -13686,9 +13686,9 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/config-provider.t
                       >
                         <div
                           aria-hidden="false"
-                          aria-labelledby="rc-tabs-2-tab-base"
+                          aria-labelledby="rc-tabs-0-tab-base"
                           class="qixian-tabs-tabpane qixian-tabs-tabpane-active"
-                          id="rc-tabs-2-panel-base"
+                          id="rc-tabs-0-panel-base"
                           role="tabpanel"
                           tabindex="0"
                         />
@@ -14080,7 +14080,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/config-provider.t
     </div>
   </div>
   <div
-    class="ant-pro-setting-drawer-handle "
+    class="ant-pro-setting-drawer-handle css-dev-only-do-not-override-17xsbyy"
     style="width: 48px; height: 48px;"
   >
     <span
@@ -14404,7 +14404,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/customSider.tsx c
                 >
                   <li
                     class="ant-menu-item ant-menu-item-only-child ant-pro-base-menu-menu-item"
-                    data-menu-id="rc-menu-uuid-84044-27-/welcome"
+                    data-menu-id="rc-menu-uuid-84044-16-/welcome"
                     role="menuitem"
                     style="padding-left: 16px;"
                     tabindex="-1"
@@ -14494,7 +14494,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/customSider.tsx c
                     >
                       <li
                         class="ant-menu-item ant-menu-item-only-child ant-pro-base-menu-menu-item"
-                        data-menu-id="rc-menu-uuid-84044-27-/admin/sub-page1"
+                        data-menu-id="rc-menu-uuid-84044-16-/admin/sub-page1"
                         role="menuitem"
                         style="padding-left: 16px;"
                         tabindex="-1"
@@ -14541,7 +14541,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/customSider.tsx c
                       </li>
                       <li
                         class="ant-menu-item ant-menu-item-only-child ant-pro-base-menu-menu-item"
-                        data-menu-id="rc-menu-uuid-84044-27-/admin/sub-page2"
+                        data-menu-id="rc-menu-uuid-84044-16-/admin/sub-page2"
                         role="menuitem"
                         style="padding-left: 16px;"
                         tabindex="-1"
@@ -14588,7 +14588,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/customSider.tsx c
                       </li>
                       <li
                         class="ant-menu-item ant-menu-item-only-child ant-pro-base-menu-menu-item"
-                        data-menu-id="rc-menu-uuid-84044-27-/admin/sub-page3"
+                        data-menu-id="rc-menu-uuid-84044-16-/admin/sub-page3"
                         role="menuitem"
                         style="padding-left: 16px;"
                         tabindex="-1"
@@ -14687,11 +14687,11 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/customSider.tsx c
                         role="none"
                       >
                         <div
-                          aria-controls="rc-menu-uuid-84044-27-/list/sub-page-popup"
+                          aria-controls="rc-menu-uuid-84044-16-/list/sub-page-popup"
                           aria-expanded="true"
                           aria-haspopup="true"
                           class="ant-menu-submenu-title"
-                          data-menu-id="rc-menu-uuid-84044-27-/list/sub-page"
+                          data-menu-id="rc-menu-uuid-84044-16-/list/sub-page"
                           role="menuitem"
                           style="padding-left: 16px;"
                           tabindex="-1"
@@ -14740,11 +14740,11 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/customSider.tsx c
                         <ul
                           class="ant-menu ant-menu-sub ant-menu-inline"
                           data-menu-list="true"
-                          id="rc-menu-uuid-84044-27-/list/sub-page-popup"
+                          id="rc-menu-uuid-84044-16-/list/sub-page-popup"
                         >
                           <li
                             class="ant-menu-item ant-menu-item-selected ant-menu-item-only-child ant-pro-base-menu-menu-item"
-                            data-menu-id="rc-menu-uuid-84044-27-/list/sub-page/sub-sub-page1"
+                            data-menu-id="rc-menu-uuid-84044-16-/list/sub-page/sub-sub-page1"
                             role="menuitem"
                             style="padding-left: 32px;"
                             tabindex="-1"
@@ -14768,7 +14768,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/customSider.tsx c
                           </li>
                           <li
                             class="ant-menu-item ant-menu-item-only-child ant-pro-base-menu-menu-item"
-                            data-menu-id="rc-menu-uuid-84044-27-/list/sub-page/sub-sub-page2"
+                            data-menu-id="rc-menu-uuid-84044-16-/list/sub-page/sub-sub-page2"
                             role="menuitem"
                             style="padding-left: 32px;"
                             tabindex="-1"
@@ -14792,7 +14792,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/customSider.tsx c
                           </li>
                           <li
                             class="ant-menu-item ant-menu-item-only-child ant-pro-base-menu-menu-item"
-                            data-menu-id="rc-menu-uuid-84044-27-/list/sub-page/sub-sub-page3"
+                            data-menu-id="rc-menu-uuid-84044-16-/list/sub-page/sub-sub-page3"
                             role="menuitem"
                             style="padding-left: 32px;"
                             tabindex="-1"
@@ -14818,7 +14818,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/customSider.tsx c
                       </li>
                       <li
                         class="ant-menu-item ant-menu-item-only-child ant-pro-base-menu-menu-item"
-                        data-menu-id="rc-menu-uuid-84044-27-/list/sub-page2"
+                        data-menu-id="rc-menu-uuid-84044-16-/list/sub-page2"
                         role="menuitem"
                         style="padding-left: 16px;"
                         tabindex="-1"
@@ -14865,7 +14865,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/customSider.tsx c
                       </li>
                       <li
                         class="ant-menu-item ant-menu-item-only-child ant-pro-base-menu-menu-item"
-                        data-menu-id="rc-menu-uuid-84044-27-/list/sub-page3"
+                        data-menu-id="rc-menu-uuid-84044-16-/list/sub-page3"
                         role="menuitem"
                         style="padding-left: 16px;"
                         tabindex="-1"
@@ -14918,7 +14918,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/customSider.tsx c
                   />
                   <li
                     class="ant-menu-item ant-menu-item-only-child ant-pro-base-menu-menu-item"
-                    data-menu-id="rc-menu-uuid-84044-27-https://ant.design"
+                    data-menu-id="rc-menu-uuid-84044-16-https://ant.design"
                     role="menuitem"
                     style="padding-left: 16px;"
                     tabindex="-1"
@@ -15228,7 +15228,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/customSider.tsx c
       </div>
     </div>
     <div
-      class="ant-pro-setting-drawer-handle "
+      class="ant-pro-setting-drawer-handle css-dev-only-do-not-override-17xsbyy"
       style="width: 48px; height: 48px;"
     >
       <span
@@ -16299,7 +16299,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/designMenuCss.tsx
                     >
                       <li
                         class="ant-menu-item ant-menu-item-selected ant-menu-item-only-child ant-pro-base-menu-menu-item"
-                        data-menu-id="rc-menu-uuid-84044-32-/list/sub-page/sub-sub-page1"
+                        data-menu-id="rc-menu-uuid-84044-19-/list/sub-page/sub-sub-page1"
                         role="menuitem"
                         style="padding-left: 16px;"
                         tabindex="-1"
@@ -16346,7 +16346,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/designMenuCss.tsx
                       </li>
                       <li
                         class="ant-menu-item ant-menu-item-only-child ant-pro-base-menu-menu-item"
-                        data-menu-id="rc-menu-uuid-84044-32-/list/sub-page/sub-sub-page2"
+                        data-menu-id="rc-menu-uuid-84044-19-/list/sub-page/sub-sub-page2"
                         role="menuitem"
                         style="padding-left: 16px;"
                         tabindex="-1"
@@ -16393,7 +16393,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/designMenuCss.tsx
                       </li>
                       <li
                         class="ant-menu-item ant-menu-item-only-child ant-pro-base-menu-menu-item"
-                        data-menu-id="rc-menu-uuid-84044-32-/list/sub-page/sub-sub-page3"
+                        data-menu-id="rc-menu-uuid-84044-19-/list/sub-page/sub-sub-page3"
                         role="menuitem"
                         style="padding-left: 16px;"
                         tabindex="-1"
@@ -16446,7 +16446,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/designMenuCss.tsx
                   />
                   <li
                     class="ant-menu-item ant-menu-item-only-child ant-pro-base-menu-menu-item"
-                    data-menu-id="rc-menu-uuid-84044-32-/list/sub-page2"
+                    data-menu-id="rc-menu-uuid-84044-19-/list/sub-page2"
                     role="menuitem"
                     style="padding-left: 16px;"
                     tabindex="-1"
@@ -16493,7 +16493,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/designMenuCss.tsx
                   </li>
                   <li
                     class="ant-menu-item ant-menu-item-only-child ant-pro-base-menu-menu-item"
-                    data-menu-id="rc-menu-uuid-84044-32-/list/sub-page3"
+                    data-menu-id="rc-menu-uuid-84044-19-/list/sub-page3"
                     role="menuitem"
                     style="padding-left: 16px;"
                     tabindex="-1"
@@ -16761,7 +16761,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/designMenuCss.tsx
                     >
                       <li
                         class="ant-menu-overflow-item ant-menu-item ant-menu-item-only-child ant-pro-base-menu-menu-item"
-                        data-menu-id="rc-menu-uuid-84044-33-/welcome"
+                        data-menu-id="rc-menu-uuid-84044-20-/welcome"
                         role="menuitem"
                         style="opacity: 1; order: 0;"
                         tabindex="-1"
@@ -16952,11 +16952,11 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/designMenuCss.tsx
                         style="opacity: 0; height: 0px; overflow-y: hidden; order: 9007199254740991; pointer-events: none; position: absolute;"
                       >
                         <div
-                          aria-controls="rc-menu-uuid-84044-33-rc-menu-more-popup"
+                          aria-controls="rc-menu-uuid-84044-20-rc-menu-more-popup"
                           aria-expanded="false"
                           aria-haspopup="true"
                           class="ant-menu-submenu-title"
-                          data-menu-id="rc-menu-uuid-84044-33-rc-menu-more"
+                          data-menu-id="rc-menu-uuid-84044-20-rc-menu-more"
                           role="menuitem"
                           tabindex="-1"
                         >
@@ -17286,7 +17286,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/designMenuCss.tsx
       </div>
     </div>
     <div
-      class="ant-pro-setting-drawer-handle "
+      class="ant-pro-setting-drawer-handle css-dev-only-do-not-override-17xsbyy"
       style="width: 48px; height: 48px;"
     >
       <span
@@ -17611,7 +17611,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/designSiderMenu.t
                 >
                   <li
                     class="ant-menu-item ant-menu-item-only-child ant-pro-base-menu-menu-item"
-                    data-menu-id="rc-menu-uuid-84044-35-/welcome"
+                    data-menu-id="rc-menu-uuid-84044-22-/welcome"
                     role="menuitem"
                     style="padding-left: 16px;"
                     tabindex="-1"
@@ -17701,7 +17701,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/designSiderMenu.t
                     >
                       <li
                         class="ant-menu-item ant-menu-item-only-child ant-pro-base-menu-menu-item"
-                        data-menu-id="rc-menu-uuid-84044-35-/admin/sub-page1"
+                        data-menu-id="rc-menu-uuid-84044-22-/admin/sub-page1"
                         role="menuitem"
                         style="padding-left: 16px;"
                         tabindex="-1"
@@ -17748,7 +17748,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/designSiderMenu.t
                       </li>
                       <li
                         class="ant-menu-item ant-menu-item-only-child ant-pro-base-menu-menu-item"
-                        data-menu-id="rc-menu-uuid-84044-35-/admin/sub-page2"
+                        data-menu-id="rc-menu-uuid-84044-22-/admin/sub-page2"
                         role="menuitem"
                         style="padding-left: 16px;"
                         tabindex="-1"
@@ -17795,7 +17795,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/designSiderMenu.t
                       </li>
                       <li
                         class="ant-menu-item ant-menu-item-only-child ant-pro-base-menu-menu-item"
-                        data-menu-id="rc-menu-uuid-84044-35-/admin/sub-page3"
+                        data-menu-id="rc-menu-uuid-84044-22-/admin/sub-page3"
                         role="menuitem"
                         style="padding-left: 16px;"
                         tabindex="-1"
@@ -17894,11 +17894,11 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/designSiderMenu.t
                         role="none"
                       >
                         <div
-                          aria-controls="rc-menu-uuid-84044-35-/list/sub-page-popup"
+                          aria-controls="rc-menu-uuid-84044-22-/list/sub-page-popup"
                           aria-expanded="true"
                           aria-haspopup="true"
                           class="ant-menu-submenu-title"
-                          data-menu-id="rc-menu-uuid-84044-35-/list/sub-page"
+                          data-menu-id="rc-menu-uuid-84044-22-/list/sub-page"
                           role="menuitem"
                           style="padding-left: 16px;"
                           tabindex="-1"
@@ -17947,11 +17947,11 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/designSiderMenu.t
                         <ul
                           class="ant-menu ant-menu-sub ant-menu-inline"
                           data-menu-list="true"
-                          id="rc-menu-uuid-84044-35-/list/sub-page-popup"
+                          id="rc-menu-uuid-84044-22-/list/sub-page-popup"
                         >
                           <li
                             class="ant-menu-item ant-menu-item-selected ant-menu-item-only-child ant-pro-base-menu-menu-item"
-                            data-menu-id="rc-menu-uuid-84044-35-/list/sub-page/sub-sub-page1"
+                            data-menu-id="rc-menu-uuid-84044-22-/list/sub-page/sub-sub-page1"
                             role="menuitem"
                             style="padding-left: 32px;"
                             tabindex="-1"
@@ -17975,7 +17975,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/designSiderMenu.t
                           </li>
                           <li
                             class="ant-menu-item ant-menu-item-only-child ant-pro-base-menu-menu-item"
-                            data-menu-id="rc-menu-uuid-84044-35-/list/sub-page/sub-sub-page2"
+                            data-menu-id="rc-menu-uuid-84044-22-/list/sub-page/sub-sub-page2"
                             role="menuitem"
                             style="padding-left: 32px;"
                             tabindex="-1"
@@ -17999,7 +17999,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/designSiderMenu.t
                           </li>
                           <li
                             class="ant-menu-item ant-menu-item-only-child ant-pro-base-menu-menu-item"
-                            data-menu-id="rc-menu-uuid-84044-35-/list/sub-page/sub-sub-page3"
+                            data-menu-id="rc-menu-uuid-84044-22-/list/sub-page/sub-sub-page3"
                             role="menuitem"
                             style="padding-left: 32px;"
                             tabindex="-1"
@@ -18025,7 +18025,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/designSiderMenu.t
                       </li>
                       <li
                         class="ant-menu-item ant-menu-item-only-child ant-pro-base-menu-menu-item"
-                        data-menu-id="rc-menu-uuid-84044-35-/list/sub-page2"
+                        data-menu-id="rc-menu-uuid-84044-22-/list/sub-page2"
                         role="menuitem"
                         style="padding-left: 16px;"
                         tabindex="-1"
@@ -18072,7 +18072,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/designSiderMenu.t
                       </li>
                       <li
                         class="ant-menu-item ant-menu-item-only-child ant-pro-base-menu-menu-item"
-                        data-menu-id="rc-menu-uuid-84044-35-/list/sub-page3"
+                        data-menu-id="rc-menu-uuid-84044-22-/list/sub-page3"
                         role="menuitem"
                         style="padding-left: 16px;"
                         tabindex="-1"
@@ -18125,7 +18125,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/designSiderMenu.t
                   />
                   <li
                     class="ant-menu-item ant-menu-item-only-child ant-pro-base-menu-menu-item"
-                    data-menu-id="rc-menu-uuid-84044-35-https://ant.design"
+                    data-menu-id="rc-menu-uuid-84044-22-https://ant.design"
                     role="menuitem"
                     style="padding-left: 16px;"
                     tabindex="-1"
@@ -18421,7 +18421,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/designSiderMenu.t
       </div>
     </div>
     <div
-      class="ant-pro-setting-drawer-handle "
+      class="ant-pro-setting-drawer-handle css-dev-only-do-not-override-17xsbyy"
       style="width: 48px; height: 48px;"
     >
       <span
@@ -18642,7 +18642,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/dynamic-settings.
                 >
                   <li
                     class="ant-menu-item ant-menu-item-selected ant-menu-item-only-child ant-pro-base-menu-menu-item"
-                    data-menu-id="rc-menu-uuid-84044-37-/welcome"
+                    data-menu-id="rc-menu-uuid-84044-24-/welcome"
                     role="menuitem"
                     style="padding-left: 16px;"
                     tabindex="-1"
@@ -18692,11 +18692,11 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/dynamic-settings.
                     role="none"
                   >
                     <div
-                      aria-controls="rc-menu-uuid-84044-37-/admin-popup"
+                      aria-controls="rc-menu-uuid-84044-24-/admin-popup"
                       aria-expanded="false"
                       aria-haspopup="true"
                       class="ant-menu-submenu-title"
-                      data-menu-id="rc-menu-uuid-84044-37-/admin"
+                      data-menu-id="rc-menu-uuid-84044-24-/admin"
                       role="menuitem"
                       style="padding-left: 16px;"
                       tabindex="-1"
@@ -18748,11 +18748,11 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/dynamic-settings.
                     role="none"
                   >
                     <div
-                      aria-controls="rc-menu-uuid-84044-37-/list-popup"
+                      aria-controls="rc-menu-uuid-84044-24-/list-popup"
                       aria-expanded="false"
                       aria-haspopup="true"
                       class="ant-menu-submenu-title"
-                      data-menu-id="rc-menu-uuid-84044-37-/list"
+                      data-menu-id="rc-menu-uuid-84044-24-/list"
                       role="menuitem"
                       style="padding-left: 16px;"
                       tabindex="-1"
@@ -18801,7 +18801,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/dynamic-settings.
                   </li>
                   <li
                     class="ant-menu-item ant-menu-item-only-child ant-pro-base-menu-menu-item"
-                    data-menu-id="rc-menu-uuid-84044-37-https://ant.design"
+                    data-menu-id="rc-menu-uuid-84044-24-https://ant.design"
                     role="menuitem"
                     style="padding-left: 16px;"
                     tabindex="-1"
@@ -19247,10 +19247,10 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/dynamic-settings.
                               class="ant-tabs-tab ant-tabs-tab-active"
                             >
                               <div
-                                aria-controls="rc-tabs-3-panel-base"
+                                aria-controls="rc-tabs-1-panel-base"
                                 aria-selected="true"
                                 class="ant-tabs-tab-btn"
-                                id="rc-tabs-3-tab-base"
+                                id="rc-tabs-1-tab-base"
                                 role="tab"
                                 tabindex="0"
                               >
@@ -19261,10 +19261,10 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/dynamic-settings.
                               class="ant-tabs-tab"
                             >
                               <div
-                                aria-controls="rc-tabs-3-panel-info"
+                                aria-controls="rc-tabs-1-panel-info"
                                 aria-selected="false"
                                 class="ant-tabs-tab-btn"
-                                id="rc-tabs-3-tab-info"
+                                id="rc-tabs-1-tab-info"
                                 role="tab"
                                 tabindex="0"
                               >
@@ -19281,12 +19281,12 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/dynamic-settings.
                           class="ant-tabs-nav-operations ant-tabs-nav-operations-hidden"
                         >
                           <button
-                            aria-controls="rc-tabs-3-more-popup"
+                            aria-controls="rc-tabs-1-more-popup"
                             aria-expanded="false"
                             aria-haspopup="listbox"
                             aria-hidden="true"
                             class="ant-tabs-nav-more"
-                            id="rc-tabs-3-more"
+                            id="rc-tabs-1-more"
                             style="visibility: hidden; order: 1;"
                             tabindex="-1"
                             type="button"
@@ -19321,9 +19321,9 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/dynamic-settings.
                         >
                           <div
                             aria-hidden="false"
-                            aria-labelledby="rc-tabs-3-tab-base"
+                            aria-labelledby="rc-tabs-1-tab-base"
                             class="ant-tabs-tabpane ant-tabs-tabpane-active"
-                            id="rc-tabs-3-panel-base"
+                            id="rc-tabs-1-panel-base"
                             role="tabpanel"
                             tabindex="0"
                           />
@@ -19724,7 +19724,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/dynamic-settings.
       </div>
     </div>
     <div
-      class="ant-pro-setting-drawer-handle "
+      class="ant-pro-setting-drawer-handle css-dev-only-do-not-override-17xsbyy"
       style="width: 48px; height: 48px;"
     >
       <span
@@ -21110,7 +21110,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/footer-global-too
                     >
                       <li
                         class="ant-menu-item ant-menu-item-selected ant-menu-item-only-child ant-pro-base-menu-menu-item"
-                        data-menu-id="rc-menu-uuid-84044-43-/list/sub-page/sub-sub-page1"
+                        data-menu-id="rc-menu-uuid-84044-27-/list/sub-page/sub-sub-page1"
                         role="menuitem"
                         style="padding-left: 16px;"
                         tabindex="-1"
@@ -21157,7 +21157,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/footer-global-too
                       </li>
                       <li
                         class="ant-menu-item ant-menu-item-only-child ant-pro-base-menu-menu-item"
-                        data-menu-id="rc-menu-uuid-84044-43-/list/sub-page/sub-sub-page2"
+                        data-menu-id="rc-menu-uuid-84044-27-/list/sub-page/sub-sub-page2"
                         role="menuitem"
                         style="padding-left: 16px;"
                         tabindex="-1"
@@ -21204,7 +21204,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/footer-global-too
                       </li>
                       <li
                         class="ant-menu-item ant-menu-item-only-child ant-pro-base-menu-menu-item"
-                        data-menu-id="rc-menu-uuid-84044-43-/list/sub-page/sub-sub-page3"
+                        data-menu-id="rc-menu-uuid-84044-27-/list/sub-page/sub-sub-page3"
                         role="menuitem"
                         style="padding-left: 16px;"
                         tabindex="-1"
@@ -21257,7 +21257,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/footer-global-too
                   />
                   <li
                     class="ant-menu-item ant-menu-item-only-child ant-pro-base-menu-menu-item"
-                    data-menu-id="rc-menu-uuid-84044-43-/list/sub-page2"
+                    data-menu-id="rc-menu-uuid-84044-27-/list/sub-page2"
                     role="menuitem"
                     style="padding-left: 16px;"
                     tabindex="-1"
@@ -21304,7 +21304,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/footer-global-too
                   </li>
                   <li
                     class="ant-menu-item ant-menu-item-only-child ant-pro-base-menu-menu-item"
-                    data-menu-id="rc-menu-uuid-84044-43-/list/sub-page3"
+                    data-menu-id="rc-menu-uuid-84044-27-/list/sub-page3"
                     role="menuitem"
                     style="padding-left: 16px;"
                     tabindex="-1"
@@ -21626,7 +21626,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/footer-global-too
                     >
                       <li
                         class="ant-menu-overflow-item ant-menu-item ant-menu-item-only-child ant-pro-base-menu-menu-item"
-                        data-menu-id="rc-menu-uuid-84044-44-/welcome"
+                        data-menu-id="rc-menu-uuid-84044-28-/welcome"
                         role="menuitem"
                         style="opacity: 1; order: 0;"
                         tabindex="-1"
@@ -21817,11 +21817,11 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/footer-global-too
                         style="opacity: 0; height: 0px; overflow-y: hidden; order: 9007199254740991; pointer-events: none; position: absolute;"
                       >
                         <div
-                          aria-controls="rc-menu-uuid-84044-44-rc-menu-more-popup"
+                          aria-controls="rc-menu-uuid-84044-28-rc-menu-more-popup"
                           aria-expanded="false"
                           aria-haspopup="true"
                           class="ant-menu-submenu-title"
-                          data-menu-id="rc-menu-uuid-84044-44-rc-menu-more"
+                          data-menu-id="rc-menu-uuid-84044-28-rc-menu-more"
                           role="menuitem"
                           tabindex="-1"
                         >
@@ -23372,7 +23372,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/immersive-navigat
               >
                 <li
                   class="ant-menu-item ant-menu-item-selected ant-menu-item-only-child ant-pro-base-menu-menu-item"
-                  data-menu-id="rc-menu-uuid-84044-56-/admin/sub-page1"
+                  data-menu-id="rc-menu-uuid-84044-32-/admin/sub-page1"
                   role="menuitem"
                   style="padding-left: 16px;"
                   tabindex="-1"
@@ -23419,7 +23419,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/immersive-navigat
                 </li>
                 <li
                   class="ant-menu-item ant-menu-item-only-child ant-pro-base-menu-menu-item"
-                  data-menu-id="rc-menu-uuid-84044-56-/admin/sub-page2"
+                  data-menu-id="rc-menu-uuid-84044-32-/admin/sub-page2"
                   role="menuitem"
                   style="padding-left: 16px;"
                   tabindex="-1"
@@ -23466,7 +23466,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/immersive-navigat
                 </li>
                 <li
                   class="ant-menu-item ant-menu-item-only-child ant-pro-base-menu-menu-item"
-                  data-menu-id="rc-menu-uuid-84044-56-/admin/sub-page3"
+                  data-menu-id="rc-menu-uuid-84044-32-/admin/sub-page3"
                   role="menuitem"
                   style="padding-left: 16px;"
                   tabindex="-1"
@@ -24091,7 +24091,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/immersive-navigat
               >
                 <li
                   class="ant-menu-item ant-menu-item-selected ant-menu-item-only-child ant-pro-base-menu-menu-item"
-                  data-menu-id="rc-menu-uuid-84044-54-/welcome"
+                  data-menu-id="rc-menu-uuid-84044-30-/welcome"
                   role="menuitem"
                   style="padding-left: 16px;"
                   tabindex="-1"
@@ -24138,7 +24138,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/immersive-navigat
                 </li>
                 <li
                   class="ant-menu-item ant-menu-item-only-child ant-pro-base-menu-menu-item"
-                  data-menu-id="rc-menu-uuid-84044-54-/admin/sub-page2"
+                  data-menu-id="rc-menu-uuid-84044-30-/admin/sub-page2"
                   role="menuitem"
                   style="padding-left: 16px;"
                   tabindex="-1"
@@ -24185,7 +24185,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/immersive-navigat
                 </li>
                 <li
                   class="ant-menu-item ant-menu-item-only-child ant-pro-base-menu-menu-item"
-                  data-menu-id="rc-menu-uuid-84044-54-/admin/sub-page3"
+                  data-menu-id="rc-menu-uuid-84044-30-/admin/sub-page3"
                   role="menuitem"
                   style="padding-left: 16px;"
                   tabindex="-1"
@@ -24971,11 +24971,11 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/menu-group.tsx co
                     role="none"
                   >
                     <div
-                      aria-controls="rc-menu-uuid-84044-58-/admin-popup"
+                      aria-controls="rc-menu-uuid-84044-34-/admin-popup"
                       aria-expanded="false"
                       aria-haspopup="true"
                       class="ant-menu-submenu-title"
-                      data-menu-id="rc-menu-uuid-84044-58-/admin"
+                      data-menu-id="rc-menu-uuid-84044-34-/admin"
                       role="menuitem"
                       style="padding-left: 16px;"
                       tabindex="-1"
@@ -25027,11 +25027,11 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/menu-group.tsx co
                     role="none"
                   >
                     <div
-                      aria-controls="rc-menu-uuid-84044-58-/list-popup"
+                      aria-controls="rc-menu-uuid-84044-34-/list-popup"
                       aria-expanded="false"
                       aria-haspopup="true"
                       class="ant-menu-submenu-title"
-                      data-menu-id="rc-menu-uuid-84044-58-/list"
+                      data-menu-id="rc-menu-uuid-84044-34-/list"
                       role="menuitem"
                       style="padding-left: 16px;"
                       tabindex="-1"
@@ -25726,7 +25726,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/mixMode.tsx corre
                     >
                       <li
                         class="ant-menu-item ant-menu-item-selected ant-menu-item-only-child ant-pro-base-menu-menu-item"
-                        data-menu-id="rc-menu-uuid-84044-63-/list/sub-page/sub-sub-page1"
+                        data-menu-id="rc-menu-uuid-84044-37-/list/sub-page/sub-sub-page1"
                         role="menuitem"
                         style="padding-left: 16px;"
                         tabindex="-1"
@@ -25773,7 +25773,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/mixMode.tsx corre
                       </li>
                       <li
                         class="ant-menu-item ant-menu-item-only-child ant-pro-base-menu-menu-item"
-                        data-menu-id="rc-menu-uuid-84044-63-/list/sub-page/sub-sub-page2"
+                        data-menu-id="rc-menu-uuid-84044-37-/list/sub-page/sub-sub-page2"
                         role="menuitem"
                         style="padding-left: 16px;"
                         tabindex="-1"
@@ -25820,7 +25820,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/mixMode.tsx corre
                       </li>
                       <li
                         class="ant-menu-item ant-menu-item-only-child ant-pro-base-menu-menu-item"
-                        data-menu-id="rc-menu-uuid-84044-63-/list/sub-page/sub-sub-page3"
+                        data-menu-id="rc-menu-uuid-84044-37-/list/sub-page/sub-sub-page3"
                         role="menuitem"
                         style="padding-left: 16px;"
                         tabindex="-1"
@@ -25873,7 +25873,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/mixMode.tsx corre
                   />
                   <li
                     class="ant-menu-item ant-menu-item-only-child ant-pro-base-menu-menu-item"
-                    data-menu-id="rc-menu-uuid-84044-63-/list/sub-page2"
+                    data-menu-id="rc-menu-uuid-84044-37-/list/sub-page2"
                     role="menuitem"
                     style="padding-left: 16px;"
                     tabindex="-1"
@@ -25920,7 +25920,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/mixMode.tsx corre
                   </li>
                   <li
                     class="ant-menu-item ant-menu-item-only-child ant-pro-base-menu-menu-item"
-                    data-menu-id="rc-menu-uuid-84044-63-/list/sub-page3"
+                    data-menu-id="rc-menu-uuid-84044-37-/list/sub-page3"
                     role="menuitem"
                     style="padding-left: 16px;"
                     tabindex="-1"
@@ -26188,7 +26188,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/mixMode.tsx corre
                     >
                       <li
                         class="ant-menu-overflow-item ant-menu-item ant-menu-item-only-child ant-pro-base-menu-menu-item"
-                        data-menu-id="rc-menu-uuid-84044-64-/welcome"
+                        data-menu-id="rc-menu-uuid-84044-38-/welcome"
                         role="menuitem"
                         style="opacity: 1; order: 0;"
                         tabindex="-1"
@@ -26379,11 +26379,11 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/mixMode.tsx corre
                         style="opacity: 0; height: 0px; overflow-y: hidden; order: 9007199254740991; pointer-events: none; position: absolute;"
                       >
                         <div
-                          aria-controls="rc-menu-uuid-84044-64-rc-menu-more-popup"
+                          aria-controls="rc-menu-uuid-84044-38-rc-menu-more-popup"
                           aria-expanded="false"
                           aria-haspopup="true"
                           class="ant-menu-submenu-title"
-                          data-menu-id="rc-menu-uuid-84044-64-rc-menu-more"
+                          data-menu-id="rc-menu-uuid-84044-38-rc-menu-more"
                           role="menuitem"
                           tabindex="-1"
                         >
@@ -26732,7 +26732,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/pageSimplify.tsx 
                     >
                       <li
                         class="ant-menu-item ant-menu-item-selected ant-menu-item-only-child ant-pro-base-menu-menu-item"
-                        data-menu-id="rc-menu-uuid-84044-72-/list/sub-page/sub-sub-page1"
+                        data-menu-id="rc-menu-uuid-84044-44-/list/sub-page/sub-sub-page1"
                         role="menuitem"
                         style="padding-left: 16px;"
                         tabindex="-1"
@@ -26779,7 +26779,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/pageSimplify.tsx 
                       </li>
                       <li
                         class="ant-menu-item ant-menu-item-only-child ant-pro-base-menu-menu-item"
-                        data-menu-id="rc-menu-uuid-84044-72-/list/sub-page/sub-sub-page2"
+                        data-menu-id="rc-menu-uuid-84044-44-/list/sub-page/sub-sub-page2"
                         role="menuitem"
                         style="padding-left: 16px;"
                         tabindex="-1"
@@ -26826,7 +26826,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/pageSimplify.tsx 
                       </li>
                       <li
                         class="ant-menu-item ant-menu-item-only-child ant-pro-base-menu-menu-item"
-                        data-menu-id="rc-menu-uuid-84044-72-/list/sub-page/sub-sub-page3"
+                        data-menu-id="rc-menu-uuid-84044-44-/list/sub-page/sub-sub-page3"
                         role="menuitem"
                         style="padding-left: 16px;"
                         tabindex="-1"
@@ -26879,7 +26879,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/pageSimplify.tsx 
                   />
                   <li
                     class="ant-menu-item ant-menu-item-only-child ant-pro-base-menu-menu-item"
-                    data-menu-id="rc-menu-uuid-84044-72-/list/sub-page2"
+                    data-menu-id="rc-menu-uuid-84044-44-/list/sub-page2"
                     role="menuitem"
                     style="padding-left: 16px;"
                     tabindex="-1"
@@ -26926,7 +26926,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/pageSimplify.tsx 
                   </li>
                   <li
                     class="ant-menu-item ant-menu-item-only-child ant-pro-base-menu-menu-item"
-                    data-menu-id="rc-menu-uuid-84044-72-/list/sub-page3"
+                    data-menu-id="rc-menu-uuid-84044-44-/list/sub-page3"
                     role="menuitem"
                     style="padding-left: 16px;"
                     tabindex="-1"
@@ -27691,7 +27691,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/searchMenu.tsx co
                 >
                   <li
                     class="ant-menu-item ant-menu-item-selected ant-menu-item-only-child ant-pro-base-menu-menu-item"
-                    data-menu-id="rc-menu-uuid-84044-74-/home"
+                    data-menu-id="rc-menu-uuid-84044-46-/home"
                     role="menuitem"
                     style="padding-left: 16px;"
                     tabindex="-1"
@@ -27716,11 +27716,11 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/searchMenu.tsx co
                     role="none"
                   >
                     <div
-                      aria-controls="rc-menu-uuid-84044-74-/data_hui-popup"
+                      aria-controls="rc-menu-uuid-84044-46-/data_hui-popup"
                       aria-expanded="false"
                       aria-haspopup="true"
                       class="ant-menu-submenu-title"
-                      data-menu-id="rc-menu-uuid-84044-74-/data_hui"
+                      data-menu-id="rc-menu-uuid-84044-46-/data_hui"
                       role="menuitem"
                       style="padding-left: 16px;"
                       tabindex="-1"
@@ -27749,11 +27749,11 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/searchMenu.tsx co
                     role="none"
                   >
                     <div
-                      aria-controls="rc-menu-uuid-84044-74-/data_ming-popup"
+                      aria-controls="rc-menu-uuid-84044-46-/data_ming-popup"
                       aria-expanded="false"
                       aria-haspopup="true"
                       class="ant-menu-submenu-title"
-                      data-menu-id="rc-menu-uuid-84044-74-/data_ming"
+                      data-menu-id="rc-menu-uuid-84044-46-/data_ming"
                       role="menuitem"
                       style="padding-left: 16px;"
                       tabindex="-1"
@@ -27782,11 +27782,11 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/searchMenu.tsx co
                     role="none"
                   >
                     <div
-                      aria-controls="rc-menu-uuid-84044-74-/other-popup"
+                      aria-controls="rc-menu-uuid-84044-46-/other-popup"
                       aria-expanded="false"
                       aria-haspopup="true"
                       class="ant-menu-submenu-title"
-                      data-menu-id="rc-menu-uuid-84044-74-/other"
+                      data-menu-id="rc-menu-uuid-84044-46-/other"
                       role="menuitem"
                       style="padding-left: 16px;"
                       tabindex="-1"
@@ -28242,7 +28242,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/siderMode.tsx cor
                 >
                   <li
                     class="ant-menu-item ant-menu-item-only-child ant-pro-base-menu-menu-item"
-                    data-menu-id="rc-menu-uuid-84044-76-/welcome"
+                    data-menu-id="rc-menu-uuid-84044-48-/welcome"
                     role="menuitem"
                     style="padding-left: 16px;"
                     tabindex="-1"
@@ -28292,11 +28292,11 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/siderMode.tsx cor
                     role="none"
                   >
                     <div
-                      aria-controls="rc-menu-uuid-84044-76-/admin-popup"
+                      aria-controls="rc-menu-uuid-84044-48-/admin-popup"
                       aria-expanded="false"
                       aria-haspopup="true"
                       class="ant-menu-submenu-title"
-                      data-menu-id="rc-menu-uuid-84044-76-/admin"
+                      data-menu-id="rc-menu-uuid-84044-48-/admin"
                       role="menuitem"
                       style="padding-left: 16px;"
                       tabindex="-1"
@@ -28348,11 +28348,11 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/siderMode.tsx cor
                     role="none"
                   >
                     <div
-                      aria-controls="rc-menu-uuid-84044-76-/list-popup"
+                      aria-controls="rc-menu-uuid-84044-48-/list-popup"
                       aria-expanded="true"
                       aria-haspopup="true"
                       class="ant-menu-submenu-title"
-                      data-menu-id="rc-menu-uuid-84044-76-/list"
+                      data-menu-id="rc-menu-uuid-84044-48-/list"
                       role="menuitem"
                       style="padding-left: 16px;"
                       tabindex="-1"
@@ -28401,18 +28401,18 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/siderMode.tsx cor
                     <ul
                       class="ant-menu ant-menu-sub ant-menu-inline"
                       data-menu-list="true"
-                      id="rc-menu-uuid-84044-76-/list-popup"
+                      id="rc-menu-uuid-84044-48-/list-popup"
                     >
                       <li
                         class="ant-menu-submenu ant-menu-submenu-inline ant-pro-base-menu-submenu ant-menu-submenu-open ant-menu-submenu-selected"
                         role="none"
                       >
                         <div
-                          aria-controls="rc-menu-uuid-84044-76-/list/sub-page-popup"
+                          aria-controls="rc-menu-uuid-84044-48-/list/sub-page-popup"
                           aria-expanded="true"
                           aria-haspopup="true"
                           class="ant-menu-submenu-title"
-                          data-menu-id="rc-menu-uuid-84044-76-/list/sub-page"
+                          data-menu-id="rc-menu-uuid-84044-48-/list/sub-page"
                           role="menuitem"
                           style="padding-left: 32px;"
                           tabindex="-1"
@@ -28438,11 +28438,11 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/siderMode.tsx cor
                         <ul
                           class="ant-menu ant-menu-sub ant-menu-inline"
                           data-menu-list="true"
-                          id="rc-menu-uuid-84044-76-/list/sub-page-popup"
+                          id="rc-menu-uuid-84044-48-/list/sub-page-popup"
                         >
                           <li
                             class="ant-menu-item ant-menu-item-selected ant-menu-item-only-child ant-pro-base-menu-menu-item"
-                            data-menu-id="rc-menu-uuid-84044-76-/list/sub-page/sub-sub-page1"
+                            data-menu-id="rc-menu-uuid-84044-48-/list/sub-page/sub-sub-page1"
                             role="menuitem"
                             style="padding-left: 48px;"
                             tabindex="-1"
@@ -28466,7 +28466,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/siderMode.tsx cor
                           </li>
                           <li
                             class="ant-menu-item ant-menu-item-only-child ant-pro-base-menu-menu-item"
-                            data-menu-id="rc-menu-uuid-84044-76-/list/sub-page/sub-sub-page2"
+                            data-menu-id="rc-menu-uuid-84044-48-/list/sub-page/sub-sub-page2"
                             role="menuitem"
                             style="padding-left: 48px;"
                             tabindex="-1"
@@ -28490,7 +28490,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/siderMode.tsx cor
                           </li>
                           <li
                             class="ant-menu-item ant-menu-item-only-child ant-pro-base-menu-menu-item"
-                            data-menu-id="rc-menu-uuid-84044-76-/list/sub-page/sub-sub-page3"
+                            data-menu-id="rc-menu-uuid-84044-48-/list/sub-page/sub-sub-page3"
                             role="menuitem"
                             style="padding-left: 48px;"
                             tabindex="-1"
@@ -28516,7 +28516,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/siderMode.tsx cor
                       </li>
                       <li
                         class="ant-menu-item ant-menu-item-only-child ant-pro-base-menu-menu-item"
-                        data-menu-id="rc-menu-uuid-84044-76-/list/sub-page2"
+                        data-menu-id="rc-menu-uuid-84044-48-/list/sub-page2"
                         role="menuitem"
                         style="padding-left: 32px;"
                         tabindex="-1"
@@ -28540,7 +28540,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/siderMode.tsx cor
                       </li>
                       <li
                         class="ant-menu-item ant-menu-item-only-child ant-pro-base-menu-menu-item"
-                        data-menu-id="rc-menu-uuid-84044-76-/list/sub-page3"
+                        data-menu-id="rc-menu-uuid-84044-48-/list/sub-page3"
                         role="menuitem"
                         style="padding-left: 32px;"
                         tabindex="-1"
@@ -28566,7 +28566,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/siderMode.tsx cor
                   </li>
                   <li
                     class="ant-menu-item ant-menu-item-only-child ant-pro-base-menu-menu-item"
-                    data-menu-id="rc-menu-uuid-84044-76-https://ant.design"
+                    data-menu-id="rc-menu-uuid-84044-48-https://ant.design"
                     role="menuitem"
                     style="padding-left: 16px;"
                     tabindex="-1"
@@ -28861,7 +28861,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/siderMode.tsx cor
       </div>
     </div>
     <div
-      class="ant-pro-setting-drawer-handle "
+      class="ant-pro-setting-drawer-handle css-dev-only-do-not-override-17xsbyy"
       style="width: 48px; height: 48px;"
     >
       <span
@@ -28986,7 +28986,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/siteMenu.tsx corr
                     >
                       <li
                         class="ant-menu-item ant-menu-item-selected ant-menu-item-only-child ant-pro-base-menu-menu-item"
-                        data-menu-id="rc-menu-uuid-84044-79-/list/sub-page/sub-sub-page1"
+                        data-menu-id="rc-menu-uuid-84044-51-/list/sub-page/sub-sub-page1"
                         role="menuitem"
                         style="padding-left: 16px;"
                         tabindex="-1"
@@ -29033,7 +29033,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/siteMenu.tsx corr
                       </li>
                       <li
                         class="ant-menu-item ant-menu-item-only-child ant-pro-base-menu-menu-item"
-                        data-menu-id="rc-menu-uuid-84044-79-/list/sub-page/sub-sub-page2"
+                        data-menu-id="rc-menu-uuid-84044-51-/list/sub-page/sub-sub-page2"
                         role="menuitem"
                         style="padding-left: 16px;"
                         tabindex="-1"
@@ -29080,7 +29080,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/siteMenu.tsx corr
                       </li>
                       <li
                         class="ant-menu-item ant-menu-item-only-child ant-pro-base-menu-menu-item"
-                        data-menu-id="rc-menu-uuid-84044-79-/list/sub-page/sub-sub-page3"
+                        data-menu-id="rc-menu-uuid-84044-51-/list/sub-page/sub-sub-page3"
                         role="menuitem"
                         style="padding-left: 16px;"
                         tabindex="-1"
@@ -29133,7 +29133,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/siteMenu.tsx corr
                   />
                   <li
                     class="ant-menu-item ant-menu-item-only-child ant-pro-base-menu-menu-item"
-                    data-menu-id="rc-menu-uuid-84044-79-/list/sub-page2"
+                    data-menu-id="rc-menu-uuid-84044-51-/list/sub-page2"
                     role="menuitem"
                     style="padding-left: 16px;"
                     tabindex="-1"
@@ -29180,7 +29180,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/siteMenu.tsx corr
                   </li>
                   <li
                     class="ant-menu-item ant-menu-item-only-child ant-pro-base-menu-menu-item"
-                    data-menu-id="rc-menu-uuid-84044-79-/list/sub-page3"
+                    data-menu-id="rc-menu-uuid-84044-51-/list/sub-page3"
                     role="menuitem"
                     style="padding-left: 16px;"
                     tabindex="-1"
@@ -29448,7 +29448,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/siteMenu.tsx corr
                     >
                       <li
                         class="ant-menu-overflow-item ant-menu-item ant-menu-item-only-child ant-pro-base-menu-menu-item"
-                        data-menu-id="rc-menu-uuid-84044-80-/welcome"
+                        data-menu-id="rc-menu-uuid-84044-52-/welcome"
                         role="menuitem"
                         style="opacity: 1; order: 0;"
                         tabindex="-1"
@@ -29639,11 +29639,11 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/siteMenu.tsx corr
                         style="opacity: 0; height: 0px; overflow-y: hidden; order: 9007199254740991; pointer-events: none; position: absolute;"
                       >
                         <div
-                          aria-controls="rc-menu-uuid-84044-80-rc-menu-more-popup"
+                          aria-controls="rc-menu-uuid-84044-52-rc-menu-more-popup"
                           aria-expanded="false"
                           aria-haspopup="true"
                           class="ant-menu-submenu-title"
-                          data-menu-id="rc-menu-uuid-84044-80-rc-menu-more"
+                          data-menu-id="rc-menu-uuid-84044-52-rc-menu-more"
                           role="menuitem"
                           tabindex="-1"
                         >
@@ -30101,7 +30101,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/splitMenus.tsx co
                   >
                     <li
                       class="ant-menu-overflow-item ant-menu-item ant-menu-item-only-child ant-pro-base-menu-menu-item"
-                      data-menu-id="rc-menu-uuid-84044-87-/welcome"
+                      data-menu-id="rc-menu-uuid-84044-59-/welcome"
                       role="menuitem"
                       style="opacity: 1; order: 0;"
                       tabindex="-1"
@@ -30284,11 +30284,11 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/splitMenus.tsx co
                       style="opacity: 0; height: 0px; overflow-y: hidden; order: 9007199254740991; pointer-events: none; position: absolute;"
                     >
                       <div
-                        aria-controls="rc-menu-uuid-84044-87-rc-menu-more-popup"
+                        aria-controls="rc-menu-uuid-84044-59-rc-menu-more-popup"
                         aria-expanded="false"
                         aria-haspopup="true"
                         class="ant-menu-submenu-title"
-                        data-menu-id="rc-menu-uuid-84044-87-rc-menu-more"
+                        data-menu-id="rc-menu-uuid-84044-59-rc-menu-more"
                         role="menuitem"
                         tabindex="-1"
                       >
@@ -30557,7 +30557,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/splitMenus.tsx co
                   >
                     <li
                       class="ant-menu-overflow-item ant-menu-item ant-menu-item-selected ant-menu-item-only-child ant-pro-base-menu-menu-item"
-                      data-menu-id="rc-menu-uuid-84044-88-/welcome"
+                      data-menu-id="rc-menu-uuid-84044-60-/welcome"
                       role="menuitem"
                       style="opacity: 1; order: 0;"
                       tabindex="-1"
@@ -30740,11 +30740,11 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/splitMenus.tsx co
                       style="opacity: 0; height: 0px; overflow-y: hidden; order: 9007199254740991; pointer-events: none; position: absolute;"
                     >
                       <div
-                        aria-controls="rc-menu-uuid-84044-88-rc-menu-more-popup"
+                        aria-controls="rc-menu-uuid-84044-60-rc-menu-more-popup"
                         aria-expanded="false"
                         aria-haspopup="true"
                         class="ant-menu-submenu-title"
-                        data-menu-id="rc-menu-uuid-84044-88-rc-menu-more"
+                        data-menu-id="rc-menu-uuid-84044-60-rc-menu-more"
                         role="menuitem"
                         tabindex="-1"
                       >
@@ -30827,7 +30827,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/splitMenus.tsx co
                   >
                     <li
                       class="ant-menu-overflow-item ant-menu-item ant-menu-item-selected ant-menu-item-only-child ant-pro-base-menu-menu-item"
-                      data-menu-id="rc-menu-uuid-84044-89-/welcome"
+                      data-menu-id="rc-menu-uuid-84044-61-/welcome"
                       role="menuitem"
                       style="opacity: 1; order: 0;"
                       tabindex="-1"
@@ -30876,7 +30876,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/splitMenus.tsx co
                       style="opacity: 1; order: 1;"
                     >
                       <div
-                        aria-controls="rc-menu-uuid-84044-89-/admin-popup"
+                        aria-controls="rc-menu-uuid-84044-61-/admin-popup"
                         aria-expanded="false"
                         aria-haspopup="true"
                         class="ant-menu-submenu-title"
@@ -30931,7 +30931,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/splitMenus.tsx co
                       style="opacity: 1; order: 2;"
                     >
                       <div
-                        aria-controls="rc-menu-uuid-84044-89-/list-popup"
+                        aria-controls="rc-menu-uuid-84044-61-/list-popup"
                         aria-expanded="false"
                         aria-haspopup="true"
                         class="ant-menu-submenu-title"
@@ -31032,11 +31032,11 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/splitMenus.tsx co
                       style="opacity: 0; height: 0px; overflow-y: hidden; order: 9007199254740991; pointer-events: none; position: absolute;"
                     >
                       <div
-                        aria-controls="rc-menu-uuid-84044-89-rc-menu-more-popup"
+                        aria-controls="rc-menu-uuid-84044-61-rc-menu-more-popup"
                         aria-expanded="false"
                         aria-haspopup="true"
                         class="ant-menu-submenu-title"
-                        data-menu-id="rc-menu-uuid-84044-89-rc-menu-more"
+                        data-menu-id="rc-menu-uuid-84044-61-rc-menu-more"
                         role="menuitem"
                         tabindex="-1"
                       >
@@ -31293,7 +31293,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/splitMenus.tsx co
                   >
                     <li
                       class="ant-menu-overflow-item ant-menu-item ant-menu-item-selected ant-menu-item-only-child ant-pro-base-menu-menu-item"
-                      data-menu-id="rc-menu-uuid-84044-90-/welcome"
+                      data-menu-id="rc-menu-uuid-84044-62-/welcome"
                       role="menuitem"
                       style="opacity: 1; order: 0;"
                       tabindex="-1"
@@ -31476,11 +31476,11 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/splitMenus.tsx co
                       style="opacity: 0; height: 0px; overflow-y: hidden; order: 9007199254740991; pointer-events: none; position: absolute;"
                     >
                       <div
-                        aria-controls="rc-menu-uuid-84044-90-rc-menu-more-popup"
+                        aria-controls="rc-menu-uuid-84044-62-rc-menu-more-popup"
                         aria-expanded="false"
                         aria-haspopup="true"
                         class="ant-menu-submenu-title"
-                        data-menu-id="rc-menu-uuid-84044-90-rc-menu-more"
+                        data-menu-id="rc-menu-uuid-84044-62-rc-menu-more"
                         role="menuitem"
                         tabindex="-1"
                       >
@@ -31592,7 +31592,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/splitMenus.tsx co
               >
                 <li
                   class="ant-menu-item ant-menu-item-selected ant-menu-item-only-child ant-pro-base-menu-menu-item"
-                  data-menu-id="rc-menu-uuid-84044-91-/welcome"
+                  data-menu-id="rc-menu-uuid-84044-63-/welcome"
                   role="menuitem"
                   style="padding-left: 16px;"
                   tabindex="-1"
@@ -31640,11 +31640,11 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/splitMenus.tsx co
                   role="none"
                 >
                   <div
-                    aria-controls="rc-menu-uuid-84044-91-/admin-popup"
+                    aria-controls="rc-menu-uuid-84044-63-/admin-popup"
                     aria-expanded="false"
                     aria-haspopup="true"
                     class="ant-menu-submenu-title"
-                    data-menu-id="rc-menu-uuid-84044-91-/admin"
+                    data-menu-id="rc-menu-uuid-84044-63-/admin"
                     role="menuitem"
                     style="padding-left: 16px;"
                     tabindex="-1"
@@ -31696,11 +31696,11 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/splitMenus.tsx co
                   role="none"
                 >
                   <div
-                    aria-controls="rc-menu-uuid-84044-91-/list-popup"
+                    aria-controls="rc-menu-uuid-84044-63-/list-popup"
                     aria-expanded="false"
                     aria-haspopup="true"
                     class="ant-menu-submenu-title"
-                    data-menu-id="rc-menu-uuid-84044-91-/list"
+                    data-menu-id="rc-menu-uuid-84044-63-/list"
                     role="menuitem"
                     style="padding-left: 16px;"
                     tabindex="-1"
@@ -31749,7 +31749,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/splitMenus.tsx co
                 </li>
                 <li
                   class="ant-menu-item ant-menu-item-only-child ant-pro-base-menu-menu-item"
-                  data-menu-id="rc-menu-uuid-84044-91-https://ant.design"
+                  data-menu-id="rc-menu-uuid-84044-63-https://ant.design"
                   role="menuitem"
                   style="padding-left: 16px;"
                   tabindex="-1"
@@ -32068,7 +32068,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/splitMenus.tsx co
               >
                 <li
                   class="ant-menu-item ant-menu-item-selected ant-menu-item-only-child ant-pro-base-menu-menu-item"
-                  data-menu-id="rc-menu-uuid-84044-92-/welcome"
+                  data-menu-id="rc-menu-uuid-84044-64-/welcome"
                   role="menuitem"
                   style="padding-left: 16px;"
                   tabindex="-1"
@@ -32116,11 +32116,11 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/splitMenus.tsx co
                   role="none"
                 >
                   <div
-                    aria-controls="rc-menu-uuid-84044-92-/admin-popup"
+                    aria-controls="rc-menu-uuid-84044-64-/admin-popup"
                     aria-expanded="false"
                     aria-haspopup="true"
                     class="ant-menu-submenu-title"
-                    data-menu-id="rc-menu-uuid-84044-92-/admin"
+                    data-menu-id="rc-menu-uuid-84044-64-/admin"
                     role="menuitem"
                     style="padding-left: 16px;"
                     tabindex="-1"
@@ -32172,11 +32172,11 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/splitMenus.tsx co
                   role="none"
                 >
                   <div
-                    aria-controls="rc-menu-uuid-84044-92-/list-popup"
+                    aria-controls="rc-menu-uuid-84044-64-/list-popup"
                     aria-expanded="false"
                     aria-haspopup="true"
                     class="ant-menu-submenu-title"
-                    data-menu-id="rc-menu-uuid-84044-92-/list"
+                    data-menu-id="rc-menu-uuid-84044-64-/list"
                     role="menuitem"
                     style="padding-left: 16px;"
                     tabindex="-1"
@@ -32225,7 +32225,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/splitMenus.tsx co
                 </li>
                 <li
                   class="ant-menu-item ant-menu-item-only-child ant-pro-base-menu-menu-item"
-                  data-menu-id="rc-menu-uuid-84044-92-https://ant.design"
+                  data-menu-id="rc-menu-uuid-84044-64-https://ant.design"
                   role="menuitem"
                   style="padding-left: 16px;"
                   tabindex="-1"
@@ -32506,7 +32506,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/splitMenus.tsx co
     </div>
   </div>
   <div
-    class="ant-pro-setting-drawer-handle "
+    class="ant-pro-setting-drawer-handle css-dev-only-do-not-override-17xsbyy"
     style="width: 48px; height: 48px;"
   >
     <span
@@ -32725,11 +32725,11 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/theme.tsx correct
                   role="none"
                 >
                   <div
-                    aria-controls="rc-menu-uuid-84044-94-/list/sub-page-popup"
+                    aria-controls="rc-menu-uuid-84044-66-/list/sub-page-popup"
                     aria-expanded="true"
                     aria-haspopup="true"
                     class="ant-menu-submenu-title"
-                    data-menu-id="rc-menu-uuid-84044-94-/list/sub-page"
+                    data-menu-id="rc-menu-uuid-84044-66-/list/sub-page"
                     role="menuitem"
                     style="padding-left: 16px;"
                     tabindex="-1"
@@ -32778,11 +32778,11 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/theme.tsx correct
                   <ul
                     class="ant-menu ant-menu-sub ant-menu-inline"
                     data-menu-list="true"
-                    id="rc-menu-uuid-84044-94-/list/sub-page-popup"
+                    id="rc-menu-uuid-84044-66-/list/sub-page-popup"
                   >
                     <li
                       class="ant-menu-item ant-menu-item-selected ant-menu-item-only-child ant-pro-base-menu-menu-item"
-                      data-menu-id="rc-menu-uuid-84044-94-/list/sub-page/sub-sub-page1"
+                      data-menu-id="rc-menu-uuid-84044-66-/list/sub-page/sub-sub-page1"
                       role="menuitem"
                       style="padding-left: 32px;"
                       tabindex="-1"
@@ -32806,7 +32806,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/theme.tsx correct
                     </li>
                     <li
                       class="ant-menu-item ant-menu-item-only-child ant-pro-base-menu-menu-item"
-                      data-menu-id="rc-menu-uuid-84044-94-/list/sub-page/sub-sub-page2"
+                      data-menu-id="rc-menu-uuid-84044-66-/list/sub-page/sub-sub-page2"
                       role="menuitem"
                       style="padding-left: 32px;"
                       tabindex="-1"
@@ -32830,7 +32830,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/theme.tsx correct
                     </li>
                     <li
                       class="ant-menu-item ant-menu-item-only-child ant-pro-base-menu-menu-item"
-                      data-menu-id="rc-menu-uuid-84044-94-/list/sub-page/sub-sub-page3"
+                      data-menu-id="rc-menu-uuid-84044-66-/list/sub-page/sub-sub-page3"
                       role="menuitem"
                       style="padding-left: 32px;"
                       tabindex="-1"
@@ -32856,7 +32856,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/theme.tsx correct
                 </li>
                 <li
                   class="ant-menu-item ant-menu-item-only-child ant-pro-base-menu-menu-item"
-                  data-menu-id="rc-menu-uuid-84044-94-/list/sub-page2"
+                  data-menu-id="rc-menu-uuid-84044-66-/list/sub-page2"
                   role="menuitem"
                   style="padding-left: 16px;"
                   tabindex="-1"
@@ -32903,7 +32903,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/theme.tsx correct
                 </li>
                 <li
                   class="ant-menu-item ant-menu-item-only-child ant-pro-base-menu-menu-item"
-                  data-menu-id="rc-menu-uuid-84044-94-/list/sub-page3"
+                  data-menu-id="rc-menu-uuid-84044-66-/list/sub-page3"
                   role="menuitem"
                   style="padding-left: 16px;"
                   tabindex="-1"
@@ -33966,7 +33966,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/topMode.tsx corre
                     >
                       <li
                         class="ant-menu-overflow-item ant-menu-item ant-menu-item-only-child ant-pro-base-menu-menu-item"
-                        data-menu-id="rc-menu-uuid-84044-102-/welcome"
+                        data-menu-id="rc-menu-uuid-84044-68-/welcome"
                         role="menuitem"
                         style="opacity: 1; order: 0;"
                         tabindex="-1"
@@ -34017,7 +34017,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/topMode.tsx corre
                         style="opacity: 1; order: 1;"
                       >
                         <div
-                          aria-controls="rc-menu-uuid-84044-102-/admin-popup"
+                          aria-controls="rc-menu-uuid-84044-68-/admin-popup"
                           aria-expanded="false"
                           aria-haspopup="true"
                           class="ant-menu-submenu-title"
@@ -34072,7 +34072,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/topMode.tsx corre
                         style="opacity: 1; order: 2;"
                       >
                         <div
-                          aria-controls="rc-menu-uuid-84044-102-/list-popup"
+                          aria-controls="rc-menu-uuid-84044-68-/list-popup"
                           aria-expanded="false"
                           aria-haspopup="true"
                           class="ant-menu-submenu-title"
@@ -34175,11 +34175,11 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/topMode.tsx corre
                         style="opacity: 0; height: 0px; overflow-y: hidden; order: 9007199254740991; pointer-events: none; position: absolute;"
                       >
                         <div
-                          aria-controls="rc-menu-uuid-84044-102-rc-menu-more-popup"
+                          aria-controls="rc-menu-uuid-84044-68-rc-menu-more-popup"
                           aria-expanded="false"
                           aria-haspopup="true"
                           class="ant-menu-submenu-title"
-                          data-menu-id="rc-menu-uuid-84044-102-rc-menu-more"
+                          data-menu-id="rc-menu-uuid-84044-68-rc-menu-more"
                           role="menuitem"
                           tabindex="-1"
                         >

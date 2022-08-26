@@ -4,7 +4,7 @@ exports[`utils 🪓 LabelIconTip 1`] = `
 <body>
   <div>
     <div
-      class="ant-pro-core-label-tip"
+      class="ant-pro-core-label-tip css-dev-only-do-not-override-17xsbyy"
     >
       <div
         class="ant-pro-core-label-tip-title"
