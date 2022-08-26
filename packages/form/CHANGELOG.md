@@ -2,6 +2,18 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.74.3](https://github.com/ant-design/pro-components/compare/@ant-design/pro-form@1.74.2...@ant-design/pro-form@1.74.3) (2022-08-26)
+
+### Bug Fixes
+
+- **form:** fix Embed no work error ([b403cbe](https://github.com/ant-design/pro-components/commit/b403cbe291e19235138ed0efe05775d5343a1a40))
+- **form:** Fixed an issue where transform was always executing ([37975ee](https://github.com/ant-design/pro-components/commit/37975ee24bf8ff0b2f8824d3a3b1869f90836b72))
+- **form:** incorrect name path of setCurrentRowData when using FormList with two-dimensional array ([#5613](https://github.com/ant-design/pro-components/issues/5613)) ([c04413b](https://github.com/ant-design/pro-components/commit/c04413bae219cd11f31dc7601646142f3556bc56))
+- **form:** ProFormList 增加 onAfterAdd 和 onAfterRemove 钩子 ([#5774](https://github.com/ant-design/pro-components/issues/5774)) ([ea119fa](https://github.com/ant-design/pro-components/commit/ea119faaba311e953583b756c6d33c9aadfdb6c7))
+- **form:** schemaForm 支持指定 required 使提交表单时校验 formList 是否为空 ([#5752](https://github.com/ant-design/pro-components/issues/5752)) ([c7a9ea4](https://github.com/ant-design/pro-components/commit/c7a9ea4f6631a69c8fd4a3f2f75bc21a39f9af09))
+- **form:** 修复 ModalForm 和 DrawerForm 指定 form 和 destroyOnClose 时关闭时未重置表单问题 ([#5744](https://github.com/ant-design/pro-components/issues/5744)) ([cdb7e33](https://github.com/ant-design/pro-components/commit/cdb7e3380b328b25b5706b2d519821c2f285874e))
+- **form:** 增加 FormList 样式 ([#5763](https://github.com/ant-design/pro-components/issues/5763)) ([af7a6c9](https://github.com/ant-design/pro-components/commit/af7a6c9458b8cc845c8ce8de04ba7141440aac53))
+
 ## [1.74.2](https://github.com/ant-design/pro-components/compare/@ant-design/pro-form@1.74.1...@ant-design/pro-form@1.74.2) (2022-08-24)
 
 ### Bug Fixes

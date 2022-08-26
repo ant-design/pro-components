@@ -2,6 +2,14 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.80.3](https://github.com/ant-design/pro-components/compare/@ant-design/pro-table@2.80.2...@ant-design/pro-table@2.80.3) (2022-08-26)
+
+### Bug Fixes
+
+- **table:** fix columns is null error ([fcfd8f5](https://github.com/ant-design/pro-components/commit/fcfd8f591585a24d816f64ade31c87683f8b0d7e))
+- **table:** fix current and pageSize uncontrolled error ([55f44e2](https://github.com/ant-design/pro-components/commit/55f44e2d5b2fb57d9944e5c9969cd075b95c0abe))
+- **table:** Fix the problem that the editing form is still updated after finishing editing ([ae3854a](https://github.com/ant-design/pro-components/commit/ae3854a1b66086f7d4b1454b526bfcf1a767d662))
+
 ## [2.80.2](https://github.com/ant-design/pro-components/compare/@ant-design/pro-table@2.80.1...@ant-design/pro-table@2.80.2) (2022-08-24)
 
 **Note:** Version bump only for package @ant-design/pro-table
