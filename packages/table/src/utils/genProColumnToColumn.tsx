@@ -42,7 +42,7 @@ export function genProColumnToColumn<T>(
   const subNameRecord = new Map();
 
   return columns
-    .map((columnProps, columnsIndex) => {
+    ?.map((columnProps, columnsIndex) => {
       const {
         key,
         dataIndex,
@@ -145,7 +145,7 @@ export function genProColumnToColumn<T>(
       };
       return omitUndefinedAndEmptyArr(tempColumns);
     })
-    .filter((item) => !item.hideInTable) as unknown as (TableColumnType<T> & {
+    ?.filter((item) => !item.hideInTable) as unknown as (TableColumnType<T> & {
     index?: number;
     isExtraColumns?: boolean;
     extraColumn?: typeof Table.EXPAND_COLUMN | typeof Table.SELECTION_COLUMN;

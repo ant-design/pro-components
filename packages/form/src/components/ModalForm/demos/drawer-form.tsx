@@ -1,5 +1,4 @@
 ﻿import { PlusOutlined } from '@ant-design/icons';
-import type { ProFormInstance } from '@ant-design/pro-components';
 import {
   DrawerForm,
   ProForm,
@@ -7,8 +6,7 @@ import {
   ProFormSelect,
   ProFormText,
 } from '@ant-design/pro-components';
-import { Button, message } from 'antd';
-import { useRef } from 'react';
+import { Button, Form, message } from 'antd';
 
 const waitTime = (time: number = 100) => {
   return new Promise((resolve) => {
@@ -19,7 +17,7 @@ const waitTime = (time: number = 100) => {
 };
 
 export default () => {
-  const formRef = useRef<ProFormInstance>();
+  const [form] = Form.useForm<{ name: string; company: string }>();
 
   return (
     <DrawerForm<{
@@ -27,7 +25,7 @@ export default () => {
       company: string;
     }>
       title="新建表单"
-      formRef={formRef}
+      form={form}
       trigger={
         <Button type="primary">
           <PlusOutlined />

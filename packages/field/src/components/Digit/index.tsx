@@ -1,5 +1,5 @@
 import { InputNumber } from 'antd';
-import { omit } from 'lodash';
+import omit from 'lodash.omit';
 import React, { useCallback } from 'react';
 import type { ProFieldFC } from '../../index';
 
@@ -25,7 +25,7 @@ const FieldDigit: ProFieldFC<FieldDigitProps> = (
 ) => {
   const proxyChange = useCallback(
     (value: number) => {
-      const val = Number(value.toFixed(fieldProps.precision ?? 0));
+      const val = Number(value?.toFixed(fieldProps.precision ?? 0));
       return fieldProps?.onChange(val);
     },
     [fieldProps],

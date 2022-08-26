@@ -4,7 +4,7 @@ import { Spin, Tooltip } from 'antd';
 import type { FormListFieldData, FormListOperation, FormListProps } from 'antd/es/form/FormList';
 import toArray from 'rc-util/lib/Children/toArray';
 import set from 'rc-util/lib/utils/set';
-import type { ReactNode } from 'react';
+import type { CSSProperties, ReactNode } from 'react';
 import React, { useContext, useEffect, useMemo, useRef, useState } from 'react';
 import { FormListContext } from '.';
 import { useGridHelpers } from '../../helpers';
@@ -205,6 +205,14 @@ export type ProFromListCommonProps = {
    * @name 允许增加的最少条数，删除时校验
    */
   min?: number;
+  /**
+   * @name 盒子的类名称
+   */
+  containerClassName?: string;
+  /**
+   * @name 盒子的样式
+   */
+  containerStyle?: CSSProperties;
 };
 
 export type ProFormListItemProps = ProFromListCommonProps & {
@@ -229,6 +237,14 @@ export type ProFormListItemProps = ProFromListCommonProps & {
   count: number;
 
   children?: ReactNode | ChildrenItemFunction;
+  /**
+   * 数据新增成功回调
+   */
+  onAfterAdd?: (...params: [...Parameters<FormListOperation['add']>, number]) => void;
+  /**
+   * 数据移除成功回调
+   */
+  onAfterRemove?: (...params: [...Parameters<FormListOperation['remove']>, number]) => void;
 };
 
 const ProFormListItem: React.FC<
@@ -287,7 +303,7 @@ const ProFormListItem: React.FC<
       const oldTableDate = formInstance?.getFieldsValue?.() || {};
       const rowKeyName = [listContext.listName, originName, index?.toString()]
         .flat(1)
-        .filter(Boolean);
+        .filter((item) => item !== null && item !== undefined);
       const updateValues = set(oldTableDate, rowKeyName, {
         // 只是简单的覆盖，如果很复杂的话，需要自己处理
         ...getCurrentRowData(),

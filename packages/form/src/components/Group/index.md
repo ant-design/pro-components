@@ -72,6 +72,8 @@ ProFormList 与 [Form.List](https://ant.design/components/form-cn/#Form.List) AP
 | copyIconProps | 复制按钮的配置，false 可以取消 | `{ Icon?: React.FC<any>; tooltipText?: string; } \| false` | - |
 | deleteIconProps | 删除按钮的配置，false 可以取消 | `{ Icon?: React.FC<any>; tooltipText?: string; } \| false` | - |
 | actionRender | 自定义操作按钮 | `(field,action,defaultActionDom,count)=>React.ReactNode[]` | - |
+| onAfterAdd | 新增数据后的钩子 | `(defaultValue: StoreValue, insertIndex: number, count: number) => void` | - |
+| onAfterRemove | 删除数据后的钩子 | `(index: number, count: number) => void` | - |
 
 ### actionRef 操作项目实例
 

@@ -3,7 +3,7 @@ import { useIntl } from '@ant-design/pro-provider';
 import { nanoid, runFunction } from '@ant-design/pro-utils';
 import { Button } from 'antd';
 import omit from 'omit.js';
-import { useMemo, useRef, useState } from 'react';
+import { CSSProperties, useMemo, useRef, useState } from 'react';
 import type { ProFormListItemProps } from './ListItem';
 import { ProFormListItem } from './ListItem';
 
@@ -20,6 +20,10 @@ const ProFormListContainer: React.FC<ProFormListItemProps> = (props) => {
     max,
     fieldExtraRender,
     meta,
+    containerClassName,
+    containerStyle,
+    onAfterAdd,
+    onAfterRemove,
   } = props;
   const fieldKeyMap = useRef(new Map<string, string>());
   const [loading, setLoading] = useState(false);
@@ -48,9 +52,17 @@ const ProFormListContainer: React.FC<ProFormListItemProps> = (props) => {
       wrapAction.add = async (...rest) => {
         const success = await actionGuard.beforeAddRow!(...rest, count);
         if (success) {
-          return action.add(...rest);
+          const res = action.add(...rest);
+          onAfterAdd?.(...rest, count + 1);
+          return res;
         }
         return false;
+      };
+    } else {
+      wrapAction.add = async (...rest) => {
+        const res = action.add(...rest);
+        onAfterAdd?.(...rest, count + 1);
+        return res;
       };
     }
 
@@ -58,14 +70,29 @@ const ProFormListContainer: React.FC<ProFormListItemProps> = (props) => {
       wrapAction.remove = async (...rest) => {
         const success = await actionGuard.beforeRemoveRow!(...rest, count);
         if (success) {
-          return action.remove(...rest);
+          const res = action.remove(...rest);
+          onAfterRemove?.(...rest, count - 1);
+          return res;
         }
         return false;
+      };
+    } else {
+      wrapAction.remove = async (...rest) => {
+        const res = action.remove(...rest);
+        onAfterRemove?.(...rest, count - 1);
+        return res;
       };
     }
 
     return wrapAction;
-  }, [action, actionGuard, uuidFields]);
+  }, [
+    action,
+    actionGuard?.beforeAddRow,
+    actionGuard?.beforeRemoveRow,
+    onAfterAdd,
+    onAfterRemove,
+    uuidFields.length,
+  ]);
 
   const creatorButton = useMemo(() => {
     if (creatorButtonProps === false || uuidFields.length === max) return null;
@@ -105,14 +132,15 @@ const ProFormListContainer: React.FC<ProFormListItemProps> = (props) => {
     creatorRecord,
   ]);
 
+  const defaultStyle: CSSProperties = {
+    width: 'max-content',
+    maxWidth: '100%',
+    minWidth: '100%',
+    ...containerStyle,
+  };
+
   return (
-    <div
-      style={{
-        width: 'max-content',
-        maxWidth: '100%',
-        minWidth: '100%',
-      }}
-    >
+    <div style={defaultStyle} className={containerClassName}>
       {creatorButtonProps !== false && creatorButtonProps?.position === 'top' && creatorButton}
       {uuidFields.map((field, index) => {
         return (
