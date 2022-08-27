@@ -48,8 +48,8 @@ export function mergePagination<T>(
       )} ${all} ${intl.getMessage('pagination.total.item', '条')}`,
     total,
     ...(defaultPagination as TablePaginationConfig),
-    current,
-    pageSize,
+    current: pagination !== true && pagination ? pagination.current ?? current : current,
+    pageSize: pagination !== true && pagination ? pagination.pageSize ?? pageSize : pageSize,
     onChange: (page: number, newPageSize?: number) => {
       const { onChange } = pagination as TablePaginationConfig;
       onChange?.(page, newPageSize || 20);

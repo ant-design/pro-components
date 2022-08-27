@@ -1,5 +1,6 @@
 ﻿import type { ProFormColumnsType, ProFormLayoutType } from '@ant-design/pro-form';
 import { BetaSchemaForm } from '@ant-design/pro-form';
+import { fireEvent, render } from '@testing-library/react';
 import type { FormInstance } from 'antd';
 import { Input } from 'antd';
 import { mount } from 'enzyme';
@@ -556,6 +557,66 @@ describe('SchemaForm', () => {
     });
 
     expect(wrapper.find('span#label_text').text()).toBe('与《test》 与 《test2》合同约定生效方式');
+  });
+
+  it('😊 SchemaForm support validate formList empty', async () => {
+    type DataItem = {
+      name: string;
+      state: string;
+    };
+
+    const curColumns: ProFormColumnsType<DataItem>[] = [
+      {
+        title: '测试',
+        dataIndex: 'list',
+        valueType: 'formList',
+        formItemProps: {
+          rules: [{ required: true, message: '请填写列表' }],
+        },
+        columns: [
+          {
+            dataIndex: 'isSettlement',
+            valueType: 'switch',
+            formItemProps: {
+              rules: [{ required: true, message: '请填写1' }],
+            },
+          },
+        ],
+      },
+    ];
+    const onFinish = jest.fn();
+    const wrapper = render(
+      <BetaSchemaForm
+        shouldUpdate={false}
+        layoutType="Form"
+        onFinish={onFinish}
+        columns={curColumns}
+      />,
+    );
+    await waitForComponentToPaint(wrapper, 300);
+
+    await act(async () => {
+      fireEvent.click(await wrapper.findByText('提 交'));
+    });
+    await waitForComponentToPaint(wrapper, 300);
+    expect(onFinish).toBeCalledTimes(0);
+    expect((await wrapper.findAllByText('请填写列表')).length).toBe(1);
+    await act(async () => {
+      fireEvent.click(await wrapper.findByText('添加一行数据'));
+    });
+    await waitForComponentToPaint(wrapper, 300);
+    await act(async () => {
+      fireEvent.click(await wrapper.findByText('提 交'));
+    });
+    await waitForComponentToPaint(wrapper, 300);
+    expect(
+      (await wrapper.baseElement.querySelector('.ant-form-item-explain-error'))?.innerHTML,
+    ).toBe('请填写1');
+    await act(async () => {
+      fireEvent.click(await wrapper.baseElement.querySelector('.action-remove')!);
+    });
+    await waitForComponentToPaint(wrapper, 300);
+    expect((await wrapper.findAllByText('请填写列表')).length).toBe(1);
   });
 
   [

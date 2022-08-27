@@ -88,6 +88,14 @@ function ModalForm<T = Record<string, any>>({
 
   const formRef = useRef<ProFormInstance>();
 
+  const resetFields = useCallback(() => {
+    const form = rest.form ?? rest.formRef?.current ?? formRef.current;
+    // 重置表单
+    if (form && modalProps?.destroyOnClose) {
+      form.resetFields();
+    }
+  }, [modalProps?.destroyOnClose, rest.form, rest.formRef]);
+
   useEffect(() => {
     if (visible && propVisible) {
       onVisibleChange?.(true);
@@ -127,6 +135,7 @@ function ModalForm<T = Record<string, any>>({
           disabled: submitTimeout ? loading : undefined,
           onClick: (e: any) => {
             setVisible(false);
+            resetFields();
             modalProps?.onCancel?.(e);
           },
         },
@@ -141,6 +150,7 @@ function ModalForm<T = Record<string, any>>({
     setVisible,
     loading,
     submitTimeout,
+    resetFields,
   ]);
 
   const contentRender = useCallback((formDom: any, submitter: any) => {
@@ -185,6 +195,7 @@ function ModalForm<T = Record<string, any>>({
         onCancel={(e) => {
           // 提交表单loading时，阻止弹框关闭
           if (submitTimeout && loading) return;
+          resetFields();
           setVisible(false);
           modalProps?.onCancel?.(e);
         }}
@@ -208,11 +219,7 @@ function ModalForm<T = Record<string, any>>({
           submitter={submitterConfig}
           onFinish={async (values) => {
             const result = await onFinishHandle(values);
-            const form = rest.formRef?.current ?? formRef.current;
-            // 返回真值，重置表单
-            if (result && form && modalProps?.destroyOnClose) {
-              form.resetFields();
-            }
+            resetFields();
             return result;
           }}
           contentRender={contentRender}

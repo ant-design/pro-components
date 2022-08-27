@@ -2,6 +2,19 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.45.2](https://github.com/ant-design/pro-components/compare/@ant-design/pro-utils@1.45.1...@ant-design/pro-utils@1.45.2) (2022-08-26)
+
+### Bug Fixes
+
+- **form:** incorrect name path of setCurrentRowData when using FormList with two-dimensional array ([#5613](https://github.com/ant-design/pro-components/issues/5613)) ([c04413b](https://github.com/ant-design/pro-components/commit/c04413bae219cd11f31dc7601646142f3556bc56))
+- **table:** Fix the problem that the editing form is still updated after finishing editing ([ae3854a](https://github.com/ant-design/pro-components/commit/ae3854a1b66086f7d4b1454b526bfcf1a767d662))
+
+## [1.45.1](https://github.com/ant-design/pro-components/compare/@ant-design/pro-utils@1.45.0...@ant-design/pro-utils@1.45.1) (2022-08-24)
+
+### Bug Fixes
+
+- 解决 ProFormList 下的表单组件未调用 transform 方法问题 ([#5759](https://github.com/ant-design/pro-components/issues/5759)) ([6e4396d](https://github.com/ant-design/pro-components/commit/6e4396d7e7816cb1f58385859ce4074f3571d2e4))
+
 # [1.45.0](https://github.com/ant-design/pro-components/compare/@ant-design/pro-utils@1.44.0...@ant-design/pro-utils@1.45.0) (2022-08-19)
 
 ### Bug Fixes

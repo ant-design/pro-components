@@ -141,11 +141,11 @@ export type ActionRenderConfig<T, LineConfig = NewLineConfig<T>> = {
 /**
  * 使用map 来删除数据，性能一般 但是准确率比较高
  *
- * @param params
+ * @param keyProps
  * @param action
  */
 export function editableRowByKey<RecordType>(
-  params: {
+  keyProps: {
     data: RecordType[];
     childrenColumnName: string;
     getRowKey: GetRowKey<RecordType>;
@@ -154,8 +154,9 @@ export function editableRowByKey<RecordType>(
   },
   action: 'update' | 'top' | 'delete',
 ) {
-  const { getRowKey, row, data, childrenColumnName } = params;
-  const key = recordKeyToString(params.key)?.toString();
+  const { getRowKey, row, data, childrenColumnName } = keyProps;
+  const key = recordKeyToString(keyProps.key)?.toString();
+
   const kvMap = new Map<string, RecordType & { parentKey?: React.Key }>();
 
   /**
@@ -353,18 +354,15 @@ export const DeleteEditableAction: React.FC<ActionRenderConfig<any> & { row: any
   row,
   children,
   deletePopconfirmMessage,
-  cancelEditable,
 }) => {
   const [loading, setLoading] = useMountMergeState<boolean>(() => false);
-  const onConfirm = async () => {
+
+  const onConfirm = useRefFunction(async () => {
     try {
       setLoading(true);
       const res = await onDelete?.(recordKey, row);
       setLoading(false);
-      setTimeout(() => {
-        // 删除之后解除编辑状态，防止新建一行失效
-        cancelEditable(recordKey);
-      }, 0);
+
       return res;
     } catch (e) {
       // eslint-disable-next-line no-console
@@ -372,9 +370,9 @@ export const DeleteEditableAction: React.FC<ActionRenderConfig<any> & { row: any
       setLoading(false);
       return null;
     }
-  };
+  });
   return children !== false ? (
-    <Popconfirm key="delete" title={deletePopconfirmMessage} onConfirm={onConfirm}>
+    <Popconfirm key="delete" title={deletePopconfirmMessage} onConfirm={() => onConfirm()}>
       <a>
         {loading ? (
           <LoadingOutlined
@@ -428,16 +426,17 @@ const CancelEditableAction: React.FC<ActionRenderConfig<any> & { row: any }> = (
 
 export function defaultActionRender<T>(row: T, config: ActionRenderConfig<T, NewLineConfig<T>>) {
   const { recordKey, newLineConfig, saveText, deleteText } = config;
+
   return [
-    <SaveEditableAction<T> key="save" {...config} row={row}>
+    <SaveEditableAction<T> key={'save' + recordKey} {...config} row={row}>
       {saveText}
     </SaveEditableAction>,
     newLineConfig?.options.recordKey !== recordKey ? (
-      <DeleteEditableAction key="delete" {...config} row={row}>
+      <DeleteEditableAction key={'delete' + recordKey} {...config} row={row}>
         {deleteText}
       </DeleteEditableAction>
     ) : null,
-    <CancelEditableAction key="cancel" {...config} row={row} />,
+    <CancelEditableAction key={'cancel' + recordKey} {...config} row={row} />,
   ];
 }
 
@@ -561,7 +560,7 @@ function useEditableArray<RecordType>(
    *
    * @param recordKey
    */
-  const cancelEditable = useRefFunction((recordKey: RecordKey, needReTry?: boolean) => {
+  const cancelEditable = useRefFunction(async (recordKey: RecordKey, needReTry?: boolean) => {
     const relayKey = recordKeyToString(recordKey).toString();
 
     const key = dataSourceKeyIndexMapRef.current.get(relayKey);
@@ -778,8 +777,8 @@ function useEditableArray<RecordType>(
         key: recordKey,
         childrenColumnName: props.childrenColumnName || 'children',
       };
-
       const res = await props?.onDelete?.(recordKey, editRow);
+      await cancelEditable(recordKey);
       props.setDataSource(editableRowByKey(actionProps, 'delete'));
       return res;
     },
@@ -819,6 +818,7 @@ function useEditableArray<RecordType>(
       deletePopconfirmMessage:
         props.deletePopconfirmMessage || `${intl.getMessage('deleteThisLine', '删除此行')}?`,
     };
+
     const defaultDoms = defaultActionRender<RecordType>(row, config);
 
     if (props.actionRender)

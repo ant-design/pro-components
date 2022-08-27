@@ -13,6 +13,10 @@ export const formList: ProSchemaRenderValueTypeFunction = (item, { genItems }) =
         colProps={item.colProps}
         rowProps={item.rowProps}
         {...item.getFieldProps?.()}
+        isValidateList={(item.getFormItemProps?.() || item.getFieldProps?.())?.rules?.[0]?.required}
+        emptyListMessage={
+          (item.getFormItemProps?.() || item.getFieldProps?.())?.rules?.[0]?.message
+        }
       >
         {genItems(item.columns)}
       </ProFormList>

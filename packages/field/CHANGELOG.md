@@ -2,6 +2,20 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.36.3](https://github.com/ant-design/pro-components/compare/@ant-design/pro-field@1.36.2...@ant-design/pro-field@1.36.3) (2022-08-26)
+
+### Bug Fixes
+
+- **form:** fix Select change fetch error ([79d7c48](https://github.com/ant-design/pro-components/commit/79d7c484e0bda9e548c2b96ce4cd37f6a1e0267b))
+- **form:** fix toFixed no work error ([42c4563](https://github.com/ant-design/pro-components/commit/42c4563179a00d6402068a8270da941723148215))
+- **utils:** 修复 lodash 全部打包错误 ([#5781](https://github.com/ant-design/pro-components/issues/5781)) ([9053827](https://github.com/ant-design/pro-components/commit/90538272c987eb0fd55a1c4c87ecf8f63233527b))
+
+## [1.36.2](https://github.com/ant-design/pro-components/compare/@ant-design/pro-field@1.36.1...@ant-design/pro-field@1.36.2) (2022-08-24)
+
+### Bug Fixes
+
+- **form:** fix ProFormMoney precision style error ([e15f9b6](https://github.com/ant-design/pro-components/commit/e15f9b645f6fc3681ca3cd0d02ce0d3c31479107))
+
 ## [1.36.1](https://github.com/ant-design/pro-components/compare/@ant-design/pro-field@1.36.0...@ant-design/pro-field@1.36.1) (2022-08-22)
 
 ### Bug Fixes
