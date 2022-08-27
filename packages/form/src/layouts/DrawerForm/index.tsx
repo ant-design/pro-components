@@ -195,6 +195,10 @@ function DrawerForm<T = Record<string, any>>({
           setVisible(false);
           drawerProps?.onClose?.(e);
         }}
+        afterVisibleChange={(e) => {
+          if (!e) resetFields();
+          drawerProps?.afterVisibleChange?.(e);
+        }}
         footer={
           rest.submitter !== false && (
             <div
