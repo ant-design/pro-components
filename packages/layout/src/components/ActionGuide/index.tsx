@@ -1,6 +1,5 @@
 import { Button, Popover, Space } from 'antd';
-import type { PropsWithChildren, ReactNode } from 'react';
-import React, { useEffect, useState } from 'react';
+import React, { PropsWithChildren, ReactNode, useEffect, useState } from 'react';
 import { ActionGuideContextConsumer, ActionGuideContextProvider } from './context';
 import './index.less';
 import type {
@@ -28,21 +27,44 @@ function recursiveMap(children: ReactNode, fn: (child: ReactNode) => any): React
 }
 
 const prefixCls = 'pro-action-guide';
+function getPageItem(total: number, cur: number = 0, showPaginationSize = 3): number[] {
+  const list = new Array(total).fill(0).map((item, idx) => idx);
+  if (total <= showPaginationSize) return list;
+  let l = -1;
+  let r = l + showPaginationSize - 1;
+  let mid = (l + r) >> 1;
+  while (mid < cur && r < total) {
+    l++;
+    r++;
+    mid = (l + r) >> 1;
+  }
+  const res = list.filter((item) => item >= l && item <= r);
+  console.log(l, r, cur - 1, showPaginationSize >> 1, res);
+  return res;
+}
 const Pagination: React.FC<PaginationProps> = (props) => {
-  const { theme = 'dot', total, cur = 0, clickabled = true, onChange } = props;
-  const list = new Array(total).fill(0);
+  const {
+    theme = 'dot',
+    total,
+    cur = 0,
+    clickabled = true,
+    onChange,
+    showPaginationSize = 3,
+  } = props;
+  const list = getPageItem(total, cur, showPaginationSize);
+
   return (
     <div className={`pagination ${theme === 'dot' ? `theme-dot` : `theme-index`}`}>
       {list.map((item, idx) => (
         <div
           key={idx}
-          className={`pagination-item ${cur === idx + 1 ? 'cur' : ''}`}
+          className={`pagination-item ${cur === item + 1 ? 'cur' : ''}`}
           onClick={() => {
             if (!clickabled) return;
             onChange(idx + 1);
           }}
         >
-          {theme === 'index' ? idx + 1 : ''}
+          {theme === 'index' ? item + 1 : ''}
         </div>
       ))}
     </div>
@@ -96,6 +118,7 @@ export const ActionGuideItem: React.FC<PropsWithChildren<ActionGuideItemProps>> 
           <Pagination
             total={ctx.total}
             cur={ctx.curIdx}
+            showPaginationSize={ctx.showPaginationSize}
             theme={ctx.paginationTheme ?? 'dot'}
             onChange={(idx) => ctx.action.show(idx)}
           />

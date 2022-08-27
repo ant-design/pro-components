@@ -22,6 +22,8 @@ export type PaginationProps = {
    * 点击目标页
    */
   onChange: (idx: number) => void;
+  /** 展示的分页项数量 */
+  showPaginationSize?: number;
 };
 export type ActionGuideItemProps = {
   /**
@@ -65,7 +67,7 @@ export type ActionGuideContainerProps = {
   /**
    * 最多显示的分页器数量
    */
-  showPaginationSize?: number;
+  showPaginationSize?: PaginationProps['showPaginationSize'];
   /**
    * 对外抛出的操作
    */
