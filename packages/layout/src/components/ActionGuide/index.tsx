@@ -303,7 +303,7 @@ export const ActionGuideItem: React.FC<PropsWithChildren<ActionGuideItemProps>> 
               {...popoverProps}
             >
               {React.isValidElement(children)
-                ? React.cloneElement(children, {
+                ? React.cloneElement<any>(children, {
                     style: {
                       ...(children.props.style || {}),
                       zIndex: visible ? 1002 : children.props?.style?.zIndex,
@@ -312,7 +312,7 @@ export const ActionGuideItem: React.FC<PropsWithChildren<ActionGuideItemProps>> 
                         children.props?.style?.position === 'static'
                           ? 'relative'
                           : children.props?.style?.position,
-                    } as CSSProperties,
+                    },
                   })
                 : children}
             </Popover>
