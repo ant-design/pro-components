@@ -3016,7 +3016,6 @@ exports[`layout demos 📸 renders ./packages/layout/src/components/WaterMark/de
                               应用名称
                             </th>
                             <th
-                              aria-label="[object Object] sortable"
                               class="ant-table-cell ant-table-column-has-sorters"
                               style="text-align: right;"
                               tabindex="0"
@@ -3038,7 +3037,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/components/WaterMark/de
                                     <span
                                       aria-label="caret-up"
                                       class="anticon anticon-caret-up ant-table-column-sorter-up"
-                                      role="presentation"
+                                      role="img"
                                     >
                                       <svg
                                         aria-hidden="true"
@@ -3057,7 +3056,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/components/WaterMark/de
                                     <span
                                       aria-label="caret-down"
                                       class="anticon anticon-caret-down ant-table-column-sorter-down"
-                                      role="presentation"
+                                      role="img"
                                     >
                                       <svg
                                         aria-hidden="true"
@@ -3088,7 +3087,6 @@ exports[`layout demos 📸 renders ./packages/layout/src/components/WaterMark/de
                               创建者
                             </th>
                             <th
-                              aria-label="[object Object] sortable"
                               class="ant-table-cell ant-table-column-has-sorters"
                               tabindex="0"
                             >
@@ -3132,7 +3130,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/components/WaterMark/de
                                     <span
                                       aria-label="caret-up"
                                       class="anticon anticon-caret-up ant-table-column-sorter-up"
-                                      role="presentation"
+                                      role="img"
                                     >
                                       <svg
                                         aria-hidden="true"
@@ -3151,7 +3149,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/components/WaterMark/de
                                     <span
                                       aria-label="caret-down"
                                       class="anticon anticon-caret-down ant-table-column-sorter-down"
-                                      role="presentation"
+                                      role="img"
                                     >
                                       <svg
                                         aria-hidden="true"
