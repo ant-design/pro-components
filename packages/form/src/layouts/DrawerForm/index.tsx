@@ -209,6 +209,12 @@ function DrawerForm<T = Record<string, any>>({
           resetFields();
           drawerProps?.afterOpenChange?.(e);
         }}
+        //@ts-expect-error
+        afterVisibleChange={(e) => {
+          if (!e) resetFields();
+          //@ts-expect-error
+          drawerProps?.afterVisibleChange?.(e);
+        }}
         footer={
           rest.submitter !== false && (
             <div

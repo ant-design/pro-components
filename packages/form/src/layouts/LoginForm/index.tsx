@@ -80,8 +80,9 @@ function LoginForm<T = Record<string, any>>(props: Partial<LoginFormProps<T>>) {
 
   const context = useContext(ConfigProvider.ConfigContext);
   const baseClassName = context.getPrefixCls('pro-form-login');
-  const getCls = (className: string) => `${baseClassName}-${className}`;
   const { wrapSSR, hashId } = useStyle(baseClassName);
+  const getCls = (className: string) => `${baseClassName}-${className} ${hashId}`;
+
   /** 生成logo 的dom，如果是string 设置为图片 如果是个 dom 就原样保留 */
   const logoDom = useMemo(() => {
     if (!logo) return null;
@@ -93,9 +94,9 @@ function LoginForm<T = Record<string, any>>(props: Partial<LoginFormProps<T>>) {
 
   return wrapSSR(
     <div className={classNames(getCls('container'), hashId)}>
-      <div className={getCls('top')}>
+      <div className={`${getCls('top')} ${hashId}`}>
         {title || logoDom ? (
-          <div className={getCls('header')}>
+          <div className={`${getCls('header')}`}>
             {logoDom ? <span className={getCls('logo')}>{logoDom}</span> : null}
             {title ? <span className={getCls('title')}>{title}</span> : null}
           </div>

@@ -1,7 +1,7 @@
 import { DownOutlined } from '@ant-design/icons';
 import type { IntlType } from '@ant-design/pro-provider';
 import { useIntl } from '@ant-design/pro-provider';
-import { omitBoolean } from '@ant-design/pro-utils';
+import { omitBoolean, useToken } from '@ant-design/pro-utils';
 import { ConfigProvider, Space } from 'antd';
 import React, { useContext } from 'react';
 
@@ -68,7 +68,7 @@ const Actions: React.FC<ActionsProps> = (props) => {
   const { setCollapsed, collapsed = false, submitter, style, hiddenNum } = props;
   const { getPrefixCls } = useContext(ConfigProvider.ConfigContext);
   const intl = useIntl();
-
+  const { hashId } = useToken();
   const collapseRender = omitBoolean(props.collapseRender) || defaultCollapseRender;
 
   return (
@@ -76,7 +76,7 @@ const Actions: React.FC<ActionsProps> = (props) => {
       {submitter}
       {props.collapseRender !== false && (
         <a
-          className={getPrefixCls('pro-query-filter-collapse-button')}
+          className={`${getPrefixCls('pro-query-filter-collapse-button')} ${hashId}`}
           onClick={() => setCollapsed(!collapsed)}
         >
           {collapseRender?.(collapsed, props, intl, hiddenNum)}

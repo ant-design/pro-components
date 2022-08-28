@@ -188,7 +188,7 @@ const Card = React.forwardRef((props: CardProps, ref: any) => {
     [`${prefixCls}-checked`]: checked,
   });
 
-  const bodyCls = classNames(`${prefixCls}-body`, {
+  const bodyCls = classNames(`${prefixCls}-body`, hashId, {
     [`${prefixCls}-body-center`]: layout === 'center',
     [`${prefixCls}-body-direction-column`]: split === 'horizontal' || direction === 'column',
     [`${prefixCls}-body-wrap`]: wrap && containProCard,
@@ -224,7 +224,7 @@ const Card = React.forwardRef((props: CardProps, ref: any) => {
     ) : (
       <RightOutlined
         rotate={!collapsed ? 90 : undefined}
-        className={`${prefixCls}-collapsible-icon`}
+        className={`${prefixCls}-collapsible-icon ${hashId}`}
       />
     ));
 
@@ -241,7 +241,7 @@ const Card = React.forwardRef((props: CardProps, ref: any) => {
     >
       {(title || extra || collapsibleButton) && (
         <div
-          className={classNames(`${prefixCls}-header`, {
+          className={classNames(`${prefixCls}-header`, hashId, {
             [`${prefixCls}-header-border`]: headerBordered || type === 'inner',
             [`${prefixCls}-header-collapsible`]: collapsibleButton,
           })}
@@ -250,15 +250,15 @@ const Card = React.forwardRef((props: CardProps, ref: any) => {
             if (collapsibleButton) setCollapsed(!collapsed);
           }}
         >
-          <div className={`${prefixCls}-title`}>
+          <div className={`${prefixCls}-title ${hashId}`}>
             {collapsibleButton}
             <LabelIconTip label={title} tooltip={tooltip || tip} subTitle={subTitle} />
           </div>
-          {extra && <div className={`${prefixCls}-extra`}>{extra}</div>}
+          {extra && <div className={`${prefixCls}-extra ${hashId}`}>{extra}</div>}
         </div>
       )}
       {tabs ? (
-        <div className={`${prefixCls}-tabs`}>
+        <div className={`${prefixCls}-tabs ${hashId}`}>
           <Tabs
             onChange={tabs.onChange}
             {...tabs}

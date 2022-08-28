@@ -10,7 +10,7 @@ exports[`docs demos 📸 renders ./docs/demos/customization-value-type.tsx corre
       class="ant-pro-card-header"
     >
       <div
-        class="ant-pro-card-title"
+        class="ant-pro-card-title "
       >
         SchemaForm
       </div>
@@ -34,12 +34,12 @@ exports[`docs demos 📸 renders ./docs/demos/customization-value-type.tsx corre
             class="ant-pro-form-group"
           >
             <div
-              class="ant-pro-form-group-title"
+              class="ant-pro-form-group-title "
             >
               标签
             </div>
             <div
-              class="ant-space ant-space-horizontal ant-space-align-start ant-pro-form-group-container"
+              class="ant-space ant-space-horizontal ant-space-align-start ant-pro-form-group-container "
               style="row-gap: 0;"
             >
               <div
@@ -129,12 +129,12 @@ exports[`docs demos 📸 renders ./docs/demos/customization-value-type.tsx corre
             class="ant-pro-form-group"
           >
             <div
-              class="ant-pro-form-group-title"
+              class="ant-pro-form-group-title "
             >
               路径
             </div>
             <div
-              class="ant-space ant-space-horizontal ant-space-align-start ant-pro-form-group-container"
+              class="ant-space ant-space-horizontal ant-space-align-start ant-pro-form-group-container "
               style="row-gap: 0;"
             >
               <div
@@ -297,7 +297,7 @@ exports[`docs demos 📸 renders ./docs/demos/customization-value-type.tsx corre
       class="ant-pro-card-header"
     >
       <div
-        class="ant-pro-card-title"
+        class="ant-pro-card-title "
       >
         ProTable
       </div>
@@ -323,7 +323,7 @@ exports[`docs demos 📸 renders ./docs/demos/customization-value-type.tsx corre
                 type="text"
               />
               <div
-                class="ant-row ant-row-start ant-pro-query-filter-row"
+                class="ant-row ant-row-start ant-pro-query-filter-row "
                 style="margin-left: -12px; margin-right: -12px;"
               >
                 <div
@@ -431,7 +431,7 @@ exports[`docs demos 📸 renders ./docs/demos/customization-value-type.tsx corre
                   style="padding-left: 12px; padding-right: 12px; text-align: right;"
                 >
                   <div
-                    class="ant-form-item ant-pro-query-filter-actions"
+                    class="ant-form-item ant-pro-query-filter-actions "
                   >
                     <div
                       class="ant-row ant-form-item-row"
@@ -599,7 +599,7 @@ exports[`docs demos 📸 renders ./docs/demos/customization-value-type.tsx corre
       class="ant-pro-card-header"
     >
       <div
-        class="ant-pro-card-title"
+        class="ant-pro-card-title "
       >
         ProDescriptions
       </div>
@@ -782,12 +782,12 @@ exports[`docs demos 📸 renders ./docs/demos/valueType.tsx correctly 1`] = `
         class="ant-pro-form-group"
       >
         <div
-          class="ant-pro-form-group-title"
+          class="ant-pro-form-group-title "
         >
           分组
         </div>
         <div
-          class="ant-space ant-space-horizontal ant-space-align-start ant-pro-form-group-container"
+          class="ant-space ant-space-horizontal ant-space-align-start ant-pro-form-group-container "
           style="row-gap: 0;"
         >
           <div

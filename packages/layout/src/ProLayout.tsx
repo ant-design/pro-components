@@ -654,7 +654,7 @@ const BaseProLayout: React.FC<ProLayoutProps> = (props) => {
           <>{children}</>
         ) : (
           <div className={className}>
-            <div className={`${proLayoutClassName}-bg-list`}>{bgImgStyleList}</div>
+            <div className={`${proLayoutClassName}-bg-list ${hashId}`}>{bgImgStyleList}</div>
             <Layout
               style={{
                 minHeight: '100%',
@@ -662,7 +662,7 @@ const BaseProLayout: React.FC<ProLayoutProps> = (props) => {
               }}
             >
               {siderMenuDom}
-              <div style={genLayoutStyle} className={`${proLayoutClassName}-container`}>
+              <div style={genLayoutStyle} className={`${proLayoutClassName}-container ${hashId}`}>
                 {headerDom}
                 <WrapContent
                   hasPageContainer={hasPageContainer}

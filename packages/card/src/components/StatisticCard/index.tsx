@@ -42,14 +42,14 @@ const StatisticCard: React.FC<StatisticCardProps> & {
   // 在 StatisticCard 中时默认为 vertical。
   const statisticDom = statistic && <Statistic layout="vertical" {...statistic} />;
 
-  const chartCls = classNames(`${prefixCls}-chart`, {
+  const chartCls = classNames(`${prefixCls}-chart`, hashId, {
     [`${prefixCls}-chart-left`]: chartPlacement === 'left' && chart && statistic,
     [`${prefixCls}-chart-right`]: chartPlacement === 'right' && chart && statistic,
   });
 
   const chartDom = chart && <div className={chartCls}>{chart}</div>;
 
-  const contentCls = classNames(`${prefixCls}-content`, {
+  const contentCls = classNames(`${prefixCls}-content `, hashId, {
     [`${prefixCls}-content-horizontal`]: chartPlacement === 'left' || chartPlacement === 'right',
   });
 
@@ -68,7 +68,7 @@ const StatisticCard: React.FC<StatisticCardProps> & {
       </div>
     ));
 
-  const footerDom = footer && <div className={`${prefixCls}-footer`}>{footer}</div>;
+  const footerDom = footer && <div className={`${prefixCls}-footer ${hashId}`}>{footer}</div>;
 
   return wrapSSR(
     <Card className={classString} {...others}>

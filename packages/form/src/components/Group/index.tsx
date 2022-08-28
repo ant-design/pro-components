@@ -71,7 +71,7 @@ const Group: React.FC<GroupProps> = React.forwardRef((props, ref: any) => {
     ({ children: dom }: { children: React.ReactNode }) => (
       <Space
         {...spaceProps}
-        className={classNames(`${className}-container`, spaceProps?.className)}
+        className={classNames(`${className}-container ${hashId}`, spaceProps?.className)}
         size={size}
         align={align}
         direction={direction}
@@ -83,7 +83,7 @@ const Group: React.FC<GroupProps> = React.forwardRef((props, ref: any) => {
         {dom}
       </Space>
     ),
-    [align, className, direction, size, spaceProps],
+    [align, className, direction, hashId, size, spaceProps],
   );
 
   const titleDom = titleRender ? titleRender(label, props) : label;
@@ -131,7 +131,7 @@ const Group: React.FC<GroupProps> = React.forwardRef((props, ref: any) => {
         {hiddenDoms}
         {(title || tooltip || extra) && (
           <div
-            className={`${className}-title`}
+            className={`${className}-title ${hashId}`}
             style={titleStyle}
             onClick={() => {
               setCollapsed(!collapsed);

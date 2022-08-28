@@ -789,6 +789,7 @@ export function useEditableArray<RecordType>(
       const res = await props?.onDelete?.(recordKey, editRow);
       await cancelEditable(recordKey);
       props.setDataSource(editableRowByKey(actionProps, 'delete'));
+
       return res;
     },
   );

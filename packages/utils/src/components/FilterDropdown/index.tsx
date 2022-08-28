@@ -54,12 +54,12 @@ const FilterDropdown: React.FC<DropdownProps> = (props) => {
       onOpenChange={onVisibleChange}
       overlay={
         <div className={`${prefixCls}-overlay ${hashId}`}>
-          <div className={`${prefixCls}-content`}>{children}</div>
+          <div className={`${prefixCls}-content ${hashId}`}>{children}</div>
           {footer && <DropdownFooter disabled={disabled} footerRender={footerRender} {...footer} />}
         </div>
       }
     >
-      <span className={`${prefixCls}-label`}>{label}</span>
+      <span className={`${prefixCls}-label ${hashId}`}>{label}</span>
     </Dropdown>,
   );
 };

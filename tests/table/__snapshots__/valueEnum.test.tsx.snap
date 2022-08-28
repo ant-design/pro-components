@@ -19,7 +19,7 @@ exports[`Table valueEnum 🎏 customization valueType 1`] = `
           type="text"
         />
         <div
-          class="ant-row ant-row-start ant-pro-query-filter-row"
+          class="ant-row ant-row-start ant-pro-query-filter-row "
           style="margin-left: -12px; margin-right: -12px;"
         >
           <div
@@ -74,7 +74,7 @@ exports[`Table valueEnum 🎏 customization valueType 1`] = `
             style="padding-left: 12px; padding-right: 12px; text-align: right;"
           >
             <div
-              class="ant-form-item ant-pro-query-filter-actions"
+              class="ant-form-item ant-pro-query-filter-actions "
             >
               <div
                 class="ant-row ant-form-item-row"
@@ -160,23 +160,23 @@ exports[`Table valueEnum 🎏 customization valueType 1`] = `
             class="ant-pro-table-list-toolbar-container"
           >
             <div
-              class="ant-pro-table-list-toolbar-left"
+              class="ant-pro-table-list-toolbar-left "
             />
             <div
-              class="ant-space ant-space-horizontal ant-space-align-center ant-pro-table-list-toolbar-right"
+              class="ant-space ant-space-horizontal ant-space-align-center ant-pro-table-list-toolbar-right "
             >
               <div
                 class="ant-space-item"
               >
                 <div
-                  class="ant-space ant-space-horizontal ant-space-align-center ant-pro-table-list-toolbar-setting-items"
+                  class="ant-space ant-space-horizontal ant-space-align-center ant-pro-table-list-toolbar-setting-items "
                 >
                   <div
                     class="ant-space-item"
                     style="margin-right: 12px;"
                   >
                     <div
-                      class="ant-pro-table-list-toolbar-setting-item"
+                      class="ant-pro-table-list-toolbar-setting-item "
                     >
                       <span>
                         <span
@@ -206,7 +206,7 @@ exports[`Table valueEnum 🎏 customization valueType 1`] = `
                     style="margin-right: 12px;"
                   >
                     <div
-                      class="ant-pro-table-list-toolbar-setting-item"
+                      class="ant-pro-table-list-toolbar-setting-item "
                     >
                       <span>
                         <span
@@ -236,7 +236,7 @@ exports[`Table valueEnum 🎏 customization valueType 1`] = `
                     class="ant-space-item"
                   >
                     <div
-                      class="ant-pro-table-list-toolbar-setting-item"
+                      class="ant-pro-table-list-toolbar-setting-item "
                     >
                       <span
                         aria-label="setting"
