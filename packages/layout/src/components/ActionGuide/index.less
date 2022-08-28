@@ -3,10 +3,23 @@
 @pro-action-guide-pre-cls: ~'pro-action-guide';
 
 .@{pro-action-guide-pre-cls} {
+  &-mask {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1001;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(0, 0, 0, 0.7);
+  }
+  &-container {
+    .ant-popover-open {
+      box-shadow: var(--boxShadow);
+      transition: 300ms box-shadow ease-in-out;
+    }
+  }
   &-content-box {
     position: relative;
-    .content-container {
-    }
     .footer-container {
       position: relative;
       margin-top: 5px;

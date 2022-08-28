@@ -1,5 +1,1268 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`layout demos 📸 renders ./packages/layout/src/components/ActionGuide/demos/basic.tsx correctly 1`] = `
+<DocumentFragment>
+  <div
+    class="pro-action-guide-container"
+    style="--boxShadow: 0 0 15px #333;"
+  >
+    <div
+      class="ant-pro-page-container ant-pro-page-container-with-footer"
+      style="width: 90%; margin: 0px auto;"
+    >
+      <div
+        class="ant-pro-page-container-warp"
+      >
+        <div
+          class="ant-page-header has-footer"
+        >
+          <div
+            class="ant-page-header-heading"
+          >
+            <div
+              class="ant-page-header-heading-left"
+            />
+            <span
+              class="ant-page-header-heading-extra"
+            >
+              <div
+                class="ant-space ant-space-horizontal ant-space-align-center"
+              >
+                <div
+                  class="ant-space-item"
+                  style="margin-right: 8px;"
+                >
+                  <button
+                    class="ant-btn ant-btn-default"
+                    type="button"
+                  >
+                    <span>
+                      操 作
+                    </span>
+                  </button>
+                </div>
+                <div
+                  class="ant-space-item"
+                  style="margin-right: 8px;"
+                >
+                  <button
+                    class="ant-btn ant-btn-default"
+                    type="button"
+                  >
+                    <span>
+                      操 作
+                    </span>
+                  </button>
+                </div>
+                <div
+                  class="ant-space-item"
+                >
+                  <button
+                    class="ant-btn ant-btn-primary"
+                    type="button"
+                  >
+                    <span>
+                      主操作
+                    </span>
+                  </button>
+                </div>
+              </div>
+            </span>
+          </div>
+          <div
+            class="ant-page-header-content"
+          >
+            <div
+              class="ant-pro-page-container-detail"
+            >
+              <div
+                class="ant-pro-page-container-main"
+              >
+                <div
+                  class="ant-pro-page-container-row"
+                >
+                  <div
+                    class="ant-pro-page-container-content"
+                  >
+                    <div
+                      style="background: rgb(255, 255, 255);"
+                    >
+                      欢迎使用 ProLayout 组件
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div
+            class="ant-page-header-footer"
+          >
+            <div
+              class="ant-tabs ant-tabs-top ant-pro-page-container-tabs"
+            >
+              <div
+                class="ant-tabs-nav"
+                role="tablist"
+              >
+                <div
+                  class="ant-tabs-nav-wrap"
+                >
+                  <div
+                    class="ant-tabs-nav-list"
+                    style="transform: translate(0px, 0px);"
+                  >
+                    <div
+                      class="ant-tabs-tab ant-tabs-tab-active"
+                    >
+                      <div
+                        aria-controls="rc-tabs-test-panel-base"
+                        aria-selected="true"
+                        class="ant-tabs-tab-btn"
+                        id="rc-tabs-test-tab-base"
+                        role="tab"
+                        tabindex="0"
+                      >
+                        基本信息
+                      </div>
+                    </div>
+                    <div
+                      class="ant-tabs-tab"
+                    >
+                      <div
+                        aria-controls="rc-tabs-test-panel-info"
+                        aria-selected="false"
+                        class="ant-tabs-tab-btn"
+                        id="rc-tabs-test-tab-info"
+                        role="tab"
+                        tabindex="0"
+                      >
+                        详细信息
+                      </div>
+                    </div>
+                    <div
+                      class="ant-tabs-ink-bar ant-tabs-ink-bar-animated"
+                      style="left: 0px; width: 0px;"
+                    />
+                  </div>
+                </div>
+                <div
+                  class="ant-tabs-nav-operations ant-tabs-nav-operations-hidden"
+                >
+                  <button
+                    aria-controls="rc-tabs-test-more-popup"
+                    aria-expanded="false"
+                    aria-haspopup="listbox"
+                    aria-hidden="true"
+                    class="ant-tabs-nav-more"
+                    id="rc-tabs-test-more"
+                    style="visibility: hidden; order: 1;"
+                    tabindex="-1"
+                    type="button"
+                  >
+                    <span
+                      aria-label="ellipsis"
+                      class="anticon anticon-ellipsis"
+                      role="img"
+                    >
+                      <svg
+                        aria-hidden="true"
+                        data-icon="ellipsis"
+                        fill="currentColor"
+                        focusable="false"
+                        height="1em"
+                        viewBox="64 64 896 896"
+                        width="1em"
+                      >
+                        <path
+                          d="M176 511a56 56 0 10112 0 56 56 0 10-112 0zm280 0a56 56 0 10112 0 56 56 0 10-112 0zm280 0a56 56 0 10112 0 56 56 0 10-112 0z"
+                        />
+                      </svg>
+                    </span>
+                  </button>
+                </div>
+              </div>
+              <div
+                class="ant-tabs-content-holder"
+              >
+                <div
+                  class="ant-tabs-content ant-tabs-content-top"
+                >
+                  <div
+                    aria-hidden="false"
+                    aria-labelledby="rc-tabs-test-tab-base"
+                    class="ant-tabs-tabpane ant-tabs-tabpane-active"
+                    id="rc-tabs-test-panel-base"
+                    role="tabpanel"
+                    tabindex="0"
+                  />
+                  <div
+                    aria-hidden="true"
+                    aria-labelledby="rc-tabs-test-tab-info"
+                    class="ant-tabs-tabpane"
+                    id="rc-tabs-test-panel-info"
+                    role="tabpanel"
+                    style="display: none;"
+                    tabindex="-1"
+                  />
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div
+        class="ant-pro-grid-content"
+      >
+        <div
+          class="ant-pro-grid-content-children"
+        >
+          <div
+            class="ant-pro-page-container-children-content"
+          >
+            <div
+              class="pro-action-guide-mask"
+              style="top: 0px;"
+            />
+            <div
+              class="ant-card ant-card-bordered ant-popover-open"
+              style="z-index: 1002; position: relative;"
+            >
+              <div
+                class="ant-card-head"
+              >
+                <div
+                  class="ant-card-head-wrapper"
+                >
+                  <div
+                    class="ant-card-head-title"
+                  >
+                    测试标题
+                  </div>
+                </div>
+              </div>
+              <div
+                class="ant-card-body"
+              >
+                <div
+                  class="ant-space ant-space-horizontal ant-space-align-center"
+                >
+                  <div
+                    class="ant-space-item"
+                    style="margin-right: 8px;"
+                  >
+                    <button
+                      class="ant-btn ant-btn-default"
+                      type="button"
+                    >
+                      <span>
+                        测试按钮1
+                      </span>
+                    </button>
+                  </div>
+                  <div
+                    class="ant-space-item"
+                    style="margin-right: 8px;"
+                  >
+                    <button
+                      class="ant-btn ant-btn-default"
+                      type="button"
+                    >
+                      <span>
+                        测试按钮2
+                      </span>
+                    </button>
+                  </div>
+                  <div
+                    class="ant-space-item"
+                    style="margin-right: 8px;"
+                  >
+                    <button
+                      class="ant-btn ant-btn-default"
+                      type="button"
+                    >
+                      <span>
+                        测试按钮3
+                      </span>
+                    </button>
+                  </div>
+                  <div
+                    class="ant-space-item"
+                    style="margin-right: 8px;"
+                  >
+                    <button
+                      class="ant-btn ant-btn-default"
+                      type="button"
+                    >
+                      <span>
+                        测试按钮4
+                      </span>
+                    </button>
+                  </div>
+                  <div
+                    class="ant-space-item"
+                    style="margin-right: 8px;"
+                  >
+                    <button
+                      class="ant-btn ant-btn-default"
+                      type="button"
+                    >
+                      <span>
+                        测试按钮5
+                      </span>
+                    </button>
+                  </div>
+                  <div
+                    class="ant-space-item"
+                  >
+                    <button
+                      class="ant-btn ant-btn-default"
+                      type="button"
+                    >
+                      <span>
+                        测试按钮6
+                      </span>
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div
+              class="ant-card ant-card-bordered"
+            >
+              <div
+                class="ant-card-head"
+              >
+                <div
+                  class="ant-card-head-wrapper"
+                >
+                  <div
+                    class="ant-card-head-title"
+                  >
+                    测试标题2
+                  </div>
+                </div>
+              </div>
+              <div
+                class="ant-card-body"
+              >
+                <div
+                  class="ant-space ant-space-horizontal ant-space-align-center"
+                >
+                  <div
+                    class="ant-space-item"
+                    style="margin-right: 8px;"
+                  >
+                    <button
+                      class="ant-btn ant-btn-default"
+                      type="button"
+                    >
+                      <span>
+                        测试按钮1
+                      </span>
+                    </button>
+                  </div>
+                  <div
+                    class="ant-space-item"
+                    style="margin-right: 8px;"
+                  >
+                    <button
+                      class="ant-btn ant-btn-default"
+                      type="button"
+                    >
+                      <span>
+                        测试按钮2
+                      </span>
+                    </button>
+                  </div>
+                  <div
+                    class="ant-space-item"
+                    style="margin-right: 8px;"
+                  >
+                    <button
+                      class="ant-btn ant-btn-default"
+                      type="button"
+                    >
+                      <span>
+                        测试按钮3
+                      </span>
+                    </button>
+                  </div>
+                  <div
+                    class="ant-space-item"
+                    style="margin-right: 8px;"
+                  >
+                    <button
+                      class="ant-btn ant-btn-default"
+                      type="button"
+                    >
+                      <span>
+                        测试按钮4
+                      </span>
+                    </button>
+                  </div>
+                  <div
+                    class="ant-space-item"
+                    style="margin-right: 8px;"
+                  >
+                    <button
+                      class="ant-btn ant-btn-default"
+                      type="button"
+                    >
+                      <span>
+                        测试按钮5
+                      </span>
+                    </button>
+                  </div>
+                  <div
+                    class="ant-space-item"
+                  >
+                    <button
+                      class="ant-btn ant-btn-default"
+                      type="button"
+                    >
+                      <span>
+                        测试按钮6
+                      </span>
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div
+              class="ant-card ant-card-bordered"
+            >
+              <div
+                class="ant-card-head"
+              >
+                <div
+                  class="ant-card-head-wrapper"
+                >
+                  <div
+                    class="ant-card-head-title"
+                  >
+                    测试标题3
+                  </div>
+                </div>
+              </div>
+              <div
+                class="ant-card-body"
+              >
+                <div
+                  class="ant-space ant-space-horizontal ant-space-align-center"
+                >
+                  <div
+                    class="ant-space-item"
+                    style="margin-right: 8px;"
+                  >
+                    <button
+                      class="ant-btn ant-btn-default"
+                      type="button"
+                    >
+                      <span>
+                        测试按钮1
+                      </span>
+                    </button>
+                  </div>
+                  <div
+                    class="ant-space-item"
+                    style="margin-right: 8px;"
+                  >
+                    <button
+                      class="ant-btn ant-btn-default"
+                      type="button"
+                    >
+                      <span>
+                        测试按钮2
+                      </span>
+                    </button>
+                  </div>
+                  <div
+                    class="ant-space-item"
+                    style="margin-right: 8px;"
+                  >
+                    <button
+                      class="ant-btn ant-btn-default"
+                      type="button"
+                    >
+                      <span>
+                        测试按钮3
+                      </span>
+                    </button>
+                  </div>
+                  <div
+                    class="ant-space-item"
+                    style="margin-right: 8px;"
+                  >
+                    <button
+                      class="ant-btn ant-btn-default"
+                      type="button"
+                    >
+                      <span>
+                        测试按钮4
+                      </span>
+                    </button>
+                  </div>
+                  <div
+                    class="ant-space-item"
+                    style="margin-right: 8px;"
+                  >
+                    <button
+                      class="ant-btn ant-btn-default"
+                      type="button"
+                    >
+                      <span>
+                        测试按钮5
+                      </span>
+                    </button>
+                  </div>
+                  <div
+                    class="ant-space-item"
+                  >
+                    <button
+                      class="ant-btn ant-btn-default"
+                      type="button"
+                    >
+                      <span>
+                        测试按钮6
+                      </span>
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div
+        class="ant-pro-footer-bar"
+      >
+        <div
+          class="ant-pro-footer-bar-left"
+        />
+        <div
+          class="ant-pro-footer-bar-right"
+        >
+          <button
+            class="ant-btn ant-btn-default"
+            type="button"
+          >
+            <span>
+              重 置
+            </span>
+          </button>
+          <button
+            class="ant-btn ant-btn-primary"
+            type="button"
+          >
+            <span>
+              提 交
+            </span>
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</DocumentFragment>
+`;
+
+exports[`layout demos 📸 renders ./packages/layout/src/components/ActionGuide/demos/mask.tsx correctly 1`] = `
+<DocumentFragment>
+  <div
+    class="pro-action-guide-container"
+    style="--boxShadow: 0 0 15px #333;"
+  >
+    <div
+      class="ant-card ant-card-bordered ant-popover-open"
+      style="z-index: 1002; position: relative;"
+    >
+      <div
+        class="ant-card-head"
+      >
+        <div
+          class="ant-card-head-wrapper"
+        >
+          <div
+            class="ant-card-head-title"
+          >
+            测试标题
+          </div>
+        </div>
+      </div>
+      <div
+        class="ant-card-body"
+      >
+        <div
+          class="ant-space ant-space-horizontal ant-space-align-center"
+        >
+          <div
+            class="ant-space-item"
+            style="margin-right: 8px;"
+          >
+            <button
+              class="ant-btn ant-btn-default"
+              type="button"
+            >
+              <span>
+                测试按钮1
+              </span>
+            </button>
+          </div>
+          <div
+            class="ant-space-item"
+            style="margin-right: 8px;"
+          >
+            <button
+              class="ant-btn ant-btn-default"
+              type="button"
+            >
+              <span>
+                测试按钮2
+              </span>
+            </button>
+          </div>
+          <div
+            class="ant-space-item"
+            style="margin-right: 8px;"
+          >
+            <button
+              class="ant-btn ant-btn-default"
+              type="button"
+            >
+              <span>
+                测试按钮3
+              </span>
+            </button>
+          </div>
+          <div
+            class="ant-space-item"
+            style="margin-right: 8px;"
+          >
+            <button
+              class="ant-btn ant-btn-default"
+              type="button"
+            >
+              <span>
+                测试按钮4
+              </span>
+            </button>
+          </div>
+          <div
+            class="ant-space-item"
+            style="margin-right: 8px;"
+          >
+            <button
+              class="ant-btn ant-btn-default"
+              type="button"
+            >
+              <span>
+                测试按钮5
+              </span>
+            </button>
+          </div>
+          <div
+            class="ant-space-item"
+          >
+            <button
+              class="ant-btn ant-btn-default"
+              type="button"
+            >
+              <span>
+                测试按钮6
+              </span>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</DocumentFragment>
+`;
+
+exports[`layout demos 📸 renders ./packages/layout/src/components/ActionGuide/demos/pagination-disaplay-size.tsx correctly 1`] = `
+<DocumentFragment>
+  <div
+    class="pro-action-guide-container"
+    style="--boxShadow: 0 0 15px #333;"
+  >
+    <div
+      class="pro-action-guide-mask"
+      style="top: 0px;"
+    />
+    <div
+      class="ant-card ant-card-bordered ant-popover-open"
+      style="z-index: 1002; position: relative;"
+    >
+      <div
+        class="ant-card-head"
+      >
+        <div
+          class="ant-card-head-wrapper"
+        >
+          <div
+            class="ant-card-head-title"
+          >
+            测试标题
+          </div>
+        </div>
+      </div>
+      <div
+        class="ant-card-body"
+      >
+        <div
+          class="ant-space ant-space-horizontal ant-space-align-center"
+        >
+          <div
+            class="ant-space-item"
+            style="margin-right: 8px;"
+          >
+            <button
+              class="ant-btn ant-btn-default"
+              type="button"
+            >
+              <span>
+                测试按钮1
+              </span>
+            </button>
+          </div>
+          <div
+            class="ant-space-item"
+            style="margin-right: 8px;"
+          >
+            <button
+              class="ant-btn ant-btn-default"
+              type="button"
+            >
+              <span>
+                测试按钮2
+              </span>
+            </button>
+          </div>
+          <div
+            class="ant-space-item"
+            style="margin-right: 8px;"
+          >
+            <button
+              class="ant-btn ant-btn-default"
+              type="button"
+            >
+              <span>
+                测试按钮3
+              </span>
+            </button>
+          </div>
+          <div
+            class="ant-space-item"
+            style="margin-right: 8px;"
+          >
+            <button
+              class="ant-btn ant-btn-default"
+              type="button"
+            >
+              <span>
+                测试按钮4
+              </span>
+            </button>
+          </div>
+          <div
+            class="ant-space-item"
+            style="margin-right: 8px;"
+          >
+            <button
+              class="ant-btn ant-btn-default"
+              type="button"
+            >
+              <span>
+                测试按钮5
+              </span>
+            </button>
+          </div>
+          <div
+            class="ant-space-item"
+          >
+            <button
+              class="ant-btn ant-btn-default"
+              type="button"
+            >
+              <span>
+                测试按钮6
+              </span>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</DocumentFragment>
+`;
+
+exports[`layout demos 📸 renders ./packages/layout/src/components/ActionGuide/demos/paginationTheme-dot.tsx correctly 1`] = `
+<DocumentFragment>
+  <div
+    class="pro-action-guide-container"
+    style="--boxShadow: 0 0 15px #333;"
+  >
+    <div
+      class="pro-action-guide-mask"
+      style="top: 0px;"
+    />
+    <div
+      class="ant-card ant-card-bordered ant-popover-open"
+      style="z-index: 1002; position: relative;"
+    >
+      <div
+        class="ant-card-head"
+      >
+        <div
+          class="ant-card-head-wrapper"
+        >
+          <div
+            class="ant-card-head-title"
+          >
+            测试标题
+          </div>
+        </div>
+      </div>
+      <div
+        class="ant-card-body"
+      >
+        <div
+          class="ant-space ant-space-horizontal ant-space-align-center"
+        >
+          <div
+            class="ant-space-item"
+            style="margin-right: 8px;"
+          >
+            <button
+              class="ant-btn ant-btn-default"
+              type="button"
+            >
+              <span>
+                测试按钮1
+              </span>
+            </button>
+          </div>
+          <div
+            class="ant-space-item"
+            style="margin-right: 8px;"
+          >
+            <button
+              class="ant-btn ant-btn-default"
+              type="button"
+            >
+              <span>
+                测试按钮2
+              </span>
+            </button>
+          </div>
+          <div
+            class="ant-space-item"
+            style="margin-right: 8px;"
+          >
+            <button
+              class="ant-btn ant-btn-default"
+              type="button"
+            >
+              <span>
+                测试按钮3
+              </span>
+            </button>
+          </div>
+          <div
+            class="ant-space-item"
+            style="margin-right: 8px;"
+          >
+            <button
+              class="ant-btn ant-btn-default"
+              type="button"
+            >
+              <span>
+                测试按钮4
+              </span>
+            </button>
+          </div>
+          <div
+            class="ant-space-item"
+            style="margin-right: 8px;"
+          >
+            <button
+              class="ant-btn ant-btn-default"
+              type="button"
+            >
+              <span>
+                测试按钮5
+              </span>
+            </button>
+          </div>
+          <div
+            class="ant-space-item"
+          >
+            <button
+              class="ant-btn ant-btn-default"
+              type="button"
+            >
+              <span>
+                测试按钮6
+              </span>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</DocumentFragment>
+`;
+
+exports[`layout demos 📸 renders ./packages/layout/src/components/ActionGuide/demos/paginationTheme-index.tsx correctly 1`] = `
+<DocumentFragment>
+  <div
+    class="pro-action-guide-container"
+    style="--boxShadow: 0 0 15px #333;"
+  >
+    <div
+      class="pro-action-guide-mask"
+      style="top: 0px;"
+    />
+    <div
+      class="ant-card ant-card-bordered ant-popover-open"
+      style="z-index: 1002; position: relative;"
+    >
+      <div
+        class="ant-card-head"
+      >
+        <div
+          class="ant-card-head-wrapper"
+        >
+          <div
+            class="ant-card-head-title"
+          >
+            测试标题
+          </div>
+        </div>
+      </div>
+      <div
+        class="ant-card-body"
+      >
+        <div
+          class="ant-space ant-space-horizontal ant-space-align-center"
+        >
+          <div
+            class="ant-space-item"
+            style="margin-right: 8px;"
+          >
+            <button
+              class="ant-btn ant-btn-default"
+              type="button"
+            >
+              <span>
+                测试按钮1
+              </span>
+            </button>
+          </div>
+          <div
+            class="ant-space-item"
+            style="margin-right: 8px;"
+          >
+            <button
+              class="ant-btn ant-btn-default"
+              type="button"
+            >
+              <span>
+                测试按钮2
+              </span>
+            </button>
+          </div>
+          <div
+            class="ant-space-item"
+            style="margin-right: 8px;"
+          >
+            <button
+              class="ant-btn ant-btn-default"
+              type="button"
+            >
+              <span>
+                测试按钮3
+              </span>
+            </button>
+          </div>
+          <div
+            class="ant-space-item"
+            style="margin-right: 8px;"
+          >
+            <button
+              class="ant-btn ant-btn-default"
+              type="button"
+            >
+              <span>
+                测试按钮4
+              </span>
+            </button>
+          </div>
+          <div
+            class="ant-space-item"
+            style="margin-right: 8px;"
+          >
+            <button
+              class="ant-btn ant-btn-default"
+              type="button"
+            >
+              <span>
+                测试按钮5
+              </span>
+            </button>
+          </div>
+          <div
+            class="ant-space-item"
+          >
+            <button
+              class="ant-btn ant-btn-default"
+              type="button"
+            >
+              <span>
+                测试按钮6
+              </span>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</DocumentFragment>
+`;
+
+exports[`layout demos 📸 renders ./packages/layout/src/components/ActionGuide/demos/renderButton.tsx correctly 1`] = `
+<DocumentFragment>
+  <div
+    class="pro-action-guide-container"
+    style="--boxShadow: 0 0 15px #333;"
+  >
+    <div
+      class="pro-action-guide-mask"
+      style="top: 0px;"
+    />
+    <div
+      class="ant-card ant-card-bordered ant-popover-open"
+      style="z-index: 1002; position: relative;"
+    >
+      <div
+        class="ant-card-head"
+      >
+        <div
+          class="ant-card-head-wrapper"
+        >
+          <div
+            class="ant-card-head-title"
+          >
+            测试标题
+          </div>
+        </div>
+      </div>
+      <div
+        class="ant-card-body"
+      >
+        <div
+          class="ant-space ant-space-horizontal ant-space-align-center"
+        >
+          <div
+            class="ant-space-item"
+            style="margin-right: 8px;"
+          >
+            <button
+              class="ant-btn ant-btn-default"
+              type="button"
+            >
+              <span>
+                测试按钮1
+              </span>
+            </button>
+          </div>
+          <div
+            class="ant-space-item"
+            style="margin-right: 8px;"
+          >
+            <button
+              class="ant-btn ant-btn-default"
+              type="button"
+            >
+              <span>
+                测试按钮2
+              </span>
+            </button>
+          </div>
+          <div
+            class="ant-space-item"
+            style="margin-right: 8px;"
+          >
+            <button
+              class="ant-btn ant-btn-default"
+              type="button"
+            >
+              <span>
+                测试按钮3
+              </span>
+            </button>
+          </div>
+          <div
+            class="ant-space-item"
+            style="margin-right: 8px;"
+          >
+            <button
+              class="ant-btn ant-btn-default"
+              type="button"
+            >
+              <span>
+                测试按钮4
+              </span>
+            </button>
+          </div>
+          <div
+            class="ant-space-item"
+            style="margin-right: 8px;"
+          >
+            <button
+              class="ant-btn ant-btn-default"
+              type="button"
+            >
+              <span>
+                测试按钮5
+              </span>
+            </button>
+          </div>
+          <div
+            class="ant-space-item"
+          >
+            <button
+              class="ant-btn ant-btn-default"
+              type="button"
+            >
+              <span>
+                测试按钮6
+              </span>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</DocumentFragment>
+`;
+
+exports[`layout demos 📸 renders ./packages/layout/src/components/ActionGuide/demos/skip.tsx correctly 1`] = `
+<DocumentFragment>
+  <div
+    class="pro-action-guide-container"
+    style="--boxShadow: 0 0 15px #333;"
+  >
+    <div
+      class="pro-action-guide-mask"
+      style="top: 0px;"
+    />
+    <div
+      class="ant-card ant-card-bordered ant-popover-open"
+      style="z-index: 1002; position: relative;"
+    >
+      <div
+        class="ant-card-head"
+      >
+        <div
+          class="ant-card-head-wrapper"
+        >
+          <div
+            class="ant-card-head-title"
+          >
+            测试标题
+          </div>
+        </div>
+      </div>
+      <div
+        class="ant-card-body"
+      >
+        <div
+          class="ant-space ant-space-horizontal ant-space-align-center"
+        >
+          <div
+            class="ant-space-item"
+            style="margin-right: 8px;"
+          >
+            <button
+              class="ant-btn ant-btn-default"
+              type="button"
+            >
+              <span>
+                测试按钮1
+              </span>
+            </button>
+          </div>
+          <div
+            class="ant-space-item"
+            style="margin-right: 8px;"
+          >
+            <button
+              class="ant-btn ant-btn-default"
+              type="button"
+            >
+              <span>
+                测试按钮2
+              </span>
+            </button>
+          </div>
+          <div
+            class="ant-space-item"
+            style="margin-right: 8px;"
+          >
+            <button
+              class="ant-btn ant-btn-default"
+              type="button"
+            >
+              <span>
+                测试按钮3
+              </span>
+            </button>
+          </div>
+          <div
+            class="ant-space-item"
+            style="margin-right: 8px;"
+          >
+            <button
+              class="ant-btn ant-btn-default"
+              type="button"
+            >
+              <span>
+                测试按钮4
+              </span>
+            </button>
+          </div>
+          <div
+            class="ant-space-item"
+            style="margin-right: 8px;"
+          >
+            <button
+              class="ant-btn ant-btn-default"
+              type="button"
+            >
+              <span>
+                测试按钮5
+              </span>
+            </button>
+          </div>
+          <div
+            class="ant-space-item"
+          >
+            <button
+              class="ant-btn ant-btn-default"
+              type="button"
+            >
+              <span>
+                测试按钮6
+              </span>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</DocumentFragment>
+`;
+
 exports[`layout demos 📸 renders ./packages/layout/src/components/PageContainer/demos/basic.tsx correctly 1`] = `
 <DocumentFragment>
   <div

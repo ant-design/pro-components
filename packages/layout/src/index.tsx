@@ -1,5 +1,11 @@
 import type { BasicLayoutProps } from './BasicLayout';
 import { default as BasicLayout, default as ProLayout } from './BasicLayout';
+import { ActionGuideContainer, ActionGuideItem } from './components/ActionGuide';
+import type {
+  ActionGuideAction,
+  ActionGuideContainerProps,
+  ActionGuideItemProps,
+} from './components/ActionGuide/interface';
 import FooterToolbar from './components/FooterToolbar';
 import GridContent from './components/GridContent';
 import type { PageContainerProps } from './components/PageContainer';
@@ -40,6 +46,8 @@ export {
   WaterMark,
   ProPageHeader,
   ProBreadcrumb,
+  ActionGuideContainer,
+  ActionGuideItem,
 };
 export type {
   FooterProps,
@@ -51,6 +59,9 @@ export type {
   HeaderProps,
   SettingDrawerProps,
   SettingDrawerState,
+  ActionGuideAction,
+  ActionGuideContainerProps,
+  ActionGuideItemProps,
 };
 
 export default BasicLayout;
