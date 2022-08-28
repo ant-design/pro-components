@@ -381,8 +381,13 @@ describe('ActionGuide test', () => {
 
     const html = render(<App />);
     await waitForComponentToPaint(html, 300);
-
     expect(html.baseElement.querySelectorAll('.pagination-item').length).toBe(4);
+
+    await act(async () => {
+      fireEvent.click(html.baseElement.querySelectorAll('.pagination-item')[3]);
+    });
+    await waitForComponentToPaint(html, 300);
+    expect(html.baseElement.querySelector('.pagination-item.cur')?.textContent).toBe('4');
     html.unmount();
   });
   it('🐯 do not show pagination', async () => {
@@ -415,7 +420,6 @@ describe('ActionGuide test', () => {
 
     const html = render(<App />);
     await waitForComponentToPaint(html, 300);
-
     expect(html.baseElement.querySelectorAll('.pagination-item').length).toBe(0);
     html.unmount();
   });

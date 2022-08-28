@@ -18,6 +18,7 @@ import type {
 function recursiveMap(children: ReactNode, fn: (child: ReactNode) => any): void {
   React.Children.map(children, (child) => {
     if (!React.isValidElement(child)) {
+      /* istanbul ignore next */
       return;
     }
 
@@ -34,7 +35,9 @@ function recursiveMap(children: ReactNode, fn: (child: ReactNode) => any): void 
           }
         });
       } else if (Array.isArray(prop)) {
+        /* istanbul ignore next */
         recursiveMap(
+          /* istanbul ignore next */
           prop.filter((item) => React.isValidElement(item)),
           fn,
         );
