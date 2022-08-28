@@ -3,6 +3,35 @@
 exports[`layout demos 📸 renders ./packages/layout/src/components/ActionGuide/demos/basic.tsx correctly 1`] = `
 <DocumentFragment>
   <div
+    class="ant-space ant-space-horizontal ant-space-align-center"
+  >
+    <div
+      class="ant-space-item"
+      style="margin-right: 8px;"
+    >
+      <button
+        class="ant-btn ant-btn-default"
+        type="button"
+      >
+        <span>
+          显示第一页操作指引
+        </span>
+      </button>
+    </div>
+    <div
+      class="ant-space-item"
+    >
+      <button
+        class="ant-btn ant-btn-default"
+        type="button"
+      >
+        <span>
+          最后一页
+        </span>
+      </button>
+    </div>
+  </div>
+  <div
     class="pro-action-guide-container"
     style="--boxShadow: 0 0 15px #333;"
   >
@@ -220,12 +249,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/components/ActionGuide/
             class="ant-pro-page-container-children-content"
           >
             <div
-              class="pro-action-guide-mask"
-              style="top: 0px;"
-            />
-            <div
-              class="ant-card ant-card-bordered ant-popover-open"
-              style="z-index: 1002; position: relative;"
+              class="ant-card ant-card-bordered"
             >
               <div
                 class="ant-card-head"

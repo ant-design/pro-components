@@ -175,7 +175,9 @@ export const ActionGuideContainer: React.FC<PropsWithChildren<ActionGuideContain
   useEffect(() => {
     window.onscroll = function () {
       const mask = document.querySelector(`.${prefixCls}-mask`) as HTMLDivElement;
+      /* istanbul ignore next */
       if (mask) {
+        /* istanbul ignore next */
         setScrollTop(document.scrollingElement?.scrollTop || 0);
       }
     };
