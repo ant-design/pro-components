@@ -10,6 +10,11 @@ import type {
   PaginationProps,
 } from './interface';
 
+/**
+ * 用于递归遍历 children 中所有合法的`React.Element`，我们可以通过这个方法统计在`ActionGuideContainer`下包含几个`ActionGuideItem`
+ * @param children
+ * @param fn
+ */
 function recursiveMap(children: ReactNode, fn: (child: ReactNode) => any): void {
   React.Children.map(children, (child) => {
     if (!React.isValidElement(child)) {
@@ -41,6 +46,13 @@ function recursiveMap(children: ReactNode, fn: (child: ReactNode) => any): void 
 }
 
 const prefixCls = 'pro-action-guide';
+/**
+ * 根据传入的总数、当前页码和实际显示的分页项数量计算需要渲染的分页项
+ * @param total 总共有几页
+ * @param cur 当前在第几页
+ * @param showPaginationSize 要展示的分页项数量
+ * @returns
+ */
 function getPageItem(total: number, cur: number = 0, showPaginationSize = 3): number[] {
   if (cur < 0) return [];
   let p = 0;
