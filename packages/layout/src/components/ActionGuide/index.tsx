@@ -127,11 +127,11 @@ export const ActionGuideContainer: React.FC<PropsWithChildren<ActionGuideContain
         setCurIdx(idx as number);
         return;
       }
-      let realIdx = 0;
+      let realIdx = 1;
       if (idx === 'first') {
-        realIdx = 0;
+        realIdx = 1;
       } else if (idx === 'last') {
-        realIdx = itemCnt - 1;
+        realIdx = itemCnt;
       } else {
         realIdx = idx;
       }
@@ -143,7 +143,7 @@ export const ActionGuideContainer: React.FC<PropsWithChildren<ActionGuideContain
 
       setCurIdx(realIdx);
 
-      if (scrollToTarget && idx >= 0) {
+      if (scrollToTarget && realIdx >= 0) {
         timer.current = setTimeout(() => {
           const target = document.querySelector('.ant-popover-open');
           target?.scrollIntoView?.({ block: 'center', behavior: 'smooth', inline: 'center' });
@@ -151,9 +151,11 @@ export const ActionGuideContainer: React.FC<PropsWithChildren<ActionGuideContain
       }
     },
   };
-  if (actionRef && !actionRef.current) {
-    actionRef.current = action;
-  }
+  useEffect(() => {
+    if (actionRef) {
+      actionRef.current = action;
+    }
+  }, [itemCnt]);
   useEffect(() => {
     let cnt = 0;
     recursiveMap(children, (child) => {
@@ -231,7 +233,7 @@ export const ActionGuideItem: React.FC<PropsWithChildren<ActionGuideItemProps>> 
             ? null
             : ctx?.pagination === undefined
             ? defaultPagination
-            : ctx.pagination(ctx.curIdx, ctx.action);
+            : ctx.pagination(ctx.curIdx, ctx.total, ctx.action);
         const userContent = typeof content === 'function' ? content(ctx.curIdx) : content;
         const defaultBtn = [
           <Button

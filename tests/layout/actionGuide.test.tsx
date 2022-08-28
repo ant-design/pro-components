@@ -2,7 +2,8 @@ import type { ActionGuideAction } from '@ant-design/pro-layout';
 import { ActionGuideContainer, ActionGuideItem } from '@ant-design/pro-layout';
 import { fireEvent, render } from '@testing-library/react';
 import { Button, Card, Space } from 'antd';
-import { ReactNode, useEffect, useRef } from 'react';
+import type { ReactNode } from 'react';
+import { useEffect, useRef } from 'react';
 import { act } from 'react-dom/test-utils';
 import { waitForComponentToPaint } from '../util';
 
@@ -17,36 +18,58 @@ describe('ActionGuide test', () => {
       }, []);
 
       return (
-        <ActionGuideContainer
-          title={<div>操作指引标题</div>}
-          actionRef={actionRef}
-          paginationTheme="dot"
-          onChange={async ({ curIdx }) => {
-            change(curIdx);
-            return true;
-          }}
-        >
-          <ActionGuideItem step={1} content="这是第一步的内容">
-            <Card title="测试标题">
-              <Space>
-                <ActionGuideItem step={2} content="这是第二步的内容">
-                  <Button>测试按钮1</Button>
-                </ActionGuideItem>
-                <Button>测试按钮2</Button>
-                <Button>测试按钮3</Button>
-                <Button>测试按钮4</Button>
-                <Button>测试按钮5</Button>
-                <ActionGuideItem step={3} content="这是第三步的内容">
-                  <Button>测试按钮6</Button>
-                </ActionGuideItem>
-              </Space>
-            </Card>
-          </ActionGuideItem>
-        </ActionGuideContainer>
+        <>
+          <Button onClick={() => actionRef.current?.show('first')}>第一页</Button>
+          <Button onClick={() => actionRef.current?.show('last')}>最后一页</Button>
+          <ActionGuideContainer
+            title={<div>操作指引标题</div>}
+            actionRef={actionRef}
+            paginationTheme="dot"
+            onChange={async ({ curIdx }) => {
+              change(curIdx);
+              return true;
+            }}
+          >
+            <ActionGuideItem step={1} content="这是第一步的内容">
+              <Card title="测试标题">
+                <Space>
+                  <ActionGuideItem step={2} content="这是第二步的内容">
+                    <Button>测试按钮1</Button>
+                  </ActionGuideItem>
+                  <Button>测试按钮2</Button>
+                  <Button>测试按钮3</Button>
+                  <Button>测试按钮4</Button>
+                  <Button>测试按钮5</Button>
+                  <ActionGuideItem step={3} content="这是第三步的内容">
+                    <Button>测试按钮6</Button>
+                  </ActionGuideItem>
+                </Space>
+              </Card>
+            </ActionGuideItem>
+          </ActionGuideContainer>
+        </>
       );
     }
 
     const html = render(<App />);
+    await waitForComponentToPaint(html, 300);
+    expect((await html.findAllByText('这是第一步的内容')).length).toBe(1);
+    expect(change).toBeCalledWith(1);
+    await act(async () => {
+      await fireEvent.click(await html.findByText('最后一页'));
+    });
+    await waitForComponentToPaint(html, 300);
+    expect((await html.findAllByText('这是第三步的内容')).length).toBe(1);
+    expect(change).toBeCalledWith(3);
+
+    await act(async () => {
+      await fireEvent.click(await html.findByText('我知道了'));
+    });
+    await waitForComponentToPaint(html, 300);
+    expect((await html.baseElement.querySelectorAll('.ant-popover')).length).toBe(0);
+    await act(async () => {
+      await fireEvent.click(await html.findByText('第一页'));
+    });
     await waitForComponentToPaint(html, 300);
     expect((await html.findAllByText('这是第一步的内容')).length).toBe(1);
     expect(change).toBeCalledWith(1);
@@ -139,7 +162,6 @@ describe('ActionGuide test', () => {
     function App() {
       return (
         <ActionGuideContainer
-          title={<div>操作指引标题</div>}
           paginationTheme="dot"
           defaultIndex={1}
           onChange={async ({ curIdx }) => {
@@ -361,6 +383,89 @@ describe('ActionGuide test', () => {
     await waitForComponentToPaint(html, 300);
 
     expect(html.baseElement.querySelectorAll('.pagination-item').length).toBe(4);
+    html.unmount();
+  });
+  it('🐯 do not show pagination', async () => {
+    function App() {
+      return (
+        <ActionGuideContainer title={<div>操作指引标题</div>} pagination={false} defaultIndex={1}>
+          <ActionGuideItem step={1} content="这是第一步的内容">
+            <Card title="测试标题">
+              <Space>
+                <ActionGuideItem step={2} content="这是第二步的内容">
+                  <Button>测试按钮1</Button>
+                </ActionGuideItem>
+                <Button>测试按钮2</Button>
+                <ActionGuideItem step={3} content="这是第三步的内容">
+                  <Button>测试按钮3</Button>
+                </ActionGuideItem>
+                <ActionGuideItem step={4} content="这是第四步的内容">
+                  <Button>测试按钮4</Button>
+                </ActionGuideItem>
+                <Button>测试按钮5</Button>
+                <ActionGuideItem step={5} content="这是第五步的内容">
+                  <Button>测试按钮6</Button>
+                </ActionGuideItem>
+              </Space>
+            </Card>
+          </ActionGuideItem>
+        </ActionGuideContainer>
+      );
+    }
+
+    const html = render(<App />);
+    await waitForComponentToPaint(html, 300);
+
+    expect(html.baseElement.querySelectorAll('.pagination-item').length).toBe(0);
+    html.unmount();
+  });
+  it('🐯 custom pagination', async () => {
+    function App() {
+      return (
+        <ActionGuideContainer
+          title={<div>操作指引标题</div>}
+          pagination={(idx, total) => (
+            <div>
+              <Button type="link" className="custom-pagination-cur">
+                {idx}
+              </Button>
+              /
+              <Button className="custom-pagination-total" type="link">
+                {total}
+              </Button>
+            </div>
+          )}
+          defaultIndex={1}
+        >
+          <ActionGuideItem step={1} content="这是第一步的内容">
+            <Card title="测试标题">
+              <Space>
+                <ActionGuideItem step={2} content="这是第二步的内容">
+                  <Button>测试按钮1</Button>
+                </ActionGuideItem>
+                <Button>测试按钮2</Button>
+                <ActionGuideItem step={3} content="这是第三步的内容">
+                  <Button>测试按钮3</Button>
+                </ActionGuideItem>
+                <ActionGuideItem step={4} content="这是第四步的内容">
+                  <Button>测试按钮4</Button>
+                </ActionGuideItem>
+                <Button>测试按钮5</Button>
+                <ActionGuideItem step={5} content="这是第五步的内容">
+                  <Button>测试按钮6</Button>
+                </ActionGuideItem>
+              </Space>
+            </Card>
+          </ActionGuideItem>
+        </ActionGuideContainer>
+      );
+    }
+
+    const html = render(<App />);
+    await waitForComponentToPaint(html, 300);
+
+    expect(html.baseElement.querySelectorAll('.custom-pagination-cur').length).toBe(1);
+    expect(html.baseElement.querySelectorAll('.custom-pagination-total').length).toBe(1);
     html.unmount();
   });
   it('🐯 show mask', async () => {

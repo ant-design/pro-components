@@ -68,7 +68,7 @@ export type ActionGuideContainerProps = {
   /**
    * 分页渲染器，默认时使用默认的分页器，设为 false 则不显示，可通过传入渲染方法自定义分页渲染器
    */
-  pagination?: false | ((idx: number, action: ActionGuideAction) => ReactNode);
+  pagination?: false | ((idx: number, total: number, action: ActionGuideAction) => ReactNode);
   /**
    * 是否自动滚动页面使得目标组件完全显示，默认为 true
    */

@@ -1,6 +1,6 @@
 import { Button, Card, Space } from 'antd';
 import type { ReactNode } from 'react';
-import { useEffect, useRef } from 'react';
+import { useRef } from 'react';
 import { ActionGuideContainer, ActionGuideItem } from '..';
 import PageContainer from '../../PageContainer';
 import type { ActionGuideAction } from '../interface';
@@ -8,20 +8,17 @@ import type { ActionGuideAction } from '../interface';
 export default () => {
   const actionRef = useRef<ActionGuideAction>();
 
-  useEffect(() => {
-    setTimeout(() => {
-      actionRef.current?.show(2);
-    }, 3000);
-  }, []);
-
   return (
     <>
+      <Space>
+        <Button onClick={() => actionRef.current?.show('first')}>显示第一页操作指引</Button>
+        <Button onClick={() => actionRef.current?.show('last')}>最后一页</Button>
+      </Space>
       <ActionGuideContainer
         title={<div style={{ width: 230 }}>操作指引标题</div>}
         actionRef={actionRef}
         paginationTheme="index"
         showPaginationSize={3}
-        defaultIndex={1}
         mask
         canSkip
         renderButton={({ curIdx, total, next, skip }) => {
@@ -77,7 +74,7 @@ export default () => {
             </ActionGuideItem>,
           ]}
           footer={[
-            <ActionGuideItem key="reset" step={10} content="最后十步内容">
+            <ActionGuideItem key="reset" step={10} content="最后一步内容">
               <Button key="rest">重置</Button>
             </ActionGuideItem>,
             <Button key="submit" type="primary">
