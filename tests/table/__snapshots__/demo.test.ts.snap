@@ -10632,6 +10632,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/ListToolBar/basic.t
                             应用名称
                           </th>
                           <th
+                            aria-label="[object Object] sortable"
                             class="ant-table-cell ant-table-column-has-sorters"
                             style="text-align: right;"
                             tabindex="0"
@@ -10653,7 +10654,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/ListToolBar/basic.t
                                   <span
                                     aria-label="caret-up"
                                     class="anticon anticon-caret-up ant-table-column-sorter-up"
-                                    role="img"
+                                    role="presentation"
                                   >
                                     <svg
                                       aria-hidden="true"
@@ -10672,7 +10673,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/ListToolBar/basic.t
                                   <span
                                     aria-label="caret-down"
                                     class="anticon anticon-caret-down ant-table-column-sorter-down"
-                                    role="img"
+                                    role="presentation"
                                   >
                                     <svg
                                       aria-hidden="true"
@@ -11563,6 +11564,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/ListToolBar/menu.ts
                             应用名称
                           </th>
                           <th
+                            aria-label="[object Object] sortable"
                             class="ant-table-cell ant-table-column-has-sorters"
                             style="text-align: right;"
                             tabindex="0"
@@ -11584,7 +11586,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/ListToolBar/menu.ts
                                   <span
                                     aria-label="caret-up"
                                     class="anticon anticon-caret-up ant-table-column-sorter-up"
-                                    role="img"
+                                    role="presentation"
                                   >
                                     <svg
                                       aria-hidden="true"
@@ -11603,7 +11605,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/ListToolBar/menu.ts
                                   <span
                                     aria-label="caret-down"
                                     class="anticon anticon-caret-down ant-table-column-sorter-down"
-                                    role="img"
+                                    role="presentation"
                                   >
                                     <svg
                                       aria-hidden="true"
@@ -12490,6 +12492,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/ListToolBar/multipl
                             应用名称
                           </th>
                           <th
+                            aria-label="[object Object] sortable"
                             class="ant-table-cell ant-table-column-has-sorters"
                             style="text-align: right;"
                             tabindex="0"
@@ -12511,7 +12514,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/ListToolBar/multipl
                                   <span
                                     aria-label="caret-up"
                                     class="anticon anticon-caret-up ant-table-column-sorter-up"
-                                    role="img"
+                                    role="presentation"
                                   >
                                     <svg
                                       aria-hidden="true"
@@ -12530,7 +12533,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/ListToolBar/multipl
                                   <span
                                     aria-label="caret-down"
                                     class="anticon anticon-caret-down ant-table-column-sorter-down"
-                                    role="img"
+                                    role="presentation"
                                   >
                                     <svg
                                       aria-hidden="true"
@@ -13379,6 +13382,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/ListToolBar/no-titl
                             应用名称
                           </th>
                           <th
+                            aria-label="[object Object] sortable"
                             class="ant-table-cell ant-table-column-has-sorters"
                             style="text-align: right;"
                             tabindex="0"
@@ -13400,7 +13404,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/ListToolBar/no-titl
                                   <span
                                     aria-label="caret-up"
                                     class="anticon anticon-caret-up ant-table-column-sorter-up"
-                                    role="img"
+                                    role="presentation"
                                   >
                                     <svg
                                       aria-hidden="true"
@@ -13419,7 +13423,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/ListToolBar/no-titl
                                   <span
                                     aria-label="caret-down"
                                     class="anticon anticon-caret-down ant-table-column-sorter-down"
-                                    role="img"
+                                    role="presentation"
                                   >
                                     <svg
                                       aria-hidden="true"
@@ -14320,6 +14324,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/ListToolBar/tabs.ts
                             状态
                           </th>
                           <th
+                            aria-label="[object Object] sortable"
                             class="ant-table-cell ant-table-column-has-sorters"
                             style="text-align: right;"
                             tabindex="0"
@@ -14341,7 +14346,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/ListToolBar/tabs.ts
                                   <span
                                     aria-label="caret-up"
                                     class="anticon anticon-caret-up ant-table-column-sorter-up"
-                                    role="img"
+                                    role="presentation"
                                   >
                                     <svg
                                       aria-hidden="true"
@@ -14360,7 +14365,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/ListToolBar/tabs.ts
                                   <span
                                     aria-label="caret-down"
                                     class="anticon anticon-caret-down ant-table-column-sorter-down"
-                                    role="img"
+                                    role="presentation"
                                   >
                                     <svg
                                       aria-hidden="true"
@@ -15124,6 +15129,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/batchOption.tsx cor
                             应用名称
                           </th>
                           <th
+                            aria-label="[object Object] sortable"
                             class="ant-table-cell ant-table-column-has-sorters"
                             style="text-align: right;"
                             tabindex="0"
@@ -15145,7 +15151,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/batchOption.tsx cor
                                   <span
                                     aria-label="caret-up"
                                     class="anticon anticon-caret-up ant-table-column-sorter-up"
-                                    role="img"
+                                    role="presentation"
                                   >
                                     <svg
                                       aria-hidden="true"
@@ -15164,7 +15170,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/batchOption.tsx cor
                                   <span
                                     aria-label="caret-down"
                                     class="anticon anticon-caret-down ant-table-column-sorter-down"
-                                    role="img"
+                                    role="presentation"
                                   >
                                     <svg
                                       aria-hidden="true"
@@ -15201,6 +15207,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/batchOption.tsx cor
                             创建者
                           </th>
                           <th
+                            aria-label="[object Object] sortable"
                             class="ant-table-cell ant-table-column-has-sorters"
                             tabindex="0"
                           >
@@ -15221,7 +15228,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/batchOption.tsx cor
                                   <span
                                     aria-label="caret-up"
                                     class="anticon anticon-caret-up ant-table-column-sorter-up"
-                                    role="img"
+                                    role="presentation"
                                   >
                                     <svg
                                       aria-hidden="true"
@@ -15240,7 +15247,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/batchOption.tsx cor
                                   <span
                                     aria-label="caret-down"
                                     class="anticon anticon-caret-down ant-table-column-sorter-down"
-                                    role="img"
+                                    role="presentation"
                                   >
                                     <svg
                                       aria-hidden="true"
@@ -16558,6 +16565,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/card-title.tsx corr
                             应用名称
                           </th>
                           <th
+                            aria-label="[object Object] sortable"
                             class="ant-table-cell ant-table-column-has-sorters"
                             style="text-align: right;"
                             tabindex="0"
@@ -16579,7 +16587,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/card-title.tsx corr
                                   <span
                                     aria-label="caret-up"
                                     class="anticon anticon-caret-up ant-table-column-sorter-up"
-                                    role="img"
+                                    role="presentation"
                                   >
                                     <svg
                                       aria-hidden="true"
@@ -16598,7 +16606,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/card-title.tsx corr
                                   <span
                                     aria-label="caret-down"
                                     class="anticon anticon-caret-down ant-table-column-sorter-down"
-                                    role="img"
+                                    role="presentation"
                                   >
                                     <svg
                                       aria-hidden="true"
@@ -26542,6 +26550,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/dataSource.tsx corr
                             </div>
                           </th>
                           <th
+                            aria-label="[object Object] sortable"
                             class="ant-table-cell ant-table-column-has-sorters"
                             tabindex="0"
                           >
@@ -26585,7 +26594,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/dataSource.tsx corr
                                   <span
                                     aria-label="caret-up"
                                     class="anticon anticon-caret-up ant-table-column-sorter-up"
-                                    role="img"
+                                    role="presentation"
                                   >
                                     <svg
                                       aria-hidden="true"
@@ -26604,7 +26613,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/dataSource.tsx corr
                                   <span
                                     aria-label="caret-down"
                                     class="anticon anticon-caret-down ant-table-column-sorter-down"
-                                    role="img"
+                                    role="presentation"
                                   >
                                     <svg
                                       aria-hidden="true"
@@ -31536,6 +31545,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/dynamic-settings.ts
                                       </div>
                                     </th>
                                     <th
+                                      aria-label="[object Object] sortable"
                                       class="ant-table-cell ant-table-column-has-sorters"
                                       tabindex="0"
                                     >
@@ -31556,7 +31566,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/dynamic-settings.ts
                                             <span
                                               aria-label="caret-up"
                                               class="anticon anticon-caret-up ant-table-column-sorter-up"
-                                              role="img"
+                                              role="presentation"
                                             >
                                               <svg
                                                 aria-hidden="true"
@@ -31575,7 +31585,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/dynamic-settings.ts
                                             <span
                                               aria-label="caret-down"
                                               class="anticon anticon-caret-down ant-table-column-sorter-down"
-                                              role="img"
+                                              role="presentation"
                                             >
                                               <svg
                                                 aria-hidden="true"
@@ -33979,6 +33989,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/error-boundaries-fa
                             应用名称
                           </th>
                           <th
+                            aria-label="[object Object] sortable"
                             class="ant-table-cell ant-table-column-has-sorters"
                             style="text-align: right;"
                             tabindex="0"
@@ -34000,7 +34011,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/error-boundaries-fa
                                   <span
                                     aria-label="caret-up"
                                     class="anticon anticon-caret-up ant-table-column-sorter-up"
-                                    role="img"
+                                    role="presentation"
                                   >
                                     <svg
                                       aria-hidden="true"
@@ -34019,7 +34030,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/error-boundaries-fa
                                   <span
                                     aria-label="caret-down"
                                     class="anticon anticon-caret-down ant-table-column-sorter-down"
-                                    role="img"
+                                    role="presentation"
                                   >
                                     <svg
                                       aria-hidden="true"
@@ -36489,6 +36500,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/lightfilter.tsx cor
                             创建者
                           </th>
                           <th
+                            aria-label="[object Object] sortable"
                             class="ant-table-cell ant-table-column-has-sorters"
                             tabindex="0"
                           >
@@ -36532,7 +36544,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/lightfilter.tsx cor
                                   <span
                                     aria-label="caret-up"
                                     class="anticon anticon-caret-up ant-table-column-sorter-up"
-                                    role="img"
+                                    role="presentation"
                                   >
                                     <svg
                                       aria-hidden="true"
@@ -36551,7 +36563,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/lightfilter.tsx cor
                                   <span
                                     aria-label="caret-down"
                                     class="anticon anticon-caret-down ant-table-column-sorter-down"
-                                    role="img"
+                                    role="presentation"
                                   >
                                     <svg
                                       aria-hidden="true"
@@ -38454,6 +38466,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/listToolBar.tsx cor
                             </div>
                           </th>
                           <th
+                            aria-label="[object Object] sortable"
                             class="ant-table-cell ant-table-column-has-sorters"
                             style="text-align: right;"
                             tabindex="0"
@@ -38475,7 +38488,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/listToolBar.tsx cor
                                   <span
                                     aria-label="caret-up"
                                     class="anticon anticon-caret-up ant-table-column-sorter-up"
-                                    role="img"
+                                    role="presentation"
                                   >
                                     <svg
                                       aria-hidden="true"
@@ -38494,7 +38507,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/listToolBar.tsx cor
                                   <span
                                     aria-label="caret-down"
                                     class="anticon anticon-caret-down ant-table-column-sorter-down"
-                                    role="img"
+                                    role="presentation"
                                   >
                                     <svg
                                       aria-hidden="true"
@@ -38515,6 +38528,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/listToolBar.tsx cor
                             </div>
                           </th>
                           <th
+                            aria-label="[object Object] sortable"
                             class="ant-table-cell ant-table-column-has-sorters"
                             tabindex="0"
                           >
@@ -38558,7 +38572,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/listToolBar.tsx cor
                                   <span
                                     aria-label="caret-up"
                                     class="anticon anticon-caret-up ant-table-column-sorter-up"
-                                    role="img"
+                                    role="presentation"
                                   >
                                     <svg
                                       aria-hidden="true"
@@ -38577,7 +38591,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/listToolBar.tsx cor
                                   <span
                                     aria-label="caret-down"
                                     class="anticon anticon-caret-down ant-table-column-sorter-down"
-                                    role="img"
+                                    role="presentation"
                                   >
                                     <svg
                                       aria-hidden="true"
@@ -39873,6 +39887,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/no-option.tsx corre
                             应用名称
                           </th>
                           <th
+                            aria-label="[object Object] sortable"
                             class="ant-table-cell ant-table-column-has-sorters"
                             style="text-align: right;"
                             tabindex="0"
@@ -39894,7 +39909,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/no-option.tsx corre
                                   <span
                                     aria-label="caret-up"
                                     class="anticon anticon-caret-up ant-table-column-sorter-up"
-                                    role="img"
+                                    role="presentation"
                                   >
                                     <svg
                                       aria-hidden="true"
@@ -39913,7 +39928,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/no-option.tsx corre
                                   <span
                                     aria-label="caret-down"
                                     class="anticon anticon-caret-down ant-table-column-sorter-down"
-                                    role="img"
+                                    role="presentation"
                                   >
                                     <svg
                                       aria-hidden="true"
@@ -39944,6 +39959,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/no-option.tsx corre
                             创建者
                           </th>
                           <th
+                            aria-label="[object Object] sortable"
                             class="ant-table-cell ant-table-column-has-sorters"
                             tabindex="0"
                           >
@@ -39987,7 +40003,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/no-option.tsx corre
                                   <span
                                     aria-label="caret-up"
                                     class="anticon anticon-caret-up ant-table-column-sorter-up"
-                                    role="img"
+                                    role="presentation"
                                   >
                                     <svg
                                       aria-hidden="true"
@@ -40006,7 +40022,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/no-option.tsx corre
                                   <span
                                     aria-label="caret-down"
                                     class="anticon anticon-caret-down ant-table-column-sorter-down"
-                                    role="img"
+                                    role="presentation"
                                   >
                                     <svg
                                       aria-hidden="true"
@@ -41987,6 +42003,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/normal.tsx correctl
                             应用名称
                           </th>
                           <th
+                            aria-label="[object Object] sortable"
                             class="ant-table-cell ant-table-column-has-sorters"
                             style="text-align: right;"
                             tabindex="0"
@@ -42008,7 +42025,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/normal.tsx correctl
                                   <span
                                     aria-label="caret-up"
                                     class="anticon anticon-caret-up ant-table-column-sorter-up"
-                                    role="img"
+                                    role="presentation"
                                   >
                                     <svg
                                       aria-hidden="true"
@@ -42027,7 +42044,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/normal.tsx correctl
                                   <span
                                     aria-label="caret-down"
                                     class="anticon anticon-caret-down ant-table-column-sorter-down"
-                                    role="img"
+                                    role="presentation"
                                   >
                                     <svg
                                       aria-hidden="true"
@@ -42058,6 +42075,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/normal.tsx correctl
                             创建者
                           </th>
                           <th
+                            aria-label="[object Object] sortable"
                             class="ant-table-cell ant-table-column-has-sorters"
                             tabindex="0"
                           >
@@ -42101,7 +42119,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/normal.tsx correctl
                                   <span
                                     aria-label="caret-up"
                                     class="anticon anticon-caret-up ant-table-column-sorter-up"
-                                    role="img"
+                                    role="presentation"
                                   >
                                     <svg
                                       aria-hidden="true"
@@ -42120,7 +42138,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/normal.tsx correctl
                                   <span
                                     aria-label="caret-down"
                                     class="anticon anticon-caret-down ant-table-column-sorter-down"
-                                    role="img"
+                                    role="presentation"
                                   >
                                     <svg
                                       aria-hidden="true"
@@ -50468,6 +50486,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/single.tsx correctl
                             标签
                           </th>
                           <th
+                            aria-label="[object Object] sortable"
                             class="ant-table-cell ant-table-column-has-sorters"
                             tabindex="0"
                           >
@@ -50488,7 +50507,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/single.tsx correctl
                                   <span
                                     aria-label="caret-up"
                                     class="anticon anticon-caret-up ant-table-column-sorter-up"
-                                    role="img"
+                                    role="presentation"
                                   >
                                     <svg
                                       aria-hidden="true"
@@ -50507,7 +50526,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/single.tsx correctl
                                   <span
                                     aria-label="caret-down"
                                     class="anticon anticon-caret-down ant-table-column-sorter-down"
-                                    role="img"
+                                    role="presentation"
                                   >
                                     <svg
                                       aria-hidden="true"
@@ -55687,6 +55706,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/table-nested.tsx co
                             状态
                           </th>
                           <th
+                            aria-label="[object Object] sortable"
                             class="ant-table-cell ant-table-column-has-sorters"
                             style="text-align: right;"
                             tabindex="0"
@@ -55708,7 +55728,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/table-nested.tsx co
                                   <span
                                     aria-label="caret-up"
                                     class="anticon anticon-caret-up ant-table-column-sorter-up"
-                                    role="img"
+                                    role="presentation"
                                   >
                                     <svg
                                       aria-hidden="true"
@@ -55727,7 +55747,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/table-nested.tsx co
                                   <span
                                     aria-label="caret-down"
                                     class="anticon anticon-caret-down ant-table-column-sorter-down"
-                                    role="img"
+                                    role="presentation"
                                   >
                                     <svg
                                       aria-hidden="true"
@@ -55753,6 +55773,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/table-nested.tsx co
                             创建者
                           </th>
                           <th
+                            aria-label="[object Object] sortable"
                             class="ant-table-cell ant-table-column-has-sorters"
                             tabindex="0"
                           >
@@ -55796,7 +55817,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/table-nested.tsx co
                                   <span
                                     aria-label="caret-up"
                                     class="anticon anticon-caret-up ant-table-column-sorter-up"
-                                    role="img"
+                                    role="presentation"
                                   >
                                     <svg
                                       aria-hidden="true"
@@ -55815,7 +55836,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/table-nested.tsx co
                                   <span
                                     aria-label="caret-down"
                                     class="anticon anticon-caret-down ant-table-column-sorter-down"
-                                    role="img"
+                                    role="presentation"
                                   >
                                     <svg
                                       aria-hidden="true"
