@@ -195,9 +195,13 @@ function ModalForm<T = Record<string, any>>({
         onCancel={(e) => {
           // 提交表单loading时，阻止弹框关闭
           if (submitTimeout && loading) return;
-          resetFields();
+
           setVisible(false);
           modalProps?.onCancel?.(e);
+        }}
+        afterClose={() => {
+          resetFields();
+          modalProps?.afterClose?.();
         }}
         footer={
           rest.submitter !== false && (
