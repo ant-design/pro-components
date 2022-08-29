@@ -66,7 +66,7 @@ export type Route = {
 } & MenuDataItem;
 export type WithFalse<T> = T | false;
 
-export type RouterTypes<P> = {
+export type RouterTypes<P extends {}> = {
   computedMatch?: match<P>;
   route?: Route;
   location: BasicRouteProps['location'] | { pathname?: string };

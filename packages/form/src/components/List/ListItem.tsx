@@ -331,8 +331,8 @@ const ProFormListItem: React.FC<
     .map((childrenItem, itemIndex) => {
       if (React.isValidElement(childrenItem)) {
         return React.cloneElement(childrenItem, {
-          key: childrenItem.key || childrenItem?.props?.name || itemIndex,
-          ...childrenItem?.props,
+          key: childrenItem.key || (childrenItem?.props as Record<string, any>)?.name || itemIndex,
+          ...(childrenItem as Record<string, any>)?.props,
         });
       }
       return childrenItem;

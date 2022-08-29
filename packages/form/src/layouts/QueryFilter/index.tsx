@@ -309,7 +309,10 @@ const QueryFilterContent: React.FC<{
 
       itemLength += 1;
 
-      const itemKey = (React.isValidElement(item) && (item.key || `${item.props?.name}`)) || index;
+      const itemKey =
+        (React.isValidElement(item) &&
+          (item.key || `${(item.props as Record<string, any>)?.name}`)) ||
+        index;
 
       if (React.isValidElement(item) && hidden) {
         if (!props.preserve) {
@@ -323,7 +326,7 @@ const QueryFilterContent: React.FC<{
           itemDom: React.cloneElement(item, {
             hidden: true,
             key: itemKey || index,
-          }),
+          } as Record<string, any>),
           hidden: true,
           colSpan,
         };

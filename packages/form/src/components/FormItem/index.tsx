@@ -44,8 +44,8 @@ const WithValueFomFiledProps: React.FC<
       // @ts-ignore
       if (filedChildren?.type?.displayName !== 'ProFormComponent') return;
       if (!React.isValidElement(filedChildren)) return undefined;
-      filedChildren?.props?.onChange?.(...restParams);
-      filedChildren?.props?.fieldProps?.onChange?.(...restParams);
+      (filedChildren?.props as Record<string, any>)?.onChange?.(...restParams);
+      (filedChildren?.props as Record<string, any>)?.fieldProps?.onChange?.(...restParams);
     },
     [filedChildren, onChange],
   );
@@ -56,7 +56,7 @@ const WithValueFomFiledProps: React.FC<
       if (!React.isValidElement(filedChildren)) return;
       onBlur?.(...restParams);
       filedChildren?.props?.onBlur?.(...restParams);
-      filedChildren?.props?.fieldProps?.onBlur?.(...restParams);
+      (filedChildren?.props as Record<string, any>)?.fieldProps?.onBlur?.(...restParams);
     },
     [filedChildren, onBlur],
   );
