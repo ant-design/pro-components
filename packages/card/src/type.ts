@@ -7,7 +7,7 @@ export type Gutter = number | Partial<Record<Breakpoint, number>>;
 // eslint-disable-next-line @typescript-eslint/ban-types
 export type ProCardTabsProps = {
   // 透传的card样式props
-  cardProps?: CardProps;
+  cardProps?: any;
 } & TabsProps;
 
 export type ColSpanType = number | string;
