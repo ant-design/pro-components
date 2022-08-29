@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.0.0-experimental.22](https://github.com/ant-design/pro-components/compare/@ant-design/pro-utils@2.0.0-experimental.21...@ant-design/pro-utils@2.0.0-experimental.22) (2022-08-29)
+
+### Bug Fixes
+
+- update snapshot ([4db1605](https://github.com/ant-design/pro-components/commit/4db1605937c3b0cf22d22ad398ef4c11e21883cd))
+- **form:** after close theme reset fields ([ecc6923](https://github.com/ant-design/pro-components/commit/ecc69233c0befa29558f142c091693398e4fe32f))
+
 # [2.0.0-experimental.21](https://github.com/ant-design/pro-components/compare/@ant-design/pro-utils@1.45.2...@ant-design/pro-utils@2.0.0-experimental.21) (2022-08-26)
 
 ### Features
