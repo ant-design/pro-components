@@ -127,7 +127,6 @@
     "prettier-plugin-packagejson": "^2.2.18",
     "pretty-quick": "^3.0.1",
     "progress-bar-webpack-plugin": "^2.1.0",
-    "puppeteer": "^15.3.0",
     "query-string": "^6.13.6",
     "rc-resize-observer": "^1.0.0",
     "react": "^18.0.0",
