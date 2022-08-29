@@ -335,9 +335,17 @@ const SettingDrawer: React.FC<SettingDrawerProps> = (props) => {
   }, [setUrlParams, settingState, urlParams, pathname, disableUrlParams]);
   const baseClassName = `${prefixCls}-setting`;
 
+  console.log(settingState.primaryColor);
+
   return (
     <>
-      <div className={`${baseClassName}-drawer-handle`} onClick={() => setShow(!show)}>
+      <div
+        className={`${baseClassName}-drawer-handle`}
+        onClick={() => setShow(!show)}
+        style={{
+          backgroundColor: settingState.primaryColor,
+        }}
+      >
         {show ? (
           <CloseOutlined
             style={{
