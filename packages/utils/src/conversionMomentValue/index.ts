@@ -90,7 +90,7 @@ export const convertMoment = (
  * @param dateFormatter
  * @param proColumnsMap
  */
-export const conversionMomentValue = <T = Record<string, any> | any[]>(
+export const conversionMomentValue = <T extends {} = any>(
   value: T,
   dateFormatter: DateFormatter,
   valueTypeMap: Record<

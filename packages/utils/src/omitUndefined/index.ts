@@ -1,4 +1,4 @@
-export const omitUndefined = <T = Record<string, any>>(obj: T): T => {
+const omitUndefined = <T>(obj: T): T => {
   const newObj = {} as T;
   Object.keys(obj || {}).forEach((key) => {
     if (obj[key] !== undefined) {
@@ -10,3 +10,4 @@ export const omitUndefined = <T = Record<string, any>>(obj: T): T => {
   }
   return newObj;
 };
+export default omitUndefined;
