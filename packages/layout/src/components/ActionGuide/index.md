@@ -59,7 +59,7 @@ nav:
 ### ActionGuideItem
 
 | 参数 | 说明 | 类型 | 默认值 |
-| --- | --- | --- | --- | --- |
+| --- | --- | --- | --- |
 | `step` | 【必填】当前属于第几步的指引，起始索引为：`1` | `number` | - |
-| `content` | 【必填】操作指引的主要内容 | `ReactNode | ((idx: number) => ReactNode)` | - |
+| `content` | 【必填】操作指引的主要内容 | `ReactNode \| ((idx: number) => ReactNode)` | - |
 | `popoverProps` | 【可选】配置除`title`、`content`、`visible`外的其他的气泡弹窗属性，详情参考：[Popover](https://ant.design/components/popover-cn/)，优先级比`ActionGuideContainer`的更高，可以覆盖其属性 | `PopoverProps` | - |
