@@ -12209,6 +12209,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/config-provider.t
   </div>
   <div
     class="ant-pro-setting-drawer-handle"
+    style="background-color: rgb(24, 144, 255);"
   >
     <span
       aria-label="setting"
@@ -20134,6 +20135,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/splitMenus.tsx co
   </div>
   <div
     class="ant-pro-setting-drawer-handle"
+    style="background-color: rgb(24, 144, 255);"
   >
     <span
       aria-label="close"

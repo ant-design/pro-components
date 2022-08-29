@@ -4,6 +4,7 @@ exports[`settingDrawer.test 🌺 base user 1`] = `
 Array [
   <div
     class="ant-pro-setting-drawer-handle"
+    style="background-color:#1890ff"
   >
     <span
       aria-label="close"
@@ -739,6 +740,7 @@ exports[`settingDrawer.test 🌺 hideColors = true 1`] = `
 Array [
   <div
     class="ant-pro-setting-drawer-handle"
+    style="background-color:#1890ff"
   >
     <span
       aria-label="close"
@@ -1405,6 +1407,7 @@ exports[`settingDrawer.test 🌺 hideCopyButton = true 1`] = `
 Array [
   <div
     class="ant-pro-setting-drawer-handle"
+    style="background-color:#1890ff"
   >
     <span
       aria-label="close"
@@ -2112,6 +2115,7 @@ exports[`settingDrawer.test 🌺 hideHintAlert = true 1`] = `
 Array [
   <div
     class="ant-pro-setting-drawer-handle"
+    style="background-color:#1890ff"
   >
     <span
       aria-label="close"
@@ -2812,6 +2816,7 @@ exports[`settingDrawer.test 🌺 settings = undefined 1`] = `
 Array [
   <div
     class="ant-pro-setting-drawer-handle"
+    style="background-color:#1890ff"
   >
     <span
       aria-label="close"
