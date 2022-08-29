@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.74.4](https://github.com/ant-design/pro-components/compare/@ant-design/pro-form@1.74.3...@ant-design/pro-form@1.74.4) (2022-08-29)
+
+### Bug Fixes
+
+- **form:** after close theme reset fields ([ecc6923](https://github.com/ant-design/pro-components/commit/ecc69233c0befa29558f142c091693398e4fe32f))
+
 ## [1.74.3](https://github.com/ant-design/pro-components/compare/@ant-design/pro-form@1.74.2...@ant-design/pro-form@1.74.3) (2022-08-26)
 
 ### Bug Fixes
