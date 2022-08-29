@@ -24,6 +24,7 @@ export type PaginationProps = {
   onChange: (idx: number) => void;
   /** 展示的分页项数量 */
   showPaginationSize?: number;
+  hashId: string;
 };
 export type ActionGuideItemProps = {
   /**
@@ -104,4 +105,6 @@ export type ActionGuideContainerProps = {
    * 返回 false 则阻止切换
    */
   onChange?: (params: OnChangeParams) => Promise<boolean>;
+  /** 类名前缀 */
+  prefixCls?: string;
 };

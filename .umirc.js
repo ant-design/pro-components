@@ -137,6 +137,7 @@ export default {
           'components/WaterMark/index',
           'components/StatisticCard/index',
           'components/CheckCard/index',
+          'components/ActionGuide/index',
         ],
       },
       {

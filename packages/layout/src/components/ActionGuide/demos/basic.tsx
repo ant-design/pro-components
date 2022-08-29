@@ -1,15 +1,15 @@
+import { PageContainer } from '@ant-design/pro-components';
 import { Button, Card, Space } from 'antd';
 import type { ReactNode } from 'react';
 import { useRef } from 'react';
 import { ActionGuideContainer, ActionGuideItem } from '..';
-import PageContainer from '../../PageContainer';
 import type { ActionGuideAction } from '../interface';
 
 export default () => {
   const actionRef = useRef<ActionGuideAction>();
 
   return (
-    <>
+    <Card>
       <Space>
         <Button onClick={() => actionRef.current?.show('first')}>显示第一页操作指引</Button>
         <Button onClick={() => actionRef.current?.show('last')}>最后一页</Button>
@@ -129,6 +129,6 @@ export default () => {
           </Card>
         </PageContainer>
       </ActionGuideContainer>
-    </>
+    </Card>
   );
 };

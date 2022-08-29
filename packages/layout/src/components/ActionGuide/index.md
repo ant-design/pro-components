@@ -13,7 +13,7 @@ nav:
 
 ### 基本使用
 
-<code src="./demos/basic.tsx" height="400px" iframe="365px" title="基本使用" />
+<code src="./demos/basic.tsx" height="600px" iframe="500px" title="基本使用" />
 
 ### 分页指示器主题
 

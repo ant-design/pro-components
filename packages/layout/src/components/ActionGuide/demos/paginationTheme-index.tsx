@@ -5,7 +5,7 @@ export default () => {
   return (
     <ActionGuideContainer
       title={<div style={{ width: 230 }}>操作指引标题</div>}
-      defaultIndex={1}
+      defaultIndex={2}
       paginationTheme="index"
     >
       <ActionGuideItem step={1} content="这是第一步的内容">

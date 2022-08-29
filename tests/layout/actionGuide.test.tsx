@@ -506,12 +506,12 @@ describe('ActionGuide test', () => {
     const html = render(<App mask />);
     await waitForComponentToPaint(html, 300);
 
-    expect(html.baseElement.querySelectorAll('.pro-action-guide-mask').length).toBe(1);
+    expect(html.baseElement.querySelectorAll('.ant-pro-action-guide-mask').length).toBe(1);
     html.unmount();
 
     const html2 = render(<App mask={false} />);
     await waitForComponentToPaint(html2, 300);
-    expect(html.baseElement.querySelectorAll('.pro-action-guide-mask').length).toBe(0);
+    expect(html.baseElement.querySelectorAll('.ant-pro-action-guide-mask').length).toBe(0);
     html.unmount();
   });
   it('🐯 render custom button', async () => {

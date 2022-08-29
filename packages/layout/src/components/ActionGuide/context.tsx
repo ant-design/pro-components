@@ -6,6 +6,8 @@ export type ActionGuideContextProps = ActionGuideContainerProps & {
   curIdx: number;
   total: number;
   scrollTop: number;
+  hashId: string;
+  prefixCls: string;
 };
 const ActionGuideContext = React.createContext<ActionGuideContextProps | null>(null);
 

@@ -1,14 +1,16 @@
-import { Button, Popover, Space } from 'antd';
+import { Button, ConfigProvider, Popover, Space } from 'antd';
 import type { CSSProperties, PropsWithChildren, ReactNode } from 'react';
+import { useContext } from 'react';
 import React, { useEffect, useMemo, useRef, useState } from 'react';
 import { ActionGuideContextConsumer, ActionGuideContextProvider } from './context';
-import './index.less';
 import type {
   ActionGuideAction,
   ActionGuideContainerProps,
   ActionGuideItemProps,
   PaginationProps,
 } from './interface';
+import { useStyle } from './style';
+import classNames from 'classnames';
 
 /**
  * 用于递归遍历 children 中所有合法的`React.Element`，我们可以通过这个方法统计在`ActionGuideContainer`下包含几个`ActionGuideItem`
@@ -48,7 +50,6 @@ function recursiveMap(children: ReactNode, fn: (child: ReactNode) => any): void 
   });
 }
 
-const prefixCls = 'pro-action-guide';
 /**
  * 根据传入的总数、当前页码和实际显示的分页项数量计算需要渲染的分页项
  * @param total 总共有几页
@@ -86,11 +87,11 @@ const Pagination: React.FC<PaginationProps> = (props) => {
   const list = getPageItem(total, cur - 1, showPaginationSize);
 
   return (
-    <div className={`pagination ${theme === 'dot' ? `theme-dot` : `theme-index`}`}>
+    <div className={`pagination ${theme === 'dot' ? `theme-dot` : `theme-index`} ${props.hashId}`}>
       {list.map((item, idx) => (
         <div
           key={idx}
-          className={`pagination-item ${cur === item + 1 ? 'cur' : ''}`}
+          className={`pagination-item ${cur === item + 1 ? 'cur' : ''} ${props.hashId}`}
           onClick={() => {
             if (!clickabled) return;
             onChange(idx + 1);
@@ -117,6 +118,11 @@ export const ActionGuideContainer: React.FC<PropsWithChildren<ActionGuideContain
   const [itemCnt, setItemCnt] = useState(0);
   const [scrollTop, setScrollTop] = useState(0);
   const timer = useRef<any>();
+  const { getPrefixCls } = useContext(ConfigProvider.ConfigContext);
+
+  const prefixCls = getPrefixCls('pro-action-guide', props.prefixCls);
+
+  const { wrapSSR, hashId } = useStyle(prefixCls);
   const action: ActionGuideAction = {
     show: async (idx) => {
       if (idx === -1) {
@@ -190,7 +196,7 @@ export const ActionGuideContainer: React.FC<PropsWithChildren<ActionGuideContain
       } as CSSProperties),
     [curShadow],
   );
-  return (
+  return wrapSSR(
     <ActionGuideContextProvider
       value={{
         ...props,
@@ -198,12 +204,14 @@ export const ActionGuideContainer: React.FC<PropsWithChildren<ActionGuideContain
         curIdx,
         total: itemCnt,
         scrollTop,
+        hashId,
+        prefixCls,
       }}
     >
-      <div className={`${prefixCls}-container`} style={style}>
+      <div className={classNames(`${prefixCls}-container`, hashId)} style={style}>
         {children}
       </div>
-    </ActionGuideContextProvider>
+    </ActionGuideContextProvider>,
   );
 };
 ActionGuideContainer.displayName = 'ActionGuideContainer';
@@ -223,6 +231,7 @@ export const ActionGuideItem: React.FC<PropsWithChildren<ActionGuideItemProps>> 
             onChange={(idx) => ctx.action.show(idx)}
             showPaginationSize={ctx.showPaginationSize}
             clickabled={ctx.paginationClickabled}
+            hashId={ctx.hashId}
           />
         );
         const displayTitle = ctx?.title
@@ -242,7 +251,7 @@ export const ActionGuideItem: React.FC<PropsWithChildren<ActionGuideItemProps>> 
             type="primary"
             key="nextBtn"
             size="small"
-            className="nextBtn"
+            className={classNames('nextBtn', ctx.hashId)}
             onClick={() => {
               if (ctx.curIdx === ctx.total) {
                 ctx.action.show(-1);
@@ -259,7 +268,7 @@ export const ActionGuideItem: React.FC<PropsWithChildren<ActionGuideItemProps>> 
             <Button
               key="skipBtn"
               type="link"
-              className="skipBtn"
+              className={classNames('skipBtn', ctx.hashId)}
               size="small"
               onClick={() => {
                 ctx.action.show(-1);
@@ -279,11 +288,11 @@ export const ActionGuideItem: React.FC<PropsWithChildren<ActionGuideItemProps>> 
             })
           : defaultBtn;
         const displayContent = (
-          <div className={`${prefixCls}-content-box`}>
-            <div className={`content-container`}>{userContent}</div>
-            <div className={`footer-container`}>
-              <div className={`pagination-box`}>{displayPagination}</div>
-              <div className={`btn-group`}>
+          <div className={`${ctx.prefixCls}-content-box ${ctx.hashId}`}>
+            <div className={`content-container ${ctx.hashId}`}>{userContent}</div>
+            <div className={`footer-container ${ctx.hashId}`}>
+              <div className={`pagination-box ${ctx.hashId}`}>{displayPagination}</div>
+              <div className={`btn-group ${ctx.hashId}`}>
                 <Space size="small">{buttons}</Space>
               </div>
             </div>
@@ -294,7 +303,10 @@ export const ActionGuideItem: React.FC<PropsWithChildren<ActionGuideItemProps>> 
         return (
           <>
             {ctx.mask !== false && visible && (
-              <div className={`${prefixCls}-mask`} style={{ top: ctx.scrollTop }} />
+              <div
+                className={`${ctx.prefixCls}-mask ${ctx.hashId}`}
+                style={{ top: ctx.scrollTop }}
+              />
             )}
             <Popover
               title={displayTitle}
