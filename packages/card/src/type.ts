@@ -4,6 +4,7 @@ import type { ReactNode } from 'react';
 
 export type Breakpoint = 'xxl' | 'xl' | 'lg' | 'md' | 'sm' | 'xs';
 export type Gutter = number | Partial<Record<Breakpoint, number>>;
+export type ColSpanType = number | string;
 
 type CardPropsBase = {
   /** 标题样式 */
@@ -79,8 +80,6 @@ export type ProCardTabsProps = {
   // 透传的card样式props
   cardProps?: CardPropsBase;
 } & TabsProps;
-
-export type ColSpanType = number | string;
 
 export type CardProps = {
   /** 标签栏配置 */
