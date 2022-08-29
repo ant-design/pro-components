@@ -56,7 +56,7 @@ const prefixCls = 'pro-action-guide';
  * @param showPaginationSize 要展示的分页项数量
  * @returns
  */
-function getPageItem(total: number, cur: number = 0, showPaginationSize = 3): number[] {
+function getPageItem(total: number, cur: number, showPaginationSize: number): number[] {
   if (cur < 0) return [];
   let p = 0;
   let l = 0;
@@ -82,14 +82,7 @@ function getPageItem(total: number, cur: number = 0, showPaginationSize = 3): nu
     .filter((_item, idx) => idx >= l && idx <= r);
 }
 const Pagination: React.FC<PaginationProps> = (props) => {
-  const {
-    theme = 'dot',
-    total,
-    cur = 0,
-    clickabled = true,
-    onChange,
-    showPaginationSize = 3,
-  } = props;
+  const { theme, total, cur, clickabled = true, onChange, showPaginationSize = 3 } = props;
   const list = getPageItem(total, cur - 1, showPaginationSize);
 
   return (
@@ -162,6 +155,7 @@ export const ActionGuideContainer: React.FC<PropsWithChildren<ActionGuideContain
   useEffect(() => {
     let cnt = 0;
     recursiveMap(children, (child) => {
+      /* istanbul ignore next */
       if (!child) return;
       // @ts-ignore
       if (child.type.displayName === 'ActionGuideItem') {
@@ -173,7 +167,9 @@ export const ActionGuideContainer: React.FC<PropsWithChildren<ActionGuideContain
   }, [children, props]);
 
   useEffect(() => {
+    /* istanbul ignore next */
     window.onscroll = function () {
+      /* istanbul ignore next */
       const mask = document.querySelector(`.${prefixCls}-mask`) as HTMLDivElement;
       /* istanbul ignore next */
       if (mask) {
@@ -217,6 +213,7 @@ export const ActionGuideItem: React.FC<PropsWithChildren<ActionGuideItemProps>> 
   return (
     <ActionGuideContextConsumer>
       {(ctx) => {
+        /* istanbul ignore next */
         if (!ctx) return null;
         const defaultPagination = (
           <Pagination

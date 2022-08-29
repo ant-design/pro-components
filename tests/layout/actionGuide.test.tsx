@@ -85,7 +85,8 @@ describe('ActionGuide test', () => {
 
       return (
         <ActionGuideContainer
-          title={<div>操作指引标题</div>}
+          title={(idx) => <div>操作指引标题{idx}</div>}
+          curShadow="0 0 15px red"
           actionRef={actionRef}
           defaultIndex={1}
           paginationTheme="dot"
@@ -104,7 +105,7 @@ describe('ActionGuide test', () => {
                 <Button>测试按钮3</Button>
                 <Button>测试按钮4</Button>
                 <Button>测试按钮5</Button>
-                <ActionGuideItem step={3} content="这是第三步的内容">
+                <ActionGuideItem step={3} content={(idx) => <div>这是第三步的内容{idx}</div>}>
                   <Button>测试按钮6</Button>
                 </ActionGuideItem>
               </Space>
@@ -480,6 +481,7 @@ describe('ActionGuide test', () => {
           paginationTheme={'index'}
           mask={props.mask}
           defaultIndex={1}
+          curShadow={false}
         >
           <ActionGuideItem step={1} content="这是第一步的内容">
             <Card title="测试标题">
