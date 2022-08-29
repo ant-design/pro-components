@@ -17,6 +17,13 @@ import 'antd/es/tabs/style';
 import 'antd/es/tooltip/style';
 //----------------------
 
+import { ActionGuideContainer, ActionGuideItem } from './components/ActionGuide';
+import type {
+  ActionGuideAction,
+  ActionGuideContainerProps,
+  ActionGuideItemProps,
+} from './components/ActionGuide/interface';
+
 import { FooterToolbar } from './components/FooterToolbar';
 import { GridContent } from './components/GridContent';
 import type { PageContainerProps } from './components/PageContainer';
@@ -60,6 +67,8 @@ export {
   WaterMark,
   ProPageHeader,
   ProBreadcrumb,
+  ActionGuideContainer,
+  ActionGuideItem,
 };
 export type {
   FooterProps,
@@ -71,6 +80,9 @@ export type {
   HeaderProps,
   SettingDrawerProps,
   SettingDrawerState,
+  ActionGuideAction,
+  ActionGuideItemProps,
+  ActionGuideContainerProps,
 };
 
 export default ProLayout;
