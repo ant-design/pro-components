@@ -13,6 +13,7 @@ export const getOpenKeysFromMenuData = (menuData?: MenuDataItem[]) => {
   }, [] as string[]);
 };
 const themeConfig = {
+  techBlue: '#1677FF',
   daybreak: '#1890ff',
   dust: '#F5222D',
   volcano: '#FA541C',

@@ -2,7 +2,6 @@ import type { ActionType } from '@ant-design/pro-table';
 import ProTable, { TableDropdown } from '@ant-design/pro-table';
 import { fireEvent, render as ReactRender, screen } from '@testing-library/react';
 import { Button, Input, Select } from 'antd';
-import { mount, render } from 'enzyme';
 import React, { useRef } from 'react';
 import { act } from 'react-dom/test-utils';
 import { waitForComponentToPaint, waitTime } from '../util';
@@ -46,7 +45,7 @@ describe('BasicTable', () => {
 
   it('🎏 base use', async () => {
     const pageSizeOnchange = jest.fn();
-    const html = mount(
+    const html = ReactRender(
       <ProTable
         size="small"
         columns={columns}
@@ -80,12 +79,45 @@ describe('BasicTable', () => {
     );
     await waitForComponentToPaint(html, 2000);
     act(() => {
-      expect(html.render()).toMatchSnapshot();
+      expect(html.baseElement).toMatchSnapshot();
     });
 
     expect(pageSizeOnchange).toBeCalledWith(10);
 
-    html.setProps({ params: { keyword: 'test2' } });
+    act(() => {
+      html.rerender(
+        <ProTable
+          size="small"
+          columns={columns}
+          request={request}
+          rowKey="key"
+          params={{ keyword: 'test2' }}
+          pagination={{
+            defaultCurrent: 10,
+            onChange: (e) => {
+              pageSizeOnchange(e);
+            },
+          }}
+          toolBarRender={() => [
+            <Input.Search
+              key="search"
+              style={{
+                width: 200,
+              }}
+            />,
+            <TableDropdown.Button
+              key="copy"
+              menus={[
+                { key: 'copy', name: '复制' },
+                { key: 'clear', name: '清空' },
+              ]}
+            >
+              更多操作
+            </TableDropdown.Button>,
+          ]}
+        />,
+      );
+    });
 
     await waitForComponentToPaint(html, 1000);
 
@@ -129,7 +161,6 @@ describe('BasicTable', () => {
       .spyOn(document, 'addEventListener')
       .mockImplementation((eventName, eventFn) => {
         if (eventName === 'visibilitychange') {
-          console.log(eventFn);
           //@ts-expect-error
           fn = eventFn;
         }
@@ -157,14 +188,12 @@ describe('BasicTable', () => {
     addEventListenerSpy.mockRestore();
     expect(requestFfn).toBeCalledTimes(2);
 
-    act(() => {
-      html.unmount();
-    });
+    html.unmount();
     await waitTime(100);
   });
 
   it('🎏 do not render Search', async () => {
-    const html = mount(
+    const html = ReactRender(
       <ProTable
         size="small"
         columns={columns}
@@ -182,7 +211,7 @@ describe('BasicTable', () => {
     );
 
     await waitForComponentToPaint(html, 2000);
-    expect(html.find('.ant-pro-table-search').exists()).toBeFalsy();
+    expect(!!html.baseElement.querySelector('.ant-pro-table-search')).toBeFalsy();
   });
 
   it('🎏 onLoadingChange should work', async () => {
@@ -219,7 +248,7 @@ describe('BasicTable', () => {
   });
 
   it('🎏 do not render default option', async () => {
-    const html = mount(
+    const html = ReactRender(
       <ProTable
         size="small"
         options={{
@@ -239,14 +268,14 @@ describe('BasicTable', () => {
     );
     await waitForComponentToPaint(html, 1200);
     expect(
-      html.find(
+      html.baseElement.querySelectorAll(
         '.ant-pro-table-list-toolbar-setting-items .ant-pro-table-list-toolbar-setting-item',
       ).length,
     ).toBe(1);
   });
 
   it('🎏 ProTable support searchText and resetText', async () => {
-    const html = mount(
+    const html = ReactRender(
       <ProTable
         size="small"
         options={{
@@ -270,12 +299,12 @@ describe('BasicTable', () => {
     );
     await waitForComponentToPaint(html, 1200);
 
-    expect(html.find('.ant-btn.ant-btn-primary').text()).toBe('test');
-    expect(html.find('.ant-btn').at(0).text()).toBe('test2');
+    expect(html.baseElement.querySelector('.ant-btn.ant-btn-primary')?.textContent).toBe('test');
+    expect(html.baseElement.querySelector('.ant-btn')?.textContent).toBe('test2');
   });
 
   it('🎏 ProTable support card props is false', async () => {
-    const html = mount(
+    const html = ReactRender(
       <ProTable
         size="small"
         cardProps={false}
@@ -293,19 +322,31 @@ describe('BasicTable', () => {
     );
     await waitForComponentToPaint(html, 1200);
 
-    expect(html.find('.ant-pro-card').exists()).toBe(false);
+    expect(!!html.baseElement.querySelector('.ant-pro-card')).toBe(false);
 
     act(() => {
-      html.setProps({
-        cardProps: undefined,
-      });
+      html.rerender(
+        <ProTable
+          size="small"
+          toolBarRender={false}
+          columns={[
+            {
+              dataIndex: 'money',
+              valueType: 'money',
+            },
+          ]}
+          search={false}
+          dataSource={[]}
+          rowKey="key"
+        />,
+      );
     });
     await waitForComponentToPaint(html, 1200);
-    expect(html.find('.ant-pro-card').exists()).toBe(true);
+    expect(!!html.baseElement.querySelector('.ant-pro-card')).toBe(true);
   });
 
   it('🎏 do not render setting', async () => {
-    const html = mount(
+    const html = ReactRender(
       <ProTable
         size="small"
         options={{
@@ -325,12 +366,12 @@ describe('BasicTable', () => {
     );
     await waitForComponentToPaint(html, 1200);
     act(() => {
-      expect(html.find('.anticon-setting').exists()).toBeFalsy();
+      expect(!!html.baseElement.querySelector('.anticon-setting')).toBeFalsy();
     });
   });
 
   it('🎏 valueEnum support function', async () => {
-    const html = mount(
+    const html = ReactRender(
       <ProTable
         size="small"
         options={false}
@@ -386,12 +427,12 @@ describe('BasicTable', () => {
     );
     await waitForComponentToPaint(html, 1200);
     act(() => {
-      expect(html.render()).toMatchSnapshot();
+      expect(html.baseElement).toMatchSnapshot();
     });
   });
 
   it('🎏 do not render pagination', async () => {
-    const html = mount(
+    const html = ReactRender(
       <ProTable
         size="small"
         options={{
@@ -418,20 +459,42 @@ describe('BasicTable', () => {
       />,
     );
     await waitForComponentToPaint(html, 600);
-    expect(html.find('ul.ant-pagination').exists()).toBeFalsy();
+    expect(!!html.baseElement.querySelector('ul.ant-pagination')).toBeFalsy();
 
     act(() => {
-      html.setProps({
-        pagination: undefined,
-      });
+      html.rerender(
+        <ProTable
+          size="small"
+          options={{
+            fullScreen: true,
+            reload: true,
+            setting: false,
+          }}
+          columns={[
+            {
+              dataIndex: 'money',
+              valueType: 'money',
+            },
+          ]}
+          request={async () => ({
+            data: [
+              {
+                key: 'first',
+              },
+            ],
+            success: true,
+          })}
+          rowKey="key"
+        />,
+      );
     });
 
     await waitForComponentToPaint(html, 600);
-    expect(html.find('ul.ant-pagination').exists()).toBeTruthy();
+    expect(!!html.baseElement.querySelector('ul.ant-pagination')).toBeTruthy();
   });
 
   it('🎏 page error test', async () => {
-    const html = mount(
+    const html = ReactRender(
       <ProTable
         size="small"
         columns={[
@@ -449,19 +512,18 @@ describe('BasicTable', () => {
     );
     await waitForComponentToPaint(html, 300);
     act(() => {
-      html.find('ProTable').simulateError(new Error('test error'));
+      fireEvent.error(html.baseElement.querySelector('.ant-table')!, {
+        message: 'test error',
+      });
     });
     await waitForComponentToPaint(html, 10);
-    let dom = null;
-    act(() => {
-      dom = html.render();
-    });
-    expect(dom).toMatchSnapshot();
+
+    expect(html.baseElement).toMatchSnapshot();
   });
 
   it('🎏 request test', async () => {
     const fn = jest.fn();
-    const html = mount(
+    const html = ReactRender(
       <ProTable
         size="small"
         options={{
@@ -490,7 +552,7 @@ describe('BasicTable', () => {
 
   it('🎏 onLoadingChange test', async () => {
     const fn = jest.fn();
-    const html = mount(
+    const html = ReactRender(
       <ProTable
         size="small"
         onLoadingChange={fn}
@@ -568,16 +630,16 @@ describe('BasicTable', () => {
         />
       );
     };
-    const html = mount(<Reload />);
+    const html = ReactRender(<Reload />);
 
     await waitForComponentToPaint(html, 1200);
 
     act(() => {
-      html.find('Button#reload').simulate('click');
+      fireEvent.click(html.baseElement.querySelector('#reload')!);
     });
 
     act(() => {
-      html.find('Button#reload').simulate('click');
+      fireEvent.click(html.baseElement.querySelector('#reload')!);
     });
 
     await waitForComponentToPaint(html, 1200);
@@ -586,7 +648,7 @@ describe('BasicTable', () => {
     expect(fn).toBeCalledTimes(2);
 
     act(() => {
-      html.find('Button#reset').simulate('click');
+      fireEvent.click(html.baseElement.querySelector('#reset')!);
     });
 
     await waitForComponentToPaint(html, 1200);
@@ -596,7 +658,7 @@ describe('BasicTable', () => {
 
   it('🎏 request error test', async () => {
     const fn = jest.fn();
-    const html = mount(
+    const html = ReactRender(
       <ProTable
         size="small"
         columns={[
@@ -622,7 +684,7 @@ describe('BasicTable', () => {
     const fn = jest.fn();
     const onChangeFn = jest.fn();
     const actionRef = React.createRef<ActionType>();
-    const html = mount(
+    const html = ReactRender(
       <ProTable
         size="small"
         columns={[
@@ -657,7 +719,7 @@ describe('BasicTable', () => {
 
   it('🎏 options.reload support is true', async () => {
     const fn = jest.fn();
-    const html = mount(
+    const html = ReactRender(
       <ProTable
         size="small"
         columns={[
@@ -690,7 +752,11 @@ describe('BasicTable', () => {
     await waitForComponentToPaint(html, 1200);
 
     act(() => {
-      html.find('.ant-pro-table-list-toolbar-setting-item span.anticon-reload').simulate('click');
+      fireEvent.click(
+        html.baseElement.querySelector(
+          '.ant-pro-table-list-toolbar-setting-item span.anticon-reload',
+        )!,
+      );
     });
 
     await waitForComponentToPaint(html, 1200);
@@ -701,7 +767,7 @@ describe('BasicTable', () => {
     const reloadFn = jest.fn();
     const fullScreenFn = jest.fn();
     const actionRef = React.createRef<any>();
-    const html = mount(
+    const html = ReactRender(
       <ProTable
         size="small"
         columns={[
@@ -722,7 +788,11 @@ describe('BasicTable', () => {
     await waitForComponentToPaint(html, 1200);
 
     act(() => {
-      html.find('.ant-pro-table-list-toolbar-setting-item span.anticon-reload').simulate('click');
+      fireEvent.click(
+        html.baseElement.querySelector(
+          '.ant-pro-table-list-toolbar-setting-item span.anticon-reload',
+        )!,
+      );
     });
 
     await waitForComponentToPaint(html, 1000);
@@ -730,9 +800,11 @@ describe('BasicTable', () => {
     expect(reloadFn).toHaveBeenCalledWith(expect.anything(), actionRef.current);
 
     act(() => {
-      html
-        .find('.ant-pro-table-list-toolbar-setting-item span.anticon-fullscreen')
-        .simulate('click');
+      fireEvent.click(
+        html.baseElement.querySelector(
+          '.ant-pro-table-list-toolbar-setting-item span.anticon-fullscreen',
+        )!,
+      );
     });
 
     await waitForComponentToPaint(html, 1200);
@@ -741,7 +813,7 @@ describe('BasicTable', () => {
 
   it('🎏 request reload', async () => {
     const fn = jest.fn();
-    const html = mount(
+    const html = ReactRender(
       <ProTable
         size="small"
         columns={[
@@ -771,7 +843,11 @@ describe('BasicTable', () => {
     await waitForComponentToPaint(html, 1200);
 
     act(() => {
-      html.find('.ant-pro-table-list-toolbar-setting-item span.anticon-reload').simulate('click');
+      fireEvent.click(
+        html.baseElement.querySelector(
+          '.ant-pro-table-list-toolbar-setting-item span.anticon-reload',
+        )!,
+      );
     });
 
     await waitForComponentToPaint(html, 1200);
@@ -780,7 +856,7 @@ describe('BasicTable', () => {
 
   // it('🎏 onSizeChange load', async () => {
   //   const fn = jest.fn();
-  //   const html = mount(
+  //   const html =  ReactRender(
   //     <ProTable
   //       columns={[
   //         {
@@ -821,7 +897,7 @@ describe('BasicTable', () => {
   it('🎏 request load array', async () => {
     const fn = jest.fn();
     const actionRef = React.createRef<ActionType>();
-    const html = mount(
+    const html = ReactRender(
       <ProTable
         size="small"
         // @ts-ignore
@@ -858,7 +934,7 @@ describe('BasicTable', () => {
 
   it('🎏 request should use postData', async () => {
     const postFn = jest.fn();
-    const html = mount(
+    const html = ReactRender(
       <ProTable
         size="small"
         columns={[
@@ -883,14 +959,12 @@ describe('BasicTable', () => {
     expect(postFn).toBeCalled();
     // test useEffect render
 
-    act(() => {
-      html.unmount();
-    });
+    html.unmount();
   });
 
   it('🎏 fullscreen icon test', async () => {
     const fn = jest.fn();
-    const html = mount(
+    const html = ReactRender(
       <ProTable
         size="small"
         columns={[
@@ -914,9 +988,11 @@ describe('BasicTable', () => {
     await waitForComponentToPaint(html, 1200);
 
     act(() => {
-      html
-        .find('.ant-pro-table-list-toolbar-setting-item span.anticon-fullscreen')
-        .simulate('click');
+      fireEvent.click(
+        html.baseElement.querySelector(
+          '.ant-pro-table-list-toolbar-setting-item span.anticon-fullscreen',
+        )!,
+      );
     });
 
     await waitForComponentToPaint(html, 1200);
@@ -928,7 +1004,7 @@ describe('BasicTable', () => {
     const fn = jest.fn();
     // @ts-ignore
     document.fullscreenEnabled = false;
-    const html = mount(
+    const html = ReactRender(
       <ProTable
         size="small"
         columns={[
@@ -952,9 +1028,11 @@ describe('BasicTable', () => {
     await waitForComponentToPaint(html, 1200);
 
     act(() => {
-      html
-        .find('.ant-pro-table-list-toolbar-setting-item span.anticon-fullscreen')
-        .simulate('click');
+      fireEvent.click(
+        html.baseElement.querySelector(
+          '.ant-pro-table-list-toolbar-setting-item span.anticon-fullscreen',
+        )!,
+      );
     });
 
     await waitForComponentToPaint(html, 1200);
@@ -983,7 +1061,7 @@ describe('BasicTable', () => {
       },
     });
 
-    const html = mount(
+    const html = ReactRender(
       <ProTable
         size="small"
         columns={[
@@ -1031,18 +1109,22 @@ describe('BasicTable', () => {
     await waitForComponentToPaint(html, 600);
 
     act(() => {
-      html
-        .find('.ant-pro-table-list-toolbar-setting-item span.anticon-fullscreen')
-        .simulate('click');
+      fireEvent.click(
+        html.baseElement.querySelector(
+          '.ant-pro-table-list-toolbar-setting-item span.anticon-fullscreen',
+        )!,
+      );
     });
     await waitForComponentToPaint(html, 1200);
 
     expect(!!document.fullscreenElement).toBeTruthy();
 
     act(() => {
-      html
-        .find('.ant-pro-table-list-toolbar-setting-item span.anticon-fullscreen-exit')
-        .simulate('click');
+      fireEvent.click(
+        html.baseElement.querySelector(
+          '.ant-pro-table-list-toolbar-setting-item span.anticon-fullscreen-exit',
+        )!,
+      );
     });
 
     await waitForComponentToPaint(html, 600);
@@ -1054,7 +1136,7 @@ describe('BasicTable', () => {
 
   it('🎏 size icon test', async () => {
     const fn = jest.fn();
-    const html = mount(
+    const html = ReactRender(
       <ProTable
         size="small"
         columns={[
@@ -1078,13 +1160,15 @@ describe('BasicTable', () => {
     await waitForComponentToPaint(html, 1200);
 
     act(() => {
-      html
-        .find('.ant-pro-table-list-toolbar-setting-item span.anticon-column-height')
-        .simulate('click');
+      fireEvent.click(
+        html.baseElement.querySelector(
+          '.ant-pro-table-list-toolbar-setting-item span.anticon-column-height',
+        )!,
+      );
     });
     await waitForComponentToPaint(html, 1200);
     act(() => {
-      html.find('li.ant-dropdown-menu-item').at(1).simulate('click');
+      fireEvent.click(html.baseElement.querySelectorAll('li.ant-dropdown-menu-item')[1]);
     });
     await waitForComponentToPaint(html, 1200);
 
@@ -1092,7 +1176,7 @@ describe('BasicTable', () => {
   });
 
   it('🎏 loading test', async () => {
-    const html = mount(
+    const html = ReactRender(
       <ProTable
         columns={[
           {
@@ -1107,21 +1191,32 @@ describe('BasicTable', () => {
       />,
     );
     await waitForComponentToPaint(html, 1200);
-    expect(html.find('.ant-spin').exists()).toBeTruthy();
+    expect(!!html.baseElement.querySelector('.ant-spin')).toBeTruthy();
 
     act(() => {
-      html.setProps({
-        loading: false,
-      });
+      html.rerender(
+        <ProTable
+          columns={[
+            {
+              title: 'money',
+              dataIndex: 'money',
+              valueType: 'money',
+            },
+          ]}
+          loading={false}
+          dataSource={[]}
+          rowKey="key"
+        />,
+      );
     });
 
     await waitForComponentToPaint(html, 1200);
     // props 指定为 false 后，无论 request 完成与否都不会出现 spin
-    expect(html.find('.ant-spin').exists()).toBeFalsy();
+    expect(!!html.baseElement.querySelector('.ant-spin')).toBeFalsy();
   });
 
   it('🎏 columns = undefined', async () => {
-    const html = render(
+    const html = ReactRender(
       <ProTable
         columns={undefined}
         request={async () => {
@@ -1130,12 +1225,12 @@ describe('BasicTable', () => {
         rowKey="key"
       />,
     );
-    expect(html).toMatchSnapshot();
+    expect(html.baseElement).toMatchSnapshot();
   });
 
   it('🎏 search = true', async () => {
     const fn = jest.fn();
-    const html = mount(
+    const html = ReactRender(
       <ProTable
         columns={[{ dataIndex: 'name' }]}
         options={{
@@ -1158,17 +1253,21 @@ describe('BasicTable', () => {
     await waitForComponentToPaint(html, 1200);
 
     act(() => {
-      html.find('.ant-pro-table-list-toolbar-search input').simulate('change', {
-        target: {
-          value: 'name',
+      fireEvent.change(
+        html.baseElement.querySelector('.ant-pro-table-list-toolbar-search input')!,
+        {
+          target: {
+            value: 'name',
+          },
         },
-      });
+      );
     });
 
     act(() => {
-      html
-        .find('.ant-pro-table-list-toolbar-search input')
-        .simulate('keydown', { key: 'Enter', keyCode: 13 });
+      fireEvent.keyDown(
+        html.baseElement.querySelector('.ant-pro-table-list-toolbar-search input')!,
+        { key: 'Enter', keyCode: 13 },
+      );
     });
 
     await waitForComponentToPaint(html, 600);
@@ -1178,7 +1277,7 @@ describe('BasicTable', () => {
 
   it('🎏 search = true, name = test', async () => {
     const fn = jest.fn();
-    const html = mount(
+    const html = ReactRender(
       <ProTable<
         Record<string, any>,
         {
@@ -1201,17 +1300,21 @@ describe('BasicTable', () => {
     await waitForComponentToPaint(html, 1200);
 
     act(() => {
-      html.find('.ant-pro-table-list-toolbar-search input').simulate('change', {
-        target: {
-          value: 'name',
+      fireEvent.change(
+        html.baseElement.querySelector('.ant-pro-table-list-toolbar-search input')!,
+        {
+          target: {
+            value: 'name',
+          },
         },
-      });
+      );
     });
 
     act(() => {
-      html
-        .find('.ant-pro-table-list-toolbar-search input')
-        .simulate('keydown', { key: 'Enter', keyCode: 13 });
+      fireEvent.keyDown(
+        html.baseElement.querySelector('.ant-pro-table-list-toolbar-search input')!,
+        { key: 'Enter', keyCode: 13 },
+      );
     });
 
     await waitForComponentToPaint(html, 600);
@@ -1221,7 +1324,7 @@ describe('BasicTable', () => {
 
   it('🎏 search = true, name = test,onSearch return false', async () => {
     const fn = jest.fn();
-    const html = mount(
+    const html = ReactRender(
       <ProTable<
         Record<string, any>,
         {
@@ -1245,17 +1348,21 @@ describe('BasicTable', () => {
     await waitForComponentToPaint(html, 1200);
 
     act(() => {
-      html.find('.ant-pro-table-list-toolbar-search input').simulate('change', {
-        target: {
-          value: 'name',
+      fireEvent.change(
+        html.baseElement.querySelector('.ant-pro-table-list-toolbar-search input')!,
+        {
+          target: {
+            value: 'name',
+          },
         },
-      });
+      );
     });
 
     act(() => {
-      html
-        .find('.ant-pro-table-list-toolbar-search input')
-        .simulate('keydown', { key: 'Enter', keyCode: 13 });
+      fireEvent.keyDown(
+        html.baseElement.querySelector('.ant-pro-table-list-toolbar-search input')!,
+        { key: 'Enter', keyCode: 13 },
+      );
     });
 
     await waitForComponentToPaint(html, 600);
@@ -1263,17 +1370,21 @@ describe('BasicTable', () => {
     expect(fn).toBeCalledWith('');
 
     act(() => {
-      html.find('.ant-pro-table-list-toolbar-search input').simulate('change', {
-        target: {
-          value: 'name1',
+      fireEvent.change(
+        html.baseElement.querySelector('.ant-pro-table-list-toolbar-search input')!,
+        {
+          target: {
+            value: 'name1',
+          },
         },
-      });
+      );
     });
 
     act(() => {
-      html
-        .find('.ant-pro-table-list-toolbar-search input')
-        .simulate('keydown', { key: 'Enter', keyCode: 13 });
+      fireEvent.keyDown(
+        html.baseElement.querySelector('.ant-pro-table-list-toolbar-search input')!,
+        { key: 'Enter', keyCode: 13 },
+      );
     });
 
     await waitForComponentToPaint(html, 200);
@@ -1282,7 +1393,7 @@ describe('BasicTable', () => {
   });
 
   it('🎏 bordered = true', async () => {
-    const html = mount(
+    const html = ReactRender(
       <ProTable
         size="small"
         cardBordered
@@ -1300,13 +1411,13 @@ describe('BasicTable', () => {
     );
 
     expect(
-      html.find('.ant-pro-table-search-query-filter.ant-pro-card-bordered').exists(),
+      !!html.baseElement.querySelector('.ant-pro-table-search-query-filter.ant-pro-card-bordered'),
     ).toBeTruthy();
-    expect(html.find('.ant-pro-card.ant-pro-card-border').exists()).toBeTruthy();
+    expect(!!html.baseElement.querySelector('.ant-pro-card.ant-pro-card-border')).toBeTruthy();
   });
 
   it('🎏 bordered = {search = true, table = false}', async () => {
-    const html = mount(
+    const html = ReactRender(
       <ProTable
         size="small"
         cardBordered={{
@@ -1325,16 +1436,16 @@ describe('BasicTable', () => {
         }}
       />,
     );
-    expect(html.find('.ant-pro-card.ant-card-bordered').exists()).toBeFalsy();
+    expect(!!html.baseElement.querySelector('.ant-pro-card.ant-card-bordered')).toBeFalsy();
     expect(
-      html.find('.ant-pro-table-search-query-filter.ant-pro-card-bordered').exists(),
+      !!html.baseElement.querySelector('.ant-pro-table-search-query-filter.ant-pro-card-bordered'),
     ).toBeTruthy();
   });
 
   it('🎏 debounce time', async () => {
     const ref = React.createRef<ActionType>();
     const fn = jest.fn();
-    const html = mount(
+    const html = ReactRender(
       <ProTable
         actionRef={ref as any}
         size="small"
@@ -1364,7 +1475,7 @@ describe('BasicTable', () => {
   it('🎏 support showHiddenNum', async () => {
     const ref = React.createRef<ActionType>();
     const fn = jest.fn();
-    const html = mount(
+    const html = ReactRender(
       <ProTable
         actionRef={ref as any}
         size="small"
@@ -1387,6 +1498,8 @@ describe('BasicTable', () => {
     );
     await waitForComponentToPaint(html, 2000);
 
-    expect(html.find('.ant-pro-form-collapse-button').text()).toBe('展开(9)');
+    expect(
+      html.baseElement.querySelector('.ant-pro-query-filter-collapse-button')?.textContent,
+    ).toBe('展开(9)');
   });
 });

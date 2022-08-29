@@ -1,6 +1,6 @@
 import { runFunction } from '@ant-design/pro-utils';
 import type { SelectProps } from 'antd';
-import type { RefSelectProps } from 'antd/lib/select';
+import type { RefSelectProps } from 'antd/es/select';
 import React, { useContext } from 'react';
 import FieldContext from '../../FieldContext';
 import type { ProFormFieldItemProps, ProFormFieldRemoteProps } from '../../interface';

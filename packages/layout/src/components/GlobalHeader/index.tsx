@@ -1,19 +1,19 @@
+import { MenuFoldOutlined, MenuUnfoldOutlined } from '@ant-design/icons';
+import type { AvatarProps } from 'antd';
 import { ConfigProvider } from 'antd';
 import classNames from 'classnames';
 import React, { useContext } from 'react';
 import type { PureSettings } from '../../defaultSettings';
-import type { HeaderViewProps } from '../../Header';
 import type { MenuDataItem } from '../../index';
 import type { WithFalse } from '../../typings';
 import { clearMenuItem } from '../../utils/utils';
+import { AppsLogoComponents, defaultRenderLogo } from '../AppsLogoComponents';
+import type { HeaderViewProps } from '../Header';
 import type { PrivateSiderMenuProps, SiderMenuProps } from '../SiderMenu/SiderMenu';
-import {
-  defaultRenderCollapsedButton,
-  defaultRenderLogo,
-  defaultRenderLogoAndTitle,
-} from '../SiderMenu/SiderMenu';
-import TopNavHeader from '../TopNavHeader';
-import './index.less';
+import { renderLogoAndTitle } from '../SiderMenu/SiderMenu';
+import { TopNavHeader } from '../TopNavHeader';
+import { RightContent } from './RightContent';
+import { useStyle } from './style';
 
 export type GlobalHeaderProps = {
   collapsed?: boolean;
@@ -50,7 +50,17 @@ export type GlobalHeaderProps = {
     (props: HeaderViewProps, defaultDom: React.ReactNode) => React.ReactNode
   >;
   collapsedButtonRender?: SiderMenuProps['collapsedButtonRender'];
+
   splitMenus?: boolean;
+  /** Layout的操作功能列表，不同的 layout 会放到不同的位置 */
+  actionsRender?: WithFalse<(props: HeaderViewProps) => React.ReactNode[]>;
+
+  /** 头像的设置 */
+  avatarProps?: WithFalse<
+    AvatarProps & {
+      title?: React.ReactNode;
+    }
+  >;
   children?: React.ReactNode;
 } & Partial<PureSettings>;
 
@@ -73,7 +83,6 @@ const GlobalHeader: React.FC<GlobalHeaderProps & PrivateSiderMenuProps> = (props
     logo,
     collapsed,
     onCollapse,
-    collapsedButtonRender = defaultRenderCollapsedButton,
     rightContentRender,
     menuHeaderRender,
     onMenuHeaderClick,
@@ -88,7 +97,9 @@ const GlobalHeader: React.FC<GlobalHeaderProps & PrivateSiderMenuProps> = (props
   } = props;
   const { direction } = useContext(ConfigProvider.ConfigContext);
   const baseClassName = `${prefixCls}-global-header`;
-  const className = classNames(propClassName, baseClassName, {
+  const { wrapSSR, hashId } = useStyle(baseClassName);
+
+  const className = classNames(propClassName, baseClassName, hashId, {
     [`${baseClassName}-layout-${layout}`]: layout && headerTheme === 'dark',
   });
 
@@ -110,8 +121,10 @@ const GlobalHeader: React.FC<GlobalHeaderProps & PrivateSiderMenuProps> = (props
     );
   }
 
-  const logoClassNames = classNames(`${baseClassName}-logo`, {
+  const logoClassNames = classNames(`${baseClassName}-logo`, hashId, {
     [`${baseClassName}-logo-rtl`]: direction === 'rtl',
+    [`${baseClassName}-logo-mix`]: layout === 'mix',
+    [`${baseClassName}-logo-mobile`]: isMobile,
   });
 
   const logoDom = (
@@ -119,33 +132,33 @@ const GlobalHeader: React.FC<GlobalHeaderProps & PrivateSiderMenuProps> = (props
       <a>{defaultRenderLogo(logo)}</a>
     </span>
   );
-
-  return (
+  return wrapSSR(
     <div className={className} style={{ ...style }}>
       {isMobile && renderLogo(menuHeaderRender, logoDom)}
-      {isMobile && collapsedButtonRender && (
+      {isMobile && (
         <span
-          className={`${baseClassName}-collapsed-button`}
+          className={`${baseClassName}-collapsed-button ${hashId}`}
           onClick={() => {
-            if (onCollapse) {
-              onCollapse(!collapsed);
-            }
+            onCollapse?.(!collapsed);
           }}
         >
-          {collapsedButtonRender(collapsed)}
+          {collapsed ? <MenuUnfoldOutlined /> : <MenuFoldOutlined />}
         </span>
       )}
       {layout === 'mix' && !isMobile && (
         <>
+          <AppsLogoComponents {...props} />
           <div className={logoClassNames} onClick={onMenuHeaderClick}>
-            {defaultRenderLogoAndTitle({ ...props, collapsed: false }, 'headerTitleRender')}
+            {renderLogoAndTitle({ ...props, collapsed: false }, 'headerTitleRender')}
           </div>
         </>
       )}
       <div style={{ flex: 1 }}>{children}</div>
-      {rightContentRender && rightContentRender(props)}
-    </div>
+      {(rightContentRender || props.actionsRender || props.avatarProps) && (
+        <RightContent rightContentRender={rightContentRender} {...props} />
+      )}
+    </div>,
   );
 };
 
-export default GlobalHeader;
+export { GlobalHeader };

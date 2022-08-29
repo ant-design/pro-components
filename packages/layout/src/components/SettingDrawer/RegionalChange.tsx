@@ -7,7 +7,8 @@ import { renderLayoutSettingItem } from './LayoutChange';
 const RegionalSetting: React.FC<{
   settings: Partial<ProSettings>;
   changeSetting: (key: string, value: any, hideLoading?: boolean) => void;
-}> = ({ settings = {}, changeSetting }) => {
+  hashId: string;
+}> = ({ settings = {}, changeSetting, hashId }) => {
   const formatMessage = getFormatMessage();
   const regionalSetting = ['header', 'footer', 'menu', 'menuHeader'];
   return (
@@ -20,7 +21,7 @@ const RegionalSetting: React.FC<{
           action: (
             <Switch
               size="small"
-              className={`regional-${key}`}
+              className={`regional-${key} ${hashId}`}
               checked={settings[`${key}Render`] || settings[`${key}Render`] === undefined}
               onChange={(checked) =>
                 changeSetting(`${key}Render`, checked === true ? undefined : false)
@@ -33,4 +34,4 @@ const RegionalSetting: React.FC<{
   );
 };
 
-export default RegionalSetting;
+export { RegionalSetting };

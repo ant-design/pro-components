@@ -2,7 +2,7 @@ import { PlusOutlined } from '@ant-design/icons';
 import type { ActionType, ProColumns } from '@ant-design/pro-components';
 import { ProTable, TableDropdown } from '@ant-design/pro-components';
 import { Button, ConfigProvider, Space, Tag } from 'antd';
-import arEGIntl from 'antd/lib/locale/ar_EG';
+import arEGIntl from 'antd/es/locale/ar_EG';
 import { useRef } from 'react';
 import request from 'umi-request';
 
@@ -79,12 +79,6 @@ const columns: ProColumns<GithubIssueItem>[] = [
         ))}
       </Space>
     ),
-  },
-  {
-    title: 'تاريخ الإنشاء',
-    key: 'since',
-    dataIndex: 'created_at',
-    valueType: 'date',
   },
   {
     title: 'التشغيل',

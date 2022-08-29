@@ -10,6 +10,8 @@ export default () => (
       location={{
         pathname: '/data_hui/data_hui2',
       }}
+      collapsed={false}
+      collapsedButtonRender={false}
       route={{
         routes: [
           {
@@ -71,7 +73,7 @@ export default () => (
           },
         ],
       }}
-      menu={{ defaultOpenAll: true, ignoreFlatMenu: true }}
+      menu={{ defaultOpenAll: true, hideMenuWhenCollapsed: true, ignoreFlatMenu: true }}
     >
       <PageContainer content="欢迎使用">
         <div>Hello World</div>

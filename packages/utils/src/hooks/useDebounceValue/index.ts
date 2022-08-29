@@ -1,12 +1,8 @@
 import type { DependencyList } from 'react';
 import { useEffect, useState } from 'react';
-import useLatest from '../useLatest';
+import { useLatest } from '../useLatest';
 
-export default function useDebounceValue<T>(
-  value: T,
-  delay: number = 100,
-  deps?: DependencyList,
-): T {
+export function useDebounceValue<T>(value: T, delay: number = 100, deps?: DependencyList): T {
   const [debouncedValue, setDebouncedValue] = useState(value);
   const valueRef = useLatest(value);
 

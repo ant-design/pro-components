@@ -1,6 +1,6 @@
 {
   "name": "@ant-design/pro-form",
-  "version": "1.74.3",
+  "version": "2.0.0-experimental.24",
   "description": "@ant-design/pro-form",
   "keywords": [
     "antd",
@@ -15,14 +15,10 @@
     "url": "https://github.com/ant-design/pro-components"
   },
   "license": "MIT",
-  "sideEffects": [
-    "*.less"
-  ],
-  "main": "lib/index.js",
+  "main": "es/index.js",
   "module": "es/index.js",
-  "types": "lib/index.d.ts",
+  "types": "es/index.d.ts",
   "files": [
-    "lib",
     "es",
     "dist"
   ],
@@ -34,12 +30,11 @@
   ],
   "dependencies": {
     "@ant-design/icons": "^4.2.1",
-    "@ant-design/pro-field": "1.36.3",
-    "@ant-design/pro-provider": "1.10.0",
-    "@ant-design/pro-utils": "1.45.2",
+    "@ant-design/pro-field": "2.0.0-experimental.23",
+    "@ant-design/pro-provider": "2.0.0-experimental.14",
+    "@ant-design/pro-utils": "2.0.0-experimental.22",
     "@babel/runtime": "^7.18.0",
     "@umijs/use-params": "^1.0.9",
-    "antd": "^4.20.0 ",
     "classnames": "^2.2.6",
     "lodash.merge": "^4.6.2",
     "omit.js": "^2.0.2",
@@ -48,10 +43,9 @@
     "use-json-comparison": "^1.0.5",
     "use-media-antd-query": "^1.1.0"
   },
-  "devDependencies": {
-    "@types/lodash.merge": "^4.6.7"
-  },
   "peerDependencies": {
+    "@types/lodash.merge": "^4.6.7",
+    "antd": ">=4.20.0",
     "rc-field-form": "^1.22.0",
     "react": ">=16.9.0",
     "react-dom": ">=16.9.0"

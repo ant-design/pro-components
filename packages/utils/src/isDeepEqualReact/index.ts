@@ -6,7 +6,7 @@
 /* eslint-disable no-plusplus */
 // do not edit .js files directly - edit src/index.jst
 
-function isDeepEqualReact(a: any, b: any, ignoreKeys?: string[], debug?: boolean) {
+export function isDeepEqualReact(a: any, b: any, ignoreKeys?: string[], debug?: boolean) {
   if (a === b) return true;
 
   if (a && b && typeof a === 'object' && typeof b === 'object') {
@@ -85,5 +85,3 @@ function isDeepEqualReact(a: any, b: any, ignoreKeys?: string[], debug?: boolean
   // true if both NaN, false otherwise
   return a !== a && b !== b;
 }
-
-export default isDeepEqualReact;

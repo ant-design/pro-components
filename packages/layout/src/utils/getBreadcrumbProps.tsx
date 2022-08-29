@@ -1,8 +1,8 @@
 import type { BreadcrumbProps as AntdBreadcrumbProps } from 'antd';
 import type H from 'history';
 import pathToRegexp from 'path-to-regexp';
-import type { BasicLayoutProps } from '../BasicLayout';
 import type { ProSettings } from '../defaultSettings';
+import type { ProLayoutProps } from '../ProLayout';
 import type { MenuDataItem, MessageDescriptor, WithFalse } from '../typings';
 import { urlToList } from './pathTools';
 
@@ -114,7 +114,7 @@ export const genBreadcrumbProps = (props: BreadcrumbProps): AntdBreadcrumbProps[
 // use breadcrumbRender to change routes
 export const getBreadcrumbProps = (
   props: BreadcrumbProps,
-  layoutPros: BasicLayoutProps,
+  layoutPros: ProLayoutProps,
 ): BreadcrumbListReturn => {
   const { breadcrumbRender, itemRender: propsItemRender } = props;
   const { minLength = 2 } = layoutPros.breadcrumbProps || {};

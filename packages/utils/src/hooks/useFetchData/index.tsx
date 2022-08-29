@@ -5,7 +5,7 @@ let testId = 0;
 
 export type ProRequestData<T, U = Record<string, any>> = (params: U, props: any) => Promise<T>;
 
-function useFetchData<T, U extends Record<string, any> = Record<string, any>>(props: {
+export function useFetchData<T, U extends Record<string, any> = Record<string, any>>(props: {
   proFieldKey?: React.Key;
   params?: U;
   request?: ProRequestData<T, U>;
@@ -40,5 +40,3 @@ function useFetchData<T, U extends Record<string, any> = Record<string, any>>(pr
 
   return [data || error];
 }
-
-export default useFetchData;

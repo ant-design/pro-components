@@ -2,9 +2,9 @@ import { ConfigProvider } from 'antd';
 import classNames from 'classnames';
 import type { CSSProperties } from 'react';
 import React, { useContext } from 'react';
+import { RouteContext } from '../../context/RouteContext';
 import type { PureSettings } from '../../defaultSettings';
-import RouteContext from '../../RouteContext';
-import './GridContent.less';
+import { useStyle } from './style';
 
 type GridContentProps = {
   contentWidth?: PureSettings['contentWidth'];
@@ -28,17 +28,19 @@ const GridContent: React.FC<GridContentProps> = (props) => {
   const prefixCls = props.prefixCls || getPrefixCls('pro');
   const contentWidth = propsContentWidth || value.contentWidth;
   const className = `${prefixCls}-grid-content`;
+  const { wrapSSR, hashId } = useStyle(className);
+  const isWide = contentWidth === 'Fixed';
 
-  return (
+  return wrapSSR(
     <div
-      className={classNames(className, propsClassName, {
-        wide: contentWidth === 'Fixed',
+      className={classNames(className, hashId, propsClassName, {
+        [`${className}-wide`]: isWide,
       })}
       style={style}
     >
-      <div className={`${prefixCls}-grid-content-children`}>{children}</div>
-    </div>
+      <div className={`${prefixCls}-grid-content-children ${hashId}`}>{children}</div>
+    </div>,
   );
 };
 
-export default GridContent;
+export { GridContent };

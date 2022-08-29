@@ -37,7 +37,7 @@ export default () => {
             }}
           />
         }
-        style={{ marginTop: 16 }}
+        style={{ marginBlockStart: 16 }}
         headerBordered
         collapsed={collapsed}
       >
@@ -48,7 +48,7 @@ export default () => {
         collapsibleIconRender={({ collapsed: buildInCollapsed }: { collapsed: boolean }) =>
           buildInCollapsed ? <span>收起 - </span> : <span>展开 - </span>
         }
-        style={{ marginTop: 16 }}
+        style={{ marginBlockStart: 16 }}
         headerBordered
         collapsible
         defaultCollapsed

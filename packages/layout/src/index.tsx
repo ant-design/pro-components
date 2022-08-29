@@ -6,32 +6,55 @@ import type {
   ActionGuideContainerProps,
   ActionGuideItemProps,
 } from './components/ActionGuide/interface';
-import FooterToolbar from './components/FooterToolbar';
-import GridContent from './components/GridContent';
-import type { PageContainerProps } from './components/PageContainer';
-import PageContainer, { ProBreadcrumb, ProPageHeader } from './components/PageContainer';
-import PageLoading from './components/PageLoading';
-import type { SettingDrawerProps, SettingDrawerState } from './components/SettingDrawer';
-import SettingDrawer from './components/SettingDrawer';
-import type { TopNavHeaderProps } from './components/TopNavHeader';
-import TopNavHeader from './components/TopNavHeader';
-import WaterMark from './components/WaterMark';
-import type { FooterProps } from './Footer';
-import DefaultFooter from './Footer';
-import getPageTitle from './getPageTitle';
-import type { HeaderViewProps as HeaderProps } from './Header';
-import DefaultHeader from './Header';
-import type { RouteContextType } from './RouteContext';
-import RouteContext from './RouteContext';
-import getMenuData from './utils/getMenuData';
 
-export const PageHeaderWrapper = PageContainer;
+// 兼容代码-----------
+import 'antd/es/anchor/style';
+import 'antd/es/avatar/style';
+import 'antd/es/breadcrumb/style';
+import 'antd/es/divider/style';
+import 'antd/es/drawer/style';
+import 'antd/es/layout/style';
+import 'antd/es/list/style';
+import 'antd/es/menu/style';
+import 'antd/es/message/style';
+import 'antd/es/popover/style';
+import 'antd/es/select/style';
+import 'antd/es/space/style';
+import 'antd/es/spin/style';
+import 'antd/es/switch/style';
+import 'antd/es/tabs/style';
+import 'antd/es/tooltip/style';
+//----------------------
+
+import { FooterToolbar } from './components/FooterToolbar';
+import { GridContent } from './components/GridContent';
+import type { PageContainerProps } from './components/PageContainer';
+import { PageContainer, ProBreadcrumb, ProPageHeader } from './components/PageContainer';
+import type { PageHeaderProps } from './components/PageHeader';
+import { PageHeader } from './components/PageHeader';
+
+import type { FooterProps } from './components/Footer';
+import { DefaultFooter } from './components/Footer';
+import type { HeaderViewProps as HeaderProps } from './components/Header';
+import { DefaultHeader } from './components/Header';
+import { PageLoading } from './components/PageLoading';
+import type { SettingDrawerProps, SettingDrawerState } from './components/SettingDrawer';
+import { SettingDrawer } from './components/SettingDrawer';
+import type { TopNavHeaderProps } from './components/TopNavHeader';
+import { TopNavHeader } from './components/TopNavHeader';
+import { WaterMark } from './components/WaterMark';
+import type { RouteContextType } from './context/RouteContext';
+import { RouteContext } from './context/RouteContext';
+import { getPageTitle } from './getPageTitle';
+import type { ProLayoutProps } from './ProLayout';
+import { ProLayout } from './ProLayout';
+import { getMenuData } from './utils/getMenuData';
 
 export type { ProSettings, ProSettings as Settings } from './defaultSettings';
 export type { MenuDataItem } from './typings';
 export {
+  PageHeader,
   ProLayout,
-  BasicLayout,
   RouteContext,
   PageLoading,
   GridContent,
@@ -51,10 +74,10 @@ export {
 };
 export type {
   FooterProps,
+  PageHeaderProps,
   PageContainerProps,
   TopNavHeaderProps,
-  BasicLayoutProps as ProLayoutProps,
-  BasicLayoutProps,
+  ProLayoutProps,
   RouteContextType,
   HeaderProps,
   SettingDrawerProps,
@@ -64,4 +87,4 @@ export type {
   ActionGuideItemProps,
 };
 
-export default BasicLayout;
+export default ProLayout;

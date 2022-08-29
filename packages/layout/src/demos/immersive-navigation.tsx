@@ -1,6 +1,6 @@
 import { CrownOutlined, LeftOutlined, SmileOutlined, UserOutlined } from '@ant-design/icons';
-import { ProLayout } from '@ant-design/pro-components';
-import { Avatar, Button, Result, Space, Tag } from 'antd';
+import ProLayout from '@ant-design/pro-layout';
+import { Button, Result, Space, Tag } from 'antd';
 import { useState } from 'react';
 
 const defaultProps = {
@@ -107,15 +107,14 @@ export default () => {
             {dom}
           </a>
         )}
-        rightContentRender={() => (
-          <div>
-            <Avatar shape="square" size="small" icon={<UserOutlined />} />
-          </div>
-        )}
+        avatarProps={{
+          icon: <UserOutlined />,
+        }}
       >
         <div
           style={{
             height: '120vh',
+            minHeight: 600,
           }}
         >
           <Result

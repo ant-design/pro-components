@@ -1,31 +1,30 @@
-import { MenuFoldOutlined, MenuUnfoldOutlined } from '@ant-design/icons';
-import { Layout, Menu } from 'antd';
-import type { SiderProps } from 'antd/lib/layout/Sider';
-import type { ItemType } from 'antd/lib/menu/hooks/useItems';
+import { useToken } from '@ant-design/pro-utils';
+import type { AvatarProps, SiderProps } from 'antd';
+import { Avatar, ConfigProvider, Layout, Menu, Space } from 'antd';
+import type { ItemType } from 'antd/es/menu/hooks/useItems';
 import classNames from 'classnames';
 import type { CSSProperties } from 'react';
-import React from 'react';
+import React, { useContext, useMemo } from 'react';
+import { ProLayoutContext } from '../../context/ProLayoutContext';
 import type { WithFalse } from '../../typings';
+import type { AppsLogoComponentsAppList } from '../AppsLogoComponents';
+import { AppsLogoComponents, defaultRenderLogo } from '../AppsLogoComponents';
+import { CollapsedIcon } from '../CollapsedIcon';
+import type { HeaderViewProps } from '../Header';
 import type { BaseMenuProps } from './BaseMenu';
-import BaseMenu from './BaseMenu';
-import MenuCounter from './Counter';
-import './index.less';
+import { BaseMenu } from './BaseMenu';
+import { MenuCounter } from './Counter';
 
 const { Sider } = Layout;
 
-export const defaultRenderLogo = (
-  logo: React.ReactNode | (() => React.ReactNode),
-): React.ReactNode => {
-  if (typeof logo === 'string') {
-    return <img src={logo} alt="logo" />;
-  }
-  if (typeof logo === 'function') {
-    return logo();
-  }
-  return logo;
-};
-
-export const defaultRenderLogoAndTitle = (
+/**
+ * 渲染 title 和 logo
+ *
+ * @param props
+ * @param renderKey
+ * @returns
+ */
+export const renderLogoAndTitle = (
   props: SiderMenuProps,
   renderKey: string = 'menuHeaderRender',
 ): React.ReactNode => {
@@ -42,21 +41,45 @@ export const defaultRenderLogoAndTitle = (
     return renderFunction(logoDom, props.collapsed ? null : titleDom, props);
   }
 
-  if (layout === 'mix' && renderKey === 'menuHeaderRender') {
+  /**
+   * 收起来时候直接不显示
+   */
+  if (props.isMobile) {
     return null;
   }
-
+  if (layout === 'mix' && renderKey === 'menuHeaderRender') return false;
+  if (props.collapsed) {
+    return <a key="title">{logoDom}</a>;
+  }
   return (
-    <a>
+    <a key="title">
       {logoDom}
-      {props.collapsed ? null : titleDom}
+      {titleDom}
     </a>
   );
 };
 
 export type SiderMenuProps = {
+  /** 品牌logo的标识 */
   logo?: React.ReactNode;
+  /** 相关品牌的列表 */
+  appList?: AppsLogoComponentsAppList;
+  /** 菜单的宽度 */
   siderWidth?: number;
+  /** 头像的设置 */
+  avatarProps?: WithFalse<
+    AvatarProps & {
+      title?: React.ReactNode;
+    }
+  >;
+  /**
+   * @deprecated
+   * 使用 actionsRender 和 avatarProps 代替
+   */
+  rightContentRender?: WithFalse<(props: HeaderViewProps) => React.ReactNode>;
+
+  /** Layout的操作功能列表，不同的 layout 会放到不同的位置 */
+  actionsRender?: WithFalse<(props: HeaderViewProps) => React.ReactNode[]>;
   /**
    * @name  菜单 logo 和 title 区域的渲染
    *
@@ -99,7 +122,9 @@ export type SiderMenuProps = {
    * @example 使用icon渲染 collapsedButtonRender={(collapsed)=>collapsed?<MenuUnfoldOutlined />:<MenuFoldOutlined />}
    * @example 不渲染按钮 collapsedButtonRender={false}
    */
-  collapsedButtonRender?: WithFalse<(collapsed?: boolean) => React.ReactNode>;
+  collapsedButtonRender?: WithFalse<
+    (collapsed?: boolean, defaultDom?: React.ReactNode) => React.ReactNode
+  >;
   /**
    * @name 菜单是否收起的断点，设置成false 可以禁用
    *
@@ -135,16 +160,16 @@ export type SiderMenuProps = {
   style?: CSSProperties;
 } & Pick<BaseMenuProps, Exclude<keyof BaseMenuProps, ['onCollapse']>>;
 
-export const defaultRenderCollapsedButton = (collapsed?: boolean) =>
-  collapsed ? <MenuUnfoldOutlined /> : <MenuFoldOutlined />;
-
 export type PrivateSiderMenuProps = {
   matchMenuKeys: string[];
+  originCollapsed?: boolean;
+  menuRenderType?: 'header' | 'sider';
 };
 
 const SiderMenu: React.FC<SiderMenuProps & PrivateSiderMenuProps> = (props) => {
   const {
     collapsed,
+    originCollapsed,
     fixSiderbar,
     menuFooterRender,
     onCollapse,
@@ -156,39 +181,54 @@ const SiderMenu: React.FC<SiderMenuProps & PrivateSiderMenuProps> = (props) => {
     style,
     layout,
     menuExtraRender = false,
-    collapsedButtonRender = defaultRenderCollapsedButton,
     links,
     menuContentRender,
+    collapsedButtonRender,
     prefixCls,
+    avatarProps,
+    rightContentRender,
+    actionsRender,
     onOpenChange,
-    headerHeight,
     logoStyle,
   } = props;
+  const { hashId } = useToken();
+  const showSiderExtraDom = useMemo(() => {
+    if (isMobile) return false;
+    if (layout === 'mix') return false;
+    return true;
+  }, [isMobile, layout]);
+
   const baseClassName = `${prefixCls}-sider`;
   const { flatMenuKeys } = MenuCounter.useContainer();
-  const siderClassName = classNames(`${baseClassName}`, {
+  const siderClassName = classNames(`${baseClassName}`, hashId, {
     [`${baseClassName}-fixed`]: fixSiderbar,
+    [`${baseClassName}-collapsed`]: props.collapsed,
     [`${baseClassName}-layout-${layout}`]: layout && !isMobile,
     [`${baseClassName}-light`]: theme !== 'dark',
+    [`${baseClassName}-mix`]: layout === 'mix' && !isMobile,
   });
 
-  const headerDom = defaultRenderLogoAndTitle(props);
+  const headerDom = renderLogoAndTitle(props);
 
   const extraDom = menuExtraRender && menuExtraRender(props);
-  const menuDom = menuContentRender !== false && flatMenuKeys && (
-    <BaseMenu
-      {...props}
-      key="base-menu"
-      mode="inline"
-      handleOpenChange={onOpenChange}
-      style={{
-        width: '100%',
-      }}
-      className={`${baseClassName}-menu`}
-    />
-  );
 
-  const menuRenderDom = menuContentRender ? menuContentRender(props, menuDom) : menuDom;
+  const menuDom = useMemo(
+    () =>
+      menuContentRender !== false &&
+      flatMenuKeys && (
+        <BaseMenu
+          {...props}
+          key="base-menu"
+          mode="inline"
+          handleOpenChange={onOpenChange}
+          style={{
+            width: '100%',
+          }}
+          className={`${baseClassName}-menu ${hashId}`}
+        />
+      ),
+    [baseClassName, flatMenuKeys, hashId, menuContentRender, onOpenChange, props],
+  );
 
   const linksMenuItems: ItemType[] = (links || []).map((node, index) => ({
     className: `${baseClassName}-link`,
@@ -196,31 +236,190 @@ const SiderMenu: React.FC<SiderMenuProps & PrivateSiderMenuProps> = (props) => {
     key: index,
   }));
 
-  if (collapsedButtonRender && !isMobile) {
-    linksMenuItems.push({
-      className: `${baseClassName}-collapsed-button`,
-      //@ts-ignore
-      title: false,
-      key: 'collapsed',
-      onClick: () => {
-        if (onCollapse) {
-          onCollapse(!collapsed);
-        }
-      },
-      label: collapsedButtonRender(collapsed),
-    });
-  }
+  const menuRenderDom = useMemo(() => {
+    return menuContentRender ? menuContentRender(props, menuDom) : menuDom;
+  }, [menuContentRender, menuDom, props]);
+
+  const avatarDom = useMemo(
+    () =>
+      avatarProps && (
+        <Space align="center" className={`${baseClassName}-actions-avatar`}>
+          <Avatar size={28} {...avatarProps} />
+          {avatarProps.title && !collapsed && <span>{avatarProps.title}</span>}
+        </Space>
+      ),
+    [avatarProps, baseClassName, collapsed],
+  );
+
+  const actionsDom = useMemo(
+    () => {
+      if (!actionsRender) return null;
+      return (
+        <Space
+          align="center"
+          size={4}
+          direction={collapsed ? 'vertical' : 'horizontal'}
+          className={classNames([
+            `${baseClassName}-actions-list`,
+            collapsed && `${baseClassName}-actions-list-collapsed`,
+            hashId,
+          ])}
+        >
+          {actionsRender?.(props).map((item, index) => {
+            return (
+              <div key={index} className={`${baseClassName}-actions-list-item ${hashId}`}>
+                {item}
+              </div>
+            );
+          })}
+        </Space>
+      );
+    },
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+    [actionsRender, baseClassName, collapsed],
+  );
+
+  const appsDom = useMemo(() => {
+    return <AppsLogoComponents appList={props.appList} prefixCls={props.prefixCls} />;
+  }, [props.appList, props.prefixCls]);
+
+  const collapsedDom = useMemo(() => {
+    if (collapsedButtonRender === false) return null;
+    const dom = (
+      <CollapsedIcon
+        isMobile={isMobile}
+        collapsed={originCollapsed}
+        className={`${baseClassName}-collapsed-button`}
+        onClick={() => {
+          onCollapse?.(!originCollapsed);
+        }}
+      />
+    );
+    if (collapsedButtonRender) return collapsedButtonRender(collapsed, dom);
+    return dom;
+  }, [collapsedButtonRender, isMobile, originCollapsed, baseClassName, collapsed, onCollapse]);
+
+  /** 操作区域的dom */
+  const actionAreaDom = useMemo(() => {
+    if (!avatarDom && !actionsDom) return null;
+
+    return (
+      <div
+        className={classNames(
+          `${baseClassName}-actions`,
+          hashId,
+          collapsed && `${baseClassName}-actions-collapsed`,
+        )}
+      >
+        {avatarDom}
+        {actionsDom}
+      </div>
+    );
+  }, [actionsDom, avatarDom, baseClassName, collapsed, hashId]);
+
+  const collapsedWidth = 60;
+
+  /* Using the useMemo hook to create a CSS class that will hide the menu when the menu is collapsed. */
+  const hideMenuWhenCollapsedClassName = useMemo(() => {
+    // 收起时完全隐藏菜单
+    if (props?.menu?.hideMenuWhenCollapsed && collapsed) {
+      return `${baseClassName}-hide-menu-collapsed`;
+    }
+    return null;
+  }, [baseClassName, collapsed, props?.menu?.hideMenuWhenCollapsed]);
+
+  const menuFooterDom = menuFooterRender && menuFooterRender?.(props);
+
+  const menuDomItems = (
+    <>
+      {headerDom && (
+        <div
+          className={classNames([
+            classNames(`${baseClassName}-logo`, hashId, {
+              [`${baseClassName}-logo-collapsed`]: collapsed,
+            }),
+          ])}
+          onClick={showSiderExtraDom ? onMenuHeaderClick : undefined}
+          id="logo"
+          style={logoStyle}
+        >
+          {headerDom}
+          {appsDom}
+        </div>
+      )}
+      {extraDom && (
+        <div
+          className={classNames([
+            `${baseClassName}-extra`,
+            !headerDom && `${baseClassName}-extra-no-logo`,
+            hashId,
+          ])}
+        >
+          {extraDom}
+        </div>
+      )}
+      <div
+        style={{
+          flex: 1,
+          overflowY: 'auto',
+          overflowX: 'hidden',
+        }}
+      >
+        {menuRenderDom}
+      </div>
+      {links ? (
+        <div className={`${baseClassName}-links ${hashId}`}>
+          <Menu
+            inlineIndent={16}
+            className={`${baseClassName}-link-menu ${hashId}`}
+            selectedKeys={[]}
+            openKeys={[]}
+            theme="light"
+            mode="inline"
+            items={linksMenuItems}
+          />
+        </div>
+      ) : null}
+      {showSiderExtraDom && (
+        <>
+          {actionAreaDom}
+          {rightContentRender ? (
+            <div
+              className={classNames(`${baseClassName}-actions`, hashId, {
+                [`${baseClassName}-actions-collapsed`]: collapsed,
+              })}
+            >
+              {rightContentRender?.(props)}
+            </div>
+          ) : null}
+        </>
+      )}
+      {menuFooterDom && (
+        <div
+          className={classNames([
+            `${baseClassName}-footer`,
+            hashId,
+            { [`${baseClassName}-footer-collapsed`]: collapsed },
+          ])}
+        >
+          {menuFooterDom}
+        </div>
+      )}
+    </>
+  );
+
+  const { sider } = useContext(ProLayoutContext);
   return (
     <>
-      {fixSiderbar && (
+      {fixSiderbar && !isMobile && !hideMenuWhenCollapsedClassName && (
         <div
           style={{
-            width: collapsed ? 48 : siderWidth,
+            width: collapsed ? collapsedWidth : siderWidth,
             overflow: 'hidden',
-            flex: `0 0 ${collapsed ? 48 : siderWidth}px`,
-            maxWidth: collapsed ? 48 : siderWidth,
-            minWidth: collapsed ? 48 : siderWidth,
-            transition: `background-color 0.3s, min-width 0.3s, max-width 0.3s cubic-bezier(0.645, 0.045, 0.355, 1)`,
+            flex: `0 0 ${collapsed ? collapsedWidth : siderWidth}px`,
+            maxWidth: collapsed ? collapsedWidth : siderWidth,
+            minWidth: collapsed ? collapsedWidth : siderWidth,
+            transition: 'all 0.2s ease 0s',
             ...style,
           }}
         />
@@ -234,67 +433,52 @@ const SiderMenu: React.FC<SiderMenuProps & PrivateSiderMenuProps> = (props) => {
           if (isMobile) return;
           onCollapse?.(collapse);
         }}
-        collapsedWidth={48}
-        style={{
-          overflow: 'hidden',
-          paddingTop: layout === 'mix' && !isMobile ? headerHeight : undefined,
-          ...style,
-        }}
-        width={siderWidth}
+        collapsedWidth={collapsedWidth}
+        style={style}
         theme={theme}
-        className={siderClassName}
+        width={siderWidth}
+        className={classNames(siderClassName, hashId, hideMenuWhenCollapsedClassName)}
       >
-        {headerDom && (
-          <div
-            className={classNames(`${baseClassName}-logo`, {
-              [`${baseClassName}-collapsed`]: collapsed,
-            })}
-            onClick={layout !== 'mix' ? onMenuHeaderClick : undefined}
-            id="logo"
-            style={logoStyle}
-          >
-            {headerDom}
-          </div>
-        )}
-        {extraDom && (
-          <div
-            className={`${baseClassName}-extra ${!headerDom && `${baseClassName}-extra-no-logo`}`}
-          >
-            {extraDom}
-          </div>
-        )}
-        <div
-          style={{
-            flex: 1,
-            overflowY: 'auto',
-            overflowX: 'hidden',
+        <ConfigProvider
+          // @ts-ignore
+          theme={{
+            hashed: false,
+            override: {
+              Menu: {
+                radiusItem: 4,
+                colorItemBgSelected: sider.colorBgMenuItemSelected || 'rgba(0, 0, 0, 0.04)',
+                colorItemBgActive: sider.colorBgMenuItemHover || 'rgba(0, 0, 0, 0.04)',
+                colorActiveBarWidth: 0,
+                colorActiveBarHeight: 0,
+                colorActiveBarBorderSize: 0,
+                colorItemText: sider.colorTextMenu || 'rgba(0, 0, 0, 0.65)',
+                colorItemTextHover: sider.colorTextMenuActive || 'rgba(0, 0, 0, 0.85)',
+                colorItemTextSelected: sider.colorTextMenuSelected || 'rgba(0, 0, 0, 1)',
+                colorItemBg: 'transparent',
+                colorSubItemBg: 'transparent',
+              },
+            },
           }}
         >
-          {menuRenderDom}
-        </div>
-        <div className={`${baseClassName}-links`}>
-          <Menu
-            theme={theme}
-            inlineIndent={16}
-            className={`${baseClassName}-link-menu`}
-            selectedKeys={[]}
-            openKeys={[]}
-            mode="inline"
-            items={linksMenuItems}
-          />
-        </div>
-        {menuFooterRender && (
-          <div
-            className={classNames(`${baseClassName}-footer`, {
-              [`${baseClassName}-footer-collapsed`]: !collapsed,
-            })}
-          >
-            {menuFooterRender(props)}
-          </div>
-        )}
+          {hideMenuWhenCollapsedClassName ? (
+            <div
+              className={`${baseClassName}-hide-when-collapsed ${hashId}`}
+              style={{
+                height: '100%',
+                width: '100%',
+                opacity: hideMenuWhenCollapsedClassName ? 0 : 1,
+              }}
+            >
+              {menuDomItems}
+            </div>
+          ) : (
+            menuDomItems
+          )}
+        </ConfigProvider>
+        {collapsedDom}
       </Sider>
     </>
   );
 };
 
-export default SiderMenu;
+export { SiderMenu };

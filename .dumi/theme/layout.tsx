@@ -2,14 +2,11 @@
 import { ConfigProvider, Switch } from 'antd';
 import zhCN from 'antd/es/locale/zh_CN';
 import Layout from 'dumi-theme-default/src/layout';
-import moment from 'moment';
-import 'moment/locale/zh-cn';
 import { useContext, useEffect, useMemo } from 'react';
 import { Helmet, HelmetProvider } from 'react-helmet-async';
 import { IRouteComponentProps, isBrowser } from 'umi';
 import './layout.less';
 import { useDarkreader } from './useDarkreader';
-moment.locale('zh-cn');
 
 const DarkButton = () => {
   const colorScheme = useMemo(() => {

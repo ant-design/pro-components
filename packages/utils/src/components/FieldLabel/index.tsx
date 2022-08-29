@@ -1,10 +1,10 @@
 import { CloseOutlined, DownOutlined } from '@ant-design/icons';
 import { useIntl } from '@ant-design/pro-provider';
 import { ConfigProvider } from 'antd';
-import type { SizeType } from 'antd/lib/config-provider/SizeContext';
+import type { SizeType } from 'antd/es/config-provider/SizeContext';
 import classNames from 'classnames';
 import React, { useContext, useImperativeHandle, useRef } from 'react';
-import './index.less';
+import { useStyle } from './style';
 
 export type FieldLabelProps = {
   label?: React.ReactNode;
@@ -26,7 +26,7 @@ export type FieldLabelProps = {
   onLabelClick?: () => void;
 };
 
-const FieldLabel: React.ForwardRefRenderFunction<any, FieldLabelProps> = (props, ref) => {
+const FieldLabelFunction: React.ForwardRefRenderFunction<any, FieldLabelProps> = (props, ref) => {
   const {
     label,
     onClear,
@@ -37,13 +37,13 @@ const FieldLabel: React.ForwardRefRenderFunction<any, FieldLabelProps> = (props,
     ellipsis,
     placeholder,
     className,
-    style,
     formatter,
     bordered,
     allowClear = true,
   } = props;
   const { getPrefixCls } = useContext(ConfigProvider.ConfigContext);
   const prefixCls = getPrefixCls('pro-core-field-label');
+  const { wrapSSR, hashId } = useStyle(prefixCls);
   const intl = useIntl();
   const clearRef = useRef<HTMLElement>(null);
   const labelRef = useRef<HTMLElement>(null);
@@ -113,7 +113,7 @@ const FieldLabel: React.ForwardRefRenderFunction<any, FieldLabelProps> = (props,
           }}
         >
           {prefix}
-          <span style={{ paddingLeft: 4 }}>
+          <span style={{ paddingInlineStart: 4 }}>
             {typeof str === 'string' ? str?.toString()?.substr?.(0, VALUE_MAX_LENGTH) : str}
           </span>
           {tail}
@@ -122,10 +122,11 @@ const FieldLabel: React.ForwardRefRenderFunction<any, FieldLabelProps> = (props,
     }
     return aLabel || placeholder;
   };
-  return (
+  return wrapSSR(
     <span
       className={classNames(
         prefixCls,
+        hashId,
         `${prefixCls}-${size}`,
         {
           [`${prefixCls}-active`]: !!value || value === 0,
@@ -135,7 +136,6 @@ const FieldLabel: React.ForwardRefRenderFunction<any, FieldLabelProps> = (props,
         },
         className,
       )}
-      style={style}
       ref={labelRef}
     >
       {getTextByValue(label, value)}
@@ -143,7 +143,7 @@ const FieldLabel: React.ForwardRefRenderFunction<any, FieldLabelProps> = (props,
         <CloseOutlined
           role="button"
           title="清除"
-          className={classNames(`${prefixCls}-icon`, `${prefixCls}-close`)}
+          className={classNames(`${prefixCls}-icon`, hashId, `${prefixCls}-close`)}
           onClick={(e) => {
             if (onClear && !disabled) {
               onClear();
@@ -154,8 +154,8 @@ const FieldLabel: React.ForwardRefRenderFunction<any, FieldLabelProps> = (props,
         />
       )}
       <DownOutlined className={classNames(`${prefixCls}-icon`, `${prefixCls}-arrow`)} />
-    </span>
+    </span>,
   );
 };
 
-export default React.forwardRef(FieldLabel);
+export const FieldLabel = React.forwardRef(FieldLabelFunction);

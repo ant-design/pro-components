@@ -193,7 +193,7 @@ export default () => {
                     display: 'flex',
                     alignItems: 'center',
                     gap: 16,
-                    paddingBottom: 16,
+                    paddingBlockEnd: 16,
                   }}
                 >
                   <div style={{ flex: 1 }}>总分：{info.totalScore}</div>

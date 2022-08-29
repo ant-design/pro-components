@@ -27,14 +27,14 @@ const ResultPageSkeleton: React.FC<ResultPageSkeletonProps> = ({ active = true, 
         <Skeleton.Avatar
           size={64}
           style={{
-            marginBottom: 32,
+            marginBlockEnd: 32,
           }}
         />
-        <Skeleton.Button active={active} style={{ width: 214, marginBottom: 8 }} />
+        <Skeleton.Button active={active} style={{ width: 214, marginBlockEnd: 8 }} />
         <Skeleton.Button active={active} style={{ width: 328 }} size="small" />
         <Space
           style={{
-            marginTop: 24,
+            marginBlockStart: 24,
           }}
         >
           <Skeleton.Button active={active} style={{ width: 116 }} />

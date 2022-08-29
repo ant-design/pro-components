@@ -23,6 +23,62 @@ ProLayout 可以提供一个标准又不失灵活的中后台标准布局，同�
 
 <code src="./demos/base.tsx" height="500px" iframe="760px" title="基础使用"/>
 
+### 通过 token 修改样式
+
+<code src="./demos/theme.tsx" iframe="650px" title="通过 token 修改样式"/>
+
+### 侧栏导航
+
+<code src="./demos/siderMode.tsx" iframe="650px" title="侧栏导航 中后台产品默认推荐"/>
+
+### 混合导航
+
+<code src="./demos/mixMode.tsx" iframe="650px" title="混合导航"/>
+
+### 顶部导航
+
+<code src="./demos/topMode.tsx" iframe="650px" title="顶部导航"/>
+
+### 定制侧栏宽度
+
+<code src="./demos/designSiderMenu.tsx" iframe="650px" title="侧栏导航宽度256px"/>
+
+### 页脚工具栏和全局公告
+
+<code src="./demos/footer-global-tools.tsx" iframe="650px" title="页脚工具栏和全局公告"/>
+
+### 收起时展示 title
+
+<code src="./demos/collapsedShowTitle.tsx" iframe="650px" title=" 收起时展示 title"/>
+
+### 不分组菜单样式
+
+<code src="./demos/menu-group.tsx" iframe="650px" title="不分组菜单样式"/>
+
+### 经典导航样式
+
+<code src="./demos/classicMode.tsx" iframe="650px" title="经典导航样式"/>
+
+### 通过调整页面背景内容调整整体氛围
+
+<code src="./demos/background-context.tsx" iframe="650px" title="通过调整页面背景内容调整整体氛围"/>
+
+### 定制菜单样式
+
+<code src="./demos/designMenuCss.tsx" iframe="650px" title="定制菜单样式"/>
+
+### 通过设置页背景和卡片样式简化界面层次
+
+<code src="./demos/pageSimplify.tsx" iframe="650px" title="通过设置页背景和卡片样式简化界面层次"/>
+
+### 自定侧栏菜单下方区域
+
+<code src="./demos/customSider.tsx" iframe="650px" title="自定侧栏菜单下方区域"/>
+
+### 菜单展开-站点地图
+
+<code src="./demos/siteMenu.tsx" iframe="650px" title="菜单展开-站点地图"/>
+
 ### 从服务器加载 menu
 
 ProLayout 提供了强大的菜单功能，但是这样必然会封装很多行为，导致需要一些特殊逻辑的用户感到不满。所以我们提供了很多的 API，期望可以满足绝大部分客户的方式。
@@ -65,7 +121,9 @@ menu 配置 `defaultOpenAll` 可以默认打开所有菜单
 
 <code src="./demos/DefaultOpenAllMenu.tsx" height="500px" iframe="610px" title="默认打开所有菜单"/>
 
-折叠按钮反复切换后`defaultOpenAll`将失效，menu 配置 `ignoreFlatMenu` 可以忽略手动折叠过的菜单，实现总是默认打开所有菜单
+### 总是打开所有菜单
+
+折叠按钮反复切换后 `defaultOpenAll` 将失效，menu 配置 `ignoreFlatMenu` 可以忽略手动折叠过的菜单，实现总是默认打开所有菜单。因为计算时机在组件渲染前，所以异步菜单不生效。
 
 <code src="./demos/AlwaysDefaultOpenAllMenu.tsx" height="500px" iframe="610px" title="总是默认打开所有菜单"/>
 
@@ -73,9 +131,9 @@ menu 配置 `defaultOpenAll` 可以默认打开所有菜单
 
 <code src="./demos/IconFont.tsx" height="500px" iframe="610px" title="使用 IconFont"/>
 
-### ghost 模式
+### 吸顶 header
 
-PageContainer 配置 `ghost` 可以将页头切换为透明模式。
+PageContainer 配置 `fixedHeader` 可以将吸顶 header。
 
 <code src="./demos/ghost.tsx" height="500px" iframe="610px" title="ghost 模式"/>
 
@@ -118,6 +176,7 @@ PageContainer 配置 `ghost` 可以将页头切换为透明模式。
 | pure | 是否删除掉所有的自带界面 | `boolean` | - |
 | loading | layout 的加载态 | `boolean` | - |
 | location | 当前应用会话的位置信息。如果你的应用创建了自定义的 history，则需要显示指定 location 属性，详见 [issue](https://github.com/ant-design/pro-components/issues/327) | [history.location](https://reactrouter.com/web/api/history) | isBrowser ? window.location : undefined |
+| appList | 跨站点导航列表 | `{ icon, title, desc:, url, target }[]` | - |
 | menuHeaderRender | 渲染 logo 和 title | `ReactNode` \| `(logo,title)=>ReactNode` | - |
 | menuFooterRender | 在 layout 底部渲染一个块 | `(menuProps)=>ReactNode` | - |
 | onMenuHeaderClick | menu 菜单的头部点击事件 | `(e: React.MouseEvent<HTMLDivElement>) => void` | - |
@@ -137,18 +196,18 @@ PageContainer 配置 `ghost` 可以将页头切换为透明模式。
 | locale | 当前 layout 的语言设置 | `zh-CN` \| `zh-TW` \| `en-US` | navigator.language |
 | settings | layout 的设置 | [`Settings`](#Settings) | - |
 | siderWidth | 侧边菜单宽度 | `number` | 208 |
-| headerHeight | 头部高度 | `number` | 48 |
 | defaultCollapsed | 默认的菜单的收起和展开，会受到 `breakpoint` 的影响，`breakpoint=false` 生效 | `boolean` | - |
 | collapsed | 控制菜单的收起和展开 | `boolean` | - |
 | onCollapse | 菜单的折叠收起事件 | `(collapsed: boolean) => void` | - |
 | onPageChange | 页面切换时触发 | `(location: Location) => void` | - |
-| headerRender | 自定义头的 render 方法 | `(props: BasicLayoutProps) => ReactNode` | - |
+| headerRender | 自定义头的 render 方法 | `(props: ProLayoutProps) => ReactNode` | - |
 | headerTitleRender | 自定义头标题的方法,mix 模式下生效 | `(logo,title,props)=>ReactNode` | - |
-| headerContentRender | 自定义头内容的方法 | `(props: BasicLayoutProps) => ReactNode` | - |
-| rightContentRender | 自定义头右部的 render 方法 | `(props: HeaderViewProps) => ReactNode` | - |
+| headerContentRender | 自定义头内容的方法 | `(props: ProLayoutProps) => ReactNode` | - |
+| avatarProps | layout 的头像设置，不同的 layout 放在不同的位置 | [`AvatarProps`](https://ant.design/components/avatar-cn/) | - |
+| actionsRender | 自定义操作列表 | `(layoutProps)=>ReactNode[]` | - |
 | collapsedButtonRender | 自定义 collapsed button 的方法 | `(collapsed: boolean) => ReactNode` | - |
-| footerRender | 自定义页脚的 render 方法 | `(props: BasicLayoutProps) => JSX.Element \| false` | - |
-| pageTitleRender | 自定义页面标题的显示方法 | `(props: BasicLayoutProps) => string` | - |
+| footerRender | 自定义页脚的 render 方法 | `(props: ProLayoutProps) => JSX.Element \| false` | - |
+| pageTitleRender | 自定义页面标题的显示方法 | `(props: ProLayoutProps) => string` | - |
 | menuRender | 自定义菜单的 render 方法 | `(props: HeaderViewProps) => ReactNode` | - |
 | postMenuData | 在显示前对菜单数据进行查看，修改不会触发重新渲染 | `(menuData: MenuDataItem[]) => MenuDataItem[]` | - |
 | menuItemRender | 自定义菜单项的 render 方法 | [`(itemProps: MenuDataItem, defaultDom: React.ReactNode, props: BaseMenuProps) => ReactNode`](/components/layout/#menudataitem) | - |
@@ -289,7 +348,7 @@ export interface Settings {
   /** Theme for nav menu */
   navTheme: 'light' | 'dark';
   /** Primary color of ant design */
-  primaryColor: string;
+  colorPrimary: string;
   /** Nav menu position: `side` or `top` */
   layout: 'side' | 'top';
   /** Layout of content: `Fluid` or `Fixed`, only works when layout is top */
@@ -407,6 +466,63 @@ const Page = () => (
   </RouteContext.Consumer>
 );
 ```
+
+## Token
+
+Token 是一种设计系统的基本元素，可以使用 Token 快速的修改组件库的基础样式。Layout 中可以通过 token 属性来配置这些颜色。
+
+### Layout 的 token
+
+| token                     | 说明                            | 默认值                |
+| ------------------------- | ------------------------------- | --------------------- |
+| bgLayout                  | layout 的背景颜色               | `#f7f8fa`             |
+| colorTextAppListIcon      | 跨站点应用的图标颜色            | `#666`                |
+| colorTextAppListIconHover | 跨站点应用的图标 hover 颜色     | `rgba(0, 0, 0, 0.65)` |
+| colorTextAppListIconHover | 跨站点应用的图标 hover 背景颜色 | `rgba(0, 0, 0, 0.04)` |
+
+### Sider Token
+
+Sider Token 是 侧边菜单的色值，与顶部菜单不同。
+
+| token | 说明 | 默认值 |
+| --- | --- | --- |
+| colorMenuBackground | menu 的背景颜色 | `transparent` |
+| colorTextMenuTitle | sider 的标题字体颜色 | `colorTextHeading` |
+| colorMenuItemDivider | menuItem 分割线的颜色 | `colorSplit` |
+| colorTextMenu | menuItem 的字体颜色 | `colorText` |
+| colorTextMenuSecondary | menu 的二级字体颜色，比如 footer 和 action 的 icon | `colorText` |
+| colorTextMenuSelected | menuItem 的选中字体颜色 | `rgb(0,0,0)` |
+| colorBgMenuItemHover | menuItem 的 hover 背景颜色 | `rgba(90, 75, 75, 0.03)` |
+| colorBgMenuItemSelected | menuItem 的选中背景颜色 | `rgba(0, 0, 0, 0.04)` |
+| colorBgMenuItemCollapsedHover | 收起 menuItem 的 hover 背景颜色 | `rgba(0, 145, 255, 0.1)` |
+| colorBgMenuItemCollapsedSelected | 收起 menuItem 的选中背景颜色 | `rgba(0, 145, 255, 0.08)` |
+| colorBgCollapsedButton | 展开收起按钮背景颜色 | `#fff` |
+| colorTextCollapsedButton | 展开收起按钮 hover 字体颜色 | `colorTextMenuSecondary` |
+| colorTextCollapsedButtonHover | 展开收起按钮 hover 时字体颜色 | `colorTextMenu` |
+
+### Header Token
+
+| token | 说明 | 默认值 |
+| --- | --- | --- |
+| colorHeaderTitle | sider 的标题字体颜色 | `colorTextHeading` |
+| colorTextMenu | menuItem 的字体颜色 | `colorText` |
+| colorTextMenuSecondary | menu 的二级字体颜色，比如 footer 和 action 的 icon | `colorText` |
+| colorTextMenuSelected | menuItem 的选中字体颜色 | `rgb(0,0,0)` |
+| colorBgMenuItemHover | menuItem 的 hover 背景颜色 | `rgba(90, 75, 75, 0.03)` |
+| colorBgMenuItemSelected | menuItem 的选中背景颜色 | `rgba(0, 0, 0, 0.04)` |
+| colorBgMenuItemCollapsedHover | 收起 menuItem 的 hover 背景颜色 | `rgba(0, 145, 255, 0.1)` |
+| colorBgMenuItemCollapsedSelected | 收起 menuItem 的选中背景颜色 | `rgba(0, 145, 255, 0.08)` |
+| colorTextRightActionsItem | 右上角字体颜色 | `colorTextSecondary` |
+| colorBgRightActionsItemHover | 右上角选中的 hover 颜色 | `rgba(0, 0, 0, 0.03)` |
+
+### pageContainer Token
+
+| token                            | 说明                               | 默认值        |
+| -------------------------------- | ---------------------------------- | ------------- |
+| marginBlockPageContainerContent  | pageContainer 自带的 margin block  | `24`          |
+| marginInlinePageContainerContent | pageContainer 自带的 margin inline | `40`          |
+| colorBgPageContainer             | pageContainer 的背景颜色           | `transparent` |
+| colorBgPageContainerFixed        | pageContainer 被固定时的背景颜色   | `#FFF`        |
 
 ## FAQ
 

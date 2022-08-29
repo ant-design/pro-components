@@ -6,7 +6,7 @@ import { SortableHandle } from 'react-sortable-hoc';
 import ProTable from '../../Table';
 import type { ProColumns, ProTableProps } from '../../typing';
 import { useDragSort } from '../../utils/useDragSort';
-import './index.less';
+import { useStyle } from './style';
 
 export type DragTableProps<T, U> = {
   /** @name 拖动排序列key值 如配置此参数，则会在该 key 对应的行显示拖拽排序把手，允许拖拽排序 */
@@ -42,6 +42,8 @@ function DragSortTable<
     () => handleCreator(<MenuOutlined className={getPrefixCls('pro-table-drag-icon')} />),
     [getPrefixCls],
   );
+
+  const { wrapSSR } = useStyle(getPrefixCls('pro-table-drag-icon'));
 
   const isDragSortColumn = useCallback(
     (item: ProColumns<T, any>) => {
@@ -102,24 +104,26 @@ function DragSortTable<
     propsColumns,
   ]);
 
-  return handleColumn ? (
-    <ProTable<T, U, ValueType>
-      {...(otherProps as ProTableProps<T, U, ValueType>)}
-      rowKey={rowKey}
-      dataSource={oriDs}
-      components={components}
-      columns={columns}
-      onDataSourceChange={onDataSourceChange}
-    />
-  ) : (
-    /* istanbul ignore next */
-    <ProTable<T, U, ValueType>
-      {...(otherProps as ProTableProps<T, U, ValueType>)}
-      rowKey={rowKey}
-      dataSource={oriDs}
-      columns={columns}
-      onDataSourceChange={onDataSourceChange}
-    />
+  return wrapSSR(
+    handleColumn ? (
+      <ProTable<T, U, ValueType>
+        {...(otherProps as ProTableProps<T, U, ValueType>)}
+        rowKey={rowKey}
+        dataSource={oriDs}
+        components={components}
+        columns={columns}
+        onDataSourceChange={onDataSourceChange}
+      />
+    ) : (
+      /* istanbul ignore next */
+      <ProTable<T, U, ValueType>
+        {...(otherProps as ProTableProps<T, U, ValueType>)}
+        rowKey={rowKey}
+        dataSource={oriDs}
+        columns={columns}
+        onDataSourceChange={onDataSourceChange}
+      />
+    ),
   );
 }
 

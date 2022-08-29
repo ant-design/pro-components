@@ -39,7 +39,7 @@ export type PureSettings = {
   // 注意：如果需要图标多色，Iconfont 图标项目里要进行批量去色处理
   // Usage: https://github.com/ant-design/ant-design-pro/pull/3517
   iconfontUrl: string;
-  primaryColor: string;
+  colorPrimary: string;
   colorWeak?: boolean;
   splitMenus?: boolean;
 };
@@ -57,7 +57,7 @@ const defaultSettings: ProSettings = {
   },
   title: 'Ant Design Pro',
   iconfontUrl: '',
-  primaryColor: '#1890ff',
+  colorPrimary: '#1677FF',
 };
 
-export default defaultSettings;
+export { defaultSettings };

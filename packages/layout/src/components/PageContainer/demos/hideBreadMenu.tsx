@@ -14,7 +14,7 @@ export default () => (
         breadcrumb: {},
       }}
       content={
-        <Descriptions column={2} style={{ marginBottom: -16 }}>
+        <Descriptions column={2} style={{ marginBlockEnd: -16 }}>
           <Descriptions.Item label="创建人">曲丽丽</Descriptions.Item>
           <Descriptions.Item label="关联表单">
             <a>421421</a>

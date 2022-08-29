@@ -154,18 +154,16 @@ PageContainer configuration `ghost` can switch the page header to transparent mo
 | locale | Language settings for the current layout | `zh-CN` \| `zh-TW` \| `en-US` | navigator.language |
 | settings | settings for layout | [`Settings`](#Settings) | - |
 | siderWidth | width of the side menu | `number` | 208 |
-| headerHeight | height of the header | `number` | 48 |
 | defaultCollapsed | The default collapsed and expanded menus, will be affected by `breakpoint`, `breakpoint=false` work | `boolean` | - |
 | collapsed | Controls the collapse and expansion of the menu | `boolean` | - |
 | onCollapse | The collapsed event of the menu | `(collapsed: boolean) => void` | - |
 | onPageChange | Triggered on page switch | `(location: Location) => void` | - |
-| headerRender | Custom header render method | `(props: BasicLayoutProps) => ReactNode` | - |
+| headerRender | Custom header render method | `(props: ProLayoutProps) => ReactNode` | - |
 | headerTitleRender | Custom header title method, works in mix mode | `(logo,title,props)=>ReactNode` | - |
-| headerContentRender | Custom header content methods | `(props: BasicLayoutProps) => ReactNode` | - |
-| rightContentRender | Custom render method for the right part of the header | `(props: HeaderViewProps) => ReactNode` | - |
+| headerContentRender | Custom header content methods | `(props: ProLayoutProps) => ReactNode` | - |
 | collapsedButtonRender | Custom method for collapsed button | `(collapsed: boolean) => ReactNode` | - |
-| footerRender | Custom render method for footer | `(props: BasicLayoutProps) => JSX.Element \| false` | - |
-| pageTitleRender | The render method for custom page titles | `(props: BasicLayoutProps) => ReactNode` | - |
+| footerRender | Custom render method for footer | `(props: ProLayoutProps) => JSX.Element \| false` | - |
+| pageTitleRender | The render method for custom page titles | `(props: ProLayoutProps) => ReactNode` | - |
 | menuRender | The render method for custom menus | `(props: HeaderViewProps) => ReactNode` | - |
 | postMenuData | View the menu data before displaying it, changes will not trigger a re-render | `(menuData: MenuDataItem[]) => MenuDataItem[]` | - |
 | menuItemRender | The render method for custom menu items | [`(itemProps: MenuDataItem, defaultDom: React.ReactNode, props: BaseMenuProps) => ReactNode`](/components/layout/#menudataitem) | - |
@@ -286,7 +284,7 @@ export interface Settings {
   /** Theme for nav menu */
   navTheme: 'light' | 'dark';
   /** Primary color of ant design */
-  primaryColor: string;
+  colorPrimary: string;
   /** Nav menu position: `side` or `top` */
   layout: 'side' | 'top';
   /** Layout of content: `Fluid` or `Fixed`, only works when layout is top */
@@ -403,6 +401,81 @@ const Page = () => (
   </RouteContext.
 );
 ```
+
+## Token
+
+Tokens are a basic element of a design system that allows you to quickly modify the underlying style of a component library using Tokens. These colors can be configured in Layout through the token property.
+
+### Default token
+
+The default token part comes from antd and may be changed, but here's the layout dependency.
+
+| token | Description | The default value is |
+| --- | --- | --- |
+| colorPrimary | The main color is | `#1677FF` |
+| colorError | Error color | `#ff4d4f` |
+| colorSuccess | Success color | `#52c41a` |
+| colorInfo | Notification color | `#1677FF` |
+| colorWarning | Warning color | `#faad14` |
+| colorTextHeading | Title color | `rgba(0, 0, 0, 0.85)` |
+| colorText | Body color | `rgba(0, 0, 0, 0.65)` |
+| colorTextSecondary | Secondary color | `rgba(0, 0, 0, 0.45)` |
+| colorBorder | Border basic color | `#d9d9d9` |
+| colorSplit | The color | that separates the border `rgba(0, 0, 0, 0.06)` |
+| radiusBase | The default rounded corners | `4px` |
+
+### The token of layout
+
+| token | Description | The default value is |
+| --- | --- | --- |
+| bgLayout | Layout background color | `#f7f8fa` |
+| colorTextAppListIcon | The icon color applied across sites is | `#666` |
+| colorTextAppListIconHover | Icons applied across sites hover color | `rgba(0, 0, 0, 0.65)` |
+| colorTextAppListIconHover | Icons for cross-site apps hover background color | `rgba(0, 0, 0, 0.04)` |
+
+### Sider Token
+
+Sider Token is the color value of the side menu, unlike the top menu.
+
+| token | Description | The default value is |
+| --- | --- | --- |
+| colorMenuBackground | The background color of menu is | `transparent` |
+| colorTextMenuTitle | The title font color of the sider is | `colorTextHeading` |
+| colorMenuItemDivider | The color of the menuItem divider line | `colorSplit` |
+| menuSubArrowColor | The arrow color of menuItem is | `rgba(0, 0, 0, 0.25)` |
+| colorTextMenu | MenuItem's font color | `colorText` |
+| colorTextMenuSecondary | Secondary font colors for menus, such as footers and icons for actions | `colorText` |
+| colorTextMenuSelected | MenuItem has a selected font color | `rgb(0,0,0)` |
+| colorBgMenuItemHover | menuItem's hover background color | `rgba(90, 75, 75, 0.03)` |
+| colorBgMenuItemSelected | MenuItem's selected background color | `rgba(0, 0, 0, 0.04)` |
+| colorBgMenuItemCollapsedHover | Collapse menuItem's hover background color | `rgba(0, 145, 255, 0.1)` |
+| colorBgMenuItemCollapsedSelected | Collapse the selected background color | menuItem `rgba(0, 145, 255, 0.08)` |
+| colorBgCollapsedButton | Expand the Collapse button background color | `#fff` |
+| colorTextCollapsedButton | Expand the Collapse button hover font color | `colorTextMenuSecondary` |
+| colorTextCollapsedButtonHover | Font color when the collapse button hover is expanded | `colorTextMenu` |
+
+### Header Token
+
+| token | Description | The default value is |
+| --- | --- | --- |
+| colorHeaderTitle | The title font color of the sider is | `colorTextHeading` |
+| colorTextMenu | MenuItem's font color | `colorText` |
+| colorTextMenuSecondary | Secondary font colors for menus, such as footers and icons for actions | `colorText` |
+| colorTextMenuSelected | MenuItem has a selected font color | `rgb(0,0,0)` |
+| colorBgMenuItemHover | menuItem's hover background color | `rgba(90, 75, 75, 0.03)` |
+| colorBgMenuItemSelected | MenuItem's selected background color | `rgba(0, 0, 0, 0.04)` |
+| colorBgMenuItemCollapsedHover | Collapse menuItem's hover background color | `rgba(0, 145, 255, 0.1)` |
+| colorBgMenuItemCollapsedSelected | Collapse the selected background color | menuItem `rgba(0, 145, 255, 0.08)` |
+| colorTextRightActionsItem | Font color | in the upper-right corner `colorTextSecondary` |
+| colorBgRightActionsItemHover | The hover color selected in the upper-right corner | `rgba(0, 0, 0, 0.03)` |
+
+### pageContainer Token
+
+| token | Description | The default value is |
+| --- | --- | --- |
+| marginBlockPageContainerContent | PageContainer comes with a margin | `#fff` |
+| colorBgPageContainer | The background color of pageContainer is | `transparent` |
+| colorBgPageContainerFixed | PageContainer is fixed when the background color | `#FFF` |
 
 ## FAQ
 

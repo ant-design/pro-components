@@ -2,6 +2,10 @@ import { Rate } from 'antd';
 import React from 'react';
 import type { ProFieldFC } from '../../index';
 
+// 兼容代码-----------
+import 'antd/es/rate/style';
+//------------
+
 /**
  * 评分组件
  *

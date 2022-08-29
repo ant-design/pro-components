@@ -14,6 +14,14 @@ import type {
 import { defaultActionRender, recordKeyToString } from '../useEditableArray';
 
 /**
+ * 兼容antd@4 和 antd@5 的warning
+ * @param messageStr
+ */
+const warning = (messageStr: React.ReactNode) => {
+  // @ts-ignore
+  return (message.warn || message.warning)(messageStr);
+};
+/**
  * 使用map 来删除数据，性能一般 但是准确率比较高
  *
  * @param params
@@ -33,7 +41,7 @@ export type AddLineOptions = {
  *
  * @param props
  */
-function useEditableMap<RecordType>(
+export function useEditableMap<RecordType>(
   props: RowEditableConfig<RecordType> & {
     dataSource: RecordType;
     childrenColumnName: string | undefined;
@@ -80,7 +88,7 @@ function useEditableMap<RecordType>(
   const startEditable = (recordKey: RecordKey) => {
     // 如果是单行的话，不允许多行编辑
     if (editableKeysSet.size > 0 && editableType === 'single') {
-      message.warn(
+      warning(
         props.onlyOneLineEditorAlertMessage ||
           intl.getMessage('editableTable.onlyOneLineEditor', '只能同时编辑一行'),
       );
@@ -189,5 +197,3 @@ function useEditableMap<RecordType>(
 export type UseEditableMapType = typeof useEditableMap;
 
 export type UseEditableMapUtilType = ReturnType<UseEditableMapType>;
-
-export default useEditableMap;

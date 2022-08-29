@@ -14,10 +14,10 @@ const Demo = () => {
         itemRender={({ listDom, action }, { index }) => (
           <ProCard
             bordered
-            style={{ marginBottom: 8 }}
+            style={{ marginBlockEnd: 8 }}
             title={`规格${index + 1}`}
             extra={action}
-            bodyStyle={{ paddingBottom: 0 }}
+            bodyStyle={{ paddingBlockEnd: 0 }}
           >
             {listDom}
           </ProCard>
@@ -26,7 +26,7 @@ const Demo = () => {
         initialValue={[{ name: '颜色', items: [{ name: '红' }, { name: '黄' }] }]}
       >
         <ProFormText style={{ padding: 0 }} width="md" name="name" label="规格名" />
-        <ProForm.Item isListField style={{ marginBottom: 0 }} label="规格值">
+        <ProForm.Item isListField style={{ marginBlockEnd: 0 }} label="规格值">
           <ProFormList
             name="items"
             creatorButtonProps={{
@@ -42,7 +42,7 @@ const Demo = () => {
               <div
                 style={{
                   display: 'inline-flex',
-                  marginRight: 25,
+                  marginInlineEnd: 25,
                 }}
               >
                 {listDom}

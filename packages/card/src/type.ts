@@ -1,11 +1,14 @@
 import type { TabPaneProps, TabsProps } from 'antd';
-import type { LabelTooltipType } from 'antd/lib/form/FormItemLabel';
+import type { LabelTooltipType } from 'antd/es/form/FormItemLabel';
 import type { ReactNode } from 'react';
 
 export type Breakpoint = 'xxl' | 'xl' | 'lg' | 'md' | 'sm' | 'xs';
 export type Gutter = number | Partial<Record<Breakpoint, number>>;
 // eslint-disable-next-line @typescript-eslint/ban-types
-export type ProCardTabsProps = {} & TabsProps;
+export type ProCardTabsProps = {
+  // 透传的card样式props
+  cardProps?: CardProps;
+} & TabsProps;
 
 export type ColSpanType = number | string;
 
@@ -76,6 +79,8 @@ export type CardProps = {
   checked?: boolean;
   /** 选中改变 */
   onChecked?: (e: React.MouseEvent<HTMLDivElement, MouseEvent>) => void;
+  /** card的阴影 */
+  boxShadow?: boolean;
 } & Omit<React.HTMLAttributes<HTMLDivElement>, 'title'>;
 
 export type ProCardTabPaneProps = {

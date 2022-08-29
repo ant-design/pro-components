@@ -1,17 +1,18 @@
-﻿import { Checkbox, ConfigProvider, Space, Spin } from 'antd';
-import type { CheckboxGroupProps } from 'antd/lib/checkbox';
+﻿import { useStyle } from '@ant-design/pro-utils';
+import { Checkbox, ConfigProvider, Space, Spin } from 'antd';
+import type { CheckboxGroupProps } from 'antd/es/checkbox';
 import classNames from 'classnames';
 import React, { useContext, useImperativeHandle, useRef } from 'react';
 import type { ProFieldFC } from '../../index';
 import type { FieldSelectProps } from '../Select';
 import { ObjToMap, proFieldParsingText, useFieldFetchData } from '../Select';
-import './index.less';
-
 export type GroupProps = {
   layout?: 'horizontal' | 'vertical';
   options?: CheckboxGroupProps['options'];
 } & FieldSelectProps;
-
+// 兼容代码-----------
+import 'antd/es/checkbox/style';
+//----------------------
 /**
  * 多选组件
  *
@@ -25,6 +26,19 @@ const FieldCheckbox: ProFieldFC<GroupProps> = (
   const { getPrefixCls } = useContext(ConfigProvider.ConfigContext);
   const layoutClassName = getPrefixCls('pro-field-checkbox');
   const [loading, options, fetchData] = useFieldFetchData(rest);
+  // css
+  const { wrapSSR, hashId } = useStyle('Checkbox', (token) => {
+    return {
+      [`.${layoutClassName}`]: {
+        '&-horizontal': {
+          [`${token.antCls}-checkbox-group-item`]: {
+            display: 'flex',
+            marginInlineEnd: 0,
+          },
+        },
+      },
+    };
+  });
   const checkBoxRef = useRef();
   useImperativeHandle(ref, () => ({
     ...(checkBoxRef.current || {}),
@@ -51,12 +65,12 @@ const FieldCheckbox: ProFieldFC<GroupProps> = (
   }
 
   if (mode === 'edit') {
-    const dom = (
+    const dom = wrapSSR(
       <Checkbox.Group
         {...rest.fieldProps}
-        className={classNames(rest.fieldProps?.className, `${layoutClassName}-${layout}`)}
+        className={classNames(rest.fieldProps?.className, hashId, `${layoutClassName}-${layout}`)}
         options={options}
-      />
+      />,
     );
     if (renderFormItem) {
       return renderFormItem(rest.text, { mode, ...rest.fieldProps }, dom) || null;

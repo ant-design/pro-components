@@ -32,4 +32,4 @@ const useCurrentMenuLayoutProps = (currentMenu: ProSettings) => {
   return currentMenuLayoutProps;
 };
 
-export default useCurrentMenuLayoutProps;
+export { useCurrentMenuLayoutProps };

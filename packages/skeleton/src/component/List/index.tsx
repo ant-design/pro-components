@@ -42,7 +42,7 @@ const StatisticSkeleton: React.FC<{
     <Card
       bordered={false}
       style={{
-        marginBottom: 16,
+        marginBlockEnd: 16,
       }}
     >
       <div
@@ -57,10 +57,11 @@ const StatisticSkeleton: React.FC<{
             // eslint-disable-next-line react/no-array-index-key
             key={index}
             style={{
-              borderLeft: arraySize > 2 && index === 1 ? '1px solid rgba(0,0,0,0.06)' : undefined,
-              paddingLeft: firstWidth(index),
+              borderInlineStart:
+                arraySize > 2 && index === 1 ? '1px solid rgba(0,0,0,0.06)' : undefined,
+              paddingInlineStart: firstWidth(index),
               flex: 1,
-              marginRight: index === 0 ? 16 : 0,
+              marginInlineEnd: index === 0 ? 16 : 0,
             }}
           >
             <Skeleton
@@ -68,7 +69,7 @@ const StatisticSkeleton: React.FC<{
               paragraph={false}
               title={{
                 width: 100,
-                style: { marginTop: 0 },
+                style: { marginBlockStart: 0 },
               }}
             />
             <Skeleton.Button
@@ -116,7 +117,7 @@ export const ListSkeletonItem: React.FC<{ active: boolean }> = ({ active }) => (
             title={{
               width: 100,
               style: {
-                marginTop: 0,
+                marginBlockStart: 0,
               },
             }}
             paragraph={{
@@ -127,7 +128,11 @@ export const ListSkeletonItem: React.FC<{ active: boolean }> = ({ active }) => (
             }}
           />
         </div>
-        <Skeleton.Button active={active} size="small" style={{ width: 165, marginTop: 12 }} />
+        <Skeleton.Button
+          active={active}
+          size="small"
+          style={{ width: 165, marginBlockStart: 12 }}
+        />
       </div>
     </Card>
     <Line />
@@ -184,7 +189,7 @@ export const ListSkeleton: React.FC<{
 export const PageHeaderSkeleton = ({ active }: { active: boolean }) => (
   <div
     style={{
-      marginBottom: 16,
+      marginBlockEnd: 16,
     }}
   >
     <Skeleton
@@ -219,7 +224,7 @@ export const ListToolbarSkeleton = ({ active }: { active: boolean }) => (
       borderBottomLeftRadius: 0,
     }}
     bodyStyle={{
-      paddingBottom: 8,
+      paddingBlockEnd: 8,
     }}
   >
     <Space

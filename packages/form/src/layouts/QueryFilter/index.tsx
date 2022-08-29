@@ -1,9 +1,9 @@
 /* eslint-disable no-param-reassign */
 import { useIntl } from '@ant-design/pro-provider';
-import { isBrowser, useMountMergeState } from '@ant-design/pro-utils';
+import { isBrowser, useMountMergeState, useToken } from '@ant-design/pro-utils';
 import type { FormItemProps, RowProps } from 'antd';
-import { Col, ConfigProvider, Divider, Form, Row } from 'antd';
-import type { FormInstance, FormProps } from 'antd/lib/form/Form';
+import { Col, ConfigProvider, Form, Row } from 'antd';
+import type { FormInstance, FormProps } from 'antd/es/form/Form';
 import classNames from 'classnames';
 import RcResizeObserver from 'rc-resize-observer';
 import useMergedState from 'rc-util/lib/hooks/useMergedState';
@@ -13,6 +13,7 @@ import type { CommonFormProps } from '../../BaseForm';
 import { BaseForm } from '../../BaseForm';
 import type { ActionsProps } from './Actions';
 import Actions from './Actions';
+import { useStyle } from './style';
 
 const CONFIG_SPAN_BREAKPOINTS = {
   xs: 513,
@@ -217,12 +218,14 @@ const QueryFilterContent: React.FC<{
     span: number;
     layout: FormProps['layout'];
   };
+  baseClassName: string;
   optionRender: BaseQueryFilterProps['optionRender'];
   ignoreRules?: boolean;
   preserve?: boolean;
   showHiddenNum?: boolean;
 }> = (props) => {
   const intl = useIntl();
+  const { hashId } = useToken();
   const resetText = props.resetText || intl.getMessage('tableForm.reset', '重置');
   const searchText = props.searchText || intl.getMessage('tableForm.search', '搜索');
 
@@ -309,7 +312,10 @@ const QueryFilterContent: React.FC<{
 
       itemLength += 1;
 
-      const itemKey = (React.isValidElement(item) && (item.key || `${item.props?.name}`)) || index;
+      const itemKey =
+        (React.isValidElement(item) &&
+          (item.key || `${(item.props as Record<string, any>)?.name}`)) ||
+        index;
 
       if (React.isValidElement(item) && hidden) {
         if (!props.preserve) {
@@ -323,7 +329,7 @@ const QueryFilterContent: React.FC<{
           itemDom: React.cloneElement(item, {
             hidden: true,
             key: itemKey || index,
-          }),
+          } as Record<string, any>),
           hidden: true,
           colSpan,
         };
@@ -355,21 +361,23 @@ const QueryFilterContent: React.FC<{
 
     currentSpan += colSpan;
 
-    const colItem = (
+    if (split && currentSpan % 24 === 0 && index < itemLength - 1) {
+      return (
+        <Col
+          key={itemKey}
+          span={colSpan}
+          className={`${props.baseClassName}-row-split-line ${hashId}`}
+        >
+          {itemDom}
+        </Col>
+      );
+    }
+
+    return (
       <Col key={itemKey} span={colSpan}>
         {itemDom}
       </Col>
     );
-
-    if (split && currentSpan % 24 === 0 && index < itemLength - 1) {
-      return [
-        colItem,
-        <Col span="24" key="line">
-          <Divider style={{ marginTop: -8, marginBottom: 16 }} dashed />
-        </Col>,
-      ];
-    }
-    return colItem;
   });
 
   const hiddenNum = showHiddenNum && processedList.filter((item) => item.hidden).length;
@@ -386,9 +394,15 @@ const QueryFilterContent: React.FC<{
     const offsetSpan = (currentSpan % 24) + spanSize.span;
     return 24 - offsetSpan;
   }, [currentSpan, spanSize.span]);
-
+  const context = useContext(ConfigProvider.ConfigContext);
+  const baseClassName = context.getPrefixCls('pro-query-filter');
   return (
-    <Row gutter={searchGutter} justify="start" key="resize-observer-row">
+    <Row
+      gutter={searchGutter}
+      className={`${baseClassName}-row ${hashId}`}
+      justify="start"
+      key="resize-observer-row"
+    >
       {doms}
       {submitter && (
         <Col
@@ -399,7 +413,7 @@ const QueryFilterContent: React.FC<{
             textAlign: 'right',
           }}
         >
-          <Form.Item label=" " colon={false} className="pro-form-query-filter-actions">
+          <Form.Item label=" " colon={false} className={`${baseClassName}-actions ${hashId}`}>
             <Actions
               hiddenNum={hiddenNum}
               key="pro-form-query-filter-actions"
@@ -441,7 +455,8 @@ function QueryFilter<T = Record<string, any>>(props: QueryFilterProps<T>) {
   } = props;
 
   const context = useContext(ConfigProvider.ConfigContext);
-  const baseClassName = context.getPrefixCls('pro-form-query-filter');
+  const baseClassName = context.getPrefixCls('pro-query-filter');
+  const { wrapSSR, hashId } = useStyle(baseClassName);
 
   const [width, setWidth] = useMountMergeState(
     () => (typeof style?.width === 'number' ? style?.width : defaultWidth) as number,
@@ -477,7 +492,7 @@ function QueryFilter<T = Record<string, any>>(props: QueryFilterProps<T>) {
     return undefined;
   }, [spanSize.layout, labelWidth]);
 
-  return (
+  return wrapSSR(
     <RcResizeObserver
       key="resize-observer"
       onResize={(offset) => {
@@ -490,7 +505,7 @@ function QueryFilter<T = Record<string, any>>(props: QueryFilterProps<T>) {
         isKeyPressSubmit
         preserve={preserve}
         {...rest}
-        className={classNames(baseClassName, rest.className)}
+        className={classNames(baseClassName, hashId, rest.className)}
         onReset={onReset}
         style={style}
         layout={spanSize.layout}
@@ -503,7 +518,7 @@ function QueryFilter<T = Record<string, any>>(props: QueryFilterProps<T>) {
         groupProps={{
           titleStyle: {
             display: 'inline-block',
-            marginRight: 16,
+            marginInlineEnd: 16,
           },
         }}
         contentRender={(items, renderSubmitter, form) => (
@@ -518,6 +533,7 @@ function QueryFilter<T = Record<string, any>>(props: QueryFilterProps<T>) {
             submitter={renderSubmitter}
             items={items}
             split={split}
+            baseClassName={baseClassName}
             resetText={props.resetText}
             searchText={props.searchText}
             searchGutter={searchGutter}
@@ -528,7 +544,7 @@ function QueryFilter<T = Record<string, any>>(props: QueryFilterProps<T>) {
           />
         )}
       />
-    </RcResizeObserver>
+    </RcResizeObserver>,
   );
 }
 

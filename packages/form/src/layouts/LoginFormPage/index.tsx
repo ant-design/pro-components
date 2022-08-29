@@ -1,9 +1,10 @@
 import { useIntl } from '@ant-design/pro-provider';
 import { ConfigProvider } from 'antd';
+import classNames from 'classnames';
 import React, { useContext, useMemo } from 'react';
 import type { ProFormProps } from '../ProForm';
 import { ProForm } from '../ProForm';
-import './index.less';
+import { useStyle } from './style';
 
 export type LoginFormPageProps<T> = {
   /**
@@ -98,7 +99,9 @@ export function LoginFormPage<T = Record<string, any>>(props: Partial<LoginFormP
 
   const context = useContext(ConfigProvider.ConfigContext);
   const baseClassName = context.getPrefixCls('pro-form-login-page');
-  const getCls = (className: string) => `${baseClassName}-${className}`;
+  const { wrapSSR, hashId } = useStyle(baseClassName);
+
+  const getCls = (className: string) => `${baseClassName}-${className} ${hashId}`;
 
   /** 生成logo 的dom，如果是string 设置为图片 如果是个 dom 就原样保留 */
   const logoDom = useMemo(() => {
@@ -109,9 +112,9 @@ export function LoginFormPage<T = Record<string, any>>(props: Partial<LoginFormP
     return logo;
   }, [logo]);
 
-  return (
+  return wrapSSR(
     <div
-      className={baseClassName}
+      className={classNames(baseClassName, hashId)}
       style={{
         ...style,
         backgroundImage: `url("${backgroundImageUrl}")`,
@@ -150,6 +153,6 @@ export function LoginFormPage<T = Record<string, any>>(props: Partial<LoginFormP
           {actions ? <div className={getCls('other')}>{actions}</div> : null}
         </div>
       </div>
-    </div>
+    </div>,
   );
 }

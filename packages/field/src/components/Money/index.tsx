@@ -6,6 +6,11 @@ import useMergedState from 'rc-util/lib/hooks/useMergedState';
 import React, { useMemo } from 'react';
 import type { ProFieldFC } from '../../index';
 
+// 兼容代码-----------
+import 'antd/es/input-number/style';
+import 'antd/es/popover/style';
+//----------------------
+
 export type FieldMoneyProps = {
   text: number;
   moneySymbol?: boolean;
@@ -85,18 +90,24 @@ const getTextByLocale = (
   precision: number,
   config?: any,
 ) => {
-  let moneyText = paramsText;
+  let moneyText: number | string | undefined = paramsText?.toString().replaceAll(',', '');
   if (typeof moneyText === 'string') {
     moneyText = Number(moneyText);
   }
 
   if (!moneyText && moneyText !== 0) return '';
-  // readonly moneySymbol = false, unused currency
-  return new Intl.NumberFormat(moneySymbol || 'zh-Hans-CN', {
-    ...(moneySymbol === false ? {} : intlMap[moneySymbol || 'zh-Hans-CN'] || intlMap['zh-Hans-CN']),
-    maximumFractionDigits: precision,
-    ...config,
-  }).format(moneyText);
+  try {
+    // readonly moneySymbol = false, unused currency
+    return new Intl.NumberFormat(moneySymbol || 'zh-Hans-CN', {
+      ...(moneySymbol === false
+        ? {}
+        : intlMap[moneySymbol || 'zh-Hans-CN'] || intlMap['zh-Hans-CN']),
+      maximumFractionDigits: precision,
+      ...config,
+    }).format(moneyText);
+  } catch (error) {
+    return moneyText;
+  }
 };
 
 const DefaultPrecisionCont = 2;
@@ -110,7 +121,7 @@ const InputNumberPopover = React.forwardRef<
     numberFormatOptions?: any;
     numberPopoverRender?: any;
   }
->(({ content, numberFormatOptions, numberPopoverRender, ...rest }, ref) => {
+>(({ content, numberFormatOptions, numberPopoverRender, visible, ...rest }, ref) => {
   const [value, onChange] = useMergedState<any>(() => rest.defaultValue, {
     value: rest.value,
     onChange: rest.onChange,
@@ -121,8 +132,9 @@ const InputNumberPopover = React.forwardRef<
   });
 
   const props = {
-    visible: dom ? rest.visible : false,
+    visible: dom ? visible : false,
   };
+
   return (
     <Popover
       placement="topLeft"
@@ -215,11 +227,13 @@ const FieldMoney: ProFieldFC<FieldMoneyProps> = (
 
       return `${resInt}${resFloat}`;
     };
+
     const dom = (
       <InputNumberPopover
         content={(props) => {
           if (numberPopoverRender === false) return;
           if (!props.value) return;
+
           const localeText = getTextByLocale(
             moneySymbol ? locale : false,
             `${getFormateValue(props.value)}`,

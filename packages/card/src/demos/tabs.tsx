@@ -11,7 +11,7 @@ export default () => {
 
   return (
     <div>
-      <Space style={{ marginBottom: 16 }}>
+      <Space style={{ marginBlockEnd: 16 }}>
         Tab position：
         <Select
           value={tabPosition}
@@ -28,18 +28,28 @@ export default () => {
         tabs={{
           tabPosition,
           activeKey: tab,
+          items: [
+            {
+              label: `产品一`,
+              key: 'tab1',
+              children: `内容一`,
+            },
+            {
+              label: `产品二`,
+              key: 'tab2',
+              children: `内容二`,
+            },
+            {
+              label: `产品三`,
+              key: 'tab3',
+              children: `内容三`,
+            },
+          ],
           onChange: (key) => {
             setTab(key);
           },
         }}
-      >
-        <ProCard.TabPane key="tab1" tab="产品一">
-          内容一
-        </ProCard.TabPane>
-        <ProCard.TabPane key="tab2" tab="产品二">
-          内容二
-        </ProCard.TabPane>
-      </ProCard>
+      />
     </div>
   );
 };

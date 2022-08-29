@@ -10,9 +10,9 @@ const PageLoading: React.FC<SpinProps & any> = ({
   retry,
   ...reset
 }) => (
-  <div style={{ paddingTop: 100, textAlign: 'center' }}>
+  <div style={{ paddingBlockStart: 100, textAlign: 'center' }}>
     <Spin size="large" {...reset} />
   </div>
 );
 
-export default PageLoading;
+export { PageLoading };

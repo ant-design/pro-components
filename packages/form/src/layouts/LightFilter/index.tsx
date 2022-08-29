@@ -3,7 +3,7 @@ import { useIntl } from '@ant-design/pro-provider';
 import { FieldLabel, FilterDropdown } from '@ant-design/pro-utils';
 import type { FormProps } from 'antd';
 import { ConfigProvider } from 'antd';
-import type { SizeType } from 'antd/lib/config-provider/SizeContext';
+import type { SizeType } from 'antd/es/config-provider/SizeContext';
 import classNames from 'classnames';
 import omit from 'omit.js';
 import React, {
@@ -17,7 +17,7 @@ import React, {
 import type { CommonFormProps, ProFormInstance } from '../../BaseForm';
 import { BaseForm } from '../../BaseForm';
 import type { LightFilterFooterRender, Placement } from '../../interface';
-import './index.less';
+import { useStyle } from './style';
 
 export type LightFilterProps<T> = {
   collapse?: boolean;
@@ -83,6 +83,7 @@ const LightFilterContainer: React.FC<{
   } = props;
   const intl = useIntl();
   const lightFilterClassName = `${prefixCls}-light-filter`;
+  const { wrapSSR, hashId } = useStyle(lightFilterClassName);
 
   const [open, setOpen] = useState<boolean>(false);
   const [moreValues, setMoreValues] = useState<Record<string, any>>(() => {
@@ -115,7 +116,7 @@ const LightFilterContainer: React.FC<{
       return collapseLabel;
     }
     if (collapse) {
-      return <FilterOutlined className={`${lightFilterClassName}-collapse-icon`} />;
+      return <FilterOutlined className={`${lightFilterClassName}-collapse-icon ${hashId}`} />;
     }
     return (
       <FieldLabel
@@ -126,19 +127,19 @@ const LightFilterContainer: React.FC<{
     );
   };
 
-  return (
+  return wrapSSR(
     <div
-      className={classNames(lightFilterClassName, `${lightFilterClassName}-${size}`, {
+      className={classNames(lightFilterClassName, hashId, `${lightFilterClassName}-${size}`, {
         [`${lightFilterClassName}-effective`]: Object.keys(values).some((key) => values[key]),
       })}
     >
-      <div className={`${lightFilterClassName}-container`}>
+      <div className={`${lightFilterClassName}-container ${hashId}`}>
         {outsideItems.map((child: any, index) => {
           const { key } = child;
           const { fieldProps } = child.props;
           const newPlacement = fieldProps?.placement ? fieldProps?.placement : placement;
           return (
-            <div className={`${lightFilterClassName}-item`} key={key || index}>
+            <div className={`${lightFilterClassName}-item ${hashId}`} key={key || index}>
               {React.cloneElement(child, {
                 fieldProps: {
                   ...child.props.fieldProps,
@@ -156,7 +157,7 @@ const LightFilterContainer: React.FC<{
           );
         })}
         {collapseItems.length ? (
-          <div className={`${lightFilterClassName}-item`} key="more">
+          <div className={`${lightFilterClassName}-item ${hashId}`} key="more">
             <FilterDropdown
               padding={24}
               onVisibleChange={setOpen}
@@ -200,7 +201,7 @@ const LightFilterContainer: React.FC<{
                 }
                 const newPlacement = fieldProps?.placement ? fieldProps?.placement : placement;
                 return (
-                  <div className={`${lightFilterClassName}-line`} key={key}>
+                  <div className={`${lightFilterClassName}-line ${hashId}`} key={key}>
                     {React.cloneElement(child, {
                       fieldProps: {
                         ...newFieldProps,
@@ -214,7 +215,7 @@ const LightFilterContainer: React.FC<{
           </div>
         ) : null}
       </div>
-    </div>
+    </div>,
   );
 };
 

@@ -26,7 +26,7 @@ const defaultData: DataSourceType[] = [
     title: '🐛 [BUG]yarn install命令 antd2.4.5会报错',
     labels: [{ name: 'bug', color: 'error' }],
     time: {
-      created_at: '2020-05-26T09:42:56Z',
+      created_at: '1590486176000',
     },
     state: 'processing',
   },
@@ -35,7 +35,7 @@ const defaultData: DataSourceType[] = [
     title: '🐛 [BUG]无法创建工程npm create umi',
     labels: [{ name: 'bug', color: 'error' }],
     time: {
-      created_at: '2020-05-26T08:19:22Z',
+      created_at: '1590481162000',
     },
     state: 'closed',
   },
@@ -45,7 +45,7 @@ const defaultData: DataSourceType[] = [
     labels: [{ name: 'question', color: 'success' }],
     state: 'open',
     time: {
-      created_at: '2020-05-26T07:54:25Z',
+      created_at: '1590479665000',
     },
     children: [
       {
@@ -54,7 +54,7 @@ const defaultData: DataSourceType[] = [
         labels: [{ name: 'question', color: 'success' }],
         state: 'closed',
         time: {
-          created_at: '2020-05-26T07:54:25Z',
+          created_at: '1590479665000',
         },
         children: [
           {
@@ -63,7 +63,7 @@ const defaultData: DataSourceType[] = [
             labels: [{ name: 'question', color: 'success' }],
             state: 'closed',
             time: {
-              created_at: '2020-05-26T07:54:25Z',
+              created_at: '1590479665000',
             },
           },
         ],
@@ -252,7 +252,7 @@ describe('EditorProTable', () => {
             labels: [{ name: 'question', color: 'success' }],
             state: 'open',
             time: {
-              created_at: '2020-05-26T07:54:25Z',
+              created_at: '1590479665000',
             },
             children: [
               {
@@ -261,7 +261,7 @@ describe('EditorProTable', () => {
                 labels: [{ name: 'question', color: 'success' }],
                 state: 'closed',
                 time: {
-                  created_at: '2020-05-26T07:54:25Z',
+                  created_at: '1590479665000',
                 },
               },
             ],
@@ -315,7 +315,7 @@ describe('EditorProTable', () => {
             labels: [{ name: 'question', color: 'success' }],
             state: 'open',
             time: {
-              created_at: '2020-05-26T07:54:25Z',
+              created_at: '1590479665000',
             },
             children: [
               {
@@ -324,7 +324,7 @@ describe('EditorProTable', () => {
                 labels: [{ name: 'question', color: 'success' }],
                 state: 'closed',
                 time: {
-                  created_at: '2020-05-26T07:54:25Z',
+                  created_at: '1590479665000',
                 },
               },
             ],
@@ -376,7 +376,7 @@ describe('EditorProTable', () => {
             labels: [{ name: 'question', color: 'success' }],
             state: 'open',
             time: {
-              created_at: '2020-05-26T07:54:25Z',
+              created_at: '1590479665000',
             },
             children: [
               {
@@ -385,7 +385,7 @@ describe('EditorProTable', () => {
                 labels: [{ name: 'question', color: 'success' }],
                 state: 'closed',
                 time: {
-                  created_at: '2020-05-26T07:54:25Z',
+                  created_at: '1590479665000',
                 },
               },
             ],
@@ -742,7 +742,7 @@ describe('EditorProTable', () => {
             title: '🐛 [BUG]yarn install命令 antd2.4.5会报错',
             labels: [{ name: 'bug', color: 'error' }],
             time: {
-              created_at: '2020-05-26T09:42:56Z',
+              created_at: '1590486176000',
             },
             state: 'processing',
           },
@@ -751,11 +751,9 @@ describe('EditorProTable', () => {
       />,
     );
     await waitForComponentToPaint(wrapper, 1100);
-
     expect(
-      wrapper.container.querySelectorAll<HTMLInputElement>(
-        '.ant-table-cell .ant-form-item-control-input input',
-      )[1].value,
+      wrapper.container.querySelectorAll<HTMLInputElement>('.ant-form-item-control-input input')[1]
+        .value,
     ).toBe('🐛 [BUG]yarn install命令 antd2.4.5会报错');
 
     act(() => {
@@ -777,7 +775,7 @@ describe('EditorProTable', () => {
               title: '🐛 [BUG]无法创建工程npm create umi',
               labels: [{ name: 'bug', color: 'error' }],
               time: {
-                created_at: '2020-05-26T09:42:56Z',
+                created_at: '1590486176000',
               },
               state: 'processing',
             },
@@ -789,9 +787,8 @@ describe('EditorProTable', () => {
 
     await waitForComponentToPaint(wrapper, 100);
     expect(
-      wrapper.container.querySelectorAll<HTMLInputElement>(
-        '.ant-table-cell .ant-form-item-control-input input',
-      )[1].value,
+      wrapper.container.querySelectorAll<HTMLInputElement>('.ant-form-item-control-input input')[1]
+        .value,
     ).toBe('🐛 [BUG]无法创建工程npm create umi');
   });
 
@@ -822,7 +819,7 @@ describe('EditorProTable', () => {
             labels: [{ name: 'question', color: 'success' }],
             state: 'open',
             time: {
-              created_at: '2020-05-26T07:54:25Z',
+              created_at: '1590479665000',
             },
             children: [
               {
@@ -831,7 +828,7 @@ describe('EditorProTable', () => {
                 labels: [{ name: 'question', color: 'success' }],
                 state: 'closed',
                 time: {
-                  created_at: '2020-05-26T07:54:25Z',
+                  created_at: '1590479665000',
                 },
               },
             ],
@@ -883,7 +880,7 @@ describe('EditorProTable', () => {
             labels: [{ name: 'question', color: 'success' }],
             state: 'open',
             time: {
-              created_at: '2020-05-26T07:54:25Z',
+              created_at: '1590479665000',
             },
             children: [
               {
@@ -892,7 +889,7 @@ describe('EditorProTable', () => {
                 labels: [{ name: 'question', color: 'success' }],
                 state: 'closed',
                 time: {
-                  created_at: '2020-05-26T07:54:25Z',
+                  created_at: '1590479665000',
                 },
               },
             ],
@@ -949,7 +946,7 @@ describe('EditorProTable', () => {
             labels: [{ name: 'question', color: 'success' }],
             state: 'open',
             time: {
-              created_at: '2020-05-26T07:54:25Z',
+              created_at: '1590479665000',
             },
             children: [
               {
@@ -958,7 +955,7 @@ describe('EditorProTable', () => {
                 labels: [{ name: 'question', color: 'success' }],
                 state: 'closed',
                 time: {
-                  created_at: '2020-05-26T07:54:25Z',
+                  created_at: '1590479665000',
                 },
               },
             ],

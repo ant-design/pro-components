@@ -3,6 +3,11 @@ import toNumber from 'lodash.tonumber';
 import React, { useMemo } from 'react';
 import type { ProFieldFC } from '../../index';
 
+// 兼容代码-----------
+import 'antd/es/input-number/style';
+import 'antd/es/progress/style';
+//------------
+
 export function getProgressStatus(text: number): 'success' | 'exception' | 'normal' | 'active' {
   if (text === 100) {
     return 'success';

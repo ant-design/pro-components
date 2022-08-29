@@ -1,5 +1,5 @@
 import { dateArrayFormatter } from '@ant-design/pro-utils';
-import type { RangePickerProps } from 'antd/lib/date-picker';
+import type { RangePickerProps } from 'antd/es/date-picker';
 import React, { useContext } from 'react';
 import FieldContext from '../../FieldContext';
 import type { ProFormFieldItemProps } from '../../interface';

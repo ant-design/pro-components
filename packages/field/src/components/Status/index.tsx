@@ -1,7 +1,10 @@
 import { Badge } from 'antd';
 import type { CSSProperties } from 'react';
 import React from 'react';
-import './index.less';
+
+// 兼容代码-----------
+import 'antd/es/badge/style';
+//------------
 
 type StatusProps = {
   className?: string;

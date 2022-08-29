@@ -111,7 +111,7 @@ const genData = (total: number) => {
       key: i,
       name: 'John Brown',
       age: i + 10,
-      time: Date.now(),
+      time: 1661136793649 + i * 1000,
       address: i % 2 === 0 ? 'london' : 'New York',
       description: `My name is John Brown, I am ${i}2 years old, living in New York No. ${i} Lake Park.`,
     });
@@ -614,13 +614,13 @@ const DynamicSettings = () => {
                   <ProCard
                     bordered
                     style={{
-                      marginBottom: 8,
+                      marginBlockEnd: 8,
                       position: 'relative',
                     }}
                     bodyStyle={{
                       padding: 8,
-                      paddingRight: 16,
-                      paddingTop: 16,
+                      paddingInlineEnd: 16,
+                      paddingBlockStart: 16,
                     }}
                   >
                     <div
@@ -648,7 +648,7 @@ const DynamicSettings = () => {
               />
               <ProFormGroup
                 style={{
-                  marginTop: 8,
+                  marginBlockStart: 8,
                 }}
               >
                 <ProFormSwitch label="过长省略" name="ellipsis" />
@@ -656,7 +656,7 @@ const DynamicSettings = () => {
               </ProFormGroup>
               <ProFormGroup
                 style={{
-                  marginTop: 8,
+                  marginBlockStart: 8,
                 }}
                 size={8}
               >
@@ -689,7 +689,7 @@ const DynamicSettings = () => {
               </ProFormGroup>
               <ProFormGroup
                 style={{
-                  marginTop: 8,
+                  marginBlockStart: 8,
                 }}
                 size={8}
               >
@@ -704,7 +704,7 @@ const DynamicSettings = () => {
                     <ProFormTextArea
                       formItemProps={{
                         style: {
-                          marginTop: 8,
+                          marginBlockStart: 8,
                         },
                       }}
                       fieldProps={{

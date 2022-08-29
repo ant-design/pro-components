@@ -18,7 +18,7 @@ export default () => {
         content: '示例水印',
         fontColor: 'rgba(0,0,0,.15)',
         fontSize: '16',
-        zIndex: '9',
+        zIndex: 9,
         rotate: '-22',
       }}
       submitter={false}

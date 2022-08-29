@@ -6,7 +6,7 @@
 import { isDropdownValueType, omitUndefined } from '@ant-design/pro-utils';
 import type { FormItemProps } from 'antd';
 import { ConfigProvider, Form } from 'antd';
-import type { NamePath } from 'antd/lib/form/interface';
+import type { NamePath } from 'antd/es/form/interface';
 import React, { useCallback, useContext, useEffect, useMemo } from 'react';
 import type { LightWrapperProps } from '../../BaseForm';
 import { LightWrapper } from '../../BaseForm';
@@ -45,7 +45,7 @@ const WithValueFomFiledProps: React.FC<
       if (filedChildren?.type?.displayName !== 'ProFormComponent') return;
       if (!React.isValidElement(filedChildren)) return undefined;
       filedChildren?.props?.onChange?.(...restParams);
-      filedChildren?.props?.fieldProps?.onChange?.(...restParams);
+      (filedChildren?.props as Record<string, any>)?.fieldProps?.onChange?.(...restParams);
     },
     [filedChildren, onChange],
   );
@@ -56,7 +56,7 @@ const WithValueFomFiledProps: React.FC<
       if (!React.isValidElement(filedChildren)) return;
       onBlur?.(...restParams);
       filedChildren?.props?.onBlur?.(...restParams);
-      filedChildren?.props?.fieldProps?.onBlur?.(...restParams);
+      (filedChildren?.props as Record<string, any>)?.fieldProps?.onBlur?.(...restParams);
     },
     [filedChildren, onBlur],
   );
@@ -116,8 +116,8 @@ type WarpFormItemProps = {
    *
    * @example a,b => [a,b]     convertValue: (value,namePath)=> value.split(",")
    * @example string => json   convertValue: (value,namePath)=> JSON.parse(value)
-   * @example number => date   convertValue: (value,namePath)=> Moment(value)
-   * @example YYYY-MM-DD => date   convertValue: (value,namePath)=> Moment(value,"YYYY-MM-DD")
+   * @example number => date   convertValue: (value,namePath)=> Dayjs(value)
+   * @example YYYY-MM-DD => date   convertValue: (value,namePath)=> Dayjs(value,"YYYY-MM-DD")
    * @example  string => object   convertValue: (value,namePath)=> { return {value,label:value} }
    */
   convertValue?: SearchConvertKeyFn;
@@ -177,9 +177,9 @@ const WarpFormItem: React.FC<FormItemProps & WarpFormItemProps> = ({
                   alignItems: 'center',
                 }}
               >
-                {addonBefore ? <div style={{ marginRight: 8 }}>{addonBefore}</div> : null}
+                {addonBefore ? <div style={{ marginInlineEnd: 8 }}>{addonBefore}</div> : null}
                 {doms.input}
-                {addonAfter ? <div style={{ marginLeft: 8 }}>{addonAfter}</div> : null}
+                {addonAfter ? <div style={{ marginInlineStart: 8 }}>{addonAfter}</div> : null}
               </div>
               {doms.extra}
               {doms.errorList}
@@ -219,8 +219,8 @@ export type ProFormItemProps = FormItemProps & {
    *
    * @example {name:[a,b] => {name:a,b }    transform: (value,namePath,allValues)=> value.join(",")
    * @example {name: string => { newName:string }    transform: (value,namePath,allValues)=> { newName:value }
-   * @example {name:moment} => {name:string transform: (value,namePath,allValues)=> value.format("YYYY-MM-DD")
-   * @example {name:moment}=> {name:时间戳} transform: (value,namePath,allValues)=> value.valueOf()
+   * @example {name:dayjs} => {name:string transform: (value,namePath,allValues)=> value.format("YYYY-MM-DD")
+   * @example {name:dayjs}=> {name:时间戳} transform: (value,namePath,allValues)=> value.valueOf()
    * @example {name:{value,label}} => { name:string} transform: (value,namePath,allValues)=> value.value
    * @example {name:{value,label}} => { valueName,labelName  } transform: (value,namePath,allValues)=> { valueName:value.value, labelName:value.name }
    */

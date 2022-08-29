@@ -85,14 +85,14 @@ const defaultData: DataSourceType[] = [
     title: '活动名称一',
     labels: [{ key: 'woman', label: '川妹子' }],
     state: 'open',
-    created_at: '2020-05-26T09:42:56Z',
+    created_at: '1590486176000',
   },
   {
     id: 624691229,
     title: '活动名称二',
     labels: [{ key: 'man', label: '西北汉子' }],
     state: 'closed',
-    created_at: '2020-05-26T08:19:22Z',
+    created_at: '1590481162000',
   },
 ];
 

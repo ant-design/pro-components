@@ -1,7 +1,11 @@
 import { useCallback, useEffect, useRef } from 'react';
+import { act } from 'react-dom/test-utils';
 import { useRefFunction } from '../useRefFunction';
 
-function useDebounceFn<T extends any[], U = any>(fn: (...args: T) => Promise<any>, wait?: number) {
+export function useDebounceFn<T extends any[], U = any>(
+  fn: (...args: T) => Promise<any>,
+  wait?: number,
+) {
   const callback = useRefFunction(fn);
 
   const timer = useRef<any>();
@@ -21,6 +25,12 @@ function useDebounceFn<T extends any[], U = any>(fn: (...args: T) => Promise<any
       cancel();
       return new Promise<U>((resolve) => {
         timer.current = setTimeout(async () => {
+          if (process.env.NODE_ENV === 'TEST') {
+            await act(async () => {
+              resolve(await callback(...args));
+            });
+            return;
+          }
           resolve(await callback(...args));
         }, wait);
       });
@@ -37,5 +47,3 @@ function useDebounceFn<T extends any[], U = any>(fn: (...args: T) => Promise<any
     cancel,
   };
 }
-
-export default useDebounceFn;

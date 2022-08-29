@@ -1,6 +1,5 @@
 import { SmileOutlined } from '@ant-design/icons';
 import {
-  BasicLayout,
   FooterToolbar,
   PageContainer,
   ProForm,
@@ -11,12 +10,13 @@ import {
   ProFormText,
   ProFormTextArea,
   ProFormUploadButton,
+  ProLayout,
 } from '@ant-design/pro-components';
 import { Card } from 'antd';
 
 export default () => {
   return (
-    <BasicLayout
+    <ProLayout
       fixSiderbar
       fixedHeader
       navTheme="light"
@@ -147,6 +147,6 @@ export default () => {
           </ProForm>
         </Card>
       </PageContainer>
-    </BasicLayout>
+    </ProLayout>
   );
 };

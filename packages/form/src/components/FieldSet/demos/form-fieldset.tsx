@@ -18,7 +18,7 @@ export default () => {
     >
       <Switch
         style={{
-          marginBottom: 16,
+          marginBlockEnd: 16,
         }}
         checked={readonly}
         checkedChildren="编辑"

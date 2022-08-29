@@ -1,6 +1,6 @@
 {
   "name": "@ant-design/pro-descriptions",
-  "version": "1.12.3",
+  "version": "2.0.0-experimental.24",
   "description": "@ant-design/pro-descriptions",
   "keywords": [
     "antd",
@@ -15,14 +15,10 @@
     "url": "https://github.com/ant-design/pro-components"
   },
   "license": "MIT",
-  "sideEffects": [
-    "*.less"
-  ],
-  "main": "lib/index.js",
+  "main": "es/index.js",
   "module": "es/index.js",
-  "types": "lib/index.d.ts",
+  "types": "es/index.d.ts",
   "files": [
-    "lib",
     "es",
     "dist"
   ],
@@ -33,12 +29,11 @@
     "ie >= 11"
   ],
   "dependencies": {
-    "@ant-design/pro-field": "1.36.3",
-    "@ant-design/pro-form": "1.74.3",
-    "@ant-design/pro-skeleton": "1.0.13",
-    "@ant-design/pro-utils": "1.45.2",
+    "@ant-design/pro-field": "2.0.0-experimental.23",
+    "@ant-design/pro-form": "2.0.0-experimental.24",
+    "@ant-design/pro-skeleton": "2.0.0-experimental.9",
+    "@ant-design/pro-utils": "2.0.0-experimental.22",
     "@babel/runtime": "^7.18.0",
-    "antd": "^4.20.0 ",
     "rc-util": "^5.0.6",
     "use-json-comparison": "^1.0.5"
   },

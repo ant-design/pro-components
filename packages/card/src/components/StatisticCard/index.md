@@ -27,7 +27,7 @@ nav:
 
 使用数值统计配置 `statistic` 和 `chart` 完成基本的指标卡。
 
-<code src="./demos/basic.tsx" background="#f0f2f5" title="基本使用" height="377px"/>
+<code src="./demos/basic.tsx" background="#f7f8fa" title="基本使用" />
 
 ### 只有图表
 
@@ -39,8 +39,6 @@ nav:
 
 - `footer` 用于设置额外的指标展示区域。
 - 你可以设置 `Statistic` 组件的布局方式`layout` 为 `horizontal` 来展示横向指标。
-
-<code src="./demos/footer.tsx" background="#f0f2f5" title="额外指标" height="333px"/>
 
 ### 总分/主次关系
 
@@ -54,11 +52,9 @@ nav:
 
 你可以嵌套指标卡组件来将指标分组, 以及 `Divider` 子组件来分隔这些指标。
 
-<code src="./demos/group.tsx" background="#f0f2f5" title="分组指标" height="234px"/>
-
 ### 分组指标带图表
 
-<code src="./demos/group-chart.tsx" background="#f0f2f5" title="分组指标带图表" height="295px"/>
+<code src="./demos/group-chart.tsx" background="#f7f8fa" title="分组指标带图表"/>
 
 ### 公式计算指标
 

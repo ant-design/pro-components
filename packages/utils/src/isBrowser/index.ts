@@ -1,7 +1,7 @@
 const isNode =
   typeof process !== 'undefined' && process.versions != null && process.versions.node != null;
 
-const isBrowser = () => {
+export const isBrowser = () => {
   if (process.env.NODE_ENV === 'TEST') {
     return true;
   }
@@ -12,5 +12,3 @@ const isBrowser = () => {
     !isNode
   );
 };
-
-export default isBrowser;

@@ -35,4 +35,4 @@ const getMenuData = (
   return getMenuData(menuDataRender(menuData), menu, formatMessage, undefined);
 };
 
-export default getMenuData;
+export { getMenuData };

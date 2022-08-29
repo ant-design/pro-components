@@ -47,7 +47,7 @@ export type GetPageTitleProps = {
  * @param props
  * @param ignoreTitle
  */
-const getPageTitleInfo = (
+export const getPageTitleInfo = (
   props: GetPageTitleProps,
   ignoreTitle?: boolean,
 ): {
@@ -107,10 +107,6 @@ const getPageTitleInfo = (
   };
 };
 
-export { getPageTitleInfo };
-
-const getPageTitle = (props: GetPageTitleProps, ignoreTitle?: boolean) => {
+export const getPageTitle = (props: GetPageTitleProps, ignoreTitle?: boolean) => {
   return getPageTitleInfo(props, ignoreTitle).title;
 };
-
-export default getPageTitle;

@@ -5,12 +5,13 @@ import {
   DropdownFooter,
   InlineErrorFormItem,
   isDeepEqualReact,
+  isDropdownValueType,
   isNil,
   isUrl,
   LabelIconTip,
   merge,
   nanoid,
-  parseValueToMoment,
+  parseValueToDay,
   pickProProps,
   transformKeySubmitValue,
   useDebounceFn,
@@ -18,11 +19,9 @@ import {
 } from '@ant-design/pro-utils';
 import { act, fireEvent, render } from '@testing-library/react';
 import { Form, Input } from 'antd';
-import { mount } from 'enzyme';
-import type { Moment } from 'moment';
-import moment from 'moment';
+import type { Dayjs } from 'dayjs';
+import dayjs from 'dayjs';
 import React, { useEffect, useState } from 'react';
-import isDropdownValueType from '../../packages/utils/src/isDropdownValueType/index';
 import { waitForComponentToPaint, waitTime } from '../util';
 
 describe('utils', () => {
@@ -33,42 +32,36 @@ describe('utils', () => {
       return <>{value}</>;
     };
 
-    const html = mount(<App deps={['name']} />);
+    const html = render(<App deps={['name']} />);
 
     await waitTime(100);
 
-    expect(html.text()).toEqual('name');
+    expect(html.baseElement?.textContent).toEqual('name');
 
     act(() => {
-      html.setProps({
-        deps: ['string'],
-      });
+      html.rerender(<App deps={['string']} />);
     });
     await waitTime(100);
 
-    html.update();
+    expect(html.baseElement?.textContent).toEqual('name');
 
-    expect(html.text()).toEqual('name');
+    await waitTime(500);
 
-    await waitTime(200);
-
-    html.update();
-
-    // expect(html.text()).toEqual('string');
+    expect(html.baseElement?.textContent).toEqual('string');
   });
 
-  it('dateArrayFormatter', async () => {
+  it('📅 dateArrayFormatter', async () => {
     const dateArrayString = dateArrayFormatter(
-      [moment('2020-01-01'), moment('2020-01-01')],
+      [dayjs('2020-01-01'), dayjs('2020-01-01')],
       ['YYYY-MM-DD HH:mm:ss', 'YYYY-MM-DD'],
     );
 
     expect(dateArrayString).toEqual('2020-01-01 00:00:00 ~ 2020-01-01');
   });
-  it('dateArrayFormatter support function', async () => {
+  it('📅 dateArrayFormatter support function', async () => {
     const dateArrayString = dateArrayFormatter(
-      [moment('2020-01-01'), moment('2020-01-01')],
-      ['YYYY-MM-DD HH:mm:ss', (value: Moment) => value.format('YYYY-MM')],
+      [dayjs('2020-01-01'), dayjs('2020-01-01')],
+      ['YYYY-MM-DD HH:mm:ss', (value: Dayjs) => value.format('YYYY-MM')],
     );
 
     expect(dateArrayString).toEqual('2020-01-01 00:00:00 ~ 2020-01');
@@ -88,21 +81,17 @@ describe('utils', () => {
       return <>{value}</>;
     };
 
-    const html = mount(<App deps={['name']} />);
+    const html = render(<App deps={['name']} />);
 
-    expect(html.text()).toEqual('name');
+    expect(html.baseElement?.textContent).toEqual('name');
 
     act(() => {
-      html.setProps({
-        deps: ['string'],
-      });
+      html.rerender(<App deps={['string']} />);
     });
 
     waitTime(1000);
 
-    html.update();
-
-    expect(html.text()).toEqual('name');
+    expect(html.baseElement?.textContent).toEqual('name');
   });
 
   it('📅 useDebounceFn', async () => {
@@ -128,55 +117,52 @@ describe('utils', () => {
         />
       );
     };
-    const html = mount(<App />);
+    const html = render(<App />);
 
     expect(fn).toBeCalledTimes(1);
 
     // wait === undefined
     act(() => {
-      html.find('#test').simulate('click');
+      html.baseElement.querySelector<HTMLDivElement>('#test')?.click();
     });
 
     expect(fn).toBeCalledTimes(3);
 
-    // wait === 80
-    html.setProps({
-      wait: 80,
+    act(() => {
+      html.rerender(<App wait={80} />);
     });
 
     act(() => {
-      html.find('#test').simulate('click');
+      html.baseElement.querySelector<HTMLDivElement>('#test')?.click();
     });
 
     await waitTime(100);
 
     expect(fn).toBeCalledTimes(4);
 
-    // wait === 0
-    html.setProps({
-      wait: 0,
+    act(() => {
+      html.rerender(<App wait={0} />);
     });
 
     act(() => {
-      html.find('#test').simulate('click');
+      html.baseElement.querySelector<HTMLDivElement>('#test')?.click();
     });
 
     expect(fn).toBeCalledTimes(6);
 
     // wait === 100 but callback is cancelled
-    html.setProps({
-      wait: 100,
+
+    act(() => {
+      html.rerender(<App wait={100} />);
     });
 
     act(() => {
-      html.find('#test').simulate('click');
+      html.baseElement.querySelector<HTMLDivElement>('#test')?.click();
     });
 
     await waitTime(50);
 
-    act(() => {
-      html.unmount();
-    });
+    html.unmount();
 
     await waitTime(100);
 
@@ -204,7 +190,7 @@ describe('utils', () => {
       return <div />;
     };
 
-    mount(<App />);
+    render(<App />);
 
     await waitTime(100);
 
@@ -237,15 +223,15 @@ describe('utils', () => {
   it('📅 conversionSubmitValue string', async () => {
     const html = conversionSubmitValue(
       {
-        dataTime: moment('2019-11-16 12:50:26'),
-        time: moment('2019-11-16 12:50:26'),
+        dataTime: dayjs('2019-11-16 12:50:26'),
+        time: dayjs('2019-11-16 12:50:26'),
         name: 'qixian',
         money: 20,
-        dateTimeRange: [moment('2019-11-16 12:50:26'), moment('2019-11-16 12:50:26')],
-        dateRange: [moment('2019-11-16 12:50:26'), moment('2019-11-16 12:50:26')],
-        timeRange: [moment('2019-11-16 12:50:26'), moment('2019-11-16 12:50:26')],
-        timeRange2: [moment('2019-11-16 12:50:26'), moment('2019-11-16 12:50:26')],
-        dateQuarter: moment('2019-11-16 12:50:26'),
+        dateTimeRange: [dayjs('2019-11-16 12:50:26'), dayjs('2019-11-16 12:50:26')],
+        dateRange: [dayjs('2019-11-16 12:50:26'), dayjs('2019-11-16 12:50:26')],
+        timeRange: [dayjs('2019-11-16 12:50:26'), dayjs('2019-11-16 12:50:26')],
+        timeRange2: [dayjs('2019-11-16 12:50:26'), dayjs('2019-11-16 12:50:26')],
+        dateQuarter: dayjs('2019-11-16 12:50:26'),
       },
       'string',
       {
@@ -270,8 +256,8 @@ describe('utils', () => {
   it('📅 conversionSubmitValue string', async () => {
     const html = conversionSubmitValue(
       {
-        dataTime: moment('2019-11-16 12:50:26'),
-        time: moment('2019-11-16 12:50:26'),
+        dataTime: dayjs('2019-11-16 12:50:26'),
+        time: dayjs('2019-11-16 12:50:26'),
       },
       'string',
       {
@@ -290,11 +276,11 @@ describe('utils', () => {
     const html = conversionSubmitValue<any>(
       {
         date: {
-          dataTime: moment('2019-11-16 12:50:26'),
-          dateTimeRange: [moment('2019-11-16 12:50:26'), moment('2019-11-16 12:50:26')],
-          dateRange: [moment('2019-11-16 12:50:26'), moment('2019-11-16 12:50:26')],
-          timeRange: [moment('2019-11-16 12:50:26'), moment('2019-11-16 12:50:26')],
-          timeRange2: [moment('2019-11-16 12:50:26'), moment('2019-11-16 12:50:26')],
+          dataTime: dayjs('2019-11-16 12:50:26'),
+          dateTimeRange: [dayjs('2019-11-16 12:50:26'), dayjs('2019-11-16 12:50:26')],
+          dateRange: [dayjs('2019-11-16 12:50:26'), dayjs('2019-11-16 12:50:26')],
+          timeRange: [dayjs('2019-11-16 12:50:26'), dayjs('2019-11-16 12:50:26')],
+          timeRange2: [dayjs('2019-11-16 12:50:26'), dayjs('2019-11-16 12:50:26')],
         },
       },
       'string',
@@ -317,14 +303,14 @@ describe('utils', () => {
   it('📅 conversionSubmitValue number', async () => {
     const html = conversionSubmitValue(
       {
-        dataTime: moment('2019-11-16 12:50:26'),
-        time: moment('2019-11-16 12:50:26'),
+        dataTime: dayjs('2019-11-16 12:50:26'),
+        time: dayjs('2019-11-16 12:50:26'),
         name: 'qixian',
         money: 20,
-        dateTimeRange: [moment('2019-11-16 12:50:26'), moment('2019-11-16 12:50:26')],
-        dateRange: [moment('2019-11-16 12:50:26'), moment('2019-11-16 12:50:26')],
-        timeRange: [moment('2019-11-16 12:50:26'), moment('2019-11-16 12:50:26')],
-        timeRange2: [moment('2019-11-16 12:50:26'), moment('2019-11-16 12:50:26')],
+        dateTimeRange: [dayjs('2019-11-16 12:50:26'), dayjs('2019-11-16 12:50:26')],
+        dateRange: [dayjs('2019-11-16 12:50:26'), dayjs('2019-11-16 12:50:26')],
+        timeRange: [dayjs('2019-11-16 12:50:26'), dayjs('2019-11-16 12:50:26')],
+        timeRange2: [dayjs('2019-11-16 12:50:26'), dayjs('2019-11-16 12:50:26')],
       },
       'number',
       {
@@ -344,17 +330,17 @@ describe('utils', () => {
     expect(html.timeRange2.join(',')).toBe('1573908626000,1573908626000');
   });
 
-  it('📅 conversionSubmitValue moment', async () => {
+  it('📅 conversionSubmitValue dayjs', async () => {
     const html = conversionSubmitValue(
       {
-        dataTime: moment('2019-11-16 12:50:26'),
-        time: moment('2019-11-16 12:50:26'),
+        dataTime: dayjs('2019-11-16 12:50:26'),
+        time: dayjs('2019-11-16 12:50:26'),
         name: 'qixian',
         money: 20,
-        dateTimeRange: [moment('2019-11-16 12:50:26'), moment('2019-11-16 12:50:26')],
-        dateRange: [moment('2019-11-16 12:50:26'), moment('2019-11-16 12:50:26')],
-        timeRange: [moment('2019-11-16 12:50:26'), moment('2019-11-16 12:50:26')],
-        timeRange2: [moment('2019-11-16 12:50:26'), moment('2019-11-16 12:50:26')],
+        dateTimeRange: [dayjs('2019-11-16 12:50:26'), dayjs('2019-11-16 12:50:26')],
+        dateRange: [dayjs('2019-11-16 12:50:26'), dayjs('2019-11-16 12:50:26')],
+        timeRange: [dayjs('2019-11-16 12:50:26'), dayjs('2019-11-16 12:50:26')],
+        timeRange2: [dayjs('2019-11-16 12:50:26'), dayjs('2019-11-16 12:50:26')],
       },
       false,
       {
@@ -381,23 +367,25 @@ describe('utils', () => {
     );
   });
 
-  it('📅 parseValueToMoment moment', async () => {
-    const html = parseValueToMoment(['2019-11-16 12:50:26', '2019-11-16 12:50:26'], 'YYYY-MM-DD');
-    expect((html as Moment[]).map((item) => item.valueOf()).join(',')).toBe(
+  it('📅 parseValueToMoment dayjs', async () => {
+    const html = parseValueToDay(['2019-11-16 12:50:26', '2019-11-16 12:50:26'], 'YYYY-MM-DD');
+    expect((html as Dayjs[]).map((item) => item.valueOf()).join(',')).toBe(
       '1573862400000,1573862400000',
     );
   });
 
   it('📅 DropdownFooter click', async () => {
-    const html = mount(
+    const html = render(
       <DropdownFooter>
         <Input id="test" />
       </DropdownFooter>,
     );
     act(() => {
-      html.find('.ant-pro-core-dropdown-footer').simulate('click');
+      html.baseElement.querySelector<HTMLDivElement>('.ant-pro-core-dropdown-footer')?.click();
     });
-    expect(html.find('.ant-pro-core-dropdown-footer').exists()).toBeTruthy();
+    expect(
+      !!html.baseElement.querySelector<HTMLDivElement>('.ant-pro-core-dropdown-footer'),
+    ).toBeTruthy();
   });
 
   it('📅 InlineErrorFormItem onValuesChange', async () => {
@@ -776,7 +764,7 @@ describe('utils', () => {
     expect(isDropdownValueType('select')).toBeTruthy();
   });
   it('🪓 LabelIconTip', async () => {
-    const html = mount(
+    const html = render(
       <LabelIconTip
         label="xxx"
         subTitle="xxx"
@@ -788,15 +776,16 @@ describe('utils', () => {
     );
 
     act(() => {
-      html.find('div').at(0).simulate('mousedown');
-      html.find('div').at(0).simulate('mouseleave');
-      html.find('div').at(0).simulate('mousemove');
+      const dom = html.baseElement.querySelector('div');
+      fireEvent.mouseDown(dom!);
+      fireEvent.mouseLeave(dom!);
+      fireEvent.mouseMove(dom!);
     });
 
-    expect(html.render()).toMatchSnapshot();
+    expect(html.baseElement).toMatchSnapshot();
   });
 
-  it('isDeepEqualReact', () => {
+  it('🪓 isDeepEqualReact', () => {
     const CustomComponent: React.FC<any> = () => {
       return <div />;
     };
@@ -861,7 +850,7 @@ describe('utils', () => {
       return <CustomComponent a={a} b={b} />;
     };
 
-    const wrapper = mount(<DeepComponent />);
+    const wrapper = render(<DeepComponent />);
 
     waitForComponentToPaint(wrapper, 100);
   });

@@ -1,13 +1,17 @@
-import type { InternalNamePath, NamePath } from 'antd/lib/form/interface';
-import moment from 'moment';
+import type { InternalNamePath, NamePath } from 'antd/es/form/interface';
+import dayjs from 'dayjs';
 import get from 'rc-util/lib/utils/get';
-import isNil from '../isNil';
+import { isNil } from '../isNil';
 import type { ProFieldValueType } from '../typing';
+
+import quarterOfYear from 'dayjs/plugin/quarterOfYear';
+
+dayjs.extend(quarterOfYear);
 
 type DateFormatter =
   | 'number'
   | 'string'
-  | ((value: moment.Moment, valueType: string) => string | number)
+  | ((value: dayjs.Dayjs, valueType: string) => string | number)
   | false;
 
 export const dateFormatterMap = {
@@ -16,7 +20,7 @@ export const dateFormatterMap = {
   date: 'YYYY-MM-DD',
   dateWeek: 'YYYY-wo',
   dateMonth: 'YYYY-MM',
-  dateQuarter: 'YYYY-\\QQ',
+  dateQuarter: 'YYYY-[Q]Q',
   dateYear: 'YYYY',
   dateRange: 'YYYY-MM-DD',
   dateTime: 'YYYY-MM-DD HH:mm:ss',
@@ -48,21 +52,21 @@ export function isPlainObject(o: { constructor: any }) {
 }
 
 /**
- * 根据不同的格式转化 moment
+ * 根据不同的格式转化 dayjs
  *
  * @param value
  * @param dateFormatter
  * @param valueType
  */
 export const convertMoment = (
-  value: moment.Moment,
-  dateFormatter: string | ((value: moment.Moment, valueType: string) => string | number) | false,
+  value: dayjs.Dayjs,
+  dateFormatter: string | ((value: dayjs.Dayjs, valueType: string) => string | number) | false,
   valueType: string,
 ) => {
   if (!dateFormatter) {
     return value;
   }
-  if (moment.isMoment(value)) {
+  if (dayjs.isDayjs(value)) {
     if (dateFormatter === 'number') {
       return value.valueOf();
     }
@@ -80,13 +84,13 @@ export const convertMoment = (
 };
 
 /**
- * 这里主要是来转化一下数据 将 moment 转化为 string 将 all 默认删除
+ * 这里主要是来转化一下数据 将 dayjs 转化为 string 将 all 默认删除
  *
  * @param value
  * @param dateFormatter
  * @param proColumnsMap
  */
-const conversionMomentValue = <T = any>(
+export const conversionMomentValue = <T = Record<string, any> | any[]>(
   value: T,
   dateFormatter: DateFormatter,
   valueTypeMap: Record<
@@ -107,7 +111,7 @@ const conversionMomentValue = <T = any>(
   if (typeof value !== 'object' || isNil(value) || value instanceof Blob || Array.isArray(value)) {
     return value;
   }
-  Object.keys(value).forEach((key) => {
+  Object.keys(value as Record<string, any>).forEach((key) => {
     const namePath: InternalNamePath = parentKey ? ([parentKey, key].flat(1) as string[]) : [key];
     const valueFormatMap = get(valueTypeMap, namePath) || 'text';
 
@@ -119,7 +123,7 @@ const conversionMomentValue = <T = any>(
       valueType = valueFormatMap.valueType;
       dateFormat = valueFormatMap.dateFormat;
     }
-    const itemValue = value[key];
+    const itemValue = (value as Record<string, any>)[key];
     if (isNil(itemValue) && omitNil) {
       return;
     }
@@ -128,8 +132,8 @@ const conversionMomentValue = <T = any>(
       isPlainObject(itemValue) &&
       // 不是数组
       !Array.isArray(itemValue) &&
-      // 不是 moment
-      !moment.isMoment(itemValue)
+      // 不是 dayjs
+      !dayjs.isDayjs(itemValue)
     ) {
       tmpValue[key] = conversionMomentValue(itemValue, dateFormatter, valueTypeMap, omitNil, [key]);
       return;
@@ -137,7 +141,7 @@ const conversionMomentValue = <T = any>(
     // 处理 FormList 的 value
     if (Array.isArray(itemValue)) {
       tmpValue[key] = itemValue.map((arrayValue, index) => {
-        if (moment.isMoment(arrayValue)) {
+        if (dayjs.isDayjs(arrayValue)) {
           return convertMoment(arrayValue, dateFormat || dateFormatter, valueType);
         }
         return conversionMomentValue(arrayValue, dateFormatter, valueTypeMap, omitNil, [
@@ -152,5 +156,3 @@ const conversionMomentValue = <T = any>(
 
   return tmpValue;
 };
-
-export default conversionMomentValue;

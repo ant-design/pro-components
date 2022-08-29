@@ -180,7 +180,7 @@ export default () => {
         title="SchemaForm"
         bordered
         style={{
-          marginBottom: 24,
+          marginBlockEnd: 24,
         }}
       >
         <BetaSchemaForm<TableListItem, 'link' | 'tags'>
@@ -193,7 +193,7 @@ export default () => {
         title="ProTable"
         bordered
         style={{
-          marginBottom: 24,
+          marginBlockEnd: 24,
         }}
       >
         <ProTable
@@ -207,7 +207,7 @@ export default () => {
         title="ProDescriptions"
         bordered
         style={{
-          marginBottom: 24,
+          marginBlockEnd: 24,
         }}
       >
         <ProDescriptions columns={tableColumns} dataSource={initialValue} />

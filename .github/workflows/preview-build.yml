@@ -19,7 +19,7 @@ jobs:
         run: |
           yarn
           yarn run build
-          yarn run site
+          yarn run dumi
 
       - run: |
           zip -r dist.zip dist

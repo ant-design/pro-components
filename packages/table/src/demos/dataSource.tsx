@@ -53,7 +53,7 @@ const columns: ProColumns<TableListItem>[] = [
     // 自定义筛选项功能具体实现请参考 https://ant.design/components/table-cn/#components-table-demo-custom-filter-panel
     filterDropdown: () => (
       <div style={{ padding: 8 }}>
-        <Input style={{ width: 188, marginBottom: 8, display: 'block' }} />
+        <Input style={{ width: 188, marginBlockEnd: 8, display: 'block' }} />
       </div>
     ),
     filterIcon: (filtered) => (
@@ -91,7 +91,7 @@ const columns: ProColumns<TableListItem>[] = [
       <>
         创建时间
         <Tooltip placement="top" title="这是一段描述">
-          <QuestionCircleOutlined style={{ marginLeft: 4 }} />
+          <QuestionCircleOutlined style={{ marginInlineStart: 4 }} />
         </Tooltip>
       </>
     ),

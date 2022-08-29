@@ -4,7 +4,7 @@ import classNames from 'classnames';
 import React, { useContext, useEffect, useMemo } from 'react';
 import type { CheckCardGroupProps } from './Group';
 import CheckCardGroup, { CardLoading, CheckCardGroupConnext } from './Group';
-import './index.less';
+import { useStyle } from './style';
 
 interface CheckCardProps {
   /**
@@ -180,6 +180,8 @@ const CheckCard: React.FC<CheckCardProps> & {
   const checkCardProps: CheckCardProps = { ...others };
   const prefixCls = getPrefixCls('pro-checkcard', customizePrefixCls);
 
+  const { wrapSSR, hashId } = useStyle(prefixCls);
+
   checkCardProps.checked = stateChecked;
 
   let multiple = false;
@@ -204,13 +206,14 @@ const CheckCard: React.FC<CheckCardProps> & {
   const { disabled = false, size, loading: cardLoading, bordered = true, checked } = checkCardProps;
   const sizeCls = getSizeCls(size);
 
-  const classString = classNames(prefixCls, className, {
+  const classString = classNames(prefixCls, className, hashId, {
     [`${prefixCls}-loading`]: cardLoading,
     [`${prefixCls}-${sizeCls}`]: sizeCls,
     [`${prefixCls}-checked`]: checked,
     [`${prefixCls}-multiple`]: multiple,
     [`${prefixCls}-disabled`]: disabled,
     [`${prefixCls}-bordered`]: bordered,
+    hashId,
   });
 
   const metaDom = useMemo(() => {
@@ -223,23 +226,23 @@ const CheckCard: React.FC<CheckCardProps> & {
     }
 
     const avatarDom = avatar ? (
-      <div className={`${prefixCls}-avatar`}>
+      <div className={`${prefixCls}-avatar ${hashId}`}>
         {typeof avatar === 'string' ? <Avatar size={48} shape="square" src={avatar} /> : avatar}
       </div>
     ) : null;
 
     const headerDom = (title || extra) && (
-      <div className={`${prefixCls}-header`}>
-        <div className={`${prefixCls}-title`}>{title}</div>
-        {extra && <div className={`${prefixCls}-extra`}>{extra}</div>}
+      <div className={`${prefixCls}-header ${hashId}`}>
+        <div className={`${prefixCls}-title ${hashId}`}>{title}</div>
+        {extra && <div className={`${prefixCls}-extra ${hashId}`}>{extra}</div>}
       </div>
     );
 
     const descriptionDom = description ? (
-      <div className={`${prefixCls}-description`}>{description}</div>
+      <div className={`${prefixCls}-description ${hashId}`}>{description}</div>
     ) : null;
 
-    const metaClass = classNames(`${prefixCls}-content`, {
+    const metaClass = classNames(`${prefixCls}-content`, hashId, {
       [`${prefixCls}-avatar-header`]: avatarDom && headerDom && !descriptionDom,
     });
 
@@ -247,16 +250,16 @@ const CheckCard: React.FC<CheckCardProps> & {
       <div className={metaClass}>
         {avatarDom}
         {headerDom || descriptionDom ? (
-          <div className={`${prefixCls}-detail`}>
+          <div className={`${prefixCls}-detail ${hashId}`}>
             {headerDom}
             {descriptionDom}
           </div>
         ) : null}
       </div>
     );
-  }, [avatar, cardLoading, cover, description, extra, prefixCls, title]);
+  }, [avatar, cardLoading, cover, description, extra, hashId, prefixCls, title]);
 
-  return (
+  return wrapSSR(
     <div
       className={classString}
       style={style}
@@ -267,7 +270,7 @@ const CheckCard: React.FC<CheckCardProps> & {
       }}
     >
       {metaDom}
-    </div>
+    </div>,
   );
 };
 

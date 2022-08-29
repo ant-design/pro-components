@@ -3,12 +3,14 @@ import type { ActionType, ProColumnType, ProTableProps } from '@ant-design/pro-t
 import ProTable from '@ant-design/pro-table';
 import type { ListProps, PaginationProps } from 'antd';
 import { ConfigProvider } from 'antd';
-import type { LabelTooltipType } from 'antd/lib/form/FormItemLabel';
+import type { LabelTooltipType } from 'antd/es/form/FormItemLabel';
 import classNames from 'classnames';
 import React, { useContext, useImperativeHandle, useMemo, useRef } from 'react';
-import './index.less';
 import type { ItemProps } from './Item';
 import ListView from './ListView';
+import { useStyle } from './style/index';
+
+import 'antd/es/list/style';
 
 export type AntdListProps<RecordType> = Omit<ListProps<RecordType>, 'rowKey'>;
 
@@ -135,11 +137,13 @@ function ProList<
   }, [metals]);
 
   const prefixCls = getPrefixCls('pro-list', props.prefixCls);
-  const listClassName = classNames(prefixCls, {
+
+  const { wrapSSR, hashId } = useStyle(prefixCls);
+  const listClassName = classNames(prefixCls, hashId, {
     [`${prefixCls}-no-split`]: !split,
   });
 
-  return (
+  return wrapSSR(
     <ProTable<RecordType, U>
       tooltip={tooltip}
       {...(rest as any)}
@@ -182,7 +186,7 @@ function ProList<
           />
         );
       }}
-    />
+    />,
   );
 }
 

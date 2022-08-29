@@ -3,26 +3,28 @@ import type { FormItemProps, PopoverProps } from 'antd';
 import { ConfigProvider, Form, Popover } from 'antd';
 import type { NamePath } from 'rc-field-form/lib/interface';
 import React, { useContext, useEffect, useState } from 'react';
-import './index.less';
+import { useStyle } from './style';
 
 interface InlineErrorFormItemProps extends FormItemProps {
   errorType?: 'popover' | 'default';
   popoverProps?: PopoverProps;
+  children: any;
 }
 
 interface InternalProps extends InlineErrorFormItemProps {
   name: NamePath;
   rules: FormItemProps['rules'];
+  children: any;
 }
 
 const FIX_INLINE_STYLE = {
-  marginTop: -5,
-  marginBottom: -5,
-  marginLeft: 0,
-  marginRight: 0,
+  marginBlockStart: -5,
+  marginBlockEnd: -5,
+  marginInlineStart: 0,
+  marginInlineEnd: 0,
 };
 
-const InlineErrorFormItem: React.FC<{
+const InlineErrorFormItemPopover: React.FC<{
   inputProps: any;
   input: JSX.Element;
   errorList: JSX.Element;
@@ -32,6 +34,9 @@ const InlineErrorFormItem: React.FC<{
   const [visible, setVisible] = useState<boolean | undefined>(false);
   const [errorStringList, setErrorList] = useState<string[]>([]);
   const { getPrefixCls } = useContext(ConfigProvider.ConfigContext);
+  const prefixCls = getPrefixCls();
+
+  const { wrapSSR, hashId } = useStyle(`${prefixCls}-form-item-with-help`);
 
   useEffect(() => {
     if (inputProps.validateStatus !== 'validating') {
@@ -39,26 +44,31 @@ const InlineErrorFormItem: React.FC<{
     }
   }, [inputProps.errors, inputProps.validateStatus]);
 
-  const prefixCls = getPrefixCls();
-
   return (
     <Popover
       key="popover"
       trigger={popoverProps?.trigger || 'focus'}
       placement={popoverProps?.placement || 'topRight'}
+      //@ts-expect-error
       visible={errorStringList.length < 1 ? false : visible}
+      open={errorStringList.length < 1 ? false : visible}
+      onOpenChange={(visibleParams) => {
+        if (visibleParams === visible) return;
+        setVisible(visibleParams);
+      }}
+      //@ts-expect-error
       onVisibleChange={(visibleParams) => {
         if (visibleParams === visible) return;
         setVisible(visibleParams);
       }}
       getPopupContainer={popoverProps?.getPopupContainer}
       getTooltipContainer={popoverProps?.getTooltipContainer}
-      content={
-        <div className={`${prefixCls}-form-item-with-help`}>
+      content={wrapSSR(
+        <div className={`${prefixCls}-form-item-with-help ${hashId}`}>
           {inputProps.validateStatus === 'validating' ? <LoadingOutlined /> : null}
           {errorList}
-        </div>
-      }
+        </div>,
+      )}
       {...popoverProps}
     >
       <div>
@@ -69,7 +79,7 @@ const InlineErrorFormItem: React.FC<{
   );
 };
 
-const InternalFormItem: React.FC<InternalProps> = ({
+const InternalFormItemFunction: React.FC<InternalProps & FormItemProps> = ({
   label,
   rules,
   name,
@@ -95,7 +105,13 @@ const InternalFormItem: React.FC<InternalProps> = ({
             errorList: JSX.Element;
             extra: JSX.Element;
           },
-        ) => <InlineErrorFormItem inputProps={inputProps} popoverProps={popoverProps} {...doms} />,
+        ) => (
+          <InlineErrorFormItemPopover
+            inputProps={inputProps}
+            popoverProps={popoverProps}
+            {...doms}
+          />
+        ),
       }}
       {...rest}
       style={{
@@ -108,14 +124,14 @@ const InternalFormItem: React.FC<InternalProps> = ({
   );
 };
 
-export default (props: InlineErrorFormItemProps) => {
+export const InlineErrorFormItem = (props: InlineErrorFormItemProps) => {
   const { errorType, rules, name, popoverProps, children, ...rest } = props;
 
   if (name && rules?.length && errorType === 'popover') {
     return (
-      <InternalFormItem name={name} rules={rules!} popoverProps={popoverProps} {...rest}>
+      <InternalFormItemFunction name={name} rules={rules!} popoverProps={popoverProps} {...rest}>
         {children}
-      </InternalFormItem>
+      </InternalFormItemFunction>
     );
   }
   return (

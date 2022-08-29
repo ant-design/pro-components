@@ -1,36 +1,40 @@
-import { ConfigProviderWrap } from '@ant-design/pro-provider';
-import { ErrorBoundary } from '@ant-design/pro-utils';
+import { ErrorBoundary, useToken } from '@ant-design/pro-utils';
 import { Layout } from 'antd';
+import classNames from 'classnames';
 import type { CSSProperties } from 'react';
 import React from 'react';
 
 const WrapContent: React.FC<{
-  autoClearCache?: boolean;
+  hasPageContainer?: boolean;
   isChildrenLayout?: boolean;
-  className?: string;
+  prefixCls?: string;
   style?: CSSProperties;
   location?: any;
   contentHeight?: number | string;
   ErrorBoundary?: any;
   children?: React.ReactNode;
+  hasHeader: boolean;
 }> = (props) => {
-  const { autoClearCache = true, style, className, children } = props;
+  const { hashId } = useToken();
+  const { style, prefixCls, children, hasPageContainer } = props;
+
+  const contentClassName = classNames(`${prefixCls}-content`, hashId, {
+    [`${prefixCls}-has-header`]: props.hasHeader,
+    [`${prefixCls}-content-has-page-container`]: hasPageContainer,
+  });
+
   const ErrorComponent = props.ErrorBoundary || ErrorBoundary;
-  return (
-    <ConfigProviderWrap autoClearCache={autoClearCache}>
-      {props.ErrorBoundary === false ? (
-        <Layout.Content className={className} style={style}>
-          {children}
-        </Layout.Content>
-      ) : (
-        <ErrorComponent>
-          <Layout.Content className={className} style={style}>
-            {children}
-          </Layout.Content>
-        </ErrorComponent>
-      )}
-    </ConfigProviderWrap>
+  return props.ErrorBoundary === false ? (
+    <Layout.Content className={contentClassName} style={style}>
+      {children}
+    </Layout.Content>
+  ) : (
+    <ErrorComponent>
+      <Layout.Content className={contentClassName} style={style}>
+        {children}
+      </Layout.Content>
+    </ErrorComponent>
   );
 };
 
-export default WrapContent;
+export { WrapContent };

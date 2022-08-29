@@ -81,7 +81,7 @@ const dataSource = [
 ];
 
 export default () => (
-  <div style={{ padding: 24, backgroundColor: '#F0F2F5' }}>
+  <div style={{ padding: 24, backgroundColor: '#f7f8fa' }}>
     <CheckCard.Group options={dataSource} />
   </div>
 );

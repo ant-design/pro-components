@@ -78,7 +78,7 @@ const columns: ProColumns<TableListItem>[] = [
       <>
         创建时间
         <Tooltip placement="top" title="这是一段描述">
-          <QuestionCircleOutlined style={{ marginLeft: 4 }} />
+          <QuestionCircleOutlined style={{ marginInlineStart: 4 }} />
         </Tooltip>
       </>
     ),
@@ -119,8 +119,8 @@ const renderBadge = (count: number, active = false) => {
     <Badge
       count={count}
       style={{
-        marginTop: -2,
-        marginLeft: 4,
+        marginBlockStart: -2,
+        marginInlineStart: 4,
         color: active ? '#1890FF' : '#999',
         backgroundColor: active ? '#E6F7FF' : '#eee',
       }}

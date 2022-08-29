@@ -1,7 +1,7 @@
 import get from 'rc-util/lib/utils/get';
 import namePathSet from 'rc-util/lib/utils/set';
 import React from 'react';
-import isNil from '../isNil';
+import { isNil } from '../isNil';
 import { merge } from '../merge';
 import type { SearchTransformKeyFn } from '../typing';
 
@@ -30,7 +30,7 @@ export function isPlainObj(itemValue: any) {
   return true;
 }
 
-const transformKeySubmitValue = <T extends object = any>(
+export const transformKeySubmitValue = <T extends object = any>(
   values: T,
   dataFormatMapRaw: Record<string, SearchTransformKeyFn | undefined | DataFormatMapType>,
   omit: boolean = true,
@@ -140,5 +140,3 @@ const transformKeySubmitValue = <T extends object = any>(
 
   return finalValues as T;
 };
-
-export default transformKeySubmitValue;

@@ -2,6 +2,8 @@ import chalk from 'chalk';
 import { readdirSync } from 'fs';
 import { join } from 'path';
 
+const theme = require('@ant-design/antd-theme-variable');
+
 const headPkgList = [];
 // utils must build before core
 // runtime must build before renderer-react
@@ -22,24 +24,12 @@ const tailPkgList = pkgList
   .map((path) => [join('packages', path, 'src')])
   .reduce((acc, val) => acc.concat(val), []);
 
-const isProduction = process.env.NODE_ENV === 'production';
-
 const isDeploy = process.env.SITE_DEPLOY === 'TRUE';
 
 export default {
   title: 'ProComponents',
   mode: 'site',
   logo: 'https://gw.alipayobjects.com/zos/antfincdn/upvrAjAPQX/Logo_Tech%252520UI.svg',
-  extraBabelPlugins: [
-    [
-      'import',
-      {
-        libraryName: 'antd',
-        libraryDirectory: 'es',
-        style: true,
-      },
-    ],
-  ],
   sitemap: { hostname: 'https://procomponents.ant.design' },
   metas: [
     {
@@ -114,8 +104,23 @@ export default {
   },
   theme: {
     '@s-site-menu-width': '258px',
+    '@ant-prefix': 'ant',
     '@root-entry-name': 'variable',
+    ...theme,
+    '@primary-color': '#1677FF',
+    '@warning-color': '#faad14',
+    '@heading-color': 'rgba(0, 0, 0, 0.85)',
+    '@text-color': 'rgba(0, 0, 0, 0.65)',
+    '@text-color-secondary': 'rgba(0, 0, 0, 0.45)',
+    '@border-color-base': '#d9d9d9',
+    '@border-color-split': 'rgba(0, 0, 0, 0.06)',
+    '@border-radius-base': '4px',
+    '@card-radius': '6px',
+    '@table-border-radius-base': '6px',
+    '@box-shadow-base':
+      '0 2px 8px -2px rgba(0,0,0,0.05), 0 1px 4px -1px rgba(25,15,15,0.07), 0 0 1px 0 rgba(0,0,0,0.08)',
   },
+  extraBabelPlugins: ['@emotion'],
   ignoreMomentLocale: true,
   menus: {
     '/components': [
@@ -206,5 +211,4 @@ export default {
   ssr: isDeploy ? {} : undefined,
   webpack5: {},
   exportStatic: {},
-  mfsu: !isDeploy ? {} : undefined,
 };

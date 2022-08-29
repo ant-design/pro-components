@@ -1,7 +1,7 @@
 import { LikeOutlined, UserOutlined } from '@ant-design/icons';
-import type { ProSettings } from '@ant-design/pro-components';
-import { PageContainer, ProLayout, SettingDrawer } from '@ant-design/pro-components';
-import { Avatar, Button, ConfigProvider, Descriptions, Result, Space, Statistic } from 'antd';
+import type { ProSettings } from '@ant-design/pro-layout';
+import ProLayout, { PageContainer, SettingDrawer } from '@ant-design/pro-layout';
+import { Button, ConfigProvider, Descriptions, Result, Space, Statistic } from 'antd';
 import { useState } from 'react';
 import defaultProps from './_defaultProps';
 
@@ -51,7 +51,7 @@ export default () => {
                   width: 16,
                   height: 16,
                   margin: '0 16px',
-                  marginRight: 10,
+                  marginInlineEnd: 10,
                 }}
               />
               {!props?.collapsed && 'Preview Pro'}
@@ -68,11 +68,9 @@ export default () => {
             {dom}
           </a>
         )}
-        rightContentRender={() => (
-          <div>
-            <Avatar shape="square" size="small" icon={<UserOutlined />} />
-          </div>
-        )}
+        avatarProps={{
+          icon: <UserOutlined />,
+        }}
         {...settings}
       >
         <PageContainer
@@ -110,6 +108,7 @@ export default () => {
           <div
             style={{
               height: '120vh',
+              minHeight: 600,
             }}
           >
             <Result

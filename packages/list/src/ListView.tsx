@@ -1,11 +1,12 @@
 import type { ProCardProps } from '@ant-design/pro-card';
 import type { ActionType } from '@ant-design/pro-table';
+import { useToken } from '@ant-design/pro-utils';
 import type { ListProps, TableColumnType, TableProps } from 'antd';
 import { ConfigProvider, List } from 'antd';
-import useLazyKVMap from 'antd/lib/table/hooks/useLazyKVMap';
-import usePagination from 'antd/lib/table/hooks/usePagination';
-import useSelection from 'antd/lib/table/hooks/useSelection';
-import type { GetRowKey } from 'antd/lib/table/interface';
+import useLazyKVMap from 'antd/es/table/hooks/useLazyKVMap';
+import usePagination from 'antd/es/table/hooks/usePagination';
+import useSelection from 'antd/es/table/hooks/useSelection';
+import type { GetRowKey } from 'antd/es/table/interface';
 import classNames from 'classnames';
 import get from 'rc-util/lib/utils/get';
 import React, { useContext } from 'react';
@@ -60,6 +61,8 @@ function ListView<RecordType>(props: ListViewProps<RecordType>) {
     rowClassName,
     ...rest
   } = props;
+
+  const { hashId } = useToken();
 
   const { getPrefixCls } = useContext(ConfigProvider.ConfigContext);
 
@@ -163,7 +166,11 @@ function ListView<RecordType>(props: ListViewProps<RecordType>) {
   return (
     <List<RecordType>
       {...rest}
-      className={classNames(getPrefixCls('pro-list-container', customizePrefixCls), rest.className)}
+      className={classNames(
+        getPrefixCls('pro-list-container', customizePrefixCls),
+        hashId,
+        rest.className,
+      )}
       dataSource={pageData}
       pagination={pagination && (mergedPagination as ListViewProps<RecordType>['pagination'])}
       renderItem={(item, index) => {

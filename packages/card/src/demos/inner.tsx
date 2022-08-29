@@ -18,7 +18,7 @@ export default () => {
         headerBordered
         direction="column"
         gutter={[0, 16]}
-        style={{ marginTop: 8 }}
+        style={{ marginBlockStart: 8 }}
       >
         <ProCard title="内部卡片标题" type="inner" bordered>
           内部卡片内容

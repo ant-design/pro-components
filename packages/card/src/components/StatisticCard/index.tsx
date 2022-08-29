@@ -7,7 +7,10 @@ import Divider from '../Divider';
 import Operation from '../Operation';
 import type { StatisticProps } from '../Statistic';
 import Statistic from '../Statistic';
-import './index.less';
+import { useStyle } from './style';
+
+import 'antd/es/divider/style';
+import 'antd/es/statistic/style';
 
 export type StatisticCardProps = {
   /** 图表配置 */
@@ -33,19 +36,20 @@ const StatisticCard: React.FC<StatisticCardProps> & {
   const { children, statistic, className, chart, chartPlacement, footer, ...others } = props;
   const { getPrefixCls } = useContext(ConfigProvider.ConfigContext);
   const prefixCls = getPrefixCls('pro-statistic-card');
-  const classString = classNames(prefixCls, className);
+  const { wrapSSR, hashId } = useStyle(prefixCls);
+  const classString = classNames(prefixCls, className, hashId);
 
   // 在 StatisticCard 中时默认为 vertical。
   const statisticDom = statistic && <Statistic layout="vertical" {...statistic} />;
 
-  const chartCls = classNames(`${prefixCls}-chart`, {
+  const chartCls = classNames(`${prefixCls}-chart`, hashId, {
     [`${prefixCls}-chart-left`]: chartPlacement === 'left' && chart && statistic,
     [`${prefixCls}-chart-right`]: chartPlacement === 'right' && chart && statistic,
   });
 
   const chartDom = chart && <div className={chartCls}>{chart}</div>;
 
-  const contentCls = classNames(`${prefixCls}-content`, {
+  const contentCls = classNames(`${prefixCls}-content `, hashId, {
     [`${prefixCls}-content-horizontal`]: chartPlacement === 'left' || chartPlacement === 'right',
   });
 
@@ -64,14 +68,14 @@ const StatisticCard: React.FC<StatisticCardProps> & {
       </div>
     ));
 
-  const footerDom = footer && <div className={`${prefixCls}-footer`}>{footer}</div>;
+  const footerDom = footer && <div className={`${prefixCls}-footer ${hashId}`}>{footer}</div>;
 
-  return (
+  return wrapSSR(
     <Card className={classString} {...others}>
       {contentDom}
       {children}
       {footerDom}
-    </Card>
+    </Card>,
   );
 };
 

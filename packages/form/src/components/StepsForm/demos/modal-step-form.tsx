@@ -46,7 +46,7 @@ export default () => {
               title="分步表单"
               width={800}
               onCancel={() => setVisible(false)}
-              visible={visible}
+              open={visible}
               footer={submitter}
               destroyOnClose
             >

@@ -1,7 +1,7 @@
 import type { ProFormInstance } from '@ant-design/pro-components';
 import { ProForm, ProFormDatePicker, ProFormText } from '@ant-design/pro-components';
 import { Button, message } from 'antd';
-import moment from 'moment';
+import dayjs from 'dayjs';
 import { useRef } from 'react';
 
 const waitTime = (time: number = 100) => {
@@ -76,7 +76,7 @@ export default () => {
       />
 
       <ProFormText width="md" name="company" label="我方公司名称" placeholder="请输入名称" />
-      <ProFormDatePicker name="date" initialValue={moment('2021-08-09')} />
+      <ProFormDatePicker name="date" initialValue={dayjs('2021-08-09')} />
     </ProForm>
   );
 };

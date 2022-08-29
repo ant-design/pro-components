@@ -1,6 +1,6 @@
 import { CrownOutlined, SmileOutlined, UserOutlined } from '@ant-design/icons';
-import { PageContainer, ProLayout } from '@ant-design/pro-components';
-import { Avatar, Button, Input, Result, Tag } from 'antd';
+import ProLayout, { PageContainer } from '@ant-design/pro-layout';
+import { Button, Input, Result, Tag } from 'antd';
 import { useState } from 'react';
 
 const defaultProps = {
@@ -48,18 +48,17 @@ export default () => {
             {dom}
           </a>
         )}
-        rightContentRender={() => (
-          <div>
-            <Avatar shape="square" size="small" icon={<UserOutlined />} />
-          </div>
-        )}
+        avatarProps={{
+          icon: <UserOutlined />,
+        }}
       >
         <PageContainer
           onBack={() => null}
           tags={<Tag color="blue">状态一</Tag>}
           header={{
             style: {
-              padding: '4px 16px',
+              padding: '8px 16px',
+              backgroundColor: '#fff',
               position: 'fixed',
               top: 0,
               width: '100%',
@@ -69,7 +68,7 @@ export default () => {
             },
           }}
           style={{
-            paddingTop: 48,
+            paddingBlockStart: 48,
           }}
           extra={[
             <Input.Search
@@ -87,6 +86,7 @@ export default () => {
           <div
             style={{
               height: '120vh',
+              minHeight: 600,
             }}
           >
             <Result
