@@ -122,6 +122,7 @@
     "octokit": "^1.7.1",
     "path-to-regexp": "2.4.0",
     "pify": "^5.0.0",
+    "playwright": "^1.25.1",
     "prettier": "^2.2.1",
     "prettier-plugin-organize-imports": "^2.3.4",
     "prettier-plugin-packagejson": "^2.2.18",
