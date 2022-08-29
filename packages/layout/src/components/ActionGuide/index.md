@@ -17,24 +17,24 @@ nav:
 
 ### 分页指示器主题
 
-<code src="./demos/paginationTheme-index.tsx" height="600px" iframe="665px" title="索引主题" />
-<code src="./demos/paginationTheme-dot.tsx" height="600px" iframe="665px" title="指示点主题" />
+<code src="./demos/paginationTheme-index.tsx" height="600px" iframe="400px" title="索引主题" />
+<code src="./demos/paginationTheme-dot.tsx" height="600px" iframe="400px" title="指示点主题" />
 
 ### 展示的分页指示器数量
 
-<code src="./demos/pagination-disaplay-size.tsx" height="600px" iframe="665px" title="显示的分页项数量" />
+<code src="./demos/pagination-disaplay-size.tsx" height="600px" iframe="400px" title="显示的分页项数量" />
 
 ### 隐藏/显示遮罩
 
-<code src="./demos/mask.tsx" height="600px" iframe="665px" title="不显示遮罩" />
+<code src="./demos/mask.tsx" height="600px" iframe="400px" title="不显示遮罩" />
 
 ### 允许跳过
 
-<code src="./demos/skip.tsx" height="600px" iframe="665px" title="允许跳过" />
+<code src="./demos/skip.tsx" height="600px" iframe="400px" title="允许跳过" />
 
 ### 自定义按钮区
 
-<code src="./demos/renderButton.tsx" height="600px" iframe="665px" title="自定义按钮区" />
+<code src="./demos/renderButton.tsx" height="600px" iframe="400px" title="自定义按钮区" />
 
 ## API
 
