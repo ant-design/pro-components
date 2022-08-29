@@ -123,7 +123,7 @@ export const ActionGuideContainer: React.FC<PropsWithChildren<ActionGuideContain
         setCurIdx(idx as number);
         return;
       }
-      let realIdx = 1;
+      let realIdx: number;
       if (idx === 'first') {
         realIdx = 1;
       } else if (idx === 'last') {
