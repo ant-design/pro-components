@@ -306,6 +306,7 @@ export const ActionGuideItem: React.FC<PropsWithChildren<ActionGuideItemProps>> 
               /** 每个项单独配置的属性 */
               {...popoverProps}
             >
+              {/* istanbul ignore next */}
               {React.isValidElement(children)
                 ? React.cloneElement<any>(children, {
                     style: {
@@ -318,7 +319,8 @@ export const ActionGuideItem: React.FC<PropsWithChildren<ActionGuideItemProps>> 
                           : children.props?.style?.position,
                     },
                   })
-                : children}
+                : /* istanbul ignore next */
+                  children}
             </Popover>
           </>
         );
