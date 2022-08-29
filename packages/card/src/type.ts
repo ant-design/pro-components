@@ -4,15 +4,8 @@ import type { ReactNode } from 'react';
 
 export type Breakpoint = 'xxl' | 'xl' | 'lg' | 'md' | 'sm' | 'xs';
 export type Gutter = number | Partial<Record<Breakpoint, number>>;
-// eslint-disable-next-line @typescript-eslint/ban-types
-export type ProCardTabsProps = {
-  // 透传的card样式props
-  cardProps?: any;
-} & TabsProps;
 
-export type ColSpanType = number | string;
-
-export type CardProps = {
+type CardPropsBase = {
   /** 标题样式 */
   headStyle?: React.CSSProperties;
   /** 内容样式 */
@@ -69,8 +62,6 @@ export type CardProps = {
   defaultCollapsed?: boolean;
   /** 收起卡片的事件 */
   onCollapse?: (collapsed: boolean) => void;
-  /** 标签栏配置 */
-  tabs?: ProCardTabsProps;
   /** 前缀 */
   prefixCls?: string;
   /** ProCard 的 ref */
@@ -81,7 +72,21 @@ export type CardProps = {
   onChecked?: (e: React.MouseEvent<HTMLDivElement, MouseEvent>) => void;
   /** card的阴影 */
   boxShadow?: boolean;
-} & Omit<React.HTMLAttributes<HTMLDivElement>, 'title'>;
+};
+
+// eslint-disable-next-line @typescript-eslint/ban-types
+export type ProCardTabsProps = {
+  // 透传的card样式props
+  cardProps?: CardPropsBase;
+} & TabsProps;
+
+export type ColSpanType = number | string;
+
+export type CardProps = {
+  /** 标签栏配置 */
+  tabs?: ProCardTabsProps;
+} & CardPropsBase &
+  Omit<React.HTMLAttributes<HTMLDivElement>, 'title'>;
 
 export type ProCardTabPaneProps = {
   /** Key */
