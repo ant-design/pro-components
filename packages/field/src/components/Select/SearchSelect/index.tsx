@@ -224,7 +224,7 @@ const SearchSelect = <T,>(props: SearchSelectProps<T[]>, ref: any) => {
       onChange={(value, optionList, ...rest) => {
         // 将搜索框置空 和 antd 行为保持一致
         if (showSearch && autoClearSearchValue) {
-          fetchData('');
+          if (!searchValue) fetchData('');
           onSearch?.('');
           setSearchValue('');
         }

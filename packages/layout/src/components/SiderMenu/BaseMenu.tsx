@@ -9,7 +9,7 @@ import type { LayoutDesignToken } from '../../context/ProLayoutContext';
 import { ProLayoutContext } from '../../context/ProLayoutContext';
 import type { PureSettings } from '../../defaultSettings';
 import { defaultSettings } from '../../defaultSettings';
-import type { MenuDataItem, MessageDescriptor, Route, RouterTypes, WithFalse } from '../../typings';
+import type { MenuDataItem, MessageDescriptor, RouterTypes, WithFalse } from '../../typings';
 import { getOpenKeysFromMenuData } from '../../utils/utils';
 import { MenuCounter } from './Counter';
 import type { PrivateSiderMenuProps } from './SiderMenu';
@@ -78,7 +78,7 @@ export type BaseMenuProps = {
    * @example 增加菜单图标 postMenuData={(menuData) => { return menuData.map(item => { return { ...item, icon: <Icon type={item.icon} /> } }) }}
    */
   postMenuData?: (menusData?: MenuDataItem[]) => MenuDataItem[];
-} & Partial<RouterTypes<Route>> &
+} & Partial<RouterTypes> &
   Omit<MenuProps, 'openKeys' | 'onOpenChange' | 'title'> &
   Partial<PureSettings>;
 

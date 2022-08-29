@@ -68,10 +68,11 @@ export type MenuDataItem = {
 export type Route = {
   routes?: Route[];
 } & MenuDataItem;
+
 export type WithFalse<T> = T | false;
 
-export type RouterTypes<P> = {
-  computedMatch?: match<P>;
+export type RouterTypes = {
+  computedMatch?: match<any>;
   route?: Route;
   location: BasicRouteProps['location'] | { pathname?: string };
 } & Omit<BasicRouteProps, 'location'>;

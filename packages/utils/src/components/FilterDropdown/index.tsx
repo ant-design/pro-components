@@ -47,16 +47,19 @@ const FilterDropdown: React.FC<DropdownProps> = (props) => {
       disabled={disabled}
       placement={placement}
       trigger={['click']}
+      // @ts-expect-error
       visible={visible}
+      open={visible}
       onVisibleChange={onVisibleChange}
+      onOpenChange={onVisibleChange}
       overlay={
         <div className={`${prefixCls}-overlay ${hashId}`}>
-          <div className={`${prefixCls}-content`}>{children}</div>
+          <div className={`${prefixCls}-content ${hashId}`}>{children}</div>
           {footer && <DropdownFooter disabled={disabled} footerRender={footerRender} {...footer} />}
         </div>
       }
     >
-      <span className={`${prefixCls}-label`}>{label}</span>
+      <span className={`${prefixCls}-label ${hashId}`}>{label}</span>
     </Dropdown>,
   );
 };

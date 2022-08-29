@@ -142,6 +142,12 @@ const ListToolBar: React.FC<ListToolBarProps> = ({
   tabs = {},
   menu,
 }) => {
+  const { getPrefixCls } = useContext(ConfigProvider.ConfigContext);
+
+  const prefixCls = getPrefixCls('pro-table-list-toolbar', customizePrefixCls);
+
+  const { wrapSSR, hashId } = useStyle(prefixCls);
+
   const intl = useIntl();
 
   const colSize = useAntdMediaQuery();
@@ -175,14 +181,11 @@ const ListToolBar: React.FC<ListToolBarProps> = ({
     );
   }, [placeholder, onSearch, search]);
 
-  const { getPrefixCls } = useContext(ConfigProvider.ConfigContext);
-  const prefixCls = getPrefixCls('pro-table-list-toolbar', customizePrefixCls);
-
   /** 轻量筛选组件 */
   const filtersNode = useMemo(() => {
-    if (filter) return <div className={`${prefixCls}-filter`}>{filter}</div>;
+    if (filter) return <div className={`${prefixCls}-filter ${hashId}`}>{filter}</div>;
     return null;
-  }, [filter, prefixCls]);
+  }, [filter, hashId, prefixCls]);
 
   /** 有没有 title，需要结合多个场景判断 */
   const hasTitle = useMemo(
@@ -229,51 +232,55 @@ const ListToolBar: React.FC<ListToolBarProps> = ({
   const leftTitleDom = useMemo(() => {
     // 保留dom是为了占位，不然 right 就变到左边了
     if (!hasLeft && hasRight) {
-      return <div className={`${prefixCls}-left`} />;
+      return <div className={`${prefixCls}-left ${hashId}`} />;
     }
 
     // 减少 space 的dom，渲染的时候能节省点性能
     if (!menu && (hasTitle || !searchNode)) {
       return (
-        <div className={`${prefixCls}-left`}>
-          <div className={`${prefixCls}-title`}>
+        <div className={`${prefixCls}-left ${hashId}`}>
+          <div className={`${prefixCls}-title ${hashId}`}>
             <LabelIconTip tooltip={tooltip} label={title} subTitle={subTitle} />
           </div>
         </div>
       );
     }
     return (
-      <Space className={`${prefixCls}-left`}>
+      <Space className={`${prefixCls}-left ${hashId}`}>
         {hasTitle && !menu && (
-          <div className={`${prefixCls}-title`}>
+          <div className={`${prefixCls}-title ${hashId}`}>
             <LabelIconTip tooltip={tooltip} label={title} subTitle={subTitle} />
           </div>
         )}
         {menu && <HeaderMenu {...menu} prefixCls={prefixCls} />}
-        {!hasTitle && searchNode ? <div className={`${prefixCls}-search`}>{searchNode}</div> : null}
+        {!hasTitle && searchNode ? (
+          <div className={`${prefixCls}-search ${hashId}`}>{searchNode}</div>
+        ) : null}
       </Space>
     );
-  }, [hasLeft, hasRight, hasTitle, menu, prefixCls, searchNode, subTitle, title, tooltip]);
+  }, [hasLeft, hasRight, hasTitle, hashId, menu, prefixCls, searchNode, subTitle, title, tooltip]);
 
   const rightTitleDom = useMemo(() => {
     if (!hasRight) return null;
     return (
       <Space
-        className={`${prefixCls}-right`}
+        className={`${prefixCls}-right ${hashId}`}
         direction={isMobile ? 'vertical' : 'horizontal'}
         size={16}
         align={isMobile ? 'end' : 'center'}
       >
-        {hasTitle && searchNode ? <div className={`${prefixCls}-search`}>{searchNode}</div> : null}
+        {hasTitle && searchNode ? (
+          <div className={`${prefixCls}-search ${hashId}`}>{searchNode}</div>
+        ) : null}
         {!multipleLine ? filtersNode : null}
         {actionDom}
         {settings?.length ? (
-          <Space size={12} align="center" className={`${prefixCls}-setting-items`}>
+          <Space size={12} align="center" className={`${prefixCls}-setting-items ${hashId}`}>
             {settings.map((setting, index) => {
               const settingItem = getSettingItem(setting);
               return (
                 // eslint-disable-next-line react/no-array-index-key
-                <div key={index} className={`${prefixCls}-setting-item`}>
+                <div key={index} className={`${prefixCls}-setting-item ${hashId}`}>
                   {settingItem}
                 </div>
               );
@@ -283,20 +290,21 @@ const ListToolBar: React.FC<ListToolBarProps> = ({
       </Space>
     );
   }, [
-    actionDom,
-    isMobile,
-    filtersNode,
     hasRight,
-    hasTitle,
-    multipleLine,
     prefixCls,
+    hashId,
+    isMobile,
+    hasTitle,
     searchNode,
+    multipleLine,
+    filtersNode,
+    actionDom,
     settings,
   ]);
 
   const titleNode = useMemo(() => {
     if (!hasRight && !hasLeft) return null;
-    const containerClassName = classNames(`${prefixCls}-container`, {
+    const containerClassName = classNames(`${prefixCls}-container`, hashId, {
       [`${prefixCls}-container-mobile`]: isMobile,
     });
     return (
@@ -305,9 +313,7 @@ const ListToolBar: React.FC<ListToolBarProps> = ({
         {rightTitleDom}
       </div>
     );
-  }, [hasLeft, hasRight, isMobile, leftTitleDom, prefixCls, rightTitleDom]);
-
-  const { wrapSSR, hashId } = useStyle(prefixCls);
+  }, [hasLeft, hasRight, hashId, isMobile, leftTitleDom, prefixCls, rightTitleDom]);
 
   return wrapSSR(
     <div style={style} className={classNames(prefixCls, hashId, className)}>

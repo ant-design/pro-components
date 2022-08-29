@@ -8,7 +8,7 @@ exports[`BasicLayout base use 1`] = `
     class="ant-design-pro ant-pro-layout ant-pro-layout-fix-siderbar ant-pro-layout-side"
   >
     <div
-      class="ant-pro-layout-bg-list"
+      class="ant-pro-layout-bg-list "
     />
     <section
       class="ant-layout"
@@ -225,7 +225,7 @@ exports[`BasicLayout base use 1`] = `
         </div>
       </aside>
       <div
-        class="ant-pro-layout-container"
+        class="ant-pro-layout-container "
         style="position:relative"
       >
         <main
@@ -268,7 +268,7 @@ exports[`BasicLayout content is text 1`] = `
     class="ant-design-pro ant-pro-layout ant-pro-layout-fix-siderbar ant-pro-layout-side"
   >
     <div
-      class="ant-pro-layout-bg-list"
+      class="ant-pro-layout-bg-list "
     />
     <section
       class="ant-layout"
@@ -485,7 +485,7 @@ exports[`BasicLayout content is text 1`] = `
         </div>
       </aside>
       <div
-        class="ant-pro-layout-container"
+        class="ant-pro-layout-container "
         style="position:relative"
       >
         <main

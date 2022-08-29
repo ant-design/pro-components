@@ -41,7 +41,7 @@ export const AppsLogoComponents: React.FC<{
   const baseClassName = `${prefixCls}-layout-apps`;
   const { wrapSSR, hashId } = useStyle(baseClassName);
 
-  const [visible, setVisible] = useState(false);
+  const [open, setOpen] = useState(false);
 
   const popoverContent = useMemo(() => {
     const isSimple = appList?.some((app) => {
@@ -75,7 +75,9 @@ export const AppsLogoComponents: React.FC<{
         trigger={['click']}
         zIndex={9999}
         arrowPointAtCenter
-        onVisibleChange={setVisible}
+        // @ts-expect-error
+        onVisibleChange={setOpen}
+        onOpenChange={setOpen}
         overlayClassName={`${baseClassName}-popover ${hashId}`}
         content={popoverContent}
         getPopupContainer={() => ref.current || document.body}
@@ -85,7 +87,7 @@ export const AppsLogoComponents: React.FC<{
             e.stopPropagation();
           }}
           className={classNames(`${baseClassName}-icon`, hashId, {
-            [`${baseClassName}-icon-active`]: visible,
+            [`${baseClassName}-icon-active`]: open,
           })}
         >
           <AppsLogo />

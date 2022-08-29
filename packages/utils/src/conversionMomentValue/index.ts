@@ -90,7 +90,7 @@ export const convertMoment = (
  * @param dateFormatter
  * @param proColumnsMap
  */
-export const conversionMomentValue = <T = any>(
+export const conversionMomentValue = <T = Record<string, any> | any[]>(
   value: T,
   dateFormatter: DateFormatter,
   valueTypeMap: Record<
@@ -111,7 +111,7 @@ export const conversionMomentValue = <T = any>(
   if (typeof value !== 'object' || isNil(value) || value instanceof Blob || Array.isArray(value)) {
     return value;
   }
-  Object.keys(value).forEach((key) => {
+  Object.keys(value as Record<string, any>).forEach((key) => {
     const namePath: InternalNamePath = parentKey ? ([parentKey, key].flat(1) as string[]) : [key];
     const valueFormatMap = get(valueTypeMap, namePath) || 'text';
 
@@ -123,7 +123,7 @@ export const conversionMomentValue = <T = any>(
       valueType = valueFormatMap.valueType;
       dateFormat = valueFormatMap.dateFormat;
     }
-    const itemValue = value[key];
+    const itemValue = (value as Record<string, any>)[key];
     if (isNil(itemValue) && omitNil) {
       return;
     }

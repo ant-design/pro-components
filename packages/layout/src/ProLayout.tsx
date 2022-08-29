@@ -30,7 +30,7 @@ import { getPageTitleInfo } from './getPageTitle';
 import type { LocaleType } from './locales';
 import { gLocaleObject } from './locales';
 import { useStyle } from './style/index';
-import type { MenuDataItem, MessageDescriptor, Route, RouterTypes, WithFalse } from './typings';
+import type { MenuDataItem, MessageDescriptor, RouterTypes, WithFalse } from './typings';
 import { getBreadcrumbProps } from './utils/getBreadcrumbProps';
 import { getMenuData } from './utils/getMenuData';
 import { useCurrentMenuLayoutProps } from './utils/useCurrentMenuLayoutProps';
@@ -44,7 +44,7 @@ export type LayoutBreadcrumbProps = {
 };
 
 type GlobalTypes = Omit<
-  Partial<RouterTypes<Route>> & SiderMenuProps & HeaderViewProps & ProLayoutProviderProps,
+  Partial<RouterTypes> & SiderMenuProps & HeaderViewProps & ProLayoutProviderProps,
   'collapsed'
 >;
 
@@ -81,7 +81,7 @@ export type ProLayoutProps = GlobalTypes & {
    * @example 获取切换的页面地址 onPageChange={(location) => { console.log("切换到："+location.pathname) }}
    *
    * */
-  onPageChange?: (location?: RouterTypes<Route>['location']) => void;
+  onPageChange?: (location?: RouterTypes['location']) => void;
 
   /**
    * @name layout 的 loading 效果，设置完成之后只展示一个 loading
@@ -654,7 +654,7 @@ const BaseProLayout: React.FC<ProLayoutProps> = (props) => {
           <>{children}</>
         ) : (
           <div className={className}>
-            <div className={`${proLayoutClassName}-bg-list`}>{bgImgStyleList}</div>
+            <div className={`${proLayoutClassName}-bg-list ${hashId}`}>{bgImgStyleList}</div>
             <Layout
               style={{
                 minHeight: '100%',
@@ -662,7 +662,7 @@ const BaseProLayout: React.FC<ProLayoutProps> = (props) => {
               }}
             >
               {siderMenuDom}
-              <div style={genLayoutStyle} className={`${proLayoutClassName}-container`}>
+              <div style={genLayoutStyle} className={`${proLayoutClassName}-container ${hashId}`}>
                 {headerDom}
                 <WrapContent
                   hasPageContainer={hasPageContainer}

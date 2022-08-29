@@ -71,7 +71,8 @@ export const transformKeySubmitValue = <T extends object = any>(
 
       const _transformArray = (transformFn: any) => {
         if (!Array.isArray(transformFn)) return entityKey;
-        transformFunction.forEach((fn: any, idx: number) => {
+        transformFn.forEach((fn: any, idx: number) => {
+          if (!fn) return;
           if (typeof fn === 'function') {
             itemValue[idx] = fn(itemValue, entityKey, tempValues);
           }

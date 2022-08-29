@@ -44,6 +44,7 @@ function BetaSchemaForm<T, ValueType = 'text'>(props: FormSchema<T, ValueType>) 
 
   const FormRenderComponents = (FormLayoutType[layoutType] || ProForm) as React.FC<ProFormProps<T>>;
   const [form] = Form.useForm();
+  const formInstance = Form.useFormInstance();
   const [, forceUpdate] = useState<[]>([]);
   const [formDomsDeps, updatedFormDoms] = useState<[]>([]);
 
@@ -51,7 +52,7 @@ function BetaSchemaForm<T, ValueType = 'text'>(props: FormSchema<T, ValueType>) 
     return omit(restProps, ['formRef'] as any);
   }, [restProps]);
 
-  const formRef = useRef<FormInstance | undefined>(props.form || form);
+  const formRef = useRef<FormInstance | undefined>(props.form || formInstance || form);
   const oldValuesRef = useRef<T>();
   const propsRef = useLatest(props);
 

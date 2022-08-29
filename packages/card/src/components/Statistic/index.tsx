@@ -67,11 +67,11 @@ const Statistic: React.FC<StatisticProps> = (props) => {
 
   const tipDom = tip && (
     <Tooltip title={tip}>
-      <QuestionCircleOutlined className={`${prefixCls}-tip`} />
+      <QuestionCircleOutlined className={`${prefixCls}-tip ${hashId}`} />
     </Tooltip>
   );
 
-  const trendIconClassName = classNames(`${prefixCls}-trend-icon`, {
+  const trendIconClassName = classNames(`${prefixCls}-trend-icon`, hashId, {
     [`${prefixCls}-trend-icon-${trend}`]: trend,
   });
 
@@ -112,7 +112,9 @@ const Statistic: React.FC<StatisticProps> = (props) => {
             {...others}
           />
           {description && (
-            <div className={`${prefixCls}-description`}>{description as React.ReactNode}</div>
+            <div className={`${prefixCls}-description ${hashId}`}>
+              {description as React.ReactNode}
+            </div>
           )}
         </div>
       </div>

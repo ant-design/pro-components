@@ -1,7 +1,7 @@
-﻿import { DrawerForm, ProFormText } from '@ant-design/pro-form';
+﻿import { DrawerForm, ModalForm, ProFormText } from '@ant-design/pro-form';
 import '@testing-library/jest-dom';
 import { act, fireEvent, render } from '@testing-library/react';
-import { Button } from 'antd';
+import { Button, Form } from 'antd';
 import React from 'react';
 import { waitForComponentToPaint } from '../util';
 
@@ -571,5 +571,112 @@ describe('DrawerForm', () => {
     });
 
     expect(ref.current).toBeTruthy();
+  });
+
+  const tests = [
+    {
+      name: 'drawerForm',
+      Comp: DrawerForm,
+      close: '.ant-drawer-close',
+      props: 'drawerProps',
+    },
+    {
+      name: 'modalForm',
+      Comp: ModalForm,
+      close: '.ant-modal-close',
+      props: 'modalProps',
+    },
+  ];
+  tests.forEach((item) => {
+    const { name, Comp, close, props } = item;
+    it(`📦 ${name} resetFields when destroy`, async () => {
+      const App = () => {
+        const [form] = Form.useForm();
+        const prop = {
+          [props]: {
+            destroyOnClose: true,
+          },
+        };
+        return (
+          <Comp
+            {...prop}
+            form={form}
+            onFinish={async () => {
+              return true;
+            }}
+            trigger={
+              <Button id="new" type="primary">
+                新建
+              </Button>
+            }
+          >
+            <ProFormText name="name" />
+          </Comp>
+        );
+      };
+      const html = render(<App />);
+      await waitForComponentToPaint(html, 300);
+      // 点击取消按钮后重置
+      act(() => {
+        html.baseElement.querySelectorAll<HTMLDivElement>('#new')[0].click();
+      });
+      await waitForComponentToPaint(html, 300);
+      act(() => {
+        fireEvent.change(html.baseElement.querySelector<HTMLDivElement>('input#name')!, {
+          target: {
+            value: '12345',
+          },
+        });
+      });
+      await waitForComponentToPaint(html, 300);
+      expect(html.baseElement.querySelector<HTMLInputElement>('input#name')?.value).toBe('12345');
+      act(() => {
+        html.baseElement.querySelectorAll<HTMLDivElement>('.ant-btn-default')[0].click();
+      });
+      act(() => {
+        html.baseElement.querySelectorAll<HTMLDivElement>('#new')[0].click();
+      });
+      await waitForComponentToPaint(html, 300);
+      expect(html.baseElement.querySelector<HTMLInputElement>('input#name')?.value).toBeFalsy();
+      // 点击关闭按钮后重置
+      act(() => {
+        fireEvent.change(html.baseElement.querySelector<HTMLDivElement>('input#name')!, {
+          target: {
+            value: '12345',
+          },
+        });
+      });
+      await waitForComponentToPaint(html, 300);
+      expect(html.baseElement.querySelector<HTMLInputElement>('input#name')?.value).toBe('12345');
+      act(() => {
+        html.baseElement.querySelectorAll<HTMLDivElement>(close)[0].click();
+      });
+      act(() => {
+        html.baseElement.querySelectorAll<HTMLDivElement>('#new')[0].click();
+      });
+      await waitForComponentToPaint(html, 300);
+      expect(html.baseElement.querySelector<HTMLInputElement>('input#name')?.value).toBeFalsy();
+      // 点击提交按钮后重置
+      act(() => {
+        fireEvent.change(html.baseElement.querySelector<HTMLDivElement>('input#name')!, {
+          target: {
+            value: '12345',
+          },
+        });
+      });
+      await waitForComponentToPaint(html, 300);
+      expect(html.baseElement.querySelector<HTMLInputElement>('input#name')?.value).toBe('12345');
+
+      act(() => {
+        html.baseElement.querySelectorAll<HTMLDivElement>('.ant-btn-primary')[0].click();
+      });
+      await waitForComponentToPaint(html, 300);
+      act(() => {
+        html.baseElement.querySelectorAll<HTMLDivElement>('#new')[0].click();
+      });
+      await waitForComponentToPaint(html, 300);
+      expect(html.baseElement.querySelector<HTMLInputElement>('input#name')?.value).toBeFalsy();
+      html.unmount();
+    });
   });
 });

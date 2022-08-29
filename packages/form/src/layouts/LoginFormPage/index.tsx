@@ -100,7 +100,8 @@ export function LoginFormPage<T = Record<string, any>>(props: Partial<LoginFormP
   const context = useContext(ConfigProvider.ConfigContext);
   const baseClassName = context.getPrefixCls('pro-form-login-page');
   const { wrapSSR, hashId } = useStyle(baseClassName);
-  const getCls = (className: string) => `${baseClassName}-${className}`;
+
+  const getCls = (className: string) => `${baseClassName}-${className} ${hashId}`;
 
   /** 生成logo 的dom，如果是string 设置为图片 如果是个 dom 就原样保留 */
   const logoDom = useMemo(() => {
