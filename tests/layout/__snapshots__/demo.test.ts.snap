@@ -6110,7 +6110,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/MenuGroup.tsx cor
                   </li>
                   <li
                     class="ant-menu-item-divider ant-pro-base-menu-divider"
-                    style="padding: 0px; border-bottom: 0; margin: 6px 16px; margin-block-start: 8px; border-color: rgba(0, 0, 0, 0.06);"
+                    style="padding: 0px; border-block-end: 0; margin: 6px 16px; margin-block-start: 8px; border-color: rgba(0, 0, 0, 0.06);"
                   />
                   <li
                     class="ant-menu-item-group ant-pro-base-menu-group"
@@ -6158,7 +6158,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/MenuGroup.tsx cor
                   </li>
                   <li
                     class="ant-menu-item-divider ant-pro-base-menu-divider"
-                    style="padding: 0px; border-bottom: 0; margin: 6px 16px; margin-block-start: 8px; border-color: rgba(0, 0, 0, 0.06);"
+                    style="padding: 0px; border-block-end: 0; margin: 6px 16px; margin-block-start: 8px; border-color: rgba(0, 0, 0, 0.06);"
                   />
                   <li
                     class="ant-menu-item-group ant-pro-base-menu-group"
@@ -6228,7 +6228,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/MenuGroup.tsx cor
                   </li>
                   <li
                     class="ant-menu-item-divider ant-pro-base-menu-divider"
-                    style="padding: 0px; border-bottom: 0; margin: 6px 16px; margin-block-start: 8px; border-color: rgba(0, 0, 0, 0.06);"
+                    style="padding: 0px; border-block-end: 0; margin: 6px 16px; margin-block-start: 8px; border-color: rgba(0, 0, 0, 0.06);"
                   />
                 </ul>
                 <div
@@ -10280,7 +10280,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/base.tsx correctl
                   </li>
                   <li
                     class="ant-menu-item-divider ant-pro-base-menu-divider"
-                    style="padding: 0px; border-bottom: 0; margin: 6px 16px; margin-block-start: 8px; border-color: rgba(0, 0, 0, 0.06);"
+                    style="padding: 0px; border-block-end: 0; margin: 6px 16px; margin-block-start: 8px; border-color: rgba(0, 0, 0, 0.06);"
                   />
                   <li
                     class="ant-menu-item ant-menu-item-only-child ant-pro-base-menu-menu-item"
@@ -11388,7 +11388,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/classicMode.tsx c
                   </li>
                   <li
                     class="ant-menu-item-divider ant-pro-base-menu-divider"
-                    style="padding: 0px; border-bottom: 0; margin: 6px 16px; margin-block-start: 8px; border-color: #dfdfdf;"
+                    style="padding: 0px; border-block-end: 0; margin: 6px 16px; margin-block-start: 8px; border-color: #dfdfdf;"
                   />
                   <li
                     class="ant-menu-item ant-menu-item-only-child ant-pro-base-menu-menu-item"
@@ -14637,7 +14637,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/customSider.tsx c
                   </li>
                   <li
                     class="ant-menu-item-divider ant-pro-base-menu-divider"
-                    style="padding: 0px; border-bottom: 0; margin: 6px 16px; margin-block-start: 8px; border-color: rgba(0, 0, 0, 0.06);"
+                    style="padding: 0px; border-block-end: 0; margin: 6px 16px; margin-block-start: 8px; border-color: rgba(0, 0, 0, 0.06);"
                   />
                   <li
                     class="ant-menu-item-group ant-pro-base-menu-group"
@@ -14914,7 +14914,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/customSider.tsx c
                   </li>
                   <li
                     class="ant-menu-item-divider ant-pro-base-menu-divider"
-                    style="padding: 0px; border-bottom: 0; margin: 6px 16px; margin-block-start: 8px; border-color: rgba(0, 0, 0, 0.06);"
+                    style="padding: 0px; border-block-end: 0; margin: 6px 16px; margin-block-start: 8px; border-color: rgba(0, 0, 0, 0.06);"
                   />
                   <li
                     class="ant-menu-item ant-menu-item-only-child ant-pro-base-menu-menu-item"
@@ -15762,7 +15762,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/customize-collaps
                                 class="ant-form-item-control-input-content"
                               >
                                 <div
-                                  class="ant-radio-group ant-radio-group-outline ant-pro-field-radio-horizontal"
+                                  class="ant-radio-group ant-radio-group-outline ant-pro-field-radio-vertical"
                                 >
                                   <label
                                     class="ant-radio-wrapper ant-radio-wrapper-checked ant-radio-wrapper-in-form-item"
@@ -16442,7 +16442,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/designMenuCss.tsx
                   </li>
                   <li
                     class="ant-menu-item-divider ant-pro-base-menu-divider"
-                    style="padding: 0px; border-bottom: 0; margin: 6px 16px; margin-block-start: 8px; border-color: #dfdfdf;"
+                    style="padding: 0px; border-block-end: 0; margin: 6px 16px; margin-block-start: 8px; border-color: #dfdfdf;"
                   />
                   <li
                     class="ant-menu-item ant-menu-item-only-child ant-pro-base-menu-menu-item"
@@ -17844,7 +17844,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/designSiderMenu.t
                   </li>
                   <li
                     class="ant-menu-item-divider ant-pro-base-menu-divider"
-                    style="padding: 0px; border-bottom: 0; margin: 6px 16px; margin-block-start: 8px; border-color: rgba(0, 0, 0, 0.06);"
+                    style="padding: 0px; border-block-end: 0; margin: 6px 16px; margin-block-start: 8px; border-color: rgba(0, 0, 0, 0.06);"
                   />
                   <li
                     class="ant-menu-item-group ant-pro-base-menu-group"
@@ -18121,7 +18121,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/designSiderMenu.t
                   </li>
                   <li
                     class="ant-menu-item-divider ant-pro-base-menu-divider"
-                    style="padding: 0px; border-bottom: 0; margin: 6px 16px; margin-block-start: 8px; border-color: rgba(0, 0, 0, 0.06);"
+                    style="padding: 0px; border-block-end: 0; margin: 6px 16px; margin-block-start: 8px; border-color: rgba(0, 0, 0, 0.06);"
                   />
                   <li
                     class="ant-menu-item ant-menu-item-only-child ant-pro-base-menu-menu-item"
@@ -21253,7 +21253,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/footer-global-too
                   </li>
                   <li
                     class="ant-menu-item-divider ant-pro-base-menu-divider"
-                    style="padding: 0px; border-bottom: 0; margin: 6px 16px; margin-block-start: 8px; border-color: rgba(0, 0, 0, 0.06);"
+                    style="padding: 0px; border-block-end: 0; margin: 6px 16px; margin-block-start: 8px; border-color: rgba(0, 0, 0, 0.06);"
                   />
                   <li
                     class="ant-menu-item ant-menu-item-only-child ant-pro-base-menu-menu-item"
@@ -25869,7 +25869,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/mixMode.tsx corre
                   </li>
                   <li
                     class="ant-menu-item-divider ant-pro-base-menu-divider"
-                    style="padding: 0px; border-bottom: 0; margin: 6px 16px; margin-block-start: 8px; border-color: rgba(0, 0, 0, 0.06);"
+                    style="padding: 0px; border-block-end: 0; margin: 6px 16px; margin-block-start: 8px; border-color: rgba(0, 0, 0, 0.06);"
                   />
                   <li
                     class="ant-menu-item ant-menu-item-only-child ant-pro-base-menu-menu-item"
@@ -26875,7 +26875,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/pageSimplify.tsx 
                   </li>
                   <li
                     class="ant-menu-item-divider ant-pro-base-menu-divider"
-                    style="padding: 0px; border-bottom: 0; margin: 6px 16px; margin-block-start: 8px; border-color: rgba(0, 0, 0, 0.06);"
+                    style="padding: 0px; border-block-end: 0; margin: 6px 16px; margin-block-start: 8px; border-color: rgba(0, 0, 0, 0.06);"
                   />
                   <li
                     class="ant-menu-item ant-menu-item-only-child ant-pro-base-menu-menu-item"
@@ -29129,7 +29129,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/siteMenu.tsx corr
                   </li>
                   <li
                     class="ant-menu-item-divider ant-pro-base-menu-divider"
-                    style="padding: 0px; border-bottom: 0; margin: 6px 16px; margin-block-start: 8px; border-color: rgba(0, 0, 0, 0.06);"
+                    style="padding: 0px; border-block-end: 0; margin: 6px 16px; margin-block-start: 8px; border-color: rgba(0, 0, 0, 0.06);"
                   />
                   <li
                     class="ant-menu-item ant-menu-item-only-child ant-pro-base-menu-menu-item"

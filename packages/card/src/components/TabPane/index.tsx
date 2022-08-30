@@ -7,7 +7,7 @@ import Card from '../Card';
 const TabPane: React.FC<ProCardTabPaneProps> = (props) => {
   const { getPrefixCls } = useContext(ConfigProvider.ConfigContext);
   // 如果是antd v5 则返回为空
-  if (version.split('.')[0] === '5') {
+  if (version.startsWith('5')) {
     return <></>;
   } else {
     const {

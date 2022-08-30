@@ -2637,7 +2637,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/FieldSet/demos/c
                         class="ant-form-item-control-input-content"
                       >
                         <div
-                          class="ant-radio-group ant-radio-group-outline ant-pro-field-radio-horizontal"
+                          class="ant-radio-group ant-radio-group-outline ant-pro-field-radio-vertical"
                           id="validate_other_radio"
                         >
                           <label
@@ -2835,7 +2835,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/FieldSet/demos/c
                         class="ant-form-item-control-input-content"
                       >
                         <div
-                          class="ant-radio-group ant-radio-group-outline ant-pro-field-radio-horizontal"
+                          class="ant-radio-group ant-radio-group-outline ant-pro-field-radio-vertical"
                           id="validate_other_radio-button"
                         >
                           <label
@@ -3187,13 +3187,13 @@ exports[`form demos 📸 renders ./packages/form/src/components/FieldSet/demos/c
                             class="ant-input ant-input-disabled"
                             disabled=""
                             placeholder="-"
-                            style="width: 60px; text-align: center; border-left: 0; border-right: 0; pointer-events: none; background-color: rgb(255, 255, 255);"
+                            style="width: 60px; text-align: center; border-inline-start: 0; border-inline-end: 0; pointer-events: none; background-color: rgb(255, 255, 255);"
                             type="text"
                             value=""
                           />
                           <div
                             class="ant-input-number"
-                            style="border-left: 0;"
+                            style="border-inline-start: 0;"
                           >
                             <div
                               class="ant-input-number-handler-wrap"
@@ -11928,7 +11928,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/Group/demos/list
             class="ant-form-item-control-input-content"
           >
             <div
-              class="ant-radio-group ant-radio-group-outline ant-pro-field-radio-horizontal"
+              class="ant-radio-group ant-radio-group-outline ant-pro-field-radio-vertical"
             >
               <label
                 class="ant-radio-wrapper ant-radio-wrapper-in-form-item"
@@ -17762,7 +17762,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/QueryFilter/demo
                       class="ant-form-item-control-input-content"
                     >
                       <div
-                        class="ant-radio-group ant-radio-group-outline ant-pro-field-radio-horizontal"
+                        class="ant-radio-group ant-radio-group-outline ant-pro-field-radio-vertical"
                         id="radio"
                       >
                         <label
@@ -21699,7 +21699,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/QueryFilter/demo
           </div>
         </div>
         <div
-          class="ant-col ant-col-8"
+          class="ant-col ant-col-8 ant-pro-query-filter-row-split-line"
           style="padding-left: 12px; padding-right: 12px;"
         >
           <div
@@ -21777,16 +21777,6 @@ exports[`form demos 📸 renders ./packages/form/src/components/QueryFilter/demo
               </div>
             </div>
           </div>
-        </div>
-        <div
-          class="ant-col ant-col-24"
-          style="padding-left: 12px; padding-right: 12px;"
-        >
-          <div
-            class="ant-divider ant-divider-horizontal ant-divider-dashed"
-            role="separator"
-            style="margin-block-start: -8px; margin-block-end: 16px;"
-          />
         </div>
         <div
           class="ant-col ant-col-8"
@@ -25440,7 +25430,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/QueryFilter/demo
                   class="ant-form-item-control-input-content"
                 >
                   <div
-                    class="ant-radio-group ant-radio-group-outline ant-pro-field-radio-horizontal"
+                    class="ant-radio-group ant-radio-group-outline ant-pro-field-radio-vertical"
                     id="freq"
                   >
                     <label
@@ -25939,7 +25929,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/QueryFilter/demo
             style="margin-left: -12px; margin-right: -12px;"
           >
             <div
-              class="ant-col ant-col-24"
+              class="ant-col ant-col-24 ant-pro-query-filter-row-split-line"
               style="padding-left: 12px; padding-right: 12px;"
             >
               <div
@@ -26022,16 +26012,6 @@ exports[`form demos 📸 renders ./packages/form/src/components/QueryFilter/demo
                   </div>
                 </div>
               </div>
-            </div>
-            <div
-              class="ant-col ant-col-24"
-              style="padding-left: 12px; padding-right: 12px;"
-            >
-              <div
-                class="ant-divider ant-divider-horizontal ant-divider-dashed"
-                role="separator"
-                style="margin-block-start: -8px; margin-block-end: 16px;"
-              />
             </div>
             <div
               class="ant-col ant-col-24"
@@ -40586,7 +40566,7 @@ exports[`form demos 📸 renders ./packages/form/src/demos/form-layout.tsx corre
                 class="ant-form-item-control-input-content"
               >
                 <div
-                  class="ant-radio-group ant-radio-group-outline ant-pro-field-radio-horizontal"
+                  class="ant-radio-group ant-radio-group-outline ant-pro-field-radio-vertical"
                 >
                   <label
                     class="ant-radio-button-wrapper ant-radio-button-wrapper-checked ant-radio-button-wrapper-in-form-item"
@@ -40977,7 +40957,7 @@ exports[`form demos 📸 renders ./packages/form/src/demos/form-layout-grid.tsx 
                     class="ant-form-item-control-input-content"
                   >
                     <div
-                      class="ant-radio-group ant-radio-group-outline ant-pro-field-radio-horizontal"
+                      class="ant-radio-group ant-radio-group-outline ant-pro-field-radio-vertical"
                     >
                       <label
                         class="ant-radio-button-wrapper ant-radio-button-wrapper-checked ant-radio-button-wrapper-in-form-item"
@@ -42615,7 +42595,7 @@ exports[`form demos 📸 renders ./packages/form/src/demos/layout-change.tsx cor
             class="ant-form-item-control-input-content"
           >
             <div
-              class="ant-radio-group ant-radio-group-outline ant-pro-field-radio-horizontal"
+              class="ant-radio-group ant-radio-group-outline ant-pro-field-radio-vertical"
             >
               <label
                 class="ant-radio-button-wrapper ant-radio-button-wrapper-in-form-item"
@@ -42766,7 +42746,6 @@ exports[`form demos 📸 renders ./packages/form/src/demos/layout-change.tsx cor
       <form
         autocomplete="off"
         class="ant-form ant-form-vertical ant-pro-form"
-        labelwidth="auto"
         trigger="[object Object]"
       >
         <input
@@ -44986,7 +44965,7 @@ exports[`form demos 📸 renders ./packages/form/src/demos/layout-footer.tsx cor
                                           class="ant-form-item-control-input-content"
                                         >
                                           <div
-                                            class="ant-radio-group ant-radio-group-outline ant-pro-field-radio-horizontal"
+                                            class="ant-radio-group ant-radio-group-outline ant-pro-field-radio-vertical"
                                             id="invoiceType"
                                           >
                                             <label
