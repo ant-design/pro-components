@@ -21699,11 +21699,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/QueryFilter/demo
           </div>
         </div>
         <div
-<<<<<<< HEAD
-          class="ant-col ant-col-8 ant-pro-query-filter-row-split-line"
-=======
           class="ant-col ant-col-8 ant-pro-query-filter-row-split-line "
->>>>>>> origin/next
           style="padding-left: 12px; padding-right: 12px;"
         >
           <div
@@ -25933,11 +25929,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/QueryFilter/demo
             style="margin-left: -12px; margin-right: -12px;"
           >
             <div
-<<<<<<< HEAD
-              class="ant-col ant-col-24 ant-pro-query-filter-row-split-line"
-=======
               class="ant-col ant-col-24 ant-pro-query-filter-row-split-line "
->>>>>>> origin/next
               style="padding-left: 12px; padding-right: 12px;"
             >
               <div

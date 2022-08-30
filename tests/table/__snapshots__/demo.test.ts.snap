@@ -32188,46 +32188,13 @@ exports[`table demos 📸 renders ./packages/table/src/demos/dynamic-settings.ts
                         class="ant-pro-card"
                       >
                         <div
-<<<<<<< HEAD
                           class="ant-pro-card-body"
-=======
-                          class="ant-pro-form-group-title "
-                        >
-                          <div>
-                            <span
-                              aria-label="right"
-                              class="anticon anticon-right"
-                              role="img"
-                              style="margin-inline-end: 8px;"
-                            >
-                              <svg
-                                aria-hidden="true"
-                                data-icon="right"
-                                fill="currentColor"
-                                focusable="false"
-                                height="1em"
-                                style="transform: rotate(90deg);"
-                                viewBox="64 64 896 896"
-                                width="1em"
-                              >
-                                <path
-                                  d="M765.7 486.8L314.9 134.7A7.97 7.97 0 00302 141v77.3c0 4.9 2.3 9.6 6.1 12.6l360 281.1-360 281.1c-3.9 3-6.1 7.7-6.1 12.6V883c0 6.7 7.7 10.4 12.9 6.3l450.8-352.1a31.96 31.96 0 000-50.4z"
-                                />
-                              </svg>
-                            </span>
-                            表格配置
-                          </div>
-                        </div>
-                        <div
-                          class="ant-space ant-space-horizontal ant-space-align-start ant-pro-form-group-container "
-                          style="row-gap: 0;"
->>>>>>> origin/next
                         >
                           <div
                             class="ant-pro-form-group ant-pro-form-group-twoLine"
                           >
                             <div
-                              class="ant-pro-form-group-title"
+                              class="ant-pro-form-group-title "
                             >
                               <div>
                                 <span
@@ -32255,7 +32222,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/dynamic-settings.ts
                               </div>
                             </div>
                             <div
-                              class="ant-space ant-space-horizontal ant-space-align-start ant-pro-form-group-container"
+                              class="ant-space ant-space-horizontal ant-space-align-start ant-pro-form-group-container "
                               style="row-gap: 0;"
                             >
                               <div
@@ -32574,12 +32541,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/dynamic-settings.ts
                                       class="ant-col ant-form-item-control"
                                     >
                                       <div
-<<<<<<< HEAD
                                         class="ant-form-item-control-input"
-=======
-                                        class="ant-radio-group ant-radio-group-outline ant-radio-group-small ant-pro-field-radio-vertical"
-                                        id="size"
->>>>>>> origin/next
                                       >
                                         <div
                                           class="ant-form-item-control-input-content"
@@ -32828,7 +32790,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/dynamic-settings.ts
                             class="ant-pro-form-group ant-pro-form-group-twoLine"
                           >
                             <div
-                              class="ant-pro-form-group-title"
+                              class="ant-pro-form-group-title "
                             >
                               <div
                                 style="display: flex; width: 100%; align-items: center; justify-content: space-between;"
@@ -32865,7 +32827,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/dynamic-settings.ts
                                     </div>
                                   </div>
                                   <span
-                                    class="ant-pro-core-label-tip-icon"
+                                    class="ant-pro-core-label-tip-icon "
                                   >
                                     <span
                                       aria-label="info-circle"
@@ -32910,7 +32872,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/dynamic-settings.ts
                               </div>
                             </div>
                             <div
-                              class="ant-space ant-space-horizontal ant-space-align-start ant-pro-form-group-container"
+                              class="ant-space ant-space-horizontal ant-space-align-start ant-pro-form-group-container "
                               style="row-gap: 0;"
                             >
                               <div
@@ -33063,178 +33025,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/dynamic-settings.ts
                                         class="ant-form-item-control-input"
                                       >
                                         <div
-<<<<<<< HEAD
                                           class="ant-form-item-control-input-content"
-=======
-                                          class="ant-switch-handle"
-                                        />
-                                        <span
-                                          class="ant-switch-inner"
-                                        />
-                                      </button>
-                                    </div>
-                                  </div>
-                                </div>
-                              </div>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                      <div
-                        class="ant-pro-form-group ant-pro-form-group-twoLine"
-                      >
-                        <div
-                          class="ant-pro-form-group-title "
-                        >
-                          <div
-                            style="display: flex; width: 100%; align-items: center; justify-content: space-between;"
-                          >
-                            <div
-                              class="ant-pro-core-label-tip"
-                            >
-                              <div
-                                class="ant-pro-core-label-tip-title"
-                              >
-                                <div>
-                                  <span
-                                    aria-label="right"
-                                    class="anticon anticon-right"
-                                    role="img"
-                                    style="margin-inline-end: 8px;"
-                                  >
-                                    <svg
-                                      aria-hidden="true"
-                                      data-icon="right"
-                                      fill="currentColor"
-                                      focusable="false"
-                                      height="1em"
-                                      style="transform: rotate(90deg);"
-                                      viewBox="64 64 896 896"
-                                      width="1em"
-                                    >
-                                      <path
-                                        d="M765.7 486.8L314.9 134.7A7.97 7.97 0 00302 141v77.3c0 4.9 2.3 9.6 6.1 12.6l360 281.1-360 281.1c-3.9 3-6.1 7.7-6.1 12.6V883c0 6.7 7.7 10.4 12.9 6.3l450.8-352.1a31.96 31.96 0 000-50.4z"
-                                      />
-                                    </svg>
-                                  </span>
-                                  工具栏
-                                </div>
-                              </div>
-                              <span
-                                class="ant-pro-core-label-tip-icon "
-                              >
-                                <span
-                                  aria-label="info-circle"
-                                  class="anticon anticon-info-circle"
-                                  role="img"
-                                >
-                                  <svg
-                                    aria-hidden="true"
-                                    data-icon="info-circle"
-                                    fill="currentColor"
-                                    focusable="false"
-                                    height="1em"
-                                    viewBox="64 64 896 896"
-                                    width="1em"
-                                  >
-                                    <path
-                                      d="M512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm0 820c-205.4 0-372-166.6-372-372s166.6-372 372-372 372 166.6 372 372-166.6 372-372 372z"
-                                    />
-                                    <path
-                                      d="M464 336a48 48 0 1096 0 48 48 0 10-96 0zm72 112h-48c-4.4 0-8 3.6-8 8v272c0 4.4 3.6 8 8 8h48c4.4 0 8-3.6 8-8V456c0-4.4-3.6-8-8-8z"
-                                    />
-                                  </svg>
-                                </span>
-                              </span>
-                            </div>
-                            <span>
-                              <button
-                                aria-checked="true"
-                                class="ant-switch ant-switch-small ant-switch-checked"
-                                id="toolBarRender"
-                                role="switch"
-                                type="button"
-                              >
-                                <div
-                                  class="ant-switch-handle"
-                                />
-                                <span
-                                  class="ant-switch-inner"
-                                />
-                              </button>
-                            </span>
-                          </div>
-                        </div>
-                        <div
-                          class="ant-space ant-space-horizontal ant-space-align-start ant-pro-form-group-container "
-                          style="row-gap: 0;"
-                        >
-                          <div
-                            class="ant-space-item"
-                            style="margin-right: 0px;"
-                          >
-                            <div
-                              class="ant-form-item"
-                            >
-                              <div
-                                class="ant-row ant-form-item-row"
-                              >
-                                <div
-                                  class="ant-col ant-form-item-label"
-                                >
-                                  <label
-                                    class="ant-form-item-no-colon"
-                                    for="headerTitle"
-                                    title="表格标题"
-                                  >
-                                    表格标题
-                                    <span
-                                      aria-label="question-circle"
-                                      class="anticon anticon-question-circle ant-form-item-tooltip"
-                                      role="img"
-                                      title=""
-                                    >
-                                      <svg
-                                        aria-hidden="true"
-                                        data-icon="question-circle"
-                                        fill="currentColor"
-                                        focusable="false"
-                                        height="1em"
-                                        viewBox="64 64 896 896"
-                                        width="1em"
-                                      >
-                                        <path
-                                          d="M512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm0 820c-205.4 0-372-166.6-372-372s166.6-372 372-372 372 166.6 372 372-166.6 372-372 372z"
-                                        />
-                                        <path
-                                          d="M623.6 316.7C593.6 290.4 554 276 512 276s-81.6 14.5-111.6 40.7C369.2 344 352 380.7 352 420v7.6c0 4.4 3.6 8 8 8h48c4.4 0 8-3.6 8-8V420c0-44.1 43.1-80 96-80s96 35.9 96 80c0 31.1-22 59.6-56.1 72.7-21.2 8.1-39.2 22.3-52.1 40.9-13.1 19-19.9 41.8-19.9 64.9V620c0 4.4 3.6 8 8 8h48c4.4 0 8-3.6 8-8v-22.7a48.3 48.3 0 0130.9-44.8c59-22.7 97.1-74.7 97.1-132.5.1-39.3-17.1-76-48.3-103.3zM472 732a40 40 0 1080 0 40 40 0 10-80 0z"
-                                        />
-                                      </svg>
-                                    </span>
-                                  </label>
-                                </div>
-                                <div
-                                  class="ant-col ant-form-item-control"
-                                >
-                                  <div
-                                    class="ant-form-item-control-input"
-                                  >
-                                    <div
-                                      class="ant-form-item-control-input-content"
-                                    >
-                                      <span
-                                        class="ant-input-affix-wrapper ant-input-affix-wrapper-sm"
-                                      >
-                                        <input
-                                          class="ant-input ant-input-sm"
-                                          id="headerTitle"
-                                          placeholder="请输入"
-                                          type="text"
-                                          value="高级表格"
-                                        />
-                                        <span
-                                          class="ant-input-suffix"
->>>>>>> origin/next
                                         >
                                           <span
                                             class="ant-input-affix-wrapper ant-input-affix-wrapper-sm"
