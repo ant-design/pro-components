@@ -25,7 +25,20 @@ export type ProListMeta<T> = Pick<
   | 'formItemProps'
 >;
 
-export type ProListMetas<T = any> = {
+type ProListMetaAction<T> = ProListMeta<T> & {
+  /**
+   * @example
+   *   `cardActionProps = 'actions';`;
+   *
+   * @name 选择映射到 card 上的 props，默认为extra
+   */
+  cardActionProps?: 'extra' | 'actions';
+};
+
+type IfAny<T, Y, N> = 0 extends 1 & T ? Y : N;
+type IsAny<T> = IfAny<T, true, false>;
+
+export type BaseProListMetas<T = any> = {
   [key: string]: any;
   type?: ProListMeta<T>;
   title?: ProListMeta<T>;
@@ -33,15 +46,10 @@ export type ProListMetas<T = any> = {
   description?: ProListMeta<T>;
   avatar?: ProListMeta<T>;
   content?: ProListMeta<T>;
-  actions?: ProListMeta<T> & {
-    /**
-     * @example
-     *   `cardActionProps = 'actions';`;
-     *
-     * @name 选择映射到 card 上的 props，默认为extra
-     */
-    cardActionProps?: 'extra' | 'actions';
-  };
+  actions?: ProListMetaAction<T>;
+};
+export type ProListMetas<T = any> = BaseProListMetas & {
+  [key in keyof T]?: IsAny<T> extends true ? ProListMetaAction<T> : ProListMeta<T>;
 };
 
 export type GetComponentProps<RecordType> = (
