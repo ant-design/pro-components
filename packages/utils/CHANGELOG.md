@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.0.0-experimental.23](https://github.com/ant-design/pro-components/compare/@ant-design/pro-utils@1.45.3...@ant-design/pro-utils@2.0.0-experimental.23) (2022-08-30)
+
+### Bug Fixes
+
+- update snapshot ([4db1605](https://github.com/ant-design/pro-components/commit/4db1605937c3b0cf22d22ad398ef4c11e21883cd))
+
+### Features
+
+- cssinjs ([#5596](https://github.com/ant-design/pro-components/issues/5596)) ([b82c7d2](https://github.com/ant-design/pro-components/commit/b82c7d2a1021506918947df56aaa66c3181187c7))
+
 # [2.0.0-experimental.22](https://github.com/ant-design/pro-components/compare/@ant-design/pro-utils@2.0.0-experimental.21...@ant-design/pro-utils@2.0.0-experimental.22) (2022-08-29)
 
 ### Bug Fixes

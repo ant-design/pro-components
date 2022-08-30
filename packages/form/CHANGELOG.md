@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.0.0-experimental.25](https://github.com/ant-design/pro-components/compare/@ant-design/pro-form@1.74.4...@ant-design/pro-form@2.0.0-experimental.25) (2022-08-30)
+
+### Bug Fixes
+
+- update snapshot ([4db1605](https://github.com/ant-design/pro-components/commit/4db1605937c3b0cf22d22ad398ef4c11e21883cd))
+- **form:** queryfilter css delete ([#5775](https://github.com/ant-design/pro-components/issues/5775)) ([12c2e07](https://github.com/ant-design/pro-components/commit/12c2e076bb03d0e4ba26a03bcabf58ad024b4fa2))
+
 # [2.0.0-experimental.24](https://github.com/ant-design/pro-components/compare/@ant-design/pro-form@2.0.0-experimental.23...@ant-design/pro-form@2.0.0-experimental.24) (2022-08-29)
 
 ### Bug Fixes

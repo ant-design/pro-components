@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.0.0-experimental.26](https://github.com/ant-design/pro-components/compare/@ant-design/pro-list@1.21.83...@ant-design/pro-list@2.0.0-experimental.26) (2022-08-30)
+
+### Bug Fixes
+
+- update snapshot ([4db1605](https://github.com/ant-design/pro-components/commit/4db1605937c3b0cf22d22ad398ef4c11e21883cd))
+
 # [2.0.0-experimental.25](https://github.com/ant-design/pro-components/compare/@ant-design/pro-list@2.0.0-experimental.24...@ant-design/pro-list@2.0.0-experimental.25) (2022-08-29)
 
 ### Bug Fixes
