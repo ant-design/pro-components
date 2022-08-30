@@ -6,6 +6,17 @@ import MockDate from 'mockdate';
 import React from 'react';
 import tableData from './table/mock.data.json';
 
+import { defaultConfig } from 'antd/es/theme/index';
+
+defaultConfig.hashed = false;
+
+jest.mock('antd', () => {
+  const antd = jest.requireActual('antd');
+  antd.theme.defaultConfig.hashed = false;
+
+  return antd;
+});
+
 process.env.TZ = 'UTC';
 
 global.React = React;

@@ -58,7 +58,7 @@ export const RightContent: React.FC<GlobalHeaderProps> = ({
             <div
               // eslint-disable-next-line react/no-array-index-key
               key={index}
-              className={classNames(`${prefixCls}-header-actions-item`, {
+              className={classNames(`${prefixCls}-header-actions-item ${hashId}`, {
                 [`${prefixCls}-header-actions-hover`]: !hideHover,
               })}
             >
@@ -67,7 +67,7 @@ export const RightContent: React.FC<GlobalHeaderProps> = ({
           );
         })}
         {avatarDom && (
-          <span className={`${prefixCls}-header-actions-avatar`}>
+          <span className={`${prefixCls}-header-actions-avatar ${hashId}`}>
             <div>{avatarDom}</div>
           </span>
         )}
@@ -81,7 +81,7 @@ export const RightContent: React.FC<GlobalHeaderProps> = ({
 
   return (
     <div
-      className={`${prefixCls}-right-content`}
+      className={`${prefixCls}-right-content ${hashId}`}
       style={{
         minWidth: rightSize,
         height: '100%',

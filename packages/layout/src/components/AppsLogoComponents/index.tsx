@@ -39,19 +39,31 @@ export const AppsLogoComponents: React.FC<{
   const { appList, prefixCls = 'ant-pro' } = props;
   const ref = React.useRef<HTMLDivElement>(null);
   const baseClassName = `${prefixCls}-layout-apps`;
-  const { wrapSSR } = useStyle(baseClassName);
+  const { wrapSSR, hashId } = useStyle(baseClassName);
 
-  const [visible, setVisible] = useState(false);
+  const [open, setOpen] = useState(false);
 
   const popoverContent = useMemo(() => {
     const isSimple = appList?.some((app) => {
       return !app?.desc;
     });
     if (isSimple) {
-      return <SimpleContent appList={appList} baseClassName={`${baseClassName}-simple`} />;
+      return (
+        <SimpleContent
+          hashId={hashId}
+          appList={appList}
+          baseClassName={`${baseClassName}-simple`}
+        />
+      );
     }
-    return <DefaultContent appList={appList} baseClassName={`${baseClassName}-default`} />;
-  }, [appList, baseClassName]);
+    return (
+      <DefaultContent
+        hashId={hashId}
+        appList={appList}
+        baseClassName={`${baseClassName}-default`}
+      />
+    );
+  }, [appList, baseClassName, hashId]);
 
   if (!props?.appList?.length) return null;
 
@@ -63,8 +75,10 @@ export const AppsLogoComponents: React.FC<{
         trigger={['click']}
         zIndex={9999}
         arrowPointAtCenter
-        onVisibleChange={setVisible}
-        overlayClassName={`${baseClassName}-popover`}
+        // @ts-expect-error
+        onVisibleChange={setOpen}
+        onOpenChange={setOpen}
+        overlayClassName={`${baseClassName}-popover ${hashId}`}
         content={popoverContent}
         getPopupContainer={() => ref.current || document.body}
       >
@@ -72,8 +86,8 @@ export const AppsLogoComponents: React.FC<{
           onClick={(e) => {
             e.stopPropagation();
           }}
-          className={classNames(`${baseClassName}-icon`, {
-            [`${baseClassName}-icon-active`]: visible,
+          className={classNames(`${baseClassName}-icon`, hashId, {
+            [`${baseClassName}-icon-active`]: open,
           })}
         >
           <AppsLogo />

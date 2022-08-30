@@ -116,7 +116,7 @@ const LightFilterContainer: React.FC<{
       return collapseLabel;
     }
     if (collapse) {
-      return <FilterOutlined className={`${lightFilterClassName}-collapse-icon`} />;
+      return <FilterOutlined className={`${lightFilterClassName}-collapse-icon ${hashId}`} />;
     }
     return (
       <FieldLabel
@@ -133,13 +133,13 @@ const LightFilterContainer: React.FC<{
         [`${lightFilterClassName}-effective`]: Object.keys(values).some((key) => values[key]),
       })}
     >
-      <div className={`${lightFilterClassName}-container`}>
+      <div className={`${lightFilterClassName}-container ${hashId}`}>
         {outsideItems.map((child: any, index) => {
           const { key } = child;
           const { fieldProps } = child.props;
           const newPlacement = fieldProps?.placement ? fieldProps?.placement : placement;
           return (
-            <div className={`${lightFilterClassName}-item`} key={key || index}>
+            <div className={`${lightFilterClassName}-item ${hashId}`} key={key || index}>
               {React.cloneElement(child, {
                 fieldProps: {
                   ...child.props.fieldProps,
@@ -157,7 +157,7 @@ const LightFilterContainer: React.FC<{
           );
         })}
         {collapseItems.length ? (
-          <div className={`${lightFilterClassName}-item`} key="more">
+          <div className={`${lightFilterClassName}-item ${hashId}`} key="more">
             <FilterDropdown
               padding={24}
               onVisibleChange={setOpen}
@@ -201,7 +201,7 @@ const LightFilterContainer: React.FC<{
                 }
                 const newPlacement = fieldProps?.placement ? fieldProps?.placement : placement;
                 return (
-                  <div className={`${lightFilterClassName}-line`} key={key}>
+                  <div className={`${lightFilterClassName}-line ${hashId}`} key={key}>
                     {React.cloneElement(child, {
                       fieldProps: {
                         ...newFieldProps,

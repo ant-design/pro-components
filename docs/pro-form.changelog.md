@@ -9,6 +9,12 @@ group:
 
 # Change Log
 
+## @ant-design/pro-form@1.74.4
+
+`2022-08-29`
+
+- fix(form): after close theme reset fields. [ecc6923](https://github.com/ant-design/pro-components/commit/ecc6923)
+
 ## @ant-design/pro-form@1.74.1
 
 `2022-08-22`

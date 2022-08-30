@@ -237,7 +237,7 @@ function StepsForm<T = Record<string, any>>(
   const stepsDom = useMemo(
     () => (
       <div
-        className={`${prefixCls}-steps-container`}
+        className={`${prefixCls}-steps-container ${hashId}`}
         style={{
           maxWidth: Math.min(formArray.length * 320, 1160),
         }}
@@ -250,7 +250,7 @@ function StepsForm<T = Record<string, any>>(
         </Steps>
       </div>
     ),
-    [formArray, prefixCls, step, stepsProps],
+    [formArray, hashId, prefixCls, step, stepsProps],
   );
 
   const onSubmit = useRefFunction(() => {
@@ -368,7 +368,7 @@ function StepsForm<T = Record<string, any>>(
         : {};
       return (
         <div
-          className={classNames(`${prefixCls}-step`, {
+          className={classNames(`${prefixCls}-step`, hashId, {
             [`${prefixCls}-step-active`]: isShow,
           })}
           key={name}
@@ -384,7 +384,7 @@ function StepsForm<T = Record<string, any>>(
         </div>
       );
     });
-  }, [formProps, prefixCls, props.children, step, stepFormRender]);
+  }, [formProps, hashId, prefixCls, props.children, step, stepFormRender]);
 
   const finalStepsDom = useMemo(() => {
     if (stepsRender) {
@@ -401,12 +401,12 @@ function StepsForm<T = Record<string, any>>(
 
   const formContainer = useMemo(
     () => (
-      <div className={`${prefixCls}-container`} style={containerStyle}>
+      <div className={`${prefixCls}-container ${hashId}`} style={containerStyle}>
         {formDom}
         {stepsFormRender ? null : <Space>{submitterDom}</Space>}
       </div>
     ),
-    [containerStyle, formDom, prefixCls, stepsFormRender, submitterDom],
+    [containerStyle, formDom, hashId, prefixCls, stepsFormRender, submitterDom],
   );
 
   const stepsFormDom = useMemo(() => {

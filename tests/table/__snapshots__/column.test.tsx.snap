@@ -4,7 +4,7 @@ exports[`Table ColumnSetting 🎏 change text by renderText 1`] = `"Edward King2
 
 exports[`Table ColumnSetting 🎏 columns proFieldProps support custom 1`] = `
 <div
-  class="ant-pro"
+  class="ant-pro "
 >
   <div
     class="ant-pro-table"
@@ -21,7 +21,7 @@ exports[`Table ColumnSetting 🎏 columns proFieldProps support custom 1`] = `
           type="text"
         />
         <div
-          class="ant-row ant-row-start ant-pro-query-filter-row"
+          class="ant-row ant-row-start ant-pro-query-filter-row "
           style="margin-left: -12px; margin-right: -12px;"
         >
           <div
@@ -128,7 +128,7 @@ exports[`Table ColumnSetting 🎏 columns proFieldProps support custom 1`] = `
             style="padding-left: 12px; padding-right: 12px; text-align: right;"
           >
             <div
-              class="ant-form-item ant-pro-query-filter-actions"
+              class="ant-form-item ant-pro-query-filter-actions "
             >
               <div
                 class="ant-row ant-form-item-row"
@@ -214,23 +214,23 @@ exports[`Table ColumnSetting 🎏 columns proFieldProps support custom 1`] = `
             class="ant-pro-table-list-toolbar-container"
           >
             <div
-              class="ant-pro-table-list-toolbar-left"
+              class="ant-pro-table-list-toolbar-left "
             />
             <div
-              class="ant-space ant-space-horizontal ant-space-align-center ant-pro-table-list-toolbar-right"
+              class="ant-space ant-space-horizontal ant-space-align-center ant-pro-table-list-toolbar-right "
             >
               <div
                 class="ant-space-item"
               >
                 <div
-                  class="ant-space ant-space-horizontal ant-space-align-center ant-pro-table-list-toolbar-setting-items"
+                  class="ant-space ant-space-horizontal ant-space-align-center ant-pro-table-list-toolbar-setting-items "
                 >
                   <div
                     class="ant-space-item"
                     style="margin-right: 12px;"
                   >
                     <div
-                      class="ant-pro-table-list-toolbar-setting-item"
+                      class="ant-pro-table-list-toolbar-setting-item "
                     >
                       <span>
                         <span
@@ -260,7 +260,7 @@ exports[`Table ColumnSetting 🎏 columns proFieldProps support custom 1`] = `
                     style="margin-right: 12px;"
                   >
                     <div
-                      class="ant-pro-table-list-toolbar-setting-item"
+                      class="ant-pro-table-list-toolbar-setting-item "
                     >
                       <span>
                         <span
@@ -290,7 +290,7 @@ exports[`Table ColumnSetting 🎏 columns proFieldProps support custom 1`] = `
                     class="ant-space-item"
                   >
                     <div
-                      class="ant-pro-table-list-toolbar-setting-item"
+                      class="ant-pro-table-list-toolbar-setting-item "
                     >
                       <span
                         aria-label="setting"
@@ -424,7 +424,7 @@ exports[`Table ColumnSetting 🎏 columns proFieldProps support custom 1`] = `
 
 exports[`Table ColumnSetting 🎏 config provide render 1`] = `
 <div
-  class="ant-pro"
+  class="ant-pro "
 >
   <div
     class="qixian-pro-table"
@@ -441,7 +441,7 @@ exports[`Table ColumnSetting 🎏 config provide render 1`] = `
           type="text"
         />
         <div
-          class="qixian-row qixian-row-start qixian-pro-query-filter-row"
+          class="qixian-row qixian-row-start qixian-pro-query-filter-row "
           style="margin-left: -12px; margin-right: -12px;"
         >
           <div
@@ -529,7 +529,7 @@ exports[`Table ColumnSetting 🎏 config provide render 1`] = `
             style="padding-left: 12px; padding-right: 12px; text-align: right;"
           >
             <div
-              class="qixian-form-item qixian-pro-query-filter-actions"
+              class="qixian-form-item qixian-pro-query-filter-actions "
             >
               <div
                 class="qixian-row qixian-form-item-row"
@@ -615,23 +615,23 @@ exports[`Table ColumnSetting 🎏 config provide render 1`] = `
             class="qixian-pro-table-list-toolbar-container"
           >
             <div
-              class="qixian-pro-table-list-toolbar-left"
+              class="qixian-pro-table-list-toolbar-left "
             />
             <div
-              class="qixian-space qixian-space-horizontal qixian-space-align-center qixian-pro-table-list-toolbar-right"
+              class="qixian-space qixian-space-horizontal qixian-space-align-center qixian-pro-table-list-toolbar-right "
             >
               <div
                 class="qixian-space-item"
               >
                 <div
-                  class="qixian-space qixian-space-horizontal qixian-space-align-center qixian-pro-table-list-toolbar-setting-items"
+                  class="qixian-space qixian-space-horizontal qixian-space-align-center qixian-pro-table-list-toolbar-setting-items "
                 >
                   <div
                     class="qixian-space-item"
                     style="margin-right: 12px;"
                   >
                     <div
-                      class="qixian-pro-table-list-toolbar-setting-item"
+                      class="qixian-pro-table-list-toolbar-setting-item "
                     >
                       <span>
                         <span
@@ -661,7 +661,7 @@ exports[`Table ColumnSetting 🎏 config provide render 1`] = `
                     style="margin-right: 12px;"
                   >
                     <div
-                      class="qixian-pro-table-list-toolbar-setting-item"
+                      class="qixian-pro-table-list-toolbar-setting-item "
                     >
                       <span>
                         <span
@@ -691,7 +691,7 @@ exports[`Table ColumnSetting 🎏 config provide render 1`] = `
                     class="qixian-space-item"
                   >
                     <div
-                      class="qixian-pro-table-list-toolbar-setting-item"
+                      class="qixian-pro-table-list-toolbar-setting-item "
                     >
                       <span
                         aria-label="setting"
@@ -1217,7 +1217,7 @@ exports[`Table ColumnSetting 🎏 config provide render 1`] = `
 
 exports[`Table ColumnSetting 🎏 extra columns 1`] = `
 <div
-  class="ant-pro"
+  class="ant-pro "
 >
   <div
     class="ant-pro-table"
@@ -1234,7 +1234,7 @@ exports[`Table ColumnSetting 🎏 extra columns 1`] = `
           type="text"
         />
         <div
-          class="ant-row ant-row-start ant-pro-query-filter-row"
+          class="ant-row ant-row-start ant-pro-query-filter-row "
           style="margin-left: -12px; margin-right: -12px;"
         >
           <div
@@ -1322,7 +1322,7 @@ exports[`Table ColumnSetting 🎏 extra columns 1`] = `
             style="padding-left: 12px; padding-right: 12px; text-align: right;"
           >
             <div
-              class="ant-form-item ant-pro-query-filter-actions"
+              class="ant-form-item ant-pro-query-filter-actions "
             >
               <div
                 class="ant-row ant-form-item-row"
@@ -1408,23 +1408,23 @@ exports[`Table ColumnSetting 🎏 extra columns 1`] = `
             class="ant-pro-table-list-toolbar-container"
           >
             <div
-              class="ant-pro-table-list-toolbar-left"
+              class="ant-pro-table-list-toolbar-left "
             />
             <div
-              class="ant-space ant-space-horizontal ant-space-align-center ant-pro-table-list-toolbar-right"
+              class="ant-space ant-space-horizontal ant-space-align-center ant-pro-table-list-toolbar-right "
             >
               <div
                 class="ant-space-item"
               >
                 <div
-                  class="ant-space ant-space-horizontal ant-space-align-center ant-pro-table-list-toolbar-setting-items"
+                  class="ant-space ant-space-horizontal ant-space-align-center ant-pro-table-list-toolbar-setting-items "
                 >
                   <div
                     class="ant-space-item"
                     style="margin-right: 12px;"
                   >
                     <div
-                      class="ant-pro-table-list-toolbar-setting-item"
+                      class="ant-pro-table-list-toolbar-setting-item "
                     >
                       <span>
                         <span
@@ -1454,7 +1454,7 @@ exports[`Table ColumnSetting 🎏 extra columns 1`] = `
                     style="margin-right: 12px;"
                   >
                     <div
-                      class="ant-pro-table-list-toolbar-setting-item"
+                      class="ant-pro-table-list-toolbar-setting-item "
                     >
                       <span>
                         <span
@@ -1484,7 +1484,7 @@ exports[`Table ColumnSetting 🎏 extra columns 1`] = `
                     class="ant-space-item"
                   >
                     <div
-                      class="ant-pro-table-list-toolbar-setting-item"
+                      class="ant-pro-table-list-toolbar-setting-item "
                     >
                       <span
                         aria-label="setting"

@@ -51,8 +51,8 @@ const FooterToolbar: React.FC<FooterToolbarProps> = (props) => {
 
   const dom = (
     <>
-      <div className={`${baseClassName}-left`}>{extra}</div>
-      <div className={`${baseClassName}-right`}>{children}</div>
+      <div className={`${baseClassName}-left ${hashId}`}>{extra}</div>
+      <div className={`${baseClassName}-right ${hashId}`}>{children}</div>
     </>
   );
 

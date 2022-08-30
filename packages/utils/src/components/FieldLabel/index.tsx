@@ -143,7 +143,7 @@ const FieldLabelFunction: React.ForwardRefRenderFunction<any, FieldLabelProps> =
         <CloseOutlined
           role="button"
           title="清除"
-          className={classNames(`${prefixCls}-icon`, `${prefixCls}-close`)}
+          className={classNames(`${prefixCls}-icon`, hashId, `${prefixCls}-close`)}
           onClick={(e) => {
             if (onClear && !disabled) {
               onClear();

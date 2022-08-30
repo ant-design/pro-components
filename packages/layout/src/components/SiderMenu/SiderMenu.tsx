@@ -1,3 +1,4 @@
+import { useToken } from '@ant-design/pro-utils';
 import type { AvatarProps, SiderProps } from 'antd';
 import { Avatar, ConfigProvider, Layout, Menu, Space } from 'antd';
 import type { ItemType } from 'antd/es/menu/hooks/useItems';
@@ -190,7 +191,7 @@ const SiderMenu: React.FC<SiderMenuProps & PrivateSiderMenuProps> = (props) => {
     onOpenChange,
     logoStyle,
   } = props;
-
+  const { hashId } = useToken();
   const showSiderExtraDom = useMemo(() => {
     if (isMobile) return false;
     if (layout === 'mix') return false;
@@ -199,7 +200,7 @@ const SiderMenu: React.FC<SiderMenuProps & PrivateSiderMenuProps> = (props) => {
 
   const baseClassName = `${prefixCls}-sider`;
   const { flatMenuKeys } = MenuCounter.useContainer();
-  const siderClassName = classNames(`${baseClassName}`, {
+  const siderClassName = classNames(`${baseClassName}`, hashId, {
     [`${baseClassName}-fixed`]: fixSiderbar,
     [`${baseClassName}-collapsed`]: props.collapsed,
     [`${baseClassName}-layout-${layout}`]: layout && !isMobile,
@@ -223,10 +224,10 @@ const SiderMenu: React.FC<SiderMenuProps & PrivateSiderMenuProps> = (props) => {
           style={{
             width: '100%',
           }}
-          className={`${baseClassName}-menu`}
+          className={`${baseClassName}-menu ${hashId}`}
         />
       ),
-    [baseClassName, flatMenuKeys, menuContentRender, onOpenChange, props],
+    [baseClassName, flatMenuKeys, hashId, menuContentRender, onOpenChange, props],
   );
 
   const linksMenuItems: ItemType[] = (links || []).map((node, index) => ({
@@ -261,11 +262,12 @@ const SiderMenu: React.FC<SiderMenuProps & PrivateSiderMenuProps> = (props) => {
           className={classNames([
             `${baseClassName}-actions-list`,
             collapsed && `${baseClassName}-actions-list-collapsed`,
+            hashId,
           ])}
         >
           {actionsRender?.(props).map((item, index) => {
             return (
-              <div key={index} className={`${baseClassName}-actions-list-item`}>
+              <div key={index} className={`${baseClassName}-actions-list-item ${hashId}`}>
                 {item}
               </div>
             );
@@ -305,6 +307,7 @@ const SiderMenu: React.FC<SiderMenuProps & PrivateSiderMenuProps> = (props) => {
       <div
         className={classNames(
           `${baseClassName}-actions`,
+          hashId,
           collapsed && `${baseClassName}-actions-collapsed`,
         )}
       >
@@ -312,7 +315,7 @@ const SiderMenu: React.FC<SiderMenuProps & PrivateSiderMenuProps> = (props) => {
         {actionsDom}
       </div>
     );
-  }, [actionsDom, avatarDom, baseClassName, collapsed]);
+  }, [actionsDom, avatarDom, baseClassName, collapsed, hashId]);
 
   const collapsedWidth = 60;
 
@@ -332,7 +335,7 @@ const SiderMenu: React.FC<SiderMenuProps & PrivateSiderMenuProps> = (props) => {
       {headerDom && (
         <div
           className={classNames([
-            classNames(`${baseClassName}-logo`, {
+            classNames(`${baseClassName}-logo`, hashId, {
               [`${baseClassName}-logo-collapsed`]: collapsed,
             }),
           ])}
@@ -349,6 +352,7 @@ const SiderMenu: React.FC<SiderMenuProps & PrivateSiderMenuProps> = (props) => {
           className={classNames([
             `${baseClassName}-extra`,
             !headerDom && `${baseClassName}-extra-no-logo`,
+            hashId,
           ])}
         >
           {extraDom}
@@ -364,10 +368,10 @@ const SiderMenu: React.FC<SiderMenuProps & PrivateSiderMenuProps> = (props) => {
         {menuRenderDom}
       </div>
       {links ? (
-        <div className={`${baseClassName}-links`}>
+        <div className={`${baseClassName}-links ${hashId}`}>
           <Menu
             inlineIndent={16}
-            className={`${baseClassName}-link-menu`}
+            className={`${baseClassName}-link-menu ${hashId}`}
             selectedKeys={[]}
             openKeys={[]}
             theme="light"
@@ -381,7 +385,7 @@ const SiderMenu: React.FC<SiderMenuProps & PrivateSiderMenuProps> = (props) => {
           {actionAreaDom}
           {rightContentRender ? (
             <div
-              className={classNames(`${baseClassName}-actions`, {
+              className={classNames(`${baseClassName}-actions`, hashId, {
                 [`${baseClassName}-actions-collapsed`]: collapsed,
               })}
             >
@@ -394,6 +398,7 @@ const SiderMenu: React.FC<SiderMenuProps & PrivateSiderMenuProps> = (props) => {
         <div
           className={classNames([
             `${baseClassName}-footer`,
+            hashId,
             { [`${baseClassName}-footer-collapsed`]: collapsed },
           ])}
         >
@@ -432,10 +437,12 @@ const SiderMenu: React.FC<SiderMenuProps & PrivateSiderMenuProps> = (props) => {
         style={style}
         theme={theme}
         width={siderWidth}
-        className={classNames(siderClassName, hideMenuWhenCollapsedClassName)}
+        className={classNames(siderClassName, hashId, hideMenuWhenCollapsedClassName)}
       >
         <ConfigProvider
+          // @ts-ignore
           theme={{
+            hashed: false,
             override: {
               Menu: {
                 radiusItem: 4,
@@ -455,7 +462,7 @@ const SiderMenu: React.FC<SiderMenuProps & PrivateSiderMenuProps> = (props) => {
         >
           {hideMenuWhenCollapsedClassName ? (
             <div
-              className={`${baseClassName}-hide-when-collapsed`}
+              className={`${baseClassName}-hide-when-collapsed ${hashId}`}
               style={{
                 height: '100%',
                 width: '100%',

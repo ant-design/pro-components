@@ -368,7 +368,7 @@ export const defaultTheme = {
   boxShadowTabsOverflowTop: 'inset 0 10px 8px -8px rgba(0, 0, 0, 0.08)',
   boxShadowTabsOverflowBottom: 'inset 0 -10px 8px -8px rgba(0, 0, 0, 0.08)',
   _tokenKey: '15a20jx',
-  _hashId: 'css-dev-only-do-not-override-5zawe1',
+  _hashId: '',
 };
 
 export type AliasToken = typeof defaultTheme;

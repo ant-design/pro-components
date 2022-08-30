@@ -3,7 +3,7 @@
 exports[`EditorProTable 📝 EditableProTable support recordCreatorProps 1`] = `
 <DocumentFragment>
   <div
-    class="ant-pro"
+    class="ant-pro "
   >
     <div
       class="ant-pro-table"
@@ -66,7 +66,7 @@ exports[`EditorProTable 📝 EditableProTable support recordCreatorProps 1`] = `
                                   标题
                                 </div>
                                 <span
-                                  class="ant-pro-core-label-tip-icon"
+                                  class="ant-pro-core-label-tip-icon "
                                 >
                                   <span
                                     aria-label="info-circle"
@@ -633,7 +633,7 @@ exports[`EditorProTable 📝 EditableProTable support recordCreatorProps 1`] = `
 exports[`EditorProTable 📝 EditableProTable support recordCreatorProps=false 1`] = `
 <DocumentFragment>
   <div
-    class="ant-pro"
+    class="ant-pro "
   >
     <div
       class="ant-pro-table"
@@ -696,7 +696,7 @@ exports[`EditorProTable 📝 EditableProTable support recordCreatorProps=false 1
                                   标题
                                 </div>
                                 <span
-                                  class="ant-pro-core-label-tip-icon"
+                                  class="ant-pro-core-label-tip-icon "
                                 >
                                   <span
                                     aria-label="info-circle"

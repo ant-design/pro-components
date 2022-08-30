@@ -5,7 +5,7 @@ export const omitUndefined = <T>(obj: T): T => {
       newObj[key] = obj[key];
     }
   });
-  if (Object.keys(newObj).length < 1) {
+  if (Object.keys(newObj as Record<string, any>).length < 1) {
     return undefined as any;
   }
   return newObj;

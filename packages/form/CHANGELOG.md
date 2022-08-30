@@ -2,6 +2,33 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.0.0-experimental.24](https://github.com/ant-design/pro-components/compare/@ant-design/pro-form@2.0.0-experimental.23...@ant-design/pro-form@2.0.0-experimental.24) (2022-08-29)
+
+### Bug Fixes
+
+- update snapshot ([4db1605](https://github.com/ant-design/pro-components/commit/4db1605937c3b0cf22d22ad398ef4c11e21883cd))
+- **form:** after close theme reset fields ([ecc6923](https://github.com/ant-design/pro-components/commit/ecc69233c0befa29558f142c091693398e4fe32f))
+
+# [2.0.0-experimental.23](https://github.com/ant-design/pro-components/compare/@ant-design/pro-form@1.74.3...@ant-design/pro-form@2.0.0-experimental.23) (2022-08-26)
+
+### Bug Fixes
+
+- **form:** queryfilter css delete ([#5775](https://github.com/ant-design/pro-components/issues/5775)) ([12c2e07](https://github.com/ant-design/pro-components/commit/12c2e076bb03d0e4ba26a03bcabf58ad024b4fa2))
+
+# [2.0.0-experimental.22](https://github.com/ant-design/pro-components/compare/@ant-design/pro-form@2.0.0-experimental.21...@ant-design/pro-form@2.0.0-experimental.22) (2022-08-25)
+
+### Bug Fixes
+
+- **form:** queryfilter css delete ([#5775](https://github.com/ant-design/pro-components/issues/5775)) ([12c2e07](https://github.com/ant-design/pro-components/commit/12c2e076bb03d0e4ba26a03bcabf58ad024b4fa2))
+
+# [2.0.0-experimental.21](https://github.com/ant-design/pro-components/compare/@ant-design/pro-form@2.0.0-experimental.20...@ant-design/pro-form@2.0.0-experimental.21) (2022-08-25)
+
+**Note:** Version bump only for package @ant-design/pro-form
+
+# [2.0.0-experimental.20](https://github.com/ant-design/pro-components/compare/@ant-design/pro-form@1.74.2...@ant-design/pro-form@2.0.0-experimental.20) (2022-08-25)
+
+**Note:** Version bump only for package @ant-design/pro-form
+
 # [2.0.0-experimental.19](https://github.com/ant-design/pro-components/compare/@ant-design/pro-form@2.0.0-experimental.18...@ant-design/pro-form@2.0.0-experimental.19) (2022-08-24)
 
 **Note:** Version bump only for package @ant-design/pro-form

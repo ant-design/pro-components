@@ -1,5 +1,6 @@
 import type { ProCardProps } from '@ant-design/pro-card';
 import type { ActionType } from '@ant-design/pro-table';
+import { useToken } from '@ant-design/pro-utils';
 import type { ListProps, TableColumnType, TableProps } from 'antd';
 import { ConfigProvider, List } from 'antd';
 import useLazyKVMap from 'antd/es/table/hooks/useLazyKVMap';
@@ -60,6 +61,8 @@ function ListView<RecordType>(props: ListViewProps<RecordType>) {
     rowClassName,
     ...rest
   } = props;
+
+  const { hashId } = useToken();
 
   const { getPrefixCls } = useContext(ConfigProvider.ConfigContext);
 
@@ -163,7 +166,11 @@ function ListView<RecordType>(props: ListViewProps<RecordType>) {
   return (
     <List<RecordType>
       {...rest}
-      className={classNames(getPrefixCls('pro-list-container', customizePrefixCls), rest.className)}
+      className={classNames(
+        getPrefixCls('pro-list-container', customizePrefixCls),
+        hashId,
+        rest.className,
+      )}
       dataSource={pageData}
       pagination={pagination && (mergedPagination as ListViewProps<RecordType>['pagination'])}
       renderItem={(item, index) => {

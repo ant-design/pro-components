@@ -30,7 +30,9 @@ export type ModalFormProps<T = Record<string, any>> = Omit<FormProps<T>, 'onFini
     trigger?: JSX.Element;
 
     /** @name 受控的打开关闭 */
-    visible?: ModalProps['visible'];
+    visible?: ModalProps['open'];
+    /** @name 受控的打开关闭 */
+    open?: ModalProps['open'];
 
     /** @name 打开关闭的事件 */
     onVisibleChange?: (visible: boolean) => void;
@@ -59,6 +61,7 @@ function ModalForm<T = Record<string, any>>({
   title,
   width,
   visible: propVisible,
+  open: propsOpen,
   ...rest
 }: ModalFormProps<T>) {
   noteOnce(
@@ -72,8 +75,8 @@ function ModalForm<T = Record<string, any>>({
   const [, forceUpdate] = useState([]);
   const [loading, setLoading] = useState(false);
 
-  const [visible, setVisible] = useMergedState<boolean>(!!propVisible, {
-    value: propVisible,
+  const [open, setOpen] = useMergedState<boolean>(!!propVisible, {
+    value: propsOpen || propVisible,
     onChange: onVisibleChange,
   });
 
@@ -88,12 +91,20 @@ function ModalForm<T = Record<string, any>>({
 
   const formRef = useRef<ProFormInstance>();
 
+  const resetFields = useCallback(() => {
+    const form = rest.form ?? rest.formRef?.current ?? formRef.current;
+    // 重置表单
+    if (form && modalProps?.destroyOnClose) {
+      form.resetFields();
+    }
+  }, [modalProps?.destroyOnClose, rest.form, rest.formRef]);
+
   useEffect(() => {
-    if (visible && propVisible) {
+    if (open && propVisible) {
       onVisibleChange?.(true);
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [propVisible, visible]);
+  }, [propVisible, open]);
 
   const triggerDom = useMemo(() => {
     if (!trigger) {
@@ -104,11 +115,11 @@ function ModalForm<T = Record<string, any>>({
       key: 'trigger',
       ...trigger.props,
       onClick: async (e: any) => {
-        setVisible(!visible);
+        setOpen(!open);
         trigger.props?.onClick?.(e);
       },
     });
-  }, [setVisible, trigger, visible]);
+  }, [setOpen, trigger, open]);
 
   const submitterConfig = useMemo(() => {
     if (rest.submitter === false) {
@@ -126,7 +137,8 @@ function ModalForm<T = Record<string, any>>({
           // 提交表单loading时，不可关闭弹框
           disabled: submitTimeout ? loading : undefined,
           onClick: (e: any) => {
-            setVisible(false);
+            setOpen(false);
+            resetFields();
             modalProps?.onCancel?.(e);
           },
         },
@@ -138,9 +150,10 @@ function ModalForm<T = Record<string, any>>({
     context.locale?.Modal?.okText,
     modalProps,
     rest.submitter,
-    setVisible,
+    setOpen,
     loading,
     submitTimeout,
+    resetFields,
   ]);
 
   const contentRender = useCallback((formDom: any, submitter: any) => {
@@ -168,11 +181,11 @@ function ModalForm<T = Record<string, any>>({
       const result = await response;
       // 返回真值，关闭弹框
       if (result) {
-        setVisible(false);
+        setOpen(false);
       }
       return result;
     },
-    [onFinish, setVisible, submitTimeout],
+    [onFinish, setOpen, submitTimeout],
   );
 
   return (
@@ -181,12 +194,18 @@ function ModalForm<T = Record<string, any>>({
         title={title}
         width={width || 800}
         {...modalProps}
-        visible={visible}
+        // @ts-expect-error
+        visible={open}
+        open={open}
         onCancel={(e) => {
           // 提交表单loading时，阻止弹框关闭
           if (submitTimeout && loading) return;
-          setVisible(false);
+          setOpen(false);
           modalProps?.onCancel?.(e);
+        }}
+        afterClose={() => {
+          resetFields();
+          modalProps?.afterClose?.();
         }}
         footer={
           rest.submitter !== false && (
@@ -208,11 +227,7 @@ function ModalForm<T = Record<string, any>>({
           submitter={submitterConfig}
           onFinish={async (values) => {
             const result = await onFinishHandle(values);
-            const form = rest.formRef?.current ?? formRef.current;
-            // 返回真值，重置表单
-            if (result && form && modalProps?.destroyOnClose) {
-              form.resetFields();
-            }
+            resetFields();
             return result;
           }}
           contentRender={contentRender}

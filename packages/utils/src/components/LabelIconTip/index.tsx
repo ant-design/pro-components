@@ -39,16 +39,16 @@ export const LabelIconTip: React.FC<{
       onMouseMove={(e) => e.stopPropagation()}
     >
       <div
-        className={classNames(`${className}-title`, {
+        className={classNames(`${className}-title`, hashId, {
           [`${className}-title-ellipsis`]: ellipsis,
         })}
       >
         {label}
       </div>
-      {subTitle && <div className={`${className}-subtitle`}>{subTitle}</div>}
+      {subTitle && <div className={`${className}-subtitle ${hashId}`}>{subTitle}</div>}
       {tooltip && (
         <Tooltip {...tooltipProps}>
-          <span className={`${className}-icon`}>{icon}</span>
+          <span className={`${className}-icon ${hashId}`}>{icon}</span>
         </Tooltip>
       )}
     </div>,

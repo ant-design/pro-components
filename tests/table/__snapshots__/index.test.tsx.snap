@@ -4,7 +4,7 @@ exports[`BasicTable 🎏 base use 1`] = `
 <body>
   <div>
     <div
-      class="ant-pro"
+      class="ant-pro "
     >
       <div
         class="ant-pro-table"
@@ -21,7 +21,7 @@ exports[`BasicTable 🎏 base use 1`] = `
               type="text"
             />
             <div
-              class="ant-row ant-row-start ant-pro-query-filter-row"
+              class="ant-row ant-row-start ant-pro-query-filter-row "
               style="margin-left: -12px; margin-right: -12px;"
             >
               <div
@@ -907,7 +907,7 @@ exports[`BasicTable 🎏 base use 1`] = `
                 style="padding-left: 12px; padding-right: 12px; text-align: right;"
               >
                 <div
-                  class="ant-form-item ant-pro-query-filter-actions"
+                  class="ant-form-item ant-pro-query-filter-actions "
                 >
                   <div
                     class="ant-row ant-form-item-row"
@@ -974,7 +974,7 @@ exports[`BasicTable 🎏 base use 1`] = `
                               class="ant-space-item"
                             >
                               <a
-                                class="ant-pro-query-filter-collapse-button"
+                                class="ant-pro-query-filter-collapse-button "
                               >
                                 展开
                                 <span
@@ -1023,10 +1023,10 @@ exports[`BasicTable 🎏 base use 1`] = `
                 class="ant-pro-table-list-toolbar-container ant-pro-table-list-toolbar-container-mobile"
               >
                 <div
-                  class="ant-pro-table-list-toolbar-left"
+                  class="ant-pro-table-list-toolbar-left "
                 />
                 <div
-                  class="ant-space ant-space-vertical ant-space-align-end ant-pro-table-list-toolbar-right"
+                  class="ant-space ant-space-vertical ant-space-align-end ant-pro-table-list-toolbar-right "
                 >
                   <div
                     class="ant-space-item"
@@ -1119,14 +1119,14 @@ exports[`BasicTable 🎏 base use 1`] = `
                     class="ant-space-item"
                   >
                     <div
-                      class="ant-space ant-space-horizontal ant-space-align-center ant-pro-table-list-toolbar-setting-items"
+                      class="ant-space ant-space-horizontal ant-space-align-center ant-pro-table-list-toolbar-setting-items "
                     >
                       <div
                         class="ant-space-item"
                         style="margin-right: 12px;"
                       >
                         <div
-                          class="ant-pro-table-list-toolbar-setting-item"
+                          class="ant-pro-table-list-toolbar-setting-item "
                         >
                           <span>
                             <span
@@ -1156,7 +1156,7 @@ exports[`BasicTable 🎏 base use 1`] = `
                         style="margin-right: 12px;"
                       >
                         <div
-                          class="ant-pro-table-list-toolbar-setting-item"
+                          class="ant-pro-table-list-toolbar-setting-item "
                         >
                           <span>
                             <span
@@ -1186,7 +1186,7 @@ exports[`BasicTable 🎏 base use 1`] = `
                         class="ant-space-item"
                       >
                         <div
-                          class="ant-pro-table-list-toolbar-setting-item"
+                          class="ant-pro-table-list-toolbar-setting-item "
                         >
                           <span
                             aria-label="setting"
@@ -7905,7 +7905,7 @@ exports[`BasicTable 🎏 columns = undefined 1`] = `
 <body>
   <div>
     <div
-      class="ant-pro"
+      class="ant-pro "
     >
       <div
         class="ant-pro-table"
@@ -7922,7 +7922,7 @@ exports[`BasicTable 🎏 columns = undefined 1`] = `
               type="text"
             />
             <div
-              class="ant-row ant-row-start ant-pro-query-filter-row"
+              class="ant-row ant-row-start ant-pro-query-filter-row "
               style="margin-left: -12px; margin-right: -12px;"
             >
               <div
@@ -7930,7 +7930,7 @@ exports[`BasicTable 🎏 columns = undefined 1`] = `
                 style="padding-left: 12px; padding-right: 12px; text-align: right;"
               >
                 <div
-                  class="ant-form-item ant-pro-query-filter-actions"
+                  class="ant-form-item ant-pro-query-filter-actions "
                 >
                   <div
                     class="ant-row ant-form-item-row"
@@ -8016,23 +8016,23 @@ exports[`BasicTable 🎏 columns = undefined 1`] = `
                 class="ant-pro-table-list-toolbar-container ant-pro-table-list-toolbar-container-mobile"
               >
                 <div
-                  class="ant-pro-table-list-toolbar-left"
+                  class="ant-pro-table-list-toolbar-left "
                 />
                 <div
-                  class="ant-space ant-space-vertical ant-space-align-end ant-pro-table-list-toolbar-right"
+                  class="ant-space ant-space-vertical ant-space-align-end ant-pro-table-list-toolbar-right "
                 >
                   <div
                     class="ant-space-item"
                   >
                     <div
-                      class="ant-space ant-space-horizontal ant-space-align-center ant-pro-table-list-toolbar-setting-items"
+                      class="ant-space ant-space-horizontal ant-space-align-center ant-pro-table-list-toolbar-setting-items "
                     >
                       <div
                         class="ant-space-item"
                         style="margin-right: 12px;"
                       >
                         <div
-                          class="ant-pro-table-list-toolbar-setting-item"
+                          class="ant-pro-table-list-toolbar-setting-item "
                         >
                           <span>
                             <span
@@ -8062,7 +8062,7 @@ exports[`BasicTable 🎏 columns = undefined 1`] = `
                         style="margin-right: 12px;"
                       >
                         <div
-                          class="ant-pro-table-list-toolbar-setting-item"
+                          class="ant-pro-table-list-toolbar-setting-item "
                         >
                           <span>
                             <span
@@ -8092,7 +8092,7 @@ exports[`BasicTable 🎏 columns = undefined 1`] = `
                         class="ant-space-item"
                       >
                         <div
-                          class="ant-pro-table-list-toolbar-setting-item"
+                          class="ant-pro-table-list-toolbar-setting-item "
                         >
                           <span
                             aria-label="setting"
@@ -8228,7 +8228,7 @@ exports[`BasicTable 🎏 page error test 1`] = `
 <body>
   <div>
     <div
-      class="ant-pro"
+      class="ant-pro "
     >
       <div
         class="ant-pro-table"
@@ -8245,7 +8245,7 @@ exports[`BasicTable 🎏 page error test 1`] = `
               type="text"
             />
             <div
-              class="ant-row ant-row-start ant-pro-query-filter-row"
+              class="ant-row ant-row-start ant-pro-query-filter-row "
               style="margin-left: -12px; margin-right: -12px;"
             >
               <div
@@ -8356,7 +8356,7 @@ exports[`BasicTable 🎏 page error test 1`] = `
                 style="padding-left: 12px; padding-right: 12px; text-align: right;"
               >
                 <div
-                  class="ant-form-item ant-pro-query-filter-actions"
+                  class="ant-form-item ant-pro-query-filter-actions "
                 >
                   <div
                     class="ant-row ant-form-item-row"
@@ -8442,23 +8442,23 @@ exports[`BasicTable 🎏 page error test 1`] = `
                 class="ant-pro-table-list-toolbar-container ant-pro-table-list-toolbar-container-mobile"
               >
                 <div
-                  class="ant-pro-table-list-toolbar-left"
+                  class="ant-pro-table-list-toolbar-left "
                 />
                 <div
-                  class="ant-space ant-space-vertical ant-space-align-end ant-pro-table-list-toolbar-right"
+                  class="ant-space ant-space-vertical ant-space-align-end ant-pro-table-list-toolbar-right "
                 >
                   <div
                     class="ant-space-item"
                   >
                     <div
-                      class="ant-space ant-space-horizontal ant-space-align-center ant-pro-table-list-toolbar-setting-items"
+                      class="ant-space ant-space-horizontal ant-space-align-center ant-pro-table-list-toolbar-setting-items "
                     >
                       <div
                         class="ant-space-item"
                         style="margin-right: 12px;"
                       >
                         <div
-                          class="ant-pro-table-list-toolbar-setting-item"
+                          class="ant-pro-table-list-toolbar-setting-item "
                         >
                           <span>
                             <span
@@ -8488,7 +8488,7 @@ exports[`BasicTable 🎏 page error test 1`] = `
                         style="margin-right: 12px;"
                       >
                         <div
-                          class="ant-pro-table-list-toolbar-setting-item"
+                          class="ant-pro-table-list-toolbar-setting-item "
                         >
                           <span>
                             <span
@@ -8518,7 +8518,7 @@ exports[`BasicTable 🎏 page error test 1`] = `
                         class="ant-space-item"
                       >
                         <div
-                          class="ant-pro-table-list-toolbar-setting-item"
+                          class="ant-pro-table-list-toolbar-setting-item "
                         >
                           <span
                             aria-label="setting"
@@ -8654,7 +8654,7 @@ exports[`BasicTable 🎏 valueEnum support function 1`] = `
 <body>
   <div>
     <div
-      class="ant-pro"
+      class="ant-pro "
     >
       <div
         class="ant-pro-table"
@@ -8671,7 +8671,7 @@ exports[`BasicTable 🎏 valueEnum support function 1`] = `
               type="text"
             />
             <div
-              class="ant-row ant-row-start ant-pro-query-filter-row"
+              class="ant-row ant-row-start ant-pro-query-filter-row "
               style="margin-left: -12px; margin-right: -12px;"
             >
               <div
@@ -8866,7 +8866,7 @@ exports[`BasicTable 🎏 valueEnum support function 1`] = `
                 style="padding-left: 12px; padding-right: 12px; text-align: right;"
               >
                 <div
-                  class="ant-form-item ant-pro-query-filter-actions"
+                  class="ant-form-item ant-pro-query-filter-actions "
                 >
                   <div
                     class="ant-row ant-form-item-row"

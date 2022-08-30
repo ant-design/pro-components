@@ -1,10 +1,11 @@
 ﻿import { CopyOutlined, DeleteOutlined } from '@ant-design/icons';
+import { useToken } from '@ant-design/pro-utils';
 import type { ButtonProps, FormInstance } from 'antd';
 import { Spin, Tooltip } from 'antd';
 import type { FormListFieldData, FormListOperation, FormListProps } from 'antd/es/form/FormList';
 import toArray from 'rc-util/lib/Children/toArray';
 import set from 'rc-util/lib/utils/set';
-import type { ReactNode } from 'react';
+import type { CSSProperties, ReactNode } from 'react';
 import React, { useContext, useEffect, useMemo, useRef, useState } from 'react';
 import { FormListContext } from '.';
 import { useGridHelpers } from '../../helpers';
@@ -205,6 +206,14 @@ export type ProFromListCommonProps = {
    * @name 允许增加的最少条数，删除时校验
    */
   min?: number;
+  /**
+   * @name 盒子的类名称
+   */
+  containerClassName?: string;
+  /**
+   * @name 盒子的样式
+   */
+  containerStyle?: CSSProperties;
 };
 
 export type ProFormListItemProps = ProFromListCommonProps & {
@@ -229,6 +238,14 @@ export type ProFormListItemProps = ProFromListCommonProps & {
   count: number;
 
   children?: ReactNode | ChildrenItemFunction;
+  /**
+   * 数据新增成功回调
+   */
+  onAfterAdd?: (...params: [...Parameters<FormListOperation['add']>, number]) => void;
+  /**
+   * 数据移除成功回调
+   */
+  onAfterRemove?: (...params: [...Parameters<FormListOperation['remove']>, number]) => void;
 };
 
 const ProFormListItem: React.FC<
@@ -261,7 +278,7 @@ const ProFormListItem: React.FC<
     count,
     ...rest
   } = props;
-
+  const { hashId } = useToken();
   const listContext = useContext(FormListContext);
 
   const unmountedRef = useRef(false);
@@ -287,7 +304,7 @@ const ProFormListItem: React.FC<
       const oldTableDate = formInstance?.getFieldsValue?.() || {};
       const rowKeyName = [listContext.listName, originName, index?.toString()]
         .flat(1)
-        .filter(Boolean);
+        .filter((item) => item !== null && item !== undefined);
       const updateValues = set(oldTableDate, rowKeyName, {
         // 只是简单的覆盖，如果很复杂的话，需要自己处理
         ...getCurrentRowData(),
@@ -316,7 +333,7 @@ const ProFormListItem: React.FC<
       if (React.isValidElement(childrenItem)) {
         return React.cloneElement(childrenItem, {
           key: childrenItem.key || childrenItem?.props?.name || itemIndex,
-          ...childrenItem?.props,
+          ...(childrenItem?.props || {}),
         });
       }
       return childrenItem;
@@ -329,7 +346,7 @@ const ProFormListItem: React.FC<
       <Tooltip title={tooltipText} key="copy">
         <Spin spinning={loadingCopy}>
           <Icon
-            className={`${prefixCls}-action-icon action-copy`}
+            className={`${prefixCls}-action-icon action-copy ${hashId}`}
             onClick={async () => {
               setLoadingCopy(true);
               await action.add(
@@ -351,6 +368,7 @@ const ProFormListItem: React.FC<
     count,
     loadingCopy,
     prefixCls,
+    hashId,
     action,
     formInstance,
     listContext.listName,
@@ -365,7 +383,7 @@ const ProFormListItem: React.FC<
       <Tooltip title={tooltipText} key="delete">
         <Spin spinning={loadingRemove}>
           <Icon
-            className={`${prefixCls}-action-icon action-remove`}
+            className={`${prefixCls}-action-icon action-remove ${hashId}`}
             onClick={async () => {
               setLoadingRemove(true);
               await action.remove(field.name);
@@ -377,7 +395,7 @@ const ProFormListItem: React.FC<
         </Spin>
       </Tooltip>
     );
-  }, [deleteIconProps, min, count, loadingRemove, prefixCls, setLoadingRemove, action, field.name]);
+  }, [deleteIconProps, min, count, loadingRemove, prefixCls, hashId, action, field.name]);
 
   const defaultActionDom: React.ReactNode[] = useMemo(
     () => [copyIcon, deleteIcon].filter((item) => item !== null && item !== undefined),
@@ -386,7 +404,8 @@ const ProFormListItem: React.FC<
 
   const actions = actionRender?.(field, action, defaultActionDom, count) || defaultActionDom;
 
-  const dom = actions.length > 0 ? <div className={`${prefixCls}-action`}>{actions}</div> : null;
+  const dom =
+    actions.length > 0 ? <div className={`${prefixCls}-action ${hashId}`}>{actions}</div> : null;
 
   const options = {
     name: rest.name,
@@ -408,7 +427,7 @@ const ProFormListItem: React.FC<
     {
       listDom: (
         <div
-          className={`${prefixCls}-container`}
+          className={`${prefixCls}-container ${hashId}`}
           style={{
             width: grid ? '100%' : undefined,
           }}
@@ -421,14 +440,16 @@ const ProFormListItem: React.FC<
     options,
   ) || (
     <div
-      className={`${prefixCls}-item ${alwaysShowItemLabel ? `${prefixCls}-item-show-label` : ''}`}
+      className={`${prefixCls}-item  ${hashId} ${
+        alwaysShowItemLabel ? `${prefixCls}-item-show-label ${hashId}` : ''
+      }`}
       style={{
         display: 'flex',
         alignItems: 'flex-end',
       }}
     >
       <div
-        className={`${prefixCls}-container`}
+        className={`${prefixCls}-container ${hashId}`}
         style={{
           width: grid ? '100%' : undefined,
         }}

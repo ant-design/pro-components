@@ -32,6 +32,7 @@ const compatibleStyle: GenerateStyle<ProLayoutToken & LayoutDesignToken> = (toke
         },
         [`& ${token.antCls}-layout`]: {
           backgroundColor: 'transparent',
+          width: '100%',
         },
         [`${token.antCls}-menu-submenu-expand-icon, ${token.antCls}-menu-submenu-arrow`]: {
           color: 'inherit',
@@ -152,6 +153,12 @@ const compatibleStyle: GenerateStyle<ProLayoutToken & LayoutDesignToken> = (toke
               color: token.header.colorTextMenuActive,
             },
           },
+
+          [`${token.antCls}-menu-item-selected`]: {
+            color: token.header.colorTextMenuActive,
+            fontWeight: 'bold',
+            borderRadius: token.radiusBase,
+          },
         },
       },
     },
@@ -172,15 +179,18 @@ const compatibleStyle: GenerateStyle<ProLayoutToken & LayoutDesignToken> = (toke
       },
       [`${token.antCls}-menu-item-selected`]: {
         color: token.sider.colorTextMenuSelected,
+        fontWeight: 'bold',
       },
       [`${token.antCls}-menu-submenu-selected`]: {
         color: token.sider.colorTextMenuSelected,
+        fontWeight: 'bold',
       },
       [`${token.antCls}-menu:not(${token.antCls}-menu-horizontal)`]: {
         [`${token.antCls}-menu-item-selected`]: {
           backgroundColor: 'rgba(0, 0, 0, 0.04)',
           borderRadius: token.radiusBase,
           color: token.sider.colorTextMenuSelected,
+          fontWeight: 'bold',
         },
         [`${token.antCls}-menu-item:hover, 
           ${token.antCls}-menu-item-active,
@@ -206,10 +216,14 @@ const genProLayoutStyle: GenerateStyle<ProLayoutToken & LayoutDesignToken> = (to
       fontFamily: token.fontFamily,
     },
     [token.proComponentsCls]: {
+      [`${token.antCls}-layout`]: {
+        backgroundColor: 'transparent !important',
+      },
       [`& ${token.componentCls}`]: {
         [`& ${token.antCls}-layout`]: {
           display: 'flex',
           backgroundColor: 'transparent',
+          width: '100%',
         },
         [`${token.componentCls}-content`]: {
           display: 'flex',
@@ -224,7 +238,13 @@ const genProLayoutStyle: GenerateStyle<ProLayoutToken & LayoutDesignToken> = (to
             margin: 0,
           },
         },
-
+        [`${token.componentCls}-container`]: {
+          width: '100%',
+          display: 'flex',
+          flexDirection: 'column',
+          minWidth: 0,
+          minHeight: 0,
+        },
         [`${token.componentCls}-bg-list`]: {
           pointerEvents: 'none',
           position: 'fixed',

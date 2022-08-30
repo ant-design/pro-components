@@ -22,7 +22,7 @@ const genProStyle: GenerateStyle<ProToken> = (token) => {
 };
 
 export function useStyle(prefixCls: string) {
-  return useAntdStyle('Operation', (token) => {
+  return useAntdStyle('ProCardOperation', (token) => {
     const proToken: ProToken = {
       ...token,
       componentCls: `.${prefixCls}`,

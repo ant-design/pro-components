@@ -1,4 +1,4 @@
-﻿const puppeteer = require('puppeteer');
+﻿const { chromium } = require('playwright');
 const fs = require('fs');
 const path = require('path');
 const express = require('express');
@@ -73,18 +73,16 @@ const list = fs
 
 const loop = async () => {
   // 启动浏览器
-  const browser = await puppeteer.launch({
+  const browser = await chromium.launch({
     // 关闭无头模式，方便我们看到这个无头浏览器执行的过程
-    headless: false,
     timeout: 300000, // 默认超时为30秒，设置为0则表示不设置超时
   });
 
-  // 打开空白页面
-  const page = await browser.newPage();
-  await page.setViewport({
-    width: 1800,
-    height: 1000,
+  const context = await browser.newContext({
+    screen: { width: 1800, height: 1000 },
   });
+  // 打开空白页面
+  const page = await context.newPage();
 
   for await (htmlPage of list) {
     await page.goto(`http://localhost:3000/${htmlPage.replace('index.html', '')}`);
@@ -92,14 +90,11 @@ const loop = async () => {
       return document.body.scrollHeight;
     });
 
-    await page.evaluateOnNewDocument(() => {
+    await page.evaluate(() => {
       window.HeadlessChrome = true;
     });
     console.log('执行' + htmlPage + '页面!');
-    await page.setViewport({
-      width: 1800,
-      height: scrollHeight,
-    });
+
     await page.evaluate(() => {
       window.scrollBy(0, window.innerHeight);
     });
