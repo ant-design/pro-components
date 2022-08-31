@@ -5844,9 +5844,17 @@ exports[`card demos 📸 renders ./packages/card/src/components/StatisticCard/de
               tabindex="0"
             >
               <div
-                style="display: flex; align-items: center; justify-content: center; background-color: rgb(250, 250, 250); height: 100px;"
+                class="ant-pro-card"
               >
-                关联展示内容 全部
+                <div
+                  class="ant-pro-card-body"
+                >
+                  <div
+                    style="display: flex; align-items: center; justify-content: center; background-color: rgb(250, 250, 250); height: 100px;"
+                  >
+                    关联展示内容 全部
+                  </div>
+                </div>
               </div>
             </div>
           </div>

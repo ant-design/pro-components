@@ -206,6 +206,17 @@ group:
 | :-------- | :------------------- | :-------- | :----- |
 | cardProps | ProCard 卡片属性透传 | `ProCard` | -      |
 
+### ProCard.TabPane
+
+> 该参数即将被 Items 所平替，请及时更新使用 ItemsProps 配置新的内容
+
+| 参数 | 说明 | 类型 | 默认值 |
+| :-- | :-- | :-- | :-- |
+| key | 对应 activeKey，用于标定是否选中和 dom 更新，一定不要重复，不然会造成表现异常 | `string` | - |
+| tab | 选项卡头显示文字 | `ReactNode` | - |
+| disabled | 不可用 | `boolean` | false |
+| cardProps | ProCard 卡片属性透传 | `ProCard` | - |
+
 ### ProCard.Divider
 
 用于在将内容进行分组时进行分隔。

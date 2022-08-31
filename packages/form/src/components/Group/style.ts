@@ -22,7 +22,7 @@ const genProStyle: GenerateStyle<ProToken> = (token) => {
         [`${token.componentCls}-title`]: { width: '100%', margin: '8px 0' },
         [`${token.componentCls}-container`]: { paddingInlineStart: 16 },
         [`${token.antCls}-space-item,${token.antCls}-form-item`]: {
-          maxWidth: '100%',
+          width: '100%',
         },
         [`${token.antCls}-form-item`]: {
           '&-control': {
