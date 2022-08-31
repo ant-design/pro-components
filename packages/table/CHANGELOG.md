@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.0.0-experimental.27](https://github.com/ant-design/pro-components/compare/@ant-design/pro-table@3.0.0-experimental.26...@ant-design/pro-table@3.0.0-experimental.27) (2022-08-31)
+
+### Bug Fixes
+
+- **card:** 兼容 antd v4 TabPane 的能力支持 ([#5796](https://github.com/ant-design/pro-components/issues/5796)) ([beda6b1](https://github.com/ant-design/pro-components/commit/beda6b1b93e92825bba90efe9049b4bf6320c882))
+
 # [3.0.0-experimental.26](https://github.com/ant-design/pro-components/compare/@ant-design/pro-table@2.80.4...@ant-design/pro-table@3.0.0-experimental.26) (2022-08-30)
 
 ### Bug Fixes
