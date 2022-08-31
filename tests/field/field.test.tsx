@@ -1260,7 +1260,7 @@ describe('Field', () => {
   it(`🐴 valueType digit support precision`, async () => {
     const html = render(
       <Field
-        text={1000.3}
+        text={'1000.3'}
         mode="read"
         valueType="digit"
         fieldProps={{
@@ -1270,6 +1270,30 @@ describe('Field', () => {
     );
     expect(html.baseElement.textContent).toBe('1,000.30');
     html.unmount();
+  });
+  it(`🐴 valueType digit support precision when change with`, async () => {
+    const change = jest.fn();
+    const html = mount(
+      <Field
+        text={1000.3}
+        mode="edit"
+        valueType="digit"
+        onChange={(value) => change(value)}
+        fieldProps={{
+          precision: 20,
+          stringMode: true,
+        }}
+      />,
+    );
+    await act(async () => {
+      html.find('input').simulate('change', {
+        target: {
+          value: '1.00000000000007',
+        },
+      });
+    });
+    await waitForComponentToPaint(html);
+    expect(change).toBeCalledWith(1.00000000000007);
   });
 
   it(`🐴 valueType digitRange base use`, async () => {
