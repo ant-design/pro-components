@@ -36,6 +36,8 @@ const LightSelect: React.ForwardRefRenderFunction<any, SelectProps<any> & LightS
   props,
   ref,
 ) => {
+  console.log(props);
+
   const {
     label,
     prefixCls: customizePrefixCls,
@@ -67,7 +69,7 @@ const LightSelect: React.ForwardRefRenderFunction<any, SelectProps<any> & LightS
   const [keyword, setKeyword] = useState<string>('');
 
   // css
-  const { wrapSSR } = useStyle('LightSelect', (token) => {
+  const { wrapSSR, hashId } = useStyle('LightSelect', (token) => {
     return {
       [`.${prefixCls}`]: {
         [`${token.antCls}-select`]: {
@@ -110,6 +112,7 @@ const LightSelect: React.ForwardRefRenderFunction<any, SelectProps<any> & LightS
     <div
       className={classNames(
         prefixCls,
+        hashId,
         {
           [`${prefixCls}-searchable`]: showSearch,
         },
