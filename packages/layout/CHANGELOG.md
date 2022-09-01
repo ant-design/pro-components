@@ -2,19 +2,118 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
-## [6.38.22](https://github.com/ant-design/pro-components/compare/@ant-design/pro-layout@6.38.21...@ant-design/pro-layout@6.38.22) (2022-08-29)
+## [7.0.1](https://github.com/ant-design/pro-components/compare/@ant-design/pro-layout@7.0.0-experimental.36...@ant-design/pro-layout@7.0.1) (2022-09-01)
 
 **Note:** Version bump only for package @ant-design/pro-layout
 
-## [6.38.21](https://github.com/ant-design/pro-components/compare/@ant-design/pro-layout@6.38.20...@ant-design/pro-layout@6.38.21) (2022-08-26)
+# [7.0.0-experimental.36](https://github.com/ant-design/pro-components/compare/@ant-design/pro-layout@6.38.22...@ant-design/pro-layout@7.0.0-experimental.36) (2022-08-30)
+
+### Bug Fixes
+
+- update snapshot ([4db1605](https://github.com/ant-design/pro-components/commit/4db1605937c3b0cf22d22ad398ef4c11e21883cd))
+- **layout:** alway open new window ([5555ff2](https://github.com/ant-design/pro-components/commit/5555ff20f16da25be07f3a216cc760e0652e9d1f))
+- **layout:** update code ([a503e3a](https://github.com/ant-design/pro-components/commit/a503e3a44f325d0e170e99958ebfc8ab7f0cbca7))
+- **layout:** 部分浏览器下避免不必要的 http 请求([#5418](https://github.com/ant-design/pro-components/issues/5418)) ([#5419](https://github.com/ant-design/pro-components/issues/5419)) ([1c9d01e](https://github.com/ant-design/pro-components/commit/1c9d01e5589926d51be92f2224db0878e16ba8f7))
+- conflic ([0c4c36a](https://github.com/ant-design/pro-components/commit/0c4c36a3c511de435cd7f8a78c16e53e68e95378))
+- **pro-layout:** Merge branch 'new-layout' of github.com:ant-design/pro-components into new-layout ([3329e6c](https://github.com/ant-design/pro-components/commit/3329e6c1f7c9e290e5c29a74c63f71de898b434a))
+- console error ([3d6b111](https://github.com/ant-design/pro-components/commit/3d6b11130f702f881a9252ef5df081f058146bc4))
+
+### Features
+
+- **layout:** add appList url target ([#5448](https://github.com/ant-design/pro-components/issues/5448)) ([1fbb886](https://github.com/ant-design/pro-components/commit/1fbb8863f4c04d0cd360a442e9622ae31d6e974b))
+- **layout:** layout support simple app list ([#5501](https://github.com/ant-design/pro-components/issues/5501)) ([2fe76ed](https://github.com/ant-design/pro-components/commit/2fe76edea9acd07d1f167762ebd52f6fe7a163a2))
+
+# [7.0.0-experimental.35](https://github.com/ant-design/pro-components/compare/@ant-design/pro-layout@7.0.0-experimental.34...@ant-design/pro-layout@7.0.0-experimental.35) (2022-08-29)
+
+### Bug Fixes
+
+- update snapshot ([4db1605](https://github.com/ant-design/pro-components/commit/4db1605937c3b0cf22d22ad398ef4c11e21883cd))
+
+# [7.0.0-experimental.34](https://github.com/ant-design/pro-components/compare/@ant-design/pro-layout@6.38.21...@ant-design/pro-layout@7.0.0-experimental.34) (2022-08-26)
+
+### Bug Fixes
+
+- **layout:** alway open new window ([5555ff2](https://github.com/ant-design/pro-components/commit/5555ff20f16da25be07f3a216cc760e0652e9d1f))
+- **layout:** update code ([a503e3a](https://github.com/ant-design/pro-components/commit/a503e3a44f325d0e170e99958ebfc8ab7f0cbca7))
+- **layout:** 部分浏览器下避免不必要的 http 请求([#5418](https://github.com/ant-design/pro-components/issues/5418)) ([#5419](https://github.com/ant-design/pro-components/issues/5419)) ([1c9d01e](https://github.com/ant-design/pro-components/commit/1c9d01e5589926d51be92f2224db0878e16ba8f7))
+- conflic ([0c4c36a](https://github.com/ant-design/pro-components/commit/0c4c36a3c511de435cd7f8a78c16e53e68e95378))
+- **pro-layout:** Merge branch 'new-layout' of github.com:ant-design/pro-components into new-layout ([3329e6c](https://github.com/ant-design/pro-components/commit/3329e6c1f7c9e290e5c29a74c63f71de898b434a))
+- console error ([3d6b111](https://github.com/ant-design/pro-components/commit/3d6b11130f702f881a9252ef5df081f058146bc4))
+
+### Features
+
+- **layout:** add appList url target ([#5448](https://github.com/ant-design/pro-components/issues/5448)) ([1fbb886](https://github.com/ant-design/pro-components/commit/1fbb8863f4c04d0cd360a442e9622ae31d6e974b))
+- **layout:** layout support simple app list ([#5501](https://github.com/ant-design/pro-components/issues/5501)) ([2fe76ed](https://github.com/ant-design/pro-components/commit/2fe76edea9acd07d1f167762ebd52f6fe7a163a2))
+
+# [7.0.0-experimental.33](https://github.com/ant-design/pro-components/compare/@ant-design/pro-layout@7.0.0-experimental.32...@ant-design/pro-layout@7.0.0-experimental.33) (2022-08-25)
 
 **Note:** Version bump only for package @ant-design/pro-layout
 
-## [6.38.20](https://github.com/ant-design/pro-components/compare/@ant-design/pro-layout@6.38.19...@ant-design/pro-layout@6.38.20) (2022-08-24)
+# [7.0.0-experimental.32](https://github.com/ant-design/pro-components/compare/@ant-design/pro-layout@7.0.0-experimental.31...@ant-design/pro-layout@7.0.0-experimental.32) (2022-08-25)
 
 **Note:** Version bump only for package @ant-design/pro-layout
 
-## [6.38.19](https://github.com/ant-design/pro-components/compare/@ant-design/pro-layout@6.38.18...@ant-design/pro-layout@6.38.19) (2022-08-19)
+# [7.0.0-experimental.31](https://github.com/ant-design/pro-components/compare/@ant-design/pro-layout@6.38.20...@ant-design/pro-layout@7.0.0-experimental.31) (2022-08-25)
+
+### Bug Fixes
+
+- **layout:** alway open new window ([5555ff2](https://github.com/ant-design/pro-components/commit/5555ff20f16da25be07f3a216cc760e0652e9d1f))
+- **layout:** update code ([a503e3a](https://github.com/ant-design/pro-components/commit/a503e3a44f325d0e170e99958ebfc8ab7f0cbca7))
+- **layout:** 部分浏览器下避免不必要的 http 请求([#5418](https://github.com/ant-design/pro-components/issues/5418)) ([#5419](https://github.com/ant-design/pro-components/issues/5419)) ([1c9d01e](https://github.com/ant-design/pro-components/commit/1c9d01e5589926d51be92f2224db0878e16ba8f7))
+- conflic ([0c4c36a](https://github.com/ant-design/pro-components/commit/0c4c36a3c511de435cd7f8a78c16e53e68e95378))
+- **pro-layout:** Merge branch 'new-layout' of github.com:ant-design/pro-components into new-layout ([3329e6c](https://github.com/ant-design/pro-components/commit/3329e6c1f7c9e290e5c29a74c63f71de898b434a))
+- console error ([3d6b111](https://github.com/ant-design/pro-components/commit/3d6b11130f702f881a9252ef5df081f058146bc4))
+
+### Features
+
+- **layout:** add appList url target ([#5448](https://github.com/ant-design/pro-components/issues/5448)) ([1fbb886](https://github.com/ant-design/pro-components/commit/1fbb8863f4c04d0cd360a442e9622ae31d6e974b))
+- **layout:** layout support simple app list ([#5501](https://github.com/ant-design/pro-components/issues/5501)) ([2fe76ed](https://github.com/ant-design/pro-components/commit/2fe76edea9acd07d1f167762ebd52f6fe7a163a2))
+
+# [7.0.0-experimental.30](https://github.com/ant-design/pro-components/compare/@ant-design/pro-layout@7.0.0-experimental.29...@ant-design/pro-layout@7.0.0-experimental.30) (2022-08-24)
+
+**Note:** Version bump only for package @ant-design/pro-layout
+
+# [7.0.0-experimental.29](https://github.com/ant-design/pro-components/compare/@ant-design/pro-layout@7.0.0-experimental.28...@ant-design/pro-layout@7.0.0-experimental.29) (2022-08-24)
+
+**Note:** Version bump only for package @ant-design/pro-layout
+
+# [7.0.0-experimental.28](https://github.com/ant-design/pro-components/compare/@ant-design/pro-layout@7.0.0-experimental.27...@ant-design/pro-layout@7.0.0-experimental.28) (2022-08-24)
+
+**Note:** Version bump only for package @ant-design/pro-layout
+
+# [7.0.0-experimental.27](https://github.com/ant-design/pro-components/compare/@ant-design/pro-layout@7.0.0-experimental.26...@ant-design/pro-layout@7.0.0-experimental.27) (2022-08-23)
+
+**Note:** Version bump only for package @ant-design/pro-layout
+
+# [7.0.0-experimental.26](https://github.com/ant-design/pro-components/compare/@ant-design/pro-layout@7.0.0-experimental.25...@ant-design/pro-layout@7.0.0-experimental.26) (2022-08-23)
+
+**Note:** Version bump only for package @ant-design/pro-layout
+
+# [7.0.0-experimental.25](https://github.com/ant-design/pro-components/compare/@ant-design/pro-layout@7.0.0-experimental.24...@ant-design/pro-layout@7.0.0-experimental.25) (2022-08-23)
+
+**Note:** Version bump only for package @ant-design/pro-layout
+
+# [7.0.0-experimental.24](https://github.com/ant-design/pro-components/compare/@ant-design/pro-layout@7.0.0-experimental.23...@ant-design/pro-layout@7.0.0-experimental.24) (2022-08-23)
+
+**Note:** Version bump only for package @ant-design/pro-layout
+
+# [7.0.0-experimental.23](https://github.com/ant-design/pro-components/compare/@ant-design/pro-layout@7.0.0-experimental.22...@ant-design/pro-layout@7.0.0-experimental.23) (2022-08-23)
+
+**Note:** Version bump only for package @ant-design/pro-layout
+
+# [7.0.0-experimental.22](https://github.com/ant-design/pro-components/compare/@ant-design/pro-layout@7.0.0-experimental.21...@ant-design/pro-layout@7.0.0-experimental.22) (2022-08-23)
+
+**Note:** Version bump only for package @ant-design/pro-layout
+
+# [7.0.0-experimental.21](https://github.com/ant-design/pro-components/compare/@ant-design/pro-layout@7.0.0-experimental.20...@ant-design/pro-layout@7.0.0-experimental.21) (2022-08-23)
+
+**Note:** Version bump only for package @ant-design/pro-layout
+
+# [7.0.0-experimental.20](https://github.com/ant-design/pro-components/compare/@ant-design/pro-layout@7.0.0-experimental.19...@ant-design/pro-layout@7.0.0-experimental.20) (2022-08-23)
+
+**Note:** Version bump only for package @ant-design/pro-layout
+
+# [7.0.0-experimental.19](https://github.com/ant-design/pro-components/compare/@ant-design/pro-layout@7.0.0-experimental.18...@ant-design/pro-layout@7.0.0-experimental.19) (2022-08-23)
 
 **Note:** Version bump only for package @ant-design/pro-layout
 
@@ -22,14 +121,71 @@ All notable changes to this project will be documented in this file. See [Conven
 
 ### Bug Fixes
 
-- **form:** 修复查询表单展示「展开」按钮的逻辑错误问题 ([#5723](https://github.com/ant-design/pro-components/issues/5723)) ([2f7b0e4](https://github.com/ant-design/pro-components/commit/2f7b0e4b5ce43ed83469cd6115169f729b2887fa))
 - **layout:** 水印导致页面发起 404 请求 ([#5712](https://github.com/ant-design/pro-components/issues/5712)) ([7f0eba2](https://github.com/ant-design/pro-components/commit/7f0eba2f9710994e6bc4f5941fa314b8275a8618))
 
-## [6.38.17](https://github.com/ant-design/pro-components/compare/@ant-design/pro-layout@6.38.16...@ant-design/pro-layout@6.38.17) (2022-08-02)
+# [7.0.0-experimental.11](https://github.com/ant-design/pro-components/compare/@ant-design/pro-layout@7.0.0-experimental.10...@ant-design/pro-layout@7.0.0-experimental.11) (2022-08-12)
+
+**Note:** Version bump only for package @ant-design/pro-layout
+
+# [7.0.0-experimental.10](https://github.com/ant-design/pro-components/compare/@ant-design/pro-layout@7.0.0-experimental.9...@ant-design/pro-layout@7.0.0-experimental.10) (2022-08-10)
+
+**Note:** Version bump only for package @ant-design/pro-layout
+
+# [7.0.0-experimental.9](https://github.com/ant-design/pro-components/compare/@ant-design/pro-layout@7.0.0-experimental.8...@ant-design/pro-layout@7.0.0-experimental.9) (2022-08-10)
+
+**Note:** Version bump only for package @ant-design/pro-layout
+
+# [7.0.0-experimental.8](https://github.com/ant-design/pro-components/compare/@ant-design/pro-layout@6.38.17...@ant-design/pro-layout@7.0.0-experimental.8) (2022-08-05)
 
 ### Bug Fixes
 
-- **layout:** suppoer new darwer version ([bb82097](https://github.com/ant-design/pro-components/commit/bb82097fcd9da37b9733108426c184c66e55af4a))
+- **layout:** alway open new window ([5555ff2](https://github.com/ant-design/pro-components/commit/5555ff20f16da25be07f3a216cc760e0652e9d1f))
+- **layout:** update code ([a503e3a](https://github.com/ant-design/pro-components/commit/a503e3a44f325d0e170e99958ebfc8ab7f0cbca7))
+- **layout:** 部分浏览器下避免不必要的 http 请求([#5418](https://github.com/ant-design/pro-components/issues/5418)) ([#5419](https://github.com/ant-design/pro-components/issues/5419)) ([1c9d01e](https://github.com/ant-design/pro-components/commit/1c9d01e5589926d51be92f2224db0878e16ba8f7))
+- conflic ([0c4c36a](https://github.com/ant-design/pro-components/commit/0c4c36a3c511de435cd7f8a78c16e53e68e95378))
+- **pro-layout:** Merge branch 'new-layout' of github.com:ant-design/pro-components into new-layout ([3329e6c](https://github.com/ant-design/pro-components/commit/3329e6c1f7c9e290e5c29a74c63f71de898b434a))
+- console error ([3d6b111](https://github.com/ant-design/pro-components/commit/3d6b11130f702f881a9252ef5df081f058146bc4))
+
+### Features
+
+- **layout:** add appList url target ([#5448](https://github.com/ant-design/pro-components/issues/5448)) ([1fbb886](https://github.com/ant-design/pro-components/commit/1fbb8863f4c04d0cd360a442e9622ae31d6e974b))
+- **layout:** layout support simple app list ([#5501](https://github.com/ant-design/pro-components/issues/5501)) ([2fe76ed](https://github.com/ant-design/pro-components/commit/2fe76edea9acd07d1f167762ebd52f6fe7a163a2))
+
+# [7.0.0-experimental.7](https://github.com/ant-design/pro-components/compare/@ant-design/pro-layout@7.0.0-experimental.6...@ant-design/pro-layout@7.0.0-experimental.7) (2022-08-01)
+
+**Note:** Version bump only for package @ant-design/pro-layout
+
+# [7.0.0-experimental.6](https://github.com/ant-design/pro-components/compare/@ant-design/pro-layout@7.0.0-experimental.5...@ant-design/pro-layout@7.0.0-experimental.6) (2022-08-01)
+
+**Note:** Version bump only for package @ant-design/pro-layout
+
+# [7.0.0-experimental.5](https://github.com/ant-design/pro-components/compare/@ant-design/pro-layout@7.0.0-experimental.4...@ant-design/pro-layout@7.0.0-experimental.5) (2022-08-01)
+
+**Note:** Version bump only for package @ant-design/pro-layout
+
+# [7.0.0-experimental.4](https://github.com/ant-design/pro-components/compare/@ant-design/pro-layout@7.0.0-experimental.3...@ant-design/pro-layout@7.0.0-experimental.4) (2022-08-01)
+
+**Note:** Version bump only for package @ant-design/pro-layout
+
+# [7.0.0-experimental.3](https://github.com/ant-design/pro-components/compare/@ant-design/pro-layout@7.0.0-experimental.2...@ant-design/pro-layout@7.0.0-experimental.3) (2022-08-01)
+
+**Note:** Version bump only for package @ant-design/pro-layout
+
+# [7.0.0-experimental.2](https://github.com/ant-design/pro-components/compare/@ant-design/pro-layout@6.38.16...@ant-design/pro-layout@7.0.0-experimental.2) (2022-08-01)
+
+### Bug Fixes
+
+- **layout:** 部分浏览器下避免不必要的 http 请求([#5418](https://github.com/ant-design/pro-components/issues/5418)) ([#5419](https://github.com/ant-design/pro-components/issues/5419)) ([1c9d01e](https://github.com/ant-design/pro-components/commit/1c9d01e5589926d51be92f2224db0878e16ba8f7))
+- **layout:** alway open new window ([5555ff2](https://github.com/ant-design/pro-components/commit/5555ff20f16da25be07f3a216cc760e0652e9d1f))
+- **layout:** update code ([a503e3a](https://github.com/ant-design/pro-components/commit/a503e3a44f325d0e170e99958ebfc8ab7f0cbca7))
+- conflic ([0c4c36a](https://github.com/ant-design/pro-components/commit/0c4c36a3c511de435cd7f8a78c16e53e68e95378))
+- **pro-layout:** Merge branch 'new-layout' of github.com:ant-design/pro-components into new-layout ([3329e6c](https://github.com/ant-design/pro-components/commit/3329e6c1f7c9e290e5c29a74c63f71de898b434a))
+- console error ([3d6b111](https://github.com/ant-design/pro-components/commit/3d6b11130f702f881a9252ef5df081f058146bc4))
+
+### Features
+
+- **layout:** add appList url target ([#5448](https://github.com/ant-design/pro-components/issues/5448)) ([1fbb886](https://github.com/ant-design/pro-components/commit/1fbb8863f4c04d0cd360a442e9622ae31d6e974b))
+- **layout:** layout support simple app list ([#5501](https://github.com/ant-design/pro-components/issues/5501)) ([2fe76ed](https://github.com/ant-design/pro-components/commit/2fe76edea9acd07d1f167762ebd52f6fe7a163a2))
 
 ## [6.38.16](https://github.com/ant-design/pro-components/compare/@ant-design/pro-layout@6.38.15...@ant-design/pro-layout@6.38.16) (2022-07-22)
 

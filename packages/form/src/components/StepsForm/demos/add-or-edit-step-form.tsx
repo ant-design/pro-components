@@ -7,8 +7,8 @@ import {
   ProFormText,
   StepsForm,
 } from '@ant-design/pro-components';
-import type { Moment } from 'moment';
-import moment from 'moment';
+import type { Dayjs } from 'dayjs';
+import dayjs from 'dayjs';
 import React, { useEffect, useRef } from 'react';
 
 type FormValue = {
@@ -17,7 +17,7 @@ type FormValue = {
     type: number;
   };
   syncTableInfo: {
-    timeRange: [Moment, Moment];
+    timeRange: [Dayjs, Dayjs];
     title: string;
   };
 };
@@ -27,7 +27,7 @@ const formValue: FormValue = {
     type: 1,
   },
   syncTableInfo: {
-    timeRange: [moment().subtract('month'), moment()],
+    timeRange: [dayjs().subtract(1, 'm'), dayjs()],
     title: 'example table title',
   },
 };

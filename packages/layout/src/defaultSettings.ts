@@ -1,5 +1,5 @@
 import type { MenuDataItem } from '@umijs/route-utils';
-import type { MenuTheme } from 'antd/lib/menu/MenuContext';
+import type { MenuTheme } from 'antd/es/menu/MenuContext';
 
 export type ContentWidth = 'Fluid' | 'Fixed';
 
@@ -22,11 +22,7 @@ export type PureSettings = {
    * @type  "light" | "dark"
    */
   headerTheme?: MenuTheme;
-  /**
-   * @name customize header height
-   * @example 顶栏高度修改为64 headerHeight={64}
-   */
-  headerHeight?: number;
+
   /**
    * @name layout 的布局方式
    * @type  'side' | 'top' | 'mix'
@@ -58,6 +54,15 @@ export type PureSettings = {
      * @name 菜单国际化的配置
      */
     locale?: boolean;
+    hideMenuWhenCollapsed?: boolean;
+    /**
+     * 收起时也展示标题
+     */
+    collapsedShowTitle?: boolean;
+    /**
+     * 收起时也展示 分组菜单的标题
+     */
+    collapsedShowGroupTitle?: boolean;
     /**
      * @name 默认打开所有的菜单
      */
@@ -111,7 +116,7 @@ export type PureSettings = {
    */
   iconfontUrl?: string;
   /** @name 主色，需要配合 umi 使用 */
-  primaryColor?: string;
+  colorPrimary?: string;
   /** @name 全局增加滤镜 */
   colorWeak?: boolean;
   /**
@@ -120,19 +125,22 @@ export type PureSettings = {
    * @name 切割菜单
    */
   splitMenus?: boolean;
+  /**
+   * 侧边菜单模式
+   */
+  siderMenuType?: 'sub' | 'group';
 };
 
 export type ProSettings = PureSettings & RenderSetting;
 
 const defaultSettings: ProSettings = {
-  navTheme: 'dark',
+  navTheme: 'light',
   layout: 'side',
   contentWidth: 'Fluid',
   fixedHeader: false,
-  fixSiderbar: false,
-  headerHeight: 48,
+  fixSiderbar: true,
   iconfontUrl: '',
-  primaryColor: '#1890ff',
+  colorPrimary: '#1677FF',
   splitMenus: false,
 };
-export default defaultSettings;
+export { defaultSettings };

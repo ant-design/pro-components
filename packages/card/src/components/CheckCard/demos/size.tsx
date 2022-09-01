@@ -10,7 +10,7 @@ export default () => {
   const [size, setSize] = useState('default' as 'default');
   return (
     <>
-      <div style={{ marginBottom: 16 }}>
+      <div style={{ marginBlockEnd: 16 }}>
         <Radio.Group value={size} onChange={(e) => setSize(e.target.value)}>
           <Radio.Button value="large">Large</Radio.Button>
           <Radio.Button value="default">Default</Radio.Button>

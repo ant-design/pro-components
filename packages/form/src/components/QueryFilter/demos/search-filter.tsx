@@ -20,7 +20,7 @@ const AdvancedSearch: React.FC<AdvancedSearchProps> = (props) => {
   const quickSearch = ['小程序开发', '入驻', 'ISV 权限'];
   return (
     <Card
-      bodyStyle={{ paddingBottom: 0 }}
+      bodyStyle={{ paddingBlockEnd: 0 }}
       bordered={false}
       className={showFilter ? '' : styles.hiddenFilter}
     >

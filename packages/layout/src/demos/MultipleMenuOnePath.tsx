@@ -10,6 +10,9 @@ export default () => (
       location={{
         pathname: '/config/template/new',
       }}
+      menu={{
+        hideMenuWhenCollapsed: true,
+      }}
       route={{
         routes: [
           {

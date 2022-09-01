@@ -1,5 +1,5 @@
 ﻿import type { FormInstance } from 'antd';
-import type { NamePath } from 'antd/lib/form/interface';
+import type { NamePath } from 'antd/es/form/interface';
 import React from 'react';
 
 export type ProFormInstanceType<T> = {
@@ -38,10 +38,8 @@ export type ProFormInstanceType<T> = {
   validateFieldsReturnFormatValue?: (nameList?: NamePath[]) => Promise<T>;
 };
 
-const ProFormContext = React.createContext<
+export const ProFormContext = React.createContext<
   ProFormInstanceType<any> & {
     formRef?: React.MutableRefObject<FormInstance<any>>;
   }
 >({});
-
-export default ProFormContext;

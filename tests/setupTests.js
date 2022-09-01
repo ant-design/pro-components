@@ -3,9 +3,21 @@ import Enzyme from 'enzyme';
 import 'jest-canvas-mock';
 import { enableFetchMocks } from 'jest-fetch-mock';
 import MockDate from 'mockdate';
-import moment from 'moment-timezone';
 import React from 'react';
 import tableData from './table/mock.data.json';
+
+import { defaultConfig } from 'antd/es/theme/index';
+
+defaultConfig.hashed = false;
+
+jest.mock('antd', () => {
+  const antd = jest.requireActual('antd');
+  antd.theme.defaultConfig.hashed = false;
+
+  return antd;
+});
+
+process.env.TZ = 'UTC';
 
 global.React = React;
 
@@ -102,15 +114,8 @@ Object.defineProperty(window, 'cancelAnimationFrame', {
   value: () => null,
 });
 
-moment.tz.setDefault('UTC');
-
 // 2016-11-22 15:22:44
-MockDate.set(1479799364000);
-
-const mockFormatExpression = {
-  format: (value) => `￥ ${value.toString()}`,
-};
-Intl.NumberFormat = jest.fn().mockImplementation(() => mockFormatExpression);
+MockDate.set(1479828164000);
 
 Math.random = () => 0.8404419276253765;
 
@@ -145,4 +150,3 @@ Object.defineProperty(global.window.console, 'error', {
     errorLog(...rest);
   },
 });
-``;

@@ -5,6 +5,10 @@ import React, { Fragment, useMemo } from 'react';
 import type { ProFieldFC } from '../../index';
 import { getColorByRealValue, getRealTextWithPrecision, getSymbolByRealValue } from './util';
 
+// 兼容代码-----------
+import 'antd/es/input-number/style';
+//------------
+
 export type PercentPropInt = {
   prefix?: ReactNode;
   suffix?: ReactNode;

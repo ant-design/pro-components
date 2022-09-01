@@ -1,8 +1,7 @@
 import ProProvider from '@ant-design/pro-provider';
 import ProTable from '@ant-design/pro-table';
-import { act, render as reactRender } from '@testing-library/react';
+import { act, fireEvent, render as reactRender, render } from '@testing-library/react';
 import { Input } from 'antd';
-import { mount } from 'enzyme';
 import { waitForComponentToPaint } from '../util';
 
 const cascaderOptions = [
@@ -116,9 +115,7 @@ describe('BasicTable valueType', () => {
       'TradeCode',
     );
 
-    act(() => {
-      html.unmount();
-    });
+    html.unmount();
   });
 
   it('🎏 table valueType render support fieldProps', async () => {
@@ -160,43 +157,39 @@ describe('BasicTable valueType', () => {
       'TradeCode',
     );
 
-    act(() => {
-      html.unmount();
-    });
+    html.unmount();
   });
   it('🎏 table support filter when valueType is treeSelect', async () => {
-    const html = mount(<ProTable {...defaultProps} />);
+    const html = render(<ProTable {...defaultProps} />);
     await waitForComponentToPaint(html, 1200);
 
     act(() => {
-      html.find('input#treeSelect').simulate('change', {
+      fireEvent.change(html.baseElement.querySelector('input#treeSelect')!, {
         target: {
           value: 'Ja',
         },
       });
     });
     await waitForComponentToPaint(html, 500);
-    expect(html.find('span[title="Javascript"]').length).toBe(1);
-    expect(html.find('span[title="Java"]').length).toBe(1);
-    expect(html.find('span[title="Typescript"]').length).toBe(0);
-    expect(html.find('span[title="Go"]').length).toBe(0);
+    expect(html.baseElement.querySelectorAll('span[title="Javascript"]').length).toBe(1);
+    expect(html.baseElement.querySelectorAll('span[title="Java"]').length).toBe(1);
+    expect(html.baseElement.querySelectorAll('span[title="Typescript"]').length).toBe(0);
+    expect(html.baseElement.querySelectorAll('span[title="Go"]').length).toBe(0);
 
     act(() => {
-      html.find('input#treeSelect').simulate('change', {
+      fireEvent.change(html.baseElement.querySelector('input#treeSelect')!, {
         target: {
           value: 'Javasc',
         },
       });
     });
     await waitForComponentToPaint(html, 500);
-    expect(html.find('span[title="Javascript"]').length).toBe(1);
-    expect(html.find('span[title="Java"]').length).toBe(0);
-    expect(html.find('span[title="Typescript"]').length).toBe(0);
-    expect(html.find('span[title="Go"]').length).toBe(0);
-    expect(html.render()).toMatchSnapshot();
+    expect(html.baseElement.querySelectorAll('span[title="Javascript"]').length).toBe(1);
+    expect(html.baseElement.querySelectorAll('span[title="Java"]').length).toBe(0);
+    expect(html.baseElement.querySelectorAll('span[title="Typescript"]').length).toBe(0);
+    expect(html.baseElement.querySelectorAll('span[title="Go"]').length).toBe(0);
+    expect(html.baseElement).toMatchSnapshot();
 
-    act(() => {
-      html.unmount();
-    });
+    html.unmount();
   });
 });

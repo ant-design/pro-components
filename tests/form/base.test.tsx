@@ -15,8 +15,7 @@ import ProForm, {
 import '@testing-library/jest-dom';
 import { act, fireEvent, render } from '@testing-library/react';
 import { Button, ConfigProvider, Input } from 'antd';
-import { mount } from 'enzyme';
-import moment from 'moment';
+import dayjs from 'dayjs';
 import React, { useEffect, useRef } from 'react';
 import { waitForComponentToPaint, waitTime } from '../util';
 
@@ -631,7 +630,7 @@ describe('ProForm', () => {
     );
 
     act(() => {
-      wrapper.baseElement.querySelectorAll<HTMLElement>('Button#test')[0].click();
+      fireEvent.click(wrapper.baseElement.querySelector('#test')!);
     });
 
     expect(wrapper.baseElement.querySelectorAll<HTMLElement>('button#test')[0].textContent).toBe(
@@ -891,15 +890,11 @@ describe('ProForm', () => {
         onFinish={onFinish}
         initialValues={{
           date: '2020-09-10',
-          dateWeek: '2020-37th',
           dateMonth: '2020-09',
-          dateQuarter: '2020-Q2',
         }}
       >
         <ProFormDatePicker name="date" label="日期" fieldProps={{ open: true }} />
-        <ProFormDatePicker.Week name="dateWeek" label="周" />
         <ProFormDatePicker.Month name="dateMonth" label="月" />
-        <ProFormDatePicker.Quarter name="dateQuarter" label="季度" />
         <ProFormDatePicker.Year name="dateYear" label="年" />
       </ProForm>,
     );
@@ -913,10 +908,8 @@ describe('ProForm', () => {
     });
 
     expect(onFinish).toHaveBeenCalledWith({
-      date: '2020-09-02',
-      dateWeek: '2020-37th',
+      date: '2020-09-01',
       dateMonth: '2020-09',
-      dateQuarter: '2020-Q2',
     });
     wrapper.unmount();
   });
@@ -2369,6 +2362,7 @@ describe('ProForm', () => {
         <ProForm
           onValuesChange={async () => {
             formRef.current?.validateFieldsReturnFormatValue?.().then((val) => {
+              console.log(val);
               fn2(val.date);
             });
           }}
@@ -2376,7 +2370,7 @@ describe('ProForm', () => {
         >
           <ProFormDatePicker
             name="date"
-            initialValue={moment('2021-08-09')}
+            initialValue={dayjs('2021-08-09')}
             fieldProps={{ open: true }}
           />
         </ProForm>
@@ -2393,10 +2387,12 @@ describe('ProForm', () => {
     act(() => {
       wrapper.baseElement.querySelectorAll<HTMLElement>('.ant-picker-cell')[2].click();
     });
+
     await act(async () => {
       await waitTime(200);
     });
-    expect(fn2).toHaveBeenCalledWith('2021-07-28');
+
+    expect(fn2).toHaveBeenCalledWith('2021-08-03');
 
     expect(wrapper.asFragment()).toMatchSnapshot();
     wrapper.unmount();
@@ -2483,7 +2479,7 @@ describe('ProForm', () => {
         >
           <ProFormDateTimePicker
             name="datetime"
-            initialValue={moment('2021-08-09 12:12:12')}
+            initialValue={dayjs('2021-08-09 12:12:12')}
             fieldProps={{ open: true }}
           />
         </ProForm>
@@ -2605,7 +2601,7 @@ describe('ProForm', () => {
 
   it(`📦 valueType digit with precision value`, async () => {
     const fn = jest.fn();
-    const html = mount(
+    const html = render(
       <ProForm
         onFinish={async (value) => {
           fn(value.count);
@@ -2623,18 +2619,23 @@ describe('ProForm', () => {
 
     await waitForComponentToPaint(html, 300);
     act(() => {
-      html.find('input#count').simulate('change', {
+      const dom = html.baseElement.querySelector<HTMLInputElement>('input#count')!;
+      fireEvent.change(dom, {
         target: {
           value: '22.22',
         },
       });
-      html.find('input#count').simulate('blur');
-      html.find('button.ant-btn-primary').simulate('click');
-      html.update();
+      fireEvent.blur(dom);
+      fireEvent.click(dom);
     });
     await waitForComponentToPaint(html, 300);
-    expect(html.find('input#count').props().value).toBe('22');
+    expect(html.baseElement.querySelector<HTMLInputElement>('input#count')?.value).toBe('22');
+
+    await act(async () => {
+      await (await html.findByText('提 交')).click();
+    });
+
     expect(fn).toBeCalledWith(22);
-    expect(html.render()).toMatchSnapshot();
+    expect(html.asFragment()).toMatchSnapshot();
   });
 });

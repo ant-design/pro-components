@@ -319,17 +319,18 @@ options 是 antd 定义的标准，但是只有部分组件支持， ProComponen
 
 ```tsx | pure
 const options = [
+  { label: '全部', value: 'all' },
+  { label: '未解决', value: 'open' },
+  { label: '已解决', value: 'closed' },
+  { label: '解决中', value: 'processing' },
   {
-    label: 'item 1',
-    value: 'a',
-  },
-  {
-    label: 'item 2',
-    value: 'b',
-  },
-  {
-    label: 'item 3',
-    value: 'c',
+    label: '特殊选项',
+    value: 'optGroup',
+    optionType: 'optGroup',
+    options: [
+      { label: '不解决', value: 'no' },
+      { label: '已废弃', value: 'clear' },
+    ],
   },
 ];
 

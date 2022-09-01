@@ -1,7 +1,7 @@
 import { List, Select, Switch, Tooltip } from 'antd';
 import React from 'react';
 import type { ProSettings } from '../../defaultSettings';
-import defaultSettings from '../../defaultSettings';
+import { defaultSettings } from '../../defaultSettings';
 import type { SettingItemProps } from './index';
 import { getFormatMessage } from './index';
 
@@ -20,7 +20,8 @@ export const renderLayoutSettingItem = (item: SettingItemProps) => {
 const LayoutSetting: React.FC<{
   settings: Partial<ProSettings>;
   changeSetting: (key: string, value: any, hideLoading?: boolean) => void;
-}> = ({ settings = {}, changeSetting }) => {
+  hashId: string;
+}> = ({ settings = {}, changeSetting, hashId }) => {
   const formatMessage = getFormatMessage();
   const { contentWidth, splitMenus, fixedHeader, layout, fixSiderbar } =
     settings || defaultSettings;
@@ -38,7 +39,7 @@ const LayoutSetting: React.FC<{
             <Select
               value={contentWidth || 'Fixed'}
               size="small"
-              className="content-width"
+              className={`content-width ${hashId}`}
               onSelect={(value: string) => {
                 changeSetting('contentWidth', value);
               }}
@@ -116,4 +117,4 @@ const LayoutSetting: React.FC<{
   );
 };
 
-export default LayoutSetting;
+export { LayoutSetting };

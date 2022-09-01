@@ -79,7 +79,7 @@ const columns: ProColumns<TableListItem>[] = [
       <>
         创建时间
         <Tooltip placement="top" title="这是一段描述">
-          <QuestionCircleOutlined style={{ marginLeft: 4 }} />
+          <QuestionCircleOutlined style={{ marginInlineStart: 4 }} />
         </Tooltip>
       </>
     ),

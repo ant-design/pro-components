@@ -58,16 +58,21 @@ export type MenuDataItem = {
   flatMenu?: boolean;
   /** @name 指定外链打开形式，同a标签 */
   target?: string;
+  /**
+   * menuItem 的 tooltip 显示的路径
+   */
+  tooltip?: string;
   [key: string]: any;
 };
 
 export type Route = {
   routes?: Route[];
 } & MenuDataItem;
+
 export type WithFalse<T> = T | false;
 
-export type RouterTypes<P extends {}> = {
-  computedMatch?: match<P>;
+export type RouterTypes = {
+  computedMatch?: match<any>;
   route?: Route;
   location: BasicRouteProps['location'] | { pathname?: string };
 } & Omit<BasicRouteProps, 'location'>;

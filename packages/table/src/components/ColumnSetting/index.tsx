@@ -8,8 +8,8 @@ import { useIntl } from '@ant-design/pro-provider';
 import { runFunction, useRefFunction } from '@ant-design/pro-utils';
 import type { TableColumnType } from 'antd';
 import { Checkbox, ConfigProvider, Popover, Space, Tooltip, Tree } from 'antd';
-import type { CheckboxChangeEvent } from 'antd/lib/checkbox';
-import type { DataNode } from 'antd/lib/tree';
+import type { CheckboxChangeEvent } from 'antd/es/checkbox';
+import type { DataNode } from 'antd/es/tree';
 import classNames from 'classnames';
 import omit from 'omit.js';
 import React, { useContext, useEffect, useMemo, useRef } from 'react';
@@ -17,7 +17,7 @@ import type { ColumnsState } from '../../container';
 import Container from '../../container';
 import type { ProColumns } from '../../typing';
 import { genColumnKey } from '../../utils/index';
-import './index.less';
+import { useStyle } from './style';
 
 type ColumnSettingProps<T = any> = {
   columns: TableColumnType<T>[];
@@ -371,7 +371,8 @@ function ColumnSetting<T>(props: ColumnSettingProps<T>) {
   const intl = useIntl();
   const { getPrefixCls } = useContext(ConfigProvider.ConfigContext);
   const className = getPrefixCls('pro-table-column-setting');
-  return (
+  const { wrapSSR } = useStyle(className);
+  return wrapSSR(
     <Popover
       arrowPointAtCenter
       title={
@@ -413,7 +414,7 @@ function ColumnSetting<T>(props: ColumnSettingProps<T>) {
           <SettingOutlined />
         </Tooltip>
       )}
-    </Popover>
+    </Popover>,
   );
 }
 

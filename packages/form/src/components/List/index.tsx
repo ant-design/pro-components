@@ -2,17 +2,18 @@
 import { useIntl } from '@ant-design/pro-provider';
 import { ProFormContext } from '@ant-design/pro-utils';
 import { ConfigProvider, Form } from 'antd';
-import type { LabelTooltipType } from 'antd/lib/form/FormItemLabel';
-import type { FormListFieldData, FormListOperation, FormListProps } from 'antd/lib/form/FormList';
-import type { NamePath } from 'antd/lib/form/interface';
+import type { LabelTooltipType } from 'antd/es/form/FormItemLabel';
+import type { FormListFieldData, FormListOperation, FormListProps } from 'antd/es/form/FormList';
+import type { NamePath } from 'antd/es/form/interface';
+import classNames from 'classnames';
 import { noteOnce } from 'rc-util/lib/warning';
 import type { ReactNode } from 'react';
 import React, { useContext, useEffect, useImperativeHandle, useMemo, useRef } from 'react';
 import { useGridHelpers } from '../../helpers';
 import type { ProFormGridConfig } from '../../interface';
-import './index.less';
 import { ProFormListContainer } from './ListContainer';
 import type { ChildrenItemFunction, FormListActionGuard, ProFromListCommonProps } from './ListItem';
+import { useStyle } from './style';
 
 const FormListContext = React.createContext<
   | (FormListFieldData & {
@@ -168,11 +169,13 @@ function ProFormList<T>(props: ProFormListProps<T>) {
     );
   }, [proFormContext.formRef]);
 
+  const { wrapSSR, hashId } = useStyle(baseClassName);
+
   if (!proFormContext.formRef) return null;
 
-  return (
+  return wrapSSR(
     <ColWrapper>
-      <div className={baseClassName} style={style}>
+      <div className={classNames(baseClassName, hashId)} style={style}>
         <Form.Item
           label={label}
           prefixCls={prefixCls}
@@ -247,7 +250,7 @@ function ProFormList<T>(props: ProFormListProps<T>) {
           </Form.List>
         </Form.Item>
       </div>
-    </ColWrapper>
+    </ColWrapper>,
   );
 }
 

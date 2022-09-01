@@ -11,34 +11,37 @@ import {
   setFetchMethod as setFetch,
 } from '@umijs/ssr-darkreader';
 import { useUrlSearchParams } from '@umijs/use-params';
-import { Alert, Button, ConfigProvider, Divider, Drawer, List, message, Switch } from 'antd';
+import { Alert, Button, Divider, Drawer, List, message, Switch } from 'antd';
 import omit from 'omit.js';
 import useMergedState from 'rc-util/lib/hooks/useMergedState';
 import React, { useEffect, useRef, useState } from 'react';
 import type { ProSettings } from '../../defaultSettings';
-import defaultSettings from '../../defaultSettings';
+import { defaultSettings } from '../../defaultSettings';
 import { getLanguage, gLocaleObject } from '../../locales';
 import { genStringToTheme } from '../../utils/utils';
-import BlockCheckbox from './BlockCheckbox';
-import './index.less';
-import LayoutSetting, { renderLayoutSettingItem } from './LayoutChange';
-import RegionalSetting from './RegionalChange';
-import ThemeColor from './ThemeColor';
+import { BlockCheckbox } from './BlockCheckbox';
+import { GroupIcon } from './icon/group';
+import { SubIcon } from './icon/sub';
+import { LayoutSetting, renderLayoutSettingItem } from './LayoutChange';
+import { RegionalSetting } from './RegionalChange';
+import { useStyle } from './style/index';
+import { ThemeColor } from './ThemeColor';
 
 type BodyProps = {
   title: string;
   prefixCls: string;
   children?: React.ReactNode;
+  hashId: string;
 };
 
 type MergerSettingsType<T> = Partial<T> & {
-  primaryColor?: string;
+  colorPrimary?: string;
   colorWeak?: boolean;
 };
 
-const Body: React.FC<BodyProps> = ({ children, prefixCls, title }) => (
-  <div style={{ marginBottom: 24 }}>
-    <h3 className={`${prefixCls}-drawer-title`}>{title}</h3>
+const Body: React.FC<BodyProps> = ({ children, hashId, prefixCls, title }) => (
+  <div style={{ marginBlockEnd: 24 }}>
+    <h3 className={`${prefixCls}-body-title ${hashId}`}>{title}</h3>
     {children}
   </div>
 );
@@ -95,16 +98,9 @@ export const getFormatMessage = (): ((data: { id: string; defaultMessage?: strin
   return formatMessage;
 };
 
-const updateTheme = async (dark: boolean, color?: string) => {
+const updateTheme = async (dark: boolean) => {
   if (typeof window === 'undefined') return;
   if (typeof window.MutationObserver === 'undefined') return;
-
-  if (!ConfigProvider.config) return;
-  ConfigProvider.config({
-    theme: {
-      primaryColor: genStringToTheme(color) || '#1890ff',
-    },
-  });
 
   if (dark) {
     const defaultTheme = {
@@ -144,7 +140,7 @@ const initState = (
   const replaceSetting = {};
   Object.keys(urlParams).forEach((key) => {
     if (defaultSettings[key] || defaultSettings[key] === undefined) {
-      if (key === 'primaryColor') {
+      if (key === 'colorPrimary') {
         replaceSetting[key] = genStringToTheme(urlParams[key]);
         return;
       }
@@ -161,7 +157,7 @@ const initState = (
 
   // 如果 url 中设置主题，进行一次加载。
   if (defaultSettings.navTheme !== urlParams.navTheme && urlParams.navTheme) {
-    updateTheme(settings.navTheme === 'realDark', urlParams.primaryColor);
+    updateTheme(settings.navTheme === 'realDark');
   }
 };
 
@@ -183,7 +179,7 @@ const genCopySettingJson = (settingState: MergerSettingsType<ProSettings>) =>
     omit(
       {
         ...settingState,
-        primaryColor: settingState.primaryColor,
+        colorPrimary: settingState.colorPrimary,
       },
       ['colorWeak'],
     ),
@@ -196,13 +192,14 @@ const genCopySettingJson = (settingState: MergerSettingsType<ProSettings>) =>
  *
  * @param props
  */
-const SettingDrawer: React.FC<SettingDrawerProps> = (props) => {
+export const SettingDrawer: React.FC<SettingDrawerProps> = (props) => {
   const {
     defaultSettings: propsDefaultSettings = undefined,
     settings: propsSettings = undefined,
     hideHintAlert,
     hideCopyButton,
     colorList = [
+      { key: 'techBlue', color: '#1677FF' },
       { key: 'daybreak', color: '#1890ff' },
       { key: 'dust', color: '#F5222D' },
       { key: 'volcano', color: '#FA541C' },
@@ -243,7 +240,7 @@ const SettingDrawer: React.FC<SettingDrawerProps> = (props) => {
     },
   );
 
-  const { navTheme, primaryColor, layout, colorWeak } = settingState || {};
+  const { navTheme, colorPrimary, siderMenuType, layout, colorWeak } = settingState || {};
 
   useEffect(() => {
     // 语言修改，这个是和 locale 是配置起来的
@@ -265,8 +262,8 @@ const SettingDrawer: React.FC<SettingDrawerProps> = (props) => {
   }, []);
 
   useEffect(() => {
-    updateTheme(settingState.navTheme === 'realDark', settingState.primaryColor);
-  }, [settingState.primaryColor, settingState.navTheme]);
+    updateTheme(settingState.navTheme === 'realDark');
+  }, [settingState.colorPrimary, settingState.navTheme]);
   /**
    * 修改设置
    *
@@ -333,11 +330,19 @@ const SettingDrawer: React.FC<SettingDrawerProps> = (props) => {
 
     setUrlParams(diffParams);
   }, [setUrlParams, settingState, urlParams, pathname, disableUrlParams]);
-  const baseClassName = `${prefixCls}-setting`;
+  const baseClassName = `${prefixCls}-setting-drawer`;
+  const { wrapSSR, hashId } = useStyle(baseClassName);
 
-  return (
+  return wrapSSR(
     <>
-      <div className={`${baseClassName}-drawer-handle`} onClick={() => setShow(!show)}>
+      <div
+        className={`${baseClassName}-handle ${hashId}`}
+        onClick={() => setShow(!show)}
+        style={{
+          width: 48,
+          height: 48,
+        }}
+      >
         {show ? (
           <CloseOutlined
             style={{
@@ -355,7 +360,9 @@ const SettingDrawer: React.FC<SettingDrawerProps> = (props) => {
         )}
       </div>
       <Drawer
+        //@ts-expect-error
         visible={show}
+        open={show}
         width={300}
         closable={false}
         onClose={() => setShow(false)}
@@ -365,15 +372,17 @@ const SettingDrawer: React.FC<SettingDrawerProps> = (props) => {
           zIndex: 999,
         }}
       >
-        <div className={`${baseClassName}-drawer-content`}>
+        <div className={`${baseClassName}-drawer-content ${hashId}`}>
           <Body
             title={formatMessage({
               id: 'app.setting.pagestyle',
               defaultMessage: 'Page style setting',
             })}
+            hashId={hashId}
             prefixCls={baseClassName}
           >
             <BlockCheckbox
+              hashId={hashId}
               prefixCls={baseClassName}
               list={[
                 {
@@ -381,13 +390,6 @@ const SettingDrawer: React.FC<SettingDrawerProps> = (props) => {
                   title: formatMessage({
                     id: 'app.setting.pagestyle.light',
                     defaultMessage: '亮色菜单风格',
-                  }),
-                },
-                {
-                  key: 'dark',
-                  title: formatMessage({
-                    id: 'app.setting.pagestyle.dark',
-                    defaultMessage: '暗色菜单风格',
                   }),
                 },
                 {
@@ -410,6 +412,7 @@ const SettingDrawer: React.FC<SettingDrawerProps> = (props) => {
           </Body>
           {colorList !== false && (
             <Body
+              hashId={hashId}
               title={formatMessage({
                 id: 'app.setting.themecolor',
                 defaultMessage: 'Theme color',
@@ -417,10 +420,12 @@ const SettingDrawer: React.FC<SettingDrawerProps> = (props) => {
               prefixCls={baseClassName}
             >
               <ThemeColor
+                hashId={hashId}
+                prefixCls={baseClassName}
                 colorList={colorList}
-                value={genStringToTheme(primaryColor)!}
+                value={genStringToTheme(colorPrimary)!}
                 formatMessage={formatMessage}
-                onChange={(color) => changeSetting('primaryColor', color)}
+                onChange={(color) => changeSetting('colorPrimary', color)}
               />
             </Body>
           )}
@@ -428,6 +433,7 @@ const SettingDrawer: React.FC<SettingDrawerProps> = (props) => {
             <>
               <Divider />
               <Body
+                hashId={hashId}
                 prefixCls={baseClassName}
                 title={formatMessage({ id: 'app.setting.navigationmode' })}
               >
@@ -435,6 +441,7 @@ const SettingDrawer: React.FC<SettingDrawerProps> = (props) => {
                   prefixCls={baseClassName}
                   value={layout!}
                   key="layout"
+                  hashId={hashId}
                   configType="layout"
                   list={[
                     {
@@ -453,19 +460,57 @@ const SettingDrawer: React.FC<SettingDrawerProps> = (props) => {
                   onChange={(value) => changeSetting('layout', value)}
                 />
               </Body>
-              <LayoutSetting settings={settingState} changeSetting={changeSetting} />
+              {settingState.layout == 'side' || settingState.layout == 'mix' ? (
+                <Body
+                  hashId={hashId}
+                  prefixCls={baseClassName}
+                  title={formatMessage({ id: 'app.setting.sidermenutype' })}
+                >
+                  <BlockCheckbox
+                    prefixCls={baseClassName}
+                    value={siderMenuType!}
+                    key="siderMenuType"
+                    hashId={hashId}
+                    configType="siderMenuType"
+                    list={[
+                      {
+                        key: 'sub',
+                        icon: <SubIcon />,
+                        title: formatMessage({ id: 'app.setting.sidermenutype-sub' }),
+                      },
+                      {
+                        key: 'group',
+                        icon: <GroupIcon />,
+                        title: formatMessage({ id: 'app.setting.sidermenutype-group' }),
+                      },
+                    ]}
+                    onChange={(value) => changeSetting('siderMenuType', value)}
+                  />
+                </Body>
+              ) : null}
+              <LayoutSetting
+                hashId={hashId}
+                settings={settingState}
+                changeSetting={changeSetting}
+              />
               <Divider />
 
               <Body
+                hashId={hashId}
                 prefixCls={baseClassName}
                 title={formatMessage({ id: 'app.setting.regionalsettings' })}
               >
-                <RegionalSetting settings={settingState} changeSetting={changeSetting} />
+                <RegionalSetting
+                  hashId={hashId}
+                  settings={settingState}
+                  changeSetting={changeSetting}
+                />
               </Body>
 
               <Divider />
 
               <Body
+                hashId={hashId}
                 prefixCls={baseClassName}
                 title={formatMessage({ id: 'app.setting.othersettings' })}
               >
@@ -499,7 +544,7 @@ const SettingDrawer: React.FC<SettingDrawerProps> = (props) => {
                   })}
                   icon={<NotificationOutlined />}
                   showIcon
-                  style={{ marginBottom: 16 }}
+                  style={{ marginBlockEnd: 16 }}
                 />
               )}
 
@@ -507,7 +552,7 @@ const SettingDrawer: React.FC<SettingDrawerProps> = (props) => {
                 <Button
                   block
                   icon={<CopyOutlined />}
-                  style={{ marginBottom: 24 }}
+                  style={{ marginBlockEnd: 24 }}
                   onClick={async () => {
                     try {
                       await navigator.clipboard.writeText(genCopySettingJson(settingState));
@@ -524,8 +569,6 @@ const SettingDrawer: React.FC<SettingDrawerProps> = (props) => {
           )}
         </div>
       </Drawer>
-    </>
+    </>,
   );
 };
-
-export default SettingDrawer;

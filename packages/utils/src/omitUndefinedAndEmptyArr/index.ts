@@ -1,4 +1,4 @@
-const omitUndefinedAndEmptyArr = <T>(obj: T): T => {
+export const omitUndefinedAndEmptyArr = <T>(obj: T): T => {
   const newObj = {} as T;
   Object.keys(obj || {}).forEach((key) => {
     if (Array.isArray(obj[key]) && obj[key]?.length === 0) {
@@ -11,5 +11,3 @@ const omitUndefinedAndEmptyArr = <T>(obj: T): T => {
   });
   return newObj;
 };
-
-export default omitUndefinedAndEmptyArr;

@@ -10,6 +10,7 @@ export default () => (
       location={{
         pathname: '/admin/process/edit/123',
       }}
+      layout="mix"
       ErrorBoundary={false}
       headerContentRender={() => <ProBreadcrumb />}
       breadcrumbRender={(routers = []) => [

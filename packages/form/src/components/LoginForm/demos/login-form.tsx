@@ -19,7 +19,7 @@ import { useState } from 'react';
 type LoginType = 'phone' | 'account';
 
 const iconStyles: CSSProperties = {
-  marginLeft: '16px',
+  marginInlineStart: '16px',
   color: 'rgba(0, 0, 0, 0.2)',
   fontSize: '24px',
   verticalAlign: 'middle',
@@ -43,7 +43,11 @@ export default () => {
           </Space>
         }
       >
-        <Tabs activeKey={loginType} onChange={(activeKey) => setLoginType(activeKey as LoginType)}>
+        <Tabs
+          centered
+          activeKey={loginType}
+          onChange={(activeKey) => setLoginType(activeKey as LoginType)}
+        >
           <Tabs.TabPane key={'account'} tab={'账号密码登录'} />
           <Tabs.TabPane key={'phone'} tab={'手机号登录'} />
         </Tabs>
@@ -129,7 +133,7 @@ export default () => {
         )}
         <div
           style={{
-            marginBottom: 24,
+            marginBlockEnd: 24,
           }}
         >
           <ProFormCheckbox noStyle name="autoLogin">

@@ -1,4 +1,4 @@
-const isUrl = (path: string | undefined): boolean => {
+export const isUrl = (path: string | undefined): boolean => {
   if (!path) return false;
   if (!path.startsWith('http')) {
     return false;
@@ -10,5 +10,3 @@ const isUrl = (path: string | undefined): boolean => {
     return false;
   }
 };
-
-export default isUrl;

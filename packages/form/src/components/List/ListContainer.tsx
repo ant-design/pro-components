@@ -1,9 +1,10 @@
 ﻿import { PlusOutlined } from '@ant-design/icons';
 import { useIntl } from '@ant-design/pro-provider';
-import { nanoid, runFunction } from '@ant-design/pro-utils';
+import { nanoid, runFunction, useToken } from '@ant-design/pro-utils';
 import { Button } from 'antd';
 import omit from 'omit.js';
-import { CSSProperties, useMemo, useRef, useState } from 'react';
+import type { CSSProperties } from 'react';
+import { useMemo, useRef, useState } from 'react';
 import type { ProFormListItemProps } from './ListItem';
 import { ProFormListItem } from './ListItem';
 
@@ -25,6 +26,7 @@ const ProFormListContainer: React.FC<ProFormListItemProps> = (props) => {
     onAfterAdd,
     onAfterRemove,
   } = props;
+  const { hashId } = useToken();
   const fieldKeyMap = useRef(new Map<string, string>());
   const [loading, setLoading] = useState(false);
 
@@ -102,7 +104,7 @@ const ProFormListContainer: React.FC<ProFormListItemProps> = (props) => {
     } = creatorButtonProps || {};
     return (
       <Button
-        className={`${prefixCls}-creator-button-${position}`}
+        className={`${prefixCls}-creator-button-${position} ${hashId}`}
         type="dashed"
         loading={loading}
         block
@@ -127,6 +129,7 @@ const ProFormListContainer: React.FC<ProFormListItemProps> = (props) => {
     max,
     intl,
     prefixCls,
+    hashId,
     loading,
     wrapperAction,
     creatorRecord,

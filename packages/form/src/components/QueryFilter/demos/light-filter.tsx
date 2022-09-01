@@ -16,8 +16,8 @@ import {
   ProFormTreeSelect,
 } from '@ant-design/pro-components';
 import { Radio, TreeSelect } from 'antd';
-import type { SizeType } from 'antd/lib/config-provider/SizeContext';
-import moment from 'moment';
+import type { SizeType } from 'antd/es/config-provider/SizeContext';
+import dayjs from 'dayjs';
 import React from 'react';
 
 const treeData = [
@@ -92,12 +92,12 @@ export default () => {
             },
           ],
           datetimeRanger: [
-            moment('2019-11-16 12:50:26').add(-1, 'd').valueOf(),
-            moment('2019-11-16 12:50:26').valueOf(),
+            dayjs('2019-11-16 12:50:26').add(-1, 'd').valueOf(),
+            dayjs('2019-11-16 12:50:26').valueOf(),
           ],
           timeRanger: [
-            moment('2019-11-16 12:50:26').add(-1, 'd').valueOf(),
-            moment('2019-11-16 12:50:26').valueOf(),
+            dayjs('2019-11-16 12:50:26').add(-1, 'd').valueOf(),
+            dayjs('2019-11-16 12:50:26').valueOf(),
           ],
         }}
         size={size}

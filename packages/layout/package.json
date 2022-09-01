@@ -1,6 +1,6 @@
 {
   "name": "@ant-design/pro-layout",
-  "version": "6.38.22",
+  "version": "7.0.1",
   "description": "@ant-design/pro-layout",
   "keywords": [
     "antd",
@@ -15,14 +15,11 @@
     "url": "https://github.com/ant-design/pro-components"
   },
   "license": "MIT",
-  "sideEffects": [
-    "*.less"
-  ],
-  "main": "lib/index.js",
+  "sideEffects": true,
+  "main": "es/index.js",
   "module": "es/index.js",
-  "types": "lib/index.d.ts",
+  "types": "es/index.d.ts",
   "files": [
-    "lib",
     "es",
     "dist"
   ],
@@ -34,13 +31,12 @@
   ],
   "dependencies": {
     "@ant-design/icons": "^4.0.0",
-    "@ant-design/pro-provider": "1.10.0",
-    "@ant-design/pro-utils": "1.45.3",
+    "@ant-design/pro-provider": "2.0.1",
+    "@ant-design/pro-utils": "2.0.1",
     "@babel/runtime": "^7.18.0",
     "@umijs/route-utils": "^2.1.0",
     "@umijs/ssr-darkreader": "^4.9.44",
     "@umijs/use-params": "^1.0.9",
-    "antd": "^4.20.0 ",
     "classnames": "^2.2.6",
     "lodash.merge": "^4.6.2",
     "omit.js": "^2.0.2",
@@ -54,7 +50,9 @@
     "warning": "^4.0.3"
   },
   "peerDependencies": {
-    "react": ">=16.9.0"
+    "antd": ">=4.20.0",
+    "react": ">=16.9.0",
+    "react-dom": ">=16.9.0"
   },
   "publishConfig": {
     "access": "public"

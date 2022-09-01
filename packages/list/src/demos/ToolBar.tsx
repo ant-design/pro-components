@@ -67,8 +67,8 @@ const renderBadge = (count: number, active = false) => {
     <Badge
       count={count}
       style={{
-        marginTop: -2,
-        marginLeft: 4,
+        marginBlockStart: -2,
+        marginInlineStart: 4,
         color: active ? '#1890FF' : '#999',
         backgroundColor: active ? '#E6F7FF' : '#eee',
       }}
@@ -105,7 +105,7 @@ export default () => {
                           height: 8,
                           borderRadius: '50%',
                           backgroundColor: '#52c41a',
-                          marginRight: 8,
+                          marginInlineEnd: 8,
                         }}
                       />
                     )}

@@ -187,7 +187,7 @@ describe('QueryFilter', () => {
     );
 
     act(() => {
-      wrapper.find('.ant-pro-form-collapse-button').simulate('click');
+      wrapper.find('.ant-pro-query-filter-collapse-button').simulate('click');
     });
     await waitForComponentToPaint(wrapper);
 
@@ -220,7 +220,7 @@ describe('QueryFilter', () => {
         <ProFormText label="f" name="f" />
       </QueryFilter>,
     );
-    expect(wrapper.find('a.ant-pro-form-collapse-button').text()).toBe('open');
+    expect(wrapper.find('a.ant-pro-query-filter-collapse-button').text()).toBe('open');
 
     act(() => {
       wrapper.setProps({
@@ -230,7 +230,7 @@ describe('QueryFilter', () => {
     await act(async () => {
       await waitTime(100);
     });
-    expect(wrapper.find('a.ant-pro-form-collapse-button').text()).toBe('close');
+    expect(wrapper.find('a.ant-pro-query-filter-collapse-button').text()).toBe('close');
   });
 
   it('🕵️‍♀️ defaultColsNumber should work', async () => {
@@ -255,7 +255,7 @@ describe('QueryFilter', () => {
       </QueryFilter>,
     );
 
-    expect(wrapper.find('a.ant-pro-form-collapse-button').length).toEqual(1);
+    expect(wrapper.find('a.ant-pro-query-filter-collapse-button').length).toEqual(1);
   });
 
   it('🕵️‍♀️ 表单首项独占一行，收起时应该只展示一项就行了', async () => {
@@ -303,7 +303,7 @@ describe('QueryFilter', () => {
         <ProFormText label="f" name="f" />
       </QueryFilter>,
     );
-    expect(wrapper0.find('.ant-pro-form-collapse-button').length).toEqual(1);
+    expect(wrapper0.find('.ant-pro-query-filter-collapse-button').length).toEqual(1);
     const wrapper1 = mount(
       <QueryFilter defaultColsNumber={6}>
         <ProFormText label="a" name="a" />
@@ -314,7 +314,7 @@ describe('QueryFilter', () => {
         <ProFormText label="f" name="f" />
       </QueryFilter>,
     );
-    expect(wrapper1.find('.ant-pro-form-collapse-button').length).toEqual(1);
+    expect(wrapper1.find('.ant-pro-query-filter-collapse-button').length).toEqual(1);
     const wrapper2 = mount(
       <QueryFilter defaultColsNumber={7}>
         <ProFormText label="a" name="a" />
@@ -325,6 +325,6 @@ describe('QueryFilter', () => {
         <ProFormText label="f" name="f" />
       </QueryFilter>,
     );
-    expect(wrapper2.find('.ant-pro-form-collapse-button').length).toEqual(0);
+    expect(wrapper2.find('.ant-pro-query-filter-collapse-button').length).toEqual(0);
   });
 });

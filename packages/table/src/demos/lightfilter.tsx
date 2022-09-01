@@ -2,7 +2,7 @@ import { QuestionCircleOutlined } from '@ant-design/icons';
 import type { ProColumns } from '@ant-design/pro-components';
 import { ProTable, TableDropdown } from '@ant-design/pro-components';
 import { Tooltip } from 'antd';
-import moment from 'moment';
+import dayjs from 'dayjs';
 
 export type TableListItem = {
   key: number;
@@ -39,7 +39,7 @@ const columns: ProColumns<TableListItem>[] = [
     dataIndex: 'startTime',
     valueType: 'dateRange',
     hideInTable: true,
-    initialValue: [moment(), moment().add(1, 'day')],
+    initialValue: [dayjs(), dayjs().add(1, 'day')],
   },
   {
     title: '创建者',
@@ -59,7 +59,7 @@ const columns: ProColumns<TableListItem>[] = [
       <>
         创建时间
         <Tooltip placement="top" title="这是一段描述">
-          <QuestionCircleOutlined style={{ marginLeft: 4 }} />
+          <QuestionCircleOutlined style={{ marginInlineStart: 4 }} />
         </Tooltip>
       </>
     ),

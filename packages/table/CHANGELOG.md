@@ -2,33 +2,69 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
-## [2.80.5](https://github.com/ant-design/pro-components/compare/@ant-design/pro-table@2.80.4...@ant-design/pro-table@2.80.5) (2022-08-30)
+## [3.0.1](https://github.com/ant-design/pro-components/compare/@ant-design/pro-table@3.0.0-experimental.27...@ant-design/pro-table@3.0.1) (2022-09-01)
 
 **Note:** Version bump only for package @ant-design/pro-table
 
-## [2.80.4](https://github.com/ant-design/pro-components/compare/@ant-design/pro-table@2.80.3...@ant-design/pro-table@2.80.4) (2022-08-29)
-
-**Note:** Version bump only for package @ant-design/pro-table
-
-## [2.80.3](https://github.com/ant-design/pro-components/compare/@ant-design/pro-table@2.80.2...@ant-design/pro-table@2.80.3) (2022-08-26)
+# [3.0.0-experimental.27](https://github.com/ant-design/pro-components/compare/@ant-design/pro-table@3.0.0-experimental.26...@ant-design/pro-table@3.0.0-experimental.27) (2022-08-31)
 
 ### Bug Fixes
 
-- **table:** fix columns is null error ([fcfd8f5](https://github.com/ant-design/pro-components/commit/fcfd8f591585a24d816f64ade31c87683f8b0d7e))
-- **table:** fix current and pageSize uncontrolled error ([55f44e2](https://github.com/ant-design/pro-components/commit/55f44e2d5b2fb57d9944e5c9969cd075b95c0abe))
-- **table:** Fix the problem that the editing form is still updated after finishing editing ([ae3854a](https://github.com/ant-design/pro-components/commit/ae3854a1b66086f7d4b1454b526bfcf1a767d662))
+- **card:** 兼容 antd v4 TabPane 的能力支持 ([#5796](https://github.com/ant-design/pro-components/issues/5796)) ([beda6b1](https://github.com/ant-design/pro-components/commit/beda6b1b93e92825bba90efe9049b4bf6320c882))
 
-## [2.80.2](https://github.com/ant-design/pro-components/compare/@ant-design/pro-table@2.80.1...@ant-design/pro-table@2.80.2) (2022-08-24)
-
-**Note:** Version bump only for package @ant-design/pro-table
-
-## [2.80.1](https://github.com/ant-design/pro-components/compare/@ant-design/pro-table@2.80.0...@ant-design/pro-table@2.80.1) (2022-08-22)
+# [3.0.0-experimental.26](https://github.com/ant-design/pro-components/compare/@ant-design/pro-table@2.80.4...@ant-design/pro-table@3.0.0-experimental.26) (2022-08-30)
 
 ### Bug Fixes
 
-- 解决 EditableTable 与 ProForm 配合使用时初始化数据也会触发 onValuesChange 的问题 ([#5751](https://github.com/ant-design/pro-components/issues/5751)) ([639aa22](https://github.com/ant-design/pro-components/commit/639aa22922f377407cc222590ff0bc3bcac0de16))
+- update snapshot ([4db1605](https://github.com/ant-design/pro-components/commit/4db1605937c3b0cf22d22ad398ef4c11e21883cd))
 
-# [2.80.0](https://github.com/ant-design/pro-components/compare/@ant-design/pro-table@2.79.0...@ant-design/pro-table@2.80.0) (2022-08-19)
+# [3.0.0-experimental.25](https://github.com/ant-design/pro-components/compare/@ant-design/pro-table@3.0.0-experimental.24...@ant-design/pro-table@3.0.0-experimental.25) (2022-08-29)
+
+### Bug Fixes
+
+- update snapshot ([4db1605](https://github.com/ant-design/pro-components/commit/4db1605937c3b0cf22d22ad398ef4c11e21883cd))
+
+# [3.0.0-experimental.24](https://github.com/ant-design/pro-components/compare/@ant-design/pro-table@2.80.3...@ant-design/pro-table@3.0.0-experimental.24) (2022-08-26)
+
+**Note:** Version bump only for package @ant-design/pro-table
+
+# [3.0.0-experimental.23](https://github.com/ant-design/pro-components/compare/@ant-design/pro-table@3.0.0-experimental.22...@ant-design/pro-table@3.0.0-experimental.23) (2022-08-25)
+
+**Note:** Version bump only for package @ant-design/pro-table
+
+# [3.0.0-experimental.22](https://github.com/ant-design/pro-components/compare/@ant-design/pro-table@3.0.0-experimental.21...@ant-design/pro-table@3.0.0-experimental.22) (2022-08-25)
+
+**Note:** Version bump only for package @ant-design/pro-table
+
+# [3.0.0-experimental.21](https://github.com/ant-design/pro-components/compare/@ant-design/pro-table@2.80.2...@ant-design/pro-table@3.0.0-experimental.21) (2022-08-25)
+
+**Note:** Version bump only for package @ant-design/pro-table
+
+# [3.0.0-experimental.20](https://github.com/ant-design/pro-components/compare/@ant-design/pro-table@3.0.0-experimental.19...@ant-design/pro-table@3.0.0-experimental.20) (2022-08-24)
+
+**Note:** Version bump only for package @ant-design/pro-table
+
+# [3.0.0-experimental.19](https://github.com/ant-design/pro-components/compare/@ant-design/pro-table@3.0.0-experimental.18...@ant-design/pro-table@3.0.0-experimental.19) (2022-08-24)
+
+**Note:** Version bump only for package @ant-design/pro-table
+
+# [3.0.0-experimental.18](https://github.com/ant-design/pro-components/compare/@ant-design/pro-table@3.0.0-experimental.17...@ant-design/pro-table@3.0.0-experimental.18) (2022-08-24)
+
+**Note:** Version bump only for package @ant-design/pro-table
+
+# [3.0.0-experimental.17](https://github.com/ant-design/pro-components/compare/@ant-design/pro-table@3.0.0-experimental.16...@ant-design/pro-table@3.0.0-experimental.17) (2022-08-24)
+
+**Note:** Version bump only for package @ant-design/pro-table
+
+# [3.0.0-experimental.16](https://github.com/ant-design/pro-components/compare/@ant-design/pro-table@3.0.0-experimental.15...@ant-design/pro-table@3.0.0-experimental.16) (2022-08-23)
+
+**Note:** Version bump only for package @ant-design/pro-table
+
+# [3.0.0-experimental.15](https://github.com/ant-design/pro-components/compare/@ant-design/pro-table@2.80.1...@ant-design/pro-table@3.0.0-experimental.15) (2022-08-23)
+
+**Note:** Version bump only for package @ant-design/pro-table
+
+# [2.79.0](https://github.com/ant-design/pro-components/compare/@ant-design/pro-table@2.78.3...@ant-design/pro-table@2.79.0) (2022-08-15)
 
 ### Bug Fixes
 

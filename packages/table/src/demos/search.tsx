@@ -18,12 +18,6 @@ const columns: ProColumns<GithubIssueItem>[] = [
     dataIndex: 'name',
     search: false,
   },
-  {
-    title: '创建时间',
-    key: 'since',
-    dataIndex: 'createdAt',
-    valueType: 'dateTime',
-  },
 ];
 
 export default () => (

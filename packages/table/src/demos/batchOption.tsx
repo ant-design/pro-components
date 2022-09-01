@@ -133,7 +133,7 @@ export default () => {
         <Space size={24}>
           <span>
             已选 {selectedRowKeys.length} 项
-            <a style={{ marginLeft: 8 }} onClick={onCleanSelected}>
+            <a style={{ marginInlineStart: 8 }} onClick={onCleanSelected}>
               取消选择
             </a>
           </span>

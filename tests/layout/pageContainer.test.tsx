@@ -1,5 +1,5 @@
-import type { BasicLayoutProps } from '@ant-design/pro-components';
-import { BasicLayout, FooterToolbar, PageContainer } from '@ant-design/pro-components';
+import type { ProLayoutProps } from '@ant-design/pro-components';
+import { FooterToolbar, PageContainer, ProLayout } from '@ant-design/pro-components';
 import { render as libraryRender } from '@testing-library/react';
 import { mount, render } from 'enzyme';
 import React, { useEffect, useMemo, useState } from 'react';
@@ -30,7 +30,9 @@ describe('PageContainer', () => {
     const html = mount(
       <PageContainer breadcrumbRender={() => <div>这里是面包屑</div>}>content</PageContainer>,
     );
-    expect(html.find('.has-breadcrumb').at(0).find('div div').text()).toBe('这里是面包屑');
+    expect(html.find('.ant-page-header-has-breadcrumb').at(0).find('div div').text()).toBe(
+      '这里是面包屑',
+    );
   });
 
   it('💄 pageContainer support tabBarExtraContent', async () => {
@@ -138,8 +140,8 @@ describe('PageContainer', () => {
   });
 
   it('🐲 footer should know width', async () => {
-    const wrapper = mount<BasicLayoutProps>(
-      <BasicLayout>
+    const wrapper = mount<ProLayoutProps>(
+      <ProLayout>
         <PageContainer
           title="期贤"
           footer={[
@@ -148,11 +150,11 @@ describe('PageContainer', () => {
             </button>,
           ]}
         />
-      </BasicLayout>,
+      </ProLayout>,
     );
     await waitForComponentToPaint(wrapper);
 
-    expect(wrapper?.find('.ant-pro-footer-bar')?.props()?.style?.width).toBe('calc(100% - 208px)');
+    expect(wrapper?.find('.ant-pro-footer-bar')?.props()?.style?.width).toBe('calc(100% - 256px)');
     act(() => {
       wrapper.setProps({
         collapsed: true,
@@ -161,7 +163,7 @@ describe('PageContainer', () => {
 
     await waitForComponentToPaint(wrapper);
 
-    expect(wrapper?.find('.ant-pro-footer-bar')?.props()?.style?.width).toBe('calc(100% - 48px)');
+    expect(wrapper?.find('.ant-pro-footer-bar')?.props()?.style?.width).toBe('calc(100% - 60px)');
     act(() => {
       wrapper.setProps({
         layout: 'top',
@@ -174,8 +176,8 @@ describe('PageContainer', () => {
   });
 
   it('🐲 FooterToolbar should know width', async () => {
-    const wrapper = mount<BasicLayoutProps>(
-      <BasicLayout>
+    const wrapper = mount<ProLayoutProps>(
+      <ProLayout>
         <PageContainer>
           <FooterToolbar>
             <button type="button" key="button">
@@ -183,11 +185,11 @@ describe('PageContainer', () => {
             </button>
           </FooterToolbar>
         </PageContainer>
-      </BasicLayout>,
+      </ProLayout>,
     );
     await waitForComponentToPaint(wrapper);
 
-    expect(wrapper?.find('.ant-pro-footer-bar')?.props()?.style?.width).toBe('calc(100% - 208px)');
+    expect(wrapper?.find('.ant-pro-footer-bar')?.props()?.style?.width).toBe('calc(100% - 256px)');
     act(() => {
       wrapper.setProps({
         collapsed: true,
@@ -196,7 +198,7 @@ describe('PageContainer', () => {
 
     await waitForComponentToPaint(wrapper);
 
-    expect(wrapper.find('.ant-pro-footer-bar')?.props()?.style?.width).toBe('calc(100% - 48px)');
+    expect(wrapper.find('.ant-pro-footer-bar')?.props()?.style?.width).toBe('calc(100% - 60px)');
     act(() => {
       wrapper.setProps({
         layout: 'top',
@@ -239,7 +241,7 @@ describe('PageContainer', () => {
 
   it('🐲 pro-layout support breadcrumbProps', async () => {
     const wrapper = render(
-      <BasicLayout
+      <ProLayout
         breadcrumbProps={{
           separator: '>',
           routes: [
@@ -273,7 +275,7 @@ describe('PageContainer', () => {
         }}
       >
         <PageContainer />
-      </BasicLayout>,
+      </ProLayout>,
     );
     expect(wrapper).toMatchSnapshot();
   });
@@ -379,7 +381,7 @@ describe('PageContainer', () => {
     const wrapper = libraryRender(<App />);
     await waitForComponentToPaint(wrapper);
     expect(wrapper.baseElement.querySelectorAll('#customLoading').length).toBe(1);
-    expect(wrapper).toMatchSnapshot();
+    expect(wrapper.asFragment()).toMatchSnapshot();
     await waitForComponentToPaint(wrapper, 1000);
     expect(wrapper.baseElement.querySelectorAll('#customLoading').length).toBe(0);
   });
@@ -405,6 +407,8 @@ describe('PageContainer', () => {
         }}
       />,
     );
-    expect(html.container.getElementsByClassName('has-breadcrumb')[0].innerHTML).toBe('diss');
+    expect(
+      html.container.getElementsByClassName('ant-page-header-has-breadcrumb')[0].innerHTML,
+    ).toBe('diss');
   });
 });

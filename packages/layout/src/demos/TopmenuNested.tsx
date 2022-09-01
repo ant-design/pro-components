@@ -15,7 +15,6 @@ export default () => (
       route={{
         routes: complexMenu,
       }}
-      disableContentMargin
       layout="top"
     >
       <ProLayout

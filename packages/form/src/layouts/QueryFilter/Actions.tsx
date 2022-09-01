@@ -1,7 +1,7 @@
 import { DownOutlined } from '@ant-design/icons';
 import type { IntlType } from '@ant-design/pro-provider';
 import { useIntl } from '@ant-design/pro-provider';
-import { omitBoolean } from '@ant-design/pro-utils';
+import { omitBoolean, useToken } from '@ant-design/pro-utils';
 import { ConfigProvider, Space } from 'antd';
 import React, { useContext } from 'react';
 
@@ -37,7 +37,7 @@ const defaultCollapseRender: ActionsProps['collapseRender'] = (collapsed, _, int
         {hiddenNum && `(${hiddenNum})`}
         <DownOutlined
           style={{
-            marginLeft: '0.5em',
+            marginInlineStart: '0.5em',
             transition: '0.3s all',
             transform: `rotate(${collapsed ? 0 : 0.5}turn)`,
           }}
@@ -50,7 +50,7 @@ const defaultCollapseRender: ActionsProps['collapseRender'] = (collapsed, _, int
       {intl.getMessage('tableForm.expand', '收起')}
       <DownOutlined
         style={{
-          marginLeft: '0.5em',
+          marginInlineStart: '0.5em',
           transition: '0.3s all',
           transform: `rotate(${collapsed ? 0 : 0.5}turn)`,
         }}
@@ -68,14 +68,15 @@ const Actions: React.FC<ActionsProps> = (props) => {
   const { setCollapsed, collapsed = false, submitter, style, hiddenNum } = props;
   const { getPrefixCls } = useContext(ConfigProvider.ConfigContext);
   const intl = useIntl();
-
+  const { hashId } = useToken();
   const collapseRender = omitBoolean(props.collapseRender) || defaultCollapseRender;
+
   return (
     <Space style={style} size={16}>
       {submitter}
       {props.collapseRender !== false && (
         <a
-          className={getPrefixCls('pro-form-collapse-button')}
+          className={`${getPrefixCls('pro-query-filter-collapse-button')} ${hashId}`}
           onClick={() => setCollapsed(!collapsed)}
         >
           {collapseRender?.(collapsed, props, intl, hiddenNum)}

@@ -18,7 +18,7 @@ const defaultData: DataSourceType[] = new Array(20).fill(1).map((_, index) => {
     title: `活动名称${index}`,
     decs: '这个活动真好玩',
     state: 'open',
-    created_at: '2020-05-26T09:42:56Z',
+    created_at: '1590486176000',
   };
 });
 

@@ -26,12 +26,6 @@ const columns: ProColumns<GithubIssueItem>[] = [
     valueType: 'money',
     renderText: () => (Math.random() * 100).toFixed(2),
   },
-  {
-    title: 'Created Time',
-    key: 'since',
-    dataIndex: 'createdAt',
-    valueType: 'dateTime',
-  },
 ];
 
 export default () => (

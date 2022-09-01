@@ -2,7 +2,7 @@ import { SettingDrawer } from '@ant-design/pro-components';
 import { act, render as reactRender } from '@testing-library/react';
 import { mount, render } from 'enzyme';
 import { waitForComponentToPaint } from '../util';
-import defaultSettings from './defaultSettings';
+import { defaultSettings } from './defaultSettings';
 
 describe('settingDrawer.test', () => {
   beforeAll(() => {
@@ -90,25 +90,25 @@ describe('settingDrawer.test', () => {
         settings={defaultSettings}
         collapse
         getContainer={false}
-        onSettingChange={(setting) => onSettingChange(setting.primaryColor)}
+        onSettingChange={(setting) => onSettingChange(setting.colorPrimary)}
       />,
     );
     await waitForComponentToPaint(wrapper);
     act(() => {
-      const button = wrapper.find('div.theme-color-content div.theme-color-block').at(0);
+      const button = wrapper.find('div.ant-pro-setting-drawer-theme-color-block').at(0);
       button.simulate('click');
     });
     await waitForComponentToPaint(wrapper);
-    expect(onSettingChange).toBeCalledWith('#1890ff');
+    expect(onSettingChange).toBeCalledWith('#1677FF');
 
     act(() => {
-      const button = wrapper.find('div.theme-color-content div.theme-color-block').at(1);
+      const button = wrapper.find('div.ant-pro-setting-drawer-theme-color-block').at(1);
       button.simulate('click');
     });
     await waitForComponentToPaint(wrapper);
 
     expect(onSettingChange).toBeCalledWith('#F5222D');
-    expect(wrapper.find('div.theme-color-content div.theme-color-block').length).toBe(9);
+    expect(wrapper.find('div.ant-pro-setting-drawer-theme-color-block').length).toBe(9);
     act(() => {
       wrapper.unmount();
     });
@@ -161,14 +161,11 @@ describe('settingDrawer.test', () => {
       layout: 'mix',
       contentWidth: 'Fluid',
       fixedHeader: true,
-      fixSiderbar: false,
-      headerHeight: 48,
-      primaryColor: '#1890ff',
+      fixSiderbar: true,
+      colorPrimary: '#1677FF',
       splitMenus: false,
     });
-    act(() => {
-      html.unmount();
-    });
+    html.unmount();
   });
 
   it('🌺 hideCopyButton = true', () => {
@@ -214,9 +211,7 @@ describe('settingDrawer.test', () => {
     });
     await waitForComponentToPaint(html);
     expect(fn).toBeCalled();
-    act(() => {
-      html.unmount();
-    });
+    html.unmount();
   });
 
   it('🌺 onCollapseChange', async () => {
@@ -387,6 +382,7 @@ describe('settingDrawer.test', () => {
         disableUrlParams
         settings={defaultSettings}
         collapse
+        enableDarkTheme
         getContainer={false}
         onSettingChange={(setting) => onSettingChange(setting.navTheme)}
       />,
@@ -494,7 +490,7 @@ describe('settingDrawer.test', () => {
       expect(
         (
           html.baseElement.querySelectorAll(
-            '.ant-pro-setting-drawer-title',
+            '.ant-pro-setting-drawer-body-title',
           )[0] as HTMLHeadingElement
         ).textContent,
       ).toEqual('整体风格设置');
@@ -515,15 +511,13 @@ describe('settingDrawer.test', () => {
       expect(
         (
           html.baseElement.querySelectorAll(
-            '.ant-pro-setting-drawer-title',
+            '.ant-pro-setting-drawer-body-title',
           )[0] as HTMLHeadingElement
         ).textContent,
       ).toEqual('Page style setting');
     });
     await waitForComponentToPaint(html, 200);
-    act(() => {
-      html.unmount();
-    });
+    html.unmount();
     window.localStorage.setItem('umi_locale', 'zh-CN');
   });
 });

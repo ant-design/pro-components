@@ -2,6 +2,42 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.0.1](https://github.com/ant-design/pro-components/compare/@ant-design/pro-skeleton@2.0.0-experimental.9...@ant-design/pro-skeleton@2.0.1) (2022-09-01)
+
+**Note:** Version bump only for package @ant-design/pro-skeleton
+
+# [2.0.0-experimental.9](https://github.com/ant-design/pro-components/compare/@ant-design/pro-skeleton@2.0.0-experimental.8...@ant-design/pro-skeleton@2.0.0-experimental.9) (2022-08-24)
+
+**Note:** Version bump only for package @ant-design/pro-skeleton
+
+# [2.0.0-experimental.8](https://github.com/ant-design/pro-components/compare/@ant-design/pro-skeleton@2.0.0-experimental.7...@ant-design/pro-skeleton@2.0.0-experimental.8) (2022-08-24)
+
+**Note:** Version bump only for package @ant-design/pro-skeleton
+
+# [2.0.0-experimental.7](https://github.com/ant-design/pro-components/compare/@ant-design/pro-skeleton@2.0.0-experimental.6...@ant-design/pro-skeleton@2.0.0-experimental.7) (2022-08-19)
+
+**Note:** Version bump only for package @ant-design/pro-skeleton
+
+# [2.0.0-experimental.6](https://github.com/ant-design/pro-components/compare/@ant-design/pro-skeleton@2.0.0-experimental.5...@ant-design/pro-skeleton@2.0.0-experimental.6) (2022-08-19)
+
+**Note:** Version bump only for package @ant-design/pro-skeleton
+
+# [2.0.0-experimental.5](https://github.com/ant-design/pro-components/compare/@ant-design/pro-skeleton@2.0.0-experimental.4...@ant-design/pro-skeleton@2.0.0-experimental.5) (2022-08-05)
+
+**Note:** Version bump only for package @ant-design/pro-skeleton
+
+# [2.0.0-experimental.4](https://github.com/ant-design/pro-components/compare/@ant-design/pro-skeleton@2.0.0-experimental.3...@ant-design/pro-skeleton@2.0.0-experimental.4) (2022-08-01)
+
+**Note:** Version bump only for package @ant-design/pro-skeleton
+
+# [2.0.0-experimental.3](https://github.com/ant-design/pro-components/compare/@ant-design/pro-skeleton@2.0.0-experimental.2...@ant-design/pro-skeleton@2.0.0-experimental.3) (2022-08-01)
+
+**Note:** Version bump only for package @ant-design/pro-skeleton
+
+# [2.0.0-experimental.2](https://github.com/ant-design/pro-components/compare/@ant-design/pro-skeleton@1.0.13...@ant-design/pro-skeleton@2.0.0-experimental.2) (2022-08-01)
+
+**Note:** Version bump only for package @ant-design/pro-skeleton
+
 ## [1.0.13](https://github.com/ant-design/pro-components/compare/@ant-design/pro-skeleton@1.0.12...@ant-design/pro-skeleton@1.0.13) (2022-07-22)
 
 **Note:** Version bump only for package @ant-design/pro-skeleton

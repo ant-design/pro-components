@@ -7,7 +7,7 @@ import { runFunction } from '../runFunction';
  * @param fieldProps
  * @param form
  */
-const getFieldPropsOrFormItemProps = (
+export const getFieldPropsOrFormItemProps = (
   fieldProps: any,
   form?: FormInstance<any> | null,
   extraProps?: any,
@@ -20,5 +20,3 @@ const getFieldPropsOrFormItemProps = (
   }
   return runFunction(fieldProps, form, extraProps);
 };
-
-export default getFieldPropsOrFormItemProps;

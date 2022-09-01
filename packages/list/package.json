@@ -1,6 +1,6 @@
 {
   "name": "@ant-design/pro-list",
-  "version": "1.21.84",
+  "version": "2.0.1",
   "description": "🏆 Use Ant Design List like a Pro!",
   "keywords": [
     "antd",
@@ -13,16 +13,11 @@
     "url": "https://github.com/ant-design/pro-components"
   },
   "license": "MIT",
-  "sideEffects": [
-    "*.less"
-  ],
-  "main": "lib/index.js",
+  "main": "es/index.js",
   "module": "es/index.js",
-  "types": "lib/index.d.ts",
+  "types": "es/index.d.ts",
   "files": [
-    "lib",
     "es",
-    "src",
     "dist"
   ],
   "browserslist": [
@@ -33,20 +28,21 @@
   ],
   "dependencies": {
     "@ant-design/icons": "^4.0.0",
-    "@ant-design/pro-card": "1.20.21",
-    "@ant-design/pro-field": "1.36.5",
-    "@ant-design/pro-table": "2.80.5",
+    "@ant-design/pro-card": "2.0.1",
+    "@ant-design/pro-field": "2.0.1",
+    "@ant-design/pro-table": "3.0.1",
     "@babel/runtime": "^7.18.0",
-    "antd": "^4.20.0 ",
     "classnames": "^2.2.6",
-    "moment": "^2.24.0",
+    "dayjs": "^1.11.4",
     "rc-resize-observer": "^1.0.0",
     "rc-util": "^4.19.0",
     "unstated-next": "^1.1.0",
     "use-media-antd-query": "^1.1.0"
   },
   "peerDependencies": {
-    "react": ">=16.9.0"
+    "antd": ">=4.20.0",
+    "react": ">=16.9.0",
+    "react-dom": ">=16.9.0"
   },
   "publishConfig": {
     "access": "public"

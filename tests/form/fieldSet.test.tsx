@@ -73,9 +73,7 @@ describe('ProFormFieldSet', () => {
 
     expect(fn).toBeCalledWith(['111', 2, '333']);
 
-    act(() => {
-      html.unmount();
-    });
+    html.unmount();
   });
 
   it('😊 ProFormFieldSet support Input onChange', async () => {

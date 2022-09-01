@@ -19,7 +19,7 @@ export default () => {
     <div
       style={{
         boxShadow: '0 0 8px rgba(0, 0, 0, 0.2)',
-        height: '100vh',
+        minHeight: '100vh',
         background: '#F5F7FA',
       }}
     >

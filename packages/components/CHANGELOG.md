@@ -2,25 +2,97 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
-## [1.1.22](https://github.com/ant-design/pro-components/compare/@ant-design/pro-components@1.1.21...@ant-design/pro-components@1.1.22) (2022-08-30)
+## [2.3.2](https://github.com/ant-design/pro-components/compare/@ant-design/pro-components@2.3.1...@ant-design/pro-components@2.3.2) (2022-09-01)
 
 **Note:** Version bump only for package @ant-design/pro-components
 
-## [1.1.21](https://github.com/ant-design/pro-components/compare/@ant-design/pro-components@1.1.20...@ant-design/pro-components@1.1.21) (2022-08-29)
+## [2.3.1](https://github.com/ant-design/pro-components/compare/@ant-design/pro-components@2.3.0...@ant-design/pro-components@2.3.1) (2022-08-31)
 
 **Note:** Version bump only for package @ant-design/pro-components
 
-## [1.1.20](https://github.com/ant-design/pro-components/compare/@ant-design/pro-components@1.1.19...@ant-design/pro-components@1.1.20) (2022-08-26)
+# [2.3.0](https://github.com/ant-design/pro-components/compare/@ant-design/pro-components@1.1.21...@ant-design/pro-components@2.3.0) (2022-08-30)
+
+### Features
+
+- **layout:** layout support simple app list ([#5501](https://github.com/ant-design/pro-components/issues/5501)) ([2fe76ed](https://github.com/ant-design/pro-components/commit/2fe76edea9acd07d1f167762ebd52f6fe7a163a2))
+
+## [2.2.1](https://github.com/ant-design/pro-components/compare/@ant-design/pro-components@2.2.0...@ant-design/pro-components@2.2.1) (2022-08-29)
 
 **Note:** Version bump only for package @ant-design/pro-components
 
-## [1.1.19](https://github.com/ant-design/pro-components/compare/@ant-design/pro-components@1.1.18...@ant-design/pro-components@1.1.19) (2022-08-24)
+# [2.2.0](https://github.com/ant-design/pro-components/compare/@ant-design/pro-components@1.1.20...@ant-design/pro-components@2.2.0) (2022-08-26)
+
+### Features
+
+- **layout:** layout support simple app list ([#5501](https://github.com/ant-design/pro-components/issues/5501)) ([2fe76ed](https://github.com/ant-design/pro-components/commit/2fe76edea9acd07d1f167762ebd52f6fe7a163a2))
+
+## [2.1.2](https://github.com/ant-design/pro-components/compare/@ant-design/pro-components@2.1.1...@ant-design/pro-components@2.1.2) (2022-08-25)
 
 **Note:** Version bump only for package @ant-design/pro-components
 
-## [1.1.18](https://github.com/ant-design/pro-components/compare/@ant-design/pro-components@1.1.17...@ant-design/pro-components@1.1.18) (2022-08-22)
+## [2.1.1](https://github.com/ant-design/pro-components/compare/@ant-design/pro-components@2.1.0...@ant-design/pro-components@2.1.1) (2022-08-25)
 
 **Note:** Version bump only for package @ant-design/pro-components
+
+# [2.1.0](https://github.com/ant-design/pro-components/compare/@ant-design/pro-components@1.1.19...@ant-design/pro-components@2.1.0) (2022-08-25)
+
+### Features
+
+- **layout:** layout support simple app list ([#5501](https://github.com/ant-design/pro-components/issues/5501)) ([2fe76ed](https://github.com/ant-design/pro-components/commit/2fe76edea9acd07d1f167762ebd52f6fe7a163a2))
+
+## [2.0.5](https://github.com/ant-design/pro-components/compare/@ant-design/pro-components@2.0.0-experimental.30...@ant-design/pro-components@2.0.5) (2022-08-24)
+
+**Note:** Version bump only for package @ant-design/pro-components
+
+# [2.0.0-experimental.30](https://github.com/ant-design/pro-components/compare/@ant-design/pro-components@2.0.0-experimental.29...@ant-design/pro-components@2.0.0-experimental.30) (2022-08-24)
+
+**Note:** Version bump only for package @ant-design/pro-components
+
+# [2.0.0-experimental.29](https://github.com/ant-design/pro-components/compare/@ant-design/pro-components@2.0.0-experimental.28...@ant-design/pro-components@2.0.0-experimental.29) (2022-08-24)
+
+**Note:** Version bump only for package @ant-design/pro-components
+
+# [2.0.0-experimental.28](https://github.com/ant-design/pro-components/compare/@ant-design/pro-components@2.0.0-experimental.27...@ant-design/pro-components@2.0.0-experimental.28) (2022-08-24)
+
+**Note:** Version bump only for package @ant-design/pro-components
+
+# [2.0.0-experimental.27](https://github.com/ant-design/pro-components/compare/@ant-design/pro-components@2.0.0-experimental.26...@ant-design/pro-components@2.0.0-experimental.27) (2022-08-23)
+
+**Note:** Version bump only for package @ant-design/pro-components
+
+# [2.0.0-experimental.26](https://github.com/ant-design/pro-components/compare/@ant-design/pro-components@2.0.0-experimental.25...@ant-design/pro-components@2.0.0-experimental.26) (2022-08-23)
+
+**Note:** Version bump only for package @ant-design/pro-components
+
+# [2.0.0-experimental.25](https://github.com/ant-design/pro-components/compare/@ant-design/pro-components@2.0.0-experimental.24...@ant-design/pro-components@2.0.0-experimental.25) (2022-08-23)
+
+**Note:** Version bump only for package @ant-design/pro-components
+
+# [2.0.0-experimental.24](https://github.com/ant-design/pro-components/compare/@ant-design/pro-components@2.0.0-experimental.23...@ant-design/pro-components@2.0.0-experimental.24) (2022-08-23)
+
+**Note:** Version bump only for package @ant-design/pro-components
+
+# [2.0.0-experimental.23](https://github.com/ant-design/pro-components/compare/@ant-design/pro-components@2.0.0-experimental.22...@ant-design/pro-components@2.0.0-experimental.23) (2022-08-23)
+
+**Note:** Version bump only for package @ant-design/pro-components
+
+# [2.0.0-experimental.22](https://github.com/ant-design/pro-components/compare/@ant-design/pro-components@2.0.0-experimental.21...@ant-design/pro-components@2.0.0-experimental.22) (2022-08-23)
+
+**Note:** Version bump only for package @ant-design/pro-components
+
+# [2.0.0-experimental.21](https://github.com/ant-design/pro-components/compare/@ant-design/pro-components@2.0.0-experimental.20...@ant-design/pro-components@2.0.0-experimental.21) (2022-08-23)
+
+**Note:** Version bump only for package @ant-design/pro-components
+
+# [2.0.0-experimental.20](https://github.com/ant-design/pro-components/compare/@ant-design/pro-components@2.0.0-experimental.19...@ant-design/pro-components@2.0.0-experimental.20) (2022-08-23)
+
+**Note:** Version bump only for package @ant-design/pro-components
+
+# [2.0.0-experimental.19](https://github.com/ant-design/pro-components/compare/@ant-design/pro-components@1.1.18...@ant-design/pro-components@2.0.0-experimental.19) (2022-08-23)
+
+### Features
+
+- **layout:** layout support simple app list ([#5501](https://github.com/ant-design/pro-components/issues/5501)) ([2fe76ed](https://github.com/ant-design/pro-components/commit/2fe76edea9acd07d1f167762ebd52f6fe7a163a2))
 
 ## [1.1.17](https://github.com/ant-design/pro-components/compare/@ant-design/pro-components@1.1.16...@ant-design/pro-components@1.1.17) (2022-08-19)
 

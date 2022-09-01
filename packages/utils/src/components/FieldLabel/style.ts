@@ -1,0 +1,111 @@
+﻿import type { GenerateStyle, ProAliasToken } from '../../useStyle';
+import { useStyle as useAntdStyle } from '../../useStyle';
+
+export interface ProToken extends ProAliasToken {
+  componentCls: string;
+}
+
+const genProStyle: GenerateStyle<ProToken> = (token) => {
+  return {
+    [token.componentCls]: {
+      display: 'inline-flex',
+      gap: '4px',
+      alignItems: 'center',
+      height: '30px',
+      paddingBlock: 0,
+      paddingInline: 8,
+      fontSize: token.fontSizeBase,
+      lineHeight: '30px',
+      borderRadius: '2px',
+      cursor: 'pointer',
+      '&:hover': {
+        backgroundColor: 'rgba(0,0,0,0.1)',
+      },
+      '*': {
+        boxSizing: 'border-box',
+      },
+      '&-active': {
+        paddingBlock: 0,
+        paddingInline: 12,
+        backgroundColor: 'rgba(0,0,0,0.04)',
+        [`&${token.componentCls}-allow-clear:hover:not(${token.componentCls}-disabled)`]: {
+          [`${token.componentCls}-arrow`]: {
+            display: 'none',
+          },
+          [`${token.componentCls}-close`]: {
+            display: 'inline-flex',
+          },
+        },
+      },
+      '&-icon': {
+        height: '12px',
+        paddingBlock: 1,
+        paddingInline: 1,
+        color: token.colorIcon,
+        fontSize: '12px',
+        verticalAlign: 'middle',
+        [`&${token.componentCls}-close`]: {
+          display: 'none',
+          height: 14,
+          alignItems: 'center',
+          justifyContent: 'center',
+          width: 14,
+          color: token.colorBgBase,
+          fontSize: 8,
+          backgroundColor: token.colorTextPlaceholder,
+          borderRadius: '50%',
+          '&:hover': {
+            color: token.colorIcon,
+          },
+        },
+      },
+      '&-disabled': {
+        color: token.colorTextPlaceholder,
+        cursor: 'not-allowed',
+        [`${token.componentCls}-icon`]: {
+          color: token.colorTextPlaceholder,
+        },
+      },
+      '&-small': {
+        height: '24px',
+        paddingBlock: 0,
+        paddingInline: 4,
+        fontSize: token.fontSizeSM,
+        lineHeight: '24px',
+        [`&${token.componentCls}-active`]: { paddingBlock: 0, paddingInline: 8 },
+        [`${token.componentCls}-icon`]: {
+          paddingBlock: 0,
+          paddingInline: 0,
+        },
+        [`${token.componentCls}-close`]: {
+          marginBlockStart: '-2px',
+          paddingBlock: 4,
+          paddingInline: 4,
+          fontSize: '6px',
+        },
+      },
+      '&-bordered': {
+        height: '32px',
+        paddingBlock: 0,
+        paddingInline: 12,
+        border: `${token.controlLineWidth} solid ${token.colorBorder}`,
+        borderRadius: '@border-radius-base',
+      },
+      '&-bordered&-small': { height: '24px', paddingBlock: 0, paddingInline: 8 },
+      '&-bordered&-active': {
+        backgroundColor: token.colorBgBase,
+      },
+    },
+  };
+};
+
+export function useStyle(prefixCls: string) {
+  return useAntdStyle('FieldLabel', (token) => {
+    const proToken: ProToken = {
+      ...token,
+      componentCls: `.${prefixCls}`,
+    };
+
+    return [genProStyle(proToken)];
+  });
+}

@@ -12,7 +12,7 @@ export default () => (
       title={
         <div style={{ display: 'flex', alignItems: 'center' }}>
           <AppstoreOutlined />
-          <span style={{ marginRight: 8, marginLeft: 8 }}>示例</span>
+          <span style={{ marginInlineEnd: 8, marginInlineStart: 8 }}>示例</span>
           <Tag color="blue">blue</Tag>
         </div>
       }

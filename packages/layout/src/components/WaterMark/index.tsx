@@ -67,7 +67,7 @@ const getPixelRatio = (context: any) => {
   return (window.devicePixelRatio || 1) / backingStore;
 };
 
-const WaterMark: React.FC<WaterMarkProps> = (props) => {
+export const WaterMark: React.FC<WaterMarkProps> = (props) => {
   const {
     children,
     style,
@@ -185,12 +185,10 @@ const WaterMark: React.FC<WaterMarkProps> = (props) => {
             ? {
                 backgroundImage: `url('${base64Url}')`,
               }
-            : null),
+            : {}),
           ...markStyle,
         }}
       />
     </div>
   );
 };
-
-export default WaterMark;

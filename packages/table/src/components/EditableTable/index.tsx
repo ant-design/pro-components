@@ -6,8 +6,8 @@ import { useIntl } from '@ant-design/pro-provider';
 import { isDeepEqualReact, runFunction, usePrevious, useRefFunction } from '@ant-design/pro-utils';
 import type { ButtonProps, FormItemProps } from 'antd';
 import { Button, Form } from 'antd';
-import type { NamePath } from 'antd/lib/form/interface';
-import type { GetRowKey } from 'antd/lib/table/interface';
+import type { NamePath } from 'antd/es/form/interface';
+import type { GetRowKey } from 'antd/es/table/interface';
 import useMergedState from 'rc-util/lib/hooks/useMergedState';
 import get from 'rc-util/lib/utils/get';
 import set from 'rc-util/lib/utils/set';
@@ -449,7 +449,6 @@ function FieldEditableTable<
   const form = ProForm.useFormInstance();
 
   if (!props.name) return <EditableTable<DataType, Params, ValueType> {...props} />;
-
   return (
     <Form.Item
       style={{

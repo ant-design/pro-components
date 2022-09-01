@@ -2,7 +2,7 @@ import type { IntlType } from '@ant-design/pro-provider';
 import { useIntl } from '@ant-design/pro-provider';
 import { Alert, ConfigProvider, Space } from 'antd';
 import React, { useContext } from 'react';
-import './index.less';
+import { useStyle } from './style';
 
 export type AlertRenderType<T> =
   | ((props: {
@@ -58,6 +58,7 @@ function TableAlert<T>({
 
   const { getPrefixCls } = useContext(ConfigProvider.ConfigContext);
   const className = getPrefixCls('pro-table-alert');
+  const { wrapSSR, hashId } = useStyle(className);
   if (alertInfoRender === false) {
     return null;
   }
@@ -66,18 +67,18 @@ function TableAlert<T>({
   if (dom === false || (selectedRowKeys.length < 1 && !alwaysShowAlert)) {
     return null;
   }
-  return (
+  return wrapSSR(
     <div className={className}>
       <Alert
         message={
-          <div className={`${className}-info`}>
-            <div className={`${className}-info-content`}>{dom}</div>
-            {option ? <div className={`${className}-info-option`}>{option}</div> : null}
+          <div className={`${className}-info ${hashId}`}>
+            <div className={`${className}-info-content ${hashId}`}>{dom}</div>
+            {option ? <div className={`${className}-info-option ${hashId}`}>{option}</div> : null}
           </div>
         }
         type="info"
       />
-    </div>
+    </div>,
   );
 }
 

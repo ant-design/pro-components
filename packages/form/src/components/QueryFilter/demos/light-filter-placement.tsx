@@ -33,7 +33,7 @@ export default () => {
       <LightFilter
         placement={mode}
         style={{
-          marginTop: '40px',
+          marginBlockStart: '40px',
         }}
       >
         <ProFormSelect

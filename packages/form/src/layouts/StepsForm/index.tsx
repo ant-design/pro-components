@@ -2,7 +2,7 @@ import { ConfigProviderWrap, useIntl } from '@ant-design/pro-provider';
 import { merge, useRefFunction } from '@ant-design/pro-utils';
 import type { FormInstance, StepsProps } from 'antd';
 import { Button, Col, ConfigProvider, Form, Row, Space, Steps } from 'antd';
-import type { FormProviderProps } from 'antd/lib/form/context';
+import type { FormProviderProps } from 'antd/es/form/context';
 import classNames from 'classnames';
 import toArray from 'rc-util/lib/Children/toArray';
 import useMergedState from 'rc-util/lib/hooks/useMergedState';
@@ -16,9 +16,9 @@ import React, {
 } from 'react';
 import type { SubmitterProps } from '../../components';
 import type { ProFormProps } from '../ProForm';
-import './index.less';
 import type { StepFormProps } from './StepForm';
 import StepForm from './StepForm';
+import { useStyle } from './style';
 
 type StepsFormProps<T = Record<string, any>> = {
   /**
@@ -138,6 +138,8 @@ function StepsForm<T = Record<string, any>>(
   const { getPrefixCls } = useContext(ConfigProvider.ConfigContext);
   const prefixCls = getPrefixCls('pro-steps-form');
 
+  const { wrapSSR, hashId } = useStyle(prefixCls);
+
   const {
     current,
     onCurrentChange,
@@ -235,7 +237,7 @@ function StepsForm<T = Record<string, any>>(
   const stepsDom = useMemo(
     () => (
       <div
-        className={`${prefixCls}-steps-container`}
+        className={`${prefixCls}-steps-container ${hashId}`}
         style={{
           maxWidth: Math.min(formArray.length * 320, 1160),
         }}
@@ -248,7 +250,7 @@ function StepsForm<T = Record<string, any>>(
         </Steps>
       </div>
     ),
-    [formArray, prefixCls, step, stepsProps],
+    [formArray, hashId, prefixCls, step, stepsProps],
   );
 
   const onSubmit = useRefFunction(() => {
@@ -366,7 +368,7 @@ function StepsForm<T = Record<string, any>>(
         : {};
       return (
         <div
-          className={classNames(`${prefixCls}-step`, {
+          className={classNames(`${prefixCls}-step`, hashId, {
             [`${prefixCls}-step-active`]: isShow,
           })}
           key={name}
@@ -382,7 +384,7 @@ function StepsForm<T = Record<string, any>>(
         </div>
       );
     });
-  }, [formProps, prefixCls, props.children, step, stepFormRender]);
+  }, [formProps, hashId, prefixCls, props.children, step, stepFormRender]);
 
   const finalStepsDom = useMemo(() => {
     if (stepsRender) {
@@ -399,12 +401,12 @@ function StepsForm<T = Record<string, any>>(
 
   const formContainer = useMemo(
     () => (
-      <div className={`${prefixCls}-container`} style={containerStyle}>
+      <div className={`${prefixCls}-container ${hashId}`} style={containerStyle}>
         {formDom}
         {stepsFormRender ? null : <Space>{submitterDom}</Space>}
       </div>
     ),
-    [containerStyle, formDom, prefixCls, stepsFormRender, submitterDom],
+    [containerStyle, formDom, hashId, prefixCls, stepsFormRender, submitterDom],
   );
 
   const stepsFormDom = useMemo(() => {
@@ -420,8 +422,8 @@ function StepsForm<T = Record<string, any>>(
     return layoutRender(doms);
   }, [finalStepsDom, formContainer, layoutRender, stepsFormRender, submitterDom]);
 
-  return (
-    <div className={prefixCls}>
+  return wrapSSR(
+    <div className={classNames(prefixCls, hashId)}>
       <Form.Provider {...rest}>
         <StepsFormProvide.Provider
           value={{
@@ -440,7 +442,7 @@ function StepsForm<T = Record<string, any>>(
           {stepsFormDom}
         </StepsFormProvide.Provider>
       </Form.Provider>
-    </div>
+    </div>,
   );
 }
 function StepsFormWarp<T = Record<string, any>>(

@@ -1,7 +1,7 @@
 import ProTable from '@ant-design/pro-table';
 import { ConfigProvider, Table } from 'antd';
+import dayjs from 'dayjs';
 import { mount } from 'enzyme';
-import moment from 'moment';
 import type { RequestOptionsType } from 'packages/utils/src/typing';
 import { act } from 'react-dom/test-utils';
 import { waitForComponentToPaint } from '../util';
@@ -45,17 +45,16 @@ describe('Table ColumnSetting', () => {
         ]}
         form={{
           initialValues: {
-            date: moment(),
+            date: dayjs(),
           },
         }}
         request={async (params) => {
-          console.log(params);
           callBack(params.date);
           return {
             data: [
               {
                 key: '1',
-                date: moment(),
+                date: dayjs(),
               },
             ],
             success: true,

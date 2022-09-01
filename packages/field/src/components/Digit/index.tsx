@@ -3,6 +3,10 @@ import omit from 'lodash.omit';
 import React, { useCallback } from 'react';
 import type { ProFieldFC } from '../../index';
 
+// 兼容代码-----------
+import 'antd/es/input-number/style';
+//----------------------
+
 export type FieldDigitProps = {
   text: number;
   placeholder?: any;
@@ -21,9 +25,12 @@ const FieldDigit: ProFieldFC<FieldDigitProps> = (
 ) => {
   const proxyChange = useCallback(
     (value: number | string) => {
-      let val: string | number = Number(value)?.toFixed(fieldProps.precision ?? 0);
-
-      if (val || val.toString() === '0') {
+      let val: string | number = value;
+      if (typeof value === 'string') {
+        val = Number(val);
+      }
+      if (typeof val === 'number') {
+        val = val?.toFixed?.(fieldProps.precision ?? 0);
         val = Number(val);
       }
       return fieldProps?.onChange(val);

@@ -42,7 +42,6 @@ describe('ProFormCaptcha', () => {
           },
         }}
         onFinish={async (values) => {
-          console.log(values);
           message.success('提交成功');
           return true;
         }}

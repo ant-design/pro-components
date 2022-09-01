@@ -1,6 +1,6 @@
 import { ProDescriptions } from '@ant-design/pro-components';
 import { Button } from 'antd';
-import moment from 'moment';
+import dayjs from 'dayjs';
 
 export default () => {
   return (
@@ -62,16 +62,16 @@ export default () => {
         40
       </ProDescriptions.Item>
       <ProDescriptions.Item label="日期时间" valueType="dateTime">
-        {moment().valueOf()}
+        {dayjs().valueOf()}
       </ProDescriptions.Item>
       <ProDescriptions.Item label="日期" valueType="date">
-        {moment().valueOf()}
+        {dayjs().valueOf()}
       </ProDescriptions.Item>
       <ProDescriptions.Item label="日期区间" valueType="dateTimeRange">
-        {[moment().add(-1, 'd').valueOf(), moment().valueOf()]}
+        {[dayjs().add(-1, 'd').valueOf(), dayjs().valueOf()]}
       </ProDescriptions.Item>
       <ProDescriptions.Item label="时间" valueType="time">
-        {moment().valueOf()}
+        {dayjs().valueOf()}
       </ProDescriptions.Item>
       <ProDescriptions.Item label="代码块" valueType="code">
         {`

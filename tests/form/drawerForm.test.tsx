@@ -2,7 +2,6 @@
 import '@testing-library/jest-dom';
 import { act, fireEvent, render } from '@testing-library/react';
 import { Button, Form } from 'antd';
-import { mount } from 'enzyme';
 import React from 'react';
 import { waitForComponentToPaint } from '../util';
 
@@ -615,76 +614,68 @@ describe('DrawerForm', () => {
           </Comp>
         );
       };
-      const html = mount(<App />);
+      const html = render(<App />);
       await waitForComponentToPaint(html, 300);
       // 点击取消按钮后重置
       act(() => {
-        html.find('#new').at(0).simulate('click');
+        html.baseElement.querySelectorAll<HTMLDivElement>('#new')[0].click();
       });
       await waitForComponentToPaint(html, 300);
       act(() => {
-        html
-          .find('input#name')
-          .at(0)
-          .simulate('change', {
-            target: {
-              value: '12345',
-            },
-          });
+        fireEvent.change(html.baseElement.querySelector<HTMLDivElement>('input#name')!, {
+          target: {
+            value: '12345',
+          },
+        });
       });
       await waitForComponentToPaint(html, 300);
-      expect(html.find('input#name').props().value).toBe('12345');
+      expect(html.baseElement.querySelector<HTMLInputElement>('input#name')?.value).toBe('12345');
       act(() => {
-        html.find('.ant-btn-default').at(0).simulate('click');
+        html.baseElement.querySelectorAll<HTMLDivElement>('.ant-btn-default')[0].click();
       });
       act(() => {
-        html.find('#new').at(0).simulate('click');
+        html.baseElement.querySelectorAll<HTMLDivElement>('#new')[0].click();
       });
       await waitForComponentToPaint(html, 300);
-      expect(html.find('input#name').props().value).toBeFalsy();
+      expect(html.baseElement.querySelector<HTMLInputElement>('input#name')?.value).toBeFalsy();
       // 点击关闭按钮后重置
       act(() => {
-        html
-          .find('input#name')
-          .at(0)
-          .simulate('change', {
-            target: {
-              value: '12345',
-            },
-          });
+        fireEvent.change(html.baseElement.querySelector<HTMLDivElement>('input#name')!, {
+          target: {
+            value: '12345',
+          },
+        });
       });
       await waitForComponentToPaint(html, 300);
-      expect(html.find('input#name').props().value).toBe('12345');
+      expect(html.baseElement.querySelector<HTMLInputElement>('input#name')?.value).toBe('12345');
       act(() => {
-        html.find(close).at(0).simulate('click');
+        html.baseElement.querySelectorAll<HTMLDivElement>(close)[0].click();
       });
       act(() => {
-        html.find('#new').at(0).simulate('click');
+        html.baseElement.querySelectorAll<HTMLDivElement>('#new')[0].click();
       });
       await waitForComponentToPaint(html, 300);
-      expect(html.find('input#name').props().value).toBeFalsy();
+      expect(html.baseElement.querySelector<HTMLInputElement>('input#name')?.value).toBeFalsy();
       // 点击提交按钮后重置
       act(() => {
-        html
-          .find('input#name')
-          .at(0)
-          .simulate('change', {
-            target: {
-              value: '12345',
-            },
-          });
+        fireEvent.change(html.baseElement.querySelector<HTMLDivElement>('input#name')!, {
+          target: {
+            value: '12345',
+          },
+        });
       });
       await waitForComponentToPaint(html, 300);
-      expect(html.find('input#name').props().value).toBe('12345');
+      expect(html.baseElement.querySelector<HTMLInputElement>('input#name')?.value).toBe('12345');
+
       act(() => {
-        html.find('.ant-btn-primary').at(0).simulate('click');
+        html.baseElement.querySelectorAll<HTMLDivElement>('.ant-btn-primary')[0].click();
       });
       await waitForComponentToPaint(html, 300);
       act(() => {
-        html.find('#new').at(0).simulate('click');
+        html.baseElement.querySelectorAll<HTMLDivElement>('#new')[0].click();
       });
       await waitForComponentToPaint(html, 300);
-      expect(html.find('input#name').props().value).toBeFalsy();
+      expect(html.baseElement.querySelector<HTMLInputElement>('input#name')?.value).toBeFalsy();
       html.unmount();
     });
   });

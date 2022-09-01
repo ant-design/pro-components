@@ -1,8 +1,10 @@
 import { ConfigProvider, Dropdown } from 'antd';
 import React, { useContext } from 'react';
 import type { DropdownFooterProps } from '../DropdownFooter';
-import Footer from '../DropdownFooter';
-import './index.less';
+import { DropdownFooter } from '../DropdownFooter';
+import { useStyle } from './style';
+
+import 'antd/es/dropdown/style';
 
 declare const Placements: [
   'topLeft',
@@ -38,24 +40,28 @@ const FilterDropdown: React.FC<DropdownProps> = (props) => {
     props;
   const { getPrefixCls } = useContext(ConfigProvider.ConfigContext);
   const prefixCls = getPrefixCls('pro-core-field-dropdown');
+  const { wrapSSR, hashId } = useStyle(prefixCls);
 
-  return (
+  return wrapSSR(
     <Dropdown
       disabled={disabled}
       placement={placement}
       trigger={['click']}
+      // @ts-expect-error
       visible={visible}
+      open={visible}
       onVisibleChange={onVisibleChange}
+      onOpenChange={onVisibleChange}
       overlay={
-        <div className={`${prefixCls}-overlay`}>
-          <div className={`${prefixCls}-content`}>{children}</div>
-          {footer && <Footer disabled={disabled} footerRender={footerRender} {...footer} />}
+        <div className={`${prefixCls}-overlay ${hashId}`}>
+          <div className={`${prefixCls}-content ${hashId}`}>{children}</div>
+          {footer && <DropdownFooter disabled={disabled} footerRender={footerRender} {...footer} />}
         </div>
       }
     >
-      <span className={`${prefixCls}-label`}>{label}</span>
-    </Dropdown>
+      <span className={`${prefixCls}-label ${hashId}`}>{label}</span>
+    </Dropdown>,
   );
 };
 
-export default FilterDropdown;
+export { FilterDropdown };

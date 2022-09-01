@@ -1,6 +1,5 @@
-﻿import { BasicLayout } from '@ant-design/pro-components';
-import { render as reactRender } from '@testing-library/react';
-import { render } from 'enzyme';
+﻿import { ProLayout } from '@ant-design/pro-layout';
+import { render as reactRender, render } from '@testing-library/react';
 import { act } from 'react-dom/test-utils';
 import { waitForComponentToPaint } from '../util';
 import defaultProps from './defaultProps';
@@ -29,27 +28,25 @@ describe('mobile BasicLayout', () => {
   });
 
   it('📱 base use', async () => {
-    const html = render(
-      <BasicLayout {...defaultProps} getContainer={false} onCollapse={() => {}} />,
-    );
-    expect(html).toMatchSnapshot();
+    const html = render(<ProLayout {...defaultProps} getContainer={false} onCollapse={() => {}} />);
+    expect(html.asFragment()).toMatchSnapshot();
   });
 
   it('📱 collapsed=false', async () => {
-    const html = render(<BasicLayout {...defaultProps} getContainer={false} collapsed={false} />);
-    expect(html).toMatchSnapshot();
+    const html = render(<ProLayout {...defaultProps} getContainer={false} collapsed={false} />);
+    expect(html.asFragment()).toMatchSnapshot();
   });
 
   it('📱 layout=mix', async () => {
     const html = render(
-      <BasicLayout {...defaultProps} getContainer={false} layout="mix" collapsed={false} />,
+      <ProLayout {...defaultProps} getContainer={false} layout="mix" collapsed={false} />,
     );
-    expect(html).toMatchSnapshot();
+    expect(html.asFragment()).toMatchSnapshot();
   });
 
   it('📱 layout=mix and splitMenus', async () => {
     const html = render(
-      <BasicLayout
+      <ProLayout
         {...defaultProps}
         splitMenus
         getContainer={false}
@@ -57,12 +54,12 @@ describe('mobile BasicLayout', () => {
         collapsed={false}
       />,
     );
-    expect(html).toMatchSnapshot();
+    expect(html.asFragment()).toMatchSnapshot();
   });
 
   it('📱 layout menuHeaderRender=false', async () => {
     const html = render(
-      <BasicLayout
+      <ProLayout
         {...defaultProps}
         collapsed
         getContainer={false}
@@ -70,12 +67,12 @@ describe('mobile BasicLayout', () => {
         menuHeaderRender={false}
       />,
     );
-    expect(html).toMatchSnapshot();
+    expect(html.asFragment()).toMatchSnapshot();
   });
 
   it('📱 layout menuHeaderRender', async () => {
     const html = render(
-      <BasicLayout
+      <ProLayout
         {...defaultProps}
         collapsed
         getContainer={false}
@@ -83,12 +80,12 @@ describe('mobile BasicLayout', () => {
         menuHeaderRender={() => 'title'}
       />,
     );
-    expect(html).toMatchSnapshot();
+    expect(html.asFragment()).toMatchSnapshot();
   });
 
   it('📱 layout menuHeaderRender', async () => {
     const html = render(
-      <BasicLayout
+      <ProLayout
         {...defaultProps}
         collapsed
         getContainer={false}
@@ -96,13 +93,13 @@ describe('mobile BasicLayout', () => {
         menuHeaderRender={() => 'title'}
       />,
     );
-    expect(html).toMatchSnapshot();
+    expect(html.asFragment()).toMatchSnapshot();
   });
 
   it('📱 layout collapsedButtonRender', async () => {
     const onCollapse = jest.fn();
     const html = reactRender(
-      <BasicLayout
+      <ProLayout
         {...defaultProps}
         onCollapse={onCollapse}
         collapsed={false}
@@ -128,8 +125,6 @@ describe('mobile BasicLayout', () => {
     expect(onCollapse).toHaveBeenCalled();
 
     waitForComponentToPaint(html);
-    act(() => {
-      html.unmount();
-    });
+    html.unmount();
   });
 });

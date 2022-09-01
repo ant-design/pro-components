@@ -25,7 +25,7 @@ const Demo = () => {
               extra={action}
               title={record?.name}
               style={{
-                marginBottom: 8,
+                marginBlockEnd: 8,
               }}
             >
               {listDom}

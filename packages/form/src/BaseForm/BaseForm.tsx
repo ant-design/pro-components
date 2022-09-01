@@ -17,11 +17,14 @@ import {
   useMountMergeState,
   usePrevious,
   useRefFunction,
+  useStyle,
 } from '@ant-design/pro-utils';
 import { useUrlSearchParams } from '@umijs/use-params';
 import type { FormInstance, FormItemProps, FormProps } from 'antd';
 import { ConfigProvider, Form, Spin } from 'antd';
-import type { NamePath } from 'antd/lib/form/interface';
+import type { NamePath } from 'antd/es/form/interface';
+import classNames from 'classnames';
+import type dayjs from 'dayjs';
 import omit from 'omit.js';
 import get from 'rc-util/lib/utils/get';
 import { default as namePathSet, default as set } from 'rc-util/lib/utils/set';
@@ -124,7 +127,7 @@ export type CommonFormProps<T = Record<string, any>, U = Record<string, any>> = 
   dateFormatter?:
     | 'string'
     | 'number'
-    | ((value: moment.Moment, valueType: string) => string | number)
+    | ((value: dayjs.Dayjs, valueType: string) => string | number)
     | false;
 
   /**
@@ -420,6 +423,17 @@ function BaseFormComponents<T = Record<string, any>>(
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [props.initialValues]);
 
+  // 初始化给一个默认的 form
+  useImperativeHandle(
+    propsFormRef,
+    () => {
+      return {
+        ...formRef.current,
+        ...formatValues,
+      };
+    },
+    [],
+  );
   useEffect(() => {
     const finalValues = transformKey(formRef.current?.getFieldsValue?.(true), omitNil);
     onInit?.(finalValues, formRef.current);
@@ -489,6 +503,51 @@ function BaseForm<T = Record<string, any>>(props: BaseFormProps<T>) {
     request,
     params,
     proFieldKey: formKey,
+  });
+
+  const { getPrefixCls } = useContext(ConfigProvider.ConfigContext);
+  const prefixCls = getPrefixCls('pro-form');
+  // css
+  const { wrapSSR, hashId } = useStyle('ProForm', (token) => {
+    return {
+      [`.${prefixCls}`]: {
+        '*': { boxSizing: 'border-box' },
+        [`> div:not(${token.proComponentsCls}-form-light-filter)`]: {
+          '.pro-field': {
+            maxWidth: '100%',
+            // 适用于短数字，短文本或者选项
+            '&-xs': {
+              width: 104,
+            },
+            '&-s': {
+              width: 216,
+            },
+            // 适用于较短字段录入、如姓名、电话、ID 等。
+            '&-sm': {
+              width: 216,
+            },
+            '&-m': {
+              width: 328,
+            },
+            // 标准宽度，适用于大部分字段长度
+            '&-md': {
+              width: 328,
+            },
+            '&-l': {
+              width: 440,
+            },
+            // 适用于较长字段录入，如长网址、标签组、文件路径等。
+            '&-lg': {
+              width: 440,
+            },
+            // 适用于长文本录入，如长链接、描述、备注等，通常搭配自适应多行输入框或定高文本域使用。
+            '&-xl': {
+              width: 552,
+            },
+          },
+        },
+      },
+    };
   });
 
   // 如果为 false，不需要触发设置进去
@@ -611,7 +670,7 @@ function BaseForm<T = Record<string, any>>(props: BaseFormProps<T>) {
     );
   }
 
-  return (
+  return wrapSSR(
     <EditOrReadOnlyContext.Provider
       value={{
         mode: props.readonly ? 'read' : 'edit',
@@ -647,7 +706,7 @@ function BaseForm<T = Record<string, any>>(props: BaseFormProps<T>) {
             }}
             autoComplete="off"
             form={form}
-            {...omit(propRest, ['autoFocusFirstInput'])}
+            {...omit(propRest, ['labelWidth', 'autoFocusFirstInput'] as any[])}
             // 组合 urlSearch 和 initialValues
             initialValues={
               syncToUrlAsImportant
@@ -660,6 +719,7 @@ function BaseForm<T = Record<string, any>>(props: BaseFormProps<T>) {
                 transformKey(values, !!omitNil),
               );
             }}
+            className={classNames(props.className, prefixCls, hashId)}
             onFinish={onFinish}
           >
             <BaseFormComponents
@@ -677,7 +737,7 @@ function BaseForm<T = Record<string, any>>(props: BaseFormProps<T>) {
           </Form>
         </FieldContext.Provider>
       </ConfigProviderWrap>
-    </EditOrReadOnlyContext.Provider>
+    </EditOrReadOnlyContext.Provider>,
   );
 }
 

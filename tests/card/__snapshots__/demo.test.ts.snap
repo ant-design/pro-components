@@ -9,7 +9,7 @@ exports[`card demos 📸 renders ./packages/card/src/components/CheckCard/demos/
       class="ant-pro-checkcard-content ant-pro-checkcard-avatar-header"
     >
       <div
-        class="ant-pro-checkcard-avatar"
+        class="ant-pro-checkcard-avatar "
       >
         <span
           class="ant-avatar ant-avatar-lg ant-avatar-circle ant-avatar-icon"
@@ -37,13 +37,13 @@ exports[`card demos 📸 renders ./packages/card/src/components/CheckCard/demos/
         </span>
       </div>
       <div
-        class="ant-pro-checkcard-detail"
+        class="ant-pro-checkcard-detail "
       >
         <div
-          class="ant-pro-checkcard-header"
+          class="ant-pro-checkcard-header "
         >
           <div
-            class="ant-pro-checkcard-title"
+            class="ant-pro-checkcard-title "
           >
             示例标题
           </div>
@@ -63,7 +63,7 @@ exports[`card demos 📸 renders ./packages/card/src/components/CheckCard/demos/
       class="ant-pro-checkcard-content"
     >
       <div
-        class="ant-pro-checkcard-avatar"
+        class="ant-pro-checkcard-avatar "
       >
         <span
           class="ant-avatar ant-avatar-square ant-avatar-image"
@@ -75,19 +75,19 @@ exports[`card demos 📸 renders ./packages/card/src/components/CheckCard/demos/
         </span>
       </div>
       <div
-        class="ant-pro-checkcard-detail"
+        class="ant-pro-checkcard-detail "
       >
         <div
-          class="ant-pro-checkcard-header"
+          class="ant-pro-checkcard-header "
         >
           <div
-            class="ant-pro-checkcard-title"
+            class="ant-pro-checkcard-title "
           >
             示例一
           </div>
         </div>
         <div
-          class="ant-pro-checkcard-description"
+          class="ant-pro-checkcard-description "
         >
           选择一个由流程编排提供的典型用户案例，可以从中学习到流程编排很多设计理念。
         </div>
@@ -109,7 +109,7 @@ exports[`card demos 📸 renders ./packages/card/src/components/CheckCard/demos/
       class="ant-pro-checkcard-content"
     >
       <div
-        class="ant-pro-checkcard-avatar"
+        class="ant-pro-checkcard-avatar "
       >
         <span
           class="ant-avatar ant-avatar-square ant-avatar-image"
@@ -132,7 +132,7 @@ exports[`card demos 📸 renders ./packages/card/src/components/CheckCard/demos/
       class="ant-pro-checkcard-content"
     >
       <div
-        class="ant-pro-checkcard-avatar"
+        class="ant-pro-checkcard-avatar "
       >
         <span
           class="ant-avatar ant-avatar-square ant-avatar-image"
@@ -144,10 +144,10 @@ exports[`card demos 📸 renders ./packages/card/src/components/CheckCard/demos/
         </span>
       </div>
       <div
-        class="ant-pro-checkcard-detail"
+        class="ant-pro-checkcard-detail "
       >
         <div
-          class="ant-pro-checkcard-description"
+          class="ant-pro-checkcard-description "
         >
           选择一个由流程编排提供的典型用户案例，可以从中学习到流程编排很多设计理念。
         </div>
@@ -164,19 +164,19 @@ exports[`card demos 📸 renders ./packages/card/src/components/CheckCard/demos/
       class="ant-pro-checkcard-content"
     >
       <div
-        class="ant-pro-checkcard-detail"
+        class="ant-pro-checkcard-detail "
       >
         <div
-          class="ant-pro-checkcard-header"
+          class="ant-pro-checkcard-header "
         >
           <div
-            class="ant-pro-checkcard-title"
+            class="ant-pro-checkcard-title "
           >
             示例
           </div>
         </div>
         <div
-          class="ant-pro-checkcard-description"
+          class="ant-pro-checkcard-description "
         >
           选择一个由流程编排提供的典型用户案例，可以从中学习到流程编排很多设计理念。
         </div>
@@ -193,7 +193,7 @@ exports[`card demos 📸 renders ./packages/card/src/components/CheckCard/demos/
       class="ant-pro-checkcard-content ant-pro-checkcard-avatar-header"
     >
       <div
-        class="ant-pro-checkcard-avatar"
+        class="ant-pro-checkcard-avatar "
       >
         <span
           class="ant-avatar ant-avatar-square ant-avatar-image"
@@ -205,13 +205,13 @@ exports[`card demos 📸 renders ./packages/card/src/components/CheckCard/demos/
         </span>
       </div>
       <div
-        class="ant-pro-checkcard-detail"
+        class="ant-pro-checkcard-detail "
       >
         <div
-          class="ant-pro-checkcard-header"
+          class="ant-pro-checkcard-header "
         >
           <div
-            class="ant-pro-checkcard-title"
+            class="ant-pro-checkcard-title "
           >
             示例
           </div>
@@ -229,13 +229,13 @@ exports[`card demos 📸 renders ./packages/card/src/components/CheckCard/demos/
       class="ant-pro-checkcard-content"
     >
       <div
-        class="ant-pro-checkcard-detail"
+        class="ant-pro-checkcard-detail "
       >
         <div
-          class="ant-pro-checkcard-header"
+          class="ant-pro-checkcard-header "
         >
           <div
-            class="ant-pro-checkcard-title"
+            class="ant-pro-checkcard-title "
           >
             示例
           </div>
@@ -253,10 +253,10 @@ exports[`card demos 📸 renders ./packages/card/src/components/CheckCard/demos/
       class="ant-pro-checkcard-content"
     >
       <div
-        class="ant-pro-checkcard-detail"
+        class="ant-pro-checkcard-detail "
       >
         <div
-          class="ant-pro-checkcard-description"
+          class="ant-pro-checkcard-description "
         >
           选择一个由流程编排提供的典型用户案例，可以从中学习到流程编排很多设计理念。
         </div>
@@ -276,19 +276,19 @@ exports[`card demos 📸 renders ./packages/card/src/components/CheckCard/demos/
       class="ant-pro-checkcard-content"
     >
       <div
-        class="ant-pro-checkcard-detail"
+        class="ant-pro-checkcard-detail "
       >
         <div
-          class="ant-pro-checkcard-header"
+          class="ant-pro-checkcard-header "
         >
           <div
-            class="ant-pro-checkcard-title"
+            class="ant-pro-checkcard-title "
           >
             Card title
           </div>
         </div>
         <div
-          class="ant-pro-checkcard-description"
+          class="ant-pro-checkcard-description "
         >
           This is the description
         </div>
@@ -307,7 +307,7 @@ exports[`card demos 📸 renders ./packages/card/src/components/CheckCard/demos/
       class="ant-pro-checkcard-content ant-pro-checkcard-avatar-header"
     >
       <div
-        class="ant-pro-checkcard-avatar"
+        class="ant-pro-checkcard-avatar "
       >
         <span
           class="ant-avatar ant-avatar-square ant-avatar-image"
@@ -319,13 +319,13 @@ exports[`card demos 📸 renders ./packages/card/src/components/CheckCard/demos/
         </span>
       </div>
       <div
-        class="ant-pro-checkcard-detail"
+        class="ant-pro-checkcard-detail "
       >
         <div
-          class="ant-pro-checkcard-header"
+          class="ant-pro-checkcard-header "
         >
           <div
-            class="ant-pro-checkcard-title"
+            class="ant-pro-checkcard-title "
           >
             示例二
           </div>
@@ -345,7 +345,7 @@ exports[`card demos 📸 renders ./packages/card/src/components/CheckCard/demos/
       class="ant-pro-checkcard-content"
     >
       <div
-        class="ant-pro-checkcard-avatar"
+        class="ant-pro-checkcard-avatar "
       >
         <span
           class="ant-avatar ant-avatar-square ant-avatar-image"
@@ -357,19 +357,19 @@ exports[`card demos 📸 renders ./packages/card/src/components/CheckCard/demos/
         </span>
       </div>
       <div
-        class="ant-pro-checkcard-detail"
+        class="ant-pro-checkcard-detail "
       >
         <div
-          class="ant-pro-checkcard-header"
+          class="ant-pro-checkcard-header "
         >
           <div
-            class="ant-pro-checkcard-title"
+            class="ant-pro-checkcard-title "
           >
             默认描述区域不会进行折行
           </div>
         </div>
         <div
-          class="ant-pro-checkcard-description"
+          class="ant-pro-checkcard-description "
         >
           <span>
             选择一个由流程编排提供的典型用户案例，可以从中学习到流程编排很多设计理念。
@@ -390,7 +390,7 @@ exports[`card demos 📸 renders ./packages/card/src/components/CheckCard/demos/
       class="ant-pro-checkcard-content"
     >
       <div
-        class="ant-pro-checkcard-avatar"
+        class="ant-pro-checkcard-avatar "
       >
         <span
           class="ant-avatar ant-avatar-square ant-avatar-image"
@@ -402,19 +402,19 @@ exports[`card demos 📸 renders ./packages/card/src/components/CheckCard/demos/
         </span>
       </div>
       <div
-        class="ant-pro-checkcard-detail"
+        class="ant-pro-checkcard-detail "
       >
         <div
-          class="ant-pro-checkcard-header"
+          class="ant-pro-checkcard-header "
         >
           <div
-            class="ant-pro-checkcard-title"
+            class="ant-pro-checkcard-title "
           >
             你可以通过排版组件进行省略
           </div>
         </div>
         <div
-          class="ant-pro-checkcard-description"
+          class="ant-pro-checkcard-description "
         >
           <div
             class="ant-typography ant-typography-ellipsis ant-typography-ellipsis-multiple-line"
@@ -441,7 +441,7 @@ exports[`card demos 📸 renders ./packages/card/src/components/CheckCard/demos/
         class="ant-pro-checkcard-content"
       >
         <div
-          class="ant-pro-checkcard-avatar"
+          class="ant-pro-checkcard-avatar "
         >
           <span
             class="ant-avatar ant-avatar-square ant-avatar-image"
@@ -453,19 +453,19 @@ exports[`card demos 📸 renders ./packages/card/src/components/CheckCard/demos/
           </span>
         </div>
         <div
-          class="ant-pro-checkcard-detail"
+          class="ant-pro-checkcard-detail "
         >
           <div
-            class="ant-pro-checkcard-header"
+            class="ant-pro-checkcard-header "
           >
             <div
-              class="ant-pro-checkcard-title"
+              class="ant-pro-checkcard-title "
             >
               Card title
             </div>
           </div>
           <div
-            class="ant-pro-checkcard-description"
+            class="ant-pro-checkcard-description "
           >
             This is the description
           </div>
@@ -479,7 +479,7 @@ exports[`card demos 📸 renders ./packages/card/src/components/CheckCard/demos/
         class="ant-pro-checkcard-content"
       >
         <div
-          class="ant-pro-checkcard-avatar"
+          class="ant-pro-checkcard-avatar "
         >
           <span
             class="ant-avatar ant-avatar-square ant-avatar-image"
@@ -491,19 +491,19 @@ exports[`card demos 📸 renders ./packages/card/src/components/CheckCard/demos/
           </span>
         </div>
         <div
-          class="ant-pro-checkcard-detail"
+          class="ant-pro-checkcard-detail "
         >
           <div
-            class="ant-pro-checkcard-header"
+            class="ant-pro-checkcard-header "
           >
             <div
-              class="ant-pro-checkcard-title"
+              class="ant-pro-checkcard-title "
             >
               Card title
             </div>
           </div>
           <div
-            class="ant-pro-checkcard-description"
+            class="ant-pro-checkcard-description "
           >
             This is the description
           </div>
@@ -517,7 +517,7 @@ exports[`card demos 📸 renders ./packages/card/src/components/CheckCard/demos/
         class="ant-pro-checkcard-content"
       >
         <div
-          class="ant-pro-checkcard-avatar"
+          class="ant-pro-checkcard-avatar "
         >
           <span
             class="ant-avatar ant-avatar-square ant-avatar-image"
@@ -529,19 +529,19 @@ exports[`card demos 📸 renders ./packages/card/src/components/CheckCard/demos/
           </span>
         </div>
         <div
-          class="ant-pro-checkcard-detail"
+          class="ant-pro-checkcard-detail "
         >
           <div
-            class="ant-pro-checkcard-header"
+            class="ant-pro-checkcard-header "
           >
             <div
-              class="ant-pro-checkcard-title"
+              class="ant-pro-checkcard-title "
             >
               Card title
             </div>
           </div>
           <div
-            class="ant-pro-checkcard-description"
+            class="ant-pro-checkcard-description "
           >
             This is the description
           </div>
@@ -563,19 +563,19 @@ exports[`card demos 📸 renders ./packages/card/src/components/CheckCard/demos/
           class="ant-pro-checkcard-content"
         >
           <div
-            class="ant-pro-checkcard-detail"
+            class="ant-pro-checkcard-detail "
           >
             <div
-              class="ant-pro-checkcard-header"
+              class="ant-pro-checkcard-header "
             >
               <div
-                class="ant-pro-checkcard-title"
+                class="ant-pro-checkcard-title "
               >
                 Card A
               </div>
             </div>
             <div
-              class="ant-pro-checkcard-description"
+              class="ant-pro-checkcard-description "
             >
               选项一
             </div>
@@ -589,19 +589,19 @@ exports[`card demos 📸 renders ./packages/card/src/components/CheckCard/demos/
           class="ant-pro-checkcard-content"
         >
           <div
-            class="ant-pro-checkcard-detail"
+            class="ant-pro-checkcard-detail "
           >
             <div
-              class="ant-pro-checkcard-header"
+              class="ant-pro-checkcard-header "
             >
               <div
-                class="ant-pro-checkcard-title"
+                class="ant-pro-checkcard-title "
               >
                 Card B
               </div>
             </div>
             <div
-              class="ant-pro-checkcard-description"
+              class="ant-pro-checkcard-description "
             >
               选项二
             </div>
@@ -622,7 +622,7 @@ exports[`card demos 📸 renders ./packages/card/src/components/CheckCard/demos/
       class="ant-pro-checkcard-content"
     >
       <div
-        class="ant-pro-checkcard-avatar"
+        class="ant-pro-checkcard-avatar "
       >
         <span
           class="ant-avatar ant-avatar-square ant-avatar-image"
@@ -634,18 +634,18 @@ exports[`card demos 📸 renders ./packages/card/src/components/CheckCard/demos/
         </span>
       </div>
       <div
-        class="ant-pro-checkcard-detail"
+        class="ant-pro-checkcard-detail "
       >
         <div
-          class="ant-pro-checkcard-header"
+          class="ant-pro-checkcard-header "
         >
           <div
-            class="ant-pro-checkcard-title"
+            class="ant-pro-checkcard-title "
           >
             示例一
           </div>
           <div
-            class="ant-pro-checkcard-extra"
+            class="ant-pro-checkcard-extra "
           >
             <span
               aria-label="ellipsis"
@@ -671,7 +671,7 @@ exports[`card demos 📸 renders ./packages/card/src/components/CheckCard/demos/
           </div>
         </div>
         <div
-          class="ant-pro-checkcard-description"
+          class="ant-pro-checkcard-description "
         >
           选择一个由流程编排提供的典型用户案例，可以从中学习到流程编排很多设计理念。
         </div>
@@ -725,7 +725,7 @@ exports[`card demos 📸 renders ./packages/card/src/components/CheckCard/demos/
                       class="ant-pro-checkcard-content"
                     >
                       <div
-                        class="ant-pro-checkcard-avatar"
+                        class="ant-pro-checkcard-avatar "
                       >
                         <span
                           class="ant-avatar ant-avatar-lg ant-avatar-circle ant-avatar-image"
@@ -736,19 +736,19 @@ exports[`card demos 📸 renders ./packages/card/src/components/CheckCard/demos/
                         </span>
                       </div>
                       <div
-                        class="ant-pro-checkcard-detail"
+                        class="ant-pro-checkcard-detail "
                       >
                         <div
-                          class="ant-pro-checkcard-header"
+                          class="ant-pro-checkcard-header "
                         >
                           <div
-                            class="ant-pro-checkcard-title"
+                            class="ant-pro-checkcard-title "
                           >
                             Spring Boot
                           </div>
                         </div>
                         <div
-                          class="ant-pro-checkcard-description"
+                          class="ant-pro-checkcard-description "
                         >
                           通过业界流行的技术栈来快速构建 Java 后端应用
                         </div>
@@ -762,7 +762,7 @@ exports[`card demos 📸 renders ./packages/card/src/components/CheckCard/demos/
                       class="ant-pro-checkcard-content"
                     >
                       <div
-                        class="ant-pro-checkcard-avatar"
+                        class="ant-pro-checkcard-avatar "
                       >
                         <span
                           class="ant-avatar ant-avatar-lg ant-avatar-circle ant-avatar-image"
@@ -773,19 +773,19 @@ exports[`card demos 📸 renders ./packages/card/src/components/CheckCard/demos/
                         </span>
                       </div>
                       <div
-                        class="ant-pro-checkcard-detail"
+                        class="ant-pro-checkcard-detail "
                       >
                         <div
-                          class="ant-pro-checkcard-header"
+                          class="ant-pro-checkcard-header "
                         >
                           <div
-                            class="ant-pro-checkcard-title"
+                            class="ant-pro-checkcard-title "
                           >
                             SOFA Boot
                           </div>
                         </div>
                         <div
-                          class="ant-pro-checkcard-description"
+                          class="ant-pro-checkcard-description "
                         >
                           使用 SOFAStack 中间件来快速构建分布式后端应用
                         </div>
@@ -799,7 +799,7 @@ exports[`card demos 📸 renders ./packages/card/src/components/CheckCard/demos/
                       class="ant-pro-checkcard-content"
                     >
                       <div
-                        class="ant-pro-checkcard-avatar"
+                        class="ant-pro-checkcard-avatar "
                       >
                         <span
                           class="ant-avatar ant-avatar-lg ant-avatar-circle ant-avatar-image"
@@ -810,19 +810,19 @@ exports[`card demos 📸 renders ./packages/card/src/components/CheckCard/demos/
                         </span>
                       </div>
                       <div
-                        class="ant-pro-checkcard-detail"
+                        class="ant-pro-checkcard-detail "
                       >
                         <div
-                          class="ant-pro-checkcard-header"
+                          class="ant-pro-checkcard-header "
                         >
                           <div
-                            class="ant-pro-checkcard-title"
+                            class="ant-pro-checkcard-title "
                           >
                             Node JS
                           </div>
                         </div>
                         <div
-                          class="ant-pro-checkcard-description"
+                          class="ant-pro-checkcard-description "
                         >
                           使用前后端统一的语言方案快速构建后端应用
                         </div>
@@ -887,19 +887,19 @@ exports[`card demos 📸 renders ./packages/card/src/components/CheckCard/demos/
             class="ant-pro-checkcard-content"
           >
             <div
-              class="ant-pro-checkcard-detail"
+              class="ant-pro-checkcard-detail "
             >
               <div
-                class="ant-pro-checkcard-header"
+                class="ant-pro-checkcard-header "
               >
                 <div
-                  class="ant-pro-checkcard-title"
+                  class="ant-pro-checkcard-title "
                 >
                   Card A
                 </div>
               </div>
               <div
-                class="ant-pro-checkcard-description"
+                class="ant-pro-checkcard-description "
               >
                 This is the description
               </div>
@@ -917,19 +917,19 @@ exports[`card demos 📸 renders ./packages/card/src/components/CheckCard/demos/
             class="ant-pro-checkcard-content"
           >
             <div
-              class="ant-pro-checkcard-detail"
+              class="ant-pro-checkcard-detail "
             >
               <div
-                class="ant-pro-checkcard-header"
+                class="ant-pro-checkcard-header "
               >
                 <div
-                  class="ant-pro-checkcard-title"
+                  class="ant-pro-checkcard-title "
                 >
                   Card B
                 </div>
               </div>
               <div
-                class="ant-pro-checkcard-description"
+                class="ant-pro-checkcard-description "
               >
                 This is the description
               </div>
@@ -947,19 +947,19 @@ exports[`card demos 📸 renders ./packages/card/src/components/CheckCard/demos/
             class="ant-pro-checkcard-content"
           >
             <div
-              class="ant-pro-checkcard-detail"
+              class="ant-pro-checkcard-detail "
             >
               <div
-                class="ant-pro-checkcard-header"
+                class="ant-pro-checkcard-header "
               >
                 <div
-                  class="ant-pro-checkcard-title"
+                  class="ant-pro-checkcard-title "
                 >
                   Card C
                 </div>
               </div>
               <div
-                class="ant-pro-checkcard-description"
+                class="ant-pro-checkcard-description "
               >
                 This is the description
               </div>
@@ -975,7 +975,7 @@ exports[`card demos 📸 renders ./packages/card/src/components/CheckCard/demos/
 exports[`card demos 📸 renders ./packages/card/src/components/CheckCard/demos/group.tsx correctly 1`] = `
 <DocumentFragment>
   <div
-    style="padding: 24px; background-color: rgb(240, 242, 245);"
+    style="padding: 24px; background-color: rgb(247, 248, 250);"
   >
     <div
       class="ant-pro-checkcard-group"
@@ -987,13 +987,13 @@ exports[`card demos 📸 renders ./packages/card/src/components/CheckCard/demos/
           class="ant-pro-checkcard-content"
         >
           <div
-            class="ant-pro-checkcard-detail"
+            class="ant-pro-checkcard-detail "
           >
             <div
-              class="ant-pro-checkcard-header"
+              class="ant-pro-checkcard-header "
             >
               <div
-                class="ant-pro-checkcard-title"
+                class="ant-pro-checkcard-title "
               >
                 🍎 Apple
               </div>
@@ -1008,13 +1008,13 @@ exports[`card demos 📸 renders ./packages/card/src/components/CheckCard/demos/
           class="ant-pro-checkcard-content"
         >
           <div
-            class="ant-pro-checkcard-detail"
+            class="ant-pro-checkcard-detail "
           >
             <div
-              class="ant-pro-checkcard-header"
+              class="ant-pro-checkcard-header "
             >
               <div
-                class="ant-pro-checkcard-title"
+                class="ant-pro-checkcard-title "
               >
                 🍐 Pear
               </div>
@@ -1029,13 +1029,13 @@ exports[`card demos 📸 renders ./packages/card/src/components/CheckCard/demos/
           class="ant-pro-checkcard-content"
         >
           <div
-            class="ant-pro-checkcard-detail"
+            class="ant-pro-checkcard-detail "
           >
             <div
-              class="ant-pro-checkcard-header"
+              class="ant-pro-checkcard-header "
             >
               <div
-                class="ant-pro-checkcard-title"
+                class="ant-pro-checkcard-title "
               >
                 🍊 Orange
               </div>
@@ -1400,13 +1400,13 @@ exports[`card demos 📸 renders ./packages/card/src/components/CheckCard/demos/
           class="ant-pro-checkcard-content"
         >
           <div
-            class="ant-pro-checkcard-detail"
+            class="ant-pro-checkcard-detail "
           >
             <div
-              class="ant-pro-checkcard-header"
+              class="ant-pro-checkcard-header "
             >
               <div
-                class="ant-pro-checkcard-title"
+                class="ant-pro-checkcard-title "
               >
                 🍊 Orange
               </div>
@@ -1421,13 +1421,13 @@ exports[`card demos 📸 renders ./packages/card/src/components/CheckCard/demos/
           class="ant-pro-checkcard-content"
         >
           <div
-            class="ant-pro-checkcard-detail"
+            class="ant-pro-checkcard-detail "
           >
             <div
-              class="ant-pro-checkcard-header"
+              class="ant-pro-checkcard-header "
             >
               <div
-                class="ant-pro-checkcard-title"
+                class="ant-pro-checkcard-title "
               >
                 🍐 Pear
               </div>
@@ -1442,13 +1442,13 @@ exports[`card demos 📸 renders ./packages/card/src/components/CheckCard/demos/
           class="ant-pro-checkcard-content"
         >
           <div
-            class="ant-pro-checkcard-detail"
+            class="ant-pro-checkcard-detail "
           >
             <div
-              class="ant-pro-checkcard-header"
+              class="ant-pro-checkcard-header "
             >
               <div
-                class="ant-pro-checkcard-title"
+                class="ant-pro-checkcard-title "
               >
                 🍎 Apple
               </div>
@@ -1826,7 +1826,7 @@ exports[`card demos 📸 renders ./packages/card/src/components/CheckCard/demos/
 exports[`card demos 📸 renders ./packages/card/src/components/CheckCard/demos/list.tsx correctly 1`] = `
 <DocumentFragment>
   <div
-    style="padding: 24px; background-color: rgb(240, 242, 245);"
+    style="padding: 24px; background-color: rgb(247, 248, 250);"
   >
     <div
       class="ant-pro-checkcard-group"
@@ -1838,7 +1838,7 @@ exports[`card demos 📸 renders ./packages/card/src/components/CheckCard/demos/
           class="ant-pro-checkcard-content"
         >
           <div
-            class="ant-pro-checkcard-avatar"
+            class="ant-pro-checkcard-avatar "
           >
             <span
               class="ant-avatar ant-avatar-square ant-avatar-image"
@@ -1850,19 +1850,19 @@ exports[`card demos 📸 renders ./packages/card/src/components/CheckCard/demos/
             </span>
           </div>
           <div
-            class="ant-pro-checkcard-detail"
+            class="ant-pro-checkcard-detail "
           >
             <div
-              class="ant-pro-checkcard-header"
+              class="ant-pro-checkcard-header "
             >
               <div
-                class="ant-pro-checkcard-title"
+                class="ant-pro-checkcard-title "
               >
                 图像分类
               </div>
             </div>
             <div
-              class="ant-pro-checkcard-description"
+              class="ant-pro-checkcard-description "
             >
               这是一段关于该算法的说明
             </div>
@@ -1876,7 +1876,7 @@ exports[`card demos 📸 renders ./packages/card/src/components/CheckCard/demos/
           class="ant-pro-checkcard-content"
         >
           <div
-            class="ant-pro-checkcard-avatar"
+            class="ant-pro-checkcard-avatar "
           >
             <span
               class="ant-avatar ant-avatar-square ant-avatar-image"
@@ -1888,19 +1888,19 @@ exports[`card demos 📸 renders ./packages/card/src/components/CheckCard/demos/
             </span>
           </div>
           <div
-            class="ant-pro-checkcard-detail"
+            class="ant-pro-checkcard-detail "
           >
             <div
-              class="ant-pro-checkcard-header"
+              class="ant-pro-checkcard-header "
             >
               <div
-                class="ant-pro-checkcard-title"
+                class="ant-pro-checkcard-title "
               >
                 物体检测
               </div>
             </div>
             <div
-              class="ant-pro-checkcard-description"
+              class="ant-pro-checkcard-description "
             >
               这是一段关于该算法的说明
             </div>
@@ -1914,7 +1914,7 @@ exports[`card demos 📸 renders ./packages/card/src/components/CheckCard/demos/
           class="ant-pro-checkcard-content"
         >
           <div
-            class="ant-pro-checkcard-avatar"
+            class="ant-pro-checkcard-avatar "
           >
             <span
               class="ant-avatar ant-avatar-square ant-avatar-image"
@@ -1926,19 +1926,19 @@ exports[`card demos 📸 renders ./packages/card/src/components/CheckCard/demos/
             </span>
           </div>
           <div
-            class="ant-pro-checkcard-detail"
+            class="ant-pro-checkcard-detail "
           >
             <div
-              class="ant-pro-checkcard-header"
+              class="ant-pro-checkcard-header "
             >
               <div
-                class="ant-pro-checkcard-title"
+                class="ant-pro-checkcard-title "
               >
                 OCR自定义
               </div>
             </div>
             <div
-              class="ant-pro-checkcard-description"
+              class="ant-pro-checkcard-description "
             >
               这是一段关于该算法的说明
             </div>
@@ -1952,7 +1952,7 @@ exports[`card demos 📸 renders ./packages/card/src/components/CheckCard/demos/
           class="ant-pro-checkcard-content"
         >
           <div
-            class="ant-pro-checkcard-avatar"
+            class="ant-pro-checkcard-avatar "
           >
             <span
               class="ant-avatar ant-avatar-square ant-avatar-image"
@@ -1964,19 +1964,19 @@ exports[`card demos 📸 renders ./packages/card/src/components/CheckCard/demos/
             </span>
           </div>
           <div
-            class="ant-pro-checkcard-detail"
+            class="ant-pro-checkcard-detail "
           >
             <div
-              class="ant-pro-checkcard-header"
+              class="ant-pro-checkcard-header "
             >
               <div
-                class="ant-pro-checkcard-title"
+                class="ant-pro-checkcard-title "
               >
                 OCR
               </div>
             </div>
             <div
-              class="ant-pro-checkcard-description"
+              class="ant-pro-checkcard-description "
             >
               这是一段关于该算法的说明
             </div>
@@ -1990,7 +1990,7 @@ exports[`card demos 📸 renders ./packages/card/src/components/CheckCard/demos/
           class="ant-pro-checkcard-content"
         >
           <div
-            class="ant-pro-checkcard-avatar"
+            class="ant-pro-checkcard-avatar "
           >
             <span
               class="ant-avatar ant-avatar-square ant-avatar-image"
@@ -2002,19 +2002,19 @@ exports[`card demos 📸 renders ./packages/card/src/components/CheckCard/demos/
             </span>
           </div>
           <div
-            class="ant-pro-checkcard-detail"
+            class="ant-pro-checkcard-detail "
           >
             <div
-              class="ant-pro-checkcard-header"
+              class="ant-pro-checkcard-header "
             >
               <div
-                class="ant-pro-checkcard-title"
+                class="ant-pro-checkcard-title "
               >
                 视频分类
               </div>
             </div>
             <div
-              class="ant-pro-checkcard-description"
+              class="ant-pro-checkcard-description "
             >
               这是一段关于该算法的说明
             </div>
@@ -2028,7 +2028,7 @@ exports[`card demos 📸 renders ./packages/card/src/components/CheckCard/demos/
           class="ant-pro-checkcard-content"
         >
           <div
-            class="ant-pro-checkcard-avatar"
+            class="ant-pro-checkcard-avatar "
           >
             <span
               class="ant-avatar ant-avatar-square ant-avatar-image"
@@ -2040,19 +2040,19 @@ exports[`card demos 📸 renders ./packages/card/src/components/CheckCard/demos/
             </span>
           </div>
           <div
-            class="ant-pro-checkcard-detail"
+            class="ant-pro-checkcard-detail "
           >
             <div
-              class="ant-pro-checkcard-header"
+              class="ant-pro-checkcard-header "
             >
               <div
-                class="ant-pro-checkcard-title"
+                class="ant-pro-checkcard-title "
               >
                 关键点检测
               </div>
             </div>
             <div
-              class="ant-pro-checkcard-description"
+              class="ant-pro-checkcard-description "
             >
               这是一段关于该算法的说明
             </div>
@@ -2194,19 +2194,19 @@ exports[`card demos 📸 renders ./packages/card/src/components/CheckCard/demos/
         class="ant-pro-checkcard-content"
       >
         <div
-          class="ant-pro-checkcard-detail"
+          class="ant-pro-checkcard-detail "
         >
           <div
-            class="ant-pro-checkcard-header"
+            class="ant-pro-checkcard-header "
           >
             <div
-              class="ant-pro-checkcard-title"
+              class="ant-pro-checkcard-title "
             >
               Card A
             </div>
           </div>
           <div
-            class="ant-pro-checkcard-description"
+            class="ant-pro-checkcard-description "
           >
             选择一个由流程编排提供的典型用户案例，可以从中学习到流程编排很多设计理念
           </div>
@@ -2220,19 +2220,19 @@ exports[`card demos 📸 renders ./packages/card/src/components/CheckCard/demos/
         class="ant-pro-checkcard-content"
       >
         <div
-          class="ant-pro-checkcard-detail"
+          class="ant-pro-checkcard-detail "
         >
           <div
-            class="ant-pro-checkcard-header"
+            class="ant-pro-checkcard-header "
           >
             <div
-              class="ant-pro-checkcard-title"
+              class="ant-pro-checkcard-title "
             >
               Card B
             </div>
           </div>
           <div
-            class="ant-pro-checkcard-description"
+            class="ant-pro-checkcard-description "
           >
             选择一个由流程编排提供的典型用户案例，可以从中学习到流程编排很多设计理念
           </div>
@@ -2255,19 +2255,19 @@ exports[`card demos 📸 renders ./packages/card/src/components/CheckCard/demos/
         class="ant-pro-checkcard-content"
       >
         <div
-          class="ant-pro-checkcard-detail"
+          class="ant-pro-checkcard-detail "
         >
           <div
-            class="ant-pro-checkcard-header"
+            class="ant-pro-checkcard-header "
           >
             <div
-              class="ant-pro-checkcard-title"
+              class="ant-pro-checkcard-title "
             >
               Card A
             </div>
           </div>
           <div
-            class="ant-pro-checkcard-description"
+            class="ant-pro-checkcard-description "
           >
             选项一
           </div>
@@ -2281,19 +2281,19 @@ exports[`card demos 📸 renders ./packages/card/src/components/CheckCard/demos/
         class="ant-pro-checkcard-content"
       >
         <div
-          class="ant-pro-checkcard-detail"
+          class="ant-pro-checkcard-detail "
         >
           <div
-            class="ant-pro-checkcard-header"
+            class="ant-pro-checkcard-header "
           >
             <div
-              class="ant-pro-checkcard-title"
+              class="ant-pro-checkcard-title "
             >
               Card B
             </div>
           </div>
           <div
-            class="ant-pro-checkcard-description"
+            class="ant-pro-checkcard-description "
           >
             选项二
           </div>
@@ -2307,19 +2307,19 @@ exports[`card demos 📸 renders ./packages/card/src/components/CheckCard/demos/
         class="ant-pro-checkcard-content"
       >
         <div
-          class="ant-pro-checkcard-detail"
+          class="ant-pro-checkcard-detail "
         >
           <div
-            class="ant-pro-checkcard-header"
+            class="ant-pro-checkcard-header "
           >
             <div
-              class="ant-pro-checkcard-title"
+              class="ant-pro-checkcard-title "
             >
               Card C
             </div>
           </div>
           <div
-            class="ant-pro-checkcard-description"
+            class="ant-pro-checkcard-description "
           >
             选项三，这是一个不可选项
           </div>
@@ -2333,7 +2333,7 @@ exports[`card demos 📸 renders ./packages/card/src/components/CheckCard/demos/
 exports[`card demos 📸 renders ./packages/card/src/components/CheckCard/demos/size.tsx correctly 1`] = `
 <DocumentFragment>
   <div
-    style="margin-bottom: 16px;"
+    style="margin-block-end: 16px;"
   >
     <div
       class="ant-radio-group ant-radio-group-outline"
@@ -2405,19 +2405,19 @@ exports[`card demos 📸 renders ./packages/card/src/components/CheckCard/demos/
       class="ant-pro-checkcard-content"
     >
       <div
-        class="ant-pro-checkcard-detail"
+        class="ant-pro-checkcard-detail "
       >
         <div
-          class="ant-pro-checkcard-header"
+          class="ant-pro-checkcard-header "
         >
           <div
-            class="ant-pro-checkcard-title"
+            class="ant-pro-checkcard-title "
           >
             Card title
           </div>
         </div>
         <div
-          class="ant-pro-checkcard-description"
+          class="ant-pro-checkcard-description "
         >
           This is the description
         </div>
@@ -2436,13 +2436,13 @@ exports[`card demos 📸 renders ./packages/card/src/components/CheckCard/demos/
       class="ant-pro-checkcard-content"
     >
       <div
-        class="ant-pro-checkcard-detail"
+        class="ant-pro-checkcard-detail "
       >
         <div
-          class="ant-pro-checkcard-header"
+          class="ant-pro-checkcard-header "
         >
           <div
-            class="ant-pro-checkcard-title"
+            class="ant-pro-checkcard-title "
           >
             <div
               style="display: flex; align-items: center;"
@@ -2467,7 +2467,7 @@ exports[`card demos 📸 renders ./packages/card/src/components/CheckCard/demos/
                 </svg>
               </span>
               <span
-                style="margin-right: 8px; margin-left: 8px;"
+                style="margin-inline-end: 8px; margin-inline-start: 8px;"
               >
                 示例
               </span>
@@ -2480,7 +2480,7 @@ exports[`card demos 📸 renders ./packages/card/src/components/CheckCard/demos/
           </div>
         </div>
         <div
-          class="ant-pro-checkcard-description"
+          class="ant-pro-checkcard-description "
         >
           选择一个由流程编排提供的典型用户案例，可以从中学习到流程编排很多设计理念
         </div>
@@ -2494,19 +2494,19 @@ exports[`card demos 📸 renders ./packages/card/src/components/CheckCard/demos/
       class="ant-pro-checkcard-content"
     >
       <div
-        class="ant-pro-checkcard-detail"
+        class="ant-pro-checkcard-detail "
       >
         <div
-          class="ant-pro-checkcard-header"
+          class="ant-pro-checkcard-header "
         >
           <div
-            class="ant-pro-checkcard-title"
+            class="ant-pro-checkcard-title "
           >
             标题内容过长会自动进行省略，标题内容过长会自动进行省略
           </div>
         </div>
         <div
-          class="ant-pro-checkcard-description"
+          class="ant-pro-checkcard-description "
         >
           选择一个由流程编排提供的典型用户案例，可以从中学习到流程编排很多设计理念
         </div>
@@ -2526,7 +2526,7 @@ exports[`card demos 📸 renders ./packages/card/src/components/StatisticCard/de
       class="ant-pro-card-header"
     >
       <div
-        class="ant-pro-card-title"
+        class="ant-pro-card-title "
       >
         <div
           class="ant-space ant-space-horizontal ant-space-align-center"
@@ -2566,7 +2566,7 @@ exports[`card demos 📸 renders ./packages/card/src/components/StatisticCard/de
         </div>
       </div>
       <div
-        class="ant-pro-card-extra"
+        class="ant-pro-card-extra "
       >
         <span
           aria-label="ellipsis"
@@ -2593,7 +2593,7 @@ exports[`card demos 📸 renders ./packages/card/src/components/StatisticCard/de
       class="ant-pro-card-body"
     >
       <div
-        class="ant-pro-statistic-card-content"
+        class="ant-pro-statistic-card-content "
       >
         <div
           class="ant-pro-card-statistic"
@@ -2627,7 +2627,7 @@ exports[`card demos 📸 renders ./packages/card/src/components/StatisticCard/de
                 </div>
               </div>
               <div
-                class="ant-pro-card-statistic-description"
+                class="ant-pro-card-statistic-description "
               >
                 <div
                   class="ant-space ant-space-horizontal ant-space-align-center"
@@ -2731,7 +2731,7 @@ exports[`card demos 📸 renders ./packages/card/src/components/StatisticCard/de
       class="ant-pro-card-header"
     >
       <div
-        class="ant-pro-card-title"
+        class="ant-pro-card-title "
       >
         <div
           class="ant-pro-core-label-tip"
@@ -2742,7 +2742,7 @@ exports[`card demos 📸 renders ./packages/card/src/components/StatisticCard/de
             大盘趋势
           </div>
           <span
-            class="ant-pro-core-label-tip-icon"
+            class="ant-pro-core-label-tip-icon "
           >
             <span
               aria-label="info-circle"
@@ -2770,7 +2770,7 @@ exports[`card demos 📸 renders ./packages/card/src/components/StatisticCard/de
         </div>
       </div>
       <div
-        class="ant-pro-card-extra"
+        class="ant-pro-card-extra "
       >
         <span
           aria-label="ellipsis"
@@ -2797,7 +2797,7 @@ exports[`card demos 📸 renders ./packages/card/src/components/StatisticCard/de
       class="ant-pro-card-body"
     >
       <div
-        class="ant-pro-statistic-card-content"
+        class="ant-pro-statistic-card-content "
       >
         <div
           class="ant-pro-statistic-card-chart"
@@ -2833,7 +2833,7 @@ exports[`card demos 📸 renders ./packages/card/src/components/StatisticCard/de
             class="ant-pro-card-body"
           >
             <div
-              class="ant-pro-statistic-card-content"
+              class="ant-pro-statistic-card-content "
             >
               <div
                 class="ant-pro-card-statistic"
@@ -2888,7 +2888,7 @@ exports[`card demos 📸 renders ./packages/card/src/components/StatisticCard/de
             class="ant-pro-card-body"
           >
             <div
-              class="ant-pro-statistic-card-content"
+              class="ant-pro-statistic-card-content "
             >
               <div
                 class="ant-pro-card-statistic"
@@ -2943,7 +2943,7 @@ exports[`card demos 📸 renders ./packages/card/src/components/StatisticCard/de
             class="ant-pro-card-body"
           >
             <div
-              class="ant-pro-statistic-card-content"
+              class="ant-pro-statistic-card-content "
             >
               <div
                 class="ant-pro-card-statistic"
@@ -2998,7 +2998,7 @@ exports[`card demos 📸 renders ./packages/card/src/components/StatisticCard/de
             class="ant-pro-card-body"
           >
             <div
-              class="ant-pro-statistic-card-content"
+              class="ant-pro-statistic-card-content "
             >
               <div
                 class="ant-pro-card-statistic"
@@ -3053,12 +3053,12 @@ exports[`card demos 📸 renders ./packages/card/src/components/StatisticCard/de
       class="ant-pro-card-header"
     >
       <div
-        class="ant-pro-card-title"
+        class="ant-pro-card-title "
       >
         整体流量评分
       </div>
       <div
-        class="ant-pro-card-extra"
+        class="ant-pro-card-extra "
       >
         <span
           aria-label="ellipsis"
@@ -3085,7 +3085,7 @@ exports[`card demos 📸 renders ./packages/card/src/components/StatisticCard/de
       class="ant-pro-card-body"
     >
       <div
-        class="ant-pro-statistic-card-content"
+        class="ant-pro-statistic-card-content "
       >
         <div
           class="ant-pro-card-statistic"
@@ -3124,7 +3124,7 @@ exports[`card demos 📸 renders ./packages/card/src/components/StatisticCard/de
                 </div>
               </div>
               <div
-                class="ant-pro-card-statistic-description"
+                class="ant-pro-card-statistic-description "
               >
                 <div
                   class="ant-pro-card-statistic"
@@ -3171,7 +3171,7 @@ exports[`card demos 📸 renders ./packages/card/src/components/StatisticCard/de
         </div>
       </div>
       <div
-        class="ant-pro-statistic-card-footer"
+        class="ant-pro-statistic-card-footer "
       >
         <div
           class="ant-pro-card-statistic"
@@ -3276,7 +3276,7 @@ exports[`card demos 📸 renders ./packages/card/src/components/StatisticCard/de
       class="ant-pro-card-header"
     >
       <div
-        class="ant-pro-card-title"
+        class="ant-pro-card-title "
       >
         核心指标
       </div>
@@ -3295,7 +3295,7 @@ exports[`card demos 📸 renders ./packages/card/src/components/StatisticCard/de
             class="ant-pro-card-body"
           >
             <div
-              class="ant-pro-statistic-card-content"
+              class="ant-pro-statistic-card-content "
             >
               <div
                 class="ant-pro-card-statistic"
@@ -3315,7 +3315,7 @@ exports[`card demos 📸 renders ./packages/card/src/components/StatisticCard/de
                         今日UV
                         <span
                           aria-label="question-circle"
-                          class="anticon anticon-question-circle ant-pro-card-statistic-tip"
+                          class="anticon anticon-question-circle ant-pro-card-statistic-tip "
                           role="img"
                         >
                           <svg
@@ -3375,7 +3375,7 @@ exports[`card demos 📸 renders ./packages/card/src/components/StatisticCard/de
             class="ant-pro-card-body"
           >
             <div
-              class="ant-pro-statistic-card-content"
+              class="ant-pro-statistic-card-content "
             >
               <div
                 class="ant-pro-card-statistic"
@@ -3438,7 +3438,7 @@ exports[`card demos 📸 renders ./packages/card/src/components/StatisticCard/de
             class="ant-pro-card-body"
           >
             <div
-              class="ant-pro-statistic-card-content"
+              class="ant-pro-statistic-card-content "
             >
               <div
                 class="ant-pro-card-statistic"
@@ -3493,7 +3493,7 @@ exports[`card demos 📸 renders ./packages/card/src/components/StatisticCard/de
             class="ant-pro-card-body"
           >
             <div
-              class="ant-pro-statistic-card-content"
+              class="ant-pro-statistic-card-content "
             >
               <div
                 class="ant-pro-card-statistic"
@@ -3567,7 +3567,7 @@ exports[`card demos 📸 renders ./packages/card/src/components/StatisticCard/de
             class="ant-pro-card-body"
           >
             <div
-              class="ant-pro-statistic-card-content"
+              class="ant-pro-statistic-card-content "
             >
               <div
                 class="ant-pro-card-statistic"
@@ -3639,7 +3639,7 @@ exports[`card demos 📸 renders ./packages/card/src/components/StatisticCard/de
             class="ant-pro-card-body"
           >
             <div
-              class="ant-pro-statistic-card-content"
+              class="ant-pro-statistic-card-content "
             >
               <div
                 class="ant-pro-card-statistic"
@@ -3701,7 +3701,7 @@ exports[`card demos 📸 renders ./packages/card/src/components/StatisticCard/de
             class="ant-pro-card-body"
           >
             <div
-              class="ant-pro-statistic-card-content"
+              class="ant-pro-statistic-card-content "
             >
               <div
                 class="ant-pro-card-statistic"
@@ -3770,7 +3770,7 @@ exports[`card demos 📸 renders ./packages/card/src/components/StatisticCard/de
       class="ant-pro-card-body"
     >
       <div
-        class="ant-pro-statistic-card-content ant-pro-statistic-card-content-horizontal"
+        class="ant-pro-statistic-card-content  ant-pro-statistic-card-content-horizontal"
       >
         <div
           class="ant-pro-card-statistic"
@@ -3814,7 +3814,7 @@ exports[`card demos 📸 renders ./packages/card/src/components/StatisticCard/de
                 </div>
               </div>
               <div
-                class="ant-pro-card-statistic-description"
+                class="ant-pro-card-statistic-description "
               >
                 <div
                   class="ant-pro-card-statistic"
@@ -3919,7 +3919,7 @@ exports[`card demos 📸 renders ./packages/card/src/components/StatisticCard/de
       class="ant-pro-card-body"
     >
       <div
-        class="ant-pro-statistic-card-content ant-pro-statistic-card-content-horizontal"
+        class="ant-pro-statistic-card-content  ant-pro-statistic-card-content-horizontal"
       >
         <div
           class="ant-pro-statistic-card-chart ant-pro-statistic-card-chart-left"
@@ -3972,7 +3972,7 @@ exports[`card demos 📸 renders ./packages/card/src/components/StatisticCard/de
                 </div>
               </div>
               <div
-                class="ant-pro-card-statistic-description"
+                class="ant-pro-card-statistic-description "
               >
                 <div
                   class="ant-pro-card-statistic"
@@ -4077,7 +4077,7 @@ exports[`card demos 📸 renders ./packages/card/src/components/StatisticCard/de
             class="ant-pro-card-body"
           >
             <div
-              class="ant-pro-statistic-card-content"
+              class="ant-pro-statistic-card-content "
             >
               <div
                 class="ant-pro-card-statistic"
@@ -4136,7 +4136,7 @@ exports[`card demos 📸 renders ./packages/card/src/components/StatisticCard/de
             class="ant-pro-card-body"
           >
             <div
-              class="ant-pro-statistic-card-content"
+              class="ant-pro-statistic-card-content "
             >
               <div
                 class="ant-pro-card-statistic"
@@ -4195,7 +4195,7 @@ exports[`card demos 📸 renders ./packages/card/src/components/StatisticCard/de
             class="ant-pro-card-body"
           >
             <div
-              class="ant-pro-statistic-card-content"
+              class="ant-pro-statistic-card-content "
             >
               <div
                 class="ant-pro-card-statistic"
@@ -4254,7 +4254,7 @@ exports[`card demos 📸 renders ./packages/card/src/components/StatisticCard/de
             class="ant-pro-card-body"
           >
             <div
-              class="ant-pro-statistic-card-content"
+              class="ant-pro-statistic-card-content "
             >
               <div
                 class="ant-pro-card-statistic"
@@ -4317,12 +4317,12 @@ exports[`card demos 📸 renders ./packages/card/src/components/StatisticCard/de
       class="ant-pro-card-header ant-pro-card-header-border"
     >
       <div
-        class="ant-pro-card-title"
+        class="ant-pro-card-title "
       >
         数据概览
       </div>
       <div
-        class="ant-pro-card-extra"
+        class="ant-pro-card-extra "
       >
         2019年9月28日 星期五
       </div>
@@ -4367,7 +4367,7 @@ exports[`card demos 📸 renders ./packages/card/src/components/StatisticCard/de
                               class="ant-pro-card-body"
                             >
                               <div
-                                class="ant-pro-statistic-card-content"
+                                class="ant-pro-statistic-card-content "
                               >
                                 <div
                                   class="ant-pro-card-statistic"
@@ -4401,7 +4401,7 @@ exports[`card demos 📸 renders ./packages/card/src/components/StatisticCard/de
                                         </div>
                                       </div>
                                       <div
-                                        class="ant-pro-card-statistic-description"
+                                        class="ant-pro-card-statistic-description "
                                       >
                                         <div
                                           class="ant-pro-card-statistic"
@@ -4458,7 +4458,7 @@ exports[`card demos 📸 renders ./packages/card/src/components/StatisticCard/de
                               class="ant-pro-card-body"
                             >
                               <div
-                                class="ant-pro-statistic-card-content"
+                                class="ant-pro-statistic-card-content "
                               >
                                 <div
                                   class="ant-pro-card-statistic"
@@ -4492,7 +4492,7 @@ exports[`card demos 📸 renders ./packages/card/src/components/StatisticCard/de
                                         </div>
                                       </div>
                                       <div
-                                        class="ant-pro-card-statistic-description"
+                                        class="ant-pro-card-statistic-description "
                                       >
                                         <div
                                           class="ant-pro-card-statistic"
@@ -4561,7 +4561,7 @@ exports[`card demos 📸 renders ./packages/card/src/components/StatisticCard/de
                               class="ant-pro-card-body"
                             >
                               <div
-                                class="ant-pro-statistic-card-content"
+                                class="ant-pro-statistic-card-content "
                               >
                                 <div
                                   class="ant-pro-card-statistic"
@@ -4612,7 +4612,7 @@ exports[`card demos 📸 renders ./packages/card/src/components/StatisticCard/de
                               class="ant-pro-card-body"
                             >
                               <div
-                                class="ant-pro-statistic-card-content"
+                                class="ant-pro-statistic-card-content "
                               >
                                 <div
                                   class="ant-pro-card-statistic"
@@ -4673,7 +4673,7 @@ exports[`card demos 📸 renders ./packages/card/src/components/StatisticCard/de
                   class="ant-pro-card-header"
                 >
                   <div
-                    class="ant-pro-card-title"
+                    class="ant-pro-card-title "
                   >
                     流量走势
                   </div>
@@ -4682,7 +4682,7 @@ exports[`card demos 📸 renders ./packages/card/src/components/StatisticCard/de
                   class="ant-pro-card-body"
                 >
                   <div
-                    class="ant-pro-statistic-card-content"
+                    class="ant-pro-statistic-card-content "
                   >
                     <div
                       class="ant-pro-statistic-card-chart"
@@ -4709,7 +4709,7 @@ exports[`card demos 📸 renders ./packages/card/src/components/StatisticCard/de
             class="ant-pro-card-header"
           >
             <div
-              class="ant-pro-card-title"
+              class="ant-pro-card-title "
             >
               流量占用情况
             </div>
@@ -4718,7 +4718,7 @@ exports[`card demos 📸 renders ./packages/card/src/components/StatisticCard/de
             class="ant-pro-card-body"
           >
             <div
-              class="ant-pro-statistic-card-content"
+              class="ant-pro-statistic-card-content "
             >
               <div
                 class="ant-pro-statistic-card-chart"
@@ -4757,7 +4757,7 @@ exports[`card demos 📸 renders ./packages/card/src/components/StatisticCard/de
             class="ant-pro-card-body"
           >
             <div
-              class="ant-pro-statistic-card-content"
+              class="ant-pro-statistic-card-content "
             >
               <div
                 class="ant-pro-card-statistic"
@@ -4777,7 +4777,7 @@ exports[`card demos 📸 renders ./packages/card/src/components/StatisticCard/de
                         全部
                         <span
                           aria-label="question-circle"
-                          class="anticon anticon-question-circle ant-pro-card-statistic-tip"
+                          class="anticon anticon-question-circle ant-pro-card-statistic-tip "
                           role="img"
                         >
                           <svg
@@ -4832,7 +4832,7 @@ exports[`card demos 📸 renders ./packages/card/src/components/StatisticCard/de
             class="ant-pro-card-body"
           >
             <div
-              class="ant-pro-statistic-card-content"
+              class="ant-pro-statistic-card-content "
             >
               <div
                 class="ant-pro-card-statistic"
@@ -4896,7 +4896,7 @@ exports[`card demos 📸 renders ./packages/card/src/components/StatisticCard/de
             class="ant-pro-card-body"
           >
             <div
-              class="ant-pro-statistic-card-content"
+              class="ant-pro-statistic-card-content "
             >
               <div
                 class="ant-pro-card-statistic"
@@ -4960,7 +4960,7 @@ exports[`card demos 📸 renders ./packages/card/src/components/StatisticCard/de
             class="ant-pro-card-body"
           >
             <div
-              class="ant-pro-statistic-card-content"
+              class="ant-pro-statistic-card-content "
             >
               <div
                 class="ant-pro-card-statistic"
@@ -5024,7 +5024,7 @@ exports[`card demos 📸 renders ./packages/card/src/components/StatisticCard/de
             class="ant-pro-card-body"
           >
             <div
-              class="ant-pro-statistic-card-content"
+              class="ant-pro-statistic-card-content "
             >
               <div
                 class="ant-pro-card-statistic"
@@ -5085,7 +5085,7 @@ exports[`card demos 📸 renders ./packages/card/src/components/StatisticCard/de
     class="ant-pro-card"
   >
     <div
-      class="ant-pro-card-tabs"
+      class="ant-pro-card-tabs "
     >
       <div
         class="ant-tabs ant-tabs-top"
@@ -5105,16 +5105,16 @@ exports[`card demos 📸 renders ./packages/card/src/components/StatisticCard/de
                 class="ant-tabs-tab ant-tabs-tab-active"
               >
                 <div
-                  aria-controls="rc-tabs-test-panel-1"
+                  aria-controls="rc-tabs-1-panel-1"
                   aria-selected="true"
                   class="ant-tabs-tab-btn"
-                  id="rc-tabs-test-tab-1"
+                  id="rc-tabs-1-tab-1"
                   role="tab"
                   tabindex="0"
                 >
                   <div
                     class="ant-pro-card-statistic"
-                    style="width: 120px; border-right: 1px solid #f0f0f0;"
+                    style="width: 120px; border-inline-end: 1px solid #f0f0f0;"
                   >
                     <div
                       class="ant-pro-card-statistic-wrapper"
@@ -5153,10 +5153,10 @@ exports[`card demos 📸 renders ./packages/card/src/components/StatisticCard/de
                 class="ant-tabs-tab"
               >
                 <div
-                  aria-controls="rc-tabs-test-panel-2"
+                  aria-controls="rc-tabs-1-panel-2"
                   aria-selected="false"
                   class="ant-tabs-tab-btn"
-                  id="rc-tabs-test-tab-2"
+                  id="rc-tabs-1-tab-2"
                   role="tab"
                   tabindex="0"
                 >
@@ -5215,10 +5215,10 @@ exports[`card demos 📸 renders ./packages/card/src/components/StatisticCard/de
                 class="ant-tabs-tab"
               >
                 <div
-                  aria-controls="rc-tabs-test-panel-3"
+                  aria-controls="rc-tabs-1-panel-3"
                   aria-selected="false"
                   class="ant-tabs-tab-btn"
-                  id="rc-tabs-test-tab-3"
+                  id="rc-tabs-1-tab-3"
                   role="tab"
                   tabindex="0"
                 >
@@ -5277,10 +5277,10 @@ exports[`card demos 📸 renders ./packages/card/src/components/StatisticCard/de
                 class="ant-tabs-tab"
               >
                 <div
-                  aria-controls="rc-tabs-test-panel-4"
+                  aria-controls="rc-tabs-1-panel-4"
                   aria-selected="false"
                   class="ant-tabs-tab-btn"
-                  id="rc-tabs-test-tab-4"
+                  id="rc-tabs-1-tab-4"
                   role="tab"
                   tabindex="0"
                 >
@@ -5339,10 +5339,10 @@ exports[`card demos 📸 renders ./packages/card/src/components/StatisticCard/de
                 class="ant-tabs-tab"
               >
                 <div
-                  aria-controls="rc-tabs-test-panel-5"
+                  aria-controls="rc-tabs-1-panel-5"
                   aria-selected="false"
                   class="ant-tabs-tab-btn"
-                  id="rc-tabs-test-tab-5"
+                  id="rc-tabs-1-tab-5"
                   role="tab"
                   tabindex="0"
                 >
@@ -5407,12 +5407,12 @@ exports[`card demos 📸 renders ./packages/card/src/components/StatisticCard/de
             class="ant-tabs-nav-operations ant-tabs-nav-operations-hidden"
           >
             <button
-              aria-controls="rc-tabs-test-more-popup"
+              aria-controls="rc-tabs-1-more-popup"
               aria-expanded="false"
               aria-haspopup="listbox"
               aria-hidden="true"
               class="ant-tabs-nav-more"
-              id="rc-tabs-test-more"
+              id="rc-tabs-1-more"
               style="visibility: hidden; order: 1;"
               tabindex="-1"
               type="button"
@@ -5447,63 +5447,19 @@ exports[`card demos 📸 renders ./packages/card/src/components/StatisticCard/de
           >
             <div
               aria-hidden="false"
-              aria-labelledby="rc-tabs-test-tab-1"
-              class="ant-tabs-tabpane ant-tabs-tabpane-active ant-pro-card-tabpane"
-              id="rc-tabs-test-panel-1"
+              aria-labelledby="rc-tabs-1-tab-1"
+              class="ant-tabs-tabpane ant-tabs-tabpane-active"
+              id="rc-tabs-1-panel-1"
               role="tabpanel"
               style="width: 100%;"
               tabindex="0"
             >
               <div
-                class="ant-pro-card"
+                style="display: flex; align-items: center; justify-content: center; background-color: rgb(250, 250, 250); height: 100px;"
               >
-                <div
-                  class="ant-pro-card-body"
-                >
-                  <div
-                    style="display: flex; align-items: center; justify-content: center; background-color: rgb(250, 250, 250); height: 100px;"
-                  >
-                    关联展示内容 全部
-                  </div>
-                </div>
+                关联展示内容 全部
               </div>
             </div>
-            <div
-              aria-hidden="true"
-              aria-labelledby="rc-tabs-test-tab-2"
-              class="ant-tabs-tabpane ant-pro-card-tabpane"
-              id="rc-tabs-test-panel-2"
-              role="tabpanel"
-              style="display: none; width: 100%;"
-              tabindex="-1"
-            />
-            <div
-              aria-hidden="true"
-              aria-labelledby="rc-tabs-test-tab-3"
-              class="ant-tabs-tabpane ant-pro-card-tabpane"
-              id="rc-tabs-test-panel-3"
-              role="tabpanel"
-              style="display: none; width: 100%;"
-              tabindex="-1"
-            />
-            <div
-              aria-hidden="true"
-              aria-labelledby="rc-tabs-test-tab-4"
-              class="ant-tabs-tabpane ant-pro-card-tabpane"
-              id="rc-tabs-test-panel-4"
-              role="tabpanel"
-              style="display: none; width: 100%;"
-              tabindex="-1"
-            />
-            <div
-              aria-hidden="true"
-              aria-labelledby="rc-tabs-test-tab-5"
-              class="ant-tabs-tabpane ant-pro-card-tabpane"
-              id="rc-tabs-test-panel-5"
-              role="tabpanel"
-              style="display: none; width: 100%;"
-              tabindex="-1"
-            />
           </div>
         </div>
       </div>
@@ -5518,7 +5474,7 @@ exports[`card demos 📸 renders ./packages/card/src/components/StatisticCard/de
     class="ant-pro-card"
   >
     <div
-      class="ant-pro-card-tabs"
+      class="ant-pro-card-tabs "
     >
       <div
         class="ant-tabs ant-tabs-top"
@@ -5538,16 +5494,16 @@ exports[`card demos 📸 renders ./packages/card/src/components/StatisticCard/de
                 class="ant-tabs-tab ant-tabs-tab-active"
               >
                 <div
-                  aria-controls="rc-tabs-test-panel-1"
+                  aria-controls="rc-tabs-0-panel-1"
                   aria-selected="true"
                   class="ant-tabs-tab-btn"
-                  id="rc-tabs-test-tab-1"
+                  id="rc-tabs-0-tab-1"
                   role="tab"
                   tabindex="0"
                 >
                   <div
                     class="ant-pro-card-statistic"
-                    style="width: 120px; border-right: 1px solid #f0f0f0;"
+                    style="width: 120px; border-inline-end: 1px solid #f0f0f0;"
                   >
                     <div
                       class="ant-pro-card-statistic-wrapper"
@@ -5586,10 +5542,10 @@ exports[`card demos 📸 renders ./packages/card/src/components/StatisticCard/de
                 class="ant-tabs-tab"
               >
                 <div
-                  aria-controls="rc-tabs-test-panel-2"
+                  aria-controls="rc-tabs-0-panel-2"
                   aria-selected="false"
                   class="ant-tabs-tab-btn"
-                  id="rc-tabs-test-tab-2"
+                  id="rc-tabs-0-tab-2"
                   role="tab"
                   tabindex="0"
                 >
@@ -5648,10 +5604,10 @@ exports[`card demos 📸 renders ./packages/card/src/components/StatisticCard/de
                 class="ant-tabs-tab"
               >
                 <div
-                  aria-controls="rc-tabs-test-panel-3"
+                  aria-controls="rc-tabs-0-panel-3"
                   aria-selected="false"
                   class="ant-tabs-tab-btn"
-                  id="rc-tabs-test-tab-3"
+                  id="rc-tabs-0-tab-3"
                   role="tab"
                   tabindex="0"
                 >
@@ -5710,10 +5666,10 @@ exports[`card demos 📸 renders ./packages/card/src/components/StatisticCard/de
                 class="ant-tabs-tab"
               >
                 <div
-                  aria-controls="rc-tabs-test-panel-4"
+                  aria-controls="rc-tabs-0-panel-4"
                   aria-selected="false"
                   class="ant-tabs-tab-btn"
-                  id="rc-tabs-test-tab-4"
+                  id="rc-tabs-0-tab-4"
                   role="tab"
                   tabindex="0"
                 >
@@ -5772,10 +5728,10 @@ exports[`card demos 📸 renders ./packages/card/src/components/StatisticCard/de
                 class="ant-tabs-tab"
               >
                 <div
-                  aria-controls="rc-tabs-test-panel-5"
+                  aria-controls="rc-tabs-0-panel-5"
                   aria-selected="false"
                   class="ant-tabs-tab-btn"
-                  id="rc-tabs-test-tab-5"
+                  id="rc-tabs-0-tab-5"
                   role="tab"
                   tabindex="0"
                 >
@@ -5840,12 +5796,12 @@ exports[`card demos 📸 renders ./packages/card/src/components/StatisticCard/de
             class="ant-tabs-nav-operations ant-tabs-nav-operations-hidden"
           >
             <button
-              aria-controls="rc-tabs-test-more-popup"
+              aria-controls="rc-tabs-0-more-popup"
               aria-expanded="false"
               aria-haspopup="listbox"
               aria-hidden="true"
               class="ant-tabs-nav-more"
-              id="rc-tabs-test-more"
+              id="rc-tabs-0-more"
               style="visibility: hidden; order: 1;"
               tabindex="-1"
               type="button"
@@ -5880,9 +5836,9 @@ exports[`card demos 📸 renders ./packages/card/src/components/StatisticCard/de
           >
             <div
               aria-hidden="false"
-              aria-labelledby="rc-tabs-test-tab-1"
-              class="ant-tabs-tabpane ant-tabs-tabpane-active ant-pro-card-tabpane"
-              id="rc-tabs-test-panel-1"
+              aria-labelledby="rc-tabs-0-tab-1"
+              class="ant-tabs-tabpane ant-tabs-tabpane-active"
+              id="rc-tabs-0-panel-1"
               role="tabpanel"
               style="width: 100%;"
               tabindex="0"
@@ -5901,42 +5857,6 @@ exports[`card demos 📸 renders ./packages/card/src/components/StatisticCard/de
                 </div>
               </div>
             </div>
-            <div
-              aria-hidden="true"
-              aria-labelledby="rc-tabs-test-tab-2"
-              class="ant-tabs-tabpane ant-pro-card-tabpane"
-              id="rc-tabs-test-panel-2"
-              role="tabpanel"
-              style="display: none; width: 100%;"
-              tabindex="-1"
-            />
-            <div
-              aria-hidden="true"
-              aria-labelledby="rc-tabs-test-tab-3"
-              class="ant-tabs-tabpane ant-pro-card-tabpane"
-              id="rc-tabs-test-panel-3"
-              role="tabpanel"
-              style="display: none; width: 100%;"
-              tabindex="-1"
-            />
-            <div
-              aria-hidden="true"
-              aria-labelledby="rc-tabs-test-tab-4"
-              class="ant-tabs-tabpane ant-pro-card-tabpane"
-              id="rc-tabs-test-panel-4"
-              role="tabpanel"
-              style="display: none; width: 100%;"
-              tabindex="-1"
-            />
-            <div
-              aria-hidden="true"
-              aria-labelledby="rc-tabs-test-tab-5"
-              class="ant-tabs-tabpane ant-pro-card-tabpane"
-              id="rc-tabs-test-panel-5"
-              role="tabpanel"
-              style="display: none; width: 100%;"
-              tabindex="-1"
-            />
           </div>
         </div>
       </div>
@@ -5964,7 +5884,7 @@ exports[`card demos 📸 renders ./packages/card/src/components/StatisticCard/de
             class="ant-pro-card-body"
           >
             <div
-              class="ant-pro-statistic-card-content"
+              class="ant-pro-statistic-card-content "
             >
               <div
                 class="ant-pro-card-statistic"
@@ -6017,7 +5937,7 @@ exports[`card demos 📸 renders ./packages/card/src/components/StatisticCard/de
             class="ant-pro-card-body"
           >
             <div
-              class="ant-pro-statistic-card-content ant-pro-statistic-card-content-horizontal"
+              class="ant-pro-statistic-card-content  ant-pro-statistic-card-content-horizontal"
             >
               <div
                 class="ant-pro-statistic-card-chart ant-pro-statistic-card-chart-left"
@@ -6060,7 +5980,7 @@ exports[`card demos 📸 renders ./packages/card/src/components/StatisticCard/de
                       </div>
                     </div>
                     <div
-                      class="ant-pro-card-statistic-description"
+                      class="ant-pro-card-statistic-description "
                     >
                       <div
                         class="ant-pro-card-statistic"
@@ -6110,7 +6030,7 @@ exports[`card demos 📸 renders ./packages/card/src/components/StatisticCard/de
             class="ant-pro-card-body"
           >
             <div
-              class="ant-pro-statistic-card-content ant-pro-statistic-card-content-horizontal"
+              class="ant-pro-statistic-card-content  ant-pro-statistic-card-content-horizontal"
             >
               <div
                 class="ant-pro-statistic-card-chart ant-pro-statistic-card-chart-left"
@@ -6153,7 +6073,7 @@ exports[`card demos 📸 renders ./packages/card/src/components/StatisticCard/de
                       </div>
                     </div>
                     <div
-                      class="ant-pro-card-statistic-description"
+                      class="ant-pro-card-statistic-description "
                     >
                       <div
                         class="ant-pro-card-statistic"
@@ -6216,7 +6136,7 @@ exports[`card demos 📸 renders ./packages/card/src/components/StatisticCard/de
             class="ant-pro-card-header"
           >
             <div
-              class="ant-pro-card-title"
+              class="ant-pro-card-title "
             >
               财年业绩目标
             </div>
@@ -6225,7 +6145,7 @@ exports[`card demos 📸 renders ./packages/card/src/components/StatisticCard/de
             class="ant-pro-card-body"
           >
             <div
-              class="ant-pro-statistic-card-content"
+              class="ant-pro-statistic-card-content "
             >
               <div
                 class="ant-pro-card-statistic"
@@ -6264,7 +6184,7 @@ exports[`card demos 📸 renders ./packages/card/src/components/StatisticCard/de
                       </div>
                     </div>
                     <div
-                      class="ant-pro-card-statistic-description"
+                      class="ant-pro-card-statistic-description "
                     >
                       <div
                         class="ant-pro-card-statistic"
@@ -6318,7 +6238,7 @@ exports[`card demos 📸 renders ./packages/card/src/components/StatisticCard/de
               </div>
             </div>
             <div
-              class="ant-pro-statistic-card-footer"
+              class="ant-pro-statistic-card-footer "
             >
               <div
                 class="ant-pro-card-statistic"
@@ -6431,7 +6351,7 @@ exports[`card demos 📸 renders ./packages/card/src/components/StatisticCard/de
                 class="ant-pro-card-body"
               >
                 <div
-                  class="ant-pro-statistic-card-content"
+                  class="ant-pro-statistic-card-content "
                 >
                   <div
                     class="ant-pro-card-statistic"
@@ -6465,7 +6385,7 @@ exports[`card demos 📸 renders ./packages/card/src/components/StatisticCard/de
                           </div>
                         </div>
                         <div
-                          class="ant-pro-card-statistic-description"
+                          class="ant-pro-card-statistic-description "
                         >
                           <div
                             class="ant-pro-card-statistic"
@@ -6550,7 +6470,7 @@ exports[`card demos 📸 renders ./packages/card/src/components/StatisticCard/de
                         </div>
                       </div>
                       <div
-                        class="ant-pro-card-statistic-description"
+                        class="ant-pro-card-statistic-description "
                       >
                         <div
                           class="ant-pro-card-statistic"
@@ -6606,7 +6526,7 @@ exports[`card demos 📸 renders ./packages/card/src/components/StatisticCard/de
                 class="ant-pro-card-body"
               >
                 <div
-                  class="ant-pro-statistic-card-content"
+                  class="ant-pro-statistic-card-content "
                 >
                   <div
                     class="ant-pro-card-statistic"
@@ -6640,7 +6560,7 @@ exports[`card demos 📸 renders ./packages/card/src/components/StatisticCard/de
                           </div>
                         </div>
                         <div
-                          class="ant-pro-card-statistic-description"
+                          class="ant-pro-card-statistic-description "
                         >
                           <div
                             class="ant-pro-card-statistic"
@@ -6725,7 +6645,7 @@ exports[`card demos 📸 renders ./packages/card/src/components/StatisticCard/de
                         </div>
                       </div>
                       <div
-                        class="ant-pro-card-statistic-description"
+                        class="ant-pro-card-statistic-description "
                       >
                         <div
                           class="ant-pro-card-statistic"
@@ -6781,7 +6701,7 @@ exports[`card demos 📸 renders ./packages/card/src/components/StatisticCard/de
                 class="ant-pro-card-body"
               >
                 <div
-                  class="ant-pro-statistic-card-content"
+                  class="ant-pro-statistic-card-content "
                 >
                   <div
                     class="ant-pro-card-statistic"
@@ -6815,7 +6735,7 @@ exports[`card demos 📸 renders ./packages/card/src/components/StatisticCard/de
                           </div>
                         </div>
                         <div
-                          class="ant-pro-card-statistic-description"
+                          class="ant-pro-card-statistic-description "
                         >
                           <div
                             class="ant-pro-card-statistic"
@@ -6900,7 +6820,7 @@ exports[`card demos 📸 renders ./packages/card/src/components/StatisticCard/de
                         </div>
                       </div>
                       <div
-                        class="ant-pro-card-statistic-description"
+                        class="ant-pro-card-statistic-description "
                       >
                         <div
                           class="ant-pro-card-statistic"
@@ -7081,7 +7001,7 @@ exports[`card demos 📸 renders ./packages/card/src/demos/actions.tsx correctly
       class="ant-pro-card-header"
     >
       <div
-        class="ant-pro-card-title"
+        class="ant-pro-card-title "
       >
         Actions 操作项
       </div>
@@ -7192,7 +7112,7 @@ exports[`card demos 📸 renders ./packages/card/src/demos/basic.tsx correctly 1
       class="ant-pro-card-header"
     >
       <div
-        class="ant-pro-card-title"
+        class="ant-pro-card-title "
       >
         <div
           class="ant-pro-core-label-tip"
@@ -7203,7 +7123,7 @@ exports[`card demos 📸 renders ./packages/card/src/demos/basic.tsx correctly 1
             默认尺寸
           </div>
           <span
-            class="ant-pro-core-label-tip-icon"
+            class="ant-pro-core-label-tip-icon "
           >
             <span
               aria-label="info-circle"
@@ -7231,7 +7151,7 @@ exports[`card demos 📸 renders ./packages/card/src/demos/basic.tsx correctly 1
         </div>
       </div>
       <div
-        class="ant-pro-card-extra"
+        class="ant-pro-card-extra "
       >
         extra
       </div>
@@ -7252,13 +7172,13 @@ exports[`card demos 📸 renders ./packages/card/src/demos/basic.tsx correctly 1
   </div>
   <div
     class="ant-pro-card ant-pro-card-size-small"
-    style="max-width: 300px; margin-top: 24px;"
+    style="max-width: 300px; margin-block-start: 24px;"
   >
     <div
       class="ant-pro-card-header"
     >
       <div
-        class="ant-pro-card-title"
+        class="ant-pro-card-title "
       >
         <div
           class="ant-pro-core-label-tip"
@@ -7269,7 +7189,7 @@ exports[`card demos 📸 renders ./packages/card/src/demos/basic.tsx correctly 1
             小尺寸卡片
           </div>
           <span
-            class="ant-pro-core-label-tip-icon"
+            class="ant-pro-core-label-tip-icon "
           >
             <span
               aria-label="info-circle"
@@ -7297,7 +7217,7 @@ exports[`card demos 📸 renders ./packages/card/src/demos/basic.tsx correctly 1
         </div>
       </div>
       <div
-        class="ant-pro-card-extra"
+        class="ant-pro-card-extra "
       >
         extra
       </div>
@@ -7329,7 +7249,7 @@ exports[`card demos 📸 renders ./packages/card/src/demos/bordered.tsx correctl
       class="ant-pro-card-header"
     >
       <div
-        class="ant-pro-card-title"
+        class="ant-pro-card-title "
       >
         <div
           class="ant-pro-core-label-tip"
@@ -7340,7 +7260,7 @@ exports[`card demos 📸 renders ./packages/card/src/demos/bordered.tsx correctl
             标题
           </div>
           <span
-            class="ant-pro-core-label-tip-icon"
+            class="ant-pro-core-label-tip-icon "
           >
             <span
               aria-label="info-circle"
@@ -7368,7 +7288,7 @@ exports[`card demos 📸 renders ./packages/card/src/demos/bordered.tsx correctl
         </div>
       </div>
       <div
-        class="ant-pro-card-extra"
+        class="ant-pro-card-extra "
       >
         extra
       </div>
@@ -7391,11 +7311,11 @@ exports[`card demos 📸 renders ./packages/card/src/demos/collapsible.tsx corre
       class="ant-pro-card-header ant-pro-card-header-border ant-pro-card-header-collapsible"
     >
       <div
-        class="ant-pro-card-title"
+        class="ant-pro-card-title "
       >
         <span
           aria-label="right"
-          class="anticon anticon-right ant-pro-card-collapsible-icon"
+          class="anticon anticon-right ant-pro-card-collapsible-icon "
           role="img"
         >
           <svg
@@ -7415,7 +7335,7 @@ exports[`card demos 📸 renders ./packages/card/src/demos/collapsible.tsx corre
         可折叠
       </div>
       <div
-        class="ant-pro-card-extra"
+        class="ant-pro-card-extra "
       >
         <button
           class="ant-btn ant-btn-default ant-btn-sm"
@@ -7435,18 +7355,18 @@ exports[`card demos 📸 renders ./packages/card/src/demos/collapsible.tsx corre
   </div>
   <div
     class="ant-pro-card ant-pro-card-collapse"
-    style="margin-top: 16px;"
+    style="margin-block-start: 16px;"
   >
     <div
       class="ant-pro-card-header ant-pro-card-header-border"
     >
       <div
-        class="ant-pro-card-title"
+        class="ant-pro-card-title "
       >
         可折叠-受控自定义
       </div>
       <div
-        class="ant-pro-card-extra"
+        class="ant-pro-card-extra "
       >
         <span
           aria-label="right"
@@ -7478,13 +7398,13 @@ exports[`card demos 📸 renders ./packages/card/src/demos/collapsible.tsx corre
   </div>
   <div
     class="ant-pro-card ant-pro-card-collapse"
-    style="margin-top: 16px;"
+    style="margin-block-start: 16px;"
   >
     <div
       class="ant-pro-card-header ant-pro-card-header-border ant-pro-card-header-collapsible"
     >
       <div
-        class="ant-pro-card-title"
+        class="ant-pro-card-title "
       >
         <span>
           收起 - 
@@ -7508,11 +7428,11 @@ exports[`card demos 📸 renders ./packages/card/src/demos/colspan.tsx correctly
   >
     <div
       class="ant-pro-card-body ant-pro-card-body-direction-column"
-      style="margin-top: -4px; margin-bottom: -4px;"
+      style="margin-block-start: -4px; margin-block-end: -4px;"
     >
       <div
         class="ant-pro-card-col"
-        style="padding-top: 4px; padding-bottom: 4px;"
+        style="padding-block-start: 4px; padding-block-end: 4px;"
       >
         <div
           class="ant-pro-card ant-pro-card-border"
@@ -7526,7 +7446,7 @@ exports[`card demos 📸 renders ./packages/card/src/demos/colspan.tsx correctly
       </div>
       <div
         class="ant-pro-card-col ant-pro-card-col-12"
-        style="padding-top: 4px; padding-bottom: 4px;"
+        style="padding-block-start: 4px; padding-block-end: 4px;"
       >
         <div
           class="ant-pro-card ant-pro-card-border"
@@ -7540,7 +7460,7 @@ exports[`card demos 📸 renders ./packages/card/src/demos/colspan.tsx correctly
       </div>
       <div
         class="ant-pro-card-col ant-pro-card-col-8"
-        style="padding-top: 4px; padding-bottom: 4px;"
+        style="padding-block-start: 4px; padding-block-end: 4px;"
       >
         <div
           class="ant-pro-card ant-pro-card-border"
@@ -7554,7 +7474,7 @@ exports[`card demos 📸 renders ./packages/card/src/demos/colspan.tsx correctly
       </div>
       <div
         class="ant-pro-card-col ant-pro-card-col-0"
-        style="padding-top: 4px; padding-bottom: 4px;"
+        style="padding-block-start: 4px; padding-block-end: 4px;"
       >
         <div
           class="ant-pro-card ant-pro-card-border"
@@ -7570,24 +7490,24 @@ exports[`card demos 📸 renders ./packages/card/src/demos/colspan.tsx correctly
   </div>
   <div
     class="ant-pro-card ant-pro-card-contain-card"
-    style="margin-top: 8px;"
+    style="margin-block-start: 8px;"
   >
     <div
       class="ant-pro-card-header"
     >
       <div
-        class="ant-pro-card-title"
+        class="ant-pro-card-title "
       >
         24栅格
       </div>
     </div>
     <div
       class="ant-pro-card-body"
-      style="margin-right: -4px; margin-left: -4px;"
+      style="margin-inline-end: -4px; margin-inline-start: -4px;"
     >
       <div
         class="ant-pro-card-col ant-pro-card-col-12"
-        style="padding-right: 4px; padding-left: 4px;"
+        style="padding-inline-end: 4px; padding-inline-start: 4px;"
       >
         <div
           class="ant-pro-card ant-pro-card-border"
@@ -7601,7 +7521,7 @@ exports[`card demos 📸 renders ./packages/card/src/demos/colspan.tsx correctly
       </div>
       <div
         class="ant-pro-card-col ant-pro-card-col-6"
-        style="padding-right: 4px; padding-left: 4px;"
+        style="padding-inline-end: 4px; padding-inline-start: 4px;"
       >
         <div
           class="ant-pro-card ant-pro-card-border"
@@ -7615,7 +7535,7 @@ exports[`card demos 📸 renders ./packages/card/src/demos/colspan.tsx correctly
       </div>
       <div
         class="ant-pro-card-col ant-pro-card-col-6"
-        style="padding-right: 4px; padding-left: 4px;"
+        style="padding-inline-end: 4px; padding-inline-start: 4px;"
       >
         <div
           class="ant-pro-card ant-pro-card-border"
@@ -7631,15 +7551,15 @@ exports[`card demos 📸 renders ./packages/card/src/demos/colspan.tsx correctly
   </div>
   <div
     class="ant-pro-card ant-pro-card-contain-card ant-pro-card-ghost"
-    style="margin-top: 8px;"
+    style="margin-block-start: 8px;"
   >
     <div
       class="ant-pro-card-body"
-      style="margin-right: -4px; margin-left: -4px;"
+      style="margin-inline-end: -4px; margin-inline-start: -4px;"
     >
       <div
         class="ant-pro-card-col"
-        style="width: 200px; flex-shrink: 0; padding-right: 4px; padding-left: 4px;"
+        style="width: 200px; flex-shrink: 0; padding-inline-end: 4px; padding-inline-start: 4px;"
       >
         <div
           class="ant-pro-card ant-pro-card-border"
@@ -7653,7 +7573,7 @@ exports[`card demos 📸 renders ./packages/card/src/demos/colspan.tsx correctly
       </div>
       <div
         class="ant-pro-card-col"
-        style="padding-right: 4px; padding-left: 4px;"
+        style="padding-inline-end: 4px; padding-inline-start: 4px;"
       >
         <div
           class="ant-pro-card ant-pro-card-border"
@@ -7669,15 +7589,15 @@ exports[`card demos 📸 renders ./packages/card/src/demos/colspan.tsx correctly
   </div>
   <div
     class="ant-pro-card ant-pro-card-contain-card ant-pro-card-ghost"
-    style="margin-top: 8px;"
+    style="margin-block-start: 8px;"
   >
     <div
       class="ant-pro-card-body"
-      style="margin-right: -4px; margin-left: -4px;"
+      style="margin-inline-end: -4px; margin-inline-start: -4px;"
     >
       <div
         class="ant-pro-card-col"
-        style="padding-right: 4px; padding-left: 4px;"
+        style="padding-inline-end: 4px; padding-inline-start: 4px;"
       >
         <div
           class="ant-pro-card ant-pro-card-border"
@@ -7691,7 +7611,7 @@ exports[`card demos 📸 renders ./packages/card/src/demos/colspan.tsx correctly
       </div>
       <div
         class="ant-pro-card-col"
-        style="width: 30%; flex-shrink: 0; padding-right: 4px; padding-left: 4px;"
+        style="width: 30%; flex-shrink: 0; padding-inline-end: 4px; padding-inline-start: 4px;"
       >
         <div
           class="ant-pro-card ant-pro-card-border"
@@ -7717,7 +7637,7 @@ exports[`card demos 📸 renders ./packages/card/src/demos/divider.tsx correctly
       class="ant-pro-card-header"
     >
       <div
-        class="ant-pro-card-title"
+        class="ant-pro-card-title "
       >
         核心指标
       </div>
@@ -7900,11 +7820,11 @@ exports[`card demos 📸 renders ./packages/card/src/demos/group.tsx correctly 1
       class="ant-pro-card-header ant-pro-card-header-collapsible"
     >
       <div
-        class="ant-pro-card-title"
+        class="ant-pro-card-title "
       >
         <span
           aria-label="right"
-          class="anticon anticon-right ant-pro-card-collapsible-icon"
+          class="anticon anticon-right ant-pro-card-collapsible-icon "
           role="img"
         >
           <svg
@@ -7927,11 +7847,11 @@ exports[`card demos 📸 renders ./packages/card/src/demos/group.tsx correctly 1
     </div>
     <div
       class="ant-pro-card-body"
-      style="margin-right: -4px; margin-left: -4px;"
+      style="margin-inline-end: -4px; margin-inline-start: -4px;"
     >
       <div
         class="ant-pro-card-col"
-        style="padding-right: 4px; padding-left: 4px;"
+        style="padding-inline-end: 4px; padding-inline-start: 4px;"
       >
         <div
           class="ant-pro-card ant-pro-card-border"
@@ -7945,7 +7865,7 @@ exports[`card demos 📸 renders ./packages/card/src/demos/group.tsx correctly 1
       </div>
       <div
         class="ant-pro-card-col"
-        style="padding-right: 4px; padding-left: 4px;"
+        style="padding-inline-end: 4px; padding-inline-start: 4px;"
       >
         <div
           class="ant-pro-card ant-pro-card-border"
@@ -7959,7 +7879,7 @@ exports[`card demos 📸 renders ./packages/card/src/demos/group.tsx correctly 1
       </div>
       <div
         class="ant-pro-card-col"
-        style="padding-right: 4px; padding-left: 4px;"
+        style="padding-inline-end: 4px; padding-inline-start: 4px;"
       >
         <div
           class="ant-pro-card ant-pro-card-border"
@@ -7983,11 +7903,11 @@ exports[`card demos 📸 renders ./packages/card/src/demos/gutter.tsx correctly 
   >
     <div
       class="ant-pro-card-body"
-      style="margin: -8px -8px -8px -8px;"
+      style="margin-inline-end: -8px; margin-inline-start: -8px; margin-block-start: -8px; margin-block-end: -8px;"
     >
       <div
         class="ant-pro-card-col"
-        style="width: 30%; flex-shrink: 0; padding: 8px 8px 8px 8px;"
+        style="width: 30%; flex-shrink: 0; padding-inline-end: 8px; padding-inline-start: 8px; padding-block-start: 8px; padding-block-end: 8px;"
       >
         <div
           class="ant-pro-card ant-pro-card-border"
@@ -7996,7 +7916,7 @@ exports[`card demos 📸 renders ./packages/card/src/demos/gutter.tsx correctly 
             class="ant-pro-card-header ant-pro-card-header-border"
           >
             <div
-              class="ant-pro-card-title"
+              class="ant-pro-card-title "
             >
               title
             </div>
@@ -8010,7 +7930,7 @@ exports[`card demos 📸 renders ./packages/card/src/demos/gutter.tsx correctly 
       </div>
       <div
         class="ant-pro-card-col"
-        style="padding: 8px 8px 8px 8px;"
+        style="padding-inline-end: 8px; padding-inline-start: 8px; padding-block-start: 8px; padding-block-end: 8px;"
       >
         <div
           class="ant-pro-card ant-pro-card-border"
@@ -8026,15 +7946,15 @@ exports[`card demos 📸 renders ./packages/card/src/demos/gutter.tsx correctly 
   </div>
   <div
     class="ant-pro-card ant-pro-card-contain-card"
-    style="margin-top: 16px;"
+    style="margin-block-start: 16px;"
   >
     <div
       class="ant-pro-card-body"
-      style="margin-top: -8px; margin-bottom: -8px;"
+      style="margin-block-start: -8px; margin-block-end: -8px;"
     >
       <div
         class="ant-pro-card-col"
-        style="padding-top: 8px; padding-bottom: 8px;"
+        style="padding-block-start: 8px; padding-block-end: 8px;"
       >
         <div
           class="ant-pro-card ant-pro-card-border"
@@ -8048,7 +7968,7 @@ exports[`card demos 📸 renders ./packages/card/src/demos/gutter.tsx correctly 
       </div>
       <div
         class="ant-pro-card-col"
-        style="padding-top: 8px; padding-bottom: 8px;"
+        style="padding-block-start: 8px; padding-block-end: 8px;"
       >
         <div
           class="ant-pro-card ant-pro-card-border"
@@ -8062,7 +7982,7 @@ exports[`card demos 📸 renders ./packages/card/src/demos/gutter.tsx correctly 
       </div>
       <div
         class="ant-pro-card-col"
-        style="padding-top: 8px; padding-bottom: 8px;"
+        style="padding-block-start: 8px; padding-block-end: 8px;"
       >
         <div
           class="ant-pro-card ant-pro-card-border"
@@ -8078,15 +7998,15 @@ exports[`card demos 📸 renders ./packages/card/src/demos/gutter.tsx correctly 
   </div>
   <div
     class="ant-pro-card ant-pro-card-contain-card"
-    style="margin-top: 16px;"
+    style="margin-block-start: 16px;"
   >
     <div
       class="ant-pro-card-body"
-      style="margin-right: -8px; margin-left: -8px;"
+      style="margin-inline-end: -8px; margin-inline-start: -8px;"
     >
       <div
         class="ant-pro-card-col"
-        style="padding-right: 8px; padding-left: 8px;"
+        style="padding-inline-end: 8px; padding-inline-start: 8px;"
       >
         <div
           class="ant-pro-card ant-pro-card-border"
@@ -8100,7 +8020,7 @@ exports[`card demos 📸 renders ./packages/card/src/demos/gutter.tsx correctly 
       </div>
       <div
         class="ant-pro-card-col"
-        style="padding-right: 8px; padding-left: 8px;"
+        style="padding-inline-end: 8px; padding-inline-start: 8px;"
       >
         <div
           class="ant-pro-card ant-pro-card-border"
@@ -8114,7 +8034,7 @@ exports[`card demos 📸 renders ./packages/card/src/demos/gutter.tsx correctly 
       </div>
       <div
         class="ant-pro-card-col"
-        style="padding-right: 8px; padding-left: 8px;"
+        style="padding-inline-end: 8px; padding-inline-start: 8px;"
       >
         <div
           class="ant-pro-card ant-pro-card-border"
@@ -8141,7 +8061,7 @@ exports[`card demos 📸 renders ./packages/card/src/demos/headerBordered.tsx co
       class="ant-pro-card-header ant-pro-card-header-border"
     >
       <div
-        class="ant-pro-card-title"
+        class="ant-pro-card-title "
       >
         <div
           class="ant-pro-core-label-tip"
@@ -8152,7 +8072,7 @@ exports[`card demos 📸 renders ./packages/card/src/demos/headerBordered.tsx co
             标题
           </div>
           <span
-            class="ant-pro-core-label-tip-icon"
+            class="ant-pro-core-label-tip-icon "
           >
             <span
               aria-label="info-circle"
@@ -8180,7 +8100,7 @@ exports[`card demos 📸 renders ./packages/card/src/demos/headerBordered.tsx co
         </div>
       </div>
       <div
-        class="ant-pro-card-extra"
+        class="ant-pro-card-extra "
       >
         extra
       </div>
@@ -8233,18 +8153,18 @@ exports[`card demos 📸 renders ./packages/card/src/demos/inner.tsx correctly 1
       class="ant-pro-card-header ant-pro-card-header-border"
     >
       <div
-        class="ant-pro-card-title"
+        class="ant-pro-card-title "
       >
         横向内部卡片
       </div>
     </div>
     <div
       class="ant-pro-card-body"
-      style="margin-right: -8px; margin-left: -8px;"
+      style="margin-inline-end: -8px; margin-inline-start: -8px;"
     >
       <div
         class="ant-pro-card-col"
-        style="padding-right: 8px; padding-left: 8px;"
+        style="padding-inline-end: 8px; padding-inline-start: 8px;"
       >
         <div
           class="ant-pro-card ant-pro-card-border ant-pro-card-type-inner"
@@ -8253,7 +8173,7 @@ exports[`card demos 📸 renders ./packages/card/src/demos/inner.tsx correctly 1
             class="ant-pro-card-header ant-pro-card-header-border"
           >
             <div
-              class="ant-pro-card-title"
+              class="ant-pro-card-title "
             >
               内部卡片标题
             </div>
@@ -8267,7 +8187,7 @@ exports[`card demos 📸 renders ./packages/card/src/demos/inner.tsx correctly 1
       </div>
       <div
         class="ant-pro-card-col"
-        style="padding-right: 8px; padding-left: 8px;"
+        style="padding-inline-end: 8px; padding-inline-start: 8px;"
       >
         <div
           class="ant-pro-card ant-pro-card-border ant-pro-card-type-inner"
@@ -8276,7 +8196,7 @@ exports[`card demos 📸 renders ./packages/card/src/demos/inner.tsx correctly 1
             class="ant-pro-card-header ant-pro-card-header-border"
           >
             <div
-              class="ant-pro-card-title"
+              class="ant-pro-card-title "
             >
               内部卡片标题
             </div>
@@ -8292,24 +8212,24 @@ exports[`card demos 📸 renders ./packages/card/src/demos/inner.tsx correctly 1
   </div>
   <div
     class="ant-pro-card ant-pro-card-border ant-pro-card-contain-card"
-    style="margin-top: 8px;"
+    style="margin-block-start: 8px;"
   >
     <div
       class="ant-pro-card-header ant-pro-card-header-border"
     >
       <div
-        class="ant-pro-card-title"
+        class="ant-pro-card-title "
       >
         竖向内部卡片
       </div>
     </div>
     <div
       class="ant-pro-card-body ant-pro-card-body-direction-column"
-      style="margin-top: -8px; margin-bottom: -8px;"
+      style="margin-block-start: -8px; margin-block-end: -8px;"
     >
       <div
         class="ant-pro-card-col"
-        style="padding-top: 8px; padding-bottom: 8px;"
+        style="padding-block-start: 8px; padding-block-end: 8px;"
       >
         <div
           class="ant-pro-card ant-pro-card-border ant-pro-card-type-inner"
@@ -8318,7 +8238,7 @@ exports[`card demos 📸 renders ./packages/card/src/demos/inner.tsx correctly 1
             class="ant-pro-card-header ant-pro-card-header-border"
           >
             <div
-              class="ant-pro-card-title"
+              class="ant-pro-card-title "
             >
               内部卡片标题
             </div>
@@ -8332,7 +8252,7 @@ exports[`card demos 📸 renders ./packages/card/src/demos/inner.tsx correctly 1
       </div>
       <div
         class="ant-pro-card-col"
-        style="padding-top: 8px; padding-bottom: 8px;"
+        style="padding-block-start: 8px; padding-block-end: 8px;"
       >
         <div
           class="ant-pro-card ant-pro-card-border ant-pro-card-type-inner"
@@ -8341,7 +8261,7 @@ exports[`card demos 📸 renders ./packages/card/src/demos/inner.tsx correctly 1
             class="ant-pro-card-header ant-pro-card-header-border"
           >
             <div
-              class="ant-pro-card-title"
+              class="ant-pro-card-title "
             >
               内部卡片标题
             </div>
@@ -8368,12 +8288,12 @@ exports[`card demos 📸 renders ./packages/card/src/demos/layout.tsx correctly 
       class="ant-pro-card-header"
     >
       <div
-        class="ant-pro-card-title"
+        class="ant-pro-card-title "
       >
         标题
       </div>
       <div
-        class="ant-pro-card-extra"
+        class="ant-pro-card-extra "
       >
         extra
       </div>
@@ -8514,7 +8434,7 @@ exports[`card demos 📸 renders ./packages/card/src/demos/loading.tsx correctly
   </div>
   <div
     class="ant-pro-card ant-pro-card-loading"
-    style="max-width: 300px; margin-top: 16px;"
+    style="max-width: 300px; margin-block-start: 16px;"
   >
     <div
       class="ant-pro-card-body ant-pro-card-body-center"
@@ -8632,18 +8552,18 @@ exports[`card demos 📸 renders ./packages/card/src/demos/loading.tsx correctly
   </div>
   <div
     class="ant-pro-card ant-pro-card-loading"
-    style="max-width: 300px; margin-top: 16px;"
+    style="max-width: 300px; margin-block-start: 16px;"
   >
     <div
       class="ant-pro-card-header"
     >
       <div
-        class="ant-pro-card-title"
+        class="ant-pro-card-title "
       >
         自定义 Loading
       </div>
       <div
-        class="ant-pro-card-extra"
+        class="ant-pro-card-extra "
       >
         extra
       </div>
@@ -8663,24 +8583,24 @@ exports[`card demos 📸 renders ./packages/card/src/demos/multipleLine.tsx corr
 <DocumentFragment>
   <div
     class="ant-pro-card ant-pro-card-contain-card"
-    style="margin-top: 8px;"
+    style="margin-block-start: 8px;"
   >
     <div
       class="ant-pro-card-header"
     >
       <div
-        class="ant-pro-card-title"
+        class="ant-pro-card-title "
       >
         换行
       </div>
     </div>
     <div
       class="ant-pro-card-body ant-pro-card-body-wrap"
-      style="margin: -8px -8px -8px -8px;"
+      style="margin-inline-end: -8px; margin-inline-start: -8px; margin-block-start: -8px; margin-block-end: -8px;"
     >
       <div
         class="ant-pro-card-col"
-        style="padding: 8px 8px 8px 8px;"
+        style="padding-inline-end: 8px; padding-inline-start: 8px; padding-block-start: 8px; padding-block-end: 8px;"
       >
         <div
           class="ant-pro-card ant-pro-card-border"
@@ -8694,7 +8614,7 @@ exports[`card demos 📸 renders ./packages/card/src/demos/multipleLine.tsx corr
       </div>
       <div
         class="ant-pro-card-col"
-        style="padding: 8px 8px 8px 8px;"
+        style="padding-inline-end: 8px; padding-inline-start: 8px; padding-block-start: 8px; padding-block-end: 8px;"
       >
         <div
           class="ant-pro-card ant-pro-card-border"
@@ -8708,7 +8628,7 @@ exports[`card demos 📸 renders ./packages/card/src/demos/multipleLine.tsx corr
       </div>
       <div
         class="ant-pro-card-col"
-        style="padding: 8px 8px 8px 8px;"
+        style="padding-inline-end: 8px; padding-inline-start: 8px; padding-block-start: 8px; padding-block-end: 8px;"
       >
         <div
           class="ant-pro-card ant-pro-card-border"
@@ -8722,7 +8642,7 @@ exports[`card demos 📸 renders ./packages/card/src/demos/multipleLine.tsx corr
       </div>
       <div
         class="ant-pro-card-col"
-        style="padding: 8px 8px 8px 8px;"
+        style="padding-inline-end: 8px; padding-inline-start: 8px; padding-block-start: 8px; padding-block-end: 8px;"
       >
         <div
           class="ant-pro-card ant-pro-card-border"
@@ -8743,24 +8663,24 @@ exports[`card demos 📸 renders ./packages/card/src/demos/responsive.tsx correc
 <DocumentFragment>
   <div
     class="ant-pro-card ant-pro-card-contain-card"
-    style="margin-top: 8px;"
+    style="margin-block-start: 8px;"
   >
     <div
       class="ant-pro-card-header"
     >
       <div
-        class="ant-pro-card-title"
+        class="ant-pro-card-title "
       >
         24栅格
       </div>
     </div>
     <div
       class="ant-pro-card-body"
-      style="margin-right: -4px; margin-left: -4px;"
+      style="margin-inline-end: -4px; margin-inline-start: -4px;"
     >
       <div
         class="ant-pro-card-col"
-        style="padding-right: 4px; padding-left: 4px;"
+        style="padding-inline-end: 4px; padding-inline-start: 4px;"
       >
         <div
           class="ant-pro-card ant-pro-card-border"
@@ -8774,7 +8694,7 @@ exports[`card demos 📸 renders ./packages/card/src/demos/responsive.tsx correc
       </div>
       <div
         class="ant-pro-card-col"
-        style="padding-right: 4px; padding-left: 4px;"
+        style="padding-inline-end: 4px; padding-inline-start: 4px;"
       >
         <div
           class="ant-pro-card ant-pro-card-border"
@@ -8788,7 +8708,7 @@ exports[`card demos 📸 renders ./packages/card/src/demos/responsive.tsx correc
       </div>
       <div
         class="ant-pro-card-col"
-        style="padding-right: 4px; padding-left: 4px;"
+        style="padding-inline-end: 4px; padding-inline-start: 4px;"
       >
         <div
           class="ant-pro-card ant-pro-card-border"
@@ -8804,24 +8724,24 @@ exports[`card demos 📸 renders ./packages/card/src/demos/responsive.tsx correc
   </div>
   <div
     class="ant-pro-card ant-pro-card-contain-card"
-    style="margin-top: 8px;"
+    style="margin-block-start: 8px;"
   >
     <div
       class="ant-pro-card-header"
     >
       <div
-        class="ant-pro-card-title"
+        class="ant-pro-card-title "
       >
         指定宽度px
       </div>
     </div>
     <div
       class="ant-pro-card-body"
-      style="margin-right: -4px; margin-left: -4px;"
+      style="margin-inline-end: -4px; margin-inline-start: -4px;"
     >
       <div
         class="ant-pro-card-col"
-        style="padding-right: 4px; padding-left: 4px;"
+        style="padding-inline-end: 4px; padding-inline-start: 4px;"
       >
         <div
           class="ant-pro-card ant-pro-card-border"
@@ -8835,7 +8755,7 @@ exports[`card demos 📸 renders ./packages/card/src/demos/responsive.tsx correc
       </div>
       <div
         class="ant-pro-card-col"
-        style="padding-right: 4px; padding-left: 4px;"
+        style="padding-inline-end: 4px; padding-inline-start: 4px;"
       >
         <div
           class="ant-pro-card ant-pro-card-border"
@@ -8851,24 +8771,24 @@ exports[`card demos 📸 renders ./packages/card/src/demos/responsive.tsx correc
   </div>
   <div
     class="ant-pro-card ant-pro-card-contain-card"
-    style="margin-top: 8px;"
+    style="margin-block-start: 8px;"
   >
     <div
       class="ant-pro-card-header"
     >
       <div
-        class="ant-pro-card-title"
+        class="ant-pro-card-title "
       >
         指定宽度百分比
       </div>
     </div>
     <div
       class="ant-pro-card-body"
-      style="margin-right: -4px; margin-left: -4px;"
+      style="margin-inline-end: -4px; margin-inline-start: -4px;"
     >
       <div
         class="ant-pro-card-col"
-        style="padding-right: 4px; padding-left: 4px;"
+        style="padding-inline-end: 4px; padding-inline-start: 4px;"
       >
         <div
           class="ant-pro-card ant-pro-card-border"
@@ -8882,7 +8802,7 @@ exports[`card demos 📸 renders ./packages/card/src/demos/responsive.tsx correc
       </div>
       <div
         class="ant-pro-card-col"
-        style="padding-right: 4px; padding-left: 4px;"
+        style="padding-inline-end: 4px; padding-inline-start: 4px;"
       >
         <div
           class="ant-pro-card ant-pro-card-border"
@@ -8908,12 +8828,12 @@ exports[`card demos 📸 renders ./packages/card/src/demos/split.tsx correctly 1
       class="ant-pro-card-header ant-pro-card-header-border"
     >
       <div
-        class="ant-pro-card-title"
+        class="ant-pro-card-title "
       >
         复杂切分
       </div>
       <div
-        class="ant-pro-card-extra"
+        class="ant-pro-card-extra "
       >
         2019年9月28日
       </div>
@@ -8958,7 +8878,7 @@ exports[`card demos 📸 renders ./packages/card/src/demos/split.tsx correctly 1
                               class="ant-pro-card-header"
                             >
                               <div
-                                class="ant-pro-card-title"
+                                class="ant-pro-card-title "
                               >
                                 昨日全部流量
                               </div>
@@ -8980,7 +8900,7 @@ exports[`card demos 📸 renders ./packages/card/src/demos/split.tsx correctly 1
                               class="ant-pro-card-header"
                             >
                               <div
-                                class="ant-pro-card-title"
+                                class="ant-pro-card-title "
                               >
                                 本月累计流量
                               </div>
@@ -9002,7 +8922,7 @@ exports[`card demos 📸 renders ./packages/card/src/demos/split.tsx correctly 1
                               class="ant-pro-card-header"
                             >
                               <div
-                                class="ant-pro-card-title"
+                                class="ant-pro-card-title "
                               >
                                 今年累计流量
                               </div>
@@ -9036,7 +8956,7 @@ exports[`card demos 📸 renders ./packages/card/src/demos/split.tsx correctly 1
                               class="ant-pro-card-header"
                             >
                               <div
-                                class="ant-pro-card-title"
+                                class="ant-pro-card-title "
                               >
                                 运行中试验
                               </div>
@@ -9058,7 +8978,7 @@ exports[`card demos 📸 renders ./packages/card/src/demos/split.tsx correctly 1
                               class="ant-pro-card-header"
                             >
                               <div
-                                class="ant-pro-card-title"
+                                class="ant-pro-card-title "
                               >
                                 历史试验总数
                               </div>
@@ -9086,7 +9006,7 @@ exports[`card demos 📸 renders ./packages/card/src/demos/split.tsx correctly 1
                   class="ant-pro-card-header"
                 >
                   <div
-                    class="ant-pro-card-title"
+                    class="ant-pro-card-title "
                   >
                     流量趋势
                   </div>
@@ -9125,7 +9045,7 @@ exports[`card demos 📸 renders ./packages/card/src/demos/split.tsx correctly 1
             class="ant-pro-card-header"
           >
             <div
-              class="ant-pro-card-title"
+              class="ant-pro-card-title "
             >
               流量占用情况
             </div>
@@ -9151,12 +9071,12 @@ exports[`card demos 📸 renders ./packages/card/src/demos/split2.tsx correctly 
       class="ant-pro-card-header ant-pro-card-header-border"
     >
       <div
-        class="ant-pro-card-title"
+        class="ant-pro-card-title "
       >
         左右分栏带标题
       </div>
       <div
-        class="ant-pro-card-extra"
+        class="ant-pro-card-extra "
       >
         2019年9月28日
       </div>
@@ -9175,7 +9095,7 @@ exports[`card demos 📸 renders ./packages/card/src/demos/split2.tsx correctly 
             class="ant-pro-card-header"
           >
             <div
-              class="ant-pro-card-title"
+              class="ant-pro-card-title "
             >
               左侧详情
             </div>
@@ -9201,7 +9121,7 @@ exports[`card demos 📸 renders ./packages/card/src/demos/split2.tsx correctly 
             class="ant-pro-card-header"
           >
             <div
-              class="ant-pro-card-title"
+              class="ant-pro-card-title "
             >
               流量占用情况
             </div>
@@ -9241,7 +9161,7 @@ exports[`card demos 📸 renders ./packages/card/src/demos/split23.tsx correctly
             class="ant-pro-card-header"
           >
             <div
-              class="ant-pro-card-title"
+              class="ant-pro-card-title "
             >
               左侧详情
             </div>
@@ -9263,7 +9183,7 @@ exports[`card demos 📸 renders ./packages/card/src/demos/split23.tsx correctly
             class="ant-pro-card-header ant-pro-card-header-border"
           >
             <div
-              class="ant-pro-card-title"
+              class="ant-pro-card-title "
             >
               左右分栏子卡片带标题
             </div>
@@ -9465,7 +9385,7 @@ exports[`card demos 📸 renders ./packages/card/src/demos/steps-v.tsx correctly
             class="ant-pro-card-header"
           >
             <div
-              class="ant-pro-card-title"
+              class="ant-pro-card-title "
             >
               流量占用情况
             </div>
@@ -9516,7 +9436,7 @@ exports[`card demos 📸 renders ./packages/card/src/demos/tabs.tsx correctly 1`
   <div>
     <div
       class="ant-space ant-space-horizontal ant-space-align-center"
-      style="margin-bottom: 16px;"
+      style="margin-block-end: 16px;"
     >
       <div
         class="ant-space-item"
@@ -9537,14 +9457,14 @@ exports[`card demos 📸 renders ./packages/card/src/demos/tabs.tsx correctly 1`
               class="ant-select-selection-search"
             >
               <input
-                aria-activedescendant="rc_select_TEST_OR_SSR_list_0"
+                aria-activedescendant="rc_select_0_list_0"
                 aria-autocomplete="list"
-                aria-controls="rc_select_TEST_OR_SSR_list"
+                aria-controls="rc_select_0_list"
                 aria-haspopup="listbox"
-                aria-owns="rc_select_TEST_OR_SSR_list"
+                aria-owns="rc_select_0_list"
                 autocomplete="off"
                 class="ant-select-selection-search-input"
-                id="rc_select_TEST_OR_SSR"
+                id="rc_select_0"
                 readonly=""
                 role="combobox"
                 style="opacity: 0;"
@@ -9593,7 +9513,7 @@ exports[`card demos 📸 renders ./packages/card/src/demos/tabs.tsx correctly 1`
       class="ant-pro-card"
     >
       <div
-        class="ant-pro-card-tabs"
+        class="ant-pro-card-tabs "
       >
         <div
           class="ant-tabs ant-tabs-top"
@@ -9613,10 +9533,10 @@ exports[`card demos 📸 renders ./packages/card/src/demos/tabs.tsx correctly 1`
                   class="ant-tabs-tab"
                 >
                   <div
-                    aria-controls="rc-tabs-test-panel-tab1"
+                    aria-controls="rc-tabs-3-panel-tab1"
                     aria-selected="false"
                     class="ant-tabs-tab-btn"
-                    id="rc-tabs-test-tab-tab1"
+                    id="rc-tabs-3-tab-tab1"
                     role="tab"
                     tabindex="0"
                   >
@@ -9627,14 +9547,28 @@ exports[`card demos 📸 renders ./packages/card/src/demos/tabs.tsx correctly 1`
                   class="ant-tabs-tab ant-tabs-tab-active"
                 >
                   <div
-                    aria-controls="rc-tabs-test-panel-tab2"
+                    aria-controls="rc-tabs-3-panel-tab2"
                     aria-selected="true"
                     class="ant-tabs-tab-btn"
-                    id="rc-tabs-test-tab-tab2"
+                    id="rc-tabs-3-tab-tab2"
                     role="tab"
                     tabindex="0"
                   >
                     产品二
+                  </div>
+                </div>
+                <div
+                  class="ant-tabs-tab"
+                >
+                  <div
+                    aria-controls="rc-tabs-3-panel-tab3"
+                    aria-selected="false"
+                    class="ant-tabs-tab-btn"
+                    id="rc-tabs-3-tab-tab3"
+                    role="tab"
+                    tabindex="0"
+                  >
+                    产品三
                   </div>
                 </div>
                 <div
@@ -9647,12 +9581,12 @@ exports[`card demos 📸 renders ./packages/card/src/demos/tabs.tsx correctly 1`
               class="ant-tabs-nav-operations ant-tabs-nav-operations-hidden"
             >
               <button
-                aria-controls="rc-tabs-test-more-popup"
+                aria-controls="rc-tabs-3-more-popup"
                 aria-expanded="false"
                 aria-haspopup="listbox"
                 aria-hidden="true"
                 class="ant-tabs-nav-more"
-                id="rc-tabs-test-more"
+                id="rc-tabs-3-more"
                 style="visibility: hidden; order: 1;"
                 tabindex="-1"
                 type="button"
@@ -9686,19 +9620,10 @@ exports[`card demos 📸 renders ./packages/card/src/demos/tabs.tsx correctly 1`
               class="ant-tabs-content ant-tabs-content-top"
             >
               <div
-                aria-hidden="true"
-                aria-labelledby="rc-tabs-test-tab-tab1"
-                class="ant-tabs-tabpane ant-pro-card-tabpane"
-                id="rc-tabs-test-panel-tab1"
-                role="tabpanel"
-                style="display: none;"
-                tabindex="-1"
-              />
-              <div
                 aria-hidden="false"
-                aria-labelledby="rc-tabs-test-tab-tab2"
-                class="ant-tabs-tabpane ant-tabs-tabpane-active ant-pro-card-tabpane"
-                id="rc-tabs-test-panel-tab2"
+                aria-labelledby="rc-tabs-3-tab-tab2"
+                class="ant-tabs-tabpane ant-tabs-tabpane-active"
+                id="rc-tabs-3-panel-tab2"
                 role="tabpanel"
                 tabindex="0"
               >
@@ -9727,7 +9652,7 @@ exports[`card demos 📸 renders ./packages/card/src/demos/tabs-card.tsx correct
     class="ant-pro-card"
   >
     <div
-      class="ant-pro-card-tabs"
+      class="ant-pro-card-tabs "
     >
       <div
         class="ant-tabs ant-tabs-top ant-tabs-card"
@@ -9747,10 +9672,10 @@ exports[`card demos 📸 renders ./packages/card/src/demos/tabs-card.tsx correct
                 class="ant-tabs-tab ant-tabs-tab-active"
               >
                 <div
-                  aria-controls="rc-tabs-test-panel-tab1"
+                  aria-controls="rc-tabs-2-panel-1"
                   aria-selected="true"
                   class="ant-tabs-tab-btn"
-                  id="rc-tabs-test-tab-tab1"
+                  id="rc-tabs-2-tab-1"
                   role="tab"
                   tabindex="0"
                 >
@@ -9761,14 +9686,28 @@ exports[`card demos 📸 renders ./packages/card/src/demos/tabs-card.tsx correct
                 class="ant-tabs-tab"
               >
                 <div
-                  aria-controls="rc-tabs-test-panel-tab2"
+                  aria-controls="rc-tabs-2-panel-2"
                   aria-selected="false"
                   class="ant-tabs-tab-btn"
-                  id="rc-tabs-test-tab-tab2"
+                  id="rc-tabs-2-tab-2"
                   role="tab"
                   tabindex="0"
                 >
                   产品二
+                </div>
+              </div>
+              <div
+                class="ant-tabs-tab"
+              >
+                <div
+                  aria-controls="rc-tabs-2-panel-3"
+                  aria-selected="false"
+                  class="ant-tabs-tab-btn"
+                  id="rc-tabs-2-tab-3"
+                  role="tab"
+                  tabindex="0"
+                >
+                  产品三
                 </div>
               </div>
               <div
@@ -9781,12 +9720,12 @@ exports[`card demos 📸 renders ./packages/card/src/demos/tabs-card.tsx correct
             class="ant-tabs-nav-operations ant-tabs-nav-operations-hidden"
           >
             <button
-              aria-controls="rc-tabs-test-more-popup"
+              aria-controls="rc-tabs-2-more-popup"
               aria-expanded="false"
               aria-haspopup="listbox"
               aria-hidden="true"
               class="ant-tabs-nav-more"
-              id="rc-tabs-test-more"
+              id="rc-tabs-2-more"
               style="visibility: hidden; order: 1;"
               tabindex="-1"
               type="button"
@@ -9821,9 +9760,9 @@ exports[`card demos 📸 renders ./packages/card/src/demos/tabs-card.tsx correct
           >
             <div
               aria-hidden="false"
-              aria-labelledby="rc-tabs-test-tab-tab1"
-              class="ant-tabs-tabpane ant-tabs-tabpane-active ant-pro-card-tabpane"
-              id="rc-tabs-test-panel-tab1"
+              aria-labelledby="rc-tabs-2-tab-1"
+              class="ant-tabs-tabpane ant-tabs-tabpane-active"
+              id="rc-tabs-2-panel-1"
               role="tabpanel"
               tabindex="0"
             >
@@ -9837,15 +9776,6 @@ exports[`card demos 📸 renders ./packages/card/src/demos/tabs-card.tsx correct
                 </div>
               </div>
             </div>
-            <div
-              aria-hidden="true"
-              aria-labelledby="rc-tabs-test-tab-tab2"
-              class="ant-tabs-tabpane ant-pro-card-tabpane"
-              id="rc-tabs-test-panel-tab2"
-              role="tabpanel"
-              style="display: none;"
-              tabindex="-1"
-            />
           </div>
         </div>
       </div>

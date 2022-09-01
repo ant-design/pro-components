@@ -11,8 +11,8 @@ import {
 } from '@ant-design/pro-form';
 import '@testing-library/jest-dom';
 import { act, render } from '@testing-library/react';
+import dayjs from 'dayjs';
 import { mount } from 'enzyme';
-import moment from 'moment';
 import KeyCode from 'rc-util/lib/KeyCode';
 import { waitForComponentToPaint } from '../util';
 
@@ -388,12 +388,10 @@ describe('LightFilter', () => {
     });
     await waitForComponentToPaint(wrapper);
 
-    expect(wrapper.find('.ant-pro-core-field-label').text()).toEqual(
-      '日期范围: 2016-11-02 ~ 2016-11-12',
-    );
+    expect(wrapper.find('.ant-pro-core-field-label').text()).toMatchSnapshot();
 
     await waitForComponentToPaint(wrapper);
-    expect(onFinish).toHaveBeenCalledWith({ date: ['2016-11-02', '2016-11-12'] });
+    expect(onFinish).toHaveBeenCalledWith({ date: ['2016-11-01', '2016-11-11'] });
 
     act(() => {
       // close
@@ -429,9 +427,7 @@ describe('LightFilter', () => {
     });
     await waitForComponentToPaint(wrapper);
 
-    expect(wrapper.find('.ant-pro-core-field-label').text()).toEqual(
-      '日期范围: 2016-11-02 ~ 2016-11-12',
-    );
+    expect(wrapper.find('.ant-pro-core-field-label').text()).toMatchSnapshot();
     await waitForComponentToPaint(wrapper);
     act(() => {
       wrapper.unmount();
@@ -460,10 +456,8 @@ describe('LightFilter', () => {
     });
     await waitForComponentToPaint(wrapper);
 
-    expect(wrapper.find('.ant-pro-core-field-label').text()).toEqual(
-      '日期时间: 2016-11-05 07:22:44',
-    );
-    expect(onFinish).toHaveBeenCalledWith({ datetime: '2016-11-05 07:22:44' });
+    expect(wrapper.find('.ant-pro-core-field-label').text()).toMatchSnapshot();
+    expect(onFinish).toHaveBeenCalledWith({ datetime: '2016-11-04 15:22:44' });
 
     await waitForComponentToPaint(wrapper);
     act(() => {
@@ -488,10 +482,10 @@ describe('LightFilter', () => {
       wrapper.find('.ant-picker-now-btn').simulate('click');
     });
     await waitForComponentToPaint(wrapper);
-    expect(wrapper.find('.ant-pro-core-field-label').text()).toEqual('时间: 07:22:44');
+    expect(wrapper.find('.ant-pro-core-field-label').text()).toEqual('时间: 15:22:44');
 
     await waitForComponentToPaint(wrapper);
-    expect(onFinish).toHaveBeenCalledWith({ time: '07:22:44' });
+    expect(onFinish).toHaveBeenCalledWith({ time: '15:22:44' });
 
     await waitForComponentToPaint(wrapper);
     act(() => {
@@ -681,16 +675,18 @@ describe('LightFilter', () => {
           fieldProps={{
             min: 1000000000,
             max: 2000000000,
-            tipFormatter: (v: number | undefined) => (
-              <div>{v ? moment.unix(v).format('YYYY-MM-DD HH:mm:ss') : 0}</div>
-            ),
+            tooltip: {
+              formatter: (v: number | undefined) => (
+                <div>{v ? dayjs.unix(v).format('YYYY-MM-DD HH:mm:ss') : 0}</div>
+              ),
+            },
           }}
           lightProps={{
             allowClear: false,
             labelFormatter: (values) => {
               return values
                 ?.map((value: number) => {
-                  return moment.unix(value).format('YYYY-MM-DD HH:mm:ss');
+                  return dayjs.unix(value).format('YYYY-MM-DD HH:mm:ss');
                 })
                 .join('~');
             },
