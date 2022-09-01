@@ -7,6 +7,7 @@ import type { ProFieldFC } from '../../index';
 
 // 兼容代码-----------
 import 'antd/es/date-picker/style';
+import React from 'react';
 //----------------------
 
 dayjs.extend(relativeTime);
@@ -18,7 +19,7 @@ dayjs.extend(relativeTime);
 const FieldFromNow: ProFieldFC<{
   text: string;
   format?: string;
-}> = ({ text, mode, render, renderFormItem, format, fieldProps }) => {
+}> = ({ text, mode, render, renderFormItem, format, fieldProps }, ref) => {
   const intl = useIntl();
 
   if (mode === 'read') {
@@ -36,7 +37,13 @@ const FieldFromNow: ProFieldFC<{
     const placeholder = intl.getMessage('tableForm.selectPlaceholder', '请选择');
     const momentValue = parseValueToDay(fieldProps.value) as dayjs.Dayjs;
     const dom = (
-      <DatePicker placeholder={placeholder} showTime {...fieldProps} value={momentValue} />
+      <DatePicker
+        ref={ref}
+        placeholder={placeholder}
+        showTime
+        {...fieldProps}
+        value={momentValue}
+      />
     );
     if (renderFormItem) {
       return renderFormItem(text, { mode, ...fieldProps }, dom);
@@ -46,4 +53,4 @@ const FieldFromNow: ProFieldFC<{
   return null;
 };
 
-export default FieldFromNow;
+export default React.forwardRef(FieldFromNow);

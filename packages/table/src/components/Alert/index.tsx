@@ -58,7 +58,7 @@ function TableAlert<T>({
 
   const { getPrefixCls } = useContext(ConfigProvider.ConfigContext);
   const className = getPrefixCls('pro-table-alert');
-  const { wrapSSR } = useStyle(className);
+  const { wrapSSR, hashId } = useStyle(className);
   if (alertInfoRender === false) {
     return null;
   }
@@ -71,9 +71,9 @@ function TableAlert<T>({
     <div className={className}>
       <Alert
         message={
-          <div className={`${className}-info`}>
-            <div className={`${className}-info-content`}>{dom}</div>
-            {option ? <div className={`${className}-info-option`}>{option}</div> : null}
+          <div className={`${className}-info ${hashId}`}>
+            <div className={`${className}-info-content ${hashId}`}>{dom}</div>
+            {option ? <div className={`${className}-info-option ${hashId}`}>{option}</div> : null}
           </div>
         }
         type="info"

@@ -15002,10 +15002,10 @@ exports[`table demos 📸 renders ./packages/table/src/demos/batchOption.tsx cor
                   class="ant-alert-message"
                 >
                   <div
-                    class="ant-pro-table-alert-info"
+                    class="ant-pro-table-alert-info "
                   >
                     <div
-                      class="ant-pro-table-alert-info-content"
+                      class="ant-pro-table-alert-info-content "
                     >
                       <div
                         class="ant-space ant-space-horizontal ant-space-align-center"
@@ -15041,7 +15041,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/batchOption.tsx cor
                       </div>
                     </div>
                     <div
-                      class="ant-pro-table-alert-info-option"
+                      class="ant-pro-table-alert-info-option "
                     >
                       <div
                         class="ant-space ant-space-horizontal ant-space-align-center"

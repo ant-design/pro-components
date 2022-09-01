@@ -24,9 +24,13 @@ const FieldDigit: ProFieldFC<FieldDigitProps> = (
   ref,
 ) => {
   const proxyChange = useCallback(
-    (value: number) => {
-      let val: string | number = value?.toFixed(fieldProps.precision ?? 0);
-      if (value) {
+    (value: number | string) => {
+      let val: string | number = value;
+      if (typeof value === 'string') {
+        val = Number(val);
+      }
+      if (typeof val === 'number') {
+        val = val?.toFixed?.(fieldProps.precision ?? 0);
         val = Number(val);
       }
       return fieldProps?.onChange(val);

@@ -1271,9 +1271,10 @@ describe('Field', () => {
     expect(html.baseElement.textContent).toBe('1,000.30');
     html.unmount();
   });
+
   it(`🐴 valueType digit support precision when change with`, async () => {
     const change = jest.fn();
-    const html = mount(
+    const html = render(
       <Field
         text={1000.3}
         mode="edit"
@@ -1286,7 +1287,7 @@ describe('Field', () => {
       />,
     );
     await act(async () => {
-      html.find('input').simulate('change', {
+      fireEvent.change(html.baseElement.querySelector('input')!, {
         target: {
           value: '1.00000000000007',
         },
