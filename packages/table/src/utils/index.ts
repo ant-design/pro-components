@@ -89,7 +89,7 @@ export function useActionType<T>(
           current: 1,
         });
       }
-      action?.reload();
+      await action?.reload();
     },
     reloadAndRest: async () => {
       // reload 之后大概率会切换数据，清空一下选择。
