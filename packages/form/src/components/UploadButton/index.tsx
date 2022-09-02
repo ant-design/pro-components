@@ -11,7 +11,7 @@ type PickUploadProps = Pick<
   'listType' | 'action' | 'accept' | 'fileList' | 'onChange'
 >;
 
-export type ProFormDraggerProps = ProFormFieldItemProps<UploadProps<any>, HTMLElement> & {
+export type ProFormUploadButtonProps = ProFormFieldItemProps<UploadProps<any>, HTMLElement> & {
   /**
    * @name  上传文件的图标
    * @default UploadOutlined
@@ -60,7 +60,7 @@ export type ProFormDraggerProps = ProFormFieldItemProps<UploadProps<any>, HTMLEl
  *
  * @param
  */
-const BaseProFormUploadButton: React.ForwardRefRenderFunction<any, ProFormDraggerProps> = (
+const BaseProFormUploadButton: React.ForwardRefRenderFunction<any, ProFormUploadButtonProps> = (
   {
     fieldProps,
     action,
@@ -117,7 +117,7 @@ const BaseProFormUploadButton: React.ForwardRefRenderFunction<any, ProFormDragge
   );
 };
 
-const ProFormUploadButton = createField<ProFormDraggerProps>(
+const ProFormUploadButton = createField<ProFormUploadButtonProps>(
   React.forwardRef(BaseProFormUploadButton),
   {
     getValueFromEvent: (value: { fileList: UploadProps['fileList'] }) => value.fileList,

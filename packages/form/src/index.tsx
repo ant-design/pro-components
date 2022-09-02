@@ -21,13 +21,23 @@ export * from './components';
 export type {
   FormListActionType,
   ProFormCaptchaProps,
+  ProFormCheckboxGroupProps,
+  ProFormColorPickerProps,
   ProFormColumnsType,
   ProFormDependencyProps,
+  ProFormDigitProps,
   ProFormDigitRangeProps,
   ProFormFieldProps,
   ProFormFieldSetProps,
   ProFormLayoutType,
   ProFormListProps,
+  ProFormMoneyProps,
+  ProFormRadioGroupProps,
+  ProFormSelectProps,
+  ProFormSliderProps,
+  ProFormSwitchProps,
+  ProFormUploadButtonProps,
+  ProFormUploadDraggerProps,
 } from './components';
 export { FieldContext } from './FieldContext';
 export type {
