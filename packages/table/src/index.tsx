@@ -1,5 +1,6 @@
 // 兼容代码-----------
 import 'antd/es/table/style';
+import 'antd/es/alert/style';
 //----------------------
 
 import { FieldIndexColumn, FieldStatus } from '@ant-design/pro-field';
