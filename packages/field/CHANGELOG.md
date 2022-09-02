@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.0.3](https://github.com/ant-design/pro-components/compare/@ant-design/pro-field@2.0.2...@ant-design/pro-field@2.0.3) (2022-09-02)
+
+### Bug Fixes
+
+- **form:** fix localeData error ([22cd84e](https://github.com/ant-design/pro-components/commit/22cd84ecb2f60611ea69b5051652268772650e58))
+
 ## [2.0.2](https://github.com/ant-design/pro-components/compare/@ant-design/pro-field@1.36.5...@ant-design/pro-field@2.0.2) (2022-09-02)
 
 ### Bug Fixes
