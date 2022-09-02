@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.0.2](https://github.com/ant-design/pro-components/compare/@ant-design/pro-field@1.36.5...@ant-design/pro-field@2.0.2) (2022-09-02)
+
+### Bug Fixes
+
+- **form:** extend dayjs.weekday ([8628d60](https://github.com/ant-design/pro-components/commit/8628d603fa57bea7e8aebda0ea5bc7f7523c92a4))
+- **form:** ProFormDigit 设置 stringMode 时修改报错异常修复 ([#5814](https://github.com/ant-design/pro-components/issues/5814)) ([2043983](https://github.com/ant-design/pro-components/commit/20439836ccdcb24e9597c20ee3d565edc0ec0102))
+
 ## [2.0.1](https://github.com/ant-design/pro-components/compare/@ant-design/pro-field@2.0.0-experimental.24...@ant-design/pro-field@2.0.1) (2022-09-01)
 
 **Note:** Version bump only for package @ant-design/pro-field
