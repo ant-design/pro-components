@@ -156,6 +156,9 @@ export default () => {
             text="open"
             mode={state}
             valueType="radio"
+            fieldProps={{
+              layout: 'horizontal',
+            }}
             valueEnum={{
               all: { text: '全部', disabled: true, status: 'Default' },
               open: {

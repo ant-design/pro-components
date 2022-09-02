@@ -46,6 +46,11 @@ import FieldTimePicker, { FieldTimeRangePicker } from './components/TimePicker';
 import FieldTreeSelect from './components/TreeSelect';
 import FieldHOC from './FieldHOC';
 
+import weekday from 'dayjs/plugin/weekday';
+import dayjs from 'dayjs';
+
+dayjs.extend(weekday);
+
 const REQUEST_VALUE_TYPE = ['select', 'radio', 'radioButton', 'checkbook'];
 
 export type ProFieldMoneyProps = FieldMoneyProps;
