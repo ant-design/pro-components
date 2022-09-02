@@ -47,9 +47,12 @@ import FieldTreeSelect from './components/TreeSelect';
 import FieldHOC from './FieldHOC';
 
 import weekday from 'dayjs/plugin/weekday';
+import localeData from 'dayjs/plugin/localeData';
+
 import dayjs from 'dayjs';
 
 dayjs.extend(weekday);
+dayjs.extend(localeData);
 
 const REQUEST_VALUE_TYPE = ['select', 'radio', 'radioButton', 'checkbook'];
 
