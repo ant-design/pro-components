@@ -1,11 +1,11 @@
 ---
 order: 4
-title: 组合示例
+title: Complete example
 ---
 
-## 组合示例
+## Complete example
 
-使用了 PageHeader 提供的所有能力。
+Show all props provided by PageHeader.
 
 ```tsx | pure
 import { MoreOutlined } from '@ant-design/icons';

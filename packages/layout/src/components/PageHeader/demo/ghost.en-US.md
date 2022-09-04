@@ -1,11 +1,11 @@
 ---
 order: 2
-title: 白底模式
+title: white background mode
 ---
 
-## 白底模式
+## white background mode
 
-默认 PageHeader 是透明底色的。在某些情况下，PageHeader 需要自己的背景颜色。
+The default PageHeader is a transparent background. In some cases, PageHeader needs its own background color.
 
 ```tsx | pure
 import { Button, Descriptions, PageHeader } from 'antd';
