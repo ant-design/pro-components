@@ -32,7 +32,7 @@ const genPageContainerStyle: GenerateStyle<
         },
       },
       ['& &-warp-page-header']: {
-        marginBlock: token.marginBlockPageContainerContent / 2,
+        marginBlockEnd: token.marginBlockPageContainerContent / 2,
         paddingInlineStart: 40,
         paddingInlineEnd: 40,
         [`& ~ ${token.proComponentsCls}-grid-content`]: {
