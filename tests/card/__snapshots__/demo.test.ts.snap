@@ -1080,7 +1080,7 @@ exports[`card demos 📸 renders ./packages/card/src/components/CheckCard/demos/
               />
             </div>
             <div
-              class="ant-col ant-col-15"
+              class="ant-col ant-col-14"
               style="padding-left: 4px; padding-right: 4px;"
             >
               <div
@@ -1101,7 +1101,7 @@ exports[`card demos 📸 renders ./packages/card/src/components/CheckCard/demos/
               />
             </div>
             <div
-              class="ant-col ant-col-18"
+              class="ant-col ant-col-16"
               style="padding-left: 4px; padding-right: 4px;"
             >
               <div
@@ -1151,7 +1151,7 @@ exports[`card demos 📸 renders ./packages/card/src/components/CheckCard/demos/
               />
             </div>
             <div
-              class="ant-col ant-col-16"
+              class="ant-col ant-col-14"
               style="padding-left: 4px; padding-right: 4px;"
             >
               <div
@@ -1193,7 +1193,7 @@ exports[`card demos 📸 renders ./packages/card/src/components/CheckCard/demos/
               />
             </div>
             <div
-              class="ant-col ant-col-15"
+              class="ant-col ant-col-14"
               style="padding-left: 4px; padding-right: 4px;"
             >
               <div
@@ -1214,7 +1214,7 @@ exports[`card demos 📸 renders ./packages/card/src/components/CheckCard/demos/
               />
             </div>
             <div
-              class="ant-col ant-col-18"
+              class="ant-col ant-col-16"
               style="padding-left: 4px; padding-right: 4px;"
             >
               <div
@@ -1264,7 +1264,7 @@ exports[`card demos 📸 renders ./packages/card/src/components/CheckCard/demos/
               />
             </div>
             <div
-              class="ant-col ant-col-16"
+              class="ant-col ant-col-14"
               style="padding-left: 4px; padding-right: 4px;"
             >
               <div
@@ -1306,7 +1306,7 @@ exports[`card demos 📸 renders ./packages/card/src/components/CheckCard/demos/
               />
             </div>
             <div
-              class="ant-col ant-col-15"
+              class="ant-col ant-col-14"
               style="padding-left: 4px; padding-right: 4px;"
             >
               <div
@@ -1327,7 +1327,7 @@ exports[`card demos 📸 renders ./packages/card/src/components/CheckCard/demos/
               />
             </div>
             <div
-              class="ant-col ant-col-18"
+              class="ant-col ant-col-16"
               style="padding-left: 4px; padding-right: 4px;"
             >
               <div
@@ -1377,7 +1377,7 @@ exports[`card demos 📸 renders ./packages/card/src/components/CheckCard/demos/
               />
             </div>
             <div
-              class="ant-col ant-col-16"
+              class="ant-col ant-col-14"
               style="padding-left: 4px; padding-right: 4px;"
             >
               <div
@@ -1493,7 +1493,7 @@ exports[`card demos 📸 renders ./packages/card/src/components/CheckCard/demos/
               />
             </div>
             <div
-              class="ant-col ant-col-15"
+              class="ant-col ant-col-14"
               style="padding-left: 4px; padding-right: 4px;"
             >
               <div
@@ -1514,7 +1514,7 @@ exports[`card demos 📸 renders ./packages/card/src/components/CheckCard/demos/
               />
             </div>
             <div
-              class="ant-col ant-col-18"
+              class="ant-col ant-col-16"
               style="padding-left: 4px; padding-right: 4px;"
             >
               <div
@@ -1564,7 +1564,7 @@ exports[`card demos 📸 renders ./packages/card/src/components/CheckCard/demos/
               />
             </div>
             <div
-              class="ant-col ant-col-16"
+              class="ant-col ant-col-14"
               style="padding-left: 4px; padding-right: 4px;"
             >
               <div
@@ -1606,7 +1606,7 @@ exports[`card demos 📸 renders ./packages/card/src/components/CheckCard/demos/
               />
             </div>
             <div
-              class="ant-col ant-col-15"
+              class="ant-col ant-col-14"
               style="padding-left: 4px; padding-right: 4px;"
             >
               <div
@@ -1627,7 +1627,7 @@ exports[`card demos 📸 renders ./packages/card/src/components/CheckCard/demos/
               />
             </div>
             <div
-              class="ant-col ant-col-18"
+              class="ant-col ant-col-16"
               style="padding-left: 4px; padding-right: 4px;"
             >
               <div
@@ -1677,7 +1677,7 @@ exports[`card demos 📸 renders ./packages/card/src/components/CheckCard/demos/
               />
             </div>
             <div
-              class="ant-col ant-col-16"
+              class="ant-col ant-col-14"
               style="padding-left: 4px; padding-right: 4px;"
             >
               <div
@@ -1719,7 +1719,7 @@ exports[`card demos 📸 renders ./packages/card/src/components/CheckCard/demos/
               />
             </div>
             <div
-              class="ant-col ant-col-15"
+              class="ant-col ant-col-14"
               style="padding-left: 4px; padding-right: 4px;"
             >
               <div
@@ -1740,7 +1740,7 @@ exports[`card demos 📸 renders ./packages/card/src/components/CheckCard/demos/
               />
             </div>
             <div
-              class="ant-col ant-col-18"
+              class="ant-col ant-col-16"
               style="padding-left: 4px; padding-right: 4px;"
             >
               <div
@@ -1790,7 +1790,7 @@ exports[`card demos 📸 renders ./packages/card/src/components/CheckCard/demos/
               />
             </div>
             <div
-              class="ant-col ant-col-16"
+              class="ant-col ant-col-14"
               style="padding-left: 4px; padding-right: 4px;"
             >
               <div
@@ -2098,7 +2098,7 @@ exports[`card demos 📸 renders ./packages/card/src/components/CheckCard/demos/
           />
         </div>
         <div
-          class="ant-col ant-col-15"
+          class="ant-col ant-col-14"
           style="padding-left: 4px; padding-right: 4px;"
         >
           <div
@@ -2119,7 +2119,7 @@ exports[`card demos 📸 renders ./packages/card/src/components/CheckCard/demos/
           />
         </div>
         <div
-          class="ant-col ant-col-18"
+          class="ant-col ant-col-16"
           style="padding-left: 4px; padding-right: 4px;"
         >
           <div
@@ -2169,7 +2169,7 @@ exports[`card demos 📸 renders ./packages/card/src/components/CheckCard/demos/
           />
         </div>
         <div
-          class="ant-col ant-col-16"
+          class="ant-col ant-col-14"
           style="padding-left: 4px; padding-right: 4px;"
         >
           <div

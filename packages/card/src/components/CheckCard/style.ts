@@ -52,7 +52,7 @@ const genProStyle: GenerateStyle<ProListToken> = (token) => {
       '&-group': {
         display: 'inline-block',
       },
-      '&-loading': {
+      [`${token.componentCls}-loading`]: {
         overflow: 'hidden',
         userSelect: 'none',
         '&-content': {
@@ -62,10 +62,11 @@ const genProStyle: GenerateStyle<ProListToken> = (token) => {
             marginBlock: 0,
             marginInline: 0,
           },
-          '&-block': {
+          [`${token.componentCls}-loading-block`]: {
             height: '14px',
             marginBlock: '4px',
             background: `linear-gradient(90deg, rgba(54, 61, 64, 0.2), rgba(54, 61, 64, 0.4), rgba(54, 61, 64, 0.2))`,
+            animation: `card-loading 1.4s ease infinite`,
           },
           '@keyframes card-loading': {
             '0%': { backgroundPosition: '0 50%' },
@@ -112,6 +113,7 @@ const genProStyle: GenerateStyle<ProListToken> = (token) => {
       '&-avatar': { paddingInlineEnd: 8 },
       '&-detail': {
         overflow: 'hidden',
+        width: '100%',
         '> div:not(:last-child)': {
           marginBlockEnd: 4,
         },
