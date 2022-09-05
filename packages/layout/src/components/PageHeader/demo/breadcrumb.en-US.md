@@ -1,11 +1,11 @@
 ---
 order: 3
-title: 带面包屑页头
+title: Use with breadcrumbs
 ---
 
-## 带面包屑页头
+## Use with breadcrumbs
 
-带面包屑页头，适合层级比较深的页面，让用户可以快速导航。
+With breadcrumbs, it is suitable for deeper pages, allowing users to navigate quickly.
 
 ```tsx | pure
 import { PageHeader } from 'antd';

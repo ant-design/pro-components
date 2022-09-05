@@ -1,11 +1,11 @@
 ---
 order: 1
-title: 标准样式
+title: Basic Page Header
 ---
 
-## 标准样式
+## Basic Page Header
 
-标准页头，适合使用在需要简单描述的场景。
+Standard header, suitable for use in scenarios that require a brief description.
 
 ```tsx | pure
 import { PageHeader } from 'antd';

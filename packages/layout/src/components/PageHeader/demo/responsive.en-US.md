@@ -1,12 +1,12 @@
 ---
 order: 6
 iframe: 228
-title: 响应式
+title: responsive
 ---
 
-## 响应式
+## responsive
 
-在不同大小的屏幕下，应该有不同的表现。
+Under different screen sizes, there should be different performance
 
 ```tsx | pure
 import { Button, Descriptions, PageHeader, Statistic, Tabs } from 'antd';
