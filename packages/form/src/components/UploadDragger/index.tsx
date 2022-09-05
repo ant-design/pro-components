@@ -6,7 +6,7 @@ import { createField } from '../../BaseForm/createField';
 import { EditOrReadOnlyContext } from '../../BaseForm/EditOrReadOnlyContext';
 import type { ProFormFieldItemProps } from '../../interface';
 
-export type ProFormDraggerProps = ProFormFieldItemProps<DraggerProps> & {
+export type ProFormUploadDraggerProps = ProFormFieldItemProps<DraggerProps> & {
   /**
    * @name  上传文件块的图标
    * @default UploadOutlined
@@ -53,7 +53,7 @@ export type ProFormDraggerProps = ProFormFieldItemProps<DraggerProps> & {
  *
  * @param
  */
-const BaseProFormUploadDragger: React.FC<ProFormDraggerProps> = React.forwardRef(
+const BaseProFormUploadDragger: React.FC<ProFormUploadDraggerProps> = React.forwardRef(
   (
     {
       fieldProps,
@@ -115,7 +115,7 @@ const BaseProFormUploadDragger: React.FC<ProFormDraggerProps> = React.forwardRef
   },
 );
 
-const ProFormUploadDragger = createField<ProFormDraggerProps>(BaseProFormUploadDragger, {
+const ProFormUploadDragger = createField<ProFormUploadDraggerProps>(BaseProFormUploadDragger, {
   getValueFromEvent: (value: { fileList: UploadProps['fileList'] }) => value.fileList,
 }) as typeof BaseProFormUploadDragger;
 
