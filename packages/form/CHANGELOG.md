@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.0.4](https://github.com/ant-design/pro-components/compare/@ant-design/pro-form@2.0.3...@ant-design/pro-form@2.0.4) (2022-09-05)
+
+### Bug Fixes
+
+- **components:** export more types from components ([#5840](https://github.com/ant-design/pro-components/issues/5840)) ([61de8de](https://github.com/ant-design/pro-components/commit/61de8dea3d7e8c517e647959bf252afa17bbf521))
+
 ## [2.0.3](https://github.com/ant-design/pro-components/compare/@ant-design/pro-form@2.0.2...@ant-design/pro-form@2.0.3) (2022-09-02)
 
 **Note:** Version bump only for package @ant-design/pro-form

@@ -2,6 +2,14 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [7.0.3](https://github.com/ant-design/pro-components/compare/@ant-design/pro-layout@7.0.2...@ant-design/pro-layout@7.0.3) (2022-09-05)
+
+### Bug Fixes
+
+- **Card:** slove card & checkcard loading problem ([#5856](https://github.com/ant-design/pro-components/issues/5856)) ([c8c6321](https://github.com/ant-design/pro-components/commit/c8c6321375bf6c6013d7ad60068eb3b3c195a1e1))
+- **layout:** 面包屑最后一个默认禁止点击 ([#5812](https://github.com/ant-design/pro-components/issues/5812)) ([1346350](https://github.com/ant-design/pro-components/commit/134635071126226c917875761a3b31d8437050e2))
+- 拆分多语言文档解决官网首页搜索异常问题 ([#5855](https://github.com/ant-design/pro-components/issues/5855)) ([5023a1f](https://github.com/ant-design/pro-components/commit/5023a1f6a365cfa5d87d79571b20cf355f844529))
+
 ## [7.0.2](https://github.com/ant-design/pro-components/compare/@ant-design/pro-layout@6.38.22...@ant-design/pro-layout@7.0.2) (2022-09-02)
 
 **Note:** Version bump only for package @ant-design/pro-layout

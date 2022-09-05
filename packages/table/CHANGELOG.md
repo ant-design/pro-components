@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [3.0.4](https://github.com/ant-design/pro-components/compare/@ant-design/pro-table@3.0.3...@ant-design/pro-table@3.0.4) (2022-09-05)
+
+### Bug Fixes
+
+- **table:** await action?.reload(); ([#5846](https://github.com/ant-design/pro-components/issues/5846)) ([5706603](https://github.com/ant-design/pro-components/commit/5706603da3f4e623d37c8e166d2c359a74b8eccf))
+
 ## [3.0.3](https://github.com/ant-design/pro-components/compare/@ant-design/pro-table@3.0.2...@ant-design/pro-table@3.0.3) (2022-09-02)
 
 ### Bug Fixes

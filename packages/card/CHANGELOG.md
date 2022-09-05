@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.0.3](https://github.com/ant-design/pro-components/compare/@ant-design/pro-card@2.0.2...@ant-design/pro-card@2.0.3) (2022-09-05)
+
+### Bug Fixes
+
+- **Card:** slove card & checkcard loading problem ([#5856](https://github.com/ant-design/pro-components/issues/5856)) ([c8c6321](https://github.com/ant-design/pro-components/commit/c8c6321375bf6c6013d7ad60068eb3b3c195a1e1))
+
 ## [2.0.2](https://github.com/ant-design/pro-components/compare/@ant-design/pro-card@1.20.21...@ant-design/pro-card@2.0.2) (2022-09-02)
 
 **Note:** Version bump only for package @ant-design/pro-card

@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.0.4](https://github.com/ant-design/pro-components/compare/@ant-design/pro-list@2.0.3...@ant-design/pro-list@2.0.4) (2022-09-05)
+
+### Bug Fixes
+
+- **form:** 优化 ProList 类型描述,支持用户字段提示 ([#5807](https://github.com/ant-design/pro-components/issues/5807)) ([333bcfd](https://github.com/ant-design/pro-components/commit/333bcfd8d8ab4d729bf908b060593545973e4e3d))
+
 ## [2.0.3](https://github.com/ant-design/pro-components/compare/@ant-design/pro-list@2.0.2...@ant-design/pro-list@2.0.3) (2022-09-02)
 
 **Note:** Version bump only for package @ant-design/pro-list
