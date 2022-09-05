@@ -36,8 +36,6 @@ const LightSelect: React.ForwardRefRenderFunction<any, SelectProps<any> & LightS
   props,
   ref,
 ) => {
-  console.log(props);
-
   const {
     label,
     prefixCls: customizePrefixCls,

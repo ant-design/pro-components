@@ -435,7 +435,7 @@ const SiderMenu: React.FC<SiderMenuProps & PrivateSiderMenuProps> = (props) => {
         }}
         collapsedWidth={collapsedWidth}
         style={style}
-        theme={theme}
+        theme="light"
         width={siderWidth}
         className={classNames(siderClassName, hashId, hideMenuWhenCollapsedClassName)}
       >

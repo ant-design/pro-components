@@ -1,5 +1,4 @@
 import type { MenuDataItem } from '@umijs/route-utils';
-import type { MenuTheme } from 'antd/es/menu/MenuContext';
 
 export type ContentWidth = 'Fluid' | 'Fixed';
 
@@ -128,6 +127,7 @@ export type PureSettings = {
 export type ProSettings = PureSettings & RenderSetting;
 
 const defaultSettings: ProSettings = {
+  navTheme: 'light',
   layout: 'side',
   contentWidth: 'Fluid',
   fixedHeader: false,

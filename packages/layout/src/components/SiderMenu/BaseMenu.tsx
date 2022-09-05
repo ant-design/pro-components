@@ -1,6 +1,6 @@
 import Icon, { createFromIconfontCN } from '@ant-design/icons';
 import { isImg, isUrl, useMountMergeState } from '@ant-design/pro-utils';
-import type { MenuProps, MenuTheme } from 'antd';
+import type { MenuProps } from 'antd';
 import { Menu, Skeleton } from 'antd';
 import type { ItemType } from 'antd/es/menu/hooks/useItems';
 import classNames from 'classnames';
@@ -34,7 +34,6 @@ export type BaseMenuProps = {
   /** 要给菜单的props, 参考antd-menu的属性。https://ant.design/components/menu-cn/ */
   menuProps?: MenuProps;
   style?: React.CSSProperties;
-  theme?: MenuTheme;
   formatMessage?: (message: MessageDescriptor) => string;
 
   /**

@@ -131,8 +131,8 @@ const FieldTimePicker: ProFieldFC<
  * @param param0
  * @param ref
  */
-const FieldTimeRangePicker: ProFieldFC<{
-  text: React.ReactText[];
+const FieldTimeRangePickerComponents: ProFieldFC<{
+  text: string[] | number[];
   format: string;
 }> = ({ text, mode, format, render, renderFormItem, plain, fieldProps }) => {
   const finalFormat = fieldProps?.format || format || 'HH:mm:ss';
@@ -178,6 +178,8 @@ const FieldTimeRangePicker: ProFieldFC<{
   }
   return null;
 };
+
+const FieldTimeRangePicker = React.forwardRef(FieldTimeRangePickerComponents);
 
 export { FieldTimeRangePicker };
 

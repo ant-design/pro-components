@@ -44442,7 +44442,7 @@ exports[`form demos 📸 renders ./packages/form/src/demos/layout-footer.tsx cor
             class="ant-layout-header ant-pro-layout-header ant-pro-layout-header-fixed-header ant-pro-layout-header-mix ant-pro-layout-header-header"
           >
             <div
-              class="ant-pro-global-header ant-pro-global-header-layout-mix"
+              class="ant-pro-global-header"
             >
               <div
                 class="ant-pro-global-header-logo ant-pro-global-header-logo-mix"
@@ -44617,11 +44617,9 @@ exports[`form demos 📸 renders ./packages/form/src/demos/layout-footer.tsx cor
                       <span
                         class="ant-breadcrumb-link"
                       >
-                        <a
-                          href="/one/two"
-                        >
+                        <span>
                           二级名称
-                        </a>
+                        </span>
                       </span>
                       <span
                         class="ant-breadcrumb-separator"

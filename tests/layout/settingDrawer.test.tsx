@@ -401,7 +401,7 @@ describe('settingDrawer.test', () => {
     });
     await waitForComponentToPaint(wrapper);
 
-    expect(onSettingChange).toBeCalledWith('dark');
+    expect(onSettingChange).toBeCalledWith('realDark');
   });
 
   it('🌺 colorWeak Change', async () => {

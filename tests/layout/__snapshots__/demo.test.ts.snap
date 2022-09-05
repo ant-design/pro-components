@@ -4752,11 +4752,9 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/BreadcrumbsRepeat
                         <span
                           class="ant-breadcrumb-link"
                         >
-                          <a
-                            href="/admin/process/edit/123"
-                          >
+                          <span>
                             编辑申请单
-                          </a>
+                          </span>
                         </span>
                         <span
                           class="ant-breadcrumb-separator"
@@ -6830,11 +6828,9 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/MultipleMenuOnePa
                         <span
                           class="ant-breadcrumb-link"
                         >
-                          <a
-                            href="/config/template"
-                          >
+                          <span>
                             产品模板管理
-                          </a>
+                          </span>
                         </span>
                         <span
                           class="ant-breadcrumb-separator"
@@ -7450,11 +7446,9 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/Nested.tsx correc
                                 <span
                                   class="ant-breadcrumb-link"
                                 >
-                                  <a
-                                    href="/home/overview"
-                                  >
+                                  <span>
                                     概述
-                                  </a>
+                                  </span>
                                 </span>
                                 <span
                                   class="ant-breadcrumb-separator"
@@ -8091,11 +8085,9 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/TopmenuNested.tsx
                                 <span
                                   class="ant-breadcrumb-link"
                                 >
-                                  <a
-                                    href="/home/overview"
-                                  >
+                                  <span>
                                     概述
-                                  </a>
+                                  </span>
                                 </span>
                                 <span
                                   class="ant-breadcrumb-separator"
@@ -8569,11 +8561,9 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/antd@4MenuIconFor
                       <span
                         class="ant-breadcrumb-link"
                       >
-                        <a
-                          href="/welcome/welcome"
-                        >
+                        <span>
                           two
-                        </a>
+                        </span>
                       </span>
                       <span
                         class="ant-breadcrumb-separator"
@@ -9981,11 +9971,9 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/background-contex
                         <span
                           class="ant-breadcrumb-link"
                         >
-                          <a
-                            href="/list/sub-page/sub-sub-page1"
-                          >
+                          <span>
                             一一级列表页面
-                          </a>
+                          </span>
                         </span>
                         <span
                           class="ant-breadcrumb-separator"
@@ -10987,11 +10975,9 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/base.tsx correctl
                         <span
                           class="ant-breadcrumb-link"
                         >
-                          <a
-                            href="/list/sub-page/sub-sub-page1"
-                          >
+                          <span>
                             一一级列表页面
-                          </a>
+                          </span>
                         </span>
                         <span
                           class="ant-breadcrumb-separator"
@@ -12099,11 +12085,9 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/classicMode.tsx c
                         <span
                           class="ant-breadcrumb-link"
                         >
-                          <a
-                            href="/list/sub-page/sub-sub-page1"
-                          >
+                          <span>
                             一一级列表页面
-                          </a>
+                          </span>
                         </span>
                         <span
                           class="ant-breadcrumb-separator"
@@ -15172,11 +15156,9 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/customSider.tsx c
                         <span
                           class="ant-breadcrumb-link"
                         >
-                          <a
-                            href="/list/sub-page/sub-sub-page1"
-                          >
+                          <span>
                             一一级列表页面
-                          </a>
+                          </span>
                         </span>
                         <span
                           class="ant-breadcrumb-separator"
@@ -15520,7 +15502,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/customize-collaps
             class="ant-layout-header ant-pro-layout-header ant-pro-layout-header-fixed-header ant-pro-layout-header-mix ant-pro-layout-header-fixed-header-action ant-pro-layout-header-header"
           >
             <div
-              class="ant-pro-global-header ant-pro-global-header-layout-mix"
+              class="ant-pro-global-header"
             >
               <div />
               <span
@@ -17153,11 +17135,9 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/designMenuCss.tsx
                         <span
                           class="ant-breadcrumb-link"
                         >
-                          <a
-                            href="/list/sub-page/sub-sub-page1"
-                          >
+                          <span>
                             一一级列表页面
-                          </a>
+                          </span>
                         </span>
                         <span
                           class="ant-breadcrumb-separator"
@@ -18365,11 +18345,9 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/designSiderMenu.t
                         <span
                           class="ant-breadcrumb-link"
                         >
-                          <a
-                            href="/list/sub-page/sub-sub-page1"
-                          >
+                          <span>
                             一一级列表页面
-                          </a>
+                          </span>
                         </span>
                         <span
                           class="ant-breadcrumb-separator"
@@ -20107,11 +20085,9 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/dynamicMenu.tsx c
                       <span
                         class="ant-breadcrumb-link"
                       >
-                        <a
-                          href="/welcome/welcome"
-                        >
+                        <span>
                           two
-                        </a>
+                        </span>
                       </span>
                       <span
                         class="ant-breadcrumb-separator"
@@ -22014,11 +21990,9 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/footer-global-too
                         <span
                           class="ant-breadcrumb-link"
                         >
-                          <a
-                            href="/list/sub-page/sub-sub-page1"
-                          >
+                          <span>
                             一一级列表页面
-                          </a>
+                          </span>
                         </span>
                         <span
                           class="ant-breadcrumb-separator"
@@ -26576,11 +26550,9 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/mixMode.tsx corre
                         <span
                           class="ant-breadcrumb-link"
                         >
-                          <a
-                            href="/list/sub-page/sub-sub-page1"
-                          >
+                          <span>
                             一一级列表页面
-                          </a>
+                          </span>
                         </span>
                         <span
                           class="ant-breadcrumb-separator"
@@ -27383,11 +27355,9 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/pageSimplify.tsx 
                         <span
                           class="ant-breadcrumb-link"
                         >
-                          <a
-                            href="/list/sub-page/sub-sub-page1"
-                          >
+                          <span>
                             一一级列表页面
-                          </a>
+                          </span>
                         </span>
                         <span
                           class="ant-breadcrumb-separator"
@@ -27872,11 +27842,9 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/searchMenu.tsx co
                         <span
                           class="ant-breadcrumb-link"
                         >
-                          <a
-                            href="/home/overview"
-                          >
+                          <span>
                             概述
-                          </a>
+                          </span>
                         </span>
                         <span
                           class="ant-breadcrumb-separator"
@@ -28805,11 +28773,9 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/siderMode.tsx cor
                         <span
                           class="ant-breadcrumb-link"
                         >
-                          <a
-                            href="/list/sub-page/sub-sub-page1"
-                          >
+                          <span>
                             一一级列表页面
-                          </a>
+                          </span>
                         </span>
                         <span
                           class="ant-breadcrumb-separator"
@@ -29836,11 +29802,9 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/siteMenu.tsx corr
                         <span
                           class="ant-breadcrumb-link"
                         >
-                          <a
-                            href="/list/sub-page/sub-sub-page1"
-                          >
+                          <span>
                             一一级列表页面
-                          </a>
+                          </span>
                         </span>
                         <span
                           class="ant-breadcrumb-separator"
@@ -31830,7 +31794,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/splitMenus.tsx co
             class="ant-layout-header ant-pro-layout-header ant-pro-layout-header-fixed-header ant-pro-layout-header-mix ant-pro-layout-header-fixed-header-action ant-pro-layout-header-header"
           >
             <div
-              class="ant-pro-global-header ant-pro-global-header-layout-mix"
+              class="ant-pro-global-header"
             >
               <div />
               <span
@@ -32306,7 +32270,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/splitMenus.tsx co
             class="ant-layout-header ant-pro-layout-header ant-pro-layout-header-fixed-header ant-pro-layout-header-mix ant-pro-layout-header-fixed-header-action ant-pro-layout-header-header"
           >
             <div
-              class="ant-pro-global-header ant-pro-global-header-layout-mix"
+              class="ant-pro-global-header"
             >
               <div />
               <span
@@ -33158,11 +33122,9 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/theme.tsx correct
                       <span
                         class="ant-breadcrumb-link"
                       >
-                        <a
-                          href="/list/sub-page/sub-sub-page1"
-                        >
+                        <span>
                           一一级列表页面
-                        </a>
+                        </span>
                       </span>
                       <span
                         class="ant-breadcrumb-separator"
@@ -33451,7 +33413,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/top-breadcrumb.ts
               class="ant-layout-header ant-pro-layout-header ant-pro-layout-header-fixed-header ant-pro-layout-header-mix ant-pro-layout-header-fixed-header-action ant-pro-layout-header-header"
             >
               <div
-                class="ant-pro-global-header ant-pro-global-header-layout-mix"
+                class="ant-pro-global-header"
               >
                 <div
                   class="ant-pro-global-header-logo ant-pro-global-header-logo-mix"
@@ -33666,11 +33628,9 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/top-breadcrumb.ts
                           <span
                             class="ant-breadcrumb-link"
                           >
-                            <a
-                              href="/admin/process/edit/123"
-                            >
+                            <span>
                               编辑申请单
-                            </a>
+                            </span>
                           </span>
                           <span
                             class="ant-breadcrumb-separator"
@@ -34372,11 +34332,9 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/topMode.tsx corre
                         <span
                           class="ant-breadcrumb-link"
                         >
-                          <a
-                            href="/list/sub-page/sub-sub-page1"
-                          >
+                          <span>
                             一一级列表页面
-                          </a>
+                          </span>
                         </span>
                         <span
                           class="ant-breadcrumb-separator"

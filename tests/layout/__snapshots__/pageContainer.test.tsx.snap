@@ -1125,11 +1125,9 @@ exports[`PageContainer 🐲 pro-layout support breadcrumbProps 1`] = `
                     <span
                       class="ant-breadcrumb-link"
                     >
-                      <a
-                        href="second"
-                      >
+                      <span>
                         second
-                      </a>
+                      </span>
                     </span>
                     <span
                       class="ant-breadcrumb-separator"
