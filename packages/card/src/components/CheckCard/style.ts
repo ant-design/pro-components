@@ -113,6 +113,7 @@ const genProStyle: GenerateStyle<ProListToken> = (token) => {
       '&-avatar': { paddingInlineEnd: 8 },
       '&-detail': {
         overflow: 'hidden',
+        width: '100%',
         '> div:not(:last-child)': {
           marginBlockEnd: 4,
         },
