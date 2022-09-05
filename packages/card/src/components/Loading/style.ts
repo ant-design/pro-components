@@ -14,14 +14,14 @@ const genProStyle: GenerateStyle<ProToken> = (token) => {
       '&-loading &-body': {
         userSelect: 'none',
       },
-      '&-loading-content': {
+      [`${token.componentCls}-loading-content`]: {
         width: '100%',
         p: {
           marginBlock: 0,
           marginInline: 0,
         },
       },
-      '&-loading-block': {
+      [`${token.componentCls}-loading-block`]: {
         height: '14px',
         marginBlock: '4px',
         background: `linear-gradient(90deg, rgba(54, 61, 64, 0.2), rgba(54, 61, 64, 0.4), rgba(54, 61, 64, 0.2))`,

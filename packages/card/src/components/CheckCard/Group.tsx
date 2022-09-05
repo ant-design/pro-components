@@ -98,7 +98,7 @@ export const CardLoading: React.FC<{
         <Col span={8}>
           <div className={loadingBlockClass} />
         </Col>
-        <Col span={15}>
+        <Col span={14}>
           <div className={loadingBlockClass} />
         </Col>
       </Row>
@@ -106,7 +106,7 @@ export const CardLoading: React.FC<{
         <Col span={6}>
           <div className={loadingBlockClass} />
         </Col>
-        <Col span={18}>
+        <Col span={16}>
           <div className={loadingBlockClass} />
         </Col>
       </Row>
@@ -125,7 +125,7 @@ export const CardLoading: React.FC<{
         <Col span={3}>
           <div className={loadingBlockClass} />
         </Col>
-        <Col span={16}>
+        <Col span={14}>
           <div className={loadingBlockClass} />
         </Col>
       </Row>
