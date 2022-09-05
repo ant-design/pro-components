@@ -45,7 +45,6 @@ export default () => (
         route={{
           routes: complexMenu,
         }}
-        navTheme="light"
         style={{
           height: '400px',
         }}

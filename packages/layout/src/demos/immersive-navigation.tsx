@@ -52,7 +52,6 @@ export default () => {
         location={{
           pathname,
         }}
-        navTheme="light"
         logoStyle={{
           backgroundColor: '#eee',
         }}

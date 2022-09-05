@@ -4,7 +4,6 @@ const pageProps = {
   pathname: '/welcome',
   location: { pathname: '/welcome' },
   logo: 'https://gw.alipayobjects.com/zos/antfincdn/PmY%24TNNDBI/logo.svg',
-  navTheme: 'dark',
   layout: 'side',
   contentWidth: 'Fluid',
   fixedHeader: false,

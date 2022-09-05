@@ -35,7 +35,6 @@ export default () => {
     location: {
       pathname,
     },
-    navTheme: 'light',
     collapsed,
     fixSiderbar: true,
     collapsedButtonRender: false,

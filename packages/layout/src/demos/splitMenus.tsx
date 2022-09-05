@@ -28,8 +28,6 @@ export default () => {
         layout="mix"
         menuExtraRender={() => 'dom'}
         menuHeaderRender={() => <div />}
-        headerTheme="light"
-        navTheme="light"
         splitMenus
         location={{
           pathname: '/welcome',
@@ -46,8 +44,6 @@ export default () => {
         contentWidth="Fixed"
         menuExtraRender={false}
         menuHeaderRender={false}
-        headerTheme="light"
-        navTheme="light"
         avatarProps={{
           src: 'https://gw.alipayobjects.com/zos/antfincdn/efFD%24IOql2/weixintupian_20170331104822.jpg',
           size: 'small',

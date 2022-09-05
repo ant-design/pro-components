@@ -37,7 +37,6 @@ const DefaultHeader: React.FC<HeaderViewProps & PrivateSiderMenuProps> = (props)
     collapsed,
     prefixCls,
     onCollapse,
-    navTheme,
     layout,
     headerRender,
     headerContentRender,
@@ -55,7 +54,6 @@ const DefaultHeader: React.FC<HeaderViewProps & PrivateSiderMenuProps> = (props)
     if (isTop && !isMobile) {
       defaultDom = (
         <TopNavHeader
-          theme={navTheme as 'light' | 'dark'}
           mode="horizontal"
           onCollapse={onCollapse}
           {...props}
@@ -67,7 +65,7 @@ const DefaultHeader: React.FC<HeaderViewProps & PrivateSiderMenuProps> = (props)
       return headerRender(props, defaultDom);
     }
     return defaultDom;
-  }, [headerContentRender, headerRender, isMobile, layout, navTheme, onCollapse, props]);
+  }, [headerContentRender, headerRender, isMobile, layout, onCollapse, props]);
 
   const needFixedHeader = fixedHeader || layout === 'mix';
 

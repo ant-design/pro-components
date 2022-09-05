@@ -35,7 +35,6 @@ export default () => {
         location={{
           pathname,
         }}
-        navTheme="light"
         fixSiderbar
         headerRender={false}
         onMenuHeaderClick={(e) => console.log(e)}

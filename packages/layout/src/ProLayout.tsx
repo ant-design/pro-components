@@ -539,7 +539,6 @@ const BaseProLayout: React.FC<ProLayoutProps> = (props) => {
       menuData,
       onCollapse,
       isMobile,
-      theme: navTheme === 'dark' ? 'dark' : 'light',
       collapsed,
     },
     matchMenuKeys,
@@ -555,7 +554,6 @@ const BaseProLayout: React.FC<ProLayoutProps> = (props) => {
       isMobile,
       collapsed,
       onCollapse,
-      theme: navTheme === 'dark' ? 'dark' : 'light',
     },
     matchMenuKeys,
   );

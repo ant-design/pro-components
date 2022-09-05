@@ -1,5 +1,3 @@
-import type { MenuTheme } from 'antd/es/menu/MenuContext';
-
 export type ContentWidth = 'Fluid' | 'Fixed';
 
 export type RenderSetting = {
@@ -17,7 +15,7 @@ export type PureSettings = {
    * @name theme for nav menu
    * @name 导航菜单的主题
    */
-  navTheme: MenuTheme | 'realDark' | undefined;
+  navTheme?: 'light' | 'realDark' | undefined;
   /**
    * Side 为正常模式，top菜单显示在顶部，mix 两种兼有
    *
@@ -47,7 +45,6 @@ export type PureSettings = {
 export type ProSettings = PureSettings & RenderSetting;
 
 const defaultSettings: ProSettings = {
-  navTheme: 'dark',
   layout: 'side',
   contentWidth: 'Fluid',
   fixedHeader: false,

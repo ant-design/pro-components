@@ -90,7 +90,6 @@ const GlobalHeader: React.FC<GlobalHeaderProps & PrivateSiderMenuProps> = (props
     style,
     layout,
     children,
-    headerTheme = 'dark',
     splitMenus,
     menuData,
     prefixCls,
@@ -99,9 +98,7 @@ const GlobalHeader: React.FC<GlobalHeaderProps & PrivateSiderMenuProps> = (props
   const baseClassName = `${prefixCls}-global-header`;
   const { wrapSSR, hashId } = useStyle(baseClassName);
 
-  const className = classNames(propClassName, baseClassName, hashId, {
-    [`${baseClassName}-layout-${layout}`]: layout && headerTheme === 'dark',
-  });
+  const className = classNames(propClassName, baseClassName, hashId);
 
   if (layout === 'mix' && !isMobile && splitMenus) {
     const noChildrenMenuData = (menuData || []).map((item) => ({
@@ -111,13 +108,7 @@ const GlobalHeader: React.FC<GlobalHeaderProps & PrivateSiderMenuProps> = (props
     }));
     const clearMenuData = clearMenuItem(noChildrenMenuData);
     return (
-      <TopNavHeader
-        mode="horizontal"
-        {...props}
-        splitMenus={false}
-        menuData={clearMenuData}
-        theme={headerTheme as 'light' | 'dark'}
-      />
+      <TopNavHeader mode="horizontal" {...props} splitMenus={false} menuData={clearMenuData} />
     );
   }
 

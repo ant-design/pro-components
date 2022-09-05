@@ -19,7 +19,6 @@ export default () => {
     <ProLayout
       fixSiderbar
       fixedHeader
-      navTheme="light"
       breakpoint={false}
       defaultCollapsed
       pageTitleRender={false}

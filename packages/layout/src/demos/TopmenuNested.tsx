@@ -24,7 +24,6 @@ export default () => (
         route={{
           routes: complexMenu,
         }}
-        navTheme="light"
         menuHeaderRender={false}
       >
         <PageContainer content="欢迎使用">

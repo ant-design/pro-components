@@ -143,8 +143,6 @@ PageContainer configuration `ghost` can switch the page header to transparent mo
 | contentStyle | layout's content area style | CSSProperties | - |
 | layout | layout's menu mode,side: right-hand navigation,top: top navigation | `side` \| `top` | `side` |
 | contentWidth | content mode of layout,Fluid: adaptive,Fixed: fixed 1200px | `Fluid` \| `Fixed` | `Fluid` |
-| navTheme | The theme of the navigation, side and mix mode is the theme of the left menu, top mode is the top menu | `light` \| `dark` | `dark` |
-| headerTheme | The theme for the top navigation, with mix mode in effect | `light` \| `dark` | `dark` |
 | fixedHeader | Whether to fix the header to the top | `boolean` | `false` |
 | fixSiderbar | whether to fix the navigation | `boolean` | `false` |
 | breakpoint | Trigger [breakpoint](https://ant.design/components/grid/#Col) for responsive layouts | `Enum { 'xs', 'sm', 'md', 'lg', 'xl', 'xxl' }` | `lg` |
@@ -281,8 +279,6 @@ const title = getPageTitle({
 // You can get this type by importing { Settings } from '@ant-design/pro-layout/defaultSettings'
 // to get this type
 export interface Settings {
-  /** Theme for nav menu */
-  navTheme: 'light' | 'dark';
   /** Primary color of ant design */
   colorPrimary: string;
   /** Nav menu position: `side` or `top` */

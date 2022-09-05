@@ -15,13 +15,7 @@ export type PureSettings = {
    *
    * @type  "light" | "dark" | "realDark"
    */
-  navTheme?: MenuTheme | 'realDark' | undefined;
-
-  /**
-   * @name 顶部菜单的颜色，mix 模式下生效
-   * @type  "light" | "dark"
-   */
-  headerTheme?: MenuTheme;
+  navTheme?: 'realDark' | 'light' | undefined;
 
   /**
    * @name layout 的布局方式
@@ -134,7 +128,6 @@ export type PureSettings = {
 export type ProSettings = PureSettings & RenderSetting;
 
 const defaultSettings: ProSettings = {
-  navTheme: 'light',
   layout: 'side',
   contentWidth: 'Fluid',
   fixedHeader: false,
