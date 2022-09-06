@@ -78,7 +78,7 @@ const FieldRadio: ProFieldFC<GroupProps> = (
         options={undefined}
       >
         {options?.map((item) => (
-          <RadioComponents key={item.value} {...item} optionType={undefined}>
+          <RadioComponents key={item.value} {...item}>
             {item.label}
           </RadioComponents>
         ))}
