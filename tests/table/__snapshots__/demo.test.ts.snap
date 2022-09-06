@@ -335,7 +335,7 @@ exports[`table demos 📸 renders ./packages/table/src/components/DragSortTable/
             </div>
             <div
               class="ant-col ant-col-8"
-              style="padding-left: 12px; padding-right: 12px; text-align: right;"
+              style="padding-left: 12px; padding-right: 12px; text-align: end;"
             >
               <div
                 class="ant-form-item ant-pro-query-filter-actions "
@@ -1099,7 +1099,7 @@ exports[`table demos 📸 renders ./packages/table/src/components/DragSortTable/
             </div>
             <div
               class="ant-col ant-col-8"
-              style="padding-left: 12px; padding-right: 12px; text-align: right;"
+              style="padding-left: 12px; padding-right: 12px; text-align: end;"
             >
               <div
                 class="ant-form-item ant-pro-query-filter-actions "
@@ -18138,7 +18138,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/config-provider.tsx
             </div>
             <div
               class="qixian-col qixian-col-8"
-              style="padding-left: 12px; padding-right: 12px; text-align: right;"
+              style="padding-left: 12px; padding-right: 12px; text-align: end;"
             >
               <div
                 class="qixian-form-item qixian-pro-query-filter-actions "
@@ -23081,7 +23081,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/crud.tsx correctly 
                 </div>
                 <div
                   class="ant-col ant-col-8"
-                  style="padding-left: 12px; padding-right: 12px; text-align: right;"
+                  style="padding-left: 12px; padding-right: 12px; text-align: end;"
                 >
                   <div
                     class="ant-form-item ant-pro-query-filter-actions "
@@ -24599,7 +24599,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/customization-value
             </div>
             <div
               class="ant-col ant-col-8"
-              style="padding-left: 12px; padding-right: 12px; text-align: right;"
+              style="padding-left: 12px; padding-right: 12px; text-align: end;"
             >
               <div
                 class="ant-form-item ant-pro-query-filter-actions "
@@ -25808,7 +25808,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/dataSource.tsx corr
             </div>
             <div
               class="ant-col ant-col-8"
-              style="padding-left: 12px; padding-right: 12px; text-align: right;"
+              style="padding-left: 12px; padding-right: 12px; text-align: end;"
             >
               <div
                 class="ant-form-item ant-pro-query-filter-actions "
@@ -27628,7 +27628,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/dateFormatter.tsx c
             </div>
             <div
               class="ant-col ant-col-8"
-              style="padding-left: 12px; padding-right: 12px; text-align: right;"
+              style="padding-left: 12px; padding-right: 12px; text-align: end;"
             >
               <div
                 class="ant-form-item ant-pro-query-filter-actions "
@@ -28155,7 +28155,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/dateFormatter.tsx c
             </div>
             <div
               class="ant-col ant-col-8"
-              style="padding-left: 12px; padding-right: 12px; text-align: right;"
+              style="padding-left: 12px; padding-right: 12px; text-align: end;"
             >
               <div
                 class="ant-form-item ant-pro-query-filter-actions "
@@ -28682,7 +28682,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/dateFormatter.tsx c
             </div>
             <div
               class="ant-col ant-col-8"
-              style="padding-left: 12px; padding-right: 12px; text-align: right;"
+              style="padding-left: 12px; padding-right: 12px; text-align: end;"
             >
               <div
                 class="ant-form-item ant-pro-query-filter-actions "
@@ -29440,7 +29440,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/dynamic-columns-sta
             </div>
             <div
               class="ant-col ant-col-8"
-              style="padding-left: 12px; padding-right: 12px; text-align: right;"
+              style="padding-left: 12px; padding-right: 12px; text-align: end;"
             >
               <div
                 class="ant-form-item ant-pro-query-filter-actions "
@@ -30872,7 +30872,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/dynamic-settings.ts
                       </div>
                       <div
                         class="ant-col ant-col-12"
-                        style="padding-left: 12px; padding-right: 12px; text-align: right;"
+                        style="padding-left: 12px; padding-right: 12px; text-align: end;"
                       >
                         <div
                           class="ant-form-item ant-pro-query-filter-actions "
@@ -33495,7 +33495,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/error-boundaries.ts
         class="ant-result-extra"
       >
         <div
-          style="max-width: 620px; text-align: left; background-color: rgba(255, 229, 100, 0.3); border-inline-start-color: #ffe564; border-inline-start-width: 9px; border-inline-start-style: solid; padding: 20px 45px 20px 26px; margin: auto; margin-block-end: 30px; margin-block-start: 20px;"
+          style="max-width: 620px; text-align: start; background-color: rgba(255, 229, 100, 0.3); border-inline-start-color: #ffe564; border-inline-start-width: 9px; border-inline-start-style: solid; padding: 20px 45px 20px 26px; margin: auto; margin-block-end: 30px; margin-block-start: 20px;"
         >
           <p>
             注意
@@ -34439,7 +34439,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/form.tsx correctly 
             </div>
             <div
               class="ant-col ant-col-8"
-              style="padding-left: 12px; padding-right: 12px; text-align: right;"
+              style="padding-left: 12px; padding-right: 12px; text-align: end;"
             >
               <div
                 class="ant-form-item ant-pro-query-filter-actions "
@@ -35012,7 +35012,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/intl.tsx correctly 
             </div>
             <div
               class="ant-col ant-col-8"
-              style="padding-left: 12px; padding-right: 12px; text-align: right;"
+              style="padding-left: 12px; padding-right: 12px; text-align: end;"
             >
               <div
                 class="ant-form-item ant-pro-query-filter-actions "
@@ -37054,7 +37054,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/linkage_form.tsx co
             </div>
             <div
               class="ant-col ant-col-8 ant-col-offset-16"
-              style="padding-left: 12px; padding-right: 12px; text-align: right;"
+              style="padding-left: 12px; padding-right: 12px; text-align: end;"
             >
               <div
                 class="ant-form-item ant-pro-query-filter-actions "
@@ -43055,7 +43055,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/open-rules.tsx corr
             </div>
             <div
               class="ant-col ant-col-8"
-              style="padding-left: 12px; padding-right: 12px; text-align: right;"
+              style="padding-left: 12px; padding-right: 12px; text-align: end;"
             >
               <div
                 class="ant-form-item ant-pro-query-filter-actions "
@@ -43819,7 +43819,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/open-rules.tsx corr
             </div>
             <div
               class="ant-col ant-col-8"
-              style="padding-left: 12px; padding-right: 12px; text-align: right;"
+              style="padding-left: 12px; padding-right: 12px; text-align: end;"
             >
               <div
                 class="ant-form-item ant-pro-query-filter-actions "
@@ -44783,7 +44783,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/pollinga.tsx correc
             </div>
             <div
               class="ant-col ant-col-8"
-              style="padding-left: 12px; padding-right: 12px; text-align: right;"
+              style="padding-left: 12px; padding-right: 12px; text-align: end;"
             >
               <div
                 class="ant-form-item ant-pro-query-filter-actions "
@@ -45667,7 +45667,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/renderTable.tsx cor
             </div>
             <div
               class="ant-col ant-col-8"
-              style="padding-left: 12px; padding-right: 12px; text-align: right;"
+              style="padding-left: 12px; padding-right: 12px; text-align: end;"
             >
               <div
                 class="ant-form-item ant-pro-query-filter-actions "
@@ -46683,7 +46683,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/rtl_table.tsx corre
             </div>
             <div
               class="ant-col ant-col-8 ant-col-rtl"
-              style="padding-left: 12px; padding-right: 12px; text-align: right;"
+              style="padding-left: 12px; padding-right: 12px; text-align: end;"
             >
               <div
                 class="ant-form-item ant-pro-query-filter-actions "
@@ -48697,7 +48697,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/search_option.tsx c
             </div>
             <div
               class="ant-col ant-col-8"
-              style="padding-left: 12px; padding-right: 12px; text-align: right;"
+              style="padding-left: 12px; padding-right: 12px; text-align: end;"
             >
               <div
                 class="ant-form-item ant-pro-query-filter-actions "
@@ -49469,7 +49469,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/single.tsx correctl
             </div>
             <div
               class="ant-col ant-col-8"
-              style="padding-left: 12px; padding-right: 12px; text-align: right;"
+              style="padding-left: 12px; padding-right: 12px; text-align: end;"
             >
               <div
                 class="ant-form-item ant-pro-query-filter-actions "
@@ -51613,7 +51613,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/single-test.tsx cor
             </div>
             <div
               class="ant-col ant-col-8"
-              style="padding-left: 12px; padding-right: 12px; text-align: right;"
+              style="padding-left: 12px; padding-right: 12px; text-align: end;"
             >
               <div
                 class="ant-form-item ant-pro-query-filter-actions "
@@ -52452,7 +52452,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/single-test.tsx cor
             </div>
             <div
               class="ant-col ant-col-8"
-              style="padding-left: 12px; padding-right: 12px; text-align: right;"
+              style="padding-left: 12px; padding-right: 12px; text-align: end;"
             >
               <div
                 class="ant-form-item ant-pro-query-filter-actions "
@@ -56141,7 +56141,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/valueType.tsx corre
             </div>
             <div
               class="ant-col ant-col-8"
-              style="padding-left: 12px; padding-right: 12px; text-align: right;"
+              style="padding-left: 12px; padding-right: 12px; text-align: end;"
             >
               <div
                 class="ant-form-item ant-pro-query-filter-actions "
@@ -57651,7 +57651,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/valueType_select.ts
             </div>
             <div
               class="ant-col ant-col-12 ant-col-offset-12"
-              style="padding-left: 12px; padding-right: 12px; text-align: right;"
+              style="padding-left: 12px; padding-right: 12px; text-align: end;"
             >
               <div
                 class="ant-form-item ant-pro-query-filter-actions "
@@ -58925,7 +58925,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/valueTypeDate.tsx c
             </div>
             <div
               class="ant-col ant-col-8"
-              style="padding-left: 12px; padding-right: 12px; text-align: right;"
+              style="padding-left: 12px; padding-right: 12px; text-align: end;"
             >
               <div
                 class="ant-form-item ant-pro-query-filter-actions "
@@ -60214,7 +60214,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/valueTypeNumber.tsx
             </div>
             <div
               class="ant-col ant-col-8"
-              style="padding-left: 12px; padding-right: 12px; text-align: right;"
+              style="padding-left: 12px; padding-right: 12px; text-align: end;"
             >
               <div
                 class="ant-form-item ant-pro-query-filter-actions "

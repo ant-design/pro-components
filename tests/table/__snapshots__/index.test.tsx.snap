@@ -904,7 +904,7 @@ exports[`BasicTable 🎏 base use 1`] = `
               </div>
               <div
                 class="ant-col ant-col-8"
-                style="padding-left: 12px; padding-right: 12px; text-align: right;"
+                style="padding-left: 12px; padding-right: 12px; text-align: end;"
               >
                 <div
                   class="ant-form-item ant-pro-query-filter-actions "
@@ -7927,7 +7927,7 @@ exports[`BasicTable 🎏 columns = undefined 1`] = `
             >
               <div
                 class="ant-col ant-col-8 ant-col-offset-16"
-                style="padding-left: 12px; padding-right: 12px; text-align: right;"
+                style="padding-left: 12px; padding-right: 12px; text-align: end;"
               >
                 <div
                   class="ant-form-item ant-pro-query-filter-actions "
@@ -8353,7 +8353,7 @@ exports[`BasicTable 🎏 page error test 1`] = `
               </div>
               <div
                 class="ant-col ant-col-8 ant-col-offset-8"
-                style="padding-left: 12px; padding-right: 12px; text-align: right;"
+                style="padding-left: 12px; padding-right: 12px; text-align: end;"
               >
                 <div
                   class="ant-form-item ant-pro-query-filter-actions "
@@ -8863,7 +8863,7 @@ exports[`BasicTable 🎏 valueEnum support function 1`] = `
               </div>
               <div
                 class="ant-col ant-col-8"
-                style="padding-left: 12px; padding-right: 12px; text-align: right;"
+                style="padding-left: 12px; padding-right: 12px; text-align: end;"
               >
                 <div
                   class="ant-form-item ant-pro-query-filter-actions "
