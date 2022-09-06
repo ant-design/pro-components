@@ -42,7 +42,7 @@ class CustomBoundary extends React.Component<
               <div
                 style={{
                   maxWidth: 620,
-                  textAlign: 'left',
+                  textAlign: 'start',
                   backgroundColor: 'rgba(255,229,100,0.3)',
                   borderInlineStartColor: '#ffe564',
                   borderInlineStartWidth: '9px',

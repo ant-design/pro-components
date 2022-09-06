@@ -6278,7 +6278,7 @@ exports[`list demos 📸 renders ./packages/list/src/demos/search.tsx correctly 
             </div>
             <div
               class="ant-col ant-col-8"
-              style="padding-left: 12px; padding-right: 12px; text-align: right;"
+              style="padding-left: 12px; padding-right: 12px; text-align: end;"
             >
               <div
                 class="ant-form-item ant-pro-query-filter-actions "

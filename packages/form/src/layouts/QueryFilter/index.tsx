@@ -410,7 +410,7 @@ const QueryFilterContent: React.FC<{
           span={spanSize.span}
           offset={offset}
           style={{
-            textAlign: 'right',
+            textAlign: 'end',
           }}
         >
           <Form.Item label=" " colon={false} className={`${baseClassName}-actions ${hashId}`}>

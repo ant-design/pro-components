@@ -9,6 +9,12 @@ group:
 
 # Change Log
 
+## @ant-design/pro-table@3.0.4
+
+`2022-09-05`
+
+- fix(table): await action?.reload(); (#5846). [#5846](https://github.com/ant-design/pro-components/pull/#5846) [@conorzhong](https://github.com/conorzhong)
+
 ## @ant-design/pro-table@2.80.0
 
 `2022-08-19`

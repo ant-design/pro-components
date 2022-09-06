@@ -125,7 +125,7 @@ exports[`Table ColumnSetting 🎏 columns proFieldProps support custom 1`] = `
           </div>
           <div
             class="ant-col ant-col-8 ant-col-offset-8"
-            style="padding-left: 12px; padding-right: 12px; text-align: right;"
+            style="padding-left: 12px; padding-right: 12px; text-align: end;"
           >
             <div
               class="ant-form-item ant-pro-query-filter-actions "
@@ -526,7 +526,7 @@ exports[`Table ColumnSetting 🎏 config provide render 1`] = `
           </div>
           <div
             class="qixian-col qixian-col-8 qixian-col-offset-8"
-            style="padding-left: 12px; padding-right: 12px; text-align: right;"
+            style="padding-left: 12px; padding-right: 12px; text-align: end;"
           >
             <div
               class="qixian-form-item qixian-pro-query-filter-actions "
@@ -1319,7 +1319,7 @@ exports[`Table ColumnSetting 🎏 extra columns 1`] = `
           </div>
           <div
             class="ant-col ant-col-8 ant-col-offset-8"
-            style="padding-left: 12px; padding-right: 12px; text-align: right;"
+            style="padding-left: 12px; padding-right: 12px; text-align: end;"
           >
             <div
               class="ant-form-item ant-pro-query-filter-actions "

@@ -10,6 +10,12 @@ group:
 
 # Change Log
 
+## @ant-design/pro-card@2.0.3
+
+`2022-09-05`
+
+- fix(Card): slove card & checkcard loading problem (#5856). [#5856](https://github.com/ant-design/pro-components/pull/#5856) [@ONLY-yours](https://github.com/ONLY-yours)
+
 ## @ant-design/pro-card@1.20.4
 
 `2022-05-12`

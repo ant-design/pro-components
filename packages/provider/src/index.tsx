@@ -1,5 +1,5 @@
 //@ts-ignore
-import { ConfigProvider as AntdConfigProvider, theme as antdTheme } from 'antd';
+import * as antd from 'antd';
 import zh_CN from 'antd/es/locale/zh_CN';
 import React, { useContext, useEffect } from 'react';
 import { SWRConfig, useSWRConfig } from 'swr';
@@ -27,7 +27,7 @@ import viVN from './locale/vi_VN';
 import zhCN from './locale/zh_CN';
 import zhTW from './locale/zh_TW';
 
-const { useToken } = antdTheme || {
+const { useToken } = antd.theme || {
   useToken: () => {
     return {
       hashId: '',
@@ -270,6 +270,8 @@ const CacheClean = () => {
   return null;
 };
 
+const AntdConfigProvider = antd.ConfigProvider;
+
 /**
  * 如果没有配置 locale，这里组件会根据 antd 的 key 来自动选择
  *
@@ -280,7 +282,7 @@ export const ConfigProviderWrap: React.FC<Record<string, unknown>> = ({
   autoClearCache = false,
 }) => {
   const { locale } = useContext(AntdConfigProvider.ConfigContext);
-  const { hashId } = useToken?.();
+  const token = useToken?.();
   // 如果 locale 不存在自动注入的 AntdConfigProvider
   const Provider = locale === undefined ? AntdConfigProvider : React.Fragment;
   const proProvide = useContext(ConfigContext);
@@ -322,7 +324,7 @@ export const ConfigProviderWrap: React.FC<Record<string, unknown>> = ({
           </Provider>
         );
         if (proProvide.isDeps) return provide;
-        return <div className={`ant-pro ${hashId}`}>{provide}</div>;
+        return <div className={`ant-pro ${token.hashId}`}>{provide}</div>;
       }}
     </ConfigConsumer>
   );

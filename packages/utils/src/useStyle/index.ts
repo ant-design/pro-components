@@ -1,8 +1,8 @@
 import type { CSSInterpolation, CSSObject } from '@ant-design/cssinjs';
 import { useStyleRegister } from '@ant-design/cssinjs';
 import { TinyColor } from '@ctrl/tinycolor';
-// @ts-ignore
-import { ConfigProvider, theme as antdTheme } from 'antd';
+
+import * as antd from 'antd';
 
 import type React from 'react';
 import { useContext } from 'react';
@@ -37,7 +37,11 @@ export type GenerateStyle<
 /**
  * 如果 antd 里面没有，就用我 mock 的，这样 antd@4 和 antd@5 可以兼容
  */
-const { useToken } = { ...batToken, ...antdTheme } as unknown as typeof batToken;
+const { useToken } = {
+  ...batToken,
+  // @ts-ignore
+  ...antd.antdTheme,
+} as unknown as typeof batToken;
 
 export { useToken };
 
@@ -87,6 +91,8 @@ export const operationUnit = (token: ProAliasToken): CSSObject => ({
     color: token.colorLinkActive,
   },
 });
+
+const { ConfigProvider } = antd;
 
 /**
  * 封装了一下 antd 的 useStyle，支持了一下antd@4

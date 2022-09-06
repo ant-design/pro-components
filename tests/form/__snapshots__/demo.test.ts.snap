@@ -20826,7 +20826,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/QueryFilter/demo
         </div>
         <div
           class="ant-col ant-col-8"
-          style="padding-left: 12px; padding-right: 12px; text-align: right;"
+          style="padding-left: 12px; padding-right: 12px; text-align: end;"
         >
           <div
             class="ant-form-item ant-pro-query-filter-actions "
@@ -21413,7 +21413,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/QueryFilter/demo
         </div>
         <div
           class="ant-col ant-col-8"
-          style="padding-left: 12px; padding-right: 12px; text-align: right;"
+          style="padding-left: 12px; padding-right: 12px; text-align: end;"
         >
           <div
             class="ant-form-item ant-pro-query-filter-actions "
@@ -22010,7 +22010,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/QueryFilter/demo
         </div>
         <div
           class="ant-col ant-col-8 ant-col-offset-8"
-          style="padding-left: 12px; padding-right: 12px; text-align: right;"
+          style="padding-left: 12px; padding-right: 12px; text-align: end;"
         >
           <div
             class="ant-form-item ant-pro-query-filter-actions "
@@ -22342,7 +22342,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/QueryFilter/demo
         </div>
         <div
           class="ant-col ant-col-6"
-          style="padding-left: 12px; padding-right: 12px; text-align: right;"
+          style="padding-left: 12px; padding-right: 12px; text-align: end;"
         >
           <div
             class="ant-form-item ant-pro-query-filter-actions "
@@ -22674,7 +22674,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/QueryFilter/demo
         </div>
         <div
           class="ant-col ant-col-6"
-          style="padding-left: 12px; padding-right: 12px; text-align: right;"
+          style="padding-left: 12px; padding-right: 12px; text-align: end;"
         >
           <div
             class="ant-form-item ant-pro-query-filter-actions "
@@ -23246,7 +23246,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/QueryFilter/demo
         </div>
         <div
           class="ant-col ant-col-8 ant-col-offset-16"
-          style="padding-left: 12px; padding-right: 12px; text-align: right;"
+          style="padding-left: 12px; padding-right: 12px; text-align: end;"
         >
           <div
             class="ant-form-item ant-pro-query-filter-actions "
@@ -23848,7 +23848,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/QueryFilter/demo
         </div>
         <div
           class="ant-col ant-col-12 ant-col-offset-12"
-          style="padding-left: 12px; padding-right: 12px; text-align: right;"
+          style="padding-left: 12px; padding-right: 12px; text-align: end;"
         >
           <div
             class="ant-form-item ant-pro-query-filter-actions "
@@ -24450,7 +24450,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/QueryFilter/demo
         </div>
         <div
           class="ant-col ant-col-8 ant-col-offset-16"
-          style="padding-left: 12px; padding-right: 12px; text-align: right;"
+          style="padding-left: 12px; padding-right: 12px; text-align: end;"
         >
           <div
             class="ant-form-item ant-pro-query-filter-actions "
@@ -25052,7 +25052,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/QueryFilter/demo
         </div>
         <div
           class="ant-col ant-col-4 ant-col-offset-8"
-          style="padding-left: 12px; padding-right: 12px; text-align: right;"
+          style="padding-left: 12px; padding-right: 12px; text-align: end;"
         >
           <div
             class="ant-form-item ant-pro-query-filter-actions "
@@ -25611,7 +25611,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/QueryFilter/demo
         </div>
         <div
           class="ant-col ant-col-8"
-          style="padding-left: 12px; padding-right: 12px; text-align: right;"
+          style="padding-left: 12px; padding-right: 12px; text-align: end;"
         >
           <div
             class="ant-form-item ant-pro-query-filter-actions "
