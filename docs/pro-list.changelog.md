@@ -9,6 +9,12 @@ group:
 
 # Change Log
 
+## @ant-design/pro-form@2.0.4
+
+`2022-09-05`
+
+- fix(form): 优化 ProList 类型描述,支持用户字段提示 (#5807). [#5807](https://github.com/ant-design/pro-components/pull/#5807) [@kiner-tang](https://github.com/kiner-tang)
+
 ## @ant-design/pro-list@1.21.48
 
 `2022-04-07`
