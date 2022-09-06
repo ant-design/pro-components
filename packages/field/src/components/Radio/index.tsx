@@ -11,7 +11,7 @@ import 'antd/es/radio/style';
 //------------
 export type GroupProps = {
   options?: RadioGroupProps['options'];
-  radioType?: 'button' | 'radio';
+  radioType?: RadioGroupProps['optionType'];
 } & FieldSelectProps;
 
 /**
@@ -65,24 +65,18 @@ const FieldRadio: ProFieldFC<GroupProps> = (
   }
 
   if (mode === 'edit') {
-    const RadioComponents = radioType === 'button' ? Radio.Button : Radio;
     const dom = wrapSSR(
       <Radio.Group
         ref={radioRef}
+        optionType={radioType}
         {...rest.fieldProps}
         className={classNames(
           rest.fieldProps?.className,
           hashId,
           `${layoutClassName}-${rest.fieldProps.layout || 'vertical'}`,
         )}
-        options={undefined}
-      >
-        {options?.map((item) => (
-          <RadioComponents key={item.value} {...item}>
-            {item.label}
-          </RadioComponents>
-        ))}
-      </Radio.Group>,
+        options={options}
+      />,
     );
     if (renderFormItem) {
       return renderFormItem(rest.text, { mode, ...rest.fieldProps }, dom) || null;
