@@ -130,7 +130,7 @@ const FieldTimePicker: ProFieldFC<
 const FieldTimeRangePicker: ProFieldFC<{
   text: React.ReactText[];
   format: string;
-}> = ({ text, mode, format, render, renderFormItem, plain, fieldProps }) => {
+}> = ({ text, mode, format, render, renderFormItem, plain, fieldProps }, ref) => {
   const finalFormat = fieldProps?.format || format || 'HH:mm:ss';
   const [startText, endText] = Array.isArray(text) ? text : [];
   const startTextIsNumberOrMoment = moment.isMoment(startText) || typeof startText === 'number';
@@ -145,7 +145,7 @@ const FieldTimeRangePicker: ProFieldFC<{
 
   if (mode === 'read') {
     const dom = (
-      <div>
+      <div ref={ref}>
         <div>{parsedStartText || '-'}</div>
         <div>{parsedEndText || '-'}</div>
       </div>
@@ -161,6 +161,7 @@ const FieldTimeRangePicker: ProFieldFC<{
 
     const dom = (
       <TimePicker.RangePicker
+        ref={ref}
         format={format}
         bordered={plain === undefined ? true : !plain}
         {...fieldProps}
