@@ -432,7 +432,7 @@ ProFormCaptcha 是为了支持中后台中常见的验证码功能开发的组�
 | --- | --- | --- | --- |
 | options | 与 select 相同，根据 options 生成子节点，推荐使用。 | `string[]` \| `{label:ReactNode,value:string}[]` | - |
 | request | 从网络请求枚举数据 | `()=>Promise<{label,value}>` | - |
-| radioType | 设置是按钮模式还是 radio 模式 | `button`\|`radio` | `radio` |
+| radioType | 设置是按钮模式还是 radio 模式 | `default`\|`button` | `default` |
 | params | 发起网络请求的参数,与 request 配合使用 | `Record` | - |
 | fieldProps | antd 组件的 props | `(form,config)=>RadioProps \|RadioProps` | - |
 

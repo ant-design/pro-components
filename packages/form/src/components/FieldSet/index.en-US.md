@@ -217,7 +217,7 @@ Same as [radio](https://ant.design/components/radio/) but with support for `opti
 
 | parameters | description | type | default |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| options | options | Same as select, generates child nodes based on options, recommended. | `string[]` \| `{label:ReactNode,value:string}[]` | - |  | radioType | Set whether button mode or radio mode | `button` \| `radio` | `radio` |
+| options | options | Same as select, generates child nodes based on options, recommended. | `string[]` \| `{label:ReactNode,value:string}[]` | - |  | radioType | Set whether button mode or radio mode | `default` \| `button` | `default` |
 
 ```tsx | pure
 <ProFormRadio.Group
