@@ -195,7 +195,6 @@ function ModalForm<T = Record<string, any>>({
         onCancel={(e) => {
           // 提交表单loading时，阻止弹框关闭
           if (submitTimeout && loading) return;
-
           setVisible(false);
           modalProps?.onCancel?.(e);
         }}
@@ -223,7 +222,9 @@ function ModalForm<T = Record<string, any>>({
           submitter={submitterConfig}
           onFinish={async (values) => {
             const result = await onFinishHandle(values);
-            resetFields();
+            if (result === true) {
+              resetFields();
+            }
             return result;
           }}
           contentRender={contentRender}
