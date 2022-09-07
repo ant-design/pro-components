@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.0.0-experimental.42](https://github.com/ant-design/pro-components/compare/@ant-design/pro-utils@2.0.2...@ant-design/pro-utils@2.0.0-experimental.42) (2022-09-07)
+
+### Bug Fixes
+
+- **components:** unuse theme import ([bcac384](https://github.com/ant-design/pro-components/commit/bcac384af74fcb724daaeffdd3fa1aa636e3c7cb))
+
 ## [2.0.2](https://github.com/ant-design/pro-components/compare/@ant-design/pro-utils@1.45.3...@ant-design/pro-utils@2.0.2) (2022-09-02)
 
 **Note:** Version bump only for package @ant-design/pro-utils

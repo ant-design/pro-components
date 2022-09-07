@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.0.0-experimental.42](https://github.com/ant-design/pro-components/compare/@ant-design/pro-field@2.0.4...@ant-design/pro-field@2.0.0-experimental.42) (2022-09-07)
+
+### Bug Fixes
+
+- **form:** fix optionType is only support in Radio.Group ([#5871](https://github.com/ant-design/pro-components/issues/5871)) ([c3fa14f](https://github.com/ant-design/pro-components/commit/c3fa14f208d922183ebfde2e8cfe0c2f18022855))
+- **form:** fix ProFormRadio layout class ([#5872](https://github.com/ant-design/pro-components/issues/5872)) ([ee4eed8](https://github.com/ant-design/pro-components/commit/ee4eed8ab43908fb2e9d1c5e170636153c0cae08))
+
 ## [2.0.4](https://github.com/ant-design/pro-components/compare/@ant-design/pro-field@2.0.3...@ant-design/pro-field@2.0.4) (2022-09-05)
 
 **Note:** Version bump only for package @ant-design/pro-field
