@@ -36,6 +36,7 @@
     "@ant-design/pro-provider": "2.0.0-experimental.41",
     "@ant-design/pro-utils": "2.0.0-experimental.41",
     "@babel/runtime": "^7.18.0",
+    "antd": "experimental",
     "classnames": "^2.2.6",
     "dayjs": "^1.11.4",
     "omit.js": "^2.0.2",
@@ -46,7 +47,6 @@
     "use-media-antd-query": "^1.1.0"
   },
   "peerDependencies": {
-    "antd": ">=4.20.0",
     "rc-field-form": "^1.22.0",
     "react": ">=16.9.0",
     "react-dom": ">=16.9.0"

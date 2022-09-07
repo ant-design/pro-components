@@ -29,6 +29,7 @@
     "@ant-design/pro-utils": "2.0.0-experimental.41",
     "@babel/runtime": "^7.18.0",
     "@chenshuai2144/sketch-color": "^1.0.8",
+    "antd": "experimental",
     "classnames": "^2.2.6",
     "dayjs": "^1.11.4",
     "lodash.omit": "^4.5.0",
