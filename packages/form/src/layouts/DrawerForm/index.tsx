@@ -236,7 +236,9 @@ function DrawerForm<T = Record<string, any>>({
             submitter={submitterConfig}
             onFinish={async (values) => {
               const result = await onFinishHandle(values);
-              resetFields();
+              if (result) {
+                resetFields();
+              }
               return result;
             }}
             contentRender={contentRender}
