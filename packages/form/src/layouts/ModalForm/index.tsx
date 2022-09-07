@@ -227,7 +227,7 @@ function ModalForm<T = Record<string, any>>({
           submitter={submitterConfig}
           onFinish={async (values) => {
             const result = await onFinishHandle(values);
-            resetFields();
+            result && resetFields();
             return result;
           }}
           contentRender={contentRender}
