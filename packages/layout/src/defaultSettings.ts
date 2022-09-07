@@ -14,7 +14,7 @@ export type PureSettings = {
    *
    * @type  "light" | "dark" | "realDark"
    */
-  navTheme?: 'realDark' | 'light' | undefined;
+  navTheme?: | 'light' | 'dark' | 'realDark' | undefined;
 
   /**
    * @name layout 的布局方式
