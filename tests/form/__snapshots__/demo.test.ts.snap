@@ -5144,6 +5144,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/FieldSet/demos/c
             </div>
             <div
               class="ant-form-item-extra"
+              id="validate_other_upload_extra"
             >
               longgggggggggggggggggggggggggggggggggg
             </div>
@@ -8613,6 +8614,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/FieldSet/demos/u
           </div>
           <div
             class="ant-form-item-extra"
+            id="upload_extra"
           >
             longgggggggggggggggggggggggggggggggggg
           </div>
@@ -8695,6 +8697,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/FieldSet/demos/u
           </div>
           <div
             class="ant-form-item-extra"
+            id="upload_extra"
           >
             longgggggggggggggggggggggggggggggggggg
           </div>
@@ -14657,15 +14660,6 @@ exports[`form demos 📸 renders ./packages/form/src/components/LoginForm/demos/
                 class="ant-tabs-content ant-tabs-content-top"
               >
                 <div
-                  aria-hidden="true"
-                  aria-labelledby="rc-tabs-test-tab-account"
-                  class="ant-tabs-tabpane"
-                  id="rc-tabs-test-panel-account"
-                  role="tabpanel"
-                  style="display: none;"
-                  tabindex="-1"
-                />
-                <div
                   aria-hidden="false"
                   aria-labelledby="rc-tabs-test-tab-phone"
                   class="ant-tabs-tabpane ant-tabs-tabpane-active"
@@ -15132,15 +15126,6 @@ exports[`form demos 📸 renders ./packages/form/src/components/LoginForm/demos/
                 <div
                   class="ant-tabs-content ant-tabs-content-top"
                 >
-                  <div
-                    aria-hidden="true"
-                    aria-labelledby="rc-tabs-test-tab-account"
-                    class="ant-tabs-tabpane"
-                    id="rc-tabs-test-panel-account"
-                    role="tabpanel"
-                    style="display: none;"
-                    tabindex="-1"
-                  />
                   <div
                     aria-hidden="false"
                     aria-labelledby="rc-tabs-test-tab-phone"
@@ -25821,24 +25806,6 @@ exports[`form demos 📸 renders ./packages/form/src/components/QueryFilter/demo
               id="rc-tabs-test-panel-articles"
               role="tabpanel"
               tabindex="0"
-            />
-            <div
-              aria-hidden="true"
-              aria-labelledby="rc-tabs-test-tab-projects"
-              class="ant-tabs-tabpane"
-              id="rc-tabs-test-panel-projects"
-              role="tabpanel"
-              style="display: none;"
-              tabindex="-1"
-            />
-            <div
-              aria-hidden="true"
-              aria-labelledby="rc-tabs-test-tab-applications"
-              class="ant-tabs-tabpane"
-              id="rc-tabs-test-panel-applications"
-              role="tabpanel"
-              style="display: none;"
-              tabindex="-1"
             />
           </div>
         </div>
@@ -39667,6 +39634,7 @@ exports[`form demos 📸 renders ./packages/form/src/demos/components-test.tsx c
           </div>
           <div
             class="ant-form-item-extra"
+            id="validate_other_upload_extra"
           >
             longgggggggggggggggggggggggggggggggggg
           </div>
@@ -40294,6 +40262,7 @@ exports[`form demos 📸 renders ./packages/form/src/demos/config-provider.tsx c
           </div>
           <div
             class="ant-form-item-extra"
+            id="validate_other_upload_extra"
           >
             longgggggggggggggggggggggggggggggggggg
           </div>
@@ -45756,6 +45725,7 @@ exports[`form demos 📸 renders ./packages/form/src/demos/layout-footer.tsx cor
                               </div>
                               <div
                                 class="ant-form-item-extra"
+                                id="file_extra"
                               >
                                 支持扩展名：.jpg .zip .doc .wps
                               </div>

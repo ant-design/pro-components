@@ -288,15 +288,6 @@ exports[`layout demos 📸 renders ./packages/layout/src/components/PageContaine
                     role="tabpanel"
                     tabindex="0"
                   />
-                  <div
-                    aria-hidden="true"
-                    aria-labelledby="rc-tabs-test-tab-info"
-                    class="ant-tabs-tabpane"
-                    id="rc-tabs-test-panel-info"
-                    role="tabpanel"
-                    style="display: none;"
-                    tabindex="-1"
-                  />
                 </div>
               </div>
             </div>
@@ -606,24 +597,6 @@ exports[`layout demos 📸 renders ./packages/layout/src/components/PageContaine
                         id="rc-tabs-test-panel-1"
                         role="tabpanel"
                         tabindex="0"
-                      />
-                      <div
-                        aria-hidden="true"
-                        aria-labelledby="rc-tabs-test-tab-2"
-                        class="ant-tabs-tabpane"
-                        id="rc-tabs-test-panel-2"
-                        role="tabpanel"
-                        style="display: none;"
-                        tabindex="-1"
-                      />
-                      <div
-                        aria-hidden="true"
-                        aria-labelledby="rc-tabs-test-tab-3"
-                        class="ant-tabs-tabpane"
-                        id="rc-tabs-test-panel-3"
-                        role="tabpanel"
-                        style="display: none;"
-                        tabindex="-1"
                       />
                     </div>
                   </div>
@@ -10511,15 +10484,6 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/base.tsx correctl
                             role="tabpanel"
                             tabindex="0"
                           />
-                          <div
-                            aria-hidden="true"
-                            aria-labelledby="rc-tabs-test-tab-info"
-                            class="ant-tabs-tabpane"
-                            id="rc-tabs-test-panel-info"
-                            role="tabpanel"
-                            style="display: none;"
-                            tabindex="-1"
-                          />
                         </div>
                       </div>
                     </div>
@@ -11810,15 +11774,6 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/config-provider.t
                           id="rc-tabs-test-panel-base"
                           role="tabpanel"
                           tabindex="0"
-                        />
-                        <div
-                          aria-hidden="true"
-                          aria-labelledby="rc-tabs-test-tab-info"
-                          class="qixian-tabs-tabpane"
-                          id="rc-tabs-test-panel-info"
-                          role="tabpanel"
-                          style="display: none;"
-                          tabindex="-1"
                         />
                       </div>
                     </div>
@@ -14033,15 +13988,6 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/dynamic-settings.
                             id="rc-tabs-test-panel-base"
                             role="tabpanel"
                             tabindex="0"
-                          />
-                          <div
-                            aria-hidden="true"
-                            aria-labelledby="rc-tabs-test-tab-info"
-                            class="ant-tabs-tabpane"
-                            id="rc-tabs-test-panel-info"
-                            role="tabpanel"
-                            style="display: none;"
-                            tabindex="-1"
                           />
                         </div>
                       </div>
