@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.74.6](https://github.com/ant-design/pro-components/compare/@ant-design/pro-form@1.74.5...@ant-design/pro-form@1.74.6) (2022-09-07)
+
+### Bug Fixes
+
+- **form:** fix onFinish reset error ([1ec45f6](https://github.com/ant-design/pro-components/commit/1ec45f60b48c4f0a9fa9749b0bee1e65076ee7ec))
+
 ## [1.74.5](https://github.com/ant-design/pro-components/compare/@ant-design/pro-form@1.74.4...@ant-design/pro-form@1.74.5) (2022-08-30)
 
 **Note:** Version bump only for package @ant-design/pro-form

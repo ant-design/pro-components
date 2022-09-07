@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.36.6](https://github.com/ant-design/pro-components/compare/@ant-design/pro-field@1.36.5...@ant-design/pro-field@1.36.6) (2022-09-07)
+
+### Bug Fixes
+
+- **form:** ProFormDigit 设置 stringMode 时修改报错异常修复 ([#5814](https://github.com/ant-design/pro-components/issues/5814)) ([2043983](https://github.com/ant-design/pro-components/commit/20439836ccdcb24e9597c20ee3d565edc0ec0102))
+
 ## [1.36.5](https://github.com/ant-design/pro-components/compare/@ant-design/pro-field@1.36.4...@ant-design/pro-field@1.36.5) (2022-08-30)
 
 **Note:** Version bump only for package @ant-design/pro-field
