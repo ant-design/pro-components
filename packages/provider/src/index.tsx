@@ -27,6 +27,7 @@ import viVN from './locale/vi_VN';
 import zhCN from './locale/zh_CN';
 import zhTW from './locale/zh_TW';
 
+// @ts-ignore
 const { useToken } = antd.theme || {
   useToken: () => {
     return {
