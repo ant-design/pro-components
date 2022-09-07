@@ -75,7 +75,6 @@ export const AppsLogoComponents: React.FC<{
         trigger={['click']}
         zIndex={9999}
         arrowPointAtCenter
-        // @ts-expect-error
         onVisibleChange={setOpen}
         onOpenChange={setOpen}
         overlayClassName={`${baseClassName}-popover ${hashId}`}

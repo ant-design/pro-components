@@ -49,14 +49,12 @@ const InlineErrorFormItemPopover: React.FC<{
       key="popover"
       trigger={popoverProps?.trigger || 'focus'}
       placement={popoverProps?.placement || 'topRight'}
-      //@ts-expect-error
       visible={errorStringList.length < 1 ? false : visible}
       open={errorStringList.length < 1 ? false : visible}
       onOpenChange={(visibleParams) => {
         if (visibleParams === visible) return;
         setVisible(visibleParams);
       }}
-      //@ts-expect-error
       onVisibleChange={(visibleParams) => {
         if (visibleParams === visible) return;
         setVisible(visibleParams);
