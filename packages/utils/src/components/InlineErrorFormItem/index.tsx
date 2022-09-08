@@ -1,10 +1,10 @@
 ﻿import { LoadingOutlined } from '@ant-design/icons';
-import { compareVersions } from '@ant-design/pro-utils';
 import type { FormItemProps, PopoverProps } from 'antd';
 import { version } from 'antd';
 import { ConfigProvider, Form, Popover } from 'antd';
 import type { NamePath } from 'rc-field-form/lib/interface';
 import React, { useContext, useEffect, useState } from 'react';
+import { compareVersions } from '../../compareVersions';
 import { useStyle } from './style';
 
 interface InlineErrorFormItemProps extends FormItemProps {
