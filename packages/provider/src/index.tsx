@@ -1,5 +1,5 @@
 //@ts-ignore
-import * as antd from 'antd';
+import { theme, ConfigProvider as AntdConfigProvider } from 'antd';
 import zh_CN from 'antd/es/locale/zh_CN';
 import React, { useContext, useEffect } from 'react';
 import { SWRConfig, useSWRConfig } from 'swr';
@@ -27,7 +27,7 @@ import viVN from './locale/vi_VN';
 import zhCN from './locale/zh_CN';
 import zhTW from './locale/zh_TW';
 
-const { useToken } = antd.theme || {
+const { useToken } = theme || {
   useToken: () => {
     return {
       hashId: '',
@@ -269,8 +269,6 @@ const CacheClean = () => {
   }, []);
   return null;
 };
-
-const AntdConfigProvider = antd.ConfigProvider;
 
 /**
  * 如果没有配置 locale，这里组件会根据 antd 的 key 来自动选择

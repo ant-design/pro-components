@@ -93,7 +93,7 @@ describe('DrawerForm', () => {
 
   it('📦 DrawerForm destroyOnClose', async () => {
     const wrapper = render(
-      <DrawerForm width={600} visible={false} drawerProps={{ destroyOnClose: true }}>
+      <DrawerForm width={600} open={false} drawerProps={{ destroyOnClose: true }}>
         <ProFormText
           name="name"
           fieldProps={{
@@ -107,7 +107,7 @@ describe('DrawerForm', () => {
 
     act(() => {
       wrapper.rerender(
-        <DrawerForm width={600} visible drawerProps={{ destroyOnClose: true }}>
+        <DrawerForm width={600} open drawerProps={{ destroyOnClose: true }}>
           <ProFormText
             name="name"
             fieldProps={{
@@ -122,7 +122,7 @@ describe('DrawerForm', () => {
 
     act(() => {
       wrapper.rerender(
-        <DrawerForm key="reset" width={600} visible={false} drawerProps={{ destroyOnClose: true }}>
+        <DrawerForm key="reset" width={600} open={false} drawerProps={{ destroyOnClose: true }}>
           <ProFormText
             name="name"
             fieldProps={{
@@ -459,7 +459,7 @@ describe('DrawerForm', () => {
           initialValues={{
             name: '1234',
           }}
-          visible={false}
+          open={false}
           trigger={<Button id="new">新建</Button>}
         >
           <ProFormText
@@ -483,7 +483,7 @@ describe('DrawerForm', () => {
           initialValues={{
             name: '1234',
           }}
-          visible={undefined}
+          open={undefined}
           trigger={<Button id="new">新建</Button>}
         >
           <ProFormText

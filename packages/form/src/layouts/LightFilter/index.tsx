@@ -160,8 +160,8 @@ const LightFilterContainer: React.FC<{
           <div className={`${lightFilterClassName}-item ${hashId}`} key="more">
             <FilterDropdown
               padding={24}
-              onVisibleChange={setOpen}
-              visible={open}
+              open={open}
+              onOpenChange={setOpen}
               placement={placement}
               label={collapseLabelRender()}
               footerRender={footerRender}
