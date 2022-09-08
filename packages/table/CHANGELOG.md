@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [3.0.5](https://github.com/ant-design/pro-components/compare/@ant-design/pro-table@3.0.4...@ant-design/pro-table@3.0.5) (2022-09-08)
+
+### Bug Fixes
+
+- **components:** fix css var error ([bd5d3bf](https://github.com/ant-design/pro-components/commit/bd5d3bf37f3bb89ea62b021a818690ca04994a49))
+
 ## [3.0.4](https://github.com/ant-design/pro-components/compare/@ant-design/pro-table@3.0.3...@ant-design/pro-table@3.0.4) (2022-09-05)
 
 ### Bug Fixes

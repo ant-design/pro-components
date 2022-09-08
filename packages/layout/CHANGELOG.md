@@ -2,6 +2,15 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [7.0.4](https://github.com/ant-design/pro-components/compare/@ant-design/pro-layout@7.0.3...@ant-design/pro-layout@7.0.4) (2022-09-08)
+
+### Bug Fixes
+
+- **components:** fix css var error ([bd5d3bf](https://github.com/ant-design/pro-components/commit/bd5d3bf37f3bb89ea62b021a818690ca04994a49))
+- **components:** fix open props warning ([77703c8](https://github.com/ant-design/pro-components/commit/77703c82140d46c4fb9ad82e77d561d313e0436e))
+- **form:** fix ts error ([a399cd1](https://github.com/ant-design/pro-components/commit/a399cd1f49e8d955f59b033cbc1a286957678473))
+- **layout:** global header collapsed button support token ([#5889](https://github.com/ant-design/pro-components/issues/5889)) ([8c12481](https://github.com/ant-design/pro-components/commit/8c124810748a44477291ba6eac5963aedd75c2de))
+
 ## [7.0.3](https://github.com/ant-design/pro-components/compare/@ant-design/pro-layout@7.0.2...@ant-design/pro-layout@7.0.3) (2022-09-05)
 
 ### Bug Fixes
