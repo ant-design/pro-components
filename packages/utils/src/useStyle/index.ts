@@ -2,7 +2,7 @@ import type { CSSInterpolation, CSSObject } from '@ant-design/cssinjs';
 import { useStyleRegister } from '@ant-design/cssinjs';
 import { TinyColor } from '@ctrl/tinycolor';
 
-import * as antd from 'antd';
+import { theme as antdTheme, ConfigProvider } from 'antd';
 
 import type React from 'react';
 import { useContext } from 'react';
@@ -40,7 +40,7 @@ export type GenerateStyle<
 const { useToken } = {
   ...batToken,
   // @ts-ignore
-  ...antd.antdTheme,
+  ...(antdTheme || {}),
 } as unknown as typeof batToken;
 
 export { useToken };
@@ -91,8 +91,6 @@ export const operationUnit = (token: ProAliasToken): CSSObject => ({
     color: token.colorLinkActive,
   },
 });
-
-const { ConfigProvider } = antd;
 
 /**
  * 封装了一下 antd 的 useStyle，支持了一下antd@4

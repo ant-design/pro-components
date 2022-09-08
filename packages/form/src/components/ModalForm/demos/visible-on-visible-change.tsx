@@ -37,7 +37,7 @@ export default () => {
       </Space>
       <ModalForm
         title="新建表单"
-        visible={modalVisit}
+        open={modalVisit}
         onFinish={async () => {
           message.success('提交成功');
           return true;
@@ -90,7 +90,7 @@ export default () => {
       <DrawerForm
         onVisibleChange={setDrawerVisit}
         title="新建表单"
-        visible={drawerVisit}
+        open={drawerVisit}
         onFinish={async () => {
           message.success('提交成功');
           return true;

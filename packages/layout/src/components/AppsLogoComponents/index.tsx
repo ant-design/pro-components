@@ -1,4 +1,5 @@
-﻿import { Popover } from 'antd';
+﻿import { compareVersions } from '@ant-design/pro-utils';
+import { Popover, version } from 'antd';
 import classNames from 'classnames';
 import React, { useMemo, useState } from 'react';
 import { AppsLogo } from './AppsLogo';
@@ -67,6 +68,14 @@ export const AppsLogoComponents: React.FC<{
 
   if (!props?.appList?.length) return null;
 
+  const popoverOpenProps = compareVersions(version, '4.23.0')
+    ? {
+        onOpenChange: setOpen,
+      }
+    : {
+        onVisibleChange: () => setOpen,
+      };
+
   return wrapSSR(
     <>
       <div ref={ref} />
@@ -75,8 +84,7 @@ export const AppsLogoComponents: React.FC<{
         trigger={['click']}
         zIndex={9999}
         arrowPointAtCenter
-        onVisibleChange={setOpen}
-        onOpenChange={setOpen}
+        {...popoverOpenProps}
         overlayClassName={`${baseClassName}-popover ${hashId}`}
         content={popoverContent}
         getPopupContainer={() => ref.current || document.body}

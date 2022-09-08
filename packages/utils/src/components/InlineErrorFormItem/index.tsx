@@ -1,5 +1,7 @@
 ﻿import { LoadingOutlined } from '@ant-design/icons';
+import { compareVersions } from '@ant-design/pro-utils';
 import type { FormItemProps, PopoverProps } from 'antd';
+import { version } from 'antd';
 import { ConfigProvider, Form, Popover } from 'antd';
 import type { NamePath } from 'rc-field-form/lib/interface';
 import React, { useContext, useEffect, useState } from 'react';
@@ -31,7 +33,7 @@ const InlineErrorFormItemPopover: React.FC<{
   extra: JSX.Element;
   popoverProps?: PopoverProps;
 }> = ({ inputProps, input, extra, errorList, popoverProps }) => {
-  const [visible, setVisible] = useState<boolean | undefined>(false);
+  const [open, setOpen] = useState<boolean | undefined>(false);
   const [errorStringList, setErrorList] = useState<string[]>([]);
   const { getPrefixCls } = useContext(ConfigProvider.ConfigContext);
   const prefixCls = getPrefixCls();
@@ -44,21 +46,27 @@ const InlineErrorFormItemPopover: React.FC<{
     }
   }, [inputProps.errors, inputProps.validateStatus]);
 
+  const drawerOpenProps = compareVersions(version, '4.23.0')
+    ? {
+        open: errorStringList.length < 1 ? false : open,
+        onOpenChange: (changeOpen: boolean) => {
+          if (changeOpen === open) return;
+          setOpen(changeOpen);
+        },
+      }
+    : {
+        visible: errorStringList.length < 1 ? false : open,
+        onVisibleChange: (changeOpen: boolean) => {
+          if (changeOpen === open) return;
+          setOpen(changeOpen);
+        },
+      };
   return (
     <Popover
       key="popover"
       trigger={popoverProps?.trigger || 'focus'}
       placement={popoverProps?.placement || 'topRight'}
-      visible={errorStringList.length < 1 ? false : visible}
-      open={errorStringList.length < 1 ? false : visible}
-      onOpenChange={(visibleParams) => {
-        if (visibleParams === visible) return;
-        setVisible(visibleParams);
-      }}
-      onVisibleChange={(visibleParams) => {
-        if (visibleParams === visible) return;
-        setVisible(visibleParams);
-      }}
+      {...drawerOpenProps}
       getPopupContainer={popoverProps?.getPopupContainer}
       getTooltipContainer={popoverProps?.getTooltipContainer}
       content={wrapSSR(
