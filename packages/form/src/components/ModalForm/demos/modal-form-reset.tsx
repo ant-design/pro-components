@@ -21,7 +21,7 @@ export default () => {
       <ModalForm
         title="新建表单"
         formRef={restFormRef}
-        visible={modalVisible}
+        open={modalVisible}
         trigger={
           <Button
             type="primary"

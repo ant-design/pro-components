@@ -75,6 +75,7 @@ import { editableRowByKey, recordKeyToString, useEditableArray } from './useEdit
 import type { UseEditableMapType, UseEditableMapUtilType } from './useEditableMap';
 import { useEditableMap } from './useEditableMap';
 import { useMountMergeState } from './useMountMergeState';
+import { compareVersions } from './compareVersions';
 
 export type {
   SearchConvertKeyFn,
@@ -146,6 +147,7 @@ export {
   nanoid,
   editableRowByKey,
   recordKeyToString,
+  compareVersions,
   // hooks
   useEditableArray,
   useEditableMap,
