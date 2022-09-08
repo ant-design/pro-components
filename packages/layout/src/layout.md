@@ -500,6 +500,7 @@ Sider Token 是 侧边菜单的色值，与顶部菜单不同。
 
 | token | 说明 | 默认值 |
 | --- | --- | --- |
+| colorBgHeader | header 的背景颜色 | `rgba(240, 242, 245, 0.4)` |
 | colorHeaderTitle | sider 的标题字体颜色 | `colorTextHeading` |
 | colorTextMenu | menuItem 的字体颜色 | `colorText` |
 | colorTextMenuSecondary | menu 的二级字体颜色，比如 footer 和 action 的 icon | `colorText` |
