@@ -33,6 +33,7 @@ import FieldRadio from './components/Radio';
 import FieldRangePicker from './components/RangePicker';
 import FieldRate from './components/Rate';
 import FieldSecond from './components/Second';
+import FieldSegmented from './components/Segmented';
 import FieldSelect, {
   proFieldParsingText,
   proFieldParsingValueEnumToArray,
@@ -435,6 +436,10 @@ const defaultRenderText = (
     return <FieldColorPicker text={dataValue as string} {...props} />;
   }
 
+  if (valueType === 'segmented') {
+    return <FieldSegmented text={dataValue as string} {...props} />;
+  }
+
   return <FieldText text={dataValue as string} {...props} />;
 };
 
@@ -479,6 +484,7 @@ const ProField: React.ForwardRefRenderFunction<any, ProFieldPropsType> = (
     },
   };
 
+  console.log('1234', renderFormItem);
   return (
     <React.Fragment>
       {defaultRenderText(

@@ -12,6 +12,7 @@ import type {
   ProgressProps,
   RadioProps,
   RateProps,
+  SegmentedProps,
   SelectProps,
   SliderSingleProps,
   SwitchProps,
@@ -67,6 +68,7 @@ export interface ProFieldValueTypeWithFieldProps {
     onChange?: (color: string) => void;
     colors?: string[];
   };
+  segmented: SegmentedProps;
 }
 
 /**
