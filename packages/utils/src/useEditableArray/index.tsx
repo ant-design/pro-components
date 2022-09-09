@@ -225,10 +225,10 @@ export function editableRowByKey<RecordType>(
       map.forEach((value) => {
         if (value.map_row_parentKey && !value.map_row_key) {
           const { map_row_parentKey, ...rest } = value;
-          kvArrayMap.set(map_row_parentKey, [
-            ...(kvArrayMap.get(map_row_parentKey) || []),
-            rest as unknown as RecordType,
-          ]);
+          if (!kvArrayMap.has(map_row_parentKey)) {
+            kvArrayMap.set(map_row_parentKey, []);
+          }
+          kvArrayMap.get(map_row_parentKey)?.push(rest as unknown as RecordType);
         }
       });
     };
@@ -243,10 +243,10 @@ export function editableRowByKey<RecordType>(
         if (kvArrayMap.has(map_row_key)) {
           rest[childrenColumnName] = kvArrayMap.get(map_row_key);
         }
-        kvArrayMap.set(map_row_parentKey, [
-          ...(kvArrayMap.get(map_row_parentKey) || []),
-          rest as unknown as RecordType,
-        ]);
+        if (!kvArrayMap.has(map_row_parentKey)) {
+          kvArrayMap.set(map_row_parentKey, []);
+        }
+        kvArrayMap.get(map_row_parentKey)?.push(rest as unknown as RecordType);
       }
     });
 
