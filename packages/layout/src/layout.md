@@ -474,7 +474,7 @@ Token 是一种设计系统的基本元素，可以使用 Token 快速的修改�
 | bgLayout                  | layout 的背景颜色               | `#f7f8fa`             |
 | colorTextAppListIcon      | 跨站点应用的图标颜色            | `#666`                |
 | colorTextAppListIconHover | 跨站点应用的图标 hover 颜色     | `rgba(0, 0, 0, 0.65)` |
-| colorTextAppListIconHover | 跨站点应用的图标 hover 背景颜色 | `rgba(0, 0, 0, 0.04)` |
+| colorBgAppListIconHover   | 跨站点应用的图标 hover 背景颜色 | `rgba(0, 0, 0, 0.04)` |
 
 ### Sider Token
 
