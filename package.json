@@ -44,6 +44,7 @@
     "prettier": "2.x",
     "react": "^18.0.0",
     "react-dom": "^18.0.0",
+    "types/responselike": "^1.0.0",
     "typescript": "4.x"
   },
   "devDependencies": {
