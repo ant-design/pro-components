@@ -34,7 +34,7 @@ const FieldSegmented: ProFieldFC<
         }, {})
       : undefined;
 
-    const dom = proFieldParsingText(rest.text, ObjToMap(rest.valueEnum || optionsValueEnum));
+    const dom = <>{proFieldParsingText(rest.text, ObjToMap(rest.valueEnum || optionsValueEnum))}</>;
 
     if (render) {
       return render(rest.text, { mode, ...fieldProps }, <>{dom}</>) ?? emptyText;

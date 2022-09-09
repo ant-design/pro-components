@@ -1,5 +1,4 @@
-﻿import type { TreeSelectProps } from 'antd';
-import type { RefSelectProps } from 'antd/lib/select';
+﻿import type { SegmentedProps } from 'antd';
 import React from 'react';
 import type { ProFormFieldItemProps, ProFormFieldRemoteProps } from '../../interface';
 import ProFormField from '../Field';
@@ -11,7 +10,7 @@ import ProFormField from '../Field';
  */
 const ProFormSegmented: React.ForwardRefRenderFunction<
   any,
-  ProFormFieldItemProps<TreeSelectProps<any>, RefSelectProps> & ProFormFieldRemoteProps
+  ProFormFieldItemProps<SegmentedProps> & ProFormFieldRemoteProps
 > = ({ fieldProps, request, params, proFieldProps, ...rest }, ref) => {
   return (
     <ProFormField
@@ -28,7 +27,7 @@ const ProFormSegmented: React.ForwardRefRenderFunction<
 };
 
 const WarpProFormSegmented: React.FC<
-  ProFormFieldItemProps<TreeSelectProps<any>, RefSelectProps> & ProFormFieldRemoteProps
+  ProFormFieldItemProps<SegmentedProps> & ProFormFieldRemoteProps
 > = React.forwardRef(ProFormSegmented);
 
 export default WarpProFormSegmented;
