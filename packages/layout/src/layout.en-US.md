@@ -454,6 +454,7 @@ Sider Token is the color value of the side menu, unlike the top menu.
 
 | token | Description | The default value is |
 | --- | --- | --- |
+| colorBgHeader | The background color of header is | `rgba(240, 242, 245, 0.4)` |
 | colorHeaderTitle | The title font color of the sider is | `colorTextHeading` |
 | colorTextMenu | MenuItem's font color | `colorText` |
 | colorTextMenuSecondary | Secondary font colors for menus, such as footers and icons for actions | `colorText` |

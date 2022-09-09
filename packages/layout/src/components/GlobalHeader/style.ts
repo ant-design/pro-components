@@ -6,6 +6,7 @@ import { ProLayoutContext } from '../../context/ProLayoutContext';
 export interface GlobalHeaderToken extends ProAliasToken {
   componentCls: string;
   heightLayoutHeader: number;
+  colorHeaderTitle: string;
 }
 
 const genGlobalHeaderStyle: GenerateStyle<GlobalHeaderToken> = (token) => {
@@ -27,7 +28,7 @@ const genGlobalHeaderStyle: GenerateStyle<GlobalHeaderToken> = (token) => {
       },
       '&-collapsed-button': {
         minHeight: '22px',
-        color: token.colorTextHeading,
+        color: token.colorHeaderTitle,
         fontSize: '22px',
         marginInlineStart: '16px',
       },
@@ -73,6 +74,7 @@ export function useStyle(prefixCls: string) {
       ...token,
       componentCls: `.${prefixCls}`,
       heightLayoutHeader: header.heightLayoutHeader,
+      colorHeaderTitle: header.colorHeaderTitle,
     };
 
     return [genGlobalHeaderStyle(GlobalHeaderToken)];
