@@ -14496,16 +14496,12 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/customSider.tsx c
                               <span
                                 class="anticon ant-pro-base-menu-item-icon "
                               >
-                                <span
-                                  class="anticon"
-                                  role="img"
-                                >
-                                  <img
-                                    alt="icon"
-                                    class="ant-pro-base-menu-icon "
-                                    src="https://gw.alipayobjects.com/zos/antfincdn/upvrAjAPQX/Logo_Tech%252520UI.svg"
-                                  />
-                                </span>
+                                <img
+                                  alt="icon"
+                                  class="ant-pro-base-menu-icon "
+                                  src="https://gw.alipayobjects.com/zos/antfincdn/upvrAjAPQX/Logo_Tech%252520UI.svg"
+                                  width="16"
+                                />
                               </span>
                               <span
                                 class="ant-pro-base-menu-item-text ant-pro-base-menu-item-text-has-icon"
@@ -17690,16 +17686,12 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/designSiderMenu.t
                               <span
                                 class="anticon ant-pro-base-menu-item-icon "
                               >
-                                <span
-                                  class="anticon"
-                                  role="img"
-                                >
-                                  <img
-                                    alt="icon"
-                                    class="ant-pro-base-menu-icon "
-                                    src="https://gw.alipayobjects.com/zos/antfincdn/upvrAjAPQX/Logo_Tech%252520UI.svg"
-                                  />
-                                </span>
+                                <img
+                                  alt="icon"
+                                  class="ant-pro-base-menu-icon "
+                                  src="https://gw.alipayobjects.com/zos/antfincdn/upvrAjAPQX/Logo_Tech%252520UI.svg"
+                                  width="16"
+                                />
                               </span>
                               <span
                                 class="ant-pro-base-menu-item-text ant-pro-base-menu-item-text-has-icon"

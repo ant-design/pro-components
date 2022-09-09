@@ -39,10 +39,6 @@ const genProLayoutBaseMenuStyle: GenerateStyle<
         '.anticon': {
           lineHeight: '14px',
           height: '14px',
-          '> img': {
-            lineHeight: '14px',
-            height: '14px',
-          },
         },
       },
       '& &-item-title': {
