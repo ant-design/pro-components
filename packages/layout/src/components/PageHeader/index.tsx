@@ -1,11 +1,11 @@
 import ArrowLeftOutlined from '@ant-design/icons/ArrowLeftOutlined';
 import ArrowRightOutlined from '@ant-design/icons/ArrowRightOutlined';
+import { useSafeState } from '@ant-design/pro-utils';
 import type { AvatarProps, BreadcrumbProps, TagType } from 'antd';
 import { Avatar, Breadcrumb, Button, ConfigProvider, Space } from 'antd';
 import type { DirectionType } from 'antd/es/config-provider';
 import classNames from 'classnames';
 import ResizeObserver from 'rc-resize-observer';
-import useState from 'rc-util/lib/hooks/useState';
 import * as React from 'react';
 import useStyle from './style/index';
 
@@ -132,7 +132,7 @@ const renderChildren = (prefixCls: string, children: React.ReactNode, hashId: st
 );
 
 const PageHeader: React.FC<PageHeaderProps> = (props) => {
-  const [compact, updateCompact] = useState(false);
+  const [compact, updateCompact] = useSafeState(false);
   const onResize = ({ width }: { width: number }) => {
     updateCompact(width < 768, true);
   };
