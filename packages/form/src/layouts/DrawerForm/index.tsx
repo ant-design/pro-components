@@ -192,15 +192,16 @@ function DrawerForm<T = Record<string, any>>({
     return result;
   });
 
-  const drawerOpenProps = compareVersions(version, '4.23.0')
-    ? {
-        open: open,
-        onOpenChange: onVisibleChange,
-      }
-    : {
-        visible: open,
-        onVisibleChange: onVisibleChange,
-      };
+  const drawerOpenProps =
+    compareVersions(version, '4.23.0') > -1
+      ? {
+          open: open,
+          onOpenChange: onVisibleChange,
+        }
+      : {
+          visible: open,
+          onVisibleChange: onVisibleChange,
+        };
 
   return (
     <>

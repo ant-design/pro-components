@@ -46,21 +46,22 @@ const InlineErrorFormItemPopover: React.FC<{
     }
   }, [inputProps.errors, inputProps.validateStatus]);
 
-  const drawerOpenProps = compareVersions(version, '4.23.0')
-    ? {
-        open: errorStringList.length < 1 ? false : open,
-        onOpenChange: (changeOpen: boolean) => {
-          if (changeOpen === open) return;
-          setOpen(changeOpen);
-        },
-      }
-    : {
-        visible: errorStringList.length < 1 ? false : open,
-        onVisibleChange: (changeOpen: boolean) => {
-          if (changeOpen === open) return;
-          setOpen(changeOpen);
-        },
-      };
+  const drawerOpenProps =
+    compareVersions(version, '4.23.0') > -1
+      ? {
+          open: errorStringList.length < 1 ? false : open,
+          onOpenChange: (changeOpen: boolean) => {
+            if (changeOpen === open) return;
+            setOpen(changeOpen);
+          },
+        }
+      : {
+          visible: errorStringList.length < 1 ? false : open,
+          onVisibleChange: (changeOpen: boolean) => {
+            if (changeOpen === open) return;
+            setOpen(changeOpen);
+          },
+        };
   return (
     <Popover
       key="popover"

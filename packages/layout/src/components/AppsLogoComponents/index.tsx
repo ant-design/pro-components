@@ -68,13 +68,14 @@ export const AppsLogoComponents: React.FC<{
 
   if (!props?.appList?.length) return null;
 
-  const popoverOpenProps = compareVersions(version, '4.23.0')
-    ? {
-        onOpenChange: setOpen,
-      }
-    : {
-        onVisibleChange: () => setOpen,
-      };
+  const popoverOpenProps =
+    compareVersions(version, '4.23.0') > -1
+      ? {
+          onOpenChange: setOpen,
+        }
+      : {
+          onVisibleChange: () => setOpen,
+        };
 
   return wrapSSR(
     <>

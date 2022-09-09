@@ -177,15 +177,16 @@ export default () => {
           }
           if (_.isMobile) return defaultDom;
 
-          const dropdownOpenProps = compareVersions(version, '4.23.0')
-            ? {
-                open: dropdownVisible,
-                onOpenChange: setDropdownVisible,
-              }
-            : {
-                visible: dropdownVisible,
-                onVisibleChange: dropdownVisible,
-              };
+          const dropdownOpenProps =
+            compareVersions(version, '4.23.0') > -1
+              ? {
+                  open: dropdownVisible,
+                  onOpenChange: setDropdownVisible,
+                }
+              : {
+                  visible: dropdownVisible,
+                  onVisibleChange: dropdownVisible,
+                };
 
           return (
             <>
