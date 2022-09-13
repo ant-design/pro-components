@@ -47,19 +47,6 @@ const genProCardStyle: GenerateStyle<ProCardToken> = (token) => {
         border: token.proCardDefaultBorder,
       },
 
-      '&-header-outter': {
-        [`${componentCls}`]: {
-          backgroundColor: token.colorBgContainer,
-        },
-        [`${componentCls}-header`]: {
-          marginBottom: token.margin,
-        },
-        [`${componentCls}-body`]: {
-          backgroundColor: token.colorBgContainer,
-          borderRadius: token.radiusBase,
-        },
-      },
-
       '&-hoverable': {
         cursor: 'pointer',
         transition: 'box-shadow 0.3s, border-color 0.3s',

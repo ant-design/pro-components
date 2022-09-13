@@ -2,8 +2,8 @@ import type { TabPaneProps, TabsProps } from 'antd';
 import { ConfigProvider, Tabs, version } from 'antd';
 import classNames from 'classnames';
 import toArray from 'rc-util/lib/Children/toArray';
+import { noteOnce } from 'rc-util/lib/warning';
 import React, { useContext } from 'react';
-import warning from 'warning';
 import type { ProCardTabPaneProps, ProCardTabsProps } from '../../type';
 import Card from '../Card';
 
@@ -24,8 +24,7 @@ export function useLegacyItems(
       };
     });
   }
-
-  warning(!children, 'Tabs', 'Tabs.TabPane is deprecated. Please use `items` directly.');
+  noteOnce(!tabs, 'Tabs.TabPane is deprecated. Please use `items` directly.');
 
   const childrenItems = toArray(children).map((node: React.ReactElement<TabPaneProps>) => {
     if (React.isValidElement(node)) {

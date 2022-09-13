@@ -32,7 +32,6 @@ const Card = React.forwardRef((props: CardProps, ref: any) => {
     tooltip,
     split,
     headerBordered = false,
-    headerOutter = false,
     bordered = false,
     boxShadow = false,
     children,
@@ -172,7 +171,6 @@ const Card = React.forwardRef((props: CardProps, ref: any) => {
   });
 
   const cardCls = classNames(`${prefixCls}`, className, hashId, {
-    [`${prefixCls}-header-outter`]: headerOutter,
     [`${prefixCls}-border`]: bordered,
     [`${prefixCls}-box-shadow`]: boxShadow,
     [`${prefixCls}-contain-card`]: containProCard,
@@ -228,7 +226,7 @@ const Card = React.forwardRef((props: CardProps, ref: any) => {
   return wrapSSR(
     <div
       className={cardCls}
-      style={headerOutter ? { backgroundColor: 'transparent', ...style } : style}
+      style={style}
       ref={ref}
       onClick={(e) => {
         onChecked?.(e);
