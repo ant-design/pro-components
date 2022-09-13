@@ -15733,7 +15733,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/customize-collaps
                                 class="ant-form-item-control-input-content"
                               >
                                 <div
-                                  class="ant-radio-group ant-radio-group-outline ant-pro-field-radio-vertical"
+                                  class="ant-radio-group ant-radio-group-outline ant-pro-field-radio-horizontal"
                                 >
                                   <label
                                     class="ant-radio-wrapper ant-radio-wrapper-checked ant-radio-wrapper-in-form-item"
