@@ -150,8 +150,8 @@ function useContainer(props: UseContainerProps = {}) {
     try {
       storage?.setItem(persistenceKey, JSON.stringify(columnsMap));
     } catch (error) {
-      storage?.removeItem(persistenceKey);
       console.warn(error);
+      clearPersistenceStorage();
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [props.columnsState?.persistenceKey, columnsMap, props.columnsState?.persistenceType]);

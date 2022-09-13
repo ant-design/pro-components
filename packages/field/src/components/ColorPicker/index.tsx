@@ -3,7 +3,7 @@ import { SketchPicker } from '@chenshuai2144/sketch-color';
 import type { PopoverProps } from 'antd';
 import { ConfigProvider, Popover } from 'antd';
 import useMergedState from 'rc-util/lib/hooks/useMergedState';
-import React, { useContext } from 'react';
+import React, { useContext, useImperativeHandle } from 'react';
 import type { ProFieldFC } from '../../index';
 
 export const DEFAULT_COLORS = [
@@ -19,75 +19,85 @@ export const DEFAULT_COLORS = [
   '#F6BD16', // 9 - 黄色
 ];
 
-const ColorPicker: React.FC<
-  SketchPickerProps & {
-    value?: string;
-    popoverProps?: PopoverProps;
-    mode?: 'read' | 'edit';
-    onChange?: (color: string) => void;
-    colors?: string[];
-  }
-> = ({ mode, popoverProps, ...rest }) => {
-  const { getPrefixCls } = useContext(ConfigProvider.ConfigContext);
-  const prefixCls = getPrefixCls('pro-field-color-picker');
-  const [color, setColor] = useMergedState('#1890ff', {
-    value: rest.value,
-    onChange: rest.onChange,
-  });
-  const readDom = (
-    <div
-      className={prefixCls}
-      style={{
-        padding: 5,
-        width: 48,
-        border: '1px solid #ddd',
-        borderRadius: '2px',
-        cursor: 'pointer',
-      }}
-    >
+const ColorPicker = React.forwardRef(
+  (
+    {
+      mode,
+      popoverProps,
+      ...rest
+    }: SketchPickerProps & {
+      value?: string;
+      popoverProps?: PopoverProps;
+      mode?: 'read' | 'edit';
+      onChange?: (color: string) => void;
+      colors?: string[];
+    },
+    ref,
+  ) => {
+    const { getPrefixCls } = useContext(ConfigProvider.ConfigContext);
+    const prefixCls = getPrefixCls('pro-field-color-picker');
+    const [color, setColor] = useMergedState('#1890ff', {
+      value: rest.value,
+      onChange: rest.onChange,
+    });
+    const readDom = (
       <div
+        className={prefixCls}
         style={{
-          backgroundColor: color,
-          width: 36,
-          height: 14,
+          padding: 5,
+          width: 48,
+          border: '1px solid #ddd',
           borderRadius: '2px',
+          cursor: 'pointer',
         }}
-      />
-    </div>
-  );
-  if (mode === 'read') {
-    return readDom;
-  }
-  return (
-    <Popover
-      trigger="click"
-      placement="right"
-      {...popoverProps}
-      content={
+      >
         <div
           style={{
-            margin: '-12px -16px',
+            backgroundColor: color,
+            width: 36,
+            height: 14,
+            borderRadius: '2px',
           }}
-        >
-          <SketchPicker
-            {...rest}
-            presetColors={rest.colors || rest.presetColors || DEFAULT_COLORS}
-            color={color}
-            onChange={({ hex, rgb: { r, g, b, a } }) => {
-              if (a && a < 1) {
-                setColor(`rgba(${r}, ${g}, ${b}, ${a})`);
-                return;
-              }
-              setColor(hex);
+        />
+      </div>
+    );
+
+    useImperativeHandle(ref, () => {});
+
+    if (mode === 'read') {
+      return readDom;
+    }
+    return (
+      <Popover
+        trigger="click"
+        placement="right"
+        {...popoverProps}
+        content={
+          <div
+            style={{
+              margin: '-12px -16px',
             }}
-          />
-        </div>
-      }
-    >
-      {readDom}
-    </Popover>
-  );
-};
+          >
+            <SketchPicker
+              {...rest}
+              presetColors={rest.colors || rest.presetColors || DEFAULT_COLORS}
+              color={color}
+              onChange={({ hex, rgb: { r, g, b, a } }) => {
+                if (a && a < 1) {
+                  setColor(`rgba(${r}, ${g}, ${b}, ${a})`);
+                  return;
+                }
+                setColor(hex);
+              }}
+            />
+          </div>
+        }
+      >
+        {readDom}
+      </Popover>
+    );
+  },
+);
 
 /**
  * 颜色组件
@@ -98,16 +108,16 @@ const ColorPicker: React.FC<
  */
 const FieldColorPicker: ProFieldFC<{
   text: string;
-}> = ({ text, mode: type, render, renderFormItem, fieldProps }) => {
+}> = ({ text, mode: type, render, renderFormItem, fieldProps }, ref: any) => {
   if (type === 'read') {
-    const dom = <ColorPicker value={text} mode="read" />;
+    const dom = <ColorPicker value={text} mode="read" ref={ref} />;
     if (render) {
       return render(text, { mode: type, ...fieldProps }, dom);
     }
     return dom;
   }
   if (type === 'edit' || type === 'update') {
-    const dom = <ColorPicker {...fieldProps} />;
+    const dom = <ColorPicker ref={ref} {...fieldProps} />;
     if (renderFormItem) {
       return renderFormItem(text, { mode: type, ...fieldProps }, dom);
     }
@@ -116,4 +126,4 @@ const FieldColorPicker: ProFieldFC<{
   return null;
 };
 
-export default FieldColorPicker;
+export default React.forwardRef(FieldColorPicker);
