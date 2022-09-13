@@ -13,8 +13,6 @@ type CardPropsBase = {
   bodyStyle?: React.CSSProperties;
   /** 页头是否有分割线 */
   headerBordered?: boolean;
-  /** 页头是否在卡片外部*/
-  headerOutter?: boolean;
   /** 卡片标题 */
   title?: React.ReactNode;
   /** 副标题 */
