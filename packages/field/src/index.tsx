@@ -484,7 +484,6 @@ const ProField: React.ForwardRefRenderFunction<any, ProFieldPropsType> = (
     },
   };
 
-  console.log('1234', renderFormItem);
   return (
     <React.Fragment>
       {defaultRenderText(
