@@ -643,6 +643,8 @@ ProFormMoney 用于输入金额的输入框，支持根据全局国际化显示�
 
 ### ProFormSegmented
 
+> antd 版本需要 >= antd@4.20.0
+
 与 [Segmented](https://ant.design/components/segmented-cn/) 相同。支持了 request 和 valueEnum 两种方式来生成 options。
 
 > 请求远程数据比较复杂，详细可以看[这里](https://procomponents.ant.design/components/schema#request-%E5%92%8C-params)。
