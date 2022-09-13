@@ -86,6 +86,12 @@ group:
 
 <code src="./demos/headerBordered.tsx" background="#f0f2f5" title="标题带分割线" height="209px"/>
 
+### 标题在卡片外部
+
+配置 `headerOutter` 属性控制标题是否在卡片外部。
+
+<code src="./demos/headerOutter.tsx" background="#f0f2f5" title="标题在卡片外部" height="194px"/>
+
 ### 可折叠
 
 - 你可以使用 `collapsible` 来配置卡片是否可折叠，通过 `defaultCollapsed` 属性配置是否默认折叠。
@@ -180,6 +186,7 @@ group:
 | bordered | 是否有边框 | `boolean` | false |
 | ghost | 幽灵模式，即是否取消卡片内容区域的 padding 和 卡片的背景颜色。 | `boolean` | false |
 | headerBordered | 页头是否有分割线 | `boolean` | false |
+| headerOutter | 页头是否在外部 | `boolean` | false |
 | collapsed | 受控属性，是否折叠 | `boolean` | false |
 | collapsible | 配置是否可折叠，受控时无效 | `boolean` | false |
 | collapsibleIconRender | 替换默认折叠图标 | `({ collapsed }: { collapsed: boolean }) => React.ReactNode` | - |

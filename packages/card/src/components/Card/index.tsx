@@ -8,6 +8,7 @@ import React, { useContext } from 'react';
 import type { Breakpoint, CardProps, Gutter } from '../../type';
 import Actions from '../Actions';
 import Loading from '../Loading';
+import { useLegacyItems } from '../TabPane';
 import useStyle from './style';
 
 const { useBreakpoint } = Grid;
@@ -31,6 +32,7 @@ const Card = React.forwardRef((props: CardProps, ref: any) => {
     tooltip,
     split,
     headerBordered = false,
+    headerOutter = false,
     bordered = false,
     boxShadow = false,
     children,
@@ -62,12 +64,7 @@ const Card = React.forwardRef((props: CardProps, ref: any) => {
   const responsiveArray: Breakpoint[] = ['xxl', 'xl', 'lg', 'md', 'sm', 'xs'];
   // 修改组合传给antd tabs的参数
   // @ts-ignore
-  const ModifyTabItemsContant = tabs?.items?.map((item) => {
-    return {
-      ...item,
-      children: <Card {...tabs?.cardProps}>{item.children}</Card>,
-    };
-  });
+  const ModifyTabItemsContant = useLegacyItems(tabs?.items, children, tabs);
 
   /**
    * 根据响应式获取 gutter, 参考 antd 实现
@@ -175,6 +172,7 @@ const Card = React.forwardRef((props: CardProps, ref: any) => {
   });
 
   const cardCls = classNames(`${prefixCls}`, className, hashId, {
+    [`${prefixCls}-header-outter`]: headerOutter,
     [`${prefixCls}-border`]: bordered,
     [`${prefixCls}-box-shadow`]: boxShadow,
     [`${prefixCls}-contain-card`]: containProCard,
@@ -214,7 +212,6 @@ const Card = React.forwardRef((props: CardProps, ref: any) => {
       style={bodyStyle.padding === 0 || bodyStyle.padding === '0px' ? { padding: 24 } : undefined}
     />
   );
-
   // 非受控情况下展示
   const collapsibleButton =
     collapsible &&
@@ -231,7 +228,7 @@ const Card = React.forwardRef((props: CardProps, ref: any) => {
   return wrapSSR(
     <div
       className={cardCls}
-      style={style}
+      style={headerOutter ? { backgroundColor: 'transparent', ...style } : style}
       ref={ref}
       onClick={(e) => {
         onChecked?.(e);
