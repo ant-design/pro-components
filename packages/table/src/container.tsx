@@ -85,7 +85,6 @@ function useContainer(props: UseContainerProps = {}) {
           console.warn(error);
         }
       }
-
       return (
         props.columnsStateMap ||
         props.columnsState?.value ||
@@ -136,7 +135,7 @@ function useContainer(props: UseContainerProps = {}) {
     try {
       storage?.removeItem(persistenceKey);
     } catch (error) {
-      console.error(error);
+      console.warn(error);
     }
   }, [props.columnsState]);
 
@@ -151,7 +150,8 @@ function useContainer(props: UseContainerProps = {}) {
     try {
       storage?.setItem(persistenceKey, JSON.stringify(columnsMap));
     } catch (error) {
-      console.error(error);
+      storage?.removeItem(persistenceKey);
+      console.warn(error);
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [props.columnsState?.persistenceKey, columnsMap, props.columnsState?.persistenceType]);
@@ -174,7 +174,6 @@ function useContainer(props: UseContainerProps = {}) {
     setPrefixName: (name: any) => {
       prefixNameRef.current = name;
     },
-
     setColumnsMap,
     columns: props.columns,
     rootDomRef,

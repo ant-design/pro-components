@@ -132,14 +132,16 @@ const CheckboxList: React.FC<{
   const treeDataConfig = useMemo(() => {
     if (!show) return {};
     const checkedKeys: string[] = [];
+    const treeMap = new Map<string | number, DataNode>();
 
     const loopData = (data: any[], parentConfig?: ColumnsState): DataNode[] =>
       data.map(({ key, dataIndex, children, ...rest }) => {
         const columnKey = genColumnKey(key, rest.index);
         const config = columnsMap[columnKey || 'null'] || { show: true };
-        if (config.show !== false && parentConfig?.show !== false && !children) {
+        if (config.show !== false && !children) {
           checkedKeys.push(columnKey);
         }
+
         const item: DataNode = {
           key: columnKey,
           ...omit(rest, ['className']),
@@ -151,10 +153,19 @@ const CheckboxList: React.FC<{
         };
         if (children) {
           item.children = loopData(children, config);
+          // 如果children 已经全部是show了，把自己也设置为show
+          if (
+            item.children?.every((childrenItem) =>
+              checkedKeys?.includes(childrenItem.key as string),
+            )
+          ) {
+            checkedKeys.push(columnKey);
+          }
         }
+        treeMap.set(key, item);
         return item;
       });
-    return { list: loopData(list), keys: checkedKeys };
+    return { list: loopData(list), keys: checkedKeys, map: treeMap };
   }, [columnsMap, list, show]);
 
   /** 移动到指定的位置 */
@@ -184,21 +195,23 @@ const CheckboxList: React.FC<{
 
   /** 选中反选功能 */
   const onCheckTree = useRefFunction((e) => {
-    const columnKey = e.node.key;
-    const newSetting = { ...columnsMap[columnKey] };
-
-    newSetting.show = e.checked;
-
-    setColumnsMap({
-      ...columnsMap,
-      [columnKey]: newSetting,
-    });
+    const newColumnMap = { ...columnsMap };
+    const loopSetShow = (key: string | number) => {
+      const newSetting = { ...newColumnMap[key] };
+      newSetting.show = e.checked;
+      // 如果含有子节点，也要选中
+      if (treeDataConfig.map?.get(key)?.children) {
+        treeDataConfig.map?.get(key)?.children?.forEach((item) => loopSetShow(item.key));
+      }
+      newColumnMap[key] = newSetting;
+    };
+    loopSetShow(e.node.key);
+    setColumnsMap({ ...newColumnMap });
   });
 
   if (!show) {
     return null;
   }
-
   const listDom = (
     <Tree
       itemHeight={24}
