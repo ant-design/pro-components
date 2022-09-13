@@ -5,7 +5,7 @@ import {
   VerticalAlignTopOutlined,
 } from '@ant-design/icons';
 import { useIntl } from '@ant-design/pro-provider';
-import { runFunction, useRefFunction } from '@ant-design/pro-utils';
+import { runFunction, useRefFunction, useToken } from '@ant-design/pro-utils';
 import type { TableColumnType } from 'antd';
 import { Checkbox, ConfigProvider, Popover, Space, Tooltip, Tree } from 'antd';
 import type { CheckboxChangeEvent } from 'antd/es/checkbox';
@@ -70,8 +70,10 @@ const CheckboxListItem: React.FC<{
   isLeaf?: boolean;
 }> = ({ columnKey, isLeaf, title, className, fixed }) => {
   const intl = useIntl();
+  const { hashId } = useToken();
+
   const dom = (
-    <span className={`${className}-list-item-option`}>
+    <span className={`${className}-list-item-option ${hashId}`}>
       <ToolTipIcon
         columnKey={columnKey}
         fixed="left"
@@ -99,8 +101,8 @@ const CheckboxListItem: React.FC<{
     </span>
   );
   return (
-    <span className={`${className}-list-item`} key={columnKey}>
-      <div className={`${className}-list-item-title`}>{title}</div>
+    <span className={`${className}-list-item ${hashId}`} key={columnKey}>
+      <div className={`${className}-list-item-title ${hashId}`}>{title}</div>
       {!isLeaf ? dom : null}
     </span>
   );
@@ -123,6 +125,8 @@ const CheckboxList: React.FC<{
   title: listTitle,
   listHeight = 280,
 }) => {
+  const { hashId } = useToken();
+
   const { columnsMap, setColumnsMap, sortKeyColumns, setSortKeyColumns } = Container.useContainer();
   const show = list && list.length > 0;
   const treeDataConfig = useMemo(() => {
@@ -213,6 +217,7 @@ const CheckboxList: React.FC<{
       showLine={false}
       titleRender={(_node) => {
         const node = { ..._node, children: undefined };
+        if (!node.title) return null;
         return (
           <CheckboxListItem
             className={className}
@@ -228,7 +233,7 @@ const CheckboxList: React.FC<{
   );
   return (
     <>
-      {showTitle && <span className={`${className}-list-title`}>{listTitle}</span>}
+      {showTitle && <span className={`${className}-list-title ${hashId}`}>{listTitle}</span>}
       {listDom}
     </>
   );
@@ -241,6 +246,7 @@ const GroupCheckboxList: React.FC<{
   checkable: boolean;
   listsHeight?: number;
 }> = ({ localColumns, className, draggable, checkable, listsHeight }) => {
+  const { hashId } = useToken();
   const rightList: (ProColumns<any> & { index?: number })[] = [];
   const leftList: (ProColumns<any> & { index?: number })[] = [];
   const list: (ProColumns<any> & { index?: number })[] = [];
@@ -267,7 +273,7 @@ const GroupCheckboxList: React.FC<{
   const showLeft = leftList && leftList.length > 0;
   return (
     <div
-      className={classNames(`${className}-list`, {
+      className={classNames(`${className}-list`, hashId, {
         [`${className}-list-group`]: showRight || showLeft,
       })}
     >
@@ -303,6 +309,7 @@ const GroupCheckboxList: React.FC<{
 
 function ColumnSetting<T>(props: ColumnSettingProps<T>) {
   const columnRef = useRef({});
+  // 获得当前上下文的 hashID
   const counter = Container.useContainer();
   const localColumns: TableColumnType<T> &
     {
@@ -371,12 +378,12 @@ function ColumnSetting<T>(props: ColumnSettingProps<T>) {
   const intl = useIntl();
   const { getPrefixCls } = useContext(ConfigProvider.ConfigContext);
   const className = getPrefixCls('pro-table-column-setting');
-  const { wrapSSR } = useStyle(className);
+  const { wrapSSR, hashId } = useStyle(className);
   return wrapSSR(
     <Popover
       arrowPointAtCenter
       title={
-        <div className={`${className}-title`}>
+        <div className={`${className}-title ${hashId}`}>
           <Checkbox
             indeterminate={indeterminate}
             checked={unCheckedKeys.length === 0 && unCheckedKeys.length !== localColumns.length}
@@ -396,7 +403,7 @@ function ColumnSetting<T>(props: ColumnSettingProps<T>) {
           ) : null}
         </div>
       }
-      overlayClassName={`${className}-overlay`}
+      overlayClassName={`${className}-overlay ${hashId}`}
       trigger="click"
       placement="bottomRight"
       content={
