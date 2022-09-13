@@ -2637,7 +2637,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/FieldSet/demos/c
                         class="ant-form-item-control-input-content"
                       >
                         <div
-                          class="ant-radio-group ant-radio-group-outline ant-pro-field-radio-vertical"
+                          class="ant-radio-group ant-radio-group-outline ant-pro-field-radio-horizontal"
                           id="validate_other_radio"
                         >
                           <label
@@ -2835,7 +2835,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/FieldSet/demos/c
                         class="ant-form-item-control-input-content"
                       >
                         <div
-                          class="ant-radio-group ant-radio-group-outline ant-pro-field-radio-vertical"
+                          class="ant-radio-group ant-radio-group-outline ant-pro-field-radio-horizontal"
                           id="validate_other_radio-button"
                         >
                           <label
@@ -11931,7 +11931,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/Group/demos/list
             class="ant-form-item-control-input-content"
           >
             <div
-              class="ant-radio-group ant-radio-group-outline ant-pro-field-radio-vertical"
+              class="ant-radio-group ant-radio-group-outline ant-pro-field-radio-horizontal"
             >
               <label
                 class="ant-radio-wrapper ant-radio-wrapper-in-form-item"
@@ -17765,7 +17765,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/QueryFilter/demo
                       class="ant-form-item-control-input-content"
                     >
                       <div
-                        class="ant-radio-group ant-radio-group-outline ant-pro-field-radio-vertical"
+                        class="ant-radio-group ant-radio-group-outline ant-pro-field-radio-horizontal"
                         id="radio"
                       >
                         <label
@@ -25433,7 +25433,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/QueryFilter/demo
                   class="ant-form-item-control-input-content"
                 >
                   <div
-                    class="ant-radio-group ant-radio-group-outline ant-pro-field-radio-vertical"
+                    class="ant-radio-group ant-radio-group-outline ant-pro-field-radio-horizontal"
                     id="freq"
                   >
                     <label
@@ -41358,7 +41358,7 @@ exports[`form demos 📸 renders ./packages/form/src/demos/form-layout.tsx corre
                 class="ant-form-item-control-input-content"
               >
                 <div
-                  class="ant-radio-group ant-radio-group-outline ant-pro-field-radio-vertical"
+                  class="ant-radio-group ant-radio-group-outline ant-pro-field-radio-horizontal"
                 >
                   <label
                     class="ant-radio-button-wrapper ant-radio-button-wrapper-checked ant-radio-button-wrapper-in-form-item"
@@ -41749,7 +41749,7 @@ exports[`form demos 📸 renders ./packages/form/src/demos/form-layout-grid.tsx 
                     class="ant-form-item-control-input-content"
                   >
                     <div
-                      class="ant-radio-group ant-radio-group-outline ant-pro-field-radio-vertical"
+                      class="ant-radio-group ant-radio-group-outline ant-pro-field-radio-horizontal"
                     >
                       <label
                         class="ant-radio-button-wrapper ant-radio-button-wrapper-checked ant-radio-button-wrapper-in-form-item"
@@ -43387,7 +43387,7 @@ exports[`form demos 📸 renders ./packages/form/src/demos/layout-change.tsx cor
             class="ant-form-item-control-input-content"
           >
             <div
-              class="ant-radio-group ant-radio-group-outline ant-pro-field-radio-vertical"
+              class="ant-radio-group ant-radio-group-outline ant-pro-field-radio-horizontal"
             >
               <label
                 class="ant-radio-button-wrapper ant-radio-button-wrapper-in-form-item"
@@ -45755,7 +45755,7 @@ exports[`form demos 📸 renders ./packages/form/src/demos/layout-footer.tsx cor
                                           class="ant-form-item-control-input-content"
                                         >
                                           <div
-                                            class="ant-radio-group ant-radio-group-outline ant-pro-field-radio-vertical"
+                                            class="ant-radio-group ant-radio-group-outline ant-pro-field-radio-horizontal"
                                             id="invoiceType"
                                           >
                                             <label

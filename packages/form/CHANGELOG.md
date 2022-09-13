@@ -2,6 +2,20 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.0.6](https://github.com/ant-design/pro-components/compare/@ant-design/pro-form@2.0.5...@ant-design/pro-form@2.0.6) (2022-09-09)
+
+### Bug Fixes
+
+- **components:** fix compareVersions error ([9751208](https://github.com/ant-design/pro-components/commit/9751208a9ecb9a4120b7d4c8291b8df8a5da9144))
+
+## [2.0.5](https://github.com/ant-design/pro-components/compare/@ant-design/pro-form@2.0.4...@ant-design/pro-form@2.0.5) (2022-09-08)
+
+### Bug Fixes
+
+- **components:** fix css var error ([bd5d3bf](https://github.com/ant-design/pro-components/commit/bd5d3bf37f3bb89ea62b021a818690ca04994a49))
+- **components:** fix open props warning ([77703c8](https://github.com/ant-design/pro-components/commit/77703c82140d46c4fb9ad82e77d561d313e0436e))
+- **form:** fix optionType is only support in Radio.Group ([#5871](https://github.com/ant-design/pro-components/issues/5871)) ([c3fa14f](https://github.com/ant-design/pro-components/commit/c3fa14f208d922183ebfde2e8cfe0c2f18022855))
+
 ## [2.0.4](https://github.com/ant-design/pro-components/compare/@ant-design/pro-form@2.0.3...@ant-design/pro-form@2.0.4) (2022-09-05)
 
 ### Bug Fixes

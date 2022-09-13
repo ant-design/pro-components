@@ -76,6 +76,7 @@ import type { UseEditableMapType, UseEditableMapUtilType } from './useEditableMa
 import { useEditableMap } from './useEditableMap';
 import { useMountMergeState } from './useMountMergeState';
 import { compareVersions } from './compareVersions';
+import useSafeState from './useSafeState';
 
 export type {
   SearchConvertKeyFn,
@@ -152,6 +153,7 @@ export {
   useEditableArray,
   useEditableMap,
   useRefFunction,
+  useSafeState,
   useDeepCompareEffect,
   usePrevious,
   useDebounceFn,

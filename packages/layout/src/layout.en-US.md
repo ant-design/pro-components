@@ -427,7 +427,7 @@ The default token part comes from antd and may be changed, but here's the layout
 | bgLayout | Layout background color | `#f7f8fa` |
 | colorTextAppListIcon | The icon color applied across sites is | `#666` |
 | colorTextAppListIconHover | Icons applied across sites hover color | `rgba(0, 0, 0, 0.65)` |
-| colorTextAppListIconHover | Icons for cross-site apps hover background color | `rgba(0, 0, 0, 0.04)` |
+| colorBgAppListIconHover | Icons for cross-site apps hover background color | `rgba(0, 0, 0, 0.04)` |
 
 ### Sider Token
 
@@ -454,6 +454,7 @@ Sider Token is the color value of the side menu, unlike the top menu.
 
 | token | Description | The default value is |
 | --- | --- | --- |
+| colorBgHeader | The background color of header is | `rgba(240, 242, 245, 0.4)` |
 | colorHeaderTitle | The title font color of the sider is | `colorTextHeading` |
 | colorTextMenu | MenuItem's font color | `colorText` |
 | colorTextMenuSecondary | Secondary font colors for menus, such as footers and icons for actions | `colorText` |

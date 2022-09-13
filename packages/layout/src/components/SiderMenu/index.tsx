@@ -54,15 +54,16 @@ const SiderMenuWrapper: React.FC<SiderMenuProps & PrivateSiderMenuProps> = (prop
     return null;
   }
 
-  const drawerOpenProps = compareVersions(version, '4.23.0')
-    ? {
-        open: !collapsed,
-        onClose: () => onCollapse?.(true),
-      }
-    : {
-        visible: !collapsed,
-        onClose: () => onCollapse?.(true),
-      };
+  const drawerOpenProps =
+    compareVersions(version, '4.23.0') > -1
+      ? {
+          open: !collapsed,
+          onClose: () => onCollapse?.(true),
+        }
+      : {
+          visible: !collapsed,
+          onClose: () => onCollapse?.(true),
+        };
 
   return wrapSSR(
     isMobile ? (

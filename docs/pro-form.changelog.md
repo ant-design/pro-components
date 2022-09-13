@@ -9,6 +9,15 @@ group:
 
 # Change Log
 
+## @ant-design/pro-form@2.0.5
+
+`2022-09-08`
+
+- 🐞 fix(form): ModalForm 使用 destroyOnClose 在 onFinish 返回 false 也会清空表单！ (#5884). [#5884](https://github.com/ant-design/pro-components/pull/#5884) [@yirandidi](https://github.com/yirandidi)
+- fix(form): fix ts error. [a399cd1](https://github.com/ant-design/pro-components/commit/a399cd1)
+- fix(form): fix optionType is only support in Radio.Group (#5871). [#5871](https://github.com/ant-design/pro-components/pull/#5871) [@drizzlesconsin](https://github.com/drizzlesconsin)
+- fix(form): fix ProFormRadio layout class (#5872). [#5872](https://github.com/ant-design/pro-components/pull/#5872) [@drizzlesconsin](https://github.com/drizzlesconsin)
+
 ## @ant-design/pro-form@1.74.4
 
 `2022-08-29`

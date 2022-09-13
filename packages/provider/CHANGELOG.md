@@ -2,6 +2,14 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.0.3](https://github.com/ant-design/pro-components/compare/@ant-design/pro-provider@2.0.2...@ant-design/pro-provider@2.0.3) (2022-09-08)
+
+### Bug Fixes
+
+- **components:** fix css var error ([bd5d3bf](https://github.com/ant-design/pro-components/commit/bd5d3bf37f3bb89ea62b021a818690ca04994a49))
+- **components:** fix open props warning ([77703c8](https://github.com/ant-design/pro-components/commit/77703c82140d46c4fb9ad82e77d561d313e0436e))
+- **components:** unuse theme import ([bcac384](https://github.com/ant-design/pro-components/commit/bcac384af74fcb724daaeffdd3fa1aa636e3c7cb))
+
 ## [2.0.2](https://github.com/ant-design/pro-components/compare/@ant-design/pro-provider@1.10.0...@ant-design/pro-provider@2.0.2) (2022-09-02)
 
 **Note:** Version bump only for package @ant-design/pro-provider

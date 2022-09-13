@@ -229,7 +229,7 @@ const genProLayoutStyle: GenerateStyle<ProLayoutToken & LayoutDesignToken> = (to
           display: 'flex',
           flexDirection: 'column',
           width: '100%',
-          backgroundColor: 'transparent',
+          backgroundColor: token.pageContainer.colorBgPageContainer || 'transparent',
           position: 'relative',
           '*': { boxSizing: 'border-box' },
           marginBlock: token.pageContainer.marginBlockPageContainerContent,

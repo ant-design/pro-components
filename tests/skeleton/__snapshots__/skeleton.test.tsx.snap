@@ -6,7 +6,7 @@ exports[`skeleton 🥩 descriptions api use 1`] = `
 >
   <div
     class="ant-card"
-    style="border-top-right-radius: 0; border-top-left-radius: 0;"
+    style="border-start-end-radius: 0; border-top-left-radius: 0;"
   >
     <div
       class="ant-card-body"
@@ -1130,7 +1130,7 @@ exports[`skeleton 🥩 descriptions api use 2`] = `
 >
   <div
     class="ant-card"
-    style="border-top-right-radius: 0; border-top-left-radius: 0;"
+    style="border-start-end-radius: 0; border-top-left-radius: 0;"
   >
     <div
       class="ant-card-body"
@@ -2277,7 +2277,7 @@ exports[`skeleton 🥩 descriptions base use 1`] = `
   </div>
   <div
     class="ant-card"
-    style="border-top-right-radius:0;border-top-left-radius:0"
+    style="border-start-end-radius:0;border-top-left-radius:0"
   >
     <div
       class="ant-card-body"
@@ -4135,7 +4135,7 @@ exports[`skeleton 🥩 list base use 1`] = `
           </div>
           <div
             class="ant-card"
-            style="border-top-right-radius:0;border-top-left-radius:0"
+            style="border-start-end-radius:0;border-top-left-radius:0"
           >
             <div
               class="ant-card-body"

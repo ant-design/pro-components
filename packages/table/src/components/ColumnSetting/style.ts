@@ -31,16 +31,15 @@ const genProStyle: GenerateStyle<ProToken> = (token) => {
         [`${token.antCls}-tree-treenode`]: {
           alignItems: 'center',
           '&:hover': {
-            backgroundColor: token.controlItemBgActive,
             [`${token.componentCls}-list-item-option`]: {
               display: 'block',
             },
           },
           [`${token.antCls}-tree-checkbox`]: {
-            insetBlockStart: 0,
-            marginBlock: 0,
-            marginInline: 0,
             marginInlineEnd: '4px',
+          },
+          [`${token.antCls}-tree-title`]: {
+            width: '100%',
           },
         },
       },

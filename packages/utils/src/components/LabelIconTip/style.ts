@@ -16,7 +16,7 @@ const genProStyle: GenerateStyle<ProToken> = (token) => {
         marginInlineStart: '4px',
         cursor: 'pointer',
         '&:hover': {
-          color: token.colorPrimaryBgHover,
+          color: token.colorPrimary,
         },
       },
       '&-title': { display: 'inline-flex', flex: '1' },

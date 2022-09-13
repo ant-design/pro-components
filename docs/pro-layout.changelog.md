@@ -9,6 +9,12 @@ group:
 
 # Change Log
 
+## @ant-design/pro-layout@7.0.4
+
+`2022-09-08`
+
+- fix(layout): global header collapsed button support token (#5889). [#5889](https://github.com/ant-design/pro-components/pull/#5889) [@drizzlesconsin](https://github.com/drizzlesconsin)
+
 ## @ant-design/pro-layout@6.38.18
 
 `2022-08-15`

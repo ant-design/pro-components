@@ -2,6 +2,26 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [7.0.5](https://github.com/ant-design/pro-components/compare/@ant-design/pro-layout@7.0.4...@ant-design/pro-layout@7.0.5) (2022-09-09)
+
+### Bug Fixes
+
+- **components:** fix compareVersions error ([9751208](https://github.com/ant-design/pro-components/commit/9751208a9ecb9a4120b7d4c8291b8df8a5da9144))
+- **layout:** fix image rerender error ([62c7c87](https://github.com/ant-design/pro-components/commit/62c7c87b8753cd0045e71faa2e72a570f70b2858))
+- **layout:** header add `colorHeaderTitle` token ([#5899](https://github.com/ant-design/pro-components/issues/5899)) ([bea3cbc](https://github.com/ant-design/pro-components/commit/bea3cbc619f888bfcbf5ed300bbaddc57743b77d))
+- **layout:** rm rc-util/lib ([d7f7aa1](https://github.com/ant-design/pro-components/commit/d7f7aa18581a198bd48282e3e38cd227d3b53bda))
+- **layout:** submenu support token `layout=top` ([#5900](https://github.com/ant-design/pro-components/issues/5900)) ([4deb747](https://github.com/ant-design/pro-components/commit/4deb7478fe2af462e43fa87be05d965f6db5abd3))
+- **layout:** support icon is a img ([e1b9700](https://github.com/ant-design/pro-components/commit/e1b9700b396eb8f54a87054849a18b992c3417c6))
+
+## [7.0.4](https://github.com/ant-design/pro-components/compare/@ant-design/pro-layout@7.0.3...@ant-design/pro-layout@7.0.4) (2022-09-08)
+
+### Bug Fixes
+
+- **components:** fix css var error ([bd5d3bf](https://github.com/ant-design/pro-components/commit/bd5d3bf37f3bb89ea62b021a818690ca04994a49))
+- **components:** fix open props warning ([77703c8](https://github.com/ant-design/pro-components/commit/77703c82140d46c4fb9ad82e77d561d313e0436e))
+- **form:** fix ts error ([a399cd1](https://github.com/ant-design/pro-components/commit/a399cd1f49e8d955f59b033cbc1a286957678473))
+- **layout:** global header collapsed button support token ([#5889](https://github.com/ant-design/pro-components/issues/5889)) ([8c12481](https://github.com/ant-design/pro-components/commit/8c124810748a44477291ba6eac5963aedd75c2de))
+
 ## [7.0.3](https://github.com/ant-design/pro-components/compare/@ant-design/pro-layout@7.0.2...@ant-design/pro-layout@7.0.3) (2022-09-05)
 
 ### Bug Fixes
