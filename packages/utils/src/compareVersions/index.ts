@@ -8,25 +8,6 @@ const tryParse = (v: string) => {
   return isNaN(n) ? v : n;
 };
 
-const operatorResMap = {
-  '>': [1],
-  '>=': [0, 1],
-  '=': [0],
-  '<=': [-1, 0],
-  '<': [-1],
-};
-
-const allowedOperators = Object.keys(operatorResMap);
-
-const assertValidOperator = (op: string) => {
-  if (typeof op !== 'string') {
-    throw new TypeError(`Invalid operator type, expected string but got ${typeof op}`);
-  }
-  if (allowedOperators.indexOf(op) === -1) {
-    throw new Error(`Invalid operator, expected one of ${allowedOperators.join('|')}`);
-  }
-};
-
 const forceType = (a: string | number, b: string | number) =>
   typeof a !== typeof b ? [String(a), String(b)] : [a, b];
 
@@ -103,68 +84,3 @@ export const compareVersions = (v1: string, v2: string) => {
  */
 export const validate = (version: string) =>
   typeof version === 'string' && /^[v\d]/.test(version) && semver.test(version);
-
-/**
- * Allowed arithmetic operators
- */
-export type CompareOperator = '>' | '>=' | '=' | '<' | '<=';
-
-/**
- * Compare [semver](https://semver.org/) version strings using the specified operator.
- *
- * @param v1 First version to compare
- * @param v2 Second version to compare
- * @param operator Allowed arithmetic operator to use
- * @returns `true` if the comparison between the firstVersion and the secondVersion satisfies the operator, `false` otherwise.
- *
- * @example
- * ```
- * compare('10.1.8', '10.0.4', '>'); // return true
- * compare('10.0.1', '10.0.1', '='); // return true
- * compare('10.1.1', '10.2.2', '<'); // return true
- * compare('10.1.1', '10.2.2', '<='); // return true
- * compare('10.1.1', '10.2.2', '>='); // return false
- * ```
- */
-export const compare = (v1: string, v2: string, operator: CompareOperator) => {
-  // validate input operator
-  assertValidOperator(operator);
-
-  // since result of compareVersions can only be -1 or 0 or 1
-  // a simple map can be used to replace switch
-  const res = compareVersions(v1, v2);
-
-  return operatorResMap[operator].includes(res);
-};
-
-/**
- * Match [npm semver](https://docs.npmjs.com/cli/v6/using-npm/semver) version range.
- *
- * @param version Version number to match
- * @param range Range pattern for version
- * @returns `true` if the version number is within the range, `false` otherwise.
- *
- * @example
- * ```
- * satisfies('1.1.0', '^1.0.0'); // return true
- * satisfies('1.1.0', '~1.0.0'); // return false
- * ```
- */
-export const satisfies = (version: string, range: string) => {
-  // if no range operator then "="
-  const m = range.match(/^([<>=~^]+)/);
-  const op = m ? m[1] : '=';
-
-  // if gt/lt/eq then operator compare
-  if (op !== '^' && op !== '~') return compare(version, range, op as CompareOperator);
-
-  // else range of either "~" or "^" is assumed
-  const [v1, v2, v3] = validateAndParse(version);
-  const [r1, r2, r3] = validateAndParse(range);
-  if (compareStrings(v1, r1) !== 0) return false;
-  if (op === '^') {
-    return compareSegments([v2, v3], [r2, r3]) >= 0;
-  }
-  if (compareStrings(v2, r2) !== 0) return false;
-  return compareStrings(v3, r3) >= 0;
-};
