@@ -2,6 +2,14 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [3.0.7](https://github.com/ant-design/pro-components/compare/@ant-design/pro-table@3.0.6...@ant-design/pro-table@3.0.7) (2022-09-14)
+
+### Bug Fixes
+
+- **components:** fix ref error ([c9e1e98](https://github.com/ant-design/pro-components/commit/c9e1e98dab5e2b9004d7c43053291b663f551742))
+- **table:** fix ColumnSetting style error ([ec39ccc](https://github.com/ant-design/pro-components/commit/ec39ccc6727c366d0bcee803cb0ace08edffc7c2))
+- **table:** fix configuration issues with nested columns ([c2c9d9d](https://github.com/ant-design/pro-components/commit/c2c9d9d0f95ea6b8814060d5d3994a2c8b403c00))
+
 ## [3.0.6](https://github.com/ant-design/pro-components/compare/@ant-design/pro-table@3.0.5...@ant-design/pro-table@3.0.6) (2022-09-09)
 
 **Note:** Version bump only for package @ant-design/pro-table

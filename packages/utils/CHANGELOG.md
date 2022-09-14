@@ -2,6 +2,17 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.1.0](https://github.com/ant-design/pro-components/compare/@ant-design/pro-utils@2.0.4...@ant-design/pro-utils@2.1.0) (2022-09-14)
+
+### Bug Fixes
+
+- **table:** fix ColumnSetting style error ([ec39ccc](https://github.com/ant-design/pro-components/commit/ec39ccc6727c366d0bcee803cb0ace08edffc7c2))
+- **utils:** remove unuse code ([bcbdbf6](https://github.com/ant-design/pro-components/commit/bcbdbf613c91abdb3aeba0e681ab4a9b34853eb2))
+
+### Features
+
+- **form:** add ProFormSegmented ([#5913](https://github.com/ant-design/pro-components/issues/5913)) ([737c80d](https://github.com/ant-design/pro-components/commit/737c80d91fa9cfdc86ba05dce47b18ccb83058c4))
+
 ## [2.0.4](https://github.com/ant-design/pro-components/compare/@ant-design/pro-utils@2.0.3...@ant-design/pro-utils@2.0.4) (2022-09-09)
 
 ### Bug Fixes

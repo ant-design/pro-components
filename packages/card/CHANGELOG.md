@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.0.6](https://github.com/ant-design/pro-components/compare/@ant-design/pro-card@2.0.5...@ant-design/pro-card@2.0.6) (2022-09-14)
+
+### Bug Fixes
+
+- **card:** Card.Tabs.Pane Render null ([#5926](https://github.com/ant-design/pro-components/issues/5926)) ([8598c11](https://github.com/ant-design/pro-components/commit/8598c11ecc09bfa4c2a38b1fc42bf0ebe6a5ef95))
+
 ## [2.0.5](https://github.com/ant-design/pro-components/compare/@ant-design/pro-card@2.0.4...@ant-design/pro-card@2.0.5) (2022-09-09)
 
 ### Bug Fixes

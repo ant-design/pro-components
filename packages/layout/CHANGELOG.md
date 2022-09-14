@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [7.0.6](https://github.com/ant-design/pro-components/compare/@ant-design/pro-layout@7.0.5...@ant-design/pro-layout@7.0.6) (2022-09-14)
+
+### Bug Fixes
+
+- **layout:** custom header padding ([#5912](https://github.com/ant-design/pro-components/issues/5912)) ([88254c3](https://github.com/ant-design/pro-components/commit/88254c3cdfd1a553400728a64d1f50ceee7c9d05))
+- **layout:** fix colorBgPageContainer ([#5911](https://github.com/ant-design/pro-components/issues/5911)) ([6693f56](https://github.com/ant-design/pro-components/commit/6693f56c62fcb43d69fc2330eabfb36d97d044b3))
+
 ## [7.0.5](https://github.com/ant-design/pro-components/compare/@ant-design/pro-layout@7.0.4...@ant-design/pro-layout@7.0.5) (2022-09-09)
 
 ### Bug Fixes
