@@ -5455,9 +5455,17 @@ exports[`card demos 📸 renders ./packages/card/src/components/StatisticCard/de
               tabindex="0"
             >
               <div
-                style="display: flex; align-items: center; justify-content: center; background-color: rgb(250, 250, 250); height: 100px;"
+                class="ant-pro-card"
               >
-                关联展示内容 全部
+                <div
+                  class="ant-pro-card-body"
+                >
+                  <div
+                    style="display: flex; align-items: center; justify-content: center; background-color: rgb(250, 250, 250); height: 100px;"
+                  >
+                    关联展示内容 全部
+                  </div>
+                </div>
               </div>
             </div>
           </div>
@@ -9672,10 +9680,10 @@ exports[`card demos 📸 renders ./packages/card/src/demos/tabs-card.tsx correct
                 class="ant-tabs-tab ant-tabs-tab-active"
               >
                 <div
-                  aria-controls="rc-tabs-2-panel-1"
+                  aria-controls="rc-tabs-2-panel-tab1"
                   aria-selected="true"
                   class="ant-tabs-tab-btn"
-                  id="rc-tabs-2-tab-1"
+                  id="rc-tabs-2-tab-tab1"
                   role="tab"
                   tabindex="0"
                 >
@@ -9686,28 +9694,14 @@ exports[`card demos 📸 renders ./packages/card/src/demos/tabs-card.tsx correct
                 class="ant-tabs-tab"
               >
                 <div
-                  aria-controls="rc-tabs-2-panel-2"
+                  aria-controls="rc-tabs-2-panel-tab2"
                   aria-selected="false"
                   class="ant-tabs-tab-btn"
-                  id="rc-tabs-2-tab-2"
+                  id="rc-tabs-2-tab-tab2"
                   role="tab"
                   tabindex="0"
                 >
                   产品二
-                </div>
-              </div>
-              <div
-                class="ant-tabs-tab"
-              >
-                <div
-                  aria-controls="rc-tabs-2-panel-3"
-                  aria-selected="false"
-                  class="ant-tabs-tab-btn"
-                  id="rc-tabs-2-tab-3"
-                  role="tab"
-                  tabindex="0"
-                >
-                  产品三
                 </div>
               </div>
               <div
@@ -9760,9 +9754,9 @@ exports[`card demos 📸 renders ./packages/card/src/demos/tabs-card.tsx correct
           >
             <div
               aria-hidden="false"
-              aria-labelledby="rc-tabs-2-tab-1"
+              aria-labelledby="rc-tabs-2-tab-tab1"
               class="ant-tabs-tabpane ant-tabs-tabpane-active"
-              id="rc-tabs-2-panel-1"
+              id="rc-tabs-2-panel-tab1"
               role="tabpanel"
               tabindex="0"
             >
