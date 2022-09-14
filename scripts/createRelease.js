@@ -37,6 +37,7 @@ const getMds = async (allVersion = false) => {
   console.log(info);
   const docDir = path.join(__dirname, '..', 'docs');
   const mdFils = fs.readdirSync(docDir).filter((name) => name.includes('changelog.md'));
+  console.log(mdFils);
   mdFils.map((mdFile) => {
     const pkg = mdFile.replace('pro-', '').replace('.changelog.md', '');
     const content = fs.readFileSync(path.join(docDir, mdFile)).toString();
