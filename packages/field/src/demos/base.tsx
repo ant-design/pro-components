@@ -251,6 +251,9 @@ export default () => {
         <Descriptions.Item label="进度条">
           <Field text="40" valueType="progress" mode={state} plain={plain} />
         </Descriptions.Item>
+        <Descriptions.Item label="slider">
+          <Field text="40" valueType="slider" mode={state} plain={plain} />
+        </Descriptions.Item>
         <Descriptions.Item label="百分比">
           <Space>
             <Field

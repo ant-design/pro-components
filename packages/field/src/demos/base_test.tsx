@@ -77,6 +77,9 @@ export default () => {
         <Descriptions.Item label="评分">
           <Field text={3.5} valueType="rate" mode={state} plain={plain} />
         </Descriptions.Item>
+        <Descriptions.Item label="slider">
+          <Field text="40" valueType="slider" mode={state} plain={plain} />
+        </Descriptions.Item>
         <Descriptions.Item label="选择框">
           <Field
             text="open"
