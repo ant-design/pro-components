@@ -16,6 +16,9 @@ import {
   transformKeySubmitValue,
   useDebounceFn,
   useDebounceValue,
+  compareVersions,
+  lighten,
+  setAlpha,
 } from '@ant-design/pro-utils';
 import { act, fireEvent, render } from '@testing-library/react';
 import { Form, Input } from 'antd';
@@ -25,6 +28,22 @@ import React, { useEffect, useState } from 'react';
 import { waitForComponentToPaint, waitTime } from '../util';
 
 describe('utils', () => {
+  it('lighten', () => {
+    const color = lighten('#000', 50);
+    expect(color).toBe('#808080');
+  });
+
+  it('compareVersions', () => {
+    expect(compareVersions('2.0.0', '1.0.0')).toBe(1);
+    expect(compareVersions('1.0.0', '2.0.0')).toBe(-1);
+    expect(compareVersions('1.0.0', '1.0.0')).toBe(0);
+  });
+
+  it('setAlpha', () => {
+    const color = setAlpha('#fff', 0.5);
+    expect(color).toBe('rgba(255, 255, 255, 0.5)');
+  });
+
   it('📅 useDebounceValue', async () => {
     const App = (props: { deps: string[] }) => {
       const value = useDebounceValue(props.deps?.[0], 200, props.deps);
