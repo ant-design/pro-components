@@ -333,15 +333,16 @@ export const SettingDrawer: React.FC<SettingDrawerProps> = (props) => {
   const baseClassName = `${prefixCls}-setting-drawer`;
   const { wrapSSR, hashId } = useStyle(baseClassName);
 
-  const drawerOpenProps = compareVersions(version, '4.23.0')
-    ? {
-        open: open,
-        onClose: () => setOpen(false),
-      }
-    : {
-        visible: open,
-        onClose: () => setOpen(false),
-      };
+  const drawerOpenProps =
+    compareVersions(version, '4.23.0') > -1
+      ? {
+          open: open,
+          onClose: () => setOpen(false),
+        }
+      : {
+          visible: open,
+          onClose: () => setOpen(false),
+        };
 
   return wrapSSR(
     <>

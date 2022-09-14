@@ -198,13 +198,14 @@ function ModalForm<T = Record<string, any>>({
     [onFinish, setOpen, submitTimeout],
   );
 
-  const modalOpenProps = compareVersions(version, '4.23.0')
-    ? {
-        open,
-      }
-    : {
-        visible: open,
-      };
+  const modalOpenProps =
+    compareVersions(version, '4.23.0') > -1
+      ? {
+          open,
+        }
+      : {
+          visible: open,
+        };
 
   return (
     <>

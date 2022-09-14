@@ -34,6 +34,13 @@ const genProLayoutBaseMenuStyle: GenerateStyle<
           },
         },
       },
+      [`${token.componentCls}-item-icon`]: {
+        height: '14px',
+        '.anticon': {
+          lineHeight: '14px',
+          height: '14px',
+        },
+      },
       '& &-item-title': {
         display: 'flex',
         flexDirection: 'row',

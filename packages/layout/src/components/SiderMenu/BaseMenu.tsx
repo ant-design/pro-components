@@ -1,4 +1,4 @@
-import Icon, { createFromIconfontCN } from '@ant-design/icons';
+import { createFromIconfontCN } from '@ant-design/icons';
 import { isImg, isUrl, useMountMergeState } from '@ant-design/pro-utils';
 import type { MenuProps } from 'antd';
 import { Menu, Skeleton } from 'antd';
@@ -98,7 +98,7 @@ const getIcon = (
 ): React.ReactNode => {
   if (typeof icon === 'string' && icon !== '') {
     if (isUrl(icon) || isImg(icon)) {
-      return <Icon component={() => <img src={icon} alt="icon" className={className} />} />;
+      return <img width={16} key={icon} src={icon} alt="icon" className={className} />;
     }
     if (icon.startsWith(iconPrefixes)) {
       return <IconFont type={icon} />;
@@ -114,6 +114,7 @@ const getMenuTitleSymbol = (title: React.ReactNode) => {
   }
   return null;
 };
+
 class MenuUtil {
   constructor(
     props: BaseMenuProps & {
@@ -158,7 +159,7 @@ class MenuUtil {
       const iconDom = getIcon(
         item.icon,
         iconPrefixes,
-        `${baseClassName}-icon ${this.props?.hashId}`,
+        `action ${baseClassName}-icon ${this.props?.hashId}`,
       );
       /**
        * 如果没有icon在收起的时候用首字母代替
@@ -278,6 +279,7 @@ class MenuUtil {
     const defaultIcon = collapsed && hasIcon ? getMenuTitleSymbol(name) : null;
     let defaultItem = (
       <div
+        key={itemPath}
         className={classNames(`${baseClassName}-item-title`, this.props?.hashId, {
           [`${baseClassName}-item-title-collapsed`]: collapsed,
           [`${baseClassName}-item-collapsed-show-title`]: menu?.collapsedShowTitle && collapsed,
@@ -303,6 +305,7 @@ class MenuUtil {
     if (isHttpUrl) {
       defaultItem = (
         <span
+          key={itemPath}
           title={name}
           onClick={() => {
             window?.open?.(itemPath, '_blank');

@@ -255,7 +255,7 @@ export const DescriptionsSkeleton = ({ active }: { active: boolean }) => (
   <Card
     bordered={false}
     style={{
-      borderTopRightRadius: 0,
+      borderStartEndRadius: 0,
       borderTopLeftRadius: 0,
     }}
   >

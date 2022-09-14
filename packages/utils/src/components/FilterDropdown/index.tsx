@@ -61,15 +61,16 @@ const FilterDropdown: React.FC<DropdownProps> = (props) => {
   const prefixCls = getPrefixCls('pro-core-field-dropdown');
   const { wrapSSR, hashId } = useStyle(prefixCls);
 
-  const dropdownOpenProps = compareVersions(version, '4.23.0')
-    ? {
-        visible: open || visible,
-        onVisibleChange: onOpenChange || onVisibleChange,
-      }
-    : {
-        open: open || visible,
-        onOpenChange: onOpenChange || onVisibleChange,
-      };
+  const dropdownOpenProps =
+    compareVersions(version, '4.23.0') > -1
+      ? {
+          visible: open || visible,
+          onVisibleChange: onOpenChange || onVisibleChange,
+        }
+      : {
+          open: open || visible,
+          onOpenChange: onOpenChange || onVisibleChange,
+        };
 
   return wrapSSR(
     <Dropdown

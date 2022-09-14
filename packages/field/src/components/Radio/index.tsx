@@ -1,4 +1,4 @@
-﻿import { useStyle } from '@ant-design/pro-utils';
+import { useStyle } from '@ant-design/pro-utils';
 import type { RadioGroupProps } from 'antd';
 import { ConfigProvider, Radio, Spin } from 'antd';
 import classNames from 'classnames';
@@ -37,7 +37,7 @@ const FieldRadio: ProFieldFC<GroupProps> = (
   // css
   const { wrapSSR, hashId } = useStyle('FieldRadioRadio', (token) => {
     return {
-      [`.${layoutClassName}-horizontal`]: {
+      [`.${layoutClassName}-vertical`]: {
         [`${token.antCls}-radio-wrapper`]: {
           display: 'block',
           marginInlineEnd: 0,
@@ -73,7 +73,7 @@ const FieldRadio: ProFieldFC<GroupProps> = (
         className={classNames(
           rest.fieldProps?.className,
           hashId,
-          `${layoutClassName}-${rest.fieldProps.layout || 'vertical'}`,
+          `${layoutClassName}-${rest.fieldProps.layout || 'horizontal'}`,
         )}
         options={options}
       />,

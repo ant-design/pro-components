@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.0.3](https://github.com/ant-design/pro-components/compare/@ant-design/pro-skeleton@2.0.2...@ant-design/pro-skeleton@2.0.3) (2022-09-09)
+
+### Bug Fixes
+
+- **layout:** support icon is a img ([e1b9700](https://github.com/ant-design/pro-components/commit/e1b9700b396eb8f54a87054849a18b992c3417c6))
+
 ## [2.0.2](https://github.com/ant-design/pro-components/compare/@ant-design/pro-skeleton@1.0.13...@ant-design/pro-skeleton@2.0.2) (2022-09-02)
 
 **Note:** Version bump only for package @ant-design/pro-skeleton

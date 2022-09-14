@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.0.4](https://github.com/ant-design/pro-components/compare/@ant-design/pro-utils@2.0.3...@ant-design/pro-utils@2.0.4) (2022-09-09)
+
+### Bug Fixes
+
+- **components:** fix compareVersions error ([9751208](https://github.com/ant-design/pro-components/commit/9751208a9ecb9a4120b7d4c8291b8df8a5da9144))
+- **layout:** rm rc-util/lib ([d7f7aa1](https://github.com/ant-design/pro-components/commit/d7f7aa18581a198bd48282e3e38cd227d3b53bda))
+
 ## [2.0.3](https://github.com/ant-design/pro-components/compare/@ant-design/pro-utils@2.0.2...@ant-design/pro-utils@2.0.3) (2022-09-08)
 
 ### Bug Fixes
