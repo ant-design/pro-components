@@ -45,7 +45,9 @@ export function useLegacyItems(
 
   return filter(childrenItems);
 }
-
+/**
+ * @deprecated ProComponets 3.0
+ */
 const TabPane: React.FC<ProCardTabPaneProps> = (props) => {
   const { getPrefixCls } = useContext(ConfigProvider.ConfigContext);
   // 如果是antd v5 则返回为空
