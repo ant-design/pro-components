@@ -228,107 +228,43 @@ describe('Field', () => {
     html.unmount();
   });
 
-  ['select', 'checkbox', 'radio', 'radioButton', 'cascader', 'treeSelect'].forEach((valueType) => {
-    it(`🐴 ${valueType} support render function`, async () => {
-      const html = render(
-        <Field
-          text="default"
-          valueType={valueType as 'radio'}
-          mode="read"
-          ref={domRef}
-          render={(text, _, dom) => <>pre{dom}</>}
-          valueEnum={{
-            default: { text: '关闭', status: 'Default' },
-            processing: { text: '运行中', status: 'Processing' },
-            success: { text: '已上线', status: 'Success' },
-            error: { text: '异常', status: 'Error' },
-          }}
-        />,
-      );
-      expect(html.baseElement.textContent).toBe('pre关闭');
-      html.unmount();
-    });
-
-    it(`🐴 ${valueType} support request function`, async () => {
-      const ref = React.createRef<{
-        fetchData: () => void;
-      }>();
-      const fn = jest.fn();
-      const html = render(
-        <Field
-          ref={ref}
-          text="default"
-          proFieldKey={valueType}
-          valueType={valueType as 'radio'}
-          mode="read"
-          request={async () => {
-            fn();
-            await waitTime(1000);
-            return [
-              { label: '全部', value: 'all' },
-              { label: '未解决', value: 'open' },
-              { label: '已解决', value: 'closed' },
-              { label: '解决中', value: 'processing' },
-            ];
-          }}
-        />,
-      );
-
-      await waitForComponentToPaint(html, 1200);
-      act(() => {
-        ref.current?.fetchData();
-      });
-      html.unmount();
-    });
-
-    it(`🐴 ${valueType} support renderFormItem function`, async () => {
-      const html = render(
-        <Field
-          text="default"
-          valueType={valueType as 'radio'}
-          mode="edit"
-          renderFormItem={() => <Input id="select" />}
-          valueEnum={{
-            0: { text: '关闭', status: 'Default' },
-            1: { text: '运行中', status: 'Processing' },
-            2: { text: '已上线', status: 'Success' },
-            3: { text: '异常', status: 'Error' },
-          }}
-        />,
-      );
-      await waitForComponentToPaint(html, 100);
-      expect(!!html.baseElement.querySelector('#select')).toBeTruthy();
-      html.unmount();
-    });
-
-    it('🐴 select mode=null', async () => {
-      const html = render(
-        <Field
-          text="default"
-          valueType={valueType as 'radio'}
-          // @ts-expect-error
-          mode="test"
-          valueEnum={{
-            0: { text: '关闭', status: 'Default' },
-            1: { text: '运行中', status: 'Processing' },
-            2: { text: '已上线', status: 'Success' },
-            3: { text: '异常', status: 'Error' },
-          }}
-        />,
-      );
-      expect(html.baseElement.textContent).toBeFalsy();
-      html.unmount();
-    });
-
-    if (!['checkbox', 'radio', 'radioButton'].includes(valueType)) {
-      it(`🐴 ${valueType} request loading with request`, async () => {
+  ['select', 'checkbox', 'radio', 'radioButton', 'cascader', 'treeSelect', 'segmented'].forEach(
+    (valueType) => {
+      it(`🐴 ${valueType} support render function`, async () => {
         const html = render(
           <Field
             text="default"
             valueType={valueType as 'radio'}
             mode="read"
+            ref={domRef}
+            render={(text, _, dom) => <>pre{dom}</>}
+            valueEnum={{
+              default: { text: '关闭', status: 'Default' },
+              processing: { text: '运行中', status: 'Processing' },
+              success: { text: '已上线', status: 'Success' },
+              error: { text: '异常', status: 'Error' },
+            }}
+          />,
+        );
+        expect(html.baseElement.textContent).toBe('pre关闭');
+        html.unmount();
+      });
+
+      it(`🐴 ${valueType} support request function`, async () => {
+        const ref = React.createRef<{
+          fetchData: () => void;
+        }>();
+        const fn = jest.fn();
+        const html = render(
+          <Field
+            ref={ref}
+            text="default"
+            proFieldKey={valueType}
+            valueType={valueType as 'radio'}
+            mode="read"
             request={async () => {
-              await waitTime(10000);
+              fn();
+              await waitTime(1000);
               return [
                 { label: '全部', value: 'all' },
                 { label: '未解决', value: 'open' },
@@ -338,19 +274,85 @@ describe('Field', () => {
             }}
           />,
         );
+
+        await waitForComponentToPaint(html, 1200);
+        act(() => {
+          ref.current?.fetchData();
+        });
+        html.unmount();
+      });
+
+      it(`🐴 ${valueType} support renderFormItem function`, async () => {
+        const html = render(
+          <Field
+            text="default"
+            valueType={valueType as 'radio'}
+            mode="edit"
+            renderFormItem={() => <Input id="select" />}
+            valueEnum={{
+              0: { text: '关闭', status: 'Default' },
+              1: { text: '运行中', status: 'Processing' },
+              2: { text: '已上线', status: 'Success' },
+              3: { text: '异常', status: 'Error' },
+            }}
+          />,
+        );
+        await waitForComponentToPaint(html, 100);
+        expect(!!html.baseElement.querySelector('#select')).toBeTruthy();
+        html.unmount();
+      });
+
+      it('🐴 select mode=null', async () => {
+        const html = render(
+          <Field
+            text="default"
+            valueType={valueType as 'radio'}
+            // @ts-expect-error
+            mode="test"
+            valueEnum={{
+              0: { text: '关闭', status: 'Default' },
+              1: { text: '运行中', status: 'Processing' },
+              2: { text: '已上线', status: 'Success' },
+              3: { text: '异常', status: 'Error' },
+            }}
+          />,
+        );
+        expect(html.baseElement.textContent).toBeFalsy();
+        html.unmount();
+      });
+
+      if (!['checkbox', 'radio', 'radioButton', 'segmented'].includes(valueType)) {
+        it(`🐴 ${valueType} request loading with request`, async () => {
+          const html = render(
+            <Field
+              text="default"
+              valueType={valueType as 'radio'}
+              mode="read"
+              request={async () => {
+                await waitTime(10000);
+                return [
+                  { label: '全部', value: 'all' },
+                  { label: '未解决', value: 'open' },
+                  { label: '已解决', value: 'closed' },
+                  { label: '解决中', value: 'processing' },
+                ];
+              }}
+            />,
+          );
+          expect(html.baseElement.textContent).toBe('default');
+          html.unmount();
+        });
+      }
+
+      it(`🐴 ${valueType} request loading without request`, async () => {
+        const html = render(
+          <Field text="default" valueType={valueType as 'radio'} mode="read" options={[]} />,
+        );
         expect(html.baseElement.textContent).toBe('default');
         html.unmount();
       });
-    }
-
-    it(`🐴 ${valueType} request loading without request`, async () => {
-      const html = render(
-        <Field text="default" valueType={valueType as 'radio'} mode="read" options={[]} />,
-      );
-      expect(html.baseElement.textContent).toBe('default');
-      html.unmount();
-    });
-  });
+    },
+  );
 
   it('🐴 select valueEnum and request=null ', async () => {
     const html = render(<Field text="default" valueType="select" mode="read" />);

@@ -3985,6 +3985,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/FieldSet/demos/c
             </div>
             <div
               class="ant-space-item"
+              style="margin-right: 32px;"
             >
               <div
                 class="ant-form-item"
@@ -4072,6 +4073,181 @@ exports[`form demos 📸 renders ./packages/form/src/components/FieldSet/demos/c
                             class="ant-upload-list ant-upload-list-text"
                           />
                         </span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div
+              class="ant-space-item"
+              style="margin-right: 32px;"
+            >
+              <div
+                class="ant-form-item"
+              >
+                <div
+                  class="ant-row ant-form-item-row"
+                >
+                  <div
+                    class="ant-col ant-form-item-label"
+                  >
+                    <label
+                      class=""
+                      for="validate_other_segmented"
+                      title="分段控制器"
+                    >
+                      分段控制器
+                    </label>
+                  </div>
+                  <div
+                    class="ant-col ant-form-item-control"
+                  >
+                    <div
+                      class="ant-form-item-control-input"
+                    >
+                      <div
+                        class="ant-form-item-control-input-content"
+                      >
+                        <div
+                          class="ant-segmented"
+                          id="validate_other_segmented"
+                        >
+                          <div
+                            class="ant-segmented-group"
+                          >
+                            <label
+                              class="ant-segmented-item ant-segmented-item-selected"
+                            >
+                              <input
+                                checked=""
+                                class="ant-segmented-item-input"
+                                type="radio"
+                              />
+                              <div
+                                class="ant-segmented-item-label"
+                                title="未解决"
+                              >
+                                未解决
+                              </div>
+                            </label>
+                            <label
+                              class="ant-segmented-item"
+                            >
+                              <input
+                                class="ant-segmented-item-input"
+                                type="radio"
+                              />
+                              <div
+                                class="ant-segmented-item-label"
+                                title="已解决"
+                              >
+                                已解决
+                              </div>
+                            </label>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div
+              class="ant-space-item"
+            >
+              <div
+                class="ant-form-item"
+              >
+                <div
+                  class="ant-row ant-form-item-row"
+                >
+                  <div
+                    class="ant-col ant-form-item-label"
+                  >
+                    <label
+                      class=""
+                      for="validate_other_segmented2"
+                      title="分段控制器-远程数据"
+                    >
+                      分段控制器-远程数据
+                    </label>
+                  </div>
+                  <div
+                    class="ant-col ant-form-item-control"
+                  >
+                    <div
+                      class="ant-form-item-control-input"
+                    >
+                      <div
+                        class="ant-form-item-control-input-content"
+                      >
+                        <div
+                          class="ant-segmented"
+                          id="validate_other_segmented2"
+                        >
+                          <div
+                            class="ant-segmented-group"
+                          >
+                            <label
+                              class="ant-segmented-item"
+                            >
+                              <input
+                                class="ant-segmented-item-input"
+                                type="radio"
+                              />
+                              <div
+                                class="ant-segmented-item-label"
+                                title="全部"
+                              >
+                                全部
+                              </div>
+                            </label>
+                            <label
+                              class="ant-segmented-item ant-segmented-item-selected"
+                            >
+                              <input
+                                checked=""
+                                class="ant-segmented-item-input"
+                                type="radio"
+                              />
+                              <div
+                                class="ant-segmented-item-label"
+                                title="未解决"
+                              >
+                                未解决
+                              </div>
+                            </label>
+                            <label
+                              class="ant-segmented-item"
+                            >
+                              <input
+                                class="ant-segmented-item-input"
+                                type="radio"
+                              />
+                              <div
+                                class="ant-segmented-item-label"
+                                title="已解决"
+                              >
+                                已解决
+                              </div>
+                            </label>
+                            <label
+                              class="ant-segmented-item"
+                            >
+                              <input
+                                class="ant-segmented-item-input"
+                                type="radio"
+                              />
+                              <div
+                                class="ant-segmented-item-label"
+                                title="解决中"
+                              >
+                                解决中
+                              </div>
+                            </label>
+                          </div>
+                        </div>
                       </div>
                     </div>
                   </div>

@@ -6,6 +6,7 @@ import {
   ProFormGroup,
   ProFormRadio,
   ProFormRate,
+  ProFormSegmented,
   ProFormSelect,
   ProFormSlider,
   ProFormSwitch,
@@ -61,6 +62,8 @@ const Demo = () => {
           switch: true,
           slider: 66,
           rate: 3.5,
+          segmented: 'open',
+          segmented2: 'open',
         }}
         onValuesChange={(_, values) => {
           console.log(values);
@@ -250,6 +253,24 @@ const Demo = () => {
           <ProFormRate name="rate" label="Rate" />
           <ProFormUploadButton name="pic" label="上传" />
           <ProFormUploadDragger name="drag-pic" label="拖拽上传" />
+          <ProFormSegmented
+            name="segmented"
+            label="分段控制器"
+            valueEnum={{
+              open: '未解决',
+              closed: '已解决',
+            }}
+          />
+          <ProFormSegmented
+            name="segmented2"
+            label="分段控制器-远程数据"
+            request={async () => [
+              { label: '全部', value: 'all' },
+              { label: '未解决', value: 'open' },
+              { label: '已解决', value: 'closed' },
+              { label: '解决中', value: 'processing' },
+            ]}
+          />
         </ProFormGroup>
       </ProForm>
     </div>
