@@ -253,10 +253,11 @@ const SearchSelect = <T,>(props: SearchSelectProps<T[]>, ref: any) => {
         if (resetAfterSelect) resetData();
       }}
       onFocus={(e) => {
+        onFocus?.(e);
+
         if (searchOnFocus) {
           fetchData('');
         }
-        onFocus?.(e);
       }}
     >
       {renderOptions(options || [])}

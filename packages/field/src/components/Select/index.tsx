@@ -7,11 +7,11 @@ import type {
   RequestOptionsType,
 } from '@ant-design/pro-utils';
 import {
-  useSafeState,
   nanoid,
   useDebounceValue,
   useDeepCompareEffect,
   useMountMergeState,
+  useSafeState,
   useStyle,
 } from '@ant-design/pro-utils';
 import type { SelectProps } from 'antd';
@@ -288,6 +288,7 @@ export const useFieldFetchData = (
     defaultKeyWords?: string;
     cacheForSwr?: boolean;
   },
+  shouldLoad: boolean = true,
 ): [boolean, SelectOptionType, (keyWord?: string) => void, () => void] => {
   const { cacheForSwr, fieldProps } = props;
 
@@ -376,14 +377,19 @@ export const useFieldFetchData = (
 
       return swrKey;
     },
-    (_, params, kw) =>
-      props.request!(
-        {
-          ...params,
-          keyWords: kw,
-        },
-        props,
-      ),
+    (_, params, kw) => {
+      if (shouldLoad) {
+        return props.request!(
+          {
+            ...params,
+            keyWords: kw,
+          },
+          props,
+        );
+      }
+
+      return;
+    },
     {
       revalidateIfStale: !cacheForSwr,
       // 打开 cacheForSwr 的时候才应该支持两个功能
@@ -479,7 +485,8 @@ const FieldSelect: ProFieldFC<
     keyWordsRef.current = fieldProps?.searchValue;
   }, [fieldProps?.searchValue]);
 
-  const [loading, options, fetchData, resetData] = useFieldFetchData(props);
+  const [shouldLoad, setShouldLoad] = useState(!fieldProps.searchOnFocus);
+  const [loading, options, fetchData, resetData] = useFieldFetchData(props, shouldLoad);
   const size = useContext(ConfigProvider.SizeContext);
   useImperativeHandle(ref, () => ({
     ...(inputRef.current || {}),
@@ -578,6 +585,11 @@ const FieldSelect: ProFieldFC<
           placeholder={intl.getMessage('tableForm.selectPlaceholder', '请选择')}
           label={label}
           {...fieldProps}
+          onFocus={(e) => {
+            setShouldLoad(true);
+
+            fieldProps.onFocus?.(e);
+          }}
           options={options}
         />
       );
