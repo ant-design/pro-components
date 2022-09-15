@@ -343,6 +343,7 @@ export default () => {
               主操作
             </Button>,
           ]}
+          subTitle="简单的描述"
           footer={[
             <Button key="3">重置</Button>,
             <Button key="2" type="primary">

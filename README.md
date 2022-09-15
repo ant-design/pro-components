@@ -27,15 +27,7 @@ Any type of contribution is welcome, here are some examples of how you may contr
 
 | Components | Downloads | Downloads a version |
 | --- | --- | --- |
-| pro-components | [![components](https://img.shields.io/npm/dw/@ant-design/pro-components.svg)](https://www.npmjs.com/package/@ant-design/pro-components) | [![npm package](https://img.shields.io/npm/v/@ant-design/pro-components.svg?style=flat-square?style=flat-square)](https://www.npmjs.com/package/@ant-design/pro-layout) |
-| pro-layout | [![layout](https://img.shields.io/npm/dw/@ant-design/pro-layout.svg)](https://www.npmjs.com/package/@ant-design/pro-layout) | [![npm package](https://img.shields.io/npm/v/@ant-design/pro-layout.svg?style=flat-square?style=flat-square)](https://www.npmjs.com/package/@ant-design/pro-layout) |
-| pro-table | [![table](https://img.shields.io/npm/dw/@ant-design/pro-table.svg)](https://www.npmjs.com/package/@ant-design/pro-table) | [![npm package](https://img.shields.io/npm/v/@ant-design/pro-table.svg?style=flat-square?style=flat-square)](https://www.npmjs.com/package/@ant-design/pro-table) |
-| pro-field | [![field](https://img.shields.io/npm/dw/@ant-design/pro-field.svg)](https://www.npmjs.com/package/@ant-design/pro-field) | [![npm package](https://img.shields.io/npm/v/@ant-design/pro-field.svg?style=flat-square?style=flat-square)](https://www.npmjs.com/package/@ant-design/pro-field) |
-| pro-form | [![form](https://img.shields.io/npm/dw/@ant-design/pro-form.svg)](https://www.npmjs.com/package/@ant-design/pro-form) | [![npm package](https://img.shields.io/npm/v/@ant-design/pro-form.svg?style=flat-square?style=flat-square)](https://www.npmjs.com/package/@ant-design/pro-form) |
-| pro-skeleton | [![skeleton](https://img.shields.io/npm/dw/@ant-design/pro-skeleton.svg)](https://www.npmjs.com/package/@ant-design/pro-skeleton) | [![npm package](https://img.shields.io/npm/v/@ant-design/pro-list.svg?style=flat-square?style=flat-square)](https://www.npmjs.com/package/@ant-design/pro-skeleton) |
-| pro-list | [![list](https://img.shields.io/npm/dw/@ant-design/pro-list.svg)](https://www.npmjs.com/package/@ant-design/pro-list) | [![npm package](https://img.shields.io/npm/v/@ant-design/pro-list.svg?style=flat-square?style=flat-square)](https://www.npmjs.com/package/@ant-design/pro-list) |
-| pro-card | [![card](https://img.shields.io/npm/dw/@ant-design/pro-card.svg)](https://www.npmjs.com/package/@ant-design/pro-card) | [![npm package](https://img.shields.io/npm/v/@ant-design/pro-card.svg?style=flat-square?style=flat-square)](https://www.npmjs.com/package/@ant-design/pro-card) |
-| pro-descriptions | [![descriptions](https://img.shields.io/npm/dw/@ant-design/pro-card.svg)](https://www.npmjs.com/package/@ant-design/pro-descriptions) | [![npm package](https://img.shields.io/npm/v/@ant-design/pro-descriptions.svg?style=flat-square?style=flat-square)](https://www.npmjs.com/package/@ant-design/pro-descriptions) |
+| pro-components | [![components](https://img.shields.io/npm/dw/@ant-design/pro-components.svg)](https://www.npmjs.com/package/@ant-design/pro-components) | [![npm package](https://img.shields.io/npm/v/@ant-design/pro-components.svg?style=flat-square?style=flat-square)](https://www.npmjs.com/package/@ant-design/pro-components) |
 
 ## LICENSE
 
