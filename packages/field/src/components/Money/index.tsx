@@ -115,13 +115,13 @@ const DefaultPrecisionCont = 2;
 const InputNumberPopover = React.forwardRef<
   any,
   InputNumberProps & {
-    visible?: boolean;
+    open?: boolean;
     content?: (props: InputNumberProps) => React.ReactNode;
   } & {
     numberFormatOptions?: any;
     numberPopoverRender?: any;
   }
->(({ content, numberFormatOptions, numberPopoverRender, visible, ...rest }, ref) => {
+>(({ content, numberFormatOptions, numberPopoverRender, open, ...rest }, ref) => {
   const [value, onChange] = useMergedState<any>(() => rest.defaultValue, {
     value: rest.value,
     onChange: rest.onChange,
@@ -132,7 +132,7 @@ const InputNumberPopover = React.forwardRef<
   });
 
   const props = {
-    visible: dom ? visible : false,
+    open: dom ? open : false,
   };
 
   return (
@@ -272,6 +272,7 @@ const FieldMoney: ProFieldFC<FieldMoneyProps> = (
           'customSymbol',
           'moneySymbol',
           'visible',
+          'open',
         ])}
       />
     );
