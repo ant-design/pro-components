@@ -392,6 +392,11 @@ const BaseProLayout: React.FC<ProLayoutProps> = (props) => {
     return `pro-layout-${layoutIndex}`;
   });
 
+  /**
+   * 处理国际化相关 formatMessage
+   * 如果有用户配置的以用户为主
+   * 如果没有用自己实现的
+   */
   const formatMessage = useCallback(
     ({ id, defaultMessage, ...restParams }: { id: string; defaultMessage?: string }): string => {
       if (propsFormatMessage) {
