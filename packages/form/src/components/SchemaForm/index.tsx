@@ -120,6 +120,7 @@ function BetaSchemaForm<T, ValueType = 'text'>(props: FormSchema<T, ValueType>) 
             params: originItem.params,
             transform: originItem.transform,
             convertValue: originItem.convertValue,
+            debounceTime: originItem.debounceTime,
           });
 
           item.key = item.key || item.dataIndex?.toString() || index;
