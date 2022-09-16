@@ -10999,6 +10999,12 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/base.tsx correctl
                       >
                         一一级列表页面
                       </span>
+                      <span
+                        class="ant-page-header-heading-sub-title "
+                        title="简单的描述"
+                      >
+                        简单的描述
+                      </span>
                     </div>
                     <span
                       class="ant-page-header-heading-extra "

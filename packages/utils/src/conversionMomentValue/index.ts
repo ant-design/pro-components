@@ -3,7 +3,6 @@ import dayjs from 'dayjs';
 import get from 'rc-util/lib/utils/get';
 import { isNil } from '../isNil';
 import type { ProFieldValueType } from '../typing';
-
 import quarterOfYear from 'dayjs/plugin/quarterOfYear';
 
 dayjs.extend(quarterOfYear);
@@ -52,6 +51,13 @@ export function isPlainObject(o: { constructor: any }) {
 }
 
 /**
+ * 一个比较hack的moment判断工具
+ * @param value
+ * @returns
+ */
+const isMoment = (value: any) => !!value?._isAMomentObject;
+
+/**
  * 根据不同的格式转化 dayjs
  *
  * @param value
@@ -66,7 +72,7 @@ export const convertMoment = (
   if (!dateFormatter) {
     return value;
   }
-  if (dayjs.isDayjs(value)) {
+  if (dayjs.isDayjs(value) || isMoment(value)) {
     if (dateFormatter === 'number') {
       return value.valueOf();
     }
@@ -133,7 +139,9 @@ export const conversionMomentValue = <T extends {} = any>(
       // 不是数组
       !Array.isArray(itemValue) &&
       // 不是 dayjs
-      !dayjs.isDayjs(itemValue)
+      !dayjs.isDayjs(itemValue) &&
+      // 不是 moment
+      !isMoment(itemValue)
     ) {
       tmpValue[key] = conversionMomentValue(itemValue, dateFormatter, valueTypeMap, omitNil, [key]);
       return;
@@ -141,7 +149,7 @@ export const conversionMomentValue = <T extends {} = any>(
     // 处理 FormList 的 value
     if (Array.isArray(itemValue)) {
       tmpValue[key] = itemValue.map((arrayValue, index) => {
-        if (dayjs.isDayjs(arrayValue)) {
+        if (dayjs.isDayjs(arrayValue) || isMoment(itemValue)) {
           return convertMoment(arrayValue, dateFormat || dateFormatter, valueType);
         }
         return conversionMomentValue(arrayValue, dateFormatter, valueTypeMap, omitNil, [

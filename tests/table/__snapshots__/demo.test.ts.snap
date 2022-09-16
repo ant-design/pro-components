@@ -35987,6 +35987,27 @@ exports[`table demos 📸 renders ./packages/table/src/demos/lightfilter.tsx cor
                 </div>
                 <div
                   class="ant-space-item"
+                  style="margin-right: 16px;"
+                >
+                  <div
+                    class="ant-space ant-space-horizontal ant-space-align-center"
+                  >
+                    <div
+                      class="ant-space-item"
+                    >
+                      <button
+                        class="ant-btn ant-btn-default"
+                        type="button"
+                      >
+                        <span>
+                          查看日志
+                        </span>
+                      </button>
+                    </div>
+                  </div>
+                </div>
+                <div
+                  class="ant-space-item"
                 >
                   <div
                     class="ant-space ant-space-horizontal ant-space-align-center ant-pro-table-list-toolbar-setting-items "
