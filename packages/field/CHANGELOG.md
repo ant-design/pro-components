@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.1.1](https://github.com/ant-design/pro-components/compare/@ant-design/pro-field@2.1.0...@ant-design/pro-field@2.1.1) (2022-09-16)
+
+### Bug Fixes
+
+- **table:** fix dateformat no work error ([c30c107](https://github.com/ant-design/pro-components/commit/c30c107056e177d0afff6c7b7885a29b104c7d03))
+
 # [2.1.0](https://github.com/ant-design/pro-components/compare/@ant-design/pro-field@2.0.6...@ant-design/pro-field@2.1.0) (2022-09-14)
 
 ### Bug Fixes
