@@ -146,7 +146,7 @@ const Card = React.forwardRef((props: CardProps, ref: any) => {
         [`${prefixCls}-col-${span}`]: typeof span === 'number' && span >= 0 && span <= 24,
       });
 
-      return wrapSSR(
+      const el = wrapSSR(
         <div
           style={{
             ...colSpanStyle,
@@ -159,13 +159,12 @@ const Card = React.forwardRef((props: CardProps, ref: any) => {
               paddingBlockEnd: verticalGutter / 2,
             }),
           }}
-          // eslint-disable-next-line react/no-array-index-key
-          key={`pro-card-col-${element?.key || index}`}
           className={columnClassName}
         >
           {React.cloneElement(element)}
         </div>,
       );
+      return React.cloneElement(el, { key: `pro-card-col-${element?.key || index}` });
     }
     return element;
   });
