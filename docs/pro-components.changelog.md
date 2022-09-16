@@ -8,6 +8,12 @@ group:
   path: /
 ---
 
+## @ant-design/pro-components@2.3.9
+
+`2022-09-16`
+
+- fix(table): fix dateformat no work error. [c30c107](https://github.com/ant-design/pro-components/commit/c30c107)
+
 ## @ant-design/pro-components@2.3.8
 
 `2022-09-14`
