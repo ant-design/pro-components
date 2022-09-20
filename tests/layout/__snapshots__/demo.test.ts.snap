@@ -8338,11 +8338,11 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/antd@4MenuIconFor
                   role="none"
                 >
                   <div
-                    aria-controls="rc-menu-uuid-84044-3-/8df8bfdcc1ac18663f1991991ea0a32839cd657dd0af0e3f34abb3f49ddc00aa-popup"
+                    aria-controls="rc-menu-uuid-84044-3-/20de01dc090a7d561798794cf8b98e2dd4eb9b77d36f072c2f1748f24798e07f-popup"
                     aria-expanded="true"
                     aria-haspopup="true"
                     class="ant-menu-submenu-title"
-                    data-menu-id="rc-menu-uuid-84044-3-/8df8bfdcc1ac18663f1991991ea0a32839cd657dd0af0e3f34abb3f49ddc00aa"
+                    data-menu-id="rc-menu-uuid-84044-3-/20de01dc090a7d561798794cf8b98e2dd4eb9b77d36f072c2f1748f24798e07f"
                     role="menuitem"
                     style="padding-left: 16px;"
                     tabindex="-1"
@@ -8391,7 +8391,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/antd@4MenuIconFor
                   <ul
                     class="ant-menu ant-menu-sub ant-menu-inline"
                     data-menu-list="true"
-                    id="rc-menu-uuid-84044-3-/8df8bfdcc1ac18663f1991991ea0a32839cd657dd0af0e3f34abb3f49ddc00aa-popup"
+                    id="rc-menu-uuid-84044-3-/20de01dc090a7d561798794cf8b98e2dd4eb9b77d36f072c2f1748f24798e07f-popup"
                   >
                     <li
                       class="ant-menu-submenu ant-menu-submenu-inline ant-pro-base-menu-submenu ant-menu-submenu-open ant-menu-submenu-selected"

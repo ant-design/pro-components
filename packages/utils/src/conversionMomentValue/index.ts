@@ -149,7 +149,7 @@ export const conversionMomentValue = <T extends {} = any>(
     // 处理 FormList 的 value
     if (Array.isArray(itemValue)) {
       tmpValue[key] = itemValue.map((arrayValue, index) => {
-        if (dayjs.isDayjs(arrayValue) || isMoment(itemValue)) {
+        if (dayjs.isDayjs(arrayValue) || isMoment(arrayValue)) {
           return convertMoment(arrayValue, dateFormat || dateFormatter, valueType);
         }
         return conversionMomentValue(arrayValue, dateFormatter, valueTypeMap, omitNil, [
