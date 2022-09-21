@@ -5,6 +5,7 @@ import { act, cleanup, fireEvent, render } from '@testing-library/react';
 import { InputNumber } from 'antd';
 import React from 'react';
 import { waitForComponentToPaint } from '../util';
+import crypto from 'crypto';
 
 type DataSourceType = {
   id: number | string;
@@ -1033,5 +1034,337 @@ describe('EditorProTable', () => {
     });
     expect(valuesChangeFn).toBeCalledTimes(1);
     expect(valuesChangeFn).toBeCalledWith('test');
+  });
+
+  it('📝 EditableProTable add new child line when position is top and tree level > 1 and parent has children', async () => {
+    const fn = jest.fn();
+    const wrapper = render(
+      <EditableProTable<DataSourceType>
+        rowKey="id"
+        editable={{
+          onChange: (keys) => fn(keys[0]),
+        }}
+        defaultExpandAllRows={true}
+        recordCreatorProps={{
+          parentKey: () => 6246747901,
+          position: 'top',
+          record: {
+            id: 555,
+          },
+          id: 'addEditRecord',
+        }}
+        columns={columns}
+        value={[
+          {
+            id: 624674790,
+            title: '🧐 [问题] build 后还存在 es6 的代码（Umi@2.13.13）',
+            labels: [{ name: 'question', color: 'success' }],
+            state: 'open',
+            time: {
+              created_at: '1590479665000',
+            },
+            children: [
+              {
+                id: 6246747901,
+                title: '嵌套数据的编辑',
+                labels: [{ name: 'question', color: 'success' }],
+                state: 'closed',
+                time: {
+                  created_at: '1590479665000',
+                },
+                children: [
+                  {
+                    id: 62467479011,
+                    title: '嵌套数据的编辑1',
+                    labels: [{ name: 'question', color: 'success' }],
+                    state: 'closed',
+                    time: {
+                      created_at: '1590479665000',
+                    },
+                  },
+                ],
+              },
+            ],
+          },
+        ]}
+      />,
+    );
+    await waitForComponentToPaint(wrapper, 1000);
+
+    await act(async () => {
+      (await wrapper.queryAllByText('添加一行数据')).at(0)?.click();
+    });
+
+    await waitForComponentToPaint(wrapper, 1000);
+
+    expect(fn).toBeCalledWith(555);
+
+    const { dataset } = wrapper.container.querySelectorAll(
+      '.ant-table-tbody tr.ant-table-row',
+    )[2] as HTMLElement;
+
+    expect(dataset.rowKey).toBe('555');
+    wrapper.unmount();
+  });
+
+  it('📝 EditableProTable add new child line when position is top and tree level > 1 and parent has no children', async () => {
+    const fn = jest.fn();
+    const wrapper = render(
+      <EditableProTable<DataSourceType>
+        rowKey="id"
+        editable={{
+          onChange: (keys) => fn(keys[0]),
+        }}
+        defaultExpandAllRows={true}
+        recordCreatorProps={{
+          parentKey: () => 6246747901,
+          position: 'top',
+          record: {
+            id: 555,
+          },
+          id: 'addEditRecord',
+        }}
+        columns={columns}
+        value={[
+          {
+            id: 624674790,
+            title: '🧐 [问题] build 后还存在 es6 的代码（Umi@2.13.13）',
+            labels: [{ name: 'question', color: 'success' }],
+            state: 'open',
+            time: {
+              created_at: '1590479665000',
+            },
+            children: [
+              {
+                id: 6246747901,
+                title: '嵌套数据的编辑',
+                labels: [{ name: 'question', color: 'success' }],
+                state: 'closed',
+                time: {
+                  created_at: '1590479665000',
+                },
+              },
+            ],
+          },
+        ]}
+      />,
+    );
+    await waitForComponentToPaint(wrapper, 1000);
+
+    await act(async () => {
+      (await wrapper.queryAllByText('添加一行数据')).at(0)?.click();
+    });
+
+    await waitForComponentToPaint(wrapper, 1000);
+
+    expect(fn).toBeCalledWith(555);
+
+    const { dataset } = wrapper.container.querySelectorAll(
+      '.ant-table-tbody tr.ant-table-row',
+    )[2] as HTMLElement;
+
+    expect(dataset.rowKey).toBe('555');
+    wrapper.unmount();
+  });
+
+  it('📝 EditableProTable add new child line when position <> top and tree level > 1 and parent has children', async () => {
+    const fn = jest.fn();
+    const wrapper = render(
+      <EditableProTable<DataSourceType>
+        rowKey="id"
+        editable={{
+          onChange: (keys) => fn(keys[0]),
+        }}
+        defaultExpandAllRows={true}
+        recordCreatorProps={{
+          parentKey: () => 6246747901,
+          record: {
+            id: 555,
+          },
+          id: 'addEditRecord',
+        }}
+        columns={columns}
+        value={[
+          {
+            id: 624674790,
+            title: '🧐 [问题] build 后还存在 es6 的代码（Umi@2.13.13）',
+            labels: [{ name: 'question', color: 'success' }],
+            state: 'open',
+            time: {
+              created_at: '1590479665000',
+            },
+            children: [
+              {
+                id: 6246747901,
+                title: '嵌套数据的编辑',
+                labels: [{ name: 'question', color: 'success' }],
+                state: 'closed',
+                time: {
+                  created_at: '1590479665000',
+                },
+                children: [
+                  {
+                    id: 62467479011,
+                    title: '嵌套数据的编辑1',
+                    labels: [{ name: 'question', color: 'success' }],
+                    state: 'closed',
+                    time: {
+                      created_at: '1590479665000',
+                    },
+                  },
+                ],
+              },
+            ],
+          },
+        ]}
+      />,
+    );
+    await waitForComponentToPaint(wrapper, 1000);
+
+    await act(async () => {
+      (await wrapper.queryAllByText('添加一行数据')).at(0)?.click();
+    });
+
+    await waitForComponentToPaint(wrapper, 1000);
+
+    expect(fn).toBeCalledWith(555);
+
+    const { dataset } = wrapper.container.querySelectorAll(
+      '.ant-table-tbody tr.ant-table-row',
+    )[3] as HTMLElement;
+
+    expect(dataset.rowKey).toBe('555');
+    wrapper.unmount();
+  });
+
+  it('📝 EditableProTable add new child line when position <> top and tree level > 1 and parent has no children', async () => {
+    const fn = jest.fn();
+    const wrapper = render(
+      <EditableProTable<DataSourceType>
+        rowKey="id"
+        editable={{
+          onChange: (keys) => fn(keys[0]),
+        }}
+        defaultExpandAllRows={true}
+        recordCreatorProps={{
+          parentKey: () => 6246747901,
+          record: {
+            id: 555,
+          },
+          id: 'addEditRecord',
+        }}
+        columns={columns}
+        value={[
+          {
+            id: 624674790,
+            title: '🧐 [问题] build 后还存在 es6 的代码（Umi@2.13.13）',
+            labels: [{ name: 'question', color: 'success' }],
+            state: 'open',
+            time: {
+              created_at: '1590479665000',
+            },
+            children: [
+              {
+                id: 6246747901,
+                title: '嵌套数据的编辑',
+                labels: [{ name: 'question', color: 'success' }],
+                state: 'closed',
+                time: {
+                  created_at: '1590479665000',
+                },
+              },
+            ],
+          },
+        ]}
+      />,
+    );
+    await waitForComponentToPaint(wrapper, 1000);
+
+    await act(async () => {
+      (await wrapper.queryAllByText('添加一行数据')).at(0)?.click();
+    });
+
+    await waitForComponentToPaint(wrapper, 1000);
+
+    expect(fn).toBeCalledWith(555);
+
+    const { dataset } = wrapper.container.querySelectorAll(
+      '.ant-table-tbody tr.ant-table-row',
+    )[2] as HTMLElement;
+
+    expect(dataset.rowKey).toBe('555');
+    wrapper.unmount();
+  });
+
+  it('📝 EditableProTable add new nested child line with Random Condition', async () => {
+    const nodeTpl: DataSourceType = {
+      id: 'A',
+      title: '🧐 [问题] build 后还存在 es6 的代码（Umi@2.13.13）',
+      labels: [{ name: 'question', color: 'success' }],
+      state: 'open',
+      time: {
+        created_at: '1590479665000',
+      },
+    };
+    const fn = jest.fn();
+    const testFn = async () => {
+      const depth = crypto.randomInt(2, 10);
+      const topOrBottom = crypto.randomInt(100) > 50 ? 'top' : 'bottom';
+      const hasChildren = crypto.randomInt(100) > 50;
+      const node = Object.assign({}, nodeTpl);
+      let parent = node;
+
+      for (let i = 1; i < depth; i++) {
+        const child = Object.assign({}, nodeTpl, { id: `${parent.id}-${i}` });
+        parent.children = [child];
+        parent = child;
+      }
+      if (hasChildren) {
+        const child = Object.assign({}, nodeTpl, { id: `${parent.id}-placeholder` });
+        parent.children = [child];
+      }
+      const recordId = `${parent.id}-${depth}`;
+
+      console.log(
+        `当前测试参数, Tree层级: ${depth}, 方向: ${topOrBottom}, 目标父节点是否已有子元素: ${hasChildren}`,
+      );
+
+      const wrapper = render(
+        <EditableProTable<DataSourceType>
+          rowKey="id"
+          expandable={{ defaultExpandAllRows: true }}
+          editable={{
+            onChange: (keys) => fn(keys[0]),
+          }}
+          recordCreatorProps={{
+            parentKey: () => parent.id,
+            position: topOrBottom,
+            record: {
+              id: recordId,
+            },
+            id: 'addEditRecord',
+          }}
+          columns={columns}
+          value={[node]}
+        />,
+      );
+      await waitForComponentToPaint(wrapper, 1000);
+      await act(async () => {
+        (await wrapper.queryAllByText('添加一行数据')).at(0)?.click();
+      });
+      await waitForComponentToPaint(wrapper, 1000);
+
+      expect(fn).toBeCalledWith(recordId);
+      const trDoms = wrapper.container.querySelectorAll('.ant-table-tbody tr.ant-table-row');
+      expect(trDoms.length).toBe((hasChildren ? depth + 1 : depth) + 1);
+      const index = topOrBottom !== 'top' && hasChildren ? depth + 1 : depth;
+      const { dataset } = trDoms[index] as HTMLElement;
+      expect(dataset.rowKey).toBe(recordId);
+      wrapper.unmount();
+    };
+
+    for (let i = 0; i < 5; i++) {
+      await testFn();
+    }
   });
 });
