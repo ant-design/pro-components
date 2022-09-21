@@ -1,17 +1,19 @@
 import type { ProCardProps } from '@ant-design/pro-card';
 import type { ActionType, ProColumnType, ProTableProps } from '@ant-design/pro-table';
-import ProTable from '@ant-design/pro-table';
-import type { ListProps, PaginationProps } from 'antd';
+import 'antd/es/list/style';
+
 import { ConfigProvider } from 'antd';
-import type { LabelTooltipType } from 'antd/es/form/FormItemLabel';
 import classNames from 'classnames';
 import React, { useContext, useImperativeHandle, useMemo, useRef } from 'react';
-import type { ItemProps } from './Item';
+
+import ProTable from '@ant-design/pro-table';
+
 import ListView from './ListView';
 import { useStyle } from './style/index';
 
-import 'antd/es/list/style';
-
+import type { ListProps, PaginationProps } from 'antd';
+import type { LabelTooltipType } from 'antd/es/form/FormItemLabel';
+import type { ItemProps } from './Item';
 export type AntdListProps<RecordType> = Omit<ListProps<RecordType>, 'rowKey'>;
 
 export type ProListMeta<T> = Pick<
@@ -50,7 +52,7 @@ export type BaseProListMetas<T = any> = {
   content?: ProListMeta<T>;
   actions?: ProListMetaAction<T>;
 };
-export type ProListMetas<T = any> = BaseProListMetas & {
+export type ProListMetas<T = any> = BaseProListMetas<T> & {
   [key in keyof T]?: IsAny<T> extends true ? ProListMetaAction<T> : ProListMeta<T>;
 };
 
