@@ -36,6 +36,8 @@ const genProLayoutBaseMenuStyle: GenerateStyle<
       },
       [`${token.componentCls}-item-icon`]: {
         height: '14px',
+        width: '14px',
+        opacity: '0.85',
         '.anticon': {
           lineHeight: '14px',
           height: '14px',
