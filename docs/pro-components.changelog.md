@@ -8,6 +8,15 @@ group:
   path: /
 ---
 
+## @ant-design/pro-components@2.3.10
+
+`2022-09-21`
+
+- fix(layout): fix colorPrimary change no rerender style error. [be6ab65](https://github.com/ant-design/pro-components/commit/be6ab65)
+- feat(layout): remove routers types. [6c54c7e](https://github.com/ant-design/pro-components/commit/6c54c7e)
+- fix(table): use better style import funtion. [8ce8d5a](https://github.com/ant-design/pro-components/commit/8ce8d5a)
+- fix(card): fixed col width digit lost (#5958). [#5958](https://github.com/ant-design/pro-components/pull/#5958) [@ONLY-yours](https://github.com/ONLY-yours)
+
 ## @ant-design/pro-components@2.3.9
 
 `2022-09-16`
