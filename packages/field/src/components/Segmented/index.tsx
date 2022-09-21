@@ -3,6 +3,9 @@ import React, { useImperativeHandle, useRef } from 'react';
 import type { ProFieldFC } from '../../index';
 import { FieldSelectProps, ObjToMap, proFieldParsingText, useFieldFetchData } from '../Select';
 
+import 'antd/es/segmented/style';
+import 'antd/es/spin/style';
+
 /**
  * Segmented https://ant.design/components/segmented-cn/
  *
