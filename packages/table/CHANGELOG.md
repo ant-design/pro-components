@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [3.0.9](https://github.com/ant-design/pro-components/compare/@ant-design/pro-table@3.0.8...@ant-design/pro-table@3.0.9) (2022-09-21)
+
+### Bug Fixes
+
+- **table:** use better style import funtion ([8ce8d5a](https://github.com/ant-design/pro-components/commit/8ce8d5a689162fb448f6980f3f3da63934baebcb))
+
 ## [3.0.8](https://github.com/ant-design/pro-components/compare/@ant-design/pro-table@3.0.7...@ant-design/pro-table@3.0.8) (2022-09-16)
 
 ### Bug Fixes

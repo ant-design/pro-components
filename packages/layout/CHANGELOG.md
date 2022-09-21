@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [7.1.0](https://github.com/ant-design/pro-components/compare/@ant-design/pro-layout@7.0.7...@ant-design/pro-layout@7.1.0) (2022-09-21)
+
+### Bug Fixes
+
+- **layout:** fix colorPrimary change no rerender style error ([be6ab65](https://github.com/ant-design/pro-components/commit/be6ab651cb1832c96cb0a1e1bafa1668795a0ceb))
+
+### Features
+
+- **layout:** remove routers types ([6c54c7e](https://github.com/ant-design/pro-components/commit/6c54c7ec42fd4ae1cab7b990386eb80e2c4273b4))
+
 ## [7.0.7](https://github.com/ant-design/pro-components/compare/@ant-design/pro-layout@7.0.6...@ant-design/pro-layout@7.0.7) (2022-09-16)
 
 ### Bug Fixes
