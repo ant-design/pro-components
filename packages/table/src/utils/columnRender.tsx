@@ -124,7 +124,7 @@ export function columnRender<T>({
   if (mode === 'edit') {
     if (columnProps.valueType === 'option') {
       return (
-        <Space>
+        <Space size={16}>
           {editableUtils.actionRender({
             ...rowData,
             index: columnProps.index || index,
