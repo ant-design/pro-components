@@ -68,7 +68,6 @@ export type MenuDataItem = {
 
 export type Route = Omit<MenuDataItem, 'routes'> & {
   children?: Route[];
-  routes?: Route[];
 };
 
 export type WithFalse<T> = T | false;
