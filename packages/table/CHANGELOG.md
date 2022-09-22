@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [3.0.10](https://github.com/ant-design/pro-components/compare/@ant-design/pro-table@3.0.9...@ant-design/pro-table@3.0.10) (2022-09-22)
+
+### Bug Fixes
+
+- **table:** option button alignment problem ([#5959](https://github.com/ant-design/pro-components/issues/5959)) ([74f5d3a](https://github.com/ant-design/pro-components/commit/74f5d3a9f7884e79427a1d651fa56a67f5c4a34d))
+
 ## [3.0.9](https://github.com/ant-design/pro-components/compare/@ant-design/pro-table@3.0.8...@ant-design/pro-table@3.0.9) (2022-09-21)
 
 ### Bug Fixes

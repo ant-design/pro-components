@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.2.1](https://github.com/ant-design/pro-components/compare/@ant-design/pro-form@2.2.0...@ant-design/pro-form@2.2.1) (2022-09-22)
+
+### Bug Fixes
+
+- **form:** export FormListContext ([#5968](https://github.com/ant-design/pro-components/issues/5968)) ([1e7b86e](https://github.com/ant-design/pro-components/commit/1e7b86e7a0e3e31961b067633e323075284bc443))
+
 # [2.2.0](https://github.com/ant-design/pro-components/compare/@ant-design/pro-form@2.1.1...@ant-design/pro-form@2.2.0) (2022-09-21)
 
 ### Features

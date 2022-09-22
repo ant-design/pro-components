@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.1.3](https://github.com/ant-design/pro-components/compare/@ant-design/pro-field@2.1.2...@ant-design/pro-field@2.1.3) (2022-09-22)
+
+### Bug Fixes
+
+- **field:** fix ProFormSegmented style ([#5969](https://github.com/ant-design/pro-components/issues/5969)) ([3cd6bf1](https://github.com/ant-design/pro-components/commit/3cd6bf1b54c20046fc4c9b91bf23a4d410f8738b))
+
 ## [2.1.2](https://github.com/ant-design/pro-components/compare/@ant-design/pro-field@2.1.1...@ant-design/pro-field@2.1.2) (2022-09-21)
 
 **Note:** Version bump only for package @ant-design/pro-field

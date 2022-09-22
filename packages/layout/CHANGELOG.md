@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [7.1.2](https://github.com/ant-design/pro-components/compare/@ant-design/pro-layout@7.1.1...@ant-design/pro-layout@7.1.2) (2022-09-22)
+
+### Bug Fixes
+
+- **layout:** awlay use route.children ([44b6fe1](https://github.com/ant-design/pro-components/commit/44b6fe150a64c0f5cd5070944907fcfff95e4bfb))
+
 ## [7.1.1](https://github.com/ant-design/pro-components/compare/@ant-design/pro-layout@7.1.0...@ant-design/pro-layout@7.1.1) (2022-09-21)
 
 ### Bug Fixes
