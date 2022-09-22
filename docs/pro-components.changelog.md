@@ -8,6 +8,18 @@ group:
   path: /
 ---
 
+## @ant-design/pro-components@2.3.12
+
+`2022-09-22`
+
+- fix(layout): awlay use route.children. [44b6fe1](https://github.com/ant-design/pro-components/commit/44b6fe1)
+- fix(form): export FormListContext (#5968). [#5968](https://github.com/ant-design/pro-components/pull/#5968) [@houkunlin](https://github.com/houkunlin)
+- fix(list): 修复类型问题：未将 RecordType 的泛型传入 meta 中 (#5962). [#5962](https://github.com/ant-design/pro-components/pull/#5962) [@SoraYama](https://github.com/SoraYama)
+- fix(table): option button alignment problem (#5959). [#5959](https://github.com/ant-design/pro-components/pull/#5959) [@GoodbyeNJN](https://github.com/GoodbyeNJN)
+- fix(table): useEditableArray 修复无法正确添加深度大于 1 的子记录 (#5949). [#5949](https://github.com/ant-design/pro-components/pull/#5949) [@zd5043039119](https://github.com/zd5043039119)
+- fix(field): fix ProFormSegmented style (#5969). [#5969](https://github.com/ant-design/pro-components/pull/#5969) [@DBvc](https://github.com/DBvc)
+- fix(card): card key props warning (#5941). [#5941](https://github.com/ant-design/pro-components/pull/#5941) [@zzcbnz](https://github.com/zzcbnz)
+
 ## @ant-design/pro-components@2.3.10
 
 `2022-09-21`
