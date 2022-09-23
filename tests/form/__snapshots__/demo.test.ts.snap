@@ -5317,7 +5317,6 @@ exports[`form demos 📸 renders ./packages/form/src/components/FieldSet/demos/c
               </div>
               <div
                 class="ant-form-item-extra"
-                id="validate_other_upload_extra"
               >
                 longgggggggggggggggggggggggggggggggggg
               </div>
@@ -8785,7 +8784,6 @@ exports[`form demos 📸 renders ./packages/form/src/components/FieldSet/demos/u
             </div>
             <div
               class="ant-form-item-extra"
-              id="upload_extra"
             >
               longgggggggggggggggggggggggggggggggggg
             </div>
@@ -8868,7 +8866,6 @@ exports[`form demos 📸 renders ./packages/form/src/components/FieldSet/demos/u
             </div>
             <div
               class="ant-form-item-extra"
-              id="upload_extra"
             >
               longgggggggggggggggggggggggggggggggggg
             </div>
@@ -39977,7 +39974,6 @@ exports[`form demos 📸 renders ./packages/form/src/demos/components-test.tsx c
             </div>
             <div
               class="ant-form-item-extra"
-              id="validate_other_upload_extra"
             >
               longgggggggggggggggggggggggggggggggggg
             </div>
@@ -40615,7 +40611,6 @@ exports[`form demos 📸 renders ./packages/form/src/demos/config-provider.tsx c
             </div>
             <div
               class="ant-form-item-extra"
-              id="validate_other_upload_extra"
             >
               longgggggggggggggggggggggggggggggggggg
             </div>
@@ -46081,7 +46076,6 @@ exports[`form demos 📸 renders ./packages/form/src/demos/layout-footer.tsx cor
                                 </div>
                                 <div
                                   class="ant-form-item-extra"
-                                  id="file_extra"
                                 >
                                   支持扩展名：.jpg .zip .doc .wps
                                 </div>
