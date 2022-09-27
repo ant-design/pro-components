@@ -46,7 +46,7 @@ export type LoginFormProps<T> = {
    * @name 登录框主表格的样式
    */
   contentStyle?: React.CSSProperties;
-} & ProFormProps<T>;
+} & Omit<ProFormProps<T>, 'title'>;
 
 function LoginForm<T = Record<string, any>>(props: Partial<LoginFormProps<T>>) {
   const { logo, message, contentStyle, title, subTitle, actions, children, ...proFormProps } =

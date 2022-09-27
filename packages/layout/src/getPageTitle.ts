@@ -2,17 +2,20 @@ import pathToRegexp from 'path-to-regexp';
 import type { ProSettings } from './defaultSettings';
 import type { MenuDataItem } from './typings';
 
+type BreadcrumbItem = Omit<MenuDataItem, 'children' | 'routes'> & {
+  routes?: BreadcrumbItem;
+};
 export const matchParamsPath = (
   pathname: string,
-  breadcrumb?: Record<string, MenuDataItem>,
-  breadcrumbMap?: Map<string, MenuDataItem>,
-): MenuDataItem => {
+  breadcrumb?: Record<string, BreadcrumbItem>,
+  breadcrumbMap?: Map<string, BreadcrumbItem>,
+): BreadcrumbItem => {
   // Internal logic use breadcrumbMap to ensure the order
   // 内部逻辑使用 breadcrumbMap 来确保查询顺序
   if (breadcrumbMap) {
     const pathKey = [...breadcrumbMap.keys()].find((key) => pathToRegexp(key).test(pathname));
     if (pathKey) {
-      return breadcrumbMap.get(pathKey) as MenuDataItem;
+      return breadcrumbMap.get(pathKey) as BreadcrumbItem;
     }
   }
 
@@ -33,8 +36,8 @@ export const matchParamsPath = (
 
 export type GetPageTitleProps = {
   pathname?: string;
-  breadcrumb?: Record<string, MenuDataItem>;
-  breadcrumbMap?: Map<string, MenuDataItem>;
+  breadcrumb?: Record<string, BreadcrumbItem>;
+  breadcrumbMap?: Map<string, BreadcrumbItem>;
   menu?: ProSettings['menu'];
   title?: ProSettings['title'];
   pageName?: string;

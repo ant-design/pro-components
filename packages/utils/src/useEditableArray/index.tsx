@@ -221,21 +221,21 @@ export function editableRowByKey<RecordType>(
   ) => {
     const kvArrayMap = new Map<string, RecordType[]>();
     const kvSource: RecordType[] = [];
-    const fillNewRecord = () => {
+    const fillNewRecord = (fillChildren: boolean = false) => {
       map.forEach((value) => {
         if (value.map_row_parentKey && !value.map_row_key) {
           const { map_row_parentKey, ...rest } = value;
-          kvArrayMap.set(map_row_parentKey, [
-            ...(kvArrayMap.get(map_row_parentKey) || []),
-            rest as unknown as RecordType,
-          ]);
+          if (!kvArrayMap.has(map_row_parentKey)) {
+            kvArrayMap.set(map_row_parentKey, []);
+          }
+          if (fillChildren) {
+            kvArrayMap.get(map_row_parentKey)?.push(rest as unknown as RecordType);
+          }
         }
       });
     };
 
-    if (action === 'top') {
-      fillNewRecord();
-    }
+    fillNewRecord(action === 'top');
 
     map.forEach((value) => {
       if (value.map_row_parentKey && value.map_row_key) {
@@ -243,16 +243,14 @@ export function editableRowByKey<RecordType>(
         if (kvArrayMap.has(map_row_key)) {
           rest[childrenColumnName] = kvArrayMap.get(map_row_key);
         }
-        kvArrayMap.set(map_row_parentKey, [
-          ...(kvArrayMap.get(map_row_parentKey) || []),
-          rest as unknown as RecordType,
-        ]);
+        if (!kvArrayMap.has(map_row_parentKey)) {
+          kvArrayMap.set(map_row_parentKey, []);
+        }
+        kvArrayMap.get(map_row_parentKey)?.push(rest as unknown as RecordType);
       }
     });
 
-    if (action === 'update') {
-      fillNewRecord();
-    }
+    fillNewRecord(action === 'update');
 
     map.forEach((value) => {
       if (!value.map_row_parentKey) {

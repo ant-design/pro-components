@@ -10,18 +10,23 @@ const filterByMenuDate = (data: MenuDataItem[], keyWord: string): MenuDataItem[]
     .map((item) => {
       if (
         (item.name && item.name.includes(keyWord)) ||
-        filterByMenuDate(item.routes || [], keyWord).length > 0
+        filterByMenuDate(item.children || [], keyWord).length > 0
       ) {
         return {
           ...item,
           children: filterByMenuDate(item.children || [], keyWord),
-          routes: filterByMenuDate(item.routes || [], keyWord),
         };
       }
 
       return undefined;
     })
     .filter((item) => item) as MenuDataItem[];
+
+const loopMenuItem = (menus: any[]): MenuDataItem[] =>
+  menus.map(({ icon, routes, ...item }) => ({
+    ...item,
+    children: routes && loopMenuItem(routes),
+  }));
 
 export default () => {
   const [keyWord, setKeyWord] = useState('');
@@ -73,8 +78,11 @@ export default () => {
             </Space>
           )
         }
-        menuDataRender={() => complexMenu}
-        postMenuData={(menus) => filterByMenuDate(menus || [], keyWord)}
+        menuDataRender={() => loopMenuItem(complexMenu)}
+        postMenuData={(menus) => {
+          console.log(menus);
+          return filterByMenuDate(menus || [], keyWord);
+        }}
       >
         <PageContainer content="欢迎使用">
           <div>Hello World</div>

@@ -2,6 +2,20 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.0.10](https://github.com/ant-design/pro-components/compare/@ant-design/pro-list@2.0.9...@ant-design/pro-list@2.0.10) (2022-09-22)
+
+### Bug Fixes
+
+- **list:** 修复类型问题：未将 RecordType 的泛型传入 meta 中 ([#5962](https://github.com/ant-design/pro-components/issues/5962)) ([18cc5a5](https://github.com/ant-design/pro-components/commit/18cc5a5cda78dc3e819a7fdfd23ecdfa6425bc26))
+
+## [2.0.9](https://github.com/ant-design/pro-components/compare/@ant-design/pro-list@2.0.8...@ant-design/pro-list@2.0.9) (2022-09-21)
+
+**Note:** Version bump only for package @ant-design/pro-list
+
+## [2.0.8](https://github.com/ant-design/pro-components/compare/@ant-design/pro-list@2.0.7...@ant-design/pro-list@2.0.8) (2022-09-16)
+
+**Note:** Version bump only for package @ant-design/pro-list
+
 ## [2.0.7](https://github.com/ant-design/pro-components/compare/@ant-design/pro-list@2.0.6...@ant-design/pro-list@2.0.7) (2022-09-14)
 
 **Note:** Version bump only for package @ant-design/pro-list

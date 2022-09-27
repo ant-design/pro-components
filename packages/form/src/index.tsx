@@ -40,6 +40,7 @@ export type {
   ProFormUploadDraggerProps,
 } from './components';
 export { FieldContext } from './FieldContext';
+export { FormListContext } from './components/List';
 export type {
   LightFilterFooterRender,
   ProFormFieldItemProps as ProFormItemProps,

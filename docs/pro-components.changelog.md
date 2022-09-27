@@ -8,6 +8,33 @@ group:
   path: /
 ---
 
+## @ant-design/pro-components@2.3.12
+
+`2022-09-22`
+
+- fix(layout): awlay use route.children. [44b6fe1](https://github.com/ant-design/pro-components/commit/44b6fe1)
+- fix(form): export FormListContext (#5968). [#5968](https://github.com/ant-design/pro-components/pull/#5968) [@houkunlin](https://github.com/houkunlin)
+- fix(list): 修复类型问题：未将 RecordType 的泛型传入 meta 中 (#5962). [#5962](https://github.com/ant-design/pro-components/pull/#5962) [@SoraYama](https://github.com/SoraYama)
+- fix(table): option button alignment problem (#5959). [#5959](https://github.com/ant-design/pro-components/pull/#5959) [@GoodbyeNJN](https://github.com/GoodbyeNJN)
+- fix(table): useEditableArray 修复无法正确添加深度大于 1 的子记录 (#5949). [#5949](https://github.com/ant-design/pro-components/pull/#5949) [@zd5043039119](https://github.com/zd5043039119)
+- fix(field): fix ProFormSegmented style (#5969). [#5969](https://github.com/ant-design/pro-components/pull/#5969) [@DBvc](https://github.com/DBvc)
+- fix(card): card key props warning (#5941). [#5941](https://github.com/ant-design/pro-components/pull/#5941) [@zzcbnz](https://github.com/zzcbnz)
+
+## @ant-design/pro-components@2.3.10
+
+`2022-09-21`
+
+- fix(layout): fix colorPrimary change no rerender style error. [be6ab65](https://github.com/ant-design/pro-components/commit/be6ab65)
+- feat(layout): remove routers types. [6c54c7e](https://github.com/ant-design/pro-components/commit/6c54c7e)
+- fix(table): use better style import funtion. [8ce8d5a](https://github.com/ant-design/pro-components/commit/8ce8d5a)
+- fix(card): fixed col width digit lost (#5958). [#5958](https://github.com/ant-design/pro-components/pull/#5958) [@ONLY-yours](https://github.com/ONLY-yours)
+
+## @ant-design/pro-components@2.3.9
+
+`2022-09-16`
+
+- fix(table): fix dateformat no work error. [c30c107](https://github.com/ant-design/pro-components/commit/c30c107)
+
 ## @ant-design/pro-components@2.3.8
 
 `2022-09-14`

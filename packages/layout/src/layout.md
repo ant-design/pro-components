@@ -372,7 +372,7 @@ export interface Settings {
 
 export interface MenuDataItem {
   authority?: string[] | string;
-  routes?: MenuDataItem[];
+  children?: MenuDataItem[];
   hideChildrenInMenu?: boolean;
   hideInMenu?: boolean;
   icon?: string;
@@ -391,13 +391,13 @@ export interface MenuDataItem {
 // 来获取这个类型
 export interface Route {
   path: string;
-  routes: Array<{
+  children: Array<{
     exact?: boolean;
     icon: string;
     name: string;
     path: string;
     // 可选二级菜单
-    routes?: Route['routes'];
+    children?: Route['children'];
   }>;
 }
 ```
@@ -546,7 +546,7 @@ ProLayout 扩展了 umi 的 router 配置，新增了 name，icon，locale,hideI
 ```ts | pure
 export interface MenuDataItem {
   /** @name 子菜单 */
-  routes?: MenuDataItem[];
+  children?: MenuDataItem[];
   /** @name 在菜单中隐藏子节点 */
   hideChildrenInMenu?: boolean;
   /** @name 在菜单中隐藏自己和子节点 */
@@ -607,7 +607,7 @@ ProLayout 会自动生成菜单，同时根据 pathname 进行自动选中。配
 // 可以通过 import { MenuDataItem } from '@ant-design/pro-components'
 // 来获取这个类型
 export interface MenuDataItem {
-  routes?: MenuDataItem[];
+  children?: MenuDataItem[];
   hideChildrenInMenu?: boolean;
   hideInMenu?: boolean;
   icon?: string;

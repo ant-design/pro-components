@@ -81,7 +81,7 @@
     "@types/warning": "^3.0.0",
     "@types/xhr-mock": "^2.0.0",
     "@umijs/babel-preset-umi": "^3.0.14",
-    "@umijs/doctor": "^0.1.0",
+    "@umijs/doctor": "^1.0.5",
     "@umijs/fabric": "^3.0.0",
     "@umijs/plugin-analytics": "^0.2.2",
     "@umijs/plugin-esbuild": "^1.1.0",

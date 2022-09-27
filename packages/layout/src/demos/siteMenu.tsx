@@ -177,7 +177,7 @@ export default () => {
           }
           if (_.isMobile) return defaultDom;
 
-          const dropdownOpenProps =
+          const dropdownOpenProps: any =
             compareVersions(version, '4.23.0') > -1
               ? {
                   open: dropdownVisible,

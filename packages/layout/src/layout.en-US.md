@@ -308,7 +308,7 @@ export interface Settings {
 
 export interface MenuDataItem {
   authority?: string[] | string;
-  routes?: MenuDataItem[];
+  children?: MenuDataItem[];
   hideChildrenInMenu?: boolean;
   hideInMenu?: boolean;
   icon?: string;
@@ -326,13 +326,13 @@ export interface MenuDataItem {
 // to get this type
 export interface Route {
   path: string;
-  routes: Array<{
+  children: Array<{
     exact?: boolean;
     icon: string;
     name: string;
     path: string;
     // Optional secondary menu
-    routes?: Route['routes'];
+    children?: Route['children'];
   }>;
 }
 ```
@@ -516,7 +516,7 @@ In order to provide more functionality, we extended the routers configuration by
 // You can get this type by importing { MenuDataItem } from '@ant-design/pro-components'
 // to get this type
 export interface MenuDataItem {
-  routes?: MenuDataItem[];
+  children?: MenuDataItem[];
   hideChildrenInMenu?: boolean;
   hideInMenu?: boolean;
   icon?: string;

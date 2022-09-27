@@ -27,7 +27,7 @@ export default () => {
           path: '/one',
           icon: <SmileOutlined />,
           name: '一级名称',
-          routes: [
+          children: [
             {
               path: 'two',
               name: '二级名称',

@@ -32,6 +32,7 @@ export type LinkProps = {
 export type MenuDataItem = {
   /** @name 子菜单 */
   children?: MenuDataItem[];
+  routes?: undefined;
   /** @name 在菜单中隐藏子节点 */
   hideChildrenInMenu?: boolean;
   /** @name 在菜单中隐藏自己和子节点 */
@@ -65,9 +66,9 @@ export type MenuDataItem = {
   [key: string]: any;
 };
 
-export type Route = {
-  routes?: Route[];
-} & MenuDataItem;
+export type Route = Omit<MenuDataItem, 'routes'> & {
+  children?: Route[];
+};
 
 export type WithFalse<T> = T | false;
 
