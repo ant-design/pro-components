@@ -44,6 +44,7 @@ const Demo = () => {
           label="用户信息"
           rules={[
             {
+              required: true,
               validator: async (_, value) => {
                 console.log(value);
                 if (value && value.length > 0) {
