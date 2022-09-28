@@ -12391,7 +12391,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/Group/demos/list
               class="ant-col ant-form-item-label"
             >
               <label
-                class=""
+                class="ant-form-item-required"
                 title="用户信息"
               >
                 用户信息
@@ -28384,7 +28384,6 @@ exports[`form demos 📸 renders ./packages/form/src/components/SchemaForm/demos
             >
               <label
                 class="ant-form-item-required"
-                for="list"
                 title="必填但没显示*"
               >
                 必填但没显示*
