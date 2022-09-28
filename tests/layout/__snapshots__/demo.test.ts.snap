@@ -12813,7 +12813,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/collapsedShowTitl
 exports[`layout demos 📸 renders ./packages/layout/src/demos/config-provider.tsx correctly 1`] = `
 <DocumentFragment>
   <div
-    class="ant-pro "
+    class="qixian-pro "
   >
     <div
       class="ant-design-pro qixian-pro-layout screen-md qixian-pro-layout-fix-siderbar qixian-pro-layout-side"

@@ -9009,7 +9009,7 @@ exports[`list demos 📸 renders ./packages/list/src/demos/special.tsx correctly
 exports[`list demos 📸 renders ./packages/list/src/demos/testConfigProvider.tsx correctly 1`] = `
 <DocumentFragment>
   <div
-    class="ant-pro "
+    class="qixian-pro-pro "
   >
     <div
       class="qixian-pro-pro-table qixian-pro-pro-list qixian-pro-pro-list qixian-pro-pro-list-no-split"
