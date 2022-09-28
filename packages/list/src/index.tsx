@@ -50,7 +50,7 @@ export type BaseProListMetas<T = any> = {
   content?: ProListMeta<T>;
   actions?: ProListMetaAction<T>;
 };
-export type ProListMetas<T = any> = BaseProListMetas & {
+export type ProListMetas<T = any> = BaseProListMetas<T> & {
   [key in keyof T]?: IsAny<T> extends true ? ProListMetaAction<T> : ProListMeta<T>;
 };
 

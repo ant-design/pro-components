@@ -2,6 +2,22 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.0.9](https://github.com/ant-design/pro-components/compare/@ant-design/pro-card@2.0.8...@ant-design/pro-card@2.0.9) (2022-09-22)
+
+### Bug Fixes
+
+- **card:** card key props warning ([#5941](https://github.com/ant-design/pro-components/issues/5941)) ([16bde67](https://github.com/ant-design/pro-components/commit/16bde67e387d65657503652f8eafc9b85515fc40))
+
+## [2.0.8](https://github.com/ant-design/pro-components/compare/@ant-design/pro-card@2.0.7...@ant-design/pro-card@2.0.8) (2022-09-21)
+
+### Bug Fixes
+
+- **card:** fixed col width digit lost ([#5958](https://github.com/ant-design/pro-components/issues/5958)) ([d39e66a](https://github.com/ant-design/pro-components/commit/d39e66a1093ab4d3a921a35464eede565a178c0e))
+
+## [2.0.7](https://github.com/ant-design/pro-components/compare/@ant-design/pro-card@2.0.6...@ant-design/pro-card@2.0.7) (2022-09-16)
+
+**Note:** Version bump only for package @ant-design/pro-card
+
 ## [2.0.6](https://github.com/ant-design/pro-components/compare/@ant-design/pro-card@2.0.5...@ant-design/pro-card@2.0.6) (2022-09-14)
 
 ### Bug Fixes

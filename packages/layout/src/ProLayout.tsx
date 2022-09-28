@@ -261,7 +261,7 @@ const renderSiderMenu = (props: ProLayoutProps, matchMenuKeys: string[]): React.
   if (splitMenus && (openKeys !== false || layout === 'mix') && !isMobile) {
     const [key] = selectedKeys || matchMenuKeys;
     if (key) {
-      menuData = props.menuData?.find((item) => item.key === key)?.routes || [];
+      menuData = props.menuData?.find((item) => item.key === key)?.children || [];
     } else {
       menuData = [];
     }
@@ -392,6 +392,11 @@ const BaseProLayout: React.FC<ProLayoutProps> = (props) => {
     return `pro-layout-${layoutIndex}`;
   });
 
+  /**
+   * 处理国际化相关 formatMessage
+   * 如果有用户配置的以用户为主
+   * 如果没有用自己实现的
+   */
   const formatMessage = useCallback(
     ({ id, defaultMessage, ...restParams }: { id: string; defaultMessage?: string }): string => {
       if (propsFormatMessage) {
@@ -414,7 +419,7 @@ const BaseProLayout: React.FC<ProLayoutProps> = (props) => {
     },
     async (_, params) => {
       setMenuLoading(true);
-      const msg = await menu?.request?.(params, route?.routes || []);
+      const msg = await menu?.request?.(params, route?.children || route?.routes || []);
       setMenuLoading(false);
       return msg;
     },
@@ -438,8 +443,14 @@ const BaseProLayout: React.FC<ProLayoutProps> = (props) => {
     breadcrumbMap?: Map<string, MenuDataItem>;
     menuData?: MenuDataItem[];
   }>(
-    () => getMenuData(data || route?.routes || [], menu, formatMessage, menuDataRender),
-    [formatMessage, menu, menuDataRender, data, route?.routes],
+    () =>
+      getMenuData(
+        data || route?.children || route?.routes || [],
+        menu,
+        formatMessage,
+        menuDataRender,
+      ),
+    [formatMessage, menu, menuDataRender, data, route?.children, route?.routes],
   );
 
   const { breadcrumb = {}, breadcrumbMap, menuData = [] } = menuInfoData || {};

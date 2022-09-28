@@ -1,5 +1,5 @@
 import { intlMap as allIntlMap, useIntl } from '@ant-design/pro-provider';
-import type { InputNumberProps } from 'antd';
+import { InputNumberProps, version } from 'antd';
 import { InputNumber, Popover } from 'antd';
 import omit from 'omit.js';
 import useMergedState from 'rc-util/lib/hooks/useMergedState';
@@ -9,6 +9,7 @@ import type { ProFieldFC } from '../../index';
 // 兼容代码-----------
 import 'antd/es/input-number/style';
 import 'antd/es/popover/style';
+import { compareVersions } from '@ant-design/pro-utils';
 //----------------------
 
 export type FieldMoneyProps = {
@@ -115,13 +116,13 @@ const DefaultPrecisionCont = 2;
 const InputNumberPopover = React.forwardRef<
   any,
   InputNumberProps & {
-    visible?: boolean;
+    open?: boolean;
     content?: (props: InputNumberProps) => React.ReactNode;
   } & {
     numberFormatOptions?: any;
     numberPopoverRender?: any;
   }
->(({ content, numberFormatOptions, numberPopoverRender, visible, ...rest }, ref) => {
+>(({ content, numberFormatOptions, numberPopoverRender, open, ...rest }, ref) => {
   const [value, onChange] = useMergedState<any>(() => rest.defaultValue, {
     value: rest.value,
     onChange: rest.onChange,
@@ -131,9 +132,14 @@ const InputNumberPopover = React.forwardRef<
     value,
   });
 
-  const props = {
-    visible: dom ? visible : false,
-  };
+  const props =
+    compareVersions(version, '4.23.0') > -1
+      ? {
+          open: dom ? open : false,
+        }
+      : {
+          visible: dom ? open : false,
+        };
 
   return (
     <Popover
@@ -272,6 +278,7 @@ const FieldMoney: ProFieldFC<FieldMoneyProps> = (
           'customSymbol',
           'moneySymbol',
           'visible',
+          'open',
         ])}
       />
     );

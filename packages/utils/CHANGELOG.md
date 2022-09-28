@@ -2,6 +2,24 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.2.1](https://github.com/ant-design/pro-components/compare/@ant-design/pro-utils@2.2.0...@ant-design/pro-utils@2.2.1) (2022-09-22)
+
+### Bug Fixes
+
+- **table:** useEditableArray 修复无法正确添加深度大于 1 的子记录 ([#5949](https://github.com/ant-design/pro-components/issues/5949)) ([012beab](https://github.com/ant-design/pro-components/commit/012beab045edb45445aa3042aee50672d2ad88f8))
+
+# [2.2.0](https://github.com/ant-design/pro-components/compare/@ant-design/pro-utils@2.1.1...@ant-design/pro-utils@2.2.0) (2022-09-21)
+
+### Features
+
+- **layout:** remove routers types ([6c54c7e](https://github.com/ant-design/pro-components/commit/6c54c7ec42fd4ae1cab7b990386eb80e2c4273b4))
+
+## [2.1.1](https://github.com/ant-design/pro-components/compare/@ant-design/pro-utils@2.1.0...@ant-design/pro-utils@2.1.1) (2022-09-16)
+
+### Bug Fixes
+
+- **table:** fix dateformat no work error ([c30c107](https://github.com/ant-design/pro-components/commit/c30c107056e177d0afff6c7b7885a29b104c7d03))
+
 # [2.1.0](https://github.com/ant-design/pro-components/compare/@ant-design/pro-utils@2.0.4...@ant-design/pro-utils@2.1.0) (2022-09-14)
 
 ### Bug Fixes
