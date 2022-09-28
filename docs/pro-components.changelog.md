@@ -8,6 +8,14 @@ group:
   path: /
 ---
 
+## @ant-design/pro-components@2.3.13
+
+`2022-09-28`
+
+- fix(components): provide support getPrefixCls. [b3da61f](https://github.com/ant-design/pro-components/commit/b3da61f)
+- fix(form): fix visible props warning (#5937). [#5937](https://github.com/ant-design/pro-components/pull/#5937) [@zzcbnz](https://github.com/zzcbnz)
+- fix(table): 解决 CheckCard 与 Table 联用时 CheckCard 样式丢失问题 (#5980). [#5980](https://github.com/ant-design/pro-components/pull/#5980) [@kiner-tang](https://github.com/kiner-tang)
+
 ## @ant-design/pro-components@2.3.12
 
 `2022-09-22`
