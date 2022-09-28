@@ -715,8 +715,8 @@ function BaseForm<T = Record<string, any>>(props: BaseFormProps<T>) {
             }
             onValuesChange={(changedValues, values) => {
               propRest?.onValuesChange?.(
-                transformKey(changedValues, !!omitNil),
-                transformKey(values, !!omitNil),
+                changedValues,
+                values,
               );
             }}
             className={classNames(props.className, prefixCls, hashId)}
