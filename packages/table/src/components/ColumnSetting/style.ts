@@ -84,7 +84,7 @@ const genProStyle: GenerateStyle<ProToken> = (token) => {
 };
 
 export function useStyle(prefixCls: string) {
-  return useAntdStyle('CheckCard', (token) => {
+  return useAntdStyle('ColumnSetting', (token) => {
     const proToken: ProToken = {
       ...token,
       componentCls: `.${prefixCls}`,
