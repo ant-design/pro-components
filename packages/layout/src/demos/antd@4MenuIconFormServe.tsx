@@ -35,11 +35,11 @@ const defaultMenus = [
   },
 ];
 
-const loopMenuItem = (menus: MenuDataItem[]): MenuDataItem[] =>
+const loopMenuItem = (menus: any[]): MenuDataItem[] =>
   menus.map(({ icon, routes, ...item }) => ({
     ...item,
     icon: icon && IconMap[icon as string],
-    routes: routes && loopMenuItem(routes),
+    children: routes && loopMenuItem(routes),
   }));
 
 export default () => (

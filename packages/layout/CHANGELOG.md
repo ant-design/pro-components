@@ -2,6 +2,34 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [7.1.2](https://github.com/ant-design/pro-components/compare/@ant-design/pro-layout@7.1.1...@ant-design/pro-layout@7.1.2) (2022-09-22)
+
+### Bug Fixes
+
+- **layout:** awlay use route.children ([44b6fe1](https://github.com/ant-design/pro-components/commit/44b6fe150a64c0f5cd5070944907fcfff95e4bfb))
+
+## [7.1.1](https://github.com/ant-design/pro-components/compare/@ant-design/pro-layout@7.1.0...@ant-design/pro-layout@7.1.1) (2022-09-21)
+
+### Bug Fixes
+
+- **layout:** fix menu error style ([101b5bc](https://github.com/ant-design/pro-components/commit/101b5bc6de53c4595968957f9f86d6ea00da7532))
+
+# [7.1.0](https://github.com/ant-design/pro-components/compare/@ant-design/pro-layout@7.0.7...@ant-design/pro-layout@7.1.0) (2022-09-21)
+
+### Bug Fixes
+
+- **layout:** fix colorPrimary change no rerender style error ([be6ab65](https://github.com/ant-design/pro-components/commit/be6ab651cb1832c96cb0a1e1bafa1668795a0ceb))
+
+### Features
+
+- **layout:** remove routers types ([6c54c7e](https://github.com/ant-design/pro-components/commit/6c54c7ec42fd4ae1cab7b990386eb80e2c4273b4))
+
+## [7.0.7](https://github.com/ant-design/pro-components/compare/@ant-design/pro-layout@7.0.6...@ant-design/pro-layout@7.0.7) (2022-09-16)
+
+### Bug Fixes
+
+- **from:** update snapshot ([3479278](https://github.com/ant-design/pro-components/commit/3479278eff837e64e33472c845c7451b50e4136e))
+
 ## [7.0.6](https://github.com/ant-design/pro-components/compare/@ant-design/pro-layout@7.0.5...@ant-design/pro-layout@7.0.6) (2022-09-14)
 
 ### Bug Fixes

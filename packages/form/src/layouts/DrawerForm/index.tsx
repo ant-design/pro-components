@@ -197,10 +197,18 @@ function DrawerForm<T = Record<string, any>>({
       ? {
           open: open,
           onOpenChange: onVisibleChange,
+          afterOpenChange: (e: boolean) => {
+            if (!e) resetFields();
+            drawerProps?.afterOpenChange?.(e);
+          },
         }
       : {
           visible: open,
           onVisibleChange: onVisibleChange,
+          afterVisibleChange: (e: boolean) => {
+            if (!e) resetFields();
+            drawerProps?.afterOpenChange?.(e);
+          },
         };
 
   return (
@@ -216,16 +224,6 @@ function DrawerForm<T = Record<string, any>>({
           setOpen(false);
           drawerProps?.onClose?.(e);
           resetFields();
-        }}
-        afterOpenChange={(e) => {
-          resetFields();
-          drawerProps?.afterOpenChange?.(e);
-        }}
-        //@ts-expect-error
-        afterVisibleChange={(e) => {
-          if (!e) resetFields();
-          //@ts-expect-error
-          drawerProps?.afterVisibleChange?.(e);
         }}
         footer={
           rest.submitter !== false && (

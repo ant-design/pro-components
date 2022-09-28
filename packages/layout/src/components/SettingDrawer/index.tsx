@@ -11,7 +11,17 @@ import {
   setFetchMethod as setFetch,
 } from '@umijs/ssr-darkreader';
 import { useUrlSearchParams } from '@umijs/use-params';
-import { Alert, Button, Divider, Drawer, List, message, Switch, version } from 'antd';
+import {
+  Alert,
+  Button,
+  Divider,
+  ConfigProvider as AntConfigProvider,
+  Drawer,
+  List,
+  message,
+  Switch,
+  version,
+} from 'antd';
 import omit from 'omit.js';
 import useMergedState from 'rc-util/lib/hooks/useMergedState';
 import React, { useEffect, useRef, useState } from 'react';
@@ -263,6 +273,13 @@ export const SettingDrawer: React.FC<SettingDrawerProps> = (props) => {
 
   useEffect(() => {
     updateTheme(settingState.navTheme === 'realDark');
+    if (compareVersions(version, '5.0.0') < 0) {
+      AntConfigProvider.config({
+        theme: {
+          primaryColor: settingState.colorPrimary,
+        },
+      });
+    }
   }, [settingState.colorPrimary, settingState.navTheme]);
   /**
    * 修改设置

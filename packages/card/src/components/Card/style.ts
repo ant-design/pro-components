@@ -287,7 +287,7 @@ const genColStyle = (index: number, token: ProCardToken) => {
   return {
     [`${componentCls}-col-${index}`]: {
       flexShrink: 0,
-      width: `${Math.round((index / GRID_COLUMNS) * 100)}%`,
+      width: `${(index / GRID_COLUMNS) * 100}%`,
     },
   };
 };

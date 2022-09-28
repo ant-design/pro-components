@@ -87,7 +87,7 @@ const FieldDigitRange: ProFieldFC<FieldDigitRangeProps> = (
 
     const dom = (
       <Input.Group compact onBlur={handleGroupBlur}>
-        <InputNumber
+        <InputNumber<number>
           {...fieldProps}
           placeholder={Array.isArray(placeholderValue) ? placeholderValue[0] : placeholderValue}
           id={id ?? `${id}-0`}
@@ -108,7 +108,7 @@ const FieldDigitRange: ProFieldFC<FieldDigitRangeProps> = (
           placeholder={separator}
           disabled
         />
-        <InputNumber
+        <InputNumber<number>
           {...fieldProps}
           placeholder={Array.isArray(placeholderValue) ? placeholderValue[1] : placeholderValue}
           id={id ?? `${id}-1`}
