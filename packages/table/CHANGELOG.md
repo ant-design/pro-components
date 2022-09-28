@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [3.0.11](https://github.com/ant-design/pro-components/compare/@ant-design/pro-table@3.0.10...@ant-design/pro-table@3.0.11) (2022-09-28)
+
+### Bug Fixes
+
+- **table:** 解决 CheckCard 与 Table 联用时 CheckCard 样式丢失问题 ([#5980](https://github.com/ant-design/pro-components/issues/5980)) ([bf3fd22](https://github.com/ant-design/pro-components/commit/bf3fd221d18610fd76c02147b72bdce02278ee9c))
+
 ## [3.0.10](https://github.com/ant-design/pro-components/compare/@ant-design/pro-table@3.0.9...@ant-design/pro-table@3.0.10) (2022-09-22)
 
 ### Bug Fixes

@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.2.2](https://github.com/ant-design/pro-components/compare/@ant-design/pro-form@2.2.1...@ant-design/pro-form@2.2.2) (2022-09-28)
+
+### Bug Fixes
+
+- **LoginForm:** props title is not assignable to type 'ReactNode' ([#5979](https://github.com/ant-design/pro-components/issues/5979)) ([1af5f76](https://github.com/ant-design/pro-components/commit/1af5f76c9198619f61fddba9a56e276d7fd79e45))
+
 ## [2.2.1](https://github.com/ant-design/pro-components/compare/@ant-design/pro-form@2.2.0...@ant-design/pro-form@2.2.1) (2022-09-22)
 
 ### Bug Fixes
