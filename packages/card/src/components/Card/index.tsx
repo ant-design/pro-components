@@ -3,6 +3,7 @@ import { LabelIconTip } from '@ant-design/pro-utils';
 import { ConfigProvider, Grid, Tabs } from 'antd';
 import classNames from 'classnames';
 import omit from 'omit.js';
+import { useLegacyItems } from '../TabPane';
 import useMergedState from 'rc-util/lib/hooks/useMergedState';
 import React, { useContext } from 'react';
 import type { Breakpoint, CardProps, Gutter } from '../../type';
@@ -59,7 +60,9 @@ const Card = React.forwardRef((props: CardProps, ref: any) => {
 
   // 顺序决定如何进行响应式取值，按最大响应值依次取值，请勿修改。
   const responsiveArray: Breakpoint[] = ['xxl', 'xl', 'lg', 'md', 'sm', 'xs'];
-
+  // 修改组合传给antd tabs的参数
+  // @ts-ignore
+  const ModifyTabItemsContant = useLegacyItems(tabs?.items, children, tabs);
   /**
    * 根据响应式获取 gutter, 参考 antd 实现
    *
@@ -248,7 +251,12 @@ const Card = React.forwardRef((props: CardProps, ref: any) => {
       )}
       {tabs ? (
         <div className={`${prefixCls}-tabs`}>
-          <Tabs onChange={tabs.onChange} {...tabs}>
+          <Tabs
+            onChange={tabs.onChange}
+            {...tabs}
+            // @ts-ignore
+            items={ModifyTabItemsContant}
+          >
             {loading ? loadingDOM : children}
           </Tabs>
         </div>
