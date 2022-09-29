@@ -148,7 +148,7 @@ function ModalForm<T = Record<string, any>>({
           disabled: submitTimeout ? loading : undefined,
           onClick: (e: any) => {
             setOpen(false);
-            resetFields();
+            // fix: #6006 点击取消按钮时,那么必然会触发弹窗关闭，我们无需在 此处重置表单，只需在弹窗关闭时重置即可
             modalProps?.onCancel?.(e);
           },
         },
@@ -163,7 +163,6 @@ function ModalForm<T = Record<string, any>>({
     setOpen,
     loading,
     submitTimeout,
-    resetFields,
   ]);
 
   const contentRender = useCallback((formDom: any, submitter: any) => {
@@ -245,9 +244,7 @@ function ModalForm<T = Record<string, any>>({
           submitter={submitterConfig}
           onFinish={async (values) => {
             const result = await onFinishHandle(values);
-            if (result === true) {
-              resetFields();
-            }
+            // fix: #6006 如果 result 为 true,那么必然会触发弹窗关闭，我们无需在 此处重置表单，只需在弹窗关闭时重置即可
             return result;
           }}
           contentRender={contentRender}
