@@ -147,7 +147,7 @@ function DrawerForm<T = Record<string, any>>({
           disabled: submitTimeout ? loading : undefined,
           onClick: (e: any) => {
             setOpen(false);
-            resetFields();
+            // fix: #6006 点击取消按钮时,那么必然会触发抽屉关闭，我们无需在 此处重置表单，只需在抽屉关闭时重置即可
             drawerProps?.onClose?.(e);
           },
         },
@@ -161,7 +161,6 @@ function DrawerForm<T = Record<string, any>>({
     submitTimeout,
     loading,
     setOpen,
-    resetFields,
     drawerProps,
   ]);
 
@@ -223,7 +222,13 @@ function DrawerForm<T = Record<string, any>>({
           if (submitTimeout && loading) return;
           setOpen(false);
           drawerProps?.onClose?.(e);
-          resetFields();
+        }}
+        afterOpenChange={(isOpen) => {
+          // 抽屉关闭后尝试触发表单重置操作
+          if (!isOpen) {
+            resetFields();
+          }
+          return drawerOpenProps?.afterOpenChange?.(isOpen);
         }}
         footer={
           rest.submitter !== false && (
@@ -246,9 +251,7 @@ function DrawerForm<T = Record<string, any>>({
             submitter={submitterConfig}
             onFinish={async (values) => {
               const result = await onFinishHandle(values);
-              if (result === true) {
-                resetFields();
-              }
+              // fix: #6006 如果 result 为 true,那么必然会触发抽屉关闭，我们无需在 此处重置表单，只需在抽屉关闭时重置即可
               return result;
             }}
             contentRender={contentRender}
