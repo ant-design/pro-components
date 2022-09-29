@@ -1008,7 +1008,28 @@ exports[`descriptions demos 📸 renders ./packages/descriptions/src/demos/colum
             </td>
             <td
               class="ant-descriptions-item"
-              colspan="2"
+              colspan="1"
+            >
+              <div
+                class="ant-descriptions-item-container"
+              >
+                <span
+                  class="ant-descriptions-item-label"
+                >
+                  money无符号
+                </span>
+                <span
+                  class="ant-descriptions-item-content"
+                >
+                  <span>
+                    1,212,100.00
+                  </span>
+                </span>
+              </div>
+            </td>
+            <td
+              class="ant-descriptions-item"
+              colspan="1"
             >
               <div
                 class="ant-descriptions-item-container"
