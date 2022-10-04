@@ -2,10 +2,10 @@ export default {
   moneySymbol: '€',
   form: {
     lightFilter: {
-      more: 'Máis',
-      clear: 'Limpar',
+      more: 'Més',
+      clear: 'Netejar',
       confirm: 'Confirmar',
-      itemUnit: 'Elementos',
+      itemUnit: 'Elements',
     },
   },
   tableForm: {
@@ -58,14 +58,14 @@ export default {
   },
   editableTable: {
     action: {
-      save: 'Gardar',
-      cancel: 'Cancelar',
+      save: 'Guardar',
+      cancel: 'Cancel·lar',
       delete: 'Eliminar',
-      add: 'engadir unha fila de datos',
+      add: 'afegir una fila de dades',
     },
   },
   switch: {
-    open: 'aberto',
-    close: 'pechar',
+    open: 'obert',
+    close: 'tancat',
   },
 };
