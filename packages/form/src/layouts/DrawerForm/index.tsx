@@ -223,13 +223,6 @@ function DrawerForm<T = Record<string, any>>({
           setOpen(false);
           drawerProps?.onClose?.(e);
         }}
-        afterOpenChange={(isOpen) => {
-          // 抽屉关闭后尝试触发表单重置操作
-          if (!isOpen) {
-            resetFields();
-          }
-          return drawerOpenProps?.afterOpenChange?.(isOpen);
-        }}
         footer={
           rest.submitter !== false && (
             <div
