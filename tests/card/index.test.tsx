@@ -108,4 +108,31 @@ describe('Card', () => {
     });
     expect(fn).toHaveBeenCalledWith('tab2');
   });
+
+  it('card tabs support items', async () => {
+    const fn = jest.fn();
+    const wrapper = mount(
+      <ProCard
+        tabs={{
+          onChange: fn,
+          items: [
+            {
+              label: `产品一`,
+              key: 'tab1',
+              children: `内容一`,
+            },
+            {
+              label: `产品二`,
+              key: 'tab2',
+              children: `内容二`,
+            },
+          ],
+        }}
+      />,
+    );
+    act(() => {
+      wrapper.find('.ant-pro-card-tabs .ant-tabs-tab').at(1).simulate('click');
+    });
+    expect(fn).toHaveBeenCalledWith('tab2');
+  });
 });
