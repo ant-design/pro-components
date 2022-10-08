@@ -5,16 +5,16 @@ import { Input, Space } from 'antd';
 import { useState } from 'react';
 import complexMenu from './complexMenu';
 
-const filterByMenuDate = (data: MenuDataItem[], keyWord: string): MenuDataItem[] =>
+const filterByMenuData = (data: MenuDataItem[], keyWord: string): MenuDataItem[] =>
   data
     .map((item) => {
       if (
         (item.name && item.name.includes(keyWord)) ||
-        filterByMenuDate(item.children || [], keyWord).length > 0
+        filterByMenuData(item.children || [], keyWord).length > 0
       ) {
         return {
           ...item,
-          children: filterByMenuDate(item.children || [], keyWord),
+          children: filterByMenuData(item.children || [], keyWord),
         };
       }
 
@@ -81,7 +81,7 @@ export default () => {
         menuDataRender={() => loopMenuItem(complexMenu)}
         postMenuData={(menus) => {
           console.log(menus);
-          return filterByMenuDate(menus || [], keyWord);
+          return filterByMenuData(menus || [], keyWord);
         }}
       >
         <PageContainer content="欢迎使用">

@@ -273,6 +273,8 @@ const ProFormListItem: React.FC<
     index,
     formInstance,
     originName,
+    containerClassName,
+    containerStyle,
     min,
     max,
     count,
@@ -427,9 +429,10 @@ const ProFormListItem: React.FC<
     {
       listDom: (
         <div
-          className={`${prefixCls}-container ${hashId}`}
+          className={`${prefixCls}-container ${containerClassName} ${hashId}`}
           style={{
             width: grid ? '100%' : undefined,
+            ...containerStyle,
           }}
         >
           {itemContainer}
@@ -449,9 +452,10 @@ const ProFormListItem: React.FC<
       }}
     >
       <div
-        className={`${prefixCls}-container ${hashId}`}
+        className={`${prefixCls}-container ${containerClassName} ${hashId}`}
         style={{
           width: grid ? '100%' : undefined,
+          ...containerStyle,
         }}
       >
         {itemContainer}
