@@ -40,7 +40,7 @@ export function useDragSort<T>(props: UseDragSortOptions<T>) {
   ));
 
   const DraggableBodyRow = useRefFunction((p: any) => {
-    const { className: DraggableBodyRowClassName, style: DraggableBodyRowStyle, ...restProps } = p;
+    const { ...restProps } = p;
     // function findIndex base on Table rowKey props and should always be a right array index
     const index = dataSource.findIndex(
       (item: any) => item[props.rowKey ?? 'index'] === restProps['data-row-key'],
