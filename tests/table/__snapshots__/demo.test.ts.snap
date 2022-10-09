@@ -1381,6 +1381,7 @@ exports[`table demos 📸 renders ./packages/table/src/components/DragSortTable/
                           class="ant-table-tbody"
                         >
                           <tr
+                            class="ant-table-row ant-table-row-level-0"
                             data-row-key="key1"
                           >
                             <td
@@ -1432,6 +1433,7 @@ exports[`table demos 📸 renders ./packages/table/src/components/DragSortTable/
                             </td>
                           </tr>
                           <tr
+                            class="ant-table-row ant-table-row-level-0"
                             data-row-key="key2"
                           >
                             <td
@@ -1483,6 +1485,7 @@ exports[`table demos 📸 renders ./packages/table/src/components/DragSortTable/
                             </td>
                           </tr>
                           <tr
+                            class="ant-table-row ant-table-row-level-0"
                             data-row-key="key3"
                           >
                             <td
@@ -1728,6 +1731,7 @@ exports[`table demos 📸 renders ./packages/table/src/components/DragSortTable/
                           class="ant-table-tbody"
                         >
                           <tr
+                            class="ant-table-row ant-table-row-level-0"
                             data-row-key="0"
                           >
                             <td
@@ -1776,6 +1780,7 @@ exports[`table demos 📸 renders ./packages/table/src/components/DragSortTable/
                             </td>
                           </tr>
                           <tr
+                            class="ant-table-row ant-table-row-level-0"
                             data-row-key="1"
                           >
                             <td
@@ -1824,6 +1829,7 @@ exports[`table demos 📸 renders ./packages/table/src/components/DragSortTable/
                             </td>
                           </tr>
                           <tr
+                            class="ant-table-row ant-table-row-level-0"
                             data-row-key="2"
                           >
                             <td
