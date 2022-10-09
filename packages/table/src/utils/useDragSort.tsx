@@ -15,7 +15,7 @@ export function useDragSort<T>(props: UseDragSortOptions<T>) {
   const { dataSource = [], onDragSortEnd, dragSortKey } = props;
 
   // 拖拽排序相关逻辑
-  const SortableItem = SortableElement((p: any) => <tr {...p} data-adb={'2222'} />);
+  const SortableItem = SortableElement((p: any) => <tr {...p} />);
   const SortContainer = SortableContainer((p: any) => <tbody {...p} />);
 
   /* istanbul ignore next */
