@@ -166,6 +166,10 @@ export default () => {
         {...settings}
       >
         <PageContainer
+          breadcrumb={{
+            routes: [],
+          }}
+          onBack={() => window.history.back()}
           extra={[
             <Button key="3">操作</Button>,
             <Button key="2">操作</Button>,

@@ -1860,7 +1860,16 @@ exports[`form demos 📸 renders ./packages/form/src/components/FieldSet/demos/c
       <span
         class="ant-switch-inner"
       >
-        只读
+        <span
+          class="ant-switch-inner-checked"
+        >
+          编辑
+        </span>
+        <span
+          class="ant-switch-inner-unchecked"
+        >
+          只读
+        </span>
       </span>
     </button>
     <div
@@ -3431,7 +3440,14 @@ exports[`form demos 📸 renders ./packages/form/src/components/FieldSet/demos/c
                           />
                           <span
                             class="ant-switch-inner"
-                          />
+                          >
+                            <span
+                              class="ant-switch-inner-checked"
+                            />
+                            <span
+                              class="ant-switch-inner-unchecked"
+                            />
+                          </span>
                         </button>
                       </div>
                     </div>
@@ -6411,7 +6427,16 @@ exports[`form demos 📸 renders ./packages/form/src/components/FieldSet/demos/d
       <span
         class="ant-switch-inner"
       >
-        只读
+        <span
+          class="ant-switch-inner-checked"
+        >
+          编辑
+        </span>
+        <span
+          class="ant-switch-inner-unchecked"
+        >
+          只读
+        </span>
       </span>
     </button>
     <div
@@ -7721,7 +7746,16 @@ exports[`form demos 📸 renders ./packages/form/src/components/FieldSet/demos/f
       <span
         class="ant-switch-inner"
       >
-        只读
+        <span
+          class="ant-switch-inner-checked"
+        >
+          编辑
+        </span>
+        <span
+          class="ant-switch-inner-unchecked"
+        >
+          只读
+        </span>
       </span>
     </button>
     <div
@@ -8373,7 +8407,16 @@ exports[`form demos 📸 renders ./packages/form/src/components/FieldSet/demos/s
       <span
         class="ant-switch-inner"
       >
-        只读
+        <span
+          class="ant-switch-inner-checked"
+        >
+          编辑
+        </span>
+        <span
+          class="ant-switch-inner-unchecked"
+        >
+          只读
+        </span>
       </span>
     </button>
     <div
@@ -10102,7 +10145,14 @@ exports[`form demos 📸 renders ./packages/form/src/components/Group/demos/cust
                           />
                           <span
                             class="ant-switch-inner"
-                          />
+                          >
+                            <span
+                              class="ant-switch-inner-checked"
+                            />
+                            <span
+                              class="ant-switch-inner-unchecked"
+                            />
+                          </span>
                         </button>
                       </span>
                     </div>
@@ -10616,7 +10666,14 @@ exports[`form demos 📸 renders ./packages/form/src/components/Group/demos/cust
                           />
                           <span
                             class="ant-switch-inner"
-                          />
+                          >
+                            <span
+                              class="ant-switch-inner-checked"
+                            />
+                            <span
+                              class="ant-switch-inner-unchecked"
+                            />
+                          </span>
                         </button>
                       </span>
                     </div>
@@ -10878,7 +10935,14 @@ exports[`form demos 📸 renders ./packages/form/src/components/Group/demos/cust
                           />
                           <span
                             class="ant-switch-inner"
-                          />
+                          >
+                            <span
+                              class="ant-switch-inner-checked"
+                            />
+                            <span
+                              class="ant-switch-inner-unchecked"
+                            />
+                          </span>
                         </button>
                       </span>
                     </div>
@@ -29255,7 +29319,14 @@ exports[`form demos 📸 renders ./packages/form/src/components/SchemaForm/demos
                       />
                       <span
                         class="ant-switch-inner"
-                      />
+                      >
+                        <span
+                          class="ant-switch-inner-checked"
+                        />
+                        <span
+                          class="ant-switch-inner-unchecked"
+                        />
+                      </span>
                     </button>
                   </div>
                 </div>
@@ -40094,7 +40165,14 @@ exports[`form demos 📸 renders ./packages/form/src/demos/components-test.tsx c
                   />
                   <span
                     class="ant-switch-inner"
-                  />
+                  >
+                    <span
+                      class="ant-switch-inner-checked"
+                    />
+                    <span
+                      class="ant-switch-inner-unchecked"
+                    />
+                  </span>
                 </button>
               </div>
             </div>
@@ -40732,7 +40810,14 @@ exports[`form demos 📸 renders ./packages/form/src/demos/config-provider.tsx c
                   />
                   <span
                     class="ant-switch-inner"
-                  />
+                  >
+                    <span
+                      class="ant-switch-inner-checked"
+                    />
+                    <span
+                      class="ant-switch-inner-unchecked"
+                    />
+                  </span>
                 </button>
               </div>
             </div>
@@ -42034,7 +42119,14 @@ exports[`form demos 📸 renders ./packages/form/src/demos/form-layout-grid.tsx 
                       />
                       <span
                         class="ant-switch-inner"
-                      />
+                      >
+                        <span
+                          class="ant-switch-inner-checked"
+                        />
+                        <span
+                          class="ant-switch-inner-unchecked"
+                        />
+                      </span>
                     </button>
                   </div>
                 </div>
@@ -44527,7 +44619,7 @@ exports[`form demos 📸 renders ./packages/form/src/demos/layout-footer.tsx cor
               style="flex: 1; overflow-y: auto; overflow-x: hidden;"
             >
               <ul
-                class="ant-menu ant-menu-root ant-menu-vertical ant-pro-sider-menu  ant-pro-base-menu ant-pro-base-menu-collapsed ant-menu-inline-collapsed"
+                class="ant-menu ant-menu-root ant-menu-vertical ant-menu-light ant-pro-sider-menu  ant-pro-base-menu ant-pro-base-menu-collapsed ant-menu-inline-collapsed"
                 data-menu-list="true"
                 role="menu"
                 style="background-color: transparent; width: 100%;"
@@ -48744,7 +48836,14 @@ exports[`form demos 📸 renders ./packages/form/src/demos/pro-form-dependency.d
                                                               />
                                                               <span
                                                                 class="ant-switch-inner"
-                                                              />
+                                                              >
+                                                                <span
+                                                                  class="ant-switch-inner-checked"
+                                                                />
+                                                                <span
+                                                                  class="ant-switch-inner-unchecked"
+                                                                />
+                                                              </span>
                                                             </button>
                                                           </div>
                                                         </div>
