@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.1.4](https://github.com/ant-design/pro-components/compare/@ant-design/pro-field@2.1.3...@ant-design/pro-field@2.1.4) (2022-09-28)
+
+### Bug Fixes
+
+- **form:** fix visible props warning ([#5937](https://github.com/ant-design/pro-components/issues/5937)) ([57cd96f](https://github.com/ant-design/pro-components/commit/57cd96fe7fd94b0e94dc38cd510106f411f831cb))
+
 ## [2.1.3](https://github.com/ant-design/pro-components/compare/@ant-design/pro-field@2.1.2...@ant-design/pro-field@2.1.3) (2022-09-22)
 
 ### Bug Fixes

@@ -64,6 +64,7 @@ describe('Field', () => {
         text="100"
         fieldProps={{
           moneySymbol: false,
+          precision: 0,
         }}
         valueType="money"
         mode="read"

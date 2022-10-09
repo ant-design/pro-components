@@ -17910,7 +17910,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/columnsStateMap.tsx
 exports[`table demos 📸 renders ./packages/table/src/demos/config-provider.tsx correctly 1`] = `
 <DocumentFragment>
   <div
-    class="ant-pro "
+    class="qixian-pro "
   >
     <div
       class="qixian-pro-table"

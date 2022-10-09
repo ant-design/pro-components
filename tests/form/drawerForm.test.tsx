@@ -590,6 +590,7 @@ describe('DrawerForm', () => {
   tests.forEach((item) => {
     const { name, Comp, close, props } = item;
     it(`📦 ${name} resetFields when destroy`, async () => {
+      const fn = jest.fn();
       const App = () => {
         const [form] = Form.useForm();
         const prop = {
@@ -601,6 +602,11 @@ describe('DrawerForm', () => {
           <Comp
             {...prop}
             form={form}
+            onOpenChange={(isOpen) => {
+              if (!isOpen) {
+                if (form.getFieldValue('name')) fn(form.getFieldValue('name'));
+              }
+            }}
             onFinish={async () => {
               return true;
             }}
@@ -676,6 +682,10 @@ describe('DrawerForm', () => {
       });
       await waitForComponentToPaint(html, 300);
       expect(html.baseElement.querySelector<HTMLInputElement>('input#name')?.value).toBeFalsy();
+
+      // 通过检查fn被调用的次数确定在 onOpenChange 时表单是否已被重置
+      expect(fn).toBeCalledTimes(3);
+
       html.unmount();
     });
   });

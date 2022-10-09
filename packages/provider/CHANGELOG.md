@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.0.4](https://github.com/ant-design/pro-components/compare/@ant-design/pro-provider@2.0.3...@ant-design/pro-provider@2.0.4) (2022-09-28)
+
+### Bug Fixes
+
+- **components:** provide support getPrefixCls ([b3da61f](https://github.com/ant-design/pro-components/commit/b3da61f2090071359d6faaa4322ecbf899075a05))
+
 ## [2.0.3](https://github.com/ant-design/pro-components/compare/@ant-design/pro-provider@2.0.2...@ant-design/pro-provider@2.0.3) (2022-09-08)
 
 ### Bug Fixes

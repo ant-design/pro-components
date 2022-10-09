@@ -279,7 +279,7 @@ export const ConfigProviderWrap: React.FC<Record<string, unknown>> = ({
   children,
   autoClearCache = false,
 }) => {
-  const { locale } = useContext(AntdConfigProvider.ConfigContext);
+  const { locale, getPrefixCls } = useContext(AntdConfigProvider.ConfigContext);
   const token = useToken?.();
   // 如果 locale 不存在自动注入的 AntdConfigProvider
   const Provider = locale === undefined ? AntdConfigProvider : React.Fragment;
@@ -322,7 +322,9 @@ export const ConfigProviderWrap: React.FC<Record<string, unknown>> = ({
           </Provider>
         );
         if (proProvide.isDeps) return provide;
-        return <div className={`ant-pro ${token.hashId}`}>{provide}</div>;
+        return (
+          <div className={`${getPrefixCls?.('pro') || 'ant-pro'} ${token.hashId}`}>{provide}</div>
+        );
       }}
     </ConfigConsumer>
   );

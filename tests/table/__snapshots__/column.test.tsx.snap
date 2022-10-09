@@ -424,7 +424,7 @@ exports[`Table ColumnSetting 🎏 columns proFieldProps support custom 1`] = `
 
 exports[`Table ColumnSetting 🎏 config provide render 1`] = `
 <div
-  class="ant-pro "
+  class="qixian-pro "
 >
   <div
     class="qixian-pro-table"
