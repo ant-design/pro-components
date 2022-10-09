@@ -15896,10 +15896,12 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/customizeMenu.tsx
               >
                 <div
                   id="customize_menu_header"
+                  style="height: 32px; display: flex; align-items: center; gap: 8px;"
                 >
                   <img
                     alt="logo"
                     src="https://gw.alipayobjects.com/mdn/rms_b5fcc5/afts/img/A*1NHAQYduQiQAAAAAAAAAAABkARQnAQ"
+                    width="22"
                   />
                   <h1>
                     Remax
@@ -15943,7 +15945,9 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/customizeMenu.tsx
                     <span
                       class="ant-menu-title-content"
                     >
-                      <div>
+                      <div
+                        style="display: flex; align-items: center; gap: 8px;"
+                      >
                         pre 
                         <div
                           class="ant-pro-base-menu-item-title"
@@ -15997,7 +16001,9 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/customizeMenu.tsx
                       <span
                         class="ant-menu-title-content"
                       >
-                        <div>
+                        <div
+                          style="display: flex; align-items: center; gap: 8px;"
+                        >
                           pre 
                           <div
                             class="ant-pro-base-menu-item-title"
@@ -16056,7 +16062,9 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/customizeMenu.tsx
                       <span
                         class="ant-menu-title-content"
                       >
-                        <div>
+                        <div
+                          style="display: flex; align-items: center; gap: 8px;"
+                        >
                           pre 
                           <div
                             class="ant-pro-base-menu-item-title"
@@ -16109,7 +16117,9 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/customizeMenu.tsx
                     <span
                       class="ant-menu-title-content"
                     >
-                      <div>
+                      <div
+                        style="display: flex; align-items: center; gap: 8px;"
+                      >
                         pre 
                         <span
                           class="ant-pro-base-menu-item-title ant-pro-base-menu-item-link"
