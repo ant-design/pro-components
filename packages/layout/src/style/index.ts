@@ -232,10 +232,10 @@ const genProLayoutStyle: GenerateStyle<ProLayoutToken & LayoutDesignToken> = (to
           backgroundColor: token.pageContainer.colorBgPageContainer || 'transparent',
           position: 'relative',
           '*': { boxSizing: 'border-box' },
-          marginBlock: token.pageContainer.marginBlockPageContainerContent,
-          marginInline: token.pageContainer.marginInlinePageContainerContent,
+          paddingBlock: token.pageContainer.paddingBlockPageContainerContent,
+          paddingInline: token.pageContainer.paddingInlinePageContainerContent,
           '&-has-page-container': {
-            margin: 0,
+            padding: 0,
           },
         },
         [`${token.componentCls}-container`]: {

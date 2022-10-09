@@ -342,7 +342,7 @@ const PageContainer: React.FC<PageContainerProps> = (props) => {
           <div
             style={{
               height: 64,
-              marginBlockStart: pageContainer.marginBlockPageContainerContent,
+              marginBlockStart: pageContainer.paddingBlockPageContainerContent,
             }}
           />
         )}
@@ -353,7 +353,7 @@ const PageContainer: React.FC<PageContainerProps> = (props) => {
     basePageContainer,
     hashId,
     value.hasFooterToolbar,
-    pageContainer.marginBlockPageContainerContent,
+    pageContainer.paddingBlockPageContainerContent,
   ]);
 
   const renderContentDom = useMemo(() => {
