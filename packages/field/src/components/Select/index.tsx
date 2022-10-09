@@ -181,6 +181,7 @@ const Highlight: React.FC<{
     React.createElement(
       'div',
       {
+        title: label,
         className: optionCls,
       },
       ...elements,
