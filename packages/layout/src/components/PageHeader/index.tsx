@@ -2,7 +2,7 @@ import ArrowLeftOutlined from '@ant-design/icons/ArrowLeftOutlined';
 import ArrowRightOutlined from '@ant-design/icons/ArrowRightOutlined';
 import { useSafeState } from '@ant-design/pro-utils';
 import type { AvatarProps, BreadcrumbProps, TagType } from 'antd';
-import { Avatar, Breadcrumb, Button, ConfigProvider, Space } from 'antd';
+import { Avatar, Breadcrumb, ConfigProvider, Space } from 'antd';
 import type { DirectionType } from 'antd/es/config-provider';
 import classNames from 'classnames';
 import ResizeObserver from 'rc-resize-observer';
@@ -29,6 +29,7 @@ export interface PageHeaderProps {
 
 const renderBack = (
   prefixCls: string,
+  hashId: string,
   backIcon?: React.ReactNode,
   onBack?: (e?: React.MouseEvent<HTMLElement>) => void,
 ) => {
@@ -36,27 +37,30 @@ const renderBack = (
     return null;
   }
   return (
-    <div className={`${prefixCls}-back`}>
-      <Button
-        type="text"
+    <div className={`${prefixCls}-back ${hashId}`}>
+      <div
+        role="button"
         onClick={(e) => {
           onBack?.(e);
         }}
-        className={`${prefixCls}-back-button`}
+        className={`${prefixCls}-back-button ${hashId}`}
         aria-label="back"
       >
         {backIcon}
-      </Button>
+      </div>
     </div>
   );
 };
 
-const renderBreadcrumb = (breadcrumb: BreadcrumbProps, prefixCls: string) => (
-  <Breadcrumb
-    {...breadcrumb}
-    className={classNames(`${prefixCls}-breadcrumb`, breadcrumb.className)}
-  />
-);
+const renderBreadcrumb = (breadcrumb: BreadcrumbProps, prefixCls: string) => {
+  if (!breadcrumb.routes?.length) return null;
+  return (
+    <Breadcrumb
+      {...breadcrumb}
+      className={classNames(`${prefixCls}-breadcrumb`, breadcrumb.className)}
+    />
+  );
+};
 
 const getBackIcon = (props: PageHeaderProps, direction: DirectionType = 'ltr') => {
   if (props.backIcon !== undefined) {
@@ -79,7 +83,7 @@ const renderTitle = (
     return null;
   }
   const backIcon = getBackIcon(props, direction);
-  const backIconDom = renderBack(prefixCls, backIcon, onBack);
+  const backIconDom = renderBack(prefixCls, hashId, backIcon, onBack);
   const hasTitle = backIconDom || avatar || hasHeading;
   return (
     <div className={headingPrefixCls + ' ' + hashId}>

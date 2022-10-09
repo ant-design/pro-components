@@ -12112,66 +12112,43 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/classicMode.tsx c
                 class="ant-pro-page-container ant-pro-page-container-ghost ant-pro-page-container-with-footer"
               >
                 <div
-                  class="ant-page-header ant-pro-page-container-warp-page-header  ant-pro-page-container-warp-page-header  ant-page-header-has-breadcrumb ant-page-header-ghost"
+                  class="ant-page-header ant-pro-page-container-warp-page-header  ant-pro-page-container-warp-page-header  ant-page-header-ghost"
                 >
-                  <nav
-                    class="ant-breadcrumb ant-page-header-breadcrumb"
-                  >
-                    <ol>
-                      <li>
-                        <span
-                          class="ant-breadcrumb-link"
-                        >
-                          <a
-                            href="/list"
-                          >
-                            列表页
-                          </a>
-                        </span>
-                        <span
-                          class="ant-breadcrumb-separator"
-                        >
-                          /
-                        </span>
-                      </li>
-                      <li>
-                        <span
-                          class="ant-breadcrumb-link"
-                        >
-                          <a
-                            href="/list/sub-page"
-                          >
-                            列表页面
-                          </a>
-                        </span>
-                        <span
-                          class="ant-breadcrumb-separator"
-                        >
-                          /
-                        </span>
-                      </li>
-                      <li>
-                        <span
-                          class="ant-breadcrumb-link"
-                        >
-                          <span>
-                            一一级列表页面
-                          </span>
-                        </span>
-                        <span
-                          class="ant-breadcrumb-separator"
-                        >
-                          /
-                        </span>
-                      </li>
-                    </ol>
-                  </nav>
                   <div
                     class="ant-page-header-heading "
                   >
                     <div
                       class="ant-page-header-heading-left "
                     >
+                      <div
+                        class="ant-page-header-back "
+                      >
+                        <div
+                          aria-label="back"
+                          class="ant-page-header-back-button "
+                          role="button"
+                        >
+                          <span
+                            aria-label="arrow-left"
+                            class="anticon anticon-arrow-left"
+                            role="img"
+                          >
+                            <svg
+                              aria-hidden="true"
+                              data-icon="arrow-left"
+                              fill="currentColor"
+                              focusable="false"
+                              height="1em"
+                              viewBox="64 64 896 896"
+                              width="1em"
+                            >
+                              <path
+                                d="M872 474H286.9l350.2-304c5.6-4.9 2.2-14-5.2-14h-88.5c-3.9 0-7.6 1.4-10.5 3.9L155 487.8a31.96 31.96 0 000 48.3L535.1 866c1.5 1.3 3.3 2 5.2 2h91.5c7.4 0 10.8-9.2 5.2-14L286.9 550H872c4.4 0 8-3.6 8-8v-60c0-4.4-3.6-8-8-8z"
+                              />
+                            </svg>
+                          </span>
+                        </div>
+                      </div>
                       <span
                         class="ant-page-header-heading-title "
                         title="一一级列表页面"
@@ -24340,12 +24317,12 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/immersive-navigat
                     class="ant-page-header-heading-left "
                   >
                     <div
-                      class="ant-page-header-back"
+                      class="ant-page-header-back "
                     >
-                      <button
+                      <div
                         aria-label="back"
-                        class="ant-btn ant-btn-text ant-page-header-back-button"
-                        type="button"
+                        class="ant-page-header-back-button "
+                        role="button"
                       >
                         <span
                           aria-label="arrow-left"
@@ -24366,7 +24343,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/immersive-navigat
                             />
                           </svg>
                         </span>
-                      </button>
+                      </div>
                     </div>
                     <span
                       class="ant-page-header-heading-title "

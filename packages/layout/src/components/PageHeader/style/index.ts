@@ -41,6 +41,7 @@ const genPageHeaderStyle: GenerateStyle<PageHeaderToken> = (token) => {
         fontSize: 16,
         lineHeight: 1,
         '&-button': {
+          fontSize: 16,
           ...operationUnit?.(token),
           color: token.pageHeaderColorBack,
           cursor: 'pointer',
@@ -158,7 +159,7 @@ export default function useStyle(prefixCls: string) {
       pageHeaderPadding: 16,
       pageHeaderPaddingVertical: 8,
       pageHeaderPaddingBreadCrumb: token.paddingSM,
-      pageHeaderColorBack: token.colorIcon,
+      pageHeaderColorBack: token.colorTextHeading,
       pageHeaderFontSizeHeaderTitle: token.fontSizeHeading4,
       pageHeaderFontSizeHeaderSubTitle: 14,
       pageHeaderPaddingContentPadding: token.paddingSM,
