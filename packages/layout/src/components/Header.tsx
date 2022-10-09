@@ -90,7 +90,7 @@ const DefaultHeader: React.FC<HeaderViewProps & PrivateSiderMenuProps> = (props)
         // @ts-ignore
         theme={{
           hashed: process.env.NODE_ENV?.toLowerCase() !== 'test',
-          override: {
+          components: {
             Layout: {
               colorBgHeader: 'transparent',
               colorBgBody: 'transparent',

@@ -1988,13 +1988,13 @@ exports[`layout demos 📸 renders ./packages/layout/src/components/WaterMark/de
                                   </div>
                                   <span
                                     aria-hidden="true"
-                                    style="position: fixed; display: block; left: 0px; top: 0px; z-index: -9999; visibility: hidden; pointer-events: none; word-break: keep-all; white-space: nowrap;"
+                                    style="position: fixed; display: block; left: 0px; top: 0px; z-index: -9999; visibility: hidden; pointer-events: none; font-size: 14px; word-break: keep-all; white-space: nowrap;"
                                   >
                                     lg
                                   </span>
                                   <span
                                     aria-hidden="true"
-                                    style="position: fixed; display: block; left: 0px; top: 0px; z-index: -9999; visibility: hidden; pointer-events: none; width: 0px; white-space: normal; margin: 0px; padding: 0px;"
+                                    style="position: fixed; display: block; left: 0px; top: 0px; z-index: -9999; visibility: hidden; pointer-events: none; font-size: 14px; width: 0px; white-space: normal; margin: 0px; padding: 0px;"
                                   >
                                     <span
                                       aria-hidden="true"
@@ -2174,13 +2174,13 @@ exports[`layout demos 📸 renders ./packages/layout/src/components/WaterMark/de
                                   </div>
                                   <span
                                     aria-hidden="true"
-                                    style="position: fixed; display: block; left: 0px; top: 0px; z-index: -9999; visibility: hidden; pointer-events: none; word-break: keep-all; white-space: nowrap;"
+                                    style="position: fixed; display: block; left: 0px; top: 0px; z-index: -9999; visibility: hidden; pointer-events: none; font-size: 14px; word-break: keep-all; white-space: nowrap;"
                                   >
                                     lg
                                   </span>
                                   <span
                                     aria-hidden="true"
-                                    style="position: fixed; display: block; left: 0px; top: 0px; z-index: -9999; visibility: hidden; pointer-events: none; width: 0px; white-space: normal; margin: 0px; padding: 0px;"
+                                    style="position: fixed; display: block; left: 0px; top: 0px; z-index: -9999; visibility: hidden; pointer-events: none; font-size: 14px; width: 0px; white-space: normal; margin: 0px; padding: 0px;"
                                   >
                                     <span
                                       aria-hidden="true"
@@ -2360,13 +2360,13 @@ exports[`layout demos 📸 renders ./packages/layout/src/components/WaterMark/de
                                   </div>
                                   <span
                                     aria-hidden="true"
-                                    style="position: fixed; display: block; left: 0px; top: 0px; z-index: -9999; visibility: hidden; pointer-events: none; word-break: keep-all; white-space: nowrap;"
+                                    style="position: fixed; display: block; left: 0px; top: 0px; z-index: -9999; visibility: hidden; pointer-events: none; font-size: 14px; word-break: keep-all; white-space: nowrap;"
                                   >
                                     lg
                                   </span>
                                   <span
                                     aria-hidden="true"
-                                    style="position: fixed; display: block; left: 0px; top: 0px; z-index: -9999; visibility: hidden; pointer-events: none; width: 0px; white-space: normal; margin: 0px; padding: 0px;"
+                                    style="position: fixed; display: block; left: 0px; top: 0px; z-index: -9999; visibility: hidden; pointer-events: none; font-size: 14px; width: 0px; white-space: normal; margin: 0px; padding: 0px;"
                                   >
                                     <span
                                       aria-hidden="true"
@@ -2546,13 +2546,13 @@ exports[`layout demos 📸 renders ./packages/layout/src/components/WaterMark/de
                                   </div>
                                   <span
                                     aria-hidden="true"
-                                    style="position: fixed; display: block; left: 0px; top: 0px; z-index: -9999; visibility: hidden; pointer-events: none; word-break: keep-all; white-space: nowrap;"
+                                    style="position: fixed; display: block; left: 0px; top: 0px; z-index: -9999; visibility: hidden; pointer-events: none; font-size: 14px; word-break: keep-all; white-space: nowrap;"
                                   >
                                     lg
                                   </span>
                                   <span
                                     aria-hidden="true"
-                                    style="position: fixed; display: block; left: 0px; top: 0px; z-index: -9999; visibility: hidden; pointer-events: none; width: 0px; white-space: normal; margin: 0px; padding: 0px;"
+                                    style="position: fixed; display: block; left: 0px; top: 0px; z-index: -9999; visibility: hidden; pointer-events: none; font-size: 14px; width: 0px; white-space: normal; margin: 0px; padding: 0px;"
                                   >
                                     <span
                                       aria-hidden="true"
@@ -2732,13 +2732,13 @@ exports[`layout demos 📸 renders ./packages/layout/src/components/WaterMark/de
                                   </div>
                                   <span
                                     aria-hidden="true"
-                                    style="position: fixed; display: block; left: 0px; top: 0px; z-index: -9999; visibility: hidden; pointer-events: none; word-break: keep-all; white-space: nowrap;"
+                                    style="position: fixed; display: block; left: 0px; top: 0px; z-index: -9999; visibility: hidden; pointer-events: none; font-size: 14px; word-break: keep-all; white-space: nowrap;"
                                   >
                                     lg
                                   </span>
                                   <span
                                     aria-hidden="true"
-                                    style="position: fixed; display: block; left: 0px; top: 0px; z-index: -9999; visibility: hidden; pointer-events: none; width: 0px; white-space: normal; margin: 0px; padding: 0px;"
+                                    style="position: fixed; display: block; left: 0px; top: 0px; z-index: -9999; visibility: hidden; pointer-events: none; font-size: 14px; width: 0px; white-space: normal; margin: 0px; padding: 0px;"
                                   >
                                     <span
                                       aria-hidden="true"
@@ -2918,13 +2918,13 @@ exports[`layout demos 📸 renders ./packages/layout/src/components/WaterMark/de
                                   </div>
                                   <span
                                     aria-hidden="true"
-                                    style="position: fixed; display: block; left: 0px; top: 0px; z-index: -9999; visibility: hidden; pointer-events: none; word-break: keep-all; white-space: nowrap;"
+                                    style="position: fixed; display: block; left: 0px; top: 0px; z-index: -9999; visibility: hidden; pointer-events: none; font-size: 14px; word-break: keep-all; white-space: nowrap;"
                                   >
                                     lg
                                   </span>
                                   <span
                                     aria-hidden="true"
-                                    style="position: fixed; display: block; left: 0px; top: 0px; z-index: -9999; visibility: hidden; pointer-events: none; width: 0px; white-space: normal; margin: 0px; padding: 0px;"
+                                    style="position: fixed; display: block; left: 0px; top: 0px; z-index: -9999; visibility: hidden; pointer-events: none; font-size: 14px; width: 0px; white-space: normal; margin: 0px; padding: 0px;"
                                   >
                                     <span
                                       aria-hidden="true"
@@ -3104,13 +3104,13 @@ exports[`layout demos 📸 renders ./packages/layout/src/components/WaterMark/de
                                   </div>
                                   <span
                                     aria-hidden="true"
-                                    style="position: fixed; display: block; left: 0px; top: 0px; z-index: -9999; visibility: hidden; pointer-events: none; word-break: keep-all; white-space: nowrap;"
+                                    style="position: fixed; display: block; left: 0px; top: 0px; z-index: -9999; visibility: hidden; pointer-events: none; font-size: 14px; word-break: keep-all; white-space: nowrap;"
                                   >
                                     lg
                                   </span>
                                   <span
                                     aria-hidden="true"
-                                    style="position: fixed; display: block; left: 0px; top: 0px; z-index: -9999; visibility: hidden; pointer-events: none; width: 0px; white-space: normal; margin: 0px; padding: 0px;"
+                                    style="position: fixed; display: block; left: 0px; top: 0px; z-index: -9999; visibility: hidden; pointer-events: none; font-size: 14px; width: 0px; white-space: normal; margin: 0px; padding: 0px;"
                                   >
                                     <span
                                       aria-hidden="true"
@@ -3290,13 +3290,13 @@ exports[`layout demos 📸 renders ./packages/layout/src/components/WaterMark/de
                                   </div>
                                   <span
                                     aria-hidden="true"
-                                    style="position: fixed; display: block; left: 0px; top: 0px; z-index: -9999; visibility: hidden; pointer-events: none; word-break: keep-all; white-space: nowrap;"
+                                    style="position: fixed; display: block; left: 0px; top: 0px; z-index: -9999; visibility: hidden; pointer-events: none; font-size: 14px; word-break: keep-all; white-space: nowrap;"
                                   >
                                     lg
                                   </span>
                                   <span
                                     aria-hidden="true"
-                                    style="position: fixed; display: block; left: 0px; top: 0px; z-index: -9999; visibility: hidden; pointer-events: none; width: 0px; white-space: normal; margin: 0px; padding: 0px;"
+                                    style="position: fixed; display: block; left: 0px; top: 0px; z-index: -9999; visibility: hidden; pointer-events: none; font-size: 14px; width: 0px; white-space: normal; margin: 0px; padding: 0px;"
                                   >
                                     <span
                                       aria-hidden="true"
@@ -3476,13 +3476,13 @@ exports[`layout demos 📸 renders ./packages/layout/src/components/WaterMark/de
                                   </div>
                                   <span
                                     aria-hidden="true"
-                                    style="position: fixed; display: block; left: 0px; top: 0px; z-index: -9999; visibility: hidden; pointer-events: none; word-break: keep-all; white-space: nowrap;"
+                                    style="position: fixed; display: block; left: 0px; top: 0px; z-index: -9999; visibility: hidden; pointer-events: none; font-size: 14px; word-break: keep-all; white-space: nowrap;"
                                   >
                                     lg
                                   </span>
                                   <span
                                     aria-hidden="true"
-                                    style="position: fixed; display: block; left: 0px; top: 0px; z-index: -9999; visibility: hidden; pointer-events: none; width: 0px; white-space: normal; margin: 0px; padding: 0px;"
+                                    style="position: fixed; display: block; left: 0px; top: 0px; z-index: -9999; visibility: hidden; pointer-events: none; font-size: 14px; width: 0px; white-space: normal; margin: 0px; padding: 0px;"
                                   >
                                     <span
                                       aria-hidden="true"
@@ -3662,13 +3662,13 @@ exports[`layout demos 📸 renders ./packages/layout/src/components/WaterMark/de
                                   </div>
                                   <span
                                     aria-hidden="true"
-                                    style="position: fixed; display: block; left: 0px; top: 0px; z-index: -9999; visibility: hidden; pointer-events: none; word-break: keep-all; white-space: nowrap;"
+                                    style="position: fixed; display: block; left: 0px; top: 0px; z-index: -9999; visibility: hidden; pointer-events: none; font-size: 14px; word-break: keep-all; white-space: nowrap;"
                                   >
                                     lg
                                   </span>
                                   <span
                                     aria-hidden="true"
-                                    style="position: fixed; display: block; left: 0px; top: 0px; z-index: -9999; visibility: hidden; pointer-events: none; width: 0px; white-space: normal; margin: 0px; padding: 0px;"
+                                    style="position: fixed; display: block; left: 0px; top: 0px; z-index: -9999; visibility: hidden; pointer-events: none; font-size: 14px; width: 0px; white-space: normal; margin: 0px; padding: 0px;"
                                   >
                                     <span
                                       aria-hidden="true"
@@ -4102,7 +4102,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/AlwaysDefaultOpen
                 style="flex: 1; overflow-y: auto; overflow-x: hidden;"
               >
                 <ul
-                  class="ant-menu ant-menu-root ant-menu-inline ant-pro-sider-menu  ant-pro-base-menu"
+                  class="ant-menu ant-menu-root ant-menu-inline ant-menu-light ant-pro-sider-menu  ant-pro-base-menu"
                   data-menu-list="true"
                   role="menu"
                   style="background-color: transparent; width: 100%;"
@@ -4571,7 +4571,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/BreadcrumbsRepeat
                 style="flex: 1; overflow-y: auto; overflow-x: hidden;"
               >
                 <ul
-                  class="ant-menu ant-menu-root ant-menu-inline ant-pro-sider-menu  ant-pro-base-menu"
+                  class="ant-menu ant-menu-root ant-menu-inline ant-menu-light ant-pro-sider-menu  ant-pro-base-menu"
                   data-menu-list="true"
                   role="menu"
                   style="background-color: transparent; width: 100%;"
@@ -4993,7 +4993,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/DefaultOpenAllMen
                 style="flex: 1; overflow-y: auto; overflow-x: hidden;"
               >
                 <ul
-                  class="ant-menu ant-menu-root ant-menu-inline ant-pro-sider-menu  ant-pro-base-menu"
+                  class="ant-menu ant-menu-root ant-menu-inline ant-menu-light ant-pro-sider-menu  ant-pro-base-menu"
                   data-menu-list="true"
                   role="menu"
                   style="background-color: transparent; width: 100%;"
@@ -5606,7 +5606,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/IconFont.tsx corr
                 style="flex: 1; overflow-y: auto; overflow-x: hidden;"
               >
                 <ul
-                  class="ant-menu ant-menu-root ant-menu-inline ant-pro-sider-menu  ant-pro-base-menu"
+                  class="ant-menu ant-menu-root ant-menu-inline ant-menu-light ant-pro-sider-menu  ant-pro-base-menu"
                   data-menu-list="true"
                   role="menu"
                   style="background-color: transparent; width: 100%;"
@@ -5992,7 +5992,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/MenuGroup.tsx cor
                 style="flex: 1; overflow-y: auto; overflow-x: hidden;"
               >
                 <ul
-                  class="ant-menu ant-menu-root ant-menu-inline ant-pro-sider-menu  ant-pro-base-menu"
+                  class="ant-menu ant-menu-root ant-menu-inline ant-menu-light ant-pro-sider-menu  ant-pro-base-menu"
                   data-menu-list="true"
                   role="menu"
                   style="background-color: transparent; width: 100%;"
@@ -6481,7 +6481,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/MultipleMenuOnePa
                 style="flex: 1; overflow-y: auto; overflow-x: hidden;"
               >
                 <ul
-                  class="ant-menu ant-menu-root ant-menu-inline ant-pro-sider-menu  ant-pro-base-menu"
+                  class="ant-menu ant-menu-root ant-menu-inline ant-menu-light ant-pro-sider-menu  ant-pro-base-menu"
                   data-menu-list="true"
                   role="menu"
                   style="background-color: transparent; width: 100%;"
@@ -7052,7 +7052,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/Nested.tsx correc
                 style="flex: 1; overflow-y: auto; overflow-x: hidden;"
               >
                 <ul
-                  class="ant-menu ant-menu-root ant-menu-inline ant-pro-sider-menu  ant-pro-base-menu"
+                  class="ant-menu ant-menu-root ant-menu-inline ant-menu-light ant-pro-sider-menu  ant-pro-base-menu"
                   data-menu-list="true"
                   role="menu"
                   style="background-color: transparent; width: 100%;"
@@ -7223,7 +7223,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/Nested.tsx correc
                         style="flex: 1; overflow-y: auto; overflow-x: hidden;"
                       >
                         <ul
-                          class="ant-menu ant-menu-root ant-menu-inline ant-pro-sider-menu  ant-pro-base-menu"
+                          class="ant-menu ant-menu-root ant-menu-inline ant-menu-light ant-pro-sider-menu  ant-pro-base-menu"
                           data-menu-list="true"
                           role="menu"
                           style="background-color: transparent; width: 100%;"
@@ -7699,7 +7699,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/TopmenuNested.tsx
                     style="flex: 1;"
                   >
                     <ul
-                      class="ant-menu-overflow ant-menu ant-menu-root ant-menu-horizontal ant-pro-top-nav-header-base-menu  ant-pro-base-menu ant-pro-base-menu-horizontal"
+                      class="ant-menu-overflow ant-menu ant-menu-root ant-menu-horizontal ant-menu-light ant-pro-top-nav-header-base-menu  ant-pro-base-menu ant-pro-base-menu-horizontal"
                       data-menu-list="true"
                       role="menu"
                       style="background-color: transparent; width: 100%;"
@@ -7898,7 +7898,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/TopmenuNested.tsx
                         style="flex: 1; overflow-y: auto; overflow-x: hidden;"
                       >
                         <ul
-                          class="ant-menu ant-menu-root ant-menu-inline ant-pro-sider-menu  ant-pro-base-menu"
+                          class="ant-menu ant-menu-root ant-menu-inline ant-menu-light ant-pro-sider-menu  ant-pro-base-menu"
                           data-menu-list="true"
                           role="menu"
                           style="background-color: transparent; width: 100%;"
@@ -8327,7 +8327,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/antd@4MenuIconFor
               style="flex: 1; overflow-y: auto; overflow-x: hidden;"
             >
               <ul
-                class="ant-menu ant-menu-root ant-menu-inline ant-pro-sider-menu  ant-pro-base-menu"
+                class="ant-menu ant-menu-root ant-menu-inline ant-menu-light ant-pro-sider-menu  ant-pro-base-menu"
                 data-menu-list="true"
                 role="menu"
                 style="background-color: transparent; width: 100%;"
@@ -8649,7 +8649,14 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/api.tsx correctly
     />
     <span
       class="ant-switch-inner"
-    />
+    >
+      <span
+        class="ant-switch-inner-checked"
+      />
+      <span
+        class="ant-switch-inner-unchecked"
+      />
+    </span>
   </button>
   loading 状态
   <button
@@ -8664,7 +8671,14 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/api.tsx correctly
     />
     <span
       class="ant-switch-inner"
-    />
+    >
+      <span
+        class="ant-switch-inner-checked"
+      />
+      <span
+        class="ant-switch-inner-unchecked"
+      />
+    </span>
   </button>
   折叠layout
   <button
@@ -8679,7 +8693,14 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/api.tsx correctly
     />
     <span
       class="ant-switch-inner"
-    />
+    >
+      <span
+        class="ant-switch-inner-checked"
+      />
+      <span
+        class="ant-switch-inner-unchecked"
+      />
+    </span>
   </button>
   显示菜单
   <button
@@ -8694,7 +8715,14 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/api.tsx correctly
     />
     <span
       class="ant-switch-inner"
-    />
+    >
+      <span
+        class="ant-switch-inner-checked"
+      />
+      <span
+        class="ant-switch-inner-unchecked"
+      />
+    </span>
   </button>
   显示折叠按钮
   <button
@@ -8709,7 +8737,14 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/api.tsx correctly
     />
     <span
       class="ant-switch-inner"
-    />
+    >
+      <span
+        class="ant-switch-inner-checked"
+      />
+      <span
+        class="ant-switch-inner-unchecked"
+      />
+    </span>
   </button>
   显示顶栏
   <button
@@ -8724,7 +8759,14 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/api.tsx correctly
     />
     <span
       class="ant-switch-inner"
-    />
+    >
+      <span
+        class="ant-switch-inner-checked"
+      />
+      <span
+        class="ant-switch-inner-unchecked"
+      />
+    </span>
   </button>
   显示菜单头
   <button
@@ -8739,7 +8781,14 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/api.tsx correctly
     />
     <span
       class="ant-switch-inner"
-    />
+    >
+      <span
+        class="ant-switch-inner-checked"
+      />
+      <span
+        class="ant-switch-inner-unchecked"
+      />
+    </span>
   </button>
   显示页脚
   <button
@@ -8754,7 +8803,14 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/api.tsx correctly
     />
     <span
       class="ant-switch-inner"
-    />
+    >
+      <span
+        class="ant-switch-inner-checked"
+      />
+      <span
+        class="ant-switch-inner-unchecked"
+      />
+    </span>
   </button>
   显示顶栏右侧
   <button
@@ -8769,7 +8825,14 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/api.tsx correctly
     />
     <span
       class="ant-switch-inner"
-    />
+    >
+      <span
+        class="ant-switch-inner-checked"
+      />
+      <span
+        class="ant-switch-inner-unchecked"
+      />
+    </span>
   </button>
   清爽模式
   <br />
@@ -8950,7 +9013,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/api.tsx correctly
               style="flex: 1; overflow-y: auto; overflow-x: hidden;"
             >
               <ul
-                class="ant-menu ant-menu-root ant-menu-vertical ant-pro-sider-menu  ant-pro-base-menu ant-pro-base-menu-collapsed ant-menu-inline-collapsed"
+                class="ant-menu ant-menu-root ant-menu-vertical ant-menu-light ant-pro-sider-menu  ant-pro-base-menu ant-pro-base-menu-collapsed ant-menu-inline-collapsed"
                 data-menu-list="true"
                 role="menu"
                 style="background-color: transparent; width: 100%;"
@@ -9557,7 +9620,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/background-contex
                     style="flex: 1;"
                   >
                     <ul
-                      class="ant-menu-overflow ant-menu ant-menu-root ant-menu-horizontal ant-pro-top-nav-header-base-menu  ant-pro-base-menu ant-pro-base-menu-horizontal"
+                      class="ant-menu-overflow ant-menu ant-menu-root ant-menu-horizontal ant-menu-light ant-pro-top-nav-header-base-menu  ant-pro-base-menu ant-pro-base-menu-horizontal"
                       data-menu-list="true"
                       role="menu"
                       style="background-color: transparent; width: 100%;"
@@ -10076,7 +10139,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/base.tsx correctl
                 style="flex: 1; overflow-y: auto; overflow-x: hidden;"
               >
                 <ul
-                  class="ant-menu ant-menu-root ant-menu-inline ant-pro-sider-menu  ant-pro-base-menu"
+                  class="ant-menu ant-menu-root ant-menu-inline ant-menu-light ant-pro-sider-menu  ant-pro-base-menu"
                   data-menu-list="true"
                   role="menu"
                   style="background-color: transparent; width: 100%;"
@@ -10581,7 +10644,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/base.tsx correctl
                     style="flex: 1;"
                   >
                     <ul
-                      class="ant-menu-overflow ant-menu ant-menu-root ant-menu-horizontal ant-pro-top-nav-header-base-menu  ant-pro-base-menu ant-pro-base-menu-horizontal"
+                      class="ant-menu-overflow ant-menu ant-menu-root ant-menu-horizontal ant-menu-light ant-pro-top-nav-header-base-menu  ant-pro-base-menu ant-pro-base-menu-horizontal"
                       data-menu-list="true"
                       role="menu"
                       style="background-color: transparent; width: 100%;"
@@ -11188,7 +11251,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/classicMode.tsx c
                 style="flex: 1; overflow-y: auto; overflow-x: hidden;"
               >
                 <ul
-                  class="ant-menu ant-menu-root ant-menu-inline ant-pro-sider-menu  ant-pro-base-menu"
+                  class="ant-menu ant-menu-root ant-menu-inline ant-menu-light ant-pro-sider-menu  ant-pro-base-menu"
                   data-menu-list="true"
                   role="menu"
                   style="background-color: transparent; width: 100%;"
@@ -11693,7 +11756,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/classicMode.tsx c
                     style="flex: 1;"
                   >
                     <ul
-                      class="ant-menu-overflow ant-menu ant-menu-root ant-menu-horizontal ant-pro-top-nav-header-base-menu  ant-pro-base-menu ant-pro-base-menu-horizontal"
+                      class="ant-menu-overflow ant-menu ant-menu-root ant-menu-horizontal ant-menu-light ant-pro-top-nav-header-base-menu  ant-pro-base-menu ant-pro-base-menu-horizontal"
                       data-menu-list="true"
                       role="menu"
                       style="background-color: transparent; width: 100%;"
@@ -12414,7 +12477,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/collapsedShowTitl
               style="flex: 1; overflow-y: auto; overflow-x: hidden;"
             >
               <ul
-                class="ant-menu ant-menu-root ant-menu-vertical ant-pro-sider-menu  ant-pro-base-menu ant-pro-base-menu-collapsed ant-menu-inline-collapsed"
+                class="ant-menu ant-menu-root ant-menu-vertical ant-menu-light ant-pro-sider-menu  ant-pro-base-menu ant-pro-base-menu-collapsed ant-menu-inline-collapsed"
                 data-menu-list="true"
                 role="menu"
                 style="background-color: transparent; width: 100%;"
@@ -12991,7 +13054,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/config-provider.t
               style="flex: 1; overflow-y: auto; overflow-x: hidden;"
             >
               <ul
-                class="qixian-menu qixian-menu-root qixian-menu-inline qixian-pro-sider-menu  qixian-pro-base-menu"
+                class="qixian-menu qixian-menu-root qixian-menu-inline qixian-menu-light qixian-pro-sider-menu  qixian-pro-base-menu"
                 data-menu-list="true"
                 role="menu"
                 style="background-color: transparent; width: 100%;"
@@ -14388,7 +14451,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/customSider.tsx c
                 style="flex: 1; overflow-y: auto; overflow-x: hidden;"
               >
                 <ul
-                  class="ant-menu ant-menu-root ant-menu-inline ant-pro-sider-menu  ant-pro-base-menu"
+                  class="ant-menu ant-menu-root ant-menu-inline ant-menu-light ant-pro-sider-menu  ant-pro-base-menu"
                   data-menu-list="true"
                   role="menu"
                   style="background-color: transparent; width: 100%;"
@@ -15262,7 +15325,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/customize-collaps
               style="flex: 1; overflow-y: auto; overflow-x: hidden;"
             >
               <ul
-                class="ant-menu ant-menu-root ant-menu-inline ant-pro-sider-menu  ant-pro-base-menu"
+                class="ant-menu ant-menu-root ant-menu-inline ant-menu-light ant-pro-sider-menu  ant-pro-base-menu"
                 data-menu-list="true"
                 role="menu"
                 style="background-color: transparent; width: 100%;"
@@ -15863,7 +15926,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/customizeMenu.tsx
                 style="flex: 1; overflow-y: auto; overflow-x: hidden;"
               >
                 <ul
-                  class="ant-menu ant-menu-root ant-menu-inline ant-pro-sider-menu  ant-pro-base-menu"
+                  class="ant-menu ant-menu-root ant-menu-inline ant-menu-light ant-pro-sider-menu  ant-pro-base-menu"
                   data-menu-list="true"
                   role="menu"
                   style="background-color: transparent; width: 100%;"
@@ -16225,7 +16288,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/designMenuCss.tsx
                 style="flex: 1; overflow-y: auto; overflow-x: hidden;"
               >
                 <ul
-                  class="ant-menu ant-menu-root ant-menu-inline ant-pro-sider-menu  ant-pro-base-menu"
+                  class="ant-menu ant-menu-root ant-menu-inline ant-menu-light ant-pro-sider-menu  ant-pro-base-menu"
                   data-menu-list="true"
                   role="menu"
                   style="background-color: transparent; width: 100%;"
@@ -16730,7 +16793,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/designMenuCss.tsx
                     style="flex: 1;"
                   >
                     <ul
-                      class="ant-menu-overflow ant-menu ant-menu-root ant-menu-horizontal ant-pro-top-nav-header-base-menu  ant-pro-base-menu ant-pro-base-menu-horizontal"
+                      class="ant-menu-overflow ant-menu ant-menu-root ant-menu-horizontal ant-menu-light ant-pro-top-nav-header-base-menu  ant-pro-base-menu ant-pro-base-menu-horizontal"
                       data-menu-list="true"
                       role="menu"
                       style="background-color: transparent; width: 100%;"
@@ -17578,7 +17641,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/designSiderMenu.t
                 style="flex: 1; overflow-y: auto; overflow-x: hidden;"
               >
                 <ul
-                  class="ant-menu ant-menu-root ant-menu-inline ant-pro-sider-menu  ant-pro-base-menu"
+                  class="ant-menu ant-menu-root ant-menu-inline ant-menu-light ant-pro-sider-menu  ant-pro-base-menu"
                   data-menu-list="true"
                   role="menu"
                   style="background-color: transparent; width: 100%;"
@@ -18594,7 +18657,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/dynamic-settings.
                 style="flex: 1; overflow-y: auto; overflow-x: hidden;"
               >
                 <ul
-                  class="ant-menu ant-menu-root ant-menu-inline ant-pro-sider-menu  ant-pro-base-menu"
+                  class="ant-menu ant-menu-root ant-menu-inline ant-menu-light ant-pro-sider-menu  ant-pro-base-menu"
                   data-menu-list="true"
                   role="menu"
                   style="background-color: transparent; width: 100%;"
@@ -19877,7 +19940,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/dynamicMenu.tsx c
               style="flex: 1; overflow-y: auto; overflow-x: hidden;"
             >
               <ul
-                class="ant-menu ant-menu-root ant-menu-inline ant-pro-sider-menu  ant-pro-base-menu"
+                class="ant-menu ant-menu-root ant-menu-inline ant-menu-light ant-pro-sider-menu  ant-pro-base-menu"
                 data-menu-list="true"
                 role="menu"
                 style="background-color: transparent; width: 100%;"
@@ -20313,7 +20376,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/error-boundaries.
                 style="flex: 1; overflow-y: auto; overflow-x: hidden;"
               >
                 <ul
-                  class="ant-menu ant-menu-root ant-menu-inline ant-pro-sider-menu  ant-pro-base-menu"
+                  class="ant-menu ant-menu-root ant-menu-inline ant-menu-light ant-pro-sider-menu  ant-pro-base-menu"
                   data-menu-list="true"
                   role="menu"
                   style="background-color: transparent; width: 100%;"
@@ -20617,7 +20680,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/footer.tsx correc
               style="flex: 1; overflow-y: auto; overflow-x: hidden;"
             >
               <ul
-                class="ant-menu ant-menu-root ant-menu-vertical ant-pro-sider-menu  ant-pro-base-menu ant-pro-base-menu-collapsed ant-menu-inline-collapsed"
+                class="ant-menu ant-menu-root ant-menu-vertical ant-menu-light ant-pro-sider-menu  ant-pro-base-menu ant-pro-base-menu-collapsed ant-menu-inline-collapsed"
                 data-menu-list="true"
                 role="menu"
                 style="background-color: transparent; width: 100%;"
@@ -21017,7 +21080,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/footer-global-too
                 style="flex: 1; overflow-y: auto; overflow-x: hidden;"
               >
                 <ul
-                  class="ant-menu ant-menu-root ant-menu-inline ant-pro-sider-menu  ant-pro-base-menu"
+                  class="ant-menu ant-menu-root ant-menu-inline ant-menu-light ant-pro-sider-menu  ant-pro-base-menu"
                   data-menu-list="true"
                   role="menu"
                   style="background-color: transparent; width: 100%;"
@@ -21576,7 +21639,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/footer-global-too
                     style="flex: 1;"
                   >
                     <ul
-                      class="ant-menu-overflow ant-menu ant-menu-root ant-menu-horizontal ant-pro-top-nav-header-base-menu  ant-pro-base-menu ant-pro-base-menu-horizontal"
+                      class="ant-menu-overflow ant-menu ant-menu-root ant-menu-horizontal ant-menu-light ant-pro-top-nav-header-base-menu  ant-pro-base-menu ant-pro-base-menu-horizontal"
                       data-menu-list="true"
                       role="menu"
                       style="background-color: transparent; width: 100%;"
@@ -22243,7 +22306,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/ghost.tsx correct
                 style="flex: 1; overflow-y: auto; overflow-x: hidden;"
               >
                 <ul
-                  class="ant-menu ant-menu-root ant-menu-inline ant-pro-sider-menu  ant-pro-base-menu"
+                  class="ant-menu ant-menu-root ant-menu-inline ant-menu-light ant-pro-sider-menu  ant-pro-base-menu"
                   data-menu-list="true"
                   role="menu"
                   style="background-color: transparent; width: 100%;"
@@ -22920,7 +22983,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/hideMenu.tsx corr
                 style="flex: 1; overflow-y: auto; overflow-x: hidden;"
               >
                 <ul
-                  class="ant-menu ant-menu-root ant-menu-inline ant-pro-sider-menu  ant-pro-base-menu"
+                  class="ant-menu ant-menu-root ant-menu-inline ant-menu-light ant-pro-sider-menu  ant-pro-base-menu"
                   data-menu-list="true"
                   role="menu"
                   style="background-color: transparent; width: 100%;"
@@ -23320,7 +23383,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/immersive-navigat
               style="flex: 1; overflow-y: auto; overflow-x: hidden;"
             >
               <ul
-                class="ant-menu ant-menu-root ant-menu-inline ant-pro-sider-menu  ant-pro-base-menu"
+                class="ant-menu ant-menu-root ant-menu-inline ant-menu-light ant-pro-sider-menu  ant-pro-base-menu"
                 data-menu-list="true"
                 role="menu"
                 style="background-color: transparent; width: 100%;"
@@ -24039,7 +24102,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/immersive-navigat
               style="flex: 1; overflow-y: auto; overflow-x: hidden;"
             >
               <ul
-                class="ant-menu ant-menu-root ant-menu-inline ant-pro-sider-menu  ant-pro-base-menu"
+                class="ant-menu ant-menu-root ant-menu-inline ant-menu-light ant-pro-sider-menu  ant-pro-base-menu"
                 data-menu-list="true"
                 role="menu"
                 style="background-color: transparent; width: 100%;"
@@ -24916,7 +24979,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/menu-group.tsx co
                 style="flex: 1; overflow-y: auto; overflow-x: hidden;"
               >
                 <ul
-                  class="ant-menu ant-menu-root ant-menu-inline ant-pro-sider-menu  ant-pro-base-menu"
+                  class="ant-menu ant-menu-root ant-menu-inline ant-menu-light ant-pro-sider-menu  ant-pro-base-menu"
                   data-menu-list="true"
                   role="menu"
                   style="background-color: transparent; width: 100%;"
@@ -25631,7 +25694,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/mixMode.tsx corre
                 style="flex: 1; overflow-y: auto; overflow-x: hidden;"
               >
                 <ul
-                  class="ant-menu ant-menu-root ant-menu-inline ant-pro-sider-menu  ant-pro-base-menu"
+                  class="ant-menu ant-menu-root ant-menu-inline ant-menu-light ant-pro-sider-menu  ant-pro-base-menu"
                   data-menu-list="true"
                   role="menu"
                   style="background-color: transparent; width: 100%;"
@@ -26136,7 +26199,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/mixMode.tsx corre
                     style="flex: 1;"
                   >
                     <ul
-                      class="ant-menu-overflow ant-menu ant-menu-root ant-menu-horizontal ant-pro-top-nav-header-base-menu  ant-pro-base-menu ant-pro-base-menu-horizontal"
+                      class="ant-menu-overflow ant-menu ant-menu-root ant-menu-horizontal ant-menu-light ant-pro-top-nav-header-base-menu  ant-pro-base-menu ant-pro-base-menu-horizontal"
                       data-menu-list="true"
                       role="menu"
                       style="background-color: transparent; width: 100%;"
@@ -26635,7 +26698,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/pageSimplify.tsx 
                 style="flex: 1; overflow-y: auto; overflow-x: hidden;"
               >
                 <ul
-                  class="ant-menu ant-menu-root ant-menu-inline ant-pro-sider-menu  ant-pro-base-menu"
+                  class="ant-menu ant-menu-root ant-menu-inline ant-menu-light ant-pro-sider-menu  ant-pro-base-menu"
                   data-menu-list="true"
                   role="menu"
                   style="background-color: transparent; width: 100%;"
@@ -27635,7 +27698,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/searchMenu.tsx co
                 style="flex: 1; overflow-y: auto; overflow-x: hidden;"
               >
                 <ul
-                  class="ant-menu ant-menu-root ant-menu-inline ant-pro-sider-menu  ant-pro-base-menu"
+                  class="ant-menu ant-menu-root ant-menu-inline ant-menu-light ant-pro-sider-menu  ant-pro-base-menu"
                   data-menu-list="true"
                   role="menu"
                   style="background-color: transparent; width: 100%;"
@@ -28184,7 +28247,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/siderMode.tsx cor
                 style="flex: 1; overflow-y: auto; overflow-x: hidden;"
               >
                 <ul
-                  class="ant-menu ant-menu-root ant-menu-inline ant-pro-sider-menu  ant-pro-base-menu"
+                  class="ant-menu ant-menu-root ant-menu-inline ant-menu-light ant-pro-sider-menu  ant-pro-base-menu"
                   data-menu-list="true"
                   role="menu"
                   style="background-color: transparent; width: 100%;"
@@ -28883,7 +28946,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/siteMenu.tsx corr
                 style="flex: 1; overflow-y: auto; overflow-x: hidden;"
               >
                 <ul
-                  class="ant-menu ant-menu-root ant-menu-inline ant-pro-sider-menu  ant-pro-base-menu"
+                  class="ant-menu ant-menu-root ant-menu-inline ant-menu-light ant-pro-sider-menu  ant-pro-base-menu"
                   data-menu-list="true"
                   role="menu"
                   style="background-color: transparent; width: 100%;"
@@ -29388,7 +29451,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/siteMenu.tsx corr
                     style="flex: 1;"
                   >
                     <ul
-                      class="ant-menu-overflow ant-menu ant-menu-root ant-menu-horizontal ant-pro-top-nav-header-base-menu  ant-pro-base-menu ant-pro-base-menu-horizontal"
+                      class="ant-menu-overflow ant-menu ant-menu-root ant-menu-horizontal ant-menu-light ant-pro-top-nav-header-base-menu  ant-pro-base-menu ant-pro-base-menu-horizontal"
                       data-menu-list="true"
                       role="menu"
                       style="background-color: transparent; width: 100%;"
@@ -30039,7 +30102,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/splitMenus.tsx co
                   style="flex: 1;"
                 >
                   <ul
-                    class="ant-menu-overflow ant-menu ant-menu-root ant-menu-horizontal ant-pro-top-nav-header-base-menu  ant-pro-base-menu ant-pro-base-menu-horizontal"
+                    class="ant-menu-overflow ant-menu ant-menu-root ant-menu-horizontal ant-menu-light ant-pro-top-nav-header-base-menu  ant-pro-base-menu ant-pro-base-menu-horizontal"
                     data-menu-list="true"
                     role="menu"
                     style="background-color: transparent; width: 100%;"
@@ -30495,7 +30558,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/splitMenus.tsx co
                   style="flex: 1;"
                 >
                   <ul
-                    class="ant-menu-overflow ant-menu ant-menu-root ant-menu-horizontal ant-pro-top-nav-header-base-menu  ant-pro-base-menu ant-pro-base-menu-horizontal"
+                    class="ant-menu-overflow ant-menu ant-menu-root ant-menu-horizontal ant-menu-light ant-pro-top-nav-header-base-menu  ant-pro-base-menu ant-pro-base-menu-horizontal"
                     data-menu-list="true"
                     role="menu"
                     style="background-color: transparent; width: 100%;"
@@ -30765,7 +30828,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/splitMenus.tsx co
                   style="flex: 1;"
                 >
                   <ul
-                    class="ant-menu-overflow ant-menu ant-menu-root ant-menu-horizontal ant-pro-top-nav-header-base-menu  ant-pro-base-menu ant-pro-base-menu-horizontal"
+                    class="ant-menu-overflow ant-menu ant-menu-root ant-menu-horizontal ant-menu-light ant-pro-top-nav-header-base-menu  ant-pro-base-menu ant-pro-base-menu-horizontal"
                     data-menu-list="true"
                     role="menu"
                     style="background-color: transparent; width: 100%;"
@@ -31231,7 +31294,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/splitMenus.tsx co
                   style="flex: 1;"
                 >
                   <ul
-                    class="ant-menu-overflow ant-menu ant-menu-root ant-menu-horizontal ant-pro-top-nav-header-base-menu  ant-pro-base-menu ant-pro-base-menu-horizontal"
+                    class="ant-menu-overflow ant-menu ant-menu-root ant-menu-horizontal ant-menu-light ant-pro-top-nav-header-base-menu  ant-pro-base-menu ant-pro-base-menu-horizontal"
                     data-menu-list="true"
                     role="menu"
                     style="background-color: transparent; width: 100%;"
@@ -31530,7 +31593,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/splitMenus.tsx co
               style="flex: 1; overflow-y: auto; overflow-x: hidden;"
             >
               <ul
-                class="ant-menu ant-menu-root ant-menu-inline ant-pro-sider-menu  ant-pro-base-menu"
+                class="ant-menu ant-menu-root ant-menu-inline ant-menu-light ant-pro-sider-menu  ant-pro-base-menu"
                 data-menu-list="true"
                 role="menu"
                 style="background-color: transparent; width: 100%;"
@@ -32006,7 +32069,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/splitMenus.tsx co
               style="flex: 1; overflow-y: auto; overflow-x: hidden;"
             >
               <ul
-                class="ant-menu ant-menu-root ant-menu-inline ant-pro-sider-menu  ant-pro-base-menu"
+                class="ant-menu ant-menu-root ant-menu-inline ant-menu-light ant-pro-sider-menu  ant-pro-base-menu"
                 data-menu-list="true"
                 role="menu"
                 style="background-color: transparent; width: 100%;"
@@ -32660,7 +32723,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/theme.tsx correct
               style="flex: 1; overflow-y: auto; overflow-x: hidden;"
             >
               <ul
-                class="ant-menu ant-menu-root ant-menu-inline ant-pro-sider-menu  ant-pro-base-menu"
+                class="ant-menu ant-menu-root ant-menu-inline ant-menu-light ant-pro-sider-menu  ant-pro-base-menu"
                 data-menu-list="true"
                 role="menu"
                 style="background-color: transparent; width: 100%;"
@@ -33269,7 +33332,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/top-breadcrumb.ts
                 style="flex: 1; overflow-y: auto; overflow-x: hidden;"
               >
                 <ul
-                  class="ant-menu ant-menu-root ant-menu-inline ant-pro-sider-menu  ant-pro-base-menu"
+                  class="ant-menu ant-menu-root ant-menu-inline ant-menu-light ant-pro-sider-menu  ant-pro-base-menu"
                   data-menu-list="true"
                   role="menu"
                   style="background-color: transparent; width: 100%;"
@@ -33900,7 +33963,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/topMode.tsx corre
                     style="flex: 1;"
                   >
                     <ul
-                      class="ant-menu-overflow ant-menu ant-menu-root ant-menu-horizontal ant-pro-top-nav-header-base-menu  ant-pro-base-menu ant-pro-base-menu-horizontal"
+                      class="ant-menu-overflow ant-menu ant-menu-root ant-menu-horizontal ant-menu-light ant-pro-top-nav-header-base-menu  ant-pro-base-menu ant-pro-base-menu-horizontal"
                       data-menu-list="true"
                       role="menu"
                       style="background-color: transparent; width: 100%;"

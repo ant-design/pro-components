@@ -38,10 +38,9 @@ const TopNavHeader: React.FC<TopNavHeaderProps> = (props) => {
   const contentDom = useMemo(() => {
     const defaultDom = (
       <ConfigProvider
-        // @ts-ignore
         theme={{
           hashed: process.env.NODE_ENV?.toLowerCase() !== 'test',
-          override: {
+          components: {
             Menu: {
               colorItemBg: header.colorBgHeader || 'transparent',
               colorSubItemBg: header.colorBgHeader || 'transparent',

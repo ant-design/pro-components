@@ -209,13 +209,13 @@ exports[`EditorProTable 📝 EditableProTable support recordCreatorProps 1`] = `
                                 </div>
                                 <span
                                   aria-hidden="true"
-                                  style="position: fixed; display: block; left: 0px; top: 0px; z-index: -9999; visibility: hidden; pointer-events: none; word-break: keep-all; white-space: nowrap;"
+                                  style="position: fixed; display: block; left: 0px; top: 0px; z-index: -9999; visibility: hidden; pointer-events: none; font-size: 14px; word-break: keep-all; white-space: nowrap;"
                                 >
                                   lg
                                 </span>
                                 <span
                                   aria-hidden="true"
-                                  style="position: fixed; display: block; left: 0px; top: 0px; z-index: -9999; visibility: hidden; pointer-events: none; width: 0px; white-space: normal; margin: 0px; padding: 0px;"
+                                  style="position: fixed; display: block; left: 0px; top: 0px; z-index: -9999; visibility: hidden; pointer-events: none; font-size: 14px; width: 0px; white-space: normal; margin: 0px; padding: 0px;"
                                 >
                                   <span
                                     aria-hidden="true"
@@ -354,13 +354,13 @@ exports[`EditorProTable 📝 EditableProTable support recordCreatorProps 1`] = `
                                 </div>
                                 <span
                                   aria-hidden="true"
-                                  style="position: fixed; display: block; left: 0px; top: 0px; z-index: -9999; visibility: hidden; pointer-events: none; word-break: keep-all; white-space: nowrap;"
+                                  style="position: fixed; display: block; left: 0px; top: 0px; z-index: -9999; visibility: hidden; pointer-events: none; font-size: 14px; word-break: keep-all; white-space: nowrap;"
                                 >
                                   lg
                                 </span>
                                 <span
                                   aria-hidden="true"
-                                  style="position: fixed; display: block; left: 0px; top: 0px; z-index: -9999; visibility: hidden; pointer-events: none; width: 0px; white-space: normal; margin: 0px; padding: 0px;"
+                                  style="position: fixed; display: block; left: 0px; top: 0px; z-index: -9999; visibility: hidden; pointer-events: none; font-size: 14px; width: 0px; white-space: normal; margin: 0px; padding: 0px;"
                                 >
                                   <span
                                     aria-hidden="true"
@@ -499,13 +499,13 @@ exports[`EditorProTable 📝 EditableProTable support recordCreatorProps 1`] = `
                                 </div>
                                 <span
                                   aria-hidden="true"
-                                  style="position: fixed; display: block; left: 0px; top: 0px; z-index: -9999; visibility: hidden; pointer-events: none; word-break: keep-all; white-space: nowrap;"
+                                  style="position: fixed; display: block; left: 0px; top: 0px; z-index: -9999; visibility: hidden; pointer-events: none; font-size: 14px; word-break: keep-all; white-space: nowrap;"
                                 >
                                   lg
                                 </span>
                                 <span
                                   aria-hidden="true"
-                                  style="position: fixed; display: block; left: 0px; top: 0px; z-index: -9999; visibility: hidden; pointer-events: none; width: 0px; white-space: normal; margin: 0px; padding: 0px;"
+                                  style="position: fixed; display: block; left: 0px; top: 0px; z-index: -9999; visibility: hidden; pointer-events: none; font-size: 14px; width: 0px; white-space: normal; margin: 0px; padding: 0px;"
                                 >
                                   <span
                                     aria-hidden="true"
@@ -839,13 +839,13 @@ exports[`EditorProTable 📝 EditableProTable support recordCreatorProps=false 1
                                 </div>
                                 <span
                                   aria-hidden="true"
-                                  style="position: fixed; display: block; left: 0px; top: 0px; z-index: -9999; visibility: hidden; pointer-events: none; word-break: keep-all; white-space: nowrap;"
+                                  style="position: fixed; display: block; left: 0px; top: 0px; z-index: -9999; visibility: hidden; pointer-events: none; font-size: 14px; word-break: keep-all; white-space: nowrap;"
                                 >
                                   lg
                                 </span>
                                 <span
                                   aria-hidden="true"
-                                  style="position: fixed; display: block; left: 0px; top: 0px; z-index: -9999; visibility: hidden; pointer-events: none; width: 0px; white-space: normal; margin: 0px; padding: 0px;"
+                                  style="position: fixed; display: block; left: 0px; top: 0px; z-index: -9999; visibility: hidden; pointer-events: none; font-size: 14px; width: 0px; white-space: normal; margin: 0px; padding: 0px;"
                                 >
                                   <span
                                     aria-hidden="true"
@@ -984,13 +984,13 @@ exports[`EditorProTable 📝 EditableProTable support recordCreatorProps=false 1
                                 </div>
                                 <span
                                   aria-hidden="true"
-                                  style="position: fixed; display: block; left: 0px; top: 0px; z-index: -9999; visibility: hidden; pointer-events: none; word-break: keep-all; white-space: nowrap;"
+                                  style="position: fixed; display: block; left: 0px; top: 0px; z-index: -9999; visibility: hidden; pointer-events: none; font-size: 14px; word-break: keep-all; white-space: nowrap;"
                                 >
                                   lg
                                 </span>
                                 <span
                                   aria-hidden="true"
-                                  style="position: fixed; display: block; left: 0px; top: 0px; z-index: -9999; visibility: hidden; pointer-events: none; width: 0px; white-space: normal; margin: 0px; padding: 0px;"
+                                  style="position: fixed; display: block; left: 0px; top: 0px; z-index: -9999; visibility: hidden; pointer-events: none; font-size: 14px; width: 0px; white-space: normal; margin: 0px; padding: 0px;"
                                 >
                                   <span
                                     aria-hidden="true"
@@ -1129,13 +1129,13 @@ exports[`EditorProTable 📝 EditableProTable support recordCreatorProps=false 1
                                 </div>
                                 <span
                                   aria-hidden="true"
-                                  style="position: fixed; display: block; left: 0px; top: 0px; z-index: -9999; visibility: hidden; pointer-events: none; word-break: keep-all; white-space: nowrap;"
+                                  style="position: fixed; display: block; left: 0px; top: 0px; z-index: -9999; visibility: hidden; pointer-events: none; font-size: 14px; word-break: keep-all; white-space: nowrap;"
                                 >
                                   lg
                                 </span>
                                 <span
                                   aria-hidden="true"
-                                  style="position: fixed; display: block; left: 0px; top: 0px; z-index: -9999; visibility: hidden; pointer-events: none; width: 0px; white-space: normal; margin: 0px; padding: 0px;"
+                                  style="position: fixed; display: block; left: 0px; top: 0px; z-index: -9999; visibility: hidden; pointer-events: none; font-size: 14px; width: 0px; white-space: normal; margin: 0px; padding: 0px;"
                                 >
                                   <span
                                     aria-hidden="true"
