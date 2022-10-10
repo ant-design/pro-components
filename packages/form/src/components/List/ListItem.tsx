@@ -455,7 +455,7 @@ const ProFormListItem: React.FC<
         className={`${prefixCls}-container ${containerClassName} ${hashId}`}
         style={{
           width: grid ? '100%' : undefined,
-          ...containerStyle,  
+          ...containerStyle,
         }}
       >
         {itemContainer}
