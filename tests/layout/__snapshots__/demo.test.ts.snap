@@ -9,10 +9,10 @@ exports[`layout demos 📸 renders ./packages/layout/src/components/PageContaine
       class="ant-pro "
     >
       <div
-        class="ant-pro-page-container ant-pro-page-container-ghost ant-pro-page-container-with-footer"
+        class="ant-pro-page-container ant-pro-page-container-with-footer"
       >
         <div
-          class="ant-page-header ant-pro-page-container-warp-page-header  ant-pro-page-container-warp-page-header  ant-page-header-has-breadcrumb ant-page-header-has-footer ant-page-header-ghost"
+          class="ant-page-header ant-pro-page-container-warp-page-header  ant-pro-page-container-warp-page-header  ant-page-header-has-breadcrumb ant-page-header-has-footer"
         >
           <nav
             class="ant-breadcrumb ant-page-header-breadcrumb"
@@ -408,7 +408,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/components/PageContaine
       class="ant-pro "
     >
       <div
-        class="ant-pro-page-container ant-pro-page-container-ghost ant-pro-page-container-with-affix"
+        class="ant-pro-page-container ant-pro-page-container-with-affix"
       >
         <div
           class="ant-pro-page-container-affix "
@@ -417,7 +417,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/components/PageContaine
             class=""
           >
             <div
-              class="ant-page-header ant-pro-page-container-warp-page-header  ant-pro-page-container-warp-page-header  ant-page-header-has-breadcrumb ant-page-header-has-footer ant-page-header-ghost"
+              class="ant-page-header ant-pro-page-container-warp-page-header  ant-pro-page-container-warp-page-header  ant-page-header-has-breadcrumb ant-page-header-has-footer"
             >
               <nav
                 class="ant-breadcrumb ant-page-header-breadcrumb"
@@ -695,10 +695,10 @@ exports[`layout demos 📸 renders ./packages/layout/src/components/PageContaine
       class="ant-pro "
     >
       <div
-        class="ant-pro-page-container ant-pro-page-container-ghost"
+        class="ant-pro-page-container"
       >
         <div
-          class="ant-page-header ant-pro-page-container-warp-page-header  ant-pro-page-container-warp-page-header  ant-page-header-ghost"
+          class="ant-page-header ant-pro-page-container-warp-page-header  ant-pro-page-container-warp-page-header "
         >
           <div
             class="ant-page-header-heading "
@@ -916,7 +916,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/components/PageContaine
 exports[`layout demos 📸 renders ./packages/layout/src/components/PageContainer/demos/loading.tsx correctly 1`] = `
 <DocumentFragment>
   <div
-    style="box-shadow: 0 0 8px rgba(0, 0, 0, 0.2); min-height: 100vh; background: rgb(245, 247, 250);"
+    style="box-shadow: 0 0 8px rgba(0, 0, 0, 0.2); min-height: 100vh; background: rgb(245, 247, 250); display: flex; flex-direction: column; gap: 24px; padding: 24px;"
   >
     <div
       class="ant-card ant-card-bordered"
@@ -928,10 +928,10 @@ exports[`layout demos 📸 renders ./packages/layout/src/components/PageContaine
           class="ant-pro "
         >
           <div
-            class="ant-pro-page-container ant-pro-page-container-ghost"
+            class="ant-pro-page-container"
           >
             <div
-              class="ant-page-header ant-pro-page-container-warp-page-header  ant-pro-page-container-warp-page-header  ant-page-header-has-breadcrumb ant-page-header-ghost"
+              class="ant-page-header ant-pro-page-container-warp-page-header  ant-pro-page-container-warp-page-header  ant-page-header-has-breadcrumb"
             >
               <nav
                 class="ant-breadcrumb ant-page-header-breadcrumb"
@@ -1048,10 +1048,10 @@ exports[`layout demos 📸 renders ./packages/layout/src/components/PageContaine
           class="ant-pro "
         >
           <div
-            class="ant-pro-page-container ant-pro-page-container-ghost"
+            class="ant-pro-page-container"
           >
             <div
-              class="ant-page-header ant-pro-page-container-warp-page-header  ant-pro-page-container-warp-page-header  ant-page-header-has-breadcrumb ant-page-header-ghost"
+              class="ant-page-header ant-pro-page-container-warp-page-header  ant-pro-page-container-warp-page-header  ant-page-header-has-breadcrumb"
             >
               <nav
                 class="ant-breadcrumb ant-page-header-breadcrumb"
@@ -1173,10 +1173,10 @@ exports[`layout demos 📸 renders ./packages/layout/src/components/PageContaine
           class="ant-pro "
         >
           <div
-            class="ant-pro-page-container ant-pro-page-container-ghost"
+            class="ant-pro-page-container"
           >
             <div
-              class="ant-page-header ant-pro-page-container-warp-page-header  ant-pro-page-container-warp-page-header  ant-page-header-has-breadcrumb ant-page-header-ghost"
+              class="ant-page-header ant-pro-page-container-warp-page-header  ant-pro-page-container-warp-page-header  ant-page-header-has-breadcrumb"
             >
               <nav
                 class="ant-breadcrumb ant-page-header-breadcrumb"
@@ -4351,10 +4351,10 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/AlwaysDefaultOpen
               class="ant-layout-content ant-pro-layout-content ant-pro-layout-has-header ant-pro-layout-content-has-page-container"
             >
               <div
-                class="ant-pro-page-container ant-pro-page-container-ghost"
+                class="ant-pro-page-container"
               >
                 <div
-                  class="ant-page-header ant-pro-page-container-warp-page-header  ant-pro-page-container-warp-page-header  ant-page-header-ghost"
+                  class="ant-page-header ant-pro-page-container-warp-page-header  ant-pro-page-container-warp-page-header "
                 >
                   <div
                     class="ant-page-header-content "
@@ -4691,10 +4691,10 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/BreadcrumbsRepeat
               class="ant-layout-content ant-pro-layout-content ant-pro-layout-has-header ant-pro-layout-content-has-page-container"
             >
               <div
-                class="ant-pro-page-container ant-pro-page-container-ghost"
+                class="ant-pro-page-container"
               >
                 <div
-                  class="ant-page-header ant-pro-page-container-warp-page-header  ant-pro-page-container-warp-page-header  ant-page-header-has-breadcrumb ant-page-header-ghost"
+                  class="ant-page-header ant-pro-page-container-warp-page-header  ant-pro-page-container-warp-page-header  ant-page-header-has-breadcrumb"
                 >
                   <nav
                     class="ant-breadcrumb ant-page-header-breadcrumb"
@@ -5386,10 +5386,10 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/DefaultOpenAllMen
               class="ant-layout-content ant-pro-layout-content ant-pro-layout-has-header ant-pro-layout-content-has-page-container"
             >
               <div
-                class="ant-pro-page-container ant-pro-page-container-ghost"
+                class="ant-pro-page-container"
               >
                 <div
-                  class="ant-page-header ant-pro-page-container-warp-page-header  ant-pro-page-container-warp-page-header  ant-page-header-ghost"
+                  class="ant-page-header ant-pro-page-container-warp-page-header  ant-pro-page-container-warp-page-header "
                 >
                   <div
                     class="ant-page-header-content "
@@ -5772,10 +5772,10 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/IconFont.tsx corr
               class="ant-layout-content ant-pro-layout-content ant-pro-layout-has-header ant-pro-layout-content-has-page-container"
             >
               <div
-                class="ant-pro-page-container ant-pro-page-container-ghost"
+                class="ant-pro-page-container"
               >
                 <div
-                  class="ant-page-header ant-pro-page-container-warp-page-header  ant-pro-page-container-warp-page-header  ant-page-header-ghost"
+                  class="ant-page-header ant-pro-page-container-warp-page-header  ant-pro-page-container-warp-page-header "
                 >
                   <div
                     class="ant-page-header-content "
@@ -6261,10 +6261,10 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/MenuGroup.tsx cor
               class="ant-layout-content ant-pro-layout-content ant-pro-layout-has-header ant-pro-layout-content-has-page-container"
             >
               <div
-                class="ant-pro-page-container ant-pro-page-container-ghost"
+                class="ant-pro-page-container"
               >
                 <div
-                  class="ant-page-header ant-pro-page-container-warp-page-header  ant-pro-page-container-warp-page-header  ant-page-header-ghost"
+                  class="ant-page-header ant-pro-page-container-warp-page-header  ant-pro-page-container-warp-page-header "
                 >
                   <div
                     class="ant-page-header-content "
@@ -6799,10 +6799,10 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/MultipleMenuOnePa
               class="ant-layout-content ant-pro-layout-content ant-pro-layout-has-header ant-pro-layout-content-has-page-container"
             >
               <div
-                class="ant-pro-page-container ant-pro-page-container-ghost"
+                class="ant-pro-page-container"
               >
                 <div
-                  class="ant-page-header ant-pro-page-container-warp-page-header  ant-pro-page-container-warp-page-header  ant-page-header-has-breadcrumb ant-page-header-ghost"
+                  class="ant-page-header ant-pro-page-container-warp-page-header  ant-pro-page-container-warp-page-header  ant-page-header-has-breadcrumb"
                 >
                   <nav
                     class="ant-breadcrumb ant-page-header-breadcrumb"
@@ -7417,10 +7417,10 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/Nested.tsx correc
                       class="ant-layout-content ant-pro-layout-content ant-pro-layout-has-header ant-pro-layout-content-has-page-container"
                     >
                       <div
-                        class="ant-pro-page-container ant-pro-page-container-ghost"
+                        class="ant-pro-page-container"
                       >
                         <div
-                          class="ant-page-header ant-pro-page-container-warp-page-header  ant-pro-page-container-warp-page-header  ant-page-header-has-breadcrumb ant-page-header-ghost"
+                          class="ant-page-header ant-pro-page-container-warp-page-header  ant-pro-page-container-warp-page-header  ant-page-header-has-breadcrumb"
                         >
                           <nav
                             class="ant-breadcrumb ant-page-header-breadcrumb"
@@ -8056,10 +8056,10 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/TopmenuNested.tsx
                       class="ant-layout-content ant-pro-layout-content ant-pro-layout-has-header ant-pro-layout-content-has-page-container"
                     >
                       <div
-                        class="ant-pro-page-container ant-pro-page-container-ghost"
+                        class="ant-pro-page-container"
                       >
                         <div
-                          class="ant-page-header ant-pro-page-container-warp-page-header  ant-pro-page-container-warp-page-header  ant-page-header-has-breadcrumb ant-page-header-ghost"
+                          class="ant-page-header ant-pro-page-container-warp-page-header  ant-pro-page-container-warp-page-header  ant-page-header-has-breadcrumb"
                         >
                           <nav
                             class="ant-breadcrumb ant-page-header-breadcrumb"
@@ -8532,10 +8532,10 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/antd@4MenuIconFor
             class="ant-layout-content ant-pro-layout-content ant-pro-layout-has-header ant-pro-layout-content-has-page-container"
           >
             <div
-              class="ant-pro-page-container ant-pro-page-container-ghost"
+              class="ant-pro-page-container"
             >
               <div
-                class="ant-page-header ant-pro-page-container-warp-page-header  ant-pro-page-container-warp-page-header  ant-page-header-has-breadcrumb ant-page-header-ghost"
+                class="ant-page-header ant-pro-page-container-warp-page-header  ant-pro-page-container-warp-page-header  ant-page-header-has-breadcrumb"
               >
                 <nav
                   class="ant-breadcrumb ant-page-header-breadcrumb"
@@ -9269,10 +9269,10 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/api.tsx correctly
             class="ant-layout-content ant-pro-layout-content ant-pro-layout-has-header ant-pro-layout-content-has-page-container"
           >
             <div
-              class="ant-pro-page-container ant-pro-page-container-ghost"
+              class="ant-pro-page-container"
             >
               <div
-                class="ant-page-header ant-pro-page-container-warp-page-header  ant-pro-page-container-warp-page-header  ant-page-header-ghost"
+                class="ant-page-header ant-pro-page-container-warp-page-header  ant-pro-page-container-warp-page-header "
               >
                 <div
                   class="ant-page-header-heading "
@@ -9989,10 +9989,10 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/background-contex
               class="ant-layout-content ant-pro-layout-content ant-pro-layout-has-header ant-pro-layout-content-has-page-container"
             >
               <div
-                class="ant-pro-page-container ant-pro-page-container-ghost"
+                class="ant-pro-page-container"
               >
                 <div
-                  class="ant-page-header ant-pro-page-container-warp-page-header  ant-pro-page-container-warp-page-header  ant-page-header-has-breadcrumb ant-page-header-ghost"
+                  class="ant-page-header ant-pro-page-container-warp-page-header  ant-pro-page-container-warp-page-header  ant-page-header-has-breadcrumb"
                 >
                   <nav
                     class="ant-breadcrumb ant-page-header-breadcrumb"
@@ -10993,10 +10993,10 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/base.tsx correctl
               class="ant-layout-content ant-pro-layout-content ant-pro-layout-has-header ant-pro-layout-content-has-page-container"
             >
               <div
-                class="ant-pro-page-container ant-pro-page-container-ghost ant-pro-page-container-with-footer"
+                class="ant-pro-page-container ant-pro-page-container-with-footer"
               >
                 <div
-                  class="ant-page-header ant-pro-page-container-warp-page-header  ant-pro-page-container-warp-page-header  ant-page-header-has-breadcrumb ant-page-header-ghost"
+                  class="ant-page-header ant-pro-page-container-warp-page-header  ant-pro-page-container-warp-page-header  ant-page-header-has-breadcrumb"
                 >
                   <nav
                     class="ant-breadcrumb ant-page-header-breadcrumb"
@@ -12109,10 +12109,10 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/classicMode.tsx c
               class="ant-layout-content ant-pro-layout-content ant-pro-layout-has-header ant-pro-layout-content-has-page-container"
             >
               <div
-                class="ant-pro-page-container ant-pro-page-container-ghost ant-pro-page-container-with-footer"
+                class="ant-pro-page-container ant-pro-page-container-with-footer"
               >
                 <div
-                  class="ant-page-header ant-pro-page-container-warp-page-header  ant-pro-page-container-warp-page-header  ant-page-header-ghost"
+                  class="ant-page-header ant-pro-page-container-warp-page-header  ant-pro-page-container-warp-page-header "
                 >
                   <div
                     class="ant-page-header-heading "
@@ -12729,10 +12729,10 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/collapsedShowTitl
             class="ant-layout-content ant-pro-layout-content ant-pro-layout-has-header ant-pro-layout-content-has-page-container"
           >
             <div
-              class="ant-pro-page-container ant-pro-page-container-ghost ant-pro-page-container-with-footer"
+              class="ant-pro-page-container ant-pro-page-container-with-footer"
             >
               <div
-                class="ant-page-header ant-pro-page-container-warp-page-header  ant-pro-page-container-warp-page-header  ant-page-header-ghost"
+                class="ant-page-header ant-pro-page-container-warp-page-header  ant-pro-page-container-warp-page-header "
               >
                 <div
                   class="ant-page-header-heading "
@@ -13328,10 +13328,10 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/config-provider.t
             class="qixian-layout-content qixian-pro-layout-content qixian-pro-layout-has-header qixian-pro-layout-content-has-page-container"
           >
             <div
-              class="qixian-pro-page-container qixian-pro-page-container-ghost qixian-pro-page-container-with-footer"
+              class="qixian-pro-page-container qixian-pro-page-container-with-footer"
             >
               <div
-                class="qixian-page-header qixian-pro-page-container-warp-page-header  qixian-pro-page-container-warp-page-header  qixian-page-header-has-footer qixian-page-header-ghost"
+                class="qixian-page-header qixian-pro-page-container-warp-page-header  qixian-pro-page-container-warp-page-header  qixian-page-header-has-footer"
               >
                 <div
                   class="qixian-page-header-heading "
@@ -15144,10 +15144,10 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/customSider.tsx c
               class="ant-layout-content ant-pro-layout-content ant-pro-layout-has-header ant-pro-layout-content-has-page-container"
             >
               <div
-                class="ant-pro-page-container ant-pro-page-container-ghost"
+                class="ant-pro-page-container"
               >
                 <div
-                  class="ant-page-header ant-pro-page-container-warp-page-header  ant-pro-page-container-warp-page-header  ant-page-header-has-breadcrumb ant-page-header-ghost"
+                  class="ant-page-header ant-pro-page-container-warp-page-header  ant-pro-page-container-warp-page-header  ant-page-header-has-breadcrumb"
                 >
                   <nav
                     class="ant-breadcrumb ant-page-header-breadcrumb"
@@ -15721,10 +15721,10 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/customize-collaps
             class="ant-layout-content ant-pro-layout-content ant-pro-layout-has-header ant-pro-layout-content-has-page-container"
           >
             <div
-              class="ant-pro-page-container ant-pro-page-container-ghost"
+              class="ant-pro-page-container"
             >
               <div
-                class="ant-page-header ant-pro-page-container-warp-page-header  ant-pro-page-container-warp-page-header  ant-page-header-ghost"
+                class="ant-page-header ant-pro-page-container-warp-page-header  ant-pro-page-container-warp-page-header "
               >
                 <div
                   class="ant-page-header-heading "
@@ -16165,10 +16165,10 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/customizeMenu.tsx
               class="ant-layout-content ant-pro-layout-content ant-pro-layout-has-header ant-pro-layout-content-has-page-container"
             >
               <div
-                class="ant-pro-page-container ant-pro-page-container-ghost"
+                class="ant-pro-page-container"
               >
                 <div
-                  class="ant-page-header ant-pro-page-container-warp-page-header  ant-pro-page-container-warp-page-header  ant-page-header-ghost"
+                  class="ant-page-header ant-pro-page-container-warp-page-header  ant-pro-page-container-warp-page-header "
                 >
                   <div
                     class="ant-page-header-heading "
@@ -17133,10 +17133,10 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/designMenuCss.tsx
               class="ant-layout-content ant-pro-layout-content ant-pro-layout-has-header ant-pro-layout-content-has-page-container"
             >
               <div
-                class="ant-pro-page-container ant-pro-page-container-ghost ant-pro-page-container-with-footer"
+                class="ant-pro-page-container ant-pro-page-container-with-footer"
               >
                 <div
-                  class="ant-page-header ant-pro-page-container-warp-page-header  ant-pro-page-container-warp-page-header  ant-page-header-has-breadcrumb ant-page-header-ghost"
+                  class="ant-page-header ant-pro-page-container-warp-page-header  ant-pro-page-container-warp-page-header  ant-page-header-has-breadcrumb"
                 >
                   <nav
                     class="ant-breadcrumb ant-page-header-breadcrumb"
@@ -18330,10 +18330,10 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/designSiderMenu.t
               class="ant-layout-content ant-pro-layout-content ant-pro-layout-has-header ant-pro-layout-content-has-page-container"
             >
               <div
-                class="ant-pro-page-container ant-pro-page-container-ghost"
+                class="ant-pro-page-container"
               >
                 <div
-                  class="ant-page-header ant-pro-page-container-warp-page-header  ant-pro-page-container-warp-page-header  ant-page-header-has-breadcrumb ant-page-header-ghost"
+                  class="ant-page-header ant-pro-page-container-warp-page-header  ant-pro-page-container-warp-page-header  ant-page-header-has-breadcrumb"
                 >
                   <nav
                     class="ant-breadcrumb ant-page-header-breadcrumb"
@@ -18941,10 +18941,10 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/dynamic-settings.
               class="ant-layout-content ant-pro-layout-content ant-pro-layout-has-header ant-pro-layout-content-has-page-container"
             >
               <div
-                class="ant-pro-page-container ant-pro-page-container-ghost ant-pro-page-container-with-footer"
+                class="ant-pro-page-container ant-pro-page-container-with-footer"
               >
                 <div
-                  class="ant-page-header ant-pro-page-container-warp-page-header  ant-pro-page-container-warp-page-header  ant-page-header-has-footer ant-page-header-ghost"
+                  class="ant-page-header ant-pro-page-container-warp-page-header  ant-pro-page-container-warp-page-header  ant-page-header-has-footer"
                 >
                   <div
                     class="ant-page-header-heading "
@@ -20086,10 +20086,10 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/dynamicMenu.tsx c
             class="ant-layout-content ant-pro-layout-content ant-pro-layout-has-header ant-pro-layout-content-has-page-container"
           >
             <div
-              class="ant-pro-page-container ant-pro-page-container-ghost"
+              class="ant-pro-page-container"
             >
               <div
-                class="ant-page-header ant-pro-page-container-warp-page-header  ant-pro-page-container-warp-page-header  ant-page-header-has-breadcrumb ant-page-header-ghost"
+                class="ant-page-header ant-pro-page-container-warp-page-header  ant-pro-page-container-warp-page-header  ant-page-header-has-breadcrumb"
               >
                 <nav
                   class="ant-breadcrumb ant-page-header-breadcrumb"
@@ -20903,10 +20903,10 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/footer.tsx correc
             class="ant-layout-content ant-pro-layout-content ant-pro-layout-has-header ant-pro-layout-content-has-page-container"
           >
             <div
-              class="ant-pro-page-container ant-pro-page-container-ghost"
+              class="ant-pro-page-container"
             >
               <div
-                class="ant-page-header ant-pro-page-container-warp-page-header  ant-pro-page-container-warp-page-header  ant-page-header-ghost"
+                class="ant-page-header ant-pro-page-container-warp-page-header  ant-pro-page-container-warp-page-header "
               >
                 <div
                   class="ant-page-header-heading "
@@ -21975,10 +21975,10 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/footer-global-too
               class="ant-layout-content ant-pro-layout-content ant-pro-layout-has-header ant-pro-layout-content-has-page-container"
             >
               <div
-                class="ant-pro-page-container ant-pro-page-container-ghost"
+                class="ant-pro-page-container"
               >
                 <div
-                  class="ant-page-header ant-pro-page-container-warp-page-header  ant-pro-page-container-warp-page-header  ant-page-header-has-breadcrumb ant-page-header-ghost"
+                  class="ant-page-header ant-pro-page-container-warp-page-header  ant-pro-page-container-warp-page-header  ant-page-header-has-breadcrumb"
                 >
                   <nav
                     class="ant-breadcrumb ant-page-header-breadcrumb"
@@ -22533,7 +22533,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/ghost.tsx correct
               class="ant-layout-content ant-pro-layout-content ant-pro-layout-has-header ant-pro-layout-content-has-page-container"
             >
               <div
-                class="ant-pro-page-container ant-pro-page-container-ghost ant-pro-page-container-with-affix"
+                class="ant-pro-page-container ant-pro-page-container-with-affix"
               >
                 <div
                   class="ant-pro-page-container-affix "
@@ -22542,7 +22542,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/ghost.tsx correct
                     class=""
                   >
                     <div
-                      class="ant-page-header ant-pro-page-container-warp-page-header  ant-pro-page-container-warp-page-header  ant-page-header-ghost"
+                      class="ant-page-header ant-pro-page-container-warp-page-header  ant-pro-page-container-warp-page-header "
                     >
                       <div
                         class="ant-page-header-heading "
@@ -23211,10 +23211,10 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/hideMenu.tsx corr
             class="ant-layout-content ant-pro-layout-content ant-pro-layout-has-header ant-pro-layout-content-has-page-container"
           >
             <div
-              class="ant-pro-page-container ant-pro-page-container-ghost"
+              class="ant-pro-page-container"
             >
               <div
-                class="ant-page-header ant-pro-page-container-warp-page-header  ant-pro-page-container-warp-page-header  ant-page-header-ghost"
+                class="ant-page-header ant-pro-page-container-warp-page-header  ant-pro-page-container-warp-page-header "
               >
                 <div
                   class="ant-page-header-heading "
@@ -24303,11 +24303,11 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/immersive-navigat
             class="ant-layout-content ant-pro-layout-content ant-pro-layout-content-has-page-container"
           >
             <div
-              class="ant-pro-page-container ant-pro-page-container-ghost"
+              class="ant-pro-page-container"
               style="padding-block-start: 48px;"
             >
               <div
-                class="ant-page-header ant-pro-page-container-warp-page-header  ant-pro-page-container-warp-page-header  ant-page-header-ghost"
+                class="ant-page-header ant-pro-page-container-warp-page-header  ant-pro-page-container-warp-page-header "
                 style="padding: 8px 16px; background-color: rgb(255, 255, 255); position: fixed; top: 0px; width: 100%; left: 0px; z-index: 999; box-shadow: 0 2px 8px #f0f1f2;"
               >
                 <div
@@ -25264,7 +25264,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/menu-group.tsx co
               class="ant-layout-content ant-pro-layout-content ant-pro-layout-has-header ant-pro-layout-content-has-page-container"
             >
               <div
-                class="ant-pro-page-container ant-pro-page-container-ghost"
+                class="ant-pro-page-container"
               >
                 <div
                   class="ant-pro-grid-content"
@@ -26535,10 +26535,10 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/mixMode.tsx corre
               class="ant-layout-content ant-pro-layout-content ant-pro-layout-has-header ant-pro-layout-content-has-page-container"
             >
               <div
-                class="ant-pro-page-container ant-pro-page-container-ghost"
+                class="ant-pro-page-container"
               >
                 <div
-                  class="ant-page-header ant-pro-page-container-warp-page-header  ant-pro-page-container-warp-page-header  ant-page-header-has-breadcrumb ant-page-header-ghost"
+                  class="ant-page-header ant-pro-page-container-warp-page-header  ant-pro-page-container-warp-page-header  ant-page-header-has-breadcrumb"
                 >
                   <nav
                     class="ant-breadcrumb ant-page-header-breadcrumb"
@@ -27340,10 +27340,10 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/pageSimplify.tsx 
               class="ant-layout-content ant-pro-layout-content ant-pro-layout-has-header ant-pro-layout-content-has-page-container"
             >
               <div
-                class="ant-pro-page-container ant-pro-page-container-ghost"
+                class="ant-pro-page-container"
               >
                 <div
-                  class="ant-page-header ant-pro-page-container-warp-page-header  ant-pro-page-container-warp-page-header  ant-page-header-has-breadcrumb ant-page-header-ghost"
+                  class="ant-page-header ant-pro-page-container-warp-page-header  ant-pro-page-container-warp-page-header  ant-page-header-has-breadcrumb"
                 >
                   <nav
                     class="ant-breadcrumb ant-page-header-breadcrumb"
@@ -27843,10 +27843,10 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/searchMenu.tsx co
               class="ant-layout-content ant-pro-layout-content ant-pro-layout-has-header ant-pro-layout-content-has-page-container"
             >
               <div
-                class="ant-pro-page-container ant-pro-page-container-ghost"
+                class="ant-pro-page-container"
               >
                 <div
-                  class="ant-page-header ant-pro-page-container-warp-page-header  ant-pro-page-container-warp-page-header  ant-page-header-has-breadcrumb ant-page-header-ghost"
+                  class="ant-page-header ant-pro-page-container-warp-page-header  ant-pro-page-container-warp-page-header  ant-page-header-has-breadcrumb"
                 >
                   <nav
                     class="ant-breadcrumb ant-page-header-breadcrumb"
@@ -28758,10 +28758,10 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/siderMode.tsx cor
               class="ant-layout-content ant-pro-layout-content ant-pro-layout-has-header ant-pro-layout-content-has-page-container"
             >
               <div
-                class="ant-pro-page-container ant-pro-page-container-ghost"
+                class="ant-pro-page-container"
               >
                 <div
-                  class="ant-page-header ant-pro-page-container-warp-page-header  ant-pro-page-container-warp-page-header  ant-page-header-has-breadcrumb ant-page-header-ghost"
+                  class="ant-page-header ant-pro-page-container-warp-page-header  ant-pro-page-container-warp-page-header  ant-page-header-has-breadcrumb"
                 >
                   <nav
                     class="ant-breadcrumb ant-page-header-breadcrumb"
@@ -29787,10 +29787,10 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/siteMenu.tsx corr
               class="ant-layout-content ant-pro-layout-content ant-pro-layout-has-header ant-pro-layout-content-has-page-container"
             >
               <div
-                class="ant-pro-page-container ant-pro-page-container-ghost"
+                class="ant-pro-page-container"
               >
                 <div
-                  class="ant-page-header ant-pro-page-container-warp-page-header  ant-pro-page-container-warp-page-header  ant-page-header-has-breadcrumb ant-page-header-ghost"
+                  class="ant-page-header ant-pro-page-container-warp-page-header  ant-pro-page-container-warp-page-header  ant-page-header-has-breadcrumb"
                 >
                   <nav
                     class="ant-breadcrumb ant-page-header-breadcrumb"
@@ -32462,10 +32462,10 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/splitMenus.tsx co
             class="ant-layout-content ant-pro-layout-content ant-pro-layout-has-header ant-pro-layout-content-has-page-container"
           >
             <div
-              class="ant-pro-page-container ant-pro-page-container-ghost"
+              class="ant-pro-page-container"
             >
               <div
-                class="ant-page-header ant-pro-page-container-warp-page-header  ant-pro-page-container-warp-page-header  ant-page-header-ghost"
+                class="ant-page-header ant-pro-page-container-warp-page-header  ant-pro-page-container-warp-page-header "
               >
                 <div
                   class="ant-page-header-heading "
@@ -33107,10 +33107,10 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/theme.tsx correct
             class="ant-layout-content ant-pro-layout-content ant-pro-layout-has-header ant-pro-layout-content-has-page-container"
           >
             <div
-              class="ant-pro-page-container ant-pro-page-container-ghost ant-pro-page-container-with-footer"
+              class="ant-pro-page-container ant-pro-page-container-with-footer"
             >
               <div
-                class="ant-page-header ant-pro-page-container-warp-page-header  ant-pro-page-container-warp-page-header  ant-page-header-has-breadcrumb ant-page-header-ghost"
+                class="ant-page-header ant-pro-page-container-warp-page-header  ant-pro-page-container-warp-page-header  ant-page-header-has-breadcrumb"
               >
                 <nav
                   class="ant-breadcrumb ant-page-header-breadcrumb"
@@ -33678,10 +33678,10 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/top-breadcrumb.ts
               class="ant-layout-content ant-pro-layout-content ant-pro-layout-has-header ant-pro-layout-content-has-page-container"
             >
               <div
-                class="ant-pro-page-container ant-pro-page-container-ghost"
+                class="ant-pro-page-container"
               >
                 <div
-                  class="ant-page-header ant-pro-page-container-warp-page-header  ant-pro-page-container-warp-page-header  ant-page-header-ghost"
+                  class="ant-page-header ant-pro-page-container-warp-page-header  ant-pro-page-container-warp-page-header "
                 >
                   <div
                     class="ant-page-header-heading "
@@ -34317,10 +34317,10 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/topMode.tsx corre
               class="ant-layout-content ant-pro-layout-content ant-pro-layout-has-header ant-pro-layout-content-has-page-container"
             >
               <div
-                class="ant-pro-page-container ant-pro-page-container-ghost"
+                class="ant-pro-page-container"
               >
                 <div
-                  class="ant-page-header ant-pro-page-container-warp-page-header  ant-pro-page-container-warp-page-header  ant-page-header-has-breadcrumb ant-page-header-ghost"
+                  class="ant-page-header ant-pro-page-container-warp-page-header  ant-pro-page-container-warp-page-header  ant-page-header-has-breadcrumb"
                 >
                   <nav
                     class="ant-breadcrumb ant-page-header-breadcrumb"

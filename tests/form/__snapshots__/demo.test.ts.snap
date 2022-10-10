@@ -44861,10 +44861,10 @@ exports[`form demos 📸 renders ./packages/form/src/demos/layout-footer.tsx cor
             class="ant-layout-content ant-pro-layout-content ant-pro-layout-has-header ant-pro-layout-content-has-page-container"
           >
             <div
-              class="ant-pro-page-container ant-pro-page-container-ghost"
+              class="ant-pro-page-container"
             >
               <div
-                class="ant-page-header ant-pro-page-container-warp-page-header  ant-pro-page-container-warp-page-header  ant-page-header-has-breadcrumb ant-page-header-ghost"
+                class="ant-page-header ant-pro-page-container-warp-page-header  ant-pro-page-container-warp-page-header  ant-page-header-has-breadcrumb"
               >
                 <nav
                   class="ant-breadcrumb ant-page-header-breadcrumb"
