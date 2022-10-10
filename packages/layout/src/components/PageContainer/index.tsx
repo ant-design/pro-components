@@ -14,6 +14,7 @@ import { PageHeader } from '../PageHeader';
 import { PageLoading } from '../PageLoading';
 import type { WaterMarkProps } from '../WaterMark';
 import { WaterMark } from '../WaterMark';
+import type { pageContainerToken } from './style/index';
 import { useStyle } from './style/index';
 
 export type PageHeaderTabConfig = {
@@ -48,6 +49,11 @@ export type PageContainerProps = {
   extraContent?: React.ReactNode;
   prefixCls?: string;
   footer?: ReactNode[];
+
+  /**
+   * 自定义的 token
+   */
+  token?: pageContainerToken;
 
   /**
    * 与 antd 完全相同
@@ -278,6 +284,7 @@ const PageContainer: React.FC<PageContainerProps> = (props) => {
     style,
     footer,
     affixProps,
+    token: propsToken,
     fixedHeader,
     breadcrumbRender,
     ...restProps
@@ -300,7 +307,7 @@ const PageContainer: React.FC<PageContainerProps> = (props) => {
 
   const basePageContainer = `${prefixCls}-page-container`;
 
-  const { wrapSSR, hashId } = useStyle(basePageContainer);
+  const { wrapSSR, hashId } = useStyle(basePageContainer, propsToken);
 
   const memoBreadcrumbRender = useMemo(() => {
     if (breadcrumbRender == false) return false;
@@ -370,7 +377,6 @@ const PageContainer: React.FC<PageContainerProps> = (props) => {
   }, [props.waterMarkProps, value.waterMarkProps, loadingDom, content]);
 
   const containerClassName = classNames(basePageContainer, hashId, className, {
-    [`${basePageContainer}-ghost`]: true,
     [`${basePageContainer}-with-footer`]: footer,
     [`${basePageContainer}-with-affix`]: fixedHeader && pageHeaderDom,
   });

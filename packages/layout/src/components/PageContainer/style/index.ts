@@ -80,13 +80,19 @@ const genPageContainerStyle: GenerateStyle<
   };
 };
 
-export function useStyle(prefixCls: string) {
+export type pageContainerToken = {
+  paddingInlinePageContainerContent?: number;
+  paddingBlockPageContainerContent?: number;
+};
+
+export function useStyle(prefixCls: string, componentsToken: pageContainerToken | undefined) {
   const { pageContainer } = useContext(ProLayoutContext);
   return useAntdStyle('page-container', (token) => {
     const proCardToken: PageContainerToken & BaseLayoutDesignToken['pageContainer'] = {
       ...token,
       componentCls: `.${prefixCls}`,
       ...pageContainer,
+      ...componentsToken,
     };
 
     return [genPageContainerStyle(proCardToken)];
