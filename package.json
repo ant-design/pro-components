@@ -9,7 +9,7 @@
     "build": "npm run version && npm run build-components && webpack",
     "build-components": "father-build",
     "changelog": "node ./scripts/changelogs.js",
-    "check-deps": "node ./scripts/checkDeps.js",
+    "check-deps": "npm run sync:tnpm && node ./scripts/checkDeps.js && npm run sync:tnpm",
     "checkPublish": "node ./scripts/checkPublish.js",
     "createRelease": "node ./scripts/createRelease.js",
     "deploy": "cross-env SITE_DEPLOY='TRUE' npm run site && gh-pages -d ./dist",
