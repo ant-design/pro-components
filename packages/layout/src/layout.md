@@ -511,6 +511,7 @@ Sider Token 是 侧边菜单的色值，与顶部菜单不同。
 | colorBgMenuItemCollapsedSelected | 收起 menuItem 的选中背景颜色 | `rgba(0, 145, 255, 0.08)` |
 | colorTextRightActionsItem | 右上角字体颜色 | `colorTextSecondary` |
 | colorBgRightActionsItemHover | 右上角选中的 hover 颜色 | `rgba(0, 0, 0, 0.03)` |
+| heightLayoutHeader | header 高度 | 56 |
 
 ### pageContainer Token
 
