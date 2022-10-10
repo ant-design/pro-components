@@ -2,6 +2,10 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.0.5](https://github.com/ant-design/pro-components/compare/@ant-design/pro-provider@2.0.4...@ant-design/pro-provider@2.0.5) (2022-10-10)
+
+**Note:** Version bump only for package @ant-design/pro-provider
+
 ## [2.0.4](https://github.com/ant-design/pro-components/compare/@ant-design/pro-provider@2.0.3...@ant-design/pro-provider@2.0.4) (2022-09-28)
 
 ### Bug Fixes

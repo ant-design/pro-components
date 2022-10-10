@@ -2,6 +2,14 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.2.3](https://github.com/ant-design/pro-components/compare/@ant-design/pro-form@2.2.2...@ant-design/pro-form@2.2.3) (2022-10-10)
+
+### Bug Fixes
+
+- **form:** remove redundant code ([#6030](https://github.com/ant-design/pro-components/issues/6030)) ([e30e893](https://github.com/ant-design/pro-components/commit/e30e893ae236420d81636644ffaedb80f9f69a0c))
+- **form:** 修复 ModalForm 和 DrawerForm 关闭过程中表单内容闪现初始值的问题 ([#6009](https://github.com/ant-design/pro-components/issues/6009)) ([dbad424](https://github.com/ant-design/pro-components/commit/dbad4249383bc4f647789f2a177e26ce6403ab36))
+- **form:** 修复 ListItem 自定义样式和样式名称不生效的 BUG ([#5982](https://github.com/ant-design/pro-components/issues/5982)) ([02328a0](https://github.com/ant-design/pro-components/commit/02328a0a4ca4d1ccf31430d03a9a467952952479))
+
 ## [2.2.2](https://github.com/ant-design/pro-components/compare/@ant-design/pro-form@2.2.1...@ant-design/pro-form@2.2.2) (2022-09-28)
 
 ### Bug Fixes

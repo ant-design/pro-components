@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.1.5](https://github.com/ant-design/pro-components/compare/@ant-design/pro-field@2.1.4...@ant-design/pro-field@2.1.5) (2022-10-10)
+
+### Bug Fixes
+
+- **form:** fix showSearch title no work error ([96da32d](https://github.com/ant-design/pro-components/commit/96da32dbe47b7de4571667fcc536b22595f0c93e))
+- **form:** 解决 moneySymbol 设置为 false 时金额格式化异常问题 ([#6012](https://github.com/ant-design/pro-components/issues/6012)) ([7f9001b](https://github.com/ant-design/pro-components/commit/7f9001b94be054a8766d0a954f64d84fd7e646a3))
+
 ## [2.1.4](https://github.com/ant-design/pro-components/compare/@ant-design/pro-field@2.1.3...@ant-design/pro-field@2.1.4) (2022-09-28)
 
 ### Bug Fixes

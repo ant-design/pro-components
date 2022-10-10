@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.0.12](https://github.com/ant-design/pro-components/compare/@ant-design/pro-descriptions@2.0.11...@ant-design/pro-descriptions@2.0.12) (2022-10-10)
+
+### Bug Fixes
+
+- **form:** 解决 moneySymbol 设置为 false 时金额格式化异常问题 ([#6012](https://github.com/ant-design/pro-components/issues/6012)) ([7f9001b](https://github.com/ant-design/pro-components/commit/7f9001b94be054a8766d0a954f64d84fd7e646a3))
+
 ## [2.0.11](https://github.com/ant-design/pro-components/compare/@ant-design/pro-descriptions@2.0.10...@ant-design/pro-descriptions@2.0.11) (2022-09-28)
 
 **Note:** Version bump only for package @ant-design/pro-descriptions
