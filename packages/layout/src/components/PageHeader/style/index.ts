@@ -18,25 +18,22 @@ const textOverflowEllipsis = (): CSSObject => ({
   whiteSpace: 'nowrap',
   textOverflow: 'ellipsis',
 });
+
 const genPageHeaderStyle: GenerateStyle<PageHeaderToken> = (token) => {
   return {
     [token.componentCls]: {
       ...resetComponent?.(token),
       position: 'relative',
-      backgroundColor: token.colorBgContainer,
-      paddingBlock: token.pageHeaderPaddingVertical,
+      backgroundColor: token.pageHeaderBgGhost,
+      paddingBlock: token.pageHeaderPaddingVertical + 2,
       paddingInline: token.pageHeaderPadding,
-      '&-ghost': {
-        backgroundColor: token.pageHeaderBgGhost,
-      },
-
-      '&-has-breadcrumb': {
+      '& &-has-breadcrumb': {
         paddingBlockStart: token.pageHeaderPaddingBreadCrumb,
       },
-      '&-has-footer': {
+      '& &-has-footer': {
         paddingBlockEnd: 0,
       },
-      '&-back': {
+      '& &-back': {
         marginInlineEnd: token.margin,
         fontSize: 16,
         lineHeight: 1,
@@ -52,17 +49,17 @@ const genPageHeaderStyle: GenerateStyle<PageHeaderToken> = (token) => {
           marginInlineStart: 0,
         },
       },
-      [`${'ant'}-divider-vertical`]: {
+      [`& ${'ant'}-divider-vertical`]: {
         height: 14,
         marginBlock: 0,
         marginInline: token.marginSM,
         verticalAlign: 'middle',
       },
 
-      [`&-breadcrumb + &-heading`]: {
+      [`& &-breadcrumb + &-heading`]: {
         marginBlockStart: token.marginXS,
       },
-      '&-heading': {
+      '& &-heading': {
         display: 'flex',
         justifyContent: 'space-between',
         '&-left': {
@@ -142,7 +139,6 @@ const genPageHeaderStyle: GenerateStyle<PageHeaderToken> = (token) => {
       '&-compact &-heading': {
         flexWrap: 'wrap',
       },
-
       '&-rtl': {
         direction: 'rtl',
       },
@@ -157,7 +153,7 @@ export default function useStyle(prefixCls: string) {
       componentCls: `.${prefixCls}`,
       pageHeaderBgGhost: 'transparent',
       pageHeaderPadding: 16,
-      pageHeaderPaddingVertical: 8,
+      pageHeaderPaddingVertical: 4,
       pageHeaderPaddingBreadCrumb: token.paddingSM,
       pageHeaderColorBack: token.colorTextHeading,
       pageHeaderFontSizeHeaderTitle: token.fontSizeHeading4,

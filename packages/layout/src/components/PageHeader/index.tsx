@@ -140,7 +140,7 @@ const PageHeader: React.FC<PageHeaderProps> = (props) => {
   const onResize = ({ width }: { width: number }) => {
     updateCompact(width < 768, true);
   };
-  const { getPrefixCls, pageHeader, direction } = React.useContext(ConfigProvider.ConfigContext);
+  const { getPrefixCls, direction } = React.useContext(ConfigProvider.ConfigContext);
 
   const {
     prefixCls: customizePrefixCls,
@@ -151,14 +151,6 @@ const PageHeader: React.FC<PageHeaderProps> = (props) => {
     breadcrumbRender,
     className: customizeClassName,
   } = props;
-  let ghost: undefined | boolean = true;
-
-  // Use `ghost` from `props` or from `ConfigProvider` instead.
-  if ('ghost' in props) {
-    ghost = props.ghost;
-  } else if (pageHeader && 'ghost' in pageHeader) {
-    ghost = pageHeader.ghost;
-  }
 
   const prefixCls = getPrefixCls('page-header', customizePrefixCls);
   const { wrapSSR, hashId } = useStyle(prefixCls);
@@ -183,7 +175,6 @@ const PageHeader: React.FC<PageHeaderProps> = (props) => {
     hashId,
     [`${prefixCls}-has-breadcrumb`]: !!breadcrumbDom,
     [`${prefixCls}-has-footer`]: !!footer,
-    [`${prefixCls}-ghost`]: ghost,
     [`${prefixCls}-rtl`]: direction === 'rtl',
     [`${prefixCls}-compact`]: compact,
   });
