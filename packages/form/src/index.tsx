@@ -48,3 +48,4 @@ export type {
 export * from './layouts';
 
 export default ProForm;
+export { ProForm };

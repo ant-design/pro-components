@@ -15,7 +15,7 @@ import ListPageSkeleton, {
 } from './component/List';
 import ResultPageSkeleton from './component/Result';
 
-const PageSkeleton: React.FC<
+const ProSkeleton: React.FC<
   ListPageSkeletonProps &
     DescriptionsPageSkeletonProps & {
       type?: 'list' | 'result' | 'descriptions';
@@ -34,6 +34,7 @@ const PageSkeleton: React.FC<
 };
 
 export {
+  ProSkeleton,
   ListPageSkeleton,
   ListSkeleton,
   ListSkeletonItem,
@@ -44,4 +45,4 @@ export {
   TableItemSkeleton,
 };
 
-export default PageSkeleton;
+export default ProSkeleton;
