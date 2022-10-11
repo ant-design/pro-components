@@ -76,13 +76,14 @@ export const ObjToMap = (value: ProFieldValueEnumType | undefined): ProSchemaVal
 export const proFieldParsingText = (
   text: string | number | (string | number)[],
   valueEnumParams: ProFieldValueEnumType,
+  key?: number | string,
 ): React.ReactNode => {
   if (Array.isArray(text)) {
     return (
-      <Space split="," size={2}>
-        {text.map((value) =>
+      <Space key={key} split="," size={2}>
+        {text.map((value, index) =>
           // @ts-ignore
-          proFieldParsingText(value, valueEnumParams),
+          proFieldParsingText(value, valueEnumParams, index),
         )}
       </Space>
     );
@@ -103,7 +104,7 @@ export const proFieldParsingText = (
 
   if (!domText) {
     // @ts-ignore
-    return text?.label || text;
+    return <React.Fragment key={key}>{text?.label || text}</React.Fragment>;
   }
 
   const { status, color } = domText;
@@ -111,15 +112,21 @@ export const proFieldParsingText = (
   const Status = TableStatus[status || 'Init'];
   // 如果类型存在优先使用类型
   if (Status) {
-    return <Status>{domText.text}</Status>;
+    return <Status key={key}>{domText.text}</Status>;
   }
 
   // 如果不存在使用颜色
   if (color) {
-    return <ProFieldBadgeColor color={color}>{domText.text}</ProFieldBadgeColor>;
+    return (
+      <ProFieldBadgeColor key={key} color={color}>
+        {domText.text}
+      </ProFieldBadgeColor>
+    );
   }
   // 什么都没有使用 text
-  return domText.text || (domText as any as React.ReactNode);
+  return (
+    <React.Fragment key={key}>{domText.text || (domText as any as React.ReactNode)}</React.Fragment>
+  );
 };
 
 const Highlight: React.FC<{
