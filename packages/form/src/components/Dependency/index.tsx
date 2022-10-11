@@ -13,21 +13,21 @@ declare type RenderChildren<Values = any> = (
   form: ProFormInstance<Values>,
 ) => React.ReactNode;
 
-export type ProFormDependencyProps = Omit<
+export type ProFormDependencyProps<T = Record<string, any>> = Omit<
   FormItemProps<any>,
   'name' | 'noStyle' | 'children' | 'label'
 > & {
   name: NamePath[];
   ignoreFormListField?: boolean;
-  children: RenderChildren;
+  children: RenderChildren<T>;
 };
 
-const ProFormDependency: React.FC<ProFormDependencyProps> = ({
+const ProFormDependency = <T,>({
   name: names,
   children,
   ignoreFormListField,
   ...rest
-}) => {
+}: ProFormDependencyProps<T>) => {
   const context = useContext(ProFormContext);
   // ProFromList 的 field，里面有name和key
   const formListField = useContext(FormListContext);
