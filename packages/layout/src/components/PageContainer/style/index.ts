@@ -87,14 +87,19 @@ export type pageContainerToken = {
 
 export function useStyle(prefixCls: string, componentsToken: pageContainerToken | undefined) {
   const { pageContainer } = useContext(ProLayoutContext);
-  return useAntdStyle('page-container', (token) => {
-    const proCardToken: PageContainerToken & BaseLayoutDesignToken['pageContainer'] = {
-      ...token,
-      componentCls: `.${prefixCls}`,
-      ...pageContainer,
-      ...componentsToken,
-    };
+  return useAntdStyle(
+    'page-container',
+    (token) => {
+      const proCardToken: PageContainerToken & BaseLayoutDesignToken['pageContainer'] = {
+        ...token,
+        componentCls: `.${prefixCls}`,
+        ...pageContainer,
+        ...componentsToken,
+      };
 
-    return [genPageContainerStyle(proCardToken)];
-  });
+      return [genPageContainerStyle(proCardToken)];
+    },
+    // 触发一下更新
+    componentsToken,
+  );
 }
