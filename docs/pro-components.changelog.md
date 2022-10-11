@@ -8,6 +8,15 @@ group:
   path: /
 ---
 
+## @ant-design/pro-components@2.3.15
+
+`2022-10-11`
+
+- fix(layout): fix PageContainer token no rerender error. [5611a16](https://github.com/ant-design/pro-components/commit/5611a16)
+- fix(form): ProFormDependency support T. [7b0c85d](https://github.com/ant-design/pro-components/commit/7b0c85d)
+- fix(form): fix key and visible use. [0ebd3db](https://github.com/ant-design/pro-components/commit/0ebd3db)
+- fix(field): use open replace visible. [8dcf66a](https://github.com/ant-design/pro-components/commit/8dcf66a)
+
 ## @ant-design/pro-components@2.3.14
 
 `2022-10-10`

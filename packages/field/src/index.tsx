@@ -530,4 +530,4 @@ export {
   proFieldParsingValueEnumToArray,
 };
 
-export default ProField
+export default ProField;
