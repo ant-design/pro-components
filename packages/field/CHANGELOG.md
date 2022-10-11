@@ -2,6 +2,14 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.1.6](https://github.com/ant-design/pro-components/compare/@ant-design/pro-field@2.1.5...@ant-design/pro-field@2.1.6) (2022-10-11)
+
+### Bug Fixes
+
+- **field:** use open replace visible ([8dcf66a](https://github.com/ant-design/pro-components/commit/8dcf66a616781cbf7248a10da784f21c9f9b245d))
+- **form:** fix key and visible use ([0ebd3db](https://github.com/ant-design/pro-components/commit/0ebd3db42e3e1f34639ceae9df911f8c543fb2e2))
+- **segmented:** remove invalid property allowClear ([#6052](https://github.com/ant-design/pro-components/issues/6052)) ([8d3386c](https://github.com/ant-design/pro-components/commit/8d3386c376476dde6cc81c04b3e9a0f2d2265d0b))
+
 ## [2.1.5](https://github.com/ant-design/pro-components/compare/@ant-design/pro-field@2.1.4...@ant-design/pro-field@2.1.5) (2022-10-10)
 
 ### Bug Fixes

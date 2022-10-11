@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [3.0.13](https://github.com/ant-design/pro-components/compare/@ant-design/pro-table@3.0.12...@ant-design/pro-table@3.0.13) (2022-10-11)
+
+### Bug Fixes
+
+- toolbar list style fixed ([#6058](https://github.com/ant-design/pro-components/issues/6058)) ([ab2bb3d](https://github.com/ant-design/pro-components/commit/ab2bb3d2a068329027c9ca5444419449ce8ea098))
+
 ## [3.0.12](https://github.com/ant-design/pro-components/compare/@ant-design/pro-table@3.0.11...@ant-design/pro-table@3.0.12) (2022-10-10)
 
 **Note:** Version bump only for package @ant-design/pro-table

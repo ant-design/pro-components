@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.2.4](https://github.com/ant-design/pro-components/compare/@ant-design/pro-utils@2.2.3...@ant-design/pro-utils@2.2.4) (2022-10-11)
+
+### Bug Fixes
+
+- **layout:** fix PageContainer token no rerender error ([5611a16](https://github.com/ant-design/pro-components/commit/5611a16b8314de5207c3149c4053521bba9563fb))
+
 ## [2.2.3](https://github.com/ant-design/pro-components/compare/@ant-design/pro-utils@2.2.2...@ant-design/pro-utils@2.2.3) (2022-10-10)
 
 **Note:** Version bump only for package @ant-design/pro-utils

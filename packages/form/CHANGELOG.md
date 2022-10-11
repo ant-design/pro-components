@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.2.4](https://github.com/ant-design/pro-components/compare/@ant-design/pro-form@2.2.3...@ant-design/pro-form@2.2.4) (2022-10-11)
+
+### Bug Fixes
+
+- **field:** use open replace visible ([8dcf66a](https://github.com/ant-design/pro-components/commit/8dcf66a616781cbf7248a10da784f21c9f9b245d))
+- **form:** ProFormDependency support T ([7b0c85d](https://github.com/ant-design/pro-components/commit/7b0c85d3ca69cbb2ad82e8f6d95ad77a0c24a463))
+
 ## [2.2.3](https://github.com/ant-design/pro-components/compare/@ant-design/pro-form@2.2.2...@ant-design/pro-form@2.2.3) (2022-10-10)
 
 ### Bug Fixes

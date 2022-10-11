@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [7.1.5](https://github.com/ant-design/pro-components/compare/@ant-design/pro-layout@7.1.4...@ant-design/pro-layout@7.1.5) (2022-10-11)
+
+### Bug Fixes
+
+- **layout:** fix PageContainer token no rerender error ([5611a16](https://github.com/ant-design/pro-components/commit/5611a16b8314de5207c3149c4053521bba9563fb))
+
 ## [7.1.4](https://github.com/ant-design/pro-components/compare/@ant-design/pro-layout@7.1.3...@ant-design/pro-layout@7.1.4) (2022-10-10)
 
 ### Bug Fixes
