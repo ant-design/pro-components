@@ -8,7 +8,7 @@ describe('DrawerForm', () => {
     const fn = jest.fn();
     const html = render(
       <DrawerForm
-        visible
+        open
         drawerProps={{
           onClose: () => fn(),
         }}
@@ -60,7 +60,7 @@ describe('DrawerForm', () => {
     const fn = jest.fn();
     const wrapper = render(
       <DrawerForm
-        visible
+        open
         drawerProps={{
           onClose: () => fn(),
         }}

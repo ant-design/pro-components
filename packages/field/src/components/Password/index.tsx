@@ -19,11 +19,14 @@ const FieldPassword: ProFieldFC<{
   text: string;
   visible?: boolean;
   onVisible?: (visible: boolean) => void;
+  open?: boolean;
+  onOpenChange?: (visible: boolean) => void;
 }> = ({ text, mode, render, renderFormItem, fieldProps, proFieldKey, ...rest }, ref) => {
   const intl = useIntl();
-  const [visible, setVisible] = useMergedState<boolean>(() => rest.visible || false, {
-    value: rest.visible,
-    onChange: rest.onVisible,
+
+  const [open, setOpen] = useMergedState<boolean>(() => rest.open || rest.visible || false, {
+    value: rest.open || rest.visible,
+    onChange: rest.onOpenChange || rest.onVisible,
   });
 
   if (mode === 'read') {
@@ -31,10 +34,8 @@ const FieldPassword: ProFieldFC<{
     if (text) {
       dom = (
         <Space>
-          <span ref={ref}>{visible ? text : '＊ ＊ ＊ ＊ ＊'}</span>
-          <a onClick={() => setVisible(!visible)}>
-            {visible ? <EyeOutlined /> : <EyeInvisibleOutlined />}
-          </a>
+          <span ref={ref}>{open ? text : '＊ ＊ ＊ ＊ ＊'}</span>
+          <a onClick={() => setOpen(!open)}>{open ? <EyeOutlined /> : <EyeInvisibleOutlined />}</a>
         </Space>
       );
     }

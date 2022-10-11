@@ -88,8 +88,17 @@ type RenderProps = Omit<ProFieldFCRenderProps, 'text'> &
     /** 从服务器读取选项 */
     request?: ProFieldRequestData;
     emptyText?: React.ReactNode;
-    visible?: boolean;
+    open?: boolean;
+    onOpenChange?: (open: boolean) => void;
+
+    /**
+     * @deprecated use onOpenChange replace
+     */
     onVisible?: (visible: boolean) => void;
+    /**
+     * @deprecated use open replace
+     */
+    visible?: boolean;
     [key: string]: any;
   };
 
