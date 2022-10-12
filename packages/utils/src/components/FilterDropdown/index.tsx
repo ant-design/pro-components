@@ -64,14 +64,13 @@ const FilterDropdown: React.FC<DropdownProps> = (props) => {
   const dropdownOpenProps =
     compareVersions(version, '4.23.0') > -1
       ? {
-          visible: open || visible,
-          onVisibleChange: onOpenChange || onVisibleChange,
+          open: open || visible || false,
+          onOpenChange: onOpenChange || onVisibleChange,
         }
       : {
-          open: open || visible,
-          onOpenChange: onOpenChange || onVisibleChange,
+          visible: open || visible || false,
+          onVisibleChange: onOpenChange || onVisibleChange,
         };
-
   return wrapSSR(
     <Dropdown
       disabled={disabled}
