@@ -1175,7 +1175,6 @@ exports[`Field 🐴 edit and no plain 1`] = `
                       class="ant-input-affix-wrapper ant-input-password"
                     >
                       <input
-                        action="click"
                         class="ant-input"
                         placeholder="请输入"
                         type="password"
@@ -2363,7 +2362,6 @@ exports[`Field 🐴 edit and plain 1`] = `
                       class="ant-input-affix-wrapper ant-input-password"
                     >
                       <input
-                        action="click"
                         class="ant-input"
                         placeholder="请输入"
                         type="password"
@@ -2544,7 +2542,7 @@ exports[`Field 🐴 money valueType is Object 2`] = `
 <body>
   <div>
     <span>
-      100
+      100.00
     </span>
   </div>
 </body>
@@ -2647,7 +2645,7 @@ exports[`Field 🐴 money valueType is Object 5`] = `
   <div />
   <div>
     <span>
-      100
+      100.00
     </span>
   </div>
 </body>
@@ -2753,7 +2751,7 @@ exports[`Field 🐴 money valueType is Object 8`] = `
   <div />
   <div>
     <span>
-      100
+      100.00
     </span>
   </div>
 </body>
@@ -2862,7 +2860,7 @@ exports[`Field 🐴 money valueType is Object 11`] = `
   <div />
   <div>
     <span>
-      100
+      100.00
     </span>
   </div>
 </body>

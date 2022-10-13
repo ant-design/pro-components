@@ -848,7 +848,7 @@ describe('BasicLayout', () => {
           {
             path: '/admin',
             name: '管理页',
-            routes: [
+            children: [
               {
                 path: '/admin/sub-page1',
                 name: '一级页面',
@@ -1002,7 +1002,7 @@ describe('BasicLayout', () => {
             {
               path: '/admin',
               name: '管理页',
-              routes: [
+              children: [
                 {
                   path: '/admin/sub-page1',
                   name: '一级页面',
@@ -1021,7 +1021,7 @@ describe('BasicLayout', () => {
               name: '列表页',
               icon: 'https://gw.alipayobjects.com/zos/rmsportal/KDpgvguMpGfqaHPjicRK.svg',
               path: '/list',
-              routes: [
+              children: [
                 {
                   path: '/list/sub-page',
                   name: '一级列表页面',
@@ -1084,7 +1084,7 @@ describe('BasicLayout', () => {
             {
               path: '/admin',
               name: '管理页',
-              routes: [
+              children: [
                 {
                   path: '/admin/sub-page1',
                   name: '一级页面',
@@ -1102,7 +1102,7 @@ describe('BasicLayout', () => {
             {
               name: '列表页',
               path: '/list',
-              routes: [
+              children: [
                 {
                   path: '/list/sub-page',
                   name: '一级列表页面',
@@ -1306,7 +1306,7 @@ describe('BasicLayout', () => {
               path: '/home',
               name: '首页',
               locale: 'menu.home',
-              routes: [
+              children: [
                 {
                   path: '/home/overview',
                   name: '概述',
@@ -1325,12 +1325,12 @@ describe('BasicLayout', () => {
               path: '/data_hui',
               name: '汇总数据',
               locale: 'menu.data_hui',
-              routes: [
+              children: [
                 {
                   collapsed: true,
                   menuName: '域买家维度交易',
                   name: '域买家维度交易',
-                  routes: [
+                  children: [
                     {
                       id: 2,
                       name: '月表',
@@ -1345,7 +1345,7 @@ describe('BasicLayout', () => {
                 {
                   name: '维度交易',
                   path: '/',
-                  routes: [
+                  children: [
                     {
                       name: '月表',
                       path: '/data_hui4',
@@ -1395,7 +1395,7 @@ describe('BasicLayout', () => {
               path: '/home',
               name: '首页',
               locale: 'menu.home',
-              routes: [
+              children: [
                 {
                   path: '/home/overview',
                   name: '概述',
@@ -1414,12 +1414,12 @@ describe('BasicLayout', () => {
               path: '/data_hui',
               name: '汇总数据',
               locale: 'menu.data_hui',
-              routes: [
+              children: [
                 {
                   collapsed: true,
                   menuName: '域买家维度交易',
                   name: '域买家维度交易',
-                  routes: [
+                  children: [
                     {
                       id: 2,
                       name: '月表',
@@ -1434,7 +1434,7 @@ describe('BasicLayout', () => {
                 {
                   name: '维度交易',
                   path: '/',
-                  routes: [
+                  children: [
                     {
                       name: '月表2',
                       path: '/data_hui4',

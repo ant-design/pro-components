@@ -33,7 +33,7 @@ exports[`skeleton demos 📸 renders ./packages/skeleton/src/demos/descriptions.
       </div>
       <div
         class="ant-card"
-        style="border-top-right-radius: 0; border-top-left-radius: 0;"
+        style="border-start-end-radius: 0; border-top-left-radius: 0;"
       >
         <div
           class="ant-card-body"
@@ -1135,7 +1135,7 @@ exports[`skeleton demos 📸 renders ./packages/skeleton/src/demos/list.static.t
               </div>
               <div
                 class="ant-card"
-                style="border-top-right-radius: 0; border-top-left-radius: 0;"
+                style="border-start-end-radius: 0; border-top-left-radius: 0;"
               >
                 <div
                   class="ant-card-body"
@@ -1652,7 +1652,7 @@ exports[`skeleton demos 📸 renders ./packages/skeleton/src/demos/list.tsx corr
               </div>
               <div
                 class="ant-card"
-                style="border-top-right-radius: 0; border-top-left-radius: 0;"
+                style="border-start-end-radius: 0; border-top-left-radius: 0;"
               >
                 <div
                   class="ant-card-body"

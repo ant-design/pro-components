@@ -7,7 +7,7 @@ import type { ProFieldFC } from '../../index';
 import 'antd/es/input-number/style';
 //----------------------
 
-export type Value = string | number | undefined;
+export type Value = string | number | undefined | null;
 
 export type ValuePair = Value[];
 
@@ -87,7 +87,7 @@ const FieldDigitRange: ProFieldFC<FieldDigitRangeProps> = (
 
     const dom = (
       <Input.Group compact onBlur={handleGroupBlur}>
-        <InputNumber
+        <InputNumber<number>
           {...fieldProps}
           placeholder={Array.isArray(placeholderValue) ? placeholderValue[0] : placeholderValue}
           id={id ?? `${id}-0`}
@@ -108,7 +108,7 @@ const FieldDigitRange: ProFieldFC<FieldDigitRangeProps> = (
           placeholder={separator}
           disabled
         />
-        <InputNumber
+        <InputNumber<number>
           {...fieldProps}
           placeholder={Array.isArray(placeholderValue) ? placeholderValue[1] : placeholderValue}
           id={id ?? `${id}-1`}

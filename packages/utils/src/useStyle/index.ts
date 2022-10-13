@@ -2,7 +2,7 @@ import type { CSSInterpolation, CSSObject } from '@ant-design/cssinjs';
 import { useStyleRegister } from '@ant-design/cssinjs';
 import { TinyColor } from '@ctrl/tinycolor';
 
-import * as antd from 'antd';
+import { theme as antdTheme, ConfigProvider } from 'antd';
 
 import type React from 'react';
 import { useContext } from 'react';
@@ -40,7 +40,7 @@ export type GenerateStyle<
 const { useToken } = {
   ...batToken,
   // @ts-ignore
-  ...antd.antdTheme,
+  ...(antdTheme || {}),
 } as unknown as typeof batToken;
 
 export { useToken };
@@ -92,8 +92,6 @@ export const operationUnit = (token: ProAliasToken): CSSObject => ({
   },
 });
 
-const { ConfigProvider } = antd;
-
 /**
  * 封装了一下 antd 的 useStyle，支持了一下antd@4
  * @param componentName {string} 组件的名字
@@ -103,6 +101,7 @@ const { ConfigProvider } = antd;
 export function useStyle(
   componentName: string,
   styleFn: (token: ProAliasToken) => CSSInterpolation,
+  deps?: Record<string, any>,
 ): UseStyleResult {
   const { token, hashId, theme } = useToken();
 
@@ -114,12 +113,22 @@ export function useStyle(
    */
   const proComponentsCls = `.${getPrefixCls()}-pro`;
   return {
-    wrapSSR: useStyleRegister({ theme, token, hashId, path: [componentName] }, () =>
-      styleFn({
-        ...token,
-        antCls: '.' + getPrefixCls(),
-        proComponentsCls,
-      }),
+    wrapSSR: useStyleRegister(
+      {
+        theme,
+        token: {
+          ...deps,
+          ...token,
+        },
+        hashId,
+        path: [componentName],
+      },
+      () =>
+        styleFn({
+          ...token,
+          antCls: '.' + getPrefixCls(),
+          proComponentsCls,
+        }),
     ),
     hashId,
   };

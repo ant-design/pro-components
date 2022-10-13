@@ -76,6 +76,15 @@ export default () => {
           },
         },
         {
+          title: 'money无符号',
+          key: 'money',
+          dataIndex: 'money',
+          valueType: 'money',
+          fieldProps: {
+            moneySymbol: false,
+          },
+        },
+        {
           title: '操作',
           valueType: 'option',
           render: () => [

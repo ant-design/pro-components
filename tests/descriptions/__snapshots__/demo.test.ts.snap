@@ -1008,7 +1008,28 @@ exports[`descriptions demos 📸 renders ./packages/descriptions/src/demos/colum
             </td>
             <td
               class="ant-descriptions-item"
-              colspan="2"
+              colspan="1"
+            >
+              <div
+                class="ant-descriptions-item-container"
+              >
+                <span
+                  class="ant-descriptions-item-label"
+                >
+                  money无符号
+                </span>
+                <span
+                  class="ant-descriptions-item-content"
+                >
+                  <span>
+                    1,212,100.00
+                  </span>
+                </span>
+              </div>
+            </td>
+            <td
+              class="ant-descriptions-item"
+              colspan="1"
             >
               <div
                 class="ant-descriptions-item-container"
@@ -2288,13 +2309,13 @@ exports[`descriptions demos 📸 renders ./packages/descriptions/src/demos/edita
                           </div>
                           <span
                             aria-hidden="true"
-                            style="position: fixed; display: block; left: 0px; top: 0px; z-index: -9999; visibility: hidden; pointer-events: none; word-break: keep-all; white-space: nowrap;"
+                            style="position: fixed; display: block; left: 0px; top: 0px; z-index: -9999; visibility: hidden; pointer-events: none; font-size: 0px; word-break: keep-all; white-space: nowrap;"
                           >
                             lg
                           </span>
                           <span
                             aria-hidden="true"
-                            style="position: fixed; display: block; left: 0px; top: 0px; z-index: -9999; visibility: hidden; pointer-events: none; width: 0px; white-space: normal; margin: 0px; padding: 0px;"
+                            style="position: fixed; display: block; left: 0px; top: 0px; z-index: -9999; visibility: hidden; pointer-events: none; font-size: 0px; width: 0px; white-space: normal; margin: 0px; padding: 0px;"
                           >
                             <span
                               aria-hidden="true"
@@ -3394,13 +3415,13 @@ exports[`descriptions demos 📸 renders ./packages/descriptions/src/demos/use-d
                     </div>
                     <span
                       aria-hidden="true"
-                      style="position: fixed; display: block; left: 0px; top: 0px; z-index: -9999; visibility: hidden; pointer-events: none; word-break: keep-all; white-space: nowrap;"
+                      style="position: fixed; display: block; left: 0px; top: 0px; z-index: -9999; visibility: hidden; pointer-events: none; font-size: 0px; word-break: keep-all; white-space: nowrap;"
                     >
                       lg
                     </span>
                     <span
                       aria-hidden="true"
-                      style="position: fixed; display: block; left: 0px; top: 0px; z-index: -9999; visibility: hidden; pointer-events: none; width: 0px; white-space: normal; margin: 0px; padding: 0px;"
+                      style="position: fixed; display: block; left: 0px; top: 0px; z-index: -9999; visibility: hidden; pointer-events: none; font-size: 0px; width: 0px; white-space: normal; margin: 0px; padding: 0px;"
                     >
                       <span
                         aria-hidden="true"

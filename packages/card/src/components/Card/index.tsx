@@ -8,6 +8,7 @@ import React, { useContext } from 'react';
 import type { Breakpoint, CardProps, Gutter } from '../../type';
 import Actions from '../Actions';
 import Loading from '../Loading';
+import { useLegacyItems } from '../TabPane';
 import useStyle from './style';
 
 const { useBreakpoint } = Grid;
@@ -62,12 +63,7 @@ const Card = React.forwardRef((props: CardProps, ref: any) => {
   const responsiveArray: Breakpoint[] = ['xxl', 'xl', 'lg', 'md', 'sm', 'xs'];
   // 修改组合传给antd tabs的参数
   // @ts-ignore
-  const ModifyTabItemsContant = tabs?.items?.map((item) => {
-    return {
-      ...item,
-      children: <Card {...tabs?.cardProps}>{item.children}</Card>,
-    };
-  });
+  const ModifyTabItemsContant = useLegacyItems(tabs?.items, children, tabs);
 
   /**
    * 根据响应式获取 gutter, 参考 antd 实现
@@ -150,7 +146,7 @@ const Card = React.forwardRef((props: CardProps, ref: any) => {
         [`${prefixCls}-col-${span}`]: typeof span === 'number' && span >= 0 && span <= 24,
       });
 
-      return wrapSSR(
+      const wrappedElement = wrapSSR(
         <div
           style={{
             ...colSpanStyle,
@@ -163,13 +159,12 @@ const Card = React.forwardRef((props: CardProps, ref: any) => {
               paddingBlockEnd: verticalGutter / 2,
             }),
           }}
-          // eslint-disable-next-line react/no-array-index-key
-          key={`pro-card-col-${element?.key || index}`}
           className={columnClassName}
         >
           {React.cloneElement(element)}
         </div>,
       );
+      return React.cloneElement(wrappedElement, { key: `pro-card-col-${element?.key || index}` });
     }
     return element;
   });
@@ -214,7 +209,6 @@ const Card = React.forwardRef((props: CardProps, ref: any) => {
       style={bodyStyle.padding === 0 || bodyStyle.padding === '0px' ? { padding: 24 } : undefined}
     />
   );
-
   // 非受控情况下展示
   const collapsibleButton =
     collapsible &&

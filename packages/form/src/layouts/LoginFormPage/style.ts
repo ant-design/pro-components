@@ -114,7 +114,7 @@ const genLoginFormStyle: GenerateStyle<LoginFormToken> = (token) => {
 };
 
 export function useStyle(prefixCls: string) {
-  return useAntdStyle('LoginForm', (token) => {
+  return useAntdStyle('LoginFormPage', (token) => {
     const loginFormToken: LoginFormToken = {
       ...token,
       componentCls: `.${prefixCls}`,

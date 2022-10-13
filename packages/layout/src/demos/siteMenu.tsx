@@ -10,8 +10,9 @@ import {
 import ProCard from '@ant-design/pro-card';
 import type { ProSettings } from '@ant-design/pro-layout';
 import { PageContainer, ProLayout } from '@ant-design/pro-layout';
+import { compareVersions } from '@ant-design/pro-utils';
 import { css } from '@emotion/css';
-import { Divider, Dropdown, Input } from 'antd';
+import { Divider, Dropdown, Input, version } from 'antd';
 import React, { useState } from 'react';
 import defaultProps from './_defaultProps';
 
@@ -175,6 +176,18 @@ export default () => {
             return defaultDom;
           }
           if (_.isMobile) return defaultDom;
+
+          const dropdownOpenProps: any =
+            compareVersions(version, '4.23.0') > -1
+              ? {
+                  open: dropdownVisible,
+                  onOpenChange: setDropdownVisible,
+                }
+              : {
+                  visible: dropdownVisible,
+                  onVisibleChange: dropdownVisible,
+                };
+
           return (
             <>
               <div
@@ -192,11 +205,7 @@ export default () => {
                 />
                 <Dropdown
                   placement="bottom"
-                  //@ts-expect-error
-                  visible={dropdownVisible}
-                  open={dropdownVisible}
-                  onVisibleChange={setDropdownVisible}
-                  onOpenChange={setDropdownVisible}
+                  {...dropdownOpenProps}
                   overlay={
                     <div
                       style={{

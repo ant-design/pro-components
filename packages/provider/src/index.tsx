@@ -1,7 +1,7 @@
 //@ts-ignore
-import * as antd from 'antd';
+import { theme, ConfigProvider as AntdConfigProvider } from 'antd';
 import zh_CN from 'antd/es/locale/zh_CN';
-import React, { useContext, useEffect } from 'react';
+import React, { useContext, useEffect, useMemo } from 'react';
 import { SWRConfig, useSWRConfig } from 'swr';
 import arEG from './locale/ar_EG';
 import caES from './locale/ca_ES';
@@ -28,7 +28,7 @@ import zhCN from './locale/zh_CN';
 import zhTW from './locale/zh_TW';
 
 // @ts-ignore
-const { useToken } = antd.theme || {
+const { useToken } = theme || {
   useToken: () => {
     return {
       hashId: '',
@@ -271,8 +271,6 @@ const CacheClean = () => {
   return null;
 };
 
-const AntdConfigProvider = antd.ConfigProvider;
-
 /**
  * 如果没有配置 locale，这里组件会根据 antd 的 key 来自动选择
  *
@@ -282,53 +280,61 @@ export const ConfigProviderWrap: React.FC<Record<string, unknown>> = ({
   children,
   autoClearCache = false,
 }) => {
-  const { locale } = useContext(AntdConfigProvider.ConfigContext);
+  const { locale, getPrefixCls } = useContext(AntdConfigProvider.ConfigContext);
   const token = useToken?.();
   // 如果 locale 不存在自动注入的 AntdConfigProvider
   const Provider = locale === undefined ? AntdConfigProvider : React.Fragment;
   const proProvide = useContext(ConfigContext);
-  const configProviderDom = (
-    <ConfigConsumer>
-      {(value) => {
-        const localeName = locale?.locale;
-        const key = findIntlKeyByAntdLocaleKey(localeName);
-        // antd 的 key 存在的时候以 antd 的为主
-        const intl =
-          localeName && value.intl?.locale === 'default'
-            ? intlMap[key!]
-            : value.intl || intlMap[key!];
 
-        // 自动注入 antd 的配置
-        const configProvider =
-          locale === undefined
-            ? {
-                locale: zh_CN,
-                theme: {
-                  hashed: process.env.NODE_ENV?.toLowerCase() !== 'test',
-                },
-              }
-            : {};
-        const provide = (
-          <Provider {...configProvider}>
-            <ConfigProvider
-              value={{
-                ...value,
-                isDeps: true,
-                intl: intl || zhCNIntl,
-              }}
-            >
-              <>
-                {autoClearCache && <CacheClean />}
-                {children}
-              </>
-            </ConfigProvider>
-          </Provider>
-        );
-        if (proProvide.isDeps) return provide;
-        return <div className={`ant-pro ${token.hashId}`}>{provide}</div>;
-      }}
-    </ConfigConsumer>
-  );
+  const proProvideValue = useMemo(() => {
+    const localeName = locale?.locale;
+    const key = findIntlKeyByAntdLocaleKey(localeName);
+    // antd 的 key 存在的时候以 antd 的为主
+    const intl =
+      localeName && proProvide.intl?.locale === 'default'
+        ? intlMap[key!]
+        : proProvide.intl || intlMap[key!];
+
+    return {
+      ...proProvide,
+      isDeps: true,
+      intl: intl || zhCNIntl,
+    };
+  }, [locale?.locale, proProvide]);
+
+  const configProviderDom = useMemo(() => {
+    // 自动注入 antd 的配置
+    const configProvider =
+      locale === undefined
+        ? {
+            locale: zh_CN,
+            theme: {
+              hashed: process.env.NODE_ENV?.toLowerCase() !== 'test',
+            },
+          }
+        : {};
+    const provide = (
+      <Provider {...configProvider}>
+        <ConfigProvider value={proProvideValue}>
+          <>
+            {autoClearCache && <CacheClean />}
+            {children}
+          </>
+        </ConfigProvider>
+      </Provider>
+    );
+    if (proProvide.isDeps) return provide;
+    return <div className={`${getPrefixCls?.('pro') || 'ant-pro'} ${token.hashId}`}>{provide}</div>;
+  }, [
+    Provider,
+    autoClearCache,
+    children,
+    getPrefixCls,
+    locale,
+    proProvide.isDeps,
+    proProvideValue,
+    token.hashId,
+  ]);
   if (!autoClearCache) return configProviderDom;
 
   return <SWRConfig value={{ provider: () => new Map() }}>{configProviderDom}</SWRConfig>;

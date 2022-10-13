@@ -6,6 +6,7 @@ import { ProLayoutContext } from '../../context/ProLayoutContext';
 export interface GlobalHeaderToken extends ProAliasToken {
   componentCls: string;
   heightLayoutHeader: number;
+  colorHeaderTitle: string;
 }
 
 const genGlobalHeaderStyle: GenerateStyle<GlobalHeaderToken> = (token) => {
@@ -25,7 +26,12 @@ const genGlobalHeaderStyle: GenerateStyle<GlobalHeaderToken> = (token) => {
       [`${token.proComponentsCls}-layout-apps-icon`]: {
         marginInlineEnd: 16,
       },
-      '&-collapsed-button': { minHeight: '22px', fontSize: '22px', marginInlineStart: '16px' },
+      '&-collapsed-button': {
+        minHeight: '22px',
+        color: token.colorHeaderTitle,
+        fontSize: '22px',
+        marginInlineStart: '16px',
+      },
       '&-logo': {
         position: 'relative',
         minWidth: '154px',
@@ -63,11 +69,12 @@ const genGlobalHeaderStyle: GenerateStyle<GlobalHeaderToken> = (token) => {
 
 export function useStyle(prefixCls: string) {
   const { header } = useContext(ProLayoutContext);
-  return useAntdStyle('pro-layout-global-header', (token) => {
+  return useAntdStyle('ProLayoutGlobalHeader', (token) => {
     const GlobalHeaderToken: GlobalHeaderToken = {
       ...token,
       componentCls: `.${prefixCls}`,
       heightLayoutHeader: header.heightLayoutHeader,
+      colorHeaderTitle: header.colorHeaderTitle,
     };
 
     return [genGlobalHeaderStyle(GlobalHeaderToken)];

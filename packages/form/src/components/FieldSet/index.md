@@ -10,7 +10,7 @@ nav:
 
 # ProFormFields 表单项
 
-一个表单除了 Form 之外还是需要一系列的表单项，ProForm 自带了数量可观的表单项, 这些组件本质上是 Form.Item 和 组件的结合，我们可以帮他们当成一个 FormItem 来使用，并且支持各种 `props`。每个表单项都支持 `fieldProps` 属性来支持设置输入组件的`props`。 我们支持了 `placeholder` 的透传，你可以直接在组件上设置 `placeholder`。
+一个表单除了 Form 之外还是需要一系列的表单项，ProForm 自带了数量可观的表单项, 这些组件本质上是 Form.Item 和 组件的结合，我们可以把他们当成一个 FormItem 来使用，并且支持各种 `props`。每个表单项都支持 `fieldProps` 属性来支持设置输入组件的`props`。 我们支持了 `placeholder` 的透传，你可以直接在组件上设置 `placeholder`。
 
 每个表单项同时也支持了 `readonly` ，不同的组件会有不同的只读样式，与 `disable` 相比 `readonly` 展示更加友好。生成的 dom 也更小，比如 ProFormDigit 会自动格式化小数位数。
 
@@ -50,6 +50,7 @@ const ProFormText = (props) => {
 | [ProFormUploadButton](https://ant.design/components/upload-cn/) | 按钮样式的上传文件 |
 | [ProFormUploadDragger](https://ant.design/components/upload-cn/) | 区域的上传文件，一般用于突出上传文件的表单中 |
 | ProFormMoney | 通用金额输入组件 |
+| [ProFormSegmented](https://ant.design/components/segmented-cn/) | 分段控制器 |
 
 ## 代码示例
 
@@ -638,4 +639,48 @@ ProFormMoney 用于输入金额的输入框，支持根据全局国际化显示�
 "pl-PL": "zł",
 "hr-HR": "kn",
 }
+```
+
+### ProFormSegmented
+
+> antd 版本需要 >= antd@4.20.0
+
+与 [Segmented](https://ant.design/components/segmented-cn/) 相同。支持了 request 和 valueEnum 两种方式来生成 options。
+
+> 请求远程数据比较复杂，详细可以看[这里](https://procomponents.ant.design/components/schema#request-%E5%92%8C-params)。
+
+| 参数 | 说明 | 类型 | 默认值 |
+| --- | --- | --- | --- |
+| valueEnum | 当前列值的枚举 [valueEnum](/components/table#valueenum) | `Record` | - |
+| request | 从网络请求枚举数据 | `()=>Promise<{label,value}>` | - |
+| debounceTime | 防抖动时间，与 request 配合使用 | `number` | - |
+| params | 发起网络请求的参数,与 request 配合使用 | `Record` | - |
+| fieldProps | antd 组件的 props | `` (form,config)=>SelectProps`\| `SelectProps `` | - |
+
+> 有了 options 为什么要支持 valueEnum 呢？ valueEnum 可以与 table，descriptions 共用，在工程化上有优势。
+
+```tsx | pure
+<>
+  <ProFormSegmented
+    name="segmented"
+    label="segmented"
+    valueEnum={{
+      open: '未解决',
+      closed: '已解决',
+    }}
+    rules={[{ required: true, message: 'Please select your country!' }]}
+  />
+
+  <ProFormSegmented
+    name="segmented"
+    label="segmented"
+    request={async () => [
+      { label: '全部', value: 'all' },
+      { label: '未解决', value: 'open' },
+      { label: '已解决', value: 'closed' },
+      { label: '解决中', value: 'processing' },
+    ]}
+    rules={[{ required: true, message: 'Please select your country!' }]}
+  />
+</>
 ```

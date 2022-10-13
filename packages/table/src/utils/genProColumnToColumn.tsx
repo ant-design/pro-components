@@ -9,6 +9,20 @@ import type { ProColumnGroupType, ProColumns } from '../typing';
 import { columnRender, defaultOnFilter, renderColumnsTitle } from './columnRender';
 import { genColumnKey } from './index';
 
+type ColumnToColumnReturnType<T> = (TableColumnType<T> & {
+  index?: number;
+  isExtraColumns?: boolean;
+  extraColumn?: typeof Table.EXPAND_COLUMN | typeof Table.SELECTION_COLUMN;
+})[];
+
+type ColumnToColumnParams<T> = {
+  columns: ProColumns<T, any>[];
+  counter: ReturnType<typeof useContainer>;
+  columnEmptyText: ProFieldEmptyText;
+  type: ProSchemaComponentTypes;
+  editableUtils: UseEditableUtilType;
+} & Pick<TableProps<T>, 'rowKey' | 'childrenColumnName'>;
+
 /**
  * 转化 columns 到 pro 的格式 主要是 render 方法的自行实现
  *
@@ -17,18 +31,9 @@ import { genColumnKey } from './index';
  * @param columnEmptyText
  */
 export function genProColumnToColumn<T>(
-  params: {
-    columns: ProColumns<T, any>[];
-    counter: ReturnType<typeof useContainer>;
-    columnEmptyText: ProFieldEmptyText;
-    type: ProSchemaComponentTypes;
-    editableUtils: UseEditableUtilType;
-  } & Pick<TableProps<T>, 'rowKey' | 'childrenColumnName'>,
-): (TableColumnType<T> & {
-  index?: number;
-  isExtraColumns?: boolean;
-  extraColumn?: typeof Table.EXPAND_COLUMN | typeof Table.SELECTION_COLUMN;
-})[] {
+  params: ColumnToColumnParams<T>,
+  parents?: ProColumnGroupType<T, any>,
+): ColumnToColumnReturnType<T> {
   const {
     columns,
     counter,
@@ -52,7 +57,10 @@ export function genProColumnToColumn<T>(
         onFilter,
         filters = [],
       } = columnProps as ProColumnGroupType<T, any>;
-      const columnKey = genColumnKey(key || dataIndex?.toString(), columnsIndex);
+      const columnKey = genColumnKey(
+        key || dataIndex?.toString(),
+        [parents?.key, columnsIndex].filter(Boolean).join('-'),
+      );
       // 这些都没有，说明是普通的表格不需要 pro 管理
       const noNeedPro = !valueEnum && !valueType && !children;
       if (noNeedPro) {
@@ -106,10 +114,13 @@ export function genProColumnToColumn<T>(
         fixed: config.fixed,
         width: columnProps.width || (columnProps.fixed ? 200 : undefined),
         children: (columnProps as ProColumnGroupType<T, any>).children
-          ? genProColumnToColumn({
-              ...params,
-              columns: (columnProps as ProColumnGroupType<T, any>)?.children,
-            })
+          ? genProColumnToColumn(
+              {
+                ...params,
+                columns: (columnProps as ProColumnGroupType<T, any>)?.children,
+              },
+              { ...columnProps, key: columnKey } as ProColumnGroupType<T, any>,
+            )
           : undefined,
         render: (text: any, rowData: T, index: number) => {
           if (typeof rowKey === 'function') {

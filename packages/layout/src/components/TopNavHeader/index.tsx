@@ -38,13 +38,12 @@ const TopNavHeader: React.FC<TopNavHeaderProps> = (props) => {
   const contentDom = useMemo(() => {
     const defaultDom = (
       <ConfigProvider
-        // @ts-ignore
         theme={{
           hashed: process.env.NODE_ENV?.toLowerCase() !== 'test',
-          override: {
+          components: {
             Menu: {
-              colorItemBg: 'transparent',
-              colorSubItemBg: 'transparent',
+              colorItemBg: header.colorBgHeader || 'transparent',
+              colorSubItemBg: header.colorBgHeader || 'transparent',
               radiusItem: 4,
               colorItemBgSelected: header.colorBgMenuItemSelected || 'rgba(0, 0, 0, 0.04)',
               colorItemBgActive: header.colorBgMenuItemHover || 'rgba(0, 0, 0, 0.04)',
@@ -82,6 +81,7 @@ const TopNavHeader: React.FC<TopNavHeaderProps> = (props) => {
     return defaultDom;
   }, [
     hashId,
+    header.colorBgHeader,
     header.colorBgMenuItemHover,
     header.colorBgMenuItemSelected,
     header.colorTextMenu,

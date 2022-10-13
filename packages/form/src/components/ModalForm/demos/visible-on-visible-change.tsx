@@ -37,12 +37,12 @@ export default () => {
       </Space>
       <ModalForm
         title="新建表单"
-        visible={modalVisit}
+        open={modalVisit}
         onFinish={async () => {
           message.success('提交成功');
           return true;
         }}
-        onVisibleChange={setModalVisit}
+        onOpenChange={setModalVisit}
       >
         <ProForm.Group>
           <ProFormText
@@ -88,9 +88,9 @@ export default () => {
         <ProFormText width="xs" name="mangerName" disabled label="商务经理" initialValue="启途" />
       </ModalForm>
       <DrawerForm
-        onVisibleChange={setDrawerVisit}
+        onOpenChange={setDrawerVisit}
         title="新建表单"
-        visible={drawerVisit}
+        open={drawerVisit}
         onFinish={async () => {
           message.success('提交成功');
           return true;

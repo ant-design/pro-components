@@ -52,11 +52,3 @@ export default () => {
   );
 };
 ```
-
-All our packages use less for style management and easy theme customization. If you don't have less-loader you can try to import css from `dist`.
-
-```tsx | pure
-import '@ant-design/pro-components/dist/components.css';
-```
-
-It is recommended to use less, which allows for easy theme customization and on-demand loading.

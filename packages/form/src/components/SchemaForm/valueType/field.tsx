@@ -57,7 +57,7 @@ export const field: ProSchemaRenderValueTypeFunction = (
   return (
     <ProFormField
       {...formFieldProps}
-      key={`${item.key}-${item.index}`}
+      key={[item.key, item.index || 0].join('-')}
       renderFormItem={renderFormItem}
     />
   );

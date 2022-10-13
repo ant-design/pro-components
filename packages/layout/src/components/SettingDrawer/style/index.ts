@@ -38,7 +38,7 @@ const genSettingDrawerStyle: GenerateStyle<SettingDrawerToken> = (token) => {
       '&-block-checkbox': {
         display: 'flex',
         minHeight: 42,
-        '&-item': {
+        '& &-item': {
           position: 'relative',
           width: '44px',
           height: '36px',
@@ -102,6 +102,10 @@ const genSettingDrawerStyle: GenerateStyle<SettingDrawerToken> = (token) => {
           pointerEvents: 'none',
           '.action': { color: token.colorPrimary },
         },
+        '& &-icon': {
+          fontSize: 56,
+          lineHeight: '56px',
+        },
       },
       '&-theme-color': {
         marginBlockStart: '16px',
@@ -124,7 +128,7 @@ const genSettingDrawerStyle: GenerateStyle<SettingDrawerToken> = (token) => {
 };
 
 export function useStyle(prefixCls: string) {
-  return useAntdStyle('pro-layout-setting-drawer', (token) => {
+  return useAntdStyle('ProLayoutSettingDrawer', (token) => {
     const settingDrawerToken: SettingDrawerToken = {
       ...token,
       componentCls: `.${prefixCls}`,

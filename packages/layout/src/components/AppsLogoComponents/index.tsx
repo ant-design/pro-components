@@ -1,4 +1,5 @@
-﻿import { Popover } from 'antd';
+﻿import { compareVersions } from '@ant-design/pro-utils';
+import { Popover, version } from 'antd';
 import classNames from 'classnames';
 import React, { useMemo, useState } from 'react';
 import { AppsLogo } from './AppsLogo';
@@ -18,7 +19,7 @@ export const defaultRenderLogo = (
   logo: React.ReactNode | (() => React.ReactNode),
 ): React.ReactNode => {
   if (typeof logo === 'string') {
-    return <img src={logo} alt="logo" />;
+    return <img width={22} src={logo} alt="logo" />;
   }
   if (typeof logo === 'function') {
     return logo();
@@ -66,6 +67,15 @@ export const AppsLogoComponents: React.FC<{
   }, [appList, baseClassName, hashId]);
 
   if (!props?.appList?.length) return null;
+
+  const popoverOpenProps =
+    compareVersions(version, '4.23.0') > -1
+      ? {
+          onOpenChange: setOpen,
+        }
+      : {
+          onVisibleChange: () => setOpen,
+        };
 
   return wrapSSR(
     <>

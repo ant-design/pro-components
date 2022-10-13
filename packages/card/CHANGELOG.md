@@ -2,7 +2,55 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+<<<<<<< HEAD
 # [2.0.0-experimental.42](https://github.com/ant-design/pro-components/compare/@ant-design/pro-card@2.0.3...@ant-design/pro-card@2.0.0-experimental.42) (2022-09-07)
+=======
+## [2.0.13](https://github.com/ant-design/pro-components/compare/@ant-design/pro-card@2.0.12...@ant-design/pro-card@2.0.13) (2022-10-13)
+
+**Note:** Version bump only for package @ant-design/pro-card
+
+## [2.0.12](https://github.com/ant-design/pro-components/compare/@ant-design/pro-card@2.0.11...@ant-design/pro-card@2.0.12) (2022-10-11)
+
+**Note:** Version bump only for package @ant-design/pro-card
+
+## [2.0.11](https://github.com/ant-design/pro-components/compare/@ant-design/pro-card@2.0.10...@ant-design/pro-card@2.0.11) (2022-10-10)
+
+**Note:** Version bump only for package @ant-design/pro-card
+
+## [2.0.10](https://github.com/ant-design/pro-components/compare/@ant-design/pro-card@2.0.9...@ant-design/pro-card@2.0.10) (2022-09-28)
+
+**Note:** Version bump only for package @ant-design/pro-card
+
+## [2.0.9](https://github.com/ant-design/pro-components/compare/@ant-design/pro-card@2.0.8...@ant-design/pro-card@2.0.9) (2022-09-22)
+
+### Bug Fixes
+
+- **card:** card key props warning ([#5941](https://github.com/ant-design/pro-components/issues/5941)) ([16bde67](https://github.com/ant-design/pro-components/commit/16bde67e387d65657503652f8eafc9b85515fc40))
+
+## [2.0.8](https://github.com/ant-design/pro-components/compare/@ant-design/pro-card@2.0.7...@ant-design/pro-card@2.0.8) (2022-09-21)
+
+### Bug Fixes
+
+- **card:** fixed col width digit lost ([#5958](https://github.com/ant-design/pro-components/issues/5958)) ([d39e66a](https://github.com/ant-design/pro-components/commit/d39e66a1093ab4d3a921a35464eede565a178c0e))
+
+## [2.0.7](https://github.com/ant-design/pro-components/compare/@ant-design/pro-card@2.0.6...@ant-design/pro-card@2.0.7) (2022-09-16)
+
+**Note:** Version bump only for package @ant-design/pro-card
+
+## [2.0.6](https://github.com/ant-design/pro-components/compare/@ant-design/pro-card@2.0.5...@ant-design/pro-card@2.0.6) (2022-09-14)
+
+### Bug Fixes
+
+- **card:** Card.Tabs.Pane Render null ([#5926](https://github.com/ant-design/pro-components/issues/5926)) ([8598c11](https://github.com/ant-design/pro-components/commit/8598c11ecc09bfa4c2a38b1fc42bf0ebe6a5ef95))
+
+## [2.0.5](https://github.com/ant-design/pro-components/compare/@ant-design/pro-card@2.0.4...@ant-design/pro-card@2.0.5) (2022-09-09)
+
+### Bug Fixes
+
+- **layout:** support icon is a img ([e1b9700](https://github.com/ant-design/pro-components/commit/e1b9700b396eb8f54a87054849a18b992c3417c6))
+
+## [2.0.4](https://github.com/ant-design/pro-components/compare/@ant-design/pro-card@2.0.3...@ant-design/pro-card@2.0.4) (2022-09-08)
+>>>>>>> master
 
 **Note:** Version bump only for package @ant-design/pro-card
 

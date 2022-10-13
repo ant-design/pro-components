@@ -160,7 +160,7 @@ export const ListSkeleton: React.FC<{
       <Card
         bordered={false}
         style={{
-          borderTopRightRadius: 0,
+          borderStartEndRadius: 0,
           borderTopLeftRadius: 0,
         }}
         bodyStyle={{

@@ -20,7 +20,7 @@ export default {
           {
             path: '/admin/sub-page1',
             name: '一级页面',
-            icon: <CrownFilled />,
+            icon: 'https://gw.alipayobjects.com/zos/antfincdn/upvrAjAPQX/Logo_Tech%252520UI.svg',
             component: './Welcome',
           },
           {

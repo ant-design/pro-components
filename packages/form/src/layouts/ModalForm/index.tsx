@@ -1,4 +1,6 @@
-﻿import type { FormProps, ModalProps } from 'antd';
+﻿import { compareVersions } from '@ant-design/pro-utils';
+import type { FormProps, ModalProps } from 'antd';
+import { version } from 'antd';
 import { ConfigProvider, Modal } from 'antd';
 import merge from 'lodash.merge';
 import useMergedState from 'rc-util/lib/hooks/useMergedState';
@@ -30,13 +32,19 @@ export type ModalFormProps<T = Record<string, any>> = Omit<FormProps<T>, 'onFini
     trigger?: JSX.Element;
 
     /** @name 受控的打开关闭 */
-    visible?: ModalProps['open'];
-    /** @name 受控的打开关闭 */
     open?: ModalProps['open'];
 
-    /** @name 打开关闭的事件 */
+    /**
+     * @deprecated use onOpenChange replace
+     */
     onVisibleChange?: (visible: boolean) => void;
+    /**
+     * @deprecated use open replace
+     */
+    visible?: boolean;
 
+    /** @name 打开关闭的事件 */
+    onOpenChange?: (visible: boolean) => void;
     /**
      * 不支持 'visible'，请使用全局的 visible
      *
@@ -55,6 +63,7 @@ function ModalForm<T = Record<string, any>>({
   children,
   trigger,
   onVisibleChange,
+  onOpenChange,
   modalProps,
   onFinish,
   submitTimeout,
@@ -77,7 +86,7 @@ function ModalForm<T = Record<string, any>>({
 
   const [open, setOpen] = useMergedState<boolean>(!!propVisible, {
     value: propsOpen || propVisible,
-    onChange: onVisibleChange,
+    onChange: onOpenChange || onVisibleChange,
   });
 
   const footerRef = useRef<HTMLDivElement | null>(null);
@@ -100,11 +109,12 @@ function ModalForm<T = Record<string, any>>({
   }, [modalProps?.destroyOnClose, rest.form, rest.formRef]);
 
   useEffect(() => {
-    if (open && propVisible) {
+    if (open && (propsOpen || propVisible)) {
+      onOpenChange?.(true);
       onVisibleChange?.(true);
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [propVisible, open]);
+  }, [propVisible, propsOpen, open]);
 
   const triggerDom = useMemo(() => {
     if (!trigger) {
@@ -138,7 +148,7 @@ function ModalForm<T = Record<string, any>>({
           disabled: submitTimeout ? loading : undefined,
           onClick: (e: any) => {
             setOpen(false);
-            resetFields();
+            // fix: #6006 点击取消按钮时,那么必然会触发弹窗关闭，我们无需在 此处重置表单，只需在弹窗关闭时重置即可
             modalProps?.onCancel?.(e);
           },
         },
@@ -153,7 +163,6 @@ function ModalForm<T = Record<string, any>>({
     setOpen,
     loading,
     submitTimeout,
-    resetFields,
   ]);
 
   const contentRender = useCallback((formDom: any, submitter: any) => {
@@ -188,15 +197,22 @@ function ModalForm<T = Record<string, any>>({
     [onFinish, setOpen, submitTimeout],
   );
 
+  const modalOpenProps =
+    compareVersions(version, '4.23.0') > -1
+      ? {
+          open,
+        }
+      : {
+          visible: open,
+        };
+
   return (
     <>
       <Modal
         title={title}
         width={width || 800}
         {...modalProps}
-        // @ts-expect-error
-        visible={open}
-        open={open}
+        {...modalOpenProps}
         onCancel={(e) => {
           // 提交表单loading时，阻止弹框关闭
           if (submitTimeout && loading) return;
@@ -205,6 +221,7 @@ function ModalForm<T = Record<string, any>>({
         }}
         afterClose={() => {
           resetFields();
+          setOpen(false);
           modalProps?.afterClose?.();
         }}
         footer={
@@ -227,7 +244,7 @@ function ModalForm<T = Record<string, any>>({
           submitter={submitterConfig}
           onFinish={async (values) => {
             const result = await onFinishHandle(values);
-            resetFields();
+            // fix: #6006 如果 result 为 true,那么必然会触发弹窗关闭，我们无需在 此处重置表单，只需在弹窗关闭时重置即可
             return result;
           }}
           contentRender={contentRender}

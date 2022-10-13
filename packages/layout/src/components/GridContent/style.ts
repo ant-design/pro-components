@@ -18,7 +18,7 @@ const genGridContentStyle: GenerateStyle<GridContentToken> = (token) => {
 };
 
 export function useStyle(prefixCls: string) {
-  return useAntdStyle('pro-layout-grid-content', (token) => {
+  return useAntdStyle('ProLayoutGridContent', (token) => {
     const GridContentToken: GridContentToken = {
       ...token,
       componentCls: `.${prefixCls}`,

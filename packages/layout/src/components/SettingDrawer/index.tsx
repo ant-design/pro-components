@@ -4,14 +4,24 @@ import {
   NotificationOutlined,
   SettingOutlined,
 } from '@ant-design/icons';
-import { isBrowser, merge } from '@ant-design/pro-utils';
+import { compareVersions, isBrowser, merge } from '@ant-design/pro-utils';
 import {
   disable as darkreaderDisable,
   enable as darkreaderEnable,
   setFetchMethod as setFetch,
 } from '@umijs/ssr-darkreader';
 import { useUrlSearchParams } from '@umijs/use-params';
-import { Alert, Button, Divider, Drawer, List, message, Switch } from 'antd';
+import {
+  Alert,
+  Button,
+  Divider,
+  ConfigProvider as AntConfigProvider,
+  Drawer,
+  List,
+  message,
+  Switch,
+  version,
+} from 'antd';
 import omit from 'omit.js';
 import useMergedState from 'rc-util/lib/hooks/useMergedState';
 import React, { useEffect, useRef, useState } from 'react';
@@ -219,7 +229,7 @@ export const SettingDrawer: React.FC<SettingDrawerProps> = (props) => {
   } = props;
   const firstRender = useRef<boolean>(true);
 
-  const [show, setShow] = useMergedState(false, {
+  const [open, setOpen] = useMergedState(false, {
     value: props.collapse,
     onChange: props.onCollapseChange,
   });
@@ -263,6 +273,13 @@ export const SettingDrawer: React.FC<SettingDrawerProps> = (props) => {
 
   useEffect(() => {
     updateTheme(settingState.navTheme === 'realDark');
+    if (compareVersions(version, '5.0.0') < 0) {
+      AntConfigProvider.config({
+        theme: {
+          primaryColor: settingState.colorPrimary,
+        },
+      });
+    }
   }, [settingState.colorPrimary, settingState.navTheme]);
   /**
    * 修改设置
@@ -333,17 +350,28 @@ export const SettingDrawer: React.FC<SettingDrawerProps> = (props) => {
   const baseClassName = `${prefixCls}-setting-drawer`;
   const { wrapSSR, hashId } = useStyle(baseClassName);
 
+  const drawerOpenProps =
+    compareVersions(version, '4.23.0') > -1
+      ? {
+          open: open,
+          onClose: () => setOpen(false),
+        }
+      : {
+          visible: open,
+          onClose: () => setOpen(false),
+        };
+
   return wrapSSR(
     <>
       <div
         className={`${baseClassName}-handle ${hashId}`}
-        onClick={() => setShow(!show)}
+        onClick={() => setOpen(!open)}
         style={{
           width: 48,
           height: 48,
         }}
       >
-        {show ? (
+        {open ? (
           <CloseOutlined
             style={{
               color: '#fff',
@@ -360,12 +388,9 @@ export const SettingDrawer: React.FC<SettingDrawerProps> = (props) => {
         )}
       </div>
       <Drawer
-        //@ts-expect-error
-        visible={show}
-        open={show}
+        {...drawerOpenProps}
         width={300}
         closable={false}
-        onClose={() => setShow(false)}
         placement="right"
         getContainer={getContainer}
         style={{

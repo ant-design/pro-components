@@ -6,13 +6,13 @@ import React from 'react';
 import { waitForComponentToPaint } from '../util';
 
 describe('DrawerForm', () => {
-  it('📦 trigger will simulate onVisibleChange', async () => {
+  it('📦 trigger will simulate onOpenChange', async () => {
     const fn = jest.fn();
     const wrapper = render(
       <DrawerForm
         width={600}
         trigger={<Button id="new">新建</Button>}
-        onVisibleChange={(visible) => fn(visible)}
+        onOpenChange={(open) => fn(open)}
       >
         <ProFormText name="name" />
       </DrawerForm>,
@@ -32,7 +32,7 @@ describe('DrawerForm', () => {
       <DrawerForm
         width={600}
         trigger={<Button id="new">新建</Button>}
-        onVisibleChange={(visible) => fn(visible)}
+        onOpenChange={(open) => fn(open)}
       >
         <ProFormText
           name="name"
@@ -93,7 +93,7 @@ describe('DrawerForm', () => {
 
   it('📦 DrawerForm destroyOnClose', async () => {
     const wrapper = render(
-      <DrawerForm width={600} visible={false} drawerProps={{ destroyOnClose: true }}>
+      <DrawerForm width={600} open={false} drawerProps={{ destroyOnClose: true }}>
         <ProFormText
           name="name"
           fieldProps={{
@@ -107,7 +107,7 @@ describe('DrawerForm', () => {
 
     act(() => {
       wrapper.rerender(
-        <DrawerForm width={600} visible drawerProps={{ destroyOnClose: true }}>
+        <DrawerForm width={600} open drawerProps={{ destroyOnClose: true }}>
           <ProFormText
             name="name"
             fieldProps={{
@@ -122,7 +122,7 @@ describe('DrawerForm', () => {
 
     act(() => {
       wrapper.rerender(
-        <DrawerForm key="reset" width={600} visible={false} drawerProps={{ destroyOnClose: true }}>
+        <DrawerForm key="reset" width={600} open={false} drawerProps={{ destroyOnClose: true }}>
           <ProFormText
             name="name"
             fieldProps={{
@@ -136,13 +136,13 @@ describe('DrawerForm', () => {
     expect(!!wrapper.baseElement.querySelector('input#test')).toBeFalsy();
   });
 
-  it('📦 drawer close button will simulate onVisibleChange', async () => {
+  it('📦 drawer close button will simulate onOpenChange', async () => {
     const fn = jest.fn();
     const wrapper = render(
       <DrawerForm
         visible
         trigger={<Button id="new">新建</Button>}
-        onVisibleChange={(visible) => fn(visible)}
+        onOpenChange={(open) => fn(open)}
       >
         <ProFormText name="name" />
       </DrawerForm>,
@@ -156,13 +156,13 @@ describe('DrawerForm', () => {
     expect(fn).toBeCalledWith(false);
   });
 
-  it('📦 drawer close button will simulate onVisibleChange', async () => {
+  it('📦 drawer close button will simulate onOpenChange', async () => {
     const fn = jest.fn();
     const wrapper = render(
       <DrawerForm
         visible
         trigger={<Button id="new">新建</Button>}
-        onVisibleChange={(visible) => fn(visible)}
+        onOpenChange={(open) => fn(open)}
       >
         <ProFormText name="name" />
       </DrawerForm>,
@@ -177,13 +177,13 @@ describe('DrawerForm', () => {
     expect(fn).toBeCalledWith(false);
   });
 
-  it('📦 reset button will simulate onVisibleChange', async () => {
+  it('📦 reset button will simulate onOpenChange', async () => {
     const fn = jest.fn();
     const wrapper = render(
       <DrawerForm
         visible
         trigger={<Button id="new">新建</Button>}
-        onVisibleChange={(visible) => fn(visible)}
+        onOpenChange={(open) => fn(open)}
       >
         <ProFormText name="name" />
       </DrawerForm>,
@@ -207,7 +207,7 @@ describe('DrawerForm', () => {
           onClose: () => fn(false),
         }}
         trigger={<Button id="new">新建</Button>}
-        onVisibleChange={(visible) => fn(visible)}
+        onOpenChange={(open) => fn(open)}
       >
         <ProFormText name="name" />
       </DrawerForm>,
@@ -230,7 +230,7 @@ describe('DrawerForm', () => {
           onClose: () => fn(false),
         }}
         trigger={<Button id="new">新建</Button>}
-        onVisibleChange={(visible) => fn(visible)}
+        onOpenChange={(open) => fn(open)}
       >
         <ProFormText name="name" />
       </DrawerForm>,
@@ -254,7 +254,7 @@ describe('DrawerForm', () => {
           onClose: () => onCloseFn(false),
         }}
         trigger={<Button id="new">新建</Button>}
-        onVisibleChange={(visible) => fn(visible)}
+        onOpenChange={(open) => fn(open)}
       >
         <ProFormText name="name" />
       </DrawerForm>,
@@ -279,7 +279,7 @@ describe('DrawerForm', () => {
       <DrawerForm
         visible
         trigger={<Button id="new">新建</Button>}
-        onVisibleChange={(visible) => fn(visible)}
+        onOpenChange={(open) => fn(open)}
         onFinish={async () => true}
       >
         <ProFormText name="name" />
@@ -302,7 +302,7 @@ describe('DrawerForm', () => {
       <DrawerForm
         visible
         trigger={<Button id="new">新建</Button>}
-        onVisibleChange={(visible) => fn(visible)}
+        onOpenChange={(open) => fn(open)}
       >
         <ProFormText name="name" />
       </DrawerForm>,
@@ -335,7 +335,7 @@ describe('DrawerForm', () => {
           },
         }}
         trigger={<Button id="new">新建</Button>}
-        onVisibleChange={(visible) => fn(visible)}
+        onOpenChange={(open) => fn(open)}
       >
         <ProFormText name="name" />
       </DrawerForm>,
@@ -459,7 +459,7 @@ describe('DrawerForm', () => {
           initialValues={{
             name: '1234',
           }}
-          visible={false}
+          open={false}
           trigger={<Button id="new">新建</Button>}
         >
           <ProFormText
@@ -483,7 +483,7 @@ describe('DrawerForm', () => {
           initialValues={{
             name: '1234',
           }}
-          visible={undefined}
+          open={undefined}
           trigger={<Button id="new">新建</Button>}
         >
           <ProFormText
@@ -590,6 +590,7 @@ describe('DrawerForm', () => {
   tests.forEach((item) => {
     const { name, Comp, close, props } = item;
     it(`📦 ${name} resetFields when destroy`, async () => {
+      const fn = jest.fn();
       const App = () => {
         const [form] = Form.useForm();
         const prop = {
@@ -601,6 +602,11 @@ describe('DrawerForm', () => {
           <Comp
             {...prop}
             form={form}
+            onOpenChange={(isOpen) => {
+              if (!isOpen) {
+                if (form.getFieldValue('name')) fn(form.getFieldValue('name'));
+              }
+            }}
             onFinish={async () => {
               return true;
             }}
@@ -676,6 +682,10 @@ describe('DrawerForm', () => {
       });
       await waitForComponentToPaint(html, 300);
       expect(html.baseElement.querySelector<HTMLInputElement>('input#name')?.value).toBeFalsy();
+
+      // 通过检查fn被调用的次数确定在 onOpenChange 时表单是否已被重置
+      expect(fn).toBeCalledTimes(3);
+
       html.unmount();
     });
   });

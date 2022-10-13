@@ -653,7 +653,7 @@ describe('SchemaForm', () => {
       const formRef = React.createRef<FormInstance>();
       const wrapper = render(
         <BetaSchemaForm
-          visible={true}
+          open={true}
           formRef={formRef as any}
           layoutType={layoutType as ProFormLayoutType}
           columns={formColumns.flat(layoutType !== 'StepsForm' ? 1 : 0) as any}

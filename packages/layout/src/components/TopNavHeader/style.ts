@@ -77,7 +77,7 @@ const genTopNavHeaderStyle: GenerateStyle<TopNavHeaderToken & BaseLayoutDesignTo
 
 export function useStyle(prefixCls: string) {
   const { header } = useContext(ProLayoutContext);
-  return useAntdStyle('top-nav-header', (token) => {
+  return useAntdStyle('ProLayoutTopNavHeader', (token) => {
     const topNavHeaderToken: TopNavHeaderToken & BaseLayoutDesignToken['header'] = {
       ...token,
       componentCls: `.${prefixCls}`,

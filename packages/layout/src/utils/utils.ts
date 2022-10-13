@@ -34,14 +34,15 @@ export function genStringToTheme(val?: string): string {
 export function clearMenuItem(menusData: MenuDataItem[]): MenuDataItem[] {
   return menusData
     .map((item) => {
-      const children: MenuDataItem[] = item.children || item.routes;
+      const children: MenuDataItem[] = item.children || [];
       const finalItem = { ...item };
-
+      if (!finalItem.children && finalItem.routes) {
+        finalItem.children = finalItem.routes;
+      }
       if (!finalItem.name || finalItem.hideInMenu) {
         return null;
       }
-
-      if (finalItem && finalItem?.routes) {
+      if (finalItem && finalItem?.children) {
         if (
           !finalItem.hideChildrenInMenu &&
           children.some((child) => child && child.name && !child.hideInMenu)
@@ -49,13 +50,12 @@ export function clearMenuItem(menusData: MenuDataItem[]): MenuDataItem[] {
           return {
             ...item,
             children: clearMenuItem(children),
-            routes: clearMenuItem(children),
           };
         }
         // children 为空就直接删掉
-        delete finalItem.routes;
         delete finalItem.children;
       }
+      delete finalItem.routes;
       return finalItem;
     })
     .filter((item) => item) as MenuDataItem[];

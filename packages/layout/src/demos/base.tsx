@@ -81,6 +81,7 @@ export default () => {
   });
 
   const [pathname, setPathname] = useState('/list/sub-page/sub-sub-page1');
+  const [num, setNum] = useState(40);
 
   return (
     <div
@@ -336,13 +337,23 @@ export default () => {
         {...settings}
       >
         <PageContainer
+          token={{
+            paddingInlinePageContainerContent: num,
+          }}
           extra={[
             <Button key="3">操作</Button>,
             <Button key="2">操作</Button>,
-            <Button key="1" type="primary">
+            <Button
+              key="1"
+              type="primary"
+              onClick={() => {
+                setNum(num > 0 ? 0 : 40);
+              }}
+            >
               主操作
             </Button>,
           ]}
+          subTitle="简单的描述"
           footer={[
             <Button key="3">重置</Button>,
             <Button key="2" type="primary">

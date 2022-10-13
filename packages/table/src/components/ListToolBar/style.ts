@@ -61,21 +61,21 @@ const genProListStyle: GenerateStyle<ProListToken> = (token) => {
         opacity: '0.75',
         '&-active': { fontWeight: 'bold', opacity: '1' },
       },
+      [`${token.antCls}-tabs-top > ${token.antCls}-tabs-nav`]: {
+        marginBlockEnd: 0,
+        '&::before': { borderBlockEnd: 0 },
+        [`${token.antCls}-tabs-nav-list`]: {
+          marginBlockStart: 0,
+          '${token.antCls}-tabs-tab': {
+            paddingBlockStart: 0,
+          },
+        },
+      },
       '&-dropdownmenu-label': {
         fontWeight: 'bold',
         fontSize: token.fontSizeIcon,
         textAlign: 'center',
         cursor: 'pointer',
-        [`${token.antCls}-tabs-top > ${token.antCls}-tabs-nav`]: {
-          marginBlockEnd: 0,
-          '&::before': { borderBlockEnd: 0 },
-          [`${token.antCls}-tabs-nav-list`]: {
-            marginBlockStart: 0,
-            '${token.antCls}-tabs-tab': {
-              paddingBlockStart: 0,
-            },
-          },
-        },
       },
       '@media (max-width: 575px)': {
         [token.componentCls]: {

@@ -24,8 +24,8 @@ const FieldDigit: ProFieldFC<FieldDigitProps> = (
   ref,
 ) => {
   const proxyChange = useCallback(
-    (value: number | string) => {
-      let val: string | number = value;
+    (value: number | string | null) => {
+      let val: string | number | undefined = value ?? undefined;
       if (typeof value === 'string') {
         val = Number(val);
       }
@@ -57,7 +57,7 @@ const FieldDigit: ProFieldFC<FieldDigitProps> = (
   }
   if (type === 'edit' || type === 'update') {
     const dom = (
-      <InputNumber
+      <InputNumber<number>
         ref={ref}
         min={0}
         placeholder={placeholder}

@@ -239,8 +239,8 @@ menu 中支持了部分常用的 menu 配置， 可以帮助我们更好的管�
 
 | 参数 | 说明 | 类型 | 默认值 |
 | --- | --- | --- | --- |
-| collapsed | 控制 SettingDrawer 的收起和展开 | `boolean` | - |
-| onCollapse | SettingDrawer 的折叠收起事件 | `(collapsed: boolean) => void` | - |
+| collapse | 控制 SettingDrawer 的收起和展开 | `boolean` | - |
+| onCollapseChange | SettingDrawer 的折叠收起事件 | `(collapsed: boolean) => void` | - |
 | settings | layout 的设置 | [`Settings`](#Settings) \| [`Settings`](#Settings) | - |
 | onSettingChange | [`Settings`](#Settings) 发生更改事件 | `(settings: [`Settings`](#Settings) ) => void` | - |
 | hideHintAlert | 删除下方的提示信息 | `boolean` | - |
@@ -372,7 +372,7 @@ export interface Settings {
 
 export interface MenuDataItem {
   authority?: string[] | string;
-  routes?: MenuDataItem[];
+  children?: MenuDataItem[];
   hideChildrenInMenu?: boolean;
   hideInMenu?: boolean;
   icon?: string;
@@ -391,13 +391,13 @@ export interface MenuDataItem {
 // 来获取这个类型
 export interface Route {
   path: string;
-  routes: Array<{
+  children: Array<{
     exact?: boolean;
     icon: string;
     name: string;
     path: string;
     // 可选二级菜单
-    routes?: Route['routes'];
+    children?: Route['children'];
   }>;
 }
 ```
@@ -474,7 +474,7 @@ Token 是一种设计系统的基本元素，可以使用 Token 快速的修改�
 | bgLayout                  | layout 的背景颜色               | `#f7f8fa`             |
 | colorTextAppListIcon      | 跨站点应用的图标颜色            | `#666`                |
 | colorTextAppListIconHover | 跨站点应用的图标 hover 颜色     | `rgba(0, 0, 0, 0.65)` |
-| colorTextAppListIconHover | 跨站点应用的图标 hover 背景颜色 | `rgba(0, 0, 0, 0.04)` |
+| colorBgAppListIconHover   | 跨站点应用的图标 hover 背景颜色 | `rgba(0, 0, 0, 0.04)` |
 
 ### Sider Token
 
@@ -500,6 +500,7 @@ Sider Token 是 侧边菜单的色值，与顶部菜单不同。
 
 | token | 说明 | 默认值 |
 | --- | --- | --- |
+| colorBgHeader | header 的背景颜色 | `rgba(240, 242, 245, 0.4)` |
 | colorHeaderTitle | sider 的标题字体颜色 | `colorTextHeading` |
 | colorTextMenu | menuItem 的字体颜色 | `colorText` |
 | colorTextMenuSecondary | menu 的二级字体颜色，比如 footer 和 action 的 icon | `colorText` |
@@ -510,15 +511,16 @@ Sider Token 是 侧边菜单的色值，与顶部菜单不同。
 | colorBgMenuItemCollapsedSelected | 收起 menuItem 的选中背景颜色 | `rgba(0, 145, 255, 0.08)` |
 | colorTextRightActionsItem | 右上角字体颜色 | `colorTextSecondary` |
 | colorBgRightActionsItemHover | 右上角选中的 hover 颜色 | `rgba(0, 0, 0, 0.03)` |
+| heightLayoutHeader | header 高度 | 56 |
 
 ### pageContainer Token
 
-| token                            | 说明                               | 默认值        |
-| -------------------------------- | ---------------------------------- | ------------- |
-| marginBlockPageContainerContent  | pageContainer 自带的 margin block  | `24`          |
-| marginInlinePageContainerContent | pageContainer 自带的 margin inline | `40`          |
-| colorBgPageContainer             | pageContainer 的背景颜色           | `transparent` |
-| colorBgPageContainerFixed        | pageContainer 被固定时的背景颜色   | `#FFF`        |
+| token                             | 说明                                | 默认值        |
+| --------------------------------- | ----------------------------------- | ------------- |
+| paddingBlockPageContainerContent  | pageContainer 自带的 padding block  | `24`          |
+| paddingInlinePageContainerContent | pageContainer 自带的 padding inline | `40`          |
+| colorBgPageContainer              | pageContainer 的背景颜色            | `transparent` |
+| colorBgPageContainerFixed         | pageContainer 被固定时的背景颜色    | `#FFF`        |
 
 ## FAQ
 
@@ -545,7 +547,7 @@ ProLayout 扩展了 umi 的 router 配置，新增了 name，icon，locale,hideI
 ```ts | pure
 export interface MenuDataItem {
   /** @name 子菜单 */
-  routes?: MenuDataItem[];
+  children?: MenuDataItem[];
   /** @name 在菜单中隐藏子节点 */
   hideChildrenInMenu?: boolean;
   /** @name 在菜单中隐藏自己和子节点 */
@@ -606,7 +608,7 @@ ProLayout 会自动生成菜单，同时根据 pathname 进行自动选中。配
 // 可以通过 import { MenuDataItem } from '@ant-design/pro-components'
 // 来获取这个类型
 export interface MenuDataItem {
-  routes?: MenuDataItem[];
+  children?: MenuDataItem[];
   hideChildrenInMenu?: boolean;
   hideInMenu?: boolean;
   icon?: string;

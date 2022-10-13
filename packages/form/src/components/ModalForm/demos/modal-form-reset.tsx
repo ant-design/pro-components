@@ -21,7 +21,7 @@ export default () => {
       <ModalForm
         title="新建表单"
         formRef={restFormRef}
-        visible={modalVisible}
+        open={modalVisible}
         trigger={
           <Button
             type="primary"
@@ -32,7 +32,7 @@ export default () => {
             通过 formRef 重置
           </Button>
         }
-        onVisibleChange={setModalVisible}
+        onOpenChange={setModalVisible}
         submitter={{
           searchConfig: {
             resetText: '重置',

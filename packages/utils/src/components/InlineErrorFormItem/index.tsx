@@ -31,7 +31,7 @@ const InlineErrorFormItemPopover: React.FC<{
   extra: JSX.Element;
   popoverProps?: PopoverProps;
 }> = ({ inputProps, input, extra, errorList, popoverProps }) => {
-  const [visible, setVisible] = useState<boolean | undefined>(false);
+  const [open, setOpen] = useState<boolean | undefined>(false);
   const [errorStringList, setErrorList] = useState<string[]>([]);
   const { getPrefixCls } = useContext(ConfigProvider.ConfigContext);
   const prefixCls = getPrefixCls();
@@ -49,15 +49,11 @@ const InlineErrorFormItemPopover: React.FC<{
       key="popover"
       trigger={popoverProps?.trigger || 'focus'}
       placement={popoverProps?.placement || 'topRight'}
-      visible={errorStringList.length < 1 ? false : visible}
-      open={errorStringList.length < 1 ? false : visible}
+      visible={errorStringList.length < 1 ? false : open}
+      open={errorStringList.length < 1 ? false : open}
       onOpenChange={(visibleParams) => {
-        if (visibleParams === visible) return;
-        setVisible(visibleParams);
-      }}
-      onVisibleChange={(visibleParams) => {
-        if (visibleParams === visible) return;
-        setVisible(visibleParams);
+        if (visibleParams === open) return;
+        setOpen(visibleParams);
       }}
       getPopupContainer={popoverProps?.getPopupContainer}
       getTooltipContainer={popoverProps?.getTooltipContainer}

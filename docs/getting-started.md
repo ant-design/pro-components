@@ -54,10 +54,4 @@ export default () => {
 };
 ```
 
-我们所有的包都使用 less 来进行样式管理，方便进行主题的自定义。如果你没有 less-loader 可以尝试从 `dist` 中导入 css。
-
-```tsx | pure
-import '@ant-design/pro-components/dist/components.css';
-```
-
-建议还是使用 less，可以方便进行主题自定义，也可以做到按需加载。
+我们所有的包都使用 css in js 管理样式，只需引入 js 即可。

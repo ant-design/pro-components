@@ -5,7 +5,7 @@ import {
   VerticalAlignTopOutlined,
 } from '@ant-design/icons';
 import { useIntl } from '@ant-design/pro-provider';
-import { runFunction, useRefFunction } from '@ant-design/pro-utils';
+import { runFunction, useRefFunction, useToken } from '@ant-design/pro-utils';
 import type { TableColumnType } from 'antd';
 import { Checkbox, ConfigProvider, Popover, Space, Tooltip, Tree } from 'antd';
 import type { CheckboxChangeEvent } from 'antd/es/checkbox';
@@ -70,8 +70,10 @@ const CheckboxListItem: React.FC<{
   isLeaf?: boolean;
 }> = ({ columnKey, isLeaf, title, className, fixed }) => {
   const intl = useIntl();
+  const { hashId } = useToken();
+
   const dom = (
-    <span className={`${className}-list-item-option`}>
+    <span className={`${className}-list-item-option ${hashId}`}>
       <ToolTipIcon
         columnKey={columnKey}
         fixed="left"
@@ -99,8 +101,8 @@ const CheckboxListItem: React.FC<{
     </span>
   );
   return (
-    <span className={`${className}-list-item`} key={columnKey}>
-      <div className={`${className}-list-item-title`}>{title}</div>
+    <span className={`${className}-list-item ${hashId}`} key={columnKey}>
+      <div className={`${className}-list-item-title ${hashId}`}>{title}</div>
       {!isLeaf ? dom : null}
     </span>
   );
@@ -123,19 +125,31 @@ const CheckboxList: React.FC<{
   title: listTitle,
   listHeight = 280,
 }) => {
+  const { hashId } = useToken();
+
   const { columnsMap, setColumnsMap, sortKeyColumns, setSortKeyColumns } = Container.useContainer();
   const show = list && list.length > 0;
   const treeDataConfig = useMemo(() => {
     if (!show) return {};
     const checkedKeys: string[] = [];
+    const treeMap = new Map<string | number, DataNode>();
 
-    const loopData = (data: any[], parentConfig?: ColumnsState): DataNode[] =>
+    const loopData = (
+      data: any[],
+      parentConfig?: ColumnsState & {
+        columnKey: string;
+      },
+    ): DataNode[] =>
       data.map(({ key, dataIndex, children, ...rest }) => {
-        const columnKey = genColumnKey(key, rest.index);
+        const columnKey = genColumnKey(
+          key,
+          [parentConfig?.columnKey, rest.index].filter(Boolean).join('-'),
+        );
         const config = columnsMap[columnKey || 'null'] || { show: true };
-        if (config.show !== false && parentConfig?.show !== false && !children) {
+        if (config.show !== false && !children) {
           checkedKeys.push(columnKey);
         }
+
         const item: DataNode = {
           key: columnKey,
           ...omit(rest, ['className']),
@@ -146,11 +160,23 @@ const CheckboxList: React.FC<{
           isLeaf: parentConfig ? true : undefined,
         };
         if (children) {
-          item.children = loopData(children, config);
+          item.children = loopData(children, {
+            ...config,
+            columnKey,
+          });
+          // 如果children 已经全部是show了，把自己也设置为show
+          if (
+            item.children?.every((childrenItem) =>
+              checkedKeys?.includes(childrenItem.key as string),
+            )
+          ) {
+            checkedKeys.push(columnKey);
+          }
         }
+        treeMap.set(key, item);
         return item;
       });
-    return { list: loopData(list), keys: checkedKeys };
+    return { list: loopData(list), keys: checkedKeys, map: treeMap };
   }, [columnsMap, list, show]);
 
   /** 移动到指定的位置 */
@@ -180,21 +206,23 @@ const CheckboxList: React.FC<{
 
   /** 选中反选功能 */
   const onCheckTree = useRefFunction((e) => {
-    const columnKey = e.node.key;
-    const newSetting = { ...columnsMap[columnKey] };
-
-    newSetting.show = e.checked;
-
-    setColumnsMap({
-      ...columnsMap,
-      [columnKey]: newSetting,
-    });
+    const newColumnMap = { ...columnsMap };
+    const loopSetShow = (key: string | number) => {
+      const newSetting = { ...newColumnMap[key] };
+      newSetting.show = e.checked;
+      // 如果含有子节点，也要选中
+      if (treeDataConfig.map?.get(key)?.children) {
+        treeDataConfig.map?.get(key)?.children?.forEach((item) => loopSetShow(item.key));
+      }
+      newColumnMap[key] = newSetting;
+    };
+    loopSetShow(e.node.key);
+    setColumnsMap({ ...newColumnMap });
   });
 
   if (!show) {
     return null;
   }
-
   const listDom = (
     <Tree
       itemHeight={24}
@@ -213,6 +241,7 @@ const CheckboxList: React.FC<{
       showLine={false}
       titleRender={(_node) => {
         const node = { ..._node, children: undefined };
+        if (!node.title) return null;
         return (
           <CheckboxListItem
             className={className}
@@ -228,7 +257,7 @@ const CheckboxList: React.FC<{
   );
   return (
     <>
-      {showTitle && <span className={`${className}-list-title`}>{listTitle}</span>}
+      {showTitle && <span className={`${className}-list-title ${hashId}`}>{listTitle}</span>}
       {listDom}
     </>
   );
@@ -241,6 +270,7 @@ const GroupCheckboxList: React.FC<{
   checkable: boolean;
   listsHeight?: number;
 }> = ({ localColumns, className, draggable, checkable, listsHeight }) => {
+  const { hashId } = useToken();
   const rightList: (ProColumns<any> & { index?: number })[] = [];
   const leftList: (ProColumns<any> & { index?: number })[] = [];
   const list: (ProColumns<any> & { index?: number })[] = [];
@@ -267,7 +297,7 @@ const GroupCheckboxList: React.FC<{
   const showLeft = leftList && leftList.length > 0;
   return (
     <div
-      className={classNames(`${className}-list`, {
+      className={classNames(`${className}-list`, hashId, {
         [`${className}-list-group`]: showRight || showLeft,
       })}
     >
@@ -303,6 +333,7 @@ const GroupCheckboxList: React.FC<{
 
 function ColumnSetting<T>(props: ColumnSettingProps<T>) {
   const columnRef = useRef({});
+  // 获得当前上下文的 hashID
   const counter = Container.useContainer();
   const localColumns: TableColumnType<T> &
     {
@@ -371,12 +402,12 @@ function ColumnSetting<T>(props: ColumnSettingProps<T>) {
   const intl = useIntl();
   const { getPrefixCls } = useContext(ConfigProvider.ConfigContext);
   const className = getPrefixCls('pro-table-column-setting');
-  const { wrapSSR } = useStyle(className);
+  const { wrapSSR, hashId } = useStyle(className);
   return wrapSSR(
     <Popover
       arrowPointAtCenter
       title={
-        <div className={`${className}-title`}>
+        <div className={`${className}-title ${hashId}`}>
           <Checkbox
             indeterminate={indeterminate}
             checked={unCheckedKeys.length === 0 && unCheckedKeys.length !== localColumns.length}
@@ -396,7 +427,7 @@ function ColumnSetting<T>(props: ColumnSettingProps<T>) {
           ) : null}
         </div>
       }
-      overlayClassName={`${className}-overlay`}
+      overlayClassName={`${className}-overlay ${hashId}`}
       trigger="click"
       placement="bottomRight"
       content={

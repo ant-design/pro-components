@@ -86,9 +86,9 @@ const LightWrapper: React.ForwardRefRenderFunction<any, LightWrapperProps> = (pr
   return wrapSSR(
     <FilterDropdown
       disabled={disabled}
-      onVisibleChange={setOpen}
+      open={open}
+      onOpenChange={setOpen}
       placement={placement}
-      visible={open}
       label={
         <FieldLabel
           ellipsis

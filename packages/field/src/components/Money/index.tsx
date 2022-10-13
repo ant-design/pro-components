@@ -1,14 +1,16 @@
 import { intlMap as allIntlMap, useIntl } from '@ant-design/pro-provider';
 import type { InputNumberProps } from 'antd';
+import { version } from 'antd';
 import { InputNumber, Popover } from 'antd';
 import omit from 'omit.js';
 import useMergedState from 'rc-util/lib/hooks/useMergedState';
-import React, { useMemo } from 'react';
+import React, { useCallback, useMemo } from 'react';
 import type { ProFieldFC } from '../../index';
 
 // 兼容代码-----------
 import 'antd/es/input-number/style';
 import 'antd/es/popover/style';
+import { compareVersions } from '@ant-design/pro-utils';
 //----------------------
 
 export type FieldMoneyProps = {
@@ -98,13 +100,16 @@ const getTextByLocale = (
   if (!moneyText && moneyText !== 0) return '';
   try {
     // readonly moneySymbol = false, unused currency
-    return new Intl.NumberFormat(moneySymbol || 'zh-Hans-CN', {
-      ...(moneySymbol === false
-        ? {}
-        : intlMap[moneySymbol || 'zh-Hans-CN'] || intlMap['zh-Hans-CN']),
-      maximumFractionDigits: precision,
-      ...config,
-    }).format(moneyText);
+    return (
+      new Intl.NumberFormat(moneySymbol || 'zh-Hans-CN', {
+        ...(intlMap[moneySymbol || 'zh-Hans-CN'] || intlMap['zh-Hans-CN']),
+        maximumFractionDigits: precision,
+        ...config,
+      })
+        // fix: #6003 解决未指定货币符号时，金额文本格式化异常问题
+        .format(moneyText)
+        .substring(+(moneySymbol === false))
+    );
   } catch (error) {
     return moneyText;
   }
@@ -115,13 +120,13 @@ const DefaultPrecisionCont = 2;
 const InputNumberPopover = React.forwardRef<
   any,
   InputNumberProps & {
-    visible?: boolean;
+    open?: boolean;
     content?: (props: InputNumberProps) => React.ReactNode;
   } & {
     numberFormatOptions?: any;
     numberPopoverRender?: any;
   }
->(({ content, numberFormatOptions, numberPopoverRender, visible, ...rest }, ref) => {
+>(({ content, numberFormatOptions, numberPopoverRender, open, ...rest }, ref) => {
   const [value, onChange] = useMergedState<any>(() => rest.defaultValue, {
     value: rest.value,
     onChange: rest.onChange,
@@ -131,9 +136,14 @@ const InputNumberPopover = React.forwardRef<
     value,
   });
 
-  const props = {
-    visible: dom ? visible : false,
-  };
+  const props =
+    compareVersions(version, '4.23.0') > -1
+      ? {
+          open: dom ? open : false,
+        }
+      : {
+          visible: dom ? open : false,
+        };
 
   return (
     <Popover
@@ -193,6 +203,26 @@ const FieldMoney: ProFieldFC<FieldMoneyProps> = (
     return defaultText;
   }, [customSymbol, fieldProps.moneySymbol, intl, rest.moneySymbol]);
 
+  const getFormateValue = useCallback(
+    (value?: string | number) => {
+      const reg = new RegExp(
+        `\\B(?=(\\d{${3 + Math.max(precision - DefaultPrecisionCont, 0)}})+(?!\\d))`,
+        'g',
+      );
+      const [intS, floatS] = String(value).split('.');
+      const resInt = intS.replace(reg, ',');
+      let resFloat = '';
+      if (floatS && precision > 0)
+        resFloat = `.${floatS.slice(
+          0,
+          precision === undefined ? DefaultPrecisionCont : precision,
+        )}`;
+
+      return `${resInt}${resFloat}`;
+    },
+    [precision],
+  );
+
   if (type === 'read') {
     const dom = (
       <span ref={ref}>
@@ -211,23 +241,6 @@ const FieldMoney: ProFieldFC<FieldMoneyProps> = (
   }
 
   if (type === 'edit' || type === 'update') {
-    const getFormateValue = (value?: string | number) => {
-      const reg = new RegExp(
-        `\\B(?=(\\d{${3 + Math.max(precision - DefaultPrecisionCont, 0)}})+(?!\\d))`,
-        'g',
-      );
-      const [intS, floatS] = String(value).split('.');
-      const resInt = intS.replace(reg, ',');
-      let resFloat = '';
-      if (floatS && precision > 0)
-        resFloat = `.${floatS.slice(
-          0,
-          precision === undefined ? DefaultPrecisionCont : precision,
-        )}`;
-
-      return `${resInt}${resFloat}`;
-    };
-
     const dom = (
       <InputNumberPopover
         content={(props) => {
@@ -272,6 +285,7 @@ const FieldMoney: ProFieldFC<FieldMoneyProps> = (
           'customSymbol',
           'moneySymbol',
           'visible',
+          'open',
         ])}
       />
     );

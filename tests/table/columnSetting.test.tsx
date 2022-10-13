@@ -215,7 +215,7 @@ describe('Table ColumnSetting', () => {
   });
 
   it('🎏 columnSetting columnsState.value props throw error', async () => {
-    console.error = jest.fn();
+    console.warn = jest.fn();
     const localStorage = { ...window.localStorage };
 
     // 为了测试报错的情况
@@ -298,7 +298,7 @@ describe('Table ColumnSetting', () => {
     });
     await waitForComponentToPaint(html);
     window.localStorage = localStorage;
-    expect(console.error).toBeCalled();
+    expect(console.warn).toBeCalled();
   });
 
   it('🎏 columnSetting columnsState.onChange', async () => {

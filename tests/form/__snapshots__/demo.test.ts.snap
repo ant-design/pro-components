@@ -144,7 +144,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/Dependency/demos
                       style="display: flex; align-items: flex-end;"
                     >
                       <div
-                        class="ant-pro-form-list-container "
+                        class="ant-pro-form-list-container undefined "
                       >
                         <div
                           class="ant-pro-form-group"
@@ -985,7 +985,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/Dependency/demos
                                   style="display: flex; align-items: flex-end;"
                                 >
                                   <div
-                                    class="ant-pro-form-list-container "
+                                    class="ant-pro-form-list-container undefined "
                                   >
                                     <div
                                       class="ant-pro-form-group"
@@ -1352,7 +1352,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/Dependency/demos
                                   style="display: flex; align-items: flex-end;"
                                 >
                                   <div
-                                    class="ant-pro-form-list-container "
+                                    class="ant-pro-form-list-container undefined "
                                   >
                                     <div
                                       class="ant-pro-form-group"
@@ -1996,7 +1996,6 @@ exports[`form demos 📸 renders ./packages/form/src/components/FieldSet/demos/c
                           class="ant-input-affix-wrapper ant-input-password pro-field pro-field-md"
                         >
                           <input
-                            action="click"
                             class="ant-input"
                             id="validate_other_password"
                             placeholder="请输入"
@@ -2637,7 +2636,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/FieldSet/demos/c
                         class="ant-form-item-control-input-content"
                       >
                         <div
-                          class="ant-radio-group ant-radio-group-outline ant-pro-field-radio-vertical"
+                          class="ant-radio-group ant-radio-group-outline ant-pro-field-radio-horizontal"
                           id="validate_other_radio"
                         >
                           <label
@@ -2835,7 +2834,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/FieldSet/demos/c
                         class="ant-form-item-control-input-content"
                       >
                         <div
-                          class="ant-radio-group ant-radio-group-outline ant-pro-field-radio-vertical"
+                          class="ant-radio-group ant-radio-group-outline ant-pro-field-radio-horizontal"
                           id="validate_other_radio-button"
                         >
                           <label
@@ -3985,6 +3984,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/FieldSet/demos/c
             </div>
             <div
               class="ant-space-item"
+              style="margin-right: 32px;"
             >
               <div
                 class="ant-form-item"
@@ -4072,6 +4072,181 @@ exports[`form demos 📸 renders ./packages/form/src/components/FieldSet/demos/c
                             class="ant-upload-list ant-upload-list-text"
                           />
                         </span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div
+              class="ant-space-item"
+              style="margin-right: 32px;"
+            >
+              <div
+                class="ant-form-item"
+              >
+                <div
+                  class="ant-row ant-form-item-row"
+                >
+                  <div
+                    class="ant-col ant-form-item-label"
+                  >
+                    <label
+                      class=""
+                      for="validate_other_segmented"
+                      title="分段控制器"
+                    >
+                      分段控制器
+                    </label>
+                  </div>
+                  <div
+                    class="ant-col ant-form-item-control"
+                  >
+                    <div
+                      class="ant-form-item-control-input"
+                    >
+                      <div
+                        class="ant-form-item-control-input-content"
+                      >
+                        <div
+                          class="ant-segmented"
+                          id="validate_other_segmented"
+                        >
+                          <div
+                            class="ant-segmented-group"
+                          >
+                            <label
+                              class="ant-segmented-item ant-segmented-item-selected"
+                            >
+                              <input
+                                checked=""
+                                class="ant-segmented-item-input"
+                                type="radio"
+                              />
+                              <div
+                                class="ant-segmented-item-label"
+                                title="未解决"
+                              >
+                                未解决
+                              </div>
+                            </label>
+                            <label
+                              class="ant-segmented-item"
+                            >
+                              <input
+                                class="ant-segmented-item-input"
+                                type="radio"
+                              />
+                              <div
+                                class="ant-segmented-item-label"
+                                title="已解决"
+                              >
+                                已解决
+                              </div>
+                            </label>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div
+              class="ant-space-item"
+            >
+              <div
+                class="ant-form-item"
+              >
+                <div
+                  class="ant-row ant-form-item-row"
+                >
+                  <div
+                    class="ant-col ant-form-item-label"
+                  >
+                    <label
+                      class=""
+                      for="validate_other_segmented2"
+                      title="分段控制器-远程数据"
+                    >
+                      分段控制器-远程数据
+                    </label>
+                  </div>
+                  <div
+                    class="ant-col ant-form-item-control"
+                  >
+                    <div
+                      class="ant-form-item-control-input"
+                    >
+                      <div
+                        class="ant-form-item-control-input-content"
+                      >
+                        <div
+                          class="ant-segmented"
+                          id="validate_other_segmented2"
+                        >
+                          <div
+                            class="ant-segmented-group"
+                          >
+                            <label
+                              class="ant-segmented-item"
+                            >
+                              <input
+                                class="ant-segmented-item-input"
+                                type="radio"
+                              />
+                              <div
+                                class="ant-segmented-item-label"
+                                title="全部"
+                              >
+                                全部
+                              </div>
+                            </label>
+                            <label
+                              class="ant-segmented-item ant-segmented-item-selected"
+                            >
+                              <input
+                                checked=""
+                                class="ant-segmented-item-input"
+                                type="radio"
+                              />
+                              <div
+                                class="ant-segmented-item-label"
+                                title="未解决"
+                              >
+                                未解决
+                              </div>
+                            </label>
+                            <label
+                              class="ant-segmented-item"
+                            >
+                              <input
+                                class="ant-segmented-item-input"
+                                type="radio"
+                              />
+                              <div
+                                class="ant-segmented-item-label"
+                                title="已解决"
+                              >
+                                已解决
+                              </div>
+                            </label>
+                            <label
+                              class="ant-segmented-item"
+                            >
+                              <input
+                                class="ant-segmented-item-input"
+                                type="radio"
+                              />
+                              <div
+                                class="ant-segmented-item-label"
+                                title="解决中"
+                              >
+                                解决中
+                              </div>
+                            </label>
+                          </div>
+                        </div>
                       </div>
                     </div>
                   </div>
@@ -5141,6 +5316,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/FieldSet/demos/c
               </div>
               <div
                 class="ant-form-item-extra"
+                id="validate_other_upload_extra"
               >
                 longgggggggggggggggggggggggggggggggggg
               </div>
@@ -8608,6 +8784,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/FieldSet/demos/u
             </div>
             <div
               class="ant-form-item-extra"
+              id="upload_extra"
             >
               longgggggggggggggggggggggggggggggggggg
             </div>
@@ -8690,6 +8867,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/FieldSet/demos/u
             </div>
             <div
               class="ant-form-item-extra"
+              id="upload_extra"
             >
               longgggggggggggggggggggggggggggggggggg
             </div>
@@ -8872,7 +9050,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/Group/demos/base
                       style="display: flex; align-items: flex-end;"
                     >
                       <div
-                        class="ant-pro-form-list-container "
+                        class="ant-pro-form-list-container undefined "
                       >
                         <div
                           class="ant-pro-form-group"
@@ -9322,7 +9500,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/Group/demos/coun
                       style="display: flex; align-items: flex-end;"
                     >
                       <div
-                        class="ant-pro-form-list-container "
+                        class="ant-pro-form-list-container undefined "
                       >
                         <div
                           class="ant-form-item"
@@ -9570,7 +9748,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/Group/demos/cust
                                 style="display: flex; align-items: flex-end;"
                               >
                                 <div
-                                  class="ant-pro-form-list-container "
+                                  class="ant-pro-form-list-container undefined "
                                 >
                                   <div
                                     class="ant-pro-form-group"
@@ -11022,7 +11200,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/Group/demos/depe
                       style="display: flex; align-items: flex-end;"
                     >
                       <div
-                        class="ant-pro-form-list-container "
+                        class="ant-pro-form-list-container undefined "
                       >
                         <div
                           class="ant-pro-form-group"
@@ -11556,7 +11734,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/Group/demos/hori
                         style="padding-block-end: 0;"
                       >
                         <div
-                          class="ant-pro-form-list-container "
+                          class="ant-pro-form-list-container undefined "
                         >
                           <div
                             class="ant-form-item"
@@ -11681,7 +11859,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/Group/demos/hori
                                                     style="display: inline-flex; margin-inline-end: 25px;"
                                                   >
                                                     <div
-                                                      class="ant-pro-form-list-container "
+                                                      class="ant-pro-form-list-container undefined "
                                                     >
                                                       <div
                                                         class="ant-form-item"
@@ -11748,7 +11926,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/Group/demos/hori
                                                     style="display: inline-flex; margin-inline-end: 25px;"
                                                   >
                                                     <div
-                                                      class="ant-pro-form-list-container "
+                                                      class="ant-pro-form-list-container undefined "
                                                     >
                                                       <div
                                                         class="ant-form-item"
@@ -11928,7 +12106,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/Group/demos/list
             class="ant-form-item-control-input-content"
           >
             <div
-              class="ant-radio-group ant-radio-group-outline ant-pro-field-radio-vertical"
+              class="ant-radio-group ant-radio-group-outline ant-pro-field-radio-horizontal"
             >
               <label
                 class="ant-radio-wrapper ant-radio-wrapper-in-form-item"
@@ -12235,7 +12413,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/Group/demos/list
                       style="display: flex; align-items: flex-end;"
                     >
                       <div
-                        class="ant-pro-form-list-container "
+                        class="ant-pro-form-list-container undefined "
                       >
                         <div
                           class="ant-pro-form-group"
@@ -13084,7 +13262,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/Group/demos/list
                       style="display: flex; align-items: flex-end;"
                     >
                       <div
-                        class="ant-pro-form-list-container "
+                        class="ant-pro-form-list-container undefined "
                       >
                         <div
                           class="ant-pro-form-group"
@@ -13583,7 +13761,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/Group/demos/nest
                         class="ant-pro-card-body"
                       >
                         <div
-                          class="ant-pro-form-list-container "
+                          class="ant-pro-form-list-container undefined "
                         >
                           <div
                             class="ant-pro-form-group"
@@ -13781,7 +13959,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/Group/demos/nest
                                           style="display: flex; align-items: flex-end;"
                                         >
                                           <div
-                                            class="ant-pro-form-list-container "
+                                            class="ant-pro-form-list-container undefined "
                                           >
                                             <div
                                               class="ant-pro-form-group"
@@ -14318,7 +14496,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/Group/demos/pro-
                         class="ant-pro-card-body"
                       >
                         <div
-                          class="ant-pro-form-list-container "
+                          class="ant-pro-form-list-container undefined "
                         >
                           <div
                             class="ant-pro-form-group"
@@ -17762,7 +17940,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/QueryFilter/demo
                       class="ant-form-item-control-input-content"
                     >
                       <div
-                        class="ant-radio-group ant-radio-group-outline ant-pro-field-radio-vertical"
+                        class="ant-radio-group ant-radio-group-outline ant-pro-field-radio-horizontal"
                         id="radio"
                       >
                         <label
@@ -25430,7 +25608,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/QueryFilter/demo
                   class="ant-form-item-control-input-content"
                 >
                   <div
-                    class="ant-radio-group ant-radio-group-outline ant-pro-field-radio-vertical"
+                    class="ant-radio-group ant-radio-group-outline ant-pro-field-radio-horizontal"
                     id="freq"
                   >
                     <label
@@ -29601,7 +29779,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/SchemaForm/demos
                             style="display: flex; align-items: flex-end;"
                           >
                             <div
-                              class="ant-pro-form-list-container "
+                              class="ant-pro-form-list-container undefined "
                               style="width: 100%;"
                             >
                               <div
@@ -31091,7 +31269,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/SchemaForm/demos
                                 style="display: flex; align-items: flex-end;"
                               >
                                 <div
-                                  class="ant-pro-form-list-container "
+                                  class="ant-pro-form-list-container undefined "
                                 >
                                   <div
                                     class="ant-pro-form-group"
@@ -39480,7 +39658,7 @@ exports[`form demos 📸 renders ./packages/form/src/demos/base.tsx correctly 1`
                       style="display: flex; align-items: flex-end;"
                     >
                       <div
-                        class="ant-pro-form-list-container "
+                        class="ant-pro-form-list-container undefined "
                       >
                         <div
                           class="ant-form-item"
@@ -39798,6 +39976,7 @@ exports[`form demos 📸 renders ./packages/form/src/demos/components-test.tsx c
             </div>
             <div
               class="ant-form-item-extra"
+              id="validate_other_upload_extra"
             >
               longgggggggggggggggggggggggggggggggggg
             </div>
@@ -40435,6 +40614,7 @@ exports[`form demos 📸 renders ./packages/form/src/demos/config-provider.tsx c
             </div>
             <div
               class="ant-form-item-extra"
+              id="validate_other_upload_extra"
             >
               longgggggggggggggggggggggggggggggggggg
             </div>
@@ -41353,7 +41533,7 @@ exports[`form demos 📸 renders ./packages/form/src/demos/form-layout.tsx corre
                 class="ant-form-item-control-input-content"
               >
                 <div
-                  class="ant-radio-group ant-radio-group-outline ant-pro-field-radio-vertical"
+                  class="ant-radio-group ant-radio-group-outline ant-pro-field-radio-horizontal"
                 >
                   <label
                     class="ant-radio-button-wrapper ant-radio-button-wrapper-checked ant-radio-button-wrapper-in-form-item"
@@ -41744,7 +41924,7 @@ exports[`form demos 📸 renders ./packages/form/src/demos/form-layout-grid.tsx 
                     class="ant-form-item-control-input-content"
                   >
                     <div
-                      class="ant-radio-group ant-radio-group-outline ant-pro-field-radio-vertical"
+                      class="ant-radio-group ant-radio-group-outline ant-pro-field-radio-horizontal"
                     >
                       <label
                         class="ant-radio-button-wrapper ant-radio-button-wrapper-checked ant-radio-button-wrapper-in-form-item"
@@ -43066,7 +43246,6 @@ exports[`form demos 📸 renders ./packages/form/src/demos/label-col.tsx correct
                   class="ant-input-affix-wrapper ant-input-password"
                 >
                   <input
-                    action="click"
                     class="ant-input"
                     id="basic_password"
                     placeholder="请输入"
@@ -43382,7 +43561,7 @@ exports[`form demos 📸 renders ./packages/form/src/demos/layout-change.tsx cor
             class="ant-form-item-control-input-content"
           >
             <div
-              class="ant-radio-group ant-radio-group-outline ant-pro-field-radio-vertical"
+              class="ant-radio-group ant-radio-group-outline ant-pro-field-radio-horizontal"
             >
               <label
                 class="ant-radio-button-wrapper ant-radio-button-wrapper-in-form-item"
@@ -44330,7 +44509,7 @@ exports[`form demos 📸 renders ./packages/form/src/demos/layout-footer.tsx cor
       />
       <section
         class="ant-layout ant-layout-has-sider"
-        style="min-height: 100%;"
+        style="min-height: 100%; flex-direction: row;"
       >
         <div
           style="width: 60px; overflow: hidden; flex: 0 0 60px; max-width: 60px; min-width: 60px; transition: all 0.2s ease 0s;"
@@ -44346,7 +44525,7 @@ exports[`form demos 📸 renders ./packages/form/src/demos/layout-footer.tsx cor
               style="flex: 1; overflow-y: auto; overflow-x: hidden;"
             >
               <ul
-                class="ant-menu ant-menu-root ant-menu-vertical ant-pro-sider-menu  ant-pro-base-menu ant-pro-base-menu-collapsed ant-menu-inline-collapsed"
+                class="ant-menu ant-menu-root ant-menu-vertical ant-menu-light ant-pro-sider-menu  ant-pro-base-menu ant-pro-base-menu-collapsed ant-menu-inline-collapsed"
                 data-menu-list="true"
                 role="menu"
                 style="background-color: transparent; width: 100%;"
@@ -44588,10 +44767,10 @@ exports[`form demos 📸 renders ./packages/form/src/demos/layout-footer.tsx cor
             class="ant-layout-content ant-pro-layout-content ant-pro-layout-has-header ant-pro-layout-content-has-page-container"
           >
             <div
-              class="ant-pro-page-container ant-pro-page-container-ghost"
+              class="ant-pro-page-container"
             >
               <div
-                class="ant-page-header ant-pro-page-container-warp-page-header  ant-pro-page-container-warp-page-header  ant-page-header-has-breadcrumb ant-page-header-ghost"
+                class="ant-page-header ant-pro-page-container-warp-page-header  ant-pro-page-container-warp-page-header  ant-page-header-has-breadcrumb"
               >
                 <nav
                   class="ant-breadcrumb ant-page-header-breadcrumb"
@@ -45750,7 +45929,7 @@ exports[`form demos 📸 renders ./packages/form/src/demos/layout-footer.tsx cor
                                           class="ant-form-item-control-input-content"
                                         >
                                           <div
-                                            class="ant-radio-group ant-radio-group-outline ant-pro-field-radio-vertical"
+                                            class="ant-radio-group ant-radio-group-outline ant-pro-field-radio-horizontal"
                                             id="invoiceType"
                                           >
                                             <label
@@ -45900,6 +46079,7 @@ exports[`form demos 📸 renders ./packages/form/src/demos/layout-footer.tsx cor
                                 </div>
                                 <div
                                   class="ant-form-item-extra"
+                                  id="file_extra"
                                 >
                                   支持扩展名：.jpg .zip .doc .wps
                                 </div>
@@ -48390,7 +48570,7 @@ exports[`form demos 📸 renders ./packages/form/src/demos/pro-form-dependency.d
                         class="ant-pro-card-body"
                       >
                         <div
-                          class="ant-pro-form-list-container "
+                          class="ant-pro-form-list-container undefined "
                         >
                           <div
                             class="ant-pro-form-group"
@@ -48512,7 +48692,7 @@ exports[`form demos 📸 renders ./packages/form/src/demos/pro-form-dependency.d
                                           style="display: flex; align-items: flex-end;"
                                         >
                                           <div
-                                            class="ant-pro-form-list-container "
+                                            class="ant-pro-form-list-container undefined "
                                           >
                                             <div
                                               class="ant-pro-form-group"

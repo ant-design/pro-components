@@ -33,6 +33,7 @@ import FieldRadio from './components/Radio';
 import FieldRangePicker from './components/RangePicker';
 import FieldRate from './components/Rate';
 import FieldSecond from './components/Second';
+import FieldSegmented from './components/Segmented';
 import FieldSelect, {
   proFieldParsingText,
   proFieldParsingValueEnumToArray,
@@ -87,8 +88,17 @@ type RenderProps = Omit<ProFieldFCRenderProps, 'text'> &
     /** 从服务器读取选项 */
     request?: ProFieldRequestData;
     emptyText?: React.ReactNode;
-    visible?: boolean;
+    open?: boolean;
+    onOpenChange?: (open: boolean) => void;
+
+    /**
+     * @deprecated use onOpenChange replace
+     */
     onVisible?: (visible: boolean) => void;
+    /**
+     * @deprecated use open replace
+     */
+    visible?: boolean;
     [key: string]: any;
   };
 
@@ -435,25 +445,15 @@ const defaultRenderText = (
     return <FieldColorPicker text={dataValue as string} {...props} />;
   }
 
+  if (valueType === 'segmented') {
+    return <FieldSegmented text={dataValue as string} {...props} />;
+  }
+
   return <FieldText text={dataValue as string} {...props} />;
 };
 
 export { defaultRenderText };
-export {
-  FieldPercent,
-  FieldIndexColumn,
-  FieldProgress,
-  FieldMoney,
-  FieldDatePicker,
-  FieldRangePicker,
-  FieldCode,
-  FieldTimePicker,
-  FieldText,
-  FieldStatus,
-  FieldSelect,
-  proFieldParsingText,
-  proFieldParsingValueEnumToArray,
-};
+
 export type { ProFieldValueType, FieldMoneyProps };
 
 /** ProField 的类型 */
@@ -462,7 +462,7 @@ export type ProFieldPropsType = {
   valueType?: ProFieldValueType | ProFieldValueObjectType;
 } & RenderProps;
 
-const ProField: React.ForwardRefRenderFunction<any, ProFieldPropsType> = (
+const ProFieldComponent: React.ForwardRefRenderFunction<any, ProFieldPropsType> = (
   { text, valueType = 'text', mode = 'read', onChange, renderFormItem, value, readonly, ...rest },
   ref: any,
 ) => {
@@ -511,4 +511,23 @@ const ProField: React.ForwardRefRenderFunction<any, ProFieldPropsType> = (
   );
 };
 
-export default React.forwardRef(ProField) as typeof ProField;
+const ProField = React.forwardRef(ProFieldComponent) as typeof ProFieldComponent;
+
+export {
+  ProField,
+  FieldPercent,
+  FieldIndexColumn,
+  FieldProgress,
+  FieldMoney,
+  FieldDatePicker,
+  FieldRangePicker,
+  FieldCode,
+  FieldTimePicker,
+  FieldText,
+  FieldStatus,
+  FieldSelect,
+  proFieldParsingText,
+  proFieldParsingValueEnumToArray,
+};
+
+export default ProField;

@@ -229,13 +229,13 @@ const genProLayoutStyle: GenerateStyle<ProLayoutToken & LayoutDesignToken> = (to
           display: 'flex',
           flexDirection: 'column',
           width: '100%',
-          backgroundColor: 'transparent',
+          backgroundColor: token.pageContainer.colorBgPageContainer || 'transparent',
           position: 'relative',
           '*': { boxSizing: 'border-box' },
-          marginBlock: token.pageContainer.marginBlockPageContainerContent,
-          marginInline: token.pageContainer.marginInlinePageContainerContent,
+          paddingBlock: token.pageContainer.paddingBlockPageContainerContent,
+          paddingInline: token.pageContainer.paddingInlinePageContainerContent,
           '&-has-page-container': {
-            margin: 0,
+            padding: 0,
           },
         },
         [`${token.componentCls}-container`]: {
@@ -268,7 +268,7 @@ const genProLayoutStyle: GenerateStyle<ProLayoutToken & LayoutDesignToken> = (to
 
 export function useStyle(prefixCls: string) {
   const proToken = useContext(ProLayoutContext);
-  return useAntdStyle('pro-layout', (token) => {
+  return useAntdStyle('ProLayout', (token) => {
     const proLayoutToken = {
       ...token,
       componentCls: `.${prefixCls}`,

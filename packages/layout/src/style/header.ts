@@ -59,7 +59,7 @@ const genProLayoutHeaderStyle: GenerateStyle<ProLayoutHeaderToken & LayoutDesign
 export function useStyle(prefixCls: string, props: { proLayoutCls: string }) {
   const { header } = useContext(ProLayoutContext);
 
-  return useAntdStyle('pro-layout-header', (token) => {
+  return useAntdStyle('ProLayoutHeader', (token) => {
     const ProLayoutHeaderToken: ProLayoutHeaderToken & LayoutDesignToken['header'] = {
       ...token,
       componentCls: `.${prefixCls}`,

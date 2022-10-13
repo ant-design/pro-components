@@ -1,6 +1,6 @@
-﻿import { useRefFunction } from '@ant-design/pro-utils';
+﻿import { compareVersions, useRefFunction } from '@ant-design/pro-utils';
 import type { DrawerProps, FormProps } from 'antd';
-import { ConfigProvider, Drawer } from 'antd';
+import { ConfigProvider, version, Drawer } from 'antd';
 import merge from 'lodash.merge';
 import useMergedState from 'rc-util/lib/hooks/useMergedState';
 import { noteOnce } from 'rc-util/lib/warning';
@@ -31,19 +31,20 @@ export type DrawerFormProps<T = Record<string, any>> = Omit<FormProps, 'onFinish
     trigger?: JSX.Element;
 
     /**
-     * @name 受控的打开关闭
-     * */
-    visible?: DrawerProps['open'];
+     * @deprecated use onOpenChange replace
+     */
+    onVisibleChange?: (visible: boolean) => void;
+    /**
+     * @deprecated use open replace
+     */
+    visible?: boolean;
 
     /** @name 受控的打开关闭 */
     open?: DrawerProps['open'];
 
     /**
      * @name 打开关闭的事件 */
-    onVisibleChange?: (visible: boolean) => void;
-    /**
-     * @name 打开关闭的事件 */
-    afterOpenChange?: (visible: boolean) => void;
+    onOpenChange?: (visible: boolean) => void;
     /**
      * 不支持 'visible'，请使用全局的 visible
      *
@@ -67,8 +68,9 @@ function DrawerForm<T = Record<string, any>>({
   submitTimeout,
   title,
   width,
+  onOpenChange,
   visible: propVisible,
-  open: propOpen,
+  open: propsOpen,
   ...rest
 }: DrawerFormProps<T>) {
   noteOnce(
@@ -81,9 +83,9 @@ function DrawerForm<T = Record<string, any>>({
   const [, forceUpdate] = useState([]);
   const [loading, setLoading] = useState(false);
 
-  const [visible, setVisible] = useMergedState<boolean>(!!propVisible, {
-    value: propOpen || propVisible,
-    onChange: onVisibleChange,
+  const [open, setOpen] = useMergedState<boolean>(!!propVisible, {
+    value: propsOpen || propVisible,
+    onChange: onOpenChange || onVisibleChange,
   });
 
   const footerRef = useRef<HTMLDivElement | null>(null);
@@ -106,11 +108,12 @@ function DrawerForm<T = Record<string, any>>({
   }, [drawerProps?.destroyOnClose, rest.form, rest.formRef]);
 
   useEffect(() => {
-    if (visible && propVisible) {
+    if (open && (propsOpen || propVisible)) {
+      onOpenChange?.(true);
       onVisibleChange?.(true);
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [propVisible, visible]);
+  }, [propVisible, open]);
 
   const triggerDom = useMemo(() => {
     if (!trigger) {
@@ -121,11 +124,11 @@ function DrawerForm<T = Record<string, any>>({
       key: 'trigger',
       ...trigger.props,
       onClick: async (e: any) => {
-        setVisible(!visible);
+        setOpen(!open);
         trigger.props?.onClick?.(e);
       },
     });
-  }, [setVisible, trigger, visible]);
+  }, [setOpen, trigger, open]);
 
   const submitterConfig = useMemo(() => {
     if (rest.submitter === false) {
@@ -143,8 +146,8 @@ function DrawerForm<T = Record<string, any>>({
           // 提交表单loading时，不可关闭弹框
           disabled: submitTimeout ? loading : undefined,
           onClick: (e: any) => {
-            setVisible(false);
-            resetFields();
+            setOpen(false);
+            // fix: #6006 点击取消按钮时,那么必然会触发抽屉关闭，我们无需在 此处重置表单，只需在抽屉关闭时重置即可
             drawerProps?.onClose?.(e);
           },
         },
@@ -157,8 +160,7 @@ function DrawerForm<T = Record<string, any>>({
     context.locale?.Modal?.cancelText,
     submitTimeout,
     loading,
-    setVisible,
-    resetFields,
+    setOpen,
     drawerProps,
   ]);
 
@@ -184,10 +186,29 @@ function DrawerForm<T = Record<string, any>>({
     const result = await response;
     // 返回真值，关闭弹框
     if (result) {
-      setVisible(false);
+      setOpen(false);
     }
     return result;
   });
+
+  const drawerOpenProps =
+    compareVersions(version, '4.23.0') > -1
+      ? {
+          open: open,
+          onOpenChange: onVisibleChange,
+          afterOpenChange: (e: boolean) => {
+            if (!e) resetFields();
+            drawerProps?.afterOpenChange?.(e);
+          },
+        }
+      : {
+          visible: open,
+          onVisibleChange: onVisibleChange,
+          afterVisibleChange: (e: boolean) => {
+            if (!e) resetFields();
+            drawerProps?.afterOpenChange?.(e);
+          },
+        };
 
   return (
     <>
@@ -195,25 +216,12 @@ function DrawerForm<T = Record<string, any>>({
         title={title}
         width={width || 800}
         {...drawerProps}
-        // @ts-expect-error
-        visible={visible}
-        open={visible}
+        {...drawerOpenProps}
         onClose={(e) => {
           // 提交表单loading时，阻止弹框关闭
           if (submitTimeout && loading) return;
-          setVisible(false);
+          setOpen(false);
           drawerProps?.onClose?.(e);
-          resetFields();
-        }}
-        afterOpenChange={(e) => {
-          resetFields();
-          drawerProps?.afterOpenChange?.(e);
-        }}
-        //@ts-expect-error
-        afterVisibleChange={(e) => {
-          if (!e) resetFields();
-          //@ts-expect-error
-          drawerProps?.afterVisibleChange?.(e);
         }}
         footer={
           rest.submitter !== false && (
@@ -236,7 +244,7 @@ function DrawerForm<T = Record<string, any>>({
             submitter={submitterConfig}
             onFinish={async (values) => {
               const result = await onFinishHandle(values);
-              resetFields();
+              // fix: #6006 如果 result 为 true,那么必然会触发抽屉关闭，我们无需在 此处重置表单，只需在抽屉关闭时重置即可
               return result;
             }}
             contentRender={contentRender}

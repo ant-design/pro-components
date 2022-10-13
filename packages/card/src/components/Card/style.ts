@@ -175,6 +175,7 @@ const genProCardStyle: GenerateStyle<ProCardToken> = (token) => {
         color: token.colorText,
         fontWeight: 500,
         fontSize: token.fontSizeLG,
+        lineHeight: token.lineHeight,
       },
 
       [`${componentCls}-extra`]: {
@@ -204,8 +205,7 @@ const genProCardStyle: GenerateStyle<ProCardToken> = (token) => {
         boxSizing: 'border-box',
         height: '100%',
         paddingInline: token.paddingLG,
-        paddingBlock: token.paddingLG,
-
+        paddingBlock: token.padding,
         '&-center': {
           display: 'flex',
           alignItems: 'center',
@@ -287,7 +287,7 @@ const genColStyle = (index: number, token: ProCardToken) => {
   return {
     [`${componentCls}-col-${index}`]: {
       flexShrink: 0,
-      width: `${Math.round((index / GRID_COLUMNS) * 100)}%`,
+      width: `${(index / GRID_COLUMNS) * 100}%`,
     },
   };
 };
