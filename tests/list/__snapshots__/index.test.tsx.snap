@@ -5,7 +5,7 @@ exports[`List 🚏 ProList support rowClassName as a function 1`] = `
   class="ant-pro "
 >
   <div
-    class="ant-pro-table ant-pro-list ant-pro-list ant-pro-list-no-split"
+    class="ant-pro-table  ant-pro-list ant-pro-list ant-pro-list-no-split"
   >
     <div
       class="ant-pro-card"
@@ -123,7 +123,7 @@ exports[`List 🚏 ProList support rowClassName as a string 1`] = `
   class="ant-pro "
 >
   <div
-    class="ant-pro-table ant-pro-list ant-pro-list ant-pro-list-no-split"
+    class="ant-pro-table  ant-pro-list ant-pro-list ant-pro-list-no-split"
   >
     <div
       class="ant-pro-card"
@@ -200,7 +200,7 @@ exports[`List 🚏 only has content 1`] = `
   class="ant-pro "
 >
   <div
-    class="ant-pro-table ant-pro-list ant-pro-list ant-pro-list-no-split"
+    class="ant-pro-table  ant-pro-list ant-pro-list ant-pro-list-no-split"
   >
     <div
       class="ant-pro-card"
@@ -254,7 +254,7 @@ exports[`List 🚏 only has description 1`] = `
   class="ant-pro "
 >
   <div
-    class="ant-pro-table ant-pro-list ant-pro-list ant-pro-list-no-split"
+    class="ant-pro-table  ant-pro-list ant-pro-list ant-pro-list-no-split"
   >
     <div
       class="ant-pro-card"
@@ -332,7 +332,7 @@ exports[`List 🚏 show loading state 1`] = `
   class="ant-pro "
 >
   <div
-    class="ant-pro-table ant-pro-list ant-pro-list ant-pro-list-no-split"
+    class="ant-pro-table  ant-pro-list ant-pro-list ant-pro-list-no-split"
   >
     <div
       class="ant-pro-card"

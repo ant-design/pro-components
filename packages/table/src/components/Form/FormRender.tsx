@@ -1,13 +1,13 @@
 ﻿import type { BaseQueryFilterProps, ProFormProps } from '@ant-design/pro-form';
 import { BetaSchemaForm } from '@ant-design/pro-form';
-import { ProSchemaComponentTypes, useToken } from '@ant-design/pro-utils';
+import type { ProSchemaComponentTypes } from '@ant-design/pro-utils';
+import { useToken } from '@ant-design/pro-utils';
 import type { FormInstance, FormItemProps } from 'antd';
 import { ConfigProvider, Table } from 'antd';
 import classNames from 'classnames';
 import omit from 'omit.js';
 import React, { useContext, useMemo } from 'react';
 import type { ActionType, ProColumns, ProTableProps } from '../../typing';
-import { useStyle } from '../../style';
 
 function toLowerLine(str: string) {
   let temp = str.replace(/[A-Z]/g, (match) => {
