@@ -7,6 +7,7 @@ import classNames from 'classnames';
 import omit from 'omit.js';
 import React, { useContext, useMemo } from 'react';
 import type { ActionType, ProColumns, ProTableProps } from '../../typing';
+import { useStyle } from '../../style';
 
 function toLowerLine(str: string) {
   let temp = str.replace(/[A-Z]/g, (match) => {
@@ -192,9 +193,13 @@ const FormRender = <T, U = any>({
     [submitButtonLoading],
   );
 
+  // 引入搜索栏目card的hashId
+  const prefixCls = getPrefixCls('pro-card');
+  const { hashId } = useStyle(prefixCls);
+
   return (
     <div
-      className={classNames({
+      className={classNames(hashId, {
         [getPrefixCls('pro-card')]: true,
         [`${getPrefixCls('pro-card')}-border`]: !!bordered,
         [`${getPrefixCls('pro-card')}-bordered`]: !!bordered,
