@@ -1175,7 +1175,6 @@ exports[`Field 🐴 edit and no plain 1`] = `
                       class="ant-input-affix-wrapper ant-input-password"
                     >
                       <input
-                        action="click"
                         class="ant-input"
                         placeholder="请输入"
                         type="password"
@@ -2363,7 +2362,6 @@ exports[`Field 🐴 edit and plain 1`] = `
                       class="ant-input-affix-wrapper ant-input-password"
                     >
                       <input
-                        action="click"
                         class="ant-input"
                         placeholder="请输入"
                         type="password"

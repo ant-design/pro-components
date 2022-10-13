@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.2.5](https://github.com/ant-design/pro-components/compare/@ant-design/pro-utils@2.2.4...@ant-design/pro-utils@2.2.5) (2022-10-13)
+
+### Bug Fixes
+
+- **form:** fix filter dropdown not close ([#6067](https://github.com/ant-design/pro-components/issues/6067)) ([bd14cf9](https://github.com/ant-design/pro-components/commit/bd14cf930115e718916966061d82749ecfa8068c))
+
 ## [2.2.4](https://github.com/ant-design/pro-components/compare/@ant-design/pro-utils@2.2.3...@ant-design/pro-utils@2.2.4) (2022-10-11)
 
 ### Bug Fixes

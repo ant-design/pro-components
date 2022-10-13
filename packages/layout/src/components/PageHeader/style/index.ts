@@ -147,7 +147,7 @@ const genPageHeaderStyle: GenerateStyle<PageHeaderToken> = (token) => {
 };
 
 export default function useStyle(prefixCls: string) {
-  return useAntdStyle('page-header', (token) => {
+  return useAntdStyle('PageHeader', (token) => {
     const proCardToken: PageHeaderToken = {
       ...token,
       componentCls: `.${prefixCls}`,

@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [3.0.15](https://github.com/ant-design/pro-components/compare/@ant-design/pro-table@3.0.14...@ant-design/pro-table@3.0.15) (2022-10-13)
+
+### Bug Fixes
+
+- **table:** card add hashid ([b98c387](https://github.com/ant-design/pro-components/commit/b98c3878bbdc1aa03748bd0051b942085e2b4b88))
+- **table:** fix no has key when maxsize call error ([657e971](https://github.com/ant-design/pro-components/commit/657e97144525a9f08cabfcb20957c4ce4fbf38d4))
+
 ## [3.0.14](https://github.com/ant-design/pro-components/compare/@ant-design/pro-table@3.0.13...@ant-design/pro-table@3.0.14) (2022-10-11)
 
 **Note:** Version bump only for package @ant-design/pro-table

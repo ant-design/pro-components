@@ -1,6 +1,6 @@
 ﻿import type { BaseQueryFilterProps, ProFormProps } from '@ant-design/pro-form';
 import { BetaSchemaForm } from '@ant-design/pro-form';
-import type { ProSchemaComponentTypes } from '@ant-design/pro-utils';
+import { ProSchemaComponentTypes, useToken } from '@ant-design/pro-utils';
 import type { FormInstance, FormItemProps } from 'antd';
 import { ConfigProvider, Table } from 'antd';
 import classNames from 'classnames';
@@ -128,6 +128,7 @@ const FormRender = <T, U = any>({
   form: formConfig,
   bordered,
 }: TableFormItem<T, U>) => {
+  const { hashId } = useToken();
   const isForm = type === 'form';
   /** 提交表单，根据两种模式不同，方法不相同 */
   const submit = async (values: T, firstLoad: boolean) => {

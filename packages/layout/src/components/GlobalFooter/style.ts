@@ -35,7 +35,7 @@ const genFooterToolBarStyle: GenerateStyle<GlobalFooterToken> = (token) => {
 };
 
 export function useStyle(prefixCls: string) {
-  return useAntdStyle('pro-layout-footer', (token) => {
+  return useAntdStyle('ProLayoutFooter', (token) => {
     const proCardToken: GlobalFooterToken = {
       ...token,
       componentCls: `.${prefixCls}`,
