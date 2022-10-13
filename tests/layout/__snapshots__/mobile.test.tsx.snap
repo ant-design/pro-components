@@ -574,23 +574,6 @@ exports[`mobile BasicLayout 📱 layout menuHeaderRender 1`] = `
         style="min-height: 100%; flex-direction: row;"
       >
         <div
-          class="ant-drawer ant-drawer-left ant-drawer-inline"
-          tabindex="-1"
-        >
-          <div
-            aria-hidden="true"
-            data-sentinel="start"
-            style="width: 0px; height: 0px; overflow: hidden; outline: none; position: absolute;"
-            tabindex="0"
-          />
-          <div
-            aria-hidden="true"
-            data-sentinel="end"
-            style="width: 0px; height: 0px; overflow: hidden; outline: none; position: absolute;"
-            tabindex="0"
-          />
-        </div>
-        <div
           class="ant-pro-layout-container "
           style="position: relative;"
         >
@@ -659,23 +642,6 @@ exports[`mobile BasicLayout 📱 layout menuHeaderRender 2`] = `
         style="min-height: 100%; flex-direction: row;"
       >
         <div
-          class="ant-drawer ant-drawer-left ant-drawer-inline"
-          tabindex="-1"
-        >
-          <div
-            aria-hidden="true"
-            data-sentinel="start"
-            style="width: 0px; height: 0px; overflow: hidden; outline: none; position: absolute;"
-            tabindex="0"
-          />
-          <div
-            aria-hidden="true"
-            data-sentinel="end"
-            style="width: 0px; height: 0px; overflow: hidden; outline: none; position: absolute;"
-            tabindex="0"
-          />
-        </div>
-        <div
           class="ant-pro-layout-container "
           style="position: relative;"
         >
@@ -743,23 +709,6 @@ exports[`mobile BasicLayout 📱 layout menuHeaderRender=false 1`] = `
         class="ant-layout"
         style="min-height: 100%; flex-direction: row;"
       >
-        <div
-          class="ant-drawer ant-drawer-left ant-drawer-inline"
-          tabindex="-1"
-        >
-          <div
-            aria-hidden="true"
-            data-sentinel="start"
-            style="width: 0px; height: 0px; overflow: hidden; outline: none; position: absolute;"
-            tabindex="0"
-          />
-          <div
-            aria-hidden="true"
-            data-sentinel="end"
-            style="width: 0px; height: 0px; overflow: hidden; outline: none; position: absolute;"
-            tabindex="0"
-          />
-        </div>
         <div
           class="ant-pro-layout-container "
           style="position: relative;"

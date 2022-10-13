@@ -15548,13 +15548,13 @@ exports[`table demos 📸 renders ./packages/table/src/demos/batchOption.tsx cor
                                 </div>
                                 <span
                                   aria-hidden="true"
-                                  style="position: fixed; display: block; left: 0px; top: 0px; z-index: -9999; visibility: hidden; pointer-events: none; font-size: 14px; word-break: keep-all; white-space: nowrap;"
+                                  style="position: fixed; display: block; left: 0px; top: 0px; z-index: -9999; visibility: hidden; pointer-events: none; font-size: 0px; word-break: keep-all; white-space: nowrap;"
                                 >
                                   lg
                                 </span>
                                 <span
                                   aria-hidden="true"
-                                  style="position: fixed; display: block; left: 0px; top: 0px; z-index: -9999; visibility: hidden; pointer-events: none; font-size: 14px; width: 0px; white-space: normal; margin: 0px; padding: 0px;"
+                                  style="position: fixed; display: block; left: 0px; top: 0px; z-index: -9999; visibility: hidden; pointer-events: none; font-size: 0px; width: 0px; white-space: normal; margin: 0px; padding: 0px;"
                                 >
                                   <span
                                     aria-hidden="true"
@@ -15731,13 +15731,13 @@ exports[`table demos 📸 renders ./packages/table/src/demos/batchOption.tsx cor
                                 </div>
                                 <span
                                   aria-hidden="true"
-                                  style="position: fixed; display: block; left: 0px; top: 0px; z-index: -9999; visibility: hidden; pointer-events: none; font-size: 14px; word-break: keep-all; white-space: nowrap;"
+                                  style="position: fixed; display: block; left: 0px; top: 0px; z-index: -9999; visibility: hidden; pointer-events: none; font-size: 0px; word-break: keep-all; white-space: nowrap;"
                                 >
                                   lg
                                 </span>
                                 <span
                                   aria-hidden="true"
-                                  style="position: fixed; display: block; left: 0px; top: 0px; z-index: -9999; visibility: hidden; pointer-events: none; font-size: 14px; width: 0px; white-space: normal; margin: 0px; padding: 0px;"
+                                  style="position: fixed; display: block; left: 0px; top: 0px; z-index: -9999; visibility: hidden; pointer-events: none; font-size: 0px; width: 0px; white-space: normal; margin: 0px; padding: 0px;"
                                 >
                                   <span
                                     aria-hidden="true"
@@ -15913,13 +15913,13 @@ exports[`table demos 📸 renders ./packages/table/src/demos/batchOption.tsx cor
                                 </div>
                                 <span
                                   aria-hidden="true"
-                                  style="position: fixed; display: block; left: 0px; top: 0px; z-index: -9999; visibility: hidden; pointer-events: none; font-size: 14px; word-break: keep-all; white-space: nowrap;"
+                                  style="position: fixed; display: block; left: 0px; top: 0px; z-index: -9999; visibility: hidden; pointer-events: none; font-size: 0px; word-break: keep-all; white-space: nowrap;"
                                 >
                                   lg
                                 </span>
                                 <span
                                   aria-hidden="true"
-                                  style="position: fixed; display: block; left: 0px; top: 0px; z-index: -9999; visibility: hidden; pointer-events: none; font-size: 14px; width: 0px; white-space: normal; margin: 0px; padding: 0px;"
+                                  style="position: fixed; display: block; left: 0px; top: 0px; z-index: -9999; visibility: hidden; pointer-events: none; font-size: 0px; width: 0px; white-space: normal; margin: 0px; padding: 0px;"
                                 >
                                   <span
                                     aria-hidden="true"
@@ -16095,13 +16095,13 @@ exports[`table demos 📸 renders ./packages/table/src/demos/batchOption.tsx cor
                                 </div>
                                 <span
                                   aria-hidden="true"
-                                  style="position: fixed; display: block; left: 0px; top: 0px; z-index: -9999; visibility: hidden; pointer-events: none; font-size: 14px; word-break: keep-all; white-space: nowrap;"
+                                  style="position: fixed; display: block; left: 0px; top: 0px; z-index: -9999; visibility: hidden; pointer-events: none; font-size: 0px; word-break: keep-all; white-space: nowrap;"
                                 >
                                   lg
                                 </span>
                                 <span
                                   aria-hidden="true"
-                                  style="position: fixed; display: block; left: 0px; top: 0px; z-index: -9999; visibility: hidden; pointer-events: none; font-size: 14px; width: 0px; white-space: normal; margin: 0px; padding: 0px;"
+                                  style="position: fixed; display: block; left: 0px; top: 0px; z-index: -9999; visibility: hidden; pointer-events: none; font-size: 0px; width: 0px; white-space: normal; margin: 0px; padding: 0px;"
                                 >
                                   <span
                                     aria-hidden="true"
@@ -16277,13 +16277,13 @@ exports[`table demos 📸 renders ./packages/table/src/demos/batchOption.tsx cor
                                 </div>
                                 <span
                                   aria-hidden="true"
-                                  style="position: fixed; display: block; left: 0px; top: 0px; z-index: -9999; visibility: hidden; pointer-events: none; font-size: 14px; word-break: keep-all; white-space: nowrap;"
+                                  style="position: fixed; display: block; left: 0px; top: 0px; z-index: -9999; visibility: hidden; pointer-events: none; font-size: 0px; word-break: keep-all; white-space: nowrap;"
                                 >
                                   lg
                                 </span>
                                 <span
                                   aria-hidden="true"
-                                  style="position: fixed; display: block; left: 0px; top: 0px; z-index: -9999; visibility: hidden; pointer-events: none; font-size: 14px; width: 0px; white-space: normal; margin: 0px; padding: 0px;"
+                                  style="position: fixed; display: block; left: 0px; top: 0px; z-index: -9999; visibility: hidden; pointer-events: none; font-size: 0px; width: 0px; white-space: normal; margin: 0px; padding: 0px;"
                                 >
                                   <span
                                     aria-hidden="true"
@@ -18577,13 +18577,13 @@ exports[`table demos 📸 renders ./packages/table/src/demos/config-provider.tsx
                                 </div>
                                 <span
                                   aria-hidden="true"
-                                  style="position: fixed; display: block; left: 0px; top: 0px; z-index: -9999; visibility: hidden; pointer-events: none; font-size: 14px; word-break: keep-all; white-space: nowrap;"
+                                  style="position: fixed; display: block; left: 0px; top: 0px; z-index: -9999; visibility: hidden; pointer-events: none; font-size: 0px; word-break: keep-all; white-space: nowrap;"
                                 >
                                   lg
                                 </span>
                                 <span
                                   aria-hidden="true"
-                                  style="position: fixed; display: block; left: 0px; top: 0px; z-index: -9999; visibility: hidden; pointer-events: none; font-size: 14px; width: 0px; white-space: normal; margin: 0px; padding: 0px;"
+                                  style="position: fixed; display: block; left: 0px; top: 0px; z-index: -9999; visibility: hidden; pointer-events: none; font-size: 0px; width: 0px; white-space: normal; margin: 0px; padding: 0px;"
                                 >
                                   <span
                                     aria-hidden="true"
@@ -18775,13 +18775,13 @@ exports[`table demos 📸 renders ./packages/table/src/demos/config-provider.tsx
                                 </div>
                                 <span
                                   aria-hidden="true"
-                                  style="position: fixed; display: block; left: 0px; top: 0px; z-index: -9999; visibility: hidden; pointer-events: none; font-size: 14px; word-break: keep-all; white-space: nowrap;"
+                                  style="position: fixed; display: block; left: 0px; top: 0px; z-index: -9999; visibility: hidden; pointer-events: none; font-size: 0px; word-break: keep-all; white-space: nowrap;"
                                 >
                                   lg
                                 </span>
                                 <span
                                   aria-hidden="true"
-                                  style="position: fixed; display: block; left: 0px; top: 0px; z-index: -9999; visibility: hidden; pointer-events: none; font-size: 14px; width: 0px; white-space: normal; margin: 0px; padding: 0px;"
+                                  style="position: fixed; display: block; left: 0px; top: 0px; z-index: -9999; visibility: hidden; pointer-events: none; font-size: 0px; width: 0px; white-space: normal; margin: 0px; padding: 0px;"
                                 >
                                   <span
                                     aria-hidden="true"
@@ -18976,13 +18976,13 @@ exports[`table demos 📸 renders ./packages/table/src/demos/config-provider.tsx
                                 </div>
                                 <span
                                   aria-hidden="true"
-                                  style="position: fixed; display: block; left: 0px; top: 0px; z-index: -9999; visibility: hidden; pointer-events: none; font-size: 14px; word-break: keep-all; white-space: nowrap;"
+                                  style="position: fixed; display: block; left: 0px; top: 0px; z-index: -9999; visibility: hidden; pointer-events: none; font-size: 0px; word-break: keep-all; white-space: nowrap;"
                                 >
                                   lg
                                 </span>
                                 <span
                                   aria-hidden="true"
-                                  style="position: fixed; display: block; left: 0px; top: 0px; z-index: -9999; visibility: hidden; pointer-events: none; font-size: 14px; width: 0px; white-space: normal; margin: 0px; padding: 0px;"
+                                  style="position: fixed; display: block; left: 0px; top: 0px; z-index: -9999; visibility: hidden; pointer-events: none; font-size: 0px; width: 0px; white-space: normal; margin: 0px; padding: 0px;"
                                 >
                                   <span
                                     aria-hidden="true"
@@ -19177,13 +19177,13 @@ exports[`table demos 📸 renders ./packages/table/src/demos/config-provider.tsx
                                 </div>
                                 <span
                                   aria-hidden="true"
-                                  style="position: fixed; display: block; left: 0px; top: 0px; z-index: -9999; visibility: hidden; pointer-events: none; font-size: 14px; word-break: keep-all; white-space: nowrap;"
+                                  style="position: fixed; display: block; left: 0px; top: 0px; z-index: -9999; visibility: hidden; pointer-events: none; font-size: 0px; word-break: keep-all; white-space: nowrap;"
                                 >
                                   lg
                                 </span>
                                 <span
                                   aria-hidden="true"
-                                  style="position: fixed; display: block; left: 0px; top: 0px; z-index: -9999; visibility: hidden; pointer-events: none; font-size: 14px; width: 0px; white-space: normal; margin: 0px; padding: 0px;"
+                                  style="position: fixed; display: block; left: 0px; top: 0px; z-index: -9999; visibility: hidden; pointer-events: none; font-size: 0px; width: 0px; white-space: normal; margin: 0px; padding: 0px;"
                                 >
                                   <span
                                     aria-hidden="true"
@@ -19378,13 +19378,13 @@ exports[`table demos 📸 renders ./packages/table/src/demos/config-provider.tsx
                                 </div>
                                 <span
                                   aria-hidden="true"
-                                  style="position: fixed; display: block; left: 0px; top: 0px; z-index: -9999; visibility: hidden; pointer-events: none; font-size: 14px; word-break: keep-all; white-space: nowrap;"
+                                  style="position: fixed; display: block; left: 0px; top: 0px; z-index: -9999; visibility: hidden; pointer-events: none; font-size: 0px; word-break: keep-all; white-space: nowrap;"
                                 >
                                   lg
                                 </span>
                                 <span
                                   aria-hidden="true"
-                                  style="position: fixed; display: block; left: 0px; top: 0px; z-index: -9999; visibility: hidden; pointer-events: none; font-size: 14px; width: 0px; white-space: normal; margin: 0px; padding: 0px;"
+                                  style="position: fixed; display: block; left: 0px; top: 0px; z-index: -9999; visibility: hidden; pointer-events: none; font-size: 0px; width: 0px; white-space: normal; margin: 0px; padding: 0px;"
                                 >
                                   <span
                                     aria-hidden="true"
@@ -19579,13 +19579,13 @@ exports[`table demos 📸 renders ./packages/table/src/demos/config-provider.tsx
                                 </div>
                                 <span
                                   aria-hidden="true"
-                                  style="position: fixed; display: block; left: 0px; top: 0px; z-index: -9999; visibility: hidden; pointer-events: none; font-size: 14px; word-break: keep-all; white-space: nowrap;"
+                                  style="position: fixed; display: block; left: 0px; top: 0px; z-index: -9999; visibility: hidden; pointer-events: none; font-size: 0px; word-break: keep-all; white-space: nowrap;"
                                 >
                                   lg
                                 </span>
                                 <span
                                   aria-hidden="true"
-                                  style="position: fixed; display: block; left: 0px; top: 0px; z-index: -9999; visibility: hidden; pointer-events: none; font-size: 14px; width: 0px; white-space: normal; margin: 0px; padding: 0px;"
+                                  style="position: fixed; display: block; left: 0px; top: 0px; z-index: -9999; visibility: hidden; pointer-events: none; font-size: 0px; width: 0px; white-space: normal; margin: 0px; padding: 0px;"
                                 >
                                   <span
                                     aria-hidden="true"
@@ -19780,13 +19780,13 @@ exports[`table demos 📸 renders ./packages/table/src/demos/config-provider.tsx
                                 </div>
                                 <span
                                   aria-hidden="true"
-                                  style="position: fixed; display: block; left: 0px; top: 0px; z-index: -9999; visibility: hidden; pointer-events: none; font-size: 14px; word-break: keep-all; white-space: nowrap;"
+                                  style="position: fixed; display: block; left: 0px; top: 0px; z-index: -9999; visibility: hidden; pointer-events: none; font-size: 0px; word-break: keep-all; white-space: nowrap;"
                                 >
                                   lg
                                 </span>
                                 <span
                                   aria-hidden="true"
-                                  style="position: fixed; display: block; left: 0px; top: 0px; z-index: -9999; visibility: hidden; pointer-events: none; font-size: 14px; width: 0px; white-space: normal; margin: 0px; padding: 0px;"
+                                  style="position: fixed; display: block; left: 0px; top: 0px; z-index: -9999; visibility: hidden; pointer-events: none; font-size: 0px; width: 0px; white-space: normal; margin: 0px; padding: 0px;"
                                 >
                                   <span
                                     aria-hidden="true"
@@ -19981,13 +19981,13 @@ exports[`table demos 📸 renders ./packages/table/src/demos/config-provider.tsx
                                 </div>
                                 <span
                                   aria-hidden="true"
-                                  style="position: fixed; display: block; left: 0px; top: 0px; z-index: -9999; visibility: hidden; pointer-events: none; font-size: 14px; word-break: keep-all; white-space: nowrap;"
+                                  style="position: fixed; display: block; left: 0px; top: 0px; z-index: -9999; visibility: hidden; pointer-events: none; font-size: 0px; word-break: keep-all; white-space: nowrap;"
                                 >
                                   lg
                                 </span>
                                 <span
                                   aria-hidden="true"
-                                  style="position: fixed; display: block; left: 0px; top: 0px; z-index: -9999; visibility: hidden; pointer-events: none; font-size: 14px; width: 0px; white-space: normal; margin: 0px; padding: 0px;"
+                                  style="position: fixed; display: block; left: 0px; top: 0px; z-index: -9999; visibility: hidden; pointer-events: none; font-size: 0px; width: 0px; white-space: normal; margin: 0px; padding: 0px;"
                                 >
                                   <span
                                     aria-hidden="true"
@@ -20182,13 +20182,13 @@ exports[`table demos 📸 renders ./packages/table/src/demos/config-provider.tsx
                                 </div>
                                 <span
                                   aria-hidden="true"
-                                  style="position: fixed; display: block; left: 0px; top: 0px; z-index: -9999; visibility: hidden; pointer-events: none; font-size: 14px; word-break: keep-all; white-space: nowrap;"
+                                  style="position: fixed; display: block; left: 0px; top: 0px; z-index: -9999; visibility: hidden; pointer-events: none; font-size: 0px; word-break: keep-all; white-space: nowrap;"
                                 >
                                   lg
                                 </span>
                                 <span
                                   aria-hidden="true"
-                                  style="position: fixed; display: block; left: 0px; top: 0px; z-index: -9999; visibility: hidden; pointer-events: none; font-size: 14px; width: 0px; white-space: normal; margin: 0px; padding: 0px;"
+                                  style="position: fixed; display: block; left: 0px; top: 0px; z-index: -9999; visibility: hidden; pointer-events: none; font-size: 0px; width: 0px; white-space: normal; margin: 0px; padding: 0px;"
                                 >
                                   <span
                                     aria-hidden="true"
@@ -20383,13 +20383,13 @@ exports[`table demos 📸 renders ./packages/table/src/demos/config-provider.tsx
                                 </div>
                                 <span
                                   aria-hidden="true"
-                                  style="position: fixed; display: block; left: 0px; top: 0px; z-index: -9999; visibility: hidden; pointer-events: none; font-size: 14px; word-break: keep-all; white-space: nowrap;"
+                                  style="position: fixed; display: block; left: 0px; top: 0px; z-index: -9999; visibility: hidden; pointer-events: none; font-size: 0px; word-break: keep-all; white-space: nowrap;"
                                 >
                                   lg
                                 </span>
                                 <span
                                   aria-hidden="true"
-                                  style="position: fixed; display: block; left: 0px; top: 0px; z-index: -9999; visibility: hidden; pointer-events: none; font-size: 14px; width: 0px; white-space: normal; margin: 0px; padding: 0px;"
+                                  style="position: fixed; display: block; left: 0px; top: 0px; z-index: -9999; visibility: hidden; pointer-events: none; font-size: 0px; width: 0px; white-space: normal; margin: 0px; padding: 0px;"
                                 >
                                   <span
                                     aria-hidden="true"
@@ -20584,13 +20584,13 @@ exports[`table demos 📸 renders ./packages/table/src/demos/config-provider.tsx
                                 </div>
                                 <span
                                   aria-hidden="true"
-                                  style="position: fixed; display: block; left: 0px; top: 0px; z-index: -9999; visibility: hidden; pointer-events: none; font-size: 14px; word-break: keep-all; white-space: nowrap;"
+                                  style="position: fixed; display: block; left: 0px; top: 0px; z-index: -9999; visibility: hidden; pointer-events: none; font-size: 0px; word-break: keep-all; white-space: nowrap;"
                                 >
                                   lg
                                 </span>
                                 <span
                                   aria-hidden="true"
-                                  style="position: fixed; display: block; left: 0px; top: 0px; z-index: -9999; visibility: hidden; pointer-events: none; font-size: 14px; width: 0px; white-space: normal; margin: 0px; padding: 0px;"
+                                  style="position: fixed; display: block; left: 0px; top: 0px; z-index: -9999; visibility: hidden; pointer-events: none; font-size: 0px; width: 0px; white-space: normal; margin: 0px; padding: 0px;"
                                 >
                                   <span
                                     aria-hidden="true"
@@ -20785,13 +20785,13 @@ exports[`table demos 📸 renders ./packages/table/src/demos/config-provider.tsx
                                 </div>
                                 <span
                                   aria-hidden="true"
-                                  style="position: fixed; display: block; left: 0px; top: 0px; z-index: -9999; visibility: hidden; pointer-events: none; font-size: 14px; word-break: keep-all; white-space: nowrap;"
+                                  style="position: fixed; display: block; left: 0px; top: 0px; z-index: -9999; visibility: hidden; pointer-events: none; font-size: 0px; word-break: keep-all; white-space: nowrap;"
                                 >
                                   lg
                                 </span>
                                 <span
                                   aria-hidden="true"
-                                  style="position: fixed; display: block; left: 0px; top: 0px; z-index: -9999; visibility: hidden; pointer-events: none; font-size: 14px; width: 0px; white-space: normal; margin: 0px; padding: 0px;"
+                                  style="position: fixed; display: block; left: 0px; top: 0px; z-index: -9999; visibility: hidden; pointer-events: none; font-size: 0px; width: 0px; white-space: normal; margin: 0px; padding: 0px;"
                                 >
                                   <span
                                     aria-hidden="true"
@@ -20986,13 +20986,13 @@ exports[`table demos 📸 renders ./packages/table/src/demos/config-provider.tsx
                                 </div>
                                 <span
                                   aria-hidden="true"
-                                  style="position: fixed; display: block; left: 0px; top: 0px; z-index: -9999; visibility: hidden; pointer-events: none; font-size: 14px; word-break: keep-all; white-space: nowrap;"
+                                  style="position: fixed; display: block; left: 0px; top: 0px; z-index: -9999; visibility: hidden; pointer-events: none; font-size: 0px; word-break: keep-all; white-space: nowrap;"
                                 >
                                   lg
                                 </span>
                                 <span
                                   aria-hidden="true"
-                                  style="position: fixed; display: block; left: 0px; top: 0px; z-index: -9999; visibility: hidden; pointer-events: none; font-size: 14px; width: 0px; white-space: normal; margin: 0px; padding: 0px;"
+                                  style="position: fixed; display: block; left: 0px; top: 0px; z-index: -9999; visibility: hidden; pointer-events: none; font-size: 0px; width: 0px; white-space: normal; margin: 0px; padding: 0px;"
                                 >
                                   <span
                                     aria-hidden="true"
@@ -21187,13 +21187,13 @@ exports[`table demos 📸 renders ./packages/table/src/demos/config-provider.tsx
                                 </div>
                                 <span
                                   aria-hidden="true"
-                                  style="position: fixed; display: block; left: 0px; top: 0px; z-index: -9999; visibility: hidden; pointer-events: none; font-size: 14px; word-break: keep-all; white-space: nowrap;"
+                                  style="position: fixed; display: block; left: 0px; top: 0px; z-index: -9999; visibility: hidden; pointer-events: none; font-size: 0px; word-break: keep-all; white-space: nowrap;"
                                 >
                                   lg
                                 </span>
                                 <span
                                   aria-hidden="true"
-                                  style="position: fixed; display: block; left: 0px; top: 0px; z-index: -9999; visibility: hidden; pointer-events: none; font-size: 14px; width: 0px; white-space: normal; margin: 0px; padding: 0px;"
+                                  style="position: fixed; display: block; left: 0px; top: 0px; z-index: -9999; visibility: hidden; pointer-events: none; font-size: 0px; width: 0px; white-space: normal; margin: 0px; padding: 0px;"
                                 >
                                   <span
                                     aria-hidden="true"
@@ -21388,13 +21388,13 @@ exports[`table demos 📸 renders ./packages/table/src/demos/config-provider.tsx
                                 </div>
                                 <span
                                   aria-hidden="true"
-                                  style="position: fixed; display: block; left: 0px; top: 0px; z-index: -9999; visibility: hidden; pointer-events: none; font-size: 14px; word-break: keep-all; white-space: nowrap;"
+                                  style="position: fixed; display: block; left: 0px; top: 0px; z-index: -9999; visibility: hidden; pointer-events: none; font-size: 0px; word-break: keep-all; white-space: nowrap;"
                                 >
                                   lg
                                 </span>
                                 <span
                                   aria-hidden="true"
-                                  style="position: fixed; display: block; left: 0px; top: 0px; z-index: -9999; visibility: hidden; pointer-events: none; font-size: 14px; width: 0px; white-space: normal; margin: 0px; padding: 0px;"
+                                  style="position: fixed; display: block; left: 0px; top: 0px; z-index: -9999; visibility: hidden; pointer-events: none; font-size: 0px; width: 0px; white-space: normal; margin: 0px; padding: 0px;"
                                 >
                                   <span
                                     aria-hidden="true"
@@ -21589,13 +21589,13 @@ exports[`table demos 📸 renders ./packages/table/src/demos/config-provider.tsx
                                 </div>
                                 <span
                                   aria-hidden="true"
-                                  style="position: fixed; display: block; left: 0px; top: 0px; z-index: -9999; visibility: hidden; pointer-events: none; font-size: 14px; word-break: keep-all; white-space: nowrap;"
+                                  style="position: fixed; display: block; left: 0px; top: 0px; z-index: -9999; visibility: hidden; pointer-events: none; font-size: 0px; word-break: keep-all; white-space: nowrap;"
                                 >
                                   lg
                                 </span>
                                 <span
                                   aria-hidden="true"
-                                  style="position: fixed; display: block; left: 0px; top: 0px; z-index: -9999; visibility: hidden; pointer-events: none; font-size: 14px; width: 0px; white-space: normal; margin: 0px; padding: 0px;"
+                                  style="position: fixed; display: block; left: 0px; top: 0px; z-index: -9999; visibility: hidden; pointer-events: none; font-size: 0px; width: 0px; white-space: normal; margin: 0px; padding: 0px;"
                                 >
                                   <span
                                     aria-hidden="true"
@@ -21790,13 +21790,13 @@ exports[`table demos 📸 renders ./packages/table/src/demos/config-provider.tsx
                                 </div>
                                 <span
                                   aria-hidden="true"
-                                  style="position: fixed; display: block; left: 0px; top: 0px; z-index: -9999; visibility: hidden; pointer-events: none; font-size: 14px; word-break: keep-all; white-space: nowrap;"
+                                  style="position: fixed; display: block; left: 0px; top: 0px; z-index: -9999; visibility: hidden; pointer-events: none; font-size: 0px; word-break: keep-all; white-space: nowrap;"
                                 >
                                   lg
                                 </span>
                                 <span
                                   aria-hidden="true"
-                                  style="position: fixed; display: block; left: 0px; top: 0px; z-index: -9999; visibility: hidden; pointer-events: none; font-size: 14px; width: 0px; white-space: normal; margin: 0px; padding: 0px;"
+                                  style="position: fixed; display: block; left: 0px; top: 0px; z-index: -9999; visibility: hidden; pointer-events: none; font-size: 0px; width: 0px; white-space: normal; margin: 0px; padding: 0px;"
                                 >
                                   <span
                                     aria-hidden="true"
@@ -21991,13 +21991,13 @@ exports[`table demos 📸 renders ./packages/table/src/demos/config-provider.tsx
                                 </div>
                                 <span
                                   aria-hidden="true"
-                                  style="position: fixed; display: block; left: 0px; top: 0px; z-index: -9999; visibility: hidden; pointer-events: none; font-size: 14px; word-break: keep-all; white-space: nowrap;"
+                                  style="position: fixed; display: block; left: 0px; top: 0px; z-index: -9999; visibility: hidden; pointer-events: none; font-size: 0px; word-break: keep-all; white-space: nowrap;"
                                 >
                                   lg
                                 </span>
                                 <span
                                   aria-hidden="true"
-                                  style="position: fixed; display: block; left: 0px; top: 0px; z-index: -9999; visibility: hidden; pointer-events: none; font-size: 14px; width: 0px; white-space: normal; margin: 0px; padding: 0px;"
+                                  style="position: fixed; display: block; left: 0px; top: 0px; z-index: -9999; visibility: hidden; pointer-events: none; font-size: 0px; width: 0px; white-space: normal; margin: 0px; padding: 0px;"
                                 >
                                   <span
                                     aria-hidden="true"
@@ -22192,13 +22192,13 @@ exports[`table demos 📸 renders ./packages/table/src/demos/config-provider.tsx
                                 </div>
                                 <span
                                   aria-hidden="true"
-                                  style="position: fixed; display: block; left: 0px; top: 0px; z-index: -9999; visibility: hidden; pointer-events: none; font-size: 14px; word-break: keep-all; white-space: nowrap;"
+                                  style="position: fixed; display: block; left: 0px; top: 0px; z-index: -9999; visibility: hidden; pointer-events: none; font-size: 0px; word-break: keep-all; white-space: nowrap;"
                                 >
                                   lg
                                 </span>
                                 <span
                                   aria-hidden="true"
-                                  style="position: fixed; display: block; left: 0px; top: 0px; z-index: -9999; visibility: hidden; pointer-events: none; font-size: 14px; width: 0px; white-space: normal; margin: 0px; padding: 0px;"
+                                  style="position: fixed; display: block; left: 0px; top: 0px; z-index: -9999; visibility: hidden; pointer-events: none; font-size: 0px; width: 0px; white-space: normal; margin: 0px; padding: 0px;"
                                 >
                                   <span
                                     aria-hidden="true"
@@ -22393,13 +22393,13 @@ exports[`table demos 📸 renders ./packages/table/src/demos/config-provider.tsx
                                 </div>
                                 <span
                                   aria-hidden="true"
-                                  style="position: fixed; display: block; left: 0px; top: 0px; z-index: -9999; visibility: hidden; pointer-events: none; font-size: 14px; word-break: keep-all; white-space: nowrap;"
+                                  style="position: fixed; display: block; left: 0px; top: 0px; z-index: -9999; visibility: hidden; pointer-events: none; font-size: 0px; word-break: keep-all; white-space: nowrap;"
                                 >
                                   lg
                                 </span>
                                 <span
                                   aria-hidden="true"
-                                  style="position: fixed; display: block; left: 0px; top: 0px; z-index: -9999; visibility: hidden; pointer-events: none; font-size: 14px; width: 0px; white-space: normal; margin: 0px; padding: 0px;"
+                                  style="position: fixed; display: block; left: 0px; top: 0px; z-index: -9999; visibility: hidden; pointer-events: none; font-size: 0px; width: 0px; white-space: normal; margin: 0px; padding: 0px;"
                                 >
                                   <span
                                     aria-hidden="true"
@@ -23514,13 +23514,13 @@ exports[`table demos 📸 renders ./packages/table/src/demos/crud.tsx correctly 
                                     </div>
                                     <span
                                       aria-hidden="true"
-                                      style="position: fixed; display: block; left: 0px; top: 0px; z-index: -9999; visibility: hidden; pointer-events: none; font-size: 14px; word-break: keep-all; white-space: nowrap;"
+                                      style="position: fixed; display: block; left: 0px; top: 0px; z-index: -9999; visibility: hidden; pointer-events: none; font-size: 0px; word-break: keep-all; white-space: nowrap;"
                                     >
                                       lg
                                     </span>
                                     <span
                                       aria-hidden="true"
-                                      style="position: fixed; display: block; left: 0px; top: 0px; z-index: -9999; visibility: hidden; pointer-events: none; font-size: 14px; width: 0px; white-space: normal; margin: 0px; padding: 0px;"
+                                      style="position: fixed; display: block; left: 0px; top: 0px; z-index: -9999; visibility: hidden; pointer-events: none; font-size: 0px; width: 0px; white-space: normal; margin: 0px; padding: 0px;"
                                     >
                                       <span
                                         aria-hidden="true"
@@ -23690,13 +23690,13 @@ exports[`table demos 📸 renders ./packages/table/src/demos/crud.tsx correctly 
                                     </div>
                                     <span
                                       aria-hidden="true"
-                                      style="position: fixed; display: block; left: 0px; top: 0px; z-index: -9999; visibility: hidden; pointer-events: none; font-size: 14px; word-break: keep-all; white-space: nowrap;"
+                                      style="position: fixed; display: block; left: 0px; top: 0px; z-index: -9999; visibility: hidden; pointer-events: none; font-size: 0px; word-break: keep-all; white-space: nowrap;"
                                     >
                                       lg
                                     </span>
                                     <span
                                       aria-hidden="true"
-                                      style="position: fixed; display: block; left: 0px; top: 0px; z-index: -9999; visibility: hidden; pointer-events: none; font-size: 14px; width: 0px; white-space: normal; margin: 0px; padding: 0px;"
+                                      style="position: fixed; display: block; left: 0px; top: 0px; z-index: -9999; visibility: hidden; pointer-events: none; font-size: 0px; width: 0px; white-space: normal; margin: 0px; padding: 0px;"
                                     >
                                       <span
                                         aria-hidden="true"
@@ -23867,13 +23867,13 @@ exports[`table demos 📸 renders ./packages/table/src/demos/crud.tsx correctly 
                                     </div>
                                     <span
                                       aria-hidden="true"
-                                      style="position: fixed; display: block; left: 0px; top: 0px; z-index: -9999; visibility: hidden; pointer-events: none; font-size: 14px; word-break: keep-all; white-space: nowrap;"
+                                      style="position: fixed; display: block; left: 0px; top: 0px; z-index: -9999; visibility: hidden; pointer-events: none; font-size: 0px; word-break: keep-all; white-space: nowrap;"
                                     >
                                       lg
                                     </span>
                                     <span
                                       aria-hidden="true"
-                                      style="position: fixed; display: block; left: 0px; top: 0px; z-index: -9999; visibility: hidden; pointer-events: none; font-size: 14px; width: 0px; white-space: normal; margin: 0px; padding: 0px;"
+                                      style="position: fixed; display: block; left: 0px; top: 0px; z-index: -9999; visibility: hidden; pointer-events: none; font-size: 0px; width: 0px; white-space: normal; margin: 0px; padding: 0px;"
                                     >
                                       <span
                                         aria-hidden="true"
@@ -24044,13 +24044,13 @@ exports[`table demos 📸 renders ./packages/table/src/demos/crud.tsx correctly 
                                     </div>
                                     <span
                                       aria-hidden="true"
-                                      style="position: fixed; display: block; left: 0px; top: 0px; z-index: -9999; visibility: hidden; pointer-events: none; font-size: 14px; word-break: keep-all; white-space: nowrap;"
+                                      style="position: fixed; display: block; left: 0px; top: 0px; z-index: -9999; visibility: hidden; pointer-events: none; font-size: 0px; word-break: keep-all; white-space: nowrap;"
                                     >
                                       lg
                                     </span>
                                     <span
                                       aria-hidden="true"
-                                      style="position: fixed; display: block; left: 0px; top: 0px; z-index: -9999; visibility: hidden; pointer-events: none; font-size: 14px; width: 0px; white-space: normal; margin: 0px; padding: 0px;"
+                                      style="position: fixed; display: block; left: 0px; top: 0px; z-index: -9999; visibility: hidden; pointer-events: none; font-size: 0px; width: 0px; white-space: normal; margin: 0px; padding: 0px;"
                                     >
                                       <span
                                         aria-hidden="true"
@@ -24221,13 +24221,13 @@ exports[`table demos 📸 renders ./packages/table/src/demos/crud.tsx correctly 
                                     </div>
                                     <span
                                       aria-hidden="true"
-                                      style="position: fixed; display: block; left: 0px; top: 0px; z-index: -9999; visibility: hidden; pointer-events: none; font-size: 14px; word-break: keep-all; white-space: nowrap;"
+                                      style="position: fixed; display: block; left: 0px; top: 0px; z-index: -9999; visibility: hidden; pointer-events: none; font-size: 0px; word-break: keep-all; white-space: nowrap;"
                                     >
                                       lg
                                     </span>
                                     <span
                                       aria-hidden="true"
-                                      style="position: fixed; display: block; left: 0px; top: 0px; z-index: -9999; visibility: hidden; pointer-events: none; font-size: 14px; width: 0px; white-space: normal; margin: 0px; padding: 0px;"
+                                      style="position: fixed; display: block; left: 0px; top: 0px; z-index: -9999; visibility: hidden; pointer-events: none; font-size: 0px; width: 0px; white-space: normal; margin: 0px; padding: 0px;"
                                     >
                                       <span
                                         aria-hidden="true"
@@ -26465,13 +26465,13 @@ exports[`table demos 📸 renders ./packages/table/src/demos/dataSource.tsx corr
                                 </div>
                                 <span
                                   aria-hidden="true"
-                                  style="position: fixed; display: block; left: 0px; top: 0px; z-index: -9999; visibility: hidden; pointer-events: none; font-size: 14px; word-break: keep-all; white-space: nowrap;"
+                                  style="position: fixed; display: block; left: 0px; top: 0px; z-index: -9999; visibility: hidden; pointer-events: none; font-size: 0px; word-break: keep-all; white-space: nowrap;"
                                 >
                                   lg
                                 </span>
                                 <span
                                   aria-hidden="true"
-                                  style="position: fixed; display: block; left: 0px; top: 0px; z-index: -9999; visibility: hidden; pointer-events: none; font-size: 14px; width: 0px; white-space: normal; margin: 0px; padding: 0px;"
+                                  style="position: fixed; display: block; left: 0px; top: 0px; z-index: -9999; visibility: hidden; pointer-events: none; font-size: 0px; width: 0px; white-space: normal; margin: 0px; padding: 0px;"
                                 >
                                   <span
                                     aria-hidden="true"
@@ -26654,13 +26654,13 @@ exports[`table demos 📸 renders ./packages/table/src/demos/dataSource.tsx corr
                                 </div>
                                 <span
                                   aria-hidden="true"
-                                  style="position: fixed; display: block; left: 0px; top: 0px; z-index: -9999; visibility: hidden; pointer-events: none; font-size: 14px; word-break: keep-all; white-space: nowrap;"
+                                  style="position: fixed; display: block; left: 0px; top: 0px; z-index: -9999; visibility: hidden; pointer-events: none; font-size: 0px; word-break: keep-all; white-space: nowrap;"
                                 >
                                   lg
                                 </span>
                                 <span
                                   aria-hidden="true"
-                                  style="position: fixed; display: block; left: 0px; top: 0px; z-index: -9999; visibility: hidden; pointer-events: none; font-size: 14px; width: 0px; white-space: normal; margin: 0px; padding: 0px;"
+                                  style="position: fixed; display: block; left: 0px; top: 0px; z-index: -9999; visibility: hidden; pointer-events: none; font-size: 0px; width: 0px; white-space: normal; margin: 0px; padding: 0px;"
                                 >
                                   <span
                                     aria-hidden="true"
@@ -26843,13 +26843,13 @@ exports[`table demos 📸 renders ./packages/table/src/demos/dataSource.tsx corr
                                 </div>
                                 <span
                                   aria-hidden="true"
-                                  style="position: fixed; display: block; left: 0px; top: 0px; z-index: -9999; visibility: hidden; pointer-events: none; font-size: 14px; word-break: keep-all; white-space: nowrap;"
+                                  style="position: fixed; display: block; left: 0px; top: 0px; z-index: -9999; visibility: hidden; pointer-events: none; font-size: 0px; word-break: keep-all; white-space: nowrap;"
                                 >
                                   lg
                                 </span>
                                 <span
                                   aria-hidden="true"
-                                  style="position: fixed; display: block; left: 0px; top: 0px; z-index: -9999; visibility: hidden; pointer-events: none; font-size: 14px; width: 0px; white-space: normal; margin: 0px; padding: 0px;"
+                                  style="position: fixed; display: block; left: 0px; top: 0px; z-index: -9999; visibility: hidden; pointer-events: none; font-size: 0px; width: 0px; white-space: normal; margin: 0px; padding: 0px;"
                                 >
                                   <span
                                     aria-hidden="true"
@@ -27032,13 +27032,13 @@ exports[`table demos 📸 renders ./packages/table/src/demos/dataSource.tsx corr
                                 </div>
                                 <span
                                   aria-hidden="true"
-                                  style="position: fixed; display: block; left: 0px; top: 0px; z-index: -9999; visibility: hidden; pointer-events: none; font-size: 14px; word-break: keep-all; white-space: nowrap;"
+                                  style="position: fixed; display: block; left: 0px; top: 0px; z-index: -9999; visibility: hidden; pointer-events: none; font-size: 0px; word-break: keep-all; white-space: nowrap;"
                                 >
                                   lg
                                 </span>
                                 <span
                                   aria-hidden="true"
-                                  style="position: fixed; display: block; left: 0px; top: 0px; z-index: -9999; visibility: hidden; pointer-events: none; font-size: 14px; width: 0px; white-space: normal; margin: 0px; padding: 0px;"
+                                  style="position: fixed; display: block; left: 0px; top: 0px; z-index: -9999; visibility: hidden; pointer-events: none; font-size: 0px; width: 0px; white-space: normal; margin: 0px; padding: 0px;"
                                 >
                                   <span
                                     aria-hidden="true"
@@ -27221,13 +27221,13 @@ exports[`table demos 📸 renders ./packages/table/src/demos/dataSource.tsx corr
                                 </div>
                                 <span
                                   aria-hidden="true"
-                                  style="position: fixed; display: block; left: 0px; top: 0px; z-index: -9999; visibility: hidden; pointer-events: none; font-size: 14px; word-break: keep-all; white-space: nowrap;"
+                                  style="position: fixed; display: block; left: 0px; top: 0px; z-index: -9999; visibility: hidden; pointer-events: none; font-size: 0px; word-break: keep-all; white-space: nowrap;"
                                 >
                                   lg
                                 </span>
                                 <span
                                   aria-hidden="true"
-                                  style="position: fixed; display: block; left: 0px; top: 0px; z-index: -9999; visibility: hidden; pointer-events: none; font-size: 14px; width: 0px; white-space: normal; margin: 0px; padding: 0px;"
+                                  style="position: fixed; display: block; left: 0px; top: 0px; z-index: -9999; visibility: hidden; pointer-events: none; font-size: 0px; width: 0px; white-space: normal; margin: 0px; padding: 0px;"
                                 >
                                   <span
                                     aria-hidden="true"
@@ -29923,13 +29923,13 @@ exports[`table demos 📸 renders ./packages/table/src/demos/dynamic-columns-sta
                                 </div>
                                 <span
                                   aria-hidden="true"
-                                  style="position: fixed; display: block; left: 0px; top: 0px; z-index: -9999; visibility: hidden; pointer-events: none; font-size: 14px; word-break: keep-all; white-space: nowrap;"
+                                  style="position: fixed; display: block; left: 0px; top: 0px; z-index: -9999; visibility: hidden; pointer-events: none; font-size: 0px; word-break: keep-all; white-space: nowrap;"
                                 >
                                   lg
                                 </span>
                                 <span
                                   aria-hidden="true"
-                                  style="position: fixed; display: block; left: 0px; top: 0px; z-index: -9999; visibility: hidden; pointer-events: none; font-size: 14px; width: 0px; white-space: normal; margin: 0px; padding: 0px;"
+                                  style="position: fixed; display: block; left: 0px; top: 0px; z-index: -9999; visibility: hidden; pointer-events: none; font-size: 0px; width: 0px; white-space: normal; margin: 0px; padding: 0px;"
                                 >
                                   <span
                                     aria-hidden="true"
@@ -30053,13 +30053,13 @@ exports[`table demos 📸 renders ./packages/table/src/demos/dynamic-columns-sta
                                 </div>
                                 <span
                                   aria-hidden="true"
-                                  style="position: fixed; display: block; left: 0px; top: 0px; z-index: -9999; visibility: hidden; pointer-events: none; font-size: 14px; word-break: keep-all; white-space: nowrap;"
+                                  style="position: fixed; display: block; left: 0px; top: 0px; z-index: -9999; visibility: hidden; pointer-events: none; font-size: 0px; word-break: keep-all; white-space: nowrap;"
                                 >
                                   lg
                                 </span>
                                 <span
                                   aria-hidden="true"
-                                  style="position: fixed; display: block; left: 0px; top: 0px; z-index: -9999; visibility: hidden; pointer-events: none; font-size: 14px; width: 0px; white-space: normal; margin: 0px; padding: 0px;"
+                                  style="position: fixed; display: block; left: 0px; top: 0px; z-index: -9999; visibility: hidden; pointer-events: none; font-size: 0px; width: 0px; white-space: normal; margin: 0px; padding: 0px;"
                                 >
                                   <span
                                     aria-hidden="true"
@@ -30183,13 +30183,13 @@ exports[`table demos 📸 renders ./packages/table/src/demos/dynamic-columns-sta
                                 </div>
                                 <span
                                   aria-hidden="true"
-                                  style="position: fixed; display: block; left: 0px; top: 0px; z-index: -9999; visibility: hidden; pointer-events: none; font-size: 14px; word-break: keep-all; white-space: nowrap;"
+                                  style="position: fixed; display: block; left: 0px; top: 0px; z-index: -9999; visibility: hidden; pointer-events: none; font-size: 0px; word-break: keep-all; white-space: nowrap;"
                                 >
                                   lg
                                 </span>
                                 <span
                                   aria-hidden="true"
-                                  style="position: fixed; display: block; left: 0px; top: 0px; z-index: -9999; visibility: hidden; pointer-events: none; font-size: 14px; width: 0px; white-space: normal; margin: 0px; padding: 0px;"
+                                  style="position: fixed; display: block; left: 0px; top: 0px; z-index: -9999; visibility: hidden; pointer-events: none; font-size: 0px; width: 0px; white-space: normal; margin: 0px; padding: 0px;"
                                 >
                                   <span
                                     aria-hidden="true"
@@ -30313,13 +30313,13 @@ exports[`table demos 📸 renders ./packages/table/src/demos/dynamic-columns-sta
                                 </div>
                                 <span
                                   aria-hidden="true"
-                                  style="position: fixed; display: block; left: 0px; top: 0px; z-index: -9999; visibility: hidden; pointer-events: none; font-size: 14px; word-break: keep-all; white-space: nowrap;"
+                                  style="position: fixed; display: block; left: 0px; top: 0px; z-index: -9999; visibility: hidden; pointer-events: none; font-size: 0px; word-break: keep-all; white-space: nowrap;"
                                 >
                                   lg
                                 </span>
                                 <span
                                   aria-hidden="true"
-                                  style="position: fixed; display: block; left: 0px; top: 0px; z-index: -9999; visibility: hidden; pointer-events: none; font-size: 14px; width: 0px; white-space: normal; margin: 0px; padding: 0px;"
+                                  style="position: fixed; display: block; left: 0px; top: 0px; z-index: -9999; visibility: hidden; pointer-events: none; font-size: 0px; width: 0px; white-space: normal; margin: 0px; padding: 0px;"
                                 >
                                   <span
                                     aria-hidden="true"
@@ -30443,13 +30443,13 @@ exports[`table demos 📸 renders ./packages/table/src/demos/dynamic-columns-sta
                                 </div>
                                 <span
                                   aria-hidden="true"
-                                  style="position: fixed; display: block; left: 0px; top: 0px; z-index: -9999; visibility: hidden; pointer-events: none; font-size: 14px; word-break: keep-all; white-space: nowrap;"
+                                  style="position: fixed; display: block; left: 0px; top: 0px; z-index: -9999; visibility: hidden; pointer-events: none; font-size: 0px; word-break: keep-all; white-space: nowrap;"
                                 >
                                   lg
                                 </span>
                                 <span
                                   aria-hidden="true"
-                                  style="position: fixed; display: block; left: 0px; top: 0px; z-index: -9999; visibility: hidden; pointer-events: none; font-size: 14px; width: 0px; white-space: normal; margin: 0px; padding: 0px;"
+                                  style="position: fixed; display: block; left: 0px; top: 0px; z-index: -9999; visibility: hidden; pointer-events: none; font-size: 0px; width: 0px; white-space: normal; margin: 0px; padding: 0px;"
                                 >
                                   <span
                                     aria-hidden="true"
@@ -32296,14 +32296,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/dynamic-settings.ts
                                             />
                                             <span
                                               class="ant-switch-inner"
-                                            >
-                                              <span
-                                                class="ant-switch-inner-checked"
-                                              />
-                                              <span
-                                                class="ant-switch-inner-unchecked"
-                                              />
-                                            </span>
+                                            />
                                           </button>
                                         </div>
                                       </div>
@@ -32498,14 +32491,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/dynamic-settings.ts
                                             />
                                             <span
                                               class="ant-switch-inner"
-                                            >
-                                              <span
-                                                class="ant-switch-inner-checked"
-                                              />
-                                              <span
-                                                class="ant-switch-inner-unchecked"
-                                              />
-                                            </span>
+                                            />
                                           </button>
                                         </div>
                                       </div>
@@ -32578,14 +32564,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/dynamic-settings.ts
                                             />
                                             <span
                                               class="ant-switch-inner"
-                                            >
-                                              <span
-                                                class="ant-switch-inner-checked"
-                                              />
-                                              <span
-                                                class="ant-switch-inner-unchecked"
-                                              />
-                                            </span>
+                                            />
                                           </button>
                                         </div>
                                       </div>
@@ -32658,14 +32637,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/dynamic-settings.ts
                                             />
                                             <span
                                               class="ant-switch-inner"
-                                            >
-                                              <span
-                                                class="ant-switch-inner-checked"
-                                              />
-                                              <span
-                                                class="ant-switch-inner-unchecked"
-                                              />
-                                            </span>
+                                            />
                                           </button>
                                         </div>
                                       </div>
@@ -32738,14 +32710,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/dynamic-settings.ts
                                             />
                                             <span
                                               class="ant-switch-inner"
-                                            >
-                                              <span
-                                                class="ant-switch-inner-checked"
-                                              />
-                                              <span
-                                                class="ant-switch-inner-unchecked"
-                                              />
-                                            </span>
+                                            />
                                           </button>
                                         </div>
                                       </div>
@@ -32817,14 +32782,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/dynamic-settings.ts
                                             />
                                             <span
                                               class="ant-switch-inner"
-                                            >
-                                              <span
-                                                class="ant-switch-inner-checked"
-                                              />
-                                              <span
-                                                class="ant-switch-inner-unchecked"
-                                              />
-                                            </span>
+                                            />
                                           </button>
                                         </div>
                                       </div>
@@ -32914,14 +32872,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/dynamic-settings.ts
                                     />
                                     <span
                                       class="ant-switch-inner"
-                                    >
-                                      <span
-                                        class="ant-switch-inner-checked"
-                                      />
-                                      <span
-                                        class="ant-switch-inner-unchecked"
-                                      />
-                                    </span>
+                                    />
                                   </button>
                                 </span>
                               </div>
@@ -33193,14 +33144,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/dynamic-settings.ts
                                             />
                                             <span
                                               class="ant-switch-inner"
-                                            >
-                                              <span
-                                                class="ant-switch-inner-checked"
-                                              />
-                                              <span
-                                                class="ant-switch-inner-unchecked"
-                                              />
-                                            </span>
+                                            />
                                           </button>
                                         </div>
                                       </div>
@@ -33273,14 +33217,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/dynamic-settings.ts
                                             />
                                             <span
                                               class="ant-switch-inner"
-                                            >
-                                              <span
-                                                class="ant-switch-inner-checked"
-                                              />
-                                              <span
-                                                class="ant-switch-inner-unchecked"
-                                              />
-                                            </span>
+                                            />
                                           </button>
                                         </div>
                                       </div>
@@ -33353,14 +33290,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/dynamic-settings.ts
                                             />
                                             <span
                                               class="ant-switch-inner"
-                                            >
-                                              <span
-                                                class="ant-switch-inner-checked"
-                                              />
-                                              <span
-                                                class="ant-switch-inner-unchecked"
-                                              />
-                                            </span>
+                                            />
                                           </button>
                                         </div>
                                       </div>
@@ -33433,14 +33363,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/dynamic-settings.ts
                                             />
                                             <span
                                               class="ant-switch-inner"
-                                            >
-                                              <span
-                                                class="ant-switch-inner-checked"
-                                              />
-                                              <span
-                                                class="ant-switch-inner-unchecked"
-                                              />
-                                            </span>
+                                            />
                                           </button>
                                         </div>
                                       </div>
@@ -33512,14 +33435,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/dynamic-settings.ts
                                             />
                                             <span
                                               class="ant-switch-inner"
-                                            >
-                                              <span
-                                                class="ant-switch-inner-checked"
-                                              />
-                                              <span
-                                                class="ant-switch-inner-unchecked"
-                                              />
-                                            </span>
+                                            />
                                           </button>
                                         </div>
                                       </div>
@@ -33558,16 +33474,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/error-boundaries.ts
     <span
       class="ant-switch-inner"
     >
-      <span
-        class="ant-switch-inner-checked"
-      >
-        使用自定义错误边界
-      </span>
-      <span
-        class="ant-switch-inner-unchecked"
-      >
-        使用默认错误边界
-      </span>
+      使用自定义错误边界
     </span>
   </button>
   <div
@@ -39883,13 +39790,13 @@ exports[`table demos 📸 renders ./packages/table/src/demos/no-option.tsx corre
                                 </div>
                                 <span
                                   aria-hidden="true"
-                                  style="position: fixed; display: block; left: 0px; top: 0px; z-index: -9999; visibility: hidden; pointer-events: none; font-size: 14px; word-break: keep-all; white-space: nowrap;"
+                                  style="position: fixed; display: block; left: 0px; top: 0px; z-index: -9999; visibility: hidden; pointer-events: none; font-size: 0px; word-break: keep-all; white-space: nowrap;"
                                 >
                                   lg
                                 </span>
                                 <span
                                   aria-hidden="true"
-                                  style="position: fixed; display: block; left: 0px; top: 0px; z-index: -9999; visibility: hidden; pointer-events: none; font-size: 14px; width: 0px; white-space: normal; margin: 0px; padding: 0px;"
+                                  style="position: fixed; display: block; left: 0px; top: 0px; z-index: -9999; visibility: hidden; pointer-events: none; font-size: 0px; width: 0px; white-space: normal; margin: 0px; padding: 0px;"
                                 >
                                   <span
                                     aria-hidden="true"
@@ -40069,13 +39976,13 @@ exports[`table demos 📸 renders ./packages/table/src/demos/no-option.tsx corre
                                 </div>
                                 <span
                                   aria-hidden="true"
-                                  style="position: fixed; display: block; left: 0px; top: 0px; z-index: -9999; visibility: hidden; pointer-events: none; font-size: 14px; word-break: keep-all; white-space: nowrap;"
+                                  style="position: fixed; display: block; left: 0px; top: 0px; z-index: -9999; visibility: hidden; pointer-events: none; font-size: 0px; word-break: keep-all; white-space: nowrap;"
                                 >
                                   lg
                                 </span>
                                 <span
                                   aria-hidden="true"
-                                  style="position: fixed; display: block; left: 0px; top: 0px; z-index: -9999; visibility: hidden; pointer-events: none; font-size: 14px; width: 0px; white-space: normal; margin: 0px; padding: 0px;"
+                                  style="position: fixed; display: block; left: 0px; top: 0px; z-index: -9999; visibility: hidden; pointer-events: none; font-size: 0px; width: 0px; white-space: normal; margin: 0px; padding: 0px;"
                                 >
                                   <span
                                     aria-hidden="true"
@@ -40255,13 +40162,13 @@ exports[`table demos 📸 renders ./packages/table/src/demos/no-option.tsx corre
                                 </div>
                                 <span
                                   aria-hidden="true"
-                                  style="position: fixed; display: block; left: 0px; top: 0px; z-index: -9999; visibility: hidden; pointer-events: none; font-size: 14px; word-break: keep-all; white-space: nowrap;"
+                                  style="position: fixed; display: block; left: 0px; top: 0px; z-index: -9999; visibility: hidden; pointer-events: none; font-size: 0px; word-break: keep-all; white-space: nowrap;"
                                 >
                                   lg
                                 </span>
                                 <span
                                   aria-hidden="true"
-                                  style="position: fixed; display: block; left: 0px; top: 0px; z-index: -9999; visibility: hidden; pointer-events: none; font-size: 14px; width: 0px; white-space: normal; margin: 0px; padding: 0px;"
+                                  style="position: fixed; display: block; left: 0px; top: 0px; z-index: -9999; visibility: hidden; pointer-events: none; font-size: 0px; width: 0px; white-space: normal; margin: 0px; padding: 0px;"
                                 >
                                   <span
                                     aria-hidden="true"
@@ -40441,13 +40348,13 @@ exports[`table demos 📸 renders ./packages/table/src/demos/no-option.tsx corre
                                 </div>
                                 <span
                                   aria-hidden="true"
-                                  style="position: fixed; display: block; left: 0px; top: 0px; z-index: -9999; visibility: hidden; pointer-events: none; font-size: 14px; word-break: keep-all; white-space: nowrap;"
+                                  style="position: fixed; display: block; left: 0px; top: 0px; z-index: -9999; visibility: hidden; pointer-events: none; font-size: 0px; word-break: keep-all; white-space: nowrap;"
                                 >
                                   lg
                                 </span>
                                 <span
                                   aria-hidden="true"
-                                  style="position: fixed; display: block; left: 0px; top: 0px; z-index: -9999; visibility: hidden; pointer-events: none; font-size: 14px; width: 0px; white-space: normal; margin: 0px; padding: 0px;"
+                                  style="position: fixed; display: block; left: 0px; top: 0px; z-index: -9999; visibility: hidden; pointer-events: none; font-size: 0px; width: 0px; white-space: normal; margin: 0px; padding: 0px;"
                                 >
                                   <span
                                     aria-hidden="true"
@@ -40627,13 +40534,13 @@ exports[`table demos 📸 renders ./packages/table/src/demos/no-option.tsx corre
                                 </div>
                                 <span
                                   aria-hidden="true"
-                                  style="position: fixed; display: block; left: 0px; top: 0px; z-index: -9999; visibility: hidden; pointer-events: none; font-size: 14px; word-break: keep-all; white-space: nowrap;"
+                                  style="position: fixed; display: block; left: 0px; top: 0px; z-index: -9999; visibility: hidden; pointer-events: none; font-size: 0px; word-break: keep-all; white-space: nowrap;"
                                 >
                                   lg
                                 </span>
                                 <span
                                   aria-hidden="true"
-                                  style="position: fixed; display: block; left: 0px; top: 0px; z-index: -9999; visibility: hidden; pointer-events: none; font-size: 14px; width: 0px; white-space: normal; margin: 0px; padding: 0px;"
+                                  style="position: fixed; display: block; left: 0px; top: 0px; z-index: -9999; visibility: hidden; pointer-events: none; font-size: 0px; width: 0px; white-space: normal; margin: 0px; padding: 0px;"
                                 >
                                   <span
                                     aria-hidden="true"
@@ -42007,13 +41914,13 @@ exports[`table demos 📸 renders ./packages/table/src/demos/normal.tsx correctl
                                 </div>
                                 <span
                                   aria-hidden="true"
-                                  style="position: fixed; display: block; left: 0px; top: 0px; z-index: -9999; visibility: hidden; pointer-events: none; font-size: 14px; word-break: keep-all; white-space: nowrap;"
+                                  style="position: fixed; display: block; left: 0px; top: 0px; z-index: -9999; visibility: hidden; pointer-events: none; font-size: 0px; word-break: keep-all; white-space: nowrap;"
                                 >
                                   lg
                                 </span>
                                 <span
                                   aria-hidden="true"
-                                  style="position: fixed; display: block; left: 0px; top: 0px; z-index: -9999; visibility: hidden; pointer-events: none; font-size: 14px; width: 0px; white-space: normal; margin: 0px; padding: 0px;"
+                                  style="position: fixed; display: block; left: 0px; top: 0px; z-index: -9999; visibility: hidden; pointer-events: none; font-size: 0px; width: 0px; white-space: normal; margin: 0px; padding: 0px;"
                                 >
                                   <span
                                     aria-hidden="true"
@@ -42193,13 +42100,13 @@ exports[`table demos 📸 renders ./packages/table/src/demos/normal.tsx correctl
                                 </div>
                                 <span
                                   aria-hidden="true"
-                                  style="position: fixed; display: block; left: 0px; top: 0px; z-index: -9999; visibility: hidden; pointer-events: none; font-size: 14px; word-break: keep-all; white-space: nowrap;"
+                                  style="position: fixed; display: block; left: 0px; top: 0px; z-index: -9999; visibility: hidden; pointer-events: none; font-size: 0px; word-break: keep-all; white-space: nowrap;"
                                 >
                                   lg
                                 </span>
                                 <span
                                   aria-hidden="true"
-                                  style="position: fixed; display: block; left: 0px; top: 0px; z-index: -9999; visibility: hidden; pointer-events: none; font-size: 14px; width: 0px; white-space: normal; margin: 0px; padding: 0px;"
+                                  style="position: fixed; display: block; left: 0px; top: 0px; z-index: -9999; visibility: hidden; pointer-events: none; font-size: 0px; width: 0px; white-space: normal; margin: 0px; padding: 0px;"
                                 >
                                   <span
                                     aria-hidden="true"
@@ -42379,13 +42286,13 @@ exports[`table demos 📸 renders ./packages/table/src/demos/normal.tsx correctl
                                 </div>
                                 <span
                                   aria-hidden="true"
-                                  style="position: fixed; display: block; left: 0px; top: 0px; z-index: -9999; visibility: hidden; pointer-events: none; font-size: 14px; word-break: keep-all; white-space: nowrap;"
+                                  style="position: fixed; display: block; left: 0px; top: 0px; z-index: -9999; visibility: hidden; pointer-events: none; font-size: 0px; word-break: keep-all; white-space: nowrap;"
                                 >
                                   lg
                                 </span>
                                 <span
                                   aria-hidden="true"
-                                  style="position: fixed; display: block; left: 0px; top: 0px; z-index: -9999; visibility: hidden; pointer-events: none; font-size: 14px; width: 0px; white-space: normal; margin: 0px; padding: 0px;"
+                                  style="position: fixed; display: block; left: 0px; top: 0px; z-index: -9999; visibility: hidden; pointer-events: none; font-size: 0px; width: 0px; white-space: normal; margin: 0px; padding: 0px;"
                                 >
                                   <span
                                     aria-hidden="true"
@@ -42565,13 +42472,13 @@ exports[`table demos 📸 renders ./packages/table/src/demos/normal.tsx correctl
                                 </div>
                                 <span
                                   aria-hidden="true"
-                                  style="position: fixed; display: block; left: 0px; top: 0px; z-index: -9999; visibility: hidden; pointer-events: none; font-size: 14px; word-break: keep-all; white-space: nowrap;"
+                                  style="position: fixed; display: block; left: 0px; top: 0px; z-index: -9999; visibility: hidden; pointer-events: none; font-size: 0px; word-break: keep-all; white-space: nowrap;"
                                 >
                                   lg
                                 </span>
                                 <span
                                   aria-hidden="true"
-                                  style="position: fixed; display: block; left: 0px; top: 0px; z-index: -9999; visibility: hidden; pointer-events: none; font-size: 14px; width: 0px; white-space: normal; margin: 0px; padding: 0px;"
+                                  style="position: fixed; display: block; left: 0px; top: 0px; z-index: -9999; visibility: hidden; pointer-events: none; font-size: 0px; width: 0px; white-space: normal; margin: 0px; padding: 0px;"
                                 >
                                   <span
                                     aria-hidden="true"
@@ -42751,13 +42658,13 @@ exports[`table demos 📸 renders ./packages/table/src/demos/normal.tsx correctl
                                 </div>
                                 <span
                                   aria-hidden="true"
-                                  style="position: fixed; display: block; left: 0px; top: 0px; z-index: -9999; visibility: hidden; pointer-events: none; font-size: 14px; word-break: keep-all; white-space: nowrap;"
+                                  style="position: fixed; display: block; left: 0px; top: 0px; z-index: -9999; visibility: hidden; pointer-events: none; font-size: 0px; word-break: keep-all; white-space: nowrap;"
                                 >
                                   lg
                                 </span>
                                 <span
                                   aria-hidden="true"
-                                  style="position: fixed; display: block; left: 0px; top: 0px; z-index: -9999; visibility: hidden; pointer-events: none; font-size: 14px; width: 0px; white-space: normal; margin: 0px; padding: 0px;"
+                                  style="position: fixed; display: block; left: 0px; top: 0px; z-index: -9999; visibility: hidden; pointer-events: none; font-size: 0px; width: 0px; white-space: normal; margin: 0px; padding: 0px;"
                                 >
                                   <span
                                     aria-hidden="true"
@@ -43541,13 +43448,13 @@ exports[`table demos 📸 renders ./packages/table/src/demos/open-rules.tsx corr
                                 </div>
                                 <span
                                   aria-hidden="true"
-                                  style="position: fixed; display: block; left: 0px; top: 0px; z-index: -9999; visibility: hidden; pointer-events: none; font-size: 14px; word-break: keep-all; white-space: nowrap;"
+                                  style="position: fixed; display: block; left: 0px; top: 0px; z-index: -9999; visibility: hidden; pointer-events: none; font-size: 0px; word-break: keep-all; white-space: nowrap;"
                                 >
                                   lg
                                 </span>
                                 <span
                                   aria-hidden="true"
-                                  style="position: fixed; display: block; left: 0px; top: 0px; z-index: -9999; visibility: hidden; pointer-events: none; font-size: 14px; width: 0px; white-space: normal; margin: 0px; padding: 0px;"
+                                  style="position: fixed; display: block; left: 0px; top: 0px; z-index: -9999; visibility: hidden; pointer-events: none; font-size: 0px; width: 0px; white-space: normal; margin: 0px; padding: 0px;"
                                 >
                                   <span
                                     aria-hidden="true"
@@ -44305,13 +44212,13 @@ exports[`table demos 📸 renders ./packages/table/src/demos/open-rules.tsx corr
                                 </div>
                                 <span
                                   aria-hidden="true"
-                                  style="position: fixed; display: block; left: 0px; top: 0px; z-index: -9999; visibility: hidden; pointer-events: none; font-size: 14px; word-break: keep-all; white-space: nowrap;"
+                                  style="position: fixed; display: block; left: 0px; top: 0px; z-index: -9999; visibility: hidden; pointer-events: none; font-size: 0px; word-break: keep-all; white-space: nowrap;"
                                 >
                                   lg
                                 </span>
                                 <span
                                   aria-hidden="true"
-                                  style="position: fixed; display: block; left: 0px; top: 0px; z-index: -9999; visibility: hidden; pointer-events: none; font-size: 14px; width: 0px; white-space: normal; margin: 0px; padding: 0px;"
+                                  style="position: fixed; display: block; left: 0px; top: 0px; z-index: -9999; visibility: hidden; pointer-events: none; font-size: 0px; width: 0px; white-space: normal; margin: 0px; padding: 0px;"
                                 >
                                   <span
                                     aria-hidden="true"
@@ -47231,13 +47138,13 @@ exports[`table demos 📸 renders ./packages/table/src/demos/rtl_table.tsx corre
                                 </div>
                                 <span
                                   aria-hidden="true"
-                                  style="position: fixed; display: block; left: 0px; top: 0px; z-index: -9999; visibility: hidden; pointer-events: none; font-size: 14px; word-break: keep-all; white-space: nowrap;"
+                                  style="position: fixed; display: block; left: 0px; top: 0px; z-index: -9999; visibility: hidden; pointer-events: none; font-size: 0px; word-break: keep-all; white-space: nowrap;"
                                 >
                                   lg
                                 </span>
                                 <span
                                   aria-hidden="true"
-                                  style="position: fixed; display: block; left: 0px; top: 0px; z-index: -9999; visibility: hidden; pointer-events: none; font-size: 14px; width: 0px; white-space: normal; margin: 0px; padding: 0px;"
+                                  style="position: fixed; display: block; left: 0px; top: 0px; z-index: -9999; visibility: hidden; pointer-events: none; font-size: 0px; width: 0px; white-space: normal; margin: 0px; padding: 0px;"
                                 >
                                   <span
                                     aria-hidden="true"
@@ -47419,13 +47326,13 @@ exports[`table demos 📸 renders ./packages/table/src/demos/rtl_table.tsx corre
                                 </div>
                                 <span
                                   aria-hidden="true"
-                                  style="position: fixed; display: block; left: 0px; top: 0px; z-index: -9999; visibility: hidden; pointer-events: none; font-size: 14px; word-break: keep-all; white-space: nowrap;"
+                                  style="position: fixed; display: block; left: 0px; top: 0px; z-index: -9999; visibility: hidden; pointer-events: none; font-size: 0px; word-break: keep-all; white-space: nowrap;"
                                 >
                                   lg
                                 </span>
                                 <span
                                   aria-hidden="true"
-                                  style="position: fixed; display: block; left: 0px; top: 0px; z-index: -9999; visibility: hidden; pointer-events: none; font-size: 14px; width: 0px; white-space: normal; margin: 0px; padding: 0px;"
+                                  style="position: fixed; display: block; left: 0px; top: 0px; z-index: -9999; visibility: hidden; pointer-events: none; font-size: 0px; width: 0px; white-space: normal; margin: 0px; padding: 0px;"
                                 >
                                   <span
                                     aria-hidden="true"
@@ -47609,13 +47516,13 @@ exports[`table demos 📸 renders ./packages/table/src/demos/rtl_table.tsx corre
                                 </div>
                                 <span
                                   aria-hidden="true"
-                                  style="position: fixed; display: block; left: 0px; top: 0px; z-index: -9999; visibility: hidden; pointer-events: none; font-size: 14px; word-break: keep-all; white-space: nowrap;"
+                                  style="position: fixed; display: block; left: 0px; top: 0px; z-index: -9999; visibility: hidden; pointer-events: none; font-size: 0px; word-break: keep-all; white-space: nowrap;"
                                 >
                                   lg
                                 </span>
                                 <span
                                   aria-hidden="true"
-                                  style="position: fixed; display: block; left: 0px; top: 0px; z-index: -9999; visibility: hidden; pointer-events: none; font-size: 14px; width: 0px; white-space: normal; margin: 0px; padding: 0px;"
+                                  style="position: fixed; display: block; left: 0px; top: 0px; z-index: -9999; visibility: hidden; pointer-events: none; font-size: 0px; width: 0px; white-space: normal; margin: 0px; padding: 0px;"
                                 >
                                   <span
                                     aria-hidden="true"
@@ -47799,13 +47706,13 @@ exports[`table demos 📸 renders ./packages/table/src/demos/rtl_table.tsx corre
                                 </div>
                                 <span
                                   aria-hidden="true"
-                                  style="position: fixed; display: block; left: 0px; top: 0px; z-index: -9999; visibility: hidden; pointer-events: none; font-size: 14px; word-break: keep-all; white-space: nowrap;"
+                                  style="position: fixed; display: block; left: 0px; top: 0px; z-index: -9999; visibility: hidden; pointer-events: none; font-size: 0px; word-break: keep-all; white-space: nowrap;"
                                 >
                                   lg
                                 </span>
                                 <span
                                   aria-hidden="true"
-                                  style="position: fixed; display: block; left: 0px; top: 0px; z-index: -9999; visibility: hidden; pointer-events: none; font-size: 14px; width: 0px; white-space: normal; margin: 0px; padding: 0px;"
+                                  style="position: fixed; display: block; left: 0px; top: 0px; z-index: -9999; visibility: hidden; pointer-events: none; font-size: 0px; width: 0px; white-space: normal; margin: 0px; padding: 0px;"
                                 >
                                   <span
                                     aria-hidden="true"
@@ -47989,13 +47896,13 @@ exports[`table demos 📸 renders ./packages/table/src/demos/rtl_table.tsx corre
                                 </div>
                                 <span
                                   aria-hidden="true"
-                                  style="position: fixed; display: block; left: 0px; top: 0px; z-index: -9999; visibility: hidden; pointer-events: none; font-size: 14px; word-break: keep-all; white-space: nowrap;"
+                                  style="position: fixed; display: block; left: 0px; top: 0px; z-index: -9999; visibility: hidden; pointer-events: none; font-size: 0px; word-break: keep-all; white-space: nowrap;"
                                 >
                                   lg
                                 </span>
                                 <span
                                   aria-hidden="true"
-                                  style="position: fixed; display: block; left: 0px; top: 0px; z-index: -9999; visibility: hidden; pointer-events: none; font-size: 14px; width: 0px; white-space: normal; margin: 0px; padding: 0px;"
+                                  style="position: fixed; display: block; left: 0px; top: 0px; z-index: -9999; visibility: hidden; pointer-events: none; font-size: 0px; width: 0px; white-space: normal; margin: 0px; padding: 0px;"
                                 >
                                   <span
                                     aria-hidden="true"
@@ -50133,13 +50040,13 @@ exports[`table demos 📸 renders ./packages/table/src/demos/single.tsx correctl
                                 </div>
                                 <span
                                   aria-hidden="true"
-                                  style="position: fixed; display: block; left: 0px; top: 0px; z-index: -9999; visibility: hidden; pointer-events: none; font-size: 14px; word-break: keep-all; white-space: nowrap;"
+                                  style="position: fixed; display: block; left: 0px; top: 0px; z-index: -9999; visibility: hidden; pointer-events: none; font-size: 0px; word-break: keep-all; white-space: nowrap;"
                                 >
                                   lg
                                 </span>
                                 <span
                                   aria-hidden="true"
-                                  style="position: fixed; display: block; left: 0px; top: 0px; z-index: -9999; visibility: hidden; pointer-events: none; font-size: 14px; width: 0px; white-space: normal; margin: 0px; padding: 0px;"
+                                  style="position: fixed; display: block; left: 0px; top: 0px; z-index: -9999; visibility: hidden; pointer-events: none; font-size: 0px; width: 0px; white-space: normal; margin: 0px; padding: 0px;"
                                 >
                                   <span
                                     aria-hidden="true"
@@ -50328,13 +50235,13 @@ exports[`table demos 📸 renders ./packages/table/src/demos/single.tsx correctl
                                 </div>
                                 <span
                                   aria-hidden="true"
-                                  style="position: fixed; display: block; left: 0px; top: 0px; z-index: -9999; visibility: hidden; pointer-events: none; font-size: 14px; word-break: keep-all; white-space: nowrap;"
+                                  style="position: fixed; display: block; left: 0px; top: 0px; z-index: -9999; visibility: hidden; pointer-events: none; font-size: 0px; word-break: keep-all; white-space: nowrap;"
                                 >
                                   lg
                                 </span>
                                 <span
                                   aria-hidden="true"
-                                  style="position: fixed; display: block; left: 0px; top: 0px; z-index: -9999; visibility: hidden; pointer-events: none; font-size: 14px; width: 0px; white-space: normal; margin: 0px; padding: 0px;"
+                                  style="position: fixed; display: block; left: 0px; top: 0px; z-index: -9999; visibility: hidden; pointer-events: none; font-size: 0px; width: 0px; white-space: normal; margin: 0px; padding: 0px;"
                                 >
                                   <span
                                     aria-hidden="true"
@@ -50524,13 +50431,13 @@ exports[`table demos 📸 renders ./packages/table/src/demos/single.tsx correctl
                                 </div>
                                 <span
                                   aria-hidden="true"
-                                  style="position: fixed; display: block; left: 0px; top: 0px; z-index: -9999; visibility: hidden; pointer-events: none; font-size: 14px; word-break: keep-all; white-space: nowrap;"
+                                  style="position: fixed; display: block; left: 0px; top: 0px; z-index: -9999; visibility: hidden; pointer-events: none; font-size: 0px; word-break: keep-all; white-space: nowrap;"
                                 >
                                   lg
                                 </span>
                                 <span
                                   aria-hidden="true"
-                                  style="position: fixed; display: block; left: 0px; top: 0px; z-index: -9999; visibility: hidden; pointer-events: none; font-size: 14px; width: 0px; white-space: normal; margin: 0px; padding: 0px;"
+                                  style="position: fixed; display: block; left: 0px; top: 0px; z-index: -9999; visibility: hidden; pointer-events: none; font-size: 0px; width: 0px; white-space: normal; margin: 0px; padding: 0px;"
                                 >
                                   <span
                                     aria-hidden="true"
@@ -50720,13 +50627,13 @@ exports[`table demos 📸 renders ./packages/table/src/demos/single.tsx correctl
                                 </div>
                                 <span
                                   aria-hidden="true"
-                                  style="position: fixed; display: block; left: 0px; top: 0px; z-index: -9999; visibility: hidden; pointer-events: none; font-size: 14px; word-break: keep-all; white-space: nowrap;"
+                                  style="position: fixed; display: block; left: 0px; top: 0px; z-index: -9999; visibility: hidden; pointer-events: none; font-size: 0px; word-break: keep-all; white-space: nowrap;"
                                 >
                                   lg
                                 </span>
                                 <span
                                   aria-hidden="true"
-                                  style="position: fixed; display: block; left: 0px; top: 0px; z-index: -9999; visibility: hidden; pointer-events: none; font-size: 14px; width: 0px; white-space: normal; margin: 0px; padding: 0px;"
+                                  style="position: fixed; display: block; left: 0px; top: 0px; z-index: -9999; visibility: hidden; pointer-events: none; font-size: 0px; width: 0px; white-space: normal; margin: 0px; padding: 0px;"
                                 >
                                   <span
                                     aria-hidden="true"
@@ -50916,13 +50823,13 @@ exports[`table demos 📸 renders ./packages/table/src/demos/single.tsx correctl
                                 </div>
                                 <span
                                   aria-hidden="true"
-                                  style="position: fixed; display: block; left: 0px; top: 0px; z-index: -9999; visibility: hidden; pointer-events: none; font-size: 14px; word-break: keep-all; white-space: nowrap;"
+                                  style="position: fixed; display: block; left: 0px; top: 0px; z-index: -9999; visibility: hidden; pointer-events: none; font-size: 0px; word-break: keep-all; white-space: nowrap;"
                                 >
                                   lg
                                 </span>
                                 <span
                                   aria-hidden="true"
-                                  style="position: fixed; display: block; left: 0px; top: 0px; z-index: -9999; visibility: hidden; pointer-events: none; font-size: 14px; width: 0px; white-space: normal; margin: 0px; padding: 0px;"
+                                  style="position: fixed; display: block; left: 0px; top: 0px; z-index: -9999; visibility: hidden; pointer-events: none; font-size: 0px; width: 0px; white-space: normal; margin: 0px; padding: 0px;"
                                 >
                                   <span
                                     aria-hidden="true"
@@ -53022,13 +52929,13 @@ exports[`table demos 📸 renders ./packages/table/src/demos/single-test.tsx cor
                                   </div>
                                   <span
                                     aria-hidden="true"
-                                    style="position: fixed; display: block; left: 0px; top: 0px; z-index: -9999; visibility: hidden; pointer-events: none; font-size: 14px; word-break: keep-all; white-space: nowrap;"
+                                    style="position: fixed; display: block; left: 0px; top: 0px; z-index: -9999; visibility: hidden; pointer-events: none; font-size: 0px; word-break: keep-all; white-space: nowrap;"
                                   >
                                     lg
                                   </span>
                                   <span
                                     aria-hidden="true"
-                                    style="position: fixed; display: block; left: 0px; top: 0px; z-index: -9999; visibility: hidden; pointer-events: none; font-size: 14px; width: 0px; white-space: normal; margin: 0px; padding: 0px;"
+                                    style="position: fixed; display: block; left: 0px; top: 0px; z-index: -9999; visibility: hidden; pointer-events: none; font-size: 0px; width: 0px; white-space: normal; margin: 0px; padding: 0px;"
                                   >
                                     <span
                                       aria-hidden="true"
@@ -53227,13 +53134,13 @@ exports[`table demos 📸 renders ./packages/table/src/demos/single-test.tsx cor
                                   </div>
                                   <span
                                     aria-hidden="true"
-                                    style="position: fixed; display: block; left: 0px; top: 0px; z-index: -9999; visibility: hidden; pointer-events: none; font-size: 14px; word-break: keep-all; white-space: nowrap;"
+                                    style="position: fixed; display: block; left: 0px; top: 0px; z-index: -9999; visibility: hidden; pointer-events: none; font-size: 0px; word-break: keep-all; white-space: nowrap;"
                                   >
                                     lg
                                   </span>
                                   <span
                                     aria-hidden="true"
-                                    style="position: fixed; display: block; left: 0px; top: 0px; z-index: -9999; visibility: hidden; pointer-events: none; font-size: 14px; width: 0px; white-space: normal; margin: 0px; padding: 0px;"
+                                    style="position: fixed; display: block; left: 0px; top: 0px; z-index: -9999; visibility: hidden; pointer-events: none; font-size: 0px; width: 0px; white-space: normal; margin: 0px; padding: 0px;"
                                   >
                                     <span
                                       aria-hidden="true"
@@ -53433,13 +53340,13 @@ exports[`table demos 📸 renders ./packages/table/src/demos/single-test.tsx cor
                                   </div>
                                   <span
                                     aria-hidden="true"
-                                    style="position: fixed; display: block; left: 0px; top: 0px; z-index: -9999; visibility: hidden; pointer-events: none; font-size: 14px; word-break: keep-all; white-space: nowrap;"
+                                    style="position: fixed; display: block; left: 0px; top: 0px; z-index: -9999; visibility: hidden; pointer-events: none; font-size: 0px; word-break: keep-all; white-space: nowrap;"
                                   >
                                     lg
                                   </span>
                                   <span
                                     aria-hidden="true"
-                                    style="position: fixed; display: block; left: 0px; top: 0px; z-index: -9999; visibility: hidden; pointer-events: none; font-size: 14px; width: 0px; white-space: normal; margin: 0px; padding: 0px;"
+                                    style="position: fixed; display: block; left: 0px; top: 0px; z-index: -9999; visibility: hidden; pointer-events: none; font-size: 0px; width: 0px; white-space: normal; margin: 0px; padding: 0px;"
                                   >
                                     <span
                                       aria-hidden="true"
@@ -53639,13 +53546,13 @@ exports[`table demos 📸 renders ./packages/table/src/demos/single-test.tsx cor
                                   </div>
                                   <span
                                     aria-hidden="true"
-                                    style="position: fixed; display: block; left: 0px; top: 0px; z-index: -9999; visibility: hidden; pointer-events: none; font-size: 14px; word-break: keep-all; white-space: nowrap;"
+                                    style="position: fixed; display: block; left: 0px; top: 0px; z-index: -9999; visibility: hidden; pointer-events: none; font-size: 0px; word-break: keep-all; white-space: nowrap;"
                                   >
                                     lg
                                   </span>
                                   <span
                                     aria-hidden="true"
-                                    style="position: fixed; display: block; left: 0px; top: 0px; z-index: -9999; visibility: hidden; pointer-events: none; font-size: 14px; width: 0px; white-space: normal; margin: 0px; padding: 0px;"
+                                    style="position: fixed; display: block; left: 0px; top: 0px; z-index: -9999; visibility: hidden; pointer-events: none; font-size: 0px; width: 0px; white-space: normal; margin: 0px; padding: 0px;"
                                   >
                                     <span
                                       aria-hidden="true"
@@ -53845,13 +53752,13 @@ exports[`table demos 📸 renders ./packages/table/src/demos/single-test.tsx cor
                                   </div>
                                   <span
                                     aria-hidden="true"
-                                    style="position: fixed; display: block; left: 0px; top: 0px; z-index: -9999; visibility: hidden; pointer-events: none; font-size: 14px; word-break: keep-all; white-space: nowrap;"
+                                    style="position: fixed; display: block; left: 0px; top: 0px; z-index: -9999; visibility: hidden; pointer-events: none; font-size: 0px; word-break: keep-all; white-space: nowrap;"
                                   >
                                     lg
                                   </span>
                                   <span
                                     aria-hidden="true"
-                                    style="position: fixed; display: block; left: 0px; top: 0px; z-index: -9999; visibility: hidden; pointer-events: none; font-size: 14px; width: 0px; white-space: normal; margin: 0px; padding: 0px;"
+                                    style="position: fixed; display: block; left: 0px; top: 0px; z-index: -9999; visibility: hidden; pointer-events: none; font-size: 0px; width: 0px; white-space: normal; margin: 0px; padding: 0px;"
                                   >
                                     <span
                                       aria-hidden="true"
