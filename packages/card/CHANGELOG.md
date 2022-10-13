@@ -2,6 +2,18 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.0.13](https://github.com/ant-design/pro-components/compare/@ant-design/pro-card@2.0.12...@ant-design/pro-card@2.0.13) (2022-10-13)
+
+**Note:** Version bump only for package @ant-design/pro-card
+
+## [2.0.12](https://github.com/ant-design/pro-components/compare/@ant-design/pro-card@2.0.11...@ant-design/pro-card@2.0.12) (2022-10-11)
+
+**Note:** Version bump only for package @ant-design/pro-card
+
+## [2.0.11](https://github.com/ant-design/pro-components/compare/@ant-design/pro-card@2.0.10...@ant-design/pro-card@2.0.11) (2022-10-10)
+
+**Note:** Version bump only for package @ant-design/pro-card
+
 ## [2.0.10](https://github.com/ant-design/pro-components/compare/@ant-design/pro-card@2.0.9...@ant-design/pro-card@2.0.10) (2022-09-28)
 
 **Note:** Version bump only for package @ant-design/pro-card

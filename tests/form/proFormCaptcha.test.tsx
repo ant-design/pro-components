@@ -13,7 +13,7 @@ describe('ProFormCaptcha', () => {
       <ProForm
         title="新建表单"
         submitter={{
-          render: (props, doms) => {
+          render: () => {
             return [
               <Button
                 htmlType="button"
@@ -41,7 +41,7 @@ describe('ProFormCaptcha', () => {
             ];
           },
         }}
-        onFinish={async (values) => {
+        onFinish={async () => {
           message.success('提交成功');
           return true;
         }}

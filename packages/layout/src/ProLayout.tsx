@@ -492,6 +492,7 @@ const BaseProLayout: React.FC<ProLayoutProps> = (props) => {
 
   // If it is a fix menu, calculate padding
   // don't need padding in phone mode
+  /* Checking if the menu is loading and if it is, it will return a skeleton loading screen. */
   const hasLeftPadding = propsLayout !== 'top' && !isMobile;
 
   const [collapsed, onCollapse] = useMergedState<boolean>(
@@ -667,6 +668,8 @@ const BaseProLayout: React.FC<ProLayoutProps> = (props) => {
             <Layout
               style={{
                 minHeight: '100%',
+                // hack style
+                flexDirection: siderMenuDom ? 'row' : undefined,
                 ...style,
               }}
             >

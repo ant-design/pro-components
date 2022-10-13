@@ -54,7 +54,7 @@ const genSiderMenuStyle: GenerateStyle<SiderMenuToken & BaseLayoutDesignToken['s
 
 export function useStyle(prefixCls: string) {
   const { sider } = useContext(ProLayoutContext);
-  return useAntdStyle('sider-menu-collapsed-icon', (token) => {
+  return useAntdStyle('SiderMenuCollapsedIcon', (token) => {
     const siderMenuToken: SiderMenuToken & BaseLayoutDesignToken['sider'] = {
       ...token,
       componentCls: `.${prefixCls}`,

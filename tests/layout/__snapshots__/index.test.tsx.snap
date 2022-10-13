@@ -13,7 +13,7 @@ Array [
       />
       <section
         class="ant-layout"
-        style="min-height:100%"
+        style="min-height:100%;flex-direction:row"
       >
         <div
           style="width:256px;overflow:hidden;flex:0 0 256px;max-width:256px;min-width:256px;transition:all 0.2s ease 0s"
@@ -228,7 +228,7 @@ Array [
       />
       <section
         class="ant-layout"
-        style="min-height:100%"
+        style="min-height:100%;flex-direction:row"
       >
         <div
           class="ant-pro-layout-container "
@@ -428,7 +428,7 @@ Array [
       />
       <section
         class="ant-layout"
-        style="min-height:100%"
+        style="min-height:100%;flex-direction:row"
       >
         <div
           style="width:215px;overflow:hidden;flex:0 0 215px;max-width:215px;min-width:215px;transition:all 0.2s ease 0s"
@@ -661,7 +661,7 @@ exports[`BasicLayout 🥩 base use 1`] = `
     />
     <section
       class="ant-layout"
-      style="min-height:100%"
+      style="min-height:100%;flex-direction:row"
     >
       <div
         style="width:256px;overflow:hidden;flex:0 0 256px;max-width:256px;min-width:256px;transition:all 0.2s ease 0s"
@@ -854,7 +854,7 @@ exports[`BasicLayout 🥩 contentStyle should change dom 1`] = `
     />
     <section
       class="ant-layout"
-      style="min-height:100%"
+      style="min-height:100%;flex-direction:row"
     >
       <div
         style="width:256px;overflow:hidden;flex:0 0 256px;max-width:256px;min-width:256px;transition:all 0.2s ease 0s"
@@ -1048,7 +1048,7 @@ exports[`BasicLayout 🥩 mix layout hideInMenu render right 1`] = `
     />
     <section
       class="ant-layout ant-layout-has-sider"
-      style="min-height: 100%;"
+      style="min-height: 100%; flex-direction: row;"
     >
       <div
         style="width: 256px; overflow: hidden; flex: 0 0 256px; max-width: 256px; min-width: 256px; transition: all 0.2s ease 0s;"
@@ -1309,7 +1309,7 @@ exports[`BasicLayout 🥩 support loading 1`] = `
     />
     <section
       class="ant-layout ant-layout-has-sider"
-      style="min-height: 100%;"
+      style="min-height: 100%; flex-direction: row;"
     >
       <div
         style="width: 256px; overflow: hidden; flex: 0 0 256px; max-width: 256px; min-width: 256px; transition: all 0.2s ease 0s;"

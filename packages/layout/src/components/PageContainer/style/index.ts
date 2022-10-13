@@ -80,15 +80,26 @@ const genPageContainerStyle: GenerateStyle<
   };
 };
 
-export function useStyle(prefixCls: string) {
-  const { pageContainer } = useContext(ProLayoutContext);
-  return useAntdStyle('page-container', (token) => {
-    const proCardToken: PageContainerToken & BaseLayoutDesignToken['pageContainer'] = {
-      ...token,
-      componentCls: `.${prefixCls}`,
-      ...pageContainer,
-    };
+export type pageContainerToken = {
+  paddingInlinePageContainerContent?: number;
+  paddingBlockPageContainerContent?: number;
+};
 
-    return [genPageContainerStyle(proCardToken)];
-  });
+export function useStyle(prefixCls: string, componentsToken: pageContainerToken | undefined) {
+  const { pageContainer } = useContext(ProLayoutContext);
+  return useAntdStyle(
+    'PageContainer',
+    (token) => {
+      const proCardToken: PageContainerToken & BaseLayoutDesignToken['pageContainer'] = {
+        ...token,
+        componentCls: `.${prefixCls}`,
+        ...pageContainer,
+        ...componentsToken,
+      };
+
+      return [genPageContainerStyle(proCardToken)];
+    },
+    // 触发一下更新
+    componentsToken,
+  );
 }

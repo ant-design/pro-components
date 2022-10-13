@@ -2,6 +2,31 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.2.6](https://github.com/ant-design/pro-components/compare/@ant-design/pro-form@2.2.5...@ant-design/pro-form@2.2.6) (2022-10-13)
+
+### Bug Fixes
+
+- **layout:** use inline style ([827349d](https://github.com/ant-design/pro-components/commit/827349dc9ba93d84645259b0da2794606c6038b1))
+
+## [2.2.5](https://github.com/ant-design/pro-components/compare/@ant-design/pro-form@2.2.4...@ant-design/pro-form@2.2.5) (2022-10-11)
+
+**Note:** Version bump only for package @ant-design/pro-form
+
+## [2.2.4](https://github.com/ant-design/pro-components/compare/@ant-design/pro-form@2.2.3...@ant-design/pro-form@2.2.4) (2022-10-11)
+
+### Bug Fixes
+
+- **field:** use open replace visible ([8dcf66a](https://github.com/ant-design/pro-components/commit/8dcf66a616781cbf7248a10da784f21c9f9b245d))
+- **form:** ProFormDependency support T ([7b0c85d](https://github.com/ant-design/pro-components/commit/7b0c85d3ca69cbb2ad82e8f6d95ad77a0c24a463))
+
+## [2.2.3](https://github.com/ant-design/pro-components/compare/@ant-design/pro-form@2.2.2...@ant-design/pro-form@2.2.3) (2022-10-10)
+
+### Bug Fixes
+
+- **form:** remove redundant code ([#6030](https://github.com/ant-design/pro-components/issues/6030)) ([e30e893](https://github.com/ant-design/pro-components/commit/e30e893ae236420d81636644ffaedb80f9f69a0c))
+- **form:** 修复 ModalForm 和 DrawerForm 关闭过程中表单内容闪现初始值的问题 ([#6009](https://github.com/ant-design/pro-components/issues/6009)) ([dbad424](https://github.com/ant-design/pro-components/commit/dbad4249383bc4f647789f2a177e26ce6403ab36))
+- **form:** 修复 ListItem 自定义样式和样式名称不生效的 BUG ([#5982](https://github.com/ant-design/pro-components/issues/5982)) ([02328a0](https://github.com/ant-design/pro-components/commit/02328a0a4ca4d1ccf31430d03a9a467952952479))
+
 ## [2.2.2](https://github.com/ant-design/pro-components/compare/@ant-design/pro-form@2.2.1...@ant-design/pro-form@2.2.2) (2022-09-28)
 
 ### Bug Fixes

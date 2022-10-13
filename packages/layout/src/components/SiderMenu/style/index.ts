@@ -184,7 +184,7 @@ export function useStyle(
   },
 ) {
   const { sider, header } = useContext(ProLayoutContext);
-  return useAntdStyle('sider-menu', (token) => {
+  return useAntdStyle('ProLayoutSiderMenu', (token) => {
     const siderMenuToken: SiderMenuToken & BaseLayoutDesignToken['sider'] = {
       ...token,
       componentCls: `.${prefixCls}`,

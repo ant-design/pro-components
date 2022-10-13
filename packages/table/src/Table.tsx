@@ -846,7 +846,7 @@ const ProviderWarp = <
   const { getPrefixCls } = useContext(ConfigProvider.ConfigContext);
   const ErrorComponent =
     props.ErrorBoundary === false ? React.Fragment : props.ErrorBoundary || ErrorBoundary;
-  const { wrapSSR } = useStyle(getPrefixCls('pro-table'));
+  const { wrapSSR, hashId } = useStyle(getPrefixCls('pro-table'));
 
   return (
     <Container.Provider initialState={props}>
@@ -854,7 +854,7 @@ const ProviderWarp = <
         <ErrorComponent>
           {wrapSSR(
             <ProTable<DataType, Params, ValueType>
-              defaultClassName={getPrefixCls('pro-table')}
+              defaultClassName={`${getPrefixCls('pro-table')} ${hashId}`}
               {...props}
             />,
           )}

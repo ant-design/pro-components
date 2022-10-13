@@ -101,6 +101,7 @@ export const operationUnit = (token: ProAliasToken): CSSObject => ({
 export function useStyle(
   componentName: string,
   styleFn: (token: ProAliasToken) => CSSInterpolation,
+  deps?: Record<string, any>,
 ): UseStyleResult {
   const { token, hashId, theme } = useToken();
 
@@ -112,12 +113,22 @@ export function useStyle(
    */
   const proComponentsCls = `.${getPrefixCls()}-pro`;
   return {
-    wrapSSR: useStyleRegister({ theme, token, hashId, path: [componentName] }, () =>
-      styleFn({
-        ...token,
-        antCls: '.' + getPrefixCls(),
-        proComponentsCls,
-      }),
+    wrapSSR: useStyleRegister(
+      {
+        theme,
+        token: {
+          ...deps,
+          ...token,
+        },
+        hashId,
+        path: [componentName],
+      },
+      () =>
+        styleFn({
+          ...token,
+          antCls: '.' + getPrefixCls(),
+          proComponentsCls,
+        }),
     ),
     hashId,
   };

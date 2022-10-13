@@ -239,8 +239,8 @@ menu 中支持了部分常用的 menu 配置， 可以帮助我们更好的管�
 
 | 参数 | 说明 | 类型 | 默认值 |
 | --- | --- | --- | --- |
-| collapsed | 控制 SettingDrawer 的收起和展开 | `boolean` | - |
-| onCollapse | SettingDrawer 的折叠收起事件 | `(collapsed: boolean) => void` | - |
+| collapse | 控制 SettingDrawer 的收起和展开 | `boolean` | - |
+| onCollapseChange | SettingDrawer 的折叠收起事件 | `(collapsed: boolean) => void` | - |
 | settings | layout 的设置 | [`Settings`](#Settings) \| [`Settings`](#Settings) | - |
 | onSettingChange | [`Settings`](#Settings) 发生更改事件 | `(settings: [`Settings`](#Settings) ) => void` | - |
 | hideHintAlert | 删除下方的提示信息 | `boolean` | - |
@@ -511,6 +511,7 @@ Sider Token 是 侧边菜单的色值，与顶部菜单不同。
 | colorBgMenuItemCollapsedSelected | 收起 menuItem 的选中背景颜色 | `rgba(0, 145, 255, 0.08)` |
 | colorTextRightActionsItem | 右上角字体颜色 | `colorTextSecondary` |
 | colorBgRightActionsItemHover | 右上角选中的 hover 颜色 | `rgba(0, 0, 0, 0.03)` |
+| heightLayoutHeader | header 高度 | 56 |
 
 ### pageContainer Token
 

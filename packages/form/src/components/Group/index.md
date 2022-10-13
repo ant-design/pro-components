@@ -191,7 +191,7 @@ return (
    * @name 自定义操作按钮
    *
    * @example 删除按钮
-   * actionRender:(field,action)=><a onClick={()=>action.remove(field.key)}>删除</a>
+   * actionRender:(field,action)=><a onClick={()=>action.remove(field.name)}>删除</a>
    * @example 最多只能新增三行
    * actionRender:(f,action,_,count)=><a onClick={()=>
    *   count>2?alert("最多三行！"):action.add({id:"xx"})}>删除

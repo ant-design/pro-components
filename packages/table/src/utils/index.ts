@@ -151,7 +151,10 @@ export const isMergeCell = (
  * @param dataIndex 在对象中的数据
  * @param index 序列号，理论上唯一
  */
-export const genColumnKey = (key?: React.ReactText | undefined, index?: number): string => {
+export const genColumnKey = (
+  key?: React.ReactText | undefined,
+  index?: number | string,
+): string => {
   if (key) {
     return Array.isArray(key) ? key.join('-') : key.toString();
   }

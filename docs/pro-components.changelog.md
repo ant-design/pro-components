@@ -8,6 +8,41 @@ group:
   path: /
 ---
 
+## @ant-design/pro-components@2.3.17
+
+`2022-10-13`
+
+- fix(layout): 优化页面滑动的问题. [367c667](https://github.com/ant-design/pro-components/commit/367c667)
+- fix(layout): use inline style. [827349d](https://github.com/ant-design/pro-components/commit/827349d)
+- fix(form): fix filter dropdown not close (#6067). [#6067](https://github.com/ant-design/pro-components/pull/#6067) [@ONLY-yours](https://github.com/ONLY-yours)
+- fix(table): fix no has key when maxsize call error. [657e971](https://github.com/ant-design/pro-components/commit/657e971)
+- fix(table): card add hashid. [b98c387](https://github.com/ant-design/pro-components/commit/b98c387)
+
+## @ant-design/pro-components@2.3.15
+
+`2022-10-11`
+
+- fix(layout): fix PageContainer token no rerender error. [5611a16](https://github.com/ant-design/pro-components/commit/5611a16)
+- fix(form): ProFormDependency support T. [7b0c85d](https://github.com/ant-design/pro-components/commit/7b0c85d)
+- fix(form): fix key and visible use. [0ebd3db](https://github.com/ant-design/pro-components/commit/0ebd3db)
+- fix(field): use open replace visible. [8dcf66a](https://github.com/ant-design/pro-components/commit/8dcf66a)
+
+## @ant-design/pro-components@2.3.14
+
+`2022-10-10`
+
+- fix(layout): support pageContainer.token. [0abcbd4](https://github.com/ant-design/pro-components/commit/0abcbd4)
+- fix(layout): support pageContainer.token. [bd6e110](https://github.com/ant-design/pro-components/commit/bd6e110)
+- fix(layout): fix pageheader style overwrite. [5b1a774](https://github.com/ant-design/pro-components/commit/5b1a774)
+- fix(layout): fix layout margin style error. [3f9e8b5](https://github.com/ant-design/pro-components/commit/3f9e8b5)
+- fix(layout): fix back icon style error. [1ecdad4](https://github.com/ant-design/pro-components/commit/1ecdad4)
+- fix(form): fix showSearch title no work error. [96da32d](https://github.com/ant-design/pro-components/commit/96da32d)
+- fix(form): remove redundant code (#6030). [#6030](https://github.com/ant-design/pro-components/pull/#6030) [@kiner-tang](https://github.com/kiner-tang)
+- fix(form): 修复 ListItem 自定义样式和样式名称不生效的 BUG (#5982). [#5982](https://github.com/ant-design/pro-components/pull/#5982) [@hqwlkj](https://github.com/hqwlkj)
+- fix(form): 解决 moneySymbol 设置为 false 时金额格式化异常问题 (#6012). [#6012](https://github.com/ant-design/pro-components/pull/#6012) [@kiner-tang](https://github.com/kiner-tang)
+- fix(form): 修复 ModalForm 和 DrawerForm 关闭过程中表单内容闪现初始值的问题 (#6009). [#6009](https://github.com/ant-design/pro-components/pull/#6009) [@kiner-tang](https://github.com/kiner-tang)
+- fix(table):DragSortTable - 拖动排序表格设置 rowClassName 无效问题 (#6038). [#6038](https://github.com/ant-design/pro-components/pull/#6038) [@hqwlkj](https://github.com/hqwlkj)
+
 ## @ant-design/pro-components@2.3.13
 
 `2022-09-28`
