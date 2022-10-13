@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [7.1.6](https://github.com/ant-design/pro-components/compare/@ant-design/pro-layout@7.1.5...@ant-design/pro-layout@7.1.6) (2022-10-13)
+
+### Bug Fixes
+
+- **layout:** use inline style ([827349d](https://github.com/ant-design/pro-components/commit/827349dc9ba93d84645259b0da2794606c6038b1))
+- **layout:** 优化页面滑动的问题 ([367c667](https://github.com/ant-design/pro-components/commit/367c667a0cabc01f612c1b6d4208c33d6004b907))
+
 ## [7.1.5](https://github.com/ant-design/pro-components/compare/@ant-design/pro-layout@7.1.4...@ant-design/pro-layout@7.1.5) (2022-10-11)
 
 ### Bug Fixes
