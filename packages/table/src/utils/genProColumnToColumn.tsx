@@ -61,7 +61,6 @@ export function genProColumnToColumn<T>(
         key || dataIndex?.toString(),
         [parents?.key, columnsIndex].filter(Boolean).join('-'),
       );
-      console.log(key, dataIndex?.toString());
       // 这些都没有，说明是普通的表格不需要 pro 管理
       const noNeedPro = !valueEnum && !valueType && !children;
       if (noNeedPro) {
