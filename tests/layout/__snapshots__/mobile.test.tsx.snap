@@ -13,7 +13,7 @@ exports[`mobile BasicLayout 📱 base use 1`] = `
       />
       <section
         class="ant-layout ant-layout-has-sider"
-        style="min-height: 100%;"
+        style="min-height: 100%; flex-direction: row;"
       >
         <div
           class="ant-drawer ant-drawer-left ant-drawer-inline"
@@ -283,7 +283,7 @@ exports[`mobile BasicLayout 📱 collapsed=false 1`] = `
       />
       <section
         class="ant-layout ant-layout-has-sider"
-        style="min-height: 100%;"
+        style="min-height: 100%; flex-direction: row;"
       >
         <div
           class="ant-drawer ant-drawer-left ant-drawer-open ant-drawer-inline"
@@ -571,7 +571,7 @@ exports[`mobile BasicLayout 📱 layout menuHeaderRender 1`] = `
       />
       <section
         class="ant-layout"
-        style="min-height: 100%;"
+        style="min-height: 100%; flex-direction: row;"
       >
         <div
           class="ant-drawer ant-drawer-left ant-drawer-inline"
@@ -656,7 +656,7 @@ exports[`mobile BasicLayout 📱 layout menuHeaderRender 2`] = `
       />
       <section
         class="ant-layout"
-        style="min-height: 100%;"
+        style="min-height: 100%; flex-direction: row;"
       >
         <div
           class="ant-drawer ant-drawer-left ant-drawer-inline"
@@ -741,7 +741,7 @@ exports[`mobile BasicLayout 📱 layout menuHeaderRender=false 1`] = `
       />
       <section
         class="ant-layout"
-        style="min-height: 100%;"
+        style="min-height: 100%; flex-direction: row;"
       >
         <div
           class="ant-drawer ant-drawer-left ant-drawer-inline"
@@ -825,7 +825,7 @@ exports[`mobile BasicLayout 📱 layout=mix 1`] = `
       />
       <section
         class="ant-layout ant-layout-has-sider"
-        style="min-height: 100%;"
+        style="min-height: 100%; flex-direction: row;"
       >
         <div
           class="ant-drawer ant-drawer-left ant-drawer-open ant-drawer-inline"
@@ -1117,7 +1117,7 @@ exports[`mobile BasicLayout 📱 layout=mix and splitMenus 1`] = `
       />
       <section
         class="ant-layout ant-layout-has-sider"
-        style="min-height: 100%;"
+        style="min-height: 100%; flex-direction: row;"
       >
         <div
           class="ant-drawer ant-drawer-left ant-drawer-open ant-drawer-inline"

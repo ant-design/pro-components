@@ -44603,7 +44603,7 @@ exports[`form demos 📸 renders ./packages/form/src/demos/layout-footer.tsx cor
       />
       <section
         class="ant-layout ant-layout-has-sider"
-        style="min-height: 100%;"
+        style="min-height: 100%; flex-direction: row;"
       >
         <div
           style="width: 60px; overflow: hidden; flex: 0 0 60px; max-width: 60px; min-width: 60px; transition: all 0.2s ease 0s;"

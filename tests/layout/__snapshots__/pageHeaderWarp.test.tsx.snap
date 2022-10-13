@@ -12,7 +12,7 @@ exports[`BasicLayout base use 1`] = `
     />
     <section
       class="ant-layout"
-      style="min-height:100%"
+      style="min-height:100%;flex-direction:row"
     >
       <div
         style="width:256px;overflow:hidden;flex:0 0 256px;max-width:256px;min-width:256px;transition:all 0.2s ease 0s"
@@ -272,7 +272,7 @@ exports[`BasicLayout content is text 1`] = `
     />
     <section
       class="ant-layout"
-      style="min-height:100%"
+      style="min-height:100%;flex-direction:row"
     >
       <div
         style="width:256px;overflow:hidden;flex:0 0 256px;max-width:256px;min-width:256px;transition:all 0.2s ease 0s"

@@ -328,7 +328,7 @@ exports[`PageContainer 🐲 FooterToolbar should know width 1`] = `
     />
     <section
       class="ant-layout ant-layout-has-sider"
-      style="min-height: 100%;"
+      style="min-height: 100%; flex-direction: row;"
     >
       <div
         class="ant-pro-layout-container "
@@ -658,7 +658,7 @@ exports[`PageContainer 🐲 footer should know width 1`] = `
     />
     <section
       class="ant-layout ant-layout-has-sider"
-      style="min-height: 100%;"
+      style="min-height: 100%; flex-direction: row;"
     >
       <div
         class="ant-pro-layout-container "
@@ -881,7 +881,7 @@ exports[`PageContainer 🐲 pro-layout support breadcrumbProps 1`] = `
     />
     <section
       class="ant-layout"
-      style="min-height:100%"
+      style="min-height:100%;flex-direction:row"
     >
       <div
         style="width:256px;overflow:hidden;flex:0 0 256px;max-width:256px;min-width:256px;transition:all 0.2s ease 0s"
