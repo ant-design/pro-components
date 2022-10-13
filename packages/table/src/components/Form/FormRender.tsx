@@ -1,6 +1,7 @@
 ﻿import type { BaseQueryFilterProps, ProFormProps } from '@ant-design/pro-form';
 import { BetaSchemaForm } from '@ant-design/pro-form';
-import { ProSchemaComponentTypes, useToken } from '@ant-design/pro-utils';
+import type { ProSchemaComponentTypes } from '@ant-design/pro-utils';
+import { useToken } from '@ant-design/pro-utils';
 import type { FormInstance, FormItemProps } from 'antd';
 import { ConfigProvider, Table } from 'antd';
 import classNames from 'classnames';
@@ -195,8 +196,7 @@ const FormRender = <T, U = any>({
 
   return (
     <div
-      className={classNames({
-        hashId,
+      className={classNames(hashId, {
         [getPrefixCls('pro-card')]: true,
         [`${getPrefixCls('pro-card')}-border`]: !!bordered,
         [`${getPrefixCls('pro-card')}-bordered`]: !!bordered,

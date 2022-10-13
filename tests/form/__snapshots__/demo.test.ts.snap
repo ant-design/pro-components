@@ -49227,7 +49227,7 @@ exports[`form demos 📸 renders ./packages/form/src/demos/pro-form-editableTabl
                 class="ant-form-item-control-input-content"
               >
                 <div
-                  class="ant-pro-table"
+                  class="ant-pro-table "
                 >
                   <div
                     class="ant-pro-card"
