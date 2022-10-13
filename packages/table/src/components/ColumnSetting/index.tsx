@@ -134,9 +134,17 @@ const CheckboxList: React.FC<{
     const checkedKeys: string[] = [];
     const treeMap = new Map<string | number, DataNode>();
 
-    const loopData = (data: any[], parentConfig?: ColumnsState): DataNode[] =>
+    const loopData = (
+      data: any[],
+      parentConfig?: ColumnsState & {
+        columnKey: string;
+      },
+    ): DataNode[] =>
       data.map(({ key, dataIndex, children, ...rest }) => {
-        const columnKey = genColumnKey(key, rest.index);
+        const columnKey = genColumnKey(
+          key,
+          [parentConfig?.columnKey, rest.index].filter(Boolean).join('-'),
+        );
         const config = columnsMap[columnKey || 'null'] || { show: true };
         if (config.show !== false && !children) {
           checkedKeys.push(columnKey);
@@ -152,7 +160,10 @@ const CheckboxList: React.FC<{
           isLeaf: parentConfig ? true : undefined,
         };
         if (children) {
-          item.children = loopData(children, config);
+          item.children = loopData(children, {
+            ...config,
+            columnKey,
+          });
           // 如果children 已经全部是show了，把自己也设置为show
           if (
             item.children?.every((childrenItem) =>
