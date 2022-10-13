@@ -8,6 +8,16 @@ group:
   path: /
 ---
 
+## @ant-design/pro-components@2.3.17
+
+`2022-10-13`
+
+- fix(layout): 优化页面滑动的问题. [367c667](https://github.com/ant-design/pro-components/commit/367c667)
+- fix(layout): use inline style. [827349d](https://github.com/ant-design/pro-components/commit/827349d)
+- fix(form): fix filter dropdown not close (#6067). [#6067](https://github.com/ant-design/pro-components/pull/#6067) [@ONLY-yours](https://github.com/ONLY-yours)
+- fix(table): fix no has key when maxsize call error. [657e971](https://github.com/ant-design/pro-components/commit/657e971)
+- fix(table): card add hashid. [b98c387](https://github.com/ant-design/pro-components/commit/b98c387)
+
 ## @ant-design/pro-components@2.3.15
 
 `2022-10-11`
