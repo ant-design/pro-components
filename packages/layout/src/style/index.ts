@@ -61,6 +61,7 @@ const compatibleStyle: GenerateStyle<ProLayoutToken & LayoutDesignToken> = (toke
             ${token.antCls}-menu-submenu-active, 
             ${token.antCls}-menu-submenu-title:hover`]: {
             color: token.sider.colorTextMenuActive,
+            backgroundColor: token.sider.colorBgMenuItemHover,
             borderRadius: token.radiusBase,
             [`${token.antCls}-menu-submenu-arrow`]: {
               color: token.sider.colorTextMenuActive,
@@ -77,6 +78,7 @@ const compatibleStyle: GenerateStyle<ProLayoutToken & LayoutDesignToken> = (toke
             ${token.antCls}-menu-submenu-title:hover`]: {
             color: token.sider.colorTextMenuActive,
             borderRadius: token.radiusBase,
+            backgroundColor: token.sider.colorBgMenuItemHover,
             [`${token.antCls}-menu-submenu-arrow`]: {
               color: token.sider.colorTextMenuActive,
             },
@@ -112,6 +114,7 @@ const compatibleStyle: GenerateStyle<ProLayoutToken & LayoutDesignToken> = (toke
           ${token.antCls}-menu-submenu-active`]: {
             borderRadius: 4,
             color: token.header.colorTextMenuActive,
+            backgroundColor: token.header.colorBgMenuItemHover,
           },
 
           [`${token.antCls}-menu-item-open,
@@ -149,15 +152,16 @@ const compatibleStyle: GenerateStyle<ProLayoutToken & LayoutDesignToken> = (toke
             ${token.antCls}-menu-submenu-title:hover`]: {
             color: token.header.colorTextMenuActive,
             borderRadius: token.radiusBase,
+            backgroundColor: token.header.colorBgMenuItemSelected,
             [`${token.antCls}-menu-submenu-arrow`]: {
               color: token.header.colorTextMenuActive,
             },
           },
 
           [`${token.antCls}-menu-item-selected`]: {
-            color: token.header.colorTextMenuActive,
-            fontWeight: 'bold',
+            color: token.header.colorTextMenuSelected,
             borderRadius: token.radiusBase,
+            backgroundColor: token.header.colorBgMenuItemSelected,
           },
         },
       },
@@ -179,18 +183,15 @@ const compatibleStyle: GenerateStyle<ProLayoutToken & LayoutDesignToken> = (toke
       },
       [`${token.antCls}-menu-item-selected`]: {
         color: token.sider.colorTextMenuSelected,
-        fontWeight: 'bold',
       },
       [`${token.antCls}-menu-submenu-selected`]: {
         color: token.sider.colorTextMenuSelected,
-        fontWeight: 'bold',
       },
       [`${token.antCls}-menu:not(${token.antCls}-menu-horizontal)`]: {
         [`${token.antCls}-menu-item-selected`]: {
           backgroundColor: 'rgba(0, 0, 0, 0.04)',
           borderRadius: token.radiusBase,
           color: token.sider.colorTextMenuSelected,
-          fontWeight: 'bold',
         },
         [`${token.antCls}-menu-item:hover, 
           ${token.antCls}-menu-item-active,

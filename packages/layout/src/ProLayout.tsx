@@ -668,6 +668,7 @@ const BaseProLayout: React.FC<ProLayoutProps> = (props) => {
             <Layout
               style={{
                 minHeight: '100%',
+                // hack style
                 flexDirection: siderMenuDom ? 'row' : undefined,
                 ...style,
               }}

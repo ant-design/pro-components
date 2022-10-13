@@ -365,6 +365,8 @@ const PageContainer: React.FC<PageContainerProps> = (props) => {
     children,
     basePageContainer,
     hashId,
+    propsToken?.paddingBlockPageContainerContent,
+    propsToken?.paddingInlinePageContainerContent,
     value.hasFooterToolbar,
     pageContainer.paddingBlockPageContainerContent,
   ]);
