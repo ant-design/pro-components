@@ -194,10 +194,6 @@ const FormRender = <T, U = any>({
     [submitButtonLoading],
   );
 
-  // 引入搜索栏目card的hashId
-  const prefixCls = getPrefixCls('pro-card');
-  const { hashId } = useStyle(prefixCls);
-
   return (
     <div
       className={classNames(hashId, {
