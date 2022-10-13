@@ -11125,6 +11125,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/base.tsx correctl
                   >
                     <div
                       class="ant-pro-page-container-children-content "
+                      style="padding-inline: 40px;"
                     >
                       <div
                         class="ant-pro-card"

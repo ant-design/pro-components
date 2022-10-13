@@ -109,7 +109,7 @@ const genProLayoutBaseMenuStyle: GenerateStyle<
 
 export function useStyle(prefixCls: string) {
   const { sider } = useContext(ProLayoutContext);
-  return useAntdStyle('pro-layout-base-menu', (token) => {
+  return useAntdStyle('ProLayoutBaseMenu', (token) => {
     const proLayoutMenuToken: ProLayoutBaseMenuToken & BaseLayoutDesignToken['sider'] = {
       ...token,
       componentCls: `.${prefixCls}`,

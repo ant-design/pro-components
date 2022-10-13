@@ -342,7 +342,13 @@ const PageContainer: React.FC<PageContainerProps> = (props) => {
   const content = useMemo(() => {
     return children ? (
       <>
-        <div className={classNames(`${basePageContainer}-children-content ${hashId}`)}>
+        <div
+          className={classNames(`${basePageContainer}-children-content ${hashId}`)}
+          style={{
+            paddingBlock: propsToken?.paddingBlockPageContainerContent,
+            paddingInline: propsToken?.paddingInlinePageContainerContent,
+          }}
+        >
           {children}
         </div>
         {value.hasFooterToolbar && (

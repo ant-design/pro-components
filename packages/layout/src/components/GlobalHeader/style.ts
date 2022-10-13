@@ -69,7 +69,7 @@ const genGlobalHeaderStyle: GenerateStyle<GlobalHeaderToken> = (token) => {
 
 export function useStyle(prefixCls: string) {
   const { header } = useContext(ProLayoutContext);
-  return useAntdStyle('pro-layout-global-header', (token) => {
+  return useAntdStyle('ProLayoutGlobalHeader', (token) => {
     const GlobalHeaderToken: GlobalHeaderToken = {
       ...token,
       componentCls: `.${prefixCls}`,

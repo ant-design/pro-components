@@ -268,7 +268,7 @@ const genProLayoutStyle: GenerateStyle<ProLayoutToken & LayoutDesignToken> = (to
 
 export function useStyle(prefixCls: string) {
   const proToken = useContext(ProLayoutContext);
-  return useAntdStyle('pro-layout', (token) => {
+  return useAntdStyle('ProLayout', (token) => {
     const proLayoutToken = {
       ...token,
       componentCls: `.${prefixCls}`,

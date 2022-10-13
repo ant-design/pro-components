@@ -88,7 +88,7 @@ export type pageContainerToken = {
 export function useStyle(prefixCls: string, componentsToken: pageContainerToken | undefined) {
   const { pageContainer } = useContext(ProLayoutContext);
   return useAntdStyle(
-    'page-container',
+    'PageContainer',
     (token) => {
       const proCardToken: PageContainerToken & BaseLayoutDesignToken['pageContainer'] = {
         ...token,
