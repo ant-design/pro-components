@@ -150,6 +150,7 @@ const PageHeader: React.FC<PageHeaderProps> = (props) => {
     breadcrumb,
     breadcrumbRender,
     className: customizeClassName,
+    ghost,
   } = props;
 
   const prefixCls = getPrefixCls('page-header', customizePrefixCls);
@@ -171,12 +172,13 @@ const PageHeader: React.FC<PageHeaderProps> = (props) => {
 
   const breadcrumbDom = isBreadcrumbComponent ? breadcrumb : breadcrumbRenderDomFromProps;
 
-  const className = classNames(prefixCls, props.className, customizeClassName, {
+  const className = classNames(prefixCls, customizeClassName, {
     hashId,
     [`${prefixCls}-has-breadcrumb`]: !!breadcrumbDom,
     [`${prefixCls}-has-footer`]: !!footer,
     [`${prefixCls}-rtl`]: direction === 'rtl',
     [`${prefixCls}-compact`]: compact,
+    [`${prefixCls}-ghost`]: !!ghost,
   });
   const title = renderTitle(prefixCls, props, direction, hashId);
   const childDom = children && renderChildren(prefixCls, children, hashId);
