@@ -615,7 +615,10 @@ const BaseProLayout: React.FC<ProLayoutProps> = (props) => {
   }, [location.pathname, location.pathname?.search]);
 
   const [hasFooterToolbar, setHasFooterToolbar] = useState(false);
-  const [hasPageContainer, setHasPageContainer] = useState(false);
+  /**
+   * 使用number是因为多标签页的时候有多个 PageContainer，只有有任意一个就应该展示这个className
+   */
+  const [hasPageContainer, setHasPageContainer] = useState(0);
   useDocumentTitle(pageTitleInfo, props.title || false);
   const bgImgStyleList = useMemo(() => {
     if (bgLayoutImgList && bgLayoutImgList.length > 0) {

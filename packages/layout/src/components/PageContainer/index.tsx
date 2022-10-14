@@ -295,9 +295,9 @@ const PageContainer: React.FC<PageContainerProps> = (props) => {
     if (!value || !value?.setHasPageContainer) {
       return () => {};
     }
-    value?.setHasPageContainer?.(true);
+    value?.setHasPageContainer?.((num) => num + 1);
     return () => {
-      value?.setHasPageContainer?.(false);
+      value?.setHasPageContainer?.((num) => num - 1);
     };
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
