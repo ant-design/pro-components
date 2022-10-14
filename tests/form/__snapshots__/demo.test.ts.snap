@@ -1996,7 +1996,6 @@ exports[`form demos 📸 renders ./packages/form/src/components/FieldSet/demos/c
                           class="ant-input-affix-wrapper ant-input-password pro-field pro-field-md"
                         >
                           <input
-                            action="click"
                             class="ant-input"
                             id="validate_other_password"
                             placeholder="请输入"
@@ -43246,7 +43245,6 @@ exports[`form demos 📸 renders ./packages/form/src/demos/label-col.tsx correct
                   class="ant-input-affix-wrapper ant-input-password"
                 >
                   <input
-                    action="click"
                     class="ant-input"
                     id="basic_password"
                     placeholder="请输入"
@@ -44510,7 +44508,7 @@ exports[`form demos 📸 renders ./packages/form/src/demos/layout-footer.tsx cor
       />
       <section
         class="ant-layout ant-layout-has-sider"
-        style="min-height: 100%;"
+        style="min-height: 100%; flex-direction: row;"
       >
         <div
           style="width: 60px; overflow: hidden; flex: 0 0 60px; max-width: 60px; min-width: 60px; transition: all 0.2s ease 0s;"
@@ -44526,7 +44524,7 @@ exports[`form demos 📸 renders ./packages/form/src/demos/layout-footer.tsx cor
               style="flex: 1; overflow-y: auto; overflow-x: hidden;"
             >
               <ul
-                class="ant-menu ant-menu-root ant-menu-vertical ant-pro-sider-menu  ant-pro-base-menu ant-pro-base-menu-collapsed ant-menu-inline-collapsed"
+                class="ant-menu ant-menu-root ant-menu-vertical ant-menu-light ant-pro-sider-menu  ant-pro-base-menu ant-pro-base-menu-collapsed ant-menu-inline-collapsed"
                 data-menu-list="true"
                 role="menu"
                 style="background-color: transparent; width: 100%;"
@@ -44768,10 +44766,10 @@ exports[`form demos 📸 renders ./packages/form/src/demos/layout-footer.tsx cor
             class="ant-layout-content ant-pro-layout-content ant-pro-layout-has-header ant-pro-layout-content-has-page-container"
           >
             <div
-              class="ant-pro-page-container ant-pro-page-container-ghost"
+              class="ant-pro-page-container"
             >
               <div
-                class="ant-page-header ant-pro-page-container-warp-page-header  ant-pro-page-container-warp-page-header  ant-page-header-has-breadcrumb ant-page-header-ghost"
+                class="ant-page-header ant-pro-page-container-warp-page-header  ant-pro-page-container-warp-page-header  ant-page-header-has-breadcrumb"
               >
                 <nav
                   class="ant-breadcrumb ant-page-header-breadcrumb"
@@ -49228,7 +49226,7 @@ exports[`form demos 📸 renders ./packages/form/src/demos/pro-form-editableTabl
                 class="ant-form-item-control-input-content"
               >
                 <div
-                  class="ant-pro-table"
+                  class="ant-pro-table "
                 >
                   <div
                     class="ant-pro-card"

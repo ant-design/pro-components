@@ -76,12 +76,22 @@ export type BaseLayoutDesignToken = {
     colorBgPageContainer: string;
     /**
      * pageContainer 自带的 margin inline
+     * @deprecated 请使用 paddingInlinePageContainerContent
      */
     marginInlinePageContainerContent: number;
     /**
      * pageContainer 自带的 margin block
+     * @deprecated 请使用 paddingBlockPageContainerContent
      */
     marginBlockPageContainerContent: number;
+    /**
+     * pageContainer 自带的 padding inline
+     */
+    paddingInlinePageContainerContent: number;
+    /**
+     * pageContainer 自带的 padding block
+     */
+    paddingBlockPageContainerContent: number;
     /**
      * pageContainer 被固定时的背景颜色
      */
@@ -146,8 +156,10 @@ export const getLayoutDesignToken: (
     } as LayoutDesignToken['sider'],
     pageContainer: {
       colorBgPageContainer: 'transparent',
-      marginBlockPageContainerContent: 24,
-      marginInlinePageContainerContent: 40,
+      paddingInlinePageContainerContent:
+        finalDesignTokens.pageContainer?.marginInlinePageContainerContent || 40,
+      paddingBlockPageContainerContent:
+        finalDesignTokens.pageContainer?.marginBlockPageContainerContent || 24,
       colorBgPageContainerFixed: '#fff',
       ...finalDesignTokens.pageContainer,
     },

@@ -2,6 +2,33 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [7.1.6](https://github.com/ant-design/pro-components/compare/@ant-design/pro-layout@7.1.5...@ant-design/pro-layout@7.1.6) (2022-10-13)
+
+### Bug Fixes
+
+- **layout:** use inline style ([827349d](https://github.com/ant-design/pro-components/commit/827349dc9ba93d84645259b0da2794606c6038b1))
+- **layout:** 优化页面滑动的问题 ([367c667](https://github.com/ant-design/pro-components/commit/367c667a0cabc01f612c1b6d4208c33d6004b907))
+
+## [7.1.5](https://github.com/ant-design/pro-components/compare/@ant-design/pro-layout@7.1.4...@ant-design/pro-layout@7.1.5) (2022-10-11)
+
+### Bug Fixes
+
+- **layout:** fix PageContainer token no rerender error ([5611a16](https://github.com/ant-design/pro-components/commit/5611a16b8314de5207c3149c4053521bba9563fb))
+
+## [7.1.4](https://github.com/ant-design/pro-components/compare/@ant-design/pro-layout@7.1.3...@ant-design/pro-layout@7.1.4) (2022-10-10)
+
+### Bug Fixes
+
+- **layout:** fix back icon style error ([1ecdad4](https://github.com/ant-design/pro-components/commit/1ecdad4c006bfc7b7c2fe9fba63731fcb64cb4c3))
+- **layout:** fix layout margin style error ([3f9e8b5](https://github.com/ant-design/pro-components/commit/3f9e8b5915bf7996a77242df52b2865ce794c2e9))
+- **layout:** fix pageheader style overwrite ([5b1a774](https://github.com/ant-design/pro-components/commit/5b1a774a31a6ffb31c7a2f5c72950431b290e5da))
+- **layout:** support pageContainer.token ([0abcbd4](https://github.com/ant-design/pro-components/commit/0abcbd42c52e57a679f323e44a001e16399ea27e))
+- **layout:** support pageContainer.token ([bd6e110](https://github.com/ant-design/pro-components/commit/bd6e110e3f2bfea7fb4f5cad1983b1cb2411b2b3))
+
+## [7.1.3](https://github.com/ant-design/pro-components/compare/@ant-design/pro-layout@7.1.2...@ant-design/pro-layout@7.1.3) (2022-09-28)
+
+**Note:** Version bump only for package @ant-design/pro-layout
+
 ## [7.1.2](https://github.com/ant-design/pro-components/compare/@ant-design/pro-layout@7.1.1...@ant-design/pro-layout@7.1.2) (2022-09-22)
 
 ### Bug Fixes

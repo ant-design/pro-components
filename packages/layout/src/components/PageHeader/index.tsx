@@ -2,7 +2,7 @@ import ArrowLeftOutlined from '@ant-design/icons/ArrowLeftOutlined';
 import ArrowRightOutlined from '@ant-design/icons/ArrowRightOutlined';
 import { useSafeState } from '@ant-design/pro-utils';
 import type { AvatarProps, BreadcrumbProps, TagType } from 'antd';
-import { Avatar, Breadcrumb, Button, ConfigProvider, Space } from 'antd';
+import { Avatar, Breadcrumb, ConfigProvider, Space } from 'antd';
 import type { DirectionType } from 'antd/es/config-provider';
 import classNames from 'classnames';
 import ResizeObserver from 'rc-resize-observer';
@@ -29,6 +29,7 @@ export interface PageHeaderProps {
 
 const renderBack = (
   prefixCls: string,
+  hashId: string,
   backIcon?: React.ReactNode,
   onBack?: (e?: React.MouseEvent<HTMLElement>) => void,
 ) => {
@@ -36,27 +37,30 @@ const renderBack = (
     return null;
   }
   return (
-    <div className={`${prefixCls}-back`}>
-      <Button
-        type="text"
+    <div className={`${prefixCls}-back ${hashId}`}>
+      <div
+        role="button"
         onClick={(e) => {
           onBack?.(e);
         }}
-        className={`${prefixCls}-back-button`}
+        className={`${prefixCls}-back-button ${hashId}`}
         aria-label="back"
       >
         {backIcon}
-      </Button>
+      </div>
     </div>
   );
 };
 
-const renderBreadcrumb = (breadcrumb: BreadcrumbProps, prefixCls: string) => (
-  <Breadcrumb
-    {...breadcrumb}
-    className={classNames(`${prefixCls}-breadcrumb`, breadcrumb.className)}
-  />
-);
+const renderBreadcrumb = (breadcrumb: BreadcrumbProps, prefixCls: string) => {
+  if (!breadcrumb.routes?.length) return null;
+  return (
+    <Breadcrumb
+      {...breadcrumb}
+      className={classNames(`${prefixCls}-breadcrumb`, breadcrumb.className)}
+    />
+  );
+};
 
 const getBackIcon = (props: PageHeaderProps, direction: DirectionType = 'ltr') => {
   if (props.backIcon !== undefined) {
@@ -79,7 +83,7 @@ const renderTitle = (
     return null;
   }
   const backIcon = getBackIcon(props, direction);
-  const backIconDom = renderBack(prefixCls, backIcon, onBack);
+  const backIconDom = renderBack(prefixCls, hashId, backIcon, onBack);
   const hasTitle = backIconDom || avatar || hasHeading;
   return (
     <div className={headingPrefixCls + ' ' + hashId}>
@@ -136,7 +140,7 @@ const PageHeader: React.FC<PageHeaderProps> = (props) => {
   const onResize = ({ width }: { width: number }) => {
     updateCompact(width < 768, true);
   };
-  const { getPrefixCls, pageHeader, direction } = React.useContext(ConfigProvider.ConfigContext);
+  const { getPrefixCls, direction } = React.useContext(ConfigProvider.ConfigContext);
 
   const {
     prefixCls: customizePrefixCls,
@@ -147,14 +151,6 @@ const PageHeader: React.FC<PageHeaderProps> = (props) => {
     breadcrumbRender,
     className: customizeClassName,
   } = props;
-  let ghost: undefined | boolean = true;
-
-  // Use `ghost` from `props` or from `ConfigProvider` instead.
-  if ('ghost' in props) {
-    ghost = props.ghost;
-  } else if (pageHeader && 'ghost' in pageHeader) {
-    ghost = pageHeader.ghost;
-  }
 
   const prefixCls = getPrefixCls('page-header', customizePrefixCls);
   const { wrapSSR, hashId } = useStyle(prefixCls);
@@ -179,7 +175,6 @@ const PageHeader: React.FC<PageHeaderProps> = (props) => {
     hashId,
     [`${prefixCls}-has-breadcrumb`]: !!breadcrumbDom,
     [`${prefixCls}-has-footer`]: !!footer,
-    [`${prefixCls}-ghost`]: ghost,
     [`${prefixCls}-rtl`]: direction === 'rtl',
     [`${prefixCls}-compact`]: compact,
   });

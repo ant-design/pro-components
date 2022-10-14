@@ -1121,6 +1121,27 @@ describe('Field', () => {
     html.unmount();
   });
 
+  it('🐴 password support controlled open', async () => {
+    const fn = jest.fn();
+    const html = render(
+      <Field
+        text={123456}
+        onOpenChange={(open) => fn(open)}
+        open
+        valueType="password"
+        mode="read"
+      />,
+    );
+    await waitForComponentToPaint(html);
+    act(() => {
+      fireEvent.click(html.baseElement.querySelector('span.anticon-eye')!);
+    });
+    await waitForComponentToPaint(html);
+    expect(!!html.baseElement.querySelector('span.anticon-eye-invisible')).toBeFalsy();
+    expect(fn).toBeCalledWith(false);
+    html.unmount();
+  });
+
   it('🐴 password support controlled visible', async () => {
     const fn = jest.fn();
     const html = render(

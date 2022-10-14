@@ -21,6 +21,10 @@ export default () => {
         boxShadow: '0 0 8px rgba(0, 0, 0, 0.2)',
         minHeight: '100vh',
         background: '#F5F7FA',
+        display: 'flex',
+        flexDirection: 'column',
+        gap: 24,
+        padding: 24,
       }}
     >
       <Card>

@@ -2,6 +2,22 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.0.6](https://github.com/ant-design/pro-components/compare/@ant-design/pro-provider@2.0.5...@ant-design/pro-provider@2.0.6) (2022-10-11)
+
+### Bug Fixes
+
+- **provide:** 修复 pro-provider 的 ConfigProviderWrap 组件导致子组件重新渲染 ([#6055](https://github.com/ant-design/pro-components/issues/6055)) ([913328f](https://github.com/ant-design/pro-components/commit/913328f6d33f87cf4930c4fa62cf17a305226c62))
+
+## [2.0.5](https://github.com/ant-design/pro-components/compare/@ant-design/pro-provider@2.0.4...@ant-design/pro-provider@2.0.5) (2022-10-10)
+
+**Note:** Version bump only for package @ant-design/pro-provider
+
+## [2.0.4](https://github.com/ant-design/pro-components/compare/@ant-design/pro-provider@2.0.3...@ant-design/pro-provider@2.0.4) (2022-09-28)
+
+### Bug Fixes
+
+- **components:** provide support getPrefixCls ([b3da61f](https://github.com/ant-design/pro-components/commit/b3da61f2090071359d6faaa4322ecbf899075a05))
+
 ## [2.0.3](https://github.com/ant-design/pro-components/compare/@ant-design/pro-provider@2.0.2...@ant-design/pro-provider@2.0.3) (2022-09-08)
 
 ### Bug Fixes

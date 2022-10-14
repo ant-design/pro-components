@@ -6,13 +6,13 @@ import React from 'react';
 import { waitForComponentToPaint, waitTime } from '../util';
 
 describe('ModalForm', () => {
-  it('📦 trigger will simulate onVisibleChange', async () => {
+  it('📦 trigger will simulate onOpenChange', async () => {
     const fn = jest.fn();
     const wrapper = render(
       <ModalForm
         width={600}
         trigger={<Button id="new">新建</Button>}
-        onVisibleChange={(visible) => fn(visible)}
+        onOpenChange={(open) => fn(open)}
       >
         <ProFormText name="name" />
       </ModalForm>,
@@ -44,7 +44,7 @@ describe('ModalForm', () => {
           },
         }}
         trigger={<Button id="new">新建</Button>}
-        onVisibleChange={(visible) => fn(visible)}
+        onOpenChange={(open) => fn(open)}
       >
         <ProFormText name="name" />
       </ModalForm>,
@@ -73,7 +73,7 @@ describe('ModalForm', () => {
         initialValues={{
           name: '1234',
         }}
-        onVisibleChange={(visible) => fn(visible)}
+        onOpenChange={(open) => fn(open)}
       >
         <ProFormText
           name="name"
@@ -106,7 +106,7 @@ describe('ModalForm', () => {
           name: '1234',
         }}
         visible
-        onVisibleChange={(visible) => fn(visible)}
+        onOpenChange={(open) => fn(open)}
       >
         <ProFormText
           name="name"
@@ -130,7 +130,7 @@ describe('ModalForm', () => {
           name: '1234',
         }}
         modalProps={{ destroyOnClose: true }}
-        onVisibleChange={(visible) => fn(visible)}
+        onOpenChange={(open) => fn(open)}
       >
         <ProFormText
           name="name"
@@ -153,7 +153,7 @@ describe('ModalForm', () => {
           }}
           visible
           modalProps={{ destroyOnClose: true }}
-          onVisibleChange={(visible) => fn(visible)}
+          onOpenChange={(open) => fn(open)}
         >
           <ProFormText
             name="name"
@@ -178,7 +178,7 @@ describe('ModalForm', () => {
           }}
           open={false}
           modalProps={{ destroyOnClose: true }}
-          onVisibleChange={(visible) => fn(visible)}
+          onOpenChange={(open) => fn(open)}
         >
           <ProFormText
             name="name"
@@ -194,14 +194,10 @@ describe('ModalForm', () => {
     expect(await wrapper.queryByDisplayValue('1234')).toBeFalsy();
   });
 
-  it('📦 modal close button will simulate onVisibleChange', async () => {
+  it('📦 modal close button will simulate onOpenChange', async () => {
     const fn = jest.fn();
     const wrapper = render(
-      <ModalForm
-        visible
-        trigger={<Button id="new">新建</Button>}
-        onVisibleChange={(visible) => fn(visible)}
-      >
+      <ModalForm visible trigger={<Button id="new">新建</Button>} onOpenChange={(open) => fn(open)}>
         <ProFormText name="name" />
       </ModalForm>,
     );
@@ -215,7 +211,7 @@ describe('ModalForm', () => {
     expect(fn).toBeCalledTimes(2);
   });
 
-  it('📦 modal open=true simulate onVisibleChange', async () => {
+  it('📦 modal open=true simulate onOpenChange', async () => {
     const fn = jest.fn();
     const wrapper = render(
       <ModalForm
@@ -231,14 +227,10 @@ describe('ModalForm', () => {
     expect(fn).toBeCalledWith(true);
   });
 
-  it('📦 reset button will simulate onVisibleChange', async () => {
+  it('📦 reset button will simulate onOpenChange', async () => {
     const fn = jest.fn();
     const wrapper = render(
-      <ModalForm
-        visible
-        trigger={<Button id="new">新建</Button>}
-        onVisibleChange={(visible) => fn(visible)}
-      >
+      <ModalForm visible trigger={<Button id="new">新建</Button>} onOpenChange={(open) => fn(open)}>
         <ProFormText name="name" />
       </ModalForm>,
     );
@@ -259,7 +251,7 @@ describe('ModalForm', () => {
           onCancel: () => fn(false),
         }}
         trigger={<Button id="new">新建</Button>}
-        onVisibleChange={(visible) => fn(visible)}
+        onOpenChange={(open) => fn(open)}
       >
         <ProFormText name="name" />
       </ModalForm>,
@@ -279,7 +271,7 @@ describe('ModalForm', () => {
       <ModalForm
         visible
         trigger={<Button id="new">新建</Button>}
-        onVisibleChange={(visible) => fn(visible)}
+        onOpenChange={(open) => fn(open)}
         onFinish={async () => true}
       >
         <ProFormText name="name" />
@@ -299,11 +291,7 @@ describe('ModalForm', () => {
   it('📦 form onFinish is null, no close modal', async () => {
     const fn = jest.fn();
     const wrapper = render(
-      <ModalForm
-        visible
-        trigger={<Button id="new">新建</Button>}
-        onVisibleChange={(visible) => fn(visible)}
-      >
+      <ModalForm visible trigger={<Button id="new">新建</Button>} onOpenChange={(open) => fn(open)}>
         <ProFormText name="name" />
       </ModalForm>,
     );

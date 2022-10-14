@@ -7,7 +7,7 @@ import type { ProFieldFC } from '../../index';
 import 'antd/es/input-number/style';
 //----------------------
 
-export type Value = string | number | undefined;
+export type Value = string | number | undefined | null;
 
 export type ValuePair = Value[];
 

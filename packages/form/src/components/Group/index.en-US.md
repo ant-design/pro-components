@@ -202,7 +202,7 @@ return (
    * @name custom action button
    *
    * @example delete button
-   * actionRender:(field,action)=><a onClick={()=>action.remove(field.key)}>remove</a>
+   * actionRender:(field,action)=><a onClick={()=>action.remove(field.name)}>remove</a>
    * @example can only add up to three new lines
    * actionRender:(f,action,_,count)=><a onClick={()=>
    * count>2?alert("Up to three lines!"):action.add({id:"xx"})}>delete

@@ -45,7 +45,7 @@ const FieldSegmented: ProFieldFC<
     return dom;
   }
   if (mode === 'edit' || mode === 'update') {
-    const dom = <Segmented ref={inputRef} allowClear {...fieldProps} options={options} />;
+    const dom = <Segmented ref={inputRef} {...fieldProps} options={options} />;
 
     if (renderFormItem) {
       return renderFormItem(rest.text, { mode, ...fieldProps, options }, dom);

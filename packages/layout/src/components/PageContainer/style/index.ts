@@ -15,13 +15,9 @@ const genPageContainerStyle: GenerateStyle<
   return {
     [token.componentCls]: {
       position: 'relative',
-      '&-layout-has-margin': {
-        marginBlock: token.marginBlockPageContainerContent,
-        marginInline: -token.marginInlinePageContainerContent,
-      },
       '&-children-content': {
-        marginBlock: token.marginBlockPageContainerContent,
-        marginInline: token.marginInlinePageContainerContent,
+        paddingBlock: token.paddingBlockPageContainerContent,
+        paddingInline: token.paddingInlinePageContainerContent,
       },
       '&-affix': {
         [`${token.antCls}-affix`]: {
@@ -32,12 +28,12 @@ const genPageContainerStyle: GenerateStyle<
         },
       },
       ['& &-warp-page-header']: {
-        marginBlockEnd: token.marginBlockPageContainerContent / 2,
-        paddingInlineStart: token.marginInlinePageContainerContent,
-        paddingInlineEnd: token.marginInlinePageContainerContent,
+        paddingBlockEnd: token.paddingBlockPageContainerContent / 2,
+        paddingInlineStart: token.paddingInlinePageContainerContent,
+        paddingInlineEnd: token.paddingInlinePageContainerContent,
         [`& ~ ${token.proComponentsCls}-grid-content`]: {
           [`${token.proComponentsCls}-page-container-children-content`]: {
-            marginBlock: token.marginBlockPageContainerContent / 3,
+            paddingBlock: token.paddingBlockPageContainerContent / 3,
           },
         },
       },
@@ -84,15 +80,26 @@ const genPageContainerStyle: GenerateStyle<
   };
 };
 
-export function useStyle(prefixCls: string) {
-  const { pageContainer } = useContext(ProLayoutContext);
-  return useAntdStyle('page-container', (token) => {
-    const proCardToken: PageContainerToken & BaseLayoutDesignToken['pageContainer'] = {
-      ...token,
-      componentCls: `.${prefixCls}`,
-      ...pageContainer,
-    };
+export type pageContainerToken = {
+  paddingInlinePageContainerContent?: number;
+  paddingBlockPageContainerContent?: number;
+};
 
-    return [genPageContainerStyle(proCardToken)];
-  });
+export function useStyle(prefixCls: string, componentsToken: pageContainerToken | undefined) {
+  const { pageContainer } = useContext(ProLayoutContext);
+  return useAntdStyle(
+    'PageContainer',
+    (token) => {
+      const proCardToken: PageContainerToken & BaseLayoutDesignToken['pageContainer'] = {
+        ...token,
+        componentCls: `.${prefixCls}`,
+        ...pageContainer,
+        ...componentsToken,
+      };
+
+      return [genPageContainerStyle(proCardToken)];
+    },
+    // 触发一下更新
+    componentsToken,
+  );
 }

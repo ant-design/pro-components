@@ -32,7 +32,7 @@ export default () => {
             通过 formRef 重置
           </Button>
         }
-        onVisibleChange={setModalVisible}
+        onOpenChange={setModalVisible}
         submitter={{
           searchConfig: {
             resetText: '重置',

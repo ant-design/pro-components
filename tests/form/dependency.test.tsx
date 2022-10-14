@@ -96,7 +96,7 @@ describe('ProForm Dependency component', () => {
     expect(html.find('div#show').text()).toBe('update');
   });
 
-  it('⛲  ProFormDependency support transform', async () => {
+  it('⛲ ProFormDependency support transform', async () => {
     const dependencyFn = jest.fn();
     const Demo: React.FC<{
       shouldUpdate?: boolean;

@@ -19,7 +19,7 @@ export const defaultRenderLogo = (
   logo: React.ReactNode | (() => React.ReactNode),
 ): React.ReactNode => {
   if (typeof logo === 'string') {
-    return <img src={logo} alt="logo" />;
+    return <img width="auto" height={22} src={logo} alt="logo" />;
   }
   if (typeof logo === 'function') {
     return logo();
@@ -79,7 +79,13 @@ export const AppsLogoComponents: React.FC<{
 
   return wrapSSR(
     <>
-      <div ref={ref} />
+      <div
+        ref={ref}
+        onClick={(e) => {
+          e.stopPropagation();
+          e.preventDefault();
+        }}
+      />
       <Popover
         placement="bottomRight"
         trigger={['click']}

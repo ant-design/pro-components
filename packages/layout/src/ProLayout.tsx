@@ -492,6 +492,7 @@ const BaseProLayout: React.FC<ProLayoutProps> = (props) => {
 
   // If it is a fix menu, calculate padding
   // don't need padding in phone mode
+  /* Checking if the menu is loading and if it is, it will return a skeleton loading screen. */
   const hasLeftPadding = propsLayout !== 'top' && !isMobile;
 
   const [collapsed, onCollapse] = useMergedState<boolean>(
@@ -614,7 +615,10 @@ const BaseProLayout: React.FC<ProLayoutProps> = (props) => {
   }, [location.pathname, location.pathname?.search]);
 
   const [hasFooterToolbar, setHasFooterToolbar] = useState(false);
-  const [hasPageContainer, setHasPageContainer] = useState(false);
+  /**
+   * 使用number是因为多标签页的时候有多个 PageContainer，只有有任意一个就应该展示这个className
+   */
+  const [hasPageContainer, setHasPageContainer] = useState(0);
   useDocumentTitle(pageTitleInfo, props.title || false);
   const bgImgStyleList = useMemo(() => {
     if (bgLayoutImgList && bgLayoutImgList.length > 0) {
@@ -667,6 +671,8 @@ const BaseProLayout: React.FC<ProLayoutProps> = (props) => {
             <Layout
               style={{
                 minHeight: '100%',
+                // hack style
+                flexDirection: siderMenuDom ? 'row' : undefined,
                 ...style,
               }}
             >

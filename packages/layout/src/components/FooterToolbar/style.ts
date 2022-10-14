@@ -42,7 +42,7 @@ const genFooterToolBarStyle: GenerateStyle<AppsLogoComponentsToken> = (token) =>
 };
 
 export function useStyle(prefixCls: string) {
-  return useAntdStyle('footer-toolbar', (token) => {
+  return useAntdStyle('FooterToolbar', (token) => {
     const proCardToken: AppsLogoComponentsToken = {
       ...token,
       componentCls: `.${prefixCls}`,

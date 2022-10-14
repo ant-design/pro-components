@@ -4849,9 +4849,6 @@ exports[`card demos 📸 renders ./packages/card/src/components/StatisticCard/de
                       <span
                         class="ant-badge-status-dot ant-badge-status-default"
                       />
-                      <span
-                        class="ant-badge-status-text"
-                      />
                     </span>
                   </div>
                   <div
@@ -4912,9 +4909,6 @@ exports[`card demos 📸 renders ./packages/card/src/components/StatisticCard/de
                     >
                       <span
                         class="ant-badge-status-dot ant-badge-status-processing"
-                      />
-                      <span
-                        class="ant-badge-status-text"
                       />
                     </span>
                   </div>
@@ -4977,9 +4971,6 @@ exports[`card demos 📸 renders ./packages/card/src/components/StatisticCard/de
                       <span
                         class="ant-badge-status-dot ant-badge-status-error"
                       />
-                      <span
-                        class="ant-badge-status-text"
-                      />
                     </span>
                   </div>
                   <div
@@ -5040,9 +5031,6 @@ exports[`card demos 📸 renders ./packages/card/src/components/StatisticCard/de
                     >
                       <span
                         class="ant-badge-status-dot ant-badge-status-success"
-                      />
-                      <span
-                        class="ant-badge-status-text"
                       />
                     </span>
                   </div>
@@ -5176,9 +5164,6 @@ exports[`card demos 📸 renders ./packages/card/src/components/StatisticCard/de
                           <span
                             class="ant-badge-status-dot ant-badge-status-default"
                           />
-                          <span
-                            class="ant-badge-status-text"
-                          />
                         </span>
                       </div>
                       <div
@@ -5237,9 +5222,6 @@ exports[`card demos 📸 renders ./packages/card/src/components/StatisticCard/de
                         >
                           <span
                             class="ant-badge-status-dot ant-badge-status-processing"
-                          />
-                          <span
-                            class="ant-badge-status-text"
                           />
                         </span>
                       </div>
@@ -5300,9 +5282,6 @@ exports[`card demos 📸 renders ./packages/card/src/components/StatisticCard/de
                           <span
                             class="ant-badge-status-dot ant-badge-status-error"
                           />
-                          <span
-                            class="ant-badge-status-text"
-                          />
                         </span>
                       </div>
                       <div
@@ -5361,9 +5340,6 @@ exports[`card demos 📸 renders ./packages/card/src/components/StatisticCard/de
                         >
                           <span
                             class="ant-badge-status-dot ant-badge-status-success"
-                          />
-                          <span
-                            class="ant-badge-status-text"
                           />
                         </span>
                       </div>
@@ -5573,9 +5549,6 @@ exports[`card demos 📸 renders ./packages/card/src/components/StatisticCard/de
                           <span
                             class="ant-badge-status-dot ant-badge-status-default"
                           />
-                          <span
-                            class="ant-badge-status-text"
-                          />
                         </span>
                       </div>
                       <div
@@ -5634,9 +5607,6 @@ exports[`card demos 📸 renders ./packages/card/src/components/StatisticCard/de
                         >
                           <span
                             class="ant-badge-status-dot ant-badge-status-processing"
-                          />
-                          <span
-                            class="ant-badge-status-text"
                           />
                         </span>
                       </div>
@@ -5697,9 +5667,6 @@ exports[`card demos 📸 renders ./packages/card/src/components/StatisticCard/de
                           <span
                             class="ant-badge-status-dot ant-badge-status-error"
                           />
-                          <span
-                            class="ant-badge-status-text"
-                          />
                         </span>
                       </div>
                       <div
@@ -5758,9 +5725,6 @@ exports[`card demos 📸 renders ./packages/card/src/components/StatisticCard/de
                         >
                           <span
                             class="ant-badge-status-dot ant-badge-status-success"
-                          />
-                          <span
-                            class="ant-badge-status-text"
                           />
                         </span>
                       </div>

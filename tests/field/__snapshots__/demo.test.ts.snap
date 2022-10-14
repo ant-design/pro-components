@@ -4205,7 +4205,6 @@ exports[`field demos 📸 renders ./packages/field/src/demos/base_test.tsx corre
                     class="ant-input-affix-wrapper ant-input-password"
                   >
                     <input
-                      action="click"
                       class="ant-input"
                       placeholder="请输入"
                       type="password"

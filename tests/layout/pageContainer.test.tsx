@@ -1,6 +1,7 @@
 import type { ProLayoutProps } from '@ant-design/pro-components';
 import { FooterToolbar, PageContainer, ProLayout } from '@ant-design/pro-components';
 import { render as libraryRender } from '@testing-library/react';
+import { Button } from 'antd';
 import { mount, render } from 'enzyme';
 import React, { useEffect, useMemo, useState } from 'react';
 import { act } from 'react-dom/test-utils';
@@ -24,6 +25,70 @@ describe('PageContainer', () => {
       </PageContainer>,
     );
     expect(html.find('.ant-page-header').exists()).toBeFalsy();
+  });
+
+  it('💄 has PageContainer className', async () => {
+    const Demo = () => {
+      const [state, setState] = useState(0);
+      return (
+        <ProLayout>
+          <Button
+            onClick={() => {
+              setState((num) => num + 1);
+            }}
+          >
+            切换
+          </Button>
+          {state > 0 && state < 3 ? (
+            <PageContainer title={false} ghost={false} header={undefined} breadcrumbRender={false}>
+              qixian
+            </PageContainer>
+          ) : null}
+          {state > 1 && state < 4 ? (
+            <PageContainer title={false} ghost={false} header={undefined} breadcrumbRender={false}>
+              qixian2
+            </PageContainer>
+          ) : null}
+        </ProLayout>
+      );
+    };
+    const html = libraryRender(<Demo />);
+
+    expect(
+      !!html.baseElement.querySelector('.ant-pro-layout-content-has-page-container'),
+    ).toBeFalsy();
+
+    await act(async () => {
+      (await html.findByText('切 换'))?.click?.();
+    });
+
+    expect(
+      !!html.baseElement.querySelector('.ant-pro-layout-content-has-page-container'),
+    ).toBeTruthy();
+
+    await act(async () => {
+      (await html.findByText('切 换'))?.click?.();
+    });
+
+    expect(
+      !!html.baseElement.querySelector('.ant-pro-layout-content-has-page-container'),
+    ).toBeTruthy();
+
+    await act(async () => {
+      (await html.findByText('切 换'))?.click?.();
+    });
+
+    expect(
+      !!html.baseElement.querySelector('.ant-pro-layout-content-has-page-container'),
+    ).toBeTruthy();
+
+    await act(async () => {
+      (await html.findByText('切 换'))?.click?.();
+    });
+
+    expect(
+      !!html.baseElement.querySelector('ant-pro-layout-content-has-page-container'),
+    ).toBeFalsy();
   });
 
   it('💄 pageContainer support breadcrumbRender', async () => {

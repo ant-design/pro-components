@@ -443,7 +443,7 @@ const SiderMenu: React.FC<SiderMenuProps & PrivateSiderMenuProps> = (props) => {
           // @ts-ignore
           theme={{
             hashed: false,
-            override: {
+            components: {
               Menu: {
                 radiusItem: 4,
                 colorItemBgSelected: sider.colorBgMenuItemSelected || 'rgba(0, 0, 0, 0.04)',
