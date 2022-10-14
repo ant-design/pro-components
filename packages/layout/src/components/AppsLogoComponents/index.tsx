@@ -19,7 +19,7 @@ export const defaultRenderLogo = (
   logo: React.ReactNode | (() => React.ReactNode),
 ): React.ReactNode => {
   if (typeof logo === 'string') {
-    return <img width={22} src={logo} alt="logo" />;
+    return <img width="auto" height={22} src={logo} alt="logo" />;
   }
   if (typeof logo === 'function') {
     return logo();

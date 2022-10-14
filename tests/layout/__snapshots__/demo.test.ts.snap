@@ -15815,8 +15815,9 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/customizeMenu.tsx
                 >
                   <img
                     alt="logo"
+                    height="22"
                     src="https://gw.alipayobjects.com/mdn/rms_b5fcc5/afts/img/A*1NHAQYduQiQAAAAAAAAAAABkARQnAQ"
-                    width="22"
+                    width="auto"
                   />
                   <h1>
                     Remax
