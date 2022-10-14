@@ -5,7 +5,7 @@ import classNames from 'classnames';
 import type { ReactNode } from 'react';
 import React, { useContext, useEffect, useMemo } from 'react';
 import { ProLayoutContext } from '../../context/ProLayoutContext';
-import { RouteContext } from '../../context/RouteContext';
+import { RouteContext } from '@ant-design/pro-layout';
 import type { WithFalse } from '../../typings';
 import { FooterToolbar } from '../FooterToolbar';
 import { GridContent } from '../GridContent';
@@ -14,12 +14,12 @@ import { PageHeader } from '../PageHeader';
 import { PageLoading } from '../PageLoading';
 import type { WaterMarkProps } from '../WaterMark';
 import { WaterMark } from '../WaterMark';
-import type { pageContainerToken } from './style/index';
-import { useStyle } from './style/index';
+import type { pageContainerToken } from './style';
+import { useStyle } from './style';
 
 export type PageHeaderTabConfig = {
   /** @name tabs 的列表 */
-  tabList?: (TabPaneProps & { key?: React.ReactText })[];
+  tabList?: (TabPaneProps & { key?: React.Key })[];
 
   /** @name 当前选中 tab 的 key */
   tabActiveKey?: TabsProps['activeKey'];
