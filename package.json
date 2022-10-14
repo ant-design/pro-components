@@ -10,7 +10,7 @@
     "build-components": "father-build",
     "changelog": "node ./scripts/changelogs.js",
     "check-deps": "npm run sync:tnpm && node ./scripts/checkDeps.js && npm run sync:tnpm",
-    "checkPublish": "node ./scripts/checkPublish.js",
+    "checkPublish": "npm run sync:tnpm && node ./scripts/checkPublish.js && npm run sync:tnpm",
     "createRelease": "node ./scripts/createRelease.js",
     "deploy": "cross-env SITE_DEPLOY='TRUE' npm run site && gh-pages -d ./dist",
     "lint": "eslint --cache --ext .js,.jsx,.ts,.tsx  --fix --format=pretty ./packages && npm run lint:prettier && npm run check-deps",
