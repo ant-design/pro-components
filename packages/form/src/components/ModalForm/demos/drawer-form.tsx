@@ -89,6 +89,11 @@ export default () => {
               label: '履行完终止',
             },
           ]}
+          formItemProps={{
+            style: {
+              margin: 0,
+            },
+          }}
           name="unusedMode"
           label="合同约定失效效方式"
         />

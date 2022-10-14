@@ -1,5 +1,4 @@
 import { useCallback, useEffect, useRef } from 'react';
-import { act } from 'react-dom/test-utils';
 import { useRefFunction } from '../useRefFunction';
 
 export function useDebounceFn<T extends any[], U = any>(
@@ -26,9 +25,7 @@ export function useDebounceFn<T extends any[], U = any>(
       return new Promise<U>((resolve) => {
         timer.current = setTimeout(async () => {
           if (process.env.NODE_ENV === 'TEST') {
-            await act(async () => {
-              resolve(await callback(...args));
-            });
+            resolve(await callback(...args));
             return;
           }
           resolve(await callback(...args));
