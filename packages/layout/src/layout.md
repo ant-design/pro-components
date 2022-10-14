@@ -515,12 +515,12 @@ Sider Token 是 侧边菜单的色值，与顶部菜单不同。
 
 ### pageContainer Token
 
-| token                             | 说明                                | 默认值        |
-| --------------------------------- | ----------------------------------- | ------------- |
-| paddingBlockPageContainerContent  | pageContainer 自带的 padding block  | `24`          |
-| paddingInlinePageContainerContent | pageContainer 自带的 padding inline | `40`          |
-| colorBgPageContainer              | pageContainer 的背景颜色            | `transparent` |
-| colorBgPageContainerFixed         | pageContainer 被固定时的背景颜色    | `#FFF`        |
+| token                             | 说明                                | 默认值 |
+| --------------------------------- | ----------------------------------- | ------ |
+| paddingBlockPageContainerContent  | pageContainer 自带的 padding block  | `24`   |
+| paddingInlinePageContainerContent | pageContainer 自带的 padding inline | `40`   |
+| colorBgPageContainer              | pageContainer 的背景颜色            | `#FFF` |
+| colorBgPageContainerFixed         | pageContainer 被固定时的背景颜色    | `#FFF` |
 
 ## FAQ
 
