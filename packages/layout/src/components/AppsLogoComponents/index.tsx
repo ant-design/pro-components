@@ -79,7 +79,13 @@ export const AppsLogoComponents: React.FC<{
 
   return wrapSSR(
     <>
-      <div ref={ref} />
+      <div
+        ref={ref}
+        onClick={(e) => {
+          e.stopPropagation();
+          e.preventDefault();
+        }}
+      />
       <Popover
         placement="bottomRight"
         trigger={['click']}
