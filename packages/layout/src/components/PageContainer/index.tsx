@@ -261,7 +261,6 @@ const memoRenderPageHeader = (
 
   return (
     <PageHeader
-      ghost
       {...pageHeaderProps}
       className={`${prefixedClassName}-warp-page-header ${hashId}`}
       breadcrumb={

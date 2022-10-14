@@ -1459,7 +1459,32 @@ exports[`BasicLayout 🥩 support loading 1`] = `
           </div>
           <div
             style="flex: 1; overflow-y: auto; overflow-x: hidden;"
-          />
+          >
+            <div
+              style="padding: 24px;"
+            >
+              <div
+                class="ant-skeleton ant-skeleton-active"
+              >
+                <div
+                  class="ant-skeleton-content"
+                >
+                  <ul
+                    class="ant-skeleton-paragraph"
+                  >
+                    <li />
+                    <li />
+                    <li />
+                    <li />
+                    <li />
+                    <li
+                      style="width: 61%;"
+                    />
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
           <div
             class="ant-pro-sider-collapsed-button"
           >

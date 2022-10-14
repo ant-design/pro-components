@@ -1,7 +1,9 @@
 import { Segmented, Spin } from 'antd';
 import React, { useImperativeHandle, useRef } from 'react';
 import type { ProFieldFC } from '../../index';
-import { FieldSelectProps, ObjToMap, proFieldParsingText, useFieldFetchData } from '../Select';
+import omit from 'omit.js';
+import type { FieldSelectProps } from '../Select';
+import { ObjToMap, proFieldParsingText, useFieldFetchData } from '../Select';
 
 import 'antd/es/segmented/style';
 import 'antd/es/spin/style';
@@ -45,7 +47,9 @@ const FieldSegmented: ProFieldFC<
     return dom;
   }
   if (mode === 'edit' || mode === 'update') {
-    const dom = <Segmented ref={inputRef} {...fieldProps} options={options} />;
+    const dom = (
+      <Segmented ref={inputRef} {...(omit(fieldProps, ['allowClear']) as any)} options={options} />
+    );
 
     if (renderFormItem) {
       return renderFormItem(rest.text, { mode, ...fieldProps, options }, dom);

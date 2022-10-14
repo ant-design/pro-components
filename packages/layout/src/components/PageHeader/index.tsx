@@ -177,6 +177,7 @@ const PageHeader: React.FC<PageHeaderProps> = (props) => {
     [`${prefixCls}-has-footer`]: !!footer,
     [`${prefixCls}-rtl`]: direction === 'rtl',
     [`${prefixCls}-compact`]: compact,
+    [`${prefixCls}-ghost`]: true,
   });
   const title = renderTitle(prefixCls, props, direction, hashId);
   const childDom = children && renderChildren(prefixCls, children, hashId);
