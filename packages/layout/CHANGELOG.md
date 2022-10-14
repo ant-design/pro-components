@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [7.1.8](https://github.com/ant-design/pro-components/compare/@ant-design/pro-layout@7.1.7...@ant-design/pro-layout@7.1.8) (2022-10-14)
+
+### Bug Fixes
+
+- **layout:** submenu unneed hover bgColor ([e23d874](https://github.com/ant-design/pro-components/commit/e23d874098670b679ec862502f713406993bfd04))
+
 ## [7.1.7](https://github.com/ant-design/pro-components/compare/@ant-design/pro-layout@7.1.6...@ant-design/pro-layout@7.1.7) (2022-10-14)
 
 ### Bug Fixes
