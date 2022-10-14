@@ -61,7 +61,6 @@ const compatibleStyle: GenerateStyle<ProLayoutToken & LayoutDesignToken> = (toke
             ${token.antCls}-menu-submenu-active, 
             ${token.antCls}-menu-submenu-title:hover`]: {
             color: token.sider.colorTextMenuActive,
-            backgroundColor: token.sider.colorBgMenuItemHover,
             borderRadius: token.radiusBase,
             [`${token.antCls}-menu-submenu-arrow`]: {
               color: token.sider.colorTextMenuActive,
