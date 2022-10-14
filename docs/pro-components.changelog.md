@@ -8,6 +8,20 @@ group:
   path: /
 ---
 
+## @ant-design/pro-components@2.3.18
+
+`2022-10-14`
+
+- fix(utils): remove act import. [fc76519](https://github.com/ant-design/pro-components/commit/fc76519)
+- fix(layout): AppsLogo stopPropagation. [2235842](https://github.com/ant-design/pro-components/commit/2235842)
+- fix(layout): Support for multiple PageContainers to be used together. [7a9aad7](https://github.com/ant-design/pro-components/commit/7a9aad7)
+- fix(layout): use img height. [224b573](https://github.com/ant-design/pro-components/commit/224b573)
+- fix(layout): support hover token. [8eb4545](https://github.com/ant-design/pro-components/commit/8eb4545)
+- fix(form): ProFormList 组件 required 时需要提供加星号样式 (#5995). [#5995](https://github.com/ant-design/pro-components/pull/#5995) [@Zeng-J](https://github.com/Zeng-J)
+- fix(form): Fixed a bug with nested FormList. [2100074](https://github.com/ant-design/pro-components/commit/2100074)
+- fix(table): support tooltip=false, close ellipsis tooltip. [1c6c7ef](https://github.com/ant-design/pro-components/commit/1c6c7ef)
+- fix(table): table search style fixed (#6069). [#6069](https://github.com/ant-design/pro-components/pull/#6069) [@ONLY-yours](https://github.com/ONLY-yours)
+
 ## @ant-design/pro-components@2.3.17
 
 `2022-10-13`
