@@ -27,7 +27,7 @@ export type FormListActionType<T = any> = FormListOperation & {
   getList: () => T[] | undefined;
 };
 
-export type ProFormListProps<T> = Omit<FormListProps, 'children'> &
+export type ProFormListProps<T> = Omit<FormListProps, 'children' | 'rules'> &
   ProFromListCommonProps & {
     /**
      * @name 列表的标签
@@ -89,6 +89,8 @@ export type ProFormListProps<T> = Omit<FormListProps, 'children'> &
     isValidateList?: boolean;
     /** 当 isValidateList 为 true 时执行为空提示 */
     emptyListMessage?: string;
+    rules?: (Required<FormListProps>['rules'][number] & { required?: boolean })[];
+    required?: boolean;
   } & Pick<ProFormGridConfig, 'colProps' | 'rowProps'>;
 
 function ProFormList<T>(props: ProFormListProps<T>) {
@@ -181,6 +183,7 @@ function ProFormList<T>(props: ProFormListProps<T>) {
           prefixCls={prefixCls}
           tooltip={tooltip}
           style={style}
+          required={rules?.some((rule) => rule.required)}
           {...rest}
           name={isValidateList ? name : undefined}
           rules={

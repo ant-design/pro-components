@@ -1303,4 +1303,76 @@ describe('ProForm List', () => {
     });
     expect(handleAdd).toBeCalledWith(1);
   });
+
+  it(`⛲ ProForm.List display * when required`, () => {
+    const html = render(
+      <ProForm>
+        <ProFormList
+          name="list"
+          label="表格"
+          rules={[
+            {
+              required: true,
+              validator: async (_rule, value) => {
+                if (value && value.length > 0) {
+                  return;
+                }
+                throw new Error('至少要有一项！');
+              },
+            },
+          ]}
+        >
+          <ProFormText name="name" />
+        </ProFormList>
+      </ProForm>,
+    );
+
+    expect(html.baseElement.querySelectorAll('.ant-form-item-required').length).toBe(1);
+
+    html.rerender(
+      <ProForm>
+        <ProFormList name="list" label="表格">
+          <ProFormText name="name" />
+        </ProFormList>
+      </ProForm>,
+    );
+
+    expect(html.baseElement.querySelectorAll('.ant-form-item-required').length).toBe(0);
+    html.unmount();
+  });
+
+  it(`⛲ ProForm.List support validate formList empty`, async () => {
+    const onFinish = jest.fn();
+    const html = render(
+      <ProForm>
+        <ProFormList name="list" label="表格" isValidateList>
+          <ProFormText name="name" rules={[{ required: true, message: '请填写1' }]} />
+        </ProFormList>
+      </ProForm>,
+    );
+    await waitForComponentToPaint(html, 300);
+
+    await act(async () => {
+      fireEvent.click(await html.findByText('提 交'));
+    });
+    await waitForComponentToPaint(html, 300);
+    expect(onFinish).toBeCalledTimes(0);
+    expect((await html.findAllByText('列表不能为空')).length).toBe(1);
+    await act(async () => {
+      fireEvent.click(await html.findByText('添加一行数据'));
+    });
+    await waitForComponentToPaint(html, 300);
+    await act(async () => {
+      fireEvent.click(await html.findByText('提 交'));
+    });
+    await waitForComponentToPaint(html, 300);
+    expect((await html.baseElement.querySelector('.ant-form-item-explain-error'))?.innerHTML).toBe(
+      '请填写1',
+    );
+    await act(async () => {
+      fireEvent.click(await html.baseElement.querySelector('.action-remove')!);
+    });
+    await waitForComponentToPaint(html, 300);
+    expect((await html.findAllByText('列表不能为空')).length).toBe(1);
+  });
 });
