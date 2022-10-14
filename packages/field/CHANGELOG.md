@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.1.9](https://github.com/ant-design/pro-components/compare/@ant-design/pro-field@2.1.8...@ant-design/pro-field@2.1.9) (2022-10-14)
+
+### Bug Fixes
+
+- **form:** Fixed a bug with nested FormList ([2100074](https://github.com/ant-design/pro-components/commit/21000744dce4f9737c9bbcd7af72f0959480d715))
+
 ## [2.1.8](https://github.com/ant-design/pro-components/compare/@ant-design/pro-field@2.1.7...@ant-design/pro-field@2.1.8) (2022-10-13)
 
 **Note:** Version bump only for package @ant-design/pro-field

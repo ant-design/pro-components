@@ -2,6 +2,15 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [7.1.7](https://github.com/ant-design/pro-components/compare/@ant-design/pro-layout@7.1.6...@ant-design/pro-layout@7.1.7) (2022-10-14)
+
+### Bug Fixes
+
+- **layout:** AppsLogo stopPropagation ([2235842](https://github.com/ant-design/pro-components/commit/223584287306661f1fb75bb00b8fe19d11db01f9))
+- **layout:** Support for multiple PageContainers to be used together ([7a9aad7](https://github.com/ant-design/pro-components/commit/7a9aad7c397cc7526e45e8f643cfff532b6ec812))
+- **layout:** support hover token ([8eb4545](https://github.com/ant-design/pro-components/commit/8eb4545de1cdf012d29b5fc92d8a3b9140c7e7f2))
+- **layout:** use img height ([224b573](https://github.com/ant-design/pro-components/commit/224b573f9115d524ab49223b588b0719edf3db7c))
+
 ## [7.1.6](https://github.com/ant-design/pro-components/compare/@ant-design/pro-layout@7.1.5...@ant-design/pro-layout@7.1.6) (2022-10-13)
 
 ### Bug Fixes

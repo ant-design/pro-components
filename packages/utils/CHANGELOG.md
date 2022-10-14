@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.2.6](https://github.com/ant-design/pro-components/compare/@ant-design/pro-utils@2.2.5...@ant-design/pro-utils@2.2.6) (2022-10-14)
+
+### Bug Fixes
+
+- **table:** support tooltip=false, close ellipsis tooltip ([1c6c7ef](https://github.com/ant-design/pro-components/commit/1c6c7efbea7ceb23958c1bb7f0198a2b59427504))
+- **utils:** remove act import ([fc76519](https://github.com/ant-design/pro-components/commit/fc765195dcd2050fb2e4f4a5bd4b2e54d7519681))
+
 ## [2.2.5](https://github.com/ant-design/pro-components/compare/@ant-design/pro-utils@2.2.4...@ant-design/pro-utils@2.2.5) (2022-10-13)
 
 ### Bug Fixes

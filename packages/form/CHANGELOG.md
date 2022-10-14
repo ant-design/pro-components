@@ -2,6 +2,14 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.2.7](https://github.com/ant-design/pro-components/compare/@ant-design/pro-form@2.2.6...@ant-design/pro-form@2.2.7) (2022-10-14)
+
+### Bug Fixes
+
+- **form:** Fixed a bug with nested FormList ([2100074](https://github.com/ant-design/pro-components/commit/21000744dce4f9737c9bbcd7af72f0959480d715))
+- **form:** ProFormList 组件 required 时需要提供加星号样式 ([#5995](https://github.com/ant-design/pro-components/issues/5995)) ([54122f5](https://github.com/ant-design/pro-components/commit/54122f50e67b56fed973bd8bc004308b4a6afe2a))
+- **utils:** remove act import ([fc76519](https://github.com/ant-design/pro-components/commit/fc765195dcd2050fb2e4f4a5bd4b2e54d7519681))
+
 ## [2.2.6](https://github.com/ant-design/pro-components/compare/@ant-design/pro-form@2.2.5...@ant-design/pro-form@2.2.6) (2022-10-13)
 
 ### Bug Fixes
