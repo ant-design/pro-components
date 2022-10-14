@@ -155,7 +155,7 @@ export const getLayoutDesignToken: (
       ...finalDesignTokens.sider,
     } as LayoutDesignToken['sider'],
     pageContainer: {
-      colorBgPageContainer: '#fff',
+      colorBgPageContainer: 'transparent',
       paddingInlinePageContainerContent:
         finalDesignTokens.pageContainer?.paddingInlinePageContainerContent || 40,
       paddingBlockPageContainerContent:

@@ -400,7 +400,7 @@ const PageContainer: React.FC<PageContainerProps> = (props) => {
             {...affixProps}
             className={`${basePageContainer}-affix ${hashId}`}
           >
-            {pageHeaderDom}
+            <div className={`${basePageContainer}-warp ${hashId}`}>{pageHeaderDom}</div>
           </Affix>
         ) : (
           pageHeaderDom
