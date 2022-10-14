@@ -351,13 +351,12 @@ const ProFormListItem: React.FC<
             className={`${prefixCls}-action-icon action-copy ${hashId}`}
             onClick={async () => {
               setLoadingCopy(true);
-              await action.add(
-                formInstance?.getFieldValue(
-                  [listContext.listName, rest.name, field.name]
-                    .filter((item) => item !== undefined)
-                    .flat(1),
-                ),
+              const row = formInstance?.getFieldValue(
+                [listContext.listName, originName, field.name]
+                  .filter((item) => item !== undefined)
+                  .flat(1),
               );
+              await action.add(row);
               setLoadingCopy(false);
             }}
           />
@@ -371,11 +370,11 @@ const ProFormListItem: React.FC<
     loadingCopy,
     prefixCls,
     hashId,
-    action,
     formInstance,
     listContext.listName,
-    rest.name,
     field.name,
+    originName,
+    action,
   ]);
 
   const deleteIcon = useMemo(() => {
@@ -414,7 +413,7 @@ const ProFormListItem: React.FC<
     field,
     index,
     record: formInstance?.getFieldValue?.(
-      [listContext.listName, rest.name, field.name].filter((item) => item !== undefined).flat(1),
+      [listContext.listName, originName, field.name].filter((item) => item !== undefined).flat(1),
     ),
     fields,
     operation: action,
