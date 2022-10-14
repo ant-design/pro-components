@@ -155,11 +155,11 @@ export const getLayoutDesignToken: (
       ...finalDesignTokens.sider,
     } as LayoutDesignToken['sider'],
     pageContainer: {
-      colorBgPageContainer: 'transparent',
+      colorBgPageContainer: '#fff',
       paddingInlinePageContainerContent:
-        finalDesignTokens.pageContainer?.marginInlinePageContainerContent || 40,
+        finalDesignTokens.pageContainer?.paddingInlinePageContainerContent || 40,
       paddingBlockPageContainerContent:
-        finalDesignTokens.pageContainer?.marginBlockPageContainerContent || 24,
+        finalDesignTokens.pageContainer?.paddingBlockPageContainerContent || 24,
       colorBgPageContainerFixed: '#fff',
       ...finalDesignTokens.pageContainer,
     },

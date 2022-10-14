@@ -5,6 +5,7 @@ export interface PageHeaderToken extends ProAliasToken {
   componentCls: string;
   pageHeaderPadding: number;
   pageHeaderPaddingVertical: number;
+  pageHeaderBgColor: string;
   pageHeaderBgGhost: string;
   pageHeaderPaddingBreadCrumb: number;
   pageHeaderColorBack: string;
@@ -24,7 +25,7 @@ const genPageHeaderStyle: GenerateStyle<PageHeaderToken> = (token) => {
     [token.componentCls]: {
       ...resetComponent?.(token),
       position: 'relative',
-      backgroundColor: token.pageHeaderBgGhost,
+      backgroundColor: token.pageHeaderBgColor,
       paddingBlock: token.pageHeaderPaddingVertical + 2,
       paddingInline: token.pageHeaderPadding,
       '& &-has-breadcrumb': {
@@ -139,6 +140,9 @@ const genPageHeaderStyle: GenerateStyle<PageHeaderToken> = (token) => {
       '&-compact &-heading': {
         flexWrap: 'wrap',
       },
+      '&-ghost': {
+        backgroundColor: token.pageHeaderBgGhost,
+      },
       '&-rtl': {
         direction: 'rtl',
       },
@@ -151,6 +155,7 @@ export default function useStyle(prefixCls: string) {
     const proCardToken: PageHeaderToken = {
       ...token,
       componentCls: `.${prefixCls}`,
+      pageHeaderBgColor: '#fff',
       pageHeaderBgGhost: 'transparent',
       pageHeaderPadding: 16,
       pageHeaderPaddingVertical: 4,

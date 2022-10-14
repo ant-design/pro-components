@@ -453,7 +453,7 @@ Sider Token is the color value of the side menu, which is different from the top
 | --- | --- | --- |
 | paddingBlockPageContainerContent | pageContainer's own padding block | `24` |
 | paddingInlinePageContainerContent | pageContainer's own padding inline | `40` |
-| colorBgPageContainer | background color of pageContainer | `transparent` |
+| colorBgPageContainer | background color of pageContainer | `#FFF` |
 | colorBgPageContainerFixed | The background color of the pageContainer when it is fixed | `#FFF` |
 
 ## FAQ

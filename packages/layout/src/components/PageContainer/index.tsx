@@ -317,7 +317,6 @@ const PageContainer: React.FC<PageContainerProps> = (props) => {
   const pageHeaderDom = memoRenderPageHeader({
     ...restProps,
     breadcrumbRender: memoBreadcrumbRender,
-    ghost: true,
     hashId,
     prefixCls: undefined,
     prefixedClassName: basePageContainer,
