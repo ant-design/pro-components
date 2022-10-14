@@ -344,11 +344,11 @@ export function useIntl(): IntlType {
   const { intl } = useContext(ConfigContext);
 
   if (intl && intl.locale !== 'default') {
-    return intl;
+    return intl || zhCNIntl;
   }
 
   if (locale?.locale) {
-    return intlMap[findIntlKeyByAntdLocaleKey(locale.locale)];
+    return intlMap[findIntlKeyByAntdLocaleKey(locale.locale)] || zhCNIntl;
   }
 
   return zhCNIntl;

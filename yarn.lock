@@ -3049,11 +3049,11 @@
     universal-user-agent "^6.0.0"
 
 "@octokit/endpoint@^7.0.0":
-  version "7.0.2"
-  resolved "https://registry.npmmirror.com/@octokit/endpoint/-/endpoint-7.0.2.tgz#11ee868406ba7bb1642e61bbe676d641f79f02be"
-  integrity sha512-8/AUACfE9vpRpehE6ZLfEtzkibe5nfsSwFZVMsG8qabqRt1M81qZYUFRZa1B8w8lP6cdfDJfRq9HWS+MbmR7tw==
+  version "7.0.3"
+  resolved "https://registry.npmmirror.com/@octokit/endpoint/-/endpoint-7.0.3.tgz#0b96035673a9e3bedf8bab8f7335de424a2147ed"
+  integrity sha512-57gRlb28bwTsdNXq+O3JTQ7ERmBTuik9+LelgcLIVfYwf235VHbN9QNo4kXExtp/h8T423cR5iJThKtFYxC7Lw==
   dependencies:
-    "@octokit/types" "^7.0.0"
+    "@octokit/types" "^8.0.0"
     is-plain-object "^5.0.0"
     universal-user-agent "^6.0.0"
 
@@ -3124,6 +3124,11 @@
   version "13.13.1"
   resolved "https://registry.npmmirror.com/@octokit/openapi-types/-/openapi-types-13.13.1.tgz#a783bacb1817c9f61a2a0c3f81ea22ad62340fdf"
   integrity sha512-4EuKSk3N95UBWFau3Bz9b3pheQ8jQYbKmBL5+GSuY8YDPDwu03J4BjI+66yNi8aaX/3h1qDpb0mbBkLdr+cfGQ==
+
+"@octokit/openapi-types@^14.0.0":
+  version "14.0.0"
+  resolved "https://registry.npmmirror.com/@octokit/openapi-types/-/openapi-types-14.0.0.tgz#949c5019028c93f189abbc2fb42f333290f7134a"
+  integrity sha512-HNWisMYlR8VCnNurDU6os2ikx0s0VyEjDYHNS/h4cgb8DeOxQ0n72HyinUtdDVxJhFy3FWLGl0DJhfEWk3P5Iw==
 
 "@octokit/plugin-enterprise-rest@^6.0.1":
   version "6.0.1"
@@ -3200,11 +3205,11 @@
     once "^1.4.0"
 
 "@octokit/request-error@^3.0.0":
-  version "3.0.1"
-  resolved "https://registry.npmmirror.com/@octokit/request-error/-/request-error-3.0.1.tgz#3fd747913c06ab2195e52004a521889dadb4b295"
-  integrity sha512-ym4Bp0HTP7F3VFssV88WD1ZyCIRoE8H35pXSKwLeMizcdZAYc/t6N9X9Yr9n6t3aG9IH75XDnZ6UeZph0vHMWQ==
+  version "3.0.2"
+  resolved "https://registry.npmmirror.com/@octokit/request-error/-/request-error-3.0.2.tgz#f74c0f163d19463b87528efe877216c41d6deb0a"
+  integrity sha512-WMNOFYrSaX8zXWoJg9u/pKgWPo94JXilMLb2VManNOby9EZxrQaBe/QSC4a1TzpAlpxofg2X/jMnCyZgL6y7eg==
   dependencies:
-    "@octokit/types" "^7.0.0"
+    "@octokit/types" "^8.0.0"
     deprecation "^2.0.0"
     once "^1.4.0"
 
@@ -3221,13 +3226,13 @@
     universal-user-agent "^6.0.0"
 
 "@octokit/request@^6.0.0":
-  version "6.2.1"
-  resolved "https://registry.npmmirror.com/@octokit/request/-/request-6.2.1.tgz#3ceeb22dab09a29595d96594b6720fc14495cf4e"
-  integrity sha512-gYKRCia3cpajRzDSU+3pt1q2OcuC6PK8PmFIyxZDWCzRXRSIBH8jXjFJ8ZceoygBIm0KsEUg4x1+XcYBz7dHPQ==
+  version "6.2.2"
+  resolved "https://registry.npmmirror.com/@octokit/request/-/request-6.2.2.tgz#a2ba5ac22bddd5dcb3f539b618faa05115c5a255"
+  integrity sha512-6VDqgj0HMc2FUX2awIs+sM6OwLgwHvAi4KCK3mT2H2IKRt6oH9d0fej5LluF5mck1lRR/rFWN0YIDSYXYSylbw==
   dependencies:
     "@octokit/endpoint" "^7.0.0"
     "@octokit/request-error" "^3.0.0"
-    "@octokit/types" "^7.0.0"
+    "@octokit/types" "^8.0.0"
     is-plain-object "^5.0.0"
     node-fetch "^2.6.7"
     universal-user-agent "^6.0.0"
@@ -3284,6 +3289,13 @@
   integrity sha512-Zk4OUMLCSpXNI8KZZn47lVLJSsgMyCimsWWQI5hyjZg7hdYm0kjotaIkbG0Pp8SfU2CofMBzonboTqvzn3FrJA==
   dependencies:
     "@octokit/openapi-types" "^13.11.0"
+
+"@octokit/types@^8.0.0":
+  version "8.0.0"
+  resolved "https://registry.npmmirror.com/@octokit/types/-/types-8.0.0.tgz#93f0b865786c4153f0f6924da067fe0bb7426a9f"
+  integrity sha512-65/TPpOJP1i3K4lBJMnWqPUJ6zuOtzhtagDvydAWbEXpbFYA0oMKKyLb95NFZZP0lSh/4b6K+DQlzvYQJQQePg==
+  dependencies:
+    "@octokit/openapi-types" "^14.0.0"
 
 "@octokit/webhooks-methods@^2.0.0":
   version "2.0.0"
@@ -8184,9 +8196,9 @@ ee-first@1.1.1:
   integrity sha512-WMwm9LhRUo+WUaRN+vRuETqG89IgZphVSNkdFgeb6sS/E4OrDIN7t48CAewSHXc6C8lefD8KKfr5vY61brQlow==
 
 electron-to-chromium@^1.4.251:
-  version "1.4.281"
-  resolved "https://registry.npmmirror.com/electron-to-chromium/-/electron-to-chromium-1.4.281.tgz#8e3c7b6ae65d91aa3e8aa84faa6353e3dc758971"
-  integrity sha512-yer0w5wCYdFoZytfmbNhwiGI/3cW06+RV7E23ln4490DVMxs7PvYpbsrSmAiBn/V6gode8wvJlST2YfWgvzWIg==
+  version "1.4.282"
+  resolved "https://registry.npmmirror.com/electron-to-chromium/-/electron-to-chromium-1.4.282.tgz#02af3fd6051e97ac3388a4b11d455bc1ca49838f"
+  integrity sha512-Dki0WhHNh/br/Xi1vAkueU5mtIc9XLHcMKB6tNfQKk+kPG0TEUjRh5QEMAUbRp30/rYNMFD1zKKvbVzwq/4wmg==
 
 elegant-spinner@^1.0.1:
   version "1.0.1"
@@ -17500,9 +17512,9 @@ rc-util@^5.0.0, rc-util@^5.0.1, rc-util@^5.0.6, rc-util@^5.12.0, rc-util@^5.15.0
     shallowequal "^1.1.0"
 
 rc-virtual-list@^3.2.0, rc-virtual-list@^3.4.8:
-  version "3.4.8"
-  resolved "https://registry.npmmirror.com/rc-virtual-list/-/rc-virtual-list-3.4.8.tgz#c24c10c6940546b7e2a5e9809402c6716adfd26c"
-  integrity sha512-qSN+Rv4i/E7RCTvTMr1uZo7f3crJJg/5DekoCagydo9zsXrxj07zsFSxqizqW+ldGA16lwa8So/bIbV9Ofjddg==
+  version "3.4.10"
+  resolved "https://registry.npmmirror.com/rc-virtual-list/-/rc-virtual-list-3.4.10.tgz#80a7c47c91388334657e6948dbfd70c170dc7372"
+  integrity sha512-Jv0cgJxJ+8F/YViW8WGs/jQF2rmT8RUcJ5uDJs5MOFLTYLAvCpM/xU+Zu6EpCun50fmovhXiItQctcfE2UY3Aw==
   dependencies:
     classnames "^2.2.6"
     rc-resize-observer "^1.0.0"
