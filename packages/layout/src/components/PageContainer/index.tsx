@@ -5,7 +5,7 @@ import classNames from 'classnames';
 import type { ReactNode } from 'react';
 import React, { useContext, useEffect, useMemo } from 'react';
 import { ProLayoutContext } from '../../context/ProLayoutContext';
-import { RouteContext } from '@ant-design/pro-layout';
+import { RouteContext } from '../../context/RouteContext';
 import type { WithFalse } from '../../typings';
 import { FooterToolbar } from '../FooterToolbar';
 import { GridContent } from '../GridContent';
