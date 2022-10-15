@@ -5,7 +5,7 @@ import classNames from 'classnames';
 import type { ReactNode } from 'react';
 import React, { useContext, useEffect, useMemo } from 'react';
 import { ProLayoutContext } from '../../context/ProLayoutContext';
-import { RouteContext } from '../../context/RouteContext';
+import { RouteContext } from '@ant-design/pro-layout';
 import type { WithFalse } from '../../typings';
 import { FooterToolbar } from '../FooterToolbar';
 import { GridContent } from '../GridContent';
@@ -14,14 +14,14 @@ import { PageHeader } from '../PageHeader';
 import { PageLoading } from '../PageLoading';
 import type { WaterMarkProps } from '../WaterMark';
 import { WaterMark } from '../WaterMark';
-import type { pageContainerToken } from './style/index';
-import { useStyle } from './style/index';
+import type { pageContainerToken } from './style';
+import { useStyle } from './style';
 
 export type PageHeaderTabConfig = {
   /** @name tabs 的列表 */
-  tabList?: (TabPaneProps & { key?: React.ReactText })[];
+  tabList?: (TabPaneProps & { key?: React.Key })[];
 
-  /** @name 当前选中 tab 的 key */
+  /** @name tabActiveKey 当前选中 tab 的 key */
   tabActiveKey?: TabsProps['activeKey'];
 
   /** @name tab 修改时触发 */
@@ -35,11 +35,11 @@ export type PageHeaderTabConfig = {
 
   /**
    * @deprecated 请使用 fixedHeader
-   * @name 固定 PageHeader 到页面顶部
+   * @name fixHeader 固定 PageHeader 到页面顶部
    */
   fixHeader?: boolean;
 
-  /** @name 固定 PageHeader 到页面顶部 */
+  /** @name fixedHeader 固定 PageHeader 到页面顶部 */
   fixedHeader?: boolean;
 };
 
@@ -51,7 +51,7 @@ export type PageContainerProps = {
   footer?: ReactNode[];
 
   /**
-   * 自定义的 token
+   * @name token 自定义的 token
    */
   token?: pageContainerToken;
 
@@ -64,30 +64,33 @@ export type PageContainerProps = {
     children?: React.ReactNode;
   };
 
-  /** @name 自定义 pageHeader */
+  /** @name pageHeaderRender 自定义 pageHeader */
   pageHeaderRender?: WithFalse<(props: PageContainerProps) => React.ReactNode>;
 
   /**
    * 与 antd 完全相同
    *
-   * @name 固钉的配置
+   * @name affixProps 固钉的配置
    */
   affixProps?: Omit<AffixProps, 'children'>;
 
   /**
    * 只加载内容区域
    *
-   * @name 是否加载
+   * @name loading 是否加载
    */
   loading?: boolean | SpinProps | React.ReactNode;
 
-  /** 自定义 breadcrumb,返回false不展示 */
+  /**
+   * 自定义 breadcrumb,
+   * @name breadcrumbRender 返回false不展示
+   */
   breadcrumbRender?: PageHeaderProps['breadcrumbRender'] | false;
 
-  /** @name 水印的配置 */
+  /** @name WaterMarkProps 水印的配置 */
   waterMarkProps?: WaterMarkProps;
 
-  /** @name 配置面包屑 */
+  /** @name BreadcrumbProps 配置面包屑 */
   breadcrumb?: BreadcrumbProps;
 
   children?: React.ReactNode;
@@ -401,7 +404,7 @@ const PageContainer: React.FC<PageContainerProps> = (props) => {
             {...affixProps}
             className={`${basePageContainer}-affix ${hashId}`}
           >
-            {pageHeaderDom}
+            <div className={`${basePageContainer}-warp ${hashId}`}>{pageHeaderDom}</div>
           </Affix>
         ) : (
           pageHeaderDom
