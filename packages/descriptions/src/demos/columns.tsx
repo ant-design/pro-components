@@ -11,6 +11,7 @@ export default () => {
             id: '这是一段文本columns',
             date: '20200809',
             money: '1212100',
+            money2: -12345.33,
             state: 'all',
             switch: true,
             state2: 'open',
@@ -79,6 +80,15 @@ export default () => {
           title: 'money无符号',
           key: 'money',
           dataIndex: 'money',
+          valueType: 'money',
+          fieldProps: {
+            moneySymbol: false,
+          },
+        },
+        {
+          title: 'money负数无符号',
+          key: 'money2',
+          dataIndex: 'money2',
           valueType: 'money',
           fieldProps: {
             moneySymbol: false,

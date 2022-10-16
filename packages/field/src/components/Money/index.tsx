@@ -100,16 +100,19 @@ const getTextByLocale = (
   if (!moneyText && moneyText !== 0) return '';
   try {
     // readonly moneySymbol = false, unused currency
-    return (
-      new Intl.NumberFormat(moneySymbol || 'zh-Hans-CN', {
-        ...(intlMap[moneySymbol || 'zh-Hans-CN'] || intlMap['zh-Hans-CN']),
-        maximumFractionDigits: precision,
-        ...config,
-      })
-        // fix: #6003 解决未指定货币符号时，金额文本格式化异常问题
-        .format(moneyText)
-        .substring(+(moneySymbol === false))
-    );
+    const res = new Intl.NumberFormat(moneySymbol || 'zh-Hans-CN', {
+      ...(intlMap[moneySymbol || 'zh-Hans-CN'] || intlMap['zh-Hans-CN']),
+      maximumFractionDigits: precision,
+      ...config,
+    })
+      // fix: #6003 解决未指定货币符号时，金额文本格式化异常问题
+      .format(moneyText);
+    const noSymbol = moneySymbol === false;
+
+    // 兼容正负号
+    return ['+', '-'].includes(res[0])
+      ? `${res[0]}${res.substring(1 + +noSymbol)}`
+      : res.substring(+noSymbol);
   } catch (error) {
     return moneyText;
   }
