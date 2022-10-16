@@ -171,15 +171,15 @@ export function useEditableMap<RecordType>(
         ...config,
       };
 
-      const defaultDoms = defaultActionRender(props.dataSource, renderConfig);
+      const renderResult = defaultActionRender(props.dataSource, renderConfig);
       if (props.actionRender) {
         return props.actionRender(props.dataSource, renderConfig, {
-          save: defaultDoms[0],
-          delete: defaultDoms[1],
-          cancel: defaultDoms[2],
+          save: renderResult.save,
+          delete: renderResult.delete,
+          cancel: renderResult.cancel,
         });
       }
-      return defaultDoms;
+      return [renderResult.save, renderResult.delete, renderResult.cancel];
     },
     [editableKeys && editableKeys.join(','), props.dataSource],
   );

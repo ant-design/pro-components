@@ -225,6 +225,88 @@ describe('EditorProTable', () => {
     wrapper.unmount();
   });
 
+  it('📝 EditableProTable saveEditable should save and quit editing', async () => {
+    const actionRef = React.createRef<ActionType>();
+    let changedDataSource: DataSourceType[] = [];
+    const onChange = jest.fn((value) => {
+      changedDataSource = value;
+    });
+    const wrapper = render(
+      <ProForm
+        initialValues={{
+          table: defaultData,
+        }}
+      >
+        <EditableProTable<DataSourceType>
+          rowKey="id"
+          name="table"
+          onChange={onChange}
+          actionRef={actionRef}
+          columns={columns}
+        />
+      </ProForm>,
+    );
+    await waitForComponentToPaint(wrapper, 1000);
+
+    expect(
+      wrapper.container.querySelector('.ant-table-tbody')?.querySelectorAll('tr.ant-table-row')
+        .length,
+    ).toBe(defaultData.length);
+
+    const editAndChange = async (inputValue: string) => {
+      act(() => {
+        wrapper.container.querySelector<HTMLButtonElement>('#editor')?.click();
+      });
+      await waitForComponentToPaint(wrapper, 100);
+
+      act(() => {
+        fireEvent.change(
+          wrapper.container.querySelectorAll(`.ant-form-item-control-input input`)[1],
+          {
+            target: {
+              value: inputValue,
+            },
+          },
+        );
+      });
+      await waitForComponentToPaint(wrapper, 100);
+    };
+
+    await editAndChange('');
+    // should block saving when there is validation error
+    await actionRef.current?.saveEditable(624748504);
+    // should exist validation error
+    expect(
+      wrapper.container
+        .querySelectorAll('.ant-table-tbody')[0]
+        .querySelectorAll('.ant-form-item-has-error').length,
+    ).toBeGreaterThan(0);
+    expect(
+      wrapper.container.querySelectorAll('.ant-table-tbody')[0].querySelectorAll('input').length,
+    ).toBe(4);
+    expect(onChange).not.toBeCalled();
+
+    await editAndChange('test value');
+    // save with recordKey
+    await actionRef.current?.saveEditable(624748504);
+    await waitForComponentToPaint(wrapper, 100);
+
+    expect(onChange).toBeCalled();
+    expect(changedDataSource).toHaveLength(defaultData.length);
+    expect(changedDataSource[0]?.title).toBe('test value');
+
+    await editAndChange('test value2');
+    // save with array index, if name is set
+    await actionRef.current?.saveEditable(0);
+    await waitForComponentToPaint(wrapper, 100);
+
+    expect(onChange).toBeCalled();
+    expect(changedDataSource).toHaveLength(defaultData.length);
+    expect(changedDataSource[0]?.title).toBe('test value2');
+
+    wrapper.unmount();
+  });
+
   it('📝 EditableProTable add support children column', async () => {
     const onchange = jest.fn();
     const wrapper = render(
