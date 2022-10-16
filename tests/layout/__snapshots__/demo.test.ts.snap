@@ -12,7 +12,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/components/PageContaine
         class="ant-pro-page-container ant-pro-page-container-with-footer"
       >
         <div
-          class="ant-page-header ant-pro-page-container-warp-page-header  ant-pro-page-container-warp-page-header  ant-page-header-has-breadcrumb ant-page-header-has-footer ant-page-header-ghost"
+          class="ant-page-header ant-pro-page-container-warp-page-header  ant-page-header-has-breadcrumb ant-page-header-has-footer ant-page-header-ghost"
         >
           <nav
             class="ant-breadcrumb ant-page-header-breadcrumb"
@@ -417,189 +417,193 @@ exports[`layout demos 📸 renders ./packages/layout/src/components/PageContaine
             class=""
           >
             <div
-              class="ant-page-header ant-pro-page-container-warp-page-header  ant-pro-page-container-warp-page-header  ant-page-header-has-breadcrumb ant-page-header-has-footer ant-page-header-ghost"
+              class="ant-pro-page-container-warp "
             >
-              <nav
-                class="ant-breadcrumb ant-page-header-breadcrumb"
-              >
-                <ol>
-                  <li>
-                    <span
-                      class="ant-breadcrumb-link"
-                    >
-                      <a
-                        href="#/"
-                      >
-                        一级页面
-                      </a>
-                    </span>
-                    <span
-                      class="ant-breadcrumb-separator"
-                    >
-                      /
-                    </span>
-                  </li>
-                  <li>
-                    <span
-                      class="ant-breadcrumb-link"
-                    >
-                      <a
-                        href="#/"
-                      >
-                        二级页面
-                      </a>
-                    </span>
-                    <span
-                      class="ant-breadcrumb-separator"
-                    >
-                      /
-                    </span>
-                  </li>
-                  <li>
-                    <span
-                      class="ant-breadcrumb-link"
-                    >
-                      <span>
-                        当前页面
-                      </span>
-                    </span>
-                    <span
-                      class="ant-breadcrumb-separator"
-                    >
-                      /
-                    </span>
-                  </li>
-                </ol>
-              </nav>
               <div
-                class="ant-page-header-heading "
+                class="ant-page-header ant-pro-page-container-warp-page-header  ant-page-header-has-breadcrumb ant-page-header-has-footer ant-page-header-ghost"
               >
-                <div
-                  class="ant-page-header-heading-left "
+                <nav
+                  class="ant-breadcrumb ant-page-header-breadcrumb"
                 >
-                  <span
-                    class="ant-page-header-heading-title "
-                    title="页面标题"
-                  >
-                    页面标题
-                  </span>
-                </div>
-              </div>
-              <div
-                class="ant-page-header-footer "
-              >
+                  <ol>
+                    <li>
+                      <span
+                        class="ant-breadcrumb-link"
+                      >
+                        <a
+                          href="#/"
+                        >
+                          一级页面
+                        </a>
+                      </span>
+                      <span
+                        class="ant-breadcrumb-separator"
+                      >
+                        /
+                      </span>
+                    </li>
+                    <li>
+                      <span
+                        class="ant-breadcrumb-link"
+                      >
+                        <a
+                          href="#/"
+                        >
+                          二级页面
+                        </a>
+                      </span>
+                      <span
+                        class="ant-breadcrumb-separator"
+                      >
+                        /
+                      </span>
+                    </li>
+                    <li>
+                      <span
+                        class="ant-breadcrumb-link"
+                      >
+                        <span>
+                          当前页面
+                        </span>
+                      </span>
+                      <span
+                        class="ant-breadcrumb-separator"
+                      >
+                        /
+                      </span>
+                    </li>
+                  </ol>
+                </nav>
                 <div
-                  class="ant-tabs ant-tabs-top ant-pro-page-container-tabs "
+                  class="ant-page-header-heading "
                 >
                   <div
-                    class="ant-tabs-nav"
-                    role="tablist"
+                    class="ant-page-header-heading-left "
+                  >
+                    <span
+                      class="ant-page-header-heading-title "
+                      title="页面标题"
+                    >
+                      页面标题
+                    </span>
+                  </div>
+                </div>
+                <div
+                  class="ant-page-header-footer "
+                >
+                  <div
+                    class="ant-tabs ant-tabs-top ant-pro-page-container-tabs "
                   >
                     <div
-                      class="ant-tabs-nav-wrap"
+                      class="ant-tabs-nav"
+                      role="tablist"
                     >
                       <div
-                        class="ant-tabs-nav-list"
-                        style="transform: translate(0px, 0px);"
+                        class="ant-tabs-nav-wrap"
                       >
                         <div
-                          class="ant-tabs-tab ant-tabs-tab-active"
+                          class="ant-tabs-nav-list"
+                          style="transform: translate(0px, 0px);"
                         >
                           <div
-                            aria-controls="rc-tabs-1-panel-1"
-                            aria-selected="true"
-                            class="ant-tabs-tab-btn"
-                            id="rc-tabs-1-tab-1"
-                            role="tab"
-                            tabindex="0"
+                            class="ant-tabs-tab ant-tabs-tab-active"
                           >
-                            已选择
+                            <div
+                              aria-controls="rc-tabs-1-panel-1"
+                              aria-selected="true"
+                              class="ant-tabs-tab-btn"
+                              id="rc-tabs-1-tab-1"
+                              role="tab"
+                              tabindex="0"
+                            >
+                              已选择
+                            </div>
                           </div>
-                        </div>
-                        <div
-                          class="ant-tabs-tab"
-                        >
                           <div
-                            aria-controls="rc-tabs-1-panel-2"
-                            aria-selected="false"
-                            class="ant-tabs-tab-btn"
-                            id="rc-tabs-1-tab-2"
-                            role="tab"
-                            tabindex="0"
+                            class="ant-tabs-tab"
                           >
-                            可点击
+                            <div
+                              aria-controls="rc-tabs-1-panel-2"
+                              aria-selected="false"
+                              class="ant-tabs-tab-btn"
+                              id="rc-tabs-1-tab-2"
+                              role="tab"
+                              tabindex="0"
+                            >
+                              可点击
+                            </div>
                           </div>
-                        </div>
-                        <div
-                          class="ant-tabs-tab ant-tabs-tab-disabled"
-                        >
                           <div
-                            aria-controls="rc-tabs-1-panel-3"
-                            aria-disabled="true"
-                            aria-selected="false"
-                            class="ant-tabs-tab-btn"
-                            id="rc-tabs-1-tab-3"
-                            role="tab"
+                            class="ant-tabs-tab ant-tabs-tab-disabled"
                           >
-                            禁用
+                            <div
+                              aria-controls="rc-tabs-1-panel-3"
+                              aria-disabled="true"
+                              aria-selected="false"
+                              class="ant-tabs-tab-btn"
+                              id="rc-tabs-1-tab-3"
+                              role="tab"
+                            >
+                              禁用
+                            </div>
                           </div>
+                          <div
+                            class="ant-tabs-ink-bar ant-tabs-ink-bar-animated"
+                            style="left: 0px; width: 0px;"
+                          />
                         </div>
-                        <div
-                          class="ant-tabs-ink-bar ant-tabs-ink-bar-animated"
-                          style="left: 0px; width: 0px;"
-                        />
+                      </div>
+                      <div
+                        class="ant-tabs-nav-operations ant-tabs-nav-operations-hidden"
+                      >
+                        <button
+                          aria-controls="rc-tabs-1-more-popup"
+                          aria-expanded="false"
+                          aria-haspopup="listbox"
+                          aria-hidden="true"
+                          class="ant-tabs-nav-more"
+                          id="rc-tabs-1-more"
+                          style="visibility: hidden; order: 1;"
+                          tabindex="-1"
+                          type="button"
+                        >
+                          <span
+                            aria-label="ellipsis"
+                            class="anticon anticon-ellipsis"
+                            role="img"
+                          >
+                            <svg
+                              aria-hidden="true"
+                              data-icon="ellipsis"
+                              fill="currentColor"
+                              focusable="false"
+                              height="1em"
+                              viewBox="64 64 896 896"
+                              width="1em"
+                            >
+                              <path
+                                d="M176 511a56 56 0 10112 0 56 56 0 10-112 0zm280 0a56 56 0 10112 0 56 56 0 10-112 0zm280 0a56 56 0 10112 0 56 56 0 10-112 0z"
+                              />
+                            </svg>
+                          </span>
+                        </button>
                       </div>
                     </div>
                     <div
-                      class="ant-tabs-nav-operations ant-tabs-nav-operations-hidden"
-                    >
-                      <button
-                        aria-controls="rc-tabs-1-more-popup"
-                        aria-expanded="false"
-                        aria-haspopup="listbox"
-                        aria-hidden="true"
-                        class="ant-tabs-nav-more"
-                        id="rc-tabs-1-more"
-                        style="visibility: hidden; order: 1;"
-                        tabindex="-1"
-                        type="button"
-                      >
-                        <span
-                          aria-label="ellipsis"
-                          class="anticon anticon-ellipsis"
-                          role="img"
-                        >
-                          <svg
-                            aria-hidden="true"
-                            data-icon="ellipsis"
-                            fill="currentColor"
-                            focusable="false"
-                            height="1em"
-                            viewBox="64 64 896 896"
-                            width="1em"
-                          >
-                            <path
-                              d="M176 511a56 56 0 10112 0 56 56 0 10-112 0zm280 0a56 56 0 10112 0 56 56 0 10-112 0zm280 0a56 56 0 10112 0 56 56 0 10-112 0z"
-                            />
-                          </svg>
-                        </span>
-                      </button>
-                    </div>
-                  </div>
-                  <div
-                    class="ant-tabs-content-holder"
-                  >
-                    <div
-                      class="ant-tabs-content ant-tabs-content-top"
+                      class="ant-tabs-content-holder"
                     >
                       <div
-                        aria-hidden="false"
-                        aria-labelledby="rc-tabs-1-tab-1"
-                        class="ant-tabs-tabpane ant-tabs-tabpane-active"
-                        id="rc-tabs-1-panel-1"
-                        role="tabpanel"
-                        tabindex="0"
-                      />
+                        class="ant-tabs-content ant-tabs-content-top"
+                      >
+                        <div
+                          aria-hidden="false"
+                          aria-labelledby="rc-tabs-1-tab-1"
+                          class="ant-tabs-tabpane ant-tabs-tabpane-active"
+                          id="rc-tabs-1-panel-1"
+                          role="tabpanel"
+                          tabindex="0"
+                        />
+                      </div>
                     </div>
                   </div>
                 </div>
@@ -642,7 +646,6 @@ exports[`layout demos 📸 renders ./packages/layout/src/components/PageContaine
                   >
                     <div
                       class="ant-pro-card ant-pro-card-contain-card ant-pro-card-ghost"
-                      style="height: 200px;"
                     >
                       <div
                         class="ant-pro-card-body"
@@ -654,6 +657,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/components/PageContaine
                         >
                           <div
                             class="ant-pro-card"
+                            style="height: 200px;"
                           >
                             <div
                               class="ant-pro-card-body"
@@ -666,6 +670,47 @@ exports[`layout demos 📸 renders ./packages/layout/src/components/PageContaine
                         >
                           <div
                             class="ant-pro-card"
+                            style="height: 200px;"
+                          >
+                            <div
+                              class="ant-pro-card-body"
+                            />
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div
+                    class="ant-pro-card-col"
+                    style="padding-block-start: 8px; padding-block-end: 8px;"
+                  >
+                    <div
+                      class="ant-pro-card ant-pro-card-contain-card ant-pro-card-ghost"
+                    >
+                      <div
+                        class="ant-pro-card-body"
+                        style="margin-inline-end: -8px; margin-inline-start: -8px;"
+                      >
+                        <div
+                          class="ant-pro-card-col ant-pro-card-col-8"
+                          style="padding-inline-end: 8px; padding-inline-start: 8px;"
+                        >
+                          <div
+                            class="ant-pro-card"
+                            style="height: 200px;"
+                          >
+                            <div
+                              class="ant-pro-card-body"
+                            />
+                          </div>
+                        </div>
+                        <div
+                          class="ant-pro-card-col ant-pro-card-col-16"
+                          style="padding-inline-end: 8px; padding-inline-start: 8px;"
+                        >
+                          <div
+                            class="ant-pro-card"
+                            style="height: 200px;"
                           >
                             <div
                               class="ant-pro-card-body"
@@ -698,7 +743,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/components/PageContaine
         class="ant-pro-page-container"
       >
         <div
-          class="ant-page-header ant-pro-page-container-warp-page-header  ant-pro-page-container-warp-page-header  ant-page-header-ghost"
+          class="ant-page-header ant-pro-page-container-warp-page-header  ant-page-header-ghost"
         >
           <div
             class="ant-page-header-heading "
@@ -931,7 +976,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/components/PageContaine
             class="ant-pro-page-container"
           >
             <div
-              class="ant-page-header ant-pro-page-container-warp-page-header  ant-pro-page-container-warp-page-header  ant-page-header-has-breadcrumb ant-page-header-ghost"
+              class="ant-page-header ant-pro-page-container-warp-page-header  ant-page-header-has-breadcrumb ant-page-header-ghost"
             >
               <nav
                 class="ant-breadcrumb ant-page-header-breadcrumb"
@@ -1051,7 +1096,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/components/PageContaine
             class="ant-pro-page-container"
           >
             <div
-              class="ant-page-header ant-pro-page-container-warp-page-header  ant-pro-page-container-warp-page-header  ant-page-header-has-breadcrumb ant-page-header-ghost"
+              class="ant-page-header ant-pro-page-container-warp-page-header  ant-page-header-has-breadcrumb ant-page-header-ghost"
             >
               <nav
                 class="ant-breadcrumb ant-page-header-breadcrumb"
@@ -1176,7 +1221,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/components/PageContaine
             class="ant-pro-page-container"
           >
             <div
-              class="ant-page-header ant-pro-page-container-warp-page-header  ant-pro-page-container-warp-page-header  ant-page-header-has-breadcrumb ant-page-header-ghost"
+              class="ant-page-header ant-pro-page-container-warp-page-header  ant-page-header-has-breadcrumb ant-page-header-ghost"
             >
               <nav
                 class="ant-breadcrumb ant-page-header-breadcrumb"
@@ -4354,7 +4399,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/AlwaysDefaultOpen
                 class="ant-pro-page-container"
               >
                 <div
-                  class="ant-page-header ant-pro-page-container-warp-page-header  ant-pro-page-container-warp-page-header  ant-page-header-ghost"
+                  class="ant-page-header ant-pro-page-container-warp-page-header  ant-page-header-ghost"
                 >
                   <div
                     class="ant-page-header-content "
@@ -4694,7 +4739,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/BreadcrumbsRepeat
                 class="ant-pro-page-container"
               >
                 <div
-                  class="ant-page-header ant-pro-page-container-warp-page-header  ant-pro-page-container-warp-page-header  ant-page-header-has-breadcrumb ant-page-header-ghost"
+                  class="ant-page-header ant-pro-page-container-warp-page-header  ant-page-header-has-breadcrumb ant-page-header-ghost"
                 >
                   <nav
                     class="ant-breadcrumb ant-page-header-breadcrumb"
@@ -5389,7 +5434,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/DefaultOpenAllMen
                 class="ant-pro-page-container"
               >
                 <div
-                  class="ant-page-header ant-pro-page-container-warp-page-header  ant-pro-page-container-warp-page-header  ant-page-header-ghost"
+                  class="ant-page-header ant-pro-page-container-warp-page-header  ant-page-header-ghost"
                 >
                   <div
                     class="ant-page-header-content "
@@ -5775,7 +5820,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/IconFont.tsx corr
                 class="ant-pro-page-container"
               >
                 <div
-                  class="ant-page-header ant-pro-page-container-warp-page-header  ant-pro-page-container-warp-page-header  ant-page-header-ghost"
+                  class="ant-page-header ant-pro-page-container-warp-page-header  ant-page-header-ghost"
                 >
                   <div
                     class="ant-page-header-content "
@@ -6264,7 +6309,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/MenuGroup.tsx cor
                 class="ant-pro-page-container"
               >
                 <div
-                  class="ant-page-header ant-pro-page-container-warp-page-header  ant-pro-page-container-warp-page-header  ant-page-header-ghost"
+                  class="ant-page-header ant-pro-page-container-warp-page-header  ant-page-header-ghost"
                 >
                   <div
                     class="ant-page-header-content "
@@ -6802,7 +6847,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/MultipleMenuOnePa
                 class="ant-pro-page-container"
               >
                 <div
-                  class="ant-page-header ant-pro-page-container-warp-page-header  ant-pro-page-container-warp-page-header  ant-page-header-has-breadcrumb ant-page-header-ghost"
+                  class="ant-page-header ant-pro-page-container-warp-page-header  ant-page-header-has-breadcrumb ant-page-header-ghost"
                 >
                   <nav
                     class="ant-breadcrumb ant-page-header-breadcrumb"
@@ -7420,7 +7465,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/Nested.tsx correc
                         class="ant-pro-page-container"
                       >
                         <div
-                          class="ant-page-header ant-pro-page-container-warp-page-header  ant-pro-page-container-warp-page-header  ant-page-header-has-breadcrumb ant-page-header-ghost"
+                          class="ant-page-header ant-pro-page-container-warp-page-header  ant-page-header-has-breadcrumb ant-page-header-ghost"
                         >
                           <nav
                             class="ant-breadcrumb ant-page-header-breadcrumb"
@@ -8059,7 +8104,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/TopmenuNested.tsx
                         class="ant-pro-page-container"
                       >
                         <div
-                          class="ant-page-header ant-pro-page-container-warp-page-header  ant-pro-page-container-warp-page-header  ant-page-header-has-breadcrumb ant-page-header-ghost"
+                          class="ant-page-header ant-pro-page-container-warp-page-header  ant-page-header-has-breadcrumb ant-page-header-ghost"
                         >
                           <nav
                             class="ant-breadcrumb ant-page-header-breadcrumb"
@@ -8535,7 +8580,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/antd@4MenuIconFor
               class="ant-pro-page-container"
             >
               <div
-                class="ant-page-header ant-pro-page-container-warp-page-header  ant-pro-page-container-warp-page-header  ant-page-header-has-breadcrumb ant-page-header-ghost"
+                class="ant-page-header ant-pro-page-container-warp-page-header  ant-page-header-has-breadcrumb ant-page-header-ghost"
               >
                 <nav
                   class="ant-breadcrumb ant-page-header-breadcrumb"
@@ -9209,7 +9254,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/api.tsx correctly
               class="ant-pro-page-container"
             >
               <div
-                class="ant-page-header ant-pro-page-container-warp-page-header  ant-pro-page-container-warp-page-header  ant-page-header-ghost"
+                class="ant-page-header ant-pro-page-container-warp-page-header  ant-page-header-ghost"
               >
                 <div
                   class="ant-page-header-heading "
@@ -9929,7 +9974,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/background-contex
                 class="ant-pro-page-container"
               >
                 <div
-                  class="ant-page-header ant-pro-page-container-warp-page-header  ant-pro-page-container-warp-page-header  ant-page-header-has-breadcrumb ant-page-header-ghost"
+                  class="ant-page-header ant-pro-page-container-warp-page-header  ant-page-header-has-breadcrumb ant-page-header-ghost"
                 >
                   <nav
                     class="ant-breadcrumb ant-page-header-breadcrumb"
@@ -10933,7 +10978,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/base.tsx correctl
                 class="ant-pro-page-container ant-pro-page-container-with-footer"
               >
                 <div
-                  class="ant-page-header ant-pro-page-container-warp-page-header  ant-pro-page-container-warp-page-header  ant-page-header-has-breadcrumb ant-page-header-ghost"
+                  class="ant-page-header ant-pro-page-container-warp-page-header  ant-page-header-has-breadcrumb ant-page-header-ghost"
                 >
                   <nav
                     class="ant-breadcrumb ant-page-header-breadcrumb"
@@ -12050,7 +12095,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/classicMode.tsx c
                 class="ant-pro-page-container ant-pro-page-container-with-footer"
               >
                 <div
-                  class="ant-page-header ant-pro-page-container-warp-page-header  ant-pro-page-container-warp-page-header  ant-page-header-ghost"
+                  class="ant-page-header ant-pro-page-container-warp-page-header  ant-page-header-ghost"
                 >
                   <div
                     class="ant-page-header-heading "
@@ -12670,7 +12715,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/collapsedShowTitl
               class="ant-pro-page-container ant-pro-page-container-with-footer"
             >
               <div
-                class="ant-page-header ant-pro-page-container-warp-page-header  ant-pro-page-container-warp-page-header  ant-page-header-ghost"
+                class="ant-page-header ant-pro-page-container-warp-page-header  ant-page-header-ghost"
               >
                 <div
                   class="ant-page-header-heading "
@@ -13269,7 +13314,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/config-provider.t
               class="qixian-pro-page-container qixian-pro-page-container-with-footer"
             >
               <div
-                class="qixian-page-header qixian-pro-page-container-warp-page-header  qixian-pro-page-container-warp-page-header  qixian-page-header-has-footer qixian-page-header-ghost"
+                class="qixian-page-header qixian-pro-page-container-warp-page-header  qixian-page-header-has-footer qixian-page-header-ghost"
               >
                 <div
                   class="qixian-page-header-heading "
@@ -15085,7 +15130,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/customSider.tsx c
                 class="ant-pro-page-container"
               >
                 <div
-                  class="ant-page-header ant-pro-page-container-warp-page-header  ant-pro-page-container-warp-page-header  ant-page-header-has-breadcrumb ant-page-header-ghost"
+                  class="ant-page-header ant-pro-page-container-warp-page-header  ant-page-header-has-breadcrumb ant-page-header-ghost"
                 >
                   <nav
                     class="ant-breadcrumb ant-page-header-breadcrumb"
@@ -15662,7 +15707,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/customize-collaps
               class="ant-pro-page-container"
             >
               <div
-                class="ant-page-header ant-pro-page-container-warp-page-header  ant-pro-page-container-warp-page-header  ant-page-header-ghost"
+                class="ant-page-header ant-pro-page-container-warp-page-header  ant-page-header-ghost"
               >
                 <div
                   class="ant-page-header-heading "
@@ -16107,7 +16152,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/customizeMenu.tsx
                 class="ant-pro-page-container"
               >
                 <div
-                  class="ant-page-header ant-pro-page-container-warp-page-header  ant-pro-page-container-warp-page-header  ant-page-header-ghost"
+                  class="ant-page-header ant-pro-page-container-warp-page-header  ant-page-header-ghost"
                 >
                   <div
                     class="ant-page-header-heading "
@@ -17075,7 +17120,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/designMenuCss.tsx
                 class="ant-pro-page-container ant-pro-page-container-with-footer"
               >
                 <div
-                  class="ant-page-header ant-pro-page-container-warp-page-header  ant-pro-page-container-warp-page-header  ant-page-header-has-breadcrumb ant-page-header-ghost"
+                  class="ant-page-header ant-pro-page-container-warp-page-header  ant-page-header-has-breadcrumb ant-page-header-ghost"
                 >
                   <nav
                     class="ant-breadcrumb ant-page-header-breadcrumb"
@@ -18272,7 +18317,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/designSiderMenu.t
                 class="ant-pro-page-container"
               >
                 <div
-                  class="ant-page-header ant-pro-page-container-warp-page-header  ant-pro-page-container-warp-page-header  ant-page-header-has-breadcrumb ant-page-header-ghost"
+                  class="ant-page-header ant-pro-page-container-warp-page-header  ant-page-header-has-breadcrumb ant-page-header-ghost"
                 >
                   <nav
                     class="ant-breadcrumb ant-page-header-breadcrumb"
@@ -18883,7 +18928,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/dynamic-settings.
                 class="ant-pro-page-container ant-pro-page-container-with-footer"
               >
                 <div
-                  class="ant-page-header ant-pro-page-container-warp-page-header  ant-pro-page-container-warp-page-header  ant-page-header-has-footer ant-page-header-ghost"
+                  class="ant-page-header ant-pro-page-container-warp-page-header  ant-page-header-has-footer ant-page-header-ghost"
                 >
                   <div
                     class="ant-page-header-heading "
@@ -20028,7 +20073,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/dynamicMenu.tsx c
               class="ant-pro-page-container"
             >
               <div
-                class="ant-page-header ant-pro-page-container-warp-page-header  ant-pro-page-container-warp-page-header  ant-page-header-has-breadcrumb ant-page-header-ghost"
+                class="ant-page-header ant-pro-page-container-warp-page-header  ant-page-header-has-breadcrumb ant-page-header-ghost"
               >
                 <nav
                   class="ant-breadcrumb ant-page-header-breadcrumb"
@@ -20845,7 +20890,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/footer.tsx correc
               class="ant-pro-page-container"
             >
               <div
-                class="ant-page-header ant-pro-page-container-warp-page-header  ant-pro-page-container-warp-page-header  ant-page-header-ghost"
+                class="ant-page-header ant-pro-page-container-warp-page-header  ant-page-header-ghost"
               >
                 <div
                   class="ant-page-header-heading "
@@ -21917,7 +21962,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/footer-global-too
                 class="ant-pro-page-container"
               >
                 <div
-                  class="ant-page-header ant-pro-page-container-warp-page-header  ant-pro-page-container-warp-page-header  ant-page-header-has-breadcrumb ant-page-header-ghost"
+                  class="ant-page-header ant-pro-page-container-warp-page-header  ant-page-header-has-breadcrumb ant-page-header-ghost"
                 >
                   <nav
                     class="ant-breadcrumb ant-page-header-breadcrumb"
@@ -22481,156 +22526,160 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/ghost.tsx correct
                     class=""
                   >
                     <div
-                      class="ant-page-header ant-pro-page-container-warp-page-header  ant-pro-page-container-warp-page-header  ant-page-header-ghost"
+                      class="ant-pro-page-container-warp "
                     >
                       <div
-                        class="ant-page-header-heading "
+                        class="ant-page-header ant-pro-page-container-warp-page-header  ant-page-header-ghost"
                       >
                         <div
-                          class="ant-page-header-heading-left "
-                        >
-                          <span
-                            class="ant-page-header-heading-title "
-                            title="欢迎"
-                          >
-                            欢迎
-                          </span>
-                        </div>
-                      </div>
-                      <div
-                        class="ant-page-header-content "
-                      >
-                        <div
-                          class="ant-pro-page-container-detail "
+                          class="ant-page-header-heading "
                         >
                           <div
-                            class="ant-pro-page-container-main "
+                            class="ant-page-header-heading-left "
+                          >
+                            <span
+                              class="ant-page-header-heading-title "
+                              title="欢迎"
+                            >
+                              欢迎
+                            </span>
+                          </div>
+                        </div>
+                        <div
+                          class="ant-page-header-content "
+                        >
+                          <div
+                            class="ant-pro-page-container-detail "
                           >
                             <div
-                              class="ant-pro-page-container-row "
+                              class="ant-pro-page-container-main "
                             >
                               <div
-                                class="ant-pro-page-container-content "
+                                class="ant-pro-page-container-row "
                               >
                                 <div
-                                  class="ant-descriptions ant-descriptions-small"
+                                  class="ant-pro-page-container-content "
                                 >
                                   <div
-                                    class="ant-descriptions-view"
+                                    class="ant-descriptions ant-descriptions-small"
                                   >
-                                    <table>
-                                      <tbody>
-                                        <tr
-                                          class="ant-descriptions-row"
-                                        >
-                                          <td
-                                            class="ant-descriptions-item"
-                                            colspan="1"
+                                    <div
+                                      class="ant-descriptions-view"
+                                    >
+                                      <table>
+                                        <tbody>
+                                          <tr
+                                            class="ant-descriptions-row"
                                           >
-                                            <div
-                                              class="ant-descriptions-item-container"
+                                            <td
+                                              class="ant-descriptions-item"
+                                              colspan="1"
                                             >
-                                              <span
-                                                class="ant-descriptions-item-label"
+                                              <div
+                                                class="ant-descriptions-item-container"
                                               >
-                                                创建人
-                                              </span>
-                                              <span
-                                                class="ant-descriptions-item-content"
+                                                <span
+                                                  class="ant-descriptions-item-label"
+                                                >
+                                                  创建人
+                                                </span>
+                                                <span
+                                                  class="ant-descriptions-item-content"
+                                                >
+                                                  张三
+                                                </span>
+                                              </div>
+                                            </td>
+                                            <td
+                                              class="ant-descriptions-item"
+                                              colspan="1"
+                                            >
+                                              <div
+                                                class="ant-descriptions-item-container"
                                               >
-                                                张三
-                                              </span>
-                                            </div>
-                                          </td>
-                                          <td
-                                            class="ant-descriptions-item"
-                                            colspan="1"
+                                                <span
+                                                  class="ant-descriptions-item-label"
+                                                >
+                                                  联系方式
+                                                </span>
+                                                <span
+                                                  class="ant-descriptions-item-content"
+                                                >
+                                                  <a>
+                                                    421421
+                                                  </a>
+                                                </span>
+                                              </div>
+                                            </td>
+                                          </tr>
+                                          <tr
+                                            class="ant-descriptions-row"
                                           >
-                                            <div
-                                              class="ant-descriptions-item-container"
+                                            <td
+                                              class="ant-descriptions-item"
+                                              colspan="1"
                                             >
-                                              <span
-                                                class="ant-descriptions-item-label"
+                                              <div
+                                                class="ant-descriptions-item-container"
                                               >
-                                                联系方式
-                                              </span>
-                                              <span
-                                                class="ant-descriptions-item-content"
+                                                <span
+                                                  class="ant-descriptions-item-label"
+                                                >
+                                                  创建时间
+                                                </span>
+                                                <span
+                                                  class="ant-descriptions-item-content"
+                                                >
+                                                  2017-01-10
+                                                </span>
+                                              </div>
+                                            </td>
+                                            <td
+                                              class="ant-descriptions-item"
+                                              colspan="1"
+                                            >
+                                              <div
+                                                class="ant-descriptions-item-container"
                                               >
-                                                <a>
-                                                  421421
-                                                </a>
-                                              </span>
-                                            </div>
-                                          </td>
-                                        </tr>
-                                        <tr
-                                          class="ant-descriptions-row"
-                                        >
-                                          <td
-                                            class="ant-descriptions-item"
-                                            colspan="1"
+                                                <span
+                                                  class="ant-descriptions-item-label"
+                                                >
+                                                  更新时间
+                                                </span>
+                                                <span
+                                                  class="ant-descriptions-item-content"
+                                                >
+                                                  2017-10-10
+                                                </span>
+                                              </div>
+                                            </td>
+                                          </tr>
+                                          <tr
+                                            class="ant-descriptions-row"
                                           >
-                                            <div
-                                              class="ant-descriptions-item-container"
+                                            <td
+                                              class="ant-descriptions-item"
+                                              colspan="2"
                                             >
-                                              <span
-                                                class="ant-descriptions-item-label"
+                                              <div
+                                                class="ant-descriptions-item-container"
                                               >
-                                                创建时间
-                                              </span>
-                                              <span
-                                                class="ant-descriptions-item-content"
-                                              >
-                                                2017-01-10
-                                              </span>
-                                            </div>
-                                          </td>
-                                          <td
-                                            class="ant-descriptions-item"
-                                            colspan="1"
-                                          >
-                                            <div
-                                              class="ant-descriptions-item-container"
-                                            >
-                                              <span
-                                                class="ant-descriptions-item-label"
-                                              >
-                                                更新时间
-                                              </span>
-                                              <span
-                                                class="ant-descriptions-item-content"
-                                              >
-                                                2017-10-10
-                                              </span>
-                                            </div>
-                                          </td>
-                                        </tr>
-                                        <tr
-                                          class="ant-descriptions-row"
-                                        >
-                                          <td
-                                            class="ant-descriptions-item"
-                                            colspan="2"
-                                          >
-                                            <div
-                                              class="ant-descriptions-item-container"
-                                            >
-                                              <span
-                                                class="ant-descriptions-item-label"
-                                              >
-                                                备注
-                                              </span>
-                                              <span
-                                                class="ant-descriptions-item-content"
-                                              >
-                                                中国浙江省杭州市西湖区古翠路
-                                              </span>
-                                            </div>
-                                          </td>
-                                        </tr>
-                                      </tbody>
-                                    </table>
+                                                <span
+                                                  class="ant-descriptions-item-label"
+                                                >
+                                                  备注
+                                                </span>
+                                                <span
+                                                  class="ant-descriptions-item-content"
+                                                >
+                                                  中国浙江省杭州市西湖区古翠路
+                                                </span>
+                                              </div>
+                                            </td>
+                                          </tr>
+                                        </tbody>
+                                      </table>
+                                    </div>
                                   </div>
                                 </div>
                               </div>
@@ -23153,7 +23202,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/hideMenu.tsx corr
               class="ant-pro-page-container"
             >
               <div
-                class="ant-page-header ant-pro-page-container-warp-page-header  ant-pro-page-container-warp-page-header  ant-page-header-ghost"
+                class="ant-page-header ant-pro-page-container-warp-page-header  ant-page-header-ghost"
               >
                 <div
                   class="ant-page-header-heading "
@@ -24246,7 +24295,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/immersive-navigat
               style="padding-block-start: 48px;"
             >
               <div
-                class="ant-page-header ant-pro-page-container-warp-page-header  ant-pro-page-container-warp-page-header  ant-page-header-ghost"
+                class="ant-page-header ant-pro-page-container-warp-page-header  ant-page-header-ghost"
                 style="padding: 8px 16px; background-color: rgb(255, 255, 255); position: fixed; top: 0px; width: 100%; left: 0px; z-index: 999; box-shadow: 0 2px 8px #f0f1f2;"
               >
                 <div
@@ -26477,7 +26526,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/mixMode.tsx corre
                 class="ant-pro-page-container"
               >
                 <div
-                  class="ant-page-header ant-pro-page-container-warp-page-header  ant-pro-page-container-warp-page-header  ant-page-header-has-breadcrumb ant-page-header-ghost"
+                  class="ant-page-header ant-pro-page-container-warp-page-header  ant-page-header-has-breadcrumb ant-page-header-ghost"
                 >
                   <nav
                     class="ant-breadcrumb ant-page-header-breadcrumb"
@@ -27282,7 +27331,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/pageSimplify.tsx 
                 class="ant-pro-page-container"
               >
                 <div
-                  class="ant-page-header ant-pro-page-container-warp-page-header  ant-pro-page-container-warp-page-header  ant-page-header-has-breadcrumb ant-page-header-ghost"
+                  class="ant-page-header ant-pro-page-container-warp-page-header  ant-page-header-has-breadcrumb ant-page-header-ghost"
                 >
                   <nav
                     class="ant-breadcrumb ant-page-header-breadcrumb"
@@ -27785,7 +27834,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/searchMenu.tsx co
                 class="ant-pro-page-container"
               >
                 <div
-                  class="ant-page-header ant-pro-page-container-warp-page-header  ant-pro-page-container-warp-page-header  ant-page-header-has-breadcrumb ant-page-header-ghost"
+                  class="ant-page-header ant-pro-page-container-warp-page-header  ant-page-header-has-breadcrumb ant-page-header-ghost"
                 >
                   <nav
                     class="ant-breadcrumb ant-page-header-breadcrumb"
@@ -28700,7 +28749,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/siderMode.tsx cor
                 class="ant-pro-page-container"
               >
                 <div
-                  class="ant-page-header ant-pro-page-container-warp-page-header  ant-pro-page-container-warp-page-header  ant-page-header-has-breadcrumb ant-page-header-ghost"
+                  class="ant-page-header ant-pro-page-container-warp-page-header  ant-page-header-has-breadcrumb ant-page-header-ghost"
                 >
                   <nav
                     class="ant-breadcrumb ant-page-header-breadcrumb"
@@ -29729,7 +29778,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/siteMenu.tsx corr
                 class="ant-pro-page-container"
               >
                 <div
-                  class="ant-page-header ant-pro-page-container-warp-page-header  ant-pro-page-container-warp-page-header  ant-page-header-has-breadcrumb ant-page-header-ghost"
+                  class="ant-page-header ant-pro-page-container-warp-page-header  ant-page-header-has-breadcrumb ant-page-header-ghost"
                 >
                   <nav
                     class="ant-breadcrumb ant-page-header-breadcrumb"
@@ -32404,7 +32453,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/splitMenus.tsx co
               class="ant-pro-page-container"
             >
               <div
-                class="ant-page-header ant-pro-page-container-warp-page-header  ant-pro-page-container-warp-page-header  ant-page-header-ghost"
+                class="ant-page-header ant-pro-page-container-warp-page-header  ant-page-header-ghost"
               >
                 <div
                   class="ant-page-header-heading "
@@ -33049,7 +33098,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/theme.tsx correct
               class="ant-pro-page-container ant-pro-page-container-with-footer"
             >
               <div
-                class="ant-page-header ant-pro-page-container-warp-page-header  ant-pro-page-container-warp-page-header  ant-page-header-has-breadcrumb ant-page-header-ghost"
+                class="ant-page-header ant-pro-page-container-warp-page-header  ant-page-header-has-breadcrumb ant-page-header-ghost"
               >
                 <nav
                   class="ant-breadcrumb ant-page-header-breadcrumb"
@@ -33620,7 +33669,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/top-breadcrumb.ts
                 class="ant-pro-page-container"
               >
                 <div
-                  class="ant-page-header ant-pro-page-container-warp-page-header  ant-pro-page-container-warp-page-header  ant-page-header-ghost"
+                  class="ant-page-header ant-pro-page-container-warp-page-header  ant-page-header-ghost"
                 >
                   <div
                     class="ant-page-header-heading "
@@ -34259,7 +34308,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/topMode.tsx corre
                 class="ant-pro-page-container"
               >
                 <div
-                  class="ant-page-header ant-pro-page-container-warp-page-header  ant-pro-page-container-warp-page-header  ant-page-header-has-breadcrumb ant-page-header-ghost"
+                  class="ant-page-header ant-pro-page-container-warp-page-header  ant-page-header-has-breadcrumb ant-page-header-ghost"
                 >
                   <nav
                     class="ant-breadcrumb ant-page-header-breadcrumb"
