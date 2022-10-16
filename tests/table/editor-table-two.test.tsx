@@ -262,7 +262,7 @@ describe('EditorProTable 2', () => {
       );
     });
 
-    await waitForComponentToPaint(wrapper, 100);
+    await waitForComponentToPaint(wrapper, 300);
 
     expect(onChange).toBeCalled();
     expect(onChange).toBeCalledWith({

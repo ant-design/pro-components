@@ -1,5 +1,5 @@
 import { ProTable } from '@ant-design/pro-components';
-import { mount } from 'enzyme';
+import { render } from '@testing-library/react';
 import { act } from 'react-dom/test-utils';
 import { waitForComponentToPaint } from '../util';
 
@@ -41,7 +41,7 @@ for (let i = 0; i < 5; i += 1) {
 
 describe('Dynamic Persistence', () => {
   it('🎏 columnSetting columnsState.persistenceKey change', async () => {
-    const html = mount(
+    const html = render(
       <ProTable
         columns={[
           {
@@ -81,8 +81,9 @@ describe('Dynamic Persistence', () => {
     await waitForComponentToPaint(html);
 
     act(() => {
-      const icon = html.find('.ant-pro-table-list-toolbar-setting-item .anticon-setting');
-      icon.simulate('click');
+      html.baseElement
+        .querySelector<HTMLDivElement>('.ant-pro-table-list-toolbar-setting-item .anticon-setting')
+        ?.click();
     });
 
     await waitForComponentToPaint(html);
@@ -92,8 +93,11 @@ describe('Dynamic Persistence', () => {
     );
 
     act(() => {
-      const item = html.find('.ant-tree-treenode > .ant-tree-node-content-wrapper').at(1);
-      item.simulate('click');
+      html.baseElement
+        .querySelectorAll<HTMLDivElement>(
+          '.ant-tree-treenode > .ant-tree-node-content-wrapper',
+        )?.[1]
+        ?.click();
     });
 
     await waitForComponentToPaint(html);
@@ -103,24 +107,42 @@ describe('Dynamic Persistence', () => {
     );
 
     act(() => {
-      html.setProps({
-        columnsState: {
-          persistenceKey: 'table_dynamic_status_running',
-          persistenceType: 'sessionStorage',
-        },
-        columns: [
-          {
-            title: '排序',
-            dataIndex: 'index',
-            valueType: 'indexBorder',
-            width: 48,
-          },
-          {
-            title: '运行时字段',
-            dataIndex: 'statusText',
-          },
-        ],
-      });
+      html.rerender(
+        <ProTable
+          columns={[
+            {
+              title: '排序',
+              dataIndex: 'index',
+              valueType: 'indexBorder',
+              width: 48,
+            },
+            {
+              title: '运行时字段',
+              dataIndex: 'statusText',
+            },
+          ]}
+          request={() => {
+            return Promise.resolve({
+              data: tableListDataSource,
+              success: true,
+            });
+          }}
+          rowKey="key"
+          search={{
+            layout: 'vertical',
+            defaultCollapsed: false,
+          }}
+          columnsState={{
+            persistenceKey: 'table_dynamic_status_running',
+            persistenceType: 'sessionStorage',
+          }}
+          dateFormatter="string"
+          toolbar={{
+            title: '高级表格',
+            tooltip: '动态列持久化',
+          }}
+        />,
+      );
     });
     await waitForComponentToPaint(html);
 
