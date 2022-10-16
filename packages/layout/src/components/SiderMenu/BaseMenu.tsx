@@ -150,7 +150,7 @@ class MenuUtil {
 
     const name = this.getIntlName(item);
     const children = item?.children || item?.routes;
-    warningOnce(!item?.routes, 'routes 将会废弃，为了保证兼容请使用 children 作为子节点定义方式');
+
     const menuType = isGroup && level === 0 ? ('group' as const) : undefined;
 
     if (Array.isArray(children) && children.length > 0) {
