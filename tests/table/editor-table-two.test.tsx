@@ -218,7 +218,7 @@ const EditorProTableDemo = (
   );
 };
 describe('EditorProTable 2', () => {
-  fit('📝 EditableProTable controlled will trigger onchange', async () => {
+  it('📝 EditableProTable controlled will trigger onchange', async () => {
     const onChange = jest.fn();
     const wrapper = render(
       <EditableProTable<DataSourceType>
