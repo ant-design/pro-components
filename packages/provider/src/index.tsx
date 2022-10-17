@@ -87,6 +87,12 @@ export type ProFieldFCRenderProps = {
 } & BaseProFieldFC;
 
 export type ProRenderFieldPropsType = {
+  /**
+   * 自定义只读模式的渲染器
+   * @params props 关于dom的配置
+   * @params dom 默认的 dom
+   * @return 返回一个用于读的 dom
+   */
   render?:
     | ((
         text: any,
@@ -94,6 +100,13 @@ export type ProRenderFieldPropsType = {
         dom: JSX.Element,
       ) => JSX.Element)
     | undefined;
+  /**
+   * 一个自定义的编辑渲染器。
+   * @params text 默认的值类型
+   * @params props 关于dom的配置
+   * @params dom 默认的 dom
+   * @return 返回一个用于编辑的dom
+   */
   renderFormItem?:
     | ((text: any, props: ProFieldFCRenderProps, dom: JSX.Element) => JSX.Element)
     | undefined;

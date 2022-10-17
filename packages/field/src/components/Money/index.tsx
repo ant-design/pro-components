@@ -140,8 +140,15 @@ const getTextByLocale = (
   }
 };
 
+// 默认的代码类型
 const DefaultPrecisionCont = 2;
 
+/**
+ * input 的弹框，用于显示格式化之后的内容
+ *
+ * @result 10,000 -> 一万
+ * @result 10, 00, 000, 000 -> 一亿
+ */
 const InputNumberPopover = React.forwardRef<
   any,
   InputNumberProps & {
@@ -156,6 +163,10 @@ const InputNumberPopover = React.forwardRef<
     value: rest.value,
     onChange: rest.onChange,
   });
+
+  /**
+   * 如果content 存在要根据 content 渲染一下
+   */
   const dom = content?.({
     ...rest,
     value,
@@ -217,37 +228,58 @@ const FieldMoney: ProFieldFC<FieldMoneyProps> = (
   if (locale && allIntlMap[locale]) {
     intl = allIntlMap[locale];
   }
-  const moneySymbol = useMemo(() => {
+
+  /**
+   * 获取货币的符号
+   * 如果 customSymbol 存在直接使用 customSymbol
+   * 如果 moneySymbol 为 false，返回空
+   * 如果没有配置使用默认的
+   */
+  const moneySymbol = useMemo((): string | undefined => {
     if (customSymbol) {
       return customSymbol;
     }
-    const defaultText = intl.getMessage('moneySymbol', '￥');
+
     if (rest.moneySymbol === false || fieldProps.moneySymbol === false) {
       return undefined;
     }
-    return defaultText;
+    return intl.getMessage('moneySymbol', '￥');
   }, [customSymbol, fieldProps.moneySymbol, intl, rest.moneySymbol]);
 
+  /*
+   * A function that formats the number.
+   * 1000 -> 1,000
+   */
   const getFormateValue = useCallback(
     (value?: string | number) => {
+      // 新建数字正则，需要配置小数点
       const reg = new RegExp(
         `\\B(?=(\\d{${3 + Math.max(precision - DefaultPrecisionCont, 0)}})+(?!\\d))`,
         'g',
       );
-      const [intS, floatS] = String(value).split('.');
-      const resInt = intS.replace(reg, ',');
-      let resFloat = '';
-      if (floatS && precision > 0)
-        resFloat = `.${floatS.slice(
+      // 切分为 整数 和 小数 不同
+      const [intStr, floatStr] = String(value).split('.');
+
+      // 最终的数据string，需要去掉 , 号。
+      const resultInt = intStr.replace(reg, ',');
+
+      // 计算最终的小数点
+      let resultFloat = '';
+
+      /* Taking the floatStr and slicing it to the precision. */
+      if (floatStr && precision > 0) {
+        resultFloat = `.${floatStr.slice(
           0,
           precision === undefined ? DefaultPrecisionCont : precision,
         )}`;
+      }
 
-      return `${resInt}${resFloat}`;
+      return `${resultInt}${resultFloat}`;
     },
     [precision],
   );
 
+  // 如果是阅读模式，直接返回字符串
   if (type === 'read') {
     const dom = (
       <span ref={ref}>
@@ -271,7 +303,6 @@ const FieldMoney: ProFieldFC<FieldMoneyProps> = (
         content={(props) => {
           if (numberPopoverRender === false) return;
           if (!props.value) return;
-
           const localeText = getTextByLocale(
             moneySymbol ? locale : false,
             `${getFormateValue(props.value)}`,
@@ -314,6 +345,7 @@ const FieldMoney: ProFieldFC<FieldMoneyProps> = (
         ])}
       />
     );
+
     if (renderFormItem) {
       return renderFormItem(text, { mode: type, ...fieldProps }, dom);
     }
