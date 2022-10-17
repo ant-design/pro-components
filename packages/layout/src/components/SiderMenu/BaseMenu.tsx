@@ -4,7 +4,6 @@ import type { MenuProps } from 'antd';
 import { Menu, Skeleton } from 'antd';
 import type { ItemType } from 'antd/es/menu/hooks/useItems';
 import classNames from 'classnames';
-import warningOnce from 'rc-util/lib/warning';
 import React, { useContext, useEffect, useMemo, useRef } from 'react';
 import type { LayoutDesignToken } from '../../context/ProLayoutContext';
 import { ProLayoutContext } from '../../context/ProLayoutContext';

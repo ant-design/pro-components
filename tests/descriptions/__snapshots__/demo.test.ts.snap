@@ -1037,6 +1037,31 @@ exports[`descriptions demos 📸 renders ./packages/descriptions/src/demos/colum
                 <span
                   class="ant-descriptions-item-label"
                 >
+                  money负数无符号
+                </span>
+                <span
+                  class="ant-descriptions-item-content"
+                >
+                  <span>
+                    -12,345.33
+                  </span>
+                </span>
+              </div>
+            </td>
+          </tr>
+          <tr
+            class="ant-descriptions-row"
+          >
+            <td
+              class="ant-descriptions-item"
+              colspan="3"
+            >
+              <div
+                class="ant-descriptions-item-container"
+              >
+                <span
+                  class="ant-descriptions-item-label"
+                >
                   百分比
                 </span>
                 <span

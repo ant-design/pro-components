@@ -17,9 +17,17 @@ export type FieldMoneyProps = {
   text: number;
   moneySymbol?: boolean;
   locale?: string;
+  /**
+   * 输入框内容为空的提示内容
+   */
   placeholder?: any;
+  /**
+   * 自定义 money 的 Symbol
+   */
   customSymbol?: string;
-  /** 自定义 Popover 的值，false 可以关闭他 */
+  /**
+   * 自定义 Popover 的值，false 可以关闭他
+   */
   numberPopoverRender?:
     | ((props: InputNumberProps, defaultText: string) => React.ReactNode)
     | boolean;
@@ -29,16 +37,50 @@ export type FieldMoneyProps = {
    * @see https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Intl/NumberFormat
    */
   numberFormatOptions?: {
+    /**
+     * @see https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Intl/NumberFormat
+     */
     localeMatcher?: string;
+    /**
+     * @see https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Intl/NumberFormat
+     */
     style?: string;
+    /**
+     * @see https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Intl/NumberFormat
+     */
     currency?: string;
+    /**
+     * @see https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Intl/NumberFormat
+     */
     currencyDisplay?: string;
+    /**
+     * @see https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Intl/NumberFormat
+     */
     currencySign?: string;
+    /**
+     * @see https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Intl/NumberFormat
+     */
     useGrouping?: boolean;
+    /**
+     * @see https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Intl/NumberFormat
+     */
     minimumIntegerDigits?: number;
+    /**
+     * @see https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Intl/NumberFormat
+     */
     minimumFractionDigits?: number;
+    /**
+     * @see https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Intl/NumberFormat
+     */
     maximumFractionDigits?: number;
+    /**
+     * @see https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Intl/NumberFormat
+     */
     minimumSignificantDigits?: number;
+
+    /**
+     * @see https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Intl/NumberFormat
+     */
     maximumSignificantDigits?: number;
   };
 };
@@ -86,6 +128,16 @@ const intlMap = {
   'pt-BR': ptMoneyIntl,
 };
 
+/**
+ * A function that formats the number.
+ * @param {string | false} moneySymbol - The currency symbol, which is the first parameter of the
+ * formatMoney function.
+ * @param {number | string | undefined} paramsText - The text to be formatted
+ * @param {number} precision - number, // decimal places
+ * @param {any} [config] - the configuration of the number format, which is the same as the
+ * configuration of the number format in the Intl.NumberFormat method.
+ * @returns A function that takes in 4 parameters and returns a string.
+ */
 const getTextByLocale = (
   moneySymbol: string | false,
   paramsText: number | string | undefined,
@@ -98,25 +150,47 @@ const getTextByLocale = (
   }
 
   if (!moneyText && moneyText !== 0) return '';
+
   try {
-    // readonly moneySymbol = false, unused currency
-    return (
-      new Intl.NumberFormat(moneySymbol || 'zh-Hans-CN', {
-        ...(intlMap[moneySymbol || 'zh-Hans-CN'] || intlMap['zh-Hans-CN']),
-        maximumFractionDigits: precision,
-        ...config,
-      })
-        // fix: #6003 解决未指定货币符号时，金额文本格式化异常问题
-        .format(moneyText)
-        .substring(+(moneySymbol === false))
-    );
+    // Formatting the number, when readonly moneySymbol = false, unused currency.
+    const finalMoneyText = new Intl.NumberFormat(moneySymbol || 'zh-Hans-CN', {
+      ...(intlMap[moneySymbol || 'zh-Hans-CN'] || intlMap['zh-Hans-CN']),
+      maximumFractionDigits: precision,
+      ...config,
+    })
+      // fix: #6003 解决未指定货币符号时，金额文本格式化异常问题
+      .format(moneyText);
+
+    // 是否有金额符号，例如 ￥ $
+    const hasMoneySymbol = moneySymbol === false;
+
+    /**
+     * 首字母判断是否是正负符号
+     */
+    const [operatorSymbol] = finalMoneyText || '';
+
+    // 兼容正负号
+    if (['+', '-'].includes(operatorSymbol)) {
+      // 裁剪字符串,有符号截取两位，没有符号截取一位
+      return `${operatorSymbol}${finalMoneyText.substring(hasMoneySymbol ? 2 : 1)}`;
+    }
+
+    // 没有正负符号截取一位
+    return finalMoneyText.substring(hasMoneySymbol ? 1 : 0);
   } catch (error) {
     return moneyText;
   }
 };
 
+// 默认的代码类型
 const DefaultPrecisionCont = 2;
 
+/**
+ * input 的弹框，用于显示格式化之后的内容
+ *
+ * @result 10,000 -> 一万
+ * @result 10, 00, 000, 000 -> 一亿
+ */
 const InputNumberPopover = React.forwardRef<
   any,
   InputNumberProps & {
@@ -131,6 +205,10 @@ const InputNumberPopover = React.forwardRef<
     value: rest.value,
     onChange: rest.onChange,
   });
+
+  /**
+   * 如果content 存在要根据 content 渲染一下
+   */
   const dom = content?.({
     ...rest,
     value,
@@ -192,37 +270,58 @@ const FieldMoney: ProFieldFC<FieldMoneyProps> = (
   if (locale && allIntlMap[locale]) {
     intl = allIntlMap[locale];
   }
-  const moneySymbol = useMemo(() => {
+
+  /**
+   * 获取货币的符号
+   * 如果 customSymbol 存在直接使用 customSymbol
+   * 如果 moneySymbol 为 false，返回空
+   * 如果没有配置使用默认的
+   */
+  const moneySymbol = useMemo((): string | undefined => {
     if (customSymbol) {
       return customSymbol;
     }
-    const defaultText = intl.getMessage('moneySymbol', '￥');
+
     if (rest.moneySymbol === false || fieldProps.moneySymbol === false) {
       return undefined;
     }
-    return defaultText;
+    return intl.getMessage('moneySymbol', '￥');
   }, [customSymbol, fieldProps.moneySymbol, intl, rest.moneySymbol]);
 
+  /*
+   * A function that formats the number.
+   * 1000 -> 1,000
+   */
   const getFormateValue = useCallback(
     (value?: string | number) => {
+      // 新建数字正则，需要配置小数点
       const reg = new RegExp(
         `\\B(?=(\\d{${3 + Math.max(precision - DefaultPrecisionCont, 0)}})+(?!\\d))`,
         'g',
       );
-      const [intS, floatS] = String(value).split('.');
-      const resInt = intS.replace(reg, ',');
-      let resFloat = '';
-      if (floatS && precision > 0)
-        resFloat = `.${floatS.slice(
+      // 切分为 整数 和 小数 不同
+      const [intStr, floatStr] = String(value).split('.');
+
+      // 最终的数据string，需要去掉 , 号。
+      const resultInt = intStr.replace(reg, ',');
+
+      // 计算最终的小数点
+      let resultFloat = '';
+
+      /* Taking the floatStr and slicing it to the precision. */
+      if (floatStr && precision > 0) {
+        resultFloat = `.${floatStr.slice(
           0,
           precision === undefined ? DefaultPrecisionCont : precision,
         )}`;
+      }
 
-      return `${resInt}${resFloat}`;
+      return `${resultInt}${resultFloat}`;
     },
     [precision],
   );
 
+  // 如果是阅读模式，直接返回字符串
   if (type === 'read') {
     const dom = (
       <span ref={ref}>
@@ -246,7 +345,6 @@ const FieldMoney: ProFieldFC<FieldMoneyProps> = (
         content={(props) => {
           if (numberPopoverRender === false) return;
           if (!props.value) return;
-
           const localeText = getTextByLocale(
             moneySymbol ? locale : false,
             `${getFormateValue(props.value)}`,
@@ -289,6 +387,7 @@ const FieldMoney: ProFieldFC<FieldMoneyProps> = (
         ])}
       />
     );
+
     if (renderFormItem) {
       return renderFormItem(text, { mode: type, ...fieldProps }, dom);
     }
