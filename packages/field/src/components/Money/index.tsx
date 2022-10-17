@@ -86,6 +86,16 @@ const intlMap = {
   'pt-BR': ptMoneyIntl,
 };
 
+/**
+ * A function that formats the number.
+ * @param {string | false} moneySymbol - The currency symbol, which is the first parameter of the
+ * formatMoney function.
+ * @param {number | string | undefined} paramsText - The text to be formatted
+ * @param {number} precision - number, // decimal places
+ * @param {any} [config] - the configuration of the number format, which is the same as the
+ * configuration of the number format in the Intl.NumberFormat method.
+ * @returns A function that takes in 4 parameters and returns a string.
+ */
 const getTextByLocale = (
   moneySymbol: string | false,
   paramsText: number | string | undefined,
@@ -98,21 +108,33 @@ const getTextByLocale = (
   }
 
   if (!moneyText && moneyText !== 0) return '';
+
   try {
-    // readonly moneySymbol = false, unused currency
-    const res = new Intl.NumberFormat(moneySymbol || 'zh-Hans-CN', {
+    // Formatting the number, when readonly moneySymbol = false, unused currency.
+    const finalMoneyText = new Intl.NumberFormat(moneySymbol || 'zh-Hans-CN', {
       ...(intlMap[moneySymbol || 'zh-Hans-CN'] || intlMap['zh-Hans-CN']),
       maximumFractionDigits: precision,
       ...config,
     })
       // fix: #6003 解决未指定货币符号时，金额文本格式化异常问题
       .format(moneyText);
-    const noSymbol = moneySymbol === false;
+
+    // 是否有金额符号，例如 ￥ $
+    const hasMoneySymbol = moneySymbol === false;
+
+    /**
+     * 首字母判断是否是正负符号
+     */
+    const [operatorSymbol] = finalMoneyText || '';
 
     // 兼容正负号
-    return ['+', '-'].includes(res[0])
-      ? `${res[0]}${res.substring(1 + +noSymbol)}`
-      : res.substring(+noSymbol);
+    if (['+', '-'].includes(operatorSymbol)) {
+      // 裁剪字符串,有符号截取两位，没有符号截取一位
+      return `${operatorSymbol}${finalMoneyText.substring(hasMoneySymbol ? 2 : 1)}`;
+    }
+
+    // 没有正负符号截取一位
+    return finalMoneyText.substring(hasMoneySymbol ? 1 : 0);
   } catch (error) {
     return moneyText;
   }
