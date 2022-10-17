@@ -61,9 +61,15 @@ export type BaseProFieldFC = {
   text: React.ReactNode;
   /** 放置到组件上 props */
   fieldProps?: any;
-  /** 模式类型 */
+  /**
+   * 组件的渲染模式类型
+   * @option read 渲染只读模式
+   * @option edit 渲染编辑模式
+   * */
   mode: ProFieldFCMode;
-  /** 简约模式 */
+  /**
+   * 简约模式
+   */
   plain?: boolean;
   /** 轻量模式 */
   light?: boolean;
@@ -117,6 +123,13 @@ export type IntlType = {
   getMessage: (id: string, defaultMessage: string) => string;
 };
 
+/**
+ * 安全的从一个对象中读取相应的值
+ * @param source
+ * @param path
+ * @param defaultValue
+ * @returns
+ */
 function get(
   source: Record<string, unknown>,
   path: string,
@@ -138,7 +151,7 @@ function get(
 }
 
 /**
- * 创建一个操作函数
+ * 创建一个国际化的操作函数
  *
  * @param locale
  * @param localeMap
@@ -231,12 +244,16 @@ export {
   intlMapKeys,
 };
 
+/**
+ * 国际化的配置类型
+ */
 export type ConfigContextPropsType = {
   intl: IntlType;
   isDeps: boolean;
   valueTypeMap: Record<string, ProRenderFieldPropsType>;
 };
 
+/* Creating a context object with the default values. */
 const ConfigContext = React.createContext<ConfigContextPropsType>({
   intl: {
     ...zhCNIntl,
@@ -352,6 +369,11 @@ export const ConfigProviderWrap: React.FC<Record<string, unknown>> = ({
   return <SWRConfig value={{ provider: () => new Map() }}>{configProviderDom}</SWRConfig>;
 };
 
+/**
+ * It returns the intl object from the context if it exists, otherwise it returns the intl object for
+ * the current locale
+ * @returns The return value of the function is the intl object.
+ */
 export function useIntl(): IntlType {
   const { locale } = useContext(AntdConfigProvider.ConfigContext);
   const { intl } = useContext(ConfigContext);
