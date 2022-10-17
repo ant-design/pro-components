@@ -128,7 +128,7 @@ function RecordCreator<T = Record<string, any>>(
 
 /**
  * 可以直接放到 Form 中的可编辑表格
- *
+ * A React component that is used to create a table.
  * @param props
  */
 function EditableTable<
@@ -203,7 +203,7 @@ function EditableTable<
      * @param rowIndex
      * @returns T | undefined
      */
-    const getRowData = (rowIndex: string | number) => {
+    const getRowData = (rowIndex: string | number): DataType | undefined => {
       if (rowIndex == undefined) {
         throw new Error('rowIndex is required');
       }
@@ -215,11 +215,12 @@ function EditableTable<
         .filter(Boolean) as NamePath;
       return formRef.current?.getFieldValue(rowKeyName) as DataType;
     };
+
     /**
      * 获取整个 table 的数据
      * @returns T[] | undefined
      */
-    const getRowsData = () => {
+    const getRowsData = (): DataType[] | undefined => {
       const rowKeyName = [props.name].flat(1).filter(Boolean) as NamePath;
       if (Array.isArray(rowKeyName) && rowKeyName.length === 0) {
         const rowData = formRef.current?.getFieldsValue();
@@ -254,7 +255,8 @@ function EditableTable<
           ...getRowData(rowIndex),
           ...(data || {}),
         });
-        return formRef.current?.setFieldsValue(updateValues);
+        formRef.current?.setFieldsValue(updateValues);
+        return true;
       },
     } as EditableFormInstance<DataType>;
   });
@@ -440,7 +442,11 @@ function EditableTable<
     </>
   );
 }
-
+/**
+ * `FieldEditableTable` is a wrapper around `EditableTable` that adds a `Form.Item` around it
+ * @param props - EditableProTableProps<DataType, Params, ValueType>
+ * @returns A function that takes in props and returns a Form.Item component.
+ */
 function FieldEditableTable<
   DataType extends Record<string, any>,
   Params extends ParamsType = ParamsType,
