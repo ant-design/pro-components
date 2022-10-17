@@ -1,6 +1,6 @@
 import { InputNumber } from 'antd';
-import omit from 'lodash.omit';
 import React, { useCallback } from 'react';
+import omit from 'omit.js';
 import type { ProFieldFC } from '../../index';
 
 // 兼容代码-----------
