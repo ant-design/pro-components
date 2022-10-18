@@ -1,13 +1,8 @@
 import type { GenerateStyle, ProAliasToken } from '@ant-design/pro-utils';
 import { resetComponent, useStyle as useAntdStyle } from '@ant-design/pro-utils';
 
-type NewType = ProAliasToken;
-
-interface ProCardToken extends NewType {
+interface ProCardToken extends ProAliasToken {
   componentCls: string;
-  cardHoverableHoverBorder: string;
-  proCardDefaultBorder: string;
-  cardShadow: string;
 }
 
 const genActiveStyle = (token: ProCardToken) => ({
@@ -36,15 +31,15 @@ const genProCardStyle: GenerateStyle<ProCardToken> = (token) => {
         fontFamily: token.fontFamily,
       },
       '&-box-shadow': {
-        boxShadow: token.boxShadowCard,
-        borderColor: token.cardHoverableHoverBorder,
+        boxShadow: '0 1px 2px -2px #00000029, 0 3px 6px #0000001f, 0 5px 12px 4px #00000017',
+        borderColor: 'transparent',
       },
       '&-col': {
         width: '100%',
       },
 
       '&-border': {
-        border: token.proCardDefaultBorder,
+        border: `${token.lineWidth}px ${token.lineType} ${token.colorSplit}`,
       },
 
       '&-hoverable': {
@@ -52,8 +47,8 @@ const genProCardStyle: GenerateStyle<ProCardToken> = (token) => {
         transition: 'box-shadow 0.3s, border-color 0.3s',
 
         '&:hover': {
-          borderColor: token.cardHoverableHoverBorder,
-          boxShadow: token.cardShadow,
+          borderColor: 'transparent',
+          boxShadow: '0 1px 2px -2px #00000029, 0 3px 6px #0000001f, 0 5px 12px 4px #00000017',
         },
 
         [`&${componentCls}-checked:hover`]: {
@@ -303,10 +298,6 @@ export default function useStyle(prefixCls: string) {
     const proCardToken: ProCardToken = {
       ...token,
       componentCls: `.${prefixCls}`,
-      cardHoverableHoverBorder: 'transparent',
-      proCardDefaultBorder: `${token.lineWidth}px ${token.lineType} ${token.colorSplit}`,
-      cardShadow:
-        '0 1px 2px -2px rgba(0, 0, 0, 0.64), 0 3px 6px 0 rgba(0, 0, 0, 0.48), 0 5px 12px 4px rgba(0, 0, 0, 0.36)',
     };
 
     return [genProCardStyle(proCardToken), genGridStyle(proCardToken)];

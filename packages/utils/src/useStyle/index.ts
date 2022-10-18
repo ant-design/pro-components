@@ -112,6 +112,7 @@ export function useStyle(
    * @example .ant-pro
    */
   const proComponentsCls = `.${getPrefixCls()}-pro`;
+
   return {
     wrapSSR: useStyleRegister(
       {
