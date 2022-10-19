@@ -61,7 +61,7 @@ const FieldDigit: ProFieldFC<FieldDigitProps> = (
         ref={ref}
         min={0}
         placeholder={placeholder}
-        {...omit(fieldProps, 'onChange')}
+        {...omit(fieldProps, ['onChange'])}
         onChange={proxyChange}
       />
     );
