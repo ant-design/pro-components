@@ -2,6 +2,15 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [7.1.9](https://github.com/ant-design/pro-components/compare/@ant-design/pro-layout@7.1.8...@ant-design/pro-layout@7.1.9) (2022-10-19)
+
+### Bug Fixes
+
+- **form:** 金额格式化支持负数形式展示 ([#6080](https://github.com/ant-design/pro-components/issues/6080)) ([b0b153b](https://github.com/ant-design/pro-components/commit/b0b153b7ddf651e99b2ab65faf8288e7ec2831e2))
+- **layout:** add ghost classname ([7df07ba](https://github.com/ant-design/pro-components/commit/7df07baf790d13f850c4ef94b0cfadd2c9d831f9))
+- **layout:** alway set pageheader is ghost ([e06d908](https://github.com/ant-design/pro-components/commit/e06d908435e78e4fbdad643facfc21f54652ac6b))
+- **Layout:** 修复 PageContainer 设置 fixedHeader 属性后，样式 ant-pro-page-container-warp 未生效问题 ([#6078](https://github.com/ant-design/pro-components/issues/6078)) ([0bf30ba](https://github.com/ant-design/pro-components/commit/0bf30baa16ad05a71004dd73e4cbfa31caf83f2a))
+
 ## [7.1.8](https://github.com/ant-design/pro-components/compare/@ant-design/pro-layout@7.1.7...@ant-design/pro-layout@7.1.8) (2022-10-14)
 
 ### Bug Fixes

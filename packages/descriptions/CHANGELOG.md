@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.0.17](https://github.com/ant-design/pro-components/compare/@ant-design/pro-descriptions@2.0.16...@ant-design/pro-descriptions@2.0.17) (2022-10-19)
+
+### Bug Fixes
+
+- **form:** 金额格式化支持负数形式展示 ([#6080](https://github.com/ant-design/pro-components/issues/6080)) ([b0b153b](https://github.com/ant-design/pro-components/commit/b0b153b7ddf651e99b2ab65faf8288e7ec2831e2))
+
 ## [2.0.16](https://github.com/ant-design/pro-components/compare/@ant-design/pro-descriptions@2.0.15...@ant-design/pro-descriptions@2.0.16) (2022-10-14)
 
 **Note:** Version bump only for package @ant-design/pro-descriptions

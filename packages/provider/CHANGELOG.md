@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.0.7](https://github.com/ant-design/pro-components/compare/@ant-design/pro-provider@2.0.6...@ant-design/pro-provider@2.0.7) (2022-10-19)
+
+### Bug Fixes
+
+- **form:** fix intl no work error ([ecfc9d6](https://github.com/ant-design/pro-components/commit/ecfc9d65b5369137b2bb7c7f12f35e2df24190a7))
+- **form:** 金额格式化支持负数形式展示 ([#6080](https://github.com/ant-design/pro-components/issues/6080)) ([b0b153b](https://github.com/ant-design/pro-components/commit/b0b153b7ddf651e99b2ab65faf8288e7ec2831e2))
+
 ## [2.0.6](https://github.com/ant-design/pro-components/compare/@ant-design/pro-provider@2.0.5...@ant-design/pro-provider@2.0.6) (2022-10-11)
 
 ### Bug Fixes

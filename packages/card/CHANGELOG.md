@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.0.15](https://github.com/ant-design/pro-components/compare/@ant-design/pro-card@2.0.14...@ant-design/pro-card@2.0.15) (2022-10-19)
+
+### Bug Fixes
+
+- **card:** fix card hover error style ([7ab8e7e](https://github.com/ant-design/pro-components/commit/7ab8e7e457988d803fbaa35451b05c24fdb7d64a))
+
 ## [2.0.14](https://github.com/ant-design/pro-components/compare/@ant-design/pro-card@2.0.13...@ant-design/pro-card@2.0.14) (2022-10-14)
 
 **Note:** Version bump only for package @ant-design/pro-card
