@@ -62,9 +62,11 @@ export default () => {
   const onSortEnd = useRefFunction(
     ({ oldIndex, newIndex }: { oldIndex: number; newIndex: number }) => {
       if (oldIndex !== newIndex) {
-        const newData = arrayMoveImmutable([...dataSource], oldIndex, newIndex).filter(
-          (el) => !!el,
-        );
+        const newData = arrayMoveImmutable({
+          array: [...dataSource],
+          fromIndex: oldIndex,
+          toIndex: newIndex,
+        }).filter((el) => !!el);
         setDataSource([...newData]);
       }
     },

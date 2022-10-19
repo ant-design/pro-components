@@ -2,19 +2,25 @@
 
 type FormatType = ((dayjs: any) => string) | string;
 
-const formatString = (endText: any, format: FormatType) => {
+/**
+ * 通过 format 来格式化日期，因为支持了function 所以需要单独的方法来处理
+ * @param  {any} endText
+ * @param  {FormatType} format
+ * @return string
+ */
+const formatString = (endText: any, format: FormatType): string => {
   if (typeof format === 'function') {
     return format(dayjs(endText));
   }
   return dayjs(endText).format(format);
 };
-
 /**
- * 格式化区域日期
- *
- * @param value
+ * 格式化区域日期,如果是一个数组，会返回 start ~ end
+ * @param  {any} value
+ * @param  {FormatType | FormatType[]} format
+ * returns string
  */
-export const dateArrayFormatter = (value: any[], format: FormatType | FormatType[]) => {
+export const dateArrayFormatter = (value: any[], format: FormatType | FormatType[]): string => {
   const [startText, endText] = Array.isArray(value) ? value : [];
 
   let formatFirst: FormatType;

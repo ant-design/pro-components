@@ -1,4 +1,10 @@
 ﻿/* eslint-disable prefer-rest-params */
+
+/**
+ * 用于合并 n 个对象
+ * @param  {any[]} ...rest
+ * @returns T
+ */
 const merge = <T>(...rest: any[]): T => {
   const obj = {};
   const il = rest.length;

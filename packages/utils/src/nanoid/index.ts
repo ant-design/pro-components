@@ -18,7 +18,7 @@ let genNanoid = (t = 21) => {
 /**
  * 生成uuid，如果不支持 randomUUID，就用 genNanoid
  *
- * @returns
+ * @returns string
  */
 export const nanoid = (): string => {
   if (typeof window === 'undefined') return genNanoid();

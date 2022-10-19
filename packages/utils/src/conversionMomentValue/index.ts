@@ -25,12 +25,20 @@ export const dateFormatterMap = {
   dateTime: 'YYYY-MM-DD HH:mm:ss',
   dateTimeRange: 'YYYY-MM-DD HH:mm:ss',
 };
-
-function isObject(o: any) {
+/**
+ * 判断是不是一个 object
+ * @param  {any} o
+ * @returns boolean
+ */
+function isObject(o: any): boolean {
   return Object.prototype.toString.call(o) === '[object Object]';
 }
-
-export function isPlainObject(o: { constructor: any }) {
+/**
+ * 判断是否是一个的简单的 object
+ * @param  {{constructor:any}} o
+ * @returns boolean
+ */
+export function isPlainObject(o: { constructor: any }): boolean {
   if (isObject(o) === false) return false;
 
   // If has modified constructor
@@ -51,18 +59,17 @@ export function isPlainObject(o: { constructor: any }) {
 }
 
 /**
- * 一个比较hack的moment判断工具
- * @param value
- * @returns
+ *  一个比较hack的moment判断工具
+ * @param  {any} value
+ * @returns boolean
  */
-const isMoment = (value: any) => !!value?._isAMomentObject;
+const isMoment = (value: any): boolean => !!value?._isAMomentObject;
 
 /**
  * 根据不同的格式转化 dayjs
- *
- * @param value
- * @param dateFormatter
- * @param valueType
+ * @param  {dayjs.Dayjs} value
+ * @param  {string|((value:dayjs.Dayjs} dateFormatter
+ * @param  {string} valueType
  */
 export const convertMoment = (
   value: dayjs.Dayjs,
@@ -91,10 +98,12 @@ export const convertMoment = (
 
 /**
  * 这里主要是来转化一下数据 将 dayjs 转化为 string 将 all 默认删除
- *
- * @param value
- * @param dateFormatter
- * @param proColumnsMap
+ * @param  {T} value
+ * @param  {DateFormatter} dateFormatter
+ * @param  {Record<string} valueTypeMap
+ * @param  {ProFieldValueType;dateFormat:string;}|any>} |{valueType
+ * @param  {boolean} omitNil?
+ * @param  {NamePath} parentKey?
  */
 export const conversionMomentValue = <T extends {} = any>(
   value: T,

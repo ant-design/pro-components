@@ -1,4 +1,9 @@
-﻿export function arrayMoveMutable<ValueType>(
+﻿/**
+ * @param  {ValueType[]} array
+ * @param  {number} fromIndex
+ * @param  {number} toIndex
+ */
+export function arrayMoveMutable<ValueType>(
   array: ValueType[],
   fromIndex: number,
   toIndex: number,
@@ -12,7 +17,17 @@
   }
 }
 
-export function arrayMoveImmutable<T>(array: T[], fromIndex: number, toIndex: number) {
+/**
+ * @param  {T[]} array
+ * @param  {number} fromIndex
+ * @param  {number} toIndex
+ * @returns T
+ */
+export function arrayMoveImmutable<T = string>(
+  array: T[],
+  fromIndex: number,
+  toIndex: number,
+): T[] {
   const newArray = [...array];
   arrayMoveMutable(newArray, fromIndex, toIndex);
   return newArray;
