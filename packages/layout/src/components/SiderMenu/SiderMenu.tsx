@@ -442,7 +442,7 @@ const SiderMenu: React.FC<SiderMenuProps & PrivateSiderMenuProps> = (props) => {
         <ConfigProvider
           // @ts-ignore
           theme={{
-            hashed: false,
+            hashed: process.env.NODE_ENV?.toLowerCase() !== 'test',
             components: {
               Menu: {
                 radiusItem: 4,
