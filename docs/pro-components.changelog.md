@@ -8,6 +8,17 @@ group:
   path: /
 ---
 
+## @ant-design/pro-components@2.3.20
+
+`2022-10-19`
+
+- fix(Layout): 修复 PageContainer 设置 fixedHeader 属性后，样式 ant-pro-page-container-warp 未生效问题 (#6078). [#6078](https://github.com/ant-design/pro-components/pull/#6078) [@hqwlkj](https://github.com/hqwlkj)
+- fix(layout): add ghost classname. [7df07ba](https://github.com/ant-design/pro-components/commit/7df07ba)
+- fix(layout): alway set pageheader is ghost. [e06d908](https://github.com/ant-design/pro-components/commit/e06d908)
+- fix(form): 金额格式化支持负数形式展示 (#6080). [#6080](https://github.com/ant-design/pro-components/pull/#6080) [@kiner-tang](https://github.com/kiner-tang)
+- fix(form): fix intl no work error. [ecfc9d6](https://github.com/ant-design/pro-components/commit/ecfc9d6)
+- fix(card): fix card hover error style. [7ab8e7e](https://github.com/ant-design/pro-components/commit/7ab8e7e)
+
 ## @ant-design/pro-components@2.3.18
 
 `2022-10-14`
