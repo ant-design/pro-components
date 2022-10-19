@@ -16,10 +16,11 @@ export type ListToolBarHeaderMenuProps = {
   items?: ListToolBarMenuItem[];
   onChange?: (activeKey?: React.Key) => void;
   prefixCls?: string;
+  hashId: string;
 };
 
 const HeaderMenu: React.FC<ListToolBarHeaderMenuProps> = (props) => {
-  const { items = [], type = 'inline', prefixCls, activeKey: propActiveKey } = props;
+  const { items = [], type = 'inline', prefixCls, activeKey: propActiveKey, hashId } = props;
 
   const [activeKey, setActiveKey] = useMergedState<React.Key>(propActiveKey as React.Key, {
     value: propActiveKey,
@@ -37,7 +38,7 @@ const HeaderMenu: React.FC<ListToolBarHeaderMenuProps> = (props) => {
 
   if (type === 'inline') {
     return (
-      <div className={classNames(`${prefixCls}-menu`, `${prefixCls}-inline-menu`)}>
+      <div className={classNames(`${prefixCls}-menu`, `${prefixCls}-inline-menu`, hashId)}>
         {items.map((item, index) => (
           <div
             key={item.key || index}
@@ -47,6 +48,7 @@ const HeaderMenu: React.FC<ListToolBarHeaderMenuProps> = (props) => {
             className={classNames(
               `${prefixCls}-inline-menu-item`,
               activeItem.key === item.key ? `${prefixCls}-inline-menu-item-active` : undefined,
+              hashId,
             )}
           >
             {item.label}
