@@ -101,7 +101,6 @@ export const operationUnit = (token: ProAliasToken): CSSObject => ({
 export function useStyle(
   componentName: string,
   styleFn: (token: ProAliasToken) => CSSInterpolation,
-  deps?: Record<string, any>,
 ): UseStyleResult {
   const { token, hashId, theme } = useToken();
 
@@ -117,10 +116,7 @@ export function useStyle(
     wrapSSR: useStyleRegister(
       {
         theme,
-        token: {
-          ...deps,
-          ...token,
-        },
+        token,
         hashId,
         path: [componentName],
       },
