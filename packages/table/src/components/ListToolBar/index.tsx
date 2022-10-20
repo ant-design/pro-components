@@ -266,13 +266,13 @@ const ListToolBar: React.FC<ListToolBarProps> = ({
       <Space
         className={`${prefixCls}-right ${hashId}`}
         direction={isMobile ? 'vertical' : 'horizontal'}
-        size={16}
+        size={8}
         align={isMobile ? 'end' : 'center'}
       >
+        {!multipleLine ? filtersNode : null}
         {hasTitle && searchNode ? (
           <div className={`${prefixCls}-search ${hashId}`}>{searchNode}</div>
         ) : null}
-        {!multipleLine ? filtersNode : null}
         {actionDom}
         {settings?.length ? (
           <Space size={12} align="center" className={`${prefixCls}-setting-items ${hashId}`}>

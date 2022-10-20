@@ -1030,7 +1030,7 @@ exports[`BasicTable 🎏 base use 1`] = `
                 >
                   <div
                     class="ant-space-item"
-                    style="margin-right: 16px; margin-bottom: 16px;"
+                    style="margin-right: 8px; margin-bottom: 8px;"
                   >
                     <div
                       class="ant-space ant-space-horizontal ant-space-align-center"

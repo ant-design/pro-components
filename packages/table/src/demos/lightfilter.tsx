@@ -1,7 +1,7 @@
 import { QuestionCircleOutlined } from '@ant-design/icons';
 import type { ProColumns } from '@ant-design/pro-components';
 import { ProTable, TableDropdown } from '@ant-design/pro-components';
-import { Button, Tooltip } from 'antd';
+import { Tooltip } from 'antd';
 import dayjs from 'dayjs';
 
 export type TableListItem = {
@@ -100,10 +100,17 @@ export default () => {
           success: true,
         });
       }}
-      toolBarRender={() => [<Button key="show">查看日志</Button>]}
+      headerTitle="Light Filter"
       rowKey="key"
       pagination={{
         showQuickJumper: true,
+      }}
+      options={{
+        search: true,
+        setting: false,
+        fullScreen: false,
+        density: false,
+        reload: false,
       }}
       search={{
         filterType: 'light',

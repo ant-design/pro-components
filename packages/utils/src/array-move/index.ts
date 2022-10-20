@@ -23,11 +23,15 @@ export function arrayMoveMutable<ValueType>(
  * @param  {number} toIndex
  * @returns T
  */
-export function arrayMoveImmutable<T = string>(
-  array: T[],
-  fromIndex: number,
-  toIndex: number,
-): T[] {
+export function arrayMoveImmutable<T = string>({
+  array,
+  fromIndex,
+  toIndex,
+}: {
+  array: T[];
+  fromIndex: number;
+  toIndex: number;
+}): T[] {
   const newArray = [...array];
   arrayMoveMutable(newArray, fromIndex, toIndex);
   return newArray;

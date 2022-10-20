@@ -215,9 +215,11 @@ export type SortDataParams = { oldIndex: number; newIndex: number };
  */
 export function sortData<T>({ oldIndex, newIndex }: SortDataParams, data: T[]): T[] | null {
   if (oldIndex !== newIndex) {
-    const newData = arrayMoveImmutable<T>([...(data || [])], oldIndex, newIndex).filter(
-      (el) => !!el,
-    );
+    const newData = arrayMoveImmutable<T>({
+      array: [...(data || [])],
+      fromIndex: oldIndex,
+      toIndex: newIndex,
+    }).filter((el) => !!el);
     return [...newData];
   }
   /* istanbul ignore next */

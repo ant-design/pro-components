@@ -57,8 +57,9 @@ const genProListStyle: GenerateStyle<ProListToken> = (token) => {
         '&-light-filter': {
           marginBlockEnd: 0,
           paddingBlock: 0,
-          paddingInline: 8,
+          paddingInline: 0,
         },
+
         '&-form-option': {
           [`${token.antCls}-form-item`]: {},
           [`${token.antCls}-form-item-label`]: {},
