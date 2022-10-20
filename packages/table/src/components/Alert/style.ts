@@ -9,7 +9,10 @@ const genProStyle: GenerateStyle<ProToken> = (token) => {
   return {
     [token.componentCls]: {
       marginBlockEnd: 16,
-      [`${token.antCls}-alert ${token.antCls}-alert-no-icon`]: {
+      backgroundColor: 'rgba(0,0,0,0.02)',
+      borderRadius: token.radiusBase,
+      border: '0.5px solid #BFBFBF',
+      '&-container': {
         paddingBlock: token.paddingSM,
         paddingInline: token.paddingLG,
       },
@@ -17,6 +20,7 @@ const genProStyle: GenerateStyle<ProToken> = (token) => {
         display: 'flex',
         alignItems: 'center',
         transition: 'all 0.3s',
+        color: token.colorTextSecondary,
         '&-content': {
           flex: 1,
         },

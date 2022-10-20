@@ -1,6 +1,6 @@
 import type { IntlType } from '@ant-design/pro-provider';
 import { useIntl } from '@ant-design/pro-provider';
-import { Alert, ConfigProvider, Space } from 'antd';
+import { ConfigProvider, Space } from 'antd';
 import React, { useContext } from 'react';
 import { useStyle } from './style';
 
@@ -68,16 +68,13 @@ function TableAlert<T>({
     return null;
   }
   return wrapSSR(
-    <div className={className}>
-      <Alert
-        message={
-          <div className={`${className}-info ${hashId}`}>
-            <div className={`${className}-info-content ${hashId}`}>{dom}</div>
-            {option ? <div className={`${className}-info-option ${hashId}`}>{option}</div> : null}
-          </div>
-        }
-        type="info"
-      />
+    <div className={`${className} ${hashId}`}>
+      <div className={`${className}-container ${hashId}`}>
+        <div className={`${className}-info ${hashId}`}>
+          <div className={`${className}-info-content ${hashId}`}>{dom}</div>
+          {option ? <div className={`${className}-info-option ${hashId}`}>{option}</div> : null}
+        </div>
+      </div>
     </div>,
   );
 }

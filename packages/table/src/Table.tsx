@@ -1,6 +1,5 @@
 // 兼容代码-----------
 import 'antd/es/table/style';
-import 'antd/es/alert/style';
 //----------------------
 
 import ProCard from '@ant-design/pro-card';
