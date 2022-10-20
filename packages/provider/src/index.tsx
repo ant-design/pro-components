@@ -26,6 +26,12 @@ import trTR from './locale/tr_TR';
 import viVN from './locale/vi_VN';
 import zhCN from './locale/zh_CN';
 import zhTW from './locale/zh_TW';
+import type { DeepPartial, ProTokenType } from './typing/layoutToken';
+import { getLayoutDesignToken } from './typing/layoutToken';
+
+export * from './useStyle';
+
+export { DeepPartial, ProTokenType };
 
 const { useToken } = theme || {
   useToken: () => {
@@ -245,12 +251,13 @@ export {
 };
 
 /**
- * 国际化的配置类型
+ * 自带的token 配置
  */
 export type ConfigContextPropsType = {
   intl: IntlType;
   isDeps: boolean;
   valueTypeMap: Record<string, ProRenderFieldPropsType>;
+  token?: ProTokenType;
 };
 
 /* Creating a context object with the default values. */
@@ -310,7 +317,7 @@ export const ConfigProviderWrap: React.FC<Record<string, unknown>> = ({
   autoClearCache = false,
 }) => {
   const { locale, getPrefixCls } = useContext(AntdConfigProvider.ConfigContext);
-  const token = useToken?.();
+  const tokenContext = useToken?.();
   // 如果 locale 不存在自动注入的 AntdConfigProvider
   const Provider = locale === undefined ? AntdConfigProvider : React.Fragment;
   const proProvide = useContext(ConfigContext);
@@ -323,13 +330,16 @@ export const ConfigProviderWrap: React.FC<Record<string, unknown>> = ({
       localeName && proProvide.intl?.locale === 'default'
         ? intlMap[key!]
         : proProvide.intl || intlMap[key!];
-
     return {
+      token: {
+        ...proProvide.token,
+        layout: getLayoutDesignToken(proProvide.token?.layout || {}, tokenContext.token),
+      },
       ...proProvide,
       isDeps: true,
       intl: intl || zhCNIntl,
     };
-  }, [locale?.locale, proProvide]);
+  }, [locale?.locale, proProvide, tokenContext]);
 
   const configProviderDom = useMemo(() => {
     // 自动注入 antd 的配置
@@ -353,7 +363,11 @@ export const ConfigProviderWrap: React.FC<Record<string, unknown>> = ({
       </Provider>
     );
     if (proProvide.isDeps) return provide;
-    return <div className={`${getPrefixCls?.('pro') || 'ant-pro'} ${token.hashId}`}>{provide}</div>;
+    return (
+      <div className={`${getPrefixCls?.('pro') || 'ant-pro'} ${tokenContext.hashId}`}>
+        {provide}
+      </div>
+    );
   }, [
     Provider,
     autoClearCache,
@@ -362,7 +376,7 @@ export const ConfigProviderWrap: React.FC<Record<string, unknown>> = ({
     locale,
     proProvide.isDeps,
     proProvideValue,
-    token.hashId,
+    tokenContext.hashId,
   ]);
   if (!autoClearCache) return configProviderDom;
 

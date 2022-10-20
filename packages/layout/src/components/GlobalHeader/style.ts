@@ -1,12 +1,8 @@
 ﻿import type { GenerateStyle, ProAliasToken } from '@ant-design/pro-utils';
-import { useStyle as useAntdStyle } from '@ant-design/pro-utils';
-import { useContext } from 'react';
-import { ProLayoutContext } from '../../context/ProLayoutContext';
+import { useStyle as useAntdStyle } from '@ant-design/pro-provider';
 
 export interface GlobalHeaderToken extends ProAliasToken {
   componentCls: string;
-  heightLayoutHeader: number;
-  colorHeaderTitle: string;
 }
 
 const genGlobalHeaderStyle: GenerateStyle<GlobalHeaderToken> = (token) => {
@@ -18,7 +14,7 @@ const genGlobalHeaderStyle: GenerateStyle<GlobalHeaderToken> = (token) => {
       alignItems: 'center',
       marginBlock: 0,
       marginInline: 16,
-      height: token.heightLayoutHeader,
+      height: token.layout?.header?.heightLayoutHeader,
       boxSizing: 'border-box',
       '> a': {
         height: '100%',
@@ -28,7 +24,7 @@ const genGlobalHeaderStyle: GenerateStyle<GlobalHeaderToken> = (token) => {
       },
       '&-collapsed-button': {
         minHeight: '22px',
-        color: token.colorHeaderTitle,
+        color: token?.layout?.header?.colorHeaderTitle,
         fontSize: '22px',
         marginInlineStart: '16px',
       },
@@ -68,13 +64,10 @@ const genGlobalHeaderStyle: GenerateStyle<GlobalHeaderToken> = (token) => {
 };
 
 export function useStyle(prefixCls: string) {
-  const { header } = useContext(ProLayoutContext);
   return useAntdStyle('ProLayoutGlobalHeader', (token) => {
     const GlobalHeaderToken: GlobalHeaderToken = {
       ...token,
       componentCls: `.${prefixCls}`,
-      heightLayoutHeader: header.heightLayoutHeader,
-      colorHeaderTitle: header.colorHeaderTitle,
     };
 
     return [genGlobalHeaderStyle(GlobalHeaderToken)];

@@ -1,10 +1,9 @@
-import { ConfigProviderWrap } from '@ant-design/pro-provider';
+import { ConfigProviderWrap, ProProvider } from '@ant-design/pro-provider';
 import type { AffixProps, BreadcrumbProps, SpinProps, TabPaneProps, TabsProps } from 'antd';
 import { Affix, Breadcrumb, ConfigProvider, Tabs } from 'antd';
 import classNames from 'classnames';
 import type { ReactNode } from 'react';
 import React, { useContext, useEffect, useMemo } from 'react';
-import { ProLayoutContext } from '../../context/ProLayoutContext';
 import { RouteContext } from '../../context/RouteContext';
 import type { WithFalse } from '../../typings';
 import { FooterToolbar } from '../FooterToolbar';
@@ -304,7 +303,7 @@ const PageContainer: React.FC<PageContainerProps> = (props) => {
     };
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
-  const { pageContainer } = useContext(ProLayoutContext);
+  const { token } = useContext(ProProvider);
   const { getPrefixCls } = useContext(ConfigProvider.ConfigContext);
   const prefixCls = props.prefixCls || getPrefixCls('pro');
 
@@ -358,7 +357,7 @@ const PageContainer: React.FC<PageContainerProps> = (props) => {
           <div
             style={{
               height: 64,
-              marginBlockStart: pageContainer.paddingBlockPageContainerContent,
+              marginBlockStart: token?.layout?.pageContainer?.paddingBlockPageContainerContent,
             }}
           />
         )}
@@ -371,7 +370,7 @@ const PageContainer: React.FC<PageContainerProps> = (props) => {
     propsToken?.paddingBlockPageContainerContent,
     propsToken?.paddingInlinePageContainerContent,
     value.hasFooterToolbar,
-    pageContainer.paddingBlockPageContainerContent,
+    token?.layout?.pageContainer?.paddingBlockPageContainerContent,
   ]);
 
   const renderContentDom = useMemo(() => {
@@ -392,15 +391,15 @@ const PageContainer: React.FC<PageContainerProps> = (props) => {
     [`${basePageContainer}-with-affix`]: fixedHeader && pageHeaderDom,
   });
 
-  const token = useContext(ProLayoutContext);
-
   return wrapSSR(
     <ConfigProviderWrap>
       <div style={style} className={containerClassName}>
         {fixedHeader && pageHeaderDom ? (
           // 在 hasHeader 且 fixedHeader 的情况下，才需要设置高度
           <Affix
-            offsetTop={value.hasHeader && value.fixedHeader ? token.header.heightLayoutHeader : 0}
+            offsetTop={
+              value.hasHeader && value.fixedHeader ? token?.layout?.header?.heightLayoutHeader : 0
+            }
             {...affixProps}
             className={`${basePageContainer}-affix ${hashId}`}
           >

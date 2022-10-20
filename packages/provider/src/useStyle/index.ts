@@ -6,6 +6,8 @@ import { theme as antdTheme, ConfigProvider } from 'antd';
 
 import type React from 'react';
 import { useContext } from 'react';
+import { ProProvider } from '..';
+import type { ProTokenType } from '../typing/layoutToken';
 import type { AliasToken } from './token';
 import * as batToken from './token';
 /**
@@ -50,20 +52,21 @@ export type UseStyleResult = {
   hashId: string;
 };
 
-export type ProAliasToken = AliasToken & {
-  /**
-   * pro 的 className
-   * @type {string}
-   * @example .ant-pro
-   */
-  proComponentsCls: string;
-  /**
-   * antd 的 className
-   * @type {string}
-   * @example .ant
-   */
-  antCls: string;
-};
+export type ProAliasToken = AliasToken &
+  ProTokenType & {
+    /**
+     * pro 的 className
+     * @type {string}
+     * @example .ant-pro
+     */
+    proComponentsCls: string;
+    /**
+     * antd 的 className
+     * @type {string}
+     * @example .ant
+     */
+    antCls: string;
+  };
 
 export const resetComponent = (token: ProAliasToken): CSSObject => ({
   boxSizing: 'border-box',
@@ -103,6 +106,7 @@ export function useStyle(
   styleFn: (token: ProAliasToken) => CSSInterpolation,
 ): UseStyleResult {
   const { token, hashId, theme } = useToken();
+  const proContext = useContext(ProProvider);
 
   const { getPrefixCls } = useContext(ConfigProvider.ConfigContext);
   /**
@@ -123,6 +127,7 @@ export function useStyle(
       () =>
         styleFn({
           ...token,
+          ...(proContext?.token || {}),
           antCls: '.' + getPrefixCls(),
           proComponentsCls,
         }),

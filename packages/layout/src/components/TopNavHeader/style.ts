@@ -1,15 +1,12 @@
 ﻿import type { GenerateStyle, ProAliasToken } from '@ant-design/pro-utils';
-import { useStyle as useAntdStyle } from '@ant-design/pro-utils';
-import { useContext } from 'react';
-import type { BaseLayoutDesignToken } from '../../context/ProLayoutContext';
-import { ProLayoutContext } from '../../context/ProLayoutContext';
+import { useStyle as useAntdStyle } from '@ant-design/pro-provider';
+
 export interface TopNavHeaderToken extends ProAliasToken {
   componentCls: string;
 }
 
-const genTopNavHeaderStyle: GenerateStyle<TopNavHeaderToken & BaseLayoutDesignToken['header']> = (
-  token,
-) => {
+const genTopNavHeaderStyle: GenerateStyle<TopNavHeaderToken> = (token) => {
+  console.log(token.layout);
   return {
     [token.componentCls]: {
       position: 'relative',
@@ -59,7 +56,7 @@ const genTopNavHeaderStyle: GenerateStyle<TopNavHeaderToken & BaseLayoutDesignTo
           marginInlineStart: 6,
           fontWeight: '600',
           fontSize: '16px',
-          color: token?.colorHeaderTitle,
+          color: token?.layout?.header?.colorHeaderTitle,
           verticalAlign: 'top',
         },
       },
@@ -69,19 +66,17 @@ const genTopNavHeaderStyle: GenerateStyle<TopNavHeaderToken & BaseLayoutDesignTo
         alignItems: 'center',
         paddingInline: 6,
         paddingBlock: 6,
-        lineHeight: `${token.heightLayoutHeader - 12}px`,
+        lineHeight: `${(token?.layout?.header?.heightLayoutHeader || 64) - 12}px`,
       },
     },
   };
 };
 
 export function useStyle(prefixCls: string) {
-  const { header } = useContext(ProLayoutContext);
   return useAntdStyle('ProLayoutTopNavHeader', (token) => {
-    const topNavHeaderToken: TopNavHeaderToken & BaseLayoutDesignToken['header'] = {
+    const topNavHeaderToken: TopNavHeaderToken = {
       ...token,
       componentCls: `.${prefixCls}`,
-      ...header,
     };
 
     return [genTopNavHeaderStyle(topNavHeaderToken)];
