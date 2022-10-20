@@ -30,7 +30,9 @@ const FieldDigit: ProFieldFC<FieldDigitProps> = (
         val = Number(val);
       }
       if (typeof val === 'number') {
-        val = val?.toFixed?.(fieldProps.precision ?? 0);
+        if (fieldProps.precision) {
+          val = val?.toFixed?.(fieldProps.precision ?? 0);
+        }
         val = Number(val);
       }
       return fieldProps?.onChange?.(val);
