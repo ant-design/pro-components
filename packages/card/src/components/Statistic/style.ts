@@ -16,7 +16,13 @@ const genProStyle: GenerateStyle<ProListToken> = (token) => {
       '&-tip': {
         marginInlineStart: 4,
       },
-      '&-wrapper': { display: 'flex', width: '100%' },
+      '&-wrapper': {
+        display: 'flex',
+        width: '100%',
+        [`${token.componentCls}-status`]: {
+          width: '14px',
+        },
+      },
       '&-icon': {
         marginInlineEnd: 16,
       },
@@ -54,7 +60,7 @@ const genProStyle: GenerateStyle<ProListToken> = (token) => {
           },
         },
       },
-      '&-layout-horizontal': {
+      '& &-layout-horizontal': {
         display: 'flex',
         justifyContent: 'space-between',
         [`${token.antCls}-statistic-title`]: {
@@ -68,7 +74,7 @@ const genProStyle: GenerateStyle<ProListToken> = (token) => {
             fontSize: token.fontSizeBase,
           },
       },
-      '&-layout-inline': {
+      '& &-layout-inline': {
         display: 'inline-flex',
         color: token.colorTextSecondary,
         [`${token.antCls}-statistic-title`]: {

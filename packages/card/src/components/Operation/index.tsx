@@ -25,8 +25,8 @@ const ProCardOperation: React.FC<ProCardOperationProps> = (props) => {
 
   const { getPrefixCls } = useContext(ConfigProvider.ConfigContext);
   const prefixCls = getPrefixCls('pro-card-operation');
-  const { wrapSSR } = useStyle(prefixCls);
-  const classString = classNames(prefixCls, className);
+  const { wrapSSR, hashId } = useStyle(prefixCls);
+  const classString = classNames(prefixCls, className, hashId);
 
   return wrapSSR(
     <div className={classString} style={style}>
