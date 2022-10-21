@@ -26,8 +26,9 @@ import trTR from './locale/tr_TR';
 import viVN from './locale/vi_VN';
 import zhCN from './locale/zh_CN';
 import zhTW from './locale/zh_TW';
-import type { DeepPartial, ProTokenType } from './typing/layoutToken';
+import type { DeepPartial, LayoutDesignToken, ProTokenType } from './typing/layoutToken';
 import { getLayoutDesignToken } from './typing/layoutToken';
+import { merge } from './utils/merge';
 
 export * from './useStyle';
 
@@ -331,11 +332,19 @@ export const ConfigProviderWrap: React.FC<Record<string, unknown>> = ({
       localeName && proProvide.intl?.locale === 'default'
         ? intlMap[key!]
         : proProvide.intl || intlMap[key!];
+
+    /**
+     * 合并一下token，不然导致嵌套 token 失效
+     */
+    const proLayoutTokenMerge = merge(
+      proProvide.token?.layout || {},
+      getLayoutDesignToken((propsToken as ProTokenType)?.layout || {}, tokenContext.token),
+    ) as LayoutDesignToken;
+
     return {
       token: {
         ...proProvide.token,
-        layout: getLayoutDesignToken(proProvide.token?.layout || {}, tokenContext.token),
-        ...(propsToken || {}),
+        layout: proLayoutTokenMerge,
       },
       ...proProvide,
       isDeps: true,

@@ -711,7 +711,6 @@ BaseProLayout.defaultProps = {
 const ProLayout: React.FC<ProLayoutProps> = (props) => {
   const { colorPrimary } = props;
   const tokenContext = useContext(ProProvider);
-  console.log(tokenContext.token);
   return (
     <ConfigProvider
       // @ts-ignore

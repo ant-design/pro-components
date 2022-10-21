@@ -34,7 +34,6 @@ const TopNavHeader: React.FC<TopNavHeaderProps> = (props) => {
     { ...props, collapsed: false },
     layout === 'mix' ? 'headerTitleRender' : undefined,
   );
-
   const contentDom = useMemo(() => {
     const defaultDom = (
       <ConfigProvider

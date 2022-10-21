@@ -395,6 +395,9 @@ const BaseMenu: React.FC<BaseMenuProps & PrivateSiderMenuProps> = (props) => {
   } = props;
 
   const { token: designToken } = useContext(ProProvider);
+
+  console.log(designToken?.layout);
+
   const baseClassName = `${prefixCls}-base-menu`;
   // 用于减少 defaultOpenKeys 计算的组件
   const defaultOpenKeysRef = useRef<string[]>([]);
