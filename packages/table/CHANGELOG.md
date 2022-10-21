@@ -2,6 +2,15 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [3.0.18](https://github.com/ant-design/pro-components/compare/@ant-design/pro-table@3.0.17...@ant-design/pro-table@3.0.18) (2022-10-21)
+
+### Bug Fixes
+
+- **layout:** fix listtool bar style error ([820a5b7](https://github.com/ant-design/pro-components/commit/820a5b73d4be5b8e6da31049261c48cd3ff9e54f))
+- **table:** fix table select rows style error ([dff31f3](https://github.com/ant-design/pro-components/commit/dff31f3ece935db26e66878bf7786f7d620ec0b7))
+- **table:** use ellipsis type exported from antd/rc-table ([#6105](https://github.com/ant-design/pro-components/issues/6105)) ([f21727f](https://github.com/ant-design/pro-components/commit/f21727fa48202d5bdcb528d2ac980a885e04ab04))
+- **table:** 修复 inline 类型样式丢失问题 ([#6092](https://github.com/ant-design/pro-components/issues/6092)) ([d2fc667](https://github.com/ant-design/pro-components/commit/d2fc667fe1fe873f078a005b0fbf02dd72fb03e4))
+
 ## [3.0.17](https://github.com/ant-design/pro-components/compare/@ant-design/pro-table@3.0.16...@ant-design/pro-table@3.0.17) (2022-10-19)
 
 ### Bug Fixes

@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.2.8](https://github.com/ant-design/pro-components/compare/@ant-design/pro-utils@2.2.7...@ant-design/pro-utils@2.2.8) (2022-10-21)
+
+### Bug Fixes
+
+- **layout:** fix listtool bar style error ([820a5b7](https://github.com/ant-design/pro-components/commit/820a5b73d4be5b8e6da31049261c48cd3ff9e54f))
+- **layout:** support dynamic token set ([#6106](https://github.com/ant-design/pro-components/issues/6106)) ([b57b7b1](https://github.com/ant-design/pro-components/commit/b57b7b10bf073c58f547071db4433b8f024c096a))
+
 ## [2.2.7](https://github.com/ant-design/pro-components/compare/@ant-design/pro-utils@2.2.6...@ant-design/pro-utils@2.2.7) (2022-10-19)
 
 ### Bug Fixes

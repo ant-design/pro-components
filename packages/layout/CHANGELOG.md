@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [7.1.10](https://github.com/ant-design/pro-components/compare/@ant-design/pro-layout@7.1.9...@ant-design/pro-layout@7.1.10) (2022-10-21)
+
+### Bug Fixes
+
+- **layout:** support dynamic token set ([#6106](https://github.com/ant-design/pro-components/issues/6106)) ([b57b7b1](https://github.com/ant-design/pro-components/commit/b57b7b10bf073c58f547071db4433b8f024c096a))
+- **layout:** 默认开启 hash ([47f30c9](https://github.com/ant-design/pro-components/commit/47f30c9de2d3bd78df09e716e1ae38bd821cf8f1))
+
 ## [7.1.9](https://github.com/ant-design/pro-components/compare/@ant-design/pro-layout@7.1.8...@ant-design/pro-layout@7.1.9) (2022-10-19)
 
 ### Bug Fixes

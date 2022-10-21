@@ -1,6 +1,6 @@
 {
   "name": "@ant-design/pro-utils",
-  "version": "2.2.7",
+  "version": "2.2.8",
   "description": "@ant-design/pro-utils",
   "keywords": [
     "antd",
@@ -30,7 +30,7 @@
   ],
   "dependencies": {
     "@ant-design/icons": "^4.3.0",
-    "@ant-design/pro-provider": "2.0.7",
+    "@ant-design/pro-provider": "2.0.8",
     "@babel/runtime": "^7.18.0",
     "classnames": "^2.2.6",
     "dayjs": "^1.11.4",
