@@ -3,7 +3,7 @@
 exports[`table demos 📸 renders ./packages/table/src/components/DragSortTable/demos/drag.tsx correctly 1`] = `
 <DocumentFragment>
   <div
-    class="ant-pro "
+    class="ant-pro"
   >
     <div
       class="ant-pro-table "
@@ -767,7 +767,7 @@ exports[`table demos 📸 renders ./packages/table/src/components/DragSortTable/
 exports[`table demos 📸 renders ./packages/table/src/components/DragSortTable/demos/drag-sort-table.tsx correctly 1`] = `
 <DocumentFragment>
   <div
-    class="ant-pro "
+    class="ant-pro"
   >
     <div
       class="ant-pro-table "
@@ -1549,7 +1549,7 @@ exports[`table demos 📸 renders ./packages/table/src/components/DragSortTable/
     </div>
   </div>
   <div
-    class="ant-pro "
+    class="ant-pro"
   >
     <div
       class="ant-pro-table "
@@ -1895,7 +1895,7 @@ exports[`table demos 📸 renders ./packages/table/src/components/DragSortTable/
 exports[`table demos 📸 renders ./packages/table/src/components/EditableTable/demos/basic.tsx correctly 1`] = `
 <DocumentFragment>
   <div
-    class="ant-pro "
+    class="ant-pro"
   >
     <div
       class="ant-pro-table "
@@ -2467,7 +2467,7 @@ exports[`table demos 📸 renders ./packages/table/src/components/EditableTable/
 exports[`table demos 📸 renders ./packages/table/src/components/EditableTable/demos/children.tsx correctly 1`] = `
 <DocumentFragment>
   <div
-    class="ant-pro "
+    class="ant-pro"
   >
     <div
       class="ant-pro-table "
@@ -2973,7 +2973,7 @@ exports[`table demos 📸 renders ./packages/table/src/components/EditableTable/
     </div>
   </div>
   <div
-    class="ant-pro "
+    class="ant-pro"
   >
     <div
       class="ant-pro-table "
@@ -3309,7 +3309,7 @@ exports[`table demos 📸 renders ./packages/table/src/components/EditableTable/
 exports[`table demos 📸 renders ./packages/table/src/components/EditableTable/demos/form-item.tsx correctly 1`] = `
 <DocumentFragment>
   <div
-    class="ant-pro "
+    class="ant-pro"
   >
     <form
       autocomplete="off"
@@ -3880,7 +3880,7 @@ exports[`table demos 📸 renders ./packages/table/src/components/EditableTable/
         style="max-width: 800px; margin: auto;"
       >
         <div
-          class="ant-pro "
+          class="ant-pro"
         >
           <form
             autocomplete="off"
@@ -4675,7 +4675,7 @@ exports[`table demos 📸 renders ./packages/table/src/components/EditableTable/
 exports[`table demos 📸 renders ./packages/table/src/components/EditableTable/demos/real-time-editing.tsx correctly 1`] = `
 <DocumentFragment>
   <div
-    class="ant-pro "
+    class="ant-pro"
   >
     <div
       class="ant-pro-table "
@@ -10307,7 +10307,7 @@ exports[`table demos 📸 renders ./packages/table/src/components/EditableTable/
 exports[`table demos 📸 renders ./packages/table/src/demos/ListToolBar/basic.tsx correctly 1`] = `
 <DocumentFragment>
   <div
-    class="ant-pro "
+    class="ant-pro"
   >
     <div
       class="ant-pro-table "
@@ -11216,7 +11216,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/ListToolBar/basic.t
 exports[`table demos 📸 renders ./packages/table/src/demos/ListToolBar/menu.tsx correctly 1`] = `
 <DocumentFragment>
   <div
-    class="ant-pro "
+    class="ant-pro"
   >
     <div
       class="ant-pro-table "
@@ -12152,7 +12152,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/ListToolBar/menu.ts
 exports[`table demos 📸 renders ./packages/table/src/demos/ListToolBar/multipleLine.tsx correctly 1`] = `
 <DocumentFragment>
   <div
-    class="ant-pro "
+    class="ant-pro"
   >
     <div
       class="ant-pro-table "
@@ -13084,7 +13084,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/ListToolBar/multipl
 exports[`table demos 📸 renders ./packages/table/src/demos/ListToolBar/no-title.tsx correctly 1`] = `
 <DocumentFragment>
   <div
-    class="ant-pro "
+    class="ant-pro"
   >
     <div
       class="ant-pro-table "
@@ -13978,7 +13978,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/ListToolBar/no-titl
 exports[`table demos 📸 renders ./packages/table/src/demos/ListToolBar/tabs.tsx correctly 1`] = `
 <DocumentFragment>
   <div
-    class="ant-pro "
+    class="ant-pro"
   >
     <div
       class="ant-pro-table "
@@ -14940,7 +14940,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/ListToolBar/tabs.ts
 exports[`table demos 📸 renders ./packages/table/src/demos/batchOption.tsx correctly 1`] = `
 <DocumentFragment>
   <div
-    class="ant-pro "
+    class="ant-pro"
   >
     <div
       class="ant-pro-table "
@@ -16430,7 +16430,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/batchOption.tsx cor
 exports[`table demos 📸 renders ./packages/table/src/demos/card-title.tsx correctly 1`] = `
 <DocumentFragment>
   <div
-    class="ant-pro "
+    class="ant-pro"
   >
     <div
       class="ant-pro-table "
@@ -17154,7 +17154,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/card-title.tsx corr
 exports[`table demos 📸 renders ./packages/table/src/demos/columns-setting-custom-icon.tsx correctly 1`] = `
 <DocumentFragment>
   <div
-    class="ant-pro "
+    class="ant-pro"
   >
     <div
       class="ant-pro-table "
@@ -17438,7 +17438,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/columns-setting-cus
 exports[`table demos 📸 renders ./packages/table/src/demos/columnsStateMap.tsx correctly 1`] = `
 <DocumentFragment>
   <div
-    class="ant-pro "
+    class="ant-pro"
   >
     <div
       class="ant-pro-table "
@@ -17906,7 +17906,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/columnsStateMap.tsx
 exports[`table demos 📸 renders ./packages/table/src/demos/config-provider.tsx correctly 1`] = `
 <DocumentFragment>
   <div
-    class="qixian-pro "
+    class="qixian-pro"
   >
     <div
       class="qixian-pro-table "
@@ -22755,7 +22755,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/crud.tsx correctly 
         </div>
       </div>
       <div
-        class="ant-pro "
+        class="ant-pro"
       >
         <div
           class="ant-pro-table "
@@ -24473,7 +24473,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/crud.tsx correctly 
 exports[`table demos 📸 renders ./packages/table/src/demos/customization-value-type.tsx correctly 1`] = `
 <DocumentFragment>
   <div
-    class="ant-pro "
+    class="ant-pro"
   >
     <div
       class="ant-pro-table "
@@ -25309,7 +25309,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/customization-value
 exports[`table demos 📸 renders ./packages/table/src/demos/dataSource.tsx correctly 1`] = `
 <DocumentFragment>
   <div
-    class="ant-pro "
+    class="ant-pro"
   >
     <div
       class="ant-pro-table "
@@ -27417,7 +27417,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/dataSource.tsx corr
 exports[`table demos 📸 renders ./packages/table/src/demos/dateFormatter.tsx correctly 1`] = `
 <DocumentFragment>
   <div
-    class="ant-pro "
+    class="ant-pro"
   >
     <div
       class="ant-pro-table "
@@ -27944,7 +27944,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/dateFormatter.tsx c
     </div>
   </div>
   <div
-    class="ant-pro "
+    class="ant-pro"
   >
     <div
       class="ant-pro-table "
@@ -28471,7 +28471,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/dateFormatter.tsx c
     </div>
   </div>
   <div
-    class="ant-pro "
+    class="ant-pro"
   >
     <div
       class="ant-pro-table "
@@ -29003,7 +29003,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/dateFormatter.tsx c
 exports[`table demos 📸 renders ./packages/table/src/demos/dynamic-columns-state.tsx correctly 1`] = `
 <DocumentFragment>
   <div
-    class="ant-pro "
+    class="ant-pro"
   >
     <div
       class="ant-pro-table "
@@ -30597,7 +30597,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/dynamic-settings.ts
             class="ant-pro-card-body"
           >
             <div
-              class="ant-pro "
+              class="ant-pro"
             >
               <div
                 class="ant-pro-table "
@@ -32037,7 +32037,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/dynamic-settings.ts
         </div>
       </div>
       <div
-        class="ant-pro "
+        class="ant-pro"
       >
         <form
           autocomplete="off"
@@ -33561,7 +33561,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/error-boundaries.ts
     </span>
   </button>
   <div
-    class="ant-pro "
+    class="ant-pro"
   >
     <div
       class="ant-result ant-result-info"
@@ -33644,7 +33644,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/error-boundaries.ts
 exports[`table demos 📸 renders ./packages/table/src/demos/error-boundaries-false.tsx correctly 1`] = `
 <DocumentFragment>
   <div
-    class="ant-pro "
+    class="ant-pro"
   >
     <div
       class="ant-pro-table "
@@ -34346,7 +34346,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/error-boundaries-fa
 exports[`table demos 📸 renders ./packages/table/src/demos/form.tsx correctly 1`] = `
 <DocumentFragment>
   <div
-    class="ant-pro "
+    class="ant-pro"
   >
     <div
       class="ant-pro-table "
@@ -34890,7 +34890,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/form.tsx correctly 
 exports[`table demos 📸 renders ./packages/table/src/demos/intl.tsx correctly 1`] = `
 <DocumentFragment>
   <div
-    class="ant-pro "
+    class="ant-pro"
   >
     <div
       class="ant-pro-table "
@@ -35650,7 +35650,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/intl.tsx correctly 
 exports[`table demos 📸 renders ./packages/table/src/demos/lightfilter.tsx correctly 1`] = `
 <DocumentFragment>
   <div
-    class="ant-pro "
+    class="ant-pro"
   >
     <div
       class="ant-pro-table "
@@ -36779,7 +36779,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/lightfilter.tsx cor
 exports[`table demos 📸 renders ./packages/table/src/demos/linkage_form.tsx correctly 1`] = `
 <DocumentFragment>
   <div
-    class="ant-pro "
+    class="ant-pro"
   >
     <div
       class="ant-pro-table "
@@ -37565,7 +37565,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/linkage_form.tsx co
 exports[`table demos 📸 renders ./packages/table/src/demos/listToolBar.tsx correctly 1`] = `
 <DocumentFragment>
   <div
-    class="ant-pro "
+    class="ant-pro"
   >
     <div
       class="ant-pro-table "
@@ -38727,7 +38727,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/listToolBar.tsx cor
 exports[`table demos 📸 renders ./packages/table/src/demos/no-option.tsx correctly 1`] = `
 <DocumentFragment>
   <div
-    class="ant-pro "
+    class="ant-pro"
   >
     <div
       class="ant-pro-table "
@@ -40762,7 +40762,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/no-option.tsx corre
 exports[`table demos 📸 renders ./packages/table/src/demos/no-title.tsx correctly 1`] = `
 <DocumentFragment>
   <div
-    class="ant-pro "
+    class="ant-pro"
   >
     <div
       class="ant-pro-table "
@@ -41437,7 +41437,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/no-title.tsx correc
 exports[`table demos 📸 renders ./packages/table/src/demos/normal.tsx correctly 1`] = `
 <DocumentFragment>
   <div
-    class="ant-pro "
+    class="ant-pro"
   >
     <div
       class="ant-pro-table "
@@ -42886,7 +42886,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/normal.tsx correctl
 exports[`table demos 📸 renders ./packages/table/src/demos/open-rules.tsx correctly 1`] = `
 <DocumentFragment>
   <div
-    class="ant-pro "
+    class="ant-pro"
   >
     <div
       class="ant-pro-table "
@@ -43650,7 +43650,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/open-rules.tsx corr
     </div>
   </div>
   <div
-    class="ant-pro "
+    class="ant-pro"
   >
     <div
       class="ant-pro-table "
@@ -44419,7 +44419,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/open-rules.tsx corr
 exports[`table demos 📸 renders ./packages/table/src/demos/pollinga.tsx correctly 1`] = `
 <DocumentFragment>
   <div
-    class="ant-pro "
+    class="ant-pro"
   >
     <div
       class="ant-pro-table "
@@ -45499,7 +45499,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/pollinga.tsx correc
 exports[`table demos 📸 renders ./packages/table/src/demos/renderTable.tsx correctly 1`] = `
 <DocumentFragment>
   <div
-    class="ant-pro "
+    class="ant-pro"
   >
     <div
       class="ant-pro-table "
@@ -46510,7 +46510,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/renderTable.tsx cor
 exports[`table demos 📸 renders ./packages/table/src/demos/rtl_table.tsx correctly 1`] = `
 <DocumentFragment>
   <div
-    class="ant-pro "
+    class="ant-pro"
   >
     <div
       class="ant-pro-table "
@@ -48185,7 +48185,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/rtl_table.tsx corre
 exports[`table demos 📸 renders ./packages/table/src/demos/search.tsx correctly 1`] = `
 <DocumentFragment>
   <div
-    class="ant-pro "
+    class="ant-pro"
   >
     <div
       class="ant-pro-table "
@@ -48530,7 +48530,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/search.tsx correctl
 exports[`table demos 📸 renders ./packages/table/src/demos/search_option.tsx correctly 1`] = `
 <DocumentFragment>
   <div
-    class="ant-pro "
+    class="ant-pro"
   >
     <div
       class="ant-pro-table "
@@ -49181,7 +49181,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/search_option.tsx c
 exports[`table demos 📸 renders ./packages/table/src/demos/single.tsx correctly 1`] = `
 <DocumentFragment>
   <div
-    class="ant-pro "
+    class="ant-pro"
   >
     <div
       class="ant-pro-table "
@@ -51119,7 +51119,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/single.tsx correctl
 exports[`table demos 📸 renders ./packages/table/src/demos/single-test.tsx correctly 1`] = `
 <DocumentFragment>
   <div
-    class="ant-pro "
+    class="ant-pro"
   >
     <div
       class="ant-pro-table "
@@ -51475,7 +51475,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/single-test.tsx cor
     </div>
   </div>
   <div
-    class="ant-pro "
+    class="ant-pro"
   >
     <div
       class="ant-pro-table "
@@ -52014,7 +52014,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/single-test.tsx cor
     </div>
   </div>
   <div
-    class="ant-pro "
+    class="ant-pro"
   >
     <div
       class="ant-pro-table "
@@ -54079,7 +54079,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/split.tsx correctly
             class="ant-pro-card-body"
           >
             <div
-              class="ant-pro "
+              class="ant-pro"
             >
               <div
                 class="ant-pro-table "
@@ -54683,7 +54683,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/split.tsx correctly
             class="ant-pro-card-body"
           >
             <div
-              class="ant-pro "
+              class="ant-pro"
             >
               <div
                 class="ant-pro-table "
@@ -55018,7 +55018,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/split.tsx correctly
 exports[`table demos 📸 renders ./packages/table/src/demos/table-nested.tsx correctly 1`] = `
 <DocumentFragment>
   <div
-    class="ant-pro "
+    class="ant-pro"
   >
     <div
       class="ant-pro-table "
@@ -55961,7 +55961,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/table-nested.tsx co
 exports[`table demos 📸 renders ./packages/table/src/demos/valueType.tsx correctly 1`] = `
 <DocumentFragment>
   <div
-    class="ant-pro "
+    class="ant-pro"
   >
     <div
       class="ant-pro-table "
@@ -57008,7 +57008,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/valueType.tsx corre
 exports[`table demos 📸 renders ./packages/table/src/demos/valueType_select.tsx correctly 1`] = `
 <DocumentFragment>
   <div
-    class="ant-pro "
+    class="ant-pro"
   >
     <div
       class="ant-pro-table "
@@ -58400,7 +58400,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/valueType_select.ts
 exports[`table demos 📸 renders ./packages/table/src/demos/valueTypeDate.tsx correctly 1`] = `
 <DocumentFragment>
   <div
-    class="ant-pro "
+    class="ant-pro"
   >
     <div
       class="ant-pro-table "
@@ -59674,7 +59674,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/valueTypeDate.tsx c
 exports[`table demos 📸 renders ./packages/table/src/demos/valueTypeNumber.tsx correctly 1`] = `
 <DocumentFragment>
   <div
-    class="ant-pro "
+    class="ant-pro"
   >
     <div
       class="ant-pro-table "

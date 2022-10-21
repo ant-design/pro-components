@@ -3,13 +3,13 @@
 exports[`BasicLayout 🥩 BasicLayout menu support menu.true 1`] = `
 Array [
   <div
-    class="ant-pro "
+    class="ant-pro css-dev-only-do-not-override-whiu57"
   >
     <div
-      class="ant-design-pro ant-pro-layout ant-pro-layout-fix-siderbar ant-pro-layout-side"
+      class="css-dev-only-do-not-override-whiu57 ant-design-pro ant-pro-layout ant-pro-layout-fix-siderbar ant-pro-layout-side"
     >
       <div
-        class="ant-pro-layout-bg-list "
+        class="ant-pro-layout-bg-list css-dev-only-do-not-override-whiu57"
       />
       <section
         class="ant-layout"
@@ -19,14 +19,14 @@ Array [
           style="width:256px;overflow:hidden;flex:0 0 256px;max-width:256px;min-width:256px;transition:all 0.2s ease 0s"
         />
         <aside
-          class="ant-layout-sider ant-layout-sider-light ant-pro-sider ant-pro-sider-fixed ant-pro-sider-layout-side ant-pro-sider-light"
+          class="ant-layout-sider ant-layout-sider-light ant-pro-sider css-dev-only-do-not-override-whiu57 ant-pro-sider-fixed ant-pro-sider-layout-side ant-pro-sider-light css-dev-only-do-not-override-whiu57"
           style="flex:0 0 256px;max-width:256px;min-width:256px;width:256px"
         >
           <div
             class="ant-layout-sider-children"
           >
             <div
-              class="ant-pro-sider-logo"
+              class="ant-pro-sider-logo css-dev-only-do-not-override-whiu57"
               id="logo"
             >
               <a>
@@ -190,7 +190,7 @@ Array [
               </div>
             </div>
             <div
-              class="ant-pro-sider-collapsed-button"
+              class="ant-pro-sider-collapsed-button css-dev-only-do-not-override-whiu57"
             >
               <svg
                 aria-hidden="true"
@@ -207,47 +207,47 @@ Array [
           </div>
         </aside>
         <div
-          class="ant-pro-layout-container "
+          class="ant-pro-layout-container css-dev-only-do-not-override-whiu57"
           style="position:relative"
         >
           <main
-            class="ant-layout-content ant-pro-layout-content ant-pro-layout-has-header"
+            class="ant-layout-content ant-pro-layout-content css-dev-only-do-not-override-whiu57 ant-pro-layout-has-header"
           />
         </div>
       </section>
     </div>
   </div>,
   <div
-    class="ant-pro "
+    class="ant-pro css-dev-only-do-not-override-whiu57"
   >
     <div
-      class="ant-design-pro ant-pro-layout ant-pro-layout-top-menu ant-pro-layout-fix-siderbar ant-pro-layout-top"
+      class="css-dev-only-do-not-override-whiu57 ant-design-pro ant-pro-layout ant-pro-layout-top-menu ant-pro-layout-fix-siderbar ant-pro-layout-top"
     >
       <div
-        class="ant-pro-layout-bg-list "
+        class="ant-pro-layout-bg-list css-dev-only-do-not-override-whiu57"
       />
       <section
         class="ant-layout"
         style="min-height:100%;flex-direction:row"
       >
         <div
-          class="ant-pro-layout-container "
+          class="ant-pro-layout-container css-dev-only-do-not-override-whiu57"
           style="position:relative"
         >
           <header
-            class="ant-layout-header ant-pro-layout-header ant-pro-layout-header-fixed-header-action ant-pro-layout-header-top-menu ant-pro-layout-header-header"
+            class="ant-layout-header css-dev-only-do-not-override-whiu57 ant-pro-layout-header ant-pro-layout-header-fixed-header-action ant-pro-layout-header-top-menu ant-pro-layout-header-header"
           >
             <div
-              class="ant-pro-top-nav-header ant-pro-top-nav-header-light"
+              class="ant-pro-top-nav-header css-dev-only-do-not-override-whiu57 ant-pro-top-nav-header-light"
             >
               <div
-                class="ant-pro-top-nav-header-main"
+                class="ant-pro-top-nav-header-main css-dev-only-do-not-override-whiu57"
               >
                 <div
-                  class="ant-pro-top-nav-header-main-left "
+                  class="ant-pro-top-nav-header-main-left css-dev-only-do-not-override-whiu57"
                 >
                   <div
-                    class="ant-pro-top-nav-header-logo "
+                    class="ant-pro-top-nav-header-logo css-dev-only-do-not-override-whiu57"
                     id="logo"
                   >
                     <a>
@@ -384,7 +384,7 @@ Array [
                   </div>
                 </div>
                 <div
-                  class="ant-pro-top-nav-header-menu "
+                  class="ant-pro-top-nav-header-menu css-dev-only-do-not-override-whiu57"
                   style="flex:1"
                 >
                   <div
@@ -411,20 +411,20 @@ Array [
             </div>
           </header>
           <main
-            class="ant-layout-content ant-pro-layout-content ant-pro-layout-has-header"
+            class="ant-layout-content ant-pro-layout-content css-dev-only-do-not-override-whiu57 ant-pro-layout-has-header"
           />
         </div>
       </section>
     </div>
   </div>,
   <div
-    class="ant-pro "
+    class="ant-pro css-dev-only-do-not-override-whiu57"
   >
     <div
-      class="ant-design-pro ant-pro-layout ant-pro-layout-fix-siderbar ant-pro-layout-mix"
+      class="css-dev-only-do-not-override-whiu57 ant-design-pro ant-pro-layout ant-pro-layout-fix-siderbar ant-pro-layout-mix"
     >
       <div
-        class="ant-pro-layout-bg-list "
+        class="ant-pro-layout-bg-list css-dev-only-do-not-override-whiu57"
       />
       <section
         class="ant-layout"
@@ -434,7 +434,7 @@ Array [
           style="width:215px;overflow:hidden;flex:0 0 215px;max-width:215px;min-width:215px;transition:all 0.2s ease 0s"
         />
         <aside
-          class="ant-layout-sider ant-layout-sider-light ant-pro-sider ant-pro-sider-fixed ant-pro-sider-layout-mix ant-pro-sider-light ant-pro-sider-mix"
+          class="ant-layout-sider ant-layout-sider-light ant-pro-sider css-dev-only-do-not-override-whiu57 ant-pro-sider-fixed ant-pro-sider-layout-mix ant-pro-sider-light ant-pro-sider-mix css-dev-only-do-not-override-whiu57"
           style="flex:0 0 215px;max-width:215px;min-width:215px;width:215px"
         >
           <div
@@ -469,7 +469,7 @@ Array [
               </div>
             </div>
             <div
-              class="ant-pro-sider-collapsed-button"
+              class="ant-pro-sider-collapsed-button css-dev-only-do-not-override-whiu57"
             >
               <svg
                 aria-hidden="true"
@@ -486,7 +486,7 @@ Array [
           </div>
         </aside>
         <div
-          class="ant-pro-layout-container "
+          class="ant-pro-layout-container css-dev-only-do-not-override-whiu57"
           style="position:relative"
         >
           <header
@@ -494,13 +494,13 @@ Array [
             style="height:56px;line-height:56px;background-color:transparent;z-index:19"
           />
           <header
-            class="ant-layout-header ant-pro-layout-header ant-pro-layout-header-fixed-header ant-pro-layout-header-mix ant-pro-layout-header-fixed-header-action ant-pro-layout-header-header"
+            class="ant-layout-header css-dev-only-do-not-override-whiu57 ant-pro-layout-header ant-pro-layout-header-fixed-header ant-pro-layout-header-mix ant-pro-layout-header-fixed-header-action ant-pro-layout-header-header"
           >
             <div
-              class="ant-pro-global-header"
+              class="ant-pro-global-header css-dev-only-do-not-override-whiu57"
             >
               <div
-                class="ant-pro-global-header-logo ant-pro-global-header-logo-mix"
+                class="ant-pro-global-header-logo css-dev-only-do-not-override-whiu57 ant-pro-global-header-logo-mix"
               >
                 <a>
                   <svg
@@ -640,7 +640,7 @@ Array [
             </div>
           </header>
           <main
-            class="ant-layout-content ant-pro-layout-content ant-pro-layout-has-header"
+            class="ant-layout-content ant-pro-layout-content css-dev-only-do-not-override-whiu57 ant-pro-layout-has-header"
           />
         </div>
       </section>
@@ -651,13 +651,13 @@ Array [
 
 exports[`BasicLayout 🥩 base use 1`] = `
 <div
-  class="ant-pro "
+  class="ant-pro css-dev-only-do-not-override-whiu57"
 >
   <div
-    class="ant-design-pro ant-pro-layout ant-pro-layout-fix-siderbar ant-pro-layout-side"
+    class="css-dev-only-do-not-override-whiu57 ant-design-pro ant-pro-layout ant-pro-layout-fix-siderbar ant-pro-layout-side"
   >
     <div
-      class="ant-pro-layout-bg-list "
+      class="ant-pro-layout-bg-list css-dev-only-do-not-override-whiu57"
     />
     <section
       class="ant-layout"
@@ -667,14 +667,14 @@ exports[`BasicLayout 🥩 base use 1`] = `
         style="width:256px;overflow:hidden;flex:0 0 256px;max-width:256px;min-width:256px;transition:all 0.2s ease 0s"
       />
       <aside
-        class="ant-layout-sider ant-layout-sider-light ant-pro-sider ant-pro-sider-fixed ant-pro-sider-layout-side ant-pro-sider-light"
+        class="ant-layout-sider ant-layout-sider-light ant-pro-sider css-dev-only-do-not-override-whiu57 ant-pro-sider-fixed ant-pro-sider-layout-side ant-pro-sider-light css-dev-only-do-not-override-whiu57"
         style="flex:0 0 256px;max-width:256px;min-width:256px;width:256px"
       >
         <div
           class="ant-layout-sider-children"
         >
           <div
-            class="ant-pro-sider-logo"
+            class="ant-pro-sider-logo css-dev-only-do-not-override-whiu57"
             id="logo"
           >
             <a>
@@ -813,7 +813,7 @@ exports[`BasicLayout 🥩 base use 1`] = `
             style="flex:1;overflow-y:auto;overflow-x:hidden"
           />
           <div
-            class="ant-pro-sider-collapsed-button"
+            class="ant-pro-sider-collapsed-button css-dev-only-do-not-override-whiu57"
           >
             <svg
               aria-hidden="true"
@@ -830,11 +830,11 @@ exports[`BasicLayout 🥩 base use 1`] = `
         </div>
       </aside>
       <div
-        class="ant-pro-layout-container "
+        class="ant-pro-layout-container css-dev-only-do-not-override-whiu57"
         style="position:relative"
       >
         <main
-          class="ant-layout-content ant-pro-layout-content ant-pro-layout-has-header"
+          class="ant-layout-content ant-pro-layout-content css-dev-only-do-not-override-whiu57 ant-pro-layout-has-header"
         />
       </div>
     </section>
@@ -844,13 +844,13 @@ exports[`BasicLayout 🥩 base use 1`] = `
 
 exports[`BasicLayout 🥩 contentStyle should change dom 1`] = `
 <div
-  class="ant-pro "
+  class="ant-pro css-dev-only-do-not-override-whiu57"
 >
   <div
-    class="ant-design-pro ant-pro-layout ant-pro-layout-fix-siderbar ant-pro-layout-side"
+    class="css-dev-only-do-not-override-whiu57 ant-design-pro ant-pro-layout ant-pro-layout-fix-siderbar ant-pro-layout-side"
   >
     <div
-      class="ant-pro-layout-bg-list "
+      class="ant-pro-layout-bg-list css-dev-only-do-not-override-whiu57"
     />
     <section
       class="ant-layout"
@@ -860,14 +860,14 @@ exports[`BasicLayout 🥩 contentStyle should change dom 1`] = `
         style="width:256px;overflow:hidden;flex:0 0 256px;max-width:256px;min-width:256px;transition:all 0.2s ease 0s"
       />
       <aside
-        class="ant-layout-sider ant-layout-sider-light ant-pro-sider ant-pro-sider-fixed ant-pro-sider-layout-side ant-pro-sider-light"
+        class="ant-layout-sider ant-layout-sider-light ant-pro-sider css-dev-only-do-not-override-whiu57 ant-pro-sider-fixed ant-pro-sider-layout-side ant-pro-sider-light css-dev-only-do-not-override-whiu57"
         style="flex:0 0 256px;max-width:256px;min-width:256px;width:256px"
       >
         <div
           class="ant-layout-sider-children"
         >
           <div
-            class="ant-pro-sider-logo"
+            class="ant-pro-sider-logo css-dev-only-do-not-override-whiu57"
             id="logo"
           >
             <a>
@@ -1006,7 +1006,7 @@ exports[`BasicLayout 🥩 contentStyle should change dom 1`] = `
             style="flex:1;overflow-y:auto;overflow-x:hidden"
           />
           <div
-            class="ant-pro-sider-collapsed-button"
+            class="ant-pro-sider-collapsed-button css-dev-only-do-not-override-whiu57"
           >
             <svg
               aria-hidden="true"
@@ -1023,11 +1023,11 @@ exports[`BasicLayout 🥩 contentStyle should change dom 1`] = `
         </div>
       </aside>
       <div
-        class="ant-pro-layout-container "
+        class="ant-pro-layout-container css-dev-only-do-not-override-whiu57"
         style="position:relative"
       >
         <main
-          class="ant-layout-content ant-pro-layout-content ant-pro-layout-has-header"
+          class="ant-layout-content ant-pro-layout-content css-dev-only-do-not-override-whiu57 ant-pro-layout-has-header"
           style="padding:56px"
         />
       </div>
@@ -1038,13 +1038,13 @@ exports[`BasicLayout 🥩 contentStyle should change dom 1`] = `
 
 exports[`BasicLayout 🥩 mix layout hideInMenu render right 1`] = `
 <div
-  class="ant-pro "
+  class="ant-pro css-dev-only-do-not-override-whiu57"
 >
   <div
-    class="ant-design-pro ant-pro-layout screen-md ant-pro-layout-fix-siderbar ant-pro-layout-side"
+    class="css-dev-only-do-not-override-whiu57 ant-design-pro ant-pro-layout screen-md ant-pro-layout-fix-siderbar ant-pro-layout-side"
   >
     <div
-      class="ant-pro-layout-bg-list "
+      class="ant-pro-layout-bg-list css-dev-only-do-not-override-whiu57"
     />
     <section
       class="ant-layout ant-layout-has-sider"
@@ -1054,14 +1054,14 @@ exports[`BasicLayout 🥩 mix layout hideInMenu render right 1`] = `
         style="width: 256px; overflow: hidden; flex: 0 0 256px; max-width: 256px; min-width: 256px; transition: all 0.2s ease 0s;"
       />
       <aside
-        class="ant-layout-sider ant-layout-sider-light ant-pro-sider ant-pro-sider-fixed ant-pro-sider-layout-side ant-pro-sider-light"
+        class="ant-layout-sider ant-layout-sider-light ant-pro-sider css-dev-only-do-not-override-whiu57 ant-pro-sider-fixed ant-pro-sider-layout-side ant-pro-sider-light css-dev-only-do-not-override-whiu57"
         style="flex: 0 0 256px; max-width: 256px; min-width: 256px; width: 256px;"
       >
         <div
           class="ant-layout-sider-children"
         >
           <div
-            class="ant-pro-sider-logo"
+            class="ant-pro-sider-logo css-dev-only-do-not-override-whiu57"
             id="logo"
           >
             <a>
@@ -1200,7 +1200,7 @@ exports[`BasicLayout 🥩 mix layout hideInMenu render right 1`] = `
             style="flex: 1; overflow-y: auto; overflow-x: hidden;"
           >
             <ul
-              class="ant-menu ant-menu-root ant-menu-inline ant-menu-light ant-pro-sider-menu  ant-pro-base-menu"
+              class="ant-menu ant-menu-root ant-menu-inline ant-menu-light ant-pro-sider-menu css-dev-only-do-not-override-whiu57 css-dev-only-do-not-override-whiu57 ant-pro-base-menu"
               data-menu-list="true"
               role="menu"
               style="background-color: transparent; width: 100%;"
@@ -1224,11 +1224,11 @@ exports[`BasicLayout 🥩 mix layout hideInMenu render right 1`] = `
                     class="ant-menu-title-content"
                   >
                     <div
-                      class="ant-pro-base-menu-item-title"
+                      class="ant-pro-base-menu-item-title css-dev-only-do-not-override-whiu57"
                       title="管理页"
                     >
                       <span
-                        class="ant-pro-base-menu-item-text"
+                        class="ant-pro-base-menu-item-text css-dev-only-do-not-override-whiu57"
                       >
                         管理页
                       </span>
@@ -1251,10 +1251,10 @@ exports[`BasicLayout 🥩 mix layout hideInMenu render right 1`] = `
                   class="ant-menu-title-content"
                 >
                   <div
-                    class="ant-pro-base-menu-item-title"
+                    class="ant-pro-base-menu-item-title css-dev-only-do-not-override-whiu57"
                   >
                     <span
-                      class="ant-pro-base-menu-item-text"
+                      class="ant-pro-base-menu-item-text css-dev-only-do-not-override-whiu57"
                     >
                       列表页
                     </span>
@@ -1268,7 +1268,7 @@ exports[`BasicLayout 🥩 mix layout hideInMenu render right 1`] = `
             />
           </div>
           <div
-            class="ant-pro-sider-collapsed-button"
+            class="ant-pro-sider-collapsed-button css-dev-only-do-not-override-whiu57"
           >
             <svg
               aria-hidden="true"
@@ -1285,11 +1285,11 @@ exports[`BasicLayout 🥩 mix layout hideInMenu render right 1`] = `
         </div>
       </aside>
       <div
-        class="ant-pro-layout-container "
+        class="ant-pro-layout-container css-dev-only-do-not-override-whiu57"
         style="position: relative;"
       >
         <main
-          class="ant-layout-content ant-pro-layout-content ant-pro-layout-has-header"
+          class="ant-layout-content ant-pro-layout-content css-dev-only-do-not-override-whiu57 ant-pro-layout-has-header"
         />
       </div>
     </section>
@@ -1299,13 +1299,13 @@ exports[`BasicLayout 🥩 mix layout hideInMenu render right 1`] = `
 
 exports[`BasicLayout 🥩 support loading 1`] = `
 <div
-  class="ant-pro "
+  class="ant-pro css-dev-only-do-not-override-whiu57"
 >
   <div
-    class="ant-design-pro ant-pro-layout screen-md ant-pro-layout-fix-siderbar ant-pro-layout-side"
+    class="css-dev-only-do-not-override-whiu57 ant-design-pro ant-pro-layout screen-md ant-pro-layout-fix-siderbar ant-pro-layout-side"
   >
     <div
-      class="ant-pro-layout-bg-list "
+      class="ant-pro-layout-bg-list css-dev-only-do-not-override-whiu57"
     />
     <section
       class="ant-layout ant-layout-has-sider"
@@ -1315,14 +1315,14 @@ exports[`BasicLayout 🥩 support loading 1`] = `
         style="width: 256px; overflow: hidden; flex: 0 0 256px; max-width: 256px; min-width: 256px; transition: all 0.2s ease 0s;"
       />
       <aside
-        class="ant-layout-sider ant-layout-sider-light ant-pro-sider ant-pro-sider-fixed ant-pro-sider-layout-side ant-pro-sider-light"
+        class="ant-layout-sider ant-layout-sider-light ant-pro-sider css-dev-only-do-not-override-whiu57 ant-pro-sider-fixed ant-pro-sider-layout-side ant-pro-sider-light css-dev-only-do-not-override-whiu57"
         style="flex: 0 0 256px; max-width: 256px; min-width: 256px; width: 256px;"
       >
         <div
           class="ant-layout-sider-children"
         >
           <div
-            class="ant-pro-sider-logo"
+            class="ant-pro-sider-logo css-dev-only-do-not-override-whiu57"
             id="logo"
           >
             <a>
@@ -1459,9 +1459,34 @@ exports[`BasicLayout 🥩 support loading 1`] = `
           </div>
           <div
             style="flex: 1; overflow-y: auto; overflow-x: hidden;"
-          />
+          >
+            <div
+              style="padding: 24px;"
+            >
+              <div
+                class="ant-skeleton ant-skeleton-active"
+              >
+                <div
+                  class="ant-skeleton-content"
+                >
+                  <ul
+                    class="ant-skeleton-paragraph"
+                  >
+                    <li />
+                    <li />
+                    <li />
+                    <li />
+                    <li />
+                    <li
+                      style="width: 61%;"
+                    />
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
           <div
-            class="ant-pro-sider-collapsed-button"
+            class="ant-pro-sider-collapsed-button css-dev-only-do-not-override-whiu57"
           >
             <svg
               aria-hidden="true"
@@ -1478,11 +1503,11 @@ exports[`BasicLayout 🥩 support loading 1`] = `
         </div>
       </aside>
       <div
-        class="ant-pro-layout-container "
+        class="ant-pro-layout-container css-dev-only-do-not-override-whiu57"
         style="position: relative;"
       >
         <main
-          class="ant-layout-content ant-pro-layout-content ant-pro-layout-has-header"
+          class="ant-layout-content ant-pro-layout-content css-dev-only-do-not-override-whiu57 ant-pro-layout-has-header"
         >
           <div
             style="padding-block-start: 100px; text-align: center;"

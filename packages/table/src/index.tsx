@@ -5,7 +5,6 @@ import {
   caESIntl,
   ConfigConsumer,
   ConfigProvider,
-  ConfigProviderWrap,
   createIntl,
   enUSIntl,
   esESIntl,
@@ -50,7 +49,6 @@ export type {
   DragTableProps,
 };
 export {
-  ConfigProviderWrap,
   TableDropdown,
   ListToolBar,
   FieldStatus as TableStatus,

@@ -2,7 +2,7 @@
 
 exports[`💵 ProFormMoney 💵 ProFormMoney value expect number 1`] = `
 <div
-  class="ant-pro "
+  class="ant-pro"
 >
   <form
     autocomplete="off"
@@ -146,7 +146,7 @@ exports[`💵 ProFormMoney 💵 ProFormMoney value expect number 1`] = `
 
 exports[`💵 ProFormMoney 💵 can input negative 1`] = `
 <div
-  class="ant-pro "
+  class="ant-pro"
 >
   <form
     autocomplete="off"
@@ -290,7 +290,7 @@ exports[`💵 ProFormMoney 💵 can input negative 1`] = `
 
 exports[`💵 ProFormMoney 💵 can not input negative 1`] = `
 <div
-  class="ant-pro "
+  class="ant-pro"
 >
   <form
     autocomplete="off"
@@ -434,7 +434,7 @@ exports[`💵 ProFormMoney 💵 can not input negative 1`] = `
 
 exports[`💵 ProFormMoney 💵 moneySymbol with custom locale 1`] = `
 <div
-  class="ant-pro "
+  class="ant-pro"
 >
   <form
     autocomplete="off"
@@ -578,7 +578,7 @@ exports[`💵 ProFormMoney 💵 moneySymbol with custom locale 1`] = `
 
 exports[`💵 ProFormMoney 💵 moneySymbol with custom symbol 1`] = `
 <div
-  class="ant-pro "
+  class="ant-pro"
 >
   <form
     autocomplete="off"
@@ -722,7 +722,7 @@ exports[`💵 ProFormMoney 💵 moneySymbol with custom symbol 1`] = `
 
 exports[`💵 ProFormMoney 💵 moneySymbol with global locale 1`] = `
 <div
-  class="ant-pro "
+  class="ant-pro"
 >
   <form
     autocomplete="off"
@@ -866,7 +866,7 @@ exports[`💵 ProFormMoney 💵 moneySymbol with global locale 1`] = `
 
 exports[`💵 ProFormMoney 💵 update money precision when init 1`] = `
 <div
-  class="ant-pro "
+  class="ant-pro"
 >
   <form
     autocomplete="off"

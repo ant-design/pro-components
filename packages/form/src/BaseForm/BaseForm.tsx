@@ -676,7 +676,7 @@ function BaseForm<T = Record<string, any>>(props: BaseFormProps<T>) {
         mode: props.readonly ? 'read' : 'edit',
       }}
     >
-      <ConfigProviderWrap>
+      <ConfigProviderWrap needDeps>
         {/* // 增加国际化的能力，与 table 组件可以统一 */}
         <FieldContext.Provider
           value={{

@@ -1,9 +1,10 @@
 ﻿import { PlusOutlined } from '@ant-design/icons';
-import { useIntl } from '@ant-design/pro-provider';
-import { nanoid, runFunction, useToken } from '@ant-design/pro-utils';
+import { ProProvider, useIntl } from '@ant-design/pro-provider';
+import { nanoid, runFunction } from '@ant-design/pro-utils';
 import { Button } from 'antd';
 import omit from 'omit.js';
 import type { CSSProperties } from 'react';
+import { useContext } from 'react';
 import { useMemo, useRef, useState } from 'react';
 import type { ProFormListItemProps } from './ListItem';
 import { ProFormListItem } from './ListItem';
@@ -26,7 +27,7 @@ const ProFormListContainer: React.FC<ProFormListItemProps> = (props) => {
     onAfterAdd,
     onAfterRemove,
   } = props;
-  const { hashId } = useToken();
+  const { hashId } = useContext(ProProvider);
   const fieldKeyMap = useRef(new Map<string, string>());
   const [loading, setLoading] = useState(false);
 

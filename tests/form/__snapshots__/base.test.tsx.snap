@@ -3,7 +3,7 @@
 exports[`ProForm 📦 submit props actionsRender is one 1`] = `
 <DocumentFragment>
   <div
-    class="ant-pro "
+    class="ant-pro"
   >
     <form
       autocomplete="off"
@@ -24,7 +24,7 @@ exports[`ProForm 📦 submit props actionsRender is one 1`] = `
 exports[`ProForm 📦 submit props actionsRender=()=>[] 1`] = `
 <DocumentFragment>
   <div
-    class="ant-pro "
+    class="ant-pro"
   >
     <form
       autocomplete="off"
@@ -42,7 +42,7 @@ exports[`ProForm 📦 submit props actionsRender=()=>[] 1`] = `
 exports[`ProForm 📦 submit props actionsRender=()=>false 1`] = `
 <DocumentFragment>
   <div
-    class="ant-pro "
+    class="ant-pro"
   >
     <form
       autocomplete="off"
@@ -60,7 +60,7 @@ exports[`ProForm 📦 submit props actionsRender=()=>false 1`] = `
 exports[`ProForm 📦 submit props actionsRender=false 1`] = `
 <DocumentFragment>
   <div
-    class="ant-pro "
+    class="ant-pro"
   >
     <form
       autocomplete="off"
@@ -78,7 +78,7 @@ exports[`ProForm 📦 submit props actionsRender=false 1`] = `
 exports[`ProForm 📦 submit props actionsRender=false 2`] = `
 <DocumentFragment>
   <div
-    class="ant-pro "
+    class="ant-pro"
   >
     <form
       autocomplete="off"
@@ -96,7 +96,7 @@ exports[`ProForm 📦 submit props actionsRender=false 2`] = `
 exports[`ProForm 📦 submit props render=()=>[] 1`] = `
 <DocumentFragment>
   <div
-    class="ant-pro "
+    class="ant-pro"
   >
     <form
       autocomplete="off"
@@ -122,7 +122,7 @@ exports[`ProForm 📦 submit props render=()=>[] 1`] = `
 exports[`ProForm 📦 submitter props support resetButtonProps 1`] = `
 <DocumentFragment>
   <div
-    class="ant-pro "
+    class="ant-pro"
   >
     <form
       autocomplete="off"
@@ -171,7 +171,7 @@ exports[`ProForm 📦 submitter props support resetButtonProps 1`] = `
 exports[`ProForm 📦 submitter props support submitButtonProps 1`] = `
 <DocumentFragment>
   <div
-    class="ant-pro "
+    class="ant-pro"
   >
     <form
       autocomplete="off"
@@ -220,7 +220,7 @@ exports[`ProForm 📦 submitter props support submitButtonProps 1`] = `
 exports[`ProForm 📦 validateFieldsReturnFormatValue 1`] = `
 <DocumentFragment>
   <div
-    class="ant-pro "
+    class="ant-pro"
   >
     <form
       autocomplete="off"
@@ -352,7 +352,7 @@ exports[`ProForm 📦 validateFieldsReturnFormatValue 1`] = `
 exports[`ProForm 📦 valueType digit with precision value 1`] = `
 <DocumentFragment>
   <div
-    class="ant-pro "
+    class="ant-pro"
   >
     <form
       autocomplete="off"
@@ -510,7 +510,7 @@ exports[`ProForm 📦 valueType digit with precision value 1`] = `
 exports[`ProForm 📦 when dateFormatter is a Function 1`] = `
 <DocumentFragment>
   <div
-    class="ant-pro "
+    class="ant-pro"
   >
     <form
       autocomplete="off"

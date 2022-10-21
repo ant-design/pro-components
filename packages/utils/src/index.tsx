@@ -50,7 +50,6 @@ import {
   resetComponent,
   setAlpha,
   useStyle,
-  useToken,
 } from '@ant-design/pro-provider';
 /** Type */
 import type {
@@ -136,7 +135,6 @@ export {
   convertMoment,
   parseValueToDay,
   genCopyable,
-  useToken,
   useDocumentTitle,
   isImg,
   omitBoolean,

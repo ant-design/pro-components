@@ -1,7 +1,7 @@
 import { RightOutlined } from '@ant-design/icons';
 import type { ProCardProps } from '@ant-design/pro-card';
 import ProCard from '@ant-design/pro-card';
-import { useToken } from '@ant-design/pro-utils';
+import { ProProvider } from '@ant-design/pro-provider';
 import { Avatar, ConfigProvider, List, Skeleton } from 'antd';
 import type { ListGridType } from 'antd/es/list';
 import type { ExpandableConfig } from 'antd/es/table/interface';
@@ -103,7 +103,7 @@ export type ItemProps<RecordType> = {
 function ProListItem<RecordType>(props: ItemProps<RecordType>) {
   const { prefixCls: customizePrefixCls } = props;
   const { getPrefixCls } = useContext(ConfigProvider.ConfigContext);
-  const { hashId } = useToken();
+  const { hashId } = useContext(ProProvider);
   const prefixCls = getPrefixCls('pro-list', customizePrefixCls);
   const defaultClassName = `${prefixCls}-row`;
 

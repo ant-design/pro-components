@@ -1,6 +1,6 @@
 import type { ProCardProps } from '@ant-design/pro-card';
+import { ProProvider } from '@ant-design/pro-provider';
 import type { ActionType } from '@ant-design/pro-table';
-import { useToken } from '@ant-design/pro-utils';
 import type { ListProps, TableColumnType, TableProps } from 'antd';
 import { ConfigProvider, List } from 'antd';
 import useLazyKVMap from 'antd/es/table/hooks/useLazyKVMap';
@@ -62,7 +62,7 @@ function ListView<RecordType>(props: ListViewProps<RecordType>) {
     ...rest
   } = props;
 
-  const { hashId } = useToken();
+  const { hashId } = useContext(ProProvider);
 
   const { getPrefixCls } = useContext(ConfigProvider.ConfigContext);
 

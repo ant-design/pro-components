@@ -1,5 +1,4 @@
 import { ProProvider } from '@ant-design/pro-provider';
-import { useToken } from '@ant-design/pro-utils';
 import type { AvatarProps, SiderProps } from 'antd';
 import { Avatar, ConfigProvider, Layout, Menu, Space } from 'antd';
 import type { ItemType } from 'antd/es/menu/hooks/useItems';
@@ -191,7 +190,7 @@ const SiderMenu: React.FC<SiderMenuProps & PrivateSiderMenuProps> = (props) => {
     onOpenChange,
     logoStyle,
   } = props;
-  const { hashId } = useToken();
+  const { hashId } = useContext(ProProvider);
   const showSiderExtraDom = useMemo(() => {
     if (isMobile) return false;
     if (layout === 'mix') return false;

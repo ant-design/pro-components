@@ -849,7 +849,7 @@ const ProviderWarp = <
 
   return (
     <Container.Provider initialState={props}>
-      <ConfigProviderWrap>
+      <ConfigProviderWrap needDeps>
         <ErrorComponent>
           {wrapSSR(
             <ProTable<DataType, Params, ValueType>

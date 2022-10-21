@@ -1,8 +1,9 @@
-import { ErrorBoundary, useToken } from '@ant-design/pro-utils';
+import { ErrorBoundary } from '@ant-design/pro-utils';
 import { Layout } from 'antd';
 import classNames from 'classnames';
-import type { CSSProperties } from 'react';
+import { CSSProperties, useContext } from 'react';
 import React from 'react';
+import { ProProvider } from '@ant-design/pro-provider';
 
 const WrapContent: React.FC<{
   hasPageContainer?: number;
@@ -15,7 +16,7 @@ const WrapContent: React.FC<{
   children?: React.ReactNode;
   hasHeader: boolean;
 }> = (props) => {
-  const { hashId } = useToken();
+  const { hashId } = useContext(ProProvider);
   const { style, prefixCls, children, hasPageContainer = 0 } = props;
 
   const contentClassName = classNames(`${prefixCls}-content`, hashId, {

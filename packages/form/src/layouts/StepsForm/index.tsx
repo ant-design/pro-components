@@ -451,7 +451,7 @@ function StepsFormWarp<T = Record<string, any>>(
   },
 ) {
   return (
-    <ConfigProviderWrap>
+    <ConfigProviderWrap needDeps>
       <StepsForm<T> {...props} />
     </ConfigProviderWrap>
   );

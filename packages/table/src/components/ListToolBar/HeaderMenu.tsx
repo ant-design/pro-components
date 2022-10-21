@@ -1,9 +1,9 @@
 import { DownOutlined } from '@ant-design/icons';
-import { useToken } from '@ant-design/pro-provider';
+import { ProProvider } from '@ant-design/pro-provider';
 import { Dropdown, Menu, Space, Tabs } from 'antd';
 import classNames from 'classnames';
 import useMergedState from 'rc-util/lib/hooks/useMergedState';
-import React from 'react';
+import React, { useContext } from 'react';
 
 export type ListToolBarMenuItem = {
   key: React.Key;
@@ -20,7 +20,7 @@ export type ListToolBarHeaderMenuProps = {
 };
 
 const HeaderMenu: React.FC<ListToolBarHeaderMenuProps> = (props) => {
-  const { hashId } = useToken();
+  const { hashId } = useContext(ProProvider);
   const { items = [], type = 'inline', prefixCls, activeKey: propActiveKey } = props;
 
   const [activeKey, setActiveKey] = useMergedState<React.Key>(propActiveKey as React.Key, {

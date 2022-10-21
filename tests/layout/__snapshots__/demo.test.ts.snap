@@ -6,7 +6,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/components/PageContaine
     style="background: rgb(245, 247, 250);"
   >
     <div
-      class="ant-pro "
+      class="ant-pro"
     >
       <div
         class="ant-pro-page-container ant-pro-page-container-with-footer"
@@ -405,7 +405,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/components/PageContaine
     style="background: rgb(245, 247, 250);"
   >
     <div
-      class="ant-pro "
+      class="ant-pro"
     >
       <div
         class="ant-pro-page-container ant-pro-page-container-with-affix"
@@ -737,7 +737,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/components/PageContaine
     style="background: rgb(245, 247, 250);"
   >
     <div
-      class="ant-pro "
+      class="ant-pro"
     >
       <div
         class="ant-pro-page-container"
@@ -970,7 +970,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/components/PageContaine
         class="ant-card-body"
       >
         <div
-          class="ant-pro "
+          class="ant-pro"
         >
           <div
             class="ant-pro-page-container"
@@ -1090,7 +1090,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/components/PageContaine
         class="ant-card-body"
       >
         <div
-          class="ant-pro "
+          class="ant-pro"
         >
           <div
             class="ant-pro-page-container"
@@ -1215,7 +1215,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/components/PageContaine
         class="ant-card-body"
       >
         <div
-          class="ant-pro "
+          class="ant-pro"
         >
           <div
             class="ant-pro-page-container"
@@ -1314,7 +1314,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/components/PageContaine
 exports[`layout demos 📸 renders ./packages/layout/src/components/WaterMark/demos/custom.tsx correctly 1`] = `
 <DocumentFragment>
   <div
-    class="ant-pro "
+    class="ant-pro"
   >
     <form
       autocomplete="off"
@@ -1718,7 +1718,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/components/WaterMark/de
     style="position: relative;"
   >
     <div
-      class="ant-pro "
+      class="ant-pro"
     >
       <div
         class="ant-pro-table "
@@ -3985,7 +3985,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/AlwaysDefaultOpen
     style="height: 100vh;"
   >
     <div
-      class="ant-pro "
+      class="ant-pro"
     >
       <div
         class="ant-design-pro ant-pro-layout screen-md ant-pro-layout-fix-siderbar ant-pro-layout-side"
@@ -4454,7 +4454,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/BreadcrumbsRepeat
     style="height: 100vh;"
   >
     <div
-      class="ant-pro "
+      class="ant-pro"
     >
       <div
         class="ant-design-pro ant-pro-layout screen-md ant-pro-layout-fix-siderbar ant-pro-layout-side"
@@ -4876,7 +4876,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/DefaultOpenAllMen
     style="height: 100vh;"
   >
     <div
-      class="ant-pro "
+      class="ant-pro"
     >
       <div
         class="ant-design-pro ant-pro-layout screen-md ant-pro-layout-fix-siderbar ant-pro-layout-side"
@@ -5489,7 +5489,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/IconFont.tsx corr
     style="height: 100vh;"
   >
     <div
-      class="ant-pro "
+      class="ant-pro"
     >
       <div
         class="ant-design-pro ant-pro-layout screen-md ant-pro-layout-fix-siderbar ant-pro-layout-side"
@@ -5875,7 +5875,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/MenuGroup.tsx cor
     style="height: 100vh;"
   >
     <div
-      class="ant-pro "
+      class="ant-pro"
     >
       <div
         class="ant-design-pro ant-pro-layout screen-md ant-pro-layout-fix-siderbar ant-pro-layout-side"
@@ -6364,7 +6364,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/MultipleMenuOnePa
     style="height: 100vh;"
   >
     <div
-      class="ant-pro "
+      class="ant-pro"
     >
       <div
         class="ant-design-pro ant-pro-layout screen-md ant-pro-layout-fix-siderbar ant-pro-layout-side"
@@ -6938,7 +6938,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/Nested.tsx correc
     style="height: 100vh;"
   >
     <div
-      class="ant-pro "
+      class="ant-pro"
     >
       <div
         class="ant-design-pro ant-pro-layout screen-md ant-pro-layout-side"
@@ -7574,7 +7574,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/TopmenuNested.tsx
     style="height: 100vh; overflow: auto;"
   >
     <div
-      class="ant-pro "
+      class="ant-pro"
     >
       <div
         class="ant-design-pro ant-pro-layout screen-md ant-pro-layout-top-menu ant-pro-layout-fix-siderbar ant-pro-layout-top"
@@ -8210,7 +8210,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/TopmenuNested.tsx
 exports[`layout demos 📸 renders ./packages/layout/src/demos/antd@4MenuIconFormServe.tsx correctly 1`] = `
 <DocumentFragment>
   <div
-    class="ant-pro "
+    class="ant-pro"
   >
     <div
       class="ant-design-pro ant-pro-layout screen-md ant-pro-layout-fix-siderbar ant-pro-layout-side"
@@ -8883,7 +8883,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/api.tsx correctly
   <br />
   <br />
   <div
-    class="ant-pro "
+    class="ant-pro"
   >
     <div
       class="ant-design-pro ant-pro-layout screen-md ant-pro-layout-fix-siderbar ant-pro-layout-side"
@@ -9466,7 +9466,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/background-contex
     style="height: 100vh;"
   >
     <div
-      class="ant-pro "
+      class="ant-pro"
     >
       <div
         class="ant-design-pro ant-pro-layout screen-md ant-pro-layout-top-menu ant-pro-layout-fix-siderbar ant-pro-layout-top"
@@ -10145,7 +10145,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/base.tsx correctl
     style="height: 100vh;"
   >
     <div
-      class="ant-pro "
+      class="ant-pro"
     >
       <div
         class="ant-design-pro ant-pro-layout screen-md ant-pro-layout-fix-siderbar ant-pro-layout-mix"
@@ -11258,7 +11258,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/classicMode.tsx c
     style="height: 100vh;"
   >
     <div
-      class="ant-pro "
+      class="ant-pro"
     >
       <div
         class="ant-design-pro ant-pro-layout screen-md ant-pro-layout-fix-siderbar ant-pro-layout-mix"
@@ -12341,7 +12341,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/classicMode.tsx c
 exports[`layout demos 📸 renders ./packages/layout/src/demos/collapsedShowTitle.tsx correctly 1`] = `
 <DocumentFragment>
   <div
-    class="ant-pro "
+    class="ant-pro"
   >
     <div
       class="ant-design-pro ant-pro-layout screen-md ant-pro-layout-fix-siderbar ant-pro-layout-side"
@@ -12899,7 +12899,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/collapsedShowTitl
 exports[`layout demos 📸 renders ./packages/layout/src/demos/config-provider.tsx correctly 1`] = `
 <DocumentFragment>
   <div
-    class="qixian-pro "
+    class="qixian-pro"
   >
     <div
       class="ant-design-pro qixian-pro-layout screen-md qixian-pro-layout-fix-siderbar qixian-pro-layout-side"
@@ -14192,7 +14192,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/customSider.tsx c
     style="height: 100vh;"
   >
     <div
-      class="ant-pro "
+      class="ant-pro"
     >
       <div
         class="ant-design-pro ant-pro-layout screen-md ant-pro-layout-fix-siderbar ant-pro-layout-side"
@@ -15322,7 +15322,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/customSider.tsx c
 exports[`layout demos 📸 renders ./packages/layout/src/demos/customize-collapsed.tsx correctly 1`] = `
 <DocumentFragment>
   <div
-    class="ant-pro "
+    class="ant-pro"
   >
     <div
       class="ant-design-pro ant-pro-layout screen-md ant-pro-layout-fix-siderbar ant-pro-layout-mix"
@@ -15891,7 +15891,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/customizeMenu.tsx
     style="height: 100vh;"
   >
     <div
-      class="ant-pro "
+      class="ant-pro"
     >
       <div
         class="ant-design-pro ant-pro-layout screen-md ant-pro-layout-fix-siderbar ant-pro-layout-side"
@@ -16283,7 +16283,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/designMenuCss.tsx
     style="height: 100vh;"
   >
     <div
-      class="ant-pro "
+      class="ant-pro"
     >
       <div
         class="ant-design-pro ant-pro-layout screen-md ant-pro-layout-fix-siderbar ant-pro-layout-mix"
@@ -17393,7 +17393,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/designSiderMenu.t
     style="height: 100vh;"
   >
     <div
-      class="ant-pro "
+      class="ant-pro"
     >
       <div
         class="ant-design-pro ant-pro-layout screen-md ant-pro-layout-fix-siderbar ant-pro-layout-side"
@@ -18513,7 +18513,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/dynamic-settings.
     style="height: 100vh;"
   >
     <div
-      class="ant-pro "
+      class="ant-pro"
     >
       <div
         class="ant-design-pro ant-pro-layout screen-md ant-pro-layout-fix-siderbar ant-pro-layout-side"
@@ -19812,7 +19812,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/dynamic-settings.
 exports[`layout demos 📸 renders ./packages/layout/src/demos/dynamicMenu.tsx correctly 1`] = `
 <DocumentFragment>
   <div
-    class="ant-pro "
+    class="ant-pro"
   >
     <div
       class="ant-design-pro ant-pro-layout screen-md ant-pro-layout-fix-siderbar ant-pro-layout-side"
@@ -20248,7 +20248,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/error-boundaries.
     style="height: 100vh;"
   >
     <div
-      class="ant-pro "
+      class="ant-pro"
     >
       <div
         class="ant-design-pro ant-pro-layout screen-md ant-pro-layout-fix-siderbar ant-pro-layout-side"
@@ -20539,7 +20539,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/error-boundaries.
 exports[`layout demos 📸 renders ./packages/layout/src/demos/footer.tsx correctly 1`] = `
 <DocumentFragment>
   <div
-    class="ant-pro "
+    class="ant-pro"
   >
     <div
       class="ant-design-pro ant-pro-layout screen-md ant-pro-layout-fix-siderbar ant-pro-layout-side"
@@ -21075,7 +21075,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/footer-global-too
     style="height: 100vh;"
   >
     <div
-      class="ant-pro "
+      class="ant-pro"
     >
       <div
         class="ant-design-pro ant-pro-layout screen-md ant-pro-layout-fix-siderbar ant-pro-layout-mix"
@@ -22162,7 +22162,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/ghost.tsx correct
     style="height: 100vh;"
   >
     <div
-      class="ant-pro "
+      class="ant-pro"
     >
       <div
         class="ant-design-pro ant-pro-layout screen-md ant-pro-layout-fix-siderbar ant-pro-layout-side"
@@ -22840,7 +22840,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/ghost.tsx correct
 exports[`layout demos 📸 renders ./packages/layout/src/demos/hideMenu.tsx correctly 1`] = `
 <DocumentFragment>
   <div
-    class="ant-pro "
+    class="ant-pro"
   >
     <div
       class="ant-design-pro ant-pro-layout screen-md ant-pro-layout-fix-siderbar ant-pro-layout-side"
@@ -23328,7 +23328,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/hideMenu.tsx corr
 exports[`layout demos 📸 renders ./packages/layout/src/demos/immersive-navigation.tsx correctly 1`] = `
 <DocumentFragment>
   <div
-    class="ant-pro "
+    class="ant-pro"
   >
     <div
       class="ant-design-pro ant-pro-layout screen-md ant-pro-layout-fix-siderbar ant-pro-layout-side"
@@ -23978,7 +23978,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/immersive-navigat
 exports[`layout demos 📸 renders ./packages/layout/src/demos/immersive-navigation-top.tsx correctly 1`] = `
 <DocumentFragment>
   <div
-    class="ant-pro "
+    class="ant-pro"
   >
     <div
       class="ant-design-pro ant-pro-layout screen-md ant-pro-layout-fix-siderbar ant-pro-layout-side"
@@ -24855,7 +24855,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/menu-group.tsx co
     style="height: 100vh;"
   >
     <div
-      class="ant-pro "
+      class="ant-pro"
     >
       <div
         class="ant-design-pro ant-pro-layout screen-md ant-pro-layout-fix-siderbar ant-pro-layout-side"
@@ -25693,7 +25693,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/mixMode.tsx corre
     style="height: 100vh;"
   >
     <div
-      class="ant-pro "
+      class="ant-pro"
     >
       <div
         class="ant-design-pro ant-pro-layout screen-md ant-pro-layout-fix-siderbar ant-pro-layout-mix"
@@ -26697,7 +26697,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/pageSimplify.tsx 
     style="height: 100vh;"
   >
     <div
-      class="ant-pro "
+      class="ant-pro"
     >
       <div
         class="ant-design-pro ant-pro-layout screen-md ant-pro-layout-fix-siderbar ant-pro-layout-mix"
@@ -27501,7 +27501,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/searchMenu.tsx co
     style="height: 100vh;"
   >
     <div
-      class="ant-pro "
+      class="ant-pro"
     >
       <div
         class="ant-design-pro ant-pro-layout screen-md ant-pro-layout-fix-siderbar ant-pro-layout-side"
@@ -28003,7 +28003,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/siderMode.tsx cor
     style="height: 100vh;"
   >
     <div
-      class="ant-pro "
+      class="ant-pro"
     >
       <div
         class="ant-design-pro ant-pro-layout screen-md ant-pro-layout-fix-siderbar ant-pro-layout-side"
@@ -28945,7 +28945,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/siteMenu.tsx corr
     style="height: 100vh;"
   >
     <div
-      class="ant-pro "
+      class="ant-pro"
     >
       <div
         class="ant-design-pro ant-pro-layout screen-md ant-pro-layout-fix-siderbar ant-pro-layout-mix"
@@ -29945,12 +29945,12 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/siteMenu.tsx corr
 exports[`layout demos 📸 renders ./packages/layout/src/demos/splitMenus.tsx correctly 1`] = `
 <DocumentFragment>
   <div
-    class="ant-pro "
+    class="ant-pro"
   >
     children
   </div>
   <div
-    class="ant-pro "
+    class="ant-pro"
   >
     <div
       class="ant-design-pro ant-pro-layout screen-md ant-pro-layout-fix-siderbar ant-pro-layout-mix"
@@ -30382,7 +30382,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/splitMenus.tsx co
     </div>
   </div>
   <div
-    class="ant-pro "
+    class="ant-pro"
   >
     <div
       class="ant-design-pro ant-pro-layout screen-md ant-pro-layout-fix-siderbar ant-pro-layout-mix"
@@ -30406,7 +30406,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/splitMenus.tsx co
     </div>
   </div>
   <div
-    class="ant-pro "
+    class="ant-pro"
   >
     <div
       class="ant-design-pro ant-pro-layout screen-md ant-pro-layout-fix-siderbar ant-pro-layout-mix"
@@ -30836,7 +30836,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/splitMenus.tsx co
     </div>
   </div>
   <div
-    class="ant-pro "
+    class="ant-pro"
   >
     <div
       class="ant-design-pro ant-pro-layout screen-md ant-pro-layout-top-menu ant-pro-layout-fix-siderbar ant-pro-layout-top"
@@ -31142,7 +31142,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/splitMenus.tsx co
     </div>
   </div>
   <div
-    class="ant-pro "
+    class="ant-pro"
   >
     <div
       class="ant-design-pro ant-pro-layout screen-md ant-pro-layout-fix-siderbar ant-pro-layout-mix"
@@ -31605,7 +31605,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/splitMenus.tsx co
     </div>
   </div>
   <div
-    class="ant-pro "
+    class="ant-pro"
   >
     <div
       class="ant-design-pro ant-pro-layout screen-md ant-pro-layout-fix-siderbar ant-pro-layout-mix"
@@ -32081,7 +32081,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/splitMenus.tsx co
     </div>
   </div>
   <div
-    class="ant-pro "
+    class="ant-pro"
   >
     <div
       class="ant-design-pro ant-pro-layout screen-md ant-pro-layout-fix-siderbar ant-pro-layout-mix"
@@ -32583,7 +32583,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/splitMenus.tsx co
 exports[`layout demos 📸 renders ./packages/layout/src/demos/theme.tsx correctly 1`] = `
 <DocumentFragment>
   <div
-    class="ant-pro "
+    class="ant-pro"
   >
     <div
       class="ant-design-pro ant-pro-layout screen-md ant-pro-layout-fix-siderbar ant-pro-layout-side"
@@ -33344,7 +33344,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/top-breadcrumb.ts
     style="height: 100vh;"
   >
     <div
-      class="ant-pro "
+      class="ant-pro"
     >
       <div
         class="ant-design-pro ant-pro-layout screen-md ant-pro-layout-fix-siderbar ant-pro-layout-mix"
@@ -33802,7 +33802,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/topMode.tsx corre
     style="height: 100vh;"
   >
     <div
-      class="ant-pro "
+      class="ant-pro"
     >
       <div
         class="ant-design-pro ant-pro-layout screen-md ant-pro-layout-top-menu ant-pro-layout-fix-siderbar ant-pro-layout-top"
