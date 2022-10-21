@@ -8,6 +8,19 @@ group:
   path: /
 ---
 
+## @ant-design/pro-components@2.3.21
+
+`2022-10-21`
+
+- fix(layout): support dynamic token set (#6106). [#6106](https://github.com/ant-design/pro-components/pull/#6106) [@chenshuai2144](https://github.com/chenshuai2144)
+- fix(layout): fix listtool bar style error. [820a5b7](https://github.com/ant-design/pro-components/commit/820a5b7)
+- fix(layout): 默认开启 hash. [47f30c9](https://github.com/ant-design/pro-components/commit/47f30c9)
+- fix(form): ProFormDigit value will fixed when not set precision(#6101). [#6101](https://github.com/ant-design/pro-components/pull/#6101) [@ONLY-yours](https://github.com/ONLY-yours)
+- fix(table): 修复 inline 类型样式丢失问题 (#6092). [#6092](https://github.com/ant-design/pro-components/pull/#6092) [@sushi-su](https://github.com/sushi-su)
+- fix(table): use ellipsis type exported from antd/rc-table (#6105). [#6105](https://github.com/ant-design/pro-components/pull/#6105) [@Jungzl](https://github.com/Jungzl)
+- fix(table): fix table select rows style error. [dff31f3](https://github.com/ant-design/pro-components/commit/dff31f3)
+- fix(card): static style fixed (#6100). [#6100](https://github.com/ant-design/pro-components/pull/#6100) [@ONLY-yours](https://github.com/ONLY-yours)
+
 ## @ant-design/pro-components@2.3.20
 
 `2022-10-19`
