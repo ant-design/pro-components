@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [3.0.19](https://github.com/ant-design/pro-components/compare/@ant-design/pro-table@3.0.18...@ant-design/pro-table@3.0.19) (2022-10-21)
+
+### Bug Fixes
+
+- **table:** remove hasid props ([ee4be36](https://github.com/ant-design/pro-components/commit/ee4be365f01222e4ae12f9e1d7a355eea7e7d260))
+
 ## [3.0.18](https://github.com/ant-design/pro-components/compare/@ant-design/pro-table@3.0.17...@ant-design/pro-table@3.0.18) (2022-10-21)
 
 ### Bug Fixes
