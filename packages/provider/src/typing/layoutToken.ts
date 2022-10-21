@@ -1,4 +1,5 @@
-﻿import { setAlpha } from '@ant-design/pro-utils';
+﻿import { setAlpha } from '../useStyle';
+
 export type BaseLayoutDesignToken = {
   hashId: string;
   colorPrimary: string;
