@@ -28,6 +28,7 @@ import zhCN from './locale/zh_CN';
 import zhTW from './locale/zh_TW';
 import type { DeepPartial, LayoutDesignToken, ProTokenType } from './typing/layoutToken';
 import { getLayoutDesignToken } from './typing/layoutToken';
+import { defaultTheme } from './useStyle/token';
 import { merge } from './utils/merge';
 
 export * from './useStyle';
@@ -38,6 +39,7 @@ const { useToken } = theme || {
   useToken: () => {
     return {
       hashId: '',
+      token: defaultTheme,
     };
   },
 };
