@@ -53,16 +53,16 @@ const Statistic: React.FC<StatisticProps> = (props) => {
   const { getPrefixCls } = useContext(ConfigProvider.ConfigContext);
   const prefixCls = getPrefixCls('pro-card-statistic');
   const { wrapSSR, hashId } = useStyle(prefixCls);
-  const classString = classNames(prefixCls, className);
-  const statusClass = classNames(`${prefixCls}-status`);
-  const iconClass = classNames(`${prefixCls}-icon`);
-  const wrapperClass = classNames(`${prefixCls}-wrapper`);
-  const contentClass = classNames(`${prefixCls}-content`);
+  const classString = classNames(prefixCls, className, hashId);
+  const statusClass = classNames(`${prefixCls}-status`, hashId);
+  const iconClass = classNames(`${prefixCls}-icon`, hashId);
+  const wrapperClass = classNames(`${prefixCls}-wrapper`, hashId);
+  const contentClass = classNames(`${prefixCls}-content`, hashId);
 
   const statisticClassName = classNames({
+    hashId,
     [`${prefixCls}-layout-${layout}`]: layout,
     [`${prefixCls}-trend-${trend}`]: trend,
-    hashId,
   });
 
   const tipDom = tip && (
@@ -84,6 +84,8 @@ const Statistic: React.FC<StatisticProps> = (props) => {
   );
 
   const iconDom = icon && <div className={iconClass}>{icon}</div>;
+
+  console.log('classString', classString);
 
   return wrapSSR(
     <div className={classString} style={style}>
