@@ -46,7 +46,7 @@ type GlobalTypes = Omit<
   Partial<RouterTypes> &
     SiderMenuProps &
     HeaderViewProps & {
-      token: ProTokenType['layout'];
+      token?: ProTokenType['layout'];
     },
   'collapsed'
 >;
