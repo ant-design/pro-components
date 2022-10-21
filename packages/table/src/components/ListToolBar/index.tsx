@@ -252,7 +252,7 @@ const ListToolBar: React.FC<ListToolBarProps> = ({
             <LabelIconTip tooltip={tooltip} label={title} subTitle={subTitle} />
           </div>
         )}
-        {menu && <HeaderMenu {...menu} prefixCls={prefixCls} />}
+        {menu && <HeaderMenu {...menu} prefixCls={prefixCls} hashId={hashId} />}
         {!hasTitle && searchNode ? (
           <div className={`${prefixCls}-search ${hashId}`}>{searchNode}</div>
         ) : null}
