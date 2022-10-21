@@ -43,8 +43,15 @@ import { pickProFormItemProps } from './pickProFormItemProps';
 import { pickProProps } from './pickProProps';
 import { runFunction } from './runFunction';
 import { transformKeySubmitValue } from './transformKeySubmitValue';
-import type { GenerateStyle, ProAliasToken } from './useStyle';
-import { lighten, operationUnit, resetComponent, setAlpha, useStyle, useToken } from './useStyle';
+import type { GenerateStyle, ProAliasToken } from '@ant-design/pro-provider';
+import {
+  lighten,
+  operationUnit,
+  resetComponent,
+  setAlpha,
+  useStyle,
+  useToken,
+} from '@ant-design/pro-provider';
 /** Type */
 import type {
   ProCoreActionType,

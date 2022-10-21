@@ -1,7 +1,7 @@
+import { ProProvider } from '@ant-design/pro-provider';
 import { ConfigProvider, Layout } from 'antd';
 import classNames from 'classnames';
 import React, { useCallback, useContext } from 'react';
-import { ProLayoutContext } from '../context/ProLayoutContext';
 import { useStyle } from '../style/header';
 import type { WithFalse } from '../typings';
 import { clearMenuItem } from '../utils/utils';
@@ -41,7 +41,7 @@ const DefaultHeader: React.FC<HeaderViewProps & PrivateSiderMenuProps> = (props)
     headerRender,
     headerContentRender,
   } = props;
-  const { header } = useContext(ProLayoutContext);
+  const { token } = useContext(ProProvider);
   const renderContent = useCallback(() => {
     const isTop = layout === 'top';
     const clearMenuData = clearMenuItem(props.menuData || []);
@@ -101,8 +101,8 @@ const DefaultHeader: React.FC<HeaderViewProps & PrivateSiderMenuProps> = (props)
         {needFixedHeader && (
           <Header
             style={{
-              height: header.heightLayoutHeader,
-              lineHeight: `${header.heightLayoutHeader}px`,
+              height: token?.layout?.header?.heightLayoutHeader || 56,
+              lineHeight: `${token?.layout?.header?.heightLayoutHeader || 56}px`,
               backgroundColor: 'transparent',
               zIndex: 19,
               ...style,

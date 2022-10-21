@@ -1,12 +1,11 @@
 import { createFromIconfontCN } from '@ant-design/icons';
+import { ProProvider, ProTokenType } from '@ant-design/pro-provider';
 import { isImg, isUrl, useMountMergeState } from '@ant-design/pro-utils';
 import type { MenuProps } from 'antd';
 import { Menu, Skeleton } from 'antd';
 import type { ItemType } from 'antd/es/menu/hooks/useItems';
 import classNames from 'classnames';
 import React, { useContext, useEffect, useMemo, useRef } from 'react';
-import type { LayoutDesignToken } from '../../context/ProLayoutContext';
-import { ProLayoutContext } from '../../context/ProLayoutContext';
 import type { PureSettings } from '../../defaultSettings';
 import { defaultSettings } from '../../defaultSettings';
 import type { MenuDataItem, MessageDescriptor, RouterTypes, WithFalse } from '../../typings';
@@ -118,7 +117,7 @@ const getMenuTitleSymbol = (title: React.ReactNode) => {
 class MenuUtil {
   constructor(
     props: BaseMenuProps & {
-      token?: LayoutDesignToken;
+      token?: ProTokenType;
       menuRenderType?: 'header' | 'sider';
       baseClassName: string;
       hashId: string;
@@ -128,7 +127,7 @@ class MenuUtil {
   }
 
   props: BaseMenuProps & {
-    token?: LayoutDesignToken;
+    token?: ProTokenType;
     menuRenderType?: 'header' | 'sider';
     baseClassName: string;
     hashId: string;
@@ -224,7 +223,7 @@ class MenuUtil {
                 borderBlockEnd: 0,
                 margin: this.props.collapsed ? '4px' : '6px 16px',
                 marginBlockStart: this.props.collapsed ? 4 : 8,
-                borderColor: designToken?.sider?.colorMenuItemDivider,
+                borderColor: designToken?.layout?.sider?.colorMenuItemDivider,
               },
             } as ItemType)
           : undefined,
@@ -395,7 +394,8 @@ const BaseMenu: React.FC<BaseMenuProps & PrivateSiderMenuProps> = (props) => {
     openKeys: propsOpenKeys,
   } = props;
 
-  const designToken = useContext(ProLayoutContext);
+  const { token: designToken } = useContext(ProProvider);
+
   const baseClassName = `${prefixCls}-base-menu`;
   // 用于减少 defaultOpenKeys 计算的组件
   const defaultOpenKeysRef = useRef<string[]>([]);

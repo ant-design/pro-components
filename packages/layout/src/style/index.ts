@@ -1,9 +1,6 @@
 ﻿import type { GenerateStyle, ProAliasToken } from '@ant-design/pro-utils';
-import { useStyle as useAntdStyle } from '@ant-design/pro-utils';
+import { useStyle as useAntdStyle } from '@ant-design/pro-provider';
 import { version } from 'antd';
-import { useContext } from 'react';
-import type { LayoutDesignToken } from '../context/ProLayoutContext';
-import { ProLayoutContext } from '../context/ProLayoutContext';
 
 export interface ProLayoutToken extends ProAliasToken {
   componentCls: string;
@@ -16,7 +13,7 @@ export interface ProLayoutToken extends ProAliasToken {
  * @param token
  * @returns
  */
-const compatibleStyle: GenerateStyle<ProLayoutToken & LayoutDesignToken> = (token) => {
+const compatibleStyle: GenerateStyle<ProLayoutToken> = (token) => {
   if (version.startsWith('5')) {
     return {};
   }
@@ -26,9 +23,9 @@ const compatibleStyle: GenerateStyle<ProLayoutToken & LayoutDesignToken> = (toke
       width: '100%',
       height: '100%',
       [`${token.proComponentsCls}-base-menu`]: {
-        color: token.sider.colorTextMenu,
+        color: token?.layout?.sider?.colorTextMenu,
         [`${token.antCls}-menu-sub`]: {
-          color: token.sider.colorTextMenu,
+          color: token?.layout?.sider?.colorTextMenu,
         },
         [`& ${token.antCls}-layout`]: {
           backgroundColor: 'transparent',
@@ -38,7 +35,7 @@ const compatibleStyle: GenerateStyle<ProLayoutToken & LayoutDesignToken> = (toke
           color: 'inherit',
         },
         [`&${token.antCls}-menu`]: {
-          color: token.sider.colorTextMenu,
+          color: token?.layout?.sider?.colorTextMenu,
           [`${token.antCls}-menu-item a`]: {
             color: 'inherit',
           },
@@ -60,50 +57,50 @@ const compatibleStyle: GenerateStyle<ProLayoutToken & LayoutDesignToken> = (toke
             ${token.antCls}-menu-item-active,
             ${token.antCls}-menu-submenu-active, 
             ${token.antCls}-menu-submenu-title:hover`]: {
-            color: token.sider.colorTextMenuActive,
+            color: token?.layout?.sider?.colorTextMenuActive,
             borderRadius: token.radiusBase,
             [`${token.antCls}-menu-submenu-arrow`]: {
-              color: token.sider.colorTextMenuActive,
+              color: token?.layout?.sider?.colorTextMenuActive,
             },
           },
         },
         [`&${token.antCls}-menu:not(${token.antCls}-menu-horizontal)`]: {
           [`${token.antCls}-menu-item-selected`]: {
-            backgroundColor: token.sider.colorBgMenuItemSelected,
+            backgroundColor: token?.layout?.sider?.colorBgMenuItemSelected,
             borderRadius: token.radiusBase,
           },
           [`${token.antCls}-menu-item:hover, 
             ${token.antCls}-menu-item-active,
             ${token.antCls}-menu-submenu-title:hover`]: {
-            color: token.sider.colorTextMenuActive,
+            color: token?.layout?.sider?.colorTextMenuActive,
             borderRadius: token.radiusBase,
-            backgroundColor: token.sider.colorBgMenuItemHover,
+            backgroundColor: token?.layout?.sider?.colorBgMenuItemHover,
             [`${token.antCls}-menu-submenu-arrow`]: {
-              color: token.sider.colorTextMenuActive,
+              color: token?.layout?.sider?.colorTextMenuActive,
             },
           },
         },
         [`${token.antCls}-menu-item-selected`]: {
-          color: token.sider.colorTextMenuSelected,
+          color: token?.layout?.sider?.colorTextMenuSelected,
         },
         [`${token.antCls}-menu-submenu-selected`]: {
-          color: token.sider.colorTextMenuSelected,
+          color: token?.layout?.sider?.colorTextMenuSelected,
         },
         [`&${token.antCls}-menu:not(${token.antCls}-menu-inline) ${token.antCls}-menu-submenu-open`]:
           {
-            color: token.sider.colorTextMenuSelected,
+            color: token?.layout?.sider?.colorTextMenuSelected,
           },
 
         [`&${token.antCls}-menu-vertical`]: {
           [`${token.antCls}-menu-submenu-selected`]: {
             borderRadius: token.radiusBase,
-            color: token.sider.colorTextMenuSelected,
+            color: token?.layout?.sider?.colorTextMenuSelected,
           },
         },
 
         [`${token.antCls}-menu-submenu:hover > ${token.antCls}-menu-submenu-title > ${token.antCls}-menu-submenu-arrow`]:
           {
-            color: token.sider.colorTextMenuActive,
+            color: token?.layout?.sider?.colorTextMenuActive,
           },
 
         [`&${token.antCls}-menu-horizontal`]: {
@@ -112,19 +109,19 @@ const compatibleStyle: GenerateStyle<ProLayoutToken & LayoutDesignToken> = (toke
           ${token.antCls}-menu-item-active,
           ${token.antCls}-menu-submenu-active`]: {
             borderRadius: 4,
-            color: token.header.colorTextMenuActive,
-            backgroundColor: token.header.colorBgMenuItemHover,
+            color: token?.layout?.header?.colorTextMenuActive,
+            backgroundColor: token?.layout?.header?.colorBgMenuItemHover,
           },
 
           [`${token.antCls}-menu-item-open,
           ${token.antCls}-menu-submenu-open,
           ${token.antCls}-menu-item-selected,
           ${token.antCls}-menu-submenu-selected`]: {
-            backgroundColor: token.header.colorBgMenuItemSelected,
+            backgroundColor: token?.layout?.header?.colorBgMenuItemSelected,
             borderRadius: token.radiusBase,
-            color: token.header.colorTextMenuSelected,
+            color: token?.layout?.header?.colorTextMenuSelected,
             [`${token.antCls}-menu-submenu-arrow`]: {
-              color: token.header.colorTextMenuSelected,
+              color: token?.layout?.header?.colorTextMenuSelected,
             },
           },
           [`> ${token.antCls}-menu-item, > ${token.antCls}-menu-submenu`]: {
@@ -139,7 +136,7 @@ const compatibleStyle: GenerateStyle<ProLayoutToken & LayoutDesignToken> = (toke
 
       [`${token.proComponentsCls}-top-nav-header-base-menu`]: {
         [`&${token.antCls}-menu`]: {
-          color: token.header.colorTextMenu,
+          color: token?.layout?.header?.colorTextMenu,
           [`${token.antCls}-menu-item a`]: {
             color: 'inherit',
           },
@@ -149,18 +146,18 @@ const compatibleStyle: GenerateStyle<ProLayoutToken & LayoutDesignToken> = (toke
             ${token.antCls}-menu-item-active,
             ${token.antCls}-menu-submenu-active, 
             ${token.antCls}-menu-submenu-title:hover`]: {
-            color: token.header.colorTextMenuActive,
+            color: token?.layout?.header?.colorTextMenuActive,
             borderRadius: token.radiusBase,
-            backgroundColor: token.header.colorBgMenuItemSelected,
+            backgroundColor: token?.layout?.header?.colorBgMenuItemSelected,
             [`${token.antCls}-menu-submenu-arrow`]: {
-              color: token.header.colorTextMenuActive,
+              color: token?.layout?.header?.colorTextMenuActive,
             },
           },
 
           [`${token.antCls}-menu-item-selected`]: {
-            color: token.header.colorTextMenuSelected,
+            color: token?.layout?.header?.colorTextMenuSelected,
             borderRadius: token.radiusBase,
-            backgroundColor: token.header.colorBgMenuItemSelected,
+            backgroundColor: token?.layout?.header?.colorBgMenuItemSelected,
           },
         },
       },
@@ -181,24 +178,24 @@ const compatibleStyle: GenerateStyle<ProLayoutToken & LayoutDesignToken> = (toke
         },
       },
       [`${token.antCls}-menu-item-selected`]: {
-        color: token.sider.colorTextMenuSelected,
+        color: token?.layout?.sider?.colorTextMenuSelected,
       },
       [`${token.antCls}-menu-submenu-selected`]: {
-        color: token.sider.colorTextMenuSelected,
+        color: token?.layout?.sider?.colorTextMenuSelected,
       },
       [`${token.antCls}-menu:not(${token.antCls}-menu-horizontal)`]: {
         [`${token.antCls}-menu-item-selected`]: {
           backgroundColor: 'rgba(0, 0, 0, 0.04)',
           borderRadius: token.radiusBase,
-          color: token.sider.colorTextMenuSelected,
+          color: token?.layout?.sider?.colorTextMenuSelected,
         },
         [`${token.antCls}-menu-item:hover, 
           ${token.antCls}-menu-item-active,
           ${token.antCls}-menu-submenu-title:hover`]: {
-          color: token.sider.colorTextMenuActive,
+          color: token?.layout?.sider?.colorTextMenuActive,
           borderRadius: token.radiusBase,
           [`${token.antCls}-menu-submenu-arrow`]: {
-            color: token.sider.colorTextMenuActive,
+            color: token?.layout?.sider?.colorTextMenuActive,
           },
         },
       },
@@ -206,7 +203,7 @@ const compatibleStyle: GenerateStyle<ProLayoutToken & LayoutDesignToken> = (toke
   };
 };
 
-const genProLayoutStyle: GenerateStyle<ProLayoutToken & LayoutDesignToken> = (token) => {
+const genProLayoutStyle: GenerateStyle<ProLayoutToken> = (token) => {
   return {
     body: {
       paddingBlock: 0,
@@ -229,11 +226,11 @@ const genProLayoutStyle: GenerateStyle<ProLayoutToken & LayoutDesignToken> = (to
           display: 'flex',
           flexDirection: 'column',
           width: '100%',
-          backgroundColor: token.pageContainer.colorBgPageContainer || 'transparent',
+          backgroundColor: token?.layout?.pageContainer?.colorBgPageContainer || 'transparent',
           position: 'relative',
           '*': { boxSizing: 'border-box' },
-          paddingBlock: token.pageContainer.paddingBlockPageContainerContent,
-          paddingInline: token.pageContainer.paddingInlinePageContainerContent,
+          paddingBlock: token?.layout?.pageContainer?.paddingBlockPageContainerContent,
+          paddingInline: token?.layout?.pageContainer?.paddingInlinePageContainerContent,
           '&-has-page-container': {
             padding: 0,
           },
@@ -254,7 +251,7 @@ const genProLayoutStyle: GenerateStyle<ProLayoutToken & LayoutDesignToken> = (to
           zIndex: 0,
           height: '100%',
           width: '100%',
-          background: token.bgLayout,
+          background: token?.layout?.bgLayout,
         },
       },
       [`${token.antCls}-menu-submenu-popup`]: {
@@ -267,13 +264,11 @@ const genProLayoutStyle: GenerateStyle<ProLayoutToken & LayoutDesignToken> = (to
 };
 
 export function useStyle(prefixCls: string) {
-  const proToken = useContext(ProLayoutContext);
   return useAntdStyle('ProLayout', (token) => {
     const proLayoutToken = {
       ...token,
       componentCls: `.${prefixCls}`,
-      ...proToken,
-    } as ProLayoutToken & LayoutDesignToken;
+    } as ProLayoutToken;
 
     return [genProLayoutStyle(proLayoutToken), compatibleStyle(proLayoutToken)];
   });

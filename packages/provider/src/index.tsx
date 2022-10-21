@@ -26,6 +26,13 @@ import trTR from './locale/tr_TR';
 import viVN from './locale/vi_VN';
 import zhCN from './locale/zh_CN';
 import zhTW from './locale/zh_TW';
+import type { DeepPartial, LayoutDesignToken, ProTokenType } from './typing/layoutToken';
+import { getLayoutDesignToken } from './typing/layoutToken';
+import { merge } from './utils/merge';
+
+export * from './useStyle';
+
+export { DeepPartial, ProTokenType };
 
 const { useToken } = theme || {
   useToken: () => {
@@ -245,12 +252,13 @@ export {
 };
 
 /**
- * 国际化的配置类型
+ * 自带的token 配置
  */
 export type ConfigContextPropsType = {
   intl: IntlType;
   isDeps: boolean;
   valueTypeMap: Record<string, ProRenderFieldPropsType>;
+  token?: ProTokenType;
 };
 
 /* Creating a context object with the default values. */
@@ -308,9 +316,10 @@ const CacheClean = () => {
 export const ConfigProviderWrap: React.FC<Record<string, unknown>> = ({
   children,
   autoClearCache = false,
+  token: propsToken,
 }) => {
   const { locale, getPrefixCls } = useContext(AntdConfigProvider.ConfigContext);
-  const token = useToken?.();
+  const tokenContext = useToken?.();
   // 如果 locale 不存在自动注入的 AntdConfigProvider
   const Provider = locale === undefined ? AntdConfigProvider : React.Fragment;
   const proProvide = useContext(ConfigContext);
@@ -324,12 +333,24 @@ export const ConfigProviderWrap: React.FC<Record<string, unknown>> = ({
         ? intlMap[key!]
         : proProvide.intl || intlMap[key!];
 
+    /**
+     * 合并一下token，不然导致嵌套 token 失效
+     */
+    const proLayoutTokenMerge = merge(
+      proProvide.token?.layout || {},
+      getLayoutDesignToken((propsToken as ProTokenType)?.layout || {}, tokenContext.token),
+    ) as LayoutDesignToken;
+
     return {
+      token: {
+        ...proProvide.token,
+        layout: proLayoutTokenMerge,
+      },
       ...proProvide,
       isDeps: true,
       intl: intl || zhCNIntl,
     };
-  }, [locale?.locale, proProvide]);
+  }, [locale?.locale, proProvide, tokenContext, propsToken]);
 
   const configProviderDom = useMemo(() => {
     // 自动注入 antd 的配置
@@ -353,7 +374,11 @@ export const ConfigProviderWrap: React.FC<Record<string, unknown>> = ({
       </Provider>
     );
     if (proProvide.isDeps) return provide;
-    return <div className={`${getPrefixCls?.('pro') || 'ant-pro'} ${token.hashId}`}>{provide}</div>;
+    return (
+      <div className={`${getPrefixCls?.('pro') || 'ant-pro'} ${tokenContext.hashId}`}>
+        {provide}
+      </div>
+    );
   }, [
     Provider,
     autoClearCache,
@@ -362,7 +387,7 @@ export const ConfigProviderWrap: React.FC<Record<string, unknown>> = ({
     locale,
     proProvide.isDeps,
     proProvideValue,
-    token.hashId,
+    tokenContext.hashId,
   ]);
   if (!autoClearCache) return configProviderDom;
 

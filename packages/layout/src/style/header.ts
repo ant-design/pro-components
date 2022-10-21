@@ -1,30 +1,24 @@
 ﻿import type { GenerateStyle, ProAliasToken } from '@ant-design/pro-utils';
-import { useStyle as useAntdStyle } from '@ant-design/pro-utils';
-import { useContext } from 'react';
-import type { LayoutDesignToken } from '../context/ProLayoutContext';
-import { ProLayoutContext } from '../context/ProLayoutContext';
+import { useStyle as useAntdStyle } from '@ant-design/pro-provider';
 
 export interface ProLayoutHeaderToken extends ProAliasToken {
   componentCls: string;
-  ProLayoutHeaderHeaderHeight: number;
   proLayoutCls: string;
 }
 
-const genProLayoutHeaderStyle: GenerateStyle<ProLayoutHeaderToken & LayoutDesignToken['header']> = (
-  token,
-) => {
+const genProLayoutHeaderStyle: GenerateStyle<ProLayoutHeaderToken> = (token) => {
   return {
     [token.proLayoutCls]: {
       [`.ant-layout-header${token.componentCls}`]: {
-        height: token.ProLayoutHeaderHeaderHeight,
-        lineHeight: `${token.ProLayoutHeaderHeaderHeight}px`,
+        height: token?.layout?.header?.heightLayoutHeader || 56,
+        lineHeight: `${token?.layout?.header?.heightLayoutHeader || 56}px`,
         // hitu 用了这个属性，不能删除哦 @南取
         zIndex: 19,
         width: '100%',
         paddingBlock: 0,
         paddingInline: 8,
         borderBlockEnd: `1px solid ${token.colorSplit}`,
-        backgroundColor: token.colorBgHeader || 'rgba(255, 255, 255, 0.4)',
+        backgroundColor: token?.layout?.header?.colorBgHeader || 'rgba(255, 255, 255, 0.4)',
         WebkitBackdropFilter: 'blur(8px)',
         backdropFilter: 'blur(8px)',
         '&-fixed-header': {
@@ -57,15 +51,11 @@ const genProLayoutHeaderStyle: GenerateStyle<ProLayoutHeaderToken & LayoutDesign
 };
 
 export function useStyle(prefixCls: string, props: { proLayoutCls: string }) {
-  const { header } = useContext(ProLayoutContext);
-
   return useAntdStyle('ProLayoutHeader', (token) => {
-    const ProLayoutHeaderToken: ProLayoutHeaderToken & LayoutDesignToken['header'] = {
+    const ProLayoutHeaderToken: ProLayoutHeaderToken = {
       ...token,
       componentCls: `.${prefixCls}`,
       proLayoutCls: `.${props.proLayoutCls}`,
-      ProLayoutHeaderHeaderHeight: header.heightLayoutHeader,
-      ...header,
     };
 
     return [genProLayoutHeaderStyle(ProLayoutHeaderToken)];

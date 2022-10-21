@@ -1,15 +1,11 @@
 ﻿import type { GenerateStyle, ProAliasToken } from '@ant-design/pro-utils';
-import { useStyle as useAntdStyle } from '@ant-design/pro-utils';
-import { useContext } from 'react';
-import type { BaseLayoutDesignToken } from '../../../context/ProLayoutContext';
-import { ProLayoutContext } from '../../../context/ProLayoutContext';
+import { useStyle as useAntdStyle } from '@ant-design/pro-provider';
+
 export interface ProLayoutBaseMenuToken extends ProAliasToken {
   componentCls: string;
 }
 
-const genProLayoutBaseMenuStyle: GenerateStyle<
-  ProLayoutBaseMenuToken & BaseLayoutDesignToken['sider']
-> = (token) => {
+const genProLayoutBaseMenuStyle: GenerateStyle<ProLayoutBaseMenuToken> = (token) => {
   return {
     [`${token.componentCls}`]: {
       background: 'transparent',
@@ -25,7 +21,7 @@ const genProLayoutBaseMenuStyle: GenerateStyle<
         },
         [`${token.antCls}-menu-item-group > ${token.antCls}-menu-item-group-list > ${token.antCls}-menu-submenu-selected > ${token.antCls}-menu-submenu-title, 
         ${token.antCls}-menu-submenu-selected > ${token.antCls}-menu-submenu-title`]: {
-          backgroundColor: token.colorBgMenuItemSelected,
+          backgroundColor: token.layout?.sider?.colorBgMenuItemSelected,
           borderRadius: token.radiusBase,
         },
         [`${token.componentCls}-group`]: {
@@ -108,12 +104,10 @@ const genProLayoutBaseMenuStyle: GenerateStyle<
 };
 
 export function useStyle(prefixCls: string) {
-  const { sider } = useContext(ProLayoutContext);
   return useAntdStyle('ProLayoutBaseMenu', (token) => {
-    const proLayoutMenuToken: ProLayoutBaseMenuToken & BaseLayoutDesignToken['sider'] = {
+    const proLayoutMenuToken: ProLayoutBaseMenuToken = {
       ...token,
       componentCls: `.${prefixCls}`,
-      ...sider,
     };
     return [genProLayoutBaseMenuStyle(proLayoutMenuToken)];
   });

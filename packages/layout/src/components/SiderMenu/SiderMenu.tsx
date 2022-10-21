@@ -1,3 +1,4 @@
+import { ProProvider } from '@ant-design/pro-provider';
 import { useToken } from '@ant-design/pro-utils';
 import type { AvatarProps, SiderProps } from 'antd';
 import { Avatar, ConfigProvider, Layout, Menu, Space } from 'antd';
@@ -5,7 +6,6 @@ import type { ItemType } from 'antd/es/menu/hooks/useItems';
 import classNames from 'classnames';
 import type { CSSProperties } from 'react';
 import React, { useContext, useMemo } from 'react';
-import { ProLayoutContext } from '../../context/ProLayoutContext';
 import type { WithFalse } from '../../typings';
 import type { AppsLogoComponentsAppList } from '../AppsLogoComponents';
 import { AppsLogoComponents, defaultRenderLogo } from '../AppsLogoComponents';
@@ -408,7 +408,7 @@ const SiderMenu: React.FC<SiderMenuProps & PrivateSiderMenuProps> = (props) => {
     </>
   );
 
-  const { sider } = useContext(ProLayoutContext);
+  const { token } = useContext(ProProvider);
   return (
     <>
       {fixSiderbar && !isMobile && !hideMenuWhenCollapsedClassName && (
@@ -446,14 +446,18 @@ const SiderMenu: React.FC<SiderMenuProps & PrivateSiderMenuProps> = (props) => {
             components: {
               Menu: {
                 radiusItem: 4,
-                colorItemBgSelected: sider.colorBgMenuItemSelected || 'rgba(0, 0, 0, 0.04)',
-                colorItemBgActive: sider.colorBgMenuItemHover || 'rgba(0, 0, 0, 0.04)',
+                colorItemBgSelected:
+                  token?.layout?.sider?.colorBgMenuItemSelected || 'rgba(0, 0, 0, 0.04)',
+                colorItemBgActive:
+                  token?.layout?.sider?.colorBgMenuItemHover || 'rgba(0, 0, 0, 0.04)',
                 colorActiveBarWidth: 0,
                 colorActiveBarHeight: 0,
                 colorActiveBarBorderSize: 0,
-                colorItemText: sider.colorTextMenu || 'rgba(0, 0, 0, 0.65)',
-                colorItemTextHover: sider.colorTextMenuActive || 'rgba(0, 0, 0, 0.85)',
-                colorItemTextSelected: sider.colorTextMenuSelected || 'rgba(0, 0, 0, 1)',
+                colorItemText: token?.layout?.sider?.colorTextMenu || 'rgba(0, 0, 0, 0.65)',
+                colorItemTextHover:
+                  token?.layout?.sider?.colorTextMenuActive || 'rgba(0, 0, 0, 0.85)',
+                colorItemTextSelected:
+                  token?.layout?.sider?.colorTextMenuSelected || 'rgba(0, 0, 0, 1)',
                 colorItemBg: 'transparent',
                 colorSubItemBg: 'transparent',
               },

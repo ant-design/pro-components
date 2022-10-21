@@ -1,8 +1,5 @@
 ﻿import type { GenerateStyle, ProAliasToken } from '@ant-design/pro-utils';
-import { useStyle as useAntdStyle } from '@ant-design/pro-utils';
-import { useContext } from 'react';
-import type { BaseLayoutDesignToken } from '../../../context/ProLayoutContext';
-import { ProLayoutContext } from '../../../context/ProLayoutContext';
+import { useStyle as useAntdStyle } from '@ant-design/pro-provider';
 import { genAppsLogoComponentsDefaultListStyle } from './default';
 import { genAppsLogoComponentsSimpleListStyle } from './simple';
 
@@ -10,9 +7,7 @@ export interface AppsLogoComponentsToken extends ProAliasToken {
   componentCls: string;
 }
 
-const genAppsLogoComponentsStyle: GenerateStyle<AppsLogoComponentsToken & BaseLayoutDesignToken> = (
-  token,
-) => {
+const genAppsLogoComponentsStyle: GenerateStyle<AppsLogoComponentsToken> = (token) => {
   return {
     [token.componentCls]: {
       '&-icon': {
@@ -26,14 +21,14 @@ const genAppsLogoComponentsStyle: GenerateStyle<AppsLogoComponentsToken & BaseLa
         height: 28,
         width: 28,
         cursor: 'pointer',
-        color: token.colorTextAppListIcon,
+        color: token?.layout?.colorTextAppListIcon,
         '&:hover': {
-          color: token.colorTextAppListIconHover,
-          backgroundColor: token.colorBgAppListIconHover,
+          color: token?.layout?.colorTextAppListIconHover,
+          backgroundColor: token?.layout?.colorBgAppListIconHover,
         },
         '&-active': {
-          color: token.colorTextAppListIconHover,
-          backgroundColor: token.colorBgAppListIconHover,
+          color: token?.layout?.colorTextAppListIconHover,
+          backgroundColor: token?.layout?.colorBgAppListIconHover,
         },
       },
       '&-popover': {
@@ -52,13 +47,11 @@ const genAppsLogoComponentsStyle: GenerateStyle<AppsLogoComponentsToken & BaseLa
 };
 
 export function useStyle(prefixCls: string) {
-  const proToken = useContext(ProLayoutContext);
   return useAntdStyle('AppsLogoComponents', (token) => {
     const proCardToken = {
       ...token,
       componentCls: `.${prefixCls}`,
-      ...proToken,
-    } as AppsLogoComponentsToken & BaseLayoutDesignToken;
+    } as AppsLogoComponentsToken;
 
     return [genAppsLogoComponentsStyle(proCardToken)];
   });

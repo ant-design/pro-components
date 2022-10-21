@@ -1,14 +1,11 @@
 ﻿import type { GenerateStyle, ProAliasToken } from '@ant-design/pro-utils';
 import { setAlpha, useStyle as useAntdStyle } from '@ant-design/pro-utils';
-import { useContext } from 'react';
-import type { BaseLayoutDesignToken } from '../../context/ProLayoutContext';
-import { ProLayoutContext } from '../../context/ProLayoutContext';
 
 export interface ProToken extends ProAliasToken {
   componentCls: string;
 }
 
-const genTopNavHeaderStyle: GenerateStyle<ProToken & BaseLayoutDesignToken['header']> = (token) => {
+const genTopNavHeaderStyle: GenerateStyle<ProToken> = (token) => {
   return {
     [token.componentCls]: {
       '&-header-actions': {
@@ -20,7 +17,7 @@ const genTopNavHeaderStyle: GenerateStyle<ProToken & BaseLayoutDesignToken['head
           justifyContent: 'center',
           paddingBlock: 0,
           paddingInline: 2,
-          color: token.colorTextRightActionsItem,
+          color: token?.layout?.header?.colorTextRightActionsItem,
           fontSize: '16px',
           cursor: 'pointer',
           borderRadius: token.radiusBase,
@@ -30,7 +27,7 @@ const genTopNavHeaderStyle: GenerateStyle<ProToken & BaseLayoutDesignToken['head
             paddingBlock: 6,
             borderRadius: token.radiusBase,
             '&:hover': {
-              backgroundColor: token.colorBgRightActionsItemHover,
+              backgroundColor: token?.layout?.header?.colorBgRightActionsItemHover,
             },
           },
         },
@@ -62,12 +59,10 @@ const genTopNavHeaderStyle: GenerateStyle<ProToken & BaseLayoutDesignToken['head
 };
 
 export function useStyle(prefixCls: string) {
-  const { header } = useContext(ProLayoutContext);
   return useAntdStyle('RightContent', (token) => {
-    const proToken: ProToken & BaseLayoutDesignToken['header'] = {
+    const proToken: ProToken = {
       ...token,
       componentCls: `.${prefixCls}`,
-      ...header,
     };
 
     return [genTopNavHeaderStyle(proToken)];

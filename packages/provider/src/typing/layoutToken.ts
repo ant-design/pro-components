@@ -1,7 +1,4 @@
-﻿import { setAlpha, useToken } from '@ant-design/pro-utils';
-// @ts-ignore
-import type { GlobalToken } from 'antd/es/theme/interface';
-import React from 'react';
+﻿import { setAlpha } from '../useStyle';
 
 export type BaseLayoutDesignToken = {
   hashId: string;
@@ -99,13 +96,13 @@ export type BaseLayoutDesignToken = {
   };
 };
 
-type DeepPartial<T> = T extends object
+export type DeepPartial<T> = T extends object
   ? {
       [P in keyof T]?: DeepPartial<T[P]>;
     }
   : T;
 
-export type LayoutDesignToken = BaseLayoutDesignToken & GlobalToken;
+export type LayoutDesignToken = BaseLayoutDesignToken;
 
 export const getLayoutDesignToken: (
   baseDesignTokens: DeepPartial<LayoutDesignToken>,
@@ -166,25 +163,6 @@ export const getLayoutDesignToken: (
   } as LayoutDesignToken as LayoutDesignToken;
 };
 
-const defaultToken = getLayoutDesignToken({}, {});
-
-export const ProLayoutContext = React.createContext<LayoutDesignToken>(defaultToken);
-
-export type ProLayoutProviderProps = {
-  token?: DeepPartial<LayoutDesignToken>;
-  children?: React.ReactNode;
-};
-
-export const ProLayoutProvider: React.FC<ProLayoutProviderProps> = (props) => {
-  const { token, hashId } = useToken();
-  return (
-    <ProLayoutContext.Provider
-      value={{
-        ...getLayoutDesignToken(props?.token || {}, token),
-        hashId,
-      }}
-    >
-      {props.children}
-    </ProLayoutContext.Provider>
-  );
+export type ProTokenType = {
+  layout?: DeepPartial<LayoutDesignToken>;
 };

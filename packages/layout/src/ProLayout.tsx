@@ -1,3 +1,4 @@
+import { ProProvider, ProTokenType } from '@ant-design/pro-provider';
 import { ConfigProviderWrap } from '@ant-design/pro-provider';
 import { isBrowser, useDocumentTitle, useMountMergeState } from '@ant-design/pro-utils';
 import { getMatchMenu } from '@umijs/route-utils';
@@ -20,8 +21,6 @@ import { SiderMenu } from './components/SiderMenu';
 import { MenuCounter } from './components/SiderMenu/Counter';
 import type { SiderMenuProps } from './components/SiderMenu/SiderMenu';
 import type { WaterMarkProps } from './components/WaterMark';
-import type { ProLayoutProviderProps } from './context/ProLayoutContext';
-import { ProLayoutProvider } from './context/ProLayoutContext';
 import { RouteContext } from './context/RouteContext';
 import type { ProSettings } from './defaultSettings';
 import { defaultSettings } from './defaultSettings';
@@ -44,7 +43,11 @@ export type LayoutBreadcrumbProps = {
 };
 
 type GlobalTypes = Omit<
-  Partial<RouterTypes> & SiderMenuProps & HeaderViewProps & ProLayoutProviderProps,
+  Partial<RouterTypes> &
+    SiderMenuProps &
+    HeaderViewProps & {
+      token?: ProTokenType['layout'];
+    },
   'collapsed'
 >;
 
@@ -707,6 +710,7 @@ BaseProLayout.defaultProps = {
 
 const ProLayout: React.FC<ProLayoutProps> = (props) => {
   const { colorPrimary } = props;
+  const tokenContext = useContext(ProProvider);
   return (
     <ConfigProvider
       // @ts-ignore
@@ -720,10 +724,14 @@ const ProLayout: React.FC<ProLayoutProps> = (props) => {
         },
       }}
     >
-      <ConfigProviderWrap autoClearCache>
-        <ProLayoutProvider token={props.token}>
-          <BaseProLayout {...props} />
-        </ProLayoutProvider>
+      <ConfigProviderWrap
+        autoClearCache
+        token={{
+          ...tokenContext.token,
+          layout: props.token,
+        }}
+      >
+        <BaseProLayout {...props} />
       </ConfigProviderWrap>
     </ConfigProvider>
   );
