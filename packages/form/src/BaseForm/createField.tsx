@@ -274,7 +274,7 @@ function createField<P extends ProFormFieldItemProps = any>(
     ]);
 
     // 使用useMemo包裹避免不必要的re-render
-    const FormItem = useMemo(() => {
+    const formItem = useMemo(() => {
       return (
         <ProFormItem
           // 全局的提供一个 tip 功能，可以减少代码量
@@ -336,7 +336,7 @@ function createField<P extends ProFormFieldItemProps = any>(
 
     const { ColWrapper } = useGridHelpers(rest);
 
-    return <ColWrapper>{FormItem}</ColWrapper>;
+    return <ColWrapper>{formItem}</ColWrapper>;
   };
 
   const DependencyWrapper: React.FC<P & ExtendsProps & FunctionFieldProps> = (props) => {
