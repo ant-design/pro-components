@@ -1860,7 +1860,16 @@ exports[`form demos 📸 renders ./packages/form/src/components/FieldSet/demos/c
       <span
         class="ant-switch-inner"
       >
-        只读
+        <span
+          class="ant-switch-inner-checked"
+        >
+          编辑
+        </span>
+        <span
+          class="ant-switch-inner-unchecked"
+        >
+          只读
+        </span>
       </span>
     </button>
     <div
@@ -3430,7 +3439,14 @@ exports[`form demos 📸 renders ./packages/form/src/components/FieldSet/demos/c
                           />
                           <span
                             class="ant-switch-inner"
-                          />
+                          >
+                            <span
+                              class="ant-switch-inner-checked"
+                            />
+                            <span
+                              class="ant-switch-inner-unchecked"
+                            />
+                          </span>
                         </button>
                       </div>
                     </div>
@@ -6410,7 +6426,16 @@ exports[`form demos 📸 renders ./packages/form/src/components/FieldSet/demos/d
       <span
         class="ant-switch-inner"
       >
-        只读
+        <span
+          class="ant-switch-inner-checked"
+        >
+          编辑
+        </span>
+        <span
+          class="ant-switch-inner-unchecked"
+        >
+          只读
+        </span>
       </span>
     </button>
     <div
@@ -7720,7 +7745,16 @@ exports[`form demos 📸 renders ./packages/form/src/components/FieldSet/demos/f
       <span
         class="ant-switch-inner"
       >
-        只读
+        <span
+          class="ant-switch-inner-checked"
+        >
+          编辑
+        </span>
+        <span
+          class="ant-switch-inner-unchecked"
+        >
+          只读
+        </span>
       </span>
     </button>
     <div
@@ -8372,7 +8406,16 @@ exports[`form demos 📸 renders ./packages/form/src/components/FieldSet/demos/s
       <span
         class="ant-switch-inner"
       >
-        只读
+        <span
+          class="ant-switch-inner-checked"
+        >
+          编辑
+        </span>
+        <span
+          class="ant-switch-inner-unchecked"
+        >
+          只读
+        </span>
       </span>
     </button>
     <div
@@ -10101,7 +10144,14 @@ exports[`form demos 📸 renders ./packages/form/src/components/Group/demos/cust
                           />
                           <span
                             class="ant-switch-inner"
-                          />
+                          >
+                            <span
+                              class="ant-switch-inner-checked"
+                            />
+                            <span
+                              class="ant-switch-inner-unchecked"
+                            />
+                          </span>
                         </button>
                       </span>
                     </div>
@@ -10615,7 +10665,14 @@ exports[`form demos 📸 renders ./packages/form/src/components/Group/demos/cust
                           />
                           <span
                             class="ant-switch-inner"
-                          />
+                          >
+                            <span
+                              class="ant-switch-inner-checked"
+                            />
+                            <span
+                              class="ant-switch-inner-unchecked"
+                            />
+                          </span>
                         </button>
                       </span>
                     </div>
@@ -10877,7 +10934,14 @@ exports[`form demos 📸 renders ./packages/form/src/components/Group/demos/cust
                           />
                           <span
                             class="ant-switch-inner"
-                          />
+                          >
+                            <span
+                              class="ant-switch-inner-checked"
+                            />
+                            <span
+                              class="ant-switch-inner-unchecked"
+                            />
+                          </span>
                         </button>
                       </span>
                     </div>
@@ -16573,8 +16637,32 @@ exports[`form demos 📸 renders ./packages/form/src/components/QueryFilter/demo
                             <div
                               class="ant-spin-nested-loading"
                             >
+                              <div>
+                                <div
+                                  aria-busy="true"
+                                  aria-live="polite"
+                                  class="ant-spin ant-spin-spinning"
+                                >
+                                  <span
+                                    class="ant-spin-dot ant-spin-dot-spin"
+                                  >
+                                    <i
+                                      class="ant-spin-dot-item"
+                                    />
+                                    <i
+                                      class="ant-spin-dot-item"
+                                    />
+                                    <i
+                                      class="ant-spin-dot-item"
+                                    />
+                                    <i
+                                      class="ant-spin-dot-item"
+                                    />
+                                  </span>
+                                </div>
+                              </div>
                               <div
-                                class="ant-spin-container"
+                                class="ant-spin-container ant-spin-blur"
                               >
                                 <div
                                   class="ant-select ant-tree-select ant-select-borderless ant-select-in-form-item ant-pro-field-tree-select ant-select-multiple ant-select-show-search"
@@ -18147,8 +18235,32 @@ exports[`form demos 📸 renders ./packages/form/src/components/QueryFilter/demo
                           <div
                             class="ant-spin-nested-loading"
                           >
+                            <div>
+                              <div
+                                aria-busy="true"
+                                aria-live="polite"
+                                class="ant-spin ant-spin-spinning"
+                              >
+                                <span
+                                  class="ant-spin-dot ant-spin-dot-spin"
+                                >
+                                  <i
+                                    class="ant-spin-dot-item"
+                                  />
+                                  <i
+                                    class="ant-spin-dot-item"
+                                  />
+                                  <i
+                                    class="ant-spin-dot-item"
+                                  />
+                                  <i
+                                    class="ant-spin-dot-item"
+                                  />
+                                </span>
+                              </div>
+                            </div>
                             <div
-                              class="ant-spin-container"
+                              class="ant-spin-container ant-spin-blur"
                             >
                               <div
                                 class="ant-select ant-tree-select ant-select-borderless ant-select-in-form-item ant-pro-field-tree-select ant-select-multiple ant-select-show-search"
@@ -29253,7 +29365,14 @@ exports[`form demos 📸 renders ./packages/form/src/components/SchemaForm/demos
                       />
                       <span
                         class="ant-switch-inner"
-                      />
+                      >
+                        <span
+                          class="ant-switch-inner-checked"
+                        />
+                        <span
+                          class="ant-switch-inner-unchecked"
+                        />
+                      </span>
                     </button>
                   </div>
                 </div>
@@ -39511,8 +39630,32 @@ exports[`form demos 📸 renders ./packages/form/src/demos/base.tsx correctly 1`
                 <div
                   class="ant-spin-nested-loading"
                 >
+                  <div>
+                    <div
+                      aria-busy="true"
+                      aria-live="polite"
+                      class="ant-spin ant-spin-spinning"
+                    >
+                      <span
+                        class="ant-spin-dot ant-spin-dot-spin"
+                      >
+                        <i
+                          class="ant-spin-dot-item"
+                        />
+                        <i
+                          class="ant-spin-dot-item"
+                        />
+                        <i
+                          class="ant-spin-dot-item"
+                        />
+                        <i
+                          class="ant-spin-dot-item"
+                        />
+                      </span>
+                    </div>
+                  </div>
                   <div
-                    class="ant-spin-container"
+                    class="ant-spin-container ant-spin-blur"
                   >
                     <div
                       class="ant-select ant-tree-select ant-select-in-form-item ant-pro-field-tree-select ant-select-multiple ant-select-show-search"
@@ -40092,7 +40235,14 @@ exports[`form demos 📸 renders ./packages/form/src/demos/components-test.tsx c
                   />
                   <span
                     class="ant-switch-inner"
-                  />
+                  >
+                    <span
+                      class="ant-switch-inner-checked"
+                    />
+                    <span
+                      class="ant-switch-inner-unchecked"
+                    />
+                  </span>
                 </button>
               </div>
             </div>
@@ -40730,7 +40880,14 @@ exports[`form demos 📸 renders ./packages/form/src/demos/config-provider.tsx c
                   />
                   <span
                     class="ant-switch-inner"
-                  />
+                  >
+                    <span
+                      class="ant-switch-inner-checked"
+                    />
+                    <span
+                      class="ant-switch-inner-unchecked"
+                    />
+                  </span>
                 </button>
               </div>
             </div>
@@ -42032,7 +42189,14 @@ exports[`form demos 📸 renders ./packages/form/src/demos/form-layout-grid.tsx 
                       />
                       <span
                         class="ant-switch-inner"
-                      />
+                      >
+                        <span
+                          class="ant-switch-inner-checked"
+                        />
+                        <span
+                          class="ant-switch-inner-unchecked"
+                        />
+                      </span>
                     </button>
                   </div>
                 </div>
@@ -48741,7 +48905,14 @@ exports[`form demos 📸 renders ./packages/form/src/demos/pro-form-dependency.d
                                                               />
                                                               <span
                                                                 class="ant-switch-inner"
-                                                              />
+                                                              >
+                                                                <span
+                                                                  class="ant-switch-inner-checked"
+                                                                />
+                                                                <span
+                                                                  class="ant-switch-inner-unchecked"
+                                                                />
+                                                              </span>
                                                             </button>
                                                           </div>
                                                         </div>

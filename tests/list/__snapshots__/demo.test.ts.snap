@@ -1333,7 +1333,14 @@ exports[`list demos 📸 renders ./packages/list/src/demos/card-list.tsx correct
                 />
                 <span
                   class="ant-switch-inner"
-                />
+                >
+                  <span
+                    class="ant-switch-inner-checked"
+                  />
+                  <span
+                    class="ant-switch-inner-unchecked"
+                  />
+                </span>
               </button>
             </div>
           </div>

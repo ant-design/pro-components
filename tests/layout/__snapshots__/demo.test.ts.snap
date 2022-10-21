@@ -8694,7 +8694,14 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/api.tsx correctly
     />
     <span
       class="ant-switch-inner"
-    />
+    >
+      <span
+        class="ant-switch-inner-checked"
+      />
+      <span
+        class="ant-switch-inner-unchecked"
+      />
+    </span>
   </button>
   loading 状态
   <button
@@ -8709,7 +8716,14 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/api.tsx correctly
     />
     <span
       class="ant-switch-inner"
-    />
+    >
+      <span
+        class="ant-switch-inner-checked"
+      />
+      <span
+        class="ant-switch-inner-unchecked"
+      />
+    </span>
   </button>
   折叠layout
   <button
@@ -8724,7 +8738,14 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/api.tsx correctly
     />
     <span
       class="ant-switch-inner"
-    />
+    >
+      <span
+        class="ant-switch-inner-checked"
+      />
+      <span
+        class="ant-switch-inner-unchecked"
+      />
+    </span>
   </button>
   显示菜单
   <button
@@ -8739,7 +8760,14 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/api.tsx correctly
     />
     <span
       class="ant-switch-inner"
-    />
+    >
+      <span
+        class="ant-switch-inner-checked"
+      />
+      <span
+        class="ant-switch-inner-unchecked"
+      />
+    </span>
   </button>
   显示折叠按钮
   <button
@@ -8754,7 +8782,14 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/api.tsx correctly
     />
     <span
       class="ant-switch-inner"
-    />
+    >
+      <span
+        class="ant-switch-inner-checked"
+      />
+      <span
+        class="ant-switch-inner-unchecked"
+      />
+    </span>
   </button>
   显示顶栏
   <button
@@ -8769,7 +8804,14 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/api.tsx correctly
     />
     <span
       class="ant-switch-inner"
-    />
+    >
+      <span
+        class="ant-switch-inner-checked"
+      />
+      <span
+        class="ant-switch-inner-unchecked"
+      />
+    </span>
   </button>
   显示菜单头
   <button
@@ -8784,7 +8826,14 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/api.tsx correctly
     />
     <span
       class="ant-switch-inner"
-    />
+    >
+      <span
+        class="ant-switch-inner-checked"
+      />
+      <span
+        class="ant-switch-inner-unchecked"
+      />
+    </span>
   </button>
   显示页脚
   <button
@@ -8799,7 +8848,14 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/api.tsx correctly
     />
     <span
       class="ant-switch-inner"
-    />
+    >
+      <span
+        class="ant-switch-inner-checked"
+      />
+      <span
+        class="ant-switch-inner-unchecked"
+      />
+    </span>
   </button>
   显示顶栏右侧
   <button
@@ -8814,7 +8870,14 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/api.tsx correctly
     />
     <span
       class="ant-switch-inner"
-    />
+    >
+      <span
+        class="ant-switch-inner-checked"
+      />
+      <span
+        class="ant-switch-inner-unchecked"
+      />
+    </span>
   </button>
   清爽模式
   <br />

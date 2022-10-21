@@ -32286,7 +32286,14 @@ exports[`table demos 📸 renders ./packages/table/src/demos/dynamic-settings.ts
                                             />
                                             <span
                                               class="ant-switch-inner"
-                                            />
+                                            >
+                                              <span
+                                                class="ant-switch-inner-checked"
+                                              />
+                                              <span
+                                                class="ant-switch-inner-unchecked"
+                                              />
+                                            </span>
                                           </button>
                                         </div>
                                       </div>
@@ -32481,7 +32488,14 @@ exports[`table demos 📸 renders ./packages/table/src/demos/dynamic-settings.ts
                                             />
                                             <span
                                               class="ant-switch-inner"
-                                            />
+                                            >
+                                              <span
+                                                class="ant-switch-inner-checked"
+                                              />
+                                              <span
+                                                class="ant-switch-inner-unchecked"
+                                              />
+                                            </span>
                                           </button>
                                         </div>
                                       </div>
@@ -32554,7 +32568,14 @@ exports[`table demos 📸 renders ./packages/table/src/demos/dynamic-settings.ts
                                             />
                                             <span
                                               class="ant-switch-inner"
-                                            />
+                                            >
+                                              <span
+                                                class="ant-switch-inner-checked"
+                                              />
+                                              <span
+                                                class="ant-switch-inner-unchecked"
+                                              />
+                                            </span>
                                           </button>
                                         </div>
                                       </div>
@@ -32627,7 +32648,14 @@ exports[`table demos 📸 renders ./packages/table/src/demos/dynamic-settings.ts
                                             />
                                             <span
                                               class="ant-switch-inner"
-                                            />
+                                            >
+                                              <span
+                                                class="ant-switch-inner-checked"
+                                              />
+                                              <span
+                                                class="ant-switch-inner-unchecked"
+                                              />
+                                            </span>
                                           </button>
                                         </div>
                                       </div>
@@ -32700,7 +32728,14 @@ exports[`table demos 📸 renders ./packages/table/src/demos/dynamic-settings.ts
                                             />
                                             <span
                                               class="ant-switch-inner"
-                                            />
+                                            >
+                                              <span
+                                                class="ant-switch-inner-checked"
+                                              />
+                                              <span
+                                                class="ant-switch-inner-unchecked"
+                                              />
+                                            </span>
                                           </button>
                                         </div>
                                       </div>
@@ -32772,7 +32807,14 @@ exports[`table demos 📸 renders ./packages/table/src/demos/dynamic-settings.ts
                                             />
                                             <span
                                               class="ant-switch-inner"
-                                            />
+                                            >
+                                              <span
+                                                class="ant-switch-inner-checked"
+                                              />
+                                              <span
+                                                class="ant-switch-inner-unchecked"
+                                              />
+                                            </span>
                                           </button>
                                         </div>
                                       </div>
@@ -32862,7 +32904,14 @@ exports[`table demos 📸 renders ./packages/table/src/demos/dynamic-settings.ts
                                     />
                                     <span
                                       class="ant-switch-inner"
-                                    />
+                                    >
+                                      <span
+                                        class="ant-switch-inner-checked"
+                                      />
+                                      <span
+                                        class="ant-switch-inner-unchecked"
+                                      />
+                                    </span>
                                   </button>
                                 </span>
                               </div>
@@ -33134,7 +33183,14 @@ exports[`table demos 📸 renders ./packages/table/src/demos/dynamic-settings.ts
                                             />
                                             <span
                                               class="ant-switch-inner"
-                                            />
+                                            >
+                                              <span
+                                                class="ant-switch-inner-checked"
+                                              />
+                                              <span
+                                                class="ant-switch-inner-unchecked"
+                                              />
+                                            </span>
                                           </button>
                                         </div>
                                       </div>
@@ -33207,7 +33263,14 @@ exports[`table demos 📸 renders ./packages/table/src/demos/dynamic-settings.ts
                                             />
                                             <span
                                               class="ant-switch-inner"
-                                            />
+                                            >
+                                              <span
+                                                class="ant-switch-inner-checked"
+                                              />
+                                              <span
+                                                class="ant-switch-inner-unchecked"
+                                              />
+                                            </span>
                                           </button>
                                         </div>
                                       </div>
@@ -33280,7 +33343,14 @@ exports[`table demos 📸 renders ./packages/table/src/demos/dynamic-settings.ts
                                             />
                                             <span
                                               class="ant-switch-inner"
-                                            />
+                                            >
+                                              <span
+                                                class="ant-switch-inner-checked"
+                                              />
+                                              <span
+                                                class="ant-switch-inner-unchecked"
+                                              />
+                                            </span>
                                           </button>
                                         </div>
                                       </div>
@@ -33353,7 +33423,14 @@ exports[`table demos 📸 renders ./packages/table/src/demos/dynamic-settings.ts
                                             />
                                             <span
                                               class="ant-switch-inner"
-                                            />
+                                            >
+                                              <span
+                                                class="ant-switch-inner-checked"
+                                              />
+                                              <span
+                                                class="ant-switch-inner-unchecked"
+                                              />
+                                            </span>
                                           </button>
                                         </div>
                                       </div>
@@ -33425,7 +33502,14 @@ exports[`table demos 📸 renders ./packages/table/src/demos/dynamic-settings.ts
                                             />
                                             <span
                                               class="ant-switch-inner"
-                                            />
+                                            >
+                                              <span
+                                                class="ant-switch-inner-checked"
+                                              />
+                                              <span
+                                                class="ant-switch-inner-unchecked"
+                                              />
+                                            </span>
                                           </button>
                                         </div>
                                       </div>
@@ -33464,7 +33548,16 @@ exports[`table demos 📸 renders ./packages/table/src/demos/error-boundaries.ts
     <span
       class="ant-switch-inner"
     >
-      使用自定义错误边界
+      <span
+        class="ant-switch-inner-checked"
+      >
+        使用自定义错误边界
+      </span>
+      <span
+        class="ant-switch-inner-unchecked"
+      >
+        使用默认错误边界
+      </span>
     </span>
   </button>
   <div
@@ -47033,7 +47126,6 @@ exports[`table demos 📸 renders ./packages/table/src/demos/rtl_table.tsx corre
                               <span
                                 aria-label="🐛 [BUG]yarn install命令 antd2.4.5会报错"
                                 class="ant-typography ant-typography-rtl ant-typography-ellipsis ant-typography-single-line"
-                                direction="rtl"
                                 style="width: 100%; margin: 0px; padding: 0px;"
                                 title=""
                               >
@@ -47221,7 +47313,6 @@ exports[`table demos 📸 renders ./packages/table/src/demos/rtl_table.tsx corre
                               <span
                                 aria-label="🐛 [BUG]无法创建工程npm create umi"
                                 class="ant-typography ant-typography-rtl ant-typography-ellipsis ant-typography-single-line"
-                                direction="rtl"
                                 style="width: 100%; margin: 0px; padding: 0px;"
                                 title=""
                               >
@@ -47411,7 +47502,6 @@ exports[`table demos 📸 renders ./packages/table/src/demos/rtl_table.tsx corre
                               <span
                                 aria-label="🧐 [问题] build 后还存在 es6 的代码（Umi@2.13.13）"
                                 class="ant-typography ant-typography-rtl ant-typography-ellipsis ant-typography-single-line"
-                                direction="rtl"
                                 style="width: 100%; margin: 0px; padding: 0px;"
                                 title=""
                               >
@@ -47601,7 +47691,6 @@ exports[`table demos 📸 renders ./packages/table/src/demos/rtl_table.tsx corre
                               <span
                                 aria-label="2.3.1版本如何在业务页面修改头部状态"
                                 class="ant-typography ant-typography-rtl ant-typography-ellipsis ant-typography-single-line"
-                                direction="rtl"
                                 style="width: 100%; margin: 0px; padding: 0px;"
                                 title=""
                               >
@@ -47791,7 +47880,6 @@ exports[`table demos 📸 renders ./packages/table/src/demos/rtl_table.tsx corre
                               <span
                                 aria-label="hideChildrenInMenu设置后，子路由找不到了"
                                 class="ant-typography ant-typography-rtl ant-typography-ellipsis ant-typography-single-line"
-                                direction="rtl"
                                 style="width: 100%; margin: 0px; padding: 0px;"
                                 title=""
                               >
