@@ -315,6 +315,7 @@ const CacheClean = () => {
 export const ConfigProviderWrap: React.FC<Record<string, unknown>> = ({
   children,
   autoClearCache = false,
+  token: propsToken,
 }) => {
   const { locale, getPrefixCls } = useContext(AntdConfigProvider.ConfigContext);
   const tokenContext = useToken?.();
@@ -334,12 +335,13 @@ export const ConfigProviderWrap: React.FC<Record<string, unknown>> = ({
       token: {
         ...proProvide.token,
         layout: getLayoutDesignToken(proProvide.token?.layout || {}, tokenContext.token),
+        ...(propsToken || {}),
       },
       ...proProvide,
       isDeps: true,
       intl: intl || zhCNIntl,
     };
-  }, [locale?.locale, proProvide, tokenContext]);
+  }, [locale?.locale, proProvide, tokenContext, propsToken]);
 
   const configProviderDom = useMemo(() => {
     // 自动注入 antd 的配置

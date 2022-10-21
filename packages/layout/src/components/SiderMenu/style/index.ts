@@ -17,6 +17,7 @@ const genSiderMenuStyle: GenerateStyle<SiderMenuToken> = (token) => {
           '&-menu': {
             position: 'relative',
             zIndex: 10,
+            minHeight: '100%',
           },
           '&-fixed': {
             position: 'fixed',
@@ -135,8 +136,8 @@ const genSiderMenuStyle: GenerateStyle<SiderMenuToken> = (token) => {
             position: 'absolute',
           },
           '&-mix': {
-            height: `calc(100% - ${token?.layout?.header?.heightLayoutHeader}px)`,
-            insetBlockStart: `${token?.layout?.header?.heightLayoutHeader}px`,
+            height: `calc(100% - ${token?.layout?.header?.heightLayoutHeader || 56}px)`,
+            insetBlockStart: `${token?.layout?.header?.heightLayoutHeader || 56}px`,
           },
           '&-extra': {
             marginBlockEnd: 16,

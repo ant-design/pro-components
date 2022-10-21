@@ -1,4 +1,4 @@
-import type { ProTokenType } from '@ant-design/pro-provider';
+import { ProProvider, ProTokenType } from '@ant-design/pro-provider';
 import { ConfigProviderWrap } from '@ant-design/pro-provider';
 import { isBrowser, useDocumentTitle, useMountMergeState } from '@ant-design/pro-utils';
 import { getMatchMenu } from '@umijs/route-utils';
@@ -710,6 +710,8 @@ BaseProLayout.defaultProps = {
 
 const ProLayout: React.FC<ProLayoutProps> = (props) => {
   const { colorPrimary } = props;
+  const tokenContext = useContext(ProProvider);
+  console.log(tokenContext.token);
   return (
     <ConfigProvider
       // @ts-ignore
@@ -726,6 +728,7 @@ const ProLayout: React.FC<ProLayoutProps> = (props) => {
       <ConfigProviderWrap
         autoClearCache
         token={{
+          ...tokenContext.token,
           layout: props.token,
         }}
       >

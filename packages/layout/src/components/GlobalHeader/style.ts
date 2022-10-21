@@ -14,7 +14,7 @@ const genGlobalHeaderStyle: GenerateStyle<GlobalHeaderToken> = (token) => {
       alignItems: 'center',
       marginBlock: 0,
       marginInline: 16,
-      height: token.layout?.header?.heightLayoutHeader,
+      height: token.layout?.header?.heightLayoutHeader || 56,
       boxSizing: 'border-box',
       '> a': {
         height: '100%',

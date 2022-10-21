@@ -101,8 +101,8 @@ const DefaultHeader: React.FC<HeaderViewProps & PrivateSiderMenuProps> = (props)
         {needFixedHeader && (
           <Header
             style={{
-              height: token?.layout?.header?.heightLayoutHeader,
-              lineHeight: `${token?.layout?.header?.heightLayoutHeader}px`,
+              height: token?.layout?.header?.heightLayoutHeader || 56,
+              lineHeight: `${token?.layout?.header?.heightLayoutHeader || 56}px`,
               backgroundColor: 'transparent',
               zIndex: 19,
               ...style,
