@@ -377,8 +377,9 @@ const ProTable = <T extends Record<string, any>, U extends ParamsType, ValueType
     revalidateOnFocus = false,
     ...rest
   } = props;
+  const { wrapSSR, hashId } = useStyle(props.defaultClassName);
 
-  const className = classNames(defaultClassName, propsClassName);
+  const className = classNames(defaultClassName, propsClassName, hashId);
 
   /** 通用的来操作子节点的工具类 */
   const actionRef = useRef<ActionType>();
@@ -807,7 +808,7 @@ const ProTable = <T extends Record<string, any>, U extends ParamsType, ValueType
         alwaysShowAlert={propsRowSelection?.alwaysShowAlert}
       />
     ) : null;
-  return (
+  return wrapSSR(
     <TableRender
       {...props}
       name={isEditorTable}
@@ -826,7 +827,7 @@ const ProTable = <T extends Record<string, any>, U extends ParamsType, ValueType
       onFilterChange={setProFilter}
       editableUtils={editableUtils}
       getRowKey={getRowKey}
-    />
+    />,
   );
 };
 
@@ -845,18 +846,15 @@ const ProviderWarp = <
   const { getPrefixCls } = useContext(ConfigProvider.ConfigContext);
   const ErrorComponent =
     props.ErrorBoundary === false ? React.Fragment : props.ErrorBoundary || ErrorBoundary;
-  const { wrapSSR, hashId } = useStyle(getPrefixCls('pro-table'));
 
   return (
     <Container.Provider initialState={props}>
       <ConfigProviderWrap needDeps>
         <ErrorComponent>
-          {wrapSSR(
-            <ProTable<DataType, Params, ValueType>
-              defaultClassName={`${getPrefixCls('pro-table')} ${hashId}`}
-              {...props}
-            />,
-          )}
+          <ProTable<DataType, Params, ValueType>
+            defaultClassName={`${getPrefixCls('pro-table')}`}
+            {...props}
+          />
         </ErrorComponent>
       </ConfigProviderWrap>
     </Container.Provider>

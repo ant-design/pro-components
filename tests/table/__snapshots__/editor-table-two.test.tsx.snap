@@ -8,7 +8,7 @@ exports[`EditorProTable 2 📝 columns initialValue alway work 1`] = `
     class="ant-pro"
   >
     <div
-      class="ant-pro-table "
+      class="ant-pro-table"
     >
       <div
         class="ant-pro-card"
@@ -319,7 +319,7 @@ exports[`EditorProTable 2 📝 columns support editable test 1`] = `
     class="ant-pro"
   >
     <div
-      class="ant-pro-table "
+      class="ant-pro-table"
     >
       <div
         class="ant-pro-card"
@@ -526,7 +526,7 @@ exports[`EditorProTable 2 📝 renderFormItem run defaultRender 1`] = `
     class="ant-pro"
   >
     <div
-      class="ant-pro-table "
+      class="ant-pro-table"
     >
       <div
         class="ant-pro-card"

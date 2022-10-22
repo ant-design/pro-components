@@ -32,7 +32,7 @@ import type { DeepPartial, LayoutDesignToken, ProTokenType } from './typing/layo
 import { getLayoutDesignToken } from './typing/layoutToken';
 import type { ProAliasToken } from './useStyle';
 import { useToken } from './useStyle';
-import { emptyTheme } from './useStyle/token';
+import { emptyTheme, defaultTheme } from './useStyle/token';
 import { merge } from './utils/merge';
 
 export * from './useStyle';
@@ -269,9 +269,10 @@ const ConfigContext = React.createContext<ConfigContextPropsType>({
   isDeps: false,
   valueTypeMap: {},
   theme: emptyTheme,
+  token: defaultTheme,
 });
 
-export const { Consumer: ConfigConsumer, Provider: ConfigProvider } = ConfigContext;
+export const { Consumer: ConfigConsumer, Provider: ProConfigProvider } = ConfigContext;
 
 /**
  * 根据 antd 的 key 来找到的 locale 插件的 key
@@ -323,7 +324,7 @@ export const ConfigProviderWrap: React.FC<{
   const { locale, getPrefixCls } = useContext(AntdConfigProvider.ConfigContext);
   const tokenContext = useToken?.();
   // 如果 locale 不存在自动注入的 AntdConfigProvider
-  const Provider = locale === undefined ? AntdConfigProvider : React.Fragment;
+  const ANTDProvider = locale === undefined ? AntdConfigProvider : React.Fragment;
   const proProvide = useContext(ConfigContext);
   const isNullProvide =
     needDeps && proProvide.hashId && Object.keys(props).sort().join('-') === 'children-needDeps';
@@ -357,7 +358,6 @@ export const ConfigProviderWrap: React.FC<{
           getLayoutDesignToken((propsToken as ProTokenType)?.layout || {}, tokenContext.token),
         ) as LayoutDesignToken)
       : {};
-
     return {
       ...proProvide,
       token: propsToken
@@ -367,7 +367,11 @@ export const ConfigProviderWrap: React.FC<{
             ...proProvide.token,
             layout: proLayoutTokenMerge,
           }
-        : proProvide.token,
+        : {
+            ...proProvide.token,
+            proComponentsCls,
+            antCls,
+          },
       isDeps: true,
       intl: intl || zhCNIntl,
     };
@@ -395,11 +399,9 @@ export const ConfigProviderWrap: React.FC<{
   );
 
   const hashId = useMemo(() => {
-    if (process.env.NODE_ENV === 'test') return '';
-    return nativeHashId;
+    if (process.env.NODE_ENV?.toLowerCase() !== 'test') return nativeHashId;
+    return '';
   }, [nativeHashId]);
-
-  console.log(hashId);
 
   const configProviderDom = useMemo(() => {
     if (isNullProvide) return <>{children}</>;
@@ -408,22 +410,21 @@ export const ConfigProviderWrap: React.FC<{
       locale === undefined
         ? {
             locale: zh_CN,
-            theme: {
-              hashed: process.env.NODE_ENV?.toLowerCase() !== 'test',
-            },
+            theme: { hashId: hashId, hashed: process.env.NODE_ENV?.toLowerCase() !== 'test' },
           }
         : {};
 
     const provide = (
-      <Provider {...configProvider}>
-        <ConfigProvider value={{ ...proProvideValue!, token, hashId }}>
+      <ANTDProvider {...configProvider}>
+        <ProConfigProvider value={{ ...proProvideValue!, token, hashId }}>
           <>
             {autoClearCache && <CacheClean />}
             {children}
           </>
-        </ConfigProvider>
-      </Provider>
+        </ProConfigProvider>
+      </ANTDProvider>
     );
+
     if (proProvide.isDeps) return provide;
 
     return (

@@ -309,7 +309,7 @@ exports[`docs demos 📸 renders ./docs/demos/customization-value-type.tsx corre
         class="ant-pro"
       >
         <div
-          class="ant-pro-table "
+          class="ant-pro-table"
         >
           <div
             class="ant-pro-card ant-pro-table-search ant-pro-table-search-query-filter"

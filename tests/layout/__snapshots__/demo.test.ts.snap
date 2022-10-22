@@ -1721,7 +1721,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/components/WaterMark/de
       class="ant-pro"
     >
       <div
-        class="ant-pro-table "
+        class="ant-pro-table"
       >
         <div
           class="ant-pro-card"

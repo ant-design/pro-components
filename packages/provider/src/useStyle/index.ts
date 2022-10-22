@@ -9,7 +9,6 @@ import { useContext } from 'react';
 import { ProProvider } from '..';
 import type { ProTokenType } from '../typing/layoutToken';
 import type { AliasToken } from './token';
-import { defaultTheme } from './token';
 import * as batToken from './token';
 /**
  * 把一个颜色设置一下透明度
@@ -106,7 +105,7 @@ export function useStyle(
   componentName: string,
   styleFn: (token: ProAliasToken) => CSSInterpolation,
 ): UseStyleResult {
-  const { token = defaultTheme, hashId = '', theme } = useContext(ProProvider);
+  const { token, hashId = '', theme } = useContext(ProProvider);
 
   return {
     wrapSSR: useStyleRegister(
