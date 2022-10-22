@@ -77,7 +77,7 @@ describe('BasicTable', () => {
         ]}
       />,
     );
-    await waitForComponentToPaint(html, 2000);
+    await waitForComponentToPaint(html, 4000);
     act(() => {
       expect(html.baseElement).toMatchSnapshot();
     });
@@ -119,7 +119,7 @@ describe('BasicTable', () => {
       );
     });
 
-    await waitForComponentToPaint(html, 1000);
+    await waitForComponentToPaint(html, 2000);
 
     expect(pageSizeOnchange).toBeCalledWith(1);
   });
