@@ -269,7 +269,7 @@ const ConfigContext = React.createContext<ConfigContextPropsType>({
   isDeps: false,
   valueTypeMap: {},
   theme: emptyTheme,
-  token: defaultTheme,
+  token: defaultTheme as ProAliasToken,
 });
 
 export const { Consumer: ConfigConsumer, Provider: ProConfigProvider } = ConfigContext;
