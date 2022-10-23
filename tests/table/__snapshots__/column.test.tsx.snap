@@ -4,10 +4,10 @@ exports[`Table ColumnSetting 🎏 change text by renderText 1`] = `"Edward King2
 
 exports[`Table ColumnSetting 🎏 columns proFieldProps support custom 1`] = `
 <div
-  class="ant-pro "
+  class="ant-pro"
 >
   <div
-    class="ant-pro-table "
+    class="ant-pro-table"
   >
     <div
       class="ant-pro-card ant-pro-table-search ant-pro-table-search-query-filter"
@@ -424,10 +424,10 @@ exports[`Table ColumnSetting 🎏 columns proFieldProps support custom 1`] = `
 
 exports[`Table ColumnSetting 🎏 config provide render 1`] = `
 <div
-  class="qixian-pro "
+  class="qixian-pro"
 >
   <div
-    class="qixian-pro-table "
+    class="qixian-pro-table"
   >
     <div
       class="qixian-pro-card qixian-pro-table-search qixian-pro-table-search-query-filter"
@@ -1217,10 +1217,10 @@ exports[`Table ColumnSetting 🎏 config provide render 1`] = `
 
 exports[`Table ColumnSetting 🎏 extra columns 1`] = `
 <div
-  class="ant-pro "
+  class="ant-pro"
 >
   <div
-    class="ant-pro-table "
+    class="ant-pro-table"
   >
     <div
       class="ant-pro-card ant-pro-table-search ant-pro-table-search-query-filter"

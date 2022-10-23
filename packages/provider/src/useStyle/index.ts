@@ -2,7 +2,7 @@ import type { CSSInterpolation, CSSObject } from '@ant-design/cssinjs';
 import { useStyleRegister } from '@ant-design/cssinjs';
 import { TinyColor } from '@ctrl/tinycolor';
 
-import { theme as antdTheme, ConfigProvider } from 'antd';
+import { theme as antdTheme } from 'antd';
 
 import type React from 'react';
 import { useContext } from 'react';
@@ -95,19 +95,6 @@ export const operationUnit = (token: ProAliasToken): CSSObject => ({
   },
 });
 
-const hashCode = (str: string, seed = 1) => {
-  let h1 = 0xdeadbeef ^ seed,
-    h2 = 0x41c6ce57 ^ seed;
-  for (let i = 0, ch; i < str.length; i++) {
-    ch = str.charCodeAt(i);
-    h1 = Math.imul(h1 ^ ch, 2654435761);
-    h2 = Math.imul(h2 ^ ch, 1597334677);
-  }
-  h1 = Math.imul(h1 ^ (h1 >>> 16), 2246822507) ^ Math.imul(h2 ^ (h2 >>> 13), 3266489909);
-  h2 = Math.imul(h2 ^ (h2 >>> 16), 2246822507) ^ Math.imul(h1 ^ (h1 >>> 13), 3266489909);
-  return 4294967296 * (2097151 & h2) + (h1 >>> 0);
-};
-
 /**
  * 封装了一下 antd 的 useStyle，支持了一下antd@4
  * @param componentName {string} 组件的名字
@@ -118,17 +105,7 @@ export function useStyle(
   componentName: string,
   styleFn: (token: ProAliasToken) => CSSInterpolation,
 ): UseStyleResult {
-  const { token, hashId, theme } = useToken();
-  const proContext = useContext(ProProvider);
-  const proHashId = hashCode(JSON.stringify(proContext.token || {}));
-
-  const { getPrefixCls } = useContext(ConfigProvider.ConfigContext);
-  /**
-   * pro 的 类
-   * @type {string}
-   * @example .ant-pro
-   */
-  const proComponentsCls = `.${getPrefixCls()}-pro`;
+  const { token, hashId = '', theme } = useContext(ProProvider);
 
   return {
     wrapSSR: useStyleRegister(
@@ -136,15 +113,9 @@ export function useStyle(
         theme,
         token,
         hashId,
-        path: [componentName, `pro-${proHashId}`],
+        path: [componentName],
       },
-      () =>
-        styleFn({
-          ...token,
-          ...(proContext?.token || {}),
-          antCls: '.' + getPrefixCls(),
-          proComponentsCls,
-        }),
+      () => styleFn(token as ProAliasToken),
     ),
     hashId,
   };

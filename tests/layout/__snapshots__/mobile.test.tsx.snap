@@ -3,7 +3,7 @@
 exports[`mobile BasicLayout 📱 base use 1`] = `
 <DocumentFragment>
   <div
-    class="ant-pro "
+    class="ant-pro"
   >
     <div
       class="ant-design-pro ant-pro-layout screen-xs ant-pro-layout-fix-siderbar ant-pro-layout-side"
@@ -273,7 +273,7 @@ exports[`mobile BasicLayout 📱 base use 1`] = `
 exports[`mobile BasicLayout 📱 collapsed=false 1`] = `
 <DocumentFragment>
   <div
-    class="ant-pro "
+    class="ant-pro"
   >
     <div
       class="ant-design-pro ant-pro-layout screen-xs ant-pro-layout-fix-siderbar ant-pro-layout-side"
@@ -561,7 +561,7 @@ exports[`mobile BasicLayout 📱 collapsed=false 1`] = `
 exports[`mobile BasicLayout 📱 layout menuHeaderRender 1`] = `
 <DocumentFragment>
   <div
-    class="ant-pro "
+    class="ant-pro"
   >
     <div
       class="ant-design-pro ant-pro-layout screen-xs ant-pro-layout-fix-siderbar ant-pro-layout-mix"
@@ -629,7 +629,7 @@ exports[`mobile BasicLayout 📱 layout menuHeaderRender 1`] = `
 exports[`mobile BasicLayout 📱 layout menuHeaderRender 2`] = `
 <DocumentFragment>
   <div
-    class="ant-pro "
+    class="ant-pro"
   >
     <div
       class="ant-design-pro ant-pro-layout screen-xs ant-pro-layout-fix-siderbar ant-pro-layout-mix"
@@ -697,7 +697,7 @@ exports[`mobile BasicLayout 📱 layout menuHeaderRender 2`] = `
 exports[`mobile BasicLayout 📱 layout menuHeaderRender=false 1`] = `
 <DocumentFragment>
   <div
-    class="ant-pro "
+    class="ant-pro"
   >
     <div
       class="ant-design-pro ant-pro-layout screen-xs ant-pro-layout-fix-siderbar ant-pro-layout-mix"
@@ -764,7 +764,7 @@ exports[`mobile BasicLayout 📱 layout menuHeaderRender=false 1`] = `
 exports[`mobile BasicLayout 📱 layout=mix 1`] = `
 <DocumentFragment>
   <div
-    class="ant-pro "
+    class="ant-pro"
   >
     <div
       class="ant-design-pro ant-pro-layout screen-xs ant-pro-layout-fix-siderbar ant-pro-layout-mix"
@@ -1056,7 +1056,7 @@ exports[`mobile BasicLayout 📱 layout=mix 1`] = `
 exports[`mobile BasicLayout 📱 layout=mix and splitMenus 1`] = `
 <DocumentFragment>
   <div
-    class="ant-pro "
+    class="ant-pro"
   >
     <div
       class="ant-design-pro ant-pro-layout screen-xs ant-pro-layout-fix-siderbar ant-pro-layout-mix"

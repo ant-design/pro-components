@@ -4,8 +4,8 @@ import {
   VerticalAlignMiddleOutlined,
   VerticalAlignTopOutlined,
 } from '@ant-design/icons';
-import { useIntl } from '@ant-design/pro-provider';
-import { runFunction, useRefFunction, useToken } from '@ant-design/pro-utils';
+import { ProProvider, useIntl } from '@ant-design/pro-provider';
+import { runFunction, useRefFunction } from '@ant-design/pro-utils';
 import type { TableColumnType } from 'antd';
 import { Checkbox, ConfigProvider, Popover, Space, Tooltip, Tree } from 'antd';
 import type { CheckboxChangeEvent } from 'antd/es/checkbox';
@@ -70,7 +70,7 @@ const CheckboxListItem: React.FC<{
   isLeaf?: boolean;
 }> = ({ columnKey, isLeaf, title, className, fixed }) => {
   const intl = useIntl();
-  const { hashId } = useToken();
+  const { hashId } = useContext(ProProvider);
 
   const dom = (
     <span className={`${className}-list-item-option ${hashId}`}>
@@ -125,7 +125,7 @@ const CheckboxList: React.FC<{
   title: listTitle,
   listHeight = 280,
 }) => {
-  const { hashId } = useToken();
+  const { hashId } = useContext(ProProvider);
 
   const { columnsMap, setColumnsMap, sortKeyColumns, setSortKeyColumns } = Container.useContainer();
   const show = list && list.length > 0;
@@ -270,7 +270,7 @@ const GroupCheckboxList: React.FC<{
   checkable: boolean;
   listsHeight?: number;
 }> = ({ localColumns, className, draggable, checkable, listsHeight }) => {
-  const { hashId } = useToken();
+  const { hashId } = useContext(ProProvider);
   const rightList: (ProColumns<any> & { index?: number })[] = [];
   const leftList: (ProColumns<any> & { index?: number })[] = [];
   const list: (ProColumns<any> & { index?: number })[] = [];

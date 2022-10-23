@@ -25,6 +25,7 @@ const compatibleStyle: GenerateStyle<ProLayoutToken> = (token) => {
       [`${token.proComponentsCls}-base-menu`]: {
         color: token?.layout?.sider?.colorTextMenu,
         [`${token.antCls}-menu-sub`]: {
+          backgroundColor: 'transparent!important',
           color: token?.layout?.sider?.colorTextMenu,
         },
         [`& ${token.antCls}-layout`]: {

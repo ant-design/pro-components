@@ -19,7 +19,7 @@ exports[`docs demos 📸 renders ./docs/demos/customization-value-type.tsx corre
       class="ant-pro-card-body"
     >
       <div
-        class="ant-pro "
+        class="ant-pro"
       >
         <form
           autocomplete="off"
@@ -306,10 +306,10 @@ exports[`docs demos 📸 renders ./docs/demos/customization-value-type.tsx corre
       class="ant-pro-card-body"
     >
       <div
-        class="ant-pro "
+        class="ant-pro"
       >
         <div
-          class="ant-pro-table "
+          class="ant-pro-table"
         >
           <div
             class="ant-pro-card ant-pro-table-search ant-pro-table-search-query-filter"
@@ -768,7 +768,7 @@ exports[`docs demos 📸 renders ./docs/demos/valueType.tsx correctly 1`] = `
     </div>
   </div>
   <div
-    class="ant-pro "
+    class="ant-pro"
   >
     <form
       autocomplete="off"

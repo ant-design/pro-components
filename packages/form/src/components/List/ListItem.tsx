@@ -1,5 +1,5 @@
 ﻿import { CopyOutlined, DeleteOutlined } from '@ant-design/icons';
-import { useToken } from '@ant-design/pro-utils';
+import { ProProvider } from '@ant-design/pro-provider';
 import type { ButtonProps, FormInstance } from 'antd';
 import { Spin, Tooltip } from 'antd';
 import type { FormListFieldData, FormListOperation, FormListProps } from 'antd/es/form/FormList';
@@ -280,7 +280,7 @@ const ProFormListItem: React.FC<
     count,
     ...rest
   } = props;
-  const { hashId } = useToken();
+  const { hashId } = useContext(ProProvider);
   const listContext = useContext(FormListContext);
 
   const unmountedRef = useRef(false);

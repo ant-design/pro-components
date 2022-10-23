@@ -1,6 +1,6 @@
 /* eslint-disable no-param-reassign */
-import { useIntl } from '@ant-design/pro-provider';
-import { isBrowser, useMountMergeState, useToken } from '@ant-design/pro-utils';
+import { ProProvider, useIntl } from '@ant-design/pro-provider';
+import { isBrowser, useMountMergeState } from '@ant-design/pro-utils';
 import type { FormItemProps, RowProps } from 'antd';
 import { Col, ConfigProvider, Form, Row } from 'antd';
 import type { FormInstance, FormProps } from 'antd/es/form/Form';
@@ -225,7 +225,7 @@ const QueryFilterContent: React.FC<{
   showHiddenNum?: boolean;
 }> = (props) => {
   const intl = useIntl();
-  const { hashId } = useToken();
+  const { hashId } = useContext(ProProvider);
   const resetText = props.resetText || intl.getMessage('tableForm.reset', '重置');
   const searchText = props.searchText || intl.getMessage('tableForm.search', '搜索');
 

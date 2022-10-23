@@ -1,5 +1,7 @@
 //@ts-ignore
-import { theme, ConfigProvider as AntdConfigProvider } from 'antd';
+import type { Theme } from '@ant-design/cssinjs';
+import { useCacheToken } from '@ant-design/cssinjs';
+import { ConfigProvider as AntdConfigProvider } from 'antd';
 import zh_CN from 'antd/es/locale/zh_CN';
 import React, { useContext, useEffect, useMemo } from 'react';
 import { SWRConfig, useSWRConfig } from 'swr';
@@ -28,21 +30,14 @@ import zhCN from './locale/zh_CN';
 import zhTW from './locale/zh_TW';
 import type { DeepPartial, LayoutDesignToken, ProTokenType } from './typing/layoutToken';
 import { getLayoutDesignToken } from './typing/layoutToken';
-import { defaultTheme } from './useStyle/token';
+import type { ProAliasToken } from './useStyle';
+import { useToken } from './useStyle';
+import { emptyTheme, defaultTheme } from './useStyle/token';
 import { merge } from './utils/merge';
 
 export * from './useStyle';
 
 export { DeepPartial, ProTokenType };
-
-const { useToken } = theme || {
-  useToken: () => {
-    return {
-      hashId: '',
-      token: defaultTheme,
-    };
-  },
-};
 
 export type ProSchemaValueEnumType = {
   /** @name 演示的文案 */
@@ -260,7 +255,9 @@ export type ConfigContextPropsType = {
   intl: IntlType;
   isDeps: boolean;
   valueTypeMap: Record<string, ProRenderFieldPropsType>;
-  token?: ProTokenType;
+  token?: ProAliasToken;
+  hashId?: string;
+  theme: Theme<any, any>;
 };
 
 /* Creating a context object with the default values. */
@@ -271,9 +268,11 @@ const ConfigContext = React.createContext<ConfigContextPropsType>({
   },
   isDeps: false,
   valueTypeMap: {},
+  theme: emptyTheme,
+  token: defaultTheme as ProAliasToken,
 });
 
-export const { Consumer: ConfigConsumer, Provider: ConfigProvider } = ConfigContext;
+export const { Consumer: ConfigConsumer, Provider: ProConfigProvider } = ConfigContext;
 
 /**
  * 根据 antd 的 key 来找到的 locale 插件的 key
@@ -315,18 +314,33 @@ const CacheClean = () => {
  *
  * @param param0
  */
-export const ConfigProviderWrap: React.FC<Record<string, unknown>> = ({
-  children,
-  autoClearCache = false,
-  token: propsToken,
-}) => {
+export const ConfigProviderWrap: React.FC<{
+  children: React.ReactNode;
+  autoClearCache?: boolean;
+  token?: DeepPartial<ProAliasToken>;
+  needDeps?: boolean;
+}> = (props) => {
+  const { children, autoClearCache = false, token: propsToken, needDeps = false } = props;
   const { locale, getPrefixCls } = useContext(AntdConfigProvider.ConfigContext);
   const tokenContext = useToken?.();
   // 如果 locale 不存在自动注入的 AntdConfigProvider
-  const Provider = locale === undefined ? AntdConfigProvider : React.Fragment;
+  const ANTDProvider = locale === undefined ? AntdConfigProvider : React.Fragment;
   const proProvide = useContext(ConfigContext);
+  const isNullProvide =
+    needDeps && proProvide.hashId && Object.keys(props).sort().join('-') === 'children-needDeps';
+
+  /**
+   * pro 的 类
+   * @type {string}
+   * @example .ant-pro
+   */
+  const proComponentsCls = `.${getPrefixCls()}-pro`;
+
+  const salt = `${proComponentsCls}`;
+  const antCls = '.' + getPrefixCls();
 
   const proProvideValue = useMemo(() => {
+    if (isNullProvide) return null;
     const localeName = locale?.locale;
     const key = findIntlKeyByAntdLocaleKey(localeName);
     // antd 的 key 存在的时候以 antd 的为主
@@ -338,58 +352,96 @@ export const ConfigProviderWrap: React.FC<Record<string, unknown>> = ({
     /**
      * 合并一下token，不然导致嵌套 token 失效
      */
-    const proLayoutTokenMerge = merge(
-      proProvide.token?.layout || {},
-      getLayoutDesignToken((propsToken as ProTokenType)?.layout || {}, tokenContext.token),
-    ) as LayoutDesignToken;
-
+    const proLayoutTokenMerge = propsToken
+      ? (merge(
+          proProvide.token?.layout || {},
+          getLayoutDesignToken((propsToken as ProTokenType)?.layout || {}, tokenContext.token),
+        ) as LayoutDesignToken)
+      : {};
     return {
-      token: {
-        ...proProvide.token,
-        layout: proLayoutTokenMerge,
-      },
       ...proProvide,
+      token: propsToken
+        ? {
+            proComponentsCls,
+            antCls,
+            ...proProvide.token,
+            layout: proLayoutTokenMerge,
+          }
+        : {
+            ...proProvide.token,
+            proComponentsCls,
+            antCls,
+          },
       isDeps: true,
       intl: intl || zhCNIntl,
     };
-  }, [locale?.locale, proProvide, tokenContext, propsToken]);
+  }, [
+    isNullProvide,
+    locale?.locale,
+    proProvide,
+    propsToken,
+    tokenContext.token,
+    proComponentsCls,
+    antCls,
+  ]);
+
+  const finalToken = {
+    ...(proProvideValue?.token || {}),
+    proComponentsCls,
+  };
+
+  const [token, nativeHashId] = useCacheToken<ProAliasToken>(
+    tokenContext.theme,
+    [tokenContext.token, finalToken ?? {}],
+    {
+      salt,
+    },
+  );
+
+  const hashId = useMemo(() => {
+    if (process.env.NODE_ENV?.toLowerCase() !== 'test') return nativeHashId;
+    return '';
+  }, [nativeHashId]);
 
   const configProviderDom = useMemo(() => {
+    if (isNullProvide) return <>{children}</>;
     // 自动注入 antd 的配置
     const configProvider =
       locale === undefined
         ? {
             locale: zh_CN,
-            theme: {
-              hashed: process.env.NODE_ENV?.toLowerCase() !== 'test',
-            },
+            theme: { hashId: hashId, hashed: process.env.NODE_ENV?.toLowerCase() !== 'test' },
           }
         : {};
+
     const provide = (
-      <Provider {...configProvider}>
-        <ConfigProvider value={proProvideValue}>
+      <ANTDProvider {...configProvider}>
+        <ProConfigProvider value={{ ...proProvideValue!, token, hashId }}>
           <>
             {autoClearCache && <CacheClean />}
             {children}
           </>
-        </ConfigProvider>
-      </Provider>
+        </ProConfigProvider>
+      </ANTDProvider>
     );
+
     if (proProvide.isDeps) return provide;
+
     return (
-      <div className={`${getPrefixCls?.('pro') || 'ant-pro'} ${tokenContext.hashId}`}>
+      <div className={`${getPrefixCls?.('pro') || 'ant-pro'}${hashId ? ' ' + hashId : ''}`}>
         {provide}
       </div>
     );
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [
-    Provider,
     autoClearCache,
     children,
     getPrefixCls,
+    hashId,
     locale,
     proProvide.isDeps,
     proProvideValue,
-    tokenContext.hashId,
+    token,
   ]);
   if (!autoClearCache) return configProviderDom;
 

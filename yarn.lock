@@ -17463,9 +17463,9 @@ rc-tooltip@~5.2.0:
     rc-trigger "^5.0.0"
 
 rc-tree-select@~5.5.0:
-  version "5.5.0"
-  resolved "https://registry.npmmirror.com/rc-tree-select/-/rc-tree-select-5.5.0.tgz#96d935ec994a0f6b0fecc4c18f22f472fe8530a3"
-  integrity sha512-XS0Jvw4OjFz/Xvb2byEkBWv55JFKFz0HVvTBa/cPOHJaQh/3EaYwymEMnCCvGEzS1+5CfDVwMtA8j/v4rt1DHw==
+  version "5.5.1"
+  resolved "https://registry.npmmirror.com/rc-tree-select/-/rc-tree-select-5.5.1.tgz#d0d485c1ce0c4500877744826344a33b435258a6"
+  integrity sha512-4COk++Gg1uiSLE9FASP63e9y5O0v/d0IWxnDuvuKdXqs8m8X+RgBVyoU9gSBL+kk2XthyRrVQiUXp6bEG7rJBg==
   dependencies:
     "@babel/runtime" "^7.10.1"
     classnames "2.x"

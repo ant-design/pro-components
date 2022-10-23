@@ -1,5 +1,5 @@
 ﻿import type { GenerateStyle, ProAliasToken } from '@ant-design/pro-utils';
-import { useStyle as useAntdStyle } from '@ant-design/pro-utils';
+import { useStyle as useAntdStyle } from '@ant-design/pro-provider';
 
 export interface ProListToken extends ProAliasToken {
   componentCls: string;
@@ -157,7 +157,15 @@ const genProListStyle: GenerateStyle<ProListToken> = (token) => {
         '&-subTitle': { color: 'rgba(0, 0, 0, 0.45)' },
         '&-description': { marginBlockStart: '4px', wordBreak: 'break-all' },
         '&-avatar': { display: 'flex' },
-        '&-header': { display: 'flex', flex: '1', justifyContent: 'flex-start' },
+        '&-header': {
+          display: 'flex',
+          flex: '1',
+          justifyContent: 'flex-start',
+          h4: {
+            margin: 0,
+            padding: 0,
+          },
+        },
         '&-header-title': { display: 'flex', alignItems: 'center', justifyContent: 'flex-start' },
         '&-header-option': { display: 'flex' },
         '&-checkbox': { width: '16px', marginInlineEnd: '12px' },

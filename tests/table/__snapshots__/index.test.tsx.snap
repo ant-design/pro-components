@@ -4,10 +4,10 @@ exports[`BasicTable 🎏 base use 1`] = `
 <body>
   <div>
     <div
-      class="ant-pro "
+      class="ant-pro"
     >
       <div
-        class="ant-pro-table "
+        class="ant-pro-table"
       >
         <div
           class="ant-pro-card ant-pro-table-search ant-pro-table-search-query-filter"
@@ -7905,10 +7905,10 @@ exports[`BasicTable 🎏 columns = undefined 1`] = `
 <body>
   <div>
     <div
-      class="ant-pro "
+      class="ant-pro"
     >
       <div
-        class="ant-pro-table "
+        class="ant-pro-table"
       >
         <div
           class="ant-pro-card ant-pro-table-search ant-pro-table-search-query-filter"
@@ -8228,10 +8228,10 @@ exports[`BasicTable 🎏 page error test 1`] = `
 <body>
   <div>
     <div
-      class="ant-pro "
+      class="ant-pro"
     >
       <div
-        class="ant-pro-table "
+        class="ant-pro-table"
       >
         <div
           class="ant-pro-card ant-pro-table-search ant-pro-table-search-query-filter"
@@ -8654,10 +8654,10 @@ exports[`BasicTable 🎏 valueEnum support function 1`] = `
 <body>
   <div>
     <div
-      class="ant-pro "
+      class="ant-pro"
     >
       <div
-        class="ant-pro-table "
+        class="ant-pro-table"
       >
         <div
           class="ant-pro-card ant-pro-table-search ant-pro-table-search-query-filter"

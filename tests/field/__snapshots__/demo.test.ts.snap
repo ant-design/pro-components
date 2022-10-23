@@ -4397,7 +4397,7 @@ exports[`field demos 📸 renders ./packages/field/src/demos/select-request.tsx 
     class="App"
   >
     <div
-      class="ant-pro "
+      class="ant-pro"
     >
       <form
         autocomplete="off"
@@ -4519,7 +4519,7 @@ exports[`field demos 📸 renders ./packages/field/src/demos/select-request.tsx 
       </form>
     </div>
     <div
-      class="ant-pro "
+      class="ant-pro"
     >
       <form
         autocomplete="off"
@@ -4651,7 +4651,7 @@ exports[`field demos 📸 renders ./packages/field/src/demos/tree-select-search-
 <DocumentFragment>
   <div>
     <div
-      class="ant-pro "
+      class="ant-pro"
     >
       <form
         autocomplete="off"

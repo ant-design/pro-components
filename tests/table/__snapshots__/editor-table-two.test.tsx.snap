@@ -5,10 +5,10 @@ exports[`EditorProTable 2 📝 EditableProTable support recordCreatorProps.posit
 exports[`EditorProTable 2 📝 columns initialValue alway work 1`] = `
 <DocumentFragment>
   <div
-    class="ant-pro "
+    class="ant-pro"
   >
     <div
-      class="ant-pro-table "
+      class="ant-pro-table"
     >
       <div
         class="ant-pro-card"
@@ -316,10 +316,10 @@ exports[`EditorProTable 2 📝 columns initialValue alway work 1`] = `
 exports[`EditorProTable 2 📝 columns support editable test 1`] = `
 <DocumentFragment>
   <div
-    class="ant-pro "
+    class="ant-pro"
   >
     <div
-      class="ant-pro-table "
+      class="ant-pro-table"
     >
       <div
         class="ant-pro-card"
@@ -523,10 +523,10 @@ exports[`EditorProTable 2 📝 columns support editable test 1`] = `
 exports[`EditorProTable 2 📝 renderFormItem run defaultRender 1`] = `
 <DocumentFragment>
   <div
-    class="ant-pro "
+    class="ant-pro"
   >
     <div
-      class="ant-pro-table "
+      class="ant-pro-table"
     >
       <div
         class="ant-pro-card"

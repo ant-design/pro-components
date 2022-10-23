@@ -1,6 +1,6 @@
 import { QuestionCircleOutlined } from '@ant-design/icons';
 import type { ProColumns } from '@ant-design/pro-components';
-import { ProTable, TableDropdown } from '@ant-design/pro-components';
+import { ProTable } from '@ant-design/pro-components';
 import { Tooltip } from 'antd';
 import dayjs from 'dayjs';
 
@@ -14,7 +14,7 @@ const tableListDataSource: TableListItem[] = [];
 
 const creators = ['付小小', '曲丽丽', '林东东', '陈帅帅', '兼某某'];
 
-for (let i = 0; i < 5; i += 1) {
+for (let i = 0; i < 1; i += 1) {
   tableListDataSource.push({
     key: i,
     name: 'AppName',
@@ -67,24 +67,6 @@ const columns: ProColumns<TableListItem>[] = [
     dataIndex: 'createdAt',
     valueType: 'date',
     sorter: (a, b) => a.createdAt - b.createdAt,
-  },
-  {
-    title: '操作',
-    width: '164px',
-    key: 'option',
-    valueType: 'option',
-    render: () => [
-      <a key="link">链路</a>,
-      <a key="link2">报警</a>,
-      <a key="link3">监控</a>,
-      <TableDropdown
-        key="actionGroup"
-        menus={[
-          { key: 'copy', name: '复制' },
-          { key: 'delete', name: '删除' },
-        ]}
-      />,
-    ],
   },
 ];
 

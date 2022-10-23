@@ -2,7 +2,7 @@
 
 exports[`SchemaForm 😊 SchemaForm support columns 1`] = `
 <div
-  class="ant-pro "
+  class="ant-pro"
 >
   <form
     autocomplete="off"
