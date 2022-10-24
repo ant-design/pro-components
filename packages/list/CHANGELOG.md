@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.0.21](https://github.com/ant-design/pro-components/compare/@ant-design/pro-list@2.0.20...@ant-design/pro-list@2.0.21) (2022-10-24)
+
+### Bug Fixes
+
+- **table:** auto open hashid ([#6114](https://github.com/ant-design/pro-components/issues/6114)) ([3f72792](https://github.com/ant-design/pro-components/commit/3f72792762ae1c9d51b34f608352e776b645b3b0))
+
 ## [2.0.20](https://github.com/ant-design/pro-components/compare/@ant-design/pro-list@2.0.19...@ant-design/pro-list@2.0.20) (2022-10-21)
 
 **Note:** Version bump only for package @ant-design/pro-list
