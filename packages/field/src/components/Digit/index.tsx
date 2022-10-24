@@ -1,13 +1,12 @@
 import { InputNumber } from 'antd';
-import omit from 'lodash.omit';
 import React, { useCallback } from 'react';
+import omit from 'lodash.omit';
 import type { ProFieldFC } from '../../index';
 
 export type FieldDigitProps = {
   text: number;
   placeholder?: any;
 };
-
 /**
  * 数字组件
  *
@@ -20,13 +19,18 @@ const FieldDigit: ProFieldFC<FieldDigitProps> = (
   ref,
 ) => {
   const proxyChange = useCallback(
-    (value: number | string) => {
-      let val: string | number = Number(value)?.toFixed(fieldProps.precision ?? 0);
-
-      if (val || val.toString() === '0') {
+    (value: number | string | null) => {
+      let val: string | number | undefined = value ?? undefined;
+      if (typeof value === 'string') {
         val = Number(val);
       }
-      return fieldProps?.onChange(val);
+      if (typeof val === 'number') {
+        if (fieldProps.precision) {
+          val = val?.toFixed?.(fieldProps.precision ?? 0);
+        }
+        val = Number(val);
+      }
+      return fieldProps?.onChange?.(val);
     },
     [fieldProps],
   );
@@ -50,11 +54,11 @@ const FieldDigit: ProFieldFC<FieldDigitProps> = (
   }
   if (type === 'edit' || type === 'update') {
     const dom = (
-      <InputNumber
+      <InputNumber<number>
         ref={ref}
         min={0}
         placeholder={placeholder}
-        {...omit(fieldProps, 'onChange')}
+        {...omit(fieldProps, ['onChange'])}
         onChange={proxyChange}
       />
     );
@@ -65,5 +69,4 @@ const FieldDigit: ProFieldFC<FieldDigitProps> = (
   }
   return null;
 };
-
 export default React.forwardRef(FieldDigit);
