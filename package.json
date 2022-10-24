@@ -102,6 +102,8 @@
     "dumi": "^1.1.46",
     "enzyme": "^3.11.0",
     "enzyme-to-json": "^3.4.3",
+    "esbuild": "^0.15.12",
+    "esbuild-jest": "^0.5.0",
     "eslint": "^7.2.0",
     "express": "^4.18.1",
     "father-build": "^1.18.1",

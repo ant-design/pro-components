@@ -78,7 +78,7 @@ const FilterDropdown: React.FC<DropdownProps> = (props) => {
       trigger={['click']}
       {...dropdownOpenProps}
       overlay={
-        <div className={`${prefixCls}-overlay ${hashId}`}>
+        <div className={`${prefixCls}-overlay ${prefixCls}-overlay-${placement} ${hashId}`}>
           <div className={`${prefixCls}-content ${hashId}`}>{children}</div>
           {footer && <DropdownFooter disabled={disabled} footerRender={footerRender} {...footer} />}
         </div>

@@ -16158,7 +16158,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/QueryFilter/demo
                       >
                         <div>
                           <div
-                            class="ant-pro-field-select-light-select ant-pro-field-select-light-select-searchable"
+                            class="ant-pro-field-select-light-select ant-pro-field-select-light-select-searchable ant-pro-field-select-light-select-container-undefined"
                           >
                             <div
                               class="ant-select ant-select-in-form-item ant-select-focused ant-select-single ant-select-show-arrow ant-select-show-search"
@@ -16290,7 +16290,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/QueryFilter/demo
                       >
                         <div>
                           <div
-                            class="ant-pro-field-select-light-select"
+                            class="ant-pro-field-select-light-select ant-pro-field-select-light-select-container-undefined"
                           >
                             <div
                               class="ant-select ant-select-in-form-item ant-select-multiple ant-select-allow-clear ant-select-show-search"
@@ -17855,7 +17855,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/QueryFilter/demo
                     >
                       <div>
                         <div
-                          class="ant-pro-field-select-light-select ant-pro-field-select-light-select-searchable"
+                          class="ant-pro-field-select-light-select ant-pro-field-select-light-select-searchable ant-pro-field-select-light-select-container-undefined"
                         >
                           <div
                             class="ant-select ant-select-in-form-item ant-select-focused ant-select-single ant-select-allow-clear ant-select-show-arrow ant-select-show-search"
@@ -19018,7 +19018,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/QueryFilter/demo
                       >
                         <div>
                           <div
-                            class="ant-pro-field-select-light-select ant-pro-field-select-light-select-searchable"
+                            class="ant-pro-field-select-light-select ant-pro-field-select-light-select-searchable ant-pro-field-select-light-select-container-topLeft"
                           >
                             <div
                               class="ant-select ant-select-in-form-item ant-select-focused ant-select-single ant-select-show-arrow ant-select-show-search"
@@ -19133,7 +19133,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/QueryFilter/demo
                       >
                         <div>
                           <div
-                            class="ant-pro-field-select-light-select"
+                            class="ant-pro-field-select-light-select ant-pro-field-select-light-select-container-topLeft"
                           >
                             <div
                               class="ant-select ant-select-in-form-item ant-select-multiple ant-select-allow-clear ant-select-show-search"
@@ -20043,7 +20043,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/QueryFilter/demo
                       >
                         <div>
                           <div
-                            class="ant-pro-field-select-light-select ant-pro-field-select-light-select-searchable"
+                            class="ant-pro-field-select-light-select ant-pro-field-select-light-select-searchable ant-pro-field-select-light-select-container-undefined"
                           >
                             <div
                               class="ant-select ant-select-in-form-item ant-select-focused ant-select-single ant-select-show-arrow ant-select-show-search"
@@ -20175,7 +20175,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/QueryFilter/demo
                       >
                         <div>
                           <div
-                            class="ant-pro-field-select-light-select"
+                            class="ant-pro-field-select-light-select ant-pro-field-select-light-select-container-undefined"
                           >
                             <div
                               class="ant-select ant-select-in-form-item ant-select-multiple ant-select-allow-clear ant-select-show-search"

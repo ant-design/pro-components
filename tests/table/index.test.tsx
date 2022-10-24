@@ -79,7 +79,7 @@ describe('BasicTable', () => {
     );
     await waitForComponentToPaint(html, 4000);
     act(() => {
-      expect(html.baseElement).toMatchSnapshot();
+      expect(html.asFragment()).toMatchSnapshot();
     });
 
     expect(pageSizeOnchange).toBeCalledWith(10);
@@ -427,7 +427,7 @@ describe('BasicTable', () => {
     );
     await waitForComponentToPaint(html, 1200);
     act(() => {
-      expect(html.baseElement).toMatchSnapshot();
+      expect(html.asFragment()).toMatchSnapshot();
     });
   });
 
@@ -518,7 +518,7 @@ describe('BasicTable', () => {
     });
     await waitForComponentToPaint(html, 10);
 
-    expect(html.baseElement).toMatchSnapshot();
+    expect(html.asFragment()).toMatchSnapshot();
   });
 
   it('🎏 request test', async () => {
@@ -1225,7 +1225,7 @@ describe('BasicTable', () => {
         rowKey="key"
       />,
     );
-    expect(html.baseElement).toMatchSnapshot();
+    expect(html.asFragment()).toMatchSnapshot();
   });
 
   it('🎏 search = true', async () => {

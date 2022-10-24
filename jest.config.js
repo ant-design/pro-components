@@ -23,7 +23,7 @@ module.exports = {
   testEnvironment: 'jsdom',
   moduleNameMapper,
   transform: {
-    '\\.(t|j)sx?$': require.resolve('./tests/jsTransformer'),
+    '^.+\\.(t|j)sx?$': ['esbuild-jest', { sourcemap: true }],
   },
   transformIgnorePatterns: [
     '/node_modules/(?!antd|@ant-design|rc-.+?|@babel/runtime|@umijs/renderer-react|@umijs/preset-umi|umi).+(js|jsx)$',

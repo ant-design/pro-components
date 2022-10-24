@@ -13,7 +13,7 @@ const domRef = React.createRef();
 describe('Field', () => {
   it('🐴 base use', async () => {
     const html = render(<Field text="100" valueType="money" mode="edit" />);
-    expect(html.baseElement).toMatchSnapshot();
+    expect(html.asFragment()).toMatchSnapshot();
     html.unmount();
   });
 
@@ -169,7 +169,7 @@ describe('Field', () => {
         mode="read"
       />,
     );
-    expect(html.baseElement).toMatchSnapshot();
+    expect(html.asFragment()).toMatchSnapshot();
     html.unmount();
   });
 
@@ -721,25 +721,25 @@ describe('Field', () => {
 
   it('🐴 edit and no plain', async () => {
     const html = render(<Demo plain={false} state="edit" />);
-    expect(html.baseElement).toMatchSnapshot();
+    expect(html.asFragment()).toMatchSnapshot();
     html.unmount();
   });
 
   it('🐴 edit and plain', async () => {
     const html = render(<Demo plain state="edit" />);
-    expect(html.baseElement).toMatchSnapshot();
+    expect(html.asFragment()).toMatchSnapshot();
     html.unmount();
   });
 
   it('🐴 read and plain', async () => {
     const html = render(<Demo plain state="read" />);
-    expect(html.baseElement).toMatchSnapshot();
+    expect(html.asFragment()).toMatchSnapshot();
     html.unmount();
   });
 
   it('🐴 read ant no plain', async () => {
     const html = render(<Demo plain={false} state="read" />);
-    expect(html.baseElement).toMatchSnapshot();
+    expect(html.asFragment()).toMatchSnapshot();
     html.unmount();
   });
 
@@ -850,7 +850,7 @@ describe('Field', () => {
           mode="edit"
         />,
       );
-      expect(html.baseElement).toMatchSnapshot();
+      expect(html.asFragment()).toMatchSnapshot();
 
       html.rerender(
         <Field
@@ -863,7 +863,7 @@ describe('Field', () => {
           mode="read"
         />,
       );
-      expect(html.baseElement).toMatchSnapshot();
+      expect(html.asFragment()).toMatchSnapshot();
 
       html.rerender(
         <Field
@@ -875,7 +875,7 @@ describe('Field', () => {
           mode="read"
         />,
       );
-      expect(html.baseElement).toMatchSnapshot();
+      expect(html.asFragment()).toMatchSnapshot();
       html.unmount();
     };
 
@@ -896,7 +896,7 @@ describe('Field', () => {
         mode="read"
       />,
     );
-    expect(html.baseElement).toMatchSnapshot();
+    expect(html.asFragment()).toMatchSnapshot();
     html.unmount();
   });
 
@@ -934,7 +934,7 @@ describe('Field', () => {
         mode="edit"
       />,
     );
-    expect(html.baseElement).toMatchSnapshot();
+    expect(html.asFragment()).toMatchSnapshot();
     html.rerender(
       <Field
         text="100"
@@ -1173,13 +1173,13 @@ describe('Field', () => {
         mode="read"
       />,
     );
-    expect(html.baseElement).toMatchSnapshot();
+    expect(html.asFragment()).toMatchSnapshot();
     html.unmount();
   });
 
   it('🐴 options support no text', async () => {
     const html = render(<Field text="qixian" valueType="option" mode="read" />);
-    expect(html.baseElement).toMatchSnapshot();
+    expect(html.asFragment()).toMatchSnapshot();
     html.unmount();
   });
 
@@ -1191,7 +1191,7 @@ describe('Field', () => {
         mode="read"
       />,
     );
-    expect(html.baseElement).toMatchSnapshot();
+    expect(html.asFragment()).toMatchSnapshot();
     html.unmount();
   });
 
@@ -1199,7 +1199,7 @@ describe('Field', () => {
     const html = render(
       <Field text={['新建', <Button key="edit">修改</Button>]} valueType="option" mode="read" />,
     );
-    expect(html.baseElement).toMatchSnapshot();
+    expect(html.asFragment()).toMatchSnapshot();
     html.unmount();
   });
 
@@ -1207,19 +1207,19 @@ describe('Field', () => {
     const html = render(
       <Field text={[<Button key="add">新建</Button>]} valueType="option" mode="read" />,
     );
-    expect(html.baseElement).toMatchSnapshot();
+    expect(html.asFragment()).toMatchSnapshot();
     html.unmount();
   });
 
   it('🐴 progress support string number', () => {
     const html = render(<Field text="12" valueType="progress" mode="read" />);
-    expect(html.baseElement).toMatchSnapshot();
+    expect(html.asFragment()).toMatchSnapshot();
     html.unmount();
   });
 
   it('🐴 progress support no number', () => {
     const html = render(<Field text="qixian" valueType="progress" mode="read" />);
-    expect(html.baseElement).toMatchSnapshot();
+    expect(html.asFragment()).toMatchSnapshot();
   });
 
   it('🐴 valueType={}', () => {

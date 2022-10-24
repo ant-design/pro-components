@@ -1,36 +1,34 @@
-import { mount, render } from 'enzyme';
+import { render } from '@testing-library/react';
 import { act } from 'react-dom/test-utils';
 import ProSkeleton from '../../packages/skeleton/src/index';
 
 describe('skeleton', () => {
   it('🥩 list base use', async () => {
-    const html = render(<ProSkeleton type="list" />);
-    expect(html).toMatchSnapshot();
+    const wrapper = render(<ProSkeleton type="list" />);
+    expect(wrapper.asFragment()).toMatchSnapshot();
   });
 
   it('🥩 descriptions base use', async () => {
-    const html = render(<ProSkeleton type="descriptions" />);
-    expect(html).toMatchSnapshot();
+    const wrapper = render(<ProSkeleton type="descriptions" />);
+    expect(wrapper.asFragment()).toMatchSnapshot();
   });
 
   it('🥩 result base use', async () => {
-    const html = render(<ProSkeleton type="result" />);
-    expect(html).toMatchSnapshot();
+    const wrapper = render(<ProSkeleton type="result" />);
+    expect(wrapper.asFragment()).toMatchSnapshot();
   });
 
   it('🥩 descriptions api use', async () => {
-    const wrapper = mount(<ProSkeleton type="descriptions" pageHeader={false} list={10} />);
-    expect(wrapper.render()).toMatchSnapshot();
+    const wrapper = render(<ProSkeleton type="descriptions" pageHeader={false} list={10} />);
+    expect(wrapper.asFragment()).toMatchSnapshot();
     act(() => {
-      wrapper.setProps({
-        table: false,
-      });
+      wrapper.rerender(<ProSkeleton type="descriptions" pageHeader={false} list={5} />);
     });
-    expect(wrapper.render()).toMatchSnapshot();
+    expect(wrapper.asFragment()).toMatchSnapshot();
   });
 
   it('🥩 list api use', async () => {
-    const wrapper = mount(
+    const wrapper = render(
       <ProSkeleton
         type="list"
         pageHeader={false}
@@ -40,18 +38,24 @@ describe('skeleton', () => {
         list={10}
       />,
     );
-    expect(wrapper.render()).toMatchSnapshot();
+    expect(wrapper.asFragment()).toMatchSnapshot();
     act(() => {
-      wrapper.setProps({
-        list: false,
-        statistic: false,
-      });
+      wrapper.rerender(
+        <ProSkeleton
+          type="list"
+          pageHeader={false}
+          statistic={false}
+          actionButton={false}
+          toolbar={false}
+          list={false}
+        />,
+      );
     });
-    expect(wrapper.render()).toMatchSnapshot();
+    expect(wrapper.asFragment()).toMatchSnapshot();
   });
 
   it('🥩 statistic=1,span=16', async () => {
-    const wrapper = mount(
+    const wrapper = render(
       <ProSkeleton
         type="list"
         pageHeader={false}
@@ -61,6 +65,6 @@ describe('skeleton', () => {
         list={10}
       />,
     );
-    expect(wrapper.render()).toMatchSnapshot();
+    expect(wrapper.asFragment()).toMatchSnapshot();
   });
 });

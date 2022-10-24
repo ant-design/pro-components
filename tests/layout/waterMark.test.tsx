@@ -1,5 +1,6 @@
 /* eslint-disable @typescript-eslint/ban-types */
 import { WaterMark } from '@ant-design/pro-components';
+import { render } from '@testing-library/react';
 import { mount } from 'enzyme';
 import { act } from 'react-dom/test-utils';
 import { waitForComponentToPaint } from '../util';
@@ -39,13 +40,13 @@ describe('WaterMark', () => {
   });
 
   it('test text watermark', () => {
-    const wrapper = mount(
+    const wrapper = render(
       <WaterMark content="Trusple">
         <div style={{ height: 500 }} />
       </WaterMark>,
     );
-    wrapper.update();
-    expect(wrapper).toMatchSnapshot();
+    waitForComponentToPaint(wrapper);
+    expect(wrapper.asFragment()).toMatchSnapshot();
     wrapper.unmount();
   });
 

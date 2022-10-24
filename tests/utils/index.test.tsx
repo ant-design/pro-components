@@ -801,7 +801,7 @@ describe('utils', () => {
       fireEvent.mouseMove(dom!);
     });
 
-    expect(html.baseElement).toMatchSnapshot();
+    expect(html.asFragment()).toMatchSnapshot();
   });
 
   it('🪓 isDeepEqualReact', () => {

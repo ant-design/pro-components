@@ -114,6 +114,7 @@ const LightSelect: React.ForwardRefRenderFunction<any, SelectProps<any> & LightS
         {
           [`${prefixCls}-searchable`]: showSearch,
         },
+        `${prefixCls}-container-${restProps.placement}`,
         className,
       )}
       style={style}

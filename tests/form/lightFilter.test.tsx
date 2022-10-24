@@ -699,8 +699,8 @@ describe('LightFilter', () => {
     expect(!!inputDom).toBeTruthy();
   });
 
-  it('🪕 lightFilter support placement', async () => {
-    const wrapper = mount(
+  it('🪕 lightFilter lightWrapper support placement', async () => {
+    const wrapper = render(
       <LightFilter
         initialValues={{
           name1: 'yutingzhao1991',
@@ -722,6 +722,31 @@ describe('LightFilter', () => {
             woman: '女',
           }}
         />
+      </LightFilter>,
+    );
+    act(() => {
+      wrapper.baseElement
+        .querySelectorAll<HTMLDivElement>('.ant-pro-core-field-label')[0]
+        .click?.();
+    });
+    waitForComponentToPaint(wrapper, 100);
+
+    expect(
+      !!wrapper.baseElement.querySelector('.ant-pro-field-select-light-select-container-topRight'),
+    ).toBeTruthy();
+  });
+
+  it('🪕 lightFilter support placement', async () => {
+    const wrapper = render(
+      <LightFilter
+        initialValues={{
+          name1: 'yutingzhao1991',
+          name3: '2020-08-19',
+          sex: 'man',
+        }}
+        placement="bottomLeft"
+        onFinish={async (values) => console.log(values)}
+      >
         <ProFormText
           name="name4"
           label="名称"
@@ -731,25 +756,24 @@ describe('LightFilter', () => {
         />
       </LightFilter>,
     );
-    // 两种加载模式都需要判断（需要lightWrapper和不需要的）
-    wrapper.find('.ant-pro-core-field-label').at(0).simulate('click');
-    expect(wrapper.find('Trigger').at(0).prop('popupPlacement')).toEqual('topRight');
-    wrapper.find('.ant-pro-core-field-label').at(1).simulate('click');
-    expect(wrapper.find('Trigger').at(1).prop('popupPlacement')).toEqual('topRight');
     act(() => {
-      wrapper.unmount();
+      wrapper.baseElement.querySelectorAll<HTMLDivElement>('.ant-dropdown-trigger')[0].click?.();
     });
+    waitForComponentToPaint(wrapper, 100);
+
+    expect(
+      !!wrapper.baseElement.querySelector('.ant-pro-core-field-dropdown-overlay-bottomLeft'),
+    ).toBeTruthy();
   });
 
   it('🪕 component placement priority should higher then lightFilter', async () => {
-    const wrapper = mount(
+    const wrapper = render(
       <LightFilter
         initialValues={{
           name1: 'yutingzhao1991',
           name3: '2020-08-19',
           sex: 'man',
         }}
-        placement="topRight"
       >
         <ProFormSelect
           name="sex"
@@ -766,11 +790,18 @@ describe('LightFilter', () => {
         />
       </LightFilter>,
     );
-    // 两种加载模式都需要判断（需要lightWrapper和不需要的）
-    wrapper.find('.ant-pro-core-field-label').at(0).simulate('click');
-    expect(wrapper.find('Trigger').at(0).prop('popupPlacement')).toEqual('bottomRight');
+
     act(() => {
-      wrapper.unmount();
+      // 两种加载模式都需要判断（需要lightWrapper和不需要的）
+      wrapper.baseElement
+        .querySelectorAll<HTMLDivElement>('.ant-pro-core-field-label')[0]
+        .click?.();
     });
+    waitForComponentToPaint(wrapper, 100);
+    expect(
+      !!wrapper.baseElement.querySelector(
+        '.ant-pro-field-select-light-select-container-bottomRight',
+      ),
+    ).toBeTruthy();
   });
 });

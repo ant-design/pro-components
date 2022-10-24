@@ -1,21 +1,21 @@
 import type { ProLayoutProps } from '@ant-design/pro-components';
 import { FooterToolbar, PageContainer, ProLayout } from '@ant-design/pro-components';
-import { render as libraryRender } from '@testing-library/react';
+import { render as libraryRender, render } from '@testing-library/react';
 import { Button } from 'antd';
-import { mount, render } from 'enzyme';
+import { mount } from 'enzyme';
 import React, { useEffect, useMemo, useState } from 'react';
 import { act } from 'react-dom/test-utils';
 import { waitForComponentToPaint } from '../util';
 
 describe('PageContainer', () => {
   it('💄 base use', async () => {
-    const html = render(<PageContainer title="期贤" />);
-    expect(html).toMatchSnapshot();
+    const wrapper = libraryRender(<PageContainer title="期贤" />);
+    expect(wrapper.asFragment()).toMatchSnapshot();
   });
 
   it('💄 config is null', async () => {
-    const html = render(<PageContainer />);
-    expect(html).toMatchSnapshot();
+    const wrapper = libraryRender(<PageContainer />);
+    expect(wrapper.asFragment()).toMatchSnapshot();
   });
 
   it('💄 title,ghost,header,breadcrumbRender = false', async () => {
@@ -122,27 +122,29 @@ describe('PageContainer', () => {
   });
 
   it('⚡️ support fixedHeader', async () => {
-    const html = render(<PageContainer title="期贤" fixedHeader />);
-    expect(html).toMatchSnapshot();
+    const html = libraryRender(<PageContainer title="期贤" fixedHeader />);
+    expect(html.baseElement.querySelector('.ant-pro-sider-fixed')).toMatchSnapshot();
   });
 
   it('⚡️ support fixHeader', async () => {
-    const html = render(<PageContainer title="期贤" fixHeader />);
-    expect(html).toMatchSnapshot();
+    const wrapper = libraryRender(<PageContainer title="期贤" fixHeader />);
+    expect(wrapper.asFragment()).toMatchSnapshot();
   });
 
   it('⚡️ support loading', async () => {
-    const html = render(<PageContainer title="期贤" loading />);
-    expect(html).toMatchSnapshot();
+    const html = libraryRender(<PageContainer title="期贤" loading />);
+    expect(html.baseElement.querySelector('.ant-skeleton')).toMatchSnapshot();
   });
 
   it('⚡️ support more loading props', async () => {
-    const html = render(<PageContainer title="期贤" loading={{ spinning: true, tip: '加载中' }} />);
-    expect(html).toMatchSnapshot();
+    const wrapper = libraryRender(
+      <PageContainer title="期贤" loading={{ spinning: true, tip: '加载中' }} />,
+    );
+    expect(wrapper.asFragment()).toMatchSnapshot();
   });
 
   it('🔥 support footer and breadcrumb', async () => {
-    const html = render(
+    const wrapper = libraryRender(
       <PageContainer
         title="期贤"
         breadcrumb={{
@@ -160,11 +162,11 @@ describe('PageContainer', () => {
         ]}
       />,
     );
-    expect(html).toMatchSnapshot();
+    expect(wrapper.asFragment()).toMatchSnapshot();
   });
 
   it('🔥 footer bar support extra', async () => {
-    const html = render(
+    const wrapper = libraryRender(
       <FooterToolbar
         className="qixian_footer"
         extra={
@@ -179,11 +181,11 @@ describe('PageContainer', () => {
         </button>
       </FooterToolbar>,
     );
-    expect(html).toMatchSnapshot();
+    expect(wrapper.asFragment()).toMatchSnapshot();
   });
 
   it('🔥 footer bar support renderContent', async () => {
-    const html = render(
+    const wrapper = libraryRender(
       <FooterToolbar
         className="qixian_footer"
         extra={
@@ -201,7 +203,7 @@ describe('PageContainer', () => {
         </button>
       </FooterToolbar>,
     );
-    expect(html).toMatchSnapshot();
+    expect(wrapper.asFragment()).toMatchSnapshot();
   });
 
   it('🐲 footer should know width', async () => {
@@ -280,7 +282,7 @@ describe('PageContainer', () => {
   });
 
   it('🐲 footer is null, do not render footerToolbar ', async () => {
-    const wrapper = mount(
+    const wrapper = render(
       <PageContainer
         footer={[
           <button type="button" key="button">
@@ -291,21 +293,19 @@ describe('PageContainer', () => {
     );
     await waitForComponentToPaint(wrapper);
     act(() => {
-      expect(wrapper.render()).toMatchSnapshot();
+      expect(wrapper.asFragment()).toMatchSnapshot();
     });
     act(() => {
-      wrapper.setProps({
-        footer: undefined,
-      });
+      wrapper.rerender(<PageContainer />);
     });
     await waitForComponentToPaint(wrapper);
     act(() => {
-      expect(wrapper.render()).toMatchSnapshot();
+      expect(wrapper.asFragment()).toMatchSnapshot();
     });
   });
 
   it('🐲 pro-layout support breadcrumbProps', async () => {
-    const wrapper = render(
+    const wrapper = libraryRender(
       <ProLayout
         breadcrumbProps={{
           separator: '>',
@@ -342,7 +342,7 @@ describe('PageContainer', () => {
         <PageContainer />
       </ProLayout>,
     );
-    expect(wrapper).toMatchSnapshot();
+    expect(wrapper.asFragment()).toMatchSnapshot();
   });
 
   it('🐲 header.footer is null, do not render footerToolbar ', async () => {
@@ -393,10 +393,10 @@ describe('PageContainer', () => {
   });
 
   it('🐲 content is text and title is null', () => {
-    const html = render(<PageContainer content="just so so" />);
-    expect(html).toMatchSnapshot();
+    const wrapper = libraryRender(<PageContainer content="just so so" />);
+    expect(wrapper.asFragment()).toMatchSnapshot();
 
-    const html2 = render(<PageContainer extraContent={<div>extraContent</div>} />);
+    const html2 = libraryRender(<PageContainer extraContent={<div>extraContent</div>} />);
     expect(html2).toMatchSnapshot();
   });
 

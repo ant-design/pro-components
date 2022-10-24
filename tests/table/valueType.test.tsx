@@ -188,7 +188,7 @@ describe('BasicTable valueType', () => {
     expect(html.baseElement.querySelectorAll('span[title="Java"]').length).toBe(0);
     expect(html.baseElement.querySelectorAll('span[title="Typescript"]').length).toBe(0);
     expect(html.baseElement.querySelectorAll('span[title="Go"]').length).toBe(0);
-    expect(html.baseElement).toMatchSnapshot();
+    expect(html.asFragment()).toMatchSnapshot();
 
     html.unmount();
   });

@@ -23,9 +23,9 @@ describe('BasicLayout', () => {
   });
 
   it('🥩 support loading', async () => {
-    const wrapper = mount(<ProLayout loading />);
+    const wrapper = render(<ProLayout loading />);
     await waitForComponentToPaint(wrapper);
-    expect(wrapper.render()).toMatchSnapshot();
+    expect(wrapper.baseElement.querySelector('.ant-skeleton')).toMatchSnapshot();
   });
 
   it('🥩 support headerRender', async () => {
@@ -505,14 +505,14 @@ describe('BasicLayout', () => {
   });
 
   it('🥩 contentStyle should change dom', async () => {
-    const wrapper = enzymeRender(
+    const wrapper = render(
       <ProLayout
         contentStyle={{
           padding: 56,
         }}
       />,
     );
-    expect(wrapper).toMatchSnapshot();
+    expect(wrapper.asFragment()).toMatchSnapshot();
   });
 
   it('🥩 support className', async () => {
@@ -837,7 +837,7 @@ describe('BasicLayout', () => {
   });
 
   it('🥩 mix layout hideInMenu render right', async () => {
-    const wrapper = mount(
+    const wrapper = render(
       <ProLayout
         menuDataRender={() => [
           {
@@ -871,11 +871,11 @@ describe('BasicLayout', () => {
       />,
     );
     await waitForComponentToPaint(wrapper);
-    expect(wrapper.render()).toMatchSnapshot();
+    expect(wrapper.baseElement).toMatchSnapshot();
   });
 
   it('🥩 BasicLayout menu support menu.true', async () => {
-    const wrapper = enzymeRender(
+    const wrapper = render(
       <>
         <ProLayout
           menu={{
@@ -926,7 +926,7 @@ describe('BasicLayout', () => {
         />
       </>,
     );
-    expect(wrapper).toMatchSnapshot();
+    expect(wrapper.asFragment()).toMatchSnapshot();
   });
 
   it('🥩 BasicLayout support current menu', async () => {
