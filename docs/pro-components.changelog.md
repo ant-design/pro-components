@@ -8,6 +8,13 @@ group:
   path: /
 ---
 
+## @ant-design/pro-components@2.3.24
+
+`2022-10-24`
+
+- fix(table): column drag order error when move upward (#6113). [#6113](https://github.com/ant-design/pro-components/pull/#6113) [@xiawenqi](https://github.com/xiawenqi)
+- fix(layout): auto open hashid (#6114). [#6114](https://github.com/ant-design/pro-components/pull/#6114) [@chenshuai2144](https://github.com/chenshuai2144)
+
 ## @ant-design/pro-components@2.3.21
 
 `2022-10-21`
