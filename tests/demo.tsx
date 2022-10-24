@@ -64,7 +64,7 @@ function demoTest(component: string, options: Options = {}) {
         const wrapper = reactRender(<Demo />);
         // Convert aria related content
         await act(async () => {
-          await waitTime(2000);
+          await waitTime(3000);
         });
         expect(wrapper.asFragment()).toMatchSnapshot();
 
