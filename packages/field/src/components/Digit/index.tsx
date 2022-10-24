@@ -1,6 +1,6 @@
 import { InputNumber } from 'antd';
 import React, { useCallback } from 'react';
-import omit from 'lodash.omit';
+import omit from 'omit.js';
 import type { ProFieldFC } from '../../index';
 
 export type FieldDigitProps = {
