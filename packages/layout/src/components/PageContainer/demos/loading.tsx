@@ -11,6 +11,9 @@ export default () => {
 
   useEffect(() => {
     setTimeout(() => {
+      if (process.env.NODE_ENV?.toLocaleLowerCase() === 'test') {
+        return;
+      }
       setCustomLoading(false);
     }, 3000);
   }, []);
