@@ -66,7 +66,10 @@ const genProStyle: GenerateStyle<ProListToken> = (token) => {
             height: '14px',
             marginBlock: '4px',
             background: `linear-gradient(90deg, rgba(54, 61, 64, 0.2), rgba(54, 61, 64, 0.4), rgba(54, 61, 64, 0.2))`,
-            animation: `card-loading 1.4s ease infinite`,
+            animationName: 'card-loading',
+            animationDirection: '1.4s',
+            animationTimingFunction: 'ease',
+            animationIterationCount: 'infinite',
           },
           '@keyframes card-loading': {
             '0%': { backgroundPosition: '0 50%' },

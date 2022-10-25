@@ -104,7 +104,7 @@ const genSiderMenuStyle: GenerateStyle<SiderMenuToken> = (token) => {
               color: token.layout?.sider?.colorTextMenuSecondary,
               '&-collapsed': {
                 marginBlockEnd: 8,
-                animation: 'none',
+                animationName: 'none',
               },
               '&-item': {
                 paddingInline: 6,

@@ -21,7 +21,10 @@ const genProListStyle: GenerateStyle<ProListToken> = (token) => {
         [`${token.componentCls}-list-toolbar-setting-item`]: {
           '.anticon.anticon-reload': {
             transform: 'rotate(0deg)',
-            animation: 'turn 1s linear infinite',
+            animationName: 'turn',
+            animationDirection: '1s',
+            animationTimingFunction: 'linear',
+            animationIterationCount: 'infinite',
           },
         },
       },
