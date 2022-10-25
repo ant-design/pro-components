@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.0.11](https://github.com/ant-design/pro-components/compare/@ant-design/pro-provider@2.0.10...@ant-design/pro-provider@2.0.11) (2022-10-25)
+
+### Bug Fixes
+
+- **layout:** fix layout style no work ([cc10838](https://github.com/ant-design/pro-components/commit/cc1083882dfcf9ea45334b167a996beab18d3c48))
+
 ## [2.0.10](https://github.com/ant-design/pro-components/compare/@ant-design/pro-provider@2.0.9...@ant-design/pro-provider@2.0.10) (2022-10-24)
 
 ### Bug Fixes
