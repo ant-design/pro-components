@@ -15,7 +15,6 @@ import ProForm, {
 import '@testing-library/jest-dom';
 import { act, fireEvent, render } from '@testing-library/react';
 import { Button, ConfigProvider, Input } from 'antd';
-import { mount } from 'enzyme';
 import moment from 'moment';
 import React, { useEffect, useRef } from 'react';
 import { waitForComponentToPaint, waitTime } from '../util';
@@ -2605,7 +2604,7 @@ describe('ProForm', () => {
 
   it(`📦 valueType digit with precision value`, async () => {
     const fn = jest.fn();
-    const html = mount(
+    const html = render(
       <ProForm
         onFinish={async (value) => {
           fn(value.count);
@@ -2623,18 +2622,23 @@ describe('ProForm', () => {
 
     await waitForComponentToPaint(html, 300);
     act(() => {
-      html.find('input#count').simulate('change', {
+      const dom = html.baseElement.querySelector<HTMLInputElement>('input#count')!;
+      fireEvent.change(dom, {
         target: {
           value: '22.22',
         },
       });
-      html.find('input#count').simulate('blur');
-      html.find('button.ant-btn-primary').simulate('click');
-      html.update();
+      fireEvent.blur(dom);
+      fireEvent.click(dom);
     });
     await waitForComponentToPaint(html, 300);
-    expect(html.find('input#count').props().value).toBe('22');
+    expect(html.baseElement.querySelector<HTMLInputElement>('input#count')?.value).toBe('22');
+
+    await act(async () => {
+      await (await html.findByText('提 交')).click();
+    });
+
     expect(fn).toBeCalledWith(22);
-    expect(html.render()).toMatchSnapshot();
+    expect(html.asFragment()).toMatchSnapshot();
   });
 });
