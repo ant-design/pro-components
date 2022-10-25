@@ -6,6 +6,7 @@ export interface PageContainerToken extends ProAliasToken {
 const [sm, md, lg, xl] = [576, 768, 992, 1200].map((bp) => `@media (min-width: ${bp}px)`);
 
 const genPageContainerStyle: GenerateStyle<PageContainerToken> = (token) => {
+  console.log(token.layout);
   return {
     [token.componentCls]: {
       position: 'relative',

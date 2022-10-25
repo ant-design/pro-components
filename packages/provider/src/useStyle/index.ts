@@ -106,7 +106,6 @@ export function useStyle(
   styleFn: (token: ProAliasToken) => CSSInterpolation,
 ): UseStyleResult {
   const { token, hashId = '', theme } = useContext(ProProvider);
-
   return {
     wrapSSR: useStyleRegister(
       {

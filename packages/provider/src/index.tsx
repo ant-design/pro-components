@@ -357,21 +357,16 @@ export const ConfigProviderWrap: React.FC<{
           proProvide.token?.layout || {},
           getLayoutDesignToken((propsToken as ProTokenType)?.layout || {}, tokenContext.token),
         ) as LayoutDesignToken)
-      : {};
+      : getLayoutDesignToken({}, defaultTheme);
+
     return {
       ...proProvide,
-      token: propsToken
-        ? {
-            proComponentsCls,
-            antCls,
-            ...proProvide.token,
-            layout: proLayoutTokenMerge,
-          }
-        : {
-            ...proProvide.token,
-            proComponentsCls,
-            antCls,
-          },
+      token: {
+        ...proProvide.token,
+        proComponentsCls,
+        antCls,
+        layout: proLayoutTokenMerge,
+      },
       isDeps: true,
       intl: intl || zhCNIntl,
     };

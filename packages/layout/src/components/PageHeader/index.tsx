@@ -171,8 +171,7 @@ const PageHeader: React.FC<PageHeaderProps> = (props) => {
 
   const breadcrumbDom = isBreadcrumbComponent ? breadcrumb : breadcrumbRenderDomFromProps;
 
-  const className = classNames(prefixCls, customizeClassName, {
-    hashId,
+  const className = classNames(prefixCls, hashId, customizeClassName, {
     [`${prefixCls}-has-breadcrumb`]: !!breadcrumbDom,
     [`${prefixCls}-has-footer`]: !!footer,
     [`${prefixCls}-rtl`]: direction === 'rtl',

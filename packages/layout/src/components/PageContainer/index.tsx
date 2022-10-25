@@ -278,7 +278,7 @@ const memoRenderPageHeader = (
   );
 };
 
-const PageContainer: React.FC<PageContainerProps> = (props) => {
+const PageContainerBase: React.FC<PageContainerProps> = (props) => {
   const {
     children,
     loading = false,
@@ -392,7 +392,7 @@ const PageContainer: React.FC<PageContainerProps> = (props) => {
   });
 
   return wrapSSR(
-    <ConfigProviderWrap needDeps>
+    <>
       <div style={style} className={containerClassName}>
         {fixedHeader && pageHeaderDom ? (
           // 在 hasHeader 且 fixedHeader 的情况下，才需要设置高度
@@ -411,7 +411,15 @@ const PageContainer: React.FC<PageContainerProps> = (props) => {
         {renderContentDom && <GridContent>{renderContentDom}</GridContent>}
       </div>
       {footer && <FooterToolbar prefixCls={prefixCls}>{footer}</FooterToolbar>}
-    </ConfigProviderWrap>,
+    </>,
+  );
+};
+
+const PageContainer: React.FC<PageContainerProps> = (props) => {
+  return (
+    <ConfigProviderWrap needDeps>
+      <PageContainerBase {...props} />
+    </ConfigProviderWrap>
   );
 };
 
