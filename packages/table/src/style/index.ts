@@ -104,7 +104,7 @@ const genProListStyle: GenerateStyle<ProListToken> = (token) => {
 
     [`@media (max-width: ${token.screenXS})`]: {
       [token.componentCls]: {
-        '.ant-table': {
+        [`${token.antCls}-table`]: {
           width: '100%',
           overflowX: 'auto',
           '&-thead > tr,&-tbody > tr': {
