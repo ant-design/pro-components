@@ -10,6 +10,9 @@ const genProLayoutBaseMenuStyle: GenerateStyle<ProLayoutBaseMenuToken> = (token)
     [`${token.componentCls}`]: {
       background: 'transparent',
       border: 'none',
+      [`${token.componentCls}-menu-item`]: {
+        transition: 'none !important',
+      },
       [`& &-collapsed`]: {
         [`${token.antCls}-menu-item, 
         ${token.antCls}-menu-item-group > ${token.antCls}-menu-item-group-list > ${token.antCls}-menu-item, 
@@ -53,12 +56,16 @@ const genProLayoutBaseMenuStyle: GenerateStyle<ProLayoutBaseMenuToken> = (token)
             display: 'none !important',
           },
         },
+        [`&${token.componentCls}-group-item-title`]: {
+          gap: 4,
+          height: 18,
+          overflow: 'hidden',
+        },
         [`&${token.componentCls}-item-collapsed-show-title`]: {
           lineHeight: '16px',
           height: '48px',
           [`&${token.componentCls}-item-title-collapsed`]: {
             display: 'flex',
-
             [`${token.componentCls}-item-icon`]: {
               height: '16px',
               lineHeight: '16px !important',
@@ -67,6 +74,7 @@ const genProLayoutBaseMenuStyle: GenerateStyle<ProLayoutBaseMenuToken> = (token)
                 height: '16px',
               },
             },
+
             [`${token.componentCls}-item-text`]: {
               opacity: '1 !important',
               display: 'inline !important',

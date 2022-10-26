@@ -22,7 +22,7 @@ const genProListStyle: GenerateStyle<ProListToken> = (token) => {
           '.anticon.anticon-reload': {
             transform: 'rotate(0deg)',
             animationName: 'turn',
-            animationDirection: '1s',
+            animationDuration: '1s',
             animationTimingFunction: 'linear',
             animationIterationCount: 'infinite',
           },

@@ -37,6 +37,11 @@ const compatibleStyle: GenerateStyle<ProLayoutToken> = (token) => {
         },
         [`&${token.antCls}-menu`]: {
           color: token?.layout?.sider?.colorTextMenu,
+          [`${token.antCls}-menu-item`]: {
+            '*': {
+              transition: 'none !important',
+            },
+          },
           [`${token.antCls}-menu-item a`]: {
             color: 'inherit',
           },
@@ -110,6 +115,7 @@ const compatibleStyle: GenerateStyle<ProLayoutToken> = (token) => {
           ${token.antCls}-menu-item-active,
           ${token.antCls}-menu-submenu-active`]: {
             borderRadius: 4,
+            transition: 'none',
             color: token?.layout?.header?.colorTextMenuActive,
             backgroundColor: token?.layout?.header?.colorBgMenuItemHover,
           },
@@ -120,6 +126,7 @@ const compatibleStyle: GenerateStyle<ProLayoutToken> = (token) => {
           ${token.antCls}-menu-submenu-selected`]: {
             backgroundColor: token?.layout?.header?.colorBgMenuItemSelected,
             borderRadius: token.radiusBase,
+            transition: 'none',
             color: token?.layout?.header?.colorTextMenuSelected,
             [`${token.antCls}-menu-submenu-arrow`]: {
               color: token?.layout?.header?.colorTextMenuSelected,
@@ -149,6 +156,7 @@ const compatibleStyle: GenerateStyle<ProLayoutToken> = (token) => {
             ${token.antCls}-menu-submenu-title:hover`]: {
             color: token?.layout?.header?.colorTextMenuActive,
             borderRadius: token.radiusBase,
+            transition: 'none',
             backgroundColor: token?.layout?.header?.colorBgMenuItemSelected,
             [`${token.antCls}-menu-submenu-arrow`]: {
               color: token?.layout?.header?.colorTextMenuActive,

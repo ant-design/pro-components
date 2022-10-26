@@ -171,6 +171,7 @@ class MenuUtil {
           title={name}
           className={classNames(`${baseClassName}-item-title`, this.props?.hashId, {
             [`${baseClassName}-item-title-collapsed`]: collapsed,
+            [`${baseClassName}-group-item-title`]: menuType === 'group',
             [`${baseClassName}-item-collapsed-show-title`]: menu?.collapsedShowTitle && collapsed,
           })}
         >

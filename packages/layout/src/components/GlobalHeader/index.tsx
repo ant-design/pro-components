@@ -98,7 +98,6 @@ const GlobalHeader: React.FC<GlobalHeaderProps & PrivateSiderMenuProps> = (props
   const { getPrefixCls } = useContext(ConfigProvider.ConfigContext);
   const baseClassName = `${prefixCls || getPrefixCls('pro')}-global-header`;
 
-  console.log(baseClassName);
   const { wrapSSR, hashId } = useStyle(baseClassName);
 
   const className = classNames(propClassName, baseClassName, hashId);

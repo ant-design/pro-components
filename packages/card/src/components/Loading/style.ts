@@ -28,7 +28,7 @@ const genProStyle: GenerateStyle<ProToken> = (token) => {
         backgroundSize: '600% 600%',
         borderRadius: token.radiusBase,
         animationName: 'card-loading',
-        animationDirection: '1.4s',
+        animationDuration: '1.4s',
         animationTimingFunction: 'ease',
         animationIterationCount: 'infinite',
       },
