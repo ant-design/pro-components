@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.36.7](https://github.com/ant-design/pro-components/compare/@ant-design/pro-field@1.36.6...@ant-design/pro-field@1.36.7) (2022-10-26)
+
+### Bug Fixes
+
+- **form:** ProFormDigit value will fixed when not set precision ([#6118](https://github.com/ant-design/pro-components/issues/6118)) ([d9fccc2](https://github.com/ant-design/pro-components/commit/d9fccc268260285ea9d51f6501e3ebe37ef15ebc))
+
 ## [1.36.6](https://github.com/ant-design/pro-components/compare/@ant-design/pro-field@1.36.5...@ant-design/pro-field@1.36.6) (2022-09-07)
 
 ### Bug Fixes
