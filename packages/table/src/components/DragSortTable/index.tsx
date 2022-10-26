@@ -1,6 +1,7 @@
 import { MenuOutlined } from '@ant-design/icons';
 import type { ParamsType } from '@ant-design/pro-provider';
 import { ConfigProvider } from 'antd';
+import useMergedState from 'rc-util/lib/hooks/useMergedState';
 import React, { useCallback, useContext, useMemo, useRef } from 'react';
 import { SortableHandle } from 'react-sortable-hoc';
 import ProTable from '../../Table';
@@ -33,9 +34,11 @@ function DragSortTable<
     onDataSourceChange,
     columns: propsColumns,
     dataSource: oriDs,
+    onLoad,
     ...otherProps
   } = props;
   const { getPrefixCls } = useContext(ConfigProvider.ConfigContext);
+  const [mergedDs, setMergedDs] = useMergedState(oriDs);
 
   // 默认拖拽把手
   const DragHandle = useMemo(
@@ -60,7 +63,7 @@ function DragSortTable<
   const originColumnRef = useRef<ProColumns<T, 'text'> | undefined>({ ...handleColumn });
   // 使用自定义hooks获取拖拽相关组件的components集合
   const { components } = useDragSort<T>({
-    dataSource: oriDs?.slice(),
+    dataSource: mergedDs?.slice(),
     dragSortKey,
     onDragSortEnd,
     components: props.components,
@@ -104,12 +107,18 @@ function DragSortTable<
     propsColumns,
   ]);
 
+  const wrapOnload = async (ds: T[]) => {
+    setMergedDs(ds);
+    return onLoad?.(ds);
+  };
+
   return wrapSSR(
     handleColumn ? (
       <ProTable<T, U, ValueType>
         {...(otherProps as ProTableProps<T, U, ValueType>)}
+        onLoad={wrapOnload}
         rowKey={rowKey}
-        dataSource={oriDs}
+        dataSource={mergedDs}
         components={components}
         columns={columns}
         onDataSourceChange={onDataSourceChange}
@@ -118,8 +127,9 @@ function DragSortTable<
       /* istanbul ignore next */
       <ProTable<T, U, ValueType>
         {...(otherProps as ProTableProps<T, U, ValueType>)}
+        onLoad={wrapOnload}
         rowKey={rowKey}
-        dataSource={oriDs}
+        dataSource={mergedDs}
         columns={columns}
         onDataSourceChange={onDataSourceChange}
       />
