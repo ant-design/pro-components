@@ -46426,13 +46426,14 @@ exports[`form demos 📸 renders ./packages/form/src/demos/layout-footer.tsx cor
                       </div>
                     </div>
                   </div>
-                  <div
-                    style="height: 64px; margin-block-start: 24px;"
-                  />
                 </div>
               </div>
             </div>
           </main>
+          <div
+            class="ant-pro-layout-has-footer"
+            style="height: 64px; margin-block-start: 24px;"
+          />
         </div>
       </section>
     </div>

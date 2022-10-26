@@ -11170,7 +11170,6 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/base.tsx correctl
                   >
                     <div
                       class="ant-pro-page-container-children-content "
-                      style="padding-inline: 40px;"
                     >
                       <div
                         class="ant-pro-card"
@@ -11183,9 +11182,6 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/base.tsx correctl
                         </div>
                       </div>
                     </div>
-                    <div
-                      style="height: 64px; margin-block-start: 24px;"
-                    />
                   </div>
                 </div>
               </div>
@@ -11243,6 +11239,10 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/base.tsx correctl
                 </span>
               </div>
             </main>
+            <div
+              class="ant-pro-layout-has-footer"
+              style="height: 64px; margin-block-start: 24px;"
+            />
           </div>
         </section>
       </div>
@@ -12270,9 +12270,6 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/classicMode.tsx c
                         </div>
                       </div>
                     </div>
-                    <div
-                      style="height: 64px; margin-block-start: 24px;"
-                    />
                   </div>
                 </div>
               </div>
@@ -12305,6 +12302,10 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/classicMode.tsx c
                 </div>
               </div>
             </main>
+            <div
+              class="ant-pro-layout-has-footer"
+              style="height: 64px; margin-block-start: 24px;"
+            />
           </div>
         </section>
       </div>
@@ -12854,9 +12855,6 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/collapsedShowTitl
                       </div>
                     </div>
                   </div>
-                  <div
-                    style="height: 64px; margin-block-start: 24px;"
-                  />
                 </div>
               </div>
             </div>
@@ -12889,6 +12887,10 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/collapsedShowTitl
               </div>
             </div>
           </main>
+          <div
+            class="ant-pro-layout-has-footer"
+            style="height: 64px; margin-block-start: 24px;"
+          />
         </div>
       </section>
     </div>
@@ -14118,9 +14120,6 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/config-provider.t
                       </div>
                     </div>
                   </div>
-                  <div
-                    style="height: 64px; margin-block-start: 24px;"
-                  />
                 </div>
               </div>
             </div>
@@ -14153,6 +14152,10 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/config-provider.t
               </div>
             </div>
           </main>
+          <div
+            class="qixian-pro-layout-has-footer"
+            style="height: 64px; margin-block-start: 24px;"
+          />
         </div>
       </section>
     </div>
@@ -17318,9 +17321,6 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/designMenuCss.tsx
                         </div>
                       </div>
                     </div>
-                    <div
-                      style="height: 64px; margin-block-start: 24px;"
-                    />
                   </div>
                 </div>
               </div>
@@ -17353,6 +17353,10 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/designMenuCss.tsx
                 </div>
               </div>
             </main>
+            <div
+              class="ant-pro-layout-has-footer"
+              style="height: 64px; margin-block-start: 24px;"
+            />
           </div>
         </section>
       </div>
@@ -19737,9 +19741,6 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/dynamic-settings.
                         </div>
                       </div>
                       <div
-                        style="height: 64px; margin-block-start: 24px;"
-                      />
-                      <div
                         class="ant-pro-layout-watermark"
                         style="z-index: 9; position: absolute; left: 0px; top: 0px; width: 100%; height: 100%; background-size: 332px; pointer-events: none; background-repeat: repeat; background-image: url(data:image/png;base64,00);"
                       />
@@ -19776,6 +19777,10 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/dynamic-settings.
                 </div>
               </div>
             </main>
+            <div
+              class="ant-pro-layout-has-footer"
+              style="height: 64px; margin-block-start: 24px;"
+            />
           </div>
         </section>
       </div>
@@ -33296,9 +33301,6 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/theme.tsx correct
                       </div>
                     </div>
                   </div>
-                  <div
-                    style="height: 64px; margin-block-start: 24px;"
-                  />
                 </div>
               </div>
             </div>
@@ -33331,6 +33333,10 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/theme.tsx correct
               </div>
             </div>
           </main>
+          <div
+            class="ant-pro-layout-has-footer"
+            style="height: 64px; margin-block-start: 24px;"
+          />
         </div>
       </section>
     </div>

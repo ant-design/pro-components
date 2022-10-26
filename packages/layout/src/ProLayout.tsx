@@ -641,7 +641,7 @@ const BaseProLayout: React.FC<ProLayoutProps> = (props) => {
     }
     return null;
   }, [bgLayoutImgList]);
-
+  const { token } = useContext(ProProvider);
   return wrapSSR(
     <MenuCounter.Provider>
       <RouteContext.Provider
@@ -694,6 +694,16 @@ const BaseProLayout: React.FC<ProLayoutProps> = (props) => {
                   {loading ? <PageLoading /> : children}
                 </WrapContent>
                 {footerDom}
+                {hasFooterToolbar && (
+                  <div
+                    className={`${proLayoutClassName}-has-footer`}
+                    style={{
+                      height: 64,
+                      marginBlockStart:
+                        token?.layout?.pageContainer?.paddingBlockPageContainerContent,
+                    }}
+                  />
+                )}
               </div>
             </Layout>
           </div>

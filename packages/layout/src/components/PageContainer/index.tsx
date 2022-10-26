@@ -344,34 +344,12 @@ const PageContainerBase: React.FC<PageContainerProps> = (props) => {
   const content = useMemo(() => {
     return children ? (
       <>
-        <div
-          className={classNames(`${basePageContainer}-children-content ${hashId}`)}
-          style={{
-            paddingBlock: propsToken?.paddingBlockPageContainerContent,
-            paddingInline: propsToken?.paddingInlinePageContainerContent,
-          }}
-        >
+        <div className={classNames(`${basePageContainer}-children-content ${hashId}`)}>
           {children}
         </div>
-        {value.hasFooterToolbar && (
-          <div
-            style={{
-              height: 64,
-              marginBlockStart: token?.layout?.pageContainer?.paddingBlockPageContainerContent,
-            }}
-          />
-        )}
       </>
     ) : null;
-  }, [
-    children,
-    basePageContainer,
-    hashId,
-    propsToken?.paddingBlockPageContainerContent,
-    propsToken?.paddingInlinePageContainerContent,
-    value.hasFooterToolbar,
-    token?.layout?.pageContainer?.paddingBlockPageContainerContent,
-  ]);
+  }, [children, basePageContainer, hashId]);
 
   const renderContentDom = useMemo(() => {
     // 只要loadingDom非空我们就渲染loadingDom,否则渲染内容
