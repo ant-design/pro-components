@@ -40,6 +40,7 @@ When nesting child cards, the component will automatically switch to `flex` flex
 `colSpan` supports [Grid Responsive Layout](https://ant.design/components/grid-cn/#components-grid-demo-responsive) defined by antd. There are six preset response sizes: `xs` `sm` `md` `lg` `xl` `xxl`. If you want to support responsiveness, you can write `{ xs: 4, sm: 8, md: 10, lg: 12 }`.
 
 <code src="./demos/responsive.tsx" background="#f0f2f5" title="responsive" />
+
 ### Card segmentation
 
 In layout mode, by configuring `split`, you can easily split the card, and you can make any column, whether it is horizontal or vertical cutting, it is very convenient, the split column still retains the characteristics of the card, and the height is automatically filled. Notice:
