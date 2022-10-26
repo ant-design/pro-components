@@ -133,7 +133,7 @@ export const getLayoutDesignToken: (
     } as LayoutDesignToken['header'],
     sider: {
       paddingInlineLayoutMenu: 8,
-      paddingBlockLayoutMenu: 8,
+      paddingBlockLayoutMenu: 0,
       colorBgCollapsedButton: '#fff',
       colorTextCollapsedButtonHover: antdToken.colorTextSecondary,
       colorTextCollapsedButton: setAlpha(antdToken.colorTextBase, 0.25),
