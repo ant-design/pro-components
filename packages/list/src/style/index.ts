@@ -73,7 +73,8 @@ const genProListStyle: GenerateStyle<ProListToken> = (token) => {
           },
         },
         [`&${token.componentCls}-row-type-new`]: {
-          animation: 'techUiListActive 3s',
+          animationName: 'techUiListActive',
+          animationDirection: '3s',
         },
         [`&${token.componentCls}-row-type-inline`]: {
           [`${token.componentCls}-row-title`]: {

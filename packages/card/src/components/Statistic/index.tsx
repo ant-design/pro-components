@@ -85,8 +85,6 @@ const Statistic: React.FC<StatisticProps> = (props) => {
 
   const iconDom = icon && <div className={iconClass}>{icon}</div>;
 
-  console.log('classString', classString);
-
   return wrapSSR(
     <div className={classString} style={style}>
       {iconDom}
