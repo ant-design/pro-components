@@ -52,6 +52,9 @@ const genSiderMenuStyle: GenerateStyle<SiderMenuToken> = (token) => {
               fontSize: token.fontSizeSM,
               paddingBottom: 4,
             },
+            [`${token.antCls}-menu-item:hover`]: {
+              color: token?.layout?.sider?.colorTextMenuItemHover,
+            },
           },
           '&-logo': {
             position: 'relative',
