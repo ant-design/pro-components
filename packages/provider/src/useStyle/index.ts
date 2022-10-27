@@ -3,10 +3,10 @@ import { useStyleRegister } from '@ant-design/cssinjs';
 import { TinyColor } from '@ctrl/tinycolor';
 
 import { theme as antdTheme } from 'antd';
-
+import { ConfigProvider as AntdConfigProvider } from 'antd';
 import type React from 'react';
 import { useContext } from 'react';
-import { ProProvider } from '..';
+import { ProProvider } from '../index';
 import type { ProTokenType } from '../typing/layoutToken';
 import type { AliasToken } from './token';
 import * as batToken from './token';
@@ -105,7 +105,9 @@ export function useStyle(
   componentName: string,
   styleFn: (token: ProAliasToken) => CSSInterpolation,
 ): UseStyleResult {
-  const { token, hashId = '', theme } = useContext(ProProvider);
+  const { token = {} as ProAliasToken, hashId = '', theme } = useContext(ProProvider);
+  const { getPrefixCls } = useContext(AntdConfigProvider.ConfigContext);
+  token.antCls = `.${getPrefixCls()}`;
   return {
     wrapSSR: useStyleRegister(
       {
