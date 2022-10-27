@@ -710,8 +710,8 @@ function BaseForm<T = Record<string, any>>(props: BaseFormProps<T>) {
             // 组合 urlSearch 和 initialValues
             initialValues={
               syncToUrlAsImportant
-                ? { ...initialData, ...initialValues, ...urlParamsMergeInitialValues }
-                : { ...urlParamsMergeInitialValues, ...initialData, ...initialValues }
+                ? { ...initialValues, ...initialData, ...urlParamsMergeInitialValues }
+                : { ...urlParamsMergeInitialValues, ...initialValues, ...initialData }
             }
             onValuesChange={(changedValues, values) => {
               propRest?.onValuesChange?.(

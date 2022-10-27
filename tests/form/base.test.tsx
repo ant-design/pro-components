@@ -262,6 +262,27 @@ describe('ProForm', () => {
     wrapper.unmount();
   });
 
+  it('📦 request rewrite initialsValue', async () => {
+    const wrapper = render(
+      <ProForm
+        request={async () => {
+          await act(async () => {});
+          return {
+            name: '100',
+          };
+        }}
+        initialValues={{
+          name: '不是1000',
+        }}
+      >
+        <ProFormText name="name" />
+      </ProForm>,
+    );
+
+    expect(!!(await wrapper.findByDisplayValue('100'))).toBeTruthy();
+    wrapper.unmount();
+  });
+
   it('📦 submit props actionsRender=()=>false', async () => {
     const wrapper = render(
       <ProForm
