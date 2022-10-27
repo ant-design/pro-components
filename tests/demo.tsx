@@ -34,6 +34,9 @@ function demoTest(component: string, options: Options = {}) {
     style.lineHeight = '16px';
     return style;
   };
+  beforeAll(() => {
+    MockDate.set(1479828164000);
+  });
 
   afterEach(() => {
     logSpy.mockReset();
@@ -59,12 +62,11 @@ function demoTest(component: string, options: Options = {}) {
         testMethod = test.skip;
       }
       testMethod(`📸 renders ${file} correctly`, async () => {
-        MockDate.set(1479828164000);
         const Demo = require(`.${file}`).default;
         const wrapper = reactRender(<Demo />);
-        // Convert aria related content
+
         await act(async () => {
-          await waitTime(3000);
+          await waitTime(300);
         });
         expect(wrapper.asFragment()).toMatchSnapshot();
 

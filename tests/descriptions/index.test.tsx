@@ -1,7 +1,7 @@
 import ProDescriptions from '@ant-design/pro-descriptions';
 import type { ProCoreActionType } from '@ant-design/pro-utils';
 import '@testing-library/jest-dom';
-import { render as reactRender } from '@testing-library/react';
+import { render } from '@testing-library/react';
 import { Button } from 'antd';
 import { mount } from 'enzyme';
 import { useRef } from 'react';
@@ -10,7 +10,7 @@ import { waitForComponentToPaint, waitTime } from '../util';
 
 describe('descriptions', () => {
   it('🥩 descriptions render valueEnum when data = 0', async () => {
-    const html = reactRender(
+    const html = render(
       <ProDescriptions
         columns={[
           {
@@ -59,7 +59,7 @@ describe('descriptions', () => {
   });
 
   it('🎏 loading test', async () => {
-    const html = mount(
+    const html = render(
       <ProDescriptions
         columns={[
           {
@@ -78,16 +78,32 @@ describe('descriptions', () => {
       />,
     );
     await waitForComponentToPaint(html, 1200);
-    expect(html.find('.ant-skeleton').exists()).toBeTruthy();
+    expect(!!html.baseElement.querySelector('.ant-skeleton')).toBeTruthy();
 
     act(() => {
-      html.setProps({
-        loading: false,
-      });
+      html.rerender(
+        <ProDescriptions
+          columns={[
+            {
+              title: 'money',
+              dataIndex: 'money',
+              valueType: 'money',
+            },
+          ]}
+          loading={false}
+          request={async () => {
+            return new Promise((resolve) => {
+              setTimeout(() => {
+                resolve({ data: [] });
+              }, 5000);
+            });
+          }}
+        />,
+      );
     });
     await waitForComponentToPaint(html, 1200);
     // props 指定为 false 后，无论 request 完成与否都不会出现 spin
-    expect(html.find('.ant-skeleton').exists()).toBeFalsy();
+    expect(!!html.baseElement.querySelector('.ant-skeleton')).toBeFalsy();
   });
 
   it('🥩 test reload', async () => {
@@ -124,8 +140,8 @@ describe('descriptions', () => {
         </ProDescriptions>
       );
     };
-    const html = reactRender(<Reload />);
-    await waitForComponentToPaint(html, 300);
+    const html = render(<Reload />);
+    await waitForComponentToPaint(html, 500);
 
     act(() => {
       html.queryByText('刷新')?.click();
@@ -142,7 +158,7 @@ describe('descriptions', () => {
   it('🥩 test reload by params', async () => {
     const fn = jest.fn();
 
-    const html = mount(
+    const html = render(
       <ProDescriptions
         title="高级定义列表 request"
         request={async () => {
@@ -166,9 +182,28 @@ describe('descriptions', () => {
     await waitForComponentToPaint(html, 300);
 
     act(() => {
-      html.setProps({
-        params: { name: 'qixian' },
-      });
+      html.rerender(
+        <ProDescriptions
+          title="高级定义列表 request"
+          request={async () => {
+            fn();
+            return Promise.resolve({
+              success: true,
+              data: { id: '这是一段文本', date: '20200730', money: '12121' },
+            });
+          }}
+          extra={
+            <Button type="link" id="reload">
+              修改
+            </Button>
+          }
+          params={{ name: 'qixian' }}
+        >
+          <ProDescriptions.Item label="文本" dataIndex="id" />
+          <ProDescriptions.Item dataIndex="date" label="日期" valueType="date" />
+          <ProDescriptions.Item label="money" dataIndex="money" valueType="money" />
+        </ProDescriptions>,
+      );
     });
 
     await waitForComponentToPaint(html);
@@ -179,7 +214,7 @@ describe('descriptions', () => {
   it('🥩 test request error', async () => {
     const fn = jest.fn();
 
-    const html = mount(
+    const html = render(
       <ProDescriptions
         title="高级定义列表 request"
         request={async () => {
@@ -203,7 +238,7 @@ describe('descriptions', () => {
   });
 
   it('🏊 Progress', () => {
-    const html = mount(
+    const html = render(
       <ProDescriptions>
         <ProDescriptions.Item label="进度条1" valueType="progress">
           40
@@ -216,13 +251,21 @@ describe('descriptions', () => {
         </ProDescriptions.Item>
       </ProDescriptions>,
     );
-    expect(html.find('.ant-progress-text').at(0).text()).toEqual('40%');
-    expect(html.find('.ant-progress-text').at(1).find('.anticon-close-circle')).toBeTruthy();
-    expect(html.find('.ant-progress-text').at(1).find('.anticon-check-circle')).toBeTruthy();
+    expect(html.baseElement.querySelector('.ant-progress-text')?.textContent).toEqual('40%');
+    expect(
+      !!html.baseElement
+        .querySelectorAll('.ant-progress-text')?.[1]
+        ?.querySelector('.anticon-close-circle'),
+    ).toBeTruthy();
+    expect(
+      !!html.baseElement
+        .querySelectorAll('.ant-progress-text')?.[2]
+        ?.querySelector('.anticon-check-circle'),
+    ).toBeTruthy();
   });
 
   it('🏊 ProDescriptions support order', () => {
-    const html = mount(
+    const html = render(
       <ProDescriptions
         dataSource={{
           title: 'test',
@@ -247,13 +290,11 @@ describe('descriptions', () => {
         </ProDescriptions.Item>
       </ProDescriptions>,
     );
-    act(() => {
-      expect(html.render()).toMatchSnapshot();
-    });
+    expect(html.asFragment()).toMatchSnapshot();
   });
 
   it('📝 typography support and copy', async () => {
-    const wrapper = reactRender(
+    const wrapper = render(
       <ProDescriptions
         title="dataSource and columns"
         dataSource={{

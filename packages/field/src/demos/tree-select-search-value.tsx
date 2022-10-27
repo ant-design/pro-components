@@ -62,7 +62,11 @@ export default function App() {
 
   return (
     <div>
-      <ProForm>
+      <ProForm
+        initialValues={{
+          name: ['0-0'],
+        }}
+      >
         <ProFormTreeSelect
           name="name"
           placeholder="请输入搜索关键字"

@@ -8,6 +8,7 @@ describe('ProFormCaptcha', () => {
   it('😊 ProFormCaptcha Manual open', async () => {
     const captchaRef = React.createRef<any>();
     const fn = jest.fn();
+    jest.useFakeTimers();
     const TimingText = '获取验证码';
     const wrapper = mount(
       <ProForm
@@ -84,5 +85,7 @@ describe('ProFormCaptcha', () => {
 
     jest.advanceTimersByTime(60000);
     expect(wrapper.find('#captchaButton').at(0).html()).toMatch('获取验证码');
+
+    jest.useRealTimers();
   });
 });
