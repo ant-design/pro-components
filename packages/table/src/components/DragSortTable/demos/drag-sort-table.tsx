@@ -27,6 +27,16 @@ const data = [
     index: 2,
   },
 ];
+const wait = async (delay = 1000) =>
+  new Promise((resolve) => setTimeout(() => resolve(void 0), delay));
+const request = async () => {
+  await wait(3000);
+  return {
+    data,
+    total: data.length,
+    success: true,
+  };
+};
 
 export default () => {
   const columns: ProColumns[] = [
@@ -111,6 +121,16 @@ export default () => {
         dataSource={dataSource2}
         dragSortKey="sort"
         dragSortHandlerRender={dragHandleRender}
+        onDragSortEnd={handleDragSortEnd2}
+      />
+      <DragSortTable
+        headerTitle="使用 request 获取数据源"
+        columns={columns2}
+        rowKey="index"
+        search={false}
+        pagination={false}
+        request={request}
+        dragSortKey="sort"
         onDragSortEnd={handleDragSortEnd2}
       />
     </>
