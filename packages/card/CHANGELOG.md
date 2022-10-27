@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.0.20](https://github.com/ant-design/pro-components/compare/@ant-design/pro-card@2.0.19...@ant-design/pro-card@2.0.20) (2022-10-27)
+
+### Bug Fixes
+
+- **layout:** better footer animation ([ca73417](https://github.com/ant-design/pro-components/commit/ca73417d52c60e4e6bc8de5edad2226113e5a85e))
+- **layout:** 修复 CSS-in-js 中的 animation 警告 ([#6122](https://github.com/ant-design/pro-components/issues/6122)) ([eb25214](https://github.com/ant-design/pro-components/commit/eb25214465c9a6e705e91b084d1003f4401c88ff))
+
 ## [2.0.19](https://github.com/ant-design/pro-components/compare/@ant-design/pro-card@2.0.18...@ant-design/pro-card@2.0.19) (2022-10-25)
 
 **Note:** Version bump only for package @ant-design/pro-card

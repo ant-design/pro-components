@@ -2,6 +2,14 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.0.12](https://github.com/ant-design/pro-components/compare/@ant-design/pro-provider@2.0.11...@ant-design/pro-provider@2.0.12) (2022-10-27)
+
+### Bug Fixes
+
+- **card:** fix static style error ([2975219](https://github.com/ant-design/pro-components/commit/29752195b8aef95a769af846f184a9d592c768b7))
+- **layout:** layout sider menu add text hover color ([#6135](https://github.com/ant-design/pro-components/issues/6135)) ([832bf3f](https://github.com/ant-design/pro-components/commit/832bf3f72c2b0dea91e2f1b011cab042f2f1ae70))
+- **provide:** fix token no extends error ([6a6abfb](https://github.com/ant-design/pro-components/commit/6a6abfb9b0ff96b3630883d29d1b07244c021ed0))
+
 ## [2.0.11](https://github.com/ant-design/pro-components/compare/@ant-design/pro-provider@2.0.10...@ant-design/pro-provider@2.0.11) (2022-10-25)
 
 ### Bug Fixes

@@ -2,6 +2,17 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [7.1.14](https://github.com/ant-design/pro-components/compare/@ant-design/pro-layout@7.1.13...@ant-design/pro-layout@7.1.14) (2022-10-27)
+
+### Bug Fixes
+
+- **layout:** better footer animation ([ca73417](https://github.com/ant-design/pro-components/commit/ca73417d52c60e4e6bc8de5edad2226113e5a85e))
+- **layout:** fix prefix classname no work error ([67ba351](https://github.com/ant-design/pro-components/commit/67ba351310ef15e8d7599eff58bf01007e6c42c9))
+- **layout:** layout sider menu add text hover color ([#6135](https://github.com/ant-design/pro-components/issues/6135)) ([832bf3f](https://github.com/ant-design/pro-components/commit/832bf3f72c2b0dea91e2f1b011cab042f2f1ae70))
+- **layout:** Move the footer placeholder to the very bottom of the page ([0af8b88](https://github.com/ant-design/pro-components/commit/0af8b887877206c4f9a4a69d7da0d880836e8bae))
+- **layout:** 修复 CSS-in-js 中的 animation 警告 ([#6122](https://github.com/ant-design/pro-components/issues/6122)) ([eb25214](https://github.com/ant-design/pro-components/commit/eb25214465c9a6e705e91b084d1003f4401c88ff))
+- **provide:** fix token no extends error ([6a6abfb](https://github.com/ant-design/pro-components/commit/6a6abfb9b0ff96b3630883d29d1b07244c021ed0))
+
 ## [7.1.13](https://github.com/ant-design/pro-components/compare/@ant-design/pro-layout@7.1.12...@ant-design/pro-layout@7.1.13) (2022-10-25)
 
 ### Bug Fixes
