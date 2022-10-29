@@ -883,7 +883,7 @@ describe('ProForm', () => {
     wrapper.unmount();
   });
 
-  it('📦 ProFormField support onChange', async () => {
+  it('📦 ProFormField support onChange in ProForm', async () => {
     const fn = jest.fn();
     const wrapper = render(
       <ProForm onValuesChange={fn}>
@@ -891,6 +891,31 @@ describe('ProForm', () => {
           <Input id="testInput" />
         </ProFormField>
       </ProForm>,
+    );
+
+    act(() => {
+      fireEvent.change(wrapper.baseElement.querySelectorAll<HTMLElement>('input#testInput')[0], {
+        target: {
+          value: 'test',
+        },
+      });
+    });
+    expect(fn).toBeCalled();
+    wrapper.unmount();
+  });
+
+  it('📦 ProFormField support onChange', async () => {
+    const fn = jest.fn();
+    const wrapper = render(
+      <ProFormField
+        name="phone2"
+        // @ts-ignore
+        onChange={(e) => {
+          fn(e.target.value);
+        }}
+      >
+        <Input id="testInput" />
+      </ProFormField>,
     );
 
     act(() => {
