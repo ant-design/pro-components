@@ -267,7 +267,7 @@ const Card = React.forwardRef((props: CardProps, ref: any) => {
           {loading ? loadingDOM : childrenModified}
         </div>
       )}
-      {<Actions actions={actions} prefixCls={prefixCls} />}
+      {actions ? <Actions actions={actions} prefixCls={prefixCls} /> : null}
     </div>,
   );
 });

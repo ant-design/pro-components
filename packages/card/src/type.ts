@@ -40,7 +40,7 @@ type CardPropsBase = {
   /** 栅格间距 */
   gutter?: Gutter | Gutter[];
   /** 操作按钮 */
-  actions?: React.ReactNode[];
+  actions?: React.ReactNode[] | React.ReactNode;
   /** 拆分卡片方式 */
   split?: 'vertical' | 'horizontal';
   /** 是否有边框 */
