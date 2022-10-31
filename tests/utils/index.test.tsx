@@ -17,6 +17,7 @@ import {
   useDebounceFn,
   useDebounceValue,
   compareVersions,
+  openVisibleCompatible,
   lighten,
   setAlpha,
 } from '@ant-design/pro-utils';
@@ -37,6 +38,15 @@ describe('utils', () => {
     expect(compareVersions('2.0.0', '1.0.0')).toBe(1);
     expect(compareVersions('1.0.0', '2.0.0')).toBe(-1);
     expect(compareVersions('1.0.0', '1.0.0')).toBe(0);
+  });
+
+  it('openVisibleCompatible', () => {
+    expect(openVisibleCompatible(true).open).toBeTruthy();
+    expect(openVisibleCompatible(true).visible === undefined).toBeTruthy();
+    process.env.ANTD_VERSION = '4.20.0';
+    expect(openVisibleCompatible(true).visible).toBeTruthy();
+    expect(openVisibleCompatible(true).open === undefined).toBeTruthy();
+    process.env.ANTD_VERSION = undefined;
   });
 
   it('setAlpha', () => {
