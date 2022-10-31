@@ -45,7 +45,7 @@ const InlineErrorFormItemPopover: React.FC<{
     }
   }, [inputProps.errors, inputProps.validateStatus]);
 
-  const drawerOpenProps = openVisibleCompatible(
+  const popoverOpenProps = openVisibleCompatible(
     errorStringList.length < 1 ? false : open,
     (changeOpen: boolean) => {
       if (changeOpen === open) return;
@@ -58,7 +58,7 @@ const InlineErrorFormItemPopover: React.FC<{
       key="popover"
       trigger={popoverProps?.trigger || 'focus'}
       placement={popoverProps?.placement || 'topRight'}
-      {...drawerOpenProps}
+      {...popoverOpenProps}
       getPopupContainer={popoverProps?.getPopupContainer}
       getTooltipContainer={popoverProps?.getTooltipContainer}
       content={wrapSSR(

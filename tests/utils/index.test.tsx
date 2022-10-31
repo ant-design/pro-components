@@ -29,6 +29,13 @@ import React, { useEffect, useState } from 'react';
 import { waitForComponentToPaint, waitTime } from '../util';
 
 describe('utils', () => {
+  beforeEach(() => {
+    delete process.env.ANTD_VERSION;
+  });
+  afterEach(() => {
+    delete process.env.ANTD_VERSION;
+  });
+
   it('lighten', () => {
     const color = lighten('#000', 50);
     expect(color).toBe('#808080');
@@ -46,7 +53,6 @@ describe('utils', () => {
     process.env.ANTD_VERSION = '4.20.0';
     expect(openVisibleCompatible(true).visible).toBeTruthy();
     expect(openVisibleCompatible(true).open === undefined).toBeTruthy();
-    process.env.ANTD_VERSION = undefined;
   });
 
   it('setAlpha', () => {
