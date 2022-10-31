@@ -48,15 +48,9 @@ const compareSegments = (a: string | RegExpMatchArray, b: string | RegExpMatchAr
  * @returns RegExpMatchArray
  */
 const validateAndParse = (version: string): RegExpMatchArray => {
-  if (typeof version !== 'string') {
-    throw new TypeError('Invalid argument expected string');
-  }
   const match = version.match(semver);
-  if (!match) {
-    throw new Error(`Invalid argument not valid semver ('${version}' received)`);
-  }
-  match.shift();
-  return match;
+  match?.shift?.();
+  return match!;
 };
 
 /**
@@ -79,10 +73,7 @@ export const compareVersions = (v1: string, v2: string) => {
   const r = compareSegments(n1, n2);
   if (r !== 0) return r;
 
-  // validate pre-release
-  if (p1 && p2) {
-    return compareSegments(p1.split('.'), p2.split('.'));
-  } else if (p1 || p2) {
+  if (p1 || p2) {
     return p1 ? -1 : 1;
   }
 
