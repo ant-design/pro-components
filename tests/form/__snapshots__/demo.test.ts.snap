@@ -44697,7 +44697,7 @@ exports[`form demos 📸 renders ./packages/form/src/demos/layout-footer.tsx cor
                 tabindex="0"
               >
                 <li
-                  class="ant-menu-submenu ant-menu-submenu-vertical ant-pro-base-menu-submenu ant-menu-submenu-selected"
+                  class="ant-menu-submenu ant-menu-submenu-vertical ant-pro-base-menu-submenu ant-pro-base-menu-submenu-has-icon ant-menu-submenu-selected"
                   role="none"
                 >
                   <div

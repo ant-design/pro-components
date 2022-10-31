@@ -8387,7 +8387,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/antd@4MenuIconFor
                 tabindex="0"
               >
                 <li
-                  class="ant-menu-submenu ant-menu-submenu-inline ant-pro-base-menu-submenu ant-menu-submenu-open ant-menu-submenu-selected"
+                  class="ant-menu-submenu ant-menu-submenu-inline ant-pro-base-menu-submenu ant-pro-base-menu-submenu-has-icon ant-menu-submenu-open ant-menu-submenu-selected"
                   role="none"
                 >
                   <div
@@ -9117,7 +9117,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/api.tsx correctly
                   </span>
                 </li>
                 <li
-                  class="ant-menu-submenu ant-menu-submenu-vertical ant-pro-base-menu-submenu"
+                  class="ant-menu-submenu ant-menu-submenu-vertical ant-pro-base-menu-submenu ant-pro-base-menu-submenu-has-icon"
                   role="none"
                 >
                   <div
@@ -9172,7 +9172,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/api.tsx correctly
                   </div>
                 </li>
                 <li
-                  class="ant-menu-submenu ant-menu-submenu-vertical ant-pro-base-menu-submenu"
+                  class="ant-menu-submenu ant-menu-submenu-vertical ant-pro-base-menu-submenu ant-pro-base-menu-submenu-has-icon"
                   role="none"
                 >
                   <div
@@ -9727,7 +9727,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/background-contex
                         </span>
                       </li>
                       <li
-                        class="ant-menu-overflow-item ant-menu-submenu ant-menu-submenu-horizontal ant-pro-base-menu-submenu"
+                        class="ant-menu-overflow-item ant-menu-submenu ant-menu-submenu-horizontal ant-pro-base-menu-submenu ant-pro-base-menu-submenu-has-icon"
                         role="none"
                         style="opacity: 1; order: 1;"
                       >
@@ -9782,7 +9782,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/background-contex
                         </div>
                       </li>
                       <li
-                        class="ant-menu-overflow-item ant-menu-submenu ant-menu-submenu-horizontal ant-pro-base-menu-submenu ant-menu-submenu-selected"
+                        class="ant-menu-overflow-item ant-menu-submenu ant-menu-submenu-horizontal ant-pro-base-menu-submenu ant-pro-base-menu-submenu-has-icon ant-menu-submenu-selected"
                         role="none"
                         style="opacity: 1; order: 2;"
                       >
@@ -13141,7 +13141,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/config-provider.t
                   </span>
                 </li>
                 <li
-                  class="qixian-menu-submenu qixian-menu-submenu-inline qixian-pro-base-menu-submenu"
+                  class="qixian-menu-submenu qixian-menu-submenu-inline qixian-pro-base-menu-submenu qixian-pro-base-menu-submenu-has-icon"
                   role="none"
                 >
                   <div
@@ -13197,7 +13197,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/config-provider.t
                   </div>
                 </li>
                 <li
-                  class="qixian-menu-submenu qixian-menu-submenu-inline qixian-pro-base-menu-submenu"
+                  class="qixian-menu-submenu qixian-menu-submenu-inline qixian-pro-base-menu-submenu qixian-pro-base-menu-submenu-has-icon"
                   role="none"
                 >
                   <div
@@ -14759,7 +14759,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/customSider.tsx c
                       class="ant-menu-item-group-list"
                     >
                       <li
-                        class="ant-menu-submenu ant-menu-submenu-inline ant-pro-base-menu-submenu ant-menu-submenu-open ant-menu-submenu-selected"
+                        class="ant-menu-submenu ant-menu-submenu-inline ant-pro-base-menu-submenu ant-pro-base-menu-submenu-has-icon ant-menu-submenu-open ant-menu-submenu-selected"
                         role="none"
                       >
                         <div
@@ -15413,7 +15413,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/customize-collaps
                   </span>
                 </li>
                 <li
-                  class="ant-menu-submenu ant-menu-submenu-inline ant-pro-base-menu-submenu"
+                  class="ant-menu-submenu ant-menu-submenu-inline ant-pro-base-menu-submenu ant-pro-base-menu-submenu-has-icon"
                   role="none"
                 >
                   <div
@@ -15469,7 +15469,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/customize-collaps
                   </div>
                 </li>
                 <li
-                  class="ant-menu-submenu ant-menu-submenu-inline ant-pro-base-menu-submenu"
+                  class="ant-menu-submenu ant-menu-submenu-inline ant-pro-base-menu-submenu ant-pro-base-menu-submenu-has-icon"
                   role="none"
                 >
                   <div
@@ -16020,7 +16020,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/customizeMenu.tsx
                     </span>
                   </li>
                   <li
-                    class="ant-menu-submenu ant-menu-submenu-inline ant-pro-base-menu-submenu"
+                    class="ant-menu-submenu ant-menu-submenu-inline ant-pro-base-menu-submenu ant-pro-base-menu-submenu-has-icon"
                     role="none"
                   >
                     <div
@@ -16081,7 +16081,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/customizeMenu.tsx
                     </div>
                   </li>
                   <li
-                    class="ant-menu-submenu ant-menu-submenu-inline ant-pro-base-menu-submenu"
+                    class="ant-menu-submenu ant-menu-submenu-inline ant-pro-base-menu-submenu ant-pro-base-menu-submenu-has-icon"
                     role="none"
                   >
                     <div
@@ -17961,7 +17961,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/designSiderMenu.t
                       class="ant-menu-item-group-list"
                     >
                       <li
-                        class="ant-menu-submenu ant-menu-submenu-inline ant-pro-base-menu-submenu ant-menu-submenu-open ant-menu-submenu-selected"
+                        class="ant-menu-submenu ant-menu-submenu-inline ant-pro-base-menu-submenu ant-pro-base-menu-submenu-has-icon ant-menu-submenu-open ant-menu-submenu-selected"
                         role="none"
                       >
                         <div
@@ -18757,7 +18757,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/dynamic-settings.
                     </span>
                   </li>
                   <li
-                    class="ant-menu-submenu ant-menu-submenu-inline ant-pro-base-menu-submenu"
+                    class="ant-menu-submenu ant-menu-submenu-inline ant-pro-base-menu-submenu ant-pro-base-menu-submenu-has-icon"
                     role="none"
                   >
                     <div
@@ -18813,7 +18813,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/dynamic-settings.
                     </div>
                   </li>
                   <li
-                    class="ant-menu-submenu ant-menu-submenu-inline ant-pro-base-menu-submenu"
+                    class="ant-menu-submenu ant-menu-submenu-inline ant-pro-base-menu-submenu ant-pro-base-menu-submenu-has-icon"
                     role="none"
                   >
                     <div
@@ -20618,7 +20618,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/footer.tsx correc
                   </span>
                 </li>
                 <li
-                  class="ant-menu-submenu ant-menu-submenu-vertical ant-pro-base-menu-submenu"
+                  class="ant-menu-submenu ant-menu-submenu-vertical ant-pro-base-menu-submenu ant-pro-base-menu-submenu-has-icon"
                   role="none"
                 >
                   <div
@@ -20673,7 +20673,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/footer.tsx correc
                   </div>
                 </li>
                 <li
-                  class="ant-menu-submenu ant-menu-submenu-vertical ant-pro-base-menu-submenu"
+                  class="ant-menu-submenu ant-menu-submenu-vertical ant-pro-base-menu-submenu ant-pro-base-menu-submenu-has-icon"
                   role="none"
                 >
                   <div
@@ -22245,7 +22245,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/ghost.tsx correct
                     </span>
                   </li>
                   <li
-                    class="ant-menu-submenu ant-menu-submenu-inline ant-pro-base-menu-submenu"
+                    class="ant-menu-submenu ant-menu-submenu-inline ant-pro-base-menu-submenu ant-pro-base-menu-submenu-has-icon"
                     role="none"
                   >
                     <div
@@ -22301,7 +22301,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/ghost.tsx correct
                     </div>
                   </li>
                   <li
-                    class="ant-menu-submenu ant-menu-submenu-inline ant-pro-base-menu-submenu"
+                    class="ant-menu-submenu ant-menu-submenu-inline ant-pro-base-menu-submenu ant-pro-base-menu-submenu-has-icon"
                     role="none"
                   >
                     <div
@@ -22926,7 +22926,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/hideMenu.tsx corr
                     </span>
                   </li>
                   <li
-                    class="ant-menu-submenu ant-menu-submenu-inline ant-pro-base-menu-submenu"
+                    class="ant-menu-submenu ant-menu-submenu-inline ant-pro-base-menu-submenu ant-pro-base-menu-submenu-has-icon"
                     role="none"
                   >
                     <div
@@ -22982,7 +22982,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/hideMenu.tsx corr
                     </div>
                   </li>
                   <li
-                    class="ant-menu-submenu ant-menu-submenu-inline ant-pro-base-menu-submenu"
+                    class="ant-menu-submenu ant-menu-submenu-inline ant-pro-base-menu-submenu ant-pro-base-menu-submenu-has-icon"
                     role="none"
                   >
                     <div
@@ -24877,7 +24877,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/menu-group.tsx co
                   tabindex="0"
                 >
                   <li
-                    class="ant-menu-submenu ant-menu-submenu-inline ant-pro-base-menu-submenu"
+                    class="ant-menu-submenu ant-menu-submenu-inline ant-pro-base-menu-submenu ant-pro-base-menu-submenu-has-icon"
                     role="none"
                   >
                     <div
@@ -24933,7 +24933,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/menu-group.tsx co
                     </div>
                   </li>
                   <li
-                    class="ant-menu-submenu ant-menu-submenu-inline ant-pro-base-menu-submenu"
+                    class="ant-menu-submenu ant-menu-submenu-inline ant-pro-base-menu-submenu ant-pro-base-menu-submenu-has-icon"
                     role="none"
                   >
                     <div
@@ -28192,7 +28192,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/siderMode.tsx cor
                     </span>
                   </li>
                   <li
-                    class="ant-menu-submenu ant-menu-submenu-inline ant-pro-base-menu-submenu"
+                    class="ant-menu-submenu ant-menu-submenu-inline ant-pro-base-menu-submenu ant-pro-base-menu-submenu-has-icon"
                     role="none"
                   >
                     <div
@@ -28248,7 +28248,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/siderMode.tsx cor
                     </div>
                   </li>
                   <li
-                    class="ant-menu-submenu ant-menu-submenu-inline ant-pro-base-menu-submenu ant-menu-submenu-open ant-menu-submenu-selected"
+                    class="ant-menu-submenu ant-menu-submenu-inline ant-pro-base-menu-submenu ant-pro-base-menu-submenu-has-icon ant-menu-submenu-open ant-menu-submenu-selected"
                     role="none"
                   >
                     <div
@@ -30771,7 +30771,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/splitMenus.tsx co
                       </span>
                     </li>
                     <li
-                      class="ant-menu-overflow-item ant-menu-submenu ant-menu-submenu-horizontal ant-pro-base-menu-submenu"
+                      class="ant-menu-overflow-item ant-menu-submenu ant-menu-submenu-horizontal ant-pro-base-menu-submenu ant-pro-base-menu-submenu-has-icon"
                       role="none"
                       style="opacity: 1; order: 1;"
                     >
@@ -30826,7 +30826,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/splitMenus.tsx co
                       </div>
                     </li>
                     <li
-                      class="ant-menu-overflow-item ant-menu-submenu ant-menu-submenu-horizontal ant-pro-base-menu-submenu"
+                      class="ant-menu-overflow-item ant-menu-submenu ant-menu-submenu-horizontal ant-pro-base-menu-submenu ant-pro-base-menu-submenu-has-icon"
                       role="none"
                       style="opacity: 1; order: 2;"
                     >
@@ -31536,7 +31536,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/splitMenus.tsx co
                   </span>
                 </li>
                 <li
-                  class="ant-menu-submenu ant-menu-submenu-inline ant-pro-base-menu-submenu"
+                  class="ant-menu-submenu ant-menu-submenu-inline ant-pro-base-menu-submenu ant-pro-base-menu-submenu-has-icon"
                   role="none"
                 >
                   <div
@@ -31592,7 +31592,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/splitMenus.tsx co
                   </div>
                 </li>
                 <li
-                  class="ant-menu-submenu ant-menu-submenu-inline ant-pro-base-menu-submenu"
+                  class="ant-menu-submenu ant-menu-submenu-inline ant-pro-base-menu-submenu ant-pro-base-menu-submenu-has-icon"
                   role="none"
                 >
                   <div
@@ -32012,7 +32012,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/splitMenus.tsx co
                   </span>
                 </li>
                 <li
-                  class="ant-menu-submenu ant-menu-submenu-inline ant-pro-base-menu-submenu"
+                  class="ant-menu-submenu ant-menu-submenu-inline ant-pro-base-menu-submenu ant-pro-base-menu-submenu-has-icon"
                   role="none"
                 >
                   <div
@@ -32068,7 +32068,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/splitMenus.tsx co
                   </div>
                 </li>
                 <li
-                  class="ant-menu-submenu ant-menu-submenu-inline ant-pro-base-menu-submenu"
+                  class="ant-menu-submenu ant-menu-submenu-inline ant-pro-base-menu-submenu ant-pro-base-menu-submenu-has-icon"
                   role="none"
                 >
                   <div
@@ -32621,7 +32621,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/theme.tsx correct
                 tabindex="0"
               >
                 <li
-                  class="ant-menu-submenu ant-menu-submenu-inline ant-pro-base-menu-submenu ant-menu-submenu-open ant-menu-submenu-selected"
+                  class="ant-menu-submenu ant-menu-submenu-inline ant-pro-base-menu-submenu ant-pro-base-menu-submenu-has-icon ant-menu-submenu-open ant-menu-submenu-selected"
                   role="none"
                 >
                   <div
@@ -33909,7 +33909,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/topMode.tsx corre
                         </span>
                       </li>
                       <li
-                        class="ant-menu-overflow-item ant-menu-submenu ant-menu-submenu-horizontal ant-pro-base-menu-submenu"
+                        class="ant-menu-overflow-item ant-menu-submenu ant-menu-submenu-horizontal ant-pro-base-menu-submenu ant-pro-base-menu-submenu-has-icon"
                         role="none"
                         style="opacity: 1; order: 1;"
                       >
@@ -33964,7 +33964,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/topMode.tsx corre
                         </div>
                       </li>
                       <li
-                        class="ant-menu-overflow-item ant-menu-submenu ant-menu-submenu-horizontal ant-pro-base-menu-submenu ant-menu-submenu-selected"
+                        class="ant-menu-overflow-item ant-menu-submenu ant-menu-submenu-horizontal ant-pro-base-menu-submenu ant-pro-base-menu-submenu-has-icon ant-menu-submenu-selected"
                         role="none"
                         style="opacity: 1; order: 2;"
                       >

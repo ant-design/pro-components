@@ -13,6 +13,11 @@ const genProLayoutBaseMenuStyle: GenerateStyle<ProLayoutBaseMenuToken> = (token)
       [`${token.componentCls}-menu-item`]: {
         transition: 'none !important',
       },
+      [`${token.componentCls}-submenu-has-icon`]: {
+        [`> ${token.antCls}-menu-sub`]: {
+          paddingInlineStart: 10,
+        },
+      },
       [`& &-collapsed`]: {
         [`${token.antCls}-menu-item, 
         ${token.antCls}-menu-item-group > ${token.antCls}-menu-item-group-list > ${token.antCls}-menu-item, 

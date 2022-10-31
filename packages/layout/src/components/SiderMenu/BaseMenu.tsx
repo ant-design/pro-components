@@ -1,5 +1,6 @@
 import { createFromIconfontCN } from '@ant-design/icons';
-import { ProProvider, ProTokenType } from '@ant-design/pro-provider';
+import type { ProTokenType } from '@ant-design/pro-provider';
+import { ProProvider } from '@ant-design/pro-provider';
 import { isImg, isUrl, useMountMergeState } from '@ant-design/pro-utils';
 import type { MenuProps } from 'antd';
 import { Menu, Skeleton } from 'antd';
@@ -203,6 +204,7 @@ class MenuUtil {
       if (isGroup && level === 0 && this.props.collapsed && !menu.collapsedShowGroupTitle) {
         return childrenList;
       }
+
       return [
         {
           type: menuType,
@@ -211,7 +213,11 @@ class MenuUtil {
           label: title,
           onClick: isGroup ? undefined : item.onTitleClick,
           children: childrenList,
-          className: menuType == 'group' ? `${baseClassName}-group` : `${baseClassName}-submenu`,
+          className: classNames({
+            [`${baseClassName}-group`]: menuType === 'group',
+            [`${baseClassName}-submenu`]: menuType !== 'group',
+            [`${baseClassName}-submenu-has-icon`]: menuType !== 'group' && shouldHasIcon && iconDom,
+          }),
         } as ItemType,
         isGroup && level === 0
           ? ({
