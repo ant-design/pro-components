@@ -1,5 +1,5 @@
-﻿import { compareVersions } from '@ant-design/pro-utils';
-import { Popover, version } from 'antd';
+﻿import { openVisibleCompatible } from '@ant-design/pro-utils';
+import { Popover } from 'antd';
 import classNames from 'classnames';
 import React, { useMemo, useState } from 'react';
 import { AppsLogo } from './AppsLogo';
@@ -68,14 +68,9 @@ export const AppsLogoComponents: React.FC<{
 
   if (!props?.appList?.length) return null;
 
-  const popoverOpenProps =
-    compareVersions(version, '4.23.0') > -1
-      ? {
-          onOpenChange: setOpen,
-        }
-      : {
-          onVisibleChange: () => setOpen,
-        };
+  const popoverOpenProps = openVisibleCompatible(undefined, (openChange: boolean) =>
+    setOpen(openChange),
+  );
 
   return wrapSSR(
     <>

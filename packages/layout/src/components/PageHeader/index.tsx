@@ -1,6 +1,5 @@
 import ArrowLeftOutlined from '@ant-design/icons/ArrowLeftOutlined';
 import ArrowRightOutlined from '@ant-design/icons/ArrowRightOutlined';
-import { useSafeState } from '@ant-design/pro-utils';
 import type { AvatarProps, BreadcrumbProps, TagType } from 'antd';
 import { Avatar, Breadcrumb, ConfigProvider, Space } from 'antd';
 import type { DirectionType } from 'antd/es/config-provider';
@@ -136,9 +135,9 @@ const renderChildren = (prefixCls: string, children: React.ReactNode, hashId: st
 );
 
 const PageHeader: React.FC<PageHeaderProps> = (props) => {
-  const [compact, updateCompact] = useSafeState(false);
+  const [compact, updateCompact] = React.useState<boolean>(false);
   const onResize = ({ width }: { width: number }) => {
-    updateCompact(width < 768, true);
+    updateCompact(width < 768);
   };
   const { getPrefixCls, direction } = React.useContext(ConfigProvider.ConfigContext);
 

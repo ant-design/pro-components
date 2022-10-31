@@ -25,9 +25,7 @@ module.exports = {
   transform: {
     '^.+\\.(t|j)sx?$': ['esbuild-jest', { sourcemap: true }],
   },
-  transformIgnorePatterns: [
-    '/node_modules/(?!antd|@ant-design|rc-.+?|@babel/runtime|@umijs/renderer-react|@umijs/preset-umi|umi).+(js|jsx)$',
-  ],
+  transformIgnorePatterns: [`/node_modules/(?!${[].join('|')})`],
   unmockedModulePathPatterns: ['node_modules/react/', 'node_modules/enzyme/'],
   testURL:
     'http://localhost?navTheme=realDark&layout=mix&colorPrimary=techBlue&splitMenus=false&fixedHeader=true',

@@ -195,12 +195,12 @@ describe('StepsForm', () => {
       </StepsForm>,
     );
 
-    await waitForComponentToPaint(html);
+    await waitForComponentToPaint(html, 160);
     act(() => {
       html.find('button.ant-btn.ant-btn-primary').simulate('click');
     });
 
-    await waitForComponentToPaint(html);
+    await waitForComponentToPaint(html, 160);
 
     act(() => {
       html.find('button.ant-btn.ant-btn-primary').simulate('click');

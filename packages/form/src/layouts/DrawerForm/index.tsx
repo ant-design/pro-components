@@ -1,6 +1,6 @@
-﻿import { compareVersions, useRefFunction } from '@ant-design/pro-utils';
+﻿import { openVisibleCompatible, useRefFunction } from '@ant-design/pro-utils';
 import type { DrawerProps, FormProps } from 'antd';
-import { ConfigProvider, version, Drawer } from 'antd';
+import { ConfigProvider, Drawer } from 'antd';
 import merge from 'lodash.merge';
 import useMergedState from 'rc-util/lib/hooks/useMergedState';
 import { noteOnce } from 'rc-util/lib/warning';
@@ -191,24 +191,7 @@ function DrawerForm<T = Record<string, any>>({
     return result;
   });
 
-  const drawerOpenProps =
-    compareVersions(version, '4.23.0') > -1
-      ? {
-          open: open,
-          onOpenChange: onVisibleChange,
-          afterOpenChange: (e: boolean) => {
-            if (!e) resetFields();
-            drawerProps?.afterOpenChange?.(e);
-          },
-        }
-      : {
-          visible: open,
-          onVisibleChange: onVisibleChange,
-          afterVisibleChange: (e: boolean) => {
-            if (!e) resetFields();
-            drawerProps?.afterOpenChange?.(e);
-          },
-        };
+  const drawerOpenProps = openVisibleCompatible(open, onVisibleChange);
 
   return (
     <>
@@ -217,6 +200,10 @@ function DrawerForm<T = Record<string, any>>({
         width={width || 800}
         {...drawerProps}
         {...drawerOpenProps}
+        afterOpenChange={(e) => {
+          if (!e) resetFields();
+          drawerProps?.afterOpenChange?.(e);
+        }}
         onClose={(e) => {
           // 提交表单loading时，阻止弹框关闭
           if (submitTimeout && loading) return;

@@ -1,12 +1,12 @@
-import { ConfigProvider, Dropdown, version } from 'antd';
+import { ConfigProvider, Dropdown } from 'antd';
 import React, { useContext } from 'react';
 import type { DropdownFooterProps } from '../DropdownFooter';
 import { DropdownFooter } from '../DropdownFooter';
-import { compareVersions } from '../../compareVersions';
 
 import { useStyle } from './style';
 
 import 'antd/es/dropdown/style';
+import { openVisibleCompatible } from '../../compareVersions/openVisibleCompatible';
 
 declare const Placements: [
   'topLeft',
@@ -61,16 +61,11 @@ const FilterDropdown: React.FC<DropdownProps> = (props) => {
   const prefixCls = getPrefixCls('pro-core-field-dropdown');
   const { wrapSSR, hashId } = useStyle(prefixCls);
 
-  const dropdownOpenProps =
-    compareVersions(version, '4.23.0') > -1
-      ? {
-          open: open || visible || false,
-          onOpenChange: onOpenChange || onVisibleChange,
-        }
-      : {
-          visible: open || visible || false,
-          onVisibleChange: onOpenChange || onVisibleChange,
-        };
+  const dropdownOpenProps = openVisibleCompatible(
+    open || visible || false,
+    onOpenChange || onVisibleChange,
+  );
+
   return wrapSSR(
     <Dropdown
       disabled={disabled}

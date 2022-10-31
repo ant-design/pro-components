@@ -1,10 +1,9 @@
 ﻿import { LoadingOutlined } from '@ant-design/icons';
+import { openVisibleCompatible } from '../../compareVersions/openVisibleCompatible';
 import type { FormItemProps, PopoverProps } from 'antd';
-import { version } from 'antd';
 import { ConfigProvider, Form, Popover } from 'antd';
 import type { NamePath } from 'rc-field-form/lib/interface';
 import React, { useContext, useEffect, useState } from 'react';
-import { compareVersions } from '../../compareVersions';
 import { useStyle } from './style';
 
 interface InlineErrorFormItemProps extends FormItemProps {
@@ -46,28 +45,20 @@ const InlineErrorFormItemPopover: React.FC<{
     }
   }, [inputProps.errors, inputProps.validateStatus]);
 
-  const drawerOpenProps =
-    compareVersions(version, '4.23.0') > -1
-      ? {
-          open: errorStringList.length < 1 ? false : open,
-          onOpenChange: (changeOpen: boolean) => {
-            if (changeOpen === open) return;
-            setOpen(changeOpen);
-          },
-        }
-      : {
-          visible: errorStringList.length < 1 ? false : open,
-          onVisibleChange: (changeOpen: boolean) => {
-            if (changeOpen === open) return;
-            setOpen(changeOpen);
-          },
-        };
+  const popoverOpenProps = openVisibleCompatible(
+    errorStringList.length < 1 ? false : open,
+    (changeOpen: boolean) => {
+      if (changeOpen === open) return;
+      setOpen(changeOpen);
+    },
+  );
+
   return (
     <Popover
       key="popover"
       trigger={popoverProps?.trigger || 'focus'}
       placement={popoverProps?.placement || 'topRight'}
-      {...drawerOpenProps}
+      {...popoverOpenProps}
       getPopupContainer={popoverProps?.getPopupContainer}
       getTooltipContainer={popoverProps?.getTooltipContainer}
       content={wrapSSR(
