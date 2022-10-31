@@ -4,7 +4,7 @@ import { compareVersions } from './index';
 
 const openVisibleCompatible = (open: boolean | undefined, onOpenChange?: any) => {
   const props =
-    compareVersions(process.env.ANTD_VERSION || version, '4.23.0') > -1
+    compareVersions(process.env.ANTD_VERSION || version || '4.24.0', '4.23.0') > -1
       ? {
           open: open,
           onOpenChange: onOpenChange,
