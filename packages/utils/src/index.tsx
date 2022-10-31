@@ -82,7 +82,6 @@ import type { UseEditableMapType, UseEditableMapUtilType } from './useEditableMa
 import { useEditableMap } from './useEditableMap';
 import { useMountMergeState } from './useMountMergeState';
 import { compareVersions } from './compareVersions';
-import useSafeState from './useSafeState';
 import { openVisibleCompatible } from './compareVersions/openVisibleCompatible';
 
 export type {
@@ -160,7 +159,6 @@ export {
   useEditableArray,
   useEditableMap,
   useRefFunction,
-  useSafeState,
   useDeepCompareEffect,
   usePrevious,
   useDebounceFn,
