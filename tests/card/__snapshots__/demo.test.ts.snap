@@ -7081,6 +7081,7 @@ exports[`card demos 📸 renders ./packages/card/src/demos/actions.tsx correctly
     </div>
     <div
       class="ant-space-item"
+      style="margin-right: 8px;"
     >
       <div
         class="ant-pro-card"
@@ -7092,7 +7093,7 @@ exports[`card demos 📸 renders ./packages/card/src/demos/actions.tsx correctly
           <div
             class="ant-pro-card-title "
           >
-            Actions 操作项
+            单独的 Actions 操作项
           </div>
         </div>
         <div
@@ -7136,6 +7137,37 @@ exports[`card demos 📸 renders ./packages/card/src/demos/actions.tsx correctly
             设置
           </div>
         </ul>
+      </div>
+    </div>
+    <div
+      class="ant-space-item"
+    >
+      <div
+        class="ant-pro-card"
+        style="max-width: 300px;"
+      >
+        <div
+          class="ant-pro-card-header"
+        >
+          <div
+            class="ant-pro-card-title "
+          >
+            无 Actions 操作项
+          </div>
+        </div>
+        <div
+          class="ant-pro-card-body"
+        >
+          <div>
+            Card content
+          </div>
+          <div>
+            Card content
+          </div>
+          <div>
+            Card content
+          </div>
+        </div>
       </div>
     </div>
   </div>

@@ -20,7 +20,7 @@ export default () => {
       </ProCard>
 
       <ProCard
-        title="Actions 操作项"
+        title="单独的 Actions 操作项"
         style={{ maxWidth: 300 }}
         actions={
           <div
@@ -36,6 +36,12 @@ export default () => {
           </div>
         }
       >
+        <div>Card content</div>
+        <div>Card content</div>
+        <div>Card content</div>
+      </ProCard>
+
+      <ProCard title="无 Actions 操作项" style={{ maxWidth: 300 }}>
         <div>Card content</div>
         <div>Card content</div>
         <div>Card content</div>
