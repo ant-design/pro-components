@@ -1,6 +1,5 @@
-﻿import { compareVersions } from '@ant-design/pro-utils';
+﻿import { openVisibleCompatible } from '@ant-design/pro-utils';
 import type { FormProps, ModalProps } from 'antd';
-import { version } from 'antd';
 import { ConfigProvider, Modal } from 'antd';
 import merge from 'lodash.merge';
 import useMergedState from 'rc-util/lib/hooks/useMergedState';
@@ -197,14 +196,7 @@ function ModalForm<T = Record<string, any>>({
     [onFinish, setOpen, submitTimeout],
   );
 
-  const modalOpenProps =
-    compareVersions(version, '4.23.0') > -1
-      ? {
-          open,
-        }
-      : {
-          visible: open,
-        };
+  const modalOpenProps = openVisibleCompatible(open);
 
   return (
     <>

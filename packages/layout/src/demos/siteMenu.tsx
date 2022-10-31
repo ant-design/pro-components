@@ -10,9 +10,9 @@ import {
 import ProCard from '@ant-design/pro-card';
 import type { ProSettings } from '@ant-design/pro-layout';
 import { PageContainer, ProLayout } from '@ant-design/pro-layout';
-import { compareVersions } from '@ant-design/pro-utils';
+import { openVisibleCompatible } from '@ant-design/pro-utils';
 import { css } from '@emotion/css';
-import { Divider, Dropdown, Input, version } from 'antd';
+import { Divider, Dropdown, Input } from 'antd';
 import React, { useState } from 'react';
 import defaultProps from './_defaultProps';
 
@@ -177,16 +177,7 @@ export default () => {
           }
           if (_.isMobile) return defaultDom;
 
-          const dropdownOpenProps: any =
-            compareVersions(version, '4.23.0') > -1
-              ? {
-                  open: dropdownVisible,
-                  onOpenChange: setDropdownVisible,
-                }
-              : {
-                  visible: dropdownVisible,
-                  onVisibleChange: dropdownVisible,
-                };
+          const dropdownOpenProps: any = openVisibleCompatible(dropdownVisible, setDropdownVisible);
 
           return (
             <>

@@ -4690,8 +4690,32 @@ exports[`field demos 📸 renders ./packages/field/src/demos/tree-select-search-
                   <div
                     class="ant-spin-nested-loading"
                   >
+                    <div>
+                      <div
+                        aria-busy="true"
+                        aria-live="polite"
+                        class="ant-spin ant-spin-spinning"
+                      >
+                        <span
+                          class="ant-spin-dot ant-spin-dot-spin"
+                        >
+                          <i
+                            class="ant-spin-dot-item"
+                          />
+                          <i
+                            class="ant-spin-dot-item"
+                          />
+                          <i
+                            class="ant-spin-dot-item"
+                          />
+                          <i
+                            class="ant-spin-dot-item"
+                          />
+                        </span>
+                      </div>
+                    </div>
                     <div
-                      class="ant-spin-container"
+                      class="ant-spin-container ant-spin-blur"
                     >
                       <div
                         class="ant-select ant-tree-select ant-select-in-form-item ant-pro-field-tree-select ant-select-focused ant-select-multiple ant-select-allow-clear ant-select-open ant-select-show-search"
@@ -4709,12 +4733,12 @@ exports[`field demos 📸 renders ./packages/field/src/demos/tree-select-search-
                             >
                               <span
                                 class="ant-select-selection-item"
-                                title="Node1"
+                                title="0-0"
                               >
                                 <span
                                   class="ant-select-selection-item-content"
                                 >
-                                  Node1
+                                  0-0
                                 </span>
                                 <span
                                   aria-hidden="true"
