@@ -14,6 +14,7 @@ export interface PageHeaderProps {
   title?: React.ReactNode;
   subTitle?: React.ReactNode;
   style?: React.CSSProperties;
+  childrenContentStyle?: React.CSSProperties;
   breadcrumb?: BreadcrumbProps | React.ReactElement<typeof Breadcrumb>;
   breadcrumbRender?: (props: PageHeaderProps, defaultDom: React.ReactNode) => React.ReactNode;
   tags?: React.ReactElement<TagType> | React.ReactElement<TagType>[];

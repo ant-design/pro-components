@@ -30,6 +30,7 @@
   ],
   "dependencies": {
     "@ant-design/icons": "^4.2.1",
+    "@ant-design/pro-provider": "2.0.13",
     "@ant-design/pro-utils": "2.2.13",
     "@babel/runtime": "^7.18.0",
     "classnames": "^2.2.6",
