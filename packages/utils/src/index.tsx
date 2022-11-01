@@ -27,6 +27,7 @@ import { useFetchData } from './hooks/useFetchData';
 import { useLatest } from './hooks/useLatest';
 import { usePrevious } from './hooks/usePrevious';
 import { useRefFunction } from './hooks/useRefFunction';
+import { useForceUpdate } from './hooks/useForceUpdate';
 import { isBrowser } from './isBrowser';
 import { isDeepEqualReact } from './isDeepEqualReact';
 import { isDropdownValueType } from './isDropdownValueType';
@@ -162,6 +163,7 @@ export {
   useDeepCompareEffectDebounce,
   useLatest,
   useDebounceValue,
+  useForceUpdate,
   useStyle,
   setAlpha,
   resetComponent,

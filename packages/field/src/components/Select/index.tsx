@@ -13,6 +13,7 @@ import {
   useMountMergeState,
   useSafeState,
   useStyle,
+  useForceUpdate,
 } from '@ant-design/pro-utils';
 import type { SelectProps } from 'antd';
 import { ConfigProvider, Space, Spin } from 'antd';
@@ -360,9 +361,9 @@ export const useFieldFetchData = (
   }, [props.valueEnum]);
 
   const swrKey = useDebounceValue(
-    [proFieldKeyRef.current, props.params, keyWords] as const,
+    [proFieldKeyRef.current, props.params, keyWords, shouldLoad] as const,
     props.debounceTime ?? props?.fieldProps?.debounceTime ?? 0,
-    [props.params, keyWords],
+    [props.params, keyWords, shouldLoad],
   );
 
   const {
@@ -493,6 +494,7 @@ const FieldSelect: ProFieldFC<
     fetchData: () => fetchData(),
   }));
 
+  const forceUpdate = useForceUpdate();
   const optionsValueEnum = useMemo(() => {
     if (mode !== 'read') return;
 
@@ -574,6 +576,10 @@ const FieldSelect: ProFieldFC<
           fetchData={(keyWord) => {
             keyWordsRef.current = keyWord;
             fetchData(keyWord);
+
+            if (keyWordsRef.current === keyWord && focusRef.current === true) {
+              forceUpdate();
+            }
           }}
           resetData={resetData}
           optionItemRender={(item) => {
