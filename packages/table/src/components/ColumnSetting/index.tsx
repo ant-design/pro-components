@@ -332,7 +332,7 @@ const GroupCheckboxList: React.FC<{
 };
 
 function ColumnSetting<T>(props: ColumnSettingProps<T>) {
-  const columnRef = useRef({});
+  const columnRef = useRef(null);
   // 获得当前上下文的 hashID
   const counter = Container.useContainer();
   const localColumns: TableColumnType<T> &
@@ -390,7 +390,12 @@ function ColumnSetting<T>(props: ColumnSettingProps<T>) {
   /** 重置项目 */
   const clearClick = useRefFunction(() => {
     clearPersistenceStorage?.();
-    setColumnsMap(columnRef.current);
+    setColumnsMap(
+      columnRef.current ||
+        counter.propsRef.current?.columnsState?.defaultValue ||
+        counter.defaultColumnKeyMap ||
+        {},
+    );
   });
 
   // 未选中的 key 列表
