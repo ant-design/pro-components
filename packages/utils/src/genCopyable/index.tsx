@@ -32,7 +32,7 @@ export const genCopyable = (dom: React.ReactNode, item: any, text: string) => {
     const needTranText = isNeedTranText(item);
 
     const ellipsis =
-      item.ellipsis && text
+      item.ellipsis && text && item.ellipsis.showTitle
         ? {
             tooltip:
               // 支持一下 tooltip 的关闭
