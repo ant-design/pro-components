@@ -622,9 +622,19 @@ describe('Table ColumnSetting', () => {
     html.find(`span[aria-label="setting"]`).simulate('click');
 
     html.find(`.ant-pro-table-column-setting-action-rest-button`).simulate('click');
+    expect(onChange).toBeCalledTimes(0);
 
-    expect(onChange).toBeCalledTimes(1);
-    expect((onChange.mock as any).lastCall[1]).toMatchInlineSnapshot(`
+    html
+      .find('.ant-pro-table-column-setting-title .ant-checkbox-wrapper')
+      .find('.ant-checkbox-input')
+      .simulate('change', {
+        target: {
+          checked: false,
+        },
+      });
+    html.find(`.ant-pro-table-column-setting-action-rest-button`).simulate('click');
+    expect(onChange).toBeCalledTimes(2);
+    expect((onChange.mock as any).lastCall[0]).toMatchInlineSnapshot(`
       Object {
         "3": Object {
           "disable": undefined,
