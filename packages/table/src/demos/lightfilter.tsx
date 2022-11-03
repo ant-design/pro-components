@@ -1,7 +1,5 @@
-import { QuestionCircleOutlined } from '@ant-design/icons';
 import type { ProColumns } from '@ant-design/pro-components';
 import { ProTable } from '@ant-design/pro-components';
-import { Tooltip } from 'antd';
 import dayjs from 'dayjs';
 
 export type TableListItem = {
@@ -54,20 +52,6 @@ const columns: ProColumns<TableListItem>[] = [
       兼某某: { text: '兼某某' },
     },
   },
-  {
-    title: (
-      <>
-        创建时间
-        <Tooltip placement="top" title="这是一段描述">
-          <QuestionCircleOutlined style={{ marginInlineStart: 4 }} />
-        </Tooltip>
-      </>
-    ),
-    key: 'since',
-    dataIndex: 'createdAt',
-    valueType: 'date',
-    sorter: (a, b) => a.createdAt - b.createdAt,
-  },
 ];
 
 export default () => {
@@ -87,13 +71,7 @@ export default () => {
       pagination={{
         showQuickJumper: true,
       }}
-      options={{
-        search: true,
-        setting: false,
-        fullScreen: false,
-        density: false,
-        reload: false,
-      }}
+      options={false}
       search={{
         filterType: 'light',
       }}

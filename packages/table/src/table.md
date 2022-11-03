@@ -47,13 +47,13 @@ ProTable 的诞生是为了解决项目中需要写很多 table 的样板代码�
 
 ### 无 ToolBar 的表格
 
-<code src="./demos/no-title.tsx" height="426px" title="无 ToolBar 的表格"/>
+<code src="./demos/no-title.tsx" background="#f5f5f5"  height="426px" title="无 ToolBar 的表格"/>
 
 ### 必填的查询表单
 
 尽量使用 initialValue 来解决问题，必填项挫败感比较强
 
-<code src="./demos/open-rules.tsx" height="718px" title="必填的查询表单"/>
+<code src="./demos/open-rules.tsx" background="#f5f5f5"  height="718px" title="必填的查询表单"/>
 
 ### 嵌套表格
 
@@ -256,7 +256,7 @@ import { ConfigProvider } from '@ant-design/pro-provide';
 
 ### 自定义错误边界
 
-<code src="./demos/error-boundaries.tsx" title="自定义错误边界" height="500px" iframe="572px"/>
+<code src="./demos/error-boundaries.tsx" background="#f5f5f5"  title="自定义错误边界" height="500px" iframe="572px"/>
 
 <code src="./demos/error-boundaries-false.tsx" debug title="取消自定义错误边界"  height="500px" iframe="462px" />
 

@@ -71,6 +71,7 @@ export default function App() {
         initialValues={{
           name: ['0-0'],
         }}
+        onFinish={async (e) => console.log(e)}
       >
         <ProFormTreeSelect
           name="name"

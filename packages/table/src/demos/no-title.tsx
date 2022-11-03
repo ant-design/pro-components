@@ -97,17 +97,13 @@ const MemberList: React.FC = () => {
       title: '账号',
     },
     {
-      dataIndex: 'phone',
-      title: '手机号',
-    },
-    {
       dataIndex: 'role',
       title: '角色',
       render: (_, record) => (
         <Dropdown overlay={roleMenu}>
-          <span>
+          <a>
             {RoleMap[record.role || 'admin'].name} <DownOutlined />
-          </span>
+          </a>
         </Dropdown>
       ),
     },

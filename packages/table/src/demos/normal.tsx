@@ -1,7 +1,7 @@
-import { DownOutlined, QuestionCircleOutlined } from '@ant-design/icons';
+import { DownOutlined } from '@ant-design/icons';
 import type { ProColumns } from '@ant-design/pro-components';
 import { ProTable, TableDropdown } from '@ant-design/pro-components';
-import { Button, Tooltip } from 'antd';
+import { Button } from 'antd';
 
 const valueEnum = {
   0: 'close',
@@ -73,27 +73,6 @@ const columns: ProColumns<TableListItem>[] = [
       陈帅帅: { text: '陈帅帅' },
       兼某某: { text: '兼某某' },
     },
-  },
-  {
-    title: (
-      <>
-        创建时间
-        <Tooltip placement="top" title="这是一段描述">
-          <QuestionCircleOutlined style={{ marginInlineStart: 4 }} />
-        </Tooltip>
-      </>
-    ),
-    width: 140,
-    key: 'since',
-    dataIndex: 'createdAt',
-    valueType: 'date',
-    sorter: (a, b) => a.createdAt - b.createdAt,
-  },
-  {
-    title: '备注',
-    dataIndex: 'memo',
-    ellipsis: true,
-    copyable: true,
   },
   {
     title: '操作',

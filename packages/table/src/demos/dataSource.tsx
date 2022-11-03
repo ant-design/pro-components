@@ -1,7 +1,7 @@
-import { EllipsisOutlined, QuestionCircleOutlined, SearchOutlined } from '@ant-design/icons';
+import { EllipsisOutlined, SearchOutlined } from '@ant-design/icons';
 import type { ProColumns } from '@ant-design/pro-components';
 import { ProTable, TableDropdown } from '@ant-design/pro-components';
-import { Button, Dropdown, Input, Menu, Tooltip } from 'antd';
+import { Button, Dropdown, Input, Menu } from 'antd';
 
 const valueEnum = {
   0: 'close',
@@ -85,21 +85,6 @@ const columns: ProColumns<TableListItem>[] = [
       online: { text: '已上线', status: 'Success' },
       error: { text: '异常', status: 'Error' },
     },
-  },
-  {
-    title: (
-      <>
-        创建时间
-        <Tooltip placement="top" title="这是一段描述">
-          <QuestionCircleOutlined style={{ marginInlineStart: 4 }} />
-        </Tooltip>
-      </>
-    ),
-    width: 140,
-    key: 'since',
-    dataIndex: 'createdAt',
-    valueType: 'date',
-    sorter: (a, b) => a.createdAt - b.createdAt,
   },
   {
     title: '备注',
