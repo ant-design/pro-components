@@ -1533,11 +1533,28 @@ exports[`BasicTable 🎏 base use 1`] = `
                               title="London, Park Lane no. 0"
                             >
                               <span
-                                class="ant-typography ant-typography-ellipsis ant-typography-single-line ant-typography-ellipsis-single-line"
+                                aria-label="London, Park Lane no. 0"
+                                class="ant-typography ant-typography-ellipsis ant-typography-single-line"
                                 style="width: 100%; margin: 0px; padding: 0px;"
                                 title=""
                               >
                                 London, Park Lane no. 0
+                                <span
+                                  aria-hidden="true"
+                                  style="position: fixed; display: block; left: 0px; top: 0px; z-index: -9999; visibility: hidden; pointer-events: none; font-size: 0px; word-break: keep-all; white-space: nowrap;"
+                                >
+                                  lg
+                                </span>
+                                <span
+                                  aria-hidden="true"
+                                  style="position: fixed; display: block; left: 0px; top: 0px; z-index: -9999; visibility: hidden; pointer-events: none; font-size: 0px; width: 0px; white-space: normal; margin: 0px; padding: 0px;"
+                                >
+                                  <span
+                                    aria-hidden="true"
+                                  >
+                                    ...
+                                  </span>
+                                </span>
                               </span>
                             </td>
                             <td
@@ -1847,11 +1864,28 @@ exports[`BasicTable 🎏 base use 1`] = `
                               title="London, Park Lane no. 1"
                             >
                               <span
-                                class="ant-typography ant-typography-ellipsis ant-typography-single-line ant-typography-ellipsis-single-line"
+                                aria-label="London, Park Lane no. 1"
+                                class="ant-typography ant-typography-ellipsis ant-typography-single-line"
                                 style="width: 100%; margin: 0px; padding: 0px;"
                                 title=""
                               >
                                 London, Park Lane no. 1
+                                <span
+                                  aria-hidden="true"
+                                  style="position: fixed; display: block; left: 0px; top: 0px; z-index: -9999; visibility: hidden; pointer-events: none; font-size: 0px; word-break: keep-all; white-space: nowrap;"
+                                >
+                                  lg
+                                </span>
+                                <span
+                                  aria-hidden="true"
+                                  style="position: fixed; display: block; left: 0px; top: 0px; z-index: -9999; visibility: hidden; pointer-events: none; font-size: 0px; width: 0px; white-space: normal; margin: 0px; padding: 0px;"
+                                >
+                                  <span
+                                    aria-hidden="true"
+                                  >
+                                    ...
+                                  </span>
+                                </span>
                               </span>
                             </td>
                             <td
@@ -2161,11 +2195,28 @@ exports[`BasicTable 🎏 base use 1`] = `
                               title="London, Park Lane no. 2"
                             >
                               <span
-                                class="ant-typography ant-typography-ellipsis ant-typography-single-line ant-typography-ellipsis-single-line"
+                                aria-label="London, Park Lane no. 2"
+                                class="ant-typography ant-typography-ellipsis ant-typography-single-line"
                                 style="width: 100%; margin: 0px; padding: 0px;"
                                 title=""
                               >
                                 London, Park Lane no. 2
+                                <span
+                                  aria-hidden="true"
+                                  style="position: fixed; display: block; left: 0px; top: 0px; z-index: -9999; visibility: hidden; pointer-events: none; font-size: 0px; word-break: keep-all; white-space: nowrap;"
+                                >
+                                  lg
+                                </span>
+                                <span
+                                  aria-hidden="true"
+                                  style="position: fixed; display: block; left: 0px; top: 0px; z-index: -9999; visibility: hidden; pointer-events: none; font-size: 0px; width: 0px; white-space: normal; margin: 0px; padding: 0px;"
+                                >
+                                  <span
+                                    aria-hidden="true"
+                                  >
+                                    ...
+                                  </span>
+                                </span>
                               </span>
                             </td>
                             <td
@@ -2475,11 +2526,28 @@ exports[`BasicTable 🎏 base use 1`] = `
                               title="London, Park Lane no. 3"
                             >
                               <span
-                                class="ant-typography ant-typography-ellipsis ant-typography-single-line ant-typography-ellipsis-single-line"
+                                aria-label="London, Park Lane no. 3"
+                                class="ant-typography ant-typography-ellipsis ant-typography-single-line"
                                 style="width: 100%; margin: 0px; padding: 0px;"
                                 title=""
                               >
                                 London, Park Lane no. 3
+                                <span
+                                  aria-hidden="true"
+                                  style="position: fixed; display: block; left: 0px; top: 0px; z-index: -9999; visibility: hidden; pointer-events: none; font-size: 0px; word-break: keep-all; white-space: nowrap;"
+                                >
+                                  lg
+                                </span>
+                                <span
+                                  aria-hidden="true"
+                                  style="position: fixed; display: block; left: 0px; top: 0px; z-index: -9999; visibility: hidden; pointer-events: none; font-size: 0px; width: 0px; white-space: normal; margin: 0px; padding: 0px;"
+                                >
+                                  <span
+                                    aria-hidden="true"
+                                  >
+                                    ...
+                                  </span>
+                                </span>
                               </span>
                             </td>
                             <td
@@ -2789,11 +2857,28 @@ exports[`BasicTable 🎏 base use 1`] = `
                               title="London, Park Lane no. 4"
                             >
                               <span
-                                class="ant-typography ant-typography-ellipsis ant-typography-single-line ant-typography-ellipsis-single-line"
+                                aria-label="London, Park Lane no. 4"
+                                class="ant-typography ant-typography-ellipsis ant-typography-single-line"
                                 style="width: 100%; margin: 0px; padding: 0px;"
                                 title=""
                               >
                                 London, Park Lane no. 4
+                                <span
+                                  aria-hidden="true"
+                                  style="position: fixed; display: block; left: 0px; top: 0px; z-index: -9999; visibility: hidden; pointer-events: none; font-size: 0px; word-break: keep-all; white-space: nowrap;"
+                                >
+                                  lg
+                                </span>
+                                <span
+                                  aria-hidden="true"
+                                  style="position: fixed; display: block; left: 0px; top: 0px; z-index: -9999; visibility: hidden; pointer-events: none; font-size: 0px; width: 0px; white-space: normal; margin: 0px; padding: 0px;"
+                                >
+                                  <span
+                                    aria-hidden="true"
+                                  >
+                                    ...
+                                  </span>
+                                </span>
                               </span>
                             </td>
                             <td
@@ -3103,11 +3188,28 @@ exports[`BasicTable 🎏 base use 1`] = `
                               title="London, Park Lane no. 5"
                             >
                               <span
-                                class="ant-typography ant-typography-ellipsis ant-typography-single-line ant-typography-ellipsis-single-line"
+                                aria-label="London, Park Lane no. 5"
+                                class="ant-typography ant-typography-ellipsis ant-typography-single-line"
                                 style="width: 100%; margin: 0px; padding: 0px;"
                                 title=""
                               >
                                 London, Park Lane no. 5
+                                <span
+                                  aria-hidden="true"
+                                  style="position: fixed; display: block; left: 0px; top: 0px; z-index: -9999; visibility: hidden; pointer-events: none; font-size: 0px; word-break: keep-all; white-space: nowrap;"
+                                >
+                                  lg
+                                </span>
+                                <span
+                                  aria-hidden="true"
+                                  style="position: fixed; display: block; left: 0px; top: 0px; z-index: -9999; visibility: hidden; pointer-events: none; font-size: 0px; width: 0px; white-space: normal; margin: 0px; padding: 0px;"
+                                >
+                                  <span
+                                    aria-hidden="true"
+                                  >
+                                    ...
+                                  </span>
+                                </span>
                               </span>
                             </td>
                             <td
@@ -3417,11 +3519,28 @@ exports[`BasicTable 🎏 base use 1`] = `
                               title="London, Park Lane no. 6"
                             >
                               <span
-                                class="ant-typography ant-typography-ellipsis ant-typography-single-line ant-typography-ellipsis-single-line"
+                                aria-label="London, Park Lane no. 6"
+                                class="ant-typography ant-typography-ellipsis ant-typography-single-line"
                                 style="width: 100%; margin: 0px; padding: 0px;"
                                 title=""
                               >
                                 London, Park Lane no. 6
+                                <span
+                                  aria-hidden="true"
+                                  style="position: fixed; display: block; left: 0px; top: 0px; z-index: -9999; visibility: hidden; pointer-events: none; font-size: 0px; word-break: keep-all; white-space: nowrap;"
+                                >
+                                  lg
+                                </span>
+                                <span
+                                  aria-hidden="true"
+                                  style="position: fixed; display: block; left: 0px; top: 0px; z-index: -9999; visibility: hidden; pointer-events: none; font-size: 0px; width: 0px; white-space: normal; margin: 0px; padding: 0px;"
+                                >
+                                  <span
+                                    aria-hidden="true"
+                                  >
+                                    ...
+                                  </span>
+                                </span>
                               </span>
                             </td>
                             <td
@@ -3731,11 +3850,28 @@ exports[`BasicTable 🎏 base use 1`] = `
                               title="London, Park Lane no. 7"
                             >
                               <span
-                                class="ant-typography ant-typography-ellipsis ant-typography-single-line ant-typography-ellipsis-single-line"
+                                aria-label="London, Park Lane no. 7"
+                                class="ant-typography ant-typography-ellipsis ant-typography-single-line"
                                 style="width: 100%; margin: 0px; padding: 0px;"
                                 title=""
                               >
                                 London, Park Lane no. 7
+                                <span
+                                  aria-hidden="true"
+                                  style="position: fixed; display: block; left: 0px; top: 0px; z-index: -9999; visibility: hidden; pointer-events: none; font-size: 0px; word-break: keep-all; white-space: nowrap;"
+                                >
+                                  lg
+                                </span>
+                                <span
+                                  aria-hidden="true"
+                                  style="position: fixed; display: block; left: 0px; top: 0px; z-index: -9999; visibility: hidden; pointer-events: none; font-size: 0px; width: 0px; white-space: normal; margin: 0px; padding: 0px;"
+                                >
+                                  <span
+                                    aria-hidden="true"
+                                  >
+                                    ...
+                                  </span>
+                                </span>
                               </span>
                             </td>
                             <td
@@ -4045,11 +4181,28 @@ exports[`BasicTable 🎏 base use 1`] = `
                               title="London, Park Lane no. 8"
                             >
                               <span
-                                class="ant-typography ant-typography-ellipsis ant-typography-single-line ant-typography-ellipsis-single-line"
+                                aria-label="London, Park Lane no. 8"
+                                class="ant-typography ant-typography-ellipsis ant-typography-single-line"
                                 style="width: 100%; margin: 0px; padding: 0px;"
                                 title=""
                               >
                                 London, Park Lane no. 8
+                                <span
+                                  aria-hidden="true"
+                                  style="position: fixed; display: block; left: 0px; top: 0px; z-index: -9999; visibility: hidden; pointer-events: none; font-size: 0px; word-break: keep-all; white-space: nowrap;"
+                                >
+                                  lg
+                                </span>
+                                <span
+                                  aria-hidden="true"
+                                  style="position: fixed; display: block; left: 0px; top: 0px; z-index: -9999; visibility: hidden; pointer-events: none; font-size: 0px; width: 0px; white-space: normal; margin: 0px; padding: 0px;"
+                                >
+                                  <span
+                                    aria-hidden="true"
+                                  >
+                                    ...
+                                  </span>
+                                </span>
                               </span>
                             </td>
                             <td
@@ -4359,11 +4512,28 @@ exports[`BasicTable 🎏 base use 1`] = `
                               title="London, Park Lane no. 9"
                             >
                               <span
-                                class="ant-typography ant-typography-ellipsis ant-typography-single-line ant-typography-ellipsis-single-line"
+                                aria-label="London, Park Lane no. 9"
+                                class="ant-typography ant-typography-ellipsis ant-typography-single-line"
                                 style="width: 100%; margin: 0px; padding: 0px;"
                                 title=""
                               >
                                 London, Park Lane no. 9
+                                <span
+                                  aria-hidden="true"
+                                  style="position: fixed; display: block; left: 0px; top: 0px; z-index: -9999; visibility: hidden; pointer-events: none; font-size: 0px; word-break: keep-all; white-space: nowrap;"
+                                >
+                                  lg
+                                </span>
+                                <span
+                                  aria-hidden="true"
+                                  style="position: fixed; display: block; left: 0px; top: 0px; z-index: -9999; visibility: hidden; pointer-events: none; font-size: 0px; width: 0px; white-space: normal; margin: 0px; padding: 0px;"
+                                >
+                                  <span
+                                    aria-hidden="true"
+                                  >
+                                    ...
+                                  </span>
+                                </span>
                               </span>
                             </td>
                             <td
@@ -4673,11 +4843,28 @@ exports[`BasicTable 🎏 base use 1`] = `
                               title="London, Park Lane no. 10"
                             >
                               <span
-                                class="ant-typography ant-typography-ellipsis ant-typography-single-line ant-typography-ellipsis-single-line"
+                                aria-label="London, Park Lane no. 10"
+                                class="ant-typography ant-typography-ellipsis ant-typography-single-line"
                                 style="width: 100%; margin: 0px; padding: 0px;"
                                 title=""
                               >
                                 London, Park Lane no. 10
+                                <span
+                                  aria-hidden="true"
+                                  style="position: fixed; display: block; left: 0px; top: 0px; z-index: -9999; visibility: hidden; pointer-events: none; font-size: 0px; word-break: keep-all; white-space: nowrap;"
+                                >
+                                  lg
+                                </span>
+                                <span
+                                  aria-hidden="true"
+                                  style="position: fixed; display: block; left: 0px; top: 0px; z-index: -9999; visibility: hidden; pointer-events: none; font-size: 0px; width: 0px; white-space: normal; margin: 0px; padding: 0px;"
+                                >
+                                  <span
+                                    aria-hidden="true"
+                                  >
+                                    ...
+                                  </span>
+                                </span>
                               </span>
                             </td>
                             <td
@@ -4987,11 +5174,28 @@ exports[`BasicTable 🎏 base use 1`] = `
                               title="London, Park Lane no. 11"
                             >
                               <span
-                                class="ant-typography ant-typography-ellipsis ant-typography-single-line ant-typography-ellipsis-single-line"
+                                aria-label="London, Park Lane no. 11"
+                                class="ant-typography ant-typography-ellipsis ant-typography-single-line"
                                 style="width: 100%; margin: 0px; padding: 0px;"
                                 title=""
                               >
                                 London, Park Lane no. 11
+                                <span
+                                  aria-hidden="true"
+                                  style="position: fixed; display: block; left: 0px; top: 0px; z-index: -9999; visibility: hidden; pointer-events: none; font-size: 0px; word-break: keep-all; white-space: nowrap;"
+                                >
+                                  lg
+                                </span>
+                                <span
+                                  aria-hidden="true"
+                                  style="position: fixed; display: block; left: 0px; top: 0px; z-index: -9999; visibility: hidden; pointer-events: none; font-size: 0px; width: 0px; white-space: normal; margin: 0px; padding: 0px;"
+                                >
+                                  <span
+                                    aria-hidden="true"
+                                  >
+                                    ...
+                                  </span>
+                                </span>
                               </span>
                             </td>
                             <td
@@ -5301,11 +5505,28 @@ exports[`BasicTable 🎏 base use 1`] = `
                               title="London, Park Lane no. 12"
                             >
                               <span
-                                class="ant-typography ant-typography-ellipsis ant-typography-single-line ant-typography-ellipsis-single-line"
+                                aria-label="London, Park Lane no. 12"
+                                class="ant-typography ant-typography-ellipsis ant-typography-single-line"
                                 style="width: 100%; margin: 0px; padding: 0px;"
                                 title=""
                               >
                                 London, Park Lane no. 12
+                                <span
+                                  aria-hidden="true"
+                                  style="position: fixed; display: block; left: 0px; top: 0px; z-index: -9999; visibility: hidden; pointer-events: none; font-size: 0px; word-break: keep-all; white-space: nowrap;"
+                                >
+                                  lg
+                                </span>
+                                <span
+                                  aria-hidden="true"
+                                  style="position: fixed; display: block; left: 0px; top: 0px; z-index: -9999; visibility: hidden; pointer-events: none; font-size: 0px; width: 0px; white-space: normal; margin: 0px; padding: 0px;"
+                                >
+                                  <span
+                                    aria-hidden="true"
+                                  >
+                                    ...
+                                  </span>
+                                </span>
                               </span>
                             </td>
                             <td
@@ -5615,11 +5836,28 @@ exports[`BasicTable 🎏 base use 1`] = `
                               title="London, Park Lane no. 13"
                             >
                               <span
-                                class="ant-typography ant-typography-ellipsis ant-typography-single-line ant-typography-ellipsis-single-line"
+                                aria-label="London, Park Lane no. 13"
+                                class="ant-typography ant-typography-ellipsis ant-typography-single-line"
                                 style="width: 100%; margin: 0px; padding: 0px;"
                                 title=""
                               >
                                 London, Park Lane no. 13
+                                <span
+                                  aria-hidden="true"
+                                  style="position: fixed; display: block; left: 0px; top: 0px; z-index: -9999; visibility: hidden; pointer-events: none; font-size: 0px; word-break: keep-all; white-space: nowrap;"
+                                >
+                                  lg
+                                </span>
+                                <span
+                                  aria-hidden="true"
+                                  style="position: fixed; display: block; left: 0px; top: 0px; z-index: -9999; visibility: hidden; pointer-events: none; font-size: 0px; width: 0px; white-space: normal; margin: 0px; padding: 0px;"
+                                >
+                                  <span
+                                    aria-hidden="true"
+                                  >
+                                    ...
+                                  </span>
+                                </span>
                               </span>
                             </td>
                             <td
@@ -5929,11 +6167,28 @@ exports[`BasicTable 🎏 base use 1`] = `
                               title="London, Park Lane no. 14"
                             >
                               <span
-                                class="ant-typography ant-typography-ellipsis ant-typography-single-line ant-typography-ellipsis-single-line"
+                                aria-label="London, Park Lane no. 14"
+                                class="ant-typography ant-typography-ellipsis ant-typography-single-line"
                                 style="width: 100%; margin: 0px; padding: 0px;"
                                 title=""
                               >
                                 London, Park Lane no. 14
+                                <span
+                                  aria-hidden="true"
+                                  style="position: fixed; display: block; left: 0px; top: 0px; z-index: -9999; visibility: hidden; pointer-events: none; font-size: 0px; word-break: keep-all; white-space: nowrap;"
+                                >
+                                  lg
+                                </span>
+                                <span
+                                  aria-hidden="true"
+                                  style="position: fixed; display: block; left: 0px; top: 0px; z-index: -9999; visibility: hidden; pointer-events: none; font-size: 0px; width: 0px; white-space: normal; margin: 0px; padding: 0px;"
+                                >
+                                  <span
+                                    aria-hidden="true"
+                                  >
+                                    ...
+                                  </span>
+                                </span>
                               </span>
                             </td>
                             <td
@@ -6243,11 +6498,28 @@ exports[`BasicTable 🎏 base use 1`] = `
                               title="London, Park Lane no. 15"
                             >
                               <span
-                                class="ant-typography ant-typography-ellipsis ant-typography-single-line ant-typography-ellipsis-single-line"
+                                aria-label="London, Park Lane no. 15"
+                                class="ant-typography ant-typography-ellipsis ant-typography-single-line"
                                 style="width: 100%; margin: 0px; padding: 0px;"
                                 title=""
                               >
                                 London, Park Lane no. 15
+                                <span
+                                  aria-hidden="true"
+                                  style="position: fixed; display: block; left: 0px; top: 0px; z-index: -9999; visibility: hidden; pointer-events: none; font-size: 0px; word-break: keep-all; white-space: nowrap;"
+                                >
+                                  lg
+                                </span>
+                                <span
+                                  aria-hidden="true"
+                                  style="position: fixed; display: block; left: 0px; top: 0px; z-index: -9999; visibility: hidden; pointer-events: none; font-size: 0px; width: 0px; white-space: normal; margin: 0px; padding: 0px;"
+                                >
+                                  <span
+                                    aria-hidden="true"
+                                  >
+                                    ...
+                                  </span>
+                                </span>
                               </span>
                             </td>
                             <td
@@ -6557,11 +6829,28 @@ exports[`BasicTable 🎏 base use 1`] = `
                               title="London, Park Lane no. 16"
                             >
                               <span
-                                class="ant-typography ant-typography-ellipsis ant-typography-single-line ant-typography-ellipsis-single-line"
+                                aria-label="London, Park Lane no. 16"
+                                class="ant-typography ant-typography-ellipsis ant-typography-single-line"
                                 style="width: 100%; margin: 0px; padding: 0px;"
                                 title=""
                               >
                                 London, Park Lane no. 16
+                                <span
+                                  aria-hidden="true"
+                                  style="position: fixed; display: block; left: 0px; top: 0px; z-index: -9999; visibility: hidden; pointer-events: none; font-size: 0px; word-break: keep-all; white-space: nowrap;"
+                                >
+                                  lg
+                                </span>
+                                <span
+                                  aria-hidden="true"
+                                  style="position: fixed; display: block; left: 0px; top: 0px; z-index: -9999; visibility: hidden; pointer-events: none; font-size: 0px; width: 0px; white-space: normal; margin: 0px; padding: 0px;"
+                                >
+                                  <span
+                                    aria-hidden="true"
+                                  >
+                                    ...
+                                  </span>
+                                </span>
                               </span>
                             </td>
                             <td
@@ -6871,11 +7160,28 @@ exports[`BasicTable 🎏 base use 1`] = `
                               title="London, Park Lane no. 17"
                             >
                               <span
-                                class="ant-typography ant-typography-ellipsis ant-typography-single-line ant-typography-ellipsis-single-line"
+                                aria-label="London, Park Lane no. 17"
+                                class="ant-typography ant-typography-ellipsis ant-typography-single-line"
                                 style="width: 100%; margin: 0px; padding: 0px;"
                                 title=""
                               >
                                 London, Park Lane no. 17
+                                <span
+                                  aria-hidden="true"
+                                  style="position: fixed; display: block; left: 0px; top: 0px; z-index: -9999; visibility: hidden; pointer-events: none; font-size: 0px; word-break: keep-all; white-space: nowrap;"
+                                >
+                                  lg
+                                </span>
+                                <span
+                                  aria-hidden="true"
+                                  style="position: fixed; display: block; left: 0px; top: 0px; z-index: -9999; visibility: hidden; pointer-events: none; font-size: 0px; width: 0px; white-space: normal; margin: 0px; padding: 0px;"
+                                >
+                                  <span
+                                    aria-hidden="true"
+                                  >
+                                    ...
+                                  </span>
+                                </span>
                               </span>
                             </td>
                             <td
@@ -7185,11 +7491,28 @@ exports[`BasicTable 🎏 base use 1`] = `
                               title="London, Park Lane no. 18"
                             >
                               <span
-                                class="ant-typography ant-typography-ellipsis ant-typography-single-line ant-typography-ellipsis-single-line"
+                                aria-label="London, Park Lane no. 18"
+                                class="ant-typography ant-typography-ellipsis ant-typography-single-line"
                                 style="width: 100%; margin: 0px; padding: 0px;"
                                 title=""
                               >
                                 London, Park Lane no. 18
+                                <span
+                                  aria-hidden="true"
+                                  style="position: fixed; display: block; left: 0px; top: 0px; z-index: -9999; visibility: hidden; pointer-events: none; font-size: 0px; word-break: keep-all; white-space: nowrap;"
+                                >
+                                  lg
+                                </span>
+                                <span
+                                  aria-hidden="true"
+                                  style="position: fixed; display: block; left: 0px; top: 0px; z-index: -9999; visibility: hidden; pointer-events: none; font-size: 0px; width: 0px; white-space: normal; margin: 0px; padding: 0px;"
+                                >
+                                  <span
+                                    aria-hidden="true"
+                                  >
+                                    ...
+                                  </span>
+                                </span>
                               </span>
                             </td>
                             <td
@@ -7499,11 +7822,28 @@ exports[`BasicTable 🎏 base use 1`] = `
                               title="London, Park Lane no. 19"
                             >
                               <span
-                                class="ant-typography ant-typography-ellipsis ant-typography-single-line ant-typography-ellipsis-single-line"
+                                aria-label="London, Park Lane no. 19"
+                                class="ant-typography ant-typography-ellipsis ant-typography-single-line"
                                 style="width: 100%; margin: 0px; padding: 0px;"
                                 title=""
                               >
                                 London, Park Lane no. 19
+                                <span
+                                  aria-hidden="true"
+                                  style="position: fixed; display: block; left: 0px; top: 0px; z-index: -9999; visibility: hidden; pointer-events: none; font-size: 0px; word-break: keep-all; white-space: nowrap;"
+                                >
+                                  lg
+                                </span>
+                                <span
+                                  aria-hidden="true"
+                                  style="position: fixed; display: block; left: 0px; top: 0px; z-index: -9999; visibility: hidden; pointer-events: none; font-size: 0px; width: 0px; white-space: normal; margin: 0px; padding: 0px;"
+                                >
+                                  <span
+                                    aria-hidden="true"
+                                  >
+                                    ...
+                                  </span>
+                                </span>
                               </span>
                             </td>
                             <td
@@ -7835,16 +8175,15 @@ exports[`BasicTable 🎏 base use 1`] = `
                           class="ant-select-selection-search"
                         >
                           <input
-                            aria-activedescendant="rc_select_2_list_0"
+                            aria-activedescendant="undefined_list_0"
                             aria-autocomplete="list"
-                            aria-controls="rc_select_2_list"
+                            aria-controls="undefined_list"
                             aria-expanded="false"
                             aria-haspopup="listbox"
                             aria-label="页码"
-                            aria-owns="rc_select_2_list"
+                            aria-owns="undefined_list"
                             autocomplete="off"
                             class="ant-select-selection-search-input"
-                            id="rc_select_2"
                             readonly=""
                             role="combobox"
                             style="opacity: 0;"
