@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [7.1.16](https://github.com/ant-design/pro-components/compare/@ant-design/pro-layout@7.1.15...@ant-design/pro-layout@7.1.16) (2022-11-03)
+
+### Bug Fixes
+
+- **layout:** fix sub menu paddig style ([324e083](https://github.com/ant-design/pro-components/commit/324e083462a9d9261f9f95a0478ccdd9304aaa4b))
+- **layout:** PageContainer support childrenContentStyle ([2a487cf](https://github.com/ant-design/pro-components/commit/2a487cf44243c7afddde0eddcfae392b842cc6e3))
+
 ## [7.1.15](https://github.com/ant-design/pro-components/compare/@ant-design/pro-layout@7.1.14...@ant-design/pro-layout@7.1.15) (2022-10-28)
 
 **Note:** Version bump only for package @ant-design/pro-layout
