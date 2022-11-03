@@ -7,7 +7,6 @@ import type {
   RequestOptionsType,
 } from '@ant-design/pro-utils';
 import {
-  useSafeState,
   nanoid,
   useDebounceValue,
   useDeepCompareEffect,
@@ -299,7 +298,7 @@ export const useFieldFetchData = (
 ): [boolean, SelectOptionType, (keyWord?: string) => void, () => void] => {
   const { cacheForSwr, fieldProps } = props;
 
-  const [keyWords, setKeyWords] = useSafeState<string | undefined>(props.defaultKeyWords);
+  const [keyWords, setKeyWords] = useState<string | undefined>(props.defaultKeyWords);
   /** Key 是用来缓存请求的，如果不在是有问题 */
   const [cacheKey] = useState(() => {
     if (props.proFieldKey) {

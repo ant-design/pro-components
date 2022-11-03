@@ -18392,6 +18392,58 @@ exports[`form demos 📸 renders ./packages/form/src/components/QueryFilter/demo
                       class="ant-form-item-control-input-content"
                     >
                       <span
+                        class="ant-dropdown-trigger ant-pro-core-field-dropdown-label "
+                      >
+                        <span
+                          class="ant-pro-core-field-label ant-pro-core-field-label-middle ant-pro-core-field-label-bordered ant-pro-core-field-label-allow-clear"
+                        >
+                          迁移类型
+                          <span
+                            aria-label="down"
+                            class="anticon anticon-down ant-pro-core-field-label-icon ant-pro-core-field-label-arrow"
+                            role="img"
+                          >
+                            <svg
+                              aria-hidden="true"
+                              data-icon="down"
+                              fill="currentColor"
+                              focusable="false"
+                              height="1em"
+                              viewBox="64 64 896 896"
+                              width="1em"
+                            >
+                              <path
+                                d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"
+                              />
+                            </svg>
+                          </span>
+                        </span>
+                      </span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div
+            class="ant-pro-form-light-filter-item "
+          >
+            <div
+              class="ant-form-item"
+            >
+              <div
+                class="ant-row ant-form-item-row"
+              >
+                <div
+                  class="ant-col ant-form-item-control"
+                >
+                  <div
+                    class="ant-form-item-control-input"
+                  >
+                    <div
+                      class="ant-form-item-control-input-content"
+                    >
+                      <span
                         class="ant-pro-core-field-label ant-pro-core-field-label-middle ant-pro-core-field-label-active ant-pro-core-field-label-bordered ant-pro-core-field-label-allow-clear"
                       >
                         <span
@@ -32491,7 +32543,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/StepsForm/demos/
                   type="text"
                 />
                 <div
-                  class="ant-form-item ant-form-item-has-success"
+                  class="ant-form-item"
                 >
                   <div
                     class="ant-row ant-form-item-row"
@@ -32517,20 +32569,20 @@ exports[`form demos 📸 renders ./packages/form/src/components/StepsForm/demos/
                           class="ant-form-item-control-input-content"
                         >
                           <span
-                            class="ant-input-affix-wrapper ant-input-affix-wrapper-focused ant-input-affix-wrapper-status-success"
+                            class="ant-input-affix-wrapper ant-input-affix-wrapper-focused"
                           >
                             <input
                               class="ant-input"
                               id="step1_jobInfo_name"
                               placeholder="请输入"
                               type="text"
-                              value="normal job"
+                              value=""
                             />
                             <span
                               class="ant-input-suffix"
                             >
                               <span
-                                class="ant-input-clear-icon"
+                                class="ant-input-clear-icon ant-input-clear-icon-hidden"
                                 role="button"
                                 tabindex="-1"
                               >
@@ -32562,7 +32614,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/StepsForm/demos/
                   </div>
                 </div>
                 <div
-                  class="ant-form-item ant-form-item-has-success"
+                  class="ant-form-item"
                 >
                   <div
                     class="ant-row ant-form-item-row"
@@ -32588,7 +32640,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/StepsForm/demos/
                           class="ant-form-item-control-input-content"
                         >
                           <div
-                            class="ant-select ant-select-in-form-item ant-select-status-success ant-pro-filed-search-select ant-select-single ant-select-allow-clear ant-select-show-arrow"
+                            class="ant-select ant-select-in-form-item ant-pro-filed-search-select ant-select-single ant-select-allow-clear ant-select-show-arrow"
                             style="min-width: 100px;"
                           >
                             <div
@@ -32615,10 +32667,9 @@ exports[`form demos 📸 renders ./packages/form/src/components/StepsForm/demos/
                                 />
                               </span>
                               <span
-                                class="ant-select-selection-item"
-                                title="国企"
+                                class="ant-select-selection-placeholder"
                               >
-                                国企
+                                请选择
                               </span>
                             </div>
                             <span
@@ -32647,32 +32698,6 @@ exports[`form demos 📸 renders ./packages/form/src/components/StepsForm/demos/
                                 </svg>
                               </span>
                             </span>
-                            <span
-                              aria-hidden="true"
-                              class="ant-select-clear"
-                              style="user-select: none;"
-                              unselectable="on"
-                            >
-                              <span
-                                aria-label="close-circle"
-                                class="anticon anticon-close-circle"
-                                role="img"
-                              >
-                                <svg
-                                  aria-hidden="true"
-                                  data-icon="close-circle"
-                                  fill="currentColor"
-                                  focusable="false"
-                                  height="1em"
-                                  viewBox="64 64 896 896"
-                                  width="1em"
-                                >
-                                  <path
-                                    d="M512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm165.4 618.2l-66-.3L512 563.4l-99.3 118.4-66.1.3c-4.4 0-8-3.5-8-8 0-1.9.7-3.7 1.9-5.2l130.1-155L340.5 359a8.32 8.32 0 01-1.9-5.2c0-4.4 3.6-8 8-8l66.1.3L512 464.6l99.3-118.4 66-.3c4.4 0 8 3.5 8 8 0 1.9-.7 3.7-1.9 5.2L553.5 514l130 155c1.2 1.5 1.9 3.3 1.9 5.2 0 4.4-3.6 8-8 8z"
-                                  />
-                                </svg>
-                              </span>
-                            </span>
                           </div>
                         </div>
                       </div>
@@ -32694,7 +32719,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/StepsForm/demos/
                   type="text"
                 />
                 <div
-                  class="ant-form-item ant-form-item-has-success"
+                  class="ant-form-item"
                 >
                   <div
                     class="ant-row ant-form-item-row"
@@ -32720,7 +32745,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/StepsForm/demos/
                           class="ant-form-item-control-input-content"
                         >
                           <div
-                            class="ant-picker ant-picker-range ant-picker-status-success"
+                            class="ant-picker ant-picker-range"
                           >
                             <div
                               class="ant-picker-input ant-picker-input-active"
@@ -32730,7 +32755,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/StepsForm/demos/
                                 id="step2_syncTableInfo_timeRange"
                                 placeholder="请选择"
                                 size="12"
-                                value="2016-11-22"
+                                value=""
                               />
                             </div>
                             <div
@@ -32769,7 +32794,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/StepsForm/demos/
                                 placeholder="请选择"
                                 readonly=""
                                 size="12"
-                                value="2016-11-22"
+                                value=""
                               />
                             </div>
                             <div
@@ -32799,29 +32824,6 @@ exports[`form demos 📸 renders ./packages/form/src/components/StepsForm/demos/
                                 </svg>
                               </span>
                             </span>
-                            <span
-                              class="ant-picker-clear"
-                            >
-                              <span
-                                aria-label="close-circle"
-                                class="anticon anticon-close-circle"
-                                role="img"
-                              >
-                                <svg
-                                  aria-hidden="true"
-                                  data-icon="close-circle"
-                                  fill="currentColor"
-                                  focusable="false"
-                                  height="1em"
-                                  viewBox="64 64 896 896"
-                                  width="1em"
-                                >
-                                  <path
-                                    d="M512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm165.4 618.2l-66-.3L512 563.4l-99.3 118.4-66.1.3c-4.4 0-8-3.5-8-8 0-1.9.7-3.7 1.9-5.2l130.1-155L340.5 359a8.32 8.32 0 01-1.9-5.2c0-4.4 3.6-8 8-8l66.1.3L512 464.6l99.3-118.4 66-.3c4.4 0 8 3.5 8 8 0 1.9-.7 3.7-1.9 5.2L553.5 514l130 155c1.2 1.5 1.9 3.3 1.9 5.2 0 4.4-3.6 8-8 8z"
-                                  />
-                                </svg>
-                              </span>
-                            </span>
                           </div>
                         </div>
                       </div>
@@ -32829,7 +32831,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/StepsForm/demos/
                   </div>
                 </div>
                 <div
-                  class="ant-form-item ant-form-item-has-success"
+                  class="ant-form-item"
                 >
                   <div
                     class="ant-row ant-form-item-row"
@@ -32855,20 +32857,20 @@ exports[`form demos 📸 renders ./packages/form/src/components/StepsForm/demos/
                           class="ant-form-item-control-input-content"
                         >
                           <span
-                            class="ant-input-affix-wrapper ant-input-affix-wrapper-status-success"
+                            class="ant-input-affix-wrapper"
                           >
                             <input
                               class="ant-input"
                               id="step2_syncTableInfo_title"
                               placeholder="请输入"
                               type="text"
-                              value="example table title"
+                              value=""
                             />
                             <span
                               class="ant-input-suffix"
                             >
                               <span
-                                class="ant-input-clear-icon"
+                                class="ant-input-clear-icon ant-input-clear-icon-hidden"
                                 role="button"
                                 tabindex="-1"
                               >
@@ -44695,7 +44697,7 @@ exports[`form demos 📸 renders ./packages/form/src/demos/layout-footer.tsx cor
                 tabindex="0"
               >
                 <li
-                  class="ant-menu-submenu ant-menu-submenu-vertical ant-pro-base-menu-submenu ant-menu-submenu-selected"
+                  class="ant-menu-submenu ant-menu-submenu-vertical ant-pro-base-menu-submenu ant-pro-base-menu-submenu-has-icon ant-menu-submenu-selected"
                   role="none"
                 >
                   <div
@@ -46426,13 +46428,14 @@ exports[`form demos 📸 renders ./packages/form/src/demos/layout-footer.tsx cor
                       </div>
                     </div>
                   </div>
-                  <div
-                    style="height: 64px; margin-block-start: 24px;"
-                  />
                 </div>
               </div>
             </div>
           </main>
+          <div
+            class="ant-pro-layout-has-footer"
+            style="height: 64px; margin-block-start: 24px;"
+          />
         </div>
       </section>
     </div>

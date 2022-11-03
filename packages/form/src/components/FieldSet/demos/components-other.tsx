@@ -96,7 +96,7 @@ const Demo = () => {
             showSearch
             debounceTime={300}
             request={async ({ keyWords }) => {
-              await waitTime(1000);
+              await waitTime(100);
               console.log(
                 Mock.mock({
                   'data|1-10': [

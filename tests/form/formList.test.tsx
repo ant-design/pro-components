@@ -882,6 +882,53 @@ describe('ProForm List', () => {
     expect(html.baseElement.querySelectorAll('input.ant-input').length).toBe(2);
   });
 
+  it('⛲ ProForm.List use behavior guard when triggering no behavior', async () => {
+    const fnAdd = jest.fn();
+    const html = reactRender(
+      <ProForm>
+        <ProFormList
+          copyIconProps={{
+            Icon: SnippetsOutlined,
+          }}
+          deleteIconProps={{
+            Icon: CloseOutlined,
+          }}
+          actionGuard={{
+            beforeAddRow: async (defaultValue, insertIndex) => {
+              return new Promise((resolve) => {
+                if (!defaultValue?.name) {
+                  resolve(false);
+                  return;
+                }
+                fnAdd(defaultValue?.name, insertIndex);
+                setTimeout(() => resolve(true), 1000);
+              });
+            },
+          }}
+          name="users"
+          label="用户信息"
+          initialValue={[
+            {
+              name: '1111',
+            },
+          ]}
+        >
+          <ProFormText name="name" label="姓名" />
+        </ProFormList>
+      </ProForm>,
+    );
+
+    await waitForComponentToPaint(html);
+    expect(html.baseElement.querySelectorAll('input.ant-input').length).toBe(1);
+
+    // 新增按钮
+    await act(async () => {
+      (await html.findByText('添加一行数据')).parentElement?.click();
+    });
+
+    expect(fnAdd).not.toBeCalled();
+  });
+
   it('⛲ ProForm.List warning after remove', async () => {
     const errorSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
 
@@ -942,6 +989,7 @@ describe('ProForm List', () => {
             },
           ]}
         >
+          list
           <ProFormText name="name" label="姓名" />
         </ProFormList>
       </ProForm>,
@@ -1136,6 +1184,10 @@ describe('ProForm List', () => {
     const data = actionRef.current?.get(1);
 
     expect(data?.name).toBe('2222');
+
+    const list = actionRef.current?.getList();
+
+    expect(list?.at(1)?.name).toBe('2222');
   });
 
   it('⛲ ProForm.List getCurrentRowData support subList', async () => {
@@ -1196,7 +1248,7 @@ describe('ProForm List', () => {
     expect(ref.current?.getCurrentRowData().lv2Name).toBe('test');
   });
 
-  it('⛲  ProForm.List getCurrentRowData and setCurrentRowData support two-dimensional array', async () => {
+  it('⛲ ProForm.List getCurrentRowData and setCurrentRowData support two-dimensional array', async () => {
     const ref = React.createRef<{
       getCurrentRowData: () => any;
       setCurrentRowData: (data: any) => void;
@@ -1257,7 +1309,7 @@ describe('ProForm List', () => {
 
     expect(ref.current?.getCurrentRowData().name).toBe('New Name');
   });
-  it('⛲  ProForm.List action hooks should be emit', async () => {
+  it('⛲ ProForm.List action hooks should be emit', async () => {
     const handleAdd = jest.fn();
     const handleRemove = jest.fn();
 

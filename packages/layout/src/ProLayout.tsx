@@ -1,7 +1,7 @@
 import type { ProTokenType } from '@ant-design/pro-provider';
 import { ProProvider } from '@ant-design/pro-provider';
 import { ConfigProviderWrap } from '@ant-design/pro-provider';
-import { isBrowser, useDocumentTitle, useMountMergeState } from '@ant-design/pro-utils';
+import { isBrowser, merge, useDocumentTitle, useMountMergeState } from '@ant-design/pro-utils';
 import { getMatchMenu } from '@umijs/route-utils';
 import type { BreadcrumbProps as AntdBreadcrumbProps } from 'antd';
 import { ConfigProvider, Layout } from 'antd';
@@ -641,7 +641,7 @@ const BaseProLayout: React.FC<ProLayoutProps> = (props) => {
     }
     return null;
   }, [bgLayoutImgList]);
-
+  const { token } = useContext(ProProvider);
   return wrapSSR(
     <MenuCounter.Provider>
       <RouteContext.Provider
@@ -694,6 +694,16 @@ const BaseProLayout: React.FC<ProLayoutProps> = (props) => {
                   {loading ? <PageLoading /> : children}
                 </WrapContent>
                 {footerDom}
+                {hasFooterToolbar && (
+                  <div
+                    className={`${proLayoutClassName}-has-footer`}
+                    style={{
+                      height: 64,
+                      marginBlockStart:
+                        token?.layout?.pageContainer?.paddingBlockPageContainerContent,
+                    }}
+                  />
+                )}
               </div>
             </Layout>
           </div>
@@ -727,10 +737,13 @@ const ProLayout: React.FC<ProLayoutProps> = (props) => {
     >
       <ConfigProviderWrap
         autoClearCache
-        token={{
-          ...tokenContext.token,
-          layout: props.token,
-        }}
+        token={
+          props.token
+            ? merge(tokenContext.token, {
+                layout: merge(tokenContext.token?.layout, props.token || {}),
+              })
+            : undefined
+        }
       >
         <BaseProLayout {...props} />
       </ConfigProviderWrap>

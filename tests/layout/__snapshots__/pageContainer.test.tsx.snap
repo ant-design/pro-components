@@ -431,13 +431,14 @@ exports[`PageContainer 🐲 FooterToolbar should know width 1`] = `
                     </div>
                   </div>
                 </div>
-                <div
-                  style="height: 64px; margin-block-start: 24px;"
-                />
               </div>
             </div>
           </div>
         </main>
+        <div
+          class="ant-pro-layout-has-footer"
+          style="height: 64px; margin-block-start: 24px;"
+        />
       </div>
     </section>
   </div>
@@ -907,6 +908,10 @@ exports[`PageContainer 🐲 footer should know width 1`] = `
             </div>
           </div>
         </main>
+        <div
+          class="ant-pro-layout-has-footer"
+          style="height: 64px; margin-block-start: 24px;"
+        />
       </div>
     </section>
   </div>

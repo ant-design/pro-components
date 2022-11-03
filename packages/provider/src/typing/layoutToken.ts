@@ -35,6 +35,7 @@ export type BaseLayoutDesignToken = {
     colorBgMenuItemHover: string;
     colorBgMenuItemSelected: string;
     colorTextMenuSelected: string;
+    colorTextMenuItemHover: string;
     colorTextMenuActive: string;
     colorTextMenu: string;
     colorTextMenuSecondary: string;
@@ -133,7 +134,7 @@ export const getLayoutDesignToken: (
     } as LayoutDesignToken['header'],
     sider: {
       paddingInlineLayoutMenu: 8,
-      paddingBlockLayoutMenu: 8,
+      paddingBlockLayoutMenu: 0,
       colorBgCollapsedButton: '#fff',
       colorTextCollapsedButtonHover: antdToken.colorTextSecondary,
       colorTextCollapsedButton: setAlpha(antdToken.colorTextBase, 0.25),
@@ -143,6 +144,7 @@ export const getLayoutDesignToken: (
       colorMenuItemDivider: setAlpha(antdToken.colorTextBase, 0.06),
       colorBgMenuItemHover: setAlpha(antdToken.colorTextBase, 0.03),
       colorBgMenuItemSelected: setAlpha(antdToken.colorTextBase, 0.04),
+      colorTextMenuItemHover: setAlpha(antdToken.colorTextBase, 0.88),
       colorTextMenuSelected: setAlpha(antdToken.colorTextBase, 0.95),
       colorTextMenuActive: antdToken.colorText,
       colorTextMenu: setAlpha(antdToken.colorTextBase, 0.65),

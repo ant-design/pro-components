@@ -17,6 +17,7 @@ import {
   useDebounceFn,
   useDebounceValue,
   compareVersions,
+  openVisibleCompatible,
   lighten,
   setAlpha,
 } from '@ant-design/pro-utils';
@@ -24,10 +25,18 @@ import { act, fireEvent, render } from '@testing-library/react';
 import { Form, Input } from 'antd';
 import type { Dayjs } from 'dayjs';
 import dayjs from 'dayjs';
+import moment from 'moment';
 import React, { useEffect, useState } from 'react';
 import { waitForComponentToPaint, waitTime } from '../util';
 
 describe('utils', () => {
+  beforeEach(() => {
+    delete process.env.ANTD_VERSION;
+  });
+  afterEach(() => {
+    delete process.env.ANTD_VERSION;
+  });
+
   it('lighten', () => {
     const color = lighten('#000', 50);
     expect(color).toBe('#808080');
@@ -37,6 +46,14 @@ describe('utils', () => {
     expect(compareVersions('2.0.0', '1.0.0')).toBe(1);
     expect(compareVersions('1.0.0', '2.0.0')).toBe(-1);
     expect(compareVersions('1.0.0', '1.0.0')).toBe(0);
+  });
+
+  it('openVisibleCompatible', () => {
+    expect(openVisibleCompatible(true).open).toBeTruthy();
+    expect(openVisibleCompatible(true).visible === undefined).toBeTruthy();
+    process.env.ANTD_VERSION = '4.20.0';
+    expect(openVisibleCompatible(true).visible).toBeTruthy();
+    expect(openVisibleCompatible(true).open === undefined).toBeTruthy();
   });
 
   it('setAlpha', () => {
@@ -388,6 +405,16 @@ describe('utils', () => {
 
   it('📅 parseValueToMoment dayjs', async () => {
     const html = parseValueToDay(['2019-11-16 12:50:26', '2019-11-16 12:50:26'], 'YYYY-MM-DD');
+    expect((html as Dayjs[]).map((item) => item.valueOf()).join(',')).toBe(
+      '1573862400000,1573862400000',
+    );
+  });
+
+  it('📅 parseValueToMoment moment to dayjs', async () => {
+    const html = parseValueToDay(
+      [moment(1573862400000), moment(1573862400000)] as any[],
+      'YYYY-MM-DD',
+    );
     expect((html as Dayjs[]).map((item) => item.valueOf()).join(',')).toBe(
       '1573862400000,1573862400000',
     );

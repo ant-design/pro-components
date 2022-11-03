@@ -206,6 +206,7 @@ const memoRenderPageHeader = (
     header,
     prefixedClassName,
     extraContent,
+    childrenContentStyle,
     style,
     prefixCls,
     hashId,
@@ -289,6 +290,7 @@ const PageContainerBase: React.FC<PageContainerProps> = (props) => {
     token: propsToken,
     fixedHeader,
     breadcrumbRender,
+    childrenContentStyle,
     ...restProps
   } = props;
   const value = useContext(RouteContext);
@@ -346,32 +348,13 @@ const PageContainerBase: React.FC<PageContainerProps> = (props) => {
       <>
         <div
           className={classNames(`${basePageContainer}-children-content ${hashId}`)}
-          style={{
-            paddingBlock: propsToken?.paddingBlockPageContainerContent,
-            paddingInline: propsToken?.paddingInlinePageContainerContent,
-          }}
+          style={childrenContentStyle}
         >
           {children}
         </div>
-        {value.hasFooterToolbar && (
-          <div
-            style={{
-              height: 64,
-              marginBlockStart: token?.layout?.pageContainer?.paddingBlockPageContainerContent,
-            }}
-          />
-        )}
       </>
     ) : null;
-  }, [
-    children,
-    basePageContainer,
-    hashId,
-    propsToken?.paddingBlockPageContainerContent,
-    propsToken?.paddingInlinePageContainerContent,
-    value.hasFooterToolbar,
-    token?.layout?.pageContainer?.paddingBlockPageContainerContent,
-  ]);
+  }, [children, basePageContainer, childrenContentStyle, hashId]);
 
   const renderContentDom = useMemo(() => {
     // 只要loadingDom非空我们就渲染loadingDom,否则渲染内容

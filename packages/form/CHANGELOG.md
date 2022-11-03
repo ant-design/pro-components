@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.2.14](https://github.com/ant-design/pro-components/compare/@ant-design/pro-form@2.2.13...@ant-design/pro-form@2.2.14) (2022-10-28)
+
+**Note:** Version bump only for package @ant-design/pro-form
+
+## [2.2.13](https://github.com/ant-design/pro-components/compare/@ant-design/pro-form@2.2.12...@ant-design/pro-form@2.2.13) (2022-10-27)
+
+### Bug Fixes
+
+- **form:** request should rewrite initialsValue ([8bfaead](https://github.com/ant-design/pro-components/commit/8bfaead59110026aef043285abbde212fc865029)), closes [/github.com/ant-design/pro-components/issues/5957#issuecomment-1289906573](https://github.com//github.com/ant-design/pro-components/issues/5957/issues/issuecomment-1289906573)
+
 ## [2.2.12](https://github.com/ant-design/pro-components/compare/@ant-design/pro-form@2.2.11...@ant-design/pro-form@2.2.12) (2022-10-25)
 
 **Note:** Version bump only for package @ant-design/pro-form

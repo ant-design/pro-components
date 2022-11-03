@@ -2,6 +2,27 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [3.1.1](https://github.com/ant-design/pro-components/compare/@ant-design/pro-table@3.1.0...@ant-design/pro-table@3.1.1) (2022-10-28)
+
+**Note:** Version bump only for package @ant-design/pro-table
+
+# [3.1.0](https://github.com/ant-design/pro-components/compare/@ant-design/pro-table@3.0.22...@ant-design/pro-table@3.1.0) (2022-10-27)
+
+### Bug Fixes
+
+- **layout:** better footer animation ([ca73417](https://github.com/ant-design/pro-components/commit/ca73417d52c60e4e6bc8de5edad2226113e5a85e))
+- **layout:** fix prefix classname no work error ([67ba351](https://github.com/ant-design/pro-components/commit/67ba351310ef15e8d7599eff58bf01007e6c42c9))
+- **layout:** 修复 CSS-in-js 中的 animation 警告 ([#6122](https://github.com/ant-design/pro-components/issues/6122)) ([eb25214](https://github.com/ant-design/pro-components/commit/eb25214465c9a6e705e91b084d1003f4401c88ff))
+- **table:** support request function to instead datasource in DragSortTable ([#6133](https://github.com/ant-design/pro-components/issues/6133)) ([200835f](https://github.com/ant-design/pro-components/commit/200835ff5554258adc2f0dd1413d3601e7a645ad))
+
+### Features
+
+- update snapshots ([#6129](https://github.com/ant-design/pro-components/issues/6129)) ([d4eb4cd](https://github.com/ant-design/pro-components/commit/d4eb4cd82f7ad77473e6526bee57401ec4a677ba))
+
+### Reverts
+
+- Revert "feat: update snapshots (#6129)" (#6132) ([8685931](https://github.com/ant-design/pro-components/commit/86859317d8adc3b534f451283509902692696b69)), closes [#6129](https://github.com/ant-design/pro-components/issues/6129) [#6132](https://github.com/ant-design/pro-components/issues/6132)
+
 ## [3.0.22](https://github.com/ant-design/pro-components/compare/@ant-design/pro-table@3.0.21...@ant-design/pro-table@3.0.22) (2022-10-25)
 
 **Note:** Version bump only for package @ant-design/pro-table

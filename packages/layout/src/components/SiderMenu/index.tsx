@@ -1,6 +1,6 @@
-import { compareVersions } from '@ant-design/pro-utils';
+import { openVisibleCompatible } from '@ant-design/pro-utils';
 import { getFlatMenus } from '@umijs/route-utils';
-import { Drawer, version } from 'antd';
+import { Drawer } from 'antd';
 import classNames from 'classnames';
 import Omit from 'omit.js';
 import React, { useEffect } from 'react';
@@ -54,16 +54,7 @@ const SiderMenuWrapper: React.FC<SiderMenuProps & PrivateSiderMenuProps> = (prop
     return null;
   }
 
-  const drawerOpenProps =
-    compareVersions(version, '4.23.0') > -1
-      ? {
-          open: !collapsed,
-          onClose: () => onCollapse?.(true),
-        }
-      : {
-          visible: !collapsed,
-          onClose: () => onCollapse?.(true),
-        };
+  const drawerOpenProps = openVisibleCompatible(!collapsed, () => onCollapse?.(true));
 
   return wrapSSR(
     isMobile ? (

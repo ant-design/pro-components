@@ -2,6 +2,7 @@ import { FilterOutlined } from '@ant-design/icons';
 import {
   LightFilter,
   ProFormCascader,
+  ProFormCheckbox,
   ProFormDatePicker,
   ProFormRadio,
   ProFormSelect,
@@ -100,6 +101,12 @@ export default () => {
           placeholder: 'Please select',
         }}
         name="treeSelect"
+      />
+      <ProFormCheckbox.Group
+        name="checkbox"
+        label="迁移类型"
+        width="lg"
+        options={['结构迁移', '全量迁移', '增量迁移', '全量校验']}
       />
       <ProFormCascader
         request={async () => [

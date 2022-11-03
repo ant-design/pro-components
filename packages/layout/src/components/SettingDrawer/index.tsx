@@ -4,7 +4,7 @@ import {
   NotificationOutlined,
   SettingOutlined,
 } from '@ant-design/icons';
-import { compareVersions, isBrowser, merge } from '@ant-design/pro-utils';
+import { compareVersions, isBrowser, merge, openVisibleCompatible } from '@ant-design/pro-utils';
 import {
   disable as darkreaderDisable,
   enable as darkreaderEnable,
@@ -350,16 +350,7 @@ export const SettingDrawer: React.FC<SettingDrawerProps> = (props) => {
   const baseClassName = `${prefixCls}-setting-drawer`;
   const { wrapSSR, hashId } = useStyle(baseClassName);
 
-  const drawerOpenProps =
-    compareVersions(version, '4.23.0') > -1
-      ? {
-          open: open,
-          onClose: () => setOpen(false),
-        }
-      : {
-          visible: open,
-          onClose: () => setOpen(false),
-        };
+  const drawerOpenProps = openVisibleCompatible(open);
 
   return wrapSSR(
     <>
@@ -390,6 +381,7 @@ export const SettingDrawer: React.FC<SettingDrawerProps> = (props) => {
       <Drawer
         {...drawerOpenProps}
         width={300}
+        onClose={() => setOpen(false)}
         closable={false}
         placement="right"
         getContainer={getContainer}

@@ -1,10 +1,22 @@
 ﻿import type { GenerateStyle, ProAliasToken } from '@ant-design/pro-utils';
 import { useStyle as useAntdStyle } from '@ant-design/pro-provider';
-
+import { Keyframes } from '@ant-design/cssinjs';
 export interface SiderMenuToken extends ProAliasToken {
   componentCls: string;
   proLayoutCollapsedWidth: number;
 }
+
+export const proLayoutTitleHide = new Keyframes('antBadgeLoadingCircle', {
+  '0%': { display: 'none', opacity: 0 },
+  '80%': {
+    display: 'none',
+    opacity: 0,
+  },
+  '100%': {
+    display: 'unset',
+    opacity: 1,
+  },
+});
 
 const genSiderMenuStyle: GenerateStyle<SiderMenuToken> = (token) => {
   return {
@@ -39,6 +51,9 @@ const genSiderMenuStyle: GenerateStyle<SiderMenuToken> = (token) => {
             [`${token.antCls}-menu-item-group-title`]: {
               fontSize: token.fontSizeSM,
               paddingBottom: 4,
+            },
+            [`${token.antCls}-menu-item:hover`]: {
+              color: token?.layout?.sider?.colorTextMenuItemHover,
             },
           },
           '&-logo': {
@@ -104,7 +119,7 @@ const genSiderMenuStyle: GenerateStyle<SiderMenuToken> = (token) => {
               color: token.layout?.sider?.colorTextMenuSecondary,
               '&-collapsed': {
                 marginBlockEnd: 8,
-                animation: 'none',
+                animationName: 'none',
               },
               '&-item': {
                 paddingInline: 6,
@@ -162,6 +177,9 @@ const genSiderMenuStyle: GenerateStyle<SiderMenuToken> = (token) => {
             color: token.layout?.sider?.colorTextMenuSecondary,
             paddingBlockEnd: 16,
             fontSize: token.fontSize,
+            animationName: proLayoutTitleHide,
+            animationDuration: '.3s',
+            animationTimingFunction: 'ease',
           },
         },
       },

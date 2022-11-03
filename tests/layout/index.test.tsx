@@ -24,7 +24,7 @@ describe('BasicLayout', () => {
 
   it('🥩 support loading', async () => {
     const wrapper = render(<ProLayout loading />);
-    await waitForComponentToPaint(wrapper);
+    await waitForComponentToPaint(wrapper, 160);
     expect(wrapper.baseElement.querySelector('.ant-skeleton')).toMatchSnapshot();
   });
 

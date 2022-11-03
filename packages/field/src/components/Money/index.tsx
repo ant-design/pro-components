@@ -1,6 +1,5 @@
 import { intlMap as allIntlMap, useIntl } from '@ant-design/pro-provider';
 import type { InputNumberProps } from 'antd';
-import { version } from 'antd';
 import { InputNumber, Popover } from 'antd';
 import omit from 'omit.js';
 import useMergedState from 'rc-util/lib/hooks/useMergedState';
@@ -10,8 +9,9 @@ import type { ProFieldFC } from '../../index';
 // 兼容代码-----------
 import 'antd/es/input-number/style';
 import 'antd/es/popover/style';
-import { compareVersions } from '@ant-design/pro-utils';
 //----------------------
+
+import { openVisibleCompatible } from '@ant-design/pro-utils';
 
 export type FieldMoneyProps = {
   text: number;
@@ -214,14 +214,7 @@ const InputNumberPopover = React.forwardRef<
     value,
   });
 
-  const props =
-    compareVersions(version, '4.23.0') > -1
-      ? {
-          open: dom ? open : false,
-        }
-      : {
-          visible: dom ? open : false,
-        };
+  const props = openVisibleCompatible(dom ? open : false);
 
   return (
     <Popover

@@ -1,7 +1,8 @@
 import { ErrorBoundary } from '@ant-design/pro-utils';
 import { Layout } from 'antd';
 import classNames from 'classnames';
-import { CSSProperties, useContext } from 'react';
+import type { CSSProperties } from 'react';
+import { useContext } from 'react';
 import React from 'react';
 import { ProProvider } from '@ant-design/pro-provider';
 

@@ -57,9 +57,27 @@ export default () => {
           key: 'state2',
           dataIndex: 'state2',
           renderFormItem: () => {
-            return <Input />;
+            return <Input placeholder="输入 Success 切换分值" />;
           },
         },
+        {
+          title: '分值',
+          dataIndex: 'fraction',
+          valueType: (record) => {
+            const scoringMethod = record?.state2;
+            if (scoringMethod === 'Success') return 'select';
+            return 'digit';
+          },
+          fieldProps: {
+            mode: 'multiple',
+          },
+          request: async () =>
+            ['A', 'B', 'D', 'E', 'F'].map((item, index) => ({
+              label: item,
+              value: index,
+            })),
+        },
+
         {
           title: '时间',
           key: 'date',

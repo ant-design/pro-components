@@ -28,7 +28,7 @@ import trTR from './locale/tr_TR';
 import viVN from './locale/vi_VN';
 import zhCN from './locale/zh_CN';
 import zhTW from './locale/zh_TW';
-import type { DeepPartial, LayoutDesignToken, ProTokenType } from './typing/layoutToken';
+import type { DeepPartial, ProTokenType } from './typing/layoutToken';
 import { getLayoutDesignToken } from './typing/layoutToken';
 import type { ProAliasToken } from './useStyle';
 import { useToken } from './useStyle';
@@ -253,7 +253,6 @@ export {
  */
 export type ConfigContextPropsType = {
   intl: IntlType;
-  isDeps: boolean;
   valueTypeMap: Record<string, ProRenderFieldPropsType>;
   token?: ProAliasToken;
   hashId?: string;
@@ -266,7 +265,6 @@ const ConfigContext = React.createContext<ConfigContextPropsType>({
     ...zhCNIntl,
     locale: 'default',
   },
-  isDeps: false,
   valueTypeMap: {},
   theme: emptyTheme,
   token: defaultTheme as ProAliasToken,
@@ -326,8 +324,11 @@ export const ConfigProviderWrap: React.FC<{
   // 如果 locale 不存在自动注入的 AntdConfigProvider
   const ANTDProvider = locale === undefined ? AntdConfigProvider : React.Fragment;
   const proProvide = useContext(ConfigContext);
+
   const isNullProvide =
-    needDeps && proProvide.hashId && Object.keys(props).sort().join('-') === 'children-needDeps';
+    needDeps &&
+    proProvide.hashId !== undefined &&
+    Object.keys(props).sort().join('-') === 'children-needDeps';
 
   /**
    * pro 的 类
@@ -353,32 +354,19 @@ export const ConfigProviderWrap: React.FC<{
      * 合并一下token，不然导致嵌套 token 失效
      */
     const proLayoutTokenMerge = propsToken
-      ? (merge(
-          proProvide.token?.layout || {},
-          getLayoutDesignToken((propsToken as ProTokenType)?.layout || {}, tokenContext.token),
-        ) as LayoutDesignToken)
-      : getLayoutDesignToken({}, defaultTheme);
+      ? getLayoutDesignToken(merge(proProvide.token?.layout, propsToken.layout || {}), defaultTheme)
+      : getLayoutDesignToken(proProvide.token?.layout || {}, defaultTheme);
 
     return {
       ...proProvide,
-      token: {
-        ...proProvide.token,
+      token: merge(proProvide.token, {
         proComponentsCls,
         antCls,
         layout: proLayoutTokenMerge,
-      },
-      isDeps: true,
+      }),
       intl: intl || zhCNIntl,
     };
-  }, [
-    isNullProvide,
-    locale?.locale,
-    proProvide,
-    propsToken,
-    tokenContext.token,
-    proComponentsCls,
-    antCls,
-  ]);
+  }, [isNullProvide, locale?.locale, proProvide, propsToken, proComponentsCls, antCls]);
 
   const finalToken = {
     ...(proProvideValue?.token || {}),
@@ -420,24 +408,14 @@ export const ConfigProviderWrap: React.FC<{
       </ANTDProvider>
     );
 
-    if (proProvide.isDeps) return provide;
-
     return (
       <div className={`${getPrefixCls?.('pro') || 'ant-pro'}${hashId ? ' ' + hashId : ''}`}>
         {provide}
       </div>
     );
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [
-    autoClearCache,
-    children,
-    getPrefixCls,
-    hashId,
-    locale,
-    proProvide.isDeps,
-    proProvideValue,
-    token,
-  ]);
+  }, [autoClearCache, children, getPrefixCls, hashId, locale, proProvideValue, token]);
+
   if (!autoClearCache) return configProviderDom;
 
   return <SWRConfig value={{ provider: () => new Map() }}>{configProviderDom}</SWRConfig>;

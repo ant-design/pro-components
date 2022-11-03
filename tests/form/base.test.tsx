@@ -262,6 +262,27 @@ describe('ProForm', () => {
     wrapper.unmount();
   });
 
+  it('📦 request rewrite initialsValue', async () => {
+    const wrapper = render(
+      <ProForm
+        request={async () => {
+          await act(async () => {});
+          return {
+            name: '100',
+          };
+        }}
+        initialValues={{
+          name: '不是1000',
+        }}
+      >
+        <ProFormText name="name" />
+      </ProForm>,
+    );
+
+    expect(!!(await wrapper.findByDisplayValue('100'))).toBeTruthy();
+    wrapper.unmount();
+  });
+
   it('📦 submit props actionsRender=()=>false', async () => {
     const wrapper = render(
       <ProForm
@@ -862,7 +883,7 @@ describe('ProForm', () => {
     wrapper.unmount();
   });
 
-  it('📦 ProFormField support onChange', async () => {
+  it('📦 ProFormField support onChange in ProForm', async () => {
     const fn = jest.fn();
     const wrapper = render(
       <ProForm onValuesChange={fn}>
@@ -870,6 +891,31 @@ describe('ProForm', () => {
           <Input id="testInput" />
         </ProFormField>
       </ProForm>,
+    );
+
+    act(() => {
+      fireEvent.change(wrapper.baseElement.querySelectorAll<HTMLElement>('input#testInput')[0], {
+        target: {
+          value: 'test',
+        },
+      });
+    });
+    expect(fn).toBeCalled();
+    wrapper.unmount();
+  });
+
+  it('📦 ProFormField support onChange', async () => {
+    const fn = jest.fn();
+    const wrapper = render(
+      <ProFormField
+        name="phone2"
+        // @ts-ignore
+        onChange={(e) => {
+          fn(e.target.value);
+        }}
+      >
+        <Input id="testInput" />
+      </ProFormField>,
     );
 
     act(() => {

@@ -32,6 +32,14 @@ const treeData = [
   },
 ];
 
+const waitTime = (time: number = 100) => {
+  return new Promise((resolve) => {
+    setTimeout(() => {
+      resolve(true);
+    }, time);
+  });
+};
+
 export default function App() {
   const [searchValue, setSearchValue] = useState('');
   const [selectOpen, setSelectOpen] = useState(false);
@@ -57,12 +65,13 @@ export default function App() {
     setSearchValue(value);
   }
 
-  /** 下拉选中 */
-  function onSelect() {}
-
   return (
     <div>
-      <ProForm>
+      <ProForm
+        initialValues={{
+          name: ['0-0'],
+        }}
+      >
         <ProFormTreeSelect
           name="name"
           placeholder="请输入搜索关键字"
@@ -71,6 +80,7 @@ export default function App() {
           label="TreeSelect异步加载"
           secondary
           request={async () => {
+            await waitTime(1000);
             return treeData;
           }}
           fieldProps={{
@@ -91,7 +101,6 @@ export default function App() {
             onBlur: () => onBlur(),
             onFocus: () => onFocus(),
             onSearch: (val) => onSearch(val),
-            onSelect: () => onSelect(),
           }}
         />
         <ProFormTreeSelect
