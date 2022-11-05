@@ -24,7 +24,7 @@ const genProCardStyle: GenerateStyle<ProCardToken> = (token) => {
       paddingBlock: 0,
       paddingInline: 0,
       backgroundColor: token.colorBgContainer,
-      borderRadius: token.radiusBase,
+      borderRadius: token.borderRadius,
       ...resetComponent?.(token),
       '*': {
         boxSizing: 'border-box',

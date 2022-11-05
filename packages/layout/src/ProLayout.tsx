@@ -728,7 +728,7 @@ const ProLayout: React.FC<ProLayoutProps> = (props) => {
       theme={{
         hashed: process.env.NODE_ENV?.toLowerCase() !== 'test',
         token: {
-          radiusBase: 4,
+          borderRadius: 4,
           colorPrimary: colorPrimary || '#1677FF',
           colorError: '#ff4d4f',
           colorInfo: '#1677FF',

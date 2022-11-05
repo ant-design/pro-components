@@ -25,7 +25,7 @@ const genAppsLogoComponentsSimpleListStyle: GenerateStyle<AppsLogoComponentsToke
           verticalAlign: 'top',
           listStyleType: 'none',
           transition: 'transform 0.2s cubic-bezier(0.333, 0, 0, 1)',
-          borderRadius: token.radiusBase,
+          borderRadius: token.borderRadius,
           '&:hover': {
             backgroundColor: 'rgba(0, 0, 0, 0.03)',
           },
@@ -45,7 +45,7 @@ const genAppsLogoComponentsSimpleListStyle: GenerateStyle<AppsLogoComponentsToke
               lineHeight: '40px',
               textAlign: 'center',
               backgroundImage: 'linear-gradient(180deg, #E8F0FB 0%, #F6F8FC 100%)',
-              borderRadius: token.radiusBase,
+              borderRadius: token.borderRadius,
             },
             '& > img': {
               width: 40,

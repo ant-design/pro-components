@@ -39,7 +39,7 @@ export const defaultTheme = {
   motionEaseOutBack: 'cubic-bezier(0.12, 0.4, 0.29, 1.46)',
   motionEaseInQuint: 'cubic-bezier(0.645, 0.045, 0.355, 1)',
   motionEaseOutQuint: 'cubic-bezier(0.23, 1, 0.32, 1)',
-  radiusBase: 6,
+  borderRadius: 6,
   sizeUnit: 4,
   sizeBaseStep: 4,
   sizePopupArrow: 16,

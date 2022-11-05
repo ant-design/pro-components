@@ -10,7 +10,7 @@ const genProStyle: GenerateStyle<ProToken> = (token) => {
     [token.componentCls]: {
       marginBlockEnd: 16,
       backgroundColor: 'rgba(0,0,0,0.02)',
-      borderRadius: token.radiusBase,
+      borderRadius: token.borderRadius,
       border: '0.5px solid #BFBFBF',
       '&-container': {
         paddingBlock: token.paddingSM,

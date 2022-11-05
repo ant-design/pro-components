@@ -20,12 +20,12 @@ const genTopNavHeaderStyle: GenerateStyle<ProToken> = (token) => {
           color: token?.layout?.header?.colorTextRightActionsItem,
           fontSize: '16px',
           cursor: 'pointer',
-          borderRadius: token.radiusBase,
+          borderRadius: token.borderRadius,
 
           '> *': {
             paddingInline: 6,
             paddingBlock: 6,
-            borderRadius: token.radiusBase,
+            borderRadius: token.borderRadius,
             '&:hover': {
               backgroundColor: token?.layout?.header?.colorBgRightActionsItemHover,
             },
@@ -47,7 +47,7 @@ const genTopNavHeaderStyle: GenerateStyle<ProToken> = (token) => {
             display: 'flex',
             alignItems: 'center',
             lineHeight: '44px',
-            borderRadius: token.radiusBase,
+            borderRadius: token.borderRadius,
             '&:hover': {
               backgroundColor: 'rgba(0, 0, 0, 0.03)',
             },

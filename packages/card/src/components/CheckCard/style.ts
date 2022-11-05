@@ -37,7 +37,7 @@ const genProStyle: GenerateStyle<ProListToken> = (token) => {
       lineHeight: token.lineHeight,
       verticalAlign: 'top',
       backgroundColor: token.colorBgBase,
-      borderRadius: token.radiusBase,
+      borderRadius: token.borderRadius,
       cursor: 'pointer',
       transition: `all 0.3s`,
       '&:last-child': {
@@ -105,7 +105,12 @@ const genProStyle: GenerateStyle<ProListToken> = (token) => {
       '&-cover': {
         paddingInline: token.paddingXXS,
         paddingBlock: token.paddingXXS,
-        img: { width: '100%', height: '100%', overflow: 'hidden', borderRadius: token.radiusBase },
+        img: {
+          width: '100%',
+          height: '100%',
+          overflow: 'hidden',
+          borderRadius: token.borderRadius,
+        },
       },
       '&-content': {
         display: 'flex',

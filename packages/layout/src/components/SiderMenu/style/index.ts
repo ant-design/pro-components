@@ -127,7 +127,7 @@ const genSiderMenuStyle: GenerateStyle<SiderMenuToken> = (token) => {
                 lineHeight: '16px',
                 fontSize: 16,
                 cursor: 'pointer',
-                borderRadius: token.radiusBase,
+                borderRadius: token.borderRadius,
                 '&:hover': {
                   background: 'rgba(0, 0, 0, 0.018)',
                 },
@@ -137,7 +137,7 @@ const genSiderMenuStyle: GenerateStyle<SiderMenuToken> = (token) => {
               fontSize: 14,
               paddingInline: 8,
               paddingBlock: 8,
-              borderRadius: token.radiusBase,
+              borderRadius: token.borderRadius,
               '& *': {
                 cursor: 'pointer',
               },
