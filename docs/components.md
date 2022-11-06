@@ -39,7 +39,7 @@ const msg: {
 };
 ```
 
-如果你的后端数据使用了自己熟悉的 url，虽然我们可以用的 request 来转化，但是每个 table 都需要配置就比较麻烦。如果你使用 umi 的 request，我们可以定义一个全局的转化器。我们需要在 app.tsx 中配置
+如果你的后端数据使用了自己熟悉的 url，虽然我们可以用 umi 的 request 来转化，但是每个 table 都需要配置就比较麻烦。如果你使用 umi 的 request，我们可以定义一个全局的转化器。我们需要在 app.tsx 中配置
 
 ```tsx | pure
 import { request, RequestConfig } from 'umi';
