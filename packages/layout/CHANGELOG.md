@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [7.2.0](https://github.com/ant-design/pro-components/compare/@ant-design/pro-layout@7.1.16...@ant-design/pro-layout@7.2.0) (2022-11-07)
+
+### Features
+
+- **SettingDrawer:** 支持 colorList 传 title 属性作为 tooltip ([#6167](https://github.com/ant-design/pro-components/issues/6167)) ([bd973a0](https://github.com/ant-design/pro-components/commit/bd973a045a565e7d934cab13763d1efd21ee6980))
+
 ## [7.1.16](https://github.com/ant-design/pro-components/compare/@ant-design/pro-layout@7.1.15...@ant-design/pro-layout@7.1.16) (2022-11-03)
 
 ### Bug Fixes

@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.3.1](https://github.com/ant-design/pro-components/compare/@ant-design/pro-utils@2.3.0...@ant-design/pro-utils@2.3.1) (2022-11-07)
+
+### Bug Fixes
+
+- **table:** 兼容 ellipsis 不想显示 Tooltip [#6158](https://github.com/ant-design/pro-components/issues/6158) ([#6160](https://github.com/ant-design/pro-components/issues/6160)) ([f01335a](https://github.com/ant-design/pro-components/commit/f01335a30f1c629674d006c8eca146e326c626e6))
+- **utils:** do not use process?.env?.ANTD_VERSION ([a295b3d](https://github.com/ant-design/pro-components/commit/a295b3d0735d7baab7e35935edbb5ed2f75674df))
+
 # [2.3.0](https://github.com/ant-design/pro-components/compare/@ant-design/pro-utils@2.2.13...@ant-design/pro-utils@2.3.0) (2022-11-03)
 
 ### Features
