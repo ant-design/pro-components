@@ -74,7 +74,7 @@ export type SettingDrawerProps = {
   /** 使用实验性质的黑色主题 */
   enableDarkTheme?: boolean;
   prefixCls?: string;
-  colorList?: false | { key: string; color: string }[];
+  colorList?: false | { key: string; color: string; title?: string }[];
   onSettingChange?: (settings: MergerSettingsType<ProSettings>) => void;
   pathname?: string;
   disableUrlParams?: boolean;

@@ -19,6 +19,7 @@ export type ThemeColorProps = {
   colorList?: {
     key: string;
     color: string;
+    title?: string;
   }[];
   prefixCls: string;
   value: string;
@@ -41,14 +42,17 @@ const ThemeColor: React.ForwardRefRenderFunction<HTMLDivElement, ThemeColorProps
   const baseClassName = `${prefixCls}-theme-color`;
   return (
     <div className={`${baseClassName} ${hashId}`}>
-      {colorList?.map(({ key, color }) => {
+      {colorList?.map(({ key, color, title }) => {
         if (!key) return null;
         return (
           <Tooltip
             key={color}
-            title={formatMessage({
-              id: `app.setting.themecolor.${key}`,
-            })}
+            title={
+              title ??
+              formatMessage({
+                id: `app.setting.themecolor.${key}`,
+              })
+            }
           >
             <Tag
               className={`${baseClassName}-block ${hashId}`}
