@@ -247,7 +247,7 @@ menu 中支持了部分常用的 menu 配置， 可以帮助我们更好的管�
 | hideCopyButton | 不展示 copy 功能 | `boolean` | - |
 | disableUrlParams | 禁止同步设置到查询参数 | `boolean` | `false` |
 | enableDarkTheme | 打开黑色主题切换功能 ｜ `boolean` | `false` |
-| colorList | 自带的颜色切换系统 ｜ `{key,color}[]` | `ColorList` |
+| colorList | 自带的颜色切换系统(ColorList 的 title 会作为 Tooltip 显示) ｜ `{key,color,title?}[]` | `ColorList` |
 
 自带的颜色列表
 
