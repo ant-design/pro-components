@@ -8,6 +8,13 @@ group:
   path: /
 ---
 
+## @ant-design/pro-components@2.3.29
+
+`2022-11-07`
+
+- fix(utils): do not use process?.env?.ANTD_VERSION. [a295b3d](https://github.com/ant-design/pro-components/commit/a295b3d)
+- fix(table): 兼容 ellipsis 不想显示 Tooltip #6158 (#6160). [#6160](https://github.com/ant-design/pro-components/pull/#6160) [@DerrickTel](https://github.com/DerrickTel)
+
 ## @ant-design/pro-components@2.3.28
 
 `2022-11-03`
