@@ -45,7 +45,7 @@ In actual development we often encounter design issues, such as whether the clas
 
 ## Contribute
 
-We welcome your contributions, and you can build with us by :smiley:: in the following ways
+We welcome your contributions, and you can build with us by in the following ways :smiley: : 
 
 - Using Ant Design Pro, umi and ProComponents in your company or personal projects.
 - Report bugs or make inquiries via [Issue](http://github.com/ant-design/pro-components/issues).
