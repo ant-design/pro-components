@@ -2,6 +2,10 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [7.2.1](https://github.com/ant-design/pro-components/compare/@ant-design/pro-layout@7.2.0...@ant-design/pro-layout@7.2.1) (2022-11-08)
+
+**Note:** Version bump only for package @ant-design/pro-layout
+
 # [7.2.0](https://github.com/ant-design/pro-components/compare/@ant-design/pro-layout@7.1.16...@ant-design/pro-layout@7.2.0) (2022-11-07)
 
 ### Features

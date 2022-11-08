@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.3.2](https://github.com/ant-design/pro-components/compare/@ant-design/pro-utils@2.3.1...@ant-design/pro-utils@2.3.2) (2022-11-08)
+
+### Bug Fixes
+
+- **utils:** alway check process is undefined ([a861967](https://github.com/ant-design/pro-components/commit/a86196785cc4678a80adffb9e610e56d830b44eb))
+
 ## [2.3.1](https://github.com/ant-design/pro-components/compare/@ant-design/pro-utils@2.3.0...@ant-design/pro-utils@2.3.1) (2022-11-07)
 
 ### Bug Fixes
