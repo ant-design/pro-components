@@ -2,9 +2,14 @@
 import { omitUndefined } from '../omitUndefined';
 import { compareVersions } from './index';
 
+const getVersion = () => {
+  if (typeof process === 'undefined') return version;
+  return process?.env?.ANTD_VERSION || version;
+};
+
 const openVisibleCompatible = (open: boolean | undefined, onOpenChange?: any) => {
   const props =
-    compareVersions(process?.env?.ANTD_VERSION || version, '4.23.0') > -1
+    compareVersions(getVersion(), '4.23.0') > -1
       ? {
           open: open,
           onOpenChange: onOpenChange,
