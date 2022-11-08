@@ -809,6 +809,7 @@ describe('utils', () => {
     expect(isDropdownValueType('timeRange')).toBeFalsy();
     expect(isDropdownValueType('select')).toBeTruthy();
   });
+
   it('🪓 LabelIconTip', async () => {
     const html = render(
       <LabelIconTip
@@ -822,11 +823,13 @@ describe('utils', () => {
     );
 
     act(() => {
-      const dom = html.baseElement.querySelector('div');
+      const dom = html.baseElement.querySelector('div.ant-pro-core-label-tip');
       fireEvent.mouseDown(dom!);
       fireEvent.mouseLeave(dom!);
       fireEvent.mouseMove(dom!);
     });
+
+    await html.findAllByText('xxx');
 
     expect(html.asFragment()).toMatchSnapshot();
   });

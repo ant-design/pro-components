@@ -1,7 +1,6 @@
 import ProTable from '@ant-design/pro-table';
 import '@testing-library/jest-dom';
-import { render } from '@testing-library/react';
-import { mount } from 'enzyme';
+import { fireEvent, render } from '@testing-library/react';
 import { act } from 'react-dom/test-utils';
 import { waitForComponentToPaint } from '../util';
 import { columns } from './demo';
@@ -11,7 +10,7 @@ describe('Table ColumnSetting', () => {
     console.warn = jest.fn();
   });
   it('🎏 columnSetting', async () => {
-    const html = mount(
+    const html = render(
       <ProTable
         size="small"
         columns={columns}
@@ -33,29 +32,37 @@ describe('Table ColumnSetting', () => {
     await waitForComponentToPaint(html);
 
     act(() => {
-      const icon = html.find('.ant-pro-table-list-toolbar-setting-item .anticon-setting');
-      icon.simulate('click');
+      html.baseElement
+        .querySelector<HTMLDivElement>('.ant-pro-table-list-toolbar-setting-item .anticon-setting')
+        ?.click();
     });
     await waitForComponentToPaint(html);
-    const overlay = html.find('.ant-pro-table-column-setting-overlay');
-    expect(overlay.exists()).toBeTruthy();
+
+    const overlay = html.baseElement.querySelectorAll<HTMLDivElement>(
+      '.ant-pro-table-column-setting-overlay',
+    );
+    expect(!!overlay).toBeTruthy();
 
     act(() => {
-      const item = html.find('span.ant-pro-table-column-setting-list-item').first();
+      const item = html.baseElement.querySelector<HTMLDivElement>(
+        'span.ant-pro-table-column-setting-list-item',
+      );
       item
-        .find('.ant-pro-table-column-setting-list-item-option .anticon-vertical-align-top')
-        .simulate('click');
+        ?.querySelector<HTMLDivElement>(
+          '.ant-pro-table-column-setting-list-item-option .anticon-vertical-align-top',
+        )
+        ?.click();
     });
     await waitForComponentToPaint(html);
 
-    const titleList = html.find(
+    const titleList = html.baseElement.querySelectorAll<HTMLDivElement>(
       '.ant-pro-table-column-setting-overlay .ant-pro-table-column-setting-list-title',
     );
     expect(titleList.length).toBe(2);
   });
 
   it('🎏 columnSetting columnsStateMap props', async () => {
-    const html = mount(
+    const html = render(
       <ProTable
         size="small"
         columnsStateMap={{
@@ -82,24 +89,42 @@ describe('Table ColumnSetting', () => {
     await waitForComponentToPaint(html);
 
     act(() => {
-      const icon = html.find('.ant-pro-table-list-toolbar-setting-item .anticon-setting');
-      icon.simulate('click');
+      html.baseElement
+        .querySelector<HTMLDivElement>('.ant-pro-table-list-toolbar-setting-item .anticon-setting')
+        ?.click();
     });
     await waitForComponentToPaint(html);
-    let overlay = html.find(
+    let overlay = html.baseElement.querySelectorAll<HTMLDivElement>(
       '.ant-pro-table-column-setting-overlay .ant-pro-table-column-setting-list-title',
     );
     expect(overlay.length).toBe(3);
 
     act(() => {
-      html.setProps({
-        columnsStateMap: {
-          index: { fixed: 'left' },
-        },
-      });
+      html.rerender(
+        <ProTable
+          size="small"
+          columnsStateMap={{
+            index: { fixed: 'left' },
+          }}
+          columns={columns}
+          request={async () => {
+            return {
+              data: [
+                {
+                  key: 1,
+                  name: `TradeCode ${1}`,
+                  createdAt: 1602572994055,
+                },
+              ],
+              success: true,
+            };
+          }}
+          rowKey="key"
+        />,
+      );
     });
     await waitForComponentToPaint(html);
-    overlay = html.find(
+    overlay = html.baseElement.querySelectorAll<HTMLDivElement>(
       '.ant-pro-table-column-setting-overlay .ant-pro-table-column-setting-list-title',
     );
     expect(overlay.length).toBe(2);
@@ -107,7 +132,7 @@ describe('Table ColumnSetting', () => {
 
   it('🎏 columnSetting columnsStateMap onChange', async () => {
     const callBack = jest.fn();
-    const html = mount(
+    const html = render(
       <ProTable
         size="small"
         columnsStateMap={{
@@ -135,14 +160,17 @@ describe('Table ColumnSetting', () => {
 
     await waitForComponentToPaint(html, 200);
     act(() => {
-      const icon = html.find('.ant-pro-table-list-toolbar-setting-item .anticon-setting');
-      icon.simulate('click');
+      html.baseElement
+        .querySelector<HTMLDivElement>('.ant-pro-table-list-toolbar-setting-item .anticon-setting')
+        ?.click();
     });
     await waitForComponentToPaint(html);
 
-    const reset = html.find('.ant-pro-table-column-setting-title a');
+    const reset = html.baseElement.querySelector<HTMLDivElement>(
+      '.ant-pro-table-column-setting-title a',
+    );
     act(() => {
-      reset.simulate('click');
+      reset?.click();
     });
     await waitForComponentToPaint(html);
 
@@ -150,7 +178,7 @@ describe('Table ColumnSetting', () => {
   });
 
   it('🎏 columnSetting columnsState.value props', async () => {
-    const html = mount(
+    const html = render(
       <ProTable
         size="small"
         columnsState={{
@@ -181,35 +209,55 @@ describe('Table ColumnSetting', () => {
     await waitForComponentToPaint(html);
 
     act(() => {
-      const icon = html.find('.ant-pro-table-list-toolbar-setting-item .anticon-setting');
-      icon.simulate('click');
+      html.baseElement
+        .querySelector<HTMLDivElement>('.ant-pro-table-list-toolbar-setting-item .anticon-setting')
+        ?.click();
     });
     await waitForComponentToPaint(html);
-    let overlay = html.find(
+    let overlay = html.baseElement.querySelectorAll<HTMLDivElement>(
       '.ant-pro-table-column-setting-overlay .ant-pro-table-column-setting-list-title',
     );
     expect(overlay.length).toBe(3);
 
     act(() => {
-      html.setProps({
-        columnsState: {
-          persistenceType: 'localStorage',
-          persistenceKey: 'columnsState',
-          value: {
-            index: { fixed: 'left' },
-          },
-        },
-      });
+      html.rerender(
+        <ProTable
+          size="small"
+          columnsState={{
+            persistenceType: 'localStorage',
+            persistenceKey: 'columnsState',
+            value: {
+              index: { fixed: 'left' },
+            },
+          }}
+          columns={columns}
+          request={async () => {
+            return {
+              data: [
+                {
+                  key: 1,
+                  name: `TradeCode ${1}`,
+                  createdAt: 1602572994055,
+                },
+              ],
+              success: true,
+            };
+          }}
+          rowKey="key"
+        />,
+      );
     });
     await waitForComponentToPaint(html);
-    overlay = html.find(
+    overlay = html.baseElement.querySelectorAll<HTMLDivElement>(
       '.ant-pro-table-column-setting-overlay .ant-pro-table-column-setting-list-title',
     );
     expect(overlay.length).toBe(2);
 
     // 触发重置
     act(() => {
-      html.find('.ant-pro-table-column-setting-action-rest-button').simulate('click');
+      html.baseElement
+        .querySelector<HTMLDivElement>('.ant-pro-table-column-setting-action-rest-button')
+        ?.click?.();
     });
     await waitForComponentToPaint(html);
   });
@@ -234,7 +282,7 @@ describe('Table ColumnSetting', () => {
         throw new Error('clear error');
       },
     };
-    const html = mount(
+    const html = render(
       <ProTable
         size="small"
         columnsState={{
@@ -265,36 +313,56 @@ describe('Table ColumnSetting', () => {
     await waitForComponentToPaint(html);
 
     act(() => {
-      const icon = html.find('.ant-pro-table-list-toolbar-setting-item .anticon-setting');
-      icon.simulate('click');
+      html.baseElement
+        .querySelector<HTMLDivElement>('.ant-pro-table-list-toolbar-setting-item .anticon-setting')
+        ?.click();
     });
     await waitForComponentToPaint(html);
-    let overlay = html.find(
+    let overlay = html.baseElement.querySelectorAll<HTMLDivElement>(
       '.ant-pro-table-column-setting-overlay .ant-pro-table-column-setting-list-title',
     );
     expect(overlay.length).toBe(3);
 
     act(() => {
-      html.setProps({
-        columnsState: {
-          persistenceType: 'localStorage',
-          persistenceKey: 'columnsState',
-          value: {
-            index: { fixed: 'left' },
-          },
-        },
-      });
+      html.rerender(
+        <ProTable
+          size="small"
+          columnsState={{
+            persistenceType: 'localStorage',
+            persistenceKey: 'columnsState',
+            value: {
+              index: { fixed: 'left' },
+            },
+          }}
+          columns={columns}
+          request={async () => {
+            return {
+              data: [
+                {
+                  key: 1,
+                  name: `TradeCode ${1}`,
+                  createdAt: 1602572994055,
+                },
+              ],
+              success: true,
+            };
+          }}
+          rowKey="key"
+        />,
+      );
     });
 
     await waitForComponentToPaint(html);
-    overlay = html.find(
+    overlay = html.baseElement.querySelectorAll<HTMLDivElement>(
       '.ant-pro-table-column-setting-overlay .ant-pro-table-column-setting-list-title',
     );
     expect(overlay.length).toBe(2);
 
     // 触发重置
     act(() => {
-      html.find('.ant-pro-table-column-setting-action-rest-button').simulate('click');
+      html.baseElement
+        .querySelector<HTMLDivElement>('.ant-pro-table-column-setting-action-rest-button')
+        ?.click();
     });
     await waitForComponentToPaint(html);
     window.localStorage = localStorage;
@@ -303,7 +371,7 @@ describe('Table ColumnSetting', () => {
 
   it('🎏 columnSetting columnsState.onChange', async () => {
     const callBack = jest.fn();
-    const html = mount(
+    const html = render(
       <ProTable
         size="small"
         columnsState={{
@@ -332,25 +400,29 @@ describe('Table ColumnSetting', () => {
     );
 
     act(() => {
-      const icon = html.find('.ant-pro-table-list-toolbar-setting-item .anticon-setting');
-      icon.simulate('click');
+      html.baseElement
+        .querySelector<HTMLDivElement>('.ant-pro-table-list-toolbar-setting-item .anticon-setting')
+        ?.click();
     });
     await waitForComponentToPaint(html);
-    const overlay = html.find(
+    const overlay = html.baseElement.querySelectorAll<HTMLDivElement>(
       '.ant-pro-table-column-setting-overlay .ant-pro-table-column-setting-list-title',
     );
     expect(overlay.length).toBe(3);
 
     await waitForComponentToPaint(html, 200);
     act(() => {
-      const icon = html.find('.ant-pro-table-list-toolbar-setting-item .anticon-setting');
-      icon.simulate('click');
+      html.baseElement
+        .querySelector<HTMLDivElement>('.ant-pro-table-list-toolbar-setting-item .anticon-setting')
+        ?.click();
     });
     await waitForComponentToPaint(html);
 
-    const reset = html.find('.ant-pro-table-column-setting-title a');
+    const reset = html.baseElement.querySelector<HTMLDivElement>(
+      '.ant-pro-table-column-setting-title a',
+    );
     act(() => {
-      reset.simulate('click');
+      reset?.click();
     });
     await waitForComponentToPaint(html);
 
@@ -368,7 +440,7 @@ describe('Table ColumnSetting', () => {
         option: { fixed: 'right' },
       }),
     );
-    const html = mount(
+    const html = render(
       <ProTable
         size="small"
         columnsState={{
@@ -396,26 +468,44 @@ describe('Table ColumnSetting', () => {
     await waitForComponentToPaint(html);
 
     act(() => {
-      const icon = html.find('.ant-pro-table-list-toolbar-setting-item .anticon-setting');
-      icon.simulate('click');
+      html.baseElement
+        .querySelector<HTMLDivElement>('.ant-pro-table-list-toolbar-setting-item .anticon-setting')
+        ?.click();
     });
     await waitForComponentToPaint(html);
-    let overlay = html.find(
+    let overlay = html.baseElement.querySelectorAll<HTMLDivElement>(
       '.ant-pro-table-column-setting-overlay .ant-pro-table-column-setting-list-title',
     );
     expect(overlay.length).toBe(3);
 
     act(() => {
-      html.setProps({
-        columnsState: {
-          value: {
-            index: { fixed: 'left' },
-          },
-        },
-      });
+      html.rerender(
+        <ProTable
+          size="small"
+          columnsState={{
+            value: {
+              index: { fixed: 'left' },
+            },
+          }}
+          columns={columns}
+          request={async () => {
+            return {
+              data: [
+                {
+                  key: 1,
+                  name: `TradeCode ${1}`,
+                  createdAt: 1602572994055,
+                },
+              ],
+              success: true,
+            };
+          }}
+          rowKey="key"
+        />,
+      );
     });
     await waitForComponentToPaint(html);
-    overlay = html.find(
+    overlay = html.baseElement.querySelectorAll<HTMLDivElement>(
       '.ant-pro-table-column-setting-overlay .ant-pro-table-column-setting-list-title',
     );
     expect(overlay.length).toBe(2);
@@ -429,7 +519,7 @@ describe('Table ColumnSetting', () => {
       '{"index":{"fixed":"left"},.["Age":{"show":false},"option":{"fixed":"right"}}',
     );
 
-    const html = mount(
+    const html = render(
       <ProTable
         size="small"
         columnsState={{
@@ -457,26 +547,44 @@ describe('Table ColumnSetting', () => {
     await waitForComponentToPaint(html);
 
     act(() => {
-      const icon = html.find('.ant-pro-table-list-toolbar-setting-item .anticon-setting');
-      icon.simulate('click');
+      html.baseElement
+        .querySelector<HTMLDivElement>('.ant-pro-table-list-toolbar-setting-item .anticon-setting')
+        ?.click();
     });
     await waitForComponentToPaint(html);
-    let overlay = html.find(
+    let overlay = html.baseElement.querySelectorAll<HTMLDivElement>(
       '.ant-pro-table-column-setting-overlay .ant-pro-table-column-setting-list-title',
     );
     expect(overlay.length).toBe(0);
 
     act(() => {
-      html.setProps({
-        columnsState: {
-          value: {
-            index: { fixed: 'left' },
-          },
-        },
-      });
+      html.rerender(
+        <ProTable
+          size="small"
+          columnsState={{
+            value: {
+              index: { fixed: 'left' },
+            },
+          }}
+          columns={columns}
+          request={async () => {
+            return {
+              data: [
+                {
+                  key: 1,
+                  name: `TradeCode ${1}`,
+                  createdAt: 1602572994055,
+                },
+              ],
+              success: true,
+            };
+          }}
+          rowKey="key"
+        />,
+      );
     });
     await waitForComponentToPaint(html);
-    overlay = html.find(
+    overlay = html.baseElement.querySelectorAll<HTMLDivElement>(
       '.ant-pro-table-column-setting-overlay .ant-pro-table-column-setting-list-title',
     );
     expect(overlay.length).toBe(2);
@@ -484,7 +592,7 @@ describe('Table ColumnSetting', () => {
 
   it('🎏 columnSetting select all', async () => {
     const callBack = jest.fn();
-    const html = mount(
+    const html = render(
       <ProTable
         size="small"
         onColumnsStateChange={() => {
@@ -530,42 +638,42 @@ describe('Table ColumnSetting', () => {
 
     await waitForComponentToPaint(html, 200);
     act(() => {
-      const icon = html.find('.ant-pro-table-list-toolbar-setting-item .anticon-setting');
-      icon.simulate('click');
+      html.baseElement
+        .querySelector<HTMLDivElement>('.ant-pro-table-list-toolbar-setting-item .anticon-setting')
+        ?.click();
     });
 
     await waitForComponentToPaint(html, 200);
 
     act(() => {
-      html
-        .find('.ant-pro-table-column-setting-title .ant-checkbox-wrapper')
-        .find('.ant-checkbox-input')
-        .simulate('change', {
-          target: {
-            checked: false,
-          },
-        });
+      const input = html.baseElement
+        ?.querySelector<HTMLDivElement>('.ant-pro-table-column-setting-title .ant-checkbox-wrapper')
+        ?.querySelector<HTMLInputElement>('.ant-checkbox-input');
+      input?.click();
     });
 
     await waitForComponentToPaint(html, 200);
 
-    expect(html.find('span.ant-checkbox.ant-checkbox-checked').length).toBe(0);
+    expect(
+      html.baseElement.querySelectorAll<HTMLDivElement>('span.ant-checkbox.ant-checkbox-checked')
+        .length,
+    ).toBe(0);
 
     act(() => {
-      html
-        .find('.ant-pro-table-column-setting-title .ant-checkbox-wrapper')
-        .find('.ant-checkbox-input')
-        .simulate('change', {
-          target: {
-            checked: true,
-          },
-        });
+      const input = html.baseElement
+        ?.querySelector<HTMLDivElement>('.ant-pro-table-column-setting-title .ant-checkbox-wrapper')
+        ?.querySelector<HTMLInputElement>('.ant-checkbox-input');
+      input?.click();
     });
+
     await waitForComponentToPaint(html);
 
     expect(
-      html.find('span.ant-checkbox.ant-checkbox-checked').length +
-        html.find('span.ant-tree-checkbox.ant-tree-checkbox-checked').length,
+      html.baseElement.querySelectorAll<HTMLDivElement>('span.ant-checkbox.ant-checkbox-checked')
+        .length +
+        html.baseElement.querySelectorAll<HTMLDivElement>(
+          'span.ant-tree-checkbox.ant-tree-checkbox-checked',
+        ).length,
     ).toBe(2);
 
     expect(callBack).toBeCalled();
@@ -573,7 +681,7 @@ describe('Table ColumnSetting', () => {
 
   it('🎏 columnsState use the column key or dataIndex as index name', async () => {
     const onChange = jest.fn();
-    const html = mount(
+    const html = render(
       <ProTable
         size="small"
         columnsState={{
@@ -618,10 +726,15 @@ describe('Table ColumnSetting', () => {
         rowKey="key"
       />,
     );
-
-    html.find(`span[aria-label="setting"]`).simulate('click');
-
-    html.find(`.ant-pro-table-column-setting-action-rest-button`).simulate('click');
+    act(() => {
+      html.baseElement.querySelector<HTMLDivElement>(`span[aria-label="setting"]`)?.click();
+    });
+    await waitForComponentToPaint(html, 200);
+    act(() => {
+      html.baseElement
+        .querySelector<HTMLDivElement>(`.ant-pro-table-column-setting-action-rest-button`)
+        ?.click();
+    });
 
     expect(onChange).toBeCalledTimes(1);
     expect((onChange.mock as any).lastCall[1]).toMatchInlineSnapshot(`
@@ -652,7 +765,7 @@ describe('Table ColumnSetting', () => {
 
   it('🎏 columnSetting select one', async () => {
     const callBack = jest.fn();
-    const html = mount(
+    const html = render(
       <ProTable
         size="small"
         onColumnsStateChange={() => {
@@ -683,45 +796,60 @@ describe('Table ColumnSetting', () => {
 
     await waitForComponentToPaint(html, 200);
     act(() => {
-      const icon = html.find('.ant-pro-table-list-toolbar-setting-item .anticon-setting');
-      icon.simulate('click');
+      html.baseElement
+        .querySelector<HTMLDivElement>('.ant-pro-table-list-toolbar-setting-item .anticon-setting')
+        ?.click();
     });
 
     await waitForComponentToPaint(html, 200);
 
     act(() => {
-      html.find('.ant-pro-table-column-setting-list .ant-tree-checkbox').simulate('click');
+      html.baseElement
+        .querySelector<HTMLDivElement>('.ant-pro-table-column-setting-list .ant-tree-checkbox')
+        ?.click();
     });
 
     await waitForComponentToPaint(html, 200);
 
-    expect(html.find('span.ant-checkbox.ant-checkbox-checked').length).toBe(0);
+    expect(
+      html.baseElement.querySelectorAll<HTMLDivElement>('span.ant-checkbox.ant-checkbox-checked')
+        .length,
+    ).toBe(0);
 
     act(() => {
-      html.find('.ant-pro-table-column-setting-list .ant-tree-checkbox').simulate('click');
+      html.baseElement
+        .querySelector<HTMLDivElement>('.ant-pro-table-column-setting-list .ant-tree-checkbox')
+        ?.click();
     });
 
     await waitForComponentToPaint(html, 200);
 
     act(() => {
-      html.find('.ant-pro-table-column-setting-list .ant-tree-checkbox').simulate('click');
+      html.baseElement
+        .querySelector<HTMLDivElement>('.ant-pro-table-column-setting-list .ant-tree-checkbox')
+        ?.click();
     });
 
     act(() => {
-      html.find('.ant-pro-table-column-setting-list .ant-tree-checkbox').simulate('click');
+      html.baseElement
+        .querySelector<HTMLDivElement>('.ant-pro-table-column-setting-list .ant-tree-checkbox')
+        ?.click();
     });
     await waitForComponentToPaint(html);
 
     expect(
-      html.find('span.ant-checkbox.ant-checkbox-checked').length +
-        html.find('span.ant-tree-checkbox.ant-tree-checkbox-checked').length,
+      html.baseElement.querySelectorAll<HTMLDivElement>('span.ant-checkbox.ant-checkbox-checked')
+        .length +
+        html.baseElement.querySelectorAll<HTMLDivElement>(
+          'span.ant-tree-checkbox.ant-tree-checkbox-checked',
+        ).length,
     ).toBe(2);
 
     expect(callBack).toBeCalled();
   });
 
   it('🎏 columnSetting close checkable', async () => {
-    const html = mount(
+    const html = render(
       <ProTable
         size="small"
         options={{
@@ -762,17 +890,22 @@ describe('Table ColumnSetting', () => {
 
     await waitForComponentToPaint(html, 200);
     act(() => {
-      const icon = html.find('.ant-pro-table-list-toolbar-setting-item .anticon-setting');
-      icon.simulate('click');
+      html.baseElement
+        .querySelector<HTMLDivElement>('.ant-pro-table-list-toolbar-setting-item .anticon-setting')
+        ?.click();
     });
 
     await waitForComponentToPaint(html, 200);
 
-    expect(html.find('span.ant-tree-checkbox.ant-tree-checkbox-checked').length).toBe(0);
+    expect(
+      html.baseElement.querySelectorAll<HTMLDivElement>(
+        'span.ant-tree-checkbox.ant-tree-checkbox-checked',
+      ).length,
+    ).toBe(0);
   });
 
   it('🎏 columnSetting open checkable', async () => {
-    const html = mount(
+    const html = render(
       <ProTable
         size="small"
         columns={[
@@ -807,32 +940,73 @@ describe('Table ColumnSetting', () => {
 
     await waitForComponentToPaint(html, 200);
     act(() => {
-      const icon = html.find('.ant-pro-table-list-toolbar-setting-item .anticon-setting');
-      icon.simulate('click');
+      html.baseElement
+        .querySelector<HTMLDivElement>('.ant-pro-table-list-toolbar-setting-item .anticon-setting')
+        ?.click();
     });
 
     await waitForComponentToPaint(html, 500);
 
-    expect(html.find('span.ant-tree-checkbox.ant-tree-checkbox-checked').length).toBe(2);
+    expect(
+      html.baseElement.querySelectorAll<HTMLDivElement>(
+        'span.ant-tree-checkbox.ant-tree-checkbox-checked',
+      ).length,
+    ).toBe(2);
 
-    html.find('.ant-tree-treenode > .ant-tree-node-content-wrapper').at(1).simulate('dragStart');
-    html.find('.ant-tree-treenode > .ant-tree-node-content-wrapper').at(0).simulate('dragEnter');
+    act(() => {
+      fireEvent.dragStart(
+        html.baseElement.querySelectorAll<HTMLDivElement>(
+          '.ant-tree-treenode > .ant-tree-node-content-wrapper',
+        )[1],
+      );
+
+      fireEvent.dragEnd(
+        html.baseElement.querySelectorAll<HTMLDivElement>(
+          '.ant-tree-treenode > .ant-tree-node-content-wrapper',
+        )[0],
+      );
+    });
+
     await waitForComponentToPaint(html, 1000);
 
-    html.find('.ant-tree-treenode > .ant-tree-node-content-wrapper').at(0).simulate('drop');
+    act(() => {
+      fireEvent.drop(
+        html.baseElement.querySelectorAll<HTMLDivElement>(
+          '.ant-tree-treenode > .ant-tree-node-content-wrapper',
+        )[0],
+      );
+    });
+
+    await waitForComponentToPaint(html, 1000);
+    act(() => {
+      fireEvent.dragStart(
+        html.baseElement.querySelectorAll<HTMLDivElement>(
+          '.ant-tree-treenode > .ant-tree-node-content-wrapper',
+        )[1],
+      );
+
+      fireEvent.dragEnd(
+        html.baseElement.querySelectorAll<HTMLDivElement>(
+          '.ant-tree-treenode > .ant-tree-node-content-wrapper',
+        )[0],
+      );
+    });
 
     await waitForComponentToPaint(html, 1000);
 
-    html.find('.ant-tree-treenode > .ant-tree-node-content-wrapper').at(0).simulate('dragStart');
-    html.find('.ant-tree-treenode > .ant-tree-node-content-wrapper').at(1).simulate('dragEnter');
-    await waitForComponentToPaint(html, 1000);
+    act(() => {
+      fireEvent.drop(
+        html.baseElement.querySelectorAll<HTMLDivElement>(
+          '.ant-tree-treenode > .ant-tree-node-content-wrapper',
+        )[1],
+      );
+    });
 
-    html.find('.ant-tree-treenode > .ant-tree-node-content-wrapper').at(1).simulate('drop');
     await waitForComponentToPaint(html, 1000);
   });
 
   it('🎏 columnSetting support hideInSetting', async () => {
-    const html = mount(
+    const html = render(
       <ProTable
         size="small"
         columns={[
@@ -869,17 +1043,18 @@ describe('Table ColumnSetting', () => {
 
     await waitForComponentToPaint(html, 200);
     act(() => {
-      const icon = html.find('.ant-pro-table-list-toolbar-setting-item .anticon-setting');
-      icon.simulate('click');
+      html.baseElement
+        .querySelector<HTMLDivElement>('.ant-pro-table-list-toolbar-setting-item .anticon-setting')
+        ?.click();
     });
 
     await waitForComponentToPaint(html, 1000);
 
-    expect(html.find('.ant-tree-treenode').length).toBe(2);
+    expect(html.baseElement.querySelectorAll<HTMLDivElement>('.ant-tree-treenode').length).toBe(2);
   });
 
   it('🎏 columnSetting support replacement for default setting icon', async () => {
-    const html = mount(
+    const html = render(
       <ProTable
         size="small"
         options={{
@@ -921,13 +1096,15 @@ describe('Table ColumnSetting', () => {
 
     await waitForComponentToPaint(html, 200);
     act(() => {
-      const element = html.find('.ant-pro-table-list-toolbar-setting-item .custom-setting-button');
-      element.simulate('click');
+      const element = html.baseElement.querySelector<HTMLDivElement>(
+        '.ant-pro-table-list-toolbar-setting-item .custom-setting-button',
+      );
+      element?.click();
     });
 
     await waitForComponentToPaint(html, 1000);
 
-    expect(html.find('.ant-tree-treenode').length).toBe(2);
+    expect(html.baseElement.querySelectorAll<HTMLDivElement>('.ant-tree-treenode').length).toBe(2);
   });
 
   it('🎏 DensityIcon support onChange', async () => {
@@ -969,8 +1146,8 @@ describe('Table ColumnSetting', () => {
     });
 
     await act(async () => {
-      const dom = await html.findByText('紧凑');
-      dom.click();
+      const dom = await html.queryByText('紧凑');
+      dom?.click();
     });
 
     expect(onChange).toBeCalledWith('small');
@@ -983,14 +1160,15 @@ describe('Table ColumnSetting', () => {
     });
 
     await act(async () => {
-      const dom = await html.findByText('中等');
-      dom.click();
+      const dom = await html.queryByText('中等');
+      dom?.click();
     });
 
     expect(onChange).toBeCalledWith('middle');
   });
+
   it('🎏 columnSetting ellipsis support showTitle', async () => {
-    const html = mount(
+    const html = render(
       <ProTable
         columns={[
           {
@@ -999,6 +1177,14 @@ describe('Table ColumnSetting', () => {
             dataIndex: 'name',
             ellipsis: {
               showTitle: true,
+            },
+          },
+          {
+            title: 'Name1',
+            key: 'name1',
+            dataIndex: 'name',
+            ellipsis: {
+              showTitle: false,
             },
           },
         ]}
@@ -1012,7 +1198,7 @@ describe('Table ColumnSetting', () => {
       />,
     );
     await waitForComponentToPaint(html);
-    const ellipsisList = html.find('.ant-typography-ellipsis');
-    expect(ellipsisList.length).toBe(2);
+    const ellipsisList = html.baseElement.querySelectorAll('.ant-typography-ellipsis');
+    expect(ellipsisList.length).toBe(1);
   });
 });

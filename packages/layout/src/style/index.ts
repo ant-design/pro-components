@@ -6,6 +6,11 @@ export interface ProLayoutToken extends ProAliasToken {
   componentCls: string;
 }
 
+const getVersion = () => {
+  if (typeof process === 'undefined') return version;
+  return process?.env?.ANTD_VERSION || version;
+};
+
 /**
  * 主要区别：
  * 需要手动引入 import 'antd/dist/antd.css';
@@ -14,7 +19,7 @@ export interface ProLayoutToken extends ProAliasToken {
  * @returns
  */
 const compatibleStyle: GenerateStyle<ProLayoutToken> = (token) => {
-  if (version.startsWith('5')) {
+  if (getVersion()?.startsWith('5')) {
     return {};
   }
   return {
