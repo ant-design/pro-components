@@ -1,9 +1,17 @@
 import ProTable from '@ant-design/pro-table';
 import '@testing-library/jest-dom';
-import { fireEvent, render } from '@testing-library/react';
+import { fireEvent, render, createEvent } from '@testing-library/react';
 import { act } from 'react-dom/test-utils';
 import { waitForComponentToPaint } from '../util';
 import { columns } from './demo';
+
+function fireDragEvent(ele: HTMLElement, eventName: string, data: object = {}) {
+  const event = createEvent[eventName](ele);
+  Object.keys(data).forEach((key) => {
+    event[key] = data[key];
+  });
+  fireEvent(ele, event);
+}
 
 describe('Table ColumnSetting', () => {
   beforeEach(() => {
@@ -954,20 +962,47 @@ describe('Table ColumnSetting', () => {
     ).toBe(2);
 
     act(() => {
-      fireEvent.dragStart(
+      fireDragEvent(
         html.baseElement.querySelectorAll<HTMLDivElement>(
           '.ant-tree-treenode > .ant-tree-node-content-wrapper',
         )[1],
-      );
-
-      fireEvent.dragEnd(
-        html.baseElement.querySelectorAll<HTMLDivElement>(
-          '.ant-tree-treenode > .ant-tree-node-content-wrapper',
-        )[0],
+        'dragStart',
+        {
+          clientX: 500,
+          clientY: 500,
+        },
       );
     });
 
-    await waitForComponentToPaint(html, 1000);
+    await waitForComponentToPaint(html, 200);
+    act(() => {
+      fireDragEvent(
+        html.baseElement.querySelectorAll<HTMLDivElement>(
+          '.ant-tree-treenode > .ant-tree-node-content-wrapper',
+        )[0],
+        'dragEnter',
+        {
+          clientX: 400,
+          clientY: 600,
+        },
+      );
+    });
+    await waitForComponentToPaint(html, 200);
+
+    act(() => {
+      fireDragEvent(
+        html.baseElement.querySelectorAll<HTMLDivElement>(
+          '.ant-tree-treenode > .ant-tree-node-content-wrapper',
+        )[0],
+        'dragOver',
+        {
+          clientX: 400,
+          clientY: 600,
+        },
+      );
+    });
+
+    await waitForComponentToPaint(html, 200);
 
     act(() => {
       fireEvent.drop(
@@ -979,20 +1014,32 @@ describe('Table ColumnSetting', () => {
 
     await waitForComponentToPaint(html, 1000);
     act(() => {
-      fireEvent.dragStart(
+      fireDragEvent(
         html.baseElement.querySelectorAll<HTMLDivElement>(
           '.ant-tree-treenode > .ant-tree-node-content-wrapper',
         )[1],
+        'dragStart',
+        {
+          clientX: 500,
+          clientY: 500,
+        },
       );
-
-      fireEvent.dragEnd(
+    });
+    await waitForComponentToPaint(html, 200);
+    act(() => {
+      fireDragEvent(
         html.baseElement.querySelectorAll<HTMLDivElement>(
           '.ant-tree-treenode > .ant-tree-node-content-wrapper',
         )[0],
+        'dragEnd',
+        {
+          clientX: 400,
+          clientY: 600,
+        },
       );
     });
 
-    await waitForComponentToPaint(html, 1000);
+    await waitForComponentToPaint(html, 200);
 
     act(() => {
       fireEvent.drop(
