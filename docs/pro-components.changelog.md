@@ -8,6 +8,13 @@ group:
   path: /
 ---
 
+## @ant-design/pro-components@2.3.30
+
+`2022-11-08`
+
+- fix(utils): alway check process is undefined. [a861967](https://github.com/ant-design/pro-components/commit/a861967)
+- fix(table): update table alert style. [1302a90](https://github.com/ant-design/pro-components/commit/1302a90)
+
 ## @ant-design/pro-components@2.3.29
 
 `2022-11-07`
