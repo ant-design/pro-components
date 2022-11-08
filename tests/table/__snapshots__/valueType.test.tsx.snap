@@ -459,7 +459,6 @@ exports[`BasicTable valueType 🎏 table support filter when valueType is treeSe
                 </div>
                 <ul
                   class="ant-pagination ant-pagination-mini ant-table-pagination ant-table-pagination-right"
-                  unselectable="unselectable"
                 >
                   <li
                     class="ant-pagination-total-text"

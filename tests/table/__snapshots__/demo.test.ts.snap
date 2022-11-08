@@ -10925,7 +10925,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/ListToolBar/basic.t
                               应用名称
                             </th>
                             <th
-                              aria-label="[object Object] sortable"
+                              aria-label="this column is sortable"
                               class="ant-table-cell ant-table-column-has-sorters"
                               style="text-align: right;"
                               tabindex="0"
@@ -11368,7 +11368,6 @@ exports[`table demos 📸 renders ./packages/table/src/demos/ListToolBar/basic.t
                 </div>
                 <ul
                   class="ant-pagination ant-pagination-mini ant-table-pagination ant-table-pagination-right"
-                  unselectable="unselectable"
                 >
                   <li
                     class="ant-pagination-total-text"
@@ -11861,7 +11860,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/ListToolBar/menu.ts
                               应用名称
                             </th>
                             <th
-                              aria-label="[object Object] sortable"
+                              aria-label="this column is sortable"
                               class="ant-table-cell ant-table-column-has-sorters"
                               style="text-align: right;"
                               tabindex="0"
@@ -12304,7 +12303,6 @@ exports[`table demos 📸 renders ./packages/table/src/demos/ListToolBar/menu.ts
                 </div>
                 <ul
                   class="ant-pagination ant-pagination-mini ant-table-pagination ant-table-pagination-right"
-                  unselectable="unselectable"
                 >
                   <li
                     class="ant-pagination-total-text"
@@ -12793,7 +12791,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/ListToolBar/multipl
                               应用名称
                             </th>
                             <th
-                              aria-label="[object Object] sortable"
+                              aria-label="this column is sortable"
                               class="ant-table-cell ant-table-column-has-sorters"
                               style="text-align: right;"
                               tabindex="0"
@@ -13236,7 +13234,6 @@ exports[`table demos 📸 renders ./packages/table/src/demos/ListToolBar/multipl
                 </div>
                 <ul
                   class="ant-pagination ant-pagination-mini ant-table-pagination ant-table-pagination-right"
-                  unselectable="unselectable"
                 >
                   <li
                     class="ant-pagination-total-text"
@@ -13687,7 +13684,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/ListToolBar/no-titl
                               应用名称
                             </th>
                             <th
-                              aria-label="[object Object] sortable"
+                              aria-label="this column is sortable"
                               class="ant-table-cell ant-table-column-has-sorters"
                               style="text-align: right;"
                               tabindex="0"
@@ -14130,7 +14127,6 @@ exports[`table demos 📸 renders ./packages/table/src/demos/ListToolBar/no-titl
                 </div>
                 <ul
                   class="ant-pagination ant-pagination-mini ant-table-pagination ant-table-pagination-right"
-                  unselectable="unselectable"
                 >
                   <li
                     class="ant-pagination-total-text"
@@ -14624,7 +14620,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/ListToolBar/tabs.ts
                               状态
                             </th>
                             <th
-                              aria-label="[object Object] sortable"
+                              aria-label="this column is sortable"
                               class="ant-table-cell ant-table-column-has-sorters"
                               style="text-align: right;"
                               tabindex="0"
@@ -15092,7 +15088,6 @@ exports[`table demos 📸 renders ./packages/table/src/demos/ListToolBar/tabs.ts
                 </div>
                 <ul
                   class="ant-pagination ant-pagination-mini ant-table-pagination ant-table-pagination-right"
-                  unselectable="unselectable"
                 >
                   <li
                     class="ant-pagination-total-text"
@@ -15378,6 +15373,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/batchOption.tsx cor
                                   >
                                     <input
                                       aria-checked="mixed"
+                                      aria-label="Custom selection"
                                       class="ant-checkbox-input"
                                       type="checkbox"
                                       value=""
@@ -15423,7 +15419,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/batchOption.tsx cor
                               应用名称
                             </th>
                             <th
-                              aria-label="[object Object] sortable"
+                              aria-label="this column is sortable"
                               class="ant-table-cell ant-table-column-has-sorters"
                               style="text-align: right;"
                               tabindex="0"
@@ -15501,7 +15497,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/batchOption.tsx cor
                               创建者
                             </th>
                             <th
-                              aria-label="[object Object] sortable"
+                              aria-label="this column is sortable"
                               class="ant-table-cell ant-table-column-has-sorters"
                               tabindex="0"
                             >
@@ -16582,7 +16578,6 @@ exports[`table demos 📸 renders ./packages/table/src/demos/batchOption.tsx cor
                 </div>
                 <ul
                   class="ant-pagination ant-pagination-mini ant-table-pagination ant-table-pagination-right"
-                  unselectable="unselectable"
                 >
                   <li
                     class="ant-pagination-total-text"
@@ -16863,7 +16858,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/card-title.tsx corr
                               应用名称
                             </th>
                             <th
-                              aria-label="[object Object] sortable"
+                              aria-label="this column is sortable"
                               class="ant-table-cell ant-table-column-has-sorters"
                               style="text-align: right;"
                               tabindex="0"
@@ -17306,7 +17301,6 @@ exports[`table demos 📸 renders ./packages/table/src/demos/card-title.tsx corr
                 </div>
                 <ul
                   class="ant-pagination ant-pagination-mini ant-table-pagination ant-table-pagination-right"
-                  unselectable="unselectable"
                 >
                   <li
                     class="ant-pagination-total-text"
@@ -18058,7 +18052,6 @@ exports[`table demos 📸 renders ./packages/table/src/demos/columnsStateMap.tsx
                 </div>
                 <ul
                   class="ant-pagination ant-pagination-mini ant-table-pagination ant-table-pagination-right"
-                  unselectable="unselectable"
                 >
                   <li
                     class="ant-pagination-total-text"
@@ -22786,7 +22779,6 @@ exports[`table demos 📸 renders ./packages/table/src/demos/config-provider.tsx
                 </div>
                 <ul
                   class="qixian-pagination qixian-pagination-mini qixian-table-pagination qixian-table-pagination-right"
-                  unselectable="unselectable"
                 >
                   <li
                     class="qixian-pagination-total-text"
@@ -24590,7 +24582,6 @@ exports[`table demos 📸 renders ./packages/table/src/demos/crud.tsx correctly 
                     </div>
                     <ul
                       class="ant-pagination ant-pagination-mini ant-table-pagination ant-table-pagination-right"
-                      unselectable="unselectable"
                     >
                       <li
                         class="ant-pagination-total-text"
@@ -25301,7 +25292,6 @@ exports[`table demos 📸 renders ./packages/table/src/demos/customization-value
                 </div>
                 <ul
                   class="ant-pagination ant-pagination-mini ant-table-pagination ant-table-pagination-right"
-                  unselectable="unselectable"
                 >
                   <li
                     class="ant-pagination-total-text"
@@ -27357,7 +27347,6 @@ exports[`table demos 📸 renders ./packages/table/src/demos/dataSource.tsx corr
                 </div>
                 <ul
                   class="ant-pagination ant-pagination-mini ant-table-pagination ant-table-pagination-right"
-                  unselectable="unselectable"
                 >
                   <li
                     class="ant-pagination-total-text"
@@ -27822,7 +27811,6 @@ exports[`table demos 📸 renders ./packages/table/src/demos/dateFormatter.tsx c
                 </div>
                 <ul
                   class="ant-pagination ant-pagination-mini ant-table-pagination ant-table-pagination-right"
-                  unselectable="unselectable"
                 >
                   <li
                     class="ant-pagination-total-text"
@@ -28349,7 +28337,6 @@ exports[`table demos 📸 renders ./packages/table/src/demos/dateFormatter.tsx c
                 </div>
                 <ul
                   class="ant-pagination ant-pagination-mini ant-table-pagination ant-table-pagination-right"
-                  unselectable="unselectable"
                 >
                   <li
                     class="ant-pagination-total-text"
@@ -28876,7 +28863,6 @@ exports[`table demos 📸 renders ./packages/table/src/demos/dateFormatter.tsx c
                 </div>
                 <ul
                   class="ant-pagination ant-pagination-mini ant-table-pagination ant-table-pagination-right"
-                  unselectable="unselectable"
                 >
                   <li
                     class="ant-pagination-total-text"
@@ -30520,7 +30506,6 @@ exports[`table demos 📸 renders ./packages/table/src/demos/dynamic-columns-sta
                 </div>
                 <ul
                   class="ant-pagination ant-pagination-mini ant-table-pagination ant-table-pagination-right"
-                  unselectable="unselectable"
                 >
                   <li
                     class="ant-pagination-total-text"
@@ -31262,6 +31247,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/dynamic-settings.ts
                                               class="ant-checkbox"
                                             >
                                               <input
+                                                aria-label="Select all"
                                                 class="ant-checkbox-input"
                                                 type="checkbox"
                                                 value=""
@@ -31322,7 +31308,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/dynamic-settings.ts
                                         </div>
                                       </th>
                                       <th
-                                        aria-label="[object Object] sortable"
+                                        aria-label="this column is sortable"
                                         class="ant-table-cell ant-table-column-has-sorters"
                                         tabindex="0"
                                       >
@@ -31819,7 +31805,6 @@ exports[`table demos 📸 renders ./packages/table/src/demos/dynamic-settings.ts
                           </div>
                           <ul
                             class="ant-pagination ant-pagination-mini ant-table-pagination ant-table-pagination-right"
-                            unselectable="unselectable"
                           >
                             <li
                               class="ant-pagination-total-text"
@@ -33843,7 +33828,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/error-boundaries-fa
                               应用名称
                             </th>
                             <th
-                              aria-label="[object Object] sortable"
+                              aria-label="this column is sortable"
                               class="ant-table-cell ant-table-column-has-sorters"
                               style="text-align: right;"
                               tabindex="0"
@@ -34286,7 +34271,6 @@ exports[`table demos 📸 renders ./packages/table/src/demos/error-boundaries-fa
                 </div>
                 <ul
                   class="ant-pagination ant-pagination-mini ant-table-pagination ant-table-pagination-right"
-                  unselectable="unselectable"
                 >
                   <li
                     class="ant-pagination-total-text"
@@ -34763,7 +34747,6 @@ exports[`table demos 📸 renders ./packages/table/src/demos/form.tsx correctly 
                 </div>
                 <ul
                   class="ant-pagination ant-pagination-mini ant-table-pagination ant-table-pagination-right"
-                  unselectable="unselectable"
                 >
                   <li
                     class="ant-pagination-total-text"
@@ -35506,6 +35489,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/intl.tsx correctly 
                                     class="ant-checkbox"
                                   >
                                     <input
+                                      aria-label="Select all"
                                       class="ant-checkbox-input"
                                       type="checkbox"
                                       value=""
@@ -35590,7 +35574,6 @@ exports[`table demos 📸 renders ./packages/table/src/demos/intl.tsx correctly 
                 </div>
                 <ul
                   class="ant-pagination ant-pagination-mini ant-table-pagination ant-table-pagination-right"
-                  unselectable="unselectable"
                 >
                   <li
                     class="ant-pagination-total-text"
@@ -36066,7 +36049,6 @@ exports[`table demos 📸 renders ./packages/table/src/demos/lightfilter.tsx cor
                 </div>
                 <ul
                   class="ant-pagination ant-pagination-mini ant-table-pagination ant-table-pagination-right"
-                  unselectable="unselectable"
                 >
                   <li
                     class="ant-pagination-total-text"
@@ -36852,7 +36834,6 @@ exports[`table demos 📸 renders ./packages/table/src/demos/linkage_form.tsx co
                 </div>
                 <ul
                   class="ant-pagination ant-pagination-mini ant-table-pagination ant-table-pagination-right"
-                  unselectable="unselectable"
                 >
                   <li
                     class="ant-pagination-total-text"
@@ -37514,7 +37495,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/listToolBar.tsx cor
                               </div>
                             </th>
                             <th
-                              aria-label="[object Object] sortable"
+                              aria-label="this column is sortable"
                               class="ant-table-cell ant-table-column-has-sorters"
                               style="text-align: right;"
                               tabindex="0"
@@ -37902,7 +37883,6 @@ exports[`table demos 📸 renders ./packages/table/src/demos/listToolBar.tsx cor
                 </div>
                 <ul
                   class="ant-pagination ant-pagination-mini ant-table-pagination ant-table-pagination-right"
-                  unselectable="unselectable"
                 >
                   <li
                     class="ant-pagination-total-text"
@@ -38541,7 +38521,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/no-option.tsx corre
                               应用名称
                             </th>
                             <th
-                              aria-label="[object Object] sortable"
+                              aria-label="this column is sortable"
                               class="ant-table-cell ant-table-column-has-sorters"
                               style="text-align: right;"
                               tabindex="0"
@@ -38608,7 +38588,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/no-option.tsx corre
                               状态
                             </th>
                             <th
-                              aria-label="[object Object] sortable"
+                              aria-label="this column is sortable"
                               class="ant-table-cell ant-table-column-has-sorters"
                               tabindex="0"
                             >
@@ -38909,7 +38889,6 @@ exports[`table demos 📸 renders ./packages/table/src/demos/no-option.tsx corre
                 </div>
                 <ul
                   class="ant-pagination ant-pagination-mini ant-table-pagination ant-table-pagination-right"
-                  unselectable="unselectable"
                 >
                   <li
                     class="ant-pagination-total-text"
@@ -39554,7 +39533,6 @@ exports[`table demos 📸 renders ./packages/table/src/demos/no-title.tsx correc
                 </div>
                 <ul
                   class="ant-pagination ant-pagination-mini ant-table-pagination ant-table-pagination-right"
-                  unselectable="unselectable"
                 >
                   <li
                     class="ant-pagination-total-text"
@@ -39892,7 +39870,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/normal.tsx correctl
                               应用名称
                             </th>
                             <th
-                              aria-label="[object Object] sortable"
+                              aria-label="this column is sortable"
                               class="ant-table-cell ant-table-column-has-sorters"
                               style="text-align: right;"
                               tabindex="0"
@@ -40470,7 +40448,6 @@ exports[`table demos 📸 renders ./packages/table/src/demos/normal.tsx correctl
                 </div>
                 <ul
                   class="ant-pagination ant-pagination-mini ant-table-pagination ant-table-pagination-right"
-                  unselectable="unselectable"
                 >
                   <li
                     class="ant-pagination-total-text"
@@ -41239,7 +41216,6 @@ exports[`table demos 📸 renders ./packages/table/src/demos/open-rules.tsx corr
                 </div>
                 <ul
                   class="ant-pagination ant-pagination-mini ant-table-pagination ant-table-pagination-right"
-                  unselectable="unselectable"
                 >
                   <li
                     class="ant-pagination-total-text"
@@ -42003,7 +41979,6 @@ exports[`table demos 📸 renders ./packages/table/src/demos/open-rules.tsx corr
                 </div>
                 <ul
                   class="ant-pagination ant-pagination-mini ant-table-pagination ant-table-pagination-right"
-                  unselectable="unselectable"
                 >
                   <li
                     class="ant-pagination-total-text"
@@ -43840,7 +43815,6 @@ exports[`table demos 📸 renders ./packages/table/src/demos/renderTable.tsx cor
                     </div>
                     <ul
                       class="ant-pagination ant-pagination-mini ant-table-pagination ant-table-pagination-right"
-                      unselectable="unselectable"
                     >
                       <li
                         class="ant-pagination-total-text"
@@ -45551,7 +45525,6 @@ exports[`table demos 📸 renders ./packages/table/src/demos/rtl_table.tsx corre
                 </div>
                 <ul
                   class="ant-pagination ant-pagination-mini ant-pagination-rtl ant-table-pagination ant-table-pagination-left"
-                  unselectable="unselectable"
                 >
                   <li
                     class="ant-pagination-total-text"
@@ -45929,7 +45902,6 @@ exports[`table demos 📸 renders ./packages/table/src/demos/search.tsx correctl
                 </div>
                 <ul
                   class="ant-pagination ant-pagination-mini ant-table-pagination ant-table-pagination-right"
-                  unselectable="unselectable"
                 >
                   <li
                     class="ant-pagination-total-text"
@@ -46580,7 +46552,6 @@ exports[`table demos 📸 renders ./packages/table/src/demos/search_option.tsx c
                 </div>
                 <ul
                   class="ant-pagination ant-pagination-mini ant-table-pagination ant-table-pagination-right"
-                  unselectable="unselectable"
                 >
                   <li
                     class="ant-pagination-total-text"
@@ -47429,7 +47400,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/single.tsx correctl
                               标签
                             </th>
                             <th
-                              aria-label="[object Object] sortable"
+                              aria-label="this column is sortable"
                               class="ant-table-cell ant-table-column-has-sorters"
                               tabindex="0"
                             >
@@ -48485,7 +48456,6 @@ exports[`table demos 📸 renders ./packages/table/src/demos/single.tsx correctl
                 </div>
                 <ul
                   class="ant-pagination ant-pagination-mini ant-table-pagination ant-table-pagination-right"
-                  unselectable="unselectable"
                 >
                   <li
                     class="ant-pagination-total-text"
@@ -49418,7 +49388,6 @@ exports[`table demos 📸 renders ./packages/table/src/demos/single-test.tsx cor
                 </div>
                 <ul
                   class="ant-pagination ant-pagination-mini ant-table-pagination ant-table-pagination-right"
-                  unselectable="unselectable"
                 >
                   <li
                     class="ant-pagination-total-text"
@@ -51429,7 +51398,6 @@ exports[`table demos 📸 renders ./packages/table/src/demos/single-test.tsx cor
                 </div>
                 <ul
                   class="ant-pagination ant-pagination-mini ant-table-pagination ant-table-pagination-right"
-                  unselectable="unselectable"
                 >
                   <li
                     class="ant-pagination-total-text"
@@ -52368,7 +52336,6 @@ exports[`table demos 📸 renders ./packages/table/src/demos/split.tsx correctly
                           </div>
                           <ul
                             class="ant-pagination ant-pagination-mini ant-table-pagination ant-table-pagination-right"
-                            unselectable="unselectable"
                           >
                             <li
                               class="ant-pagination-total-text"
@@ -52667,7 +52634,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/table-nested.tsx co
                               状态
                             </th>
                             <th
-                              aria-label="[object Object] sortable"
+                              aria-label="this column is sortable"
                               class="ant-table-cell ant-table-column-has-sorters"
                               style="text-align: right;"
                               tabindex="0"
@@ -52955,7 +52922,6 @@ exports[`table demos 📸 renders ./packages/table/src/demos/table-nested.tsx co
                 </div>
                 <ul
                   class="ant-pagination ant-pagination-mini ant-table-pagination ant-table-pagination-right"
-                  unselectable="unselectable"
                 >
                   <li
                     class="ant-pagination-total-text"
@@ -53842,7 +53808,6 @@ exports[`table demos 📸 renders ./packages/table/src/demos/valueType.tsx corre
                 </div>
                 <ul
                   class="ant-pagination ant-pagination-mini ant-table-pagination ant-table-pagination-right"
-                  unselectable="unselectable"
                 >
                   <li
                     class="ant-pagination-total-text"
@@ -55394,7 +55359,6 @@ exports[`table demos 📸 renders ./packages/table/src/demos/valueType_select.ts
                 </div>
                 <ul
                   class="ant-pagination ant-pagination-mini ant-table-pagination ant-table-pagination-right"
-                  unselectable="unselectable"
                 >
                   <li
                     class="ant-pagination-total-text"
@@ -56508,7 +56472,6 @@ exports[`table demos 📸 renders ./packages/table/src/demos/valueTypeDate.tsx c
                 </div>
                 <ul
                   class="ant-pagination ant-pagination-mini ant-table-pagination ant-table-pagination-right"
-                  unselectable="unselectable"
                 >
                   <li
                     class="ant-pagination-total-text"
@@ -57815,7 +57778,6 @@ exports[`table demos 📸 renders ./packages/table/src/demos/valueTypeNumber.tsx
                 </div>
                 <ul
                   class="ant-pagination ant-pagination-mini ant-table-pagination ant-table-pagination-right"
-                  unselectable="unselectable"
                 >
                   <li
                     class="ant-pagination-total-text"

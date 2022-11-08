@@ -320,7 +320,6 @@ exports[`Table valueEnum 🎏 customization valueType 1`] = `
               </div>
               <ul
                 class="ant-pagination ant-pagination-mini ant-table-pagination ant-table-pagination-right"
-                unselectable="unselectable"
               >
                 <li
                   class="ant-pagination-total-text"

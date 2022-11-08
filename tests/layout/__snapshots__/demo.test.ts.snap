@@ -1777,7 +1777,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/components/WaterMark/de
                                 应用名称
                               </th>
                               <th
-                                aria-label="[object Object] sortable"
+                                aria-label="this column is sortable"
                                 class="ant-table-cell ant-table-column-has-sorters"
                                 style="text-align: right;"
                                 tabindex="0"
@@ -3680,7 +3680,6 @@ exports[`layout demos 📸 renders ./packages/layout/src/components/WaterMark/de
                   </div>
                   <ul
                     class="ant-pagination ant-pagination-mini ant-table-pagination ant-table-pagination-right"
-                    unselectable="unselectable"
                   >
                     <li
                       class="ant-pagination-total-text"
