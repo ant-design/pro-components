@@ -394,8 +394,7 @@ function ColumnSetting<T>(props: ColumnSettingProps<T>) {
     setColumnsMap(
       columnRef.current ||
         counter.propsRef.current?.columnsState?.defaultValue ||
-        counter.defaultColumnKeyMap ||
-        {},
+        counter.defaultColumnKeyMap!,
     );
   });
 
