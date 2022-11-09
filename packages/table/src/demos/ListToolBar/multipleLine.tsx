@@ -1,7 +1,7 @@
 import { DownOutlined, EllipsisOutlined } from '@ant-design/icons';
 import type { ProColumns } from '@ant-design/pro-components';
 import { LightFilter, ProFormDatePicker, ProTable } from '@ant-design/pro-components';
-import { Button, Dropdown, Menu } from 'antd';
+import { Button, Dropdown } from 'antd';
 
 export type TableListItem = {
   key: number;
@@ -90,25 +90,23 @@ export default () => {
         actions: [
           <Dropdown
             key="overlay"
-            overlay={
-              <Menu
-                onClick={() => alert('menu click')}
-                items={[
-                  {
-                    label: '菜单',
-                    key: '1',
-                  },
-                  {
-                    label: '列表',
-                    key: '2',
-                  },
-                  {
-                    label: '表单',
-                    key: '3',
-                  },
-                ]}
-              />
-            }
+            menu={{
+              items: [
+                {
+                  label: '菜单',
+                  key: '1',
+                },
+                {
+                  label: '列表',
+                  key: '2',
+                },
+                {
+                  label: '表单',
+                  key: '3',
+                },
+              ],
+              onClick: () => alert('menu click'),
+            }}
           >
             <Button>
               移动自

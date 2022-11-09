@@ -11,7 +11,7 @@ import ProCard from '@ant-design/pro-card';
 import type { ProSettings } from '@ant-design/pro-layout';
 import { PageContainer, ProLayout } from '@ant-design/pro-layout';
 import { css } from '@emotion/css';
-import { Divider, Dropdown, Input } from 'antd';
+import { Divider, Input, Popover } from 'antd';
 import React, { useState } from 'react';
 import defaultProps from './_defaultProps';
 
@@ -188,91 +188,86 @@ export default () => {
                   }}
                   type="vertical"
                 />
-                <Dropdown
+                <Popover
                   placement="bottom"
-                  overlay={
-                    <div
-                      style={{
-                        padding: '32px 40px',
-                        backgroundColor: '#fff',
-                        width: 'calc(100vw - 4px)',
-                        height: '307px',
-                        boxShadow:
-                          '0 8px 16px 0 rgba(0,0,0,0.03), 0 4px 8px 0 rgba(25,15,15,0.07), 0 2px 4px 0 rgba(0,0,0,0.08)',
-                        borderRadius: '0 0 6px 6px',
-                      }}
-                    >
-                      <div style={{ display: 'flex' }}>
-                        <div style={{ flex: 1 }}>
-                          <List title="金融解决方案" />
-                          <List
-                            title="其他解决方案"
-                            style={{
-                              marginBlockStart: 32,
-                            }}
-                          />
-                        </div>
-
-                        <div
+                  overlayStyle={{
+                    width: 'calc(100vw - 24px)',
+                    padding: '24px',
+                    paddingTop: 8,
+                    height: '307px',
+                    borderRadius: '0 0 6px 6px',
+                  }}
+                  content={
+                    <div style={{ display: 'flex', padding: '32px 40px' }}>
+                      <div style={{ flex: 1 }}>
+                        <List title="金融解决方案" />
+                        <List
+                          title="其他解决方案"
                           style={{
-                            width: '308px',
-                            borderInlineStart: '1px solid rgba(0,0,0,0.06)',
-                            paddingInlineStart: 16,
+                            marginBlockStart: 32,
                           }}
+                        />
+                      </div>
+
+                      <div
+                        style={{
+                          width: '308px',
+                          borderInlineStart: '1px solid rgba(0,0,0,0.06)',
+                          paddingInlineStart: 16,
+                        }}
+                      >
+                        <div
+                          className={css`
+                            font-size: 14px;
+                            color: rgba(0, 0, 0, 0.45);
+                            line-height: 22px;
+                          `}
                         >
-                          <div
-                            className={css`
-                              font-size: 14px;
-                              color: rgba(0, 0, 0, 0.45);
-                              line-height: 22px;
-                            `}
-                          >
-                            热门产品
-                          </div>
-                          {new Array(3).fill(1).map((name, index) => {
-                            return (
+                          热门产品
+                        </div>
+                        {new Array(3).fill(1).map((name, index) => {
+                          return (
+                            <div
+                              key={index}
+                              className={css`
+                                border-radius: 4px;
+                                padding: 16px;
+                                margin-top: 4px;
+                                display: flex;
+                                cursor: pointer;
+                                &:hover {
+                                  background-color: rgba(0, 0, 0, 0.03);
+                                }
+                              `}
+                            >
+                              <img src="https://gw.alipayobjects.com/zos/antfincdn/6FTGmLLmN/bianzu%25252013.svg" />
                               <div
-                                key={index}
-                                className={css`
-                                  border-radius: 4px;
-                                  padding: 16px;
-                                  margin-top: 4px;
-                                  display: flex;
-                                  cursor: pointer;
-                                  &:hover {
-                                    background-color: rgba(0, 0, 0, 0.03);
-                                  }
-                                `}
+                                style={{
+                                  marginInlineStart: 14,
+                                }}
                               >
-                                <img src="https://gw.alipayobjects.com/zos/antfincdn/6FTGmLLmN/bianzu%25252013.svg" />
                                 <div
-                                  style={{
-                                    marginInlineStart: 14,
-                                  }}
+                                  className={css`
+                                    font-size: 14px;
+                                    color: rgba(0, 0, 0, 0.85);
+                                    line-height: 22px;
+                                  `}
                                 >
-                                  <div
-                                    className={css`
-                                      font-size: 14px;
-                                      color: rgba(0, 0, 0, 0.85);
-                                      line-height: 22px;
-                                    `}
-                                  >
-                                    Ant Design
-                                  </div>
-                                  <div
-                                    className={css`
-                                      font-size: 12px;
-                                      color: rgba(0, 0, 0, 0.45);
-                                      line-height: 20px;
-                                    `}
-                                  >
-                                    杭州市较知名的 UI 设计语言
-                                  </div>
+                                  Ant Design
+                                </div>
+                                <div
+                                  className={css`
+                                    font-size: 12px;
+                                    color: rgba(0, 0, 0, 0.45);
+                                    line-height: 20px;
+                                  `}
+                                >
+                                  杭州市较知名的 UI 设计语言
                                 </div>
                               </div>
-                            );
-                          })}
-                        </div>
+                            </div>
+                          );
+                        })}
                       </div>
                     </div>
                   }
@@ -284,11 +279,11 @@ export default () => {
                       cursor: 'pointer',
                       display: 'flex',
                       gap: 4,
+                      paddingInlineStart: 8,
+                      paddingInlineEnd: 12,
                       alignItems: 'center',
-                      minWidth: '180px',
                     }}
                     className={css`
-                      padding: 0 16px;
                       &:hover {
                         background-color: rgba(0, 0, 0, 0.03);
                       }
@@ -297,7 +292,7 @@ export default () => {
                     <span> 企业级资产中心</span>
                     <CaretDownFilled />
                   </div>
-                </Dropdown>
+                </Popover>
               </div>
             </>
           );

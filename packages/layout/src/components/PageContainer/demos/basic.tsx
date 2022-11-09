@@ -1,6 +1,6 @@
 import { EllipsisOutlined } from '@ant-design/icons';
 import { PageContainer, ProCard } from '@ant-design/pro-components';
-import { Button, Dropdown, Menu } from 'antd';
+import { Button, Dropdown } from 'antd';
 
 export default () => (
   <div
@@ -37,24 +37,22 @@ export default () => (
           <Dropdown
             key="dropdown"
             trigger={['click']}
-            overlay={
-              <Menu
-                items={[
-                  {
-                    label: '下拉菜单',
-                    key: '1',
-                  },
-                  {
-                    label: '下拉菜单2',
-                    key: '2',
-                  },
-                  {
-                    label: '下拉菜单3',
-                    key: '3',
-                  },
-                ]}
-              />
-            }
+            menu={{
+              items: [
+                {
+                  label: '下拉菜单',
+                  key: '1',
+                },
+                {
+                  label: '下拉菜单2',
+                  key: '2',
+                },
+                {
+                  label: '下拉菜单3',
+                  key: '3',
+                },
+              ],
+            }}
           >
             <Button key="4" style={{ padding: '0 8px' }}>
               <EllipsisOutlined />

@@ -1,7 +1,7 @@
 import { EllipsisOutlined, PlusOutlined } from '@ant-design/icons';
 import type { ActionType, ProColumns } from '@ant-design/pro-components';
 import { ProTable, TableDropdown } from '@ant-design/pro-components';
-import { Button, Dropdown, Menu, Space, Tag } from 'antd';
+import { Button, Dropdown, Space, Tag } from 'antd';
 import { useRef } from 'react';
 import request from 'umi-request';
 
@@ -135,25 +135,6 @@ const columns: ProColumns<GithubIssueItem>[] = [
   },
 ];
 
-const menu = (
-  <Menu
-    items={[
-      {
-        label: '1st item',
-        key: '1',
-      },
-      {
-        label: '2nd item',
-        key: '1',
-      },
-      {
-        label: '3rd item',
-        key: '1',
-      },
-    ]}
-  />
-);
-
 export default () => {
   const actionRef = useRef<ActionType>();
   return (
@@ -210,7 +191,25 @@ export default () => {
         <Button key="button" icon={<PlusOutlined />} type="primary">
           新建
         </Button>,
-        <Dropdown key="menu" overlay={menu}>
+        <Dropdown
+          key="menu"
+          menu={{
+            items: [
+              {
+                label: '1st item',
+                key: '1',
+              },
+              {
+                label: '2nd item',
+                key: '1',
+              },
+              {
+                label: '3rd item',
+                key: '1',
+              },
+            ],
+          }}
+        >
           <Button>
             <EllipsisOutlined />
           </Button>

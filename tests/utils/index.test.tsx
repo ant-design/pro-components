@@ -18,6 +18,7 @@ import {
   useDebounceValue,
   compareVersions,
   openVisibleCompatible,
+  menuOverlayCompatible,
   lighten,
   setAlpha,
 } from '@ant-design/pro-utils';
@@ -54,6 +55,12 @@ describe('utils', () => {
     process.env.ANTD_VERSION = '4.20.0';
     expect(openVisibleCompatible(true).visible).toBeTruthy();
     expect(openVisibleCompatible(true).open === undefined).toBeTruthy();
+  });
+
+  it('menuOverlayCompatible', () => {
+    expect(menuOverlayCompatible({ items: [] }).menu).toBeTruthy();
+    process.env.ANTD_VERSION = '4.20.0';
+    expect(menuOverlayCompatible({ items: [] }).overlay).toBeTruthy();
   });
 
   it('setAlpha', () => {

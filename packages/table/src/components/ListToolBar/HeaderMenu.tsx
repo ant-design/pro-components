@@ -1,6 +1,7 @@
 import { DownOutlined } from '@ant-design/icons';
 import { ProProvider } from '@ant-design/pro-provider';
-import { Dropdown, Menu, Space, Tabs } from 'antd';
+import { menuOverlayCompatible } from '@ant-design/pro-utils';
+import { Dropdown, Space, Tabs } from 'antd';
 import classNames from 'classnames';
 import useMergedState from 'rc-util/lib/hooks/useMergedState';
 import React, { useContext } from 'react';
@@ -76,25 +77,21 @@ const HeaderMenu: React.FC<ListToolBarHeaderMenuProps> = (props) => {
       </Tabs>
     );
   }
+  const dropdownProps = menuOverlayCompatible({
+    selectedKeys: [activeItem.key as string],
+    onClick: (item) => {
+      setActiveKey(item.key);
+    },
+    items: items.map((item, index) => ({
+      key: item.key || index,
+      disabled: item.disabled,
+      label: item.label,
+    })),
+  });
 
   return (
     <div className={classNames(`${prefixCls}-menu`, `${prefixCls}-dropdownmenu`)}>
-      <Dropdown
-        trigger={['click']}
-        overlay={
-          <Menu
-            selectedKeys={[activeItem.key as string]}
-            onClick={(item) => {
-              setActiveKey(item.key);
-            }}
-            items={items.map((item, index) => ({
-              key: item.key || index,
-              disabled: item.disabled,
-              label: item.label,
-            }))}
-          />
-        }
-      >
+      <Dropdown trigger={['click']} {...dropdownProps}>
         <Space className={`${prefixCls}-dropdownmenu-label`}>
           {activeItem.label}
           <DownOutlined />

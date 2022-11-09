@@ -2,7 +2,7 @@
 import { omitUndefined } from '../omitUndefined';
 import { compareVersions } from './index';
 
-const getVersion = () => {
+export const getVersion = () => {
   if (typeof process === 'undefined') return version;
   return process?.env?.ANTD_VERSION || version;
 };

@@ -71,7 +71,7 @@ export default () => {
           if (props.collapsed) return [];
           return (
             <>
-              <Dropdown placement="bottom" overlay={<></>}>
+              <Dropdown placement="bottom">
                 <div
                   style={{
                     color: 'rgba(0, 0, 0, 0.85)',

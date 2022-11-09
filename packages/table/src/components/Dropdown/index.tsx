@@ -1,6 +1,7 @@
 import { DownOutlined, EllipsisOutlined } from '@ant-design/icons';
+import { menuOverlayCompatible } from '@ant-design/pro-utils';
 import type { MenuItemProps } from 'antd';
-import { Button, ConfigProvider, Dropdown, Menu } from 'antd';
+import { Button, ConfigProvider, Dropdown } from 'antd';
 import classnames from 'classnames';
 import React, { useContext } from 'react';
 
@@ -34,17 +35,16 @@ const DropdownButton: React.FC<DropdownProps> = ({
 
   const tempClassName = getPrefixCls('pro-table-dropdown');
 
-  const menu = (
-    <Menu
-      onClick={(params) => onSelect && onSelect(params.key as string)}
-      items={menus?.map((item) => ({
-        label: item.name,
-        key: item.key,
-      }))}
-    />
-  );
+  const dropdownProps = menuOverlayCompatible({
+    onClick: (params) => onSelect && onSelect(params.key as string),
+    items: menus?.map((item) => ({
+      label: item.name,
+      key: item.key,
+    })),
+  });
+
   return (
-    <Dropdown overlay={menu} className={classnames(tempClassName, className)}>
+    <Dropdown {...dropdownProps} className={classnames(tempClassName, className)}>
       <Button style={style}>
         {children} <DownOutlined />
       </Button>
@@ -57,21 +57,19 @@ const TableDropdown: React.FC<DropdownProps> & {
 } = ({ className: propsClassName, style, onSelect, menus = [], children }) => {
   const { getPrefixCls } = useContext(ConfigProvider.ConfigContext);
   const className = getPrefixCls('pro-table-dropdown');
-  const menu = (
-    <Menu
-      onClick={(params) => {
-        onSelect?.(params.key as string);
-      }}
-      items={menus.map(({ key, name, ...rest }) => ({
-        key,
-        ...rest,
-        title: rest.title as string,
-        label: name,
-      }))}
-    />
-  );
+  const dropdownProps = menuOverlayCompatible({
+    onClick: (params) => {
+      onSelect?.(params.key as string);
+    },
+    items: menus.map(({ key, name, ...rest }) => ({
+      key,
+      ...rest,
+      title: rest.title as string,
+      label: name,
+    })),
+  });
   return (
-    <Dropdown overlay={menu} className={classnames(className, propsClassName)}>
+    <Dropdown {...dropdownProps} className={classnames(className, propsClassName)}>
       <a style={style}>{children || <EllipsisOutlined />}</a>
     </Dropdown>
   );

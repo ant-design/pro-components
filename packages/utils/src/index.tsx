@@ -83,6 +83,7 @@ import { useEditableMap } from './useEditableMap';
 import { useMountMergeState } from './useMountMergeState';
 import { compareVersions } from './compareVersions';
 import { openVisibleCompatible } from './compareVersions/openVisibleCompatible';
+import { menuOverlayCompatible } from './compareVersions/menuOverlayCompatible';
 
 export type {
   SearchConvertKeyFn,
@@ -122,6 +123,7 @@ export {
   ProFormContext,
   isDeepEqualReact,
   FilterDropdown,
+  menuOverlayCompatible,
   FieldLabel,
   arrayMoveImmutable,
   InlineErrorFormItem,
