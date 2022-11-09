@@ -7,6 +7,7 @@ import classNames from 'classnames';
 import ResizeObserver from 'rc-resize-observer';
 import * as React from 'react';
 import useStyle from './style/index';
+import type { ContentWidth } from '../../defaultSettings';
 
 export interface PageHeaderProps {
   backIcon?: React.ReactNode;
@@ -23,6 +24,7 @@ export interface PageHeaderProps {
   avatar?: AvatarProps;
   onBack?: (e?: React.MouseEvent<HTMLElement>) => void;
   className?: string;
+  contentWidth?: ContentWidth;
   ghost?: boolean;
   children?: React.ReactNode;
 }
@@ -150,6 +152,7 @@ const PageHeader: React.FC<PageHeaderProps> = (props) => {
     breadcrumb,
     breadcrumbRender,
     className: customizeClassName,
+    contentWidth,
   } = props;
 
   const prefixCls = getPrefixCls('page-header', customizePrefixCls);
@@ -176,6 +179,7 @@ const PageHeader: React.FC<PageHeaderProps> = (props) => {
     [`${prefixCls}-has-footer`]: !!footer,
     [`${prefixCls}-rtl`]: direction === 'rtl',
     [`${prefixCls}-compact`]: compact,
+    [`${prefixCls}-wide`]: contentWidth === 'Fixed',
     [`${prefixCls}-ghost`]: true,
   });
   const title = renderTitle(prefixCls, props, direction, hashId);
