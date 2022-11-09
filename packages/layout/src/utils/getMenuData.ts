@@ -1,5 +1,5 @@
 import { transformRoute } from '@umijs/route-utils';
-import type { MenuDataItem, MessageDescriptor, Route } from '../typings';
+import type { MenuDataItem, MessageDescriptor, Route } from '../typing';
 
 function fromEntries(iterable: any) {
   return [...iterable].reduce((obj: Record<string, MenuDataItem>, [key, val]) => {

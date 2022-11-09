@@ -6,7 +6,7 @@ import { AppsLogo } from './AppsLogo';
 import { DefaultContent } from './DefaultContent';
 import { SimpleContent } from './SimpleContent';
 import { useStyle } from './style/index';
-import type { AppsLogoComponentsAppList } from './types';
+import type { AppsLogoComponentsAppList } from './types.d';
 export type { AppsLogoComponentsAppList };
 
 /**

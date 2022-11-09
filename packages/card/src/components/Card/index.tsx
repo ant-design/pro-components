@@ -5,7 +5,7 @@ import classNames from 'classnames';
 import omit from 'omit.js';
 import useMergedState from 'rc-util/lib/hooks/useMergedState';
 import React, { useContext } from 'react';
-import type { Breakpoint, CardProps, Gutter } from '../../type';
+import type { Breakpoint, CardProps, Gutter } from '../../typing';
 import Actions from '../Actions';
 import Loading from '../Loading';
 import { useLegacyItems } from '../TabPane';

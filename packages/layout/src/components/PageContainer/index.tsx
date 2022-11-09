@@ -5,7 +5,7 @@ import classNames from 'classnames';
 import type { ReactNode } from 'react';
 import React, { useContext, useEffect, useMemo } from 'react';
 import { RouteContext } from '../../context/RouteContext';
-import type { WithFalse } from '../../typings';
+import type { WithFalse } from '../../typing';
 import { FooterToolbar } from '../FooterToolbar';
 import { GridContent } from '../GridContent';
 import type { PageHeaderProps } from '../PageHeader';

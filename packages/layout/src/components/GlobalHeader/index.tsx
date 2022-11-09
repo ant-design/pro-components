@@ -5,7 +5,7 @@ import classNames from 'classnames';
 import React, { useContext } from 'react';
 import type { PureSettings } from '../../defaultSettings';
 import type { MenuDataItem } from '../../index';
-import type { WithFalse } from '../../typings';
+import type { WithFalse } from '../../typing';
 import { clearMenuItem } from '../../utils/utils';
 import { AppsLogoComponents, defaultRenderLogo } from '../AppsLogoComponents';
 import type { HeaderViewProps } from '../Header';

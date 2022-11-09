@@ -6,7 +6,7 @@ import type { StatisticCardProps, StatisticsCardProps } from './components/Stati
 import StatisticCard from './components/StatisticCard';
 import type { ProCardProps } from './ProCard';
 import ProCard from './ProCard';
-import type { ProCardTabsProps } from './type';
+import type { ProCardTabsProps } from './typing';
 
 import 'antd/es/card/style';
 

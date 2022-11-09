@@ -4,7 +4,7 @@ import classNames from 'classnames';
 import toArray from 'rc-util/lib/Children/toArray';
 import { noteOnce } from 'rc-util/lib/warning';
 import React, { useContext } from 'react';
-import type { ProCardTabPaneProps, ProCardTabsProps } from '../../type';
+import type { ProCardTabPaneProps, ProCardTabsProps } from '../../typing';
 import Card from '../Card';
 
 function filter<T>(items: (T | null)[]): T[] {

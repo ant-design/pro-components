@@ -766,6 +766,7 @@ describe('Field', () => {
     'rate',
     'image',
     'color',
+    'slider',
     'cascader',
     'treeSelect',
   ];

@@ -16,6 +16,7 @@ module.exports = {
   collectCoverageFrom: [
     'packages/**/src/**/*.{ts,tsx}',
     '!packages/**/src/**/*.d.ts',
+    '!packages/**/src/**/typing.ts',
     '!packages/**/src/demos/**',
     '!packages/**/src/**/demos/**',
     '!packages/utils/src/isDeepEqualReact/*.{ts,tsx}',

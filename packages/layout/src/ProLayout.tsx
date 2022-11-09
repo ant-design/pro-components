@@ -30,7 +30,7 @@ import { getPageTitleInfo } from './getPageTitle';
 import type { LocaleType } from './locales';
 import { gLocaleObject } from './locales';
 import { useStyle } from './style/index';
-import type { MenuDataItem, MessageDescriptor, RouterTypes, WithFalse } from './typings';
+import type { MenuDataItem, MessageDescriptor, RouterTypes, WithFalse } from './typing';
 import { getBreadcrumbProps } from './utils/getBreadcrumbProps';
 import { getMenuData } from './utils/getMenuData';
 import { useCurrentMenuLayoutProps } from './utils/useCurrentMenuLayoutProps';

@@ -3,7 +3,7 @@ import { ConfigProvider, Layout } from 'antd';
 import classNames from 'classnames';
 import React, { useCallback, useContext } from 'react';
 import { useStyle } from '../style/header';
-import type { WithFalse } from '../typings';
+import type { WithFalse } from '../typing';
 import { clearMenuItem } from '../utils/utils';
 import type { GlobalHeaderProps } from './GlobalHeader';
 import { GlobalHeader } from './GlobalHeader';
