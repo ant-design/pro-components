@@ -207,6 +207,7 @@ const CheckboxList: React.FC<{
   /** 选中反选功能 */
   const onCheckTree = useRefFunction((e) => {
     const newColumnMap = { ...columnsMap };
+
     const loopSetShow = (key: string | number) => {
       const newSetting = { ...newColumnMap[key] };
       newSetting.show = e.checked;
