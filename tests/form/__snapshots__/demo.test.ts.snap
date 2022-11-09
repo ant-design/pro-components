@@ -7450,7 +7450,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/FieldSet/demos/d
                             <input
                               autocomplete="off"
                               id="dateRange"
-                              placeholder="请"
+                              placeholder="请选择"
                               readonly=""
                               size="12"
                               value="2016-11-21"
@@ -7489,7 +7489,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/FieldSet/demos/d
                           >
                             <input
                               autocomplete="off"
-                              placeholder="输"
+                              placeholder="请选择"
                               readonly=""
                               size="12"
                               value="2016-11-22"
@@ -21096,7 +21096,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/QueryFilter/demo
                       <input
                         autocomplete="off"
                         id="create"
-                        placeholder="请"
+                        placeholder="请选择"
                         readonly=""
                         size="12"
                         value=""
@@ -21135,7 +21135,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/QueryFilter/demo
                     >
                       <input
                         autocomplete="off"
-                        placeholder="输"
+                        placeholder="请选择"
                         readonly=""
                         size="12"
                         value=""
@@ -30643,7 +30643,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/SchemaForm/demos
                         <input
                           autocomplete="off"
                           id="created_at"
-                          placeholder="请"
+                          placeholder="请选择"
                           readonly=""
                           size="12"
                           value=""
@@ -30682,7 +30682,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/SchemaForm/demos
                       >
                         <input
                           autocomplete="off"
-                          placeholder="输"
+                          placeholder="请选择"
                           readonly=""
                           size="12"
                           value=""
@@ -32024,7 +32024,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/SchemaForm/demos
                               <input
                                 autocomplete="off"
                                 id="2_created_at"
-                                placeholder="请"
+                                placeholder="请选择"
                                 readonly=""
                                 size="12"
                                 value=""
@@ -32063,7 +32063,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/SchemaForm/demos
                             >
                               <input
                                 autocomplete="off"
-                                placeholder="输"
+                                placeholder="请选择"
                                 readonly=""
                                 size="12"
                                 value=""
@@ -32763,7 +32763,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/StepsForm/demos/
                               <input
                                 autocomplete="off"
                                 id="step2_syncTableInfo_timeRange"
-                                placeholder="请"
+                                placeholder="请选择"
                                 size="12"
                                 value=""
                               />
@@ -32801,7 +32801,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/StepsForm/demos/
                             >
                               <input
                                 autocomplete="off"
-                                placeholder="输"
+                                placeholder="请选择"
                                 readonly=""
                                 size="12"
                                 value=""
@@ -33280,7 +33280,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/StepsForm/demos/
                                   <input
                                     autocomplete="off"
                                     id="base_dateTime"
-                                    placeholder="请"
+                                    placeholder="请选择"
                                     readonly=""
                                     size="12"
                                     value=""
@@ -33319,7 +33319,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/StepsForm/demos/
                                 >
                                   <input
                                     autocomplete="off"
-                                    placeholder="输"
+                                    placeholder="请选择"
                                     readonly=""
                                     size="12"
                                     value=""
@@ -34923,7 +34923,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/StepsForm/demos/
                                   <input
                                     autocomplete="off"
                                     id="base_m"
-                                    placeholder="请"
+                                    placeholder="请选择"
                                     readonly=""
                                     size="12"
                                     value=""
@@ -34962,7 +34962,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/StepsForm/demos/
                                 >
                                   <input
                                     autocomplete="off"
-                                    placeholder="输"
+                                    placeholder="请选择"
                                     readonly=""
                                     size="12"
                                     value=""
@@ -36309,7 +36309,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/StepsForm/demos/
                                     <input
                                       autocomplete="off"
                                       id="base_dateTime"
-                                      placeholder="请"
+                                      placeholder="请选择"
                                       readonly=""
                                       size="12"
                                       value=""
@@ -36348,7 +36348,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/StepsForm/demos/
                                   >
                                     <input
                                       autocomplete="off"
-                                      placeholder="输"
+                                      placeholder="请选择"
                                       readonly=""
                                       size="12"
                                       value=""
@@ -37635,7 +37635,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/StepsForm/demos/
                                   <input
                                     autocomplete="off"
                                     id="base_dateTime"
-                                    placeholder="请"
+                                    placeholder="请选择"
                                     readonly=""
                                     size="12"
                                     value=""
@@ -37674,7 +37674,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/StepsForm/demos/
                                 >
                                   <input
                                     autocomplete="off"
-                                    placeholder="输"
+                                    placeholder="请选择"
                                     readonly=""
                                     size="12"
                                     value=""
@@ -38963,7 +38963,7 @@ exports[`form demos 📸 renders ./packages/form/src/demos/base.tsx correctly 1`
                           <input
                             autocomplete="off"
                             id="contract_createTime"
-                            placeholder="请"
+                            placeholder="请选择"
                             readonly=""
                             size="12"
                             value=""
@@ -39002,7 +39002,7 @@ exports[`form demos 📸 renders ./packages/form/src/demos/base.tsx correctly 1`
                         >
                           <input
                             autocomplete="off"
-                            placeholder="输"
+                            placeholder="请选择"
                             readonly=""
                             size="12"
                             value=""
@@ -42753,7 +42753,7 @@ exports[`form demos 📸 renders ./packages/form/src/demos/form-layout-grid.tsx 
                         <input
                           autocomplete="off"
                           id="dateRange"
-                          placeholder="请"
+                          placeholder="请选择"
                           readonly=""
                           size="12"
                           value=""
@@ -42792,7 +42792,7 @@ exports[`form demos 📸 renders ./packages/form/src/demos/form-layout-grid.tsx 
                       >
                         <input
                           autocomplete="off"
-                          placeholder="输"
+                          placeholder="请选择"
                           readonly=""
                           size="12"
                           value=""
@@ -44213,7 +44213,7 @@ exports[`form demos 📸 renders ./packages/form/src/demos/layout-change.tsx cor
                             <input
                               autocomplete="off"
                               id="contract_createTime"
-                              placeholder="请"
+                              placeholder="请选择"
                               readonly=""
                               size="12"
                               value=""
@@ -44252,7 +44252,7 @@ exports[`form demos 📸 renders ./packages/form/src/demos/layout-change.tsx cor
                           >
                             <input
                               autocomplete="off"
-                              placeholder="输"
+                              placeholder="请选择"
                               readonly=""
                               size="12"
                               value=""
@@ -45341,7 +45341,7 @@ exports[`form demos 📸 renders ./packages/form/src/demos/layout-footer.tsx cor
                                               <input
                                                 autocomplete="off"
                                                 id="contract_createTime"
-                                                placeholder="请"
+                                                placeholder="请选择"
                                                 readonly=""
                                                 size="12"
                                                 value=""
@@ -45380,7 +45380,7 @@ exports[`form demos 📸 renders ./packages/form/src/demos/layout-footer.tsx cor
                                             >
                                               <input
                                                 autocomplete="off"
-                                                placeholder="输"
+                                                placeholder="请选择"
                                                 readonly=""
                                                 size="12"
                                                 value=""
@@ -46812,7 +46812,7 @@ exports[`form demos 📸 renders ./packages/form/src/demos/linkage-customization
                                   <input
                                     autocomplete="off"
                                     id="base_dateTime"
-                                    placeholder="请"
+                                    placeholder="请选择"
                                     readonly=""
                                     size="12"
                                     value=""
@@ -46851,7 +46851,7 @@ exports[`form demos 📸 renders ./packages/form/src/demos/linkage-customization
                                 >
                                   <input
                                     autocomplete="off"
-                                    placeholder="输"
+                                    placeholder="请选择"
                                     readonly=""
                                     size="12"
                                     value=""
@@ -50255,7 +50255,7 @@ exports[`form demos 📸 renders ./packages/form/src/demos/sync-to-url.tsx corre
                     <input
                       autocomplete="off"
                       id="createTimeRanger"
-                      placeholder="请"
+                      placeholder="请选择"
                       readonly=""
                       size="12"
                       value=""
@@ -50294,7 +50294,7 @@ exports[`form demos 📸 renders ./packages/form/src/demos/sync-to-url.tsx corre
                   >
                     <input
                       autocomplete="off"
-                      placeholder="输"
+                      placeholder="请选择"
                       readonly=""
                       size="12"
                       value=""

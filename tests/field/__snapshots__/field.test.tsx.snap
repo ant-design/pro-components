@@ -221,7 +221,7 @@ exports[`Field 🐴 edit and no plain 1`] = `
                     >
                       <input
                         autocomplete="off"
-                        placeholder="请"
+                        placeholder="请选择"
                         readonly=""
                         size="12"
                         value=""
@@ -260,7 +260,7 @@ exports[`Field 🐴 edit and no plain 1`] = `
                     >
                       <input
                         autocomplete="off"
-                        placeholder="输"
+                        placeholder="请选择"
                         readonly=""
                         size="12"
                         value=""
@@ -1408,7 +1408,7 @@ exports[`Field 🐴 edit and plain 1`] = `
                     >
                       <input
                         autocomplete="off"
-                        placeholder="请"
+                        placeholder="请选择"
                         readonly=""
                         size="12"
                         value=""
@@ -1447,7 +1447,7 @@ exports[`Field 🐴 edit and plain 1`] = `
                     >
                       <input
                         autocomplete="off"
-                        placeholder="输"
+                        placeholder="请选择"
                         readonly=""
                         size="12"
                         value=""

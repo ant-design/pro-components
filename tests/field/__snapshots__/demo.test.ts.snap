@@ -3225,7 +3225,7 @@ exports[`field demos 📸 renders ./packages/field/src/demos/base_test.tsx corre
                       <span
                         class="ant-select-selection-placeholder"
                       >
-                        请输入
+                        请选择
                       </span>
                     </div>
                     <span
@@ -3703,7 +3703,7 @@ exports[`field demos 📸 renders ./packages/field/src/demos/base_test.tsx corre
                         >
                           <input
                             autocomplete="off"
-                            placeholder="请输入"
+                            placeholder="请选择"
                             readonly=""
                             size="21"
                             title=""
@@ -3746,7 +3746,7 @@ exports[`field demos 📸 renders ./packages/field/src/demos/base_test.tsx corre
                         >
                           <input
                             autocomplete="off"
-                            placeholder="请输入"
+                            placeholder="请选择"
                             readonly=""
                             size="21"
                             title=""
@@ -3866,7 +3866,7 @@ exports[`field demos 📸 renders ./packages/field/src/demos/base_test.tsx corre
                     >
                       <input
                         autocomplete="off"
-                        placeholder="请"
+                        placeholder="请选择"
                         readonly=""
                         size="12"
                         value=""
@@ -3905,7 +3905,7 @@ exports[`field demos 📸 renders ./packages/field/src/demos/base_test.tsx corre
                     >
                       <input
                         autocomplete="off"
-                        placeholder="输"
+                        placeholder="请选择"
                         readonly=""
                         size="12"
                         value=""

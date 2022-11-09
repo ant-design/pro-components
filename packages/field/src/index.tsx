@@ -12,7 +12,7 @@ import { omitUndefined, pickProProps } from '@ant-design/pro-utils';
 import { Avatar } from 'antd';
 // import type {RangeInputNumberProps,ExtraProps as } from './components/DigitRange'
 import { noteOnce } from 'rc-util/lib/warning';
-import React, { useContext } from 'react';
+import React, { useContext, useMemo } from 'react';
 import FieldCascader from './components/Cascader';
 import FieldCheckbox from './components/Checkbox';
 import FieldCode from './components/Code';
@@ -479,31 +479,35 @@ const ProFieldComponent: React.ForwardRefRenderFunction<any, ProFieldPropsType> 
     },
   };
 
-  const placeholderIntlKey = [
-    'date',
-    'dateMonth',
-    'dateQuarter',
-    'dateTime',
-    'dateTimeRange',
-    'dateWeek',
-    'dateYear',
-    'select',
-    'time',
-    'timeRange',
-    'treeSelect',
-  ].includes(valueType as string)
-    ? 'tableForm.selectPlaceholder'
-    : 'tableForm.inputPlaceholder';
+  const placeholder = useMemo(() => {
+    const placeholderIntlKey = [
+      'date',
+      'dateMonth',
+      'dateQuarter',
+      'dateTime',
+      'dateTimeRange',
+      'dateWeek',
+      'dateYear',
+      'select',
+      'time',
+      'timeRange',
+      'treeSelect',
+      'dateRange',
+      'fromNow',
+      'cascader',
+    ].includes(valueType as string)
+      ? 'tableForm.selectPlaceholder'
+      : 'tableForm.inputPlaceholder';
 
-  const defaultPlaceholder =
-    placeholderIntlKey === 'tableForm.inputPlaceholder' ? '请输入' : '请选择';
+    const defaultPlaceholder =
+      placeholderIntlKey === 'tableForm.inputPlaceholder' ? '请输入' : '请选择';
 
-  const placeholder = ['dateTimeRange', 'timeRange'].includes(valueType as string)
-    ? [
-        intl.getMessage(placeholderIntlKey, defaultPlaceholder),
-        intl.getMessage(placeholderIntlKey, defaultPlaceholder),
-      ]
-    : intl.getMessage(placeholderIntlKey, defaultPlaceholder);
+    const singleHolder = intl.getMessage(placeholderIntlKey, defaultPlaceholder);
+
+    return ['dateTimeRange', 'timeRange', 'dateRange', 'digitRange'].includes(valueType as string)
+      ? [singleHolder, singleHolder]
+      : singleHolder;
+  }, [valueType, intl]);
 
   return (
     <React.Fragment>

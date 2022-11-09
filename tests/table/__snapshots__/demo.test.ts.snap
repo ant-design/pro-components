@@ -46923,7 +46923,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/single.tsx correctl
                           <input
                             autocomplete="off"
                             id="created_at"
-                            placeholder="请"
+                            placeholder="请选择"
                             readonly=""
                             size="12"
                             value=""
@@ -46962,7 +46962,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/single.tsx correctl
                         >
                           <input
                             autocomplete="off"
-                            placeholder="输"
+                            placeholder="请选择"
                             readonly=""
                             size="12"
                             value=""
@@ -54661,7 +54661,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/valueType_select.ts
                             <span
                               class="ant-select-selection-placeholder"
                             >
-                              请输入
+                              请选择
                             </span>
                           </div>
                           <span
@@ -55759,7 +55759,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/valueTypeDate.tsx c
                             <input
                               autocomplete="off"
                               id="dateRange"
-                              placeholder="请"
+                              placeholder="请选择"
                               readonly=""
                               size="12"
                               value=""
@@ -55798,7 +55798,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/valueTypeDate.tsx c
                           >
                             <input
                               autocomplete="off"
-                              placeholder="输"
+                              placeholder="请选择"
                               readonly=""
                               size="12"
                               value=""
@@ -56069,7 +56069,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/valueTypeDate.tsx c
                           <input
                             autocomplete="off"
                             id="since4"
-                            placeholder="请输入"
+                            placeholder="请选择"
                             readonly=""
                             size="21"
                             title=""
