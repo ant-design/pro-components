@@ -213,7 +213,7 @@ const CheckboxList: React.FC<{
       newSetting.show = e.checked;
       // 如果含有子节点，也要选中
       if (treeDataConfig.map?.get(key)?.children) {
-        treeDataConfig.map?.get(key)?.children?.forEach((item) => loopSetShow(item.key));
+        treeDataConfig.map.get(key)?.children?.forEach((item) => loopSetShow(item.key));
       }
       newColumnMap[key] = newSetting;
     };

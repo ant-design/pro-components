@@ -598,7 +598,7 @@ describe('Table ColumnSetting', () => {
     expect(overlay.length).toBe(2);
   });
 
-  it('🎏 columnSetting select all', async () => {
+  fit('🎏 columnSetting select all', async () => {
     const callBack = jest.fn();
     const html = render(
       <ProTable
