@@ -214,6 +214,7 @@ const memoRenderPageHeader = (
     breadcrumbRender,
     ...restProps
   } = props;
+
   const getBreadcrumbRender = () => {
     if (!breadcrumbRender) {
       return undefined;

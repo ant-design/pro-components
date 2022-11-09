@@ -29,6 +29,10 @@ const genTopNavHeaderStyle: GenerateStyle<TopNavHeaderToken> = (token) => {
           },
         },
       },
+      '&-wide': {
+        maxWidth: 1152,
+        margin: '0 auto',
+      },
       '&-logo': {
         position: 'relative',
         minWidth: '165px',
