@@ -6,8 +6,14 @@ import { AppsLogo } from './AppsLogo';
 import { DefaultContent } from './DefaultContent';
 import { SimpleContent } from './SimpleContent';
 import { useStyle } from './style/index';
-import type { AppsLogoComponentsAppList } from './types.d';
-export type { AppsLogoComponentsAppList };
+
+export type AppsLogoComponentsAppList = {
+  title: React.ReactNode;
+  desc: React.ReactNode;
+  icon: React.ReactNode;
+  url: string;
+  target?: string;
+}[];
 
 /**
  * 默认渲染logo的方式，如果是个string，用img。否则直接返回
