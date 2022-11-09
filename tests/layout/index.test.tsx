@@ -13,6 +13,12 @@ import { waitForComponentToPaint } from '../util';
 import { bigDefaultProps } from './defaultProps';
 
 describe('BasicLayout', () => {
+  beforeEach(() => {
+    delete process.env.ANTD_VERSION;
+  });
+  afterEach(() => {
+    delete process.env.ANTD_VERSION;
+  });
   beforeAll(() => {
     process.env.NODE_ENV = 'TEST';
     process.env.USE_MEDIA = 'md';
@@ -20,6 +26,13 @@ describe('BasicLayout', () => {
   it('🥩 base use', async () => {
     const html = enzymeRender(<ProLayout />);
     expect(html).toMatchSnapshot();
+  });
+
+  it('🥩 compatibleStyle', async () => {
+    process.env.ANTD_VERSION = '5.0.0';
+    const html = enzymeRender(<ProLayout>{process.env.ANTD_VERSION}</ProLayout>);
+    expect(html).toMatchSnapshot();
+    delete process.env.ANTD_VERSION;
   });
 
   it('🥩 support loading', async () => {

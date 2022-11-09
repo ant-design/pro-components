@@ -1,7 +1,7 @@
-import { DownOutlined, EllipsisOutlined, QuestionCircleOutlined } from '@ant-design/icons';
+import { DownOutlined } from '@ant-design/icons';
 import type { ProColumns } from '@ant-design/pro-components';
 import { ProTable } from '@ant-design/pro-components';
-import { Button, Tag, Tooltip } from 'antd';
+import { Button, Tag } from 'antd';
 
 export type Status = {
   color: string;
@@ -87,35 +87,6 @@ const columns: ProColumns<TableListItem>[] = [
       陈帅帅: { text: '陈帅帅' },
       兼某某: { text: '兼某某' },
     },
-  },
-  {
-    title: (
-      <>
-        创建时间
-        <Tooltip placement="top" title="这是一段描述">
-          <QuestionCircleOutlined style={{ marginInlineStart: 4 }} />
-        </Tooltip>
-      </>
-    ),
-    width: 140,
-    key: 'since',
-    dataIndex: 'createdAt',
-    valueType: 'date',
-    sorter: (a, b) => a.createdAt - b.createdAt,
-  },
-  {
-    title: '操作',
-    width: 164,
-    key: 'option',
-    valueType: 'option',
-    render: () => [
-      <a key="1">链路</a>,
-      <a key="2">报警</a>,
-      <a key="3">监控</a>,
-      <a key="4">
-        <EllipsisOutlined />
-      </a>,
-    ],
   },
 ];
 

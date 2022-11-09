@@ -963,7 +963,6 @@ exports[`Table ColumnSetting 🎏 config provide render 1`] = `
               </div>
               <ul
                 class="qixian-pagination qixian-pagination-mini qixian-table-pagination qixian-table-pagination-right"
-                unselectable="unselectable"
               >
                 <li
                   class="qixian-pagination-total-text"
@@ -1568,6 +1567,7 @@ exports[`Table ColumnSetting 🎏 extra columns 1`] = `
                                   class="ant-checkbox"
                                 >
                                   <input
+                                    aria-label="Select all"
                                     class="ant-checkbox-input"
                                     type="checkbox"
                                     value=""
@@ -1671,7 +1671,6 @@ exports[`Table ColumnSetting 🎏 extra columns 1`] = `
               </div>
               <ul
                 class="ant-pagination ant-pagination-mini ant-table-pagination ant-table-pagination-right"
-                unselectable="unselectable"
               >
                 <li
                   class="ant-pagination-total-text"

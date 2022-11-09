@@ -11,6 +11,14 @@ const isNeedTranText = (item: any): boolean => {
   return false;
 };
 
+const getEllipsis = (item: any) => {
+  if (item.ellipsis?.showTitle === false) {
+    return false;
+  }
+
+  return item.ellipsis;
+};
+
 /**
  * 生成 Copyable 或 Ellipsis 的 dom
  *
@@ -32,7 +40,7 @@ export const genCopyable = (dom: React.ReactNode, item: any, text: string) => {
     const needTranText = isNeedTranText(item);
 
     const ellipsis =
-      item.ellipsis && text
+      getEllipsis(item) && text
         ? {
             tooltip:
               // 支持一下 tooltip 的关闭

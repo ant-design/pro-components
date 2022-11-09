@@ -8,6 +8,28 @@ group:
   path: /
 ---
 
+## @ant-design/pro-components@2.3.30
+
+`2022-11-08`
+
+- fix(utils): alway check process is undefined. [a861967](https://github.com/ant-design/pro-components/commit/a861967)
+- fix(table): update table alert style. [1302a90](https://github.com/ant-design/pro-components/commit/1302a90)
+
+## @ant-design/pro-components@2.3.29
+
+`2022-11-07`
+
+- fix(utils): do not use process?.env?.ANTD_VERSION. [a295b3d](https://github.com/ant-design/pro-components/commit/a295b3d)
+- fix(table): 兼容 ellipsis 不想显示 Tooltip #6158 (#6160). [#6160](https://github.com/ant-design/pro-components/pull/#6160) [@DerrickTel](https://github.com/DerrickTel)
+
+## @ant-design/pro-components@2.3.28
+
+`2022-11-03`
+
+- fix(layout): PageContainer support childrenContentStyle. [2a487cf](https://github.com/ant-design/pro-components/commit/2a487cf)
+- fix(layout): fix sub menu padding style. [324e083](https://github.com/ant-design/pro-components/commit/324e083)
+- feat(table): add new api actionRef.saveEditable (#6081). [#6081](https://github.com/ant-design/pro-components/pull/#6081) [@shijistar](https://github.com/shijistar)
+
 ## @ant-design/pro-components@2.3.24
 
 `2022-10-24`

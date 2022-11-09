@@ -2,6 +2,23 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [7.2.1](https://github.com/ant-design/pro-components/compare/@ant-design/pro-layout@7.2.0...@ant-design/pro-layout@7.2.1) (2022-11-08)
+
+**Note:** Version bump only for package @ant-design/pro-layout
+
+# [7.2.0](https://github.com/ant-design/pro-components/compare/@ant-design/pro-layout@7.1.16...@ant-design/pro-layout@7.2.0) (2022-11-07)
+
+### Features
+
+- **SettingDrawer:** 支持 colorList 传 title 属性作为 tooltip ([#6167](https://github.com/ant-design/pro-components/issues/6167)) ([bd973a0](https://github.com/ant-design/pro-components/commit/bd973a045a565e7d934cab13763d1efd21ee6980))
+
+## [7.1.16](https://github.com/ant-design/pro-components/compare/@ant-design/pro-layout@7.1.15...@ant-design/pro-layout@7.1.16) (2022-11-03)
+
+### Bug Fixes
+
+- **layout:** fix sub menu paddig style ([324e083](https://github.com/ant-design/pro-components/commit/324e083462a9d9261f9f95a0478ccdd9304aaa4b))
+- **layout:** PageContainer support childrenContentStyle ([2a487cf](https://github.com/ant-design/pro-components/commit/2a487cf44243c7afddde0eddcfae392b842cc6e3))
+
 ## [7.1.15](https://github.com/ant-design/pro-components/compare/@ant-design/pro-layout@7.1.14...@ant-design/pro-layout@7.1.15) (2022-10-28)
 
 **Note:** Version bump only for package @ant-design/pro-layout

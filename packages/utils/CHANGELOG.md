@@ -2,6 +2,25 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.3.2](https://github.com/ant-design/pro-components/compare/@ant-design/pro-utils@2.3.1...@ant-design/pro-utils@2.3.2) (2022-11-08)
+
+### Bug Fixes
+
+- **utils:** alway check process is undefined ([a861967](https://github.com/ant-design/pro-components/commit/a86196785cc4678a80adffb9e610e56d830b44eb))
+
+## [2.3.1](https://github.com/ant-design/pro-components/compare/@ant-design/pro-utils@2.3.0...@ant-design/pro-utils@2.3.1) (2022-11-07)
+
+### Bug Fixes
+
+- **table:** 兼容 ellipsis 不想显示 Tooltip [#6158](https://github.com/ant-design/pro-components/issues/6158) ([#6160](https://github.com/ant-design/pro-components/issues/6160)) ([f01335a](https://github.com/ant-design/pro-components/commit/f01335a30f1c629674d006c8eca146e326c626e6))
+- **utils:** do not use process?.env?.ANTD_VERSION ([a295b3d](https://github.com/ant-design/pro-components/commit/a295b3d0735d7baab7e35935edbb5ed2f75674df))
+
+# [2.3.0](https://github.com/ant-design/pro-components/compare/@ant-design/pro-utils@2.2.13...@ant-design/pro-utils@2.3.0) (2022-11-03)
+
+### Features
+
+- **table:** add new api actionRef.saveEditable ([#6081](https://github.com/ant-design/pro-components/issues/6081)) ([428ed6d](https://github.com/ant-design/pro-components/commit/428ed6d959d816013c95817e29e3ff1d224fe42e))
+
 ## [2.2.13](https://github.com/ant-design/pro-components/compare/@ant-design/pro-utils@2.2.12...@ant-design/pro-utils@2.2.13) (2022-10-28)
 
 **Note:** Version bump only for package @ant-design/pro-utils

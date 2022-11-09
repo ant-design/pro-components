@@ -1,7 +1,6 @@
-import { QuestionCircleOutlined } from '@ant-design/icons';
 import type { ProColumns } from '@ant-design/pro-components';
 import { LightFilter, ProFormDatePicker, ProTable } from '@ant-design/pro-components';
-import { Badge, Button, Tooltip } from 'antd';
+import { Badge, Button } from 'antd';
 import React, { useState } from 'react';
 
 export type TableListItem = {
@@ -72,21 +71,6 @@ const columns: ProColumns<TableListItem>[] = [
     dataIndex: 'containers',
     align: 'right',
     sorter: (a, b) => a.containers - b.containers,
-  },
-  {
-    title: (
-      <>
-        创建时间
-        <Tooltip placement="top" title="这是一段描述">
-          <QuestionCircleOutlined style={{ marginInlineStart: 4 }} />
-        </Tooltip>
-      </>
-    ),
-    width: 140,
-    key: 'since',
-    dataIndex: 'createdAt',
-    valueType: 'date',
-    sorter: (a, b) => a.createdAt - b.createdAt,
   },
   {
     title: '操作',

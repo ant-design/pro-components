@@ -416,7 +416,9 @@ function ColumnSetting<T>(props: ColumnSettingProps<T>) {
           <Checkbox
             indeterminate={indeterminate}
             checked={unCheckedKeys.length === 0 && unCheckedKeys.length !== localColumns.length}
-            onChange={(e) => checkedAll(e)}
+            onChange={(e) => {
+              checkedAll(e);
+            }}
           >
             {intl.getMessage('tableToolBar.columnDisplay', '列展示')}
           </Checkbox>

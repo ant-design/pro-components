@@ -10,8 +10,8 @@ const genProStyle: GenerateStyle<ProToken> = (token) => {
     [token.componentCls]: {
       marginBlockEnd: 16,
       backgroundColor: 'rgba(0,0,0,0.02)',
-      borderRadius: token.radiusBase,
-      border: '0.5px solid #BFBFBF',
+      borderRadius: '4px',
+      border: 'none',
       '&-container': {
         paddingBlock: token.paddingSM,
         paddingInline: token.paddingLG,
@@ -20,7 +20,7 @@ const genProStyle: GenerateStyle<ProToken> = (token) => {
         display: 'flex',
         alignItems: 'center',
         transition: 'all 0.3s',
-        color: token.colorTextSecondary,
+        color: token.colorTextTertiary,
         '&-content': {
           flex: 1,
         },

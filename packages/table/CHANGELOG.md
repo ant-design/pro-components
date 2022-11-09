@@ -2,6 +2,20 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [3.1.4](https://github.com/ant-design/pro-components/compare/@ant-design/pro-table@3.1.3...@ant-design/pro-table@3.1.4) (2022-11-08)
+
+### Bug Fixes
+
+- **table:** update table alert style ([1302a90](https://github.com/ant-design/pro-components/commit/1302a9079437c529136c83beb695eb90d4ba929f))
+
+## [3.1.3](https://github.com/ant-design/pro-components/compare/@ant-design/pro-table@3.1.2...@ant-design/pro-table@3.1.3) (2022-11-07)
+
+**Note:** Version bump only for package @ant-design/pro-table
+
+## [3.1.2](https://github.com/ant-design/pro-components/compare/@ant-design/pro-table@3.1.1...@ant-design/pro-table@3.1.2) (2022-11-03)
+
+**Note:** Version bump only for package @ant-design/pro-table
+
 ## [3.1.1](https://github.com/ant-design/pro-components/compare/@ant-design/pro-table@3.1.0...@ant-design/pro-table@3.1.1) (2022-10-28)
 
 **Note:** Version bump only for package @ant-design/pro-table
