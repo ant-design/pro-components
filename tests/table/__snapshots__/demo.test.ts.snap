@@ -2682,6 +2682,7 @@ exports[`table demos 📸 renders ./packages/table/src/components/EditableTable/
       class="ant-pro-card-body"
     >
       <pre
+        placeholder="请输入"
         style="padding: 16px; overflow: auto; font-size: 85%; line-height: 1.45; background-color: rgb(246, 248, 250); border-radius: 3px; width: 100%;"
       >
         <code>
@@ -3126,6 +3127,7 @@ exports[`table demos 📸 renders ./packages/table/src/components/EditableTable/
       class="ant-pro-card-body"
     >
       <pre
+        placeholder="请输入"
         style="padding: 16px; overflow: auto; font-size: 85%; line-height: 1.45; background-color: rgb(246, 248, 250); border-radius: 3px; width: 100%;"
       >
         <code>
@@ -3518,6 +3520,7 @@ exports[`table demos 📸 renders ./packages/table/src/components/EditableTable/
       class="ant-pro-card-body"
     >
       <pre
+        placeholder="请输入"
         style="padding: 16px; overflow: auto; font-size: 85%; line-height: 1.45; background-color: rgb(246, 248, 250); border-radius: 3px; width: 100%;"
       >
         <code>
@@ -4050,6 +4053,7 @@ exports[`table demos 📸 renders ./packages/table/src/components/EditableTable/
                     class="ant-pro-card-body"
                   >
                     <pre
+                      placeholder="请输入"
                       style="padding: 16px; overflow: auto; font-size: 85%; line-height: 1.45; background-color: rgb(246, 248, 250); border-radius: 3px; width: 100%;"
                     >
                       <code>
@@ -10400,6 +10404,7 @@ exports[`table demos 📸 renders ./packages/table/src/components/EditableTable/
       class="ant-pro-card-body"
     >
       <pre
+        placeholder="请输入"
         style="padding: 16px; overflow: auto; font-size: 85%; line-height: 1.45; background-color: rgb(246, 248, 250); border-radius: 3px; width: 100%;"
       >
         <code>
@@ -10676,7 +10681,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/ListToolBar/basic.t
                                               <input
                                                 autocomplete="off"
                                                 id="startdate"
-                                                placeholder="请选择日期"
+                                                placeholder="请选择"
                                                 size="12"
                                                 title=""
                                                 value=""
@@ -11581,7 +11586,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/ListToolBar/menu.ts
                                               <input
                                                 autocomplete="off"
                                                 id="startdate"
-                                                placeholder="请选择日期"
+                                                placeholder="请选择"
                                                 size="12"
                                                 title=""
                                                 value=""
@@ -12684,7 +12689,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/ListToolBar/multipl
                                           <input
                                             autocomplete="off"
                                             id="startdate"
-                                            placeholder="请选择日期"
+                                            placeholder="请选择"
                                             size="12"
                                             title=""
                                             value=""
@@ -13457,7 +13462,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/ListToolBar/no-titl
                                               <input
                                                 autocomplete="off"
                                                 id="startdate"
-                                                placeholder="请选择日期"
+                                                placeholder="请选择"
                                                 size="12"
                                                 title=""
                                                 value=""
@@ -14488,7 +14493,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/ListToolBar/tabs.ts
                                                 <input
                                                   autocomplete="off"
                                                   id="startdate"
-                                                  placeholder="请选择日期"
+                                                  placeholder="请选择"
                                                   size="12"
                                                   title=""
                                                   value=""
@@ -15710,6 +15715,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/batchOption.tsx cor
                             >
                               <div
                                 class="ant-progress ant-progress-line ant-progress-status-normal ant-progress-show-info ant-progress-small"
+                                placeholder="请输入"
                                 style="min-width: 100px; max-width: 320px;"
                               >
                                 <div
@@ -15893,6 +15899,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/batchOption.tsx cor
                             >
                               <div
                                 class="ant-progress ant-progress-line ant-progress-status-normal ant-progress-show-info ant-progress-small"
+                                placeholder="请输入"
                                 style="min-width: 100px; max-width: 320px;"
                               >
                                 <div
@@ -16075,6 +16082,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/batchOption.tsx cor
                             >
                               <div
                                 class="ant-progress ant-progress-line ant-progress-status-normal ant-progress-show-info ant-progress-small"
+                                placeholder="请输入"
                                 style="min-width: 100px; max-width: 320px;"
                               >
                                 <div
@@ -16257,6 +16265,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/batchOption.tsx cor
                             >
                               <div
                                 class="ant-progress ant-progress-line ant-progress-status-normal ant-progress-show-info ant-progress-small"
+                                placeholder="请输入"
                                 style="min-width: 100px; max-width: 320px;"
                               >
                                 <div
@@ -16439,6 +16448,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/batchOption.tsx cor
                             >
                               <div
                                 class="ant-progress ant-progress-line ant-progress-status-normal ant-progress-show-info ant-progress-small"
+                                placeholder="请输入"
                                 style="min-width: 100px; max-width: 320px;"
                               >
                                 <div
@@ -24768,7 +24778,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/customization-value
                         <input
                           class="ant-input"
                           id="name"
-                          placeholder="请输入链接"
+                          placeholder="请输入"
                           style="width: 100%;"
                           type="text"
                           value=""
@@ -25704,7 +25714,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/dataSource.tsx corr
                             <span
                               class="ant-select-selection-placeholder"
                             >
-                              请选择
+                              请输入
                             </span>
                           </div>
                           <span
@@ -32299,6 +32309,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/dynamic-settings.ts
                                             aria-checked="true"
                                             class="ant-switch ant-switch-small ant-switch-checked"
                                             id="bordered"
+                                            placeholder="请输入"
                                             role="switch"
                                             type="button"
                                           >
@@ -32501,6 +32512,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/dynamic-settings.ts
                                             aria-checked="false"
                                             class="ant-switch ant-switch-small"
                                             id="loading"
+                                            placeholder="请输入"
                                             role="switch"
                                             type="button"
                                           >
@@ -32581,6 +32593,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/dynamic-settings.ts
                                             aria-checked="true"
                                             class="ant-switch ant-switch-small ant-switch-checked"
                                             id="showHeader"
+                                            placeholder="请输入"
                                             role="switch"
                                             type="button"
                                           >
@@ -32661,6 +32674,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/dynamic-settings.ts
                                             aria-checked="true"
                                             class="ant-switch ant-switch-small ant-switch-checked"
                                             id="footer"
+                                            placeholder="请输入"
                                             role="switch"
                                             type="button"
                                           >
@@ -32741,6 +32755,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/dynamic-settings.ts
                                             aria-checked="false"
                                             class="ant-switch ant-switch-small"
                                             id="expandable"
+                                            placeholder="请输入"
                                             role="switch"
                                             type="button"
                                           >
@@ -32820,6 +32835,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/dynamic-settings.ts
                                             aria-checked="[object Object]"
                                             class="ant-switch ant-switch-small ant-switch-checked"
                                             id="rowSelection"
+                                            placeholder="请输入"
                                             role="switch"
                                             type="button"
                                           >
@@ -32917,6 +32933,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/dynamic-settings.ts
                                     aria-checked="true"
                                     class="ant-switch ant-switch-small ant-switch-checked"
                                     id="toolBarRender"
+                                    placeholder="请输入"
                                     role="switch"
                                     type="button"
                                   >
@@ -33196,6 +33213,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/dynamic-settings.ts
                                             aria-checked="true"
                                             class="ant-switch ant-switch-small ant-switch-checked"
                                             id="options_show"
+                                            placeholder="请输入"
                                             role="switch"
                                             type="button"
                                           >
@@ -33276,6 +33294,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/dynamic-settings.ts
                                             aria-checked="true"
                                             class="ant-switch ant-switch-small ant-switch-checked"
                                             id="options_density"
+                                            placeholder="请输入"
                                             role="switch"
                                             type="button"
                                           >
@@ -33356,6 +33375,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/dynamic-settings.ts
                                             aria-checked="false"
                                             class="ant-switch ant-switch-small"
                                             id="options_search"
+                                            placeholder="请输入"
                                             role="switch"
                                             type="button"
                                           >
@@ -33436,6 +33456,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/dynamic-settings.ts
                                             aria-checked="true"
                                             class="ant-switch ant-switch-small ant-switch-checked"
                                             id="options_fullScreen"
+                                            placeholder="请输入"
                                             role="switch"
                                             type="button"
                                           >
@@ -33515,6 +33536,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/dynamic-settings.ts
                                             aria-checked="true"
                                             class="ant-switch ant-switch-small ant-switch-checked"
                                             id="options_setting"
+                                            placeholder="请输入"
                                             role="switch"
                                             type="button"
                                           >
@@ -37224,7 +37246,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/listToolBar.tsx cor
                                               <input
                                                 autocomplete="off"
                                                 id="startdate"
-                                                placeholder="请选择日期"
+                                                placeholder="请选择"
                                                 size="12"
                                                 title=""
                                                 value=""
@@ -43739,6 +43761,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/renderTable.tsx cor
                                 >
                                   <div
                                     class="ant-progress ant-progress-line ant-progress-status-active ant-progress-show-info ant-progress-small"
+                                    placeholder="请输入"
                                     style="min-width: 100px; max-width: 320px;"
                                   >
                                     <div
@@ -43785,6 +43808,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/renderTable.tsx cor
                                 >
                                   <div
                                     class="ant-progress ant-progress-line ant-progress-status-active ant-progress-show-info ant-progress-small"
+                                    placeholder="请输入"
                                     style="min-width: 100px; max-width: 320px;"
                                   >
                                     <div
@@ -46899,7 +46923,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/single.tsx correctl
                           <input
                             autocomplete="off"
                             id="created_at"
-                            placeholder="请选择"
+                            placeholder="请"
                             readonly=""
                             size="12"
                             value=""
@@ -46938,7 +46962,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/single.tsx correctl
                         >
                           <input
                             autocomplete="off"
-                            placeholder="请选择"
+                            placeholder="输"
                             readonly=""
                             size="12"
                             value=""
@@ -52225,6 +52249,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/split.tsx correctly
                                         class="ant-table-cell"
                                       >
                                         <pre
+                                          placeholder="请输入"
                                           style="padding: 16px; overflow: auto; font-size: 85%; line-height: 1.45; background-color: rgb(246, 248, 250); border-radius: 3px;"
                                         >
                                           <code>
@@ -52264,6 +52289,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/split.tsx correctly
                                         class="ant-table-cell"
                                       >
                                         <pre
+                                          placeholder="请输入"
                                           style="padding: 16px; overflow: auto; font-size: 85%; line-height: 1.45; background-color: rgb(246, 248, 250); border-radius: 3px;"
                                         >
                                           <code>
@@ -52303,6 +52329,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/split.tsx correctly
                                         class="ant-table-cell"
                                       >
                                         <pre
+                                          placeholder="请输入"
                                           style="padding: 16px; overflow: auto; font-size: 85%; line-height: 1.45; background-color: rgb(246, 248, 250); border-radius: 3px;"
                                         >
                                           <code>
@@ -53571,6 +53598,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/valueType.tsx corre
                               class="ant-table-cell"
                             >
                               <pre
+                                placeholder="请输入"
                                 style="padding: 16px; overflow: auto; font-size: 85%; line-height: 1.45; background-color: rgb(246, 248, 250); border-radius: 3px;"
                               >
                                 <code>
@@ -53627,6 +53655,12 @@ exports[`table demos 📸 renders ./packages/table/src/demos/valueType.tsx corre
                                   src="https://zos.alipayobjects.com/rmsportal/jkjgkEfvpUPVyRjUImniVslZfWPnJuuZ.png"
                                   width="32"
                                 />
+                                <div
+                                  aria-hidden="true"
+                                  class="ant-image-placeholder"
+                                >
+                                  请输入
+                                </div>
                                 <div
                                   class="ant-image-mask"
                                 >
@@ -53699,6 +53733,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/valueType.tsx corre
                               class="ant-table-cell"
                             >
                               <pre
+                                placeholder="请输入"
                                 style="padding: 16px; overflow: auto; font-size: 85%; line-height: 1.45; background-color: rgb(246, 248, 250); border-radius: 3px;"
                               >
                                 <code>
@@ -53755,6 +53790,12 @@ exports[`table demos 📸 renders ./packages/table/src/demos/valueType.tsx corre
                                   src="https://zos.alipayobjects.com/rmsportal/jkjgkEfvpUPVyRjUImniVslZfWPnJuuZ.png"
                                   width="32"
                                 />
+                                <div
+                                  aria-hidden="true"
+                                  class="ant-image-placeholder"
+                                >
+                                  请输入
+                                </div>
                                 <div
                                   class="ant-image-mask"
                                 >
@@ -54473,6 +54514,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/valueType_select.ts
                         <div
                           class="ant-checkbox-group ant-pro-field-checkbox-horizontal"
                           id="status"
+                          placeholder="请输入"
                           style="width: 100%;"
                         >
                           <label
@@ -54619,7 +54661,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/valueType_select.ts
                             <span
                               class="ant-select-selection-placeholder"
                             >
-                              请选择
+                              请输入
                             </span>
                           </div>
                           <span
@@ -54737,7 +54779,9 @@ exports[`table demos 📸 renders ./packages/table/src/demos/valueType_select.ts
                                 </div>
                                 <span
                                   class="ant-select-selection-placeholder"
-                                />
+                                >
+                                  请选择
+                                </span>
                               </div>
                             </div>
                           </div>
@@ -54749,7 +54793,125 @@ exports[`table demos 📸 renders ./packages/table/src/demos/valueType_select.ts
               </div>
             </div>
             <div
-              class="ant-col ant-col-12 ant-col-offset-12"
+              class="ant-col ant-col-12"
+              style="padding-left: 12px; padding-right: 12px;"
+            >
+              <div
+                class="ant-form-item"
+              >
+                <div
+                  class="ant-row ant-form-item-row"
+                >
+                  <div
+                    class="ant-col ant-form-item-label"
+                  >
+                    <label
+                      class=""
+                      for="dateTimeRange"
+                      title="时间范围"
+                    >
+                      时间范围
+                    </label>
+                  </div>
+                  <div
+                    class="ant-col ant-form-item-control"
+                  >
+                    <div
+                      class="ant-form-item-control-input"
+                    >
+                      <div
+                        class="ant-form-item-control-input-content"
+                      >
+                        <div
+                          class="ant-picker ant-picker-range"
+                          style="width: 100%;"
+                        >
+                          <div
+                            class="ant-picker-input ant-picker-input-active"
+                          >
+                            <input
+                              autocomplete="off"
+                              placeholder="请选择"
+                              readonly=""
+                              size="21"
+                              value=""
+                            />
+                          </div>
+                          <div
+                            class="ant-picker-range-separator"
+                          >
+                            <span
+                              aria-label="to"
+                              class="ant-picker-separator"
+                            >
+                              <span
+                                aria-label="swap-right"
+                                class="anticon anticon-swap-right"
+                                role="img"
+                              >
+                                <svg
+                                  aria-hidden="true"
+                                  data-icon="swap-right"
+                                  fill="currentColor"
+                                  focusable="false"
+                                  height="1em"
+                                  viewBox="0 0 1024 1024"
+                                  width="1em"
+                                >
+                                  <path
+                                    d="M873.1 596.2l-164-208A32 32 0 00684 376h-64.8c-6.7 0-10.4 7.7-6.3 13l144.3 183H152c-4.4 0-8 3.6-8 8v60c0 4.4 3.6 8 8 8h695.9c26.8 0 41.7-30.8 25.2-51.8z"
+                                  />
+                                </svg>
+                              </span>
+                            </span>
+                          </div>
+                          <div
+                            class="ant-picker-input"
+                          >
+                            <input
+                              autocomplete="off"
+                              placeholder="请选择"
+                              readonly=""
+                              size="21"
+                              value=""
+                            />
+                          </div>
+                          <div
+                            class="ant-picker-active-bar"
+                            style="left: 0px; width: 0px; position: absolute;"
+                          />
+                          <span
+                            class="ant-picker-suffix"
+                          >
+                            <span
+                              aria-label="calendar"
+                              class="anticon anticon-calendar"
+                              role="img"
+                            >
+                              <svg
+                                aria-hidden="true"
+                                data-icon="calendar"
+                                fill="currentColor"
+                                focusable="false"
+                                height="1em"
+                                viewBox="64 64 896 896"
+                                width="1em"
+                              >
+                                <path
+                                  d="M880 184H712v-64c0-4.4-3.6-8-8-8h-56c-4.4 0-8 3.6-8 8v64H384v-64c0-4.4-3.6-8-8-8h-56c-4.4 0-8 3.6-8 8v64H144c-17.7 0-32 14.3-32 32v664c0 17.7 14.3 32 32 32h736c17.7 0 32-14.3 32-32V216c0-17.7-14.3-32-32-32zm-40 656H184V460h656v380zM184 392V256h128v48c0 4.4 3.6 8 8 8h56c4.4 0 8-3.6 8-8v-48h256v48c0 4.4 3.6 8 8 8h56c4.4 0 8-3.6 8-8v-48h128v136H184z"
+                                />
+                              </svg>
+                            </span>
+                          </span>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div
+              class="ant-col ant-col-12"
               style="padding-left: 12px; padding-right: 12px; text-align: end;"
             >
               <div
@@ -55597,7 +55759,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/valueTypeDate.tsx c
                             <input
                               autocomplete="off"
                               id="dateRange"
-                              placeholder="请选择"
+                              placeholder="请"
                               readonly=""
                               size="12"
                               value=""
@@ -55636,7 +55798,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/valueTypeDate.tsx c
                           >
                             <input
                               autocomplete="off"
-                              placeholder="请选择"
+                              placeholder="输"
                               readonly=""
                               size="12"
                               value=""
@@ -55907,7 +56069,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/valueTypeDate.tsx c
                           <input
                             autocomplete="off"
                             id="since4"
-                            placeholder="请选择"
+                            placeholder="请输入"
                             readonly=""
                             size="21"
                             title=""
@@ -55982,7 +56144,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/valueTypeDate.tsx c
                           <input
                             autocomplete="off"
                             id="since3"
-                            placeholder="请选择时间"
+                            placeholder="请选择"
                             readonly=""
                             size="10"
                             title=""
@@ -57630,6 +57792,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/valueTypeNumber.tsx
                             >
                               <div
                                 class="ant-progress ant-progress-line ant-progress-status-active ant-progress-show-info ant-progress-small"
+                                placeholder="请输入"
                                 style="min-width: 100px; max-width: 320px;"
                               >
                                 <div
@@ -57705,6 +57868,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/valueTypeNumber.tsx
                             >
                               <div
                                 class="ant-progress ant-progress-line ant-progress-status-active ant-progress-show-info ant-progress-small"
+                                placeholder="请输入"
                                 style="min-width: 100px; max-width: 320px;"
                               >
                                 <div

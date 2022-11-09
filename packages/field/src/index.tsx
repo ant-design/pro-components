@@ -479,6 +479,32 @@ const ProFieldComponent: React.ForwardRefRenderFunction<any, ProFieldPropsType> 
     },
   };
 
+  const placeholderIntlKey = [
+    'date',
+    'dateMonth',
+    'dateQuarter',
+    'dateTime',
+    'dateTimeRange',
+    'dateWeek',
+    'dateYear',
+    'select',
+    'time',
+    'timeRange',
+    'treeSelect',
+  ].includes(valueType as string)
+    ? 'tableForm.selectPlaceholder'
+    : 'tableForm.inputPlaceholder';
+
+  const defaultPlaceholder =
+    placeholderIntlKey === 'tableForm.inputPlaceholder' ? '请输入' : '请选择';
+
+  const placeholder = ['dateTimeRange', 'timeRange'].includes(valueType as string)
+    ? [
+        intl.getMessage(placeholderIntlKey, defaultPlaceholder),
+        intl.getMessage(placeholderIntlKey, defaultPlaceholder),
+      ]
+    : intl.getMessage(placeholderIntlKey, defaultPlaceholder);
+
   return (
     <React.Fragment>
       {defaultRenderText(
@@ -494,16 +520,18 @@ const ProFieldComponent: React.ForwardRefRenderFunction<any, ProFieldPropsType> 
                 // renderFormItem 之后的dom可能没有props，这里会帮忙注入一下
                 if (React.isValidElement(newDom))
                   return React.cloneElement(newDom, {
-                    placeholder:
-                      rest.placeholder || intl.getMessage('tableForm.inputPlaceholder', '请输入'),
+                    placeholder: rest.placeholder || placeholder,
                     ...fieldProps,
                     ...((newDom.props as any) || {}),
                   });
                 return newDom;
               }
             : undefined,
-          placeholder: rest.placeholder || intl.getMessage('tableForm.inputPlaceholder', '请输入'),
-          fieldProps: pickProProps(fieldProps),
+          placeholder: rest.placeholder || placeholder,
+          fieldProps: pickProProps({
+            ...fieldProps,
+            placeholder: rest.placeholder || placeholder,
+          }),
         },
         context.valueTypeMap,
       )}

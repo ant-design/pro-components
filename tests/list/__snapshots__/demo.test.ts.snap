@@ -1325,6 +1325,7 @@ exports[`list demos 📸 renders ./packages/list/src/demos/card-list.tsx correct
               <button
                 aria-checked="false"
                 class="ant-switch"
+                placeholder="请输入"
                 role="switch"
                 type="button"
               >

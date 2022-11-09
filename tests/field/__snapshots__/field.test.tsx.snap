@@ -221,7 +221,7 @@ exports[`Field 🐴 edit and no plain 1`] = `
                     >
                       <input
                         autocomplete="off"
-                        placeholder="请选择"
+                        placeholder="请"
                         readonly=""
                         size="12"
                         value=""
@@ -260,7 +260,7 @@ exports[`Field 🐴 edit and no plain 1`] = `
                     >
                       <input
                         autocomplete="off"
-                        placeholder="请选择"
+                        placeholder="输"
                         readonly=""
                         size="12"
                         value=""
@@ -562,7 +562,7 @@ exports[`Field 🐴 edit and no plain 1`] = `
                       <span
                         class="ant-select-selection-placeholder"
                       >
-                        请选择
+                        请输入
                       </span>
                     </div>
                     <span
@@ -644,7 +644,7 @@ exports[`Field 🐴 edit and no plain 1`] = `
                       <span
                         class="ant-select-selection-placeholder"
                       >
-                        请选择
+                        请输入
                       </span>
                     </div>
                     <span
@@ -1116,7 +1116,7 @@ exports[`Field 🐴 edit and no plain 1`] = `
                     >
                       <input
                         autocomplete="off"
-                        placeholder="Select time"
+                        placeholder="请选择"
                         readonly=""
                         size="10"
                         title=""
@@ -1229,6 +1229,7 @@ exports[`Field 🐴 edit and no plain 1`] = `
                 >
                   <textarea
                     class="ant-input"
+                    placeholder="请输入"
                     rows="5"
                   />
                 </span>
@@ -1251,6 +1252,7 @@ exports[`Field 🐴 edit and no plain 1`] = `
                 >
                   <textarea
                     class="ant-input"
+                    placeholder="请输入"
                     rows="5"
                   />
                 </span>
@@ -1406,7 +1408,7 @@ exports[`Field 🐴 edit and plain 1`] = `
                     >
                       <input
                         autocomplete="off"
-                        placeholder="请选择"
+                        placeholder="请"
                         readonly=""
                         size="12"
                         value=""
@@ -1445,7 +1447,7 @@ exports[`Field 🐴 edit and plain 1`] = `
                     >
                       <input
                         autocomplete="off"
-                        placeholder="请选择"
+                        placeholder="输"
                         readonly=""
                         size="12"
                         value=""
@@ -1747,7 +1749,7 @@ exports[`Field 🐴 edit and plain 1`] = `
                       <span
                         class="ant-select-selection-placeholder"
                       >
-                        请选择
+                        请输入
                       </span>
                     </div>
                     <span
@@ -1829,7 +1831,7 @@ exports[`Field 🐴 edit and plain 1`] = `
                       <span
                         class="ant-select-selection-placeholder"
                       >
-                        请选择
+                        请输入
                       </span>
                     </div>
                     <span
@@ -2301,7 +2303,7 @@ exports[`Field 🐴 edit and plain 1`] = `
                     >
                       <input
                         autocomplete="off"
-                        placeholder="Select time"
+                        placeholder="请选择"
                         readonly=""
                         size="10"
                         title=""
@@ -2414,6 +2416,7 @@ exports[`Field 🐴 edit and plain 1`] = `
                 >
                   <input
                     class="ant-input"
+                    placeholder="请输入"
                     type="text"
                     value=""
                   />
@@ -2437,6 +2440,7 @@ exports[`Field 🐴 edit and plain 1`] = `
                 >
                   <input
                     class="ant-input"
+                    placeholder="请输入"
                     type="text"
                     value=""
                   />
@@ -3018,6 +3022,7 @@ exports[`Field 🐴 progress support no number 1`] = `
 <DocumentFragment>
   <div
     class="ant-progress ant-progress-line ant-progress-status-normal ant-progress-show-info ant-progress-small"
+    placeholder="请输入"
     style="min-width: 100px; max-width: 320px;"
   >
     <div
@@ -3046,6 +3051,7 @@ exports[`Field 🐴 progress support string number 1`] = `
 <DocumentFragment>
   <div
     class="ant-progress ant-progress-line ant-progress-status-active ant-progress-show-info ant-progress-small"
+    placeholder="请输入"
     style="min-width: 100px; max-width: 320px;"
   >
     <div
@@ -3325,6 +3331,7 @@ exports[`Field 🐴 read and plain 1`] = `
                 >
                   <div
                     class="ant-progress ant-progress-steps ant-progress-status-active ant-progress-show-info ant-progress-small"
+                    placeholder="请输入"
                     style="min-width: 100px; max-width: 320px;"
                   >
                     <div
@@ -3582,6 +3589,7 @@ exports[`Field 🐴 read and plain 1`] = `
                   class="ant-descriptions-item-content"
                 >
                   <pre
+                    placeholder="请输入"
                     style="padding: 16px; overflow: auto; font-size: 85%; line-height: 1.45; background-color: rgb(246, 248, 250); border-radius: 3px;"
                   >
                     <code>
@@ -3611,6 +3619,7 @@ Done in 9.70s.
                   class="ant-descriptions-item-content"
                 >
                   <pre
+                    placeholder="请输入"
                     style="padding: 16px; overflow: auto; font-size: 85%; line-height: 1.45; background-color: rgb(246, 248, 250); border-radius: 3px;"
                   >
                     <code>
@@ -3904,6 +3913,7 @@ exports[`Field 🐴 read ant no plain 1`] = `
                 >
                   <div
                     class="ant-progress ant-progress-line ant-progress-status-active ant-progress-show-info ant-progress-small"
+                    placeholder="请输入"
                     style="min-width: 100px; max-width: 320px;"
                   >
                     <div
@@ -4129,6 +4139,7 @@ exports[`Field 🐴 read ant no plain 1`] = `
                   class="ant-descriptions-item-content"
                 >
                   <pre
+                    placeholder="请输入"
                     style="padding: 16px; overflow: auto; font-size: 85%; line-height: 1.45; background-color: rgb(246, 248, 250); border-radius: 3px;"
                   >
                     <code>
@@ -4158,6 +4169,7 @@ Done in 9.70s.
                   class="ant-descriptions-item-content"
                 >
                   <pre
+                    placeholder="请输入"
                     style="padding: 16px; overflow: auto; font-size: 85%; line-height: 1.45; background-color: rgb(246, 248, 250); border-radius: 3px;"
                   >
                     <code>

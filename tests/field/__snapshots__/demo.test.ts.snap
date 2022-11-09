@@ -190,6 +190,12 @@ exports[`field demos 📸 renders ./packages/field/src/demos/base.tsx correctly 
                       width="32"
                     />
                     <div
+                      aria-hidden="true"
+                      class="ant-image-placeholder"
+                    >
+                      请输入
+                    </div>
+                    <div
                       class="ant-image-mask"
                     >
                       <div
@@ -991,6 +997,7 @@ exports[`field demos 📸 renders ./packages/field/src/demos/base.tsx correctly 
                 >
                   <div
                     class="ant-progress ant-progress-line ant-progress-status-active ant-progress-show-info ant-progress-small"
+                    placeholder="请输入"
                     style="min-width: 100px; max-width: 320px;"
                   >
                     <div
@@ -1353,6 +1360,7 @@ exports[`field demos 📸 renders ./packages/field/src/demos/base.tsx correctly 
                   class="ant-descriptions-item-content"
                 >
                   <pre
+                    placeholder="请输入"
                     style="padding: 16px; overflow: auto; font-size: 85%; line-height: 1.45; background-color: rgb(246, 248, 250); border-radius: 3px;"
                   >
                     <code>
@@ -1386,6 +1394,7 @@ Done in 9.70s.
                   class="ant-descriptions-item-content"
                 >
                   <pre
+                    placeholder="请输入"
                     style="padding: 16px; overflow: auto; font-size: 85%; line-height: 1.45; background-color: rgb(246, 248, 250); border-radius: 3px;"
                   >
                     <code>
@@ -2651,7 +2660,7 @@ exports[`field demos 📸 renders ./packages/field/src/demos/base_test.tsx corre
                       <span
                         class="ant-select-selection-placeholder"
                       >
-                        请选择
+                        请输入
                       </span>
                     </div>
                     <span
@@ -2701,6 +2710,7 @@ exports[`field demos 📸 renders ./packages/field/src/demos/base_test.tsx corre
                 >
                   <div
                     class="ant-checkbox-group ant-pro-field-checkbox-horizontal"
+                    placeholder="请输入"
                   >
                     <label
                       class="ant-checkbox-wrapper ant-checkbox-wrapper-disabled ant-checkbox-group-item"
@@ -2804,6 +2814,7 @@ exports[`field demos 📸 renders ./packages/field/src/demos/base_test.tsx corre
                 >
                   <div
                     class="ant-checkbox-group ant-pro-field-checkbox-horizontal"
+                    placeholder="请输入"
                   >
                     <label
                       class="ant-checkbox-wrapper ant-checkbox-wrapper-disabled ant-checkbox-group-item"
@@ -3214,7 +3225,7 @@ exports[`field demos 📸 renders ./packages/field/src/demos/base_test.tsx corre
                       <span
                         class="ant-select-selection-placeholder"
                       >
-                        请选择
+                        请输入
                       </span>
                     </div>
                     <span
@@ -3692,7 +3703,7 @@ exports[`field demos 📸 renders ./packages/field/src/demos/base_test.tsx corre
                         >
                           <input
                             autocomplete="off"
-                            placeholder="请选择"
+                            placeholder="请输入"
                             readonly=""
                             size="21"
                             title=""
@@ -3735,7 +3746,7 @@ exports[`field demos 📸 renders ./packages/field/src/demos/base_test.tsx corre
                         >
                           <input
                             autocomplete="off"
-                            placeholder="请选择"
+                            placeholder="请输入"
                             readonly=""
                             size="21"
                             title=""
@@ -3855,7 +3866,7 @@ exports[`field demos 📸 renders ./packages/field/src/demos/base_test.tsx corre
                     >
                       <input
                         autocomplete="off"
-                        placeholder="请选择"
+                        placeholder="请"
                         readonly=""
                         size="12"
                         value=""
@@ -3894,7 +3905,7 @@ exports[`field demos 📸 renders ./packages/field/src/demos/base_test.tsx corre
                     >
                       <input
                         autocomplete="off"
-                        placeholder="请选择"
+                        placeholder="输"
                         readonly=""
                         size="12"
                         value=""
@@ -4057,7 +4068,7 @@ exports[`field demos 📸 renders ./packages/field/src/demos/base_test.tsx corre
                     >
                       <input
                         autocomplete="off"
-                        placeholder="Select time"
+                        placeholder="请选择"
                         readonly=""
                         size="10"
                         title=""
@@ -4121,7 +4132,7 @@ exports[`field demos 📸 renders ./packages/field/src/demos/base_test.tsx corre
                     >
                       <input
                         autocomplete="off"
-                        placeholder="Start time"
+                        placeholder="请选择"
                         readonly=""
                         size="10"
                         value=""
@@ -4160,7 +4171,7 @@ exports[`field demos 📸 renders ./packages/field/src/demos/base_test.tsx corre
                     >
                       <input
                         autocomplete="off"
-                        placeholder="End time"
+                        placeholder="请选择"
                         readonly=""
                         size="10"
                         value=""
@@ -4275,6 +4286,7 @@ exports[`field demos 📸 renders ./packages/field/src/demos/base_test.tsx corre
                 >
                   <textarea
                     class="ant-input"
+                    placeholder="请输入"
                     rows="5"
                   />
                 </span>
@@ -4297,6 +4309,7 @@ exports[`field demos 📸 renders ./packages/field/src/demos/base_test.tsx corre
                 >
                   <textarea
                     class="ant-input"
+                    placeholder="请输入"
                     rows="5"
                   />
                 </span>
@@ -4356,7 +4369,7 @@ exports[`field demos 📸 renders ./packages/field/src/demos/search-value.tsx co
                   <span
                     class="ant-select-selection-placeholder"
                   >
-                    请输入搜索关键字
+                    请选择
                   </span>
                 </div>
               </div>
