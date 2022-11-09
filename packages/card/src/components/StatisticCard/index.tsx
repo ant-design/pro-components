@@ -1,7 +1,7 @@
 import { ConfigProvider } from 'antd';
 import classNames from 'classnames';
 import React, { useContext } from 'react';
-import type { CardProps } from '../../type';
+import type { CardProps } from '../../typing';
 import Card from '../Card';
 import Divider from '../Divider';
 import Operation from '../Operation';

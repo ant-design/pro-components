@@ -1,7 +1,7 @@
 import { ConfigProvider } from 'antd';
 import classNames from 'classnames';
 import React, { useContext } from 'react';
-import type { WithFalse } from '../../typings';
+import type { WithFalse } from '../../typing';
 import { useStyle } from './style';
 
 export type GlobalFooterProps = {

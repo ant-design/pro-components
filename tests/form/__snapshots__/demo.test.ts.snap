@@ -38488,6 +38488,37 @@ exports[`form demos 📸 renders ./packages/form/src/components/StepsForm/demos/
 exports[`form demos 📸 renders ./packages/form/src/demos/base.tsx correctly 1`] = `
 <DocumentFragment>
   <div
+    style="padding-top: 50px; padding-bottom: 50px; text-align: center;"
+  >
+    <div
+      aria-busy="true"
+      aria-live="polite"
+      class="ant-spin ant-spin-spinning"
+    >
+      <span
+        class="ant-spin-dot ant-spin-dot-spin"
+      >
+        <i
+          class="ant-spin-dot-item"
+        />
+        <i
+          class="ant-spin-dot-item"
+        />
+        <i
+          class="ant-spin-dot-item"
+        />
+        <i
+          class="ant-spin-dot-item"
+        />
+      </span>
+    </div>
+  </div>
+</DocumentFragment>
+`;
+
+exports[`form demos 📸 renders ./packages/form/src/demos/base-test.tsx correctly 1`] = `
+<DocumentFragment>
+  <div
     class="ant-pro"
   >
     <form
@@ -38576,13 +38607,13 @@ exports[`form demos 📸 renders ./packages/form/src/demos/base.tsx correctly 1`
                             id="name"
                             placeholder="请输入名称"
                             type="text"
-                            value="蚂蚁设计有限公司"
+                            value=""
                           />
                           <span
                             class="ant-input-suffix"
                           >
                             <span
-                              class="ant-input-clear-icon"
+                              class="ant-input-clear-icon ant-input-clear-icon-hidden"
                               role="button"
                               tabindex="-1"
                             >
@@ -39058,7 +39089,7 @@ exports[`form demos 📸 renders ./packages/form/src/demos/base.tsx correctly 1`
                     <div
                       class="ant-form-item-control-input-content"
                     >
-                      盖章后生效
+                      -
                     </div>
                   </div>
                 </div>

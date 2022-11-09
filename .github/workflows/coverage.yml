@@ -34,7 +34,7 @@ jobs:
         if: |
           steps.cache-yarn-cache.outputs.cache-hit != 'true' ||
           steps.cache-node-modules.outputs.cache-hit != 'true'
-      - run: yarn run test:coverage -w=1
+      - run: yarn run test:coverage
         env:
           CI: true
           PROGRESS: none

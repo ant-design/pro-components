@@ -2,7 +2,7 @@ import type { PropsWithChildren } from 'react';
 import Card from './components/Card';
 import Divider from './components/Divider';
 import TabPane from './components/TabPane';
-import type { CardProps, CardType } from './type';
+import type { CardProps, CardType } from './typing';
 
 export type ProCardProps = CardProps;
 

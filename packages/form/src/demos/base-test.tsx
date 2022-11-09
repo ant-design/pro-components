@@ -11,17 +11,9 @@ import {
   ProFormText,
   ProFormTreeSelect,
 } from '@ant-design/pro-components';
-import { message, TreeSelect } from 'antd';
+import { TreeSelect } from 'antd';
 import moment from 'moment';
 import { useRef } from 'react';
-
-const waitTime = (time: number = 100) => {
-  return new Promise((resolve) => {
-    setTimeout(() => {
-      resolve(true);
-    }, time);
-  });
-};
 
 const treeData = [
   {
@@ -74,28 +66,12 @@ export default () => {
       company?: string;
       useMode?: string;
     }>
-      onFinish={async (values) => {
-        await waitTime(2000);
-        console.log(values);
-        const val1 = await formRef.current?.validateFields();
-        console.log('validateFields:', val1);
-        const val2 = await formRef.current?.validateFieldsReturnFormatValue?.();
-        console.log('validateFieldsReturnFormatValue:', val2);
-        message.success('提交成功');
-      }}
       formRef={formRef}
       params={{ id: '100' }}
       formKey="base-form-use-demo"
       dateFormatter={(value, valueType) => {
         console.log('---->', value, valueType);
         return value.format('YYYY/MM/DD HH:mm:ss');
-      }}
-      request={async () => {
-        await waitTime(1500);
-        return {
-          name: '蚂蚁设计有限公司',
-          useMode: 'chapter',
-        };
       }}
       autoFocusFirstInput
     >

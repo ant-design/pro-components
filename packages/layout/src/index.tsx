@@ -42,7 +42,7 @@ import { ProLayout } from './ProLayout';
 import { getMenuData } from './utils/getMenuData';
 
 export type { ProSettings, ProSettings as Settings } from './defaultSettings';
-export type { MenuDataItem } from './typings';
+export type { MenuDataItem } from './typing';
 export {
   PageHeader,
   ProLayout,
