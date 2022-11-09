@@ -16572,7 +16572,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/QueryFilter/demo
                         class="ant-form-item-control-input-content"
                       >
                         <span
-                          class="ant-dropdown-trigger ant-pro-core-field-dropdown-label "
+                          class="ant-pro-core-field-dropdown-label "
                         >
                           <span
                             class="ant-pro-core-field-label ant-pro-core-field-label-middle ant-pro-core-field-label-allow-clear"
@@ -16911,7 +16911,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/QueryFilter/demo
                         class="ant-form-item-control-input-content"
                       >
                         <span
-                          class="ant-dropdown-trigger ant-pro-core-field-dropdown-label "
+                          class="ant-pro-core-field-dropdown-label "
                         >
                           <span
                             class="ant-pro-core-field-label ant-pro-core-field-label-middle ant-pro-core-field-label-allow-clear"
@@ -16963,7 +16963,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/QueryFilter/demo
                         class="ant-form-item-control-input-content"
                       >
                         <span
-                          class="ant-dropdown-trigger ant-pro-core-field-dropdown-label "
+                          class="ant-pro-core-field-dropdown-label "
                         >
                           <span
                             class="ant-pro-core-field-label ant-pro-core-field-label-middle ant-pro-core-field-label-active ant-pro-core-field-label-allow-clear"
@@ -17050,7 +17050,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/QueryFilter/demo
                         class="ant-form-item-control-input-content"
                       >
                         <span
-                          class="ant-dropdown-trigger ant-pro-core-field-dropdown-label "
+                          class="ant-pro-core-field-dropdown-label "
                         >
                           <span
                             class="ant-pro-core-field-label ant-pro-core-field-label-middle ant-pro-core-field-label-active ant-pro-core-field-label-allow-clear"
@@ -17136,7 +17136,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/QueryFilter/demo
                         class="ant-form-item-control-input-content"
                       >
                         <span
-                          class="ant-dropdown-trigger ant-pro-core-field-dropdown-label "
+                          class="ant-pro-core-field-dropdown-label "
                         >
                           <span
                             class="ant-pro-core-field-label ant-pro-core-field-label-middle ant-pro-core-field-label-active ant-pro-core-field-label-allow-clear"
@@ -17326,7 +17326,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/QueryFilter/demo
                         class="ant-form-item-control-input-content"
                       >
                         <span
-                          class="ant-dropdown-trigger ant-pro-core-field-dropdown-label "
+                          class="ant-pro-core-field-dropdown-label "
                         >
                           <span
                             class="ant-pro-core-field-label ant-pro-core-field-label-middle ant-pro-core-field-label-allow-clear"
@@ -17472,7 +17472,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/QueryFilter/demo
                         class="ant-form-item-control-input-content"
                       >
                         <span
-                          class="ant-dropdown-trigger ant-pro-core-field-dropdown-label "
+                          class="ant-pro-core-field-dropdown-label "
                         >
                           <span
                             class="ant-pro-core-field-label ant-pro-core-field-label-middle ant-pro-core-field-label-active ant-pro-core-field-label-allow-clear"
@@ -17560,7 +17560,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/QueryFilter/demo
                       >
                         <div>
                           <div
-                            class="ant-pro-field-date-picker-light"
+                            class="ant-pro-field-date-picker-light "
                           >
                             <div
                               class="ant-picker ant-picker-middle"
@@ -17656,7 +17656,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/QueryFilter/demo
                         class="ant-form-item-control-input-content"
                       >
                         <span
-                          class="ant-dropdown-trigger ant-pro-core-field-dropdown-label "
+                          class="ant-pro-core-field-dropdown-label "
                         >
                           <span
                             class="ant-pro-core-field-label ant-pro-core-field-label-middle ant-pro-core-field-label-active ant-pro-core-field-label-allow-clear"
@@ -17743,7 +17743,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/QueryFilter/demo
                         class="ant-form-item-control-input-content"
                       >
                         <span
-                          class="ant-dropdown-trigger ant-pro-core-field-dropdown-label "
+                          class="ant-pro-core-field-dropdown-label "
                         >
                           <span
                             class="ant-pro-core-field-label ant-pro-core-field-label-middle ant-pro-core-field-label-allow-clear"
@@ -17780,7 +17780,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/QueryFilter/demo
               class="ant-pro-form-light-filter-item "
             >
               <span
-                class="ant-dropdown-trigger ant-pro-core-field-dropdown-label "
+                class="ant-pro-core-field-dropdown-label "
               >
                 <span
                   class="ant-pro-core-field-label ant-pro-core-field-label-middle ant-pro-core-field-label-allow-clear"
@@ -18392,7 +18392,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/QueryFilter/demo
                       class="ant-form-item-control-input-content"
                     >
                       <span
-                        class="ant-dropdown-trigger ant-pro-core-field-dropdown-label "
+                        class="ant-pro-core-field-dropdown-label "
                       >
                         <span
                           class="ant-pro-core-field-label ant-pro-core-field-label-middle ant-pro-core-field-label-bordered ant-pro-core-field-label-allow-clear"
@@ -18567,7 +18567,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/QueryFilter/demo
             class="ant-pro-form-light-filter-item "
           >
             <span
-              class="ant-dropdown-trigger ant-pro-core-field-dropdown-label "
+              class="ant-pro-core-field-dropdown-label "
             >
               <span
                 aria-label="filter"
@@ -18688,7 +18688,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/QueryFilter/demo
                             class="ant-form-item-control-input-content"
                           >
                             <span
-                              class="ant-dropdown-trigger ant-pro-core-field-dropdown-label "
+                              class="ant-pro-core-field-dropdown-label "
                             >
                               <span
                                 class="ant-pro-core-field-label ant-pro-core-field-label-middle ant-pro-core-field-label-active ant-pro-core-field-label-allow-clear"
@@ -18801,7 +18801,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/QueryFilter/demo
                             class="ant-form-item-control-input-content"
                           >
                             <span
-                              class="ant-dropdown-trigger ant-pro-core-field-dropdown-label "
+                              class="ant-pro-core-field-dropdown-label "
                             >
                               <span
                                 class="ant-pro-core-field-label ant-pro-core-field-label-middle ant-pro-core-field-label-active ant-pro-core-field-label-allow-clear"
@@ -18899,7 +18899,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/QueryFilter/demo
                   class="ant-pro-form-light-filter-item "
                 >
                   <span
-                    class="ant-dropdown-trigger ant-pro-core-field-dropdown-label "
+                    class="ant-pro-core-field-dropdown-label "
                   >
                     footer为false
                   </span>
@@ -18933,7 +18933,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/QueryFilter/demo
                   class="ant-pro-form-light-filter-item "
                 >
                   <span
-                    class="ant-dropdown-trigger ant-pro-core-field-dropdown-label "
+                    class="ant-pro-core-field-dropdown-label "
                   >
                     自定义footer
                   </span>
@@ -19288,7 +19288,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/QueryFilter/demo
                         class="ant-form-item-control-input-content"
                       >
                         <span
-                          class="ant-dropdown-trigger ant-pro-core-field-dropdown-label "
+                          class="ant-pro-core-field-dropdown-label "
                         >
                           <span
                             class="ant-pro-core-field-label ant-pro-core-field-label-middle ant-pro-core-field-label-allow-clear"
@@ -19340,7 +19340,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/QueryFilter/demo
                         class="ant-form-item-control-input-content"
                       >
                         <span
-                          class="ant-dropdown-trigger ant-pro-core-field-dropdown-label "
+                          class="ant-pro-core-field-dropdown-label "
                         >
                           <span
                             class="ant-pro-core-field-label ant-pro-core-field-label-middle ant-pro-core-field-label-allow-clear"
@@ -19392,7 +19392,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/QueryFilter/demo
                         class="ant-form-item-control-input-content"
                       >
                         <span
-                          class="ant-dropdown-trigger ant-pro-core-field-dropdown-label "
+                          class="ant-pro-core-field-dropdown-label "
                         >
                           <span
                             class="ant-pro-core-field-label ant-pro-core-field-label-middle ant-pro-core-field-label-allow-clear"
@@ -19444,7 +19444,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/QueryFilter/demo
                         class="ant-form-item-control-input-content"
                       >
                         <span
-                          class="ant-dropdown-trigger ant-pro-core-field-dropdown-label "
+                          class="ant-pro-core-field-dropdown-label "
                         >
                           <span
                             class="ant-pro-core-field-label ant-pro-core-field-label-middle ant-pro-core-field-label-allow-clear"
@@ -19590,7 +19590,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/QueryFilter/demo
                         class="ant-form-item-control-input-content"
                       >
                         <span
-                          class="ant-dropdown-trigger ant-pro-core-field-dropdown-label "
+                          class="ant-pro-core-field-dropdown-label "
                         >
                           <span
                             class="ant-pro-core-field-label ant-pro-core-field-label-middle ant-pro-core-field-label-allow-clear"
@@ -19736,7 +19736,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/QueryFilter/demo
                         class="ant-form-item-control-input-content"
                       >
                         <span
-                          class="ant-dropdown-trigger ant-pro-core-field-dropdown-label "
+                          class="ant-pro-core-field-dropdown-label "
                         >
                           <span
                             class="ant-pro-core-field-label ant-pro-core-field-label-middle ant-pro-core-field-label-allow-clear"
@@ -19789,7 +19789,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/QueryFilter/demo
                       >
                         <div>
                           <div
-                            class="ant-pro-field-date-picker-light"
+                            class="ant-pro-field-date-picker-light "
                           >
                             <div
                               class="ant-picker"
@@ -19885,7 +19885,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/QueryFilter/demo
                         class="ant-form-item-control-input-content"
                       >
                         <span
-                          class="ant-dropdown-trigger ant-pro-core-field-dropdown-label "
+                          class="ant-pro-core-field-dropdown-label "
                         >
                           <span
                             class="ant-pro-core-field-label ant-pro-core-field-label-middle ant-pro-core-field-label-allow-clear"
@@ -19937,7 +19937,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/QueryFilter/demo
                         class="ant-form-item-control-input-content"
                       >
                         <span
-                          class="ant-dropdown-trigger ant-pro-core-field-dropdown-label "
+                          class="ant-pro-core-field-dropdown-label "
                         >
                           <span
                             class="ant-pro-core-field-label ant-pro-core-field-label-middle ant-pro-core-field-label-allow-clear"
@@ -19974,7 +19974,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/QueryFilter/demo
               class="ant-pro-form-light-filter-item "
             >
               <span
-                class="ant-dropdown-trigger ant-pro-core-field-dropdown-label "
+                class="ant-pro-core-field-dropdown-label "
               >
                 <span
                   class="ant-pro-core-field-label ant-pro-core-field-label-middle ant-pro-core-field-label-allow-clear"
@@ -20330,7 +20330,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/QueryFilter/demo
                         class="ant-form-item-control-input-content"
                       >
                         <span
-                          class="ant-dropdown-trigger ant-pro-core-field-dropdown-label "
+                          class="ant-pro-core-field-dropdown-label "
                         >
                           <span
                             class="ant-pro-core-field-label ant-pro-core-field-label-middle ant-pro-core-field-label-allow-clear"
@@ -20382,7 +20382,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/QueryFilter/demo
                         class="ant-form-item-control-input-content"
                       >
                         <span
-                          class="ant-dropdown-trigger ant-pro-core-field-dropdown-label "
+                          class="ant-pro-core-field-dropdown-label "
                         >
                           <span
                             class="ant-pro-core-field-label ant-pro-core-field-label-middle ant-pro-core-field-label-active ant-pro-core-field-label-allow-clear"
@@ -20469,7 +20469,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/QueryFilter/demo
                         class="ant-form-item-control-input-content"
                       >
                         <span
-                          class="ant-dropdown-trigger ant-pro-core-field-dropdown-label "
+                          class="ant-pro-core-field-dropdown-label "
                         >
                           <span
                             class="ant-pro-core-field-label ant-pro-core-field-label-middle ant-pro-core-field-label-active ant-pro-core-field-label-allow-clear"
@@ -20555,7 +20555,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/QueryFilter/demo
                         class="ant-form-item-control-input-content"
                       >
                         <span
-                          class="ant-dropdown-trigger ant-pro-core-field-dropdown-label "
+                          class="ant-pro-core-field-dropdown-label "
                         >
                           <span
                             class="ant-pro-core-field-label ant-pro-core-field-label-middle ant-pro-core-field-label-active ant-pro-core-field-label-allow-clear"
@@ -41019,7 +41019,7 @@ exports[`form demos 📸 renders ./packages/form/src/demos/config-provider.tsx c
         </div>
       </div>
       <span
-        class="ant-dropdown-trigger ant-pro-core-field-dropdown-label "
+        class="ant-pro-core-field-dropdown-label "
       >
         <span
           class="ant-pro-core-field-label ant-pro-core-field-label-middle ant-pro-core-field-label-allow-clear"
@@ -41046,7 +41046,7 @@ exports[`form demos 📸 renders ./packages/form/src/demos/config-provider.tsx c
         </span>
       </span>
       <span
-        class="ant-dropdown-trigger ant-pro-core-field-dropdown-label "
+        class="ant-pro-core-field-dropdown-label "
       >
         <span
           class="ant-pro-core-field-label ant-pro-core-field-label-middle ant-pro-core-field-label-allow-clear"
