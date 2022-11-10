@@ -29,7 +29,7 @@ describe('BasicLayout', () => {
   });
 
   it('🥩 compatibleStyle', async () => {
-    process.env.ANTD_VERSION = '5.0.0';
+    process.env.ANTD_VERSION = '4.0.0';
     const html = enzymeRender(<ProLayout>{process.env.ANTD_VERSION}</ProLayout>);
     expect(html).toMatchSnapshot();
     delete process.env.ANTD_VERSION;

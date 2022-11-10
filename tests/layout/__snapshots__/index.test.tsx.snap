@@ -1029,7 +1029,7 @@ exports[`BasicLayout 🥩 compatibleStyle 1`] = `
         <main
           class="ant-layout-content ant-pro-layout-content ant-pro-layout-has-header"
         >
-          5.0.0
+          4.0.0
         </main>
       </div>
     </section>
