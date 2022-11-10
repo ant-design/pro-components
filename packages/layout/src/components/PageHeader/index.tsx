@@ -142,6 +142,7 @@ const PageHeader: React.FC<PageHeaderProps> = (props) => {
   const onResize = ({ width }: { width: number }) => {
     updateCompact(width < 768);
   };
+
   const { getPrefixCls, direction } = React.useContext(ConfigProvider.ConfigContext);
 
   const {

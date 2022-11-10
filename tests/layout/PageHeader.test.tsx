@@ -1,6 +1,22 @@
 ﻿import { PageHeader } from '@ant-design/pro-components';
-import { fireEvent, render } from '@testing-library/react';
+import { act, fireEvent, render } from '@testing-library/react';
 import { Breadcrumb } from 'antd';
+import { _rs as onLibResize } from 'rc-resize-observer/lib/utils/observerUtil';
+import { _rs as onEsResize } from 'rc-resize-observer/es/utils/observerUtil';
+import { waitTime } from '../util';
+
+export const triggerResize = (target: Element) => {
+  const originGetBoundingClientRect = target.getBoundingClientRect;
+
+  target.getBoundingClientRect = () => ({ width: 510, height: 903 } as DOMRect);
+
+  act(() => {
+    onLibResize([{ target } as ResizeObserverEntry]);
+    onEsResize([{ target } as ResizeObserverEntry]);
+  });
+
+  target.getBoundingClientRect = originGetBoundingClientRect;
+};
 
 describe('PageContainer', () => {
   it('💄 base use', async () => {
@@ -99,5 +115,15 @@ describe('PageContainer', () => {
   it('pageHeader should render correctly int RTL direction', () => {
     const { container } = render(<PageHeader title="Page Title" />);
     expect(container.firstChild).toMatchSnapshot();
+  });
+
+  it('change container width', async () => {
+    const { container } = render(<PageHeader title="Page Title" extra="extra" />);
+    triggerResize(container.firstChild as HTMLDivElement);
+    await waitTime(100);
+
+    expect(
+      container.querySelector('div.ant-page-header')?.className.includes('ant-page-header-compact'),
+    ).toBeTruthy();
   });
 });
