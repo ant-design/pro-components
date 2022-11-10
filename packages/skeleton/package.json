@@ -15,6 +15,7 @@
     "url": "https://github.com/ant-design/pro-components"
   },
   "license": "MIT",
+  "sideEffects": false,
   "main": "es/index.js",
   "module": "es/index.js",
   "types": "es/index.d.ts",
