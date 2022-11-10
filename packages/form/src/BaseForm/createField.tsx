@@ -13,7 +13,7 @@ import { stringify } from 'use-json-comparison';
 import { ProFormDependency, ProFormItem } from '../components';
 import FieldContext from '../FieldContext';
 import { useGridHelpers } from '../helpers';
-import type { ExtendsProps, ProFormFieldItemProps, ProFormItemCreateConfig } from '../interface';
+import type { ExtendsProps, ProFormFieldItemProps, ProFormItemCreateConfig } from '../typing';
 
 export const TYPE = Symbol('ProFormComponent');
 

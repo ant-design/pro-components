@@ -5,7 +5,7 @@ import classNames from 'classnames';
 import React, { useCallback, useContext, useMemo } from 'react';
 import FieldContext from '../../FieldContext';
 import { useGridHelpers } from '../../helpers';
-import type { GroupProps } from '../../interface';
+import type { GroupProps } from '../../typing';
 import { useStyle } from './style';
 
 const Group: React.FC<GroupProps> = React.forwardRef((props, ref: any) => {

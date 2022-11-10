@@ -3,7 +3,7 @@ import type { FormItemProps } from 'antd';
 import type { NamePath } from 'antd/es/form/interface';
 import React from 'react';
 import type { CommonFormProps } from './BaseForm';
-import type { FieldProps, GroupProps } from './interface';
+import type { FieldProps, GroupProps } from './typing';
 
 export type FiledContextProps = {
   fieldProps?: FieldProps<unknown>;

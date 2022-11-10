@@ -1,7 +1,7 @@
 ﻿import type { TreeSelectProps } from 'antd';
 import type { RefSelectProps } from 'antd/es/select';
 import React from 'react';
-import type { ProFormFieldItemProps, ProFormFieldRemoteProps } from '../../interface';
+import type { ProFormFieldItemProps, ProFormFieldRemoteProps } from '../../typing';
 import ProFormField from '../Field';
 
 /**

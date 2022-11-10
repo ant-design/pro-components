@@ -1,7 +1,7 @@
 import type { TextAreaProps } from 'antd/es/input';
 import type { TextAreaRef } from 'antd/es/input/TextArea';
 import React from 'react';
-import type { ProFormFieldItemProps } from '../../interface';
+import type { ProFormFieldItemProps } from '../../typing';
 import ProField from '../Field';
 
 /**

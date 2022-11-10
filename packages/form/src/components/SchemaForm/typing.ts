@@ -8,7 +8,7 @@ import type {
 import type { FormInstance, FormProps } from 'antd';
 import type { NamePath } from 'antd/es/form/interface';
 import type { CommonFormProps } from '../../BaseForm';
-import type { ProFormGridConfig } from '../../interface';
+import type { ProFormGridConfig } from '../../typing';
 import type {
   DrawerFormProps,
   LightFilterProps,

@@ -8,7 +8,7 @@ import {
 import { ConfigProvider } from 'antd';
 import classNames from 'classnames';
 import React, { useContext, useMemo, useState } from 'react';
-import type { LightFilterFooterRender } from '../../interface';
+import type { LightFilterFooterRender } from '../../typing';
 import { useStyle } from './style';
 import type { TooltipPlacement } from 'antd/es/tooltip';
 

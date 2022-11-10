@@ -2,7 +2,7 @@ import { dateArrayFormatter } from '@ant-design/pro-utils';
 import type { DatePickerProps, RangePickerProps } from 'antd/es/date-picker';
 import React, { useContext } from 'react';
 import FieldContext from '../../FieldContext';
-import type { ProFormFieldItemProps } from '../../interface';
+import type { ProFormFieldItemProps } from '../../typing';
 import ProField from '../Field';
 
 const valueType = 'time' as const;

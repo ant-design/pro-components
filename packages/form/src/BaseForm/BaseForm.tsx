@@ -42,7 +42,7 @@ import type { SubmitterProps } from '../components';
 import { Submitter } from '../components';
 import FieldContext from '../FieldContext';
 import { GridContext, useGridHelpers } from '../helpers';
-import type { FieldProps, GroupProps, ProFormGridConfig } from '../interface';
+import type { FieldProps, GroupProps, ProFormGridConfig } from '../typing';
 import { EditOrReadOnlyContext } from './EditOrReadOnlyContext';
 
 export type CommonFormProps<T = Record<string, any>, U = Record<string, any>> = {

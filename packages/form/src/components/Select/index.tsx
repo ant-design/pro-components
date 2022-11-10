@@ -3,7 +3,7 @@ import type { SelectProps } from 'antd';
 import type { RefSelectProps } from 'antd/es/select';
 import React, { useContext } from 'react';
 import FieldContext from '../../FieldContext';
-import type { ProFormFieldItemProps, ProFormFieldRemoteProps } from '../../interface';
+import type { ProFormFieldItemProps, ProFormFieldRemoteProps } from '../../typing';
 import ProFormField from '../Field';
 
 export type ProFormSelectProps<T = any> = ProFormFieldItemProps<

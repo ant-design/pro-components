@@ -4,7 +4,7 @@ import { Button, Upload } from 'antd';
 import React, { useContext, useMemo } from 'react';
 import { createField } from '../../BaseForm/createField';
 import { EditOrReadOnlyContext } from '../../BaseForm/EditOrReadOnlyContext';
-import type { ProFormFieldItemProps } from '../../interface';
+import type { ProFormFieldItemProps } from '../../typing';
 
 type PickUploadProps = Pick<
   UploadProps<any>,

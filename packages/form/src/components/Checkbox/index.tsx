@@ -4,7 +4,7 @@ import { Checkbox } from 'antd';
 import type { CheckboxGroupProps } from 'antd/es/checkbox';
 import React from 'react';
 import { createField } from '../../BaseForm/createField';
-import type { ProFormFieldItemProps, ProFormFieldRemoteProps } from '../../interface';
+import type { ProFormFieldItemProps, ProFormFieldRemoteProps } from '../../typing';
 import ProFormField from '../Field';
 
 export type ProFormCheckboxGroupProps = ProFormFieldItemProps<

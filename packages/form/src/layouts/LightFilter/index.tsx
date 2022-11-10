@@ -17,7 +17,7 @@ import React, {
 } from 'react';
 import type { CommonFormProps, ProFormInstance } from '../../BaseForm';
 import { BaseForm } from '../../BaseForm';
-import type { LightFilterFooterRender } from '../../interface';
+import type { LightFilterFooterRender } from '../../typing';
 import { useStyle } from './style';
 
 export type LightFilterProps<T> = {

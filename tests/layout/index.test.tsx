@@ -6,7 +6,7 @@ import '@testing-library/jest-dom';
 import { render } from '@testing-library/react';
 import { ConfigProvider } from 'antd';
 import en_US from 'antd/es/locale/en_US';
-import { mount, render as enzymeRender } from 'enzyme';
+import { mount } from 'enzyme';
 import React, { useState } from 'react';
 import { act } from 'react-dom/test-utils';
 import { waitForComponentToPaint } from '../util';
@@ -24,14 +24,14 @@ describe('BasicLayout', () => {
     process.env.USE_MEDIA = 'md';
   });
   it('🥩 base use', async () => {
-    const html = enzymeRender(<ProLayout />);
-    expect(html).toMatchSnapshot();
+    const html = render(<ProLayout />);
+    expect(html.asFragment()).toMatchSnapshot();
   });
 
   it('🥩 compatibleStyle', async () => {
     process.env.ANTD_VERSION = '4.0.0';
-    const html = enzymeRender(<ProLayout>{process.env.ANTD_VERSION}</ProLayout>);
-    expect(html).toMatchSnapshot();
+    const html = render(<ProLayout>{process.env.ANTD_VERSION}</ProLayout>);
+    expect(html.asFragment()).toMatchSnapshot();
     delete process.env.ANTD_VERSION;
   });
 

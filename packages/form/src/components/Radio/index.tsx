@@ -3,7 +3,7 @@ import type { RadioGroupProps, RadioProps } from 'antd';
 import { Radio } from 'antd';
 import React from 'react';
 import { createField } from '../../BaseForm/createField';
-import type { ProFormFieldItemProps, ProFormFieldRemoteProps } from '../../interface';
+import type { ProFormFieldItemProps, ProFormFieldRemoteProps } from '../../typing';
 import ProField from '../Field';
 
 export type ProFormRadioGroupProps = ProFormFieldItemProps<RadioGroupProps, HTMLDivElement> & {

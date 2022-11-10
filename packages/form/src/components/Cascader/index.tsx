@@ -1,7 +1,7 @@
 ﻿import type { CascaderProps } from 'antd';
 import React, { useContext } from 'react';
 import FieldContext from '../../FieldContext';
-import type { ProFormFieldItemProps, ProFormFieldRemoteProps } from '../../interface';
+import type { ProFormFieldItemProps, ProFormFieldRemoteProps } from '../../typing';
 import ProField from '../Field';
 /**
  * 级联选择框
