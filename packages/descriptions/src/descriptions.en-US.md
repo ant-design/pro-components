@@ -109,7 +109,7 @@ API is the same as ProTable
 | request | Request data, when columns are not set, ProDescriptions.Item needs to set the corresponding dataIndex | - | - |
 | onRequestError | Handling request errors, by default an error will be thrown directly | - | - |
 | columns | Column definition, used with request [columns](/components/table#columns) | - | - |
-| editable | Editable related configuration | [EditableConfig]('#editable') | - |
+| editable | Editable related configuration | [EditableConfig](#editable-edit-configuration) | - |
 
 ### editable edit configuration
 
