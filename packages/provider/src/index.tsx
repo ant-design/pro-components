@@ -322,7 +322,6 @@ export const ConfigProviderWrap: React.FC<{
   const { locale, getPrefixCls } = useContext(AntdConfigProvider.ConfigContext);
   const tokenContext = useToken?.();
 
-  console.log(tokenContext);
   // 如果 locale 不存在自动注入的 AntdConfigProvider
   const ANTDProvider = locale === undefined ? AntdConfigProvider : React.Fragment;
   const proProvide = useContext(ConfigContext);

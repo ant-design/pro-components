@@ -50,6 +50,50 @@ describe('ProForm List', () => {
     expect(fn).toBeCalledWith(['name', 'nickName']);
   });
 
+  it('⛲ ProForm.List for deps ProFormDependency', async () => {
+    const fn = jest.fn();
+    const html = render(
+      <ProForm
+        onFinish={async (values) => {
+          fn(Object.keys(values.users[0]));
+        }}
+      >
+        <ProFormList
+          name="users"
+          label="用户信息"
+          initialValue={[
+            {
+              name: '1111',
+              nickName: '1111',
+            },
+          ]}
+        >
+          <ProForm>
+            <ProFormText name="name" placeholder="用户信息的名字" />
+            <ProFormDependency name={['name']}>
+              {({ name }) => {
+                return name;
+              }}
+            </ProFormDependency>
+          </ProForm>
+        </ProFormList>
+      </ProForm>,
+    );
+
+    const input = await html.findByPlaceholderText('用户信息的名字');
+    act(() => {
+      fireEvent.change(input, {
+        target: {
+          value: '121212',
+        },
+      });
+    });
+
+    const text = await html.findByText('121212');
+
+    expect(!!text).toBeTruthy();
+  });
+
   it('⛲ ProForm.List add button', async () => {
     const fn = jest.fn();
     const html = mount(

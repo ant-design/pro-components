@@ -40,6 +40,7 @@ import React, {
 } from 'react';
 import type { SubmitterProps } from '../components';
 import { Submitter } from '../components';
+import { FormListContext } from '../components/List';
 import FieldContext from '../FieldContext';
 import { GridContext, useGridHelpers } from '../helpers';
 import type { FieldProps, GroupProps, ProFormGridConfig } from '../typing';
@@ -697,44 +698,46 @@ function BaseForm<T = Record<string, any>>(props: BaseFormProps<T>) {
             },
           }}
         >
-          <Form
-            onKeyPress={(event) => {
-              if (!isKeyPressSubmit) return;
-              if (event.key === 'Enter') {
-                formRef.current?.submit();
-              }
-            }}
-            autoComplete="off"
-            form={form}
-            {...omit(propRest, ['labelWidth', 'autoFocusFirstInput'] as any[])}
-            // 组合 urlSearch 和 initialValues
-            initialValues={
-              syncToUrlAsImportant
-                ? { ...initialValues, ...initialData, ...urlParamsMergeInitialValues }
-                : { ...urlParamsMergeInitialValues, ...initialValues, ...initialData }
-            }
-            onValuesChange={(changedValues, values) => {
-              propRest?.onValuesChange?.(
-                transformKey(changedValues, !!omitNil),
-                transformKey(values, !!omitNil),
-              );
-            }}
-            className={classNames(props.className, prefixCls, hashId)}
-            onFinish={onFinish}
-          >
-            <BaseFormComponents
-              transformKey={transformKey}
-              autoComplete="off"
-              loading={loading}
-              onUrlSearchChange={setUrlSearch}
-              {...props}
-              formRef={formRef}
-              initialValues={{
-                ...initialValues,
-                ...initialData,
+          <FormListContext.Provider value={{}}>
+            <Form
+              onKeyPress={(event) => {
+                if (!isKeyPressSubmit) return;
+                if (event.key === 'Enter') {
+                  formRef.current?.submit();
+                }
               }}
-            />
-          </Form>
+              autoComplete="off"
+              form={form}
+              {...omit(propRest, ['labelWidth', 'autoFocusFirstInput'] as any[])}
+              // 组合 urlSearch 和 initialValues
+              initialValues={
+                syncToUrlAsImportant
+                  ? { ...initialValues, ...initialData, ...urlParamsMergeInitialValues }
+                  : { ...urlParamsMergeInitialValues, ...initialValues, ...initialData }
+              }
+              onValuesChange={(changedValues, values) => {
+                propRest?.onValuesChange?.(
+                  transformKey(changedValues, !!omitNil),
+                  transformKey(values, !!omitNil),
+                );
+              }}
+              className={classNames(props.className, prefixCls, hashId)}
+              onFinish={onFinish}
+            >
+              <BaseFormComponents
+                transformKey={transformKey}
+                autoComplete="off"
+                loading={loading}
+                onUrlSearchChange={setUrlSearch}
+                {...props}
+                formRef={formRef}
+                initialValues={{
+                  ...initialValues,
+                  ...initialData,
+                }}
+              />
+            </Form>
+          </FormListContext.Provider>
         </FieldContext.Provider>
       </ConfigProviderWrap>
     </EditOrReadOnlyContext.Provider>,
