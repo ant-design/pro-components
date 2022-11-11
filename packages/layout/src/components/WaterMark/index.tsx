@@ -132,7 +132,9 @@ export const WaterMark: React.FC<WaterMarkProps> = (props) => {
         ctx.font = `${fontStyle} normal ${fontWeight} ${markSize}px/${markHeight}px ${fontFamily}`;
         ctx.fillStyle = fontColor;
         if (Array.isArray(content)) {
-          content?.forEach((item: string, index: number) => ctx.fillText(item, 0, index * 50));
+          content?.forEach((item: string, index: number) =>
+            ctx.fillText(item, 0, index * markSize),
+          );
         } else {
           ctx.fillText(content, 0, 0);
         }
