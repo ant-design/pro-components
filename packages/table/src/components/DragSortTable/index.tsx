@@ -33,12 +33,13 @@ function DragSortTable<
     onDragSortEnd,
     onDataSourceChange,
     columns: propsColumns,
+    defaultData,
     dataSource: oriDs,
     onLoad,
     ...otherProps
   } = props;
   const { getPrefixCls } = useContext(ConfigProvider.ConfigContext);
-  const [mergedDs, setMergedDs] = useMergedState(oriDs);
+  const [mergedDs, setMergedDs] = useMergedState(defaultData);
 
   // 默认拖拽把手
   const DragHandle = useMemo(
@@ -122,7 +123,7 @@ function DragSortTable<
         {...(otherProps as ProTableProps<T, U, ValueType>)}
         onLoad={wrapOnload}
         rowKey={rowKey}
-        dataSource={mergedDs}
+        dataSource={oriDs ?? mergedDs}
         components={components}
         columns={columns}
         onDataSourceChange={onDataSourceChange}
@@ -133,7 +134,7 @@ function DragSortTable<
         {...(otherProps as ProTableProps<T, U, ValueType>)}
         onLoad={wrapOnload}
         rowKey={rowKey}
-        dataSource={mergedDs}
+        dataSource={oriDs ?? mergedDs}
         columns={columns}
         onDataSourceChange={onDataSourceChange}
       />
