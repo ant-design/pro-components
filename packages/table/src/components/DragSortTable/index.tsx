@@ -2,7 +2,7 @@ import { MenuOutlined } from '@ant-design/icons';
 import type { ParamsType } from '@ant-design/pro-provider';
 import { ConfigProvider } from 'antd';
 import useMergedState from 'rc-util/lib/hooks/useMergedState';
-import React, { useCallback, useContext, useMemo, useRef } from 'react';
+import React, { useCallback, useContext, useEffect, useMemo, useRef } from 'react';
 import { SortableHandle } from 'react-sortable-hoc';
 import ProTable from '../../Table';
 import type { ProColumns, ProTableProps } from '../../typing';
@@ -111,6 +111,10 @@ function DragSortTable<
     setMergedDs(ds);
     return onLoad?.(ds);
   };
+
+  useEffect(() => {
+    setMergedDs(oriDs);
+  }, [oriDs]);
 
   return wrapSSR(
     handleColumn ? (
