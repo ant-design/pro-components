@@ -97,7 +97,7 @@ export default () => {
   };
   const handleDragSortEnd3 = (newDataSource: any) => {
     console.log('排序后的数据', newDataSource);
-    // 模拟将排序后收据发送到服务器擦灰姑娘经
+    // 模拟将排序后数据发送到服务器的场景
     remoteData = newDataSource;
     // 请求成功之后刷新列表
     actionRef.current?.reload();
