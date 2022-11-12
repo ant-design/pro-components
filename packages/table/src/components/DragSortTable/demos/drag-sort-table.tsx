@@ -1,8 +1,8 @@
 import { MenuOutlined } from '@ant-design/icons';
-import type { ProColumns } from '@ant-design/pro-components';
+import type { ActionType, ProColumns } from '@ant-design/pro-components';
 import { DragSortTable } from '@ant-design/pro-components';
 import { message } from 'antd';
-import { useState } from 'react';
+import { useRef, useState } from 'react';
 
 const data = [
   {
@@ -29,11 +29,13 @@ const data = [
 ];
 const wait = async (delay = 1000) =>
   new Promise((resolve) => setTimeout(() => resolve(void 0), delay));
+
+let remoteData = data.map((item) => ({ ...item, name: `[remote data] ${item.name}` }));
 const request = async () => {
   await wait(3000);
   return {
-    data,
-    total: data.length,
+    data: remoteData,
+    total: remoteData.length,
     success: true,
   };
 };
@@ -80,7 +82,7 @@ export default () => {
       dataIndex: 'address',
     },
   ];
-
+  const actionRef = useRef<ActionType>();
   const [dataSource1, setDatasource1] = useState(data);
   const [dataSource2, setDatasource2] = useState(data);
   const handleDragSortEnd1 = (newDataSource: any) => {
@@ -91,6 +93,14 @@ export default () => {
   const handleDragSortEnd2 = (newDataSource: any) => {
     console.log('排序后的数据', newDataSource);
     setDatasource2(newDataSource);
+    message.success('修改列表排序成功');
+  };
+  const handleDragSortEnd3 = (newDataSource: any) => {
+    console.log('排序后的数据', newDataSource);
+    // 模拟将排序后收据发送到服务器擦灰姑娘经
+    remoteData = newDataSource;
+    // 请求成功之后刷新列表
+    actionRef.current?.reload();
     message.success('修改列表排序成功');
   };
 
@@ -124,6 +134,7 @@ export default () => {
         onDragSortEnd={handleDragSortEnd2}
       />
       <DragSortTable
+        actionRef={actionRef}
         headerTitle="使用 request 获取数据源"
         columns={columns2}
         rowKey="index"
@@ -131,7 +142,7 @@ export default () => {
         pagination={false}
         request={request}
         dragSortKey="sort"
-        onDragSortEnd={handleDragSortEnd2}
+        onDragSortEnd={handleDragSortEnd3}
       />
     </>
   );
