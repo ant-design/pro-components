@@ -401,10 +401,7 @@ export const token = {
   hashId: `pro-${hashCode(JSON.stringify(defaultTheme))}`,
 };
 
-export const useToken = () => {
-  const [stateToken] = useState(token);
-  return stateToken;
-};
+export const useToken = () => token;
 
 export const darkAlgorithm = () => defaultTheme;
 export const defaultAlgorithm = () => defaultTheme;
