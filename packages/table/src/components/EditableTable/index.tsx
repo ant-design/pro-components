@@ -73,8 +73,8 @@ export type EditableProTableProps<T, U extends ParamsType, ValueType = 'text'> =
   ProTableProps<T, U, ValueType>,
   'onChange'
 > & {
-  defaultValue?: T[];
-  value?: T[];
+  defaultValue?: readonly T[];
+  value?: readonly T[];
   onChange?: (value: readonly T[]) => void;
   /** @name 原先的 table OnChange */
   onTableChange?: ProTableProps<T, U>['onChange'];

@@ -44,7 +44,7 @@ const defaultData: DataSourceType[] = [
 
 export default () => {
   const [editableKeys, setEditableRowKeys] = useState<React.Key[]>([]);
-  const [dataSource, setDataSource] = useState<DataSourceType[]>([]);
+  const [dataSource, setDataSource] = useState<readonly DataSourceType[]>([]);
   const [position, setPosition] = useState<'top' | 'bottom' | 'hidden'>('bottom');
 
   const columns: ProColumns<DataSourceType>[] = [

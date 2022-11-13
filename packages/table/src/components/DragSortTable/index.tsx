@@ -39,7 +39,7 @@ function DragSortTable<
     ...otherProps
   } = props;
   const { getPrefixCls } = useContext(ConfigProvider.ConfigContext);
-  const [mergedDs, setMergedDs] = useMergedState<readonly T[]>(() => defaultData || [], {
+  const [dataSource, setMergedDs] = useMergedState<readonly T[]>(() => defaultData || [], {
     value: originDataSource,
     onChange: onDataSourceChange,
   });
@@ -67,7 +67,7 @@ function DragSortTable<
   const originColumnRef = useRef<ProColumns<T, 'text'> | undefined>({ ...handleColumn });
   // 使用自定义hooks获取拖拽相关组件的components集合
   const { components } = useDragSort<T>({
-    dataSource: mergedDs?.slice(),
+    dataSource: dataSource?.slice(),
     dragSortKey,
     onDragSortEnd,
     components: props.components,
@@ -122,7 +122,7 @@ function DragSortTable<
         {...(otherProps as ProTableProps<T, U, ValueType>)}
         onLoad={wrapOnload}
         rowKey={rowKey}
-        dataSource={originDataSource ?? mergedDs}
+        dataSource={dataSource}
         components={components}
         columns={columns}
         onDataSourceChange={onDataSourceChange}
@@ -133,7 +133,7 @@ function DragSortTable<
         {...(otherProps as ProTableProps<T, U, ValueType>)}
         onLoad={wrapOnload}
         rowKey={rowKey}
-        dataSource={originDataSource ?? mergedDs}
+        dataSource={dataSource}
         columns={columns}
         onDataSourceChange={onDataSourceChange}
       />

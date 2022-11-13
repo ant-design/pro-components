@@ -153,7 +153,7 @@ const EditorProTableDemo = (
     editorRowKeys?: React.Key[];
     onEditorChange?: (editorRowKeys: React.Key[]) => void;
     dataSource?: DataSourceType[];
-    onDataSourceChange?: (dataSource: DataSourceType[]) => void;
+    onDataSourceChange?: (dataSource: readonly DataSourceType[]) => void;
     position?: 'top';
   } & TableRowEditable<DataSourceType>,
 ) => {
@@ -165,7 +165,7 @@ const EditorProTableDemo = (
       onChange: props.onEditorChange,
     },
   );
-  const [tableDataSource, setDataSource] = useMergedState<DataSourceType[]>([], {
+  const [tableDataSource, setDataSource] = useMergedState<readonly DataSourceType[]>([], {
     value: props.dataSource,
     onChange: props.onDataSourceChange,
   });

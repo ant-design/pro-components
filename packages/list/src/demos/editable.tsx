@@ -36,7 +36,7 @@ const defaultData = [
 type DataItem = typeof defaultData[number];
 
 export default () => {
-  const [dataSource, setDataSource] = useState<DataItem[]>(defaultData);
+  const [dataSource, setDataSource] = useState<readonly DataItem[]>(defaultData);
   return (
     <ProList<DataItem>
       rowKey="id"

@@ -26,7 +26,7 @@ export default () => {
   const [editableKeys, setEditableRowKeys] = useState<React.Key[]>(() =>
     defaultData.map((item) => item.id),
   );
-  const [dataSource, setDataSource] = useState<DataSourceType[]>(() => defaultData);
+  const [dataSource, setDataSource] = useState<readonly DataSourceType[]>(() => defaultData);
 
   const columns: ProColumns<DataSourceType>[] = [
     {
