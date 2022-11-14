@@ -8,6 +8,16 @@ group:
   path: /
 ---
 
+## @ant-design/pro-components@2.3.31
+
+`2022-11-14`
+
+- fix(layout): 在内容定宽下，TopNavHeader 的样式问题 (#6182). [#6182](https://github.com/ant-design/pro-components/pull/#6182) [@hqwlkj](https://github.com/hqwlkj)
+- fix(form): reset ProFormList when new form. [b9ba5d0](https://github.com/ant-design/pro-components/commit/b9ba5d0)
+- fix(table): 修复 DragSortTable 的 dataSource 值变更后未生效 (#6207). [#6207](https://github.com/ant-design/pro-components/pull/#6207) [@acg-developer](https://github.com/acg-developer)
+- fix(table): 修复拖拽排序表格使用数据源时数据源改变后未更新数据问题 (#6211). [#6211](https://github.com/ant-design/pro-components/pull/#6211) [@kiner-tang](https://github.com/kiner-tang)
+- fix(table): column not working correctly after reset (#6159). [#6159](https://github.com/ant-design/pro-components/pull/#6159) [@Zeng-J](https://github.com/Zeng-J)
+
 ## @ant-design/pro-components@2.3.30
 
 `2022-11-08`
