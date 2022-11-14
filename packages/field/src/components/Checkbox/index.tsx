@@ -31,6 +31,15 @@ const FieldCheckbox: ProFieldFC<GroupProps> = (
     return {
       [`.${layoutClassName}`]: {
         '&-vertical': {
+          //ant design 5
+          [`&${token.antCls}-checkbox-group`]: {
+            display: 'inline-block',
+          },
+          //ant design 5
+          [`${token.antCls}-checkbox-wrapper+${token.antCls}-checkbox-wrapper`]: {
+            'margin-inline-start': 0,
+          },
+          //ant design 4
           [`${token.antCls}-checkbox-group-item`]: {
             display: 'flex',
             marginInlineEnd: 0,
