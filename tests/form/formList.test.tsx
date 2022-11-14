@@ -1,5 +1,6 @@
 ﻿import { CloseOutlined, SnippetsOutlined } from '@ant-design/icons';
 import type { FormListActionType } from '@ant-design/pro-form';
+import { ModalForm, StepsForm } from '@ant-design/pro-form';
 import ProForm, {
   ProFormDatePicker,
   ProFormDependency,
@@ -15,6 +16,7 @@ import { mount } from 'enzyme';
 import _ from 'lodash';
 import React from 'react';
 import { waitForComponentToPaint, waitTime } from '../util';
+import ProCard from '@ant-design/pro-card';
 
 describe('ProForm List', () => {
   it('⛲ ProForm.List', async () => {
@@ -51,45 +53,77 @@ describe('ProForm List', () => {
   });
 
   it('⛲ ProForm.List for deps ProFormDependency', async () => {
-    const fn = jest.fn();
     const html = render(
-      <ProForm
+      <StepsForm<{
+        name: string;
+      }>
         onFinish={async (values) => {
-          fn(Object.keys(values.users[0]));
+          console.log(values);
         }}
       >
-        <ProFormList
-          name="users"
-          label="用户信息"
-          initialValue={[
-            {
-              name: '1111',
-              nickName: '1111',
-            },
-          ]}
+        <StepsForm.StepForm
+          name="cep"
+          title="端规则编排"
+          onFinish={async () => {
+            return true;
+          }}
         >
-          <ProForm>
-            <ProFormText name="name" placeholder="用户信息的名字" />
-            <ProFormDependency name={['name']}>
-              {({ name }) => {
-                return name;
-              }}
-            </ProFormDependency>
-          </ProForm>
-        </ProFormList>
-      </ProForm>,
+          <ProFormList
+            name="parttenList"
+            creatorButtonProps={{
+              position: 'bottom',
+              creatorButtonText: '添加规则',
+            }}
+            min={1}
+            itemRender={({ listDom, action }) => (
+              <ProCard
+                bordered
+                style={{ marginBlockEnd: 8 }}
+                extra={action}
+                bodyStyle={{ paddingBlockEnd: 0 }}
+              >
+                {listDom}
+              </ProCard>
+            )}
+            initialValue={[{}]}
+          >
+            <ModalForm title="添加规则" trigger={<div>点击添加</div>} width={1200}>
+              <ProFormText
+                name="ruleType"
+                width="sm"
+                label="规则类型"
+                placeholder="用户信息的名字"
+                rules={[{ required: true, message: '请选择规则类型' }]}
+              />
+              <ProFormDependency name={['ruleType']}>
+                {({ ruleType }) => {
+                  return <div>你好{ruleType}</div>;
+                }}
+              </ProFormDependency>
+            </ModalForm>
+          </ProFormList>
+        </StepsForm.StepForm>
+      </StepsForm>,
     );
+
+    const button = await html.findByText('点击添加');
+
+    act(() => {
+      button.click();
+    });
+
+    await waitForComponentToPaint(100);
 
     const input = await html.findByPlaceholderText('用户信息的名字');
     act(() => {
       fireEvent.change(input, {
         target: {
-          value: '121212',
+          value: 'normal',
         },
       });
     });
 
-    const text = await html.findByText('121212');
+    const text = await html.findByText('你好normal');
 
     expect(!!text).toBeTruthy();
   });

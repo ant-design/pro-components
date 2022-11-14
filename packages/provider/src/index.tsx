@@ -252,11 +252,12 @@ export {
  * 自带的token 配置
  */
 export type ConfigContextPropsType = {
-  intl: IntlType;
-  valueTypeMap: Record<string, ProRenderFieldPropsType>;
+  intl?: IntlType;
+  valueTypeMap?: Record<string, ProRenderFieldPropsType>;
   token?: ProAliasToken;
   hashId?: string;
-  theme: Theme<any, any>;
+  hashed?: boolean;
+  theme?: Theme<any, any>;
 };
 
 /* Creating a context object with the default values. */
@@ -267,6 +268,7 @@ const ConfigContext = React.createContext<ConfigContextPropsType>({
   },
   valueTypeMap: {},
   theme: emptyTheme,
+  hashed: true,
   token: defaultTheme as ProAliasToken,
 });
 
@@ -383,9 +385,10 @@ export const ConfigProviderWrap: React.FC<{
   );
 
   const hashId = useMemo(() => {
+    if (proProvide.hashed === false) return '';
     if (process.env.NODE_ENV?.toLowerCase() !== 'test') return nativeHashId;
     return '';
-  }, [nativeHashId]);
+  }, [nativeHashId, proProvide.hashed]);
 
   const configProviderDom = useMemo(() => {
     if (isNullProvide) return <>{children}</>;
@@ -394,7 +397,10 @@ export const ConfigProviderWrap: React.FC<{
       locale === undefined
         ? {
             locale: zh_CN,
-            theme: { hashId: hashId, hashed: process.env.NODE_ENV?.toLowerCase() !== 'test' },
+            theme: {
+              hashId: hashId,
+              hashed: process.env.NODE_ENV?.toLowerCase() !== 'test' && proProvide.hashed,
+            },
           }
         : {};
 

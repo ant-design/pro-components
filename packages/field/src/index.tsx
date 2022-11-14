@@ -505,7 +505,7 @@ const ProFieldComponent: React.ForwardRefRenderFunction<any, ProFieldPropsType> 
           placeholder: rest.placeholder || intl.getMessage('tableForm.inputPlaceholder', '请输入'),
           fieldProps: pickProProps(fieldProps),
         },
-        context.valueTypeMap,
+        context.valueTypeMap || {},
       )}
     </React.Fragment>
   );

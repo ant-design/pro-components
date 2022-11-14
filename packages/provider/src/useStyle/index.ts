@@ -111,7 +111,7 @@ export function useStyle(
   return {
     wrapSSR: useStyleRegister(
       {
-        theme,
+        theme: theme!,
         token,
         hashId,
         path: [componentName],
