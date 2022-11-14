@@ -8,6 +8,12 @@ group:
   path: /
 ---
 
+## @ant-design/pro-components@2.3.32
+
+`2022-11-14`
+
+- fix(form): 修复 checkbox 在 ant design 5 vertical 布局失效问题 (#6214). [#6214](https://github.com/ant-design/pro-components/pull/#6214) [@leshalv](https://github.com/leshalv)
+
 ## @ant-design/pro-components@2.3.31
 
 `2022-11-14`
