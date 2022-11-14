@@ -408,7 +408,7 @@ export type ProTableProps<T, U, ValueType = 'text'> = {
   /**
    * @name 可编辑表格修改数据的改变
    */
-  onDataSourceChange?: (dataSource: readonly T[]) => void;
+  onDataSourceChange?: (dataSource: T[]) => void;
   /** @name 查询表单和 Table 的卡片 border 配置 */
   cardBordered?: Bordered;
   /** @name 去抖时间 */

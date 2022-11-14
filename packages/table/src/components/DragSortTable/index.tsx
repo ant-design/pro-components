@@ -39,8 +39,8 @@ function DragSortTable<
     ...otherProps
   } = props;
   const { getPrefixCls } = useContext(ConfigProvider.ConfigContext);
-  const [dataSource, setMergedDs] = useMergedState<readonly T[]>(() => defaultData || [], {
-    value: originDataSource,
+  const [dataSource, setMergedDs] = useMergedState<T[]>(() => defaultData || [], {
+    value: originDataSource as T[],
     onChange: onDataSourceChange,
   });
 

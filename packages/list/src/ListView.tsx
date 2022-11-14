@@ -171,7 +171,7 @@ function ListView<RecordType>(props: ListViewProps<RecordType>) {
         hashId,
         rest.className,
       )}
-      dataSource={pageData}
+      dataSource={pageData as RecordType[]}
       pagination={pagination && (mergedPagination as ListViewProps<RecordType>['pagination'])}
       renderItem={(item, index) => {
         const listItemProps: Partial<ItemProps<RecordType>> = {
