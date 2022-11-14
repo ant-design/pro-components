@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [7.2.3](https://github.com/ant-design/pro-components/compare/@ant-design/pro-layout@7.2.2...@ant-design/pro-layout@7.2.3) (2022-11-14)
+
+### Bug Fixes
+
+- **provide:** support hasded ([e8a8501](https://github.com/ant-design/pro-components/commit/e8a85018c442a6dea700923f6cada5a196ae3446))
+
 ## [7.2.2](https://github.com/ant-design/pro-components/compare/@ant-design/pro-layout@7.2.1...@ant-design/pro-layout@7.2.2) (2022-11-14)
 
 ### Bug Fixes
