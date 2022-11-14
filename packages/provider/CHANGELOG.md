@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.0.15](https://github.com/ant-design/pro-components/compare/@ant-design/pro-provider@2.0.14...@ant-design/pro-provider@2.0.15) (2022-11-14)
+
+### Bug Fixes
+
+- **form:** reset ProFormList when new form ([b9ba5d0](https://github.com/ant-design/pro-components/commit/b9ba5d04c9f0cdebe296c507f81b35dcd710cfd2))
+
 ## [2.0.14](https://github.com/ant-design/pro-components/compare/@ant-design/pro-provider@2.0.13...@ant-design/pro-provider@2.0.14) (2022-11-07)
 
 **Note:** Version bump only for package @ant-design/pro-provider

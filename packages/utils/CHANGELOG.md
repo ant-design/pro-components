@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.3.3](https://github.com/ant-design/pro-components/compare/@ant-design/pro-utils@2.3.2...@ant-design/pro-utils@2.3.3) (2022-11-14)
+
+### Bug Fixes
+
+- **table:** column not working correctly after reset ([#6159](https://github.com/ant-design/pro-components/issues/6159)) ([6ec0307](https://github.com/ant-design/pro-components/commit/6ec0307041a7a439075af56c3a9a80809afb956f))
+
 ## [2.3.2](https://github.com/ant-design/pro-components/compare/@ant-design/pro-utils@2.3.1...@ant-design/pro-utils@2.3.2) (2022-11-08)
 
 ### Bug Fixes

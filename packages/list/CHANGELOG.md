@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.0.28](https://github.com/ant-design/pro-components/compare/@ant-design/pro-list@2.0.27...@ant-design/pro-list@2.0.28) (2022-11-14)
+
+### Bug Fixes
+
+- fix typescript error ([3f0a26b](https://github.com/ant-design/pro-components/commit/3f0a26b61db768c4caf0f8789fd75e1a9a956a3c))
+
 ## [2.0.27](https://github.com/ant-design/pro-components/compare/@ant-design/pro-list@2.0.26...@ant-design/pro-list@2.0.27) (2022-11-08)
 
 **Note:** Version bump only for package @ant-design/pro-list
