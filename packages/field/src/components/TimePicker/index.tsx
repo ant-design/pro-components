@@ -6,6 +6,7 @@ import type { ProFieldFC, ProFieldLightProps } from '../../index';
 
 // 兼容代码-----------
 import 'antd/es/date-picker/style';
+import { useDatePickerStyle } from '../DatePicker';
 //----------------------;
 
 /**
@@ -36,9 +37,7 @@ const FieldTimePicker: ProFieldFC<
 ) => {
   const [open, setOpen] = useState<boolean>(false);
   const size = useContext(ConfigProvider.SizeContext);
-  const { getPrefixCls } = useContext(ConfigProvider.ConfigContext);
-  const prefixCls = getPrefixCls('pro-field-date-picker');
-
+  const { hashId, prefixCls, wrapSSR } = useDatePickerStyle();
   const finalFormat = fieldProps?.format || format || 'HH:mm:ss';
 
   const isNumberOrMoment = dayjs.isDayjs(text) || typeof text === 'number';
@@ -60,9 +59,9 @@ const FieldTimePicker: ProFieldFC<
     const dayValue = parseValueToDay(value, finalFormat) as dayjs.Dayjs;
     if (light) {
       const valueStr: string = (dayValue && dayValue.format(finalFormat)) || '';
-      dom = (
+      dom = wrapSSR(
         <div
-          className={`${prefixCls}-light`}
+          className={`${prefixCls}-light ${hashId}`}
           onClick={(e) => {
             // 点击label切换下拉菜单
             const isLabelClick = lightLabel?.current?.labelRef?.current?.contains(
@@ -104,7 +103,7 @@ const FieldTimePicker: ProFieldFC<
             expanded={open}
             ref={lightLabel}
           />
-        </div>
+        </div>,
       );
     } else {
       dom = (

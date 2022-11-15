@@ -5,7 +5,7 @@ import type { ItemType } from 'antd/es/menu/hooks/useItems';
 import classNames from 'classnames';
 import type { CSSProperties } from 'react';
 import React, { useContext, useMemo } from 'react';
-import type { WithFalse } from '../../typings';
+import type { WithFalse } from '../../typing';
 import type { AppsLogoComponentsAppList } from '../AppsLogoComponents';
 import { AppsLogoComponents, defaultRenderLogo } from '../AppsLogoComponents';
 import { CollapsedIcon } from '../CollapsedIcon';

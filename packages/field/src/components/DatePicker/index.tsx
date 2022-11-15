@@ -24,6 +24,28 @@ const formatDate = (text: any, format: any) => {
   }
 };
 
+export const useDatePickerStyle = () => {
+  const { getPrefixCls } = useContext(ConfigProvider.ConfigContext);
+
+  const prefixCls = getPrefixCls('pro-field-date-picker');
+
+  // css
+  const css = useStyle('DatePicker', (token) => {
+    return {
+      [`.${prefixCls}-light`]: {
+        [`${token.antCls}-picker,${token.antCls}-calendar-picker`]: {
+          position: 'absolute',
+          width: '80px',
+          height: '28px',
+          overflow: 'hidden',
+          visibility: 'hidden',
+        },
+      },
+    };
+  });
+  return { ...css, prefixCls };
+};
+
 /**
  * 日期选择组件
  *
@@ -58,24 +80,9 @@ const FieldDatePicker: ProFieldFC<
 ) => {
   const intl = useIntl();
   const size = useContext(ConfigProvider.SizeContext);
-  const { getPrefixCls } = useContext(ConfigProvider.ConfigContext);
-  const prefixCls = getPrefixCls('pro-field-date-picker');
   const [open, setOpen] = useState<boolean>(false);
 
-  // css
-  const { wrapSSR, hashId } = useStyle('DatePicker', (token) => {
-    return {
-      [`.${prefixCls}-light`]: {
-        [`${token.antCls}-picker,${token.antCls}-calendar-picker`]: {
-          position: 'absolute',
-          width: '80px',
-          height: '28px',
-          overflow: 'hidden',
-          visibility: 'hidden',
-        },
-      },
-    };
-  });
+  const { hashId, prefixCls, wrapSSR } = useDatePickerStyle();
 
   if (mode === 'read') {
     const dom = formatDate(text, fieldProps.format || format);

@@ -173,7 +173,7 @@ const columns: ProColumns<DataSourceType>[] = [
 export default () => {
   const actionRef = useRef<ActionType>();
   const [editableKeys, setEditableRowKeys] = useState<React.Key[]>([]);
-  const [dataSource, setDataSource] = useState<DataSourceType[]>([]);
+  const [dataSource, setDataSource] = useState<readonly DataSourceType[]>([]);
   const [form] = Form.useForm();
   return (
     <>

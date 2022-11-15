@@ -1,7 +1,7 @@
 import { EllipsisOutlined, SearchOutlined } from '@ant-design/icons';
 import type { ProColumns } from '@ant-design/pro-components';
 import { ProTable, TableDropdown } from '@ant-design/pro-components';
-import { Button, Dropdown, Input, Menu } from 'antd';
+import { Button, Dropdown, Input } from 'antd';
 
 const valueEnum = {
   0: 'close',
@@ -112,25 +112,6 @@ const columns: ProColumns<TableListItem>[] = [
   },
 ];
 
-const menu = (
-  <Menu
-    items={[
-      {
-        label: '1st item',
-        key: '1',
-      },
-      {
-        label: '2nd item',
-        key: '2',
-      },
-      {
-        label: '3rd item',
-        key: '3',
-      },
-    ]}
-  />
-);
-
 export default () => {
   return (
     <ProTable<TableListItem>
@@ -165,7 +146,25 @@ export default () => {
           创建应用
         </Button>,
 
-        <Dropdown key="menu" overlay={menu}>
+        <Dropdown
+          key="menu"
+          menu={{
+            items: [
+              {
+                label: '1st item',
+                key: '1',
+              },
+              {
+                label: '2nd item',
+                key: '2',
+              },
+              {
+                label: '3rd item',
+                key: '3',
+              },
+            ],
+          }}
+        >
           <Button>
             <EllipsisOutlined />
           </Button>

@@ -73,9 +73,9 @@ export type EditableProTableProps<T, U extends ParamsType, ValueType = 'text'> =
   ProTableProps<T, U, ValueType>,
   'onChange'
 > & {
-  defaultValue?: T[];
-  value?: T[];
-  onChange?: (value: T[]) => void;
+  defaultValue?: readonly T[];
+  value?: readonly T[];
+  onChange?: (value: readonly T[]) => void;
   /** @name 原先的 table OnChange */
   onTableChange?: ProTableProps<T, U>['onChange'];
 
@@ -157,10 +157,13 @@ function EditableTable<
   // 设置 ref
   useImperativeHandle(rest.actionRef, () => actionRef.current);
 
-  const [value, setValue] = useMergedState<DataType[]>(() => props.value || defaultValue || [], {
-    value: props.value,
-    onChange: props.onChange,
-  });
+  const [value, setValue] = useMergedState<readonly DataType[]>(
+    () => props.value || defaultValue || [],
+    {
+      value: props.value,
+      onChange: props.onChange,
+    },
+  );
 
   const getRowKey = React.useMemo<GetRowKey<DataType>>((): GetRowKey<DataType> => {
     if (typeof rowKey === 'function') {
@@ -412,7 +415,7 @@ function EditableTable<
             },
           }}
           dataSource={value}
-          onDataSourceChange={(dataSource: DataType[]) => {
+          onDataSourceChange={(dataSource: readonly DataType[]) => {
             setValue(dataSource);
             /**
              * 如果是top，需要重新设置一下 form，不然会导致 id 相同数据混淆

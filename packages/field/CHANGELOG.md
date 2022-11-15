@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.1.21](https://github.com/ant-design/pro-components/compare/@ant-design/pro-field@2.1.20...@ant-design/pro-field@2.1.21) (2022-11-14)
+
+### Bug Fixes
+
+- **provide:** support hasded ([e8a8501](https://github.com/ant-design/pro-components/commit/e8a85018c442a6dea700923f6cada5a196ae3446))
+
+## [2.1.20](https://github.com/ant-design/pro-components/compare/@ant-design/pro-field@2.1.19...@ant-design/pro-field@2.1.20) (2022-11-14)
+
+**Note:** Version bump only for package @ant-design/pro-field
+
 ## [2.1.19](https://github.com/ant-design/pro-components/compare/@ant-design/pro-field@2.1.18...@ant-design/pro-field@2.1.19) (2022-11-08)
 
 **Note:** Version bump only for package @ant-design/pro-field

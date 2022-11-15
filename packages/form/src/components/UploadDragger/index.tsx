@@ -4,7 +4,7 @@ import type { DraggerProps, UploadProps } from 'antd/es/upload';
 import React, { useContext } from 'react';
 import { createField } from '../../BaseForm/createField';
 import { EditOrReadOnlyContext } from '../../BaseForm/EditOrReadOnlyContext';
-import type { ProFormFieldItemProps } from '../../interface';
+import type { ProFormFieldItemProps } from '../../typing';
 
 export type ProFormUploadDraggerProps = ProFormFieldItemProps<DraggerProps> & {
   /**

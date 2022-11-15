@@ -1,7 +1,7 @@
 import type { DatePickerProps } from 'antd';
 import React, { useContext } from 'react';
 import FieldContext from '../../FieldContext';
-import type { ProFormFieldItemProps } from '../../interface';
+import type { ProFormFieldItemProps } from '../../typing';
 import ProField from '../Field';
 
 const valueType = 'dateQuarter' as const;

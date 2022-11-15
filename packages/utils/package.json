@@ -1,6 +1,6 @@
 {
   "name": "@ant-design/pro-utils",
-  "version": "2.3.2",
+  "version": "2.3.4",
   "description": "@ant-design/pro-utils",
   "keywords": [
     "antd",
@@ -15,6 +15,7 @@
     "url": "https://github.com/ant-design/pro-components"
   },
   "license": "MIT",
+  "sideEffects": false,
   "main": "es/index.js",
   "module": "es/index.js",
   "types": "es/index.d.ts",
@@ -30,7 +31,7 @@
   ],
   "dependencies": {
     "@ant-design/icons": "^4.3.0",
-    "@ant-design/pro-provider": "2.0.14",
+    "@ant-design/pro-provider": "2.0.16",
     "@babel/runtime": "^7.18.0",
     "classnames": "^2.2.6",
     "dayjs": "^1.11.4",

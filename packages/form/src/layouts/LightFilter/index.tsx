@@ -4,6 +4,7 @@ import { FieldLabel, FilterDropdown } from '@ant-design/pro-utils';
 import type { FormProps } from 'antd';
 import { ConfigProvider } from 'antd';
 import type { SizeType } from 'antd/es/config-provider/SizeContext';
+import type { TooltipPlacement } from 'antd/es/tooltip';
 import classNames from 'classnames';
 import omit from 'omit.js';
 import React, {
@@ -16,7 +17,7 @@ import React, {
 } from 'react';
 import type { CommonFormProps, ProFormInstance } from '../../BaseForm';
 import { BaseForm } from '../../BaseForm';
-import type { LightFilterFooterRender, Placement } from '../../interface';
+import type { LightFilterFooterRender } from '../../typing';
 import { useStyle } from './style';
 
 export type LightFilterProps<T> = {
@@ -48,7 +49,7 @@ export type LightFilterProps<T> = {
    * @name 支持配置弹出的位置
    * @default bottomLeft
    */
-  placement?: Placement;
+  placement?: TooltipPlacement;
 } & Omit<FormProps<T>, 'onFinish'> &
   CommonFormProps<T>;
 
@@ -67,7 +68,7 @@ const LightFilterContainer: React.FC<{
   collapseLabel?: React.ReactNode;
   bordered?: boolean;
   footerRender?: LightFilterFooterRender;
-  placement?: Placement;
+  placement?: TooltipPlacement;
 }> = (props) => {
   const {
     items,

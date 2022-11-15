@@ -2,6 +2,20 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [7.2.3](https://github.com/ant-design/pro-components/compare/@ant-design/pro-layout@7.2.2...@ant-design/pro-layout@7.2.3) (2022-11-14)
+
+### Bug Fixes
+
+- **provide:** support hasded ([e8a8501](https://github.com/ant-design/pro-components/commit/e8a85018c442a6dea700923f6cada5a196ae3446))
+
+## [7.2.2](https://github.com/ant-design/pro-components/compare/@ant-design/pro-layout@7.2.1...@ant-design/pro-layout@7.2.2) (2022-11-14)
+
+### Bug Fixes
+
+- **layout:** 在内容定宽下，TopNavHeader 的样式问题 ([#6182](https://github.com/ant-design/pro-components/issues/6182)) ([666a1e8](https://github.com/ant-design/pro-components/commit/666a1e830fe34e355661828aed5d920c264a7f45))
+- **table:** column not working correctly after reset ([#6159](https://github.com/ant-design/pro-components/issues/6159)) ([6ec0307](https://github.com/ant-design/pro-components/commit/6ec0307041a7a439075af56c3a9a80809afb956f))
+- **WaterMark:** fontSize 过大导致多行文字重叠 ([#6198](https://github.com/ant-design/pro-components/issues/6198)) ([7cf5dea](https://github.com/ant-design/pro-components/commit/7cf5dead9deb93afe6bfd3301a3642e0774f368d))
+
 ## [7.2.1](https://github.com/ant-design/pro-components/compare/@ant-design/pro-layout@7.2.0...@ant-design/pro-layout@7.2.1) (2022-11-08)
 
 **Note:** Version bump only for package @ant-design/pro-layout

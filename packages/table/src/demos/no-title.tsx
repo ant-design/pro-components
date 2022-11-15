@@ -1,7 +1,7 @@
 import { DownOutlined } from '@ant-design/icons';
 import type { ProColumns } from '@ant-design/pro-components';
 import { ProTable } from '@ant-design/pro-components';
-import { Dropdown, Menu, Popconfirm, Space } from 'antd';
+import { Dropdown, Popconfirm, Space } from 'antd';
 import React from 'react';
 
 export type Member = {
@@ -57,21 +57,6 @@ for (let i = 0; i < 5; i += 1) {
   });
 }
 
-const roleMenu = (
-  <Menu
-    items={[
-      {
-        label: '管理员',
-        key: 'admin',
-      },
-      {
-        label: '操作员',
-        key: 'operator',
-      },
-    ]}
-  />
-);
-
 const MemberList: React.FC = () => {
   const renderRemoveUser = (text: string) => (
     <Popconfirm key="popconfirm" title={`确认${text}吗?`} okText="是" cancelText="否">
@@ -100,7 +85,20 @@ const MemberList: React.FC = () => {
       dataIndex: 'role',
       title: '角色',
       render: (_, record) => (
-        <Dropdown overlay={roleMenu}>
+        <Dropdown
+          menu={{
+            items: [
+              {
+                label: '管理员',
+                key: 'admin',
+              },
+              {
+                label: '操作员',
+                key: 'operator',
+              },
+            ],
+          }}
+        >
           <a>
             {RoleMap[record.role || 'admin'].name} <DownOutlined />
           </a>

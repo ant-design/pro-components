@@ -8,8 +8,9 @@ import {
 import { ConfigProvider } from 'antd';
 import classNames from 'classnames';
 import React, { useContext, useMemo, useState } from 'react';
-import type { LightFilterFooterRender, Placement } from '../../interface';
+import type { LightFilterFooterRender } from '../../typing';
 import { useStyle } from './style';
+import type { TooltipPlacement } from 'antd/es/tooltip';
 
 export type SizeType = 'small' | 'middle' | 'large' | undefined;
 
@@ -39,7 +40,7 @@ export type LightWrapperProps = {
   valueType?: string;
   allowClear?: boolean;
   footerRender?: LightFilterFooterRender;
-  placement?: Placement;
+  placement?: TooltipPlacement;
 };
 
 const LightWrapper: React.ForwardRefRenderFunction<any, LightWrapperProps> = (props) => {

@@ -83,7 +83,7 @@ function ListView<RecordType>(props: ListViewProps<RecordType>) {
     () => {},
   );
   /** 根据分页来返回不同的数据，模拟 table */
-  const pageData = React.useMemo<RecordType[]>(() => {
+  const pageData = React.useMemo<readonly RecordType[]>(() => {
     if (
       pagination === false ||
       !mergedPagination.pageSize ||
@@ -103,8 +103,8 @@ function ListView<RecordType>(props: ListViewProps<RecordType>) {
     getRowKey,
     getRecordByKey,
     prefixCls,
-    data: dataSource,
-    pageData,
+    data: dataSource as RecordType[],
+    pageData: pageData as RecordType[],
     expandType: 'row',
     childrenColumnName: 'children',
     locale: {},
@@ -171,7 +171,7 @@ function ListView<RecordType>(props: ListViewProps<RecordType>) {
         hashId,
         rest.className,
       )}
-      dataSource={pageData}
+      dataSource={pageData as RecordType[]}
       pagination={pagination && (mergedPagination as ListViewProps<RecordType>['pagination'])}
       renderItem={(item, index) => {
         const listItemProps: Partial<ItemProps<RecordType>> = {

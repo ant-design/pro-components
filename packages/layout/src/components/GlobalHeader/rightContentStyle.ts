@@ -1,5 +1,5 @@
 ﻿import type { GenerateStyle, ProAliasToken } from '@ant-design/pro-utils';
-import { setAlpha, useStyle as useAntdStyle } from '@ant-design/pro-utils';
+import { useStyle as useAntdStyle } from '@ant-design/pro-utils';
 
 export interface ProToken extends ProAliasToken {
   componentCls: string;
@@ -37,10 +37,10 @@ const genTopNavHeaderStyle: GenerateStyle<ProToken> = (token) => {
           justifyContent: 'center',
           paddingInlineStart: '16px',
           paddingInlineEnd: '16px',
-          color: setAlpha(token.colorTextBase, 0.65),
+          color: token.colorTextSecondary,
           '> div': {
             height: '44px',
-            color: setAlpha(token.colorTextBase, 0.65),
+            color: token.colorTextSecondary,
             paddingInline: 8,
             paddingBlock: 8,
             cursor: 'pointer',

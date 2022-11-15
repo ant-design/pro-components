@@ -139,6 +139,10 @@ const genPageHeaderStyle: GenerateStyle<PageHeaderToken> = (token) => {
       '&-compact &-heading': {
         flexWrap: 'wrap',
       },
+      '&-wide': {
+        maxWidth: 1152,
+        margin: '0 auto',
+      },
       '&-rtl': {
         direction: 'rtl',
       },

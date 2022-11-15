@@ -9,7 +9,7 @@ import classNames from 'classnames';
 import React, { useContext, useEffect, useMemo, useRef } from 'react';
 import type { PureSettings } from '../../defaultSettings';
 import { defaultSettings } from '../../defaultSettings';
-import type { MenuDataItem, MessageDescriptor, RouterTypes, WithFalse } from '../../typings';
+import type { MenuDataItem, MessageDescriptor, RouterTypes, WithFalse } from '../../typing';
 import { getOpenKeysFromMenuData } from '../../utils/utils';
 import { MenuCounter } from './Counter';
 import type { PrivateSiderMenuProps } from './SiderMenu';

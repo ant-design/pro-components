@@ -4,7 +4,7 @@ import { isDeepEqualReact, runFunction } from '@ant-design/pro-utils';
 import React, { memo, useContext, useMemo } from 'react';
 import { createField } from '../../BaseForm/createField';
 import { EditOrReadOnlyContext } from '../../BaseForm/EditOrReadOnlyContext';
-import type { ProFormFieldItemProps } from '../../interface';
+import type { ProFormFieldItemProps } from '../../typing';
 
 export type ProFormFieldProps<T = any, FiledProps = Record<string, any>> = ProSchema<
   T,

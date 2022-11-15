@@ -1,4 +1,4 @@
-import { ConfigProvider, Dropdown } from 'antd';
+import { ConfigProvider, Popover } from 'antd';
 import React, { useContext } from 'react';
 import type { DropdownFooterProps } from '../DropdownFooter';
 import { DropdownFooter } from '../DropdownFooter';
@@ -7,16 +7,7 @@ import { useStyle } from './style';
 
 import 'antd/es/dropdown/style';
 import { openVisibleCompatible } from '../../compareVersions/openVisibleCompatible';
-
-declare const Placements: [
-  'topLeft',
-  'topCenter',
-  'topRight',
-  'bottomLeft',
-  'bottomCenter',
-  'bottomRight',
-];
-declare type Placement = typeof Placements[number];
+import type { TooltipPlacement } from 'antd/es/tooltip';
 
 export type FooterRender =
   | ((
@@ -41,7 +32,7 @@ export type DropdownProps = {
   visible?: boolean;
   onOpenChange?: (visible: boolean) => void;
   open?: boolean;
-  placement?: Placement;
+  placement?: TooltipPlacement;
   children?: React.ReactNode;
 };
 const FilterDropdown: React.FC<DropdownProps> = (props) => {
@@ -67,12 +58,14 @@ const FilterDropdown: React.FC<DropdownProps> = (props) => {
   );
 
   return wrapSSR(
-    <Dropdown
-      disabled={disabled}
+    <Popover
       placement={placement}
       trigger={['click']}
       {...dropdownOpenProps}
-      overlay={
+      overlayInnerStyle={{
+        padding: 0,
+      }}
+      content={
         <div className={`${prefixCls}-overlay ${prefixCls}-overlay-${placement} ${hashId}`}>
           <div className={`${prefixCls}-content ${hashId}`}>{children}</div>
           {footer && <DropdownFooter disabled={disabled} footerRender={footerRender} {...footer} />}
@@ -80,7 +73,7 @@ const FilterDropdown: React.FC<DropdownProps> = (props) => {
       }
     >
       <span className={`${prefixCls}-label ${hashId}`}>{label}</span>
-    </Dropdown>,
+    </Popover>,
   );
 };
 

@@ -207,12 +207,13 @@ const CheckboxList: React.FC<{
   /** 选中反选功能 */
   const onCheckTree = useRefFunction((e) => {
     const newColumnMap = { ...columnsMap };
+
     const loopSetShow = (key: string | number) => {
       const newSetting = { ...newColumnMap[key] };
       newSetting.show = e.checked;
       // 如果含有子节点，也要选中
       if (treeDataConfig.map?.get(key)?.children) {
-        treeDataConfig.map?.get(key)?.children?.forEach((item) => loopSetShow(item.key));
+        treeDataConfig.map.get(key)?.children?.forEach((item) => loopSetShow(item.key));
       }
       newColumnMap[key] = newSetting;
     };
@@ -332,7 +333,7 @@ const GroupCheckboxList: React.FC<{
 };
 
 function ColumnSetting<T>(props: ColumnSettingProps<T>) {
-  const columnRef = useRef({});
+  const columnRef = useRef(null);
   // 获得当前上下文的 hashID
   const counter = Container.useContainer();
   const localColumns: TableColumnType<T> &
@@ -390,7 +391,11 @@ function ColumnSetting<T>(props: ColumnSettingProps<T>) {
   /** 重置项目 */
   const clearClick = useRefFunction(() => {
     clearPersistenceStorage?.();
-    setColumnsMap(columnRef.current);
+    setColumnsMap(
+      columnRef.current ||
+        counter.propsRef.current?.columnsState?.defaultValue ||
+        counter.defaultColumnKeyMap!,
+    );
   });
 
   // 未选中的 key 列表

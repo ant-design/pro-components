@@ -289,7 +289,7 @@ describe('EditorProTable', () => {
     await editAndChange('test value');
     // save with recordKey
     await actionRef.current?.saveEditable(624748504);
-    await waitForComponentToPaint(wrapper, 100);
+    await waitForComponentToPaint(wrapper, 1000);
 
     expect(onChange).toBeCalled();
     expect(changedDataSource).toHaveLength(defaultData.length);

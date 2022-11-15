@@ -55,7 +55,7 @@ const defaultData: DataSourceType[] = [
 ];
 
 const loopDataSourceFilter = (
-  data: DataSourceType[],
+  data: readonly DataSourceType[],
   id: React.Key | undefined,
 ): DataSourceType[] => {
   return data
@@ -77,7 +77,7 @@ const loopDataSourceFilter = (
 
 export default () => {
   const [editableKeys, setEditableRowKeys] = useState<React.Key[]>([]);
-  const [dataSource, setDataSource] = useState<DataSourceType[]>(() => defaultData);
+  const [dataSource, setDataSource] = useState<readonly DataSourceType[]>(() => defaultData);
 
   const removeRow = useRefFunction((record: DataSourceType) => {
     setDataSource(loopDataSourceFilter(dataSource, record.id));

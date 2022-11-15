@@ -3520,7 +3520,7 @@ exports[`list demos 📸 renders ./packages/list/src/demos/filter.tsx correctly 
                                         class="ant-form-item-control-input-content"
                                       >
                                         <span
-                                          class="ant-dropdown-trigger ant-pro-core-field-dropdown-label "
+                                          class="ant-pro-core-field-dropdown-label "
                                         >
                                           <span
                                             class="ant-pro-core-field-label ant-pro-core-field-label-middle ant-pro-core-field-label-allow-clear"

@@ -1,6 +1,6 @@
 import pathToRegexp from 'path-to-regexp';
 import type { ProSettings } from './defaultSettings';
-import type { MenuDataItem } from './typings';
+import type { MenuDataItem } from './typing';
 
 type BreadcrumbItem = Omit<MenuDataItem, 'children' | 'routes'> & {
   routes?: BreadcrumbItem;

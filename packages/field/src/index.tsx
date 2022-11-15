@@ -510,7 +510,7 @@ const ProFieldComponent: React.ForwardRefRenderFunction<any, ProFieldPropsType> 
             }),
           ),
         }),
-        context.valueTypeMap,
+        context.valueTypeMap || {},
       )}
     </React.Fragment>
   );

@@ -757,7 +757,9 @@ describe('LightFilter', () => {
       </LightFilter>,
     );
     act(() => {
-      wrapper.baseElement.querySelectorAll<HTMLDivElement>('.ant-dropdown-trigger')[0].click?.();
+      wrapper.baseElement
+        .querySelectorAll<HTMLDivElement>('.ant-pro-core-field-dropdown-label')[0]
+        .click?.();
     });
     waitForComponentToPaint(wrapper, 100);
 

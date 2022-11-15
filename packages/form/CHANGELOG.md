@@ -2,6 +2,21 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.3.1](https://github.com/ant-design/pro-components/compare/@ant-design/pro-form@2.3.0...@ant-design/pro-form@2.3.1) (2022-11-14)
+
+**Note:** Version bump only for package @ant-design/pro-form
+
+# [2.3.0](https://github.com/ant-design/pro-components/compare/@ant-design/pro-form@2.2.17...@ant-design/pro-form@2.3.0) (2022-11-14)
+
+### Bug Fixes
+
+- **form:** reset ProFormList when new form ([b9ba5d0](https://github.com/ant-design/pro-components/commit/b9ba5d04c9f0cdebe296c507f81b35dcd710cfd2))
+- **table:** column not working correctly after reset ([#6159](https://github.com/ant-design/pro-components/issues/6159)) ([6ec0307](https://github.com/ant-design/pro-components/commit/6ec0307041a7a439075af56c3a9a80809afb956f))
+
+### Features
+
+- add ProFormCascader auto getPopupContainer ([#6187](https://github.com/ant-design/pro-components/issues/6187)) ([1165c01](https://github.com/ant-design/pro-components/commit/1165c01d4e2d6f7276ab04bc5a0315ac36841c1a))
+
 ## [2.2.17](https://github.com/ant-design/pro-components/compare/@ant-design/pro-form@2.2.16...@ant-design/pro-form@2.2.17) (2022-11-08)
 
 **Note:** Version bump only for package @ant-design/pro-form

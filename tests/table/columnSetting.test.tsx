@@ -645,6 +645,7 @@ describe('Table ColumnSetting', () => {
     );
 
     await waitForComponentToPaint(html, 200);
+
     act(() => {
       html.baseElement
         .querySelector<HTMLDivElement>('.ant-pro-table-list-toolbar-setting-item .anticon-setting')
@@ -685,6 +686,20 @@ describe('Table ColumnSetting', () => {
     ).toBe(2);
 
     expect(callBack).toBeCalled();
+
+    act(() => {
+      const input = html.baseElement
+        ?.querySelector<HTMLDivElement>('.ant-tree-list-holder-inner .ant-tree-treenode')
+        ?.querySelector<HTMLInputElement>('.ant-tree-checkbox');
+      input?.click();
+    });
+
+    act(() => {
+      const input = html.baseElement
+        ?.querySelector<HTMLDivElement>('.ant-tree-list-holder-inner .ant-tree-treenode')
+        ?.querySelector<HTMLInputElement>('.ant-tree-checkbox');
+      input?.click();
+    });
   });
 
   it('🎏 columnsState use the column key or dataIndex as index name', async () => {
@@ -744,8 +759,21 @@ describe('Table ColumnSetting', () => {
         ?.click();
     });
 
-    expect(onChange).toBeCalledTimes(1);
-    expect((onChange.mock as any).lastCall[1]).toMatchInlineSnapshot(`
+    act(() => {
+      const input = html.baseElement
+        ?.querySelector<HTMLDivElement>('.ant-pro-table-column-setting-title .ant-checkbox-wrapper')
+        ?.querySelector<HTMLInputElement>('.ant-checkbox-input');
+      input?.click();
+    });
+
+    act(() => {
+      html.baseElement
+        .querySelector<HTMLDivElement>(`.ant-pro-table-column-setting-action-rest-button`)
+        ?.click();
+    });
+
+    expect(onChange).toBeCalledTimes(2);
+    expect((onChange.mock as any).lastCall[0]).toMatchInlineSnapshot(`
       Object {
         "3": Object {
           "disable": undefined,

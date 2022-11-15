@@ -153,6 +153,7 @@ export default () => {
   return (
     <ProProvider.Provider
       value={{
+        hashed: false,
         ...values,
         valueTypeMap: {
           link: {

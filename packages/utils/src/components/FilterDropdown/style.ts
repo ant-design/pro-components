@@ -11,8 +11,6 @@ const genProStyle: GenerateStyle<ProToken> = (token) => {
     [`${token.componentCls}-overlay`]: {
       minWidth: '200px',
       marginBlockStart: '4px',
-      backgroundColor: token.colorBgContainer,
-      boxShadow: token.boxShadowCard,
       '*': {
         fontFamily: token.fontFamily,
         boxSizing: 'border-box',

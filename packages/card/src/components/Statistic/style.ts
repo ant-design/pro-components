@@ -71,7 +71,7 @@ const genProStyle: GenerateStyle<ProListToken> = (token) => {
         },
         [`${token.antCls}-statistic-title,${token.antCls}-statistic-content,${token.antCls}-statistic-content-suffix,${token.antCls}-statistic-content-prefix,${token.antCls}-statistic-content-value-decimal`]:
           {
-            fontSize: token.fontSizeBase,
+            fontSize: token.fontSize,
           },
       },
       '& &-layout-inline': {

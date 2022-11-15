@@ -10,7 +10,7 @@ import { noteOnce } from 'rc-util/lib/warning';
 import type { ReactNode } from 'react';
 import React, { useContext, useEffect, useImperativeHandle, useMemo, useRef } from 'react';
 import { useGridHelpers } from '../../helpers';
-import type { ProFormGridConfig } from '../../interface';
+import type { ProFormGridConfig } from '../../typing';
 import { ProFormListContainer } from './ListContainer';
 import type { ChildrenItemFunction, FormListActionGuard, ProFromListCommonProps } from './ListItem';
 import { useStyle } from './style';

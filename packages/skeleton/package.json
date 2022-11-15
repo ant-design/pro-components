@@ -1,6 +1,6 @@
 {
   "name": "@ant-design/pro-skeleton",
-  "version": "2.0.4",
+  "version": "2.0.5",
   "description": "@ant-design/pro-skeleton",
   "keywords": [
     "antd",
@@ -15,6 +15,7 @@
     "url": "https://github.com/ant-design/pro-components"
   },
   "license": "MIT",
+  "sideEffects": false,
   "main": "es/index.js",
   "module": "es/index.js",
   "types": "es/index.d.ts",

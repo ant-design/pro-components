@@ -1,7 +1,7 @@
 import type { ColProps, RowProps } from 'antd';
 import { Col, Row } from 'antd';
 import { createContext, useContext, useMemo } from 'react';
-import type { ProFormGridConfig } from '../interface';
+import type { ProFormGridConfig } from '../typing';
 
 export const GridContext = createContext<ProFormGridConfig>({
   grid: false,

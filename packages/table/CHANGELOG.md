@@ -2,6 +2,19 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [3.1.6](https://github.com/ant-design/pro-components/compare/@ant-design/pro-table@3.1.5...@ant-design/pro-table@3.1.6) (2022-11-14)
+
+**Note:** Version bump only for package @ant-design/pro-table
+
+## [3.1.5](https://github.com/ant-design/pro-components/compare/@ant-design/pro-table@3.1.4...@ant-design/pro-table@3.1.5) (2022-11-14)
+
+### Bug Fixes
+
+- fix typescript error ([3f0a26b](https://github.com/ant-design/pro-components/commit/3f0a26b61db768c4caf0f8789fd75e1a9a956a3c))
+- **table:** column not working correctly after reset ([#6159](https://github.com/ant-design/pro-components/issues/6159)) ([6ec0307](https://github.com/ant-design/pro-components/commit/6ec0307041a7a439075af56c3a9a80809afb956f))
+- **table:** 修复 DragSortTable 的 dataSource 值变更后未生效 ([#6207](https://github.com/ant-design/pro-components/issues/6207)) ([f53d98b](https://github.com/ant-design/pro-components/commit/f53d98bb8c602b263560e8fb648221cff55e6a7f))
+- **table:** 修复拖拽排序表格使用数据源时数据源改变后未更新数据问题 ([#6211](https://github.com/ant-design/pro-components/issues/6211)) ([af12810](https://github.com/ant-design/pro-components/commit/af128104879179b938af3e5357b0c3e9e0a6bd98))
+
 ## [3.1.4](https://github.com/ant-design/pro-components/compare/@ant-design/pro-table@3.1.3...@ant-design/pro-table@3.1.4) (2022-11-08)
 
 ### Bug Fixes

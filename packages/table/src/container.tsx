@@ -178,6 +178,7 @@ function useContainer(props: UseContainerProps = {}) {
     columns: props.columns,
     rootDomRef,
     clearPersistenceStorage,
+    defaultColumnKeyMap,
   };
 
   Object.defineProperty(renderValue, 'prefixName', {

@@ -3,7 +3,7 @@ import type H from 'history';
 import pathToRegexp from 'path-to-regexp';
 import type { ProSettings } from '../defaultSettings';
 import type { ProLayoutProps } from '../ProLayout';
-import type { MenuDataItem, MessageDescriptor, WithFalse } from '../typings';
+import type { MenuDataItem, MessageDescriptor, WithFalse } from '../typing';
 import { urlToList } from './pathTools';
 
 export type BreadcrumbProps = {
