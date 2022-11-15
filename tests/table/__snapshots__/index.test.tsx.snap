@@ -663,7 +663,6 @@ exports[`BasicTable 🎏 base use 1`] = `
                       <input
                         class="ant-input"
                         id="date"
-                        placeholder="请选择"
                         style="width: 100%;"
                         type="text"
                         value=""
@@ -787,7 +786,7 @@ exports[`BasicTable 🎏 base use 1`] = `
                           <input
                             autocomplete="off"
                             id="time"
-                            placeholder="请选择"
+                            placeholder="请选择时间"
                             readonly=""
                             size="10"
                             title=""

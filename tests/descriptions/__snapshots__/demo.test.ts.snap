@@ -586,7 +586,6 @@ exports[`descriptions demos 📸 renders ./packages/descriptions/src/demos/base.
                 >
                   <div
                     class="ant-progress ant-progress-line ant-progress-status-active ant-progress-show-info ant-progress-small"
-                    placeholder="请输入"
                     style="min-width: 100px; max-width: 320px;"
                   >
                     <div
@@ -720,7 +719,6 @@ exports[`descriptions demos 📸 renders ./packages/descriptions/src/demos/base.
                   class="ant-descriptions-item-content"
                 >
                   <pre
-                    placeholder="请输入"
                     style="padding: 16px; overflow: auto; font-size: 85%; line-height: 1.45; background-color: rgb(246, 248, 250); border-radius: 3px;"
                   >
                     <code>
@@ -754,7 +752,6 @@ Done in 9.70s.
                   class="ant-descriptions-item-content"
                 >
                   <pre
-                    placeholder="请输入"
                     style="padding: 16px; overflow: auto; font-size: 85%; line-height: 1.45; background-color: rgb(246, 248, 250); border-radius: 3px;"
                   >
                     <code>
@@ -1879,7 +1876,6 @@ exports[`descriptions demos 📸 renders ./packages/descriptions/src/demos/dynam
                                             aria-checked="false"
                                             class="ant-switch"
                                             id="loading"
-                                            placeholder="请输入"
                                             role="switch"
                                             type="button"
                                           >
@@ -2083,7 +2079,6 @@ exports[`descriptions demos 📸 renders ./packages/descriptions/src/demos/dynam
                                             aria-checked="false"
                                             class="ant-switch"
                                             id="bordered"
-                                            placeholder="请输入"
                                             role="switch"
                                             type="button"
                                           >

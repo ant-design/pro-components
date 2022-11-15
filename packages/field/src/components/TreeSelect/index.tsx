@@ -11,6 +11,7 @@ import { ObjToMap, proFieldParsingText, useFieldFetchData } from '../Select';
 // 兼容代码-----------
 import 'antd/es/spin/style';
 import 'antd/es/tree-select/style';
+import { useIntl } from '@ant-design/pro-provider';
 //----------------------
 
 export type GroupProps = {
@@ -44,6 +45,7 @@ const FieldTreeSelect: ProFieldFC<GroupProps> = (
     ...fieldProps
   } = (rest.fieldProps as TreeSelectProps<any>) || {};
   const size = useContext(ConfigProvider.SizeContext);
+  const intl = useIntl();
 
   const [loading, options, fetchData] = useFieldFetchData({
     ...rest,
@@ -118,6 +120,7 @@ const FieldTreeSelect: ProFieldFC<GroupProps> = (
           onDropdownVisibleChange={setOpen}
           ref={treeSelectRef}
           dropdownMatchSelectWidth={!light}
+          placeholder={intl.getMessage('tableForm.selectPlaceholder', '请选择')}
           tagRender={
             light
               ? (item) => {

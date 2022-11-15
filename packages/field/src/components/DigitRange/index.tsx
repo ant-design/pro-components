@@ -5,6 +5,7 @@ import type { ProFieldFC } from '../../index';
 
 // 兼容代码-----------
 import 'antd/es/input-number/style';
+import { useIntl } from '@ant-design/pro-provider';
 //----------------------
 
 export type Value = string | number | undefined | null;
@@ -37,6 +38,7 @@ const FieldDigitRange: ProFieldFC<FieldDigitRangeProps> = (
   ref,
 ) => {
   const { value, defaultValue, onChange, id } = fieldProps;
+  const intl = useIntl();
 
   const [valuePair, setValuePair] = useMergedState(() => defaultValue, {
     value: value,
@@ -82,8 +84,11 @@ const FieldDigitRange: ProFieldFC<FieldDigitRangeProps> = (
       newValuePair[index] = changedValue === null ? undefined : changedValue;
       setValuePair(newValuePair);
     };
-
-    const placeholderValue = fieldProps?.placeholder || placeholder;
+    const placeholderValue = fieldProps?.placeholder ||
+      placeholder || [
+        intl.getMessage('tableForm.inputPlaceholder', '请输入'),
+        intl.getMessage('tableForm.inputPlaceholder', '请输入'),
+      ];
 
     const dom = (
       <Input.Group compact onBlur={handleGroupBlur}>

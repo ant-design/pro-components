@@ -263,6 +263,7 @@ const FieldMoney: ProFieldFC<FieldMoneyProps> = (
   if (locale && allIntlMap[locale]) {
     intl = allIntlMap[locale];
   }
+  const placeholderValue = placeholder || intl.getMessage('tableForm.inputPlaceholder', '请输入');
 
   /**
    * 获取货币的符号
@@ -368,7 +369,7 @@ const FieldMoney: ProFieldFC<FieldMoneyProps> = (
           }
           return value!;
         }}
-        placeholder={placeholder}
+        placeholder={placeholderValue}
         {...omit(fieldProps, [
           'numberFormatOptions',
           'precision',

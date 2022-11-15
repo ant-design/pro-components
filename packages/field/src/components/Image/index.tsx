@@ -4,6 +4,7 @@ import type { ProFieldFC } from '../../index';
 
 // 兼容代码-----------
 import 'antd/es/image/style';
+import { useIntl } from '@ant-design/pro-provider';
 //----------------------
 
 export type FieldImageProps = {
@@ -21,6 +22,8 @@ export type FieldImageProps = {
  */
 const FieldImage = React.forwardRef<FieldImageProps, any>(
   ({ text, mode: type, render, renderFormItem, fieldProps, placeholder, width }, ref) => {
+    const intl = useIntl();
+    const placeholderValue = placeholder || intl.getMessage('tableForm.inputPlaceholder', '请输入');
     if (type === 'read') {
       const dom = <Image ref={ref} width={width || 32} src={text} {...fieldProps} />;
       if (render) {
@@ -29,7 +32,7 @@ const FieldImage = React.forwardRef<FieldImageProps, any>(
       return dom;
     }
     if (type === 'edit' || type === 'update') {
-      const dom = <Input ref={ref} placeholder={placeholder} {...fieldProps} />;
+      const dom = <Input ref={ref} placeholder={placeholderValue} {...fieldProps} />;
       if (renderFormItem) {
         return renderFormItem(text, { mode: type, ...fieldProps }, dom);
       }
