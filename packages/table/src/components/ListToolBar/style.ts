@@ -14,7 +14,7 @@ const genProListStyle: GenerateStyle<ProListToken> = (token) => {
         justifyContent: 'space-between',
         paddingBlock: token.padding,
         paddingInline: 0,
-        ' &-mobile': { flexDirection: 'column' },
+        '&-mobile': { flexDirection: 'column' },
       },
       '&-title': {
         display: 'flex',

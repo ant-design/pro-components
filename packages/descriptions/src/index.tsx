@@ -51,7 +51,7 @@ export type ProDescriptionsItemProps<T = Record<string, any>, ValueType = 'text'
     hide?: boolean;
     plain?: boolean;
     copyable?: boolean;
-    ellipsis?: boolean;
+    ellipsis?: boolean | { showTitle?: boolean };
     mode?: ProFieldFCMode;
     children?: React.ReactNode;
     order?: number;
