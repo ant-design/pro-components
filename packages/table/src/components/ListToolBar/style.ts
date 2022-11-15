@@ -88,7 +88,7 @@ const genProListStyle: GenerateStyle<ProListToken> = (token) => {
 };
 
 export function useStyle(prefixCls: string) {
-  return useAntdStyle('DragSortTable', (token) => {
+  return useAntdStyle('ProTableListToolBar', (token) => {
     const proListToken: ProListToken = {
       ...token,
       componentCls: `.${prefixCls}`,
