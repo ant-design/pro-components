@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.0.29](https://github.com/ant-design/pro-components/compare/@ant-design/pro-descriptions@2.0.28...@ant-design/pro-descriptions@2.0.29) (2022-11-15)
+
+### Bug Fixes
+
+- **Descriptions:** fix ellipsis type error ([d051be5](https://github.com/ant-design/pro-components/commit/d051be53c40b49cffe7531bd622003dfeda60b10))
+
 ## [2.0.28](https://github.com/ant-design/pro-components/compare/@ant-design/pro-descriptions@2.0.27...@ant-design/pro-descriptions@2.0.28) (2022-11-14)
 
 **Note:** Version bump only for package @ant-design/pro-descriptions
