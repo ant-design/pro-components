@@ -4449,23 +4449,199 @@ exports[`form demos 📸 renders ./packages/form/src/components/FieldSet/demos/c
                 >
                   <div
                     class="ant-space ant-space-horizontal ant-space-align-center"
+                    style="flex-wrap: wrap; margin-bottom: -2px;"
                   >
                     <div
                       class="ant-space-item"
-                      style="margin-right: 1px;"
+                      style="margin-right: 1px; padding-bottom: 2px;"
                     >
                       Red
                     </div>
                     <span
                       class="ant-space-item-split"
-                      style="margin-right: 1px;"
+                      style="margin-right: 1px; padding-bottom: 2px;"
                     >
                       ,
                     </span>
                     <div
                       class="ant-space-item"
+                      style="padding-bottom: 2px;"
                     >
                       Green
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div
+          class="ant-form-item"
+        >
+          <div
+            class="ant-row ant-form-item-row"
+          >
+            <div
+              class="ant-col ant-form-item-label"
+            >
+              <label
+                class="ant-form-item-required"
+                for="validate_other_select-multiple2"
+                title="Select[multiple]"
+              >
+                Select[multiple]
+              </label>
+            </div>
+            <div
+              class="ant-col ant-form-item-control"
+            >
+              <div
+                class="ant-form-item-control-input"
+              >
+                <div
+                  class="ant-form-item-control-input-content"
+                >
+                  <div
+                    class="ant-space ant-space-horizontal ant-space-align-center"
+                    style="flex-wrap: wrap; margin-bottom: -2px;"
+                  >
+                    <div
+                      class="ant-space-item"
+                      style="margin-right: 1px; padding-bottom: 2px;"
+                    >
+                      测试测试1
+                    </div>
+                    <span
+                      class="ant-space-item-split"
+                      style="margin-right: 1px; padding-bottom: 2px;"
+                    >
+                      ,
+                    </span>
+                    <div
+                      class="ant-space-item"
+                      style="margin-right: 1px; padding-bottom: 2px;"
+                    >
+                      测试测试2
+                    </div>
+                    <span
+                      class="ant-space-item-split"
+                      style="margin-right: 1px; padding-bottom: 2px;"
+                    >
+                      ,
+                    </span>
+                    <div
+                      class="ant-space-item"
+                      style="margin-right: 1px; padding-bottom: 2px;"
+                    >
+                      测试测试3
+                    </div>
+                    <span
+                      class="ant-space-item-split"
+                      style="margin-right: 1px; padding-bottom: 2px;"
+                    >
+                      ,
+                    </span>
+                    <div
+                      class="ant-space-item"
+                      style="margin-right: 1px; padding-bottom: 2px;"
+                    >
+                      测试测试4
+                    </div>
+                    <span
+                      class="ant-space-item-split"
+                      style="margin-right: 1px; padding-bottom: 2px;"
+                    >
+                      ,
+                    </span>
+                    <div
+                      class="ant-space-item"
+                      style="margin-right: 1px; padding-bottom: 2px;"
+                    >
+                      测试测试5
+                    </div>
+                    <span
+                      class="ant-space-item-split"
+                      style="margin-right: 1px; padding-bottom: 2px;"
+                    >
+                      ,
+                    </span>
+                    <div
+                      class="ant-space-item"
+                      style="margin-right: 1px; padding-bottom: 2px;"
+                    >
+                      测试测试6
+                    </div>
+                    <span
+                      class="ant-space-item-split"
+                      style="margin-right: 1px; padding-bottom: 2px;"
+                    >
+                      ,
+                    </span>
+                    <div
+                      class="ant-space-item"
+                      style="margin-right: 1px; padding-bottom: 2px;"
+                    >
+                      测试测试7
+                    </div>
+                    <span
+                      class="ant-space-item-split"
+                      style="margin-right: 1px; padding-bottom: 2px;"
+                    >
+                      ,
+                    </span>
+                    <div
+                      class="ant-space-item"
+                      style="margin-right: 1px; padding-bottom: 2px;"
+                    >
+                      测试测试8
+                    </div>
+                    <span
+                      class="ant-space-item-split"
+                      style="margin-right: 1px; padding-bottom: 2px;"
+                    >
+                      ,
+                    </span>
+                    <div
+                      class="ant-space-item"
+                      style="margin-right: 1px; padding-bottom: 2px;"
+                    >
+                      测试测试9
+                    </div>
+                    <span
+                      class="ant-space-item-split"
+                      style="margin-right: 1px; padding-bottom: 2px;"
+                    >
+                      ,
+                    </span>
+                    <div
+                      class="ant-space-item"
+                      style="margin-right: 1px; padding-bottom: 2px;"
+                    >
+                      测试测试10
+                    </div>
+                    <span
+                      class="ant-space-item-split"
+                      style="margin-right: 1px; padding-bottom: 2px;"
+                    >
+                      ,
+                    </span>
+                    <div
+                      class="ant-space-item"
+                      style="margin-right: 1px; padding-bottom: 2px;"
+                    >
+                      测试测试11
+                    </div>
+                    <span
+                      class="ant-space-item-split"
+                      style="margin-right: 1px; padding-bottom: 2px;"
+                    >
+                      ,
+                    </span>
+                    <div
+                      class="ant-space-item"
+                      style="padding-bottom: 2px;"
+                    >
+                      测试测试12
                     </div>
                   </div>
                 </div>
@@ -4748,21 +4924,23 @@ exports[`form demos 📸 renders ./packages/form/src/components/FieldSet/demos/c
                     >
                       <div
                         class="ant-space ant-space-horizontal ant-space-align-center"
+                        style="flex-wrap: wrap; margin-bottom: -2px;"
                       >
                         <div
                           class="ant-space-item"
-                          style="margin-right: 1px;"
+                          style="margin-right: 1px; padding-bottom: 2px;"
                         >
                           A
                         </div>
                         <span
                           class="ant-space-item-split"
-                          style="margin-right: 1px;"
+                          style="margin-right: 1px; padding-bottom: 2px;"
                         >
                           ,
                         </span>
                         <div
                           class="ant-space-item"
+                          style="padding-bottom: 2px;"
                         >
                           B
                         </div>
