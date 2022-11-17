@@ -28,7 +28,7 @@ const genProListStyle: GenerateStyle<ProListToken> = (token) => {
           },
         },
       },
-      'td${token.antCls}-table-cell': {
+      [`td${token.antCls}-table-cell`]: {
         '>a': {
           fontSize: token.fontSize,
         },
@@ -39,7 +39,7 @@ const genProListStyle: GenerateStyle<ProListToken> = (token) => {
           marginInline: 0,
         },
       [`${token.antCls}-table${token.antCls}-table-middle ${token.componentCls}`]: {
-        marginBlock: -12,
+        marginBlock: 0,
         marginInline: -8,
       },
 
