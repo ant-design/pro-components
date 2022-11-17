@@ -25,7 +25,7 @@ module.exports = {
   testEnvironment: 'jsdom',
   moduleNameMapper,
   transform: {
-    '^.+\\.(t|j)sx?$': ['esbuild-jest', { sourcemap: false }],
+    '^.+\\.(t|j)sx?$': ['esbuild-jest', { sourcemap: true }],
   },
   transformIgnorePatterns: [`/node_modules/(?!${[].join('|')})`],
   unmockedModulePathPatterns: ['node_modules/react/', 'node_modules/enzyme/'],

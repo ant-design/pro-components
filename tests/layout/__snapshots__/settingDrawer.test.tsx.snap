@@ -1,16 +1,16 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`settingDrawer.test 🌺 base user 1`] = `
-Array [
+<DocumentFragment>
   <div
     class="ant-pro-setting-drawer-handle "
-    style="width:48px;height:48px"
+    style="width: 48px; height: 48px;"
   >
     <span
       aria-label="close"
       class="anticon anticon-close"
       role="img"
-      style="color:#fff;font-size:20px"
+      style="color: rgb(255, 255, 255); font-size: 20px;"
     >
       <svg
         aria-hidden="true"
@@ -26,7 +26,7 @@ Array [
         />
       </svg>
     </span>
-  </div>,
+  </div>
   <div
     class="ant-drawer ant-drawer-right ant-drawer-open ant-drawer-inline"
     tabindex="-1"
@@ -37,18 +37,18 @@ Array [
     <div
       aria-hidden="true"
       data-sentinel="start"
-      style="width:0;height:0;overflow:hidden;outline:none;position:absolute"
+      style="width: 0px; height: 0px; overflow: hidden; outline: none; position: absolute;"
       tabindex="0"
     />
     <div
       class="ant-drawer-content-wrapper"
-      style="width:300px"
+      style="width: 300px;"
     >
       <div
         aria-modal="true"
         class="ant-drawer-content"
         role="dialog"
-        style="z-index:999"
+        style="z-index: 999;"
       >
         <div
           class="ant-drawer-wrapper-body"
@@ -60,7 +60,7 @@ Array [
               class="ant-pro-setting-drawer-drawer-content "
             >
               <div
-                style="margin-block-end:24px"
+                style="margin-block-end: 24px;"
               >
                 <h3
                   class="ant-pro-setting-drawer-body-title "
@@ -77,7 +77,7 @@ Array [
                       aria-label="check"
                       class="anticon anticon-check ant-pro-setting-drawer-block-checkbox-selectIcon "
                       role="img"
-                      style="display:none"
+                      style="display: none;"
                     >
                       <svg
                         aria-hidden="true"
@@ -97,7 +97,7 @@ Array [
                 </div>
               </div>
               <div
-                style="margin-block-end:24px"
+                style="margin-block-end: 24px;"
               >
                 <h3
                   class="ant-pro-setting-drawer-body-title "
@@ -109,7 +109,7 @@ Array [
                 >
                   <div
                     class="ant-pro-setting-drawer-theme-color-block "
-                    style="background-color:#1677FF"
+                    style="background-color: rgb(22, 119, 255);"
                   >
                     <span
                       aria-label="check"
@@ -133,35 +133,35 @@ Array [
                   </div>
                   <div
                     class="ant-pro-setting-drawer-theme-color-block "
-                    style="background-color:#1890ff"
+                    style="background-color: rgb(24, 144, 255);"
                   />
                   <div
                     class="ant-pro-setting-drawer-theme-color-block "
-                    style="background-color:#F5222D"
+                    style="background-color: rgb(245, 34, 45);"
                   />
                   <div
                     class="ant-pro-setting-drawer-theme-color-block "
-                    style="background-color:#FA541C"
+                    style="background-color: rgb(250, 84, 28);"
                   />
                   <div
                     class="ant-pro-setting-drawer-theme-color-block "
-                    style="background-color:#FAAD14"
+                    style="background-color: rgb(250, 173, 20);"
                   />
                   <div
                     class="ant-pro-setting-drawer-theme-color-block "
-                    style="background-color:#13C2C2"
+                    style="background-color: rgb(19, 194, 194);"
                   />
                   <div
                     class="ant-pro-setting-drawer-theme-color-block "
-                    style="background-color:#52C41A"
+                    style="background-color: rgb(82, 196, 26);"
                   />
                   <div
                     class="ant-pro-setting-drawer-theme-color-block "
-                    style="background-color:#2F54EB"
+                    style="background-color: rgb(47, 84, 235);"
                   />
                   <div
                     class="ant-pro-setting-drawer-theme-color-block "
-                    style="background-color:#722ED1"
+                    style="background-color: rgb(114, 46, 209);"
                   />
                 </div>
               </div>
@@ -170,7 +170,7 @@ Array [
                 role="separator"
               />
               <div
-                style="margin-block-end:24px"
+                style="margin-block-end: 24px;"
               >
                 <h3
                   class="ant-pro-setting-drawer-body-title "
@@ -187,7 +187,7 @@ Array [
                       aria-label="check"
                       class="anticon anticon-check ant-pro-setting-drawer-block-checkbox-selectIcon "
                       role="img"
-                      style="display:block"
+                      style="display: block;"
                     >
                       <svg
                         aria-hidden="true"
@@ -211,7 +211,7 @@ Array [
                       aria-label="check"
                       class="anticon anticon-check ant-pro-setting-drawer-block-checkbox-selectIcon "
                       role="img"
-                      style="display:none"
+                      style="display: none;"
                     >
                       <svg
                         aria-hidden="true"
@@ -235,7 +235,7 @@ Array [
                       aria-label="check"
                       class="anticon anticon-check ant-pro-setting-drawer-block-checkbox-selectIcon "
                       role="img"
-                      style="display:none"
+                      style="display: none;"
                     >
                       <svg
                         aria-hidden="true"
@@ -255,7 +255,7 @@ Array [
                 </div>
               </div>
               <div
-                style="margin-block-end:24px"
+                style="margin-block-end: 24px;"
               >
                 <h3
                   class="ant-pro-setting-drawer-body-title "
@@ -272,7 +272,7 @@ Array [
                       aria-label="check"
                       class="anticon anticon-check ant-pro-setting-drawer-block-checkbox-selectIcon "
                       role="img"
-                      style="display:none"
+                      style="display: none;"
                     >
                       <svg
                         aria-hidden="true"
@@ -295,8 +295,8 @@ Array [
                         height="1em"
                         viewBox="0 0 104 104"
                         width="1em"
-                        xlink="http://www.w3.org/1999/xlink"
                         xmlns="http://www.w3.org/2000/svg"
+                        xmlns:xlink="http://www.w3.org/1999/xlink"
                       >
                         <defs>
                           <rect
@@ -315,77 +315,77 @@ Array [
                             x="-26.1%"
                             y="-27.1%"
                           >
-                            <feMorphology
+                            <femorphology
                               in="SourceAlpha"
                               radius="0.25"
                               result="shadowSpreadOuter1"
                             />
-                            <feOffset
+                            <feoffset
                               dy="1"
                               in="shadowSpreadOuter1"
                               result="shadowOffsetOuter1"
                             />
-                            <feGaussianBlur
+                            <fegaussianblur
                               in="shadowOffsetOuter1"
                               result="shadowBlurOuter1"
                               stdDeviation="1"
                             />
-                            <feColorMatrix
+                            <fecolormatrix
                               in="shadowBlurOuter1"
                               result="shadowMatrixOuter1"
                               values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.08 0"
                             />
-                            <feMorphology
+                            <femorphology
                               in="SourceAlpha"
                               radius="1"
                               result="shadowSpreadOuter2"
                             />
-                            <feOffset
+                            <feoffset
                               dy="2"
                               in="shadowSpreadOuter2"
                               result="shadowOffsetOuter2"
                             />
-                            <feGaussianBlur
+                            <fegaussianblur
                               in="shadowOffsetOuter2"
                               result="shadowBlurOuter2"
                               stdDeviation="4"
                             />
-                            <feColorMatrix
+                            <fecolormatrix
                               in="shadowBlurOuter2"
                               result="shadowMatrixOuter2"
                               values="0 0 0 0 0.098466735 0 0 0 0 0.0599695403 0 0 0 0 0.0599695403 0 0 0 0.07 0"
                             />
-                            <feMorphology
+                            <femorphology
                               in="SourceAlpha"
                               radius="2"
                               result="shadowSpreadOuter3"
                             />
-                            <feOffset
+                            <feoffset
                               dy="4"
                               in="shadowSpreadOuter3"
                               result="shadowOffsetOuter3"
                             />
-                            <feGaussianBlur
+                            <fegaussianblur
                               in="shadowOffsetOuter3"
                               result="shadowBlurOuter3"
                               stdDeviation="8"
                             />
-                            <feColorMatrix
+                            <fecolormatrix
                               in="shadowBlurOuter3"
                               result="shadowMatrixOuter3"
                               values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.05 0"
                             />
-                            <feMerge>
-                              <feMergeNode
+                            <femerge>
+                              <femergenode
                                 in="shadowMatrixOuter1"
                               />
-                              <feMergeNode
+                              <femergenode
                                 in="shadowMatrixOuter2"
                               />
-                              <feMergeNode
+                              <femergenode
                                 in="shadowMatrixOuter3"
                               />
-                            </feMerge>
+                            </femerge>
                           </filter>
                         </defs>
                         <g
@@ -398,11 +398,11 @@ Array [
                             <use
                               fill="#000"
                               filter="url(#filter-2)"
-                              href="#path-1"
+                              xlink:href="#path-1"
                             />
                             <use
                               fill="#F0F2F5"
-                              href="#path-1"
+                              xlink:href="#path-1"
                             />
                           </g>
                           <path
@@ -487,7 +487,7 @@ Array [
                       aria-label="check"
                       class="anticon anticon-check ant-pro-setting-drawer-block-checkbox-selectIcon "
                       role="img"
-                      style="display:none"
+                      style="display: none;"
                     >
                       <svg
                         aria-hidden="true"
@@ -510,8 +510,8 @@ Array [
                         height="1em"
                         viewBox="0 0 104 104"
                         width="1em"
-                        xlink="http://www.w3.org/1999/xlink"
                         xmlns="http://www.w3.org/2000/svg"
+                        xmlns:xlink="http://www.w3.org/1999/xlink"
                       >
                         <defs>
                           <rect
@@ -530,77 +530,77 @@ Array [
                             x="-26.1%"
                             y="-27.1%"
                           >
-                            <feMorphology
+                            <femorphology
                               in="SourceAlpha"
                               radius="0.25"
                               result="shadowSpreadOuter1"
                             />
-                            <feOffset
+                            <feoffset
                               dy="1"
                               in="shadowSpreadOuter1"
                               result="shadowOffsetOuter1"
                             />
-                            <feGaussianBlur
+                            <fegaussianblur
                               in="shadowOffsetOuter1"
                               result="shadowBlurOuter1"
                               stdDeviation="1"
                             />
-                            <feColorMatrix
+                            <fecolormatrix
                               in="shadowBlurOuter1"
                               result="shadowMatrixOuter1"
                               values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.08 0"
                             />
-                            <feMorphology
+                            <femorphology
                               in="SourceAlpha"
                               radius="1"
                               result="shadowSpreadOuter2"
                             />
-                            <feOffset
+                            <feoffset
                               dy="2"
                               in="shadowSpreadOuter2"
                               result="shadowOffsetOuter2"
                             />
-                            <feGaussianBlur
+                            <fegaussianblur
                               in="shadowOffsetOuter2"
                               result="shadowBlurOuter2"
                               stdDeviation="4"
                             />
-                            <feColorMatrix
+                            <fecolormatrix
                               in="shadowBlurOuter2"
                               result="shadowMatrixOuter2"
                               values="0 0 0 0 0.098466735 0 0 0 0 0.0599695403 0 0 0 0 0.0599695403 0 0 0 0.07 0"
                             />
-                            <feMorphology
+                            <femorphology
                               in="SourceAlpha"
                               radius="2"
                               result="shadowSpreadOuter3"
                             />
-                            <feOffset
+                            <feoffset
                               dy="4"
                               in="shadowSpreadOuter3"
                               result="shadowOffsetOuter3"
                             />
-                            <feGaussianBlur
+                            <fegaussianblur
                               in="shadowOffsetOuter3"
                               result="shadowBlurOuter3"
                               stdDeviation="8"
                             />
-                            <feColorMatrix
+                            <fecolormatrix
                               in="shadowBlurOuter3"
                               result="shadowMatrixOuter3"
                               values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.05 0"
                             />
-                            <feMerge>
-                              <feMergeNode
+                            <femerge>
+                              <femergenode
                                 in="shadowMatrixOuter1"
                               />
-                              <feMergeNode
+                              <femergenode
                                 in="shadowMatrixOuter2"
                               />
-                              <feMergeNode
+                              <femergenode
                                 in="shadowMatrixOuter3"
                               />
-                            </feMerge>
+                            </femerge>
                           </filter>
                         </defs>
                         <g
@@ -613,11 +613,11 @@ Array [
                             <use
                               fill="#000"
                               filter="url(#filter-2)"
-                              href="#path-1"
+                              xlink:href="#path-1"
                             />
                             <use
                               fill="#F0F2F5"
-                              href="#path-1"
+                              xlink:href="#path-1"
                             />
                           </g>
                           <path
@@ -704,7 +704,7 @@ Array [
                         class="ant-list-item"
                       >
                         <span
-                          style="opacity:1"
+                          style="opacity: 1;"
                         >
                           内容区域宽度
                         </span>
@@ -714,7 +714,7 @@ Array [
                           <li>
                             <div
                               class="ant-select ant-select-sm content-width  ant-select-single ant-select-show-arrow"
-                              style="width:80px"
+                              style="width: 80px;"
                             >
                               <div
                                 class="ant-select-selector"
@@ -723,16 +723,17 @@ Array [
                                   class="ant-select-selection-search"
                                 >
                                   <input
-                                    aria-activedescendant="undefined_list_0"
+                                    aria-activedescendant="rc_select_0_list_0"
                                     aria-autocomplete="list"
-                                    aria-controls="undefined_list"
+                                    aria-controls="rc_select_0_list"
                                     aria-haspopup="listbox"
-                                    aria-owns="undefined_list"
+                                    aria-owns="rc_select_0_list"
                                     autocomplete="off"
                                     class="ant-select-selection-search-input"
+                                    id="rc_select_0"
                                     readonly=""
                                     role="combobox"
-                                    style="opacity:0"
+                                    style="opacity: 0;"
                                     type="search"
                                     unselectable="on"
                                     value=""
@@ -748,7 +749,7 @@ Array [
                               <span
                                 aria-hidden="true"
                                 class="ant-select-arrow"
-                                style="user-select:none;-webkit-user-select:none"
+                                style="user-select: none;"
                                 unselectable="on"
                               >
                                 <span
@@ -779,7 +780,7 @@ Array [
                         class="ant-list-item"
                       >
                         <span
-                          style="opacity:1"
+                          style="opacity: 1;"
                         >
                           固定 Header
                         </span>
@@ -814,7 +815,7 @@ Array [
                         class="ant-list-item"
                       >
                         <span
-                          style="opacity:1"
+                          style="opacity: 1;"
                         >
                           固定侧边菜单
                         </span>
@@ -849,7 +850,7 @@ Array [
                         class="ant-list-item"
                       >
                         <span
-                          style="opacity:0.5"
+                          style="opacity: 0.5;"
                         >
                           自动分割菜单
                         </span>
@@ -890,7 +891,7 @@ Array [
                 role="separator"
               />
               <div
-                style="margin-block-end:24px"
+                style="margin-block-end: 24px;"
               >
                 <h3
                   class="ant-pro-setting-drawer-body-title "
@@ -913,7 +914,7 @@ Array [
                           class="ant-list-item"
                         >
                           <span
-                            style="opacity:1"
+                            style="opacity: 1;"
                           >
                             顶栏
                           </span>
@@ -948,7 +949,7 @@ Array [
                           class="ant-list-item"
                         >
                           <span
-                            style="opacity:1"
+                            style="opacity: 1;"
                           >
                             页脚
                           </span>
@@ -983,7 +984,7 @@ Array [
                           class="ant-list-item"
                         >
                           <span
-                            style="opacity:1"
+                            style="opacity: 1;"
                           >
                             菜单
                           </span>
@@ -1018,7 +1019,7 @@ Array [
                           class="ant-list-item"
                         >
                           <span
-                            style="opacity:1"
+                            style="opacity: 1;"
                           >
                             菜单头
                           </span>
@@ -1059,7 +1060,7 @@ Array [
                 role="separator"
               />
               <div
-                style="margin-block-end:24px"
+                style="margin-block-end: 24px;"
               >
                 <h3
                   class="ant-pro-setting-drawer-body-title "
@@ -1082,7 +1083,7 @@ Array [
                           class="ant-list-item"
                         >
                           <span
-                            style="opacity:1"
+                            style="opacity: 1;"
                           >
                             色弱模式
                           </span>
@@ -1126,7 +1127,7 @@ Array [
                 class="ant-alert ant-alert-warning"
                 data-show="true"
                 role="alert"
-                style="margin-block-end:16px"
+                style="margin-block-end: 16px;"
               >
                 <span
                   aria-label="notification"
@@ -1159,7 +1160,7 @@ Array [
               </div>
               <button
                 class="ant-btn ant-btn-default ant-btn-block"
-                style="margin-block-end:24px"
+                style="margin-block-end: 24px;"
                 type="button"
               >
                 <span
@@ -1193,24 +1194,24 @@ Array [
     <div
       aria-hidden="true"
       data-sentinel="end"
-      style="width:0;height:0;overflow:hidden;outline:none;position:absolute"
+      style="width: 0px; height: 0px; overflow: hidden; outline: none; position: absolute;"
       tabindex="0"
     />
-  </div>,
-]
+  </div>
+</DocumentFragment>
 `;
 
 exports[`settingDrawer.test 🌺 hideColors = true 1`] = `
-Array [
+<DocumentFragment>
   <div
     class="ant-pro-setting-drawer-handle "
-    style="width:48px;height:48px"
+    style="width: 48px; height: 48px;"
   >
     <span
       aria-label="close"
       class="anticon anticon-close"
       role="img"
-      style="color:#fff;font-size:20px"
+      style="color: rgb(255, 255, 255); font-size: 20px;"
     >
       <svg
         aria-hidden="true"
@@ -1226,7 +1227,7 @@ Array [
         />
       </svg>
     </span>
-  </div>,
+  </div>
   <div
     class="ant-drawer ant-drawer-right ant-drawer-open ant-drawer-inline"
     tabindex="-1"
@@ -1237,18 +1238,18 @@ Array [
     <div
       aria-hidden="true"
       data-sentinel="start"
-      style="width:0;height:0;overflow:hidden;outline:none;position:absolute"
+      style="width: 0px; height: 0px; overflow: hidden; outline: none; position: absolute;"
       tabindex="0"
     />
     <div
       class="ant-drawer-content-wrapper"
-      style="width:300px"
+      style="width: 300px;"
     >
       <div
         aria-modal="true"
         class="ant-drawer-content"
         role="dialog"
-        style="z-index:999"
+        style="z-index: 999;"
       >
         <div
           class="ant-drawer-wrapper-body"
@@ -1260,7 +1261,7 @@ Array [
               class="ant-pro-setting-drawer-drawer-content "
             >
               <div
-                style="margin-block-end:24px"
+                style="margin-block-end: 24px;"
               >
                 <h3
                   class="ant-pro-setting-drawer-body-title "
@@ -1277,7 +1278,7 @@ Array [
                       aria-label="check"
                       class="anticon anticon-check ant-pro-setting-drawer-block-checkbox-selectIcon "
                       role="img"
-                      style="display:none"
+                      style="display: none;"
                     >
                       <svg
                         aria-hidden="true"
@@ -1301,7 +1302,7 @@ Array [
                 role="separator"
               />
               <div
-                style="margin-block-end:24px"
+                style="margin-block-end: 24px;"
               >
                 <h3
                   class="ant-pro-setting-drawer-body-title "
@@ -1318,7 +1319,7 @@ Array [
                       aria-label="check"
                       class="anticon anticon-check ant-pro-setting-drawer-block-checkbox-selectIcon "
                       role="img"
-                      style="display:block"
+                      style="display: block;"
                     >
                       <svg
                         aria-hidden="true"
@@ -1342,7 +1343,7 @@ Array [
                       aria-label="check"
                       class="anticon anticon-check ant-pro-setting-drawer-block-checkbox-selectIcon "
                       role="img"
-                      style="display:none"
+                      style="display: none;"
                     >
                       <svg
                         aria-hidden="true"
@@ -1366,7 +1367,7 @@ Array [
                       aria-label="check"
                       class="anticon anticon-check ant-pro-setting-drawer-block-checkbox-selectIcon "
                       role="img"
-                      style="display:none"
+                      style="display: none;"
                     >
                       <svg
                         aria-hidden="true"
@@ -1386,7 +1387,7 @@ Array [
                 </div>
               </div>
               <div
-                style="margin-block-end:24px"
+                style="margin-block-end: 24px;"
               >
                 <h3
                   class="ant-pro-setting-drawer-body-title "
@@ -1403,7 +1404,7 @@ Array [
                       aria-label="check"
                       class="anticon anticon-check ant-pro-setting-drawer-block-checkbox-selectIcon "
                       role="img"
-                      style="display:none"
+                      style="display: none;"
                     >
                       <svg
                         aria-hidden="true"
@@ -1426,8 +1427,8 @@ Array [
                         height="1em"
                         viewBox="0 0 104 104"
                         width="1em"
-                        xlink="http://www.w3.org/1999/xlink"
                         xmlns="http://www.w3.org/2000/svg"
+                        xmlns:xlink="http://www.w3.org/1999/xlink"
                       >
                         <defs>
                           <rect
@@ -1446,77 +1447,77 @@ Array [
                             x="-26.1%"
                             y="-27.1%"
                           >
-                            <feMorphology
+                            <femorphology
                               in="SourceAlpha"
                               radius="0.25"
                               result="shadowSpreadOuter1"
                             />
-                            <feOffset
+                            <feoffset
                               dy="1"
                               in="shadowSpreadOuter1"
                               result="shadowOffsetOuter1"
                             />
-                            <feGaussianBlur
+                            <fegaussianblur
                               in="shadowOffsetOuter1"
                               result="shadowBlurOuter1"
                               stdDeviation="1"
                             />
-                            <feColorMatrix
+                            <fecolormatrix
                               in="shadowBlurOuter1"
                               result="shadowMatrixOuter1"
                               values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.08 0"
                             />
-                            <feMorphology
+                            <femorphology
                               in="SourceAlpha"
                               radius="1"
                               result="shadowSpreadOuter2"
                             />
-                            <feOffset
+                            <feoffset
                               dy="2"
                               in="shadowSpreadOuter2"
                               result="shadowOffsetOuter2"
                             />
-                            <feGaussianBlur
+                            <fegaussianblur
                               in="shadowOffsetOuter2"
                               result="shadowBlurOuter2"
                               stdDeviation="4"
                             />
-                            <feColorMatrix
+                            <fecolormatrix
                               in="shadowBlurOuter2"
                               result="shadowMatrixOuter2"
                               values="0 0 0 0 0.098466735 0 0 0 0 0.0599695403 0 0 0 0 0.0599695403 0 0 0 0.07 0"
                             />
-                            <feMorphology
+                            <femorphology
                               in="SourceAlpha"
                               radius="2"
                               result="shadowSpreadOuter3"
                             />
-                            <feOffset
+                            <feoffset
                               dy="4"
                               in="shadowSpreadOuter3"
                               result="shadowOffsetOuter3"
                             />
-                            <feGaussianBlur
+                            <fegaussianblur
                               in="shadowOffsetOuter3"
                               result="shadowBlurOuter3"
                               stdDeviation="8"
                             />
-                            <feColorMatrix
+                            <fecolormatrix
                               in="shadowBlurOuter3"
                               result="shadowMatrixOuter3"
                               values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.05 0"
                             />
-                            <feMerge>
-                              <feMergeNode
+                            <femerge>
+                              <femergenode
                                 in="shadowMatrixOuter1"
                               />
-                              <feMergeNode
+                              <femergenode
                                 in="shadowMatrixOuter2"
                               />
-                              <feMergeNode
+                              <femergenode
                                 in="shadowMatrixOuter3"
                               />
-                            </feMerge>
+                            </femerge>
                           </filter>
                         </defs>
                         <g
@@ -1529,11 +1530,11 @@ Array [
                             <use
                               fill="#000"
                               filter="url(#filter-2)"
-                              href="#path-1"
+                              xlink:href="#path-1"
                             />
                             <use
                               fill="#F0F2F5"
-                              href="#path-1"
+                              xlink:href="#path-1"
                             />
                           </g>
                           <path
@@ -1618,7 +1619,7 @@ Array [
                       aria-label="check"
                       class="anticon anticon-check ant-pro-setting-drawer-block-checkbox-selectIcon "
                       role="img"
-                      style="display:none"
+                      style="display: none;"
                     >
                       <svg
                         aria-hidden="true"
@@ -1641,8 +1642,8 @@ Array [
                         height="1em"
                         viewBox="0 0 104 104"
                         width="1em"
-                        xlink="http://www.w3.org/1999/xlink"
                         xmlns="http://www.w3.org/2000/svg"
+                        xmlns:xlink="http://www.w3.org/1999/xlink"
                       >
                         <defs>
                           <rect
@@ -1661,77 +1662,77 @@ Array [
                             x="-26.1%"
                             y="-27.1%"
                           >
-                            <feMorphology
+                            <femorphology
                               in="SourceAlpha"
                               radius="0.25"
                               result="shadowSpreadOuter1"
                             />
-                            <feOffset
+                            <feoffset
                               dy="1"
                               in="shadowSpreadOuter1"
                               result="shadowOffsetOuter1"
                             />
-                            <feGaussianBlur
+                            <fegaussianblur
                               in="shadowOffsetOuter1"
                               result="shadowBlurOuter1"
                               stdDeviation="1"
                             />
-                            <feColorMatrix
+                            <fecolormatrix
                               in="shadowBlurOuter1"
                               result="shadowMatrixOuter1"
                               values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.08 0"
                             />
-                            <feMorphology
+                            <femorphology
                               in="SourceAlpha"
                               radius="1"
                               result="shadowSpreadOuter2"
                             />
-                            <feOffset
+                            <feoffset
                               dy="2"
                               in="shadowSpreadOuter2"
                               result="shadowOffsetOuter2"
                             />
-                            <feGaussianBlur
+                            <fegaussianblur
                               in="shadowOffsetOuter2"
                               result="shadowBlurOuter2"
                               stdDeviation="4"
                             />
-                            <feColorMatrix
+                            <fecolormatrix
                               in="shadowBlurOuter2"
                               result="shadowMatrixOuter2"
                               values="0 0 0 0 0.098466735 0 0 0 0 0.0599695403 0 0 0 0 0.0599695403 0 0 0 0.07 0"
                             />
-                            <feMorphology
+                            <femorphology
                               in="SourceAlpha"
                               radius="2"
                               result="shadowSpreadOuter3"
                             />
-                            <feOffset
+                            <feoffset
                               dy="4"
                               in="shadowSpreadOuter3"
                               result="shadowOffsetOuter3"
                             />
-                            <feGaussianBlur
+                            <fegaussianblur
                               in="shadowOffsetOuter3"
                               result="shadowBlurOuter3"
                               stdDeviation="8"
                             />
-                            <feColorMatrix
+                            <fecolormatrix
                               in="shadowBlurOuter3"
                               result="shadowMatrixOuter3"
                               values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.05 0"
                             />
-                            <feMerge>
-                              <feMergeNode
+                            <femerge>
+                              <femergenode
                                 in="shadowMatrixOuter1"
                               />
-                              <feMergeNode
+                              <femergenode
                                 in="shadowMatrixOuter2"
                               />
-                              <feMergeNode
+                              <femergenode
                                 in="shadowMatrixOuter3"
                               />
-                            </feMerge>
+                            </femerge>
                           </filter>
                         </defs>
                         <g
@@ -1744,11 +1745,11 @@ Array [
                             <use
                               fill="#000"
                               filter="url(#filter-2)"
-                              href="#path-1"
+                              xlink:href="#path-1"
                             />
                             <use
                               fill="#F0F2F5"
-                              href="#path-1"
+                              xlink:href="#path-1"
                             />
                           </g>
                           <path
@@ -1835,7 +1836,7 @@ Array [
                         class="ant-list-item"
                       >
                         <span
-                          style="opacity:1"
+                          style="opacity: 1;"
                         >
                           内容区域宽度
                         </span>
@@ -1845,7 +1846,7 @@ Array [
                           <li>
                             <div
                               class="ant-select ant-select-sm content-width  ant-select-single ant-select-show-arrow"
-                              style="width:80px"
+                              style="width: 80px;"
                             >
                               <div
                                 class="ant-select-selector"
@@ -1854,16 +1855,17 @@ Array [
                                   class="ant-select-selection-search"
                                 >
                                   <input
-                                    aria-activedescendant="undefined_list_0"
+                                    aria-activedescendant="rc_select_2_list_0"
                                     aria-autocomplete="list"
-                                    aria-controls="undefined_list"
+                                    aria-controls="rc_select_2_list"
                                     aria-haspopup="listbox"
-                                    aria-owns="undefined_list"
+                                    aria-owns="rc_select_2_list"
                                     autocomplete="off"
                                     class="ant-select-selection-search-input"
+                                    id="rc_select_2"
                                     readonly=""
                                     role="combobox"
-                                    style="opacity:0"
+                                    style="opacity: 0;"
                                     type="search"
                                     unselectable="on"
                                     value=""
@@ -1879,7 +1881,7 @@ Array [
                               <span
                                 aria-hidden="true"
                                 class="ant-select-arrow"
-                                style="user-select:none;-webkit-user-select:none"
+                                style="user-select: none;"
                                 unselectable="on"
                               >
                                 <span
@@ -1910,7 +1912,7 @@ Array [
                         class="ant-list-item"
                       >
                         <span
-                          style="opacity:1"
+                          style="opacity: 1;"
                         >
                           固定 Header
                         </span>
@@ -1945,7 +1947,7 @@ Array [
                         class="ant-list-item"
                       >
                         <span
-                          style="opacity:1"
+                          style="opacity: 1;"
                         >
                           固定侧边菜单
                         </span>
@@ -1980,7 +1982,7 @@ Array [
                         class="ant-list-item"
                       >
                         <span
-                          style="opacity:0.5"
+                          style="opacity: 0.5;"
                         >
                           自动分割菜单
                         </span>
@@ -2021,7 +2023,7 @@ Array [
                 role="separator"
               />
               <div
-                style="margin-block-end:24px"
+                style="margin-block-end: 24px;"
               >
                 <h3
                   class="ant-pro-setting-drawer-body-title "
@@ -2044,7 +2046,7 @@ Array [
                           class="ant-list-item"
                         >
                           <span
-                            style="opacity:1"
+                            style="opacity: 1;"
                           >
                             顶栏
                           </span>
@@ -2079,7 +2081,7 @@ Array [
                           class="ant-list-item"
                         >
                           <span
-                            style="opacity:1"
+                            style="opacity: 1;"
                           >
                             页脚
                           </span>
@@ -2114,7 +2116,7 @@ Array [
                           class="ant-list-item"
                         >
                           <span
-                            style="opacity:1"
+                            style="opacity: 1;"
                           >
                             菜单
                           </span>
@@ -2149,7 +2151,7 @@ Array [
                           class="ant-list-item"
                         >
                           <span
-                            style="opacity:1"
+                            style="opacity: 1;"
                           >
                             菜单头
                           </span>
@@ -2190,7 +2192,7 @@ Array [
                 role="separator"
               />
               <div
-                style="margin-block-end:24px"
+                style="margin-block-end: 24px;"
               >
                 <h3
                   class="ant-pro-setting-drawer-body-title "
@@ -2213,7 +2215,7 @@ Array [
                           class="ant-list-item"
                         >
                           <span
-                            style="opacity:1"
+                            style="opacity: 1;"
                           >
                             色弱模式
                           </span>
@@ -2257,7 +2259,7 @@ Array [
                 class="ant-alert ant-alert-warning"
                 data-show="true"
                 role="alert"
-                style="margin-block-end:16px"
+                style="margin-block-end: 16px;"
               >
                 <span
                   aria-label="notification"
@@ -2290,7 +2292,7 @@ Array [
               </div>
               <button
                 class="ant-btn ant-btn-default ant-btn-block"
-                style="margin-block-end:24px"
+                style="margin-block-end: 24px;"
                 type="button"
               >
                 <span
@@ -2324,24 +2326,24 @@ Array [
     <div
       aria-hidden="true"
       data-sentinel="end"
-      style="width:0;height:0;overflow:hidden;outline:none;position:absolute"
+      style="width: 0px; height: 0px; overflow: hidden; outline: none; position: absolute;"
       tabindex="0"
     />
-  </div>,
-]
+  </div>
+</DocumentFragment>
 `;
 
 exports[`settingDrawer.test 🌺 hideCopyButton = true 1`] = `
-Array [
+<DocumentFragment>
   <div
     class="ant-pro-setting-drawer-handle "
-    style="width:48px;height:48px"
+    style="width: 48px; height: 48px;"
   >
     <span
       aria-label="close"
       class="anticon anticon-close"
       role="img"
-      style="color:#fff;font-size:20px"
+      style="color: rgb(255, 255, 255); font-size: 20px;"
     >
       <svg
         aria-hidden="true"
@@ -2357,7 +2359,7 @@ Array [
         />
       </svg>
     </span>
-  </div>,
+  </div>
   <div
     class="ant-drawer ant-drawer-right ant-drawer-open ant-drawer-inline"
     tabindex="-1"
@@ -2368,18 +2370,18 @@ Array [
     <div
       aria-hidden="true"
       data-sentinel="start"
-      style="width:0;height:0;overflow:hidden;outline:none;position:absolute"
+      style="width: 0px; height: 0px; overflow: hidden; outline: none; position: absolute;"
       tabindex="0"
     />
     <div
       class="ant-drawer-content-wrapper"
-      style="width:300px"
+      style="width: 300px;"
     >
       <div
         aria-modal="true"
         class="ant-drawer-content"
         role="dialog"
-        style="z-index:999"
+        style="z-index: 999;"
       >
         <div
           class="ant-drawer-wrapper-body"
@@ -2391,7 +2393,7 @@ Array [
               class="ant-pro-setting-drawer-drawer-content "
             >
               <div
-                style="margin-block-end:24px"
+                style="margin-block-end: 24px;"
               >
                 <h3
                   class="ant-pro-setting-drawer-body-title "
@@ -2408,7 +2410,7 @@ Array [
                       aria-label="check"
                       class="anticon anticon-check ant-pro-setting-drawer-block-checkbox-selectIcon "
                       role="img"
-                      style="display:none"
+                      style="display: none;"
                     >
                       <svg
                         aria-hidden="true"
@@ -2428,7 +2430,7 @@ Array [
                 </div>
               </div>
               <div
-                style="margin-block-end:24px"
+                style="margin-block-end: 24px;"
               >
                 <h3
                   class="ant-pro-setting-drawer-body-title "
@@ -2440,7 +2442,7 @@ Array [
                 >
                   <div
                     class="ant-pro-setting-drawer-theme-color-block "
-                    style="background-color:#1677FF"
+                    style="background-color: rgb(22, 119, 255);"
                   >
                     <span
                       aria-label="check"
@@ -2464,35 +2466,35 @@ Array [
                   </div>
                   <div
                     class="ant-pro-setting-drawer-theme-color-block "
-                    style="background-color:#1890ff"
+                    style="background-color: rgb(24, 144, 255);"
                   />
                   <div
                     class="ant-pro-setting-drawer-theme-color-block "
-                    style="background-color:#F5222D"
+                    style="background-color: rgb(245, 34, 45);"
                   />
                   <div
                     class="ant-pro-setting-drawer-theme-color-block "
-                    style="background-color:#FA541C"
+                    style="background-color: rgb(250, 84, 28);"
                   />
                   <div
                     class="ant-pro-setting-drawer-theme-color-block "
-                    style="background-color:#FAAD14"
+                    style="background-color: rgb(250, 173, 20);"
                   />
                   <div
                     class="ant-pro-setting-drawer-theme-color-block "
-                    style="background-color:#13C2C2"
+                    style="background-color: rgb(19, 194, 194);"
                   />
                   <div
                     class="ant-pro-setting-drawer-theme-color-block "
-                    style="background-color:#52C41A"
+                    style="background-color: rgb(82, 196, 26);"
                   />
                   <div
                     class="ant-pro-setting-drawer-theme-color-block "
-                    style="background-color:#2F54EB"
+                    style="background-color: rgb(47, 84, 235);"
                   />
                   <div
                     class="ant-pro-setting-drawer-theme-color-block "
-                    style="background-color:#722ED1"
+                    style="background-color: rgb(114, 46, 209);"
                   />
                 </div>
               </div>
@@ -2501,7 +2503,7 @@ Array [
                 role="separator"
               />
               <div
-                style="margin-block-end:24px"
+                style="margin-block-end: 24px;"
               >
                 <h3
                   class="ant-pro-setting-drawer-body-title "
@@ -2518,7 +2520,7 @@ Array [
                       aria-label="check"
                       class="anticon anticon-check ant-pro-setting-drawer-block-checkbox-selectIcon "
                       role="img"
-                      style="display:block"
+                      style="display: block;"
                     >
                       <svg
                         aria-hidden="true"
@@ -2542,7 +2544,7 @@ Array [
                       aria-label="check"
                       class="anticon anticon-check ant-pro-setting-drawer-block-checkbox-selectIcon "
                       role="img"
-                      style="display:none"
+                      style="display: none;"
                     >
                       <svg
                         aria-hidden="true"
@@ -2566,7 +2568,7 @@ Array [
                       aria-label="check"
                       class="anticon anticon-check ant-pro-setting-drawer-block-checkbox-selectIcon "
                       role="img"
-                      style="display:none"
+                      style="display: none;"
                     >
                       <svg
                         aria-hidden="true"
@@ -2586,7 +2588,7 @@ Array [
                 </div>
               </div>
               <div
-                style="margin-block-end:24px"
+                style="margin-block-end: 24px;"
               >
                 <h3
                   class="ant-pro-setting-drawer-body-title "
@@ -2603,7 +2605,7 @@ Array [
                       aria-label="check"
                       class="anticon anticon-check ant-pro-setting-drawer-block-checkbox-selectIcon "
                       role="img"
-                      style="display:none"
+                      style="display: none;"
                     >
                       <svg
                         aria-hidden="true"
@@ -2626,8 +2628,8 @@ Array [
                         height="1em"
                         viewBox="0 0 104 104"
                         width="1em"
-                        xlink="http://www.w3.org/1999/xlink"
                         xmlns="http://www.w3.org/2000/svg"
+                        xmlns:xlink="http://www.w3.org/1999/xlink"
                       >
                         <defs>
                           <rect
@@ -2646,77 +2648,77 @@ Array [
                             x="-26.1%"
                             y="-27.1%"
                           >
-                            <feMorphology
+                            <femorphology
                               in="SourceAlpha"
                               radius="0.25"
                               result="shadowSpreadOuter1"
                             />
-                            <feOffset
+                            <feoffset
                               dy="1"
                               in="shadowSpreadOuter1"
                               result="shadowOffsetOuter1"
                             />
-                            <feGaussianBlur
+                            <fegaussianblur
                               in="shadowOffsetOuter1"
                               result="shadowBlurOuter1"
                               stdDeviation="1"
                             />
-                            <feColorMatrix
+                            <fecolormatrix
                               in="shadowBlurOuter1"
                               result="shadowMatrixOuter1"
                               values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.08 0"
                             />
-                            <feMorphology
+                            <femorphology
                               in="SourceAlpha"
                               radius="1"
                               result="shadowSpreadOuter2"
                             />
-                            <feOffset
+                            <feoffset
                               dy="2"
                               in="shadowSpreadOuter2"
                               result="shadowOffsetOuter2"
                             />
-                            <feGaussianBlur
+                            <fegaussianblur
                               in="shadowOffsetOuter2"
                               result="shadowBlurOuter2"
                               stdDeviation="4"
                             />
-                            <feColorMatrix
+                            <fecolormatrix
                               in="shadowBlurOuter2"
                               result="shadowMatrixOuter2"
                               values="0 0 0 0 0.098466735 0 0 0 0 0.0599695403 0 0 0 0 0.0599695403 0 0 0 0.07 0"
                             />
-                            <feMorphology
+                            <femorphology
                               in="SourceAlpha"
                               radius="2"
                               result="shadowSpreadOuter3"
                             />
-                            <feOffset
+                            <feoffset
                               dy="4"
                               in="shadowSpreadOuter3"
                               result="shadowOffsetOuter3"
                             />
-                            <feGaussianBlur
+                            <fegaussianblur
                               in="shadowOffsetOuter3"
                               result="shadowBlurOuter3"
                               stdDeviation="8"
                             />
-                            <feColorMatrix
+                            <fecolormatrix
                               in="shadowBlurOuter3"
                               result="shadowMatrixOuter3"
                               values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.05 0"
                             />
-                            <feMerge>
-                              <feMergeNode
+                            <femerge>
+                              <femergenode
                                 in="shadowMatrixOuter1"
                               />
-                              <feMergeNode
+                              <femergenode
                                 in="shadowMatrixOuter2"
                               />
-                              <feMergeNode
+                              <femergenode
                                 in="shadowMatrixOuter3"
                               />
-                            </feMerge>
+                            </femerge>
                           </filter>
                         </defs>
                         <g
@@ -2729,11 +2731,11 @@ Array [
                             <use
                               fill="#000"
                               filter="url(#filter-2)"
-                              href="#path-1"
+                              xlink:href="#path-1"
                             />
                             <use
                               fill="#F0F2F5"
-                              href="#path-1"
+                              xlink:href="#path-1"
                             />
                           </g>
                           <path
@@ -2818,7 +2820,7 @@ Array [
                       aria-label="check"
                       class="anticon anticon-check ant-pro-setting-drawer-block-checkbox-selectIcon "
                       role="img"
-                      style="display:none"
+                      style="display: none;"
                     >
                       <svg
                         aria-hidden="true"
@@ -2841,8 +2843,8 @@ Array [
                         height="1em"
                         viewBox="0 0 104 104"
                         width="1em"
-                        xlink="http://www.w3.org/1999/xlink"
                         xmlns="http://www.w3.org/2000/svg"
+                        xmlns:xlink="http://www.w3.org/1999/xlink"
                       >
                         <defs>
                           <rect
@@ -2861,77 +2863,77 @@ Array [
                             x="-26.1%"
                             y="-27.1%"
                           >
-                            <feMorphology
+                            <femorphology
                               in="SourceAlpha"
                               radius="0.25"
                               result="shadowSpreadOuter1"
                             />
-                            <feOffset
+                            <feoffset
                               dy="1"
                               in="shadowSpreadOuter1"
                               result="shadowOffsetOuter1"
                             />
-                            <feGaussianBlur
+                            <fegaussianblur
                               in="shadowOffsetOuter1"
                               result="shadowBlurOuter1"
                               stdDeviation="1"
                             />
-                            <feColorMatrix
+                            <fecolormatrix
                               in="shadowBlurOuter1"
                               result="shadowMatrixOuter1"
                               values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.08 0"
                             />
-                            <feMorphology
+                            <femorphology
                               in="SourceAlpha"
                               radius="1"
                               result="shadowSpreadOuter2"
                             />
-                            <feOffset
+                            <feoffset
                               dy="2"
                               in="shadowSpreadOuter2"
                               result="shadowOffsetOuter2"
                             />
-                            <feGaussianBlur
+                            <fegaussianblur
                               in="shadowOffsetOuter2"
                               result="shadowBlurOuter2"
                               stdDeviation="4"
                             />
-                            <feColorMatrix
+                            <fecolormatrix
                               in="shadowBlurOuter2"
                               result="shadowMatrixOuter2"
                               values="0 0 0 0 0.098466735 0 0 0 0 0.0599695403 0 0 0 0 0.0599695403 0 0 0 0.07 0"
                             />
-                            <feMorphology
+                            <femorphology
                               in="SourceAlpha"
                               radius="2"
                               result="shadowSpreadOuter3"
                             />
-                            <feOffset
+                            <feoffset
                               dy="4"
                               in="shadowSpreadOuter3"
                               result="shadowOffsetOuter3"
                             />
-                            <feGaussianBlur
+                            <fegaussianblur
                               in="shadowOffsetOuter3"
                               result="shadowBlurOuter3"
                               stdDeviation="8"
                             />
-                            <feColorMatrix
+                            <fecolormatrix
                               in="shadowBlurOuter3"
                               result="shadowMatrixOuter3"
                               values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.05 0"
                             />
-                            <feMerge>
-                              <feMergeNode
+                            <femerge>
+                              <femergenode
                                 in="shadowMatrixOuter1"
                               />
-                              <feMergeNode
+                              <femergenode
                                 in="shadowMatrixOuter2"
                               />
-                              <feMergeNode
+                              <femergenode
                                 in="shadowMatrixOuter3"
                               />
-                            </feMerge>
+                            </femerge>
                           </filter>
                         </defs>
                         <g
@@ -2944,11 +2946,11 @@ Array [
                             <use
                               fill="#000"
                               filter="url(#filter-2)"
-                              href="#path-1"
+                              xlink:href="#path-1"
                             />
                             <use
                               fill="#F0F2F5"
-                              href="#path-1"
+                              xlink:href="#path-1"
                             />
                           </g>
                           <path
@@ -3035,7 +3037,7 @@ Array [
                         class="ant-list-item"
                       >
                         <span
-                          style="opacity:1"
+                          style="opacity: 1;"
                         >
                           内容区域宽度
                         </span>
@@ -3045,7 +3047,7 @@ Array [
                           <li>
                             <div
                               class="ant-select ant-select-sm content-width  ant-select-single ant-select-show-arrow"
-                              style="width:80px"
+                              style="width: 80px;"
                             >
                               <div
                                 class="ant-select-selector"
@@ -3054,16 +3056,17 @@ Array [
                                   class="ant-select-selection-search"
                                 >
                                   <input
-                                    aria-activedescendant="undefined_list_0"
+                                    aria-activedescendant="rc_select_7_list_0"
                                     aria-autocomplete="list"
-                                    aria-controls="undefined_list"
+                                    aria-controls="rc_select_7_list"
                                     aria-haspopup="listbox"
-                                    aria-owns="undefined_list"
+                                    aria-owns="rc_select_7_list"
                                     autocomplete="off"
                                     class="ant-select-selection-search-input"
+                                    id="rc_select_7"
                                     readonly=""
                                     role="combobox"
-                                    style="opacity:0"
+                                    style="opacity: 0;"
                                     type="search"
                                     unselectable="on"
                                     value=""
@@ -3079,7 +3082,7 @@ Array [
                               <span
                                 aria-hidden="true"
                                 class="ant-select-arrow"
-                                style="user-select:none;-webkit-user-select:none"
+                                style="user-select: none;"
                                 unselectable="on"
                               >
                                 <span
@@ -3110,7 +3113,7 @@ Array [
                         class="ant-list-item"
                       >
                         <span
-                          style="opacity:1"
+                          style="opacity: 1;"
                         >
                           固定 Header
                         </span>
@@ -3145,7 +3148,7 @@ Array [
                         class="ant-list-item"
                       >
                         <span
-                          style="opacity:1"
+                          style="opacity: 1;"
                         >
                           固定侧边菜单
                         </span>
@@ -3180,7 +3183,7 @@ Array [
                         class="ant-list-item"
                       >
                         <span
-                          style="opacity:0.5"
+                          style="opacity: 0.5;"
                         >
                           自动分割菜单
                         </span>
@@ -3221,7 +3224,7 @@ Array [
                 role="separator"
               />
               <div
-                style="margin-block-end:24px"
+                style="margin-block-end: 24px;"
               >
                 <h3
                   class="ant-pro-setting-drawer-body-title "
@@ -3244,7 +3247,7 @@ Array [
                           class="ant-list-item"
                         >
                           <span
-                            style="opacity:1"
+                            style="opacity: 1;"
                           >
                             顶栏
                           </span>
@@ -3279,7 +3282,7 @@ Array [
                           class="ant-list-item"
                         >
                           <span
-                            style="opacity:1"
+                            style="opacity: 1;"
                           >
                             页脚
                           </span>
@@ -3314,7 +3317,7 @@ Array [
                           class="ant-list-item"
                         >
                           <span
-                            style="opacity:1"
+                            style="opacity: 1;"
                           >
                             菜单
                           </span>
@@ -3349,7 +3352,7 @@ Array [
                           class="ant-list-item"
                         >
                           <span
-                            style="opacity:1"
+                            style="opacity: 1;"
                           >
                             菜单头
                           </span>
@@ -3390,7 +3393,7 @@ Array [
                 role="separator"
               />
               <div
-                style="margin-block-end:24px"
+                style="margin-block-end: 24px;"
               >
                 <h3
                   class="ant-pro-setting-drawer-body-title "
@@ -3413,7 +3416,7 @@ Array [
                           class="ant-list-item"
                         >
                           <span
-                            style="opacity:1"
+                            style="opacity: 1;"
                           >
                             色弱模式
                           </span>
@@ -3457,7 +3460,7 @@ Array [
                 class="ant-alert ant-alert-warning"
                 data-show="true"
                 role="alert"
-                style="margin-block-end:16px"
+                style="margin-block-end: 16px;"
               >
                 <span
                   aria-label="notification"
@@ -3496,24 +3499,24 @@ Array [
     <div
       aria-hidden="true"
       data-sentinel="end"
-      style="width:0;height:0;overflow:hidden;outline:none;position:absolute"
+      style="width: 0px; height: 0px; overflow: hidden; outline: none; position: absolute;"
       tabindex="0"
     />
-  </div>,
-]
+  </div>
+</DocumentFragment>
 `;
 
 exports[`settingDrawer.test 🌺 hideHintAlert = true 1`] = `
-Array [
+<DocumentFragment>
   <div
     class="ant-pro-setting-drawer-handle "
-    style="width:48px;height:48px"
+    style="width: 48px; height: 48px;"
   >
     <span
       aria-label="close"
       class="anticon anticon-close"
       role="img"
-      style="color:#fff;font-size:20px"
+      style="color: rgb(255, 255, 255); font-size: 20px;"
     >
       <svg
         aria-hidden="true"
@@ -3529,7 +3532,7 @@ Array [
         />
       </svg>
     </span>
-  </div>,
+  </div>
   <div
     class="ant-drawer ant-drawer-right ant-drawer-open ant-drawer-inline"
     tabindex="-1"
@@ -3540,18 +3543,18 @@ Array [
     <div
       aria-hidden="true"
       data-sentinel="start"
-      style="width:0;height:0;overflow:hidden;outline:none;position:absolute"
+      style="width: 0px; height: 0px; overflow: hidden; outline: none; position: absolute;"
       tabindex="0"
     />
     <div
       class="ant-drawer-content-wrapper"
-      style="width:300px"
+      style="width: 300px;"
     >
       <div
         aria-modal="true"
         class="ant-drawer-content"
         role="dialog"
-        style="z-index:999"
+        style="z-index: 999;"
       >
         <div
           class="ant-drawer-wrapper-body"
@@ -3563,7 +3566,7 @@ Array [
               class="ant-pro-setting-drawer-drawer-content "
             >
               <div
-                style="margin-block-end:24px"
+                style="margin-block-end: 24px;"
               >
                 <h3
                   class="ant-pro-setting-drawer-body-title "
@@ -3580,7 +3583,7 @@ Array [
                       aria-label="check"
                       class="anticon anticon-check ant-pro-setting-drawer-block-checkbox-selectIcon "
                       role="img"
-                      style="display:none"
+                      style="display: none;"
                     >
                       <svg
                         aria-hidden="true"
@@ -3600,7 +3603,7 @@ Array [
                 </div>
               </div>
               <div
-                style="margin-block-end:24px"
+                style="margin-block-end: 24px;"
               >
                 <h3
                   class="ant-pro-setting-drawer-body-title "
@@ -3612,7 +3615,7 @@ Array [
                 >
                   <div
                     class="ant-pro-setting-drawer-theme-color-block "
-                    style="background-color:#1677FF"
+                    style="background-color: rgb(22, 119, 255);"
                   >
                     <span
                       aria-label="check"
@@ -3636,35 +3639,35 @@ Array [
                   </div>
                   <div
                     class="ant-pro-setting-drawer-theme-color-block "
-                    style="background-color:#1890ff"
+                    style="background-color: rgb(24, 144, 255);"
                   />
                   <div
                     class="ant-pro-setting-drawer-theme-color-block "
-                    style="background-color:#F5222D"
+                    style="background-color: rgb(245, 34, 45);"
                   />
                   <div
                     class="ant-pro-setting-drawer-theme-color-block "
-                    style="background-color:#FA541C"
+                    style="background-color: rgb(250, 84, 28);"
                   />
                   <div
                     class="ant-pro-setting-drawer-theme-color-block "
-                    style="background-color:#FAAD14"
+                    style="background-color: rgb(250, 173, 20);"
                   />
                   <div
                     class="ant-pro-setting-drawer-theme-color-block "
-                    style="background-color:#13C2C2"
+                    style="background-color: rgb(19, 194, 194);"
                   />
                   <div
                     class="ant-pro-setting-drawer-theme-color-block "
-                    style="background-color:#52C41A"
+                    style="background-color: rgb(82, 196, 26);"
                   />
                   <div
                     class="ant-pro-setting-drawer-theme-color-block "
-                    style="background-color:#2F54EB"
+                    style="background-color: rgb(47, 84, 235);"
                   />
                   <div
                     class="ant-pro-setting-drawer-theme-color-block "
-                    style="background-color:#722ED1"
+                    style="background-color: rgb(114, 46, 209);"
                   />
                 </div>
               </div>
@@ -3673,7 +3676,7 @@ Array [
                 role="separator"
               />
               <div
-                style="margin-block-end:24px"
+                style="margin-block-end: 24px;"
               >
                 <h3
                   class="ant-pro-setting-drawer-body-title "
@@ -3690,7 +3693,7 @@ Array [
                       aria-label="check"
                       class="anticon anticon-check ant-pro-setting-drawer-block-checkbox-selectIcon "
                       role="img"
-                      style="display:block"
+                      style="display: block;"
                     >
                       <svg
                         aria-hidden="true"
@@ -3714,7 +3717,7 @@ Array [
                       aria-label="check"
                       class="anticon anticon-check ant-pro-setting-drawer-block-checkbox-selectIcon "
                       role="img"
-                      style="display:none"
+                      style="display: none;"
                     >
                       <svg
                         aria-hidden="true"
@@ -3738,7 +3741,7 @@ Array [
                       aria-label="check"
                       class="anticon anticon-check ant-pro-setting-drawer-block-checkbox-selectIcon "
                       role="img"
-                      style="display:none"
+                      style="display: none;"
                     >
                       <svg
                         aria-hidden="true"
@@ -3758,7 +3761,7 @@ Array [
                 </div>
               </div>
               <div
-                style="margin-block-end:24px"
+                style="margin-block-end: 24px;"
               >
                 <h3
                   class="ant-pro-setting-drawer-body-title "
@@ -3775,7 +3778,7 @@ Array [
                       aria-label="check"
                       class="anticon anticon-check ant-pro-setting-drawer-block-checkbox-selectIcon "
                       role="img"
-                      style="display:none"
+                      style="display: none;"
                     >
                       <svg
                         aria-hidden="true"
@@ -3798,8 +3801,8 @@ Array [
                         height="1em"
                         viewBox="0 0 104 104"
                         width="1em"
-                        xlink="http://www.w3.org/1999/xlink"
                         xmlns="http://www.w3.org/2000/svg"
+                        xmlns:xlink="http://www.w3.org/1999/xlink"
                       >
                         <defs>
                           <rect
@@ -3818,77 +3821,77 @@ Array [
                             x="-26.1%"
                             y="-27.1%"
                           >
-                            <feMorphology
+                            <femorphology
                               in="SourceAlpha"
                               radius="0.25"
                               result="shadowSpreadOuter1"
                             />
-                            <feOffset
+                            <feoffset
                               dy="1"
                               in="shadowSpreadOuter1"
                               result="shadowOffsetOuter1"
                             />
-                            <feGaussianBlur
+                            <fegaussianblur
                               in="shadowOffsetOuter1"
                               result="shadowBlurOuter1"
                               stdDeviation="1"
                             />
-                            <feColorMatrix
+                            <fecolormatrix
                               in="shadowBlurOuter1"
                               result="shadowMatrixOuter1"
                               values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.08 0"
                             />
-                            <feMorphology
+                            <femorphology
                               in="SourceAlpha"
                               radius="1"
                               result="shadowSpreadOuter2"
                             />
-                            <feOffset
+                            <feoffset
                               dy="2"
                               in="shadowSpreadOuter2"
                               result="shadowOffsetOuter2"
                             />
-                            <feGaussianBlur
+                            <fegaussianblur
                               in="shadowOffsetOuter2"
                               result="shadowBlurOuter2"
                               stdDeviation="4"
                             />
-                            <feColorMatrix
+                            <fecolormatrix
                               in="shadowBlurOuter2"
                               result="shadowMatrixOuter2"
                               values="0 0 0 0 0.098466735 0 0 0 0 0.0599695403 0 0 0 0 0.0599695403 0 0 0 0.07 0"
                             />
-                            <feMorphology
+                            <femorphology
                               in="SourceAlpha"
                               radius="2"
                               result="shadowSpreadOuter3"
                             />
-                            <feOffset
+                            <feoffset
                               dy="4"
                               in="shadowSpreadOuter3"
                               result="shadowOffsetOuter3"
                             />
-                            <feGaussianBlur
+                            <fegaussianblur
                               in="shadowOffsetOuter3"
                               result="shadowBlurOuter3"
                               stdDeviation="8"
                             />
-                            <feColorMatrix
+                            <fecolormatrix
                               in="shadowBlurOuter3"
                               result="shadowMatrixOuter3"
                               values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.05 0"
                             />
-                            <feMerge>
-                              <feMergeNode
+                            <femerge>
+                              <femergenode
                                 in="shadowMatrixOuter1"
                               />
-                              <feMergeNode
+                              <femergenode
                                 in="shadowMatrixOuter2"
                               />
-                              <feMergeNode
+                              <femergenode
                                 in="shadowMatrixOuter3"
                               />
-                            </feMerge>
+                            </femerge>
                           </filter>
                         </defs>
                         <g
@@ -3901,11 +3904,11 @@ Array [
                             <use
                               fill="#000"
                               filter="url(#filter-2)"
-                              href="#path-1"
+                              xlink:href="#path-1"
                             />
                             <use
                               fill="#F0F2F5"
-                              href="#path-1"
+                              xlink:href="#path-1"
                             />
                           </g>
                           <path
@@ -3990,7 +3993,7 @@ Array [
                       aria-label="check"
                       class="anticon anticon-check ant-pro-setting-drawer-block-checkbox-selectIcon "
                       role="img"
-                      style="display:none"
+                      style="display: none;"
                     >
                       <svg
                         aria-hidden="true"
@@ -4013,8 +4016,8 @@ Array [
                         height="1em"
                         viewBox="0 0 104 104"
                         width="1em"
-                        xlink="http://www.w3.org/1999/xlink"
                         xmlns="http://www.w3.org/2000/svg"
+                        xmlns:xlink="http://www.w3.org/1999/xlink"
                       >
                         <defs>
                           <rect
@@ -4033,77 +4036,77 @@ Array [
                             x="-26.1%"
                             y="-27.1%"
                           >
-                            <feMorphology
+                            <femorphology
                               in="SourceAlpha"
                               radius="0.25"
                               result="shadowSpreadOuter1"
                             />
-                            <feOffset
+                            <feoffset
                               dy="1"
                               in="shadowSpreadOuter1"
                               result="shadowOffsetOuter1"
                             />
-                            <feGaussianBlur
+                            <fegaussianblur
                               in="shadowOffsetOuter1"
                               result="shadowBlurOuter1"
                               stdDeviation="1"
                             />
-                            <feColorMatrix
+                            <fecolormatrix
                               in="shadowBlurOuter1"
                               result="shadowMatrixOuter1"
                               values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.08 0"
                             />
-                            <feMorphology
+                            <femorphology
                               in="SourceAlpha"
                               radius="1"
                               result="shadowSpreadOuter2"
                             />
-                            <feOffset
+                            <feoffset
                               dy="2"
                               in="shadowSpreadOuter2"
                               result="shadowOffsetOuter2"
                             />
-                            <feGaussianBlur
+                            <fegaussianblur
                               in="shadowOffsetOuter2"
                               result="shadowBlurOuter2"
                               stdDeviation="4"
                             />
-                            <feColorMatrix
+                            <fecolormatrix
                               in="shadowBlurOuter2"
                               result="shadowMatrixOuter2"
                               values="0 0 0 0 0.098466735 0 0 0 0 0.0599695403 0 0 0 0 0.0599695403 0 0 0 0.07 0"
                             />
-                            <feMorphology
+                            <femorphology
                               in="SourceAlpha"
                               radius="2"
                               result="shadowSpreadOuter3"
                             />
-                            <feOffset
+                            <feoffset
                               dy="4"
                               in="shadowSpreadOuter3"
                               result="shadowOffsetOuter3"
                             />
-                            <feGaussianBlur
+                            <fegaussianblur
                               in="shadowOffsetOuter3"
                               result="shadowBlurOuter3"
                               stdDeviation="8"
                             />
-                            <feColorMatrix
+                            <fecolormatrix
                               in="shadowBlurOuter3"
                               result="shadowMatrixOuter3"
                               values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.05 0"
                             />
-                            <feMerge>
-                              <feMergeNode
+                            <femerge>
+                              <femergenode
                                 in="shadowMatrixOuter1"
                               />
-                              <feMergeNode
+                              <femergenode
                                 in="shadowMatrixOuter2"
                               />
-                              <feMergeNode
+                              <femergenode
                                 in="shadowMatrixOuter3"
                               />
-                            </feMerge>
+                            </femerge>
                           </filter>
                         </defs>
                         <g
@@ -4116,11 +4119,11 @@ Array [
                             <use
                               fill="#000"
                               filter="url(#filter-2)"
-                              href="#path-1"
+                              xlink:href="#path-1"
                             />
                             <use
                               fill="#F0F2F5"
-                              href="#path-1"
+                              xlink:href="#path-1"
                             />
                           </g>
                           <path
@@ -4207,7 +4210,7 @@ Array [
                         class="ant-list-item"
                       >
                         <span
-                          style="opacity:1"
+                          style="opacity: 1;"
                         >
                           内容区域宽度
                         </span>
@@ -4217,7 +4220,7 @@ Array [
                           <li>
                             <div
                               class="ant-select ant-select-sm content-width  ant-select-single ant-select-show-arrow"
-                              style="width:80px"
+                              style="width: 80px;"
                             >
                               <div
                                 class="ant-select-selector"
@@ -4226,16 +4229,17 @@ Array [
                                   class="ant-select-selection-search"
                                 >
                                   <input
-                                    aria-activedescendant="undefined_list_0"
+                                    aria-activedescendant="rc_select_5_list_0"
                                     aria-autocomplete="list"
-                                    aria-controls="undefined_list"
+                                    aria-controls="rc_select_5_list"
                                     aria-haspopup="listbox"
-                                    aria-owns="undefined_list"
+                                    aria-owns="rc_select_5_list"
                                     autocomplete="off"
                                     class="ant-select-selection-search-input"
+                                    id="rc_select_5"
                                     readonly=""
                                     role="combobox"
-                                    style="opacity:0"
+                                    style="opacity: 0;"
                                     type="search"
                                     unselectable="on"
                                     value=""
@@ -4251,7 +4255,7 @@ Array [
                               <span
                                 aria-hidden="true"
                                 class="ant-select-arrow"
-                                style="user-select:none;-webkit-user-select:none"
+                                style="user-select: none;"
                                 unselectable="on"
                               >
                                 <span
@@ -4282,7 +4286,7 @@ Array [
                         class="ant-list-item"
                       >
                         <span
-                          style="opacity:1"
+                          style="opacity: 1;"
                         >
                           固定 Header
                         </span>
@@ -4317,7 +4321,7 @@ Array [
                         class="ant-list-item"
                       >
                         <span
-                          style="opacity:1"
+                          style="opacity: 1;"
                         >
                           固定侧边菜单
                         </span>
@@ -4352,7 +4356,7 @@ Array [
                         class="ant-list-item"
                       >
                         <span
-                          style="opacity:0.5"
+                          style="opacity: 0.5;"
                         >
                           自动分割菜单
                         </span>
@@ -4393,7 +4397,7 @@ Array [
                 role="separator"
               />
               <div
-                style="margin-block-end:24px"
+                style="margin-block-end: 24px;"
               >
                 <h3
                   class="ant-pro-setting-drawer-body-title "
@@ -4416,7 +4420,7 @@ Array [
                           class="ant-list-item"
                         >
                           <span
-                            style="opacity:1"
+                            style="opacity: 1;"
                           >
                             顶栏
                           </span>
@@ -4451,7 +4455,7 @@ Array [
                           class="ant-list-item"
                         >
                           <span
-                            style="opacity:1"
+                            style="opacity: 1;"
                           >
                             页脚
                           </span>
@@ -4486,7 +4490,7 @@ Array [
                           class="ant-list-item"
                         >
                           <span
-                            style="opacity:1"
+                            style="opacity: 1;"
                           >
                             菜单
                           </span>
@@ -4521,7 +4525,7 @@ Array [
                           class="ant-list-item"
                         >
                           <span
-                            style="opacity:1"
+                            style="opacity: 1;"
                           >
                             菜单头
                           </span>
@@ -4562,7 +4566,7 @@ Array [
                 role="separator"
               />
               <div
-                style="margin-block-end:24px"
+                style="margin-block-end: 24px;"
               >
                 <h3
                   class="ant-pro-setting-drawer-body-title "
@@ -4585,7 +4589,7 @@ Array [
                           class="ant-list-item"
                         >
                           <span
-                            style="opacity:1"
+                            style="opacity: 1;"
                           >
                             色弱模式
                           </span>
@@ -4627,7 +4631,7 @@ Array [
               />
               <button
                 class="ant-btn ant-btn-default ant-btn-block"
-                style="margin-block-end:24px"
+                style="margin-block-end: 24px;"
                 type="button"
               >
                 <span
@@ -4661,24 +4665,24 @@ Array [
     <div
       aria-hidden="true"
       data-sentinel="end"
-      style="width:0;height:0;overflow:hidden;outline:none;position:absolute"
+      style="width: 0px; height: 0px; overflow: hidden; outline: none; position: absolute;"
       tabindex="0"
     />
-  </div>,
-]
+  </div>
+</DocumentFragment>
 `;
 
 exports[`settingDrawer.test 🌺 settings = undefined 1`] = `
-Array [
+<DocumentFragment>
   <div
     class="ant-pro-setting-drawer-handle "
-    style="width:48px;height:48px"
+    style="width: 48px; height: 48px;"
   >
     <span
       aria-label="close"
       class="anticon anticon-close"
       role="img"
-      style="color:#fff;font-size:20px"
+      style="color: rgb(255, 255, 255); font-size: 20px;"
     >
       <svg
         aria-hidden="true"
@@ -4694,7 +4698,7 @@ Array [
         />
       </svg>
     </span>
-  </div>,
+  </div>
   <div
     class="ant-drawer ant-drawer-right ant-drawer-open ant-drawer-inline"
     tabindex="-1"
@@ -4705,18 +4709,18 @@ Array [
     <div
       aria-hidden="true"
       data-sentinel="start"
-      style="width:0;height:0;overflow:hidden;outline:none;position:absolute"
+      style="width: 0px; height: 0px; overflow: hidden; outline: none; position: absolute;"
       tabindex="0"
     />
     <div
       class="ant-drawer-content-wrapper"
-      style="width:300px"
+      style="width: 300px;"
     >
       <div
         aria-modal="true"
         class="ant-drawer-content"
         role="dialog"
-        style="z-index:999"
+        style="z-index: 999;"
       >
         <div
           class="ant-drawer-wrapper-body"
@@ -4728,7 +4732,7 @@ Array [
               class="ant-pro-setting-drawer-drawer-content "
             >
               <div
-                style="margin-block-end:24px"
+                style="margin-block-end: 24px;"
               >
                 <h3
                   class="ant-pro-setting-drawer-body-title "
@@ -4745,7 +4749,7 @@ Array [
                       aria-label="check"
                       class="anticon anticon-check ant-pro-setting-drawer-block-checkbox-selectIcon "
                       role="img"
-                      style="display:block"
+                      style="display: block;"
                     >
                       <svg
                         aria-hidden="true"
@@ -4765,7 +4769,7 @@ Array [
                 </div>
               </div>
               <div
-                style="margin-block-end:24px"
+                style="margin-block-end: 24px;"
               >
                 <h3
                   class="ant-pro-setting-drawer-body-title "
@@ -4777,7 +4781,7 @@ Array [
                 >
                   <div
                     class="ant-pro-setting-drawer-theme-color-block "
-                    style="background-color:#1677FF"
+                    style="background-color: rgb(22, 119, 255);"
                   >
                     <span
                       aria-label="check"
@@ -4801,35 +4805,35 @@ Array [
                   </div>
                   <div
                     class="ant-pro-setting-drawer-theme-color-block "
-                    style="background-color:#1890ff"
+                    style="background-color: rgb(24, 144, 255);"
                   />
                   <div
                     class="ant-pro-setting-drawer-theme-color-block "
-                    style="background-color:#F5222D"
+                    style="background-color: rgb(245, 34, 45);"
                   />
                   <div
                     class="ant-pro-setting-drawer-theme-color-block "
-                    style="background-color:#FA541C"
+                    style="background-color: rgb(250, 84, 28);"
                   />
                   <div
                     class="ant-pro-setting-drawer-theme-color-block "
-                    style="background-color:#FAAD14"
+                    style="background-color: rgb(250, 173, 20);"
                   />
                   <div
                     class="ant-pro-setting-drawer-theme-color-block "
-                    style="background-color:#13C2C2"
+                    style="background-color: rgb(19, 194, 194);"
                   />
                   <div
                     class="ant-pro-setting-drawer-theme-color-block "
-                    style="background-color:#52C41A"
+                    style="background-color: rgb(82, 196, 26);"
                   />
                   <div
                     class="ant-pro-setting-drawer-theme-color-block "
-                    style="background-color:#2F54EB"
+                    style="background-color: rgb(47, 84, 235);"
                   />
                   <div
                     class="ant-pro-setting-drawer-theme-color-block "
-                    style="background-color:#722ED1"
+                    style="background-color: rgb(114, 46, 209);"
                   />
                 </div>
               </div>
@@ -4838,7 +4842,7 @@ Array [
                 role="separator"
               />
               <div
-                style="margin-block-end:24px"
+                style="margin-block-end: 24px;"
               >
                 <h3
                   class="ant-pro-setting-drawer-body-title "
@@ -4855,7 +4859,7 @@ Array [
                       aria-label="check"
                       class="anticon anticon-check ant-pro-setting-drawer-block-checkbox-selectIcon "
                       role="img"
-                      style="display:block"
+                      style="display: block;"
                     >
                       <svg
                         aria-hidden="true"
@@ -4879,7 +4883,7 @@ Array [
                       aria-label="check"
                       class="anticon anticon-check ant-pro-setting-drawer-block-checkbox-selectIcon "
                       role="img"
-                      style="display:none"
+                      style="display: none;"
                     >
                       <svg
                         aria-hidden="true"
@@ -4903,7 +4907,7 @@ Array [
                       aria-label="check"
                       class="anticon anticon-check ant-pro-setting-drawer-block-checkbox-selectIcon "
                       role="img"
-                      style="display:none"
+                      style="display: none;"
                     >
                       <svg
                         aria-hidden="true"
@@ -4923,7 +4927,7 @@ Array [
                 </div>
               </div>
               <div
-                style="margin-block-end:24px"
+                style="margin-block-end: 24px;"
               >
                 <h3
                   class="ant-pro-setting-drawer-body-title "
@@ -4940,7 +4944,7 @@ Array [
                       aria-label="check"
                       class="anticon anticon-check ant-pro-setting-drawer-block-checkbox-selectIcon "
                       role="img"
-                      style="display:none"
+                      style="display: none;"
                     >
                       <svg
                         aria-hidden="true"
@@ -4963,8 +4967,8 @@ Array [
                         height="1em"
                         viewBox="0 0 104 104"
                         width="1em"
-                        xlink="http://www.w3.org/1999/xlink"
                         xmlns="http://www.w3.org/2000/svg"
+                        xmlns:xlink="http://www.w3.org/1999/xlink"
                       >
                         <defs>
                           <rect
@@ -4983,77 +4987,77 @@ Array [
                             x="-26.1%"
                             y="-27.1%"
                           >
-                            <feMorphology
+                            <femorphology
                               in="SourceAlpha"
                               radius="0.25"
                               result="shadowSpreadOuter1"
                             />
-                            <feOffset
+                            <feoffset
                               dy="1"
                               in="shadowSpreadOuter1"
                               result="shadowOffsetOuter1"
                             />
-                            <feGaussianBlur
+                            <fegaussianblur
                               in="shadowOffsetOuter1"
                               result="shadowBlurOuter1"
                               stdDeviation="1"
                             />
-                            <feColorMatrix
+                            <fecolormatrix
                               in="shadowBlurOuter1"
                               result="shadowMatrixOuter1"
                               values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.08 0"
                             />
-                            <feMorphology
+                            <femorphology
                               in="SourceAlpha"
                               radius="1"
                               result="shadowSpreadOuter2"
                             />
-                            <feOffset
+                            <feoffset
                               dy="2"
                               in="shadowSpreadOuter2"
                               result="shadowOffsetOuter2"
                             />
-                            <feGaussianBlur
+                            <fegaussianblur
                               in="shadowOffsetOuter2"
                               result="shadowBlurOuter2"
                               stdDeviation="4"
                             />
-                            <feColorMatrix
+                            <fecolormatrix
                               in="shadowBlurOuter2"
                               result="shadowMatrixOuter2"
                               values="0 0 0 0 0.098466735 0 0 0 0 0.0599695403 0 0 0 0 0.0599695403 0 0 0 0.07 0"
                             />
-                            <feMorphology
+                            <femorphology
                               in="SourceAlpha"
                               radius="2"
                               result="shadowSpreadOuter3"
                             />
-                            <feOffset
+                            <feoffset
                               dy="4"
                               in="shadowSpreadOuter3"
                               result="shadowOffsetOuter3"
                             />
-                            <feGaussianBlur
+                            <fegaussianblur
                               in="shadowOffsetOuter3"
                               result="shadowBlurOuter3"
                               stdDeviation="8"
                             />
-                            <feColorMatrix
+                            <fecolormatrix
                               in="shadowBlurOuter3"
                               result="shadowMatrixOuter3"
                               values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.05 0"
                             />
-                            <feMerge>
-                              <feMergeNode
+                            <femerge>
+                              <femergenode
                                 in="shadowMatrixOuter1"
                               />
-                              <feMergeNode
+                              <femergenode
                                 in="shadowMatrixOuter2"
                               />
-                              <feMergeNode
+                              <femergenode
                                 in="shadowMatrixOuter3"
                               />
-                            </feMerge>
+                            </femerge>
                           </filter>
                         </defs>
                         <g
@@ -5066,11 +5070,11 @@ Array [
                             <use
                               fill="#000"
                               filter="url(#filter-2)"
-                              href="#path-1"
+                              xlink:href="#path-1"
                             />
                             <use
                               fill="#F0F2F5"
-                              href="#path-1"
+                              xlink:href="#path-1"
                             />
                           </g>
                           <path
@@ -5155,7 +5159,7 @@ Array [
                       aria-label="check"
                       class="anticon anticon-check ant-pro-setting-drawer-block-checkbox-selectIcon "
                       role="img"
-                      style="display:none"
+                      style="display: none;"
                     >
                       <svg
                         aria-hidden="true"
@@ -5178,8 +5182,8 @@ Array [
                         height="1em"
                         viewBox="0 0 104 104"
                         width="1em"
-                        xlink="http://www.w3.org/1999/xlink"
                         xmlns="http://www.w3.org/2000/svg"
+                        xmlns:xlink="http://www.w3.org/1999/xlink"
                       >
                         <defs>
                           <rect
@@ -5198,77 +5202,77 @@ Array [
                             x="-26.1%"
                             y="-27.1%"
                           >
-                            <feMorphology
+                            <femorphology
                               in="SourceAlpha"
                               radius="0.25"
                               result="shadowSpreadOuter1"
                             />
-                            <feOffset
+                            <feoffset
                               dy="1"
                               in="shadowSpreadOuter1"
                               result="shadowOffsetOuter1"
                             />
-                            <feGaussianBlur
+                            <fegaussianblur
                               in="shadowOffsetOuter1"
                               result="shadowBlurOuter1"
                               stdDeviation="1"
                             />
-                            <feColorMatrix
+                            <fecolormatrix
                               in="shadowBlurOuter1"
                               result="shadowMatrixOuter1"
                               values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.08 0"
                             />
-                            <feMorphology
+                            <femorphology
                               in="SourceAlpha"
                               radius="1"
                               result="shadowSpreadOuter2"
                             />
-                            <feOffset
+                            <feoffset
                               dy="2"
                               in="shadowSpreadOuter2"
                               result="shadowOffsetOuter2"
                             />
-                            <feGaussianBlur
+                            <fegaussianblur
                               in="shadowOffsetOuter2"
                               result="shadowBlurOuter2"
                               stdDeviation="4"
                             />
-                            <feColorMatrix
+                            <fecolormatrix
                               in="shadowBlurOuter2"
                               result="shadowMatrixOuter2"
                               values="0 0 0 0 0.098466735 0 0 0 0 0.0599695403 0 0 0 0 0.0599695403 0 0 0 0.07 0"
                             />
-                            <feMorphology
+                            <femorphology
                               in="SourceAlpha"
                               radius="2"
                               result="shadowSpreadOuter3"
                             />
-                            <feOffset
+                            <feoffset
                               dy="4"
                               in="shadowSpreadOuter3"
                               result="shadowOffsetOuter3"
                             />
-                            <feGaussianBlur
+                            <fegaussianblur
                               in="shadowOffsetOuter3"
                               result="shadowBlurOuter3"
                               stdDeviation="8"
                             />
-                            <feColorMatrix
+                            <fecolormatrix
                               in="shadowBlurOuter3"
                               result="shadowMatrixOuter3"
                               values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.05 0"
                             />
-                            <feMerge>
-                              <feMergeNode
+                            <femerge>
+                              <femergenode
                                 in="shadowMatrixOuter1"
                               />
-                              <feMergeNode
+                              <femergenode
                                 in="shadowMatrixOuter2"
                               />
-                              <feMergeNode
+                              <femergenode
                                 in="shadowMatrixOuter3"
                               />
-                            </feMerge>
+                            </femerge>
                           </filter>
                         </defs>
                         <g
@@ -5281,11 +5285,11 @@ Array [
                             <use
                               fill="#000"
                               filter="url(#filter-2)"
-                              href="#path-1"
+                              xlink:href="#path-1"
                             />
                             <use
                               fill="#F0F2F5"
-                              href="#path-1"
+                              xlink:href="#path-1"
                             />
                           </g>
                           <path
@@ -5372,7 +5376,7 @@ Array [
                         class="ant-list-item"
                       >
                         <span
-                          style="opacity:1"
+                          style="opacity: 1;"
                         >
                           内容区域宽度
                         </span>
@@ -5382,7 +5386,7 @@ Array [
                           <li>
                             <div
                               class="ant-select ant-select-sm content-width  ant-select-single ant-select-show-arrow"
-                              style="width:80px"
+                              style="width: 80px;"
                             >
                               <div
                                 class="ant-select-selector"
@@ -5391,16 +5395,17 @@ Array [
                                   class="ant-select-selection-search"
                                 >
                                   <input
-                                    aria-activedescendant="undefined_list_0"
+                                    aria-activedescendant="rc_select_1_list_0"
                                     aria-autocomplete="list"
-                                    aria-controls="undefined_list"
+                                    aria-controls="rc_select_1_list"
                                     aria-haspopup="listbox"
-                                    aria-owns="undefined_list"
+                                    aria-owns="rc_select_1_list"
                                     autocomplete="off"
                                     class="ant-select-selection-search-input"
+                                    id="rc_select_1"
                                     readonly=""
                                     role="combobox"
-                                    style="opacity:0"
+                                    style="opacity: 0;"
                                     type="search"
                                     unselectable="on"
                                     value=""
@@ -5416,7 +5421,7 @@ Array [
                               <span
                                 aria-hidden="true"
                                 class="ant-select-arrow"
-                                style="user-select:none;-webkit-user-select:none"
+                                style="user-select: none;"
                                 unselectable="on"
                               >
                                 <span
@@ -5447,7 +5452,7 @@ Array [
                         class="ant-list-item"
                       >
                         <span
-                          style="opacity:1"
+                          style="opacity: 1;"
                         >
                           固定 Header
                         </span>
@@ -5482,7 +5487,7 @@ Array [
                         class="ant-list-item"
                       >
                         <span
-                          style="opacity:1"
+                          style="opacity: 1;"
                         >
                           固定侧边菜单
                         </span>
@@ -5517,7 +5522,7 @@ Array [
                         class="ant-list-item"
                       >
                         <span
-                          style="opacity:0.5"
+                          style="opacity: 0.5;"
                         >
                           自动分割菜单
                         </span>
@@ -5558,7 +5563,7 @@ Array [
                 role="separator"
               />
               <div
-                style="margin-block-end:24px"
+                style="margin-block-end: 24px;"
               >
                 <h3
                   class="ant-pro-setting-drawer-body-title "
@@ -5581,7 +5586,7 @@ Array [
                           class="ant-list-item"
                         >
                           <span
-                            style="opacity:1"
+                            style="opacity: 1;"
                           >
                             顶栏
                           </span>
@@ -5616,7 +5621,7 @@ Array [
                           class="ant-list-item"
                         >
                           <span
-                            style="opacity:1"
+                            style="opacity: 1;"
                           >
                             页脚
                           </span>
@@ -5651,7 +5656,7 @@ Array [
                           class="ant-list-item"
                         >
                           <span
-                            style="opacity:1"
+                            style="opacity: 1;"
                           >
                             菜单
                           </span>
@@ -5686,7 +5691,7 @@ Array [
                           class="ant-list-item"
                         >
                           <span
-                            style="opacity:1"
+                            style="opacity: 1;"
                           >
                             菜单头
                           </span>
@@ -5727,7 +5732,7 @@ Array [
                 role="separator"
               />
               <div
-                style="margin-block-end:24px"
+                style="margin-block-end: 24px;"
               >
                 <h3
                   class="ant-pro-setting-drawer-body-title "
@@ -5750,7 +5755,7 @@ Array [
                           class="ant-list-item"
                         >
                           <span
-                            style="opacity:1"
+                            style="opacity: 1;"
                           >
                             色弱模式
                           </span>
@@ -5794,7 +5799,7 @@ Array [
                 class="ant-alert ant-alert-warning"
                 data-show="true"
                 role="alert"
-                style="margin-block-end:16px"
+                style="margin-block-end: 16px;"
               >
                 <span
                   aria-label="notification"
@@ -5827,7 +5832,7 @@ Array [
               </div>
               <button
                 class="ant-btn ant-btn-default ant-btn-block"
-                style="margin-block-end:24px"
+                style="margin-block-end: 24px;"
                 type="button"
               >
                 <span
@@ -5861,9 +5866,9 @@ Array [
     <div
       aria-hidden="true"
       data-sentinel="end"
-      style="width:0;height:0;overflow:hidden;outline:none;position:absolute"
+      style="width: 0px; height: 0px; overflow: hidden; outline: none; position: absolute;"
       tabindex="0"
     />
-  </div>,
-]
+  </div>
+</DocumentFragment>
 `;

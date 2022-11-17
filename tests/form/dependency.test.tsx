@@ -1,5 +1,5 @@
 import { ProForm, ProFormDependency, ProFormText } from '@ant-design/pro-components';
-import { mount } from 'enzyme';
+import { fireEvent, render } from '@testing-library/react';
 import { act } from 'react-dom/test-utils';
 import { waitForComponentToPaint } from '../util';
 
@@ -20,10 +20,10 @@ describe('ProForm Dependency component', () => {
       );
     };
 
-    const html = mount(<Demo />);
+    const html = render(<Demo />);
 
     act(() => {
-      html.find('input.ant-input').simulate('change', {
+      fireEvent.change(html.baseElement.querySelector<HTMLDivElement>('input.ant-input')!, {
         target: {
           value: 'second',
         },
@@ -32,16 +32,16 @@ describe('ProForm Dependency component', () => {
 
     await waitForComponentToPaint(html);
 
-    expect(html.find('div#show').text()).toBe('first');
+    expect(html.baseElement.querySelector<HTMLDivElement>('div#show')?.textContent).toBe('first');
 
-    html.setProps({
-      shouldUpdate: true,
+    act(() => {
+      html.rerender(<Demo shouldUpdate />);
     });
 
     await waitForComponentToPaint(html);
 
     act(() => {
-      html.find('input.ant-input').simulate('change', {
+      fireEvent.change(html.baseElement.querySelector<HTMLDivElement>('input.ant-input')!, {
         target: {
           value: 'ProComponents',
         },
@@ -50,11 +50,13 @@ describe('ProForm Dependency component', () => {
 
     await waitForComponentToPaint(html);
 
-    expect(html.find('div#show').text()).toBe('ProComponents');
+    expect(html.baseElement.querySelector<HTMLDivElement>('div#show')?.textContent).toBe(
+      'ProComponents',
+    );
   });
 
   it('⛲ shouldUpdate of ProFormDependency is Function', async () => {
-    const html = mount(
+    const html = render(
       <ProForm>
         <ProFormText name="name" label="姓名" />
         <ProFormDependency
@@ -74,7 +76,7 @@ describe('ProForm Dependency component', () => {
     );
 
     act(() => {
-      html.find('input.ant-input').simulate('change', {
+      fireEvent.change(html.baseElement.querySelector<HTMLDivElement>('input.ant-input')!, {
         target: {
           value: "Don't update",
         },
@@ -84,7 +86,7 @@ describe('ProForm Dependency component', () => {
     await waitForComponentToPaint(html);
 
     act(() => {
-      html.find('input.ant-input').simulate('change', {
+      fireEvent.change(html.baseElement.querySelector<HTMLDivElement>('input.ant-input')!, {
         target: {
           value: 'update',
         },
@@ -93,7 +95,7 @@ describe('ProForm Dependency component', () => {
 
     await waitForComponentToPaint(html);
 
-    expect(html.find('div#show').text()).toBe('update');
+    expect(html.baseElement.querySelector<HTMLDivElement>('div#show')?.textContent).toBe('update');
   });
 
   it('⛲ ProFormDependency support transform', async () => {
@@ -123,10 +125,10 @@ describe('ProForm Dependency component', () => {
       );
     };
 
-    const html = mount(<Demo />);
+    const html = render(<Demo />);
 
     act(() => {
-      html.find('input.ant-input').simulate('change', {
+      fireEvent.change(html.baseElement.querySelector<HTMLDivElement>('input.ant-input')!, {
         target: {
           value: 'second',
         },
