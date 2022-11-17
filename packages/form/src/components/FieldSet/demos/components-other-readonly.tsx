@@ -19,6 +19,69 @@ import {
   ProFormUploadDragger,
 } from '@ant-design/pro-components';
 
+const options = [
+  {
+    id: 1,
+    label: '测试测试1',
+    value: 1,
+  },
+  {
+    id: 2,
+    label: '测试测试2',
+    value: 2,
+  },
+  {
+    id: 3,
+    label: '测试测试3',
+    value: 3,
+  },
+  {
+    id: 4,
+    label: '测试测试4',
+    value: 4,
+  },
+  {
+    id: 5,
+    label: '测试测试5',
+    value: 5,
+  },
+  {
+    id: 6,
+    label: '测试测试6',
+    value: 6,
+  },
+  {
+    id: 7,
+    label: '测试测试7',
+    value: 7,
+  },
+  {
+    id: 8,
+    label: '测试测试8',
+    value: 8,
+  },
+  {
+    id: 9,
+    label: '测试测试9',
+    value: 9,
+  },
+  {
+    id: 10,
+    label: '测试测试10',
+    value: 10,
+  },
+  {
+    id: 11,
+    label: '测试测试11',
+    value: 11,
+  },
+  {
+    id: 12,
+    label: '测试测试12',
+    value: 12,
+  },
+];
+
 const Demo = () => (
   <div
     style={{
@@ -30,6 +93,7 @@ const Demo = () => (
       name="validate_other"
       initialValues={{
         'select-multiple': ['red', 'green'],
+        'select-multiple2': [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12],
         useMode: 'all',
         switch: true,
         'input-number': 3,
@@ -142,6 +206,17 @@ const Demo = () => (
           green: 'Green',
           blue: 'Blue',
         }}
+        fieldProps={{
+          mode: 'multiple',
+        }}
+        placeholder="Please select favorite colors"
+        rules={[{ required: true, message: 'Please select your favorite colors!', type: 'array' }]}
+      />
+      <ProFormSelect
+        name="select-multiple2"
+        label="Select[multiple]"
+        readonly
+        options={options}
         fieldProps={{
           mode: 'multiple',
         }}
