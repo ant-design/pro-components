@@ -42,7 +42,8 @@
     "rc-resize-observer": "^0.2.3"
   },
   "peerDependencies": {
-    "react": ">=16.9.0"
+    "react": ">=16.9.0",
+    "antd": ">=4.23.0"
   },
   "publishConfig": {
     "access": "public"

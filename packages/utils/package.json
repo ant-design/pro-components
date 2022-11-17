@@ -40,7 +40,7 @@
     "swr": "^1.2.0"
   },
   "peerDependencies": {
-    "antd": ">=4.20.0",
+    "antd": ">=4.23.0",
     "react": ">=16.9.0",
     "react-dom": ">=16.9.0"
   },

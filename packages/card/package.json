@@ -42,7 +42,7 @@
     "rc-resize-observer": "^0.2.3"
   },
   "peerDependencies": {
-    "antd": ">=4.20.0",
+    "antd": ">=4.23.0",
     "react": ">=16.9.0"
   },
   "publishConfig": {
