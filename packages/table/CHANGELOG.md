@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [3.1.8](https://github.com/ant-design/pro-components/compare/@ant-design/pro-table@3.1.7...@ant-design/pro-table@3.1.8) (2022-11-17)
+
+### Bug Fixes
+
+- **table:** fix nested table style ([#6228](https://github.com/ant-design/pro-components/issues/6228)) ([6cc447d](https://github.com/ant-design/pro-components/commit/6cc447d9eff28244f0aec832166fecd989a8f481))
+
 ## [3.1.7](https://github.com/ant-design/pro-components/compare/@ant-design/pro-table@3.1.6...@ant-design/pro-table@3.1.7) (2022-11-15)
 
 ### Bug Fixes

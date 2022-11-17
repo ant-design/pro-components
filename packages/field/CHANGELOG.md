@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.1.22](https://github.com/ant-design/pro-components/compare/@ant-design/pro-field@2.1.21...@ant-design/pro-field@2.1.22) (2022-11-17)
+
+### Bug Fixes
+
+- **form:** 只读模式下的 ProFormSelect 应该支持 wrap ([#6235](https://github.com/ant-design/pro-components/issues/6235)) ([d4b0d06](https://github.com/ant-design/pro-components/commit/d4b0d065575262136089b0233df8ce8dcf705c4f))
+
 ## [2.1.21](https://github.com/ant-design/pro-components/compare/@ant-design/pro-field@2.1.20...@ant-design/pro-field@2.1.21) (2022-11-14)
 
 ### Bug Fixes
