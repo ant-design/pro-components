@@ -196,9 +196,11 @@ function useContainer(props: UseContainerProps = {}) {
   return renderValue;
 }
 
-const Container = createContainer<ReturnType<typeof useContainer>, UseContainerProps>(useContainer);
-
 export type ContainerType = typeof useContainer;
+
+type ContainerReturnType = ReturnType<ContainerType>;
+
+const Container = createContainer<ContainerReturnType, UseContainerProps>(useContainer);
 
 export { useContainer };
 

@@ -423,7 +423,10 @@ const BaseProLayout: React.FC<ProLayoutProps> = (props) => {
     },
     async (_, params) => {
       setMenuLoading(true);
-      const msg = await menu?.request?.(params, route?.children || route?.routes || []);
+      const msg = await menu?.request?.(
+        params as Record<string, any>,
+        route?.children || route?.routes || [],
+      );
       setMenuLoading(false);
       return msg;
     },

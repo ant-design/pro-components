@@ -848,7 +848,7 @@ const ProviderWarp = <
     props.ErrorBoundary === false ? React.Fragment : props.ErrorBoundary || ErrorBoundary;
 
   return (
-    <Container.Provider initialState={props}>
+    <Container.Provider initialState={props as any}>
       <ConfigProviderWrap needDeps>
         <ErrorComponent>
           <ProTable<DataType, Params, ValueType>

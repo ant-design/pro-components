@@ -242,11 +242,6 @@ const DynamicSettings = () => {
               {
                 label: '基本配置',
                 key: 'tab1',
-                cardProps: {
-                  bodyStyle: {
-                    padding: 12,
-                  },
-                },
                 children: (
                   <>
                     <ProForm.Group
@@ -409,11 +404,6 @@ const DynamicSettings = () => {
               {
                 label: '表单配置',
                 key: 'tab3',
-                cardProps: {
-                  bodyStyle: {
-                    padding: 12,
-                  },
-                },
                 children: (
                   <ProForm.Group
                     title="查询表单"
@@ -534,11 +524,6 @@ const DynamicSettings = () => {
               {
                 label: '数据配置',
                 key: 'tab2',
-                cardProps: {
-                  bodyStyle: {
-                    padding: 12,
-                  },
-                },
                 children: (
                   <ProForm.Group
                     title="分页器"
@@ -606,11 +591,6 @@ const DynamicSettings = () => {
               {
                 label: '列配置',
                 key: 'tab4',
-                cardProps: {
-                  bodyStyle: {
-                    padding: 12,
-                  },
-                },
                 children: (
                   <ProFormList
                     name="columns"
