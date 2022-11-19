@@ -1487,6 +1487,7 @@ exports[`list demos 📸 renders ./packages/list/src/demos/card-list.tsx correct
                                   </div>
                                   <div
                                     class="ant-progress ant-progress-line ant-progress-status-normal ant-progress-show-info ant-progress-default"
+                                    role="progressbar"
                                   >
                                     <div
                                       class="ant-progress-outer"
@@ -1611,6 +1612,7 @@ exports[`list demos 📸 renders ./packages/list/src/demos/card-list.tsx correct
                                   </div>
                                   <div
                                     class="ant-progress ant-progress-line ant-progress-status-normal ant-progress-show-info ant-progress-default"
+                                    role="progressbar"
                                   >
                                     <div
                                       class="ant-progress-outer"
@@ -1735,6 +1737,7 @@ exports[`list demos 📸 renders ./packages/list/src/demos/card-list.tsx correct
                                   </div>
                                   <div
                                     class="ant-progress ant-progress-line ant-progress-status-normal ant-progress-show-info ant-progress-default"
+                                    role="progressbar"
                                   >
                                     <div
                                       class="ant-progress-outer"
@@ -1859,6 +1862,7 @@ exports[`list demos 📸 renders ./packages/list/src/demos/card-list.tsx correct
                                   </div>
                                   <div
                                     class="ant-progress ant-progress-line ant-progress-status-normal ant-progress-show-info ant-progress-default"
+                                    role="progressbar"
                                   >
                                     <div
                                       class="ant-progress-outer"
@@ -1983,6 +1987,7 @@ exports[`list demos 📸 renders ./packages/list/src/demos/card-list.tsx correct
                                   </div>
                                   <div
                                     class="ant-progress ant-progress-line ant-progress-status-normal ant-progress-show-info ant-progress-default"
+                                    role="progressbar"
                                   >
                                     <div
                                       class="ant-progress-outer"
@@ -2107,6 +2112,7 @@ exports[`list demos 📸 renders ./packages/list/src/demos/card-list.tsx correct
                                   </div>
                                   <div
                                     class="ant-progress ant-progress-line ant-progress-status-normal ant-progress-show-info ant-progress-default"
+                                    role="progressbar"
                                   >
                                     <div
                                       class="ant-progress-outer"
@@ -2231,6 +2237,7 @@ exports[`list demos 📸 renders ./packages/list/src/demos/card-list.tsx correct
                                   </div>
                                   <div
                                     class="ant-progress ant-progress-line ant-progress-status-normal ant-progress-show-info ant-progress-default"
+                                    role="progressbar"
                                   >
                                     <div
                                       class="ant-progress-outer"
@@ -2355,6 +2362,7 @@ exports[`list demos 📸 renders ./packages/list/src/demos/card-list.tsx correct
                                   </div>
                                   <div
                                     class="ant-progress ant-progress-line ant-progress-status-normal ant-progress-show-info ant-progress-default"
+                                    role="progressbar"
                                   >
                                     <div
                                       class="ant-progress-outer"
@@ -5248,6 +5256,7 @@ exports[`list demos 📸 renders ./packages/list/src/demos/pagination.tsx correc
                           </div>
                           <div
                             class="ant-progress ant-progress-line ant-progress-status-normal ant-progress-show-info ant-progress-default"
+                            role="progressbar"
                           >
                             <div
                               class="ant-progress-outer"
@@ -5392,6 +5401,7 @@ exports[`list demos 📸 renders ./packages/list/src/demos/pagination.tsx correc
                           </div>
                           <div
                             class="ant-progress ant-progress-line ant-progress-status-normal ant-progress-show-info ant-progress-default"
+                            role="progressbar"
                           >
                             <div
                               class="ant-progress-outer"
@@ -5536,6 +5546,7 @@ exports[`list demos 📸 renders ./packages/list/src/demos/pagination.tsx correc
                           </div>
                           <div
                             class="ant-progress ant-progress-line ant-progress-status-normal ant-progress-show-info ant-progress-default"
+                            role="progressbar"
                           >
                             <div
                               class="ant-progress-outer"
@@ -5680,6 +5691,7 @@ exports[`list demos 📸 renders ./packages/list/src/demos/pagination.tsx correc
                           </div>
                           <div
                             class="ant-progress ant-progress-line ant-progress-status-normal ant-progress-show-info ant-progress-default"
+                            role="progressbar"
                           >
                             <div
                               class="ant-progress-outer"
@@ -5824,6 +5836,7 @@ exports[`list demos 📸 renders ./packages/list/src/demos/pagination.tsx correc
                           </div>
                           <div
                             class="ant-progress ant-progress-line ant-progress-status-normal ant-progress-show-info ant-progress-default"
+                            role="progressbar"
                           >
                             <div
                               class="ant-progress-outer"
@@ -7251,6 +7264,7 @@ exports[`list demos 📸 renders ./packages/list/src/demos/selectedRow.tsx corre
                           </div>
                           <div
                             class="ant-progress ant-progress-line ant-progress-status-normal ant-progress-show-info ant-progress-default"
+                            role="progressbar"
                           >
                             <div
                               class="ant-progress-outer"
@@ -7387,6 +7401,7 @@ exports[`list demos 📸 renders ./packages/list/src/demos/selectedRow.tsx corre
                           </div>
                           <div
                             class="ant-progress ant-progress-line ant-progress-status-normal ant-progress-show-info ant-progress-default"
+                            role="progressbar"
                           >
                             <div
                               class="ant-progress-outer"
@@ -7523,6 +7538,7 @@ exports[`list demos 📸 renders ./packages/list/src/demos/selectedRow.tsx corre
                           </div>
                           <div
                             class="ant-progress ant-progress-line ant-progress-status-normal ant-progress-show-info ant-progress-default"
+                            role="progressbar"
                           >
                             <div
                               class="ant-progress-outer"
@@ -7659,6 +7675,7 @@ exports[`list demos 📸 renders ./packages/list/src/demos/selectedRow.tsx corre
                           </div>
                           <div
                             class="ant-progress ant-progress-line ant-progress-status-normal ant-progress-show-info ant-progress-default"
+                            role="progressbar"
                           >
                             <div
                               class="ant-progress-outer"
@@ -9165,6 +9182,7 @@ exports[`list demos 📸 renders ./packages/list/src/demos/testConfigProvider.ts
                           </div>
                           <div
                             class="qixian-pro-progress qixian-pro-progress-line qixian-pro-progress-status-normal qixian-pro-progress-show-info qixian-pro-progress-default"
+                            role="progressbar"
                           >
                             <div
                               class="qixian-pro-progress-outer"

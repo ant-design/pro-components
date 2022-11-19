@@ -997,6 +997,7 @@ exports[`field demos 📸 renders ./packages/field/src/demos/base.tsx correctly 
                 >
                   <div
                     class="ant-progress ant-progress-line ant-progress-status-active ant-progress-show-info ant-progress-small"
+                    role="progressbar"
                     style="min-width: 100px; max-width: 320px;"
                   >
                     <div
