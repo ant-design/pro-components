@@ -1,4 +1,4 @@
-import ConfigContext, { useIntl } from '@ant-design/pro-provider';
+import ConfigContext from '@ant-design/pro-provider';
 import type {
   BaseProFieldFC,
   ProFieldFCRenderProps,
@@ -466,7 +466,6 @@ const ProFieldComponent: React.ForwardRefRenderFunction<any, ProFieldPropsType> 
   { text, valueType = 'text', mode = 'read', onChange, renderFormItem, value, readonly, ...rest },
   ref: any,
 ) => {
-  const intl = useIntl();
   const context = useContext(ConfigContext);
 
   const fieldProps = (value !== undefined || onChange || rest?.fieldProps) && {
@@ -484,27 +483,33 @@ const ProFieldComponent: React.ForwardRefRenderFunction<any, ProFieldPropsType> 
       {defaultRenderText(
         mode === 'edit' ? fieldProps?.value ?? text ?? '' : text ?? fieldProps?.value ?? '',
         valueType || 'text',
-        {
+        omitUndefined({
           ref,
           ...rest,
           mode: readonly ? 'read' : mode,
           renderFormItem: renderFormItem
-            ? (...restProps) => {
-                const newDom = renderFormItem(...restProps);
+            ? (curText: any, props: ProFieldFCRenderProps, dom: JSX.Element) => {
+                const { placeholder: _placeholder, ...restProps } = props;
+                const newDom = renderFormItem(curText, restProps, dom);
                 // renderFormItem 之后的dom可能没有props，这里会帮忙注入一下
                 if (React.isValidElement(newDom))
                   return React.cloneElement(newDom, {
-                    placeholder:
-                      rest.placeholder || intl.getMessage('tableForm.inputPlaceholder', '请输入'),
                     ...fieldProps,
                     ...((newDom.props as any) || {}),
                   });
                 return newDom;
               }
             : undefined,
-          placeholder: rest.placeholder || intl.getMessage('tableForm.inputPlaceholder', '请输入'),
-          fieldProps: pickProProps(fieldProps),
-        },
+          placeholder: renderFormItem ? undefined : rest?.placeholder ?? fieldProps?.placeholder,
+          fieldProps: pickProProps(
+            omitUndefined({
+              ...fieldProps,
+              placeholder: renderFormItem
+                ? undefined
+                : rest?.placeholder ?? fieldProps?.placeholder,
+            }),
+          ),
+        }),
         context.valueTypeMap || {},
       )}
     </React.Fragment>

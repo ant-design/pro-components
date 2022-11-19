@@ -27309,7 +27309,6 @@ exports[`form demos 📸 renders ./packages/form/src/components/SchemaForm/demos
                 <input
                   class="ant-input"
                   id="hidden"
-                  placeholder="请输入"
                   type="text"
                   value=""
                 />
@@ -27894,7 +27893,6 @@ exports[`form demos 📸 renders ./packages/form/src/components/SchemaForm/demos
                 <input
                   class="ant-input"
                   id="hidden"
-                  placeholder="请输入"
                   type="text"
                   value=""
                 />
@@ -29019,7 +29017,6 @@ exports[`form demos 📸 renders ./packages/form/src/components/SchemaForm/demos
                 <input
                   class="ant-input"
                   id="hidden"
-                  placeholder="请输入"
                   type="text"
                   value=""
                 />
@@ -29649,7 +29646,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/SchemaForm/demos
                         <input
                           autocomplete="off"
                           id="showTime"
-                          placeholder="请"
+                          placeholder="开始日期"
                           readonly=""
                           size="12"
                           value="2016-11-22"
@@ -29688,7 +29685,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/SchemaForm/demos
                       >
                         <input
                           autocomplete="off"
-                          placeholder="输"
+                          placeholder="结束日期"
                           readonly=""
                           size="12"
                           value="2016-11-22"
@@ -29790,7 +29787,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/SchemaForm/demos
                         <input
                           autocomplete="off"
                           id="updateName"
-                          placeholder="请"
+                          placeholder="开始日期"
                           readonly=""
                           size="12"
                           value="2016-11-22"
@@ -29829,7 +29826,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/SchemaForm/demos
                       >
                         <input
                           autocomplete="off"
-                          placeholder="输"
+                          placeholder="结束日期"
                           readonly=""
                           size="12"
                           value="2016-11-22"
@@ -47944,7 +47941,7 @@ exports[`form demos 📸 renders ./packages/form/src/demos/money.tsx correctly 1
                       autocomplete="off"
                       class="ant-input-number-input"
                       id="amount0"
-                      placeholder="请输入"
+                      placeholder="Please enter"
                       role="spinbutton"
                       step="1"
                       value="22.22"
@@ -48052,7 +48049,7 @@ exports[`form demos 📸 renders ./packages/form/src/demos/money.tsx correctly 1
                       autocomplete="off"
                       class="ant-input-number-input"
                       id="amount1"
-                      placeholder="请输入"
+                      placeholder="Please enter"
                       role="spinbutton"
                       step="1"
                       value="$ 22.22"
@@ -48161,7 +48158,7 @@ exports[`form demos 📸 renders ./packages/form/src/demos/money.tsx correctly 1
                       autocomplete="off"
                       class="ant-input-number-input"
                       id="amount2"
-                      placeholder="请输入"
+                      placeholder="Please enter"
                       role="spinbutton"
                       step="1"
                       value="$ 22.22"
@@ -48269,7 +48266,7 @@ exports[`form demos 📸 renders ./packages/form/src/demos/money.tsx correctly 1
                       autocomplete="off"
                       class="ant-input-number-input"
                       id="amount3"
-                      placeholder="请输入"
+                      placeholder="Please enter"
                       role="spinbutton"
                       step="1"
                       value="£ 22.22"
