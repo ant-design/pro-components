@@ -8,6 +8,14 @@ group:
   path: /
 ---
 
+## @ant-design/pro-components@2.3.34
+
+`2022-11-17`
+
+- chore(form): update @ant-design/pro-form peer dependency "@types/lodash.merge" to be optional (#6220). [#6220](https://github.com/ant-design/pro-components/pull/#6220) [@lzm0x219](https://github.com/lzm0x219)
+- fix(form): 只读模式下的 ProFormSelect 应该支持 wrap (#6235). [#6235](https://github.com/ant-design/pro-components/pull/#6235) [@kiner-tang](https://github.com/kiner-tang)
+- fix(table): fix nested table style (#6228). [#6228](https://github.com/ant-design/pro-components/pull/#6228) [@ONLY-yours](https://github.com/ONLY-yours)
+
 ## @ant-design/pro-components@2.3.33
 
 `2022-11-15`
