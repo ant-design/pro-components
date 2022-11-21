@@ -62,6 +62,22 @@ export default () => (
           valueType: 'dateRange',
         },
         {
+          title: '时间范围',
+          key: 'dateTimeRangeCustom',
+          dataIndex: 'dateTimeRange',
+          hideInTable: true,
+          valueType: 'dateTimeRange',
+          fieldProps: {
+            // placeholder: ['1', '2']
+          },
+          renderFormItem: (_, { type, defaultRender }) => {
+            if (type === 'form') {
+              return null;
+            }
+            return defaultRender(_);
+          },
+        },
+        {
           title: '时间区间',
           key: 'dateTimeRange',
           dataIndex: 'createdAtRange',

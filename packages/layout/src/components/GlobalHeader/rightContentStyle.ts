@@ -59,7 +59,7 @@ const genTopNavHeaderStyle: GenerateStyle<ProToken> = (token) => {
 };
 
 export function useStyle(prefixCls: string) {
-  return useAntdStyle('RightContent', (token) => {
+  return useAntdStyle('ProLayoutRightContent', (token) => {
     const proToken: ProToken = {
       ...token,
       componentCls: `.${prefixCls}`,

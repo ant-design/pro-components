@@ -1,5 +1,5 @@
 import ProTable from '@ant-design/pro-table';
-import { mount } from 'enzyme';
+import { render } from '@testing-library/react';
 import React, { useState } from 'react';
 import { act } from 'react-dom/test-utils';
 import { waitForComponentToPaint } from '../util';
@@ -39,7 +39,7 @@ describe('BasicTable Search', () => {
 
   it('🎏 filter test', async () => {
     const fn = jest.fn();
-    const html = mount(
+    const html = render(
       <ProTable
         size="small"
         columns={[
@@ -70,14 +70,9 @@ describe('BasicTable Search', () => {
     );
     await waitForComponentToPaint(html, 200);
     act(() => {
-      html
-        .find('.ant-table-cell label.ant-checkbox-wrapper input')
-        .at(1)
-        .simulate('change', {
-          target: {
-            checked: true,
-          },
-        });
+      html.baseElement
+        .querySelectorAll<HTMLInputElement>('.ant-table-cell label.ant-checkbox-wrapper input')[1]
+        ?.click();
     });
     await waitForComponentToPaint(html, 200);
     expect(fn).toBeCalledTimes(1);
@@ -132,7 +127,7 @@ describe('BasicTable Search', () => {
         />
       );
     };
-    const wrapper = mount(<DemoTable />);
+    const wrapper = render(<DemoTable />);
 
     await waitForComponentToPaint(wrapper, 2000);
 

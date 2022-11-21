@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.0.17](https://github.com/ant-design/pro-components/compare/@ant-design/pro-provider@2.0.16...@ant-design/pro-provider@2.0.17) (2022-11-17)
+
+**Note:** Version bump only for package @ant-design/pro-provider
+
+## [2.0.16](https://github.com/ant-design/pro-components/compare/@ant-design/pro-provider@2.0.15...@ant-design/pro-provider@2.0.16) (2022-11-14)
+
+### Bug Fixes
+
+- **provide:** support hasded ([e8a8501](https://github.com/ant-design/pro-components/commit/e8a85018c442a6dea700923f6cada5a196ae3446))
+
 ## [2.0.15](https://github.com/ant-design/pro-components/compare/@ant-design/pro-provider@2.0.14...@ant-design/pro-provider@2.0.15) (2022-11-14)
 
 ### Bug Fixes

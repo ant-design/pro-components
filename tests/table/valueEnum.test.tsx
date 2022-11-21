@@ -2,7 +2,6 @@ import ProProvider from '@ant-design/pro-provider';
 import ProTable from '@ant-design/pro-table';
 import { render } from '@testing-library/react';
 import { Input } from 'antd';
-import { mount } from 'enzyme';
 import { useContext } from 'react';
 import { act } from 'react-dom/test-utils';
 import { waitForComponentToPaint } from '../util';
@@ -123,16 +122,14 @@ describe('Table valueEnum', () => {
   });
 
   it('🎏 customization valueType', async () => {
-    const html = mount(<Demo />);
+    const html = render(<Demo />);
     await waitForComponentToPaint(html, 1200);
-    act(() => {
-      expect(html.render()).toMatchSnapshot();
-    });
+    expect(html.asFragment()).toMatchSnapshot();
   });
 
   it('🎏 dynamic request', async () => {
     const request = jest.fn();
-    const html = mount(
+    const html = render(
       <ProTable
         size="small"
         columns={[

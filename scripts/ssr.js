@@ -1,4 +1,4 @@
-﻿const { chromium } = require('playwright');
+﻿const { firefox } = require('playwright');
 const fs = require('fs');
 const path = require('path');
 const express = require('express');
@@ -73,7 +73,7 @@ const list = fs
 
 const loop = async () => {
   // 启动浏览器
-  const browser = await chromium.launch({
+  const browser = await firefox.launch({
     // 关闭无头模式，方便我们看到这个无头浏览器执行的过程
     timeout: 300000, // 默认超时为30秒，设置为0则表示不设置超时
   });

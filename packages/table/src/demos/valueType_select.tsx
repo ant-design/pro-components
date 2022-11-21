@@ -129,6 +129,23 @@ const columns: ProColumns<TableListItem>[] = [
     valueType: 'treeSelect',
   },
   {
+    title: '时间范围',
+    key: 'dateTimeRange',
+    dataIndex: 'dateTimeRange',
+    hideInTable: true,
+    valueType: 'dateTimeRange',
+    fieldProps: {
+      // placeholder: []
+    },
+    renderFormItem: (_, { type, defaultRender }) => {
+      if (type === 'form') {
+        return null;
+      }
+
+      return defaultRender(_);
+    },
+  },
+  {
     title: '操作',
     key: 'option',
     width: 120,

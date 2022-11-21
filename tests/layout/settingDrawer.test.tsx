@@ -1,6 +1,6 @@
 import { SettingDrawer } from '@ant-design/pro-components';
-import { act, render as reactRender } from '@testing-library/react';
-import { mount, render } from 'enzyme';
+import { act, render } from '@testing-library/react';
+import { mount } from 'enzyme';
 import { waitForComponentToPaint } from '../util';
 import { defaultSettings } from './defaultSettings';
 
@@ -30,14 +30,14 @@ describe('settingDrawer.test', () => {
     const html = render(
       <SettingDrawer disableUrlParams settings={defaultSettings} getContainer={false} collapse />,
     );
-    expect(html).toMatchSnapshot();
+    expect(html.asFragment()).toMatchSnapshot();
   });
 
   it('🌺 settings = undefined', () => {
     const html = render(
       <SettingDrawer disableUrlParams settings={undefined as any} getContainer={false} collapse />,
     );
-    expect(html).toMatchSnapshot();
+    expect(html.asFragment()).toMatchSnapshot();
   });
 
   it('🌺 hideColors = true', () => {
@@ -50,7 +50,7 @@ describe('settingDrawer.test', () => {
         collapse
       />,
     );
-    expect(html).toMatchSnapshot();
+    expect(html.asFragment()).toMatchSnapshot();
   });
 
   it('🌺 colorList key is undefined', () => {
@@ -124,7 +124,7 @@ describe('settingDrawer.test', () => {
         collapse
       />,
     );
-    expect(html).toMatchSnapshot();
+    expect(html.asFragment()).toMatchSnapshot();
   });
 
   it('🌺 initState form query', async () => {
@@ -178,7 +178,7 @@ describe('settingDrawer.test', () => {
         collapse
       />,
     );
-    expect(html).toMatchSnapshot();
+    expect(html.asFragment()).toMatchSnapshot();
   });
 
   it('🌺 clipboard throw error', async () => {
@@ -481,7 +481,7 @@ describe('settingDrawer.test', () => {
           fn = eventFn;
         }
       });
-    const html = reactRender(
+    const html = render(
       <SettingDrawer disableUrlParams settings={defaultSettings} getContainer={false} collapse />,
     );
     const { rerender } = html;

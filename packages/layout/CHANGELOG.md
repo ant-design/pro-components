@@ -2,6 +2,23 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [7.2.5](https://github.com/ant-design/pro-components/compare/@ant-design/pro-layout@7.2.4...@ant-design/pro-layout@7.2.5) (2022-11-17)
+
+**Note:** Version bump only for package @ant-design/pro-layout
+
+## [7.2.4](https://github.com/ant-design/pro-components/compare/@ant-design/pro-layout@7.2.3...@ant-design/pro-layout@7.2.4) (2022-11-15)
+
+### Bug Fixes
+
+- **Descriptions:** fix ellipsis type error ([d051be5](https://github.com/ant-design/pro-components/commit/d051be53c40b49cffe7531bd622003dfeda60b10))
+- **table:** change css cache error ([a5bc4cb](https://github.com/ant-design/pro-components/commit/a5bc4cb4172fa9468ef70a1672033c34a09de3ba))
+
+## [7.2.3](https://github.com/ant-design/pro-components/compare/@ant-design/pro-layout@7.2.2...@ant-design/pro-layout@7.2.3) (2022-11-14)
+
+### Bug Fixes
+
+- **provide:** support hasded ([e8a8501](https://github.com/ant-design/pro-components/commit/e8a85018c442a6dea700923f6cada5a196ae3446))
+
 ## [7.2.2](https://github.com/ant-design/pro-components/compare/@ant-design/pro-layout@7.2.1...@ant-design/pro-layout@7.2.2) (2022-11-14)
 
 ### Bug Fixes

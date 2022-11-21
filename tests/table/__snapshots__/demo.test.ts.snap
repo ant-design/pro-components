@@ -15710,6 +15710,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/batchOption.tsx cor
                             >
                               <div
                                 class="ant-progress ant-progress-line ant-progress-status-normal ant-progress-show-info ant-progress-small"
+                                role="progressbar"
                                 style="min-width: 100px; max-width: 320px;"
                               >
                                 <div
@@ -15893,6 +15894,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/batchOption.tsx cor
                             >
                               <div
                                 class="ant-progress ant-progress-line ant-progress-status-normal ant-progress-show-info ant-progress-small"
+                                role="progressbar"
                                 style="min-width: 100px; max-width: 320px;"
                               >
                                 <div
@@ -16075,6 +16077,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/batchOption.tsx cor
                             >
                               <div
                                 class="ant-progress ant-progress-line ant-progress-status-normal ant-progress-show-info ant-progress-small"
+                                role="progressbar"
                                 style="min-width: 100px; max-width: 320px;"
                               >
                                 <div
@@ -16257,6 +16260,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/batchOption.tsx cor
                             >
                               <div
                                 class="ant-progress ant-progress-line ant-progress-status-normal ant-progress-show-info ant-progress-small"
+                                role="progressbar"
                                 style="min-width: 100px; max-width: 320px;"
                               >
                                 <div
@@ -16439,6 +16443,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/batchOption.tsx cor
                             >
                               <div
                                 class="ant-progress ant-progress-line ant-progress-status-normal ant-progress-show-info ant-progress-small"
+                                role="progressbar"
                                 style="min-width: 100px; max-width: 320px;"
                               >
                                 <div
@@ -43739,6 +43744,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/renderTable.tsx cor
                                 >
                                   <div
                                     class="ant-progress ant-progress-line ant-progress-status-active ant-progress-show-info ant-progress-small"
+                                    role="progressbar"
                                     style="min-width: 100px; max-width: 320px;"
                                   >
                                     <div
@@ -43785,6 +43791,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/renderTable.tsx cor
                                 >
                                   <div
                                     class="ant-progress ant-progress-line ant-progress-status-active ant-progress-show-info ant-progress-small"
+                                    role="progressbar"
                                     style="min-width: 100px; max-width: 320px;"
                                   >
                                     <div
@@ -53996,16 +54003,16 @@ exports[`table demos 📸 renders ./packages/table/src/demos/valueType.tsx corre
                           class="ant-select-selection-search"
                         >
                           <input
-                            aria-activedescendant="rc_select_47_list_0"
+                            aria-activedescendant="rc_select_48_list_0"
                             aria-autocomplete="list"
-                            aria-controls="rc_select_47_list"
+                            aria-controls="rc_select_48_list"
                             aria-expanded="false"
                             aria-haspopup="listbox"
                             aria-label="页码"
-                            aria-owns="rc_select_47_list"
+                            aria-owns="rc_select_48_list"
                             autocomplete="off"
                             class="ant-select-selection-search-input"
-                            id="rc_select_47"
+                            id="rc_select_48"
                             readonly=""
                             role="combobox"
                             style="opacity: 0;"
@@ -54737,7 +54744,9 @@ exports[`table demos 📸 renders ./packages/table/src/demos/valueType_select.ts
                                 </div>
                                 <span
                                   class="ant-select-selection-placeholder"
-                                />
+                                >
+                                  请选择
+                                </span>
                               </div>
                             </div>
                           </div>
@@ -54749,7 +54758,125 @@ exports[`table demos 📸 renders ./packages/table/src/demos/valueType_select.ts
               </div>
             </div>
             <div
-              class="ant-col ant-col-12 ant-col-offset-12"
+              class="ant-col ant-col-12"
+              style="padding-left: 12px; padding-right: 12px;"
+            >
+              <div
+                class="ant-form-item"
+              >
+                <div
+                  class="ant-row ant-form-item-row"
+                >
+                  <div
+                    class="ant-col ant-form-item-label"
+                  >
+                    <label
+                      class=""
+                      for="dateTimeRange"
+                      title="时间范围"
+                    >
+                      时间范围
+                    </label>
+                  </div>
+                  <div
+                    class="ant-col ant-form-item-control"
+                  >
+                    <div
+                      class="ant-form-item-control-input"
+                    >
+                      <div
+                        class="ant-form-item-control-input-content"
+                      >
+                        <div
+                          class="ant-picker ant-picker-range"
+                          style="width: 100%;"
+                        >
+                          <div
+                            class="ant-picker-input ant-picker-input-active"
+                          >
+                            <input
+                              autocomplete="off"
+                              placeholder="请选择"
+                              readonly=""
+                              size="21"
+                              value=""
+                            />
+                          </div>
+                          <div
+                            class="ant-picker-range-separator"
+                          >
+                            <span
+                              aria-label="to"
+                              class="ant-picker-separator"
+                            >
+                              <span
+                                aria-label="swap-right"
+                                class="anticon anticon-swap-right"
+                                role="img"
+                              >
+                                <svg
+                                  aria-hidden="true"
+                                  data-icon="swap-right"
+                                  fill="currentColor"
+                                  focusable="false"
+                                  height="1em"
+                                  viewBox="0 0 1024 1024"
+                                  width="1em"
+                                >
+                                  <path
+                                    d="M873.1 596.2l-164-208A32 32 0 00684 376h-64.8c-6.7 0-10.4 7.7-6.3 13l144.3 183H152c-4.4 0-8 3.6-8 8v60c0 4.4 3.6 8 8 8h695.9c26.8 0 41.7-30.8 25.2-51.8z"
+                                  />
+                                </svg>
+                              </span>
+                            </span>
+                          </div>
+                          <div
+                            class="ant-picker-input"
+                          >
+                            <input
+                              autocomplete="off"
+                              placeholder="请选择"
+                              readonly=""
+                              size="21"
+                              value=""
+                            />
+                          </div>
+                          <div
+                            class="ant-picker-active-bar"
+                            style="left: 0px; width: 0px; position: absolute;"
+                          />
+                          <span
+                            class="ant-picker-suffix"
+                          >
+                            <span
+                              aria-label="calendar"
+                              class="anticon anticon-calendar"
+                              role="img"
+                            >
+                              <svg
+                                aria-hidden="true"
+                                data-icon="calendar"
+                                fill="currentColor"
+                                focusable="false"
+                                height="1em"
+                                viewBox="64 64 896 896"
+                                width="1em"
+                              >
+                                <path
+                                  d="M880 184H712v-64c0-4.4-3.6-8-8-8h-56c-4.4 0-8 3.6-8 8v64H384v-64c0-4.4-3.6-8-8-8h-56c-4.4 0-8 3.6-8 8v64H144c-17.7 0-32 14.3-32 32v664c0 17.7 14.3 32 32 32h736c17.7 0 32-14.3 32-32V216c0-17.7-14.3-32-32-32zm-40 656H184V460h656v380zM184 392V256h128v48c0 4.4 3.6 8 8 8h56c4.4 0 8-3.6 8-8v-48h256v48c0 4.4 3.6 8 8 8h56c4.4 0 8-3.6 8-8v-48h128v136H184z"
+                                />
+                              </svg>
+                            </span>
+                          </span>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div
+              class="ant-col ant-col-12"
               style="padding-left: 12px; padding-right: 12px; text-align: end;"
             >
               <div
@@ -55149,21 +55276,23 @@ exports[`table demos 📸 renders ./packages/table/src/demos/valueType_select.ts
                             >
                               <div
                                 class="ant-space ant-space-horizontal ant-space-align-center"
+                                style="flex-wrap: wrap; margin-bottom: -2px;"
                               >
                                 <div
                                   class="ant-space-item"
-                                  style="margin-right: 1px;"
+                                  style="margin-right: 1px; padding-bottom: 2px;"
                                 >
                                   front end
                                 </div>
                                 <span
                                   class="ant-space-item-split"
-                                  style="margin-right: 1px;"
+                                  style="margin-right: 1px; padding-bottom: 2px;"
                                 >
                                   ,
                                 </span>
                                 <div
                                   class="ant-space-item"
+                                  style="padding-bottom: 2px;"
                                 >
                                   Javascript
                                 </div>
@@ -55174,21 +55303,23 @@ exports[`table demos 📸 renders ./packages/table/src/demos/valueType_select.ts
                             >
                               <div
                                 class="ant-space ant-space-horizontal ant-space-align-center"
+                                style="flex-wrap: wrap; margin-bottom: -2px;"
                               >
                                 <div
                                   class="ant-space-item"
-                                  style="margin-right: 1px;"
+                                  style="margin-right: 1px; padding-bottom: 2px;"
                                 >
                                   front end
                                 </div>
                                 <span
                                   class="ant-space-item-split"
-                                  style="margin-right: 1px;"
+                                  style="margin-right: 1px; padding-bottom: 2px;"
                                 >
                                   ,
                                 </span>
                                 <div
                                   class="ant-space-item"
+                                  style="padding-bottom: 2px;"
                                 >
                                   Javascript
                                 </div>
@@ -55291,21 +55422,23 @@ exports[`table demos 📸 renders ./packages/table/src/demos/valueType_select.ts
                             >
                               <div
                                 class="ant-space ant-space-horizontal ant-space-align-center"
+                                style="flex-wrap: wrap; margin-bottom: -2px;"
                               >
                                 <div
                                   class="ant-space-item"
-                                  style="margin-right: 1px;"
+                                  style="margin-right: 1px; padding-bottom: 2px;"
                                 >
                                   front end
                                 </div>
                                 <span
                                   class="ant-space-item-split"
-                                  style="margin-right: 1px;"
+                                  style="margin-right: 1px; padding-bottom: 2px;"
                                 >
                                   ,
                                 </span>
                                 <div
                                   class="ant-space-item"
+                                  style="padding-bottom: 2px;"
                                 >
                                   Javascript
                                 </div>
@@ -55316,21 +55449,23 @@ exports[`table demos 📸 renders ./packages/table/src/demos/valueType_select.ts
                             >
                               <div
                                 class="ant-space ant-space-horizontal ant-space-align-center"
+                                style="flex-wrap: wrap; margin-bottom: -2px;"
                               >
                                 <div
                                   class="ant-space-item"
-                                  style="margin-right: 1px;"
+                                  style="margin-right: 1px; padding-bottom: 2px;"
                                 >
                                   front end
                                 </div>
                                 <span
                                   class="ant-space-item-split"
-                                  style="margin-right: 1px;"
+                                  style="margin-right: 1px; padding-bottom: 2px;"
                                 >
                                   ,
                                 </span>
                                 <div
                                   class="ant-space-item"
+                                  style="padding-bottom: 2px;"
                                 >
                                   Javascript
                                 </div>
@@ -55670,6 +55805,122 @@ exports[`table demos 📸 renders ./packages/table/src/demos/valueTypeDate.tsx c
                             </span>
                           </span>
                         </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div
+              class="ant-form-item ant-form-item-hidden"
+              style="flex-wrap: nowrap;"
+            >
+              <div
+                class="ant-row ant-form-item-row"
+              >
+                <div
+                  class="ant-col ant-form-item-label"
+                  style="flex: 0 0 80px;"
+                >
+                  <label
+                    class=""
+                    for="dateTimeRangeCustom"
+                    title="时间范围"
+                  >
+                    时间范围
+                  </label>
+                </div>
+                <div
+                  class="ant-col ant-form-item-control"
+                  style="max-width: calc(100% - 80px);"
+                >
+                  <div
+                    class="ant-form-item-control-input"
+                  >
+                    <div
+                      class="ant-form-item-control-input-content"
+                    >
+                      <div
+                        class="ant-picker ant-picker-range"
+                        style="width: 100%;"
+                      >
+                        <div
+                          class="ant-picker-input ant-picker-input-active"
+                        >
+                          <input
+                            autocomplete="off"
+                            placeholder="请选择"
+                            readonly=""
+                            size="21"
+                            value=""
+                          />
+                        </div>
+                        <div
+                          class="ant-picker-range-separator"
+                        >
+                          <span
+                            aria-label="to"
+                            class="ant-picker-separator"
+                          >
+                            <span
+                              aria-label="swap-right"
+                              class="anticon anticon-swap-right"
+                              role="img"
+                            >
+                              <svg
+                                aria-hidden="true"
+                                data-icon="swap-right"
+                                fill="currentColor"
+                                focusable="false"
+                                height="1em"
+                                viewBox="0 0 1024 1024"
+                                width="1em"
+                              >
+                                <path
+                                  d="M873.1 596.2l-164-208A32 32 0 00684 376h-64.8c-6.7 0-10.4 7.7-6.3 13l144.3 183H152c-4.4 0-8 3.6-8 8v60c0 4.4 3.6 8 8 8h695.9c26.8 0 41.7-30.8 25.2-51.8z"
+                                />
+                              </svg>
+                            </span>
+                          </span>
+                        </div>
+                        <div
+                          class="ant-picker-input"
+                        >
+                          <input
+                            autocomplete="off"
+                            placeholder="请选择"
+                            readonly=""
+                            size="21"
+                            value=""
+                          />
+                        </div>
+                        <div
+                          class="ant-picker-active-bar"
+                          style="left: 0px; width: 0px; position: absolute;"
+                        />
+                        <span
+                          class="ant-picker-suffix"
+                        >
+                          <span
+                            aria-label="calendar"
+                            class="anticon anticon-calendar"
+                            role="img"
+                          >
+                            <svg
+                              aria-hidden="true"
+                              data-icon="calendar"
+                              fill="currentColor"
+                              focusable="false"
+                              height="1em"
+                              viewBox="64 64 896 896"
+                              width="1em"
+                            >
+                              <path
+                                d="M880 184H712v-64c0-4.4-3.6-8-8-8h-56c-4.4 0-8 3.6-8 8v64H384v-64c0-4.4-3.6-8-8-8h-56c-4.4 0-8 3.6-8 8v64H144c-17.7 0-32 14.3-32 32v664c0 17.7 14.3 32 32 32h736c17.7 0 32-14.3 32-32V216c0-17.7-14.3-32-32-32zm-40 656H184V460h656v380zM184 392V256h128v48c0 4.4 3.6 8 8 8h56c4.4 0 8-3.6 8-8v-48h256v48c0 4.4 3.6 8 8 8h56c4.4 0 8-3.6 8-8v-48h128v136H184z"
+                              />
+                            </svg>
+                          </span>
+                        </span>
                       </div>
                     </div>
                   </div>
@@ -56660,16 +56911,16 @@ exports[`table demos 📸 renders ./packages/table/src/demos/valueTypeDate.tsx c
                           class="ant-select-selection-search"
                         >
                           <input
-                            aria-activedescendant="rc_select_48_list_0"
+                            aria-activedescendant="rc_select_49_list_0"
                             aria-autocomplete="list"
-                            aria-controls="rc_select_48_list"
+                            aria-controls="rc_select_49_list"
                             aria-expanded="false"
                             aria-haspopup="listbox"
                             aria-label="页码"
-                            aria-owns="rc_select_48_list"
+                            aria-owns="rc_select_49_list"
                             autocomplete="off"
                             class="ant-select-selection-search-input"
-                            id="rc_select_48"
+                            id="rc_select_49"
                             readonly=""
                             role="combobox"
                             style="opacity: 0;"
@@ -57630,6 +57881,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/valueTypeNumber.tsx
                             >
                               <div
                                 class="ant-progress ant-progress-line ant-progress-status-active ant-progress-show-info ant-progress-small"
+                                role="progressbar"
                                 style="min-width: 100px; max-width: 320px;"
                               >
                                 <div
@@ -57705,6 +57957,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/valueTypeNumber.tsx
                             >
                               <div
                                 class="ant-progress ant-progress-line ant-progress-status-active ant-progress-show-info ant-progress-small"
+                                role="progressbar"
                                 style="min-width: 100px; max-width: 320px;"
                               >
                                 <div
@@ -57966,16 +58219,16 @@ exports[`table demos 📸 renders ./packages/table/src/demos/valueTypeNumber.tsx
                           class="ant-select-selection-search"
                         >
                           <input
-                            aria-activedescendant="rc_select_49_list_0"
+                            aria-activedescendant="rc_select_50_list_0"
                             aria-autocomplete="list"
-                            aria-controls="rc_select_49_list"
+                            aria-controls="rc_select_50_list"
                             aria-expanded="false"
                             aria-haspopup="listbox"
                             aria-label="页码"
-                            aria-owns="rc_select_49_list"
+                            aria-owns="rc_select_50_list"
                             autocomplete="off"
                             class="ant-select-selection-search-input"
-                            id="rc_select_49"
+                            id="rc_select_50"
                             readonly=""
                             role="combobox"
                             style="opacity: 0;"

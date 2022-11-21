@@ -14,7 +14,7 @@ const genProListStyle: GenerateStyle<ProListToken> = (token) => {
         justifyContent: 'space-between',
         paddingBlock: token.padding,
         paddingInline: 0,
-        ' &-mobile': { flexDirection: 'column' },
+        '&-mobile': { flexDirection: 'column' },
       },
       '&-title': {
         display: 'flex',
@@ -88,7 +88,7 @@ const genProListStyle: GenerateStyle<ProListToken> = (token) => {
 };
 
 export function useStyle(prefixCls: string) {
-  return useAntdStyle('DragSortTable', (token) => {
+  return useAntdStyle('ProTableListToolBar', (token) => {
     const proListToken: ProListToken = {
       ...token,
       componentCls: `.${prefixCls}`,

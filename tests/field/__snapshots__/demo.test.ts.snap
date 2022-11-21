@@ -739,10 +739,11 @@ exports[`field demos 📸 renders ./packages/field/src/demos/base.tsx correctly 
                     >
                       <div
                         class="ant-space ant-space-horizontal ant-space-align-center"
+                        style="flex-wrap: wrap; margin-bottom: -2px;"
                       >
                         <div
                           class="ant-space-item"
-                          style="margin-right: 1px;"
+                          style="margin-right: 1px; padding-bottom: 2px;"
                         >
                           <span
                             class="ant-badge ant-badge-status ant-badge-not-a-wrapper"
@@ -759,12 +760,13 @@ exports[`field demos 📸 renders ./packages/field/src/demos/base.tsx correctly 
                         </div>
                         <span
                           class="ant-space-item-split"
-                          style="margin-right: 1px;"
+                          style="margin-right: 1px; padding-bottom: 2px;"
                         >
                           ,
                         </span>
                         <div
                           class="ant-space-item"
+                          style="padding-bottom: 2px;"
                         >
                           <span
                             class="ant-badge ant-badge-status ant-badge-not-a-wrapper"
@@ -808,21 +810,23 @@ exports[`field demos 📸 renders ./packages/field/src/demos/base.tsx correctly 
                     >
                       <div
                         class="ant-space ant-space-horizontal ant-space-align-center"
+                        style="flex-wrap: wrap; margin-bottom: -2px;"
                       >
                         <div
                           class="ant-space-item"
-                          style="margin-right: 1px;"
+                          style="margin-right: 1px; padding-bottom: 2px;"
                         >
                           打开
                         </div>
                         <span
                           class="ant-space-item-split"
-                          style="margin-right: 1px;"
+                          style="margin-right: 1px; padding-bottom: 2px;"
                         >
                           ,
                         </span>
                         <div
                           class="ant-space-item"
+                          style="padding-bottom: 2px;"
                         >
                           关闭
                         </div>
@@ -936,33 +940,35 @@ exports[`field demos 📸 renders ./packages/field/src/demos/base.tsx correctly 
                 >
                   <div
                     class="ant-space ant-space-horizontal ant-space-align-center"
+                    style="flex-wrap: wrap; margin-bottom: -2px;"
                   >
                     <div
                       class="ant-space-item"
-                      style="margin-right: 1px;"
+                      style="margin-right: 1px; padding-bottom: 2px;"
                     >
                       Zhejiang
                     </div>
                     <span
                       class="ant-space-item-split"
-                      style="margin-right: 1px;"
+                      style="margin-right: 1px; padding-bottom: 2px;"
                     >
                       ,
                     </span>
                     <div
                       class="ant-space-item"
-                      style="margin-right: 1px;"
+                      style="margin-right: 1px; padding-bottom: 2px;"
                     >
                       Hangzhou
                     </div>
                     <span
                       class="ant-space-item-split"
-                      style="margin-right: 1px;"
+                      style="margin-right: 1px; padding-bottom: 2px;"
                     >
                       ,
                     </span>
                     <div
                       class="ant-space-item"
+                      style="padding-bottom: 2px;"
                     >
                       West Lake
                     </div>
@@ -991,6 +997,7 @@ exports[`field demos 📸 renders ./packages/field/src/demos/base.tsx correctly 
                 >
                   <div
                     class="ant-progress ant-progress-line ant-progress-status-active ant-progress-show-info ant-progress-small"
+                    role="progressbar"
                     style="min-width: 100px; max-width: 320px;"
                   >
                     <div

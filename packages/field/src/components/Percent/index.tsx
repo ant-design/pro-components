@@ -7,6 +7,7 @@ import { getColorByRealValue, getRealTextWithPrecision, getSymbolByRealValue } f
 
 // 兼容代码-----------
 import 'antd/es/input-number/style';
+import { useIntl } from '@ant-design/pro-provider';
 //------------
 
 export type PercentPropInt = {
@@ -40,6 +41,8 @@ const FieldPercent: ProFieldFC<PercentPropInt> = (
   },
   ref,
 ) => {
+  const intl = useIntl();
+  const placeholderValue = placeholder || intl.getMessage('tableForm.inputPlaceholder', '请输入');
   const realValue = useMemo(
     () =>
       typeof text === 'string' && (text as string).includes('%')
@@ -82,7 +85,7 @@ const FieldPercent: ProFieldFC<PercentPropInt> = (
           return value;
         }}
         parser={(value) => (value ? value.replace(/.*\s|,/g, '') : '')}
-        placeholder={placeholder}
+        placeholder={placeholderValue}
         {...fieldProps}
       />
     );

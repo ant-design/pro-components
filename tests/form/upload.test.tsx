@@ -1,6 +1,6 @@
 ﻿import ProForm, { ProFormUploadButton, ProFormUploadDragger } from '@ant-design/pro-form';
+import { fireEvent, render } from '@testing-library/react';
 import type { UploadFile } from 'antd/es/upload/interface';
-import { mount } from 'enzyme';
 import { act } from 'react-dom/test-utils';
 import mock from 'xhr-mock';
 import { waitForComponentToPaint, waitTime } from '../util';
@@ -34,7 +34,7 @@ describe('ProFormUpload', () => {
 
   it('🏐 ProFormUploadButton support onChange', async () => {
     const fn = jest.fn();
-    const wrapper = mount(
+    const wrapper = render(
       <ProForm
         onValuesChange={(_, values) => {
           fn(values.files);
@@ -50,7 +50,7 @@ describe('ProFormUpload', () => {
     );
 
     act(() => {
-      wrapper.find('.ant-upload input').simulate('change', {
+      fireEvent.change(wrapper.baseElement.querySelector<HTMLDivElement>('.ant-upload input')!, {
         target: {
           files: [mockFile],
         },
@@ -62,7 +62,7 @@ describe('ProFormUpload', () => {
 
   it('🏐 ProFormUploadButton support beforeUpload', async () => {
     const fn = jest.fn();
-    const wrapper = mount(
+    const wrapper = render(
       <ProForm
         onValuesChange={(_, values) => {
           fn(values.files);
@@ -83,7 +83,7 @@ describe('ProFormUpload', () => {
     );
 
     act(() => {
-      wrapper.find('.ant-upload input').simulate('change', {
+      fireEvent.change(wrapper.baseElement.querySelector<HTMLDivElement>('.ant-upload input')!, {
         target: {
           files: [mockFile],
         },
@@ -92,12 +92,16 @@ describe('ProFormUpload', () => {
     await waitTime(200);
 
     act(() => {
-      expect(wrapper.find('div.ant-upload-list-picture-container').length).toBe(0);
+      expect(
+        wrapper.baseElement.querySelectorAll<HTMLDivElement>(
+          'div.ant-upload-list-picture-container',
+        ).length,
+      ).toBe(0);
     });
   });
 
   it('🏐 ProFormUploadButton support disable', async () => {
-    const wrapper = mount(
+    const wrapper = render(
       <ProFormUploadButton
         disabled
         action="http://upload.com"
@@ -106,34 +110,57 @@ describe('ProFormUpload', () => {
         name="files"
       />,
     );
-    expect(wrapper.find('Upload Button').html()).toMatchSnapshot();
+    expect(
+      wrapper.baseElement.querySelector<HTMLDivElement>('.ant-upload')?.innerHTML,
+    ).toMatchSnapshot();
     act(() => {
-      wrapper.setProps({
-        buttonProps: {
-          disabled: true,
-          type: 'dashed',
-        },
-      });
+      wrapper.rerender(
+        <ProFormUploadButton
+          disabled
+          action="http://upload.com"
+          listType="text"
+          label="upload"
+          name="files"
+          buttonProps={{
+            disabled: true,
+            type: 'dashed',
+          }}
+        />,
+      );
     });
     await waitForComponentToPaint(wrapper);
-    expect(wrapper.find('Upload Button').find('.ant-btn-dashed').exists()).toBeTruthy();
+    expect(
+      wrapper.baseElement
+        .querySelector<HTMLDivElement>('.ant-upload')
+        ?.querySelector('.ant-btn-dashed'),
+    ).toBeTruthy();
     act(() => {
-      wrapper.setProps({
-        disabled: false,
-        buttonProps: {},
-        fieldProps: {
-          disabled: true,
-        },
-      });
+      wrapper.rerender(
+        <ProFormUploadButton
+          disabled={false}
+          action="http://upload.com"
+          listType="text"
+          label="upload"
+          name="files"
+          buttonProps={{}}
+          fieldProps={{
+            disabled: true,
+          }}
+        />,
+      );
     });
     await waitForComponentToPaint(wrapper);
-    expect(wrapper.find('Upload Button').find('.ant-btn-dashed').exists()).toBeFalsy();
+    expect(
+      wrapper.baseElement
+        .querySelector<HTMLDivElement>('.ant-upload')
+        ?.querySelector('.ant-btn-dashed'),
+    ).toBeFalsy();
   });
 
   it('🏐 ProFormUploadDragger support onChange', async () => {
     const fn = jest.fn();
     const onChangeFn = jest.fn();
-    const wrapper = mount(
+    const wrapper = render(
       <ProForm
         onValuesChange={(_, values) => {
           fn(values.files);
@@ -149,7 +176,7 @@ describe('ProFormUpload', () => {
     );
 
     act(() => {
-      wrapper.find('.ant-upload input').simulate('change', {
+      fireEvent.change(wrapper.baseElement.querySelector<HTMLDivElement>('.ant-upload input')!, {
         target: {
           files: [mockFile],
         },
@@ -161,7 +188,7 @@ describe('ProFormUpload', () => {
   });
 
   it('🏐 ProFormUploadDragger hide when max', async () => {
-    const wrapper = mount(
+    const wrapper = render(
       // @ts-ignore
       <ProFormUploadDragger
         max={2}
@@ -173,12 +200,16 @@ describe('ProFormUpload', () => {
     );
 
     await waitTime(200);
-    expect(wrapper.find('.ant-upload.ant-upload-drag').props().style?.display).toBe('none');
+    expect(
+      getComputedStyle(
+        wrapper.baseElement.querySelector<HTMLDivElement>('.ant-upload.ant-upload-drag')!,
+      )?.display,
+    ).toBe('none');
   });
 
   it('🏐 ProFormUploadDragger support children', async () => {
     const extra = 'extra';
-    const wrapper = mount(
+    const wrapper = render(
       // @ts-ignore
       <ProFormUploadDragger
         value={[mockFile, mockFile, mockFile]}
@@ -191,11 +222,14 @@ describe('ProFormUpload', () => {
     );
 
     await waitTime(200);
-    expect(wrapper.find('.ant-upload-drag .ant-upload-extra').first().text()).toBe(extra);
+    expect(
+      wrapper.baseElement.querySelector<HTMLDivElement>('.ant-upload-drag .ant-upload-extra')
+        ?.textContent,
+    ).toBe(extra);
   });
 
   it('🏐 ProFormUploadButton hide when max', async () => {
-    const wrapper = mount(
+    const wrapper = render(
       // @ts-ignore
       <ProFormUploadButton
         max={2}
@@ -207,6 +241,8 @@ describe('ProFormUpload', () => {
     );
 
     await waitTime(200);
-    expect(wrapper.find('.anticon.anticon-upload').exists()).toBe(false);
+    expect(
+      wrapper.baseElement.querySelector<HTMLDivElement>('.anticon.anticon-upload'),
+    ).toBeFalsy();
   });
 });

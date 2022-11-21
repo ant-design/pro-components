@@ -5,6 +5,7 @@ import type { ProFieldFC } from '../../index';
 
 // 兼容代码-----------
 import 'antd/es/input-number/style';
+import { useIntl } from '@ant-design/pro-provider';
 //----------------------
 
 export type FieldDigitProps = {
@@ -23,6 +24,8 @@ const FieldDigit: ProFieldFC<FieldDigitProps> = (
   { text, mode: type, render, placeholder, renderFormItem, fieldProps },
   ref,
 ) => {
+  const intl = useIntl();
+  const placeholderValue = placeholder || intl.getMessage('tableForm.inputPlaceholder', '请输入');
   const proxyChange = useCallback(
     (value: number | string | null) => {
       let val: string | number | undefined = value ?? undefined;
@@ -62,7 +65,7 @@ const FieldDigit: ProFieldFC<FieldDigitProps> = (
       <InputNumber<number>
         ref={ref}
         min={0}
-        placeholder={placeholder}
+        placeholder={placeholderValue}
         {...omit(fieldProps, ['onChange'])}
         onChange={proxyChange}
       />
