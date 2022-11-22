@@ -24,6 +24,7 @@ describe('BasicLayout', () => {
   it('🥩 base use', async () => {
     const html = render(<ProLayout />);
     expect(html.asFragment()).toMatchSnapshot();
+    html.unmount();
   });
 
   it('🥩 compatibleStyle', async () => {
@@ -31,12 +32,14 @@ describe('BasicLayout', () => {
     const html = render(<ProLayout>{process.env.ANTD_VERSION}</ProLayout>);
     expect(html.asFragment()).toMatchSnapshot();
     delete process.env.ANTD_VERSION;
+    html.unmount();
   });
 
   it('🥩 support loading', async () => {
     const wrapper = render(<ProLayout loading />);
     await waitForComponentToPaint(wrapper, 160);
-    expect(wrapper.baseElement.querySelector('.ant-skeleton')).toMatchSnapshot();
+    expect(wrapper.asFragment()).toMatchSnapshot();
+    wrapper.unmount();
   });
 
   it('🥩 support headerRender', async () => {
@@ -48,6 +51,7 @@ describe('BasicLayout', () => {
     await waitForComponentToPaint(wrapper);
 
     expect(wrapper.baseElement.querySelector<HTMLDivElement>('#testid')).toBeTruthy();
+    wrapper.unmount();
   });
 
   it('🥩 do not render menu', async () => {
@@ -65,9 +69,7 @@ describe('BasicLayout', () => {
         )!,
       )?.padding,
     ).toBe('');
-    act(() => {
-      wrapper.unmount();
-    });
+    wrapper.unmount();
   });
 
   it('🥩 do not render menu content', async () => {
@@ -77,9 +79,7 @@ describe('BasicLayout', () => {
     expect(menu).toBeTruthy();
     const menuContent = wrapper.baseElement.querySelector<HTMLDivElement>('.ant-pro-sider-menu');
     expect(menuContent).toBeFalsy();
-    act(() => {
-      wrapper.unmount();
-    });
+    wrapper.unmount();
   });
 
   it('🥩 support appList', async () => {
@@ -122,6 +122,7 @@ describe('BasicLayout', () => {
     });
     await waitForComponentToPaint(wrapper);
     expect(wrapper.baseElement.querySelectorAll('.ant-pro-layout-apps-icon').length).toBe(1);
+    wrapper.unmount();
   });
 
   it('🥩 appList icon is simple', async () => {
@@ -185,6 +186,7 @@ describe('BasicLayout', () => {
     });
     await waitForComponentToPaint(wrapper);
     expect(wrapper.baseElement.querySelectorAll('.ant-pro-layout-apps-icon').length).toBe(1);
+    wrapper.unmount();
   });
 
   it('🥩 group title when collapsed, title is hidden', async () => {
@@ -260,6 +262,8 @@ describe('BasicLayout', () => {
 
     // collapsed 的时候action 将会消失
     expect(wrapper.baseElement.querySelectorAll('.ant-pro-sider-actions-collapsed').length).toBe(1);
+
+    wrapper.unmount();
   });
 
   it('🥩 do not render footer', async () => {
@@ -267,9 +271,7 @@ describe('BasicLayout', () => {
     await waitForComponentToPaint(wrapper);
     const footer = wrapper.baseElement.querySelector<HTMLDivElement>('footer');
     expect(footer).toBeFalsy();
-    act(() => {
-      wrapper.unmount();
-    });
+    wrapper.unmount();
   });
 
   it('🥩 do not render footer', async () => {
@@ -277,9 +279,7 @@ describe('BasicLayout', () => {
     await waitForComponentToPaint(wrapper);
     const footer = wrapper.baseElement.querySelector<HTMLDivElement>('footer');
     expect(footer).toBeFalsy();
-    act(() => {
-      wrapper.unmount();
-    });
+    wrapper.unmount();
   });
 
   it('🥩 menuDataRender change date', async () => {
@@ -313,6 +313,7 @@ describe('BasicLayout', () => {
     await waitForComponentToPaint(wrapper, 1000);
 
     expect(wrapper.baseElement.querySelector<HTMLDivElement>('ul.ant-pro-sider-menu')).toBeTruthy();
+    wrapper.unmount();
   });
 
   it('🥩 use onLogoClick', async () => {
@@ -333,9 +334,7 @@ describe('BasicLayout', () => {
       logo?.click();
     });
     expect(onLogoClick).toHaveBeenCalled();
-    act(() => {
-      wrapper.unmount();
-    });
+    wrapper.unmount();
   });
 
   it('🥩 render logo', async () => {
@@ -343,9 +342,7 @@ describe('BasicLayout', () => {
     await waitForComponentToPaint(wrapper);
     const logo = wrapper.baseElement.querySelector<HTMLDivElement>('#test_log');
     expect(logo?.textContent).toEqual('Logo');
-    act(() => {
-      wrapper.unmount();
-    });
+    wrapper.unmount();
   });
 
   it('🥩 render logo by function', async () => {
@@ -355,9 +352,7 @@ describe('BasicLayout', () => {
     const logo = wrapper.baseElement.querySelector<HTMLDivElement>('#test_log');
     expect(logo?.textContent).toEqual('Logo');
     await waitForComponentToPaint(wrapper);
-    act(() => {
-      wrapper.unmount();
-    });
+    wrapper.unmount();
   });
 
   it('🥩 onCollapse', async () => {
@@ -373,9 +368,7 @@ describe('BasicLayout', () => {
     expect(onCollapse).toHaveBeenCalled();
 
     await waitForComponentToPaint(wrapper);
-    act(() => {
-      wrapper.unmount();
-    });
+    wrapper.unmount();
   });
 
   it('🥩 siderWidth default', async () => {
@@ -1003,7 +996,7 @@ describe('BasicLayout', () => {
     expect(wrapper.asFragment()).toMatchSnapshot();
   });
 
-  it('🥩 BasicLayout support current menu', async () => {
+  it('🥩 ProLayout support current menu', async () => {
     const wrapper = render(
       <ProLayout
         location={{
@@ -1221,7 +1214,7 @@ describe('BasicLayout', () => {
     expect(fn).toBeCalled();
   });
 
-  it('🥩 BasicLayout support menu.request', async () => {
+  it('🥩 ProLayout support menu.request', async () => {
     const fn = jest.fn();
     const actionRef = React.createRef<
       | {
@@ -1293,7 +1286,7 @@ describe('BasicLayout', () => {
     expect(fn).toBeCalledTimes(2);
   });
 
-  it('🥩 BasicLayout support menu.params', async () => {
+  it('🥩 ProLayout support menu.params', async () => {
     const fn = jest.fn();
     const defaultMenu = {
       locale: false,
@@ -1374,7 +1367,7 @@ describe('BasicLayout', () => {
     expect(fn).toBeCalledTimes(3);
   });
 
-  it('🥩 BasicLayout support menu.defaultOpenAll', async () => {
+  it('🥩 ProLayout support menu.defaultOpenAll', async () => {
     const Demo = () => {
       const [pathname, setPathname] = useState('/admin/sub-page1');
       return (
@@ -1462,7 +1455,7 @@ describe('BasicLayout', () => {
     expect(html.baseElement.querySelectorAll('li.ant-menu-submenu-open').length).toBe(3);
   });
 
-  it('🥩 BasicLayout support menu.ignoreFlatMenu', async () => {
+  it('🥩 ProLayout support menu.ignoreFlatMenu', async () => {
     const Demo = () => {
       const [pathname, setPathname] = useState('/admin/sub-page1');
       return (
