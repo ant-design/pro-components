@@ -36,9 +36,17 @@ describe('BasicLayout', () => {
   });
 
   it('🥩 support loading', async () => {
-    const wrapper = render(<ProLayout loading />);
-    await waitForComponentToPaint(wrapper, 160);
-    expect(wrapper.asFragment()).toMatchSnapshot();
+    const wrapper = render(
+      <ProLayout
+        loading
+        menu={{
+          loading: true,
+        }}
+      />,
+    );
+    wrapper.debug();
+    await waitForComponentToPaint(wrapper, 1000);
+    expect(wrapper.baseElement.querySelector('.ant-skeleton')).toMatchSnapshot();
     wrapper.unmount();
   });
 
