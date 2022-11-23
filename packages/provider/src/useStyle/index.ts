@@ -39,13 +39,13 @@ export type GenerateStyle<
 /**
  * 如果 antd 里面没有，就用我 mock 的，这样 antd@4 和 antd@5 可以兼容
  */
-const { useToken } = {
+const { useToken, darkAlgorithm, defaultAlgorithm } = {
   ...batToken,
   // @ts-ignore
   ...(antdTheme || {}),
 } as unknown as typeof batToken;
 
-export { useToken };
+export { useToken, darkAlgorithm, defaultAlgorithm };
 
 export type UseStyleResult = {
   wrapSSR: (node: React.ReactElement) => React.ReactElement;

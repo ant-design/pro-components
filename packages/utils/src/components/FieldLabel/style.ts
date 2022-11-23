@@ -19,7 +19,7 @@ const genProStyle: GenerateStyle<ProToken> = (token) => {
       borderRadius: '2px',
       cursor: 'pointer',
       '&:hover': {
-        backgroundColor: 'rgba(0,0,0,0.1)',
+        backgroundColor: token.colorBgTextHover,
       },
       '*': {
         boxSizing: 'border-box',
@@ -27,7 +27,7 @@ const genProStyle: GenerateStyle<ProToken> = (token) => {
       '&-active': {
         paddingBlock: 0,
         paddingInline: 12,
-        backgroundColor: 'rgba(0,0,0,0.04)',
+        backgroundColor: token.colorBgTextHover,
         [`&${token.componentCls}-allow-clear:hover:not(${token.componentCls}-disabled)`]: {
           [`${token.componentCls}-arrow`]: {
             display: 'none',

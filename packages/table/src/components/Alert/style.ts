@@ -1,5 +1,5 @@
 ﻿import type { GenerateStyle, ProAliasToken } from '@ant-design/pro-utils';
-import { useStyle as useAntdStyle } from '@ant-design/pro-provider';
+import { setAlpha, useStyle as useAntdStyle } from '@ant-design/pro-provider';
 
 export interface ProToken extends ProAliasToken {
   componentCls: string;
@@ -9,8 +9,8 @@ const genProStyle: GenerateStyle<ProToken> = (token) => {
   return {
     [token.componentCls]: {
       marginBlockEnd: 16,
-      backgroundColor: 'rgba(0,0,0,0.02)',
-      borderRadius: '4px',
+      backgroundColor: setAlpha(token.colorBgContainer, 0.02),
+      borderRadius: token.borderRadius,
       border: 'none',
       '&-container': {
         paddingBlock: token.paddingSM,

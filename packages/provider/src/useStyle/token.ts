@@ -1,6 +1,8 @@
 ﻿import { createTheme } from '@ant-design/cssinjs';
 
-export const defaultTheme = {
+import { theme } from 'antd';
+
+export const defaultToken = {
   blue: '#1677ff',
   purple: '#722ED1',
   cyan: '#13C2C2',
@@ -374,6 +376,7 @@ export const defaultTheme = {
   boxShadowTabsOverflowBottom: 'inset 0 -10px 8px -8px rgba(0, 0, 0, 0.08)',
   _tokenKey: '19w80ff',
   _hashId: 'css-dev-only-do-not-override-i2zu9q',
+  ...(theme?.defaultAlgorithm?.(theme?.defaultSeed) as any),
 };
 
 export const hashCode = (str: string, seed = 1) => {
@@ -389,18 +392,18 @@ export const hashCode = (str: string, seed = 1) => {
   return 4294967296 * (2097151 & h2) + (h1 >>> 0);
 };
 
-export type AliasToken = typeof defaultTheme;
+export type AliasToken = typeof defaultToken;
 
 // @ts-ignore
 export const emptyTheme = createTheme((token) => token);
 
 export const token = {
   theme: emptyTheme,
-  token: defaultTheme,
-  hashId: `pro-${hashCode(JSON.stringify(defaultTheme))}`,
+  token: defaultToken,
+  hashId: `pro-${hashCode(JSON.stringify(defaultToken))}`,
 };
 
 export const useToken = () => token;
 
-export const darkAlgorithm = () => defaultTheme;
-export const defaultAlgorithm = () => defaultTheme;
+export const darkAlgorithm = () => defaultToken;
+export const defaultAlgorithm = () => defaultToken;

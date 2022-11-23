@@ -84,6 +84,7 @@
     "@umijs/fabric": "^3.0.0",
     "@umijs/plugin-analytics": "^0.2.2",
     "@umijs/plugin-esbuild": "^1.1.0",
+    "@umijs/ssr-darkreader": "^4.9.44",
     "@umijs/test": "^3.2.10",
     "@umijs/test-utils": "^3.2.10",
     "@umijs/utils": "^3.2.11",

@@ -67,19 +67,19 @@ const genSettingDrawerStyle: GenerateStyle<SettingDrawerToken> = (token) => {
           },
           '&-realDark': {
             backgroundColor: 'rgba(0, 21, 41, 0.85)',
-            '&::before': { backgroundColor: token.colorTextSecondary },
-            '&::after': { backgroundColor: token.colorText },
+            '&::before': { backgroundColor: 'rgba(0, 0, 0, 0.65)' },
+            '&::after': { backgroundColor: 'rgba(0, 0, 0, 0.85)' },
           },
           '&-light': {
-            backgroundColor: token.colorBgContainer,
-            '&::before': { backgroundColor: token.colorBgContainer },
-            '&::after': { backgroundColor: token.colorBgContainer },
+            backgroundColor: '#fff',
+            '&::before': { backgroundColor: '#fff' },
+            '&::after': { backgroundColor: '#fff' },
           },
 
           '&-dark,&-side': {
             backgroundColor: '#f7f8fa',
             '&::before': { zIndex: '1', backgroundColor: '#001529' },
-            '&::after': { backgroundColor: token.colorBgContainer },
+            '&::after': { backgroundColor: '#fff' },
           },
           '&-top': {
             backgroundColor: '#f7f8fa',
@@ -88,7 +88,7 @@ const genSettingDrawerStyle: GenerateStyle<SettingDrawerToken> = (token) => {
           },
           '&-mix': {
             backgroundColor: '#f7f8fa',
-            '&::before': { backgroundColor: token.colorBgContainer },
+            '&::before': { backgroundColor: '#fff' },
             '&::after': { backgroundColor: '#001529' },
           },
         },

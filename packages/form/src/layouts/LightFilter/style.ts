@@ -37,7 +37,7 @@ const genLightFilterStyle: GenerateStyle<LightFilterToken> = (token) => {
       },
       '&-effective': {
         [`${token.componentCls}-collapse-icon`]: {
-          backgroundColor: 'rgba(0,0,0,0.04)',
+          backgroundColor: token.colorBgTextHover,
         },
       },
     },

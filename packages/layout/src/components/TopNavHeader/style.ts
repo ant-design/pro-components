@@ -22,7 +22,6 @@ const genTopNavHeaderStyle: GenerateStyle<TopNavHeaderToken> = (token) => {
         '&-left': {
           display: 'flex',
           alignItems: 'center',
-          minWidth: '192px',
           [`${token.proComponentsCls}-layout-apps-icon`]: {
             marginInlineEnd: 16,
             marginInlineStart: -8,
@@ -35,7 +34,6 @@ const genTopNavHeaderStyle: GenerateStyle<TopNavHeaderToken> = (token) => {
       },
       '&-logo': {
         position: 'relative',
-        minWidth: '165px',
         display: 'flex',
         height: '100%',
         alignItems: 'center',

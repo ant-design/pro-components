@@ -1557,13 +1557,6 @@ describe('BasicLayout', () => {
     expect(html.baseElement.querySelectorAll('li.ant-menu-submenu-open').length).toBe(0);
   });
 
-  it('🥩  navTheme=realDark', () => {
-    const html = render(<ProLayout navTheme="realDark" />);
-    expect(html.baseElement.querySelector('aside.ant-layout-sider')?.getAttribute('style')).toBe(
-      'box-shadow: 0 2px 8px 0 rgba(0, 0, 0, 65%); flex: 0 0 256px; max-width: 256px; min-width: 256px; width: 256px;',
-    );
-  });
-
   it('🥩 formatMessage support', () => {
     const html = render(
       <ProLayout

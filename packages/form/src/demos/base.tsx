@@ -12,7 +12,7 @@ import {
   ProFormTreeSelect,
 } from '@ant-design/pro-components';
 import { message, TreeSelect } from 'antd';
-import moment from 'moment';
+import moment from 'dayjs';
 import { useRef } from 'react';
 
 const waitTime = (time: number = 100) => {

@@ -1,6 +1,6 @@
-import type { ProTokenType } from '@ant-design/pro-provider';
+import { darkAlgorithm, defaultAlgorithm, ProTokenType } from '@ant-design/pro-provider';
 import { ProProvider } from '@ant-design/pro-provider';
-import { ConfigProviderWrap } from '@ant-design/pro-provider';
+import { ProConfigProvider } from '@ant-design/pro-provider';
 import { isBrowser, merge, useDocumentTitle, useMountMergeState } from '@ant-design/pro-utils';
 import { getMatchMenu } from '@umijs/route-utils';
 import type { BreadcrumbProps as AntdBreadcrumbProps } from 'antd';
@@ -255,7 +255,7 @@ const footerRender = (props: ProLayoutProps): React.ReactNode => {
 };
 
 const renderSiderMenu = (props: ProLayoutProps, matchMenuKeys: string[]): React.ReactNode => {
-  const { layout, navTheme, isMobile, selectedKeys, openKeys, splitMenus, menuRender } = props;
+  const { layout, isMobile, selectedKeys, openKeys, splitMenus, menuRender } = props;
   if (props.menuRender === false || props.pure) {
     return null;
   }
@@ -284,13 +284,6 @@ const renderSiderMenu = (props: ProLayoutProps, matchMenuKeys: string[]): React.
     <SiderMenu
       matchMenuKeys={matchMenuKeys}
       {...props}
-      style={
-        navTheme === 'realDark'
-          ? {
-              boxShadow: '0 2px 8px 0 rgba(0, 0, 0, 65%)',
-            }
-          : {}
-      }
       // 这里走了可以少一次循环
       menuData={clearMenuData}
     />
@@ -730,15 +723,18 @@ const ProLayout: React.FC<ProLayoutProps> = (props) => {
       // @ts-ignore
       theme={{
         hashed: process.env.NODE_ENV?.toLowerCase() !== 'test',
-        token: {
-          borderRadius: 4,
-          colorPrimary: colorPrimary || '#1677FF',
-          colorError: '#ff4d4f',
-          colorInfo: '#1677FF',
+        components: {
+          Button: {
+            colorBgContainer: props.navTheme?.includes('Dark') ? 'transparent' : '#FFF',
+          },
         },
+        token: {
+          colorPrimary: colorPrimary || '#1677FF',
+        },
+        algorithm: props.navTheme?.includes('Dark') ? darkAlgorithm : defaultAlgorithm,
       }}
     >
-      <ConfigProviderWrap
+      <ProConfigProvider
         autoClearCache
         token={
           props.token
@@ -749,7 +745,7 @@ const ProLayout: React.FC<ProLayoutProps> = (props) => {
         }
       >
         <BaseProLayout {...props} />
-      </ConfigProviderWrap>
+      </ProConfigProvider>
     </ConfigProvider>
   );
 };

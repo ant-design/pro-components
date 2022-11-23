@@ -1,4 +1,4 @@
-import { ConfigProviderWrap, ProProvider } from '@ant-design/pro-provider';
+import { ProConfigProvider, ProProvider } from '@ant-design/pro-provider';
 import type { AffixProps, BreadcrumbProps, SpinProps, TabPaneProps, TabsProps } from 'antd';
 import { Affix, Breadcrumb, ConfigProvider, Tabs } from 'antd';
 import classNames from 'classnames';
@@ -401,9 +401,9 @@ const PageContainerBase: React.FC<PageContainerProps> = (props) => {
 
 const PageContainer: React.FC<PageContainerProps> = (props) => {
   return (
-    <ConfigProviderWrap needDeps>
+    <ProConfigProvider needDeps>
       <PageContainerBase {...props} />
-    </ConfigProviderWrap>
+    </ProConfigProvider>
   );
 };
 

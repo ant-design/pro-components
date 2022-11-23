@@ -129,7 +129,7 @@ const genSiderMenuStyle: GenerateStyle<SiderMenuToken> = (token) => {
                 cursor: 'pointer',
                 borderRadius: token.borderRadius,
                 '&:hover': {
-                  background: 'rgba(0, 0, 0, 0.018)',
+                  background: token.colorBgTextHover,
                 },
               },
             },
@@ -142,7 +142,7 @@ const genSiderMenuStyle: GenerateStyle<SiderMenuToken> = (token) => {
                 cursor: 'pointer',
               },
               '&:hover': {
-                background: 'rgba(0, 0, 0, 0.018)',
+                background: token.colorBgTextHover,
               },
             },
           },

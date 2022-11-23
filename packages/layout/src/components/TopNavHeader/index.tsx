@@ -45,19 +45,18 @@ const TopNavHeader: React.FC<TopNavHeaderProps> = (props) => {
               colorSubItemBg: token?.layout?.header?.colorBgHeader || 'transparent',
               radiusItem: 4,
               colorItemBgSelected:
-                token?.layout?.header?.colorBgMenuItemSelected || 'rgba(0, 0, 0, 0.04)',
+                token?.layout?.header?.colorBgMenuItemSelected || token?.colorBgTextHover,
               colorItemBgActive:
-                token?.layout?.header?.colorBgMenuItemHover || 'rgba(0, 0, 0, 0.04)',
+                token?.layout?.header?.colorBgMenuItemHover || token?.colorBgTextHover,
               colorItemBgSelectedHorizontal:
-                token?.layout?.header?.colorBgMenuItemSelected || 'rgba(0, 0, 0, 0.04)',
+                token?.layout?.header?.colorBgMenuItemSelected || token?.colorBgTextHover,
               colorActiveBarWidth: 0,
               colorActiveBarHeight: 0,
               colorActiveBarBorderSize: 0,
-              colorItemText: token?.layout?.header?.colorTextMenu || 'rgba(0, 0, 0, 0.65)',
-              colorItemTextHover:
-                token?.layout?.header?.colorTextMenuActive || 'rgba(0, 0, 0, 0.85)',
+              colorItemText: token?.layout?.header?.colorTextMenu || token?.colorTextSecondary,
+              colorItemTextHover: token?.layout?.header?.colorTextMenuActive || token?.colorText,
               colorItemTextSelected:
-                token?.layout?.header?.colorTextMenuSelected || 'rgba(0, 0, 0, 1)',
+                token?.layout?.header?.colorTextMenuSelected || token?.colorTextBase,
             },
           },
         }}

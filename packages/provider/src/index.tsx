@@ -32,7 +32,7 @@ import type { DeepPartial, ProTokenType } from './typing/layoutToken';
 import { getLayoutDesignToken } from './typing/layoutToken';
 import type { ProAliasToken } from './useStyle';
 import { useToken } from './useStyle';
-import { emptyTheme, defaultTheme } from './useStyle/token';
+import { emptyTheme, defaultToken } from './useStyle/token';
 import { merge } from './utils/merge';
 
 export * from './useStyle';
@@ -269,10 +269,10 @@ const ConfigContext = React.createContext<ConfigContextPropsType>({
   valueTypeMap: {},
   theme: emptyTheme,
   hashed: true,
-  token: defaultTheme as ProAliasToken,
+  token: defaultToken as ProAliasToken,
 });
 
-export const { Consumer: ConfigConsumer, Provider: ProConfigProvider } = ConfigContext;
+export const { Consumer: ConfigConsumer } = ConfigContext;
 
 /**
  * 根据 antd 的 key 来找到的 locale 插件的 key
@@ -314,7 +314,7 @@ const CacheClean = () => {
  *
  * @param param0
  */
-export const ConfigProviderWrap: React.FC<{
+export const ProConfigProvider: React.FC<{
   children: React.ReactNode;
   autoClearCache?: boolean;
   token?: DeepPartial<ProAliasToken>;
@@ -357,8 +357,11 @@ export const ConfigProviderWrap: React.FC<{
      * 合并一下token，不然导致嵌套 token 失效
      */
     const proLayoutTokenMerge = propsToken
-      ? getLayoutDesignToken(merge(proProvide.token?.layout, propsToken.layout || {}), defaultTheme)
-      : getLayoutDesignToken(proProvide.token?.layout || {}, defaultTheme);
+      ? getLayoutDesignToken(
+          merge(proProvide.token?.layout, propsToken.layout || {}),
+          tokenContext.token || defaultToken,
+        )
+      : getLayoutDesignToken(proProvide.token?.layout || {}, tokenContext.token || defaultToken);
 
     return {
       ...proProvide,
@@ -369,7 +372,15 @@ export const ConfigProviderWrap: React.FC<{
       }),
       intl: intl || zhCNIntl,
     };
-  }, [isNullProvide, locale?.locale, proProvide, propsToken, proComponentsCls, antCls]);
+  }, [
+    isNullProvide,
+    locale?.locale,
+    proProvide,
+    propsToken,
+    tokenContext.token,
+    proComponentsCls,
+    antCls,
+  ]);
 
   const finalToken = {
     ...(proProvideValue?.token || {}),
@@ -406,12 +417,12 @@ export const ConfigProviderWrap: React.FC<{
 
     const provide = (
       <ANTDProvider {...configProvider}>
-        <ProConfigProvider value={{ ...proProvideValue!, token, hashId }}>
+        <ConfigContext.Provider value={{ ...proProvideValue!, token, hashId }}>
           <>
             {autoClearCache && <CacheClean />}
             {children}
           </>
-        </ProConfigProvider>
+        </ConfigContext.Provider>
       </ANTDProvider>
     );
 
@@ -447,6 +458,9 @@ export function useIntl(): IntlType {
 
   return zhCNIntl;
 }
-export const ProProvider = ConfigContext;
+
+const ProProvider = ConfigContext;
+
+export { ProProvider };
 
 export default ConfigContext;

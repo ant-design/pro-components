@@ -5,11 +5,6 @@ import {
   SettingOutlined,
 } from '@ant-design/icons';
 import { compareVersions, isBrowser, merge, openVisibleCompatible } from '@ant-design/pro-utils';
-import {
-  disable as darkreaderDisable,
-  enable as darkreaderEnable,
-  setFetchMethod as setFetch,
-} from '@umijs/ssr-darkreader';
 import { useUrlSearchParams } from '@umijs/use-params';
 import {
   Alert,
@@ -108,33 +103,6 @@ export const getFormatMessage = (): ((data: { id: string; defaultMessage?: strin
   return formatMessage;
 };
 
-const updateTheme = async (dark: boolean) => {
-  if (typeof window === 'undefined') return;
-  if (typeof window.MutationObserver === 'undefined') return;
-
-  if (dark) {
-    const defaultTheme = {
-      brightness: 100,
-      contrast: 90,
-      sepia: 10,
-    };
-
-    const defaultFixes = {
-      invert: [],
-      css: '',
-      ignoreInlineStyle: ['.react-switch-handle'],
-      ignoreImageAnalysis: [],
-      disableStyleSheetsProxy: true,
-    };
-    if (window.MutationObserver && window.fetch) {
-      setFetch(window.fetch);
-      darkreaderEnable(defaultTheme, defaultFixes);
-    }
-  } else {
-    if (window.MutationObserver) darkreaderDisable();
-  }
-};
-
 /**
  * 初始化的时候需要做的工作
  *
@@ -164,11 +132,6 @@ const initState = (
 
   // 同步数据到外部
   onSettingChange?.(newSettings);
-
-  // 如果 url 中设置主题，进行一次加载。
-  if (defaultSettings.navTheme !== urlParams.navTheme && urlParams.navTheme) {
-    updateTheme(settings.navTheme === 'realDark');
-  }
 };
 
 const getParamsFromUrl = (
@@ -272,7 +235,6 @@ export const SettingDrawer: React.FC<SettingDrawerProps> = (props) => {
   }, []);
 
   useEffect(() => {
-    updateTheme(settingState.navTheme === 'realDark');
     if (compareVersions(version, '5.0.0') < 0) {
       AntConfigProvider.config({
         theme: {
@@ -533,6 +495,7 @@ export const SettingDrawer: React.FC<SettingDrawerProps> = (props) => {
               >
                 <List
                   split={false}
+                  size="small"
                   renderItem={renderLayoutSettingItem}
                   dataSource={[
                     {

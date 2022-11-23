@@ -12,7 +12,7 @@ import {
   ProFormTreeSelect,
 } from '@ant-design/pro-components';
 import { TreeSelect } from 'antd';
-import moment from 'moment';
+import dayjs from 'dayjs';
 import { useRef } from 'react';
 
 const treeData = [
@@ -209,7 +209,7 @@ export default () => {
         name="date"
         transform={(value) => {
           return {
-            date: moment(value).unix(),
+            date: dayjs(value).unix(),
           };
         }}
       />
@@ -220,7 +220,7 @@ export default () => {
               name="date"
               transform={(value) => {
                 return {
-                  date: moment(value).unix(),
+                  date: dayjs(value).unix(),
                 };
               }}
             />

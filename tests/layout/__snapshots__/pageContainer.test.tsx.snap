@@ -487,6 +487,15 @@ exports[`PageContainer 🐲 content is text and title is null 2`] = `
 Object {
   "asFragment": [Function],
   "baseElement": <body>
+    <style
+      data-rc-order="append"
+      rc-util-key="antd-wave"
+    >
+      
+      [ant-click-animating-without-extra-node='true']::after, .ant-click-animating-node {
+        --antd-wave-shadow-color: #d9d9d9;
+      }
+    </style>
     <div>
       <div
         class="ant-pro"

@@ -1,5 +1,5 @@
 /* eslint-disable react-hooks/exhaustive-deps */
-import { ConfigProviderWrap } from '@ant-design/pro-provider';
+import { ProConfigProvider } from '@ant-design/pro-provider';
 import type {
   ProFieldValueType,
   ProFormInstanceType,
@@ -677,7 +677,7 @@ function BaseForm<T = Record<string, any>>(props: BaseFormProps<T>) {
         mode: props.readonly ? 'read' : 'edit',
       }}
     >
-      <ConfigProviderWrap needDeps>
+      <ProConfigProvider needDeps>
         {/* // 增加国际化的能力，与 table 组件可以统一 */}
         <FieldContext.Provider
           value={{
@@ -739,7 +739,7 @@ function BaseForm<T = Record<string, any>>(props: BaseFormProps<T>) {
             </Form>
           </FormListContext.Provider>
         </FieldContext.Provider>
-      </ConfigProviderWrap>
+      </ProConfigProvider>
     </EditOrReadOnlyContext.Provider>,
   );
 }

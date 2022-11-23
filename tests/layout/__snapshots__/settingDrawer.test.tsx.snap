@@ -723,14 +723,14 @@ exports[`settingDrawer.test 🌺 base user 1`] = `
                                   class="ant-select-selection-search"
                                 >
                                   <input
-                                    aria-activedescendant="rc_select_0_list_0"
+                                    aria-activedescendant="rc_select_TEST_OR_SSR_list_0"
                                     aria-autocomplete="list"
-                                    aria-controls="rc_select_0_list"
+                                    aria-controls="rc_select_TEST_OR_SSR_list"
                                     aria-haspopup="listbox"
-                                    aria-owns="rc_select_0_list"
+                                    aria-owns="rc_select_TEST_OR_SSR_list"
                                     autocomplete="off"
                                     class="ant-select-selection-search-input"
-                                    id="rc_select_0"
+                                    id="rc_select_TEST_OR_SSR"
                                     readonly=""
                                     role="combobox"
                                     style="opacity: 0;"
@@ -1068,7 +1068,7 @@ exports[`settingDrawer.test 🌺 base user 1`] = `
                   其他设置
                 </h3>
                 <div
-                  class="ant-list"
+                  class="ant-list ant-list-sm"
                 >
                   <div
                     class="ant-spin-nested-loading"
@@ -1855,14 +1855,14 @@ exports[`settingDrawer.test 🌺 hideColors = true 1`] = `
                                   class="ant-select-selection-search"
                                 >
                                   <input
-                                    aria-activedescendant="rc_select_2_list_0"
+                                    aria-activedescendant="rc_select_TEST_OR_SSR_list_0"
                                     aria-autocomplete="list"
-                                    aria-controls="rc_select_2_list"
+                                    aria-controls="rc_select_TEST_OR_SSR_list"
                                     aria-haspopup="listbox"
-                                    aria-owns="rc_select_2_list"
+                                    aria-owns="rc_select_TEST_OR_SSR_list"
                                     autocomplete="off"
                                     class="ant-select-selection-search-input"
-                                    id="rc_select_2"
+                                    id="rc_select_TEST_OR_SSR"
                                     readonly=""
                                     role="combobox"
                                     style="opacity: 0;"
@@ -2200,7 +2200,7 @@ exports[`settingDrawer.test 🌺 hideColors = true 1`] = `
                   其他设置
                 </h3>
                 <div
-                  class="ant-list"
+                  class="ant-list ant-list-sm"
                 >
                   <div
                     class="ant-spin-nested-loading"
@@ -3056,14 +3056,14 @@ exports[`settingDrawer.test 🌺 hideCopyButton = true 1`] = `
                                   class="ant-select-selection-search"
                                 >
                                   <input
-                                    aria-activedescendant="rc_select_7_list_0"
+                                    aria-activedescendant="rc_select_TEST_OR_SSR_list_0"
                                     aria-autocomplete="list"
-                                    aria-controls="rc_select_7_list"
+                                    aria-controls="rc_select_TEST_OR_SSR_list"
                                     aria-haspopup="listbox"
-                                    aria-owns="rc_select_7_list"
+                                    aria-owns="rc_select_TEST_OR_SSR_list"
                                     autocomplete="off"
                                     class="ant-select-selection-search-input"
-                                    id="rc_select_7"
+                                    id="rc_select_TEST_OR_SSR"
                                     readonly=""
                                     role="combobox"
                                     style="opacity: 0;"
@@ -3401,7 +3401,7 @@ exports[`settingDrawer.test 🌺 hideCopyButton = true 1`] = `
                   其他设置
                 </h3>
                 <div
-                  class="ant-list"
+                  class="ant-list ant-list-sm"
                 >
                   <div
                     class="ant-spin-nested-loading"
@@ -4229,14 +4229,14 @@ exports[`settingDrawer.test 🌺 hideHintAlert = true 1`] = `
                                   class="ant-select-selection-search"
                                 >
                                   <input
-                                    aria-activedescendant="rc_select_5_list_0"
+                                    aria-activedescendant="rc_select_TEST_OR_SSR_list_0"
                                     aria-autocomplete="list"
-                                    aria-controls="rc_select_5_list"
+                                    aria-controls="rc_select_TEST_OR_SSR_list"
                                     aria-haspopup="listbox"
-                                    aria-owns="rc_select_5_list"
+                                    aria-owns="rc_select_TEST_OR_SSR_list"
                                     autocomplete="off"
                                     class="ant-select-selection-search-input"
-                                    id="rc_select_5"
+                                    id="rc_select_TEST_OR_SSR"
                                     readonly=""
                                     role="combobox"
                                     style="opacity: 0;"
@@ -4574,7 +4574,7 @@ exports[`settingDrawer.test 🌺 hideHintAlert = true 1`] = `
                   其他设置
                 </h3>
                 <div
-                  class="ant-list"
+                  class="ant-list ant-list-sm"
                 >
                   <div
                     class="ant-spin-nested-loading"
@@ -5395,14 +5395,14 @@ exports[`settingDrawer.test 🌺 settings = undefined 1`] = `
                                   class="ant-select-selection-search"
                                 >
                                   <input
-                                    aria-activedescendant="rc_select_1_list_0"
+                                    aria-activedescendant="rc_select_TEST_OR_SSR_list_0"
                                     aria-autocomplete="list"
-                                    aria-controls="rc_select_1_list"
+                                    aria-controls="rc_select_TEST_OR_SSR_list"
                                     aria-haspopup="listbox"
-                                    aria-owns="rc_select_1_list"
+                                    aria-owns="rc_select_TEST_OR_SSR_list"
                                     autocomplete="off"
                                     class="ant-select-selection-search-input"
-                                    id="rc_select_1"
+                                    id="rc_select_TEST_OR_SSR"
                                     readonly=""
                                     role="combobox"
                                     style="opacity: 0;"
@@ -5740,7 +5740,7 @@ exports[`settingDrawer.test 🌺 settings = undefined 1`] = `
                   其他设置
                 </h3>
                 <div
-                  class="ant-list"
+                  class="ant-list ant-list-sm"
                 >
                   <div
                     class="ant-spin-nested-loading"
