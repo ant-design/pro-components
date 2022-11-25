@@ -35,8 +35,9 @@ const genTopNavHeaderStyle: GenerateStyle<ProToken> = (token) => {
           display: 'inline-flex',
           alignItems: 'center',
           justifyContent: 'center',
-          paddingInlineStart: '16px',
-          paddingInlineEnd: '16px',
+          paddingInlineStart: token.padding,
+          paddingInlineEnd: token.padding,
+          cursor: 'pointer',
           color: token.colorTextSecondary,
           '> div': {
             height: '44px',
@@ -49,7 +50,7 @@ const genTopNavHeaderStyle: GenerateStyle<ProToken> = (token) => {
             lineHeight: '44px',
             borderRadius: token.borderRadius,
             '&:hover': {
-              backgroundColor: 'rgba(0, 0, 0, 0.03)',
+              backgroundColor: token?.layout?.header?.colorBgRightActionsItemHover,
             },
           },
         },

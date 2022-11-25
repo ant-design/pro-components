@@ -17,7 +17,7 @@
     "lint:prettier": "npm run prettier &&  git diff && prettier --version && prettier --check \"packages/**/**.{js,jsx,tsx,ts,less,md,json}\" --end-of-line auto",
     "prettier": "prettier --write \"**/**.{js,jsx,tsx,ts,less,md,json}\" --loglevel warn",
     "release": "npm run test && node ./scripts/release.js",
-    "site": "node ./scripts/preDeploy && cross-env SITE_DEPLOY='TRUE' dumi build && node scripts/ssr.js",
+    "site": "node ./scripts/preDeploy && cross-env SITE_DEPLOY='TRUE' dumi build",
     "dumi": "node ./scripts/preDeploy && cross-env SITE_DEPLOY='TRUE' dumi build",
     "start": "npm run version && dumi dev",
     "sync:tnpm": "node -e 'require(\"./scripts/syncTNPM\")()'",
