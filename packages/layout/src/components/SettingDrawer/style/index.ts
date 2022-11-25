@@ -30,7 +30,7 @@ const genSettingDrawerStyle: GenerateStyle<SettingDrawerToken> = (token) => {
     [token.componentCls]: {
       '&-content': { position: 'relative', minHeight: '100%', color: token.colorText },
       '&-body-title': {
-        marginBlockEnd: '12px',
+        marginBlock: token.marginXS,
         fontSize: '14px',
         lineHeight: '22px',
         color: token.colorTextHeading,
@@ -38,14 +38,14 @@ const genSettingDrawerStyle: GenerateStyle<SettingDrawerToken> = (token) => {
       '&-block-checkbox': {
         display: 'flex',
         minHeight: 42,
+        gap: 12,
         '& &-item': {
           position: 'relative',
           width: '44px',
           height: '36px',
-          marginInlineEnd: '16px',
           overflow: 'hidden',
           borderRadius: '4px',
-          boxShadow: '0 1px 2.5px 0 rgba(0, 0, 0, 0.18)',
+          boxShadow: token.boxShadowCard,
           cursor: 'pointer',
           fontSize: 56,
           lineHeight: '56px',
@@ -121,6 +121,12 @@ const genSettingDrawerStyle: GenerateStyle<SettingDrawerToken> = (token) => {
           textAlign: 'center',
           borderRadius: '2px',
           cursor: 'pointer',
+        },
+      },
+      '&-list': {
+        [`li${token.antCls}-list-item`]: {
+          paddingInline: 0,
+          paddingBlock: 8,
         },
       },
     },

@@ -60,7 +60,7 @@ exports[`settingDrawer.test 🌺 base user 1`] = `
               class="ant-pro-setting-drawer-drawer-content "
             >
               <div
-                style="margin-block-end: 24px;"
+                style="margin-block-end: 12px;"
               >
                 <h3
                   class="ant-pro-setting-drawer-body-title "
@@ -97,7 +97,7 @@ exports[`settingDrawer.test 🌺 base user 1`] = `
                 </div>
               </div>
               <div
-                style="margin-block-end: 24px;"
+                style="margin-block-end: 12px;"
               >
                 <h3
                   class="ant-pro-setting-drawer-body-title "
@@ -170,7 +170,7 @@ exports[`settingDrawer.test 🌺 base user 1`] = `
                 role="separator"
               />
               <div
-                style="margin-block-end: 24px;"
+                style="margin-block-end: 12px;"
               >
                 <h3
                   class="ant-pro-setting-drawer-body-title "
@@ -255,7 +255,7 @@ exports[`settingDrawer.test 🌺 base user 1`] = `
                 </div>
               </div>
               <div
-                style="margin-block-end: 24px;"
+                style="margin-block-end: 12px;"
               >
                 <h3
                   class="ant-pro-setting-drawer-body-title "
@@ -689,7 +689,7 @@ exports[`settingDrawer.test 🌺 base user 1`] = `
                 </div>
               </div>
               <div
-                class="ant-list"
+                class="ant-list ant-pro-setting-drawer-list "
               >
                 <div
                   class="ant-spin-nested-loading"
@@ -891,7 +891,7 @@ exports[`settingDrawer.test 🌺 base user 1`] = `
                 role="separator"
               />
               <div
-                style="margin-block-end: 24px;"
+                style="margin-block-end: 12px;"
               >
                 <h3
                   class="ant-pro-setting-drawer-body-title "
@@ -899,7 +899,7 @@ exports[`settingDrawer.test 🌺 base user 1`] = `
                   内容区域
                 </h3>
                 <div
-                  class="ant-list"
+                  class="ant-list ant-pro-setting-drawer-list "
                 >
                   <div
                     class="ant-spin-nested-loading"
@@ -1060,7 +1060,7 @@ exports[`settingDrawer.test 🌺 base user 1`] = `
                 role="separator"
               />
               <div
-                style="margin-block-end: 24px;"
+                style="margin-block-end: 12px;"
               >
                 <h3
                   class="ant-pro-setting-drawer-body-title "
@@ -1068,7 +1068,7 @@ exports[`settingDrawer.test 🌺 base user 1`] = `
                   其他设置
                 </h3>
                 <div
-                  class="ant-list ant-list-sm"
+                  class="ant-list ant-list-sm ant-pro-setting-drawer-list "
                 >
                   <div
                     class="ant-spin-nested-loading"
@@ -1261,7 +1261,7 @@ exports[`settingDrawer.test 🌺 hideColors = true 1`] = `
               class="ant-pro-setting-drawer-drawer-content "
             >
               <div
-                style="margin-block-end: 24px;"
+                style="margin-block-end: 12px;"
               >
                 <h3
                   class="ant-pro-setting-drawer-body-title "
@@ -1302,7 +1302,7 @@ exports[`settingDrawer.test 🌺 hideColors = true 1`] = `
                 role="separator"
               />
               <div
-                style="margin-block-end: 24px;"
+                style="margin-block-end: 12px;"
               >
                 <h3
                   class="ant-pro-setting-drawer-body-title "
@@ -1387,7 +1387,7 @@ exports[`settingDrawer.test 🌺 hideColors = true 1`] = `
                 </div>
               </div>
               <div
-                style="margin-block-end: 24px;"
+                style="margin-block-end: 12px;"
               >
                 <h3
                   class="ant-pro-setting-drawer-body-title "
@@ -1821,7 +1821,7 @@ exports[`settingDrawer.test 🌺 hideColors = true 1`] = `
                 </div>
               </div>
               <div
-                class="ant-list"
+                class="ant-list ant-pro-setting-drawer-list "
               >
                 <div
                   class="ant-spin-nested-loading"
@@ -2023,7 +2023,7 @@ exports[`settingDrawer.test 🌺 hideColors = true 1`] = `
                 role="separator"
               />
               <div
-                style="margin-block-end: 24px;"
+                style="margin-block-end: 12px;"
               >
                 <h3
                   class="ant-pro-setting-drawer-body-title "
@@ -2031,7 +2031,7 @@ exports[`settingDrawer.test 🌺 hideColors = true 1`] = `
                   内容区域
                 </h3>
                 <div
-                  class="ant-list"
+                  class="ant-list ant-pro-setting-drawer-list "
                 >
                   <div
                     class="ant-spin-nested-loading"
@@ -2192,7 +2192,7 @@ exports[`settingDrawer.test 🌺 hideColors = true 1`] = `
                 role="separator"
               />
               <div
-                style="margin-block-end: 24px;"
+                style="margin-block-end: 12px;"
               >
                 <h3
                   class="ant-pro-setting-drawer-body-title "
@@ -2200,7 +2200,7 @@ exports[`settingDrawer.test 🌺 hideColors = true 1`] = `
                   其他设置
                 </h3>
                 <div
-                  class="ant-list ant-list-sm"
+                  class="ant-list ant-list-sm ant-pro-setting-drawer-list "
                 >
                   <div
                     class="ant-spin-nested-loading"
@@ -2393,7 +2393,7 @@ exports[`settingDrawer.test 🌺 hideCopyButton = true 1`] = `
               class="ant-pro-setting-drawer-drawer-content "
             >
               <div
-                style="margin-block-end: 24px;"
+                style="margin-block-end: 12px;"
               >
                 <h3
                   class="ant-pro-setting-drawer-body-title "
@@ -2430,7 +2430,7 @@ exports[`settingDrawer.test 🌺 hideCopyButton = true 1`] = `
                 </div>
               </div>
               <div
-                style="margin-block-end: 24px;"
+                style="margin-block-end: 12px;"
               >
                 <h3
                   class="ant-pro-setting-drawer-body-title "
@@ -2503,7 +2503,7 @@ exports[`settingDrawer.test 🌺 hideCopyButton = true 1`] = `
                 role="separator"
               />
               <div
-                style="margin-block-end: 24px;"
+                style="margin-block-end: 12px;"
               >
                 <h3
                   class="ant-pro-setting-drawer-body-title "
@@ -2588,7 +2588,7 @@ exports[`settingDrawer.test 🌺 hideCopyButton = true 1`] = `
                 </div>
               </div>
               <div
-                style="margin-block-end: 24px;"
+                style="margin-block-end: 12px;"
               >
                 <h3
                   class="ant-pro-setting-drawer-body-title "
@@ -3022,7 +3022,7 @@ exports[`settingDrawer.test 🌺 hideCopyButton = true 1`] = `
                 </div>
               </div>
               <div
-                class="ant-list"
+                class="ant-list ant-pro-setting-drawer-list "
               >
                 <div
                   class="ant-spin-nested-loading"
@@ -3224,7 +3224,7 @@ exports[`settingDrawer.test 🌺 hideCopyButton = true 1`] = `
                 role="separator"
               />
               <div
-                style="margin-block-end: 24px;"
+                style="margin-block-end: 12px;"
               >
                 <h3
                   class="ant-pro-setting-drawer-body-title "
@@ -3232,7 +3232,7 @@ exports[`settingDrawer.test 🌺 hideCopyButton = true 1`] = `
                   内容区域
                 </h3>
                 <div
-                  class="ant-list"
+                  class="ant-list ant-pro-setting-drawer-list "
                 >
                   <div
                     class="ant-spin-nested-loading"
@@ -3393,7 +3393,7 @@ exports[`settingDrawer.test 🌺 hideCopyButton = true 1`] = `
                 role="separator"
               />
               <div
-                style="margin-block-end: 24px;"
+                style="margin-block-end: 12px;"
               >
                 <h3
                   class="ant-pro-setting-drawer-body-title "
@@ -3401,7 +3401,7 @@ exports[`settingDrawer.test 🌺 hideCopyButton = true 1`] = `
                   其他设置
                 </h3>
                 <div
-                  class="ant-list ant-list-sm"
+                  class="ant-list ant-list-sm ant-pro-setting-drawer-list "
                 >
                   <div
                     class="ant-spin-nested-loading"
@@ -3566,7 +3566,7 @@ exports[`settingDrawer.test 🌺 hideHintAlert = true 1`] = `
               class="ant-pro-setting-drawer-drawer-content "
             >
               <div
-                style="margin-block-end: 24px;"
+                style="margin-block-end: 12px;"
               >
                 <h3
                   class="ant-pro-setting-drawer-body-title "
@@ -3603,7 +3603,7 @@ exports[`settingDrawer.test 🌺 hideHintAlert = true 1`] = `
                 </div>
               </div>
               <div
-                style="margin-block-end: 24px;"
+                style="margin-block-end: 12px;"
               >
                 <h3
                   class="ant-pro-setting-drawer-body-title "
@@ -3676,7 +3676,7 @@ exports[`settingDrawer.test 🌺 hideHintAlert = true 1`] = `
                 role="separator"
               />
               <div
-                style="margin-block-end: 24px;"
+                style="margin-block-end: 12px;"
               >
                 <h3
                   class="ant-pro-setting-drawer-body-title "
@@ -3761,7 +3761,7 @@ exports[`settingDrawer.test 🌺 hideHintAlert = true 1`] = `
                 </div>
               </div>
               <div
-                style="margin-block-end: 24px;"
+                style="margin-block-end: 12px;"
               >
                 <h3
                   class="ant-pro-setting-drawer-body-title "
@@ -4195,7 +4195,7 @@ exports[`settingDrawer.test 🌺 hideHintAlert = true 1`] = `
                 </div>
               </div>
               <div
-                class="ant-list"
+                class="ant-list ant-pro-setting-drawer-list "
               >
                 <div
                   class="ant-spin-nested-loading"
@@ -4397,7 +4397,7 @@ exports[`settingDrawer.test 🌺 hideHintAlert = true 1`] = `
                 role="separator"
               />
               <div
-                style="margin-block-end: 24px;"
+                style="margin-block-end: 12px;"
               >
                 <h3
                   class="ant-pro-setting-drawer-body-title "
@@ -4405,7 +4405,7 @@ exports[`settingDrawer.test 🌺 hideHintAlert = true 1`] = `
                   内容区域
                 </h3>
                 <div
-                  class="ant-list"
+                  class="ant-list ant-pro-setting-drawer-list "
                 >
                   <div
                     class="ant-spin-nested-loading"
@@ -4566,7 +4566,7 @@ exports[`settingDrawer.test 🌺 hideHintAlert = true 1`] = `
                 role="separator"
               />
               <div
-                style="margin-block-end: 24px;"
+                style="margin-block-end: 12px;"
               >
                 <h3
                   class="ant-pro-setting-drawer-body-title "
@@ -4574,7 +4574,7 @@ exports[`settingDrawer.test 🌺 hideHintAlert = true 1`] = `
                   其他设置
                 </h3>
                 <div
-                  class="ant-list ant-list-sm"
+                  class="ant-list ant-list-sm ant-pro-setting-drawer-list "
                 >
                   <div
                     class="ant-spin-nested-loading"
@@ -4732,7 +4732,7 @@ exports[`settingDrawer.test 🌺 settings = undefined 1`] = `
               class="ant-pro-setting-drawer-drawer-content "
             >
               <div
-                style="margin-block-end: 24px;"
+                style="margin-block-end: 12px;"
               >
                 <h3
                   class="ant-pro-setting-drawer-body-title "
@@ -4769,7 +4769,7 @@ exports[`settingDrawer.test 🌺 settings = undefined 1`] = `
                 </div>
               </div>
               <div
-                style="margin-block-end: 24px;"
+                style="margin-block-end: 12px;"
               >
                 <h3
                   class="ant-pro-setting-drawer-body-title "
@@ -4842,7 +4842,7 @@ exports[`settingDrawer.test 🌺 settings = undefined 1`] = `
                 role="separator"
               />
               <div
-                style="margin-block-end: 24px;"
+                style="margin-block-end: 12px;"
               >
                 <h3
                   class="ant-pro-setting-drawer-body-title "
@@ -4927,7 +4927,7 @@ exports[`settingDrawer.test 🌺 settings = undefined 1`] = `
                 </div>
               </div>
               <div
-                style="margin-block-end: 24px;"
+                style="margin-block-end: 12px;"
               >
                 <h3
                   class="ant-pro-setting-drawer-body-title "
@@ -5361,7 +5361,7 @@ exports[`settingDrawer.test 🌺 settings = undefined 1`] = `
                 </div>
               </div>
               <div
-                class="ant-list"
+                class="ant-list ant-pro-setting-drawer-list "
               >
                 <div
                   class="ant-spin-nested-loading"
@@ -5563,7 +5563,7 @@ exports[`settingDrawer.test 🌺 settings = undefined 1`] = `
                 role="separator"
               />
               <div
-                style="margin-block-end: 24px;"
+                style="margin-block-end: 12px;"
               >
                 <h3
                   class="ant-pro-setting-drawer-body-title "
@@ -5571,7 +5571,7 @@ exports[`settingDrawer.test 🌺 settings = undefined 1`] = `
                   内容区域
                 </h3>
                 <div
-                  class="ant-list"
+                  class="ant-list ant-pro-setting-drawer-list "
                 >
                   <div
                     class="ant-spin-nested-loading"
@@ -5732,7 +5732,7 @@ exports[`settingDrawer.test 🌺 settings = undefined 1`] = `
                 role="separator"
               />
               <div
-                style="margin-block-end: 24px;"
+                style="margin-block-end: 12px;"
               >
                 <h3
                   class="ant-pro-setting-drawer-body-title "
@@ -5740,7 +5740,7 @@ exports[`settingDrawer.test 🌺 settings = undefined 1`] = `
                   其他设置
                 </h3>
                 <div
-                  class="ant-list ant-list-sm"
+                  class="ant-list ant-list-sm ant-pro-setting-drawer-list "
                 >
                   <div
                     class="ant-spin-nested-loading"

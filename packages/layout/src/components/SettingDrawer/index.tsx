@@ -45,7 +45,7 @@ type MergerSettingsType<T> = Partial<T> & {
 };
 
 const Body: React.FC<BodyProps> = ({ children, hashId, prefixCls, title }) => (
-  <div style={{ marginBlockEnd: 24 }}>
+  <div style={{ marginBlockEnd: 12 }}>
     <h3 className={`${prefixCls}-body-title ${hashId}`}>{title}</h3>
     {children}
   </div>
@@ -468,6 +468,7 @@ export const SettingDrawer: React.FC<SettingDrawerProps> = (props) => {
                 </Body>
               ) : null}
               <LayoutSetting
+                prefixCls={baseClassName}
                 hashId={hashId}
                 settings={settingState}
                 changeSetting={changeSetting}
@@ -481,6 +482,7 @@ export const SettingDrawer: React.FC<SettingDrawerProps> = (props) => {
               >
                 <RegionalSetting
                   hashId={hashId}
+                  prefixCls={baseClassName}
                   settings={settingState}
                   changeSetting={changeSetting}
                 />
@@ -494,6 +496,7 @@ export const SettingDrawer: React.FC<SettingDrawerProps> = (props) => {
                 title={formatMessage({ id: 'app.setting.othersettings' })}
               >
                 <List
+                  className={`${baseClassName}-list ${hashId}`}
                   split={false}
                   size="small"
                   renderItem={renderLayoutSettingItem}
