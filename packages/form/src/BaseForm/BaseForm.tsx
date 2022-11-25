@@ -342,18 +342,6 @@ function BaseFormComponents<T = Record<string, any>>(
     [submitter],
   );
 
-  // 初始化给一个默认的 form
-  useImperativeHandle(
-    propsFormRef,
-    () => {
-      return {
-        ...formInstance,
-        ...formatValues,
-      };
-    },
-    [formatValues, formInstance],
-  );
-
   /** 渲染提交按钮与重置按钮 */
   const submitterNode = useMemo(() => {
     if (submitter === false) return undefined;
