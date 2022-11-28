@@ -111,18 +111,19 @@ export function useStyle(
   const { token = {} as ProAliasToken, hashId = '', theme } = useContext(ProProvider);
   const { getPrefixCls } = useContext(AntdConfigProvider.ConfigContext);
 
-  token.antCls = `.${getPrefixCls()}`;
+  const mergeAntdThemeToken = { ...token, ...antdTheme?.useToken().token };
+  mergeAntdThemeToken.antCls = `.${getPrefixCls()}`;
 
   return {
     wrapSSR: useStyleRegister(
       {
         theme: theme!,
-        token,
-        hashId,
+        token: mergeAntdThemeToken,
+        hashId: antdTheme?.useToken()?.hashId ?? hashId,
         path: [componentName],
       },
-      () => styleFn(token as ProAliasToken),
+      () => styleFn(mergeAntdThemeToken as ProAliasToken),
     ),
-    hashId,
+    hashId: antdTheme?.useToken()?.hashId ?? hashId,
   };
 }
