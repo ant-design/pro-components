@@ -1,7 +1,7 @@
-import { darkAlgorithm, defaultAlgorithm, ProTokenType } from '@ant-design/pro-provider';
+import type { ProTokenType } from '@ant-design/pro-provider';
 import { ProProvider } from '@ant-design/pro-provider';
 import { ProConfigProvider } from '@ant-design/pro-provider';
-import { isBrowser, merge, useDocumentTitle, useMountMergeState } from '@ant-design/pro-utils';
+import { isBrowser, useDocumentTitle, useMountMergeState } from '@ant-design/pro-utils';
 import { getMatchMenu } from '@umijs/route-utils';
 import type { BreadcrumbProps as AntdBreadcrumbProps } from 'antd';
 import { ConfigProvider, Layout } from 'antd';
@@ -717,33 +717,16 @@ BaseProLayout.defaultProps = {
 
 const ProLayout: React.FC<ProLayoutProps> = (props) => {
   const { colorPrimary } = props;
-  const tokenContext = useContext(ProProvider);
   return (
     <ConfigProvider
       // @ts-ignore
       theme={{
-        hashed: process.env.NODE_ENV?.toLowerCase() !== 'test',
-        components: {
-          Button: {
-            colorBgContainer: props.navTheme?.includes('Dark') ? 'transparent' : '#FFF',
-          },
-        },
         token: {
           colorPrimary: colorPrimary || '#1677FF',
         },
-        algorithm: props.navTheme?.includes('Dark') ? darkAlgorithm : defaultAlgorithm,
       }}
     >
-      <ProConfigProvider
-        autoClearCache
-        token={
-          props.token
-            ? merge(tokenContext.token, {
-                layout: merge(tokenContext.token?.layout, props.token || {}),
-              })
-            : undefined
-        }
-      >
+      <ProConfigProvider autoClearCache dark={props.navTheme === 'realDark'} token={props.token}>
         <BaseProLayout {...props} />
       </ProConfigProvider>
     </ConfigProvider>

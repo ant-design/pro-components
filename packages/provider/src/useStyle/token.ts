@@ -403,7 +403,8 @@ export const token = {
   hashId: `pro-${hashCode(JSON.stringify(defaultToken))}`,
 };
 
-export const useToken = () => token;
+export const useToken = () => token as any;
 
 export const darkAlgorithm = () => defaultToken;
 export const defaultAlgorithm = () => defaultToken;
+export const compactAlgorithm = () => defaultToken;

@@ -10,7 +10,7 @@ import {
 import ProCard from '@ant-design/pro-card';
 import type { ProSettings } from '@ant-design/pro-layout';
 import { PageContainer, ProLayout, SettingDrawer } from '@ant-design/pro-layout';
-import { ProProvider } from '@ant-design/pro-provider';
+import { ProConfigProvider } from '@ant-design/pro-provider';
 import { css } from '@emotion/css';
 import { Button, Divider, Popover, Input, theme } from 'antd';
 import React, { useState } from 'react';
@@ -261,11 +261,7 @@ export default () => {
         height: '100vh',
       }}
     >
-      <ProProvider.Provider
-        value={{
-          hashed: false,
-        }}
-      >
+      <ProConfigProvider hashed={false}>
         <ProLayout
           bgLayoutImgList={[
             {
@@ -401,7 +397,7 @@ export default () => {
             disableUrlParams={false}
           />
         </ProLayout>
-      </ProProvider.Provider>
+      </ProConfigProvider>
     </div>
   );
 };

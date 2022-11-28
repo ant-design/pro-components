@@ -44,7 +44,6 @@ describe('BasicLayout', () => {
         }}
       />,
     );
-    wrapper.debug();
     await waitForComponentToPaint(wrapper, 1000);
     expect(wrapper.baseElement.querySelector('.ant-skeleton')).toMatchSnapshot();
     wrapper.unmount();

@@ -1,4 +1,4 @@
-import ConfigContext from '@ant-design/pro-provider';
+import ProConfigContext from '@ant-design/pro-provider';
 import type {
   BaseProFieldFC,
   ProFieldFCRenderProps,
@@ -466,7 +466,7 @@ const ProFieldComponent: React.ForwardRefRenderFunction<any, ProFieldPropsType> 
   { text, valueType = 'text', mode = 'read', onChange, renderFormItem, value, readonly, ...rest },
   ref: any,
 ) => {
-  const context = useContext(ConfigContext);
+  const context = useContext(ProConfigContext);
 
   const fieldProps = (value !== undefined || onChange || rest?.fieldProps) && {
     value,

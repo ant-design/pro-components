@@ -53,7 +53,6 @@ describe('BasicTable Search', () => {
 
     await waitForComponentToPaint(html, 800);
     act(() => {
-      html.find('.ant-table-filter-dropdown').debug();
       html.find('span.ant-table-filter-trigger').simulate('click');
       html
         .find('.ant-table-filter-dropdown .ant-dropdown-menu-item')
@@ -125,7 +124,6 @@ describe('BasicTable Search', () => {
 
     await waitForComponentToPaint(html, 800);
     act(() => {
-      html.find('.ant-table-filter-dropdown').debug();
       html.find('span.ant-table-filter-trigger').simulate('click');
       html
         .find('.ant-table-filter-dropdown .ant-dropdown-menu-item')
@@ -209,7 +207,6 @@ describe('BasicTable Search', () => {
 
     await waitForComponentToPaint(html, 800);
     act(() => {
-      html.find('.ant-table-filter-dropdown').debug();
       html.find('span.ant-table-filter-trigger').simulate('click');
       html
         .find('.ant-table-filter-dropdown .ant-dropdown-menu-item')
@@ -235,7 +232,6 @@ describe('BasicTable Search', () => {
 
     await waitForComponentToPaint(html, 800);
     act(() => {
-      html.find('.ant-table-filter-dropdown').debug();
       html.find('span.ant-table-filter-trigger').simulate('click');
       html
         .find('.ant-table-filter-dropdown .ant-dropdown-menu-item')

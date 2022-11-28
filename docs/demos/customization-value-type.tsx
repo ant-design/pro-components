@@ -1,14 +1,9 @@
 import type { ProFormColumnsType } from '@ant-design/pro-components';
-import {
-  BetaSchemaForm,
-  ProCard,
-  ProDescriptions,
-  ProProvider,
-  ProTable,
-} from '@ant-design/pro-components';
+import { ProConfigProvider } from '@ant-design/pro-components';
+import { BetaSchemaForm, ProCard, ProDescriptions, ProTable } from '@ant-design/pro-components';
 import type { InputRef } from 'antd';
 import { Input, Space, Tag } from 'antd';
-import React, { useContext, useRef, useState } from 'react';
+import React, { useRef, useState } from 'react';
 
 const valueEnum = {
   0: 'close',
@@ -149,33 +144,29 @@ const initialValue = {
 };
 
 export default () => {
-  const values = useContext(ProProvider);
   return (
-    <ProProvider.Provider
-      value={{
-        hashed: false,
-        ...values,
-        valueTypeMap: {
-          link: {
-            render: (text) => <a>{text}</a>,
-            renderFormItem: (text, props) => (
-              <Input placeholder="请输入链接" {...props?.fieldProps} />
-            ),
+    <ProConfigProvider
+      valueTypeMap={{
+        link: {
+          render: (text) => <a>{text}</a>,
+          renderFormItem: (text, props) => (
+            <Input placeholder="请输入链接" {...props?.fieldProps} />
+          ),
+        },
+        tags: {
+          render: (text) => {
+            return (
+              <>
+                {[text].flat(1).map((item) => (
+                  <Tag key={item.value}>{item.label}</Tag>
+                ))}
+              </>
+            );
           },
-          tags: {
-            render: (text) => {
-              return (
-                <>
-                  {[text].flat(1).map((item) => (
-                    <Tag key={item.value}>{item.label}</Tag>
-                  ))}
-                </>
-              );
-            },
-            renderFormItem: (text, props) => <TagList {...props} {...props?.fieldProps} />,
-          },
+          renderFormItem: (text, props) => <TagList {...props} {...props?.fieldProps} />,
         },
       }}
+      hashed={false}
     >
       <ProCard
         title="SchemaForm"
@@ -213,6 +204,6 @@ export default () => {
       >
         <ProDescriptions columns={tableColumns} dataSource={initialValue} />
       </ProCard>
-    </ProProvider.Provider>
+    </ProConfigProvider>
   );
 };
