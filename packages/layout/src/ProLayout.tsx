@@ -717,6 +717,14 @@ BaseProLayout.defaultProps = {
 
 const ProLayout: React.FC<ProLayoutProps> = (props) => {
   const { colorPrimary } = props;
+
+  const darkProps =
+    props.navTheme !== undefined
+      ? {
+          dark: props.navTheme !== 'realDark',
+        }
+      : {};
+
   return (
     <ConfigProvider
       // @ts-ignore
@@ -726,7 +734,7 @@ const ProLayout: React.FC<ProLayoutProps> = (props) => {
         },
       }}
     >
-      <ProConfigProvider autoClearCache dark={props.navTheme === 'realDark'} token={props.token}>
+      <ProConfigProvider autoClearCache {...darkProps} token={props.token}>
         <BaseProLayout {...props} />
       </ProConfigProvider>
     </ConfigProvider>

@@ -258,6 +258,7 @@ export type ConfigContextPropsType = {
   token?: ProAliasToken;
   hashId?: string;
   hashed?: boolean;
+  dark?: boolean;
   theme?: Theme<any, any>;
 };
 
@@ -270,6 +271,7 @@ const ProConfigContext = React.createContext<ConfigContextPropsType>({
   valueTypeMap: {},
   theme: emptyTheme,
   hashed: true,
+  dark: false,
   token: defaultToken as ProAliasToken,
 });
 
@@ -316,8 +318,9 @@ const ConfigProVoidContainer: React.FC<{
   valueTypeMap?: Record<string, ProRenderFieldPropsType>;
   token?: DeepPartial<ProAliasToken>;
   hashed?: boolean;
+  dark?: boolean;
 }> = (props) => {
-  const { children, valueTypeMap, autoClearCache = false, token: propsToken } = props;
+  const { children, dark, valueTypeMap, autoClearCache = false, token: propsToken } = props;
   const { locale, getPrefixCls, ...restConfig } = useContext(AntdConfigProvider.ConfigContext);
   const tokenContext = useToken?.();
 
@@ -349,9 +352,9 @@ const ConfigProVoidContainer: React.FC<{
       localeName && proProvide.intl?.locale === 'default'
         ? intlMap[key!]
         : proProvide.intl || intlMap[key!];
-
     return {
       ...proProvide,
+      dark: dark ?? proProvide.dark,
       token: merge(proProvide.token, tokenContext.token, {
         proComponentsCls,
         antCls,
@@ -363,6 +366,7 @@ const ConfigProVoidContainer: React.FC<{
   }, [
     locale?.locale,
     proProvide,
+    dark,
     tokenContext.token,
     tokenContext.theme.id,
     proComponentsCls,
@@ -458,7 +462,7 @@ export const ProConfigProvider: React.FC<{
     locale: locale || zh_CN,
     theme: {
       ...theme,
-      algorithm: dark ? darkAlgorithm : defaultAlgorithm,
+      algorithm: dark ?? proProvide.dark ? darkAlgorithm : defaultAlgorithm,
     },
   };
 
