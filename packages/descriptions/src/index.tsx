@@ -210,7 +210,7 @@ export const FieldRender: React.FC<
         )
       : undefined;
     return (
-      <Space>
+      <Space style={{ alignItems: 'baseline' }}>
         <InlineErrorFormItem
           name={dataIndex}
           {...formItemProps}
