@@ -8,6 +8,21 @@ group:
   path: /
 ---
 
+## @ant-design/pro-components@2.3.36
+
+`2022-11-30`
+
+- fix(layout): fix collapsedshowtitle style error. [e4dc580](https://github.com/ant-design/pro-components/commit/e4dc580)
+- fix(layout): 修复 Footer <a> 标签单独使用时带有下划线问题 (#6300). [#6300](https://github.com/ant-design/pro-components/pull/#6300) [@leshalv](https://github.com/leshalv)
+- feat(layout): support stylish. [60c0b54](https://github.com/ant-design/pro-components/commit/60c0b54)
+- fix(layout): better theme gen style. [fcbc182](https://github.com/ant-design/pro-components/commit/fcbc182)
+- fix(layout): update drawer style. [eb7ace8](https://github.com/ant-design/pro-components/commit/eb7ace8)
+- feat(layout): fix dark style no work error. [3e06527](https://github.com/ant-design/pro-components/commit/3e06527)
+- fix(form): new antd version use items props. [9f520bf](https://github.com/ant-design/pro-components/commit/9f520bf)
+- fix(form): formRef repeats the assignment (#6278). [#6278](https://github.com/ant-design/pro-components/pull/#6278) [@caijf](https://github.com/caijf)
+- fix(table): Sortable 组件提取到外部防止不必要的页面重建 (#6246). [#6246](https://github.com/ant-design/pro-components/pull/#6246) [@yqz0203](https://github.com/yqz0203)
+- fix(descriptions): 修复 ProDescriptions 编辑带有校验情况下，样式排版问题 (#6254). [#6254](https://github.com/ant-design/pro-components/pull/#6254) [@leshalv](https://github.com/leshalv)
+
 ## @ant-design/pro-components@2.3.34
 
 `2022-11-17`
