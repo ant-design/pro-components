@@ -1,7 +1,7 @@
-import type { ProTokenType } from '@ant-design/pro-provider';
+import type { GenerateStyle, ProTokenType } from '@ant-design/pro-provider';
 import { ProProvider } from '@ant-design/pro-provider';
-import { ConfigProviderWrap } from '@ant-design/pro-provider';
-import { isBrowser, merge, useDocumentTitle, useMountMergeState } from '@ant-design/pro-utils';
+import { ProConfigProvider } from '@ant-design/pro-provider';
+import { isBrowser, useDocumentTitle, useMountMergeState } from '@ant-design/pro-utils';
 import { getMatchMenu } from '@umijs/route-utils';
 import type { BreadcrumbProps as AntdBreadcrumbProps } from 'antd';
 import { ConfigProvider, Layout } from 'antd';
@@ -19,8 +19,8 @@ import type { HeaderViewProps } from './components/Header';
 import { DefaultHeader as Header } from './components/Header';
 import { PageLoading } from './components/PageLoading';
 import { SiderMenu } from './components/SiderMenu';
-import { MenuCounter } from './components/SiderMenu/Counter';
 import type { SiderMenuProps } from './components/SiderMenu/SiderMenu';
+import type { SiderMenuToken } from './components/SiderMenu/style';
 import type { WaterMarkProps } from './components/WaterMark';
 import { RouteContext } from './context/RouteContext';
 import type { ProSettings } from './defaultSettings';
@@ -53,6 +53,10 @@ type GlobalTypes = Omit<
 >;
 
 export type ProLayoutProps = GlobalTypes & {
+  stylish?: {
+    header?: GenerateStyle<SiderMenuToken>;
+    sider?: GenerateStyle<SiderMenuToken>;
+  };
   /** Layout 的品牌配置，表现为一张背景图片 */
   bgLayoutImgList?: {
     src?: string;
@@ -241,7 +245,7 @@ const headerRender = (
   if (props.headerRender === false || props.pure) {
     return null;
   }
-  return <Header matchMenuKeys={matchMenuKeys} {...props} />;
+  return <Header matchMenuKeys={matchMenuKeys} {...props} stylish={props.stylish?.header} />;
 };
 
 const footerRender = (props: ProLayoutProps): React.ReactNode => {
@@ -255,7 +259,7 @@ const footerRender = (props: ProLayoutProps): React.ReactNode => {
 };
 
 const renderSiderMenu = (props: ProLayoutProps, matchMenuKeys: string[]): React.ReactNode => {
-  const { layout, navTheme, isMobile, selectedKeys, openKeys, splitMenus, menuRender } = props;
+  const { layout, isMobile, selectedKeys, openKeys, splitMenus, menuRender } = props;
   if (props.menuRender === false || props.pure) {
     return null;
   }
@@ -277,22 +281,18 @@ const renderSiderMenu = (props: ProLayoutProps, matchMenuKeys: string[]): React.
     return null;
   }
   if (layout === 'top' && !isMobile) {
-    return <SiderMenu matchMenuKeys={matchMenuKeys} {...props} hide />;
+    return (
+      <SiderMenu matchMenuKeys={matchMenuKeys} {...props} hide stylish={props.stylish?.sider} />
+    );
   }
 
   const defaultDom = (
     <SiderMenu
       matchMenuKeys={matchMenuKeys}
       {...props}
-      style={
-        navTheme === 'realDark'
-          ? {
-              boxShadow: '0 2px 8px 0 rgba(0, 0, 0, 65%)',
-            }
-          : {}
-      }
       // 这里走了可以少一次循环
       menuData={clearMenuData}
+      stylish={props.stylish?.sider}
     />
   );
   if (menuRender) {
@@ -646,73 +646,71 @@ const BaseProLayout: React.FC<ProLayoutProps> = (props) => {
   }, [bgLayoutImgList]);
   const { token } = useContext(ProProvider);
   return wrapSSR(
-    <MenuCounter.Provider>
-      <RouteContext.Provider
-        value={{
-          ...defaultProps,
-          breadcrumb: breadcrumbProps,
-          menuData,
-          isMobile,
-          collapsed,
-          hasPageContainer,
-          setHasPageContainer,
-          isChildrenLayout: true,
-          title: pageTitleInfo.pageName,
-          hasSiderMenu: !!siderMenuDom,
-          hasHeader: !!headerDom,
-          siderWidth: leftSiderWidth,
-          hasFooter: !!footerDom,
-          hasFooterToolbar,
-          setHasFooterToolbar,
-          pageTitleInfo,
-          matchMenus,
-          matchMenuKeys,
-          currentMenu,
-        }}
-      >
-        {props.pure ? (
-          <>{children}</>
-        ) : (
-          <div className={className}>
-            <div className={`${proLayoutClassName}-bg-list ${hashId}`}>{bgImgStyleList}</div>
-            <Layout
-              style={{
-                minHeight: '100%',
-                // hack style
-                flexDirection: siderMenuDom ? 'row' : undefined,
-                ...style,
-              }}
-            >
-              {siderMenuDom}
-              <div style={genLayoutStyle} className={`${proLayoutClassName}-container ${hashId}`}>
-                {headerDom}
-                <WrapContent
-                  hasPageContainer={hasPageContainer}
-                  isChildrenLayout={isChildrenLayout}
-                  {...rest}
-                  hasHeader={!!headerDom}
-                  prefixCls={proLayoutClassName}
-                  style={contentStyle}
-                >
-                  {loading ? <PageLoading /> : children}
-                </WrapContent>
-                {footerDom}
-                {hasFooterToolbar && (
-                  <div
-                    className={`${proLayoutClassName}-has-footer`}
-                    style={{
-                      height: 64,
-                      marginBlockStart:
-                        token?.layout?.pageContainer?.paddingBlockPageContainerContent,
-                    }}
-                  />
-                )}
-              </div>
-            </Layout>
-          </div>
-        )}
-      </RouteContext.Provider>
-    </MenuCounter.Provider>,
+    <RouteContext.Provider
+      value={{
+        ...defaultProps,
+        breadcrumb: breadcrumbProps,
+        menuData,
+        isMobile,
+        collapsed,
+        hasPageContainer,
+        setHasPageContainer,
+        isChildrenLayout: true,
+        title: pageTitleInfo.pageName,
+        hasSiderMenu: !!siderMenuDom,
+        hasHeader: !!headerDom,
+        siderWidth: leftSiderWidth,
+        hasFooter: !!footerDom,
+        hasFooterToolbar,
+        setHasFooterToolbar,
+        pageTitleInfo,
+        matchMenus,
+        matchMenuKeys,
+        currentMenu,
+      }}
+    >
+      {props.pure ? (
+        <>{children}</>
+      ) : (
+        <div className={className}>
+          <div className={`${proLayoutClassName}-bg-list ${hashId}`}>{bgImgStyleList}</div>
+          <Layout
+            style={{
+              minHeight: '100%',
+              // hack style
+              flexDirection: siderMenuDom ? 'row' : undefined,
+              ...style,
+            }}
+          >
+            {siderMenuDom}
+            <div style={genLayoutStyle} className={`${proLayoutClassName}-container ${hashId}`}>
+              {headerDom}
+              <WrapContent
+                hasPageContainer={hasPageContainer}
+                isChildrenLayout={isChildrenLayout}
+                {...rest}
+                hasHeader={!!headerDom}
+                prefixCls={proLayoutClassName}
+                style={contentStyle}
+              >
+                {loading ? <PageLoading /> : children}
+              </WrapContent>
+              {footerDom}
+              {hasFooterToolbar && (
+                <div
+                  className={`${proLayoutClassName}-has-footer`}
+                  style={{
+                    height: 64,
+                    marginBlockStart:
+                      token?.layout?.pageContainer?.paddingBlockPageContainerContent,
+                  }}
+                />
+              )}
+            </div>
+          </Layout>
+        </div>
+      )}
+    </RouteContext.Provider>,
   );
 };
 
@@ -724,32 +722,25 @@ BaseProLayout.defaultProps = {
 
 const ProLayout: React.FC<ProLayoutProps> = (props) => {
   const { colorPrimary } = props;
-  const tokenContext = useContext(ProProvider);
+
+  const darkProps =
+    props.navTheme !== undefined
+      ? {
+          dark: props.navTheme === 'realDark',
+        }
+      : {};
+
   return (
     <ConfigProvider
-      // @ts-ignore
       theme={{
-        hashed: process.env.NODE_ENV?.toLowerCase() !== 'test',
         token: {
-          borderRadius: 4,
           colorPrimary: colorPrimary || '#1677FF',
-          colorError: '#ff4d4f',
-          colorInfo: '#1677FF',
         },
       }}
     >
-      <ConfigProviderWrap
-        autoClearCache
-        token={
-          props.token
-            ? merge(tokenContext.token, {
-                layout: merge(tokenContext.token?.layout, props.token || {}),
-              })
-            : undefined
-        }
-      >
+      <ProConfigProvider autoClearCache {...darkProps} token={props.token}>
         <BaseProLayout {...props} />
-      </ConfigProviderWrap>
+      </ProConfigProvider>
     </ConfigProvider>
   );
 };

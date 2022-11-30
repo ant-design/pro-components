@@ -8,7 +8,7 @@ export interface ProLayoutHeaderToken extends ProAliasToken {
 
 const genProLayoutHeaderStyle: GenerateStyle<ProLayoutHeaderToken> = (token) => {
   return {
-    [token.proLayoutCls]: {
+    [`${token.proComponentsCls}-layout`]: {
       [`${token.antCls}-layout-header${token.componentCls}`]: {
         height: token?.layout?.header?.heightLayoutHeader || 56,
         lineHeight: `${token?.layout?.header?.heightLayoutHeader || 56}px`,
@@ -50,14 +50,12 @@ const genProLayoutHeaderStyle: GenerateStyle<ProLayoutHeaderToken> = (token) => 
   };
 };
 
-export function useStyle(prefixCls: string, props: { proLayoutCls: string }) {
+export function useStyle(prefixCls: string) {
   return useAntdStyle('ProLayoutHeader', (token) => {
     const ProLayoutHeaderToken: ProLayoutHeaderToken = {
       ...token,
       componentCls: `.${prefixCls}`,
-      proLayoutCls: `.${props.proLayoutCls}`,
     };
-
     return [genProLayoutHeaderStyle(ProLayoutHeaderToken)];
   });
 }

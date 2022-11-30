@@ -1,6 +1,6 @@
 {
   "name": "@ant-design/pro-layout",
-  "version": "7.2.5",
+  "version": "7.2.6",
   "description": "@ant-design/pro-layout",
   "keywords": [
     "antd",
@@ -35,7 +35,6 @@
     "@ant-design/pro-utils": "2.3.5",
     "@babel/runtime": "^7.18.0",
     "@umijs/route-utils": "^2.1.0",
-    "@umijs/ssr-darkreader": "^4.9.44",
     "@umijs/use-params": "^1.0.9",
     "classnames": "^2.2.6",
     "lodash.merge": "^4.6.2",

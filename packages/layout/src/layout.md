@@ -27,6 +27,10 @@ ProLayout 可以提供一个标准又不失灵活的中后台标准布局，同�
 
 <code src="./demos/theme.tsx" iframe="650px" title="通过 token 修改样式"/>
 
+### 黑色主题
+
+<code src="./demos/dark.tsx" iframe="650px" title="黑色主题"/>
+
 ### 侧栏导航
 
 <code src="./demos/siderMode.tsx" iframe="650px" title="侧栏导航 中后台产品默认推荐"/>

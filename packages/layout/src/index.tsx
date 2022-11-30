@@ -33,6 +33,7 @@ import type { SettingDrawerProps, SettingDrawerState } from './components/Settin
 import { SettingDrawer } from './components/SettingDrawer';
 import type { TopNavHeaderProps } from './components/TopNavHeader';
 import { TopNavHeader } from './components/TopNavHeader';
+import type { WaterMarkProps } from './components/WaterMark';
 import { WaterMark } from './components/WaterMark';
 import type { RouteContextType } from './context/RouteContext';
 import { RouteContext } from './context/RouteContext';
@@ -62,6 +63,7 @@ export {
   ProBreadcrumb,
 };
 export type {
+  WaterMarkProps,
   FooterProps,
   PageHeaderProps,
   PageContainerProps,

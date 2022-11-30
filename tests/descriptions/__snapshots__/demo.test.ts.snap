@@ -1533,10 +1533,10 @@ exports[`descriptions demos 📸 renders ./packages/descriptions/src/demos/dynam
                         class="ant-tabs-tab ant-tabs-tab-active"
                       >
                         <div
-                          aria-controls="rc-tabs-0-panel-base"
+                          aria-controls="rc-tabs-test-panel-base"
                           aria-selected="true"
                           class="ant-tabs-tab-btn"
-                          id="rc-tabs-0-tab-base"
+                          id="rc-tabs-test-tab-base"
                           role="tab"
                           tabindex="0"
                         >
@@ -1547,10 +1547,10 @@ exports[`descriptions demos 📸 renders ./packages/descriptions/src/demos/dynam
                         class="ant-tabs-tab"
                       >
                         <div
-                          aria-controls="rc-tabs-0-panel-columns"
+                          aria-controls="rc-tabs-test-panel-columns"
                           aria-selected="false"
                           class="ant-tabs-tab-btn"
-                          id="rc-tabs-0-tab-columns"
+                          id="rc-tabs-test-tab-columns"
                           role="tab"
                           tabindex="0"
                         >
@@ -1567,12 +1567,12 @@ exports[`descriptions demos 📸 renders ./packages/descriptions/src/demos/dynam
                     class="ant-tabs-nav-operations ant-tabs-nav-operations-hidden"
                   >
                     <button
-                      aria-controls="rc-tabs-0-more-popup"
+                      aria-controls="rc-tabs-test-more-popup"
                       aria-expanded="false"
                       aria-haspopup="listbox"
                       aria-hidden="true"
                       class="ant-tabs-nav-more"
-                      id="rc-tabs-0-more"
+                      id="rc-tabs-test-more"
                       style="visibility: hidden; order: 1;"
                       tabindex="-1"
                       type="button"
@@ -1607,9 +1607,9 @@ exports[`descriptions demos 📸 renders ./packages/descriptions/src/demos/dynam
                   >
                     <div
                       aria-hidden="false"
-                      aria-labelledby="rc-tabs-0-tab-base"
+                      aria-labelledby="rc-tabs-test-tab-base"
                       class="ant-tabs-tabpane ant-tabs-tabpane-active"
-                      id="rc-tabs-0-panel-base"
+                      id="rc-tabs-test-panel-base"
                       role="tabpanel"
                       tabindex="0"
                     >

@@ -26,6 +26,7 @@ describe('💵 ProFormMoney', () => {
     expect(fn).toHaveBeenCalledWith(44.33);
     expect(wrapper.render()).toMatchSnapshot();
   });
+
   it('💵 moneySymbol with global locale', async () => {
     const fn = jest.fn();
     const wrapper = mount<{ amount: string }>(

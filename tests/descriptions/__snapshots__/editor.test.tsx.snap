@@ -31,6 +31,7 @@ exports[`Descriptions 📝 columns support editable test 1`] = `
                     >
                       <div
                         class="ant-space ant-space-horizontal ant-space-align-center"
+                        style="align-items: baseline;"
                       >
                         <div
                           class="ant-space-item"
@@ -211,6 +212,7 @@ exports[`Descriptions 📝 renderFormItem run defaultRender 1`] = `
                     >
                       <div
                         class="ant-space ant-space-horizontal ant-space-align-center"
+                        style="align-items: baseline;"
                       >
                         <div
                           class="ant-space-item"

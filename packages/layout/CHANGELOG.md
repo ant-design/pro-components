@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [7.2.6](https://github.com/ant-design/pro-components/compare/@ant-design/pro-layout@7.2.5...@ant-design/pro-layout@7.2.6) (2022-11-22)
+
+### Bug Fixes
+
+- **layout:** export WaterMarkProps ([c32d989](https://github.com/ant-design/pro-components/commit/c32d9892fb27c9ce9611a2aef2555977781f1954))
+
 ## [7.2.5](https://github.com/ant-design/pro-components/compare/@ant-design/pro-layout@7.2.4...@ant-design/pro-layout@7.2.5) (2022-11-17)
 
 **Note:** Version bump only for package @ant-design/pro-layout

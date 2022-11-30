@@ -31,8 +31,9 @@ import zhTW from './locale/zh_TW';
 import type { DeepPartial, ProTokenType } from './typing/layoutToken';
 import { getLayoutDesignToken } from './typing/layoutToken';
 import type { ProAliasToken } from './useStyle';
+import { darkAlgorithm, defaultAlgorithm } from './useStyle';
 import { useToken } from './useStyle';
-import { emptyTheme, defaultTheme } from './useStyle/token';
+import { emptyTheme, defaultToken } from './useStyle/token';
 import { merge } from './utils/merge';
 
 export * from './useStyle';
@@ -257,11 +258,12 @@ export type ConfigContextPropsType = {
   token?: ProAliasToken;
   hashId?: string;
   hashed?: boolean;
+  dark?: boolean;
   theme?: Theme<any, any>;
 };
 
 /* Creating a context object with the default values. */
-const ConfigContext = React.createContext<ConfigContextPropsType>({
+const ProConfigContext = React.createContext<ConfigContextPropsType>({
   intl: {
     ...zhCNIntl,
     locale: 'default',
@@ -269,10 +271,11 @@ const ConfigContext = React.createContext<ConfigContextPropsType>({
   valueTypeMap: {},
   theme: emptyTheme,
   hashed: true,
-  token: defaultTheme as ProAliasToken,
+  dark: false,
+  token: defaultToken as ProAliasToken,
 });
 
-export const { Consumer: ConfigConsumer, Provider: ProConfigProvider } = ConfigContext;
+export const { Consumer: ConfigConsumer } = ProConfigContext;
 
 /**
  * 根据 antd 的 key 来找到的 locale 插件的 key
@@ -292,8 +295,8 @@ const findIntlKeyByAntdLocaleKey = <T extends string | undefined>(localeKey: T) 
 
 /**
  * 组件解除挂载后清空一下 cache
- *
- * @returns
+ * @date 2022-11-28
+ * @returns null
  */
 const CacheClean = () => {
   const { cache } = useSWRConfig();
@@ -309,29 +312,19 @@ const CacheClean = () => {
   return null;
 };
 
-/**
- * 如果没有配置 locale，这里组件会根据 antd 的 key 来自动选择
- *
- * @param param0
- */
-export const ConfigProviderWrap: React.FC<{
+const ConfigProVoidContainer: React.FC<{
   children: React.ReactNode;
   autoClearCache?: boolean;
+  valueTypeMap?: Record<string, ProRenderFieldPropsType>;
   token?: DeepPartial<ProAliasToken>;
-  needDeps?: boolean;
+  hashed?: boolean;
+  dark?: boolean;
 }> = (props) => {
-  const { children, autoClearCache = false, token: propsToken, needDeps = false } = props;
-  const { locale, getPrefixCls } = useContext(AntdConfigProvider.ConfigContext);
+  const { children, dark, valueTypeMap, autoClearCache = false, token: propsToken } = props;
+  const { locale, getPrefixCls, ...restConfig } = useContext(AntdConfigProvider.ConfigContext);
   const tokenContext = useToken?.();
 
-  // 如果 locale 不存在自动注入的 AntdConfigProvider
-  const ANTDProvider = locale === undefined ? AntdConfigProvider : React.Fragment;
-  const proProvide = useContext(ConfigContext);
-
-  const isNullProvide =
-    needDeps &&
-    proProvide.hashId !== undefined &&
-    Object.keys(props).sort().join('-') === 'children-needDeps';
+  const proProvide = useContext(ProConfigContext);
 
   /**
    * pro 的 类
@@ -340,11 +333,18 @@ export const ConfigProviderWrap: React.FC<{
    */
   const proComponentsCls = `.${getPrefixCls()}-pro`;
 
-  const salt = `${proComponentsCls}`;
   const antCls = '.' + getPrefixCls();
 
+  const salt = `${proComponentsCls}`;
+
+  /**
+   * 合并一下token，不然导致嵌套 token 失效
+   */
+  const proLayoutTokenMerge = useMemo(() => {
+    return getLayoutDesignToken(propsToken || {}, tokenContext.token || defaultToken);
+  }, [propsToken, tokenContext.token]);
+
   const proProvideValue = useMemo(() => {
-    if (isNullProvide) return null;
     const localeName = locale?.locale;
     const key = findIntlKeyByAntdLocaleKey(localeName);
     // antd 的 key 存在的时候以 antd 的为主
@@ -352,27 +352,30 @@ export const ConfigProviderWrap: React.FC<{
       localeName && proProvide.intl?.locale === 'default'
         ? intlMap[key!]
         : proProvide.intl || intlMap[key!];
-
-    /**
-     * 合并一下token，不然导致嵌套 token 失效
-     */
-    const proLayoutTokenMerge = propsToken
-      ? getLayoutDesignToken(merge(proProvide.token?.layout, propsToken.layout || {}), defaultTheme)
-      : getLayoutDesignToken(proProvide.token?.layout || {}, defaultTheme);
-
     return {
       ...proProvide,
-      token: merge(proProvide.token, {
+      dark: dark ?? proProvide.dark,
+      token: merge(proProvide.token, tokenContext.token, {
         proComponentsCls,
         antCls,
+        themeId: tokenContext.theme.id,
         layout: proLayoutTokenMerge,
       }),
       intl: intl || zhCNIntl,
     };
-  }, [isNullProvide, locale?.locale, proProvide, propsToken, proComponentsCls, antCls]);
+  }, [
+    locale?.locale,
+    proProvide,
+    dark,
+    tokenContext.token,
+    tokenContext.theme.id,
+    proComponentsCls,
+    antCls,
+    proLayoutTokenMerge,
+  ]);
 
   const finalToken = {
-    ...(proProvideValue?.token || {}),
+    ...(proProvideValue.token || {}),
     proComponentsCls,
   };
 
@@ -385,34 +388,39 @@ export const ConfigProviderWrap: React.FC<{
   );
 
   const hashId = useMemo(() => {
+    if (props.hashed === false) {
+      return '';
+    }
     if (proProvide.hashed === false) return '';
     if (process.env.NODE_ENV?.toLowerCase() !== 'test') return nativeHashId;
     return '';
-  }, [nativeHashId, proProvide.hashed]);
+  }, [nativeHashId, proProvide.hashed, props.hashed]);
 
   const configProviderDom = useMemo(() => {
-    if (isNullProvide) return <>{children}</>;
-    // 自动注入 antd 的配置
-    const configProvider =
-      locale === undefined
-        ? {
-            locale: zh_CN,
-            theme: {
-              hashId: hashId,
-              hashed: process.env.NODE_ENV?.toLowerCase() !== 'test' && proProvide.hashed,
-            },
-          }
-        : {};
+    const themeConfig = {
+      ...restConfig.theme,
+      hashId: hashId,
+      hashed: process.env.NODE_ENV?.toLowerCase() !== 'test' && proProvide.hashed,
+    };
 
     const provide = (
-      <ANTDProvider {...configProvider}>
-        <ProConfigProvider value={{ ...proProvideValue!, token, hashId }}>
+      <AntdConfigProvider {...restConfig} theme={{ ...themeConfig }}>
+        <ProConfigContext.Provider
+          value={{
+            ...proProvideValue!,
+            valueTypeMap: valueTypeMap || proProvideValue?.valueTypeMap,
+            token,
+            theme: tokenContext.theme,
+            hashed: props.hashed,
+            hashId,
+          }}
+        >
           <>
             {autoClearCache && <CacheClean />}
             {children}
           </>
-        </ProConfigProvider>
-      </ANTDProvider>
+        </ProConfigContext.Provider>
+      </AntdConfigProvider>
     );
 
     return (
@@ -428,6 +436,43 @@ export const ConfigProviderWrap: React.FC<{
   return <SWRConfig value={{ provider: () => new Map() }}>{configProviderDom}</SWRConfig>;
 };
 
+export const ProConfigProvider: React.FC<{
+  children: React.ReactNode;
+  autoClearCache?: boolean;
+  token?: DeepPartial<ProAliasToken>;
+  needDeps?: boolean;
+  valueTypeMap?: Record<string, ProRenderFieldPropsType>;
+  dark?: boolean;
+  hashed?: boolean;
+}> = (props) => {
+  const { needDeps, dark, token } = props;
+  const proProvide = useContext(ProConfigContext);
+  const { locale, theme, ...rest } = useContext(AntdConfigProvider.ConfigContext);
+
+  // 是不是不需要渲染 provide
+  const isNullProvide =
+    needDeps &&
+    proProvide.hashId !== undefined &&
+    Object.keys(props).sort().join('-') === 'children-needDeps';
+
+  if (isNullProvide) return <>{props.children}</>;
+  // 自动注入 antd 的配置
+  const configProvider = {
+    ...rest,
+    locale: locale || zh_CN,
+    theme: {
+      ...theme,
+      algorithm: dark ?? proProvide.dark ? darkAlgorithm : defaultAlgorithm,
+    },
+  };
+
+  return (
+    <AntdConfigProvider {...configProvider}>
+      <ConfigProVoidContainer {...props} token={token} />
+    </AntdConfigProvider>
+  );
+};
+
 /**
  * It returns the intl object from the context if it exists, otherwise it returns the intl object for
  * the current locale
@@ -435,7 +480,7 @@ export const ConfigProviderWrap: React.FC<{
  */
 export function useIntl(): IntlType {
   const { locale } = useContext(AntdConfigProvider.ConfigContext);
-  const { intl } = useContext(ConfigContext);
+  const { intl } = useContext(ProConfigContext);
 
   if (intl && intl.locale !== 'default') {
     return intl || zhCNIntl;
@@ -447,6 +492,11 @@ export function useIntl(): IntlType {
 
   return zhCNIntl;
 }
-export const ProProvider = ConfigContext;
 
-export default ConfigContext;
+const ProProvider = ProConfigContext;
+
+ProProvider.displayName = 'ProProvider';
+
+export { ProProvider };
+
+export default ProConfigContext;

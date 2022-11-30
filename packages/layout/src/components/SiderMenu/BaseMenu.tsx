@@ -11,7 +11,6 @@ import type { PureSettings } from '../../defaultSettings';
 import { defaultSettings } from '../../defaultSettings';
 import type { MenuDataItem, MessageDescriptor, RouterTypes, WithFalse } from '../../typing';
 import { getOpenKeysFromMenuData } from '../../utils/utils';
-import { MenuCounter } from './Counter';
 import type { PrivateSiderMenuProps } from './SiderMenu';
 import { useStyle } from './style/menu';
 
@@ -407,7 +406,6 @@ const BaseMenu: React.FC<BaseMenuProps & PrivateSiderMenuProps> = (props) => {
   // 用于减少 defaultOpenKeys 计算的组件
   const defaultOpenKeysRef = useRef<string[]>([]);
 
-  const { flatMenuKeys } = MenuCounter.useContainer();
   const [defaultOpenAll, setDefaultOpenAll] = useMountMergeState(menu?.defaultOpenAll);
 
   const [openKeys, setOpenKeys] = useMountMergeState<WithFalse<React.Key[]>>(
@@ -437,7 +435,7 @@ const BaseMenu: React.FC<BaseMenuProps & PrivateSiderMenuProps> = (props) => {
       : undefined,
   });
   useEffect(() => {
-    if (menu?.defaultOpenAll || propsOpenKeys === false || flatMenuKeys.length) {
+    if (menu?.defaultOpenAll || propsOpenKeys === false) {
       return;
     }
     if (matchMenuKeys) {
@@ -476,7 +474,7 @@ const BaseMenu: React.FC<BaseMenuProps & PrivateSiderMenuProps> = (props) => {
       } else if (menu?.ignoreFlatMenu && defaultOpenAll) {
         // 忽略用户手动折叠过的菜单状态，折叠按钮切换之后也可实现默认展开所有菜单
         setOpenKeys(getOpenKeysFromMenuData(menuData));
-      } else if (flatMenuKeys.length > 0) setDefaultOpenAll(false);
+      } else setDefaultOpenAll(false);
     },
     // eslint-disable-next-line react-hooks/exhaustive-deps
     [matchMenuKeys.join('-')],

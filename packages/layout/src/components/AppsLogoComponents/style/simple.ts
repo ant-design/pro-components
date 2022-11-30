@@ -27,7 +27,7 @@ const genAppsLogoComponentsSimpleListStyle: GenerateStyle<AppsLogoComponentsToke
           transition: 'transform 0.2s cubic-bezier(0.333, 0, 0, 1)',
           borderRadius: token.borderRadius,
           '&:hover': {
-            backgroundColor: 'rgba(0, 0, 0, 0.03)',
+            backgroundColor: token.colorBgTextHover,
           },
           a: {
             display: 'flex',

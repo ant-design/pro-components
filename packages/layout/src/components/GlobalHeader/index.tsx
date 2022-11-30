@@ -1,4 +1,4 @@
-import { MenuFoldOutlined, MenuUnfoldOutlined } from '@ant-design/icons';
+import { MenuOutlined } from '@ant-design/icons';
 import type { AvatarProps } from 'antd';
 import { ConfigProvider } from 'antd';
 import classNames from 'classnames';
@@ -127,7 +127,6 @@ const GlobalHeader: React.FC<GlobalHeaderProps & PrivateSiderMenuProps> = (props
   );
   return wrapSSR(
     <div className={className} style={{ ...style }}>
-      {isMobile && renderLogo(menuHeaderRender, logoDom)}
       {isMobile && (
         <span
           className={`${baseClassName}-collapsed-button ${hashId}`}
@@ -135,9 +134,10 @@ const GlobalHeader: React.FC<GlobalHeaderProps & PrivateSiderMenuProps> = (props
             onCollapse?.(!collapsed);
           }}
         >
-          {collapsed ? <MenuUnfoldOutlined /> : <MenuFoldOutlined />}
+          <MenuOutlined />
         </span>
       )}
+      {isMobile && renderLogo(menuHeaderRender, logoDom)}
       {layout === 'mix' && !isMobile && (
         <>
           <AppsLogoComponents {...props} />

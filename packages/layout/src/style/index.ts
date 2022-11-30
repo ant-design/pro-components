@@ -255,6 +255,7 @@ const genProLayoutStyle: GenerateStyle<ProLayoutToken> = (token) => {
           flexDirection: 'column',
           minWidth: 0,
           minHeight: 0,
+          backgroundColor: 'transparent',
         },
         [`${token.componentCls}-bg-list`]: {
           pointerEvents: 'none',
@@ -265,7 +266,7 @@ const genProLayoutStyle: GenerateStyle<ProLayoutToken> = (token) => {
           zIndex: 0,
           height: '100%',
           width: '100%',
-          background: token?.layout?.bgLayout,
+          backgroundImage: token?.layout?.bgLayout,
         },
       },
       [`${token.antCls}-menu-submenu-popup`]: {

@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.1.23](https://github.com/ant-design/pro-components/compare/@ant-design/pro-field@2.1.22...@ant-design/pro-field@2.1.23) (2022-11-22)
+
+### Bug Fixes
+
+- **form:** 优化 Portable 中未指定 placeholder 字段时的默认显示 ([#6180](https://github.com/ant-design/pro-components/issues/6180)) ([e3327b3](https://github.com/ant-design/pro-components/commit/e3327b3d5b49ef98cb6a71d7c34b163e699a93df))
+
 ## [2.1.22](https://github.com/ant-design/pro-components/compare/@ant-design/pro-field@2.1.21...@ant-design/pro-field@2.1.22) (2022-11-17)
 
 ### Bug Fixes

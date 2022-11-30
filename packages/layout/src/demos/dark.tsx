@@ -6,55 +6,22 @@ import {
   SearchOutlined,
 } from '@ant-design/icons';
 import ProCard from '@ant-design/pro-card';
-import type { ProSettings } from '@ant-design/pro-layout';
 import { PageContainer, ProLayout } from '@ant-design/pro-layout';
-import { Input } from 'antd';
+import { ProConfigProvider } from '@ant-design/pro-provider';
+import { Button, Input } from 'antd';
 import { useState } from 'react';
 import defaultProps from './_defaultProps';
 
 export default () => {
-  const settings: ProSettings | undefined = {
-    fixSiderbar: true,
-    layout: 'mix',
-    splitMenus: true,
-  };
-
   const [pathname, setPathname] = useState('/list/sub-page/sub-sub-page1');
 
   return (
-    <div
-      id="test-pro-layout"
-      style={{
-        height: '100vh',
-      }}
-    >
+    <ProConfigProvider dark={true}>
       <ProLayout
-        bgLayoutImgList={[
-          {
-            src: 'https://img.alicdn.com/imgextra/i2/O1CN01O4etvp1DvpFLKfuWq_!!6000000000279-2-tps-609-606.png',
-            left: 85,
-            bottom: 100,
-            height: '303px',
-          },
-          {
-            src: 'https://img.alicdn.com/imgextra/i2/O1CN01O4etvp1DvpFLKfuWq_!!6000000000279-2-tps-609-606.png',
-            bottom: -68,
-            right: -45,
-            height: '303px',
-          },
-          {
-            src: 'https://img.alicdn.com/imgextra/i3/O1CN018NxReL1shX85Yz6Cx_!!6000000005798-2-tps-884-496.png',
-            bottom: 0,
-            left: 0,
-            width: '331px',
-          },
-        ]}
         {...defaultProps}
+        splitMenus
         location={{
           pathname,
-        }}
-        menu={{
-          type: 'group',
         }}
         avatarProps={{
           src: 'https://gw.alipayobjects.com/zos/antfincdn/efFD%24IOql2/weixintupian_20170331104822.jpg',
@@ -64,7 +31,7 @@ export default () => {
         actionsRender={(props) => {
           if (props.isMobile) return [];
           return [
-            props.layout !== 'side' && document.body.clientWidth > 1400 ? (
+            props.layout !== 'side' ? (
               <div
                 key="SearchOutlined"
                 aria-hidden
@@ -110,33 +77,45 @@ export default () => {
         menuFooterRender={(props) => {
           if (props?.collapsed) return undefined;
           return (
-            <div
+            <p
               style={{
                 textAlign: 'center',
                 paddingBlockStart: 12,
               }}
             >
-              <div>© 2021 Made with love</div>
-              <div>by Ant Design</div>
-            </div>
+              Power by Ant Design
+            </p>
           );
         }}
         onMenuHeaderClick={(e) => console.log(e)}
         menuItemRender={(item, dom) => (
-          <div
+          <a
             onClick={() => {
               setPathname(item.path || '/welcome');
             }}
           >
             {dom}
-          </div>
+          </a>
         )}
-        {...settings}
       >
-        <PageContainer>
+        <PageContainer
+          extra={[
+            <Button key="3">操作</Button>,
+            <Button key="2">操作</Button>,
+            <Button key="1" type="primary">
+              主操作
+            </Button>,
+          ]}
+          footer={[
+            <Button key="3">重置</Button>,
+            <Button key="2" type="primary">
+              提交
+            </Button>,
+          ]}
+        >
           <ProCard
             style={{
-              height: '100vh',
+              height: '200vh',
               minHeight: 800,
             }}
           >
@@ -144,6 +123,6 @@ export default () => {
           </ProCard>
         </PageContainer>
       </ProLayout>
-    </div>
+    </ProConfigProvider>
   );
 };

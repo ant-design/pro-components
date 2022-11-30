@@ -21,13 +21,15 @@ const LayoutSetting: React.FC<{
   settings: Partial<ProSettings>;
   changeSetting: (key: string, value: any, hideLoading?: boolean) => void;
   hashId: string;
-}> = ({ settings = {}, changeSetting, hashId }) => {
+  prefixCls: string;
+}> = ({ settings = {}, prefixCls, changeSetting, hashId }) => {
   const formatMessage = getFormatMessage();
   const { contentWidth, splitMenus, fixedHeader, layout, fixSiderbar } =
     settings || defaultSettings;
 
   return (
     <List
+      className={`${prefixCls}-list ${hashId}`}
       split={false}
       dataSource={[
         {

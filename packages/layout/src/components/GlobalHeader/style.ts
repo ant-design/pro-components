@@ -25,8 +25,8 @@ const genGlobalHeaderStyle: GenerateStyle<GlobalHeaderToken> = (token) => {
       '&-collapsed-button': {
         minHeight: '22px',
         color: token?.layout?.header?.colorHeaderTitle,
-        fontSize: '22px',
-        marginInlineStart: '16px',
+        fontSize: '18px',
+        marginInlineEnd: '16px',
       },
       '&-logo': {
         position: 'relative',

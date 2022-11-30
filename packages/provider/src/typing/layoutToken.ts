@@ -110,15 +110,16 @@ export const getLayoutDesignToken: (
   antdToken: Record<string, any>,
 ) => LayoutDesignToken = (designTokens, antdToken) => {
   const finalDesignTokens = { ...designTokens };
+
   return {
-    bgLayout: 'linear-gradient(#fff, #f7f8fa 28%)',
-    colorTextAppListIcon: '#666',
+    bgLayout: `linear-gradient(${antdToken.colorBgContainer}, ${antdToken.colorBgLayout} 28%)`,
+    colorTextAppListIcon: antdToken.colorTextSecondary,
     appListIconHoverBgColor: finalDesignTokens?.sider?.colorBgMenuItemSelected,
-    colorBgAppListIconHover: 'rgba(0, 0, 0, 0.04)',
+    colorBgAppListIconHover: setAlpha(antdToken.colorTextBase, 0.04),
     colorTextAppListIconHover: antdToken.colorTextBase,
     ...finalDesignTokens,
     header: {
-      colorBgHeader: 'rgba(240, 242, 245, 0.4)',
+      colorBgHeader: setAlpha(antdToken.colorBgElevated, 0.6),
       colorHeaderTitle: antdToken.colorText,
       colorBgMenuItemHover: setAlpha(antdToken.colorTextBase, 0.03),
       colorBgMenuItemSelected: 'transparent',
@@ -135,7 +136,7 @@ export const getLayoutDesignToken: (
     sider: {
       paddingInlineLayoutMenu: 8,
       paddingBlockLayoutMenu: 0,
-      colorBgCollapsedButton: '#fff',
+      colorBgCollapsedButton: antdToken.colorBgElevated,
       colorTextCollapsedButtonHover: antdToken.colorTextSecondary,
       colorTextCollapsedButton: setAlpha(antdToken.colorTextBase, 0.25),
       colorMenuBackground: 'transparent',

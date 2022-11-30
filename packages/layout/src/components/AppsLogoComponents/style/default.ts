@@ -1,4 +1,4 @@
-﻿import type { GenerateStyle } from '@ant-design/pro-utils';
+﻿import { GenerateStyle } from '@ant-design/pro-utils';
 import { resetComponent } from '@ant-design/pro-utils';
 import type { AppsLogoComponentsToken } from './index';
 const genAppsLogoComponentsDefaultListStyle: GenerateStyle<AppsLogoComponentsToken> = (token) => {
@@ -25,7 +25,7 @@ const genAppsLogoComponentsDefaultListStyle: GenerateStyle<AppsLogoComponentsTok
           transition: 'transform 0.2s cubic-bezier(0.333, 0, 0, 1)',
           borderRadius: token.borderRadius,
           '&:hover': {
-            backgroundColor: 'rgba(0, 0, 0, 0.03)',
+            backgroundColor: token.colorBgTextHover,
           },
           '*': { boxSizing: 'border-box', fontFamily: token.fontFamily },
           '* div': resetComponent?.(token),

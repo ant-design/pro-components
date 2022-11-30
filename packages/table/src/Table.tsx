@@ -5,7 +5,7 @@ import 'antd/es/table/style';
 import ProCard from '@ant-design/pro-card';
 import ProForm from '@ant-design/pro-form';
 import type { ParamsType } from '@ant-design/pro-provider';
-import { ConfigProviderWrap, useIntl } from '@ant-design/pro-provider';
+import { ProConfigProvider, useIntl } from '@ant-design/pro-provider';
 import {
   editableRowByKey,
   ErrorBoundary,
@@ -836,7 +836,7 @@ const ProTable = <T extends Record<string, any>, U extends ParamsType, ValueType
  *
  * @param props
  */
-const ProviderWarp = <
+const ProviderTableContainer = <
   DataType extends Record<string, any>,
   Params extends ParamsType = ParamsType,
   ValueType = 'text',
@@ -849,18 +849,18 @@ const ProviderWarp = <
 
   return (
     <Container.Provider initialState={props as any}>
-      <ConfigProviderWrap needDeps>
+      <ProConfigProvider needDeps>
         <ErrorComponent>
           <ProTable<DataType, Params, ValueType>
             defaultClassName={`${getPrefixCls('pro-table')}`}
             {...props}
           />
         </ErrorComponent>
-      </ConfigProviderWrap>
+      </ProConfigProvider>
     </Container.Provider>
   );
 };
 
-ProviderWarp.Summary = Table.Summary;
+ProviderTableContainer.Summary = Table.Summary;
 
-export default ProviderWarp;
+export default ProviderTableContainer;

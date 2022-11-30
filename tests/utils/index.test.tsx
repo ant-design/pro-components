@@ -26,7 +26,7 @@ import { act, fireEvent, render } from '@testing-library/react';
 import { Form, Input } from 'antd';
 import type { Dayjs } from 'dayjs';
 import dayjs from 'dayjs';
-import moment from 'moment';
+import moment from 'dayjs';
 import React, { useEffect, useState } from 'react';
 import { waitForComponentToPaint, waitTime } from '../util';
 

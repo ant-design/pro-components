@@ -1,3 +1,4 @@
+import type { GenerateStyle } from '@ant-design/pro-provider';
 import { ProProvider } from '@ant-design/pro-provider';
 import type { AvatarProps, SiderProps } from 'antd';
 import { Avatar, ConfigProvider, Layout, Menu, Space } from 'antd';
@@ -12,7 +13,8 @@ import { CollapsedIcon } from '../CollapsedIcon';
 import type { HeaderViewProps } from '../Header';
 import type { BaseMenuProps } from './BaseMenu';
 import { BaseMenu } from './BaseMenu';
-import { MenuCounter } from './Counter';
+import type { SiderMenuToken } from './style/stylish';
+import { useStylish } from './style/stylish';
 
 const { Sider } = Layout;
 
@@ -163,6 +165,7 @@ export type PrivateSiderMenuProps = {
   matchMenuKeys: string[];
   originCollapsed?: boolean;
   menuRenderType?: 'header' | 'sider';
+  stylish?: GenerateStyle<SiderMenuToken>;
 };
 
 const SiderMenu: React.FC<SiderMenuProps & PrivateSiderMenuProps> = (props) => {
@@ -188,6 +191,7 @@ const SiderMenu: React.FC<SiderMenuProps & PrivateSiderMenuProps> = (props) => {
     rightContentRender,
     actionsRender,
     onOpenChange,
+    stylish,
     logoStyle,
   } = props;
   const { hashId } = useContext(ProProvider);
@@ -198,13 +202,20 @@ const SiderMenu: React.FC<SiderMenuProps & PrivateSiderMenuProps> = (props) => {
   }, [isMobile, layout]);
 
   const baseClassName = `${prefixCls}-sider`;
-  const { flatMenuKeys } = MenuCounter.useContainer();
+
+  // 之所以这样写是为了提升样式优先级，不然会被sider 自带的覆盖掉
+  const stylishClassName = useStylish(`${baseClassName}.${baseClassName}-stylish`, {
+    stylish,
+    proLayoutCollapsedWidth: 64,
+  });
+
   const siderClassName = classNames(`${baseClassName}`, hashId, {
     [`${baseClassName}-fixed`]: fixSiderbar,
     [`${baseClassName}-collapsed`]: props.collapsed,
     [`${baseClassName}-layout-${layout}`]: layout && !isMobile,
     [`${baseClassName}-light`]: theme !== 'dark',
     [`${baseClassName}-mix`]: layout === 'mix' && !isMobile,
+    [`${baseClassName}-stylish`]: !!stylish,
   });
 
   const headerDom = renderLogoAndTitle(props);
@@ -213,8 +224,7 @@ const SiderMenu: React.FC<SiderMenuProps & PrivateSiderMenuProps> = (props) => {
 
   const menuDom = useMemo(
     () =>
-      menuContentRender !== false &&
-      flatMenuKeys && (
+      menuContentRender !== false && (
         <BaseMenu
           {...props}
           key="base-menu"
@@ -226,7 +236,7 @@ const SiderMenu: React.FC<SiderMenuProps & PrivateSiderMenuProps> = (props) => {
           className={`${baseClassName}-menu ${hashId}`}
         />
       ),
-    [baseClassName, flatMenuKeys, hashId, menuContentRender, onOpenChange, props],
+    [baseClassName, hashId, menuContentRender, onOpenChange, props],
   );
 
   const linksMenuItems: ItemType[] = (links || []).map((node, index) => ({
@@ -408,7 +418,8 @@ const SiderMenu: React.FC<SiderMenuProps & PrivateSiderMenuProps> = (props) => {
   );
 
   const { token } = useContext(ProProvider);
-  return (
+
+  return stylishClassName.wrapSSR(
     <>
       {fixSiderbar && !isMobile && !hideMenuWhenCollapsedClassName && (
         <div
@@ -480,7 +491,7 @@ const SiderMenu: React.FC<SiderMenuProps & PrivateSiderMenuProps> = (props) => {
         </ConfigProvider>
         {collapsedDom}
       </Sider>
-    </>
+    </>,
   );
 };
 

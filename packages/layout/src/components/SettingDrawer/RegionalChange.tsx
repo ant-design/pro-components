@@ -8,11 +8,13 @@ const RegionalSetting: React.FC<{
   settings: Partial<ProSettings>;
   changeSetting: (key: string, value: any, hideLoading?: boolean) => void;
   hashId: string;
-}> = ({ settings = {}, changeSetting, hashId }) => {
+  prefixCls: string;
+}> = ({ settings = {}, prefixCls, changeSetting, hashId }) => {
   const formatMessage = getFormatMessage();
   const regionalSetting = ['header', 'footer', 'menu', 'menuHeader'];
   return (
     <List
+      className={`${prefixCls}-list ${hashId}`}
       split={false}
       renderItem={renderLayoutSettingItem}
       dataSource={regionalSetting.map((key) => {

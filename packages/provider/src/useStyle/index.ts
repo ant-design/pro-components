@@ -10,6 +10,7 @@ import { ProProvider } from '../index';
 import type { ProTokenType } from '../typing/layoutToken';
 import type { AliasToken } from './token';
 import * as batToken from './token';
+
 /**
  * 把一个颜色设置一下透明度
  * @example (#fff, 0.5) => rgba(255, 255, 255, 0.5)
@@ -36,16 +37,17 @@ export type GenerateStyle<
   ComponentToken extends object = AliasToken,
   ReturnType = CSSInterpolation,
 > = (token: ComponentToken) => ReturnType;
+
 /**
  * 如果 antd 里面没有，就用我 mock 的，这样 antd@4 和 antd@5 可以兼容
  */
-const { useToken } = {
+const { useToken, darkAlgorithm, compactAlgorithm, defaultAlgorithm } = {
   ...batToken,
   // @ts-ignore
   ...(antdTheme || {}),
-} as unknown as typeof batToken;
+} as any;
 
-export { useToken };
+export { useToken, darkAlgorithm, compactAlgorithm, defaultAlgorithm };
 
 export type UseStyleResult = {
   wrapSSR: (node: React.ReactElement) => React.ReactElement;
@@ -54,6 +56,7 @@ export type UseStyleResult = {
 
 export type ProAliasToken = AliasToken &
   ProTokenType & {
+    themeId: number;
     /**
      * pro 的 className
      * @type {string}
@@ -107,7 +110,9 @@ export function useStyle(
 ): UseStyleResult {
   const { token = {} as ProAliasToken, hashId = '', theme } = useContext(ProProvider);
   const { getPrefixCls } = useContext(AntdConfigProvider.ConfigContext);
+
   token.antCls = `.${getPrefixCls()}`;
+
   return {
     wrapSSR: useStyleRegister(
       {
