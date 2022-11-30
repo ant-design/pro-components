@@ -1,10 +1,8 @@
 import { openVisibleCompatible } from '@ant-design/pro-utils';
-import { getFlatMenus } from '@umijs/route-utils';
 import { Drawer } from 'antd';
 import classNames from 'classnames';
 import Omit from 'omit.js';
 import React, { useEffect } from 'react';
-import { MenuCounter } from './Counter';
 import type { PrivateSiderMenuProps, SiderMenuProps } from './SiderMenu';
 import { SiderMenu } from './SiderMenu';
 import { useStyle } from './style/index';
@@ -12,7 +10,6 @@ import { useStyle } from './style/index';
 const SiderMenuWrapper: React.FC<SiderMenuProps & PrivateSiderMenuProps> = (props) => {
   const {
     isMobile,
-    menuData,
     siderWidth,
     collapsed,
     onCollapse,
@@ -21,19 +18,7 @@ const SiderMenuWrapper: React.FC<SiderMenuProps & PrivateSiderMenuProps> = (prop
     hide,
     getContainer,
     prefixCls,
-    matchMenuKeys,
   } = props;
-  const { setFlatMenuKeys } = MenuCounter.useContainer();
-
-  useEffect(() => {
-    if (!menuData || menuData.length < 1) {
-      return;
-    }
-    // 当 menu data 改变的时候重新计算这两个参数
-    const newFlatMenus = getFlatMenus(menuData);
-    setFlatMenuKeys(Object.keys(newFlatMenus));
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [matchMenuKeys.join('-')]);
 
   useEffect(() => {
     if (isMobile === true) {

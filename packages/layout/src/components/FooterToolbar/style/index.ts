@@ -1,11 +1,11 @@
 ﻿import type { GenerateStyle, ProAliasToken } from '@ant-design/pro-utils';
 import { setAlpha, useStyle as useAntdStyle } from '@ant-design/pro-provider';
 
-export interface AppsLogoComponentsToken extends ProAliasToken {
+export interface FooterToolBarToken extends ProAliasToken {
   componentCls: string;
 }
 
-const genFooterToolBarStyle: GenerateStyle<AppsLogoComponentsToken> = (token) => {
+const genFooterToolBarStyle: GenerateStyle<FooterToolBarToken> = (token) => {
   return {
     [token.componentCls]: {
       position: 'fixed',
@@ -43,7 +43,7 @@ const genFooterToolBarStyle: GenerateStyle<AppsLogoComponentsToken> = (token) =>
 
 export function useStyle(prefixCls: string) {
   return useAntdStyle('ProLayoutFooterToolbar', (token) => {
-    const proCardToken: AppsLogoComponentsToken = {
+    const proCardToken: FooterToolBarToken = {
       ...token,
       componentCls: `.${prefixCls}`,
     };

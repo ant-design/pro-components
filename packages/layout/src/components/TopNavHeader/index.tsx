@@ -82,16 +82,20 @@ const TopNavHeader: React.FC<TopNavHeaderProps> = (props) => {
     }
     return defaultDom;
   }, [
-    hashId,
     token?.layout?.header?.colorBgHeader,
-    token?.layout?.header?.colorBgMenuItemHover,
     token?.layout?.header?.colorBgMenuItemSelected,
+    token?.layout?.header?.colorBgMenuItemHover,
     token?.layout?.header?.colorTextMenu,
     token?.layout?.header?.colorTextMenuActive,
     token?.layout?.header?.colorTextMenuSelected,
-    headerContentRender,
-    prefixCls,
+    token?.colorBgTextHover,
+    token?.colorTextSecondary,
+    token?.colorText,
+    token?.colorTextBase,
     props,
+    prefixCls,
+    hashId,
+    headerContentRender,
   ]);
 
   return wrapSSR(

@@ -1,4 +1,5 @@
 /* eslint-disable react-hooks/exhaustive-deps */
+import type { GenerateStyle } from '@ant-design/pro-utils';
 import { isBrowser } from '@ant-design/pro-utils';
 import { ConfigProvider } from 'antd';
 import classNames from 'classnames';
@@ -8,7 +9,9 @@ import React, { useContext, useEffect, useMemo } from 'react';
 import { createPortal } from 'react-dom';
 import type { RouteContextType } from '../../index';
 import { RouteContext } from '../../index';
+import type { FooterToolBarToken } from './style';
 import { useStyle } from './style';
+import { useStylish } from './style/stylish';
 
 export type FooterToolbarProps = {
   extra?: React.ReactNode;
@@ -19,7 +22,7 @@ export type FooterToolbarProps = {
     dom: JSX.Element,
   ) => ReactNode;
   prefixCls?: string;
-
+  stylish?: GenerateStyle<FooterToolBarToken>;
   children?: React.ReactNode;
 };
 
@@ -49,6 +52,10 @@ const FooterToolbar: React.FC<FooterToolbarProps> = (props) => {
     return getTargetContainer?.() || document.querySelector('.ant-pro') || document.body;
   }, []);
 
+  const stylish = useStylish(`${baseClassName}.${baseClassName}-stylish`, {
+    stylish: props.stylish,
+  });
+
   const dom = (
     <>
       <div className={`${baseClassName}-left ${hashId}`}>{extra}</div>
@@ -70,7 +77,9 @@ const FooterToolbar: React.FC<FooterToolbarProps> = (props) => {
 
   const renderDom = (
     <div
-      className={classNames(className, hashId, baseClassName)}
+      className={classNames(className, hashId, baseClassName, {
+        [`${baseClassName}-stylish`]: !!props.stylish,
+      })}
       style={{ width, ...style }}
       {...omit(restProps, ['prefixCls'])}
     >
@@ -86,9 +95,9 @@ const FooterToolbar: React.FC<FooterToolbarProps> = (props) => {
         : dom}
     </div>
   );
-
   const ssrDom = !isBrowser() ? renderDom : createPortal(renderDom, containerDom, baseClassName);
-  return wrapSSR(ssrDom);
+
+  return stylish.wrapSSR(wrapSSR(<React.Fragment key={baseClassName}>{ssrDom}</React.Fragment>));
 };
 
 export { FooterToolbar };

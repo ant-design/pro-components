@@ -1,3 +1,4 @@
+import type { GenerateStyle } from '@ant-design/pro-provider';
 import { ProConfigProvider, ProProvider } from '@ant-design/pro-provider';
 import type { AffixProps, BreadcrumbProps, SpinProps, TabPaneProps, TabsProps } from 'antd';
 import { Affix, Breadcrumb, ConfigProvider, Tabs } from 'antd';
@@ -13,8 +14,9 @@ import { PageHeader } from '../PageHeader';
 import { PageLoading } from '../PageLoading';
 import type { WaterMarkProps } from '../WaterMark';
 import { WaterMark } from '../WaterMark';
-import type { pageContainerToken } from './style';
+import type { PageContainerToken, pageContainerToken } from './style';
 import { useStyle } from './style';
+import { useStylish } from './style/stylish';
 
 export type PageHeaderTabConfig = {
   /** @name tabs 的列表 */
@@ -93,6 +95,9 @@ export type PageContainerProps = {
   breadcrumb?: BreadcrumbProps;
 
   children?: React.ReactNode;
+
+  stylish?: GenerateStyle<PageContainerToken>;
+  footerStylish?: GenerateStyle<PageContainerToken>;
 } & PageHeaderTabConfig &
   Omit<PageHeaderProps, 'title' | 'footer' | 'breadcrumbRender' | 'breadcrumb'>;
 
@@ -314,6 +319,10 @@ const PageContainerBase: React.FC<PageContainerProps> = (props) => {
 
   const { wrapSSR, hashId } = useStyle(basePageContainer, propsToken);
 
+  const stylish = useStylish(`${basePageContainer}.${basePageContainer}-stylish`, {
+    stylish: props.stylish,
+  });
+
   const memoBreadcrumbRender = useMemo(() => {
     if (breadcrumbRender == false) return false;
     return breadcrumbRender || restProps?.header?.breadcrumbRender;
@@ -373,29 +382,36 @@ const PageContainerBase: React.FC<PageContainerProps> = (props) => {
   const containerClassName = classNames(basePageContainer, hashId, className, {
     [`${basePageContainer}-with-footer`]: footer,
     [`${basePageContainer}-with-affix`]: fixedHeader && pageHeaderDom,
+    [`${basePageContainer}-stylish`]: !!restProps.stylish,
   });
 
-  return wrapSSR(
-    <>
-      <div style={style} className={containerClassName}>
-        {fixedHeader && pageHeaderDom ? (
-          // 在 hasHeader 且 fixedHeader 的情况下，才需要设置高度
-          <Affix
-            offsetTop={
-              value.hasHeader && value.fixedHeader ? token?.layout?.header?.heightLayoutHeader : 0
-            }
-            {...affixProps}
-            className={`${basePageContainer}-affix ${hashId}`}
-          >
-            <div className={`${basePageContainer}-warp ${hashId}`}>{pageHeaderDom}</div>
-          </Affix>
-        ) : (
-          pageHeaderDom
+  return stylish.wrapSSR(
+    wrapSSR(
+      <>
+        <div style={style} className={containerClassName}>
+          {fixedHeader && pageHeaderDom ? (
+            // 在 hasHeader 且 fixedHeader 的情况下，才需要设置高度
+            <Affix
+              offsetTop={
+                value.hasHeader && value.fixedHeader ? token?.layout?.header?.heightLayoutHeader : 0
+              }
+              {...affixProps}
+              className={`${basePageContainer}-affix ${hashId}`}
+            >
+              <div className={`${basePageContainer}-warp ${hashId}`}>{pageHeaderDom}</div>
+            </Affix>
+          ) : (
+            pageHeaderDom
+          )}
+          {renderContentDom && <GridContent>{renderContentDom}</GridContent>}
+        </div>
+        {footer && (
+          <FooterToolbar stylish={restProps.footerStylish} prefixCls={prefixCls}>
+            {footer}
+          </FooterToolbar>
         )}
-        {renderContentDom && <GridContent>{renderContentDom}</GridContent>}
-      </div>
-      {footer && <FooterToolbar prefixCls={prefixCls}>{footer}</FooterToolbar>}
-    </>,
+      </>,
+    ),
   );
 };
 

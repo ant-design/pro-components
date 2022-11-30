@@ -168,7 +168,13 @@ function ModalForm<T = Record<string, any>>({
     return (
       <>
         {formDom}
-        {footerRef.current && submitter ? createPortal(submitter, footerRef.current) : submitter}
+        {footerRef.current && submitter ? (
+          <React.Fragment key="submitter">
+            {createPortal(submitter, footerRef.current)}
+          </React.Fragment>
+        ) : (
+          submitter
+        )}
       </>
     );
   }, []);

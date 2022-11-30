@@ -2,13 +2,14 @@ import { ProProvider } from '@ant-design/pro-provider';
 import { ConfigProvider, Layout } from 'antd';
 import classNames from 'classnames';
 import React, { useCallback, useContext } from 'react';
-import { useStyle } from '../style/header';
-import type { WithFalse } from '../typing';
-import { clearMenuItem } from '../utils/utils';
-import type { GlobalHeaderProps } from './GlobalHeader';
-import { GlobalHeader } from './GlobalHeader';
-import type { PrivateSiderMenuProps } from './SiderMenu/SiderMenu';
-import { TopNavHeader } from './TopNavHeader';
+import { useStyle } from './style/header';
+import type { WithFalse } from '../../typing';
+import { clearMenuItem } from '../../utils/utils';
+import type { GlobalHeaderProps } from '../GlobalHeader';
+import { GlobalHeader } from '../GlobalHeader';
+import type { PrivateSiderMenuProps } from '../SiderMenu/SiderMenu';
+import { TopNavHeader } from '../TopNavHeader';
+import { useStylish } from './style/stylish';
 
 const { Header } = Layout;
 
@@ -71,8 +72,11 @@ const DefaultHeader: React.FC<HeaderViewProps & PrivateSiderMenuProps> = (props)
 
   const isTop = layout === 'top';
   const baseClassName = `${prefixCls}-layout-header`;
-  const { wrapSSR, hashId } = useStyle(baseClassName, {
-    proLayoutCls: prefixCls || 'ant-pro-layout',
+  const { wrapSSR, hashId } = useStyle(baseClassName);
+
+  const stylish = useStylish(`${baseClassName}.${baseClassName}-stylish`, {
+    proLayoutCollapsedWidth: 64,
+    stylish: props.stylish,
   });
 
   const className = classNames(propsClassName, hashId, baseClassName, {
@@ -81,39 +85,42 @@ const DefaultHeader: React.FC<HeaderViewProps & PrivateSiderMenuProps> = (props)
     [`${baseClassName}-fixed-header-action`]: !collapsed,
     [`${baseClassName}-top-menu`]: isTop,
     [`${baseClassName}-header`]: true,
+    [`${baseClassName}-stylish`]: !!props.stylish,
   });
 
   if (layout === 'side' && !isMobile) return null;
-  return wrapSSR(
-    <>
-      <ConfigProvider
-        // @ts-ignore
-        theme={{
-          hashed: process.env.NODE_ENV?.toLowerCase() !== 'test',
-          components: {
-            Layout: {
-              colorBgHeader: 'transparent',
-              colorBgBody: 'transparent',
+  return stylish.wrapSSR(
+    wrapSSR(
+      <>
+        <ConfigProvider
+          // @ts-ignore
+          theme={{
+            hashed: process.env.NODE_ENV?.toLowerCase() !== 'test',
+            components: {
+              Layout: {
+                colorBgHeader: 'transparent',
+                colorBgBody: 'transparent',
+              },
             },
-          },
-        }}
-      >
-        {needFixedHeader && (
-          <Header
-            style={{
-              height: token?.layout?.header?.heightLayoutHeader || 56,
-              lineHeight: `${token?.layout?.header?.heightLayoutHeader || 56}px`,
-              backgroundColor: 'transparent',
-              zIndex: 19,
-              ...style,
-            }}
-          />
-        )}
-        <Header className={className} style={style}>
-          {renderContent()}
-        </Header>
-      </ConfigProvider>
-    </>,
+          }}
+        >
+          {needFixedHeader && (
+            <Header
+              style={{
+                height: token?.layout?.header?.heightLayoutHeader || 56,
+                lineHeight: `${token?.layout?.header?.heightLayoutHeader || 56}px`,
+                backgroundColor: 'transparent',
+                zIndex: 19,
+                ...style,
+              }}
+            />
+          )}
+          <Header className={className} style={style}>
+            {renderContent()}
+          </Header>
+        </ConfigProvider>
+      </>,
+    ),
   );
 };
 
