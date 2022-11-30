@@ -1,6 +1,6 @@
 import { ProConfigProvider, useIntl } from '@ant-design/pro-provider';
-import { merge, useRefFunction } from '@ant-design/pro-utils';
-import type { FormInstance, StepsProps } from 'antd';
+import { compareVersions, merge, useRefFunction } from '@ant-design/pro-utils';
+import { FormInstance, StepsProps, version } from 'antd';
 import { Button, Col, ConfigProvider, Form, Row, Space, Steps } from 'antd';
 import type { FormProviderProps } from 'antd/es/form/context';
 import classNames from 'classnames';
@@ -234,24 +234,38 @@ function StepsForm<T = Record<string, any>>(
     [lastStep, onFinish, setLoading, setStep],
   );
 
-  const stepsDom = useMemo(
-    () => (
+  const stepsDom = useMemo(() => {
+    const isNewAntd = compareVersions(version, '4.24.0') > -1;
+    const itemsProps = isNewAntd
+      ? {
+          items: formArray.map((item) => {
+            const itemProps = formMapRef.current.get(item);
+            return {
+              key: item,
+              title: itemProps?.title,
+              ...itemProps?.stepProps,
+            };
+          }),
+        }
+      : {};
+
+    return (
       <div
         className={`${prefixCls}-steps-container ${hashId}`}
         style={{
           maxWidth: Math.min(formArray.length * 320, 1160),
         }}
       >
-        <Steps {...stepsProps} current={step} onChange={undefined}>
-          {formArray.map((item) => {
-            const itemProps = formMapRef.current.get(item);
-            return <Steps.Step key={item} title={itemProps?.title} {...itemProps?.stepProps} />;
-          })}
+        <Steps {...stepsProps} {...itemsProps} current={step} onChange={undefined}>
+          {!isNewAntd &&
+            formArray.map((item) => {
+              const itemProps = formMapRef.current.get(item);
+              return <Steps.Step key={item} title={itemProps?.title} {...itemProps?.stepProps} />;
+            })}
         </Steps>
       </div>
-    ),
-    [formArray, hashId, prefixCls, step, stepsProps],
-  );
+    );
+  }, [formArray, hashId, prefixCls, step, stepsProps]);
 
   const onSubmit = useRefFunction(() => {
     const from = formArrayRef.current[step];
