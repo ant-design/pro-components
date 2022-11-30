@@ -89,7 +89,7 @@ const SearchSelect = <T,>(props: SearchSelectProps<T[]>, ref: any) => {
     onSearch,
     onFocus,
     onChange,
-    autoClearSearchValue,
+    autoClearSearchValue = true,
     searchOnFocus = false,
     resetAfterSelect = false,
     fetchDataOnSearch = true,
