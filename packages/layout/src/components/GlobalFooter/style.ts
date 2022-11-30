@@ -21,6 +21,7 @@ const genFooterToolBarStyle: GenerateStyle<GlobalFooterToken> = (token) => {
         color: token.colorTextSecondary,
         '&-link': {
           color: token.colorTextSecondary,
+          textDecoration: token.linkDecoration,
         },
         '*:not(:last-child)': {
           marginInlineEnd: 8,
