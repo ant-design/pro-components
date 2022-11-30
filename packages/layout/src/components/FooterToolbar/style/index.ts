@@ -24,11 +24,14 @@ const genFooterToolBarStyle: GenerateStyle<FooterToolBarToken> = (token) => {
       borderBlockStart: `1px solid ${token.colorSplit}`,
       '-webkit-backdrop-filter': 'blur(8px)',
       backdropFilter: 'blur(8px)',
+      color: token.colorText,
       transition: 'all 0.2s ease 0s',
       '&-left': {
         flex: 1,
+        color: token.colorText,
       },
       '&-right': {
+        color: token.colorText,
         '> *': {
           marginInlineEnd: 8,
           '&:last-child': {

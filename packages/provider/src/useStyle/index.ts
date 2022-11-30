@@ -8,7 +8,7 @@ import type React from 'react';
 import { useContext } from 'react';
 import { ProProvider } from '../index';
 import type { ProTokenType } from '../typing/layoutToken';
-import type { AliasToken } from './token';
+import type { GlobalToken } from 'antd/es/theme/interface';
 import * as batToken from './token';
 
 /**
@@ -34,7 +34,7 @@ export const lighten = (baseColor: string, brightness: number) => {
 };
 
 export type GenerateStyle<
-  ComponentToken extends object = AliasToken,
+  ComponentToken extends object = GlobalToken,
   ReturnType = CSSInterpolation,
 > = (token: ComponentToken) => ReturnType;
 
@@ -54,7 +54,7 @@ export type UseStyleResult = {
   hashId: string;
 };
 
-export type ProAliasToken = AliasToken &
+export type ProAliasToken = GlobalToken &
   ProTokenType & {
     themeId: number;
     /**

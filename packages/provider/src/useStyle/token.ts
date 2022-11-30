@@ -1,6 +1,7 @@
 ﻿import { createTheme } from '@ant-design/cssinjs';
 
 import { theme } from 'antd';
+import type { GlobalToken } from 'antd/es/theme/interface';
 
 export const defaultToken = {
   blue: '#1677ff',
@@ -376,8 +377,7 @@ export const defaultToken = {
   boxShadowTabsOverflowBottom: 'inset 0 -10px 8px -8px rgba(0, 0, 0, 0.08)',
   _tokenKey: '19w80ff',
   _hashId: 'css-dev-only-do-not-override-i2zu9q',
-  ...(theme?.defaultAlgorithm?.(theme?.defaultSeed) as any),
-};
+} as any as GlobalToken;
 
 export const hashCode = (str: string, seed = 1) => {
   let h1 = 0xdeadbeef ^ seed,
@@ -392,19 +392,32 @@ export const hashCode = (str: string, seed = 1) => {
   return 4294967296 * (2097151 & h2) + (h1 >>> 0);
 };
 
-export type AliasToken = typeof defaultToken;
-
 // @ts-ignore
 export const emptyTheme = createTheme((token) => token);
 
 export const token = {
   theme: emptyTheme,
-  token: defaultToken,
+  token: {
+    ...defaultToken,
+    ...(theme?.defaultAlgorithm?.(theme?.defaultSeed) as any),
+  } as GlobalToken,
   hashId: `pro-${hashCode(JSON.stringify(defaultToken))}`,
 };
 
-export const useToken = () => token as any;
+export const useToken = () => token;
 
-export const darkAlgorithm = () => defaultToken;
-export const defaultAlgorithm = () => defaultToken;
-export const compactAlgorithm = () => defaultToken;
+export const darkAlgorithm = () =>
+  ({
+    ...defaultToken,
+    ...(theme?.defaultAlgorithm?.(theme?.defaultSeed) as any),
+  } as GlobalToken);
+export const defaultAlgorithm = () =>
+  ({
+    ...defaultToken,
+    ...(theme?.defaultAlgorithm?.(theme?.defaultSeed) as any),
+  } as GlobalToken);
+export const compactAlgorithm = () =>
+  ({
+    ...defaultToken,
+    ...(theme?.defaultAlgorithm?.(theme?.defaultSeed) as any),
+  } as GlobalToken);

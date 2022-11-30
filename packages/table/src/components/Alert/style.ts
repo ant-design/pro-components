@@ -9,7 +9,7 @@ const genProStyle: GenerateStyle<ProToken> = (token) => {
   return {
     [token.componentCls]: {
       marginBlockEnd: 16,
-      backgroundColor: setAlpha(token.colorBgContainer, 0.02),
+      backgroundColor: setAlpha(token.colorTextBase, 0.02),
       borderRadius: token.borderRadius,
       border: 'none',
       '&-container': {
