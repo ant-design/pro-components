@@ -2,6 +2,19 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [7.3.0](https://github.com/ant-design/pro-components/compare/@ant-design/pro-layout@7.2.6...@ant-design/pro-layout@7.3.0) (2022-11-30)
+
+### Bug Fixes
+
+- **layout:** better theme gen style ([fcbc182](https://github.com/ant-design/pro-components/commit/fcbc182f4995b30d75b20bdfd96db300602ac739))
+- **layout:** fix collapsedshowtitle style error ([e4dc580](https://github.com/ant-design/pro-components/commit/e4dc58064c716840e2905f45935685ff67ce8d87))
+- **layout:** update drawer style ([eb7ace8](https://github.com/ant-design/pro-components/commit/eb7ace881dd3e55244e4f44c3de1562a409135fa))
+
+### Features
+
+- **layout:** fix dark style no work error ([3e06527](https://github.com/ant-design/pro-components/commit/3e0652738e6993973aba34af118ffd8a9af5815c))
+- **layout:** support stylish ([60c0b54](https://github.com/ant-design/pro-components/commit/60c0b547bed047434962d6e61c34037e849331de))
+
 ## [7.2.6](https://github.com/ant-design/pro-components/compare/@ant-design/pro-layout@7.2.5...@ant-design/pro-layout@7.2.6) (2022-11-22)
 
 ### Bug Fixes

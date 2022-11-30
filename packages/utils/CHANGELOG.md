@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.4.0](https://github.com/ant-design/pro-components/compare/@ant-design/pro-utils@2.3.5...@ant-design/pro-utils@2.4.0) (2022-11-30)
+
+### Features
+
+- **layout:** fix dark style no work error ([3e06527](https://github.com/ant-design/pro-components/commit/3e0652738e6993973aba34af118ffd8a9af5815c))
+
 ## [2.3.5](https://github.com/ant-design/pro-components/compare/@ant-design/pro-utils@2.3.4...@ant-design/pro-utils@2.3.5) (2022-11-17)
 
 **Note:** Version bump only for package @ant-design/pro-utils

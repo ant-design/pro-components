@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.1.0](https://github.com/ant-design/pro-components/compare/@ant-design/pro-provider@2.0.17...@ant-design/pro-provider@2.1.0) (2022-11-30)
+
+### Bug Fixes
+
+- **layout:** better theme gen style ([fcbc182](https://github.com/ant-design/pro-components/commit/fcbc182f4995b30d75b20bdfd96db300602ac739))
+
+### Features
+
+- **layout:** fix dark style no work error ([3e06527](https://github.com/ant-design/pro-components/commit/3e0652738e6993973aba34af118ffd8a9af5815c))
+
 ## [2.0.17](https://github.com/ant-design/pro-components/compare/@ant-design/pro-provider@2.0.16...@ant-design/pro-provider@2.0.17) (2022-11-17)
 
 **Note:** Version bump only for package @ant-design/pro-provider
