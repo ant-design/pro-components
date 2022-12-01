@@ -8,6 +8,12 @@ group:
   path: /
 ---
 
+## @ant-design/pro-components@2.3.37
+
+`2022-12-01`
+
+- fix(table): fix table style error. [3fbfddd](https://github.com/ant-design/pro-components/commit/3fbfddd)
+
 ## @ant-design/pro-components@2.3.36
 
 `2022-11-30`
