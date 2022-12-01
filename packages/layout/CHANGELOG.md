@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [7.3.2](https://github.com/ant-design/pro-components/compare/@ant-design/pro-layout@7.3.1...@ant-design/pro-layout@7.3.2) (2022-12-01)
+
+### Bug Fixes
+
+- **layout:** remove minwidth and pageheader padding ([62d3657](https://github.com/ant-design/pro-components/commit/62d36571257db87b839c3e1390d2f0c8056871e0))
+
 ## [7.3.1](https://github.com/ant-design/pro-components/compare/@ant-design/pro-layout@7.3.0...@ant-design/pro-layout@7.3.1) (2022-12-01)
 
 ### Bug Fixes
