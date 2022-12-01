@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [7.3.1](https://github.com/ant-design/pro-components/compare/@ant-design/pro-layout@7.3.0...@ant-design/pro-layout@7.3.1) (2022-12-01)
+
+### Bug Fixes
+
+- **table:** fix table style error ([3fbfddd](https://github.com/ant-design/pro-components/commit/3fbfddd4dc04090610e90dcbe2bd35cffe3e0644))
+
 # [7.3.0](https://github.com/ant-design/pro-components/compare/@ant-design/pro-layout@7.2.6...@ant-design/pro-layout@7.3.0) (2022-11-30)
 
 ### Bug Fixes
