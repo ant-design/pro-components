@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [7.3.3](https://github.com/ant-design/pro-components/compare/@ant-design/pro-layout@7.3.2...@ant-design/pro-layout@7.3.3) (2022-12-01)
+
+### Bug Fixes
+
+- **layout:** fix collpse style error ([8929030](https://github.com/ant-design/pro-components/commit/89290300d6decf76941ea4beb2ec8eeedfb0d37b))
+
 ## [7.3.2](https://github.com/ant-design/pro-components/compare/@ant-design/pro-layout@7.3.1...@ant-design/pro-layout@7.3.2) (2022-12-01)
 
 ### Bug Fixes
