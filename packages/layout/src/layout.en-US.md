@@ -406,7 +406,7 @@ Tokens are a basic element of a design system that allows you to quickly modify 
 
 | token | description | default value |
 | --- | --- | --- |
-| bgLayout | background color of layout | `#f7f8fa` |
+| bgLayout | background color of layout | `linear-gradient(${antdToken.colorBgContainer}, ${antdToken.colorBgLayout} 28%)` |
 | colorTextAppListIcon | Icon color for cross-site apps | `#666` |
 | colorTextAppListIconHover | Icon hover color for cross-site applications | `rgba(0, 0, 0, 0.65)` |
 | colorBgAppListIconHover | Icon hover background color for cross-site applications | `rgba(0, 0, 0, 0.04)` |
