@@ -23,7 +23,7 @@ const tailPkgs = readdirSync(join(__dirname, 'packages')).filter(
 );
 
 export default {
-  cjs: false,
+  cjs: { type: 'babel' },
   esm: {
     type: 'babel',
   },

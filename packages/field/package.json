@@ -11,12 +11,13 @@
   "license": "MIT",
   "author": "chenshuai2144",
   "sideEffects": false,
-  "main": "es/index.js",
+  "main": "lib/index.js",
   "module": "es/index.js",
   "types": "es/index.d.ts",
   "files": [
     "es",
-    "dist"
+    "dist",
+    "lib"
   ],
   "browserslist": [
     "last 2 versions",
