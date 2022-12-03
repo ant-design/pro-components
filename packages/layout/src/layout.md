@@ -473,12 +473,12 @@ Token 是一种设计系统的基本元素，可以使用 Token 快速的修改�
 
 ### Layout 的 token
 
-| token                     | 说明                            | 默认值                |
-| ------------------------- | ------------------------------- | --------------------- |
-| bgLayout                  | layout 的背景颜色               | `#f7f8fa`             |
-| colorTextAppListIcon      | 跨站点应用的图标颜色            | `#666`                |
-| colorTextAppListIconHover | 跨站点应用的图标 hover 颜色     | `rgba(0, 0, 0, 0.65)` |
-| colorBgAppListIconHover   | 跨站点应用的图标 hover 背景颜色 | `rgba(0, 0, 0, 0.04)` |
+| token | 说明 | 默认值 |
+| --- | --- | --- |
+| bgLayout | layout 的背景颜色 | `linear-gradient(${antdToken.colorBgContainer}, ${antdToken.colorBgLayout} 28%)` |
+| colorTextAppListIcon | 跨站点应用的图标颜色 | `#666` |
+| colorTextAppListIconHover | 跨站点应用的图标 hover 颜色 | `rgba(0, 0, 0, 0.65)` |
+| colorBgAppListIconHover | 跨站点应用的图标 hover 背景颜色 | `rgba(0, 0, 0, 0.04)` |
 
 ### Sider Token
 

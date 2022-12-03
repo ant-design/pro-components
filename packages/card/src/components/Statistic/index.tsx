@@ -59,8 +59,7 @@ const Statistic: React.FC<StatisticProps> = (props) => {
   const wrapperClass = classNames(`${prefixCls}-wrapper`, hashId);
   const contentClass = classNames(`${prefixCls}-content`, hashId);
 
-  const statisticClassName = classNames({
-    hashId,
+  const statisticClassName = classNames(hashId, {
     [`${prefixCls}-layout-${layout}`]: layout,
     [`${prefixCls}-trend-${trend}`]: trend,
   });

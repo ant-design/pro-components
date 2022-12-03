@@ -1,6 +1,6 @@
 {
   "name": "@ant-design/pro-form",
-  "version": "2.3.3",
+  "version": "2.4.1",
   "description": "@ant-design/pro-form",
   "keywords": [
     "antd",
@@ -16,11 +16,12 @@
   },
   "license": "MIT",
   "sideEffects": false,
-  "main": "es/index.js",
+  "main": "lib/index.js",
   "module": "es/index.js",
   "types": "es/index.d.ts",
   "files": [
     "es",
+    "lib",
     "dist"
   ],
   "browserslist": [
@@ -31,9 +32,9 @@
   ],
   "dependencies": {
     "@ant-design/icons": "^4.2.1",
-    "@ant-design/pro-field": "2.1.23",
-    "@ant-design/pro-provider": "2.0.17",
-    "@ant-design/pro-utils": "2.3.5",
+    "@ant-design/pro-field": "2.1.25",
+    "@ant-design/pro-provider": "2.1.1",
+    "@ant-design/pro-utils": "2.4.1",
     "@babel/runtime": "^7.18.0",
     "@umijs/use-params": "^1.0.9",
     "classnames": "^2.2.6",

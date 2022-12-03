@@ -1,6 +1,6 @@
 {
   "name": "@ant-design/pro-utils",
-  "version": "2.3.5",
+  "version": "2.4.1",
   "description": "@ant-design/pro-utils",
   "keywords": [
     "antd",
@@ -16,12 +16,13 @@
   },
   "license": "MIT",
   "sideEffects": false,
-  "main": "es/index.js",
+  "main": "lib/index.js",
   "module": "es/index.js",
   "types": "es/index.d.ts",
   "files": [
     "dist",
-    "es"
+    "es",
+    "lib"
   ],
   "browserslist": [
     "last 2 versions",
@@ -31,7 +32,7 @@
   ],
   "dependencies": {
     "@ant-design/icons": "^4.3.0",
-    "@ant-design/pro-provider": "2.0.17",
+    "@ant-design/pro-provider": "2.1.1",
     "@babel/runtime": "^7.18.0",
     "classnames": "^2.2.6",
     "dayjs": "^1.11.4",

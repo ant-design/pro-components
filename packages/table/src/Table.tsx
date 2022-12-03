@@ -522,13 +522,11 @@ const ProTable = <T extends Record<string, any>, U extends ParamsType, ValueType
 
   useMemo(() => {
     if (action.dataSource?.length) {
-      const newCache = new Map<any, T>();
       const keys = action.dataSource.map((data) => {
         const dataRowKey = getRowKey(data, -1);
-        newCache.set(dataRowKey, data);
+        preserveRecordsRef.current.set(dataRowKey, data);
         return dataRowKey;
       });
-      preserveRecordsRef.current = newCache;
       return keys;
     }
     return [];

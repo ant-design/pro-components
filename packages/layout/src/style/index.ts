@@ -266,7 +266,7 @@ const genProLayoutStyle: GenerateStyle<ProLayoutToken> = (token) => {
           zIndex: 0,
           height: '100%',
           width: '100%',
-          backgroundImage: token?.layout?.bgLayout,
+          background: token?.layout?.bgLayout,
         },
       },
       [`${token.antCls}-menu-submenu-popup`]: {

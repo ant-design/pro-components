@@ -1,6 +1,6 @@
 {
   "name": "@ant-design/pro-layout",
-  "version": "7.2.6",
+  "version": "7.3.3",
   "description": "@ant-design/pro-layout",
   "keywords": [
     "antd",
@@ -16,12 +16,13 @@
   },
   "license": "MIT",
   "sideEffects": false,
-  "main": "es/index.js",
+  "main": "lib/index.js",
   "module": "es/index.js",
   "types": "es/index.d.ts",
   "files": [
     "es",
-    "dist"
+    "dist",
+    "lib"
   ],
   "browserslist": [
     "last 2 versions",
@@ -31,8 +32,8 @@
   ],
   "dependencies": {
     "@ant-design/icons": "^4.0.0",
-    "@ant-design/pro-provider": "2.0.17",
-    "@ant-design/pro-utils": "2.3.5",
+    "@ant-design/pro-provider": "2.1.1",
+    "@ant-design/pro-utils": "2.4.1",
     "@babel/runtime": "^7.18.0",
     "@umijs/route-utils": "^2.1.0",
     "@umijs/use-params": "^1.0.9",

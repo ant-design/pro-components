@@ -4221,7 +4221,7 @@ exports[`card demos 📸 renders ./packages/card/src/components/StatisticCard/de
                       <div
                         class="ant-statistic-title"
                       >
-                        支付成功订单数
+                        成功订单数
                       </div>
                       <div
                         class="ant-statistic-content"

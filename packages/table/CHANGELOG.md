@@ -2,6 +2,22 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [3.2.1](https://github.com/ant-design/pro-components/compare/@ant-design/pro-table@3.2.0...@ant-design/pro-table@3.2.1) (2022-12-01)
+
+### Bug Fixes
+
+- **table:** fix table style error ([3fbfddd](https://github.com/ant-design/pro-components/commit/3fbfddd4dc04090610e90dcbe2bd35cffe3e0644))
+
+# [3.2.0](https://github.com/ant-design/pro-components/compare/@ant-design/pro-table@3.1.9...@ant-design/pro-table@3.2.0) (2022-11-30)
+
+### Bug Fixes
+
+- **table:** Sortable 组件提取到外部防止不必要的页面重建 ([#6246](https://github.com/ant-design/pro-components/issues/6246)) ([9247c4a](https://github.com/ant-design/pro-components/commit/9247c4ac76628a84be3d103498b4c20792aad8eb))
+
+### Features
+
+- **layout:** fix dark style no work error ([3e06527](https://github.com/ant-design/pro-components/commit/3e0652738e6993973aba34af118ffd8a9af5815c))
+
 ## [3.1.9](https://github.com/ant-design/pro-components/compare/@ant-design/pro-table@3.1.8...@ant-design/pro-table@3.1.9) (2022-11-22)
 
 ### Bug Fixes

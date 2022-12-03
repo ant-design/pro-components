@@ -3,7 +3,6 @@ import { useStyle as useAntdStyle } from '@ant-design/pro-provider';
 
 export interface ProLayoutHeaderToken extends ProAliasToken {
   componentCls: string;
-  proLayoutCls: string;
 }
 
 const genProLayoutHeaderStyle: GenerateStyle<ProLayoutHeaderToken> = (token) => {

@@ -30,7 +30,6 @@ const genGlobalHeaderStyle: GenerateStyle<GlobalHeaderToken> = (token) => {
       },
       '&-logo': {
         position: 'relative',
-        minWidth: '154px',
         marginInlineEnd: '16px',
         a: {
           display: 'flex',

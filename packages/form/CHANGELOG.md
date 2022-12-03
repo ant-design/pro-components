@@ -2,6 +2,22 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.4.1](https://github.com/ant-design/pro-components/compare/@ant-design/pro-form@2.4.0...@ant-design/pro-form@2.4.1) (2022-12-01)
+
+**Note:** Version bump only for package @ant-design/pro-form
+
+# [2.4.0](https://github.com/ant-design/pro-components/compare/@ant-design/pro-form@2.3.3...@ant-design/pro-form@2.4.0) (2022-11-30)
+
+### Bug Fixes
+
+- **form:** formRef repeats the assignment ([#6278](https://github.com/ant-design/pro-components/issues/6278)) ([810c3ed](https://github.com/ant-design/pro-components/commit/810c3ed88f35b1ba13d2fd7da8d13f8fcd90a550))
+- **form:** new antd version use items props ([9f520bf](https://github.com/ant-design/pro-components/commit/9f520bfc3e25c1f5d4b8c14c9afc28865c569002))
+
+### Features
+
+- **layout:** fix dark style no work error ([3e06527](https://github.com/ant-design/pro-components/commit/3e0652738e6993973aba34af118ffd8a9af5815c))
+- **layout:** support stylish ([60c0b54](https://github.com/ant-design/pro-components/commit/60c0b547bed047434962d6e61c34037e849331de))
+
 ## [2.3.3](https://github.com/ant-design/pro-components/compare/@ant-design/pro-form@2.3.2...@ant-design/pro-form@2.3.3) (2022-11-22)
 
 **Note:** Version bump only for package @ant-design/pro-form

@@ -213,7 +213,6 @@ const CheckCard: React.FC<CheckCardProps> & {
     [`${prefixCls}-multiple`]: multiple,
     [`${prefixCls}-disabled`]: disabled,
     [`${prefixCls}-bordered`]: bordered,
-    hashId,
   });
 
   const metaDom = useMemo(() => {
