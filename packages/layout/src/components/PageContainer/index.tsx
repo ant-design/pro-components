@@ -393,7 +393,7 @@ const PageContainerBase: React.FC<PageContainerProps> = (props) => {
             // 在 hasHeader 且 fixedHeader 的情况下，才需要设置高度
             <Affix
               offsetTop={
-                value.hasHeader && value.fixedHeader ? token?.layout?.header?.heightLayoutHeader : 0
+                value.hasHeader && value.fixedHeader ? token?.layout?.header?.heightLayoutHeader : 1
               }
               {...affixProps}
               className={`${basePageContainer}-affix ${hashId}`}
