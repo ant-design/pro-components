@@ -8,6 +8,16 @@ group:
   path: /
 ---
 
+## @ant-design/pro-components@2.3.40
+
+`2022-12-05`
+
+- fix(layout): 修复 PageContainer 设置为 fixedHeader，内容滚动的时候 Title 抖动问题 (#6330). [#6330](https://github.com/ant-design/pro-components/pull/#6330) [@lhzhou180606](https://github.com/lhzhou180606)
+- fix(layout): fix bgColor token no work error. [bad0f2f](https://github.com/ant-design/pro-components/commit/bad0f2f)
+- fix(form): 修复 SearchSelect 组件在设置了 showSearch 和 多选模式下，当搜索并选中后，搜索的文字没有清空的问题 (#6302). [#6302](https://github.com/ant-design/pro-components/pull/#6302) [@catmiao8](https://github.com/catmiao8)
+- fix(table): 修复 table 使用后端分页时（频繁变化 dataSource 场景）多选功能 selectedRow 缓存丢失 (#6314). [#6314](https://github.com/ant-design/pro-components/pull/#6314) [@YingJiangHui](https://github.com/YingJiangHui)
+- fix(card): fix card style error. [60ac49c](https://github.com/ant-design/pro-components/commit/60ac49c)
+
 ## @ant-design/pro-components@2.3.37
 
 `2022-12-01`
