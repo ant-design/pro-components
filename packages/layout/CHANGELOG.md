@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [7.3.4](https://github.com/ant-design/pro-components/compare/@ant-design/pro-layout@7.3.3...@ant-design/pro-layout@7.3.4) (2022-12-05)
+
+### Bug Fixes
+
+- **layout:** fix bgColor token no work error ([bad0f2f](https://github.com/ant-design/pro-components/commit/bad0f2f22547af097562dddf1c6249a21eca8dc9))
+- **layout:** 修复 PageContainer 设置为 fixedHeader，内容滚动的时候 Title 抖动问题 ([#6330](https://github.com/ant-design/pro-components/issues/6330)) ([1d63b00](https://github.com/ant-design/pro-components/commit/1d63b00828b9854187dbe7f01ed1a7dab7276896))
+
 ## [7.3.3](https://github.com/ant-design/pro-components/compare/@ant-design/pro-layout@7.3.2...@ant-design/pro-layout@7.3.3) (2022-12-01)
 
 ### Bug Fixes

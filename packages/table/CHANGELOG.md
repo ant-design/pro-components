@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [3.2.2](https://github.com/ant-design/pro-components/compare/@ant-design/pro-table@3.2.1...@ant-design/pro-table@3.2.2) (2022-12-05)
+
+### Bug Fixes
+
+- **table:** 修复 table 使用后端分页时（频繁变化 dataSource 场景）多选功能 selectedRow 缓存丢失 ([#6314](https://github.com/ant-design/pro-components/issues/6314)) ([a7bc3ed](https://github.com/ant-design/pro-components/commit/a7bc3ed67632df3caf0c20e22e99e3a65894297c))
+
 ## [3.2.1](https://github.com/ant-design/pro-components/compare/@ant-design/pro-table@3.2.0...@ant-design/pro-table@3.2.1) (2022-12-01)
 
 ### Bug Fixes

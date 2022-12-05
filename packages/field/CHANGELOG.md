@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.1.26](https://github.com/ant-design/pro-components/compare/@ant-design/pro-field@2.1.25...@ant-design/pro-field@2.1.26) (2022-12-05)
+
+### Bug Fixes
+
+- **form:** 修复 SearchSelect 组件在设置了 showSearch 和 多选模式下，当搜索并选中后，搜索的文字没有清空的问题 ([#6302](https://github.com/ant-design/pro-components/issues/6302)) ([79f263f](https://github.com/ant-design/pro-components/commit/79f263f22d6d5b5ca0256fa12027adf60b36f719))
+
 ## [2.1.25](https://github.com/ant-design/pro-components/compare/@ant-design/pro-field@2.1.24...@ant-design/pro-field@2.1.25) (2022-12-01)
 
 **Note:** Version bump only for package @ant-design/pro-field
