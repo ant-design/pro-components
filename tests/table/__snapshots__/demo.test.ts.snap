@@ -43267,7 +43267,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/renderTable.tsx cor
         </form>
       </div>
       <div
-        class="ant-pro-table-extra"
+        class="ant-pro-table ant-pro-table-extra"
       >
         <div
           class="ant-card ant-card-bordered"
