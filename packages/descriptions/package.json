@@ -1,6 +1,6 @@
 {
   "name": "@ant-design/pro-descriptions",
-  "version": "2.0.34",
+  "version": "2.0.35",
   "description": "@ant-design/pro-descriptions",
   "keywords": [
     "antd",
@@ -32,7 +32,7 @@
   ],
   "dependencies": {
     "@ant-design/pro-field": "2.1.26",
-    "@ant-design/pro-form": "2.4.2",
+    "@ant-design/pro-form": "2.4.3",
     "@ant-design/pro-skeleton": "2.0.7",
     "@ant-design/pro-utils": "2.4.2",
     "@babel/runtime": "^7.18.0",
