@@ -78,7 +78,7 @@ const genLoginFormStyle: GenerateStyle<LoginFormToken> = (token) => {
         '&-other': { marginBlockStart: '24px', lineHeight: '22px', textAlign: 'start' },
       },
     },
-    [`@media (max-width: ${token.screenMDMin}`]: {
+    [`@media (max-width: ${token.screenMDMin}px)`]: {
       [token.componentCls]: {
         flexDirection: 'column-reverse',
         background: 'none !important',
@@ -93,7 +93,7 @@ const genLoginFormStyle: GenerateStyle<LoginFormToken> = (token) => {
         },
       },
     },
-    [`@media (min-width: ${token.screenMDMin}`]: {
+    [`@media (min-width: ${token.screenMDMin}px)`]: {
       [token.componentCls]: {
         '&-container': {
           paddingInline: 0,
@@ -105,7 +105,7 @@ const genLoginFormStyle: GenerateStyle<LoginFormToken> = (token) => {
         },
       },
     },
-    [`@media (max-width: ${token.screenSM}`]: {
+    [`@media (max-width: ${token.screenSM}px)`]: {
       [token.componentCls]: {
         '&-main': { width: '95%', maxWidth: '328px' },
       },
