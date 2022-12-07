@@ -189,14 +189,14 @@ const LightSelect: React.ForwardRefRenderFunction<any, SelectProps<any> & LightS
         }}
         prefixCls={customizePrefixCls}
         options={
-          keyword
-            ? options?.filter((o) => {
+          onSearch || !keyword
+            ? options
+            : options?.filter((o) => {
                 return (
                   String(o[labelPropsName])?.toLowerCase()?.includes(keyword) ||
                   o[valuePropsName]?.toString()?.toLowerCase()?.includes(keyword)
                 );
               })
-            : options
         }
       />
       <FieldLabel
