@@ -424,7 +424,7 @@ const ConfigProVoidContainer: React.FC<{
     );
 
     return (
-      <div className={`${getPrefixCls?.('pro') || 'ant-pro'}${hashId ? ' ' + hashId : ''}`}>
+      <div className={`${getPrefixCls('pro') || 'ant-pro'}${hashId ? ' ' + hashId : ''}`}>
         {provide}
       </div>
     );
