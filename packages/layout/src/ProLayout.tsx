@@ -732,11 +732,15 @@ const ProLayout: React.FC<ProLayoutProps> = (props) => {
 
   return (
     <ConfigProvider
-      theme={{
-        token: {
-          colorPrimary: colorPrimary || '#1677FF',
-        },
-      }}
+      theme={
+        colorPrimary
+          ? {
+              token: {
+                colorPrimary: colorPrimary,
+              },
+            }
+          : undefined
+      }
     >
       <ProConfigProvider autoClearCache {...darkProps} token={props.token}>
         <BaseProLayout {...props} />
