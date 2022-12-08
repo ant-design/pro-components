@@ -39,7 +39,7 @@ export type GenerateStyle<
 > = (token: ComponentToken) => ReturnType;
 
 const genTheme = (): typeof antdTheme => {
-  if (typeof antdTheme === 'undefined') return batToken as any;
+  if (typeof antdTheme === 'undefined' || !antdTheme) return batToken as any;
   return antdTheme;
 };
 
