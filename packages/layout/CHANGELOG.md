@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [7.3.5](https://github.com/ant-design/pro-components/compare/@ant-design/pro-layout@7.3.4...@ant-design/pro-layout@7.3.5) (2022-12-08)
+
+### Bug Fixes
+
+- **layout:** support configprovide darkAlgorithm ([dabf05e](https://github.com/ant-design/pro-components/commit/dabf05edc5f0ef3edd58f69ecdab43981f02e044))
+
 ## [7.3.4](https://github.com/ant-design/pro-components/compare/@ant-design/pro-layout@7.3.3...@ant-design/pro-layout@7.3.4) (2022-12-05)
 
 ### Bug Fixes

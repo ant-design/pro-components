@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.1.27](https://github.com/ant-design/pro-components/compare/@ant-design/pro-field@2.1.26...@ant-design/pro-field@2.1.27) (2022-12-08)
+
+### Bug Fixes
+
+- **form:** 修复 ProFormSelect 在 LightFilter 中自定义过滤无效 ([#6341](https://github.com/ant-design/pro-components/issues/6341)) ([a9a71d9](https://github.com/ant-design/pro-components/commit/a9a71d958b69e59c846638d2351a41f9266d3a73))
+
 ## [2.1.26](https://github.com/ant-design/pro-components/compare/@ant-design/pro-field@2.1.25...@ant-design/pro-field@2.1.26) (2022-12-05)
 
 ### Bug Fixes

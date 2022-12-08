@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [3.2.4](https://github.com/ant-design/pro-components/compare/@ant-design/pro-table@3.2.3...@ant-design/pro-table@3.2.4) (2022-12-08)
+
+### Bug Fixes
+
+- **layout:** support configprovide darkAlgorithm ([dabf05e](https://github.com/ant-design/pro-components/commit/dabf05edc5f0ef3edd58f69ecdab43981f02e044))
+- **table:** fix table extra classname break ([#6334](https://github.com/ant-design/pro-components/issues/6334)) ([ec03182](https://github.com/ant-design/pro-components/commit/ec03182cfe5ca5f58874210cfe0779e123802676))
+
 ## [3.2.3](https://github.com/ant-design/pro-components/compare/@ant-design/pro-table@3.2.2...@ant-design/pro-table@3.2.3) (2022-12-06)
 
 **Note:** Version bump only for package @ant-design/pro-table
