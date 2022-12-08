@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [7.3.6](https://github.com/ant-design/pro-components/compare/@ant-design/pro-layout@7.3.5...@ant-design/pro-layout@7.3.6) (2022-12-08)
+
+### Bug Fixes
+
+- **layout:** no set default colorPrimary ([f85103e](https://github.com/ant-design/pro-components/commit/f85103e35c7f74fb7aa579b3d30d3e45afb07875))
+
 ## [7.3.5](https://github.com/ant-design/pro-components/compare/@ant-design/pro-layout@7.3.4...@ant-design/pro-layout@7.3.5) (2022-12-08)
 
 ### Bug Fixes
