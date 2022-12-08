@@ -311,7 +311,7 @@ const CacheClean = () => {
   return null;
 };
 
-const ConfigProVoidContainer: React.FC<{
+const ConfigProVidContainer: React.FC<{
   children: React.ReactNode;
   autoClearCache?: boolean;
   valueTypeMap?: Record<string, ProRenderFieldPropsType>;
@@ -478,7 +478,7 @@ export const ProConfigProvider: React.FC<{
 
   return (
     <AntdConfigProvider {...configProvider}>
-      <ConfigProVoidContainer {...props} token={token} />
+      <ConfigProVidContainer {...props} token={token} />
     </AntdConfigProvider>
   );
 };

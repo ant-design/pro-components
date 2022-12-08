@@ -8,6 +8,12 @@ group:
   path: /
 ---
 
+## @ant-design/pro-components@2.3.43
+
+`2022-12-08`
+
+- fix(layout): no set default colorPrimary. [f85103e](https://github.com/ant-design/pro-components/commit/f85103e)
+
 ## @ant-design/pro-components@2.3.42
 
 `2022-12-08`
