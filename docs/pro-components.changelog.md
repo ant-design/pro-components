@@ -8,6 +8,14 @@ group:
   path: /
 ---
 
+## @ant-design/pro-components@2.3.42
+
+`2022-12-08`
+
+- fix(layout): support configprovide darkAlgorithm. [dabf05e](https://github.com/ant-design/pro-components/commit/dabf05e)
+- fix(form): 修复 ProFormSelect 在 LightFilter 中自定义过滤无效 (#6341). [#6341](https://github.com/ant-design/pro-components/pull/#6341) [@SeaHaiWorld](https://github.com/SeaHaiWorld)
+- fix(table): fix table extra classname break (#6334). [#6334](https://github.com/ant-design/pro-components/pull/#6334) [@ONLY-yours](https://github.com/ONLY-yours)
+
 ## @ant-design/pro-components@2.3.40
 
 `2022-12-05`
