@@ -45,7 +45,7 @@ const genSettingDrawerStyle: GenerateStyle<SettingDrawerToken> = (token) => {
           height: '36px',
           overflow: 'hidden',
           borderRadius: '4px',
-          boxShadow: token.boxShadowCard,
+          boxShadow: token.boxShadow,
           cursor: 'pointer',
           fontSize: 56,
           lineHeight: '56px',

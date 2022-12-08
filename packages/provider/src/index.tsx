@@ -31,8 +31,7 @@ import zhTW from './locale/zh_TW';
 import type { DeepPartial, ProTokenType } from './typing/layoutToken';
 import { getLayoutDesignToken } from './typing/layoutToken';
 import type { ProAliasToken } from './useStyle';
-import { darkAlgorithm, defaultAlgorithm } from './useStyle';
-import { useToken } from './useStyle';
+import { proTheme } from './useStyle';
 import { emptyTheme, defaultToken } from './useStyle/token';
 import { merge } from './utils/merge';
 
@@ -322,7 +321,7 @@ const ConfigProVoidContainer: React.FC<{
 }> = (props) => {
   const { children, dark, valueTypeMap, autoClearCache = false, token: propsToken } = props;
   const { locale, getPrefixCls, ...restConfig } = useContext(AntdConfigProvider.ConfigContext);
-  const tokenContext = useToken?.();
+  const tokenContext = proTheme.useToken?.();
 
   const proProvide = useContext(ProConfigContext);
 
@@ -456,15 +455,26 @@ export const ProConfigProvider: React.FC<{
     Object.keys(props).sort().join('-') === 'children-needDeps';
 
   if (isNullProvide) return <>{props.children}</>;
+
+  const mergeAlgorithm = () => {
+    const isDark = dark ?? proProvide.dark;
+    if (isDark && !Array.isArray(theme?.algorithm)) {
+      return [proTheme.darkAlgorithm, theme?.algorithm].filter(Boolean);
+    }
+    if (isDark && Array.isArray(theme?.algorithm)) {
+      return [proTheme.darkAlgorithm, ...(theme?.algorithm || [])].filter(Boolean);
+    }
+    return theme?.algorithm;
+  };
   // 自动注入 antd 的配置
   const configProvider = {
     ...rest,
     locale: locale || zh_CN,
     theme: {
       ...theme,
-      algorithm: dark ?? proProvide.dark ? darkAlgorithm : defaultAlgorithm,
+      algorithm: mergeAlgorithm(),
     },
-  };
+  } as typeof theme;
 
   return (
     <AntdConfigProvider {...configProvider}>
