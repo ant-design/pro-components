@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [7.3.9](https://github.com/ant-design/pro-components/compare/@ant-design/pro-layout@7.3.8...@ant-design/pro-layout@7.3.9) (2022-12-09)
+
+### Bug Fixes
+
+- **layout:** fix colorHeaderTitle no work error ([11cc87c](https://github.com/ant-design/pro-components/commit/11cc87c17fda2a4bcd13d9deff1843ea7d800639))
+
 ## [7.3.8](https://github.com/ant-design/pro-components/compare/@ant-design/pro-layout@7.3.7...@ant-design/pro-layout@7.3.8) (2022-12-09)
 
 **Note:** Version bump only for package @ant-design/pro-layout
