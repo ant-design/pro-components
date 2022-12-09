@@ -45,6 +45,8 @@ const genTheme = (): typeof antdTheme => {
 
 export const proTheme = genTheme();
 
+export const useToken = proTheme.useToken;
+
 export type UseStyleResult = {
   wrapSSR: (node: React.ReactElement) => React.ReactElement;
   hashId: string;
