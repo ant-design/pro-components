@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.1.5](https://github.com/ant-design/pro-components/compare/@ant-design/pro-provider@2.1.4...@ant-design/pro-provider@2.1.5) (2022-12-09)
+
+### Bug Fixes
+
+- export usestyle ([2834f23](https://github.com/ant-design/pro-components/commit/2834f23517116d2f2276cce403b5ad03662d9bf1))
+
 ## [2.1.4](https://github.com/ant-design/pro-components/compare/@ant-design/pro-provider@2.1.3...@ant-design/pro-provider@2.1.4) (2022-12-08)
 
 ### Bug Fixes
