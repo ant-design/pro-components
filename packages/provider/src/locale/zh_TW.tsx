@@ -1,5 +1,7 @@
 export default {
   moneySymbol: 'NT$',
+  deleteThisLine: '刪除此行',
+  copyThisLine: '複製此行',
   form: {
     lightFilter: {
       more: '更多篩選',
@@ -49,19 +51,20 @@ export default {
     densitySmall: '緊湊',
   },
   stepsForm: {
-    next: '下一個',
-    prev: '以前的',
+    next: '下一步',
+    prev: '上一步',
     submit: '完成',
   },
   loginForm: {
     submitText: '登入',
   },
   editableTable: {
+    onlyOneLineEditor: '只能同時編輯一行',
     action: {
       save: '保存',
       cancel: '取消',
       delete: '刪除',
-      add: '添加一行數據',
+      add: '新增一行資料',
     },
   },
   switch: {
