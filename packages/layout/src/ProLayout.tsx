@@ -416,18 +416,15 @@ const BaseProLayout: React.FC<ProLayoutProps> = (props) => {
   );
 
   const { data, mutate } = useSWR(
-    () => {
-      if (!menu?.params) return [defaultId, {}];
-      return [defaultId, menu?.params];
-    },
-    async (_: string, params: Record<string, any>) => {
+    [defaultId, menu?.params],
+    async ([, params]) => {
       setMenuLoading(true);
-      const msg = await menu?.request?.(
-        params as Record<string, any>,
+      const menuDataItems = await menu?.request?.(
+        params || {},
         route?.children || route?.routes || [],
       );
       setMenuLoading(false);
-      return msg;
+      return menuDataItems;
     },
     {
       revalidateOnFocus: false,
