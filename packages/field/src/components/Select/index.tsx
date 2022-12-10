@@ -376,20 +376,21 @@ export const useFieldFetchData = (
     mutate: setLocaleData,
     isValidating,
   } = useSWR(
-    swrKey,
-    ([, params, kw]) => {
-      if (props.request) {
-        return props.request(
-          {
-            ...params,
-            keyWords: kw,
-          },
-          props,
-        );
+    () => {
+      if (!props.request) {
+        return null;
       }
 
-      return undefined;
+      return swrKey;
     },
+    ([, params, kw]) =>
+      props.request!(
+        {
+          ...params,
+          keyWords: kw,
+        },
+        props,
+      ),
     {
       revalidateIfStale: !cacheForSwr,
       // 打开 cacheForSwr 的时候才应该支持两个功能
