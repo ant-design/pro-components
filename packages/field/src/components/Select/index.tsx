@@ -383,7 +383,7 @@ export const useFieldFetchData = (
 
       return swrKey;
     },
-    (_, params, kw) =>
+    ([, params, kw]) =>
       props.request!(
         {
           ...params,
