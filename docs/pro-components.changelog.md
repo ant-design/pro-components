@@ -8,6 +8,12 @@ group:
   path: /
 ---
 
+## @ant-design/pro-components@2.3.47
+
+`2022-12-13`
+
+- feat(components): bump swr from 1.x to 2.x (#6367). [#6367](https://github.com/ant-design/pro-components/pull/#6367) [@sushi-su](https://github.com/sushi-su)
+
 ## @ant-design/pro-components@2.3.43
 
 `2022-12-08`
