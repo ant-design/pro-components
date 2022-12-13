@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [7.4.0](https://github.com/ant-design/pro-components/compare/@ant-design/pro-layout@7.3.9...@ant-design/pro-layout@7.4.0) (2022-12-13)
+
+### Features
+
+- **components:** bump swr from 1.x to 2.x ([#6367](https://github.com/ant-design/pro-components/issues/6367)) ([d7a5206](https://github.com/ant-design/pro-components/commit/d7a52068b9c70d40ecf68a065ed470573daade72))
+
 ## [7.3.9](https://github.com/ant-design/pro-components/compare/@ant-design/pro-layout@7.3.8...@ant-design/pro-layout@7.3.9) (2022-12-09)
 
 ### Bug Fixes

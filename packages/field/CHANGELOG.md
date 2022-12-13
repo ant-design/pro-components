@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.2.0](https://github.com/ant-design/pro-components/compare/@ant-design/pro-field@2.1.29...@ant-design/pro-field@2.2.0) (2022-12-13)
+
+### Features
+
+- **components:** bump swr from 1.x to 2.x ([#6367](https://github.com/ant-design/pro-components/issues/6367)) ([d7a5206](https://github.com/ant-design/pro-components/commit/d7a52068b9c70d40ecf68a065ed470573daade72))
+
 ## [2.1.29](https://github.com/ant-design/pro-components/compare/@ant-design/pro-field@2.1.28...@ant-design/pro-field@2.1.29) (2022-12-09)
 
 **Note:** Version bump only for package @ant-design/pro-field
