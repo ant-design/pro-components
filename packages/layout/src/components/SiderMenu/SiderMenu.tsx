@@ -450,7 +450,6 @@ const SiderMenu: React.FC<SiderMenuProps & PrivateSiderMenuProps> = (props) => {
         className={classNames(siderClassName, hashId, hideMenuWhenCollapsedClassName)}
       >
         <ConfigProvider
-          // @ts-ignore
           theme={{
             hashed: process.env.NODE_ENV?.toLowerCase() !== 'test',
             components: {
@@ -470,6 +469,8 @@ const SiderMenu: React.FC<SiderMenuProps & PrivateSiderMenuProps> = (props) => {
                   token?.layout?.sider?.colorTextMenuSelected || 'rgba(0, 0, 0, 1)',
                 colorItemBg: 'transparent',
                 colorSubItemBg: 'transparent',
+                colorBgElevated:
+                  token?.layout?.sider?.colorBgMenuItemCollapsedElevated || 'transparent',
               },
             },
           }}
