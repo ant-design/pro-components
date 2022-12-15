@@ -5,8 +5,7 @@ import {
   QuestionCircleFilled,
   SearchOutlined,
 } from '@ant-design/icons';
-import { ProCard } from '@ant-design/pro-components';
-import { PageContainer, ProLayout } from '@ant-design/pro-components';
+import { PageContainer, ProCard, ProLayout } from '@ant-design/pro-components';
 import { Button, Input } from 'antd';
 import { useState } from 'react';
 import defaultProps from './_defaultProps';
@@ -28,6 +27,7 @@ export default () => {
           colorMenuBackground: '#004FD9',
           colorBgMenuItemCollapsedHover: 'rgba(0,0,0,0.06)',
           colorBgMenuItemCollapsedSelected: 'rgba(0,0,0,0.15)',
+          colorBgMenuItemCollapsedElevated: 'rgba(0,0,0,0.85)',
           colorMenuItemDivider: 'rgba(255,255,255,0.15)',
           colorBgMenuItemHover: 'rgba(0,0,0,0.06)',
           colorBgMenuItemSelected: 'rgba(0,0,0,0.15)',
