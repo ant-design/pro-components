@@ -1,5 +1,6 @@
-import type { ProCardProps, ActionType } from '@ant-design/pro-components';
+import type { ProCardProps } from '@ant-design/pro-card';
 import { ProProvider } from '@ant-design/pro-provider';
+import type { ActionType } from '@ant-design/pro-table';
 import type { ListProps, TableColumnType, TableProps } from 'antd';
 import { ConfigProvider, List } from 'antd';
 import useLazyKVMap from 'antd/es/table/hooks/useLazyKVMap';
