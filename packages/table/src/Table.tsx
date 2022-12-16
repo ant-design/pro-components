@@ -2,7 +2,8 @@
 import 'antd/es/table/style';
 //----------------------
 
-import { ProCard, ProForm } from '@ant-design/pro-components';
+import ProCard from '@ant-design/pro-card';
+import ProForm from '@ant-design/pro-form';
 import type { ParamsType } from '@ant-design/pro-provider';
 import { ProConfigProvider, useIntl } from '@ant-design/pro-provider';
 import {
