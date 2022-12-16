@@ -1,14 +1,16 @@
-﻿import type { ProCardProps } from '@ant-design/pro-card';
-import type { ProFieldEmptyText } from '@ant-design/pro-field';
-import type { LightWrapperProps, ProFormProps, QueryFilterProps } from '@ant-design/pro-form';
-import type {
+﻿import type {
   ProCoreActionType,
   ProSchema,
   ProSchemaComponentTypes,
   ProTableEditableFnType,
   RowEditableConfig,
   SearchTransformKeyFn,
-} from '@ant-design/pro-utils';
+  ProFieldEmptyText,
+  ProCardProps,
+  LightWrapperProps,
+  ProFormProps,
+  QueryFilterProps,
+} from '@ant-design/pro-components';
 import type { SpinProps, TableProps } from 'antd';
 import type { SizeType } from 'antd/es/config-provider/SizeContext';
 import type { LabelTooltipType } from 'antd/es/form/FormItemLabel';

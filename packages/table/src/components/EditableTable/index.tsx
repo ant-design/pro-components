@@ -1,6 +1,6 @@
 ﻿import { PlusOutlined } from '@ant-design/icons';
-import type { ProFormInstance } from '@ant-design/pro-form';
-import ProForm, { ProFormDependency } from '@ant-design/pro-form';
+import type { ProFormInstance } from '@ant-design/pro-components';
+import { ProForm, ProFormDependency } from '@ant-design/pro-components';
 import type { ParamsType } from '@ant-design/pro-provider';
 import { useIntl } from '@ant-design/pro-provider';
 import { isDeepEqualReact, runFunction, usePrevious, useRefFunction } from '@ant-design/pro-utils';
