@@ -37,7 +37,7 @@ const FieldCheckbox: ProFieldFC<GroupProps> = (
           },
           //ant design 5
           [`${token.antCls}-checkbox-wrapper+${token.antCls}-checkbox-wrapper`]: {
-            'margin-inline-start': 0,
+            'margin-inline-start': '0  !important',
           },
           //ant design 4
           [`${token.antCls}-checkbox-group-item`]: {
