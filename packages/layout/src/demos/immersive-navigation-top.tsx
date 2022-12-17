@@ -1,5 +1,5 @@
 import { CrownOutlined, SmileOutlined, UserOutlined } from '@ant-design/icons';
-import ProLayout, { PageContainer } from '@ant-design/pro-layout';
+import { ProLayout, PageContainer } from '@ant-design/pro-components';
 import { Button, Input, Result, Tag } from 'antd';
 import { useState } from 'react';
 

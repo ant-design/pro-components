@@ -14,7 +14,7 @@ const genLoginFormStyle: GenerateStyle<LoginFormToken> = (token) => {
         flexDirection: 'column',
         height: '100%',
         paddingInline: 32,
-        paddingBlock: 0,
+        paddingBlock: 24,
         overflow: 'auto',
         background: 'inherit',
       },

@@ -2,6 +2,35 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [3.2.7](https://github.com/ant-design/pro-components/compare/@ant-design/pro-table@3.2.6...@ant-design/pro-table@3.2.7) (2022-12-13)
+
+**Note:** Version bump only for package @ant-design/pro-table
+
+## [3.2.6](https://github.com/ant-design/pro-components/compare/@ant-design/pro-table@3.2.5...@ant-design/pro-table@3.2.6) (2022-12-09)
+
+**Note:** Version bump only for package @ant-design/pro-table
+
+## [3.2.5](https://github.com/ant-design/pro-components/compare/@ant-design/pro-table@3.2.4...@ant-design/pro-table@3.2.5) (2022-12-08)
+
+**Note:** Version bump only for package @ant-design/pro-table
+
+## [3.2.4](https://github.com/ant-design/pro-components/compare/@ant-design/pro-table@3.2.3...@ant-design/pro-table@3.2.4) (2022-12-08)
+
+### Bug Fixes
+
+- **layout:** support configprovide darkAlgorithm ([dabf05e](https://github.com/ant-design/pro-components/commit/dabf05edc5f0ef3edd58f69ecdab43981f02e044))
+- **table:** fix table extra classname break ([#6334](https://github.com/ant-design/pro-components/issues/6334)) ([ec03182](https://github.com/ant-design/pro-components/commit/ec03182cfe5ca5f58874210cfe0779e123802676))
+
+## [3.2.3](https://github.com/ant-design/pro-components/compare/@ant-design/pro-table@3.2.2...@ant-design/pro-table@3.2.3) (2022-12-06)
+
+**Note:** Version bump only for package @ant-design/pro-table
+
+## [3.2.2](https://github.com/ant-design/pro-components/compare/@ant-design/pro-table@3.2.1...@ant-design/pro-table@3.2.2) (2022-12-05)
+
+### Bug Fixes
+
+- **table:** 修复 table 使用后端分页时（频繁变化 dataSource 场景）多选功能 selectedRow 缓存丢失 ([#6314](https://github.com/ant-design/pro-components/issues/6314)) ([a7bc3ed](https://github.com/ant-design/pro-components/commit/a7bc3ed67632df3caf0c20e22e99e3a65894297c))
+
 ## [3.2.1](https://github.com/ant-design/pro-components/compare/@ant-design/pro-table@3.2.0...@ant-design/pro-table@3.2.1) (2022-12-01)
 
 ### Bug Fixes

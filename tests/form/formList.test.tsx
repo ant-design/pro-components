@@ -16,7 +16,7 @@ import { mount } from 'enzyme';
 import _ from 'lodash';
 import React from 'react';
 import { waitForComponentToPaint, waitTime } from '../util';
-import ProCard from '@ant-design/pro-card';
+import { ProCard } from '@ant-design/pro-components';
 
 describe('ProForm List', () => {
   it('⛲ ProForm.List', async () => {

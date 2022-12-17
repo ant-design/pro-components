@@ -1,6 +1,5 @@
 import type { GenerateStyle, ProTokenType } from '@ant-design/pro-provider';
-import { ProProvider } from '@ant-design/pro-provider';
-import { ProConfigProvider } from '@ant-design/pro-provider';
+import { ProConfigProvider, ProProvider } from '@ant-design/pro-provider';
 import { isBrowser, useDocumentTitle, useMountMergeState } from '@ant-design/pro-utils';
 import { getMatchMenu } from '@umijs/route-utils';
 import type { BreadcrumbProps as AntdBreadcrumbProps } from 'antd';
@@ -29,7 +28,7 @@ import type { GetPageTitleProps } from './getPageTitle';
 import { getPageTitleInfo } from './getPageTitle';
 import type { LocaleType } from './locales';
 import { gLocaleObject } from './locales';
-import { useStyle } from './style/index';
+import { useStyle } from './style';
 import type { MenuDataItem, MessageDescriptor, RouterTypes, WithFalse } from './typing';
 import { getBreadcrumbProps } from './utils/getBreadcrumbProps';
 import { getMenuData } from './utils/getMenuData';
@@ -417,18 +416,15 @@ const BaseProLayout: React.FC<ProLayoutProps> = (props) => {
   );
 
   const { data, mutate } = useSWR(
-    () => {
-      if (!menu?.params) return [defaultId, {}];
-      return [defaultId, menu?.params];
-    },
-    async (_, params) => {
+    [defaultId, menu?.params],
+    async ([, params]) => {
       setMenuLoading(true);
-      const msg = await menu?.request?.(
-        params as Record<string, any>,
+      const menuDataItems = await menu?.request?.(
+        params || {},
         route?.children || route?.routes || [],
       );
       setMenuLoading(false);
-      return msg;
+      return menuDataItems;
     },
     {
       revalidateOnFocus: false,
@@ -732,11 +728,15 @@ const ProLayout: React.FC<ProLayoutProps> = (props) => {
 
   return (
     <ConfigProvider
-      theme={{
-        token: {
-          colorPrimary: colorPrimary || '#1677FF',
-        },
-      }}
+      theme={
+        colorPrimary
+          ? {
+              token: {
+                colorPrimary: colorPrimary,
+              },
+            }
+          : undefined
+      }
     >
       <ProConfigProvider autoClearCache {...darkProps} token={props.token}>
         <BaseProLayout {...props} />

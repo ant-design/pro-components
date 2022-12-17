@@ -2,6 +2,45 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [7.4.0](https://github.com/ant-design/pro-components/compare/@ant-design/pro-layout@7.3.9...@ant-design/pro-layout@7.4.0) (2022-12-13)
+
+### Features
+
+- **components:** bump swr from 1.x to 2.x ([#6367](https://github.com/ant-design/pro-components/issues/6367)) ([d7a5206](https://github.com/ant-design/pro-components/commit/d7a52068b9c70d40ecf68a065ed470573daade72))
+
+## [7.3.9](https://github.com/ant-design/pro-components/compare/@ant-design/pro-layout@7.3.8...@ant-design/pro-layout@7.3.9) (2022-12-09)
+
+### Bug Fixes
+
+- **layout:** fix colorHeaderTitle no work error ([11cc87c](https://github.com/ant-design/pro-components/commit/11cc87c17fda2a4bcd13d9deff1843ea7d800639))
+
+## [7.3.8](https://github.com/ant-design/pro-components/compare/@ant-design/pro-layout@7.3.7...@ant-design/pro-layout@7.3.8) (2022-12-09)
+
+**Note:** Version bump only for package @ant-design/pro-layout
+
+## [7.3.7](https://github.com/ant-design/pro-components/compare/@ant-design/pro-layout@7.3.6...@ant-design/pro-layout@7.3.7) (2022-12-08)
+
+**Note:** Version bump only for package @ant-design/pro-layout
+
+## [7.3.6](https://github.com/ant-design/pro-components/compare/@ant-design/pro-layout@7.3.5...@ant-design/pro-layout@7.3.6) (2022-12-08)
+
+### Bug Fixes
+
+- **layout:** no set default colorPrimary ([f85103e](https://github.com/ant-design/pro-components/commit/f85103e35c7f74fb7aa579b3d30d3e45afb07875))
+
+## [7.3.5](https://github.com/ant-design/pro-components/compare/@ant-design/pro-layout@7.3.4...@ant-design/pro-layout@7.3.5) (2022-12-08)
+
+### Bug Fixes
+
+- **layout:** support configprovide darkAlgorithm ([dabf05e](https://github.com/ant-design/pro-components/commit/dabf05edc5f0ef3edd58f69ecdab43981f02e044))
+
+## [7.3.4](https://github.com/ant-design/pro-components/compare/@ant-design/pro-layout@7.3.3...@ant-design/pro-layout@7.3.4) (2022-12-05)
+
+### Bug Fixes
+
+- **layout:** fix bgColor token no work error ([bad0f2f](https://github.com/ant-design/pro-components/commit/bad0f2f22547af097562dddf1c6249a21eca8dc9))
+- **layout:** 修复 PageContainer 设置为 fixedHeader，内容滚动的时候 Title 抖动问题 ([#6330](https://github.com/ant-design/pro-components/issues/6330)) ([1d63b00](https://github.com/ant-design/pro-components/commit/1d63b00828b9854187dbe7f01ed1a7dab7276896))
+
 ## [7.3.3](https://github.com/ant-design/pro-components/compare/@ant-design/pro-layout@7.3.2...@ant-design/pro-layout@7.3.3) (2022-12-01)
 
 ### Bug Fixes

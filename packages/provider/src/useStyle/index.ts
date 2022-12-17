@@ -38,16 +38,14 @@ export type GenerateStyle<
   ReturnType = CSSInterpolation,
 > = (token: ComponentToken) => ReturnType;
 
-/**
- * 如果 antd 里面没有，就用我 mock 的，这样 antd@4 和 antd@5 可以兼容
- */
-const { useToken, darkAlgorithm, compactAlgorithm, defaultAlgorithm } = {
-  ...batToken,
-  // @ts-ignore
-  ...(antdTheme || {}),
-} as any;
+const genTheme = (): typeof antdTheme => {
+  if (typeof antdTheme === 'undefined' || !antdTheme) return batToken as any;
+  return antdTheme;
+};
 
-export { useToken, darkAlgorithm, compactAlgorithm, defaultAlgorithm };
+export const proTheme = genTheme();
+
+export const useToken = proTheme.useToken;
 
 export type UseStyleResult = {
   wrapSSR: (node: React.ReactElement) => React.ReactElement;

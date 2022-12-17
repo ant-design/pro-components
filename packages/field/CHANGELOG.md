@@ -2,6 +2,32 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.2.0](https://github.com/ant-design/pro-components/compare/@ant-design/pro-field@2.1.29...@ant-design/pro-field@2.2.0) (2022-12-13)
+
+### Features
+
+- **components:** bump swr from 1.x to 2.x ([#6367](https://github.com/ant-design/pro-components/issues/6367)) ([d7a5206](https://github.com/ant-design/pro-components/commit/d7a52068b9c70d40ecf68a065ed470573daade72))
+
+## [2.1.29](https://github.com/ant-design/pro-components/compare/@ant-design/pro-field@2.1.28...@ant-design/pro-field@2.1.29) (2022-12-09)
+
+**Note:** Version bump only for package @ant-design/pro-field
+
+## [2.1.28](https://github.com/ant-design/pro-components/compare/@ant-design/pro-field@2.1.27...@ant-design/pro-field@2.1.28) (2022-12-08)
+
+**Note:** Version bump only for package @ant-design/pro-field
+
+## [2.1.27](https://github.com/ant-design/pro-components/compare/@ant-design/pro-field@2.1.26...@ant-design/pro-field@2.1.27) (2022-12-08)
+
+### Bug Fixes
+
+- **form:** 修复 ProFormSelect 在 LightFilter 中自定义过滤无效 ([#6341](https://github.com/ant-design/pro-components/issues/6341)) ([a9a71d9](https://github.com/ant-design/pro-components/commit/a9a71d958b69e59c846638d2351a41f9266d3a73))
+
+## [2.1.26](https://github.com/ant-design/pro-components/compare/@ant-design/pro-field@2.1.25...@ant-design/pro-field@2.1.26) (2022-12-05)
+
+### Bug Fixes
+
+- **form:** 修复 SearchSelect 组件在设置了 showSearch 和 多选模式下，当搜索并选中后，搜索的文字没有清空的问题 ([#6302](https://github.com/ant-design/pro-components/issues/6302)) ([79f263f](https://github.com/ant-design/pro-components/commit/79f263f22d6d5b5ca0256fa12027adf60b36f719))
+
 ## [2.1.25](https://github.com/ant-design/pro-components/compare/@ant-design/pro-field@2.1.24...@ant-design/pro-field@2.1.25) (2022-12-01)
 
 **Note:** Version bump only for package @ant-design/pro-field

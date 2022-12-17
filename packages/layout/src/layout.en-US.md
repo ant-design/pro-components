@@ -427,6 +427,7 @@ Sider Token is the color value of the side menu, which is different from the top
 | colorBgMenuItemSelected | selected background color of menuItem | `rgba(0, 0, 0, 0.04)` |
 | colorBgMenuItemCollapsedHover | Collapsed menuItem's hover background color | `rgba(0, 145, 255, 0.1)` |
 | colorBgMenuItemCollapsedSelected | Collapse the selected background color of menuItem | `rgba(0, 145, 255, 0.08)` |
+| colorBgMenuItemCollapsedElevated | The popup menu background color of the collapsed menuItem | `transparent` |
 | colorBgCollapsedButton | Collapse button background color | `#fff` |
 | colorTextCollapsedButton | Collapse button hover font color | `colorTextMenuSecondary` |
 | colorTextCollapsedButtonHover | Collapsed button font color on hover | `colorTextMenu` |

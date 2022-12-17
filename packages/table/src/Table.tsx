@@ -57,6 +57,7 @@ import { genProColumnToColumn } from './utils/genProColumnToColumn';
 function TableRender<T extends Record<string, any>, U, ValueType>(
   props: ProTableProps<T, U, ValueType> & {
     action: UseFetchDataAction<any>;
+    defaultClassName: string;
     tableColumn: any[];
     toolbarDom: JSX.Element | null;
     searchNode: JSX.Element | null;
@@ -71,6 +72,7 @@ function TableRender<T extends Record<string, any>, U, ValueType>(
   const {
     rowKey,
     tableClassName,
+    defaultClassName,
     action,
     tableColumn: tableColumns,
     type,
@@ -300,7 +302,7 @@ function TableRender<T extends Record<string, any>, U, ValueType>(
   const proTableDom = (
     <div
       className={classNames(className, {
-        [`${className}-polling`]: action.pollingLoading,
+        [`${defaultClassName}-polling`]: action.pollingLoading,
       })}
       style={style}
       ref={counter.rootDomRef}
@@ -308,7 +310,7 @@ function TableRender<T extends Record<string, any>, U, ValueType>(
       {isLightFilter ? null : searchNode}
       {/* 渲染一个额外的区域，用于一些自定义 */}
       {type !== 'form' && props.tableExtraRender && (
-        <div className={`${className}-extra`}>
+        <div className={classNames(className, `${defaultClassName}-extra`)}>
           {props.tableExtraRender(props, action.dataSource || [])}
         </div>
       )}
@@ -810,6 +812,7 @@ const ProTable = <T extends Record<string, any>, U extends ParamsType, ValueType
     <TableRender
       {...props}
       name={isEditorTable}
+      defaultClassName={defaultClassName}
       size={counter.tableSize}
       onSizeChange={counter.setTableSize}
       pagination={pagination}

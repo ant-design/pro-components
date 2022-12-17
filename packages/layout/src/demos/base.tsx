@@ -7,10 +7,14 @@ import {
   QuestionCircleFilled,
   SearchOutlined,
 } from '@ant-design/icons';
-import ProCard from '@ant-design/pro-card';
-import type { ProSettings } from '@ant-design/pro-layout';
-import { PageContainer, ProLayout, SettingDrawer } from '@ant-design/pro-layout';
-import { ProConfigProvider } from '@ant-design/pro-provider';
+import type { ProSettings } from '@ant-design/pro-components';
+import {
+  ProCard,
+  PageContainer,
+  ProConfigProvider,
+  ProLayout,
+  SettingDrawer,
+} from '@ant-design/pro-components';
 import { css } from '@emotion/css';
 import { Button, Divider, Popover, Input, theme } from 'antd';
 import React, { useState } from 'react';
