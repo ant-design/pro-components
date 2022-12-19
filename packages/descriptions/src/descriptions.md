@@ -101,8 +101,6 @@ API 与 ProTable 相同
 | --- | --- | --- | --- |
 | title | 描述列表的标题，显示在最顶部 | `ReactNode` | - |
 | tooltip | 内容的补充描述，hover 后显示 | `string` | - |
-| ellipsis | 是否自动缩略 | `boolean` | - |
-| copyable | 是否支持复制 | `boolean` | - |
 | loading | 展示一个加载的骨架屏，骨架屏和 dom 不会一一对应 | `boolean` | - |
 | extra | 描述列表的操作区域，显示在右上方 | `string` \| `ReactNode` | - |
 | bordered | 是否展示边框 | boolean | false |
@@ -140,6 +138,8 @@ API 与 ProTable 相同
 | --- | --- | --- | --- |
 | label | 内容的描述 | ReactNode | - |
 | tooltip | 内容的补充描述，hover 后显示 | string | - |
+| ellipsis | 是否自动缩略 | `boolean` | - |
+| copyable | 是否支持复制 | `boolean` | - |
 | span | 包含列的数量 | number | 1 |
 | valueType | 格式化的类型 | `ValueType` | - |
 | valueEnum | 当前列值的枚举 [valueEnum](/components/table#valueenum) | `Record` | - |
