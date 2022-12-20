@@ -3,7 +3,7 @@ import { useStyle as useAntdStyle } from '@ant-design/pro-provider';
 export interface PageContainerToken extends ProAliasToken {
   componentCls: string;
 }
-const [sm, md, lg, xl] = [576, 768, 992, 1200].map((bp) => `@media (min-width: ${bp}px)`);
+const [sm, md, lg, xl] = [576, 768, 992, 1200].map((bp) => `@media (max-width: ${bp}px)`);
 
 const genPageContainerStyle: GenerateStyle<PageContainerToken> = (token) => {
   return {
@@ -59,18 +59,18 @@ const genPageContainerStyle: GenerateStyle<PageContainerToken> = (token) => {
         minWidth: '242px',
         marginInlineStart: 88,
         textAlign: 'end',
-        [sm]: {
-          marginInlineStart: 0,
+        [xl]: {
+          marginInlineStart: 44,
+        },
+        [lg]: {
+          marginInlineStart: 20,
         },
         [md]: {
           marginInlineStart: 0,
           textAlign: 'start',
         },
-        [lg]: {
-          marginInlineStart: 20,
-        },
-        [xl]: {
-          marginInlineStart: 44,
+        [sm]: {
+          marginInlineStart: 0,
         },
       },
     },
