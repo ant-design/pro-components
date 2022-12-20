@@ -1,4 +1,5 @@
 /* eslint-disable react-hooks/exhaustive-deps */
+import { ProProvider } from '@ant-design/pro-provider';
 import type { GenerateStyle } from '@ant-design/pro-utils';
 import { isBrowser } from '@ant-design/pro-utils';
 import { ConfigProvider } from 'antd';
@@ -29,6 +30,7 @@ export type FooterToolbarProps = {
 const FooterToolbar: React.FC<FooterToolbarProps> = (props) => {
   const { children, className, extra, style, renderContent, ...restProps } = props;
   const { getPrefixCls, getTargetContainer } = useContext(ConfigProvider.ConfigContext);
+  const { containerDomRef } = useContext(ProProvider);
   const prefixCls = props.prefixCls || getPrefixCls('pro');
   const baseClassName = `${prefixCls}-footer-bar`;
   const { wrapSSR, hashId } = useStyle(baseClassName);
@@ -49,7 +51,7 @@ const FooterToolbar: React.FC<FooterToolbarProps> = (props) => {
 
   const containerDom = useMemo(() => {
     // 只读取一次就行了，不然总是的渲染
-    return getTargetContainer?.() || document.querySelector('.ant-pro') || document.body;
+    return getTargetContainer?.() || containerDomRef?.current || document.body;
   }, []);
 
   const stylish = useStylish(`${baseClassName}.${baseClassName}-stylish`, {

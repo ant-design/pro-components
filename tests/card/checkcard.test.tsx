@@ -1,4 +1,4 @@
-import { CheckCard } from '@ant-design/pro-card';
+import { CheckCard } from '@ant-design/pro-components';
 import { render } from '@testing-library/react';
 import { act } from 'react-dom/test-utils';
 import { waitForComponentToPaint } from '../util';

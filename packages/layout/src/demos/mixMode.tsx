@@ -5,9 +5,8 @@ import {
   QuestionCircleFilled,
   SearchOutlined,
 } from '@ant-design/icons';
-import { ProCard } from '@ant-design/pro-components';
 import type { ProSettings } from '@ant-design/pro-components';
-import { PageContainer, ProLayout } from '@ant-design/pro-components';
+import { PageContainer, ProLayout, ProCard } from '@ant-design/pro-components';
 import { Input } from 'antd';
 import { useState } from 'react';
 import defaultProps from './_defaultProps';
