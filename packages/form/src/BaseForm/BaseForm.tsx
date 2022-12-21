@@ -119,9 +119,10 @@ export type CommonFormProps<T = Record<string, any>, U = Record<string, any>> = 
   /**
    * 格式化 Date 的方式，默认转化为 string
    *
-   * @example  dateFormatter="date" : Moment -> YYYY-MM-DD
-   * @example  dateFormatter="dateTime" Moment -> YYYY-MM-DD  HH:mm:SS
-   * @example  dateFormatter="time" Moment -> HH:mm:SS
+   * @example  dateFormatter="string" : Moment -> YYYY-MM-DD
+   * @example  dateFormatter="YYYY-MM-DD  HH:mm:SS" Moment -> YYYY-MM-DD  HH:mm:SS
+   * @example  dateFormatter="HH:mm:SS" Moment -> HH:mm:SS
+   * @example  dateFormatter="number" Moment -> timestamp
    * @example  dateFormatter=false Moment -> Moment
    * @example  dateFormatter={(value)=>value.format("YYYY-MM-DD")}
    */
