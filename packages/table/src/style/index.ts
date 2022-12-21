@@ -41,6 +41,9 @@ const genProListStyle: GenerateStyle<ProListToken> = (token) => {
       [`${token.antCls}-table${token.antCls}-table-middle ${token.componentCls}`]: {
         marginBlock: 0,
         marginInline: -8,
+        [`${token.proComponentsCls}-card`]: {
+          backgroundColor: 'initial',
+        },
       },
 
       '& &-search': {
