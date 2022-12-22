@@ -7,11 +7,13 @@ export interface ProToken extends ProAliasToken {
 
 const genProStyle: GenerateStyle<ProToken> = (token) => {
   return {
-    [`${token.antCls}-form:not(${token.antCls}-form-horizontal)`]: {
-      [token.componentCls]: {
-        [`&-item:not(${token.componentCls}-item-show-label)`]: {
-          [`${token.antCls}-form-item-label`]: {
-            display: 'none',
+    [`${token.antCls}-pro`]: {
+      [`${token.antCls}-form:not(${token.antCls}-form-horizontal)`]: {
+        [token.componentCls]: {
+          [`&-item:not(${token.componentCls}-item-show-label)`]: {
+            [`${token.antCls}-form-item-label`]: {
+              display: 'none',
+            },
           },
         },
       },

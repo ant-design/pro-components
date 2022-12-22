@@ -3,7 +3,7 @@ import type { Theme } from '@ant-design/cssinjs';
 import { useCacheToken } from '@ant-design/cssinjs';
 import { ConfigProvider as AntdConfigProvider } from 'antd';
 import zh_CN from 'antd/es/locale/zh_CN';
-import React, { useContext, useEffect, useMemo } from 'react';
+import React, { useContext, useEffect, useMemo, useRef } from 'react';
 import { SWRConfig, useSWRConfig } from 'swr';
 import arEG from './locale/ar_EG';
 import caES from './locale/ca_ES';
@@ -259,6 +259,7 @@ export type ConfigContextPropsType = {
   hashed?: boolean;
   dark?: boolean;
   theme?: Theme<any, any>;
+  containerDomRef?: React.RefObject<HTMLDivElement>;
 };
 
 /* Creating a context object with the default values. */
@@ -322,7 +323,7 @@ const ConfigProVidContainer: React.FC<{
   const { children, dark, valueTypeMap, autoClearCache = false, token: propsToken } = props;
   const { locale, getPrefixCls, ...restConfig } = useContext(AntdConfigProvider.ConfigContext);
   const tokenContext = proTheme.useToken?.();
-
+  const containerDomRef = useRef<HTMLDivElement>(null);
   const proProvide = useContext(ProConfigContext);
 
   /**
@@ -409,6 +410,7 @@ const ConfigProVidContainer: React.FC<{
             ...proProvideValue!,
             valueTypeMap: valueTypeMap || proProvideValue?.valueTypeMap,
             token,
+            containerDomRef,
             theme: tokenContext.theme,
             hashed: props.hashed,
             hashId,
@@ -423,7 +425,10 @@ const ConfigProVidContainer: React.FC<{
     );
 
     return (
-      <div className={`${getPrefixCls?.('pro') || 'ant-pro'}${hashId ? ' ' + hashId : ''}`}>
+      <div
+        ref={containerDomRef}
+        className={`${getPrefixCls?.('pro') || 'ant-pro'}${hashId ? ' ' + hashId : ''}`}
+      >
         {provide}
       </div>
     );
