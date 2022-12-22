@@ -96,6 +96,20 @@ const genProStyle: GenerateStyle<ProListToken> = (token) => {
       },
       '&-disabled': proCheckCardDisabled(token),
       '&[disabled]': proCheckCardDisabled(token),
+      '&-checked&-disabled': {
+        '&:after': {
+          position: 'absolute',
+          insetBlockStart: 2,
+          insetInlineEnd: 2,
+          width: 0,
+          height: 0,
+          border: `6px solid ${token.colorTextDisabled}`,
+          borderBlockEnd: '6px solid transparent',
+          borderInlineStart: '6px solid transparent',
+          borderStartEndRadius: '2px',
+          content: "''",
+        },
+      },
       '&-lg': {
         width: 440,
       },
