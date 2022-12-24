@@ -1252,26 +1252,31 @@ exports[`BasicTable 🎏 base use 1`] = `
                           <tr>
                             <th
                               class="ant-table-cell"
+                              scope="col"
                             >
                               序号
                             </th>
                             <th
                               class="ant-table-cell"
+                              scope="col"
                             >
                               边框序号
                             </th>
                             <th
                               class="ant-table-cell ant-table-cell-ellipsis"
+                              scope="col"
                             >
                               Name
                             </th>
                             <th
                               class="ant-table-cell"
+                              scope="col"
                             >
                               Textarea
                             </th>
                             <th
                               class="ant-table-cell"
+                              scope="col"
                             >
                               <div
                                 class="ant-table-filter-column"
@@ -1310,46 +1315,55 @@ exports[`BasicTable 🎏 base use 1`] = `
                             </th>
                             <th
                               class="ant-table-cell"
+                              scope="col"
                             >
                               状态
                             </th>
                             <th
                               class="ant-table-cell"
+                              scope="col"
                             >
                               Age
                             </th>
                             <th
                               class="ant-table-cell ant-table-cell-ellipsis"
+                              scope="col"
                             >
                               Address
                             </th>
                             <th
                               class="ant-table-cell"
+                              scope="col"
                             >
                               money
                             </th>
                             <th
                               class="ant-table-cell"
+                              scope="col"
                             >
                               date
                             </th>
                             <th
                               class="ant-table-cell"
+                              scope="col"
                             >
                               dateTime
                             </th>
                             <th
                               class="ant-table-cell"
+                              scope="col"
                             >
                               time
                             </th>
                             <th
                               class="ant-table-cell"
+                              scope="col"
                             >
                               状态
                             </th>
                             <th
                               class="ant-table-cell"
+                              scope="col"
                             >
                               option
                             </th>
@@ -8142,7 +8156,7 @@ exports[`BasicTable 🎏 columns = undefined 1`] = `
                           class="ant-table-thead"
                         >
                           <tr>
-                            <th
+                            <td
                               class="ant-table-cell"
                             />
                           </tr>
@@ -8568,6 +8582,7 @@ exports[`BasicTable 🎏 page error test 1`] = `
                           <tr>
                             <th
                               class="ant-table-cell"
+                              scope="col"
                             />
                           </tr>
                         </thead>
@@ -8964,11 +8979,13 @@ exports[`BasicTable 🎏 valueEnum support function 1`] = `
                           <tr>
                             <th
                               class="ant-table-cell"
+                              scope="col"
                             >
                               状态
                             </th>
                             <th
                               class="ant-table-cell"
+                              scope="col"
                             />
                           </tr>
                         </thead>

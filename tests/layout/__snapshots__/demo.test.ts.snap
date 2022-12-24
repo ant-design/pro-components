@@ -175,6 +175,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/components/PageContaine
                   >
                     <div
                       class="ant-tabs-tab ant-tabs-tab-active"
+                      data-node-key="base"
                     >
                       <div
                         aria-controls="rc-tabs-test-panel-base"
@@ -189,6 +190,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/components/PageContaine
                     </div>
                     <div
                       class="ant-tabs-tab ant-tabs-tab-with-remove"
+                      data-node-key="info"
                     >
                       <div
                         aria-controls="rc-tabs-test-panel-info"
@@ -507,6 +509,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/components/PageContaine
                         >
                           <div
                             class="ant-tabs-tab ant-tabs-tab-active"
+                            data-node-key="1"
                           >
                             <div
                               aria-controls="rc-tabs-test-panel-1"
@@ -521,6 +524,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/components/PageContaine
                           </div>
                           <div
                             class="ant-tabs-tab"
+                            data-node-key="2"
                           >
                             <div
                               aria-controls="rc-tabs-test-panel-2"
@@ -535,6 +539,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/components/PageContaine
                           </div>
                           <div
                             class="ant-tabs-tab ant-tabs-tab-disabled"
+                            data-node-key="3"
                           >
                             <div
                               aria-controls="rc-tabs-test-panel-3"
@@ -1773,12 +1778,14 @@ exports[`layout demos 📸 renders ./packages/layout/src/components/WaterMark/de
                             <tr>
                               <th
                                 class="ant-table-cell"
+                                scope="col"
                               >
                                 应用名称
                               </th>
                               <th
                                 aria-label="this column is sortable"
                                 class="ant-table-cell ant-table-column-has-sorters"
+                                scope="col"
                                 style="text-align: right;"
                                 tabindex="0"
                               >
@@ -1840,21 +1847,25 @@ exports[`layout demos 📸 renders ./packages/layout/src/components/WaterMark/de
                               </th>
                               <th
                                 class="ant-table-cell"
+                                scope="col"
                               >
                                 状态
                               </th>
                               <th
                                 class="ant-table-cell"
+                                scope="col"
                               >
                                 创建者
                               </th>
                               <th
                                 class="ant-table-cell ant-table-cell-ellipsis"
+                                scope="col"
                               >
                                 备注
                               </th>
                               <th
                                 class="ant-table-cell"
+                                scope="col"
                               >
                                 操作
                               </th>
@@ -13564,6 +13575,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/config-provider.t
                         >
                           <div
                             class="qixian-tabs-tab qixian-tabs-tab-active"
+                            data-node-key="base"
                           >
                             <div
                               aria-controls="rc-tabs-test-panel-base"
@@ -13578,6 +13590,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/config-provider.t
                           </div>
                           <div
                             class="qixian-tabs-tab"
+                            data-node-key="info"
                           >
                             <div
                               aria-controls="rc-tabs-test-panel-info"
@@ -19761,6 +19774,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/dynamic-settings.
                           >
                             <div
                               class="ant-tabs-tab ant-tabs-tab-active"
+                              data-node-key="base"
                             >
                               <div
                                 aria-controls="rc-tabs-test-panel-base"
@@ -19775,6 +19789,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/dynamic-settings.
                             </div>
                             <div
                               class="ant-tabs-tab"
+                              data-node-key="info"
                             >
                               <div
                                 aria-controls="rc-tabs-test-panel-info"

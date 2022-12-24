@@ -597,21 +597,25 @@ exports[`table demos 📸 renders ./packages/table/src/components/DragSortTable/
                           <tr>
                             <th
                               class="ant-table-cell drag-visible"
+                              scope="col"
                             >
                               排序
                             </th>
                             <th
                               class="ant-table-cell drag-visible"
+                              scope="col"
                             >
                               姓名
                             </th>
                             <th
                               class="ant-table-cell"
+                              scope="col"
                             >
                               年龄
                             </th>
                             <th
                               class="ant-table-cell"
+                              scope="col"
                             >
                               地址
                             </th>
@@ -1357,21 +1361,25 @@ exports[`table demos 📸 renders ./packages/table/src/components/DragSortTable/
                           <tr>
                             <th
                               class="ant-table-cell"
+                              scope="col"
                             >
                               排序
                             </th>
                             <th
                               class="ant-table-cell drag-visible"
+                              scope="col"
                             >
                               姓名
                             </th>
                             <th
                               class="ant-table-cell"
+                              scope="col"
                             >
                               年龄
                             </th>
                             <th
                               class="ant-table-cell"
+                              scope="col"
                             >
                               地址
                             </th>
@@ -1707,21 +1715,25 @@ exports[`table demos 📸 renders ./packages/table/src/components/DragSortTable/
                           <tr>
                             <th
                               class="ant-table-cell"
+                              scope="col"
                             >
                               排序
                             </th>
                             <th
                               class="ant-table-cell drag-visible"
+                              scope="col"
                             >
                               姓名
                             </th>
                             <th
                               class="ant-table-cell"
+                              scope="col"
                             >
                               年龄
                             </th>
                             <th
                               class="ant-table-cell"
+                              scope="col"
                             >
                               地址
                             </th>
@@ -2048,21 +2060,25 @@ exports[`table demos 📸 renders ./packages/table/src/components/DragSortTable/
                           <tr>
                             <th
                               class="ant-table-cell"
+                              scope="col"
                             >
                               排序
                             </th>
                             <th
                               class="ant-table-cell drag-visible"
+                              scope="col"
                             >
                               姓名
                             </th>
                             <th
                               class="ant-table-cell"
+                              scope="col"
                             >
                               年龄
                             </th>
                             <th
                               class="ant-table-cell"
+                              scope="col"
                             >
                               地址
                             </th>
@@ -2312,6 +2328,7 @@ exports[`table demos 📸 renders ./packages/table/src/components/EditableTable/
                           <tr>
                             <th
                               class="ant-table-cell"
+                              scope="col"
                             >
                               <div
                                 class="ant-pro-core-label-tip"
@@ -2351,6 +2368,7 @@ exports[`table demos 📸 renders ./packages/table/src/components/EditableTable/
                             </th>
                             <th
                               class="ant-table-cell"
+                              scope="col"
                             >
                               <div
                                 class="ant-pro-core-label-tip"
@@ -2390,21 +2408,25 @@ exports[`table demos 📸 renders ./packages/table/src/components/EditableTable/
                             </th>
                             <th
                               class="ant-table-cell"
+                              scope="col"
                             >
                               状态
                             </th>
                             <th
                               class="ant-table-cell"
+                              scope="col"
                             >
                               描述
                             </th>
                             <th
                               class="ant-table-cell"
+                              scope="col"
                             >
                               活动时间
                             </th>
                             <th
                               class="ant-table-cell"
+                              scope="col"
                             >
                               操作
                             </th>
@@ -2783,26 +2805,31 @@ exports[`table demos 📸 renders ./packages/table/src/components/EditableTable/
                           <tr>
                             <th
                               class="ant-table-cell"
+                              scope="col"
                             >
                               活动名称
                             </th>
                             <th
                               class="ant-table-cell"
+                              scope="col"
                             >
                               状态
                             </th>
                             <th
                               class="ant-table-cell"
+                              scope="col"
                             >
                               描述
                             </th>
                             <th
                               class="ant-table-cell"
+                              scope="col"
                             >
                               活动时间
                             </th>
                             <th
                               class="ant-table-cell"
+                              scope="col"
                             >
                               操作
                             </th>
@@ -3290,21 +3317,25 @@ exports[`table demos 📸 renders ./packages/table/src/components/EditableTable/
                           <tr>
                             <th
                               class="ant-table-cell"
+                              scope="col"
                             >
                               活动名称
                             </th>
                             <th
                               class="ant-table-cell"
+                              scope="col"
                             >
                               状态
                             </th>
                             <th
                               class="ant-table-cell"
+                              scope="col"
                             >
                               标签
                             </th>
                             <th
                               class="ant-table-cell"
+                              scope="col"
                             >
                               操作
                             </th>
@@ -3755,26 +3786,31 @@ exports[`table demos 📸 renders ./packages/table/src/components/EditableTable/
                                   <tr>
                                     <th
                                       class="ant-table-cell"
+                                      scope="col"
                                     >
                                       活动名称
                                     </th>
                                     <th
                                       class="ant-table-cell"
+                                      scope="col"
                                     >
                                       状态
                                     </th>
                                     <th
                                       class="ant-table-cell"
+                                      scope="col"
                                     >
                                       描述
                                     </th>
                                     <th
                                       class="ant-table-cell"
+                                      scope="col"
                                     >
                                       活动时间
                                     </th>
                                     <th
                                       class="ant-table-cell"
+                                      scope="col"
                                     >
                                       操作
                                     </th>
@@ -4440,31 +4476,37 @@ exports[`table demos 📸 renders ./packages/table/src/components/EditableTable/
                                         <tr>
                                           <th
                                             class="ant-table-cell ant-table-cell-ellipsis"
+                                            scope="col"
                                           >
                                             关联题库
                                           </th>
                                           <th
                                             class="ant-table-cell"
+                                            scope="col"
                                           >
                                             题型
                                           </th>
                                           <th
                                             class="ant-table-cell"
+                                            scope="col"
                                           >
                                             题数
                                           </th>
                                           <th
                                             class="ant-table-cell"
+                                            scope="col"
                                           >
                                             计分方式
                                           </th>
                                           <th
                                             class="ant-table-cell"
+                                            scope="col"
                                           >
                                             分值
                                           </th>
                                           <th
                                             class="ant-table-cell"
+                                            scope="col"
                                           >
                                             操作
                                           </th>
@@ -5014,21 +5056,25 @@ exports[`table demos 📸 renders ./packages/table/src/components/EditableTable/
                           <tr>
                             <th
                               class="ant-table-cell"
+                              scope="col"
                             >
                               活动名称
                             </th>
                             <th
                               class="ant-table-cell"
+                              scope="col"
                             >
                               状态
                             </th>
                             <th
                               class="ant-table-cell"
+                              scope="col"
                             >
                               描述
                             </th>
                             <th
                               class="ant-table-cell"
+                              scope="col"
                             >
                               操作
                             </th>
@@ -10921,12 +10967,14 @@ exports[`table demos 📸 renders ./packages/table/src/demos/ListToolBar/basic.t
                           <tr>
                             <th
                               class="ant-table-cell"
+                              scope="col"
                             >
                               应用名称
                             </th>
                             <th
                               aria-label="this column is sortable"
                               class="ant-table-cell ant-table-column-has-sorters"
+                              scope="col"
                               style="text-align: right;"
                               tabindex="0"
                             >
@@ -10988,11 +11036,13 @@ exports[`table demos 📸 renders ./packages/table/src/demos/ListToolBar/basic.t
                             </th>
                             <th
                               class="ant-table-cell"
+                              scope="col"
                             >
                               创建者
                             </th>
                             <th
                               class="ant-table-cell"
+                              scope="col"
                             >
                               操作
                             </th>
@@ -11856,12 +11906,14 @@ exports[`table demos 📸 renders ./packages/table/src/demos/ListToolBar/menu.ts
                           <tr>
                             <th
                               class="ant-table-cell"
+                              scope="col"
                             >
                               应用名称
                             </th>
                             <th
                               aria-label="this column is sortable"
                               class="ant-table-cell ant-table-column-has-sorters"
+                              scope="col"
                               style="text-align: right;"
                               tabindex="0"
                             >
@@ -11923,11 +11975,13 @@ exports[`table demos 📸 renders ./packages/table/src/demos/ListToolBar/menu.ts
                             </th>
                             <th
                               class="ant-table-cell"
+                              scope="col"
                             >
                               创建者
                             </th>
                             <th
                               class="ant-table-cell"
+                              scope="col"
                             >
                               操作
                             </th>
@@ -12787,12 +12841,14 @@ exports[`table demos 📸 renders ./packages/table/src/demos/ListToolBar/multipl
                           <tr>
                             <th
                               class="ant-table-cell"
+                              scope="col"
                             >
                               应用名称
                             </th>
                             <th
                               aria-label="this column is sortable"
                               class="ant-table-cell ant-table-column-has-sorters"
+                              scope="col"
                               style="text-align: right;"
                               tabindex="0"
                             >
@@ -12854,11 +12910,13 @@ exports[`table demos 📸 renders ./packages/table/src/demos/ListToolBar/multipl
                             </th>
                             <th
                               class="ant-table-cell"
+                              scope="col"
                             >
                               创建者
                             </th>
                             <th
                               class="ant-table-cell"
+                              scope="col"
                             >
                               操作
                             </th>
@@ -13680,12 +13738,14 @@ exports[`table demos 📸 renders ./packages/table/src/demos/ListToolBar/no-titl
                           <tr>
                             <th
                               class="ant-table-cell"
+                              scope="col"
                             >
                               应用名称
                             </th>
                             <th
                               aria-label="this column is sortable"
                               class="ant-table-cell ant-table-column-has-sorters"
+                              scope="col"
                               style="text-align: right;"
                               tabindex="0"
                             >
@@ -13747,11 +13807,13 @@ exports[`table demos 📸 renders ./packages/table/src/demos/ListToolBar/no-titl
                             </th>
                             <th
                               class="ant-table-cell"
+                              scope="col"
                             >
                               创建者
                             </th>
                             <th
                               class="ant-table-cell"
+                              scope="col"
                             >
                               操作
                             </th>
@@ -14370,6 +14432,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/ListToolBar/tabs.ts
                     >
                       <div
                         class="ant-tabs-tab ant-tabs-tab-active"
+                        data-node-key="tab1"
                       >
                         <div
                           aria-controls="rc-tabs-test-panel-tab1"
@@ -14384,6 +14447,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/ListToolBar/tabs.ts
                       </div>
                       <div
                         class="ant-tabs-tab"
+                        data-node-key="tab2"
                       >
                         <div
                           aria-controls="rc-tabs-test-panel-tab2"
@@ -14611,17 +14675,20 @@ exports[`table demos 📸 renders ./packages/table/src/demos/ListToolBar/tabs.ts
                           <tr>
                             <th
                               class="ant-table-cell"
+                              scope="col"
                             >
                               名称
                             </th>
                             <th
                               class="ant-table-cell"
+                              scope="col"
                             >
                               状态
                             </th>
                             <th
                               aria-label="this column is sortable"
                               class="ant-table-cell ant-table-column-has-sorters"
+                              scope="col"
                               style="text-align: right;"
                               tabindex="0"
                             >
@@ -14683,11 +14750,13 @@ exports[`table demos 📸 renders ./packages/table/src/demos/ListToolBar/tabs.ts
                             </th>
                             <th
                               class="ant-table-cell"
+                              scope="col"
                             >
                               创建人
                             </th>
                             <th
                               class="ant-table-cell"
+                              scope="col"
                             >
                               操作
                             </th>
@@ -15360,6 +15429,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/batchOption.tsx cor
                           <tr>
                             <th
                               class="ant-table-cell ant-table-selection-column ant-table-cell-fix-left"
+                              scope="col"
                               style="position: sticky; left: 0px;"
                             >
                               <div
@@ -15414,6 +15484,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/batchOption.tsx cor
                             </th>
                             <th
                               class="ant-table-cell ant-table-cell-fix-left ant-table-cell-fix-left-last"
+                              scope="col"
                               style="position: sticky; left: 0px;"
                             >
                               应用名称
@@ -15421,6 +15492,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/batchOption.tsx cor
                             <th
                               aria-label="this column is sortable"
                               class="ant-table-cell ant-table-column-has-sorters"
+                              scope="col"
                               style="text-align: right;"
                               tabindex="0"
                             >
@@ -15482,23 +15554,27 @@ exports[`table demos 📸 renders ./packages/table/src/demos/batchOption.tsx cor
                             </th>
                             <th
                               class="ant-table-cell"
+                              scope="col"
                               style="text-align: right;"
                             >
                               调用次数
                             </th>
                             <th
                               class="ant-table-cell"
+                              scope="col"
                             >
                               执行进度
                             </th>
                             <th
                               class="ant-table-cell"
+                              scope="col"
                             >
                               创建者
                             </th>
                             <th
                               aria-label="this column is sortable"
                               class="ant-table-cell ant-table-column-has-sorters"
+                              scope="col"
                               tabindex="0"
                             >
                               <div
@@ -15559,11 +15635,13 @@ exports[`table demos 📸 renders ./packages/table/src/demos/batchOption.tsx cor
                             </th>
                             <th
                               class="ant-table-cell ant-table-cell-ellipsis"
+                              scope="col"
                             >
                               备注
                             </th>
                             <th
                               class="ant-table-cell ant-table-cell-fix-right ant-table-cell-fix-right-first"
+                              scope="col"
                               style="position: sticky; right: 0px;"
                             >
                               操作
@@ -16859,12 +16937,14 @@ exports[`table demos 📸 renders ./packages/table/src/demos/card-title.tsx corr
                           <tr>
                             <th
                               class="ant-table-cell"
+                              scope="col"
                             >
                               应用名称
                             </th>
                             <th
                               aria-label="this column is sortable"
                               class="ant-table-cell ant-table-column-has-sorters"
+                              scope="col"
                               style="text-align: right;"
                               tabindex="0"
                             >
@@ -16926,11 +17006,13 @@ exports[`table demos 📸 renders ./packages/table/src/demos/card-title.tsx corr
                             </th>
                             <th
                               class="ant-table-cell"
+                              scope="col"
                             >
                               创建者
                             </th>
                             <th
                               class="ant-table-cell"
+                              scope="col"
                             >
                               操作
                             </th>
@@ -17595,16 +17677,19 @@ exports[`table demos 📸 renders ./packages/table/src/demos/columns-setting-cus
                           <tr>
                             <th
                               class="ant-table-cell"
+                              scope="col"
                             >
                               User First Name
                             </th>
                             <th
                               class="ant-table-cell"
+                              scope="col"
                             >
                               User Last Name
                             </th>
                             <th
                               class="ant-table-cell"
+                              scope="col"
                             >
                               ID
                             </th>
@@ -17901,6 +17986,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/columnsStateMap.tsx
                           <tr>
                             <th
                               class="ant-table-cell"
+                              scope="col"
                             >
                               <div
                                 class="ant-table-filter-column"
@@ -17939,11 +18025,13 @@ exports[`table demos 📸 renders ./packages/table/src/demos/columnsStateMap.tsx
                             </th>
                             <th
                               class="ant-table-cell"
+                              scope="col"
                             >
                               更新时间
                             </th>
                             <th
                               class="ant-table-cell"
+                              scope="col"
                             >
                               操作
                             </th>
@@ -18665,11 +18753,13 @@ exports[`table demos 📸 renders ./packages/table/src/demos/config-provider.tsx
                           <tr>
                             <th
                               class="qixian-table-cell"
+                              scope="col"
                             >
                               序号
                             </th>
                             <th
                               class="qixian-table-cell qixian-table-cell-ellipsis"
+                              scope="col"
                             >
                               <div
                                 class="qixian-pro-core-label-tip"
@@ -18709,6 +18799,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/config-provider.tsx
                             </th>
                             <th
                               class="qixian-table-cell"
+                              scope="col"
                             >
                               <div
                                 class="qixian-table-filter-column"
@@ -18747,11 +18838,13 @@ exports[`table demos 📸 renders ./packages/table/src/demos/config-provider.tsx
                             </th>
                             <th
                               class="qixian-table-cell"
+                              scope="col"
                             >
                               标签
                             </th>
                             <th
                               class="qixian-table-cell"
+                              scope="col"
                             >
                               操作
                             </th>
@@ -22900,6 +22993,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/crud.tsx correctly 
             >
               <div
                 class="ant-tabs-tab ant-tabs-tab-active"
+                data-node-key="table"
               >
                 <div
                   aria-controls="rc-tabs-test-panel-table"
@@ -22914,6 +23008,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/crud.tsx correctly 
               </div>
               <div
                 class="ant-tabs-tab"
+                data-node-key="form"
               >
                 <div
                   aria-controls="rc-tabs-test-panel-form"
@@ -22928,6 +23023,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/crud.tsx correctly 
               </div>
               <div
                 class="ant-tabs-tab"
+                data-node-key="descriptions"
               >
                 <div
                   aria-controls="rc-tabs-test-panel-descriptions"
@@ -23635,16 +23731,19 @@ exports[`table demos 📸 renders ./packages/table/src/demos/crud.tsx correctly 
                               <tr>
                                 <th
                                   class="ant-table-cell"
+                                  scope="col"
                                 >
                                   序号
                                 </th>
                                 <th
                                   class="ant-table-cell ant-table-cell-ellipsis"
+                                  scope="col"
                                 >
                                   标题
                                 </th>
                                 <th
                                   class="ant-table-cell"
+                                  scope="col"
                                 >
                                   <div
                                     class="ant-table-filter-column"
@@ -23683,11 +23782,13 @@ exports[`table demos 📸 renders ./packages/table/src/demos/crud.tsx correctly 
                                 </th>
                                 <th
                                   class="ant-table-cell"
+                                  scope="col"
                                 >
                                   标签
                                 </th>
                                 <th
                                   class="ant-table-cell"
+                                  scope="col"
                                 >
                                   option
                                 </th>
@@ -25067,16 +25168,19 @@ exports[`table demos 📸 renders ./packages/table/src/demos/customization-value
                           <tr>
                             <th
                               class="ant-table-cell"
+                              scope="col"
                             >
                               链接
                             </th>
                             <th
                               class="ant-table-cell"
+                              scope="col"
                             >
                               标签
                             </th>
                             <th
                               class="ant-table-cell"
+                              scope="col"
                             >
                               操作
                             </th>
@@ -26326,11 +26430,13 @@ exports[`table demos 📸 renders ./packages/table/src/demos/dataSource.tsx corr
                           <tr>
                             <th
                               class="ant-table-cell"
+                              scope="col"
                             >
                               排序
                             </th>
                             <th
                               class="ant-table-cell"
+                              scope="col"
                             >
                               <div
                                 class="ant-table-filter-column"
@@ -26369,11 +26475,13 @@ exports[`table demos 📸 renders ./packages/table/src/demos/dataSource.tsx corr
                             </th>
                             <th
                               class="ant-table-cell"
+                              scope="col"
                             >
                               创建者
                             </th>
                             <th
                               class="ant-table-cell"
+                              scope="col"
                             >
                               <div
                                 class="ant-table-filter-column"
@@ -26412,11 +26520,13 @@ exports[`table demos 📸 renders ./packages/table/src/demos/dataSource.tsx corr
                             </th>
                             <th
                               class="ant-table-cell ant-table-cell-ellipsis"
+                              scope="col"
                             >
                               备注
                             </th>
                             <th
                               class="ant-table-cell"
+                              scope="col"
                             >
                               操作
                             </th>
@@ -27781,11 +27891,13 @@ exports[`table demos 📸 renders ./packages/table/src/demos/dateFormatter.tsx c
                           <tr>
                             <th
                               class="ant-table-cell"
+                              scope="col"
                             >
                               标题
                             </th>
                             <th
                               class="ant-table-cell"
+                              scope="col"
                             >
                               创建时间
                             </th>
@@ -28307,11 +28419,13 @@ exports[`table demos 📸 renders ./packages/table/src/demos/dateFormatter.tsx c
                           <tr>
                             <th
                               class="ant-table-cell"
+                              scope="col"
                             >
                               标题
                             </th>
                             <th
                               class="ant-table-cell"
+                              scope="col"
                             >
                               创建时间
                             </th>
@@ -28833,11 +28947,13 @@ exports[`table demos 📸 renders ./packages/table/src/demos/dateFormatter.tsx c
                           <tr>
                             <th
                               class="ant-table-cell"
+                              scope="col"
                             >
                               标题
                             </th>
                             <th
                               class="ant-table-cell"
+                              scope="col"
                             >
                               创建时间
                             </th>
@@ -29765,16 +29881,19 @@ exports[`table demos 📸 renders ./packages/table/src/demos/dynamic-columns-sta
                           <tr>
                             <th
                               class="ant-table-cell"
+                              scope="col"
                             >
                               排序
                             </th>
                             <th
                               class="ant-table-cell"
+                              scope="col"
                             >
                               关闭时字段
                             </th>
                             <th
                               class="ant-table-cell"
+                              scope="col"
                             >
                               <div
                                 class="ant-table-filter-column"
@@ -29813,11 +29932,13 @@ exports[`table demos 📸 renders ./packages/table/src/demos/dynamic-columns-sta
                             </th>
                             <th
                               class="ant-table-cell"
+                              scope="col"
                             >
                               状态
                             </th>
                             <th
                               class="ant-table-cell"
+                              scope="col"
                             >
                               创建时间
                               <span
@@ -29846,6 +29967,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/dynamic-columns-sta
                             </th>
                             <th
                               class="ant-table-cell ant-table-cell-ellipsis"
+                              scope="col"
                             >
                               备注
                             </th>
@@ -31241,6 +31363,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/dynamic-settings.ts
                                     <tr>
                                       <th
                                         class="ant-table-cell ant-table-selection-column"
+                                        scope="col"
                                       >
                                         <div
                                           class="ant-table-selection"
@@ -31266,16 +31389,19 @@ exports[`table demos 📸 renders ./packages/table/src/demos/dynamic-settings.ts
                                       </th>
                                       <th
                                         class="ant-table-cell"
+                                        scope="col"
                                       >
                                         Name
                                       </th>
                                       <th
                                         class="ant-table-cell"
+                                        scope="col"
                                       >
                                         time
                                       </th>
                                       <th
                                         class="ant-table-cell"
+                                        scope="col"
                                       >
                                         <div
                                           class="ant-table-filter-column"
@@ -31315,6 +31441,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/dynamic-settings.ts
                                       <th
                                         aria-label="this column is sortable"
                                         class="ant-table-cell ant-table-column-has-sorters"
+                                        scope="col"
                                         tabindex="0"
                                       >
                                         <div
@@ -32096,6 +32223,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/dynamic-settings.ts
                     >
                       <div
                         class="ant-tabs-tab ant-tabs-tab-active"
+                        data-node-key="tab1"
                       >
                         <div
                           aria-controls="rc-tabs-test-panel-tab1"
@@ -32110,6 +32238,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/dynamic-settings.ts
                       </div>
                       <div
                         class="ant-tabs-tab"
+                        data-node-key="tab3"
                       >
                         <div
                           aria-controls="rc-tabs-test-panel-tab3"
@@ -32124,6 +32253,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/dynamic-settings.ts
                       </div>
                       <div
                         class="ant-tabs-tab"
+                        data-node-key="tab2"
                       >
                         <div
                           aria-controls="rc-tabs-test-panel-tab2"
@@ -32138,6 +32268,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/dynamic-settings.ts
                       </div>
                       <div
                         class="ant-tabs-tab"
+                        data-node-key="tab4"
                       >
                         <div
                           aria-controls="rc-tabs-test-panel-tab4"
@@ -33829,12 +33960,14 @@ exports[`table demos 📸 renders ./packages/table/src/demos/error-boundaries-fa
                           <tr>
                             <th
                               class="ant-table-cell"
+                              scope="col"
                             >
                               应用名称
                             </th>
                             <th
                               aria-label="this column is sortable"
                               class="ant-table-cell ant-table-column-has-sorters"
+                              scope="col"
                               style="text-align: right;"
                               tabindex="0"
                             >
@@ -33896,11 +34029,13 @@ exports[`table demos 📸 renders ./packages/table/src/demos/error-boundaries-fa
                             </th>
                             <th
                               class="ant-table-cell"
+                              scope="col"
                             >
                               创建者
                             </th>
                             <th
                               class="ant-table-cell"
+                              scope="col"
                             >
                               操作
                             </th>
@@ -34717,11 +34852,13 @@ exports[`table demos 📸 renders ./packages/table/src/demos/form.tsx correctly 
                           <tr>
                             <th
                               class="ant-table-cell"
+                              scope="col"
                             >
                               标题
                             </th>
                             <th
                               class="ant-table-cell"
+                              scope="col"
                             >
                               创建时间
                             </th>
@@ -35483,6 +35620,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/intl.tsx correctly 
                           <tr>
                             <th
                               class="ant-table-cell ant-table-selection-column"
+                              scope="col"
                             >
                               <div
                                 class="ant-table-selection"
@@ -35508,16 +35646,19 @@ exports[`table demos 📸 renders ./packages/table/src/demos/intl.tsx correctly 
                             </th>
                             <th
                               class="ant-table-cell"
+                              scope="col"
                             >
                               index
                             </th>
                             <th
                               class="ant-table-cell"
+                              scope="col"
                             >
                               Title
                             </th>
                             <th
                               class="ant-table-cell"
+                              scope="col"
                             >
                               Money
                             </th>
@@ -36017,11 +36158,13 @@ exports[`table demos 📸 renders ./packages/table/src/demos/lightfilter.tsx cor
                           <tr>
                             <th
                               class="ant-table-cell"
+                              scope="col"
                             >
                               应用名称
                             </th>
                             <th
                               class="ant-table-cell"
+                              scope="col"
                             >
                               创建者
                             </th>
@@ -36790,16 +36933,19 @@ exports[`table demos 📸 renders ./packages/table/src/demos/linkage_form.tsx co
                           <tr>
                             <th
                               class="ant-table-cell"
+                              scope="col"
                             >
                               序号
                             </th>
                             <th
                               class="ant-table-cell"
+                              scope="col"
                             >
                               标题
                             </th>
                             <th
                               class="ant-table-cell"
+                              scope="col"
                             >
                               状态
                             </th>
@@ -36974,6 +37120,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/listToolBar.tsx cor
                         >
                           <div
                             class="ant-tabs-tab ant-tabs-tab-active"
+                            data-node-key="tab1"
                           >
                             <div
                               aria-controls="rc-tabs-test-panel-tab1"
@@ -37021,6 +37168,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/listToolBar.tsx cor
                           </div>
                           <div
                             class="ant-tabs-tab"
+                            data-node-key="tab2"
                           >
                             <div
                               aria-controls="rc-tabs-test-panel-tab2"
@@ -37068,6 +37216,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/listToolBar.tsx cor
                           </div>
                           <div
                             class="ant-tabs-tab"
+                            data-node-key="tab3"
                           >
                             <div
                               aria-controls="rc-tabs-test-panel-tab3"
@@ -37453,16 +37602,19 @@ exports[`table demos 📸 renders ./packages/table/src/demos/listToolBar.tsx cor
                           <tr>
                             <th
                               class="ant-table-cell"
+                              scope="col"
                             >
                               应用名称
                             </th>
                             <th
                               class="ant-table-cell"
+                              scope="col"
                             >
                               创建者
                             </th>
                             <th
                               class="ant-table-cell"
+                              scope="col"
                             >
                               <div
                                 class="ant-table-filter-column"
@@ -37502,6 +37654,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/listToolBar.tsx cor
                             <th
                               aria-label="this column is sortable"
                               class="ant-table-cell ant-table-column-has-sorters"
+                              scope="col"
                               style="text-align: right;"
                               tabindex="0"
                             >
@@ -37563,6 +37716,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/listToolBar.tsx cor
                             </th>
                             <th
                               class="ant-table-cell"
+                              scope="col"
                             >
                               操作
                             </th>
@@ -38522,12 +38676,14 @@ exports[`table demos 📸 renders ./packages/table/src/demos/no-option.tsx corre
                           <tr>
                             <th
                               class="ant-table-cell"
+                              scope="col"
                             >
                               应用名称
                             </th>
                             <th
                               aria-label="this column is sortable"
                               class="ant-table-cell ant-table-column-has-sorters"
+                              scope="col"
                               style="text-align: right;"
                               tabindex="0"
                             >
@@ -38589,12 +38745,14 @@ exports[`table demos 📸 renders ./packages/table/src/demos/no-option.tsx corre
                             </th>
                             <th
                               class="ant-table-cell"
+                              scope="col"
                             >
                               状态
                             </th>
                             <th
                               aria-label="this column is sortable"
                               class="ant-table-cell ant-table-column-has-sorters"
+                              scope="col"
                               tabindex="0"
                             >
                               <div
@@ -39033,26 +39191,31 @@ exports[`table demos 📸 renders ./packages/table/src/demos/no-title.tsx correc
                           <tr>
                             <th
                               class="ant-table-cell"
+                              scope="col"
                             >
                               成员名称
                             </th>
                             <th
                               class="ant-table-cell"
+                              scope="col"
                             >
                               账号
                             </th>
                             <th
                               class="ant-table-cell"
+                              scope="col"
                             >
                               角色
                             </th>
                             <th
                               class="ant-table-cell"
+                              scope="col"
                             >
                               权限范围
                             </th>
                             <th
                               class="ant-table-cell"
+                              scope="col"
                             >
                               操作
                             </th>
@@ -39871,12 +40034,14 @@ exports[`table demos 📸 renders ./packages/table/src/demos/normal.tsx correctl
                           <tr>
                             <th
                               class="ant-table-cell"
+                              scope="col"
                             >
                               应用名称
                             </th>
                             <th
                               aria-label="this column is sortable"
                               class="ant-table-cell ant-table-column-has-sorters"
+                              scope="col"
                               style="text-align: right;"
                               tabindex="0"
                             >
@@ -39938,16 +40103,19 @@ exports[`table demos 📸 renders ./packages/table/src/demos/normal.tsx correctl
                             </th>
                             <th
                               class="ant-table-cell"
+                              scope="col"
                             >
                               状态
                             </th>
                             <th
                               class="ant-table-cell"
+                              scope="col"
                             >
                               创建者
                             </th>
                             <th
                               class="ant-table-cell"
+                              scope="col"
                             >
                               操作
                             </th>
@@ -40998,6 +41166,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/open-rules.tsx corr
                           <tr>
                             <th
                               class="ant-table-cell ant-table-cell-ellipsis"
+                              scope="col"
                             >
                               <div
                                 class="ant-pro-core-label-tip"
@@ -41037,6 +41206,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/open-rules.tsx corr
                             </th>
                             <th
                               class="ant-table-cell"
+                              scope="col"
                             >
                               <div
                                 class="ant-table-filter-column"
@@ -41075,11 +41245,13 @@ exports[`table demos 📸 renders ./packages/table/src/demos/open-rules.tsx corr
                             </th>
                             <th
                               class="ant-table-cell"
+                              scope="col"
                             >
                               标签
                             </th>
                             <th
                               class="ant-table-cell"
+                              scope="col"
                             >
                               创建时间
                             </th>
@@ -41761,6 +41933,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/open-rules.tsx corr
                           <tr>
                             <th
                               class="ant-table-cell ant-table-cell-ellipsis"
+                              scope="col"
                             >
                               <div
                                 class="ant-pro-core-label-tip"
@@ -41800,6 +41973,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/open-rules.tsx corr
                             </th>
                             <th
                               class="ant-table-cell"
+                              scope="col"
                             >
                               <div
                                 class="ant-table-filter-column"
@@ -41838,11 +42012,13 @@ exports[`table demos 📸 renders ./packages/table/src/demos/open-rules.tsx corr
                             </th>
                             <th
                               class="ant-table-cell"
+                              scope="col"
                             >
                               标签
                             </th>
                             <th
                               class="ant-table-cell"
+                              scope="col"
                             >
                               创建时间
                             </th>
@@ -42841,11 +43017,13 @@ exports[`table demos 📸 renders ./packages/table/src/demos/pollinga.tsx correc
                           <tr>
                             <th
                               class="ant-table-cell"
+                              scope="col"
                             >
                               序号
                             </th>
                             <th
                               class="ant-table-cell"
+                              scope="col"
                             >
                               <div
                                 class="ant-table-filter-column"
@@ -42884,16 +43062,19 @@ exports[`table demos 📸 renders ./packages/table/src/demos/pollinga.tsx correc
                             </th>
                             <th
                               class="ant-table-cell"
+                              scope="col"
                             >
                               进度
                             </th>
                             <th
                               class="ant-table-cell"
+                              scope="col"
                             >
                               更新时间
                             </th>
                             <th
                               class="ant-table-cell"
+                              scope="col"
                             >
                               创建时间
                             </th>
@@ -43703,16 +43884,19 @@ exports[`table demos 📸 renders ./packages/table/src/demos/renderTable.tsx cor
                               <tr>
                                 <th
                                   class="ant-table-cell"
+                                  scope="col"
                                 >
                                   序号
                                 </th>
                                 <th
                                   class="ant-table-cell"
+                                  scope="col"
                                 >
                                   更新时间
                                 </th>
                                 <th
                                   class="ant-table-cell"
+                                  scope="col"
                                 >
                                   执行进度
                                 </th>
@@ -44489,9 +44673,11 @@ exports[`table demos 📸 renders ./packages/table/src/demos/rtl_table.tsx corre
                           <tr>
                             <th
                               class="ant-table-cell"
+                              scope="col"
                             />
                             <th
                               class="ant-table-cell ant-table-cell-ellipsis"
+                              scope="col"
                             >
                               <div
                                 class="ant-pro-core-label-tip"
@@ -44531,6 +44717,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/rtl_table.tsx corre
                             </th>
                             <th
                               class="ant-table-cell"
+                              scope="col"
                             >
                               <div
                                 class="ant-table-filter-column"
@@ -44569,11 +44756,13 @@ exports[`table demos 📸 renders ./packages/table/src/demos/rtl_table.tsx corre
                             </th>
                             <th
                               class="ant-table-cell"
+                              scope="col"
                             >
                               التسمية
                             </th>
                             <th
                               class="ant-table-cell"
+                              scope="col"
                             >
                               التشغيل
                             </th>
@@ -45870,11 +46059,13 @@ exports[`table demos 📸 renders ./packages/table/src/demos/search.tsx correctl
                           <tr>
                             <th
                               class="ant-table-cell"
+                              scope="col"
                             >
                               序号
                             </th>
                             <th
                               class="ant-table-cell"
+                              scope="col"
                             >
                               标题
                             </th>
@@ -46508,16 +46699,19 @@ exports[`table demos 📸 renders ./packages/table/src/demos/search_option.tsx c
                           <tr>
                             <th
                               class="ant-table-cell"
+                              scope="col"
                             >
                               index
                             </th>
                             <th
                               class="ant-table-cell"
+                              scope="col"
                             >
                               Title
                             </th>
                             <th
                               class="ant-table-cell"
+                              scope="col"
                             >
                               Money
                             </th>
@@ -47323,9 +47517,11 @@ exports[`table demos 📸 renders ./packages/table/src/demos/single.tsx correctl
                           <tr>
                             <th
                               class="ant-table-cell"
+                              scope="col"
                             />
                             <th
                               class="ant-table-cell ant-table-cell-ellipsis"
+                              scope="col"
                             >
                               <div
                                 class="ant-pro-core-label-tip"
@@ -47365,6 +47561,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/single.tsx correctl
                             </th>
                             <th
                               class="ant-table-cell ant-table-cell-ellipsis"
+                              scope="col"
                             >
                               <div
                                 class="ant-table-filter-column"
@@ -47403,12 +47600,14 @@ exports[`table demos 📸 renders ./packages/table/src/demos/single.tsx correctl
                             </th>
                             <th
                               class="ant-table-cell"
+                              scope="col"
                             >
                               标签
                             </th>
                             <th
                               aria-label="this column is sortable"
                               class="ant-table-cell ant-table-column-has-sorters"
+                              scope="col"
                               tabindex="0"
                             >
                               <div
@@ -47469,6 +47668,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/single.tsx correctl
                             </th>
                             <th
                               class="ant-table-cell"
+                              scope="col"
                             >
                               操作
                             </th>
@@ -49351,11 +49551,13 @@ exports[`table demos 📸 renders ./packages/table/src/demos/single-test.tsx cor
                           <tr>
                             <th
                               class="ant-table-cell"
+                              scope="col"
                             >
                               col without dataIndex
                             </th>
                             <th
                               class="ant-table-cell"
+                              scope="col"
                             >
                               normal col
                             </th>
@@ -50291,6 +50493,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/single-test.tsx cor
                           <tr>
                             <th
                               class="ant-table-cell ant-table-cell-fix-left ant-table-cell-fix-left-last ant-table-cell-ellipsis"
+                              scope="col"
                               style="position: sticky; left: 0px;"
                             >
                               <span
@@ -50335,31 +50538,37 @@ exports[`table demos 📸 renders ./packages/table/src/demos/single-test.tsx cor
                             </th>
                             <th
                               class="ant-table-cell"
+                              scope="col"
                             >
                               序号
                             </th>
                             <th
                               class="ant-table-cell ant-table-cell-ellipsis"
+                              scope="col"
                             >
                               状态
                             </th>
                             <th
                               class="ant-table-cell"
+                              scope="col"
                             >
                               标签
                             </th>
                             <th
                               class="ant-table-cell ant-table-cell-ellipsis"
+                              scope="col"
                             >
                               创建时间
                             </th>
                             <th
                               class="ant-table-cell"
+                              scope="col"
                             >
                               创建时间
                             </th>
                             <th
                               class="ant-table-cell ant-table-cell-fix-right ant-table-cell-fix-right-first"
+                              scope="col"
                               style="position: sticky; right: 0px;"
                             >
                               操作
@@ -51676,21 +51885,25 @@ exports[`table demos 📸 renders ./packages/table/src/demos/split.tsx correctly
                                     <tr>
                                       <th
                                         class="ant-table-cell"
+                                        scope="col"
                                       >
                                         IP
                                       </th>
                                       <th
                                         class="ant-table-cell"
+                                        scope="col"
                                       >
                                         CPU
                                       </th>
                                       <th
                                         class="ant-table-cell"
+                                        scope="col"
                                       >
                                         Mem
                                       </th>
                                       <th
                                         class="ant-table-cell"
+                                        scope="col"
                                       >
                                         Disk
                                       </th>
@@ -52201,16 +52414,19 @@ exports[`table demos 📸 renders ./packages/table/src/demos/split.tsx correctly
                                     <tr>
                                       <th
                                         class="ant-table-cell"
+                                        scope="col"
                                       >
                                         时间点
                                       </th>
                                       <th
                                         class="ant-table-cell"
+                                        scope="col"
                                       >
                                         代码
                                       </th>
                                       <th
                                         class="ant-table-cell"
+                                        scope="col"
                                       >
                                         操作
                                       </th>
@@ -52627,22 +52843,25 @@ exports[`table demos 📸 renders ./packages/table/src/demos/table-nested.tsx co
                           class="ant-table-thead"
                         >
                           <tr>
-                            <th
+                            <td
                               class="ant-table-cell ant-table-row-expand-icon-cell"
                             />
                             <th
                               class="ant-table-cell"
+                              scope="col"
                             >
                               应用名称
                             </th>
                             <th
                               class="ant-table-cell"
+                              scope="col"
                             >
                               状态
                             </th>
                             <th
                               aria-label="this column is sortable"
                               class="ant-table-cell ant-table-column-has-sorters"
+                              scope="col"
                               style="text-align: right;"
                               tabindex="0"
                             >
@@ -52704,6 +52923,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/table-nested.tsx co
                             </th>
                             <th
                               class="ant-table-cell"
+                              scope="col"
                             >
                               创建者
                             </th>
@@ -53693,9 +53913,11 @@ exports[`table demos 📸 renders ./packages/table/src/demos/theme.tsx correctly
                           <tr>
                             <th
                               class="ant-table-cell"
+                              scope="col"
                             />
                             <th
                               class="ant-table-cell ant-table-cell-ellipsis"
+                              scope="col"
                             >
                               <div
                                 class="ant-pro-core-label-tip"
@@ -53735,6 +53957,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/theme.tsx correctly
                             </th>
                             <th
                               class="ant-table-cell ant-table-cell-ellipsis"
+                              scope="col"
                             >
                               <div
                                 class="ant-table-filter-column"
@@ -53773,12 +53996,14 @@ exports[`table demos 📸 renders ./packages/table/src/demos/theme.tsx correctly
                             </th>
                             <th
                               class="ant-table-cell"
+                              scope="col"
                             >
                               标签
                             </th>
                             <th
                               aria-label="this column is sortable"
                               class="ant-table-cell ant-table-column-has-sorters"
+                              scope="col"
                               tabindex="0"
                             >
                               <div
@@ -53839,6 +54064,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/theme.tsx correctly
                             </th>
                             <th
                               class="ant-table-cell"
+                              scope="col"
                             >
                               操作
                             </th>
@@ -55456,31 +55682,37 @@ exports[`table demos 📸 renders ./packages/table/src/demos/valueType.tsx corre
                           <tr>
                             <th
                               class="ant-table-cell"
+                              scope="col"
                             >
                               序号
                             </th>
                             <th
                               class="ant-table-cell"
+                              scope="col"
                             >
                               border 序号
                             </th>
                             <th
                               class="ant-table-cell"
+                              scope="col"
                             >
                               代码
                             </th>
                             <th
                               class="ant-table-cell"
+                              scope="col"
                             >
                               头像
                             </th>
                             <th
                               class="ant-table-cell"
+                              scope="col"
                             >
                               图片
                             </th>
                             <th
                               class="ant-table-cell"
+                              scope="col"
                             >
                               操作
                             </th>
@@ -57094,36 +57326,43 @@ exports[`table demos 📸 renders ./packages/table/src/demos/valueType_select.ts
                           <tr>
                             <th
                               class="ant-table-cell"
+                              scope="col"
                             >
                               状态
                             </th>
                             <th
                               class="ant-table-cell"
+                              scope="col"
                             >
                               单选状态
                             </th>
                             <th
                               class="ant-table-cell"
+                              scope="col"
                             >
                               单选按钮状态
                             </th>
                             <th
                               class="ant-table-cell"
+                              scope="col"
                             >
                               多选状态
                             </th>
                             <th
                               class="ant-table-cell"
+                              scope="col"
                             >
                               级联选择器
                             </th>
                             <th
                               class="ant-table-cell"
+                              scope="col"
                             >
                               树形下拉框
                             </th>
                             <th
                               class="ant-table-cell"
+                              scope="col"
                             >
                               操作
                             </th>
@@ -58479,36 +58718,43 @@ exports[`table demos 📸 renders ./packages/table/src/demos/valueTypeDate.tsx c
                           <tr>
                             <th
                               class="ant-table-cell"
+                              scope="col"
                             >
                               创建时间
                             </th>
                             <th
                               class="ant-table-cell"
+                              scope="col"
                             >
                               日期区间
                             </th>
                             <th
                               class="ant-table-cell"
+                              scope="col"
                             >
                               时间区间
                             </th>
                             <th
                               class="ant-table-cell"
+                              scope="col"
                             >
                               更新时间
                             </th>
                             <th
                               class="ant-table-cell"
+                              scope="col"
                             >
                               更新时间
                             </th>
                             <th
                               class="ant-table-cell"
+                              scope="col"
                             >
                               关闭时间
                             </th>
                             <th
                               class="ant-table-cell"
+                              scope="col"
                             >
                               操作
                             </th>
@@ -59776,31 +60022,37 @@ exports[`table demos 📸 renders ./packages/table/src/demos/valueTypeNumber.tsx
                           <tr>
                             <th
                               class="ant-table-cell"
+                              scope="col"
                             >
                               进度
                             </th>
                             <th
                               class="ant-table-cell"
+                              scope="col"
                             >
                               金额
                             </th>
                             <th
                               class="ant-table-cell"
+                              scope="col"
                             >
                               数字
                             </th>
                             <th
                               class="ant-table-cell"
+                              scope="col"
                             >
                               数字
                             </th>
                             <th
                               class="ant-table-cell"
+                              scope="col"
                             >
                               百分比
                             </th>
                             <th
                               class="ant-table-cell"
+                              scope="col"
                             >
                               操作
                             </th>

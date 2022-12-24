@@ -534,11 +534,13 @@ exports[`docs demos 📸 renders ./docs/demos/customization-value-type.tsx corre
                               <tr>
                                 <th
                                   class="ant-table-cell"
+                                  scope="col"
                                 >
                                   链接
                                 </th>
                                 <th
                                   class="ant-table-cell"
+                                  scope="col"
                                 >
                                   标签
                                 </th>

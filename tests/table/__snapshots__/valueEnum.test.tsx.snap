@@ -294,6 +294,7 @@ exports[`Table valueEnum 🎏 customization valueType 1`] = `
                           <tr>
                             <th
                               class="ant-table-cell"
+                              scope="col"
                             >
                               链接
                             </th>

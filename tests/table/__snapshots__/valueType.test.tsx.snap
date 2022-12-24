@@ -424,11 +424,13 @@ exports[`BasicTable valueType 🎏 table support filter when valueType is treeSe
                           <tr>
                             <th
                               class="ant-table-cell"
+                              scope="col"
                             >
                               标签
                             </th>
                             <th
                               class="ant-table-cell"
+                              scope="col"
                             >
                               树形下拉框
                             </th>

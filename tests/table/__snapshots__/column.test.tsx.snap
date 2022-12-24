@@ -347,6 +347,7 @@ exports[`Table ColumnSetting 🎏 columns proFieldProps support custom 1`] = `
                         <tr>
                           <th
                             class="ant-table-cell"
+                            scope="col"
                           >
                             Name
                           </th>
@@ -748,6 +749,7 @@ exports[`Table ColumnSetting 🎏 config provide render 1`] = `
                         <tr>
                           <th
                             class="qixian-table-cell"
+                            scope="col"
                           >
                             Name
                           </th>
@@ -1548,14 +1550,16 @@ exports[`Table ColumnSetting 🎏 extra columns 1`] = `
                         <tr>
                           <th
                             class="ant-table-cell"
+                            scope="col"
                           >
                             Name
                           </th>
-                          <th
+                          <td
                             class="ant-table-cell ant-table-row-expand-icon-cell"
                           />
                           <th
                             class="ant-table-cell ant-table-selection-column"
+                            scope="col"
                           >
                             <div
                               class="ant-table-selection"

@@ -1531,6 +1531,7 @@ exports[`descriptions demos 📸 renders ./packages/descriptions/src/demos/dynam
                     >
                       <div
                         class="ant-tabs-tab ant-tabs-tab-active"
+                        data-node-key="base"
                       >
                         <div
                           aria-controls="rc-tabs-test-panel-base"
@@ -1545,6 +1546,7 @@ exports[`descriptions demos 📸 renders ./packages/descriptions/src/demos/dynam
                       </div>
                       <div
                         class="ant-tabs-tab"
+                        data-node-key="columns"
                       >
                         <div
                           aria-controls="rc-tabs-test-panel-columns"
