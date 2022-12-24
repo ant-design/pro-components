@@ -175,7 +175,9 @@ const ListToolBar: React.FC<ListToolBarProps> = ({
         placeholder={placeholder}
         {...(search as SearchProps)}
         onSearch={(...restParams) => {
-          onSearch?.(restParams?.[0]);
+          if (!(search as SearchProps).onSearch) {
+            onSearch?.(restParams?.[0]);
+          }
           (search as SearchProps).onSearch?.(...restParams);
         }}
       />
