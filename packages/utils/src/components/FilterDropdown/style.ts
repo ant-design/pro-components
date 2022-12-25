@@ -16,7 +16,7 @@ const genProStyle: GenerateStyle<ProToken> = (token) => {
         boxSizing: 'border-box',
       },
     },
-    [`${token.componentCls}-content`]: { paddingBlock: 16, paddingInline: 16 },
+    [`${token.componentCls}-content`]: { paddingBlock: 8, paddingInline: 8 },
   };
 };
 
