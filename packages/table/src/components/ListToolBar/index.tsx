@@ -106,6 +106,9 @@ const ListToolBarTabBar: React.FC<{
     <div className={`${prefixCls}-extra-line`}>
       {tabs.items && tabs.items.length ? (
         <Tabs
+          style={{
+            width: '100%',
+          }}
           activeKey={tabs.activeKey}
           //@ts-ignore
           items={tabs.items.map((item, index) => ({
@@ -263,13 +266,7 @@ const ListToolBar: React.FC<ListToolBarProps> = ({
     return (
       <div
         className={`${prefixCls}-right ${hashId}`}
-        style={
-          isMobile
-            ? {
-                flexDirection: 'column',
-              }
-            : { alignItems: 'center' }
-        }
+        style={isMobile ? {} : { alignItems: 'center' }}
       >
         {!multipleLine ? filtersNode : null}
         {hasTitle && searchNode ? (

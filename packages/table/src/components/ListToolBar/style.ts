@@ -46,6 +46,10 @@ const genProListStyle: GenerateStyle<ProListToken> = (token) => {
         alignItems: 'center',
         gap: 8,
         justifyContent: 'flex-start',
+        maxWidth: 'calc(100% - 200px)',
+        [`${token.antCls}-tabs`]: {
+          width: '100%',
+        },
       },
       '&-right': { display: 'flex', flexWrap: 'wrap', justifyContent: 'flex-end', gap: 8 },
       '&-extra-line': { marginBlockEnd: token.margin },
@@ -92,7 +96,7 @@ const genProListStyle: GenerateStyle<ProListToken> = (token) => {
       '@media (max-width: 768px)': {
         [token.componentCls]: {
           '&-container': { display: 'flex', flexWrap: 'wrap', flexDirection: 'column' },
-          '&-left': { marginBlockEnd: '16px' },
+          '&-left': { marginBlockEnd: '16px', maxWidth: '100%' },
         },
       },
     },

@@ -40119,32 +40119,8 @@ exports[`form demos 📸 renders ./packages/form/src/demos/base-test.tsx correct
                 <div
                   class="ant-spin-nested-loading"
                 >
-                  <div>
-                    <div
-                      aria-busy="true"
-                      aria-live="polite"
-                      class="ant-spin ant-spin-spinning"
-                    >
-                      <span
-                        class="ant-spin-dot ant-spin-dot-spin"
-                      >
-                        <i
-                          class="ant-spin-dot-item"
-                        />
-                        <i
-                          class="ant-spin-dot-item"
-                        />
-                        <i
-                          class="ant-spin-dot-item"
-                        />
-                        <i
-                          class="ant-spin-dot-item"
-                        />
-                      </span>
-                    </div>
-                  </div>
                   <div
-                    class="ant-spin-container ant-spin-blur"
+                    class="ant-spin-container"
                   >
                     <div
                       class="ant-select ant-tree-select ant-select-in-form-item ant-pro-field-tree-select ant-select-multiple ant-select-show-search"
