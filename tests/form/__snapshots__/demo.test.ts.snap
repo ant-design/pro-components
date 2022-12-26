@@ -50253,15 +50253,11 @@ exports[`form demos 📸 renders ./packages/form/src/demos/pro-form-editableTabl
                                           class="ant-table-cell"
                                         >
                                           <div
-                                            class="ant-space ant-space-horizontal ant-space-align-center"
+                                            style="display: flex; align-items: center; justify-content: center; gap: 12px;"
                                           >
-                                            <div
-                                              class="ant-space-item"
-                                            >
-                                              <a>
-                                                删除
-                                              </a>
-                                            </div>
+                                            <a>
+                                              删除
+                                            </a>
                                           </div>
                                         </td>
                                       </tr>
@@ -50480,15 +50476,11 @@ exports[`form demos 📸 renders ./packages/form/src/demos/pro-form-editableTabl
                                           class="ant-table-cell"
                                         >
                                           <div
-                                            class="ant-space ant-space-horizontal ant-space-align-center"
+                                            style="display: flex; align-items: center; justify-content: center; gap: 12px;"
                                           >
-                                            <div
-                                              class="ant-space-item"
-                                            >
-                                              <a>
-                                                删除
-                                              </a>
-                                            </div>
+                                            <a>
+                                              删除
+                                            </a>
                                           </div>
                                         </td>
                                       </tr>

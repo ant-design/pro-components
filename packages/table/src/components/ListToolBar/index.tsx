@@ -5,10 +5,10 @@ import { ConfigProvider, Input, Space, Tabs, Tooltip } from 'antd';
 import type { LabelTooltipType } from 'antd/es/form/FormItemLabel';
 import type { SearchProps } from 'antd/es/input';
 import classNames from 'classnames';
-import React, { useContext, useMemo } from 'react';
-import useAntdMediaQuery from 'use-media-antd-query';
+import React, { useContext, useMemo, useState } from 'react';
 import type { ListToolBarHeaderMenuProps } from './HeaderMenu';
 import HeaderMenu from './HeaderMenu';
+import ResizeObserver from 'rc-resize-observer';
 import { useStyle } from './style';
 
 export type ListToolBarSetting = {
@@ -150,9 +150,7 @@ const ListToolBar: React.FC<ListToolBarProps> = ({
 
   const intl = useIntl();
 
-  const colSize = useAntdMediaQuery();
-
-  const isMobile = colSize === 'sm' || colSize === 'xs';
+  const [isMobile, setIsMobile] = useState(false);
 
   const placeholder = intl.getMessage('tableForm.inputPlaceholder', '请输入');
 
@@ -269,10 +267,8 @@ const ListToolBar: React.FC<ListToolBarProps> = ({
           isMobile
             ? {
                 flexDirection: 'column',
-                justifyContent: 'center',
-                alignItems: 'end',
               }
-            : { justifyContent: 'center', alignItems: 'center' }
+            : { alignItems: 'center' }
         }
       >
         {!multipleLine ? filtersNode : null}
@@ -281,7 +277,7 @@ const ListToolBar: React.FC<ListToolBarProps> = ({
         ) : null}
         {actionDom}
         {settings?.length ? (
-          <Space size={12} align="center" className={`${prefixCls}-setting-items ${hashId}`}>
+          <div className={`${prefixCls}-setting-items ${hashId}`}>
             {settings.map((setting, index) => {
               const settingItem = getSettingItem(setting);
               return (
@@ -291,7 +287,7 @@ const ListToolBar: React.FC<ListToolBarProps> = ({
                 </div>
               );
             })}
-          </Space>
+          </div>
         ) : null}
       </div>
     );
@@ -322,15 +318,21 @@ const ListToolBar: React.FC<ListToolBarProps> = ({
   }, [hasLeft, hasRight, hashId, isMobile, leftTitleDom, prefixCls, rightTitleDom]);
 
   return wrapSSR(
-    <div style={style} className={classNames(prefixCls, hashId, className)}>
-      {titleNode}
-      <ListToolBarTabBar
-        filtersNode={filtersNode}
-        prefixCls={prefixCls}
-        tabs={tabs}
-        multipleLine={multipleLine}
-      />
-    </div>,
+    <ResizeObserver
+      onResize={(size) => {
+        setIsMobile(size.width < 375);
+      }}
+    >
+      <div style={style} className={classNames(prefixCls, hashId, className)}>
+        {titleNode}
+        <ListToolBarTabBar
+          filtersNode={filtersNode}
+          prefixCls={prefixCls}
+          tabs={tabs}
+          multipleLine={multipleLine}
+        />
+      </div>
+    </ResizeObserver>,
   );
 };
 

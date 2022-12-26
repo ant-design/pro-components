@@ -6,7 +6,6 @@ import type {
   UseEditableUtilType,
 } from '@ant-design/pro-utils';
 import { genCopyable, isNil, LabelIconTip } from '@ant-design/pro-utils';
-import { Space } from 'antd';
 import get from 'rc-util/lib/utils/get';
 import React from 'react';
 import { isMergeCell } from '.';
@@ -124,12 +123,19 @@ export function columnRender<T>({
   if (mode === 'edit') {
     if (columnProps.valueType === 'option') {
       return (
-        <Space size={16}>
+        <div
+          style={{
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'center',
+            gap: 12,
+          }}
+        >
           {editableUtils.actionRender({
             ...rowData,
             index: columnProps.index || index,
           })}
-        </Space>
+        </div>
       );
     }
     return dom;
@@ -162,7 +168,18 @@ export function columnRender<T>({
   }
 
   if (renderDom && columnProps.valueType === 'option' && Array.isArray(renderDom)) {
-    return <Space size={16}>{renderDom}</Space>;
+    return (
+      <div
+        style={{
+          display: 'flex',
+          alignItems: 'center',
+          justifyContent: 'center',
+          gap: 8,
+        }}
+      >
+        {renderDom}
+      </div>
+    );
   }
   return renderDom as React.ReactNode;
 }
