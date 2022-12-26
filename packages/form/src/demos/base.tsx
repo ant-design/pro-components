@@ -1,4 +1,4 @@
-import { ProFormCheckbox, ProFormInstance } from '@ant-design/pro-components';
+import { ProFormInstance } from '@ant-design/pro-components';
 import {
   ProForm,
   ProFormCascader,
