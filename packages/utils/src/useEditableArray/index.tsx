@@ -172,7 +172,7 @@ export function editableRowByKey<RecordType>(
   },
   action: 'update' | 'top' | 'delete',
 ) {
-  const { getRowKey, row, data, childrenColumnName } = keyProps;
+  const { getRowKey, row, data, childrenColumnName = 'children' } = keyProps;
   const key = recordKeyToString(keyProps.key)?.toString();
 
   const kvMap = new Map<string, RecordType & { parentKey?: React.Key }>();
