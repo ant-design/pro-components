@@ -246,7 +246,7 @@ const ListToolBar: React.FC<ListToolBarProps> = ({
       );
     }
     return (
-      <Space className={`${prefixCls}-left ${hashId}`}>
+      <div className={`${prefixCls}-left ${hashId}`}>
         {hasTitle && !menu && (
           <div className={`${prefixCls}-title ${hashId}`}>
             <LabelIconTip tooltip={tooltip} label={title} subTitle={subTitle} />
@@ -256,18 +256,24 @@ const ListToolBar: React.FC<ListToolBarProps> = ({
         {!hasTitle && searchNode ? (
           <div className={`${prefixCls}-search ${hashId}`}>{searchNode}</div>
         ) : null}
-      </Space>
+      </div>
     );
   }, [hasLeft, hasRight, hasTitle, hashId, menu, prefixCls, searchNode, subTitle, title, tooltip]);
 
   const rightTitleDom = useMemo(() => {
     if (!hasRight) return null;
     return (
-      <Space
+      <div
         className={`${prefixCls}-right ${hashId}`}
-        direction={isMobile ? 'vertical' : 'horizontal'}
-        size={8}
-        align={isMobile ? 'end' : 'center'}
+        style={
+          isMobile
+            ? {
+                flexDirection: 'column',
+                justifyContent: 'center',
+                alignItems: 'end',
+              }
+            : { justifyContent: 'center', alignItems: 'center' }
+        }
       >
         {!multipleLine ? filtersNode : null}
         {hasTitle && searchNode ? (
@@ -287,7 +293,7 @@ const ListToolBar: React.FC<ListToolBarProps> = ({
             })}
           </Space>
         ) : null}
-      </Space>
+      </div>
     );
   }, [
     hasRight,

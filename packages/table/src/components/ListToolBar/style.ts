@@ -40,8 +40,8 @@ const genProListStyle: GenerateStyle<ProListToken> = (token) => {
           color: token.colorPrimary,
         },
       },
-      '&-left': { display: 'flex', alignItems: 'center', justifyContent: 'flex-start' },
-      '&-right': { display: 'flex', justifyContent: 'flex-end' },
+      '&-left': { display: 'flex', alignItems: 'center', gap: 8, justifyContent: 'flex-start' },
+      '&-right': { display: 'flex', justifyContent: 'flex-end', gap: 8 },
       '&-extra-line': { marginBlockEnd: token.margin },
       '&-filter': {
         '&:not(:last-child)': { marginInlineEnd: token.margin },
