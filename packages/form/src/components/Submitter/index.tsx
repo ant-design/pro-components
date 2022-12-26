@@ -81,7 +81,7 @@ const Submitter: React.FC<SubmitterProps> = (props) => {
         key="rest"
         onClick={(e) => {
           if (!resetButtonProps?.preventDefault) reset();
-          resetButtonProps?.onClick?.(e);
+          resetButtonProps?.onClick?.(e as React.MouseEvent<HTMLButtonElement, MouseEvent>);
         }}
       >
         {resetText}
@@ -96,7 +96,7 @@ const Submitter: React.FC<SubmitterProps> = (props) => {
         key="submit"
         onClick={(e) => {
           if (!submitButtonProps?.preventDefault) submit();
-          submitButtonProps?.onClick?.(e);
+          submitButtonProps?.onClick?.(e as React.MouseEvent<HTMLButtonElement, MouseEvent>);
         }}
       >
         {submitText}
