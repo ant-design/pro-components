@@ -135,11 +135,11 @@ export default () => {
         <ProFormTreeSelect
           initialValue={['0-0', '0-1']}
           label="树形下拉选择器"
-          request={async () => treeData}
           fieldProps={{
             fieldNames: {
               label: 'title',
             },
+            treeData,
             treeCheckable: true,
             showCheckedStrategy: TreeSelect.SHOW_PARENT,
             placeholder: 'Please select',

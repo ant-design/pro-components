@@ -1999,59 +1999,40 @@ exports[`layout demos 📸 renders ./packages/layout/src/components/WaterMark/de
                                 class="ant-table-cell"
                               >
                                 <div
-                                  class="ant-space ant-space-horizontal ant-space-align-center"
+                                  style="display: flex; align-items: center; justify-content: center; gap: 8px;"
                                 >
-                                  <div
-                                    class="ant-space-item"
-                                    style="margin-right: 16px;"
+                                  <a>
+                                    链路
+                                  </a>
+                                  <a>
+                                    报警
+                                  </a>
+                                  <a>
+                                    监控
+                                  </a>
+                                  <a
+                                    class="ant-dropdown-trigger ant-pro-table-dropdown"
                                   >
-                                    <a>
-                                      链路
-                                    </a>
-                                  </div>
-                                  <div
-                                    class="ant-space-item"
-                                    style="margin-right: 16px;"
-                                  >
-                                    <a>
-                                      报警
-                                    </a>
-                                  </div>
-                                  <div
-                                    class="ant-space-item"
-                                    style="margin-right: 16px;"
-                                  >
-                                    <a>
-                                      监控
-                                    </a>
-                                  </div>
-                                  <div
-                                    class="ant-space-item"
-                                  >
-                                    <a
-                                      class="ant-dropdown-trigger ant-pro-table-dropdown"
+                                    <span
+                                      aria-label="ellipsis"
+                                      class="anticon anticon-ellipsis"
+                                      role="img"
                                     >
-                                      <span
-                                        aria-label="ellipsis"
-                                        class="anticon anticon-ellipsis"
-                                        role="img"
+                                      <svg
+                                        aria-hidden="true"
+                                        data-icon="ellipsis"
+                                        fill="currentColor"
+                                        focusable="false"
+                                        height="1em"
+                                        viewBox="64 64 896 896"
+                                        width="1em"
                                       >
-                                        <svg
-                                          aria-hidden="true"
-                                          data-icon="ellipsis"
-                                          fill="currentColor"
-                                          focusable="false"
-                                          height="1em"
-                                          viewBox="64 64 896 896"
-                                          width="1em"
-                                        >
-                                          <path
-                                            d="M176 511a56 56 0 10112 0 56 56 0 10-112 0zm280 0a56 56 0 10112 0 56 56 0 10-112 0zm280 0a56 56 0 10112 0 56 56 0 10-112 0z"
-                                          />
-                                        </svg>
-                                      </span>
-                                    </a>
-                                  </div>
+                                        <path
+                                          d="M176 511a56 56 0 10112 0 56 56 0 10-112 0zm280 0a56 56 0 10112 0 56 56 0 10-112 0zm280 0a56 56 0 10112 0 56 56 0 10-112 0z"
+                                        />
+                                      </svg>
+                                    </span>
+                                  </a>
                                 </div>
                               </td>
                             </tr>
@@ -2180,59 +2161,40 @@ exports[`layout demos 📸 renders ./packages/layout/src/components/WaterMark/de
                                 class="ant-table-cell"
                               >
                                 <div
-                                  class="ant-space ant-space-horizontal ant-space-align-center"
+                                  style="display: flex; align-items: center; justify-content: center; gap: 8px;"
                                 >
-                                  <div
-                                    class="ant-space-item"
-                                    style="margin-right: 16px;"
+                                  <a>
+                                    链路
+                                  </a>
+                                  <a>
+                                    报警
+                                  </a>
+                                  <a>
+                                    监控
+                                  </a>
+                                  <a
+                                    class="ant-dropdown-trigger ant-pro-table-dropdown"
                                   >
-                                    <a>
-                                      链路
-                                    </a>
-                                  </div>
-                                  <div
-                                    class="ant-space-item"
-                                    style="margin-right: 16px;"
-                                  >
-                                    <a>
-                                      报警
-                                    </a>
-                                  </div>
-                                  <div
-                                    class="ant-space-item"
-                                    style="margin-right: 16px;"
-                                  >
-                                    <a>
-                                      监控
-                                    </a>
-                                  </div>
-                                  <div
-                                    class="ant-space-item"
-                                  >
-                                    <a
-                                      class="ant-dropdown-trigger ant-pro-table-dropdown"
+                                    <span
+                                      aria-label="ellipsis"
+                                      class="anticon anticon-ellipsis"
+                                      role="img"
                                     >
-                                      <span
-                                        aria-label="ellipsis"
-                                        class="anticon anticon-ellipsis"
-                                        role="img"
+                                      <svg
+                                        aria-hidden="true"
+                                        data-icon="ellipsis"
+                                        fill="currentColor"
+                                        focusable="false"
+                                        height="1em"
+                                        viewBox="64 64 896 896"
+                                        width="1em"
                                       >
-                                        <svg
-                                          aria-hidden="true"
-                                          data-icon="ellipsis"
-                                          fill="currentColor"
-                                          focusable="false"
-                                          height="1em"
-                                          viewBox="64 64 896 896"
-                                          width="1em"
-                                        >
-                                          <path
-                                            d="M176 511a56 56 0 10112 0 56 56 0 10-112 0zm280 0a56 56 0 10112 0 56 56 0 10-112 0zm280 0a56 56 0 10112 0 56 56 0 10-112 0z"
-                                          />
-                                        </svg>
-                                      </span>
-                                    </a>
-                                  </div>
+                                        <path
+                                          d="M176 511a56 56 0 10112 0 56 56 0 10-112 0zm280 0a56 56 0 10112 0 56 56 0 10-112 0zm280 0a56 56 0 10112 0 56 56 0 10-112 0z"
+                                        />
+                                      </svg>
+                                    </span>
+                                  </a>
                                 </div>
                               </td>
                             </tr>
@@ -2361,59 +2323,40 @@ exports[`layout demos 📸 renders ./packages/layout/src/components/WaterMark/de
                                 class="ant-table-cell"
                               >
                                 <div
-                                  class="ant-space ant-space-horizontal ant-space-align-center"
+                                  style="display: flex; align-items: center; justify-content: center; gap: 8px;"
                                 >
-                                  <div
-                                    class="ant-space-item"
-                                    style="margin-right: 16px;"
+                                  <a>
+                                    链路
+                                  </a>
+                                  <a>
+                                    报警
+                                  </a>
+                                  <a>
+                                    监控
+                                  </a>
+                                  <a
+                                    class="ant-dropdown-trigger ant-pro-table-dropdown"
                                   >
-                                    <a>
-                                      链路
-                                    </a>
-                                  </div>
-                                  <div
-                                    class="ant-space-item"
-                                    style="margin-right: 16px;"
-                                  >
-                                    <a>
-                                      报警
-                                    </a>
-                                  </div>
-                                  <div
-                                    class="ant-space-item"
-                                    style="margin-right: 16px;"
-                                  >
-                                    <a>
-                                      监控
-                                    </a>
-                                  </div>
-                                  <div
-                                    class="ant-space-item"
-                                  >
-                                    <a
-                                      class="ant-dropdown-trigger ant-pro-table-dropdown"
+                                    <span
+                                      aria-label="ellipsis"
+                                      class="anticon anticon-ellipsis"
+                                      role="img"
                                     >
-                                      <span
-                                        aria-label="ellipsis"
-                                        class="anticon anticon-ellipsis"
-                                        role="img"
+                                      <svg
+                                        aria-hidden="true"
+                                        data-icon="ellipsis"
+                                        fill="currentColor"
+                                        focusable="false"
+                                        height="1em"
+                                        viewBox="64 64 896 896"
+                                        width="1em"
                                       >
-                                        <svg
-                                          aria-hidden="true"
-                                          data-icon="ellipsis"
-                                          fill="currentColor"
-                                          focusable="false"
-                                          height="1em"
-                                          viewBox="64 64 896 896"
-                                          width="1em"
-                                        >
-                                          <path
-                                            d="M176 511a56 56 0 10112 0 56 56 0 10-112 0zm280 0a56 56 0 10112 0 56 56 0 10-112 0zm280 0a56 56 0 10112 0 56 56 0 10-112 0z"
-                                          />
-                                        </svg>
-                                      </span>
-                                    </a>
-                                  </div>
+                                        <path
+                                          d="M176 511a56 56 0 10112 0 56 56 0 10-112 0zm280 0a56 56 0 10112 0 56 56 0 10-112 0zm280 0a56 56 0 10112 0 56 56 0 10-112 0z"
+                                        />
+                                      </svg>
+                                    </span>
+                                  </a>
                                 </div>
                               </td>
                             </tr>
@@ -2542,59 +2485,40 @@ exports[`layout demos 📸 renders ./packages/layout/src/components/WaterMark/de
                                 class="ant-table-cell"
                               >
                                 <div
-                                  class="ant-space ant-space-horizontal ant-space-align-center"
+                                  style="display: flex; align-items: center; justify-content: center; gap: 8px;"
                                 >
-                                  <div
-                                    class="ant-space-item"
-                                    style="margin-right: 16px;"
+                                  <a>
+                                    链路
+                                  </a>
+                                  <a>
+                                    报警
+                                  </a>
+                                  <a>
+                                    监控
+                                  </a>
+                                  <a
+                                    class="ant-dropdown-trigger ant-pro-table-dropdown"
                                   >
-                                    <a>
-                                      链路
-                                    </a>
-                                  </div>
-                                  <div
-                                    class="ant-space-item"
-                                    style="margin-right: 16px;"
-                                  >
-                                    <a>
-                                      报警
-                                    </a>
-                                  </div>
-                                  <div
-                                    class="ant-space-item"
-                                    style="margin-right: 16px;"
-                                  >
-                                    <a>
-                                      监控
-                                    </a>
-                                  </div>
-                                  <div
-                                    class="ant-space-item"
-                                  >
-                                    <a
-                                      class="ant-dropdown-trigger ant-pro-table-dropdown"
+                                    <span
+                                      aria-label="ellipsis"
+                                      class="anticon anticon-ellipsis"
+                                      role="img"
                                     >
-                                      <span
-                                        aria-label="ellipsis"
-                                        class="anticon anticon-ellipsis"
-                                        role="img"
+                                      <svg
+                                        aria-hidden="true"
+                                        data-icon="ellipsis"
+                                        fill="currentColor"
+                                        focusable="false"
+                                        height="1em"
+                                        viewBox="64 64 896 896"
+                                        width="1em"
                                       >
-                                        <svg
-                                          aria-hidden="true"
-                                          data-icon="ellipsis"
-                                          fill="currentColor"
-                                          focusable="false"
-                                          height="1em"
-                                          viewBox="64 64 896 896"
-                                          width="1em"
-                                        >
-                                          <path
-                                            d="M176 511a56 56 0 10112 0 56 56 0 10-112 0zm280 0a56 56 0 10112 0 56 56 0 10-112 0zm280 0a56 56 0 10112 0 56 56 0 10-112 0z"
-                                          />
-                                        </svg>
-                                      </span>
-                                    </a>
-                                  </div>
+                                        <path
+                                          d="M176 511a56 56 0 10112 0 56 56 0 10-112 0zm280 0a56 56 0 10112 0 56 56 0 10-112 0zm280 0a56 56 0 10112 0 56 56 0 10-112 0z"
+                                        />
+                                      </svg>
+                                    </span>
+                                  </a>
                                 </div>
                               </td>
                             </tr>
@@ -2723,59 +2647,40 @@ exports[`layout demos 📸 renders ./packages/layout/src/components/WaterMark/de
                                 class="ant-table-cell"
                               >
                                 <div
-                                  class="ant-space ant-space-horizontal ant-space-align-center"
+                                  style="display: flex; align-items: center; justify-content: center; gap: 8px;"
                                 >
-                                  <div
-                                    class="ant-space-item"
-                                    style="margin-right: 16px;"
+                                  <a>
+                                    链路
+                                  </a>
+                                  <a>
+                                    报警
+                                  </a>
+                                  <a>
+                                    监控
+                                  </a>
+                                  <a
+                                    class="ant-dropdown-trigger ant-pro-table-dropdown"
                                   >
-                                    <a>
-                                      链路
-                                    </a>
-                                  </div>
-                                  <div
-                                    class="ant-space-item"
-                                    style="margin-right: 16px;"
-                                  >
-                                    <a>
-                                      报警
-                                    </a>
-                                  </div>
-                                  <div
-                                    class="ant-space-item"
-                                    style="margin-right: 16px;"
-                                  >
-                                    <a>
-                                      监控
-                                    </a>
-                                  </div>
-                                  <div
-                                    class="ant-space-item"
-                                  >
-                                    <a
-                                      class="ant-dropdown-trigger ant-pro-table-dropdown"
+                                    <span
+                                      aria-label="ellipsis"
+                                      class="anticon anticon-ellipsis"
+                                      role="img"
                                     >
-                                      <span
-                                        aria-label="ellipsis"
-                                        class="anticon anticon-ellipsis"
-                                        role="img"
+                                      <svg
+                                        aria-hidden="true"
+                                        data-icon="ellipsis"
+                                        fill="currentColor"
+                                        focusable="false"
+                                        height="1em"
+                                        viewBox="64 64 896 896"
+                                        width="1em"
                                       >
-                                        <svg
-                                          aria-hidden="true"
-                                          data-icon="ellipsis"
-                                          fill="currentColor"
-                                          focusable="false"
-                                          height="1em"
-                                          viewBox="64 64 896 896"
-                                          width="1em"
-                                        >
-                                          <path
-                                            d="M176 511a56 56 0 10112 0 56 56 0 10-112 0zm280 0a56 56 0 10112 0 56 56 0 10-112 0zm280 0a56 56 0 10112 0 56 56 0 10-112 0z"
-                                          />
-                                        </svg>
-                                      </span>
-                                    </a>
-                                  </div>
+                                        <path
+                                          d="M176 511a56 56 0 10112 0 56 56 0 10-112 0zm280 0a56 56 0 10112 0 56 56 0 10-112 0zm280 0a56 56 0 10112 0 56 56 0 10-112 0z"
+                                        />
+                                      </svg>
+                                    </span>
+                                  </a>
                                 </div>
                               </td>
                             </tr>
@@ -2904,59 +2809,40 @@ exports[`layout demos 📸 renders ./packages/layout/src/components/WaterMark/de
                                 class="ant-table-cell"
                               >
                                 <div
-                                  class="ant-space ant-space-horizontal ant-space-align-center"
+                                  style="display: flex; align-items: center; justify-content: center; gap: 8px;"
                                 >
-                                  <div
-                                    class="ant-space-item"
-                                    style="margin-right: 16px;"
+                                  <a>
+                                    链路
+                                  </a>
+                                  <a>
+                                    报警
+                                  </a>
+                                  <a>
+                                    监控
+                                  </a>
+                                  <a
+                                    class="ant-dropdown-trigger ant-pro-table-dropdown"
                                   >
-                                    <a>
-                                      链路
-                                    </a>
-                                  </div>
-                                  <div
-                                    class="ant-space-item"
-                                    style="margin-right: 16px;"
-                                  >
-                                    <a>
-                                      报警
-                                    </a>
-                                  </div>
-                                  <div
-                                    class="ant-space-item"
-                                    style="margin-right: 16px;"
-                                  >
-                                    <a>
-                                      监控
-                                    </a>
-                                  </div>
-                                  <div
-                                    class="ant-space-item"
-                                  >
-                                    <a
-                                      class="ant-dropdown-trigger ant-pro-table-dropdown"
+                                    <span
+                                      aria-label="ellipsis"
+                                      class="anticon anticon-ellipsis"
+                                      role="img"
                                     >
-                                      <span
-                                        aria-label="ellipsis"
-                                        class="anticon anticon-ellipsis"
-                                        role="img"
+                                      <svg
+                                        aria-hidden="true"
+                                        data-icon="ellipsis"
+                                        fill="currentColor"
+                                        focusable="false"
+                                        height="1em"
+                                        viewBox="64 64 896 896"
+                                        width="1em"
                                       >
-                                        <svg
-                                          aria-hidden="true"
-                                          data-icon="ellipsis"
-                                          fill="currentColor"
-                                          focusable="false"
-                                          height="1em"
-                                          viewBox="64 64 896 896"
-                                          width="1em"
-                                        >
-                                          <path
-                                            d="M176 511a56 56 0 10112 0 56 56 0 10-112 0zm280 0a56 56 0 10112 0 56 56 0 10-112 0zm280 0a56 56 0 10112 0 56 56 0 10-112 0z"
-                                          />
-                                        </svg>
-                                      </span>
-                                    </a>
-                                  </div>
+                                        <path
+                                          d="M176 511a56 56 0 10112 0 56 56 0 10-112 0zm280 0a56 56 0 10112 0 56 56 0 10-112 0zm280 0a56 56 0 10112 0 56 56 0 10-112 0z"
+                                        />
+                                      </svg>
+                                    </span>
+                                  </a>
                                 </div>
                               </td>
                             </tr>
@@ -3085,59 +2971,40 @@ exports[`layout demos 📸 renders ./packages/layout/src/components/WaterMark/de
                                 class="ant-table-cell"
                               >
                                 <div
-                                  class="ant-space ant-space-horizontal ant-space-align-center"
+                                  style="display: flex; align-items: center; justify-content: center; gap: 8px;"
                                 >
-                                  <div
-                                    class="ant-space-item"
-                                    style="margin-right: 16px;"
+                                  <a>
+                                    链路
+                                  </a>
+                                  <a>
+                                    报警
+                                  </a>
+                                  <a>
+                                    监控
+                                  </a>
+                                  <a
+                                    class="ant-dropdown-trigger ant-pro-table-dropdown"
                                   >
-                                    <a>
-                                      链路
-                                    </a>
-                                  </div>
-                                  <div
-                                    class="ant-space-item"
-                                    style="margin-right: 16px;"
-                                  >
-                                    <a>
-                                      报警
-                                    </a>
-                                  </div>
-                                  <div
-                                    class="ant-space-item"
-                                    style="margin-right: 16px;"
-                                  >
-                                    <a>
-                                      监控
-                                    </a>
-                                  </div>
-                                  <div
-                                    class="ant-space-item"
-                                  >
-                                    <a
-                                      class="ant-dropdown-trigger ant-pro-table-dropdown"
+                                    <span
+                                      aria-label="ellipsis"
+                                      class="anticon anticon-ellipsis"
+                                      role="img"
                                     >
-                                      <span
-                                        aria-label="ellipsis"
-                                        class="anticon anticon-ellipsis"
-                                        role="img"
+                                      <svg
+                                        aria-hidden="true"
+                                        data-icon="ellipsis"
+                                        fill="currentColor"
+                                        focusable="false"
+                                        height="1em"
+                                        viewBox="64 64 896 896"
+                                        width="1em"
                                       >
-                                        <svg
-                                          aria-hidden="true"
-                                          data-icon="ellipsis"
-                                          fill="currentColor"
-                                          focusable="false"
-                                          height="1em"
-                                          viewBox="64 64 896 896"
-                                          width="1em"
-                                        >
-                                          <path
-                                            d="M176 511a56 56 0 10112 0 56 56 0 10-112 0zm280 0a56 56 0 10112 0 56 56 0 10-112 0zm280 0a56 56 0 10112 0 56 56 0 10-112 0z"
-                                          />
-                                        </svg>
-                                      </span>
-                                    </a>
-                                  </div>
+                                        <path
+                                          d="M176 511a56 56 0 10112 0 56 56 0 10-112 0zm280 0a56 56 0 10112 0 56 56 0 10-112 0zm280 0a56 56 0 10112 0 56 56 0 10-112 0z"
+                                        />
+                                      </svg>
+                                    </span>
+                                  </a>
                                 </div>
                               </td>
                             </tr>
@@ -3266,59 +3133,40 @@ exports[`layout demos 📸 renders ./packages/layout/src/components/WaterMark/de
                                 class="ant-table-cell"
                               >
                                 <div
-                                  class="ant-space ant-space-horizontal ant-space-align-center"
+                                  style="display: flex; align-items: center; justify-content: center; gap: 8px;"
                                 >
-                                  <div
-                                    class="ant-space-item"
-                                    style="margin-right: 16px;"
+                                  <a>
+                                    链路
+                                  </a>
+                                  <a>
+                                    报警
+                                  </a>
+                                  <a>
+                                    监控
+                                  </a>
+                                  <a
+                                    class="ant-dropdown-trigger ant-pro-table-dropdown"
                                   >
-                                    <a>
-                                      链路
-                                    </a>
-                                  </div>
-                                  <div
-                                    class="ant-space-item"
-                                    style="margin-right: 16px;"
-                                  >
-                                    <a>
-                                      报警
-                                    </a>
-                                  </div>
-                                  <div
-                                    class="ant-space-item"
-                                    style="margin-right: 16px;"
-                                  >
-                                    <a>
-                                      监控
-                                    </a>
-                                  </div>
-                                  <div
-                                    class="ant-space-item"
-                                  >
-                                    <a
-                                      class="ant-dropdown-trigger ant-pro-table-dropdown"
+                                    <span
+                                      aria-label="ellipsis"
+                                      class="anticon anticon-ellipsis"
+                                      role="img"
                                     >
-                                      <span
-                                        aria-label="ellipsis"
-                                        class="anticon anticon-ellipsis"
-                                        role="img"
+                                      <svg
+                                        aria-hidden="true"
+                                        data-icon="ellipsis"
+                                        fill="currentColor"
+                                        focusable="false"
+                                        height="1em"
+                                        viewBox="64 64 896 896"
+                                        width="1em"
                                       >
-                                        <svg
-                                          aria-hidden="true"
-                                          data-icon="ellipsis"
-                                          fill="currentColor"
-                                          focusable="false"
-                                          height="1em"
-                                          viewBox="64 64 896 896"
-                                          width="1em"
-                                        >
-                                          <path
-                                            d="M176 511a56 56 0 10112 0 56 56 0 10-112 0zm280 0a56 56 0 10112 0 56 56 0 10-112 0zm280 0a56 56 0 10112 0 56 56 0 10-112 0z"
-                                          />
-                                        </svg>
-                                      </span>
-                                    </a>
-                                  </div>
+                                        <path
+                                          d="M176 511a56 56 0 10112 0 56 56 0 10-112 0zm280 0a56 56 0 10112 0 56 56 0 10-112 0zm280 0a56 56 0 10112 0 56 56 0 10-112 0z"
+                                        />
+                                      </svg>
+                                    </span>
+                                  </a>
                                 </div>
                               </td>
                             </tr>
@@ -3447,59 +3295,40 @@ exports[`layout demos 📸 renders ./packages/layout/src/components/WaterMark/de
                                 class="ant-table-cell"
                               >
                                 <div
-                                  class="ant-space ant-space-horizontal ant-space-align-center"
+                                  style="display: flex; align-items: center; justify-content: center; gap: 8px;"
                                 >
-                                  <div
-                                    class="ant-space-item"
-                                    style="margin-right: 16px;"
+                                  <a>
+                                    链路
+                                  </a>
+                                  <a>
+                                    报警
+                                  </a>
+                                  <a>
+                                    监控
+                                  </a>
+                                  <a
+                                    class="ant-dropdown-trigger ant-pro-table-dropdown"
                                   >
-                                    <a>
-                                      链路
-                                    </a>
-                                  </div>
-                                  <div
-                                    class="ant-space-item"
-                                    style="margin-right: 16px;"
-                                  >
-                                    <a>
-                                      报警
-                                    </a>
-                                  </div>
-                                  <div
-                                    class="ant-space-item"
-                                    style="margin-right: 16px;"
-                                  >
-                                    <a>
-                                      监控
-                                    </a>
-                                  </div>
-                                  <div
-                                    class="ant-space-item"
-                                  >
-                                    <a
-                                      class="ant-dropdown-trigger ant-pro-table-dropdown"
+                                    <span
+                                      aria-label="ellipsis"
+                                      class="anticon anticon-ellipsis"
+                                      role="img"
                                     >
-                                      <span
-                                        aria-label="ellipsis"
-                                        class="anticon anticon-ellipsis"
-                                        role="img"
+                                      <svg
+                                        aria-hidden="true"
+                                        data-icon="ellipsis"
+                                        fill="currentColor"
+                                        focusable="false"
+                                        height="1em"
+                                        viewBox="64 64 896 896"
+                                        width="1em"
                                       >
-                                        <svg
-                                          aria-hidden="true"
-                                          data-icon="ellipsis"
-                                          fill="currentColor"
-                                          focusable="false"
-                                          height="1em"
-                                          viewBox="64 64 896 896"
-                                          width="1em"
-                                        >
-                                          <path
-                                            d="M176 511a56 56 0 10112 0 56 56 0 10-112 0zm280 0a56 56 0 10112 0 56 56 0 10-112 0zm280 0a56 56 0 10112 0 56 56 0 10-112 0z"
-                                          />
-                                        </svg>
-                                      </span>
-                                    </a>
-                                  </div>
+                                        <path
+                                          d="M176 511a56 56 0 10112 0 56 56 0 10-112 0zm280 0a56 56 0 10112 0 56 56 0 10-112 0zm280 0a56 56 0 10112 0 56 56 0 10-112 0z"
+                                        />
+                                      </svg>
+                                    </span>
+                                  </a>
                                 </div>
                               </td>
                             </tr>
@@ -3628,59 +3457,40 @@ exports[`layout demos 📸 renders ./packages/layout/src/components/WaterMark/de
                                 class="ant-table-cell"
                               >
                                 <div
-                                  class="ant-space ant-space-horizontal ant-space-align-center"
+                                  style="display: flex; align-items: center; justify-content: center; gap: 8px;"
                                 >
-                                  <div
-                                    class="ant-space-item"
-                                    style="margin-right: 16px;"
+                                  <a>
+                                    链路
+                                  </a>
+                                  <a>
+                                    报警
+                                  </a>
+                                  <a>
+                                    监控
+                                  </a>
+                                  <a
+                                    class="ant-dropdown-trigger ant-pro-table-dropdown"
                                   >
-                                    <a>
-                                      链路
-                                    </a>
-                                  </div>
-                                  <div
-                                    class="ant-space-item"
-                                    style="margin-right: 16px;"
-                                  >
-                                    <a>
-                                      报警
-                                    </a>
-                                  </div>
-                                  <div
-                                    class="ant-space-item"
-                                    style="margin-right: 16px;"
-                                  >
-                                    <a>
-                                      监控
-                                    </a>
-                                  </div>
-                                  <div
-                                    class="ant-space-item"
-                                  >
-                                    <a
-                                      class="ant-dropdown-trigger ant-pro-table-dropdown"
+                                    <span
+                                      aria-label="ellipsis"
+                                      class="anticon anticon-ellipsis"
+                                      role="img"
                                     >
-                                      <span
-                                        aria-label="ellipsis"
-                                        class="anticon anticon-ellipsis"
-                                        role="img"
+                                      <svg
+                                        aria-hidden="true"
+                                        data-icon="ellipsis"
+                                        fill="currentColor"
+                                        focusable="false"
+                                        height="1em"
+                                        viewBox="64 64 896 896"
+                                        width="1em"
                                       >
-                                        <svg
-                                          aria-hidden="true"
-                                          data-icon="ellipsis"
-                                          fill="currentColor"
-                                          focusable="false"
-                                          height="1em"
-                                          viewBox="64 64 896 896"
-                                          width="1em"
-                                        >
-                                          <path
-                                            d="M176 511a56 56 0 10112 0 56 56 0 10-112 0zm280 0a56 56 0 10112 0 56 56 0 10-112 0zm280 0a56 56 0 10112 0 56 56 0 10-112 0z"
-                                          />
-                                        </svg>
-                                      </span>
-                                    </a>
-                                  </div>
+                                        <path
+                                          d="M176 511a56 56 0 10112 0 56 56 0 10-112 0zm280 0a56 56 0 10112 0 56 56 0 10-112 0zm280 0a56 56 0 10112 0 56 56 0 10-112 0z"
+                                        />
+                                      </svg>
+                                    </span>
+                                  </a>
                                 </div>
                               </td>
                             </tr>

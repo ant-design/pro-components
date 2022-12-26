@@ -1,4 +1,4 @@
-import { ProFormInstance } from '@ant-design/pro-components';
+import type { ProFormInstance } from '@ant-design/pro-components';
 import {
   ProForm,
   ProFormCascader,
@@ -219,11 +219,11 @@ export default () => {
         initialValue={['0-0-0']}
         label="树形下拉选择器"
         width={600}
-        request={async () => treeData}
         fieldProps={{
           fieldNames: {
             label: 'title',
           },
+          treeData,
           treeCheckable: true,
           showCheckedStrategy: TreeSelect.SHOW_PARENT,
           placeholder: 'Please select',

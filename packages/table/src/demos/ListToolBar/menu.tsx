@@ -97,7 +97,7 @@ export default () => {
           </Button>,
         ],
         menu: {
-          type: 'dropdown',
+          type: 'tab',
           items: [
             {
               label: '全部事项',
@@ -106,6 +106,30 @@ export default () => {
             {
               label: '已办事项',
               key: 'done',
+            },
+            {
+              key: 'tab1',
+              label: <span>应用</span>,
+            },
+            {
+              key: 'tab2',
+              label: <span>项目</span>,
+            },
+            {
+              key: 'tab3',
+              label: <span>文章</span>,
+            },
+            {
+              key: 'tab4',
+              label: <span>文章1</span>,
+            },
+            {
+              key: 'tab5',
+              label: <span>文章2</span>,
+            },
+            {
+              key: 'tab6',
+              label: <span>文章3</span>,
             },
           ],
           onChange: (activeKey) => {

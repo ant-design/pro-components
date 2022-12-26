@@ -16900,32 +16900,8 @@ exports[`form demos 📸 renders ./packages/form/src/components/QueryFilter/demo
                             <div
                               class="ant-spin-nested-loading"
                             >
-                              <div>
-                                <div
-                                  aria-busy="true"
-                                  aria-live="polite"
-                                  class="ant-spin ant-spin-spinning"
-                                >
-                                  <span
-                                    class="ant-spin-dot ant-spin-dot-spin"
-                                  >
-                                    <i
-                                      class="ant-spin-dot-item"
-                                    />
-                                    <i
-                                      class="ant-spin-dot-item"
-                                    />
-                                    <i
-                                      class="ant-spin-dot-item"
-                                    />
-                                    <i
-                                      class="ant-spin-dot-item"
-                                    />
-                                  </span>
-                                </div>
-                              </div>
                               <div
-                                class="ant-spin-container ant-spin-blur"
+                                class="ant-spin-container"
                               >
                                 <div
                                   class="ant-select ant-tree-select ant-select-borderless ant-select-in-form-item ant-pro-field-tree-select ant-select-multiple ant-select-show-search"
@@ -50396,15 +50372,11 @@ exports[`form demos 📸 renders ./packages/form/src/demos/pro-form-editableTabl
                                           class="ant-table-cell"
                                         >
                                           <div
-                                            class="ant-space ant-space-horizontal ant-space-align-center"
+                                            style="display: flex; align-items: center; justify-content: center; gap: 12px;"
                                           >
-                                            <div
-                                              class="ant-space-item"
-                                            >
-                                              <a>
-                                                删除
-                                              </a>
-                                            </div>
+                                            <a>
+                                              删除
+                                            </a>
                                           </div>
                                         </td>
                                       </tr>
@@ -50623,15 +50595,11 @@ exports[`form demos 📸 renders ./packages/form/src/demos/pro-form-editableTabl
                                           class="ant-table-cell"
                                         >
                                           <div
-                                            class="ant-space ant-space-horizontal ant-space-align-center"
+                                            style="display: flex; align-items: center; justify-content: center; gap: 12px;"
                                           >
-                                            <div
-                                              class="ant-space-item"
-                                            >
-                                              <a>
-                                                删除
-                                              </a>
-                                            </div>
+                                            <a>
+                                              删除
+                                            </a>
                                           </div>
                                         </td>
                                       </tr>
