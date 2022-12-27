@@ -1,20 +1,12 @@
 ﻿import { openVisibleCompatible } from '@ant-design/pro-utils';
 import { Popover } from 'antd';
 import classNames from 'classnames';
-import React, { useMemo, useState } from 'react';
+import React, { useCallback, useMemo, useState } from 'react';
 import { AppsLogo } from './AppsLogo';
-import type { WithFalse } from '../../typing';
 import { DefaultContent } from './DefaultContent';
 import { SimpleContent } from './SimpleContent';
 import { useStyle } from './style/index';
-
-export type AppsLogoComponentsAppList = {
-  title: React.ReactNode;
-  desc: React.ReactNode;
-  icon: React.ReactNode;
-  url: string;
-  target?: string;
-}[];
+import type { AppsLogoComponentsAppList } from './types';
 
 /**
  * 默认渲染logo的方式，如果是个string，用img。否则直接返回
@@ -42,42 +34,50 @@ export const defaultRenderLogo = (
  */
 export const AppsLogoComponents: React.FC<{
   appList?: AppsLogoComponentsAppList;
-  appListRender?: WithFalse<(appList?: AppsLogoComponentsAppList) => React.ReactNode>;
   prefixCls?: string;
 }> = (props) => {
-  const { appList, appListRender, prefixCls = 'ant-pro' } = props;
+  const { appList, prefixCls = 'ant-pro' } = props;
   const ref = React.useRef<HTMLDivElement>(null);
   const baseClassName = `${prefixCls}-layout-apps`;
   const { wrapSSR, hashId } = useStyle(baseClassName);
 
   const [open, setOpen] = useState(false);
 
-  const popoverContent = useMemo(() => {
-    if(appListRender) {
-      return appListRender(appList)
-    }
-    const isSimple = appList?.some((app) => {
-      return !app?.desc;
-    });
-    if (isSimple) {
+  const itemRender = useCallback(
+    (list: AppsLogoComponentsAppList | undefined) => {
+      const isSimple = list?.some((app) => {
+        return !app?.desc;
+      });
+      if (isSimple) {
+        return (
+          <SimpleContent hashId={hashId} appList={list} baseClassName={`${baseClassName}-simple`} />
+        );
+      }
       return (
-        <SimpleContent
-          hashId={hashId}
-          appList={appList}
-          baseClassName={`${baseClassName}-simple`}
-        />
+        <DefaultContent hashId={hashId} appList={list} baseClassName={`${baseClassName}-default`} />
       );
-    }
-    return (
-      <DefaultContent
-        hashId={hashId}
-        appList={appList}
-        baseClassName={`${baseClassName}-default`}
-      />
-    );
-  }, [appList, appListRender, baseClassName, hashId]);
+    },
+    [hashId, baseClassName],
+  );
 
-  if (!props?.appList?.length || appListRender === false) return null;
+  const popoverContent = useMemo(() => {
+    const isGroup = appList?.some((app) => {
+      return !app?.children?.length;
+    });
+    if (!isGroup) {
+      return appList?.map((app) => {
+        return (
+          <>
+            <div className={`${baseClassName}-item-title ${hashId}`}>{app.title}</div>
+            {itemRender(app?.children)}
+          </>
+        );
+      });
+    }
+    return itemRender(appList);
+  }, [appList, baseClassName, hashId]);
+
+  if (!props?.appList?.length) return null;
 
   const popoverOpenProps = openVisibleCompatible(undefined, (openChange: boolean) =>
     setOpen(openChange),

@@ -65,9 +65,6 @@ export type SiderMenuProps = {
   logo?: React.ReactNode;
   /** 相关品牌的列表 */
   appList?: AppsLogoComponentsAppList;
-  /** 自定义渲染 相关品牌列表 */
-  appListRender?: WithFalse<(appList?: AppsLogoComponentsAppList) => React.ReactNode>;
-
   /** 菜单的宽度 */
   siderWidth?: number;
   /** 头像的设置 */
@@ -292,8 +289,8 @@ const SiderMenu: React.FC<SiderMenuProps & PrivateSiderMenuProps> = (props) => {
   );
 
   const appsDom = useMemo(() => {
-    return <AppsLogoComponents appListRender={props.appListRender} appList={props.appList} prefixCls={props.prefixCls} />;
-  }, [props.appList, props.appListRender, props.prefixCls]);
+    return <AppsLogoComponents appList={props.appList} prefixCls={props.prefixCls} />;
+  }, [props.appList, props.prefixCls]);
 
   const collapsedDom = useMemo(() => {
     if (collapsedButtonRender === false) return null;
