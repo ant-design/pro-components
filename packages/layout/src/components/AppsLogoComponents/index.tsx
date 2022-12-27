@@ -61,20 +61,17 @@ export const AppsLogoComponents: React.FC<{
   );
 
   const popoverContent = useMemo(() => {
-    const isGroup = appList?.some((app) => {
-      return !app?.children?.length;
-    });
-    if (!isGroup) {
-      return appList?.map((app) => {
+    return appList?.map((app) => {
+      if (app?.children?.length) {
         return (
           <>
             <div className={`${baseClassName}-item-title ${hashId}`}>{app.title}</div>
             {itemRender(app?.children)}
           </>
         );
-      });
-    }
-    return itemRender(appList);
+      }
+      return itemRender([app]);
+    });
   }, [appList, baseClassName, hashId]);
 
   if (!props?.appList?.length) return null;
