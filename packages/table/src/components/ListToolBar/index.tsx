@@ -45,7 +45,9 @@ export type ListToolBarProps = {
   /** 标题提示 */
   tooltip?: string | LabelTooltipType;
   /** 搜索输入栏相关配置 */
-  search?: SearchPropType;
+  search?: SearchPropType & {
+    onSearch: (searchValue: string) => Promise<false | void>;
+  };
   /** 搜索回调 */
   onSearch?: (keyWords: string) => void;
   /** 工具栏右侧操作区 */
@@ -174,9 +176,11 @@ const ListToolBar: React.FC<ListToolBarProps> = ({
         style={{ width: 200 }}
         placeholder={placeholder}
         {...(search as SearchProps)}
-        onSearch={(...restParams) => {
-          onSearch?.(restParams?.[0]);
-          (search as SearchProps).onSearch?.(...restParams);
+        onSearch={async (...restParams) => {
+          const success = await search.onSearch?.(...restParams);
+          if (success !== false) {
+            onSearch?.(restParams?.[0]);
+          }
         }}
       />
     );

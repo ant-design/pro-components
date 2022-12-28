@@ -1776,7 +1776,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/components/WaterMark/de
                                 应用名称
                               </th>
                               <th
-                                aria-label="this column is sortable"
+                                aria-label=""
                                 class="ant-table-cell ant-table-column-has-sorters"
                                 scope="col"
                                 style="text-align: right;"
