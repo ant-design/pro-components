@@ -157,20 +157,16 @@ exports[`list demos 📸 renders ./packages/list/src/demos/ToolBar.tsx correctly
                   </span>
                 </div>
                 <div
-                  class="ant-space ant-space-horizontal ant-space-align-center"
+                  style="display: flex; align-items: center; gap: 8px;"
                 >
-                  <div
-                    class="ant-space-item"
+                  <button
+                    class="ant-btn ant-btn-primary"
+                    type="button"
                   >
-                    <button
-                      class="ant-btn ant-btn-primary"
-                      type="button"
-                    >
-                      <span>
-                        新建实验
-                      </span>
-                    </button>
-                  </div>
+                    <span>
+                      新建实验
+                    </span>
+                  </button>
                 </div>
               </div>
             </div>
@@ -621,20 +617,16 @@ exports[`list demos 📸 renders ./packages/list/src/demos/base.tsx correctly 1`
                 style="align-items: center;"
               >
                 <div
-                  class="ant-space ant-space-horizontal ant-space-align-center"
+                  style="display: flex; align-items: center; gap: 8px;"
                 >
-                  <div
-                    class="ant-space-item"
+                  <button
+                    class="ant-btn ant-btn-primary"
+                    type="button"
                   >
-                    <button
-                      class="ant-btn ant-btn-primary"
-                      type="button"
-                    >
-                      <span>
-                        新 建
-                      </span>
-                    </button>
-                  </div>
+                    <span>
+                      新 建
+                    </span>
+                  </button>
                 </div>
               </div>
             </div>
@@ -1300,17 +1292,12 @@ exports[`list demos 📸 renders ./packages/list/src/demos/card-list.tsx correct
                                   class="ant-pro-core-label-tip-title"
                                 >
                                   <span
-                                    class="ant-avatar ant-avatar-circle ant-avatar-image ant-list-item-meta-avatar "
+                                    class="ant-avatar ant-avatar-circle ant-avatar-image"
                                     style="width: 22px; height: 22px; line-height: 22px; font-size: 18px;"
                                   >
-                                    <span
-                                      class="ant-avatar ant-avatar-circle ant-avatar-image"
-                                      style="width: 22px; height: 22px; line-height: 22px; font-size: 18px;"
-                                    >
-                                      <img
-                                        src="https://gw.alipayobjects.com/zos/antfincdn/UCSiy1j6jx/xingzhuang.svg"
-                                      />
-                                    </span>
+                                    <img
+                                      src="https://gw.alipayobjects.com/zos/antfincdn/UCSiy1j6jx/xingzhuang.svg"
+                                    />
                                   </span>
                                   <span
                                     class="ant-list-item-meta-title "
@@ -1335,30 +1322,26 @@ exports[`list demos 📸 renders ./packages/list/src/demos/card-list.tsx correct
                             >
                               <div>
                                 <div
-                                  class="ant-space ant-space-horizontal ant-space-align-center ant-pro-field-option"
+                                  class="ant-pro-field-option"
+                                  style="display: flex; gap: 16px; align-items: center;"
                                 >
-                                  <div
-                                    class="ant-space-item"
-                                    style="margin-right: 16px;"
+                                  <a
+                                    style="flex: 1;"
                                   >
-                                    <a>
-                                      邀请
-                                    </a>
-                                  </div>
-                                  <div
-                                    class="ant-space-item"
+                                    邀请
+                                  </a>
+                                  <a
+                                    style="flex: 1;"
                                   >
-                                    <a>
-                                      删除
-                                    </a>
-                                  </div>
+                                    删除
+                                  </a>
                                 </div>
                               </div>
                             </div>
                           </div>
                           <div
                             class="ant-pro-card-body"
-                            style="margin-inline-end: -8px; margin-inline-start: -8px; padding: 24px;"
+                            style="padding: 24px;"
                           >
                             <div
                               class="ant-pro-list-row-show-action-hover ant-pro-list-row-header "
@@ -1425,17 +1408,12 @@ exports[`list demos 📸 renders ./packages/list/src/demos/card-list.tsx correct
                                   class="ant-pro-core-label-tip-title"
                                 >
                                   <span
-                                    class="ant-avatar ant-avatar-circle ant-avatar-image ant-list-item-meta-avatar "
+                                    class="ant-avatar ant-avatar-circle ant-avatar-image"
                                     style="width: 22px; height: 22px; line-height: 22px; font-size: 18px;"
                                   >
-                                    <span
-                                      class="ant-avatar ant-avatar-circle ant-avatar-image"
-                                      style="width: 22px; height: 22px; line-height: 22px; font-size: 18px;"
-                                    >
-                                      <img
-                                        src="https://gw.alipayobjects.com/zos/antfincdn/UCSiy1j6jx/xingzhuang.svg"
-                                      />
-                                    </span>
+                                    <img
+                                      src="https://gw.alipayobjects.com/zos/antfincdn/UCSiy1j6jx/xingzhuang.svg"
+                                    />
                                   </span>
                                   <span
                                     class="ant-list-item-meta-title "
@@ -1460,30 +1438,26 @@ exports[`list demos 📸 renders ./packages/list/src/demos/card-list.tsx correct
                             >
                               <div>
                                 <div
-                                  class="ant-space ant-space-horizontal ant-space-align-center ant-pro-field-option"
+                                  class="ant-pro-field-option"
+                                  style="display: flex; gap: 16px; align-items: center;"
                                 >
-                                  <div
-                                    class="ant-space-item"
-                                    style="margin-right: 16px;"
+                                  <a
+                                    style="flex: 1;"
                                   >
-                                    <a>
-                                      邀请
-                                    </a>
-                                  </div>
-                                  <div
-                                    class="ant-space-item"
+                                    邀请
+                                  </a>
+                                  <a
+                                    style="flex: 1;"
                                   >
-                                    <a>
-                                      删除
-                                    </a>
-                                  </div>
+                                    删除
+                                  </a>
                                 </div>
                               </div>
                             </div>
                           </div>
                           <div
                             class="ant-pro-card-body"
-                            style="margin-inline-end: -8px; margin-inline-start: -8px; padding: 24px;"
+                            style="padding: 24px;"
                           >
                             <div
                               class="ant-pro-list-row-show-action-hover ant-pro-list-row-header "
@@ -1550,17 +1524,12 @@ exports[`list demos 📸 renders ./packages/list/src/demos/card-list.tsx correct
                                   class="ant-pro-core-label-tip-title"
                                 >
                                   <span
-                                    class="ant-avatar ant-avatar-circle ant-avatar-image ant-list-item-meta-avatar "
+                                    class="ant-avatar ant-avatar-circle ant-avatar-image"
                                     style="width: 22px; height: 22px; line-height: 22px; font-size: 18px;"
                                   >
-                                    <span
-                                      class="ant-avatar ant-avatar-circle ant-avatar-image"
-                                      style="width: 22px; height: 22px; line-height: 22px; font-size: 18px;"
-                                    >
-                                      <img
-                                        src="https://gw.alipayobjects.com/zos/antfincdn/UCSiy1j6jx/xingzhuang.svg"
-                                      />
-                                    </span>
+                                    <img
+                                      src="https://gw.alipayobjects.com/zos/antfincdn/UCSiy1j6jx/xingzhuang.svg"
+                                    />
                                   </span>
                                   <span
                                     class="ant-list-item-meta-title "
@@ -1585,30 +1554,26 @@ exports[`list demos 📸 renders ./packages/list/src/demos/card-list.tsx correct
                             >
                               <div>
                                 <div
-                                  class="ant-space ant-space-horizontal ant-space-align-center ant-pro-field-option"
+                                  class="ant-pro-field-option"
+                                  style="display: flex; gap: 16px; align-items: center;"
                                 >
-                                  <div
-                                    class="ant-space-item"
-                                    style="margin-right: 16px;"
+                                  <a
+                                    style="flex: 1;"
                                   >
-                                    <a>
-                                      邀请
-                                    </a>
-                                  </div>
-                                  <div
-                                    class="ant-space-item"
+                                    邀请
+                                  </a>
+                                  <a
+                                    style="flex: 1;"
                                   >
-                                    <a>
-                                      删除
-                                    </a>
-                                  </div>
+                                    删除
+                                  </a>
                                 </div>
                               </div>
                             </div>
                           </div>
                           <div
                             class="ant-pro-card-body"
-                            style="margin-inline-end: -8px; margin-inline-start: -8px; padding: 24px;"
+                            style="padding: 24px;"
                           >
                             <div
                               class="ant-pro-list-row-show-action-hover ant-pro-list-row-header "
@@ -1675,17 +1640,12 @@ exports[`list demos 📸 renders ./packages/list/src/demos/card-list.tsx correct
                                   class="ant-pro-core-label-tip-title"
                                 >
                                   <span
-                                    class="ant-avatar ant-avatar-circle ant-avatar-image ant-list-item-meta-avatar "
+                                    class="ant-avatar ant-avatar-circle ant-avatar-image"
                                     style="width: 22px; height: 22px; line-height: 22px; font-size: 18px;"
                                   >
-                                    <span
-                                      class="ant-avatar ant-avatar-circle ant-avatar-image"
-                                      style="width: 22px; height: 22px; line-height: 22px; font-size: 18px;"
-                                    >
-                                      <img
-                                        src="https://gw.alipayobjects.com/zos/antfincdn/UCSiy1j6jx/xingzhuang.svg"
-                                      />
-                                    </span>
+                                    <img
+                                      src="https://gw.alipayobjects.com/zos/antfincdn/UCSiy1j6jx/xingzhuang.svg"
+                                    />
                                   </span>
                                   <span
                                     class="ant-list-item-meta-title "
@@ -1710,30 +1670,26 @@ exports[`list demos 📸 renders ./packages/list/src/demos/card-list.tsx correct
                             >
                               <div>
                                 <div
-                                  class="ant-space ant-space-horizontal ant-space-align-center ant-pro-field-option"
+                                  class="ant-pro-field-option"
+                                  style="display: flex; gap: 16px; align-items: center;"
                                 >
-                                  <div
-                                    class="ant-space-item"
-                                    style="margin-right: 16px;"
+                                  <a
+                                    style="flex: 1;"
                                   >
-                                    <a>
-                                      邀请
-                                    </a>
-                                  </div>
-                                  <div
-                                    class="ant-space-item"
+                                    邀请
+                                  </a>
+                                  <a
+                                    style="flex: 1;"
                                   >
-                                    <a>
-                                      删除
-                                    </a>
-                                  </div>
+                                    删除
+                                  </a>
                                 </div>
                               </div>
                             </div>
                           </div>
                           <div
                             class="ant-pro-card-body"
-                            style="margin-inline-end: -8px; margin-inline-start: -8px; padding: 24px;"
+                            style="padding: 24px;"
                           >
                             <div
                               class="ant-pro-list-row-show-action-hover ant-pro-list-row-header "
@@ -1800,17 +1756,12 @@ exports[`list demos 📸 renders ./packages/list/src/demos/card-list.tsx correct
                                   class="ant-pro-core-label-tip-title"
                                 >
                                   <span
-                                    class="ant-avatar ant-avatar-circle ant-avatar-image ant-list-item-meta-avatar "
+                                    class="ant-avatar ant-avatar-circle ant-avatar-image"
                                     style="width: 22px; height: 22px; line-height: 22px; font-size: 18px;"
                                   >
-                                    <span
-                                      class="ant-avatar ant-avatar-circle ant-avatar-image"
-                                      style="width: 22px; height: 22px; line-height: 22px; font-size: 18px;"
-                                    >
-                                      <img
-                                        src="https://gw.alipayobjects.com/zos/antfincdn/UCSiy1j6jx/xingzhuang.svg"
-                                      />
-                                    </span>
+                                    <img
+                                      src="https://gw.alipayobjects.com/zos/antfincdn/UCSiy1j6jx/xingzhuang.svg"
+                                    />
                                   </span>
                                   <span
                                     class="ant-list-item-meta-title "
@@ -1835,30 +1786,26 @@ exports[`list demos 📸 renders ./packages/list/src/demos/card-list.tsx correct
                             >
                               <div>
                                 <div
-                                  class="ant-space ant-space-horizontal ant-space-align-center ant-pro-field-option"
+                                  class="ant-pro-field-option"
+                                  style="display: flex; gap: 16px; align-items: center;"
                                 >
-                                  <div
-                                    class="ant-space-item"
-                                    style="margin-right: 16px;"
+                                  <a
+                                    style="flex: 1;"
                                   >
-                                    <a>
-                                      邀请
-                                    </a>
-                                  </div>
-                                  <div
-                                    class="ant-space-item"
+                                    邀请
+                                  </a>
+                                  <a
+                                    style="flex: 1;"
                                   >
-                                    <a>
-                                      删除
-                                    </a>
-                                  </div>
+                                    删除
+                                  </a>
                                 </div>
                               </div>
                             </div>
                           </div>
                           <div
                             class="ant-pro-card-body"
-                            style="margin-inline-end: -8px; margin-inline-start: -8px; padding: 24px;"
+                            style="padding: 24px;"
                           >
                             <div
                               class="ant-pro-list-row-show-action-hover ant-pro-list-row-header "
@@ -1925,17 +1872,12 @@ exports[`list demos 📸 renders ./packages/list/src/demos/card-list.tsx correct
                                   class="ant-pro-core-label-tip-title"
                                 >
                                   <span
-                                    class="ant-avatar ant-avatar-circle ant-avatar-image ant-list-item-meta-avatar "
+                                    class="ant-avatar ant-avatar-circle ant-avatar-image"
                                     style="width: 22px; height: 22px; line-height: 22px; font-size: 18px;"
                                   >
-                                    <span
-                                      class="ant-avatar ant-avatar-circle ant-avatar-image"
-                                      style="width: 22px; height: 22px; line-height: 22px; font-size: 18px;"
-                                    >
-                                      <img
-                                        src="https://gw.alipayobjects.com/zos/antfincdn/UCSiy1j6jx/xingzhuang.svg"
-                                      />
-                                    </span>
+                                    <img
+                                      src="https://gw.alipayobjects.com/zos/antfincdn/UCSiy1j6jx/xingzhuang.svg"
+                                    />
                                   </span>
                                   <span
                                     class="ant-list-item-meta-title "
@@ -1960,30 +1902,26 @@ exports[`list demos 📸 renders ./packages/list/src/demos/card-list.tsx correct
                             >
                               <div>
                                 <div
-                                  class="ant-space ant-space-horizontal ant-space-align-center ant-pro-field-option"
+                                  class="ant-pro-field-option"
+                                  style="display: flex; gap: 16px; align-items: center;"
                                 >
-                                  <div
-                                    class="ant-space-item"
-                                    style="margin-right: 16px;"
+                                  <a
+                                    style="flex: 1;"
                                   >
-                                    <a>
-                                      邀请
-                                    </a>
-                                  </div>
-                                  <div
-                                    class="ant-space-item"
+                                    邀请
+                                  </a>
+                                  <a
+                                    style="flex: 1;"
                                   >
-                                    <a>
-                                      删除
-                                    </a>
-                                  </div>
+                                    删除
+                                  </a>
                                 </div>
                               </div>
                             </div>
                           </div>
                           <div
                             class="ant-pro-card-body"
-                            style="margin-inline-end: -8px; margin-inline-start: -8px; padding: 24px;"
+                            style="padding: 24px;"
                           >
                             <div
                               class="ant-pro-list-row-show-action-hover ant-pro-list-row-header "
@@ -2050,17 +1988,12 @@ exports[`list demos 📸 renders ./packages/list/src/demos/card-list.tsx correct
                                   class="ant-pro-core-label-tip-title"
                                 >
                                   <span
-                                    class="ant-avatar ant-avatar-circle ant-avatar-image ant-list-item-meta-avatar "
+                                    class="ant-avatar ant-avatar-circle ant-avatar-image"
                                     style="width: 22px; height: 22px; line-height: 22px; font-size: 18px;"
                                   >
-                                    <span
-                                      class="ant-avatar ant-avatar-circle ant-avatar-image"
-                                      style="width: 22px; height: 22px; line-height: 22px; font-size: 18px;"
-                                    >
-                                      <img
-                                        src="https://gw.alipayobjects.com/zos/antfincdn/UCSiy1j6jx/xingzhuang.svg"
-                                      />
-                                    </span>
+                                    <img
+                                      src="https://gw.alipayobjects.com/zos/antfincdn/UCSiy1j6jx/xingzhuang.svg"
+                                    />
                                   </span>
                                   <span
                                     class="ant-list-item-meta-title "
@@ -2085,30 +2018,26 @@ exports[`list demos 📸 renders ./packages/list/src/demos/card-list.tsx correct
                             >
                               <div>
                                 <div
-                                  class="ant-space ant-space-horizontal ant-space-align-center ant-pro-field-option"
+                                  class="ant-pro-field-option"
+                                  style="display: flex; gap: 16px; align-items: center;"
                                 >
-                                  <div
-                                    class="ant-space-item"
-                                    style="margin-right: 16px;"
+                                  <a
+                                    style="flex: 1;"
                                   >
-                                    <a>
-                                      邀请
-                                    </a>
-                                  </div>
-                                  <div
-                                    class="ant-space-item"
+                                    邀请
+                                  </a>
+                                  <a
+                                    style="flex: 1;"
                                   >
-                                    <a>
-                                      删除
-                                    </a>
-                                  </div>
+                                    删除
+                                  </a>
                                 </div>
                               </div>
                             </div>
                           </div>
                           <div
                             class="ant-pro-card-body"
-                            style="margin-inline-end: -8px; margin-inline-start: -8px; padding: 24px;"
+                            style="padding: 24px;"
                           >
                             <div
                               class="ant-pro-list-row-show-action-hover ant-pro-list-row-header "
@@ -2175,17 +2104,12 @@ exports[`list demos 📸 renders ./packages/list/src/demos/card-list.tsx correct
                                   class="ant-pro-core-label-tip-title"
                                 >
                                   <span
-                                    class="ant-avatar ant-avatar-circle ant-avatar-image ant-list-item-meta-avatar "
+                                    class="ant-avatar ant-avatar-circle ant-avatar-image"
                                     style="width: 22px; height: 22px; line-height: 22px; font-size: 18px;"
                                   >
-                                    <span
-                                      class="ant-avatar ant-avatar-circle ant-avatar-image"
-                                      style="width: 22px; height: 22px; line-height: 22px; font-size: 18px;"
-                                    >
-                                      <img
-                                        src="https://gw.alipayobjects.com/zos/antfincdn/UCSiy1j6jx/xingzhuang.svg"
-                                      />
-                                    </span>
+                                    <img
+                                      src="https://gw.alipayobjects.com/zos/antfincdn/UCSiy1j6jx/xingzhuang.svg"
+                                    />
                                   </span>
                                   <span
                                     class="ant-list-item-meta-title "
@@ -2210,30 +2134,26 @@ exports[`list demos 📸 renders ./packages/list/src/demos/card-list.tsx correct
                             >
                               <div>
                                 <div
-                                  class="ant-space ant-space-horizontal ant-space-align-center ant-pro-field-option"
+                                  class="ant-pro-field-option"
+                                  style="display: flex; gap: 16px; align-items: center;"
                                 >
-                                  <div
-                                    class="ant-space-item"
-                                    style="margin-right: 16px;"
+                                  <a
+                                    style="flex: 1;"
                                   >
-                                    <a>
-                                      邀请
-                                    </a>
-                                  </div>
-                                  <div
-                                    class="ant-space-item"
+                                    邀请
+                                  </a>
+                                  <a
+                                    style="flex: 1;"
                                   >
-                                    <a>
-                                      删除
-                                    </a>
-                                  </div>
+                                    删除
+                                  </a>
                                 </div>
                               </div>
                             </div>
                           </div>
                           <div
                             class="ant-pro-card-body"
-                            style="margin-inline-end: -8px; margin-inline-start: -8px; padding: 24px;"
+                            style="padding: 24px;"
                           >
                             <div
                               class="ant-pro-list-row-show-action-hover ant-pro-list-row-header "
@@ -2851,20 +2771,16 @@ exports[`list demos 📸 renders ./packages/list/src/demos/expand.tsx correctly 
                 style="align-items: center;"
               >
                 <div
-                  class="ant-space ant-space-horizontal ant-space-align-center"
+                  style="display: flex; align-items: center; gap: 8px;"
                 >
-                  <div
-                    class="ant-space-item"
+                  <button
+                    class="ant-btn ant-btn-primary"
+                    type="button"
                   >
-                    <button
-                      class="ant-btn ant-btn-primary"
-                      type="button"
-                    >
-                      <span>
-                        新 建
-                      </span>
-                    </button>
-                  </div>
+                    <span>
+                      新 建
+                    </span>
+                  </button>
                 </div>
               </div>
             </div>
@@ -3546,20 +3462,16 @@ exports[`list demos 📸 renders ./packages/list/src/demos/filter.tsx correctly 
                   </div>
                 </div>
                 <div
-                  class="ant-space ant-space-horizontal ant-space-align-center"
+                  style="display: flex; align-items: center; gap: 8px;"
                 >
-                  <div
-                    class="ant-space-item"
+                  <button
+                    class="ant-btn ant-btn-primary"
+                    type="button"
                   >
-                    <button
-                      class="ant-btn ant-btn-primary"
-                      type="button"
-                    >
-                      <span>
-                        新 建
-                      </span>
-                    </button>
-                  </div>
+                    <span>
+                      新 建
+                    </span>
+                  </button>
                 </div>
               </div>
             </div>
@@ -4195,20 +4107,16 @@ exports[`list demos 📸 renders ./packages/list/src/demos/layout.tsx correctly 
                 style="align-items: center;"
               >
                 <div
-                  class="ant-space ant-space-horizontal ant-space-align-center"
+                  style="display: flex; align-items: center; gap: 8px;"
                 >
-                  <div
-                    class="ant-space-item"
+                  <button
+                    class="ant-btn ant-btn-primary"
+                    type="button"
                   >
-                    <button
-                      class="ant-btn ant-btn-primary"
-                      type="button"
-                    >
-                      <span>
-                        新 建
-                      </span>
-                    </button>
-                  </div>
+                    <span>
+                      新 建
+                    </span>
+                  </button>
                 </div>
               </div>
             </div>
@@ -5017,49 +4925,42 @@ exports[`list demos 📸 renders ./packages/list/src/demos/pagination.tsx correc
                       <li>
                         <div>
                           <div
-                            class="ant-space ant-space-horizontal ant-space-align-center ant-pro-field-option"
+                            class="ant-pro-field-option"
+                            style="display: flex; gap: 16px; align-items: center;"
                           >
-                            <div
-                              class="ant-space-item"
-                              style="margin-right: 16px;"
+                            <a
+                              style="flex: 1;"
                             >
-                              <a>
-                                邀请
-                              </a>
-                            </div>
-                            <div
-                              class="ant-space-item"
-                              style="margin-right: 16px;"
+                              邀请
+                            </a>
+                            <a
+                              style="flex: 1;"
                             >
-                              <a>
-                                操作
-                              </a>
-                            </div>
-                            <div
-                              class="ant-space-item"
+                              操作
+                            </a>
+                            <a
+                              style="flex: 1;"
                             >
-                              <a>
-                                <span
-                                  aria-label="ellipsis"
-                                  class="anticon anticon-ellipsis"
-                                  role="img"
+                              <span
+                                aria-label="ellipsis"
+                                class="anticon anticon-ellipsis"
+                                role="img"
+                              >
+                                <svg
+                                  aria-hidden="true"
+                                  data-icon="ellipsis"
+                                  fill="currentColor"
+                                  focusable="false"
+                                  height="1em"
+                                  viewBox="64 64 896 896"
+                                  width="1em"
                                 >
-                                  <svg
-                                    aria-hidden="true"
-                                    data-icon="ellipsis"
-                                    fill="currentColor"
-                                    focusable="false"
-                                    height="1em"
-                                    viewBox="64 64 896 896"
-                                    width="1em"
-                                  >
-                                    <path
-                                      d="M176 511a56 56 0 10112 0 56 56 0 10-112 0zm280 0a56 56 0 10112 0 56 56 0 10-112 0zm280 0a56 56 0 10112 0 56 56 0 10-112 0z"
-                                    />
-                                  </svg>
-                                </span>
-                              </a>
-                            </div>
+                                  <path
+                                    d="M176 511a56 56 0 10112 0 56 56 0 10-112 0zm280 0a56 56 0 10112 0 56 56 0 10-112 0zm280 0a56 56 0 10112 0 56 56 0 10-112 0z"
+                                  />
+                                </svg>
+                              </span>
+                            </a>
                           </div>
                         </div>
                       </li>
@@ -5162,49 +5063,42 @@ exports[`list demos 📸 renders ./packages/list/src/demos/pagination.tsx correc
                       <li>
                         <div>
                           <div
-                            class="ant-space ant-space-horizontal ant-space-align-center ant-pro-field-option"
+                            class="ant-pro-field-option"
+                            style="display: flex; gap: 16px; align-items: center;"
                           >
-                            <div
-                              class="ant-space-item"
-                              style="margin-right: 16px;"
+                            <a
+                              style="flex: 1;"
                             >
-                              <a>
-                                邀请
-                              </a>
-                            </div>
-                            <div
-                              class="ant-space-item"
-                              style="margin-right: 16px;"
+                              邀请
+                            </a>
+                            <a
+                              style="flex: 1;"
                             >
-                              <a>
-                                操作
-                              </a>
-                            </div>
-                            <div
-                              class="ant-space-item"
+                              操作
+                            </a>
+                            <a
+                              style="flex: 1;"
                             >
-                              <a>
-                                <span
-                                  aria-label="ellipsis"
-                                  class="anticon anticon-ellipsis"
-                                  role="img"
+                              <span
+                                aria-label="ellipsis"
+                                class="anticon anticon-ellipsis"
+                                role="img"
+                              >
+                                <svg
+                                  aria-hidden="true"
+                                  data-icon="ellipsis"
+                                  fill="currentColor"
+                                  focusable="false"
+                                  height="1em"
+                                  viewBox="64 64 896 896"
+                                  width="1em"
                                 >
-                                  <svg
-                                    aria-hidden="true"
-                                    data-icon="ellipsis"
-                                    fill="currentColor"
-                                    focusable="false"
-                                    height="1em"
-                                    viewBox="64 64 896 896"
-                                    width="1em"
-                                  >
-                                    <path
-                                      d="M176 511a56 56 0 10112 0 56 56 0 10-112 0zm280 0a56 56 0 10112 0 56 56 0 10-112 0zm280 0a56 56 0 10112 0 56 56 0 10-112 0z"
-                                    />
-                                  </svg>
-                                </span>
-                              </a>
-                            </div>
+                                  <path
+                                    d="M176 511a56 56 0 10112 0 56 56 0 10-112 0zm280 0a56 56 0 10112 0 56 56 0 10-112 0zm280 0a56 56 0 10112 0 56 56 0 10-112 0z"
+                                  />
+                                </svg>
+                              </span>
+                            </a>
                           </div>
                         </div>
                       </li>
@@ -5307,49 +5201,42 @@ exports[`list demos 📸 renders ./packages/list/src/demos/pagination.tsx correc
                       <li>
                         <div>
                           <div
-                            class="ant-space ant-space-horizontal ant-space-align-center ant-pro-field-option"
+                            class="ant-pro-field-option"
+                            style="display: flex; gap: 16px; align-items: center;"
                           >
-                            <div
-                              class="ant-space-item"
-                              style="margin-right: 16px;"
+                            <a
+                              style="flex: 1;"
                             >
-                              <a>
-                                邀请
-                              </a>
-                            </div>
-                            <div
-                              class="ant-space-item"
-                              style="margin-right: 16px;"
+                              邀请
+                            </a>
+                            <a
+                              style="flex: 1;"
                             >
-                              <a>
-                                操作
-                              </a>
-                            </div>
-                            <div
-                              class="ant-space-item"
+                              操作
+                            </a>
+                            <a
+                              style="flex: 1;"
                             >
-                              <a>
-                                <span
-                                  aria-label="ellipsis"
-                                  class="anticon anticon-ellipsis"
-                                  role="img"
+                              <span
+                                aria-label="ellipsis"
+                                class="anticon anticon-ellipsis"
+                                role="img"
+                              >
+                                <svg
+                                  aria-hidden="true"
+                                  data-icon="ellipsis"
+                                  fill="currentColor"
+                                  focusable="false"
+                                  height="1em"
+                                  viewBox="64 64 896 896"
+                                  width="1em"
                                 >
-                                  <svg
-                                    aria-hidden="true"
-                                    data-icon="ellipsis"
-                                    fill="currentColor"
-                                    focusable="false"
-                                    height="1em"
-                                    viewBox="64 64 896 896"
-                                    width="1em"
-                                  >
-                                    <path
-                                      d="M176 511a56 56 0 10112 0 56 56 0 10-112 0zm280 0a56 56 0 10112 0 56 56 0 10-112 0zm280 0a56 56 0 10112 0 56 56 0 10-112 0z"
-                                    />
-                                  </svg>
-                                </span>
-                              </a>
-                            </div>
+                                  <path
+                                    d="M176 511a56 56 0 10112 0 56 56 0 10-112 0zm280 0a56 56 0 10112 0 56 56 0 10-112 0zm280 0a56 56 0 10112 0 56 56 0 10-112 0z"
+                                  />
+                                </svg>
+                              </span>
+                            </a>
                           </div>
                         </div>
                       </li>
@@ -5452,49 +5339,42 @@ exports[`list demos 📸 renders ./packages/list/src/demos/pagination.tsx correc
                       <li>
                         <div>
                           <div
-                            class="ant-space ant-space-horizontal ant-space-align-center ant-pro-field-option"
+                            class="ant-pro-field-option"
+                            style="display: flex; gap: 16px; align-items: center;"
                           >
-                            <div
-                              class="ant-space-item"
-                              style="margin-right: 16px;"
+                            <a
+                              style="flex: 1;"
                             >
-                              <a>
-                                邀请
-                              </a>
-                            </div>
-                            <div
-                              class="ant-space-item"
-                              style="margin-right: 16px;"
+                              邀请
+                            </a>
+                            <a
+                              style="flex: 1;"
                             >
-                              <a>
-                                操作
-                              </a>
-                            </div>
-                            <div
-                              class="ant-space-item"
+                              操作
+                            </a>
+                            <a
+                              style="flex: 1;"
                             >
-                              <a>
-                                <span
-                                  aria-label="ellipsis"
-                                  class="anticon anticon-ellipsis"
-                                  role="img"
+                              <span
+                                aria-label="ellipsis"
+                                class="anticon anticon-ellipsis"
+                                role="img"
+                              >
+                                <svg
+                                  aria-hidden="true"
+                                  data-icon="ellipsis"
+                                  fill="currentColor"
+                                  focusable="false"
+                                  height="1em"
+                                  viewBox="64 64 896 896"
+                                  width="1em"
                                 >
-                                  <svg
-                                    aria-hidden="true"
-                                    data-icon="ellipsis"
-                                    fill="currentColor"
-                                    focusable="false"
-                                    height="1em"
-                                    viewBox="64 64 896 896"
-                                    width="1em"
-                                  >
-                                    <path
-                                      d="M176 511a56 56 0 10112 0 56 56 0 10-112 0zm280 0a56 56 0 10112 0 56 56 0 10-112 0zm280 0a56 56 0 10112 0 56 56 0 10-112 0z"
-                                    />
-                                  </svg>
-                                </span>
-                              </a>
-                            </div>
+                                  <path
+                                    d="M176 511a56 56 0 10112 0 56 56 0 10-112 0zm280 0a56 56 0 10112 0 56 56 0 10-112 0zm280 0a56 56 0 10112 0 56 56 0 10-112 0z"
+                                  />
+                                </svg>
+                              </span>
+                            </a>
                           </div>
                         </div>
                       </li>
@@ -5597,49 +5477,42 @@ exports[`list demos 📸 renders ./packages/list/src/demos/pagination.tsx correc
                       <li>
                         <div>
                           <div
-                            class="ant-space ant-space-horizontal ant-space-align-center ant-pro-field-option"
+                            class="ant-pro-field-option"
+                            style="display: flex; gap: 16px; align-items: center;"
                           >
-                            <div
-                              class="ant-space-item"
-                              style="margin-right: 16px;"
+                            <a
+                              style="flex: 1;"
                             >
-                              <a>
-                                邀请
-                              </a>
-                            </div>
-                            <div
-                              class="ant-space-item"
-                              style="margin-right: 16px;"
+                              邀请
+                            </a>
+                            <a
+                              style="flex: 1;"
                             >
-                              <a>
-                                操作
-                              </a>
-                            </div>
-                            <div
-                              class="ant-space-item"
+                              操作
+                            </a>
+                            <a
+                              style="flex: 1;"
                             >
-                              <a>
-                                <span
-                                  aria-label="ellipsis"
-                                  class="anticon anticon-ellipsis"
-                                  role="img"
+                              <span
+                                aria-label="ellipsis"
+                                class="anticon anticon-ellipsis"
+                                role="img"
+                              >
+                                <svg
+                                  aria-hidden="true"
+                                  data-icon="ellipsis"
+                                  fill="currentColor"
+                                  focusable="false"
+                                  height="1em"
+                                  viewBox="64 64 896 896"
+                                  width="1em"
                                 >
-                                  <svg
-                                    aria-hidden="true"
-                                    data-icon="ellipsis"
-                                    fill="currentColor"
-                                    focusable="false"
-                                    height="1em"
-                                    viewBox="64 64 896 896"
-                                    width="1em"
-                                  >
-                                    <path
-                                      d="M176 511a56 56 0 10112 0 56 56 0 10-112 0zm280 0a56 56 0 10112 0 56 56 0 10-112 0zm280 0a56 56 0 10112 0 56 56 0 10-112 0z"
-                                    />
-                                  </svg>
-                                </span>
-                              </a>
-                            </div>
+                                  <path
+                                    d="M176 511a56 56 0 10112 0 56 56 0 10-112 0zm280 0a56 56 0 10112 0 56 56 0 10-112 0zm280 0a56 56 0 10112 0 56 56 0 10-112 0z"
+                                  />
+                                </svg>
+                              </span>
+                            </a>
                           </div>
                         </div>
                       </li>
@@ -6128,20 +6001,16 @@ exports[`list demos 📸 renders ./packages/list/src/demos/search.tsx correctly 
                 style="align-items: center;"
               >
                 <div
-                  class="ant-space ant-space-horizontal ant-space-align-center"
+                  style="display: flex; align-items: center; gap: 8px;"
                 >
-                  <div
-                    class="ant-space-item"
+                  <button
+                    class="ant-btn ant-btn-primary"
+                    type="button"
                   >
-                    <button
-                      class="ant-btn ant-btn-primary"
-                      type="button"
-                    >
-                      <span>
-                        新 建
-                      </span>
-                    </button>
-                  </div>
+                    <span>
+                      新 建
+                    </span>
+                  </button>
                 </div>
               </div>
             </div>
@@ -6777,20 +6646,16 @@ exports[`list demos 📸 renders ./packages/list/src/demos/selectedRow.tsx corre
                 style="align-items: center;"
               >
                 <div
-                  class="ant-space ant-space-horizontal ant-space-align-center"
+                  style="display: flex; align-items: center; gap: 8px;"
                 >
-                  <div
-                    class="ant-space-item"
+                  <button
+                    class="ant-btn ant-btn-primary"
+                    type="button"
                   >
-                    <button
-                      class="ant-btn ant-btn-primary"
-                      type="button"
-                    >
-                      <span>
-                        新 建
-                      </span>
-                    </button>
-                  </div>
+                    <span>
+                      新 建
+                    </span>
+                  </button>
                 </div>
               </div>
             </div>
@@ -7490,20 +7355,16 @@ exports[`list demos 📸 renders ./packages/list/src/demos/size.tsx correctly 1`
                 style="align-items: center;"
               >
                 <div
-                  class="ant-space ant-space-horizontal ant-space-align-center"
+                  style="display: flex; align-items: center; gap: 8px;"
                 >
-                  <div
-                    class="ant-space-item"
+                  <button
+                    class="ant-btn ant-btn-primary"
+                    type="button"
                   >
-                    <button
-                      class="ant-btn ant-btn-primary"
-                      type="button"
-                    >
-                      <span>
-                        新 建
-                      </span>
-                    </button>
-                  </div>
+                    <span>
+                      新 建
+                    </span>
+                  </button>
                 </div>
               </div>
             </div>
@@ -7978,20 +7839,16 @@ exports[`list demos 📸 renders ./packages/list/src/demos/special.tsx correctly
                 style="align-items: center;"
               >
                 <div
-                  class="ant-space ant-space-horizontal ant-space-align-center"
+                  style="display: flex; align-items: center; gap: 8px;"
                 >
-                  <div
-                    class="ant-space-item"
+                  <button
+                    class="ant-btn ant-btn-primary"
+                    type="button"
                   >
-                    <button
-                      class="ant-btn ant-btn-primary"
-                      type="button"
-                    >
-                      <span>
-                        刷 新
-                      </span>
-                    </button>
-                  </div>
+                    <span>
+                      刷 新
+                    </span>
+                  </button>
                 </div>
               </div>
             </div>
@@ -8111,49 +7968,42 @@ exports[`list demos 📸 renders ./packages/list/src/demos/special.tsx correctly
                       <li>
                         <div>
                           <div
-                            class="ant-space ant-space-horizontal ant-space-align-center ant-pro-field-option"
+                            class="ant-pro-field-option"
+                            style="display: flex; gap: 16px; align-items: center;"
                           >
-                            <div
-                              class="ant-space-item"
-                              style="margin-right: 16px;"
+                            <a
+                              style="flex: 1;"
                             >
-                              <a>
-                                邀请
-                              </a>
-                            </div>
-                            <div
-                              class="ant-space-item"
-                              style="margin-right: 16px;"
+                              邀请
+                            </a>
+                            <a
+                              style="flex: 1;"
                             >
-                              <a>
-                                操作
-                              </a>
-                            </div>
-                            <div
-                              class="ant-space-item"
+                              操作
+                            </a>
+                            <a
+                              style="flex: 1;"
                             >
-                              <a>
-                                <span
-                                  aria-label="ellipsis"
-                                  class="anticon anticon-ellipsis"
-                                  role="img"
+                              <span
+                                aria-label="ellipsis"
+                                class="anticon anticon-ellipsis"
+                                role="img"
+                              >
+                                <svg
+                                  aria-hidden="true"
+                                  data-icon="ellipsis"
+                                  fill="currentColor"
+                                  focusable="false"
+                                  height="1em"
+                                  viewBox="64 64 896 896"
+                                  width="1em"
                                 >
-                                  <svg
-                                    aria-hidden="true"
-                                    data-icon="ellipsis"
-                                    fill="currentColor"
-                                    focusable="false"
-                                    height="1em"
-                                    viewBox="64 64 896 896"
-                                    width="1em"
-                                  >
-                                    <path
-                                      d="M176 511a56 56 0 10112 0 56 56 0 10-112 0zm280 0a56 56 0 10112 0 56 56 0 10-112 0zm280 0a56 56 0 10112 0 56 56 0 10-112 0z"
-                                    />
-                                  </svg>
-                                </span>
-                              </a>
-                            </div>
+                                  <path
+                                    d="M176 511a56 56 0 10112 0 56 56 0 10-112 0zm280 0a56 56 0 10112 0 56 56 0 10-112 0zm280 0a56 56 0 10112 0 56 56 0 10-112 0z"
+                                  />
+                                </svg>
+                              </span>
+                            </a>
                           </div>
                         </div>
                       </li>
@@ -8262,49 +8112,42 @@ exports[`list demos 📸 renders ./packages/list/src/demos/special.tsx correctly
                       <li>
                         <div>
                           <div
-                            class="ant-space ant-space-horizontal ant-space-align-center ant-pro-field-option"
+                            class="ant-pro-field-option"
+                            style="display: flex; gap: 16px; align-items: center;"
                           >
-                            <div
-                              class="ant-space-item"
-                              style="margin-right: 16px;"
+                            <a
+                              style="flex: 1;"
                             >
-                              <a>
-                                邀请
-                              </a>
-                            </div>
-                            <div
-                              class="ant-space-item"
-                              style="margin-right: 16px;"
+                              邀请
+                            </a>
+                            <a
+                              style="flex: 1;"
                             >
-                              <a>
-                                操作
-                              </a>
-                            </div>
-                            <div
-                              class="ant-space-item"
+                              操作
+                            </a>
+                            <a
+                              style="flex: 1;"
                             >
-                              <a>
-                                <span
-                                  aria-label="ellipsis"
-                                  class="anticon anticon-ellipsis"
-                                  role="img"
+                              <span
+                                aria-label="ellipsis"
+                                class="anticon anticon-ellipsis"
+                                role="img"
+                              >
+                                <svg
+                                  aria-hidden="true"
+                                  data-icon="ellipsis"
+                                  fill="currentColor"
+                                  focusable="false"
+                                  height="1em"
+                                  viewBox="64 64 896 896"
+                                  width="1em"
                                 >
-                                  <svg
-                                    aria-hidden="true"
-                                    data-icon="ellipsis"
-                                    fill="currentColor"
-                                    focusable="false"
-                                    height="1em"
-                                    viewBox="64 64 896 896"
-                                    width="1em"
-                                  >
-                                    <path
-                                      d="M176 511a56 56 0 10112 0 56 56 0 10-112 0zm280 0a56 56 0 10112 0 56 56 0 10-112 0zm280 0a56 56 0 10112 0 56 56 0 10-112 0z"
-                                    />
-                                  </svg>
-                                </span>
-                              </a>
-                            </div>
+                                  <path
+                                    d="M176 511a56 56 0 10112 0 56 56 0 10-112 0zm280 0a56 56 0 10112 0 56 56 0 10-112 0zm280 0a56 56 0 10112 0 56 56 0 10-112 0z"
+                                  />
+                                </svg>
+                              </span>
+                            </a>
                           </div>
                         </div>
                       </li>
@@ -8413,49 +8256,42 @@ exports[`list demos 📸 renders ./packages/list/src/demos/special.tsx correctly
                       <li>
                         <div>
                           <div
-                            class="ant-space ant-space-horizontal ant-space-align-center ant-pro-field-option"
+                            class="ant-pro-field-option"
+                            style="display: flex; gap: 16px; align-items: center;"
                           >
-                            <div
-                              class="ant-space-item"
-                              style="margin-right: 16px;"
+                            <a
+                              style="flex: 1;"
                             >
-                              <a>
-                                邀请
-                              </a>
-                            </div>
-                            <div
-                              class="ant-space-item"
-                              style="margin-right: 16px;"
+                              邀请
+                            </a>
+                            <a
+                              style="flex: 1;"
                             >
-                              <a>
-                                操作
-                              </a>
-                            </div>
-                            <div
-                              class="ant-space-item"
+                              操作
+                            </a>
+                            <a
+                              style="flex: 1;"
                             >
-                              <a>
-                                <span
-                                  aria-label="ellipsis"
-                                  class="anticon anticon-ellipsis"
-                                  role="img"
+                              <span
+                                aria-label="ellipsis"
+                                class="anticon anticon-ellipsis"
+                                role="img"
+                              >
+                                <svg
+                                  aria-hidden="true"
+                                  data-icon="ellipsis"
+                                  fill="currentColor"
+                                  focusable="false"
+                                  height="1em"
+                                  viewBox="64 64 896 896"
+                                  width="1em"
                                 >
-                                  <svg
-                                    aria-hidden="true"
-                                    data-icon="ellipsis"
-                                    fill="currentColor"
-                                    focusable="false"
-                                    height="1em"
-                                    viewBox="64 64 896 896"
-                                    width="1em"
-                                  >
-                                    <path
-                                      d="M176 511a56 56 0 10112 0 56 56 0 10-112 0zm280 0a56 56 0 10112 0 56 56 0 10-112 0zm280 0a56 56 0 10112 0 56 56 0 10-112 0z"
-                                    />
-                                  </svg>
-                                </span>
-                              </a>
-                            </div>
+                                  <path
+                                    d="M176 511a56 56 0 10112 0 56 56 0 10-112 0zm280 0a56 56 0 10112 0 56 56 0 10-112 0zm280 0a56 56 0 10112 0 56 56 0 10-112 0z"
+                                  />
+                                </svg>
+                              </span>
+                            </a>
                           </div>
                         </div>
                       </li>
@@ -8564,49 +8400,42 @@ exports[`list demos 📸 renders ./packages/list/src/demos/special.tsx correctly
                       <li>
                         <div>
                           <div
-                            class="ant-space ant-space-horizontal ant-space-align-center ant-pro-field-option"
+                            class="ant-pro-field-option"
+                            style="display: flex; gap: 16px; align-items: center;"
                           >
-                            <div
-                              class="ant-space-item"
-                              style="margin-right: 16px;"
+                            <a
+                              style="flex: 1;"
                             >
-                              <a>
-                                邀请
-                              </a>
-                            </div>
-                            <div
-                              class="ant-space-item"
-                              style="margin-right: 16px;"
+                              邀请
+                            </a>
+                            <a
+                              style="flex: 1;"
                             >
-                              <a>
-                                操作
-                              </a>
-                            </div>
-                            <div
-                              class="ant-space-item"
+                              操作
+                            </a>
+                            <a
+                              style="flex: 1;"
                             >
-                              <a>
-                                <span
-                                  aria-label="ellipsis"
-                                  class="anticon anticon-ellipsis"
-                                  role="img"
+                              <span
+                                aria-label="ellipsis"
+                                class="anticon anticon-ellipsis"
+                                role="img"
+                              >
+                                <svg
+                                  aria-hidden="true"
+                                  data-icon="ellipsis"
+                                  fill="currentColor"
+                                  focusable="false"
+                                  height="1em"
+                                  viewBox="64 64 896 896"
+                                  width="1em"
                                 >
-                                  <svg
-                                    aria-hidden="true"
-                                    data-icon="ellipsis"
-                                    fill="currentColor"
-                                    focusable="false"
-                                    height="1em"
-                                    viewBox="64 64 896 896"
-                                    width="1em"
-                                  >
-                                    <path
-                                      d="M176 511a56 56 0 10112 0 56 56 0 10-112 0zm280 0a56 56 0 10112 0 56 56 0 10-112 0zm280 0a56 56 0 10112 0 56 56 0 10-112 0z"
-                                    />
-                                  </svg>
-                                </span>
-                              </a>
-                            </div>
+                                  <path
+                                    d="M176 511a56 56 0 10112 0 56 56 0 10-112 0zm280 0a56 56 0 10112 0 56 56 0 10-112 0zm280 0a56 56 0 10112 0 56 56 0 10-112 0z"
+                                  />
+                                </svg>
+                              </span>
+                            </a>
                           </div>
                         </div>
                       </li>

@@ -1,7 +1,7 @@
 import { useIntl } from '@ant-design/pro-provider';
 import { LabelIconTip } from '@ant-design/pro-utils';
 import type { TabPaneProps } from 'antd';
-import { ConfigProvider, Input, Space, Tabs, Tooltip } from 'antd';
+import { ConfigProvider, Input, Tabs, Tooltip } from 'antd';
 import type { LabelTooltipType } from 'antd/es/form/FormItemLabel';
 import type { SearchProps } from 'antd/es/input';
 import classNames from 'classnames';
@@ -203,7 +203,13 @@ const ListToolBar: React.FC<ListToolBarProps> = ({
       return null;
     }
     return (
-      <Space align="center">
+      <div
+        style={{
+          display: 'flex',
+          alignItems: 'center',
+          gap: 8,
+        }}
+      >
         {actions.map((action, index) => {
           if (!React.isValidElement(action)) {
             // eslint-disable-next-line react/no-array-index-key
@@ -215,7 +221,7 @@ const ListToolBar: React.FC<ListToolBarProps> = ({
             ...action?.props,
           });
         })}
-      </Space>
+      </div>
     );
   }, [actions]);
 

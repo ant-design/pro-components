@@ -1,4 +1,4 @@
-import { ConfigProvider, Space } from 'antd';
+import { ConfigProvider } from 'antd';
 import React, { useContext, useImperativeHandle } from 'react';
 import type { ProFieldFC } from '../../index';
 
@@ -16,6 +16,11 @@ const addArrayKeys = (doms: React.ReactNode[]) =>
       // eslint-disable-next-line react/no-array-index-key
       key: index,
       ...dom?.props,
+      style: {
+        flex: 1,
+        // @ts-ignore
+        ...dom?.props?.style,
+      },
     });
   });
 
@@ -38,9 +43,16 @@ const FieldOptions: ProFieldFC = ({ text, mode: type, render, fieldProps }, ref)
     }
 
     return (
-      <Space size={16} className={className}>
+      <div
+        style={{
+          display: 'flex',
+          gap: 16,
+          alignItems: 'center',
+        }}
+        className={className}
+      >
         {addArrayKeys(doms)}
-      </Space>
+      </div>
     );
   }
 
@@ -52,9 +64,16 @@ const FieldOptions: ProFieldFC = ({ text, mode: type, render, fieldProps }, ref)
   }
 
   return (
-    <Space size={16} className={className}>
+    <div
+      style={{
+        display: 'flex',
+        gap: 16,
+        alignItems: 'center',
+      }}
+      className={className}
+    >
       {addArrayKeys(text)}
-    </Space>
+    </div>
   );
 };
 

@@ -2123,88 +2123,84 @@ exports[`table demos 📸 renders ./packages/table/src/components/EditableTable/
                 style="align-items: center;"
               >
                 <div
-                  class="ant-space ant-space-horizontal ant-space-align-center"
+                  style="display: flex; align-items: center; gap: 8px;"
                 >
                   <div
-                    class="ant-space-item"
+                    class="ant-form-item"
                   >
                     <div
-                      class="ant-form-item"
+                      class="ant-row ant-form-item-row"
                     >
                       <div
-                        class="ant-row ant-form-item-row"
+                        class="ant-col ant-form-item-control"
                       >
                         <div
-                          class="ant-col ant-form-item-control"
+                          class="ant-form-item-control-input"
                         >
                           <div
-                            class="ant-form-item-control-input"
+                            class="ant-form-item-control-input-content"
                           >
                             <div
-                              class="ant-form-item-control-input-content"
+                              class="ant-radio-group ant-radio-group-outline ant-pro-field-radio-horizontal"
                             >
-                              <div
-                                class="ant-radio-group ant-radio-group-outline ant-pro-field-radio-horizontal"
+                              <label
+                                class="ant-radio-wrapper ant-radio-wrapper-in-form-item"
                               >
-                                <label
-                                  class="ant-radio-wrapper ant-radio-wrapper-in-form-item"
+                                <span
+                                  class="ant-radio"
                                 >
+                                  <input
+                                    class="ant-radio-input"
+                                    type="radio"
+                                    value="top"
+                                  />
                                   <span
-                                    class="ant-radio"
-                                  >
-                                    <input
-                                      class="ant-radio-input"
-                                      type="radio"
-                                      value="top"
-                                    />
-                                    <span
-                                      class="ant-radio-inner"
-                                    />
-                                  </span>
-                                  <span>
-                                    添加到顶部
-                                  </span>
-                                </label>
-                                <label
-                                  class="ant-radio-wrapper ant-radio-wrapper-checked ant-radio-wrapper-in-form-item"
+                                    class="ant-radio-inner"
+                                  />
+                                </span>
+                                <span>
+                                  添加到顶部
+                                </span>
+                              </label>
+                              <label
+                                class="ant-radio-wrapper ant-radio-wrapper-checked ant-radio-wrapper-in-form-item"
+                              >
+                                <span
+                                  class="ant-radio ant-radio-checked"
                                 >
+                                  <input
+                                    checked=""
+                                    class="ant-radio-input"
+                                    type="radio"
+                                    value="bottom"
+                                  />
                                   <span
-                                    class="ant-radio ant-radio-checked"
-                                  >
-                                    <input
-                                      checked=""
-                                      class="ant-radio-input"
-                                      type="radio"
-                                      value="bottom"
-                                    />
-                                    <span
-                                      class="ant-radio-inner"
-                                    />
-                                  </span>
-                                  <span>
-                                    添加到底部
-                                  </span>
-                                </label>
-                                <label
-                                  class="ant-radio-wrapper ant-radio-wrapper-in-form-item"
+                                    class="ant-radio-inner"
+                                  />
+                                </span>
+                                <span>
+                                  添加到底部
+                                </span>
+                              </label>
+                              <label
+                                class="ant-radio-wrapper ant-radio-wrapper-in-form-item"
+                              >
+                                <span
+                                  class="ant-radio"
                                 >
+                                  <input
+                                    class="ant-radio-input"
+                                    type="radio"
+                                    value="hidden"
+                                  />
                                   <span
-                                    class="ant-radio"
-                                  >
-                                    <input
-                                      class="ant-radio-input"
-                                      type="radio"
-                                      value="hidden"
-                                    />
-                                    <span
-                                      class="ant-radio-inner"
-                                    />
-                                  </span>
-                                  <span>
-                                    隐藏
-                                  </span>
-                                </label>
-                              </div>
+                                    class="ant-radio-inner"
+                                  />
+                                </span>
+                                <span>
+                                  隐藏
+                                </span>
+                              </label>
                             </div>
                           </div>
                         </div>
@@ -3518,108 +3514,99 @@ exports[`table demos 📸 renders ./packages/table/src/components/EditableTable/
                         style="align-items: center;"
                       >
                         <div
-                          class="ant-space ant-space-horizontal ant-space-align-center"
+                          style="display: flex; align-items: center; gap: 8px;"
                         >
                           <div
-                            class="ant-space-item"
-                            style="margin-right: 8px;"
+                            class="ant-form-item"
                           >
                             <div
-                              class="ant-form-item"
+                              class="ant-row ant-form-item-row"
                             >
                               <div
-                                class="ant-row ant-form-item-row"
+                                class="ant-col ant-form-item-control"
                               >
                                 <div
-                                  class="ant-col ant-form-item-control"
+                                  class="ant-form-item-control-input"
                                 >
                                   <div
-                                    class="ant-form-item-control-input"
+                                    class="ant-form-item-control-input-content"
                                   >
                                     <div
-                                      class="ant-form-item-control-input-content"
+                                      class="ant-radio-group ant-radio-group-outline ant-pro-field-radio-horizontal"
+                                      style="margin-block-end: 0;"
                                     >
-                                      <div
-                                        class="ant-radio-group ant-radio-group-outline ant-pro-field-radio-horizontal"
-                                        style="margin-block-end: 0;"
+                                      <label
+                                        class="ant-radio-wrapper ant-radio-wrapper-in-form-item"
                                       >
-                                        <label
-                                          class="ant-radio-wrapper ant-radio-wrapper-in-form-item"
+                                        <span
+                                          class="ant-radio"
                                         >
+                                          <input
+                                            class="ant-radio-input"
+                                            type="radio"
+                                            value="top"
+                                          />
                                           <span
-                                            class="ant-radio"
-                                          >
-                                            <input
-                                              class="ant-radio-input"
-                                              type="radio"
-                                              value="top"
-                                            />
-                                            <span
-                                              class="ant-radio-inner"
-                                            />
-                                          </span>
-                                          <span>
-                                            添加到顶部
-                                          </span>
-                                        </label>
-                                        <label
-                                          class="ant-radio-wrapper ant-radio-wrapper-checked ant-radio-wrapper-in-form-item"
+                                            class="ant-radio-inner"
+                                          />
+                                        </span>
+                                        <span>
+                                          添加到顶部
+                                        </span>
+                                      </label>
+                                      <label
+                                        class="ant-radio-wrapper ant-radio-wrapper-checked ant-radio-wrapper-in-form-item"
+                                      >
+                                        <span
+                                          class="ant-radio ant-radio-checked"
                                         >
+                                          <input
+                                            checked=""
+                                            class="ant-radio-input"
+                                            type="radio"
+                                            value="bottom"
+                                          />
                                           <span
-                                            class="ant-radio ant-radio-checked"
-                                          >
-                                            <input
-                                              checked=""
-                                              class="ant-radio-input"
-                                              type="radio"
-                                              value="bottom"
-                                            />
-                                            <span
-                                              class="ant-radio-inner"
-                                            />
-                                          </span>
-                                          <span>
-                                            添加到底部
-                                          </span>
-                                        </label>
-                                        <label
-                                          class="ant-radio-wrapper ant-radio-wrapper-in-form-item"
+                                            class="ant-radio-inner"
+                                          />
+                                        </span>
+                                        <span>
+                                          添加到底部
+                                        </span>
+                                      </label>
+                                      <label
+                                        class="ant-radio-wrapper ant-radio-wrapper-in-form-item"
+                                      >
+                                        <span
+                                          class="ant-radio"
                                         >
+                                          <input
+                                            class="ant-radio-input"
+                                            type="radio"
+                                            value="hidden"
+                                          />
                                           <span
-                                            class="ant-radio"
-                                          >
-                                            <input
-                                              class="ant-radio-input"
-                                              type="radio"
-                                              value="hidden"
-                                            />
-                                            <span
-                                              class="ant-radio-inner"
-                                            />
-                                          </span>
-                                          <span>
-                                            隐藏
-                                          </span>
-                                        </label>
-                                      </div>
+                                            class="ant-radio-inner"
+                                          />
+                                        </span>
+                                        <span>
+                                          隐藏
+                                        </span>
+                                      </label>
                                     </div>
                                   </div>
                                 </div>
                               </div>
                             </div>
                           </div>
-                          <div
-                            class="ant-space-item"
+                          <button
+                            class="ant-btn ant-btn-text"
+                            type="button"
                           >
-                            <button
-                              class="ant-btn ant-btn-text"
-                              type="button"
-                            >
-                              <span>
-                                获取 table 的数据
-                              </span>
-                            </button>
-                          </div>
+                            <span>
+                              获取 table 的数据
+                            </span>
+                          </button>
                         </div>
                       </div>
                     </div>
@@ -4821,20 +4808,16 @@ exports[`table demos 📸 renders ./packages/table/src/components/EditableTable/
                 style="align-items: center;"
               >
                 <div
-                  class="ant-space ant-space-horizontal ant-space-align-center"
+                  style="display: flex; align-items: center; gap: 8px;"
                 >
-                  <div
-                    class="ant-space-item"
+                  <button
+                    class="ant-btn ant-btn-primary"
+                    type="button"
                   >
-                    <button
-                      class="ant-btn ant-btn-primary"
-                      type="button"
-                    >
-                      <span>
-                        保存数据
-                      </span>
-                    </button>
-                  </div>
+                    <span>
+                      保存数据
+                    </span>
+                  </button>
                 </div>
               </div>
             </div>
@@ -10574,20 +10557,16 @@ exports[`table demos 📸 renders ./packages/table/src/demos/ListToolBar/basic.t
                   </span>
                 </div>
                 <div
-                  class="ant-space ant-space-horizontal ant-space-align-center"
+                  style="display: flex; align-items: center; gap: 8px;"
                 >
-                  <div
-                    class="ant-space-item"
+                  <button
+                    class="ant-btn ant-btn-primary"
+                    type="button"
                   >
-                    <button
-                      class="ant-btn ant-btn-primary"
-                      type="button"
-                    >
-                      <span>
-                        添 加
-                      </span>
-                    </button>
-                  </div>
+                    <span>
+                      添 加
+                    </span>
+                  </button>
                 </div>
                 <div
                   class="ant-pro-table-list-toolbar-setting-items "
@@ -11550,20 +11529,16 @@ exports[`table demos 📸 renders ./packages/table/src/demos/ListToolBar/menu.ts
                   </span>
                 </div>
                 <div
-                  class="ant-space ant-space-horizontal ant-space-align-center"
+                  style="display: flex; align-items: center; gap: 8px;"
                 >
-                  <div
-                    class="ant-space-item"
+                  <button
+                    class="ant-btn ant-btn-primary"
+                    type="button"
                   >
-                    <button
-                      class="ant-btn ant-btn-primary"
-                      type="button"
-                    >
-                      <span>
-                        添 加
-                      </span>
-                    </button>
-                  </div>
+                    <span>
+                      添 加
+                    </span>
+                  </button>
                 </div>
                 <div
                   class="ant-pro-table-list-toolbar-setting-items "
@@ -12237,53 +12212,44 @@ exports[`table demos 📸 renders ./packages/table/src/demos/ListToolBar/multipl
                   </span>
                 </div>
                 <div
-                  class="ant-space ant-space-horizontal ant-space-align-center"
+                  style="display: flex; align-items: center; gap: 8px;"
                 >
-                  <div
-                    class="ant-space-item"
-                    style="margin-right: 8px;"
+                  <button
+                    class="ant-btn ant-btn-default ant-dropdown-trigger"
+                    type="button"
                   >
-                    <button
-                      class="ant-btn ant-btn-default ant-dropdown-trigger"
-                      type="button"
+                    <span>
+                      移动自
+                    </span>
+                    <span
+                      aria-label="down"
+                      class="anticon anticon-down"
+                      role="img"
+                      style="margin-inline-start: 8px;"
                     >
-                      <span>
-                        移动自
-                      </span>
-                      <span
-                        aria-label="down"
-                        class="anticon anticon-down"
-                        role="img"
-                        style="margin-inline-start: 8px;"
+                      <svg
+                        aria-hidden="true"
+                        data-icon="down"
+                        fill="currentColor"
+                        focusable="false"
+                        height="1em"
+                        viewBox="64 64 896 896"
+                        width="1em"
                       >
-                        <svg
-                          aria-hidden="true"
-                          data-icon="down"
-                          fill="currentColor"
-                          focusable="false"
-                          height="1em"
-                          viewBox="64 64 896 896"
-                          width="1em"
-                        >
-                          <path
-                            d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"
-                          />
-                        </svg>
-                      </span>
-                    </button>
-                  </div>
-                  <div
-                    class="ant-space-item"
+                        <path
+                          d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"
+                        />
+                      </svg>
+                    </span>
+                  </button>
+                  <button
+                    class="ant-btn ant-btn-primary"
+                    type="button"
                   >
-                    <button
-                      class="ant-btn ant-btn-primary"
-                      type="button"
-                    >
-                      <span>
-                        添 加
-                      </span>
-                    </button>
-                  </div>
+                    <span>
+                      添 加
+                    </span>
+                  </button>
                 </div>
                 <div
                   class="ant-pro-table-list-toolbar-setting-items "
@@ -13184,20 +13150,16 @@ exports[`table demos 📸 renders ./packages/table/src/demos/ListToolBar/no-titl
                   </form>
                 </div>
                 <div
-                  class="ant-space ant-space-horizontal ant-space-align-center"
+                  style="display: flex; align-items: center; gap: 8px;"
                 >
-                  <div
-                    class="ant-space-item"
+                  <button
+                    class="ant-btn ant-btn-primary"
+                    type="button"
                   >
-                    <button
-                      class="ant-btn ant-btn-primary"
-                      type="button"
-                    >
-                      <span>
-                        添 加
-                      </span>
-                    </button>
-                  </div>
+                    <span>
+                      添 加
+                    </span>
+                  </button>
                 </div>
                 <div
                   class="ant-pro-table-list-toolbar-setting-items "
@@ -14706,20 +14668,16 @@ exports[`table demos 📸 renders ./packages/table/src/demos/batchOption.tsx cor
                 style="align-items: center;"
               >
                 <div
-                  class="ant-space ant-space-horizontal ant-space-align-center"
+                  style="display: flex; align-items: center; gap: 8px;"
                 >
-                  <div
-                    class="ant-space-item"
+                  <button
+                    class="ant-btn ant-btn-default"
+                    type="button"
                   >
-                    <button
-                      class="ant-btn ant-btn-default"
-                      type="button"
-                    >
-                      <span>
-                        查看日志
-                      </span>
-                    </button>
-                  </div>
+                    <span>
+                      查看日志
+                    </span>
+                  </button>
                 </div>
               </div>
             </div>
@@ -17821,45 +17779,41 @@ exports[`table demos 📸 renders ./packages/table/src/demos/config-provider.tsx
                 style="align-items: center;"
               >
                 <div
-                  class="qixian-space qixian-space-horizontal qixian-space-align-center"
+                  style="display: flex; align-items: center; gap: 8px;"
                 >
-                  <div
-                    class="qixian-space-item"
+                  <button
+                    class="qixian-btn qixian-btn-primary"
+                    type="button"
                   >
-                    <button
-                      class="qixian-btn qixian-btn-primary"
-                      type="button"
+                    <span
+                      aria-label="plus"
+                      class="anticon anticon-plus"
+                      role="img"
                     >
-                      <span
-                        aria-label="plus"
-                        class="anticon anticon-plus"
-                        role="img"
+                      <svg
+                        aria-hidden="true"
+                        data-icon="plus"
+                        fill="currentColor"
+                        focusable="false"
+                        height="1em"
+                        viewBox="64 64 896 896"
+                        width="1em"
                       >
-                        <svg
-                          aria-hidden="true"
-                          data-icon="plus"
-                          fill="currentColor"
-                          focusable="false"
-                          height="1em"
-                          viewBox="64 64 896 896"
-                          width="1em"
-                        >
-                          <defs>
-                            <style />
-                          </defs>
-                          <path
-                            d="M482 152h60q8 0 8 8v704q0 8-8 8h-60q-8 0-8-8V160q0-8 8-8z"
-                          />
-                          <path
-                            d="M176 474h672q8 0 8 8v60q0 8-8 8H176q-8 0-8-8v-60q0-8 8-8z"
-                          />
-                        </svg>
-                      </span>
-                      <span>
-                        新建
-                      </span>
-                    </button>
-                  </div>
+                        <defs>
+                          <style />
+                        </defs>
+                        <path
+                          d="M482 152h60q8 0 8 8v704q0 8-8 8h-60q-8 0-8-8V160q0-8 8-8z"
+                        />
+                        <path
+                          d="M176 474h672q8 0 8 8v60q0 8-8 8H176q-8 0-8-8v-60q0-8 8-8z"
+                        />
+                      </svg>
+                    </span>
+                    <span>
+                      新建
+                    </span>
+                  </button>
                 </div>
                 <div
                   class="qixian-pro-table-list-toolbar-setting-items "
@@ -22399,45 +22353,41 @@ exports[`table demos 📸 renders ./packages/table/src/demos/crud.tsx correctly 
                     style="align-items: center;"
                   >
                     <div
-                      class="ant-space ant-space-horizontal ant-space-align-center"
+                      style="display: flex; align-items: center; gap: 8px;"
                     >
-                      <div
-                        class="ant-space-item"
+                      <button
+                        class="ant-btn ant-btn-primary"
+                        type="button"
                       >
-                        <button
-                          class="ant-btn ant-btn-primary"
-                          type="button"
+                        <span
+                          aria-label="plus"
+                          class="anticon anticon-plus"
+                          role="img"
                         >
-                          <span
-                            aria-label="plus"
-                            class="anticon anticon-plus"
-                            role="img"
+                          <svg
+                            aria-hidden="true"
+                            data-icon="plus"
+                            fill="currentColor"
+                            focusable="false"
+                            height="1em"
+                            viewBox="64 64 896 896"
+                            width="1em"
                           >
-                            <svg
-                              aria-hidden="true"
-                              data-icon="plus"
-                              fill="currentColor"
-                              focusable="false"
-                              height="1em"
-                              viewBox="64 64 896 896"
-                              width="1em"
-                            >
-                              <defs>
-                                <style />
-                              </defs>
-                              <path
-                                d="M482 152h60q8 0 8 8v704q0 8-8 8h-60q-8 0-8-8V160q0-8 8-8z"
-                              />
-                              <path
-                                d="M176 474h672q8 0 8 8v60q0 8-8 8H176q-8 0-8-8v-60q0-8 8-8z"
-                              />
-                            </svg>
-                          </span>
-                          <span>
-                            新建
-                          </span>
-                        </button>
-                      </div>
+                            <defs>
+                              <style />
+                            </defs>
+                            <path
+                              d="M482 152h60q8 0 8 8v704q0 8-8 8h-60q-8 0-8-8V160q0-8 8-8z"
+                            />
+                            <path
+                              d="M176 474h672q8 0 8 8v60q0 8-8 8H176q-8 0-8-8v-60q0-8 8-8z"
+                            />
+                          </svg>
+                        </span>
+                        <span>
+                          新建
+                        </span>
+                      </button>
                     </div>
                     <div
                       class="ant-pro-table-list-toolbar-setting-items "
@@ -24962,75 +24912,56 @@ exports[`table demos 📸 renders ./packages/table/src/demos/dataSource.tsx corr
                 style="align-items: center;"
               >
                 <div
-                  class="ant-space ant-space-horizontal ant-space-align-center"
+                  style="display: flex; align-items: center; gap: 8px;"
                 >
-                  <div
-                    class="ant-space-item"
-                    style="margin-right: 8px;"
+                  <button
+                    class="ant-btn ant-btn-default ant-btn-dangerous"
+                    type="button"
                   >
-                    <button
-                      class="ant-btn ant-btn-default ant-btn-dangerous"
-                      type="button"
-                    >
-                      <span>
-                        危险按钮
-                      </span>
-                    </button>
-                  </div>
-                  <div
-                    class="ant-space-item"
-                    style="margin-right: 8px;"
+                    <span>
+                      危险按钮
+                    </span>
+                  </button>
+                  <button
+                    class="ant-btn ant-btn-default"
+                    type="button"
                   >
-                    <button
-                      class="ant-btn ant-btn-default"
-                      type="button"
-                    >
-                      <span>
-                        查看日志
-                      </span>
-                    </button>
-                  </div>
-                  <div
-                    class="ant-space-item"
-                    style="margin-right: 8px;"
+                    <span>
+                      查看日志
+                    </span>
+                  </button>
+                  <button
+                    class="ant-btn ant-btn-primary"
+                    type="button"
                   >
-                    <button
-                      class="ant-btn ant-btn-primary"
-                      type="button"
-                    >
-                      <span>
-                        创建应用
-                      </span>
-                    </button>
-                  </div>
-                  <div
-                    class="ant-space-item"
+                    <span>
+                      创建应用
+                    </span>
+                  </button>
+                  <button
+                    class="ant-btn ant-btn-default ant-dropdown-trigger"
+                    type="button"
                   >
-                    <button
-                      class="ant-btn ant-btn-default ant-dropdown-trigger"
-                      type="button"
+                    <span
+                      aria-label="ellipsis"
+                      class="anticon anticon-ellipsis"
+                      role="img"
                     >
-                      <span
-                        aria-label="ellipsis"
-                        class="anticon anticon-ellipsis"
-                        role="img"
+                      <svg
+                        aria-hidden="true"
+                        data-icon="ellipsis"
+                        fill="currentColor"
+                        focusable="false"
+                        height="1em"
+                        viewBox="64 64 896 896"
+                        width="1em"
                       >
-                        <svg
-                          aria-hidden="true"
-                          data-icon="ellipsis"
-                          fill="currentColor"
-                          focusable="false"
-                          height="1em"
-                          viewBox="64 64 896 896"
-                          width="1em"
-                        >
-                          <path
-                            d="M176 511a56 56 0 10112 0 56 56 0 10-112 0zm280 0a56 56 0 10112 0 56 56 0 10-112 0zm280 0a56 56 0 10112 0 56 56 0 10-112 0z"
-                          />
-                        </svg>
-                      </span>
-                    </button>
-                  </div>
+                        <path
+                          d="M176 511a56 56 0 10112 0 56 56 0 10-112 0zm280 0a56 56 0 10112 0 56 56 0 10-112 0zm280 0a56 56 0 10112 0 56 56 0 10-112 0z"
+                        />
+                      </svg>
+                    </span>
+                  </button>
                 </div>
                 <div
                   class="ant-pro-table-list-toolbar-setting-items "
@@ -29793,20 +29724,16 @@ exports[`table demos 📸 renders ./packages/table/src/demos/dynamic-settings.ts
                           style="align-items: center;"
                         >
                           <div
-                            class="ant-space ant-space-horizontal ant-space-align-center"
+                            style="display: flex; align-items: center; gap: 8px;"
                           >
-                            <div
-                              class="ant-space-item"
+                            <button
+                              class="ant-btn ant-btn-primary"
+                              type="button"
                             >
-                              <button
-                                class="ant-btn ant-btn-primary"
-                                type="button"
-                              >
-                                <span>
-                                  刷 新
-                                </span>
-                              </button>
-                            </div>
+                              <span>
+                                刷 新
+                              </span>
+                            </button>
                           </div>
                           <div
                             class="ant-pro-table-list-toolbar-setting-items "
@@ -33246,33 +33173,24 @@ exports[`table demos 📸 renders ./packages/table/src/demos/form.tsx correctly 
                 style="align-items: center;"
               >
                 <div
-                  class="ant-space ant-space-horizontal ant-space-align-center"
+                  style="display: flex; align-items: center; gap: 8px;"
                 >
-                  <div
-                    class="ant-space-item"
-                    style="margin-right: 8px;"
+                  <button
+                    class="ant-btn ant-btn-default"
+                    type="button"
                   >
-                    <button
-                      class="ant-btn ant-btn-default"
-                      type="button"
-                    >
-                      <span>
-                        赋 值
-                      </span>
-                    </button>
-                  </div>
-                  <div
-                    class="ant-space-item"
+                    <span>
+                      赋 值
+                    </span>
+                  </button>
+                  <button
+                    class="ant-btn ant-btn-default"
+                    type="button"
                   >
-                    <button
-                      class="ant-btn ant-btn-default"
-                      type="button"
-                    >
-                      <span>
-                        提 交
-                      </span>
-                    </button>
-                  </div>
+                    <span>
+                      提 交
+                    </span>
+                  </button>
                 </div>
               </div>
             </div>
@@ -33892,45 +33810,41 @@ exports[`table demos 📸 renders ./packages/table/src/demos/intl.tsx correctly 
                 style="align-items: center;"
               >
                 <div
-                  class="ant-space ant-space-horizontal ant-space-align-center"
+                  style="display: flex; align-items: center; gap: 8px;"
                 >
-                  <div
-                    class="ant-space-item"
+                  <button
+                    class="ant-btn ant-btn-primary"
+                    type="button"
                   >
-                    <button
-                      class="ant-btn ant-btn-primary"
-                      type="button"
+                    <span
+                      aria-label="plus"
+                      class="anticon anticon-plus"
+                      role="img"
                     >
-                      <span
-                        aria-label="plus"
-                        class="anticon anticon-plus"
-                        role="img"
+                      <svg
+                        aria-hidden="true"
+                        data-icon="plus"
+                        fill="currentColor"
+                        focusable="false"
+                        height="1em"
+                        viewBox="64 64 896 896"
+                        width="1em"
                       >
-                        <svg
-                          aria-hidden="true"
-                          data-icon="plus"
-                          fill="currentColor"
-                          focusable="false"
-                          height="1em"
-                          viewBox="64 64 896 896"
-                          width="1em"
-                        >
-                          <defs>
-                            <style />
-                          </defs>
-                          <path
-                            d="M482 152h60q8 0 8 8v704q0 8-8 8h-60q-8 0-8-8V160q0-8 8-8z"
-                          />
-                          <path
-                            d="M176 474h672q8 0 8 8v60q0 8-8 8H176q-8 0-8-8v-60q0-8 8-8z"
-                          />
-                        </svg>
-                      </span>
-                      <span>
-                        New
-                      </span>
-                    </button>
-                  </div>
+                        <defs>
+                          <style />
+                        </defs>
+                        <path
+                          d="M482 152h60q8 0 8 8v704q0 8-8 8h-60q-8 0-8-8V160q0-8 8-8z"
+                        />
+                        <path
+                          d="M176 474h672q8 0 8 8v60q0 8-8 8H176q-8 0-8-8v-60q0-8 8-8z"
+                        />
+                      </svg>
+                    </span>
+                    <span>
+                      New
+                    </span>
+                  </button>
                 </div>
                 <div
                   class="ant-pro-table-list-toolbar-setting-items "
@@ -35189,45 +35103,41 @@ exports[`table demos 📸 renders ./packages/table/src/demos/linkage_form.tsx co
                 style="align-items: center;"
               >
                 <div
-                  class="ant-space ant-space-horizontal ant-space-align-center"
+                  style="display: flex; align-items: center; gap: 8px;"
                 >
-                  <div
-                    class="ant-space-item"
+                  <button
+                    class="ant-btn ant-btn-primary"
+                    type="button"
                   >
-                    <button
-                      class="ant-btn ant-btn-primary"
-                      type="button"
+                    <span
+                      aria-label="plus"
+                      class="anticon anticon-plus"
+                      role="img"
                     >
-                      <span
-                        aria-label="plus"
-                        class="anticon anticon-plus"
-                        role="img"
+                      <svg
+                        aria-hidden="true"
+                        data-icon="plus"
+                        fill="currentColor"
+                        focusable="false"
+                        height="1em"
+                        viewBox="64 64 896 896"
+                        width="1em"
                       >
-                        <svg
-                          aria-hidden="true"
-                          data-icon="plus"
-                          fill="currentColor"
-                          focusable="false"
-                          height="1em"
-                          viewBox="64 64 896 896"
-                          width="1em"
-                        >
-                          <defs>
-                            <style />
-                          </defs>
-                          <path
-                            d="M482 152h60q8 0 8 8v704q0 8-8 8h-60q-8 0-8-8V160q0-8 8-8z"
-                          />
-                          <path
-                            d="M176 474h672q8 0 8 8v60q0 8-8 8H176q-8 0-8-8v-60q0-8 8-8z"
-                          />
-                        </svg>
-                      </span>
-                      <span>
-                        新建
-                      </span>
-                    </button>
-                  </div>
+                        <defs>
+                          <style />
+                        </defs>
+                        <path
+                          d="M482 152h60q8 0 8 8v704q0 8-8 8h-60q-8 0-8-8V160q0-8 8-8z"
+                        />
+                        <path
+                          d="M176 474h672q8 0 8 8v60q0 8-8 8H176q-8 0-8-8v-60q0-8 8-8z"
+                        />
+                      </svg>
+                    </span>
+                    <span>
+                      新建
+                    </span>
+                  </button>
                 </div>
                 <div
                   class="ant-pro-table-list-toolbar-setting-items "
@@ -35844,20 +35754,16 @@ exports[`table demos 📸 renders ./packages/table/src/demos/listToolBar.tsx cor
                   </form>
                 </div>
                 <div
-                  class="ant-space ant-space-horizontal ant-space-align-center"
+                  style="display: flex; align-items: center; gap: 8px;"
                 >
-                  <div
-                    class="ant-space-item"
+                  <button
+                    class="ant-btn ant-btn-primary"
+                    type="button"
                   >
-                    <button
-                      class="ant-btn ant-btn-primary"
-                      type="button"
-                    >
-                      <span>
-                        新建应用
-                      </span>
-                    </button>
-                  </div>
+                    <span>
+                      新建应用
+                    </span>
+                  </button>
                 </div>
                 <div
                   class="ant-pro-table-list-toolbar-setting-items "
@@ -36803,65 +36709,51 @@ exports[`table demos 📸 renders ./packages/table/src/demos/no-option.tsx corre
                 style="align-items: center;"
               >
                 <div
-                  class="ant-space ant-space-horizontal ant-space-align-center"
+                  style="display: flex; align-items: center; gap: 8px;"
                 >
-                  <div
-                    class="ant-space-item"
-                    style="margin-right: 8px;"
+                  <button
+                    class="ant-btn ant-btn-default"
+                    type="button"
                   >
-                    <button
-                      class="ant-btn ant-btn-default"
-                      type="button"
-                    >
-                      <span>
-                        查看日志
-                      </span>
-                    </button>
-                  </div>
-                  <div
-                    class="ant-space-item"
-                    style="margin-right: 8px;"
+                    <span>
+                      查看日志
+                    </span>
+                  </button>
+                  <button
+                    class="ant-btn ant-btn-default"
+                    type="button"
                   >
-                    <button
-                      class="ant-btn ant-btn-default"
-                      type="button"
+                    <span>
+                      导出数据
+                    </span>
+                    <span
+                      aria-label="down"
+                      class="anticon anticon-down"
+                      role="img"
                     >
-                      <span>
-                        导出数据
-                      </span>
-                      <span
-                        aria-label="down"
-                        class="anticon anticon-down"
-                        role="img"
+                      <svg
+                        aria-hidden="true"
+                        data-icon="down"
+                        fill="currentColor"
+                        focusable="false"
+                        height="1em"
+                        viewBox="64 64 896 896"
+                        width="1em"
                       >
-                        <svg
-                          aria-hidden="true"
-                          data-icon="down"
-                          fill="currentColor"
-                          focusable="false"
-                          height="1em"
-                          viewBox="64 64 896 896"
-                          width="1em"
-                        >
-                          <path
-                            d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"
-                          />
-                        </svg>
-                      </span>
-                    </button>
-                  </div>
-                  <div
-                    class="ant-space-item"
+                        <path
+                          d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"
+                        />
+                      </svg>
+                    </span>
+                  </button>
+                  <button
+                    class="ant-btn ant-btn-primary"
+                    type="button"
                   >
-                    <button
-                      class="ant-btn ant-btn-primary"
-                      type="button"
-                    >
-                      <span>
-                        创建应用
-                      </span>
-                    </button>
-                  </div>
+                    <span>
+                      创建应用
+                    </span>
+                  </button>
                 </div>
                 <div
                   class="ant-pro-table-list-toolbar-setting-items "
@@ -38091,65 +37983,51 @@ exports[`table demos 📸 renders ./packages/table/src/demos/normal.tsx correctl
                 style="align-items: center;"
               >
                 <div
-                  class="ant-space ant-space-horizontal ant-space-align-center"
+                  style="display: flex; align-items: center; gap: 8px;"
                 >
-                  <div
-                    class="ant-space-item"
-                    style="margin-right: 8px;"
+                  <button
+                    class="ant-btn ant-btn-default"
+                    type="button"
                   >
-                    <button
-                      class="ant-btn ant-btn-default"
-                      type="button"
-                    >
-                      <span>
-                        查看日志
-                      </span>
-                    </button>
-                  </div>
-                  <div
-                    class="ant-space-item"
-                    style="margin-right: 8px;"
+                    <span>
+                      查看日志
+                    </span>
+                  </button>
+                  <button
+                    class="ant-btn ant-btn-default"
+                    type="button"
                   >
-                    <button
-                      class="ant-btn ant-btn-default"
-                      type="button"
+                    <span>
+                      导出数据
+                    </span>
+                    <span
+                      aria-label="down"
+                      class="anticon anticon-down"
+                      role="img"
                     >
-                      <span>
-                        导出数据
-                      </span>
-                      <span
-                        aria-label="down"
-                        class="anticon anticon-down"
-                        role="img"
+                      <svg
+                        aria-hidden="true"
+                        data-icon="down"
+                        fill="currentColor"
+                        focusable="false"
+                        height="1em"
+                        viewBox="64 64 896 896"
+                        width="1em"
                       >
-                        <svg
-                          aria-hidden="true"
-                          data-icon="down"
-                          fill="currentColor"
-                          focusable="false"
-                          height="1em"
-                          viewBox="64 64 896 896"
-                          width="1em"
-                        >
-                          <path
-                            d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"
-                          />
-                        </svg>
-                      </span>
-                    </button>
-                  </div>
-                  <div
-                    class="ant-space-item"
+                        <path
+                          d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"
+                        />
+                      </svg>
+                    </span>
+                  </button>
+                  <button
+                    class="ant-btn ant-btn-primary"
+                    type="button"
                   >
-                    <button
-                      class="ant-btn ant-btn-primary"
-                      type="button"
-                    >
-                      <span>
-                        创建应用
-                      </span>
-                    </button>
-                  </div>
+                    <span>
+                      创建应用
+                    </span>
+                  </button>
                 </div>
                 <div
                   class="ant-pro-table-list-toolbar-setting-items "
@@ -40935,39 +40813,35 @@ exports[`table demos 📸 renders ./packages/table/src/demos/pollinga.tsx correc
                 style="align-items: center;"
               >
                 <div
-                  class="ant-space ant-space-horizontal ant-space-align-center"
+                  style="display: flex; align-items: center; gap: 8px;"
                 >
-                  <div
-                    class="ant-space-item"
+                  <button
+                    class="ant-btn ant-btn-primary"
+                    type="button"
                   >
-                    <button
-                      class="ant-btn ant-btn-primary"
-                      type="button"
+                    <span
+                      aria-label="loading"
+                      class="anticon anticon-loading anticon-spin"
+                      role="img"
                     >
-                      <span
-                        aria-label="loading"
-                        class="anticon anticon-loading anticon-spin"
-                        role="img"
+                      <svg
+                        aria-hidden="true"
+                        data-icon="loading"
+                        fill="currentColor"
+                        focusable="false"
+                        height="1em"
+                        viewBox="0 0 1024 1024"
+                        width="1em"
                       >
-                        <svg
-                          aria-hidden="true"
-                          data-icon="loading"
-                          fill="currentColor"
-                          focusable="false"
-                          height="1em"
-                          viewBox="0 0 1024 1024"
-                          width="1em"
-                        >
-                          <path
-                            d="M988 548c-19.9 0-36-16.1-36-36 0-59.4-11.6-117-34.6-171.3a440.45 440.45 0 00-94.3-139.9 437.71 437.71 0 00-139.9-94.3C629 83.6 571.4 72 512 72c-19.9 0-36-16.1-36-36s16.1-36 36-36c69.1 0 136.2 13.5 199.3 40.3C772.3 66 827 103 874 150c47 47 83.9 101.8 109.7 162.7 26.7 63.1 40.2 130.2 40.2 199.3.1 19.9-16 36-35.9 36z"
-                          />
-                        </svg>
-                      </span>
-                      <span>
-                        停止轮询
-                      </span>
-                    </button>
-                  </div>
+                        <path
+                          d="M988 548c-19.9 0-36-16.1-36-36 0-59.4-11.6-117-34.6-171.3a440.45 440.45 0 00-94.3-139.9 437.71 437.71 0 00-139.9-94.3C629 83.6 571.4 72 512 72c-19.9 0-36-16.1-36-36s16.1-36 36-36c69.1 0 136.2 13.5 199.3 40.3C772.3 66 827 103 874 150c47 47 83.9 101.8 109.7 162.7 26.7 63.1 40.2 130.2 40.2 199.3.1 19.9-16 36-35.9 36z"
+                        />
+                      </svg>
+                    </span>
+                    <span>
+                      停止轮询
+                    </span>
+                  </button>
                 </div>
                 <div
                   class="ant-pro-table-list-toolbar-setting-items "
@@ -42567,45 +42441,41 @@ exports[`table demos 📸 renders ./packages/table/src/demos/rtl_table.tsx corre
                 style="align-items: center;"
               >
                 <div
-                  class="ant-space ant-space-horizontal ant-space-rtl ant-space-align-center"
+                  style="display: flex; align-items: center; gap: 8px;"
                 >
-                  <div
-                    class="ant-space-item"
+                  <button
+                    class="ant-btn ant-btn-primary ant-btn-rtl"
+                    type="button"
                   >
-                    <button
-                      class="ant-btn ant-btn-primary ant-btn-rtl"
-                      type="button"
+                    <span
+                      aria-label="plus"
+                      class="anticon anticon-plus"
+                      role="img"
                     >
-                      <span
-                        aria-label="plus"
-                        class="anticon anticon-plus"
-                        role="img"
+                      <svg
+                        aria-hidden="true"
+                        data-icon="plus"
+                        fill="currentColor"
+                        focusable="false"
+                        height="1em"
+                        viewBox="64 64 896 896"
+                        width="1em"
                       >
-                        <svg
-                          aria-hidden="true"
-                          data-icon="plus"
-                          fill="currentColor"
-                          focusable="false"
-                          height="1em"
-                          viewBox="64 64 896 896"
-                          width="1em"
-                        >
-                          <defs>
-                            <style />
-                          </defs>
-                          <path
-                            d="M482 152h60q8 0 8 8v704q0 8-8 8h-60q-8 0-8-8V160q0-8 8-8z"
-                          />
-                          <path
-                            d="M176 474h672q8 0 8 8v60q0 8-8 8H176q-8 0-8-8v-60q0-8 8-8z"
-                          />
-                        </svg>
-                      </span>
-                      <span>
-                        جديد
-                      </span>
-                    </button>
-                  </div>
+                        <defs>
+                          <style />
+                        </defs>
+                        <path
+                          d="M482 152h60q8 0 8 8v704q0 8-8 8h-60q-8 0-8-8V160q0-8 8-8z"
+                        />
+                        <path
+                          d="M176 474h672q8 0 8 8v60q0 8-8 8H176q-8 0-8-8v-60q0-8 8-8z"
+                        />
+                      </svg>
+                    </span>
+                    <span>
+                      جديد
+                    </span>
+                  </button>
                 </div>
                 <div
                   class="ant-pro-table-list-toolbar-setting-items "
@@ -44480,45 +44350,41 @@ exports[`table demos 📸 renders ./packages/table/src/demos/search_option.tsx c
                 style="align-items: center;"
               >
                 <div
-                  class="ant-space ant-space-horizontal ant-space-align-center"
+                  style="display: flex; align-items: center; gap: 8px;"
                 >
-                  <div
-                    class="ant-space-item"
+                  <button
+                    class="ant-btn ant-btn-primary"
+                    type="button"
                   >
-                    <button
-                      class="ant-btn ant-btn-primary"
-                      type="button"
+                    <span
+                      aria-label="plus"
+                      class="anticon anticon-plus"
+                      role="img"
                     >
-                      <span
-                        aria-label="plus"
-                        class="anticon anticon-plus"
-                        role="img"
+                      <svg
+                        aria-hidden="true"
+                        data-icon="plus"
+                        fill="currentColor"
+                        focusable="false"
+                        height="1em"
+                        viewBox="64 64 896 896"
+                        width="1em"
                       >
-                        <svg
-                          aria-hidden="true"
-                          data-icon="plus"
-                          fill="currentColor"
-                          focusable="false"
-                          height="1em"
-                          viewBox="64 64 896 896"
-                          width="1em"
-                        >
-                          <defs>
-                            <style />
-                          </defs>
-                          <path
-                            d="M482 152h60q8 0 8 8v704q0 8-8 8h-60q-8 0-8-8V160q0-8 8-8z"
-                          />
-                          <path
-                            d="M176 474h672q8 0 8 8v60q0 8-8 8H176q-8 0-8-8v-60q0-8 8-8z"
-                          />
-                        </svg>
-                      </span>
-                      <span>
-                        新建
-                      </span>
-                    </button>
-                  </div>
+                        <defs>
+                          <style />
+                        </defs>
+                        <path
+                          d="M482 152h60q8 0 8 8v704q0 8-8 8h-60q-8 0-8-8V160q0-8 8-8z"
+                        />
+                        <path
+                          d="M176 474h672q8 0 8 8v60q0 8-8 8H176q-8 0-8-8v-60q0-8 8-8z"
+                        />
+                      </svg>
+                    </span>
+                    <span>
+                      新建
+                    </span>
+                  </button>
                 </div>
                 <div
                   class="ant-pro-table-list-toolbar-setting-items "
@@ -45249,74 +45115,65 @@ exports[`table demos 📸 renders ./packages/table/src/demos/single.tsx correctl
                 style="align-items: center;"
               >
                 <div
-                  class="ant-space ant-space-horizontal ant-space-align-center"
+                  style="display: flex; align-items: center; gap: 8px;"
                 >
-                  <div
-                    class="ant-space-item"
-                    style="margin-right: 8px;"
+                  <button
+                    class="ant-btn ant-btn-primary"
+                    type="button"
                   >
-                    <button
-                      class="ant-btn ant-btn-primary"
-                      type="button"
+                    <span
+                      aria-label="plus"
+                      class="anticon anticon-plus"
+                      role="img"
                     >
-                      <span
-                        aria-label="plus"
-                        class="anticon anticon-plus"
-                        role="img"
+                      <svg
+                        aria-hidden="true"
+                        data-icon="plus"
+                        fill="currentColor"
+                        focusable="false"
+                        height="1em"
+                        viewBox="64 64 896 896"
+                        width="1em"
                       >
-                        <svg
-                          aria-hidden="true"
-                          data-icon="plus"
-                          fill="currentColor"
-                          focusable="false"
-                          height="1em"
-                          viewBox="64 64 896 896"
-                          width="1em"
-                        >
-                          <defs>
-                            <style />
-                          </defs>
-                          <path
-                            d="M482 152h60q8 0 8 8v704q0 8-8 8h-60q-8 0-8-8V160q0-8 8-8z"
-                          />
-                          <path
-                            d="M176 474h672q8 0 8 8v60q0 8-8 8H176q-8 0-8-8v-60q0-8 8-8z"
-                          />
-                        </svg>
-                      </span>
-                      <span>
-                        新建
-                      </span>
-                    </button>
-                  </div>
-                  <div
-                    class="ant-space-item"
+                        <defs>
+                          <style />
+                        </defs>
+                        <path
+                          d="M482 152h60q8 0 8 8v704q0 8-8 8h-60q-8 0-8-8V160q0-8 8-8z"
+                        />
+                        <path
+                          d="M176 474h672q8 0 8 8v60q0 8-8 8H176q-8 0-8-8v-60q0-8 8-8z"
+                        />
+                      </svg>
+                    </span>
+                    <span>
+                      新建
+                    </span>
+                  </button>
+                  <button
+                    class="ant-btn ant-btn-default ant-dropdown-trigger"
+                    type="button"
                   >
-                    <button
-                      class="ant-btn ant-btn-default ant-dropdown-trigger"
-                      type="button"
+                    <span
+                      aria-label="ellipsis"
+                      class="anticon anticon-ellipsis"
+                      role="img"
                     >
-                      <span
-                        aria-label="ellipsis"
-                        class="anticon anticon-ellipsis"
-                        role="img"
+                      <svg
+                        aria-hidden="true"
+                        data-icon="ellipsis"
+                        fill="currentColor"
+                        focusable="false"
+                        height="1em"
+                        viewBox="64 64 896 896"
+                        width="1em"
                       >
-                        <svg
-                          aria-hidden="true"
-                          data-icon="ellipsis"
-                          fill="currentColor"
-                          focusable="false"
-                          height="1em"
-                          viewBox="64 64 896 896"
-                          width="1em"
-                        >
-                          <path
-                            d="M176 511a56 56 0 10112 0 56 56 0 10-112 0zm280 0a56 56 0 10112 0 56 56 0 10-112 0zm280 0a56 56 0 10112 0 56 56 0 10-112 0z"
-                          />
-                        </svg>
-                      </span>
-                    </button>
-                  </div>
+                        <path
+                          d="M176 511a56 56 0 10112 0 56 56 0 10-112 0zm280 0a56 56 0 10112 0 56 56 0 10-112 0zm280 0a56 56 0 10112 0 56 56 0 10-112 0z"
+                        />
+                      </svg>
+                    </span>
+                  </button>
                 </div>
                 <div
                   class="ant-pro-table-list-toolbar-setting-items "
@@ -48129,45 +47986,41 @@ exports[`table demos 📸 renders ./packages/table/src/demos/single-test.tsx cor
                 style="align-items: center;"
               >
                 <div
-                  class="ant-space ant-space-horizontal ant-space-align-center"
+                  style="display: flex; align-items: center; gap: 8px;"
                 >
-                  <div
-                    class="ant-space-item"
+                  <button
+                    class="ant-btn ant-btn-primary"
+                    type="button"
                   >
-                    <button
-                      class="ant-btn ant-btn-primary"
-                      type="button"
+                    <span
+                      aria-label="plus"
+                      class="anticon anticon-plus"
+                      role="img"
                     >
-                      <span
-                        aria-label="plus"
-                        class="anticon anticon-plus"
-                        role="img"
+                      <svg
+                        aria-hidden="true"
+                        data-icon="plus"
+                        fill="currentColor"
+                        focusable="false"
+                        height="1em"
+                        viewBox="64 64 896 896"
+                        width="1em"
                       >
-                        <svg
-                          aria-hidden="true"
-                          data-icon="plus"
-                          fill="currentColor"
-                          focusable="false"
-                          height="1em"
-                          viewBox="64 64 896 896"
-                          width="1em"
-                        >
-                          <defs>
-                            <style />
-                          </defs>
-                          <path
-                            d="M482 152h60q8 0 8 8v704q0 8-8 8h-60q-8 0-8-8V160q0-8 8-8z"
-                          />
-                          <path
-                            d="M176 474h672q8 0 8 8v60q0 8-8 8H176q-8 0-8-8v-60q0-8 8-8z"
-                          />
-                        </svg>
-                      </span>
-                      <span>
-                        新建
-                      </span>
-                    </button>
-                  </div>
+                        <defs>
+                          <style />
+                        </defs>
+                        <path
+                          d="M482 152h60q8 0 8 8v704q0 8-8 8h-60q-8 0-8-8V160q0-8 8-8z"
+                        />
+                        <path
+                          d="M176 474h672q8 0 8 8v60q0 8-8 8H176q-8 0-8-8v-60q0-8 8-8z"
+                        />
+                      </svg>
+                    </span>
+                    <span>
+                      新建
+                    </span>
+                  </button>
                 </div>
                 <div
                   class="ant-pro-table-list-toolbar-setting-items "
@@ -49593,20 +49446,16 @@ exports[`table demos 📸 renders ./packages/table/src/demos/split.tsx correctly
                           style="align-items: center;"
                         >
                           <div
-                            class="ant-space ant-space-horizontal ant-space-align-center"
+                            style="display: flex; align-items: center; gap: 8px;"
                           >
-                            <div
-                              class="ant-space-item"
+                            <button
+                              class="ant-btn ant-btn-primary"
+                              type="button"
                             >
-                              <button
-                                class="ant-btn ant-btn-primary"
-                                type="button"
-                              >
-                                <span>
-                                  新建项目
-                                </span>
-                              </button>
-                            </div>
+                              <span>
+                                新建项目
+                              </span>
+                            </button>
                           </div>
                         </div>
                       </div>
@@ -50477,65 +50326,51 @@ exports[`table demos 📸 renders ./packages/table/src/demos/table-nested.tsx co
                 style="align-items: center;"
               >
                 <div
-                  class="ant-space ant-space-horizontal ant-space-align-center"
+                  style="display: flex; align-items: center; gap: 8px;"
                 >
-                  <div
-                    class="ant-space-item"
-                    style="margin-right: 8px;"
+                  <button
+                    class="ant-btn ant-btn-default"
+                    type="button"
                   >
-                    <button
-                      class="ant-btn ant-btn-default"
-                      type="button"
-                    >
-                      <span>
-                        查看日志
-                      </span>
-                    </button>
-                  </div>
-                  <div
-                    class="ant-space-item"
-                    style="margin-right: 8px;"
+                    <span>
+                      查看日志
+                    </span>
+                  </button>
+                  <button
+                    class="ant-btn ant-btn-default"
+                    type="button"
                   >
-                    <button
-                      class="ant-btn ant-btn-default"
-                      type="button"
+                    <span>
+                      导出数据
+                    </span>
+                    <span
+                      aria-label="down"
+                      class="anticon anticon-down"
+                      role="img"
                     >
-                      <span>
-                        导出数据
-                      </span>
-                      <span
-                        aria-label="down"
-                        class="anticon anticon-down"
-                        role="img"
+                      <svg
+                        aria-hidden="true"
+                        data-icon="down"
+                        fill="currentColor"
+                        focusable="false"
+                        height="1em"
+                        viewBox="64 64 896 896"
+                        width="1em"
                       >
-                        <svg
-                          aria-hidden="true"
-                          data-icon="down"
-                          fill="currentColor"
-                          focusable="false"
-                          height="1em"
-                          viewBox="64 64 896 896"
-                          width="1em"
-                        >
-                          <path
-                            d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"
-                          />
-                        </svg>
-                      </span>
-                    </button>
-                  </div>
-                  <div
-                    class="ant-space-item"
+                        <path
+                          d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"
+                        />
+                      </svg>
+                    </span>
+                  </button>
+                  <button
+                    class="ant-btn ant-btn-primary"
+                    type="button"
                   >
-                    <button
-                      class="ant-btn ant-btn-primary"
-                      type="button"
-                    >
-                      <span>
-                        创建应用
-                      </span>
-                    </button>
-                  </div>
+                    <span>
+                      创建应用
+                    </span>
+                  </button>
                 </div>
               </div>
             </div>
@@ -51447,74 +51282,65 @@ exports[`table demos 📸 renders ./packages/table/src/demos/theme.tsx correctly
                 style="align-items: center;"
               >
                 <div
-                  class="ant-space ant-space-horizontal ant-space-align-center"
+                  style="display: flex; align-items: center; gap: 8px;"
                 >
-                  <div
-                    class="ant-space-item"
-                    style="margin-right: 8px;"
+                  <button
+                    class="ant-btn ant-btn-primary"
+                    type="button"
                   >
-                    <button
-                      class="ant-btn ant-btn-primary"
-                      type="button"
+                    <span
+                      aria-label="plus"
+                      class="anticon anticon-plus"
+                      role="img"
                     >
-                      <span
-                        aria-label="plus"
-                        class="anticon anticon-plus"
-                        role="img"
+                      <svg
+                        aria-hidden="true"
+                        data-icon="plus"
+                        fill="currentColor"
+                        focusable="false"
+                        height="1em"
+                        viewBox="64 64 896 896"
+                        width="1em"
                       >
-                        <svg
-                          aria-hidden="true"
-                          data-icon="plus"
-                          fill="currentColor"
-                          focusable="false"
-                          height="1em"
-                          viewBox="64 64 896 896"
-                          width="1em"
-                        >
-                          <defs>
-                            <style />
-                          </defs>
-                          <path
-                            d="M482 152h60q8 0 8 8v704q0 8-8 8h-60q-8 0-8-8V160q0-8 8-8z"
-                          />
-                          <path
-                            d="M176 474h672q8 0 8 8v60q0 8-8 8H176q-8 0-8-8v-60q0-8 8-8z"
-                          />
-                        </svg>
-                      </span>
-                      <span>
-                        新建
-                      </span>
-                    </button>
-                  </div>
-                  <div
-                    class="ant-space-item"
+                        <defs>
+                          <style />
+                        </defs>
+                        <path
+                          d="M482 152h60q8 0 8 8v704q0 8-8 8h-60q-8 0-8-8V160q0-8 8-8z"
+                        />
+                        <path
+                          d="M176 474h672q8 0 8 8v60q0 8-8 8H176q-8 0-8-8v-60q0-8 8-8z"
+                        />
+                      </svg>
+                    </span>
+                    <span>
+                      新建
+                    </span>
+                  </button>
+                  <button
+                    class="ant-btn ant-btn-default ant-dropdown-trigger"
+                    type="button"
                   >
-                    <button
-                      class="ant-btn ant-btn-default ant-dropdown-trigger"
-                      type="button"
+                    <span
+                      aria-label="ellipsis"
+                      class="anticon anticon-ellipsis"
+                      role="img"
                     >
-                      <span
-                        aria-label="ellipsis"
-                        class="anticon anticon-ellipsis"
-                        role="img"
+                      <svg
+                        aria-hidden="true"
+                        data-icon="ellipsis"
+                        fill="currentColor"
+                        focusable="false"
+                        height="1em"
+                        viewBox="64 64 896 896"
+                        width="1em"
                       >
-                        <svg
-                          aria-hidden="true"
-                          data-icon="ellipsis"
-                          fill="currentColor"
-                          focusable="false"
-                          height="1em"
-                          viewBox="64 64 896 896"
-                          width="1em"
-                        >
-                          <path
-                            d="M176 511a56 56 0 10112 0 56 56 0 10-112 0zm280 0a56 56 0 10112 0 56 56 0 10-112 0zm280 0a56 56 0 10112 0 56 56 0 10-112 0z"
-                          />
-                        </svg>
-                      </span>
-                    </button>
-                  </div>
+                        <path
+                          d="M176 511a56 56 0 10112 0 56 56 0 10-112 0zm280 0a56 56 0 10112 0 56 56 0 10-112 0zm280 0a56 56 0 10112 0 56 56 0 10-112 0z"
+                        />
+                      </svg>
+                    </span>
+                  </button>
                 </div>
                 <div
                   class="ant-pro-table-list-toolbar-setting-items "
