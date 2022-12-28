@@ -6983,7 +6983,7 @@ exports[`card demos 📸 renders ./packages/card/src/demos/actions.tsx correctly
       style="margin-right: 8px;"
     >
       <div
-        class="ant-pro-card"
+        class="ant-pro-card ant-pro-card-border"
         style="max-width: 300px;"
       >
         <div
@@ -7091,7 +7091,7 @@ exports[`card demos 📸 renders ./packages/card/src/demos/actions.tsx correctly
       style="margin-right: 8px;"
     >
       <div
-        class="ant-pro-card"
+        class="ant-pro-card ant-pro-card-border"
         style="max-width: 300px;"
       >
         <div
@@ -7150,7 +7150,7 @@ exports[`card demos 📸 renders ./packages/card/src/demos/actions.tsx correctly
       class="ant-space-item"
     >
       <div
-        class="ant-pro-card"
+        class="ant-pro-card ant-pro-card-border"
         style="max-width: 300px;"
       >
         <div
