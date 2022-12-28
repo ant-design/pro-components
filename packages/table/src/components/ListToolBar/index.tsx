@@ -31,7 +31,10 @@ export type ListToolBarTabs = {
 
 export type ListToolBarMenu = ListToolBarHeaderMenuProps;
 
-type SearchPropType = SearchProps | React.ReactNode | boolean;
+type SearchPropType =
+  | (SearchProps & { onSearch: (searchValue: string) => Promise<false | void> })
+  | React.ReactNode
+  | boolean;
 type SettingPropType = React.ReactNode | ListToolBarSetting;
 
 export type ListToolBarProps = {
@@ -45,9 +48,7 @@ export type ListToolBarProps = {
   /** 标题提示 */
   tooltip?: string | LabelTooltipType;
   /** 搜索输入栏相关配置 */
-  search?: SearchPropType & {
-    onSearch: (searchValue: string) => Promise<false | void>;
-  };
+  search?: SearchPropType;
   /** 搜索回调 */
   onSearch?: (keyWords: string) => void;
   /** 工具栏右侧操作区 */
@@ -177,7 +178,7 @@ const ListToolBar: React.FC<ListToolBarProps> = ({
         placeholder={placeholder}
         {...(search as SearchProps)}
         onSearch={async (...restParams) => {
-          const success = await search.onSearch?.(...restParams);
+          const success = await (search as any).onSearch?.(...restParams);
           if (success !== false) {
             onSearch?.(restParams?.[0]);
           }

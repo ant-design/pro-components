@@ -137,7 +137,7 @@ const useFetchData = <T extends RequestData<any>>(
             }
           : undefined;
 
-      const { data = [], success, total = 0, ...rest } = (await getData(pageParams)) || {};
+      const { data = [], success, total = 0, ...rest } = (await getData?.(pageParams)) || {};
       // 如果失败了，直接返回，不走剩下的逻辑了
       if (success === false) return [];
 
