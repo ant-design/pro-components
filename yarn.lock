@@ -5554,9 +5554,9 @@ aws-lambda@^1.0.7:
     watchpack "^2.0.0-beta.10"
 
 aws-sdk@^2.814.0:
-  version "2.1283.0"
-  resolved "https://registry.npmmirror.com/aws-sdk/-/aws-sdk-2.1283.0.tgz#87dafacd3e4c9dd89f5de0bce43cafb50fd5c9e4"
-  integrity sha512-YlxTF0T9X8AcNrOzFPVOPnX1jNtHZjYHRUCfpsVwqdajHDGGruVsVppgBYXEiCRuTQNUhcJTUx0J0uKBhKQZIA==
+  version "2.1284.0"
+  resolved "https://registry.npmmirror.com/aws-sdk/-/aws-sdk-2.1284.0.tgz#1c8ae3d80ce3ff419cb5397e53a53d667ade981c"
+  integrity sha512-B9NllAw1kMMPUHpSs4OcUm0xK1el0tNU2qmIVHtRPRbOFT8cQfxy4HF8s2m0ddvMF1ma4tdzB5uNUNcu3c81ag==
   dependencies:
     buffer "4.9.2"
     events "1.1.1"
