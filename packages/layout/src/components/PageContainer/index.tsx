@@ -7,7 +7,7 @@ import type { ReactNode } from 'react';
 import React, { useContext, useEffect, useMemo } from 'react';
 import { RouteContext } from '../../context/RouteContext';
 import type { WithFalse } from '../../typing';
-import { FooterToolbar } from '../FooterToolbar';
+import { FooterToolbar, FooterToolbarProps } from '../FooterToolbar';
 import { GridContent } from '../GridContent';
 import type { PageHeaderProps } from '../PageHeader';
 import { PageHeader } from '../PageHeader';
@@ -98,6 +98,7 @@ export type PageContainerProps = {
 
   stylish?: GenerateStyle<PageContainerToken>;
   footerStylish?: GenerateStyle<PageContainerToken>;
+  footerToolBarProps?: FooterToolbarProps;
 } & PageHeaderTabConfig &
   Omit<PageHeaderProps, 'title' | 'footer' | 'breadcrumbRender' | 'breadcrumb'>;
 
@@ -296,6 +297,7 @@ const PageContainerBase: React.FC<PageContainerProps> = (props) => {
     token: propsToken,
     fixedHeader,
     breadcrumbRender,
+    footerToolBarProps,
     childrenContentStyle,
     ...restProps
   } = props;
@@ -406,7 +408,11 @@ const PageContainerBase: React.FC<PageContainerProps> = (props) => {
           {renderContentDom && <GridContent>{renderContentDom}</GridContent>}
         </div>
         {footer && (
-          <FooterToolbar stylish={restProps.footerStylish} prefixCls={prefixCls}>
+          <FooterToolbar
+            stylish={restProps.footerStylish}
+            prefixCls={prefixCls}
+            {...footerToolBarProps}
+          >
             {footer}
           </FooterToolbar>
         )}
