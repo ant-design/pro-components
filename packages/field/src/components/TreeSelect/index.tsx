@@ -52,7 +52,7 @@ const FieldTreeSelect: ProFieldFC<GroupProps> = (
     defaultKeyWords: propsSearchValue,
   });
 
-  const [searchValue, setSearchValue] = useMergedState('', {
+  const [searchValue, setSearchValue] = useMergedState(undefined, {
     onChange: onSearch,
     value: propsSearchValue,
   });
@@ -97,8 +97,8 @@ const FieldTreeSelect: ProFieldFC<GroupProps> = (
   const onChange: TreeSelectProps<any>['onChange'] = (value, optionList, extra) => {
     // 将搜索框置空 和 antd 行为保持一致
     if (showSearch && autoClearSearchValue) {
-      fetchData('');
-      setSearchValue('');
+      fetchData(undefined);
+      setSearchValue(undefined);
     }
     propsOnChange?.(value, optionList, extra);
   };
@@ -151,9 +151,9 @@ const FieldTreeSelect: ProFieldFC<GroupProps> = (
           autoClearSearchValue={autoClearSearchValue}
           onClear={() => {
             onClear?.();
-            fetchData('');
+            fetchData(undefined);
             if (showSearch) {
-              setSearchValue('');
+              setSearchValue(undefined);
             }
           }}
           onChange={onChange}
@@ -162,8 +162,8 @@ const FieldTreeSelect: ProFieldFC<GroupProps> = (
             setSearchValue(value);
           }}
           onBlur={(event) => {
-            setSearchValue('');
-            fetchData('');
+            setSearchValue(undefined);
+            fetchData(undefined);
             onBlur?.(event);
           }}
           className={classNames(fieldProps?.className, layoutClassName)}

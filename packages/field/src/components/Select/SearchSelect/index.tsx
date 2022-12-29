@@ -206,7 +206,7 @@ const SearchSelect = <T,>(props: SearchSelectProps<T[]>, ref: any) => {
         onClear?.();
         fetchData('');
         if (showSearch) {
-          setSearchValue('');
+          setSearchValue(undefined);
         }
       }}
       {...restProps}
@@ -226,7 +226,7 @@ const SearchSelect = <T,>(props: SearchSelectProps<T[]>, ref: any) => {
         if (showSearch && autoClearSearchValue) {
           if (!searchValue) fetchData('');
           onSearch?.('');
-          setSearchValue('');
+          setSearchValue(undefined);
         }
 
         if (!props.labelInValue) {

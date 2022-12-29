@@ -40,11 +40,18 @@ const useFetchData = <T extends RequestData<any>>(
 
   /** 轮询的setTime ID 存储 */
   const pollingSetTimeRef = useRef<any>();
-  const [list, setList] = useMountMergeState<any[] | undefined>(defaultData, {
+
+  /**
+   * 用于存储最新的数据，这样可以在切换的时候保持数据的一致性
+   */
+  const [tableDataList, setTableDataList] = useMountMergeState<any[] | undefined>(defaultData, {
     value: options?.dataSource,
     onChange: options?.onDataSourceChange,
   });
 
+  /**
+   * 表格的加载状态
+   */
   const [tableLoading, setTableLoading] = useMountMergeState<UseFetchDataAction['loading']>(false, {
     value: options?.loading,
     onChange: options?.onLoadingChange,
@@ -72,7 +79,7 @@ const useFetchData = <T extends RequestData<any>>(
 
   // Batching update  https://github.com/facebook/react/issues/14259
   const setDataAndLoading = (newData: T[], dataTotal: number) => {
-    setList(newData);
+    setTableDataList(newData);
 
     if (pageInfo?.total !== dataTotal) {
       setPageInfo({
@@ -104,14 +111,10 @@ const useFetchData = <T extends RequestData<any>>(
   });
   /** 请求数据 */
   const fetchList = async (isPolling: boolean) => {
-    if ((tableLoading && typeof tableLoading === 'boolean') || requesting.current || !getData) {
-      return [];
-    }
-
     // 需要手动触发的首次请求
     if (manualRequestRef.current) {
       manualRequestRef.current = false;
-      return [];
+      return;
     }
     if (!isPolling) {
       if (typeof tableLoading === 'object') {
@@ -142,13 +145,14 @@ const useFetchData = <T extends RequestData<any>>(
         data!,
         [options.postData].filter((item) => item) as any,
       );
+      // 设置表格数据
       setDataAndLoading(responseData, total);
       onLoad?.(responseData, rest);
       return responseData;
     } catch (e) {
       // 如果没有传递这个方法的话，需要把错误抛出去，以免吞掉错误
       if (onRequestError === undefined) throw new Error(e as string);
-      if (list === undefined) setList([]);
+      if (tableDataList === undefined) setTableDataList([]);
       onRequestError(e as Error);
     } finally {
       requesting.current = false;
@@ -162,6 +166,11 @@ const useFetchData = <T extends RequestData<any>>(
     if (pollingSetTimeRef.current) {
       clearTimeout(pollingSetTimeRef.current);
     }
+
+    if ((tableLoading && typeof tableLoading === 'boolean') || requesting.current || !getData) {
+      return;
+    }
+
     const msg = await fetchList(isPolling);
 
     // 把判断要不要轮询的逻辑放到后面来这样可以保证数据是根据当前来
@@ -177,7 +186,7 @@ const useFetchData = <T extends RequestData<any>>(
       }, Math.max(needPolling, 2000));
     }
     return msg;
-  }, debounceTime || 10);
+  }, debounceTime || 30);
 
   // 如果轮询结束了，直接销毁定时器
   useEffect(() => {
@@ -210,7 +219,7 @@ const useFetchData = <T extends RequestData<any>>(
       return;
     }
 
-    if ((options.pageInfo && list && list?.length > pageSize) || 0) {
+    if ((options.pageInfo && tableDataList && tableDataList?.length > pageSize) || 0) {
       return;
     }
 
@@ -219,7 +228,7 @@ const useFetchData = <T extends RequestData<any>>(
     // (pageIndex - 1 || 1) 至少要第一页
     // 在第一页大于 10
     // 第二页也应该是大于 10
-    if (current !== undefined && list && list.length <= pageSize) {
+    if (current !== undefined && tableDataList && tableDataList.length <= pageSize) {
       fetchListDebounce.run(false);
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -245,11 +254,11 @@ const useFetchData = <T extends RequestData<any>>(
   }, [...effects, manual]);
 
   return {
-    dataSource: list!,
-    setDataSource: setList,
+    dataSource: tableDataList!,
+    setDataSource: setTableDataList,
     loading: tableLoading,
     reload: async () => {
-      await fetchListDebounce.run(false);
+      return fetchListDebounce.run(false);
     },
     pageInfo,
     pollingLoading,

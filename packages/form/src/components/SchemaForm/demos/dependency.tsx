@@ -1,4 +1,5 @@
-﻿import { ProForm, ProFormColumnsType } from '@ant-design/pro-components';
+﻿import type { ProFormColumnsType } from '@ant-design/pro-components';
+import { ProForm } from '@ant-design/pro-components';
 import { BetaSchemaForm } from '@ant-design/pro-components';
 
 const valueEnum = {
