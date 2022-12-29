@@ -32,7 +32,7 @@ export type ListToolBarTabs = {
 export type ListToolBarMenu = ListToolBarHeaderMenuProps;
 
 type SearchPropType =
-  | (SearchProps & { onSearch: (searchValue: string) => Promise<false | void> })
+  | (SearchProps & { onSearch: (searchValue: string) => Promise<false | void> | false | void })
   | React.ReactNode
   | boolean;
 type SettingPropType = React.ReactNode | ListToolBarSetting;
