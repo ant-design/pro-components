@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.3.1](https://github.com/ant-design/pro-components/compare/@ant-design/pro-provider@2.3.0...@ant-design/pro-provider@2.3.1) (2022-12-29)
+
+### Bug Fixes
+
+- **provide:** fix configProvide no work error ([f162607](https://github.com/ant-design/pro-components/commit/f162607416c3f9342711e6bd59f37dcd9523e2b8))
+
 # [2.3.0](https://github.com/ant-design/pro-components/compare/@ant-design/pro-provider@2.2.0...@ant-design/pro-provider@2.3.0) (2022-12-29)
 
 ### Bug Fixes
