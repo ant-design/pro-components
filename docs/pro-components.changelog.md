@@ -8,6 +8,25 @@ group:
   path: /
 ---
 
+## @ant-design/pro-components@2.3.48
+
+`2022-12-29`
+
+- feat(layout): Layout 新增 跨站点导航 分组形式 (#6431). [#6431](https://github.com/ant-design/pro-components/pull/#6431) [@chengaway](https://github.com/chengaway)
+- fix(layout): 修复 extraContent 在 md 尺寸不位于 content 右侧的 bug (#6389). [#6389](https://github.com/ant-design/pro-components/pull/#6389) [@edram](https://github.com/edram)
+- feat(layout): sider token 增加 colorBgElevated (#6384). [#6384](https://github.com/ant-design/pro-components/pull/#6384) [@sushi-su](https://github.com/sushi-su)
+- fix(form): treeSelect do not default reset to empty string. [387d2d7](https://github.com/ant-design/pro-components/commit/387d2d7)
+- fix(form): do not remove collapsed dom. [769177f](https://github.com/ant-design/pro-components/commit/769177f)
+- fix(form): `ProFormList` style does not work (#6398). [#6398](https://github.com/ant-design/pro-components/pull/#6398) [@kungege](https://github.com/kungege)
+- fix(form): 优化 checkbox 在 hashPriority=high 不生效问题 (#6400). [#6400](https://github.com/ant-design/pro-components/pull/#6400) [@leshalv](https://github.com/leshalv)
+- fix(list): fix card list style error (#6436). [#6436](https://github.com/ant-design/pro-components/pull/#6436) [@chenshuai2144](https://github.com/chenshuai2144)
+- fix(table): no render onSearch will SearchProps has onSearch. [a1383e2](https://github.com/ant-design/pro-components/commit/a1383e2)
+- fix(table): use flex replace Space (#6426). [#6426](https://github.com/ant-design/pro-components/pull/#6426) [@chenshuai2144](https://github.com/chenshuai2144)
+- fix(table): fix childrenColumnName is null error. [0fb584c](https://github.com/ant-design/pro-components/commit/0fb584c)
+- fix(table): 轻量筛选替换查询表单，将 padding 调为 8px 更为统一美观 (#6423). [#6423](https://github.com/ant-design/pro-components/pull/#6423) [@hihuangwei](https://github.com/hihuangwei)
+- fix(card): slove nested table background color was cover by pro-card (#6410). [#6410](https://github.com/ant-design/pro-components/pull/#6410) [@ONLY-yours](https://github.com/ONLY-yours)
+- fix(card): disable & checked style fixed (#6414). [#6414](https://github.com/ant-design/pro-components/pull/#6414) [@ONLY-yours](https://github.com/ONLY-yours)
+
 ## @ant-design/pro-components@2.3.47
 
 `2022-12-13`
