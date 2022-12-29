@@ -463,5 +463,5 @@ export type UseFetchProps = {
 
 export type OptionSearchProps = Omit<SearchProps, 'onSearch'> & {
   /** 如果 onSearch 返回一个false，直接拦截请求 */
-  onSearch?: (keyword: string) => boolean | undefined;
+  onSearch?: (keyword: string) => Promise<boolean | undefined> | boolean | undefined;
 };

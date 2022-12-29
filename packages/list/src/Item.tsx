@@ -2,7 +2,7 @@ import { RightOutlined } from '@ant-design/icons';
 import type { ProCardProps } from '@ant-design/pro-card';
 import ProCard from '@ant-design/pro-card';
 import { ProProvider } from '@ant-design/pro-provider';
-import { Avatar, ConfigProvider, List, Skeleton } from 'antd';
+import { ConfigProvider, List, Skeleton } from 'antd';
 import type { ListGridType } from 'antd/es/list';
 import type { ExpandableConfig } from 'antd/es/table/interface';
 import classNames from 'classnames';
@@ -23,6 +23,7 @@ export type RenderExpandIconProps<RecordType> = {
       }) => React.ReactNode);
   onExpand: (expanded: boolean) => void;
   record: RecordType;
+  hashId: string;
 };
 
 export function renderExpandIcon<RecordType>({
@@ -31,6 +32,7 @@ export function renderExpandIcon<RecordType>({
   onExpand,
   expanded,
   record,
+  hashId,
 }: RenderExpandIconProps<RecordType>) {
   let icon = expandIcon as React.ReactNode;
   const expandClassName = `${prefixCls}-row-expand-icon`;
@@ -46,7 +48,7 @@ export function renderExpandIcon<RecordType>({
 
   return (
     <span
-      className={classNames(expandClassName, {
+      className={classNames(expandClassName, hashId, {
         [`${prefixCls}-row-expanded`]: expanded,
         [`${prefixCls}-row-collapsed`]: !expanded,
       })}
@@ -193,11 +195,15 @@ function ProListItem<RecordType>(props: ItemProps<RecordType>) {
     }
 
     return [
-      <div key="action" onClick={(e) => e.stopPropagation()}>
+      <div
+        key="action"
+        className={`${className}-actions ${hashId}`}
+        onClick={(e) => e.stopPropagation()}
+      >
         {actions}
       </div>,
     ];
-  }, [actions, cardActionProps]);
+  }, [actions, cardActionProps, className, hashId]);
 
   const titleDom =
     title || subTitle ? (
@@ -229,13 +235,7 @@ function ProListItem<RecordType>(props: ItemProps<RecordType>) {
     if (avatar || title) {
       return (
         <>
-          {avatar && (
-            <Avatar
-              size={22}
-              src={avatar}
-              className={`${getPrefixCls('list-item-meta-avatar')} ${hashId}`}
-            />
-          )}
+          {avatar}
           <span className={`${getPrefixCls('list-item-meta-title')} ${hashId}`}>{title}</span>
         </>
       );
@@ -245,7 +245,7 @@ function ProListItem<RecordType>(props: ItemProps<RecordType>) {
 
   const defaultDom = !cardProps ? (
     <List.Item
-      className={classNames(rowClassName, {
+      className={classNames(rowClassName, hashId, {
         [propsClassName]: propsClassName !== defaultClassName,
       })}
       {...rest}
@@ -269,6 +269,7 @@ function ProListItem<RecordType>(props: ItemProps<RecordType>) {
               rowSupportExpand &&
               renderExpandIcon({
                 prefixCls,
+                hashId,
                 expandIcon,
                 onExpand,
                 expanded,
@@ -315,6 +316,7 @@ function ProListItem<RecordType>(props: ItemProps<RecordType>) {
       </Skeleton>
     </ProCard>
   );
+
   if (!cardProps) {
     return defaultDom;
   }

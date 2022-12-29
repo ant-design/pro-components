@@ -309,7 +309,6 @@ exports[`layout demos 📸 renders ./packages/layout/src/components/PageContaine
               >
                 <div
                   class="ant-pro-card-body ant-pro-card-body-direction-column"
-                  style="margin-block-start: -8px; margin-block-end: -8px;"
                 >
                   <div
                     class="ant-pro-card-col"
@@ -334,7 +333,6 @@ exports[`layout demos 📸 renders ./packages/layout/src/components/PageContaine
                     >
                       <div
                         class="ant-pro-card-body"
-                        style="margin-inline-end: -8px; margin-inline-start: -8px;"
                       >
                         <div
                           class="ant-pro-card-col ant-pro-card-col-16"
@@ -630,7 +628,6 @@ exports[`layout demos 📸 renders ./packages/layout/src/components/PageContaine
               >
                 <div
                   class="ant-pro-card-body ant-pro-card-body-direction-column"
-                  style="margin-block-start: -8px; margin-block-end: -8px;"
                 >
                   <div
                     class="ant-pro-card-col"
@@ -654,7 +651,6 @@ exports[`layout demos 📸 renders ./packages/layout/src/components/PageContaine
                     >
                       <div
                         class="ant-pro-card-body"
-                        style="margin-inline-end: -8px; margin-inline-start: -8px;"
                       >
                         <div
                           class="ant-pro-card-col ant-pro-card-col-16"
@@ -694,7 +690,6 @@ exports[`layout demos 📸 renders ./packages/layout/src/components/PageContaine
                     >
                       <div
                         class="ant-pro-card-body"
-                        style="margin-inline-end: -8px; margin-inline-start: -8px;"
                       >
                         <div
                           class="ant-pro-card-col ant-pro-card-col-8"
@@ -898,7 +893,6 @@ exports[`layout demos 📸 renders ./packages/layout/src/components/PageContaine
               >
                 <div
                   class="ant-pro-card-body ant-pro-card-body-direction-column"
-                  style="margin-block-start: -8px; margin-block-end: -8px;"
                 >
                   <div
                     class="ant-pro-card-col"
@@ -923,7 +917,6 @@ exports[`layout demos 📸 renders ./packages/layout/src/components/PageContaine
                     >
                       <div
                         class="ant-pro-card-body"
-                        style="margin-inline-end: -8px; margin-inline-start: -8px;"
                       >
                         <div
                           class="ant-pro-card-col ant-pro-card-col-16"
@@ -23772,7 +23765,6 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/ghost.tsx correct
                       >
                         <div
                           class="ant-pro-card-body ant-pro-card-body-direction-column"
-                          style="margin-block-start: -8px; margin-block-end: -8px;"
                         >
                           <div
                             class="ant-pro-card-col"
@@ -23797,7 +23789,6 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/ghost.tsx correct
                             >
                               <div
                                 class="ant-pro-card-body"
-                                style="margin-inline-end: -8px; margin-inline-start: -8px;"
                               >
                                 <div
                                   class="ant-pro-card-col ant-pro-card-col-16"

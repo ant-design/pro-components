@@ -187,7 +187,7 @@ function ToolBar<T>({
     ? toolBarRender(action?.current, { selectedRowKeys, selectedRows })
     : [];
 
-  const searchConfig = useMemo(() => {
+  const searchConfig: any = useMemo(() => {
     if (!propsOptions) {
       return false;
     }

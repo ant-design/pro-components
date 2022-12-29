@@ -52,8 +52,8 @@ const FieldTreeSelect: ProFieldFC<GroupProps> = (
     defaultKeyWords: propsSearchValue,
   });
 
-  const [searchValue, setSearchValue] = useMergedState(undefined, {
-    onChange: onSearch,
+  const [searchValue, setSearchValue] = useMergedState<string | undefined>(undefined, {
+    onChange: onSearch as any,
     value: propsSearchValue,
   });
 
@@ -115,7 +115,7 @@ const FieldTreeSelect: ProFieldFC<GroupProps> = (
     const valuesLength = Array.isArray(fieldProps?.value) ? fieldProps?.value?.length : 0;
     let dom = (
       <Spin spinning={loading}>
-        <TreeSelect
+        <TreeSelect<string | undefined>
           open={open}
           onDropdownVisibleChange={setOpen}
           ref={treeSelectRef}
@@ -147,7 +147,7 @@ const FieldTreeSelect: ProFieldFC<GroupProps> = (
             minWidth: 60,
             ...fieldProps.style,
           }}
-          searchValue={searchValue}
+          searchValue={searchValue as string}
           autoClearSearchValue={autoClearSearchValue}
           onClear={() => {
             onClear?.();

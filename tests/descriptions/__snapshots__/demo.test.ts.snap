@@ -26,33 +26,27 @@ exports[`descriptions demos 📸 renders ./packages/descriptions/src/demos/array
               class="ant-space-item"
             >
               <div
-                class="ant-space ant-space-horizontal ant-space-align-center ant-pro-field-option"
+                class="ant-pro-field-option"
+                style="display: flex; gap: 16px; align-items: center;"
               >
-                <div
-                  class="ant-space-item"
-                  style="margin-right: 16px;"
+                <button
+                  class="ant-btn ant-btn-primary"
+                  style="flex: 1;"
+                  type="button"
                 >
-                  <button
-                    class="ant-btn ant-btn-primary"
-                    type="button"
-                  >
-                    <span>
-                      刷 新
-                    </span>
-                  </button>
-                </div>
-                <div
-                  class="ant-space-item"
+                  <span>
+                    刷 新
+                  </span>
+                </button>
+                <button
+                  class="ant-btn ant-btn-default"
+                  style="flex: 1;"
+                  type="button"
                 >
-                  <button
-                    class="ant-btn ant-btn-default"
-                    type="button"
-                  >
-                    <span>
-                      重 置
-                    </span>
-                  </button>
-                </div>
+                  <span>
+                    重 置
+                  </span>
+                </button>
               </div>
             </div>
           </div>
@@ -808,40 +802,30 @@ exports[`descriptions demos 📸 renders ./packages/descriptions/src/demos/colum
         class="ant-descriptions-extra"
       >
         <div
-          class="ant-space ant-space-horizontal ant-space-align-center ant-pro-field-option"
+          class="ant-pro-field-option"
+          style="display: flex; gap: 16px; align-items: center;"
         >
-          <div
-            class="ant-space-item"
-            style="margin-right: 16px;"
+          <a
+            rel="noopener noreferrer"
+            style="flex: 1;"
+            target="_blank"
           >
-            <a
-              rel="noopener noreferrer"
-              target="_blank"
-            >
-              链路
-            </a>
-          </div>
-          <div
-            class="ant-space-item"
-            style="margin-right: 16px;"
+            链路
+          </a>
+          <a
+            rel="noopener noreferrer"
+            style="flex: 1;"
+            target="_blank"
           >
-            <a
-              rel="noopener noreferrer"
-              target="_blank"
-            >
-              报警
-            </a>
-          </div>
-          <div
-            class="ant-space-item"
+            报警
+          </a>
+          <a
+            rel="noopener noreferrer"
+            style="flex: 1;"
+            target="_blank"
           >
-            <a
-              rel="noopener noreferrer"
-              target="_blank"
-            >
-              查看
-            </a>
-          </div>
+            查看
+          </a>
         </div>
       </div>
     </div>
@@ -1122,15 +1106,14 @@ exports[`descriptions demos 📸 renders ./packages/descriptions/src/demos/custo
               class="ant-space-item"
             >
               <div
-                class="ant-space ant-space-horizontal ant-space-align-center ant-pro-field-option"
+                class="ant-pro-field-option"
+                style="display: flex; gap: 16px; align-items: center;"
               >
-                <div
-                  class="ant-space-item"
+                <a
+                  style="flex: 1;"
                 >
-                  <a>
-                    刷新
-                  </a>
-                </div>
+                  刷新
+                </a>
               </div>
             </div>
           </div>
@@ -1302,40 +1285,30 @@ exports[`descriptions demos 📸 renders ./packages/descriptions/src/demos/dynam
                   class="ant-descriptions-extra"
                 >
                   <div
-                    class="ant-space ant-space-horizontal ant-space-align-center ant-pro-field-option"
+                    class="ant-pro-field-option"
+                    style="display: flex; gap: 16px; align-items: center;"
                   >
-                    <div
-                      class="ant-space-item"
-                      style="margin-right: 16px;"
+                    <a
+                      rel="noopener noreferrer"
+                      style="flex: 1;"
+                      target="_blank"
                     >
-                      <a
-                        rel="noopener noreferrer"
-                        target="_blank"
-                      >
-                        链路
-                      </a>
-                    </div>
-                    <div
-                      class="ant-space-item"
-                      style="margin-right: 16px;"
+                      链路
+                    </a>
+                    <a
+                      rel="noopener noreferrer"
+                      style="flex: 1;"
+                      target="_blank"
                     >
-                      <a
-                        rel="noopener noreferrer"
-                        target="_blank"
-                      >
-                        报警
-                      </a>
-                    </div>
-                    <div
-                      class="ant-space-item"
+                      报警
+                    </a>
+                    <a
+                      rel="noopener noreferrer"
+                      style="flex: 1;"
+                      target="_blank"
                     >
-                      <a
-                        rel="noopener noreferrer"
-                        target="_blank"
-                      >
-                        查看
-                      </a>
-                    </div>
+                      查看
+                    </a>
                   </div>
                 </div>
               </div>
@@ -2262,40 +2235,30 @@ exports[`descriptions demos 📸 renders ./packages/descriptions/src/demos/edita
               class="ant-space-item"
             >
               <div
-                class="ant-space ant-space-horizontal ant-space-align-center ant-pro-field-option"
+                class="ant-pro-field-option"
+                style="display: flex; gap: 16px; align-items: center;"
               >
-                <div
-                  class="ant-space-item"
-                  style="margin-right: 16px;"
+                <a
+                  rel="noopener noreferrer"
+                  style="flex: 1;"
+                  target="_blank"
                 >
-                  <a
-                    rel="noopener noreferrer"
-                    target="_blank"
-                  >
-                    链路
-                  </a>
-                </div>
-                <div
-                  class="ant-space-item"
-                  style="margin-right: 16px;"
+                  链路
+                </a>
+                <a
+                  rel="noopener noreferrer"
+                  style="flex: 1;"
+                  target="_blank"
                 >
-                  <a
-                    rel="noopener noreferrer"
-                    target="_blank"
-                  >
-                    报警
-                  </a>
-                </div>
-                <div
-                  class="ant-space-item"
+                  报警
+                </a>
+                <a
+                  rel="noopener noreferrer"
+                  style="flex: 1;"
+                  target="_blank"
                 >
-                  <a
-                    rel="noopener noreferrer"
-                    target="_blank"
-                  >
-                    查看
-                  </a>
-                </div>
+                  查看
+                </a>
               </div>
             </div>
           </div>
@@ -3298,33 +3261,27 @@ exports[`descriptions demos 📸 renders ./packages/descriptions/src/demos/reque
             style="margin-right: 8px;"
           >
             <div
-              class="ant-space ant-space-horizontal ant-space-align-center ant-pro-field-option"
+              class="ant-pro-field-option"
+              style="display: flex; gap: 16px; align-items: center;"
             >
-              <div
-                class="ant-space-item"
-                style="margin-right: 16px;"
+              <button
+                class="ant-btn ant-btn-primary"
+                style="flex: 1;"
+                type="button"
               >
-                <button
-                  class="ant-btn ant-btn-primary"
-                  type="button"
-                >
-                  <span>
-                    刷 新
-                  </span>
-                </button>
-              </div>
-              <div
-                class="ant-space-item"
+                <span>
+                  刷 新
+                </span>
+              </button>
+              <button
+                class="ant-btn ant-btn-default"
+                style="flex: 1;"
+                type="button"
               >
-                <button
-                  class="ant-btn ant-btn-default"
-                  type="button"
-                >
-                  <span>
-                    重 置
-                  </span>
-                </button>
-              </div>
+                <span>
+                  重 置
+                </span>
+              </button>
             </div>
           </div>
           <div
@@ -3429,40 +3386,30 @@ exports[`descriptions demos 📸 renders ./packages/descriptions/src/demos/use-d
         class="ant-descriptions-extra"
       >
         <div
-          class="ant-space ant-space-horizontal ant-space-align-center ant-pro-field-option"
+          class="ant-pro-field-option"
+          style="display: flex; gap: 16px; align-items: center;"
         >
-          <div
-            class="ant-space-item"
-            style="margin-right: 16px;"
+          <a
+            rel="noopener noreferrer"
+            style="flex: 1;"
+            target="_blank"
           >
-            <a
-              rel="noopener noreferrer"
-              target="_blank"
-            >
-              链路
-            </a>
-          </div>
-          <div
-            class="ant-space-item"
-            style="margin-right: 16px;"
+            链路
+          </a>
+          <a
+            rel="noopener noreferrer"
+            style="flex: 1;"
+            target="_blank"
           >
-            <a
-              rel="noopener noreferrer"
-              target="_blank"
-            >
-              报警
-            </a>
-          </div>
-          <div
-            class="ant-space-item"
+            报警
+          </a>
+          <a
+            rel="noopener noreferrer"
+            style="flex: 1;"
+            target="_blank"
           >
-            <a
-              rel="noopener noreferrer"
-              target="_blank"
-            >
-              查看
-            </a>
-          </div>
+            查看
+          </a>
         </div>
       </div>
     </div>
