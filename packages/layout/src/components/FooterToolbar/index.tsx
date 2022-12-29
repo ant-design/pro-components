@@ -25,7 +25,7 @@ export type FooterToolbarProps = {
   prefixCls?: string;
   stylish?: GenerateStyle<FooterToolBarToken>;
   children?: React.ReactNode;
-  portalDom: boolean;
+  portalDom?: boolean;
 };
 
 const FooterToolbar: React.FC<FooterToolbarProps> = (props) => {
