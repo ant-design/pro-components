@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.5.1](https://github.com/ant-design/pro-components/compare/@ant-design/pro-utils@2.5.0...@ant-design/pro-utils@2.5.1) (2022-12-29)
+
+### Bug Fixes
+
+- **table:** fix childrenColumnName is null error ([0fb584c](https://github.com/ant-design/pro-components/commit/0fb584c976347f9f96847772f9af31273ce1a144))
+- **table:** 轻量筛选替换查询表单，将 padding 调为 8px 更为统一美观 ([#6423](https://github.com/ant-design/pro-components/issues/6423)) ([cd8a507](https://github.com/ant-design/pro-components/commit/cd8a507e00cd821f2826e6105d19ec3f479576f5))
+
 # [2.5.0](https://github.com/ant-design/pro-components/compare/@ant-design/pro-utils@2.4.5...@ant-design/pro-utils@2.5.0) (2022-12-13)
 
 ### Features

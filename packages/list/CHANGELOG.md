@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.0.41](https://github.com/ant-design/pro-components/compare/@ant-design/pro-list@2.0.40...@ant-design/pro-list@2.0.41) (2022-12-29)
+
+### Bug Fixes
+
+- **list:** fix card list style error ([#6436](https://github.com/ant-design/pro-components/issues/6436)) ([81bcf52](https://github.com/ant-design/pro-components/commit/81bcf522ea68a2deeebe43fa13734adc43b01141))
+
 ## [2.0.40](https://github.com/ant-design/pro-components/compare/@ant-design/pro-list@2.0.39...@ant-design/pro-list@2.0.40) (2022-12-13)
 
 **Note:** Version bump only for package @ant-design/pro-list

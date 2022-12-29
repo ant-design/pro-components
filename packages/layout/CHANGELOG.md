@@ -2,6 +2,18 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [7.5.0](https://github.com/ant-design/pro-components/compare/@ant-design/pro-layout@7.4.0...@ant-design/pro-layout@7.5.0) (2022-12-29)
+
+### Bug Fixes
+
+- **layout:** 修复 extraContent 在 md 尺寸不位于 content 右侧的 bug ([#6389](https://github.com/ant-design/pro-components/issues/6389)) ([8227d25](https://github.com/ant-design/pro-components/commit/8227d256504fe50bd634369021e01582113f663e)), closes [#6388](https://github.com/ant-design/pro-components/issues/6388)
+
+### Features
+
+- **layout:** Layout 新增 跨站点导航 分组形式 ([#6431](https://github.com/ant-design/pro-components/issues/6431)) ([9dd0c44](https://github.com/ant-design/pro-components/commit/9dd0c440fd5fe89095941b188cfddbe4030cf06e))
+- **layout:** sider token 增加 colorBgElevated ([#6384](https://github.com/ant-design/pro-components/issues/6384)) ([045d4c8](https://github.com/ant-design/pro-components/commit/045d4c8a76cef7a7a61ee7378cbdd3ab63323111))
+- **provide:** clear up import and support containerDomRef ([#6394](https://github.com/ant-design/pro-components/issues/6394)) ([ca6e054](https://github.com/ant-design/pro-components/commit/ca6e0547eb653af863e47d57847836db8cb6dea8))
+
 # [7.4.0](https://github.com/ant-design/pro-components/compare/@ant-design/pro-layout@7.3.9...@ant-design/pro-layout@7.4.0) (2022-12-13)
 
 ### Features

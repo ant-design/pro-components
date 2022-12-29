@@ -2,6 +2,17 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.3.0](https://github.com/ant-design/pro-components/compare/@ant-design/pro-provider@2.2.0...@ant-design/pro-provider@2.3.0) (2022-12-29)
+
+### Bug Fixes
+
+- **provider:** remove illegal space in style token ([#6420](https://github.com/ant-design/pro-components/issues/6420)) ([41f8974](https://github.com/ant-design/pro-components/commit/41f89744af54a683e34f41cb43a01f171e317428))
+
+### Features
+
+- **layout:** sider token 增加 colorBgElevated ([#6384](https://github.com/ant-design/pro-components/issues/6384)) ([045d4c8](https://github.com/ant-design/pro-components/commit/045d4c8a76cef7a7a61ee7378cbdd3ab63323111))
+- **provide:** clear up import and support containerDomRef ([#6394](https://github.com/ant-design/pro-components/issues/6394)) ([ca6e054](https://github.com/ant-design/pro-components/commit/ca6e0547eb653af863e47d57847836db8cb6dea8))
+
 # [2.2.0](https://github.com/ant-design/pro-components/compare/@ant-design/pro-provider@2.1.5...@ant-design/pro-provider@2.2.0) (2022-12-13)
 
 ### Features

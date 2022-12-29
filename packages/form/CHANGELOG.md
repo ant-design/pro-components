@@ -2,6 +2,19 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.5.0](https://github.com/ant-design/pro-components/compare/@ant-design/pro-form@2.4.7...@ant-design/pro-form@2.5.0) (2022-12-29)
+
+### Bug Fixes
+
+- **form:** `ProFormList` style does not work ([#6398](https://github.com/ant-design/pro-components/issues/6398)) ([17dc1b7](https://github.com/ant-design/pro-components/commit/17dc1b7d84e4874df83aab6c2f0dfed053117b66))
+- **form:** do not remove collapsed dom ([769177f](https://github.com/ant-design/pro-components/commit/769177f5acdad0126fd146e8e6a1346a7c21d882))
+- **list:** fix card list style error ([#6436](https://github.com/ant-design/pro-components/issues/6436)) ([81bcf52](https://github.com/ant-design/pro-components/commit/81bcf522ea68a2deeebe43fa13734adc43b01141))
+- **table:** use flex replace Space ([#6426](https://github.com/ant-design/pro-components/issues/6426)) ([53699f8](https://github.com/ant-design/pro-components/commit/53699f8a13e152240d46c9a08b5722846c570ac2))
+
+### Features
+
+- **provide:** clear up import and support containerDomRef ([#6394](https://github.com/ant-design/pro-components/issues/6394)) ([ca6e054](https://github.com/ant-design/pro-components/commit/ca6e0547eb653af863e47d57847836db8cb6dea8))
+
 ## [2.4.7](https://github.com/ant-design/pro-components/compare/@ant-design/pro-form@2.4.6...@ant-design/pro-form@2.4.7) (2022-12-13)
 
 **Note:** Version bump only for package @ant-design/pro-form
