@@ -10686,7 +10686,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/ListToolBar/basic.t
                               应用名称
                             </th>
                             <th
-                              aria-label="this column is sortable"
+                              aria-label=""
                               class="ant-table-cell ant-table-column-has-sorters"
                               scope="col"
                               style="text-align: right;"
@@ -11687,7 +11687,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/ListToolBar/menu.ts
                               应用名称
                             </th>
                             <th
-                              aria-label="this column is sortable"
+                              aria-label=""
                               class="ant-table-cell ant-table-column-has-sorters"
                               scope="col"
                               style="text-align: right;"
@@ -12525,7 +12525,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/ListToolBar/multipl
                               应用名称
                             </th>
                             <th
-                              aria-label="this column is sortable"
+                              aria-label=""
                               class="ant-table-cell ant-table-column-has-sorters"
                               scope="col"
                               style="text-align: right;"
@@ -13321,7 +13321,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/ListToolBar/no-titl
                               应用名称
                             </th>
                             <th
-                              aria-label="this column is sortable"
+                              aria-label=""
                               class="ant-table-cell ant-table-column-has-sorters"
                               scope="col"
                               style="text-align: right;"
@@ -14178,7 +14178,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/ListToolBar/tabs.ts
                               状态
                             </th>
                             <th
-                              aria-label="this column is sortable"
+                              aria-label=""
                               class="ant-table-cell ant-table-column-has-sorters"
                               scope="col"
                               style="text-align: right;"
@@ -14909,7 +14909,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/batchOption.tsx cor
                               应用名称
                             </th>
                             <th
-                              aria-label="this column is sortable"
+                              aria-label=""
                               class="ant-table-cell ant-table-column-has-sorters"
                               scope="col"
                               style="text-align: right;"
@@ -14991,7 +14991,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/batchOption.tsx cor
                               创建者
                             </th>
                             <th
-                              aria-label="this column is sortable"
+                              aria-label=""
                               class="ant-table-cell ant-table-column-has-sorters"
                               scope="col"
                               tabindex="0"
@@ -16324,7 +16324,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/card-title.tsx corr
                               应用名称
                             </th>
                             <th
-                              aria-label="this column is sortable"
+                              aria-label=""
                               class="ant-table-cell ant-table-column-has-sorters"
                               scope="col"
                               style="text-align: right;"
@@ -30023,7 +30023,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/dynamic-settings.ts
                                         </div>
                                       </th>
                                       <th
-                                        aria-label="this column is sortable"
+                                        aria-label=""
                                         class="ant-table-cell ant-table-column-has-sorters"
                                         scope="col"
                                         tabindex="0"
@@ -32491,7 +32491,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/error-boundaries-fa
                               应用名称
                             </th>
                             <th
-                              aria-label="this column is sortable"
+                              aria-label=""
                               class="ant-table-cell ant-table-column-has-sorters"
                               scope="col"
                               style="text-align: right;"
@@ -36027,7 +36027,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/listToolBar.tsx cor
                               </div>
                             </th>
                             <th
-                              aria-label="this column is sortable"
+                              aria-label=""
                               class="ant-table-cell ant-table-column-has-sorters"
                               scope="col"
                               style="text-align: right;"
@@ -36989,7 +36989,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/no-option.tsx corre
                               应用名称
                             </th>
                             <th
-                              aria-label="this column is sortable"
+                              aria-label=""
                               class="ant-table-cell ant-table-column-has-sorters"
                               scope="col"
                               style="text-align: right;"
@@ -37058,7 +37058,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/no-option.tsx corre
                               状态
                             </th>
                             <th
-                              aria-label="this column is sortable"
+                              aria-label=""
                               class="ant-table-cell ant-table-column-has-sorters"
                               scope="col"
                               tabindex="0"
@@ -38280,7 +38280,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/normal.tsx correctl
                               应用名称
                             </th>
                             <th
-                              aria-label="this column is sortable"
+                              aria-label=""
                               class="ant-table-cell ant-table-column-has-sorters"
                               scope="col"
                               style="text-align: right;"
@@ -45520,7 +45520,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/single.tsx correctl
                               标签
                             </th>
                             <th
-                              aria-label="this column is sortable"
+                              aria-label=""
                               class="ant-table-cell ant-table-column-has-sorters"
                               scope="col"
                               tabindex="0"
@@ -50598,7 +50598,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/table-nested.tsx co
                               状态
                             </th>
                             <th
-                              aria-label="this column is sortable"
+                              aria-label=""
                               class="ant-table-cell ant-table-column-has-sorters"
                               scope="col"
                               style="text-align: right;"
@@ -51718,7 +51718,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/theme.tsx correctly
                               标签
                             </th>
                             <th
-                              aria-label="this column is sortable"
+                              aria-label=""
                               class="ant-table-cell ant-table-column-has-sorters"
                               scope="col"
                               tabindex="0"
