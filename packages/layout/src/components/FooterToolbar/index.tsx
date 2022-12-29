@@ -25,10 +25,19 @@ export type FooterToolbarProps = {
   prefixCls?: string;
   stylish?: GenerateStyle<FooterToolBarToken>;
   children?: React.ReactNode;
+  portalDom?: boolean;
 };
 
 const FooterToolbar: React.FC<FooterToolbarProps> = (props) => {
-  const { children, className, extra, style, renderContent, ...restProps } = props;
+  const {
+    children,
+    className,
+    extra,
+    portalDom = true,
+    style,
+    renderContent,
+    ...restProps
+  } = props;
   const { getPrefixCls, getTargetContainer } = useContext(ConfigProvider.ConfigContext);
   const { containerDomRef } = useContext(ProProvider);
   const prefixCls = props.prefixCls || getPrefixCls('pro');
@@ -97,7 +106,8 @@ const FooterToolbar: React.FC<FooterToolbarProps> = (props) => {
         : dom}
     </div>
   );
-  const ssrDom = !isBrowser() ? renderDom : createPortal(renderDom, containerDom, baseClassName);
+  const ssrDom =
+    !isBrowser() || !portalDom ? renderDom : createPortal(renderDom, containerDom, baseClassName);
 
   return stylish.wrapSSR(wrapSSR(<React.Fragment key={baseClassName}>{ssrDom}</React.Fragment>));
 };

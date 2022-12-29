@@ -21,24 +21,31 @@ const genActionsStyle: GenerateStyle<ProCardActionsToken> = (token) => {
       paddingBlock: 0,
       paddingInline: 0,
       listStyle: 'none',
+      display: 'flex',
+      gap: 8,
       background: token.colorBgContainer,
       borderBlockStart: `${token.lineWidth}px ${token.lineType} ${token.colorSplit}`,
-
-      [`${antCls}-space`]: {
-        gap: '0 !important',
-        width: '100%',
-      },
-
-      [`& > li,
-        ${antCls}-space-item`]: {
+      minHeight: 42,
+      [`& > *`]: {
+        alignItems: 'center',
+        justifyContent: 'center',
         flex: 1,
-        float: 'left',
+        display: 'flex',
+        cursor: 'pointer',
+        color: token.colorTextSecondary,
+        transition: 'color 0.3s',
+        '&:hover': {
+          color: token.colorPrimaryHover,
+        },
+      },
+      [`& > li > div`]: {
+        flex: 1,
+        width: '100%',
         marginBlock: token.marginSM,
         marginInline: 0,
         color: token.colorTextSecondary,
         textAlign: 'center',
-
-        '> a': {
+        a: {
           color: token.colorTextSecondary,
           transition: 'color 0.3s',
           '&:hover': {
@@ -46,7 +53,7 @@ const genActionsStyle: GenerateStyle<ProCardActionsToken> = (token) => {
           },
         },
 
-        '> span': {
+        div: {
           position: 'relative',
           display: 'block',
           minWidth: 32,
@@ -72,7 +79,7 @@ const genActionsStyle: GenerateStyle<ProCardActionsToken> = (token) => {
             },
           },
 
-          '> .anticon': {
+          '.anticon': {
             fontSize: token.cardActionIconSize,
             lineHeight: '22px',
           },

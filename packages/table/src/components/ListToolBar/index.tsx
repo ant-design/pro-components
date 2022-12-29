@@ -1,14 +1,14 @@
 import { useIntl } from '@ant-design/pro-provider';
 import { LabelIconTip } from '@ant-design/pro-utils';
 import type { TabPaneProps } from 'antd';
-import { ConfigProvider, Input, Space, Tabs, Tooltip } from 'antd';
+import { ConfigProvider, Input, Tabs, Tooltip } from 'antd';
 import type { LabelTooltipType } from 'antd/es/form/FormItemLabel';
 import type { SearchProps } from 'antd/es/input';
 import classNames from 'classnames';
-import React, { useContext, useMemo } from 'react';
-import useAntdMediaQuery from 'use-media-antd-query';
+import React, { useContext, useMemo, useState } from 'react';
 import type { ListToolBarHeaderMenuProps } from './HeaderMenu';
 import HeaderMenu from './HeaderMenu';
+import ResizeObserver from 'rc-resize-observer';
 import { useStyle } from './style';
 
 export type ListToolBarSetting = {
@@ -31,7 +31,10 @@ export type ListToolBarTabs = {
 
 export type ListToolBarMenu = ListToolBarHeaderMenuProps;
 
-type SearchPropType = SearchProps | React.ReactNode | boolean;
+type SearchPropType =
+  | (SearchProps & { onSearch: (searchValue: string) => Promise<false | void> | false | void })
+  | React.ReactNode
+  | boolean;
 type SettingPropType = React.ReactNode | ListToolBarSetting;
 
 export type ListToolBarProps = {
@@ -106,6 +109,9 @@ const ListToolBarTabBar: React.FC<{
     <div className={`${prefixCls}-extra-line`}>
       {tabs.items && tabs.items.length ? (
         <Tabs
+          style={{
+            width: '100%',
+          }}
           activeKey={tabs.activeKey}
           //@ts-ignore
           items={tabs.items.map((item, index) => ({
@@ -150,9 +156,7 @@ const ListToolBar: React.FC<ListToolBarProps> = ({
 
   const intl = useIntl();
 
-  const colSize = useAntdMediaQuery();
-
-  const isMobile = colSize === 'sm' || colSize === 'xs';
+  const [isMobile, setIsMobile] = useState(false);
 
   const placeholder = intl.getMessage('tableForm.inputPlaceholder', '请输入');
 
@@ -173,9 +177,11 @@ const ListToolBar: React.FC<ListToolBarProps> = ({
         style={{ width: 200 }}
         placeholder={placeholder}
         {...(search as SearchProps)}
-        onSearch={(...restParams) => {
-          onSearch?.(restParams?.[0]);
-          (search as SearchProps).onSearch?.(...restParams);
+        onSearch={async (...restParams) => {
+          const success = await (search as any).onSearch?.(...restParams);
+          if (success !== false) {
+            onSearch?.(restParams?.[0]);
+          }
         }}
       />
     );
@@ -202,7 +208,13 @@ const ListToolBar: React.FC<ListToolBarProps> = ({
       return null;
     }
     return (
-      <Space align="center">
+      <div
+        style={{
+          display: 'flex',
+          alignItems: 'center',
+          gap: 8,
+        }}
+      >
         {actions.map((action, index) => {
           if (!React.isValidElement(action)) {
             // eslint-disable-next-line react/no-array-index-key
@@ -214,7 +226,7 @@ const ListToolBar: React.FC<ListToolBarProps> = ({
             ...action?.props,
           });
         })}
-      </Space>
+      </div>
     );
   }, [actions]);
 
@@ -246,7 +258,7 @@ const ListToolBar: React.FC<ListToolBarProps> = ({
       );
     }
     return (
-      <Space className={`${prefixCls}-left ${hashId}`}>
+      <div className={`${prefixCls}-left ${hashId}`}>
         {hasTitle && !menu && (
           <div className={`${prefixCls}-title ${hashId}`}>
             <LabelIconTip tooltip={tooltip} label={title} subTitle={subTitle} />
@@ -256,18 +268,16 @@ const ListToolBar: React.FC<ListToolBarProps> = ({
         {!hasTitle && searchNode ? (
           <div className={`${prefixCls}-search ${hashId}`}>{searchNode}</div>
         ) : null}
-      </Space>
+      </div>
     );
   }, [hasLeft, hasRight, hasTitle, hashId, menu, prefixCls, searchNode, subTitle, title, tooltip]);
 
   const rightTitleDom = useMemo(() => {
     if (!hasRight) return null;
     return (
-      <Space
+      <div
         className={`${prefixCls}-right ${hashId}`}
-        direction={isMobile ? 'vertical' : 'horizontal'}
-        size={8}
-        align={isMobile ? 'end' : 'center'}
+        style={isMobile ? {} : { alignItems: 'center' }}
       >
         {!multipleLine ? filtersNode : null}
         {hasTitle && searchNode ? (
@@ -275,7 +285,7 @@ const ListToolBar: React.FC<ListToolBarProps> = ({
         ) : null}
         {actionDom}
         {settings?.length ? (
-          <Space size={12} align="center" className={`${prefixCls}-setting-items ${hashId}`}>
+          <div className={`${prefixCls}-setting-items ${hashId}`}>
             {settings.map((setting, index) => {
               const settingItem = getSettingItem(setting);
               return (
@@ -285,9 +295,9 @@ const ListToolBar: React.FC<ListToolBarProps> = ({
                 </div>
               );
             })}
-          </Space>
+          </div>
         ) : null}
-      </Space>
+      </div>
     );
   }, [
     hasRight,
@@ -316,15 +326,21 @@ const ListToolBar: React.FC<ListToolBarProps> = ({
   }, [hasLeft, hasRight, hashId, isMobile, leftTitleDom, prefixCls, rightTitleDom]);
 
   return wrapSSR(
-    <div style={style} className={classNames(prefixCls, hashId, className)}>
-      {titleNode}
-      <ListToolBarTabBar
-        filtersNode={filtersNode}
-        prefixCls={prefixCls}
-        tabs={tabs}
-        multipleLine={multipleLine}
-      />
-    </div>,
+    <ResizeObserver
+      onResize={(size) => {
+        setIsMobile(size.width < 375);
+      }}
+    >
+      <div style={style} className={classNames(prefixCls, hashId, className)}>
+        {titleNode}
+        <ListToolBarTabBar
+          filtersNode={filtersNode}
+          prefixCls={prefixCls}
+          tabs={tabs}
+          multipleLine={multipleLine}
+        />
+      </div>
+    </ResizeObserver>,
   );
 };
 

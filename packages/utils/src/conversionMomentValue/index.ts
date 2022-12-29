@@ -126,8 +126,10 @@ export const conversionMomentValue = <T extends {} = any>(
   if (typeof value !== 'object' || isNil(value) || value instanceof Blob || Array.isArray(value)) {
     return value;
   }
-  Object.keys(value as Record<string, any>).forEach((key) => {
-    const namePath: InternalNamePath = parentKey ? ([parentKey, key].flat(1) as string[]) : [key];
+  Object.keys(value as Record<string, any>).forEach((valueKey) => {
+    const namePath: InternalNamePath = parentKey
+      ? ([parentKey, valueKey].flat(1) as string[])
+      : [valueKey];
     const valueFormatMap = get(valueTypeMap, namePath) || 'text';
 
     let valueType: ProFieldValueType = 'text';
@@ -138,7 +140,7 @@ export const conversionMomentValue = <T extends {} = any>(
       valueType = valueFormatMap.valueType;
       dateFormat = valueFormatMap.dateFormat;
     }
-    const itemValue = (value as Record<string, any>)[key];
+    const itemValue = (value as Record<string, any>)[valueKey];
     if (isNil(itemValue) && omitNil) {
       return;
     }
@@ -152,23 +154,28 @@ export const conversionMomentValue = <T extends {} = any>(
       // 不是 moment
       !isMoment(itemValue)
     ) {
-      tmpValue[key] = conversionMomentValue(itemValue, dateFormatter, valueTypeMap, omitNil, [key]);
+      tmpValue[valueKey] = conversionMomentValue(itemValue, dateFormatter, valueTypeMap, omitNil, [
+        valueKey,
+      ]);
       return;
     }
     // 处理 FormList 的 value
     if (Array.isArray(itemValue)) {
-      tmpValue[key] = itemValue.map((arrayValue, index) => {
+      tmpValue[valueKey] = itemValue.map((arrayValue, index) => {
         if (dayjs.isDayjs(arrayValue) || isMoment(arrayValue)) {
           return convertMoment(arrayValue, dateFormat || dateFormatter, valueType);
         }
-        return conversionMomentValue(arrayValue, dateFormatter, valueTypeMap, omitNil, [
-          key,
-          `${index}`,
-        ]);
+        return conversionMomentValue(
+          arrayValue,
+          dateFormatter,
+          valueTypeMap,
+          omitNil,
+          [valueKey, `${index}`].flat(1),
+        );
       });
       return;
     }
-    tmpValue[key] = convertMoment(itemValue, dateFormat || dateFormatter, valueType);
+    tmpValue[valueKey] = convertMoment(itemValue, dateFormat || dateFormatter, valueType);
   });
 
   return tmpValue;

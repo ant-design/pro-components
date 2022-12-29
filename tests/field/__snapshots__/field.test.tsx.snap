@@ -2834,33 +2834,27 @@ exports[`Field 🐴 money valueType is Object 12`] = `
 exports[`Field 🐴 options support dom list 1`] = `
 <DocumentFragment>
   <div
-    class="ant-space ant-space-horizontal ant-space-align-center ant-pro-field-option"
+    class="ant-pro-field-option"
+    style="display: flex; gap: 16px; align-items: center;"
   >
-    <div
-      class="ant-space-item"
-      style="margin-right: 16px;"
+    <button
+      class="ant-btn ant-btn-default"
+      style="flex: 1;"
+      type="button"
     >
-      <button
-        class="ant-btn ant-btn-default"
-        type="button"
-      >
-        <span>
-          新 建
-        </span>
-      </button>
-    </div>
-    <div
-      class="ant-space-item"
+      <span>
+        新 建
+      </span>
+    </button>
+    <button
+      class="ant-btn ant-btn-default"
+      style="flex: 1;"
+      type="button"
     >
-      <button
-        class="ant-btn ant-btn-default"
-        type="button"
-      >
-        <span>
-          修 改
-        </span>
-      </button>
-    </div>
+      <span>
+        修 改
+      </span>
+    </button>
   </div>
 </DocumentFragment>
 `;
@@ -2868,26 +2862,19 @@ exports[`Field 🐴 options support dom list 1`] = `
 exports[`Field 🐴 options support dom text 1`] = `
 <DocumentFragment>
   <div
-    class="ant-space ant-space-horizontal ant-space-align-center ant-pro-field-option"
+    class="ant-pro-field-option"
+    style="display: flex; gap: 16px; align-items: center;"
   >
-    <div
-      class="ant-space-item"
-      style="margin-right: 16px;"
+    新建
+    <button
+      class="ant-btn ant-btn-default"
+      style="flex: 1;"
+      type="button"
     >
-      新建
-    </div>
-    <div
-      class="ant-space-item"
-    >
-      <button
-        class="ant-btn ant-btn-default"
-        type="button"
-      >
-        <span>
-          修 改
-        </span>
-      </button>
-    </div>
+      <span>
+        修 改
+      </span>
+    </button>
   </div>
 </DocumentFragment>
 `;
@@ -2899,20 +2886,18 @@ exports[`Field 🐴 options support no text 1`] = `<DocumentFragment />`;
 exports[`Field 🐴 options support one dom 1`] = `
 <DocumentFragment>
   <div
-    class="ant-space ant-space-horizontal ant-space-align-center ant-pro-field-option"
+    class="ant-pro-field-option"
+    style="display: flex; gap: 16px; align-items: center;"
   >
-    <div
-      class="ant-space-item"
+    <button
+      class="ant-btn ant-btn-default"
+      style="flex: 1;"
+      type="button"
     >
-      <button
-        class="ant-btn ant-btn-default"
-        type="button"
-      >
-        <span>
-          新 建
-        </span>
-      </button>
-    </div>
+      <span>
+        新 建
+      </span>
+    </button>
   </div>
 </DocumentFragment>
 `;

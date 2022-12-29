@@ -154,7 +154,13 @@ const Group: React.FC<GroupProps> = React.forwardRef((props, ref: any) => {
             )}
           </div>
         )}
-        {collapsible && collapsed ? null : childrenDoms}
+        <div
+          style={{
+            display: collapsible && collapsed ? 'none' : undefined,
+          }}
+        >
+          {childrenDoms}
+        </div>
       </div>
     </ColWrapper>,
   );

@@ -53,9 +53,11 @@ exports[`EditorProTable 📝 EditableProTable support recordCreatorProps 1`] = `
                           <tr>
                             <th
                               class="ant-table-cell"
+                              scope="col"
                             />
                             <th
                               class="ant-table-cell ant-table-cell-ellipsis"
+                              scope="col"
                             >
                               <div
                                 class="ant-pro-core-label-tip"
@@ -95,6 +97,7 @@ exports[`EditorProTable 📝 EditableProTable support recordCreatorProps 1`] = `
                             </th>
                             <th
                               class="ant-table-cell"
+                              scope="col"
                             >
                               <div
                                 class="ant-table-filter-column"
@@ -133,11 +136,13 @@ exports[`EditorProTable 📝 EditableProTable support recordCreatorProps 1`] = `
                             </th>
                             <th
                               class="ant-table-cell"
+                              scope="col"
                             >
                               创建时间
                             </th>
                             <th
                               class="ant-table-cell"
+                              scope="col"
                             >
                               操作
                             </th>
@@ -277,17 +282,13 @@ exports[`EditorProTable 📝 EditableProTable support recordCreatorProps 1`] = `
                               class="ant-table-cell"
                             >
                               <div
-                                class="ant-space ant-space-horizontal ant-space-align-center"
+                                style="display: flex; align-items: center; justify-content: center; gap: 8px;"
                               >
-                                <div
-                                  class="ant-space-item"
+                                <a
+                                  id="editor"
                                 >
-                                  <a
-                                    id="editor"
-                                  >
-                                    编辑
-                                  </a>
-                                </div>
+                                  编辑
+                                </a>
                               </div>
                             </td>
                           </tr>
@@ -422,17 +423,13 @@ exports[`EditorProTable 📝 EditableProTable support recordCreatorProps 1`] = `
                               class="ant-table-cell"
                             >
                               <div
-                                class="ant-space ant-space-horizontal ant-space-align-center"
+                                style="display: flex; align-items: center; justify-content: center; gap: 8px;"
                               >
-                                <div
-                                  class="ant-space-item"
+                                <a
+                                  id="editor"
                                 >
-                                  <a
-                                    id="editor"
-                                  >
-                                    编辑
-                                  </a>
-                                </div>
+                                  编辑
+                                </a>
                               </div>
                             </td>
                           </tr>
@@ -567,17 +564,13 @@ exports[`EditorProTable 📝 EditableProTable support recordCreatorProps 1`] = `
                               class="ant-table-cell"
                             >
                               <div
-                                class="ant-space ant-space-horizontal ant-space-align-center"
+                                style="display: flex; align-items: center; justify-content: center; gap: 8px;"
                               >
-                                <div
-                                  class="ant-space-item"
+                                <a
+                                  id="editor"
                                 >
-                                  <a
-                                    id="editor"
-                                  >
-                                    编辑
-                                  </a>
-                                </div>
+                                  编辑
+                                </a>
                               </div>
                             </td>
                           </tr>
@@ -683,9 +676,11 @@ exports[`EditorProTable 📝 EditableProTable support recordCreatorProps=false 1
                           <tr>
                             <th
                               class="ant-table-cell"
+                              scope="col"
                             />
                             <th
                               class="ant-table-cell ant-table-cell-ellipsis"
+                              scope="col"
                             >
                               <div
                                 class="ant-pro-core-label-tip"
@@ -725,6 +720,7 @@ exports[`EditorProTable 📝 EditableProTable support recordCreatorProps=false 1
                             </th>
                             <th
                               class="ant-table-cell"
+                              scope="col"
                             >
                               <div
                                 class="ant-table-filter-column"
@@ -763,11 +759,13 @@ exports[`EditorProTable 📝 EditableProTable support recordCreatorProps=false 1
                             </th>
                             <th
                               class="ant-table-cell"
+                              scope="col"
                             >
                               创建时间
                             </th>
                             <th
                               class="ant-table-cell"
+                              scope="col"
                             >
                               操作
                             </th>
@@ -907,17 +905,13 @@ exports[`EditorProTable 📝 EditableProTable support recordCreatorProps=false 1
                               class="ant-table-cell"
                             >
                               <div
-                                class="ant-space ant-space-horizontal ant-space-align-center"
+                                style="display: flex; align-items: center; justify-content: center; gap: 8px;"
                               >
-                                <div
-                                  class="ant-space-item"
+                                <a
+                                  id="editor"
                                 >
-                                  <a
-                                    id="editor"
-                                  >
-                                    编辑
-                                  </a>
-                                </div>
+                                  编辑
+                                </a>
                               </div>
                             </td>
                           </tr>
@@ -1052,17 +1046,13 @@ exports[`EditorProTable 📝 EditableProTable support recordCreatorProps=false 1
                               class="ant-table-cell"
                             >
                               <div
-                                class="ant-space ant-space-horizontal ant-space-align-center"
+                                style="display: flex; align-items: center; justify-content: center; gap: 8px;"
                               >
-                                <div
-                                  class="ant-space-item"
+                                <a
+                                  id="editor"
                                 >
-                                  <a
-                                    id="editor"
-                                  >
-                                    编辑
-                                  </a>
-                                </div>
+                                  编辑
+                                </a>
                               </div>
                             </td>
                           </tr>
@@ -1197,17 +1187,13 @@ exports[`EditorProTable 📝 EditableProTable support recordCreatorProps=false 1
                               class="ant-table-cell"
                             >
                               <div
-                                class="ant-space ant-space-horizontal ant-space-align-center"
+                                style="display: flex; align-items: center; justify-content: center; gap: 8px;"
                               >
-                                <div
-                                  class="ant-space-item"
+                                <a
+                                  id="editor"
                                 >
-                                  <a
-                                    id="editor"
-                                  >
-                                    编辑
-                                  </a>
-                                </div>
+                                  编辑
+                                </a>
                               </div>
                             </td>
                           </tr>

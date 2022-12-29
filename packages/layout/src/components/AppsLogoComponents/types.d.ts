@@ -4,4 +4,5 @@ export type AppsLogoComponentsAppList = {
   icon: React.ReactNode;
   url: string;
   target?: string;
+  children?: Omit<AppsLogoComponentsAppList, 'children'>;
 }[];

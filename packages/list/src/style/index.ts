@@ -91,12 +91,7 @@ const genProListStyle: GenerateStyle<ProListToken> = (token) => {
           [`${token.antCls}-list-item-action,
             ${token.proComponentsCls}-card-extra,
             ${token.proComponentsCls}-card-actions`]: {
-            display: 'none',
-          },
-          '&:hover': {
-            [`${token.proComponentsCls}-card-extra,${token.proComponentsCls}-card-actions`]: {
-              display: 'flex',
-            },
+            display: 'flex',
           },
         },
         '&-show-extra-hover': {
@@ -129,6 +124,11 @@ const genProListStyle: GenerateStyle<ProListToken> = (token) => {
         },
         '&-expand-icon': {
           marginInlineEnd: 8,
+          display: 'flex',
+          fontSize: 12,
+          cursor: 'pointer',
+          height: '24px',
+          marginRight: 4,
           color: token.colorTextSecondary,
           '> .anticon > svg': {
             transition: '0.3s',
@@ -215,21 +215,24 @@ const genProListStyle: GenerateStyle<ProListToken> = (token) => {
         [`${token.antCls}-list-list`]: {
           '&-item': { cursor: 'pointer', paddingBlock: 12, paddingInline: 12 },
         },
-        [`${token.antCls}-list-vertical .${token.proComponentsCls}-list-row ${token.antCls}-list`]:
-          {
-            '&-header': { paddingBlock: 0, paddingInline: 0, borderBlockEnd: 'none' },
-            [`${token.antCls}-list-item`]: {
-              width: '100%',
-              paddingBlock: 12,
-              paddingInlineStart: 24,
-              paddingInlineEnd: 18,
-              '&-meta-avatar': { display: 'flex', alignItems: 'center', marginInlineEnd: 8 },
-              '&-action-split': {
-                display: 'none',
-              },
-              '&-meta-title': { marginBlock: 0, marginInline: 0 },
+        [`${token.antCls}-list-vertical ${token.proComponentsCls}-list-row`]: {
+          '&-header': { paddingBlock: 0, paddingInline: 0, borderBlockEnd: 'none' },
+          [`${token.antCls}-list-item`]: {
+            width: '100%',
+            paddingBlock: 12,
+            paddingInlineStart: 24,
+            paddingInlineEnd: 18,
+            [`${token.antCls}-list-item-meta-avatar`]: {
+              display: 'flex',
+              alignItems: 'center',
+              marginInlineEnd: 8,
             },
+            [`${token.antCls}-list-item-action-split`]: {
+              display: 'none',
+            },
+            [`${token.antCls}-list-item-meta-title`]: { marginBlock: 0, marginInline: 0 },
           },
+        },
         '@keyframes techUiListActive': {
           '0%': { backgroundColor: 'unset' },
           '30%': { background: '#fefbe6' },

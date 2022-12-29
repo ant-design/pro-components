@@ -532,7 +532,14 @@ describe('Field', () => {
   it(`🐴 treeSelect searchValue control mode`, async () => {
     const onSearch = jest.fn();
     const html = render(
-      <TreeSelectDemo multiple={false} labelInValue={false} onSearch={onSearch} />,
+      <TreeSelectDemo
+        multiple={false}
+        labelInValue={false}
+        onSearch={(e) => {
+          onSearch(e);
+          console.log(e);
+        }}
+      />,
     );
 
     act(() => {
@@ -541,7 +548,8 @@ describe('Field', () => {
       });
     });
 
-    expect(onSearch).toHaveBeenLastCalledWith('test', expect.anything());
+    expect(onSearch).toHaveBeenLastCalledWith('test');
+
     act(() => {
       html.rerender(
         <TreeSelectDemo
@@ -556,6 +564,7 @@ describe('Field', () => {
     expect(
       html.baseElement.querySelector<HTMLInputElement>('.ant-select-selection-search-input')?.value,
     ).toEqual('ProComponents');
+
     html.unmount();
   });
 

@@ -400,7 +400,10 @@ const ConfigProVidContainer: React.FC<{
     const themeConfig = {
       ...restConfig.theme,
       hashId: hashId,
-      hashed: process.env.NODE_ENV?.toLowerCase() !== 'test' && proProvide.hashed,
+      hashed:
+        process.env.NODE_ENV?.toLowerCase() !== 'test' &&
+        props.hashed !== false &&
+        proProvide.hashed !== false,
     };
 
     const provide = (
