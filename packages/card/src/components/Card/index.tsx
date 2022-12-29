@@ -53,7 +53,6 @@ const Card = React.forwardRef((props: CardProps, ref: any) => {
   } = props;
   const { getPrefixCls } = useContext(ConfigProvider.ConfigContext);
   const screens = useBreakpoint();
-
   const [collapsed, setCollapsed] = useMergedState<boolean>(defaultCollapsed, {
     value: controlCollapsed,
     onChange: onCollapse,
@@ -125,7 +124,7 @@ const Card = React.forwardRef((props: CardProps, ref: any) => {
   const prefixCls = getPrefixCls('pro-card');
   const { wrapSSR, hashId } = useStyle(prefixCls);
 
-  const [horizonalGutter, verticalGutter] = getNormalizedGutter(gutter);
+  const [horizontalGutter, verticalGutter] = getNormalizedGutter(gutter);
 
   // 判断是否套了卡片，如果套了的话将自身卡片内部内容的 padding 设置为0
   let containProCard = false;
@@ -150,9 +149,9 @@ const Card = React.forwardRef((props: CardProps, ref: any) => {
         <div
           style={{
             ...colSpanStyle,
-            ...getStyle(horizonalGutter! > 0, {
-              paddingInlineEnd: horizonalGutter / 2,
-              paddingInlineStart: horizonalGutter / 2,
+            ...getStyle(horizontalGutter! > 0, {
+              paddingInlineEnd: horizontalGutter / 2,
+              paddingInlineStart: horizontalGutter / 2,
             }),
             ...getStyle(verticalGutter! > 0, {
               paddingBlockStart: verticalGutter / 2,
@@ -189,17 +188,7 @@ const Card = React.forwardRef((props: CardProps, ref: any) => {
     [`${prefixCls}-body-wrap`]: wrap && containProCard,
   });
 
-  const cardBodyStyle = {
-    ...getStyle(horizonalGutter! > 0, {
-      marginInlineEnd: -horizonalGutter / 2,
-      marginInlineStart: -horizonalGutter / 2,
-    }),
-    ...getStyle(verticalGutter! > 0, {
-      marginBlockStart: -verticalGutter / 2,
-      marginBlockEnd: -verticalGutter / 2,
-    }),
-    ...bodyStyle,
-  };
+  const cardBodyStyle = bodyStyle;
 
   const loadingDOM = React.isValidElement(loading) ? (
     loading

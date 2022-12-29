@@ -1,7 +1,7 @@
 import { useIntl } from '@ant-design/pro-provider';
 import { LabelIconTip } from '@ant-design/pro-utils';
 import type { TabPaneProps } from 'antd';
-import { ConfigProvider, Input, Space, Tabs, Tooltip } from 'antd';
+import { ConfigProvider, Input, Tabs, Tooltip } from 'antd';
 import type { LabelTooltipType } from 'antd/es/form/FormItemLabel';
 import type { SearchProps } from 'antd/es/input';
 import classNames from 'classnames';
@@ -31,7 +31,10 @@ export type ListToolBarTabs = {
 
 export type ListToolBarMenu = ListToolBarHeaderMenuProps;
 
-type SearchPropType = SearchProps | React.ReactNode | boolean;
+type SearchPropType =
+  | (SearchProps & { onSearch: (searchValue: string) => Promise<false | void> | false | void })
+  | React.ReactNode
+  | boolean;
 type SettingPropType = React.ReactNode | ListToolBarSetting;
 
 export type ListToolBarProps = {
@@ -174,11 +177,11 @@ const ListToolBar: React.FC<ListToolBarProps> = ({
         style={{ width: 200 }}
         placeholder={placeholder}
         {...(search as SearchProps)}
-        onSearch={(...restParams) => {
-          if (!(search as SearchProps).onSearch) {
+        onSearch={async (...restParams) => {
+          const success = await (search as any).onSearch?.(...restParams);
+          if (success !== false) {
             onSearch?.(restParams?.[0]);
           }
-          (search as SearchProps).onSearch?.(...restParams);
         }}
       />
     );
@@ -205,7 +208,13 @@ const ListToolBar: React.FC<ListToolBarProps> = ({
       return null;
     }
     return (
-      <Space align="center">
+      <div
+        style={{
+          display: 'flex',
+          alignItems: 'center',
+          gap: 8,
+        }}
+      >
         {actions.map((action, index) => {
           if (!React.isValidElement(action)) {
             // eslint-disable-next-line react/no-array-index-key
@@ -217,7 +226,7 @@ const ListToolBar: React.FC<ListToolBarProps> = ({
             ...action?.props,
           });
         })}
-      </Space>
+      </div>
     );
   }, [actions]);
 
