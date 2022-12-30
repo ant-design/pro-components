@@ -32,7 +32,7 @@ const genAppsLogoComponentsStyle: GenerateStyle<AppsLogoComponentsToken> = (toke
         },
       },
       '&-item-title': {
-        margin: '16px 0 8px 12px',
+        marginInline: '16px 0 8px 12px',
         fontWeight: 600,
         color: 'rgba(0, 0, 0, 0.88)',
         fontSize: 16,
