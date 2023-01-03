@@ -210,7 +210,8 @@ const genProListStyle: GenerateStyle<ProListToken> = (token) => {
         },
 
         [`${token.antCls}-list-pagination`]: {
-          margin: '16px 0'
+          marginBlockStart: token.margin,
+          marginBlockEnd: token.margin,
         },
         [`${token.antCls}-list-list`]: {
           '&-item': { cursor: 'pointer', paddingBlock: 12, paddingInline: 12 },
