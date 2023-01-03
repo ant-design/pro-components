@@ -1,9 +1,26 @@
-import { ProForm, ProFormText, QueryFilter } from '@ant-design/pro-components';
+import { ProForm, ProFormText, QueryFilter, ProFormDatePicker } from '@ant-design/pro-components';
 import { Input } from 'antd';
 
 export default () => {
+  const formProps = {
+    defaultColsNumber: 6,
+  };
   return (
     <>
+      <>
+        <QueryFilter {...formProps}>
+          <ProFormDatePicker
+            // key={i}
+            colSize={4}
+            name="test"
+            label="test"
+          />
+          {[...Array(10).keys()].map((i) => (
+            <ProFormDatePicker key={i} name={`startdate${i + 1}`} label={`Date${i + 1}`} />
+          ))}
+        </QueryFilter>
+        <pre>{JSON.stringify(formProps, null, 2)}</pre>
+      </>
       <QueryFilter<{
         name: string;
         company: string;

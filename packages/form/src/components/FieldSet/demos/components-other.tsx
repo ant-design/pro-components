@@ -70,12 +70,13 @@ const Demo = () => {
         }}
         onFinish={async (value) => console.log(value)}
       >
-        <ProFormGroup label="文本类">
+        <ProFormGroup title="文本类">
           <ProFormText width="md" name="name" label="name" />
           <ProFormText.Password width="md" name="password" label="password" />
         </ProFormGroup>
         <ProFormGroup
-          label="选择类"
+          title="选择类"
+          collapsible
           style={{
             gap: '0 32px',
           }}

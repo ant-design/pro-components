@@ -21,8 +21,12 @@ const ProCardActions: React.FC<ProCardActionsProps> = (props) => {
       <ul className={classNames(`${prefixCls}-actions`, hashId)}>
         {actions.map((action, index) => (
           // eslint-disable-next-line react/no-array-index-key
-          <li style={{ width: `${100 / actions.length}%` }} key={`action-${index}`}>
-            <span>{action}</span>
+          <li
+            style={{ width: `${100 / actions.length}%`, padding: 0, margin: 0 }}
+            key={`action-${index}`}
+            className={classNames(`${prefixCls}-actions-item`, hashId)}
+          >
+            {action}
           </li>
         ))}
       </ul>,

@@ -9,7 +9,7 @@ import React, { useContext, useImperativeHandle, useMemo, useRef } from 'react';
 import type { ItemProps } from './Item';
 import ListView from './ListView';
 import { useStyle } from './style/index';
-
+import { ProConfigProvider } from '@ant-design/pro-provider';
 import 'antd/es/list/style';
 
 export type AntdListProps<RecordType> = Omit<ListProps<RecordType>, 'rowKey'>;
@@ -80,7 +80,7 @@ export type Key = React.Key;
 
 export type TriggerEventHandler<RecordType> = (record: RecordType) => void;
 
-function ProList<
+function NoProVideProList<
   RecordType extends Record<string, any>,
   U extends Record<string, any> = Record<string, any>,
 >(props: ProListProps<RecordType, U>) {
@@ -202,8 +202,24 @@ function BaseProList<
   RecordType extends Record<string, any>,
   U extends Record<string, any> = Record<string, any>,
 >(props: ProListProps<RecordType, U>) {
-  return <ProList cardProps={false} search={false} toolBarRender={false} {...props} />;
+  return (
+    <ProConfigProvider needDeps>
+      <NoProVideProList cardProps={false} search={false} toolBarRender={false} {...props} />
+    </ProConfigProvider>
+  );
 }
+
+function ProList<
+  RecordType extends Record<string, any>,
+  U extends Record<string, any> = Record<string, any>,
+>(props: ProListProps<RecordType, U>) {
+  return (
+    <ProConfigProvider needDeps>
+      <NoProVideProList {...props} />
+    </ProConfigProvider>
+  );
+}
+
 export { BaseProList, ProList };
 
 export default ProList;

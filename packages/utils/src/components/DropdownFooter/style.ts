@@ -10,9 +10,9 @@ const genProStyle: GenerateStyle<ProToken> = (token) => {
     [token.componentCls]: {
       display: 'flex',
       justifyContent: 'space-between',
-      paddingBlock: 16,
+      paddingBlock: 8,
       paddingInlineStart: 8,
-      paddingInlineEnd: 16,
+      paddingInlineEnd: 8,
       borderBlockStart: `1px solid ${token.colorSplit}`,
     },
   };

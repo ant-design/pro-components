@@ -25,7 +25,7 @@ export const defaultToken = {
   colorTextBase: '#000',
   colorBgBase: '#fff',
   fontFamily:
-    "-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial,\\n'Noto Sans', sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol',\\n'Noto Color Emoji'",
+    "-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, 'Noto Sans', sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji'",
   fontSize: 14,
   lineWidth: 1,
   lineType: 'solid',
@@ -339,9 +339,9 @@ export const defaultToken = {
   marginXL: 32,
   marginXXL: 48,
   boxShadow:
-    '\\n      0 1px 2px 0 rgba(0, 0, 0, 0.03),\\n      0 1px 6px -1px rgba(0, 0, 0, 0.02),\\n      0 2px 4px 0 rgba(0, 0, 0, 0.02)\\n    ',
+    '0 1px 2px 0 rgba(0, 0, 0, 0.03),0 1px 6px -1px rgba(0, 0, 0, 0.02),0 2px 4px 0 rgba(0, 0, 0, 0.02)',
   boxShadowSecondary:
-    '\\n      0 6px 16px 0 rgba(0, 0, 0, 0.08),\\n      0 3px 6px -4px rgba(0, 0, 0, 0.12),\\n      0 9px 28px 8px rgba(0, 0, 0, 0.05)\\n    ',
+    '0 6px 16px 0 rgba(0, 0, 0, 0.08),0 3px 6px -4px rgba(0, 0, 0, 0.12),0 9px 28px 8px rgba(0, 0, 0, 0.05)',
   screenXS: 480,
   screenXSMin: 480,
   screenXSMax: 479,
@@ -362,15 +362,15 @@ export const defaultToken = {
   screenXXLMax: 1599,
   boxShadowPopoverArrow: '3px 3px 7px rgba(0, 0, 0, 0.1)',
   boxShadowCard:
-    '\\n      0 1px 2px -2px rgba(0, 0, 0, 0.16),\\n      0 3px 6px 0 rgba(0, 0, 0, 0.12),\\n      0 5px 12px 4px rgba(0, 0, 0, 0.09)\\n    ',
+    '0 1px 2px -2px rgba(0, 0, 0, 0.16),0 3px 6px 0 rgba(0, 0, 0, 0.12),0 5px 12px 4px rgba(0, 0, 0, 0.09)',
   boxShadowDrawerRight:
-    '\\n      -6px 0 16px 0 rgba(0, 0, 0, 0.08),\\n      -3px 0 6px -4px rgba(0, 0, 0, 0.12),\\n      -9px 0 28px 8px rgba(0, 0, 0, 0.05)\\n    ',
+    '-6px 0 16px 0 rgba(0, 0, 0, 0.08),-3px 0 6px -4px rgba(0, 0, 0, 0.12),-9px 0 28px 8px rgba(0, 0, 0, 0.05)',
   boxShadowDrawerLeft:
-    '\\n      6px 0 16px 0 rgba(0, 0, 0, 0.08),\\n      3px 0 6px -4px rgba(0, 0, 0, 0.12),\\n      9px 0 28px 8px rgba(0, 0, 0, 0.05)\\n    ',
+    '6px 0 16px 0 rgba(0, 0, 0, 0.08),3px 0 6px -4px rgba(0, 0, 0, 0.12),9px 0 28px 8px rgba(0, 0, 0, 0.05)',
   boxShadowDrawerUp:
-    '\\n      0 6px 16px 0 rgba(0, 0, 0, 0.08),\\n      0 3px 6px -4px rgba(0, 0, 0, 0.12),\\n      0 9px 28px 8px rgba(0, 0, 0, 0.05)\\n    ',
+    '0 6px 16px 0 rgba(0, 0, 0, 0.08),0 3px 6px -4px rgba(0, 0, 0, 0.12),0 9px 28px 8px rgba(0, 0, 0, 0.05)',
   boxShadowDrawerDown:
-    '\\n      0 -6px 16px 0 rgba(0, 0, 0, 0.08),\\n      0 -3px 6px -4px rgba(0, 0, 0, 0.12),\\n      0 -9px 28px 8px rgba(0, 0, 0, 0.05)\\n    ',
+    '0 -6px 16px 0 rgba(0, 0, 0, 0.08),0 -3px 6px -4px rgba(0, 0, 0, 0.12),0 -9px 28px 8px rgba(0, 0, 0, 0.05)',
   boxShadowTabsOverflowLeft: 'inset 10px 0 8px -8px rgba(0, 0, 0, 0.08)',
   boxShadowTabsOverflowRight: 'inset -10px 0 8px -8px rgba(0, 0, 0, 0.08)',
   boxShadowTabsOverflowTop: 'inset 0 10px 8px -8px rgba(0, 0, 0, 0.08)',
