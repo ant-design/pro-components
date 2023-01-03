@@ -31,6 +31,17 @@ const genAppsLogoComponentsStyle: GenerateStyle<AppsLogoComponentsToken> = (toke
           backgroundColor: token?.layout?.colorBgAppListIconHover,
         },
       },
+      '&-item-title': {
+        marginInline: '16px 0 8px 12px',
+        fontWeight: 600,
+        color: 'rgba(0, 0, 0, 0.88)',
+        fontSize: 16,
+        opacity: 0.85,
+        lineHeight: 1.5,
+        '&:first-child': {
+          marginTop: 12,
+        },
+      },
       '&-popover': {
         [`${token.antCls}-popover-arrow`]: {
           display: 'none',

@@ -2,6 +2,18 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.2.2](https://github.com/ant-design/pro-components/compare/@ant-design/pro-field@2.2.1...@ant-design/pro-field@2.2.2) (2022-12-29)
+
+**Note:** Version bump only for package @ant-design/pro-field
+
+## [2.2.1](https://github.com/ant-design/pro-components/compare/@ant-design/pro-field@2.2.0...@ant-design/pro-field@2.2.1) (2022-12-29)
+
+### Bug Fixes
+
+- **form:** treeSelect do not default reset to empty string ([387d2d7](https://github.com/ant-design/pro-components/commit/387d2d7108a9e555158e4afc7e7096ff729eeecf))
+- **form:** 优化 checkbox 在 hashPriority=high 不生效问题 ([#6400](https://github.com/ant-design/pro-components/issues/6400)) ([02f09d6](https://github.com/ant-design/pro-components/commit/02f09d6eabc2abb5709cb9bcd9634cba909d98f6))
+- **list:** fix card list style error ([#6436](https://github.com/ant-design/pro-components/issues/6436)) ([81bcf52](https://github.com/ant-design/pro-components/commit/81bcf522ea68a2deeebe43fa13734adc43b01141))
+
 # [2.2.0](https://github.com/ant-design/pro-components/compare/@ant-design/pro-field@2.1.29...@ant-design/pro-field@2.2.0) (2022-12-13)
 
 ### Features

@@ -2,6 +2,20 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [3.2.9](https://github.com/ant-design/pro-components/compare/@ant-design/pro-table@3.2.8...@ant-design/pro-table@3.2.9) (2022-12-29)
+
+**Note:** Version bump only for package @ant-design/pro-table
+
+## [3.2.8](https://github.com/ant-design/pro-components/compare/@ant-design/pro-table@3.2.7...@ant-design/pro-table@3.2.8) (2022-12-29)
+
+### Bug Fixes
+
+- **card:** slove nested table background color was cover by pro-card ([#6410](https://github.com/ant-design/pro-components/issues/6410)) ([291c1af](https://github.com/ant-design/pro-components/commit/291c1afc559afed5e1723e5d86d9dd29f3cba6df))
+- **form:** treeSelect do not default reset to empty string ([387d2d7](https://github.com/ant-design/pro-components/commit/387d2d7108a9e555158e4afc7e7096ff729eeecf))
+- **list:** fix card list style error ([#6436](https://github.com/ant-design/pro-components/issues/6436)) ([81bcf52](https://github.com/ant-design/pro-components/commit/81bcf522ea68a2deeebe43fa13734adc43b01141))
+- **table:** no render onSearch will SearchProps has onSearch ([a1383e2](https://github.com/ant-design/pro-components/commit/a1383e28dc6ea280325493f8d1177f65aac7d140))
+- **table:** use flex replace Space ([#6426](https://github.com/ant-design/pro-components/issues/6426)) ([53699f8](https://github.com/ant-design/pro-components/commit/53699f8a13e152240d46c9a08b5722846c570ac2))
+
 ## [3.2.7](https://github.com/ant-design/pro-components/compare/@ant-design/pro-table@3.2.6...@ant-design/pro-table@3.2.7) (2022-12-13)
 
 **Note:** Version bump only for package @ant-design/pro-table
