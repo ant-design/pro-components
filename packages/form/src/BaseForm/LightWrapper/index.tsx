@@ -97,7 +97,7 @@ const LightWrapper: React.ForwardRefRenderFunction<any, LightWrapperProps> = (pr
           size={size}
           onClear={() => {
             onChange?.();
-            setTempValue(undefined);
+            setTempValue('');
           }}
           bordered={bordered}
           style={style}
@@ -112,7 +112,7 @@ const LightWrapper: React.ForwardRefRenderFunction<any, LightWrapperProps> = (pr
         />
       }
       footer={{
-        onClear: () => setTempValue(undefined),
+        onClear: () => setTempValue(''),
         onConfirm: () => {
           onChange?.(tempValue);
           setOpen(false);
