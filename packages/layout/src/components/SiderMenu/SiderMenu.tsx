@@ -469,8 +469,7 @@ const SiderMenu: React.FC<SiderMenuProps & PrivateSiderMenuProps> = (props) => {
                   token?.layout?.sider?.colorTextMenuSelected || 'rgba(0, 0, 0, 1)',
                 colorItemBg: 'transparent',
                 colorSubItemBg: 'transparent',
-                colorBgElevated:
-                  token?.layout?.sider?.colorBgMenuItemCollapsedElevated || 'transparent',
+                colorBgElevated: token?.layout?.sider?.colorBgMenuItemCollapsedElevated || '#fff',
               },
             },
           }}
