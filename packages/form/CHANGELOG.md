@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.5.2](https://github.com/ant-design/pro-components/compare/@ant-design/pro-form@2.5.1...@ant-design/pro-form@2.5.2) (2023-01-04)
+
+### Bug Fixes
+
+- **form:** Light FilterightWrapper 当中清除功能的默认行为，使得 LightFilter 当中的 Checkbox 可以正常地被清除功能重置 ([#6450](https://github.com/ant-design/pro-components/issues/6450)) ([0cf5796](https://github.com/ant-design/pro-components/commit/0cf5796ad4882a043f418d7c8a61374f4159b137)), closes [#6429](https://github.com/ant-design/pro-components/issues/6429)
+
 ## [2.5.1](https://github.com/ant-design/pro-components/compare/@ant-design/pro-form@2.5.0...@ant-design/pro-form@2.5.1) (2022-12-29)
 
 ### Bug Fixes

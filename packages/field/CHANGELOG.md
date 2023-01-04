@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.2.3](https://github.com/ant-design/pro-components/compare/@ant-design/pro-field@2.2.2...@ant-design/pro-field@2.2.3) (2023-01-04)
+
+### Bug Fixes
+
+- **Select:** SearchSelect optimization ([#6447](https://github.com/ant-design/pro-components/issues/6447)) ([4390f39](https://github.com/ant-design/pro-components/commit/4390f3926b00827ee209264a4073b7d065bdffb9))
+
 ## [2.2.2](https://github.com/ant-design/pro-components/compare/@ant-design/pro-field@2.2.1...@ant-design/pro-field@2.2.2) (2022-12-29)
 
 **Note:** Version bump only for package @ant-design/pro-field

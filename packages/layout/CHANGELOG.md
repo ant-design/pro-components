@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [7.5.2](https://github.com/ant-design/pro-components/compare/@ant-design/pro-layout@7.5.1...@ant-design/pro-layout@7.5.2) (2023-01-04)
+
+### Bug Fixes
+
+- **layout:** fix colorBgMenuItemCollapsedElevated no work error ([6aa0d2c](https://github.com/ant-design/pro-components/commit/6aa0d2ceb77dc55aad17babd447716eb3db94652))
+- **layout:** Layout 分组逻辑调整 ([#6451](https://github.com/ant-design/pro-components/issues/6451)) ([24f1659](https://github.com/ant-design/pro-components/commit/24f1659c71b3888e7421ebd690d311bfc8cfc616))
+
 ## [7.5.1](https://github.com/ant-design/pro-components/compare/@ant-design/pro-layout@7.5.0...@ant-design/pro-layout@7.5.1) (2022-12-29)
 
 **Note:** Version bump only for package @ant-design/pro-layout

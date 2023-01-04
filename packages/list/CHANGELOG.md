@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.0.43](https://github.com/ant-design/pro-components/compare/@ant-design/pro-list@2.0.42...@ant-design/pro-list@2.0.43) (2023-01-04)
+
+### Bug Fixes
+
+- **layout:** 调整 margin ，与 Table 组件分页 margin 一致 ([#6438](https://github.com/ant-design/pro-components/issues/6438)) ([a8f5232](https://github.com/ant-design/pro-components/commit/a8f523238dd575c3d38a1dad08669f3664305c5b))
+
 ## [2.0.42](https://github.com/ant-design/pro-components/compare/@ant-design/pro-list@2.0.41...@ant-design/pro-list@2.0.42) (2022-12-29)
 
 **Note:** Version bump only for package @ant-design/pro-list
