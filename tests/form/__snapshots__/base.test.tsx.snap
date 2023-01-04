@@ -480,7 +480,6 @@ exports[`ProForm 📦 valueType digit with precision value 1`] = `
           style="margin-right: 8px; padding-bottom: 8px;"
         >
           <button
-            ant-click-animating-without-extra-node="true"
             class="ant-btn ant-btn-primary"
             type="button"
           >
@@ -613,7 +612,6 @@ exports[`ProForm 📦 when dateFormatter is a Function 1`] = `
           style="margin-right: 8px; padding-bottom: 8px;"
         >
           <button
-            ant-click-animating-without-extra-node="true"
             class="ant-btn ant-btn-primary"
             type="button"
           >
