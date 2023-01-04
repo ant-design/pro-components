@@ -4,6 +4,8 @@ import type { AppsLogoComponentsToken } from './index';
 const genAppsLogoComponentsDefaultListStyle: GenerateStyle<AppsLogoComponentsToken> = (token) => {
   return {
     '&-content': {
+      maxHeight: 'calc(100vh - 48px)',
+      overflow: 'auto',
       '&-list': {
         boxSizing: 'content-box',
         maxWidth: 656,
@@ -13,6 +15,7 @@ const genAppsLogoComponentsDefaultListStyle: GenerateStyle<AppsLogoComponentsTok
         paddingInline: 0,
         listStyle: 'none',
         '> *': { boxSizing: 'border-box', fontFamily: token.fontFamily },
+
         '&-item': {
           position: 'relative',
           display: 'inline-block',
@@ -24,6 +27,21 @@ const genAppsLogoComponentsDefaultListStyle: GenerateStyle<AppsLogoComponentsTok
           listStyleType: 'none',
           transition: 'transform 0.2s cubic-bezier(0.333, 0, 0, 1)',
           borderRadius: token.borderRadius,
+          '&-group': {
+            marginBottom: 16,
+            '&-title': {
+              margin: '16px 0 8px 12px',
+              fontWeight: 600,
+              color: 'rgba(0, 0, 0, 0.88)',
+              fontSize: 16,
+              opacity: 0.85,
+              lineHeight: 1.5,
+              '&:first-child': {
+                marginTop: 12,
+              },
+            },
+          },
+
           '&:hover': {
             backgroundColor: token.colorBgTextHover,
           },
