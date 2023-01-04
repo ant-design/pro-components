@@ -8,6 +8,17 @@ group:
   path: /
 ---
 
+## @ant-design/pro-components@2.3.50
+
+`2023-01-04`
+
+- fix(layout): fix colorBgMenuItemCollapsedElevated no work error. [6aa0d2c](https://github.com/ant-design/pro-components/commit/6aa0d2c)
+- fix(layout): 调整 margin ，与 Table 组件分页 margin 一致 (#6438). [#6438](https://github.com/ant-design/pro-components/pull/#6438) [@hihuangwei](https://github.com/hihuangwei)
+- fix(layout): Layout 分组逻辑调整 (#6451). [#6451](https://github.com/ant-design/pro-components/pull/#6451) [@chengaway](https://github.com/chengaway)
+- fix(layout): 修复 AppsLogoComponents 样式警告 (#6440). [#6440](https://github.com/ant-design/pro-components/pull/#6440) [@leshalv](https://github.com/leshalv)
+- fix(form): Light FilterightWrapper 当中清除功能的默认行为，使得 LightFilter 当中的 Checkbox 可以正常地被清除功能重置 (#6450). [#6450](https://github.com/ant-design/pro-components/pull/#6450) [@Leo-captain](https://github.com/Leo-captain)
+- fix(table): fix columnsState.defaultValue no work error. [2b9a283](https://github.com/ant-design/pro-components/commit/2b9a283)
+
 ## @ant-design/pro-components@2.3.48
 
 `2022-12-29`
