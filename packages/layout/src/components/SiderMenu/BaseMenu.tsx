@@ -474,7 +474,9 @@ const BaseMenu: React.FC<BaseMenuProps & PrivateSiderMenuProps> = (props) => {
       } else if (menu?.ignoreFlatMenu && defaultOpenAll) {
         // 忽略用户手动折叠过的菜单状态，折叠按钮切换之后也可实现默认展开所有菜单
         setOpenKeys(getOpenKeysFromMenuData(menuData));
-      } else setDefaultOpenAll(false);
+      } else {
+        setDefaultOpenAll(false);
+      }
     },
     // eslint-disable-next-line react-hooks/exhaustive-deps
     [matchMenuKeys.join('-')],

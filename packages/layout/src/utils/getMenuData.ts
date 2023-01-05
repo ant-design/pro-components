@@ -25,6 +25,7 @@ const getMenuData = (
     formatMessage,
     true,
   );
+
   if (!menuDataRender) {
     return {
       breadcrumb: fromEntries(breadcrumb),

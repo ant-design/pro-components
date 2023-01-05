@@ -101,13 +101,13 @@ describe('BasicLayout', () => {
           },
         ]}
         route={{
-          routes: [
+          children: [
             [
               {
                 path: '/home',
                 name: '首页',
                 locale: 'menu.home',
-                routes: [
+                children: [
                   {
                     path: '/home/overview',
                     name: '概述',
@@ -166,13 +166,13 @@ describe('BasicLayout', () => {
           },
         ]}
         route={{
-          routes: [
+          children: [
             [
               {
                 path: '/home',
                 name: '首页',
                 locale: 'menu.home',
-                routes: [
+                children: [
                   {
                     path: '/home/overview',
                     name: '概述',
@@ -382,13 +382,13 @@ describe('BasicLayout', () => {
     const wrapper = render(
       <ProLayout
         route={{
-          routes: [
+          children: [
             [
               {
                 path: '/home',
                 name: '首页',
                 locale: 'menu.home',
-                routes: [
+                children: [
                   {
                     path: '/home/overview',
                     name: '概述',
@@ -1243,7 +1243,7 @@ describe('BasicLayout', () => {
                 {
                   path: '/admin',
                   name: '管理页',
-                  routes: [
+                  children: [
                     {
                       path: '/admin/sub-page1',
                       name: '一级页面',
@@ -1261,7 +1261,7 @@ describe('BasicLayout', () => {
                 {
                   name: '列表页',
                   path: '/list',
-                  routes: [
+                  children: [
                     {
                       path: '/list/sub-page',
                       name: '一级列表页面',
@@ -1422,6 +1422,7 @@ describe('BasicLayout', () => {
                   collapsed: true,
                   menuName: '域买家维度交易',
                   name: '域买家维度交易',
+                  path: '/xx',
                   children: [
                     {
                       id: 2,
@@ -1563,7 +1564,7 @@ describe('BasicLayout', () => {
           locale: true,
         }}
         route={{
-          routes: [
+          children: [
             {
               name: 'home',
               locale: 'menu.home',

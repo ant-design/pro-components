@@ -27,6 +27,7 @@ export default [
         collapsed: true,
         menuName: '域买家维度交易',
         name: '域买家维度交易',
+        path: '/xx',
         routes: [
           {
             id: 2,
