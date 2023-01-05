@@ -319,8 +319,16 @@ const ConfigProVidContainer: React.FC<{
   token?: DeepPartial<ProAliasToken>;
   hashed?: boolean;
   dark?: boolean;
+  prefixCls?: string;
 }> = (props) => {
-  const { children, dark, valueTypeMap, autoClearCache = false, token: propsToken } = props;
+  const {
+    children,
+    dark,
+    valueTypeMap,
+    autoClearCache = false,
+    token: propsToken,
+    prefixCls,
+  } = props;
   const { locale, getPrefixCls, ...restConfig } = useContext(AntdConfigProvider.ConfigContext);
   const tokenContext = proTheme.useToken?.();
   const containerDomRef = useRef<HTMLDivElement>(null);
@@ -331,7 +339,8 @@ const ConfigProVidContainer: React.FC<{
    * @type {string}
    * @example .ant-pro
    */
-  const proComponentsCls = `.${getPrefixCls()}-pro`;
+
+  const proComponentsCls = prefixCls ? `.${prefixCls}` : `.${getPrefixCls()}-pro`;
 
   const antCls = '.' + getPrefixCls();
 
@@ -430,7 +439,9 @@ const ConfigProVidContainer: React.FC<{
     return (
       <div
         ref={containerDomRef}
-        className={`${getPrefixCls?.('pro') || 'ant-pro'}${hashId ? ' ' + hashId : ''}`}
+        className={`${prefixCls || getPrefixCls?.('pro') || 'ant-pro'}${
+          hashId ? ' ' + hashId : ''
+        }`}
       >
         {provide}
       </div>
@@ -451,6 +462,7 @@ export const ProConfigProvider: React.FC<{
   valueTypeMap?: Record<string, ProRenderFieldPropsType>;
   dark?: boolean;
   hashed?: boolean;
+  prefixCls?: string;
 }> = (props) => {
   const { needDeps, dark, token } = props;
   const proProvide = useContext(ProConfigContext);
