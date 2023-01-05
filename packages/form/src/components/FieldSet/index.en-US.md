@@ -32,27 +32,27 @@ So the props we set for ProFormText are actually for Form.Item, and the fieldPro
 
 ### Full amount of form field
 
-<code src="./demos/components-other.tsx"/>
+<code src="./demos/components-other.tsx"></code>
 
 ### Query form
 
-<code src="./demos/search-select.tsx" title=" Query form"/>
+<code src="./demos/search-select.tsx" title=" Query form"></code>
 
 ### Date form
 
-<code src="./demos/datatime.tsx" title="Date form"/>
+<code src="./demos/datatime.tsx" title="Date form"></code>
 
 ### Upload form
 
-<code src="./demos/upload.tsx" title="Upload form"/>
+<code src="./demos/upload.tsx" title="Upload form"></code>
 
 ### Structured data
 
-<code src="./demos/form-fieldset.tsx" title="Structured data"/>
+<code src="./demos/form-fieldset.tsx" title="Structured data"></code>
 
 ### Read-only for form field
 
-<code src="./demos/components-other-readonly.tsx" debug/>
+<code src="./demos/components-other-readonly.tsx" debug></code>
 
 ## API
 

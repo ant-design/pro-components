@@ -18,51 +18,51 @@ nav:
 
 ### 基本使用
 
-<code src="./demos/base.tsx" background="#f5f5f5" title="基本使用" height="459px"/>
+<code src="./demos/base.tsx" background="#f5f5f5" title="基本使用" height="459px"></code>
 
 ### 编辑列表
 
-<code src="./demos/editable.tsx" background="#f5f5f5" title="编辑列表" height="443px"/>
+<code src="./demos/editable.tsx" background="#f5f5f5" title="编辑列表" height="443px"></code>
 
 ### 带工具栏的列表
 
-<code src="./demos/ToolBar.tsx" background="#f5f5f5" title="带工具栏的列表" height="385px"/>
+<code src="./demos/ToolBar.tsx" background="#f5f5f5" title="带工具栏的列表" height="385px"></code>
 
 ### 支持展开的列表
 
-<code src="./demos/expand.tsx" background="#f5f5f5" title="支持展开的列表" height="371px"/>
+<code src="./demos/expand.tsx" background="#f5f5f5" title="支持展开的列表" height="371px"></code>
 
 ### 支持选中的列表
 
-<code src="./demos/selectedRow.tsx" background="#f5f5f5" title="支持选中的列表" height="545px"/>
+<code src="./demos/selectedRow.tsx" background="#f5f5f5" title="支持选中的列表" height="545px"></code>
 
 ### 查询列表
 
-<code src="./demos/search.tsx" background="#f5f5f5" title="查询列表" height="709px"/>
+<code src="./demos/search.tsx" background="#f5f5f5" title="查询列表" height="709px"></code>
 
 ### 带筛选和异步请求的列表
 
-<code src="./demos/filter.tsx" background="#f5f5f5" title="带筛选和异步请求的列表" height="613px"/>
+<code src="./demos/filter.tsx" background="#f5f5f5" title="带筛选和异步请求的列表" height="613px"></code>
 
 ### 大小和分割线
 
-<code src="./demos/size.tsx" background="#f5f5f5" title="大小和分割线" height="426px"/>
+<code src="./demos/size.tsx" background="#f5f5f5" title="大小和分割线" height="426px"></code>
 
 ### 竖排样式
 
-<code src="./demos/layout.tsx" background="#f5f5f5" title="竖排样式" height="995px"/>
+<code src="./demos/layout.tsx" background="#f5f5f5" title="竖排样式" height="995px"></code>
 
 ### 一些预设的模式
 
-<code src="./demos/special.tsx" background="#f5f5f5" title="一些预设的模式" height="371px"/>
+<code src="./demos/special.tsx" background="#f5f5f5" title="一些预设的模式" height="371px"></code>
 
 ### 翻页
 
-<code src="./demos/pagination.tsx" background="#f5f5f5" title="翻页" height="574px"/>
+<code src="./demos/pagination.tsx" background="#f5f5f5" title="翻页" height="574px"></code>
 
 ### 卡片列表
 
-<code src="./demos/card-list.tsx" background="#f5f5f5" title="卡片列表" height="950px"/>
+<code src="./demos/card-list.tsx" background="#f5f5f5" title="卡片列表" height="950px"></code>
 
 ## API
 

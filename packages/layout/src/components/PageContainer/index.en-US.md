@@ -50,11 +50,11 @@ We have added a footer attribute to make it easier to do things like forms, so y
 
 ### Basic usage
 
-<code src="./demos/basic.tsx" />
+<code src="./demos/basic.tsx"></code>
 
 ### Fixed table headers
 
-<code src="./demos/fixHeader.tsx" />
+<code src="./demos/fixHeader.tsx"></code>
 
 ### Hide breadcrumbs
 
@@ -62,7 +62,7 @@ We have added a footer attribute to make it easier to do things like forms, so y
 
 ### page loading
 
-<code src="./demos/loading.tsx" />
+<code src="./demos/loading.tsx"></code>
 
 ## API
 

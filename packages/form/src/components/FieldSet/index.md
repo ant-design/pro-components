@@ -56,27 +56,27 @@ const ProFormText = (props) => {
 
 ### 表单项
 
-<code src="./demos/components-other.tsx" title="表单项" height="862px"/>
+<code src="./demos/components-other.tsx" title="表单项" height="862px"></code>
 
 ### 查询表单
 
-<code src="./demos/search-select.tsx" title="查询表单" height="193px"/>
+<code src="./demos/search-select.tsx" title="查询表单" height="193px"></code>
 
 ### 结构化数据
 
-<code src="./demos/form-fieldset.tsx" title="结构化数据" height="489px"/>
+<code src="./demos/form-fieldset.tsx" title="结构化数据" height="489px"></code>
 
 ### 日期表单
 
-<code src="./demos/datatime.tsx" height="545px" title="日期表单"/>
+<code src="./demos/datatime.tsx" height="545px" title="日期表单"></code>
 
 ### 上传表单
 
-<code src="./demos/upload.tsx" height="620px" title="上传表单"/>
+<code src="./demos/upload.tsx" height="620px" title="上传表单"></code>
 
 ### 只读表单
 
-<code src="./demos/components-other-readonly.tsx"  debug/>
+<code src="./demos/components-other-readonly.tsx" debug></code>
 
 ## API
 
@@ -117,7 +117,7 @@ ProForm 自带的 Filed ,与 valueType 基本上一一对应。
 
 ProFormCaptcha 是为了支持中后台中常见的验证码功能开发的组件。
 
-<code src="./demos/pro-form-captCha.tsx" height="169px" title="captcha"/>
+<code src="./demos/pro-form-captCha.tsx" height="169px" title="captcha"></code>
 
 ```tsx | pure
 <ProFormCaptcha
