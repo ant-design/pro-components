@@ -496,6 +496,7 @@ Sider Token 是 侧边菜单的色值，与顶部菜单不同。
 | colorTextMenu | menuItem 的字体颜色 | `colorText` |
 | colorTextMenuSecondary | menu 的二级字体颜色，比如 footer 和 action 的 icon | `colorText` |
 | colorTextMenuSelected | menuItem 的选中字体颜色 | `rgb(0,0,0)` |
+| colorTextMenuActive | menuItem hover 的选中字体颜色 | `rgba(0, 0, 0, 0.85)` |
 | colorTextMenuItemHover | menuItem 的 hover 字体颜色 | `rgba(255,255,255,0.75)` |
 | colorBgMenuItemHover | menuItem 的 hover 背景颜色 | `rgba(90, 75, 75, 0.03)` |
 | colorBgMenuItemSelected | menuItem 的选中背景颜色 | `rgba(0, 0, 0, 0.04)` |
@@ -515,6 +516,7 @@ Sider Token 是 侧边菜单的色值，与顶部菜单不同。
 | colorTextMenu | menuItem 的字体颜色 | `colorText` |
 | colorTextMenuSecondary | menu 的二级字体颜色，比如 footer 和 action 的 icon | `colorText` |
 | colorTextMenuSelected | menuItem 的选中字体颜色 | `rgb(0,0,0)` |
+| colorTextMenuActive | menuItem hover 的选中字体颜色 | `rgba(0, 0, 0, 0.85)` |
 | colorBgMenuItemHover | menuItem 的 hover 背景颜色 | `rgba(90, 75, 75, 0.03)` |
 | colorBgMenuItemSelected | menuItem 的选中背景颜色 | `rgba(0, 0, 0, 0.04)` |
 | colorBgMenuItemCollapsedHover | 收起 menuItem 的 hover 背景颜色 | `rgba(0, 145, 255, 0.1)` |
