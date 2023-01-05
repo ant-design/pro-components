@@ -15,17 +15,17 @@ nav:
 
 ## DEMO
 
-<code src="./demos/base.tsx" height="1202px"/>
+<code src="./demos/base.tsx" height="1202px"></code>
 
-<code src="./demos/base_test.tsx" debug/>
+<code src="./demos/base_test.tsx" debug></code>
 
-<code src="./demos/search-value.tsx" debug/>
+<code src="./demos/search-value.tsx" debug></code>
 
-<code src="./demos/search-value-autoClearSearchValue.tsx" debug/>
+<code src="./demos/search-value-autoClearSearchValue.tsx" debug></code>
 
-<code src="./demos/tree-select-search-value.tsx" debug/>
+<code src="./demos/tree-select-search-value.tsx" debug></code>
 
-<code src="./demos/select-request.tsx" debug/>
+<code src="./demos/select-request.tsx" debug></code>
 
 ## API
 
