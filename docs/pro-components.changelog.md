@@ -8,6 +8,14 @@ group:
   path: /
 ---
 
+## @ant-design/pro-components@2.3.51
+
+`2023-01-06`
+
+- feat(layout): 修复 prolayout 传入自定义 prefixCls 时样式异常 (#6464). [#6464](https://github.com/ant-design/pro-components/pull/#6464) [@Hahet](https://github.com/Hahet)
+- feat(layout): remove unuse deps. [9cac437](https://github.com/ant-design/pro-components/commit/9cac437)
+- fix(form): fix ProFormDigitRange label formart style. [6250094](https://github.com/ant-design/pro-components/commit/6250094)
+
 ## @ant-design/pro-components@2.3.50
 
 `2023-01-04`
