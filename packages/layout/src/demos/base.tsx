@@ -9,14 +9,14 @@ import {
 } from '@ant-design/icons';
 import type { ProSettings } from '@ant-design/pro-components';
 import {
-  ProCard,
   PageContainer,
+  ProCard,
   ProConfigProvider,
   ProLayout,
   SettingDrawer,
 } from '@ant-design/pro-components';
 import { css } from '@emotion/css';
-import { Button, Divider, Popover, Input, theme } from 'antd';
+import { Button, Divider, Input, Popover, theme } from 'antd';
 import React, { useState } from 'react';
 import defaultProps from './_defaultProps';
 
@@ -267,6 +267,7 @@ export default () => {
     >
       <ProConfigProvider hashed={false}>
         <ProLayout
+          prefixCls="my-prefix"
           bgLayoutImgList={[
             {
               src: 'https://img.alicdn.com/imgextra/i2/O1CN01O4etvp1DvpFLKfuWq_!!6000000000279-2-tps-609-606.png',
