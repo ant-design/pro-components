@@ -253,7 +253,11 @@ const CheckboxList: React.FC<{
         );
       }}
       height={listHeight}
-      treeData={treeDataConfig.list}
+      treeData={
+        !!treeDataConfig.list?.length && treeDataConfig.list?.length > 1
+          ? treeDataConfig.list.map(({ disabled, ...restProps }) => restProps)
+          : treeDataConfig.list
+      }
     />
   );
   return (
