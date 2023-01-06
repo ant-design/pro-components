@@ -430,7 +430,7 @@ describe('PageContainer', () => {
       useEffect(() => {
         setTimeout(() => {
           setLoading(false);
-        }, 1000);
+        }, 600);
       }, []);
       return (
         <PageContainer

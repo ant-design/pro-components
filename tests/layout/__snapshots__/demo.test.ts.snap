@@ -10946,13 +10946,13 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/base.tsx correctl
       class="ant-pro"
     >
       <div
-        class="ant-pro"
+        class="my-prefix"
       >
         <div
-          class="ant-design-pro ant-pro-layout screen-md ant-pro-layout-fix-siderbar ant-pro-layout-mix"
+          class="ant-design-pro my-prefix-layout screen-md my-prefix-layout-fix-siderbar my-prefix-layout-mix"
         >
           <div
-            class="ant-pro-layout-bg-list "
+            class="my-prefix-layout-bg-list "
           >
             <img
               src="https://img.alicdn.com/imgextra/i2/O1CN01O4etvp1DvpFLKfuWq_!!6000000000279-2-tps-609-606.png"
@@ -10975,7 +10975,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/base.tsx correctl
               style="width: 215px; overflow: hidden; flex: 0 0 215px; max-width: 215px; min-width: 215px; transition: all 0.2s ease 0s;"
             />
             <aside
-              class="ant-layout-sider ant-layout-sider-light ant-pro-sider ant-pro-sider-fixed ant-pro-sider-layout-mix ant-pro-sider-light ant-pro-sider-mix"
+              class="ant-layout-sider ant-layout-sider-light my-prefix-sider my-prefix-sider-fixed my-prefix-sider-layout-mix my-prefix-sider-light my-prefix-sider-mix"
               style="flex: 0 0 215px; max-width: 215px; min-width: 215px; width: 215px;"
             >
               <div
@@ -10985,24 +10985,24 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/base.tsx correctl
                   style="flex: 1; overflow-y: auto; overflow-x: hidden;"
                 >
                   <ul
-                    class="ant-menu ant-menu-root ant-menu-inline ant-menu-light ant-pro-sider-menu  ant-pro-base-menu"
+                    class="ant-menu ant-menu-root ant-menu-inline ant-menu-light my-prefix-sider-menu  my-prefix-base-menu"
                     data-menu-list="true"
                     role="menu"
                     style="background-color: transparent; width: 100%;"
                     tabindex="0"
                   >
                     <li
-                      class="ant-menu-item-group ant-pro-base-menu-group"
+                      class="ant-menu-item-group my-prefix-base-menu-group"
                     >
                       <div
                         class="ant-menu-item-group-title"
                       >
                         <div
-                          class="ant-pro-base-menu-item-title ant-pro-base-menu-group-item-title"
+                          class="my-prefix-base-menu-item-title my-prefix-base-menu-group-item-title"
                           title="列表页面"
                         >
                           <span
-                            class="anticon ant-pro-base-menu-item-icon "
+                            class="anticon my-prefix-base-menu-item-icon "
                           >
                             <span
                               aria-label="crown"
@@ -11025,7 +11025,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/base.tsx correctl
                             </span>
                           </span>
                           <span
-                            class="ant-pro-base-menu-item-text"
+                            class="my-prefix-base-menu-item-text"
                           >
                             列表页面
                           </span>
@@ -11035,7 +11035,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/base.tsx correctl
                         class="ant-menu-item-group-list"
                       >
                         <li
-                          class="ant-menu-item ant-menu-item-selected ant-menu-item-only-child ant-pro-base-menu-menu-item"
+                          class="ant-menu-item ant-menu-item-selected ant-menu-item-only-child my-prefix-base-menu-menu-item"
                           data-menu-id="rc-menu-uuid-test-/list/sub-page/sub-sub-page1"
                           role="menuitem"
                           style="padding-left: 16px;"
@@ -11047,10 +11047,10 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/base.tsx correctl
                           >
                             <div>
                               <div
-                                class="ant-pro-base-menu-item-title"
+                                class="my-prefix-base-menu-item-title"
                               >
                                 <span
-                                  class="anticon ant-pro-base-menu-item-icon "
+                                  class="anticon my-prefix-base-menu-item-icon "
                                 >
                                   <span
                                     aria-label="crown"
@@ -11073,7 +11073,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/base.tsx correctl
                                   </span>
                                 </span>
                                 <span
-                                  class="ant-pro-base-menu-item-text ant-pro-base-menu-item-text-has-icon"
+                                  class="my-prefix-base-menu-item-text my-prefix-base-menu-item-text-has-icon"
                                 >
                                   一一级列表页面
                                 </span>
@@ -11082,7 +11082,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/base.tsx correctl
                           </span>
                         </li>
                         <li
-                          class="ant-menu-item ant-menu-item-only-child ant-pro-base-menu-menu-item"
+                          class="ant-menu-item ant-menu-item-only-child my-prefix-base-menu-menu-item"
                           data-menu-id="rc-menu-uuid-test-/list/sub-page/sub-sub-page2"
                           role="menuitem"
                           style="padding-left: 16px;"
@@ -11094,10 +11094,10 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/base.tsx correctl
                           >
                             <div>
                               <div
-                                class="ant-pro-base-menu-item-title"
+                                class="my-prefix-base-menu-item-title"
                               >
                                 <span
-                                  class="anticon ant-pro-base-menu-item-icon "
+                                  class="anticon my-prefix-base-menu-item-icon "
                                 >
                                   <span
                                     aria-label="crown"
@@ -11120,7 +11120,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/base.tsx correctl
                                   </span>
                                 </span>
                                 <span
-                                  class="ant-pro-base-menu-item-text ant-pro-base-menu-item-text-has-icon"
+                                  class="my-prefix-base-menu-item-text my-prefix-base-menu-item-text-has-icon"
                                 >
                                   一二级列表页面
                                 </span>
@@ -11129,7 +11129,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/base.tsx correctl
                           </span>
                         </li>
                         <li
-                          class="ant-menu-item ant-menu-item-only-child ant-pro-base-menu-menu-item"
+                          class="ant-menu-item ant-menu-item-only-child my-prefix-base-menu-menu-item"
                           data-menu-id="rc-menu-uuid-test-/list/sub-page/sub-sub-page3"
                           role="menuitem"
                           style="padding-left: 16px;"
@@ -11141,10 +11141,10 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/base.tsx correctl
                           >
                             <div>
                               <div
-                                class="ant-pro-base-menu-item-title"
+                                class="my-prefix-base-menu-item-title"
                               >
                                 <span
-                                  class="anticon ant-pro-base-menu-item-icon "
+                                  class="anticon my-prefix-base-menu-item-icon "
                                 >
                                   <span
                                     aria-label="crown"
@@ -11167,7 +11167,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/base.tsx correctl
                                   </span>
                                 </span>
                                 <span
-                                  class="ant-pro-base-menu-item-text ant-pro-base-menu-item-text-has-icon"
+                                  class="my-prefix-base-menu-item-text my-prefix-base-menu-item-text-has-icon"
                                 >
                                   一三级列表页面
                                 </span>
@@ -11178,11 +11178,11 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/base.tsx correctl
                       </ul>
                     </li>
                     <li
-                      class="ant-menu-item-divider ant-pro-base-menu-divider"
+                      class="ant-menu-item-divider my-prefix-base-menu-divider"
                       style="padding: 0px; border-block-end: 0; margin: 6px 16px; margin-block-start: 8px; border-color: rgba(0, 0, 0, 0.06);"
                     />
                     <li
-                      class="ant-menu-item ant-menu-item-only-child ant-pro-base-menu-menu-item"
+                      class="ant-menu-item ant-menu-item-only-child my-prefix-base-menu-menu-item"
                       data-menu-id="rc-menu-uuid-test-/list/sub-page2"
                       role="menuitem"
                       style="padding-left: 16px;"
@@ -11194,10 +11194,10 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/base.tsx correctl
                       >
                         <div>
                           <div
-                            class="ant-pro-base-menu-item-title"
+                            class="my-prefix-base-menu-item-title"
                           >
                             <span
-                              class="anticon ant-pro-base-menu-item-icon "
+                              class="anticon my-prefix-base-menu-item-icon "
                             >
                               <span
                                 aria-label="crown"
@@ -11220,7 +11220,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/base.tsx correctl
                               </span>
                             </span>
                             <span
-                              class="ant-pro-base-menu-item-text ant-pro-base-menu-item-text-has-icon"
+                              class="my-prefix-base-menu-item-text my-prefix-base-menu-item-text-has-icon"
                             >
                               二级列表页面
                             </span>
@@ -11229,7 +11229,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/base.tsx correctl
                       </span>
                     </li>
                     <li
-                      class="ant-menu-item ant-menu-item-only-child ant-pro-base-menu-menu-item"
+                      class="ant-menu-item ant-menu-item-only-child my-prefix-base-menu-menu-item"
                       data-menu-id="rc-menu-uuid-test-/list/sub-page3"
                       role="menuitem"
                       style="padding-left: 16px;"
@@ -11241,10 +11241,10 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/base.tsx correctl
                       >
                         <div>
                           <div
-                            class="ant-pro-base-menu-item-title"
+                            class="my-prefix-base-menu-item-title"
                           >
                             <span
-                              class="anticon ant-pro-base-menu-item-icon "
+                              class="anticon my-prefix-base-menu-item-icon "
                             >
                               <span
                                 aria-label="crown"
@@ -11267,7 +11267,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/base.tsx correctl
                               </span>
                             </span>
                             <span
-                              class="ant-pro-base-menu-item-text ant-pro-base-menu-item-text-has-icon"
+                              class="my-prefix-base-menu-item-text my-prefix-base-menu-item-text-has-icon"
                             >
                               三级列表页面
                             </span>
@@ -11282,7 +11282,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/base.tsx correctl
                   />
                 </div>
                 <div
-                  class="ant-pro-sider-footer"
+                  class="my-prefix-sider-footer"
                 >
                   <div
                     style="text-align: center; padding-block-start: 12px;"
@@ -11296,7 +11296,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/base.tsx correctl
                   </div>
                 </div>
                 <div
-                  class="ant-pro-sider-collapsed-button"
+                  class="my-prefix-sider-collapsed-button"
                 >
                   <svg
                     aria-hidden="true"
@@ -11313,7 +11313,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/base.tsx correctl
               </div>
             </aside>
             <div
-              class="ant-pro-layout-container "
+              class="my-prefix-layout-container "
               style="position: relative;"
             >
               <header
@@ -11321,20 +11321,20 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/base.tsx correctl
                 style="height: 56px; line-height: 56px; background-color: transparent; z-index: 19;"
               />
               <header
-                class="ant-layout-header ant-pro-layout-header ant-pro-layout-header-fixed-header ant-pro-layout-header-mix ant-pro-layout-header-fixed-header-action ant-pro-layout-header-header"
+                class="ant-layout-header my-prefix-layout-header my-prefix-layout-header-fixed-header my-prefix-layout-header-mix my-prefix-layout-header-fixed-header-action my-prefix-layout-header-header"
               >
                 <div
-                  class="ant-pro-top-nav-header ant-pro-top-nav-header-light"
+                  class="my-prefix-top-nav-header my-prefix-top-nav-header-light"
                 >
                   <div
-                    class="ant-pro-top-nav-header-main"
+                    class="my-prefix-top-nav-header-main"
                   >
                     <div
-                      class="ant-pro-top-nav-header-main-left "
+                      class="my-prefix-top-nav-header-main-left "
                     >
                       <div />
                       <span
-                        class="ant-pro-layout-apps-icon"
+                        class="my-prefix-layout-apps-icon"
                       >
                         <svg
                           aria-hidden="true"
@@ -11349,7 +11349,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/base.tsx correctl
                         </svg>
                       </span>
                       <div
-                        class="ant-pro-top-nav-header-logo "
+                        class="my-prefix-top-nav-header-logo "
                         id="logo"
                       >
                         <a>
@@ -11486,18 +11486,18 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/base.tsx correctl
                       </div>
                     </div>
                     <div
-                      class="ant-pro-top-nav-header-menu "
+                      class="my-prefix-top-nav-header-menu "
                       style="flex: 1;"
                     >
                       <ul
-                        class="ant-menu-overflow ant-menu ant-menu-root ant-menu-horizontal ant-menu-light ant-pro-top-nav-header-base-menu  ant-pro-base-menu ant-pro-base-menu-horizontal"
+                        class="ant-menu-overflow ant-menu ant-menu-root ant-menu-horizontal ant-menu-light my-prefix-top-nav-header-base-menu  my-prefix-base-menu my-prefix-base-menu-horizontal"
                         data-menu-list="true"
                         role="menu"
                         style="background-color: transparent; width: 100%;"
                         tabindex="0"
                       >
                         <li
-                          class="ant-menu-overflow-item ant-menu-item ant-menu-item-only-child ant-pro-base-menu-menu-item"
+                          class="ant-menu-overflow-item ant-menu-item ant-menu-item-only-child my-prefix-base-menu-menu-item"
                           data-menu-id="rc-menu-uuid-test-/welcome"
                           role="menuitem"
                           style="opacity: 1; order: 0;"
@@ -11509,10 +11509,10 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/base.tsx correctl
                           >
                             <div>
                               <div
-                                class="ant-pro-base-menu-item-title"
+                                class="my-prefix-base-menu-item-title"
                               >
                                 <span
-                                  class="anticon ant-pro-base-menu-item-icon "
+                                  class="anticon my-prefix-base-menu-item-icon "
                                 >
                                   <span
                                     aria-label="smile"
@@ -11535,7 +11535,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/base.tsx correctl
                                   </span>
                                 </span>
                                 <span
-                                  class="ant-pro-base-menu-item-text ant-pro-base-menu-item-text-has-icon"
+                                  class="my-prefix-base-menu-item-text my-prefix-base-menu-item-text-has-icon"
                                 >
                                   欢迎
                                 </span>
@@ -11544,7 +11544,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/base.tsx correctl
                           </span>
                         </li>
                         <li
-                          class="ant-menu-overflow-item ant-menu-item ant-menu-item-only-child ant-pro-base-menu-menu-item"
+                          class="ant-menu-overflow-item ant-menu-item ant-menu-item-only-child my-prefix-base-menu-menu-item"
                           role="menuitem"
                           style="opacity: 1; order: 1;"
                           tabindex="-1"
@@ -11555,10 +11555,10 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/base.tsx correctl
                           >
                             <div>
                               <div
-                                class="ant-pro-base-menu-item-title"
+                                class="my-prefix-base-menu-item-title"
                               >
                                 <span
-                                  class="anticon ant-pro-base-menu-item-icon "
+                                  class="anticon my-prefix-base-menu-item-icon "
                                 >
                                   <span
                                     aria-label="crown"
@@ -11581,7 +11581,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/base.tsx correctl
                                   </span>
                                 </span>
                                 <span
-                                  class="ant-pro-base-menu-item-text ant-pro-base-menu-item-text-has-icon"
+                                  class="my-prefix-base-menu-item-text my-prefix-base-menu-item-text-has-icon"
                                 >
                                   管理页
                                 </span>
@@ -11590,7 +11590,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/base.tsx correctl
                           </span>
                         </li>
                         <li
-                          class="ant-menu-overflow-item ant-menu-item ant-menu-item-selected ant-menu-item-only-child ant-pro-base-menu-menu-item"
+                          class="ant-menu-overflow-item ant-menu-item ant-menu-item-selected ant-menu-item-only-child my-prefix-base-menu-menu-item"
                           role="menuitem"
                           style="opacity: 1; order: 2;"
                           tabindex="-1"
@@ -11601,10 +11601,10 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/base.tsx correctl
                           >
                             <div>
                               <div
-                                class="ant-pro-base-menu-item-title"
+                                class="my-prefix-base-menu-item-title"
                               >
                                 <span
-                                  class="anticon ant-pro-base-menu-item-icon "
+                                  class="anticon my-prefix-base-menu-item-icon "
                                 >
                                   <span
                                     aria-label="tablet"
@@ -11627,7 +11627,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/base.tsx correctl
                                   </span>
                                 </span>
                                 <span
-                                  class="ant-pro-base-menu-item-text ant-pro-base-menu-item-text-has-icon"
+                                  class="my-prefix-base-menu-item-text my-prefix-base-menu-item-text-has-icon"
                                 >
                                   列表页
                                 </span>
@@ -11636,7 +11636,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/base.tsx correctl
                           </span>
                         </li>
                         <li
-                          class="ant-menu-overflow-item ant-menu-item ant-menu-item-only-child ant-pro-base-menu-menu-item"
+                          class="ant-menu-overflow-item ant-menu-item ant-menu-item-only-child my-prefix-base-menu-menu-item"
                           role="menuitem"
                           style="opacity: 1; order: 3;"
                           tabindex="-1"
@@ -11647,11 +11647,11 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/base.tsx correctl
                           >
                             <div>
                               <span
-                                class="ant-pro-base-menu-item-title ant-pro-base-menu-item-link"
+                                class="my-prefix-base-menu-item-title my-prefix-base-menu-item-link"
                                 title="Ant Design 官网外链"
                               >
                                 <span
-                                  class="anticon ant-pro-base-menu-item-icon "
+                                  class="anticon my-prefix-base-menu-item-icon "
                                 >
                                   <span
                                     aria-label="chrome"
@@ -11674,7 +11674,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/base.tsx correctl
                                   </span>
                                 </span>
                                 <span
-                                  class="ant-pro-base-menu-item-text ant-pro-base-menu-item-text-has-icon"
+                                  class="my-prefix-base-menu-item-text my-prefix-base-menu-item-text-has-icon"
                                 >
                                   Ant Design 官网外链
                                 </span>
@@ -11836,7 +11836,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/base.tsx correctl
                 </div>
               </header>
               <main
-                class="ant-layout-content ant-pro-layout-content ant-pro-layout-has-header ant-pro-layout-content-has-page-container"
+                class="ant-layout-content my-prefix-layout-content my-prefix-layout-has-header my-prefix-layout-content-has-page-container"
               >
                 <div
                   class="ant-pro-page-container ant-pro-page-container-with-footer"
@@ -12041,7 +12041,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/base.tsx correctl
                 </div>
               </main>
               <div
-                class="ant-pro-layout-has-footer"
+                class="my-prefix-layout-has-footer"
                 style="height: 64px; margin-block-start: 24px;"
               />
             </div>
