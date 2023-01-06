@@ -552,7 +552,7 @@ const BaseMenu: React.FC<BaseMenuProps & PrivateSiderMenuProps> = (props) => {
         [`${baseClassName}-collapsed`]: props.collapsed,
       })}
       items={menuUtils.getNavMenuItems(finallyData, 0)}
-      onOpenChange={(_openKeys: string[])=> {
+      onOpenChange={(_openKeys: React.Key[])=> {
         if (!props.collapsed) {
           setOpenKeys(_openKeys)
         }
