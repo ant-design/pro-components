@@ -5,8 +5,10 @@ export const getOpenKeysFromMenuData = (menuData?: MenuDataItem[]) => {
     if (item.key) {
       pre.push(item.key);
     }
-    if (item.routes) {
-      const newArray: string[] = pre.concat(getOpenKeysFromMenuData(item.routes) || []);
+    if (item.children || item.routes) {
+      const newArray: string[] = pre.concat(
+        getOpenKeysFromMenuData(item.children || item.routes) || [],
+      );
       return newArray;
     }
     return pre;

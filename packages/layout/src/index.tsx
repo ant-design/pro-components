@@ -15,6 +15,7 @@ import 'antd/es/spin/style';
 import 'antd/es/switch/style';
 import 'antd/es/tabs/style';
 import 'antd/es/tooltip/style';
+import 'antd/es/breadcrumb/style';
 //----------------------
 
 import { FooterToolbar } from './components/FooterToolbar';
