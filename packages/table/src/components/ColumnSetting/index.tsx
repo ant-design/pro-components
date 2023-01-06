@@ -362,12 +362,14 @@ function ColumnSetting<T>(props: ColumnSettingProps<T>) {
   const setAllSelectAction = useRefFunction((show: boolean = true) => {
     const columnKeyMap = {};
     const loopColumns = (columns: any) => {
-      columns.forEach(({ key, fixed, index, children }: any) => {
+      columns.forEach(({ key, fixed, index, children, disable }: any) => {
         const columnKey = genColumnKey(key, index);
         if (columnKey) {
           columnKeyMap[columnKey] = {
-            show,
+            show: disable ? columnsMap[columnKey]?.show : show,
             fixed,
+            disable,
+            order: columnsMap[columnKey]?.order,
           };
         }
         if (children) {
