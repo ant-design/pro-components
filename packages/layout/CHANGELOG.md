@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [7.6.0](https://github.com/ant-design/pro-components/compare/@ant-design/pro-layout@7.5.2...@ant-design/pro-layout@7.6.0) (2023-01-06)
+
+### Features
+
+- **layout:** remove unuse deps ([9cac437](https://github.com/ant-design/pro-components/commit/9cac43772b9bea76d167a101626a3fdc247e238f))
+- **layout:** 修复 prolayout 传入自定义 prefixCls 时样式异常 ([#6464](https://github.com/ant-design/pro-components/issues/6464)) ([fda307d](https://github.com/ant-design/pro-components/commit/fda307d11c849a02c9d30e1c5a876588f532609d))
+
 ## [7.5.2](https://github.com/ant-design/pro-components/compare/@ant-design/pro-layout@7.5.1...@ant-design/pro-layout@7.5.2) (2023-01-04)
 
 ### Bug Fixes

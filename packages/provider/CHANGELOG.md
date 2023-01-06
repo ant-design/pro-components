@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.4.0](https://github.com/ant-design/pro-components/compare/@ant-design/pro-provider@2.3.1...@ant-design/pro-provider@2.4.0) (2023-01-06)
+
+### Features
+
+- **layout:** 修复 prolayout 传入自定义 prefixCls 时样式异常 ([#6464](https://github.com/ant-design/pro-components/issues/6464)) ([fda307d](https://github.com/ant-design/pro-components/commit/fda307d11c849a02c9d30e1c5a876588f532609d))
+
 ## [2.3.1](https://github.com/ant-design/pro-components/compare/@ant-design/pro-provider@2.3.0...@ant-design/pro-provider@2.3.1) (2022-12-29)
 
 ### Bug Fixes
