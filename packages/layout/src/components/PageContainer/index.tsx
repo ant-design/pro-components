@@ -390,7 +390,7 @@ const PageContainerBase: React.FC<PageContainerProps> = (props) => {
   return stylish.wrapSSR(
     wrapSSR(
       <>
-        <div style={style} className={containerClassName}>
+        <div style={{...style, height: 'calc(100vh - 56px)', overflowY: 'auto' }} className={containerClassName}>
           {fixedHeader && pageHeaderDom ? (
             // 在 hasHeader 且 fixedHeader 的情况下，才需要设置高度
             <Affix
