@@ -366,6 +366,7 @@ function ColumnSetting<T>(props: ColumnSettingProps<T>) {
         const columnKey = genColumnKey(key, index);
         if (columnKey) {
           columnKeyMap[columnKey] = {
+            // 子节点 disable 时，不修改节点显示状态
             show: disable ? columnsMap[columnKey]?.show : show,
             fixed,
             disable,
