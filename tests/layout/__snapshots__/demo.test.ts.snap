@@ -1992,7 +1992,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/components/WaterMark/de
                                 class="ant-table-cell"
                               >
                                 <div
-                                  style="display: flex; align-items: center; justify-content: center; gap: 8px;"
+                                  style="display: flex; align-items: center; justify-content: flex-start; gap: 8px;"
                                 >
                                   <a>
                                     链路
@@ -2154,7 +2154,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/components/WaterMark/de
                                 class="ant-table-cell"
                               >
                                 <div
-                                  style="display: flex; align-items: center; justify-content: center; gap: 8px;"
+                                  style="display: flex; align-items: center; justify-content: flex-start; gap: 8px;"
                                 >
                                   <a>
                                     链路
@@ -2316,7 +2316,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/components/WaterMark/de
                                 class="ant-table-cell"
                               >
                                 <div
-                                  style="display: flex; align-items: center; justify-content: center; gap: 8px;"
+                                  style="display: flex; align-items: center; justify-content: flex-start; gap: 8px;"
                                 >
                                   <a>
                                     链路
@@ -2478,7 +2478,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/components/WaterMark/de
                                 class="ant-table-cell"
                               >
                                 <div
-                                  style="display: flex; align-items: center; justify-content: center; gap: 8px;"
+                                  style="display: flex; align-items: center; justify-content: flex-start; gap: 8px;"
                                 >
                                   <a>
                                     链路
@@ -2640,7 +2640,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/components/WaterMark/de
                                 class="ant-table-cell"
                               >
                                 <div
-                                  style="display: flex; align-items: center; justify-content: center; gap: 8px;"
+                                  style="display: flex; align-items: center; justify-content: flex-start; gap: 8px;"
                                 >
                                   <a>
                                     链路
@@ -2802,7 +2802,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/components/WaterMark/de
                                 class="ant-table-cell"
                               >
                                 <div
-                                  style="display: flex; align-items: center; justify-content: center; gap: 8px;"
+                                  style="display: flex; align-items: center; justify-content: flex-start; gap: 8px;"
                                 >
                                   <a>
                                     链路
@@ -2964,7 +2964,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/components/WaterMark/de
                                 class="ant-table-cell"
                               >
                                 <div
-                                  style="display: flex; align-items: center; justify-content: center; gap: 8px;"
+                                  style="display: flex; align-items: center; justify-content: flex-start; gap: 8px;"
                                 >
                                   <a>
                                     链路
@@ -3126,7 +3126,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/components/WaterMark/de
                                 class="ant-table-cell"
                               >
                                 <div
-                                  style="display: flex; align-items: center; justify-content: center; gap: 8px;"
+                                  style="display: flex; align-items: center; justify-content: flex-start; gap: 8px;"
                                 >
                                   <a>
                                     链路
@@ -3288,7 +3288,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/components/WaterMark/de
                                 class="ant-table-cell"
                               >
                                 <div
-                                  style="display: flex; align-items: center; justify-content: center; gap: 8px;"
+                                  style="display: flex; align-items: center; justify-content: flex-start; gap: 8px;"
                                 >
                                   <a>
                                     链路
@@ -3450,7 +3450,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/components/WaterMark/de
                                 class="ant-table-cell"
                               >
                                 <div
-                                  style="display: flex; align-items: center; justify-content: center; gap: 8px;"
+                                  style="display: flex; align-items: center; justify-content: flex-start; gap: 8px;"
                                 >
                                   <a>
                                     链路

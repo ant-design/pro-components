@@ -173,7 +173,7 @@ export function columnRender<T>({
         style={{
           display: 'flex',
           alignItems: 'center',
-          justifyContent: 'center',
+          justifyContent: 'flex-start',
           gap: 8,
         }}
       >

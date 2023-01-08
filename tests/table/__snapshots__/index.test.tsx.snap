@@ -1607,7 +1607,7 @@ exports[`BasicTable 🎏 base use 1`] = `
                               class="ant-table-cell"
                             >
                               <div
-                                style="display: flex; align-items: center; justify-content: center; gap: 8px;"
+                                style="display: flex; align-items: center; justify-content: flex-start; gap: 8px;"
                               >
                                 <a>
                                   delete
@@ -1907,7 +1907,7 @@ exports[`BasicTable 🎏 base use 1`] = `
                               class="ant-table-cell"
                             >
                               <div
-                                style="display: flex; align-items: center; justify-content: center; gap: 8px;"
+                                style="display: flex; align-items: center; justify-content: flex-start; gap: 8px;"
                               >
                                 <a>
                                   delete
@@ -2207,7 +2207,7 @@ exports[`BasicTable 🎏 base use 1`] = `
                               class="ant-table-cell"
                             >
                               <div
-                                style="display: flex; align-items: center; justify-content: center; gap: 8px;"
+                                style="display: flex; align-items: center; justify-content: flex-start; gap: 8px;"
                               >
                                 <a>
                                   delete
@@ -2507,7 +2507,7 @@ exports[`BasicTable 🎏 base use 1`] = `
                               class="ant-table-cell"
                             >
                               <div
-                                style="display: flex; align-items: center; justify-content: center; gap: 8px;"
+                                style="display: flex; align-items: center; justify-content: flex-start; gap: 8px;"
                               >
                                 <a>
                                   delete
@@ -2807,7 +2807,7 @@ exports[`BasicTable 🎏 base use 1`] = `
                               class="ant-table-cell"
                             >
                               <div
-                                style="display: flex; align-items: center; justify-content: center; gap: 8px;"
+                                style="display: flex; align-items: center; justify-content: flex-start; gap: 8px;"
                               >
                                 <a>
                                   delete
@@ -3107,7 +3107,7 @@ exports[`BasicTable 🎏 base use 1`] = `
                               class="ant-table-cell"
                             >
                               <div
-                                style="display: flex; align-items: center; justify-content: center; gap: 8px;"
+                                style="display: flex; align-items: center; justify-content: flex-start; gap: 8px;"
                               >
                                 <a>
                                   delete
@@ -3407,7 +3407,7 @@ exports[`BasicTable 🎏 base use 1`] = `
                               class="ant-table-cell"
                             >
                               <div
-                                style="display: flex; align-items: center; justify-content: center; gap: 8px;"
+                                style="display: flex; align-items: center; justify-content: flex-start; gap: 8px;"
                               >
                                 <a>
                                   delete
@@ -3707,7 +3707,7 @@ exports[`BasicTable 🎏 base use 1`] = `
                               class="ant-table-cell"
                             >
                               <div
-                                style="display: flex; align-items: center; justify-content: center; gap: 8px;"
+                                style="display: flex; align-items: center; justify-content: flex-start; gap: 8px;"
                               >
                                 <a>
                                   delete
@@ -4007,7 +4007,7 @@ exports[`BasicTable 🎏 base use 1`] = `
                               class="ant-table-cell"
                             >
                               <div
-                                style="display: flex; align-items: center; justify-content: center; gap: 8px;"
+                                style="display: flex; align-items: center; justify-content: flex-start; gap: 8px;"
                               >
                                 <a>
                                   delete
@@ -4307,7 +4307,7 @@ exports[`BasicTable 🎏 base use 1`] = `
                               class="ant-table-cell"
                             >
                               <div
-                                style="display: flex; align-items: center; justify-content: center; gap: 8px;"
+                                style="display: flex; align-items: center; justify-content: flex-start; gap: 8px;"
                               >
                                 <a>
                                   delete
@@ -4607,7 +4607,7 @@ exports[`BasicTable 🎏 base use 1`] = `
                               class="ant-table-cell"
                             >
                               <div
-                                style="display: flex; align-items: center; justify-content: center; gap: 8px;"
+                                style="display: flex; align-items: center; justify-content: flex-start; gap: 8px;"
                               >
                                 <a>
                                   delete
@@ -4907,7 +4907,7 @@ exports[`BasicTable 🎏 base use 1`] = `
                               class="ant-table-cell"
                             >
                               <div
-                                style="display: flex; align-items: center; justify-content: center; gap: 8px;"
+                                style="display: flex; align-items: center; justify-content: flex-start; gap: 8px;"
                               >
                                 <a>
                                   delete
@@ -5207,7 +5207,7 @@ exports[`BasicTable 🎏 base use 1`] = `
                               class="ant-table-cell"
                             >
                               <div
-                                style="display: flex; align-items: center; justify-content: center; gap: 8px;"
+                                style="display: flex; align-items: center; justify-content: flex-start; gap: 8px;"
                               >
                                 <a>
                                   delete
@@ -5507,7 +5507,7 @@ exports[`BasicTable 🎏 base use 1`] = `
                               class="ant-table-cell"
                             >
                               <div
-                                style="display: flex; align-items: center; justify-content: center; gap: 8px;"
+                                style="display: flex; align-items: center; justify-content: flex-start; gap: 8px;"
                               >
                                 <a>
                                   delete
@@ -5807,7 +5807,7 @@ exports[`BasicTable 🎏 base use 1`] = `
                               class="ant-table-cell"
                             >
                               <div
-                                style="display: flex; align-items: center; justify-content: center; gap: 8px;"
+                                style="display: flex; align-items: center; justify-content: flex-start; gap: 8px;"
                               >
                                 <a>
                                   delete
@@ -6107,7 +6107,7 @@ exports[`BasicTable 🎏 base use 1`] = `
                               class="ant-table-cell"
                             >
                               <div
-                                style="display: flex; align-items: center; justify-content: center; gap: 8px;"
+                                style="display: flex; align-items: center; justify-content: flex-start; gap: 8px;"
                               >
                                 <a>
                                   delete
@@ -6407,7 +6407,7 @@ exports[`BasicTable 🎏 base use 1`] = `
                               class="ant-table-cell"
                             >
                               <div
-                                style="display: flex; align-items: center; justify-content: center; gap: 8px;"
+                                style="display: flex; align-items: center; justify-content: flex-start; gap: 8px;"
                               >
                                 <a>
                                   delete
@@ -6707,7 +6707,7 @@ exports[`BasicTable 🎏 base use 1`] = `
                               class="ant-table-cell"
                             >
                               <div
-                                style="display: flex; align-items: center; justify-content: center; gap: 8px;"
+                                style="display: flex; align-items: center; justify-content: flex-start; gap: 8px;"
                               >
                                 <a>
                                   delete
@@ -7007,7 +7007,7 @@ exports[`BasicTable 🎏 base use 1`] = `
                               class="ant-table-cell"
                             >
                               <div
-                                style="display: flex; align-items: center; justify-content: center; gap: 8px;"
+                                style="display: flex; align-items: center; justify-content: flex-start; gap: 8px;"
                               >
                                 <a>
                                   delete
@@ -7307,7 +7307,7 @@ exports[`BasicTable 🎏 base use 1`] = `
                               class="ant-table-cell"
                             >
                               <div
-                                style="display: flex; align-items: center; justify-content: center; gap: 8px;"
+                                style="display: flex; align-items: center; justify-content: flex-start; gap: 8px;"
                               >
                                 <a>
                                   delete

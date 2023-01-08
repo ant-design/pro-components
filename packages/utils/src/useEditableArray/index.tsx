@@ -815,10 +815,11 @@ export function useEditableArray<RecordType>(
       },
       newLine?: NewLineConfig<RecordType>,
     ) => {
-      const { options } = newLine || newLineRecordRef.current || {};
-      const res = await props?.onSave?.(recordKey, editRow, originRow, newLine);
-      // 保存时解除编辑模式
+      // 保存时解除编辑模式,这个要提前一下不然数据会被清空
       cancelEditable(recordKey);
+
+      const res = await props?.onSave?.(recordKey, editRow, originRow, newLine);
+      const { options } = newLine || newLineRecordRef.current || {};
       if (!options?.parentKey && options?.recordKey === recordKey) {
         if (options?.position === 'top') {
           props.setDataSource([editRow, ...props.dataSource]);
@@ -839,7 +840,6 @@ export function useEditableArray<RecordType>(
         key: recordKey,
         childrenColumnName: props.childrenColumnName || 'children',
       };
-
       props.setDataSource(
         editableRowByKey(actionProps, options?.position === 'top' ? 'top' : 'update'),
       );

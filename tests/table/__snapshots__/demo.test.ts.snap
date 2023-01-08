@@ -2464,7 +2464,7 @@ exports[`table demos 📸 renders ./packages/table/src/components/EditableTable/
                               class="ant-table-cell"
                             >
                               <div
-                                style="display: flex; align-items: center; justify-content: center; gap: 8px;"
+                                style="display: flex; align-items: center; justify-content: flex-start; gap: 8px;"
                               >
                                 <a>
                                   编辑
@@ -2519,7 +2519,7 @@ exports[`table demos 📸 renders ./packages/table/src/components/EditableTable/
                               class="ant-table-cell"
                             >
                               <div
-                                style="display: flex; align-items: center; justify-content: center; gap: 8px;"
+                                style="display: flex; align-items: center; justify-content: flex-start; gap: 8px;"
                               >
                                 <a>
                                   编辑
@@ -2845,7 +2845,7 @@ exports[`table demos 📸 renders ./packages/table/src/components/EditableTable/
                               class="ant-table-cell"
                             >
                               <div
-                                style="display: flex; align-items: center; justify-content: center; gap: 8px;"
+                                style="display: flex; align-items: center; justify-content: flex-start; gap: 8px;"
                               >
                                 <a>
                                   删除
@@ -2902,7 +2902,7 @@ exports[`table demos 📸 renders ./packages/table/src/components/EditableTable/
                               class="ant-table-cell"
                             >
                               <div
-                                style="display: flex; align-items: center; justify-content: center; gap: 8px;"
+                                style="display: flex; align-items: center; justify-content: flex-start; gap: 8px;"
                               >
                                 <a>
                                   删除
@@ -2959,7 +2959,7 @@ exports[`table demos 📸 renders ./packages/table/src/components/EditableTable/
                               class="ant-table-cell"
                             >
                               <div
-                                style="display: flex; align-items: center; justify-content: center; gap: 8px;"
+                                style="display: flex; align-items: center; justify-content: flex-start; gap: 8px;"
                               >
                                 <a>
                                   删除
@@ -3319,7 +3319,7 @@ exports[`table demos 📸 renders ./packages/table/src/components/EditableTable/
                               class="ant-table-cell"
                             >
                               <div
-                                style="display: flex; align-items: center; justify-content: center; gap: 8px;"
+                                style="display: flex; align-items: center; justify-content: flex-start; gap: 8px;"
                               >
                                 <a>
                                   编辑
@@ -3368,7 +3368,7 @@ exports[`table demos 📸 renders ./packages/table/src/components/EditableTable/
                               class="ant-table-cell"
                             >
                               <div
-                                style="display: flex; align-items: center; justify-content: center; gap: 8px;"
+                                style="display: flex; align-items: center; justify-content: flex-start; gap: 8px;"
                               >
                                 <a>
                                   编辑
@@ -3774,7 +3774,7 @@ exports[`table demos 📸 renders ./packages/table/src/components/EditableTable/
                                       class="ant-table-cell"
                                     >
                                       <div
-                                        style="display: flex; align-items: center; justify-content: center; gap: 8px;"
+                                        style="display: flex; align-items: center; justify-content: flex-start; gap: 8px;"
                                       >
                                         <a>
                                           编辑
@@ -3824,7 +3824,7 @@ exports[`table demos 📸 renders ./packages/table/src/components/EditableTable/
                                       class="ant-table-cell"
                                     >
                                       <div
-                                        style="display: flex; align-items: center; justify-content: center; gap: 8px;"
+                                        style="display: flex; align-items: center; justify-content: flex-start; gap: 8px;"
                                       >
                                         <a>
                                           编辑
@@ -4477,7 +4477,7 @@ exports[`table demos 📸 renders ./packages/table/src/components/EditableTable/
                                             class="ant-table-cell"
                                           >
                                             <div
-                                              style="display: flex; align-items: center; justify-content: center; gap: 8px;"
+                                              style="display: flex; align-items: center; justify-content: flex-start; gap: 8px;"
                                             >
                                               <a>
                                                 移除
@@ -4543,7 +4543,7 @@ exports[`table demos 📸 renders ./packages/table/src/components/EditableTable/
                                             class="ant-table-cell"
                                           >
                                             <div
-                                              style="display: flex; align-items: center; justify-content: center; gap: 8px;"
+                                              style="display: flex; align-items: center; justify-content: flex-start; gap: 8px;"
                                             >
                                               <a>
                                                 移除
@@ -4609,7 +4609,7 @@ exports[`table demos 📸 renders ./packages/table/src/components/EditableTable/
                                             class="ant-table-cell"
                                           >
                                             <div
-                                              style="display: flex; align-items: center; justify-content: center; gap: 8px;"
+                                              style="display: flex; align-items: center; justify-content: flex-start; gap: 8px;"
                                             >
                                               <a>
                                                 移除
@@ -4675,7 +4675,7 @@ exports[`table demos 📸 renders ./packages/table/src/components/EditableTable/
                                             class="ant-table-cell"
                                           >
                                             <div
-                                              style="display: flex; align-items: center; justify-content: center; gap: 8px;"
+                                              style="display: flex; align-items: center; justify-content: flex-start; gap: 8px;"
                                             >
                                               <a>
                                                 移除
@@ -10770,7 +10770,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/ListToolBar/basic.t
                               class="ant-table-cell"
                             >
                               <div
-                                style="display: flex; align-items: center; justify-content: center; gap: 8px;"
+                                style="display: flex; align-items: center; justify-content: flex-start; gap: 8px;"
                               >
                                 <a>
                                   链路
@@ -10828,7 +10828,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/ListToolBar/basic.t
                               class="ant-table-cell"
                             >
                               <div
-                                style="display: flex; align-items: center; justify-content: center; gap: 8px;"
+                                style="display: flex; align-items: center; justify-content: flex-start; gap: 8px;"
                               >
                                 <a>
                                   链路
@@ -10886,7 +10886,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/ListToolBar/basic.t
                               class="ant-table-cell"
                             >
                               <div
-                                style="display: flex; align-items: center; justify-content: center; gap: 8px;"
+                                style="display: flex; align-items: center; justify-content: flex-start; gap: 8px;"
                               >
                                 <a>
                                   链路
@@ -10944,7 +10944,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/ListToolBar/basic.t
                               class="ant-table-cell"
                             >
                               <div
-                                style="display: flex; align-items: center; justify-content: center; gap: 8px;"
+                                style="display: flex; align-items: center; justify-content: flex-start; gap: 8px;"
                               >
                                 <a>
                                   链路
@@ -11002,7 +11002,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/ListToolBar/basic.t
                               class="ant-table-cell"
                             >
                               <div
-                                style="display: flex; align-items: center; justify-content: center; gap: 8px;"
+                                style="display: flex; align-items: center; justify-content: flex-start; gap: 8px;"
                               >
                                 <a>
                                   链路
@@ -11767,7 +11767,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/ListToolBar/menu.ts
                               class="ant-table-cell"
                             >
                               <div
-                                style="display: flex; align-items: center; justify-content: center; gap: 8px;"
+                                style="display: flex; align-items: center; justify-content: flex-start; gap: 8px;"
                               >
                                 <a>
                                   链路
@@ -11825,7 +11825,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/ListToolBar/menu.ts
                               class="ant-table-cell"
                             >
                               <div
-                                style="display: flex; align-items: center; justify-content: center; gap: 8px;"
+                                style="display: flex; align-items: center; justify-content: flex-start; gap: 8px;"
                               >
                                 <a>
                                   链路
@@ -11883,7 +11883,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/ListToolBar/menu.ts
                               class="ant-table-cell"
                             >
                               <div
-                                style="display: flex; align-items: center; justify-content: center; gap: 8px;"
+                                style="display: flex; align-items: center; justify-content: flex-start; gap: 8px;"
                               >
                                 <a>
                                   链路
@@ -11941,7 +11941,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/ListToolBar/menu.ts
                               class="ant-table-cell"
                             >
                               <div
-                                style="display: flex; align-items: center; justify-content: center; gap: 8px;"
+                                style="display: flex; align-items: center; justify-content: flex-start; gap: 8px;"
                               >
                                 <a>
                                   链路
@@ -11999,7 +11999,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/ListToolBar/menu.ts
                               class="ant-table-cell"
                             >
                               <div
-                                style="display: flex; align-items: center; justify-content: center; gap: 8px;"
+                                style="display: flex; align-items: center; justify-content: flex-start; gap: 8px;"
                               >
                                 <a>
                                   链路
@@ -12596,7 +12596,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/ListToolBar/multipl
                               class="ant-table-cell"
                             >
                               <div
-                                style="display: flex; align-items: center; justify-content: center; gap: 8px;"
+                                style="display: flex; align-items: center; justify-content: flex-start; gap: 8px;"
                               >
                                 <a>
                                   链路
@@ -12654,7 +12654,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/ListToolBar/multipl
                               class="ant-table-cell"
                             >
                               <div
-                                style="display: flex; align-items: center; justify-content: center; gap: 8px;"
+                                style="display: flex; align-items: center; justify-content: flex-start; gap: 8px;"
                               >
                                 <a>
                                   链路
@@ -12712,7 +12712,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/ListToolBar/multipl
                               class="ant-table-cell"
                             >
                               <div
-                                style="display: flex; align-items: center; justify-content: center; gap: 8px;"
+                                style="display: flex; align-items: center; justify-content: flex-start; gap: 8px;"
                               >
                                 <a>
                                   链路
@@ -12770,7 +12770,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/ListToolBar/multipl
                               class="ant-table-cell"
                             >
                               <div
-                                style="display: flex; align-items: center; justify-content: center; gap: 8px;"
+                                style="display: flex; align-items: center; justify-content: flex-start; gap: 8px;"
                               >
                                 <a>
                                   链路
@@ -12828,7 +12828,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/ListToolBar/multipl
                               class="ant-table-cell"
                             >
                               <div
-                                style="display: flex; align-items: center; justify-content: center; gap: 8px;"
+                                style="display: flex; align-items: center; justify-content: flex-start; gap: 8px;"
                               >
                                 <a>
                                   链路
@@ -13388,7 +13388,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/ListToolBar/no-titl
                               class="ant-table-cell"
                             >
                               <div
-                                style="display: flex; align-items: center; justify-content: center; gap: 8px;"
+                                style="display: flex; align-items: center; justify-content: flex-start; gap: 8px;"
                               >
                                 <a>
                                   链路
@@ -13446,7 +13446,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/ListToolBar/no-titl
                               class="ant-table-cell"
                             >
                               <div
-                                style="display: flex; align-items: center; justify-content: center; gap: 8px;"
+                                style="display: flex; align-items: center; justify-content: flex-start; gap: 8px;"
                               >
                                 <a>
                                   链路
@@ -13504,7 +13504,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/ListToolBar/no-titl
                               class="ant-table-cell"
                             >
                               <div
-                                style="display: flex; align-items: center; justify-content: center; gap: 8px;"
+                                style="display: flex; align-items: center; justify-content: flex-start; gap: 8px;"
                               >
                                 <a>
                                   链路
@@ -13562,7 +13562,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/ListToolBar/no-titl
                               class="ant-table-cell"
                             >
                               <div
-                                style="display: flex; align-items: center; justify-content: center; gap: 8px;"
+                                style="display: flex; align-items: center; justify-content: flex-start; gap: 8px;"
                               >
                                 <a>
                                   链路
@@ -13620,7 +13620,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/ListToolBar/no-titl
                               class="ant-table-cell"
                             >
                               <div
-                                style="display: flex; align-items: center; justify-content: center; gap: 8px;"
+                                style="display: flex; align-items: center; justify-content: flex-start; gap: 8px;"
                               >
                                 <a>
                                   链路
@@ -14250,7 +14250,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/ListToolBar/tabs.ts
                               class="ant-table-cell"
                             >
                               <div
-                                style="display: flex; align-items: center; justify-content: center; gap: 8px;"
+                                style="display: flex; align-items: center; justify-content: flex-start; gap: 8px;"
                               >
                                 <a>
                                   链路
@@ -14313,7 +14313,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/ListToolBar/tabs.ts
                               class="ant-table-cell"
                             >
                               <div
-                                style="display: flex; align-items: center; justify-content: center; gap: 8px;"
+                                style="display: flex; align-items: center; justify-content: flex-start; gap: 8px;"
                               >
                                 <a>
                                   链路
@@ -14376,7 +14376,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/ListToolBar/tabs.ts
                               class="ant-table-cell"
                             >
                               <div
-                                style="display: flex; align-items: center; justify-content: center; gap: 8px;"
+                                style="display: flex; align-items: center; justify-content: flex-start; gap: 8px;"
                               >
                                 <a>
                                   链路
@@ -14439,7 +14439,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/ListToolBar/tabs.ts
                               class="ant-table-cell"
                             >
                               <div
-                                style="display: flex; align-items: center; justify-content: center; gap: 8px;"
+                                style="display: flex; align-items: center; justify-content: flex-start; gap: 8px;"
                               >
                                 <a>
                                   链路
@@ -14502,7 +14502,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/ListToolBar/tabs.ts
                               class="ant-table-cell"
                             >
                               <div
-                                style="display: flex; align-items: center; justify-content: center; gap: 8px;"
+                                style="display: flex; align-items: center; justify-content: flex-start; gap: 8px;"
                               >
                                 <a>
                                   链路
@@ -15286,7 +15286,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/batchOption.tsx cor
                               style="position: sticky; right: 0px;"
                             >
                               <div
-                                style="display: flex; align-items: center; justify-content: center; gap: 8px;"
+                                style="display: flex; align-items: center; justify-content: flex-start; gap: 8px;"
                               >
                                 <a>
                                   链路
@@ -15466,7 +15466,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/batchOption.tsx cor
                               style="position: sticky; right: 0px;"
                             >
                               <div
-                                style="display: flex; align-items: center; justify-content: center; gap: 8px;"
+                                style="display: flex; align-items: center; justify-content: flex-start; gap: 8px;"
                               >
                                 <a>
                                   链路
@@ -15645,7 +15645,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/batchOption.tsx cor
                               style="position: sticky; right: 0px;"
                             >
                               <div
-                                style="display: flex; align-items: center; justify-content: center; gap: 8px;"
+                                style="display: flex; align-items: center; justify-content: flex-start; gap: 8px;"
                               >
                                 <a>
                                   链路
@@ -15824,7 +15824,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/batchOption.tsx cor
                               style="position: sticky; right: 0px;"
                             >
                               <div
-                                style="display: flex; align-items: center; justify-content: center; gap: 8px;"
+                                style="display: flex; align-items: center; justify-content: flex-start; gap: 8px;"
                               >
                                 <a>
                                   链路
@@ -16003,7 +16003,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/batchOption.tsx cor
                               style="position: sticky; right: 0px;"
                             >
                               <div
-                                style="display: flex; align-items: center; justify-content: center; gap: 8px;"
+                                style="display: flex; align-items: center; justify-content: flex-start; gap: 8px;"
                               >
                                 <a>
                                   链路
@@ -16387,7 +16387,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/card-title.tsx corr
                               class="ant-table-cell"
                             >
                               <div
-                                style="display: flex; align-items: center; justify-content: center; gap: 8px;"
+                                style="display: flex; align-items: center; justify-content: flex-start; gap: 8px;"
                               >
                                 <a>
                                   链路
@@ -16445,7 +16445,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/card-title.tsx corr
                               class="ant-table-cell"
                             >
                               <div
-                                style="display: flex; align-items: center; justify-content: center; gap: 8px;"
+                                style="display: flex; align-items: center; justify-content: flex-start; gap: 8px;"
                               >
                                 <a>
                                   链路
@@ -16503,7 +16503,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/card-title.tsx corr
                               class="ant-table-cell"
                             >
                               <div
-                                style="display: flex; align-items: center; justify-content: center; gap: 8px;"
+                                style="display: flex; align-items: center; justify-content: flex-start; gap: 8px;"
                               >
                                 <a>
                                   链路
@@ -16561,7 +16561,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/card-title.tsx corr
                               class="ant-table-cell"
                             >
                               <div
-                                style="display: flex; align-items: center; justify-content: center; gap: 8px;"
+                                style="display: flex; align-items: center; justify-content: flex-start; gap: 8px;"
                               >
                                 <a>
                                   链路
@@ -16619,7 +16619,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/card-title.tsx corr
                               class="ant-table-cell"
                             >
                               <div
-                                style="display: flex; align-items: center; justify-content: center; gap: 8px;"
+                                style="display: flex; align-items: center; justify-content: flex-start; gap: 8px;"
                               >
                                 <a>
                                   链路
@@ -17296,7 +17296,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/columnsStateMap.tsx
                               class="ant-table-cell"
                             >
                               <div
-                                style="display: flex; align-items: center; justify-content: center; gap: 8px;"
+                                style="display: flex; align-items: center; justify-content: flex-start; gap: 8px;"
                               >
                                 <a>
                                   操作
@@ -17336,7 +17336,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/columnsStateMap.tsx
                               class="ant-table-cell"
                             >
                               <div
-                                style="display: flex; align-items: center; justify-content: center; gap: 8px;"
+                                style="display: flex; align-items: center; justify-content: flex-start; gap: 8px;"
                               >
                                 <a>
                                   操作
@@ -18169,7 +18169,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/config-provider.tsx
                               class="qixian-table-cell"
                             >
                               <div
-                                style="display: flex; align-items: center; justify-content: center; gap: 8px;"
+                                style="display: flex; align-items: center; justify-content: flex-start; gap: 8px;"
                               >
                                 <a
                                   rel="noopener noreferrer"
@@ -18348,7 +18348,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/config-provider.tsx
                               class="qixian-table-cell"
                             >
                               <div
-                                style="display: flex; align-items: center; justify-content: center; gap: 8px;"
+                                style="display: flex; align-items: center; justify-content: flex-start; gap: 8px;"
                               >
                                 <a
                                   href="https://github.com/ant-design/ant-design-pro/issues/6688"
@@ -18530,7 +18530,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/config-provider.tsx
                               class="qixian-table-cell"
                             >
                               <div
-                                style="display: flex; align-items: center; justify-content: center; gap: 8px;"
+                                style="display: flex; align-items: center; justify-content: flex-start; gap: 8px;"
                               >
                                 <a
                                   href="https://github.com/ant-design/ant-design-pro/issues/6685"
@@ -18712,7 +18712,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/config-provider.tsx
                               class="qixian-table-cell"
                             >
                               <div
-                                style="display: flex; align-items: center; justify-content: center; gap: 8px;"
+                                style="display: flex; align-items: center; justify-content: flex-start; gap: 8px;"
                               >
                                 <a
                                   href="https://github.com/ant-design/ant-design-pro/issues/6683"
@@ -18894,7 +18894,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/config-provider.tsx
                               class="qixian-table-cell"
                             >
                               <div
-                                style="display: flex; align-items: center; justify-content: center; gap: 8px;"
+                                style="display: flex; align-items: center; justify-content: flex-start; gap: 8px;"
                               >
                                 <a
                                   href="https://github.com/ant-design/ant-design-pro/issues/6682"
@@ -19076,7 +19076,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/config-provider.tsx
                               class="qixian-table-cell"
                             >
                               <div
-                                style="display: flex; align-items: center; justify-content: center; gap: 8px;"
+                                style="display: flex; align-items: center; justify-content: flex-start; gap: 8px;"
                               >
                                 <a
                                   href="https://github.com/ant-design/ant-design-pro/issues/6680"
@@ -19258,7 +19258,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/config-provider.tsx
                               class="qixian-table-cell"
                             >
                               <div
-                                style="display: flex; align-items: center; justify-content: center; gap: 8px;"
+                                style="display: flex; align-items: center; justify-content: flex-start; gap: 8px;"
                               >
                                 <a
                                   href="https://github.com/ant-design/ant-design-pro/issues/6678"
@@ -19440,7 +19440,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/config-provider.tsx
                               class="qixian-table-cell"
                             >
                               <div
-                                style="display: flex; align-items: center; justify-content: center; gap: 8px;"
+                                style="display: flex; align-items: center; justify-content: flex-start; gap: 8px;"
                               >
                                 <a
                                   href="https://github.com/ant-design/ant-design-pro/pull/6675"
@@ -19622,7 +19622,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/config-provider.tsx
                               class="qixian-table-cell"
                             >
                               <div
-                                style="display: flex; align-items: center; justify-content: center; gap: 8px;"
+                                style="display: flex; align-items: center; justify-content: flex-start; gap: 8px;"
                               >
                                 <a
                                   href="https://github.com/ant-design/ant-design-pro/issues/6674"
@@ -19804,7 +19804,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/config-provider.tsx
                               class="qixian-table-cell"
                             >
                               <div
-                                style="display: flex; align-items: center; justify-content: center; gap: 8px;"
+                                style="display: flex; align-items: center; justify-content: flex-start; gap: 8px;"
                               >
                                 <a
                                   href="https://github.com/ant-design/ant-design-pro/issues/6663"
@@ -19986,7 +19986,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/config-provider.tsx
                               class="qixian-table-cell"
                             >
                               <div
-                                style="display: flex; align-items: center; justify-content: center; gap: 8px;"
+                                style="display: flex; align-items: center; justify-content: flex-start; gap: 8px;"
                               >
                                 <a
                                   href="https://github.com/ant-design/ant-design-pro/issues/6662"
@@ -20168,7 +20168,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/config-provider.tsx
                               class="qixian-table-cell"
                             >
                               <div
-                                style="display: flex; align-items: center; justify-content: center; gap: 8px;"
+                                style="display: flex; align-items: center; justify-content: flex-start; gap: 8px;"
                               >
                                 <a
                                   href="https://github.com/ant-design/ant-design-pro/issues/6652"
@@ -20350,7 +20350,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/config-provider.tsx
                               class="qixian-table-cell"
                             >
                               <div
-                                style="display: flex; align-items: center; justify-content: center; gap: 8px;"
+                                style="display: flex; align-items: center; justify-content: flex-start; gap: 8px;"
                               >
                                 <a
                                   href="https://github.com/ant-design/ant-design-pro/issues/6644"
@@ -20532,7 +20532,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/config-provider.tsx
                               class="qixian-table-cell"
                             >
                               <div
-                                style="display: flex; align-items: center; justify-content: center; gap: 8px;"
+                                style="display: flex; align-items: center; justify-content: flex-start; gap: 8px;"
                               >
                                 <a
                                   href="https://github.com/ant-design/ant-design-pro/issues/6643"
@@ -20714,7 +20714,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/config-provider.tsx
                               class="qixian-table-cell"
                             >
                               <div
-                                style="display: flex; align-items: center; justify-content: center; gap: 8px;"
+                                style="display: flex; align-items: center; justify-content: flex-start; gap: 8px;"
                               >
                                 <a
                                   href="https://github.com/ant-design/ant-design-pro/issues/6642"
@@ -20896,7 +20896,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/config-provider.tsx
                               class="qixian-table-cell"
                             >
                               <div
-                                style="display: flex; align-items: center; justify-content: center; gap: 8px;"
+                                style="display: flex; align-items: center; justify-content: flex-start; gap: 8px;"
                               >
                                 <a
                                   href="https://github.com/ant-design/ant-design-pro/issues/6641"
@@ -21078,7 +21078,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/config-provider.tsx
                               class="qixian-table-cell"
                             >
                               <div
-                                style="display: flex; align-items: center; justify-content: center; gap: 8px;"
+                                style="display: flex; align-items: center; justify-content: flex-start; gap: 8px;"
                               >
                                 <a
                                   href="https://github.com/ant-design/ant-design-pro/issues/6639"
@@ -21260,7 +21260,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/config-provider.tsx
                               class="qixian-table-cell"
                             >
                               <div
-                                style="display: flex; align-items: center; justify-content: center; gap: 8px;"
+                                style="display: flex; align-items: center; justify-content: flex-start; gap: 8px;"
                               >
                                 <a
                                   href="https://github.com/ant-design/ant-design-pro/issues/6630"
@@ -21442,7 +21442,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/config-provider.tsx
                               class="qixian-table-cell"
                             >
                               <div
-                                style="display: flex; align-items: center; justify-content: center; gap: 8px;"
+                                style="display: flex; align-items: center; justify-content: flex-start; gap: 8px;"
                               >
                                 <a
                                   href="https://github.com/ant-design/ant-design-pro/issues/6629"
@@ -21624,7 +21624,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/config-provider.tsx
                               class="qixian-table-cell"
                             >
                               <div
-                                style="display: flex; align-items: center; justify-content: center; gap: 8px;"
+                                style="display: flex; align-items: center; justify-content: flex-start; gap: 8px;"
                               >
                                 <a
                                   href="https://github.com/ant-design/ant-design-pro/issues/6624"
@@ -22707,7 +22707,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/crud.tsx correctly 
                                   class="ant-table-cell"
                                 >
                                   <div
-                                    style="display: flex; align-items: center; justify-content: center; gap: 8px;"
+                                    style="display: flex; align-items: center; justify-content: flex-start; gap: 8px;"
                                   >
                                     <a
                                       rel="noopener noreferrer"
@@ -22874,7 +22874,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/crud.tsx correctly 
                                   class="ant-table-cell"
                                 >
                                   <div
-                                    style="display: flex; align-items: center; justify-content: center; gap: 8px;"
+                                    style="display: flex; align-items: center; justify-content: flex-start; gap: 8px;"
                                   >
                                     <a
                                       href="https://github.com/ant-design/ant-design-pro/issues/6688"
@@ -23042,7 +23042,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/crud.tsx correctly 
                                   class="ant-table-cell"
                                 >
                                   <div
-                                    style="display: flex; align-items: center; justify-content: center; gap: 8px;"
+                                    style="display: flex; align-items: center; justify-content: flex-start; gap: 8px;"
                                   >
                                     <a
                                       href="https://github.com/ant-design/ant-design-pro/issues/6685"
@@ -23210,7 +23210,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/crud.tsx correctly 
                                   class="ant-table-cell"
                                 >
                                   <div
-                                    style="display: flex; align-items: center; justify-content: center; gap: 8px;"
+                                    style="display: flex; align-items: center; justify-content: flex-start; gap: 8px;"
                                   >
                                     <a
                                       href="https://github.com/ant-design/ant-design-pro/issues/6683"
@@ -23378,7 +23378,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/crud.tsx correctly 
                                   class="ant-table-cell"
                                 >
                                   <div
-                                    style="display: flex; align-items: center; justify-content: center; gap: 8px;"
+                                    style="display: flex; align-items: center; justify-content: flex-start; gap: 8px;"
                                   >
                                     <a
                                       href="https://github.com/ant-design/ant-design-pro/issues/6682"
@@ -23933,7 +23933,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/customization-value
                               class="ant-table-cell"
                             >
                               <div
-                                style="display: flex; align-items: center; justify-content: center; gap: 8px;"
+                                style="display: flex; align-items: center; justify-content: flex-start; gap: 8px;"
                               >
                                 <a>
                                   编辑
@@ -23970,7 +23970,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/customization-value
                               class="ant-table-cell"
                             >
                               <div
-                                style="display: flex; align-items: center; justify-content: center; gap: 8px;"
+                                style="display: flex; align-items: center; justify-content: flex-start; gap: 8px;"
                               >
                                 <a>
                                   编辑
@@ -24007,7 +24007,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/customization-value
                               class="ant-table-cell"
                             >
                               <div
-                                style="display: flex; align-items: center; justify-content: center; gap: 8px;"
+                                style="display: flex; align-items: center; justify-content: flex-start; gap: 8px;"
                               >
                                 <a>
                                   编辑
@@ -24044,7 +24044,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/customization-value
                               class="ant-table-cell"
                             >
                               <div
-                                style="display: flex; align-items: center; justify-content: center; gap: 8px;"
+                                style="display: flex; align-items: center; justify-content: flex-start; gap: 8px;"
                               >
                                 <a>
                                   编辑
@@ -24081,7 +24081,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/customization-value
                               class="ant-table-cell"
                             >
                               <div
-                                style="display: flex; align-items: center; justify-content: center; gap: 8px;"
+                                style="display: flex; align-items: center; justify-content: flex-start; gap: 8px;"
                               >
                                 <a>
                                   编辑
@@ -25317,7 +25317,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/dataSource.tsx corr
                               class="ant-table-cell"
                             >
                               <div
-                                style="display: flex; align-items: center; justify-content: center; gap: 8px;"
+                                style="display: flex; align-items: center; justify-content: flex-start; gap: 8px;"
                               >
                                 <a>
                                   链路
@@ -25482,7 +25482,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/dataSource.tsx corr
                               class="ant-table-cell"
                             >
                               <div
-                                style="display: flex; align-items: center; justify-content: center; gap: 8px;"
+                                style="display: flex; align-items: center; justify-content: flex-start; gap: 8px;"
                               >
                                 <a>
                                   链路
@@ -25647,7 +25647,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/dataSource.tsx corr
                               class="ant-table-cell"
                             >
                               <div
-                                style="display: flex; align-items: center; justify-content: center; gap: 8px;"
+                                style="display: flex; align-items: center; justify-content: flex-start; gap: 8px;"
                               >
                                 <a>
                                   链路
@@ -25812,7 +25812,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/dataSource.tsx corr
                               class="ant-table-cell"
                             >
                               <div
-                                style="display: flex; align-items: center; justify-content: center; gap: 8px;"
+                                style="display: flex; align-items: center; justify-content: flex-start; gap: 8px;"
                               >
                                 <a>
                                   链路
@@ -25977,7 +25977,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/dataSource.tsx corr
                               class="ant-table-cell"
                             >
                               <div
-                                style="display: flex; align-items: center; justify-content: center; gap: 8px;"
+                                style="display: flex; align-items: center; justify-content: flex-start; gap: 8px;"
                               >
                                 <a>
                                   链路
@@ -30059,7 +30059,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/dynamic-settings.ts
                                         class="ant-table-cell"
                                       >
                                         <div
-                                          style="display: flex; align-items: center; justify-content: center; gap: 8px;"
+                                          style="display: flex; align-items: center; justify-content: flex-start; gap: 8px;"
                                         >
                                           <a>
                                             Delete
@@ -30134,7 +30134,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/dynamic-settings.ts
                                         class="ant-table-cell"
                                       >
                                         <div
-                                          style="display: flex; align-items: center; justify-content: center; gap: 8px;"
+                                          style="display: flex; align-items: center; justify-content: flex-start; gap: 8px;"
                                         >
                                           <a>
                                             Delete
@@ -30209,7 +30209,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/dynamic-settings.ts
                                         class="ant-table-cell"
                                       >
                                         <div
-                                          style="display: flex; align-items: center; justify-content: center; gap: 8px;"
+                                          style="display: flex; align-items: center; justify-content: flex-start; gap: 8px;"
                                         >
                                           <a>
                                             Delete
@@ -30284,7 +30284,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/dynamic-settings.ts
                                         class="ant-table-cell"
                                       >
                                         <div
-                                          style="display: flex; align-items: center; justify-content: center; gap: 8px;"
+                                          style="display: flex; align-items: center; justify-content: flex-start; gap: 8px;"
                                         >
                                           <a>
                                             Delete
@@ -30359,7 +30359,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/dynamic-settings.ts
                                         class="ant-table-cell"
                                       >
                                         <div
-                                          style="display: flex; align-items: center; justify-content: center; gap: 8px;"
+                                          style="display: flex; align-items: center; justify-content: flex-start; gap: 8px;"
                                         >
                                           <a>
                                             Delete
@@ -32161,6 +32161,227 @@ exports[`table demos 📸 renders ./packages/table/src/demos/dynamic-settings.ts
 </DocumentFragment>
 `;
 
+exports[`table demos 📸 renders ./packages/table/src/demos/edittable-rules.tsx correctly 1`] = `
+<DocumentFragment>
+  <div
+    class="ant-pro-card"
+  >
+    <div
+      class="ant-pro-card-body"
+    >
+      <div
+        style="max-width: 800px; margin: auto;"
+      >
+        <div
+          class="ant-pro"
+        >
+          <form
+            autocomplete="off"
+            class="ant-form ant-form-vertical ant-pro-form"
+          >
+            <input
+              style="display: none;"
+              type="text"
+            />
+            <div
+              class="ant-form-item"
+              style="max-width: 100%;"
+            >
+              <div
+                class="ant-row ant-form-item-row"
+              >
+                <div
+                  class="ant-col ant-form-item-label"
+                >
+                  <label
+                    class=""
+                    for="table"
+                    title="题库编辑"
+                  >
+                    题库编辑
+                  </label>
+                </div>
+                <div
+                  class="ant-col ant-form-item-control"
+                >
+                  <div
+                    class="ant-form-item-control-input"
+                  >
+                    <div
+                      class="ant-form-item-control-input-content"
+                    >
+                      <div
+                        class="ant-pro-table"
+                      >
+                        <div
+                          class="ant-table-wrapper"
+                        >
+                          <div
+                            class="ant-spin-nested-loading"
+                          >
+                            <div
+                              class="ant-spin-container"
+                            >
+                              <div
+                                class="ant-table ant-table-middle ant-table-empty ant-table-layout-fixed ant-table-scroll-horizontal"
+                                id="table"
+                              >
+                                <div
+                                  class="ant-table-container"
+                                >
+                                  <div
+                                    class="ant-table-content"
+                                    style="overflow-x: auto; overflow-y: hidden;"
+                                  >
+                                    <table
+                                      style="width: auto; min-width: 100%; table-layout: fixed;"
+                                    >
+                                      <colgroup />
+                                      <thead
+                                        class="ant-table-thead"
+                                      >
+                                        <tr>
+                                          <th
+                                            class="ant-table-cell ant-table-cell-ellipsis"
+                                            scope="col"
+                                          >
+                                            关联题库
+                                          </th>
+                                          <th
+                                            class="ant-table-cell"
+                                            scope="col"
+                                          >
+                                            操作
+                                          </th>
+                                        </tr>
+                                      </thead>
+                                      <tbody
+                                        class="ant-table-tbody"
+                                      >
+                                        <tr
+                                          aria-hidden="true"
+                                          class="ant-table-measure-row"
+                                          style="height: 0px; font-size: 0px;"
+                                        >
+                                          <td
+                                            style="padding: 0px; border: 0px; height: 0px;"
+                                          >
+                                            <div
+                                              style="height: 0px; overflow: hidden;"
+                                            >
+                                               
+                                            </div>
+                                          </td>
+                                          <td
+                                            style="padding: 0px; border: 0px; height: 0px;"
+                                          >
+                                            <div
+                                              style="height: 0px; overflow: hidden;"
+                                            >
+                                               
+                                            </div>
+                                          </td>
+                                        </tr>
+                                        <tr
+                                          class="ant-table-placeholder"
+                                        >
+                                          <td
+                                            class="ant-table-cell"
+                                            colspan="2"
+                                          >
+                                            <div
+                                              class="ant-table-expanded-row-fixed"
+                                              style="width: 0px; position: sticky; left: 0px; overflow: hidden;"
+                                            />
+                                          </td>
+                                        </tr>
+                                      </tbody>
+                                    </table>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                        <button
+                          class="ant-btn ant-btn-dashed"
+                          style="display: block; margin: 10px 0px; width: 100%;"
+                          type="button"
+                        >
+                          <span
+                            aria-label="plus"
+                            class="anticon anticon-plus"
+                            role="img"
+                          >
+                            <svg
+                              aria-hidden="true"
+                              data-icon="plus"
+                              fill="currentColor"
+                              focusable="false"
+                              height="1em"
+                              viewBox="64 64 896 896"
+                              width="1em"
+                            >
+                              <defs>
+                                <style />
+                              </defs>
+                              <path
+                                d="M482 152h60q8 0 8 8v704q0 8-8 8h-60q-8 0-8-8V160q0-8 8-8z"
+                              />
+                              <path
+                                d="M176 474h672q8 0 8 8v60q0 8-8 8H176q-8 0-8-8v-60q0-8 8-8z"
+                              />
+                            </svg>
+                          </span>
+                          <span>
+                            添加一行数据
+                          </span>
+                        </button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div
+              class="ant-space ant-space-horizontal ant-space-align-center"
+              style="flex-wrap: wrap; margin-bottom: -8px;"
+            >
+              <div
+                class="ant-space-item"
+                style="margin-right: 8px; padding-bottom: 8px;"
+              >
+                <button
+                  class="ant-btn ant-btn-primary"
+                  type="button"
+                >
+                  <span>
+                    提 交
+                  </span>
+                </button>
+              </div>
+              <div
+                class="ant-space-item"
+                style="padding-bottom: 8px;"
+              >
+                <button
+                  class="ant-btn ant-btn-default"
+                  type="button"
+                >
+                  <span>
+                    重 置
+                  </span>
+                </button>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</DocumentFragment>
+`;
+
 exports[`table demos 📸 renders ./packages/table/src/demos/error-boundaries.tsx correctly 1`] = `
 <DocumentFragment>
   <button
@@ -32523,7 +32744,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/error-boundaries-fa
                               class="ant-table-cell"
                             >
                               <div
-                                style="display: flex; align-items: center; justify-content: center; gap: 8px;"
+                                style="display: flex; align-items: center; justify-content: flex-start; gap: 8px;"
                               >
                                 <a>
                                   链路
@@ -32581,7 +32802,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/error-boundaries-fa
                               class="ant-table-cell"
                             >
                               <div
-                                style="display: flex; align-items: center; justify-content: center; gap: 8px;"
+                                style="display: flex; align-items: center; justify-content: flex-start; gap: 8px;"
                               >
                                 <a>
                                   链路
@@ -32639,7 +32860,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/error-boundaries-fa
                               class="ant-table-cell"
                             >
                               <div
-                                style="display: flex; align-items: center; justify-content: center; gap: 8px;"
+                                style="display: flex; align-items: center; justify-content: flex-start; gap: 8px;"
                               >
                                 <a>
                                   链路
@@ -32697,7 +32918,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/error-boundaries-fa
                               class="ant-table-cell"
                             >
                               <div
-                                style="display: flex; align-items: center; justify-content: center; gap: 8px;"
+                                style="display: flex; align-items: center; justify-content: flex-start; gap: 8px;"
                               >
                                 <a>
                                   链路
@@ -32755,7 +32976,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/error-boundaries-fa
                               class="ant-table-cell"
                             >
                               <div
-                                style="display: flex; align-items: center; justify-content: center; gap: 8px;"
+                                style="display: flex; align-items: center; justify-content: flex-start; gap: 8px;"
                               >
                                 <a>
                                   链路
@@ -36048,7 +36269,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/listToolBar.tsx cor
                               class="ant-table-cell"
                             >
                               <div
-                                style="display: flex; align-items: center; justify-content: center; gap: 8px;"
+                                style="display: flex; align-items: center; justify-content: flex-start; gap: 8px;"
                               >
                                 <a>
                                   发布
@@ -36101,7 +36322,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/listToolBar.tsx cor
                               class="ant-table-cell"
                             >
                               <div
-                                style="display: flex; align-items: center; justify-content: center; gap: 8px;"
+                                style="display: flex; align-items: center; justify-content: flex-start; gap: 8px;"
                               >
                                 <a>
                                   发布
@@ -36154,7 +36375,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/listToolBar.tsx cor
                               class="ant-table-cell"
                             >
                               <div
-                                style="display: flex; align-items: center; justify-content: center; gap: 8px;"
+                                style="display: flex; align-items: center; justify-content: flex-start; gap: 8px;"
                               >
                                 <a>
                                   发布
@@ -36207,7 +36428,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/listToolBar.tsx cor
                               class="ant-table-cell"
                             >
                               <div
-                                style="display: flex; align-items: center; justify-content: center; gap: 8px;"
+                                style="display: flex; align-items: center; justify-content: flex-start; gap: 8px;"
                               >
                                 <a>
                                   发布
@@ -36260,7 +36481,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/listToolBar.tsx cor
                               class="ant-table-cell"
                             >
                               <div
-                                style="display: flex; align-items: center; justify-content: center; gap: 8px;"
+                                style="display: flex; align-items: center; justify-content: flex-start; gap: 8px;"
                               >
                                 <a>
                                   发布
@@ -37498,7 +37719,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/no-title.tsx correc
                               class="ant-table-cell"
                             >
                               <div
-                                style="display: flex; align-items: center; justify-content: center; gap: 8px;"
+                                style="display: flex; align-items: center; justify-content: flex-start; gap: 8px;"
                               >
                                 <a>
                                   编辑
@@ -37583,7 +37804,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/no-title.tsx correc
                               class="ant-table-cell"
                             >
                               <div
-                                style="display: flex; align-items: center; justify-content: center; gap: 8px;"
+                                style="display: flex; align-items: center; justify-content: flex-start; gap: 8px;"
                               >
                                 <a>
                                   编辑
@@ -37668,7 +37889,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/no-title.tsx correc
                               class="ant-table-cell"
                             >
                               <div
-                                style="display: flex; align-items: center; justify-content: center; gap: 8px;"
+                                style="display: flex; align-items: center; justify-content: flex-start; gap: 8px;"
                               >
                                 <a>
                                   编辑
@@ -37753,7 +37974,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/no-title.tsx correc
                               class="ant-table-cell"
                             >
                               <div
-                                style="display: flex; align-items: center; justify-content: center; gap: 8px;"
+                                style="display: flex; align-items: center; justify-content: flex-start; gap: 8px;"
                               >
                                 <a>
                                   编辑
@@ -37838,7 +38059,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/no-title.tsx correc
                               class="ant-table-cell"
                             >
                               <div
-                                style="display: flex; align-items: center; justify-content: center; gap: 8px;"
+                                style="display: flex; align-items: center; justify-content: flex-start; gap: 8px;"
                               >
                                 <a>
                                   编辑
@@ -38285,7 +38506,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/normal.tsx correctl
                               class="ant-table-cell"
                             >
                               <div
-                                style="display: flex; align-items: center; justify-content: center; gap: 8px;"
+                                style="display: flex; align-items: center; justify-content: flex-start; gap: 8px;"
                               >
                                 <a>
                                   链路
@@ -38364,7 +38585,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/normal.tsx correctl
                               class="ant-table-cell"
                             >
                               <div
-                                style="display: flex; align-items: center; justify-content: center; gap: 8px;"
+                                style="display: flex; align-items: center; justify-content: flex-start; gap: 8px;"
                               >
                                 <a>
                                   链路
@@ -38443,7 +38664,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/normal.tsx correctl
                               class="ant-table-cell"
                             >
                               <div
-                                style="display: flex; align-items: center; justify-content: center; gap: 8px;"
+                                style="display: flex; align-items: center; justify-content: flex-start; gap: 8px;"
                               >
                                 <a>
                                   链路
@@ -38522,7 +38743,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/normal.tsx correctl
                               class="ant-table-cell"
                             >
                               <div
-                                style="display: flex; align-items: center; justify-content: center; gap: 8px;"
+                                style="display: flex; align-items: center; justify-content: flex-start; gap: 8px;"
                               >
                                 <a>
                                   链路
@@ -38601,7 +38822,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/normal.tsx correctl
                               class="ant-table-cell"
                             >
                               <div
-                                style="display: flex; align-items: center; justify-content: center; gap: 8px;"
+                                style="display: flex; align-items: center; justify-content: flex-start; gap: 8px;"
                               >
                                 <a>
                                   链路
@@ -42825,7 +43046,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/rtl_table.tsx corre
                               class="ant-table-cell"
                             >
                               <div
-                                style="display: flex; align-items: center; justify-content: center; gap: 8px;"
+                                style="display: flex; align-items: center; justify-content: flex-start; gap: 8px;"
                               >
                                 <a
                                   rel="noopener noreferrer"
@@ -42998,7 +43219,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/rtl_table.tsx corre
                               class="ant-table-cell"
                             >
                               <div
-                                style="display: flex; align-items: center; justify-content: center; gap: 8px;"
+                                style="display: flex; align-items: center; justify-content: flex-start; gap: 8px;"
                               >
                                 <a
                                   href="https://github.com/ant-design/ant-design-pro/issues/6688"
@@ -43173,7 +43394,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/rtl_table.tsx corre
                               class="ant-table-cell"
                             >
                               <div
-                                style="display: flex; align-items: center; justify-content: center; gap: 8px;"
+                                style="display: flex; align-items: center; justify-content: flex-start; gap: 8px;"
                               >
                                 <a
                                   href="https://github.com/ant-design/ant-design-pro/issues/6685"
@@ -43348,7 +43569,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/rtl_table.tsx corre
                               class="ant-table-cell"
                             >
                               <div
-                                style="display: flex; align-items: center; justify-content: center; gap: 8px;"
+                                style="display: flex; align-items: center; justify-content: flex-start; gap: 8px;"
                               >
                                 <a
                                   href="https://github.com/ant-design/ant-design-pro/issues/6683"
@@ -43523,7 +43744,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/rtl_table.tsx corre
                               class="ant-table-cell"
                             >
                               <div
-                                style="display: flex; align-items: center; justify-content: center; gap: 8px;"
+                                style="display: flex; align-items: center; justify-content: flex-start; gap: 8px;"
                               >
                                 <a
                                   href="https://github.com/ant-design/ant-design-pro/issues/6682"
@@ -45593,7 +45814,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/single.tsx correctl
                               class="ant-table-cell"
                             >
                               <div
-                                style="display: flex; align-items: center; justify-content: center; gap: 8px;"
+                                style="display: flex; align-items: center; justify-content: flex-start; gap: 8px;"
                               >
                                 <a>
                                   编辑
@@ -45774,7 +45995,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/single.tsx correctl
                               class="ant-table-cell"
                             >
                               <div
-                                style="display: flex; align-items: center; justify-content: center; gap: 8px;"
+                                style="display: flex; align-items: center; justify-content: flex-start; gap: 8px;"
                               >
                                 <a>
                                   编辑
@@ -45956,7 +46177,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/single.tsx correctl
                               class="ant-table-cell"
                             >
                               <div
-                                style="display: flex; align-items: center; justify-content: center; gap: 8px;"
+                                style="display: flex; align-items: center; justify-content: flex-start; gap: 8px;"
                               >
                                 <a>
                                   编辑
@@ -46138,7 +46359,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/single.tsx correctl
                               class="ant-table-cell"
                             >
                               <div
-                                style="display: flex; align-items: center; justify-content: center; gap: 8px;"
+                                style="display: flex; align-items: center; justify-content: flex-start; gap: 8px;"
                               >
                                 <a>
                                   编辑
@@ -46320,7 +46541,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/single.tsx correctl
                               class="ant-table-cell"
                             >
                               <div
-                                style="display: flex; align-items: center; justify-content: center; gap: 8px;"
+                                style="display: flex; align-items: center; justify-content: flex-start; gap: 8px;"
                               >
                                 <a>
                                   编辑
@@ -48399,7 +48620,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/single-test.tsx cor
                               style="position: sticky; right: 0px;"
                             >
                               <div
-                                style="display: flex; align-items: center; justify-content: center; gap: 8px;"
+                                style="display: flex; align-items: center; justify-content: flex-start; gap: 8px;"
                               >
                                 <a
                                   rel="noopener noreferrer"
@@ -48595,7 +48816,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/single-test.tsx cor
                               style="position: sticky; right: 0px;"
                             >
                               <div
-                                style="display: flex; align-items: center; justify-content: center; gap: 8px;"
+                                style="display: flex; align-items: center; justify-content: flex-start; gap: 8px;"
                               >
                                 <a
                                   href="https://github.com/ant-design/ant-design-pro/issues/6688"
@@ -48792,7 +49013,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/single-test.tsx cor
                               style="position: sticky; right: 0px;"
                             >
                               <div
-                                style="display: flex; align-items: center; justify-content: center; gap: 8px;"
+                                style="display: flex; align-items: center; justify-content: flex-start; gap: 8px;"
                               >
                                 <a
                                   href="https://github.com/ant-design/ant-design-pro/issues/6685"
@@ -48989,7 +49210,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/single-test.tsx cor
                               style="position: sticky; right: 0px;"
                             >
                               <div
-                                style="display: flex; align-items: center; justify-content: center; gap: 8px;"
+                                style="display: flex; align-items: center; justify-content: flex-start; gap: 8px;"
                               >
                                 <a
                                   href="https://github.com/ant-design/ant-design-pro/issues/6683"
@@ -49186,7 +49407,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/single-test.tsx cor
                               style="position: sticky; right: 0px;"
                             >
                               <div
-                                style="display: flex; align-items: center; justify-content: center; gap: 8px;"
+                                style="display: flex; align-items: center; justify-content: flex-start; gap: 8px;"
                               >
                                 <a
                                   href="https://github.com/ant-design/ant-design-pro/issues/6682"
@@ -50065,7 +50286,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/split.tsx correctly
                                         class="ant-table-cell"
                                       >
                                         <div
-                                          style="display: flex; align-items: center; justify-content: center; gap: 8px;"
+                                          style="display: flex; align-items: center; justify-content: flex-start; gap: 8px;"
                                         >
                                           <a>
                                             预警
@@ -50100,7 +50321,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/split.tsx correctly
                                         class="ant-table-cell"
                                       >
                                         <div
-                                          style="display: flex; align-items: center; justify-content: center; gap: 8px;"
+                                          style="display: flex; align-items: center; justify-content: flex-start; gap: 8px;"
                                         >
                                           <a>
                                             预警
@@ -50135,7 +50356,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/split.tsx correctly
                                         class="ant-table-cell"
                                       >
                                         <div
-                                          style="display: flex; align-items: center; justify-content: center; gap: 8px;"
+                                          style="display: flex; align-items: center; justify-content: flex-start; gap: 8px;"
                                         >
                                           <a>
                                             预警
@@ -51760,7 +51981,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/theme.tsx correctly
                               class="ant-table-cell"
                             >
                               <div
-                                style="display: flex; align-items: center; justify-content: center; gap: 8px;"
+                                style="display: flex; align-items: center; justify-content: flex-start; gap: 8px;"
                               >
                                 <a>
                                   编辑
@@ -51941,7 +52162,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/theme.tsx correctly
                               class="ant-table-cell"
                             >
                               <div
-                                style="display: flex; align-items: center; justify-content: center; gap: 8px;"
+                                style="display: flex; align-items: center; justify-content: flex-start; gap: 8px;"
                               >
                                 <a>
                                   编辑
@@ -52123,7 +52344,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/theme.tsx correctly
                               class="ant-table-cell"
                             >
                               <div
-                                style="display: flex; align-items: center; justify-content: center; gap: 8px;"
+                                style="display: flex; align-items: center; justify-content: flex-start; gap: 8px;"
                               >
                                 <a>
                                   编辑
@@ -52305,7 +52526,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/theme.tsx correctly
                               class="ant-table-cell"
                             >
                               <div
-                                style="display: flex; align-items: center; justify-content: center; gap: 8px;"
+                                style="display: flex; align-items: center; justify-content: flex-start; gap: 8px;"
                               >
                                 <a>
                                   编辑
@@ -52487,7 +52708,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/theme.tsx correctly
                               class="ant-table-cell"
                             >
                               <div
-                                style="display: flex; align-items: center; justify-content: center; gap: 8px;"
+                                style="display: flex; align-items: center; justify-content: flex-start; gap: 8px;"
                               >
                                 <a>
                                   编辑
@@ -53293,7 +53514,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/valueType.tsx corre
                               class="ant-table-cell"
                             >
                               <div
-                                style="display: flex; align-items: center; justify-content: center; gap: 8px;"
+                                style="display: flex; align-items: center; justify-content: flex-start; gap: 8px;"
                               >
                                 <a>
                                   编辑
@@ -53417,7 +53638,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/valueType.tsx corre
                               class="ant-table-cell"
                             >
                               <div
-                                style="display: flex; align-items: center; justify-content: center; gap: 8px;"
+                                style="display: flex; align-items: center; justify-content: flex-start; gap: 8px;"
                               >
                                 <a>
                                   编辑
@@ -54936,7 +55157,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/valueType_select.ts
                               class="ant-table-cell"
                             >
                               <div
-                                style="display: flex; align-items: center; justify-content: center; gap: 8px;"
+                                style="display: flex; align-items: center; justify-content: flex-start; gap: 8px;"
                               >
                                 <a>
                                   编辑
@@ -55078,7 +55299,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/valueType_select.ts
                               class="ant-table-cell"
                             >
                               <div
-                                style="display: flex; align-items: center; justify-content: center; gap: 8px;"
+                                style="display: flex; align-items: center; justify-content: flex-start; gap: 8px;"
                               >
                                 <a>
                                   编辑
@@ -56225,7 +56446,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/valueTypeDate.tsx c
                               class="ant-table-cell"
                             >
                               <div
-                                style="display: flex; align-items: center; justify-content: center; gap: 8px;"
+                                style="display: flex; align-items: center; justify-content: flex-start; gap: 8px;"
                               >
                                 <a>
                                   编辑
@@ -56289,7 +56510,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/valueTypeDate.tsx c
                               class="ant-table-cell"
                             >
                               <div
-                                style="display: flex; align-items: center; justify-content: center; gap: 8px;"
+                                style="display: flex; align-items: center; justify-content: flex-start; gap: 8px;"
                               >
                                 <a>
                                   编辑
@@ -57506,7 +57727,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/valueTypeNumber.tsx
                               class="ant-table-cell"
                             >
                               <div
-                                style="display: flex; align-items: center; justify-content: center; gap: 8px;"
+                                style="display: flex; align-items: center; justify-content: flex-start; gap: 8px;"
                               >
                                 <a>
                                   编辑
@@ -57578,7 +57799,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/valueTypeNumber.tsx
                               class="ant-table-cell"
                             >
                               <div
-                                style="display: flex; align-items: center; justify-content: center; gap: 8px;"
+                                style="display: flex; align-items: center; justify-content: flex-start; gap: 8px;"
                               >
                                 <a>
                                   编辑

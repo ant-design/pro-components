@@ -589,3 +589,5 @@ SearchProps 为 antd 的 [Input.Search](https://ant.design/components/input-cn/#
 | key | 唯一标志 | `string` | - |
 | name | 内容 | `ReactNode` | - |
 | (...Menu.Item) | antd 的 [Menu.Item](https://ant.design/components/menu-cn/#Menu.Item) | Menu.Item | - |
+
+<code src="./demos/edittable-rules.tsx" background="#f7f8fa" title="列表工具栏-标题下拉菜单" debug></code>
