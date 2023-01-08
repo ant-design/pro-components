@@ -15,6 +15,7 @@ import React, {
   useRef,
   useState,
 } from 'react';
+import type { ProFormInstance } from '../../BaseForm';
 import type { SubmitterProps } from '../../components';
 import type { ProFormProps } from '../ProForm';
 import type { StepFormProps } from './StepForm';
@@ -41,7 +42,7 @@ type StepsFormProps<T = Record<string, any>> = {
     defaultDom: React.ReactNode,
   ) => React.ReactNode;
   /** @name 当前展示表单的 formRef */
-  formRef?: React.MutableRefObject<FormInstance<any> | undefined | null>;
+  formRef?: React.MutableRefObject<ProFormInstance<any> | undefined | null>;
   /** @name 所有表单的 formMapRef */
   formMapRef?: React.MutableRefObject<React.MutableRefObject<FormInstance<any> | undefined>[]>;
   /**

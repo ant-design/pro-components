@@ -1,8 +1,8 @@
 ﻿import { LabelIconTip, omitUndefined, runFunction, useLatest } from '@ant-design/pro-utils';
-import type { FormInstance, FormProps } from 'antd';
+import type { FormProps } from 'antd';
 import { Form } from 'antd';
-import omit from 'omit.js';
 import React, { useCallback, useImperativeHandle, useMemo, useRef, useState } from 'react';
+import type { ProFormInstance } from '../../BaseForm';
 import type { ProFormProps } from '../../layouts';
 import { DrawerForm } from '../../layouts/DrawerForm';
 import { LightFilter } from '../../layouts/LightFilter';
@@ -39,6 +39,7 @@ function BetaSchemaForm<T, ValueType = 'text'>(props: FormSchema<T, ValueType>) 
     type = 'form',
     action,
     shouldUpdate = true,
+    formRef: propsFormRef,
     ...restProps
   } = props;
 
@@ -48,15 +49,14 @@ function BetaSchemaForm<T, ValueType = 'text'>(props: FormSchema<T, ValueType>) 
   const [, forceUpdate] = useState<[]>([]);
   const [formDomsDeps, updatedFormDoms] = useState<[]>([]);
 
-  const rest = useMemo(() => {
-    return omit(restProps, ['formRef'] as any);
-  }, [restProps]);
-
-  const formRef = useRef<FormInstance | undefined>(props.form || formInstance || form);
+  const formRef = useRef<ProFormInstance | undefined>(props.form || formInstance || form);
   const oldValuesRef = useRef<T>();
   const propsRef = useLatest(props);
 
-  useImperativeHandle((restProps as ProFormProps<T>).formRef, () => formRef.current);
+  if (propsFormRef) {
+    (propsFormRef as React.MutableRefObject<ProFormInstance<any> | undefined | null>).current =
+      formRef.current;
+  }
 
   /**
    * 生成子项，方便被 table 接入
@@ -179,7 +179,7 @@ function BetaSchemaForm<T, ValueType = 'text'>(props: FormSchema<T, ValueType>) 
   return (
     <FormRenderComponents
       {...specificProps}
-      {...rest}
+      {...restProps}
       form={props.form || form}
       formRef={formRef}
       onValuesChange={onValuesChange}

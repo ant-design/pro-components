@@ -7,7 +7,8 @@ import type { ReactNode } from 'react';
 import React, { useContext, useEffect, useMemo } from 'react';
 import { RouteContext } from '../../context/RouteContext';
 import type { WithFalse } from '../../typing';
-import { FooterToolbar, FooterToolbarProps } from '../FooterToolbar';
+import type { FooterToolbarProps } from '../FooterToolbar';
+import { FooterToolbar } from '../FooterToolbar';
 import { GridContent } from '../GridContent';
 import type { PageHeaderProps } from '../PageHeader';
 import { PageHeader } from '../PageHeader';
@@ -17,6 +18,8 @@ import { WaterMark } from '../WaterMark';
 import type { PageContainerToken, pageContainerToken } from './style';
 import { useStyle } from './style';
 import { useStylish } from './style/stylish';
+
+import 'antd/es/breadcrumb/style';
 
 export type PageHeaderTabConfig = {
   /** @name tabs 的列表 */

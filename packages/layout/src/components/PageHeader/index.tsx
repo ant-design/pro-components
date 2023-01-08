@@ -8,6 +8,7 @@ import ResizeObserver from 'rc-resize-observer';
 import * as React from 'react';
 import useStyle from './style/index';
 import type { ContentWidth } from '../../defaultSettings';
+import 'antd/es/breadcrumb/style';
 
 export interface PageHeaderProps {
   backIcon?: React.ReactNode;

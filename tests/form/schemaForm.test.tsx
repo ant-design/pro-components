@@ -679,7 +679,7 @@ describe('SchemaForm', () => {
 
       formRef.current!.setFieldsValue(value);
 
-      expect(formRef.current!.getFieldsValue()).toMatchObject(value);
+      expect(formRef.current!.getFieldsValue(true)).toMatchObject(value);
 
       if (layoutType === 'StepsForm') {
         const button = await wrapper.findByText('下一步');

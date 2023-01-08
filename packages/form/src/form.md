@@ -425,3 +425,7 @@ export default () => {
 | `getFieldsFormatValue` | 使用方法与`FormInstance`的`getFieldsValue`方法相同，将返回格式化后的所有数据 |  |
 | `getFieldFormatValue` | 使用方法与`FormInstance`的`getFieldValue`方法相同，将返回格式化后的指定数据 |  |
 | `validateFieldsReturnFormatValue` | 使用方法与`FormInstance`的`validateFields`方法相同，验证通过后将返回格式化后的所有数据 |  |
+
+<code src="./demos/modalform-test.tsx" height="341px" title="modal-form-测试" debug></code>
+
+<code src="./demos/params-formref.tsx" height="341px" title="formRef的使用" debug></code>
