@@ -210,7 +210,7 @@ const genProListStyle: GenerateStyle<ProListToken> = (token) => {
         },
 
         [`${token.antCls}-list-pagination`]: {
-          marginBlockStart: token.margin,
+          marginBlockStart: `${token.margin} !important`,
           marginBlockEnd: token.margin,
         },
         [`${token.antCls}-list-list`]: {
