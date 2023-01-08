@@ -24,7 +24,7 @@ const genProLayoutBaseMenuStyle: GenerateStyle<ProLayoutBaseMenuToken> = (token)
         ${token.antCls}-menu-item-group > ${token.antCls}-menu-item-group-list > ${token.antCls}-menu-submenu > ${token.antCls}-menu-submenu-title, 
         ${token.antCls}-menu-submenu > ${token.antCls}-menu-submenu-title`]: {
           paddingInline: '0 !important',
-          marginBlock: '8px !important',
+          marginBlock: '4px !important',
         },
         [`${token.antCls}-menu-item-group > ${token.antCls}-menu-item-group-list > ${token.antCls}-menu-submenu-selected > ${token.antCls}-menu-submenu-title, 
         ${token.antCls}-menu-submenu-selected > ${token.antCls}-menu-submenu-title`]: {
