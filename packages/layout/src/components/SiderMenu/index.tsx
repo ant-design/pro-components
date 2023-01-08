@@ -52,6 +52,7 @@ const SiderMenuWrapper: React.FC<SiderMenuProps & PrivateSiderMenuProps> = (prop
           height: '100vh',
           ...style,
         }}
+        maskClosable
         closable={false}
         getContainer={getContainer}
         width={siderWidth}
