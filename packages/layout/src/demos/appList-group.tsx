@@ -5,8 +5,12 @@ import { SimpleContent } from '../components/AppsLogoComponents/SimpleContent';
 import { DefaultContent } from '../components/AppsLogoComponents/DefaultContent';
 import { Radio } from 'antd';
 import { useEffect, useState, useMemo } from 'react';
+import { createBrowserHistory } from 'dumi';
 import _ from 'lodash';
 import defaultProps from './_defaultProps';
+import { AppsLogoComponentsAppItem } from '../components/AppsLogoComponents/types';
+
+const history = createBrowserHistory();
 
 const InitAppList = [
   {
@@ -14,6 +18,10 @@ const InitAppList = [
     title: '应用内跳转-页容器组件',
     desc: '应用内跳转-页容器组件',
     url: '/components/page-container',
+    click: (item: AppsLogoComponentsAppItem) => {
+      console.log('item>>>', item);
+      window.open(item?.url);
+    },
   },
   {
     icon: 'https://gw.alipayobjects.com/zos/rmsportal/XuVpGqBFxXplzvLjJBZB.svg',

@@ -32,7 +32,12 @@ export const DefaultContent: React.FC<{
               key={index}
               className={`${baseClassName}-content-list-item ${hashId}`}
             >
-              <a href={app.url} target={app.target} rel="noreferrer">
+              <a
+                href={app?.click ? 'javascript:;' : app.url}
+                onClick={() => app?.click?.(app)}
+                target={app.target}
+                rel="noreferrer"
+              >
                 {defaultRenderLogo(app.icon)}
                 <div>
                   <div>{app.title}</div>

@@ -9,6 +9,7 @@ nav:
   path: /components
 ---
 
+<!--
 # ProLayout - 高级布局
 
 ProLayout 可以提供一个标准又不失灵活的中后台标准布局，同时提供一键切换布局形态，自动生成菜单等功能。与 PageContainer 配合使用可以自动生成面包屑，页面标题，并且提供低成本方案接入页脚工具栏。
@@ -159,17 +160,18 @@ PageContainer 配置 `fixedHeader` 可以将吸顶 header。
 
 ### 沉浸式导航
 
-<code src="./demos/immersive-navigation-top.tsx" height="500px" iframe="610px" title="沉浸式导航"></code>
+<code src="./demos/immersive-navigation-top.tsx" height="500px" iframe="610px" title="沉浸式导航"></code> -->
 
 ### 跨站点导航
 
 > 使用默认卡片展示，请确保每一项都有 desc，且值为真；使用分组展示，请确保每一项都有 children，且长度大于 0； <code src="./demos/appList-group.tsx" height="500px" iframe="610px" title="跨站点导航列表 分组模式"></code>
 
+<!--
 ### layout 自带了错误处理功能，防止白屏
 
 <code src="./demos/error-boundaries.tsx" height="500px" iframe="610px" title="沉浸式导航"></code>
 
-<code src="./demos/splitMenus.tsx" height="500px" iframe="500px" title="沉浸式导航" debug></code>
+<code src="./demos/splitMenus.tsx" height="500px" iframe="500px" title="沉浸式导航" debug></code> -->
 
 ## API
 

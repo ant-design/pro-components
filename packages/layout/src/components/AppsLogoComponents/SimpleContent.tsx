@@ -62,7 +62,12 @@ export const SimpleContent: React.FC<{
               key={index}
               className={`${baseClassName}-content-list-item ${hashId}`}
             >
-              <a href={app.url} target={app.target} rel="noreferrer">
+              <a
+                href={app?.click ? 'javascript:;' : app.url}
+                onClick={() => app?.click?.(app)}
+                target={app.target}
+                rel="noreferrer"
+              >
                 {renderLogo(app.icon, app.title)}
                 <div>
                   <div>{app.title}</div>
