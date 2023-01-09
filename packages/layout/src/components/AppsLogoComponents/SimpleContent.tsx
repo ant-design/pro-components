@@ -1,6 +1,6 @@
 import { isUrl } from '@ant-design/pro-utils';
 import React from 'react';
-import type { AppsLogoComponentsAppList } from './types';
+import type { AppsLogoComponentsAppList, AppsLogoComponentsAppItem } from './types';
 
 /**
  * simple模式渲染logo的方式
@@ -34,10 +34,11 @@ export const renderLogo = (
 
 export const SimpleContent: React.FC<{
   appList?: AppsLogoComponentsAppList;
+  itemClick?: (item: AppsLogoComponentsAppItem) => void;
   baseClassName: string;
   hashId?: string;
 }> = (props) => {
-  const { appList, baseClassName, hashId } = props;
+  const { appList, baseClassName, hashId, itemClick } = props;
   return (
     <div className={`${baseClassName}-content ${hashId}`}>
       <ul className={`${baseClassName}-content-list ${hashId}`}>
@@ -50,6 +51,7 @@ export const SimpleContent: React.FC<{
                 </div>
                 <SimpleContent
                   hashId={hashId}
+                  itemClick={itemClick}
                   appList={app?.children}
                   baseClassName={baseClassName}
                 />
@@ -63,8 +65,8 @@ export const SimpleContent: React.FC<{
               className={`${baseClassName}-content-list-item ${hashId}`}
             >
               <a
-                href={app?.click ? 'javascript:;' : app.url}
-                onClick={() => app?.click?.(app)}
+                href={itemClick ? 'javascript:;' : app.url}
+                onClick={() => itemClick?.(app)}
                 target={app.target}
                 rel="noreferrer"
               >
