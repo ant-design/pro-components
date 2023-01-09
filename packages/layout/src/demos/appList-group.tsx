@@ -5,12 +5,9 @@ import { SimpleContent } from '../components/AppsLogoComponents/SimpleContent';
 import { DefaultContent } from '../components/AppsLogoComponents/DefaultContent';
 import { Radio } from 'antd';
 import { useEffect, useState, useMemo } from 'react';
-import { createBrowserHistory } from 'dumi';
 import _ from 'lodash';
 import defaultProps from './_defaultProps';
 import { AppsLogoComponentsAppItem } from '../components/AppsLogoComponents/types';
-
-const history = createBrowserHistory();
 
 const InitAppList = [
   {
