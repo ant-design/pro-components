@@ -10,6 +10,12 @@ import defaultProps from './_defaultProps';
 
 const InitAppList = [
   {
+    icon: 'https://gw.alipayobjects.com/zos/antfincdn/upvrAjAPQX/Logo_Tech%252520UI.svg',
+    title: '应用内跳转-页容器组件',
+    desc: '应用内跳转-页容器组件',
+    url: '/components/page-container',
+  },
+  {
     icon: 'https://gw.alipayobjects.com/zos/rmsportal/XuVpGqBFxXplzvLjJBZB.svg',
     title: '语雀',
     desc: '知识创作与分享工具',
@@ -20,7 +26,6 @@ const InitAppList = [
     title: 'AntV',
     desc: '蚂蚁集团全新一代数据可视化解决方案',
     url: 'https://antv.vision/',
-    target: '_blank',
   },
   {
     icon: 'https://gw.alipayobjects.com/zos/antfincdn/upvrAjAPQX/Logo_Tech%252520UI.svg',

@@ -1,4 +1,5 @@
 import React from 'react';
+import { Navigate } from './Navigate';
 import { defaultRenderLogo } from './index';
 import type { AppsLogoComponentsAppList } from './types';
 
@@ -32,13 +33,13 @@ export const DefaultContent: React.FC<{
               key={index}
               className={`${baseClassName}-content-list-item ${hashId}`}
             >
-              <a href={app.url} target={app.target} rel="noreferrer">
+              <Navigate href={app.url} target={app.target}>
                 {defaultRenderLogo(app.icon)}
                 <div>
                   <div>{app.title}</div>
                   {app.desc ? <span>{app.desc}</span> : null}
                 </div>
-              </a>
+              </Navigate>
             </li>
           );
         })}

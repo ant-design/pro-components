@@ -43,35 +43,26 @@ export const AppsLogoComponents: React.FC<{
 
   const [open, setOpen] = useState(false);
 
-  const itemRender = useCallback(
-    (list: AppsLogoComponentsAppList | undefined) => {
-      const isSimple = list?.some((app) => {
-        return !app?.desc;
-      });
-      if (isSimple) {
-        return (
-          <SimpleContent hashId={hashId} appList={list} baseClassName={`${baseClassName}-simple`} />
-        );
-      }
-      return (
-        <DefaultContent hashId={hashId} appList={list} baseClassName={`${baseClassName}-default`} />
-      );
-    },
-    [hashId, baseClassName],
-  );
-
   const popoverContent = useMemo(() => {
-    return appList?.map((app) => {
-      if (app?.children?.length) {
-        return (
-          <>
-            <div className={`${baseClassName}-item-title ${hashId}`}>{app.title}</div>
-            {itemRender(app?.children)}
-          </>
-        );
-      }
-      return itemRender([app]);
+    const isSimple = appList?.some((app) => {
+      return !app?.desc;
     });
+    if (isSimple) {
+      return (
+        <SimpleContent
+          hashId={hashId}
+          appList={appList}
+          baseClassName={`${baseClassName}-simple`}
+        />
+      );
+    }
+    return (
+      <DefaultContent
+        hashId={hashId}
+        appList={appList}
+        baseClassName={`${baseClassName}-default`}
+      />
+    );
   }, [appList, baseClassName, hashId]);
 
   if (!props?.appList?.length) return null;
