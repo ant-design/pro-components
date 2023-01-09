@@ -1,7 +1,7 @@
 ﻿import { openVisibleCompatible } from '@ant-design/pro-utils';
 import { Popover } from 'antd';
 import classNames from 'classnames';
-import React, { useCallback, useMemo, useState } from 'react';
+import React, { useMemo, useState } from 'react';
 import { AppsLogo } from './AppsLogo';
 import { DefaultContent } from './DefaultContent';
 import { SimpleContent } from './SimpleContent';
