@@ -321,10 +321,10 @@ const defaultPageTitleRender = (
   if (pageTitleRender) {
     const title = pageTitleRender(pageProps, pageTitleInfo.title, pageTitleInfo);
     if (typeof title === 'string') {
-      return {
+      return getPageTitleInfo({
         ...pageTitleInfo,
         title,
-      };
+      });
     }
     warning(
       typeof title === 'string',
