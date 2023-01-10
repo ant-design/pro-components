@@ -1,5 +1,5 @@
 import Field from '@ant-design/pro-field';
-import { render } from 'enzyme';
+import { render } from '@testing-library/react';
 
 describe('Field Status', () => {
   const statusList = [
@@ -16,7 +16,7 @@ describe('Field Status', () => {
   ];
   statusList.forEach((status) => {
     it(`🥩 ${status} render`, async () => {
-      const html = render(
+      const { container } = render(
         <Field
           text="open"
           valueEnum={{
@@ -28,12 +28,12 @@ describe('Field Status', () => {
           mode="read"
         />,
       );
-      expect(html).toMatchSnapshot();
+      expect(container).toMatchSnapshot();
     });
   });
 
   it(`🥩 red color render`, async () => {
-    const html = render(
+    const { container } = render(
       <Field
         text="open"
         valueEnum={{
@@ -45,6 +45,6 @@ describe('Field Status', () => {
         mode="read"
       />,
     );
-    expect(html).toMatchSnapshot();
+    expect(container).toMatchSnapshot();
   });
 });
