@@ -9932,6 +9932,31 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/appList-group.tsx
                 class="ant-layout-content ant-pro-layout-content ant-pro-layout-has-header"
               >
                 <div
+                  style="margin-bottom: 20px;"
+                >
+                  是否开启自定义事件： 
+                  <button
+                    aria-checked="true"
+                    class="ant-switch ant-switch-checked"
+                    role="switch"
+                    type="button"
+                  >
+                    <div
+                      class="ant-switch-handle"
+                    />
+                    <span
+                      class="ant-switch-inner"
+                    >
+                      <span
+                        class="ant-switch-inner-checked"
+                      />
+                      <span
+                        class="ant-switch-inner-unchecked"
+                      />
+                    </span>
+                  </button>
+                </div>
+                <div
                   class="ant-radio-group ant-radio-group-outline"
                 >
                   <label
@@ -10063,7 +10088,30 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/appList-group.tsx
                         class="ant-pro-layout-apps-default-content-list-item hashId_demo"
                       >
                         <a
-                          href="https://www.yuque.com/"
+                          href="javascript:;"
+                          rel="noreferrer"
+                        >
+                          <img
+                            alt="logo"
+                            height="22"
+                            src="https://gw.alipayobjects.com/zos/antfincdn/upvrAjAPQX/Logo_Tech%252520UI.svg"
+                            width="auto"
+                          />
+                          <div>
+                            <div>
+                              应用内跳转-页容器组件
+                            </div>
+                            <span>
+                              应用内跳转-页容器组件
+                            </span>
+                          </div>
+                        </a>
+                      </li>
+                      <li
+                        class="ant-pro-layout-apps-default-content-list-item hashId_demo"
+                      >
+                        <a
+                          href="javascript:;"
                           rel="noreferrer"
                         >
                           <img
@@ -10086,9 +10134,8 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/appList-group.tsx
                         class="ant-pro-layout-apps-default-content-list-item hashId_demo"
                       >
                         <a
-                          href="https://antv.vision/"
+                          href="javascript:;"
                           rel="noreferrer"
-                          target="_blank"
                         >
                           <img
                             alt="logo"
@@ -10110,7 +10157,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/appList-group.tsx
                         class="ant-pro-layout-apps-default-content-list-item hashId_demo"
                       >
                         <a
-                          href="https://procomponents.ant.design/"
+                          href="javascript:;"
                           rel="noreferrer"
                         >
                           <img
@@ -10133,7 +10180,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/appList-group.tsx
                         class="ant-pro-layout-apps-default-content-list-item hashId_demo"
                       >
                         <a
-                          href="https://umijs.org/zh-CN/docs"
+                          href="javascript:;"
                           rel="noreferrer"
                         >
                           <img
@@ -10156,7 +10203,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/appList-group.tsx
                         class="ant-pro-layout-apps-default-content-list-item hashId_demo"
                       >
                         <a
-                          href="https://qiankun.umijs.org/"
+                          href="javascript:;"
                           rel="noreferrer"
                         >
                           <img
@@ -10179,7 +10226,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/appList-group.tsx
                         class="ant-pro-layout-apps-default-content-list-item hashId_demo"
                       >
                         <a
-                          href="https://www.yuque.com/"
+                          href="javascript:;"
                           rel="noreferrer"
                         >
                           <img
@@ -10202,7 +10249,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/appList-group.tsx
                         class="ant-pro-layout-apps-default-content-list-item hashId_demo"
                       >
                         <a
-                          href="https://kitchen.alipay.com/"
+                          href="javascript:;"
                           rel="noreferrer"
                         >
                           <img
@@ -10225,7 +10272,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/appList-group.tsx
                         class="ant-pro-layout-apps-default-content-list-item hashId_demo"
                       >
                         <a
-                          href="https://d.umijs.org/zh-CN"
+                          href="javascript:;"
                           rel="noreferrer"
                         >
                           <img
