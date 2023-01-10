@@ -3,12 +3,19 @@ import { ProConfigProvider, ProLayout } from '@ant-design/pro-components';
 import type { RadioChangeEvent } from 'antd';
 import { SimpleContent } from '../components/AppsLogoComponents/SimpleContent';
 import { DefaultContent } from '../components/AppsLogoComponents/DefaultContent';
-import { Radio } from 'antd';
+import { Radio, Modal, Switch } from 'antd';
 import { useEffect, useState, useMemo } from 'react';
 import _ from 'lodash';
 import defaultProps from './_defaultProps';
+import { AppsLogoComponentsAppItem } from '../components/AppsLogoComponents/types';
 
 const InitAppList = [
+  {
+    icon: 'https://gw.alipayobjects.com/zos/antfincdn/upvrAjAPQX/Logo_Tech%252520UI.svg',
+    title: '应用内跳转-页容器组件',
+    desc: '应用内跳转-页容器组件',
+    url: '/components/page-container',
+  },
   {
     icon: 'https://gw.alipayobjects.com/zos/rmsportal/XuVpGqBFxXplzvLjJBZB.svg',
     title: '语雀',
@@ -20,7 +27,6 @@ const InitAppList = [
     title: 'AntV',
     desc: '蚂蚁集团全新一代数据可视化解决方案',
     url: 'https://antv.vision/',
-    target: '_blank',
   },
   {
     icon: 'https://gw.alipayobjects.com/zos/antfincdn/upvrAjAPQX/Logo_Tech%252520UI.svg',
@@ -156,6 +162,7 @@ export default () => {
   };
   const [appList, setAppList] = useState<any>([]);
   const [value1, setValue1] = useState('default');
+  const [custom, setCustom] = useState(true);
 
   useEffect(() => {
     switch (value1) {
@@ -213,6 +220,21 @@ export default () => {
   const hashId = 'hashId_demo';
   const baseClassName = 'ant-pro-layout-apps';
 
+  const itemClick = (item: AppsLogoComponentsAppItem) => {
+    console.log('item>>>', item);
+    Modal?.confirm({
+      width: 600,
+      title: '点击项 详细数据',
+      content: (
+        <pre style={{ overflow: 'auto' }}>
+          {JSON.stringify(typeof item === 'object' ? item : {}, null, 2)}
+        </pre>
+      ),
+      okText: '前往',
+      onOk: () => window.open(item?.url),
+    });
+  };
+
   const popoverContent = useMemo(() => {
     const isSimple = appList?.some((app: any) => {
       return !app?.desc;
@@ -222,6 +244,7 @@ export default () => {
         <SimpleContent
           hashId={hashId}
           appList={appList}
+          itemClick={custom ? itemClick : undefined}
           baseClassName={`${baseClassName}-simple`}
         />
       );
@@ -230,22 +253,19 @@ export default () => {
       <DefaultContent
         hashId={hashId}
         appList={appList}
+        itemClick={custom ? itemClick : undefined}
         baseClassName={`${baseClassName}-default`}
       />
     );
-  }, [appList, baseClassName, hashId]);
+  }, [appList, baseClassName, hashId, custom]);
 
   return (
-    <div
-      id="test-pro-layout"
-      style={{
-        height: '100vh',
-      }}
-    >
+    <div id="test-pro-layout" style={{ height: '100vh' }}>
       <ProConfigProvider hashed={false}>
         <ProLayout
           {...defaultProps}
           appList={appList}
+          itemClick={itemClick}
           location={{ pathname: '/list/sub-page/sub-sub-page1' }}
           siderMenuType="group"
           menu={{ collapsedShowGroupTitle: true }}
@@ -256,6 +276,10 @@ export default () => {
           }}
           {...settings}
         >
+          <div style={{ marginBottom: '20px' }}>
+            是否开启自定义事件：{' '}
+            <Switch checked={custom} onChange={(checked) => setCustom(checked)} />
+          </div>
           <Radio.Group
             optionType="button"
             options={options}

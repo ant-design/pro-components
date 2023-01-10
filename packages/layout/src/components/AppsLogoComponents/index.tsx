@@ -1,12 +1,12 @@
 ﻿import { openVisibleCompatible } from '@ant-design/pro-utils';
 import { Popover } from 'antd';
 import classNames from 'classnames';
-import React, { useCallback, useMemo, useState } from 'react';
+import React, { useMemo, useState } from 'react';
 import { AppsLogo } from './AppsLogo';
 import { DefaultContent } from './DefaultContent';
 import { SimpleContent } from './SimpleContent';
 import { useStyle } from './style/index';
-import type { AppsLogoComponentsAppList } from './types';
+import type { AppsLogoComponentsAppList, AppsLogoComponentsAppItem } from './types';
 
 /**
  * 默认渲染logo的方式，如果是个string，用img。否则直接返回
@@ -34,44 +34,38 @@ export const defaultRenderLogo = (
  */
 export const AppsLogoComponents: React.FC<{
   appList?: AppsLogoComponentsAppList;
+  itemClick?: (item: AppsLogoComponentsAppItem) => void;
   prefixCls?: string;
 }> = (props) => {
-  const { appList, prefixCls = 'ant-pro' } = props;
+  const { appList, prefixCls = 'ant-pro', itemClick } = props;
   const ref = React.useRef<HTMLDivElement>(null);
   const baseClassName = `${prefixCls}-layout-apps`;
   const { wrapSSR, hashId } = useStyle(baseClassName);
 
   const [open, setOpen] = useState(false);
 
-  const itemRender = useCallback(
-    (list: AppsLogoComponentsAppList | undefined) => {
-      const isSimple = list?.some((app) => {
-        return !app?.desc;
-      });
-      if (isSimple) {
-        return (
-          <SimpleContent hashId={hashId} appList={list} baseClassName={`${baseClassName}-simple`} />
-        );
-      }
-      return (
-        <DefaultContent hashId={hashId} appList={list} baseClassName={`${baseClassName}-default`} />
-      );
-    },
-    [hashId, baseClassName],
-  );
-
   const popoverContent = useMemo(() => {
-    return appList?.map((app) => {
-      if (app?.children?.length) {
-        return (
-          <>
-            <div className={`${baseClassName}-item-title ${hashId}`}>{app.title}</div>
-            {itemRender(app?.children)}
-          </>
-        );
-      }
-      return itemRender([app]);
+    const isSimple = appList?.some((app) => {
+      return !app?.desc;
     });
+    if (isSimple) {
+      return (
+        <SimpleContent
+          hashId={hashId}
+          appList={appList}
+          itemClick={itemClick}
+          baseClassName={`${baseClassName}-simple`}
+        />
+      );
+    }
+    return (
+      <DefaultContent
+        hashId={hashId}
+        appList={appList}
+        itemClick={itemClick}
+        baseClassName={`${baseClassName}-default`}
+      />
+    );
   }, [appList, baseClassName, hashId]);
 
   if (!props?.appList?.length) return null;

@@ -8,7 +8,10 @@ import type { CSSProperties } from 'react';
 import React, { useContext, useMemo } from 'react';
 import type { WithFalse } from '../../typing';
 import { AppsLogoComponents, defaultRenderLogo } from '../AppsLogoComponents';
-import type { AppsLogoComponentsAppList } from '../AppsLogoComponents/types';
+import type {
+  AppsLogoComponentsAppList,
+  AppsLogoComponentsAppItem,
+} from '../AppsLogoComponents/types';
 import { CollapsedIcon } from '../CollapsedIcon';
 import type { HeaderViewProps } from '../Header';
 import type { BaseMenuProps } from './BaseMenu';
@@ -65,6 +68,8 @@ export type SiderMenuProps = {
   logo?: React.ReactNode;
   /** 相关品牌的列表 */
   appList?: AppsLogoComponentsAppList;
+  /** 相关品牌的列表项 点击事件，当事件存在时，appList 内配置的 url 不在自动跳转 */
+  itemClick?: (item: AppsLogoComponentsAppItem) => void;
   /** 菜单的宽度 */
   siderWidth?: number;
   /** 头像的设置 */
@@ -289,7 +294,13 @@ const SiderMenu: React.FC<SiderMenuProps & PrivateSiderMenuProps> = (props) => {
   );
 
   const appsDom = useMemo(() => {
-    return <AppsLogoComponents appList={props.appList} prefixCls={props.prefixCls} />;
+    return (
+      <AppsLogoComponents
+        itemClick={props.itemClick}
+        appList={props.appList}
+        prefixCls={props.prefixCls}
+      />
+    );
   }, [props.appList, props.prefixCls]);
 
   const collapsedDom = useMemo(() => {
