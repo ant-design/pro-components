@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.5.4](https://github.com/ant-design/pro-components/compare/@ant-design/pro-utils@2.5.3...@ant-design/pro-utils@2.5.4) (2023-01-10)
+
+### Bug Fixes
+
+- **table:** fix cancelEditable will reset value error ([40fba50](https://github.com/ant-design/pro-components/commit/40fba50d987cfcbf1dd37d0593c88123b04dfbb7))
+
 ## [2.5.3](https://github.com/ant-design/pro-components/compare/@ant-design/pro-utils@2.5.2...@ant-design/pro-utils@2.5.3) (2023-01-06)
 
 **Note:** Version bump only for package @ant-design/pro-utils

@@ -2,6 +2,17 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [7.6.1](https://github.com/ant-design/pro-components/compare/@ant-design/pro-layout@7.6.0...@ant-design/pro-layout@7.6.1) (2023-01-10)
+
+### Bug Fixes
+
+- **form:** fix formref no work error in BetaSchemaForm ([7b9bbdd](https://github.com/ant-design/pro-components/commit/7b9bbddbd7e1f51cca9490170ec24fc4817a1620))
+- **layout:** fix ProLayout pageTitleRender not overriding document title ([#6492](https://github.com/ant-design/pro-components/issues/6492)) ([fda493c](https://github.com/ant-design/pro-components/commit/fda493c9ffd1a2e6d9bc7bcd51ffb57f75cfe518))
+- **layout:** open sider from right on rtl direction ([#6491](https://github.com/ant-design/pro-components/issues/6491)) ([3675950](https://github.com/ant-design/pro-components/commit/36759508767f92a3dc3c7374b1a0092a6c3dab1d))
+- **layout:** replace marginTop to marigin-block-start ([5d0f58f](https://github.com/ant-design/pro-components/commit/5d0f58fea713d4eead7d0c6f76c09a60f96fda2b))
+- **layout:** support click mask close ([06a8920](https://github.com/ant-design/pro-components/commit/06a8920933a7a956df0895bf8b2922499ae1075a))
+- **layout:** 调整菜单收缩时 margin 与展开时 一致 ([#6481](https://github.com/ant-design/pro-components/issues/6481)) ([7229fcf](https://github.com/ant-design/pro-components/commit/7229fcfa861fc9d01a8cbbde22d003d9a497c027))
+
 # [7.6.0](https://github.com/ant-design/pro-components/compare/@ant-design/pro-layout@7.5.2...@ant-design/pro-layout@7.6.0) (2023-01-06)
 
 ### Features

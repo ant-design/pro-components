@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.5.4](https://github.com/ant-design/pro-components/compare/@ant-design/pro-form@2.5.3...@ant-design/pro-form@2.5.4) (2023-01-10)
+
+### Bug Fixes
+
+- **form:** fix formref no work error in BetaSchemaForm ([7b9bbdd](https://github.com/ant-design/pro-components/commit/7b9bbddbd7e1f51cca9490170ec24fc4817a1620))
+
 ## [2.5.3](https://github.com/ant-design/pro-components/compare/@ant-design/pro-form@2.5.2...@ant-design/pro-form@2.5.3) (2023-01-06)
 
 ### Bug Fixes

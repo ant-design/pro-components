@@ -2,6 +2,15 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [3.2.12](https://github.com/ant-design/pro-components/compare/@ant-design/pro-table@3.2.11...@ant-design/pro-table@3.2.12) (2023-01-10)
+
+### Bug Fixes
+
+- **table:** fix cancelEditable will reset value error ([40fba50](https://github.com/ant-design/pro-components/commit/40fba50d987cfcbf1dd37d0593c88123b04dfbb7))
+- **Table:** 列配置子项 disable 时，“固定”按钮点击无效 ([#6475](https://github.com/ant-design/pro-components/issues/6475)) ([fd6aaed](https://github.com/ant-design/pro-components/commit/fd6aaed341337cd9804235b3a4accab16f4d16a3))
+- **Table:** 列配置子项 disable 时，无法拖动调整顺序 ([#6476](https://github.com/ant-design/pro-components/issues/6476)) ([6c4744e](https://github.com/ant-design/pro-components/commit/6c4744ed0249bc5681bf63f3bde42c54b8eb6894))
+- **Table:** 列配置点击“列展示”全选操作时，顺序排列和 disable 状态异常 ([#6477](https://github.com/ant-design/pro-components/issues/6477)) ([458db48](https://github.com/ant-design/pro-components/commit/458db48df13e742859ba608387740b2acb5890ff))
+
 ## [3.2.11](https://github.com/ant-design/pro-components/compare/@ant-design/pro-table@3.2.10...@ant-design/pro-table@3.2.11) (2023-01-06)
 
 **Note:** Version bump only for package @ant-design/pro-table
