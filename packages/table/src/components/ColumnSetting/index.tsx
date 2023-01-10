@@ -47,8 +47,6 @@ const ToolTipIcon: React.FC<{
           e.stopPropagation();
           e.preventDefault();
           const config = columnsMap[columnKey] || {};
-          const disableIcon = typeof config.disable === 'boolean' && config.disable;
-          if (disableIcon) return;
           const columnKeyMap = {
             ...columnsMap,
             [columnKey]: { ...config, fixed } as ColumnsState,
