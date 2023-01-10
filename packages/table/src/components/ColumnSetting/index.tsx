@@ -251,7 +251,9 @@ const CheckboxList: React.FC<{
         );
       }}
       height={listHeight}
-      treeData={treeDataConfig.list}
+      treeData={treeDataConfig.list?.map(
+        ({ disabled /* 不透传 disabled，使子节点禁用时也可以拖动调整顺序 */, ...config }) => config,
+      )}
     />
   );
   return (
