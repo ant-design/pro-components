@@ -8,6 +8,22 @@ group:
   path: /
 ---
 
+## @ant-design/pro-components@2.3.52
+
+`2023-01-10`
+
+- fix(layout): replace marginTop to marigin-block-start. [5d0f58f](https://github.com/ant-design/pro-components/commit/5d0f58f)
+- fix(layout): fix ProLayout pageTitleRender not overriding document title (#6492). [#6492](https://github.com/ant-design/pro-components/pull/#6492) [@whyour](https://github.com/whyour)
+- fix(layout): open sider from right on rtl direction (#6491). [#6491](https://github.com/ant-design/pro-components/pull/#6491) [@3hson](https://github.com/3hson)
+- fix(layout):修复分组逻辑部分代码 (#6488). [#6488](https://github.com/ant-design/pro-components/pull/#6488) [@chengaway](https://github.com/chengaway)
+- fix(layout): support click mask close. [06a8920](https://github.com/ant-design/pro-components/commit/06a8920)
+- fix(layout): 调整菜单收缩时 margin 与展开时 一致 (#6481). [#6481](https://github.com/ant-design/pro-components/pull/#6481) [@hihuangwei](https://github.com/hihuangwei)
+- fix(form): fix formref no work error in BetaSchemaForm. [7b9bbdd](https://github.com/ant-design/pro-components/commit/7b9bbdd)
+- fix(Table): 列配置子项 disable 时，无法拖动调整顺序 (#6476). [#6476](https://github.com/ant-design/pro-components/pull/#6476) [@chiaweilee](https://github.com/chiaweilee)
+- fix(Table): 列配置子项 disable 时，“固定”按钮点击无效 (#6475). [#6475](https://github.com/ant-design/pro-components/pull/#6475) [@chiaweilee](https://github.com/chiaweilee)
+- fix(Table): 列配置点击“列展示”全选操作时，顺序排列和 disable 状态异常 (#6477). [#6477](https://github.com/ant-design/pro-components/pull/#6477) [@chiaweilee](https://github.com/chiaweilee)
+- fix(table): fix cancelEditable will reset value error. [40fba50](https://github.com/ant-design/pro-components/commit/40fba50)
+
 ## @ant-design/pro-components@2.3.51
 
 `2023-01-06`

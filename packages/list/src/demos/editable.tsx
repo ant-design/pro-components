@@ -33,7 +33,7 @@ const defaultData = [
   },
 ];
 
-type DataItem = typeof defaultData[number];
+type DataItem = (typeof defaultData)[number];
 
 export default () => {
   const [dataSource, setDataSource] = useState<DataItem[]>(defaultData);
