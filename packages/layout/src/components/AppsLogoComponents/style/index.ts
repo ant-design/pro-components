@@ -39,7 +39,7 @@ const genAppsLogoComponentsStyle: GenerateStyle<AppsLogoComponentsToken> = (toke
         opacity: 0.85,
         lineHeight: 1.5,
         '&:first-child': {
-          marginTop: 12,
+          marginBlockStart: 12,
         },
       },
       '&-popover': {
