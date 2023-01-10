@@ -1,5 +1,5 @@
 import { openVisibleCompatible } from '@ant-design/pro-utils';
-import { Drawer } from 'antd';
+import { ConfigProvider, Drawer } from 'antd';
 import classNames from 'classnames';
 import Omit from 'omit.js';
 import React, { useEffect } from 'react';
@@ -29,6 +29,8 @@ const SiderMenuWrapper: React.FC<SiderMenuProps & PrivateSiderMenuProps> = (prop
 
   const omitProps = Omit(props, ['className', 'style']);
 
+  const { direction } = React.useContext(ConfigProvider.ConfigContext);
+
   const { wrapSSR, hashId } = useStyle(`${prefixCls}-sider`, {
     proLayoutCollapsedWidth: 64,
   });
@@ -44,7 +46,7 @@ const SiderMenuWrapper: React.FC<SiderMenuProps & PrivateSiderMenuProps> = (prop
   return wrapSSR(
     isMobile ? (
       <Drawer
-        placement="left"
+        placement={direction === 'rtl' ? 'right' : 'left'}
         className={classNames(`${prefixCls}-drawer-sider`, className)}
         {...drawerOpenProps}
         style={{
