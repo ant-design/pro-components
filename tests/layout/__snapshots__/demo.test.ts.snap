@@ -175,7 +175,6 @@ exports[`layout demos 📸 renders ./packages/layout/src/components/PageContaine
                   >
                     <div
                       class="ant-tabs-tab ant-tabs-tab-active"
-                      data-node-key="base"
                     >
                       <div
                         aria-controls="rc-tabs-test-panel-base"
@@ -190,7 +189,6 @@ exports[`layout demos 📸 renders ./packages/layout/src/components/PageContaine
                     </div>
                     <div
                       class="ant-tabs-tab ant-tabs-tab-with-remove"
-                      data-node-key="info"
                     >
                       <div
                         aria-controls="rc-tabs-test-panel-info"
@@ -507,7 +505,6 @@ exports[`layout demos 📸 renders ./packages/layout/src/components/PageContaine
                         >
                           <div
                             class="ant-tabs-tab ant-tabs-tab-active"
-                            data-node-key="1"
                           >
                             <div
                               aria-controls="rc-tabs-test-panel-1"
@@ -522,7 +519,6 @@ exports[`layout demos 📸 renders ./packages/layout/src/components/PageContaine
                           </div>
                           <div
                             class="ant-tabs-tab"
-                            data-node-key="2"
                           >
                             <div
                               aria-controls="rc-tabs-test-panel-2"
@@ -537,7 +533,6 @@ exports[`layout demos 📸 renders ./packages/layout/src/components/PageContaine
                           </div>
                           <div
                             class="ant-tabs-tab ant-tabs-tab-disabled"
-                            data-node-key="3"
                           >
                             <div
                               aria-controls="rc-tabs-test-panel-3"
@@ -1771,14 +1766,12 @@ exports[`layout demos 📸 renders ./packages/layout/src/components/WaterMark/de
                             <tr>
                               <th
                                 class="ant-table-cell"
-                                scope="col"
                               >
                                 应用名称
                               </th>
                               <th
-                                aria-label=""
+                                aria-label="this column is sortable"
                                 class="ant-table-cell ant-table-column-has-sorters"
-                                scope="col"
                                 style="text-align: right;"
                                 tabindex="0"
                               >
@@ -1840,25 +1833,21 @@ exports[`layout demos 📸 renders ./packages/layout/src/components/WaterMark/de
                               </th>
                               <th
                                 class="ant-table-cell"
-                                scope="col"
                               >
                                 状态
                               </th>
                               <th
                                 class="ant-table-cell"
-                                scope="col"
                               >
                                 创建者
                               </th>
                               <th
                                 class="ant-table-cell ant-table-cell-ellipsis"
-                                scope="col"
                               >
                                 备注
                               </th>
                               <th
                                 class="ant-table-cell"
-                                scope="col"
                               >
                                 操作
                               </th>
@@ -3976,11 +3965,11 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/AlwaysDefaultOpen
                         role="none"
                       >
                         <div
-                          aria-controls="rc-menu-uuid-test-/9449c99785ac015b1ec5af4ac62f9e00fe23fa6c23f3f0d36303c9e840f54ffe-popup"
+                          aria-controls="rc-menu-uuid-test-/028ada2346da00990af63de1191f18cc87c96fc671323ae24df9dd39fc8c0fd2-popup"
                           aria-expanded="true"
                           aria-haspopup="true"
                           class="ant-menu-submenu-title"
-                          data-menu-id="rc-menu-uuid-test-/9449c99785ac015b1ec5af4ac62f9e00fe23fa6c23f3f0d36303c9e840f54ffe"
+                          data-menu-id="rc-menu-uuid-test-/028ada2346da00990af63de1191f18cc87c96fc671323ae24df9dd39fc8c0fd2"
                           role="menuitem"
                           style="padding-left: 32px;"
                           tabindex="-1"
@@ -4006,7 +3995,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/AlwaysDefaultOpen
                         <ul
                           class="ant-menu ant-menu-sub ant-menu-inline"
                           data-menu-list="true"
-                          id="rc-menu-uuid-test-/9449c99785ac015b1ec5af4ac62f9e00fe23fa6c23f3f0d36303c9e840f54ffe-popup"
+                          id="rc-menu-uuid-test-/028ada2346da00990af63de1191f18cc87c96fc671323ae24df9dd39fc8c0fd2-popup"
                         >
                           <li
                             class="ant-menu-item ant-menu-item-only-child ant-pro-base-menu-menu-item"
@@ -4867,11 +4856,11 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/DefaultOpenAllMen
                         role="none"
                       >
                         <div
-                          aria-controls="rc-menu-uuid-test-/9449c99785ac015b1ec5af4ac62f9e00fe23fa6c23f3f0d36303c9e840f54ffe-popup"
+                          aria-controls="rc-menu-uuid-test-/028ada2346da00990af63de1191f18cc87c96fc671323ae24df9dd39fc8c0fd2-popup"
                           aria-expanded="true"
                           aria-haspopup="true"
                           class="ant-menu-submenu-title"
-                          data-menu-id="rc-menu-uuid-test-/9449c99785ac015b1ec5af4ac62f9e00fe23fa6c23f3f0d36303c9e840f54ffe"
+                          data-menu-id="rc-menu-uuid-test-/028ada2346da00990af63de1191f18cc87c96fc671323ae24df9dd39fc8c0fd2"
                           role="menuitem"
                           style="padding-left: 32px;"
                           tabindex="-1"
@@ -4897,7 +4886,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/DefaultOpenAllMen
                         <ul
                           class="ant-menu ant-menu-sub ant-menu-inline"
                           data-menu-list="true"
-                          id="rc-menu-uuid-test-/9449c99785ac015b1ec5af4ac62f9e00fe23fa6c23f3f0d36303c9e840f54ffe-popup"
+                          id="rc-menu-uuid-test-/028ada2346da00990af63de1191f18cc87c96fc671323ae24df9dd39fc8c0fd2-popup"
                         >
                           <li
                             class="ant-menu-item ant-menu-item-only-child ant-pro-base-menu-menu-item"
@@ -5799,11 +5788,11 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/MenuGroup.tsx cor
                         role="none"
                       >
                         <div
-                          aria-controls="rc-menu-uuid-test-/9449c99785ac015b1ec5af4ac62f9e00fe23fa6c23f3f0d36303c9e840f54ffe-popup"
+                          aria-controls="rc-menu-uuid-test-/028ada2346da00990af63de1191f18cc87c96fc671323ae24df9dd39fc8c0fd2-popup"
                           aria-expanded="false"
                           aria-haspopup="true"
                           class="ant-menu-submenu-title"
-                          data-menu-id="rc-menu-uuid-test-/9449c99785ac015b1ec5af4ac62f9e00fe23fa6c23f3f0d36303c9e840f54ffe"
+                          data-menu-id="rc-menu-uuid-test-/028ada2346da00990af63de1191f18cc87c96fc671323ae24df9dd39fc8c0fd2"
                           role="menuitem"
                           style="padding-left: 16px;"
                           tabindex="-1"
@@ -9932,6 +9921,31 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/appList-group.tsx
                 class="ant-layout-content ant-pro-layout-content ant-pro-layout-has-header"
               >
                 <div
+                  style="margin-bottom: 20px;"
+                >
+                  是否开启自定义事件： 
+                  <button
+                    aria-checked="true"
+                    class="ant-switch ant-switch-checked"
+                    role="switch"
+                    type="button"
+                  >
+                    <div
+                      class="ant-switch-handle"
+                    />
+                    <span
+                      class="ant-switch-inner"
+                    >
+                      <span
+                        class="ant-switch-inner-checked"
+                      />
+                      <span
+                        class="ant-switch-inner-unchecked"
+                      />
+                    </span>
+                  </button>
+                </div>
+                <div
                   class="ant-radio-group ant-radio-group-outline"
                 >
                   <label
@@ -10063,7 +10077,30 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/appList-group.tsx
                         class="ant-pro-layout-apps-default-content-list-item hashId_demo"
                       >
                         <a
-                          href="https://www.yuque.com/"
+                          href="javascript:;"
+                          rel="noreferrer"
+                        >
+                          <img
+                            alt="logo"
+                            height="22"
+                            src="https://gw.alipayobjects.com/zos/antfincdn/upvrAjAPQX/Logo_Tech%252520UI.svg"
+                            width="auto"
+                          />
+                          <div>
+                            <div>
+                              应用内跳转-页容器组件
+                            </div>
+                            <span>
+                              应用内跳转-页容器组件
+                            </span>
+                          </div>
+                        </a>
+                      </li>
+                      <li
+                        class="ant-pro-layout-apps-default-content-list-item hashId_demo"
+                      >
+                        <a
+                          href="javascript:;"
                           rel="noreferrer"
                         >
                           <img
@@ -10086,9 +10123,8 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/appList-group.tsx
                         class="ant-pro-layout-apps-default-content-list-item hashId_demo"
                       >
                         <a
-                          href="https://antv.vision/"
+                          href="javascript:;"
                           rel="noreferrer"
-                          target="_blank"
                         >
                           <img
                             alt="logo"
@@ -10110,7 +10146,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/appList-group.tsx
                         class="ant-pro-layout-apps-default-content-list-item hashId_demo"
                       >
                         <a
-                          href="https://procomponents.ant.design/"
+                          href="javascript:;"
                           rel="noreferrer"
                         >
                           <img
@@ -10133,7 +10169,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/appList-group.tsx
                         class="ant-pro-layout-apps-default-content-list-item hashId_demo"
                       >
                         <a
-                          href="https://umijs.org/zh-CN/docs"
+                          href="javascript:;"
                           rel="noreferrer"
                         >
                           <img
@@ -10156,7 +10192,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/appList-group.tsx
                         class="ant-pro-layout-apps-default-content-list-item hashId_demo"
                       >
                         <a
-                          href="https://qiankun.umijs.org/"
+                          href="javascript:;"
                           rel="noreferrer"
                         >
                           <img
@@ -10179,7 +10215,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/appList-group.tsx
                         class="ant-pro-layout-apps-default-content-list-item hashId_demo"
                       >
                         <a
-                          href="https://www.yuque.com/"
+                          href="javascript:;"
                           rel="noreferrer"
                         >
                           <img
@@ -10202,7 +10238,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/appList-group.tsx
                         class="ant-pro-layout-apps-default-content-list-item hashId_demo"
                       >
                         <a
-                          href="https://kitchen.alipay.com/"
+                          href="javascript:;"
                           rel="noreferrer"
                         >
                           <img
@@ -10225,7 +10261,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/appList-group.tsx
                         class="ant-pro-layout-apps-default-content-list-item hashId_demo"
                       >
                         <a
-                          href="https://d.umijs.org/zh-CN"
+                          href="javascript:;"
                           rel="noreferrer"
                         >
                           <img
@@ -14492,7 +14528,6 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/config-provider.t
                         >
                           <div
                             class="qixian-tabs-tab qixian-tabs-tab-active"
-                            data-node-key="base"
                           >
                             <div
                               aria-controls="rc-tabs-test-panel-base"
@@ -14507,7 +14542,6 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/config-provider.t
                           </div>
                           <div
                             class="qixian-tabs-tab"
-                            data-node-key="info"
                           >
                             <div
                               aria-controls="rc-tabs-test-panel-info"
@@ -20691,7 +20725,6 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/dynamic-settings.
                           >
                             <div
                               class="ant-tabs-tab ant-tabs-tab-active"
-                              data-node-key="base"
                             >
                               <div
                                 aria-controls="rc-tabs-test-panel-base"
@@ -20706,7 +20739,6 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/dynamic-settings.
                             </div>
                             <div
                               class="ant-tabs-tab"
-                              data-node-key="info"
                             >
                               <div
                                 aria-controls="rc-tabs-test-panel-info"
