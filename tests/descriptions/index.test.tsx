@@ -2,7 +2,6 @@ import ProDescriptions from '@ant-design/pro-descriptions';
 import type { ProCoreActionType } from '@ant-design/pro-utils';
 import { act, render, waitFor } from '@testing-library/react';
 import { Button } from 'antd';
-import '@testing-library/user-event';
 import { useRef } from 'react';
 import { waitForComponentToPaint, waitTime } from '../util';
 
