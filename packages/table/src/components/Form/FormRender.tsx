@@ -99,11 +99,11 @@ export type TableFormItem<T, U = any> = {
   dateFormatter?: ProTableProps<T, U, any>['dateFormatter'];
   search?: false | SearchConfig;
   columns: ProColumns<U, any>[];
-  formRef: React.MutableRefObject<FormInstance | undefined>;
+  formRef: React.MutableRefObject<FormInstance | null>;
   submitButtonLoading?: boolean;
   manualRequest?: boolean;
   bordered?: boolean;
-  action: React.MutableRefObject<ActionType | undefined>;
+  action: React.MutableRefObject<ActionType | null>;
   ghost?: boolean;
 } & Omit<FormItemProps, 'children' | 'onReset'>;
 
