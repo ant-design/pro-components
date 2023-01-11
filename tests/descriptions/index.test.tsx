@@ -1,7 +1,8 @@
 import ProDescriptions from '@ant-design/pro-descriptions';
 import type { ProCoreActionType } from '@ant-design/pro-utils';
-import { act, render } from '@testing-library/react';
+import { act, render, waitFor } from '@testing-library/react';
 import { Button } from 'antd';
+import '@testing-library/user-event';
 import { useRef } from 'react';
 import { waitForComponentToPaint, waitTime } from '../util';
 
@@ -28,8 +29,10 @@ describe('descriptions', () => {
         })}
       />,
     );
-    await waitForComponentToPaint(container, 200);
-    expect(container.querySelector('span.ant-badge-status-text')?.innerHTML).toBe('关闭');
+
+    await waitFor(() =>
+      expect(container.querySelector('span.ant-badge-status-text')?.innerHTML).toBe('关闭'),
+    );
   });
 
   it('🎏 onLoadingChange test', async () => {

@@ -1,15 +1,13 @@
 import Field from '@ant-design/pro-field';
-import '@testing-library/jest-dom';
 import { fireEvent, render } from '@testing-library/react';
 import dayjs from 'dayjs';
-import { waitForComponentToPaint } from '../util';
 
 describe('Field', () => {
   const datePickList = ['date', 'dateWeek', 'dateMonth', 'dateQuarter', 'dateYear', 'dateTime'];
   datePickList.forEach((valueType) => {
     it(`📅 ${valueType} base use`, async () => {
       const fn = jest.fn();
-      const html = render(
+      const { container } = render(
         <Field
           mode="edit"
           fieldProps={{
@@ -22,11 +20,9 @@ describe('Field', () => {
         />,
       );
 
-      await fireEvent.mouseDown(html.baseElement.querySelector('.ant-pro-core-field-label')!);
-      await waitForComponentToPaint(html, 100);
+      await fireEvent.mouseDown(container.querySelector('.ant-pro-core-field-label')!);
+      await fireEvent.click(container.querySelector('.anticon-close')!);
 
-      await fireEvent.click(html.baseElement.querySelector('.anticon-close')!);
-      await waitForComponentToPaint(html, 100);
       expect(fn).toBeCalled();
     });
   });
