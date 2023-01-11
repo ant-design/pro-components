@@ -17,7 +17,7 @@ type DataSourceType = {
 
 describe('List', () => {
   it('🚏 base use', async () => {
-    const html = mount(
+    const { container } = reactRender(
       <ProList
         dataSource={[
           {
@@ -37,12 +37,14 @@ describe('List', () => {
         }}
       />,
     );
-    expect(html.find('.ant-pro-list-row-title').text()).toEqual('我是名称');
-    expect(html.find('.ant-pro-list-row-description').text()).toEqual('desc text');
+    expect(container.querySelector('.ant-pro-list-row-title')!.innerHTML).toEqual('我是名称');
+    expect(container.querySelector('.ant-pro-list-row-description')!.innerHTML).toEqual(
+      'desc text',
+    );
   });
 
   it('🚏 BaseList', async () => {
-    const html = mount(
+    const { container } = reactRender(
       <BaseProList
         dataSource={[
           {
@@ -62,13 +64,15 @@ describe('List', () => {
         }}
       />,
     );
-    expect(html.find('.ant-pro-list-row-title').text()).toEqual('我是名称');
-    expect(html.find('.ant-pro-list-row-description').text()).toEqual('desc text');
-    expect(html.find('.ant-pro-card').exists()).toBeFalsy();
+    expect(container.querySelector('.ant-pro-list-row-title')!.innerHTML).toEqual('我是名称');
+    expect(container.querySelector('.ant-pro-list-row-description')!.innerHTML).toEqual(
+      'desc text',
+    );
+    expect(container.querySelectorAll('.ant-pro-card')!.length).toBe(0);
   });
 
   it('🚏 show loading state', async () => {
-    const html = mount(
+    const { container } = reactRender(
       <ProList
         dataSource={[
           {
@@ -89,11 +93,11 @@ describe('List', () => {
         loading={true}
       />,
     );
-    expect(html.render()).toMatchSnapshot();
+    expect(container).toMatchSnapshot();
   });
 
   it('🚏 only has content', async () => {
-    const html = mount(
+    const { container } = reactRender(
       <ProList
         dataSource={[
           {
@@ -118,11 +122,11 @@ describe('List', () => {
         }}
       />,
     );
-    expect(html.render()).toMatchSnapshot();
+    expect(container).toMatchSnapshot();
   });
 
   it('🚏 only has description', async () => {
-    const html = mount(
+    const { container } = reactRender(
       <ProList
         dataSource={[
           {
@@ -145,11 +149,11 @@ describe('List', () => {
         }}
       />,
     );
-    expect(html.render()).toMatchSnapshot();
+    expect(container).toMatchSnapshot();
   });
 
   it('🚏 empty', async () => {
-    const html = mount(
+    const { container } = reactRender(
       <ProList
         metas={{
           title: {
@@ -158,7 +162,7 @@ describe('List', () => {
         }}
       />,
     );
-    expect(html.find('.ant-empty-description').text()).toEqual('暂无数据');
+    expect(container.querySelector('.ant-empty-description')!.innerHTML).toEqual('暂无数据');
   });
 
   it('🚏 expandable', async () => {
@@ -183,10 +187,12 @@ describe('List', () => {
         />
       );
     };
-    const html = mount(<Wrapper />);
-    expect(html.find('.ant-pro-list-row-description').length).toEqual(0);
-    html.find('.ant-pro-list-row-expand-icon').simulate('click');
-    expect(html.find('.ant-pro-list-row-content').text()).toEqual('我是内容');
+    const { container } = reactRender(<Wrapper />);
+    expect(container.querySelectorAll('.ant-pro-list-row-description').length).toEqual(0);
+    await fireEvent.click(container.querySelector('.ant-pro-list-row-expand-icon')!);
+    expect(container.querySelector('.ant-pro-list-row-content')!.innerHTML).toEqual(
+      '<div>我是内容</div>',
+    );
     expect(onExpand).toHaveBeenCalledWith(true, expect.objectContaining({ name: '我是名称' }));
   });
 
@@ -212,10 +218,12 @@ describe('List', () => {
         />
       );
     };
-    const html = mount(<Wrapper />);
-    expect(html.find('.ant-pro-list-row-description').length).toEqual(0);
-    html.find('.ant-list-item').simulate('click');
-    expect(html.find('.ant-pro-list-row-content').text()).toEqual('我是内容');
+    const { container } = reactRender(<Wrapper />);
+    expect(container.querySelectorAll('.ant-pro-list-row-description').length).toEqual(0);
+    await fireEvent.click(container.querySelector('.ant-list-item')!);
+    expect(container.querySelector('.ant-pro-list-row-content')!.innerHTML).toEqual(
+      '<div>我是内容</div>',
+    );
     expect(onExpand).toHaveBeenCalledWith(true, expect.objectContaining({ name: '我是名称' }));
   });
 
@@ -248,8 +256,10 @@ describe('List', () => {
         />
       );
     };
-    const html = mount(<Wrapper />);
-    expect(html.find('.ant-pro-list-row-content').text()).toEqual('我是内容b');
+    const { container } = reactRender(<Wrapper />);
+    expect(container.querySelector('.ant-pro-list-row-content')!.innerHTML).toEqual(
+      '<div>我是内容b</div>',
+    );
   });
 
   it('🚏 expandable with expandedRowRender', async () => {
@@ -285,12 +295,13 @@ describe('List', () => {
         />
       );
     };
-    const html = mount(<Wrapper />);
-    expect(html.find('.ant-pro-list-row-description').length).toEqual(0);
-    html.find('.ant-pro-list-row-expand-icon').simulate('click');
-    expect(html.find('.ant-pro-list-row-content .test-custom-class-name').text()).toEqual(
-      'expand:0',
-    );
+    const { container } = reactRender(<Wrapper />);
+    expect(container.querySelectorAll('.ant-pro-list-row-description').length).toEqual(0);
+    // html.find('.ant-pro-list-row-expand-icon').simulate('click');
+    await fireEvent.click(container.querySelector('.ant-pro-list-row-expand-icon')!);
+    expect(
+      container.querySelector('.ant-pro-list-row-content .test-custom-class-name')!.innerHTML,
+    ).toEqual('<div>expand:0</div>');
   });
 
   it('🚏 expandable with expandIcon', async () => {
@@ -321,16 +332,11 @@ describe('List', () => {
         />
       );
     };
-    const html = mount(<Wrapper />);
+    const { container } = reactRender(<Wrapper />);
 
-    await waitForComponentToPaint(html, 1200);
+    expect(container.querySelectorAll('.expand-icon')).toHaveLength(1);
 
-    expect(html.find('.expand-icon')).toHaveLength(1);
-
-    act(() => {
-      html.find('#test_click').simulate('click');
-    });
-
+    await fireEvent.click(container.querySelector('#test_click')!);
     expect(fn).toBeCalledWith('我是名称');
   });
 
