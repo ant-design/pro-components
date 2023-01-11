@@ -1,16 +1,13 @@
 import ProDescriptions from '@ant-design/pro-descriptions';
 import type { ProCoreActionType } from '@ant-design/pro-utils';
-import '@testing-library/jest-dom';
-import { render } from '@testing-library/react';
+import { act, render, waitFor } from '@testing-library/react';
 import { Button } from 'antd';
-import { mount } from 'enzyme';
 import { useRef } from 'react';
-import { act } from 'react-dom/test-utils';
 import { waitForComponentToPaint, waitTime } from '../util';
 
 describe('descriptions', () => {
   it('🥩 descriptions render valueEnum when data = 0', async () => {
-    const html = render(
+    const { container } = render(
       <ProDescriptions
         columns={[
           {
@@ -31,13 +28,15 @@ describe('descriptions', () => {
         })}
       />,
     );
-    await waitForComponentToPaint(html, 200);
-    expect(html.baseElement.querySelector('span.ant-badge-status-text')?.innerHTML).toBe('关闭');
+
+    await waitFor(() =>
+      expect(container.querySelector('span.ant-badge-status-text')?.innerHTML).toBe('关闭'),
+    );
   });
 
   it('🎏 onLoadingChange test', async () => {
     const fn = jest.fn();
-    const html = mount(
+    const html = render(
       <ProDescriptions
         size="small"
         onLoadingChange={fn}
