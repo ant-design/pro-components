@@ -1,6 +1,5 @@
 import { SettingDrawer } from '@ant-design/pro-components';
-import { act, render } from '@testing-library/react';
-import { mount } from 'enzyme';
+import { act, fireEvent, render } from '@testing-library/react';
 import { waitForComponentToPaint } from '../util';
 import { defaultSettings } from './defaultSettings';
 
@@ -83,7 +82,7 @@ describe('settingDrawer.test', () => {
       { key: 'qixian', color: '#F52225' },
       { key: 'test', color: '#722ED2' },
     ];
-    const wrapper = mount(
+    const { container, unmount } = render(
       <SettingDrawer
         disableUrlParams
         colorList={colorList}
@@ -93,25 +92,17 @@ describe('settingDrawer.test', () => {
         onSettingChange={(setting) => onSettingChange(setting.colorPrimary)}
       />,
     );
-    await waitForComponentToPaint(wrapper);
-    act(() => {
-      const button = wrapper.find('div.ant-pro-setting-drawer-theme-color-block').at(0);
-      button.simulate('click');
-    });
-    await waitForComponentToPaint(wrapper);
+
+    fireEvent.click(container.querySelectorAll('div.ant-pro-setting-drawer-theme-color-block')[0]);
     expect(onSettingChange).toBeCalledWith('#1677FF');
 
-    act(() => {
-      const button = wrapper.find('div.ant-pro-setting-drawer-theme-color-block').at(1);
-      button.simulate('click');
-    });
-    await waitForComponentToPaint(wrapper);
+    fireEvent.click(container.querySelectorAll('div.ant-pro-setting-drawer-theme-color-block')[1]);
 
     expect(onSettingChange).toBeCalledWith('#F5222D');
-    expect(wrapper.find('div.ant-pro-setting-drawer-theme-color-block').length).toBe(9);
-    act(() => {
-      wrapper.unmount();
-    });
+    expect(container.querySelectorAll('div.ant-pro-setting-drawer-theme-color-block')).toHaveLength(
+      9,
+    );
+    unmount();
   });
 
   it('🌺 hideHintAlert = true', () => {
@@ -129,7 +120,7 @@ describe('settingDrawer.test', () => {
 
   it('🌺 initState form query', async () => {
     const fn = jest.fn();
-    const html = mount(
+    const { container, unmount } = render(
       <div>
         <SettingDrawer
           disableUrlParams={false}
@@ -141,19 +132,9 @@ describe('settingDrawer.test', () => {
         />
       </div>,
     );
-    await waitForComponentToPaint(html);
 
-    act(() => {
-      html.find('.ant-btn.ant-btn-block').simulate('click');
-    });
-
-    await waitForComponentToPaint(html);
-
-    act(() => {
-      html.find('div.ant-drawer-mask').simulate('click');
-    });
-
-    await waitForComponentToPaint(html, 1000);
+    fireEvent.click(container.querySelector('.ant-btn.ant-btn-block')!);
+    fireEvent.click(container.querySelector('div.ant-drawer-mask')!);
 
     expect(fn).toBeCalled();
     expect(fn).toBeCalledWith({
@@ -165,7 +146,7 @@ describe('settingDrawer.test', () => {
       colorPrimary: '#1677FF',
       splitMenus: false,
     });
-    html.unmount();
+    unmount();
   });
 
   it('🌺 hideCopyButton = true', () => {
@@ -194,7 +175,7 @@ describe('settingDrawer.test', () => {
       },
     });
     const fn = jest.fn();
-    const html = mount(
+    const { container, unmount } = render(
       <SettingDrawer
         disableUrlParams
         getContainer={false}
@@ -204,19 +185,15 @@ describe('settingDrawer.test', () => {
         }}
       />,
     );
-    await waitForComponentToPaint(html);
 
-    act(() => {
-      html.find('.ant-btn.ant-btn-block').simulate('click');
-    });
-    await waitForComponentToPaint(html);
+    fireEvent.click(container.querySelector('.ant-btn.ant-btn-block')!);
     expect(fn).toBeCalled();
-    html.unmount();
+    unmount();
   });
 
   it('🌺 onCollapseChange', async () => {
     const onCollapseChange = jest.fn();
-    const wrapper = mount(
+    const { container } = render(
       <SettingDrawer
         disableUrlParams
         settings={{
@@ -230,17 +207,14 @@ describe('settingDrawer.test', () => {
         onCollapseChange={onCollapseChange}
       />,
     );
-    await waitForComponentToPaint(wrapper);
-    const button = wrapper.find('.ant-pro-setting-drawer-handle');
-    act(() => {
-      button.simulate('click');
-    });
+
+    fireEvent.click(container.querySelector('.ant-pro-setting-drawer-handle')!);
     expect(onCollapseChange).toHaveBeenCalled();
   });
 
   it('🌺 onLayout Change', async () => {
     const onSettingChange = jest.fn();
-    const wrapper = mount(
+    const { container } = render(
       <SettingDrawer
         disableUrlParams
         settings={defaultSettings}
@@ -249,26 +223,23 @@ describe('settingDrawer.test', () => {
         onSettingChange={(setting) => onSettingChange(setting.layout)}
       />,
     );
-    await waitForComponentToPaint(wrapper);
-    act(() => {
-      const button = wrapper.find('div.ant-pro-setting-drawer-block-checkbox-layout-item').at(2);
-      button.simulate('click');
-    });
-    await waitForComponentToPaint(wrapper);
+
+    fireEvent.click(
+      container.querySelectorAll('div.ant-pro-setting-drawer-block-checkbox-layout-item')[2],
+    );
+
     expect(onSettingChange).toBeCalledWith('mix');
 
-    act(() => {
-      const button = wrapper.find('div.ant-pro-setting-drawer-block-checkbox-layout-item').at(1);
-      button.simulate('click');
-    });
-    await waitForComponentToPaint(wrapper);
+    fireEvent.click(
+      container.querySelectorAll('div.ant-pro-setting-drawer-block-checkbox-layout-item')[1],
+    );
 
     expect(onSettingChange).toBeCalledWith('top');
   });
 
   it('🌺 fix-siderbar Change', async () => {
     const onSettingChange = jest.fn();
-    const wrapper = mount(
+    const { container } = render(
       <SettingDrawer
         disableUrlParams
         collapse
@@ -278,23 +249,19 @@ describe('settingDrawer.test', () => {
         }}
       />,
     );
-    await waitForComponentToPaint(wrapper);
-    act(() => {
-      wrapper.find('button.fix-siderbar').simulate('click');
-    });
-    await waitForComponentToPaint(wrapper);
+
+    fireEvent.click(container.querySelector('button.fix-siderbar')!);
+
     expect(onSettingChange).toBeCalledWith(true);
 
-    act(() => {
-      wrapper.find('button.fix-siderbar').simulate('click');
-    });
-    await waitForComponentToPaint(wrapper);
+    fireEvent.click(container.querySelector('button.fix-siderbar')!);
+
     expect(onSettingChange).toBeCalledWith(false);
   });
 
   it('🌺 content-width change', async () => {
     const onSettingChange = jest.fn();
-    const wrapper = mount(
+    const { container } = render(
       <SettingDrawer
         disableUrlParams
         collapse
@@ -307,25 +274,19 @@ describe('settingDrawer.test', () => {
         }}
       />,
     );
-    await waitForComponentToPaint(wrapper);
-    act(() => {
-      wrapper
-        .find('div.ant-select.content-width')
-        .find('.ant-select-selector')
-        .simulate('mousedown');
-    });
-    await waitForComponentToPaint(wrapper);
 
-    act(() => {
-      wrapper.find('.ant-select-item').at(0).simulate('click');
-    });
-    await waitForComponentToPaint(wrapper);
+    fireEvent.mouseDown(
+      container
+        .querySelector('div.ant-select.content-width')!
+        .querySelector('.ant-select-selector')!,
+    );
+
     expect(onSettingChange).toBeCalledWith('Fluid');
   });
 
   it('🌺 splitMenu change', async () => {
     const onSettingChange = jest.fn();
-    const wrapper = mount(
+    const { container } = render(
       <SettingDrawer
         disableUrlParams
         collapse
@@ -338,18 +299,15 @@ describe('settingDrawer.test', () => {
         }}
       />,
     );
-    await waitForComponentToPaint(wrapper);
-    act(() => {
-      wrapper.find('button.split-menus').simulate('click');
-    });
-    await waitForComponentToPaint(wrapper);
+
+    fireEvent.click(container.querySelector('button.split-menus')!);
 
     expect(onSettingChange).toBeCalledWith(true);
   });
 
   it('🌺 fixed-header Change', async () => {
     const onSettingChange = jest.fn();
-    const wrapper = mount(
+    const { container } = render(
       <SettingDrawer
         disableUrlParams
         collapse
@@ -360,24 +318,18 @@ describe('settingDrawer.test', () => {
       />,
     );
 
-    await waitForComponentToPaint(wrapper);
-    act(() => {
-      wrapper.find('button.fixed-header').simulate('click');
-    });
+    fireEvent.click(container.querySelector('button.fixed-header')!);
 
-    await waitForComponentToPaint(wrapper);
     expect(onSettingChange).toBeCalledWith(true);
 
-    act(() => {
-      wrapper.find('button.fixed-header').simulate('click');
-    });
-    await waitForComponentToPaint(wrapper);
+    fireEvent.click(container.querySelector('button.fixed-header')!);
+
     expect(onSettingChange).toBeCalledWith(false);
   });
 
   it('🌺 theme Change', async () => {
     const onSettingChange = jest.fn();
-    const wrapper = mount(
+    const { container } = render(
       <SettingDrawer
         disableUrlParams
         settings={defaultSettings}
@@ -387,19 +339,16 @@ describe('settingDrawer.test', () => {
         onSettingChange={(setting) => onSettingChange(setting.navTheme)}
       />,
     );
-    await waitForComponentToPaint(wrapper);
-    act(() => {
-      const button = wrapper.find('div.ant-pro-setting-drawer-block-checkbox-theme-item').at(0);
-      button.simulate('click');
-    });
-    await waitForComponentToPaint(wrapper);
+
+    fireEvent.click(
+      container.querySelectorAll('div.ant-pro-setting-drawer-block-checkbox-theme-item')[0],
+    );
+
     expect(onSettingChange).toBeCalledWith('light');
 
-    act(() => {
-      const button = wrapper.find('div.ant-pro-setting-drawer-block-checkbox-theme-item').at(1);
-      button.simulate('click');
-    });
-    await waitForComponentToPaint(wrapper);
+    fireEvent.click(
+      container.querySelectorAll('div.ant-pro-setting-drawer-block-checkbox-theme-item')[1],
+    );
 
     expect(onSettingChange).toBeCalledWith('realDark');
   });
@@ -407,7 +356,7 @@ describe('settingDrawer.test', () => {
   it('🌺 colorWeak Change', async () => {
     const onSettingChange = jest.fn();
     document.body.appendChild(document.createElement('div'));
-    const wrapper = mount(
+    const { container, rerender } = render(
       <SettingDrawer
         disableUrlParams
         colorList={[]}
@@ -419,32 +368,31 @@ describe('settingDrawer.test', () => {
         }}
       />,
     );
-    await waitForComponentToPaint(wrapper);
-    act(() => {
-      wrapper.find('button.color-weak').simulate('click');
-    });
-    await waitForComponentToPaint(wrapper);
+
+    fireEvent.click(container.querySelector('button.color-weak')!);
     expect(onSettingChange).toBeCalledWith(true);
 
-    act(() => {
-      wrapper.setProps({
-        settings: {
-          ...defaultSettings,
-          colorWeak: true,
-        },
-      });
-    });
-    await waitForComponentToPaint(wrapper, 200);
-    act(() => {
-      wrapper.find('button.color-weak').simulate('click');
-    });
-    await waitForComponentToPaint(wrapper);
+    rerender(
+      <SettingDrawer
+        disableUrlParams
+        colorList={[]}
+        settings={{ ...defaultSettings, colorWeak: true }}
+        collapse
+        getContainer={false}
+        onSettingChange={(setting) => {
+          onSettingChange(setting.colorWeak);
+        }}
+      />,
+    );
+
+    fireEvent.click(container.querySelector('button.color-weak')!);
     expect(onSettingChange).toBeCalledWith(false);
   });
+
   ['header', 'footer', 'menu', 'menuHeader'].map((key) => {
     it(`🌺 ${key} regional config change`, async () => {
       const fn = jest.fn();
-      const html = mount(
+      const { container, unmount } = render(
         <SettingDrawer
           disableUrlParams
           onSettingChange={(s) => {
@@ -456,18 +404,11 @@ describe('settingDrawer.test', () => {
           collapse
         />,
       );
-      await waitForComponentToPaint(html, 200);
 
-      act(() => {
-        if (html.find(`.regional-${key}`).exists()) {
-          html.find(`button.regional-${key}`).simulate('click');
-        }
-      });
+      fireEvent.click(container.querySelector(`button.regional-${key}`)!);
+
       expect(fn).toBeCalledWith(key);
-
-      act(() => {
-        html.unmount();
-      });
+      unmount();
     });
   });
 
