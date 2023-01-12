@@ -34,15 +34,23 @@ export const defaultRenderLogo = (
  */
 export const AppsLogoComponents: React.FC<{
   appList?: AppsLogoComponentsAppList;
-  itemClick?: (item: AppsLogoComponentsAppItem) => void;
+  itemClick?: (
+    item: AppsLogoComponentsAppItem,
+    popoverRef?: React.RefObject<HTMLSpanElement>,
+  ) => void;
   prefixCls?: string;
 }> = (props) => {
   const { appList, prefixCls = 'ant-pro', itemClick } = props;
   const ref = React.useRef<HTMLDivElement>(null);
+  const popoverRef = React.useRef<HTMLSpanElement>(null);
   const baseClassName = `${prefixCls}-layout-apps`;
   const { wrapSSR, hashId } = useStyle(baseClassName);
 
   const [open, setOpen] = useState(false);
+
+  const cloneItemClick = (app: AppsLogoComponentsAppItem) => {
+    itemClick?.(app, popoverRef);
+  };
 
   const popoverContent = useMemo(() => {
     const isSimple = appList?.some((app) => {
@@ -53,7 +61,7 @@ export const AppsLogoComponents: React.FC<{
         <SimpleContent
           hashId={hashId}
           appList={appList}
-          itemClick={itemClick}
+          itemClick={itemClick ? cloneItemClick : undefined}
           baseClassName={`${baseClassName}-simple`}
         />
       );
@@ -62,7 +70,7 @@ export const AppsLogoComponents: React.FC<{
       <DefaultContent
         hashId={hashId}
         appList={appList}
-        itemClick={itemClick}
+        itemClick={itemClick ? cloneItemClick : undefined}
         baseClassName={`${baseClassName}-default`}
       />
     );
@@ -94,6 +102,7 @@ export const AppsLogoComponents: React.FC<{
         getPopupContainer={() => ref.current || document.body}
       >
         <span
+          ref={popoverRef}
           onClick={(e) => {
             e.stopPropagation();
           }}

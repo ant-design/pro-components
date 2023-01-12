@@ -7,7 +7,7 @@ import { Radio, Modal, Switch } from 'antd';
 import { useEffect, useState, useMemo } from 'react';
 import _ from 'lodash';
 import defaultProps from './_defaultProps';
-import { AppsLogoComponentsAppItem } from '../components/AppsLogoComponents/types';
+import type { AppsLogoComponentsAppItem } from '../components/AppsLogoComponents/types';
 
 const InitAppList = [
   {
@@ -222,6 +222,9 @@ export default () => {
 
   const itemClick = (item: AppsLogoComponentsAppItem) => {
     console.log('item>>>', item);
+  ) => {
+    // 点击后关闭 Popover
+    popoverRef?.current?.click?.();
     Modal?.confirm({
       width: 600,
       title: '点击项 详细数据',

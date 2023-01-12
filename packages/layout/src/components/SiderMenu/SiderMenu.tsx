@@ -69,7 +69,10 @@ export type SiderMenuProps = {
   /** 相关品牌的列表 */
   appList?: AppsLogoComponentsAppList;
   /** 相关品牌的列表项 点击事件，当事件存在时，appList 内配置的 url 不在自动跳转 */
-  itemClick?: (item: AppsLogoComponentsAppItem) => void;
+  itemClick?: (
+    item: AppsLogoComponentsAppItem,
+    popoverRef?: React.RefObject<HTMLSpanElement>,
+  ) => void;
   /** 菜单的宽度 */
   siderWidth?: number;
   /** 头像的设置 */
