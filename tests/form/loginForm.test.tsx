@@ -4,31 +4,30 @@ import {
   UserAddOutlined,
   WeiboCircleOutlined,
 } from '@ant-design/icons';
+import '@testing-library/jest-dom';
 import { LoginForm, LoginFormPage, ProFormText } from '@ant-design/pro-form';
 import { act, render } from '@testing-library/react';
 import { Alert, Space } from 'antd';
-import { mount } from 'enzyme';
 import { waitForComponentToPaint } from '../util';
 
 describe('LoginForm', () => {
   it('📦 LoginForm should show login message correctly', async () => {
     const loginMessage = <Alert type="error" message="登录失败" />;
 
-    const wrapper = mount(
+    const { container } = render(
       <LoginForm message={loginMessage}>
         <ProFormText name="name" />
       </LoginForm>,
     );
-    await waitForComponentToPaint(wrapper);
 
-    expect(wrapper.find('.ant-alert.ant-alert-error').length).toEqual(1);
-    expect(wrapper.find('.ant-alert.ant-alert-error .ant-alert-message').text()).toEqual(
-      '登录失败',
-    );
+    expect(container.querySelectorAll('.ant-alert.ant-alert-error')).toHaveLength(1);
+    expect(
+      container.querySelector('.ant-alert.ant-alert-error .ant-alert-message'),
+    ).toHaveTextContent('登录失败');
   });
 
   it('📦 LoginForm should render actions correctly', async () => {
-    const wrapper = mount(
+    const { container } = render(
       <LoginForm
         actions={
           <Space>
@@ -42,35 +41,36 @@ describe('LoginForm', () => {
         <ProFormText name="name" />
       </LoginForm>,
     );
-    await waitForComponentToPaint(wrapper);
 
-    expect(wrapper.find('.ant-pro-form-login-main-other .anticon').length).toEqual(3);
+    expect(container.querySelectorAll('.ant-pro-form-login-main-other .anticon')).toHaveLength(3);
   });
 
   it('📦 LoginForm support string logo', async () => {
-    const wrapper = mount(
+    const { container } = render(
       <LoginForm logo="https://avatars.githubusercontent.com/u/8186664?v=4">
         <ProFormText name="name" />
       </LoginForm>,
     );
-    await waitForComponentToPaint(wrapper);
 
-    expect(wrapper.find('.ant-pro-form-login-logo img').exists()).toBeTruthy();
-    expect(wrapper.find('.ant-pro-form-login-logo img').props().src).toBe(
+    expect(container.querySelectorAll('.ant-pro-form-login-logo img')).toHaveLength(1);
+    expect(container.querySelector('.ant-pro-form-login-logo img')).toHaveAttribute(
+      'src',
       'https://avatars.githubusercontent.com/u/8186664?v=4',
     );
   });
 
   it('📦 LoginForm support react node logo', async () => {
-    const wrapper = mount(
-      <LoginForm logo={<img id="test" src="https://avatars.githubusercontent.com/u/8186664?v=4" />}>
+    const { findByTestId } = render(
+      <LoginForm
+        logo={<img data-testid="test" src="https://avatars.githubusercontent.com/u/8186664?v=4" />}
+      >
         <ProFormText name="name" />
       </LoginForm>,
     );
-    await waitForComponentToPaint(wrapper);
 
-    expect(wrapper.find('.ant-pro-form-login-logo #test').exists()).toBeTruthy();
-    expect(wrapper.find('.ant-pro-form-login-logo #test').props().src).toBe(
+    expect(!!(await findByTestId('test'))).toBeTruthy();
+    expect(await findByTestId('test')).toHaveAttribute(
+      'src',
       'https://avatars.githubusercontent.com/u/8186664?v=4',
     );
   });

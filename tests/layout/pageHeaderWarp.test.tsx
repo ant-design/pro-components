@@ -1,63 +1,59 @@
 import { PageContainer, ProLayout } from '@ant-design/pro-components';
-import { render as libraryRender } from '@testing-library/react';
-import { mount, render } from 'enzyme';
-import { act } from 'react-dom/test-utils';
-import { waitForComponentToPaint } from '../util';
+import { render } from '@testing-library/react';
 import defaultProps from './defaultProps';
 
 describe('BasicLayout', () => {
   it('base use', () => {
-    const html = render(
+    const { container } = render(
       <ProLayout {...defaultProps}>
         <PageContainer />
       </ProLayout>,
     );
-    expect(html).toMatchSnapshot();
+    expect(container).toMatchSnapshot();
   });
 
   it('content is text', () => {
-    const html = render(
+    const { container } = render(
       <ProLayout {...defaultProps}>
         <PageContainer content="just so so" />
       </ProLayout>,
     );
-    expect(html).toMatchSnapshot();
+
+    expect(container).toMatchSnapshot();
   });
 
   it('title=false, don not render title view', async () => {
-    const wrapper = mount(
+    const { container } = render(
       <ProLayout {...defaultProps}>
         <PageContainer title={false} />
       </ProLayout>,
     );
-    await waitForComponentToPaint(wrapper);
-    expect(wrapper.find('.ant-page-header-heading-title')).toHaveLength(0);
+
+    expect(container.querySelectorAll('.ant-page-header-heading-title')).toHaveLength(0);
   });
 
   it('have default title', async () => {
-    const wrapper = mount(
+    const { container } = render(
       <ProLayout {...defaultProps}>
         <PageContainer />
       </ProLayout>,
     );
-    await waitForComponentToPaint(wrapper);
-    const titleDom = wrapper.find('.ant-page-header-heading-title');
-    expect(titleDom.text()).toEqual('welcome');
+
+    expect(container.querySelector('.ant-page-header-heading-title')!.innerHTML).toEqual('welcome');
   });
 
   it('title overrides the default title', async () => {
-    const wrapper = mount(
+    const { container } = render(
       <ProLayout {...defaultProps}>
         <PageContainer title="name" />
       </ProLayout>,
     );
-    await waitForComponentToPaint(wrapper);
-    const titleDom = wrapper.find('.ant-page-header-heading-title');
-    expect(titleDom.text()).toEqual('name');
+
+    expect(container.querySelector('.ant-page-header-heading-title')!.innerHTML).toEqual('name');
   });
 
   it('with default prefixCls props TopNavHeader', async () => {
-    const wrapper = libraryRender(
+    const { rerender, container } = render(
       <ProLayout
         {...defaultProps}
         layout="mix"
@@ -69,72 +65,67 @@ describe('BasicLayout', () => {
         <PageContainer title="name" />
       </ProLayout>,
     );
-    await waitForComponentToPaint(wrapper);
 
-    act(() => {
-      wrapper.rerender(
-        <ProLayout
-          {...defaultProps}
-          layout="mix"
-          splitMenus
-          isMobile={false}
-          headerContentRender={() => <span />}
-          rightContentRender={() => (
-            <div
-              style={{
-                width: 200,
-              }}
-            >
-              xx
-            </div>
-          )}
-        >
-          <PageContainer title="name" />
-        </ProLayout>,
-      );
-    });
-    const domHeader = wrapper.baseElement.querySelector('.ant-pro-top-nav-header-logo');
+    rerender(
+      <ProLayout
+        {...defaultProps}
+        layout="mix"
+        splitMenus
+        isMobile={false}
+        headerContentRender={() => <span />}
+        rightContentRender={() => (
+          <div
+            style={{
+              width: 200,
+            }}
+          >
+            xx
+          </div>
+        )}
+      >
+        <PageContainer title="name" />
+      </ProLayout>,
+    );
+    const domHeader = container.querySelector('.ant-pro-top-nav-header-logo');
 
     expect(!!domHeader).toBe(true);
   });
 
   it('without custom prefixCls props TopNavHeader', async () => {
     const prefixCls = 'ant-oh-pro';
-    const wrapper = mount(
+    const { container } = render(
       <ProLayout {...defaultProps} layout="top" prefixCls={prefixCls}>
         <PageContainer title="name" />
       </ProLayout>,
     );
-    await waitForComponentToPaint(wrapper);
-    const domHeader = wrapper.find(`.${prefixCls}-top-nav-header-logo`);
-    expect(domHeader.exists()).toBe(true);
+
+    const domHeader = container.querySelector(`.${prefixCls}-top-nav-header-logo`)!;
+    expect(!!domHeader).toBe(true);
   });
 
   it('pageHeaderRender return false', async () => {
-    const wrapper = mount(
+    const { container, unmount } = render(
       <ProLayout {...defaultProps} layout="top">
         <PageContainer title="name" pageHeaderRender={() => null} />
       </ProLayout>,
     );
-    await waitForComponentToPaint(wrapper);
-    const domHeader = wrapper.find('ant-page-header');
-    expect(domHeader.exists()).toBeFalsy();
-    act(() => {
-      wrapper.unmount();
-    });
+
+    const domHeader = container.querySelector('ant-page-header');
+
+    expect(!!domHeader).toBeFalsy();
+    unmount();
   });
 
   it('pageHeaderRender is false', async () => {
-    const wrapper = mount(
+    const { container, unmount } = render(
       <ProLayout {...defaultProps} layout="top">
         <PageContainer title="name" pageHeaderRender={false} />
       </ProLayout>,
     );
-    await waitForComponentToPaint(wrapper);
-    const domHeader = wrapper.find('ant-page-header');
-    expect(domHeader.exists()).toBeFalsy();
-    act(() => {
-      wrapper.unmount();
-    });
+
+    const domHeader = container.querySelector('ant-page-header');
+
+    expect(!!domHeader).toBeFalsy();
+    unmount();
   });
 });
