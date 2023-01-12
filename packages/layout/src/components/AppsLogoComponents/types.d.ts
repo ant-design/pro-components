@@ -4,7 +4,6 @@ export type AppsLogoComponentsAppItem = {
   icon: React.ReactNode;
   url: string;
   target?: string;
-  click?: (item: AppsLogoComponentsAppItem) => void;
   children?: Omit<AppsLogoComponentsAppItem, 'children'>[];
 };
 
