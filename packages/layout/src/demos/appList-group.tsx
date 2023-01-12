@@ -220,8 +220,9 @@ export default () => {
   const hashId = 'hashId_demo';
   const baseClassName = 'ant-pro-layout-apps';
 
-  const itemClick = (item: AppsLogoComponentsAppItem) => {
-    console.log('item>>>', item);
+  const itemClick = (
+    item: AppsLogoComponentsAppItem,
+    popoverRef?: React.RefObject<HTMLSpanElement>,
   ) => {
     // 点击后关闭 Popover
     popoverRef?.current?.click?.();
