@@ -1,9 +1,9 @@
 ﻿import type { ProFormColumnsType, ProFormLayoutType } from '@ant-design/pro-form';
 import { BetaSchemaForm } from '@ant-design/pro-form';
-import { act, fireEvent, render } from '@testing-library/react';
+import '@testing-library/jest-dom';
+import { act, fireEvent, render, waitFor, screen } from '@testing-library/react';
 import type { FormInstance } from 'antd';
 import { Input } from 'antd';
-import { mount } from 'enzyme';
 import React, { createRef } from 'react';
 import { waitForComponentToPaint } from '../util';
 
@@ -60,18 +60,16 @@ const columns: ProFormColumnsType<any>[] = [
 
 describe('SchemaForm', () => {
   it('😊 SchemaForm support columns', async () => {
-    const html = mount(<BetaSchemaForm columns={columns} />);
-    await waitForComponentToPaint(html, 200);
-    act(() => {
-      expect(html.render()).toMatchSnapshot();
-    });
+    const { container } = render(<BetaSchemaForm columns={columns} />);
+
+    expect(container).toMatchSnapshot();
   });
 
   it('😊 SchemaForm support dependencies', async () => {
     const requestFn = jest.fn();
     const fieldPropsFn = jest.fn();
     const formItemPropsFn = jest.fn();
-    const html = mount(
+    const { container } = render(
       <BetaSchemaForm
         columns={[
           {
@@ -103,19 +101,22 @@ describe('SchemaForm', () => {
         ]}
       />,
     );
-    await waitForComponentToPaint(html);
-    expect(requestFn).toBeCalledWith('name');
-    act(() => {
-      html.find('input#title').simulate('change', {
-        target: {
-          value: 'qixian',
-        },
-      });
+
+    await waitFor(() => {
+      expect(requestFn).toBeCalledWith('name');
     });
-    await waitForComponentToPaint(html);
-    expect(requestFn).toBeCalledWith('qixian');
-    expect(formItemPropsFn).toBeCalledTimes(2);
-    expect(fieldPropsFn).toBeCalledTimes(2);
+
+    fireEvent.change(container.querySelector('input#title')!, {
+      target: {
+        value: 'qixian',
+      },
+    });
+
+    await waitFor(() => {
+      expect(requestFn).toBeCalledWith('qixian');
+      expect(formItemPropsFn).toBeCalledTimes(2);
+      expect(fieldPropsFn).toBeCalledTimes(2);
+    });
   });
 
   it('😊 SchemaForm support shouldUpdate as true', async () => {
@@ -123,7 +124,7 @@ describe('SchemaForm', () => {
     const formItemPropsFn = jest.fn();
     const renderFormItemFn = jest.fn();
     const onValuesChangeFn = jest.fn();
-    const html = mount(
+    const { container } = render(
       <BetaSchemaForm
         columns={[
           {
@@ -150,23 +151,25 @@ describe('SchemaForm', () => {
         onValuesChange={onValuesChangeFn}
       />,
     );
-    await waitForComponentToPaint(html);
-    expect(fieldPropsFn).toBeCalledTimes(1);
-    expect(formItemPropsFn).toBeCalledTimes(1);
-    expect(renderFormItemFn).toBeCalledTimes(2);
-    act(() => {
-      html.find('input#title').simulate('change', {
-        target: {
-          value: 'qixian',
-        },
-      });
-    });
-    await waitForComponentToPaint(html);
-    expect(renderFormItemFn).toBeCalledTimes(4);
-    expect(fieldPropsFn).toBeCalledTimes(2);
-    expect(formItemPropsFn).toBeCalledTimes(2);
 
-    expect(onValuesChangeFn).toBeCalled();
+    await waitFor(() => {
+      expect(fieldPropsFn).toBeCalledTimes(1);
+      expect(formItemPropsFn).toBeCalledTimes(1);
+      expect(renderFormItemFn).toBeCalledTimes(2);
+    });
+
+    fireEvent.change(container.querySelector('input#title')!, {
+      target: {
+        value: 'qixian',
+      },
+    });
+
+    await waitFor(() => {
+      expect(renderFormItemFn).toBeCalledTimes(4);
+      expect(fieldPropsFn).toBeCalledTimes(2);
+      expect(formItemPropsFn).toBeCalledTimes(2);
+      expect(onValuesChangeFn).toBeCalled();
+    });
   });
 
   it('😊 SchemaForm support shouldUpdate as function', async () => {
@@ -174,7 +177,7 @@ describe('SchemaForm', () => {
     const formItemPropsFn = jest.fn();
     const renderFormItemFn = jest.fn();
     const shouldUpdateFn = jest.fn();
-    const html = mount(
+    const { container } = render(
       <BetaSchemaForm
         shouldUpdate={(value: any, oldValue?: any) => {
           shouldUpdateFn(value.subtitle === 'rerender' && value.subtitle !== oldValue?.subtitle);
@@ -213,45 +216,47 @@ describe('SchemaForm', () => {
         ]}
       />,
     );
-    await waitForComponentToPaint(html);
-    expect(shouldUpdateFn).toBeCalledTimes(0);
-    expect(fieldPropsFn).toBeCalledTimes(1);
-    expect(formItemPropsFn).toBeCalledTimes(1);
-    expect(renderFormItemFn).toBeCalledTimes(2);
-    act(() => {
-      html.find('input#title').simulate('change', {
-        target: {
-          value: 'not rerender',
-        },
-      });
+
+    await waitFor(() => {
+      expect(shouldUpdateFn).toBeCalledTimes(0);
+      expect(fieldPropsFn).toBeCalledTimes(1);
+      expect(formItemPropsFn).toBeCalledTimes(1);
+      expect(renderFormItemFn).toBeCalledTimes(2);
     });
-    await waitForComponentToPaint(html);
+
+    fireEvent.change(container.querySelector('input#title')!, {
+      target: {
+        value: 'not rerender',
+      },
+    });
     // Although shouldUpdate returns false, but using dependencies will still update
-    expect(renderFormItemFn).toBeCalledTimes(3);
-    expect(formItemPropsFn).toBeCalledTimes(2);
-    expect(fieldPropsFn).toBeCalledTimes(2);
-    expect(shouldUpdateFn).toBeCalledTimes(1);
-
-    act(() => {
-      html.find('input#subtitle').simulate('change', {
-        target: {
-          value: 'rerender',
-        },
-      });
+    await waitFor(() => {
+      expect(renderFormItemFn).toBeCalledTimes(3);
+      expect(formItemPropsFn).toBeCalledTimes(2);
+      expect(fieldPropsFn).toBeCalledTimes(2);
+      expect(shouldUpdateFn).toBeCalledTimes(1);
     });
 
-    expect(renderFormItemFn).toBeCalledTimes(5);
-    expect(formItemPropsFn).toBeCalledTimes(3);
-    expect(fieldPropsFn).toBeCalledTimes(3);
-    expect(shouldUpdateFn).toBeCalledTimes(2);
-    expect(shouldUpdateFn).toBeCalledWith(true);
+    fireEvent.change(container.querySelector('input#subtitle')!, {
+      target: {
+        value: 'rerender',
+      },
+    });
+
+    await waitFor(() => {
+      expect(renderFormItemFn).toBeCalledTimes(5);
+      expect(formItemPropsFn).toBeCalledTimes(3);
+      expect(fieldPropsFn).toBeCalledTimes(3);
+      expect(shouldUpdateFn).toBeCalledTimes(2);
+      expect(shouldUpdateFn).toBeCalledWith(true);
+    });
   });
 
   it('😊 SchemaForm columns do not interfere with each other', async () => {
     const fieldPropsFn = jest.fn();
     const formItemPropsFn = jest.fn();
     const renderFormItemFn = jest.fn();
-    const html = mount(
+    const { container } = render(
       <BetaSchemaForm
         shouldUpdate={false}
         columns={[
@@ -278,25 +283,28 @@ describe('SchemaForm', () => {
         ]}
       />,
     );
-    await waitForComponentToPaint(html);
-    expect(fieldPropsFn).toBeCalledTimes(1);
-    expect(formItemPropsFn).toBeCalledTimes(1);
-    expect(renderFormItemFn).toBeCalledTimes(2);
-    act(() => {
-      html.find('input#title').simulate('change', {
-        target: {
-          value: 'qixian',
-        },
-      });
+
+    await waitFor(() => {
+      expect(fieldPropsFn).toBeCalledTimes(1);
+      expect(formItemPropsFn).toBeCalledTimes(1);
+      expect(renderFormItemFn).toBeCalledTimes(2);
     });
-    await waitForComponentToPaint(html);
-    expect(renderFormItemFn).toBeCalledTimes(3);
-    expect(formItemPropsFn).toBeCalledTimes(1);
-    expect(fieldPropsFn).toBeCalledTimes(1);
+
+    fireEvent.change(container.querySelector('input#title')!, {
+      target: {
+        value: 'qixian',
+      },
+    });
+
+    await waitFor(() => {
+      expect(renderFormItemFn).toBeCalledTimes(3);
+      expect(formItemPropsFn).toBeCalledTimes(1);
+      expect(fieldPropsFn).toBeCalledTimes(1);
+    });
   });
 
   it('🐲 SchemaForm support StepsForm', async () => {
-    const html = mount(
+    const { container, unmount } = render(
       <BetaSchemaForm
         layoutType="StepsForm"
         steps={[
@@ -332,23 +340,22 @@ describe('SchemaForm', () => {
         ]}
       />,
     );
-    await waitForComponentToPaint(html);
-    expect(html.find('span.ant-steps-icon').length).toBe(3);
-    expect(html.find('div.ant-steps-item-title').at(0).text()).toBe('表单1');
-    expect(html.find('div.ant-steps-item-title').at(1).text()).toBe('表单2');
-    expect(html.find('div.ant-steps-item-title').at(2).text()).toBe('表单3');
-    await waitForComponentToPaint(html, 100);
-    html.unmount();
+
+    expect(container.querySelectorAll('span.ant-steps-icon')).toHaveLength(3);
+    expect(container.querySelectorAll('div.ant-steps-item-title')[0]).toHaveTextContent('表单1');
+    expect(container.querySelectorAll('div.ant-steps-item-title')[1]).toHaveTextContent('表单2');
+    expect(container.querySelectorAll('div.ant-steps-item-title')[2]).toHaveTextContent('表单3');
+    unmount();
   });
 
   it('😊 SchemaForm support table columns', async () => {
-    const html = mount(<BetaSchemaForm columns={columns} />);
-    await waitForComponentToPaint(html);
-    expect(html.find('div.ant-form-item').length).toBe(4);
+    const { container } = render(<BetaSchemaForm columns={columns} />);
+
+    expect(container.querySelectorAll('div.ant-form-item')).toHaveLength(4);
   });
 
   it('😊 SchemaForm support render', async () => {
-    const html = mount(
+    render(
       <BetaSchemaForm
         columns={[
           {
@@ -357,18 +364,18 @@ describe('SchemaForm', () => {
             readonly: true,
             width: 200,
             render: () => {
-              return <Input id="test" />;
+              return <Input data-testid="test" />;
             },
           },
         ]}
       />,
     );
-    await waitForComponentToPaint(html);
-    expect(html.find('#test').exists()).toBeTruthy();
+
+    expect(screen.findByTestId('test')).toBeTruthy();
   });
 
   it('😊 SchemaForm support render', async () => {
-    const html = mount(
+    render(
       <BetaSchemaForm
         columns={[
           {
@@ -376,19 +383,18 @@ describe('SchemaForm', () => {
             dataIndex: 'title',
             width: 200,
             renderFormItem: () => {
-              return <Input id="test" />;
+              return <Input data-testid="test" />;
             },
           },
         ]}
       />,
     );
-    await waitForComponentToPaint(html);
-    expect(html.find('#test').exists()).toBeTruthy();
+    expect(screen.findByTestId('test')).toBeTruthy();
   });
 
   it('😊 support SchemaForm renderFormItem return false', async () => {
     const formRef = createRef<FormInstance>();
-    const html = mount(
+    const { container } = render(
       <BetaSchemaForm
         formRef={formRef as any}
         columns={[
@@ -415,25 +421,20 @@ describe('SchemaForm', () => {
         ]}
       />,
     );
-    await waitForComponentToPaint(html, 1000);
 
-    expect(html.find('div.ant-form-item').length).toBe(1);
+    expect(container.querySelectorAll('div.ant-form-item')).toHaveLength(1);
 
-    expect(
-      html.find('input#test-input').simulate('change', {
-        target: {
-          value: 'show',
-        },
-      }),
-    );
+    fireEvent.change(container.querySelector('input#test-input')!, {
+      target: {
+        value: 'show',
+      },
+    });
 
-    await waitForComponentToPaint(html);
-
-    expect(html.find('div.ant-form-item').length).toBe(2);
+    expect(container.querySelectorAll('div.ant-form-item')).toHaveLength(2);
   });
 
   it('😊 SchemaForm support render', async () => {
-    const html = mount(
+    const { container } = render(
       <BetaSchemaForm
         columns={[
           {
@@ -447,12 +448,12 @@ describe('SchemaForm', () => {
         ]}
       />,
     );
-    await waitForComponentToPaint(html);
-    expect(html.find('input').exists()).toBeTruthy();
+
+    expect(container.querySelector('input')).toBeTruthy();
   });
 
   it('😊 SchemaForm support hidenInForm', async () => {
-    const html = mount(
+    const { container } = render(
       <BetaSchemaForm
         columns={[
           {
@@ -460,7 +461,7 @@ describe('SchemaForm', () => {
             dataIndex: 'title',
             width: 200,
             renderFormItem: () => {
-              return <Input id="title" />;
+              return <Input data-testid="title" />;
             },
           },
           {
@@ -475,14 +476,14 @@ describe('SchemaForm', () => {
         ]}
       />,
     );
-    await waitForComponentToPaint(html);
-    expect(html.find('#title').exists()).toBeTruthy();
-    expect(html.find('#category').exists()).toBeFalsy();
+
+    expect(screen.findByTestId('title')).toBeTruthy();
+    expect(!!container.querySelector('#category')).toBeFalsy();
   });
 
   it('😊 SchemaForm support ProFormDependency', async () => {
     const onFinish = jest.fn();
-    const wrapper = mount(
+    const { container } = render(
       <BetaSchemaForm
         onFinish={onFinish}
         initialValues={{
@@ -535,25 +536,22 @@ describe('SchemaForm', () => {
         ]}
       />,
     );
-    await waitForComponentToPaint(wrapper);
 
-    act(() => {
-      wrapper.find('input#name').simulate('change', {
-        target: {
-          value: 'test',
-        },
-      });
+    fireEvent.change(container.querySelector('input#name')!, {
+      target: {
+        value: 'test',
+      },
     });
 
-    act(() => {
-      wrapper.find('input#name2_text').simulate('change', {
-        target: {
-          value: 'test2',
-        },
-      });
+    fireEvent.change(container.querySelector('input#name2_text')!, {
+      target: {
+        value: 'test2',
+      },
     });
 
-    expect(wrapper.find('span#label_text').text()).toBe('与《test》 与 《test2》合同约定生效方式');
+    expect(container.querySelector('span#label_text')).toHaveTextContent(
+      '与《test》 与 《test2》合同约定生效方式',
+    );
   });
 
   it('😊 SchemaForm support validate formList empty', async () => {
