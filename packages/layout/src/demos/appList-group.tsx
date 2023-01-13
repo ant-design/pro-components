@@ -1,13 +1,15 @@
-import type { ProSettings } from '@ant-design/pro-components';
-import { ProConfigProvider, ProLayout } from '@ant-design/pro-components';
+import type { ProSettings, AppItemProps } from '@ant-design/pro-components';
+import {
+  ProConfigProvider,
+  ProLayout,
+  DefaultContent,
+  SimpleContent,
+} from '@ant-design/pro-components';
 import type { RadioChangeEvent } from 'antd';
-import { SimpleContent } from '../components/AppsLogoComponents/SimpleContent';
-import { DefaultContent } from '../components/AppsLogoComponents/DefaultContent';
 import { Radio, Modal, Switch } from 'antd';
 import { useEffect, useState, useMemo } from 'react';
 import _ from 'lodash';
 import defaultProps from './_defaultProps';
-import type { AppsLogoComponentsAppItem } from '../components/AppsLogoComponents/types';
 
 const InitAppList = [
   {
@@ -220,10 +222,7 @@ export default () => {
   const hashId = 'hashId_demo';
   const baseClassName = 'ant-pro-layout-apps';
 
-  const itemClick = (
-    item: AppsLogoComponentsAppItem,
-    popoverRef?: React.RefObject<HTMLSpanElement>,
-  ) => {
+  const itemClick = (item: AppItemProps, popoverRef?: React.RefObject<HTMLSpanElement>) => {
     // 点击后关闭 Popover
     popoverRef?.current?.click?.();
     Modal?.confirm({

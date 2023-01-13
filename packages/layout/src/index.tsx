@@ -23,6 +23,9 @@ import type { PageContainerProps } from './components/PageContainer';
 import { PageContainer, ProBreadcrumb, ProPageHeader } from './components/PageContainer';
 import type { PageHeaderProps } from './components/PageHeader';
 import { PageHeader } from './components/PageHeader';
+import { DefaultContent } from './components/AppsLogoComponents/DefaultContent';
+import { SimpleContent } from './components/AppsLogoComponents/SimpleContent';
+import type { AppItemProps, AppListProps } from './components/AppsLogoComponents/types';
 
 import type { FooterProps } from './components/Footer';
 import { DefaultFooter } from './components/Footer';
@@ -61,6 +64,8 @@ export {
   WaterMark,
   ProPageHeader,
   ProBreadcrumb,
+  DefaultContent,
+  SimpleContent,
 };
 export type {
   WaterMarkProps,
@@ -73,6 +78,8 @@ export type {
   HeaderProps,
   SettingDrawerProps,
   SettingDrawerState,
+  AppItemProps,
+  AppListProps,
 };
 
 export default ProLayout;

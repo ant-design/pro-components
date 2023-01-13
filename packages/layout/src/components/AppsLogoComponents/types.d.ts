@@ -1,10 +1,10 @@
-export type AppsLogoComponentsAppItem = {
+export type AppItemProps = {
   title: React.ReactNode;
   desc: React.ReactNode;
   icon: React.ReactNode;
   url: string;
   target?: string;
-  children?: Omit<AppsLogoComponentsAppItem, 'children'>[];
+  children?: Omit<AppItemProps, 'children'>[];
 };
 
-export type AppsLogoComponentsAppList = AppsLogoComponentsAppItem[];
+export type AppListProps = AppItemProps[];

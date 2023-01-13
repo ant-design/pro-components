@@ -6,7 +6,7 @@ import { AppsLogo } from './AppsLogo';
 import { DefaultContent } from './DefaultContent';
 import { SimpleContent } from './SimpleContent';
 import { useStyle } from './style/index';
-import type { AppsLogoComponentsAppList, AppsLogoComponentsAppItem } from './types';
+import type { AppListProps, AppItemProps } from './types';
 
 /**
  * 默认渲染logo的方式，如果是个string，用img。否则直接返回
@@ -33,11 +33,8 @@ export const defaultRenderLogo = (
  * @returns
  */
 export const AppsLogoComponents: React.FC<{
-  appList?: AppsLogoComponentsAppList;
-  itemClick?: (
-    item: AppsLogoComponentsAppItem,
-    popoverRef?: React.RefObject<HTMLSpanElement>,
-  ) => void;
+  appList?: AppListProps;
+  itemClick?: (item: AppItemProps, popoverRef?: React.RefObject<HTMLSpanElement>) => void;
   prefixCls?: string;
 }> = (props) => {
   const { appList, prefixCls = 'ant-pro', itemClick } = props;
@@ -48,7 +45,7 @@ export const AppsLogoComponents: React.FC<{
 
   const [open, setOpen] = useState(false);
 
-  const cloneItemClick = (app: AppsLogoComponentsAppItem) => {
+  const cloneItemClick = (app: AppItemProps) => {
     itemClick?.(app, popoverRef);
   };
 

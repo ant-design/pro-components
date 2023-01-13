@@ -8,10 +8,7 @@ import type { CSSProperties } from 'react';
 import React, { useContext, useMemo } from 'react';
 import type { WithFalse } from '../../typing';
 import { AppsLogoComponents, defaultRenderLogo } from '../AppsLogoComponents';
-import type {
-  AppsLogoComponentsAppList,
-  AppsLogoComponentsAppItem,
-} from '../AppsLogoComponents/types';
+import type { AppListProps, AppItemProps } from '../AppsLogoComponents/types';
 import { CollapsedIcon } from '../CollapsedIcon';
 import type { HeaderViewProps } from '../Header';
 import type { BaseMenuProps } from './BaseMenu';
@@ -67,12 +64,9 @@ export type SiderMenuProps = {
   /** 品牌logo的标识 */
   logo?: React.ReactNode;
   /** 相关品牌的列表 */
-  appList?: AppsLogoComponentsAppList;
+  appList?: AppListProps;
   /** 相关品牌的列表项 点击事件，当事件存在时，appList 内配置的 url 不在自动跳转 */
-  itemClick?: (
-    item: AppsLogoComponentsAppItem,
-    popoverRef?: React.RefObject<HTMLSpanElement>,
-  ) => void;
+  itemClick?: (item: AppItemProps, popoverRef?: React.RefObject<HTMLSpanElement>) => void;
   /** 菜单的宽度 */
   siderWidth?: number;
   /** 头像的设置 */

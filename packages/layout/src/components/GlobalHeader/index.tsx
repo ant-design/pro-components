@@ -14,10 +14,7 @@ import { renderLogoAndTitle } from '../SiderMenu/SiderMenu';
 import { TopNavHeader } from '../TopNavHeader';
 import { RightContent } from './RightContent';
 import { useStyle } from './style';
-import type {
-  AppsLogoComponentsAppList,
-  AppsLogoComponentsAppItem,
-} from '../AppsLogoComponents/types';
+import type { AppListProps, AppItemProps } from '../AppsLogoComponents/types';
 
 export type GlobalHeaderProps = {
   collapsed?: boolean;
@@ -41,12 +38,9 @@ export type GlobalHeaderProps = {
   className?: string;
   prefixCls?: string;
   /** 相关品牌的列表 */
-  appList?: AppsLogoComponentsAppList;
+  appList?: AppListProps;
   /** 相关品牌的列表项 点击事件，当事件存在时，appList 内配置的 url 不在自动跳转 */
-  itemClick?: (
-    item: AppsLogoComponentsAppItem,
-    popoverRef?: React.RefObject<HTMLSpanElement>,
-  ) => void;
+  itemClick?: (item: AppItemProps, popoverRef?: React.RefObject<HTMLSpanElement>) => void;
   menuData?: MenuDataItem[];
   onMenuHeaderClick?: (e: React.MouseEvent<HTMLDivElement>) => void;
   style?: React.CSSProperties;
