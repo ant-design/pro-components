@@ -1,10 +1,8 @@
 ---
 title: DragSortTable
-group:
-  path: /
+
 nav:
   title: component
-  path: /components
 ---
 
 # DragSortTable - Drag Sort Table

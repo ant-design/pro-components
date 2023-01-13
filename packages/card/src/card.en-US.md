@@ -2,9 +2,6 @@
 title: ProCard
 nav:
   title: Components
-  path: /components
-group:
-  path: /
 ---
 
 # ProCard

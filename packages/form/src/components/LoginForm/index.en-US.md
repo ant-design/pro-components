@@ -1,11 +1,9 @@
 ---
 title: LoginForm/Page
 Order: 2
-group:
-  Path: /
+
 navigation:
   Title: Components
-  path: /components
 ---
 
 # LoginForm/Page

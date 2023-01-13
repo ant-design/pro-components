@@ -1,8 +1,7 @@
 ---
 title: Introduction
 order: 1
-group:
-  path: /
+
 nav:
   title: Documentation
   order: 1

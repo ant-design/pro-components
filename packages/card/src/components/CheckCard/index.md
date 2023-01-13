@@ -1,11 +1,9 @@
 ---
 title: CheckCard - 多选卡片
 order: 1
-group:
-  path: /
+
 nav:
   title: 组件
-  path: /components
 ---
 
 # CheckCard 多选卡片

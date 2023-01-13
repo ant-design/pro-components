@@ -1,11 +1,9 @@
 ---
 title: ProForm - 高级表单
 order: 1
-group:
-  path: /
+
 nav:
   title: 组件
-  path: /components
 ---
 
 # ProForm 高级表单

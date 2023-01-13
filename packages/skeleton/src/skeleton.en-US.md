@@ -1,10 +1,8 @@
 ---
 title: ProSkeleton
-group:
-  path: /
+
 nav:
   title: Components
-  path: /components
 ---
 
 # ProSkeleton

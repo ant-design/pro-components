@@ -1,10 +1,8 @@
 ---
 title: PageContainer
-group:
-  path: /
+
 nav:
   title: Component
-  path: /components
 ---
 
 # PageContainer

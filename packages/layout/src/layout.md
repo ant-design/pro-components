@@ -2,11 +2,9 @@
 title: ProLayout - 高级布局
 order: 0
 legacy: /layout
-group:
-  path: /
+
 nav:
   title: 组件
-  path: /components
 ---
 
 # ProLayout - 高级布局
@@ -401,7 +399,7 @@ export interface Route {
   path: string;
   children: Array<{
     exact?: boolean;
-    icon: string;
+    emoji: string;
     name: string;
     path: string;
     // 可选二级菜单

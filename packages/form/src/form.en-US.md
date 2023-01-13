@@ -1,11 +1,9 @@
 ---
 title: ProForm
 order: 1
-group:
-  path: /
+
 nav:
   title: Components
-  path: /components
 ---
 
 # ProForm

@@ -2,11 +2,9 @@
 title: ProLayout
 order: 0
 legacy: /layout
-group:
-  path: /
+
 nav:
   title: Components
-  path: /components
 ---
 
 # ProLayout - Advanced Layout
@@ -328,7 +326,7 @@ export interface Route {
   path: string;
   children: Array<{
     exact?: boolean;
-    icon: string;
+    emoji: string;
     name: string;
     path: string;
     // Optional secondary menu

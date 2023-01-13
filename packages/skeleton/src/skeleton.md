@@ -1,10 +1,8 @@
 ---
 title: ProSkeleton - 骨架屏
-group:
-  path: /
+
 nav:
   title: 组件
-  path: /components
 ---
 
 # ProSkeleton - 骨架屏

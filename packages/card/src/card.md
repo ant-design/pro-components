@@ -1,10 +1,7 @@
 ---
 title: ProCard - 高级卡片
 nav:
-  title: 组件
-  path: /components
-group:
-  path: /
+  title: ProCard - 高级卡片
 ---
 
 # ProCard - 高级卡片

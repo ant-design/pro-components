@@ -1,11 +1,7 @@
 ---
 title: ProDescriptions
-legacy: /descriptions
-group:
-  path: /
 nav:
-  title: Components
-  path: /components
+  title: ProDescriptions - 高级定义列表
   order: 1
 ---
 

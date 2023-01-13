@@ -1,11 +1,9 @@
 ---
 title: ProFormDependency - 数据联动
 order: 1
-group:
-  path: /
+
 nav:
   title: 组件
-  path: /components
 ---
 
 # 数据联动

@@ -1,10 +1,8 @@
 ---
 title: PageContainer - 页容器
-group:
-  path: /
+
 nav:
   title: 组件
-  path: /components
 ---
 
 # PageContainer - 页容器

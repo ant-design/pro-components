@@ -1,11 +1,9 @@
 ---
 title: ProFormDependency
 order: 1
-group:
-  path: /
+
 nav:
   title: component
-  path: /components
 ---
 
 # ProFormDependency - Data Linkage

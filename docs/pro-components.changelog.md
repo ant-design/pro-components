@@ -4,8 +4,6 @@ nav:
   title: Changelog
   path: /changelog
   order: 99
-group:
-  path: /
 ---
 
 ## @ant-design/pro-components@2.3.52

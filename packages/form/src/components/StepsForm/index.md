@@ -1,11 +1,9 @@
 ---
 title: StepsForm - 分步表单
 order: 1
-group:
-  path: /
+
 nav:
   title: 组件
-  path: /components
 ---
 
 # StepsForm - 分步表单

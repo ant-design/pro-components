@@ -3,8 +3,6 @@ title: ProForm
 nav:
   title: Playground
   path: /playground
-group:
-  path: /
 ---
 
 # Form Playground

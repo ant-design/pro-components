@@ -1,11 +1,9 @@
 ---
 title: StepsForm
 order: 1
-group:
-  path: /
+
 nav:
   title: Components
-  path: /components
 ---
 
 # StepsForm

@@ -1,10 +1,8 @@
 ---
 title: ProField - 原子组件
-group:
-  path: /
+
 nav:
   title: 组件
-  path: /components
 ---
 
 # ProField

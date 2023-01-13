@@ -1,10 +1,8 @@
 ---
 title: EditableProTable - 可编辑表格
-group:
-  path: /
+
 nav:
   title: 组件
-  path: /components
 ---
 
 # EditableProTable - 可编辑表格

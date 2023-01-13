@@ -401,7 +401,8 @@ const ConfigProVidContainer: React.FC<{
       return '';
     }
     if (proProvide.hashed === false) return '';
-    if (process.env.NODE_ENV?.toLowerCase() !== 'test') return nativeHashId;
+    if (typeof process !== 'undefined' && process.env.NODE_ENV?.toLowerCase() !== 'test')
+      return nativeHashId;
     return '';
   }, [nativeHashId, proProvide.hashed, props.hashed]);
 
@@ -410,6 +411,7 @@ const ConfigProVidContainer: React.FC<{
       ...restConfig.theme,
       hashId: hashId,
       hashed:
+        typeof process !== 'undefined' &&
         process.env.NODE_ENV?.toLowerCase() !== 'test' &&
         props.hashed !== false &&
         proProvide.hashed !== false,

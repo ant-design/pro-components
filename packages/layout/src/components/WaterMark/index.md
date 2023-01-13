@@ -2,11 +2,9 @@
 title: WaterMark - 水印组件
 order: 0
 legacy: /layout
-group:
-  path: /
+
 nav:
   title: 组件
-  path: /components
 ---
 
 # WaterMark 水印组件

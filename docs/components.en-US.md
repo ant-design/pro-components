@@ -1,11 +1,8 @@
 ---
 title: Component Overview
 order: 0
-group:
-  path: /
 nav:
   title: Component
-  path: /components
 ---
 
 # Architecture Design

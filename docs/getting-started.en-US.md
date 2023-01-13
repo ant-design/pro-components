@@ -1,8 +1,7 @@
 ---
 title: Quick Start
 order: 2
-group:
-  path: /
+
 nav:
   title: Documentation
   path: /docs

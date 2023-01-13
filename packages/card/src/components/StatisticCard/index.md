@@ -1,11 +1,9 @@
 ---
 title: StatisticCard - 指标卡
 order: 1
-group:
-  path: /
+
 nav:
   title: 组件
-  path: /components
 ---
 
 # StatisticCard 指标卡

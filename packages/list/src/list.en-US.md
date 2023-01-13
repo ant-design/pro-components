@@ -1,11 +1,9 @@
 ---
 title: ProList
 order: 12
-group:
-  path: /
+
 nav:
   title: Components
-  path: /components
 ---
 
 # ProList - Advanced List

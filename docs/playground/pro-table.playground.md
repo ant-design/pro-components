@@ -3,8 +3,6 @@ title: ProTable
 nav:
   title: Playground
   path: /playground
-group:
-  path: /
 ---
 
 # ProTable Playground

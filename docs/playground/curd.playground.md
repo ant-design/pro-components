@@ -3,8 +3,6 @@ title: CRUD
 nav:
   title: Playground
   path: /playground
-group:
-  path: /
 ---
 
 # CRUD

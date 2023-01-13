@@ -1,10 +1,8 @@
 ﻿---
 title: DragSortTable - 拖动排序表格
-group:
-  path: /
+
 nav:
   title: 组件
-  path: /components
 ---
 
 # DragSortTable - 拖动排序表格

@@ -1,10 +1,8 @@
 ---
 title: EditableProTable
-group:
-  path: /
+
 nav:
   title: Components
-  path: /components
 ---
 
 # EditableProTable - Editable Tables

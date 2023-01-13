@@ -2,11 +2,9 @@
 title: ProTable
 order: 0
 legacy: /table
-group:
-  path: /
+
 nav:
   title: Components
-  path: /components
 ---
 
 # ProTable - Advanced Tables

@@ -1,10 +1,8 @@
 ---
 title: Modal/DrawerForm
-group:
-  path: /
+
 nav:
   title: Components
-  path: /components
 ---
 
 # Modal/DrawerForm - Floating Forms

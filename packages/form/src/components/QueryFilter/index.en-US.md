@@ -1,10 +1,8 @@
 ---
 title: Query/LightFilter
-group:
-  path: /
+
 nav:
   title: Components
-  path: /components
 ---
 
 # QueryFilter / LightFilter

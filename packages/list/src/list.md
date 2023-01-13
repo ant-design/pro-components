@@ -1,11 +1,8 @@
 ---
 title: ProList - 高级列表
 order: 12
-group:
-  path: /
 nav:
   title: 组件
-  path: /components
 ---
 
 # ProList - 高级列表
