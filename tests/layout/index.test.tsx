@@ -1632,4 +1632,42 @@ describe('BasicLayout', () => {
       'Login',
     );
   });
+
+  it('🥩 siderMenu should restore openKeys when collapsed is false', async () => {
+    const onCollapse = jest.fn();
+    const html = render(
+      <ProLayout
+        {...bigDefaultProps}
+        location={{ pathname: '/list/sub-page/sub-sub-page1' }}
+        onCollapse={onCollapse}
+        defaultCollapsed={false}
+      >
+        <div>Hello World</div>
+      </ProLayout>,
+    );
+    await waitForComponentToPaint(html, 1000);
+
+    expect(html.baseElement.querySelectorAll('li.ant-menu-submenu-open').length).toBe(2);
+
+    act(() => {
+      Array.from(
+        html.baseElement.querySelectorAll<HTMLDivElement>('div.ant-pro-sider-collapsed-button'),
+      ).map((item) => item?.click());
+    });
+
+    await waitForComponentToPaint(html, 1000);
+
+    expect(html.baseElement.querySelectorAll('li.ant-menu-submenu-open').length).toBe(0);
+
+    act(() => {
+      Array.from(
+        html.baseElement.querySelectorAll<HTMLDivElement>('div.ant-pro-sider-collapsed-button'),
+      ).map((item) => item?.click());
+    });
+
+    await waitForComponentToPaint(html, 1000);
+
+    expect(onCollapse).toBeCalledTimes(2);
+    expect(html.baseElement.querySelectorAll('li.ant-menu-submenu-open').length).toBe(2);
+  });
 });
