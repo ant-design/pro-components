@@ -1,9 +1,6 @@
 /* eslint-disable @typescript-eslint/ban-types */
 import { WaterMark } from '@ant-design/pro-components';
-import { render } from '@testing-library/react';
-import { mount } from 'enzyme';
-import { act } from 'react-dom/test-utils';
-import { waitForComponentToPaint } from '../util';
+import { act, render } from '@testing-library/react';
 
 describe('WaterMark', () => {
   it('test image watermark', async () => {
@@ -21,7 +18,7 @@ describe('WaterMark', () => {
         this._onload = onload;
       },
     });
-    const wrapper = mount(
+    const { container, unmount } = render(
       <WaterMark
         rotate={0}
         image="https://img.alicdn.com/tfs/TB1YM3LpipE_u4jSZKbXXbCUVXa-280-128.png"
@@ -30,13 +27,11 @@ describe('WaterMark', () => {
       </WaterMark>,
     );
 
-    await waitForComponentToPaint(wrapper, 100);
-    wrapper.update();
     act(() => {
       onloadRef?.();
     });
-    expect(wrapper).toMatchSnapshot();
-    wrapper.unmount();
+    expect(container).toMatchSnapshot();
+    unmount();
   });
 
   it('test text watermark', () => {
@@ -45,7 +40,7 @@ describe('WaterMark', () => {
         <div style={{ height: 500 }} />
       </WaterMark>,
     );
-    waitForComponentToPaint(wrapper);
+
     expect(wrapper.asFragment()).toMatchSnapshot();
     wrapper.unmount();
   });
@@ -65,7 +60,7 @@ describe('WaterMark', () => {
       return createElement(tagName);
     };
 
-    const wrapper = mount(
+    const { unmount } = render(
       <WaterMark
         rotate={0}
         image="https://img.alicdn.com/tfs/TB1YM3LpipE_u4jSZKbXXbCUVXa-280-128.png"
@@ -74,11 +69,9 @@ describe('WaterMark', () => {
       </WaterMark>,
     );
 
-    await waitForComponentToPaint(wrapper, 100);
-    wrapper.update();
     // @ts-ignore
     expect(console.error.mock.calls).toEqual([['当前环境不支持Canvas']]);
-    wrapper.unmount();
+    unmount();
     spy.mockRestore();
   });
 });

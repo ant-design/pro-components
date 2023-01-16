@@ -1,16 +1,14 @@
 import ProTable from '@ant-design/pro-table';
 import { ConfigProvider, Table } from 'antd';
 import dayjs from 'dayjs';
-import { mount } from 'enzyme';
+import { fireEvent, render, waitFor } from '@testing-library/react';
 import type { RequestOptionsType } from 'packages/utils/src/typing';
-import { act } from 'react-dom/test-utils';
-import { waitForComponentToPaint } from '../util';
 import { request } from './demo';
 
 describe('Table ColumnSetting', () => {
   it('🎏 render', async () => {
     const callBack = jest.fn();
-    const html = mount(
+    render(
       <ProTable
         size="small"
         columns={[
@@ -25,14 +23,16 @@ describe('Table ColumnSetting', () => {
         rowKey="key"
       />,
     );
-    await waitForComponentToPaint(html, 1200);
-    expect(callBack).toBeCalled();
-    expect(callBack).toBeCalledWith('Edward King 0');
+
+    await waitFor(() => {
+      expect(callBack).toBeCalled();
+      expect(callBack).toBeCalledWith('Edward King 0');
+    });
   });
 
   it('🎏 query should parse by valueType', async () => {
     const callBack = jest.fn();
-    const html = mount(
+    render(
       <ProTable
         size="small"
         columns={[
@@ -63,13 +63,15 @@ describe('Table ColumnSetting', () => {
         rowKey="key"
       />,
     );
-    await waitForComponentToPaint(html, 1000);
-    expect(callBack).toBeCalled();
-    expect(callBack).toBeCalledWith('2016-11-22');
+
+    await waitFor(() => {
+      expect(callBack).toBeCalled();
+      expect(callBack).toBeCalledWith('2016-11-22');
+    });
   });
 
   it('🎏 config provide render', async () => {
-    const html = mount(
+    const { container } = render(
       <ConfigProvider prefixCls="qixian">
         <ProTable
           size="small"
@@ -85,13 +87,13 @@ describe('Table ColumnSetting', () => {
         />
       </ConfigProvider>,
     );
-    await waitForComponentToPaint(html, 1200);
-    expect(html.render()).toMatchSnapshot();
+
+    expect(container).toMatchSnapshot();
   });
 
   it('🎏 render text', async () => {
     const callBack = jest.fn();
-    const html = mount(
+    render(
       <ProTable
         size="small"
         columns={[
@@ -112,13 +114,15 @@ describe('Table ColumnSetting', () => {
         rowKey="key"
       />,
     );
-    await waitForComponentToPaint(html, 1200);
-    expect(callBack).toBeCalled();
-    expect(callBack).toBeCalledWith('Edward King 0');
+
+    await waitFor(() => {
+      expect(callBack).toBeCalled();
+      expect(callBack).toBeCalledWith('Edward King 0');
+    });
   });
 
   it('🎏 change text by renderText', async () => {
-    const html = mount(
+    const { container } = render(
       <ProTable
         size="small"
         columns={[
@@ -142,13 +146,13 @@ describe('Table ColumnSetting', () => {
         rowKey="key"
       />,
     );
-    await waitForComponentToPaint(html, 1200);
-    expect(html.find('td.ant-table-cell').text()).toMatchSnapshot();
+
+    expect(container.querySelector('td.ant-table-cell')).toMatchSnapshot();
   });
 
   it('🎏 columns request support params function', async () => {
     const paramsKeys: string[] = [];
-    const html = mount(
+    render(
       <ProTable
         size="small"
         columns={[
@@ -195,14 +199,13 @@ describe('Table ColumnSetting', () => {
         rowKey="key"
       />,
     );
-    await waitForComponentToPaint(html, 1200);
 
     expect(paramsKeys.length).toBe(2);
     expect(paramsKeys.join('-')).toBe('1-2');
   });
 
   it('🎏 extra columns', async () => {
-    const html = mount(
+    const { container } = render(
       <ProTable
         rowKey="key"
         columns={[
@@ -230,8 +233,8 @@ describe('Table ColumnSetting', () => {
         rowSelection={{}}
       />,
     );
-    await waitForComponentToPaint(html, 1200);
-    expect(html.render()).toMatchSnapshot();
+
+    expect(container).toMatchSnapshot();
   });
 
   it('🎏 columns proFieldProps support custom', async () => {
@@ -261,7 +264,7 @@ describe('Table ColumnSetting', () => {
         }, 1000);
       });
     };
-    const html = mount(
+    const { container } = render(
       <ProTable
         rowKey="key"
         columns={[
@@ -282,18 +285,18 @@ describe('Table ColumnSetting', () => {
         ]}
       />,
     );
-    await waitForComponentToPaint(html, 1200);
-    expect(html.render()).toMatchSnapshot();
-    await act(async () => {
-      html
-        .find('.ant-select-selection-search-input')
-        .simulate('change', { target: { value: '1' } });
+
+    expect(container).toMatchSnapshot();
+
+    fireEvent.change(container.querySelector('.ant-select-selection-search-input')!, {
+      target: {
+        value: '1',
+      },
     });
-    const startCount = html.find('.ant-select-item').length;
-    expect(startCount).toBe(0);
+    expect(container.querySelectorAll('.ant-select-item')).toHaveLength(0);
+
     setTimeout(() => {
-      const count = html.find('.ant-select-item').length;
-      expect(count).toBe(1);
+      expect(container.querySelectorAll('.ant-select-item')).toHaveLength(1);
     }, 1000);
   });
 });
