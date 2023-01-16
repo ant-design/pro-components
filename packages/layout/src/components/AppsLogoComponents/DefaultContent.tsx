@@ -1,10 +1,10 @@
 import React from 'react';
 import { defaultRenderLogo } from './index';
-import type { AppsLogoComponentsAppList, AppsLogoComponentsAppItem } from './types';
+import type { AppListProps, AppItemProps } from './types';
 
 export const DefaultContent: React.FC<{
-  appList?: AppsLogoComponentsAppList;
-  itemClick?: (item: AppsLogoComponentsAppItem) => void;
+  appList?: AppListProps;
+  itemClick?: (item: AppItemProps) => void;
   baseClassName: string;
   hashId?: string;
 }> = (props) => {

@@ -161,9 +161,13 @@ PageContainer 配置 `fixedHeader` 可以将吸顶 header。
 
 <code src="./demos/immersive-navigation-top.tsx" height="500px" iframe="610px" title="沉浸式导航"></code>
 
-### 跨站点导航
+### 跨站点导航 - simple 分组
 
-> 使用默认卡片展示，请确保每一项都有 desc，且值为真；使用分组展示，请确保每一项都有 children，且长度大于 0； <code src="./demos/appList-group.tsx" height="500px" iframe="610px" title="跨站点导航列表 分组模式"></code>
+<code src="./demos/appList-group-simple.tsx" height="500px" iframe="610px" title="跨站点导航列表 分组模式"></code>
+
+### 跨站点导航 - 分组
+
+<code src="./demos/appList-group.tsx" height="500px" iframe="610px" title="跨站点导航列表 分组模式"></code>
 
 ### layout 自带了错误处理功能，防止白屏
 
