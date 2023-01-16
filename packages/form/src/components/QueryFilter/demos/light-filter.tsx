@@ -74,7 +74,6 @@ export default () => {
       <br />
       <LightFilter<{
         sex: string;
-        company: string;
       }>
         initialValues={{
           name1: 'yutingzhao1991',
