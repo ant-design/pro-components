@@ -163,7 +163,7 @@ valueType 是 ProComponents 的灵魂，ProComponents 会根据 valueType 来映
 
 只有一个值并不能表现很多类型，`progress` 就是一个很好的例子。所以我们支持传入一个 function。你可以这样使用：
 
-```tsx |pure
+```tsx | pure
 const columns = {
   title: '进度',
   key: 'progress',

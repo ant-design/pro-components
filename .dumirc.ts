@@ -29,11 +29,6 @@ const tailPkgList = pkgList
   ])
   .reduce((acc, val) => acc.concat(val), []);
 
-console.log([
-  { type: 'component', dir: 'src' }, // 默认值
-  ...tailPkgList,
-]);
-
 export default defineConfig({
   title: 'ProComponents',
   logo: 'https://gw.alipayobjects.com/zos/antfincdn/upvrAjAPQX/Logo_Tech%252520UI.svg',
@@ -81,7 +76,7 @@ export default defineConfig({
   resolve: {
     atomDirs: [
       { type: 'component', dir: 'src' }, // 默认值
-      ...tailPkgList,
+      ...[tailPkgList[0]],
     ],
   },
   locales: [
@@ -89,91 +84,169 @@ export default defineConfig({
     { id: 'en-US', name: 'English' },
   ],
   themeConfig: {
-    // sidebar: {
-    //   '/components': [
-    //     {
-    //       title: '架构设计',
-    //       children: ['components.md', 'schema.md'],
-    //     },
-    //     {
-    //       title: '布局',
-    //       children: [
-    //         'layout',
-    //         'components/PageContainer/index',
-    //         'card',
-    //         'components/WaterMark/index',
-    //         'components/StatisticCard/index',
-    //         'components/CheckCard/index',
-    //       ],
-    //     },
-    //     {
-    //       title: '数据录入',
-    //       children: [
-    //         'form',
-    //         'components/FieldSet/index',
-    //         'components/Group/index',
-    //         'components/Dependency/index',
-    //         'components/SchemaForm/index',
-    //         'components/QueryFilter/index',
-    //         'components/StepsForm/index',
-    //         'components/ModalForm/index',
-    //         'components/LoginForm/index',
-    //       ],
-    //     },
-    //     {
-    //       title: '数据展示',
-    //       children: [
-    //         'table',
-    //         'components/EditableTable/index',
-    //         'components/DragSortTable/index',
-    //         'list',
-    //         'description',
-    //       ],
-    //     },
-    //     {
-    //       title: '通用',
-    //       children: ['skeleton', 'field'],
-    //     },
-    //   ],
-    //   '/en-US/components': [
-    //     {
-    //       title: 'Architecture Design',
-    //       children: ['components.en-US.md'],
-    //     },
-    //     {
-    //       title: 'Layout',
-    //       children: [
-    //         'layout',
-    //         'components/PageContainer/index',
-    //         'components/DragSortTable/index',
-    //         'list',
-    //         'card',
-    //       ],
-    //     },
-    //     {
-    //       title: 'Data entry',
-    //       children: [
-    //         'form',
-    //         'components/FieldSet/index',
-    //         'components/Group/index',
-    //         'components/Dependency/index',
-    //         'components/SchemaForm/index',
-    //         'components/QueryFilter/index',
-    //         'components/StepsForm/index',
-    //         'components/ModalForm/index',
-    //         'components/LoginForm/index',
-    //       ],
-    //     },
-    //     {
-    //       title: 'Data Display',
-    //       children: ['table', 'components/EditableTable/index', 'list', 'description'],
-    //     },
-    //     {
-    //       title: 'General',
-    //       children: ['skeleton', 'field'],
-    //     },
-    //   ],
-    // },
+    sidebar: {
+      '/components': [
+        {
+          title: '架构设计',
+          children: [
+            {
+              title: 'components',
+              link: 'components',
+            },
+            {
+              title: 'schema',
+              link: 'schema',
+            },
+          ],
+        },
+        {
+          title: '布局',
+          children: [
+            {
+              title: 'layout',
+              link: 'layout',
+            },
+            {
+              title: 'PageContainer',
+              link: 'components/PageContainer/index',
+            },
+            {
+              title: 'card',
+              link: 'card',
+            },
+            {
+              title: 'WaterMark',
+              link: 'components/WaterMark/index',
+            },
+            {
+              title: 'StatisticCard',
+              link: 'components/StatisticCard/index',
+            },
+            {
+              title: 'CheckCard',
+              link: 'components/CheckCard/index',
+            },
+          ],
+        },
+        {
+          title: '数据录入',
+          children: [
+            {
+              title: 'form',
+              link: 'form',
+            },
+            {
+              title: 'FieldSet',
+              link: 'components/FieldSet/index',
+            },
+            {
+              title: 'Group',
+              link: 'components/Group/index',
+            },
+            {
+              title: 'Dependency',
+              link: 'components/Dependency/index',
+            },
+            {
+              title: 'SchemaForm',
+              link: 'components/SchemaForm/index',
+            },
+            {
+              title: 'QueryFilter',
+              link: 'components/QueryFilter/index',
+            },
+            {
+              title: 'StepsForm',
+              link: 'components/StepsForm/index',
+            },
+            {
+              title: 'ModalForm',
+              link: 'components/ModalForm/index',
+            },
+            {
+              title: 'LoginForm',
+              link: 'components/LoginForm/index',
+            },
+          ],
+        },
+        {
+          title: '数据展示',
+          children: [
+            {
+              title: 'table',
+              link: 'table',
+            },
+            {
+              title: 'EditableTable',
+              link: 'components/EditableTable/index',
+            },
+            {
+              title: 'DragSortTable',
+              link: 'components/DragSortTable/index',
+            },
+            {
+              title: 'list',
+              link: 'list',
+            },
+            {
+              title: 'description',
+              link: 'description',
+            },
+          ],
+        },
+        {
+          title: '通用',
+          children: [
+            {
+              title: 'skeleton',
+              link: 'skeleton',
+            },
+            {
+              title: 'field',
+              link: 'field',
+            },
+          ],
+        },
+      ],
+      // '/en-US/components': [
+      //   {
+      //     title: 'Architecture Design',
+      //     children: ['components.en-US'],
+      //   },
+      //   {
+      //     title: 'Layout',
+      //     children: [
+      //       'layout',
+      //       'components/PageContainer/index',
+      //       'components/DragSortTable/index',
+      //       'list',
+      //       'card',
+      //     ],
+      //   },
+      //   {
+      //     title: 'Data entry',
+      //     children: [
+      //       'form',
+      //       'components/FieldSet/index',
+      //       'components/Group/index',
+      //       'components/Dependency/index',
+      //       'components/SchemaForm/index',
+      //       'components/QueryFilter/index',
+      //       'components/StepsForm/index',
+      //       'components/ModalForm/index',
+      //       'components/LoginForm/index',
+      //     ],
+      //   },
+      //   {
+      //     title: 'Data Display',
+      //     children: ['table', 'components/EditableTable/index', 'list', 'description'],
+      //   },
+      //   {
+      //     title: 'General',
+      //     children: ['skeleton', 'field'],
+      //   },
+      // ],
+    },
     navs: {
       'en-US': [
         null,
