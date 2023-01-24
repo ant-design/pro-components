@@ -30,8 +30,6 @@ const tailPkgList = pkgList
   .reduce((acc, val) => acc.concat(val), []);
 
 export default defineConfig({
-  title: 'ProComponents',
-  logo: 'https://gw.alipayobjects.com/zos/antfincdn/upvrAjAPQX/Logo_Tech%252520UI.svg',
   sitemap: { hostname: 'https://procomponents.ant.design' },
   metas: [
     {
@@ -72,6 +70,15 @@ export default defineConfig({
       content: '9LDp--DeEC-xOggsHl_t1MlR_1_2O972JpSUu8NZKMU',
     },
   ],
+
+  styles: [
+    `
+    .dumi-default-header-left {
+      min-width: 230px;
+      margin-right: 32px;
+  }
+  `,
+  ],
   alias,
   resolve: {
     atomDirs: [
@@ -84,17 +91,28 @@ export default defineConfig({
     { id: 'en-US', name: 'English' },
   ],
   themeConfig: {
+    name: 'ProComponents',
+    logo: 'https://gw.alipayobjects.com/zos/antfincdn/upvrAjAPQX/Logo_Tech%252520UI.svg',
+    nav: {
+      'zh-CN': [
+        { title: '文档', link: '/docs' },
+        { title: '组件', link: '/components' },
+        { title: 'Changelog', link: '/changelog' },
+        { title: 'Playground', link: '/playground/curd' },
+      ],
+      'en-US': [{ title: 'Blog', link: '/en/blog' }],
+    },
     sidebar: {
       '/components': [
         {
           title: '架构设计',
           children: [
             {
-              title: 'components',
+              title: 'Components',
               link: 'components',
             },
             {
-              title: 'schema',
+              title: 'Schema',
               link: 'schema',
             },
           ],
@@ -103,7 +121,7 @@ export default defineConfig({
           title: '布局',
           children: [
             {
-              title: 'layout',
+              title: 'Layout',
               link: 'layout',
             },
             {
@@ -111,7 +129,7 @@ export default defineConfig({
               link: 'components/PageContainer/index',
             },
             {
-              title: 'card',
+              title: 'Card',
               link: 'card',
             },
             {
@@ -132,7 +150,7 @@ export default defineConfig({
           title: '数据录入',
           children: [
             {
-              title: 'form',
+              title: 'Form',
               link: 'form',
             },
             {
@@ -173,7 +191,7 @@ export default defineConfig({
           title: '数据展示',
           children: [
             {
-              title: 'table',
+              title: 'Table',
               link: 'table',
             },
             {
@@ -185,11 +203,11 @@ export default defineConfig({
               link: 'components/DragSortTable/index',
             },
             {
-              title: 'list',
+              title: 'List',
               link: 'list',
             },
             {
-              title: 'description',
+              title: 'Description',
               link: 'description',
             },
           ],
@@ -198,11 +216,11 @@ export default defineConfig({
           title: '通用',
           children: [
             {
-              title: 'skeleton',
+              title: 'Skeleton',
               link: 'skeleton',
             },
             {
-              title: 'field',
+              title: 'Field',
               link: 'field',
             },
           ],
