@@ -1,6 +1,6 @@
 import chalk from 'chalk';
 import { readdirSync } from 'fs';
-import path, { join } from 'path';
+import { join } from 'path';
 import { defineConfig } from 'dumi';
 const theme = require('@ant-design/antd-theme-variable');
 
@@ -20,14 +20,7 @@ const alias = pkgList.reduce((pre, pkg) => {
 
 console.log(`🌼 alias list \n${chalk.blue(Object.keys(alias).join('\n'))}`);
 
-const tailPkgList = pkgList
-  .map((path) => [
-    {
-      dir: `packages/${path}rc`,
-      type: '/',
-    },
-  ])
-  .reduce((acc, val) => acc.concat(val), []);
+const tailPkgList = pkgList.map((path) => `packages/${path}/src`);
 
 export default defineConfig({
   sitemap: { hostname: 'https://procomponents.ant.design' },
@@ -102,6 +95,7 @@ export default defineConfig({
   resolve: {
     docDirs: [
       'docs',
+      ...tailPkgList,
       '/packages/card/src',
       '/packages/layout/src',
       '/packages/layoutrc/components/',
@@ -171,39 +165,39 @@ export default defineConfig({
           title: '数据录入',
           children: [
             {
-              title: 'Form',
+              title: 'ProForm - 高级表格',
               link: 'form',
             },
             {
-              title: 'FieldSet',
+              title: 'ProFormFields - 表单项',
               link: 'components/FieldSet/index',
             },
             {
-              title: 'Group',
+              title: 'ProFormList - 数据结构化',
               link: 'components/Group/index',
             },
             {
-              title: 'Dependency',
+              title: 'ProFormDependency - 数据联动',
               link: 'components/Dependency/index',
             },
             {
-              title: 'SchemaForm',
-              link: 'componentschemaForm/index',
+              title: 'Schema Form - JSON 表单',
+              link: 'component/schemaForm/index',
             },
             {
-              title: 'QueryFilter',
+              title: ' Query/LightFilter - 筛选表单',
               link: 'components/QueryFilter/index',
             },
             {
-              title: 'StepsForm',
+              title: 'StepsForm - 分步表单',
               link: 'componentstepsForm/index',
             },
             {
-              title: 'ModalForm',
+              title: 'Modal/Drawer - 浮层表单',
               link: 'components/ModalForm/index',
             },
             {
-              title: 'LoginForm',
+              title: 'LoginForm/Page - 登录表单',
               link: 'components/LoginForm/index',
             },
           ],
@@ -212,23 +206,23 @@ export default defineConfig({
           title: '数据展示',
           children: [
             {
-              title: 'Table',
+              title: 'ProTable - 高级表格',
               link: 'table',
             },
             {
-              title: 'EditableTable',
+              title: 'EditableProTable - 可编辑表格',
               link: 'components/EditableTable/index',
             },
             {
-              title: 'DragSortTable',
+              title: ' DragSortTable - 拖动排序表格',
               link: 'components/DragSortTable/index',
             },
             {
-              title: 'List',
+              title: 'ProList - 高级列表',
               link: 'list',
             },
             {
-              title: 'Description',
+              title: 'ProDescriptions - 定义列表',
               link: 'description',
             },
           ],
@@ -237,11 +231,11 @@ export default defineConfig({
           title: '通用',
           children: [
             {
-              title: 'Skeleton',
+              title: 'ProSkeleton - 骨架屏',
               link: 'skeleton',
             },
             {
-              title: 'Field',
+              title: 'ProField - 原子组件',
               link: 'field',
             },
           ],
