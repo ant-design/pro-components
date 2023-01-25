@@ -29,8 +29,6 @@ const tailPkgList = pkgList
   ])
   .reduce((acc, val) => acc.concat(val), []);
 
-console.log(tailPkgList);
-
 export default defineConfig({
   sitemap: { hostname: 'https://procomponents.ant.design' },
   metas: [
@@ -75,6 +73,12 @@ export default defineConfig({
 
   styles: [
     `
+    div.dumi-default-doc-layout > main {
+      max-width: 1600px;
+    }
+    .dumi-default-sidebar {
+      min-width: 260px;
+    }
     .dumi-default-previewer-demo {
       min-height: 500px;
       max-height: 500px;
@@ -100,7 +104,7 @@ export default defineConfig({
       'docs',
       '/packages/card/src',
       '/packages/layout/src',
-      '/packages/layoutrc/components/PageContainer',
+      '/packages/layoutrc/components/',
     ],
   },
   locales: [
@@ -125,11 +129,11 @@ export default defineConfig({
           title: '架构设计',
           children: [
             {
-              title: 'Components',
+              title: 'Components - 组件设计',
               link: 'components',
             },
             {
-              title: 'Schema',
+              title: 'Schema - 通用配置',
               link: 'schema',
             },
           ],
@@ -138,28 +142,28 @@ export default defineConfig({
           title: '布局',
           children: [
             {
-              title: 'Layout',
-              link: 'layout',
+              title: 'ProLayout - 高级布局',
+              link: '/layout',
             },
             {
-              title: 'PageContainer',
-              link: 'components/PageContainer/index',
+              title: 'PageContainer - 页容器',
+              link: '/components/page-container',
             },
             {
-              title: 'Card - 高级卡片',
+              title: 'ProCard - 高级卡片',
               link: '/card',
             },
             {
-              title: 'WaterMark',
-              link: 'components/WaterMark/index',
+              title: 'WaterMark - 水印组件',
+              link: '/components/water-mark',
             },
             {
-              title: 'StatisticCard',
-              link: 'componentstatisticCard/index',
+              title: 'StatisticCard - 指标卡',
+              link: '/components/statistic-card',
             },
             {
-              title: 'CheckCard',
-              link: 'components/CheckCard/index',
+              title: 'CheckCard - 多选卡片',
+              link: '/components/check-card',
             },
           ],
         },

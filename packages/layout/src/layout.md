@@ -1,10 +1,6 @@
 ---
 title: ProLayout - 高级布局
 order: 0
-legacy: /layout
-
-nav:
-  title: 组件
 ---
 
 # ProLayout - 高级布局
