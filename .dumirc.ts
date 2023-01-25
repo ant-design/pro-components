@@ -23,11 +23,13 @@ console.log(`🌼 alias list \n${chalk.blue(Object.keys(alias).join('\n'))}`);
 const tailPkgList = pkgList
   .map((path) => [
     {
-      dir: `packages/${path}/src`,
-      type: path,
+      dir: `packages/${path}rc`,
+      type: '/',
     },
   ])
   .reduce((acc, val) => acc.concat(val), []);
+
+console.log(tailPkgList);
 
 export default defineConfig({
   sitemap: { hostname: 'https://procomponents.ant.design' },
@@ -73,6 +75,19 @@ export default defineConfig({
 
   styles: [
     `
+    .dumi-default-previewer-demo {
+      min-height: 500px;
+      max-height: 500px;
+      display: flex;
+      flex-direction: column;
+    }
+    .dumi-default-previewer-demo > iframe {
+      height: 100%!important;
+      flex:1;
+    }
+    .dumi-default-header:not([data-static]){
+      border-bottom: 1px solid #ddd;
+    }
     .dumi-default-header-left {
       min-width: 230px;
       margin-right: 32px;
@@ -81,9 +96,11 @@ export default defineConfig({
   ],
   alias,
   resolve: {
-    atomDirs: [
-      { type: 'component', dir: 'src' }, // 默认值
-      ...[tailPkgList[0]],
+    docDirs: [
+      'docs',
+      '/packages/card/src',
+      '/packages/layout/src',
+      '/packages/layoutrc/components/PageContainer',
     ],
   },
   locales: [
@@ -129,8 +146,8 @@ export default defineConfig({
               link: 'components/PageContainer/index',
             },
             {
-              title: 'Card',
-              link: 'card',
+              title: 'Card - 高级卡片',
+              link: '/card',
             },
             {
               title: 'WaterMark',
@@ -138,7 +155,7 @@ export default defineConfig({
             },
             {
               title: 'StatisticCard',
-              link: 'components/StatisticCard/index',
+              link: 'componentstatisticCard/index',
             },
             {
               title: 'CheckCard',
@@ -167,7 +184,7 @@ export default defineConfig({
             },
             {
               title: 'SchemaForm',
-              link: 'components/SchemaForm/index',
+              link: 'componentschemaForm/index',
             },
             {
               title: 'QueryFilter',
@@ -175,7 +192,7 @@ export default defineConfig({
             },
             {
               title: 'StepsForm',
-              link: 'components/StepsForm/index',
+              link: 'componentstepsForm/index',
             },
             {
               title: 'ModalForm',
@@ -248,9 +265,9 @@ export default defineConfig({
       //       'components/FieldSet/index',
       //       'components/Group/index',
       //       'components/Dependency/index',
-      //       'components/SchemaForm/index',
+      //       'componentschemaForm/index',
       //       'components/QueryFilter/index',
-      //       'components/StepsForm/index',
+      //       'componentstepsForm/index',
       //       'components/ModalForm/index',
       //       'components/LoginForm/index',
       //     ],
