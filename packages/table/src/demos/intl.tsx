@@ -16,6 +16,7 @@ import srRSIntl from 'antd/es/locale/sr_RS';
 import viVNIntl from 'antd/es/locale/vi_VN';
 import zhCNIntl from 'antd/es/locale/zh_CN';
 import zhTWIntl from 'antd/es/locale/zh_TW';
+import thTHIntl from 'antd/es/locale/th_TH';
 import dayjs from 'dayjs';
 import { useRef, useState } from 'react';
 
@@ -34,6 +35,7 @@ const intlMap = {
   zhTWIntl,
   frFRIntl,
   ptBRIntl,
+  thTHIntl,
 };
 
 type GithubIssueItem = {

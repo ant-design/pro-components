@@ -28,6 +28,7 @@ import trTR from './locale/tr_TR';
 import viVN from './locale/vi_VN';
 import zhCN from './locale/zh_CN';
 import zhTW from './locale/zh_TW';
+import thTH from './locale/th_TH';
 import type { DeepPartial, ProTokenType } from './typing/layoutToken';
 import { getLayoutDesignToken } from './typing/layoutToken';
 import type { ProAliasToken } from './useStyle';
@@ -189,6 +190,7 @@ const faIRIntl = createIntl('fa_IR', faIR);
 const trTRIntl = createIntl('tr_TR', trTR);
 const plPLIntl = createIntl('pl_PL', plPL);
 const hrHRIntl = createIntl('hr_', hrHR);
+const thTHIntl = createIntl('th_TH', thTH);
 
 const intlMap = {
   'mn-MN': mnMNIntl,
@@ -214,6 +216,7 @@ const intlMap = {
   'tr-TR': trTRIntl,
   'pl-PL': plPLIntl,
   'hr-HR': hrHRIntl,
+  'th-TH': thTHIntl,
 };
 
 const intlMapKeys = Object.keys(intlMap);
@@ -244,6 +247,7 @@ export {
   trTRIntl,
   plPLIntl,
   hrHRIntl,
+  thTHIntl,
   intlMap,
   intlMapKeys,
 };
