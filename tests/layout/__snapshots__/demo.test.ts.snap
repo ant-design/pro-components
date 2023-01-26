@@ -3887,6 +3887,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/AlwaysDefaultOpen
                       class="ant-menu ant-menu-sub ant-menu-inline"
                       data-menu-list="true"
                       id="rc-menu-uuid-test-/data_hui-popup"
+                      role="menu"
                     >
                       <li
                         class="ant-menu-submenu ant-menu-submenu-inline ant-pro-base-menu-submenu ant-menu-submenu-open"
@@ -3924,6 +3925,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/AlwaysDefaultOpen
                           class="ant-menu ant-menu-sub ant-menu-inline"
                           data-menu-list="true"
                           id="rc-menu-uuid-test-/xx-popup"
+                          role="menu"
                         >
                           <li
                             class="ant-menu-item ant-menu-item-only-child ant-pro-base-menu-menu-item"
@@ -4007,6 +4009,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/AlwaysDefaultOpen
                           class="ant-menu ant-menu-sub ant-menu-inline"
                           data-menu-list="true"
                           id="rc-menu-uuid-test-/9449c99785ac015b1ec5af4ac62f9e00fe23fa6c23f3f0d36303c9e840f54ffe-popup"
+                          role="menu"
                         >
                           <li
                             class="ant-menu-item ant-menu-item-only-child ant-pro-base-menu-menu-item"
@@ -4356,6 +4359,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/BreadcrumbsRepeat
                       class="ant-menu ant-menu-sub ant-menu-inline"
                       data-menu-list="true"
                       id="rc-menu-uuid-test-/admin-popup"
+                      role="menu"
                     >
                       <li
                         class="ant-menu-item ant-menu-item-selected ant-menu-item-only-child ant-pro-base-menu-menu-item"
@@ -4778,6 +4782,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/DefaultOpenAllMen
                       class="ant-menu ant-menu-sub ant-menu-inline"
                       data-menu-list="true"
                       id="rc-menu-uuid-test-/data_hui-popup"
+                      role="menu"
                     >
                       <li
                         class="ant-menu-submenu ant-menu-submenu-inline ant-pro-base-menu-submenu ant-menu-submenu-open"
@@ -4815,6 +4820,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/DefaultOpenAllMen
                           class="ant-menu ant-menu-sub ant-menu-inline"
                           data-menu-list="true"
                           id="rc-menu-uuid-test-/xx-popup"
+                          role="menu"
                         >
                           <li
                             class="ant-menu-item ant-menu-item-only-child ant-pro-base-menu-menu-item"
@@ -4898,6 +4904,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/DefaultOpenAllMen
                           class="ant-menu ant-menu-sub ant-menu-inline"
                           data-menu-list="true"
                           id="rc-menu-uuid-test-/9449c99785ac015b1ec5af4ac62f9e00fe23fa6c23f3f0d36303c9e840f54ffe-popup"
+                          role="menu"
                         >
                           <li
                             class="ant-menu-item ant-menu-item-only-child ant-pro-base-menu-menu-item"
@@ -4983,6 +4990,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/DefaultOpenAllMen
                       class="ant-menu ant-menu-sub ant-menu-inline"
                       data-menu-list="true"
                       id="rc-menu-uuid-test-/data_ming-popup"
+                      role="menu"
                     >
                       <li
                         class="ant-menu-item ant-menu-item-only-child ant-pro-base-menu-menu-item"
@@ -5044,6 +5052,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/DefaultOpenAllMen
                       class="ant-menu ant-menu-sub ant-menu-inline"
                       data-menu-list="true"
                       id="rc-menu-uuid-test-/other-popup"
+                      role="menu"
                     >
                       <li
                         class="ant-menu-item ant-menu-item-only-child ant-pro-base-menu-menu-item"
@@ -5743,9 +5752,11 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/MenuGroup.tsx cor
                   </li>
                   <li
                     class="ant-menu-item-group ant-pro-base-menu-group"
+                    role="presentation"
                   >
                     <div
                       class="ant-menu-item-group-title"
+                      role="presentation"
                     >
                       <div
                         class="ant-pro-base-menu-item-title ant-pro-base-menu-group-item-title"
@@ -5760,6 +5771,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/MenuGroup.tsx cor
                     </div>
                     <ul
                       class="ant-menu-item-group-list"
+                      role="group"
                     >
                       <li
                         class="ant-menu-submenu ant-menu-submenu-inline ant-pro-base-menu-submenu"
@@ -5835,9 +5847,11 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/MenuGroup.tsx cor
                   />
                   <li
                     class="ant-menu-item-group ant-pro-base-menu-group"
+                    role="presentation"
                   >
                     <div
                       class="ant-menu-item-group-title"
+                      role="presentation"
                     >
                       <div
                         class="ant-pro-base-menu-item-title ant-pro-base-menu-group-item-title"
@@ -5852,6 +5866,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/MenuGroup.tsx cor
                     </div>
                     <ul
                       class="ant-menu-item-group-list"
+                      role="group"
                     >
                       <li
                         class="ant-menu-item ant-menu-item-only-child ant-pro-base-menu-menu-item"
@@ -5883,9 +5898,11 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/MenuGroup.tsx cor
                   />
                   <li
                     class="ant-menu-item-group ant-pro-base-menu-group"
+                    role="presentation"
                   >
                     <div
                       class="ant-menu-item-group-title"
+                      role="presentation"
                     >
                       <div
                         class="ant-pro-base-menu-item-title ant-pro-base-menu-group-item-title"
@@ -5900,6 +5917,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/MenuGroup.tsx cor
                     </div>
                     <ul
                       class="ant-menu-item-group-list"
+                      role="group"
                     >
                       <li
                         class="ant-menu-item ant-menu-item-only-child ant-pro-base-menu-menu-item"
@@ -6244,6 +6262,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/MultipleMenuOnePa
                       class="ant-menu ant-menu-sub ant-menu-inline"
                       data-menu-list="true"
                       id="rc-menu-uuid-test-/config-popup"
+                      role="menu"
                     >
                       <li
                         class="ant-menu-item ant-menu-item-only-child ant-pro-base-menu-menu-item"
@@ -8121,6 +8140,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/antd@4MenuIconFor
                     class="ant-menu ant-menu-sub ant-menu-inline"
                     data-menu-list="true"
                     id="rc-menu-uuid-test-/20de01dc090a7d561798794cf8b98e2dd4eb9b77d36f072c2f1748f24798e07f-popup"
+                    role="menu"
                   >
                     <li
                       class="ant-menu-submenu ant-menu-submenu-inline ant-pro-base-menu-submenu ant-menu-submenu-open ant-menu-submenu-selected"
@@ -8158,6 +8178,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/antd@4MenuIconFor
                         class="ant-menu ant-menu-sub ant-menu-inline"
                         data-menu-list="true"
                         id="rc-menu-uuid-test-/welcome-popup"
+                        role="menu"
                       >
                         <li
                           class="ant-menu-item ant-menu-item-selected ant-menu-item-only-child ant-pro-base-menu-menu-item"
@@ -9187,9 +9208,11 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/appList-group.tsx
                   >
                     <li
                       class="ant-menu-item-group ant-pro-base-menu-group"
+                      role="presentation"
                     >
                       <div
                         class="ant-menu-item-group-title"
+                        role="presentation"
                       >
                         <div
                           class="ant-pro-base-menu-item-title ant-pro-base-menu-group-item-title"
@@ -9227,6 +9250,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/appList-group.tsx
                       </div>
                       <ul
                         class="ant-menu-item-group-list"
+                        role="group"
                       >
                         <li
                           class="ant-menu-item ant-menu-item-selected ant-menu-item-only-child ant-pro-base-menu-menu-item"
@@ -9984,9 +10008,11 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/appList-group-sim
                   >
                     <li
                       class="ant-menu-item-group ant-pro-base-menu-group"
+                      role="presentation"
                     >
                       <div
                         class="ant-menu-item-group-title"
+                        role="presentation"
                       >
                         <div
                           class="ant-pro-base-menu-item-title ant-pro-base-menu-group-item-title"
@@ -10024,6 +10050,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/appList-group-sim
                       </div>
                       <ul
                         class="ant-menu-item-group-list"
+                        role="group"
                       >
                         <li
                           class="ant-menu-item ant-menu-item-selected ant-menu-item-only-child ant-pro-base-menu-menu-item"
@@ -11473,9 +11500,11 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/base.tsx correctl
                   >
                     <li
                       class="ant-menu-item-group my-prefix-base-menu-group"
+                      role="presentation"
                     >
                       <div
                         class="ant-menu-item-group-title"
+                        role="presentation"
                       >
                         <div
                           class="my-prefix-base-menu-item-title my-prefix-base-menu-group-item-title"
@@ -11513,6 +11542,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/base.tsx correctl
                       </div>
                       <ul
                         class="ant-menu-item-group-list"
+                        role="group"
                       >
                         <li
                           class="ant-menu-item ant-menu-item-selected ant-menu-item-only-child my-prefix-base-menu-menu-item"
@@ -12587,9 +12617,11 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/classicMode.tsx c
                 >
                   <li
                     class="ant-menu-item-group ant-pro-base-menu-group"
+                    role="presentation"
                   >
                     <div
                       class="ant-menu-item-group-title"
+                      role="presentation"
                     >
                       <div
                         class="ant-pro-base-menu-item-title ant-pro-base-menu-group-item-title"
@@ -12627,6 +12659,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/classicMode.tsx c
                     </div>
                     <ul
                       class="ant-menu-item-group-list"
+                      role="group"
                     >
                       <li
                         class="ant-menu-item ant-menu-item-selected ant-menu-item-only-child ant-pro-base-menu-menu-item"
@@ -15725,9 +15758,11 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/customSider.tsx c
                   </li>
                   <li
                     class="ant-menu-item-group ant-pro-base-menu-group"
+                    role="presentation"
                   >
                     <div
                       class="ant-menu-item-group-title"
+                      role="presentation"
                     >
                       <div
                         class="ant-pro-base-menu-item-title ant-pro-base-menu-group-item-title"
@@ -15765,6 +15800,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/customSider.tsx c
                     </div>
                     <ul
                       class="ant-menu-item-group-list"
+                      role="group"
                     >
                       <li
                         class="ant-menu-item ant-menu-item-only-child ant-pro-base-menu-menu-item"
@@ -15902,9 +15938,11 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/customSider.tsx c
                   />
                   <li
                     class="ant-menu-item-group ant-pro-base-menu-group"
+                    role="presentation"
                   >
                     <div
                       class="ant-menu-item-group-title"
+                      role="presentation"
                     >
                       <div
                         class="ant-pro-base-menu-item-title ant-pro-base-menu-group-item-title"
@@ -15942,6 +15980,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/customSider.tsx c
                     </div>
                     <ul
                       class="ant-menu-item-group-list"
+                      role="group"
                     >
                       <li
                         class="ant-menu-submenu ant-menu-submenu-inline ant-pro-base-menu-submenu ant-pro-base-menu-submenu-has-icon ant-menu-submenu-open ant-menu-submenu-selected"
@@ -16002,6 +16041,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/customSider.tsx c
                           class="ant-menu ant-menu-sub ant-menu-inline"
                           data-menu-list="true"
                           id="rc-menu-uuid-test-/list/sub-page-popup"
+                          role="menu"
                         >
                           <li
                             class="ant-menu-item ant-menu-item-selected ant-menu-item-only-child ant-pro-base-menu-menu-item"
@@ -17721,6 +17761,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/dark.tsx correctl
                       class="ant-menu ant-menu-sub ant-menu-inline"
                       data-menu-list="true"
                       id="rc-menu-uuid-test-/list/sub-page-popup"
+                      role="menu"
                     >
                       <li
                         class="ant-menu-item ant-menu-item-selected ant-menu-item-only-child ant-pro-base-menu-menu-item"
@@ -18289,9 +18330,11 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/designMenuCss.tsx
                 >
                   <li
                     class="ant-menu-item-group ant-pro-base-menu-group"
+                    role="presentation"
                   >
                     <div
                       class="ant-menu-item-group-title"
+                      role="presentation"
                     >
                       <div
                         class="ant-pro-base-menu-item-title ant-pro-base-menu-group-item-title"
@@ -18329,6 +18372,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/designMenuCss.tsx
                     </div>
                     <ul
                       class="ant-menu-item-group-list"
+                      role="group"
                     >
                       <li
                         class="ant-menu-item ant-menu-item-selected ant-menu-item-only-child ant-pro-base-menu-menu-item"
@@ -19599,9 +19643,11 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/designSiderMenu.t
                   </li>
                   <li
                     class="ant-menu-item-group ant-pro-base-menu-group"
+                    role="presentation"
                   >
                     <div
                       class="ant-menu-item-group-title"
+                      role="presentation"
                     >
                       <div
                         class="ant-pro-base-menu-item-title ant-pro-base-menu-group-item-title"
@@ -19639,6 +19685,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/designSiderMenu.t
                     </div>
                     <ul
                       class="ant-menu-item-group-list"
+                      role="group"
                     >
                       <li
                         class="ant-menu-item ant-menu-item-only-child ant-pro-base-menu-menu-item"
@@ -19776,9 +19823,11 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/designSiderMenu.t
                   />
                   <li
                     class="ant-menu-item-group ant-pro-base-menu-group"
+                    role="presentation"
                   >
                     <div
                       class="ant-menu-item-group-title"
+                      role="presentation"
                     >
                       <div
                         class="ant-pro-base-menu-item-title ant-pro-base-menu-group-item-title"
@@ -19816,6 +19865,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/designSiderMenu.t
                     </div>
                     <ul
                       class="ant-menu-item-group-list"
+                      role="group"
                     >
                       <li
                         class="ant-menu-submenu ant-menu-submenu-inline ant-pro-base-menu-submenu ant-pro-base-menu-submenu-has-icon ant-menu-submenu-open ant-menu-submenu-selected"
@@ -19876,6 +19926,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/designSiderMenu.t
                           class="ant-menu ant-menu-sub ant-menu-inline"
                           data-menu-list="true"
                           id="rc-menu-uuid-test-/list/sub-page-popup"
+                          role="menu"
                         >
                           <li
                             class="ant-menu-item ant-menu-item-selected ant-menu-item-only-child ant-pro-base-menu-menu-item"
@@ -22834,9 +22885,11 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/footer-global-too
                 >
                   <li
                     class="ant-menu-item-group ant-pro-base-menu-group"
+                    role="presentation"
                   >
                     <div
                       class="ant-menu-item-group-title"
+                      role="presentation"
                     >
                       <div
                         class="ant-pro-base-menu-item-title ant-pro-base-menu-group-item-title"
@@ -22874,6 +22927,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/footer-global-too
                     </div>
                     <ul
                       class="ant-menu-item-group-list"
+                      role="group"
                     >
                       <li
                         class="ant-menu-item ant-menu-item-selected ant-menu-item-only-child ant-pro-base-menu-menu-item"
@@ -27450,9 +27504,11 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/mixMode.tsx corre
                 >
                   <li
                     class="ant-menu-item-group ant-pro-base-menu-group"
+                    role="presentation"
                   >
                     <div
                       class="ant-menu-item-group-title"
+                      role="presentation"
                     >
                       <div
                         class="ant-pro-base-menu-item-title ant-pro-base-menu-group-item-title"
@@ -27490,6 +27546,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/mixMode.tsx corre
                     </div>
                     <ul
                       class="ant-menu-item-group-list"
+                      role="group"
                     >
                       <li
                         class="ant-menu-item ant-menu-item-selected ant-menu-item-only-child ant-pro-base-menu-menu-item"
@@ -28454,9 +28511,11 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/pageSimplify.tsx 
                 >
                   <li
                     class="ant-menu-item-group ant-pro-base-menu-group"
+                    role="presentation"
                   >
                     <div
                       class="ant-menu-item-group-title"
+                      role="presentation"
                     >
                       <div
                         class="ant-pro-base-menu-item-title ant-pro-base-menu-group-item-title"
@@ -28494,6 +28553,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/pageSimplify.tsx 
                     </div>
                     <ul
                       class="ant-menu-item-group-list"
+                      role="group"
                     >
                       <li
                         class="ant-menu-item ant-menu-item-selected ant-menu-item-only-child ant-pro-base-menu-menu-item"
@@ -30273,6 +30333,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/siderMode.tsx cor
                       class="ant-menu ant-menu-sub ant-menu-inline"
                       data-menu-list="true"
                       id="rc-menu-uuid-test-/list-popup"
+                      role="menu"
                     >
                       <li
                         class="ant-menu-submenu ant-menu-submenu-inline ant-pro-base-menu-submenu ant-menu-submenu-open ant-menu-submenu-selected"
@@ -30310,6 +30371,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/siderMode.tsx cor
                           class="ant-menu ant-menu-sub ant-menu-inline"
                           data-menu-list="true"
                           id="rc-menu-uuid-test-/list/sub-page-popup"
+                          role="menu"
                         >
                           <li
                             class="ant-menu-item ant-menu-item-selected ant-menu-item-only-child ant-pro-base-menu-menu-item"
@@ -30812,9 +30874,11 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/siteMenu.tsx corr
                 >
                   <li
                     class="ant-menu-item-group ant-pro-base-menu-group"
+                    role="presentation"
                   >
                     <div
                       class="ant-menu-item-group-title"
+                      role="presentation"
                     >
                       <div
                         class="ant-pro-base-menu-item-title ant-pro-base-menu-group-item-title"
@@ -30852,6 +30916,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/siteMenu.tsx corr
                     </div>
                     <ul
                       class="ant-menu-item-group-list"
+                      role="group"
                     >
                       <li
                         class="ant-menu-item ant-menu-item-selected ant-menu-item-only-child ant-pro-base-menu-menu-item"
@@ -34646,6 +34711,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/theme.tsx correct
                     class="ant-menu ant-menu-sub ant-menu-inline"
                     data-menu-list="true"
                     id="rc-menu-uuid-test-/list/sub-page-popup"
+                    role="menu"
                   >
                     <li
                       class="ant-menu-item ant-menu-item-selected ant-menu-item-only-child ant-pro-base-menu-menu-item"
@@ -35255,6 +35321,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/top-breadcrumb.ts
                       class="ant-menu ant-menu-sub ant-menu-inline"
                       data-menu-list="true"
                       id="rc-menu-uuid-test-/admin-popup"
+                      role="menu"
                     >
                       <li
                         class="ant-menu-item ant-menu-item-selected ant-menu-item-only-child ant-pro-base-menu-menu-item"
