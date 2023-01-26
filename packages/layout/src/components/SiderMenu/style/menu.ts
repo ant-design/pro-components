@@ -29,7 +29,7 @@ const genProLayoutBaseMenuStyle: GenerateStyle<ProLayoutBaseMenuToken> = (token)
         [`${token.antCls}-menu-item-group > ${token.antCls}-menu-item-group-list > ${token.antCls}-menu-submenu-selected > ${token.antCls}-menu-submenu-title, 
         ${token.antCls}-menu-submenu-selected > ${token.antCls}-menu-submenu-title`]: {
           backgroundColor: token.layout?.sider?.colorBgMenuItemSelected,
-          borderRadius: token.borderRadius,
+          borderRadius: token.borderRadiusLG,
         },
         [`${token.componentCls}-group`]: {
           [`${token.antCls}-menu-item-group-title`]: {
