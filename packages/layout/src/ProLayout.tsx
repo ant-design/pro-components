@@ -466,7 +466,7 @@ const BaseProLayout: React.FC<ProLayoutProps> = (props) => {
     };
   }
   const matchMenus = useMemo(() => {
-    return getMatchMenu(location.pathname || '/', menuData || [], true);
+    return getMatchMenu(location.pathname || '/', menuData || [], false);
   }, [location.pathname, menuData]);
 
   const matchMenuKeys = useMemo(
