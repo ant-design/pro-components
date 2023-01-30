@@ -6,7 +6,9 @@
 } from '@ant-design/pro-form';
 import { Input } from 'antd';
 import { mount } from 'enzyme';
-import { act } from 'react-dom/test-utils';
+import { act, render, screen } from '@testing-library/react';
+import '@testing-library/jest-dom';
+import userEvent from '@testing-library/user-event';
 import { waitForComponentToPaint } from '../util';
 
 describe('ProFormFieldSet', () => {
@@ -206,7 +208,7 @@ describe('ProFormFieldSet', () => {
   it('😊 ProFormFieldSet convertValue', async () => {
     const fn = jest.fn();
     const valueFn = jest.fn();
-    const html = mount(
+    const { container, unmount } = render(
       <ProForm
         onFinish={async (values) => {
           fn(values.listKey);
@@ -248,19 +250,14 @@ describe('ProFormFieldSet', () => {
         />
       </ProForm>,
     );
-    expect(html.find('input#filedSet1').at(0).props().value).toBe('1');
-    expect(html.find('input#filedSet2').at(0).props().value).toBe('2');
-    expect(html.find('input#filedSet3').at(0).props().value).toBe('2-2');
-    await waitForComponentToPaint(html, 200);
 
-    act(() => {
-      html.find('button.ant-btn.ant-btn-primary').simulate('click');
-    });
+    expect(container.querySelector('#filedSet1')).toHaveValue('1');
+    expect(container.querySelector('#filedSet2')).toHaveValue('2');
+    expect(container.querySelector('#filedSet3')).toHaveValue('2-2');
 
-    await waitForComponentToPaint(html, 200);
+    await userEvent.click(await screen.findByText('提 交'));
 
-    // expect(fn).toBeCalledWith('1');
-
-    html.unmount();
+    expect(fn).toBeCalledWith('2');
+    unmount();
   });
 });
