@@ -10,7 +10,8 @@ import {
   ProFormTimePicker,
 } from '@ant-design/pro-form';
 import '@testing-library/jest-dom';
-import { act, render } from '@testing-library/react';
+import { act, render, screen } from '@testing-library/react';
+import userEvent from '@testing-library/user-event';
 import dayjs from 'dayjs';
 import { mount } from 'enzyme';
 import KeyCode from 'rc-util/lib/KeyCode';
@@ -492,6 +493,7 @@ describe('LightFilter', () => {
       wrapper.unmount();
     });
   });
+
   it(' 🪕 ProFormRadio', async () => {
     const onFinish = jest.fn();
     const wrapper = mount(
@@ -598,7 +600,7 @@ describe('LightFilter', () => {
   });
 
   it(' 🪕 allowClear false', async () => {
-    const wrapper = mount(
+    const { container, unmount } = render(
       <LightFilter
         initialValues={{
           name1: 'yutingzhao1991',
@@ -647,18 +649,13 @@ describe('LightFilter', () => {
         />
       </LightFilter>,
     );
-    await waitForComponentToPaint(wrapper);
-    expect(wrapper.find('.ant-pro-core-field-label .anticon-close').length).toEqual(0);
-    act(() => {
-      wrapper.find('.ant-pro-core-field-label').at(1).simulate('click');
-    });
-    await waitForComponentToPaint(wrapper, 100);
 
-    expect(wrapper.find('.ant-input').length).toEqual(1);
-    expect(wrapper.find('.ant-input-suffix .close-circle').length).toEqual(0);
-    act(() => {
-      wrapper.unmount();
-    });
+    expect(container.querySelectorAll('.ant-pro-core-field-label .anticon-close')).toHaveLength(0);
+    await userEvent.click(container.querySelectorAll('.ant-pro-core-field-label')[1]);
+
+    expect(await screen.findByDisplayValue('yutingzhao1991')).toBeInTheDocument();
+    expect(container.querySelectorAll('.ant-input-suffix .close-circle')).toHaveLength(0);
+    unmount();
   });
 
   it('🪕 ProFormField support lightProps', () => {
