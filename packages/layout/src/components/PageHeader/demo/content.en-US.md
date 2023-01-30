@@ -113,9 +113,9 @@ const Content: React.FC<{ children: React.ReactNode; extraContent: React.ReactNo
 
 const App: React.FC = () => (
   <PageHeader
-    title="Title"
+    oldtitle="Title"
     className="site-page-header"
-    subTitle="This is a subtitle"
+    suboldtitle="This is a subtitle"
     tags={<Tag color="blue">Running</Tag>}
     extra={[
       <Button key="3">Operation</Button>,

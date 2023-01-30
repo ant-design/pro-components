@@ -13,19 +13,19 @@ EditableProTable is essentially the same as ProTable, with a few presets added t
 
 ### Editable forms
 
-<code src="./demos/basic.tsx" background="#f5f5f5" height="420px" title="Editable Form"></code>
+<code src="./demos/basic.tsx" background="#f5f5f5" height="420px" oldtitle="Editable Form"></code>
 
 ### Link with content outside the edit form
 
-<code src="./demos/form-linkage.tsx" background="#f5f5f5" height="420px" title="Link with content outside the edit form"></code>
+<code src="./demos/form-linkage.tsx" background="#f5f5f5" height="420px" oldtitle="Link with content outside the edit form"></code>
 
 ### Custom Editable Tables
 
-<code src="./demos/custom.tsx" background="#f5f5f5" height="420px" title="Custom Editable Form"></code>
+<code src="./demos/custom.tsx" background="#f5f5f5" height="420px" oldtitle="Custom Editable Form"></code>
 
 ### Live Saved Editable Forms
 
-<code src="./demos/real-time-editing.tsx" background="#f5f5f5" height="420px" title="Real-time saved editing form"></code>
+<code src="./demos/real-time-editing.tsx" background="#f5f5f5" height="420px" oldtitle="Real-time saved editing form"></code>
 
 ## API
 

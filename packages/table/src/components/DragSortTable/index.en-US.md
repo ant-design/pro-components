@@ -13,11 +13,11 @@ nav:
 
 ### Drag to sort
 
-<code src="./demos/drag.tsx" background="#f5f5f5" height="360px" title="Drag sort"></code>
+<code src="./demos/drag.tsx" background="#f5f5f5" height="360px" oldtitle="Drag sort"></code>
 
 ### Drag and drop to sort and edit the table
 
-<code src="./demos/drag-sort-table.tsx" background="#f5f5f5" height="360px" title="Editable table"></code>
+<code src="./demos/drag-sort-table.tsx" background="#f5f5f5" height="360px" oldtitle="Editable table"></code>
 
 ## API
 

@@ -153,7 +153,7 @@ ProForm is the best choice when you want to implement a form quickly but don't w
 
 supported in `ProForm`, `SchemaForm`, `ModalForm`, `DrawerForm`, `StepsForm`
 
-<code src="./demos/form-layout-grid.tsx" title="Grid layout"></code>
+<code src="./demos/form-layout-grid.tsx" oldtitle="Grid layout"></code>
 
 ### Form's layout toggle
 
@@ -173,7 +173,7 @@ supported in `ProForm`, `SchemaForm`, `ModalForm`, `DrawerForm`, `StepsForm`
 
 ### Money
 
-<code src="./demos/money.tsx" height="248px" title="Money"></code>
+<code src="./demos/money.tsx" height="248px" oldtitle="Money"></code>
 
 ### Form linkage
 

@@ -16,47 +16,47 @@ Based on ProTable implementation, it can be considered as a special case of ProT
 
 ### Basic usage
 
-<code src="./demos/base.tsx" background="#f5f5f5" title="Basic usage"></code>
+<code src="./demos/base.tsx" background="#f5f5f5" oldtitle="Basic usage"></code>
 
 ### Edit list
 
-<code src="./demos/editable.tsx" background="#f5f5f5" title="Edit list"></code>
+<code src="./demos/editable.tsx" background="#f5f5f5" oldtitle="Edit list"></code>
 
 ### Support for expanded lists
 
-<code src="./demos/expand.tsx" background="#f5f5f5" title="Expandable list"></code>
+<code src="./demos/expand.tsx" background="#f5f5f5" oldtitle="Expandable list"></code>
 
 ### Supports checked list
 
-<code src="./demos/selectedRow.tsx" background="#f5f5f5" title="Support selected list"></code>
+<code src="./demos/selectedRow.tsx" background="#f5f5f5" oldtitle="Support selected list"></code>
 
 ### Query list
 
-<code src="./demos/search.tsx" background="#f5f5f5" title="Search list"></code>
+<code src="./demos/search.tsx" background="#f5f5f5" oldtitle="Search list"></code>
 
 ### List with filters and asynchronous requests
 
-<code src="./demos/filter.tsx" background="#f5f5f5" title="List with filtering and asynchronous requests"></code>
+<code src="./demos/filter.tsx" background="#f5f5f5" oldtitle="List with filtering and asynchronous requests"></code>
 
 ### Size and dividing line
 
-<code src="./demos/size.tsx" background="#f5f5f5" title="Size and divider"></code>
+<code src="./demos/size.tsx" background="#f5f5f5" oldtitle="Size and divider"></code>
 
 ### Vertical style
 
-<code src="./demos/layout.tsx" background="#f5f5f5" title="vertical style"></code>
+<code src="./demos/layout.tsx" background="#f5f5f5" oldtitle="vertical style"></code>
 
 ### some preset modes
 
-<code src="./demos/special.tsx" background="#f5f5f5" title="Some preset modes"></code>
+<code src="./demos/special.tsx" background="#f5f5f5" oldtitle="Some preset modes"></code>
 
 ### page turn
 
-<code src="./demos/pagination.tsx" background="#f5f5f5" title="Pagination"></code>
+<code src="./demos/pagination.tsx" background="#f5f5f5" oldtitle="Pagination"></code>
 
 ### Card List
 
-<code src="./demos/card-list.tsx" background="#f5f5f5" title="Card list"></code>
+<code src="./demos/card-list.tsx" background="#f5f5f5" oldtitle="Card list"></code>
 
 ##API
 
