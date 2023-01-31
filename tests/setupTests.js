@@ -1,5 +1,3 @@
-import Adapter from '@cfaester/enzyme-adapter-react-18';
-import Enzyme from 'enzyme';
 import 'jest-canvas-mock';
 import { enableFetchMocks } from 'jest-fetch-mock';
 import MockDate from 'mockdate';
@@ -26,8 +24,6 @@ jest.mock('react', () => ({
 }));
 
 jest.setTimeout(60000);
-
-Enzyme.configure({ adapter: new Adapter() });
 
 /* eslint-disable global-require */
 if (typeof window !== 'undefined') {
