@@ -76,6 +76,7 @@ export default defineConfig({
       min-height: 500px;
       max-height: 500px;
       display: flex;
+      overflow: auto;
       flex-direction: column;
     }
     .dumi-default-previewer-demo > iframe {

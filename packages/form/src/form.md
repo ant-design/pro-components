@@ -202,7 +202,9 @@ formRef 内置了几个方法来获取转化之后的值，这也是相比 antd 
 
 <code src="./demos/linkage-customization.tsx" height="1774px" debug></code>
 
-<code src="./demos/pro-form-dependency.debug.tsx" height="548px" title="formRef的使用" debug></code> <code src="./demos/label-col.tsx" height="548px" debug></code>
+<code src="./demos/pro-form-dependency.debug.tsx" height="548px" title="formRef的使用" debug></code>
+
+<code src="./demos/label-col.tsx" height="548px" debug></code>
 
 ## ProForm
 

@@ -3,7 +3,6 @@ import type { ProColumns } from '@ant-design/pro-components';
 import { arrayMoveImmutable, ProTable, useRefFunction } from '@ant-design/pro-components';
 import { useState } from 'react';
 import { SortableContainer, SortableElement, SortableHandle } from 'react-sortable-hoc';
-import './drag.less';
 
 const DragHandle = SortableHandle(() => <MenuOutlined style={{ cursor: 'grab', color: '#999' }} />);
 

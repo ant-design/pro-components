@@ -21,17 +21,11 @@ return <Skeleton type="list" />;
 
 ## DEMO
 
-### List
+<code src="./demos/list.tsx" title="列表页面" height="903px"></code>
 
-<code src="./demos/list.tsx" title="List" height="903px"></code>
-
-<code src="./demos/list.static.tsx" title="List" debug></code>
-
-### 结果页
+<code src="./demos/list.static.tsx" title="静态列表" debug></code>
 
 <code src="./demos/result.tsx" title="结果页"></code>
-
-### 详情页
 
 <code src="./demos/descriptions.tsx" title="详情页"></code>
 

@@ -2,7 +2,6 @@ import { DownOutlined, UpOutlined } from '@ant-design/icons';
 import { ProForm, ProFormDatePicker, ProFormText, QueryFilter } from '@ant-design/pro-components';
 import { Card, Input, Tabs } from 'antd';
 import React, { useState } from 'react';
-import styles from './search-filter.module.less';
 
 const { TabPane } = Tabs;
 
@@ -19,11 +18,7 @@ const AdvancedSearch: React.FC<AdvancedSearchProps> = (props) => {
   const [showFilter, setShowFilter] = useState<boolean>(true);
   const quickSearch = ['小程序开发', '入驻', 'ISV 权限'];
   return (
-    <Card
-      bodyStyle={{ paddingBlockEnd: 0 }}
-      bordered={false}
-      className={showFilter ? '' : styles.hiddenFilter}
-    >
+    <Card bodyStyle={{ paddingBlockEnd: 0 }} bordered={false}>
       <div>
         <Input.Search
           placeholder="请输入"

@@ -3,8 +3,6 @@ import { ProCard, ProTable } from '@ant-design/pro-components';
 import type { BadgeProps } from 'antd';
 import { Badge, Button } from 'antd';
 import React, { useEffect, useState } from 'react';
-// @ts-ignore
-import styles from './split.less';
 
 type TableListItem = {
   createdAtRange?: number[];
@@ -104,7 +102,7 @@ type IPListProps = {
 };
 
 const IPList: React.FC<IPListProps> = (props) => {
-  const { onChange, ip } = props;
+  const { onChange } = props;
 
   const columns: ProColumns<IpListItem>[] = [
     {
@@ -155,9 +153,6 @@ const IPList: React.FC<IPListProps> = (props) => {
         });
       }}
       rowKey="ip"
-      rowClassName={(record) => {
-        return record.ip === ip ? styles['split-row-select-active'] : '';
-      }}
       toolbar={{
         search: {
           onSearch: (value) => {
