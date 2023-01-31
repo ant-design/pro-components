@@ -31,7 +31,7 @@ const AdvancedSearch: React.FC<AdvancedSearchProps> = (props) => {
           onSearch={onSearch}
           style={{ maxWidth: 522, width: '100%' }}
         />
-        <div className={styles.quickSearch}>
+        <div>
           {quickSearch.map((text) => (
             <span
               key={text}
@@ -53,7 +53,10 @@ const AdvancedSearch: React.FC<AdvancedSearchProps> = (props) => {
         onChange={onTypeChange}
         tabBarExtraContent={
           <a
-            className={styles.filterTrigger}
+            style={{
+              display: 'flex',
+              gap: 4,
+            }}
             onClick={() => {
               setShowFilter(!showFilter);
             }}
@@ -67,14 +70,7 @@ const AdvancedSearch: React.FC<AdvancedSearchProps> = (props) => {
         <TabPane tab="应用" key="applications" />
       </Tabs>
 
-      <QueryFilter
-        submitter={false}
-        span={24}
-        labelWidth="auto"
-        split
-        onChange={onFilterChange}
-        className={styles.filter}
-      >
+      <QueryFilter submitter={false} span={24} labelWidth="auto" split onChange={onFilterChange}>
         <ProForm.Group title="姓名">
           <ProFormText name="name" />
         </ProForm.Group>
