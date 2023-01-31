@@ -1,15 +1,13 @@
 import ProTable from '@ant-design/pro-table';
-import { mount } from 'enzyme';
-import { act, render } from '@testing-library/react';
+import { fireEvent, render, screen } from '@testing-library/react';
 import '@testing-library/jest-dom';
 import userEvent from '@testing-library/user-event';
-import { waitForComponentToPaint } from '../util';
 import { getFetchData } from './demo';
 
 describe('BasicTable Search', () => {
   it('🎏 filter test', async () => {
     const fn = jest.fn();
-    const html = mount(
+    const { container } = render(
       <ProTable
         size="small"
         columns={[
@@ -47,39 +45,21 @@ describe('BasicTable Search', () => {
         rowKey="key"
       />,
     );
-    await waitForComponentToPaint(html, 200);
 
-    act(() => {
-      html.find('span.ant-table-filter-trigger').simulate('click');
+    await userEvent.click(container.querySelector('span.ant-table-filter-trigger')!);
+    fireEvent.click(screen.getAllByText('关闭')[1], {
+      target: {
+        checked: true,
+      },
     });
+    await userEvent.click(await screen.findByText('确 定'));
 
-    await waitForComponentToPaint(html, 800);
-    act(() => {
-      html.find('span.ant-table-filter-trigger').simulate('click');
-      html
-        .find('.ant-table-filter-dropdown .ant-dropdown-menu-item')
-        .at(0)
-        .simulate('click', {
-          target: {
-            checked: true,
-          },
-        });
-    });
-
-    await waitForComponentToPaint(html, 500);
-    act(() => {
-      html
-        .find('.ant-table-filter-dropdown-btns .ant-btn.ant-btn-primary.ant-btn-sm')
-        .simulate('click');
-    });
-
-    await waitForComponentToPaint(html, 500);
-    expect(fn).toBeCalledTimes(1);
+    expect(fn).toHaveBeenCalledTimes(1);
   });
 
   it('🎏 filter test', async () => {
     const fn = jest.fn();
-    const html = mount(
+    const { container } = render(
       <ProTable
         size="small"
         columns={[
@@ -118,33 +98,15 @@ describe('BasicTable Search', () => {
         rowKey="key"
       />,
     );
-    await waitForComponentToPaint(html, 200);
 
-    act(() => {
-      html.find('span.ant-table-filter-trigger').simulate('click');
+    await userEvent.click(container.querySelector('span.ant-table-filter-trigger')!);
+    fireEvent.click(screen.getByText('关闭'), {
+      target: {
+        checked: true,
+      },
     });
+    await userEvent.click(await screen.findByText('确 定'));
 
-    await waitForComponentToPaint(html, 800);
-    act(() => {
-      html.find('span.ant-table-filter-trigger').simulate('click');
-      html
-        .find('.ant-table-filter-dropdown .ant-dropdown-menu-item')
-        .at(0)
-        .simulate('click', {
-          target: {
-            checked: true,
-          },
-        });
-    });
-
-    await waitForComponentToPaint(html, 500);
-    act(() => {
-      html
-        .find('.ant-table-filter-dropdown-btns .ant-btn.ant-btn-primary.ant-btn-sm')
-        .simulate('click');
-    });
-
-    await waitForComponentToPaint(html, 500);
     expect(fn).toHaveBeenCalledTimes(1);
   });
 

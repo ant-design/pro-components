@@ -10,10 +10,9 @@ import {
   ProFormTimePicker,
 } from '@ant-design/pro-form';
 import '@testing-library/jest-dom';
-import { act, render, screen } from '@testing-library/react';
+import { act, fireEvent, render, screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import dayjs from 'dayjs';
-import { mount } from 'enzyme';
 import KeyCode from 'rc-util/lib/KeyCode';
 import { waitForComponentToPaint } from '../util';
 
@@ -21,7 +20,7 @@ describe('LightFilter', () => {
   it(' 🪕 basic use', async () => {
     const onValuesChange = jest.fn();
     const onFinish = jest.fn();
-    const wrapper = mount(
+    const { container } = render(
       <LightFilter
         initialValues={{
           name1: 'yutingzhao1991',
@@ -35,107 +34,77 @@ describe('LightFilter', () => {
         <ProFormDatePicker name="name3" label="日期" />
       </LightFilter>,
     );
-    expect(wrapper.find('div.ant-col.ant-form-item-control').length).toEqual(2);
-    expect(wrapper.find('.ant-pro-core-field-label').at(0).text()).toEqual('名称: yutingzhao1991');
-    expect(wrapper.find('.ant-pro-core-field-label').at(1).text()).toEqual('日期: 2020-08-19');
-    act(() => {
-      // click open more drowdown
-      wrapper.find('.ant-pro-core-field-dropdown-label').at(1).simulate('click');
+
+    expect(container.querySelectorAll('div.ant-col.ant-form-item-control')).toHaveLength(2);
+    expect(container.querySelectorAll('.ant-pro-core-field-label')[0]).toHaveTextContent(
+      '名称: yutingzhao1991',
+    );
+    expect(container.querySelectorAll('.ant-pro-core-field-label')[1]).toHaveTextContent(
+      '日期: 2020-08-19',
+    );
+
+    await userEvent.click(container.querySelectorAll('.ant-pro-core-field-label')[0]);
+    fireEvent.change(screen.getByDisplayValue('yutingzhao1991'), {
+      target: {
+        value: 'name1 update',
+      },
     });
-
-    await waitForComponentToPaint(wrapper);
-
-    expect(wrapper.find('div.ant-col.ant-form-item-control').length).toEqual(3);
-
-    act(() => {
-      // change input in drowdown
-      wrapper.find('.ant-pro-core-field-dropdown-content .ant-input').simulate('change', {
-        target: {
-          value: 'new value',
-          name3: '2020-08-19',
-        },
-      });
-      wrapper.find('.ant-pro-core-dropdown-footer .ant-btn.ant-btn-primary').simulate('click');
-    });
-    await waitForComponentToPaint(wrapper);
+    await userEvent.click(await screen.findByText('确 认'));
 
     expect(onValuesChange).toHaveBeenCalledWith({
-      name1: 'yutingzhao1991',
-      name2: 'new value',
-      name3: '2020-08-19',
-    });
-    expect(onFinish).toHaveBeenCalledWith({
-      name1: 'yutingzhao1991',
-      name2: 'new value',
+      name1: 'name1 update',
       name3: '2020-08-19',
     });
 
-    act(() => {
-      // clear input
-      wrapper.find('.ant-pro-core-field-label .anticon-close').at(0).simulate('click');
-    });
-    await waitForComponentToPaint(wrapper);
+    await userEvent.click(screen.getByText('更多筛选'));
 
-    expect(onValuesChange).toHaveBeenCalledWith({
-      name2: 'new value',
-      name3: '2020-08-19',
-    });
-    await waitForComponentToPaint(wrapper);
+    expect(screen.getByLabelText('地址')).toBeInTheDocument();
 
-    expect(onFinish).toHaveBeenCalledWith({
-      name2: 'new value',
-      name3: '2020-08-19',
+    fireEvent.change(screen.getAllByPlaceholderText('请输入')[1], {
+      target: {
+        value: 'new value',
+      },
     });
-    expect(wrapper.find('div.ant-col.ant-form-item-control').length).toEqual(3);
-    act(() => {
-      // change outside input
-      wrapper.find('.ant-pro-core-field-label').at(0).simulate('click');
-    });
-    await waitForComponentToPaint(wrapper);
 
-    act(() => {
-      wrapper
-        .find('.ant-input')
-        .at(0)
-        .simulate('change', {
-          target: {
-            value: 'name1 update',
-          },
-        });
-    });
-    await waitForComponentToPaint(wrapper);
-
-    act(() => {
-      wrapper.find('.ant-btn.ant-btn-primary').at(0).simulate('click');
-    });
-    await waitForComponentToPaint(wrapper);
+    await userEvent.click(await screen.findAllByText('确 认')[1]);
 
     expect(onValuesChange).toHaveBeenCalledWith({
       name1: 'name1 update',
       name2: 'new value',
       name3: '2020-08-19',
     });
-
-    act(() => {
-      // DatePicker click
-      wrapper.find('.ant-pro-core-field-label').at(1).simulate('click');
+    expect(onFinish).toHaveBeenCalledWith({
+      name1: 'name1 update',
+      name2: 'new value',
+      name3: '2020-08-19',
     });
-    await waitForComponentToPaint(wrapper);
 
-    act(() => {
-      wrapper.find('.ant-picker-cell-in-view').at(0).simulate('click');
-    });
-    await waitForComponentToPaint(wrapper);
+    await userEvent.click(screen.getByText('2020-08-19'));
+    await userEvent.click(await screen.findByTitle('2020-08-01'));
 
     expect(onFinish).toHaveBeenCalledWith({
       name1: 'name1 update',
       name2: 'new value',
       name3: '2020-08-01',
     });
+
+    await userEvent.click(
+      container.querySelectorAll('.ant-pro-core-field-label .anticon-close')[0],
+    );
+
+    expect(onValuesChange).toHaveBeenCalledWith({
+      name2: 'new value',
+      name3: '2020-08-01',
+    });
+    expect(onFinish).toHaveBeenCalledWith({
+      name2: 'new value',
+      name3: '2020-08-01',
+    });
+    expect(container.querySelectorAll('div.ant-col.ant-form-item-control')).toHaveLength(2);
   });
 
   it(' 🪕 single select', async () => {
-    const wrapper = mount(
+    const { container, unmount } = render(
       <LightFilter
         initialValues={{
           name: 'Jack2',
@@ -153,33 +122,29 @@ describe('LightFilter', () => {
       </LightFilter>,
     );
 
-    expect(wrapper.find('.ant-pro-core-field-label').text()).toEqual('名称: 杰克2');
-    expect(wrapper.find('.ant-pro-core-field-label-arrow.anticon-down').length).toEqual(1);
-    act(() => {
-      wrapper.find('.ant-pro-core-field-label').simulate('click');
-    });
-    await waitForComponentToPaint(wrapper);
-    expect(wrapper.find('.ant-pro-core-field-label-arrow.anticon-down').length).toEqual(1);
-    act(() => {
-      wrapper.find('.ant-select-item').at(0).simulate('click');
-    });
-    await waitForComponentToPaint(wrapper);
-    expect(wrapper.find('.ant-pro-core-field-label').text()).toEqual('名称: 杰克');
+    expect(container.querySelector('.ant-pro-core-field-label')).toHaveTextContent('名称: 杰克2');
+    expect(container.querySelectorAll('.ant-pro-core-field-label-arrow.anticon-down')).toHaveLength(
+      1,
+    );
 
-    act(() => {
-      // close
-      wrapper.find('.ant-pro-core-field-label .anticon-close').simulate('click');
-    });
-    await waitForComponentToPaint(wrapper);
-    expect(wrapper.find('.ant-pro-core-field-label').text()).toEqual('名称');
+    await userEvent.click(container.querySelector('.ant-pro-core-field-label')!);
 
-    act(() => {
-      wrapper.unmount();
-    });
+    expect(container.querySelectorAll('.ant-pro-core-field-label-arrow.anticon-down')).toHaveLength(
+      1,
+    );
+
+    await userEvent.click(await screen.findByText('杰克'));
+
+    expect(container.querySelector('.ant-pro-core-field-label')).toHaveTextContent('名称: 杰克');
+
+    await userEvent.click(container.querySelector('.ant-pro-core-field-label .anticon-close')!);
+
+    expect(container.querySelector('.ant-pro-core-field-label')).toHaveTextContent('名称');
+    unmount();
   });
 
   it(' 🪕 QueryFilter FormItem support footerRender', async () => {
-    const wrapper = mount(
+    const { container, unmount } = render(
       <LightFilter
         initialValues={{
           name: 'Jack2',
@@ -191,23 +156,16 @@ describe('LightFilter', () => {
       </LightFilter>,
     );
 
-    expect(wrapper.find('.ant-pro-form-light-filter-effective').length).toEqual(1);
+    expect(container.querySelectorAll('.ant-pro-form-light-filter-effective')).toHaveLength(1);
 
-    act(() => {
-      wrapper.find('.ant-pro-form-light-filter-container').simulate('click');
-    });
+    await userEvent.click(container.querySelector('.ant-pro-form-light-filter-container')!);
 
-    await waitForComponentToPaint(wrapper);
-
-    expect(wrapper.find('.ant-pro-core-dropdown-footer').length).toEqual(0);
-
-    act(() => {
-      wrapper.unmount();
-    });
+    expect(container.querySelectorAll('.ant-pro-core-dropdown-footer')).toHaveLength(0);
+    unmount();
   });
 
   it(' 🪕 QueryFilter FormItem support footer', async () => {
-    const wrapper = mount(
+    const { container, unmount } = render(
       <LightFilter
         initialValues={{
           name: 'Jack2',
@@ -217,21 +175,14 @@ describe('LightFilter', () => {
       </LightFilter>,
     );
 
-    act(() => {
-      wrapper.find('.ant-pro-core-field-label').at(0).simulate('click');
-    });
+    await userEvent.click(container.querySelectorAll('.ant-pro-core-field-label')[0]);
 
-    await waitForComponentToPaint(wrapper);
-
-    expect(wrapper.find('.ant-pro-core-dropdown-footer').length).toEqual(0);
-
-    act(() => {
-      wrapper.unmount();
-    });
+    expect(container.querySelectorAll('.ant-pro-core-dropdown-footer')).toHaveLength(0);
+    unmount();
   });
 
   it(' 🪕 select showSearch', async () => {
-    const wrapper = mount(
+    const { container, unmount } = render(
       <LightFilter
         initialValues={{
           name: 'Jack2',
@@ -250,40 +201,34 @@ describe('LightFilter', () => {
       </LightFilter>,
     );
 
-    expect(wrapper.find('.ant-pro-core-field-label').text()).toEqual('名称: 杰克2');
-    expect(wrapper.find('.ant-pro-core-field-label-arrow.anticon-down').length).toEqual(1);
-    act(() => {
-      wrapper.find('.ant-pro-core-field-label').simulate('click');
-    });
-    await waitForComponentToPaint(wrapper);
-    expect(wrapper.find('.ant-pro-core-field-label-arrow.anticon-down').length).toEqual(1);
-    act(() => {
-      wrapper.find('.ant-input').simulate('change', {
-        target: {
-          value: 'tech',
-        },
-      });
-    });
-    await waitForComponentToPaint(wrapper);
-    act(() => {
-      wrapper.find('.ant-select-item').at(0).simulate('click');
-    });
-    await waitForComponentToPaint(wrapper);
-    expect(wrapper.find('.ant-pro-core-field-label').text()).toEqual('名称: TechUI');
-    act(() => {
-      // close
-      wrapper.find('.ant-pro-core-field-label .anticon-close').simulate('click');
-    });
-    await waitForComponentToPaint(wrapper);
-    expect(wrapper.find('.ant-pro-core-field-label').text()).toEqual('名称');
+    expect(container.querySelector('.ant-pro-core-field-label')).toHaveTextContent('名称: 杰克2');
+    expect(container.querySelectorAll('.ant-pro-core-field-label-arrow.anticon-down')).toHaveLength(
+      1,
+    );
 
-    act(() => {
-      wrapper.unmount();
+    await userEvent.click(container.querySelector('.ant-pro-core-field-label')!);
+
+    expect(container.querySelectorAll('.ant-pro-core-field-label-arrow.anticon-down')).toHaveLength(
+      1,
+    );
+
+    fireEvent.change(await screen.findByRole('textbox'), {
+      target: {
+        value: 'tech',
+      },
     });
+    await userEvent.click(await screen.findByTitle('TechUI'));
+
+    expect(container.querySelector('.ant-pro-core-field-label')).toHaveTextContent('名称: TechUI');
+
+    await userEvent.click(container.querySelector('.ant-pro-core-field-label .anticon-close')!);
+
+    expect(container.querySelector('.ant-pro-core-field-label')).toHaveTextContent('名称');
+    unmount();
   });
 
   it(' 🪕 multiple select showSearch', async () => {
-    const wrapper = mount(
+    const { container, unmount } = render(
       <LightFilter
         initialValues={{
           name: ['Jack2'],
@@ -304,199 +249,121 @@ describe('LightFilter', () => {
       </LightFilter>,
     );
 
-    expect(wrapper.find('.ant-pro-core-field-label').text()).toEqual('名称: 杰克2');
-    expect(wrapper.find('.ant-pro-core-field-label-arrow.anticon-down').length).toEqual(1);
-    act(() => {
-      wrapper.find('.ant-pro-core-field-label').simulate('click');
-    });
-    await waitForComponentToPaint(wrapper);
-    expect(wrapper.find('.ant-pro-core-field-label-arrow.anticon-down').length).toEqual(1);
-    act(() => {
-      wrapper.find('.ant-input').simulate('change', {
-        target: {
-          value: 'tech',
-        },
-      });
-    });
-    await waitForComponentToPaint(wrapper);
-    act(() => {
-      wrapper.find('.ant-select-item').at(0).simulate('click');
-    });
-    await waitForComponentToPaint(wrapper);
-    act(() => {
-      wrapper.find('.ant-input').simulate('change', {
-        target: {
-          value: 'YES',
-        },
-      });
-    });
-    await waitForComponentToPaint(wrapper);
-    act(() => {
-      wrapper.find('.ant-select-item').at(0).simulate('click');
-    });
-    await waitForComponentToPaint(wrapper);
-    expect(wrapper.find('.ant-pro-core-field-label').text()).toEqual(
-      '名称: 杰克2,TechUI,YES这是一个很长很长的测试阿aa阿ABCDEFGHIJKL...3项',
+    expect(container.querySelector('.ant-pro-core-field-label')).toHaveTextContent('名称: 杰克2');
+    expect(container.querySelectorAll('.ant-pro-core-field-label-arrow.anticon-down')).toHaveLength(
+      1,
     );
-    act(() => {
-      // press Backspace
-      wrapper.find('.ant-input').simulate('keyDown', { which: KeyCode.BACKSPACE });
+
+    await userEvent.click(container.querySelector('.ant-pro-core-field-label')!);
+
+    expect(container.querySelectorAll('.ant-pro-core-field-label-arrow.anticon-down')).toHaveLength(
+      1,
+    );
+
+    fireEvent.change(await screen.findByRole('textbox'), {
+      target: {
+        value: 'tech',
+      },
     });
+    await userEvent.click(await screen.findByTitle('TechUI'));
+    fireEvent.change(await screen.findByRole('textbox'), {
+      target: {
+        value: 'YES',
+      },
+    });
+    await userEvent.click(await screen.findByTitle('YES这是一个很长很长的测试阿aa阿ABCDEFGHIJKLM'));
 
-    await waitForComponentToPaint(wrapper);
-
-    expect(wrapper.find('.ant-pro-core-field-label').text()).toEqual(
+    expect(container.querySelector('.ant-pro-core-field-label')?.textContent).toEqual(
       '名称: 杰克2,TechUI,YES这是一个很长很长的测试阿aa阿ABCDEFGHIJKL...3项',
     );
 
-    act(() => {
-      wrapper.unmount();
+    fireEvent.keyDown(await screen.findByRole('textbox'), {
+      target: {
+        which: KeyCode.BACKSPACE,
+      },
     });
+
+    expect(container.querySelector('.ant-pro-core-field-label')?.textContent).toEqual(
+      '名称: 杰克2,TechUI,YES这是一个很长很长的测试阿aa阿ABCDEFGHIJKL...3项',
+    );
+    unmount();
   });
 
   it(' 🪕 DateRangePicker', async () => {
     const onFinish = jest.fn();
-    const wrapper = mount(
+    const { baseElement, container, unmount } = render(
       <LightFilter onFinish={onFinish}>
         <ProFormDateRangePicker name="date" label="日期范围" />
       </LightFilter>,
     );
-    await waitForComponentToPaint(wrapper);
-    expect(wrapper.find('.ant-pro-core-field-label').text()).toEqual('日期范围');
 
-    act(() => {
-      wrapper.find('.ant-pro-core-field-label').simulate('click');
-    });
-    await waitForComponentToPaint(wrapper);
+    expect(container.querySelector('.ant-pro-core-field-label')).toHaveTextContent('日期范围');
 
-    act(() => {
-      wrapper.find('div.ant-picker-range').simulate('click');
-    });
-    await waitForComponentToPaint(wrapper, 100);
+    await userEvent.click(container.querySelector('.ant-pro-core-field-label')!);
+    await userEvent.click(screen.getAllByPlaceholderText('请选择')[0]);
+    await userEvent.click(baseElement.querySelectorAll('.ant-picker-cell-inner')[2]);
+    await userEvent.click(baseElement.querySelectorAll('.ant-picker-cell-inner')[12]);
+    await userEvent.click(await screen.findByText('确 认'));
 
-    act(() => {
-      wrapper.find('.ant-picker-cell-inner').at(2).simulate('click');
-    });
-    await waitForComponentToPaint(wrapper);
-
-    act(() => {
-      wrapper.find('.ant-picker-cell-inner').at(12).simulate('click');
-    });
-    await waitForComponentToPaint(wrapper);
-
-    act(() => {
-      wrapper.find('.ant-pro-core-dropdown-footer .ant-btn-primary').simulate('click');
-    });
-    await waitForComponentToPaint(wrapper);
-
-    expect(wrapper.find('.ant-pro-core-field-label').text()).toMatchSnapshot();
-
-    await waitForComponentToPaint(wrapper);
+    expect(container.querySelector('.ant-pro-core-field-label')?.textContent).toMatchSnapshot();
     expect(onFinish).toHaveBeenCalledWith({ date: ['2016-11-01', '2016-11-11'] });
 
-    act(() => {
-      // close
-      wrapper.find('.ant-pro-core-field-label .anticon-close').simulate('click');
-    });
-    await waitForComponentToPaint(wrapper);
+    await userEvent.click(container.querySelector('.ant-pro-core-field-label .anticon-close')!);
 
-    expect(wrapper.find('.ant-pro-core-field-label').text()).toEqual('日期范围');
+    expect(container.querySelector('.ant-pro-core-field-label')?.textContent).toEqual('日期范围');
 
-    act(() => {
-      // 测试第二次再打开的情况
-      wrapper.find('.ant-pro-core-field-label').simulate('click');
-    });
-    await waitForComponentToPaint(wrapper);
+    // 测试第二次再打开的情况
+    await userEvent.click(container.querySelector('.ant-pro-core-field-label')!);
+    await userEvent.click(screen.getAllByPlaceholderText('请选择')[0]);
+    await userEvent.click(baseElement.querySelectorAll('.ant-picker-cell-inner')[2]);
+    await userEvent.click(baseElement.querySelectorAll('.ant-picker-cell-inner')[12]);
+    await userEvent.click(await screen.findByText('确 认'));
 
-    act(() => {
-      wrapper.find('div.ant-picker-range').simulate('click');
-    });
-    await waitForComponentToPaint(wrapper, 100);
-
-    act(() => {
-      wrapper.find('.ant-picker-cell-inner').at(2).simulate('click');
-    });
-    await waitForComponentToPaint(wrapper);
-    act(() => {
-      wrapper.find('.ant-picker-cell-inner').at(12).simulate('click');
-    });
-
-    await waitForComponentToPaint(wrapper);
-
-    act(() => {
-      wrapper.find('.ant-pro-core-dropdown-footer .ant-btn-primary').simulate('click');
-    });
-    await waitForComponentToPaint(wrapper);
-
-    expect(wrapper.find('.ant-pro-core-field-label').text()).toMatchSnapshot();
-    await waitForComponentToPaint(wrapper);
-    act(() => {
-      wrapper.unmount();
-    });
+    expect(container.querySelector('.ant-pro-core-field-label')?.textContent).toMatchSnapshot();
+    unmount();
   });
 
   it(' 🪕 DateTimePicker', async () => {
     const onFinish = jest.fn();
-    const wrapper = mount(
+    const { container, unmount } = render(
       <LightFilter onFinish={onFinish}>
         <ProFormDateTimePicker name="datetime" label="日期时间" />
       </LightFilter>,
     );
-    await waitForComponentToPaint(wrapper);
-    expect(wrapper.find('.ant-pro-core-field-label').text()).toEqual('日期时间');
-    act(() => {
-      wrapper.find('.ant-pro-core-field-label').simulate('click');
-    });
-    await waitForComponentToPaint(wrapper);
-    act(() => {
-      wrapper.find('.ant-picker-cell-inner').at(5).simulate('click');
-    });
-    await waitForComponentToPaint(wrapper);
-    act(() => {
-      wrapper.find('.ant-btn-primary').simulate('click');
-    });
-    await waitForComponentToPaint(wrapper);
 
-    expect(wrapper.find('.ant-pro-core-field-label').text()).toMatchSnapshot();
-    expect(onFinish).toHaveBeenCalledWith({ datetime: '2016-11-04 15:22:44' });
+    expect(container.querySelector('.ant-pro-core-field-label')).toHaveTextContent('日期时间');
 
-    await waitForComponentToPaint(wrapper);
-    act(() => {
-      wrapper.unmount();
-    });
+    await userEvent.click(container.querySelector('.ant-pro-core-field-label')!);
+    await userEvent.click(await screen.findByText('此刻'));
+
+    expect(onFinish).toHaveBeenCalledWith({ datetime: '2016-11-22 15:22:44' });
+    expect(container.querySelector('.ant-pro-core-field-label')?.textContent).toMatchSnapshot();
+    unmount();
   });
 
   it(' 🪕 TimePicker', async () => {
     const onFinish = jest.fn();
-    const wrapper = mount(
+    const { container, unmount } = render(
       <LightFilter onFinish={onFinish}>
         <ProFormTimePicker name="time" label="时间" />
       </LightFilter>,
     );
-    await waitForComponentToPaint(wrapper);
-    expect(wrapper.find('.ant-pro-core-field-label').text()).toEqual('时间');
-    act(() => {
-      wrapper.find('.ant-pro-core-field-label').simulate('click');
-    });
-    await waitForComponentToPaint(wrapper);
-    act(() => {
-      wrapper.find('.ant-picker-now-btn').simulate('click');
-    });
-    await waitForComponentToPaint(wrapper);
-    expect(wrapper.find('.ant-pro-core-field-label').text()).toEqual('时间: 15:22:44');
 
-    await waitForComponentToPaint(wrapper);
+    expect(container.querySelector('.ant-pro-core-field-label')).toHaveTextContent('时间');
+
+    await userEvent.click(container.querySelector('.ant-pro-core-field-label')!);
+    await userEvent.click(await screen.findByText('此刻'));
+
+    expect(container.querySelector('.ant-pro-core-field-label')).toHaveTextContent(
+      '时间: 15:22:44',
+    );
     expect(onFinish).toHaveBeenCalledWith({ time: '15:22:44' });
-
-    await waitForComponentToPaint(wrapper);
-    act(() => {
-      wrapper.unmount();
-    });
+    unmount();
   });
 
   it(' 🪕 ProFormRadio', async () => {
     const onFinish = jest.fn();
-    const wrapper = mount(
+    const { container, unmount } = render(
       <LightFilter
         onFinish={onFinish}
         initialValues={{
@@ -528,26 +395,22 @@ describe('LightFilter', () => {
       </LightFilter>,
     );
 
-    await waitForComponentToPaint(wrapper, 100);
     expect(
-      wrapper.find('.ant-radio-button-wrapper.ant-radio-button-wrapper-checked').text(),
-    ).toEqual('每季度');
-    act(() => {
-      wrapper.find('.ant-radio-button-input').at(3).simulate('change');
-    });
-    await waitForComponentToPaint(wrapper, 100);
+      container.querySelector('.ant-radio-button-wrapper.ant-radio-button-wrapper-checked'),
+    ).toHaveTextContent('每季度');
+
+    await userEvent.click(screen.getByText('每年'));
+
     expect(
-      wrapper.find('.ant-radio-button-wrapper.ant-radio-button-wrapper-checked').text(),
-    ).toEqual('每年');
+      container.querySelector('.ant-radio-button-wrapper.ant-radio-button-wrapper-checked'),
+    ).toHaveTextContent('每年');
     expect(onFinish).toHaveBeenCalledWith({ radio: 'yearly' });
-    act(() => {
-      wrapper.unmount();
-    });
+    unmount();
   });
 
   it(' 🪕 collapse mode', async () => {
     const onChange = jest.fn();
-    const wrapper = mount(
+    const { container, unmount } = render(
       <LightFilter
         onValuesChange={(values) => {
           onChange(values.name);
@@ -572,31 +435,19 @@ describe('LightFilter', () => {
         <ProFormDateRangePicker label="时间范围" name="range2" />
       </LightFilter>,
     );
-    await waitForComponentToPaint(wrapper);
-    expect(wrapper.find('.collapselabel').text()).toEqual('open');
-    expect(wrapper.find('.ant-pro-form-light-filter-effective').length).toEqual(1);
-    act(() => {
-      wrapper.find('.collapselabel').simulate('click');
-    });
-    await waitForComponentToPaint(wrapper);
-    expect(wrapper.find('.ant-select-selection-item').text()).toEqual('蚂蚁');
 
-    act(() => {
-      // clear
-      wrapper.find('.ant-btn-link').simulate('click');
-    });
-    await waitForComponentToPaint(wrapper);
-    act(() => {
-      wrapper.find('.ant-btn-primary').simulate('click');
-    });
-    await waitForComponentToPaint(wrapper);
+    expect(container.querySelector('.collapselabel')).toHaveTextContent('open');
+    expect(container.querySelectorAll('.ant-pro-form-light-filter-effective')).toHaveLength(1);
+
+    await userEvent.click(container.querySelector('.collapselabel')!);
+    expect(screen.getByText('蚂蚁')).toBeInTheDocument();
+
+    await userEvent.click(screen.getByText('清除'));
+    await userEvent.click(screen.getByText('确 认'));
 
     expect(onChange).toHaveBeenCalledWith(undefined);
-    expect(wrapper.find('.ant-pro-form-light-filter-effective').length).toEqual(0);
-    await waitForComponentToPaint(wrapper);
-    act(() => {
-      wrapper.unmount();
-    });
+    expect(container.querySelectorAll('.ant-pro-form-light-filter-effective')).toHaveLength(0);
+    unmount();
   });
 
   it(' 🪕 allowClear false', async () => {
