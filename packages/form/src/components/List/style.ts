@@ -39,7 +39,7 @@ const genProStyle: GenerateStyle<ProToken> = (token) => {
           'div:first-of-type': {
             [`${token.antCls}-form-item`]: {
               [`${token.antCls}-form-item-label`]: {
-                display: 'nont',
+                display: 'none',
               },
             },
           },
