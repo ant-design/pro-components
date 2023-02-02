@@ -156,23 +156,19 @@ formRef 内置了几个方法来获取转化之后的值，这也是相比 antd 
 
 ## 代码示例
 
-### 基本使用
-
 <code src="./demos/base.tsx" height="974px" title="基本使用"></code>
 
 ### 标签与表单项布局
 
 除了 `LightFilter` 和 `QueryFilter` 这样固定布局的表单样式，其他表单布局支持配置与 `antd` 一致的三种布局方式。
 
-<code src="./demos/form-layout.tsx" title="标签与表单项布局" height="337px"></code>
+<code src="./demos/form-layout.tsx"  height="337px"></code>
 
 ### 栅格化布局
 
 同时支持在 `ProForm`, `SchemaForm`, `ModalForm`, `DrawerForm`, `StepsForm` 中使用
 
-<code src="./demos/form-layout-grid.tsx" title="栅格化布局" height="437px"></code>
-
-### 表单联动
+<code src="./demos/form-layout-grid.tsx" height="437px"></code>
 
 <code src="./demos/dependency.tsx" height="457px" title="表单联动"></code>
 
@@ -188,15 +184,9 @@ formRef 内置了几个方法来获取转化之后的值，这也是相比 antd 
 
 <code src="./demos/sync-to-url.tsx" height="371px" title="同步提交结果到 url"></code>
 
-### 金额
-
 <code src="./demos/money.tsx" height="629px" title="金额"></code>
 
-### 固定页脚
-
 <code src="./demos/layout-footer.tsx" height="500px" iframe="874px" title="固定页脚"></code>
-
-### ProForm 和 EditableTable 同时使用
 
 <code src="./demos/pro-form-editableTable.tsx" height="534px" title="ProForm 和 EditableTable 同时使用"></code>
 
