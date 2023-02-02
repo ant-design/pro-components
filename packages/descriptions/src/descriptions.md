@@ -1,7 +1,6 @@
 ---
 title: ProDescriptions - 定义列表
-nav:
-  title: 组件
+
   order: 1
 ---
 

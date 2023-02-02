@@ -1,9 +1,6 @@
 ---
 title: LoginForm/Page - 登录表单
 order: 2
-
-nav:
-  title: 组件
 ---
 
 # 登录表单

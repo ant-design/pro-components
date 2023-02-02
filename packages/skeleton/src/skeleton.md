@@ -1,8 +1,5 @@
 ---
 title: ProSkeleton - 骨架屏
-
-nav:
-  title: 组件
 ---
 
 # ProSkeleton - 骨架屏

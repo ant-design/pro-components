@@ -160,7 +160,7 @@ export default defineConfig({
           title: '数据录入',
           children: [
             {
-              title: 'ProForm - 高级表格',
+              title: 'ProForm - 高级表单',
               link: 'form',
             },
             {

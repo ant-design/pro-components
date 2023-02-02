@@ -1,9 +1,6 @@
 ---
 title: StatisticCard - 指标卡
 order: 1
-
-nav:
-  title: 组件
 ---
 
 # StatisticCard 指标卡

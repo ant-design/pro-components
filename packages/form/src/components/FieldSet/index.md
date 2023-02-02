@@ -1,9 +1,6 @@
 ---
 title: ProFormFields - 表单项
 order: 1
-
-nav:
-  title: 组件
 ---
 
 # ProFormFields 表单项

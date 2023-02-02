@@ -1,9 +1,6 @@
 ---
 title: Modal/Drawer - 浮层表单
 order: 2
-
-nav:
-  title: 组件
 ---
 
 # 浮层表单

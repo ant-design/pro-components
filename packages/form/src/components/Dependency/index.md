@@ -1,9 +1,6 @@
 ---
 title: ProFormDependency - 数据联动
 order: 1
-
-nav:
-  title: 组件
 ---
 
 # 数据联动

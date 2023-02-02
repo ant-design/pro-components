@@ -1,9 +1,6 @@
 ---
 title: Schema Form - JSON 表单
 order: 1
-
-nav:
-  title: 组件
 ---
 
 # Schema Form - JSON 表单

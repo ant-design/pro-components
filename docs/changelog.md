@@ -1,9 +1,5 @@
 ﻿---
 title: ProComponents - 更新日志
-nav:
-  title: Changelog
-  path: /changelog
-  order: 99
 ---
 
 ## @ant-design/pro-components@2.3.52

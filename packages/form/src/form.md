@@ -1,9 +1,6 @@
 ---
 title: ProForm - 高级表单
 order: 1
-
-nav:
-  title: 组件
 ---
 
 # ProForm 高级表单

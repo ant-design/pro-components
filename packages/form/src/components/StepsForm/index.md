@@ -1,9 +1,6 @@
 ---
 title: StepsForm - 分步表单
 order: 1
-
-nav:
-  title: 组件
 ---
 
 # StepsForm - 分步表单

@@ -1,8 +1,5 @@
 ---
 title: ProField - 原子组件
-
-nav:
-  title: 组件
 ---
 
 # ProField

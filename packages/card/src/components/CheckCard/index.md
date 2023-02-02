@@ -1,9 +1,6 @@
 ---
 title: CheckCard - 多选卡片
 order: 1
-
-nav:
-  title: 组件
 ---
 
 # CheckCard 多选卡片

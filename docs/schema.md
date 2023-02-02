@@ -1,9 +1,6 @@
 ﻿---
 title: 通用配置总览
 order: 1
-
-nav:
-  title: 组件
 ---
 
 # 通用配置

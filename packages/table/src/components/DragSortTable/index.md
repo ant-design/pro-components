@@ -1,8 +1,5 @@
 ﻿---
 title: DragSortTable - 拖动排序表格
-
-nav:
-  title: 组件
 ---
 
 # DragSortTable - 拖动排序表格

@@ -1,8 +1,5 @@
 ---
 title: EditableProTable - 可编辑表格
-
-nav:
-  title: 组件
 ---
 
 # EditableProTable - 可编辑表格

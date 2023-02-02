@@ -2,9 +2,6 @@
 title: ProTable - 高级表格
 order: 0
 legacy: /table
-
-nav:
-  title: 组件
 ---
 
 # ProTable - 高级表格

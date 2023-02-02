@@ -1,8 +1,6 @@
 ---
 title: ProList - 高级列表
 order: 12
-nav:
-  title: 组件
 ---
 
 # ProList - 高级列表

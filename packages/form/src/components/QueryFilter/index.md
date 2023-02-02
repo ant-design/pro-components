@@ -1,9 +1,6 @@
 ---
 title: Query/LightFilter - 筛选表单
 order: 1
-
-nav:
-  title: 组件
 ---
 
 # QueryFilter / LightFilter 筛选表单

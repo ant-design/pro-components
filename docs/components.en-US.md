@@ -1,8 +1,6 @@
 ---
 title: Component Overview
 order: 0
-nav:
-  title: Component
 ---
 
 # Architecture Design
