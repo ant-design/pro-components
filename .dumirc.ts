@@ -94,13 +94,7 @@ export default defineConfig({
   ],
   alias,
   resolve: {
-    docDirs: [
-      'docs',
-      ...tailPkgList,
-      '/packages/card/src',
-      '/packages/layout/src',
-      '/packages/layoutrc/components/',
-    ],
+    docDirs: ['docs', ...tailPkgList],
   },
   locales: [
     { id: 'zh-CN', name: '中文' },
