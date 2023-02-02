@@ -24,17 +24,9 @@ order: 1
 
 <code src="./demos/basic.tsx" height="215px"></code>
 
-### 单选模式
+<code src="./demos/single.tsx"  description="在多个选项存在的情况下可通过 `CheckCard.Group` 分组，默认选项卡组件为单选模式。" thumbnail="https://gw.alipayobjects.com/zos/bmw-prod/be0fcade-afae-4e85-95ef-a3cc90f6d4b3/kc60kq47_w1362_h412.jpeg" height="261px"></code>
 
-在多个选项存在的情况下可通过 `CheckCard.Group` 分组，默认选项卡组件为单选模式。
-
-<code src="./demos/single.tsx"  thumbnail="https://gw.alipayobjects.com/zos/bmw-prod/be0fcade-afae-4e85-95ef-a3cc90f6d4b3/kc60kq47_w1362_h412.jpeg" height="261px"></code>
-
-### 多选模式
-
-通过设置 `CheckCard.Group` 的 `multiple` 属性配置多选，注意多选模式下表单项返回值为数组。
-
-<code src="./demos/multiple.tsx"  thumbnail="https://gw.alipayobjects.com/zos/bmw-prod/06963ad4-ba2b-4733-a1c5-778e7f696ac1/kc61xhvk_w1364_h280.jpeg" height="193px"></code>
+<code src="./demos/multiple.tsx"  thumbnail="https://gw.alipayobjects.com/zos/bmw-prod/06963ad4-ba2b-4733-a1c5-778e7f696ac1/kc61xhvk_w1364_h280.jpeg" height="193px" description="通过设置 `CheckCard.Group` 的 `multiple` 属性配置多选，注意多选模式下表单项返回值为数组。"></code>
 
 ### 不同尺寸
 

@@ -1,7 +1,3 @@
-/**
- * title: 布局
- */
-
 import { CheckCard } from '@ant-design/pro-components';
 import { Col, Row } from 'antd';
 

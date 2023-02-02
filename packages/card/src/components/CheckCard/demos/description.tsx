@@ -1,7 +1,3 @@
-/**
- * title: 自定义描述
- */
-
 import { CheckCard } from '@ant-design/pro-components';
 import { Typography } from 'antd';
 

@@ -1,7 +1,3 @@
-/**
- * title: 组合样式
- */
-
 import { CheckCard } from '@ant-design/pro-components';
 
 export default () => (

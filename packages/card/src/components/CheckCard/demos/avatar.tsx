@@ -1,7 +1,3 @@
-/**
- * title: 自定义头像
- */
-
 import { UserOutlined } from '@ant-design/icons';
 import { CheckCard } from '@ant-design/pro-components';
 import { Avatar } from 'antd';
