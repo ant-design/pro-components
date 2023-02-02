@@ -118,8 +118,6 @@ export type ProSchema<T = unknown, U = string, Extra = unknown> = {
 
 <code src="./demos/valueType.tsx" height="154px" title="schema 表单"></code>
 
-### API
-
 valueType 是 ProComponents 的灵魂，ProComponents 会根据 valueType 来映射成不同的表单项。以下是支持的常见表单项：
 
 | valueType       | 说明                         |

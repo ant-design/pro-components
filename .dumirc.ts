@@ -165,35 +165,35 @@ export default defineConfig({
             },
             {
               title: 'ProFormFields - 表单项',
-              link: 'components/FieldSet/index',
+              link: 'components/field-set',
             },
             {
               title: 'ProFormList - 数据结构化',
-              link: 'components/Group/index',
+              link: 'components/group',
             },
             {
               title: 'ProFormDependency - 数据联动',
-              link: 'components/Dependency/index',
+              link: 'components/dependency',
             },
             {
               title: 'Schema Form - JSON 表单',
-              link: 'component/schemaForm/index',
+              link: 'components/schema-form',
             },
             {
               title: ' Query/LightFilter - 筛选表单',
-              link: 'components/QueryFilter/index',
+              link: 'components/query-filter',
             },
             {
               title: 'StepsForm - 分步表单',
-              link: 'componentstepsForm/index',
+              link: 'components/steps-form',
             },
             {
               title: 'Modal/Drawer - 浮层表单',
-              link: 'components/ModalForm/index',
+              link: 'components/modal-form',
             },
             {
               title: 'LoginForm/Page - 登录表单',
-              link: 'components/LoginForm/index',
+              link: 'components/login-form',
             },
           ],
         },
@@ -206,11 +206,11 @@ export default defineConfig({
             },
             {
               title: 'EditableProTable - 可编辑表格',
-              link: 'components/EditableTable/index',
+              link: 'components/editable-table',
             },
             {
               title: ' DragSortTable - 拖动排序表格',
-              link: 'components/DragSortTable/index',
+              link: 'components/drag-sort-table',
             },
             {
               title: 'ProList - 高级列表',

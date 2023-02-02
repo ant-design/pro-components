@@ -31,13 +31,13 @@ nav:
 
 在多个选项存在的情况下可通过 `CheckCard.Group` 分组，默认选项卡组件为单选模式。
 
-<code src="./demos/single.tsx" title="多选卡片 - 单选模式" thumbnail="https://gw.alipayobjects.com/zos/bmw-prod/be0fcade-afae-4e85-95ef-a3cc90f6d4b3/kc60kq47_w1362_h412.jpeg" height="261px"></code>
+<code src="./demos/single.tsx"  thumbnail="https://gw.alipayobjects.com/zos/bmw-prod/be0fcade-afae-4e85-95ef-a3cc90f6d4b3/kc60kq47_w1362_h412.jpeg" height="261px"></code>
 
 ### 多选模式
 
 通过设置 `CheckCard.Group` 的 `multiple` 属性配置多选，注意多选模式下表单项返回值为数组。
 
-<code src="./demos/multiple.tsx" title="多选卡片 - 多选模式" thumbnail="https://gw.alipayobjects.com/zos/bmw-prod/06963ad4-ba2b-4733-a1c5-778e7f696ac1/kc61xhvk_w1364_h280.jpeg" height="193px"></code>
+<code src="./demos/multiple.tsx"  thumbnail="https://gw.alipayobjects.com/zos/bmw-prod/06963ad4-ba2b-4733-a1c5-778e7f696ac1/kc61xhvk_w1364_h280.jpeg" height="193px"></code>
 
 ### 不同尺寸
 
@@ -55,7 +55,7 @@ nav:
 
 CheckCard 可以和表单组件一起使用，这里给出演示示例。
 
-<code src="./demos/form.tsx" title="多选卡片 - 表单中使用" thumbnail="https://gw.alipayobjects.com/zos/bmw-prod/c8fa2080-5a46-4f50-ae99-846b1804f56d/kc62b0ug_w1360_h656.jpeg" height="415px"></code>
+<code src="./demos/form.tsx" oldtitle="多选卡片 - 表单中使用" thumbnail="https://gw.alipayobjects.com/zos/bmw-prod/c8fa2080-5a46-4f50-ae99-846b1804f56d/kc62b0ug_w1360_h656.jpeg" height="415px"></code>
 
 ### 组合样式
 
