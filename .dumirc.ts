@@ -100,6 +100,7 @@ export default defineConfig({
     { id: 'zh-CN', name: '中文' },
     { id: 'en-US', name: 'English' },
   ],
+  ssr: {},
   themeConfig: {
     name: 'ProComponents',
     logo: 'https://gw.alipayobjects.com/zos/antfincdn/upvrAjAPQX/Logo_Tech%252520UI.svg',

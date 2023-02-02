@@ -41,3 +41,4 @@ screenshot
 .changelog.md
 packages/components/src/version.ts
 .dumi
+server
