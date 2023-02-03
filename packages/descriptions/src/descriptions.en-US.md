@@ -116,7 +116,7 @@ API is the same as ProTable
 | onSave | Triggered when a row is saved | `(key: Key, row: T,originRow:T,newLine?:newLineConfig) => Promise<any>` | - |
 | onDelete | Triggered when a row is deleted | `(key: Key, row: T) => Promise<any>` | - |
 | onCancel | Triggered when cancel editing a line | `(key: Key, row: T,originRow:T,newLine?:newLineConfig) => Promise<any>` | - |
-| actionRender | Custom edit mode action bar | `(row: T, config: ActionRenderConfig<T>,defaultDom) => ReactNode[]` | - |
+| actionRender | Custom edit mode action bar | `(row: T, config: ActionRenderConfig,defaultDom) => ReactNode[]` | - |
 | deletePopconfirmMessage | The pop-up confirmation box prompt message when deleting | `ReactNode` | `Delete this line?` |
 | onlyOneLineEditorAlertMessage | Only one line can be edited | `ReactNode` | `Only one line can be edited at the same time` |
 | onlyAddOneLineAlertMessage | Only one line can be added at the same time | `ReactNode` | `Only add one line` |

@@ -169,17 +169,14 @@ formRef 内置了几个方法来获取转化之后的值，这也是相比 antd 
 
 <code src="./demos/dependency.tsx" height="457px" title="表单联动"></code>
 
-### 表单方法调用
-
-你可以通过 `formRef` 获取到表单实例的引用，通过引用可以调用表单方法实现表单重置，设置表单，获取表单值等功能。
-
-<code src="./demos/formRef.tsx" height="341px" title="表单方法调用"></code>
+<code src="./demos/formRef.tsx" height="341px" description="
+你可以通过 `formRef` 获取到表单实例的引用，通过引用可以调用表单方法实现表单重置，设置表单，获取表单值等功能。" title="表单方法调用"></code>
 
 ### 同步提交结果到 url
 
 打开时也会把 url 的参数设置为默认值，支持 transform, 但是要注意字段的映射。
 
-<code src="./demos/sync-to-url.tsx" height="371px" title="同步提交结果到 url"></code>
+<code src="./demos/sync-to-url.tsx" height="371px"></code>
 
 <code src="./demos/money.tsx" height="629px" title="金额"></code>
 

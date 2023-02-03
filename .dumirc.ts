@@ -66,9 +66,6 @@ export default defineConfig({
 
   styles: [
     `
-    div.dumi-default-doc-layout > main {
-      max-width: 1600px;
-    }
     .dumi-default-sidebar {
       min-width: 260px;
     }
@@ -100,7 +97,7 @@ export default defineConfig({
     { id: 'zh-CN', name: '中文' },
     { id: 'en-US', name: 'English' },
   ],
-  ssr: {},
+  ...(process.env.NODE_ENV === 'development' ? undefined : { ssr: {} }),
   themeConfig: {
     name: 'ProComponents',
     logo: 'https://gw.alipayobjects.com/zos/antfincdn/upvrAjAPQX/Logo_Tech%252520UI.svg',
@@ -296,6 +293,7 @@ export default defineConfig({
 
   hash: true,
   theme: {
+    '@s-content-width': '1600px',
     '@s-site-menu-width': '258px',
     '@ant-prefix': 'ant',
     '@root-entry-name': 'variable',
