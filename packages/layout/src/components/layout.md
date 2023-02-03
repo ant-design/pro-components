@@ -13,37 +13,37 @@ ProLayout 可以提供一个标准又不失灵活的中后台标准布局，同�
 
 ## 代码演示
 
-<code src="./demos/base.tsx" height="500px" iframe="760px" title="基础使用"></code>
+<code src="../demos/base.tsx" height="500px" iframe="760px" title="基础使用"></code>
 
-<code src="./demos/theme.tsx" iframe="650px" title="通过 token 修改样式"></code>
+<code src="../demos/theme.tsx" iframe="650px" title="通过 token 修改样式"></code>
 
-<code src="./demos/dark.tsx" iframe="650px" title="黑色主题"></code>
+<code src="../demos/dark.tsx" iframe="650px" title="黑色主题"></code>
 
-<code src="./demos/siderMode.tsx" iframe="650px" title="侧栏导航 中后台产品默认推荐"></code>
+<code src="../demos/siderMode.tsx" iframe="650px" title="侧栏导航 中后台产品默认推荐"></code>
 
-<code src="./demos/mixMode.tsx" iframe="650px" title="混合导航"></code>
+<code src="../demos/mixMode.tsx" iframe="650px" title="混合导航"></code>
 
-<code src="./demos/topMode.tsx" iframe="650px" title="顶部导航"></code>
+<code src="../demos/topMode.tsx" iframe="650px" title="顶部导航"></code>
 
-<code src="./demos/designSiderMenu.tsx" iframe="650px" title="侧栏导航宽度256px"></code>
+<code src="../demos/designSiderMenu.tsx" iframe="650px" title="侧栏导航宽度256px"></code>
 
-<code src="./demos/footer-global-tools.tsx" iframe="650px" title="页脚工具栏和全局公告"></code>
+<code src="../demos/footer-global-tools.tsx" iframe="650px" title="页脚工具栏和全局公告"></code>
 
-<code src="./demos/collapsedShowTitle.tsx" iframe="650px" title=" 收起时展示 title"></code>
+<code src="../demos/collapsedShowTitle.tsx" iframe="650px" title=" 收起时展示 title"></code>
 
-<code src="./demos/menu-group.tsx" iframe="650px" title="不分组菜单样式"></code>
+<code src="../demos/menu-group.tsx" iframe="650px" title="不分组菜单样式"></code>
 
-<code src="./demos/classicMode.tsx" iframe="650px" title="经典导航样式"></code>
+<code src="../demos/classicMode.tsx" iframe="650px" title="经典导航样式"></code>
 
-<code src="./demos/background-context.tsx" iframe="650px" title="通过调整页面背景内容调整整体氛围"></code>
+<code src="../demos/background-context.tsx" iframe="650px" title="通过调整页面背景内容调整整体氛围"></code>
 
-<code src="./demos/designMenuCss.tsx" iframe="650px" title="定制菜单样式"></code>
+<code src="../demos/designMenuCss.tsx" iframe="650px" title="定制菜单样式"></code>
 
-<code src="./demos/pageSimplify.tsx" iframe="650px" title="通过设置页背景和卡片样式简化界面层次"></code>
+<code src="../demos/pageSimplify.tsx" iframe="650px" title="通过设置页背景和卡片样式简化界面层次"></code>
 
-<code src="./demos/customSider.tsx" iframe="650px" title="自定侧栏菜单下方区域"></code>
+<code src="../demos/customSider.tsx" iframe="650px" title="自定侧栏菜单下方区域"></code>
 
-<code src="./demos/siteMenu.tsx" iframe="650px" title="菜单展开-站点地图"></code>
+<code src="../demos/siteMenu.tsx" iframe="650px" title="菜单展开-站点地图"></code>
 
 ### 从服务器加载 menu
 
@@ -51,69 +51,69 @@ ProLayout 提供了强大的菜单功能，但是这样必然会封装很多行�
 
 从服务器加载 menu 主要使用的 API 是 `menuDataRender` 和 `menuRender`,`menuDataRender`可以控制当前的菜单数据，`menuRender`可以控制菜单的 dom 节点。
 
-<code src="./demos/dynamicMenu.tsx" height="500px" iframe="610px" ></code>
+<code src="../demos/dynamicMenu.tsx" height="500px" iframe="610px" ></code>
 
 ### 从服务器加载 menu 并且使用 icon
 
 这里主要是一个演示，我们需要准备一个枚举来进行 icon 的渲染，可以显著的减少打包的大小
 
-<code src="./demos/antd@4MenuIconFormServe.tsx" height="500px" iframe="610px"></code>
+<code src="../demos/antd@4MenuIconFormServe.tsx" height="500px" iframe="610px"></code>
 
 ### 自定义 menu 的内容
 
 通过 `menuItemRender`, `subMenuItemRender`,`title`,`logo`,`menuHeaderRender` 可以非常方便的自定义 menu 的样式。如果实在是不满意，可以使用 `menuRender` 完全的自定义。
 
-<code src="./demos/customizeMenu.tsx" height="500px" iframe="610px" ></code>
+<code src="../demos/customizeMenu.tsx" height="500px" iframe="610px" ></code>
 
 ### 自定义页脚
 
 ProLayout 默认不提供页脚，要是和 Pro 官网相同的样式，需要自己引入一下页脚。
 
-<code src="./demos/footer.tsx" height="500px" iframe="610px" ></code>
+<code src="../demos/footer.tsx" height="500px" iframe="610px" ></code>
 
 这里用于展示 ProLayout 的各种应用，如果你觉得你的用法能帮助到别人，欢迎 PR。
 
-<code src="./demos/searchMenu.tsx" height="500px" iframe="610px" title="搜索菜单"></code>
+<code src="../demos/searchMenu.tsx" height="500px" iframe="610px" title="搜索菜单"></code>
 
-<code src="./demos/MultipleMenuOnePath.tsx" height="500px" iframe="610px" title="多个路由对应一个菜单项"></code>
+<code src="../demos/MultipleMenuOnePath.tsx" height="500px" iframe="610px" title="多个路由对应一个菜单项"></code>
 
 ### 默认打开所有菜单
 
 menu 配置 `defaultOpenAll` 可以默认打开所有菜单
 
-<code src="./demos/DefaultOpenAllMenu.tsx" height="500px" iframe="610px"></code>
+<code src="../demos/DefaultOpenAllMenu.tsx" height="500px" iframe="610px"></code>
 
 ### 总是打开所有菜单
 
 折叠按钮反复切换后 `defaultOpenAll` 将失效，menu 配置 `ignoreFlatMenu` 可以忽略手动折叠过的菜单，实现总是默认打开所有菜单。因为计算时机在组件渲染前，所以异步菜单不生效。
 
-<code src="./demos/AlwaysDefaultOpenAllMenu.tsx" height="500px" iframe="610px" ></code>
+<code src="../demos/AlwaysDefaultOpenAllMenu.tsx" height="500px" iframe="610px" ></code>
 
-<code src="./demos/IconFont.tsx" height="500px" iframe="610px" title="使用 IconFont"></code>
+<code src="../demos/IconFont.tsx" height="500px" iframe="610px" title="使用 IconFont"></code>
 
 ### 吸顶 header
 
 PageContainer 配置 `fixedHeader` 可以将吸顶 header。
 
-<code src="./demos/ghost.tsx" height="500px" iframe="610px" title="ghost 模式"></code>
+<code src="../demos/ghost.tsx" height="500px" iframe="610px" title="ghost 模式"></code>
 
-<code src="./demos/Nested.tsx" height="500px" iframe="610px" title="嵌套布局"></code>
+<code src="../demos/Nested.tsx" height="500px" iframe="610px" title="嵌套布局"></code>
 
-<code src="./demos/customize-collapsed.tsx" height="500px" iframe="610px" title="自定义的 collapsed"></code>
+<code src="../demos/customize-collapsed.tsx" height="500px" iframe="610px" title="自定义的 collapsed"></code>
 
-<code src="./demos/top-breadcrumb.tsx" height="500px" iframe="610px" title="面包屑显示在顶部"></code>
+<code src="../demos/top-breadcrumb.tsx" height="500px" iframe="610px" title="面包屑显示在顶部"></code>
 
-<code src="./demos/immersive-navigation.tsx" height="500px" iframe="610px" title="多级站点导航"></code>
+<code src="../demos/immersive-navigation.tsx" height="500px" iframe="610px" title="多级站点导航"></code>
 
-<code src="./demos/immersive-navigation-top.tsx" height="500px" iframe="610px" title="沉浸式导航"></code>
+<code src="../demos/immersive-navigation-top.tsx" height="500px" iframe="610px" title="沉浸式导航"></code>
 
 ### 跨站点导航
 
-> 使用默认卡片展示，请确保每一项都有 desc，且值为真；使用分组展示，请确保每一项都有 children，且长度大于 0； <code src="./demos/appList-group.tsx" height="500px" iframe="610px" title="跨站点导航列表 分组模式"></code>
+> 使用默认卡片展示，请确保每一项都有 desc，且值为真；使用分组展示，请确保每一项都有 children，且长度大于 0； <code src="../demos/appList-group.tsx" height="500px" iframe="610px" title="跨站点导航列表 分组模式"></code>
 
-<code src="./demos/error-boundaries.tsx" height="500px" iframe="610px" title="layout 自带了错误处理功能，防止白屏"></code>
+<code src="../demos/error-boundaries.tsx" height="500px" iframe="610px" title="layout 自带了错误处理功能，防止白屏"></code>
 
-<code src="./demos/splitMenus.tsx" height="500px" iframe="500px" title="沉浸式导航" debug></code>
+<code src="../demos/splitMenus.tsx" height="500px" iframe="500px" title="沉浸式导航" debug></code>
 
 ## API
 

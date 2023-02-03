@@ -130,7 +130,7 @@ export default defineConfig({
           children: [
             {
               title: 'ProLayout - 高级布局',
-              link: '/layout',
+              link: '/components/layout',
             },
             {
               title: 'PageContainer - 页容器',
@@ -138,7 +138,7 @@ export default defineConfig({
             },
             {
               title: 'ProCard - 高级卡片',
-              link: '/card',
+              link: '/components/card',
             },
             {
               title: 'WaterMark - 水印组件',
@@ -159,39 +159,39 @@ export default defineConfig({
           children: [
             {
               title: 'ProForm - 高级表单',
-              link: 'form',
+              link: '/components/form',
             },
             {
               title: 'ProFormFields - 表单项',
-              link: 'components/field-set',
+              link: '/components/field-set',
             },
             {
               title: 'ProFormList - 数据结构化',
-              link: 'components/group',
+              link: '/components/group',
             },
             {
               title: 'ProFormDependency - 数据联动',
-              link: 'components/dependency',
+              link: '/components/dependency',
             },
             {
               title: 'Schema Form - JSON 表单',
-              link: 'components/schema-form',
+              link: '/components/schema-form',
             },
             {
               title: ' Query/LightFilter - 筛选表单',
-              link: 'components/query-filter',
+              link: '/components/query-filter',
             },
             {
               title: 'StepsForm - 分步表单',
-              link: 'components/steps-form',
+              link: '/components/steps-form',
             },
             {
               title: 'Modal/Drawer - 浮层表单',
-              link: 'components/modal-form',
+              link: '/components/modal-form',
             },
             {
               title: 'LoginForm/Page - 登录表单',
-              link: 'components/login-form',
+              link: '/components/login-form',
             },
           ],
         },
@@ -200,23 +200,23 @@ export default defineConfig({
           children: [
             {
               title: 'ProTable - 高级表格',
-              link: 'table',
+              link: '/components/table',
             },
             {
               title: 'EditableProTable - 可编辑表格',
-              link: 'components/editable-table',
+              link: '/components/editable-table',
             },
             {
               title: ' DragSortTable - 拖动排序表格',
-              link: 'components/drag-sort-table',
+              link: '/components/drag-sort-table',
             },
             {
               title: 'ProList - 高级列表',
-              link: 'list',
+              link: '/components/list',
             },
             {
               title: 'ProDescriptions - 定义列表',
-              link: 'description',
+              link: '/components/description',
             },
           ],
         },
@@ -225,11 +225,11 @@ export default defineConfig({
           children: [
             {
               title: 'ProSkeleton - 骨架屏',
-              link: 'skeleton',
+              link: '/components/skeleton',
             },
             {
               title: 'ProField - 原子组件',
-              link: 'field',
+              link: '/components/field',
             },
           ],
         },

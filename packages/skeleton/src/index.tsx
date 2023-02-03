@@ -1,19 +1,19 @@
 import 'antd/es/skeleton/style';
 import React from 'react';
-import type { DescriptionsPageSkeletonProps } from './component/Descriptions';
+import type { DescriptionsPageSkeletonProps } from './components/Descriptions';
 import DescriptionsPageSkeleton, {
   DescriptionsSkeleton,
   TableItemSkeleton,
   TableSkeleton,
-} from './component/Descriptions';
-import type { ListPageSkeletonProps } from './component/List';
+} from './components/Descriptions';
+import type { ListPageSkeletonProps } from './components/List';
 import ListPageSkeleton, {
   ListSkeleton,
   ListSkeletonItem,
   ListToolbarSkeleton,
   PageHeaderSkeleton,
-} from './component/List';
-import ResultPageSkeleton from './component/Result';
+} from './components/List';
+import ResultPageSkeleton from './components/Result';
 
 const ProSkeleton: React.FC<
   ListPageSkeletonProps &
