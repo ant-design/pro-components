@@ -211,7 +211,7 @@ PageContainer 配置 `fixedHeader` 可以将吸顶 header。
 | onCollapse | 菜单的折叠收起事件 | `(collapsed: boolean) => void` | - |
 | onPageChange | 页面切换时触发 | `(location: Location) => void` | - |
 | headerRender | 自定义头的 render 方法 | `(props: ProLayoutProps) => ReactNode` | - |
-| headerTitleRender | 自定义头标题的方法,mix 模式下生效 | `(logo,title,props)=>ReactNode` | - |
+| headerTitleRender | 自定义头标题的方法,mix 模式 和 top 模式下生效 | `(logo,title,props)=>ReactNode` | - |
 | headerContentRender | 自定义头内容的方法 | `(props: ProLayoutProps) => ReactNode` | - |
 | avatarProps | layout 的头像设置，不同的 layout 放在不同的位置 | [`AvatarProps`](https://ant.design/components/avatar-cn/) | - |
 | actionsRender | 自定义操作列表 | `(layoutProps)=>ReactNode[]` | - |

@@ -157,7 +157,7 @@ PageContainer configuration `ghost` can switch the page header to transparent mo
 | onCollapse | The collapsed event of the menu | `(collapsed: boolean) => void` | - |
 | onPageChange | Triggered on page switch | `(location: Location) => void` | - |
 | headerRender | Custom header render method | `(props: ProLayoutProps) => ReactNode` | - |
-| headerTitleRender | Custom header title method, works in mix mode | `(logo,title,props)=>ReactNode` | - |
+| headerTitleRender | Custom header title method, works in mix mode and top mode | `(logo,title,props)=>ReactNode` | - |
 | headerContentRender | Custom header content methods | `(props: ProLayoutProps) => ReactNode` | - |
 | collapsedButtonRender | Custom method for collapsed button | `(collapsed: boolean) => ReactNode` | - |
 | footerRender | Custom render method for footer | `(props: ProLayoutProps) => JSX.Element \| false` | - |
