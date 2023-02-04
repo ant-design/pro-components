@@ -14,7 +14,7 @@ const Logo: FC = () => {
   return (
     themeConfig && (
       <Link className={cx(styles)} to={'base' in locale ? locale.base : '/'}>
-        <img src={themeConfig.logo} alt={themeConfig.name} />
+        <img src={themeConfig.logo as string} alt={themeConfig.name} />
         {themeConfig.name}
       </Link>
     )
