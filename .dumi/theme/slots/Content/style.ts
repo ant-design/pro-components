@@ -42,8 +42,8 @@ export const useStyles = createStyles(({ token, responsive, isDarkMode, css }) =
       }
 
       img {
-        max-width: 100%;
-
+        max-width: 600px;
+        width: 80%;
         opacity: ${isDarkMode ? 0.8 : 1};
       }
 
