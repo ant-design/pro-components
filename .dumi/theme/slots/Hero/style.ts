@@ -1,6 +1,6 @@
 import { createStyles } from 'antd-style';
 
-export const useStyles = createStyles(({ css, r, token, stylish, isDarkMode }) => ({
+export const useStyles = createStyles(({ css, responsive, token, stylish, isDarkMode }) => ({
   container: css`
     position: relative;
     text-align: center;
@@ -16,7 +16,7 @@ export const useStyles = createStyles(({ css, r, token, stylish, isDarkMode }) =
       font-size: 20px;
       line-height: 1.6;
 
-      ${r({
+      ${responsive({
         mobile: { fontSize: 16 },
       })}
     }
@@ -32,7 +32,7 @@ export const useStyles = createStyles(({ css, r, token, stylish, isDarkMode }) =
     margin: 0;
     font-family: AliPuHui, ${token.fontFamily};
 
-    ${r({
+    ${responsive({
       mobile: { fontSize: 40 },
     })}
 
@@ -56,7 +56,7 @@ export const useStyles = createStyles(({ css, r, token, stylish, isDarkMode }) =
     font-size: 68px;
     font-family: AliPuHui, ${token.fontFamily};
     font-weight: bold;
-    ${r({
+    ${responsive({
       mobile: { fontSize: 40 },
     })}
 
@@ -71,7 +71,7 @@ export const useStyles = createStyles(({ css, r, token, stylish, isDarkMode }) =
     font-size: ${token.fontSizeHeading3}px;
     color: ${token.colorTextSecondary};
 
-    ${r.mobile} {
+    ${responsive.mobile} {
       font-size: ${token.fontSizeHeading5}px;
       margin: 24px 16px;
     }
@@ -82,7 +82,7 @@ export const useStyles = createStyles(({ css, r, token, stylish, isDarkMode }) =
     display: flex;
     justify-content: center;
 
-    ${r({
+    ${responsive({
       mobile: { marginTop: 24 },
     })}
   `,
@@ -98,7 +98,7 @@ export const useStyles = createStyles(({ css, r, token, stylish, isDarkMode }) =
     opacity: 0.2;
     ${stylish.heroBlurBall}
 
-    ${r.mobile} {
+    ${responsive.mobile} {
       width: 200px;
       height: 300px;
     }

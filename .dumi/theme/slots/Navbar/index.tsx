@@ -6,7 +6,7 @@ import { memo, type FC } from 'react';
 import { shallow } from 'zustand/shallow';
 import { activePathSel, useSiteStore } from '../../store/useSiteStore';
 
-const useStyles = createStyles(({ css, r, token, stylish, prefixCls }) => {
+const useStyles = createStyles(({ css, responsive, token, stylish, prefixCls }) => {
   const prefix = `.${prefixCls}-tabs`;
 
   const marginHoriz = 16;
@@ -39,7 +39,7 @@ const useStyles = createStyles(({ css, r, token, stylish, prefixCls }) => {
         margin-bottom: 0;
       }
 
-      ${r.mobile} {
+      ${responsive.mobile} {
         display: none;
       }
     `,

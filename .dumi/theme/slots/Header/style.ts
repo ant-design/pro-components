@@ -1,6 +1,6 @@
 import { createStyles } from 'antd-style';
 
-export const useStyle = createStyles(({ css, r, token }) => ({
+export const useStyle = createStyles(({ css, responsive, token }) => ({
   header: css`
     top: 0;
     position: sticky;
@@ -12,7 +12,7 @@ export const useStyle = createStyles(({ css, r, token }) => ({
     grid-area: head;
     align-self: stretch;
 
-    ${r.mobile} {
+    ${responsive.mobile} {
       background: ${token.colorBgContainer};
     }
   `,
@@ -20,7 +20,7 @@ export const useStyle = createStyles(({ css, r, token }) => ({
     padding: 0 24px;
     height: 64px;
 
-    ${r.mobile} {
+    ${responsive.mobile} {
       padding: 0 16px;
     }
   `,
@@ -34,7 +34,7 @@ export const useStyle = createStyles(({ css, r, token }) => ({
       display: flex;
       align-items: center;
 
-      ${r.mobile} {
+      ${responsive.mobile} {
         justify-content: center;
         margin: 8px 16px;
         padding-top: 24px;

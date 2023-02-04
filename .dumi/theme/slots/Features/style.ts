@@ -1,7 +1,7 @@
 import { createStyles } from 'antd-style';
 import chroma from 'chroma-js';
 
-export const useStyles = createStyles(({ token, r, css, stylish, isDarkMode }) => ({
+export const useStyles = createStyles(({ token, responsive, css, stylish, isDarkMode }) => ({
   container: css`
     max-width: ${token.contentMaxWidth}px;
 
@@ -13,7 +13,7 @@ export const useStyles = createStyles(({ token, r, css, stylish, isDarkMode }) =
 
     margin: 0 16px;
 
-    ${r({
+    ${responsive({
       mobile: css`
         flex-direction: column;
         display: flex;
@@ -112,7 +112,7 @@ export const useStyles = createStyles(({ token, r, css, stylish, isDarkMode }) =
     ${stylish.heroBlurBall};
     scale: 2;
     opacity: 0.05;
-    ${r.mobile} {
+    ${responsive.mobile} {
       display: none;
     }
   `,

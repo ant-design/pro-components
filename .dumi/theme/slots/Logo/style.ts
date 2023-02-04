@@ -1,7 +1,7 @@
 import { createStyles } from 'antd-style';
 
 export const useStyles = createStyles(
-  ({ css, stylish, r, token }) => css`
+  ({ css, stylish, responsive, token }) => css`
     display: inline-flex;
     align-items: center;
     font-family: AliPuHui, ${token.fontFamily};
@@ -13,7 +13,7 @@ export const useStyles = createStyles(
 
     ${stylish.clickableText};
 
-    ${r.mobile} {
+    ${responsive.mobile} {
       font-size: 18px;
     }
 
@@ -21,7 +21,7 @@ export const useStyles = createStyles(
       margin-inline-end: 10px;
       height: 40px;
 
-      ${r.mobile} {
+      ${responsive.mobile} {
         height: 32px;
       }
     }

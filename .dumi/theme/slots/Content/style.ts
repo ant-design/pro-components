@@ -1,6 +1,6 @@
 import { createStyles } from 'antd-style';
 
-export const useStyles = createStyles(({ token, r, isDarkMode, css }) => ({
+export const useStyles = createStyles(({ token, responsive, isDarkMode, css }) => ({
   content: css`
     min-height: 400px;
     flex: 1;
@@ -11,7 +11,7 @@ export const useStyles = createStyles(({ token, r, isDarkMode, css }) => ({
     border-radius: 10px;
     background-color: ${token.colorBgContainer};
     box-shadow: ${token.boxShadow};
-    ${r.mobile} {
+    ${responsive.mobile} {
       padding: 8px 16px;
       border-radius: 0;
     }

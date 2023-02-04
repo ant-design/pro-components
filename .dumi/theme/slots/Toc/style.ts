@@ -1,7 +1,7 @@
 import { createStyles } from 'antd-style';
 import chroma from 'chroma-js';
 
-export const useStyles = createStyles(({ token, prefixCls, r, css }) => {
+export const useStyles = createStyles(({ token, prefixCls, responsive, css }) => {
   const fixHeight = 36;
   return {
     container: css`
@@ -14,7 +14,7 @@ export const useStyles = createStyles(({ token, prefixCls, r, css }) => {
       overflow: auto;
       margin-top: 48px;
 
-      ${r.mobile} {
+      ${responsive.mobile} {
         z-index: 300;
         top: ${token.headerHeight + 1}px;
         margin-top: 0;

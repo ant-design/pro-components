@@ -1,12 +1,12 @@
 import { createStyles } from 'antd-style';
 
-export const useStyles = createStyles(({ token, r, css, cx }) => {
+export const useStyles = createStyles(({ token, responsive, css, cx }) => {
   return {
     container: css`
       position: relative;
 
       // TODO: support search for mobile devices
-      ${r.mobile} {
+      ${responsive.mobile} {
         display: none;
       }
     `,
@@ -29,7 +29,7 @@ export const useStyles = createStyles(({ token, r, css, cx }) => {
         transition: all 0.3s;
         pointer-events: none;
 
-        ${r.mobile} {
+        ${responsive.mobile} {
           display: none;
         }
       `,

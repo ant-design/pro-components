@@ -1,6 +1,6 @@
 import { createStyles } from 'antd-style';
 
-export const useStyles = createStyles(({ css, r, token }) => ({
+export const useStyles = createStyles(({ css, responsive, token }) => ({
   layout: css`
     background-color: ${token.colorBgLayout};
     background-image: linear-gradient(
@@ -18,7 +18,7 @@ export const useStyles = createStyles(({ css, r, token }) => ({
       'sidebar footer footer';
     min-height: 100vh;
 
-    ${r.mobile} {
+    ${responsive.mobile} {
       display: flex;
       flex-direction: column;
     }
@@ -33,7 +33,7 @@ export const useStyles = createStyles(({ css, r, token }) => ({
     overflow: auto;
     margin-top: 48px;
 
-    ${r.mobile} {
+    ${responsive.mobile} {
       z-index: 300;
       top: ${token.headerHeight + 1}px;
       margin-top: 0;
@@ -57,7 +57,7 @@ export const useStyles = createStyles(({ css, r, token }) => ({
     margin: 0 24px;
 
 
-    ${r.mobile} {
+    ${responsive.mobile} {
       margin: 0;
     }
   }

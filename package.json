@@ -46,14 +46,18 @@
     "react-dom": "^18.0.0",
     "typescript": "4.x"
   },
-  "dependencies": {
-    "@floating-ui/react": "^0.19.1",
-    "chroma-js": "^2.4.2",
-    "less": "3.13.1",
-    "react-layout-kit": "^1.4.0",
-    "react-syntax-highlighter": "^15.5.0"
-  },
   "devDependencies": {
+    "@floating-ui/react": "^0.19.1",
+    "animated-scroll-to": "^2.3.0",
+    "chroma-js": "^2.4.2",
+    "copy-to-clipboard": "^3.3.3",
+    "fast-deep-equal": "^3.1.3",
+    "less": "3.13.1",
+    "lodash": "^4.17.21",
+    "rc-field-form": "^1.27.3",
+    "react-layout-kit": "^1.4.0",
+    "react-syntax-highlighter": "^15.5.0",
+    "use-merge-value": "^1.0.2",
     "@ant-design/antd-theme-variable": "^1.0.0",
     "@ant-design/cssinjs": "^1.0.0",
     "@ant-design/icons": "^4.6.2",
