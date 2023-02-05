@@ -1,6 +1,6 @@
 import { MappingAlgorithm } from 'antd-style';
 
-export const lightAlgorithm: MappingAlgorithm = (seedToken, mapToken) => {
+export const lightAlgorithm: MappingAlgorithm = (_, mapToken) => {
   const primaryColors = [
     '#ffffff',
     '#d9ebfb',
@@ -14,12 +14,9 @@ export const lightAlgorithm: MappingAlgorithm = (seedToken, mapToken) => {
     '#004ca1',
     '#003e84',
   ];
-
   return {
     ...mapToken,
-
-    colorBgLayout: 'hsl(220,23%,97%)', // Layout 颜色
-
+    colorBgLayout: 'hsl(220,23%,97%)',
     colorPrimaryBg: primaryColors[1],
     colorPrimaryBgHover: primaryColors[2],
     colorPrimaryBorder: primaryColors[3],
@@ -30,5 +27,5 @@ export const lightAlgorithm: MappingAlgorithm = (seedToken, mapToken) => {
     colorPrimaryTextHover: primaryColors[8],
     colorPrimaryText: primaryColors[9],
     colorPrimaryTextActive: primaryColors[10],
-  };
+  } as ReturnType<MappingAlgorithm>;
 };

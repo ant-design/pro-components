@@ -3,9 +3,13 @@ import isEqual from 'fast-deep-equal';
 import { memo, type FC } from 'react';
 import { Center, Flexbox } from 'react-layout-kit';
 
+//@ts-ignore
 import Content from 'dumi/theme/slots/Content';
+//@ts-ignore
 import Footer from 'dumi/theme/slots/Footer';
+//@ts-ignore
 import Header from 'dumi/theme/slots/Header';
+//@ts-ignore
 import Sidebar from 'dumi/theme/slots/Sidebar';
 
 import { ApiHeader } from '../../components/ApiHeader';

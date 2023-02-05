@@ -47,8 +47,6 @@
     "typescript": "4.x"
   },
   "devDependencies": {
-    "rc-steps": "^6.0.0",
-    "rc-util": "^5.27.2",
     "@ant-design/antd-theme-variable": "^1.0.0",
     "@ant-design/cssinjs": "^1.0.0",
     "@ant-design/icons": "^4.6.2",
@@ -144,7 +142,9 @@
     "query-string": "^6.13.6",
     "rc-field-form": "^1.27.3",
     "rc-resize-observer": "^1.0.0",
+    "rc-steps": "^6.0.0",
     "rc-table": "^7.30.3",
+    "rc-util": "^5.27.2",
     "react": "^18.0.0",
     "react-dom": "^18.0.0",
     "react-helmet-async": "^1.0.9",
@@ -174,5 +174,9 @@
   "gitHooks": {
     "pre-commit": "pretty-quick --staged",
     "commit-msg": "fabric verify-commit"
+  },
+  "dependencies": {
+    "@types/glob": "^8.0.1",
+    "glob": "^8.1.0"
   }
 }

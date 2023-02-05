@@ -1,3 +1,4 @@
+//@ts-ignore
 import { AtomAsset } from 'dumi-assets-types';
 import {
   ILocalesConfig,

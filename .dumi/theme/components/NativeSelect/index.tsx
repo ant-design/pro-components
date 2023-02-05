@@ -143,6 +143,7 @@ const NativeSelect: FC<NativeSelectProps> = ({
       allowSelectRef.current = false;
       allowMouseUpRef.current = true;
     }
+    return () => [];
   }, [open]);
 
   const handleArrowScroll = (amount: number) => {

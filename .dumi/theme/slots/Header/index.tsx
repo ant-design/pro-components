@@ -4,8 +4,11 @@ import { Flexbox } from 'react-layout-kit';
 
 import LangSwitch from 'dumi/theme-default/slots/LangSwitch';
 
+//@ts-ignore
 import Logo from 'dumi/theme/slots/Logo';
+//@ts-ignore
 import Navbar from 'dumi/theme/slots/Navbar';
+//@ts-ignore
 import SearchBar from 'dumi/theme/slots/SearchBar';
 
 import Burger from '../../components/Burger';
