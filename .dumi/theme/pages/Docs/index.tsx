@@ -7,7 +7,6 @@ import Content from 'dumi/theme/slots/Content';
 import Footer from 'dumi/theme/slots/Footer';
 import Header from 'dumi/theme/slots/Header';
 import Sidebar from 'dumi/theme/slots/Sidebar';
-import Toc from 'dumi/theme/slots/Toc';
 
 import { ApiHeader } from '../../components/ApiHeader';
 
@@ -26,7 +25,6 @@ const Docs: FC = memo(() => {
   return (
     <div className={styles.layout}>
       <Header />
-      <Toc />
       {mobile ? null : <Sidebar />}
       {isApiPage ? (
         <Flexbox style={{ gridArea: 'title' }}>
@@ -39,11 +37,11 @@ const Docs: FC = memo(() => {
           </Center>
         </Flexbox>
       ) : null}
-
       <Flexbox
         style={{
           zIndex: 10,
           gridArea: 'main',
+          width: 0,
           margin: mobile ? 0 : 24,
           marginBottom: mobile ? 0 : 48,
         }}

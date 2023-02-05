@@ -3,6 +3,7 @@ import { createStyles } from 'antd-style';
 export const useStyle = createStyles(({ css, responsive, token }) => ({
   header: css`
     top: 0;
+    max-width: 100vw;
     position: sticky;
     background-color: transparent;
     backdrop-filter: blur(6px);
