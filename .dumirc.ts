@@ -116,7 +116,7 @@ export default defineConfig({
       ],
     },
     sidebar: {
-      'en-US/components': [
+      '/en-US/components': [
         {
           title: 'Architecture Design',
           children: [
