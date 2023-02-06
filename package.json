@@ -176,6 +176,7 @@
     "commit-msg": "fabric verify-commit"
   },
   "dependencies": {
+    "@emotion/serialize": "^1.1.1",
     "@types/glob": "^8.0.1",
     "glob": "^8.1.0"
   }

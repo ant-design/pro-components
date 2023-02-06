@@ -25,6 +25,7 @@ importers:
       '@chenshuai2144/sketch-color': ^1.0.8
       '@emotion/babel-plugin': ^11.7.2
       '@emotion/css': ^11.9.0
+      '@emotion/serialize': ^1.1.1
       '@floating-ui/react': ^0.19.1
       '@octokit/core': ^3.2.5
       '@octokit/rest': ^18.12.0
@@ -44,8 +45,8 @@ importers:
       '@types/memoize-one': ^5.1.2
       '@types/mockjs': ^1.0.3
       '@types/node': ^14.0.26
-      '@types/react': ^18.0.27
-      '@types/react-dom': ^18.0.10
+      '@types/react': ^18.0.0
+      '@types/react-dom': ^18.0.0
       '@types/react-helmet': ^6.0.0
       '@types/react-intl': ^3.0.0
       '@types/react-responsive': ^8.0.1
@@ -139,6 +140,7 @@ importers:
       yorkie: ^2.0.0
       zustand: ^4.3.2
     dependencies:
+      '@emotion/serialize': 1.1.1
       '@types/glob': 8.0.1
       glob: 8.1.0
     devDependencies:
@@ -375,6 +377,7 @@ importers:
       '@ant-design/pro-provider': 2.4.0
       '@ant-design/pro-utils': 2.5.4
       '@babel/runtime': ^7.18.0
+      '@chenshuai2144/sketch-color': ^1.0.7
       '@types/lodash.merge': ^4.6.7
       '@umijs/use-params': ^1.0.9
       classnames: ^2.2.6
@@ -390,6 +393,7 @@ importers:
       '@ant-design/pro-provider': link:../provider
       '@ant-design/pro-utils': link:../utils
       '@babel/runtime': 7.20.13
+      '@chenshuai2144/sketch-color': 1.0.8
       '@umijs/use-params': 1.0.9
       classnames: 2.3.2
       lodash.merge: 4.6.2
@@ -467,7 +471,7 @@ importers:
 
   packages/provider:
     specifiers:
-      '@ant-design/cssinjs': ^1.0.0
+      '@ant-design/cssinjs': ^1.5.6
       '@babel/runtime': ^7.18.0
       '@ctrl/tinycolor': ^3.4.0
       rc-util: ^5.0.1
@@ -3578,7 +3582,6 @@ packages:
 
   /@emotion/hash/0.9.0:
     resolution: {integrity: sha512-14FtKiHhy2QoPIzdTcvh//8OyBlknNs2nXRwIhG904opCby3l+9Xaf/wuPvICBF0rc1ZCNBd3nKe9cd2mecVkQ==}
-    dev: true
 
   /@emotion/is-prop-valid/1.2.0:
     resolution: {integrity: sha512-3aDpDprjM0AwaxGE09bOPkNxHpBd+kA6jty3RnaEXdweX1DF1U3VQpPYb0g1IStAuK7SVQ1cy+bNBBKp4W3Fjg==}
@@ -3588,7 +3591,6 @@ packages:
 
   /@emotion/memoize/0.8.0:
     resolution: {integrity: sha512-G/YwXTkv7Den9mXDO7AhLWkE3q+I92B+VqAE+dYG4NGPaHZGvt3G8Q0p9vmE+sq7rTGphUbAvmQ9YpbfMQGGlA==}
-    dev: true
 
   /@emotion/react/11.10.5_yxdp3dl3eazy3vwpbmv4fq727a:
     resolution: {integrity: sha512-TZs6235tCJ/7iF6/rvTaOH4oxQg2gMAcdHemjwLKIjKz4rRuYe1HJ2TQJKnAcRAfOUDdU8XoDadCe1rl72iv8A==}
@@ -3623,7 +3625,6 @@ packages:
       '@emotion/unitless': 0.8.0
       '@emotion/utils': 1.2.0
       csstype: 3.1.1
-    dev: true
 
   /@emotion/sheet/1.2.1:
     resolution: {integrity: sha512-zxRBwl93sHMsOj4zs+OslQKg/uhF38MB+OMKoCrVuS0nyTkqnau+BM3WGEoOptg9Oz45T/aIGs1qbVAsEFo3nA==}
@@ -3659,7 +3660,6 @@ packages:
 
   /@emotion/unitless/0.8.0:
     resolution: {integrity: sha512-VINS5vEYAscRl2ZUDiT3uMPlrFQupiKgHz5AA4bCH1miKBg4qtwkim1qPmJj/4WG6TreYMY111rEFsjupcOKHw==}
-    dev: true
 
   /@emotion/use-insertion-effect-with-fallbacks/1.0.0_react@18.2.0:
     resolution: {integrity: sha512-1eEgUGmkaljiBnRMTdksDV1W4kUnmwgp7X9G8B++9GYwl1lUdqSndSriIrTJ0N7LQaoauY9JJ2yhiOYK5+NI4A==}
@@ -3671,7 +3671,6 @@ packages:
 
   /@emotion/utils/1.2.0:
     resolution: {integrity: sha512-sn3WH53Kzpw8oQ5mgMmIzzyAaH2ZqFEbozVVBSYp538E06OSE6ytOp7pRAjNQR+Q/orwqdQYJSe2m3hCOeznkw==}
-    dev: true
 
   /@emotion/weak-memoize/0.3.0:
     resolution: {integrity: sha512-AHPmaAx+RYfZz0eYu6Gviiagpmiyw98ySSlQvCUhVGDRtDFe4DBS0x1bSjdF3gqUDYOczB+yYvBTtEylYSdRhg==}

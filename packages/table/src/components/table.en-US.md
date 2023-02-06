@@ -285,7 +285,7 @@ ProTable puts a layer of wrapping on top of antd's Table, supports some presets,
 | toolbar | Transparent transmission of `ListToolBar` configuration items | [ListToolBarProps](#listtoolbarprops) | - |
 | tableExtraRender | The main function of the custom table | `(props: ProTableProps<T, U>, dataSource: T[]) => ReactNode;` | - |
 | manualRequest | Do you need to manually trigger the first request? When configured as `true`, the search form cannot be hidden | `boolean` | false |
-| editable | Related configuration of editable table | [TableRowEditable<T>](/components/editable-table#editable-Editable row configuration) | - |
+| editable | Related configuration of editable table | [TableRowEditable](/components/editable-table#editable-Editable row configuration) | - |
 | cardBordered | Border of Card components around Table and Search | `boolean \| {search?: boolean, table?: boolean}` | false |
 | debounceTime | Debounce time | `number` | 10 |
 | revalidateOnFocus | Automatically re-request when the window is focused | `boolean` | `false` |

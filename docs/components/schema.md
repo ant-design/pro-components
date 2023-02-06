@@ -113,7 +113,7 @@ export type ProSchema<T = unknown, U = string, Extra = unknown> = {
 
 ## valueType 列表
 
-<code src="./demos/valueType.tsx" height="154px" title="schema 表单"></code>
+<code src="./valueType.tsx" height="154px" title="schema 表单"></code>
 
 valueType 是 ProComponents 的灵魂，ProComponents 会根据 valueType 来映射成不同的表单项。以下是支持的常见表单项：
 
@@ -197,7 +197,7 @@ return { type: 'percent', showSymbol: true | false, precision: 2 };
 
 ### 自定义 valueType
 
-<code src="./demos/customization-value-type.tsx" height="154px" title="schema 表单"></code>
+<code src="./customization-value-type.tsx" height="154px" title="schema 表单"></code>
 
 ### valueEnum
 

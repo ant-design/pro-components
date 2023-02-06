@@ -108,9 +108,137 @@ export default defineConfig({
         { title: 'Changelog', link: '/changelog' },
         { title: 'Playground', link: '/playground/curd' },
       ],
-      'en-US': [{ title: 'Blog', link: '/en/blog' }],
+      'en-US': [
+        { title: 'Docs', link: '/en-US/docs' },
+        { title: 'Components', link: '/en-US/components' },
+        { title: 'Changelog', link: '/en-US/changelog' },
+        { title: 'Playground', link: '/en-US/playground/curd' },
+      ],
     },
     sidebar: {
+      'en-US/components': [
+        {
+          title: 'Architecture Design',
+          children: [
+            {
+              title: 'Components - Component Design',
+              link: '/en-US/components',
+            },
+            {
+              title: 'Schema - General configuration',
+              link: '/en-US/components/schema',
+            },
+          ],
+        },
+        {
+          title: 'Layout',
+          children: [
+            {
+              title: 'ProLayout - Advanced Layout',
+              link: '/en-US/components/layout',
+            },
+            {
+              title: 'PageContainer',
+              link: '/en-US/components/page-container',
+            },
+            {
+              title: 'ProCard - Advanced Card',
+              link: '/en-US/components/card',
+            },
+            {
+              title: 'WaterMark - WaterMark Component',
+              link: '/en-US/components/water-mark',
+            },
+            {
+              title: 'StatisticCard',
+              link: '/en-US/components/statistic-card',
+            },
+            {
+              title: 'CheckCard - Multiple Card',
+              link: '/en-US/components/check-card',
+            },
+          ],
+        },
+        {
+          title: 'Data Entry',
+          children: [
+            {
+              title: 'ProForm - Advanced Form',
+              link: '/en-US/components/form',
+            },
+            {
+              title: 'ProFormFields',
+              link: '/en-US/components/field-set',
+            },
+            {
+              title: 'ProFormList',
+              link: '/en-US/components/group',
+            },
+            {
+              title: 'ProFormDependency',
+              link: '/en-US/components/dependency',
+            },
+            {
+              title: 'Schema Form',
+              link: '/en-US/components/schema-form',
+            },
+            {
+              title: 'Query/LightFilter',
+              link: '/en-US/components/query-filter',
+            },
+            {
+              title: 'StepsForm',
+              link: '/en-US/components/steps-form',
+            },
+            {
+              title: 'Modal/Drawer Form',
+              link: '/en-US/components/modal-form',
+            },
+            {
+              title: 'LoginForm/LoginPageForm',
+              link: '/en-US/components/login-form',
+            },
+          ],
+        },
+        {
+          title: 'Data Display',
+          children: [
+            {
+              title: 'ProTable',
+              link: '/en-US/components/table',
+            },
+            {
+              title: 'EditableProTable',
+              link: '/en-US/components/editable-table',
+            },
+            {
+              title: ' DragSortTable',
+              link: '/en-US/components/drag-sort-table',
+            },
+            {
+              title: 'ProList',
+              link: '/en-US/components/list',
+            },
+            {
+              title: 'ProDescriptions',
+              link: '/en-US/components/description',
+            },
+          ],
+        },
+        {
+          title: 'Universal',
+          children: [
+            {
+              title: 'ProSkeleton',
+              link: '/components/skeleton',
+            },
+            {
+              title: 'ProField',
+              link: '/components/field',
+            },
+          ],
+        },
+      ],
       '/components': [
         {
           title: '架构设计',
@@ -121,7 +249,7 @@ export default defineConfig({
             },
             {
               title: 'Schema - 通用配置',
-              link: 'schema',
+              link: '/components/schema',
             },
           ],
         },
@@ -234,44 +362,6 @@ export default defineConfig({
           ],
         },
       ],
-      // '/en-US/components': [
-      //   {
-      //     title: 'Architecture Design',
-      //     children: ['components.en-US'],
-      //   },
-      //   {
-      //     title: 'Layout',
-      //     children: [
-      //       'layout',
-      //       'components/PageContainer/index',
-      //       'components/DragSortTable/index',
-      //       'list',
-      //       'card',
-      //     ],
-      //   },
-      //   {
-      //     title: 'Data entry',
-      //     children: [
-      //       'form',
-      //       'components/FieldSet/index',
-      //       'components/Group/index',
-      //       'components/Dependency/index',
-      //       'componentschemaForm/index',
-      //       'components/QueryFilter/index',
-      //       'componentstepsForm/index',
-      //       'components/ModalForm/index',
-      //       'components/LoginForm/index',
-      //     ],
-      //   },
-      //   {
-      //     title: 'Data Display',
-      //     children: ['table', 'components/EditableTable/index', 'list', 'description'],
-      //   },
-      //   {
-      //     title: 'General',
-      //     children: ['skeleton', 'field'],
-      //   },
-      // ],
     },
     navs: {
       'en-US': [

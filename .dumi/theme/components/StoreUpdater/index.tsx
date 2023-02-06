@@ -4,11 +4,6 @@ import isEqual from 'fast-deep-equal';
 import { memo, useEffect } from 'react';
 import { useSiteStore } from '../../store/useSiteStore';
 
-const homeNav = {
-  title: '首页',
-  link: '/',
-  activePath: '/',
-};
 export const StoreUpdater = memo(() => {
   const siteData = useSiteData();
   const sidebar = useSidebarData();
@@ -36,7 +31,7 @@ export const StoreUpdater = memo(() => {
   }, [routeMeta]);
 
   useEffect(() => {
-    useSiteStore.setState({ navData: [homeNav, ...navData] });
+    useSiteStore.setState({ navData });
   }, [navData]);
 
   useEffect(() => {

@@ -35,7 +35,7 @@ EditableProTable is essentially the same as ProTable, with a few presets added t
 | `onChange` | The dataSource is triggered when the table is modified, both deletion and modification. | `(value:T[])=>void` | `undefined` |
 | `recordCreatorProps` | Configuration related to creating a new row of data | [RecordCreatorProps](#recordcreator) & [ButtonProps](<https://ant.design/components/button/> #API) | - |
 | `maxLength` | The maximum number of rows, the New button will disappear when the maximum number of rows is reached | number | - |
-| `editable` | Related configuration of editable table | [TableRowEditable<T>](#editable-Editable row configuration) | - |
+| `editable` | Related configuration of editable table | [TableRowEditable](#editable-Editable row configuration) | - |
 | `controlled` | Whether controlled, if controlled every edit modifies the dataSource | `boolean` | false |
 | `editableFormRef` | table All forms, with some table-specific operations | `React.Ref<EditableFormInstance<T>>` | `undefined` |
 

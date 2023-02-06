@@ -1,6 +1,6 @@
-import { Helmet, useOutlet } from 'dumi';
+import { Helmet, useLocation, useOutlet } from 'dumi';
 import isEqual from 'fast-deep-equal';
-import { memo, type FC } from 'react';
+import { memo, useEffect, type FC } from 'react';
 import { Center, Flexbox } from 'react-layout-kit';
 
 //@ts-ignore
@@ -27,6 +27,14 @@ const Docs: FC = memo(() => {
   const isApiPage = useSiteStore(isApiPageSel);
 
   const { styles, theme } = useStyles();
+
+  const location = useLocation();
+
+  useEffect(() => {
+    requestAnimationFrame(() => {
+      window.scrollTo(0, 0);
+    });
+  }, [location.pathname]);
 
   return (
     <div className={styles.layout}>
