@@ -8,7 +8,7 @@ export type Value = string | number | undefined;
 export type ValuePair = Value[];
 
 export type RangeInputNumberProps = Omit<
-  InputNumberProps,
+  InputNumberProps<number>,
   'value' | 'defaultValue' | 'onChange' | 'placeholder'
 > & {
   value?: ValuePair;

@@ -11,7 +11,6 @@ const headPkgs: string[] = [
   'card',
   'field',
   'skeleton',
-  'layout',
   'form',
   'table',
   'list',

@@ -5,12 +5,12 @@ import type { ProFormFieldItemProps } from '../../typing';
 import ProFormField from '../Field';
 
 export type ProFormMoneyProps = ProFormFieldItemProps<
-  Omit<ProFieldMoneyProps, 'valueType' | 'text'> & InputNumberProps
+  Omit<ProFieldMoneyProps, 'valueType' | 'text'> & InputNumberProps<number>
 > & {
   customSymbol?: string; // 自定义货币符号
   locale?: string; // 单独设置国际化，设置之后优先级高于全局国际化
-  min?: InputNumberProps['min'];
-  max?: InputNumberProps['min'];
+  min?: InputNumberProps<number>['min'];
+  max?: InputNumberProps<number>['min'];
 };
 /**
  * 金额输入框
