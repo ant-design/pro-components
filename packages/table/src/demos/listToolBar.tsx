@@ -82,7 +82,7 @@ const columns: ProColumns<TableListItem>[] = [
       (record.status === 'running' || record.status === 'online') && <a key="warn">停用</a>,
       record.status === 'error' && <a key="republish">重新发布</a>,
       <a
-        key="republish"
+        key="monitor"
         style={
           record.status === 'running'
             ? {
