@@ -17,6 +17,7 @@ import { emptyTheme, defaultToken } from './useStyle/token';
 import { merge } from './utils/merge';
 
 export * from './useStyle';
+export * from './intl';
 
 export { DeepPartial, ProTokenType };
 
