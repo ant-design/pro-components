@@ -28,6 +28,7 @@ import type {
 import type { RangePickerProps } from 'antd/es/date-picker';
 import type { PasswordProps, TextAreaProps } from 'antd/es/input';
 import type { SliderRangeProps } from 'antd/es/slider';
+import type { ProSchemaValueEnumType } from '@ant-design/pro-provider';
 
 export interface ProFieldValueTypeWithFieldProps {
   text: InputProps;
@@ -194,18 +195,6 @@ export type ProFieldValueObjectType = {
   request?: ProFieldRequestData;
   /** Image */
   width?: number;
-};
-
-export type ProSchemaValueEnumType = {
-  /** @name 演示的文案 */
-  text: ReactNode;
-
-  /** @name 预定的颜色 */
-  status?: string;
-  /** @name 自定义的颜色 */
-  color?: string;
-  /** @name 是否禁用 */
-  disabled?: boolean;
 };
 
 /**

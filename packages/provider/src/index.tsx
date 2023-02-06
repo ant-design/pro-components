@@ -1,4 +1,3 @@
-//@ts-ignore
 import type { Theme } from '@ant-design/cssinjs';
 import { useCacheToken } from '@ant-design/cssinjs';
 import { ConfigProvider as AntdConfigProvider } from 'antd';
