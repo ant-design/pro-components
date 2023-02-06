@@ -393,7 +393,7 @@ const ProTable = <T extends Record<string, any>, U extends ParamsType, ValueType
   useImperativeHandle(propsActionRef, () => actionRef.current);
 
   /** 单选多选的相关逻辑 */
-  const [selectedRowKeys, setSelectedRowKeys] = useMountMergeState<React.ReactText[] | undefined>(
+  const [selectedRowKeys, setSelectedRowKeys] = useMountMergeState<(string | number)[] | undefined>(
     propsRowSelection ? propsRowSelection?.defaultSelectedRowKeys || [] : undefined,
     {
       value: propsRowSelection ? propsRowSelection.selectedRowKeys : undefined,
@@ -403,7 +403,7 @@ const ProTable = <T extends Record<string, any>, U extends ParamsType, ValueType
   const selectedRowsRef = useRef<T[]>([]);
 
   const setSelectedRowsAndKey = useCallback(
-    (keys: React.ReactText[], rows: T[]) => {
+    (keys: (string | number)[], rows: T[]) => {
       setSelectedRowKeys(keys);
       if (!propsRowSelection || !propsRowSelection?.selectedRowKeys) {
         selectedRowsRef.current = rows;
@@ -422,7 +422,7 @@ const ProTable = <T extends Record<string, any>, U extends ParamsType, ValueType
     return {};
   });
 
-  const [proFilter, setProFilter] = useMountMergeState<Record<string, React.ReactText[] | null>>(
+  const [proFilter, setProFilter] = useMountMergeState<Record<string, (string | number)[] | null>>(
     {},
   );
   const [proSort, setProSort] = useMountMergeState<Record<string, SortOrder>>({});

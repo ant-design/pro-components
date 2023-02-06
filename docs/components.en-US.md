@@ -95,7 +95,7 @@ export type ProSchema<T = unknown, U = string, Extra = unknown> = {
   /**
    * @name Determines the unique value of this column
    */
-  key?: React.ReactText;
+  key?: (string | number);
   /**
    * @name The key mapped to the entity
    * @description supports a number, [a,b] will be converted to obj.a.b

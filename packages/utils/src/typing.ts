@@ -172,7 +172,7 @@ export type PageInfo = {
 
 export type RequestOptionsType = {
   label?: React.ReactNode;
-  value?: React.ReactText;
+  value?: string | number;
   /** 渲染的节点类型 */
   optionType?: 'optGroup' | 'option';
   options?: Omit<RequestOptionsType, 'children' | 'optionType'>[];
@@ -202,7 +202,7 @@ export type ProFieldValueObjectType = {
  *
  * @name ValueEnum 的类型
  */
-export type ProSchemaValueEnumMap = Map<React.ReactText, ProSchemaValueEnumType | ReactNode>;
+export type ProSchemaValueEnumMap = Map<string | number, ProSchemaValueEnumType | ReactNode>;
 
 export type ProSchemaValueEnumObj = Record<string, ProSchemaValueEnumType | ReactNode>;
 

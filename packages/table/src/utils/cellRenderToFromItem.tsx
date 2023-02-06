@@ -33,7 +33,7 @@ export const spellNamePath = (...rest: any[]): React.Key[] => {
 };
 
 type CellRenderFromItemProps<T> = {
-  text: string | number | React.ReactText[];
+  text: string | number | (string | number)[];
   valueType: ProColumnType['valueType'];
   index: number;
   rowData?: T;

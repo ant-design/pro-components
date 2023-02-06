@@ -269,7 +269,7 @@ export type ProTableProps<T, U, ValueType = 'text'> = {
       keyword?: string;
     },
     sort: Record<string, SortOrder>,
-    filter: Record<string, React.ReactText[] | null>,
+    filter: Record<string, (string | number)[] | null>,
   ) => Promise<Partial<RequestData<T>>>;
 
   /** @name 对数据进行一些处理 */

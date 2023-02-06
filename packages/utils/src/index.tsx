@@ -1,9 +1,3 @@
-import type {
-  BaseProFieldFC,
-  ProFieldFCMode,
-  ProFieldFCRenderProps,
-  ProRenderFieldPropsType,
-} from '@ant-design/pro-provider';
 import { arrayMoveImmutable } from './array-move';
 import { DropdownFooter } from './components/DropdownFooter';
 import { ErrorBoundary } from './components/ErrorBoundary';
@@ -75,10 +69,6 @@ export type {
   UseEditableUtilType,
   UseEditableMapType,
   UseEditableMapUtilType,
-  ProRenderFieldPropsType,
-  ProFieldFCRenderProps,
-  ProFieldFCMode,
-  BaseProFieldFC,
 };
 
 export {

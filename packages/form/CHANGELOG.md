@@ -1969,7 +1969,7 @@ All notable changes to this project will be documented in this file. See [Conven
 
 ### Bug Fixes
 
-- **from:** 修改 ProFormRadio 中 options 中 value 的类型：string -> React.ReactText ([e644058](https://github.com/ant-design/pro-components/commit/e644058e06298b5c594398bf353c136dabf988d2))
+- **from:** 修改 ProFormRadio 中 options 中 value 的类型：string -> (string | number) ([e644058](https://github.com/ant-design/pro-components/commit/e644058e06298b5c594398bf353c136dabf988d2))
 
 ### Features
 

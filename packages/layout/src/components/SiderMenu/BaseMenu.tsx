@@ -368,7 +368,7 @@ class MenuUtil {
  * @param BaseMenuProps
  */
 const getOpenKeysProps = (
-  openKeys: React.ReactText[] | false,
+  openKeys: (string | number)[] | false,
   { layout, collapsed }: BaseMenuProps,
 ): {
   openKeys?: undefined | string[];

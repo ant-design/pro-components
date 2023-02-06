@@ -34,7 +34,7 @@ order: 1
 ```tsx | pure
 export type ProSchema<T = unknown, U = string, Extra = unknown> = {
   /** @name 确定这个列的唯一值 */
-  key?: React.ReactText;
+  key?: string | number;
   /**
    * 支持一个数组，[a,b] 会转化为 obj.a.b
    *
