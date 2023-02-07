@@ -9,7 +9,7 @@
     "build": "npm run version && npm run build-components",
     "build-components": "pnpm ---filter \"./packages/**\" build",
     "changelog": "node ./scripts/changelogs.js",
-    "check-deps": "npm run sync:tnpm && node ./scripts/checkDeps.js && npm run sync:tnpm",
+    "check-deps": "npm run sync:tnpm && node ./scripts/checkDeps.js",
     "checkPublish": "npm run sync:tnpm && node ./scripts/checkPublish.js && npm run sync:tnpm",
     "createRelease": "node ./scripts/createRelease.js",
     "deploy": "cross-env SITE_DEPLOY='TRUE' npm run site && gh-pages -d ./dist",
