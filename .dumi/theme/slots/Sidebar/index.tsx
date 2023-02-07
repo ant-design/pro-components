@@ -1,4 +1,4 @@
-import { NavLink } from 'dumi';
+import { NavLink, useLocation } from 'dumi';
 import isEqual from 'fast-deep-equal';
 import { memo, type FC } from 'react';
 
@@ -9,6 +9,11 @@ const Sidebar: FC = () => {
   const sidebar = useSiteStore((s) => s.sidebar, isEqual);
   const { styles } = useStyles();
 
+  const location = useLocation();
+
+  if (location.pathname.includes('changelog')) {
+    return null;
+  }
   return (
     sidebar && (
       <div className={styles.sidebar}>

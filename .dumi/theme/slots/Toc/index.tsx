@@ -1,7 +1,7 @@
 import { ArrowDownOutlined, MenuOutlined } from '@ant-design/icons';
 import { Anchor, Collapse, ConfigProvider } from 'antd';
 import { useResponsive } from 'antd-style';
-import { useRouteMeta } from 'dumi';
+import { useLocation, useRouteMeta } from 'dumi';
 import { useMemo, useState, type FC } from 'react';
 
 import { useStyles } from './style';
@@ -13,6 +13,8 @@ type AnchorItem = {
 };
 
 const Toc: FC = () => {
+  const location = useLocation();
+
   const [activeLink, setActiveLink] = useState<string>();
   const meta = useRouteMeta();
   const { styles } = useStyles();
@@ -59,7 +61,9 @@ const Toc: FC = () => {
                   }}
                   items={anchorItems.map((item) => ({
                     href: `#${item.id}`,
-                    title: item.title,
+                    title: location.pathname.includes('changelog')
+                      ? item.title.replace('@ant-design/pro-components', '')
+                      : item.title,
                     key: item.id,
                     children: item.children?.map((child) => ({
                       href: `#${child.id}`,
@@ -75,11 +79,13 @@ const Toc: FC = () => {
       </ConfigProvider>
     ) : (
       <div className={styles.container}>
-        <h4>Table of Contents</h4>
+        <h4>目录</h4>
         <Anchor
           items={anchorItems.map((item) => ({
             href: `#${item.id}`,
-            title: item.title,
+            title: location.pathname.includes('changelog')
+              ? item.title.replace('@ant-design/pro-components@', 'v')
+              : item.title,
             key: item.id,
             children: item.children?.map((child) => ({
               href: `#${child.id}`,

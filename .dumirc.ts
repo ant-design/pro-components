@@ -106,13 +106,13 @@ export default defineConfig({
         { title: '文档', link: '/docs' },
         { title: '组件', link: '/components' },
         { title: 'Changelog', link: '/changelog' },
-        { title: 'Playground', link: '/playground/curd' },
+        { title: 'Playground', link: '/playground' },
       ],
       'en-US': [
         { title: 'Docs', link: '/en-US/docs' },
         { title: 'Components', link: '/en-US/components' },
         { title: 'Changelog', link: '/en-US/changelog' },
-        { title: 'Playground', link: '/en-US/playground/curd' },
+        { title: 'Playground', link: '/en-US/playground' },
       ],
     },
     sidebar: {
@@ -121,11 +121,11 @@ export default defineConfig({
           title: 'Architecture Design',
           children: [
             {
-              title: 'Components - Component Design',
+              title: 'Component Design',
               link: '/en-US/components',
             },
             {
-              title: 'Schema - General configuration',
+              title: 'General Schema',
               link: '/en-US/components/schema',
             },
           ],
@@ -134,7 +134,7 @@ export default defineConfig({
           title: 'Layout',
           children: [
             {
-              title: 'ProLayout - Advanced Layout',
+              title: 'ProLayout',
               link: '/en-US/components/layout',
             },
             {
@@ -142,11 +142,11 @@ export default defineConfig({
               link: '/en-US/components/page-container',
             },
             {
-              title: 'ProCard - Advanced Card',
+              title: 'ProCard',
               link: '/en-US/components/card',
             },
             {
-              title: 'WaterMark - WaterMark Component',
+              title: 'WaterMark',
               link: '/en-US/components/water-mark',
             },
             {
@@ -154,7 +154,7 @@ export default defineConfig({
               link: '/en-US/components/statistic-card',
             },
             {
-              title: 'CheckCard - Multiple Card',
+              title: 'CheckCard',
               link: '/en-US/components/check-card',
             },
           ],
@@ -163,7 +163,7 @@ export default defineConfig({
           title: 'Data Entry',
           children: [
             {
-              title: 'ProForm - Advanced Form',
+              title: 'ProForm',
               link: '/en-US/components/form',
             },
             {
@@ -212,7 +212,7 @@ export default defineConfig({
               link: '/en-US/components/editable-table',
             },
             {
-              title: ' DragSortTable',
+              title: 'DragSortTable',
               link: '/en-US/components/drag-sort-table',
             },
             {

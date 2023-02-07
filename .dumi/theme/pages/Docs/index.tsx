@@ -37,7 +37,16 @@ const Docs: FC = memo(() => {
   }, [location.pathname]);
 
   return (
-    <div className={styles.layout}>
+    <div
+      className={styles.layout}
+      style={
+        location.pathname.includes('changelog')
+          ? {
+              gridTemplateColumns: '0 1fr 300px',
+            }
+          : {}
+      }
+    >
       <Header />
       <Toc />
       {mobile ? null : <Sidebar />}

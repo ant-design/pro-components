@@ -1,8 +1,4 @@
-﻿---
-title: ProComponents - 更新日志
----
-
-## @ant-design/pro-components@2.3.52
+﻿## @ant-design/pro-components@2.3.52
 
 `2023-01-10`
 

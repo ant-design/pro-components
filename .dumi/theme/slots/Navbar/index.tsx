@@ -53,20 +53,27 @@ const Navbar: FC = () => {
   const { styles } = useStyles();
   const nav = useSiteStore((s) => s.navData, shallow);
   const location = useLocation();
+
+  const activeKey = location.pathname.replace('/en-US/', '').replace('/', '').split('/').shift();
+
   return (
     <>
       <Tabs
         onChange={(key) => {
-          history.push(key);
+          history.push(
+            nav.find((item) => item.link.replace('/en-US/', '').replace('/', '') === key)?.link ||
+              '/',
+          );
           setTimeout(() => {
             window.scrollTo(0, 0);
           }, 10);
         }}
-        activeKey={location.pathname}
+        activeKey={activeKey}
         className={styles.tabs}
         items={nav.map((item) => ({
           label: item.title,
-          key: item.link,
+          link: item.link,
+          key: item.link.replace('/en-US/', '').replace('/', ''),
         }))}
       />
 
