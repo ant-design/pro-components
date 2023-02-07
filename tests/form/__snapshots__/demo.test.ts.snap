@@ -140,7 +140,9 @@ exports[`form demos 📸 renders ./packages/form/src/components/Dependency/demos
                     style="max-width: 100%; min-width: 100%;"
                   >
                     <div
-                      class="ant-pro-form-list-item  ant-pro-form-list-item-show-label"
+                      class="ant-pro-form-list-item  
+      false
+      ant-pro-form-list-item-show-label"
                       style="display: flex; align-items: flex-end;"
                     >
                       <div
@@ -985,7 +987,9 @@ exports[`form demos 📸 renders ./packages/form/src/components/Dependency/demos
                                     style="max-width: 100%; min-width: 100%;"
                                   >
                                     <div
-                                      class="ant-pro-form-list-item  "
+                                      class="ant-pro-form-list-item  
+      ant-pro-form-list-item-default
+      "
                                       style="display: flex; align-items: flex-end;"
                                     >
                                       <div
@@ -1356,7 +1360,9 @@ exports[`form demos 📸 renders ./packages/form/src/components/Dependency/demos
                                     style="max-width: 100%; min-width: 100%;"
                                   >
                                     <div
-                                      class="ant-pro-form-list-item  "
+                                      class="ant-pro-form-list-item  
+      ant-pro-form-list-item-default
+      "
                                       style="display: flex; align-items: flex-end;"
                                     >
                                       <div
@@ -9320,7 +9326,9 @@ exports[`form demos 📸 renders ./packages/form/src/components/Group/demos/base
                     style="max-width: 100%; min-width: 100%;"
                   >
                     <div
-                      class="ant-pro-form-list-item  ant-pro-form-list-item-show-label"
+                      class="ant-pro-form-list-item  
+      false
+      ant-pro-form-list-item-show-label"
                       style="display: flex; align-items: flex-end;"
                     >
                       <div
@@ -9772,7 +9780,9 @@ exports[`form demos 📸 renders ./packages/form/src/components/Group/demos/coun
                     style="max-width: 100%; min-width: 100%;"
                   >
                     <div
-                      class="ant-pro-form-list-item  "
+                      class="ant-pro-form-list-item  
+      ant-pro-form-list-item-default
+      "
                       style="display: flex; align-items: flex-end;"
                     >
                       <div
@@ -10020,7 +10030,9 @@ exports[`form demos 📸 renders ./packages/form/src/components/Group/demos/cust
                               style="max-width: 100%; min-width: 100%;"
                             >
                               <div
-                                class="ant-pro-form-list-item  "
+                                class="ant-pro-form-list-item  
+      ant-pro-form-list-item-default
+      "
                                 style="display: flex; align-items: flex-end;"
                               >
                                 <div
@@ -11507,7 +11519,9 @@ exports[`form demos 📸 renders ./packages/form/src/components/Group/demos/depe
                     style="max-width: 100%; min-width: 100%;"
                   >
                     <div
-                      class="ant-pro-form-list-item  "
+                      class="ant-pro-form-list-item  
+      ant-pro-form-list-item-default
+      "
                       style="display: flex; align-items: flex-end;"
                     >
                       <div
@@ -12722,7 +12736,9 @@ exports[`form demos 📸 renders ./packages/form/src/components/Group/demos/list
                     style="max-width: 100%; min-width: 100%;"
                   >
                     <div
-                      class="ant-pro-form-list-item  "
+                      class="ant-pro-form-list-item  
+      ant-pro-form-list-item-default
+      "
                       style="display: flex; align-items: flex-end;"
                     >
                       <div
@@ -13573,7 +13589,9 @@ exports[`form demos 📸 renders ./packages/form/src/components/Group/demos/list
                     style="max-width: 100%; min-width: 100%;"
                   >
                     <div
-                      class="ant-pro-form-list-item  "
+                      class="ant-pro-form-list-item  
+      ant-pro-form-list-item-default
+      "
                       style="display: flex; align-items: flex-end;"
                     >
                       <div
@@ -14274,7 +14292,9 @@ exports[`form demos 📸 renders ./packages/form/src/components/Group/demos/nest
                                         style="max-width: 100%; min-width: 100%;"
                                       >
                                         <div
-                                          class="ant-pro-form-list-item  "
+                                          class="ant-pro-form-list-item  
+      ant-pro-form-list-item-default
+      "
                                           style="display: flex; align-items: flex-end;"
                                         >
                                           <div
@@ -31424,7 +31444,9 @@ exports[`form demos 📸 renders ./packages/form/src/components/SchemaForm/demos
                           style="max-width: 100%; min-width: 100%;"
                         >
                           <div
-                            class="ant-pro-form-list-item  "
+                            class="ant-pro-form-list-item  
+      ant-pro-form-list-item-default
+      "
                             style="display: flex; align-items: flex-end;"
                           >
                             <div
@@ -32918,7 +32940,9 @@ exports[`form demos 📸 renders ./packages/form/src/components/SchemaForm/demos
                               style="max-width: 100%; min-width: 100%;"
                             >
                               <div
-                                class="ant-pro-form-list-item  "
+                                class="ant-pro-form-list-item  
+      ant-pro-form-list-item-default
+      "
                                 style="display: flex; align-items: flex-end;"
                               >
                                 <div
@@ -41336,7 +41360,9 @@ exports[`form demos 📸 renders ./packages/form/src/demos/base-test.tsx correct
                     style="max-width: 100%; min-width: 100%;"
                   >
                     <div
-                      class="ant-pro-form-list-item  "
+                      class="ant-pro-form-list-item  
+      ant-pro-form-list-item-default
+      "
                       style="display: flex; align-items: flex-end;"
                     >
                       <div
@@ -51028,7 +51054,9 @@ exports[`form demos 📸 renders ./packages/form/src/demos/pro-form-dependency.d
                                         style="max-width: 100%; min-width: 100%;"
                                       >
                                         <div
-                                          class="ant-pro-form-list-item  "
+                                          class="ant-pro-form-list-item  
+      ant-pro-form-list-item-default
+      "
                                           style="display: flex; align-items: flex-end;"
                                         >
                                           <div

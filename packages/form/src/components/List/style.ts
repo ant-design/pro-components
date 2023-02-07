@@ -26,11 +26,20 @@ const genProStyle: GenerateStyle<ProToken> = (token) => {
             display: 'inline-block',
           },
         },
-        '&:first-of-type': {
+        '&&-default:first-child': {
           'div:first-of-type': {
             [`${token.antCls}-form-item`]: {
               [`${token.antCls}-form-item-label`]: {
                 display: 'inline-block',
+              },
+            },
+          },
+        },
+        '&&-default:not(:first-child)': {
+          'div:first-of-type': {
+            [`${token.antCls}-form-item`]: {
+              [`${token.antCls}-form-item-label`]: {
+                display: 'none',
               },
             },
           },
