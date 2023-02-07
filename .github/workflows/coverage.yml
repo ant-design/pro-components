@@ -6,13 +6,18 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
       - name: Use Node.js 14.x
         uses: actions/setup-node@v1
         with:
           node-version: 16.x
       - name: Install pnpm
-        uses: pnpm/action-setup@v2.2.4
+        uses: pnpm/action-setup@v2
+        with:
+          version: 6.0.2
+
       - name: Get pnpm cache directory path
         id: pnpm-cache-dir-path
         run: echo "::set-output name=dir::$(pnpm cache dir)"

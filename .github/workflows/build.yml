@@ -12,7 +12,9 @@ jobs:
         with:
           node-version: 14.x
       - name: Install pnpm
-        uses: pnpm/action-setup@v2.2.4
+        uses: pnpm/action-setup@v2
+        with:
+          version: 6.0.2
       - name: Get pnpm cache directory path
         id: pnpm-cache-dir-path
         run: echo "::set-output name=dir::$(pnpm cache dir)"
