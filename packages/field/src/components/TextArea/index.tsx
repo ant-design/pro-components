@@ -17,7 +17,19 @@ const FieldTextArea: ProFieldFC<{
   const intl = useIntl();
 
   if (mode === 'read') {
-    const dom = <span ref={ref}>{text ?? '-'}</span>;
+    const dom = (
+      <span
+        ref={ref}
+        style={{
+          display: 'inline-block',
+          padding: '4px 11px',
+          lineHeight: '1.5715',
+          whiteSpace: 'pre-wrap',
+        }}
+      >
+        {text ?? '-'}
+      </span>
+    );
     if (render) {
       return render(text, { mode, ...fieldProps }, dom);
     }
