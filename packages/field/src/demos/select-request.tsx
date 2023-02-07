@@ -1,4 +1,4 @@
-import ProForm, { ProFormSelect } from '@ant-design/pro-form';
+import { ProForm, ProFormSelect } from '@ant-design/pro-components';
 
 function App() {
   return (
