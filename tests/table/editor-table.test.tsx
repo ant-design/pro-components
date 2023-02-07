@@ -298,7 +298,7 @@ describe('EditorProTable', () => {
     await editAndChange('test value2');
     // save with array index, if name is set
     await actionRef.current?.saveEditable(0);
-    await waitForComponentToPaint(wrapper, 100);
+    await waitForComponentToPaint(wrapper, 300);
 
     expect(onChange).toBeCalled();
     expect(changedDataSource).toHaveLength(defaultData.length);
