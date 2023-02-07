@@ -1,11 +1,6 @@
 ---
 title: Query/LightFilter - 筛选表单
 order: 1
-group:
-  path: /
-nav:
-  title: 组件
-  path: /components
 ---
 
 # QueryFilter / LightFilter 筛选表单

@@ -1,11 +1,6 @@
 ---
 title: Modal/Drawer - 浮层表单
 order: 2
-group:
-  path: /
-nav:
-  title: 组件
-  path: /components
 ---
 
 # 浮层表单

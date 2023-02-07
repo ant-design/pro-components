@@ -1,11 +1,6 @@
 ---
 title: ProFormList - 数据结构化
 order: 1
-group:
-  path: /
-nav:
-  title: 组件
-  path: /components
 ---
 
 # 数据结构化

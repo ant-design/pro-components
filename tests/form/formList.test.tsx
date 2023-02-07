@@ -9,10 +9,9 @@ import ProForm, {
   ProFormText,
 } from '@ant-design/pro-form';
 import '@testing-library/jest-dom';
-import { act, fireEvent, render as reactRender, render } from '@testing-library/react';
+import { act, fireEvent, render, screen, waitFor } from '@testing-library/react';
 import { Button, Form } from 'antd';
 import type { NamePath } from 'antd/es/form/interface';
-import { mount } from 'enzyme';
 import _ from 'lodash';
 import React from 'react';
 import { waitForComponentToPaint, waitTime } from '../util';
@@ -21,7 +20,7 @@ import { ProCard } from '@ant-design/pro-components';
 describe('ProForm List', () => {
   it('⛲ ProForm.List', async () => {
     const fn = jest.fn();
-    const html = mount(
+    render(
       <ProForm
         onFinish={async (values) => {
           fn(Object.keys(values.users[0]));
@@ -43,13 +42,12 @@ describe('ProForm List', () => {
         </ProFormList>
       </ProForm>,
     );
-    act(() => {
-      html.find('.ant-btn.ant-btn-primary').simulate('click');
+
+    fireEvent.click(await screen.findByText('提 交'));
+
+    await waitFor(() => {
+      expect(fn).toBeCalledWith(['name', 'nickName']);
     });
-
-    await waitForComponentToPaint(html);
-
-    expect(fn).toBeCalledWith(['name', 'nickName']);
   });
 
   it('⛲ ProForm.List for deps ProFormDependency', async () => {
@@ -130,7 +128,7 @@ describe('ProForm List', () => {
 
   it('⛲ ProForm.List add button', async () => {
     const fn = jest.fn();
-    const html = mount(
+    const { container } = render(
       <ProForm
         onFinish={async (values) => {
           fn(Object.keys(values.users[1]));
@@ -153,27 +151,24 @@ describe('ProForm List', () => {
       </ProForm>,
     );
 
-    await waitForComponentToPaint(html);
+    expect(
+      !!container.querySelectorAll('.ant-btn.ant-pro-form-list-creator-button-bottom').length,
+    ).toBeTruthy();
+    expect(
+      container.querySelectorAll('.ant-btn.ant-pro-form-list-creator-button-top').length,
+    ).toBeFalsy();
 
-    expect(html.find('.ant-btn.ant-pro-form-list-creator-button-bottom').exists()).toBeTruthy();
-    expect(html.find('.ant-btn.ant-pro-form-list-creator-button-top').exists()).toBeFalsy();
+    fireEvent.click(container.querySelector('.ant-btn.ant-pro-form-list-creator-button-bottom')!);
+    fireEvent.click(await screen.findByText('提 交'));
 
-    act(() => {
-      html.find('.ant-btn.ant-pro-form-list-creator-button-bottom').simulate('click');
+    await waitFor(() => {
+      expect(fn).toBeCalledWith([]);
     });
-
-    act(() => {
-      html.find('.ant-btn.ant-btn-primary').simulate('click');
-    });
-
-    await waitForComponentToPaint(html);
-
-    expect(fn).toBeCalledWith([]);
   });
 
   it('⛲ ProForm.List render children', async () => {
     const fn = jest.fn();
-    const html = mount(
+    render(
       <ProForm
         onFinish={async (values) => {
           fn(values.users[0]);
@@ -202,17 +197,13 @@ describe('ProForm List', () => {
       </ProForm>,
     );
 
-    await waitForComponentToPaint(html);
+    fireEvent.click(await screen.findByText('提 交'));
 
-    act(() => {
-      html.find('.ant-btn.ant-btn-primary').simulate('click');
-    });
-
-    await waitForComponentToPaint(html);
-
-    expect(fn).toBeCalledWith({
-      name: '1111',
-      nickName: '1111',
+    await waitFor(() => {
+      expect(fn).toBeCalledWith({
+        name: '1111',
+        nickName: '1111',
+      });
     });
   });
 
@@ -319,7 +310,7 @@ describe('ProForm List', () => {
   });
 
   it('⛲ ProForm.List close button', async () => {
-    const html = mount(
+    const { container } = render(
       <ProForm>
         <ProFormText name="name" label="姓名" />
         <ProFormList name="users" label="用户信息" creatorButtonProps={false}>
@@ -329,14 +320,14 @@ describe('ProForm List', () => {
       </ProForm>,
     );
 
-    await waitForComponentToPaint(html);
-
-    expect(html.find('.ant-btn.ant-pro-form-list-creator-button-bottom').exists()).toBeFalsy();
+    expect(
+      !!container.querySelectorAll('.ant-btn.ant-pro-form-list-creator-button-bottom').length,
+    ).toBeFalsy();
   });
 
   it('⛲ ProForm.List add button when creatorRecord', async () => {
     const fn = jest.fn();
-    const html = mount(
+    const { container } = render(
       <ProForm
         onFinish={async (values) => {
           fn(values.users[1]);
@@ -363,27 +354,20 @@ describe('ProForm List', () => {
       </ProForm>,
     );
 
-    await waitForComponentToPaint(html);
+    fireEvent.click(container.querySelector('.ant-btn.ant-pro-form-list-creator-button-bottom')!);
+    fireEvent.click(await screen.findByText('提 交'));
 
-    act(() => {
-      html.find('.ant-btn.ant-pro-form-list-creator-button-bottom').simulate('click');
-    });
-
-    act(() => {
-      html.find('.ant-btn.ant-btn-primary').simulate('click');
-    });
-
-    await waitForComponentToPaint(html);
-
-    expect(fn).toBeCalledWith({
-      name: '2222',
-      nickName: '2222',
+    await waitFor(() => {
+      expect(fn).toBeCalledWith({
+        name: '2222',
+        nickName: '2222',
+      });
     });
   });
 
   it('⛲ ProForm.List add button on top', async () => {
     const fn = jest.fn();
-    const html = mount(
+    const { container } = render(
       <ProForm
         onFinish={async (values) => {
           fn(Object.keys(values.users[0] || {}));
@@ -410,27 +394,24 @@ describe('ProForm List', () => {
       </ProForm>,
     );
 
-    await waitForComponentToPaint(html);
+    expect(
+      !!container.querySelectorAll('.ant-btn.ant-pro-form-list-creator-button-top').length,
+    ).toBeTruthy();
+    expect(
+      !!container.querySelectorAll('.ant-btn.ant-pro-form-list-creator-button-bottom').length,
+    ).toBeFalsy();
 
-    expect(html.find('.ant-btn.ant-pro-form-list-creator-button-top').exists()).toBeTruthy();
-    expect(html.find('.ant-btn.ant-pro-form-list-creator-button-bottom').exists()).toBeFalsy();
+    fireEvent.click(container.querySelector('.ant-btn.ant-pro-form-list-creator-button-top')!);
+    fireEvent.click(await screen.findByText('提 交'));
 
-    act(() => {
-      html.find('.ant-btn.ant-pro-form-list-creator-button-top').simulate('click');
+    await waitFor(() => {
+      expect(fn).toBeCalledWith([]);
     });
-
-    act(() => {
-      html.find('.ant-btn.ant-btn-primary').simulate('click');
-    });
-
-    await waitForComponentToPaint(html);
-
-    expect(fn).toBeCalledWith([]);
   });
 
   it('⛲ ProForm.List copy to newline', async () => {
     const fn = jest.fn();
-    const html = mount(
+    const { container } = render(
       <ProForm
         onFinish={async (values) => {
           fn(values.users[1]);
@@ -453,25 +434,22 @@ describe('ProForm List', () => {
       </ProForm>,
     );
 
-    act(() => {
-      html.find('.ant-pro-form-list-action .ant-pro-form-list-action-icon').at(0).simulate('click');
-    });
+    fireEvent.click(
+      container.querySelectorAll('.ant-pro-form-list-action .ant-pro-form-list-action-icon')[0],
+    );
+    fireEvent.click(await screen.findByText('提 交'));
 
-    act(() => {
-      html.find('.ant-btn.ant-btn-primary').simulate('click');
-    });
-
-    await waitForComponentToPaint(html);
-
-    expect(fn).toBeCalledWith({
-      name: '1111',
-      nickName: '1111',
+    await waitFor(() => {
+      expect(fn).toBeCalledWith({
+        name: '1111',
+        nickName: '1111',
+      });
     });
   });
 
   it('⛲ ProForm.List delete icon', async () => {
     const fn = jest.fn();
-    const html = mount(
+    const { container } = render(
       <ProForm
         onFinish={async (values) => {
           fn(values.users[0]);
@@ -498,30 +476,24 @@ describe('ProForm List', () => {
       </ProForm>,
     );
 
-    act(() => {
-      html
-        .find('.ant-pro-form-list-action')
-        .at(0)
-        .find('span.ant-pro-form-list-action-icon')
-        .at(1)
-        .simulate('click');
-    });
+    fireEvent.click(
+      container
+        .querySelectorAll('.ant-pro-form-list-action')[0]
+        .querySelectorAll('span.ant-pro-form-list-action-icon')[1],
+    );
+    fireEvent.click(await screen.findByText('提 交'));
 
-    act(() => {
-      html.find('.ant-btn.ant-btn-primary').simulate('click');
-    });
-
-    await waitForComponentToPaint(html);
-
-    expect(fn).toBeCalledWith({
-      name: '2222',
-      nickName: '2222',
+    await waitFor(() => {
+      expect(fn).toBeCalledWith({
+        name: '2222',
+        nickName: '2222',
+      });
     });
   });
 
   it('⛲ ProForm.List itemRender', async () => {
     const fn = jest.fn();
-    const html = mount(
+    render(
       <ProForm
         onFinish={async (values) => {
           fn(values.users[0]);
@@ -531,7 +503,7 @@ describe('ProForm List', () => {
         <ProFormList
           itemRender={({ listDom, action }) => {
             return (
-              <div id="test">
+              <div data-testid="test">
                 {listDom}
                 {action}
               </div>
@@ -556,14 +528,12 @@ describe('ProForm List', () => {
       </ProForm>,
     );
 
-    await waitForComponentToPaint(html);
-
-    expect(html.find('#test').exists()).toBe(true);
+    expect(await screen.findAllByTestId('test')).toBeDefined();
   });
 
   it('⛲ ProForm.List in ProForm.List', async () => {
     const fn = jest.fn();
-    const html = mount(
+    const { container } = render(
       <ProForm
         onFinish={async (values) => {
           fn(values.users[0].tag);
@@ -617,33 +587,26 @@ describe('ProForm List', () => {
       </ProForm>,
     );
 
-    await waitForComponentToPaint(html);
+    fireEvent.click(
+      container.querySelectorAll('.ant-pro-form-list .ant-pro-form-list .ant-btn-dashed')[0],
+    );
+    fireEvent.click(await screen.findByText('提 交'));
 
-    act(() => {
-      html.find('.ant-pro-form-list .ant-pro-form-list .ant-btn-dashed').at(0).simulate('click');
+    await waitFor(() => {
+      expect(fn).toBeCalledWith([
+        {
+          name: '1212',
+        },
+        {
+          name: 'test',
+        },
+      ]);
     });
-
-    await waitForComponentToPaint(html);
-
-    act(() => {
-      html.find('.ant-btn.ant-btn-primary').simulate('click');
-    });
-
-    await waitForComponentToPaint(html);
-
-    expect(fn).toBeCalledWith([
-      {
-        name: '1212',
-      },
-      {
-        name: 'test',
-      },
-    ]);
   });
 
   it('⛲ ProForm.List support ProFormDependency', async () => {
     const fn = jest.fn();
-    const html = mount(
+    const { container } = render(
       <ProForm>
         <ProFormText name="name" label="姓名" />
         <ProFormList
@@ -671,23 +634,15 @@ describe('ProForm List', () => {
       </ProForm>,
     );
 
-    expect(html.find('input.ant-input').length).toBe(3);
+    expect(container.querySelectorAll('input.ant-input')).toHaveLength(3);
 
-    act(() => {
-      html
-        .find('input.ant-input')
-        .at(2)
-        .simulate('change', {
-          target: {
-            value: '222',
-          },
-        });
+    fireEvent.change(container.querySelectorAll('input.ant-input')[2], {
+      target: {
+        value: '222',
+      },
     });
 
-    await waitForComponentToPaint(html);
-
-    expect(html.find('input.ant-input').length).toBe(4);
-
+    expect(container.querySelectorAll('input.ant-input')).toHaveLength(4);
     expect(fn).toBeCalledWith('222');
   });
 
@@ -716,7 +671,7 @@ describe('ProForm List', () => {
     ];
     const depName2: NamePath[] = ['a', 'b', ['c', 'a']];
     const depName3: NamePath[] = ['a', 'b', ['c', 'a']];
-    const html = mount(
+    const { container } = render(
       <ProForm initialValues={initialValues}>
         <ProFormGroup>
           <ProFormText name="a" label="a" />
@@ -783,19 +738,17 @@ describe('ProForm List', () => {
       </ProForm>,
     );
 
-    await waitForComponentToPaint(html);
-
     const namePaths2PropertyPaths = (name: NamePath[]) => {
       return name.map((item) => (Array.isArray(item) ? item.join('.') : item));
     };
 
-    expect(html.find('code.case1').text()).toBe(
+    expect(container.querySelector('code.case1')).toContainHTML(
       JSON.stringify(_.pick(initialValues, namePaths2PropertyPaths(depName1)), null, 2),
     );
-    expect(html.find('code.case2').text()).toBe(
+    expect(container.querySelector('code.case2')).toContainHTML(
       JSON.stringify(_.pick(initialValues, namePaths2PropertyPaths(depName2)), null, 2),
     );
-    expect(html.find('code.case3').text()).toBe(
+    expect(container.querySelector('code.case3')).toContainHTML(
       JSON.stringify(
         {
           c: {
@@ -815,7 +768,7 @@ describe('ProForm List', () => {
   });
 
   it('⛲ ProForm.List support copyIconProps and deleteIconProps', async () => {
-    const html = mount(
+    const { container } = render(
       <ProForm>
         <ProFormList
           copyIconProps={false}
@@ -835,12 +788,11 @@ describe('ProForm List', () => {
       </ProForm>,
     );
 
-    await waitForComponentToPaint(html);
-    expect(html.find('.ant-pro-form-list-action').exists()).toBeFalsy();
+    expect(!!container.querySelectorAll('.ant-pro-form-list-action').length).toBeFalsy();
   });
 
   it('⛲ ProForm.List support copyIconProps.icon and deleteIconProps.icon', async () => {
-    const html = mount(
+    const { container } = render(
       <ProForm>
         <ProFormList
           copyIconProps={{
@@ -864,15 +816,14 @@ describe('ProForm List', () => {
       </ProForm>,
     );
 
-    await waitForComponentToPaint(html);
-    expect(html.find('.anticon-snippets').exists()).toBeTruthy();
-    expect(html.find('.anticon-close').exists()).toBeTruthy();
+    expect(!!container.querySelectorAll('.anticon-snippets').length).toBeTruthy();
+    expect(!!container.querySelectorAll('.anticon-close').length).toBeTruthy();
   });
 
   it('⛲ ProForm.List use behavior guard when triggering behavior', async () => {
     const fnAdd = jest.fn();
     const fnRemove = jest.fn();
-    const html = reactRender(
+    const html = render(
       <ProForm>
         <ProFormList
           copyIconProps={{
@@ -962,7 +913,7 @@ describe('ProForm List', () => {
 
   it('⛲ ProForm.List use behavior guard when triggering no behavior', async () => {
     const fnAdd = jest.fn();
-    const html = reactRender(
+    const html = render(
       <ProForm>
         <ProFormList
           copyIconProps={{
@@ -1011,7 +962,7 @@ describe('ProForm List', () => {
     const errorSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
 
     const fnRemove = jest.fn();
-    const html = reactRender(
+    const html = render(
       <ProForm>
         <ProFormList
           actionGuard={{
@@ -1048,7 +999,7 @@ describe('ProForm List', () => {
   });
 
   it('⛲ ProForm.List hide action btn when over limit', async () => {
-    const html = reactRender(
+    const html = render(
       <ProForm>
         <ProFormList
           copyIconProps={{
@@ -1143,7 +1094,7 @@ describe('ProForm List', () => {
 
   it('⛲ ProForm.List fieldExtraRender', async () => {
     const fn = jest.fn();
-    const html = mount(
+    render(
       <ProForm
         onFinish={async (values) => {
           fn(values.users[1]);
@@ -1187,21 +1138,14 @@ describe('ProForm List', () => {
       </ProForm>,
     );
 
-    await waitForComponentToPaint(html);
+    fireEvent.click(await screen.findByText('Add Field'));
+    fireEvent.click(await screen.findByText('提 交')!);
 
-    act(() => {
-      html.find('.ant-btn.ant-btn-text').simulate('click');
-    });
-
-    act(() => {
-      html.find('.ant-btn.ant-btn-primary').simulate('click');
-    });
-
-    await waitForComponentToPaint(html);
-
-    expect(fn).toBeCalledWith({
-      name: '2222',
-      nickName: '2222',
+    await waitFor(() => {
+      expect(fn).toBeCalledWith({
+        name: '2222',
+        nickName: '2222',
+      });
     });
   });
 
@@ -1273,7 +1217,7 @@ describe('ProForm List', () => {
       getCurrentRowData: () => any;
     }>();
 
-    const html = reactRender(
+    const html = render(
       <ProForm>
         <ProFormList
           name="users"
@@ -1332,7 +1276,7 @@ describe('ProForm List', () => {
       setCurrentRowData: (data: any) => void;
     }>();
 
-    const html = reactRender(
+    const html = render(
       <ProForm>
         <ProFormList
           name="twoDimensionalArray"
@@ -1391,7 +1335,7 @@ describe('ProForm List', () => {
     const handleAdd = jest.fn();
     const handleRemove = jest.fn();
 
-    const html = reactRender(
+    const html = render(
       <ProForm>
         <ProFormList
           name="list"

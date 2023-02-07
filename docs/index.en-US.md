@@ -1,33 +1,36 @@
 ---
-title: ProComponents - page-like components
-order: 10
-sidebar: false
+title: ProComponents - Front-end components at page level
 hero:
   title: ProComponents
-  desc: 🏆 Make middle and back-end development easier
+  description: 🏆  Make the development of middle and back office easier
   actions:
-    - text: 🏮🏮 Quick Start →
-      link: /docs/getting-started
+    - text: 🏮🏮 Introduction →
+      link: /en-US/docs
 
 features:
-  - icon: https://mdn.alipayobjects.com/yuyan_qk0oxh/afts/img/q48YQ5X4ytAAAAAAAAAAAAAAAFl94AQBr
-    title: easy to use
-    desc: It has its own encapsulation on Ant Design, which is easier to use
-  - icon: https://gw.alipayobjects.com/zos/rmsportal/KDpgvguMpGfqaHPjicRK.svg
+  - avatar: https://mdn.alipayobjects.com/yuyan_qk0oxh/afts/img/q48YQ5X4ytAAAAAAAAAAAAAAFl94AQBr
+    title: Easy to use
+    description: It has its own packaging on Ant Design, which is easier to use
+
+  - avatar: https://gw.alipayobjects.com/zos/rmsportal/KDpgvguMpGfqaHPjicRK.svg
     title: Ant Design
-    desc: In the same vein as the Ant Design design system, it seamlessly connects to antd projects
-  - icon: https://mdn.alipayobjects.com/yuyan_qk0oxh/afts/img/UKqDTIp55HYAAAAAAAAAAAAAFl94AQBr
+    description: It is in the same line with Ant Design design system and seamlessly connects with ant project
+
+  - avatar: https://mdn.alipayobjects.com/yuyan_qk0oxh/afts/img/UKqDTIp55HYAAAAAAAAAAAAAFl94AQBr
     title: Internationalization
-    desc: Provide complete internationalization and connect with Ant Design system
-  - icon: https://mdn.alipayobjects.com/yuyan_qk0oxh/afts/img/Y_NMQKxw7OgAAAAAAAAAAAAAFl94AQBr
-    title: Default style
-    desc: The style is in the same line as antd, no need to change, it is natural
-  - icon: https://mdn.alipayobjects.com/yuyan_qk0oxh/afts/img/U3XjS5IA1tUAAAAAAAAAAAAAFl94AQBr
-    title: Default Behavior
-    desc: less code, less bugs
-  - icon: https://gw.alipayobjects.com/zos/antfincdn/Eb8IHpb9jE/Typescript_logo_2020.svg
+    description: Provide complete internationalization and connect with Ant Design system
+
+  - avatar: https://mdn.alipayobjects.com/yuyan_qk0oxh/afts/img/Y_NMQKxw7OgAAAAAAAAAAAAAFl94AQBr
+    title: Preset Style
+    description: The style and style are in one continuous line with ant d, without magic modification, and naturally
+
+  - avatar: https://mdn.alipayobjects.com/yuyan_qk0oxh/afts/img/U3XjS5IA1tUAAAAAAAAAAAAAFl94AQBr
+    title: Preset behavior
+    description: Less code, fewer bugs
+
+  - avatar: https://gw.alipayobjects.com/zos/antfincdn/Eb8IHpb9jE/Typescript_logo_2020.svg
     title: TypeScript
-    desc: Developed with TypeScript, provides a complete type definition file
+    description: Use TypeScript development to provide a complete type definition file
 
 footer: Open-source MIT Licensed | © 2017-present
 ---

@@ -41,3 +41,5 @@ screenshot
 .changelogs
 .changelog.md
 packages/components/src/version.ts
+.dumi/tmp
+server

@@ -85,7 +85,7 @@ const TabPane: React.FC<ProCardTabPaneProps> = (props) => {
   }
 };
 
-if (process.env.NODE_ENV !== 'production') {
+if (typeof process !== 'undefined' && process.env.NODE_ENV !== 'production') {
   TabPane.displayName = 'DeprecatedTabPane';
 }
 

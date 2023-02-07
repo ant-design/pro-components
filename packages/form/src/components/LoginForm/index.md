@@ -1,11 +1,6 @@
 ---
 title: LoginForm/Page - 登录表单
 order: 2
-group:
-  path: /
-nav:
-  title: 组件
-  path: /components
 ---
 
 # 登录表单

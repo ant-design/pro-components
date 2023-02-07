@@ -3,7 +3,6 @@ import ProForm, { ProFormField } from '@ant-design/pro-form';
 import ProSkeleton from '@ant-design/pro-skeleton';
 import type {
   ProCoreActionType,
-  ProFieldFCMode,
   ProFieldValueType,
   ProSchema,
   ProSchemaComponentTypes,
@@ -30,6 +29,7 @@ import useFetchData from './useFetchData';
 
 // 兼容代码-----------
 import 'antd/es/descriptions/style';
+import type { ProFieldFCMode } from '@ant-design/pro-provider';
 //----------------------
 
 // todo remove it
@@ -202,7 +202,7 @@ export const FieldRender: React.FC<
           {
             isEditable: true,
             recordKey: dataIndex,
-            record: form.getFieldValue([dataIndex].flat(1) as React.ReactText[]),
+            record: form.getFieldValue([dataIndex].flat(1) as (string | number)[]),
             defaultRender: () => <ProFormField {...fieldConfig} fieldProps={fieldProps} />,
             type: 'descriptions',
           },

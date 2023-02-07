@@ -29,9 +29,9 @@ const routes = [
 const App: React.FC = () => (
   <PageHeader
     className="site-page-header"
-    title="Title"
+    oldtitle="Title"
     breadcrumb={{ routes }}
-    subTitle="This is a subtitle"
+    suboldtitle="This is a subtitle"
   />
 );
 

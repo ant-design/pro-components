@@ -1,10 +1,5 @@
 ---
 title: EditableProTable - 可编辑表格
-group:
-  path: /
-nav:
-  title: 组件
-  path: /components
 ---
 
 # EditableProTable - 可编辑表格
@@ -45,7 +40,7 @@ nav:
 | `onChange` | dataSource 修改时触发，删除和修改都会触发,如果设置了 value，Table 会成为一个受控组件。 | `(value:T[])=>void` | `undefined` |
 | `recordCreatorProps` | 新建一行数据的相关配置 | [RecordCreatorProps](#recordcreator) & [ButtonProps](https://ant.design/components/button-cn/#API) | - |
 | `maxLength` | 最大的行数，到达最大行数新建按钮会自动消失 | number | - |
-| `editable` | 可编辑表格的相关配置 | [TableRowEditable<T>](#editable-编辑行配置) | - |
+| `editable` | 可编辑表格的相关配置 | [TableRowEditable](#editable-编辑行配置) | - |
 | `controlled` | 是否受控, 如果受控每次编辑都会触发 onChange，并且会修改 dataSource | `boolean` | false |
 | `editableFormRef` | table 所有的 form，带了一些表格特有的操作 | `React.Ref<EditableFormInstance<T>>` | `undefined` |
 

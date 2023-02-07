@@ -1,11 +1,9 @@
 ---
 title: LoginForm/Page
 Order: 2
-group:
-  Path: /
+
 navigation:
   Title: Components
-  path: /components
 ---
 
 # LoginForm/Page
@@ -14,11 +12,11 @@ LoginForm and LoginFormPage are variants of ProForm. They are specially implemen
 
 ## Login form
 
-<code src="./demos/login-form" background="#f5f5f5" height="320px" title="login-form"></code>
+<code src="./demos/login-form" background="#f5f5f5" height="320px" oldtitle="login-form"></code>
 
 ## page level LoginForm
 
-<code src="./demos/login-form-page.tsx" background="#f5f5f5" height="320px" title="Page level form"></code>
+<code src="./demos/login-form-page.tsx" background="#f5f5f5" height="320px" oldtitle="Page level form"></code>
 
 ### LoginForm
 

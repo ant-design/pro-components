@@ -29,11 +29,11 @@ module.exports = {
   },
   cacheDirectory: './.jest/cache',
   transformIgnorePatterns: [`/node_modules/(?!${[].join('|')})`],
-  unmockedModulePathPatterns: ['node_modules/react/', 'node_modules/enzyme/'],
-  testURL:
-    'http://localhost?navTheme=realDark&layout=mix&colorPrimary=techBlue&splitMenus=false&fixedHeader=true',
+  unmockedModulePathPatterns: ['node_modules/react/'],
+  testEnvironmentOptions: {
+    url: 'http://localhost?navTheme=realDark&layout=mix&colorPrimary=techBlue&splitMenus=false&fixedHeader=true',
+  },
   verbose: true,
-  snapshotSerializers: [require.resolve('enzyme-to-json/serializer')],
   setupFiles: ['./tests/setupTests.js'],
   globals: {
     ANT_DESIGN_PRO_ONLY_DO_NOT_USE_IN_YOUR_PRODUCTION: false,

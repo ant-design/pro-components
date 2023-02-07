@@ -1,7 +1,3 @@
-/**
- * title: 多选模式
- */
-
 import { CheckCard } from '@ant-design/pro-components';
 
 export default () => (

@@ -100,12 +100,12 @@ export const operationUnit = (token: ProAliasToken): CSSObject => ({
  * 封装了一下 antd 的 useStyle，支持了一下antd@4
  * @param componentName {string} 组件的名字
  * @param styleFn {GenerateStyle} 生成样式的函数
- * @returns {UseStyleResult}
+ * @returns UseStyleResult
  */
 export function useStyle(
   componentName: string,
   styleFn: (token: ProAliasToken) => CSSInterpolation,
-): UseStyleResult {
+) {
   const { token = {} as ProAliasToken, hashId = '', theme } = useContext(ProProvider);
   const { getPrefixCls } = useContext(AntdConfigProvider.ConfigContext);
 

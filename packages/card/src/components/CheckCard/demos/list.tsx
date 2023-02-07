@@ -1,7 +1,3 @@
-/**
- * title: 应用列表示例
- */
-
 import { CheckCard } from '@ant-design/pro-components';
 import { Avatar } from 'antd';
 

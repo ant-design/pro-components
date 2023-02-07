@@ -1,10 +1,8 @@
 ---
 title: Modal/DrawerForm
-group:
-  path: /
+
 nav:
   title: Components
-  path: /components
 ---
 
 # Modal/DrawerForm - Floating Forms
@@ -15,27 +13,27 @@ ModalForm and DrawerForm both provide triggers to reduce state usage, if you nee
 
 ## Modal Forms
 
-<code src="./demos/modal-form.tsx" background="#f5f5f5" height="32px" title="Modal Forms"></code>
+<code src="./demos/modal-form.tsx" background="#f5f5f5" height="32px" oldtitle="Modal Forms"></code>
 
 ## Drawer Forms
 
-<code src="./demos/drawer-form.tsx" background="#f5f5f5" height="32px" title="Drawer Forms"></code>
+<code src="./demos/drawer-form.tsx" background="#f5f5f5" height="32px" oldtitle="Drawer Forms"></code>
 
 ## Nested Drawer Forms
 
-<code src="./demos/drawer-form-nested.tsx" debug background="#f5f5f5" height="32px" title="Drawer Forms"></code>
+<code src="./demos/drawer-form-nested.tsx" debug background="#f5f5f5" height="32px" oldtitle="Drawer Forms"></code>
 
 ## Custom Modal Forms' Button
 
-<code src="./demos/modal-form-submitter.tsx" background="#f5f5f5" height="32px" title="Custom Modal Forms' Button"></code>
+<code src="./demos/modal-form-submitter.tsx" background="#f5f5f5" height="32px" oldtitle="Custom Modal Forms' Button"></code>
 
 ## Use open and onOpenChange
 
-<code src="./demos/visible-on-visible-change.tsx" background="#f5f5f5" height="32px" title="Use open and onOpenChange"></code>
+<code src="./demos/visible-on-visible-change.tsx" background="#f5f5f5" height="32px" oldtitle="Use open and onOpenChange"></code>
 
 ## Reset Form
 
-<code src="./demos/modal-form-reset.tsx" background="#f5f5f5" height="32px" title="Reset Form"></code>
+<code src="./demos/modal-form-reset.tsx" background="#f5f5f5" height="32px" oldtitle="Reset Form"></code>
 
 ## API
 

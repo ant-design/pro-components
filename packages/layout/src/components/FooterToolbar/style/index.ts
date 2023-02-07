@@ -1,4 +1,4 @@
-﻿import type { GenerateStyle, ProAliasToken } from '@ant-design/pro-utils';
+﻿import type { GenerateStyle, ProAliasToken } from '@ant-design/pro-provider';
 import { setAlpha, useStyle as useAntdStyle } from '@ant-design/pro-provider';
 
 export interface FooterToolBarToken extends ProAliasToken {

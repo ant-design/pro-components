@@ -1,4 +1,4 @@
-import type { GenerateStyle, ProAliasToken } from '@ant-design/pro-utils';
+import type { GenerateStyle, ProAliasToken } from '@ant-design/pro-provider';
 import { resetComponent, useStyle as useAntdStyle } from '@ant-design/pro-utils';
 
 interface ProCardToken extends ProAliasToken {

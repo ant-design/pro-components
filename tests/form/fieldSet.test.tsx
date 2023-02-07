@@ -5,15 +5,15 @@
   ProFormTextArea,
 } from '@ant-design/pro-form';
 import { Input } from 'antd';
-import { mount } from 'enzyme';
-import { act } from 'react-dom/test-utils';
-import { waitForComponentToPaint } from '../util';
+import { fireEvent, render, screen } from '@testing-library/react';
+import '@testing-library/jest-dom';
+import userEvent from '@testing-library/user-event';
 
 describe('ProFormFieldSet', () => {
   it('😊 ProFormFieldSet onChange', async () => {
     const fn = jest.fn();
     const valueFn = jest.fn();
-    const html = mount(
+    const { container, unmount } = render(
       <ProForm
         onFinish={(values) => fn(values.list)}
         onValuesChange={(value) => {
@@ -38,48 +38,37 @@ describe('ProFormFieldSet', () => {
       </ProForm>,
     );
 
-    act(() => {
-      html.find('input#filedSet1').simulate('change', {
-        target: {
-          value: '111',
-        },
-      });
+    fireEvent.change(container.querySelector('#filedSet1')!, {
+      target: {
+        value: '111',
+      },
     });
-    await waitForComponentToPaint(html);
+
     expect(valueFn).toBeCalledWith(['111']);
     expect(valueFn).toBeCalledTimes(1);
-    act(() => {
-      html.find('textarea#filedSet3').simulate('change', {
-        target: {
-          value: '333',
-        },
-      });
+
+    fireEvent.change(container.querySelector('#filedSet3')!, {
+      target: {
+        value: '333',
+      },
     });
-    await waitForComponentToPaint(html);
+
     expect(valueFn).toBeCalledWith(['111', undefined, '333']);
 
-    act(() => {
-      html.find('li > div').at(1).simulate('click');
-    });
+    await userEvent.click(container.querySelectorAll('li > div')[1]);
+
     expect(valueFn).toBeCalledWith(['111', 2, '333']);
-    await waitForComponentToPaint(html);
 
-    await waitForComponentToPaint(html, 200);
-
-    act(() => {
-      html.find('button.ant-btn.ant-btn-primary').simulate('click');
-    });
-    await waitForComponentToPaint(html, 200);
+    await userEvent.click(await screen.findByText('提 交'));
 
     expect(fn).toBeCalledWith(['111', 2, '333']);
-
-    html.unmount();
+    unmount();
   });
 
   it('😊 ProFormFieldSet support Input onChange', async () => {
     const fn = jest.fn();
     const valueFn = jest.fn();
-    const html = mount(
+    const { container, unmount } = render(
       <ProForm
         onFinish={(values) => fn(values.list)}
         onValuesChange={(value) => valueFn(value.list)}
@@ -97,47 +86,37 @@ describe('ProFormFieldSet', () => {
       </ProForm>,
     );
 
-    act(() => {
-      html.find('input#filedSet1').simulate('change', {
-        target: {
-          value: '111',
-        },
-      });
+    fireEvent.change(container.querySelector('#filedSet1')!, {
+      target: {
+        value: '111',
+      },
     });
-    await waitForComponentToPaint(html);
+
     expect(valueFn).toBeCalledWith(['111']);
     expect(valueFn).toBeCalledTimes(1);
-    act(() => {
-      html.find('textarea#filedSet3').simulate('change', {
-        target: {
-          value: '333',
-        },
-      });
+
+    fireEvent.change(container.querySelector('#filedSet3')!, {
+      target: {
+        value: '333',
+      },
     });
-    await waitForComponentToPaint(html);
+
     expect(valueFn).toBeCalledWith(['111', undefined, '333']);
 
-    act(() => {
-      html.find('li > div').at(1).simulate('click');
-    });
+    await userEvent.click(container.querySelectorAll('li > div')[1]);
+
     expect(valueFn).toBeCalledWith(['111', 2, '333']);
-    await waitForComponentToPaint(html);
 
-    await waitForComponentToPaint(html, 200);
-
-    act(() => {
-      html.find('button.ant-btn.ant-btn-primary').simulate('click');
-    });
-    await waitForComponentToPaint(html, 200);
+    await userEvent.click(await screen.findByText('提 交'));
 
     expect(fn).toBeCalledWith(['111', 2, '333']);
-    html.unmount();
+    unmount();
   });
 
   it('😊 ProFormFieldSet transform', async () => {
     const fn = jest.fn();
     const valueFn = jest.fn();
-    const html = mount(
+    const { container, unmount } = render(
       <ProForm
         onFinish={async (values) => {
           fn(values.listKey);
@@ -171,42 +150,32 @@ describe('ProFormFieldSet', () => {
       </ProForm>,
     );
 
-    act(() => {
-      html.find('input#filedSet1').simulate('change', {
-        target: {
-          value: '111',
-        },
-      });
+    fireEvent.change(container.querySelector('#filedSet1')!, {
+      target: {
+        value: '111',
+      },
     });
-    await waitForComponentToPaint(html);
+
     expect(valueFn).toBeCalledWith(['111']);
 
-    act(() => {
-      html.find('input#filedSet2').simulate('change', {
-        target: {
-          value: '222',
-        },
-      });
+    fireEvent.change(container.querySelector('#filedSet2')!, {
+      target: {
+        value: '222',
+      },
     });
+
     expect(valueFn).toBeCalledWith(['111', '222']);
 
-    await waitForComponentToPaint(html, 200);
-
-    act(() => {
-      html.find('button.ant-btn.ant-btn-primary').simulate('click');
-    });
-
-    await waitForComponentToPaint(html, 200);
+    await userEvent.click(await screen.findByText('提 交'));
 
     expect(fn).toBeCalledWith('111');
-
-    html.unmount();
+    unmount();
   });
 
   it('😊 ProFormFieldSet convertValue', async () => {
     const fn = jest.fn();
     const valueFn = jest.fn();
-    const html = mount(
+    const { container, unmount } = render(
       <ProForm
         onFinish={async (values) => {
           fn(values.listKey);
@@ -248,19 +217,14 @@ describe('ProFormFieldSet', () => {
         />
       </ProForm>,
     );
-    expect(html.find('input#filedSet1').at(0).props().value).toBe('1');
-    expect(html.find('input#filedSet2').at(0).props().value).toBe('2');
-    expect(html.find('input#filedSet3').at(0).props().value).toBe('2-2');
-    await waitForComponentToPaint(html, 200);
 
-    act(() => {
-      html.find('button.ant-btn.ant-btn-primary').simulate('click');
-    });
+    expect(container.querySelector('#filedSet1')).toHaveValue('1');
+    expect(container.querySelector('#filedSet2')).toHaveValue('2');
+    expect(container.querySelector('#filedSet3')).toHaveValue('2-2');
 
-    await waitForComponentToPaint(html, 200);
+    await userEvent.click(await screen.findByText('提 交'));
 
-    // expect(fn).toBeCalledWith('1');
-
-    html.unmount();
+    expect(fn).toBeCalledWith('2');
+    unmount();
   });
 });

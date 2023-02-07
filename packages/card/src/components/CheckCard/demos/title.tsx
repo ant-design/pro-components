@@ -1,7 +1,3 @@
-/**
- * title: 自定义标题
- */
-
 import { AppstoreOutlined } from '@ant-design/icons';
 import { CheckCard } from '@ant-design/pro-components';
 import { Tag } from 'antd';

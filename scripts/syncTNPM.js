@@ -1,5 +1,5 @@
 /* eslint-disable global-require */
-const { execa } = require('@umijs/utils');
+const execa = require('execa');
 const { join } = require('path');
 const getPackages = require('./utils/getPackages');
 

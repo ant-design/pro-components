@@ -1,5 +1,3 @@
-import Adapter from '@cfaester/enzyme-adapter-react-18';
-import Enzyme from 'enzyme';
 import 'jest-canvas-mock';
 import { enableFetchMocks } from 'jest-fetch-mock';
 import MockDate from 'mockdate';
@@ -26,8 +24,6 @@ jest.mock('react', () => ({
 }));
 
 jest.setTimeout(60000);
-
-Enzyme.configure({ adapter: new Adapter() });
 
 /* eslint-disable global-require */
 if (typeof window !== 'undefined') {
@@ -136,16 +132,3 @@ global.Worker = class {
     this.onmessage(msg);
   }
 };
-
-const errorLog = console.error;
-Object.defineProperty(global.window.console, 'error', {
-  writable: true,
-  configurable: true,
-  value: (...rest) => {
-    const logStr = rest.join('');
-    if (logStr.includes('Warning: An update to %s inside a test was not wrapped in act(...)')) {
-      return;
-    }
-    errorLog(...rest);
-  },
-});
