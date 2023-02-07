@@ -7,7 +7,7 @@
   "scripts": {
     "bootstrap": "node ./scripts/bootstrap.js",
     "build": "npm run version && npm run build-components",
-    "build-components": "ls -l && pnpm --filter \"./packages/**/**\" build",
+    "build-components": "pnpm --filter \"./packages/**/**\" build",
     "changelog": "node ./scripts/changelogs.js",
     "check-deps": "node ./scripts/checkDeps.js",
     "checkPublish": "npm run sync:tnpm && node ./scripts/checkPublish.js && npm run sync:tnpm",
@@ -43,7 +43,7 @@
     "prettier": "2.x",
     "react": "^18.0.0",
     "react-dom": "^18.0.0",
-    "typescript": "4.x"
+    "typescript": "~4.7.4"
   },
   "devDependencies": {
     "@ant-design/antd-theme-variable": "^1.0.0",
@@ -155,8 +155,7 @@
     "style-loader": "^2.0.0",
     "stylelint": "^13.0.0",
     "timezone-mock": "^1.3.4",
-    "typescript": "^4.5",
-    "typescript-transform-paths": "^3.3.1",
+    "typescript": "~4.7.4",
     "umi": "^4.0.0",
     "umi-request": "^1.3.5",
     "use-merge-value": "^1.0.2",

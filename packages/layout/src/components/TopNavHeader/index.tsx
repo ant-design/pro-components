@@ -32,7 +32,7 @@ const TopNavHeader: React.FC<TopNavHeaderProps> = (props) => {
   const { wrapSSR, hashId } = useStyle(prefixCls);
   const headerDom = renderLogoAndTitle(
     { ...props, collapsed: false },
-    layout === 'mix' ? 'headerTitleRender' : undefined,
+    layout === 'mix' || layout == 'top' ? 'headerTitleRender' : undefined,
   );
   const contentDom = useMemo(() => {
     const defaultDom = (
