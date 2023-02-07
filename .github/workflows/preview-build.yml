@@ -12,14 +12,15 @@ jobs:
       - uses: actions/checkout@v2
         with:
           ref: ${{ github.event.pull_request.head.sha }}
-
+      - name: Install pnpm
+        uses: pnpm/action-setup@v2.2.4
       - name: build
         env:
           TEST_UI: 'preview'
         run: |
-          yarn
-          yarn run build
-          yarn run dumi
+          pnpm i
+          pnpm run build
+          pnpm run dumi
 
       - run: |
           zip -r dist.zip dist
