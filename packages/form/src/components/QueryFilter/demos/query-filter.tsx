@@ -10,7 +10,6 @@ export default () => {
   return (
     <QueryFilter<{
       name: string;
-      company: string;
     }>
       onFinish={async (values) => {
         console.log(values.name);

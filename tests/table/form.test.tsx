@@ -1,14 +1,12 @@
 import ProTable from '@ant-design/pro-table';
 import type { FormInstance } from 'antd';
-import { mount } from 'enzyme';
 import React from 'react';
-import { act } from 'react-dom/test-utils';
-import { waitForComponentToPaint } from '../util';
+import { act, fireEvent, render, waitFor } from '@testing-library/react';
 
 describe('BasicTable Search', () => {
   it('🎏 table type=form', async () => {
     const fn = jest.fn();
-    const html = mount(
+    const { container } = render(
       <ProTable
         type="form"
         size="small"
@@ -35,40 +33,29 @@ describe('BasicTable Search', () => {
         rowKey="key"
       />,
     );
-    await waitForComponentToPaint(html, 500);
-    act(() => {
-      html.find('.ant-form button.ant-btn-primary').simulate('click');
+
+    fireEvent.click(container.querySelector('.ant-form button.ant-btn-primary')!);
+
+    await waitFor(() => {
+      expect(fn).toBeCalledTimes(1);
     });
 
-    await waitForComponentToPaint(html);
-    expect(fn).toBeCalledTimes(1);
-
-    /** 修改值 */
-    act(() => {
-      html
-        .find('.ant-form input.ant-input')
-        .at(0)
-        .simulate('change', {
-          target: {
-            value: 'name',
-          },
-        });
+    fireEvent.change(container.querySelectorAll('.ant-form input.ant-input')[0], {
+      target: {
+        value: 'name',
+      },
     });
-
-    act(() => {
-      html.find('.ant-form button.ant-btn-primary').simulate('click');
-    });
-
-    await waitForComponentToPaint(html);
-
-    expect(fn).toBeCalledWith({
-      name: 'name',
+    fireEvent.click(container.querySelector('.ant-form button.ant-btn-primary')!);
+    await waitFor(() => {
+      expect(fn).toBeCalledWith({
+        name: 'name',
+      });
     });
   });
 
   it('🎏 table support initialValue', async () => {
     const fn = jest.fn();
-    const html = mount(
+    render(
       <ProTable
         size="small"
         columns={[
@@ -100,16 +87,17 @@ describe('BasicTable Search', () => {
         rowKey="key"
       />,
     );
-    await waitForComponentToPaint(html, 1200);
 
-    expect(fn).toBeCalledWith({
-      name: 'name',
+    await waitFor(() => {
+      expect(fn).toBeCalledWith({
+        name: 'name',
+      });
     });
   });
 
   it('🎏 table support initialValues', async () => {
     const fn = jest.fn();
-    const html = mount(
+    render(
       <ProTable
         size="small"
         columns={[
@@ -145,17 +133,18 @@ describe('BasicTable Search', () => {
         }}
       />,
     );
-    await waitForComponentToPaint(html, 1200);
 
-    expect(fn).toBeCalledWith({
-      name: 'name',
+    await waitFor(() => {
+      expect(fn).toBeCalledWith({
+        name: 'name',
+      });
     });
   });
 
   it('🎏 table type=form and formRef', async () => {
     const fn = jest.fn();
     const ref = React.createRef<FormInstance | undefined>();
-    const html = mount(
+    const { container } = render(
       <ProTable
         // @ts-ignore
         formRef={ref}
@@ -184,7 +173,6 @@ describe('BasicTable Search', () => {
         rowKey="key"
       />,
     );
-    await waitForComponentToPaint(html, 500);
     /** 修改值 */
     act(() => {
       ref.current?.setFieldsValue({
@@ -192,20 +180,18 @@ describe('BasicTable Search', () => {
       });
     });
 
-    act(() => {
-      html.find('.ant-form button.ant-btn-primary').simulate('click');
-    });
+    fireEvent.click(container.querySelector('.ant-form button.ant-btn-primary')!);
 
-    await waitForComponentToPaint(html);
-
-    expect(fn).toBeCalledWith({
-      name: 'name',
+    await waitFor(() => {
+      expect(fn).toBeCalledWith({
+        name: 'name',
+      });
     });
   });
 
   it('🎏 fieldProps and formItemProps support function', async () => {
     const ref = React.createRef<FormInstance | undefined>();
-    const html = mount(
+    const { container } = render(
       <ProTable
         type="form"
         // @ts-ignore
@@ -255,23 +241,19 @@ describe('BasicTable Search', () => {
         rowKey="key"
       />,
     );
-    await waitForComponentToPaint(html, 1400);
 
-    /** 修改值 */
     act(() => {
-      html.find('input#name').simulate('change', {
-        target: {
-          value: 'closed',
-        },
+      ref.current?.setFieldsValue({
+        name: 'closed',
       });
     });
-    await waitForComponentToPaint(html, 500);
-    expect(html.find('.ant-select-disabled').exists()).toBeTruthy();
+
+    expect(!!container.querySelectorAll('.ant-select-disabled').length).toBeTruthy();
   });
 
   it('🎏 make sure formItemProps have the highest priority', async () => {
     const ref = React.createRef<FormInstance | undefined>();
-    const html = mount(
+    render(
       <ProTable
         type="form"
         // @ts-ignore
@@ -300,16 +282,11 @@ describe('BasicTable Search', () => {
         rowKey="key"
       />,
     );
-    await waitForComponentToPaint(html, 1400);
 
-    /** 修改值 */
     act(() => {
-      html.find('input#name').simulate('change', {
-        target: {
-          value: 'Pro Components',
-        },
+      ref.current?.setFieldsValue({
+        name: 'Pro Components',
       });
     });
-    await waitForComponentToPaint(html);
   });
 });

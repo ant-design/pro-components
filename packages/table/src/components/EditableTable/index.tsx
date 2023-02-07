@@ -165,8 +165,6 @@ function EditableTable<
     },
   );
 
-  console.log(value);
-
   const getRowKey = React.useMemo<GetRowKey<DataType>>((): GetRowKey<DataType> => {
     if (typeof rowKey === 'function') {
       return rowKey;

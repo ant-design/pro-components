@@ -1,13 +1,11 @@
 import ProForm, { ProFormText } from '@ant-design/pro-form';
 import { Input } from 'antd';
-import { mount } from 'enzyme';
-import { act } from 'react-dom/test-utils';
-import { waitForComponentToPaint } from '../util';
+import { fireEvent, render } from '@testing-library/react';
 
 describe('ProForm.Item', () => {
   it('📦 ProForm support fieldProps.onBlur', async () => {
     const onBlur = jest.fn();
-    const wrapper = mount<{ navTheme: string }>(
+    const { container } = render(
       <ProForm
         initialValues={{
           navTheme: 'dark',
@@ -22,14 +20,9 @@ describe('ProForm.Item', () => {
         />
       </ProForm>,
     );
-    await waitForComponentToPaint(wrapper);
-    act(() => {
-      wrapper.find('input#navTheme').simulate('focus');
-    });
-    await waitForComponentToPaint(wrapper);
-    act(() => {
-      wrapper.find('input#navTheme').simulate('blur');
-    });
+
+    fireEvent.focus(container.querySelector('input#navTheme')!);
+    fireEvent.blur(container.querySelector('input#navTheme')!);
 
     expect(onBlur).toBeCalledWith('dark');
     expect(onBlur).toBeCalledTimes(1);
@@ -38,7 +31,7 @@ describe('ProForm.Item', () => {
   it('📦 ProForm.Item supports onChange', async () => {
     const onChange = jest.fn();
     const onValuesChange = jest.fn();
-    const wrapper = mount<{ navTheme: string }>(
+    const { container } = render(
       <ProForm
         initialValues={{
           navTheme: 'dark',
@@ -50,14 +43,11 @@ describe('ProForm.Item', () => {
         </ProForm.Item>
       </ProForm>,
     );
-    await waitForComponentToPaint(wrapper);
 
-    act(() => {
-      wrapper.find('input#name').simulate('change', {
-        target: {
-          value: '1212',
-        },
-      });
+    fireEvent.change(container.querySelector('input#name')!, {
+      target: {
+        value: '1212',
+      },
     });
 
     expect(onChange).toBeCalledWith('1212');

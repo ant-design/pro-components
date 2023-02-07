@@ -1,6 +1,6 @@
 import { isUrl } from '@ant-design/pro-utils';
 import React from 'react';
-import type { AppsLogoComponentsAppList, AppsLogoComponentsAppItem } from './types';
+import type { AppListProps, AppItemProps } from './types';
 
 /**
  * simple模式渲染logo的方式
@@ -33,8 +33,8 @@ export const renderLogo = (
 };
 
 export const SimpleContent: React.FC<{
-  appList?: AppsLogoComponentsAppList;
-  itemClick?: (item: AppsLogoComponentsAppItem) => void;
+  appList?: AppListProps;
+  itemClick?: (item: AppItemProps) => void;
   baseClassName: string;
   hashId?: string;
 }> = (props) => {

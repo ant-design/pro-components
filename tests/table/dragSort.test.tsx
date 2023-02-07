@@ -1,8 +1,7 @@
 import { MenuOutlined } from '@ant-design/icons';
 import { DragSortTable } from '@ant-design/pro-table';
-import { mount } from 'enzyme';
 import { sortData } from '../../packages/table/src/utils';
-import { waitForComponentToPaint } from '../util';
+import { render } from '@testing-library/react';
 
 describe('dragSort', () => {
   it('🔥 [dragSort] render drag sort default handle by dragSortKey', async () => {
@@ -24,7 +23,7 @@ describe('dragSort', () => {
         name: 'Kiner Tang',
       },
     ];
-    const html = mount(
+    const { container } = render(
       <DragSortTable
         size="small"
         dataSource={dataSource}
@@ -46,8 +45,8 @@ describe('dragSort', () => {
         dragSortKey="sort"
       />,
     );
-    await waitForComponentToPaint(html, 1200);
-    expect(html.find('.dragSortDefaultHandle')).toMatchSnapshot();
+
+    expect(container.querySelector('.dragSortDefaultHandle')).toMatchSnapshot();
   });
 
   it('🔥 [dragSort] render drag sort custom handle by dragSortHandlerRender', async () => {
@@ -82,7 +81,7 @@ describe('dragSort', () => {
         </>
       );
     };
-    const html = mount(
+    const { container } = render(
       <DragSortTable
         size="small"
         dataSource={dataSource}
@@ -105,8 +104,8 @@ describe('dragSort', () => {
         dragSortHandlerRender={dragHandleRender}
       />,
     );
-    await waitForComponentToPaint(html, 1200);
-    expect(html.find('.dragSortCustomHandle')).toMatchSnapshot();
+
+    expect(container.querySelector('.dragSortCustomHandle')).toMatchSnapshot();
     expect(callback).toBeCalled();
     expect(callback).toBeCalledWith('kiner', 0);
   });
@@ -137,7 +136,7 @@ describe('dragSort', () => {
       </>
     );
     const callback = jest.fn();
-    const html = mount(
+    const { container } = render(
       <DragSortTable
         size="small"
         dataSource={dataSource}
@@ -164,9 +163,9 @@ describe('dragSort', () => {
         dragSortHandlerRender={dragHandleRender}
       />,
     );
-    await waitForComponentToPaint(html, 1200);
-    expect(html.find('.dragSortCustomHandle')).toMatchSnapshot();
-    expect(html.find('.customRender')).toMatchSnapshot();
+
+    expect(container.querySelector('.dragSortCustomHandle')).toMatchSnapshot();
+    expect(container.querySelector('.customRender')).toMatchSnapshot();
     expect(callback).toBeCalled();
     expect(callback).toBeCalledWith('kiner', 0);
   });
