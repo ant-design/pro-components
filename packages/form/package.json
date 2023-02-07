@@ -24,6 +24,9 @@
     "lib",
     "dist"
   ],
+  "scripts": {
+    "build": "father build"
+  },
   "browserslist": [
     "last 2 versions",
     "Firefox ESR",
@@ -31,6 +34,7 @@
     "ie >= 11"
   ],
   "dependencies": {
+    "@chenshuai2144/sketch-color": "^1.0.7",
     "@ant-design/icons": "^4.2.1",
     "@ant-design/pro-field": "2.2.5",
     "@ant-design/pro-provider": "2.4.0",

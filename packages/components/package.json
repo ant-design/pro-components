@@ -25,6 +25,9 @@
     "lib",
     "es"
   ],
+  "scripts": {
+    "build": "father build"
+  },
   "browserslist": [
     "last 2 versions",
     "Firefox ESR",

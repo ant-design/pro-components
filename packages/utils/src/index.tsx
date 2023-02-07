@@ -1,9 +1,3 @@
-import type {
-  BaseProFieldFC,
-  ProFieldFCMode,
-  ProFieldFCRenderProps,
-  ProRenderFieldPropsType,
-} from '@ant-design/pro-provider';
 import { arrayMoveImmutable } from './array-move';
 import { DropdownFooter } from './components/DropdownFooter';
 import { ErrorBoundary } from './components/ErrorBoundary';
@@ -43,7 +37,6 @@ import { pickProFormItemProps } from './pickProFormItemProps';
 import { pickProProps } from './pickProProps';
 import { runFunction } from './runFunction';
 import { transformKeySubmitValue } from './transformKeySubmitValue';
-import type { GenerateStyle, ProAliasToken } from '@ant-design/pro-provider';
 import {
   lighten,
   operationUnit,
@@ -51,26 +44,8 @@ import {
   setAlpha,
   useStyle,
 } from '@ant-design/pro-provider';
-/** Type */
-import type {
-  ProCoreActionType,
-  ProFieldProps,
-  ProFieldRequestData,
-  ProFieldTextType,
-  ProFieldValueEnumType,
-  ProFieldValueObjectType,
-  ProFieldValueType,
-  ProFieldValueTypeWithFieldProps,
-  ProSchema,
-  ProSchemaComponentTypes,
-  ProSchemaValueEnumMap,
-  ProSchemaValueEnumObj,
-  ProSchemaValueType,
-  ProTableEditableFnType,
-  RequestOptionsType,
-  SearchConvertKeyFn,
-  SearchTransformKeyFn,
-} from './typing';
+
+export * from './typing';
 import type {
   RowEditableConfig,
   RowEditableType,
@@ -86,38 +61,16 @@ import { openVisibleCompatible } from './compareVersions/openVisibleCompatible';
 import { menuOverlayCompatible } from './compareVersions/menuOverlayCompatible';
 
 export type {
-  SearchConvertKeyFn,
-  ProAliasToken,
-  GenerateStyle,
-  RequestOptionsType,
-  ProSchema,
   ProFormInstanceType,
-  ProFieldValueTypeWithFieldProps,
-  ProSchemaValueType,
-  ProCoreActionType,
-  ProSchemaComponentTypes,
-  ProSchemaValueEnumMap,
-  ProSchemaValueEnumObj,
-  SearchTransformKeyFn,
-  ProTableEditableFnType,
   RowEditableConfig,
   RowEditableType,
   ProRequestData,
-  ProFieldRequestData,
   UseEditableType,
   UseEditableUtilType,
   UseEditableMapType,
   UseEditableMapUtilType,
-  ProFieldValueType,
-  ProRenderFieldPropsType,
-  ProFieldFCRenderProps,
-  ProFieldFCMode,
-  BaseProFieldFC,
-  ProFieldTextType,
-  ProFieldValueEnumType,
-  ProFieldValueObjectType,
-  ProFieldProps,
 };
+
 export {
   LabelIconTip,
   ProFormContext,

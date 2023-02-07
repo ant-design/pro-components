@@ -1,11 +1,9 @@
 ---
 title: Structured data
 order: 1
-group:
-  path: /
+
 nav:
   title: Components
-  path: /components
 ---
 
 # ProFormFields

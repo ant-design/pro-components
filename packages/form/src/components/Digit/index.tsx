@@ -3,7 +3,7 @@ import React from 'react';
 import type { ProFormFieldItemProps } from '../../typing';
 import ProFormField from '../Field';
 
-export type ProFormDigitProps = ProFormFieldItemProps<InputNumberProps> & {
+export type ProFormDigitProps = ProFormFieldItemProps<InputNumberProps<number>> & {
   min?: InputNumberProps['min'];
   max?: InputNumberProps['max'];
 };
@@ -36,4 +36,6 @@ const ProFormDigit: React.ForwardRefRenderFunction<any, ProFormDigitProps> = (
   );
 };
 
-export default React.forwardRef(ProFormDigit);
+const ForwardRefProFormDigit = React.forwardRef(ProFormDigit);
+
+export default ForwardRefProFormDigit;

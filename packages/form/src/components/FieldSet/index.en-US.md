@@ -1,11 +1,9 @@
 ---
 title: ProFormFields
 order: 1
-group:
-  path: /
+
 nav:
   title: Components
-  path: /components
 ---
 
 # ProFormFields
@@ -36,19 +34,19 @@ So the props we set for ProFormText are actually for Form.Item, and the fieldPro
 
 ### Query form
 
-<code src="./demos/search-select.tsx" title=" Query form"></code>
+<code src="./demos/search-select.tsx" oldtitle=" Query form"></code>
 
 ### Date form
 
-<code src="./demos/datatime.tsx" title="Date form"></code>
+<code src="./demos/datatime.tsx" oldtitle="Date form"></code>
 
 ### Upload form
 
-<code src="./demos/upload.tsx" title="Upload form"></code>
+<code src="./demos/upload.tsx" oldtitle="Upload form"></code>
 
 ### Structured data
 
-<code src="./demos/form-fieldset.tsx" title="Structured data"></code>
+<code src="./demos/form-fieldset.tsx" oldtitle="Structured data"></code>
 
 ### Read-only for form field
 

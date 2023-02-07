@@ -1,12 +1,14 @@
-import ProConfigContext from '@ant-design/pro-provider';
 import type {
   BaseProFieldFC,
   ProFieldFCRenderProps,
+  ProRenderFieldPropsType,
+} from '@ant-design/pro-provider';
+import ProConfigContext from '@ant-design/pro-provider';
+import type {
   ProFieldRequestData,
   ProFieldTextType,
   ProFieldValueObjectType,
   ProFieldValueType,
-  ProRenderFieldPropsType,
 } from '@ant-design/pro-utils';
 import { omitUndefined, pickProProps } from '@ant-design/pro-utils';
 import { Avatar } from 'antd';

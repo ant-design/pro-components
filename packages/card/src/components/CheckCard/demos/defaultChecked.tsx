@@ -1,7 +1,3 @@
-/**
- * title: 默认选中
- */
-
 import { CheckCard } from '@ant-design/pro-components';
 
 export default () => (

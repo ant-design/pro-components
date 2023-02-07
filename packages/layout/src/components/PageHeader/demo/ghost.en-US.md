@@ -16,8 +16,8 @@ const App: React.FC = () => (
     <PageHeader
       ghost={false}
       onBack={() => window.history.back()}
-      title="Title"
-      subTitle="This is a subtitle"
+      oldtitle="Title"
+      suboldtitle="This is a subtitle"
       extra={[
         <Button key="3">Operation</Button>,
         <Button key="2">Operation</Button>,

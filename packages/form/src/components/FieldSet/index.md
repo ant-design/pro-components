@@ -1,11 +1,6 @@
 ---
 title: ProFormFields - 表单项
 order: 1
-group:
-  path: /
-nav:
-  title: 组件
-  path: /components
 ---
 
 # ProFormFields 表单项

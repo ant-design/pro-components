@@ -152,7 +152,7 @@ export const isMergeCell = (
  * @param index 序列号，理论上唯一
  */
 export const genColumnKey = (
-  key?: React.ReactText | undefined,
+  key?: (string | number) | undefined,
   index?: number | string,
 ): string => {
   if (key) {
@@ -179,7 +179,7 @@ function parseDataIndex(dataIndex: ProColumnType['dataIndex']): string | undefin
  * @param columns ProColumns
  */
 export function parseDefaultColumnConfig<T, Value>(columns: ProColumns<T, Value>[]) {
-  const filter: Record<string, React.ReactText[] | null> = {};
+  const filter: Record<string, (string | number)[] | null> = {};
   const sort: Record<string, SortOrder> = {};
   columns.forEach((column) => {
     // 转换 dataIndex
@@ -189,11 +189,11 @@ export function parseDefaultColumnConfig<T, Value>(columns: ProColumns<T, Value>
     }
     // 当 column 启用 filters 功能时，取出默认的筛选值
     if (column.filters) {
-      const defaultFilteredValue = column.defaultFilteredValue as React.ReactText[];
+      const defaultFilteredValue = column.defaultFilteredValue as (string | number)[];
       if (defaultFilteredValue === undefined) {
         filter[dataIndex] = null;
       } else {
-        filter[dataIndex] = column.defaultFilteredValue as React.ReactText[];
+        filter[dataIndex] = column.defaultFilteredValue as (string | number)[];
       }
     }
     // 当 column 启用 sorter 功能时，取出默认的排序值

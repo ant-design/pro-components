@@ -1,7 +1,3 @@
-/**
- * title: 纯图片选项
- */
-
 import { CheckCard } from '@ant-design/pro-components';
 
 export default () => (

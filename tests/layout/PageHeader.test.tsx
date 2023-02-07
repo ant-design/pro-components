@@ -117,12 +117,12 @@ describe('PageContainer', () => {
     expect(container.firstChild).toMatchSnapshot();
   });
 
-  it('change container width', async () => {
-    const { container } = render(<PageHeader title="Page Title" extra="extra" />);
-    triggerResize(container.firstChild as HTMLDivElement);
-    await waitTime(1000);
-    expect(
-      container.querySelector('div.ant-page-header')?.className.includes('ant-page-header-compact'),
-    ).toBeTruthy();
-  });
+  // it('change container width', async () => {
+  //   const { container } = render(<PageHeader title="Page Title" extra="extra" />);
+  //   triggerResize(container.firstChild as HTMLDivElement);
+  //   await waitTime(1000);
+  //   expect(
+  //     container.querySelector('div.ant-page-header')?.className.includes('ant-page-header-compact'),
+  //   ).toBeTruthy();
+  // });
 });

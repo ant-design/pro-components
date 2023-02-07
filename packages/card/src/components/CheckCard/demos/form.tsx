@@ -1,8 +1,3 @@
-/**
- * title: 表单中使用
- */
-
-/* eslint-disable no-console */
 import { CheckCard } from '@ant-design/pro-components';
 import { Avatar, Button, Form } from 'antd';
 

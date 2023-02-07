@@ -15,8 +15,8 @@ const App: React.FC = () => (
   <PageHeader
     className="site-page-header"
     onBack={() => null}
-    title="Title"
-    subTitle="This is a subtitle"
+    oldtitle="Title"
+    suboldtitle="This is a subtitle"
   />
 );
 

@@ -16,8 +16,8 @@ const App: React.FC = () => (
     <PageHeader
       className="site-page-header"
       onBack={() => window.history.back()}
-      title="Title"
-      subTitle="This is a subtitle"
+      oldtitle="Title"
+      suboldtitle="This is a subtitle"
       extra={[
         <Button key="3">Operation</Button>,
         <Button key="2">Operation</Button>,
@@ -41,9 +41,9 @@ const App: React.FC = () => (
     <br />
     <PageHeader
       onBack={() => window.history.back()}
-      title="Title"
+      oldtitle="Title"
       tags={<Tag color="blue">Running</Tag>}
-      subTitle="This is a subtitle"
+      suboldtitle="This is a subtitle"
       extra={[
         <Button key="3">Operation</Button>,
         <Button key="2">Operation</Button>,
@@ -53,16 +53,16 @@ const App: React.FC = () => (
       ]}
     >
       <Row>
-        <Statistic title="Status" value="Pending" />
+        <Statistic oldtitle="Status" value="Pending" />
         <Statistic
-          title="Price"
+          oldtitle="Price"
           prefix="$"
           value={568.08}
           style={{
             margin: '0 32px',
           }}
         />
-        <Statistic title="Balance" prefix="$" value={3345.08} />
+        <Statistic oldtitle="Balance" prefix="$" value={3345.08} />
       </Row>
     </PageHeader>
   </>

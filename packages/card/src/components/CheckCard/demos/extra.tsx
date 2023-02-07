@@ -1,7 +1,3 @@
-/**
- * title: 操作栏
- */
-
 import { EllipsisOutlined } from '@ant-design/icons';
 import { CheckCard } from '@ant-design/pro-components';
 import { Dropdown, message } from 'antd';

@@ -28,6 +28,7 @@ import type {
 import type { RangePickerProps } from 'antd/es/date-picker';
 import type { PasswordProps, TextAreaProps } from 'antd/es/input';
 import type { SliderRangeProps } from 'antd/es/slider';
+import type { ProSchemaValueEnumType } from '@ant-design/pro-provider';
 
 export interface ProFieldValueTypeWithFieldProps {
   text: InputProps;
@@ -171,7 +172,7 @@ export type PageInfo = {
 
 export type RequestOptionsType = {
   label?: React.ReactNode;
-  value?: React.ReactText;
+  value?: string | number;
   /** 渲染的节点类型 */
   optionType?: 'optGroup' | 'option';
   options?: Omit<RequestOptionsType, 'children' | 'optionType'>[];
@@ -196,24 +197,12 @@ export type ProFieldValueObjectType = {
   width?: number;
 };
 
-export type ProSchemaValueEnumType = {
-  /** @name 演示的文案 */
-  text: ReactNode;
-
-  /** @name 预定的颜色 */
-  status?: string;
-  /** @name 自定义的颜色 */
-  color?: string;
-  /** @name 是否禁用 */
-  disabled?: boolean;
-};
-
 /**
  * 支持 Map 和 Record<string,any>
  *
  * @name ValueEnum 的类型
  */
-export type ProSchemaValueEnumMap = Map<React.ReactText, ProSchemaValueEnumType | ReactNode>;
+export type ProSchemaValueEnumMap = Map<string | number, ProSchemaValueEnumType | ReactNode>;
 
 export type ProSchemaValueEnumObj = Record<string, ProSchemaValueEnumType | ReactNode>;
 

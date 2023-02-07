@@ -30,6 +30,9 @@
     "> 1%",
     "ie >= 11"
   ],
+  "scripts": {
+    "build": "father build"
+  },
   "dependencies": {
     "@ant-design/icons": "^4.1.0",
     "@ant-design/pro-card": "2.1.10",

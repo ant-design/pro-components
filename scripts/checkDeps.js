@@ -3,12 +3,9 @@ const parser = require('@babel/parser');
 const traverse = require('@babel/traverse');
 const t = require('babel-types');
 const glob = require('glob');
-const slash = require('slash');
+const slash = require('slash2');
 const fs = require('fs');
-const ora = require('ora');
 const { join, posix } = require('path');
-
-const spinner = ora();
 
 const peerDependencies = ['antd', 'react', 'rc-field-form'];
 
@@ -61,6 +58,7 @@ const checkDepsByAst = (ast, filePath) => {
           if (!importPath.startsWith('.') && path.node.importKind !== 'type') {
             const packagePath = slash(filePath.split(posix.sep).splice(0, 2).join(posix.sep));
             try {
+              if (importPath.includes('@ant-design/pro')) return;
               // 检查包在不在
               require.resolve(importPath, {
                 paths: [slash(join(__dirname, '..', packagePath))],
@@ -117,7 +115,6 @@ const globList = (patternList, options) => {
 const checkDeps = ({ cwd }) => {
   console.log(cwd);
   // 寻找项目下的所有 ts
-  spinner.start('🕵️‍  find all code files');
   const tsFiles = globList(['packages/**/src/**/*.tsx', 'packages/**/src/**/*.tsx'], {
     cwd,
     ignore: [
@@ -129,11 +126,8 @@ const checkDeps = ({ cwd }) => {
       '**/node_modules/**',
     ],
   });
-  spinner.succeed();
 
   const getFileContent = (path) => fs.readFileSync(slash(path), 'utf-8');
-
-  spinner.start('🕵️ check deps');
 
   tsFiles.forEach(async (path) => {
     const source = getFileContent(slash(join(cwd, path)));
@@ -145,7 +139,6 @@ const checkDeps = ({ cwd }) => {
       }
     }
   });
-  spinner.succeed();
 };
 
 /** 检查所有的根目录文件 */

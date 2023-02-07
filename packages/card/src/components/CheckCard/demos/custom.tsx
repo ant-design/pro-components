@@ -1,7 +1,3 @@
-/**
- * title: 自定义尺寸
- */
-
 import { CheckCard } from '@ant-design/pro-components';
 
 export default () => (

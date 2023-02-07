@@ -1,19 +1,7 @@
-import type * as H from 'history';
 import type React from 'react';
 
 export interface StaticContext {
   statusCode?: number | undefined;
-}
-
-export interface BasicRouteProps<
-  Params extends { [K in keyof Params]?: string } = Record<string, any>,
-  C extends StaticContext = StaticContext,
-  S = H.LocationState,
-> {
-  history: H.History<S>;
-  location: H.Location<S>;
-  match: match<Params>;
-  staticContext?: C | undefined;
 }
 
 export interface match<Params extends { [K in keyof Params]?: string } = Record<string, any>> {
@@ -24,7 +12,7 @@ export interface match<Params extends { [K in keyof Params]?: string } = Record<
 }
 
 export type LinkProps = {
-  to: H.LocationDescriptor;
+  to: string;
   replace?: boolean;
   innerRef?: React.Ref<HTMLAnchorElement>;
 } & React.AnchorHTMLAttributes<HTMLAnchorElement>;
@@ -75,8 +63,8 @@ export type WithFalse<T> = T | false;
 export type RouterTypes = {
   computedMatch?: match<any>;
   route?: Route;
-  location: BasicRouteProps['location'] | { pathname?: string };
-} & Omit<BasicRouteProps, 'location'>;
+  location: { pathname?: string };
+};
 
 export type MessageDescriptor = {
   id: any;

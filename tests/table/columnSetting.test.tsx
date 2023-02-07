@@ -774,23 +774,23 @@ describe('Table ColumnSetting', () => {
 
     expect(onChange).toBeCalledTimes(2);
     expect((onChange.mock as any).lastCall[0]).toMatchInlineSnapshot(`
-      Object {
-        "3": Object {
+      {
+        "3": {
           "disable": undefined,
           "fixed": undefined,
           "show": true,
         },
-        "name": Object {
+        "name": {
           "disable": undefined,
           "fixed": undefined,
           "show": true,
         },
-        "name2": Object {
+        "name2": {
           "disable": undefined,
           "fixed": undefined,
           "show": true,
         },
-        "name3": Object {
+        "name3": {
           "disable": undefined,
           "fixed": undefined,
           "show": true,

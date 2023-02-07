@@ -30,8 +30,9 @@ module.exports = {
   cacheDirectory: './.jest/cache',
   transformIgnorePatterns: [`/node_modules/(?!${[].join('|')})`],
   unmockedModulePathPatterns: ['node_modules/react/'],
-  testURL:
-    'http://localhost?navTheme=realDark&layout=mix&colorPrimary=techBlue&splitMenus=false&fixedHeader=true',
+  testEnvironmentOptions: {
+    url: 'http://localhost?navTheme=realDark&layout=mix&colorPrimary=techBlue&splitMenus=false&fixedHeader=true',
+  },
   verbose: true,
   setupFiles: ['./tests/setupTests.js'],
   globals: {

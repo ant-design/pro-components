@@ -413,7 +413,7 @@ describe('PageContainer', () => {
     expect(wrapper.asFragment()).toMatchSnapshot();
 
     const html2 = render(<PageContainer extraContent={<div>extraContent</div>} />);
-    expect(html2).toMatchSnapshot();
+    expect(html2.asFragment()).toMatchSnapshot();
   });
 
   it('🐛 className prop should not be passed to its page header, fix #3493', async () => {
