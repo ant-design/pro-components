@@ -5,7 +5,7 @@ hero:
   description: 🏆 让中后台开发更简单
   actions:
     - text: 🏮🏮 快速开始 →
-      link: /docs/getting-started
+      link: /docs/intro
 
 features:
   - avatar: https://mdn.alipayobjects.com/yuyan_qk0oxh/afts/img/q48YQ5X4ytAAAAAAAAAAAAAAFl94AQBr
