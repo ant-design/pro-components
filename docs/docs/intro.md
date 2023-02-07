@@ -46,7 +46,7 @@ Ant Design 定义了基础的设计规范，对应也提供了大量的基础组
 
 ## 参与贡献
 
-我们非常欢迎你的贡献，你可以通过以下方式和我们一起共建 :smiley: ：
+我们非常欢迎你的贡献，你可以通过以下方式和我们一起共建 😊 ：
 
 - 在你的公司或个人项目中使用 Ant Design Pro，umi 和 ProComponents。
 - 通过 [Issue](http://github.com/ant-design/pro-components/issues) 报告 bug 或进行咨询。
