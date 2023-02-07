@@ -3,13 +3,13 @@ import { createStyles } from 'antd-style';
 export const useStyles = createStyles(({ css, token }) => ({
   sidebar: css`
     grid-area: sidebar;
-
+    overflow: auto;
     position: sticky;
     top: ${token.headerHeight}px;
     max-height: calc(100vh - ${token.headerHeight}px);
-
+    box-sizing: border-box;
     padding-top: 20px;
-    padding-bottom: 24px;
+    padding-bottom: 52px;
     padding-inline: 16px;
     border-right: 1px solid ${token.colorSplit};
 

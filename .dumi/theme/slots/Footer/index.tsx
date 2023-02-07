@@ -30,26 +30,24 @@ const Footer: FC = () => {
 
   return mobile ? (
     <Center horizontal className={styles}>
-      Copyright © 2022-{new Date().getFullYear()}
       <Flexbox align={'center'} horizontal>
         Powered by
         <Typography.Link href="https://d.umijs.org/" style={{ marginLeft: 8 }}>
-          dumi
+          Dumi
         </Typography.Link>
         <Divider type={'vertical'} style={{ margin: '0 8px' }} />
-        <Typography.Link href="https://ant.design/">antd</Typography.Link>
+        <Typography.Link href="https://ant.design/">Ant Design</Typography.Link>
         <Divider type={'vertical'} style={{ margin: '0 8px' }} />
         <Typography.Link href="https://kitchen.alipay.com/">kitchen</Typography.Link>
       </Flexbox>
     </Center>
   ) : (
     <Center horizontal className={styles}>
-      Copyright © 2022-{new Date().getFullYear()} <Divider type={'vertical'} />
       Powered by
       <Flexbox align={'center'} horizontal style={{ marginLeft: 8 }}>
-        <Typography.Link href="https://d.umijs.org/">dumi</Typography.Link>
+        <Typography.Link href="https://d.umijs.org/">Dumi</Typography.Link>
         <Divider type={'vertical'} style={{ margin: '0 8px' }} />
-        <Typography.Link href="https://ant.design/">antd</Typography.Link>
+        <Typography.Link href="https://ant.design/">Ant Design</Typography.Link>
         <Divider type={'vertical'} style={{ margin: '0 8px' }} />
         <Typography.Link href="https://kitchen.alipay.com/">kitchen</Typography.Link>
       </Flexbox>

@@ -230,11 +230,11 @@ export default defineConfig({
           children: [
             {
               title: 'ProSkeleton',
-              link: '/components/skeleton',
+              link: '/en-US/components/skeleton',
             },
             {
               title: 'ProField',
-              link: '/components/field',
+              link: '/en-US/components/field',
             },
           ],
         },
