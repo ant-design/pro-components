@@ -158,13 +158,12 @@
     "write-pkg": "^4.0.0",
     "xhr-mock": "^2.5.1",
     "yorkie": "^2.0.0",
+    "execa": "^6.1.0",
+    "jest-environment-jsdom": "^29.4.1",
     "zustand": "^4.3.2"
   },
   "gitHooks": {
     "pre-commit": "pretty-quick --staged",
     "commit-msg": "fabric verify-commit"
-  },
-  "dependencies": {
-    "jest-environment-jsdom": "^29.4.1"
   }
 }
