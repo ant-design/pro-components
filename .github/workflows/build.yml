@@ -38,7 +38,7 @@ jobs:
         if: |
           steps.cache-pnpm-cache.outputs.cache-hit != 'true' ||
           steps.cache-node-modules.outputs.cache-hit != 'true'
-      - run: npm run build
+      - run: pnpm run build
         env:
           PRO_COMPONENTS_CI: CI
-      - run: npm run lint
+      - run: pnpm run lint
