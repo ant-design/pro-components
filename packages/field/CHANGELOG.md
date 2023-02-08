@@ -1,6 +1,18 @@
 # Change Log
 
-All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+All notable changes to this project will be documented in this file.
+See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+
+## [2.2.6](https://github.com/ant-design/pro-components/compare/@ant-design/pro-field@2.2.5...@ant-design/pro-field@2.2.6) (2023-02-08)
+
+
+### Bug Fixes
+
+* **form:** 修复了textarea 在只读模式下的对齐和换行的问题 ([#6524](https://github.com/ant-design/pro-components/issues/6524)) ([c7dbf66](https://github.com/ant-design/pro-components/commit/c7dbf6649ac4b21dc75b327d24d8042fec29421e))
+
+
+
+
 
 ## [2.2.5](https://github.com/ant-design/pro-components/compare/@ant-design/pro-field@2.2.4...@ant-design/pro-field@2.2.5) (2023-01-10)
 

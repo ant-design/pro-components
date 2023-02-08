@@ -1,6 +1,22 @@
 # Change Log
 
-All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+All notable changes to this project will be documented in this file.
+See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+
+## [3.2.13](https://github.com/ant-design/pro-components/compare/@ant-design/pro-table@3.2.12...@ant-design/pro-table@3.2.13) (2023-02-08)
+
+
+### Bug Fixes
+
+* **components:** remove useLayoutEffect to useEffect ([19ccf1c](https://github.com/ant-design/pro-components/commit/19ccf1c7ce02d884abd926ecc68e4ac900387326))
+* **table:** fix keyframes style no work error ([122484e](https://github.com/ant-design/pro-components/commit/122484e6807269d06cba20ac9240034f628023a0))
+* **table:** 列设置里面拖动列改变顺序会导致重新发布按钮出现多次 ([#6565](https://github.com/ant-design/pro-components/issues/6565)) ([69f7cd3](https://github.com/ant-design/pro-components/commit/69f7cd3db7be41bb41a6866dfbbb5506301828bc))
+* **table:** 删除 EditableTable 的 console.log ([#6526](https://github.com/ant-design/pro-components/issues/6526)) ([a681407](https://github.com/ant-design/pro-components/commit/a68140777a2a13f24073b1e7f8941673b3963035))
+* implement thai translation ([#6535](https://github.com/ant-design/pro-components/issues/6535)) ([5375dd3](https://github.com/ant-design/pro-components/commit/5375dd30081e2ce86769c82e8e074fe90a45940e))
+
+
+
+
 
 ## [3.2.12](https://github.com/ant-design/pro-components/compare/@ant-design/pro-table@3.2.11...@ant-design/pro-table@3.2.12) (2023-01-10)
 

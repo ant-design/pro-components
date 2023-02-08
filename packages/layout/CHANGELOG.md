@@ -1,6 +1,26 @@
 # Change Log
 
-All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+All notable changes to this project will be documented in this file.
+See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+
+# [7.7.0](https://github.com/ant-design/pro-components/compare/@ant-design/pro-layout@7.6.1...@ant-design/pro-layout@7.7.0) (2023-02-08)
+
+
+### Bug Fixes
+
+* **layout:** Group-list demo fix ([#6512](https://github.com/ant-design/pro-components/issues/6512)) ([c068983](https://github.com/ant-design/pro-components/commit/c0689839f7eff1a746a135e3d9ee421928a5b943))
+* **layout:** ItemClick 自定义点击事件，回传触发Popover元素ref ([#6504](https://github.com/ant-design/pro-components/issues/6504)) ([8755111](https://github.com/ant-design/pro-components/commit/87551111c6a15bcec90b5c69fd22a87dffc0406b))
+* **layout:** use logical properties and values instead margin ([a3c1b31](https://github.com/ant-design/pro-components/commit/a3c1b3168c54af7a3a80cd09d908495d491ddd30))
+* **layout:** 修复因为Sider折叠导致菜单展开状态丢失的bug ([#6472](https://github.com/ant-design/pro-components/issues/6472)) ([a10703c](https://github.com/ant-design/pro-components/commit/a10703c41700dd485963034ce276f83f5c7d1c2e))
+
+
+### Features
+
+* **layout:** pro-layout top 模式下支持 headerTitleRender ([#6560](https://github.com/ant-design/pro-components/issues/6560)) ([5e0bb96](https://github.com/ant-design/pro-components/commit/5e0bb96e1f733a182023542beaae81b49ee6dcc7))
+
+
+
+
 
 ## [7.6.1](https://github.com/ant-design/pro-components/compare/@ant-design/pro-layout@7.6.0...@ant-design/pro-layout@7.6.1) (2023-01-10)
 

@@ -1,6 +1,21 @@
 # Change Log
 
-All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+All notable changes to this project will be documented in this file.
+See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+
+## [2.5.5](https://github.com/ant-design/pro-components/compare/@ant-design/pro-form@2.5.4...@ant-design/pro-form@2.5.5) (2023-02-08)
+
+
+### Bug Fixes
+
+* **form:** dataindex should take precedence over key ([8249ccd](https://github.com/ant-design/pro-components/commit/8249ccd25fff4c2e9c8a60a0c47e0e1cbdde6a16))
+* **form:** debounceTime在SchemaForm上配置不生效的问题 ([#6557](https://github.com/ant-design/pro-components/issues/6557)) ([2790a94](https://github.com/ant-design/pro-components/commit/2790a94a434d8a9d43c949137b376d11489fb2ba))
+* **form:** slove form list label defalut mode show problem ([#6549](https://github.com/ant-design/pro-components/issues/6549)) ([05d764d](https://github.com/ant-design/pro-components/commit/05d764d29eaf9d5db87527fc7f279701e04d4014))
+* query filter ts error ([#6517](https://github.com/ant-design/pro-components/issues/6517)) ([af3ee8f](https://github.com/ant-design/pro-components/commit/af3ee8f237ff08c4bf880ca91a987efbef8ccdef))
+
+
+
+
 
 ## [2.5.4](https://github.com/ant-design/pro-components/compare/@ant-design/pro-form@2.5.3...@ant-design/pro-form@2.5.4) (2023-01-10)
 

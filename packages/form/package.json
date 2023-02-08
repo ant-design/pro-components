@@ -1,6 +1,6 @@
 {
   "name": "@ant-design/pro-form",
-  "version": "2.5.4",
+  "version": "2.5.5",
   "description": "@ant-design/pro-form",
   "keywords": [
     "antd",
@@ -34,12 +34,12 @@
     "ie >= 11"
   ],
   "dependencies": {
-    "@chenshuai2144/sketch-color": "^1.0.7",
     "@ant-design/icons": "^4.2.1",
-    "@ant-design/pro-field": "2.2.5",
-    "@ant-design/pro-provider": "2.4.0",
-    "@ant-design/pro-utils": "2.5.4",
+    "@ant-design/pro-field": "2.2.6",
+    "@ant-design/pro-provider": "2.4.1",
+    "@ant-design/pro-utils": "2.5.5",
     "@babel/runtime": "^7.18.0",
+    "@chenshuai2144/sketch-color": "^1.0.7",
     "@umijs/use-params": "^1.0.9",
     "classnames": "^2.2.6",
     "lodash.merge": "^4.6.2",

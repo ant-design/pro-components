@@ -1,6 +1,18 @@
 # Change Log
 
-All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+All notable changes to this project will be documented in this file.
+See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+
+## [2.0.46](https://github.com/ant-design/pro-components/compare/@ant-design/pro-list@2.0.45...@ant-design/pro-list@2.0.46) (2023-02-08)
+
+
+### Bug Fixes
+
+* **table:** fix keyframes style no work error ([122484e](https://github.com/ant-design/pro-components/commit/122484e6807269d06cba20ac9240034f628023a0))
+
+
+
+
 
 ## [2.0.45](https://github.com/ant-design/pro-components/compare/@ant-design/pro-list@2.0.44...@ant-design/pro-list@2.0.45) (2023-01-10)
 
