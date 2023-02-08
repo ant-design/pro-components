@@ -300,6 +300,7 @@ describe('EditorProTable', () => {
     await actionRef.current?.saveEditable(0);
     await waitForComponentToPaint(wrapper, 300);
 
+    await waitForComponentToPaint(wrapper, 200);
     expect(onChange).toBeCalled();
     expect(changedDataSource).toHaveLength(defaultData.length);
     expect(changedDataSource[0]?.title).toBe('test value2');
