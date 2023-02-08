@@ -63,7 +63,6 @@ export default defineConfig({
       content: '9LDp--DeEC-xOggsHl_t1MlR_1_2O972JpSUu8NZKMU',
     },
   ],
-
   styles: [
     `
     .dumi-default-sidebar {
@@ -89,6 +88,7 @@ export default defineConfig({
   }
   `,
   ],
+  favicons: ['https://gw.alipayobjects.com/zos/rmsportal/rlpTLlbMzTNYuZGGCVYM.png'],
   alias,
   resolve: {
     docDirs: ['docs', ...tailPkgList],
@@ -380,7 +380,6 @@ export default defineConfig({
       ],
     },
   },
-
   hash: true,
   theme: {
     '@s-content-width': '1600px',
