@@ -1,4 +1,5 @@
-﻿import type { GenerateStyle, ProAliasToken } from '@ant-design/pro-provider';
+﻿import { Keyframes } from '@ant-design/cssinjs';
+import type { GenerateStyle, ProAliasToken } from '@ant-design/pro-provider';
 import { useStyle as useAntdStyle } from '@ant-design/pro-provider';
 
 export interface ProListToken extends ProAliasToken {
@@ -22,6 +23,12 @@ const proCheckCardDisabled = (token: ProListToken) => ({
       opacity: '0.25',
     },
   },
+});
+
+export const cardLoading = new Keyframes('card-loading', {
+  '0%': { backgroundPosition: '0 50%' },
+  '50%': { backgroundPosition: '100% 50%' },
+  '100%': { backgroundPosition: '0 50%' },
 });
 
 const genProStyle: GenerateStyle<ProListToken> = (token) => {
@@ -66,15 +73,10 @@ const genProStyle: GenerateStyle<ProListToken> = (token) => {
             height: '14px',
             marginBlock: '4px',
             background: `linear-gradient(90deg, rgba(54, 61, 64, 0.2), rgba(54, 61, 64, 0.4), rgba(54, 61, 64, 0.2))`,
-            animationName: 'card-loading',
+            animationName: cardLoading,
             animationDuration: '1.4s',
             animationTimingFunction: 'ease',
             animationIterationCount: 'infinite',
-          },
-          '@keyframes card-loading': {
-            '0%': { backgroundPosition: '0 50%' },
-            '50%': { backgroundPosition: '100% 50%' },
-            '100%': { backgroundPosition: '0 50%' },
           },
         },
       },

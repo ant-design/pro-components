@@ -1,9 +1,18 @@
-﻿import type { GenerateStyle, ProAliasToken } from '@ant-design/pro-provider';
+﻿import { Keyframes } from '@ant-design/cssinjs';
+import type { GenerateStyle, ProAliasToken } from '@ant-design/pro-provider';
 import { useStyle as useAntdStyle } from '@ant-design/pro-provider';
 
 export interface ProListToken extends ProAliasToken {
   componentCls: string;
 }
+
+export const turn = new Keyframes('turn', {
+  '0%': { transform: 'rotate(0deg)' },
+  '25%': { transform: 'rotate(90deg)' },
+  '50%': { transform: 'rotate(180deg)' },
+  '75%': { transform: 'rotate(270deg)' },
+  '100%': { transform: 'rotate(360deg)' },
+});
 
 const genProListStyle: GenerateStyle<ProListToken> = (token) => {
   return {
@@ -21,7 +30,7 @@ const genProListStyle: GenerateStyle<ProListToken> = (token) => {
         [`${token.componentCls}-list-toolbar-setting-item`]: {
           '.anticon.anticon-reload': {
             transform: 'rotate(0deg)',
-            animationName: 'turn',
+            animationName: turn,
             animationDuration: '1s',
             animationTimingFunction: 'linear',
             animationIterationCount: 'infinite',
@@ -96,13 +105,6 @@ const genProListStyle: GenerateStyle<ProListToken> = (token) => {
           opacity: '0.85',
         },
       },
-    },
-    '@keyframes turn': {
-      '0%': { transform: 'rotate(0deg)' },
-      '25%': { transform: 'rotate(90deg)' },
-      '50%': { transform: 'rotate(180deg)' },
-      '75%': { transform: 'rotate(270deg)' },
-      '100%': { transform: 'rotate(360deg)' },
     },
 
     [`@media (max-width: ${token.screenXS})`]: {

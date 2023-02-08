@@ -1,9 +1,16 @@
-﻿import type { GenerateStyle, ProAliasToken } from '@ant-design/pro-provider';
+﻿import { Keyframes } from '@ant-design/cssinjs';
+import type { GenerateStyle, ProAliasToken } from '@ant-design/pro-provider';
 import { useStyle as useAntdStyle } from '@ant-design/pro-provider';
 
 export interface ProToken extends ProAliasToken {
   componentCls: string;
 }
+
+export const cardLoading = new Keyframes('card-loading', {
+  '0%': { backgroundPosition: '0 50%' },
+  '50%': { backgroundPosition: '100% 50%' },
+  '100%': { backgroundPosition: '0 50%' },
+});
 
 const genProStyle: GenerateStyle<ProToken> = (token) => {
   return {
@@ -27,15 +34,10 @@ const genProStyle: GenerateStyle<ProToken> = (token) => {
         background: `linear-gradient(90deg, rgba(54, 61, 64, 0.2), rgba(54, 61, 64, 0.4), rgba(54, 61, 64, 0.2))`,
         backgroundSize: '600% 600%',
         borderRadius: token.borderRadius,
-        animationName: 'card-loading',
+        animationName: cardLoading,
         animationDuration: '1.4s',
         animationTimingFunction: 'ease',
         animationIterationCount: 'infinite',
-      },
-      '@keyframes card-loading': {
-        '0%': { backgroundPosition: '0 50%' },
-        '50%': { backgroundPosition: '100% 50%' },
-        '100%': { backgroundPosition: '0 50 % ' },
       },
     },
   };

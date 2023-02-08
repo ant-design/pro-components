@@ -1,9 +1,16 @@
-﻿import type { GenerateStyle, ProAliasToken } from '@ant-design/pro-provider';
+﻿import { Keyframes } from '@ant-design/cssinjs';
+import type { GenerateStyle, ProAliasToken } from '@ant-design/pro-provider';
 import { useStyle as useAntdStyle } from '@ant-design/pro-provider';
 
 export interface ProListToken extends ProAliasToken {
   componentCls: string;
 }
+
+export const techUiListActive = new Keyframes('techUiListActive', {
+  '0%': { backgroundColor: 'unset' },
+  '30%': { background: '#fefbe6' },
+  '100%': { backgroundColor: 'unset' },
+});
 
 const genProListStyle: GenerateStyle<ProListToken> = (token) => {
   return {
@@ -73,7 +80,7 @@ const genProListStyle: GenerateStyle<ProListToken> = (token) => {
           },
         },
         [`&${token.componentCls}-row-type-new`]: {
-          animationName: 'techUiListActive',
+          animationName: techUiListActive,
           animationDuration: '3s',
         },
         [`&${token.componentCls}-row-type-inline`]: {
@@ -233,11 +240,6 @@ const genProListStyle: GenerateStyle<ProListToken> = (token) => {
             },
             [`${token.antCls}-list-item-meta-title`]: { marginBlock: 0, marginInline: 0 },
           },
-        },
-        '@keyframes techUiListActive': {
-          '0%': { backgroundColor: 'unset' },
-          '30%': { background: '#fefbe6' },
-          '100%': { backgroundColor: 'unset' },
         },
       },
     },
