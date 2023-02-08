@@ -142,7 +142,7 @@ const FieldLabelFunction: React.ForwardRefRenderFunction<any, FieldLabelProps> =
       {(value || value === 0) && allowClear && (
         <CloseOutlined
           role="button"
-          title="清除"
+          title={intl.getMessage('form.lightFilter.clear', '清除')}
           className={classNames(`${prefixCls}-icon`, hashId, `${prefixCls}-close`)}
           onClick={(e) => {
             if (onClear && !disabled) {
