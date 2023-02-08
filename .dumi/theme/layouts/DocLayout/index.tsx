@@ -41,6 +41,7 @@ const DocLayout: FC = memo(() => {
     <>
       <Helmet>
         <html lang={intl.locale.replace(/-.+$/, '')} />
+        <title>{fm.title ? `${fm.title} - Pro Components` : 'Pro Components'}</title>
         {fm.title && <meta property="og:title" content={fm.title} />}
         {fm.description && <meta name="description" content={fm.description} />}
         {fm.description && <meta property="og:description" content={fm.description} />}

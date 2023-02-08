@@ -102,7 +102,7 @@ importers:
       react: ^18.2.0
       react-dom: ^18.2.0
       react-layout-kit: ^1.4.0
-      react-lazyload: ^3.2.0
+      react-lazy-load: ^4.0.1
       react-markdown: ^4.3.1
       react-sortable-hoc: ^2.0.0
       react-syntax-highlighter: ^15.5.0
@@ -212,7 +212,7 @@ importers:
       react: 18.2.0
       react-dom: 18.2.0_react@18.2.0
       react-layout-kit: 1.4.0_yxdp3dl3eazy3vwpbmv4fq727a
-      react-lazyload: 3.2.0_biqbaboplfbrettd7655fr4n2y
+      react-lazy-load: 4.0.1_biqbaboplfbrettd7655fr4n2y
       react-markdown: 4.3.1_react@18.2.0
       react-sortable-hoc: 2.0.0_biqbaboplfbrettd7655fr4n2y
       react-syntax-highlighter: 15.5.0_react@18.2.0
@@ -4280,7 +4280,7 @@ packages:
     peerDependencies:
       react: '>=16.3.0'
     dependencies:
-      '@babel/runtime': 7.20.7
+      '@babel/runtime': 7.20.13
       hoist-non-react-statics: 3.3.2
       react: 18.1.0
       react-is: 16.13.1
@@ -4292,7 +4292,7 @@ packages:
     peerDependencies:
       react: '>=16.3.0'
     dependencies:
-      '@babel/runtime': 7.20.7
+      '@babel/runtime': 7.20.13
       hoist-non-react-statics: 3.3.2
       react: 18.2.0
       react-is: 16.13.1
@@ -6476,7 +6476,7 @@ packages:
   /@umijs/history/5.3.1:
     resolution: {integrity: sha512-/e0cEGrR2bIWQD7pRl3dl9dcyRGeC9hoW0OCvUTT/hjY0EfUrkd6G8ZanVghPMpDuY5usxq9GVcvrT8KNXLWvA==}
     dependencies:
-      '@babel/runtime': 7.20.7
+      '@babel/runtime': 7.20.13
       query-string: 6.14.1
     dev: true
 
@@ -12615,7 +12615,7 @@ packages:
   /history/5.3.0:
     resolution: {integrity: sha512-ZqaKwjjrAYUYfLG+htGaIIZ4nioX2L70ZUMIFysS3xvBsSG4x/n1V6TXV3N8ZYNuFGlDirFg32T7B6WOUPDYcQ==}
     dependencies:
-      '@babel/runtime': 7.20.7
+      '@babel/runtime': 7.20.13
     dev: true
 
   /hmac-drbg/1.0.1:
@@ -20040,7 +20040,7 @@ packages:
       react: ^16.6.0 || ^17.0.0 || ^18.0.0
       react-dom: ^16.6.0 || ^17.0.0 || ^18.0.0
     dependencies:
-      '@babel/runtime': 7.20.7
+      '@babel/runtime': 7.20.13
       invariant: 2.2.4
       prop-types: 15.8.1
       react: 18.2.0
@@ -20055,7 +20055,7 @@ packages:
       react: ^16.6.0 || ^17.0.0 || ^18.0.0
       react-dom: ^16.6.0 || ^17.0.0 || ^18.0.0
     dependencies:
-      '@babel/runtime': 7.20.7
+      '@babel/runtime': 7.20.13
       invariant: 2.2.4
       prop-types: 15.8.1
       react: 18.1.0
@@ -20113,11 +20113,11 @@ packages:
       - '@types/react'
     dev: true
 
-  /react-lazyload/3.2.0_biqbaboplfbrettd7655fr4n2y:
-    resolution: {integrity: sha512-zJlrG8QyVZz4+xkYZH5v1w3YaP5wEFaYSUWC4CT9UXfK75IfRAIEdnyIUF+dXr3kX2MOtL1lUaZmaQZqrETwgw==}
+  /react-lazy-load/4.0.1_biqbaboplfbrettd7655fr4n2y:
+    resolution: {integrity: sha512-TnXRr79X9rlC9UcmO6iyS28rOPHrgkHIP4+b8yZPfs1tw6k/Rp2DmFY8R20BqWR45ZWkpT+4dqV1f+yci+1ozg==}
     peerDependencies:
-      react: ^0.14.0 || ^15.0.0 || ^16.0.0 || ^17.0.0
-      react-dom: ^0.14.0 || ^15.0.0 || ^16.0.0 || ^17.0.0
+      react: ^17.0.0 || ^18.0.0
+      react-dom: ^17.0.0 || ^18.0.0
     dependencies:
       react: 18.2.0
       react-dom: 18.2.0_react@18.2.0
