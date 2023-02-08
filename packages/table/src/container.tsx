@@ -1,7 +1,7 @@
 import type { TableColumnType } from 'antd';
 import useMergedState from 'rc-util/lib/hooks/useMergedState';
 import { noteOnce } from 'rc-util/lib/warning';
-import { useCallback, useEffect, useLayoutEffect, useMemo, useRef, useState } from 'react';
+import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
 import { createContainer } from 'unstated-next';
 import type { DensitySize } from './components/ToolBar/DensityIcon';
 import type { ProTableProps } from './index';
@@ -100,7 +100,7 @@ function useContainer(props: UseContainerProps = {}) {
   );
 
   /**  配置或列更改时对columnsMap重新赋值 */
-  useLayoutEffect(() => {
+  useEffect(() => {
     const { persistenceType, persistenceKey } = props.columnsState || {};
 
     if (persistenceKey && persistenceType && typeof window !== 'undefined') {

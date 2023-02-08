@@ -6,7 +6,7 @@ import {
   usePrevious,
   useRefFunction,
 } from '@ant-design/pro-utils';
-import { useEffect, useLayoutEffect, useRef } from 'react';
+import { useEffect, useRef } from 'react';
 import type { PageInfo, RequestData, UseFetchDataAction, UseFetchProps } from './typing';
 import { postDataPipeline } from './utils/index';
 
@@ -202,7 +202,7 @@ const useFetchData = <T extends RequestData<any>>(
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [polling]);
 
-  useLayoutEffect(() => {
+  useEffect(() => {
     umountRef.current = false;
 
     return () => {
