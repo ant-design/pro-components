@@ -92,7 +92,7 @@ function BetaSchemaForm<T, ValueType = 'text'>(props: FormSchema<T, ValueType>) 
             label: title,
             name: originItem.name,
             valueType: runFunction(originItem.valueType, {}),
-            key: originItem.key,
+            key: originItem.key || originItem.dataIndex,
             columns: originItem.columns,
             valueEnum: originItem.valueEnum,
             dataIndex: originItem.dataIndex || originItem.key,

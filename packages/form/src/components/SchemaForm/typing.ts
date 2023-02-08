@@ -151,6 +151,8 @@ export type ProFormRenderValueTypeHelpers<T = Record<string, any>, ValueType = '
 } & Pick<FormSchema<T, ValueType>, 'action'>;
 
 export type ProSchemaRenderValueTypeFunction<T = any, ValueType = any> = (
-  item: ProFormRenderValueTypeItem<T, ValueType>,
+  item: Omit<ProFormRenderValueTypeItem<T, ValueType>, 'key'> & {
+    key?: React.Key | React.Key[];
+  },
   helpers: ProFormRenderValueTypeHelpers<T, ValueType>,
 ) => React.ReactNode;

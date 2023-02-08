@@ -9,20 +9,21 @@ export const field: ProSchemaRenderValueTypeFunction = (
   { action, formRef, type, originItem },
 ) => {
   /** 公用的 类型 props */
-  const formFieldProps: Omit<ProFormFieldProps, 'fieldProps' | 'formItemProps'> = {
+  const formFieldProps = {
     ...omit(item, ['dataIndex', 'width', 'render', 'renderFormItem', 'renderText', 'title']),
-    name: item.dataIndex,
+    name: item.name || item.key || item.dataIndex,
     width: item.width as 'md',
     render: item?.render
       ? (dom, entity, renderIndex) =>
           item?.render?.(dom, entity, renderIndex, action?.current, {
             type,
             ...item,
+            key: item.key?.toString(),
             formItemProps: item.getFormItemProps?.(),
             fieldProps: item.getFieldProps?.(),
           })
       : undefined,
-  };
+  } as Omit<ProFormFieldProps, 'fieldProps' | 'formItemProps'>;
 
   const defaultRender = () => {
     return <ProFormField {...formFieldProps} ignoreFormItem={true} />;
@@ -35,6 +36,7 @@ export const field: ProSchemaRenderValueTypeFunction = (
           {
             type,
             ...item,
+            key: item.key?.toString(),
             formItemProps: item.getFormItemProps?.(),
             fieldProps: item.getFieldProps?.(),
             originProps: originItem,

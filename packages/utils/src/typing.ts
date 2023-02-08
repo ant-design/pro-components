@@ -272,7 +272,7 @@ export type ProSchema<
    *
    * @name 与实体映射的key
    */
-  dataIndex?: string | number | (string | number)[];
+  dataIndex?: React.Key | React.Key[];
 
   /**
    * 支持 ReactNode 和 方法

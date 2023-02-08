@@ -1557,7 +1557,7 @@ describe('BasicLayout', () => {
     expect(html.baseElement.querySelectorAll('li.ant-menu-submenu-open').length).toBe(0);
   });
 
-  it('🥩 formatMessage support', () => {
+  it('🥩 formatMessage support', async () => {
     const html = render(
       <ProLayout
         menu={{
@@ -1586,7 +1586,7 @@ describe('BasicLayout', () => {
         }}
       />,
     );
-
+    await waitForComponentToPaint(200);
     expect(html.findByText('主页')).toBeTruthy();
   });
 
