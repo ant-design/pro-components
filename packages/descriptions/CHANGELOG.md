@@ -1,18 +1,12 @@
 # Change Log
 
-All notable changes to this project will be documented in this file.
-See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
 ## [2.0.45](https://github.com/ant-design/pro-components/compare/@ant-design/pro-descriptions@2.0.44...@ant-design/pro-descriptions@2.0.45) (2023-02-08)
 
-
 ### Bug Fixes
 
-* **descriptions:** fix fetch error no retry fetch error ([9158e71](https://github.com/ant-design/pro-components/commit/9158e71787f0c4b5bfe2d8656af6719c2ea6943d))
-
-
-
-
+- **descriptions:** fix fetch error no retry fetch error ([9158e71](https://github.com/ant-design/pro-components/commit/9158e71787f0c4b5bfe2d8656af6719c2ea6943d))
 
 ## [2.0.44](https://github.com/ant-design/pro-components/compare/@ant-design/pro-descriptions@2.0.43...@ant-design/pro-descriptions@2.0.44) (2023-01-10)
 

@@ -1,18 +1,12 @@
 # Change Log
 
-All notable changes to this project will be documented in this file.
-See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
 ## [2.4.1](https://github.com/ant-design/pro-components/compare/@ant-design/pro-provider@2.4.0...@ant-design/pro-provider@2.4.1) (2023-02-08)
 
-
 ### Bug Fixes
 
-* implement thai translation ([#6535](https://github.com/ant-design/pro-components/issues/6535)) ([5375dd3](https://github.com/ant-design/pro-components/commit/5375dd30081e2ce86769c82e8e074fe90a45940e))
-
-
-
-
+- implement thai translation ([#6535](https://github.com/ant-design/pro-components/issues/6535)) ([5375dd3](https://github.com/ant-design/pro-components/commit/5375dd30081e2ce86769c82e8e074fe90a45940e))
 
 # [2.4.0](https://github.com/ant-design/pro-components/compare/@ant-design/pro-provider@2.3.1...@ant-design/pro-provider@2.4.0) (2023-01-06)
 

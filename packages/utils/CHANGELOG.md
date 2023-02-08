@@ -1,18 +1,12 @@
 # Change Log
 
-All notable changes to this project will be documented in this file.
-See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
 ## [2.5.5](https://github.com/ant-design/pro-components/compare/@ant-design/pro-utils@2.5.4...@ant-design/pro-utils@2.5.5) (2023-02-08)
 
-
 ### Bug Fixes
 
-* **form:** FieldLabel support i18n [#6578](https://github.com/ant-design/pro-components/issues/6578)([#6578](https://github.com/ant-design/pro-components/issues/6578)) ([3bf2ea5](https://github.com/ant-design/pro-components/commit/3bf2ea599721d8416adbb39e2c961c3047e8c163))
-
-
-
-
+- **form:** FieldLabel support i18n [#6578](https://github.com/ant-design/pro-components/issues/6578)([#6578](https://github.com/ant-design/pro-components/issues/6578)) ([3bf2ea5](https://github.com/ant-design/pro-components/commit/3bf2ea599721d8416adbb39e2c961c3047e8c163))
 
 ## [2.5.4](https://github.com/ant-design/pro-components/compare/@ant-design/pro-utils@2.5.3...@ant-design/pro-utils@2.5.4) (2023-01-10)
 
