@@ -1,4 +1,24 @@
-﻿## @ant-design/pro-components@2.3.52
+﻿## @ant-design/pro-components@2.3.53
+
+`2023-02-08`
+
+- fix(components): remove useLayoutEffect to useEffect. [19ccf1c](https://github.com/ant-design/pro-components/commit/19ccf1c)
+- fix(layout): use logical properties and values instead margin. [a3c1b31](https://github.com/ant-design/pro-components/commit/a3c1b31)
+- fix(layout): 修复因为 Sider 折叠导致菜单展开状态丢失的 bug (#6472). [#6472](https://github.com/ant-design/pro-components/pull/#6472) [@wtchaos](https://github.com/wtchaos)
+- feat(layout): pro-layout top 模式下支持 headerTitleRender (#6560). [#6560](https://github.com/ant-design/pro-components/pull/#6560) [@Hahet](https://github.com/Hahet)
+- fix(layout): Group-list demo fix (#6512). [#6512](https://github.com/ant-design/pro-components/pull/#6512) [@chengaway](https://github.com/chengaway)
+- fix(layout): ItemClick 自定义点击事件，回传触发 Popover 元素 ref (#6504). [#6504](https://github.com/ant-design/pro-components/pull/#6504) [@chengaway](https://github.com/chengaway)
+- fix(form): FieldLabel support i18n #6578(#6578). [#6578](https://github.com/ant-design/pro-components/pull/#6578) [@kungege](https://github.com/kungege)
+- fix(form): dataindex should take precedence over key. [8249ccd](https://github.com/ant-design/pro-components/commit/8249ccd)
+- fix(form): slove form list label defalut mode show problem (#6549). [#6549](https://github.com/ant-design/pro-components/pull/#6549) [@ONLY-yours](https://github.com/ONLY-yours)
+- fix(form): 修复了 textarea 在只读模式下的对齐和换行的问题 (#6524). [#6524](https://github.com/ant-design/pro-components/pull/#6524) [@WilenChen](https://github.com/WilenChen)
+- fix(form): debounceTime 在 SchemaForm 上配置不生效的问题 (#6557). [#6557](https://github.com/ant-design/pro-components/pull/#6557) [@ldwonday](https://github.com/ldwonday)
+- fix(table): fix keyframes style no work error. [122484e](https://github.com/ant-design/pro-components/commit/122484e)
+- fix(table): 列设置里面拖动列改变顺序会导致重新发布按钮出现多次 (#6565). [#6565](https://github.com/ant-design/pro-components/pull/#6565) [@nocodeempire](https://github.com/nocodeempire)
+- fix(table): 删除 EditableTable 的 console.log (#6526). [#6526](https://github.com/ant-design/pro-components/pull/#6526) [@sushi-su](https://github.com/sushi-su)
+- fix(descriptions): fix fetch error no retry fetch error. [9158e71](https://github.com/ant-design/pro-components/commit/9158e71)
+
+## @ant-design/pro-components@2.3.52
 
 `2023-01-10`
 
