@@ -58,6 +58,8 @@ const useFetchData = <T extends RequestData>(
       if (onRequestError === undefined) throw new Error(e as string);
       else onRequestError(e as Error);
       setLoading(false);
+    } finally {
+      setLoading(false);
     }
   };
 
