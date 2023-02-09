@@ -12,6 +12,7 @@
     "suppressImplicitAnyIndexErrors": true,
     "declaration": true,
     "skipLibCheck": true,
+    "resolveJsonModule": true,
     "paths": {
       "@@/*": [".dumi/tmp/*"],
       "@ant-design/pro-layout": ["./packages/layout/src/index.tsx"],
@@ -28,6 +29,7 @@
     }
   },
   "include": [
+    "./tests/setupTests.ts",
     ".dumi/**/*",
     ".dumirc.ts",
     "typings.d.ts",
