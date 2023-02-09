@@ -101,6 +101,9 @@ export default defineConfig({
   themeConfig: {
     name: 'ProComponents',
     logo: 'https://gw.alipayobjects.com/zos/antfincdn/upvrAjAPQX/Logo_Tech%252520UI.svg',
+    socialLinks: {
+      github: 'https://github.com/ant-design/pro-components',
+    },
     nav: {
       'zh-CN': [
         { title: '文档', link: '/docs' },

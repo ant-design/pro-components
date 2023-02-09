@@ -3,8 +3,7 @@ import { Button, Tooltip } from 'antd';
 import { useSiteStore } from '../../store/useSiteStore';
 
 const GithubButton = () => {
-  const repoUrl = useSiteStore((s) => s.siteData.themeConfig?.repoUrl);
-
+  const repoUrl = useSiteStore((s) => s.siteData.themeConfig?.socialLinks?.github);
   return (
     repoUrl && (
       <Tooltip showArrow={false} title={'Github'}>
