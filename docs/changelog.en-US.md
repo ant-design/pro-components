@@ -1,4 +1,10 @@
-﻿## @ant-design/pro-components@2.3.53
+﻿## @ant-design/pro-components@2.3.54
+
+`2023-02-10`
+
+- fix(components): fix lib has es path error. [157f1f1](https://github.com/ant-design/pro-components/commit/157f1f1)
+
+## @ant-design/pro-components@2.3.53
 
 `2023-02-08`
 
