@@ -134,6 +134,8 @@ global.Worker = class {
   }
 };
 
-console.error = () => {};
-console.warn = () => {};
-console.log = () => {};
+if (process.env.TEST_LOG === 'none') {
+  console.error = () => {};
+  console.warn = () => {};
+  console.log = () => {};
+}
