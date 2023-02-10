@@ -236,8 +236,8 @@ importers:
   packages/card:
     specifiers:
       '@ant-design/icons': ^4.2.1
-      '@ant-design/pro-provider': 2.4.1
-      '@ant-design/pro-utils': 2.5.5
+      '@ant-design/pro-provider': 2.4.2
+      '@ant-design/pro-utils': 2.5.6
       '@babel/runtime': ^7.18.0
       classnames: ^2.2.6
       omit.js: ^2.0.2
@@ -255,16 +255,16 @@ importers:
 
   packages/components:
     specifiers:
-      '@ant-design/pro-card': 2.1.11
-      '@ant-design/pro-descriptions': 2.0.45
-      '@ant-design/pro-field': 2.2.6
-      '@ant-design/pro-form': 2.5.5
-      '@ant-design/pro-layout': 7.7.0
-      '@ant-design/pro-list': 2.0.46
-      '@ant-design/pro-provider': 2.4.1
+      '@ant-design/pro-card': 2.1.12
+      '@ant-design/pro-descriptions': 2.0.46
+      '@ant-design/pro-field': 2.2.7
+      '@ant-design/pro-form': 2.5.6
+      '@ant-design/pro-layout': 7.7.1
+      '@ant-design/pro-list': 2.0.47
+      '@ant-design/pro-provider': 2.4.2
       '@ant-design/pro-skeleton': 2.0.8
-      '@ant-design/pro-table': 3.2.13
-      '@ant-design/pro-utils': 2.5.5
+      '@ant-design/pro-table': 3.2.14
+      '@ant-design/pro-utils': 2.5.6
       '@babel/runtime': ^7.16.3
     dependencies:
       '@ant-design/pro-card': link:../card
@@ -281,10 +281,10 @@ importers:
 
   packages/descriptions:
     specifiers:
-      '@ant-design/pro-field': 2.2.6
-      '@ant-design/pro-form': 2.5.5
+      '@ant-design/pro-field': 2.2.7
+      '@ant-design/pro-form': 2.5.6
       '@ant-design/pro-skeleton': 2.0.8
-      '@ant-design/pro-utils': 2.5.5
+      '@ant-design/pro-utils': 2.5.6
       '@babel/runtime': ^7.18.0
       rc-resize-observer: ^0.2.3
       rc-util: ^5.0.6
@@ -303,8 +303,8 @@ importers:
   packages/field:
     specifiers:
       '@ant-design/icons': ^4.2.1
-      '@ant-design/pro-provider': 2.4.1
-      '@ant-design/pro-utils': 2.5.5
+      '@ant-design/pro-provider': 2.4.2
+      '@ant-design/pro-utils': 2.5.6
       '@babel/runtime': ^7.18.0
       '@chenshuai2144/sketch-color': ^1.0.8
       '@types/classnames': ^2.2.10
@@ -338,9 +338,9 @@ importers:
   packages/form:
     specifiers:
       '@ant-design/icons': ^4.2.1
-      '@ant-design/pro-field': 2.2.6
-      '@ant-design/pro-provider': 2.4.1
-      '@ant-design/pro-utils': 2.5.5
+      '@ant-design/pro-field': 2.2.7
+      '@ant-design/pro-provider': 2.4.2
+      '@ant-design/pro-utils': 2.5.6
       '@babel/runtime': ^7.18.0
       '@chenshuai2144/sketch-color': ^1.0.7
       '@types/lodash.merge': ^4.6.7
@@ -373,8 +373,8 @@ importers:
   packages/layout:
     specifiers:
       '@ant-design/icons': ^4.0.0
-      '@ant-design/pro-provider': 2.4.1
-      '@ant-design/pro-utils': 2.5.5
+      '@ant-design/pro-provider': 2.4.2
+      '@ant-design/pro-utils': 2.5.6
       '@babel/runtime': ^7.18.0
       '@umijs/route-utils': ^4.0.0
       '@umijs/use-params': ^1.0.9
@@ -411,9 +411,9 @@ importers:
   packages/list:
     specifiers:
       '@ant-design/icons': ^4.0.0
-      '@ant-design/pro-card': 2.1.11
-      '@ant-design/pro-field': 2.2.6
-      '@ant-design/pro-table': 3.2.13
+      '@ant-design/pro-card': 2.1.12
+      '@ant-design/pro-field': 2.2.7
+      '@ant-design/pro-table': 3.2.14
       '@babel/runtime': ^7.18.0
       classnames: ^2.2.6
       dayjs: ^1.11.4
@@ -459,11 +459,11 @@ importers:
   packages/table:
     specifiers:
       '@ant-design/icons': ^4.1.0
-      '@ant-design/pro-card': 2.1.11
-      '@ant-design/pro-field': 2.2.6
-      '@ant-design/pro-form': 2.5.5
-      '@ant-design/pro-provider': 2.4.1
-      '@ant-design/pro-utils': 2.5.5
+      '@ant-design/pro-card': 2.1.12
+      '@ant-design/pro-field': 2.2.7
+      '@ant-design/pro-form': 2.5.6
+      '@ant-design/pro-provider': 2.4.2
+      '@ant-design/pro-utils': 2.5.6
       '@babel/runtime': ^7.18.0
       classnames: ^2.2.6
       dayjs: ^1.11.4
@@ -493,7 +493,7 @@ importers:
   packages/utils:
     specifiers:
       '@ant-design/icons': ^4.3.0
-      '@ant-design/pro-provider': 2.4.1
+      '@ant-design/pro-provider': 2.4.2
       '@babel/runtime': ^7.18.0
       classnames: ^2.2.6
       dayjs: ^1.11.4
@@ -4500,7 +4500,7 @@ packages:
     peerDependencies:
       react: '>=16.3.0'
     dependencies:
-      '@babel/runtime': 7.20.7
+      '@babel/runtime': 7.20.13
       hoist-non-react-statics: 3.3.2
       react: 18.1.0
       react-is: 16.13.1
@@ -4512,7 +4512,7 @@ packages:
     peerDependencies:
       react: '>=16.3.0'
     dependencies:
-      '@babel/runtime': 7.20.7
+      '@babel/runtime': 7.20.13
       hoist-non-react-statics: 3.3.2
       react: 18.2.0
       react-is: 16.13.1
@@ -6627,7 +6627,7 @@ packages:
   /@umijs/history/5.3.1:
     resolution: {integrity: sha512-/e0cEGrR2bIWQD7pRl3dl9dcyRGeC9hoW0OCvUTT/hjY0EfUrkd6G8ZanVghPMpDuY5usxq9GVcvrT8KNXLWvA==}
     dependencies:
-      '@babel/runtime': 7.20.7
+      '@babel/runtime': 7.20.13
       query-string: 6.14.1
     dev: true
 
@@ -12812,7 +12812,7 @@ packages:
   /history/5.3.0:
     resolution: {integrity: sha512-ZqaKwjjrAYUYfLG+htGaIIZ4nioX2L70ZUMIFysS3xvBsSG4x/n1V6TXV3N8ZYNuFGlDirFg32T7B6WOUPDYcQ==}
     dependencies:
-      '@babel/runtime': 7.20.7
+      '@babel/runtime': 7.20.13
     dev: true
 
   /hmac-drbg/1.0.1:
@@ -20331,7 +20331,7 @@ packages:
       react: ^16.6.0 || ^17.0.0 || ^18.0.0
       react-dom: ^16.6.0 || ^17.0.0 || ^18.0.0
     dependencies:
-      '@babel/runtime': 7.20.7
+      '@babel/runtime': 7.20.13
       invariant: 2.2.4
       prop-types: 15.8.1
       react: 18.2.0
@@ -20346,7 +20346,7 @@ packages:
       react: ^16.6.0 || ^17.0.0 || ^18.0.0
       react-dom: ^16.6.0 || ^17.0.0 || ^18.0.0
     dependencies:
-      '@babel/runtime': 7.20.7
+      '@babel/runtime': 7.20.13
       invariant: 2.2.4
       prop-types: 15.8.1
       react: 18.1.0
