@@ -1,6 +1,18 @@
 # Change Log
 
-All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+All notable changes to this project will be documented in this file.
+See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+
+## [2.4.2](https://github.com/ant-design/pro-components/compare/@ant-design/pro-provider@2.4.1...@ant-design/pro-provider@2.4.2) (2023-02-10)
+
+
+### Bug Fixes
+
+* **components:** fix lib has es path error ([157f1f1](https://github.com/ant-design/pro-components/commit/157f1f157aff931f72dffab4d47703886d4c4087))
+
+
+
+
 
 ## [2.4.1](https://github.com/ant-design/pro-components/compare/@ant-design/pro-provider@2.4.0...@ant-design/pro-provider@2.4.1) (2023-02-08)
 
