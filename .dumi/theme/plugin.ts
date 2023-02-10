@@ -1,4 +1,5 @@
 import fs from 'fs';
+import path from 'path';
 import type { IApi } from 'dumi';
 import { extractStyle } from '@ant-design/cssinjs';
 
@@ -17,9 +18,15 @@ const RoutesPlugin = (api: IApi) => {
         // extract all emotion style tags from body
         file.content = file.content.replace(/<style data-emotion[\S\s]+?<\/style>/g, (s) => {
           styles += s;
-
           return '';
         });
+
+        const indexCss = fs.readFileSync(
+          path.join('./dist', fs.readdirSync('./dist').find((f) => f.includes('.css')) || ''),
+          'utf8',
+        );
+
+        styles += `<style>${indexCss}</style>`;
 
         // insert emotion style tags to head
         file.content = file.content.replace('</head>', `${styles}</head>`);
