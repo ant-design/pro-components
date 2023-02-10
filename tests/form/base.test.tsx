@@ -14,6 +14,7 @@ import ProForm, {
 } from '@ant-design/pro-form';
 import '@testing-library/jest-dom';
 import { act, fireEvent, render } from '@testing-library/react';
+import userEvent from '@testing-library/user-event';
 import { Button, ConfigProvider, Input } from 'antd';
 import dayjs from 'dayjs';
 import React, { useEffect, useRef } from 'react';
@@ -2681,6 +2682,38 @@ describe('ProForm', () => {
       await (await html.findByText('提 交')).click();
     });
 
+    expect(fn).toBeCalledWith(22);
+    expect(html.asFragment()).toMatchSnapshot();
+  });
+
+  // https://github.com/ant-design/pro-components/issues/5743
+  it.only(`📦 submitted value should be consistent with input when precision=0`, async () => {
+    const fn = jest.fn();
+    const html = render(
+      <ProForm
+        onFinish={async (value) => {
+          fn(value.count);
+        }}
+      >
+        <ProFormDigit
+          name="count"
+          label="人数"
+          fieldProps={{
+            precision: 0,
+          }}
+        />
+      </ProForm>,
+    );
+
+    await waitForComponentToPaint(html, 300);
+
+    const dom = html.baseElement.querySelector<HTMLInputElement>('input#count')!;
+    await userEvent.type(dom, '22.22.22');
+    await userEvent.click(await html.findByText('提 交'));
+
+    await waitForComponentToPaint(html, 300);
+
+    expect(dom.value).toBe('22');
     expect(fn).toBeCalledWith(22);
     expect(html.asFragment()).toMatchSnapshot();
   });

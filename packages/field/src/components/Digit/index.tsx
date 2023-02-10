@@ -1,4 +1,5 @@
 import { InputNumber } from 'antd';
+import { isNil } from '@ant-design/pro-utils';
 import React, { useCallback } from 'react';
 import omit from 'omit.js';
 import type { ProFieldFC } from '../../index';
@@ -27,16 +28,11 @@ const FieldDigit: ProFieldFC<FieldDigitProps> = (
   const intl = useIntl();
   const placeholderValue = placeholder || intl.getMessage('tableForm.inputPlaceholder', '请输入');
   const proxyChange = useCallback(
-    (value: number | string | null) => {
-      let val: string | number | undefined = value ?? undefined;
-      if (typeof value === 'string') {
-        val = Number(val);
-      }
-      if (typeof val === 'number') {
-        if (fieldProps.precision) {
-          val = val?.toFixed?.(fieldProps.precision ?? 0);
-        }
-        val = Number(val);
+    (value: number | null) => {
+      let val: number | undefined = value ?? undefined;
+
+      if (!isNil(val) && !isNil(fieldProps.precision)) {
+        val = Number(val.toFixed(fieldProps.precision));
       }
       return fieldProps?.onChange?.(val);
     },
