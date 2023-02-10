@@ -1,13 +1,15 @@
 const { readdirSync } = require('fs');
 const { join } = require('path');
 
-const pkgList = readdirSync(join(__dirname, './packages')).filter((pkg) => pkg.charAt(0) !== '.');
+const pkgList = readdirSync(join(__dirname, './packages')).filter(
+  (pkg: string) => pkg.charAt(0) !== '.',
+);
 
 const moduleNameMapper = {
   '\\.(css|less|sass|scss)$': require.resolve('identity-obj-proxy'),
 };
 
-pkgList.forEach((shortName) => {
+pkgList.forEach((shortName: string) => {
   const name = `@ant-design/pro-${shortName}`;
   moduleNameMapper[name] = join(__dirname, `./packages/${shortName}/src`);
 });
@@ -34,7 +36,7 @@ module.exports = {
     url: 'http://localhost?navTheme=realDark&layout=mix&colorPrimary=techBlue&splitMenus=false&fixedHeader=true',
   },
   verbose: true,
-  setupFiles: ['./tests/setupTests.js'],
+  setupFiles: ['./tests/setupTests.ts'],
   globals: {
     ANT_DESIGN_PRO_ONLY_DO_NOT_USE_IN_YOUR_PRODUCTION: false,
   },

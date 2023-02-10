@@ -10683,12 +10683,13 @@ exports[`table demos 📸 renders ./packages/table/src/demos/ListToolBar/basic.t
                                   class="ant-table-column-sorter ant-table-column-sorter-full"
                                 >
                                   <span
+                                    aria-hidden="true"
                                     class="ant-table-column-sorter-inner"
                                   >
                                     <span
                                       aria-label="caret-up"
                                       class="anticon anticon-caret-up ant-table-column-sorter-up"
-                                      role="presentation"
+                                      role="img"
                                     >
                                       <svg
                                         aria-hidden="true"
@@ -10707,7 +10708,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/ListToolBar/basic.t
                                     <span
                                       aria-label="caret-down"
                                       class="anticon anticon-caret-down ant-table-column-sorter-down"
-                                      role="presentation"
+                                      role="img"
                                     >
                                       <svg
                                         aria-hidden="true"
@@ -11680,12 +11681,13 @@ exports[`table demos 📸 renders ./packages/table/src/demos/ListToolBar/menu.ts
                                   class="ant-table-column-sorter ant-table-column-sorter-full"
                                 >
                                   <span
+                                    aria-hidden="true"
                                     class="ant-table-column-sorter-inner"
                                   >
                                     <span
                                       aria-label="caret-up"
                                       class="anticon anticon-caret-up ant-table-column-sorter-up"
-                                      role="presentation"
+                                      role="img"
                                     >
                                       <svg
                                         aria-hidden="true"
@@ -11704,7 +11706,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/ListToolBar/menu.ts
                                     <span
                                       aria-label="caret-down"
                                       class="anticon anticon-caret-down ant-table-column-sorter-down"
-                                      role="presentation"
+                                      role="img"
                                     >
                                       <svg
                                         aria-hidden="true"
@@ -12509,12 +12511,13 @@ exports[`table demos 📸 renders ./packages/table/src/demos/ListToolBar/multipl
                                   class="ant-table-column-sorter ant-table-column-sorter-full"
                                 >
                                   <span
+                                    aria-hidden="true"
                                     class="ant-table-column-sorter-inner"
                                   >
                                     <span
                                       aria-label="caret-up"
                                       class="anticon anticon-caret-up ant-table-column-sorter-up"
-                                      role="presentation"
+                                      role="img"
                                     >
                                       <svg
                                         aria-hidden="true"
@@ -12533,7 +12536,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/ListToolBar/multipl
                                     <span
                                       aria-label="caret-down"
                                       class="anticon anticon-caret-down ant-table-column-sorter-down"
-                                      role="presentation"
+                                      role="img"
                                     >
                                       <svg
                                         aria-hidden="true"
@@ -13301,12 +13304,13 @@ exports[`table demos 📸 renders ./packages/table/src/demos/ListToolBar/no-titl
                                   class="ant-table-column-sorter ant-table-column-sorter-full"
                                 >
                                   <span
+                                    aria-hidden="true"
                                     class="ant-table-column-sorter-inner"
                                   >
                                     <span
                                       aria-label="caret-up"
                                       class="anticon anticon-caret-up ant-table-column-sorter-up"
-                                      role="presentation"
+                                      role="img"
                                     >
                                       <svg
                                         aria-hidden="true"
@@ -13325,7 +13329,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/ListToolBar/no-titl
                                     <span
                                       aria-label="caret-down"
                                       class="anticon anticon-caret-down ant-table-column-sorter-down"
-                                      role="presentation"
+                                      role="img"
                                     >
                                       <svg
                                         aria-hidden="true"
@@ -14158,12 +14162,13 @@ exports[`table demos 📸 renders ./packages/table/src/demos/ListToolBar/tabs.ts
                                   class="ant-table-column-sorter ant-table-column-sorter-full"
                                 >
                                   <span
+                                    aria-hidden="true"
                                     class="ant-table-column-sorter-inner"
                                   >
                                     <span
                                       aria-label="caret-up"
                                       class="anticon anticon-caret-up ant-table-column-sorter-up"
-                                      role="presentation"
+                                      role="img"
                                     >
                                       <svg
                                         aria-hidden="true"
@@ -14182,7 +14187,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/ListToolBar/tabs.ts
                                     <span
                                       aria-label="caret-down"
                                       class="anticon anticon-caret-down ant-table-column-sorter-down"
-                                      role="presentation"
+                                      role="img"
                                     >
                                       <svg
                                         aria-hidden="true"
@@ -14885,12 +14890,13 @@ exports[`table demos 📸 renders ./packages/table/src/demos/batchOption.tsx cor
                                   class="ant-table-column-sorter ant-table-column-sorter-full"
                                 >
                                   <span
+                                    aria-hidden="true"
                                     class="ant-table-column-sorter-inner"
                                   >
                                     <span
                                       aria-label="caret-up"
                                       class="anticon anticon-caret-up ant-table-column-sorter-up"
-                                      role="presentation"
+                                      role="img"
                                     >
                                       <svg
                                         aria-hidden="true"
@@ -14909,7 +14915,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/batchOption.tsx cor
                                     <span
                                       aria-label="caret-down"
                                       class="anticon anticon-caret-down ant-table-column-sorter-down"
-                                      role="presentation"
+                                      role="img"
                                     >
                                       <svg
                                         aria-hidden="true"
@@ -14966,12 +14972,13 @@ exports[`table demos 📸 renders ./packages/table/src/demos/batchOption.tsx cor
                                   class="ant-table-column-sorter ant-table-column-sorter-full"
                                 >
                                   <span
+                                    aria-hidden="true"
                                     class="ant-table-column-sorter-inner"
                                   >
                                     <span
                                       aria-label="caret-up"
                                       class="anticon anticon-caret-up ant-table-column-sorter-up"
-                                      role="presentation"
+                                      role="img"
                                     >
                                       <svg
                                         aria-hidden="true"
@@ -14990,7 +14997,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/batchOption.tsx cor
                                     <span
                                       aria-label="caret-down"
                                       class="anticon anticon-caret-down ant-table-column-sorter-down"
-                                      role="presentation"
+                                      role="img"
                                     >
                                       <svg
                                         aria-hidden="true"
@@ -16300,12 +16307,13 @@ exports[`table demos 📸 renders ./packages/table/src/demos/card-title.tsx corr
                                   class="ant-table-column-sorter ant-table-column-sorter-full"
                                 >
                                   <span
+                                    aria-hidden="true"
                                     class="ant-table-column-sorter-inner"
                                   >
                                     <span
                                       aria-label="caret-up"
                                       class="anticon anticon-caret-up ant-table-column-sorter-up"
-                                      role="presentation"
+                                      role="img"
                                     >
                                       <svg
                                         aria-hidden="true"
@@ -16324,7 +16332,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/card-title.tsx corr
                                     <span
                                       aria-label="caret-down"
                                       class="anticon anticon-caret-down ant-table-column-sorter-down"
-                                      role="presentation"
+                                      role="img"
                                     >
                                       <svg
                                         aria-hidden="true"
@@ -29967,12 +29975,13 @@ exports[`table demos 📸 renders ./packages/table/src/demos/dynamic-settings.ts
                                             class="ant-table-column-sorter ant-table-column-sorter-full"
                                           >
                                             <span
+                                              aria-hidden="true"
                                               class="ant-table-column-sorter-inner"
                                             >
                                               <span
                                                 aria-label="caret-up"
                                                 class="anticon anticon-caret-up ant-table-column-sorter-up"
-                                                role="presentation"
+                                                role="img"
                                               >
                                                 <svg
                                                   aria-hidden="true"
@@ -29991,7 +30000,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/dynamic-settings.ts
                                               <span
                                                 aria-label="caret-down"
                                                 class="anticon anticon-caret-down ant-table-column-sorter-down"
-                                                role="presentation"
+                                                role="img"
                                               >
                                                 <svg
                                                   aria-hidden="true"
@@ -32657,12 +32666,13 @@ exports[`table demos 📸 renders ./packages/table/src/demos/error-boundaries-fa
                                   class="ant-table-column-sorter ant-table-column-sorter-full"
                                 >
                                   <span
+                                    aria-hidden="true"
                                     class="ant-table-column-sorter-inner"
                                   >
                                     <span
                                       aria-label="caret-up"
                                       class="anticon anticon-caret-up ant-table-column-sorter-up"
-                                      role="presentation"
+                                      role="img"
                                     >
                                       <svg
                                         aria-hidden="true"
@@ -32681,7 +32691,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/error-boundaries-fa
                                     <span
                                       aria-label="caret-down"
                                       class="anticon anticon-caret-down ant-table-column-sorter-down"
-                                      role="presentation"
+                                      role="img"
                                     >
                                       <svg
                                         aria-hidden="true"
@@ -36172,12 +36182,13 @@ exports[`table demos 📸 renders ./packages/table/src/demos/listToolBar.tsx cor
                                   class="ant-table-column-sorter ant-table-column-sorter-full"
                                 >
                                   <span
+                                    aria-hidden="true"
                                     class="ant-table-column-sorter-inner"
                                   >
                                     <span
                                       aria-label="caret-up"
                                       class="anticon anticon-caret-up ant-table-column-sorter-up"
-                                      role="presentation"
+                                      role="img"
                                     >
                                       <svg
                                         aria-hidden="true"
@@ -36196,7 +36207,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/listToolBar.tsx cor
                                     <span
                                       aria-label="caret-down"
                                       class="anticon anticon-caret-down ant-table-column-sorter-down"
-                                      role="presentation"
+                                      role="img"
                                     >
                                       <svg
                                         aria-hidden="true"
@@ -37120,12 +37131,13 @@ exports[`table demos 📸 renders ./packages/table/src/demos/no-option.tsx corre
                                   class="ant-table-column-sorter ant-table-column-sorter-full"
                                 >
                                   <span
+                                    aria-hidden="true"
                                     class="ant-table-column-sorter-inner"
                                   >
                                     <span
                                       aria-label="caret-up"
                                       class="anticon anticon-caret-up ant-table-column-sorter-up"
-                                      role="presentation"
+                                      role="img"
                                     >
                                       <svg
                                         aria-hidden="true"
@@ -37144,7 +37156,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/no-option.tsx corre
                                     <span
                                       aria-label="caret-down"
                                       class="anticon anticon-caret-down ant-table-column-sorter-down"
-                                      role="presentation"
+                                      role="img"
                                     >
                                       <svg
                                         aria-hidden="true"
@@ -37222,12 +37234,13 @@ exports[`table demos 📸 renders ./packages/table/src/demos/no-option.tsx corre
                                   class="ant-table-column-sorter ant-table-column-sorter-full"
                                 >
                                   <span
+                                    aria-hidden="true"
                                     class="ant-table-column-sorter-inner"
                                   >
                                     <span
                                       aria-label="caret-up"
                                       class="anticon anticon-caret-up ant-table-column-sorter-up"
-                                      role="presentation"
+                                      role="img"
                                     >
                                       <svg
                                         aria-hidden="true"
@@ -37246,7 +37259,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/no-option.tsx corre
                                     <span
                                       aria-label="caret-down"
                                       class="anticon anticon-caret-down ant-table-column-sorter-down"
-                                      role="presentation"
+                                      role="img"
                                     >
                                       <svg
                                         aria-hidden="true"
@@ -38397,12 +38410,13 @@ exports[`table demos 📸 renders ./packages/table/src/demos/normal.tsx correctl
                                   class="ant-table-column-sorter ant-table-column-sorter-full"
                                 >
                                   <span
+                                    aria-hidden="true"
                                     class="ant-table-column-sorter-inner"
                                   >
                                     <span
                                       aria-label="caret-up"
                                       class="anticon anticon-caret-up ant-table-column-sorter-up"
-                                      role="presentation"
+                                      role="img"
                                     >
                                       <svg
                                         aria-hidden="true"
@@ -38421,7 +38435,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/normal.tsx correctl
                                     <span
                                       aria-label="caret-down"
                                       class="anticon anticon-caret-down ant-table-column-sorter-down"
-                                      role="presentation"
+                                      role="img"
                                     >
                                       <svg
                                         aria-hidden="true"
@@ -45622,12 +45636,13 @@ exports[`table demos 📸 renders ./packages/table/src/demos/single.tsx correctl
                                   class="ant-table-column-sorter ant-table-column-sorter-full"
                                 >
                                   <span
+                                    aria-hidden="true"
                                     class="ant-table-column-sorter-inner"
                                   >
                                     <span
                                       aria-label="caret-up"
                                       class="anticon anticon-caret-up ant-table-column-sorter-up"
-                                      role="presentation"
+                                      role="img"
                                     >
                                       <svg
                                         aria-hidden="true"
@@ -45646,7 +45661,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/single.tsx correctl
                                     <span
                                       aria-label="caret-down"
                                       class="anticon anticon-caret-down ant-table-column-sorter-down"
-                                      role="presentation"
+                                      role="img"
                                     >
                                       <svg
                                         aria-hidden="true"
@@ -50679,12 +50694,13 @@ exports[`table demos 📸 renders ./packages/table/src/demos/table-nested.tsx co
                                   class="ant-table-column-sorter ant-table-column-sorter-full"
                                 >
                                   <span
+                                    aria-hidden="true"
                                     class="ant-table-column-sorter-inner"
                                   >
                                     <span
                                       aria-label="caret-up"
                                       class="anticon anticon-caret-up ant-table-column-sorter-up"
-                                      role="presentation"
+                                      role="img"
                                     >
                                       <svg
                                         aria-hidden="true"
@@ -50703,7 +50719,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/table-nested.tsx co
                                     <span
                                       aria-label="caret-down"
                                       class="anticon anticon-caret-down ant-table-column-sorter-down"
-                                      role="presentation"
+                                      role="img"
                                     >
                                       <svg
                                         aria-hidden="true"
@@ -51789,12 +51805,13 @@ exports[`table demos 📸 renders ./packages/table/src/demos/theme.tsx correctly
                                   class="ant-table-column-sorter ant-table-column-sorter-full"
                                 >
                                   <span
+                                    aria-hidden="true"
                                     class="ant-table-column-sorter-inner"
                                   >
                                     <span
                                       aria-label="caret-up"
                                       class="anticon anticon-caret-up ant-table-column-sorter-up"
-                                      role="presentation"
+                                      role="img"
                                     >
                                       <svg
                                         aria-hidden="true"
@@ -51813,7 +51830,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/theme.tsx correctly
                                     <span
                                       aria-label="caret-down"
                                       class="anticon anticon-caret-down ant-table-column-sorter-down"
-                                      role="presentation"
+                                      role="img"
                                     >
                                       <svg
                                         aria-hidden="true"
