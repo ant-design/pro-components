@@ -2687,7 +2687,7 @@ describe('ProForm', () => {
   });
 
   // https://github.com/ant-design/pro-components/issues/5743
-  it.only(`📦 submitted value should be consistent with input when precision=0`, async () => {
+  it(`📦 submitted value should be consistent with input when precision=0`, async () => {
     const fn = jest.fn();
     const html = render(
       <ProForm

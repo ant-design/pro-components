@@ -28,10 +28,13 @@ const FieldDigit: ProFieldFC<FieldDigitProps> = (
   const intl = useIntl();
   const placeholderValue = placeholder || intl.getMessage('tableForm.inputPlaceholder', '请输入');
   const proxyChange = useCallback(
-    (value: number | null) => {
-      let val: number | undefined = value ?? undefined;
+    (value: number | string | null) => {
+      let val = value ?? undefined;
 
-      if (!isNil(val) && !isNil(fieldProps.precision)) {
+      if (typeof val === 'string') {
+        val = Number(val);
+      }
+      if (typeof val === 'number' && !isNil(val) && !isNil(fieldProps.precision)) {
         val = Number(val.toFixed(fieldProps.precision));
       }
       return fieldProps?.onChange?.(val);
@@ -58,7 +61,7 @@ const FieldDigit: ProFieldFC<FieldDigitProps> = (
   }
   if (type === 'edit' || type === 'update') {
     const dom = (
-      <InputNumber<number>
+      <InputNumber<number | string>
         ref={ref}
         min={0}
         placeholder={placeholderValue}
