@@ -224,7 +224,7 @@ export default defineConfig({
             },
             {
               title: 'ProDescriptions',
-              link: '/en-US/components/description',
+              link: '/en-US/components/descriptions',
             },
           ],
         },
@@ -347,7 +347,7 @@ export default defineConfig({
             },
             {
               title: 'ProDescriptions - 定义列表',
-              link: '/components/description',
+              link: '/components/descriptions',
             },
           ],
         },
