@@ -85,7 +85,7 @@ function TableRender<T extends Record<string, any>, U, ValueType>(
     toolbarDom,
     searchNode,
     style,
-    cardProps,
+    cardProps: propsCardProps,
     alertDom,
     name,
     onSortChange,
@@ -173,6 +173,7 @@ function TableRender<T extends Record<string, any>, U, ValueType>(
 
     return [...action.dataSource, row];
   };
+
   const getTableProps = () => ({
     ...rest,
     size,
@@ -217,6 +218,16 @@ function TableRender<T extends Record<string, any>, U, ValueType>(
       }
     },
   });
+
+  /**
+   * 是否需要 card 来包裹
+   */
+  const notNeedCardDom = useMemo(() => {
+    if (props.search === false && !props.headerTitle && props.toolBarRender === false) {
+      return true;
+    }
+    return false;
+  }, []);
 
   /** 默认的 table dom，如果是编辑模式，外面还要包个 form */
   const baseTableDom = <Table<T> {...getTableProps()} rowKey={rowKey} />;
@@ -268,7 +279,7 @@ function TableRender<T extends Record<string, any>, U, ValueType>(
   /** Table 区域的 dom，为了方便 render */
   const tableAreaDom =
     // cardProps 或者 有了name 就不需要这个padding了，不然会导致不好对齐
-    cardProps === false || !!props.name ? (
+    propsCardProps === false || notNeedCardDom === true || !!props.name ? (
       tableContentDom
     ) : (
       <ProCard
@@ -283,7 +294,7 @@ function TableRender<T extends Record<string, any>, U, ValueType>(
                 padding: 0,
               }
         }
-        {...cardProps}
+        {...propsCardProps}
       >
         {tableContentDom}
       </ProCard>

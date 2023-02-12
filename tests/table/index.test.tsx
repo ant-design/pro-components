@@ -342,6 +342,27 @@ describe('BasicTable', () => {
       );
     });
     await waitForComponentToPaint(html, 1200);
+    expect(!!html.baseElement.querySelector('.ant-pro-card')).toBe(false);
+
+    act(() => {
+      html.rerender(
+        <ProTable
+          size="small"
+          toolBarRender={() => {
+            return [<a>submit</a>];
+          }}
+          columns={[
+            {
+              dataIndex: 'money',
+              valueType: 'money',
+            },
+          ]}
+          dataSource={[]}
+          rowKey="key"
+        />,
+      );
+    });
+    await waitForComponentToPaint(html, 1200);
     expect(!!html.baseElement.querySelector('.ant-pro-card')).toBe(true);
   });
 
