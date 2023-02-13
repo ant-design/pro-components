@@ -13,6 +13,7 @@ import {
   msMYIntl,
   ptBRIntl,
   ruRUIntl,
+  thTHIntl,
   viVNIntl,
   zhCNIntl,
   zhTWIntl,
@@ -71,6 +72,7 @@ export {
   zhTWIntl,
   frFRIntl,
   ptBRIntl,
+  thTHIntl,
   ProTable,
 };
 
