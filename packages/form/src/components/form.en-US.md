@@ -147,7 +147,7 @@ ProForm is the best choice when you want to implement a form quickly but don't w
 
 ### Basic Usage
 
-<code src="../demos/base.tsx" height="548px"></code>
+<code src="../demos/base.tsx" ></code>
 
 ### Grid mode
 
@@ -157,15 +157,15 @@ supported in `ProForm`, `SchemaForm`, `ModalForm`, `DrawerForm`, `StepsForm`
 
 ### Form's layout toggle
 
-<code src="../demos/layout-change.tsx" height="548px"></code>
+<code src="../demos/layout-change.tsx" ></code>
 
 ### Interdependent form entries
 
-<code src="../demos/dependency.tsx" height="248px"></code>
+<code src="../demos/dependency.tsx" ></code>
 
 ### Sync submission results to url
 
-<code src="../demos/sync-to-url.tsx" height="548px"></code>
+<code src="../demos/sync-to-url.tsx" ></code>
 
 ### Fixed footer
 
@@ -177,7 +177,7 @@ supported in `ProForm`, `SchemaForm`, `ModalForm`, `DrawerForm`, `StepsForm`
 
 ### Form linkage
 
-<code src="../demos/linkage-customization.tsx" height="1774px"></code>
+<code src="../demos/linkage-customization.tsx" ></code>
 
 ## Layouts API
 

@@ -14,15 +14,15 @@ StepsForm manages the data of sub forms through a Provider, each word form is a 
 
 ## Step-by-Step Forms
 
-<code src="./demos/steps-from.tsx" height="532px"></code>
+<code src="./demos/steps-from.tsx" ></code>
 
 ## Step-by-Step Forms - Multi-Card
 
-<code src="./demos/multi-card-step-form.tsx" background="hsl(220,23%,97%)" height="868px"></code>
+<code src="./demos/multi-card-step-form.tsx" background="hsl(220,23%,97%)" ></code>
 
 ## Step-by-Step Forms - Works with Modal
 
-<code src="./demos/modal-step-form.tsx" background="hsl(220,23%,97%)" height="32px"></code>
+<code src="./demos/modal-step-form.tsx" background="hsl(220,23%,97%)" ></code>
 
 ## StepForm in edit scene
 

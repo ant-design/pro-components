@@ -159,13 +159,13 @@ formRef 内置了几个方法来获取转化之后的值，这也是相比 antd 
 
 除了 `LightFilter` 和 `QueryFilter` 这样固定布局的表单样式，其他表单布局支持配置与 `antd` 一致的三种布局方式。
 
-<code src="../demos/form-layout.tsx"  height="337px"></code>
+<code src="../demos/form-layout.tsx"  ></code>
 
 ### 栅格化布局
 
 同时支持在 `ProForm`, `SchemaForm`, `ModalForm`, `DrawerForm`, `StepsForm` 中使用
 
-<code src="../demos/form-layout-grid.tsx" height="437px"></code>
+<code src="../demos/form-layout-grid.tsx" ></code>
 
 <code src="../demos/dependency.tsx" title="表单联动"></code>
 
@@ -176,7 +176,7 @@ formRef 内置了几个方法来获取转化之后的值，这也是相比 antd 
 
 打开时也会把 url 的参数设置为默认值，支持 transform, 但是要注意字段的映射。
 
-<code src="../demos/sync-to-url.tsx" height="371px"></code>
+<code src="../demos/sync-to-url.tsx" ></code>
 
 <code src="../demos/money.tsx" title="金额"></code>
 

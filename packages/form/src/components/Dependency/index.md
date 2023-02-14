@@ -37,7 +37,7 @@ name 参数必须要是一个数组，如果是嵌套的结构可以这样配置
 
 ### 互相依赖表单
 
-<code src="./demos/dependency.tsx" title="互相依赖表单" height="371px"></code>
+<code src="./demos/dependency.tsx" title="互相依赖表单" ></code>
 
 ### 获取表单依赖值
 

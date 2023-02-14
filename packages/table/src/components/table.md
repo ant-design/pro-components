@@ -57,7 +57,7 @@ ProTable 的诞生是为了解决项目中需要写很多 table 的样板代码�
 
 RTL means right-to-left.
 
-<code src="../demos/rtl_table.tsx" background="hsl(220,23%,97%)" height="606px"></code>
+<code src="../demos/rtl_table.tsx" background="hsl(220,23%,97%)" ></code>
 
 ### 受控的表格设置栏
 
@@ -137,7 +137,7 @@ renderFormItem: (_, { type, defaultRender, formItemProps, fieldProps, ...rest },
 
 使用 `toolbar`属性扩展配置工具栏渲染。
 
-<code src="../demos/listToolBar.tsx" background="hsl(220,23%,97%)" height="509px"></code>
+<code src="../demos/listToolBar.tsx" background="hsl(220,23%,97%)" ></code>
 
 <code src="../demos/renderTable.tsx" background="hsl(220,23%,97%)" title="表格主体自定义"></code>
 
@@ -214,7 +214,7 @@ import { ConfigProvider } from '@ant-design/pro-provide';
 
 #### valueType - 数字类
 
-<code src="../demos/valueTypeNumber.tsx" background="hsl(220,23%,97%)" height="446px"></code>
+<code src="../demos/valueTypeNumber.tsx" background="hsl(220,23%,97%)" ></code>
 
 #### valueType - 样式类
 
@@ -226,7 +226,7 @@ import { ConfigProvider } from '@ant-design/pro-provide';
 
 #### 自定义 valueType
 
-<code src="../demos/customization-value-type.tsx" debug background="hsl(220,23%,97%)" height="462px"></code>
+<code src="../demos/customization-value-type.tsx" debug background="hsl(220,23%,97%)" ></code>
 
 ### 自定义错误边界
 
@@ -234,7 +234,7 @@ import { ConfigProvider } from '@ant-design/pro-provide';
 
 <code src="../demos/error-boundaries-false.tsx" debug title="取消自定义错误边界" iframe="462px"></code>
 
-<code src="../demos/config-provider.tsx" debug background="hsl(220,23%,97%)" height="462px"></code>
+<code src="../demos/config-provider.tsx" debug background="hsl(220,23%,97%)" ></code>
 
 ## API
 

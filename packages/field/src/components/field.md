@@ -10,7 +10,7 @@ title: ProField - 原子组件
 
 ## DEMO
 
-<code src="../demos/base.tsx" height="1202px"></code>
+<code src="../demos/base.tsx" ></code>
 
 <code src="../demos/base_test.tsx" debug></code>
 
