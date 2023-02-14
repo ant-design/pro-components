@@ -46236,7 +46236,6 @@ exports[`form demos 📸 renders ./packages/form/src/demos/layout-footer.tsx cor
                     >
                       <div
                         class="ant-pro-base-menu-item-title ant-pro-base-menu-item-title-collapsed"
-                        title="一级名称"
                       >
                         <span
                           class="anticon ant-pro-base-menu-item-icon "
