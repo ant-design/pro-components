@@ -33,10 +33,10 @@ const tableListDataSource: TableListItem[] = [];
 
 const creators = ['付小小', '曲丽丽', '林东东', '陈帅帅', '兼某某'];
 
-for (let i = 0; i < 5; i += 1) {
+for (let i = 0; i < 50; i += 1) {
   tableListDataSource.push({
     key: i,
-    name: 'AppName',
+    name: 'AppName-' + i,
     containers: Math.floor(Math.random() * 20),
     callNumber: Math.floor(Math.random() * 2000),
     progress: Math.ceil(Math.random() * 100) + 1,
@@ -129,24 +129,27 @@ export default () => {
         selections: [Table.SELECTION_ALL, Table.SELECTION_INVERT],
         defaultSelectedRowKeys: [1],
       }}
-      tableAlertRender={({ selectedRowKeys, selectedRows, onCleanSelected }) => (
-        <Space size={24}>
-          <span>
-            已选 {selectedRowKeys.length} 项
-            <a style={{ marginInlineStart: 8 }} onClick={onCleanSelected}>
-              取消选择
-            </a>
-          </span>
-          <span>{`容器数量: ${selectedRows.reduce(
-            (pre, item) => pre + item.containers,
-            0,
-          )} 个`}</span>
-          <span>{`调用量: ${selectedRows.reduce(
-            (pre, item) => pre + item.callNumber,
-            0,
-          )} 次`}</span>
-        </Space>
-      )}
+      tableAlertRender={({ selectedRowKeys, selectedRows, onCleanSelected }) => {
+        console.log(selectedRowKeys, selectedRows);
+        return (
+          <Space size={24}>
+            <span>
+              已选 {selectedRowKeys.length} 项
+              <a style={{ marginInlineStart: 8 }} onClick={onCleanSelected}>
+                取消选择
+              </a>
+            </span>
+            <span>{`容器数量: ${selectedRows.reduce(
+              (pre, item) => pre + item.containers,
+              0,
+            )} 个`}</span>
+            <span>{`调用量: ${selectedRows.reduce(
+              (pre, item) => pre + item.callNumber,
+              0,
+            )} 次`}</span>
+          </Space>
+        );
+      }}
       tableAlertOptionRender={() => {
         return (
           <Space size={16}>
@@ -159,6 +162,9 @@ export default () => {
       scroll={{ x: 1300 }}
       options={false}
       search={false}
+      pagination={{
+        pageSize: 5,
+      }}
       rowKey="key"
       headerTitle="批量操作"
       toolBarRender={() => [<Button key="show">查看日志</Button>]}

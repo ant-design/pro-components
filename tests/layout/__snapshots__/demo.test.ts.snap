@@ -3599,7 +3599,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/components/WaterMark/de
     style="position: relative;"
   >
     <div
-      style="height: 500px;"
+      style="height: 580px;"
     >
       <p>
         Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quisquam aliquid perferendis, adipisci dolorum officia odio natus facere cumque iusto libero repellendus praesentium ipsa cupiditate iure autem eos repudiandae delectus totam?
@@ -3629,7 +3629,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/components/WaterMark/de
     style="position: relative;"
   >
     <div
-      style="height: 500px;"
+      style="height: 580px;"
     />
     <div
       class="ant-pro-layout-watermark"
@@ -3646,7 +3646,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/components/WaterMark/de
     style="position: relative;"
   >
     <div
-      style="height: 500px;"
+      style="height: 580px;"
     />
     <div
       class="ant-pro-layout-watermark"
@@ -7924,7 +7924,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/antd@4MenuIconFor
       />
       <section
         class="ant-layout ant-layout-has-sider"
-        style="min-height: 500px; flex-direction: row;"
+        style="min-height: 580px; flex-direction: row;"
       >
         <div
           style="width: 256px; overflow: hidden; flex: 0 0 256px; max-width: 256px; min-width: 256px; transition: all 0.2s ease 0s;"

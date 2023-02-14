@@ -69,8 +69,8 @@ export default defineConfig({
       min-width: 260px;
     }
     .dumi-default-previewer-demo {
-      min-height: 500px;
-      max-height: 500px;
+      min-height: 580px;
+      max-height: 580px;
       display: flex;
       overflow: auto;
       flex-direction: column;

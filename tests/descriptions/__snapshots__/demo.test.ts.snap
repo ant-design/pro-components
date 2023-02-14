@@ -1255,14 +1255,14 @@ exports[`descriptions demos 📸 renders ./packages/descriptions/src/demos/dynam
 <DocumentFragment>
   <div
     class="ant-pro-card ant-pro-card-border ant-pro-card-contain-card ant-pro-card-split"
-    style="height: 500px;"
+    style="height: 580px;"
   >
     <div
       class="ant-pro-card-body"
     >
       <div
         class="ant-pro-card-col ant-pro-card-split-vertical"
-        style="width: calc(100% - 500px); flex-shrink: 0;"
+        style="width: calc(100% - 580px); flex-shrink: 0;"
       >
         <div
           class="ant-pro-card"
@@ -1474,7 +1474,7 @@ exports[`descriptions demos 📸 renders ./packages/descriptions/src/demos/dynam
           />
           <div
             class="ant-pro-card"
-            style="width: 500px;"
+            style="width: 580px;"
           >
             <div
               class="ant-pro-card-header"

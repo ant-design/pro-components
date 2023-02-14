@@ -85,8 +85,8 @@ The most important thing about the SchemaForm form is the type definition of the
 
 ### Combining shouldUpdate=false with dependencies to trigger updates
 
-<code src="./demos/dependencies.tsx" height="500px" oldtitle="schema dependencies"></code>
+<code src="./demos/dependencies.tsx" height="580px" oldtitle="schema dependencies"></code>
 
 ### Dynamically control whether to re-render
 
-<code src="./demos/dynamic-rerender.tsx" height="500px" oldtitle="dynamic rerender"></code>
+<code src="./demos/dynamic-rerender.tsx" height="580px" oldtitle="dynamic rerender"></code>

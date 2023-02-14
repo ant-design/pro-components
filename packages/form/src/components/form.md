@@ -180,7 +180,7 @@ formRef 内置了几个方法来获取转化之后的值，这也是相比 antd 
 
 <code src="../demos/money.tsx" height="629px" title="金额"></code>
 
-<code src="../demos/layout-footer.tsx" height="500px" iframe="874px" title="固定页脚"></code>
+<code src="../demos/layout-footer.tsx" height="580px" iframe="874px" title="固定页脚"></code>
 
 <code src="../demos/pro-form-editableTable.tsx" height="534px" title="ProForm 和 EditableTable 同时使用"></code>
 

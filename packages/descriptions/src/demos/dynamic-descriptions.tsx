@@ -125,7 +125,7 @@ export default () => {
         height: 500,
       }}
     >
-      <ProCard colSpan="calc(100% - 500px)">
+      <ProCard colSpan="calc(100% - 580px)">
         <ProDescriptions
           title="高级定义列表"
           {...values}
@@ -153,7 +153,7 @@ export default () => {
         submitter={false}
       >
         <ProCard
-          colSpan="500px"
+          colSpan="580px"
           title="配置菜单"
           tabs={{
             items: [

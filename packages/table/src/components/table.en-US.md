@@ -24,9 +24,9 @@ When your forms need to interact with the server or need multiple cell styles, P
 
 ### Querying a table
 
-<code src="../demos/single.tsx" background="hsl(220,23%,97%)" height="500px"></code>
+<code src="../demos/single.tsx" background="hsl(220,23%,97%)" height="580px"></code>
 
-<code src="../demos/dataSource.tsx" background="hsl(220,23%,97%)" height="500px" debug></code>
+<code src="../demos/dataSource.tsx" background="hsl(220,23%,97%)" height="580px" debug></code>
 
 ### Downgrade to a normal table
 
@@ -46,7 +46,7 @@ When your forms need to interact with the server or need multiple cell styles, P
 
 ### Left and right structure
 
-<code src="../demos/split.tsx" background="hsl(220,23%,97%)" height="500px"></code>
+<code src="../demos/split.tsx" background="hsl(220,23%,97%)" height="580px"></code>
 
 ### Batch manipulation of tables
 
@@ -60,7 +60,7 @@ When your forms need to interact with the server or need multiple cell styles, P
 
 RTL means right-to-left.
 
-<code src="../demos/rtl_table.tsx" background="hsl(220,23%,97%)" height="500px"></code>
+<code src="../demos/rtl_table.tsx" background="hsl(220,23%,97%)" height="580px"></code>
 
 ### Controlled table settings columns
 
@@ -129,7 +129,7 @@ Try to use initialValue to solve the problem, required fields are more frustrati
 
 ### Form body customization
 
-<code src="../demos/renderTable.tsx" background="hsl(220,23%,97%)" height="500px"></code>
+<code src="../demos/renderTable.tsx" background="hsl(220,23%,97%)" height="580px"></code>
 
 ### Internationalization-related configuration
 
