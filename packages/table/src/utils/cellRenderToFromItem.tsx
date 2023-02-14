@@ -12,7 +12,7 @@ import {
   runFunction,
 } from '@ant-design/pro-utils';
 import React, { useCallback, useContext, useEffect, useMemo, useState } from 'react';
-import type { useContainer } from '../container';
+import type { ContainerType } from '../Store/Provide';
 import type { ProColumnType } from '../index';
 
 const SHOW_EMPTY_TEXT_LIST = ['', null, undefined];
@@ -49,7 +49,7 @@ type CellRenderFromItemProps<T> = {
    * If there is, use EditableTable in the Form
    */
   prefixName?: string;
-  counter: ReturnType<typeof useContainer>;
+  counter: ReturnType<ContainerType>;
   proFieldProps: ProFormFieldProps;
   subName: string[];
   editableUtils: UseEditableUtilType;

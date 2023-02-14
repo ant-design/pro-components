@@ -4,7 +4,7 @@ import type { ProFormFieldProps } from '../../Field';
 import ProFormField from '../../Field';
 import type { ProSchemaRenderValueTypeFunction } from '../typing';
 
-export const field: ProSchemaRenderValueTypeFunction = (
+export const field: ProSchemaRenderValueTypeFunction<any, any> = (
   item,
   { action, formRef, type, originItem },
 ) => {

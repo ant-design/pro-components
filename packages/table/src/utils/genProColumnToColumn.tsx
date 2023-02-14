@@ -4,7 +4,7 @@ import type { ProSchemaComponentTypes, UseEditableUtilType } from '@ant-design/p
 import { omitBoolean, omitUndefinedAndEmptyArr, runFunction } from '@ant-design/pro-utils';
 import type { TableColumnType, TableProps } from 'antd';
 import { Table } from 'antd';
-import type { useContainer } from '../container';
+import type { ContainerType } from '../Store/Provide';
 import type { ProColumnGroupType, ProColumns } from '../typing';
 import { columnRender, defaultOnFilter, renderColumnsTitle } from './columnRender';
 import { genColumnKey } from './index';
@@ -17,7 +17,7 @@ type ColumnToColumnReturnType<T> = (TableColumnType<T> & {
 
 type ColumnToColumnParams<T> = {
   columns: ProColumns<T, any>[];
-  counter: ReturnType<typeof useContainer>;
+  counter: ReturnType<ContainerType>;
   columnEmptyText: ProFieldEmptyText;
   type: ProSchemaComponentTypes;
   editableUtils: UseEditableUtilType;

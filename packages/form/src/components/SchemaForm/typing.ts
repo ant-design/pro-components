@@ -39,7 +39,7 @@ export type ExtraProColumnType = {
 /**
  * ProForm 支持的相关类型
  */
-export type ProFormPropsType<T, ValueType = ''> =
+export type ProFormPropsType<T, ValueType = 'text'> =
   | ((
       | ({ layoutType?: 'Form' } & ProFormProps<T>)
       | ({ layoutType: 'DrawerForm' } & DrawerFormProps<T>)
@@ -137,22 +137,24 @@ export type FormSchema<T = Record<string, any>, ValueType = 'text'> = {
   ProFormPropsType<T, ValueType> &
   CommonFormProps<T>;
 
-export type ProFormRenderValueTypeItem<T = Record<string, any>, ValueType = 'text'> = {
+export type ProFormRenderValueTypeItem<T, ValueType> = {
   label: any;
   getFieldProps?: () => any;
   getFormItemProps?: () => any;
 } & ProFormColumnsType<T, ValueType>;
 
-export type ProFormRenderValueTypeHelpers<T = Record<string, any>, ValueType = 'text'> = {
+export type ProFormRenderValueTypeHelpers<T, ValueType> = {
   originItem: ProFormColumnsType<T, ValueType>;
   type: ProSchemaComponentTypes;
   formRef: React.MutableRefObject<FormInstance<any> | undefined>;
   genItems: (items: ProFormColumnsType<T, ValueType>[]) => React.ReactNode[];
 } & Pick<FormSchema<T, ValueType>, 'action'>;
 
+export type ItemType<T, ValueType> = Omit<ProFormRenderValueTypeItem<T, ValueType>, 'key'> & {
+  key?: React.Key | React.Key[];
+};
+
 export type ProSchemaRenderValueTypeFunction<T = any, ValueType = any> = (
-  item: Omit<ProFormRenderValueTypeItem<T, ValueType>, 'key'> & {
-    key?: React.Key | React.Key[];
-  },
+  item: ItemType<T, ValueType>,
   helpers: ProFormRenderValueTypeHelpers<T, ValueType>,
 ) => React.ReactNode;

@@ -9,7 +9,7 @@ import { genCopyable, isNil, LabelIconTip } from '@ant-design/pro-utils';
 import get from 'rc-util/lib/utils/get';
 import React from 'react';
 import { isMergeCell } from '.';
-import type { useContainer } from '../container';
+import type { ContainerType } from '../Store/Provide';
 import type { ActionType, ProColumns } from '../typing';
 import cellRenderToFromItem from './cellRenderToFromItem';
 
@@ -21,7 +21,7 @@ type ColumnRenderInterface<T> = {
   index: number;
   columnEmptyText?: ProFieldEmptyText;
   type: ProSchemaComponentTypes;
-  counter: ReturnType<typeof useContainer>;
+  counter: ReturnType<ContainerType>;
   editableUtils: UseEditableUtilType;
   subName: string[];
 };

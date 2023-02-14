@@ -1,8 +1,11 @@
 import { noteOnce } from 'rc-util/lib/warning';
 import ProFormDependency from '../../Dependency';
-import type { ProSchemaRenderValueTypeFunction } from '../typing';
+import type { ItemType, ProFormRenderValueTypeHelpers } from '../typing';
 
-export const dependency: ProSchemaRenderValueTypeFunction = (item, { genItems }) => {
+export const dependency = <DataType, ValueType>(
+  item: ItemType<DataType, ValueType>,
+  helpers: ProFormRenderValueTypeHelpers<DataType, ValueType>,
+) => {
   /** ProFormDependency */
   if (item.valueType === 'dependency') {
     const fieldProps = item.getFieldProps?.();
@@ -21,7 +24,7 @@ export const dependency: ProSchemaRenderValueTypeFunction = (item, { genItems })
       <ProFormDependency name={item.name} {...fieldProps} key={item.key}>
         {(values: any) => {
           if (!item.columns || typeof item.columns !== 'function') return null;
-          return genItems(item.columns(values));
+          return helpers.genItems(item.columns(values));
         }}
       </ProFormDependency>
     );

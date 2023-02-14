@@ -9,10 +9,6 @@ export const useStyles = createStyles(({ css, token, cx, prefixCls }) => {
       css`
         .shiki {
           overflow: scroll;
-
-          .line {
-            font-family: ${token.fontFamilyHighlighter};
-          }
         }
       `,
     ),

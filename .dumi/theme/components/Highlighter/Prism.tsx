@@ -1,6 +1,8 @@
 import { useTheme } from 'antd-style';
 import { memo } from 'react';
+//@ts-ignore
 import { PrismLight as SyntaxHighlighter } from 'react-syntax-highlighter';
+//@ts-ignore
 import { oneDark, oneLight } from 'react-syntax-highlighter/dist/esm/styles/prism';
 
 import { languageMap } from './language';

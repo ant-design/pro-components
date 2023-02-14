@@ -11,7 +11,13 @@ import { ProForm } from '../../layouts/ProForm';
 import { QueryFilter } from '../../layouts/QueryFilter';
 import { StepsForm as ProStepsForm } from '../../layouts/StepsForm';
 import { Embed, StepsForm } from './layoutType';
-import type { FormSchema, ProFormColumnsType, ProFormRenderValueTypeHelpers } from './typing';
+import type {
+  FormSchema,
+  ItemType,
+  ProFormColumnsType,
+  ProFormRenderValueTypeHelpers,
+  ProFormRenderValueTypeItem,
+} from './typing';
 import { renderValueType } from './valueType';
 
 export * from './typing';
@@ -92,7 +98,7 @@ function BetaSchemaForm<T, ValueType = 'text'>(props: FormSchema<T, ValueType>) 
             label: title,
             name: originItem.name,
             valueType: runFunction(originItem.valueType, {}),
-            key: originItem.key || originItem.dataIndex,
+            key: originItem.key || originItem.dataIndex || index,
             columns: originItem.columns,
             valueEnum: originItem.valueEnum,
             dataIndex: originItem.dataIndex || originItem.key,
@@ -122,9 +128,8 @@ function BetaSchemaForm<T, ValueType = 'text'>(props: FormSchema<T, ValueType>) 
             transform: originItem.transform,
             convertValue: originItem.convertValue,
             debounceTime: originItem.debounceTime,
-          });
+          }) as ItemType<any, any>;
 
-          item.key = item.key || item.dataIndex?.toString() || index;
           return renderValueType(item, {
             action,
             type,

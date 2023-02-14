@@ -6,7 +6,9 @@ import type { ReactNode } from 'react';
 
 import type { UseEditableUtilType } from './useEditableArray';
 
+//@ts-ignore
 import type { SketchPickerProps } from '@chenshuai2144/sketch-color';
+
 import type {
   AvatarProps,
   CascaderProps,
@@ -30,7 +32,7 @@ import type { PasswordProps, TextAreaProps } from 'antd/es/input';
 import type { SliderRangeProps } from 'antd/es/slider';
 import type { ProSchemaValueEnumType } from '@ant-design/pro-provider';
 
-export interface ProFieldValueTypeWithFieldProps {
+export type ProFieldValueTypeWithFieldProps = {
   text: InputProps;
   password: PasswordProps;
   money: Record<string, any>;
@@ -75,7 +77,12 @@ export interface ProFieldValueTypeWithFieldProps {
     colors?: string[];
   };
   segmented: SegmentedProps;
-}
+  group: any;
+  formList: any;
+  formSet: any;
+  divider: any;
+  dependency: any;
+};
 
 /**
  * @param textarea 文本框
@@ -107,7 +114,12 @@ export interface ProFieldValueTypeWithFieldProps {
  */
 export type ProFieldValueType = Extract<keyof ProFieldValueTypeWithFieldProps, any>;
 
-type FieldPropsTypeBase<Entity, ComponentsType, ExtraProps, FieldPropsType> =
+type FieldPropsTypeBase<
+  Entity = Record<string, any>,
+  ComponentsType = 'text',
+  ExtraProps = Record<string, any>,
+  FieldPropsType = Record<string, any>,
+> =
   | ((
       form: FormInstance<any>,
       config: ProSchema<Entity, ExtraProps> & {
@@ -137,32 +149,38 @@ export type ProFieldValueObject<Type> = Type extends 'progress' | 'money' | 'per
     }
   : never;
 
-type ValueTypeWithFieldPropsBase<Entity, ComponentsType, ExtraProps, Type> = {
+type ValueTypeWithFieldPropsBase<
+  Entity = Record<string, any>,
+  ComponentsType = 'form',
+  ExtraProps = Record<string, any>,
+  ValueType = 'text',
+> = {
   valueType?:
-    | Type
-    | ProFieldValueObject<Type>
-    | ((entity: Entity, type: ComponentsType) => Type | ProFieldValueObject<Type>);
+    | ValueType
+    | ProFieldValueType
+    | ProFieldValueObject<ValueType | ProFieldValueType>
+    | ((
+        entity: Entity,
+        type: ComponentsType,
+      ) => ValueType | ProFieldValueType | ProFieldValueObject<ValueType | ProFieldValueType>);
   fieldProps?: FieldPropsTypeBase<
     Entity,
     ComponentsType,
     ExtraProps,
-    ProFieldValueTypeWithFieldProps[ProFieldValueType]
+    ValueType extends any
+      ? ProFieldValueTypeWithFieldProps['text']
+      : ValueType extends ProFieldValueType
+      ? ProFieldValueTypeWithFieldProps[ValueType]
+      : ProFieldValueTypeWithFieldProps['text']
   >;
 };
 
-type UnionSameValueType<Type> = Type extends any
-  ? Type extends ProFieldValueType
-    ? never
-    : Type
-  : never;
-
-export type ValueTypeWithFieldProps<Entity, ComponentsType, ExtraProps, ValueType> =
-  ValueTypeWithFieldPropsBase<
-    Entity,
-    ComponentsType,
-    ExtraProps,
-    ProFieldValueType | UnionSameValueType<ValueType> | undefined
-  >;
+export type ValueTypeWithFieldProps<
+  Entity,
+  ComponentsType,
+  ExtraProps,
+  ValueType = 'text',
+> = ValueTypeWithFieldPropsBase<Entity, ComponentsType, ExtraProps, ValueType>;
 
 export type PageInfo = {
   pageSize: number;
@@ -261,7 +279,7 @@ export type ProSchemaFieldProps<T> = Record<string, any> | T | Partial<InputProp
 export type ProSchema<
   Entity = Record<string, any>,
   ExtraProps = unknown,
-  ComponentsType = ProSchemaComponentTypes,
+  ComponentsType extends ProSchemaComponentTypes = 'form',
   ValueType = 'text',
   ExtraFormItemProps = unknown,
 > = {
@@ -281,7 +299,7 @@ export type ProSchema<
    */
   title?:
     | ((
-        schema: ProSchema<Entity, ExtraProps>,
+        schema: ProSchema<Entity, ExtraProps, ComponentsType, ValueType, ExtraFormItemProps>,
         type: ComponentsType,
         dom: React.ReactNode,
       ) => React.ReactNode)
@@ -310,7 +328,7 @@ export type ProSchema<
     | (FormItemProps & ExtraFormItemProps)
     | ((
         form: FormInstance<any>,
-        config: ProSchema<Entity, ExtraProps> & {
+        config: ProSchema<Entity, ExtraProps, ComponentsType, ValueType, ExtraFormItemProps> & {
           type: ComponentsType;
           isEditable?: boolean;
           rowKey?: string;
@@ -335,7 +353,7 @@ export type ProSchema<
     entity: Entity,
     index: number,
     action: ProCoreActionType | undefined,
-    schema: ProSchema<Entity, ExtraProps, ComponentsType, ValueType> & {
+    schema: ProSchema<Entity, ExtraProps, ComponentsType, ValueType, ExtraFormItemProps> & {
       isEditable?: boolean;
       type: ComponentsType;
     },
@@ -352,7 +370,7 @@ export type ProSchema<
    * @name 自定义编辑模式
    */
   renderFormItem?: (
-    schema: ProSchema<Entity, ExtraProps, ComponentsType, ValueType> & {
+    schema: ProSchema<Entity, ExtraProps, ComponentsType, ValueType, ExtraFormItemProps> & {
       isEditable?: boolean;
       index?: number;
       type: ComponentsType;

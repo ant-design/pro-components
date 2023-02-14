@@ -4,15 +4,6 @@ import type { InputRef } from 'antd';
 import { Input, Space, Tag } from 'antd';
 import React, { useContext, useRef, useState } from 'react';
 
-declare module '@ant-design/pro-utils' {
-  interface ProFieldValueTypeWithFieldProps {
-    tags: Record<string, any>;
-    link: {
-      customField: string;
-    };
-  }
-}
-
 const valueEnum = {
   0: 'close',
   1: 'running',
@@ -83,7 +74,7 @@ const TagList: React.FC<{
   );
 };
 
-const columns: ProFormColumnsType<TableListItem>[] = [
+const columns: ProFormColumnsType<TableListItem, 'link' | 'tags'>[] = [
   {
     title: '标签',
     valueType: 'group',
@@ -150,7 +141,7 @@ export default () => {
         },
       }}
     >
-      <BetaSchemaForm<TableListItem>
+      <BetaSchemaForm<TableListItem, 'link' | 'tags'>
         initialValues={{
           key: 1,
           name: `TradeCode 1`,

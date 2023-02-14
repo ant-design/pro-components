@@ -1,4 +1,4 @@
-﻿import type { ColumnsState } from '../container';
+﻿import type { ColumnsState } from '../Store/Provide';
 
 export const columnSort = (columnsMap: Record<string, ColumnsState>) => (a: any, b: any) => {
   const { fixed: aFixed, index: aIndex } = a;
