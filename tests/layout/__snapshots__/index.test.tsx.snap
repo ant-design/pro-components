@@ -1501,7 +1501,6 @@ exports[`BasicLayout 🥩 mix layout hideInMenu render right 1`] = `
                       >
                         <div
                           class="ant-pro-base-menu-item-title"
-                          title="管理页"
                         >
                           <span
                             class="ant-pro-base-menu-item-text"
@@ -1520,7 +1519,6 @@ exports[`BasicLayout 🥩 mix layout hideInMenu render right 1`] = `
                     role="menuitem"
                     style="padding-left: 16px;"
                     tabindex="-1"
-                    title="列表页"
                   >
                     <span
                       class="ant-menu-title-content"

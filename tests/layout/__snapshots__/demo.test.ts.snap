@@ -3836,7 +3836,6 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/AlwaysDefaultOpen
                     role="menuitem"
                     style="padding-left: 16px;"
                     tabindex="-1"
-                    title="首页"
                   >
                     <span
                       class="ant-menu-title-content"
@@ -3871,7 +3870,6 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/AlwaysDefaultOpen
                       >
                         <div
                           class="ant-pro-base-menu-item-title"
-                          title="汇总数据"
                         >
                           <span
                             class="ant-pro-base-menu-item-text"
@@ -3909,7 +3907,6 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/AlwaysDefaultOpen
                           >
                             <div
                               class="ant-pro-base-menu-item-title"
-                              title="域买家维度交易"
                             >
                               <span
                                 class="ant-pro-base-menu-item-text"
@@ -3934,7 +3931,6 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/AlwaysDefaultOpen
                             role="menuitem"
                             style="padding-left: 48px;"
                             tabindex="-1"
-                            title="月表"
                           >
                             <span
                               class="ant-menu-title-content"
@@ -3956,7 +3952,6 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/AlwaysDefaultOpen
                             role="menuitem"
                             style="padding-left: 48px;"
                             tabindex="-1"
-                            title="日表"
                           >
                             <span
                               class="ant-menu-title-content"
@@ -3993,7 +3988,6 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/AlwaysDefaultOpen
                           >
                             <div
                               class="ant-pro-base-menu-item-title"
-                              title="维度交易"
                             >
                               <span
                                 class="ant-pro-base-menu-item-text"
@@ -4018,7 +4012,6 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/AlwaysDefaultOpen
                             role="menuitem"
                             style="padding-left: 48px;"
                             tabindex="-1"
-                            title="月表"
                           >
                             <span
                               class="ant-menu-title-content"
@@ -4040,7 +4033,6 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/AlwaysDefaultOpen
                             role="menuitem"
                             style="padding-left: 48px;"
                             tabindex="-1"
-                            title="日表"
                           >
                             <span
                               class="ant-menu-title-content"
@@ -4308,7 +4300,6 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/BreadcrumbsRepeat
                     role="menuitem"
                     style="padding-left: 16px;"
                     tabindex="-1"
-                    title="欢迎"
                   >
                     <span
                       class="ant-menu-title-content"
@@ -4343,7 +4334,6 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/BreadcrumbsRepeat
                       >
                         <div
                           class="ant-pro-base-menu-item-title"
-                          title="管理"
                         >
                           <span
                             class="ant-pro-base-menu-item-text"
@@ -4368,7 +4358,6 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/BreadcrumbsRepeat
                         role="menuitem"
                         style="padding-left: 32px;"
                         tabindex="-1"
-                        title="申请单列表"
                       >
                         <span
                           class="ant-menu-title-content"
@@ -4731,7 +4720,6 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/DefaultOpenAllMen
                     role="menuitem"
                     style="padding-left: 16px;"
                     tabindex="-1"
-                    title="首页"
                   >
                     <span
                       class="ant-menu-title-content"
@@ -4766,7 +4754,6 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/DefaultOpenAllMen
                       >
                         <div
                           class="ant-pro-base-menu-item-title"
-                          title="汇总数据"
                         >
                           <span
                             class="ant-pro-base-menu-item-text"
@@ -4804,7 +4791,6 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/DefaultOpenAllMen
                           >
                             <div
                               class="ant-pro-base-menu-item-title"
-                              title="域买家维度交易"
                             >
                               <span
                                 class="ant-pro-base-menu-item-text"
@@ -4829,7 +4815,6 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/DefaultOpenAllMen
                             role="menuitem"
                             style="padding-left: 48px;"
                             tabindex="-1"
-                            title="月表"
                           >
                             <span
                               class="ant-menu-title-content"
@@ -4851,7 +4836,6 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/DefaultOpenAllMen
                             role="menuitem"
                             style="padding-left: 48px;"
                             tabindex="-1"
-                            title="日表"
                           >
                             <span
                               class="ant-menu-title-content"
@@ -4888,7 +4872,6 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/DefaultOpenAllMen
                           >
                             <div
                               class="ant-pro-base-menu-item-title"
-                              title="维度交易"
                             >
                               <span
                                 class="ant-pro-base-menu-item-text"
@@ -4913,7 +4896,6 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/DefaultOpenAllMen
                             role="menuitem"
                             style="padding-left: 48px;"
                             tabindex="-1"
-                            title="月表"
                           >
                             <span
                               class="ant-menu-title-content"
@@ -4935,7 +4917,6 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/DefaultOpenAllMen
                             role="menuitem"
                             style="padding-left: 48px;"
                             tabindex="-1"
-                            title="日表"
                           >
                             <span
                               class="ant-menu-title-content"
@@ -4974,7 +4955,6 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/DefaultOpenAllMen
                       >
                         <div
                           class="ant-pro-base-menu-item-title"
-                          title="明细数据"
                         >
                           <span
                             class="ant-pro-base-menu-item-text"
@@ -4999,7 +4979,6 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/DefaultOpenAllMen
                         role="menuitem"
                         style="padding-left: 32px;"
                         tabindex="-1"
-                        title="概述导出"
                       >
                         <span
                           class="ant-menu-title-content"
@@ -5036,7 +5015,6 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/DefaultOpenAllMen
                       >
                         <div
                           class="ant-pro-base-menu-item-title"
-                          title="其他"
                         >
                           <span
                             class="ant-pro-base-menu-item-text"
@@ -5061,7 +5039,6 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/DefaultOpenAllMen
                         role="menuitem"
                         style="padding-left: 32px;"
                         tabindex="-1"
-                        title="odps同步导入"
                       >
                         <span
                           class="ant-menu-title-content"
@@ -5083,7 +5060,6 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/DefaultOpenAllMen
                         role="menuitem"
                         style="padding-left: 32px;"
                         tabindex="-1"
-                        title="菜单导入"
                       >
                         <span
                           class="ant-menu-title-content"
@@ -5349,7 +5325,6 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/IconFont.tsx corr
                     role="menuitem"
                     style="padding-left: 16px;"
                     tabindex="-1"
-                    title="收藏"
                   >
                     <span
                       class="ant-menu-title-content"
@@ -5392,7 +5367,6 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/IconFont.tsx corr
                     role="menuitem"
                     style="padding-left: 16px;"
                     tabindex="-1"
-                    title="FaceBook"
                   >
                     <span
                       class="ant-menu-title-content"
@@ -5435,7 +5409,6 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/IconFont.tsx corr
                     role="menuitem"
                     style="padding-left: 16px;"
                     tabindex="-1"
-                    title="Twitter"
                   >
                     <span
                       class="ant-menu-title-content"
@@ -5735,7 +5708,6 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/MenuGroup.tsx cor
                     role="menuitem"
                     style="padding-left: 16px;"
                     tabindex="-1"
-                    title="首页"
                   >
                     <span
                       class="ant-menu-title-content"
@@ -5761,7 +5733,6 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/MenuGroup.tsx cor
                     >
                       <div
                         class="ant-pro-base-menu-item-title ant-pro-base-menu-group-item-title"
-                        title="汇总数据"
                       >
                         <span
                           class="ant-pro-base-menu-item-text"
@@ -5793,7 +5764,6 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/MenuGroup.tsx cor
                           >
                             <div
                               class="ant-pro-base-menu-item-title"
-                              title="域买家维度交易"
                             >
                               <span
                                 class="ant-pro-base-menu-item-text"
@@ -5826,7 +5796,6 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/MenuGroup.tsx cor
                           >
                             <div
                               class="ant-pro-base-menu-item-title"
-                              title="维度交易"
                             >
                               <span
                                 class="ant-pro-base-menu-item-text"
@@ -5856,7 +5825,6 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/MenuGroup.tsx cor
                     >
                       <div
                         class="ant-pro-base-menu-item-title ant-pro-base-menu-group-item-title"
-                        title="明细数据"
                       >
                         <span
                           class="ant-pro-base-menu-item-text"
@@ -5875,7 +5843,6 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/MenuGroup.tsx cor
                         role="menuitem"
                         style="padding-left: 16px;"
                         tabindex="-1"
-                        title="概述导出"
                       >
                         <span
                           class="ant-menu-title-content"
@@ -5907,7 +5874,6 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/MenuGroup.tsx cor
                     >
                       <div
                         class="ant-pro-base-menu-item-title ant-pro-base-menu-group-item-title"
-                        title="其他"
                       >
                         <span
                           class="ant-pro-base-menu-item-text"
@@ -5926,7 +5892,6 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/MenuGroup.tsx cor
                         role="menuitem"
                         style="padding-left: 16px;"
                         tabindex="-1"
-                        title="odps同步导入"
                       >
                         <span
                           class="ant-menu-title-content"
@@ -5948,7 +5913,6 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/MenuGroup.tsx cor
                         role="menuitem"
                         style="padding-left: 16px;"
                         tabindex="-1"
-                        title="菜单导入"
                       >
                         <span
                           class="ant-menu-title-content"
@@ -6246,7 +6210,6 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/MultipleMenuOnePa
                       >
                         <div
                           class="ant-pro-base-menu-item-title"
-                          title="配置中心"
                         >
                           <span
                             class="ant-pro-base-menu-item-text"
@@ -6271,7 +6234,6 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/MultipleMenuOnePa
                         role="menuitem"
                         style="padding-left: 32px;"
                         tabindex="-1"
-                        title="产品配置"
                       >
                         <span
                           class="ant-menu-title-content"
@@ -6293,7 +6255,6 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/MultipleMenuOnePa
                         role="menuitem"
                         style="padding-left: 32px;"
                         tabindex="-1"
-                        title="产品管理"
                       >
                         <span
                           class="ant-menu-title-content"
@@ -6315,7 +6276,6 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/MultipleMenuOnePa
                         role="menuitem"
                         style="padding-left: 32px;"
                         tabindex="-1"
-                        title="产品模板管理"
                       >
                         <span
                           class="ant-menu-title-content"
@@ -6337,7 +6297,6 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/MultipleMenuOnePa
                         role="menuitem"
                         style="padding-left: 32px;"
                         tabindex="-1"
-                        title="配置项模板管理"
                       >
                         <span
                           class="ant-menu-title-content"
@@ -6359,7 +6318,6 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/MultipleMenuOnePa
                         role="menuitem"
                         style="padding-left: 32px;"
                         tabindex="-1"
-                        title="元数据管理"
                       >
                         <span
                           class="ant-menu-title-content"
@@ -6396,7 +6354,6 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/MultipleMenuOnePa
                       >
                         <div
                           class="ant-pro-base-menu-item-title"
-                          title="资产"
                         >
                           <span
                             class="ant-pro-base-menu-item-text"
@@ -6429,7 +6386,6 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/MultipleMenuOnePa
                       >
                         <div
                           class="ant-pro-base-menu-item-title"
-                          title="账单"
                         >
                           <span
                             class="ant-pro-base-menu-item-text"
@@ -6462,7 +6418,6 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/MultipleMenuOnePa
                       >
                         <div
                           class="ant-pro-base-menu-item-title"
-                          title="CIF"
                         >
                           <span
                             class="ant-pro-base-menu-item-text"
@@ -6495,7 +6450,6 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/MultipleMenuOnePa
                       >
                         <div
                           class="ant-pro-base-menu-item-title"
-                          title="小工具"
                         >
                           <span
                             class="ant-pro-base-menu-item-text"
@@ -6805,7 +6759,6 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/Nested.tsx correc
                     role="menuitem"
                     style="padding-left: 16px;"
                     tabindex="-1"
-                    title="收藏"
                   >
                     <span
                       class="ant-menu-title-content"
@@ -6848,7 +6801,6 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/Nested.tsx correc
                     role="menuitem"
                     style="padding-left: 16px;"
                     tabindex="-1"
-                    title="FaceBook"
                   >
                     <span
                       class="ant-menu-title-content"
@@ -6891,7 +6843,6 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/Nested.tsx correc
                     role="menuitem"
                     style="padding-left: 16px;"
                     tabindex="-1"
-                    title="Twitter"
                   >
                     <span
                       class="ant-menu-title-content"
@@ -6979,7 +6930,6 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/Nested.tsx correc
                               role="menuitem"
                               style="padding-left: 16px;"
                               tabindex="-1"
-                              title="首页"
                             >
                               <span
                                 class="ant-menu-title-content"
@@ -7014,7 +6964,6 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/Nested.tsx correc
                                 >
                                   <div
                                     class="ant-pro-base-menu-item-title"
-                                    title="汇总数据"
                                   >
                                     <span
                                       class="ant-pro-base-menu-item-text"
@@ -7047,7 +6996,6 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/Nested.tsx correc
                                 >
                                   <div
                                     class="ant-pro-base-menu-item-title"
-                                    title="明细数据"
                                   >
                                     <span
                                       class="ant-pro-base-menu-item-text"
@@ -7080,7 +7028,6 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/Nested.tsx correc
                                 >
                                   <div
                                     class="ant-pro-base-menu-item-title"
-                                    title="其他"
                                   >
                                     <span
                                       class="ant-pro-base-menu-item-text"
@@ -7456,7 +7403,6 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/TopmenuNested.tsx
                         role="menuitem"
                         style="opacity: 1; order: 0;"
                         tabindex="-1"
-                        title="首页"
                       >
                         <span
                           class="ant-menu-title-content"
@@ -7490,7 +7436,6 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/TopmenuNested.tsx
                           >
                             <div
                               class="ant-pro-base-menu-item-title"
-                              title="汇总数据"
                             >
                               <span
                                 class="ant-pro-base-menu-item-text"
@@ -7522,7 +7467,6 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/TopmenuNested.tsx
                           >
                             <div
                               class="ant-pro-base-menu-item-title"
-                              title="明细数据"
                             >
                               <span
                                 class="ant-pro-base-menu-item-text"
@@ -7554,7 +7498,6 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/TopmenuNested.tsx
                           >
                             <div
                               class="ant-pro-base-menu-item-title"
-                              title="其他"
                             >
                               <span
                                 class="ant-pro-base-menu-item-text"
@@ -7658,7 +7601,6 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/TopmenuNested.tsx
                               role="menuitem"
                               style="padding-left: 16px;"
                               tabindex="-1"
-                              title="首页"
                             >
                               <span
                                 class="ant-menu-title-content"
@@ -7693,7 +7635,6 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/TopmenuNested.tsx
                                 >
                                   <div
                                     class="ant-pro-base-menu-item-title"
-                                    title="汇总数据"
                                   >
                                     <span
                                       class="ant-pro-base-menu-item-text"
@@ -7726,7 +7667,6 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/TopmenuNested.tsx
                                 >
                                   <div
                                     class="ant-pro-base-menu-item-title"
-                                    title="明细数据"
                                   >
                                     <span
                                       class="ant-pro-base-menu-item-text"
@@ -7759,7 +7699,6 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/TopmenuNested.tsx
                                 >
                                   <div
                                     class="ant-pro-base-menu-item-title"
-                                    title="其他"
                                   >
                                     <span
                                       class="ant-pro-base-menu-item-text"
@@ -8101,7 +8040,6 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/antd@4MenuIconFor
                     >
                       <div
                         class="ant-pro-base-menu-item-title"
-                        title="welcome"
                       >
                         <span
                           class="anticon ant-pro-base-menu-item-icon "
@@ -8162,7 +8100,6 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/antd@4MenuIconFor
                         >
                           <div
                             class="ant-pro-base-menu-item-title"
-                            title="one"
                           >
                             <span
                               class="ant-pro-base-menu-item-text"
@@ -8187,7 +8124,6 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/antd@4MenuIconFor
                           role="menuitem"
                           style="padding-left: 48px;"
                           tabindex="-1"
-                          title="two"
                         >
                           <span
                             class="ant-menu-title-content"
@@ -8213,7 +8149,6 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/antd@4MenuIconFor
                   role="menuitem"
                   style="padding-left: 16px;"
                   tabindex="-1"
-                  title="demo"
                 >
                   <span
                     class="ant-menu-title-content"
@@ -8775,7 +8710,6 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/api.tsx correctly
                   data-menu-id="rc-menu-uuid-test-/welcome"
                   role="menuitem"
                   tabindex="-1"
-                  title="欢迎"
                 >
                   <span
                     class="ant-menu-title-content"
@@ -8832,7 +8766,6 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/api.tsx correctly
                     >
                       <div
                         class="ant-pro-base-menu-item-title ant-pro-base-menu-item-title-collapsed"
-                        title="管理页"
                       >
                         <span
                           class="anticon ant-pro-base-menu-item-icon "
@@ -8887,7 +8820,6 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/api.tsx correctly
                     >
                       <div
                         class="ant-pro-base-menu-item-title ant-pro-base-menu-item-title-collapsed"
-                        title="列表页"
                       >
                         <span
                           class="anticon ant-pro-base-menu-item-icon "
@@ -8929,14 +8861,12 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/api.tsx correctly
                   data-menu-id="rc-menu-uuid-test-https://ant.design"
                   role="menuitem"
                   tabindex="-1"
-                  title="Ant Design 官网外链"
                 >
                   <span
                     class="ant-menu-title-content"
                   >
                     <span
                       class="ant-pro-base-menu-item-title ant-pro-base-menu-item-title-collapsed ant-pro-base-menu-item-link"
-                      title="Ant Design 官网外链"
                     >
                       <span
                         class="anticon ant-pro-base-menu-item-icon "
@@ -9217,7 +9147,6 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/appList-group.tsx
                       >
                         <div
                           class="ant-pro-base-menu-item-title ant-pro-base-menu-group-item-title"
-                          title="列表页面"
                         >
                           <span
                             class="anticon ant-pro-base-menu-item-icon "
@@ -9259,7 +9188,6 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/appList-group.tsx
                           role="menuitem"
                           style="padding-left: 16px;"
                           tabindex="-1"
-                          title="一一级列表页面"
                         >
                           <span
                             class="ant-menu-title-content"
@@ -9304,7 +9232,6 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/appList-group.tsx
                           role="menuitem"
                           style="padding-left: 16px;"
                           tabindex="-1"
-                          title="一二级列表页面"
                         >
                           <span
                             class="ant-menu-title-content"
@@ -9349,7 +9276,6 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/appList-group.tsx
                           role="menuitem"
                           style="padding-left: 16px;"
                           tabindex="-1"
-                          title="一三级列表页面"
                         >
                           <span
                             class="ant-menu-title-content"
@@ -9400,7 +9326,6 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/appList-group.tsx
                       role="menuitem"
                       style="padding-left: 16px;"
                       tabindex="-1"
-                      title="二级列表页面"
                     >
                       <span
                         class="ant-menu-title-content"
@@ -9445,7 +9370,6 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/appList-group.tsx
                       role="menuitem"
                       style="padding-left: 16px;"
                       tabindex="-1"
-                      title="三级列表页面"
                     >
                       <span
                         class="ant-menu-title-content"
@@ -9697,7 +9621,6 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/appList-group.tsx
                           role="menuitem"
                           style="opacity: 1; order: 0;"
                           tabindex="-1"
-                          title="欢迎"
                         >
                           <span
                             class="ant-menu-title-content"
@@ -9741,7 +9664,6 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/appList-group.tsx
                           role="menuitem"
                           style="opacity: 1; order: 1;"
                           tabindex="-1"
-                          title="管理页"
                         >
                           <span
                             class="ant-menu-title-content"
@@ -9785,7 +9707,6 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/appList-group.tsx
                           role="menuitem"
                           style="opacity: 1; order: 2;"
                           tabindex="-1"
-                          title="列表页"
                         >
                           <span
                             class="ant-menu-title-content"
@@ -9829,14 +9750,12 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/appList-group.tsx
                           role="menuitem"
                           style="opacity: 1; order: 3;"
                           tabindex="-1"
-                          title="Ant Design 官网外链"
                         >
                           <span
                             class="ant-menu-title-content"
                           >
                             <span
                               class="ant-pro-base-menu-item-title ant-pro-base-menu-item-link"
-                              title="Ant Design 官网外链"
                             >
                               <span
                                 class="anticon ant-pro-base-menu-item-icon "
@@ -10017,7 +9936,6 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/appList-group-sim
                       >
                         <div
                           class="ant-pro-base-menu-item-title ant-pro-base-menu-group-item-title"
-                          title="列表页面"
                         >
                           <span
                             class="anticon ant-pro-base-menu-item-icon "
@@ -10059,7 +9977,6 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/appList-group-sim
                           role="menuitem"
                           style="padding-left: 16px;"
                           tabindex="-1"
-                          title="一一级列表页面"
                         >
                           <span
                             class="ant-menu-title-content"
@@ -10104,7 +10021,6 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/appList-group-sim
                           role="menuitem"
                           style="padding-left: 16px;"
                           tabindex="-1"
-                          title="一二级列表页面"
                         >
                           <span
                             class="ant-menu-title-content"
@@ -10149,7 +10065,6 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/appList-group-sim
                           role="menuitem"
                           style="padding-left: 16px;"
                           tabindex="-1"
-                          title="一三级列表页面"
                         >
                           <span
                             class="ant-menu-title-content"
@@ -10200,7 +10115,6 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/appList-group-sim
                       role="menuitem"
                       style="padding-left: 16px;"
                       tabindex="-1"
-                      title="二级列表页面"
                     >
                       <span
                         class="ant-menu-title-content"
@@ -10245,7 +10159,6 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/appList-group-sim
                       role="menuitem"
                       style="padding-left: 16px;"
                       tabindex="-1"
-                      title="三级列表页面"
                     >
                       <span
                         class="ant-menu-title-content"
@@ -10497,7 +10410,6 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/appList-group-sim
                           role="menuitem"
                           style="opacity: 1; order: 0;"
                           tabindex="-1"
-                          title="欢迎"
                         >
                           <span
                             class="ant-menu-title-content"
@@ -10541,7 +10453,6 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/appList-group-sim
                           role="menuitem"
                           style="opacity: 1; order: 1;"
                           tabindex="-1"
-                          title="管理页"
                         >
                           <span
                             class="ant-menu-title-content"
@@ -10585,7 +10496,6 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/appList-group-sim
                           role="menuitem"
                           style="opacity: 1; order: 2;"
                           tabindex="-1"
-                          title="列表页"
                         >
                           <span
                             class="ant-menu-title-content"
@@ -10629,14 +10539,12 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/appList-group-sim
                           role="menuitem"
                           style="opacity: 1; order: 3;"
                           tabindex="-1"
-                          title="Ant Design 官网外链"
                         >
                           <span
                             class="ant-menu-title-content"
                           >
                             <span
                               class="ant-pro-base-menu-item-title ant-pro-base-menu-item-link"
-                              title="Ant Design 官网外链"
                             >
                               <span
                                 class="anticon ant-pro-base-menu-item-icon "
@@ -10983,7 +10891,6 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/background-contex
                         role="menuitem"
                         style="opacity: 1; order: 0;"
                         tabindex="-1"
-                        title="欢迎"
                       >
                         <span
                           class="ant-menu-title-content"
@@ -11042,7 +10949,6 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/background-contex
                           >
                             <div
                               class="ant-pro-base-menu-item-title"
-                              title="管理页"
                             >
                               <span
                                 class="anticon ant-pro-base-menu-item-icon "
@@ -11097,7 +11003,6 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/background-contex
                           >
                             <div
                               class="ant-pro-base-menu-item-title"
-                              title="列表页"
                             >
                               <span
                                 class="anticon ant-pro-base-menu-item-icon "
@@ -11139,7 +11044,6 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/background-contex
                         role="menuitem"
                         style="opacity: 1; order: 3;"
                         tabindex="-1"
-                        title="Ant Design 官网外链"
                       >
                         <span
                           class="ant-menu-title-content"
@@ -11147,7 +11051,6 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/background-contex
                           <a>
                             <span
                               class="ant-pro-base-menu-item-title ant-pro-base-menu-item-link"
-                              title="Ant Design 官网外链"
                             >
                               <span
                                 class="anticon ant-pro-base-menu-item-icon "
@@ -11509,7 +11412,6 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/base.tsx correctl
                       >
                         <div
                           class="my-prefix-base-menu-item-title my-prefix-base-menu-group-item-title"
-                          title="列表页面"
                         >
                           <span
                             class="anticon my-prefix-base-menu-item-icon "
@@ -11551,7 +11453,6 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/base.tsx correctl
                           role="menuitem"
                           style="padding-left: 16px;"
                           tabindex="-1"
-                          title="一一级列表页面"
                         >
                           <span
                             class="ant-menu-title-content"
@@ -11598,7 +11499,6 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/base.tsx correctl
                           role="menuitem"
                           style="padding-left: 16px;"
                           tabindex="-1"
-                          title="一二级列表页面"
                         >
                           <span
                             class="ant-menu-title-content"
@@ -11645,7 +11545,6 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/base.tsx correctl
                           role="menuitem"
                           style="padding-left: 16px;"
                           tabindex="-1"
-                          title="一三级列表页面"
                         >
                           <span
                             class="ant-menu-title-content"
@@ -11698,7 +11597,6 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/base.tsx correctl
                       role="menuitem"
                       style="padding-left: 16px;"
                       tabindex="-1"
-                      title="二级列表页面"
                     >
                       <span
                         class="ant-menu-title-content"
@@ -11745,7 +11643,6 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/base.tsx correctl
                       role="menuitem"
                       style="padding-left: 16px;"
                       tabindex="-1"
-                      title="三级列表页面"
                     >
                       <span
                         class="ant-menu-title-content"
@@ -12013,7 +11910,6 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/base.tsx correctl
                           role="menuitem"
                           style="opacity: 1; order: 0;"
                           tabindex="-1"
-                          title="欢迎"
                         >
                           <span
                             class="ant-menu-title-content"
@@ -12059,7 +11955,6 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/base.tsx correctl
                           role="menuitem"
                           style="opacity: 1; order: 1;"
                           tabindex="-1"
-                          title="管理页"
                         >
                           <span
                             class="ant-menu-title-content"
@@ -12105,7 +12000,6 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/base.tsx correctl
                           role="menuitem"
                           style="opacity: 1; order: 2;"
                           tabindex="-1"
-                          title="列表页"
                         >
                           <span
                             class="ant-menu-title-content"
@@ -12151,7 +12045,6 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/base.tsx correctl
                           role="menuitem"
                           style="opacity: 1; order: 3;"
                           tabindex="-1"
-                          title="Ant Design 官网外链"
                         >
                           <span
                             class="ant-menu-title-content"
@@ -12159,7 +12052,6 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/base.tsx correctl
                             <div>
                               <span
                                 class="my-prefix-base-menu-item-title my-prefix-base-menu-item-link"
-                                title="Ant Design 官网外链"
                               >
                                 <span
                                   class="anticon my-prefix-base-menu-item-icon "
@@ -12626,7 +12518,6 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/classicMode.tsx c
                     >
                       <div
                         class="ant-pro-base-menu-item-title ant-pro-base-menu-group-item-title"
-                        title="列表页面"
                       >
                         <span
                           class="anticon ant-pro-base-menu-item-icon "
@@ -12668,7 +12559,6 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/classicMode.tsx c
                         role="menuitem"
                         style="padding-left: 16px;"
                         tabindex="-1"
-                        title="一一级列表页面"
                       >
                         <span
                           class="ant-menu-title-content"
@@ -12715,7 +12605,6 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/classicMode.tsx c
                         role="menuitem"
                         style="padding-left: 16px;"
                         tabindex="-1"
-                        title="一二级列表页面"
                       >
                         <span
                           class="ant-menu-title-content"
@@ -12762,7 +12651,6 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/classicMode.tsx c
                         role="menuitem"
                         style="padding-left: 16px;"
                         tabindex="-1"
-                        title="一三级列表页面"
                       >
                         <span
                           class="ant-menu-title-content"
@@ -12815,7 +12703,6 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/classicMode.tsx c
                     role="menuitem"
                     style="padding-left: 16px;"
                     tabindex="-1"
-                    title="二级列表页面"
                   >
                     <span
                       class="ant-menu-title-content"
@@ -12862,7 +12749,6 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/classicMode.tsx c
                     role="menuitem"
                     style="padding-left: 16px;"
                     tabindex="-1"
-                    title="三级列表页面"
                   >
                     <span
                       class="ant-menu-title-content"
@@ -13130,7 +13016,6 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/classicMode.tsx c
                         role="menuitem"
                         style="opacity: 1; order: 0;"
                         tabindex="-1"
-                        title="欢迎"
                       >
                         <span
                           class="ant-menu-title-content"
@@ -13176,7 +13061,6 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/classicMode.tsx c
                         role="menuitem"
                         style="opacity: 1; order: 1;"
                         tabindex="-1"
-                        title="管理页"
                       >
                         <span
                           class="ant-menu-title-content"
@@ -13222,7 +13106,6 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/classicMode.tsx c
                         role="menuitem"
                         style="opacity: 1; order: 2;"
                         tabindex="-1"
-                        title="列表页"
                       >
                         <span
                           class="ant-menu-title-content"
@@ -13268,7 +13151,6 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/classicMode.tsx c
                         role="menuitem"
                         style="opacity: 1; order: 3;"
                         tabindex="-1"
-                        title="Ant Design 官网外链"
                       >
                         <span
                           class="ant-menu-title-content"
@@ -13276,7 +13158,6 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/classicMode.tsx c
                           <a>
                             <span
                               class="ant-pro-base-menu-item-title ant-pro-base-menu-item-link"
-                              title="Ant Design 官网外链"
                             >
                               <span
                                 class="anticon ant-pro-base-menu-item-icon "
@@ -13828,7 +13709,6 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/collapsedShowTitl
                   data-menu-id="rc-menu-uuid-test-/welcome"
                   role="menuitem"
                   tabindex="-1"
-                  title="欢迎"
                 >
                   <span
                     class="ant-menu-title-content"
@@ -13874,7 +13754,6 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/collapsedShowTitl
                   data-menu-id="rc-menu-uuid-test-/admin"
                   role="menuitem"
                   tabindex="-1"
-                  title="管理"
                 >
                   <span
                     class="ant-menu-title-content"
@@ -13920,7 +13799,6 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/collapsedShowTitl
                   data-menu-id="rc-menu-uuid-test-/list"
                   role="menuitem"
                   tabindex="-1"
-                  title="列表"
                 >
                   <span
                     class="ant-menu-title-content"
@@ -14407,7 +14285,6 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/config-provider.t
                   role="menuitem"
                   style="padding-left: 16px;"
                   tabindex="-1"
-                  title="欢迎"
                 >
                   <span
                     class="qixian-menu-title-content"
@@ -14467,7 +14344,6 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/config-provider.t
                     >
                       <div
                         class="qixian-pro-base-menu-item-title"
-                        title="管理页"
                       >
                         <span
                           class="anticon qixian-pro-base-menu-item-icon "
@@ -14523,7 +14399,6 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/config-provider.t
                     >
                       <div
                         class="qixian-pro-base-menu-item-title"
-                        title="列表页"
                       >
                         <span
                           class="anticon qixian-pro-base-menu-item-icon "
@@ -14566,7 +14441,6 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/config-provider.t
                   role="menuitem"
                   style="padding-left: 16px;"
                   tabindex="-1"
-                  title="Ant Design 官网外链"
                 >
                   <span
                     class="qixian-menu-title-content"
@@ -14574,7 +14448,6 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/config-provider.t
                     <a>
                       <span
                         class="qixian-pro-base-menu-item-title qixian-pro-base-menu-item-link"
-                        title="Ant Design 官网外链"
                       >
                         <span
                           class="anticon qixian-pro-base-menu-item-icon "
@@ -15716,7 +15589,6 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/customSider.tsx c
                     role="menuitem"
                     style="padding-left: 16px;"
                     tabindex="-1"
-                    title="欢迎"
                   >
                     <span
                       class="ant-menu-title-content"
@@ -15767,7 +15639,6 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/customSider.tsx c
                     >
                       <div
                         class="ant-pro-base-menu-item-title ant-pro-base-menu-group-item-title"
-                        title="管理页"
                       >
                         <span
                           class="anticon ant-pro-base-menu-item-icon "
@@ -15809,7 +15680,6 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/customSider.tsx c
                         role="menuitem"
                         style="padding-left: 16px;"
                         tabindex="-1"
-                        title="一级页面"
                       >
                         <span
                           class="ant-menu-title-content"
@@ -15843,7 +15713,6 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/customSider.tsx c
                         role="menuitem"
                         style="padding-left: 16px;"
                         tabindex="-1"
-                        title="二级页面"
                       >
                         <span
                           class="ant-menu-title-content"
@@ -15890,7 +15759,6 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/customSider.tsx c
                         role="menuitem"
                         style="padding-left: 16px;"
                         tabindex="-1"
-                        title="三级页面"
                       >
                         <span
                           class="ant-menu-title-content"
@@ -15947,7 +15815,6 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/customSider.tsx c
                     >
                       <div
                         class="ant-pro-base-menu-item-title ant-pro-base-menu-group-item-title"
-                        title="列表页"
                       >
                         <span
                           class="anticon ant-pro-base-menu-item-icon "
@@ -16002,7 +15869,6 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/customSider.tsx c
                           >
                             <div
                               class="ant-pro-base-menu-item-title"
-                              title="列表页面"
                             >
                               <span
                                 class="anticon ant-pro-base-menu-item-icon "
@@ -16050,7 +15916,6 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/customSider.tsx c
                             role="menuitem"
                             style="padding-left: 32px;"
                             tabindex="-1"
-                            title="一一级列表页面"
                           >
                             <span
                               class="ant-menu-title-content"
@@ -16074,7 +15939,6 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/customSider.tsx c
                             role="menuitem"
                             style="padding-left: 32px;"
                             tabindex="-1"
-                            title="一二级列表页面"
                           >
                             <span
                               class="ant-menu-title-content"
@@ -16098,7 +15962,6 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/customSider.tsx c
                             role="menuitem"
                             style="padding-left: 32px;"
                             tabindex="-1"
-                            title="一三级列表页面"
                           >
                             <span
                               class="ant-menu-title-content"
@@ -16124,7 +15987,6 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/customSider.tsx c
                         role="menuitem"
                         style="padding-left: 16px;"
                         tabindex="-1"
-                        title="二级列表页面"
                       >
                         <span
                           class="ant-menu-title-content"
@@ -16171,7 +16033,6 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/customSider.tsx c
                         role="menuitem"
                         style="padding-left: 16px;"
                         tabindex="-1"
-                        title="三级列表页面"
                       >
                         <span
                           class="ant-menu-title-content"
@@ -16224,7 +16085,6 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/customSider.tsx c
                     role="menuitem"
                     style="padding-left: 16px;"
                     tabindex="-1"
-                    title="Ant Design 官网外链"
                   >
                     <span
                       class="ant-menu-title-content"
@@ -16232,7 +16092,6 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/customSider.tsx c
                       <div>
                         <span
                           class="ant-pro-base-menu-item-title ant-pro-base-menu-item-link"
-                          title="Ant Design 官网外链"
                         >
                           <span
                             class="anticon ant-pro-base-menu-item-icon "
@@ -16597,7 +16456,6 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/customize-collaps
                   role="menuitem"
                   style="padding-left: 16px;"
                   tabindex="-1"
-                  title="欢迎"
                 >
                   <span
                     class="ant-menu-title-content"
@@ -16657,7 +16515,6 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/customize-collaps
                     >
                       <div
                         class="ant-pro-base-menu-item-title"
-                        title="管理页"
                       >
                         <span
                           class="anticon ant-pro-base-menu-item-icon "
@@ -16713,7 +16570,6 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/customize-collaps
                     >
                       <div
                         class="ant-pro-base-menu-item-title"
-                        title="列表页"
                       >
                         <span
                           class="anticon ant-pro-base-menu-item-icon "
@@ -16756,7 +16612,6 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/customize-collaps
                   role="menuitem"
                   style="padding-left: 16px;"
                   tabindex="-1"
-                  title="Ant Design 官网外链"
                 >
                   <span
                     class="ant-menu-title-content"
@@ -16764,7 +16619,6 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/customize-collaps
                     <a>
                       <span
                         class="ant-pro-base-menu-item-title ant-pro-base-menu-item-link"
-                        title="Ant Design 官网外链"
                       >
                         <span
                           class="anticon ant-pro-base-menu-item-icon "
@@ -17201,7 +17055,6 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/customizeMenu.tsx
                     role="menuitem"
                     style="padding-left: 16px;"
                     tabindex="-1"
-                    title="欢迎"
                   >
                     <span
                       class="ant-menu-title-content"
@@ -17268,7 +17121,6 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/customizeMenu.tsx
                           pre 
                           <div
                             class="ant-pro-base-menu-item-title"
-                            title="管理页"
                           >
                             <span
                               class="anticon ant-pro-base-menu-item-icon "
@@ -17329,7 +17181,6 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/customizeMenu.tsx
                           pre 
                           <div
                             class="ant-pro-base-menu-item-title"
-                            title="列表页"
                           >
                             <span
                               class="anticon ant-pro-base-menu-item-icon "
@@ -17373,7 +17224,6 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/customizeMenu.tsx
                     role="menuitem"
                     style="padding-left: 16px;"
                     tabindex="-1"
-                    title="Ant Design 官网外链"
                   >
                     <span
                       class="ant-menu-title-content"
@@ -17384,7 +17234,6 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/customizeMenu.tsx
                         pre 
                         <span
                           class="ant-pro-base-menu-item-title ant-pro-base-menu-item-link"
-                          title="Ant Design 官网外链"
                         >
                           <span
                             class="anticon ant-pro-base-menu-item-icon "
@@ -17722,7 +17571,6 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/dark.tsx correctl
                       >
                         <div
                           class="ant-pro-base-menu-item-title"
-                          title="列表页面"
                         >
                           <span
                             class="anticon ant-pro-base-menu-item-icon "
@@ -17770,7 +17618,6 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/dark.tsx correctl
                         role="menuitem"
                         style="padding-left: 32px;"
                         tabindex="-1"
-                        title="一一级列表页面"
                       >
                         <span
                           class="ant-menu-title-content"
@@ -17794,7 +17641,6 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/dark.tsx correctl
                         role="menuitem"
                         style="padding-left: 32px;"
                         tabindex="-1"
-                        title="一二级列表页面"
                       >
                         <span
                           class="ant-menu-title-content"
@@ -17818,7 +17664,6 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/dark.tsx correctl
                         role="menuitem"
                         style="padding-left: 32px;"
                         tabindex="-1"
-                        title="一三级列表页面"
                       >
                         <span
                           class="ant-menu-title-content"
@@ -17844,7 +17689,6 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/dark.tsx correctl
                     role="menuitem"
                     style="padding-left: 16px;"
                     tabindex="-1"
-                    title="二级列表页面"
                   >
                     <span
                       class="ant-menu-title-content"
@@ -17891,7 +17735,6 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/dark.tsx correctl
                     role="menuitem"
                     style="padding-left: 16px;"
                     tabindex="-1"
-                    title="三级列表页面"
                   >
                     <span
                       class="ant-menu-title-content"
@@ -18339,7 +18182,6 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/designMenuCss.tsx
                     >
                       <div
                         class="ant-pro-base-menu-item-title ant-pro-base-menu-group-item-title"
-                        title="列表页面"
                       >
                         <span
                           class="anticon ant-pro-base-menu-item-icon "
@@ -18381,7 +18223,6 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/designMenuCss.tsx
                         role="menuitem"
                         style="padding-left: 16px;"
                         tabindex="-1"
-                        title="一一级列表页面"
                       >
                         <span
                           class="ant-menu-title-content"
@@ -18428,7 +18269,6 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/designMenuCss.tsx
                         role="menuitem"
                         style="padding-left: 16px;"
                         tabindex="-1"
-                        title="一二级列表页面"
                       >
                         <span
                           class="ant-menu-title-content"
@@ -18475,7 +18315,6 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/designMenuCss.tsx
                         role="menuitem"
                         style="padding-left: 16px;"
                         tabindex="-1"
-                        title="一三级列表页面"
                       >
                         <span
                           class="ant-menu-title-content"
@@ -18528,7 +18367,6 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/designMenuCss.tsx
                     role="menuitem"
                     style="padding-left: 16px;"
                     tabindex="-1"
-                    title="二级列表页面"
                   >
                     <span
                       class="ant-menu-title-content"
@@ -18575,7 +18413,6 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/designMenuCss.tsx
                     role="menuitem"
                     style="padding-left: 16px;"
                     tabindex="-1"
-                    title="三级列表页面"
                   >
                     <span
                       class="ant-menu-title-content"
@@ -18843,7 +18680,6 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/designMenuCss.tsx
                         role="menuitem"
                         style="opacity: 1; order: 0;"
                         tabindex="-1"
-                        title="欢迎"
                       >
                         <span
                           class="ant-menu-title-content"
@@ -18889,7 +18725,6 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/designMenuCss.tsx
                         role="menuitem"
                         style="opacity: 1; order: 1;"
                         tabindex="-1"
-                        title="管理页"
                       >
                         <span
                           class="ant-menu-title-content"
@@ -18935,7 +18770,6 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/designMenuCss.tsx
                         role="menuitem"
                         style="opacity: 1; order: 2;"
                         tabindex="-1"
-                        title="列表页"
                       >
                         <span
                           class="ant-menu-title-content"
@@ -18981,7 +18815,6 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/designMenuCss.tsx
                         role="menuitem"
                         style="opacity: 1; order: 3;"
                         tabindex="-1"
-                        title="Ant Design 官网外链"
                       >
                         <span
                           class="ant-menu-title-content"
@@ -18989,7 +18822,6 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/designMenuCss.tsx
                           <a>
                             <span
                               class="ant-pro-base-menu-item-title ant-pro-base-menu-item-link"
-                              title="Ant Design 官网外链"
                             >
                               <span
                                 class="anticon ant-pro-base-menu-item-icon "
@@ -19601,7 +19433,6 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/designSiderMenu.t
                     role="menuitem"
                     style="padding-left: 16px;"
                     tabindex="-1"
-                    title="欢迎"
                   >
                     <span
                       class="ant-menu-title-content"
@@ -19652,7 +19483,6 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/designSiderMenu.t
                     >
                       <div
                         class="ant-pro-base-menu-item-title ant-pro-base-menu-group-item-title"
-                        title="管理页"
                       >
                         <span
                           class="anticon ant-pro-base-menu-item-icon "
@@ -19694,7 +19524,6 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/designSiderMenu.t
                         role="menuitem"
                         style="padding-left: 16px;"
                         tabindex="-1"
-                        title="一级页面"
                       >
                         <span
                           class="ant-menu-title-content"
@@ -19728,7 +19557,6 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/designSiderMenu.t
                         role="menuitem"
                         style="padding-left: 16px;"
                         tabindex="-1"
-                        title="二级页面"
                       >
                         <span
                           class="ant-menu-title-content"
@@ -19775,7 +19603,6 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/designSiderMenu.t
                         role="menuitem"
                         style="padding-left: 16px;"
                         tabindex="-1"
-                        title="三级页面"
                       >
                         <span
                           class="ant-menu-title-content"
@@ -19832,7 +19659,6 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/designSiderMenu.t
                     >
                       <div
                         class="ant-pro-base-menu-item-title ant-pro-base-menu-group-item-title"
-                        title="列表页"
                       >
                         <span
                           class="anticon ant-pro-base-menu-item-icon "
@@ -19887,7 +19713,6 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/designSiderMenu.t
                           >
                             <div
                               class="ant-pro-base-menu-item-title"
-                              title="列表页面"
                             >
                               <span
                                 class="anticon ant-pro-base-menu-item-icon "
@@ -19935,7 +19760,6 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/designSiderMenu.t
                             role="menuitem"
                             style="padding-left: 32px;"
                             tabindex="-1"
-                            title="一一级列表页面"
                           >
                             <span
                               class="ant-menu-title-content"
@@ -19959,7 +19783,6 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/designSiderMenu.t
                             role="menuitem"
                             style="padding-left: 32px;"
                             tabindex="-1"
-                            title="一二级列表页面"
                           >
                             <span
                               class="ant-menu-title-content"
@@ -19983,7 +19806,6 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/designSiderMenu.t
                             role="menuitem"
                             style="padding-left: 32px;"
                             tabindex="-1"
-                            title="一三级列表页面"
                           >
                             <span
                               class="ant-menu-title-content"
@@ -20009,7 +19831,6 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/designSiderMenu.t
                         role="menuitem"
                         style="padding-left: 16px;"
                         tabindex="-1"
-                        title="二级列表页面"
                       >
                         <span
                           class="ant-menu-title-content"
@@ -20056,7 +19877,6 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/designSiderMenu.t
                         role="menuitem"
                         style="padding-left: 16px;"
                         tabindex="-1"
-                        title="三级列表页面"
                       >
                         <span
                           class="ant-menu-title-content"
@@ -20109,7 +19929,6 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/designSiderMenu.t
                     role="menuitem"
                     style="padding-left: 16px;"
                     tabindex="-1"
-                    title="Ant Design 官网外链"
                   >
                     <span
                       class="ant-menu-title-content"
@@ -20117,7 +19936,6 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/designSiderMenu.t
                       <div>
                         <span
                           class="ant-pro-base-menu-item-title ant-pro-base-menu-item-link"
-                          title="Ant Design 官网外链"
                         >
                           <span
                             class="anticon ant-pro-base-menu-item-icon "
@@ -20624,7 +20442,6 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/dynamic-settings.
                     role="menuitem"
                     style="padding-left: 16px;"
                     tabindex="-1"
-                    title="欢迎"
                   >
                     <span
                       class="ant-menu-title-content"
@@ -20684,7 +20501,6 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/dynamic-settings.
                       >
                         <div
                           class="ant-pro-base-menu-item-title"
-                          title="管理页"
                         >
                           <span
                             class="anticon ant-pro-base-menu-item-icon "
@@ -20740,7 +20556,6 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/dynamic-settings.
                       >
                         <div
                           class="ant-pro-base-menu-item-title"
-                          title="列表页"
                         >
                           <span
                             class="anticon ant-pro-base-menu-item-icon "
@@ -20783,7 +20598,6 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/dynamic-settings.
                     role="menuitem"
                     style="padding-left: 16px;"
                     tabindex="-1"
-                    title="Ant Design 官网外链"
                   >
                     <span
                       class="ant-menu-title-content"
@@ -20791,7 +20605,6 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/dynamic-settings.
                       <a>
                         <span
                           class="ant-pro-base-menu-item-title ant-pro-base-menu-item-link"
-                          title="Ant Design 官网外链"
                         >
                           <span
                             class="anticon ant-pro-base-menu-item-icon "
@@ -22186,7 +21999,6 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/error-boundaries.
                     role="menuitem"
                     style="padding-left: 16px;"
                     tabindex="-1"
-                    title="默认错误"
                   >
                     <span
                       class="ant-menu-title-content"
@@ -22210,7 +22022,6 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/error-boundaries.
                     role="menuitem"
                     style="padding-left: 16px;"
                     tabindex="-1"
-                    title="自定义错误"
                   >
                     <span
                       class="ant-menu-title-content"
@@ -22489,7 +22300,6 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/footer.tsx correc
                   data-menu-id="rc-menu-uuid-test-/welcome"
                   role="menuitem"
                   tabindex="-1"
-                  title="欢迎"
                 >
                   <span
                     class="ant-menu-title-content"
@@ -22546,7 +22356,6 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/footer.tsx correc
                     >
                       <div
                         class="ant-pro-base-menu-item-title ant-pro-base-menu-item-title-collapsed"
-                        title="管理页"
                       >
                         <span
                           class="anticon ant-pro-base-menu-item-icon "
@@ -22601,7 +22410,6 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/footer.tsx correc
                     >
                       <div
                         class="ant-pro-base-menu-item-title ant-pro-base-menu-item-title-collapsed"
-                        title="列表页"
                       >
                         <span
                           class="anticon ant-pro-base-menu-item-icon "
@@ -22643,14 +22451,12 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/footer.tsx correc
                   data-menu-id="rc-menu-uuid-test-https://ant.design"
                   role="menuitem"
                   tabindex="-1"
-                  title="Ant Design 官网外链"
                 >
                   <span
                     class="ant-menu-title-content"
                   >
                     <span
                       class="ant-pro-base-menu-item-title ant-pro-base-menu-item-title-collapsed ant-pro-base-menu-item-link"
-                      title="Ant Design 官网外链"
                     >
                       <span
                         class="anticon ant-pro-base-menu-item-icon "
@@ -22894,7 +22700,6 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/footer-global-too
                     >
                       <div
                         class="ant-pro-base-menu-item-title ant-pro-base-menu-group-item-title"
-                        title="列表页面"
                       >
                         <span
                           class="anticon ant-pro-base-menu-item-icon "
@@ -22936,7 +22741,6 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/footer-global-too
                         role="menuitem"
                         style="padding-left: 16px;"
                         tabindex="-1"
-                        title="一一级列表页面"
                       >
                         <span
                           class="ant-menu-title-content"
@@ -22983,7 +22787,6 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/footer-global-too
                         role="menuitem"
                         style="padding-left: 16px;"
                         tabindex="-1"
-                        title="一二级列表页面"
                       >
                         <span
                           class="ant-menu-title-content"
@@ -23030,7 +22833,6 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/footer-global-too
                         role="menuitem"
                         style="padding-left: 16px;"
                         tabindex="-1"
-                        title="一三级列表页面"
                       >
                         <span
                           class="ant-menu-title-content"
@@ -23083,7 +22885,6 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/footer-global-too
                     role="menuitem"
                     style="padding-left: 16px;"
                     tabindex="-1"
-                    title="二级列表页面"
                   >
                     <span
                       class="ant-menu-title-content"
@@ -23130,7 +22931,6 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/footer-global-too
                     role="menuitem"
                     style="padding-left: 16px;"
                     tabindex="-1"
-                    title="三级列表页面"
                   >
                     <span
                       class="ant-menu-title-content"
@@ -23452,7 +23252,6 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/footer-global-too
                         role="menuitem"
                         style="opacity: 1; order: 0;"
                         tabindex="-1"
-                        title="欢迎"
                       >
                         <span
                           class="ant-menu-title-content"
@@ -23498,7 +23297,6 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/footer-global-too
                         role="menuitem"
                         style="opacity: 1; order: 1;"
                         tabindex="-1"
-                        title="管理页"
                       >
                         <span
                           class="ant-menu-title-content"
@@ -23544,7 +23342,6 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/footer-global-too
                         role="menuitem"
                         style="opacity: 1; order: 2;"
                         tabindex="-1"
-                        title="列表页"
                       >
                         <span
                           class="ant-menu-title-content"
@@ -23590,7 +23387,6 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/footer-global-too
                         role="menuitem"
                         style="opacity: 1; order: 3;"
                         tabindex="-1"
-                        title="Ant Design 官网外链"
                       >
                         <span
                           class="ant-menu-title-content"
@@ -23598,7 +23394,6 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/footer-global-too
                           <div>
                             <span
                               class="ant-pro-base-menu-item-title ant-pro-base-menu-item-link"
-                              title="Ant Design 官网外链"
                             >
                               <span
                                 class="anticon ant-pro-base-menu-item-icon "
@@ -24119,7 +23914,6 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/ghost.tsx correct
                     role="menuitem"
                     style="padding-left: 16px;"
                     tabindex="-1"
-                    title="欢迎"
                   >
                     <span
                       class="ant-menu-title-content"
@@ -24177,7 +23971,6 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/ghost.tsx correct
                       >
                         <div
                           class="ant-pro-base-menu-item-title"
-                          title="管理页"
                         >
                           <span
                             class="anticon ant-pro-base-menu-item-icon "
@@ -24233,7 +24026,6 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/ghost.tsx correct
                       >
                         <div
                           class="ant-pro-base-menu-item-title"
-                          title="列表页"
                         >
                           <span
                             class="anticon ant-pro-base-menu-item-icon "
@@ -24276,14 +24068,12 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/ghost.tsx correct
                     role="menuitem"
                     style="padding-left: 16px;"
                     tabindex="-1"
-                    title="Ant Design 官网外链"
                   >
                     <span
                       class="ant-menu-title-content"
                     >
                       <span
                         class="ant-pro-base-menu-item-title ant-pro-base-menu-item-link"
-                        title="Ant Design 官网外链"
                       >
                         <span
                           class="anticon ant-pro-base-menu-item-icon "
@@ -24798,7 +24588,6 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/hideMenu.tsx corr
                     role="menuitem"
                     style="padding-left: 16px;"
                     tabindex="-1"
-                    title="欢迎"
                   >
                     <span
                       class="ant-menu-title-content"
@@ -24856,7 +24645,6 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/hideMenu.tsx corr
                       >
                         <div
                           class="ant-pro-base-menu-item-title"
-                          title="管理页"
                         >
                           <span
                             class="anticon ant-pro-base-menu-item-icon "
@@ -24912,7 +24700,6 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/hideMenu.tsx corr
                       >
                         <div
                           class="ant-pro-base-menu-item-title"
-                          title="列表页"
                         >
                           <span
                             class="anticon ant-pro-base-menu-item-icon "
@@ -24955,14 +24742,12 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/hideMenu.tsx corr
                     role="menuitem"
                     style="padding-left: 16px;"
                     tabindex="-1"
-                    title="Ant Design 官网外链"
                   >
                     <span
                       class="ant-menu-title-content"
                     >
                       <span
                         class="ant-pro-base-menu-item-title ant-pro-base-menu-item-link"
-                        title="Ant Design 官网外链"
                       >
                         <span
                           class="anticon ant-pro-base-menu-item-icon "
@@ -25198,7 +24983,6 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/immersive-navigat
                   role="menuitem"
                   style="padding-left: 16px;"
                   tabindex="-1"
-                  title="一级页面"
                 >
                   <span
                     class="ant-menu-title-content"
@@ -25245,7 +25029,6 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/immersive-navigat
                   role="menuitem"
                   style="padding-left: 16px;"
                   tabindex="-1"
-                  title="二级页面"
                 >
                   <span
                     class="ant-menu-title-content"
@@ -25292,7 +25075,6 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/immersive-navigat
                   role="menuitem"
                   style="padding-left: 16px;"
                   tabindex="-1"
-                  title="三级页面"
                 >
                   <span
                     class="ant-menu-title-content"
@@ -25917,7 +25699,6 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/immersive-navigat
                   role="menuitem"
                   style="padding-left: 16px;"
                   tabindex="-1"
-                  title="欢迎"
                 >
                   <span
                     class="ant-menu-title-content"
@@ -25964,7 +25745,6 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/immersive-navigat
                   role="menuitem"
                   style="padding-left: 16px;"
                   tabindex="-1"
-                  title="二级页面"
                 >
                   <span
                     class="ant-menu-title-content"
@@ -26011,7 +25791,6 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/immersive-navigat
                   role="menuitem"
                   style="padding-left: 16px;"
                   tabindex="-1"
-                  title="三级页面"
                 >
                   <span
                     class="ant-menu-title-content"
@@ -26807,7 +26586,6 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/menu-group.tsx co
                       >
                         <div
                           class="ant-pro-base-menu-item-title"
-                          title="管理页"
                         >
                           <span
                             class="anticon ant-pro-base-menu-item-icon "
@@ -26863,7 +26641,6 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/menu-group.tsx co
                       >
                         <div
                           class="ant-pro-base-menu-item-title"
-                          title="列表页"
                         >
                           <span
                             class="anticon ant-pro-base-menu-item-icon "
@@ -27513,7 +27290,6 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/mixMode.tsx corre
                     >
                       <div
                         class="ant-pro-base-menu-item-title ant-pro-base-menu-group-item-title"
-                        title="列表页面"
                       >
                         <span
                           class="anticon ant-pro-base-menu-item-icon "
@@ -27555,7 +27331,6 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/mixMode.tsx corre
                         role="menuitem"
                         style="padding-left: 16px;"
                         tabindex="-1"
-                        title="一一级列表页面"
                       >
                         <span
                           class="ant-menu-title-content"
@@ -27602,7 +27377,6 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/mixMode.tsx corre
                         role="menuitem"
                         style="padding-left: 16px;"
                         tabindex="-1"
-                        title="一二级列表页面"
                       >
                         <span
                           class="ant-menu-title-content"
@@ -27649,7 +27423,6 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/mixMode.tsx corre
                         role="menuitem"
                         style="padding-left: 16px;"
                         tabindex="-1"
-                        title="一三级列表页面"
                       >
                         <span
                           class="ant-menu-title-content"
@@ -27702,7 +27475,6 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/mixMode.tsx corre
                     role="menuitem"
                     style="padding-left: 16px;"
                     tabindex="-1"
-                    title="二级列表页面"
                   >
                     <span
                       class="ant-menu-title-content"
@@ -27749,7 +27521,6 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/mixMode.tsx corre
                     role="menuitem"
                     style="padding-left: 16px;"
                     tabindex="-1"
-                    title="三级列表页面"
                   >
                     <span
                       class="ant-menu-title-content"
@@ -28017,7 +27788,6 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/mixMode.tsx corre
                         role="menuitem"
                         style="opacity: 1; order: 0;"
                         tabindex="-1"
-                        title="欢迎"
                       >
                         <span
                           class="ant-menu-title-content"
@@ -28063,7 +27833,6 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/mixMode.tsx corre
                         role="menuitem"
                         style="opacity: 1; order: 1;"
                         tabindex="-1"
-                        title="管理页"
                       >
                         <span
                           class="ant-menu-title-content"
@@ -28109,7 +27878,6 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/mixMode.tsx corre
                         role="menuitem"
                         style="opacity: 1; order: 2;"
                         tabindex="-1"
-                        title="列表页"
                       >
                         <span
                           class="ant-menu-title-content"
@@ -28155,7 +27923,6 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/mixMode.tsx corre
                         role="menuitem"
                         style="opacity: 1; order: 3;"
                         tabindex="-1"
-                        title="Ant Design 官网外链"
                       >
                         <span
                           class="ant-menu-title-content"
@@ -28163,7 +27930,6 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/mixMode.tsx corre
                           <div>
                             <span
                               class="ant-pro-base-menu-item-title ant-pro-base-menu-item-link"
-                              title="Ant Design 官网外链"
                             >
                               <span
                                 class="anticon ant-pro-base-menu-item-icon "
@@ -28520,7 +28286,6 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/pageSimplify.tsx 
                     >
                       <div
                         class="ant-pro-base-menu-item-title ant-pro-base-menu-group-item-title"
-                        title="列表页面"
                       >
                         <span
                           class="anticon ant-pro-base-menu-item-icon "
@@ -28562,7 +28327,6 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/pageSimplify.tsx 
                         role="menuitem"
                         style="padding-left: 16px;"
                         tabindex="-1"
-                        title="一一级列表页面"
                       >
                         <span
                           class="ant-menu-title-content"
@@ -28609,7 +28373,6 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/pageSimplify.tsx 
                         role="menuitem"
                         style="padding-left: 16px;"
                         tabindex="-1"
-                        title="一二级列表页面"
                       >
                         <span
                           class="ant-menu-title-content"
@@ -28656,7 +28419,6 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/pageSimplify.tsx 
                         role="menuitem"
                         style="padding-left: 16px;"
                         tabindex="-1"
-                        title="一三级列表页面"
                       >
                         <span
                           class="ant-menu-title-content"
@@ -28709,7 +28471,6 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/pageSimplify.tsx 
                     role="menuitem"
                     style="padding-left: 16px;"
                     tabindex="-1"
-                    title="二级列表页面"
                   >
                     <span
                       class="ant-menu-title-content"
@@ -28756,7 +28517,6 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/pageSimplify.tsx 
                     role="menuitem"
                     style="padding-left: 16px;"
                     tabindex="-1"
-                    title="三级列表页面"
                   >
                     <span
                       class="ant-menu-title-content"
@@ -29024,7 +28784,6 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/pageSimplify.tsx 
                         role="menuitem"
                         style="opacity: 1; order: 0;"
                         tabindex="-1"
-                        title="欢迎"
                       >
                         <span
                           class="ant-menu-title-content"
@@ -29070,7 +28829,6 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/pageSimplify.tsx 
                         role="menuitem"
                         style="opacity: 1; order: 1;"
                         tabindex="-1"
-                        title="管理页"
                       >
                         <span
                           class="ant-menu-title-content"
@@ -29116,7 +28874,6 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/pageSimplify.tsx 
                         role="menuitem"
                         style="opacity: 1; order: 2;"
                         tabindex="-1"
-                        title="列表页"
                       >
                         <span
                           class="ant-menu-title-content"
@@ -29162,7 +28919,6 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/pageSimplify.tsx 
                         role="menuitem"
                         style="opacity: 1; order: 3;"
                         tabindex="-1"
-                        title="Ant Design 官网外链"
                       >
                         <span
                           class="ant-menu-title-content"
@@ -29170,7 +28926,6 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/pageSimplify.tsx 
                           <a>
                             <span
                               class="ant-pro-base-menu-item-title ant-pro-base-menu-item-link"
-                              title="Ant Design 官网外链"
                             >
                               <span
                                 class="anticon ant-pro-base-menu-item-icon "
@@ -29720,7 +29475,6 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/searchMenu.tsx co
                     role="menuitem"
                     style="padding-left: 16px;"
                     tabindex="-1"
-                    title="首页"
                   >
                     <span
                       class="ant-menu-title-content"
@@ -29755,7 +29509,6 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/searchMenu.tsx co
                       >
                         <div
                           class="ant-pro-base-menu-item-title"
-                          title="汇总数据"
                         >
                           <span
                             class="ant-pro-base-menu-item-text"
@@ -29788,7 +29541,6 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/searchMenu.tsx co
                       >
                         <div
                           class="ant-pro-base-menu-item-title"
-                          title="明细数据"
                         >
                           <span
                             class="ant-pro-base-menu-item-text"
@@ -29821,7 +29573,6 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/searchMenu.tsx co
                       >
                         <div
                           class="ant-pro-base-menu-item-title"
-                          title="其他"
                         >
                           <span
                             class="ant-pro-base-menu-item-text"
@@ -30178,7 +29929,6 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/siderMode.tsx cor
                     role="menuitem"
                     style="padding-left: 16px;"
                     tabindex="-1"
-                    title="欢迎"
                   >
                     <span
                       class="ant-menu-title-content"
@@ -30238,7 +29988,6 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/siderMode.tsx cor
                       >
                         <div
                           class="ant-pro-base-menu-item-title"
-                          title="管理页"
                         >
                           <span
                             class="anticon ant-pro-base-menu-item-icon "
@@ -30294,7 +30043,6 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/siderMode.tsx cor
                       >
                         <div
                           class="ant-pro-base-menu-item-title"
-                          title="列表页"
                         >
                           <span
                             class="anticon ant-pro-base-menu-item-icon "
@@ -30355,7 +30103,6 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/siderMode.tsx cor
                           >
                             <div
                               class="ant-pro-base-menu-item-title"
-                              title="列表页面"
                             >
                               <span
                                 class="ant-pro-base-menu-item-text"
@@ -30380,7 +30127,6 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/siderMode.tsx cor
                             role="menuitem"
                             style="padding-left: 48px;"
                             tabindex="-1"
-                            title="一一级列表页面"
                           >
                             <span
                               class="ant-menu-title-content"
@@ -30404,7 +30150,6 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/siderMode.tsx cor
                             role="menuitem"
                             style="padding-left: 48px;"
                             tabindex="-1"
-                            title="一二级列表页面"
                           >
                             <span
                               class="ant-menu-title-content"
@@ -30428,7 +30173,6 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/siderMode.tsx cor
                             role="menuitem"
                             style="padding-left: 48px;"
                             tabindex="-1"
-                            title="一三级列表页面"
                           >
                             <span
                               class="ant-menu-title-content"
@@ -30454,7 +30198,6 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/siderMode.tsx cor
                         role="menuitem"
                         style="padding-left: 32px;"
                         tabindex="-1"
-                        title="二级列表页面"
                       >
                         <span
                           class="ant-menu-title-content"
@@ -30478,7 +30221,6 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/siderMode.tsx cor
                         role="menuitem"
                         style="padding-left: 32px;"
                         tabindex="-1"
-                        title="三级列表页面"
                       >
                         <span
                           class="ant-menu-title-content"
@@ -30504,7 +30246,6 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/siderMode.tsx cor
                     role="menuitem"
                     style="padding-left: 16px;"
                     tabindex="-1"
-                    title="Ant Design 官网外链"
                   >
                     <span
                       class="ant-menu-title-content"
@@ -30512,7 +30253,6 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/siderMode.tsx cor
                       <div>
                         <span
                           class="ant-pro-base-menu-item-title ant-pro-base-menu-item-link"
-                          title="Ant Design 官网外链"
                         >
                           <span
                             class="anticon ant-pro-base-menu-item-icon "
@@ -30883,7 +30623,6 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/siteMenu.tsx corr
                     >
                       <div
                         class="ant-pro-base-menu-item-title ant-pro-base-menu-group-item-title"
-                        title="列表页面"
                       >
                         <span
                           class="anticon ant-pro-base-menu-item-icon "
@@ -30925,7 +30664,6 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/siteMenu.tsx corr
                         role="menuitem"
                         style="padding-left: 16px;"
                         tabindex="-1"
-                        title="一一级列表页面"
                       >
                         <span
                           class="ant-menu-title-content"
@@ -30972,7 +30710,6 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/siteMenu.tsx corr
                         role="menuitem"
                         style="padding-left: 16px;"
                         tabindex="-1"
-                        title="一二级列表页面"
                       >
                         <span
                           class="ant-menu-title-content"
@@ -31019,7 +30756,6 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/siteMenu.tsx corr
                         role="menuitem"
                         style="padding-left: 16px;"
                         tabindex="-1"
-                        title="一三级列表页面"
                       >
                         <span
                           class="ant-menu-title-content"
@@ -31072,7 +30808,6 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/siteMenu.tsx corr
                     role="menuitem"
                     style="padding-left: 16px;"
                     tabindex="-1"
-                    title="二级列表页面"
                   >
                     <span
                       class="ant-menu-title-content"
@@ -31119,7 +30854,6 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/siteMenu.tsx corr
                     role="menuitem"
                     style="padding-left: 16px;"
                     tabindex="-1"
-                    title="三级列表页面"
                   >
                     <span
                       class="ant-menu-title-content"
@@ -31387,7 +31121,6 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/siteMenu.tsx corr
                         role="menuitem"
                         style="opacity: 1; order: 0;"
                         tabindex="-1"
-                        title="欢迎"
                       >
                         <span
                           class="ant-menu-title-content"
@@ -31433,7 +31166,6 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/siteMenu.tsx corr
                         role="menuitem"
                         style="opacity: 1; order: 1;"
                         tabindex="-1"
-                        title="管理页"
                       >
                         <span
                           class="ant-menu-title-content"
@@ -31479,7 +31211,6 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/siteMenu.tsx corr
                         role="menuitem"
                         style="opacity: 1; order: 2;"
                         tabindex="-1"
-                        title="列表页"
                       >
                         <span
                           class="ant-menu-title-content"
@@ -31525,7 +31256,6 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/siteMenu.tsx corr
                         role="menuitem"
                         style="opacity: 1; order: 3;"
                         tabindex="-1"
-                        title="Ant Design 官网外链"
                       >
                         <span
                           class="ant-menu-title-content"
@@ -31533,7 +31263,6 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/siteMenu.tsx corr
                           <div>
                             <span
                               class="ant-pro-base-menu-item-title ant-pro-base-menu-item-link"
-                              title="Ant Design 官网外链"
                             >
                               <span
                                 class="anticon ant-pro-base-menu-item-icon "
@@ -32038,7 +31767,6 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/splitMenus.tsx co
                       role="menuitem"
                       style="opacity: 1; order: 0;"
                       tabindex="-1"
-                      title="欢迎"
                     >
                       <span
                         class="ant-menu-title-content"
@@ -32082,7 +31810,6 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/splitMenus.tsx co
                       role="menuitem"
                       style="opacity: 1; order: 1;"
                       tabindex="-1"
-                      title="管理页"
                     >
                       <span
                         class="ant-menu-title-content"
@@ -32126,7 +31853,6 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/splitMenus.tsx co
                       role="menuitem"
                       style="opacity: 1; order: 2;"
                       tabindex="-1"
-                      title="列表页"
                     >
                       <span
                         class="ant-menu-title-content"
@@ -32170,14 +31896,12 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/splitMenus.tsx co
                       role="menuitem"
                       style="opacity: 1; order: 3;"
                       tabindex="-1"
-                      title="Ant Design 官网外链"
                     >
                       <span
                         class="ant-menu-title-content"
                       >
                         <span
                           class="ant-pro-base-menu-item-title ant-pro-base-menu-item-link"
-                          title="Ant Design 官网外链"
                         >
                           <span
                             class="anticon ant-pro-base-menu-item-icon "
@@ -32494,7 +32218,6 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/splitMenus.tsx co
                       role="menuitem"
                       style="opacity: 1; order: 0;"
                       tabindex="-1"
-                      title="欢迎"
                     >
                       <span
                         class="ant-menu-title-content"
@@ -32538,7 +32261,6 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/splitMenus.tsx co
                       role="menuitem"
                       style="opacity: 1; order: 1;"
                       tabindex="-1"
-                      title="管理页"
                     >
                       <span
                         class="ant-menu-title-content"
@@ -32582,7 +32304,6 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/splitMenus.tsx co
                       role="menuitem"
                       style="opacity: 1; order: 2;"
                       tabindex="-1"
-                      title="列表页"
                     >
                       <span
                         class="ant-menu-title-content"
@@ -32626,14 +32347,12 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/splitMenus.tsx co
                       role="menuitem"
                       style="opacity: 1; order: 3;"
                       tabindex="-1"
-                      title="Ant Design 官网外链"
                     >
                       <span
                         class="ant-menu-title-content"
                       >
                         <span
                           class="ant-pro-base-menu-item-title ant-pro-base-menu-item-link"
-                          title="Ant Design 官网外链"
                         >
                           <span
                             class="anticon ant-pro-base-menu-item-icon "
@@ -32920,7 +32639,6 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/splitMenus.tsx co
                       role="menuitem"
                       style="opacity: 1; order: 0;"
                       tabindex="-1"
-                      title="欢迎"
                     >
                       <span
                         class="ant-menu-title-content"
@@ -32977,7 +32695,6 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/splitMenus.tsx co
                         >
                           <div
                             class="ant-pro-base-menu-item-title"
-                            title="管理页"
                           >
                             <span
                               class="anticon ant-pro-base-menu-item-icon "
@@ -33032,7 +32749,6 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/splitMenus.tsx co
                         >
                           <div
                             class="ant-pro-base-menu-item-title"
-                            title="列表页"
                           >
                             <span
                               class="anticon ant-pro-base-menu-item-icon "
@@ -33074,14 +32790,12 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/splitMenus.tsx co
                       role="menuitem"
                       style="opacity: 1; order: 3;"
                       tabindex="-1"
-                      title="Ant Design 官网外链"
                     >
                       <span
                         class="ant-menu-title-content"
                       >
                         <span
                           class="ant-pro-base-menu-item-title ant-pro-base-menu-item-link"
-                          title="Ant Design 官网外链"
                         >
                           <span
                             class="anticon ant-pro-base-menu-item-icon "
@@ -33386,7 +33100,6 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/splitMenus.tsx co
                       role="menuitem"
                       style="opacity: 1; order: 0;"
                       tabindex="-1"
-                      title="欢迎"
                     >
                       <span
                         class="ant-menu-title-content"
@@ -33430,7 +33143,6 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/splitMenus.tsx co
                       role="menuitem"
                       style="opacity: 1; order: 1;"
                       tabindex="-1"
-                      title="管理页"
                     >
                       <span
                         class="ant-menu-title-content"
@@ -33474,7 +33186,6 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/splitMenus.tsx co
                       role="menuitem"
                       style="opacity: 1; order: 2;"
                       tabindex="-1"
-                      title="列表页"
                     >
                       <span
                         class="ant-menu-title-content"
@@ -33518,14 +33229,12 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/splitMenus.tsx co
                       role="menuitem"
                       style="opacity: 1; order: 3;"
                       tabindex="-1"
-                      title="Ant Design 官网外链"
                     >
                       <span
                         class="ant-menu-title-content"
                       >
                         <span
                           class="ant-pro-base-menu-item-title ant-pro-base-menu-item-link"
-                          title="Ant Design 官网外链"
                         >
                           <span
                             class="anticon ant-pro-base-menu-item-icon "
@@ -33685,7 +33394,6 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/splitMenus.tsx co
                   role="menuitem"
                   style="padding-left: 16px;"
                   tabindex="-1"
-                  title="欢迎"
                 >
                   <span
                     class="ant-menu-title-content"
@@ -33743,7 +33451,6 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/splitMenus.tsx co
                     >
                       <div
                         class="ant-pro-base-menu-item-title"
-                        title="管理页"
                       >
                         <span
                           class="anticon ant-pro-base-menu-item-icon "
@@ -33799,7 +33506,6 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/splitMenus.tsx co
                     >
                       <div
                         class="ant-pro-base-menu-item-title"
-                        title="列表页"
                       >
                         <span
                           class="anticon ant-pro-base-menu-item-icon "
@@ -33842,14 +33548,12 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/splitMenus.tsx co
                   role="menuitem"
                   style="padding-left: 16px;"
                   tabindex="-1"
-                  title="Ant Design 官网外链"
                 >
                   <span
                     class="ant-menu-title-content"
                   >
                     <span
                       class="ant-pro-base-menu-item-title ant-pro-base-menu-item-link"
-                      title="Ant Design 官网外链"
                     >
                       <span
                         class="anticon ant-pro-base-menu-item-icon "
@@ -34161,7 +33865,6 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/splitMenus.tsx co
                   role="menuitem"
                   style="padding-left: 16px;"
                   tabindex="-1"
-                  title="欢迎"
                 >
                   <span
                     class="ant-menu-title-content"
@@ -34219,7 +33922,6 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/splitMenus.tsx co
                     >
                       <div
                         class="ant-pro-base-menu-item-title"
-                        title="管理页"
                       >
                         <span
                           class="anticon ant-pro-base-menu-item-icon "
@@ -34275,7 +33977,6 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/splitMenus.tsx co
                     >
                       <div
                         class="ant-pro-base-menu-item-title"
-                        title="列表页"
                       >
                         <span
                           class="anticon ant-pro-base-menu-item-icon "
@@ -34318,14 +34019,12 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/splitMenus.tsx co
                   role="menuitem"
                   style="padding-left: 16px;"
                   tabindex="-1"
-                  title="Ant Design 官网外链"
                 >
                   <span
                     class="ant-menu-title-content"
                   >
                     <span
                       class="ant-pro-base-menu-item-title ant-pro-base-menu-item-link"
-                      title="Ant Design 官网外链"
                     >
                       <span
                         class="anticon ant-pro-base-menu-item-icon "
@@ -34828,7 +34527,6 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/theme.tsx correct
                     >
                       <div
                         class="ant-pro-base-menu-item-title"
-                        title="列表页面"
                       >
                         <span
                           class="anticon ant-pro-base-menu-item-icon "
@@ -34876,7 +34574,6 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/theme.tsx correct
                       role="menuitem"
                       style="padding-left: 32px;"
                       tabindex="-1"
-                      title="一一级列表页面"
                     >
                       <span
                         class="ant-menu-title-content"
@@ -34900,7 +34597,6 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/theme.tsx correct
                       role="menuitem"
                       style="padding-left: 32px;"
                       tabindex="-1"
-                      title="一二级列表页面"
                     >
                       <span
                         class="ant-menu-title-content"
@@ -34924,7 +34620,6 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/theme.tsx correct
                       role="menuitem"
                       style="padding-left: 32px;"
                       tabindex="-1"
-                      title="一三级列表页面"
                     >
                       <span
                         class="ant-menu-title-content"
@@ -34950,7 +34645,6 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/theme.tsx correct
                   role="menuitem"
                   style="padding-left: 16px;"
                   tabindex="-1"
-                  title="二级列表页面"
                 >
                   <span
                     class="ant-menu-title-content"
@@ -34997,7 +34691,6 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/theme.tsx correct
                   role="menuitem"
                   style="padding-left: 16px;"
                   tabindex="-1"
-                  title="三级列表页面"
                 >
                   <span
                     class="ant-menu-title-content"
@@ -35426,7 +35119,6 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/top-breadcrumb.ts
                     role="menuitem"
                     style="padding-left: 16px;"
                     tabindex="-1"
-                    title="欢迎"
                   >
                     <span
                       class="ant-menu-title-content"
@@ -35461,7 +35153,6 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/top-breadcrumb.ts
                       >
                         <div
                           class="ant-pro-base-menu-item-title"
-                          title="管理"
                         >
                           <span
                             class="ant-pro-base-menu-item-text"
@@ -35486,7 +35177,6 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/top-breadcrumb.ts
                         role="menuitem"
                         style="padding-left: 32px;"
                         tabindex="-1"
-                        title="申请单列表"
                       >
                         <span
                           class="ant-menu-title-content"
@@ -36058,7 +35748,6 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/topMode.tsx corre
                         role="menuitem"
                         style="opacity: 1; order: 0;"
                         tabindex="-1"
-                        title="欢迎"
                       >
                         <span
                           class="ant-menu-title-content"
@@ -36117,7 +35806,6 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/topMode.tsx corre
                           >
                             <div
                               class="ant-pro-base-menu-item-title"
-                              title="管理页"
                             >
                               <span
                                 class="anticon ant-pro-base-menu-item-icon "
@@ -36172,7 +35860,6 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/topMode.tsx corre
                           >
                             <div
                               class="ant-pro-base-menu-item-title"
-                              title="列表页"
                             >
                               <span
                                 class="anticon ant-pro-base-menu-item-icon "
@@ -36214,7 +35901,6 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/topMode.tsx corre
                         role="menuitem"
                         style="opacity: 1; order: 3;"
                         tabindex="-1"
-                        title="Ant Design 官网外链"
                       >
                         <span
                           class="ant-menu-title-content"
@@ -36222,7 +35908,6 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/topMode.tsx corre
                           <div>
                             <span
                               class="ant-pro-base-menu-item-title ant-pro-base-menu-item-link"
-                              title="Ant Design 官网外链"
                             >
                               <span
                                 class="anticon ant-pro-base-menu-item-icon "
