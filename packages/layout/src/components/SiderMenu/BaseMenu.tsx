@@ -168,7 +168,6 @@ class MenuUtil {
 
       const defaultTitle = (
         <div
-          title={name}
           className={classNames(`${baseClassName}-item-title`, this.props?.hashId, {
             [`${baseClassName}-item-title-collapsed`]: collapsed,
             [`${baseClassName}-group-item-title`]: menuType === 'group',
@@ -208,7 +207,6 @@ class MenuUtil {
         {
           type: menuType,
           key: item.key! || item.path!,
-          title: item.tooltip || title,
           label: title,
           onClick: isGroup ? undefined : item.onTitleClick,
           children: childrenList,
@@ -238,7 +236,6 @@ class MenuUtil {
 
     return {
       className: `${baseClassName}-menu-item`,
-      title: item.tooltip || name,
       disabled: item.disabled,
       key: item.key! || item.path!,
       onClick: item.onTitleClick,
@@ -312,7 +309,6 @@ class MenuUtil {
       defaultItem = (
         <span
           key={itemPath}
-          title={name}
           onClick={() => {
             window?.open?.(itemPath, '_blank');
           }}
