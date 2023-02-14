@@ -15152,7 +15152,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/batchOption.tsx cor
                               style="position: sticky; left: 0px;"
                             >
                               <a>
-                                AppName
+                                AppName-0
                               </a>
                             </td>
                             <td
@@ -15332,7 +15332,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/batchOption.tsx cor
                               style="position: sticky; left: 0px;"
                             >
                               <a>
-                                AppName
+                                AppName-1
                               </a>
                             </td>
                             <td
@@ -15511,7 +15511,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/batchOption.tsx cor
                               style="position: sticky; left: 0px;"
                             >
                               <a>
-                                AppName
+                                AppName-2
                               </a>
                             </td>
                             <td
@@ -15690,7 +15690,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/batchOption.tsx cor
                               style="position: sticky; left: 0px;"
                             >
                               <a>
-                                AppName
+                                AppName-3
                               </a>
                             </td>
                             <td
@@ -15869,7 +15869,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/batchOption.tsx cor
                               style="position: sticky; left: 0px;"
                             >
                               <a>
-                                AppName
+                                AppName-4
                               </a>
                             </td>
                             <td
@@ -16029,7 +16029,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/batchOption.tsx cor
                   <li
                     class="ant-pagination-total-text"
                   >
-                    第 1-5 条/总共 5 条
+                    第 1-5 条/总共 50 条
                   </li>
                   <li
                     aria-disabled="true"
@@ -16075,13 +16075,106 @@ exports[`table demos 📸 renders ./packages/table/src/demos/batchOption.tsx cor
                     </a>
                   </li>
                   <li
-                    aria-disabled="true"
-                    class="ant-pagination-next ant-pagination-disabled"
+                    class="ant-pagination-item ant-pagination-item-2"
+                    tabindex="0"
+                    title="2"
+                  >
+                    <a
+                      rel="nofollow"
+                    >
+                      2
+                    </a>
+                  </li>
+                  <li
+                    class="ant-pagination-item ant-pagination-item-3"
+                    tabindex="0"
+                    title="3"
+                  >
+                    <a
+                      rel="nofollow"
+                    >
+                      3
+                    </a>
+                  </li>
+                  <li
+                    class="ant-pagination-item ant-pagination-item-4"
+                    tabindex="0"
+                    title="4"
+                  >
+                    <a
+                      rel="nofollow"
+                    >
+                      4
+                    </a>
+                  </li>
+                  <li
+                    class="ant-pagination-item ant-pagination-item-5 ant-pagination-item-before-jump-next"
+                    tabindex="0"
+                    title="5"
+                  >
+                    <a
+                      rel="nofollow"
+                    >
+                      5
+                    </a>
+                  </li>
+                  <li
+                    class="ant-pagination-jump-next ant-pagination-jump-next-custom-icon"
+                    tabindex="0"
+                    title="向后 5 页"
+                  >
+                    <a
+                      class="ant-pagination-item-link"
+                    >
+                      <div
+                        class="ant-pagination-item-container"
+                      >
+                        <span
+                          aria-label="double-right"
+                          class="anticon anticon-double-right ant-pagination-item-link-icon"
+                          role="img"
+                        >
+                          <svg
+                            aria-hidden="true"
+                            data-icon="double-right"
+                            fill="currentColor"
+                            focusable="false"
+                            height="1em"
+                            viewBox="64 64 896 896"
+                            width="1em"
+                          >
+                            <path
+                              d="M533.2 492.3L277.9 166.1c-3-3.9-7.7-6.1-12.6-6.1H188c-6.7 0-10.4 7.7-6.3 12.9L447.1 512 181.7 851.1A7.98 7.98 0 00188 864h77.3c4.9 0 9.6-2.3 12.6-6.1l255.3-326.1c9.1-11.7 9.1-27.9 0-39.5zm304 0L581.9 166.1c-3-3.9-7.7-6.1-12.6-6.1H492c-6.7 0-10.4 7.7-6.3 12.9L751.1 512 485.7 851.1A7.98 7.98 0 00492 864h77.3c4.9 0 9.6-2.3 12.6-6.1l255.3-326.1c9.1-11.7 9.1-27.9 0-39.5z"
+                            />
+                          </svg>
+                        </span>
+                        <span
+                          class="ant-pagination-item-ellipsis"
+                        >
+                          •••
+                        </span>
+                      </div>
+                    </a>
+                  </li>
+                  <li
+                    class="ant-pagination-item ant-pagination-item-10"
+                    tabindex="0"
+                    title="10"
+                  >
+                    <a
+                      rel="nofollow"
+                    >
+                      10
+                    </a>
+                  </li>
+                  <li
+                    aria-disabled="false"
+                    class="ant-pagination-next"
+                    tabindex="0"
                     title="下一页"
                   >
                     <button
                       class="ant-pagination-item-link"
-                      disabled=""
                       tabindex="-1"
                       type="button"
                     >

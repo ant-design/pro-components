@@ -18,6 +18,10 @@ const genProListStyle: GenerateStyle<ProListToken> = (token) => {
   return {
     [token.componentCls]: {
       zIndex: 1,
+      [`${token.antCls}-table-wrapper ${token.antCls}-table-pagination${token.antCls}-pagination`]:
+        {
+          marginBlockEnd: 0,
+        },
       '&:not(:root):fullscreen': {
         minHeight: '100vh',
         overflow: 'auto',

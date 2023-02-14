@@ -276,6 +276,27 @@ function TableRender<T extends Record<string, any>, U, ValueType>(
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [alertDom, props.loading, !!props.editable, tableDom, toolbarDom]);
 
+  const cardBodyStyle = useMemo(() => {
+    if (propsCardProps === false || notNeedCardDom === true || !!props.name) return {};
+
+    if (toolbarDom) {
+      return {
+        paddingBlockStart: 0,
+      };
+    }
+    if (toolbarDom && pagination === false) {
+      return {
+        paddingBlockStart: 0,
+      };
+    }
+    if (!toolbarDom) {
+      return {
+        padding: 0,
+      };
+    }
+    return {};
+  }, [notNeedCardDom, pagination, props.name, propsCardProps, toolbarDom]);
+
   /** Table 区域的 dom，为了方便 render */
   const tableAreaDom =
     // cardProps 或者 有了name 就不需要这个padding了，不然会导致不好对齐
@@ -285,15 +306,7 @@ function TableRender<T extends Record<string, any>, U, ValueType>(
       <ProCard
         ghost={props.ghost}
         bordered={isBordered('table', cardBordered)}
-        bodyStyle={
-          toolbarDom
-            ? {
-                paddingBlockStart: 0,
-              }
-            : {
-                padding: 0,
-              }
-        }
+        bodyStyle={cardBodyStyle}
         {...propsCardProps}
       >
         {tableContentDom}
