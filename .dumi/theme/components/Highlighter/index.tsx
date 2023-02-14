@@ -1,40 +1,86 @@
-import { useThemeMode } from 'antd-style';
-import { memo } from 'react';
-//@ts-ignore
-import { Light as SyntaxHighlighter } from 'react-syntax-highlighter';
-//@ts-ignore
-import { atomOneDark, githubGist } from 'react-syntax-highlighter/dist/esm/styles/hljs';
-//@ts-ignore
-import javascript from 'react-syntax-highlighter/dist/cjs/languages/hljs/javascript';
-//@ts-ignore
-import json from 'react-syntax-highlighter/dist/cjs/languages/hljs/json';
-//@ts-ignore
-import less from 'react-syntax-highlighter/dist/cjs/languages/hljs/less';
-//@ts-ignore
-import markdown from 'react-syntax-highlighter/dist/cjs/languages/hljs/markdown';
-//@ts-ignore
-import typescript from 'react-syntax-highlighter/dist/cjs/languages/hljs/typescript';
+import { CheckOutlined, CopyOutlined } from '@ant-design/icons';
+import { Button, ConfigProvider, Tooltip } from 'antd';
+import copy from 'copy-to-clipboard';
+import { CSSProperties, FC } from 'react';
 
-SyntaxHighlighter.registerLanguage('javascript', javascript);
-SyntaxHighlighter.registerLanguage('jsx', javascript);
-SyntaxHighlighter.registerLanguage('json', json);
-SyntaxHighlighter.registerLanguage('markdown', markdown);
-SyntaxHighlighter.registerLanguage('less', less);
-SyntaxHighlighter.registerLanguage('typescript', typescript);
-SyntaxHighlighter.registerLanguage('tsx', typescript);
+import { useCopied } from '../../hooks/useCopied';
+import SyntaxHighlighter from './Highlighter';
+import { LanguageKeys } from './language';
+import { useStyles } from './style';
+export { Prism } from './Prism';
 
 export interface HighlighterProps {
   children: string;
-  language: string;
+  language: LanguageKeys | string;
+  /**
+   * 语法高亮器类型
+   * @default 'shiki'
+   */
+  type?: 'shiki' | 'prism';
+  /**
+   * 是否显示背景容器
+   * @default true
+   */
+  background?: boolean;
+  className?: string;
+  /**
+   * 是否移除前置与后置的空格
+   * @default true
+   */
+  trim?: string;
+  style?: CSSProperties;
 }
-const Highlighter = memo<HighlighterProps>(({ children, language }) => {
-  const { isDarkMode } = useThemeMode();
+
+export const Highlighter: FC<HighlighterProps> = ({
+  children,
+  language = 'tsx',
+  background = true,
+  type,
+  className,
+  style,
+  trim = true,
+}) => {
+  const { copied, setCopied } = useCopied();
+  const { styles, theme, cx } = useStyles();
+  const container = cx(styles.container, background && styles.withBackground, className);
 
   return (
-    <SyntaxHighlighter language={language} style={isDarkMode ? atomOneDark : githubGist}>
-      {children}
-    </SyntaxHighlighter>
+    <div
+      // 用于标记是 markdown 中的代码块，避免和普通 code 的样式混淆
+      data-code-type="highlighter"
+      className={container}
+      style={style}
+    >
+      <ConfigProvider theme={{ token: { colorBgContainer: theme.colorBgElevated } }}>
+        <Tooltip
+          placement={'left'}
+          arrow={false}
+          title={
+            copied ? (
+              <>
+                <CheckOutlined style={{ color: theme.colorSuccess }} /> 复制成功
+              </>
+            ) : (
+              '复制'
+            )
+          }
+        >
+          <Button
+            icon={<CopyOutlined />}
+            className={styles.button}
+            onClick={() => {
+              copy(children);
+              setCopied();
+            }}
+          />
+        </Tooltip>
+      </ConfigProvider>
+
+      <SyntaxHighlighter language={language} type={type}>
+        {trim ? children.trim() : children}
+      </SyntaxHighlighter>
+    </div>
   );
-});
+};
 
 export default Highlighter;
