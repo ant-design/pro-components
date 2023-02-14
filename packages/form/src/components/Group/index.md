@@ -361,11 +361,11 @@ name 参数必须要是一个数组，如果是嵌套的结构可以这样配置
 
 ### 行为守卫
 
-<code src="./demos/pro-form-list.tsx" height="447px" title="行为守卫"></code>
+<code src="./demos/pro-form-list.tsx" title="行为守卫"></code>
 
 ### 增删条目限制
 
-<code src="./demos/countLimit.tsx" height="285px" title="增删条目限制"></code>
+<code src="./demos/countLimit.tsx" title="增删条目限制"></code>
 
 ### 横向布局
 

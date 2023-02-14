@@ -9,11 +9,11 @@ LoginForm 和 LoginFormPage 是 ProForm 的变体，两者是为了适应常见�
 
 ## 登录表单
 
-<code src="./demos/login-form" background="hsl(220,23%,97%)" height="580px" title="登录表单"></code>
+<code src="./demos/login-form" background="hsl(220,23%,97%)" title="登录表单"></code>
 
 ## 页面级别的登录表单
 
-<code src="./demos/login-form-page.tsx" background="hsl(220,23%,97%)" iframe="887px" height="507px" title="页面级别的表单"></code>
+<code src="./demos/login-form-page.tsx" background="hsl(220,23%,97%)" iframe="887px" title="页面级别的表单"></code>
 
 ## API
 

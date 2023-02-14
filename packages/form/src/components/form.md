@@ -70,7 +70,7 @@ ProForm 是基于 antd Form 的可降级封装，与 antd 功能完全对齐，�
 | [LightFilter](/components/query-filter) | 一般用于作为行内内置的筛选，比如卡片操作栏和 表格操作栏。 |
 | [StepsForm](/components/steps-form) | 分步表单，需要配置 StepForm 使用。 |
 
-<code src="../demos/layout-change.tsx" height="709px" title="Form 的 layout 切换"></code>
+<code src="../demos/layout-change.tsx" title="Form 的 layout 切换"></code>
 
 ## 数据转化
 
@@ -153,7 +153,7 @@ formRef 内置了几个方法来获取转化之后的值，这也是相比 antd 
 
 ## 代码示例
 
-<code src="../demos/base.tsx" height="974px" title="基本使用"></code>
+<code src="../demos/base.tsx" title="基本使用"></code>
 
 ### 标签与表单项布局
 
@@ -167,9 +167,9 @@ formRef 内置了几个方法来获取转化之后的值，这也是相比 antd 
 
 <code src="../demos/form-layout-grid.tsx" height="437px"></code>
 
-<code src="../demos/dependency.tsx" height="457px" title="表单联动"></code>
+<code src="../demos/dependency.tsx" title="表单联动"></code>
 
-<code src="../demos/formRef.tsx" height="341px" description="
+<code src="../demos/formRef.tsx" description="
 你可以通过 `formRef` 获取到表单实例的引用，通过引用可以调用表单方法实现表单重置，设置表单，获取表单值等功能。" title="表单方法调用"></code>
 
 ### 同步提交结果到 url
@@ -178,17 +178,17 @@ formRef 内置了几个方法来获取转化之后的值，这也是相比 antd 
 
 <code src="../demos/sync-to-url.tsx" height="371px"></code>
 
-<code src="../demos/money.tsx" height="629px" title="金额"></code>
+<code src="../demos/money.tsx" title="金额"></code>
 
-<code src="../demos/layout-footer.tsx" height="580px" iframe="874px" title="固定页脚"></code>
+<code src="../demos/layout-footer.tsx" title="固定页脚"></code>
 
-<code src="../demos/pro-form-editableTable.tsx" height="534px" title="ProForm 和 EditableTable 同时使用"></code>
+<code src="../demos/pro-form-editableTable.tsx" title="ProForm 和 EditableTable 同时使用"></code>
 
-<code src="../demos/linkage-customization.tsx" height="1774px" debug></code>
+<code src="../demos/linkage-customization.tsx" debug></code>
 
-<code src="../demos/pro-form-dependency.debug.tsx" height="548px" title="formRef的使用" debug></code>
+<code src="../demos/pro-form-dependency.debug.tsx" title="formRef的使用" debug></code>
 
-<code src="../demos/label-col.tsx" height="548px" debug></code>
+<code src="../demos/label-col.tsx" debug></code>
 
 ## ProForm
 
@@ -315,7 +315,7 @@ ProFormInstance 与 antd 的 form 相比增加了一些能力。
 
 该属性是 ProForm 在原有的 Antd 的 `FormInstance` 的基础上做的一个上层分装，增加了一些更加便捷的方法。使用方式如下：
 
-<code src="../demos/formRef.tsx" height="341px" title="formRef的使用"></code>
+<code src="../demos/formRef.tsx" title="formRef的使用"></code>
 
 ```tsx | pure
 import type { ProFormInstance } from '@ant-design/pro-components';
@@ -410,6 +410,6 @@ export default () => {
 | `getFieldFormatValue` | 使用方法与`FormInstance`的`getFieldValue`方法相同，将返回格式化后的指定数据 |  |
 | `validateFieldsReturnFormatValue` | 使用方法与`FormInstance`的`validateFields`方法相同，验证通过后将返回格式化后的所有数据 |  |
 
-<code src="../demos/modalform-test.tsx" height="341px" title="modal-form-测试" debug></code>
+<code src="../demos/modalform-test.tsx" title="modal-form-测试" debug></code>
 
-<code src="../demos/params-formref.tsx" height="341px" title="formRef的使用" debug></code>
+<code src="../demos/params-formref.tsx" title="formRef的使用" debug></code>

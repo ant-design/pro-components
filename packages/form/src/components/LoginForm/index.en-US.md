@@ -12,11 +12,11 @@ LoginForm and LoginFormPage are variants of ProForm. They are specially implemen
 
 ## Login form
 
-<code src="./demos/login-form" background="hsl(220,23%,97%)" height="320px" oldtitle="login-form"></code>
+<code src="./demos/login-form" background="hsl(220,23%,97%)" oldtitle="login-form"></code>
 
 ## page level LoginForm
 
-<code src="./demos/login-form-page.tsx" background="hsl(220,23%,97%)" height="320px" oldtitle="Page level form"></code>
+<code src="./demos/login-form-page.tsx" background="hsl(220,23%,97%)" oldtitle="Page level form"></code>
 
 ### LoginForm
 

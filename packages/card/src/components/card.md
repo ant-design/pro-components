@@ -20,9 +20,9 @@ title: ProCard - 高级卡片
 
 <code src="../demos/basic.tsx" background="#f7f8fa" title="基础卡片" description="当单独使用时 `ProCard` 就是一个普通的卡片。"></code>
 
-<code src="../demos/colspan.tsx" background="#f0f2f5" title="栅格布局" height="642px" description="当嵌套子卡片时, 组件会自动切换为 `flex` 弹性盒布局，你可以将 `direction`设置为`column`来指定 Flex 方向，你还可以通过配置 `ghost` 属性为 `true` 来去掉背景色和 padding 方便页内布局。"></code>
+<code src="../demos/colspan.tsx" background="#f0f2f5" title="栅格布局" description="当嵌套子卡片时, 组件会自动切换为 `flex` 弹性盒布局，你可以将 `direction`设置为`column`来指定 Flex 方向，你还可以通过配置 `ghost` 属性为 `true` 来去掉背景色和 padding 方便页内布局。"></code>
 
-<code src="../demos/responsive.tsx" background="#f0f2f5" title="响应式" height="588px" description="`colSpan` 支持 antd 定义的[栅格式响应布局](https://ant.design/components/grid-cn/#components-grid-demo-responsive)。预设六个响应尺寸：`xs` `sm` `md` `lg` `xl` `xxl`。如果要支持响应式，可以写成 `{ xs: 4, sm: 8, md: 10, lg: 12 }`。"></code>
+<code src="../demos/responsive.tsx" background="#f0f2f5" title="响应式" description="`colSpan` 支持 antd 定义的[栅格式响应布局](https://ant.design/components/grid-cn/#components-grid-demo-responsive)。预设六个响应尺寸：`xs` `sm` `md` `lg` `xl` `xxl`。如果要支持响应式，可以写成 `{ xs: 4, sm: 8, md: 10, lg: 12 }`。"></code>
 
 ### 卡片切分
 

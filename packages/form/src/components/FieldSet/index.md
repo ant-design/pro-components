@@ -63,11 +63,11 @@ const ProFormText = (props) => {
 
 ### 日期表单
 
-<code src="./demos/datatime.tsx" height="545px" title="日期表单"></code>
+<code src="./demos/datatime.tsx" title="日期表单"></code>
 
 ### 上传表单
 
-<code src="./demos/upload.tsx" height="620px" title="上传表单"></code>
+<code src="./demos/upload.tsx" title="上传表单"></code>
 
 ### 只读表单
 
@@ -112,7 +112,7 @@ ProForm 自带的 Filed ,与 valueType 基本上一一对应。
 
 ProFormCaptcha 是为了支持中后台中常见的验证码功能开发的组件。
 
-<code src="./demos/pro-form-captCha.tsx" height="169px" title="captcha"></code>
+<code src="./demos/pro-form-captCha.tsx" title="captcha"></code>
 
 ```tsx | pure
 <ProFormCaptcha

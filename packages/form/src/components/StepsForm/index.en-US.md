@@ -26,7 +26,7 @@ StepsForm manages the data of sub forms through a Provider, each word form is a 
 
 ## StepForm in edit scene
 
-<code src="./demos/add-or-edit-step-form.tsx" height="532px" oldtitle="自定义分步表单按钮"></code>
+<code src="./demos/add-or-edit-step-form.tsx" oldtitle="自定义分步表单按钮"></code>
 
 ## API
 

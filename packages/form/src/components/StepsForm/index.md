@@ -11,27 +11,27 @@ StepsForm 通过 Provider 来管理子表单的数据，每个子表单都是完
 
 ## 分步表单
 
-<code src="./demos/steps-from.tsx" height="658px" title="分步表单"></code>
+<code src="./demos/steps-from.tsx" title="分步表单"></code>
 
 ## 分步表单垂直模式
 
-<code src="./demos/steps-form-vertical.tsx" height="582px" title="分步表单垂直模式"></code>
+<code src="./demos/steps-form-vertical.tsx" title="分步表单垂直模式"></code>
 
 ## 自定义分步表单按钮
 
-<code src="./demos/customize-steps-from.tsx" height="614px" title="自定义分步表单按钮"></code>
+<code src="./demos/customize-steps-from.tsx" title="自定义分步表单按钮"></code>
 
 ## 分步表单-多卡片
 
-<code src="./demos/multi-card-step-form.tsx" background="hsl(220,23%,97%)" height="950px" title="分步表单-多卡片"></code>
+<code src="./demos/multi-card-step-form.tsx" background="hsl(220,23%,97%)" title="分步表单-多卡片"></code>
 
 ## 分步表单-与 Modal 配合使用
 
-<code src="./demos/modal-step-form.tsx" background="hsl(220,23%,97%)" height="113px" title="分步表单-与 Modal 配合使用"></code>
+<code src="./demos/modal-step-form.tsx" background="hsl(220,23%,97%)" title="分步表单-与 Modal 配合使用"></code>
 
 ## 编辑场景下的分步表单
 
-<code src="./demos/add-or-edit-step-form.tsx" height="349px" title="自定义分步表单按钮"></code>
+<code src="./demos/add-or-edit-step-form.tsx" title="自定义分步表单按钮"></code>
 
 ## API
 

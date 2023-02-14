@@ -66,30 +66,30 @@ SchemaForm 表单最重要就是 Schema 的类型定义，我们使用了与 tab
 
 ### JSON 来生成表单
 
-<code src="./demos/schema.tsx" height="1035px" title="schema 表单"></code>
+<code src="./demos/schema.tsx" title="schema 表单"></code>
 
 ### JSON 来生成分步表单
 
-<code src="./demos/steps-form.tsx" height="350px" title="schema 表单"></code>
+<code src="./demos/steps-form.tsx" title="schema 表单"></code>
 
 ### 嵌入到 ProForm 中
 
-<code src="./demos/embed.tsx" height="813px" title="schema 表单"></code>
+<code src="./demos/embed.tsx" title="schema 表单"></code>
 
 ### 使用 ProFormDependency
 
-<code src="./demos/dependency.tsx" height="200px" title="schema 表单"></code>
+<code src="./demos/dependency.tsx" title="schema 表单"></code>
 
 ## 高性能代码示例
 
 ### 结合 shouldUpdate=false 和 dependencies 触发更新
 
-<code src="./demos/dependencies.tsx" height="569px" title="schema dependencies"></code>
+<code src="./demos/dependencies.tsx" title="schema dependencies"></code>
 
 ### 动态控制是否重渲染
 
-<code src="./demos/dynamic-rerender.tsx" height="544px" title="dynamic rerender"></code>
+<code src="./demos/dynamic-rerender.tsx" title="dynamic rerender"></code>
 
 ### form-list-required
 
-<code src="./demos/form-list-required.tsx" height="600px" title="required" debug></code>
+<code src="./demos/form-list-required.tsx" title="required" debug></code>

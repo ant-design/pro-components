@@ -51,4 +51,4 @@ The following examples demonstrate the order in which dependencies are evaluated
   - `ignoreFormListField` of `<ProFormDependency>` is `true`: according to the dependency declared by `name`, the value is taken from the global (case 2)
   - `ignoreFormListField` of `<ProFormDependency>` is `false`: according to the dependency declared by `name`, the value is taken locally (case 3)
 
-<code src="./demos/dependency2.tsx" height="1774px" oldtitle="ProForm.List"></code>
+<code src="./demos/dependency2.tsx" oldtitle="ProForm.List"></code>
