@@ -24,17 +24,17 @@ When your forms need to interact with the server or need multiple cell styles, P
 
 ### Querying a table
 
-<code src="../demos/single.tsx" background="#f5f5f5" height="500px"></code>
+<code src="../demos/single.tsx" background="hsl(220,23%,97%)" height="500px"></code>
 
-<code src="../demos/dataSource.tsx" background="#f5f5f5" height="500px" debug></code>
+<code src="../demos/dataSource.tsx" background="hsl(220,23%,97%)" height="500px" debug></code>
 
 ### Downgrade to a normal table
 
-<code src="../demos/normal.tsx" background="#f5f5f5" height="400px"></code>
+<code src="../demos/normal.tsx" background="hsl(220,23%,97%)" height="400px"></code>
 
 ### Lightweight filter replacement query form
 
-<code src="../demos/lightfilter.tsx" background="#f5f5f5" height="400px"></code>
+<code src="../demos/lightfilter.tsx" background="hsl(220,23%,97%)" height="400px"></code>
 
 ### Forms without ToolBar
 
@@ -42,35 +42,35 @@ When your forms need to interact with the server or need multiple cell styles, P
 
 ### Nested tables
 
-<code src="../demos/table-nested.tsx" background="#f5f5f5" height="400px"></code>
+<code src="../demos/table-nested.tsx" background="hsl(220,23%,97%)" height="400px"></code>
 
 ### Left and right structure
 
-<code src="../demos/split.tsx" background="#f5f5f5" height="500px"></code>
+<code src="../demos/split.tsx" background="hsl(220,23%,97%)" height="500px"></code>
 
 ### Batch manipulation of tables
 
-<code src="../demos/batchOption.tsx" background="#f5f5f5" height="420px"></code>
+<code src="../demos/batchOption.tsx" background="hsl(220,23%,97%)" height="420px"></code>
 
 ### Manipulating query forms with formRef
 
-<code src="../demos/form.tsx" background="#f5f5f5" height="320px"></code>
+<code src="../demos/form.tsx" background="hsl(220,23%,97%)" height="320px"></code>
 
 ### RTL (النسخة العربية)
 
 RTL means right-to-left.
 
-<code src="../demos/rtl_table.tsx" background="#f5f5f5" height="500px"></code>
+<code src="../demos/rtl_table.tsx" background="hsl(220,23%,97%)" height="500px"></code>
 
 ### Controlled table settings columns
 
 You can hide some columns by default, but in the action column you can select
 
-<code src="../demos/columnsStateMap.tsx" background="#f5f5f5" height="300px"></code>
+<code src="../demos/columnsStateMap.tsx" background="hsl(220,23%,97%)" height="300px"></code>
 
 ### Tables polling network data
 
-<code src="../demos/pollinga.tsx" background="#f5f5f5" height="360px"></code>
+<code src="../demos/pollinga.tsx" background="hsl(220,23%,97%)" height="360px"></code>
 
 ### Search form customization
 
@@ -109,17 +109,17 @@ The definition of `renderFormItem`, the exact value of which can be seen by open
   ) => JSX.Element | false | null;
 ```
 
-<code src="../demos/linkage_form.tsx" background="#f5f5f5" height="310px"></code>
+<code src="../demos/linkage_form.tsx" background="hsl(220,23%,97%)" height="310px"></code>
 
 ### Form action customization
 
-<code src="../demos/search_option.tsx" background="#f5f5f5" height="310px"></code>
+<code src="../demos/search_option.tsx" background="hsl(220,23%,97%)" height="310px"></code>
 
 ### Toolbar Customization
 
 Configure toolbar rendering using the `toolbar` property extension.
 
-<code src="../demos/listToolBar.tsx" background="#f5f5f5" height="450px"></code>
+<code src="../demos/listToolBar.tsx" background="hsl(220,23%,97%)" height="450px"></code>
 
 ### Required Inquiry Form
 
@@ -129,7 +129,7 @@ Try to use initialValue to solve the problem, required fields are more frustrati
 
 ### Form body customization
 
-<code src="../demos/renderTable.tsx" background="#f5f5f5" height="500px"></code>
+<code src="../demos/renderTable.tsx" background="hsl(220,23%,97%)" height="500px"></code>
 
 ### Internationalization-related configuration
 
@@ -185,31 +185,31 @@ import { ConfigProvider } from '@ant-design/pro-provide';
 </ConfigProvider>;
 ```
 
-<code src="../demos/intl.tsx" background="#f5f5f5" height="320px"></code>
+<code src="../demos/intl.tsx" background="hsl(220,23%,97%)" height="320px"></code>
 
 ### Table using self-contained keyWords search
 
-<code src="../demos/search.tsx" background="#f5f5f5" height="200px"></code>
+<code src="../demos/search.tsx" background="hsl(220,23%,97%)" height="200px"></code>
 
 ### Value type examples
 
 #### valueType - Date class
 
-<code src="../demos/valueTypeDate.tsx" background="#f5f5f5" height="350px"></code>
+<code src="../demos/valueTypeDate.tsx" background="hsl(220,23%,97%)" height="350px"></code>
 
 #### valueType - numeric class
 
-<code src="../demos/valueTypeNumber.tsx" background="#f5f5f5" height="350px"></code>
+<code src="../demos/valueTypeNumber.tsx" background="hsl(220,23%,97%)" height="350px"></code>
 
 #### valueType - Style Classes
 
-<code src="../demos/valueType.tsx" background="#f5f5f5" height="680px"></code>
+<code src="../demos/valueType.tsx" background="hsl(220,23%,97%)" height="680px"></code>
 
 #### valueType - Selection Classes
 
-<code src="../demos/valueType_select.tsx" background="#f5f5f5" height="462px"></code>
+<code src="../demos/valueType_select.tsx" background="hsl(220,23%,97%)" height="462px"></code>
 
-<code src="../demos/config-provider.tsx" debug background="#f5f5f5" height="462px"></code>
+<code src="../demos/config-provider.tsx" debug background="hsl(220,23%,97%)" height="462px"></code>
 
 ## API
 

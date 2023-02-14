@@ -23,11 +23,11 @@ StepsForm 通过 Provider 来管理子表单的数据，每个子表单都是完
 
 ## 分步表单-多卡片
 
-<code src="./demos/multi-card-step-form.tsx" background="#f5f5f5" height="950px" title="分步表单-多卡片"></code>
+<code src="./demos/multi-card-step-form.tsx" background="hsl(220,23%,97%)" height="950px" title="分步表单-多卡片"></code>
 
 ## 分步表单-与 Modal 配合使用
 
-<code src="./demos/modal-step-form.tsx" background="#f5f5f5" height="113px" title="分步表单-与 Modal 配合使用"></code>
+<code src="./demos/modal-step-form.tsx" background="hsl(220,23%,97%)" height="113px" title="分步表单-与 Modal 配合使用"></code>
 
 ## 编辑场景下的分步表单
 

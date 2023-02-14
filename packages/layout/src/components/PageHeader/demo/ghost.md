@@ -47,6 +47,6 @@ export default App;
 ```css
 .site-page-header-ghost-wrapper {
   padding: 24px;
-  background-color: #f5f5f5;
+  background-color: hsl(220, 23%, 97%);
 }
 ```

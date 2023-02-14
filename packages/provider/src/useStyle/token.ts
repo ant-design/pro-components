@@ -185,7 +185,7 @@ export const defaultToken = {
   colorFillSecondary: 'rgba(0, 0, 0, 0.06)',
   colorFillTertiary: 'rgba(0, 0, 0, 0.04)',
   colorFillQuaternary: 'rgba(0, 0, 0, 0.02)',
-  colorBgLayout: '#f5f5f5',
+  colorBgLayout: 'hsl(220,23%,97%)',
   colorBgContainer: '#ffffff',
   colorBgElevated: '#ffffff',
   colorBgSpotlight: 'rgba(0, 0, 0, 0.85)',
