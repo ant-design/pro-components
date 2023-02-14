@@ -57,6 +57,7 @@ const LightSelect: React.ForwardRefRenderFunction<any, SelectProps<any> & LightS
     fieldNames,
     lightLabel,
     labelTrigger,
+    optionFilterProp,
     ...restProps
   } = props;
   const { placeholder = label } = props;
@@ -192,6 +193,12 @@ const LightSelect: React.ForwardRefRenderFunction<any, SelectProps<any> & LightS
           onSearch || !keyword
             ? options
             : options?.filter((o) => {
+                if (optionFilterProp?.toLowerCase() === labelPropsName.toLowerCase()) {
+                  return String(o[labelPropsName])?.toLowerCase()?.includes(keyword);
+                }
+                if (optionFilterProp?.toLowerCase() === valuePropsName.toLowerCase()) {
+                  return o[valuePropsName]?.toString()?.toLowerCase()?.includes(keyword);
+                }
                 return (
                   String(o[labelPropsName])?.toLowerCase()?.includes(keyword) ||
                   o[valuePropsName]?.toString()?.toLowerCase()?.includes(keyword)
