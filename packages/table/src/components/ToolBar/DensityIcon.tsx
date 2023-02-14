@@ -2,13 +2,13 @@ import { ColumnHeightOutlined } from '@ant-design/icons';
 import { useIntl } from '@ant-design/pro-provider';
 import { menuOverlayCompatible } from '@ant-design/pro-utils';
 import { Dropdown, Tooltip } from 'antd';
-import React from 'react';
-import Container from '../../container';
+import React, { useContext } from 'react';
+import { TableContext } from '../../Store/Provide';
 
 export type DensitySize = 'middle' | 'small' | 'large' | undefined;
 
 const DensityIcon = () => {
-  const counter = Container.useContainer();
+  const counter = useContext(TableContext);
   const intl = useIntl();
   const props = menuOverlayCompatible({
     selectedKeys: [counter.tableSize as string],

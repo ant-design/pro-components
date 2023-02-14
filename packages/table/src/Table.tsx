@@ -34,7 +34,7 @@ import type { ActionType } from '.';
 import Alert from './components/Alert';
 import FormRender from './components/Form';
 import Toolbar from './components/ToolBar';
-import Container from './container';
+import { Container, TableContext } from './Store/Provide';
 import { useStyle } from './style';
 import type {
   OptionSearchProps,
@@ -98,7 +98,7 @@ function TableRender<T extends Record<string, any>, U, ValueType>(
     getRowKey,
     ...rest
   } = props;
-  const counter = Container.useContainer();
+  const counter = useContext(TableContext);
 
   /** 需要遍历一下，不然不支持嵌套表格 */
   const columns = useMemo(() => {
@@ -467,7 +467,7 @@ const ProTable = <T extends Record<string, any>, U extends ParamsType, ValueType
       ? (propsPagination as TablePaginationConfig)
       : { defaultCurrent: 1, defaultPageSize: 20, pageSize: 20, current: 1 };
 
-  const counter = Container.useContainer();
+  const counter = useContext(TableContext);
 
   // ============================ useFetchData ============================
   const fetchData = useMemo(() => {
@@ -874,7 +874,7 @@ const ProviderTableContainer = <
     props.ErrorBoundary === false ? React.Fragment : props.ErrorBoundary || ErrorBoundary;
 
   return (
-    <Container.Provider initialState={props as any}>
+    <Container initValue={props}>
       <ProConfigProvider needDeps>
         <ErrorComponent>
           <ProTable<DataType, Params, ValueType>
@@ -883,7 +883,7 @@ const ProviderTableContainer = <
           />
         </ErrorComponent>
       </ProConfigProvider>
-    </Container.Provider>
+    </Container>
   );
 };
 

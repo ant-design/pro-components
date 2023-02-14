@@ -27,7 +27,7 @@ import EditableProTable from './components/EditableTable';
 import Search from './components/Form';
 import type { ListToolBarProps } from './components/ListToolBar';
 import ListToolBar from './components/ListToolBar';
-import type { ColumnsState } from './container';
+import type { ColumnsState } from './Store/Provide';
 import ProTable from './Table';
 import type { ActionType, ProColumns, ProColumnType, ProTableProps, RequestData } from './typing';
 

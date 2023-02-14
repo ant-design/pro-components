@@ -1255,7 +1255,7 @@ exports[`descriptions demos 📸 renders ./packages/descriptions/src/demos/dynam
 <DocumentFragment>
   <div
     class="ant-pro-card ant-pro-card-border ant-pro-card-contain-card ant-pro-card-split"
-    style="height: 580px;"
+    style="height: 500px;"
   >
     <div
       class="ant-pro-card-body"
@@ -1474,7 +1474,7 @@ exports[`descriptions demos 📸 renders ./packages/descriptions/src/demos/dynam
           />
           <div
             class="ant-pro-card"
-            style="width: 580px;"
+            style="width: 500px;"
           >
             <div
               class="ant-pro-card-header"

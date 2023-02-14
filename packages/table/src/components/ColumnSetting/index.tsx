@@ -13,8 +13,8 @@ import type { DataNode } from 'antd/es/tree';
 import classNames from 'classnames';
 import omit from 'omit.js';
 import React, { useContext, useEffect, useMemo, useRef } from 'react';
-import type { ColumnsState } from '../../container';
-import Container from '../../container';
+import type { ColumnsState } from '../../Store/Provide';
+import { TableContext } from '../../Store/Provide';
 import type { ProColumns } from '../../typing';
 import { genColumnKey } from '../../utils/index';
 import { useStyle } from './style';
@@ -36,7 +36,7 @@ const ToolTipIcon: React.FC<{
   fixed: 'left' | 'right' | undefined;
   children?: React.ReactNode;
 }> = ({ title, show, children, columnKey, fixed }) => {
-  const { columnsMap, setColumnsMap } = Container.useContainer();
+  const { columnsMap, setColumnsMap } = useContext(TableContext);
   if (!show) {
     return null;
   }
@@ -125,7 +125,7 @@ const CheckboxList: React.FC<{
 }) => {
   const { hashId } = useContext(ProProvider);
 
-  const { columnsMap, setColumnsMap, sortKeyColumns, setSortKeyColumns } = Container.useContainer();
+  const { columnsMap, setColumnsMap, sortKeyColumns, setSortKeyColumns } = useContext(TableContext);
   const show = list && list.length > 0;
   const treeDataConfig = useMemo(() => {
     if (!show) return {};
@@ -335,7 +335,7 @@ const GroupCheckboxList: React.FC<{
 function ColumnSetting<T>(props: ColumnSettingProps<T>) {
   const columnRef = useRef(null);
   // 获得当前上下文的 hashID
-  const counter = Container.useContainer();
+  const counter = useContext(TableContext);
   const localColumns: TableColumnType<T> &
     {
       index?: number;

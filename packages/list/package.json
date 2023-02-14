@@ -41,7 +41,6 @@
     "dayjs": "^1.11.4",
     "rc-resize-observer": "^1.0.0",
     "rc-util": "^4.19.0",
-    "unstated-next": "^1.1.0",
     "use-media-antd-query": "^1.1.0"
   },
   "peerDependencies": {

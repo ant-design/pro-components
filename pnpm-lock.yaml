@@ -389,7 +389,6 @@ importers:
       rc-resize-observer: ^1.1.0
       rc-util: ^5.0.6
       swr: ^2.0.0
-      unstated-next: ^1.1.0
       use-json-comparison: ^1.0.3
       use-media-antd-query: ^1.1.0
       warning: ^4.0.3
@@ -407,7 +406,6 @@ importers:
       rc-resize-observer: 1.3.1
       rc-util: 5.27.2
       swr: 2.0.3
-      unstated-next: 1.1.0
       use-json-comparison: 1.0.6
       use-media-antd-query: 1.1.0
       warning: 4.0.3
@@ -423,7 +421,6 @@ importers:
       dayjs: ^1.11.4
       rc-resize-observer: ^1.0.0
       rc-util: ^4.19.0
-      unstated-next: ^1.1.0
       use-media-antd-query: ^1.1.0
     dependencies:
       '@ant-design/icons': 4.8.0
@@ -435,7 +432,6 @@ importers:
       dayjs: 1.11.7
       rc-resize-observer: 1.3.1
       rc-util: 4.21.1
-      unstated-next: 1.1.0
       use-media-antd-query: 1.1.0
 
   packages/provider:
@@ -475,7 +471,6 @@ importers:
       rc-resize-observer: ^1.0.0
       rc-util: ^5.0.1
       react-sortable-hoc: ^2.0.0
-      unstated-next: ^1.1.0
       use-json-comparison: ^1.0.5
     dependencies:
       '@ant-design/icons': 4.8.0
@@ -491,7 +486,6 @@ importers:
       rc-resize-observer: 1.3.1
       rc-util: 5.27.2
       react-sortable-hoc: 2.0.0
-      unstated-next: 1.1.0
       use-json-comparison: 1.0.6
 
   packages/utils:
@@ -23465,10 +23459,6 @@ packages:
       has-value: 0.3.1
       isobject: 3.0.1
     dev: true
-
-  /unstated-next/1.1.0:
-    resolution: {integrity: sha512-AAn47ZncPvgBGOvMcn8tSRxsrqwf2VdAPxLASTuLJvZt4rhKfDvUkmYZLGfclImSfTVMv7tF4ynaVxin0JjDCA==}
-    dev: false
 
   /unzip-response/2.0.1:
     resolution: {integrity: sha512-N0XH6lqDtFH84JxptQoZYmloF4nzrQqqrAymNj+/gW60AO2AZgOcf4O/nUXJcYfyQkqvMo9lSupBZmmgvuVXlw==}

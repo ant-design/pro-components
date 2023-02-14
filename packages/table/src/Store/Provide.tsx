@@ -1,12 +1,11 @@
-import type { TableColumnType } from 'antd';
+﻿import type { TableColumnType } from 'antd';
 import useMergedState from 'rc-util/lib/hooks/useMergedState';
 import { noteOnce } from 'rc-util/lib/warning';
-import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
-import { createContainer } from 'unstated-next';
-import type { DensitySize } from './components/ToolBar/DensityIcon';
-import type { ProTableProps } from './index';
-import type { ActionType } from './typing';
-import { genColumnKey } from './utils';
+import { createContext, useCallback, useEffect, useMemo, useRef, useState } from 'react';
+import type { DensitySize } from '../components/ToolBar/DensityIcon';
+import type { ProTableProps } from '../index';
+import type { ActionType } from '../typing';
+import { genColumnKey } from '../utils';
 
 export type ColumnsState = {
   show?: boolean;
@@ -196,13 +195,17 @@ function useContainer(props: UseContainerProps = {}) {
 
   return renderValue;
 }
+type ContainerReturnType = ReturnType<ContainerType>;
+
+const TableContext = createContext<ContainerReturnType>({} as any);
 
 export type ContainerType = typeof useContainer;
 
-type ContainerReturnType = ReturnType<ContainerType>;
+const Container: React.FC<{ initValue: UseContainerProps<any>; children: React.ReactNode }> = (
+  props,
+) => {
+  const value = useContainer(props.initValue);
+  return <TableContext.Provider value={value}>{props.children}</TableContext.Provider>;
+};
 
-const Container = createContainer<ContainerReturnType, UseContainerProps>(useContainer);
-
-export { useContainer };
-
-export default Container;
+export { TableContext, Container };
