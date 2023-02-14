@@ -654,4 +654,73 @@ describe('LightFilter', () => {
       ),
     ).toBeTruthy();
   });
+
+  it('🪕 optionFilterProp props work', async () => {
+    const { rerender } = render(
+      <LightFilter>
+        <ProFormSelect
+          name="sex"
+          label="性别"
+          showSearch
+          fieldProps={{
+            optionFilterProp: 'label',
+          }}
+          options={[
+            { label: '男', value: 'aaa' },
+            { label: '女', value: 'bbb' },
+          ]}
+        />
+      </LightFilter>,
+    );
+
+    await userEvent.click(await screen.findByText('性别'));
+    fireEvent.change(await screen.findByRole('textbox'), {
+      target: {
+        value: '男',
+      },
+    });
+
+    expect(screen.getByLabelText('男')).toBeInTheDocument();
+
+    fireEvent.change(await screen.findByRole('textbox'), {
+      target: {
+        value: 'aaa',
+      },
+    });
+
+    expect(screen.queryByLabelText('男')).not.toBeInTheDocument();
+
+    rerender(
+      <LightFilter>
+        <ProFormSelect
+          name="sex"
+          label="性别"
+          showSearch
+          fieldProps={{
+            optionFilterProp: 'value',
+          }}
+          options={[
+            { label: '男', value: 'aaa' },
+            { label: '女', value: 'bbb' },
+          ]}
+        />
+      </LightFilter>,
+    );
+
+    fireEvent.change(await screen.findByRole('textbox'), {
+      target: {
+        value: '女',
+      },
+    });
+
+    expect(screen.queryByLabelText('女')).not.toBeInTheDocument();
+
+    fireEvent.change(await screen.findByRole('textbox'), {
+      target: {
+        value: 'bbb',
+      },
+    });
+
+    expect(screen.getByLabelText('女')).toBeInTheDocument();
+  });
 });
