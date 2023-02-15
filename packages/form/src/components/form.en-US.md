@@ -28,7 +28,7 @@ Step-by-step forms, Modal forms, Drawer forms, Query forms, Lightweight filters 
  onValuesChange={(changeValues) => console.log(changeValues)}
 >
   <ProFormText initialValue="prop"/>
-</ProForm>.
+</ProForm>
 
 // Interdependent component linkage
 <ProForm
@@ -48,7 +48,7 @@ Step-by-step forms, Modal forms, Drawer forms, Query forms, Lightweight filters 
         />
       );
     }}
-  </ProForm.Item>.
+  </ProForm.Item>
 </ProForm>;
 
 
