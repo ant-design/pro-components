@@ -9,7 +9,7 @@ const FeaturesSlot: FC = () => {
 
   if (!Boolean(features?.length)) return null;
 
-  return <Features items={features} />;
+  return <Features items={features || []} />;
 };
 
 export default FeaturesSlot;
