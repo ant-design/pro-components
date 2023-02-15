@@ -35,6 +35,34 @@ features:
 footer: Open-source MIT Licensed | © 2017-present
 ---
 
+ProComponents is a UI component library designed for enterprise-level applications using React. Some of the advantages of ProComponents include:
+
+- Rich component library: ProComponents provides a vast set of UI components, including tables, forms, charts, maps, tree views, and more, capable of meeting most of the requirements for enterprise applications.
+
+- Powerful features: ProComponents' components not only provide basic UI display functions but also have complex data manipulation and business logic processing capabilities, allowing rapid development of robust enterprise applications.
+
+- Easy to use: ProComponents has a simple, user-friendly API and comprehensive documentation, enabling developers to quickly learn and use the components.
+
+- Visual configuration support: ProComponents provides visual configuration tools for some components, making it easier for developers to complete simple component configuration work.
+
+- Highly customizable: ProComponents' components support multiple configurations and custom styles to meet the needs of different projects.
+
+In summary, ProComponents is a powerful, easy-to-use, customizable, and enterprise-level UI component library suitable for applications of all scales and types.
+
+### shortcoming
+
+ProComponents is a UI component library based on React and designed for enterprise-level applications. Although ProComponents has many advantages, there are also some disadvantages to consider:
+
+-Limited customization: ProComponents provides a rich set of components, but the customization options are relatively limited. It may be challenging to customize the components to meet specific project requirements.
+
+-Steep learning curve: ProComponents has a complex API and documentation, which can be challenging for beginners to understand and use. The learning curve may be steep, and it may take some time to become proficient in using the library.
+
+-Limited browser compatibility: ProComponents relies on modern browser features and may not work correctly on older browsers. This can limit the reach of the application and require additional development time to ensure cross-browser compatibility.
+
+-Heavy codebase: ProComponents has a large codebase, which can slow down the development process and make it more challenging to maintain the codebase over time.
+
+In summary, ProComponents is a powerful UI component library for enterprise applications, but it also has some limitations, such as limited customization, a steep learning curve, limited browser compatibility, and a heavy codebase. Developers should carefully evaluate their project requirements and constraints before choosing to use ProComponents.
+
 ## Component Kanban
 
 | Components | Downloads | Versions |
