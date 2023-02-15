@@ -1,5 +1,4 @@
 import Field from '@ant-design/pro-field';
-import '@testing-library/jest-dom';
 import { act, fireEvent, render } from '@testing-library/react';
 import { Button, Input } from 'antd';
 import dayjs from 'dayjs';

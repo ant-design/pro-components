@@ -1,6 +1,5 @@
 ﻿import type { ProFormColumnsType, ProFormLayoutType } from '@ant-design/pro-form';
 import { BetaSchemaForm } from '@ant-design/pro-form';
-import '@testing-library/jest-dom';
 import { act, fireEvent, render, waitFor, screen } from '@testing-library/react';
 import type { FormInstance } from 'antd';
 import { Input } from 'antd';

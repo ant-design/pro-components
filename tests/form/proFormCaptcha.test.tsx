@@ -1,6 +1,5 @@
 import ProForm, { ProFormCaptcha } from '@ant-design/pro-form';
 import { Button, message } from 'antd';
-import '@testing-library/jest-dom';
 import { fireEvent, render } from '@testing-library/react';
 import React from 'react';
 

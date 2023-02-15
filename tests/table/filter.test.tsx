@@ -1,6 +1,5 @@
 import ProTable from '@ant-design/pro-table';
 import { fireEvent, render, screen } from '@testing-library/react';
-import '@testing-library/jest-dom';
 import userEvent from '@testing-library/user-event';
 import { getFetchData } from './demo';
 

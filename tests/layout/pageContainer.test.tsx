@@ -1,5 +1,4 @@
 import { FooterToolbar, PageContainer, ProLayout } from '@ant-design/pro-components';
-import '@testing-library/jest-dom';
 import { act, fireEvent, render, waitFor } from '@testing-library/react';
 import { Button } from 'antd';
 import React, { useEffect, useMemo, useState } from 'react';

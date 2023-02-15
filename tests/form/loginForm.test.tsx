@@ -4,7 +4,6 @@ import {
   UserAddOutlined,
   WeiboCircleOutlined,
 } from '@ant-design/icons';
-import '@testing-library/jest-dom';
 import { LoginForm, LoginFormPage, ProFormText } from '@ant-design/pro-form';
 import { act, render } from '@testing-library/react';
 import { Alert, Space } from 'antd';

@@ -8,7 +8,6 @@ import ProForm, {
   ProFormList,
   ProFormText,
 } from '@ant-design/pro-form';
-import '@testing-library/jest-dom';
 import { act, fireEvent, render, screen, waitFor } from '@testing-library/react';
 import { Button, Form } from 'antd';
 import type { NamePath } from 'antd/es/form/interface';

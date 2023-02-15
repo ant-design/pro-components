@@ -1,6 +1,5 @@
 import { FullscreenOutlined, SettingOutlined } from '@ant-design/icons';
 import ProTable, { ListToolBar } from '@ant-design/pro-table';
-import '@testing-library/jest-dom';
 import { fireEvent, render } from '@testing-library/react';
 import { Button, Input } from 'antd';
 import { act } from 'react-dom/test-utils';

@@ -1,5 +1,4 @@
 import ProTable from '@ant-design/pro-table';
-import '@testing-library/jest-dom';
 import { render } from '@testing-library/react';
 import { waitForComponentToPaint } from '../util';
 import { columns } from './demo';
