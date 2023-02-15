@@ -6,19 +6,19 @@ The Pro Series components are placed here to support heavy-duty components.
 
 ![coverage CI](https://github.com/ant-design/pro-components/workflows/coverage%20CI/badge.svg) ![Node CI](https://github.com/ant-design/pro-components/workflows/Node%20CI/badge.svg) ![Deploy CI](https://github.com/ant-design/pro-components/workflows/Deploy%20CI/badge.svg) [![](https://codecov.io/gh/ant-design/pro-components/branch/master/graph/badge.svg)](https://codecov.io/gh/ant-design/pro-components) [![ docs by dumi](https://img.shields.io/badge/docs%20by-dumi-blue)](https://d.umijs.org/) [![Build With father](https://img.shields.io/badge/build%20with-father-028fe4.svg)](https://github.com/umijs/father/) [![](https://badgen.net/badge/icon/Ant%20Design?icon=https://gw.alipayobjects.com/zos/antfincdn/Pp4WPgVDB3/KDpgvguMpGfqaHPjicRK.svg&label)](https://ant.design) [![lerna](https://img.shields.io/badge/maintained%20with-lerna-cc00ff.svg)](https://lerna.js.org/)
 
-ProComponents 是一个基于 React 的企业级 UI 组件库，它具有以下优点：
+ProComponents is a UI component library designed for enterprise-level applications using React. Some of the advantages of ProComponents include:
 
-- 丰富的组件库：ProComponents 提供了大量的 UI 组件，包括表格、表单、图表、地图、树形控件等，能够满足大多数企业应用的需求。
+- Rich component library: ProComponents provides a vast set of UI components, including tables, forms, charts, maps, tree views, and more, capable of meeting most of the requirements for enterprise applications.
 
-- 功能强大：ProComponents 的组件不仅提供了基本的 UI 展示功能，还具备了复杂的数据操作和业务逻辑处理能力，能够快速构建出功能强大的企业应用。
+- Powerful features: ProComponents' components not only provide basic UI display functions but also have complex data manipulation and business logic processing capabilities, allowing rapid development of robust enterprise applications.
 
-- 易于使用：ProComponents 提供了简单易用的 API 和完善的文档，使得开发者能够快速上手并使用其中的组件。
+- Easy to use: ProComponents has a simple, user-friendly API and comprehensive documentation, enabling developers to quickly learn and use the components.
 
-- 支持可视化配置：ProComponents 提供了一些组件的可视化配置工具，能够使开发者更快速地完成一些简单的组件配置工作。
+- Visual configuration support: ProComponents provides visual configuration tools for some components, making it easier for developers to complete simple component configuration work.
 
-- 高度可定制：ProComponents 的组件支持多种配置和样式自定义，能够满足不同项目的需求。
+- Highly customizable: ProComponents' components support multiple configurations and custom styles to meet the needs of different projects.
 
-总之，ProComponents 是一个功能丰富、易于使用、支持可视化配置和高度可定制的企业级 UI 组件库，适用于各种规模和类型的企业应用开发。
+In summary, ProComponents is a powerful, easy-to-use, customizable, and enterprise-level UI component library suitable for applications of all scales and types.
 
 ## shortcoming
 
