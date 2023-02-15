@@ -1,7 +1,6 @@
 import { GithubFilled, InfoCircleFilled, QuestionCircleFilled } from '@ant-design/icons';
 import { ProLayout } from '@ant-design/pro-components';
 import { LoginForm, ProFormText } from '@ant-design/pro-form';
-import '@testing-library/jest-dom';
 import { render } from '@testing-library/react';
 import { ConfigProvider } from 'antd';
 import en_US from 'antd/es/locale/en_US';

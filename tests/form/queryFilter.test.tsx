@@ -1,5 +1,4 @@
 import { ProFormGroup, ProFormText, QueryFilter } from '@ant-design/pro-form';
-import '@testing-library/jest-dom';
 import { fireEvent, render, waitFor } from '@testing-library/react';
 
 describe('QueryFilter', () => {

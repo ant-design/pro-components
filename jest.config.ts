@@ -36,7 +36,7 @@ module.exports = {
     url: 'http://localhost?navTheme=realDark&layout=mix&colorPrimary=techBlue&splitMenus=false&fixedHeader=true',
   },
   verbose: true,
-  setupFiles: ['./tests/setupTests.ts'],
+  setupFilesAfterEnv: ['./tests/setupTests.ts'],
   globals: {
     ANT_DESIGN_PRO_ONLY_DO_NOT_USE_IN_YOUR_PRODUCTION: false,
   },

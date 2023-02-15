@@ -1,7 +1,6 @@
 import ProForm, { ProFormMoney } from '@ant-design/pro-form';
 import { ConfigProvider } from 'antd';
 import enGBIntl from 'antd/es/locale/en_GB';
-import '@testing-library/jest-dom';
 import { fireEvent, render, waitFor } from '@testing-library/react';
 
 describe('💵 ProFormMoney', () => {

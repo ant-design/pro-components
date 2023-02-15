@@ -5,7 +5,6 @@ import {
   ProFormTreeSelect,
   QueryFilter,
 } from '@ant-design/pro-form';
-import '@testing-library/jest-dom';
 import { act, cleanup, fireEvent, render } from '@testing-library/react';
 import { TreeSelect } from 'antd';
 import { _el, _rs } from 'rc-resize-observer/lib/utils/observerUtil';

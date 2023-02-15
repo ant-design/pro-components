@@ -1,4 +1,3 @@
-import '@testing-library/jest-dom';
 import { act, cleanup, render as reactRender } from '@testing-library/react';
 import glob from 'glob';
 import MockDate from 'mockdate';

@@ -1,4 +1,5 @@
 ﻿import 'jest-canvas-mock';
+import '@testing-library/jest-dom';
 import { enableFetchMocks } from 'jest-fetch-mock';
 import MockDate from 'mockdate';
 import React from 'react';

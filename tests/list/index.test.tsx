@@ -1,5 +1,4 @@
 import ProList, { BaseProList } from '@ant-design/pro-list';
-import '@testing-library/jest-dom';
 import { act, fireEvent, render as reactRender, screen, waitFor } from '@testing-library/react';
 import { Tag } from 'antd';
 import type { ReactText } from 'react';
