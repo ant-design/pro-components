@@ -88,7 +88,7 @@ const genProStyle: GenerateStyle<ProToken> = (token) => {
         height: '32px',
         paddingBlock: 0,
         paddingInline: 12,
-        border: `${token.lineWidth} solid ${token.colorBorder}`,
+        border: `${token.lineWidth}px solid ${token.colorBorder}`,
         borderRadius: '@border-radius-base',
       },
       '&-bordered&-small': { height: '24px', paddingBlock: 0, paddingInline: 8 },

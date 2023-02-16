@@ -3,6 +3,7 @@ import { FieldLabel, useStyle } from '@ant-design/pro-utils';
 import type { SelectProps } from 'antd';
 import { ConfigProvider, Input, Select } from 'antd';
 import classNames from 'classnames';
+import toArray from 'rc-util/lib/Children/toArray';
 import React, { useContext, useMemo, useState } from 'react';
 import type { ProFieldLightProps } from '../../../index';
 
@@ -57,6 +58,7 @@ const LightSelect: React.ForwardRefRenderFunction<any, SelectProps<any> & LightS
     fieldNames,
     lightLabel,
     labelTrigger,
+    optionFilterProp,
     ...restProps
   } = props;
   const { placeholder = label } = props;
@@ -192,6 +194,9 @@ const LightSelect: React.ForwardRefRenderFunction<any, SelectProps<any> & LightS
           onSearch || !keyword
             ? options
             : options?.filter((o) => {
+                if (optionFilterProp) {
+                  return toArray(o[optionFilterProp]).join('').toLowerCase().includes(keyword);
+                }
                 return (
                   String(o[labelPropsName])?.toLowerCase()?.includes(keyword) ||
                   o[valuePropsName]?.toString()?.toLowerCase()?.includes(keyword)
