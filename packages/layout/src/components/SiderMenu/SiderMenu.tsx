@@ -73,6 +73,7 @@ export type SiderMenuProps = {
   avatarProps?: WithFalse<
     AvatarProps & {
       title?: React.ReactNode;
+      render?: (props: AvatarProps, defaultDom: React.ReactNode) => React.ReactNode;
     }
   >;
   /**
@@ -251,16 +252,20 @@ const SiderMenu: React.FC<SiderMenuProps & PrivateSiderMenuProps> = (props) => {
     return menuContentRender ? menuContentRender(props, menuDom) : menuDom;
   }, [menuContentRender, menuDom, props]);
 
-  const avatarDom = useMemo(
-    () =>
-      avatarProps && (
-        <Space align="center" className={`${baseClassName}-actions-avatar`}>
-          <Avatar size={28} {...avatarProps} />
-          {avatarProps.title && !collapsed && <span>{avatarProps.title}</span>}
-        </Space>
-      ),
-    [avatarProps, baseClassName, collapsed],
-  );
+  const avatarDom = useMemo(() => {
+    if (!avatarProps) return null;
+    const { title, render, ...rest } = avatarProps;
+    const dom = (
+      <div className={`${baseClassName}-actions-avatar`}>
+        <Avatar size={28} {...rest} />
+        {avatarProps.title && !collapsed && <span>{title}</span>}
+      </div>
+    );
+    if (render) {
+      return render(avatarProps, dom);
+    }
+    return dom;
+  }, [avatarProps, baseClassName, collapsed]);
 
   const actionsDom = useMemo(
     () => {
@@ -318,7 +323,7 @@ const SiderMenu: React.FC<SiderMenuProps & PrivateSiderMenuProps> = (props) => {
 
   /** 操作区域的dom */
   const actionAreaDom = useMemo(() => {
-    if (!avatarDom && !actionsDom) return null;
+    if (!avatarDom) return null;
 
     return (
       <div

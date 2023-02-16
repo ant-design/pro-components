@@ -3,14 +3,14 @@ import { Avatar, ConfigProvider } from 'antd';
 import classNames from 'classnames';
 import ResizeObserver from 'rc-resize-observer';
 import React, { useContext, useMemo, useState } from 'react';
-import type { GlobalHeaderProps } from '../GlobalHeader';
+import type { GlobalHeaderProps } from '.';
 import { useStyle } from './rightContentStyle';
 /**
  * 抽离出来是为了防止 rightSize 经常改变导致菜单 render
  *
  * @param param0
  */
-export const RightContent: React.FC<GlobalHeaderProps> = ({
+export const ActionsContent: React.FC<GlobalHeaderProps> = ({
   rightContentRender,
   avatarProps,
   actionsRender,
@@ -25,8 +25,8 @@ export const RightContent: React.FC<GlobalHeaderProps> = ({
 
   const avatarDom = useMemo(() => {
     if (!avatarProps) return null;
-    const { title, ...rest } = avatarProps;
-    return [
+    const { title, render, ...rest } = avatarProps;
+    const domList = [
       <Avatar {...rest} size={28} key="avatar" />,
       title ? (
         <span
@@ -39,6 +39,11 @@ export const RightContent: React.FC<GlobalHeaderProps> = ({
         </span>
       ) : undefined,
     ];
+
+    if (render) {
+      return render(avatarProps, <div>{domList}</div>);
+    }
+    return <div>{domList}</div>;
   }, [avatarProps]);
 
   const rightActionsRender = (restParams: any) => {
@@ -67,9 +72,7 @@ export const RightContent: React.FC<GlobalHeaderProps> = ({
           );
         })}
         {avatarDom && (
-          <span className={`${prefixCls}-header-actions-avatar ${hashId}`}>
-            <div>{avatarDom}</div>
-          </span>
+          <span className={`${prefixCls}-header-actions-avatar ${hashId}`}>{avatarDom}</span>
         )}
       </div>,
     );

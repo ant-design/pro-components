@@ -12,7 +12,7 @@ import type { HeaderViewProps } from '../Header';
 import type { PrivateSiderMenuProps, SiderMenuProps } from '../SiderMenu/SiderMenu';
 import { renderLogoAndTitle } from '../SiderMenu/SiderMenu';
 import { TopNavHeader } from '../TopNavHeader';
-import { RightContent } from './RightContent';
+import { ActionsContent as ActionsContent } from './ActionsContent';
 import { useStyle } from './style';
 import type { AppListProps, AppItemProps } from '../AppsLogoComponents/types';
 
@@ -64,6 +64,7 @@ export type GlobalHeaderProps = {
   avatarProps?: WithFalse<
     AvatarProps & {
       title?: React.ReactNode;
+      render?: (props: AvatarProps, defaultDom: React.ReactNode) => React.ReactNode;
     }
   >;
   children?: React.ReactNode;
@@ -153,7 +154,7 @@ const GlobalHeader: React.FC<GlobalHeaderProps & PrivateSiderMenuProps> = (props
       )}
       <div style={{ flex: 1 }}>{children}</div>
       {(rightContentRender || props.actionsRender || props.avatarProps) && (
-        <RightContent rightContentRender={rightContentRender} {...props} />
+        <ActionsContent rightContentRender={rightContentRender} {...props} />
       )}
     </div>,
   );

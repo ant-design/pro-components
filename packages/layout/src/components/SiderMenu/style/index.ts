@@ -137,6 +137,9 @@ const genSiderMenuStyle: GenerateStyle<SiderMenuToken> = (token) => {
               fontSize: 14,
               paddingInline: 8,
               paddingBlock: 8,
+              display: 'flex',
+              alignItems: 'center',
+              gap: 8,
               borderRadius: token.borderRadius,
               '& *': {
                 cursor: 'pointer',

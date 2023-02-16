@@ -4,7 +4,7 @@ import classNames from 'classnames';
 import React, { useContext, useMemo, useRef } from 'react';
 import { AppsLogoComponents } from '../AppsLogoComponents';
 import type { GlobalHeaderProps } from '../GlobalHeader';
-import { RightContent } from '../GlobalHeader/RightContent';
+import { ActionsContent } from '../GlobalHeader/ActionsContent';
 import { BaseMenu } from '../SiderMenu/BaseMenu';
 import type { PrivateSiderMenuProps, SiderMenuProps } from '../SiderMenu/SiderMenu';
 import { renderLogoAndTitle } from '../SiderMenu/SiderMenu';
@@ -126,7 +126,11 @@ const TopNavHeader: React.FC<TopNavHeaderProps> = (props) => {
           {contentDom}
         </div>
         {(rightContentRender || actionsRender || props.avatarProps) && (
-          <RightContent rightContentRender={rightContentRender} {...props} prefixCls={prefixCls} />
+          <ActionsContent
+            rightContentRender={rightContentRender}
+            {...props}
+            prefixCls={prefixCls}
+          />
         )}
       </div>
     </div>,

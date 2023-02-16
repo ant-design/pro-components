@@ -7051,36 +7051,32 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/Nested.tsx correc
                           class="ant-pro-sider-actions"
                         >
                           <div
-                            class="ant-space ant-space-horizontal ant-space-align-center ant-pro-sider-actions-avatar"
+                            class="ant-pro-sider-actions-avatar"
                           >
-                            <div
-                              class="ant-space-item"
+                            <span
+                              class="ant-avatar ant-avatar-circle ant-avatar-icon"
+                              style="width: 28px; height: 28px; line-height: 28px; font-size: 14px;"
                             >
                               <span
-                                class="ant-avatar ant-avatar-circle ant-avatar-icon"
-                                style="width: 28px; height: 28px; line-height: 28px; font-size: 14px;"
+                                aria-label="user"
+                                class="anticon anticon-user"
+                                role="img"
                               >
-                                <span
-                                  aria-label="user"
-                                  class="anticon anticon-user"
-                                  role="img"
+                                <svg
+                                  aria-hidden="true"
+                                  data-icon="user"
+                                  fill="currentColor"
+                                  focusable="false"
+                                  height="1em"
+                                  viewBox="64 64 896 896"
+                                  width="1em"
                                 >
-                                  <svg
-                                    aria-hidden="true"
-                                    data-icon="user"
-                                    fill="currentColor"
-                                    focusable="false"
-                                    height="1em"
-                                    viewBox="64 64 896 896"
-                                    width="1em"
-                                  >
-                                    <path
-                                      d="M858.5 763.6a374 374 0 00-80.6-119.5 375.63 375.63 0 00-119.5-80.6c-.4-.2-.8-.3-1.2-.5C719.5 518 760 444.7 760 362c0-137-111-248-248-248S264 225 264 362c0 82.7 40.5 156 102.8 201.1-.4.2-.8.3-1.2.5-44.8 18.9-85 46-119.5 80.6a375.63 375.63 0 00-80.6 119.5A371.7 371.7 0 00136 901.8a8 8 0 008 8.2h60c4.4 0 7.9-3.5 8-7.8 2-77.2 33-149.5 87.8-204.3 56.7-56.7 132-87.9 212.2-87.9s155.5 31.2 212.2 87.9C779 752.7 810 825 812 902.2c.1 4.4 3.6 7.8 8 7.8h60a8 8 0 008-8.2c-1-47.8-10.9-94.3-29.5-138.2zM512 534c-45.9 0-89.1-17.9-121.6-50.4S340 407.9 340 362c0-45.9 17.9-89.1 50.4-121.6S466.1 190 512 190s89.1 17.9 121.6 50.4S684 316.1 684 362c0 45.9-17.9 89.1-50.4 121.6S557.9 534 512 534z"
-                                    />
-                                  </svg>
-                                </span>
+                                  <path
+                                    d="M858.5 763.6a374 374 0 00-80.6-119.5 375.63 375.63 0 00-119.5-80.6c-.4-.2-.8-.3-1.2-.5C719.5 518 760 444.7 760 362c0-137-111-248-248-248S264 225 264 362c0 82.7 40.5 156 102.8 201.1-.4.2-.8.3-1.2.5-44.8 18.9-85 46-119.5 80.6a375.63 375.63 0 00-80.6 119.5A371.7 371.7 0 00136 901.8a8 8 0 008 8.2h60c4.4 0 7.9-3.5 8-7.8 2-77.2 33-149.5 87.8-204.3 56.7-56.7 132-87.9 212.2-87.9s155.5 31.2 212.2 87.9C779 752.7 810 825 812 902.2c.1 4.4 3.6 7.8 8 7.8h60a8 8 0 008-8.2c-1-47.8-10.9-94.3-29.5-138.2zM512 534c-45.9 0-89.1-17.9-121.6-50.4S340 407.9 340 362c0-45.9 17.9-89.1 50.4-121.6S466.1 190 512 190s89.1 17.9 121.6 50.4S684 316.1 684 362c0 45.9-17.9 89.1-50.4 121.6S557.9 534 512 534z"
+                                  />
+                                </svg>
                               </span>
-                            </div>
+                            </span>
                           </div>
                         </div>
                         <div
@@ -8909,20 +8905,16 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/api.tsx correctly
               class="ant-pro-sider-actions ant-pro-sider-actions-collapsed"
             >
               <div
-                class="ant-space ant-space-horizontal ant-space-align-center ant-pro-sider-actions-avatar"
+                class="ant-pro-sider-actions-avatar"
               >
-                <div
-                  class="ant-space-item"
+                <span
+                  class="ant-avatar ant-avatar-circle ant-avatar-image"
+                  style="width: 28px; height: 28px; line-height: 28px; font-size: 18px;"
                 >
-                  <span
-                    class="ant-avatar ant-avatar-circle ant-avatar-image"
-                    style="width: 28px; height: 28px; line-height: 28px; font-size: 18px;"
-                  >
-                    <img
-                      src="https://avatars1.githubusercontent.com/u/8186664?s=460&v=4"
-                    />
-                  </span>
-                </div>
+                  <img
+                    src="https://avatars1.githubusercontent.com/u/8186664?s=460&v=4"
+                  />
+                </span>
               </div>
             </div>
             <div
@@ -12215,7 +12207,9 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/base.tsx correctl
                             <span
                               class="ant-pro-global-header-header-actions-avatar "
                             >
-                              <div>
+                              <div
+                                class="ant-dropdown-trigger"
+                              >
                                 <span
                                   class="ant-avatar ant-avatar-circle ant-avatar-image"
                                   style="width: 28px; height: 28px; line-height: 28px; font-size: 18px;"
@@ -13849,20 +13843,15 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/collapsedShowTitl
               class="ant-pro-sider-actions ant-pro-sider-actions-collapsed"
             >
               <div
-                class="ant-space ant-space-horizontal ant-space-align-center ant-pro-sider-actions-avatar"
+                class="ant-pro-sider-actions-avatar"
               >
-                <div
-                  class="ant-space-item"
+                <span
+                  class="ant-avatar ant-avatar-sm ant-avatar-circle ant-avatar-image"
                 >
-                  <span
-                    class="ant-avatar ant-avatar-sm ant-avatar-circle ant-avatar-image"
-                    title="七妮妮"
-                  >
-                    <img
-                      src="https://gw.alipayobjects.com/zos/antfincdn/efFD%24IOql2/weixintupian_20170331104822.jpg"
-                    />
-                  </span>
-                </div>
+                  <img
+                    src="https://gw.alipayobjects.com/zos/antfincdn/efFD%24IOql2/weixintupian_20170331104822.jpg"
+                  />
+                </span>
               </div>
               <div
                 class="ant-space ant-space-vertical ant-space-align-center ant-pro-sider-actions-list ant-pro-sider-actions-list-collapsed"
@@ -14491,36 +14480,32 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/config-provider.t
               class="qixian-pro-sider-actions"
             >
               <div
-                class="qixian-space qixian-space-horizontal qixian-space-align-center qixian-pro-sider-actions-avatar"
+                class="qixian-pro-sider-actions-avatar"
               >
-                <div
-                  class="qixian-space-item"
+                <span
+                  class="qixian-avatar qixian-avatar-circle qixian-avatar-icon"
+                  style="width: 28px; height: 28px; line-height: 28px; font-size: 14px;"
                 >
                   <span
-                    class="qixian-avatar qixian-avatar-circle qixian-avatar-icon"
-                    style="width: 28px; height: 28px; line-height: 28px; font-size: 14px;"
+                    aria-label="user"
+                    class="anticon anticon-user"
+                    role="img"
                   >
-                    <span
-                      aria-label="user"
-                      class="anticon anticon-user"
-                      role="img"
+                    <svg
+                      aria-hidden="true"
+                      data-icon="user"
+                      fill="currentColor"
+                      focusable="false"
+                      height="1em"
+                      viewBox="64 64 896 896"
+                      width="1em"
                     >
-                      <svg
-                        aria-hidden="true"
-                        data-icon="user"
-                        fill="currentColor"
-                        focusable="false"
-                        height="1em"
-                        viewBox="64 64 896 896"
-                        width="1em"
-                      >
-                        <path
-                          d="M858.5 763.6a374 374 0 00-80.6-119.5 375.63 375.63 0 00-119.5-80.6c-.4-.2-.8-.3-1.2-.5C719.5 518 760 444.7 760 362c0-137-111-248-248-248S264 225 264 362c0 82.7 40.5 156 102.8 201.1-.4.2-.8.3-1.2.5-44.8 18.9-85 46-119.5 80.6a375.63 375.63 0 00-80.6 119.5A371.7 371.7 0 00136 901.8a8 8 0 008 8.2h60c4.4 0 7.9-3.5 8-7.8 2-77.2 33-149.5 87.8-204.3 56.7-56.7 132-87.9 212.2-87.9s155.5 31.2 212.2 87.9C779 752.7 810 825 812 902.2c.1 4.4 3.6 7.8 8 7.8h60a8 8 0 008-8.2c-1-47.8-10.9-94.3-29.5-138.2zM512 534c-45.9 0-89.1-17.9-121.6-50.4S340 407.9 340 362c0-45.9 17.9-89.1 50.4-121.6S466.1 190 512 190s89.1 17.9 121.6 50.4S684 316.1 684 362c0 45.9-17.9 89.1-50.4 121.6S557.9 534 512 534z"
-                        />
-                      </svg>
-                    </span>
+                      <path
+                        d="M858.5 763.6a374 374 0 00-80.6-119.5 375.63 375.63 0 00-119.5-80.6c-.4-.2-.8-.3-1.2-.5C719.5 518 760 444.7 760 362c0-137-111-248-248-248S264 225 264 362c0 82.7 40.5 156 102.8 201.1-.4.2-.8.3-1.2.5-44.8 18.9-85 46-119.5 80.6a375.63 375.63 0 00-80.6 119.5A371.7 371.7 0 00136 901.8a8 8 0 008 8.2h60c4.4 0 7.9-3.5 8-7.8 2-77.2 33-149.5 87.8-204.3 56.7-56.7 132-87.9 212.2-87.9s155.5 31.2 212.2 87.9C779 752.7 810 825 812 902.2c.1 4.4 3.6 7.8 8 7.8h60a8 8 0 008-8.2c-1-47.8-10.9-94.3-29.5-138.2zM512 534c-45.9 0-89.1-17.9-121.6-50.4S340 407.9 340 362c0-45.9 17.9-89.1 50.4-121.6S466.1 190 512 190s89.1 17.9 121.6 50.4S684 316.1 684 362c0 45.9-17.9 89.1-50.4 121.6S557.9 534 512 534z"
+                      />
+                    </svg>
                   </span>
-                </div>
+                </span>
               </div>
             </div>
             <div
@@ -16132,136 +16117,6 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/customSider.tsx c
                 />
               </div>
               <div
-                class="ant-pro-sider-actions"
-              >
-                <div
-                  class="ant-space ant-space-horizontal ant-space-align-center ant-pro-sider-actions-list"
-                >
-                  <div
-                    class="ant-space-item"
-                  >
-                    <div
-                      class="ant-pro-sider-actions-list-item "
-                    >
-                      <div
-                        style="height: 200px;"
-                      >
-                        <div
-                          class="ant-image"
-                          style="width: 100%; height: 132px;"
-                        >
-                          <img
-                            class="ant-image-img"
-                            height="132"
-                            src="https://gw.alipayobjects.com/zos/bmw-prod/d283f09a-64d6-4d59-bfc7-37b49ea0da2b.svg"
-                            style="height: 132px;"
-                            width="100%"
-                          />
-                        </div>
-                        <div
-                          class="ant-space ant-space-horizontal ant-space-align-center"
-                          style="width: 100%; margin-block-start: 32px;"
-                        >
-                          <div
-                            class="ant-space-item"
-                            style="margin-right: 16px;"
-                          >
-                            <span
-                              class="ant-avatar ant-avatar-sm ant-avatar-circle ant-avatar-image"
-                            >
-                              <img
-                                src="https://gw.alipayobjects.com/zos/antfincdn/efFD%24IOql2/weixintupian_20170331104822.jpg"
-                              />
-                            </span>
-                          </div>
-                          <div
-                            class="ant-space-item"
-                            style="margin-right: 16px;"
-                          >
-                            <div
-                              style="font-size: 14px; margin-inline-end: 32px;"
-                            >
-                              七妮妮
-                            </div>
-                          </div>
-                          <div
-                            class="ant-space-item"
-                            style="margin-right: 16px;"
-                          >
-                            <span
-                              aria-label="info-circle"
-                              class="anticon anticon-info-circle"
-                              role="img"
-                            >
-                              <svg
-                                aria-hidden="true"
-                                data-icon="info-circle"
-                                fill="currentColor"
-                                focusable="false"
-                                height="1em"
-                                viewBox="64 64 896 896"
-                                width="1em"
-                              >
-                                <path
-                                  d="M512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm32 664c0 4.4-3.6 8-8 8h-48c-4.4 0-8-3.6-8-8V456c0-4.4 3.6-8 8-8h48c4.4 0 8 3.6 8 8v272zm-32-344a48.01 48.01 0 010-96 48.01 48.01 0 010 96z"
-                                />
-                              </svg>
-                            </span>
-                          </div>
-                          <div
-                            class="ant-space-item"
-                            style="margin-right: 16px;"
-                          >
-                            <span
-                              aria-label="question-circle"
-                              class="anticon anticon-question-circle"
-                              role="img"
-                            >
-                              <svg
-                                aria-hidden="true"
-                                data-icon="question-circle"
-                                fill="currentColor"
-                                focusable="false"
-                                height="1em"
-                                viewBox="64 64 896 896"
-                                width="1em"
-                              >
-                                <path
-                                  d="M512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm0 708c-22.1 0-40-17.9-40-40s17.9-40 40-40 40 17.9 40 40-17.9 40-40 40zm62.9-219.5a48.3 48.3 0 00-30.9 44.8V620c0 4.4-3.6 8-8 8h-48c-4.4 0-8-3.6-8-8v-21.5c0-23.1 6.7-45.9 19.9-64.9 12.9-18.6 30.9-32.8 52.1-40.9 34-13.1 56-41.6 56-72.7 0-44.1-43.1-80-96-80s-96 35.9-96 80v7.6c0 4.4-3.6 8-8 8h-48c-4.4 0-8-3.6-8-8V420c0-39.3 17.2-76 48.4-103.3C430.4 290.4 470 276 512 276s81.6 14.5 111.6 40.7C654.8 344 672 380.7 672 420c0 57.8-38.1 109.8-97.1 132.5z"
-                                />
-                              </svg>
-                            </span>
-                          </div>
-                          <div
-                            class="ant-space-item"
-                          >
-                            <span
-                              aria-label="github"
-                              class="anticon anticon-github"
-                              role="img"
-                            >
-                              <svg
-                                aria-hidden="true"
-                                data-icon="github"
-                                fill="currentColor"
-                                focusable="false"
-                                height="1em"
-                                viewBox="64 64 896 896"
-                                width="1em"
-                              >
-                                <path
-                                  d="M511.6 76.3C264.3 76.2 64 276.4 64 523.5 64 718.9 189.3 885 363.8 946c23.5 5.9 19.9-10.8 19.9-22.2v-77.5c-135.7 15.9-141.2-73.9-150.3-88.9C215 726 171.5 718 184.5 703c30.9-15.9 62.4 4 98.9 57.9 26.4 39.1 77.9 32.5 104 26 5.7-23.5 17.9-44.5 34.7-60.8-140.6-25.2-199.2-111-199.2-213 0-49.5 16.3-95 48.3-131.7-20.4-60.5 1.9-112.3 4.9-120 58.1-5.2 118.5 41.6 123.2 45.3 33-8.9 70.7-13.6 112.9-13.6 42.4 0 80.2 4.9 113.5 13.9 11.3-8.6 67.3-48.8 121.3-43.9 2.9 7.7 24.7 58.3 5.5 118 32.4 36.8 48.9 82.7 48.9 132.3 0 102.2-59 188.1-200 212.9a127.5 127.5 0 0138.1 91v112.5c.8 9 0 17.9 15 17.9 177.1-59.7 304.6-227 304.6-424.1 0-247.2-200.4-447.3-447.5-447.3z"
-                                />
-                              </svg>
-                            </span>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div
                 class="ant-pro-sider-collapsed-button"
               >
                 <svg
@@ -17785,28 +17640,18 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/dark.tsx correctl
                 class="ant-pro-sider-actions"
               >
                 <div
-                  class="ant-space ant-space-horizontal ant-space-align-center ant-pro-sider-actions-avatar"
+                  class="ant-pro-sider-actions-avatar"
                 >
-                  <div
-                    class="ant-space-item"
-                    style="margin-right: 8px;"
+                  <span
+                    class="ant-avatar ant-avatar-sm ant-avatar-circle ant-avatar-image"
                   >
-                    <span
-                      class="ant-avatar ant-avatar-sm ant-avatar-circle ant-avatar-image"
-                      title="七妮妮"
-                    >
-                      <img
-                        src="https://gw.alipayobjects.com/zos/antfincdn/efFD%24IOql2/weixintupian_20170331104822.jpg"
-                      />
-                    </span>
-                  </div>
-                  <div
-                    class="ant-space-item"
-                  >
-                    <span>
-                      七妮妮
-                    </span>
-                  </div>
+                    <img
+                      src="https://gw.alipayobjects.com/zos/antfincdn/efFD%24IOql2/weixintupian_20170331104822.jpg"
+                    />
+                  </span>
+                  <span>
+                    七妮妮
+                  </span>
                 </div>
                 <div
                   class="ant-space ant-space-horizontal ant-space-align-center ant-pro-sider-actions-list"
@@ -19979,29 +19824,19 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/designSiderMenu.t
                 class="ant-pro-sider-actions"
               >
                 <div
-                  class="ant-space ant-space-horizontal ant-space-align-center ant-pro-sider-actions-avatar"
+                  class="ant-pro-sider-actions-avatar"
                 >
-                  <div
-                    class="ant-space-item"
-                    style="margin-right: 8px;"
+                  <span
+                    class="ant-avatar ant-avatar-circle ant-avatar-image"
+                    style="width: 28px; height: 28px; line-height: 28px; font-size: 18px;"
                   >
-                    <span
-                      class="ant-avatar ant-avatar-circle ant-avatar-image"
-                      style="width: 28px; height: 28px; line-height: 28px; font-size: 18px;"
-                      title="七妮妮"
-                    >
-                      <img
-                        src="https://gw.alipayobjects.com/zos/antfincdn/efFD%24IOql2/weixintupian_20170331104822.jpg"
-                      />
-                    </span>
-                  </div>
-                  <div
-                    class="ant-space-item"
-                  >
-                    <span>
-                      七妮妮
-                    </span>
-                  </div>
+                    <img
+                      src="https://gw.alipayobjects.com/zos/antfincdn/efFD%24IOql2/weixintupian_20170331104822.jpg"
+                    />
+                  </span>
+                  <span>
+                    七妮妮
+                  </span>
                 </div>
                 <div
                   class="ant-space ant-space-horizontal ant-space-align-center ant-pro-sider-actions-list"
@@ -20648,36 +20483,32 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/dynamic-settings.
                 class="ant-pro-sider-actions"
               >
                 <div
-                  class="ant-space ant-space-horizontal ant-space-align-center ant-pro-sider-actions-avatar"
+                  class="ant-pro-sider-actions-avatar"
                 >
-                  <div
-                    class="ant-space-item"
+                  <span
+                    class="ant-avatar ant-avatar-circle ant-avatar-icon"
+                    style="width: 28px; height: 28px; line-height: 28px; font-size: 14px;"
                   >
                     <span
-                      class="ant-avatar ant-avatar-circle ant-avatar-icon"
-                      style="width: 28px; height: 28px; line-height: 28px; font-size: 14px;"
+                      aria-label="user"
+                      class="anticon anticon-user"
+                      role="img"
                     >
-                      <span
-                        aria-label="user"
-                        class="anticon anticon-user"
-                        role="img"
+                      <svg
+                        aria-hidden="true"
+                        data-icon="user"
+                        fill="currentColor"
+                        focusable="false"
+                        height="1em"
+                        viewBox="64 64 896 896"
+                        width="1em"
                       >
-                        <svg
-                          aria-hidden="true"
-                          data-icon="user"
-                          fill="currentColor"
-                          focusable="false"
-                          height="1em"
-                          viewBox="64 64 896 896"
-                          width="1em"
-                        >
-                          <path
-                            d="M858.5 763.6a374 374 0 00-80.6-119.5 375.63 375.63 0 00-119.5-80.6c-.4-.2-.8-.3-1.2-.5C719.5 518 760 444.7 760 362c0-137-111-248-248-248S264 225 264 362c0 82.7 40.5 156 102.8 201.1-.4.2-.8.3-1.2.5-44.8 18.9-85 46-119.5 80.6a375.63 375.63 0 00-80.6 119.5A371.7 371.7 0 00136 901.8a8 8 0 008 8.2h60c4.4 0 7.9-3.5 8-7.8 2-77.2 33-149.5 87.8-204.3 56.7-56.7 132-87.9 212.2-87.9s155.5 31.2 212.2 87.9C779 752.7 810 825 812 902.2c.1 4.4 3.6 7.8 8 7.8h60a8 8 0 008-8.2c-1-47.8-10.9-94.3-29.5-138.2zM512 534c-45.9 0-89.1-17.9-121.6-50.4S340 407.9 340 362c0-45.9 17.9-89.1 50.4-121.6S466.1 190 512 190s89.1 17.9 121.6 50.4S684 316.1 684 362c0 45.9-17.9 89.1-50.4 121.6S557.9 534 512 534z"
-                          />
-                        </svg>
-                      </span>
+                        <path
+                          d="M858.5 763.6a374 374 0 00-80.6-119.5 375.63 375.63 0 00-119.5-80.6c-.4-.2-.8-.3-1.2-.5C719.5 518 760 444.7 760 362c0-137-111-248-248-248S264 225 264 362c0 82.7 40.5 156 102.8 201.1-.4.2-.8.3-1.2.5-44.8 18.9-85 46-119.5 80.6a375.63 375.63 0 00-80.6 119.5A371.7 371.7 0 00136 901.8a8 8 0 008 8.2h60c4.4 0 7.9-3.5 8-7.8 2-77.2 33-149.5 87.8-204.3 56.7-56.7 132-87.9 212.2-87.9s155.5 31.2 212.2 87.9C779 752.7 810 825 812 902.2c.1 4.4 3.6 7.8 8 7.8h60a8 8 0 008-8.2c-1-47.8-10.9-94.3-29.5-138.2zM512 534c-45.9 0-89.1-17.9-121.6-50.4S340 407.9 340 362c0-45.9 17.9-89.1 50.4-121.6S466.1 190 512 190s89.1 17.9 121.6 50.4S684 316.1 684 362c0 45.9-17.9 89.1-50.4 121.6S557.9 534 512 534z"
+                        />
+                      </svg>
                     </span>
-                  </div>
+                  </span>
                 </div>
               </div>
               <div
@@ -25125,36 +24956,32 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/immersive-navigat
               class="ant-pro-sider-actions"
             >
               <div
-                class="ant-space ant-space-horizontal ant-space-align-center ant-pro-sider-actions-avatar"
+                class="ant-pro-sider-actions-avatar"
               >
-                <div
-                  class="ant-space-item"
+                <span
+                  class="ant-avatar ant-avatar-circle ant-avatar-icon"
+                  style="width: 28px; height: 28px; line-height: 28px; font-size: 14px;"
                 >
                   <span
-                    class="ant-avatar ant-avatar-circle ant-avatar-icon"
-                    style="width: 28px; height: 28px; line-height: 28px; font-size: 14px;"
+                    aria-label="user"
+                    class="anticon anticon-user"
+                    role="img"
                   >
-                    <span
-                      aria-label="user"
-                      class="anticon anticon-user"
-                      role="img"
+                    <svg
+                      aria-hidden="true"
+                      data-icon="user"
+                      fill="currentColor"
+                      focusable="false"
+                      height="1em"
+                      viewBox="64 64 896 896"
+                      width="1em"
                     >
-                      <svg
-                        aria-hidden="true"
-                        data-icon="user"
-                        fill="currentColor"
-                        focusable="false"
-                        height="1em"
-                        viewBox="64 64 896 896"
-                        width="1em"
-                      >
-                        <path
-                          d="M858.5 763.6a374 374 0 00-80.6-119.5 375.63 375.63 0 00-119.5-80.6c-.4-.2-.8-.3-1.2-.5C719.5 518 760 444.7 760 362c0-137-111-248-248-248S264 225 264 362c0 82.7 40.5 156 102.8 201.1-.4.2-.8.3-1.2.5-44.8 18.9-85 46-119.5 80.6a375.63 375.63 0 00-80.6 119.5A371.7 371.7 0 00136 901.8a8 8 0 008 8.2h60c4.4 0 7.9-3.5 8-7.8 2-77.2 33-149.5 87.8-204.3 56.7-56.7 132-87.9 212.2-87.9s155.5 31.2 212.2 87.9C779 752.7 810 825 812 902.2c.1 4.4 3.6 7.8 8 7.8h60a8 8 0 008-8.2c-1-47.8-10.9-94.3-29.5-138.2zM512 534c-45.9 0-89.1-17.9-121.6-50.4S340 407.9 340 362c0-45.9 17.9-89.1 50.4-121.6S466.1 190 512 190s89.1 17.9 121.6 50.4S684 316.1 684 362c0 45.9-17.9 89.1-50.4 121.6S557.9 534 512 534z"
-                        />
-                      </svg>
-                    </span>
+                      <path
+                        d="M858.5 763.6a374 374 0 00-80.6-119.5 375.63 375.63 0 00-119.5-80.6c-.4-.2-.8-.3-1.2-.5C719.5 518 760 444.7 760 362c0-137-111-248-248-248S264 225 264 362c0 82.7 40.5 156 102.8 201.1-.4.2-.8.3-1.2.5-44.8 18.9-85 46-119.5 80.6a375.63 375.63 0 00-80.6 119.5A371.7 371.7 0 00136 901.8a8 8 0 008 8.2h60c4.4 0 7.9-3.5 8-7.8 2-77.2 33-149.5 87.8-204.3 56.7-56.7 132-87.9 212.2-87.9s155.5 31.2 212.2 87.9C779 752.7 810 825 812 902.2c.1 4.4 3.6 7.8 8 7.8h60a8 8 0 008-8.2c-1-47.8-10.9-94.3-29.5-138.2zM512 534c-45.9 0-89.1-17.9-121.6-50.4S340 407.9 340 362c0-45.9 17.9-89.1 50.4-121.6S466.1 190 512 190s89.1 17.9 121.6 50.4S684 316.1 684 362c0 45.9-17.9 89.1-50.4 121.6S557.9 534 512 534z"
+                      />
+                    </svg>
                   </span>
-                </div>
+                </span>
               </div>
             </div>
             <div
@@ -25841,36 +25668,32 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/immersive-navigat
               class="ant-pro-sider-actions"
             >
               <div
-                class="ant-space ant-space-horizontal ant-space-align-center ant-pro-sider-actions-avatar"
+                class="ant-pro-sider-actions-avatar"
               >
-                <div
-                  class="ant-space-item"
+                <span
+                  class="ant-avatar ant-avatar-circle ant-avatar-icon"
+                  style="width: 28px; height: 28px; line-height: 28px; font-size: 14px;"
                 >
                   <span
-                    class="ant-avatar ant-avatar-circle ant-avatar-icon"
-                    style="width: 28px; height: 28px; line-height: 28px; font-size: 14px;"
+                    aria-label="user"
+                    class="anticon anticon-user"
+                    role="img"
                   >
-                    <span
-                      aria-label="user"
-                      class="anticon anticon-user"
-                      role="img"
+                    <svg
+                      aria-hidden="true"
+                      data-icon="user"
+                      fill="currentColor"
+                      focusable="false"
+                      height="1em"
+                      viewBox="64 64 896 896"
+                      width="1em"
                     >
-                      <svg
-                        aria-hidden="true"
-                        data-icon="user"
-                        fill="currentColor"
-                        focusable="false"
-                        height="1em"
-                        viewBox="64 64 896 896"
-                        width="1em"
-                      >
-                        <path
-                          d="M858.5 763.6a374 374 0 00-80.6-119.5 375.63 375.63 0 00-119.5-80.6c-.4-.2-.8-.3-1.2-.5C719.5 518 760 444.7 760 362c0-137-111-248-248-248S264 225 264 362c0 82.7 40.5 156 102.8 201.1-.4.2-.8.3-1.2.5-44.8 18.9-85 46-119.5 80.6a375.63 375.63 0 00-80.6 119.5A371.7 371.7 0 00136 901.8a8 8 0 008 8.2h60c4.4 0 7.9-3.5 8-7.8 2-77.2 33-149.5 87.8-204.3 56.7-56.7 132-87.9 212.2-87.9s155.5 31.2 212.2 87.9C779 752.7 810 825 812 902.2c.1 4.4 3.6 7.8 8 7.8h60a8 8 0 008-8.2c-1-47.8-10.9-94.3-29.5-138.2zM512 534c-45.9 0-89.1-17.9-121.6-50.4S340 407.9 340 362c0-45.9 17.9-89.1 50.4-121.6S466.1 190 512 190s89.1 17.9 121.6 50.4S684 316.1 684 362c0 45.9-17.9 89.1-50.4 121.6S557.9 534 512 534z"
-                        />
-                      </svg>
-                    </span>
+                      <path
+                        d="M858.5 763.6a374 374 0 00-80.6-119.5 375.63 375.63 0 00-119.5-80.6c-.4-.2-.8-.3-1.2-.5C719.5 518 760 444.7 760 362c0-137-111-248-248-248S264 225 264 362c0 82.7 40.5 156 102.8 201.1-.4.2-.8.3-1.2.5-44.8 18.9-85 46-119.5 80.6a375.63 375.63 0 00-80.6 119.5A371.7 371.7 0 00136 901.8a8 8 0 008 8.2h60c4.4 0 7.9-3.5 8-7.8 2-77.2 33-149.5 87.8-204.3 56.7-56.7 132-87.9 212.2-87.9s155.5 31.2 212.2 87.9C779 752.7 810 825 812 902.2c.1 4.4 3.6 7.8 8 7.8h60a8 8 0 008-8.2c-1-47.8-10.9-94.3-29.5-138.2zM512 534c-45.9 0-89.1-17.9-121.6-50.4S340 407.9 340 362c0-45.9 17.9-89.1 50.4-121.6S466.1 190 512 190s89.1 17.9 121.6 50.4S684 316.1 684 362c0 45.9-17.9 89.1-50.4 121.6S557.9 534 512 534z"
+                      />
+                    </svg>
                   </span>
-                </div>
+                </span>
               </div>
             </div>
             <div
@@ -26687,44 +26510,34 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/menu-group.tsx co
                 class="ant-pro-sider-actions"
               >
                 <div
-                  class="ant-space ant-space-horizontal ant-space-align-center ant-pro-sider-actions-avatar"
+                  class="ant-pro-sider-actions-avatar"
                 >
-                  <div
-                    class="ant-space-item"
-                    style="margin-right: 8px;"
+                  <span
+                    class="ant-avatar ant-avatar-sm ant-avatar-circle ant-avatar-icon"
                   >
                     <span
-                      class="ant-avatar ant-avatar-sm ant-avatar-circle ant-avatar-icon"
-                      title="七妮妮"
+                      aria-label="user"
+                      class="anticon anticon-user"
+                      role="img"
                     >
-                      <span
-                        aria-label="user"
-                        class="anticon anticon-user"
-                        role="img"
+                      <svg
+                        aria-hidden="true"
+                        data-icon="user"
+                        fill="currentColor"
+                        focusable="false"
+                        height="1em"
+                        viewBox="64 64 896 896"
+                        width="1em"
                       >
-                        <svg
-                          aria-hidden="true"
-                          data-icon="user"
-                          fill="currentColor"
-                          focusable="false"
-                          height="1em"
-                          viewBox="64 64 896 896"
-                          width="1em"
-                        >
-                          <path
-                            d="M858.5 763.6a374 374 0 00-80.6-119.5 375.63 375.63 0 00-119.5-80.6c-.4-.2-.8-.3-1.2-.5C719.5 518 760 444.7 760 362c0-137-111-248-248-248S264 225 264 362c0 82.7 40.5 156 102.8 201.1-.4.2-.8.3-1.2.5-44.8 18.9-85 46-119.5 80.6a375.63 375.63 0 00-80.6 119.5A371.7 371.7 0 00136 901.8a8 8 0 008 8.2h60c4.4 0 7.9-3.5 8-7.8 2-77.2 33-149.5 87.8-204.3 56.7-56.7 132-87.9 212.2-87.9s155.5 31.2 212.2 87.9C779 752.7 810 825 812 902.2c.1 4.4 3.6 7.8 8 7.8h60a8 8 0 008-8.2c-1-47.8-10.9-94.3-29.5-138.2zM512 534c-45.9 0-89.1-17.9-121.6-50.4S340 407.9 340 362c0-45.9 17.9-89.1 50.4-121.6S466.1 190 512 190s89.1 17.9 121.6 50.4S684 316.1 684 362c0 45.9-17.9 89.1-50.4 121.6S557.9 534 512 534z"
-                          />
-                        </svg>
-                      </span>
+                        <path
+                          d="M858.5 763.6a374 374 0 00-80.6-119.5 375.63 375.63 0 00-119.5-80.6c-.4-.2-.8-.3-1.2-.5C719.5 518 760 444.7 760 362c0-137-111-248-248-248S264 225 264 362c0 82.7 40.5 156 102.8 201.1-.4.2-.8.3-1.2.5-44.8 18.9-85 46-119.5 80.6a375.63 375.63 0 00-80.6 119.5A371.7 371.7 0 00136 901.8a8 8 0 008 8.2h60c4.4 0 7.9-3.5 8-7.8 2-77.2 33-149.5 87.8-204.3 56.7-56.7 132-87.9 212.2-87.9s155.5 31.2 212.2 87.9C779 752.7 810 825 812 902.2c.1 4.4 3.6 7.8 8 7.8h60a8 8 0 008-8.2c-1-47.8-10.9-94.3-29.5-138.2zM512 534c-45.9 0-89.1-17.9-121.6-50.4S340 407.9 340 362c0-45.9 17.9-89.1 50.4-121.6S466.1 190 512 190s89.1 17.9 121.6 50.4S684 316.1 684 362c0 45.9-17.9 89.1-50.4 121.6S557.9 534 512 534z"
+                        />
+                      </svg>
                     </span>
-                  </div>
-                  <div
-                    class="ant-space-item"
-                  >
-                    <span>
-                      七妮妮
-                    </span>
-                  </div>
+                  </span>
+                  <span>
+                    七妮妮
+                  </span>
                 </div>
                 <div
                   class="ant-space ant-space-horizontal ant-space-align-center ant-pro-sider-actions-list"
@@ -30296,28 +30109,18 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/siderMode.tsx cor
                 class="ant-pro-sider-actions"
               >
                 <div
-                  class="ant-space ant-space-horizontal ant-space-align-center ant-pro-sider-actions-avatar"
+                  class="ant-pro-sider-actions-avatar"
                 >
-                  <div
-                    class="ant-space-item"
-                    style="margin-right: 8px;"
+                  <span
+                    class="ant-avatar ant-avatar-sm ant-avatar-circle ant-avatar-image"
                   >
-                    <span
-                      class="ant-avatar ant-avatar-sm ant-avatar-circle ant-avatar-image"
-                      title="七妮妮"
-                    >
-                      <img
-                        src="https://gw.alipayobjects.com/zos/antfincdn/efFD%24IOql2/weixintupian_20170331104822.jpg"
-                      />
-                    </span>
-                  </div>
-                  <div
-                    class="ant-space-item"
-                  >
-                    <span>
-                      七妮妮
-                    </span>
-                  </div>
+                    <img
+                      src="https://gw.alipayobjects.com/zos/antfincdn/efFD%24IOql2/weixintupian_20170331104822.jpg"
+                    />
+                  </span>
+                  <span>
+                    七妮妮
+                  </span>
                 </div>
                 <div
                   class="ant-space ant-space-horizontal ant-space-align-center ant-pro-sider-actions-list"
@@ -34741,28 +34544,18 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/theme.tsx correct
               class="ant-pro-sider-actions"
             >
               <div
-                class="ant-space ant-space-horizontal ant-space-align-center ant-pro-sider-actions-avatar"
+                class="ant-pro-sider-actions-avatar"
               >
-                <div
-                  class="ant-space-item"
-                  style="margin-right: 8px;"
+                <span
+                  class="ant-avatar ant-avatar-sm ant-avatar-circle ant-avatar-image"
                 >
-                  <span
-                    class="ant-avatar ant-avatar-sm ant-avatar-circle ant-avatar-image"
-                    title="七妮妮"
-                  >
-                    <img
-                      src="https://gw.alipayobjects.com/zos/antfincdn/efFD%24IOql2/weixintupian_20170331104822.jpg"
-                    />
-                  </span>
-                </div>
-                <div
-                  class="ant-space-item"
-                >
-                  <span>
-                    七妮妮
-                  </span>
-                </div>
+                  <img
+                    src="https://gw.alipayobjects.com/zos/antfincdn/efFD%24IOql2/weixintupian_20170331104822.jpg"
+                  />
+                </span>
+                <span>
+                  七妮妮
+                </span>
               </div>
               <div
                 class="ant-space ant-space-horizontal ant-space-align-center ant-pro-sider-actions-list"

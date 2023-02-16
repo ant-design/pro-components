@@ -3,6 +3,7 @@ import {
   DoubleRightOutlined,
   GithubFilled,
   InfoCircleFilled,
+  LogoutOutlined,
   PlusCircleFilled,
   QuestionCircleFilled,
   SearchOutlined,
@@ -16,7 +17,7 @@ import {
   SettingDrawer,
 } from '@ant-design/pro-components';
 import { css } from '@emotion/css';
-import { Button, Divider, Input, Popover, theme } from 'antd';
+import { Button, Divider, Input, Dropdown, Popover, theme } from 'antd';
 import React, { useState } from 'react';
 import defaultProps from './_defaultProps';
 
@@ -300,6 +301,23 @@ export default () => {
             src: 'https://gw.alipayobjects.com/zos/antfincdn/efFD%24IOql2/weixintupian_20170331104822.jpg',
             size: 'small',
             title: '七妮妮',
+            render: (props, dom) => {
+              return (
+                <Dropdown
+                  menu={{
+                    items: [
+                      {
+                        key: 'logout',
+                        icon: <LogoutOutlined />,
+                        label: '退出登录',
+                      },
+                    ],
+                  }}
+                >
+                  {dom}
+                </Dropdown>
+              );
+            },
           }}
           actionsRender={(props) => {
             if (props.isMobile) return [];
