@@ -16,7 +16,6 @@ import type {
   ItemType,
   ProFormColumnsType,
   ProFormRenderValueTypeHelpers,
-  ProFormRenderValueTypeItem,
 } from './typing';
 import { renderValueType } from './valueType';
 
