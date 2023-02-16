@@ -100,7 +100,7 @@ export const ActionsContent: React.FC<GlobalHeaderProps> = ({
             setRightSizeDebounceFn.run(width);
           }}
         >
-          {(rightContentRender || rightActionsRender) && (
+          {(rightActionsRender || rightContentRender) && (
             <div
               style={{
                 display: 'flex',

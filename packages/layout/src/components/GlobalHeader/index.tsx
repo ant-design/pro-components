@@ -29,10 +29,8 @@ export type GlobalHeaderProps = {
    */
   menuRender?: WithFalse<(props: HeaderViewProps, defaultDom: React.ReactNode) => React.ReactNode>;
   /**
-   * @name 右侧顶部操作区域的渲染逻辑,一般会展示一个头像和一些操作
-   *
-   * @example 展示一个头像: rightRender={(props) => <Avatar shape="square" size="small" icon={<UserOutlined />} />}
-   * @example 展示一些操作: rightRender={(props) => [<Button type="primary">操作</Button>,<Button type="primary">管理控制台</Button>]}
+   * @deprecated
+   * 使用 actionsRender 和 avatarProps 代替
    */
   rightContentRender?: WithFalse<(props: HeaderViewProps) => React.ReactNode>;
   className?: string;

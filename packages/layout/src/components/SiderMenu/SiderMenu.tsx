@@ -76,11 +76,6 @@ export type SiderMenuProps = {
       render?: (props: AvatarProps, defaultDom: React.ReactNode) => React.ReactNode;
     }
   >;
-  /**
-   * @deprecated
-   * 使用 actionsRender 和 avatarProps 代替
-   */
-  rightContentRender?: WithFalse<(props: HeaderViewProps) => React.ReactNode>;
 
   /** Layout的操作功能列表，不同的 layout 会放到不同的位置 */
   actionsRender?: WithFalse<(props: HeaderViewProps) => React.ReactNode[]>;
@@ -191,6 +186,8 @@ const SiderMenu: React.FC<SiderMenuProps & PrivateSiderMenuProps> = (props) => {
     collapsedButtonRender,
     prefixCls,
     avatarProps,
+
+    //@ts-ignore
     rightContentRender,
     actionsRender,
     onOpenChange,
@@ -405,7 +402,7 @@ const SiderMenu: React.FC<SiderMenuProps & PrivateSiderMenuProps> = (props) => {
       {showSiderExtraDom && (
         <>
           {actionAreaDom}
-          {rightContentRender ? (
+          {!actionsDom && rightContentRender ? (
             <div
               className={classNames(`${baseClassName}-actions`, hashId, {
                 [`${baseClassName}-actions-collapsed`]: collapsed,

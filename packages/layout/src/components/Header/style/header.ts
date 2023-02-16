@@ -15,7 +15,7 @@ const genProLayoutHeaderStyle: GenerateStyle<ProLayoutHeaderToken> = (token) => 
         zIndex: 19,
         width: '100%',
         paddingBlock: 0,
-        paddingInline: 8,
+        paddingInline: 0,
         borderBlockEnd: `1px solid ${token.colorSplit}`,
         backgroundColor: token?.layout?.header?.colorBgHeader || 'rgba(255, 255, 255, 0.4)',
         WebkitBackdropFilter: 'blur(8px)',
