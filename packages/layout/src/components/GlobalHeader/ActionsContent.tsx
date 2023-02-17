@@ -46,42 +46,45 @@ export const ActionsContent: React.FC<GlobalHeaderProps> = ({
     return <div>{domList}</div>;
   }, [avatarProps]);
 
-  const rightActionsRender = (restParams: any) => {
-    let doms = actionsRender && actionsRender?.(restParams);
+  const rightActionsRender = actionsRender
+    ? (restParams: any) => {
+        let doms = actionsRender && actionsRender?.(restParams);
 
-    if (!doms && !avatarDom) return null;
-    if (!Array.isArray(doms)) doms = [doms];
-    return wrapSSR(
-      <div className={`${prefixCls}-header-actions ${hashId}`}>
-        {doms.filter(Boolean).map((dom, index) => {
-          let hideHover = false;
-          // 如果配置了 hideHover 就不展示 hover 效果了
-          if (React.isValidElement(dom)) {
-            hideHover = !!dom?.props?.['aria-hidden'];
-          }
-          return (
-            <div
-              // eslint-disable-next-line react/no-array-index-key
-              key={index}
-              className={classNames(`${prefixCls}-header-actions-item ${hashId}`, {
-                [`${prefixCls}-header-actions-hover`]: !hideHover,
-              })}
-            >
-              {dom}
-            </div>
-          );
-        })}
-        {avatarDom && (
-          <span className={`${prefixCls}-header-actions-avatar ${hashId}`}>{avatarDom}</span>
-        )}
-      </div>,
-    );
-  };
+        if (!doms && !avatarDom) return null;
+        if (!Array.isArray(doms)) doms = [doms];
+        return wrapSSR(
+          <div className={`${prefixCls}-header-actions ${hashId}`}>
+            {doms.filter(Boolean).map((dom, index) => {
+              let hideHover = false;
+              // 如果配置了 hideHover 就不展示 hover 效果了
+              if (React.isValidElement(dom)) {
+                hideHover = !!dom?.props?.['aria-hidden'];
+              }
+              return (
+                <div
+                  // eslint-disable-next-line react/no-array-index-key
+                  key={index}
+                  className={classNames(`${prefixCls}-header-actions-item ${hashId}`, {
+                    [`${prefixCls}-header-actions-hover`]: !hideHover,
+                  })}
+                >
+                  {dom}
+                </div>
+              );
+            })}
+            {avatarDom && (
+              <span className={`${prefixCls}-header-actions-avatar ${hashId}`}>{avatarDom}</span>
+            )}
+          </div>,
+        );
+      }
+    : undefined;
   /** 减少一下渲染的次数 */
   const setRightSizeDebounceFn = useDebounceFn(async (width: number) => {
     setRightSize(width);
   }, 160);
 
+  const contentRender = rightActionsRender || rightContentRender;
   return (
     <div
       className={`${prefixCls}-right-content ${hashId}`}
@@ -100,7 +103,7 @@ export const ActionsContent: React.FC<GlobalHeaderProps> = ({
             setRightSizeDebounceFn.run(width);
           }}
         >
-          {(rightActionsRender || rightContentRender) && (
+          {contentRender ? (
             <div
               style={{
                 display: 'flex',
@@ -109,14 +112,14 @@ export const ActionsContent: React.FC<GlobalHeaderProps> = ({
                 justifyContent: 'flex-end',
               }}
             >
-              {(rightContentRender || rightActionsRender)({
+              {contentRender({
                 ...props,
                 // 测试专用
                 //@ts-ignore
                 rightContentSize: rightSize,
               })}
             </div>
-          )}
+          ) : null}
         </ResizeObserver>
       </div>
     </div>
