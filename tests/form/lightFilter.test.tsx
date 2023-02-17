@@ -12,7 +12,7 @@ import {
 import { act, fireEvent, render, screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import dayjs from 'dayjs';
-import KeyCode from 'rc-util/lib/KeyCode';
+import KeyCode from 'rc-util/es/KeyCode';
 import { waitForComponentToPaint } from '../util';
 
 describe('LightFilter', () => {

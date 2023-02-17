@@ -26,9 +26,9 @@ import type { NamePath } from 'antd/es/form/interface';
 import classNames from 'classnames';
 import type dayjs from 'dayjs';
 import omit from 'omit.js';
-import get from 'rc-util/lib/utils/get';
-import { default as namePathSet, default as set } from 'rc-util/lib/utils/set';
-import { noteOnce } from 'rc-util/lib/warning';
+import get from 'rc-util/es/utils/get';
+import { default as namePathSet, default as set } from 'rc-util/es/utils/set';
+import { noteOnce } from 'rc-util/es/warning';
 import React, {
   useCallback,
   useContext,

@@ -7,7 +7,7 @@
 import type { FormItemProps } from 'antd';
 import classnames from 'classnames';
 import { FieldContext as RcFieldContext } from 'rc-field-form';
-import { noteOnce } from 'rc-util/lib/warning';
+import { noteOnce } from 'rc-util/es/warning';
 import React, { useCallback, useContext, useMemo, useState } from 'react';
 import { stringify } from 'use-json-comparison';
 import { ProFormDependency, ProFormItem } from '../components';

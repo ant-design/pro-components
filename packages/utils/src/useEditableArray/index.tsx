@@ -6,10 +6,10 @@ import { Form, message, Popconfirm } from 'antd';
 import type { NamePath } from 'antd/es/form/interface';
 import useLazyKVMap from 'antd/es/table/hooks/useLazyKVMap';
 import type { GetRowKey } from 'antd/es/table/interface';
-import useMergedState from 'rc-util/lib/hooks/useMergedState';
-import get from 'rc-util/lib/utils/get';
-import set from 'rc-util/lib/utils/set';
-import { noteOnce } from 'rc-util/lib/warning';
+import useMergedState from 'rc-util/es/hooks/useMergedState';
+import get from 'rc-util/es/utils/get';
+import set from 'rc-util/es/utils/set';
+import { noteOnce } from 'rc-util/es/warning';
 import React, {
   useContext,
   useMemo,

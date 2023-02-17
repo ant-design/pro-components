@@ -6,7 +6,7 @@ import type { LabelTooltipType } from 'antd/es/form/FormItemLabel';
 import type { FormListFieldData, FormListOperation, FormListProps } from 'antd/es/form/FormList';
 import type { NamePath } from 'antd/es/form/interface';
 import classNames from 'classnames';
-import { noteOnce } from 'rc-util/lib/warning';
+import { noteOnce } from 'rc-util/es/warning';
 import type { ReactNode } from 'react';
 import React, { useContext, useEffect, useImperativeHandle, useMemo, useRef } from 'react';
 import { useGridHelpers } from '../../helpers';

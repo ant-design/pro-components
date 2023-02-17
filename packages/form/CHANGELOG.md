@@ -1,18 +1,12 @@
 # Change Log
 
-All notable changes to this project will be documented in this file.
-See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
 ## [2.5.7](https://github.com/ant-design/pro-components/compare/@ant-design/pro-form@2.5.6...@ant-design/pro-form@2.5.7) (2023-02-17)
 
-
 ### Bug Fixes
 
-* **components:** fix valuetype no work error ([f6215e9](https://github.com/ant-design/pro-components/commit/f6215e98eaeb46fa979c1ca4ac40ceaa0828f9f3))
-
-
-
-
+- **components:** fix valuetype no work error ([f6215e9](https://github.com/ant-design/pro-components/commit/f6215e98eaeb46fa979c1ca4ac40ceaa0828f9f3))
 
 ## [2.5.6](https://github.com/ant-design/pro-components/compare/@ant-design/pro-form@2.5.5...@ant-design/pro-form@2.5.6) (2023-02-10)
 

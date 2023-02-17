@@ -1,5 +1,5 @@
-import get from 'rc-util/lib/utils/get';
-import namePathSet from 'rc-util/lib/utils/set';
+import get from 'rc-util/es/utils/get';
+import namePathSet from 'rc-util/es/utils/set';
 import React from 'react';
 import { isNil } from '../isNil';
 import { merge } from '../merge';

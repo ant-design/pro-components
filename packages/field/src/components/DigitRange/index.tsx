@@ -1,5 +1,5 @@
 import { Input, InputNumber } from 'antd';
-import useMergedState from 'rc-util/lib/hooks/useMergedState';
+import useMergedState from 'rc-util/es/hooks/useMergedState';
 import React from 'react';
 import type { ProFieldFC } from '../../index';
 

@@ -1,5 +1,5 @@
 import { useRefFunction } from '@ant-design/pro-utils';
-import type { TableComponents } from 'rc-table/lib/interface';
+import type { TableComponents } from 'rc-table/es/interface';
 import { SortableContainer, SortableElement } from 'react-sortable-hoc';
 import type { SortDataParams } from './index';
 import { sortData } from './index';

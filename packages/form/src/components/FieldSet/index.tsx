@@ -2,7 +2,7 @@
 import type { FormItemProps, SpaceProps } from 'antd';
 import { Input, Space } from 'antd';
 import type { GroupProps } from 'antd/es/input';
-import toArray from 'rc-util/lib/Children/toArray';
+import toArray from 'rc-util/es/Children/toArray';
 import React, { useCallback, useImperativeHandle, useMemo } from 'react';
 import { createField } from '../../BaseForm/createField';
 import { useGridHelpers } from '../../helpers';

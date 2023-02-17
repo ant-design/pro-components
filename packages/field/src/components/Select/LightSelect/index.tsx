@@ -3,7 +3,7 @@ import { FieldLabel, useStyle } from '@ant-design/pro-utils';
 import type { SelectProps } from 'antd';
 import { ConfigProvider, Input, Select } from 'antd';
 import classNames from 'classnames';
-import toArray from 'rc-util/lib/Children/toArray';
+import toArray from 'rc-util/es/Children/toArray';
 import React, { useContext, useMemo, useState } from 'react';
 import type { ProFieldLightProps } from '../../../index';
 

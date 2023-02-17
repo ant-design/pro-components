@@ -8,7 +8,7 @@ import usePagination from 'antd/es/table/hooks/usePagination';
 import useSelection from 'antd/es/table/hooks/useSelection';
 import type { GetRowKey } from 'antd/es/table/interface';
 import classNames from 'classnames';
-import get from 'rc-util/lib/utils/get';
+import get from 'rc-util/es/utils/get';
 import React, { useContext } from 'react';
 import { PRO_LIST_KEYS_MAP } from './constants';
 import type { GetComponentProps } from './index';

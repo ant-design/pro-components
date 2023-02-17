@@ -3,7 +3,7 @@ import type { ActionType, ProColumns, TableRowEditable } from '@ant-design/pro-t
 import { EditableProTable } from '@ant-design/pro-table';
 import { act, fireEvent, render } from '@testing-library/react';
 import { Button, Input, InputNumber } from 'antd';
-import useMergedState from 'rc-util/lib/hooks/useMergedState';
+import useMergedState from 'rc-util/es/hooks/useMergedState';
 import React, { useRef } from 'react';
 import { waitForComponentToPaint, waitTime } from '../util';
 
