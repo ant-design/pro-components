@@ -128,11 +128,9 @@ const FieldDatePicker: ProFieldFC<
             ref={ref}
             {...fieldProps}
             value={momentValue}
-            onChange={(v) => {
-              onChange?.(v);
-              setTimeout(() => {
-                setOpen(false);
-              }, 0);
+            onChange={async (v) => {
+              await onChange?.(v);
+              await setOpen(false);
             }}
             onOpenChange={(isOpen) => {
               if (!labelTrigger) {

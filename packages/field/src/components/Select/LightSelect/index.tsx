@@ -144,9 +144,7 @@ const LightSelect: React.ForwardRefRenderFunction<any, SelectProps<any> & LightS
         onChange={(v, option) => {
           onChange?.(v, option);
           if (mode !== 'multiple') {
-            setTimeout(() => {
-              setOpen(false);
-            }, 0);
+            setOpen(false);
           }
         }}
         bordered={bordered}
@@ -181,9 +179,8 @@ const LightSelect: React.ForwardRefRenderFunction<any, SelectProps<any> & LightS
         open={open}
         onDropdownVisibleChange={(isOpen) => {
           if (!isOpen) {
-            setTimeout(() => {
-              setKeyword('');
-            }, 0);
+            //  测试环境下直接跑
+            setKeyword('');
           }
           if (!labelTrigger) {
             setOpen(isOpen);

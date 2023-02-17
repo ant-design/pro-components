@@ -79,11 +79,9 @@ const FieldTimePicker: ProFieldFC<
             format={format}
             ref={ref}
             {...fieldProps}
-            onChange={(v) => {
-              onChange?.(v);
-              setTimeout(() => {
-                setOpen(false);
-              }, 0);
+            onChange={async (v) => {
+              await onChange?.(v);
+              await setOpen(false);
             }}
             onOpenChange={(isOpen) => {
               if (!labelTrigger) {

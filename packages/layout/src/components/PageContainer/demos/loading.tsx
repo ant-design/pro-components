@@ -10,10 +10,10 @@ export default () => {
   const [customLoading, setCustomLoading] = useState<React.ReactNode | boolean>(customLoadingDom);
 
   useEffect(() => {
+    if (process.env.NODE_ENV?.toLocaleLowerCase() === 'test') {
+      return;
+    }
     setTimeout(() => {
-      if (process.env.NODE_ENV?.toLocaleLowerCase() === 'test') {
-        return;
-      }
       setCustomLoading(false);
     }, 3000);
   }, []);

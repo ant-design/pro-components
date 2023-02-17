@@ -458,6 +458,7 @@ function FieldEditableTable<
   const form = ProForm.useFormInstance();
 
   if (!props.name) return <EditableTable<DataType, Params, ValueType> {...props} />;
+
   return (
     <Form.Item
       style={{
