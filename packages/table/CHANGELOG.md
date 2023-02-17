@@ -1,18 +1,12 @@
 # Change Log
 
-All notable changes to this project will be documented in this file.
-See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
 ## [3.3.1](https://github.com/ant-design/pro-components/compare/@ant-design/pro-table@3.3.0...@ant-design/pro-table@3.3.1) (2023-02-17)
 
-
 ### Bug Fixes
 
-* **components:** src alway use es path ([4a13142](https://github.com/ant-design/pro-components/commit/4a1314225c08a60c5cef9d51f061cdf15a69ca13))
-
-
-
-
+- **components:** src alway use es path ([4a13142](https://github.com/ant-design/pro-components/commit/4a1314225c08a60c5cef9d51f061cdf15a69ca13))
 
 # [3.3.0](https://github.com/ant-design/pro-components/compare/@ant-design/pro-table@3.2.14...@ant-design/pro-table@3.3.0) (2023-02-17)
 

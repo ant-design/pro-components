@@ -1,4 +1,10 @@
-﻿## @ant-design/pro-components@2.3.54
+﻿## @ant-design/pro-components@2.3.56
+
+`2023-02-17`
+
+- fix(components): src alway use es path. [4a13142](https://github.com/ant-design/pro-components/commit/4a13142)
+
+## @ant-design/pro-components@2.3.54
 
 `2023-02-10`
 

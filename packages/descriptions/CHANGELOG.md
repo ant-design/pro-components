@@ -1,18 +1,12 @@
 # Change Log
 
-All notable changes to this project will be documented in this file.
-See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
 ## [2.0.48](https://github.com/ant-design/pro-components/compare/@ant-design/pro-descriptions@2.0.47...@ant-design/pro-descriptions@2.0.48) (2023-02-17)
 
-
 ### Bug Fixes
 
-* **components:** src alway use es path ([4a13142](https://github.com/ant-design/pro-components/commit/4a1314225c08a60c5cef9d51f061cdf15a69ca13))
-
-
-
-
+- **components:** src alway use es path ([4a13142](https://github.com/ant-design/pro-components/commit/4a1314225c08a60c5cef9d51f061cdf15a69ca13))
 
 ## [2.0.47](https://github.com/ant-design/pro-components/compare/@ant-design/pro-descriptions@2.0.46...@ant-design/pro-descriptions@2.0.47) (2023-02-17)
 
