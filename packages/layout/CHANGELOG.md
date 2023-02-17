@@ -1,6 +1,25 @@
 # Change Log
 
-All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+All notable changes to this project will be documented in this file.
+See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+
+# [7.8.0](https://github.com/ant-design/pro-components/compare/@ant-design/pro-layout@7.7.1...@ant-design/pro-layout@7.8.0) (2023-02-17)
+
+
+### Bug Fixes
+
+* **layout:** alway use actionsRender ([2e62234](https://github.com/ant-design/pro-components/commit/2e62234323edcb720bfad1b34baf3c0ac460970a))
+* **layout:** remove `title` attribute ([#6604](https://github.com/ant-design/pro-components/issues/6604)) ([10820a6](https://github.com/ant-design/pro-components/commit/10820a628c731afe8d98d0f6ba74cf9e35d0aa2f))
+
+
+### Features
+
+* **components:** remove unstate-next for protable ([f284e66](https://github.com/ant-design/pro-components/commit/f284e6620c0afd818ff8d6f41c5cd83d5e28c7a8))
+* **layout:** layout avatarProps support render funtion ([1dd7900](https://github.com/ant-design/pro-components/commit/1dd790089cad44c937be3647a0cbb3666030fc5f))
+
+
+
+
 
 ## [7.7.1](https://github.com/ant-design/pro-components/compare/@ant-design/pro-layout@7.7.0...@ant-design/pro-layout@7.7.1) (2023-02-10)
 

@@ -1,6 +1,18 @@
 # Change Log
 
-All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+All notable changes to this project will be documented in this file.
+See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+
+# [2.1.0](https://github.com/ant-design/pro-components/compare/@ant-design/pro-list@2.0.47...@ant-design/pro-list@2.1.0) (2023-02-17)
+
+
+### Features
+
+* **components:** remove unstate-next for protable ([f284e66](https://github.com/ant-design/pro-components/commit/f284e6620c0afd818ff8d6f41c5cd83d5e28c7a8))
+
+
+
+
 
 ## [2.0.47](https://github.com/ant-design/pro-components/compare/@ant-design/pro-list@2.0.46...@ant-design/pro-list@2.0.47) (2023-02-10)
 

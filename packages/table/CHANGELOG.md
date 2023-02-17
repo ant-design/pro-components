@@ -1,6 +1,26 @@
 # Change Log
 
-All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+All notable changes to this project will be documented in this file.
+See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+
+# [3.3.0](https://github.com/ant-design/pro-components/compare/@ant-design/pro-table@3.2.14...@ant-design/pro-table@3.3.0) (2023-02-17)
+
+
+### Bug Fixes
+
+* **components:** fix valuetype no work error ([f6215e9](https://github.com/ant-design/pro-components/commit/f6215e98eaeb46fa979c1ca4ac40ceaa0828f9f3))
+* **components:** Thai translation in ProTable ([#6600](https://github.com/ant-design/pro-components/issues/6600)) ([d1fefbd](https://github.com/ant-design/pro-components/commit/d1fefbd88caad944f4837631e89f9c9cf5f7ea22))
+* **table:** fix pagination padding style error ([a5e7439](https://github.com/ant-design/pro-components/commit/a5e7439e49286bf832dc20ff3b8af32495e418e8))
+* **table:** if toolBarRender,search and headerTitle is null, norender table card dom ([fc59a19](https://github.com/ant-design/pro-components/commit/fc59a1996b2a7670b7cc0f6c731bf04949dfe75e))
+
+
+### Features
+
+* **components:** remove unstate-next for protable ([f284e66](https://github.com/ant-design/pro-components/commit/f284e6620c0afd818ff8d6f41c5cd83d5e28c7a8))
+
+
+
+
 
 ## [3.2.14](https://github.com/ant-design/pro-components/compare/@ant-design/pro-table@3.2.13...@ant-design/pro-table@3.2.14) (2023-02-10)
 

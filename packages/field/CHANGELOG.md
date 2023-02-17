@@ -1,6 +1,19 @@
 # Change Log
 
-All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+All notable changes to this project will be documented in this file.
+See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+
+## [2.2.8](https://github.com/ant-design/pro-components/compare/@ant-design/pro-field@2.2.7...@ant-design/pro-field@2.2.8) (2023-02-17)
+
+
+### Bug Fixes
+
+* **field:** `optionFilterProp` doesn't work with LightFilter ([#6603](https://github.com/ant-design/pro-components/issues/6603)) ([0e287f6](https://github.com/ant-design/pro-components/commit/0e287f6dba1cdc0f31bcae60e3149ed6a276169d))
+* **form:** inconsistent digit value when precision=0 ([#6591](https://github.com/ant-design/pro-components/issues/6591)) ([f83092a](https://github.com/ant-design/pro-components/commit/f83092a50993f3a86b59565394c24228f7e8541e))
+
+
+
+
 
 ## [2.2.7](https://github.com/ant-design/pro-components/compare/@ant-design/pro-field@2.2.6...@ant-design/pro-field@2.2.7) (2023-02-10)
 
