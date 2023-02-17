@@ -1,18 +1,12 @@
 # Change Log
 
-All notable changes to this project will be documented in this file.
-See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
 ## [7.8.2](https://github.com/ant-design/pro-components/compare/@ant-design/pro-layout@7.8.1...@ant-design/pro-layout@7.8.2) (2023-02-17)
 
-
 ### Bug Fixes
 
-* **layout:** fix rightContentRender alway work error ([796ab12](https://github.com/ant-design/pro-components/commit/796ab1241844b533cf4066062887f676facb0704))
-
-
-
-
+- **layout:** fix rightContentRender alway work error ([796ab12](https://github.com/ant-design/pro-components/commit/796ab1241844b533cf4066062887f676facb0704))
 
 ## [7.8.1](https://github.com/ant-design/pro-components/compare/@ant-design/pro-layout@7.8.0...@ant-design/pro-layout@7.8.1) (2023-02-17)
 

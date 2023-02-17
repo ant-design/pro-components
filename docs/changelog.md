@@ -1,4 +1,10 @@
-﻿## @ant-design/pro-components@2.3.56
+﻿## @ant-design/pro-components@2.3.57
+
+`2023-02-17`
+
+- fix(layout): fix rightContentRender alway work error. [796ab12](https://github.com/ant-design/pro-components/commit/796ab12)
+
+## @ant-design/pro-components@2.3.56
 
 `2023-02-17`
 
