@@ -74,7 +74,7 @@ Ant Design 定义了基础的设计规范，对应也提供了大量的基础组
 - lerna.json         * 多包的配置
 - package.json       * 项目的配置
 - tsconfig.json      * typescript 的配置
-- yarn.lock          * 依赖 lock 文件
+- pnpm-lock.yaml     * 依赖 lock 文件
 ```
 
 `coverage` 和 `.umi` 这两个文件夹比较特殊，`coverage` 是测试覆盖率文件，在跑完测试覆盖率后才会出现，`.umi` 是运行时的一些临时文件，在执行 `npm run start` 时生成。
@@ -101,18 +101,18 @@ Ant Design 定义了基础的设计规范，对应也提供了大量的基础组
 
 我们使用了 [monorepo](https://danluu.com/monorepo/) 的方式来管理我们的仓库，仓库中包含多个独立的包，以便于更改可以一起联调，这样可以一起跑测试用例，如果变更出现问题，我们可以很快的定位到问题。
 
-因为使用了 monorepo ,我们要求必须要使用 yarn 来安装依赖。[`workspace`](https://classic.yarnpkg.com/en/docs/workspaces#search) 可以帮助我们在多个包中共享依赖。
+[`pnpm-workspace.yaml`](https://pnpm.io/zh/pnpm-workspace_yaml) 可以帮助我们在多个包中共享依赖。
 
 安装完成后你可以使用以下命令：
 
-- `yarn start` 预览你的改动
-- `yarn lint` 检查代码风格
-- `yarn tsc` 检查 TypeScript 是否符合规范
-- `yarn test` 测试代码是否可以通过测试用例
-- `yarn test:coverage` 测试仓库的测试覆盖率
-- `yarn build` 编译当前组件库
+- `pnpm start` 预览你的改动
+- `pnpm lint` 检查代码风格
+- `pnpm tsc` 检查 TypeScript 是否符合规范
+- `pnpm test` 测试代码是否可以通过测试用例
+- `pnpm test:coverage` 测试仓库的测试覆盖率
+- `pnpm build` 编译当前组件库
 
-我们建议运行 `yarn test` 或前文提及的 linter 以确保你的代码变更有没有影响原有功能，同时保证你写的每行代码都被正确的测试到，不管怎样这样都会提升组件库的整体质量。
+我们建议运行 `pnpm test` 或前文提及的 linter 以确保你的代码变更有没有影响原有功能，同时保证你写的每行代码都被正确的测试到，不管怎样这样都会提升组件库的整体质量。
 
 如果你增加了一个新功能，请添加测试后再提交 pr，这样我们能确保以后你的代码不出问题。
 

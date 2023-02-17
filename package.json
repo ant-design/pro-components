@@ -1,9 +1,6 @@
 {
   "private": true,
   "license": "MIT",
-  "workspaces": [
-    "packages/*"
-  ],
   "scripts": {
     "bootstrap": "node ./scripts/bootstrap.js",
     "build": "npm run version && npm run build-components",
@@ -27,7 +24,7 @@
     "test:update": "pnpm run version && cross-env TZ=UTC  jest --updateSnapshot",
     "tsc": "tsc --noEmit",
     "tsc:duplicate": "tsc -p ./tests/tsconfig.duplicate.json",
-    "update:deps": "yarn upgrade-interactive --latest",
+    "update:deps": "pnpm up --latest",
     "version": "node ./scripts/gen_version.js"
   },
   "browserslist": [

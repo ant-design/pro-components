@@ -5,13 +5,13 @@
 Install dev deps after git clone the repo.
 
 ```bash
-$ yarn
+$ pnpm i
 ```
 
 run start
 
 ```bash
-$ yarn start
+$ pnpm start
 ```
 
 ## Build
@@ -19,13 +19,13 @@ $ yarn start
 Transform with babel and rollup.
 
 ```bash
-$ yarn build
+$ pnpm build
 
 # Build and monitor file changes
-$ yarn build --watch
+$ pnpm build --watch
 
 # Build specified package only
-$ PACKAGE=plugin-antd yarn build --watch
+$ PACKAGE=plugin-antd pnpm build --watch
 ```
 
 ## Test
@@ -33,16 +33,16 @@ $ PACKAGE=plugin-antd yarn build --watch
 Run test.
 
 ```bash
-$ yarn test
+$ pnpm test
 
 # Test specified file and watch
-$ yarn test getMockData.test.js -w
+$ pnpm test getMockData.test.js -w
 
 # Test specified package
-$ yarn test --package core
+$ pnpm test --package core
 
 # Generate coverage
-$ yarn test --coverage
+$ pnpm test --coverage
 ```
 
 ## Release
@@ -62,7 +62,7 @@ Such as creating package `foo`.
 
 ```bash
 $ mkdir -p packages/foo
-$ yarn bootstrap
+$ pnpm bootstrap
 ```
 
 Then you will find the `README.md` and `package.json` is generated in `packages/foo`.
