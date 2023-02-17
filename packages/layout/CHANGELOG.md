@@ -1,6 +1,18 @@
 # Change Log
 
-All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+All notable changes to this project will be documented in this file.
+See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+
+## [7.8.1](https://github.com/ant-design/pro-components/compare/@ant-design/pro-layout@7.8.0...@ant-design/pro-layout@7.8.1) (2023-02-17)
+
+
+### Bug Fixes
+
+* **components:** src alway use es path ([4a13142](https://github.com/ant-design/pro-components/commit/4a1314225c08a60c5cef9d51f061cdf15a69ca13))
+
+
+
+
 
 # [7.8.0](https://github.com/ant-design/pro-components/compare/@ant-design/pro-layout@7.7.1...@ant-design/pro-layout@7.8.0) (2023-02-17)
 
