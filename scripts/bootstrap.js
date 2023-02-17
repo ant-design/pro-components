@@ -83,10 +83,10 @@ Using npm:
 $ npm install --save ${name}
 \`\`\`
 
-or using yarn:
+or using pnpm:
 
 \`\`\`bash
-$ yarn add ${name}
+$ pnpm add ${name}
 \`\`\`
 `,
       );

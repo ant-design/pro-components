@@ -72,7 +72,7 @@ When we clone the project we will see the following directory structure.
 - lerna.json        * configuration for multiple packages
 - package.json      * configuration for the project
 - tsconfig.json     * configuration for typescript
-- yarn.lock         * dependency lock file
+- pnpm-lock.yaml    * dependency lock file
 
 ```
 
@@ -100,18 +100,18 @@ However, there are some styles that `linter` can't handle. If you're not sure ab
 
 We use [monorepo](https://danluu.com/monorepo/) to manage our repository in a way that the repository contains multiple separate packages so that changes can be co-located together, so that we can run test cases together, and if there is a problem with a change, we can quickly pinpoint the problem.
 
-Because we use monorepo, we require yarn to install the dependencies. The [`workspace`](https://classic.yarnpkg.com/en/docs/workspaces#search) can help us share dependencies across multiple packages.
+The [`pnpm-workspace.yaml`](https://pnpm.io/pnpm-workspace_yaml) can help us share dependencies across multiple packages.
 
 After the installation is complete you can use the following command.
 
-- `yarn start` to preview your changes
-- `yarn lint` to check the code style
-- `yarn tsc` to check if TypeScript conforms to the specification
-- `yarn test` Test if the code passes the test case
-- `yarn test:coverage` Test the test coverage of the repository
-- `yarn build` Compile the current component library
+- `pnpm start` to preview your changes
+- `pnpm lint` to check the code style
+- `pnpm tsc` to check if TypeScript conforms to the specification
+- `pnpm test` Test if the code passes the test case
+- `pnpm test:coverage` Test the test coverage of the repository
+- `pnpm build` Compile the current component library
 
-We recommend running `yarn test` or the aforementioned linter to make sure that your code changes do not affect the original functionality and that every line of code you write is tested correctly, which will improve the overall quality of the component library anyway.
+We recommend running `pnpm test` or the aforementioned linter to make sure that your code changes do not affect the original functionality and that every line of code you write is tested correctly, which will improve the overall quality of the component library anyway.
 
 If you add a new feature, please add tests before committing pr, so we can make sure your code doesn't have problems in the future.
 
