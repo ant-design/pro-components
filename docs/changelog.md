@@ -4,6 +4,21 @@
 
 - fix(components): src alway use es path. [4a13142](https://github.com/ant-design/pro-components/commit/4a13142)
 
+## @ant-design/pro-components@2.3.55
+
+`2023-02-16`
+
+- fix(layout): alway use actionsRender. [2e6223432](https://github.com/ant-design/pro-components/commit/2e6223432)
+- feat(layout): layout avatarProps support render funtion. [1dd790089](https://github.com/ant-design/pro-components/commit/1dd790089)
+- fix(form): `optionFilterProp` doesn't work with LightFilter. [#6603](https://github.com/ant-design/pro-components/pull/6603) [@kalykun](https://github.com/kalykun)
+- fix(components): fix valuetype no work error. [f6215e98e](https://github.com/ant-design/pro-components/commit/f6215e98e)
+- feat(components): remove unstate-next for protable. [f284e6620](https://github.com/ant-design/pro-components/commit/f284e6620)
+- fix(layout): remove `title` attribute. [#6604](https://github.com/ant-design/pro-components/pull/6604) [@kalykun](https://github.com/kalykun)
+- fix(table): fix pagination padding style error. [a5e7439e4](https://github.com/ant-design/pro-components/commit/a5e7439e4)
+- fix(form): inconsistent digit value when precision=0. [f83092a50](https://github.com/ant-design/pro-components/commit/f83092a50) [@Guan](https://github.com/Guan)
+- fix(components): Thai translation in ProTable [#6600](https://github.com/ant-design/pro-components/pull/6600) [@Eugene Goh](https://github.com/EugeneGohh)
+- fix(table): if toolBarRender,search and headerTitle is null, norender table card dom. [fc59a1996](https://github.com/ant-design/pro-components/commit/fc59a1996)
+
 ## @ant-design/pro-components@2.3.54
 
 `2023-02-10`
