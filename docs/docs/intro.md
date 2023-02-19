@@ -36,7 +36,7 @@ Ant Design 定义了基础的设计规范，对应也提供了大量的基础组
 
 重型组件区别于传统组件有个很大的不同，重型组件在抽象时是将其当成一个页面来进行处理，所以 ProTable 会支持网络请求和自动生成查询表单，而 ProLayout 会支持自动生成菜单，两者都基于同样的思想也就是提供页面级别的抽象。
 
-一个列表页应该可以用 ProLayout + ProTable 完成，一个编辑页应该使用 ProLayout + ProForm 完成，详情页可以用 ProLayout + ProDescriptions 完成。 一个页面在开发工程中只需要关注几个重型组件，降低心智负担，专注于更核心的业务逻辑。
+一个列表页应该可以用 ProLayout + ProTable 完成，一个编辑页应该使用 ProLayout + ProForm 完成，详情页可以用 ProLayout + ProDescriptions 完成。 一个页面在开发过程中只需要关注几个重型组件，降低心智负担，专注于更核心的业务逻辑。
 
 ### 设计与样式
 
