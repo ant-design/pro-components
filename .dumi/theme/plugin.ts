@@ -2,6 +2,7 @@ import fs from 'fs';
 import path from 'path';
 import type { IApi } from 'dumi';
 import { extractStyle } from '@ant-design/cssinjs';
+import DemoReactTechStack from './DemoReactTechStack';
 
 const RoutesPlugin = (api: IApi) => {
   const ssrCssFileName = `ssr-${Date.now()}.css`;
@@ -52,6 +53,8 @@ const RoutesPlugin = (api: IApi) => {
       .replace(/<\/style>/g, '');
     fs.writeFileSync(`./dist/${ssrCssFileName}`, styleTextWithoutStyleTag, 'utf8');
   });
+
+  api.registerTechStack(() => new DemoReactTechStack());
 };
 
 export default RoutesPlugin;
