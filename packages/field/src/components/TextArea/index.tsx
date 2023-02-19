@@ -24,6 +24,7 @@ const FieldTextArea: ProFieldFC<{
           display: 'inline-block',
           padding: '4px 11px',
           lineHeight: '1.5715',
+          width: '100%',
           whiteSpace: 'pre-wrap',
         }}
       >
