@@ -133,7 +133,6 @@ export const isBordered = (borderType: BorderedType, border?: Bordered) => {
   if (border === undefined) {
     return false;
   }
-  // debugger
   if (typeof border === 'boolean') {
     return border;
   }
