@@ -20,7 +20,6 @@ export default class DemoReactTechStack extends ReactTechStack implements IDumiT
 
   getAntdVersion() {
     const pkgJson = require('antd/package.json');
-    debugger;
     return pkgJson.version || '5.2.0';
   }
 }
