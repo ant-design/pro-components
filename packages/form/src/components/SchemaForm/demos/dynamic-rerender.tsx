@@ -65,6 +65,7 @@ const columns: ProFormColumnsType<DataItem>[] = [
     dataIndex: 'labels',
     width: 'm',
     tooltip: '当title为必填时此项将为必填',
+    dependencies: ['title'],
     formItemProps(form) {
       if (form.getFieldValue('title') === '必填') {
         return {
