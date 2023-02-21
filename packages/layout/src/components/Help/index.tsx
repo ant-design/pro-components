@@ -1,6 +1,7 @@
 ﻿import { CloseOutlined, ProfileOutlined, SearchOutlined } from '@ant-design/icons';
 import ProCard from '@ant-design/pro-card';
 import { ProProvider } from '@ant-design/pro-provider';
+import classNames from 'classnames';
 import {
   ImageProps,
   Popover,
@@ -11,6 +12,7 @@ import {
   ConfigProvider,
   Drawer,
   Modal,
+  PopoverProps,
 } from 'antd';
 import React, { AnchorHTMLAttributes, useContext, useMemo, useState } from 'react';
 import useMergedState from 'rc-util/es/hooks/useMergedState';
@@ -31,6 +33,8 @@ type ProHelpPanelProps = {
   bordered?: boolean;
 
   onClose?: () => void;
+
+  height?: number | string;
 };
 
 type ProHelpProps<ValueType = 'text'> = {
@@ -122,6 +126,7 @@ export const ProHelpContentPanel: React.FC<{
 export const ProHelpPanel: React.FC<ProHelpPanelProps> = ({
   bordered = true,
   onClose,
+  height,
   ...props
 }) => {
   const { dataSource } = useContext(ProHelpProvide);
@@ -138,12 +143,14 @@ export const ProHelpPanel: React.FC<ProHelpPanelProps> = ({
   return (
     <ProCard
       bordered={bordered}
-      headerBordered={bordered}
+      headerBordered
       title="帮助中心"
       bodyStyle={{
         display: 'flex',
         padding: 0,
         margin: 0,
+        height: '100%',
+        width: '100%',
       }}
       size="small"
       extra={
@@ -174,7 +181,9 @@ export const ProHelpPanel: React.FC<ProHelpPanelProps> = ({
           style={{
             overflow: 'auto',
             borderInlineEnd: `${token?.lineWidth}px solid ${token?.colorBorderSecondary}`,
-            height: '648px',
+            minHeight: '648px',
+            height,
+            minWidth: 190,
           }}
         >
           <ConfigProvider
@@ -242,7 +251,8 @@ export const ProHelpPanel: React.FC<ProHelpPanelProps> = ({
           maxWidth: '800px',
           minWidth: '400px',
           overflow: 'auto',
-          height: '648px',
+          minHeight: '648px',
+          height,
           flex: 1,
         }}
       >
@@ -254,6 +264,50 @@ export const ProHelpPanel: React.FC<ProHelpPanelProps> = ({
 
 export const ProHelp: React.FC<ProHelpProps<'video' | 'list'>> = ({ dataSource, ...props }) => {
   return <ProHelpProvide.Provider value={{ dataSource }}>{props.children}</ProHelpProvide.Provider>;
+};
+
+export const ProHelpPopover: React.FC<
+  Omit<PopoverProps, 'content'> & {
+    children: React.ReactNode;
+    textClassName?: string;
+    textStyle?: React.CSSProperties;
+    selectedKey: string;
+  }
+> = (props) => {
+  return (
+    <Popover
+      overlayInnerStyle={{
+        padding: 0,
+      }}
+      content={
+        <div
+          style={{
+            maxWidth: 300,
+            height: '600px',
+            maxHeight: 'calc(100vh - 200px)',
+            overflow: 'auto',
+            paddingInline: 20,
+            paddingBlockStart: 24,
+            paddingBlockEnd: 32,
+          }}
+        >
+          <ProHelpContentPanel selectedKey={props.selectedKey} />
+        </div>
+      }
+      {...props}
+    >
+      <span
+        className={classNames('pro-help-popover', props.textClassName)}
+        style={{
+          color: '#1890ff',
+          cursor: 'pointer',
+          ...props.textStyle,
+        }}
+      >
+        {props.children}
+      </span>
+    </Popover>
+  );
 };
 
 export default () => {
@@ -489,57 +543,53 @@ export default () => {
             width: 600,
           }}
         >
-          <ProHelpPanel />
+          <ProHelpPanel height={648} />
         </div>
-        <button onClick={() => setDrawerOpen(!drawerOpen)}>打开</button>
-        <button onClick={() => setModalOpen(!modalOpen)}>打开</button>
-        <Modal
-          afterClose={() => {
-            setModalOpen(false);
+        <div
+          style={{
+            display: 'flex',
+            gap: 16,
+            width: 600,
+            justifyContent: 'space-between',
           }}
-          bodyStyle={{
-            margin: -24,
-          }}
-          centered
-          closable={false}
-          footer={null}
-          width={720}
-          open={modalOpen}
-          maskClosable
         >
-          <ProHelpPanel onClose={() => setModalOpen(false)} bordered={false} />
-        </Modal>
-        <Drawer
-          width={520}
-          closeIcon={null}
-          onClose={() => {
-            setDrawerOpen(false);
-          }}
-          headerStyle={{
-            display: 'none',
-          }}
-          open={drawerOpen}
-          maskClosable
-        >
-          <ProHelpContentPanel selectedKey="1" />
-        </Drawer>
-
-        <Popover
-          content={
-            <div
-              style={{
-                maxWidth: 300,
-                height: '600px',
-                overflow: 'auto',
-                paddingInline: 8,
-              }}
-            >
-              <ProHelpContentPanel selectedKey="1" />
-            </div>
-          }
-        >
-          Morse
-        </Popover>
+          <button onClick={() => setDrawerOpen(!drawerOpen)}>打开</button>
+          <button onClick={() => setModalOpen(!modalOpen)}>打开</button>
+          <Modal
+            afterClose={() => {
+              setModalOpen(false);
+            }}
+            bodyStyle={{
+              margin: -24,
+            }}
+            centered
+            closable={false}
+            footer={null}
+            width={720}
+            open={modalOpen}
+            maskClosable
+          >
+            <ProHelpPanel height={648} onClose={() => setModalOpen(false)} />
+          </Modal>
+          <Drawer
+            width={720}
+            closeIcon={null}
+            onClose={() => {
+              setDrawerOpen(false);
+            }}
+            headerStyle={{
+              display: 'none',
+            }}
+            open={drawerOpen}
+            bodyStyle={{
+              padding: 0,
+            }}
+            maskClosable
+          >
+            <ProHelpPanel onClose={() => setDrawerOpen(false)} bordered={false} />
+          </Drawer>
+          <ProHelpPopover selectedKey="1">Morse</ProHelpPopover>
+        </div>
       </ProHelp>
     </div>
   );
