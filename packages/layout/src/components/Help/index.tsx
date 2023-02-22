@@ -13,12 +13,14 @@ import {
   Drawer,
   Modal,
   PopoverProps,
+  ModalProps,
+  DrawerProps,
 } from 'antd';
 import React, { AnchorHTMLAttributes, useContext, useMemo, useState } from 'react';
 import useMergedState from 'rc-util/es/hooks/useMergedState';
 import { ProHelpDataSource, ProHelpDataSourceChildren, ProHelpProvide } from './HelpProvide';
 
-type ProHelpPanelProps = {
+export type ProHelpPanelProps = {
   /**
    * 控制当前选中的帮助文档
    */
@@ -37,7 +39,7 @@ type ProHelpPanelProps = {
   height?: number | string;
 };
 
-type ProHelpProps<ValueType = 'text'> = {
+export type ProHelpProps<ValueType = 'text'> = {
   /**
    * 文档的 json 结构
    */
@@ -46,12 +48,19 @@ type ProHelpProps<ValueType = 'text'> = {
   children?: React.ReactNode;
 };
 
-export const ProHelpContentPanel: React.FC<{
+export type ProHelpContentPanelProps = {
   /**
    * 控制当前选中的帮助文档
    */
   selectedKey: React.Key;
-}> = ({ selectedKey }) => {
+};
+
+/**
+ * 控制具体的帮助文档显示
+ * @param ProHelpContentPanelProps
+ * @returns
+ */
+export const ProHelpContentPanel: React.FC<ProHelpContentPanelProps> = ({ selectedKey }) => {
   const { dataSource } = useContext(ProHelpProvide);
 
   const dataSourceMap = useMemo(() => {
@@ -65,10 +74,11 @@ export const ProHelpContentPanel: React.FC<{
   }, [dataSource]);
   return (
     <div>
-      {dataSourceMap.get(selectedKey)?.map((item) => {
+      {dataSourceMap.get(selectedKey)?.map((item, index) => {
         if (item.valueType === 'h1') {
           return (
             <Typography.Title
+              key={index}
               style={{
                 marginTop: 0,
               }}
@@ -81,6 +91,7 @@ export const ProHelpContentPanel: React.FC<{
         if (item.valueType === 'h2') {
           return (
             <Typography.Title
+              key={index}
               style={{
                 marginTop: 20,
               }}
@@ -93,6 +104,7 @@ export const ProHelpContentPanel: React.FC<{
         if (item.valueType === 'image') {
           return (
             <div
+              key={index}
               style={{
                 marginBlock: 12,
               }}
@@ -103,7 +115,7 @@ export const ProHelpContentPanel: React.FC<{
         }
         if (item.valueType == 'inlineLink') {
           return (
-            <Typography.Text>
+            <Typography.Text key={index}>
               <a {...(item.children as AnchorHTMLAttributes<HTMLAnchorElement>)} />
             </Typography.Text>
           );
@@ -111,13 +123,13 @@ export const ProHelpContentPanel: React.FC<{
         if (item.valueType == 'link') {
           return (
             <div>
-              <Typography.Text>
+              <Typography.Text key={index}>
                 <a {...(item.children as AnchorHTMLAttributes<HTMLAnchorElement>)} />
               </Typography.Text>
             </div>
           );
         }
-        return <Typography.Text>{item.children as string}</Typography.Text>;
+        return <Typography.Text key={index}>{item.children as string}</Typography.Text>;
       })}
     </div>
   );
@@ -266,14 +278,18 @@ export const ProHelp: React.FC<ProHelpProps<'video' | 'list'>> = ({ dataSource, 
   return <ProHelpProvide.Provider value={{ dataSource }}>{props.children}</ProHelpProvide.Provider>;
 };
 
-export const ProHelpPopover: React.FC<
-  Omit<PopoverProps, 'content'> & {
-    children: React.ReactNode;
-    textClassName?: string;
-    textStyle?: React.CSSProperties;
-    selectedKey: string;
-  }
-> = (props) => {
+export type ProHelpPopoverProps = Omit<PopoverProps, 'content'> & {
+  textClassName?: string;
+  textStyle?: React.CSSProperties;
+  selectedKey: string;
+  popoverProps?: PopoverProps;
+};
+/**
+ * 渲染一个弹出式提示框，其中显示了一个ProHelpContentPanel，展示帮助文案的详情
+ * @param popoverProps 要传递给 Drawer 组件的属性。
+ * @param props 要传递给 ProHelpPanel 组件的属性。
+ */
+export const ProHelpPopover: React.FC<ProHelpPopoverProps> = (props) => {
   return (
     <Popover
       overlayInnerStyle={{
@@ -294,7 +310,7 @@ export const ProHelpPopover: React.FC<
           <ProHelpContentPanel selectedKey={props.selectedKey} />
         </div>
       }
-      {...props}
+      {...props.popoverProps}
     >
       <span
         className={classNames('pro-help-popover', props.textClassName)}
@@ -310,9 +326,70 @@ export const ProHelpPopover: React.FC<
   );
 };
 
+export type ProHelpDrawerProps = { drawerProps: DrawerProps } & Omit<ProHelpPanelProps, 'onClose'>;
+/**
+ * 渲染一个抽屉，其中显示了一个 ProHelpPanel。
+ * @param drawerProps 要传递给 Drawer 组件的属性。
+ * @param props 要传递给 ProHelpPanel 组件的属性。
+ */
+export const ProHelpDrawer: React.FC<ProHelpDrawerProps> = ({ drawerProps, ...props }) => {
+  const [drawerOpen, setDrawerOpen] = useMergedState<boolean>(false, {
+    value: drawerProps.open,
+    onChange: drawerProps.afterOpenChange,
+  });
+  return (
+    <Drawer
+      width={720}
+      closeIcon={null}
+      headerStyle={{ display: 'none' }}
+      bodyStyle={{ padding: 0 }}
+      maskClosable
+      {...drawerProps}
+      open={drawerOpen}
+      onClose={() => setDrawerOpen(false)}
+      afterOpenChange={(open) => {
+        setDrawerOpen(open);
+      }}
+    >
+      <ProHelpPanel {...props} onClose={() => setDrawerOpen(false)} bordered={false} />
+    </Drawer>
+  );
+};
+export type ProHelpModalProps = { modalProps: ModalProps } & Omit<ProHelpPanelProps, 'onClose'>;
+/**
+ * 渲染一个模态对话框，其中显示了一个 ProHelpPanel。
+ * @param modalProps 要传递给 Modal 组件的属性。
+ * @param props 要传递给 ProHelpPanel 组件的属性。
+ */
+export const ProHelpModal: React.FC<ProHelpModalProps> = ({ modalProps, ...props }) => {
+  const [modalOpen, setModalOpen] = useMergedState<boolean>(false, {
+    value: modalProps.open,
+    onChange: modalProps.afterClose,
+  });
+  return (
+    <Modal
+      onCancel={() => {
+        setModalOpen(false);
+      }}
+      bodyStyle={{
+        margin: -24,
+      }}
+      centered
+      closable={false}
+      footer={null}
+      width={720}
+      open={modalOpen}
+      maskClosable
+      {...modalProps}
+    >
+      <ProHelpPanel height={648} {...props} onClose={() => setModalOpen(false)} />
+    </Modal>
+  );
+};
+
 export default () => {
-  const [drawerOpen, setDrawerOpen] = useState<boolean>(false);
   const [modalOpen, setModalOpen] = useState<boolean>(false);
+  const [drawerOpen, setDrawerOpen] = useState<boolean>(false);
   return (
     <div
       style={{
@@ -555,39 +632,20 @@ export default () => {
         >
           <button onClick={() => setDrawerOpen(!drawerOpen)}>打开</button>
           <button onClick={() => setModalOpen(!modalOpen)}>打开</button>
-          <Modal
-            afterClose={() => {
-              setModalOpen(false);
+          <ProHelpModal
+            modalProps={{
+              open: modalOpen,
+              afterClose: () => setModalOpen(false),
             }}
-            bodyStyle={{
-              margin: -24,
+          />
+          <ProHelpDrawer
+            drawerProps={{
+              open: drawerOpen,
+              afterOpenChange(open) {
+                setDrawerOpen(open);
+              },
             }}
-            centered
-            closable={false}
-            footer={null}
-            width={720}
-            open={modalOpen}
-            maskClosable
-          >
-            <ProHelpPanel height={648} onClose={() => setModalOpen(false)} />
-          </Modal>
-          <Drawer
-            width={720}
-            closeIcon={null}
-            onClose={() => {
-              setDrawerOpen(false);
-            }}
-            headerStyle={{
-              display: 'none',
-            }}
-            open={drawerOpen}
-            bodyStyle={{
-              padding: 0,
-            }}
-            maskClosable
-          >
-            <ProHelpPanel onClose={() => setDrawerOpen(false)} bordered={false} />
-          </Drawer>
+          />
           <ProHelpPopover selectedKey="1">Morse</ProHelpPopover>
         </div>
       </ProHelp>
