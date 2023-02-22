@@ -21,6 +21,7 @@ import useMergedState from 'rc-util/es/hooks/useMergedState';
 import { ProHelpDataSource, ProHelpDataSourceChildren, ProHelpProvide } from './HelpProvide';
 
 export type ProHelpPanelProps = {
+  defaultSelectedKey?: string;
   /**
    * 控制当前选中的帮助文档
    */
@@ -143,6 +144,7 @@ export const ProHelpPanel: React.FC<ProHelpPanelProps> = ({
 }) => {
   const { dataSource } = useContext(ProHelpProvide);
   const [selectedKey, setSelectedKey] = useMergedState<string>('', {
+    defaultValue: props.defaultSelectedKey,
     value: props.selectedKey,
     onChange: props.onSelectedKeyChange,
   });
@@ -281,7 +283,9 @@ export const ProHelp: React.FC<ProHelpProps<'video' | 'list'>> = ({ dataSource, 
 export type ProHelpPopoverProps = Omit<PopoverProps, 'content'> & {
   textClassName?: string;
   textStyle?: React.CSSProperties;
+
   selectedKey: string;
+
   popoverProps?: PopoverProps;
 };
 /**
