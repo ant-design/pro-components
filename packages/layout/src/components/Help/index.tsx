@@ -21,31 +21,51 @@ import useMergedState from 'rc-util/es/hooks/useMergedState';
 import { ProHelpDataSource, ProHelpDataSourceChildren, ProHelpProvide } from './HelpProvide';
 
 export type ProHelpPanelProps = {
+  /**
+   * 帮助面板首次打开时的默认选中文档的键名
+   */
   defaultSelectedKey?: string;
   /**
-   * 控制当前选中的帮助文档
+   * 当前选中的帮助文档的键名。如果提供了这个 prop，那么该组件将是一个受控组件，其状态将由父组件管理。如果未提供，那么该组件将是一个非受控组件，其状态将在组件内部管理。
    */
   selectedKey?: string;
+  /**
+   * 当选中的文档键名发生变化时调用的回调函数。新的键名将作为参数传递给该函数。
+   */
   onSelectedKeyChange?: (key: string) => void;
   /**
    *控制左侧面板是否能够打开
    */
   showLeftPanel?: boolean;
+  /**
+   * 当左侧面板打开状态发生变化时调用的回调函数。新的打开状态将作为参数传递给该函数。
+   */
   onShowLeftPanelChange?: (show: boolean) => void;
-
+  /**
+   * 是否显示边框
+   */
   bordered?: boolean;
 
+  /**
+   * 当帮助面板关闭时调用的回调函数。
+   */
   onClose?: () => void;
 
+  /**
+   * 帮助面板的高度，可以是数字或字符串类型。
+   */
   height?: number | string;
 };
 
 export type ProHelpProps<ValueType = 'text'> = {
   /**
-   * 文档的 json 结构
+   * 帮助文档的数据源，包含一组帮助文档数据，每个数据包含标题和内容等信息。
    */
   dataSource: ProHelpDataSource<ValueType>[];
 
+  /**
+   * 帮助组件的子组件，用于渲染自定义的帮助内容。
+   */
   children?: React.ReactNode;
 };
 
@@ -57,7 +77,8 @@ export type ProHelpContentPanelProps = {
 };
 
 /**
- * 控制具体的帮助文档显示
+ * 控制具体的帮助文档显示组件
+ * selectedKey 来展示对应的内容。它会根据不同的item.valueType值来展示不同的内容，包括标题、图片、超链接等。
  * @param ProHelpContentPanelProps
  * @returns
  */
@@ -136,6 +157,13 @@ export const ProHelpContentPanel: React.FC<ProHelpContentPanelProps> = ({ select
   );
 };
 
+/**
+ * ProHelpPanel 组件是一个帮助中心面板组件，具有可折叠的左侧菜单和右侧帮助内容区域。
+ * 左侧菜单显示了帮助文档的目录结构，右侧帮助内容区域显示了用户选中的帮助文档内容。
+ * 在左侧菜单中，用户可以通过点击目录来选择并显示相应的文档内容。
+ * @param param0
+ * @returns
+ */
 export const ProHelpPanel: React.FC<ProHelpPanelProps> = ({
   bordered = true,
   onClose,
@@ -281,11 +309,26 @@ export const ProHelp: React.FC<ProHelpProps<'video' | 'list'>> = ({ dataSource, 
 };
 
 export type ProHelpPopoverProps = Omit<PopoverProps, 'content'> & {
+  /**
+   * 悬浮提示文字的 CSS 类名
+   */
   textClassName?: string;
+
+  /**
+   * 悬浮提示文字的 CSS 样式对象
+   */
   textStyle?: React.CSSProperties;
 
+  /**
+   * 当前选中的帮助文档的 key 值
+   */
   selectedKey: string;
 
+  /**
+   * 可选的悬浮提示 Popover 组件的 Props，用于自定义悬浮提示的样式和行为。
+   * 该属性可以传递 Ant Design Popover 组件的 props，如位置、大小、触发方式等等
+   * @see 注意，content 属性已经被从 PopoverProps 中删除，因为这个属性由 ProHelpPopover 内部控制。
+   */
   popoverProps?: PopoverProps;
 };
 /**
@@ -330,7 +373,13 @@ export const ProHelpPopover: React.FC<ProHelpPopoverProps> = (props) => {
   );
 };
 
-export type ProHelpDrawerProps = { drawerProps: DrawerProps } & Omit<ProHelpPanelProps, 'onClose'>;
+export type ProHelpDrawerProps = {
+  /**
+   * Ant Design Drawer 组件的 Props，可以传递一些选项，如位置、大小、关闭方式等等。
+   */
+  drawerProps: DrawerProps;
+} & Omit<ProHelpPanelProps, 'onClose'>;
+
 /**
  * 渲染一个抽屉，其中显示了一个 ProHelpPanel。
  * @param drawerProps 要传递给 Drawer 组件的属性。
@@ -359,7 +408,12 @@ export const ProHelpDrawer: React.FC<ProHelpDrawerProps> = ({ drawerProps, ...pr
     </Drawer>
   );
 };
-export type ProHelpModalProps = { modalProps: ModalProps } & Omit<ProHelpPanelProps, 'onClose'>;
+export type ProHelpModalProps = {
+  /**
+   * Ant Design Modal 组件的 props，可以传递一些选项，如位置、大小、关闭方式等等。
+   */
+  modalProps: ModalProps;
+} & Omit<ProHelpPanelProps, 'onClose'>;
 /**
  * 渲染一个模态对话框，其中显示了一个 ProHelpPanel。
  * @param modalProps 要传递给 Modal 组件的属性。
