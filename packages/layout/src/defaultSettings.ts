@@ -119,6 +119,10 @@ export type PureSettings = {
    */
   splitMenus?: boolean;
   /**
+   * @name 在菜单为空时隐藏Sider
+   */
+  suppressSiderWhenMenuEmpty?: boolean;
+  /**
    * 侧边菜单模式
    */
   siderMenuType?: 'sub' | 'group';

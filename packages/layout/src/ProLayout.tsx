@@ -258,7 +258,15 @@ const footerRender = (props: ProLayoutProps): React.ReactNode => {
 };
 
 const renderSiderMenu = (props: ProLayoutProps, matchMenuKeys: string[]): React.ReactNode => {
-  const { layout, isMobile, selectedKeys, openKeys, splitMenus, menuRender } = props;
+  const {
+    layout,
+    isMobile,
+    selectedKeys,
+    openKeys,
+    splitMenus,
+    suppressSiderWhenMenuEmpty,
+    menuRender,
+  } = props;
   if (props.menuRender === false || props.pure) {
     return null;
   }
@@ -275,8 +283,7 @@ const renderSiderMenu = (props: ProLayoutProps, matchMenuKeys: string[]): React.
   }
   // 这里走了可以少一次循环
   const clearMenuData = clearMenuItem(menuData || []);
-
-  if (clearMenuData && clearMenuData?.length < 1 && splitMenus) {
+  if (clearMenuData && clearMenuData?.length < 1 && (splitMenus || suppressSiderWhenMenuEmpty)) {
     return null;
   }
   if (layout === 'top' && !isMobile) {
