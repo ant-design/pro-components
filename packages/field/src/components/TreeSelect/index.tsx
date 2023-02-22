@@ -17,6 +17,13 @@ import { useIntl } from '@ant-design/pro-provider';
 export type GroupProps = {
   options?: RadioGroupProps['options'];
   radioType?: 'button' | 'radio';
+
+  /**
+   * 当搜索关键词发生变化时是否请求远程数据
+   *
+   * @default true
+   */
+  fetchDataOnSearch?: boolean;
 } & FieldSelectProps;
 
 /**
@@ -25,7 +32,7 @@ export type GroupProps = {
  * @param ref
  */
 const FieldTreeSelect: ProFieldFC<GroupProps> = (
-  { radioType, renderFormItem, mode, light, label, render, ...rest },
+  { radioType, renderFormItem, mode, light, label, render, fetchDataOnSearch = true, ...rest },
   ref,
 ) => {
   const { getPrefixCls } = useContext(ConfigProvider.ConfigContext);
@@ -158,7 +165,9 @@ const FieldTreeSelect: ProFieldFC<GroupProps> = (
           }}
           onChange={onChange}
           onSearch={(value) => {
-            fetchData(value);
+            if (fetchDataOnSearch) {
+              fetchData(value);
+            }
             setSearchValue(value);
           }}
           onBlur={(event) => {
