@@ -359,6 +359,7 @@ function TableRender<T extends Record<string, any>, U, ValueType>(
 }
 
 const emptyObj = {};
+
 const ProTable = <T extends Record<string, any>, U extends ParamsType, ValueType>(
   props: ProTableProps<T, U, ValueType> & {
     defaultClassName: string;
