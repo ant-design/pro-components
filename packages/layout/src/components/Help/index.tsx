@@ -57,12 +57,25 @@ export type ProHelpPanelProps = {
   height?: number | string;
 };
 
-export type ProHelpProps<ValueType = 'text'> = {
+export type ProHelpProps<ValueType> = {
   /**
    * 帮助文档的数据源，包含一组帮助文档数据，每个数据包含标题和内容等信息。
    */
   dataSource: ProHelpDataSource<ValueType>[];
-
+  /**
+   * 帮助组件的子组件，用于渲染自定义的帮助内容。
+   * 是一个键值对结构的集合，其中：
+   * 键（key）为字符串类型；
+   * 值（value）为一个函数类型，该函数接受两个参数：一个名为 item 的 ProHelpDataSourceChildren 类型的对象，表示一个 ProHelp 数据源子项的子项；
+   * 一个名为 index 的数字类型参数，表示该子项在父级子项数组中的索引。
+   * 该函数返回一个 ReactNode 类型的元素，用于表示该 ProHelp 数据源子项子项应该渲染的 UI 元素。
+   * 这个 Map 的作用是将 ProHelp 数据源子项子项的 valueType 属性与对应的渲染函数进行映射，从而实现在渲染 ProHelp 数据源时动态地选择渲染方法。
+   * 在实际使用时，我们可以通过判断子项的 valueType 属性，从 valueTypeMap 中取出对应的渲染函数，再将该子项和渲染函数作为参数传入 renderDataSourceItem 函数中即可。
+   */
+  valueTypeMap?: Map<
+    string,
+    (item: ProHelpDataSourceChildren<ValueType>, index: number) => React.ReactNode
+  >;
   /**
    * 帮助组件的子组件，用于渲染自定义的帮助内容。
    */
@@ -83,7 +96,7 @@ export type ProHelpContentPanelProps = {
  * @returns
  */
 export const ProHelpContentPanel: React.FC<ProHelpContentPanelProps> = ({ selectedKey }) => {
-  const { dataSource } = useContext(ProHelpProvide);
+  const { dataSource, valueTypeMap } = useContext(ProHelpProvide);
 
   const dataSourceMap = useMemo(() => {
     const map = new Map<React.Key, ProHelpDataSourceChildren[]>();
@@ -94,67 +107,75 @@ export const ProHelpContentPanel: React.FC<ProHelpContentPanelProps> = ({ select
     });
     return map;
   }, [dataSource]);
-  return (
-    <div>
-      {dataSourceMap.get(selectedKey)?.map((item, index) => {
-        if (item.valueType === 'h1') {
-          return (
-            <Typography.Title
-              key={index}
-              style={{
-                marginTop: 0,
-              }}
-              level={3}
-            >
-              {item.children as string}
-            </Typography.Title>
-          );
-        }
-        if (item.valueType === 'h2') {
-          return (
-            <Typography.Title
-              key={index}
-              style={{
-                marginTop: 20,
-              }}
-              level={5}
-            >
-              {item.children as string}
-            </Typography.Title>
-          );
-        }
-        if (item.valueType === 'image') {
-          return (
-            <div
-              key={index}
-              style={{
-                marginBlock: 12,
-              }}
-            >
-              <Image {...(item.children as ImageProps)} />
-            </div>
-          );
-        }
-        if (item.valueType == 'inlineLink') {
-          return (
-            <Typography.Text key={index}>
-              <a {...(item.children as AnchorHTMLAttributes<HTMLAnchorElement>)} />
-            </Typography.Text>
-          );
-        }
-        if (item.valueType == 'link') {
-          return (
-            <div>
-              <Typography.Text key={index}>
-                <a {...(item.children as AnchorHTMLAttributes<HTMLAnchorElement>)} />
-              </Typography.Text>
-            </div>
-          );
-        }
-        return <Typography.Text key={index}>{item.children as string}</Typography.Text>;
-      })}
-    </div>
-  );
+  /**
+   * itemRender 的定义
+   * @param {ProHelpDataSourceChildren} item
+   * @param {number} index
+   * @return {*}
+   */
+  const itemRender = (item: ProHelpDataSourceChildren, index: number) => {
+    // 自定义的渲染，优先级最高
+    if (valueTypeMap.has(item.valueType)) {
+      return valueTypeMap.get(item.valueType)?.(item, index);
+    }
+    if (item.valueType === 'h1') {
+      return (
+        <Typography.Title
+          key={index}
+          style={{
+            marginTop: 0,
+          }}
+          level={3}
+        >
+          {item.children as string}
+        </Typography.Title>
+      );
+    }
+    if (item.valueType === 'h2') {
+      return (
+        <Typography.Title
+          key={index}
+          style={{
+            marginTop: 20,
+          }}
+          level={5}
+        >
+          {item.children as string}
+        </Typography.Title>
+      );
+    }
+    if (item.valueType === 'image') {
+      return (
+        <div
+          key={index}
+          style={{
+            marginBlock: 12,
+          }}
+        >
+          <Image {...(item.children as ImageProps)} />
+        </div>
+      );
+    }
+    if (item.valueType == 'inlineLink') {
+      return (
+        <Typography.Text key={index}>
+          <a {...(item.children as AnchorHTMLAttributes<HTMLAnchorElement>)} />
+        </Typography.Text>
+      );
+    }
+    if (item.valueType == 'link') {
+      return (
+        <div key={index}>
+          <Typography.Text key={index}>
+            <a {...(item.children as AnchorHTMLAttributes<HTMLAnchorElement>)} />
+          </Typography.Text>
+        </div>
+      );
+    }
+    return <Typography.Text key={index}>{item.children as string}</Typography.Text>;
+  };
+
+  return <div>{dataSourceMap.get(selectedKey)?.map(itemRender)}</div>;
 };
 
 /**
@@ -304,8 +325,16 @@ export const ProHelpPanel: React.FC<ProHelpPanelProps> = ({
   );
 };
 
-export const ProHelp: React.FC<ProHelpProps<'video' | 'list'>> = ({ dataSource, ...props }) => {
-  return <ProHelpProvide.Provider value={{ dataSource }}>{props.children}</ProHelpProvide.Provider>;
+export const ProHelp = <ValueTypeMap = { text: any },>({
+  dataSource,
+  valueTypeMap = new Map(),
+  ...props
+}: ProHelpProps<ValueTypeMap>) => {
+  return (
+    <ProHelpProvide.Provider value={{ dataSource, valueTypeMap }}>
+      {props.children}
+    </ProHelpProvide.Provider>
+  );
 };
 
 export type ProHelpPopoverProps = Omit<PopoverProps, 'content'> & {
@@ -448,6 +477,73 @@ export const ProHelpModal: React.FC<ProHelpModalProps> = ({ modalProps, ...props
 export default () => {
   const [modalOpen, setModalOpen] = useState<boolean>(false);
   const [drawerOpen, setDrawerOpen] = useState<boolean>(false);
+  const map = new Map<
+    string,
+    (
+      item: ProHelpDataSourceChildren<{
+        video: React.VideoHTMLAttributes<HTMLVideoElement>;
+        list: {
+          title: string;
+          children: {
+            title: string;
+            href: string;
+          }[];
+        };
+      }>,
+      index: number,
+    ) => React.ReactNode
+  >();
+
+  map.set('video', (item) => {
+    return (
+      <video
+        key=""
+        style={{
+          width: '100%',
+        }}
+        controls
+        {...(item.children as React.VideoHTMLAttributes<HTMLVideoElement>)}
+      />
+    );
+  });
+
+  map.set('list', (item) => {
+    const listConfig = item.children as {
+      title: string;
+      children: {
+        title: string;
+        href: string;
+      }[];
+    };
+    return (
+      <div>
+        <h3
+          style={{
+            margin: '8px 0',
+          }}
+        >
+          {listConfig.title}
+        </h3>
+        <div
+          style={{
+            display: 'flex',
+            flexDirection: 'column',
+            gap: 8,
+          }}
+        >
+          {listConfig.children.map((child, index) => {
+            return (
+              <div key={index}>
+                <Typography.Text>
+                  {child.href ? <a href={child.href}>{child.title}</a> : child.title}
+                </Typography.Text>
+              </div>
+            );
+          })}
+        </div>
+      </div>
+    );
+  });
   return (
     <div
       style={{
@@ -457,7 +553,16 @@ export default () => {
         flexDirection: 'column',
       }}
     >
-      <ProHelp
+      <ProHelp<{
+        video: React.VideoHTMLAttributes<HTMLVideoElement>;
+        list: {
+          title: string;
+          children: {
+            title: string;
+            href: string;
+          }[];
+        };
+      }>
         dataSource={[
           {
             title: '常见问题',
@@ -564,6 +669,17 @@ export default () => {
                       children: 'openAPI 注册工具?',
                     },
                   },
+
+                  {
+                    valueType: 'h2',
+                    children: '帮助视频',
+                  },
+                  {
+                    valueType: 'video',
+                    children: {
+                      src: 'https://mdn.alipayobjects.com/huamei_gcee1x/afts/file/A*oJOJRZwe00kAAAAAAAAAAAAADml6AQ',
+                    },
+                  },
                 ],
               },
               {
@@ -650,21 +766,19 @@ export default () => {
                     },
                   },
                   {
-                    valueType: 'h2',
-                    children: '相关问题',
-                  },
-                  {
-                    valueType: 'link',
+                    valueType: 'list',
                     children: {
-                      href: 'www.alipay.com',
-                      children: '鹊凿平台DCI申领操作手册?',
-                    },
-                  },
-                  {
-                    valueType: 'link',
-                    children: {
-                      href: 'www.alipay.com',
-                      children: 'openAPI 注册工具?',
+                      title: '相关问题',
+                      children: [
+                        {
+                          href: 'www.alipay.com',
+                          title: '鹊凿平台DCI申领操作手册?',
+                        },
+                        {
+                          href: 'www.alipay.com',
+                          title: 'openAPI 注册工具?',
+                        },
+                      ],
                     },
                   },
                 ],
@@ -672,6 +786,7 @@ export default () => {
             ],
           },
         ]}
+        valueTypeMap={map}
       >
         <div
           style={{

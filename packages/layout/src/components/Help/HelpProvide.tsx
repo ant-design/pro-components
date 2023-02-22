@@ -59,9 +59,11 @@ type ProHelpDataSourceChildrenType = Extract<keyof ProHelpDataSourceContentType,
  * 则使用 ProHelpDataSourceContentType 中 ProHelpDataSourceChildrenType 所对应的属性类型；
  * 否则，使用 ProHelpDataSourceContentType 中 ValueType 所对应的属性类型。
  */
-type ProHelpDataSourceContentProps<ValueType = 'text'> =
+type ProHelpDataSourceContentProps<ValueTypeMap, ValueType> =
   ValueType extends ProHelpDataSourceChildrenType
     ? ProHelpDataSourceContentType[ValueType]
+    : ValueType extends keyof ValueTypeMap
+    ? ValueTypeMap[ValueType]
     : ProHelpDataSourceContentType[ProHelpDataSourceChildrenType];
 
 /**
@@ -70,17 +72,24 @@ type ProHelpDataSourceContentProps<ValueType = 'text'> =
  * @property {(ValueType | ProHelpDataSourceChildrenType)} valueType 数据源子项值的类型，可以为指定的类型，也可以是自定义类型。
  * @property {ProHelpDataSourceContentProps<ValueType>} children 包含数据源子项内容的对象。
  */
-export type ProHelpDataSourceChildren<ValueType = 'text'> = {
+export type ProHelpDataSourceChildren<
+  ValueType = {
+    text: string;
+  },
+> = {
   /**
    * 包含数据源子项内容的对象。
    * @template ValueType 数据源项值的类型，默认为 'text'。
    */
-  valueType: ValueType | ProHelpDataSourceChildrenType;
+  valueType: keyof ValueType | ProHelpDataSourceChildrenType;
   /**
    * 数据源子项值的类型。
    * @typedef {(ValueType | ProHelpDataSourceChildrenType)} ProHelpDataSourceChildrenType
    */
-  children: ProHelpDataSourceContentProps<ValueType>;
+  children: ProHelpDataSourceContentProps<
+    ValueType,
+    keyof ValueType | ProHelpDataSourceChildrenType
+  >;
 };
 
 /**
@@ -113,8 +122,25 @@ export type ProHelpDataSource<ValueType = 'text'> = {
  * 这段代码定义了一个名为 ProHelpProvide 的 React 上下文对象，并且指定了该上下文对象的初始值为 { dataSource: [] }。
  * 这个上下文对象中包含了一个名为 dataSource 的属性，该属性的值是一个数组，类型为 ProHelpDataSource<any>[]。
  * 该上下文对象通常用于在 React 组件树中共享数据，即可以通过在组件中使用 ProHelpProvide.Provider 包裹一组组件，
- * 将 dataSource 数据源传递给这些组件，这些组件即可从上下文中获取 dataSource 数据源，实现数据的共享和传递。
+ * 将 dataSource 和 valueTypeMap 数据源传递给这些组件，这些组件即可从上下文中获取 dataSource 数据源，实现数据的共享和传递。
  */
 export const ProHelpProvide = React.createContext<{
+  /**
+   * 帮助文档的数据源，包含一组帮助文档数据，每个数据包含标题和内容等信息。
+   */
   dataSource: ProHelpDataSource<any>[];
-}>({ dataSource: [] });
+  /**
+   * 帮助组件的子组件，用于渲染自定义的帮助内容。
+   * 是一个键值对结构的集合，其中：
+   * 键（key）为字符串类型；
+   * 值（value）为一个函数类型，该函数接受两个参数：一个名为 item 的 ProHelpDataSourceChildren 类型的对象，表示一个 ProHelp 数据源子项的子项；
+   * 一个名为 index 的数字类型参数，表示该子项在父级子项数组中的索引。
+   * 该函数返回一个 ReactNode 类型的元素，用于表示该 ProHelp 数据源子项子项应该渲染的 UI 元素。
+   * 这个 Map 的作用是将 ProHelp 数据源子项子项的 valueType 属性与对应的渲染函数进行映射，从而实现在渲染 ProHelp 数据源时动态地选择渲染方法。
+   * 在实际使用时，我们可以通过判断子项的 valueType 属性，从 valueTypeMap 中取出对应的渲染函数，再将该子项和渲染函数作为参数传入 renderDataSourceItem 函数中即可。
+   */
+  valueTypeMap: Map<
+    string,
+    (item: ProHelpDataSourceChildren<any>, index: number) => React.ReactNode
+  >;
+}>({ dataSource: [], valueTypeMap: new Map() });
