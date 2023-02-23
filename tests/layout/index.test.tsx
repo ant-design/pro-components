@@ -2,7 +2,7 @@ import { GithubFilled, InfoCircleFilled, QuestionCircleFilled } from '@ant-desig
 import { ProLayout } from '@ant-design/pro-components';
 import { LoginForm, ProFormText } from '@ant-design/pro-form';
 import { render } from '@testing-library/react';
-import { ConfigProvider } from 'antd';
+import { Button, ConfigProvider } from 'antd';
 import en_US from 'antd/es/locale/en_US';
 import React, { useState } from 'react';
 import { act } from 'react-dom/test-utils';
@@ -1668,5 +1668,69 @@ describe('BasicLayout', () => {
 
     expect(onCollapse).toBeCalledTimes(2);
     expect(html.baseElement.querySelectorAll('li.ant-menu-submenu-open').length).toBe(2);
+  });
+
+  it('🥩 ProLayout support suppressSiderWhenMenuEmpty', async () => {
+    const handleClick = jest.fn();
+    let serviceData = [
+      {
+        path: '/',
+        name: '欢迎',
+        routes: [
+          {
+            path: '/welcome',
+            name: 'one',
+            routes: [
+              {
+                path: '/welcome/welcome',
+                name: 'two',
+                exact: true,
+              },
+            ],
+          },
+        ],
+      },
+      {
+        path: '/demo',
+        name: '例子',
+      },
+    ];
+    const actionRef = React.createRef<{
+      reload: () => void;
+    }>();
+    const html = render(
+      <ProLayout
+        // @ts-ignore
+        actionRef={actionRef}
+        suppressSiderWhenMenuEmpty
+        location={{ pathname: '/' }}
+        menu={{
+          request: async () => {
+            return serviceData;
+          },
+        }}
+      >
+        <Button
+          id="test_btn"
+          onClick={() => {
+            handleClick();
+            serviceData = [];
+            actionRef.current?.reload();
+          }}
+        >
+          刷新菜单
+        </Button>
+      </ProLayout>,
+    );
+
+    await waitForComponentToPaint(html, 1000);
+    expect(html.baseElement.querySelectorAll('.ant-layout-sider').length).toBe(1);
+    act(() => {
+      html.baseElement.querySelector<HTMLDivElement>('#test_btn')?.click();
+    });
+
+    await waitForComponentToPaint(html, 1000);
+    expect(handleClick).toHaveBeenCalled();
+    expect(html.baseElement.querySelectorAll('.ant-layout-sider').length).toBe(0);
   });
 });
