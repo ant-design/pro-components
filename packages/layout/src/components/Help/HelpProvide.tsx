@@ -68,12 +68,12 @@ type ProHelpDataSourceContentProps<ValueTypeMap, ValueType> =
 
 /**
  * ProHelp 数据源子项类型。
- * @template ValueType 数据源项值的类型，默认为 'text'。
+ * @template ValueTypeMap 数据源项值的类型，默认为 'text'。
  * @property {(ValueType | ProHelpDataSourceChildrenType)} valueType 数据源子项值的类型，可以为指定的类型，也可以是自定义类型。
  * @property {ProHelpDataSourceContentProps<ValueType>} children 包含数据源子项内容的对象。
  */
 export type ProHelpDataSourceChildren<
-  ValueType = {
+  ValueTypeMap = {
     text: string;
   },
 > = {
@@ -81,14 +81,16 @@ export type ProHelpDataSourceChildren<
    * 包含数据源子项内容的对象。
    * @template ValueType 数据源项值的类型，默认为 'text'。
    */
-  valueType: keyof ValueType | ProHelpDataSourceChildrenType;
+  valueType: ValueTypeMap extends Map<infer ValueType, any>
+    ? ValueType
+    : keyof ValueTypeMap | ProHelpDataSourceChildrenType;
   /**
    * 数据源子项值的类型。
-   * @typedef {(ValueType | ProHelpDataSourceChildrenType)} ProHelpDataSourceChildrenType
+   * @typedef {(ValueTypeMap | ProHelpDataSourceChildrenType)} ProHelpDataSourceChildrenType
    */
   children: ProHelpDataSourceContentProps<
-    ValueType,
-    keyof ValueType | ProHelpDataSourceChildrenType
+    ValueTypeMap,
+    keyof ValueTypeMap | ProHelpDataSourceChildrenType
   >;
 };
 
