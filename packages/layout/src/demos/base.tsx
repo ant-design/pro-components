@@ -20,7 +20,6 @@ import { css } from '@emotion/css';
 import { Button, Divider, Input, Dropdown, Popover, theme } from 'antd';
 import React, { useState } from 'react';
 import defaultProps from './_defaultProps';
-import Help from '../components/Help';
 
 const Item: React.FC<{ children: React.ReactNode }> = (props) => {
   const { token } = theme.useToken();

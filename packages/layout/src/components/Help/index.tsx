@@ -19,6 +19,9 @@ import {
 import React, { AnchorHTMLAttributes, useContext, useMemo, useState } from 'react';
 import useMergedState from 'rc-util/es/hooks/useMergedState';
 import { ProHelpDataSource, ProHelpDataSourceChildren, ProHelpProvide } from './HelpProvide';
+import { useStyle } from './style';
+
+export { ProHelpDataSourceChildren, ProHelpDataSource, ProHelpProvide };
 
 export type ProHelpPanelProps = {
   /**
@@ -191,6 +194,9 @@ export const ProHelpPanel: React.FC<ProHelpPanelProps> = ({
   height,
   ...props
 }) => {
+  const { getPrefixCls } = useContext(ConfigProvider.ConfigContext);
+  const className = getPrefixCls('pro-help');
+  const { wrapSSR } = useStyle(className);
   const { dataSource } = useContext(ProHelpProvide);
   const [selectedKey, setSelectedKey] = useMergedState<string>('', {
     defaultValue: props.defaultSelectedKey,
@@ -203,7 +209,7 @@ export const ProHelpPanel: React.FC<ProHelpPanelProps> = ({
     value: props.showLeftPanel,
     onChange: props.onShowLeftPanelChange,
   });
-  return (
+  return wrapSSR(
     <ProCard
       bordered={bordered}
       headerBordered
@@ -241,12 +247,9 @@ export const ProHelpPanel: React.FC<ProHelpPanelProps> = ({
     >
       {showLeftPanel ? (
         <div
+          className={`${className}-left-panel`}
           style={{
-            overflow: 'auto',
-            borderInlineEnd: `${token?.lineWidth}px solid ${token?.colorBorderSecondary}`,
-            minHeight: '648px',
             height,
-            minWidth: 190,
           }}
         >
           <ConfigProvider
@@ -277,12 +280,7 @@ export const ProHelpPanel: React.FC<ProHelpPanelProps> = ({
             }}
           >
             <Menu
-              style={{
-                width: 190,
-                minWidth: 190,
-                height: 'calc(100% - 40px)',
-                marginBlock: 20,
-              }}
+              className={`${className}-left-panel-menu`}
               openKeys={[openKey]}
               onOpenChange={(keys) => {
                 setOpenKey(keys.at(-1) || '');
@@ -309,19 +307,14 @@ export const ProHelpPanel: React.FC<ProHelpPanelProps> = ({
         </div>
       ) : null}
       <div
+        className={`${className}-content-panel`}
         style={{
-          padding: '20px 24px',
-          maxWidth: '800px',
-          minWidth: '400px',
-          overflow: 'auto',
-          minHeight: '648px',
           height,
-          flex: 1,
         }}
       >
         <ProHelpContentPanel selectedKey={selectedKey} />
       </div>
-    </ProCard>
+    </ProCard>,
   );
 };
 
@@ -337,32 +330,16 @@ export const ProHelp = <ValueTypeMap = { text: any },>({
   );
 };
 
-type PropEventSource<Type> = {
-  on<Key extends string & keyof Type>(
-    eventName: `${Key}Changed`,
-    callback: (newValue: Type[Key]) => void,
-  ): void;
-};
-
-declare function makeWatchedObject<Type>(obj: Type): Type & PropEventSource<Type>;
-
-const person = makeWatchedObject({
-  firstName: 'Saoirse',
-  lastName: 'Ronan',
-  age: 26,
-});
-
-person.on('ageChanged', (newAge) => {
-  if (newAge < 0) {
-    console.warn('warning! negative age');
-  }
-});
-
 export type ProHelpPopoverProps = Omit<PopoverProps, 'content'> & {
   /**
    * 悬浮提示文字的 CSS 类名
    */
   textClassName?: string;
+
+  /**
+   * Popover 内容的 content 的 CSS 类名
+   */
+  popoverContextClassName?: string;
 
   /**
    * 悬浮提示文字的 CSS 样式对象
@@ -387,39 +364,25 @@ export type ProHelpPopoverProps = Omit<PopoverProps, 'content'> & {
  * @param props 要传递给 ProHelpPanel 组件的属性。
  */
 export const ProHelpPopover: React.FC<ProHelpPopoverProps> = (props) => {
-  return (
+  const { getPrefixCls } = useContext(ConfigProvider.ConfigContext);
+  const className = getPrefixCls('pro-help');
+  const { wrapSSR } = useStyle(className);
+  return wrapSSR(
     <Popover
       overlayInnerStyle={{
         padding: 0,
       }}
       content={
-        <div
-          style={{
-            maxWidth: 300,
-            height: '600px',
-            maxHeight: 'calc(100vh - 200px)',
-            overflow: 'auto',
-            paddingInline: 20,
-            paddingBlockStart: 24,
-            paddingBlockEnd: 32,
-          }}
-        >
+        <div className={classNames(`${className}-popover-content`, props.popoverContextClassName)}>
           <ProHelpContentPanel selectedKey={props.selectedKey} />
         </div>
       }
       {...props.popoverProps}
     >
-      <span
-        className={classNames('pro-help-popover', props.textClassName)}
-        style={{
-          color: '#1890ff',
-          cursor: 'pointer',
-          ...props.textStyle,
-        }}
-      >
+      <span className={classNames(`${className}-popover-text`, props.textClassName)}>
         {props.children}
       </span>
-    </Popover>
+    </Popover>,
   );
 };
 
@@ -492,357 +455,5 @@ export const ProHelpModal: React.FC<ProHelpModalProps> = ({ modalProps, ...props
     >
       <ProHelpPanel height={648} {...props} onClose={() => setModalOpen(false)} />
     </Modal>
-  );
-};
-
-export default () => {
-  const [modalOpen, setModalOpen] = useState<boolean>(false);
-  const [drawerOpen, setDrawerOpen] = useState<boolean>(false);
-  const map = new Map<
-    string,
-    (
-      item: ProHelpDataSourceChildren<{
-        video: React.VideoHTMLAttributes<HTMLVideoElement>;
-        list: {
-          title: string;
-          children: {
-            title: string;
-            href: string;
-          }[];
-        };
-      }>,
-      index: number,
-    ) => React.ReactNode
-  >();
-
-  map.set('video', (item) => {
-    return (
-      <video
-        key=""
-        style={{
-          width: '100%',
-        }}
-        controls
-        {...(item.children as React.VideoHTMLAttributes<HTMLVideoElement>)}
-      />
-    );
-  });
-
-  map.set('list', (item) => {
-    const listConfig = item.children as {
-      title: string;
-      children: {
-        title: string;
-        href: string;
-      }[];
-    };
-    return (
-      <div>
-        <h3
-          style={{
-            margin: '8px 0',
-          }}
-        >
-          {listConfig.title}
-        </h3>
-        <div
-          style={{
-            display: 'flex',
-            flexDirection: 'column',
-            gap: 8,
-          }}
-        >
-          {listConfig.children.map((child, index) => {
-            return (
-              <div key={index}>
-                <Typography.Text>
-                  {child.href ? <a href={child.href}>{child.title}</a> : child.title}
-                </Typography.Text>
-              </div>
-            );
-          })}
-        </div>
-      </div>
-    );
-  });
-  return (
-    <div
-      style={{
-        margin: 24,
-        display: 'flex',
-        gap: 24,
-        flexDirection: 'column',
-      }}
-    >
-      <ProHelp<{
-        video: React.VideoHTMLAttributes<HTMLVideoElement>;
-        list: {
-          title: string;
-          children: {
-            title: string;
-            href: string;
-          }[];
-        };
-      }>
-        dataSource={[
-          {
-            title: '常见问题',
-            key: 'default',
-            children: [
-              {
-                title: '如何开始操作数据授权？',
-                key: '1',
-                children: [
-                  {
-                    valueType: 'h1',
-                    children: '如何开始操作数据授权？',
-                  },
-                  {
-                    valueType: 'text',
-                    children: `需要进行数据合作的数据提供方（数据源）和数据需求方双方都需要先安装部署`,
-                  },
-                  {
-                    valueType: 'inlineLink',
-                    children: {
-                      href: 'https://www.alipay.com',
-                      children: '摩斯产品',
-                    },
-                  },
-                  {
-                    valueType: 'text',
-                    children:
-                      '节点。并将各自的摩斯计算节点、子账号等的版本信息、业务需求、数据量级（几行几列）等信息同步给到摩斯产运负责人。',
-                  },
-                  {
-                    valueType: 'image',
-                    children: {
-                      src: 'https://mdn.alipayobjects.com/huamei_gcee1x/afts/img/A*Jj_qRqbIRqkAAAAAAAAAAAAADml6AQ/original',
-                      style: {
-                        maxWidth: 600,
-                      },
-                    },
-                  },
-                  {
-                    valueType: 'text',
-                    children: `需要进行数据合作的数据提供方（数据源）和数据需求方双方都需要先安装部署`,
-                  },
-                  {
-                    valueType: 'inlineLink',
-                    children: {
-                      href: 'https://www.alipay.com',
-                      children: '摩斯产品',
-                    },
-                  },
-                  {
-                    valueType: 'text',
-                    children:
-                      '节点。并将各自的摩斯计算节点、子账号等的版本信息、业务需求、数据量级（几行几列）等信息同步给到摩斯产运负责人。',
-                  },
-                  {
-                    valueType: 'image',
-                    children: {
-                      src: 'https://mdn.alipayobjects.com/huamei_gcee1x/afts/img/A*Jj_qRqbIRqkAAAAAAAAAAAAADml6AQ/original',
-                      style: {
-                        maxWidth: 600,
-                      },
-                    },
-                  },
-                  {
-                    valueType: 'text',
-                    children: `需要进行数据合作的数据提供方（数据源）和数据需求方双方都需要先安装部署`,
-                  },
-                  {
-                    valueType: 'inlineLink',
-                    children: {
-                      href: 'https://www.alipay.com',
-                      children: '摩斯产品',
-                    },
-                  },
-                  {
-                    valueType: 'text',
-                    children:
-                      '节点。并将各自的摩斯计算节点、子账号等的版本信息、业务需求、数据量级（几行几列）等信息同步给到摩斯产运负责人。',
-                  },
-                  {
-                    valueType: 'image',
-                    children: {
-                      src: 'https://mdn.alipayobjects.com/huamei_gcee1x/afts/img/A*Jj_qRqbIRqkAAAAAAAAAAAAADml6AQ/original',
-                      style: {
-                        maxWidth: 600,
-                      },
-                    },
-                  },
-                  {
-                    valueType: 'h2',
-                    children: '相关问题',
-                  },
-                  {
-                    valueType: 'link',
-                    children: {
-                      href: 'www.alipay.com',
-                      children: '鹊凿平台DCI申领操作手册?',
-                    },
-                  },
-                  {
-                    valueType: 'link',
-                    children: {
-                      href: 'www.alipay.com',
-                      children: 'openAPI 注册工具?',
-                    },
-                  },
-
-                  {
-                    valueType: 'h2',
-                    children: '帮助视频',
-                  },
-                  {
-                    valueType: 'video',
-                    children: {
-                      src: 'https://mdn.alipayobjects.com/huamei_gcee1x/afts/file/A*oJOJRZwe00kAAAAAAAAAAAAADml6AQ',
-                    },
-                  },
-                ],
-              },
-              {
-                title: '证据包内包含哪些内容，如何下载证据包？',
-                key: '2',
-                children: [
-                  {
-                    valueType: 'h1',
-                    children: '证据包内包含哪些内容，如何下载证据包？',
-                  },
-                  {
-                    valueType: 'text',
-                    children: `需要进行数据合作的数据提供方（数据源）和数据需求方双方都需要先安装部署`,
-                  },
-                  {
-                    valueType: 'inlineLink',
-                    children: {
-                      href: 'https://www.alipay.com',
-                      children: '摩斯产品',
-                    },
-                  },
-                  {
-                    valueType: 'text',
-                    children:
-                      '节点。并将各自的摩斯计算节点、子账号等的版本信息、业务需求、数据量级（几行几列）等信息同步给到摩斯产运负责人。',
-                  },
-                  {
-                    valueType: 'image',
-                    children: {
-                      src: 'https://mdn.alipayobjects.com/huamei_gcee1x/afts/img/A*Jj_qRqbIRqkAAAAAAAAAAAAADml6AQ/original',
-                      style: {
-                        maxWidth: 600,
-                      },
-                    },
-                  },
-                  {
-                    valueType: 'text',
-                    children: `需要进行数据合作的数据提供方（数据源）和数据需求方双方都需要先安装部署`,
-                  },
-                  {
-                    valueType: 'inlineLink',
-                    children: {
-                      href: 'https://www.alipay.com',
-                      children: '摩斯产品',
-                    },
-                  },
-                  {
-                    valueType: 'text',
-                    children:
-                      '节点。并将各自的摩斯计算节点、子账号等的版本信息、业务需求、数据量级（几行几列）等信息同步给到摩斯产运负责人。',
-                  },
-                  {
-                    valueType: 'image',
-                    children: {
-                      src: 'https://mdn.alipayobjects.com/huamei_gcee1x/afts/img/A*Jj_qRqbIRqkAAAAAAAAAAAAADml6AQ/original',
-                      style: {
-                        maxWidth: 600,
-                      },
-                    },
-                  },
-                  {
-                    valueType: 'text',
-                    children: `需要进行数据合作的数据提供方（数据源）和数据需求方双方都需要先安装部署`,
-                  },
-                  {
-                    valueType: 'inlineLink',
-                    children: {
-                      href: 'https://www.alipay.com',
-                      children: '摩斯产品',
-                    },
-                  },
-                  {
-                    valueType: 'text',
-                    children:
-                      '节点。并将各自的摩斯计算节点、子账号等的版本信息、业务需求、数据量级（几行几列）等信息同步给到摩斯产运负责人。',
-                  },
-                  {
-                    valueType: 'image',
-                    children: {
-                      src: 'https://mdn.alipayobjects.com/huamei_gcee1x/afts/img/A*Jj_qRqbIRqkAAAAAAAAAAAAADml6AQ/original',
-                      style: {
-                        maxWidth: 600,
-                      },
-                    },
-                  },
-                  {
-                    valueType: 'list',
-                    children: {
-                      title: '相关问题',
-                      children: [
-                        {
-                          href: 'www.alipay.com',
-                          title: '鹊凿平台DCI申领操作手册?',
-                        },
-                        {
-                          href: 'www.alipay.com',
-                          title: 'openAPI 注册工具?',
-                        },
-                      ],
-                    },
-                  },
-                ],
-              },
-            ],
-          },
-        ]}
-        valueTypeMap={map}
-      >
-        <div
-          style={{
-            width: 600,
-          }}
-        >
-          <ProHelpPanel height={648} />
-        </div>
-        <div
-          style={{
-            display: 'flex',
-            gap: 16,
-            width: 600,
-            justifyContent: 'space-between',
-          }}
-        >
-          <button onClick={() => setDrawerOpen(!drawerOpen)}>打开</button>
-          <button onClick={() => setModalOpen(!modalOpen)}>打开</button>
-          <ProHelpModal
-            modalProps={{
-              open: modalOpen,
-              afterClose: () => setModalOpen(false),
-            }}
-          />
-          <ProHelpDrawer
-            drawerProps={{
-              open: drawerOpen,
-              afterOpenChange(open) {
-                setDrawerOpen(open);
-              },
-            }}
-          />
-          <ProHelpPopover selectedKey="1">Morse</ProHelpPopover>
-        </div>
-      </ProHelp>
-    </div>
   );
 };
