@@ -11,6 +11,7 @@ import ProForm, {
   ProFormField,
   ProFormSelect,
   ProFormText,
+  ProFormTreeSelect,
 } from '@ant-design/pro-form';
 import { act, fireEvent, render } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
@@ -2715,5 +2716,139 @@ describe('ProForm', () => {
     expect(dom.value).toBe('22');
     expect(fn).toBeCalledWith(22);
     expect(html.asFragment()).toMatchSnapshot();
+  });
+
+  it('📦 ProFormTreeSelect support fetchDataOnSearch: false', async () => {
+    const onRequest = jest.fn();
+    const wrapper = render(
+      <ProForm>
+        <ProFormTreeSelect
+          name="userQuery"
+          label="查询选择器"
+          fieldProps={{
+            showSearch: true,
+            fetchDataOnSearch: false,
+          }}
+          request={async () => {
+            onRequest();
+            return [
+              {
+                value: 'parent 1',
+                title: 'parent 1',
+                children: [
+                  {
+                    value: 'parent 1-0',
+                    title: 'parent 1-0',
+                    children: [
+                      {
+                        value: 'leaf1',
+                        title: 'leaf1',
+                      },
+                      {
+                        value: 'leaf2',
+                        title: 'leaf2',
+                      },
+                    ],
+                  },
+                  {
+                    value: 'parent 1-1',
+                    title: 'parent 1-1',
+                    children: [
+                      {
+                        value: 'leaf3',
+                        title: <b style={{ color: '#08c' }}>leaf3</b>,
+                      },
+                    ],
+                  },
+                ],
+              },
+            ];
+          }}
+        />
+      </ProForm>,
+    );
+
+    act(() => {
+      fireEvent.change(wrapper.baseElement.querySelector('.ant-select-selection-search-input')!, {
+        target: {
+          value: 'p',
+        },
+      });
+    });
+
+    expect(onRequest.mock.calls.length).toBe(1);
+  });
+
+  it('📦 ProFormTreeSelect support fetchDataOnSearch: true', async () => {
+    const onRequest = jest.fn();
+    const wrapper = render(
+      <ProForm>
+        <ProFormTreeSelect
+          name="userQuery"
+          label="查询选择器"
+          fieldProps={{
+            showSearch: true,
+            fetchDataOnSearch: true,
+          }}
+          request={async () => {
+            onRequest();
+            return [
+              {
+                value: 'parent 1',
+                title: 'parent 1',
+                children: [
+                  {
+                    value: 'parent 1-0',
+                    title: 'parent 1-0',
+                    children: [
+                      {
+                        value: 'leaf1',
+                        title: 'leaf1',
+                      },
+                      {
+                        value: 'leaf2',
+                        title: 'leaf2',
+                      },
+                    ],
+                  },
+                  {
+                    value: 'parent 1-1',
+                    title: 'parent 1-1',
+                    children: [
+                      {
+                        value: 'leaf3',
+                        title: <b style={{ color: '#08c' }}>leaf3</b>,
+                      },
+                    ],
+                  },
+                ],
+              },
+            ];
+          }}
+        />
+      </ProForm>,
+    );
+
+    act(() => {
+      fireEvent.change(wrapper.baseElement.querySelector('.ant-select-selection-search-input')!, {
+        target: {
+          value: 'l',
+        },
+      });
+    });
+
+    await act(async () => {
+      await waitTime(200);
+    });
+    act(() => {
+      fireEvent.mouseDown(wrapper.baseElement.querySelectorAll('.ant-select-selector')[0], {});
+    });
+
+    await act(async () => {
+      await waitTime(200);
+    });
+
+    expect(onRequest.mock.calls.length).toBe(3);
+    wrapper.unmount();
   });
 });
