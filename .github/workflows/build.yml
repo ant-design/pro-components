@@ -39,7 +39,7 @@ jobs:
         if: |
           steps.cache-pnpm-cache.outputs.cache-hit != 'true' ||
           steps.cache-node-modules.outputs.cache-hit != 'true'
-      - run: pnpm run build && pnpm --filter "./packages/**/**" build
+      - run: pnpm run build && pnpm --filter "./packages/**" build
         env:
           PRO_COMPONENTS_CI: CI
       - run: pnpm run lint
