@@ -16061,6 +16061,136 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/customSider.tsx c
                 />
               </div>
               <div
+                class="ant-pro-sider-actions"
+              >
+                <div
+                  class="ant-space ant-space-horizontal ant-space-align-center ant-pro-sider-actions-list"
+                >
+                  <div
+                    class="ant-space-item"
+                  >
+                    <div
+                      class="ant-pro-sider-actions-list-item "
+                    >
+                      <div
+                        style="height: 200px;"
+                      >
+                        <div
+                          class="ant-image"
+                          style="width: 100%; height: 132px;"
+                        >
+                          <img
+                            class="ant-image-img"
+                            height="132"
+                            src="https://gw.alipayobjects.com/zos/bmw-prod/d283f09a-64d6-4d59-bfc7-37b49ea0da2b.svg"
+                            style="height: 132px;"
+                            width="100%"
+                          />
+                        </div>
+                        <div
+                          class="ant-space ant-space-horizontal ant-space-align-center"
+                          style="width: 100%; margin-block-start: 32px;"
+                        >
+                          <div
+                            class="ant-space-item"
+                            style="margin-right: 16px;"
+                          >
+                            <span
+                              class="ant-avatar ant-avatar-sm ant-avatar-circle ant-avatar-image"
+                            >
+                              <img
+                                src="https://gw.alipayobjects.com/zos/antfincdn/efFD%24IOql2/weixintupian_20170331104822.jpg"
+                              />
+                            </span>
+                          </div>
+                          <div
+                            class="ant-space-item"
+                            style="margin-right: 16px;"
+                          >
+                            <div
+                              style="font-size: 14px; margin-inline-end: 32px;"
+                            >
+                              七妮妮
+                            </div>
+                          </div>
+                          <div
+                            class="ant-space-item"
+                            style="margin-right: 16px;"
+                          >
+                            <span
+                              aria-label="info-circle"
+                              class="anticon anticon-info-circle"
+                              role="img"
+                            >
+                              <svg
+                                aria-hidden="true"
+                                data-icon="info-circle"
+                                fill="currentColor"
+                                focusable="false"
+                                height="1em"
+                                viewBox="64 64 896 896"
+                                width="1em"
+                              >
+                                <path
+                                  d="M512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm32 664c0 4.4-3.6 8-8 8h-48c-4.4 0-8-3.6-8-8V456c0-4.4 3.6-8 8-8h48c4.4 0 8 3.6 8 8v272zm-32-344a48.01 48.01 0 010-96 48.01 48.01 0 010 96z"
+                                />
+                              </svg>
+                            </span>
+                          </div>
+                          <div
+                            class="ant-space-item"
+                            style="margin-right: 16px;"
+                          >
+                            <span
+                              aria-label="question-circle"
+                              class="anticon anticon-question-circle"
+                              role="img"
+                            >
+                              <svg
+                                aria-hidden="true"
+                                data-icon="question-circle"
+                                fill="currentColor"
+                                focusable="false"
+                                height="1em"
+                                viewBox="64 64 896 896"
+                                width="1em"
+                              >
+                                <path
+                                  d="M512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm0 708c-22.1 0-40-17.9-40-40s17.9-40 40-40 40 17.9 40 40-17.9 40-40 40zm62.9-219.5a48.3 48.3 0 00-30.9 44.8V620c0 4.4-3.6 8-8 8h-48c-4.4 0-8-3.6-8-8v-21.5c0-23.1 6.7-45.9 19.9-64.9 12.9-18.6 30.9-32.8 52.1-40.9 34-13.1 56-41.6 56-72.7 0-44.1-43.1-80-96-80s-96 35.9-96 80v7.6c0 4.4-3.6 8-8 8h-48c-4.4 0-8-3.6-8-8V420c0-39.3 17.2-76 48.4-103.3C430.4 290.4 470 276 512 276s81.6 14.5 111.6 40.7C654.8 344 672 380.7 672 420c0 57.8-38.1 109.8-97.1 132.5z"
+                                />
+                              </svg>
+                            </span>
+                          </div>
+                          <div
+                            class="ant-space-item"
+                          >
+                            <span
+                              aria-label="github"
+                              class="anticon anticon-github"
+                              role="img"
+                            >
+                              <svg
+                                aria-hidden="true"
+                                data-icon="github"
+                                fill="currentColor"
+                                focusable="false"
+                                height="1em"
+                                viewBox="64 64 896 896"
+                                width="1em"
+                              >
+                                <path
+                                  d="M511.6 76.3C264.3 76.2 64 276.4 64 523.5 64 718.9 189.3 885 363.8 946c23.5 5.9 19.9-10.8 19.9-22.2v-77.5c-135.7 15.9-141.2-73.9-150.3-88.9C215 726 171.5 718 184.5 703c30.9-15.9 62.4 4 98.9 57.9 26.4 39.1 77.9 32.5 104 26 5.7-23.5 17.9-44.5 34.7-60.8-140.6-25.2-199.2-111-199.2-213 0-49.5 16.3-95 48.3-131.7-20.4-60.5 1.9-112.3 4.9-120 58.1-5.2 118.5 41.6 123.2 45.3 33-8.9 70.7-13.6 112.9-13.6 42.4 0 80.2 4.9 113.5 13.9 11.3-8.6 67.3-48.8 121.3-43.9 2.9 7.7 24.7 58.3 5.5 118 32.4 36.8 48.9 82.7 48.9 132.3 0 102.2-59 188.1-200 212.9a127.5 127.5 0 0138.1 91v112.5c.8 9 0 17.9 15 17.9 177.1-59.7 304.6-227 304.6-424.1 0-247.2-200.4-447.3-447.5-447.3z"
+                                />
+                              </svg>
+                            </span>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div
                 class="ant-pro-sider-collapsed-button"
               >
                 <svg
@@ -21571,6 +21701,29 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/dynamicMenu.tsx c
                   <div
                     class="ant-pro-page-container-children-content "
                   >
+                    <div>
+                      当从服务器获取的菜单为空时隐藏Sider：
+                      <button
+                        aria-checked="false"
+                        class="ant-switch"
+                        role="switch"
+                        type="button"
+                      >
+                        <div
+                          class="ant-switch-handle"
+                        />
+                        <span
+                          class="ant-switch-inner"
+                        >
+                          <span
+                            class="ant-switch-inner-checked"
+                          />
+                          <span
+                            class="ant-switch-inner-unchecked"
+                          />
+                        </span>
+                      </button>
+                    </div>
                     Hello World
                     <button
                       class="ant-btn ant-btn-default"
@@ -21579,6 +21732,15 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/dynamicMenu.tsx c
                     >
                       <span>
                         刷新菜单
+                      </span>
+                    </button>
+                    <button
+                      class="ant-btn ant-btn-default"
+                      style="margin: 8px;"
+                      type="button"
+                    >
+                      <span>
+                        刷新菜单（空数据）
                       </span>
                     </button>
                   </div>
