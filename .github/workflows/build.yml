@@ -4,7 +4,12 @@ on: [push, pull_request]
 
 jobs:
   build:
-    runs-on: ubuntu-latest
+    runs-on: ${{ matrix.os }}
+    strategy:
+      matrix:
+        node-version: [14.x, 16.x]
+        os: [ubuntu-latest, windows-latest]
+      fail-fast: false
     steps:
       - uses: actions/checkout@v3
         with:
@@ -39,7 +44,7 @@ jobs:
         if: |
           steps.cache-pnpm-cache.outputs.cache-hit != 'true' ||
           steps.cache-node-modules.outputs.cache-hit != 'true'
-      - run: pnpm run build && pnpm --filter "./packages/**" build
+      - run: pnpm run build
         env:
           PRO_COMPONENTS_CI: CI
       - run: pnpm run lint
