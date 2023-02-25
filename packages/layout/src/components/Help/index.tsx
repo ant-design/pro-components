@@ -21,7 +21,8 @@ import useMergedState from 'rc-util/es/hooks/useMergedState';
 import { ProHelpDataSource, ProHelpDataSourceChildren, ProHelpProvide } from './HelpProvide';
 import { useStyle } from './style';
 
-export { ProHelpDataSourceChildren, ProHelpDataSource, ProHelpProvide };
+export type { ProHelpDataSource, ProHelpDataSourceChildren };
+export { ProHelpProvide };
 
 export type ProHelpPanelProps = {
   /**

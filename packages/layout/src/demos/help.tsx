@@ -8,6 +8,7 @@ import {
   ProHelpPopover,
 } from '@ant-design/pro-components';
 import { Typography } from 'antd';
+import { ProHelpSelect } from '../components/Help/Search';
 
 export default () => {
   const [modalOpen, setModalOpen] = useState<boolean>(false);
@@ -323,6 +324,7 @@ export default () => {
         ]}
         valueTypeMap={map}
       >
+        <ProHelpSelect />
         <div
           style={{
             width: 600,
