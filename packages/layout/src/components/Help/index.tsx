@@ -20,6 +20,7 @@ import React, { AnchorHTMLAttributes, useContext, useMemo, useState } from 'reac
 import useMergedState from 'rc-util/es/hooks/useMergedState';
 import { ProHelpDataSource, ProHelpDataSourceChildren, ProHelpProvide } from './HelpProvide';
 import { useStyle } from './style';
+import { ProHelpSelect } from './Search';
 
 export type { ProHelpDataSource, ProHelpDataSourceChildren };
 export { ProHelpProvide };
@@ -235,7 +236,13 @@ export const ProHelpPanel: React.FC<ProHelpPanelProps> = ({
               setShowLeftPanel(!showLeftPanel);
             }}
           />
-          <SearchOutlined />
+          <ProHelpSelect
+            value={selectedKey}
+            onChange={(value, item) => {
+              setSelectedKey(value);
+              setOpenKey((item as any)?.dataItemKey);
+            }}
+          />
           {onClose ? (
             <CloseOutlined
               onClick={() => {
