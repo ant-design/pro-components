@@ -34,7 +34,7 @@
     "ie >= 11"
   ],
   "dependencies": {
-    "@ant-design/icons": "^4.2.1",
+    "@ant-design/icons": "^5.0.0",
     "@ant-design/pro-field": "2.2.9",
     "@ant-design/pro-provider": "2.4.3",
     "@ant-design/pro-utils": "2.5.8",
