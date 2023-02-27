@@ -32,7 +32,7 @@
     "ie >= 11"
   ],
   "dependencies": {
-    "@ant-design/icons": "^4.0.0",
+    "@ant-design/icons": "^5.0.0",
     "@ant-design/pro-card": "2.1.14",
     "@ant-design/pro-field": "2.2.9",
     "@ant-design/pro-table": "3.3.1",
