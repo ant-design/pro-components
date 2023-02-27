@@ -1,6 +1,6 @@
 ﻿import { DrawerForm, ProFormText } from '@ant-design/pro-form';
 import { act, render } from '@testing-library/react';
-import { waitForComponentToPaint, waitTime } from '../util';
+import { waitTime } from '../util';
 
 describe('DrawerForm', () => {
   it('📦 DrawerForm submitTimeout is number will disabled close button when submit', async () => {
@@ -19,13 +19,13 @@ describe('DrawerForm', () => {
         <ProFormText name="text" />
       </DrawerForm>,
     );
-    await waitForComponentToPaint(html, 500);
+    await waitTime(300);
 
     await act(async () => {
       (await html.queryByText('确 认'))?.click();
     });
 
-    await waitForComponentToPaint(html, 1000);
+    await waitTime(1000);
 
     expect(
       (html.queryAllByText('取 消').at(0)?.parentElement as HTMLButtonElement).disabled,
@@ -35,11 +35,11 @@ describe('DrawerForm', () => {
       (await html.queryByText('取 消'))?.click();
     });
 
-    await waitForComponentToPaint(html, 500);
+    await waitTime(300);
 
     expect(fn).not.toBeCalled();
 
-    await waitForComponentToPaint(html, 2500);
+    await waitTime(2500);
 
     expect(
       (html.queryAllByText('取 消').at(0)?.parentElement as HTMLButtonElement)?.disabled,
@@ -49,7 +49,7 @@ describe('DrawerForm', () => {
       (await html.queryByText('取 消'))?.click();
     });
 
-    await waitForComponentToPaint(html, 1000);
+    await waitTime(1000);
 
     expect(fn).toBeCalled();
     html.unmount();
@@ -71,13 +71,13 @@ describe('DrawerForm', () => {
         <ProFormText name="text" />
       </DrawerForm>,
     );
-    await waitForComponentToPaint(wrapper, 500);
+    await waitTime(1200);
 
     await act(async () => {
       (await wrapper.queryByText('确 认'))?.click();
     });
 
-    await waitForComponentToPaint(wrapper, 500);
+    await waitTime(1200);
 
     expect((wrapper.queryAllByText('取 消').at(0) as HTMLButtonElement)?.disabled).toEqual(
       undefined,
@@ -87,7 +87,7 @@ describe('DrawerForm', () => {
       (await wrapper.queryByText('取 消'))?.click();
     });
 
-    await waitForComponentToPaint(wrapper, 500);
+    await waitTime(1200);
 
     expect(fn).toBeCalled();
   });

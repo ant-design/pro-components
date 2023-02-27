@@ -6,7 +6,7 @@ import { Button, ConfigProvider } from 'antd';
 import en_US from 'antd/es/locale/en_US';
 import React, { useState } from 'react';
 import { act } from 'react-dom/test-utils';
-import { waitForComponentToPaint } from '../util';
+import { waitTime } from '../util';
 import { bigDefaultProps } from './defaultProps';
 
 describe('BasicLayout', () => {
@@ -43,7 +43,7 @@ describe('BasicLayout', () => {
         }}
       />,
     );
-    await waitForComponentToPaint(wrapper, 1000);
+    await waitTime(1000);
     expect(wrapper.baseElement.querySelector('.ant-skeleton')).toMatchSnapshot();
     wrapper.unmount();
   });
@@ -54,7 +54,7 @@ describe('BasicLayout', () => {
         XXX
       </ProLayout>,
     );
-    await waitForComponentToPaint(wrapper);
+    await waitTime(100);
 
     expect(wrapper.baseElement.querySelector<HTMLDivElement>('#testid')).toBeTruthy();
     wrapper.unmount();
@@ -62,7 +62,7 @@ describe('BasicLayout', () => {
 
   it('🥩 do not render menu', async () => {
     const wrapper = render(<ProLayout menuRender={false} />);
-    await waitForComponentToPaint(wrapper);
+    await waitTime(100);
     const menu = wrapper.baseElement.querySelector<HTMLDivElement>('.ant-pro-sider');
     expect(menu).toBeFalsy();
 
@@ -80,7 +80,7 @@ describe('BasicLayout', () => {
 
   it('🥩 do not render menu content', async () => {
     const wrapper = render(<ProLayout menuContentRender={false} />);
-    await waitForComponentToPaint(wrapper);
+    await waitTime(100);
     const menu = wrapper.baseElement.querySelector<HTMLDivElement>('.ant-pro-sider');
     expect(menu).toBeTruthy();
     const menuContent = wrapper.baseElement.querySelector<HTMLDivElement>('.ant-pro-sider-menu');
@@ -121,12 +121,12 @@ describe('BasicLayout', () => {
         }}
       />,
     );
-    await waitForComponentToPaint(wrapper);
+    await waitTime(100);
 
     act(() => {
       (wrapper.baseElement.querySelector('.ant-pro-layout-apps-icon') as HTMLDivElement)?.click();
     });
-    await waitForComponentToPaint(wrapper);
+    await waitTime(100);
     expect(wrapper.baseElement.querySelectorAll('.ant-pro-layout-apps-icon').length).toBe(1);
     wrapper.unmount();
   });
@@ -186,11 +186,11 @@ describe('BasicLayout', () => {
         }}
       />,
     );
-    await waitForComponentToPaint(wrapper);
+    await waitTime(100);
     act(() => {
       (wrapper.baseElement.querySelector('.ant-pro-layout-apps-icon') as HTMLDivElement)?.click();
     });
-    await waitForComponentToPaint(wrapper);
+    await waitTime(100);
     expect(wrapper.baseElement.querySelectorAll('.ant-pro-layout-apps-icon').length).toBe(1);
     wrapper.unmount();
   });
@@ -216,7 +216,7 @@ describe('BasicLayout', () => {
       </ProLayout>,
     );
 
-    await waitForComponentToPaint(wrapper);
+    await waitTime(100);
     expect(wrapper.baseElement.querySelectorAll('.ant-menu-item-group-title').length).toBe(2);
     expect(wrapper.baseElement.querySelectorAll('.ant-pro-sider-actions-collapsed').length).toBe(0);
 
@@ -274,7 +274,7 @@ describe('BasicLayout', () => {
 
   it('🥩 do not render footer', async () => {
     const wrapper = render(<ProLayout footerRender={false} />);
-    await waitForComponentToPaint(wrapper);
+    await waitTime(100);
     const footer = wrapper.baseElement.querySelector<HTMLDivElement>('footer');
     expect(footer).toBeFalsy();
     wrapper.unmount();
@@ -282,7 +282,7 @@ describe('BasicLayout', () => {
 
   it('🥩 do not render footer', async () => {
     const wrapper = render(<ProLayout footerRender={false} />);
-    await waitForComponentToPaint(wrapper);
+    await waitTime(100);
     const footer = wrapper.baseElement.querySelector<HTMLDivElement>('footer');
     expect(footer).toBeFalsy();
     wrapper.unmount();
@@ -290,7 +290,7 @@ describe('BasicLayout', () => {
 
   it('🥩 menuDataRender change date', async () => {
     const wrapper = render(<ProLayout menuDataRender={() => []} />);
-    await waitForComponentToPaint(wrapper, 100);
+    await waitTime(100);
     expect(wrapper.baseElement.querySelector<HTMLDivElement>('ul.ant-pro-sider-menu')).toBeFalsy();
     act(() => {
       wrapper.rerender(
@@ -316,7 +316,7 @@ describe('BasicLayout', () => {
         />,
       );
     });
-    await waitForComponentToPaint(wrapper, 1000);
+    await waitTime(1000);
 
     expect(wrapper.baseElement.querySelector<HTMLDivElement>('ul.ant-pro-sider-menu')).toBeTruthy();
     wrapper.unmount();
@@ -334,7 +334,7 @@ describe('BasicLayout', () => {
         }
       />,
     );
-    await waitForComponentToPaint(wrapper);
+    await waitTime(100);
     const logo = wrapper.baseElement.querySelector<HTMLDivElement>('#test_log');
     act(() => {
       logo?.click();
@@ -345,7 +345,7 @@ describe('BasicLayout', () => {
 
   it('🥩 render logo', async () => {
     const wrapper = render(<ProLayout logo={<div id="test_log">Logo</div>} />);
-    await waitForComponentToPaint(wrapper);
+    await waitTime(100);
     const logo = wrapper.baseElement.querySelector<HTMLDivElement>('#test_log');
     expect(logo?.textContent).toEqual('Logo');
     wrapper.unmount();
@@ -354,17 +354,17 @@ describe('BasicLayout', () => {
   it('🥩 render logo by function', async () => {
     //@ts-expect-error
     const wrapper = render(<ProLayout logo={() => <div id="test_log">Logo</div>} />);
-    await waitForComponentToPaint(wrapper);
+    await waitTime(100);
     const logo = wrapper.baseElement.querySelector<HTMLDivElement>('#test_log');
     expect(logo?.textContent).toEqual('Logo');
-    await waitForComponentToPaint(wrapper);
+    await waitTime(100);
     wrapper.unmount();
   });
 
   it('🥩 onCollapse', async () => {
     const onCollapse = jest.fn();
     const wrapper = render(<ProLayout onCollapse={onCollapse} />);
-    await waitForComponentToPaint(wrapper);
+    await waitTime(100);
     act(() => {
       Array.from(
         wrapper.baseElement.querySelectorAll<HTMLDivElement>('div.ant-pro-sider-collapsed-button'),
@@ -373,7 +373,7 @@ describe('BasicLayout', () => {
 
     expect(onCollapse).toHaveBeenCalled();
 
-    await waitForComponentToPaint(wrapper);
+    await waitTime(100);
     wrapper.unmount();
   });
 
@@ -403,35 +403,35 @@ describe('BasicLayout', () => {
       />,
     );
 
-    await waitForComponentToPaint(wrapper);
+    await waitTime(100);
 
     expect(
       getComputedStyle(wrapper.baseElement.querySelector<HTMLDivElement>('.ant-pro-sider')!)?.width,
     ).toBe('256px');
 
-    await waitForComponentToPaint(wrapper);
+    await waitTime(100);
     wrapper.unmount();
   });
 
   it('🥩 siderWidth=160', async () => {
     const wrapper = render(<ProLayout siderWidth={160} />);
-    await waitForComponentToPaint(wrapper);
+    await waitTime(100);
     expect(
       getComputedStyle(wrapper.baseElement.querySelector<HTMLDivElement>('.ant-pro-sider')!)?.width,
     ).toBe('160px');
 
-    await waitForComponentToPaint(wrapper);
+    await waitTime(100);
     wrapper.unmount();
   });
 
   it('🥩 do not render collapsed button', async () => {
     const wrapper = render(<ProLayout collapsedButtonRender={false} />);
-    await waitForComponentToPaint(wrapper);
+    await waitTime(100);
     expect(
       wrapper.baseElement.querySelector<HTMLDivElement>('div.ant-pro-sider-collapsed-button'),
     ).toBeFalsy();
 
-    await waitForComponentToPaint(wrapper);
+    await waitTime(100);
     act(() => {
       wrapper.unmount();
     });
@@ -439,12 +439,12 @@ describe('BasicLayout', () => {
 
   it('🥩 when renderMenu=false, do not render collapsed button', async () => {
     const wrapper = render(<ProLayout menuRender={false} />);
-    await waitForComponentToPaint(wrapper);
+    await waitTime(100);
     expect(
       wrapper.baseElement.querySelector<HTMLDivElement>('div.ant-pro-sider-collapsed-button'),
     ).toBeFalsy();
 
-    await waitForComponentToPaint(wrapper);
+    await waitTime(100);
     act(() => {
       wrapper.unmount();
     });
@@ -458,7 +458,7 @@ describe('BasicLayout', () => {
         )}
       />,
     );
-    await waitForComponentToPaint(wrapper);
+    await waitTime(100);
     const dom = wrapper.baseElement.querySelector<HTMLDivElement>('#customize_collapsed_button');
     expect(dom?.textContent).toEqual('false');
 
@@ -473,7 +473,7 @@ describe('BasicLayout', () => {
       );
     });
 
-    await waitForComponentToPaint(wrapper);
+    await waitTime(100);
     expect(dom?.textContent).toEqual('true');
   });
 
@@ -486,7 +486,7 @@ describe('BasicLayout', () => {
         collapsed={true}
       />,
     );
-    await waitForComponentToPaint(wrapper);
+    await waitTime(100);
 
     let dom = wrapper.baseElement.querySelector('.ant-pro-sider-hide-when-collapsed');
 
@@ -508,7 +508,7 @@ describe('BasicLayout', () => {
         />,
       );
     });
-    await waitForComponentToPaint(wrapper);
+    await waitTime(100);
     dom = wrapper.baseElement.querySelector('.ant-pro-sider-hide-when-collapsed');
 
     expect(!!dom).toBeFalsy();
@@ -521,7 +521,7 @@ describe('BasicLayout', () => {
     const wrapper = render(
       <ProLayout menuExtraRender={() => <div>menuExtraRender</div>} menuHeaderRender={false} />,
     );
-    await waitForComponentToPaint(wrapper);
+    await waitTime(100);
     const dom = wrapper.baseElement.querySelector<HTMLDivElement>('#logo');
     expect(dom).toBeFalsy();
 
@@ -546,7 +546,7 @@ describe('BasicLayout', () => {
         )}
       />,
     );
-    await waitForComponentToPaint(wrapper);
+    await waitTime(100);
 
     const dom = wrapper.baseElement.querySelector<HTMLDivElement>('#customize_menu_header');
     expect(dom).toBeTruthy();
@@ -554,7 +554,7 @@ describe('BasicLayout', () => {
     expect(dom?.querySelector('#customize_menu_header_text')?.textContent).toEqual(
       'customize_menu_header',
     );
-    await waitForComponentToPaint(wrapper);
+    await waitTime(100);
     act(() => {
       wrapper.unmount();
     });
@@ -581,7 +581,7 @@ describe('BasicLayout', () => {
       />,
     );
     expect(wrapper.baseElement.querySelector<HTMLDivElement>('div.chenshuai2144')).toBeTruthy();
-    await waitForComponentToPaint(wrapper);
+    await waitTime(100);
     act(() => {
       wrapper.unmount();
     });
@@ -589,10 +589,10 @@ describe('BasicLayout', () => {
 
   it('🥩 support links', async () => {
     const wrapper = render(<ProLayout links={['name']} />);
-    await waitForComponentToPaint(wrapper);
+    await waitTime(100);
     const dom = wrapper.baseElement.querySelector<HTMLDivElement>('.ant-pro-sider-link');
     expect(dom).toBeTruthy();
-    await waitForComponentToPaint(wrapper);
+    await waitTime(100);
     act(() => {
       wrapper.unmount();
     });
@@ -600,11 +600,11 @@ describe('BasicLayout', () => {
 
   it('🥩 do no render links', async () => {
     const wrapper = render(<ProLayout />);
-    await waitForComponentToPaint(wrapper);
+    await waitTime(100);
     const dom = wrapper.baseElement.querySelector<HTMLDivElement>('.ant-pro-sider-link');
 
     expect(dom).toBeFalsy();
-    await waitForComponentToPaint(wrapper);
+    await waitTime(100);
     act(() => {
       wrapper.unmount();
     });
@@ -612,12 +612,12 @@ describe('BasicLayout', () => {
 
   it('🥩 pure style', async () => {
     const wrapper = render(<ProLayout pure />);
-    await waitForComponentToPaint(wrapper);
+    await waitTime(100);
     const menu = wrapper.baseElement.querySelector<HTMLDivElement>('.ant-pro-sider-menu');
     expect(menu).toBeFalsy();
     const dom = wrapper.baseElement.querySelector<HTMLDivElement>('.ant-pro-sider-link');
     expect(dom).toBeFalsy();
-    await waitForComponentToPaint(wrapper);
+    await waitTime(100);
     act(() => {
       wrapper.unmount();
     });
@@ -634,11 +634,11 @@ describe('BasicLayout', () => {
         }}
       />,
     );
-    await waitForComponentToPaint(wrapper);
+    await waitTime(100);
     const dom = wrapper.baseElement.querySelector<HTMLDivElement>('.ant-pro-sider-link');
 
     expect(dom).toBeFalsy();
-    await waitForComponentToPaint(wrapper);
+    await waitTime(100);
     act(() => {
       wrapper.unmount();
     });
@@ -655,7 +655,7 @@ describe('BasicLayout', () => {
       />,
     );
 
-    await waitForComponentToPaint(wrapper);
+    await waitTime(100);
     act(() => {
       wrapper.rerender(
         <ProLayout
@@ -668,7 +668,7 @@ describe('BasicLayout', () => {
     });
 
     expect(onPageChange).toBeCalled();
-    await waitForComponentToPaint(wrapper);
+    await waitTime(100);
     act(() => {
       wrapper.unmount();
     });
@@ -684,7 +684,7 @@ describe('BasicLayout', () => {
         }}
       />,
     );
-    await waitForComponentToPaint(wrapper);
+    await waitTime(100);
     expect(wrapper.baseElement.querySelector<HTMLDivElement>('h2#mix-test')?.textContent).toBe(
       'mix title',
     );
@@ -703,7 +703,7 @@ describe('BasicLayout', () => {
       />,
     );
 
-    await waitForComponentToPaint(wrapper);
+    await waitTime(100);
     act(() => {
       wrapper.baseElement.querySelector<HTMLDivElement>('div.ant-pro-global-header-logo')?.click();
     });
@@ -725,7 +725,7 @@ describe('BasicLayout', () => {
       />,
     );
 
-    await waitForComponentToPaint(wrapper);
+    await waitTime(100);
     expect(renderPageTitle).toBeCalled();
   });
 
@@ -740,7 +740,7 @@ describe('BasicLayout', () => {
       />,
     );
 
-    await waitForComponentToPaint(wrapper);
+    await waitTime(100);
 
     act(() => {
       wrapper.rerender(
@@ -776,7 +776,7 @@ describe('BasicLayout', () => {
       />,
     );
 
-    await waitForComponentToPaint(wrapper);
+    await waitTime(100);
 
     act(() => {
       wrapper.rerender(
@@ -829,7 +829,7 @@ describe('BasicLayout', () => {
         ]}
       />,
     );
-    await waitForComponentToPaint(wrapper, 100);
+    await waitTime(100);
     expect(
       wrapper.baseElement
         .querySelector('.ant-design-pro')
@@ -865,7 +865,7 @@ describe('BasicLayout', () => {
       );
     });
 
-    await waitForComponentToPaint(wrapper, 100);
+    await waitTime(100);
     expect(
       wrapper.baseElement
         .querySelector('.ant-design-pro')
@@ -900,7 +900,7 @@ describe('BasicLayout', () => {
         />,
       );
     });
-    await waitForComponentToPaint(wrapper, 100);
+    await waitTime(100);
 
     expect(
       wrapper.baseElement
@@ -943,7 +943,7 @@ describe('BasicLayout', () => {
         ]}
       />,
     );
-    await waitForComponentToPaint(wrapper);
+    await waitTime(100);
     expect(wrapper.baseElement).toMatchSnapshot();
   });
 
@@ -1017,7 +1017,7 @@ describe('BasicLayout', () => {
         ]}
       />,
     );
-    await waitForComponentToPaint(wrapper);
+    await waitTime(100);
     expect(wrapper.baseElement.querySelector<HTMLDivElement>('.ant-pro-layout-side')).toBeTruthy();
     act(() => {
       wrapper.rerender(
@@ -1038,7 +1038,7 @@ describe('BasicLayout', () => {
         />,
       );
     });
-    await waitForComponentToPaint(wrapper);
+    await waitTime(100);
     act(() => {
       wrapper.rerender(
         <ProLayout
@@ -1058,7 +1058,7 @@ describe('BasicLayout', () => {
         />,
       );
     });
-    await waitForComponentToPaint(wrapper, 100);
+    await waitTime(100);
     expect(wrapper.baseElement.querySelector<HTMLDivElement>('.ant-pro-layout-top')).toBeTruthy();
   });
 
@@ -1124,13 +1124,13 @@ describe('BasicLayout', () => {
       );
     };
     const html = render(<Demo />);
-    await waitForComponentToPaint(html);
+    await waitTime(100);
     expect(html.baseElement.querySelectorAll('li.ant-menu-submenu').length).toBe(2);
     const domParentMenu = await (await html.findAllByText('列表页')).at(0);
     act(() => {
       domParentMenu?.click();
     });
-    await waitForComponentToPaint(html, 2000);
+    await waitTime(2000);
     expect(html.baseElement.querySelectorAll('li.ant-menu-submenu-open').length).toBe(2);
     const domChildMenu = await (await html.findAllByText('二级列表页面')).at(0);
     const domLink = await (await html.findAllByText('AntDesign外链')).at(0);
@@ -1138,7 +1138,7 @@ describe('BasicLayout', () => {
       domChildMenu?.click();
       domLink?.click();
     });
-    await waitForComponentToPaint(html, 2000);
+    await waitTime(2000);
     expect(html.baseElement.querySelectorAll('li.ant-menu-submenu').length).toBe(2);
   });
 
@@ -1205,18 +1205,18 @@ describe('BasicLayout', () => {
       );
     };
     const html = render(<Demo />);
-    await waitForComponentToPaint(html);
+    await waitTime(100);
     const domParentMenu = await (await html.findAllByText('列表页')).at(0);
 
     act(() => {
       domParentMenu?.click();
     });
-    await waitForComponentToPaint(html, 100);
+    await waitTime(100);
     const domLink = await (await html.findAllByText('AntDesign外链')).at(0);
     act(() => {
       domLink?.click();
     });
-    await waitForComponentToPaint(html, 100);
+    await waitTime(100);
     expect(fn).toBeCalled();
   });
 
@@ -1283,7 +1283,7 @@ describe('BasicLayout', () => {
     };
 
     const html = render(<Demo />);
-    await waitForComponentToPaint(html, 1000);
+    await waitTime(1000);
 
     expect(fn).toBeCalledTimes(1);
 
@@ -1314,7 +1314,7 @@ describe('BasicLayout', () => {
 
     const html = render(<ProLayout menu={defaultMenu} />);
 
-    await waitForComponentToPaint(html, 1000);
+    await waitTime(1000);
 
     expect(fn).toBeCalledTimes(1);
 
@@ -1331,7 +1331,7 @@ describe('BasicLayout', () => {
       );
     });
 
-    await waitForComponentToPaint(html, 100);
+    await waitTime(100);
 
     expect(fn).toBeCalledTimes(2);
     expect(fn).toBeCalledWith({
@@ -1350,7 +1350,7 @@ describe('BasicLayout', () => {
       );
     });
 
-    await waitForComponentToPaint(html, 100);
+    await waitTime(100);
     expect(fn).toBeCalledTimes(3);
     expect(fn).toBeCalledWith({
       id: '123',
@@ -1369,7 +1369,7 @@ describe('BasicLayout', () => {
       );
     });
 
-    await waitForComponentToPaint(html, 100);
+    await waitTime(100);
     expect(fn).toBeCalledTimes(3);
   });
 
@@ -1456,7 +1456,7 @@ describe('BasicLayout', () => {
       );
     };
     const html = render(<Demo />);
-    await waitForComponentToPaint(html);
+    await waitTime(100);
 
     expect(html.baseElement.querySelectorAll('li.ant-menu-submenu').length).toBe(3);
     expect(html.baseElement.querySelectorAll('li.ant-menu-submenu-open').length).toBe(3);
@@ -1545,14 +1545,14 @@ describe('BasicLayout', () => {
       );
     };
     const html = render(<Demo />);
-    await waitForComponentToPaint(html, 1200);
+    await waitTime(1200);
 
     expect(html.baseElement.querySelectorAll('li.ant-menu-submenu').length).toBe(3);
     expect(html.baseElement.querySelectorAll('li.ant-menu-submenu-open').length).toBe(3);
     await act(async () => {
       (await html.findByText('月表'))?.parentElement?.click();
     });
-    await waitForComponentToPaint(html, 100);
+    await waitTime(100);
     expect(html.baseElement.querySelectorAll('li.ant-menu-submenu-open').length).toBe(0);
   });
 
@@ -1585,7 +1585,7 @@ describe('BasicLayout', () => {
         }}
       />,
     );
-    await waitForComponentToPaint(200);
+    await waitTime(200);
     expect(html.findByText('主页')).toBeTruthy();
   });
 
@@ -1644,7 +1644,7 @@ describe('BasicLayout', () => {
         <div>Hello World</div>
       </ProLayout>,
     );
-    await waitForComponentToPaint(html, 1000);
+    await waitTime(1000);
 
     expect(html.baseElement.querySelectorAll('li.ant-menu-submenu-open').length).toBe(2);
 
@@ -1654,7 +1654,7 @@ describe('BasicLayout', () => {
       ).map((item) => item?.click());
     });
 
-    await waitForComponentToPaint(html, 1000);
+    await waitTime(1000);
 
     expect(html.baseElement.querySelectorAll('li.ant-menu-submenu-open').length).toBe(0);
 
@@ -1664,7 +1664,7 @@ describe('BasicLayout', () => {
       ).map((item) => item?.click());
     });
 
-    await waitForComponentToPaint(html, 1000);
+    await waitTime(1000);
 
     expect(onCollapse).toBeCalledTimes(2);
     expect(html.baseElement.querySelectorAll('li.ant-menu-submenu-open').length).toBe(2);
@@ -1723,13 +1723,13 @@ describe('BasicLayout', () => {
       </ProLayout>,
     );
 
-    await waitForComponentToPaint(html, 1000);
+    await waitTime(1000);
     expect(html.baseElement.querySelectorAll('.ant-layout-sider').length).toBe(1);
     act(() => {
       html.baseElement.querySelector<HTMLDivElement>('#test_btn')?.click();
     });
 
-    await waitForComponentToPaint(html, 1000);
+    await waitTime(1000);
     expect(handleClick).toHaveBeenCalled();
     expect(html.baseElement.querySelectorAll('.ant-layout-sider').length).toBe(0);
   });

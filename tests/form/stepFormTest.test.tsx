@@ -3,7 +3,7 @@ import userEvent from '@testing-library/user-event';
 import { act, fireEvent, render, screen, waitFor } from '@testing-library/react';
 import { Button } from 'antd';
 import React from 'react';
-import { waitForComponentToPaint } from '../util';
+import { waitTime } from '../util';
 
 describe('StepsForm', () => {
   it('🐲 basic use', async () => {
@@ -113,13 +113,13 @@ describe('StepsForm', () => {
         </StepsForm.StepForm>
       </StepsForm>,
     );
-    await waitForComponentToPaint(html);
+    await waitTime(100);
 
     await act(async () => {
       (await html.findByText('下一步')).click();
     });
 
-    await waitForComponentToPaint(html);
+    await waitTime(100);
 
     expect(fn).toBeCalled();
     expect(currentFn).toBeCalled();
@@ -127,13 +127,13 @@ describe('StepsForm', () => {
     await act(async () => {
       (await html.findByText('提 交')).click();
     });
-    await waitForComponentToPaint(html);
+    await waitTime(100);
 
     expect(onFinish).toBeCalled();
     expect(fn).toBeCalled();
     expect(currentFn).toBeCalled();
 
-    await waitForComponentToPaint(html, 100);
+    await waitTime(100);
     html.unmount();
   });
 
@@ -460,18 +460,18 @@ describe('StepsForm', () => {
         </StepsForm.StepForm>
       </StepsForm>,
     );
-    await waitForComponentToPaint(html, 200);
+    await waitTime(200);
     await act(async () => {
       (await html.findByText('下一步')).click();
     });
 
-    await waitForComponentToPaint(html, 200);
+    await waitTime(200);
 
     await act(async () => {
       (await html.findByText('提 交')).click();
     });
 
-    await waitForComponentToPaint(html);
+    await waitTime(100);
     expect(submit).toBeCalledWith({
       info: {
         name: 'chenshuai',
@@ -503,7 +503,7 @@ describe('StepsForm', () => {
       );
     };
     const html = render(<Forms />);
-    await waitForComponentToPaint(html);
+    await waitTime(100);
     expect(html.container.querySelectorAll('.ant-steps-item')).toHaveLength(3);
     await act(async () => {
       (await html.findByText('隐藏表单3')).click();

@@ -3,7 +3,7 @@ import type { ProCoreActionType } from '@ant-design/pro-utils';
 import { act, render, waitFor } from '@testing-library/react';
 import { Button } from 'antd';
 import { useRef } from 'react';
-import { waitForComponentToPaint, waitTime } from '../util';
+import { waitTime } from '../util';
 
 describe('descriptions', () => {
   it('🥩 descriptions render valueEnum when data = 0', async () => {
@@ -53,7 +53,7 @@ describe('descriptions', () => {
         }}
       />,
     );
-    await waitForComponentToPaint(html, 1200);
+    await waitTime(1200);
     expect(fn).toBeCalled();
   });
 
@@ -76,7 +76,7 @@ describe('descriptions', () => {
         }}
       />,
     );
-    await waitForComponentToPaint(html, 1200);
+    await waitTime(1200);
     expect(!!html.baseElement.querySelector('.ant-skeleton')).toBeTruthy();
 
     act(() => {
@@ -100,7 +100,7 @@ describe('descriptions', () => {
         />,
       );
     });
-    await waitForComponentToPaint(html, 1200);
+    await waitTime(1200);
     // props 指定为 false 后，无论 request 完成与否都不会出现 spin
     expect(!!html.baseElement.querySelector('.ant-skeleton')).toBeFalsy();
   });
@@ -140,7 +140,7 @@ describe('descriptions', () => {
       );
     };
     const html = render(<Reload />);
-    await waitForComponentToPaint(html, 500);
+    await waitTime(300);
 
     act(() => {
       html.queryByText('刷新')?.click();
@@ -148,7 +148,7 @@ describe('descriptions', () => {
     act(() => {
       html.queryByText('刷新')?.click();
     });
-    await waitForComponentToPaint(html);
+    await waitTime(100);
 
     // 因为有 loading 的控制，所有只会触发两次
     expect(fn).toBeCalledTimes(2);
@@ -178,7 +178,7 @@ describe('descriptions', () => {
         <ProDescriptions.Item label="money" dataIndex="money" valueType="money" />
       </ProDescriptions>,
     );
-    await waitForComponentToPaint(html, 300);
+    await waitTime(300);
 
     act(() => {
       html.rerender(
@@ -205,7 +205,7 @@ describe('descriptions', () => {
       );
     });
 
-    await waitForComponentToPaint(html);
+    await waitTime(100);
 
     expect(fn).toBeCalledTimes(2);
   });
@@ -231,7 +231,7 @@ describe('descriptions', () => {
         <ProDescriptions.Item label="money" dataIndex="money" valueType="money" />
       </ProDescriptions>,
     );
-    await waitForComponentToPaint(html, 300);
+    await waitTime(300);
 
     expect(fn).toBeCalledTimes(1);
   });
@@ -263,7 +263,7 @@ describe('descriptions', () => {
     ).toBeTruthy();
   });
 
-  it('🏊 ProDescriptions support order', () => {
+  it('🏊 ProDescriptions support order', async () => {
     const html = render(
       <ProDescriptions
         dataSource={{

@@ -26,9 +26,9 @@ import { act, fireEvent, render } from '@testing-library/react';
 import { Form, Input } from 'antd';
 import type { Dayjs } from 'dayjs';
 import dayjs from 'dayjs';
-import moment from 'dayjs';
+import moment from 'moment';
 import React, { useEffect, useState } from 'react';
-import { waitForComponentToPaint, waitTime } from '../util';
+import { waitTime } from '../util';
 
 describe('utils', () => {
   beforeEach(() => {
@@ -47,6 +47,7 @@ describe('utils', () => {
     expect(compareVersions('2.0.0', '1.0.0')).toBe(1);
     expect(compareVersions('1.0.0', '2.0.0')).toBe(-1);
     expect(compareVersions('1.0.0', '1.0.0')).toBe(0);
+    expect(compareVersions('1.0.0', '1.0.0-beta.6')).toBe(1);
   });
 
   it('openVisibleCompatible', () => {
@@ -110,6 +111,15 @@ describe('utils', () => {
     expect(dateArrayString).toEqual('2020-01-01 00:00:00 ~ 2020-01');
   });
 
+  it('📅 dateArrayFormatter support moment function', async () => {
+    const dateArrayString = dateArrayFormatter(
+      [moment('2020-01-01'), moment('2020-01-01')],
+      ['YYYY-MM-DD HH:mm:ss', (value: Dayjs) => value.format('YYYY-MM')],
+    );
+
+    expect(dateArrayString).toEqual('2020-01-01 00:00:00 ~ 2020-01');
+  });
+
   it('📅 useDebounceValue without deps', async () => {
     const App = (props: { deps: string[] }) => {
       const [, forceUpdate] = useState([]);
@@ -132,9 +142,9 @@ describe('utils', () => {
       html.rerender(<App deps={['string']} />);
     });
 
-    waitTime(1000);
-
     expect(html.baseElement?.textContent).toEqual('name');
+    await waitTime(1000);
+    expect(html.baseElement?.textContent).toEqual('string');
   });
 
   it('📅 useDebounceFn', async () => {
@@ -481,7 +491,7 @@ describe('utils', () => {
     await act(async () => {
       (await html.findByRole('test_input')).focus();
     });
-    await waitForComponentToPaint(html, 100);
+    await waitTime(100);
     expect(!!html.baseElement.querySelector('div.ant-popover')).toBeFalsy();
 
     await act(async () => {
@@ -492,7 +502,7 @@ describe('utils', () => {
         },
       });
     });
-    await waitForComponentToPaint(html, 1000);
+    await waitTime(1000);
     expect(!!html.baseElement.querySelector('div.ant-popover')).toBeTruthy();
     const li = html.baseElement.querySelectorAll(
       'div.ant-popover .ant-popover-inner-content div.ant-form-item-explain-error',
@@ -508,7 +518,7 @@ describe('utils', () => {
         },
       });
     });
-    await waitForComponentToPaint(html, 1000);
+    await waitTime(1000);
 
     await act(async () => {
       const dom = await html.findByRole('test_input');
@@ -518,7 +528,7 @@ describe('utils', () => {
         },
       });
     });
-    await waitForComponentToPaint(html, 1000);
+    await waitTime(1000);
     expect(
       html.baseElement.querySelectorAll('div.ant-popover.ant-popover-hidden').length > 0,
     ).toBeFalsy();
@@ -531,7 +541,7 @@ describe('utils', () => {
         },
       });
     });
-    await waitForComponentToPaint(html, 1000);
+    await waitTime(1000);
     expect(
       html.baseElement.querySelectorAll('div.ant-popover.ant-popover-hidden').length > 0,
     ).toBeFalsy();
@@ -841,7 +851,7 @@ describe('utils', () => {
     expect(html.asFragment()).toMatchSnapshot();
   });
 
-  it('🪓 isDeepEqualReact', () => {
+  it('🪓 isDeepEqualReact', async () => {
     const CustomComponent: React.FC<any> = () => {
       return <div />;
     };
@@ -903,12 +913,14 @@ describe('utils', () => {
 
       expect(isDeepEqualReact(a, b, ['ignoreKey'])).toBeTruthy();
 
-      return <CustomComponent a={a} b={b} />;
+      return (
+        <>
+          <CustomComponent a={a} b={b} />
+        </>
+      );
     };
-
-    const wrapper = render(<DeepComponent />);
-
-    waitForComponentToPaint(wrapper, 100);
+    render(<DeepComponent />);
+    await waitTime(1200);
   });
 
   it('🪓 nanoid', () => {

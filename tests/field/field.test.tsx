@@ -3,7 +3,7 @@ import { act, fireEvent, render } from '@testing-library/react';
 import { Button, Input } from 'antd';
 import dayjs from 'dayjs';
 import React, { useState } from 'react';
-import { waitForComponentToPaint, waitTime } from '../util';
+import { waitTime } from '../util';
 import Demo from './fixtures/demo';
 import { TreeSelectDemo } from './fixtures/treeSelectDemo';
 
@@ -275,7 +275,7 @@ describe('Field', () => {
           />,
         );
 
-        await waitForComponentToPaint(html, 1200);
+        await waitTime(1200);
         act(() => {
           ref.current?.fetchData();
         });
@@ -297,7 +297,7 @@ describe('Field', () => {
             }}
           />,
         );
-        await waitForComponentToPaint(html, 100);
+        await waitTime(100);
         expect(!!html.baseElement.querySelector('#select')).toBeTruthy();
         html.unmount();
       });
@@ -433,7 +433,7 @@ describe('Field', () => {
         mode="read"
       />,
     );
-    await waitForComponentToPaint(html, 100);
+    await waitTime(100);
     expect(html.baseElement.textContent).toBe('全部');
 
     act(() => {
@@ -449,7 +449,7 @@ describe('Field', () => {
       );
     });
 
-    await waitForComponentToPaint(html, 100);
+    await waitTime(100);
 
     expect(html.baseElement.textContent).toBe('all');
     html.unmount();
@@ -501,7 +501,7 @@ describe('Field', () => {
           mode="read"
         />,
       );
-      await waitForComponentToPaint(html, 100);
+      await waitTime(100);
       expect(html.baseElement.textContent).toBe('Node1,Child Node1');
 
       act(() => {
@@ -522,7 +522,7 @@ describe('Field', () => {
         );
       });
 
-      await waitForComponentToPaint(html, 100);
+      await waitTime(100);
 
       expect(html.baseElement.textContent).toBe('0-0,0-0-0');
     });
@@ -584,7 +584,7 @@ describe('Field', () => {
     };
     const html = render(<TreeSelectChangeDemo />);
 
-    await waitForComponentToPaint(html, 200);
+    await waitTime(200);
 
     const searchInput = html.baseElement.querySelector('input.ant-select-selection-search-input');
 
@@ -641,7 +641,7 @@ describe('Field', () => {
 
     const html = render(<TreeSelectChangeDemo />);
 
-    await waitForComponentToPaint(html, 200);
+    await waitTime(200);
 
     expect(requestFn).toBeCalledTimes(1);
 
@@ -658,7 +658,7 @@ describe('Field', () => {
         ].click();
     });
 
-    await waitForComponentToPaint(html, 200);
+    await waitTime(200);
 
     expect(
       !!html.baseElement.querySelector('input.ant-select-selection-search-input'),
@@ -672,7 +672,7 @@ describe('Field', () => {
       });
     });
 
-    await waitForComponentToPaint(html, 200);
+    await waitTime(200);
 
     expect(onSearchFn).toBeCalled();
 
@@ -682,24 +682,24 @@ describe('Field', () => {
         .forEach((item) => item.click());
     });
 
-    await waitForComponentToPaint(html, 200);
+    await waitTime(200);
 
     const selectTreeTitle =
       html.baseElement.querySelectorAll<HTMLSpanElement>('.ant-select-tree-title');
 
     expect(selectTreeTitle.length).toBe(2);
 
-    await waitForComponentToPaint(html, 200);
+    await waitTime(200);
 
     act(() => {
       selectTreeTitle[0]?.click();
     });
 
-    await waitForComponentToPaint(html, 200);
+    await waitTime(200);
     act(() => {
       selectTreeTitle[selectTreeTitle.length - 1]?.click();
     });
-    await waitForComponentToPaint(html, 200);
+    await waitTime(200);
 
     expect(html.queryAllByText('Child Node5').length > 0).toBeTruthy();
     expect(html.queryAllByText('Node2').length > 0).toBeTruthy();
@@ -1121,11 +1121,11 @@ describe('Field', () => {
 
   it('🐴 password support visible', async () => {
     const html = render(<Field text={123456} valueType="password" mode="read" />);
-    await waitForComponentToPaint(html);
+    await waitTime(100);
     act(() => {
       fireEvent.click(html.baseElement.querySelector('span.anticon-eye-invisible')!);
     });
-    await waitForComponentToPaint(html);
+    await waitTime(100);
     expect(!!html.baseElement.querySelector('span.anticon-eye')).toBeTruthy();
     html.unmount();
   });
@@ -1141,11 +1141,11 @@ describe('Field', () => {
         mode="read"
       />,
     );
-    await waitForComponentToPaint(html);
+    await waitTime(100);
     act(() => {
       fireEvent.click(html.baseElement.querySelector('span.anticon-eye')!);
     });
-    await waitForComponentToPaint(html);
+    await waitTime(100);
     expect(!!html.baseElement.querySelector('span.anticon-eye-invisible')).toBeFalsy();
     expect(fn).toBeCalledWith(false);
     html.unmount();
@@ -1162,11 +1162,11 @@ describe('Field', () => {
         mode="read"
       />,
     );
-    await waitForComponentToPaint(html);
+    await waitTime(100);
     act(() => {
       fireEvent.click(html.baseElement.querySelector('span.anticon-eye')!);
     });
-    await waitForComponentToPaint(html);
+    await waitTime(100);
     expect(!!html.baseElement.querySelector('span.anticon-eye-invisible')).toBeFalsy();
     expect(fn).toBeCalledWith(false);
     html.unmount();
@@ -1246,18 +1246,18 @@ describe('Field', () => {
 
   it('🐴 keypress simulate', async () => {
     const html = render(<Field text="qixian" valueType="textarea" mode="edit" />);
-    await waitForComponentToPaint(html);
+    await waitTime(100);
     act(() => {
       fireEvent.keyPress(html.baseElement.querySelector('textarea')!, {
         key: 'Enter',
         keyCode: 13,
       });
     });
-    await waitForComponentToPaint(html);
+    await waitTime(100);
     act(() => {
       html.rerender(<Field text="qixian" valueType="textarea" mode="read" />);
     });
-    await waitForComponentToPaint(html);
+    await waitTime(100);
     expect(html.baseElement.textContent).toBe('qixian');
     html.unmount();
   });
@@ -1326,7 +1326,7 @@ describe('Field', () => {
         },
       });
     });
-    await waitForComponentToPaint(html);
+    await waitTime(100);
     expect(change).toBeCalledWith(1.00000000000007);
   });
 
@@ -1338,7 +1338,7 @@ describe('Field', () => {
 
   it(`🐴 valueType digitRange placeholder use`, async () => {
     const html = render(<Field mode="edit" valueType="digitRange" />);
-    await waitForComponentToPaint(html);
+    await waitTime(100);
     expect(
       html.baseElement.querySelector<HTMLInputElement>('.ant-input-number-input')?.placeholder,
     ).toBe('请输入');
@@ -1352,7 +1352,7 @@ describe('Field', () => {
 
   it(`🐴 valueType digitRange placeholder use`, async () => {
     const html = render(<Field mode="edit" valueType="digitRange" placeholder={['Min', 'Max']} />);
-    await waitForComponentToPaint(html);
+    await waitTime(100);
     expect(
       html.baseElement.querySelector<HTMLInputElement>('.ant-input-number-input')?.placeholder,
     ).toBe('Min');
@@ -1365,7 +1365,7 @@ describe('Field', () => {
 
   it(`🐴 valueType digitRange normal input simulate`, async () => {
     const html = render(<Field mode="edit" valueType="digitRange" />);
-    await waitForComponentToPaint(html);
+    await waitTime(100);
     act(() => {
       fireEvent.change(html.baseElement.querySelector('.ant-input-number-input')!, {
         target: {
@@ -1374,7 +1374,7 @@ describe('Field', () => {
       });
     });
 
-    await waitForComponentToPaint(html);
+    await waitTime(100);
 
     expect(html.baseElement.querySelector<HTMLInputElement>('.ant-input-number-input')?.value).toBe(
       '12.34',
@@ -1395,7 +1395,7 @@ describe('Field', () => {
 
   it(`🐴 valueType digitRange will exchange when value1 > valu2`, async () => {
     const html = render(<Field mode="edit" valueType="digitRange" />);
-    await waitForComponentToPaint(html);
+    await waitTime(100);
     act(() => {
       fireEvent.change(html.baseElement.querySelector('.ant-input-number-input')!, {
         target: {
@@ -1404,7 +1404,7 @@ describe('Field', () => {
       });
     });
 
-    await waitForComponentToPaint(html);
+    await waitTime(100);
 
     expect(html.baseElement.querySelector<HTMLInputElement>('.ant-input-number-input')?.value).toBe(
       '56.78',
@@ -1418,13 +1418,13 @@ describe('Field', () => {
       });
     });
 
-    await waitForComponentToPaint(html);
+    await waitTime(100);
 
     act(() => {
       fireEvent.blur(html.baseElement.querySelector('.ant-input-number-input')!);
     });
 
-    await waitForComponentToPaint(html);
+    await waitTime(100);
 
     expect(html.baseElement.querySelector<HTMLInputElement>('.ant-input-number-input')?.value).toBe(
       '12.34',
@@ -1458,7 +1458,7 @@ describe('Field', () => {
         }}
       />,
     );
-    await waitForComponentToPaint(200);
+    await waitTime(200);
     expect(html.baseElement.textContent).toBe('2000');
 
     act(() => {
@@ -1473,7 +1473,7 @@ describe('Field', () => {
         />,
       );
     });
-    await waitForComponentToPaint(200);
+    await waitTime(200);
     expect(html.baseElement.textContent).toBe('20000');
 
     html.unmount();
@@ -1499,7 +1499,7 @@ describe('Field', () => {
         }}
       />,
     );
-    await waitForComponentToPaint(html, 200);
+    await waitTime(200);
     expect(requestFn).toBeCalledTimes(1);
     act(() => {
       html.rerender(
@@ -1522,7 +1522,7 @@ describe('Field', () => {
         />,
       );
     });
-    await waitForComponentToPaint(html, 50);
+    await waitTime(300);
     act(() => {
       html.rerender(
         <Field
@@ -1544,7 +1544,7 @@ describe('Field', () => {
         />,
       );
     });
-    await waitForComponentToPaint(html, 50);
+    await waitTime(300);
     act(() => {
       html.rerender(
         <Field
@@ -1566,10 +1566,10 @@ describe('Field', () => {
         />,
       );
     });
-    await waitForComponentToPaint(html, 50);
+    await waitTime(300);
 
     expect(requestFn).toBeCalledTimes(1);
-    await waitForComponentToPaint(html, 10000);
+    await waitTime(10000);
     expect(requestFn).toBeCalledTimes(2);
   });
 
@@ -1588,7 +1588,7 @@ describe('Field', () => {
         ]}
       />,
     );
-    await waitForComponentToPaint(html, 100);
+    await waitTime(100);
 
     act(() => {
       // 点击label打开DatePicker
@@ -1597,7 +1597,7 @@ describe('Field', () => {
       fireEvent.click(html.baseElement.querySelector('.ant-pro-core-field-label')!);
       fireEvent.mouseUp(html.baseElement.querySelector('.ant-pro-core-field-label')!);
     });
-    await waitForComponentToPaint(html, 100);
+    await waitTime(100);
     expect(html.baseElement.querySelectorAll('.ant-select-dropdown').length).toEqual(1);
     expect(
       html.baseElement.querySelectorAll('.ant-select-dropdown.ant-select-dropdown-hidden').length,
@@ -1608,7 +1608,7 @@ describe('Field', () => {
       fireEvent.click(html.baseElement.querySelector('.ant-pro-core-field-label')!);
       fireEvent.mouseUp(html.baseElement.querySelector('.ant-pro-core-field-label')!);
     });
-    await waitForComponentToPaint(html, 1000);
+    await waitTime(1000);
     expect(
       html.baseElement.querySelectorAll('.ant-select-dropdown.ant-select-dropdown-hidden').length,
     ).toEqual(1);
@@ -1619,7 +1619,7 @@ describe('Field', () => {
       const html = render(
         <Field text="default" valueType={valueType as 'date'} mode="edit" light />,
       );
-      await waitForComponentToPaint(html, 100);
+      await waitTime(100);
 
       act(() => {
         // 点击label打开DatePicker
@@ -1628,7 +1628,7 @@ describe('Field', () => {
         fireEvent.click(html.baseElement.querySelector('.ant-pro-core-field-label')!);
         fireEvent.mouseUp(html.baseElement.querySelector('.ant-pro-core-field-label')!);
       });
-      await waitForComponentToPaint(html, 100);
+      await waitTime(100);
       expect(html.baseElement.querySelectorAll('.ant-picker-dropdown').length).toEqual(1);
       expect(
         html.baseElement.querySelectorAll('.ant-picker-dropdown.ant-picker-dropdown-hidden').length,
@@ -1639,7 +1639,7 @@ describe('Field', () => {
         fireEvent.click(html.baseElement.querySelector('.ant-pro-core-field-label')!);
         fireEvent.mouseUp(html.baseElement.querySelector('.ant-pro-core-field-label')!);
       });
-      await waitForComponentToPaint(html, 100);
+      await waitTime(100);
       expect(
         html.baseElement.querySelectorAll('.ant-picker-dropdown.ant-picker-dropdown-hidden').length,
       ).toEqual(1);

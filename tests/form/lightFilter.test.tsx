@@ -13,7 +13,7 @@ import { act, fireEvent, render, screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import dayjs from 'dayjs';
 import KeyCode from 'rc-util/es/KeyCode';
-import { waitForComponentToPaint } from '../util';
+import { waitTime } from '../util';
 
 describe('LightFilter', () => {
   it(' 🪕 basic use', async () => {
@@ -508,7 +508,7 @@ describe('LightFilter', () => {
     unmount();
   });
 
-  it('🪕 ProFormField support lightProps', () => {
+  it('🪕 ProFormField support lightProps', async () => {
     const html = render(
       <LightFilter
         initialValues={{
@@ -542,7 +542,7 @@ describe('LightFilter', () => {
       </LightFilter>,
     );
 
-    waitForComponentToPaint(100);
+    await waitTime(100);
     const inputDom = html.findAllByText('活跃时间: 2001-09-09 01:46:40~2017-07-14 0...2项');
     expect(!!inputDom).toBeTruthy();
   });
@@ -577,7 +577,7 @@ describe('LightFilter', () => {
         .querySelectorAll<HTMLDivElement>('.ant-pro-core-field-label')[0]
         .click?.();
     });
-    waitForComponentToPaint(wrapper, 100);
+    await waitTime(1200);
 
     expect(
       !!wrapper.baseElement.querySelector('.ant-pro-field-select-light-select-container-topRight'),
@@ -609,7 +609,7 @@ describe('LightFilter', () => {
         .querySelectorAll<HTMLDivElement>('.ant-pro-core-field-dropdown-label')[0]
         .click?.();
     });
-    waitForComponentToPaint(wrapper, 100);
+    await waitTime(1200);
 
     expect(
       !!wrapper.baseElement.querySelector('.ant-pro-core-field-dropdown-overlay-bottomLeft'),
@@ -647,7 +647,7 @@ describe('LightFilter', () => {
         .querySelectorAll<HTMLDivElement>('.ant-pro-core-field-label')[0]
         .click?.();
     });
-    waitForComponentToPaint(wrapper, 100);
+    await waitTime(1200);
     expect(
       !!wrapper.baseElement.querySelector(
         '.ant-pro-field-select-light-select-container-bottomRight',

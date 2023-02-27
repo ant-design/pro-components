@@ -5,7 +5,7 @@ import { render } from '@testing-library/react';
 import { Button } from 'antd';
 import { useRef, useState } from 'react';
 import { act } from 'react-dom/test-utils';
-import { waitForComponentToPaint } from '../util';
+import { waitTime } from '../util';
 
 export type TableListItem = {
   key: number;
@@ -117,7 +117,7 @@ describe('ProTable test', () => {
         }}
       />,
     );
-    await waitForComponentToPaint(html, 1200);
+    await waitTime(1200);
     expect(fn).toBeCalledTimes(1);
     act(() => {
       html.rerender(
@@ -139,7 +139,7 @@ describe('ProTable test', () => {
 
   it('boolean loading and polling props', async () => {
     const html = render(<ProTable loading={true} polling={2000} />);
-    await waitForComponentToPaint(html, 1200);
+    await waitTime(1200);
     act(() => {
       html.rerender(
         <ProTable

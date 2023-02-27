@@ -13,7 +13,7 @@ import { Button, Form } from 'antd';
 import type { NamePath } from 'antd/es/form/interface';
 import _ from 'lodash';
 import React from 'react';
-import { waitForComponentToPaint, waitTime } from '../util';
+import { waitTime } from '../util';
 import { ProCard } from '@ant-design/pro-components';
 
 describe('ProForm List', () => {
@@ -109,7 +109,7 @@ describe('ProForm List', () => {
       button.click();
     });
 
-    await waitForComponentToPaint(100);
+    await waitTime(200);
 
     const input = await html.findByPlaceholderText('用户信息的名字');
     act(() => {
@@ -262,13 +262,13 @@ describe('ProForm List', () => {
       </ProForm>,
     );
 
-    await waitForComponentToPaint(html, 2000);
+    await waitTime(2000);
 
     act(() => {
       html.baseElement.querySelector<HTMLDivElement>('.ant-btn.ant-btn-primary')?.click();
     });
 
-    await waitForComponentToPaint(html);
+    await waitTime(100);
 
     expect(fn).toBeCalledWith({
       name: '1111',
@@ -279,13 +279,13 @@ describe('ProForm List', () => {
       html.baseElement.querySelector<HTMLDivElement>('#set')?.click();
     });
 
-    await waitForComponentToPaint(html, 2000);
+    await waitTime(2000);
 
     act(() => {
       html.baseElement.querySelector<HTMLDivElement>('.ant-btn.ant-btn-primary')?.click();
     });
 
-    await waitForComponentToPaint(html);
+    await waitTime(100);
 
     expect(fn).toBeCalledWith({
       name: 'New Name0',
@@ -300,7 +300,7 @@ describe('ProForm List', () => {
       html.baseElement.querySelector<HTMLDivElement>('.ant-btn.ant-btn-primary')?.click();
     });
 
-    await waitForComponentToPaint(html);
+    await waitTime(100);
 
     expect(fn).toBeCalledWith({
       name: undefined,
@@ -862,7 +862,7 @@ describe('ProForm List', () => {
       </ProForm>,
     );
 
-    await waitForComponentToPaint(html);
+    await waitTime(100);
     expect(html.baseElement.querySelectorAll('input.ant-input').length).toBe(1);
 
     // 新增按钮
@@ -872,7 +872,7 @@ describe('ProForm List', () => {
 
     expect(fnAdd).toHaveBeenLastCalledWith(undefined, 1);
     expect(html.baseElement.querySelectorAll('input.ant-input').length).toBe(1);
-    await waitForComponentToPaint(html, 1200);
+    await waitTime(1200);
 
     expect(html.baseElement.querySelectorAll('input.ant-input').length).toBe(2);
 
@@ -883,7 +883,7 @@ describe('ProForm List', () => {
 
     expect(fnAdd).toHaveBeenLastCalledWith('1111', 2);
 
-    await waitForComponentToPaint(html, 1200);
+    await waitTime(1200);
 
     const input = html.baseElement.querySelectorAll<HTMLInputElement>('input.ant-input');
     expect(input.length).toBe(3);
@@ -896,7 +896,7 @@ describe('ProForm List', () => {
 
     expect(fnRemove).toBeCalledWith(2);
     expect(html.baseElement.querySelectorAll('input.ant-input').length).toBe(3);
-    await waitForComponentToPaint(html, 1200);
+    await waitTime(1200);
 
     expect(html.baseElement.querySelectorAll('input.ant-input').length).toBe(2);
 
@@ -905,7 +905,7 @@ describe('ProForm List', () => {
       html.baseElement.querySelectorAll<HTMLDivElement>('.action-remove')[0]?.click?.();
     });
 
-    await waitForComponentToPaint(html, 1200);
+    await waitTime(1200);
     expect(fnRemove).toBeCalledWith(0);
     expect(html.baseElement.querySelectorAll('input.ant-input').length).toBe(2);
   });
@@ -946,7 +946,7 @@ describe('ProForm List', () => {
       </ProForm>,
     );
 
-    await waitForComponentToPaint(html);
+    await waitTime(100);
     expect(html.baseElement.querySelectorAll('input.ant-input').length).toBe(1);
 
     // 新增按钮
@@ -986,11 +986,11 @@ describe('ProForm List', () => {
       html.baseElement.querySelectorAll<HTMLDivElement>('.action-remove')[0]?.click?.();
     });
 
-    await waitForComponentToPaint(html, 100);
+    await waitTime(100);
     expect(fnRemove).toBeCalledWith(0);
     expect(html.baseElement.querySelectorAll('input.ant-input').length).toBe(0);
 
-    await waitForComponentToPaint(html, 100);
+    await waitTime(100);
 
     expect(errorSpy).not.toHaveBeenCalled();
 
@@ -1023,7 +1023,7 @@ describe('ProForm List', () => {
       </ProForm>,
     );
 
-    await waitForComponentToPaint(html);
+    await waitTime(100);
     expect(html.baseElement.querySelectorAll('input.ant-input').length).toBe(1);
     // 尝试增加到4条数据
     await act(async () => {
@@ -1032,7 +1032,7 @@ describe('ProForm List', () => {
       html.baseElement.querySelectorAll<HTMLDivElement>('.action-copy')[0]?.click?.();
     });
     await waitTime(1000);
-    await waitForComponentToPaint(html);
+    await waitTime(100);
     const createBtn = html.baseElement.querySelectorAll<HTMLDivElement>(
       '.ant-btn.ant-pro-form-list-creator-button-bottom',
     );
@@ -1081,7 +1081,7 @@ describe('ProForm List', () => {
     act(() => {
       html.queryByText('提 交')?.click();
     });
-    await waitForComponentToPaint(html);
+    await waitTime(100);
     expect(onFinish).toBeCalledWith({
       list: [
         {
@@ -1195,7 +1195,7 @@ describe('ProForm List', () => {
       </ProForm>,
     );
 
-    await waitForComponentToPaint(html);
+    await waitTime(100);
 
     await act(async () => {
       const dom = await html.findByText('Add Field');
@@ -1264,7 +1264,7 @@ describe('ProForm List', () => {
       });
     });
 
-    await waitForComponentToPaint(html);
+    await waitTime(100);
 
     expect(ref.current?.getCurrentRowData().lv2Name).toBe('test');
   });
@@ -1307,7 +1307,7 @@ describe('ProForm List', () => {
       </ProForm>,
     );
 
-    await waitForComponentToPaint(html);
+    await waitTime(100);
 
     expect(ref.current?.getCurrentRowData().name).toBe('1111');
 
@@ -1320,13 +1320,13 @@ describe('ProForm List', () => {
       });
     });
 
-    await waitForComponentToPaint(html);
+    await waitTime(100);
 
     expect(ref.current?.getCurrentRowData().name).toBe('test');
 
     ref.current?.setCurrentRowData({ name: 'New Name' });
 
-    await waitForComponentToPaint(html);
+    await waitTime(100);
 
     expect(ref.current?.getCurrentRowData().name).toBe('New Name');
   });
@@ -1358,7 +1358,7 @@ describe('ProForm List', () => {
       </ProForm>,
     );
 
-    await waitForComponentToPaint(html);
+    await waitTime(100);
     // 删除按钮
     await act(async () => {
       html.baseElement.querySelectorAll<HTMLDivElement>('.action-remove')[0]?.click?.();
@@ -1423,29 +1423,29 @@ describe('ProForm List', () => {
         </ProFormList>
       </ProForm>,
     );
-    await waitForComponentToPaint(html, 300);
+    await waitTime(300);
 
     await act(async () => {
       fireEvent.click(await html.findByText('提 交'));
     });
-    await waitForComponentToPaint(html, 300);
+    await waitTime(300);
     expect(onFinish).toBeCalledTimes(0);
     expect((await html.findAllByText('列表不能为空')).length).toBe(1);
     await act(async () => {
       fireEvent.click(await html.findByText('添加一行数据'));
     });
-    await waitForComponentToPaint(html, 300);
+    await waitTime(300);
     await act(async () => {
       fireEvent.click(await html.findByText('提 交'));
     });
-    await waitForComponentToPaint(html, 300);
+    await waitTime(300);
     expect((await html.baseElement.querySelector('.ant-form-item-explain-error'))?.innerHTML).toBe(
       '请填写1',
     );
     await act(async () => {
       fireEvent.click(await html.baseElement.querySelector('.action-remove')!);
     });
-    await waitForComponentToPaint(html, 300);
+    await waitTime(300);
     expect((await html.findAllByText('列表不能为空')).length).toBe(1);
   });
 });

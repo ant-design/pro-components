@@ -2,6 +2,7 @@ import ProForm, { ProFormCaptcha } from '@ant-design/pro-form';
 import { Button, message } from 'antd';
 import { fireEvent, render } from '@testing-library/react';
 import React from 'react';
+import { act } from 'react-dom/test-utils';
 
 describe('ProFormCaptcha', () => {
   it('😊 ProFormCaptcha Manual open', async () => {
@@ -62,21 +63,23 @@ describe('ProFormCaptcha', () => {
       </ProForm>,
     );
 
-    fireEvent.click(container.querySelector('button#captchaButton')!);
-
+    act(() => {
+      fireEvent.click(container.querySelector('button#captchaButton')!);
+    });
     expect(fn).toHaveBeenCalledWith(TimingText);
-
-    fireEvent.click(container.querySelector('button#start')!);
-
+    act(() => {
+      fireEvent.click(container.querySelector('button#start')!);
+    });
     expect(container.querySelectorAll('#captchaButton')[0]).toHaveTextContent('60 秒后重新获取');
-
-    fireEvent.click(container.querySelector('button#end')!);
-
+    act(() => {
+      fireEvent.click(container.querySelector('button#end')!);
+    });
     expect(container.querySelectorAll('#captchaButton')[0]).toHaveTextContent('获取验证码');
 
     expect(captchaRef.current).toBeTruthy();
-
-    jest.advanceTimersByTime(60000);
+    act(() => {
+      jest.advanceTimersByTime(60000);
+    });
     expect(container.querySelectorAll('#captchaButton')[0]).toHaveTextContent('获取验证码');
 
     jest.useRealTimers();

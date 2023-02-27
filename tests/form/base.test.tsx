@@ -18,7 +18,7 @@ import userEvent from '@testing-library/user-event';
 import { Button, ConfigProvider, Input } from 'antd';
 import dayjs from 'dayjs';
 import React, { useEffect, useRef } from 'react';
-import { waitForComponentToPaint, waitTime } from '../util';
+import { waitTime } from '../util';
 
 describe('ProForm', () => {
   it('📦 submit props actionsRender=false', async () => {
@@ -116,7 +116,7 @@ describe('ProForm', () => {
         syncToInitialValues={false}
       >
         <ProFormText name="navTheme" />
-        <ProForm.Item>
+        <ProForm.Item shouldUpdate>
           {() => {
             return '123';
           }}
@@ -127,6 +127,7 @@ describe('ProForm', () => {
     await act(async () => {
       await (await wrapper.findByText('提 交')).click();
     });
+
     expect(onFinish).toHaveBeenCalledWith('realDark');
 
     // rest
@@ -200,13 +201,18 @@ describe('ProForm', () => {
   });
 
   it('📦 onFinish should simulate button close loading', async () => {
+    jest.useFakeTimers();
+
     const fn = jest.fn();
     const wrapper = render(
       <ProForm
         onFinish={async () => {
           fn();
-          await waitTime(1000);
-          throw new Error('期贤');
+          return new Promise((resolve, reject) => {
+            setTimeout(() => {
+              reject(new Error('期贤'));
+            }, 4000);
+          });
         }}
       />,
     );
@@ -214,15 +220,23 @@ describe('ProForm', () => {
     await act(async () => {
       await (await wrapper.findByText('提 交')).click();
     });
-    let dom = await (await wrapper.findByText('提 交')).parentElement;
+    let dom: HTMLElement | undefined | null;
+    await act(async () => {
+      dom = await (await wrapper.findByText('提 交')).parentElement;
+    });
     expect(dom?.className.includes('ant-btn-loading')).toBe(true);
     expect(fn).toBeCalled();
-    dom = await (await wrapper.findByText('提 交')).parentElement;
-    await act(async () => {
-      await waitTime(1200);
+
+    act(() => {
+      jest.runOnlyPendingTimers();
     });
+
+    await act(async () => {
+      dom = await (await wrapper.findByText('提 交')).parentElement;
+    });
+
     expect(dom?.className.includes('ant-btn-loading')).toBe(false);
-    wrapper.unmount();
+    jest.useRealTimers();
   });
 
   it('📦 onFinish support params and request', async () => {
@@ -2664,7 +2678,7 @@ describe('ProForm', () => {
       </ProForm>,
     );
 
-    await waitForComponentToPaint(html, 300);
+    await waitTime(300);
     act(() => {
       const dom = html.baseElement.querySelector<HTMLInputElement>('input#count')!;
       fireEvent.change(dom, {
@@ -2675,7 +2689,7 @@ describe('ProForm', () => {
       fireEvent.blur(dom);
       fireEvent.click(dom);
     });
-    await waitForComponentToPaint(html, 300);
+    await waitTime(300);
     expect(html.baseElement.querySelector<HTMLInputElement>('input#count')?.value).toBe('22');
 
     await act(async () => {
@@ -2705,13 +2719,13 @@ describe('ProForm', () => {
       </ProForm>,
     );
 
-    await waitForComponentToPaint(html, 300);
+    await waitTime(300);
 
     const dom = html.baseElement.querySelector<HTMLInputElement>('input#count')!;
     await userEvent.type(dom, '22.22.22');
     await userEvent.click(await html.findByText('提 交'));
 
-    await waitForComponentToPaint(html, 300);
+    await waitTime(300);
 
     expect(dom.value).toBe('22');
     expect(fn).toBeCalledWith(22);

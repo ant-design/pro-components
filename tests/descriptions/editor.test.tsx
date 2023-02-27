@@ -8,7 +8,7 @@ import { act, fireEvent, render } from '@testing-library/react';
 import { Form, InputNumber } from 'antd';
 import useMergedState from 'rc-util/es/hooks/useMergedState';
 import React, { useRef } from 'react';
-import { waitForComponentToPaint } from '../util';
+import { waitTime } from '../util';
 
 type DataSourceType = {
   id: number;
@@ -145,7 +145,7 @@ describe('Descriptions', () => {
     const wrapper = render(
       <Descriptions<DataSourceType> columns={columns} dataSource={defaultData} />,
     );
-    await waitForComponentToPaint(wrapper, 100);
+    await waitTime(100);
     expect(!!wrapper.baseElement.querySelector('.anticon-edit')).toBeFalsy();
   });
 
@@ -153,7 +153,7 @@ describe('Descriptions', () => {
     const wrapper = render(
       <Descriptions<DataSourceType> columns={columns} dataSource={defaultData} editable={{}} />,
     );
-    await waitForComponentToPaint(wrapper, 100);
+    await waitTime(100);
     expect(!!wrapper.baseElement.querySelector('.anticon-edit')).toBeTruthy();
   });
 
@@ -166,17 +166,17 @@ describe('Descriptions', () => {
         }}
       />,
     );
-    await waitForComponentToPaint(wrapper, 1000);
+    await waitTime(1000);
     act(() => {
       wrapper.baseElement.querySelectorAll<HTMLSpanElement>('span.anticon-edit')[0]?.click();
     });
-    await waitForComponentToPaint(wrapper);
+    await waitTime(100);
     expect(fn).toBeCalledWith(['title']);
   });
 
   it('📝 support set Form', async () => {
     const wrapper = render(<DescriptionsDemo editorRowKeys={['title']} />);
-    await waitForComponentToPaint(wrapper, 1000);
+    await waitTime(1000);
 
     act(() => {
       fireEvent.change(
@@ -188,14 +188,14 @@ describe('Descriptions', () => {
         { target: { value: 'test' } },
       );
     });
-    await waitForComponentToPaint(wrapper, 200);
+    await waitTime(200);
 
     expect(wrapper.queryByDisplayValue('test')).toBeTruthy();
 
     act(() => {
       wrapper.queryByText('重置')?.click();
     });
-    await waitForComponentToPaint(wrapper, 200);
+    await waitTime(200);
 
     expect(wrapper.queryByDisplayValue('🐛 [BUG]yarn install命令 antd2.4.5会报错')).toBeTruthy();
   });
@@ -275,7 +275,7 @@ describe('Descriptions', () => {
 
   it('📝 support editorRowKeys', async () => {
     const wrapper = render(<DescriptionsDemo editorRowKeys={['title']} />);
-    await waitForComponentToPaint(wrapper, 1000);
+    await waitTime(1000);
     // 第一行应该编辑态
     expect(
       wrapper.baseElement
@@ -300,11 +300,11 @@ describe('Descriptions', () => {
         }}
       />,
     );
-    await waitForComponentToPaint(wrapper, 1000);
+    await waitTime(1000);
     act(() => {
       wrapper.baseElement.querySelector<HTMLDivElement>('span.anticon-edit')?.click();
     });
-    await waitForComponentToPaint(wrapper, 1000);
+    await waitTime(1000);
     expect(
       wrapper.baseElement
         .querySelectorAll('td.ant-descriptions-item .ant-descriptions-item-content')[0]
@@ -318,7 +318,7 @@ describe('Descriptions', () => {
         ?.click();
     });
 
-    await waitForComponentToPaint(wrapper, 1000);
+    await waitTime(1000);
 
     expect(
       wrapper.baseElement
@@ -337,11 +337,11 @@ describe('Descriptions', () => {
         onCancel={async () => false}
       />,
     );
-    await waitForComponentToPaint(wrapper, 1000);
+    await waitTime(1000);
     act(() => {
       wrapper.baseElement.querySelector<HTMLSpanElement>('span.anticon-edit')?.click();
     });
-    await waitForComponentToPaint(wrapper, 1000);
+    await waitTime(1000);
     expect(
       wrapper.baseElement
         .querySelectorAll('td.ant-descriptions-item .ant-descriptions-item-content')[0]
@@ -355,7 +355,7 @@ describe('Descriptions', () => {
         ?.click();
     });
 
-    await waitForComponentToPaint(wrapper, 1000);
+    await waitTime(1000);
 
     expect(
       wrapper.baseElement
@@ -374,12 +374,12 @@ describe('Descriptions', () => {
         }}
       />,
     );
-    await waitForComponentToPaint(wrapper, 1000);
+    await waitTime(1000);
     act(() => {
       wrapper.baseElement.querySelector<HTMLSpanElement>('span.anticon-edit')?.click();
     });
 
-    await waitForComponentToPaint(wrapper, 1000);
+    await waitTime(1000);
 
     expect(fn).not.toBeCalled();
   });
@@ -395,23 +395,23 @@ describe('Descriptions', () => {
         }}
       />,
     );
-    await waitForComponentToPaint(wrapper, 1000);
+    await waitTime(1000);
     act(() => {
       wrapper.baseElement.querySelector<HTMLSpanElement>('span.anticon-edit')?.click();
     });
-    await waitForComponentToPaint(wrapper, 1000);
+    await waitTime(1000);
     expect(fn).toBeCalledWith(['state', 'title']);
   });
 
   it('📝 support onSave', async () => {
     const fn = jest.fn();
     const wrapper = render(<DescriptionsDemo onSave={(key) => fn(key)} />);
-    await waitForComponentToPaint(wrapper, 1000);
+    await waitTime(1000);
     act(() => {
       wrapper.baseElement.querySelectorAll<HTMLSpanElement>('span.anticon-edit')[1]?.click();
     });
 
-    await waitForComponentToPaint(wrapper, 200);
+    await waitTime(200);
 
     expect(
       wrapper.baseElement
@@ -426,7 +426,7 @@ describe('Descriptions', () => {
         ?.click();
     });
 
-    await waitForComponentToPaint(wrapper, 200);
+    await waitTime(200);
 
     expect(fn).toBeCalledWith('state');
   });
@@ -441,12 +441,12 @@ describe('Descriptions', () => {
         }}
       />,
     );
-    await waitForComponentToPaint(wrapper, 1000);
+    await waitTime(1000);
     act(() => {
       wrapper.baseElement.querySelectorAll<HTMLSpanElement>('span.anticon-edit')[1]?.click();
     });
 
-    await waitForComponentToPaint(wrapper, 200);
+    await waitTime(200);
 
     expect(
       wrapper.baseElement
@@ -461,7 +461,7 @@ describe('Descriptions', () => {
         ?.click();
     });
 
-    await waitForComponentToPaint(wrapper, 200);
+    await waitTime(200);
 
     expect(
       wrapper.baseElement
@@ -475,12 +475,12 @@ describe('Descriptions', () => {
   it('📝 support onCancel', async () => {
     const fn = jest.fn();
     const wrapper = render(<DescriptionsDemo onCancel={(key) => fn(key)} />);
-    await waitForComponentToPaint(wrapper, 1000);
+    await waitTime(1000);
     act(() => {
       wrapper.baseElement.querySelectorAll<HTMLSpanElement>('span.anticon-edit')[1]?.click();
     });
 
-    await waitForComponentToPaint(wrapper, 200);
+    await waitTime(200);
 
     expect(
       wrapper.baseElement
@@ -495,7 +495,7 @@ describe('Descriptions', () => {
         ?.click();
     });
 
-    await waitForComponentToPaint(wrapper, 200);
+    await waitTime(200);
 
     expect(fn).toBeCalledWith('state');
   });
@@ -503,13 +503,13 @@ describe('Descriptions', () => {
   it('📝 support form rules', async () => {
     const fn = jest.fn();
     const wrapper = render(<DescriptionsDemo onSave={(key, row) => fn(row.title)} />);
-    await waitForComponentToPaint(wrapper, 1000);
+    await waitTime(1000);
 
     act(() => {
       wrapper.baseElement.querySelectorAll<HTMLSpanElement>('span.anticon-edit')[0]?.click();
     });
 
-    await waitForComponentToPaint(wrapper, 200);
+    await waitTime(200);
     expect(
       wrapper.baseElement
         .querySelectorAll('td.ant-descriptions-item .ant-descriptions-item-content')[0]
@@ -535,7 +535,7 @@ describe('Descriptions', () => {
         .click();
     });
 
-    await waitForComponentToPaint(wrapper, 200);
+    await waitTime(200);
 
     // 没有通过验证，不触发 onSave
     expect(fn).not.toBeCalled();
@@ -562,7 +562,7 @@ describe('Descriptions', () => {
       );
     });
 
-    await waitForComponentToPaint(wrapper, 200);
+    await waitTime(200);
 
     expect(fn).toBeCalledWith('qixian');
   });
@@ -570,13 +570,13 @@ describe('Descriptions', () => {
   it('📝 when dataIndex is array', async () => {
     const fn = jest.fn();
     const wrapper = render(<DescriptionsDemo onSave={(key, row) => fn(row?.time?.created_at)} />);
-    await waitForComponentToPaint(wrapper, 1000);
+    await waitTime(1000);
 
     act(() => {
       wrapper.baseElement.querySelectorAll<HTMLSpanElement>('span.anticon-edit')[2]?.click();
     });
 
-    await waitForComponentToPaint(wrapper, 200);
+    await waitTime(200);
 
     act(() => {
       fireEvent.change(
@@ -598,7 +598,7 @@ describe('Descriptions', () => {
         ?.click();
     });
 
-    await waitForComponentToPaint(wrapper, 200);
+    await waitTime(200);
 
     expect(fn).toBeCalledWith('2021-05-26 09:42:56');
   });

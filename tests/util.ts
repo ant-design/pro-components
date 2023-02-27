@@ -1,14 +1,16 @@
-export const waitForComponentToPaint = async (wrapper: any, time = 50) => {
-  wrapper.update?.();
-  await new Promise((resolve) => setTimeout(resolve, time));
-  wrapper.update?.();
-};
+import { act } from 'react-dom/test-utils';
 
-export const waitTime = (time: number = 100) => {
+export const waitTimePromise = async (time: number = 100) => {
   return new Promise((resolve) => {
     setTimeout(() => {
       resolve(true);
     }, time);
+  });
+};
+
+export const waitTime = async (time: number = 100) => {
+  await act(async () => {
+    await waitTimePromise(time);
   });
 };
 

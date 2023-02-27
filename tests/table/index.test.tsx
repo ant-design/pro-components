@@ -4,7 +4,7 @@ import { fireEvent, render as ReactRender, screen } from '@testing-library/react
 import { Button, Input, Select } from 'antd';
 import React, { useRef } from 'react';
 import { act } from 'react-dom/test-utils';
-import { waitForComponentToPaint, waitTime } from '../util';
+import { waitTime } from '../util';
 import { columns, request } from './demo';
 
 describe('BasicTable', () => {
@@ -77,7 +77,7 @@ describe('BasicTable', () => {
         ]}
       />,
     );
-    await waitForComponentToPaint(html, 4000);
+    await waitTime(4000);
     act(() => {
       expect(html.asFragment()).toMatchSnapshot();
     });
@@ -119,7 +119,7 @@ describe('BasicTable', () => {
       );
     });
 
-    await waitForComponentToPaint(html, 2000);
+    await waitTime(2000);
 
     expect(pageSizeOnchange).toBeCalledWith(1);
   });
@@ -148,7 +148,7 @@ describe('BasicTable', () => {
       </div>,
     );
     fireEvent.mouseOver(screen.getByText('更多操作'));
-    await waitForComponentToPaint(html, 2000);
+    await waitTime(2000);
     (await html.findByText('复制')).click();
     fireEvent.mouseOver(screen.getByText('其他操作'));
     (await html.findByText('编辑')).click();
@@ -210,7 +210,7 @@ describe('BasicTable', () => {
       />,
     );
 
-    await waitForComponentToPaint(html, 2000);
+    await waitTime(2000);
     expect(!!html.baseElement.querySelector('.ant-pro-table-search')).toBeFalsy();
   });
 
@@ -241,9 +241,9 @@ describe('BasicTable', () => {
       />,
     );
 
-    await waitForComponentToPaint(html, 2000);
+    await waitTime(2000);
     expect(loadingChangerFn).toBeCalledWith(true, false);
-    await waitForComponentToPaint(html, 2000);
+    await waitTime(2000);
     expect(loadingChangerFn).toBeCalledWith(false, true);
   });
 
@@ -266,7 +266,7 @@ describe('BasicTable', () => {
         rowKey="key"
       />,
     );
-    await waitForComponentToPaint(html, 1200);
+    await waitTime(1200);
     expect(
       html.baseElement.querySelectorAll(
         '.ant-pro-table-list-toolbar-setting-items .ant-pro-table-list-toolbar-setting-item',
@@ -297,7 +297,7 @@ describe('BasicTable', () => {
         rowKey="key"
       />,
     );
-    await waitForComponentToPaint(html, 1200);
+    await waitTime(1200);
 
     expect(html.baseElement.querySelector('.ant-btn.ant-btn-primary')?.textContent).toBe('test');
     expect(html.baseElement.querySelector('.ant-btn')?.textContent).toBe('test2');
@@ -320,7 +320,7 @@ describe('BasicTable', () => {
         rowKey="key"
       />,
     );
-    await waitForComponentToPaint(html, 1200);
+    await waitTime(1200);
 
     expect(!!html.baseElement.querySelector('.ant-pro-card')).toBe(false);
 
@@ -341,7 +341,7 @@ describe('BasicTable', () => {
         />,
       );
     });
-    await waitForComponentToPaint(html, 1200);
+    await waitTime(1200);
     expect(!!html.baseElement.querySelector('.ant-pro-card')).toBe(false);
 
     act(() => {
@@ -362,7 +362,7 @@ describe('BasicTable', () => {
         />,
       );
     });
-    await waitForComponentToPaint(html, 1200);
+    await waitTime(1200);
     expect(!!html.baseElement.querySelector('.ant-pro-card')).toBe(true);
   });
 
@@ -385,7 +385,7 @@ describe('BasicTable', () => {
         rowKey="key"
       />,
     );
-    await waitForComponentToPaint(html, 1200);
+    await waitTime(1200);
     act(() => {
       expect(!!html.baseElement.querySelector('.anticon-setting')).toBeFalsy();
     });
@@ -446,7 +446,7 @@ describe('BasicTable', () => {
         rowKey="key"
       />,
     );
-    await waitForComponentToPaint(html, 1200);
+    await waitTime(1200);
     act(() => {
       expect(html.asFragment()).toMatchSnapshot();
     });
@@ -479,7 +479,7 @@ describe('BasicTable', () => {
         rowKey="key"
       />,
     );
-    await waitForComponentToPaint(html, 600);
+    await waitTime(1200);
     expect(!!html.baseElement.querySelector('ul.ant-pagination')).toBeFalsy();
 
     act(() => {
@@ -510,7 +510,7 @@ describe('BasicTable', () => {
       );
     });
 
-    await waitForComponentToPaint(html, 600);
+    await waitTime(1200);
     expect(!!html.baseElement.querySelector('ul.ant-pagination')).toBeTruthy();
   });
 
@@ -531,13 +531,13 @@ describe('BasicTable', () => {
         rowKey="key"
       />,
     );
-    await waitForComponentToPaint(html, 300);
+    await waitTime(300);
     act(() => {
       fireEvent.error(html.baseElement.querySelector('.ant-table')!, {
         message: 'test error',
       });
     });
-    await waitForComponentToPaint(html, 10);
+    await waitTime(300);
 
     expect(html.asFragment()).toMatchSnapshot();
   });
@@ -567,7 +567,7 @@ describe('BasicTable', () => {
         rowKey="key"
       />,
     );
-    await waitForComponentToPaint(html, 1200);
+    await waitTime(1200);
     expect(fn).toBeCalled();
   });
 
@@ -597,7 +597,7 @@ describe('BasicTable', () => {
         rowKey="key"
       />,
     );
-    await waitForComponentToPaint(html, 1200);
+    await waitTime(1200);
     expect(fn).toBeCalled();
   });
 
@@ -653,7 +653,7 @@ describe('BasicTable', () => {
     };
     const html = ReactRender(<Reload />);
 
-    await waitForComponentToPaint(html, 1200);
+    await waitTime(1200);
 
     act(() => {
       fireEvent.click(html.baseElement.querySelector('#reload')!);
@@ -663,7 +663,7 @@ describe('BasicTable', () => {
       fireEvent.click(html.baseElement.querySelector('#reload')!);
     });
 
-    await waitForComponentToPaint(html, 1200);
+    await waitTime(1200);
 
     // 因为有 loading 的控制，所有只会触发两次
     expect(fn).toBeCalledTimes(2);
@@ -672,7 +672,7 @@ describe('BasicTable', () => {
       fireEvent.click(html.baseElement.querySelector('#reset')!);
     });
 
-    await waitForComponentToPaint(html, 1200);
+    await waitTime(1200);
 
     expect(fn).toBeCalledTimes(3);
   });
@@ -696,7 +696,7 @@ describe('BasicTable', () => {
       />,
     );
 
-    await waitForComponentToPaint(html, 1200);
+    await waitTime(1200);
 
     expect(fn).toBeCalled();
   });
@@ -728,12 +728,12 @@ describe('BasicTable', () => {
         rowKey="key"
       />,
     );
-    await waitForComponentToPaint(html, 1200);
+    await waitTime(1200);
 
     act(() => {
       actionRef.current?.clearSelected?.();
     });
-    await waitForComponentToPaint(html);
+    await waitTime(100);
     expect(fn).toBeCalled();
     expect(onChangeFn).toBeCalled();
   });
@@ -770,7 +770,7 @@ describe('BasicTable', () => {
         rowKey="key"
       />,
     );
-    await waitForComponentToPaint(html, 1200);
+    await waitTime(1200);
 
     act(() => {
       fireEvent.click(
@@ -780,7 +780,7 @@ describe('BasicTable', () => {
       );
     });
 
-    await waitForComponentToPaint(html, 1200);
+    await waitTime(1200);
     expect(fn).toBeCalledTimes(2);
   });
 
@@ -806,7 +806,7 @@ describe('BasicTable', () => {
         rowKey="key"
       />,
     );
-    await waitForComponentToPaint(html, 1200);
+    await waitTime(1200);
 
     act(() => {
       fireEvent.click(
@@ -816,7 +816,7 @@ describe('BasicTable', () => {
       );
     });
 
-    await waitForComponentToPaint(html, 1000);
+    await waitTime(1000);
 
     expect(reloadFn).toHaveBeenCalledWith(expect.anything(), actionRef.current);
 
@@ -828,7 +828,7 @@ describe('BasicTable', () => {
       );
     });
 
-    await waitForComponentToPaint(html, 1200);
+    await waitTime(1200);
     expect(fullScreenFn).toHaveBeenCalledWith(expect.anything(), actionRef.current);
   });
 
@@ -861,7 +861,7 @@ describe('BasicTable', () => {
         rowKey="key"
       />,
     );
-    await waitForComponentToPaint(html, 1200);
+    await waitTime(1200);
 
     act(() => {
       fireEvent.click(
@@ -871,7 +871,7 @@ describe('BasicTable', () => {
       );
     });
 
-    await waitForComponentToPaint(html, 1200);
+    await waitTime(1200);
     expect(fn).toBeCalledTimes(2);
   });
 
@@ -899,19 +899,19 @@ describe('BasicTable', () => {
   //       rowKey="key"
   //     />,
   //   );
-  //   await waitForComponentToPaint(html);
+  //   await waitTime(100);
 
   //   act(() => {
   //     html
   //       .find('.ant-pro-table-list-toolbar-setting-item span.anticon-column-height')
   //       .simulate('click');
   //   });
-  //   await waitForComponentToPaint(html);
+  //   await waitTime(100);
   //   act(() => {
   //     html.find('.ant-dropdown-menu .ant-dropdown-menu-item').at(0).simulate('click');
   //   });
 
-  //   await waitForComponentToPaint(html, 1200);
+  //      await waitTime(1200);
   //   expect(fn).toBeCalledWith('large');
   // });
 
@@ -939,7 +939,7 @@ describe('BasicTable', () => {
         rowKey="key"
       />,
     );
-    await waitForComponentToPaint(html, 1200);
+    await waitTime(1200);
     act(() => {
       actionRef.current?.reload(true);
     });
@@ -949,7 +949,7 @@ describe('BasicTable', () => {
     act(() => {
       actionRef.current?.reload(true);
     });
-    await waitForComponentToPaint(html, 1200);
+    await waitTime(1200);
     expect(fn).toBeCalledTimes(2);
   });
 
@@ -975,7 +975,7 @@ describe('BasicTable', () => {
       />,
     );
 
-    await waitForComponentToPaint(html, 1200);
+    await waitTime(1200);
 
     expect(postFn).toBeCalled();
     // test useEffect render
@@ -1006,7 +1006,7 @@ describe('BasicTable', () => {
         rowKey="key"
       />,
     );
-    await waitForComponentToPaint(html, 1200);
+    await waitTime(1200);
 
     act(() => {
       fireEvent.click(
@@ -1016,7 +1016,7 @@ describe('BasicTable', () => {
       );
     });
 
-    await waitForComponentToPaint(html, 1200);
+    await waitTime(1200);
 
     expect(fn).toBeCalledTimes(1);
   });
@@ -1046,7 +1046,7 @@ describe('BasicTable', () => {
         rowKey="key"
       />,
     );
-    await waitForComponentToPaint(html, 1200);
+    await waitTime(1200);
 
     act(() => {
       fireEvent.click(
@@ -1056,7 +1056,7 @@ describe('BasicTable', () => {
       );
     });
 
-    await waitForComponentToPaint(html, 1200);
+    await waitTime(1200);
 
     expect(fn).not.toBeCalled();
   });
@@ -1127,7 +1127,7 @@ describe('BasicTable', () => {
         rowKey="key"
       />,
     );
-    await waitForComponentToPaint(html, 600);
+    await waitTime(1200);
 
     act(() => {
       fireEvent.click(
@@ -1136,7 +1136,7 @@ describe('BasicTable', () => {
         )!,
       );
     });
-    await waitForComponentToPaint(html, 1200);
+    await waitTime(1200);
 
     expect(!!document.fullscreenElement).toBeTruthy();
 
@@ -1148,7 +1148,7 @@ describe('BasicTable', () => {
       );
     });
 
-    await waitForComponentToPaint(html, 600);
+    await waitTime(1200);
 
     expect(!!document.fullscreenElement).toBeFalsy();
 
@@ -1178,7 +1178,7 @@ describe('BasicTable', () => {
         rowKey="key"
       />,
     );
-    await waitForComponentToPaint(html, 1200);
+    await waitTime(1200);
 
     act(() => {
       fireEvent.click(
@@ -1187,11 +1187,11 @@ describe('BasicTable', () => {
         )!,
       );
     });
-    await waitForComponentToPaint(html, 1200);
+    await waitTime(1200);
     act(() => {
       fireEvent.click(html.baseElement.querySelectorAll('li.ant-dropdown-menu-item')[1]);
     });
-    await waitForComponentToPaint(html, 1200);
+    await waitTime(1200);
 
     expect(fn).toBeCalledWith('middle');
   });
@@ -1211,7 +1211,7 @@ describe('BasicTable', () => {
         rowKey="key"
       />,
     );
-    await waitForComponentToPaint(html, 1200);
+    await waitTime(1200);
     expect(!!html.baseElement.querySelector('.ant-spin')).toBeTruthy();
 
     act(() => {
@@ -1231,7 +1231,7 @@ describe('BasicTable', () => {
       );
     });
 
-    await waitForComponentToPaint(html, 1200);
+    await waitTime(1200);
     // props 指定为 false 后，无论 request 完成与否都不会出现 spin
     expect(!!html.baseElement.querySelector('.ant-spin')).toBeFalsy();
   });
@@ -1271,7 +1271,7 @@ describe('BasicTable', () => {
         rowKey="key"
       />,
     );
-    await waitForComponentToPaint(html, 1200);
+    await waitTime(1200);
 
     act(() => {
       fireEvent.change(
@@ -1291,7 +1291,7 @@ describe('BasicTable', () => {
       );
     });
 
-    await waitForComponentToPaint(html, 600);
+    await waitTime(1200);
 
     expect(fn).toBeCalledWith('name');
   });
@@ -1318,7 +1318,7 @@ describe('BasicTable', () => {
         rowKey="key"
       />,
     );
-    await waitForComponentToPaint(html, 1200);
+    await waitTime(1200);
 
     act(() => {
       fireEvent.change(
@@ -1338,7 +1338,7 @@ describe('BasicTable', () => {
       );
     });
 
-    await waitForComponentToPaint(html, 600);
+    await waitTime(1200);
 
     expect(fn).toBeCalledWith('name');
   });
@@ -1366,7 +1366,7 @@ describe('BasicTable', () => {
         rowKey="key"
       />,
     );
-    await waitForComponentToPaint(html, 1200);
+    await waitTime(1200);
 
     act(() => {
       fireEvent.change(
@@ -1386,7 +1386,7 @@ describe('BasicTable', () => {
       );
     });
 
-    await waitForComponentToPaint(html, 600);
+    await waitTime(1200);
 
     expect(fn).toBeCalledWith('');
 
@@ -1408,7 +1408,7 @@ describe('BasicTable', () => {
       );
     });
 
-    await waitForComponentToPaint(html, 200);
+    await waitTime(200);
 
     expect(fn).toBeCalledWith('name1');
   });
@@ -1484,11 +1484,11 @@ describe('BasicTable', () => {
         debounceTime={500}
       />,
     );
-    await waitForComponentToPaint(html, 2000);
+    await waitTime(2000);
     for (let i = 0; i < 10; i += 1) {
       ref.current?.reload();
     }
-    await waitForComponentToPaint(html, 2000);
+    await waitTime(2000);
 
     expect(fn).toBeCalledTimes(2);
   });
@@ -1517,7 +1517,7 @@ describe('BasicTable', () => {
         debounceTime={500}
       />,
     );
-    await waitForComponentToPaint(html, 2000);
+    await waitTime(2000);
 
     expect(
       html.baseElement.querySelector('.ant-pro-query-filter-collapse-button')?.textContent,

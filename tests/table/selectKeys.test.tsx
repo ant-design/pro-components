@@ -2,7 +2,7 @@ import ProTable from '@ant-design/pro-table';
 import { render } from '@testing-library/react';
 import React, { useState } from 'react';
 import { act } from 'react-dom/test-utils';
-import { waitForComponentToPaint } from '../util';
+import { waitTime } from '../util';
 import { getFetchData } from './demo';
 
 describe('BasicTable Search', () => {
@@ -68,13 +68,13 @@ describe('BasicTable Search', () => {
         rowKey="key"
       />,
     );
-    await waitForComponentToPaint(html, 200);
+    await waitTime(200);
     act(() => {
       html.baseElement
         .querySelectorAll<HTMLInputElement>('.ant-table-cell label.ant-checkbox-wrapper input')[1]
         ?.click();
     });
-    await waitForComponentToPaint(html, 200);
+    await waitTime(200);
     expect(fn).toBeCalledTimes(1);
   });
 
@@ -129,7 +129,7 @@ describe('BasicTable Search', () => {
     };
     const wrapper = render(<DemoTable />);
 
-    await waitForComponentToPaint(wrapper, 2000);
+    await waitTime(1200);
 
     expect(fn).toBeCalledWith('张三,李四');
   });
