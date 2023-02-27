@@ -531,15 +531,15 @@ export function useEditableArray<RecordType>(
   const editableType = props.type || 'single';
   const [getRecordByKey] = useLazyKVMap(props.dataSource, 'children', props.getRowKey);
 
-  const [editableKeys, setEditableRowKeys] = useMergedState<React.Key[]>([], {
+  const [editableKeys, setEditableRowKeys] = useMergedState<React.Key[] | undefined>([], {
     value: props.editableKeys,
     onChange: props.onChange
       ? (keys) => {
           props?.onChange?.(
             // 计算编辑的key
-            keys.filter((key) => key !== undefined),
+            keys?.filter((key) => key !== undefined) ?? [],
             // 计算编辑的行
-            keys.map((key) => getRecordByKey(key)).filter((key) => key !== undefined),
+            keys?.map((key) => getRecordByKey(key)).filter((key) => key !== undefined) ?? [],
           );
         }
       : undefined,
@@ -561,7 +561,7 @@ export function useEditableArray<RecordType>(
     const recordKey = props.getRowKey(row, -1)?.toString?.();
 
     // 都转化为了字符串，不然 number 和 string
-    const stringEditableKeys = editableKeys.map((key) => key?.toString());
+    const stringEditableKeys = editableKeys?.map((key) => key?.toString());
     const stringEditableKeysRef = editableKeysRef?.map((key) => key?.toString()) || [];
 
     const preIsEditable =
@@ -636,7 +636,7 @@ export function useEditableArray<RecordType>(
     // 这里是把正在编辑中的所有表单数据都修改掉
     // 不然会用 props 里面的 dataSource，数据只有正在编辑中的
     // Object.keys(get(values, [props.tableName || ''].flat(1)) || values).forEach((recordKey) => {
-    editableKeys.forEach((eachRecordKey) => {
+    editableKeys?.forEach((eachRecordKey) => {
       if (newLineRecordCache?.options.recordKey === eachRecordKey) return;
       const recordKey = eachRecordKey.toString();
       // 如果数据在这个 form 中没有展示，也不显示
