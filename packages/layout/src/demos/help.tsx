@@ -5,10 +5,10 @@ import {
   ProHelpDrawer,
   ProHelpModal,
   ProHelpPanel,
+  ProHelpSelect,
   ProHelpPopover,
 } from '@ant-design/pro-components';
 import { Typography } from 'antd';
-import { ProHelpSelect } from '../components/Help/Search';
 
 export default () => {
   const [modalOpen, setModalOpen] = useState<boolean>(false);

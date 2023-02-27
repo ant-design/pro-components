@@ -23,7 +23,7 @@ import { useStyle } from './style';
 import { ProHelpSelect } from './Search';
 
 export type { ProHelpDataSource, ProHelpDataSourceChildren };
-export { ProHelpProvide };
+export { ProHelpProvide, ProHelpSelect };
 
 export type ProHelpPanelProps = {
   /**
@@ -225,32 +225,34 @@ export const ProHelpPanel: React.FC<ProHelpPanelProps> = ({
       }}
       size="small"
       extra={
-        <Space
-          size={24}
-          style={{
-            cursor: 'pointer',
-          }}
-        >
-          <ProfileOutlined
-            onClick={() => {
-              setShowLeftPanel(!showLeftPanel);
-            }}
-          />
+        <div className={`${className}-actions`}>
+          <div className={`${className}-actions-item`}>
+            <ProfileOutlined
+              onClick={() => {
+                setShowLeftPanel(!showLeftPanel);
+              }}
+            />
+          </div>
           <ProHelpSelect
+            iconClassName={`${className}-actions-item`}
+            className={`${className}-actions-input`}
             value={selectedKey}
             onChange={(value, item) => {
               setSelectedKey(value);
               setOpenKey((item as any)?.dataItemKey);
             }}
           />
+
           {onClose ? (
-            <CloseOutlined
-              onClick={() => {
-                onClose?.();
-              }}
-            />
+            <div className={`${className}-actions-item`}>
+              <CloseOutlined
+                onClick={() => {
+                  onClose?.();
+                }}
+              />{' '}
+            </div>
           ) : null}
-        </Space>
+        </div>
       }
     >
       {showLeftPanel ? (

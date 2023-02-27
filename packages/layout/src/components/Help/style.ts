@@ -1,9 +1,16 @@
-﻿import type { GenerateStyle, ProAliasToken } from '@ant-design/pro-provider';
+﻿import { Keyframes } from '@ant-design/cssinjs';
+import type { GenerateStyle, ProAliasToken } from '@ant-design/pro-provider';
 import { useStyle as useAntdStyle } from '@ant-design/pro-provider';
 
 export interface ProHelpToken extends ProAliasToken {
   componentCls: string;
 }
+
+export const actionsInputAnimal = new Keyframes('actionsInputAnimal', {
+  '0%': { width: '0px' },
+  '30%': { width: '20px' },
+  '100%': { width: '120px' },
+});
 
 const genProHelpStyle: GenerateStyle<ProHelpToken> = (token) => {
   return {
@@ -40,6 +47,34 @@ const genProHelpStyle: GenerateStyle<ProHelpToken> = (token) => {
       overflow: 'auto',
       flex: 1,
       minHeight: '648px',
+    },
+    [`${token.componentCls}-actions`]: {
+      display: 'flex',
+      gap: 12,
+      '&-item': {
+        display: 'flex',
+        alignContent: 'center',
+        justifyItems: 'center',
+        padding: 4,
+        height: 24,
+        minWidth: 24,
+        cursor: 'pointer',
+        borderRadius: token.borderRadius,
+        '&:hover': {
+          backgroundColor: token.colorBgTextHover,
+        },
+      },
+      '&-input': {
+        margin: 0,
+        maxWidth: 120,
+        padding: 0,
+        width: '120px',
+        borderRadius: token.borderRadius,
+        backgroundColor: token.colorBgTextHover,
+        animationName: actionsInputAnimal,
+        animationDuration: '0.1s',
+        animationTimingFunction: 'linear',
+      },
     },
   };
 };

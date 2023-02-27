@@ -88,51 +88,67 @@ export const Highlight: React.FC<{
 };
 
 export const ProHelpSelect: React.FC<
-  Omit<SelectProps, 'onSearch' | 'optionFilterProp' | 'options' | 'filterOption'>
-> = (props) => {
+  Omit<SelectProps, 'onSearch' | 'optionFilterProp' | 'options' | 'filterOption'> & {
+    iconClassName?: string;
+  }
+> = ({ iconClassName, ...props }) => {
   const { dataSource } = useContext(ProHelpProvide);
   const [keyWord, setKeyWork] = useState<string>('');
 
   const debounceSetKeyWork = useDebounceFn(async (key) => setKeyWork(key), 20);
+
+  const [open, setOpen] = useState<boolean>(false);
+
   return (
     <>
-      <SearchOutlined />
-      <Select<{
-        label: React.ReactNode;
-        title: string;
-        value: string;
-        dataItemKey: string;
-      }>
-        {...props}
-        bordered={false}
-        onSearch={(value) => {
-          debounceSetKeyWork.cancel();
-          debounceSetKeyWork.run(value);
-        }}
-        style={{
-          minWidth: 120,
-        }}
-        showSearch
-        filterOption={(input, option) =>
-          (option?.title ?? '').toLowerCase().includes(input.toLowerCase())
-        }
-        dropdownMatchSelectWidth={false}
-        options={dataSource.map((item) => {
-          return {
-            label: <Highlight label={item.title} words={[keyWord].filter(Boolean)} />,
-            title: item.title,
-            value: item.key,
-            options: item.children?.map((sunItem) => {
-              return {
-                label: <Highlight label={sunItem.title} words={[keyWord].filter(Boolean)} />,
-                title: sunItem.title,
-                value: sunItem.key,
-                dataItemKey: item.key,
-              };
-            }),
-          };
-        })}
-      />
+      {!open ? (
+        <div className={iconClassName}>
+          <SearchOutlined
+            onClick={() => {
+              setOpen(true);
+            }}
+          />
+        </div>
+      ) : null}
+      {open ? (
+        <Select<{
+          label: React.ReactNode;
+          title: string;
+          value: string;
+          dataItemKey: string;
+        }>
+          showSearch
+          bordered={false}
+          onBlur={() => {
+            setOpen(false);
+          }}
+          size="small"
+          {...props}
+          onSearch={(value) => {
+            debounceSetKeyWork.cancel();
+            debounceSetKeyWork.run(value);
+          }}
+          filterOption={(input, option) =>
+            (option?.title ?? '').toLowerCase().includes(input.toLowerCase())
+          }
+          dropdownMatchSelectWidth={false}
+          options={dataSource.map((item) => {
+            return {
+              label: <Highlight label={item.title} words={[keyWord].filter(Boolean)} />,
+              title: item.title,
+              value: item.key,
+              options: item.children?.map((sunItem) => {
+                return {
+                  label: <Highlight label={sunItem.title} words={[keyWord].filter(Boolean)} />,
+                  title: sunItem.title,
+                  value: sunItem.key,
+                  dataItemKey: item.key,
+                };
+              }),
+            };
+          })}
+        />
+      ) : null}
     </>
   );
 };
