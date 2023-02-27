@@ -13,7 +13,6 @@ import { act, fireEvent, render, screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import dayjs from 'dayjs';
 import KeyCode from 'rc-util/es/KeyCode';
-import { waitTime } from '../util';
 
 describe('LightFilter', () => {
   it(' 🪕 basic use', async () => {
@@ -542,7 +541,8 @@ describe('LightFilter', () => {
       </LightFilter>,
     );
 
-    await waitTime(100);
+    await html.findByText('2001-09-09 01:46:40~2017-07-14 02:40:00');
+
     const inputDom = html.findAllByText('活跃时间: 2001-09-09 01:46:40~2017-07-14 0...2项');
     expect(!!inputDom).toBeTruthy();
   });
@@ -572,12 +572,11 @@ describe('LightFilter', () => {
         />
       </LightFilter>,
     );
+    await wrapper.findAllByTitle('男');
+
     act(() => {
-      wrapper.baseElement
-        .querySelectorAll<HTMLDivElement>('.ant-pro-core-field-label')[0]
-        .click?.();
+      wrapper.baseElement.querySelector<HTMLDivElement>('.ant-pro-core-field-label')?.click?.();
     });
-    await waitTime(1200);
 
     expect(
       !!wrapper.baseElement.querySelector('.ant-pro-field-select-light-select-container-topRight'),
@@ -604,12 +603,13 @@ describe('LightFilter', () => {
         />
       </LightFilter>,
     );
+
+    await wrapper.findByText('名称');
     act(() => {
       wrapper.baseElement
         .querySelectorAll<HTMLDivElement>('.ant-pro-core-field-dropdown-label')[0]
         .click?.();
     });
-    await waitTime(1200);
 
     expect(
       !!wrapper.baseElement.querySelector('.ant-pro-core-field-dropdown-overlay-bottomLeft'),
@@ -647,7 +647,6 @@ describe('LightFilter', () => {
         .querySelectorAll<HTMLDivElement>('.ant-pro-core-field-label')[0]
         .click?.();
     });
-    await waitTime(1200);
     expect(
       !!wrapper.baseElement.querySelector(
         '.ant-pro-field-select-light-select-container-bottomRight',

@@ -10,7 +10,8 @@ describe('ProFormCaptcha', () => {
     const fn = jest.fn();
     jest.useFakeTimers();
     const TimingText = '获取验证码';
-    const { container } = render(
+
+    const html = render(
       <ProForm
         title="新建表单"
         submitter={{
@@ -35,7 +36,7 @@ describe('ProFormCaptcha', () => {
                   // @ts-ignore
                   captchaRef.current?.endTiming();
                 }}
-                key="edit"
+                key="end"
               >
                 手动结束计数
               </Button>,
@@ -51,7 +52,7 @@ describe('ProFormCaptcha', () => {
           onGetCaptcha={() => {
             return new Promise((resolve, reject) => {
               fn(TimingText);
-              reject();
+              reject(new Error('模拟报错'));
             });
           }}
           captchaProps={{
@@ -63,24 +64,36 @@ describe('ProFormCaptcha', () => {
       </ProForm>,
     );
 
-    act(() => {
-      fireEvent.click(container.querySelector('button#captchaButton')!);
+    await act(async () => {
+      const dom = await html.findByText('获取验证码');
+      fireEvent.click(dom);
     });
+
     expect(fn).toHaveBeenCalledWith(TimingText);
-    act(() => {
-      fireEvent.click(container.querySelector('button#start')!);
+
+    await act(async () => {
+      const dom = await html.findByText('手动开始计数');
+      fireEvent.click(dom);
     });
-    expect(container.querySelectorAll('#captchaButton')[0]).toHaveTextContent('60 秒后重新获取');
-    act(() => {
-      fireEvent.click(container.querySelector('button#end')!);
+
+    expect(html.container.querySelectorAll('#captchaButton')[0]).toHaveTextContent(
+      '60 秒后重新获取',
+    );
+
+    await act(async () => {
+      const dom = await html.findByText('手动结束计数');
+      fireEvent.click(dom);
     });
-    expect(container.querySelectorAll('#captchaButton')[0]).toHaveTextContent('获取验证码');
+
+    expect(html.container.querySelectorAll('#captchaButton')[0]).toHaveTextContent('获取验证码');
 
     expect(captchaRef.current).toBeTruthy();
+
     act(() => {
-      jest.advanceTimersByTime(60000);
+      jest.runOnlyPendingTimers();
     });
-    expect(container.querySelectorAll('#captchaButton')[0]).toHaveTextContent('获取验证码');
+
+    expect(html.container.querySelectorAll('#captchaButton')[0]).toHaveTextContent('获取验证码');
 
     jest.useRealTimers();
   });

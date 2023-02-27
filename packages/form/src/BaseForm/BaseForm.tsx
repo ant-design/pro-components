@@ -637,7 +637,7 @@ function BaseForm<T = Record<string, any>>(props: BaseFormProps<T>) {
       }
       setLoading(false);
     } catch (error) {
-      if (typeof process && process.env.NODE_ENV !== 'test') {
+      if (typeof process !== 'undefined' && process.env.NODE_ENV !== 'test') {
         console.log(error);
       }
       setLoading(false);

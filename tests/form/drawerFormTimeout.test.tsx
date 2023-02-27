@@ -5,27 +5,29 @@ import { waitTime } from '../util';
 describe('DrawerForm', () => {
   it('📦 DrawerForm submitTimeout is number will disabled close button when submit', async () => {
     const fn = jest.fn();
+    jest.useFakeTimers();
     const html = render(
       <DrawerForm
         open
         drawerProps={{
           onClose: () => fn(),
         }}
-        onFinish={async () => {
-          await waitTime(3000);
+        onFinish={() => {
+          return new Promise((resolve) => {
+            setTimeout(() => {
+              resolve(true);
+            }, 3000);
+          });
         }}
         submitTimeout={3000}
       >
         <ProFormText name="text" />
       </DrawerForm>,
     );
-    await waitTime(300);
 
     await act(async () => {
       (await html.queryByText('确 认'))?.click();
     });
-
-    await waitTime(1000);
 
     expect(
       (html.queryAllByText('取 消').at(0)?.parentElement as HTMLButtonElement).disabled,
@@ -35,11 +37,11 @@ describe('DrawerForm', () => {
       (await html.queryByText('取 消'))?.click();
     });
 
-    await waitTime(300);
+    act(() => {
+      jest.advanceTimersByTime(3000);
+    });
 
     expect(fn).not.toBeCalled();
-
-    await waitTime(2500);
 
     expect(
       (html.queryAllByText('取 消').at(0)?.parentElement as HTMLButtonElement)?.disabled,
@@ -49,45 +51,47 @@ describe('DrawerForm', () => {
       (await html.queryByText('取 消'))?.click();
     });
 
-    await waitTime(1000);
-
     expect(fn).toBeCalled();
     html.unmount();
+    jest.useRealTimers();
   });
 
   it('📦 DrawerForm submitTimeout is null no disable close button when submit', async () => {
     const fn = jest.fn();
+    jest.useFakeTimers();
     const wrapper = render(
       <DrawerForm
         open
         drawerProps={{
           onClose: () => fn(),
         }}
-        onFinish={async () => {
-          await waitTime(3000);
-          return true;
+        onFinish={() => {
+          return new Promise((resolve) => {
+            setTimeout(() => {
+              resolve(true);
+            }, 3000);
+          });
         }}
       >
         <ProFormText name="text" />
       </DrawerForm>,
     );
-    await waitTime(1200);
 
     await act(async () => {
       (await wrapper.queryByText('确 认'))?.click();
     });
 
-    await waitTime(1200);
-
     expect((wrapper.queryAllByText('取 消').at(0) as HTMLButtonElement)?.disabled).toEqual(
       undefined,
     );
 
+    act(() => {
+      jest.advanceTimersByTime(3000);
+    });
+
     await act(async () => {
       (await wrapper.queryByText('取 消'))?.click();
     });
-
-    await waitTime(1200);
 
     expect(fn).toBeCalled();
   });

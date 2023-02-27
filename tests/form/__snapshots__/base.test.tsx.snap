@@ -52,6 +52,7 @@ exports[`ProForm 📦 submit props actionsRender=()=>false 1`] = `
         style="display: none;"
         type="text"
       />
+      text
     </form>
   </div>
 </DocumentFragment>
