@@ -241,7 +241,7 @@ importers:
 
   packages/card:
     specifiers:
-      '@ant-design/icons': ^4.2.1
+      '@ant-design/icons': ^5.0.0
       '@ant-design/pro-provider': 2.4.3
       '@ant-design/pro-utils': 2.5.8
       '@babel/runtime': ^7.18.0
@@ -250,7 +250,7 @@ importers:
       rc-resize-observer: ^1.0.0
       rc-util: ^5.4.0
     dependencies:
-      '@ant-design/icons': 4.8.0
+      '@ant-design/icons': 5.0.1
       '@ant-design/pro-provider': link:../provider
       '@ant-design/pro-utils': link:../utils
       '@babel/runtime': 7.21.0
@@ -308,7 +308,7 @@ importers:
 
   packages/field:
     specifiers:
-      '@ant-design/icons': ^4.2.1
+      '@ant-design/icons': ^5.0.0
       '@ant-design/pro-provider': 2.4.3
       '@ant-design/pro-utils': 2.5.8
       '@babel/runtime': ^7.18.0
@@ -324,7 +324,7 @@ importers:
       rc-util: ^5.4.0
       swr: ^2.0.0
     dependencies:
-      '@ant-design/icons': 4.8.0
+      '@ant-design/icons': 5.0.1
       '@ant-design/pro-provider': link:../provider
       '@ant-design/pro-utils': link:../utils
       '@babel/runtime': 7.21.0
@@ -343,7 +343,7 @@ importers:
 
   packages/form:
     specifiers:
-      '@ant-design/icons': ^4.2.1
+      '@ant-design/icons': ^5.0.0
       '@ant-design/pro-field': 2.2.9
       '@ant-design/pro-provider': 2.4.3
       '@ant-design/pro-utils': 2.5.8
@@ -359,7 +359,7 @@ importers:
       use-json-comparison: ^1.0.5
       use-media-antd-query: ^1.1.0
     dependencies:
-      '@ant-design/icons': 4.8.0
+      '@ant-design/icons': 5.0.1
       '@ant-design/pro-field': link:../field
       '@ant-design/pro-provider': link:../provider
       '@ant-design/pro-utils': link:../utils
@@ -378,7 +378,7 @@ importers:
 
   packages/layout:
     specifiers:
-      '@ant-design/icons': ^4.0.0
+      '@ant-design/icons': ^5.0.0
       '@ant-design/pro-provider': 2.4.3
       '@ant-design/pro-utils': 2.5.8
       '@babel/runtime': ^7.18.0
@@ -395,7 +395,7 @@ importers:
       use-media-antd-query: ^1.1.0
       warning: ^4.0.3
     dependencies:
-      '@ant-design/icons': 4.8.0
+      '@ant-design/icons': 5.0.1
       '@ant-design/pro-provider': link:../provider
       '@ant-design/pro-utils': link:../utils
       '@babel/runtime': 7.21.0
@@ -414,7 +414,7 @@ importers:
 
   packages/list:
     specifiers:
-      '@ant-design/icons': ^4.0.0
+      '@ant-design/icons': ^5.0.0
       '@ant-design/pro-card': 2.1.14
       '@ant-design/pro-field': 2.2.9
       '@ant-design/pro-table': 3.3.1
@@ -425,7 +425,7 @@ importers:
       rc-util: ^4.19.0
       use-media-antd-query: ^1.1.0
     dependencies:
-      '@ant-design/icons': 4.8.0
+      '@ant-design/icons': 5.0.1
       '@ant-design/pro-card': link:../card
       '@ant-design/pro-field': link:../field
       '@ant-design/pro-table': link:../table
@@ -460,7 +460,7 @@ importers:
 
   packages/table:
     specifiers:
-      '@ant-design/icons': ^4.1.0
+      '@ant-design/icons': ^5.0.0
       '@ant-design/pro-card': 2.1.14
       '@ant-design/pro-field': 2.2.9
       '@ant-design/pro-form': 2.5.8
@@ -475,7 +475,7 @@ importers:
       react-sortable-hoc: ^2.0.0
       use-json-comparison: ^1.0.5
     dependencies:
-      '@ant-design/icons': 4.8.0
+      '@ant-design/icons': 5.0.1
       '@ant-design/pro-card': link:../card
       '@ant-design/pro-field': link:../field
       '@ant-design/pro-form': link:../form
@@ -537,7 +537,6 @@ packages:
     resolution: {integrity: sha512-iVm/9PfGCbC0dSMBrz7oiEXZaaGH7ceU40OJEfKmyuzR9R5CRimJYPlRiFtMQGQcbNMea/ePcoIebi4ASGYXtg==}
     dependencies:
       '@ctrl/tinycolor': 3.6.0
-    dev: true
 
   /@ant-design/cssinjs/1.5.6:
     resolution: {integrity: sha512-1S7LUPC9BMyQ/CUYgzfePJJwEfsbVHJe3Tpd9zhujTxRM/6LYpN9N4FTaPHVqpnPazm0S2vG0WBkh2T5Erwuug==}
@@ -603,6 +602,20 @@ packages:
       react: 18.2.0
       react-dom: 18.2.0_react@18.2.0
     dev: true
+
+  /@ant-design/icons/5.0.1:
+    resolution: {integrity: sha512-ZyF4ksXCcdtwA/1PLlnFLcF/q8/MhwxXhKHh4oCHDA4Ip+ZzAHoICtyp4wZWfiCVDP0yuz3HsjyvuldHFb3wjA==}
+    engines: {node: '>=8'}
+    peerDependencies:
+      react: '>=16.0.0'
+      react-dom: '>=16.0.0'
+    dependencies:
+      '@ant-design/colors': 7.0.0
+      '@ant-design/icons-svg': 4.2.1
+      '@babel/runtime': 7.21.0
+      classnames: 2.3.2
+      rc-util: 5.28.0
+    dev: false
 
   /@ant-design/icons/5.0.1_biqbaboplfbrettd7655fr4n2y:
     resolution: {integrity: sha512-ZyF4ksXCcdtwA/1PLlnFLcF/q8/MhwxXhKHh4oCHDA4Ip+ZzAHoICtyp4wZWfiCVDP0yuz3HsjyvuldHFb3wjA==}

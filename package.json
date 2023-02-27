@@ -7,7 +7,7 @@
   "scripts": {
     "bootstrap": "node ./scripts/bootstrap.js",
     "build": "npm run version && npm run build-components",
-    "build-components": "pnpm --filter \"./packages/**/**\" build",
+    "build-components": "pnpm --filter \"./packages/**\" build",
     "changelog": "node ./scripts/changelogs.js",
     "check-deps": "node ./scripts/checkDeps.js",
     "checkPublish": "npm run sync:tnpm && node ./scripts/checkPublish.js && npm run sync:tnpm",

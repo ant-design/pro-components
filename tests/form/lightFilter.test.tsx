@@ -542,6 +542,7 @@ describe('LightFilter', () => {
       </LightFilter>,
     );
 
+    waitForComponentToPaint(100);
     const inputDom = html.findAllByText('活跃时间: 2001-09-09 01:46:40~2017-07-14 0...2项');
     expect(!!inputDom).toBeTruthy();
   });

@@ -34,7 +34,7 @@
     "build": "father build"
   },
   "dependencies": {
-    "@ant-design/icons": "^4.1.0",
+    "@ant-design/icons": "^5.0.0",
     "@ant-design/pro-card": "2.1.14",
     "@ant-design/pro-field": "2.2.9",
     "@ant-design/pro-form": "2.5.8",

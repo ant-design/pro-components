@@ -4,7 +4,12 @@ on: [push, pull_request]
 
 jobs:
   build:
-    runs-on: ubuntu-latest
+    runs-on: ${{ matrix.os }}
+    strategy:
+      matrix:
+        node-version: [14.x, 16.x]
+        os: [ubuntu-latest, windows-latest]
+      fail-fast: false
     steps:
       - uses: actions/checkout@v3
         with:
@@ -16,29 +21,7 @@ jobs:
         uses: pnpm/action-setup@v2
         with:
           version: 6.0.2
-      - name: Get pnpm cache directory path
-        id: pnpm-cache-dir-path
-        run: echo "::set-output name=dir::$(pnpm cache dir)"
-      - name: Cache pnpm cache
-        uses: actions/cache@v2
-        id: cache-pnpm-cache
-        with:
-          path: ${{ steps.pnpm-cache-dir-path.outputs.dir }}
-          key: ${{ runner.os }}-pnpm-${{ hashFiles('**/pnpm-lock.yaml') }}
-          restore-keys: |
-            ${{ runner.os }}-pnpm-
-      - name: Cache node_modules
-        id: cache-node-modules
-        uses: actions/cache@v2
-        with:
-          path: node_modules
-          key: ${{ runner.os }}-${{ matrix.node-version }}-nodemodules-${{ hashFiles('**/pnpm-lock.yaml') }}
-          restore-keys: |
-            ${{ runner.os }}-${{ matrix.node-version }}-nodemodules-
-      - run: pnpm i
-        if: |
-          steps.cache-pnpm-cache.outputs.cache-hit != 'true' ||
-          steps.cache-node-modules.outputs.cache-hit != 'true'
+      - run: pnpm install
       - run: pnpm run build
         env:
           PRO_COMPONENTS_CI: CI
