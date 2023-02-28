@@ -9,7 +9,7 @@ import {
   ProFormText,
   ProFormTimePicker,
 } from '@ant-design/pro-form';
-import { act, fireEvent, render, screen } from '@testing-library/react';
+import { act, fireEvent, render, screen, waitFor } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import dayjs from 'dayjs';
 import KeyCode from 'rc-util/es/KeyCode';
@@ -542,9 +542,6 @@ describe('LightFilter', () => {
     );
 
     await html.findByText('2001-09-09 01:46:40~2017-07-14 02:40:00');
-
-    const inputDom = html.findAllByText('活跃时间: 2001-09-09 01:46:40~2017-07-14 0...2项');
-    expect(!!inputDom).toBeTruthy();
   });
 
   it('🪕 lightFilter lightWrapper support placement', async () => {
@@ -673,6 +670,7 @@ describe('LightFilter', () => {
     );
 
     await userEvent.click(await screen.findByText('性别'));
+
     fireEvent.change(await screen.findByRole('textbox'), {
       target: {
         value: '男',
@@ -712,7 +710,9 @@ describe('LightFilter', () => {
       },
     });
 
-    expect(screen.queryByLabelText('女')).not.toBeInTheDocument();
+    await waitFor(() => {
+      expect(screen.queryByLabelText('女')).not.toBeInTheDocument();
+    });
 
     fireEvent.change(await screen.findByRole('textbox'), {
       target: {
@@ -720,6 +720,8 @@ describe('LightFilter', () => {
       },
     });
 
-    expect(screen.getByLabelText('女')).toBeInTheDocument();
+    await waitFor(() => {
+      expect(screen.getByLabelText('女')).toBeInTheDocument();
+    });
   });
 });
