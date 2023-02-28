@@ -562,6 +562,8 @@ describe('utils', () => {
         time: () => 'new-time',
         name: () => 'new-name',
         money: () => 'new-money',
+        // @ts-ignore
+        dateRange2: [(itemValue, _, tempValues) => tempValues, () => 'dateRange'],
       },
     );
     const htmlKeys = Object.keys(html).sort();
