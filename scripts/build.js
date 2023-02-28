@@ -6,12 +6,19 @@ const fs = require('fs');
 
 console.log('📦  Building packages...');
 
-console.log(
-  fs.readdirSync('./packages').map((file) => {
-    console.log(fs.readFileSync(`./packages/${file}/package.json`).toString());
-    return file;
-  }),
-);
+[
+  'card',
+  'components',
+  'descriptions',
+  'field',
+  'form',
+  'layout',
+  'list',
+  'provider',
+  'skeleton',
+  'table',
+  'utils',
+];
 
 execa('pnpm', ['--filter', slash('./packages/**'), 'build'], {
   cwd: slash(join(__dirname, '..')),
