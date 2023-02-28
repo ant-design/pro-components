@@ -18,6 +18,8 @@ import { useStylish } from './style/stylish';
 
 const { Sider } = Layout;
 
+export type HeaderRenderKey = 'menuHeaderRender' | 'headerTitleRender';
+
 /**
  * 渲染 title 和 logo
  *
@@ -27,7 +29,7 @@ const { Sider } = Layout;
  */
 export const renderLogoAndTitle = (
   props: SiderMenuProps,
-  renderKey: string = 'menuHeaderRender',
+  renderKey: HeaderRenderKey = 'menuHeaderRender',
 ): React.ReactNode => {
   const { logo, title, layout } = props;
   const renderFunction = props[renderKey || ''];
