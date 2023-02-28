@@ -154,15 +154,21 @@ describe('StepsForm', () => {
           <ProFormText name="姓名" />
         </StepsForm.StepForm>
         <StepsForm.StepForm name="moreInfo" title="表单2">
-          <ProFormText name="邮箱" />
+          <ProFormText label="邮箱" name="邮箱" />
         </StepsForm.StepForm>
       </StepsForm>,
     );
 
-    userEvent.click(await screen.findByText('下一步'));
-
+    await act(async () => {
+      userEvent.click(await screen.findByText('下一步'));
+    });
+    await waitFor(() => {
+      screen.findAllByText('邮箱');
+    });
     await waitFor(() => {
       expect(fn).toBeCalled();
+    });
+    await waitFor(() => {
       expect(currentFn).toBeCalled();
     });
     unmount();
