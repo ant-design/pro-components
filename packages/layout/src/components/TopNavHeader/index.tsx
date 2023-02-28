@@ -6,7 +6,11 @@ import { AppsLogoComponents } from '../AppsLogoComponents';
 import type { GlobalHeaderProps } from '../GlobalHeader';
 import { ActionsContent } from '../GlobalHeader/ActionsContent';
 import { BaseMenu } from '../SiderMenu/BaseMenu';
-import type { HeaderRenderKey, PrivateSiderMenuProps, SiderMenuProps } from '../SiderMenu/SiderMenu';
+import type {
+  HeaderRenderKey,
+  PrivateSiderMenuProps,
+  SiderMenuProps,
+} from '../SiderMenu/SiderMenu';
 import { renderLogoAndTitle } from '../SiderMenu/SiderMenu';
 import { useStyle } from './style';
 
@@ -36,10 +40,7 @@ const TopNavHeader: React.FC<TopNavHeaderProps> = (props: TopNavHeaderProps) => 
   } else if (layout === 'mix' || layout === 'top') {
     renderKey = 'headerTitleRender';
   }
-  const headerDom = renderLogoAndTitle(
-    { ...props, collapsed: false },
-    renderKey,
-  );
+  const headerDom = renderLogoAndTitle({ ...props, collapsed: false }, renderKey);
   const contentDom = useMemo(() => {
     const defaultDom = (
       <ConfigProvider

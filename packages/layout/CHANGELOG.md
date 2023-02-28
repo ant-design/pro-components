@@ -1,19 +1,13 @@
 # Change Log
 
-All notable changes to this project will be documented in this file.
-See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
 ## [7.8.3](https://github.com/ant-design/pro-components/compare/@ant-design/pro-layout@7.8.2...@ant-design/pro-layout@7.8.3) (2023-02-28)
 
-
 ### Bug Fixes
 
-* **layout:** if layout's avatarProps doesn't exist, the actionsRender props should also take effect ([#6642](https://github.com/ant-design/pro-components/issues/6642)) ([180c5a1](https://github.com/ant-design/pro-components/commit/180c5a1f606a114671bba91d818fdd0632bd5daf))
-* **layout:** menuHeaderRender not work ([#6676](https://github.com/ant-design/pro-components/issues/6676)) ([8ef9590](https://github.com/ant-design/pro-components/commit/8ef959083037d6a5e7e5c59f990aa37bf761ca04))
-
-
-
-
+- **layout:** if layout's avatarProps doesn't exist, the actionsRender props should also take effect ([#6642](https://github.com/ant-design/pro-components/issues/6642)) ([180c5a1](https://github.com/ant-design/pro-components/commit/180c5a1f606a114671bba91d818fdd0632bd5daf))
+- **layout:** menuHeaderRender not work ([#6676](https://github.com/ant-design/pro-components/issues/6676)) ([8ef9590](https://github.com/ant-design/pro-components/commit/8ef959083037d6a5e7e5c59f990aa37bf761ca04))
 
 ## [7.8.2](https://github.com/ant-design/pro-components/compare/@ant-design/pro-layout@7.8.1...@ant-design/pro-layout@7.8.2) (2023-02-17)
 
