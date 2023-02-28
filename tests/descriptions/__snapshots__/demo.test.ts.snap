@@ -497,6 +497,7 @@ exports[`descriptions demos 📸 renders ./packages/descriptions/src/demos/base.
   </div>
   <div
     class="ant-descriptions ant-pro-descriptions"
+    tooltip="包含了从服务器请求，columns等功能"
   >
     <div
       class="ant-descriptions-header"
@@ -2681,6 +2682,7 @@ exports[`descriptions demos 📸 renders ./packages/descriptions/src/demos/forma
   </div>
   <div
     class="ant-descriptions ant-pro-descriptions"
+    tooltip="包含了从服务器请求，columns等功能"
   >
     <div
       class="ant-descriptions-header"
