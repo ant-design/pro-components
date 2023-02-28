@@ -520,7 +520,9 @@ const ProTable = <T extends Record<string, any>, U extends ParamsType, ValueType
 
     // 聚焦时重新请求事件
     const visibilitychange = () => {
-      if (document.visibilityState === 'visible') action.reload();
+      if (document.visibilityState === 'visible') {
+        action.reload();
+      }
     };
 
     document.addEventListener('visibilitychange', visibilitychange);

@@ -69,7 +69,7 @@ const FieldTreeSelect: ProFieldFC<GroupProps> = (
 
   useImperativeHandle(ref, () => ({
     ...(treeSelectRef.current || {}),
-    fetchData: () => fetchData(),
+    fetchData: (keyWord: string) => fetchData(keyWord),
   }));
 
   const optionsValueEnum = useMemo(() => {

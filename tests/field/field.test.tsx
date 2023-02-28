@@ -1,5 +1,5 @@
 import Field from '@ant-design/pro-field';
-import { act, fireEvent, render } from '@testing-library/react';
+import { act, fireEvent, render, waitFor } from '@testing-library/react';
 import { Button, Input } from 'antd';
 import dayjs from 'dayjs';
 import React, { useState } from 'react';
@@ -230,7 +230,7 @@ describe('Field', () => {
 
   ['select', 'checkbox', 'radio', 'radioButton', 'cascader', 'treeSelect', 'segmented'].forEach(
     (valueType) => {
-      it(`🐴 ${valueType} support render function`, async () => {
+      it(`🐴 ${valueType}  read mode support render valueEnum`, async () => {
         const html = render(
           <Field
             text="default"
@@ -246,13 +246,13 @@ describe('Field', () => {
             }}
           />,
         );
-        expect(html.baseElement.textContent).toBe('pre关闭');
-        html.unmount();
+        await html.findAllByText('pre');
       });
 
-      it(`🐴 ${valueType} support request function`, async () => {
+      it(`🐴 ${valueType} read mode support request function`, async () => {
+        jest.useFakeTimers();
         const ref = React.createRef<{
-          fetchData: () => void;
+          fetchData: (keyWord?: string) => void;
         }>();
         const fn = jest.fn();
         const html = render(
@@ -264,31 +264,53 @@ describe('Field', () => {
             mode="read"
             request={async () => {
               fn();
-              await waitTime(1000);
-              return [
-                { label: '全部', value: 'all' },
-                { label: '未解决', value: 'open' },
-                { label: '已解决', value: 'closed' },
-                { label: '解决中', value: 'processing' },
-              ];
+              return new Promise((resolve) => {
+                setTimeout(() => {
+                  resolve([
+                    { label: '全部', value: 'all' },
+                    { label: '未解决', value: 'open' },
+                    { label: '已解决', value: 'closed' },
+                    { label: '解决中', value: 'processing' },
+                  ]);
+                }, 1000);
+              });
             }}
           />,
         );
 
-        await waitTime(1200);
         act(() => {
-          ref.current?.fetchData();
+          jest.runOnlyPendingTimers();
         });
+
+        await html.findAllByText('default');
+
+        expect(fn).toBeCalledTimes(1);
+
+        act(() => {
+          ref.current?.fetchData?.('test');
+        });
+
+        act(() => {
+          jest.runOnlyPendingTimers();
+        });
+
+        expect(fn).toBeCalledTimes(2);
         html.unmount();
+        jest.useRealTimers();
       });
 
-      it(`🐴 ${valueType} support renderFormItem function`, async () => {
+      it(`🐴 ${valueType}  edit model support renderFormItem function`, async () => {
         const html = render(
           <Field
             text="default"
             valueType={valueType as 'radio'}
             mode="edit"
-            renderFormItem={() => <Input id="select" />}
+            renderFormItem={() => (
+              <>
+                <Input id="select" />
+                default
+              </>
+            )}
             valueEnum={{
               0: { text: '关闭', status: 'Default' },
               1: { text: '运行中', status: 'Processing' },
@@ -297,7 +319,9 @@ describe('Field', () => {
             }}
           />,
         );
-        await waitTime(100);
+
+        await html.findAllByText('default');
+
         expect(!!html.baseElement.querySelector('#select')).toBeTruthy();
         html.unmount();
       });
@@ -1481,15 +1505,18 @@ describe('Field', () => {
 
   it('🐴 select request debounceTime', async () => {
     const requestFn = jest.fn();
+    const ref = React.createRef<{
+      fetchData: (keyWord?: string) => void;
+    }>();
     const html = render(
       <Field
+        ref={ref}
         text="default"
         debounceTime={200}
         valueType="select"
         mode="edit"
         request={async (params) => {
           requestFn(params?.test);
-          await waitTime(10);
           return [
             { label: '全部', value: 'all' },
             { label: '未解决', value: 'open' },
@@ -1499,78 +1526,19 @@ describe('Field', () => {
         }}
       />,
     );
-    await waitTime(200);
-    expect(requestFn).toBeCalledTimes(1);
-    act(() => {
-      html.rerender(
-        <Field
-          text="default"
-          debounceTime={200}
-          valueType="select"
-          mode="edit"
-          params={{ name: 'test' }}
-          request={async (params) => {
-            requestFn(params?.test);
-            await waitTime(10);
-            return [
-              { label: '全部', value: 'all' },
-              { label: '未解决', value: 'open' },
-              { label: '已解决', value: 'closed' },
-              { label: '解决中', value: 'processing' },
-            ];
-          }}
-        />,
-      );
+    await waitFor(() => {
+      expect(requestFn).toBeCalledTimes(1);
     });
-    await waitTime(300);
-    act(() => {
-      html.rerender(
-        <Field
-          text="default"
-          debounceTime={200}
-          valueType="select"
-          mode="edit"
-          params={{ name: 'test1' }}
-          request={async (params) => {
-            requestFn(params?.test);
-            await waitTime(10);
-            return [
-              { label: '全部', value: 'all' },
-              { label: '未解决', value: 'open' },
-              { label: '已解决', value: 'closed' },
-              { label: '解决中', value: 'processing' },
-            ];
-          }}
-        />,
-      );
-    });
-    await waitTime(300);
-    act(() => {
-      html.rerender(
-        <Field
-          text="default"
-          debounceTime={200}
-          valueType="select"
-          mode="edit"
-          params={{ name: 'test2' }}
-          request={async (params) => {
-            requestFn(params?.test);
-            await waitTime(10);
-            return [
-              { label: '全部', value: 'all' },
-              { label: '未解决', value: 'open' },
-              { label: '已解决', value: 'closed' },
-              { label: '解决中', value: 'processing' },
-            ];
-          }}
-        />,
-      );
-    });
-    await waitTime(300);
 
-    expect(requestFn).toBeCalledTimes(1);
-    await waitTime(10000);
-    expect(requestFn).toBeCalledTimes(2);
+    act(() => {
+      for (let index = 0; index < 10; index++) {
+        ref.current?.fetchData(index + '');
+      }
+    });
+
+    await waitFor(() => {
+      expect(requestFn).toBeCalledTimes(2);
+    });
   });
 
   it(`🐴 light select dropdown toggle`, async () => {

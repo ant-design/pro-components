@@ -25,7 +25,7 @@ const FieldSegmented: ProFieldFC<
 
   useImperativeHandle(ref, () => ({
     ...(inputRef.current || {}),
-    fetchData: () => fetchData(),
+    fetchData: (keyWord: string) => fetchData(keyWord),
   }));
 
   if (loading) {

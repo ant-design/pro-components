@@ -9,9 +9,7 @@ export const waitTimePromise = async (time: number = 100) => {
 };
 
 export const waitTime = async (time: number = 100) => {
-  await act(async () => {
-    await waitTimePromise(time);
-  });
+  await waitTimePromise(time);
 };
 
 export const resizeWindow = (x: number, y: number) => {

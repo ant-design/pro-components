@@ -141,10 +141,8 @@ export const WaterMark: React.FC<WaterMarkProps> = (props) => {
         setBase64Url(canvas.toDataURL());
       }
     } else {
-      if (typeof process !== 'undefined' && process.env.NODE_ENV !== 'test') {
-        // eslint-disable-next-line no-console
-        console.error('当前环境不支持Canvas');
-      }
+      // eslint-disable-next-line no-console
+      console.error('当前环境不支持Canvas');
     }
   }, [
     gapX,
