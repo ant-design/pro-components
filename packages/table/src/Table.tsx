@@ -54,6 +54,7 @@ import {
 } from './utils';
 import { columnSort } from './utils/columnSort';
 import { genProColumnToColumn } from './utils/genProColumnToColumn';
+import Summary from 'rc-table/es/Footer/Summary';
 
 function TableRender<T extends Record<string, any>, U, ValueType>(
   props: ProTableProps<T, U, ValueType> & {
@@ -876,6 +877,6 @@ const ProviderTableContainer = <
   );
 };
 
-ProviderTableContainer.Summary = Table.Summary;
+ProviderTableContainer.Summary = Table.Summary as typeof Summary;
 
 export default ProviderTableContainer;
