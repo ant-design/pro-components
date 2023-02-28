@@ -230,7 +230,11 @@ function TableRender<T extends Record<string, any>, U, ValueType>(
   }, []);
 
   /** 默认的 table dom，如果是编辑模式，外面还要包个 form */
-  const baseTableDom = <Table<T> {...getTableProps()} rowKey={rowKey} />;
+  const baseTableDom = action.dataSource ? (
+    <Table<T> {...getTableProps()} rowKey={rowKey} />
+  ) : (
+    <></>
+  );
 
   /** 自定义的 render */
   const tableDom = props.tableViewRender
