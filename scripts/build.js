@@ -20,7 +20,7 @@ console.log('📦  Building packages...');
   'utils',
 ];
 
-execa('pnpm', ['--filter', slash('./packages/**'), 'build'], {
+execa('pnpm', ['--filter', `"./packages/*"`, 'build'], {
   cwd: slash(join(__dirname, '..')),
   stdout: process.stdout,
 }).stdout;
