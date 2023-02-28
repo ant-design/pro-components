@@ -338,10 +338,8 @@ export function SaveEditableAction<T>(
       setLoading(false);
       return res;
     } catch (error) {
-      if (typeof process !== 'undefined' && process.env.NODE_ENV !== 'test') {
-        // eslint-disable-next-line no-console
-        console.log(error);
-      }
+      // eslint-disable-next-line no-console
+      console.log(error);
       setLoading(false);
       throw error;
     }
@@ -403,10 +401,8 @@ export const DeleteEditableAction: React.FC<ActionRenderConfig<any> & { row: any
 
       return res;
     } catch (e) {
-      if (typeof process !== 'undefined' && process.env.NODE_ENV !== 'test') {
-        // eslint-disable-next-line no-console
-        console.log(e);
-      }
+      // eslint-disable-next-line no-console
+      console.log(e);
       setLoading(false);
 
       return null;

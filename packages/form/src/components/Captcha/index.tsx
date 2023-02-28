@@ -57,10 +57,8 @@ const BaseProFormCaptcha: React.FC<ProFormCaptchaProps> = React.forwardRef((prop
     } catch (error) {
       setTiming(false);
       setLoading(false);
-      if (typeof process !== 'undefined' && process.env.NODE_ENV !== 'test') {
-        // eslint-disable-next-line no-console
-        console.log(error);
-      }
+      // eslint-disable-next-line no-console
+      console.log(error);
     }
   };
   /**
@@ -124,10 +122,8 @@ const BaseProFormCaptcha: React.FC<ProFormCaptchaProps> = React.forwardRef((prop
               await onGetCaptcha('');
             }
           } catch (error) {
-            if (typeof process !== 'undefined' && process.env.NODE_ENV !== 'test') {
-              // eslint-disable-next-line no-console
-              console.log(error);
-            }
+            // eslint-disable-next-line no-console
+            console.log(error);
           }
         }}
       >
