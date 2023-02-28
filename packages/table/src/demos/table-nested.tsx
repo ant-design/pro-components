@@ -140,7 +140,7 @@ export default () => {
       pagination={{
         showQuickJumper: true,
       }}
-      expandable={{ expandedRowRender }}
+      expandable={{ expandedRowRender, defaultExpandAllRows: true }}
       search={false}
       dateFormatter="string"
       headerTitle="嵌套表格"
