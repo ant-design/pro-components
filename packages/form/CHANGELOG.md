@@ -1,23 +1,16 @@
 # Change Log
 
-All notable changes to this project will be documented in this file.
-See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
 # [2.6.0](https://github.com/ant-design/pro-components/compare/@ant-design/pro-form@2.5.8...@ant-design/pro-form@2.6.0) (2023-02-28)
 
-
 ### Bug Fixes
 
-* 修复动态控制是否重渲染demo标题修改标签任有required提示的问题 ([#6640](https://github.com/ant-design/pro-components/issues/6640)) ([fd33f8c](https://github.com/ant-design/pro-components/commit/fd33f8cef4afa97d0e5964d91fd5c21b18d6cbde))
-
+- 修复动态控制是否重渲染 demo 标题修改标签任有 required 提示的问题 ([#6640](https://github.com/ant-design/pro-components/issues/6640)) ([fd33f8c](https://github.com/ant-design/pro-components/commit/fd33f8cef4afa97d0e5964d91fd5c21b18d6cbde))
 
 ### Features
 
-* **form:** ProFormTreeSelect support fetchDataOnSearch ([#6638](https://github.com/ant-design/pro-components/issues/6638)) ([4615f43](https://github.com/ant-design/pro-components/commit/4615f43a685b57245a6449454345e449bc8a2c4c))
-
-
-
-
+- **form:** ProFormTreeSelect support fetchDataOnSearch ([#6638](https://github.com/ant-design/pro-components/issues/6638)) ([4615f43](https://github.com/ant-design/pro-components/commit/4615f43a685b57245a6449454345e449bc8a2c4c))
 
 ## [2.5.8](https://github.com/ant-design/pro-components/compare/@ant-design/pro-form@2.5.7...@ant-design/pro-form@2.5.8) (2023-02-17)
 
