@@ -6,13 +6,13 @@ import { AppsLogoComponents } from '../AppsLogoComponents';
 import type { GlobalHeaderProps } from '../GlobalHeader';
 import { ActionsContent } from '../GlobalHeader/ActionsContent';
 import { BaseMenu } from '../SiderMenu/BaseMenu';
-import type { PrivateSiderMenuProps, SiderMenuProps } from '../SiderMenu/SiderMenu';
+import type { HeaderRenderKey, PrivateSiderMenuProps, SiderMenuProps } from '../SiderMenu/SiderMenu';
 import { renderLogoAndTitle } from '../SiderMenu/SiderMenu';
 import { useStyle } from './style';
 
 export type TopNavHeaderProps = SiderMenuProps & GlobalHeaderProps & PrivateSiderMenuProps;
 
-const TopNavHeader: React.FC<TopNavHeaderProps> = (props) => {
+const TopNavHeader: React.FC<TopNavHeaderProps> = (props: TopNavHeaderProps) => {
   const ref = useRef(null);
   const {
     onMenuHeaderClick,
@@ -30,9 +30,15 @@ const TopNavHeader: React.FC<TopNavHeaderProps> = (props) => {
   const prefixCls = `${props.prefixCls || getPrefixCls('pro')}-top-nav-header`;
 
   const { wrapSSR, hashId } = useStyle(prefixCls);
+  let renderKey: HeaderRenderKey | undefined = undefined;
+  if (props['menuHeaderRender'] !== undefined) {
+    renderKey = 'menuHeaderRender';
+  } else if (layout === 'mix' || layout === 'top') {
+    renderKey = 'headerTitleRender';
+  }
   const headerDom = renderLogoAndTitle(
     { ...props, collapsed: false },
-    layout === 'mix' || layout == 'top' ? 'headerTitleRender' : undefined,
+    renderKey,
   );
   const contentDom = useMemo(() => {
     const defaultDom = (
