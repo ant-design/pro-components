@@ -117,4 +117,4 @@ const getMds = async (allVersion = false) => {
   });
 };
 
-getMds(true);
+getMds();
