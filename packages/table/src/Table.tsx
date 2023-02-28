@@ -424,19 +424,6 @@ const ProTable = <T extends Record<string, any>, U extends ParamsType, ValueType
     },
   );
 
-  const selectedRowsRef = useRef<T[]>([]);
-
-  const setSelectedRowsAndKey = useCallback(
-    (keys: (string | number)[], rows: T[]) => {
-      setSelectedRowKeys(keys);
-      if (!propsRowSelection || !propsRowSelection?.selectedRowKeys) {
-        selectedRowsRef.current = rows;
-      }
-    },
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-    [setSelectedRowKeys],
-  );
-
   const [formSearch, setFormSearch] = useMountMergeState<Record<string, any> | undefined>(() => {
     // 如果手动模式，或者 search 不存在的时候设置为 undefined
     // undefined 就不会触发首次加载
@@ -559,12 +546,6 @@ const ProTable = <T extends Record<string, any>, U extends ParamsType, ValueType
     return [];
   }, [action.dataSource, getRowKey]);
 
-  useEffect(() => {
-    selectedRowsRef.current = selectedRowKeys!?.map(
-      (key): T => preserveRecordsRef.current?.get(key) as T,
-    );
-  }, [selectedRowKeys]);
-
   /** 页面编辑的计算 */
   const pagination = useMemo(() => {
     const newPropsPagination = propsPagination === false ? false : { ...propsPagination };
@@ -616,8 +597,8 @@ const ProTable = <T extends Record<string, any>, U extends ParamsType, ValueType
         type: 'none',
       });
     }
-    setSelectedRowsAndKey([], []);
-  }, [propsRowSelection, setSelectedRowsAndKey]);
+    setSelectedRowKeys([]);
+  }, [propsRowSelection, setSelectedRowKeys]);
 
   counter.setAction(actionRef.current);
   counter.propsRef.current = props;
@@ -737,7 +718,7 @@ const ProTable = <T extends Record<string, any>, U extends ParamsType, ValueType
       if (propsRowSelection && propsRowSelection.onChange) {
         propsRowSelection.onChange(keys, rows, info);
       }
-      setSelectedRowsAndKey(keys, rows);
+      setSelectedRowKeys(keys);
     },
   };
 
@@ -795,6 +776,11 @@ const ProTable = <T extends Record<string, any>, U extends ParamsType, ValueType
       />
     );
 
+  const selectedRows = useMemo(
+    () => selectedRowKeys?.map((key) => preserveRecordsRef.current?.get(key)),
+    [selectedRowKeys],
+  ) as T[];
+
   /** 内置的工具栏 */
   const toolbarDom =
     toolBarRender === false ? null : (
@@ -803,7 +789,7 @@ const ProTable = <T extends Record<string, any>, U extends ParamsType, ValueType
         hideToolbar={
           options === false && !headerTitle && !toolBarRender && !toolbar && !isLightFilter
         }
-        selectedRows={selectedRowsRef.current}
+        selectedRows={selectedRows}
         selectedRowKeys={selectedRowKeys!}
         tableColumn={tableColumn}
         tooltip={tooltip}
@@ -826,7 +812,7 @@ const ProTable = <T extends Record<string, any>, U extends ParamsType, ValueType
     propsRowSelection !== false ? (
       <Alert<T>
         selectedRowKeys={selectedRowKeys!}
-        selectedRows={selectedRowsRef.current}
+        selectedRows={selectedRows}
         onCleanSelected={onCleanSelected}
         alertOptionRender={rest.tableAlertOptionRender}
         alertInfoRender={tableAlertRender}
