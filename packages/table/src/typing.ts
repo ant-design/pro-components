@@ -550,7 +550,7 @@ export type UseFetchProps = {
    * 是否在页面获得焦点时重新验证数据
    * @type {Boolean}
    */
-  revalidateOnFocus?: Boolean;
+  revalidateOnFocus?: boolean;
 };
 
 export type OptionSearchProps = Omit<SearchProps, 'onSearch'> & {

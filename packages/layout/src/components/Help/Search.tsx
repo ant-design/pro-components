@@ -1,7 +1,8 @@
 ﻿import { SearchOutlined } from '@ant-design/icons';
 import { useStyle } from '@ant-design/pro-provider';
 import { useDebounceFn } from '@ant-design/pro-utils';
-import { ConfigProvider, Select, SelectProps } from 'antd';
+import type { SelectProps } from 'antd';
+import { ConfigProvider, Select } from 'antd';
 import React, { useState } from 'react';
 import { useContext } from 'react';
 import { ProHelpProvide } from './HelpProvide';

@@ -1,5 +1,6 @@
-﻿import { ImageProps } from 'antd';
-import React, { AnchorHTMLAttributes } from 'react';
+﻿import type { ImageProps } from 'antd';
+import type { AnchorHTMLAttributes } from 'react';
+import React from 'react';
 
 /**
  * ProHelp 数据源子项内容类型。

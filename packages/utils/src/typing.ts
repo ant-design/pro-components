@@ -610,5 +610,5 @@ export interface ProFieldProps {
   /**
    * 是否只读
    */
-  readonly?: Boolean;
+  readonly?: boolean;
 }

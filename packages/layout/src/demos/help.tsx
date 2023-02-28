@@ -1,7 +1,7 @@
 import { useState } from 'react';
+import type { ProHelpDataSourceChildren } from '@ant-design/pro-components';
 import {
   ProHelp,
-  ProHelpDataSourceChildren,
   ProHelpDrawer,
   ProHelpModal,
   ProHelpPanel,
