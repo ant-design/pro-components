@@ -1,6 +1,18 @@
 # Change Log
 
-All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+All notable changes to this project will be documented in this file.
+See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+
+## [2.5.9](https://github.com/ant-design/pro-components/compare/@ant-design/pro-utils@2.5.8...@ant-design/pro-utils@2.5.9) (2023-02-28)
+
+
+### Bug Fixes
+
+* **EditableTable:** editableKeys maybe undefined ([#6655](https://github.com/ant-design/pro-components/issues/6655)) ([321b758](https://github.com/ant-design/pro-components/commit/321b75810043bb4ce544ca1508aa582059c95d6d))
+
+
+
+
 
 ## [2.5.8](https://github.com/ant-design/pro-components/compare/@ant-design/pro-utils@2.5.7...@ant-design/pro-utils@2.5.8) (2023-02-17)
 
