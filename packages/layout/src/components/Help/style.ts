@@ -32,6 +32,7 @@ const genProHelpStyle: GenerateStyle<ProHelpToken> = (token) => {
       borderInlineEnd: `${token?.lineWidth}px solid ${token?.colorBorderSecondary}`,
       minHeight: '648px',
       minWidth: 190,
+      maxWidth: 190,
       '&-menu': {
         width: 190,
         minWidth: 190,
