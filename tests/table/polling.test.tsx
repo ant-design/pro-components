@@ -1,5 +1,5 @@
 import ProTable from '@ant-design/pro-table';
-import { act, render, waitFor } from '@testing-library/react';
+import { render } from '@testing-library/react';
 import { waitTime } from '../util';
 import { columns } from './demo';
 
@@ -23,25 +23,15 @@ describe('polling', () => {
         rowKey="key"
       />,
     );
-    await waitFor(() => {
-      expect(fn).toBeCalledTimes(1);
-    });
+    await waitTime(1000);
+    expect(fn).toBeCalledTimes(1);
+    await waitTime(1800);
 
-    act(() => {
-      jest.runOnlyPendingTimers();
-    });
+    expect(fn).toBeCalledTimes(2);
 
-    await waitFor(() => {
-      expect(fn).toBeCalledTimes(2);
-    });
+    await waitTime(1000);
 
-    act(() => {
-      jest.advanceTimersByTime(1000);
-    });
-
-    await waitFor(() => {
-      expect(fn).toBeCalledTimes(2);
-    });
+    expect(fn).toBeCalledTimes(2);
   });
 
   it('⏱️ polling min time is 2000', async () => {
