@@ -47,7 +47,6 @@ const genProListStyle: GenerateStyle<ProListToken> = (token) => {
         gap: 8,
         justifyContent: 'flex-start',
         maxWidth: 'calc(100% - 200px)',
-        width: '100%',
         overflow: 'auto',
         [`${token.antCls}-tabs`]: {
           width: '100%',
