@@ -421,6 +421,10 @@ describe('👍🏻 ProHelpPanel', () => {
 
     await html.findAllByText('常见问题');
 
+    await act(async () => {
+      (await html.findByTitle('close panel'))?.click();
+    });
+
     await waitFor(() => {
       expect(fn).toBeCalledTimes(1);
     });
@@ -514,5 +518,11 @@ describe('👍🏻 ProHelpPanel', () => {
     expect(
       html.baseElement.querySelector('.ant-pro-help-search-list-item-content-light')?.textContent,
     ).toBe('如何');
+
+    await act(async () => {
+      fireEvent.blur(html.container.querySelector('.ant-select-selector')!);
+      jest.runOnlyPendingTimers();
+    });
+    expect(!!html.container.querySelector('.ant-select-selector')!).toBeFalsy();
   });
 });
