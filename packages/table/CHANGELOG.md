@@ -2,6 +2,14 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [3.3.2](https://github.com/ant-design/pro-components/compare/@ant-design/pro-table@3.3.1...@ant-design/pro-table@3.3.2) (2023-02-28)
+
+### Bug Fixes
+
+- **table:** ProTable 组件 toolbar menu 属性为 tab 时抖动问题([#6584](https://github.com/ant-design/pro-components/issues/6584)) ([#6641](https://github.com/ant-design/pro-components/issues/6641)) ([14301f0](https://github.com/ant-design/pro-components/commit/14301f0200c69fbc1c656105c0e35e5824e0c6c8))
+- **table:** selectedRows 拿不到最新的值 ([#6671](https://github.com/ant-design/pro-components/issues/6671)) ([38595ba](https://github.com/ant-design/pro-components/commit/38595ba3a2c34fac8e02ad81535f2b4d026f0184))
+- remove debugger ([#6634](https://github.com/ant-design/pro-components/issues/6634)) ([328af05](https://github.com/ant-design/pro-components/commit/328af0593cdef0b5a8c5099d88bba43f829cf4ef))
+
 ## [3.3.1](https://github.com/ant-design/pro-components/compare/@ant-design/pro-table@3.3.0...@ant-design/pro-table@3.3.1) (2023-02-17)
 
 ### Bug Fixes

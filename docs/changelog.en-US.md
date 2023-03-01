@@ -1,4 +1,16 @@
-﻿## @ant-design/pro-components@2.3.57
+﻿# @ant-design/pro-components@2.3.58
+
+`2023-02-28`
+
+- fix(layout): menuHeaderRender not work (#6676). [#6676](https://github.com/ant-design/pro-components/pull/#6676) [@elrrrrrrr](https://github.com/elrrrrrrr)
+- fix(layout): if layout's avatarProps doesn't exist, the actionsRender props should also take effect (#6642). [#6642](https://github.com/ant-design/pro-components/pull/#6642) [@BooYeu](https://github.com/BooYeu)
+- 💥 feat(layout): layout 提供在菜单为空时隐藏 Sider 的功能 (#6643). [#6643](https://github.com/ant-design/pro-components/pull/#6643) [@wtchaos](https://github.com/wtchaos)
+- feat(form): ProFormTreeSelect support fetchDataOnSearch (#6638). [#6638](https://github.com/ant-design/pro-components/pull/#6638) [@Eliot00](https://github.com/Eliot00)
+- fix(form): textarea read-mode error (#6632). [#6632](https://github.com/ant-design/pro-components/pull/#6632) [@jaluik](https://github.com/jaluik)
+- fix(table): selectedRows 拿不到最新的值 (#6671). [#6671](https://github.com/ant-design/pro-components/pull/#6671) [@hans000](https://github.com/hans000)
+- fix(table): ProTable 组件 toolbar menu 属性为 tab 时抖动问题(#6584) (#6641). [#6584](https://github.com/ant-design/pro-components/pull/#6584) [@chencc](https://github.com/chencc)
+
+## @ant-design/pro-components@2.3.57
 
 `2023-02-17`
 
