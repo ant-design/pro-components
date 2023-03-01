@@ -1,7 +1,7 @@
 import { GithubFilled, InfoCircleFilled, QuestionCircleFilled } from '@ant-design/icons';
 import { ProLayout } from '@ant-design/pro-components';
 import { LoginForm, ProFormText } from '@ant-design/pro-form';
-import { render } from '@testing-library/react';
+import { render, waitFor } from '@testing-library/react';
 import { Button, ConfigProvider } from 'antd';
 import en_US from 'antd/es/locale/en_US';
 import React, { useState } from 'react';
@@ -712,7 +712,7 @@ describe('BasicLayout', () => {
 
   it('🥩 renderPageTitle return value should is string', async () => {
     const renderPageTitle = jest.fn();
-    const wrapper = render(
+    render(
       <ProLayout
         // @ts-expect-error
         pageTitleRender={() => {
@@ -725,8 +725,9 @@ describe('BasicLayout', () => {
       />,
     );
 
-    await waitTime(100);
-    expect(renderPageTitle).toBeCalled();
+    await waitFor(() => {
+      expect(renderPageTitle).toBeCalled();
+    });
   });
 
   it('🥩 rightContentRender should work in top', async () => {
@@ -1282,14 +1283,19 @@ describe('BasicLayout', () => {
       );
     };
 
-    const html = render(<Demo />);
-    await waitTime(1000);
+    render(<Demo />);
 
-    expect(fn).toBeCalledTimes(1);
+    await waitFor(() => {
+      expect(fn).toBeCalledTimes(1);
+    });
 
-    actionRef.current?.reload();
+    act(() => {
+      actionRef.current?.reload();
+    });
 
-    expect(fn).toBeCalledTimes(2);
+    await waitFor(() => {
+      expect(fn).toBeCalledTimes(2);
+    });
   });
 
   it('🥩 ProLayout support menu.params', async () => {

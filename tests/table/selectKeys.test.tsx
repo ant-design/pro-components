@@ -1,5 +1,5 @@
 import ProTable from '@ant-design/pro-table';
-import { render } from '@testing-library/react';
+import { render, waitFor } from '@testing-library/react';
 import React, { useState } from 'react';
 import { act } from 'react-dom/test-utils';
 import { waitTime } from '../util';
@@ -127,10 +127,11 @@ describe('BasicTable Search', () => {
         />
       );
     };
-    const wrapper = render(<DemoTable />);
 
-    await waitTime(1200);
+    render(<DemoTable />);
 
-    expect(fn).toBeCalledWith('张三,李四');
+    await waitFor(() => {
+      expect(fn).toBeCalledWith('张三,李四');
+    });
   });
 });

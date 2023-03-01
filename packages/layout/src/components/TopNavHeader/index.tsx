@@ -35,7 +35,7 @@ const TopNavHeader: React.FC<TopNavHeaderProps> = (props: TopNavHeaderProps) => 
 
   const { wrapSSR, hashId } = useStyle(prefixCls);
   let renderKey: HeaderRenderKey | undefined = undefined;
-  if (props['menuHeaderRender'] !== undefined) {
+  if (props.menuHeaderRender !== undefined) {
     renderKey = 'menuHeaderRender';
   } else if (layout === 'mix' || layout === 'top') {
     renderKey = 'headerTitleRender';

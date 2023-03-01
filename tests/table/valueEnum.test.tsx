@@ -1,6 +1,6 @@
 import ProProvider from '@ant-design/pro-provider';
 import ProTable from '@ant-design/pro-table';
-import { render } from '@testing-library/react';
+import { render, waitFor } from '@testing-library/react';
 import { Input } from 'antd';
 import { useContext } from 'react';
 import { act } from 'react-dom/test-utils';
@@ -129,7 +129,7 @@ describe('Table valueEnum', () => {
 
   it('🎏 dynamic request', async () => {
     const request = jest.fn();
-    const html = render(
+    render(
       <ProTable
         size="small"
         columns={[
@@ -159,8 +159,9 @@ describe('Table valueEnum', () => {
         }}
       />,
     );
-    await waitTime(1200);
 
-    expect(request).toHaveBeenCalledTimes(1);
+    await waitFor(() => {
+      expect(request).toHaveBeenCalledTimes(1);
+    });
   });
 });

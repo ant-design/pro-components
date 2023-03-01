@@ -1,5 +1,5 @@
 import ProTable from '@ant-design/pro-table';
-import { fireEvent, render } from '@testing-library/react';
+import { fireEvent, render, waitFor } from '@testing-library/react';
 import type { FormInstance } from 'antd';
 import { Input } from 'antd';
 import MockDate from 'mockdate';
@@ -243,7 +243,7 @@ describe('BasicTable Search', () => {
   it('🎏 manualRequest test', async () => {
     const requestFn = jest.fn();
     const actionRef = React.createRef<any>();
-    const html = render(
+    render(
       <ProTable
         size="small"
         columns={[
@@ -263,15 +263,19 @@ describe('BasicTable Search', () => {
         rowKey="key"
       />,
     );
-    await waitTime(2000);
+    await waitFor(() => {
+      expect(requestFn).toBeCalledTimes(0);
+    });
+
     MockDate.set(1479799364001);
 
     act(() => {
       actionRef.current?.reload();
     });
-    await waitTime(2000);
 
-    expect(requestFn).toBeCalledTimes(1);
+    await waitFor(() => {
+      expect(requestFn).toBeCalledTimes(1);
+    });
   });
 
   it('🎏 search span test', async () => {

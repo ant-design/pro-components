@@ -202,7 +202,6 @@ describe('ProFormUpload', () => {
   it('🏐 ProFormUploadDragger hide when max', async () => {
     const wrapper = render(
       <Form>
-        // @ts-ignore
         <ProFormUploadDragger
           max={2}
           value={[mockFile, mockFile1, mockFile2]}
@@ -225,7 +224,6 @@ describe('ProFormUpload', () => {
     const extra = 'extra';
     const wrapper = render(
       <Form>
-        // @ts-ignore
         <ProFormUploadDragger
           value={[mockFile, mockFile1, mockFile2]}
           action="http://upload.com"
@@ -247,7 +245,6 @@ describe('ProFormUpload', () => {
   it('🏐 ProFormUploadButton hide when max', async () => {
     const wrapper = render(
       <Form>
-        // @ts-ignore
         <ProFormUploadButton
           max={2}
           value={[mockFile, mockFile1, mockFile2]}

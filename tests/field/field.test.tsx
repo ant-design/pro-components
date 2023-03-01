@@ -1508,7 +1508,7 @@ describe('Field', () => {
     const ref = React.createRef<{
       fetchData: (keyWord?: string) => void;
     }>();
-    const html = render(
+    render(
       <Field
         ref={ref}
         text="default"

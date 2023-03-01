@@ -784,7 +784,7 @@ describe('BasicTable', () => {
 
   it('🎏 request error test', async () => {
     const fn = jest.fn();
-    const html = ReactRender(
+    ReactRender(
       <ProTable
         size="small"
         columns={[

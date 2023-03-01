@@ -1,5 +1,3 @@
-import { act } from 'react-dom/test-utils';
-
 export const waitTimePromise = async (time: number = 100) => {
   return new Promise((resolve) => {
     setTimeout(() => {

@@ -1,7 +1,7 @@
 import ProForm, { ProFormText } from '@ant-design/pro-form';
 import type { ActionType, ProColumns, TableRowEditable } from '@ant-design/pro-table';
 import { EditableProTable } from '@ant-design/pro-table';
-import { act, fireEvent, render } from '@testing-library/react';
+import { act, fireEvent, render, waitFor } from '@testing-library/react';
 import { Button, Input, InputNumber } from 'antd';
 import useMergedState from 'rc-util/es/hooks/useMergedState';
 import React, { useRef } from 'react';
@@ -514,7 +514,7 @@ describe('EditorProTable 2', () => {
       },
     ];
 
-    const wrapper = render(
+    render(
       <ProForm
         initialValues={{
           table: [
@@ -536,12 +536,12 @@ describe('EditorProTable 2', () => {
         />
       </ProForm>,
     );
-    await waitTime(100);
 
-    expect(formItemPropsFn).toBeCalled();
-    expect(fieldPropsFn).toBeCalled();
-
-    expect(errorSpy).not.toBeCalled();
+    await waitFor(() => {
+      expect(formItemPropsFn).toBeCalled();
+      expect(fieldPropsFn).toBeCalled();
+      expect(errorSpy).not.toBeCalled();
+    });
 
     errorSpy.mockRestore();
   });

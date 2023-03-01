@@ -1,5 +1,5 @@
 ﻿import { ModalForm, ProFormText } from '@ant-design/pro-form';
-import { act, fireEvent, render } from '@testing-library/react';
+import { act, fireEvent, render, waitFor } from '@testing-library/react';
 import { Button } from 'antd';
 import React from 'react';
 import { waitTime } from '../util';
@@ -212,7 +212,7 @@ describe('ModalForm', () => {
 
   it('📦 modal open=true simulate onOpenChange', async () => {
     const fn = jest.fn();
-    const wrapper = render(
+    render(
       <ModalForm
         open
         trigger={<Button id="new">新建</Button>}
@@ -221,9 +221,10 @@ describe('ModalForm', () => {
         <ProFormText name="name" />
       </ModalForm>,
     );
-    await waitTime(100);
 
-    expect(fn).toBeCalledWith(true);
+    await waitFor(() => {
+      expect(fn).toBeCalledWith(true);
+    });
   });
 
   it('📦 reset button will simulate onOpenChange', async () => {

@@ -1,12 +1,12 @@
 import ProTable from '@ant-design/pro-table';
-import { render } from '@testing-library/react';
+import { act, render, waitFor } from '@testing-library/react';
 import { waitTime } from '../util';
 import { columns } from './demo';
 
 describe('polling', () => {
   it('⏱️ polling should clearTime', async () => {
     const fn = jest.fn();
-    const html = render(
+    render(
       <ProTable
         size="small"
         cardBordered
@@ -23,20 +23,30 @@ describe('polling', () => {
         rowKey="key"
       />,
     );
-    await waitTime(1000);
-    expect(fn).toBeCalledTimes(1);
-    await waitTime(1800);
+    await waitFor(() => {
+      expect(fn).toBeCalledTimes(1);
+    });
 
-    expect(fn).toBeCalledTimes(2);
+    act(() => {
+      jest.runOnlyPendingTimers();
+    });
 
-    await waitTime(1000);
+    await waitFor(() => {
+      expect(fn).toBeCalledTimes(2);
+    });
 
-    // expect(fn).toBeCalledTimes(2);
+    act(() => {
+      jest.advanceTimersByTime(1000);
+    });
+
+    await waitFor(() => {
+      expect(fn).toBeCalledTimes(2);
+    });
   });
 
   it('⏱️ polling min time is 2000', async () => {
     const fn = jest.fn();
-    const html = render(
+    render(
       <ProTable
         size="small"
         cardBordered
@@ -63,7 +73,7 @@ describe('polling', () => {
 
   it('⏱️ polling time=3000', async () => {
     const fn = jest.fn();
-    const html = render(
+    render(
       <ProTable
         size="small"
         cardBordered
@@ -93,7 +103,7 @@ describe('polling', () => {
 
   it('⏱️ polling support function', async () => {
     const fn = jest.fn();
-    const html = render(
+    render(
       <ProTable
         size="small"
         cardBordered

@@ -13,7 +13,7 @@ import ProForm, {
   ProFormText,
   ProFormTreeSelect,
 } from '@ant-design/pro-form';
-import { act, fireEvent, render, waitFor } from '@testing-library/react';
+import { act, fireEvent, render } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import { Button, ConfigProvider, Input } from 'antd';
 import dayjs from 'dayjs';
@@ -659,11 +659,11 @@ describe('ProForm', () => {
     );
     await wrapper.findByText('提 交');
 
-    let firstCaptcha = await wrapper.findByText('获 取');
+    const firstCaptcha = await wrapper.findByText('获 取');
     expect(!!firstCaptcha).toBeTruthy();
 
     await act(async () => {
-      let captcha = await wrapper.findByText('获 取');
+      const captcha = await wrapper.findByText('获 取');
       captcha?.click();
     });
 

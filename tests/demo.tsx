@@ -1,7 +1,6 @@
-import { act, cleanup, render as reactRender, waitFor } from '@testing-library/react';
+import { cleanup, render as reactRender, waitFor } from '@testing-library/react';
 import glob from 'glob';
 import MockDate from 'mockdate';
-import { waitTime } from './util';
 type Options = {
   skip?: boolean;
 };

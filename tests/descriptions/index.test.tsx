@@ -36,7 +36,7 @@ describe('descriptions', () => {
 
   it('🎏 onLoadingChange test', async () => {
     const fn = jest.fn();
-    const html = render(
+    render(
       <ProDescriptions
         size="small"
         onLoadingChange={fn}
@@ -53,8 +53,10 @@ describe('descriptions', () => {
         }}
       />,
     );
-    await waitTime(1200);
-    expect(fn).toBeCalled();
+
+    await waitFor(() => {
+      expect(fn).toBeCalled();
+    });
   });
 
   it('🎏 loading test', async () => {
@@ -213,7 +215,7 @@ describe('descriptions', () => {
   it('🥩 test request error', async () => {
     const fn = jest.fn();
 
-    const html = render(
+    render(
       <ProDescriptions
         title="高级定义列表 request"
         request={async () => {
